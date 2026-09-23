@@ -1,0 +1,182 @@
+\documentclass[11pt,reqno]{amsart}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=25mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools,booktabs,longtable,microtype,array,xcolor}
+\usepackage[colorlinks=true,urlcolor=blue!55!black,citecolor=blue!55!black,linkcolor=blue!45!black]{hyperref}
+\hypersetup{pdftitle={Rank-eight Grothendieck rings through multiplicity two: criteria, models, and the unresolved frontier},pdfauthor={}}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\C}{\mathbb C}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\NN}{\mathbb Z_{\ge0}}
+\newcommand{\one}{\mathbf1}
+\newcommand{\FPdim}{\operatorname{FPdim}}
+\newcommand{\Rep}{\operatorname{Rep}}
+\renewcommand{\Vec}{\operatorname{Vec}}
+\newcommand{\Irr}{\operatorname{Irr}}
+\newcommand{\rank}{\operatorname{rank}}
+\newcommand{\sha}[1]{\texttt{\detokenize{#1}}}
+\title{Rank-eight Grothendieck rings through multiplicity two:\\
+criteria, models, and the unresolved frontier}
+\subjclass[2020]{18M20, 18M15, 16T05}
+\keywords{Grothendieck ring, fusion category, formal codegree, categorification, exact certificate}
+\begin{document}
+\begin{abstract}
+We analyze general complex categorification of every rank-eight fusion ring of multiplicity at most two in a complete census. An ordered collection of exact tensor and arithmetic tests excludes 824 of the 973 rings. Full multiplication-tensor comparisons identify unitary categories for 33 more. The remaining 116 rings are recorded as unresolved, including 30 already at multiplicity one; thus this is an explicit categorification frontier, not a complete classification. A rank-eight Wedderburn lemma extends the formal-codegree $d$-number obstruction to noncommutative rings. Every decision and every positive tensor comparison accompanies the manuscript in a checked machine-readable ledger.
+\end{abstract}
+\maketitle
+\markboth{RANK-EIGHT GROTHENDIECK RINGS}{RANK-EIGHT GROTHENDIECK RINGS}
+
+\section{Introduction and exact scope}
+The fusion-ring census \cite{Census} supplies all $96$ rank-eight based fusion rings of exact multiplicity one and all $877$ of exact multiplicity two. A fusion ring need not be the Grothendieck ring of a fusion category. We work over $\C$ and do not assume pivotality, sphericality, braiding, commutativity or unitarity when excluding a ring. A positive construction is a unitary category with the exact based-isomorphism type of its full multiplication tensor.
+
+The lower-rank criteria and their finite verifiers are developed in \cite{R2,R3,R4,R5,R6,R7}. We cite their theorems and do not reprove them. These new manuscripts are cited by title, with no byline. Our rank-eight observation, Proposition~\ref{prop:noncomm}, extracts ordinary formal codegrees from the Casimir spectrum even though the ring may be noncommutative. Known near-group, zero-spectrum and cyclotomic tests provide other general obstructions \cite{SchNear,LPR,ENO}. Standard quantum group, pointed, Tambara--Yamagami and representation categories supply the positive side \cite{KO,TY,EGNO,Serre}.
+
+The accepted study of integral Grothendieck rings \cite{Integral,IntegralAppendix} supplies a necessary divisibility test and explicit group-theoretical rank-eight models and exclusions. Being an integral or Drinfeld ring does not itself supply a fusion category, so only its explicit categorical constructions enter our positive list.
+
+\begin{theorem}[Certified rank-eight frontier]\label{thm:main}
+For the complete census through multiplicity two, the following trichotomy is exhaustive as an \emph{analysis status}.
+\begin{center}
+\begin{tabular}{@{}rrrrr@{}}\toprule
+Exact multiplicity & Fusion rings & Excluded generally & Unitarily realized & Undecided generally\\\midrule
+$1$ & $96$ & $41$ & $25$ & $30$\\
+$2$ & $877$ & $783$ & $8$ & $86$\\\midrule
+Total & $973$ & $824$ & $33$ & $116$\\\bottomrule
+\end{tabular}
+\end{center}
+Every excluded ring is ruled out over $\C$ with no pivotality assumption. Each positive model is matched to the entire tensor under a unit-preserving permutation, and is therefore a Grothendieck ring. For the $116$ undecided rings, neither existence nor nonexistence is asserted. In particular, these numbers are \emph{certified lower bounds} of $25$ and $8$ for the number of Grothendieck rings at the two multiplicities, rather than total counts of Grothendieck rings.
+\end{theorem}
+
+The earliest undecided tensor in the local sorted order is $\sha{R8_1_3}$, a noncommutative integral fusion ring with four invertible basis elements, four elements of Frobenius--Perron dimension two and global Frobenius--Perron dimension $20$. Its ordinary Casimir polynomial is $(t-20)^2(t-4)^2(t-10)^4$. Although the first positive model $\sha{R8_1_1}$ has the same dimension vector, it is the commutative representation ring of the dicyclic group of order $20$; the two tensors are not isomorphic. This example demonstrates why a numerical dimension profile is not a model certificate.
+
+\section{Trusted input and stable records}\label{sec:input}
+A rank-$r$ fusion ring has a distinguished basis $B=(b_0=1,b_1,\dots,b_{r-1})$, structure constants $N_{ij}^k\in\NN$, and a duality involution $i\mapsto i^*$ satisfying
+\[
+b_i b_j=\sum_kN_{ij}^k b_k,\qquad N_{ij}^{0}=\delta_{j,i^*},\qquad
+N_{ij}^k=N_{i^*k}^j=N_{kj^*}^i.
+\]
+Its exact multiplicity is $\max_{i,j,k}N_{ij}^k$. A based isomorphism permutes the basis, fixes $b_0$, and preserves every structure constant; it automatically preserves duality. We do not identify tensors by character table, spectrum or FP dimension vector alone.
+
+The source is the public \emph{Fusion Ring Census} \cite{Census} at Git commit
+\par\noindent\sha{b86eb6dc6eeeafe5fc5f6906d7b074e0322e9726}.
+It contains \sha{results/rank8/tables.txt.gz} and \sha{results/rank8/counts.csv},
+with audit file \sha{verification/rank8/audit.json}. The SHA-256 of the uncompressed tensor file is
+\par\noindent\sha{97b86d2de8ca0352c5c6e14686cd1d43dbd52180dc53b2ff1ccf7a61788c9600}.
+The census verifies all duality types, associativity, nonnegative coefficients and uniqueness; its terminated-strata evidence justifies completeness through multiplicity two. We trust that source for counting and do not claim an independent exhaustive enumeration here.
+
+Within each exact multiplicity $m$, sort full flattened $8\times8\times8$ tensors lexicographically and call the $j$th one $R8\_m\_j$. This is a deterministic local index, not an invariant of its original basis labelling. The files \sha{data/decisions.json}, \sha{data/realized_models.json} and \sha{data/rank8_tables.txt.gz} give, respectively, one decision per input, the exact positive model tensors and the source multiplication tables. A SHA-256 of each JSON tensor prevents accidental source-record substitution. The comparison code minimizes the full tensor under all relabellings compatible with inexpensive intrinsic signatures; this is an isomorphism comparison, not a filter by numerical fingerprint.
+
+\section{Necessary criteria and their exact application}
+\subsection{Short tensor and subring tests}
+If $X$ is self-dual and $X^2=1+kX$ with $k\ge2$, its span with $1$ is a fusion subring that cannot arise over $\C$ by \cite{R2,Ostrik2}. When exactly seven basis elements are invertible and one additional object $X$ satisfies
+\[
+gX=Xg=X,\qquad X^2=\sum_{g\in G}g+\kappa X,
+\]
+the rank-eight near-group case with $\kappa=1$ or $2$ is commutative and satisfies $0<\kappa<|G|-1$. Schopieray's general Proposition~3.2 \cite{SchNear} excludes it. The machine certificate checks the complete group and all displayed equations, not just the value of $\kappa$.
+
+The zero-spectrum test is the finite nine-index condition of \cite[Theorem~2.14]{LPR} in the form reproduced in \cite[Section~3]{R6}. It is a necessary condition for an associative tensor lift, with no pivotality assumption. Its C++ scanner searches the nine indices on the full tensor and the Python checker independently recomputes every coefficient, positivity condition and vanishing contraction. The native arrays are sized for rank eight, and the checker has no rank-six restriction.
+
+Every duality-closed, multiplication-closed based subset of a category gives a fusion subcategory. We compare every such proper subring of ranks two through six against the \emph{complete positive list} in the corresponding lower-rank theorem. The valid bounds are unrestricted for rank two and three, $128$ for rank four, $20$ for rank five, and $2$ for rank six \cite{R2,R3,R4,R5,R6}; every rank-eight subring in this manuscript also has multiplicity at most two. A rank-seven subring is not excluded merely because it is absent from an incomplete rank-seven list.
+
+The rank-seven analysis \cite{R7} provides four specific, fully checked negative multiplicity-two tensors that occur as rank-eight closed subrings. We transfer their exact signed-sphericalization witnesses by complete seven-dimensional based isomorphism and recheck all four proof trees. This separate stage gives exclusions only for rings actually containing one of those four proved negative subrings; it makes no claim that the rank-seven positive catalogue is exhaustive.
+
+The involution-module theorem of \cite[Section~5]{R6} says that an invertible involution fixing basis elements forces a finite anti-invariant module representation. Where its stated hypothesis is met, the script searches \emph{all} bounded integer matrices and verifies multiplication, transpose, parity and entry bounds. The FP dimension quotient of a hypothetical fusion subcategory must likewise be an algebraic integer \cite[Proposition~8.15]{EGNO}; a rational coefficient in its exact minimal polynomial excludes categorification.
+
+\subsection{A rank-eight noncommutative codegree lemma}
+For any fusion ring, write
+\[
+\Omega=\sum_i b_i b_{i^*},\qquad
+C_R=\sum_iN_iN_i^{\mathsf T}.
+\]
+For an irreducible representation $E$ of $R\otimes\C$ of degree $e_E$, the central element $\Omega$ acts as the scalar $e_E f_E$, where $f_E$ is its ordinary formal codegree. The regular representation contains $E$ with multiplicity $e_E$, so that scalar has multiplicity $e_E^2$ in the characteristic polynomial of $C_R$ \cite{OstrikCode,R6}.
+
+\begin{proposition}[Noncommutative rank-eight codegrees]\label{prop:noncomm}
+Let $R$ be a noncommutative fusion ring of rank eight. Its semisimple complex algebra has Wedderburn decomposition $\C^4\oplus M_2(\C)$. The formal codegree of the unique matrix-block representation is a rational integer. Every irreducible factor of the characteristic polynomial of $C_R$ of degree at least two consists entirely of formal codegrees of one-dimensional representations. Consequently, if any such factor fails Ostrik's $d$-number divisibility condition, $R$ has no complex fusion categorification.
+\end{proposition}
+\begin{proof}
+The FP dimension character is one-dimensional, so at least one scalar summand exists. Noncommutativity requires a matrix summand of dimension at least two. Since the sum of the squares of the degrees of simple modules is eight, there can be only one matrix summand and it must have degree two; the four remaining dimensions are one. The rational based algebra is split by some number field. Galois automorphisms permute its irreducible representations preserving their degrees, so the unique two-dimensional representation is Galois-fixed. Its formal codegree is an algebraic integer by \cite{OstrikCode} and rational by Galois invariance, hence belongs to $\Z$. Its Casimir eigenvalue is therefore rational. Every nonlinear irreducible factor of the integral Casimir polynomial comes from the four one-dimensional representations; on each, the eigenvalue is exactly the formal codegree. Finally, formal codegrees of complex fusion categories are $d$-numbers \cite{OstrikCode}. For an irreducible polynomial $q(t)=t^d+a_1t^{d-1}+\cdots+a_d$, this requires $|a_d|^j\mid a_j^d$ for every $j=1,\dots,d$. Failure of one exact integer divisibility gives the assertion.
+\end{proof}
+
+The commutative branch uses the ordinary $d$-number test on every Casimir factor. The script never treats raw Casimir eigenvalues as formal codegrees of noncommutative representations without Proposition~\ref{prop:noncomm}. We also ran the rational-indivisibility screen of \cite[Theorem~4.4]{SchNorm}, noncommuting field-automorphism witnesses from \cite{R6}, and finite-field cyclotomic witnesses from \cite{R4}. These three screens add no exclusions in the present bound; their zero rows and exact code remain in the stage data. Schopieray's greedy formal-codegree obstruction $2,3,7$ \cite{SchGreedy} cannot occur before multiplicity five, since its forced rank-four subring has a coefficient five, so it is not an active step here.
+
+\subsection{Integral divisibility and the complete signed quotient test}
+The integral Drinfeld condition \cite[Section~2.3]{Integral} says that, if all simple FP dimensions of a categorifiable ring are integers, every ordinary formal codegree is a positive integer dividing its global FP dimension. For a commutative tensor, the verifier finds its unique positive FP character by an exact integral eigenvector of the strictly positive matrix $\sum_iN_i$. It then compares every exact linear factor of $\det(tI-C_R)$ with $D=\sum_i\FPdim(b_i)^2$. A nonintegral factor, or an integer codegree that does not divide $D$, is an unconditional complex no-go. This stage includes concrete multiplicity-two failures with $D=156$ and $110$, respectively, at $R8\_2\_288$ and $R8\_2\_392$.
+
+The archived rank-eight appendix of \cite{IntegralAppendix} prints full tensors and explicit categorification decisions. Its items C.3.2(5) and C.3.2(7) are excluded by the paper's no-induction-matrix Lemmas~4.3 and~4.2. The appendix-to-census verifier checks all $8^3$ entries under a unit-preserving permutation before transferring either published exclusion. We rely on those cited lemmas for the induction obstruction; their original Normaliz computation is not repeated here. The same transfer finds group-theoretical models in items C.3.2(3), C.3.2(6), and C.3.2(11). Item C.3.2(4) matches our first open tensor $R8\_1\_3$ but supplies no existence or exclusion claim.
+
+Finally, the oriented signed-sphericalization theorem of \cite{R6,R7} applies even when the alleged category has no pivotal structure. The canonical sphericalization has two lifts of each simple; quotienting its Grothendieck ring by the negative central invertible yields an ordered signed multiplication tensor. We enumerate every cyclic and duality orbit of signed coefficients within the exact parity bounds, require all ordered associativity equations, then check every possible spherical character by the inherited norm, duality, and dimension-order criteria. A finite search that times out or has an unrefuted branch supplies no exclusion. The attached campaign records each attempted multiplicity-one tensor, incomplete result, and timeout separately; only certificates whose complete signed branches independently regenerate are admitted to the ledger.
+
+\subsection{Ordered exclusion ledger and the first open cases}
+An excluded tensor is removed after the first verified certificate in the following order. For each row, ``left'' still counts rings subsequently recognized as positive, so this is an exclusion table rather than a table of outstanding questions.
+\begin{center}\small\input{stage_table}\end{center}
+The first unresolved IDs are $R8\_1\_3$ and $R8\_2\_24$. Every negative stage is a theorem applied to tensor data or an exact based-tensor transfer of a published and proved no-go. Proposition~\ref{prop:noncomm} and the integral-divisibility stage both have certified first applications already at multiplicity one; the latter also resolves two multiplicity-two cases remaining open after the prior stages. These \emph{first appearances} refer only to the two multiplicities of the complete rank-eight census. Nothing in this calculation establishes a multiplicity from which no new criterion is needed.
+
+\section{Exact positive models}\label{sec:models}
+Each standard family in this section admits a unitary complex realization. A pointed group ring of order eight is $K_0(\Vec_G)$ for the group reconstructed from its tensor. The five groups are $C_8$, $C_4\times C_2$, $C_2^3$, $D_8$ and $Q_8$. The near-group ring $C_7+0$ is realized by a Tambara--Yamagami category \cite{TY}. If $A$ is a rank-four unitary model from \cite[Table~1]{R4} and $B$ is either $\Vec_{C_2}$ or Fibonacci, the Deligne product $A\boxtimes B$ is a unitary rank-eight model with multiplication tensor $N_A\otimes N_B$. Its multiplicity is at most two precisely for the displayed matches.
+
+The three archived models $\mathcal C(F_5,1,D_5,1)$, $\mathcal C(S_4,1,A_4,1)$, and $\mathcal C(\mathrm{PSL}(2,7),1,C_7\rtimes C_3,1)$ are untwisted group-theoretical fusion categories, hence admit unitary realizations. Their exact appendix tensors are matched against the census in all $512$ positions, with a stored basis permutation for every match \cite[Appendix~C.3.2(3), (6), (11)]{IntegralAppendix}. Some admit a second subgroup construction, also recorded in the model catalogue.
+
+\begin{proposition}[Representation and quantum-group templates]\label{prop:models}
+All three character-ring templates $\Rep(D_{20})$, $\Rep(D_{26})$, and $\Rep(\mathrm{Dic}_5)$ have rank eight and multiplicity one. The standard unitary $SU(2)_7$ category, and the even subcategories of $SU(2)_{14}$ and $SU(2)_{15}$, also have rank eight and multiplicity one. Their generated multiplication tensors occur in the supplied census and are matched by full based-ring isomorphisms.
+\end{proposition}
+\begin{proof}
+For $SU(2)_k$, the simples are the labels $0,\dots,k$ and
+\[
+N_{ab}^{c}=1\quad\Longleftrightarrow\quad
+|a-b|\leq c\leq\min(a+b,2k-a-b),\qquad a+b-c\equiv0\pmod2;
+\]
+all other coefficients are zero. The even labels close under multiplication and yield eight objects for $k=14,15$, while $k=7$ already has eight labels \cite{KO}. The explicit tensor generator implements this formula directly.
+
+For the dihedral group of order $2n$, take $n=10$ or $13$. Its two-dimensional characters $\rho_j$ obey $\rho_i\rho_j=\rho_{i+j}+\rho_{|i-j|}$, with $\rho_0=1+\beta$ and $\rho_{n-j}=\rho_j$. For $n=10$, $\rho_5=\alpha+\alpha\beta$, the four linear characters form $C_2^2$, $\beta\rho_j=\rho_j$ and $\alpha\rho_j=\rho_{5-j}$. For $n=13$ there are two linear characters, with $\beta\rho_j=\rho_j$. Thus their ranks are respectively $4+4$ and $2+6$. For $\mathrm{Dic}_5$ of order twenty the four linear characters $\chi_i$ form $C_4$, with
+\[
+\rho_0=\chi_0+\chi_2,\quad \rho_5=\chi_1+\chi_3,
+\quad\rho_{10-j}=\rho_j,\quad
+\chi_i\rho_j=\begin{cases}\rho_j&i\text{ even},\\\rho_{5-j}&i\text{ odd};\end{cases}
+\]
+the same product $\rho_i\rho_j=\rho_{i+j}+\rho_{|i-j|}$ completes the ring. These are ordinary finite-group character identities \cite{Serre}. The supplied generator expands each product and compares all $8^3$ ordered coefficients after unit-fixing relabelling. A match is a ring isomorphism and the corresponding representation category supplies the construction.
+\end{proof}
+
+{\small\input{model_table}\par}
+The table provides one construction per positive tensor. Some have two isomorphic presentations; \sha{data/realized_models.json} records every matched constructor, exact model tensor, precise model source and source-to-model isomorphism. Labels such as ``pseudo-$PSU(2)_6$'' denote the conventional fusion-ring name, not a weaker existence assertion: the cited rank-four table supplies a unitary category \cite{R4}. No undecided ring is in this table.
+
+\section{Reproduction and mathematical limits}
+The command \sha{python3 software/analyze.py} reads the frozen source, checks its checksum and count, applies the ordered tests, and produces \sha{data/decisions.json}, \sha{data/exclusion_stages.csv}, \sha{data/classification_counts.json} and \sha{data/realized_models.json}. The command \sha{python3 software/verify.py} checks source tensor identities, full based-ring uniqueness, all $973$ statuses, every negative witness and every positive tensor match. It checks finite-module certificates by exhaustive integer reconstruction. The only native component is the rank-eight zero-spectrum witness search, compiled from \sha{software/zero_spectrum.cpp}; the Python verifier rereads each nine-index witness and checks its conditions independently.
+
+Both commands treat discovery failure, timeout, or a failed consistency check as an error, never as an exclusion. The separate signed campaign records completed certificates, inconclusive attempts and timeouts distinctly. The verifier independently regenerates every admitted rank-eight signed tensor, the inherited rank-seven negative proof trees, and all six appendix-based tensor transfers. Character-field calculations and subcategory dimension quotients use rational/algebraic arithmetic; no floating-point approximation gives a mathematical decision.
+
+This verification establishes the finite applications \emph{conditional on} the cited theorems and the source census completeness. It does not settle $R8\_1\_3$ or the other $115$ undecided rings, certify a multiplicity-three census, or classify categories up to tensor equivalence. In particular, the last criterion with a first application in the current range appears at multiplicity two, but nothing here implies that no new criterion is needed beyond that bound. Noncommutative Extended Haagerup models at rank eight have multiplicities four and seven \cite{EH}; they are genuine models but outside the present complete census bound.
+
+\par\medskip\noindent\textbf{AI disclosure.} GPT-6 Astra assisted with literature exploration, mathematical research, code development, and manuscript preparation.
+
+\begin{thebibliography}{99}
+\bibitem{Census} S.~Palcoux, \emph{Fusion Ring Census}, exact tensor dataset and verification records, \url{https://github.com/sebastienpalcoux/fusion-ring-census}, commit \sha{b86eb6dc6eeeafe5fc5f6906d7b074e0322e9726} (2026).
+\bibitem{R2} \emph{A short classification of complex rank-two Grothendieck rings}, manuscript (2026).
+\bibitem{R3} \emph{Galois-averaged indicators and sphericality in rank three}, manuscript (2026).
+\bibitem{R4} \emph{Rank-four Grothendieck rings through multiplicity 128}, finite-classification manuscript and exact-certificate supplement (2026).
+\bibitem{R5} \emph{Rank-five Grothendieck rings through multiplicity twenty}, manuscript and exact-certificate supplement (2026).
+\bibitem{R6} \emph{Rank-six fusion rings: categorification criteria and models through multiplicity eight}, manuscript and exact-certificate supplement (2026).
+\bibitem{R7} \emph{Rank-seven Grothendieck rings: certified exclusions and models through multiplicity four}, manuscript and exact-certificate supplement (2026).
+\bibitem{Integral} M.~A.~Alekseyev, W.~Bruns, J.~Dong and S.~Palcoux, \emph{Classifying integral Grothendieck rings up to rank 5 and beyond}, accepted in \emph{Letters in Mathematical Physics}; arXiv:2507.07023 (2025).
+\bibitem{IntegralAppendix} M.~A.~Alekseyev, W.~Bruns, J.~Dong and S.~Palcoux, \emph{Classifying integral Grothendieck rings up to rank 5 and beyond}, archived full-data preprint, Appendix~C.3.2 and Lemmas~4.2--4.3, \url{https://bimsa.net/doc/publication/14753.pdf} (2025).
+\bibitem{ENO} P.~Etingof, D.~Nikshych and V.~Ostrik, \emph{On fusion categories}, Ann. of Math. \textbf{162} (2005), 581--642.
+\bibitem{EGNO} P.~Etingof, S.~Gelaki, D.~Nikshych and V.~Ostrik, \emph{Tensor Categories}, AMS Mathematical Surveys and Monographs 205 (2015).
+\bibitem{Ostrik2} V.~Ostrik, \emph{Fusion categories of rank 2}, Math. Res. Lett. \textbf{10} (2003), 177--183.
+\bibitem{OstrikCode} V.~Ostrik, \emph{On formal codegrees of fusion categories}, Math. Res. Lett. \textbf{16} (2009), 895--901.
+\bibitem{SchNear} A.~Schopieray, \emph{Categorification of integral group rings extended by one dimension}, J. London Math. Soc. \textbf{108} (2023), 1617--1641, Proposition~3.2.
+\bibitem{SchNorm} A.~Schopieray, \emph{Norm, trace, and formal codegrees of fusion categories}, J. Algebra \textbf{568} (2021), 362--385, Theorem~4.4 and Corollary~4.3.
+\bibitem{SchGreedy} A.~Schopieray, \emph{Greedy fusion}, arXiv:2607.13126v1 (2026), Proposition~1 and Corollary~2.
+\bibitem{LPR} Z.~Liu, S.~Palcoux and Y.~Ren, \emph{Classification of Grothendieck rings of complex fusion categories of multiplicity one up to rank six}, Lett. Math. Phys. \textbf{112} (2022), article 54, Theorem~2.14.
+\bibitem{KO} A.~Kirillov Jr. and V.~Ostrik, \emph{On a $q$-analogue of the McKay correspondence and the ADE classification of $\widehat{\mathfrak{sl}}_2$ conformal field theories}, Adv. Math. \textbf{171} (2002), 183--227.
+\bibitem{TY} D.~Tambara and S.~Yamagami, \emph{Tensor categories with fusion rules of self-duality for finite abelian groups}, J. Algebra \textbf{209} (1998), 692--707.
+\bibitem{Serre} J.-P.~Serre, \emph{Linear Representations of Finite Groups}, Springer Graduate Texts in Mathematics 42 (1977), Chapter~5.
+\bibitem{EH} P.~Grossman, S.~Morrison, D.~Penneys, E.~Peters and N.~Snyder, \emph{The Extended Haagerup fusion categories}, Ann. Sci. Ecole Norm. Sup. \textbf{56} (2023), 589--664; arXiv:1810.06076, Theorem~1.1 and Sections~2.2--2.4.
+\end{thebibliography}
+\end{document}

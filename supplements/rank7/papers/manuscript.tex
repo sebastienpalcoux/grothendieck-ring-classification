@@ -1,0 +1,282 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,booktabs,geometry,longtable,array,float,microtype,xcolor,hyperref}
+\geometry{margin=1.05in}
+\hypersetup{colorlinks=true,urlcolor=blue!60!black,linkcolor=blue!50!black,citecolor=blue!50!black,pdftitle={Rank-seven Grothendieck rings: a certified partial classification through multiplicity four},pdfauthor={}}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\C}{\mathbb C}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\FPdim}{\operatorname{FPdim}}
+\title{Rank-seven Grothendieck rings: certified exclusions and models through multiplicity four}
+\author{}
+\date{}
+\begin{document}
+\maketitle
+\begin{abstract}
+We apply general categorification obstructions to the pinned, complete
+fusion-ring census of rank seven and multiplicity at most four. Every
+asserted exclusion has a replayable exact certificate; every asserted
+realization has an explicit unitary fusion-category model and an exact
+full-tensor identification. We include a rank-seven extension of the
+formal-codegree test to noncommutative rings, a global-dimension-fifteen
+obstruction, and complete oriented signed-sphericalization certificates
+for 246 rings through multiplicity four. The remaining tensors are recorded as
+\emph{undecided}: the present results do not classify all rank-seven
+Grothendieck rings, already at multiplicity one.
+\end{abstract}
+
+\section{Scope and statements}
+Let $R$ have distinguished basis $(b_0=1,b_1,\ldots,b_6)$ and multiplication
+$b_i b_j=\sum_k N_{ij}^k b_k$. A \emph{Grothendieck ring} here means the
+based ring of a complex fusion category; no pivotal, spherical, braided,
+or unitary hypothesis is placed on a hypothetical categorification.
+Its multiplicity is $\max_{i,j,k}N_{ij}^k$. The upstream
+\emph{Fusion Ring Census} \cite{Census} provides the complete rank-seven
+fusion-ring list through multiplicity four. We pin its source bytes,
+source commit, row ordering, and their digest in the companion package.
+This is a categorification study of that census; the list of undecided
+tensors is not counted as a list of Grothendieck rings.
+Multiplicities at least five lie outside the pinned source and the
+claims of this manuscript.
+
+\begin{theorem}[Certified rank-seven status through multiplicity four]
+\label{thm:status}
+The numbers of excluded, explicitly unitarily realized, and undecided
+rank-seven fusion rings are given by Table~\ref{tab:status}.
+The negative conclusions hold for \emph{every} complex fusion category.
+The sixteen positive rows have the models in Table~\ref{tab:models},
+matched against their complete fusion tensors. No conclusion is drawn
+for the undecided rows.
+\end{theorem}
+\input{generated_tables.tex}
+
+The first undecided multiplicity is one: the three remaining identifiers
+are $R7\_1\_19$, $R7\_1\_28$, and $R7\_1\_36$.
+The exhaustive source-position convention is $R7\_m\_j$, where $j$
+is the position \emph{among rows of exact multiplicity $m$} in the
+pinned census file. This convention makes the positive-model
+permutations and negative witnesses unambiguous.
+
+\section{Necessary conditions and their order}
+The checks in Table~\ref{tab:stages} run from top to bottom on surviving
+tensors, and a tensor is charged to its first successful condition.
+Near-group and small-dimension checks read a few coefficients; the
+zero-spectrum and closed-subring passes are finite tensor scans;
+exact Casimir factoring and subcategory-dimension arithmetic follow;
+the complete oriented search is last. This order records precisely when
+a criterion first contributes rather than hiding it in an unordered
+union of tests. Multiplicity one is already undecided, so these stages
+do \emph{not} establish a multiplicity threshold beyond which no new
+criteria would be needed.
+The oriented criterion first contributes at multiplicity one, so it
+cannot be deferred to a higher multiplicity without losing a proof.
+
+If $G$ is the group of invertible basis elements and the only other
+object $X$ satisfies $X^2=\sum_{g\in G}g+\ell X$, then for $|G|=6$:
+at $\ell=0$ the Tambara--Yamagami construction forces $G$ abelian
+\cite{TY}; at $0<\ell<5$ in the commutative case,
+Schopieray's near-group obstruction rules out categorification
+\cite[Proposition~3.2]{Schopieray}. These statements apply to a
+categorification without a pivotal assumption. The certificate records
+the six group elements, the remaining object and $\ell$, and rechecks
+every fusion-rule hypothesis.
+
+The global-dimension-fifteen branch has six dimension-one simples and
+one dimension-three simple: direct substitution into every product
+establishes that $(1,\ldots,1,3)$ is its strictly positive dimension
+character. Hence its Frobenius--Perron dimension is $6+3^2=15$.
+The $pq$ classification \cite[Theorems~3.1 and~5.1]{EGO} makes a
+complex fusion category of dimension $3\cdot5$ pointed in this case,
+contradicting the dimension-three simple.
+
+The zero-spectrum obstruction is the exact necessary criterion of
+Liu--Palcoux--Ren \cite{LPR}; each certificate stores its nine basis
+indices and the verifier rechecks all required zero/nonzero fusion
+coefficients. A proper fusion-closed subset of basis elements would
+generate a fusion subcategory. If its induced rank-four or rank-five
+ring is excluded by the complete lower-rank classifications
+\cite{Rank4,Rank5}, the ambient ring is excluded. The imported
+model registries contain all fifteen rank-four and all seventeen
+rank-five realized based-ring types, checked up to multiplicities
+$128$ and $20$, respectively; all encountered subrings fall within
+these ranges. The complete rank-six multiplicity-two classification
+\cite{Rank6} supplies context and methodology, without being used as
+an unstated rank-seven classification theorem.
+
+\begin{proposition}[The formal-codegree test at rank seven]
+\label{prop:dnumber}
+Suppose that $R$ is a rank-seven fusion ring, possibly noncommutative.
+Let $C=\sum_{i=0}^6 N_iN_i^{\mathsf T}$ be its regular Casimir matrix.
+If an irreducible factor of the characteristic polynomial of $C$ is
+not the minimal polynomial of a $d$-number, then $R$ cannot be the
+Grothendieck ring of a complex fusion category.
+\end{proposition}
+\begin{proof}
+In the commutative case, the eigenvalues of $C$ are the formal
+codegrees of one-dimensional characters and must be $d$-numbers by
+Ostrik \cite{OstrikCodegrees}. In the noncommutative case,
+semisimplicity, $\dim_\C(R\otimes\C)=7$, and the positive
+one-dimensional character imply the unique possible decomposition
+$R\otimes\C\simeq\C^3\oplus M_2(\C)$.
+There is only one two-dimensional irreducible module; it is fixed by
+every field automorphism, so its formal codegree is a rational
+algebraic integer and hence an integer. The Casimir acts on this
+matrix block by twice that integer. Every remaining nonrational
+Casimir eigenvalue comes from a one-dimensional character and is a
+formal codegree, so Ostrik's condition applies. The implementation
+factors the exact integral characteristic polynomial and tests the
+coefficient-divisibility characterization of $d$-numbers. The replay
+checker recomputes and factors that polynomial.
+\end{proof}
+
+If $S$ is a proper commutative fusion subring of a hypothetical
+categorification, the quotient $\FPdim(R)/\FPdim(S)$ must be an
+algebraic integer \cite{ENO}. The subcategory-divisibility stage
+computes this quotient in the exact Frobenius--Perron number field,
+records its characteristic polynomial, and certifies a nonintegral
+coefficient. Its certificate is rederived from the complete tensor.
+
+\section{Complete oriented tests at rank seven}
+The last row of Table~\ref{tab:stages} uses the general, \emph{oriented}
+signed-sphericalization construction established in \cite{Rank6}.
+For an arbitrary hypothetical category $\mathcal C$, its canonical
+sphericalization has two lifts of each simple object, interchanged
+by a sign object $\varepsilon$. Taking the quotient by
+$(\varepsilon+1)$ produces integer coefficients $T_{ij}^k$ with
+$|T_{ij}^k|\le N_{ij}^k$ and
+$T_{ij}^k\equiv N_{ij}^k\pmod 2$.
+Unit, duality, cyclic Frobenius reciprocity, and ordered associativity
+further constrain the quotient. The self-dual positive-indicator
+normalization imposes the established square-channel congruences
+modulo four. These conditions are necessary and cover every
+categorification, whether pivotal or not; a signed solution is not
+itself a categorification.
+
+The rank-six proof of the general construction and the
+dimension-order obstruction \cite{Rank6} are rank-independent. Here
+their enumeration engine is extended to seven basis elements. It
+enumerates the independent cyclic/dual-reflection coefficient orbits,
+prunes only exact associativity equations with checked integer bounds,
+and constructs \emph{every} signed quotient. For each quotient the
+checker verifies either its adjoint parity, its gauge equivalence
+with the original ring, or the failure of every admissible spherical
+character by codegree and dimension-order tests. In particular the
+dimension-order test requires the central-induction dimension
+$\delta/f_\chi$ to lie in the $\Z$-span of the signed simple
+dimensions, as required by \cite{OstrikPivotal,Rank6}.
+
+\begin{proposition}[Verified exhaustive branches]
+The oriented-dimension-order criterion excludes four, fifty-one,
+sixty-one, and one hundred thirty previously surviving rank-seven
+rings of exact multiplicities one through four, respectively.
+For $R7\_1\_5$, $R7\_1\_23$, $R7\_1\_33$, and $R7\_1\_38$,
+the complete signed enumerations have respectively $2,4,4,8$
+associative quotient tables. Every table in each of these 246
+certified exhaustive searches is eliminated by necessary conditions
+for arbitrary complex fusion categories.
+\end{proposition}
+\begin{proof}
+The machine-readable proof tree for each of the 246 rings gives its full
+dimension-character factorization, every obstruction, the ordered
+signed-orbit domain, and one checked branch for every enumerated
+table. The independent verifier rebuilds the domains from the source
+tensor, repeats the bounded exhaustive enumeration, checks the
+\emph{entire} list of surviving tables for equality to the recorded
+list, and recomputes each branch witness. The search used to discover
+these finite trees is logically separate from their exhaustive replay;
+timed-out or unfinished searches generate no negative decision.
+The enumeration returns the four displayed multiplicity-one branch
+counts and no uncovered branch for any of the 246 certificates.
+The rank-independent necessity of the search is the
+sphericalization theorem cited above.
+\end{proof}
+
+For the three surviving multiplicity-one rows the current general
+filters provide no exclusion. Publicly proposed numerical categorical
+data \cite{Vercleyen,VercleyenInvariants} provide useful leads; no
+unverified numerical solution is promoted here to a constructive
+model. This same standard applies to the larger residual sets at
+multiplicities two, three, and four.
+
+\section{Exact constructions and replay}
+The positive model catalogue constructs complete fusion tensors from
+the cyclic group, ordinary finite-group character products, the
+Tambara--Yamagami rule, $SU(2)_k$ truncation, its even parts, odd
+metaplectic rules, and the categorical $\Z/2$ zest of $SU(2)_6$
+\cite{TY,KO,Metaplectic,Zest,Vercleyen}. Character products for
+$\operatorname{Rep}(S_5)$, $\operatorname{Rep}(SL_2(\mathbb F_3))$,
+$\operatorname{Rep}(C_{13}\rtimes C_3)$ and
+$\operatorname{Rep}(C_{11}\rtimes C_5)$ are computed with exact
+characters in the bundled software. Two further complete model tensors
+come from the published noncommutative integral appendix of
+\cite[Theorem~1.6 and Section~6.2]{Integral}: the representation
+category of its dimension-24 Kac algebra and the group-theoretical
+category $\mathcal C(A_5,1,A_4,1)$. The published full tensors and
+their byte digest are pinned in the package. For each constructed or
+published model, the program validates the fusion axioms, then checks
+all $6!$ unit-preserving basis permutations against every compatible
+census tensor. A positive record carries its explicit permutation.
+Different categorical structures may share a based ring; the count
+is of rings, not categories.
+
+The complete package contains the pinned gzip source, analysis code,
+negative proof trees, model tensors, the stage-count summary and a
+second entry point, \texttt{verify.py}. Run
+\texttt{python analyze.py --max-m 4 --dnumber} and then
+\texttt{python verify.py}. The verifier rechecks the source digest and
+every row, every full-tensor model isomorphism, each stage total and
+each exclusion certificate, including the exhaustive signed lists.
+Running \texttt{python -O verify.py} gives the same checks without
+relying on Python's optional \texttt{assert} statements.
+
+\medskip\noindent\textbf{AI disclosure.} GPT-6 Astra assisted with
+research, symbolic exploration, code development, and drafting.
+
+\begin{thebibliography}{99}
+\bibitem{Census} S. Palcoux, \emph{Fusion Ring Census},
+\url{https://github.com/sebastienpalcoux/fusion-ring-census},
+commit \texttt{b86eb6dc6eeeafe5fc5f6906d7b074e0322e9726}.
+\bibitem{Rank4} \emph{Rank-four Grothendieck rings through multiplicity 128}, manuscript and exact-certificate supplement (2026).
+\bibitem{Rank5} \emph{Rank-five Grothendieck rings through multiplicity twenty}, manuscript and exact-certificate supplement (2026).
+\bibitem{Rank6} \emph{Rank-six fusion rings: categorification criteria and models through multiplicity eight}, manuscript and exact-certificate supplement (2026).
+\bibitem{Integral} M. A. Alekseyev, W. Bruns, J. Dong and S. Palcoux,
+\emph{Classifying integral Grothendieck rings up to rank 5 and beyond},
+accepted in \emph{Letters in Mathematical Physics}; arXiv:2507.07023.
+\bibitem{EGO} P. Etingof, S. Gelaki and V. Ostrik,
+\emph{Classification of fusion categories of dimension $pq$},
+\emph{Int. Math. Res. Not.} \textbf{2004}, 3041--3056; arXiv:math/0304194.
+\bibitem{ENO} P. Etingof, D. Nikshych and V. Ostrik,
+\emph{On fusion categories}, \emph{Ann. of Math.} \textbf{162} (2005), 581--642; arXiv:math/0203060.
+\bibitem{KO} A. Kirillov Jr. and V. Ostrik,
+\emph{On a $q$-analogue of the McKay correspondence and the ADE classification of $\widehat{\mathfrak{sl}}_2$ conformal field theories},
+\emph{Adv. Math.} \textbf{171} (2002), 183--227; arXiv:math/0101219.
+\bibitem{LPR} Z. Liu, S. Palcoux and Y. Ren,
+\emph{Classification of Grothendieck rings of complex fusion categories of multiplicity one up to rank six},
+\emph{Lett. Math. Phys.} \textbf{112} (2022), article 54; arXiv:2010.10264.
+\bibitem{Metaplectic} P. Bruillard, C. Galindo, S.-H. Ng, J. Y. Plavnik, E. C. Rowell and Z. Wang,
+\emph{On the classification of weakly integral modular categories},
+\emph{J. Pure Appl. Algebra} \textbf{220} (2016), 2364--2388; arXiv:1411.2313.
+\bibitem{OstrikCodegrees} V. Ostrik,
+\emph{On formal codegrees of fusion categories},
+\emph{Math. Res. Lett.} \textbf{16} (2009), 895--901; arXiv:0810.3242.
+\bibitem{OstrikPivotal} V. Ostrik,
+\emph{Pivotal fusion categories of rank 3},
+\emph{Mosc. Math. J.} \textbf{15} (2015), 373--396; arXiv:1309.4822.
+\bibitem{Schopieray} A. Schopieray,
+\emph{Categorification of integral group rings extended by one dimension},
+\emph{J. Lond. Math. Soc.} \textbf{108} (2023); DOI:10.1112/jlms.12789; arXiv:2208.07319.
+\bibitem{TY} D. Tambara and S. Yamagami,
+\emph{Tensor categories with fusion rules of self-duality for finite abelian groups},
+\emph{J. Algebra} \textbf{209} (1998), 692--707.
+\bibitem{Zest} C. Delaney, C. Galindo, J. Y. Plavnik, E. C. Rowell and Q. Zhang,
+\emph{Braided zesting and its applications},
+\emph{Comm. Math. Phys.} \textbf{386} (2021), 1--55; arXiv:2005.05544.
+\bibitem{Vercleyen} G. Vercleyen,
+\emph{On low-rank multiplicity-free fusion categories}, thesis (2024),
+arXiv:2405.20075.
+\bibitem{VercleyenInvariants} G. Vercleyen,
+\emph{Tables of practical invariants for distinguishing multiplicity-free fusion categories up to rank 7}, arXiv:2507.00652.
+\end{thebibliography}
+\end{document}

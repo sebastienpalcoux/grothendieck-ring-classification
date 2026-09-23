@@ -5,7 +5,10 @@ No tensor enumeration is performed. Discovery budgets never imply exclusion:
 each accepted certificate is checked by the exact dispatcher. Earlier proofs
 are reusable witnesses, after all cheaper stages have actually been applied.
 """
-import os
+import os,sys
+if os.environ.get('SYMPY_GROUND_TYPES') != 'python':
+    os.environ['SYMPY_GROUND_TYPES'] = 'python'
+    os.execvpe(sys.executable, sys.orig_argv, os.environ)
 for variable in ('OPENBLAS_NUM_THREADS','OMP_NUM_THREADS','MKL_NUM_THREADS'):
     os.environ[variable]='1'
 import argparse, collections, csv, hashlib, json, platform, signal, time, traceback,subprocess,sys

@@ -27,6 +27,10 @@ trusted as the counting input; this package does not repeat its enumeration.
 
 The model column contains 53 unitary realizations and one spherical realization
 with no pseudo-unitary categorification. All exclusion claims are general.
+The closed-subring criterion cites the revised complete rank-five general
+classification through multiplicity twenty. Since every rank-six tensor
+here has multiplicity at most eight, this citation update does not alter the
+rank-six decision ledger.
 
 General categorifiability is completely classified through multiplicity two:
 43 of the 193 rings admit spherical models, and 42 admit unitary models.
@@ -82,6 +86,11 @@ python verify.py --jobs 2 --out verification/current/recheck.jsonl
 python -O verify.py --jobs 2 --out verification/current/recheck_O.jsonl
 python software/current_regressions.py
 ```
+
+The verifier and discovery driver select SymPy's pure-Python polynomial
+backend before importing SymPy. The archived exact Farkas vectors refer to
+its canonical equation-row ordering; this selection also makes checks
+reproducible when the optional python-flint package is installed globally.
 
 To repeat the ordered classification discovery from the frozen source:
 

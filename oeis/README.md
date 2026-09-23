@@ -7,13 +7,15 @@ multiplicity `m` with at least one fusion-category realization over ℂ.
 | Draft | Complete classification range | Terms |
 |---|---:|---:|
 | [Rank four realized](draft_rank4_realized.txt) | 1–128 | 128 |
-| [Rank five realized](draft_rank5_realized.txt) | 1–17 | 17 |
+| [Rank five realized](draft_rank5_realized.txt) | 1–20 | 20 |
 
 Generate from the exact status partitions with
 `python3 tools/export_oeis_drafts.py`. Every exported band has zero unresolved
-and zero unassessed rings; rank-five multiplicity 18 is deliberately omitted.
-Rank-six general classification is complete only at multiplicities 1–2, so
-there is no proposed sequence file yet. No zero beyond a proven finite
+and zero unassessed rings; rank-five multiplicities 18–20 are now included after general exclusion certificates closed the former residuals.
+Rank-six general classification is complete only at multiplicities 1–2;
+rank seven and eight have unresolved cases even in their first analyzed
+bands. No sequence file is proposed for those partial classifications.
+No zero beyond a proven finite
 classification bound is inferred from the conjectured unrestricted
 classification.
 

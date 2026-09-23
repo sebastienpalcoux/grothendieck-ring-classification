@@ -65,20 +65,21 @@ classification cross-check. Rank-two realized counts follow directly from
 | 2 | Symbolic, all multiplicities | All multiplicities over ℂ | Exactly the rings `n = 0, 1` are realized; see the revised proof. |
 | 3 | Through 1,000 | Unrestricted theorem | Five realized rings: four at multiplicity 1 and one at 2; see the standalone sphericality and ring-classification proof. |
 | 4 | Through 128 | **Complete through 128** | 15 realized rings, 889,515 general exclusions. |
-| 5 | Through 20 | **Complete through 17, and separately at 19–20** | 17 realized rings. At 18, 5,078 excluded and two generally unresolved; all 12,506 rings at 19–20 are excluded. |
+| 5 | Through 20 | **Complete through 20** | 17 realized rings and 40,982 generally excluded. The two former multiplicity-18 residuals are now excluded by inert-prime parity and exact induction. |
 | 6 | Through 8 | **Complete through 2** | Through 8: 16,511 excluded, 54 realized, 47 unresolved; 19 of those residuals occur at multiplicity 8. |
+| 7 | Through 4 | Partial at every band | Through 4: 4,107 excluded, 16 realized, 78 unresolved; full normal and optimized certificate replays passed. |
+| 8 | Through 2 | Partial at both bands | Through 2: 824 excluded, 33 realized, 116 unresolved; positive tensors and transferred certificates verified. |
 
 Rank-six realization counts through multiplicity 8 split into **53 unitary
 models** and **one spherical model whose ring has no pseudo-unitary
 categorification**. “Realized” means that at least one categorification is
 constructed; it does not assert that every categorification of that ring is
-unitary. The rank-five two residual rings at multiplicity 18 have spherical
-exclusions but their general categorification status remains unresolved.
+unitary. Rank five has no unresolved ring through multiplicity 20.
 
 ### The classification boundary, band by band
 
-| Multiplicity | Rank 4 | Rank 5 | Rank 6 |
-|---:|---:|---:|---:|''')
+| Multiplicity | Rank 4 | Rank 5 | Rank 6 | Rank 7 | Rank 8 |
+|---:|---:|---:|---:|---:|---:|''')
 def cell(rank,m):
     s=state.get((rank,m))
     if s is None:return '—'
@@ -89,12 +90,12 @@ def cell(rank,m):
     if s['unresolved_general']:val+=f" · **{s['unresolved_general']:,} open**"
     return val
 for m in range(1,21):
-    lines.append('| '+str(m)+' | '+' | '.join(cell(r,m) for r in (4,5,6))+' |')
+    lines.append('| '+str(m)+' | '+' | '.join(cell(r,m) for r in (4,5,6,7,8))+' |')
 
 lines.append('''
 Full decision bands: [JSON](data/classification_status.json) ·
 [CSV](data/classification_status.csv). Statuses come from the attached
-rank-four, rank-five and rank-six certificate ledgers; their SHA-256 hashes,
+rank-four through rank-eight certificate ledgers; their SHA-256 hashes,
 row checks and scope appear in [the provenance record](docs/PROVENANCE.md).
 
 ### When did the current criterion repertoire stabilize?
@@ -102,8 +103,10 @@ row checks and scope appear in [the provenance record](docs/PROVENANCE.md).
 | Rank | Last first use of a mathematical criterion family | Checked range afterward |
 |---:|---:|---|
 | 4 | Multiplicity 18 | The same criterion families suffice for the allocated exclusions at 19–128. |
-| 5 | Multiplicity 8 | The same theoretical families suffice at 9–20; a combined executable certificate type first appears at 12. Two rings at 18 remain unresolved. |
+| 5 | Multiplicity 18 | Inert-prime quadratic parity first closes two cases at 18; no new criterion family is needed at 19–20. |
 | 6 | Multiplicity 8 | Dimension-order and character-induction exclusions first succeed at 8; 47 general cases remain unresolved. No later multiplicity is covered. |
+| 7 | Multiplicity 2 | Signed sphericalization first contributes at 1; the last first successful application of a listed family occurs at 2. There are 78 open rings through 4, so no stabilization conclusion follows. |
+| 8 | Multiplicity 2 | Signed obstructions first contribute at 1; the last first successful application of a listed family occurs at 2. There are 116 open rings through 2, so no stabilization conclusion follows. |
 
 This records **first use in the chosen certificate allocation**, not an
 optimal ordering theorem or a claim that the criteria settle higher
@@ -122,6 +125,16 @@ progress; [the evidence guide](docs/VERIFY.md) identifies exactly what the
 stored checks establish.
 
 ## Structure
+
+After cloning, restore the large datasets with one offline command:
+
+```bash
+python3 tools/restore_data.py
+```
+
+The repository stores those datasets as small compressed parts. The command
+checks every part and reconstructed file against its released SHA-256 hash;
+it requires only Python's standard library. See [verification instructions](docs/VERIFY.md).
 
 ```text
 data/         Pinned census matrix and classification-status tables

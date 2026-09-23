@@ -14,10 +14,10 @@ The filtered rank-four publication bundle
 It contains paper sources and compact code/data; the full 75,825,461-byte
 rank-four compressed certificate is in the original attachment, SHA-256
 `969a2a5a84b794a3da1d9cd3978f92324d631760f503f5d208011923a723920f`.
-The revised rank-five release adds complete exact-multiplicity 19–20
-exclusion certificates against that same pinned census.
-Its final bundle `Rank5_Revised_Final_LocalIndex_2026-09-23.zip` has SHA-256
-`020a86f964db952545b5f284241c940fe2b7b4d2b0539ec178f6643cead50931`.
+The revised rank-five release adds an inert-prime parity proof closing the two
+former multiplicity-eighteen general cases and all certificates for 19–20.
+Its complete bundle `Rank5_Complete_Through20_InertParity_2026-09-23.zip` has SHA-256
+`6981c0ade02db714e38076ff30b3119712ce6b137ac376c2a8ae474a01bb9f49`.
 For multiplicities 1–18, internal archival indices are explicitly named
 `local_index`; at 19–20, `repository_index` directly identifies the pinned
 source census record within its exact-multiplicity band.
@@ -28,14 +28,28 @@ The authorless, citation-updated rank-six reading/source release
 `Rank6_Categorification_M8_Revised_2026-09-23.zip` has SHA-256
 `5981d4ee065f78cf3057eb3c289c9675480f5f59f8e7534e74c13155a99d6a63`;
 its decision partition agrees with the prior M8 ledger.
+The final cross-rank rank-six release
+`Rank6_Categorification_M8_CrossRank_2026-09-23.zip` has SHA-256
+`4027dc2a563a4fef5e46a11e2f307ef66b83f34cc5ebf6944438d4e5d340cc71`;
+its normal and optimized 26-process regression gates passed after explicitly
+pinning the SymPy arithmetic backend. The verified rank-seven release through
+multiplicity four has SHA-256
+`2a66d34b185fb9178b34e30bedf4a4a2eb44343d774e94a56dfcf4f27308c128`;
+both normal and optimized full 4,201-row verifiers passed. The rank-eight
+release through multiplicity two has SHA-256
+`69634a5b50fcf92d4b577fda66774317016c208b06d9925f9edf19937b044546`;
+its full 973-row verifier passed. The remaining 78 and 116 cases respectively
+are categorification questions, not negative certificates.
 
 | Rank | Census source | Census complete through | Classification ledger | Classification status |
 |---:|---|---:|---|---|
 | 2 | Symbolic `X²=1+nX` | All | Rank-two theorem | Per-band decisions exported through 1,000; two realized at multiplicity 1 |
 | 3 | `results/census.json` | 1,000 | Five-ring unrestricted theorem | Per-band decisions exported through 1,000; four realized at multiplicity 1 and one at 2 |
 | 4 | `results/rank4/tables.txt.gz` | 128 | `certificates/classification.jsonl.gz` | Complete through 128 |
-| 5 | `results/rank5/tables.txt.gz` | 20 | Revised `data/decisions_all.json` | Complete bands 1–17 and 19–20; two general residuals at 18 |
+| 5 | `results/rank5/tables.txt.gz` | 20 | Revised `data/decisions_all.json` | Complete general classification through 20 |
 | 6 | `results/rank6/tables.txt.gz` | 8 | New `data/decisions.json` | Complete through 2; 47 general residuals through 8 |
+| 7 | `results/rank7/tables.txt.gz` | 4 | `supplements/rank7/output/rank7_ledger.json` | Partial at all four bands; 78 unresolved |
+| 8 | `results/rank8/tables.txt.gz` | 2 | `supplements/rank8/data/decisions.json` | Partial at both bands; 116 unresolved |
 
 The original source manifest is `results/census.json`. Its count rows are
 imported by `tools/generate_counts.py`, with exact bounds and cumulative sums
@@ -53,8 +67,10 @@ with its [arithmetic checker](../supplements/rank3/audit_rank3.py).
 | Rank | Compressed or JSON ledger SHA-256 | Records assigned a decision | Outcome totals |
 |---:|---|---:|---|
 | 4 | `969a2a5a84b794a3da1d9cd3978f92324d631760f503f5d208011923a723920f` | 889,530 | 889,515 excluded; 15 realized |
-| 5 | `4ca1313570668d55b4d9203de4d5e613d381d32e7db7155bbacfff30ce8757b2` | 40,999 | 40,980 excluded; 17 realized; 2 generally unresolved |
+| 5 | `9261917451d469ece9929a1756f505924cf84adf34e79a0d2e6f68fed43f55cf` | 40,999 | 40,982 excluded; 17 realized; 0 unresolved |
 | 6 | `1747b3e94815ccd90ca8bf7b798bd61e5c6f8537af633894e7ad25c062a32876` | 16,612 | 16,511 excluded; 53 unitary models; 1 spherical model with no pseudo-unitary categorification; 47 generally unresolved |
+| 7 | `de2eb6c024a9271a66d8b34c187ebc4eca9bbd6fc1625b8e85c18b66c4abbb73` | 4,201 | 4,107 excluded; 16 unitary models; 78 unresolved |
+| 8 | `555e206a8df62db6ddb557543ae37a77a7345f6129881de26fb70d3c927203df` | 973 | 824 excluded; 33 unitary models; 116 unresolved |
 
 The rank-four list in the attachment contains a header record and 889,530
 individual records. Each ledger partition matches its census total at each

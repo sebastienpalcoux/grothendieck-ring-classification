@@ -1,0 +1,68 @@
+\section{Census input and tensor conventions}\label{sec:enumeration}
+\subsection{One authoritative counting source}
+All counting data are taken from the public repository
+\href{https://github.com/sebastienpalcoux/fusion-ring-census}{\emph{Fusion Ring Census}}
+\cite{CensusRepo}, pinned to revision
+\begin{center}\filename{b86eb6dc6eeeafe5fc5f6906d7b074e0322e9726}.\end{center}
+The source files are \filename{results/census.json} and
+\filename{results/rank6/tables.txt.gz}. They declare a complete, verified
+rank-six census through multiplicity eight. Its $16612$ tensors include
+all $9613$ classes through multiplicity seven and $6999$ classes of exact
+multiplicity eight. The exact-multiplicity definition, inclusion of the
+unit in the rank, and inclusion of every duality type are unchanged.
+
+The paper trusts this census as its counting input. It supplies neither
+another census generator nor a claim to have independently enumerated
+the same domain. The repository contains the enumeration algorithms,
+coverage arguments, completion records, and tensor checks supporting
+Theorem~\ref{thm:census}. A valid and duplicate-free tensor list alone
+would not establish exhaustive coverage; that claim is supplied by the
+source census, not by the import operation below.
+
+\subsection{Frozen data and reproducible identifiers}
+A copy of the source tensor export is retained with the classification
+code, so a classification check has no live-network dependency. Its
+compressed SHA-256 is
+\begin{center}\small
+\filename{0138c6228dbb06b0861ad38b8dfe67fcd1fc829add80d441c34c09a1afb78675},
+\end{center}
+and its uncompressed SHA-256 is
+\begin{center}\small
+\filename{7898a833dfffd0f645436c1d326740db29ea6a29980de307c67227f0b67122b0}.
+\end{center}
+These hashes identify the input bytes; they are not substitutes for the
+source's completeness argument or for categorification certificates.
+
+Every ring is represented by its full ordered tensor
+$N=(N_{ij}^{k})_{0\leq i,j,k<6}$, with $b_0=\one$. The multiplicity is
+$\max_{i,j,k}N_{ij}^{k}$. Noncommutative inputs are retained without
+symmetrization. A based-ring isomorphism is a unit-fixing basis
+permutation preserving every structure constant. Consequently,
+comparison with a model uses the complete tensor, not only dimensions,
+a fusion graph, or a numerical fingerprint.
+
+The identifier $\RR{m}{j}$ is local to this paper's frozen tensor
+registry. Representatives and identifiers through multiplicity seven
+are retained. The new exact-multiplicity-eight tensors are placed in
+row-major lexicographic order using the exported representatives.
+This order need not give the lexicographically smallest representative
+under all basis permutations. Import matching records the correspondence
+between the source representatives and the registry. Every mathematical
+criterion receives the tensor rather than the identifier, so relabelling
+cannot alter its conclusion.
+
+\subsection{Counting, exclusions and constructions}
+The source census answers a finite counting question about based rings.
+A categorification exclusion answers a different question about complex
+fusion categories. We therefore keep the census fixed while applying
+necessary criteria and matching models. The resulting ledger covers
+every imported tensor exactly once; accepted negative certificates,
+positive constructions and unresolved records are disjoint.
+
+The exact prefix $39,154,384,872$ agrees with the complete rank-six range
+of \cite{VS}. We use no external categorifiability flag as a proof.
+The classification code may reconstruct arithmetic, tensor or
+isomorphism data required by a criterion, but it does not repeat the
+census search. The counting proposal in \filename{oeis/} derives directly
+from the same source counts and has no dependence on whether a
+categorification has been found.

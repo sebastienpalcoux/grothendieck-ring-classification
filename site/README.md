@@ -1,27 +1,30 @@
-# Grothendieck Ring Atlas
+# Fusion & Grothendieck Ring Atlas
 
-Private, static research site for exact based-ring census counts and the current categorification classification. The visible count table is generated from the private classification repository's data/counts.json, which pins fusion-ring-census at commit b86eb6dc6eeeafe5fc5f6906d7b074e0322e9726. The separate status ledger distinguishes complete decisions and partial bands with residuals. Multiplicity means the exact maximum structure constant. The site features ranks 2–6; rank 7–8 census-only datasets stay in the underlying census repository. Count bands of rank 4–6 without classification analysis are omitted from the site snapshot.
+Private research site with two clearly distinguished populations. Its main table counts **confirmed realized Grothendieck rings**, omitting rows that contain only zeros. Partial bands display ≥: the known positive count is a lower bound while unresolved fusion rings remain. The fusion-ring census counts **all** based rings and is linked directly. The categorification ledger keeps exclusions, positive models, and general unresolved cases apart. Multiplicity is the exact maximum structure constant. Only ranks with a classification manuscript and assessed bands are included; counts alone never imply categorifiability.
 
 ## Regenerate
 
-Run these commands from this directory in the classification repository:
+Run these commands from this Site checkout, passing the private classification repository as input:
 
-    python3 build_snapshot.py --classification ..
+    python3 build_snapshot.py --classification /path/to/classification-repository
+    python3 build_realized.py --classification /path/to/classification-repository
     npm run check
     npm run dev
 
-For the independent Sites checkout, pass the absolute path to the classification repository. build_snapshot.py rejects missing multiplicities, wrong cumulative totals, mismatched classification counts, and status partitions that do not sum to a cell's census count. The site serves only dist/ and needs no runtime APIs or credentials. Relative asset links make it portable to a repository subpath.
+`build_snapshot.py` rejects missing census bands, cumulative mismatches, and status partitions that do not sum to census counts. `build_realized.py` checks every catalogued tensor's rank, unit, duality and associativity. It derives exact dual and invertibility data and approximate Perron dimensions. For commutative rings it supplies exact codegree polynomials and an exact primitive-root character presentation. For noncommutative models it derives numerical irreducible trace characters from the exact center kernel, checks block dimensions and orthogonality, and attaches exact individual codegree polynomials using the central Casimir and the validated numerical block matching. Numerical values are marked approximations. `smoke_test.py` compares each band’s positive count against the exact model records and requires rank five to be complete through multiplicity twenty. The static site serves only `dist/` and uses no credentials or runtime APIs.
 
 ## Contents
 
-- dist/index.html, styles.css, app.js: accessible count explorer, filters, multiplicity jump, source links, status details, local trend plot, and paper shelf.
-- dist/data/atlas.json, counts.csv: generated portable count snapshot.
+- dist/index.html, styles.css, app.js: responsive count explorer, explicit ring cards, full fusion-matrix profiles, character tables, formal codegrees, model references, paper shelf.
+- dist/data/atlas.json, grothendieck_counts.csv: generated positive count table and classified census-band snapshot.
+- dist/data/realized_rings.json: exact tensors, selected algebraic invariants, and per-model source pointers.
+- dist/data/counts.csv: classified fusion-ring census bands with provenance.
 - dist/data/classification_status.json: exact per-band classification ledger, copied from the repository.
 - dist/papers/: revised manuscripts and guides.
 - dev-preview.mjs: dependency-free local preview for QA.
 
 ## Private publication
 
-Keep the GitHub repository private. Do not enable ordinary GitHub Pages for a personal account: its site can be public even when source is private. Private GitHub Pages requires an organization on GitHub Enterprise Cloud. This snapshot is hosted privately through Sites; its .openai/hosting.json is held in the Site checkout, outside this portable repository subtree. Verify access rules before changing hosting.
+The source and associated GitHub classification repository remain private. The Site uses owner-only access unless the owner invites a viewer through **Share**. Preserve that audience when publishing revised versions.
 
-The rank-three manuscript proves the unrestricted five-ring necessity directly, together with sphericality. Its classification-status ledger can therefore mark every displayed rank-three multiplicity as complete.
+The rank-three manuscript proves unrestricted five-ring necessity directly, together with sphericality. Its classification-status ledger marks every displayed rank-three multiplicity as complete. By default an individual ring profile shows one fusion matrix at a time and offers a full tensor download. The character page distinguishes exact primitive-root formulas from approximate numerical tables.

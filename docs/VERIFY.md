@@ -5,6 +5,7 @@
 From this repository root:
 
 ```bash
+python3 tools/restore_data.py
 python3 tools/validate_release.py
 python3 tools/render_readme.py
 git diff --exit-code README.md
@@ -14,6 +15,14 @@ These commands check every displayed cell, rank bound, exact-multiplicity
 sequence, CSV/JSON agreement, and each classification partition. They do not
 rerun the mathematical criteria or enumerate the fusion rings. Continuous
 integration performs the same checks on every change.
+
+`restore_data.py` reconstructs the five largest source datasets from small
+compressed parts stored in this repository. It needs only the Python standard
+library, uses no network, and checks SHA-256 for every part and every restored
+file. Run it once after cloning, before running the full rank-specific
+verifiers. `python3 tools/restore_data.py --check` verifies reconstruction
+without writing files. The complete downloadable research archive already
+contains the original datasets.
 
 ## Rebuild from the pinned census
 
@@ -36,8 +45,13 @@ Unpack the attached `FusionFrontier.tar.xz` and the updated
 `Rank6_Categorification_M8(1).zip` and the revised rank-five release. The
 rank-four ledger is the `Rank4/.../certificates/classification.jsonl.gz` file.
 The revised rank-five `data/decisions_all.json` extends the attached archive's
-28,493 decisions to all 40,999 census tensors through multiplicity 20;
-rank-six decisions use the updated M8 ZIP.
+28,493 decisions to all 40,999 census tensors through multiplicity 20,
+including general proofs for both former multiplicity-18 residuals;
+rank-six decisions use the updated M8 ZIP. The command below rebuilds ranks
+2–8; rank-seven and rank-eight decisions are imported from the included
+frozen ledgers and audited with `tools/validate_release.py`. Their own full
+certificate replays are described in `supplements/rank7/README.md` and
+`supplements/rank8/README.md`.
 Then run, substituting the actual extracted paths:
 
 ```bash
@@ -47,13 +61,17 @@ python3 tools/generate_classification.py \
   --census fusion-ring-census/results/census.json \
   --rank4 classification.jsonl.gz \
   --rank5 rank5-decisions_all.json \
-  --rank6 rank6-decisions.json
+  --rank6 rank6-decisions.json \
+  --rank7 supplements/rank7/output/rank7_ledger.json \
+  --rank8 supplements/rank8/data/decisions.json
 ```
 
 The exporter records source checksums, checks cardinalities and agreement with
-every census band. The released rows have no unassessed bands; two rank-five
-cases at multiplicity 18 and 47 rank-six cases through multiplicity 8 remain
-generally unresolved.
+every census band. The released rows have no unassessed bands. Rank five is
+complete through multiplicity 20; 47 rank-six cases through multiplicity 8
+remain generally unresolved. Rank seven has 78 open cases through
+multiplicity four, and rank eight has 116 through multiplicity two. Those
+figures are stored as unresolved, never as exclusions or zero positive counts.
 
 The rank-five and rank-six source-tensor crosswalks can be rerun:
 
@@ -74,7 +92,16 @@ models and theoretical coverage arguments, use the `verify.py` programs and
 verification guides in the attached rank-specific research releases and the
 revised manuscripts.
 
-The revised rank-five extension includes
+The rank-seven bundle includes a full 4,201-record checker and a second pass
+under `python -O`, both passed on the released bytes. The rank-eight bundle
+includes a 973-record replay with 75 completed exhaustive signed trees,
+independently replayed inherited rank-seven subring proofs, and exact positive
+tensor comparisons. Some published upstream negative lemmas are used by
+citation rather than rerunning external Normaliz computations; see the
+rank-eight manuscript for the precise dependency.
+
+The revised rank-five proof uses `software/inert_parity.py` for the
+former multiplicity-18 residuals. The extension includes
 `software/verify_extension.py` and its
 `verification/extension19_20_verification.json` PASS record for 12,506
 per-tensor general exclusions at exact multiplicities 19 and 20. Its

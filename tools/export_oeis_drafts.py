@@ -11,7 +11,7 @@ for rank, cells in byrank.items():
     for x in cells:
         if x['classification_coverage']!='complete_classification':break
         complete.append(x)
-    assert len(complete)=={4:128,5:17}[rank]
+    assert len(complete)=={4:128,5:20}[rank]
     target=ROOT/f'oeis/draft_rank{rank}_realized.txt'
     target.parent.mkdir(exist_ok=True)
     target.write_text(''.join(f"{x['multiplicity']} {x['realized_unitary']+x['realized_other_or_unspecified']+x['realized_spherical_nonpseudounitary']}\n" for x in complete))

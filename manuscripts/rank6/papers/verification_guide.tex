@@ -73,6 +73,10 @@ contribution cannot establish criterion stability beyond multiplicity eight.
 Use Python with the versions in \filename{requirements.txt}, a C++17
 compiler for the finite-search helpers, and \filename{pdflatex} for the
 PDFs. Native helpers are compiled from their supplied source as needed.
+The verification and discovery entry points select SymPy's pure-Python
+polynomial backend before importing SymPy. The archived exact separating
+vectors are indexed by the resulting equation-row order, including when
+the optional python-flint package is installed elsewhere.
 The verification commands are:
 \begin{verbatim}
 python -m pip install -r requirements.txt
@@ -265,4 +269,6 @@ All generated counts must agree with the authoritative decision ledger.
 The eight OEIS terms count based rings rather than categorifiable rings;
 no accession or online submission is claimed. No census enumeration is
 part of this reproduction procedure.
+\par\medskip\noindent\textbf{AI assistance.} GPT-6 Astra assisted with research,
+computation, and document preparation.
 \end{document}

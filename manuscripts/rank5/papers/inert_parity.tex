@@ -1,0 +1,134 @@
+\section{Inert-prime quadratic parity and the final two tensors}
+\label{sec:inert-parity}
+The preceding parity theorem uses the integral basis $1,\sqrt q$ and
+requires irrational coefficient one. The following extension treats the
+case in which $2$ is inert in the full ring of integers and the
+Frobenius--Perron dimensions have irrational coefficient two. Its only
+extra finite step enumerates characters over the four-element field.
+
+\begin{theorem}[Inert-prime parity rigidity]\label{thm:inert-parity}
+Let $R$ be a self-dual rank-five fusion ring with
+\[
+ s_0=1,\qquad s_i=A_i+2\sqrt q\quad(1\le i\le4),
+\]
+where $q>1$ is squarefree, $q\equiv5\pmod8$, $A_i\ge0$, and
+$1+\sum_{i=1}^4A_i^2=16q$. Put
+$M=(N_{jj}^{\,i})_{1\le j,i\le4}$ and
+$B=\sum_{i=0}^4 N_i^2$. Suppose that
+\begin{enumerate}
+\item $\operatorname{ord}_{t=0}(\det(tI-B)\bmod2)=2$;
+\item $\ker_{\mathbb F_2}M=\mathbb F_2(1,1,1,1)$;
+\item for every ring homomorphism
+ $\chi:R\otimes\mathbb F_2\longrightarrow\mathbb F_4$ with
+ $\chi(1)=1$ and $\sum_{i=0}^4\chi(X_i)^2=0$, all
+ $\chi(X_i)$ lie in $\mathbb F_2$, and exactly three of
+ $\chi(X_1),\ldots,\chi(X_4)$ equal one;
+\item $N_j$ is irreducible for some $j>0$ with $A_j>0$.
+\end{enumerate}
+Then every complex fusion-category categorification of $R$ is
+spherical and admits a pseudo-unitary Galois conjugate.
+\end{theorem}
+\begin{proof}
+Assume $\C$ categorifies $R$. Choose the self-dual lifts in its
+canonical sphericalization, write their dimensions $d_0=1,d_1,\ldots,d_4$,
+and let $T_i$ be the signed multiplication matrices. By
+\eqref{eq:signed}, $T_i\equiv N_i\pmod2$ and $|T_i|\le N_i$ entrywise.
+Their dimension character has field $K=\Q(d_1,\ldots,d_4)$ and
+$\delta=1+\sum_i d_i^2$.
+
+Write $D=1+\sum_i s_i^2=32q+4(\sum_i A_i)\sqrt q$.
+Since some $A_j>0$, $D$ generates $\Q(\sqrt q)$; its quadratic
+minimal polynomial reduces to $t^2$ modulo two. Lemma~\ref{lem:spectral}
+and hypothesis (1) show $K=\Q(\sqrt q)$. We also need the stronger
+divisibility already implicit in that lemma: the FP character of $R$
+inflates to a character of the sphericalization with formal codegree
+$2D$. The corresponding simple summand of its induced unit has
+dimension $(2\delta)/(2D)=\delta/D$ by
+\cite[Theorem 2.13]{Ostrik}. Central-simple dimensions are algebraic
+integers, so $\delta/D\in\OO_K$. Since $D\in2\OO_K$, this implies
+$\delta\in2\OO_K$.
+
+Now $\OO_K=\ZZ[\omega]$, $\omega=(1+\sqrt q)/2$. Because
+$q\equiv5\pmod8$, the reduction of $\omega$ satisfies
+$\bar\omega^2+\bar\omega+1=0$; thus $\OO_K/2\OO_K=\mathbb F_4$.
+The residues $\bar d_i$ constitute a character $\chi$ of $R$ over
+$\mathbb F_4$ because $T\equiv N\pmod2$, and they satisfy
+$\sum_i\bar d_i^2=\bar\delta=0$. By (3) they all lie in $\mathbb F_2$,
+with exactly three nonunit residues equal to one. Writing
+$d_i=x_i+y_i\omega$ with integers $x_i,y_i$, this forces $y_i$ even.
+Consequently $d_i=a_i+b_i\sqrt q$ for integers $a_i,b_i$.
+
+The two Galois-conjugate dimension characters are distinct orthogonal
+eigenvectors of the real symmetric commuting matrices $T_i$. Their
+orthogonality reads
+\begin{equation}\label{eq:inert-orthogonal}
+ 1+\sum_{i=1}^4 a_i^2=q\sum_{i=1}^4 b_i^2.
+\end{equation}
+Not all $b_i$ vanish, since $K$ is quadratic. Let $g$ be the positive
+gcd of the $b_i$, and put $c_i=b_i/g$. Comparing irrational parts in
+$d_j^2=\sum_iT_{jj}^{\,i}d_i$ gives
+$2a_jb_j=\sum_iT_{jj}^{\,i}b_i$. Divide by $g$, then reduce modulo
+two: $Mc=0$. The vector $c$ is primitive; by (2), every $c_i$ is odd.
+In particular each $b_i\ne0$.
+
+If $g$ were odd, then all four $b_i$ would be odd. Reduction in
+$\OO_K/2$ sends $\sqrt q=2\omega-1$ to one, so
+$\bar d_i=\bar a_i+1$. Since exactly three nonunit $\bar d_i$ equal
+one, exactly one of the $a_i$ is odd. But
+\eqref{eq:inert-orthogonal} modulo four yields
+$1+\sum a_i^2\equiv q\sum b_i^2\equiv0\pmod4$, and would require
+exactly three odd $a_i$. This contradiction makes $g$ even; hence
+$|b_i|\ge2$ for every $i$.
+
+The spectral-radius inequality for $|T_i|\le N_i$ gives
+$|d_i|,|d_i'|\le s_i$, and therefore
+$|a_i|+|b_i|\sqrt q\le A_i+2\sqrt q$.
+Thus $|a_i|\le A_i$. Hypothesis $1+\sum A_i^2=16q$, together with
+\eqref{eq:inert-orthogonal}, implies equality throughout:
+$|a_i|=A_i$ and $|b_i|=2$ for every $i$.
+
+Choose the real embedding for which $|d_j|=s_j$ at the irreducible
+$N_j$ in (4). The Perron-vector argument in the proof of
+Theorem~\ref{thm:parity}, applied verbatim to $|T_j|\le N_j$,
+then gives $|d_i|=s_i$ for all $i$. Changing the selected lift signs
+accordingly gives a signed tensor $U$ with $|U_{ik}^{\,\ell}|\le
+N_{ik}^{\,\ell}$ and the common positive dimension character $s$.
+Every coefficient of $N-U$ is nonnegative, and its dimension-weighted
+sum is zero; hence $U=N$. The selected lifts therefore form a
+spherical fusion subcategory mapping tensor equivalently to $\C$.
+Under the chosen embedding this structure has positive simple
+dimensions, proving the claimed pseudo-unitary Galois conjugate.
+\end{proof}
+
+The hypotheses are recognizable from the full tensor, without a
+census label. The irrational coefficients of $s_j^2$ give
+$A_j=\frac12\sum_{i=1}^4N_{jj}^{\,i}$; the proposed $q$ is then
+$(1+\sum A_i^2)/16$. The supplement checks every product identity,
+squarefreeness, the characteristic polynomial modulo two, the kernel
+of $M$, all $4^4$ possible residue tuples, and irreducibility.
+
+\begin{corollary}\label{cor:inert-frontier}
+Neither $\F{18}{5073}$ nor $\F{18}{5076}$ admits a categorification
+over $\CC$, with no pivotal hypothesis.
+\end{corollary}
+\begin{proof}
+For the two tensors in \eqref{eq:frontier-tensors}, the vectors
+$(A_1,A_2,A_3,A_4)$ are respectively
+$(33,34,33,35)$ and $(33,33,34,35)$, and $q=285$. In both cases the
+mod-two zero multiplicity of $\det(tI-B)$ is two, and
+$\ker_{\mathbb F_2}M=\mathbb F_2(1,1,1,1)$.
+With $\bar\omega^2+\bar\omega+1=0$, all normalized residue characters
+are as follows; tuples display their four nonunit entries:
+\[
+\begin{array}{c|l|l}
+ &\text{all residue characters}&\sum_i\chi(X_i)^2=0\\ \hline
+5073 &(0,1,0,1),(0,1,1,0),(1,0,1,1),(1,1,0,0)&(1,0,1,1)\\
+5076 &(0,0,1,1),(1,1,0,1),(\bar\omega,\bar\omega^2,1,0),
+ (\bar\omega^2,\bar\omega,1,0)&(1,1,0,1)
+\end{array}
+\]
+Theorem~\ref{thm:inert-parity} applies. The independent exact
+spherical-character certificates supplied for these tensors then
+exclude the resulting spherical categories. Both finite checks are
+recomputed from the tensors in the supplement.
+\end{proof}

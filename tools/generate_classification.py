@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Summarize the attached rank 4–6 classification ledgers, preserving gaps.
+"""Summarize the attached rank 4–8 classification ledgers, preserving gaps.
 
 Run with the four paths shown by ``--help``. This script never assigns a
 categorifiability decision to a census ring absent from the relevant ledger.
@@ -32,13 +32,13 @@ def records(rank, path):
                     yield row['multiplicity'], row['status']
     else:
         for row in json.loads(path.read_text()):
-            yield row['m'], row['general'] if rank == 5 else row['status']
+            yield row['multiplicity'] if rank >= 7 else row['m'], row['general'] if rank == 5 else row['status']
 
 
 def export(args):
     census = json.loads(args.census.read_text())
     by_rank = {}
-    for rank in (4, 5, 6):
+    for rank in (4, 5, 6, 7, 8):
         path = getattr(args, f'rank{rank}')
         summary = defaultdict(Counter)
         for m, status in records(rank, path):
@@ -48,11 +48,11 @@ def export(args):
         assert set(summary) == set(range(1, max(summary) + 1))
         assert all(sum(summary[m].values()) == census['ranks'][str(rank)]['counts'][str(m)]
                    for m in summary)
-        expected = {4: (128, 889530), 5: (20, 40999), 6: (8, 16612)}[rank]
+        expected = {4: (128, 889530), 5: (20, 40999), 6: (8, 16612), 7: (4, 4201), 8: (2, 973)}[rank]
         assert (max(summary), sum(map(sum, (x.values() for x in summary.values())))) == expected
 
     data = []
-    for rank in (2, 3, 4, 5, 6):
+    for rank in (2, 3, 4, 5, 6, 7, 8):
         census_counts = census['ranks'][str(rank)]['counts'] if rank>=3 else {
             str(m):(2 if m==1 else 1) for m in range(1,1001)}
         for m in sorted(map(int, census_counts)):
@@ -89,32 +89,38 @@ def export(args):
                               'sha256': digest(getattr(args, f'rank{rank}')),
                               'classified_through': max(by_rank[rank]),
                               'status_totals': dict(sum(by_rank[rank].values(), Counter()))}
-              for rank in (4, 5, 6)}
+              for rank in (4, 5, 6, 7, 8)}
     inputs['rank2']={'basis':'X²=1+nX, n>=0; complex realizations exactly n=0,1',
                      'classified_through':'all'}
     inputs['rank3']={'basis':'Five unrestricted categorical Grothendieck rings: four of multiplicity 1 and one of multiplicity 2; see the standalone sphericality and ring-classification manuscript',
                      'classified_through':'all',
                      'proof_status':'Independent ring-level necessity proof and sphericality argument in manuscripts/rank3.tex; source includes an exact arithmetic checker.'}
     bundles=[{'name':args.bundle.name,'sha256':digest(args.bundle)}]
-    if args.rank6_bundle:bundles.append({'name':args.rank6_bundle.name,'sha256':digest(args.rank6_bundle)})
+    for rank in (5,6,7,8):
+        bundle=getattr(args,f'rank{rank}_bundle')
+        if bundle:bundles.append({'name':bundle.name,'sha256':digest(bundle)})
     out = dict(schema='grothendieck-ring-classification/status/v1',
                semantics='Rows count based-isomorphism classes. Unresolved means a general categorification decision remains open in the attached release; unassessed means no classification ledger for this census band. Realized means at least one realization, not every categorification has the given structure.',
                bundles=bundles,
                inputs=inputs, rows=data)
-    target = ROOT/'data/classification_status.json'
+    args.output_dir.mkdir(parents=True,exist_ok=True)
+    target = args.output_dir/'classification_status.json'
     target.write_text(json.dumps(out, indent=2)+'\n')
-    with (ROOT/'data/classification_status.csv').open('w', newline='') as stream:
+    with (args.output_dir/'classification_status.csv').open('w', newline='') as stream:
         writer=csv.DictWriter(stream, fieldnames=list(data[0]))
         writer.writeheader();writer.writerows(data)
     print('Wrote status for', len(data), 'rank/multiplicity bands:',
           [(r,max(by_rank[r]),sum(map(sum,(x.values() for x in by_rank[r].values()))))
-           for r in (4,5,6)])
+           for r in (4,5,6,7,8)])
 
 
 if __name__ == '__main__':
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('--bundle', required=True, type=Path)
-    p.add_argument('--rank6-bundle', type=Path)
+    for r in (5,6,7,8):p.add_argument(f'--rank{r}-bundle',type=Path)
+    p.add_argument('--output-dir',type=Path,default=ROOT/'data')
     p.add_argument('--census', required=True, type=Path)
     for r in (4,5,6):p.add_argument(f'--rank{r}', required=True, type=Path)
+    p.add_argument('--rank7',type=Path,default=ROOT/'supplements/rank7/output/rank7_ledger.json')
+    p.add_argument('--rank8',type=Path,default=ROOT/'supplements/rank8/data/decisions.json')
     export(p.parse_args())

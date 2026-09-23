@@ -20,15 +20,15 @@ categorifiable.
 
 ## Grothendieck rings · known realizations at each exact multiplicity
 
-| Multiplicity | Rank 2 | Rank 3 | Rank 4 | Rank 5 | Rank 6 |
-|---:|---:|---:|---:|---:|---:|
-| 1 | 2 | 4 | 9 | 10 | 21 |
-| 2 | 0 | 1 | 3 | 3 | 22 |
-| 3 | 0 | 0 | 2 | 2 | ≥3 |
-| 4 | 0 | 0 | 0 | 2 | ≥2 |
-| 5 | 0 | 0 | 0 | 0 | ≥1 |
-| 6 | 0 | 0 | 1 | 0 | ≥3 |
-| 7 | 0 | 0 | 0 | 0 | ≥2 |
+| Multiplicity | Rank 2 | Rank 3 | Rank 4 | Rank 5 | Rank 6 | Rank 7 | Rank 8 |
+|---:|---:|---:|---:|---:|---:|---:|---:|
+| 1 | 2 | 4 | 9 | 10 | 21 | ≥10 | ≥25 |
+| 2 | 0 | 1 | 3 | 3 | 22 | ≥5 | ≥8 |
+| 3 | 0 | 0 | 2 | 2 | ≥3 | ≥1 | — |
+| 4 | 0 | 0 | 0 | 2 | ≥2 | ≥0 | — |
+| 5 | 0 | 0 | 0 | 0 | ≥1 | — | — |
+| 6 | 0 | 0 | 1 | 0 | ≥3 | — | — |
+| 7 | 0 | 0 | 0 | 0 | ≥2 | — | — |
 
 Full realized-count data, including zero and unresolved bands:
 [JSON](data/grothendieck_counts.json) · [CSV](data/grothendieck_counts.csv).
@@ -45,44 +45,45 @@ classification cross-check. Rank-two realized counts follow directly from
 | 2 | Symbolic, all multiplicities | All multiplicities over ℂ | Exactly the rings `n = 0, 1` are realized; see the revised proof. |
 | 3 | Through 1,000 | Unrestricted theorem | Five realized rings: four at multiplicity 1 and one at 2; see the standalone sphericality and ring-classification proof. |
 | 4 | Through 128 | **Complete through 128** | 15 realized rings, 889,515 general exclusions. |
-| 5 | Through 20 | **Complete through 17, and separately at 19–20** | 17 realized rings. At 18, 5,078 excluded and two generally unresolved; all 12,506 rings at 19–20 are excluded. |
+| 5 | Through 20 | **Complete through 20** | 17 realized rings and 40,982 generally excluded. The two former multiplicity-18 residuals are now excluded by inert-prime parity and exact induction. |
 | 6 | Through 8 | **Complete through 2** | Through 8: 16,511 excluded, 54 realized, 47 unresolved; 19 of those residuals occur at multiplicity 8. |
+| 7 | Through 4 | Partial at every band | Through 4: 4,107 excluded, 16 realized, 78 unresolved; full normal and optimized certificate replays passed. |
+| 8 | Through 2 | Partial at both bands | Through 2: 824 excluded, 33 realized, 116 unresolved; positive tensors and transferred certificates verified. |
 
 Rank-six realization counts through multiplicity 8 split into **53 unitary
 models** and **one spherical model whose ring has no pseudo-unitary
 categorification**. “Realized” means that at least one categorification is
 constructed; it does not assert that every categorification of that ring is
-unitary. The rank-five two residual rings at multiplicity 18 have spherical
-exclusions but their general categorification status remains unresolved.
+unitary. Rank five has no unresolved ring through multiplicity 20.
 
 ### The classification boundary, band by band
 
-| Multiplicity | Rank 4 | Rank 5 | Rank 6 |
-|---:|---:|---:|---:|
-| 1 | 1 excluded · 9 realized | 6 excluded · 10 realized | 18 excluded · 21 realized |
-| 2 | 14 excluded · 3 realized | 34 excluded · 3 realized | 132 excluded · 22 realized |
-| 3 | 22 excluded · 2 realized | 80 excluded · 2 realized | 380 excluded · 3 realized · **1 open** |
-| 4 | 45 excluded · 0 realized | 132 excluded · 2 realized | 855 excluded · 2 realized · **15 open** |
-| 5 | 55 excluded · 0 realized | 209 excluded · 0 realized | 1,577 excluded · 1 realized · **4 open** |
-| 6 | 80 excluded · 1 realized | 336 excluded · 0 realized | 2,762 excluded · 3 realized · **3 open** |
-| 7 | 92 excluded · 0 realized | 477 excluded · 0 realized | 3,807 excluded · 2 realized · **5 open** |
-| 8 | 137 excluded · 0 realized | 733 excluded · 0 realized | 6,980 excluded · 0 realized · **19 open** |
-| 9 | 151 excluded · 0 realized | 863 excluded · 0 realized | — |
-| 10 | 186 excluded · 0 realized | 1,082 excluded · 0 realized | — |
-| 11 | 238 excluded · 0 realized | 1,383 excluded · 0 realized | — |
-| 12 | 291 excluded · 0 realized | 1,948 excluded · 0 realized | — |
-| 13 | 246 excluded · 0 realized | 2,211 excluded · 0 realized | — |
-| 14 | 340 excluded · 0 realized | 2,554 excluded · 0 realized | — |
-| 15 | 349 excluded · 0 realized | 2,936 excluded · 0 realized | — |
-| 16 | 525 excluded · 0 realized | 4,157 excluded · 0 realized | — |
-| 17 | 424 excluded · 0 realized | 4,255 excluded · 0 realized | — |
-| 18 | 477 excluded · 0 realized | 5,078 excluded · 0 realized · **2 open** | — |
-| 19 | 513 excluded · 0 realized | 5,640 excluded · 0 realized | — |
-| 20 | 713 excluded · 0 realized | 6,866 excluded · 0 realized | — |
+| Multiplicity | Rank 4 | Rank 5 | Rank 6 | Rank 7 | Rank 8 |
+|---:|---:|---:|---:|---:|---:|
+| 1 | 1 excluded · 9 realized | 6 excluded · 10 realized | 18 excluded · 21 realized | 30 excluded · 10 realized · **3 open** | 41 excluded · 25 realized · **30 open** |
+| 2 | 14 excluded · 3 realized | 34 excluded · 3 realized | 132 excluded · 22 realized | 291 excluded · 5 realized · **23 open** | 783 excluded · 8 realized · **86 open** |
+| 3 | 22 excluded · 2 realized | 80 excluded · 2 realized | 380 excluded · 3 realized · **1 open** | 1,035 excluded · 1 realized · **23 open** | — |
+| 4 | 45 excluded · 0 realized | 132 excluded · 2 realized | 855 excluded · 2 realized · **15 open** | 2,751 excluded · 0 realized · **29 open** | — |
+| 5 | 55 excluded · 0 realized | 209 excluded · 0 realized | 1,577 excluded · 1 realized · **4 open** | — | — |
+| 6 | 80 excluded · 1 realized | 336 excluded · 0 realized | 2,762 excluded · 3 realized · **3 open** | — | — |
+| 7 | 92 excluded · 0 realized | 477 excluded · 0 realized | 3,807 excluded · 2 realized · **5 open** | — | — |
+| 8 | 137 excluded · 0 realized | 733 excluded · 0 realized | 6,980 excluded · 0 realized · **19 open** | — | — |
+| 9 | 151 excluded · 0 realized | 863 excluded · 0 realized | — | — | — |
+| 10 | 186 excluded · 0 realized | 1,082 excluded · 0 realized | — | — | — |
+| 11 | 238 excluded · 0 realized | 1,383 excluded · 0 realized | — | — | — |
+| 12 | 291 excluded · 0 realized | 1,948 excluded · 0 realized | — | — | — |
+| 13 | 246 excluded · 0 realized | 2,211 excluded · 0 realized | — | — | — |
+| 14 | 340 excluded · 0 realized | 2,554 excluded · 0 realized | — | — | — |
+| 15 | 349 excluded · 0 realized | 2,936 excluded · 0 realized | — | — | — |
+| 16 | 525 excluded · 0 realized | 4,157 excluded · 0 realized | — | — | — |
+| 17 | 424 excluded · 0 realized | 4,255 excluded · 0 realized | — | — | — |
+| 18 | 477 excluded · 0 realized | 5,080 excluded · 0 realized | — | — | — |
+| 19 | 513 excluded · 0 realized | 5,640 excluded · 0 realized | — | — | — |
+| 20 | 713 excluded · 0 realized | 6,866 excluded · 0 realized | — | — | — |
 
 Full decision bands: [JSON](data/classification_status.json) ·
 [CSV](data/classification_status.csv). Statuses come from the attached
-rank-four, rank-five and rank-six certificate ledgers; their SHA-256 hashes,
+rank-four through rank-eight certificate ledgers; their SHA-256 hashes,
 row checks and scope appear in [the provenance record](docs/PROVENANCE.md).
 
 ### When did the current criterion repertoire stabilize?
@@ -90,8 +91,10 @@ row checks and scope appear in [the provenance record](docs/PROVENANCE.md).
 | Rank | Last first use of a mathematical criterion family | Checked range afterward |
 |---:|---:|---|
 | 4 | Multiplicity 18 | The same criterion families suffice for the allocated exclusions at 19–128. |
-| 5 | Multiplicity 8 | The same theoretical families suffice at 9–20; a combined executable certificate type first appears at 12. Two rings at 18 remain unresolved. |
+| 5 | Multiplicity 18 | Inert-prime quadratic parity first closes two cases at 18; no new criterion family is needed at 19–20. |
 | 6 | Multiplicity 8 | Dimension-order and character-induction exclusions first succeed at 8; 47 general cases remain unresolved. No later multiplicity is covered. |
+| 7 | Multiplicity 2 | Signed sphericalization first contributes at 1; the last first successful application of a listed family occurs at 2. There are 78 open rings through 4, so no stabilization conclusion follows. |
+| 8 | Multiplicity 2 | Signed obstructions first contribute at 1; the last first successful application of a listed family occurs at 2. There are 116 open rings through 2, so no stabilization conclusion follows. |
 
 This records **first use in the chosen certificate allocation**, not an
 optimal ordering theorem or a claim that the criteria settle higher
@@ -110,6 +113,16 @@ progress; [the evidence guide](docs/VERIFY.md) identifies exactly what the
 stored checks establish.
 
 ## Structure
+
+After cloning, restore the large datasets with one offline command:
+
+```bash
+python3 tools/restore_data.py
+```
+
+The repository stores those datasets as small compressed parts. The command
+checks every part and reconstructed file against its released SHA-256 hash;
+it requires only Python's standard library. See [verification instructions](docs/VERIFY.md).
 
 ```text
 data/         Pinned census matrix and classification-status tables

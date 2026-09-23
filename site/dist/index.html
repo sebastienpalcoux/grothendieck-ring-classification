@@ -4,21 +4,22 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#0d1325">
-  <meta name="description" content="Explore exact fusion ring counts and the current classification frontier by rank and multiplicity.">
-  <title>Grothendieck Ring Atlas</title>
+  <meta name="description" content="Explore fusion rings, explicitly realized Grothendieck rings, their fusion tensors, characters, formal codegrees, and classification proofs.">
+  <title>Fusion &amp; Grothendieck Ring Atlas</title>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230d1325'/%3E%3Cpath d='M17 43V20h28M17 32h20M29 20v23h18' fill='none' stroke='%23deb673' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E">
   <link rel="stylesheet" href="./styles.css">
   <script src="./app.js" defer></script>
 </head>
 <body>
-  <a class="skip-link" href="#atlas">Skip to counts</a>
+  <a class="skip-link" href="#atlas">Skip to ring explorer</a>
   <header class="site-header">
-    <a class="brand" href="#atlas" aria-label="Grothendieck Ring Atlas home">
-      <span class="brand-symbol" aria-hidden="true"><span>G</span></span>
-      <span class="brand-name">GROTHENDIECK<span class="brand-sub">RING ATLAS</span></span>
+    <a class="brand" href="#atlas" aria-label="Fusion and Grothendieck Ring Atlas home">
+      <span class="brand-symbol" aria-hidden="true"><span>FG</span></span>
+      <span class="brand-name">FUSION &amp; GROTHENDIECK<span class="brand-sub">RING ATLAS</span></span>
     </a>
     <nav class="top-nav" aria-label="Sections">
       <a href="#atlas" class="nav-active">Explore</a>
+      <a href="#rings">Ring catalogue</a>
       <a href="#classification">Classification</a>
       <a href="#papers">Papers</a>
       <a href="#sources">Sources</a>
@@ -28,11 +29,11 @@
 
   <main>
     <section class="intro" aria-labelledby="page-title">
-      <div class="eyebrow"><span class="tiny-diamond" aria-hidden="true"></span> THE RANK TWO THROUGH SIX CLASSIFICATION PROJECT</div>
+      <div class="eyebrow"><span class="tiny-diamond" aria-hidden="true"></span> FUSION-RING CENSUS · CATEGORIFICATION BY RANK</div>
       <div class="intro-grid">
         <div>
-          <h1 id="page-title">Classifying small-rank<br><em>Grothendieck rings.</em></h1>
-          <p class="intro-text">Explore which based rings admit complex fusion-category realizations, which are excluded, and where general existence remains unresolved.</p>
+          <h1 id="page-title">Fusion rings,<br><em>categorified.</em></h1>
+          <p class="intro-text">See every realized ring in the classified bands. Open its fusion data, characters, codegrees, model reference, and exact census provenance.</p>
         </div>
         <div class="intro-math" aria-hidden="true">
           <div class="math-small">BASED RING &nbsp; / &nbsp; MULTIPLICITY</div>
@@ -47,12 +48,16 @@
       <div class="section-heading">
         <div>
           <div class="eyebrow">01 / THE CLASSIFICATION</div>
-          <h2 id="atlas-heading">Results by rank and multiplicity</h2>
+          <h2 id="atlas-heading">Rings by rank and multiplicity</h2>
         </div>
-        <div class="section-aside">BASED-RING COUNTS <span class="aside-line"></span> CATEGORIFICATION STATUS</div>
+        <div class="section-aside">EXPLICITLY REALIZED RING TYPES · ≥ ON PARTIAL BANDS</div>
       </div>
       <div class="workspace-grid">
         <div class="atlas-panel">
+          <div class="kind-switch" role="group" aria-label="Counted ring population">
+            <button id="view-grothendieck" type="button" aria-pressed="true">Grothendieck rings <small>REALIZED</small></button>
+            <button id="view-fusion" type="button" aria-pressed="false">Fusion rings <small>ALL CENSUSED</small></button>
+          </div>
           <div class="control-bar">
             <div class="control-group" role="group" aria-label="Rank filters">
               <span class="control-label">RANK</span>
@@ -73,24 +78,55 @@
               <input id="jump-input" type="number" min="1" placeholder="Find m…" inputmode="numeric">
             </label>
           </div>
-          <div id="table-scroll" class="table-scroll" tabindex="0" aria-label="Fusion ring count table">
+          <div id="table-scroll" class="table-scroll" tabindex="0" aria-label="Grothendieck ring count table">
             <table id="count-table">
               <thead></thead><tbody></tbody>
             </table>
           </div>
           <div id="table-footer" class="table-footer">
             <span>Counts at exact multiplicity m.</span>
-            <span><span class="key-swatch" aria-hidden="true"></span> Shade: count within rank · left edge: classification status.</span>
+            <span><span class="key-swatch" aria-hidden="true"></span> Shade: realized ring count · open a number for its models.</span>
+          </div>
+          <div class="status-legend" aria-label="Categorification status legend">
+            <span><i class="legend-realized" aria-hidden="true"></i> Realized: a model is known</span>
+            <span><i class="legend-excluded" aria-hidden="true"></i> Excluded: a criterion rules it out</span>
+            <span><i class="legend-open" aria-hidden="true"></i> Open: general existence undecided</span>
           </div>
         </div>
         <aside id="cell-detail" class="detail-panel" aria-live="polite"></aside>
       </div>
-      <p class="scope-note">A ring count measures algebraic possibilities; a realization count measures rings with at least one fusion-category model. The table shows ranks with a classification manuscript and displays a band only when its categorification analysis is recorded.</p>
+      <p class="scope-note">Grothendieck counts mean <strong>confirmed realized ring types</strong>. A ≥ sign marks a lower bound in a band containing unresolved fusion rings; the eventual total could be larger. The Grothendieck view omits rows containing only zeros. Fusion view includes every analyzed census band; the <a href="https://github.com/sebastienpalcoux/fusion-ring-census" target="_blank" rel="noopener">full fusion-ring census table ↗</a> covers more bands.</p>
     </section>
+
+    <section id="rings" class="rings-section" aria-labelledby="rings-heading">
+      <div class="section-heading">
+        <div><div class="eyebrow">02 / EXPLICIT REALIZATIONS</div><h2 id="rings-heading">Ring catalogue</h2></div>
+        <div class="section-aside">TENSOR · CHARACTER TABLE · FORMAL CODEGREES · MODEL</div>
+      </div>
+      <div class="catalogue-controls">
+        <span id="catalogue-context">Choose a rank and multiplicity above.</span>
+        <label class="catalogue-search"><span class="sr-only">Search realized rings by name or identifier</span><input id="catalogue-search" type="search" placeholder="Find model or ring ID…"></label>
+        <button id="catalogue-scope" type="button" aria-pressed="false">Show all realized rings</button>
+      </div>
+      <div id="ring-cards" class="ring-cards" aria-live="polite"></div>
+      <p class="scope-note">Values marked ≈ are computed numerical approximations. Fusion coefficients, duals, invertible objects, and codegree polynomials where shown come from exact integer arithmetic.</p>
+    </section>
+
+    <dialog id="ring-dialog" class="ring-dialog" aria-labelledby="ring-title">
+      <div class="profile-bar"><span id="ring-kicker"></span><button id="close-ring" type="button" aria-label="Close ring details">×</button></div>
+      <h2 id="ring-title"></h2>
+      <div id="ring-facts" class="ring-facts"></div>
+      <div class="profile-tabs" role="tablist" aria-label="Ring details">
+        <button type="button" role="tab" data-profile-tab="tensor" aria-selected="true">Fusion data</button>
+        <button type="button" role="tab" data-profile-tab="characters" aria-selected="false">Characters &amp; codegrees</button>
+        <button type="button" role="tab" data-profile-tab="source" aria-selected="false">Model &amp; sources</button>
+      </div>
+      <div id="ring-profile" class="ring-profile" role="tabpanel"></div>
+    </dialog>
 
     <section id="classification" class="classification-section" aria-labelledby="classification-heading">
       <div class="section-heading">
-        <div><div class="eyebrow">02 / CATEGORIFICATION</div><h2 id="classification-heading">Classification scope</h2></div>
+        <div><div class="eyebrow">03 / CATEGORIFICATION</div><h2 id="classification-heading">Classification scope</h2></div>
         <div class="section-aside">OVER THE COMPLEX NUMBERS</div>
       </div>
       <div id="scope-cards" class="scope-cards"></div>
@@ -102,7 +138,7 @@
 
     <section id="papers" class="papers-section" aria-labelledby="papers-heading">
       <div class="section-heading">
-        <div><div class="eyebrow">03 / THE MANUSCRIPTS</div><h2 id="papers-heading">Papers &amp; verification</h2></div>
+        <div><div class="eyebrow">04 / THE MANUSCRIPTS</div><h2 id="papers-heading">Papers &amp; verification</h2></div>
         <div class="section-aside">THEOREMS · CERTIFICATES · REPRODUCTION</div>
       </div>
       <div id="paper-grid" class="paper-grid"></div>
@@ -110,15 +146,15 @@
 
     <section id="sources" class="sources-section" aria-labelledby="sources-heading">
       <div class="section-heading">
-        <div><div class="eyebrow">04 / PROVENANCE</div><h2 id="sources-heading">Trace every number</h2></div>
+        <div><div class="eyebrow">05 / PROVENANCE</div><h2 id="sources-heading">Trace every number</h2></div>
       </div>
       <div class="source-grid">
         <div class="source-item"><span class="source-index">A /</span><div><h3>Fusion-ring census</h3><p>The source of the complete based-ring counts and canonical multiplication data. <span id="source-commit"></span></p><a href="https://github.com/sebastienpalcoux/fusion-ring-census" target="_blank" rel="noopener">Open census repository <span aria-hidden="true">↗</span></a></div></div>
         <div class="source-item"><span class="source-index">B /</span><div><h3>Classification research</h3><p>Manuscripts, model catalogues, exclusion certificates, and verification instructions.</p><a href="https://github.com/sebastienpalcoux/grothendieck-ring-classification" target="_blank" rel="noopener">Open classification repository <span aria-hidden="true">↗</span></a></div></div>
-        <div class="source-item"><span class="source-index">C /</span><div><h3>Download the data</h3><p>Export each exact census count and its source, or the classification ledger with exclusions, realizations, and unresolved cases.</p><a href="./data/counts.csv" download>Counts CSV <span aria-hidden="true">↓</span></a><a href="./data/classification_status.json" download>Status JSON <span aria-hidden="true">↓</span></a></div></div>
+        <div class="source-item"><span class="source-index">C /</span><div><h3>Download the data</h3><p>Export the realized-ring records, Grothendieck counts, fusion-ring counts, or categorification ledger.</p><a href="./data/realized_rings.json" download>Explicit rings JSON <span aria-hidden="true">↓</span></a><a href="./data/grothendieck_counts.csv" download>Grothendieck counts CSV <span aria-hidden="true">↓</span></a><a href="./data/counts.csv" download>Fusion counts CSV <span aria-hidden="true">↓</span></a><a href="./data/classification_status.json" download>Status JSON <span aria-hidden="true">↓</span></a></div></div>
       </div>
     </section>
   </main>
-  <footer class="site-footer"><span>GROTHENDIECK RING ATLAS</span><span>Research snapshot · 23 September 2026</span><a href="#atlas">Back to counts ↑</a></footer>
+  <footer class="site-footer"><span>FUSION &amp; GROTHENDIECK RING ATLAS</span><span>Research snapshot · 23 September 2026</span><a href="#atlas">Back to rings ↑</a></footer>
 </body>
 </html>

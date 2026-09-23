@@ -9,20 +9,15 @@ The pinned \texttt{fusion-ring-census} repository \cite{Census} records
 $40999$ pairwise nonisomorphic rank-five fusion rings through
 multiplicity twenty. The checkers validate the release tensors against
 the ring axioms. Exactly
-seventeen match the constructed unitary models. There are $40980$
-verified general exclusion certificates. The remaining two tensors,
-local indices $5073$ and $5076$ at exact multiplicity eighteen,
-have spherical exclusion certificates but no general exclusion in this
-release. Thus general classification is complete through seventeen
-($23413$ rings) and separately at exact multiplicities nineteen and
-twenty (all $12506$ rings are excluded); pivotal, spherical,
-pseudo-unitary and unitary classification is complete through twenty.
-
-The word ``unresolved'' is a statement about this pipeline. The signed
-enumeration at these two tensors did not finish within its sixty-second
-subprocess allowance. This is neither a nonexistence certificate nor a
-feasible associator system. Existing exact spherical certificates are
-kept separate from that diagnostic.
+seventeen match the constructed unitary models. The other $40982$
+have verified general exclusion certificates. In particular, the two
+formerly unresolved tensors at local indices $5073$ and $5076$ at
+exact multiplicity eighteen now have general certificates: a new
+inert-prime parity theorem forces any categorification to be spherical,
+and their existing exact spherical-character certificates then exclude
+it. Thus general, pivotal, spherical, pseudo-unitary and unitary
+categorification is classified through twenty. The old signed-search
+timeouts remain discovery diagnostics; they are not used as certificates.
 
 \section{Environment and complete verification commands}
 Use Python 3.11 or later, SymPy and NumPy, and a C++17 compiler supporting
@@ -48,7 +43,7 @@ are measurements, not substitutes for rerunning the checker.
 
 The optional \texttt{--skip-regressions} flag omits only the secondary
 controls; it still checks the full census, all exclusions, all models
-and both spherical frontier certificates. It is not the command used
+and both inert-parity/spherical composite certificates. It is not the command used
 for the archived full runs. Use \texttt{--output PATH} to preserve the
 archived summary when running a local copy. Local timing may vary with
 hardware and process contention.
@@ -105,7 +100,10 @@ branches verify weak integrality or the two-FP-values reduction, then
 central induction. Quadratic-parity certificates recover $A_i$ from the
 square rows, verify all FP multiplication equations, squarefreeness,
 conductor congruence, the Casimir polynomial, its mod-two zero multiplicity,
-the square-row kernel and irreducibility. No fixed radicand is assumed.
+the square-row kernel and irreducibility. Inert-prime parity certificates
+add an exhaustive four-element-field character check and central
+divisibility filter; they recompute the exact spherical obstruction.
+No fixed radicand or list of labels is assumed by either criterion.
 
 A spherical certificate exhausts the irreducible character components
 of the commutative rational algebra. A general signed certificate first
@@ -113,8 +111,8 @@ checks that spherical certificate, then regenerates every associative
 signed tensor in the positive-second-indicator normalization and every
 remaining dimension-character component. Timeouts, omitted branches,
 incorrect field factors or missing low matrices cause verification to
-fail. The new parity theorem replaces this search where its hypotheses
-hold; it does not assert pivotality for arbitrary rank-five rings.
+fail. The parity theorems replace this search where their hypotheses
+hold; they do not assert pivotality for arbitrary rank-five rings.
 
 For low induction the checker recomputes every bounded column of required
 dimension and every row-sum completion. Native Gram pruning discards
@@ -136,14 +134,14 @@ reductions. Its balanced Galois branches instead check an explicitly
 nonintegral fusion coefficient. Every support and indicator branch is
 accounted for.
 
-\section{Continuing the search}
+\section{Applying the criterion to another tensor}
 The discovery driver does not look up the decision ledger. It either
 matches a constructed positive model or applies the same tensor criteria
 and exactly verifies the returned certificate. For example,
 \begin{verbatim}
 python software/discover.py --multiplicity 18 --index 5073 \
     --height 6 --seconds 120 \
-    --output verification/frontier_retry.jsonl
+    --output verification/inert_example.jsonl
 \end{verbatim}
 The index in this command is the local ordinal stored in
 \texttt{local\_index}. An arbitrary
@@ -154,7 +152,12 @@ python software/discover.py --tensor new_tensor.json \
     --height 6 --seconds 120 --output verification/new.jsonl
 \end{verbatim}
 A JSON object with an \texttt{N} or \texttt{tensor} field is also accepted.
-The total per-tensor allowance is separate from the signed subprocess
+For the displayed example, inert-prime parity and the spherical-character
+certificate apply automatically from the tensor; the historical index
+has no role in the criterion. A separate independent residue-field
+enumeration is available as
+\texttt{python software/audit\_inert\_residues.py}.
+For other inputs the total per-tensor allowance is separate from the signed subprocess
 allowance, which is half of it. An unsupported field, absent separating
 ray, exception or timeout produces \texttt{unresolved}, not
 \texttt{excluded}. Raising the budget or height is permitted; a new
@@ -205,9 +208,9 @@ existence statuses through twenty; \texttt{data/decisions.json} preserves
 the historical tensor labels through eighteen.
 \texttt{data/extension19\_20/full.jsonl} contains the directly indexed
 repository tensors and exact certificates.
-\texttt{data/frontier.json} contains both tensors,
+\texttt{data/frontier.json} preserves the two historically difficult tensors,
 formal codegrees, FP dimensions, spherical certificates and discovery
-diagnostics. The complete general certificates are in one tensor-indexed
+diagnostics. Their complete general certificates are in one tensor-indexed
 file. All source inputs, run measurements and version information are
 recorded in \texttt{provenance/}. Obsolete case-specific scripts and
 status tables are retired, not left as contradictory alternative entry

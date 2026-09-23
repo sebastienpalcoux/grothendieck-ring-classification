@@ -9,6 +9,22 @@
     {
       "name": "Rank6_Categorification_M8(1).zip",
       "sha256": "6d8618e43cb0d16a78d9913e3ff6d6de615345b619d33f33e737f1dea99c280e"
+    },
+    {
+      "name": "Rank5_Complete_Through20_InertParity_2026-09-23.zip",
+      "sha256": "6981c0ade02db714e38076ff30b3119712ce6b137ac376c2a8ae474a01bb9f49"
+    },
+    {
+      "name": "rank7-certified-through-m4.zip",
+      "sha256": "2a66d34b185fb9178b34e30bedf4a4a2eb44343d774e94a56dfcf4f27308c128"
+    },
+    {
+      "name": "rank8-verified-supplement.zip",
+      "sha256": "69634a5b50fcf92d4b577fda66774317016c208b06d9925f9edf19937b044546"
+    },
+    {
+      "name": "Rank6_Categorification_M8_CrossRank_2026-09-23.zip",
+      "sha256": "4027dc2a563a4fef5e46a11e2f307ef66b83f34cc5ebf6944438d4e5d340cc71"
     }
   ],
   "inputs": {
@@ -23,12 +39,11 @@
     },
     "rank5": {
       "file": "decisions_all.json",
-      "sha256": "4ca1313570668d55b4d9203de4d5e613d381d32e7db7155bbacfff30ce8757b2",
+      "sha256": "9261917451d469ece9929a1756f505924cf84adf34e79a0d2e6f68fed43f55cf",
       "classified_through": 20,
       "status_totals": {
         "realized": 17,
-        "excluded": 40980,
-        "unresolved": 2
+        "excluded": 40982
       }
     },
     "rank6": {
@@ -50,6 +65,26 @@
       "basis": "Five unrestricted categorical Grothendieck rings: four of multiplicity 1 and one of multiplicity 2; see the standalone sphericality and ring-classification manuscript",
       "classified_through": "all",
       "proof_status": "Independent ring-level necessity proof and sphericality argument in manuscripts/rank3.tex; source includes an exact arithmetic checker."
+    },
+    "rank7": {
+      "file": "supplements/rank7/output/rank7_ledger.json",
+      "sha256": "de2eb6c024a9271a66d8b34c187ebc4eca9bbd6fc1625b8e85c18b66c4abbb73",
+      "classified_through": 4,
+      "status_totals": {
+        "excluded": 4107,
+        "unitarily_realized": 16,
+        "unresolved": 78
+      }
+    },
+    "rank8": {
+      "file": "supplements/rank8/data/decisions.json",
+      "sha256": "555e206a8df62db6ddb557543ae37a77a7345f6129881de26fb70d3c927203df",
+      "classified_through": 2,
+      "status_totals": {
+        "excluded": 824,
+        "unitarily_realized": 33,
+        "unresolved": 116
+      }
     }
   },
   "rows": [
@@ -25797,13 +25832,13 @@
       "rank": 5,
       "multiplicity": 18,
       "rings": 5080,
-      "excluded_general": 5078,
+      "excluded_general": 5080,
       "realized_unitary": 0,
       "realized_other_or_unspecified": 0,
       "realized_spherical_nonpseudounitary": 0,
-      "unresolved_general": 2,
+      "unresolved_general": 0,
       "unassessed": 0,
-      "classification_coverage": "partial_classification"
+      "classification_coverage": "complete_classification"
     },
     {
       "rank": 5,
@@ -25924,7 +25959,79 @@
       "unresolved_general": 19,
       "unassessed": 0,
       "classification_coverage": "partial_classification"
+    },
+    {
+      "rank": 7,
+      "multiplicity": 1,
+      "rings": 43,
+      "excluded_general": 30,
+      "realized_unitary": 10,
+      "realized_other_or_unspecified": 0,
+      "realized_spherical_nonpseudounitary": 0,
+      "unresolved_general": 3,
+      "unassessed": 0,
+      "classification_coverage": "partial_classification"
+    },
+    {
+      "rank": 7,
+      "multiplicity": 2,
+      "rings": 319,
+      "excluded_general": 291,
+      "realized_unitary": 5,
+      "realized_other_or_unspecified": 0,
+      "realized_spherical_nonpseudounitary": 0,
+      "unresolved_general": 23,
+      "unassessed": 0,
+      "classification_coverage": "partial_classification"
+    },
+    {
+      "rank": 7,
+      "multiplicity": 3,
+      "rings": 1059,
+      "excluded_general": 1035,
+      "realized_unitary": 1,
+      "realized_other_or_unspecified": 0,
+      "realized_spherical_nonpseudounitary": 0,
+      "unresolved_general": 23,
+      "unassessed": 0,
+      "classification_coverage": "partial_classification"
+    },
+    {
+      "rank": 7,
+      "multiplicity": 4,
+      "rings": 2780,
+      "excluded_general": 2751,
+      "realized_unitary": 0,
+      "realized_other_or_unspecified": 0,
+      "realized_spherical_nonpseudounitary": 0,
+      "unresolved_general": 29,
+      "unassessed": 0,
+      "classification_coverage": "partial_classification"
+    },
+    {
+      "rank": 8,
+      "multiplicity": 1,
+      "rings": 96,
+      "excluded_general": 41,
+      "realized_unitary": 25,
+      "realized_other_or_unspecified": 0,
+      "realized_spherical_nonpseudounitary": 0,
+      "unresolved_general": 30,
+      "unassessed": 0,
+      "classification_coverage": "partial_classification"
+    },
+    {
+      "rank": 8,
+      "multiplicity": 2,
+      "rings": 877,
+      "excluded_general": 783,
+      "realized_unitary": 8,
+      "realized_other_or_unspecified": 0,
+      "realized_spherical_nonpseudounitary": 0,
+      "unresolved_general": 86,
+      "unassessed": 0,
+      "classification_coverage": "partial_classification"
     }
   ],
-  "site_filter": "Only ranks 2–6 with complete or partial classification coverage; unassessed census-only bands are omitted."
+  "site_filter": "Ranks 2–8 with complete or partial categorification analysis; unassessed census-only bands omitted."
 }
