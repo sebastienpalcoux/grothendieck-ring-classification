@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0d1325">
+  <meta name="description" content="Explore exact fusion ring counts and the current classification frontier by rank and multiplicity.">
+  <title>Grothendieck Ring Atlas</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230d1325'/%3E%3Cpath d='M17 43V20h28M17 32h20M29 20v23h18' fill='none' stroke='%23deb673' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#atlas">Skip to counts</a>
+  <header class="site-header">
+    <a class="brand" href="#atlas" aria-label="Grothendieck Ring Atlas home">
+      <span class="brand-symbol" aria-hidden="true"><span>G</span></span>
+      <span class="brand-name">GROTHENDIECK<span class="brand-sub">RING ATLAS</span></span>
+    </a>
+    <nav class="top-nav" aria-label="Sections">
+      <a href="#atlas" class="nav-active">Explore</a>
+      <a href="#classification">Classification</a>
+      <a href="#papers">Papers</a>
+      <a href="#sources">Sources</a>
+    </nav>
+    <span class="edition">RESEARCH EDITION <span class="edition-dot" aria-hidden="true"></span> 23 SEP 2026</span>
+  </header>
+
+  <main>
+    <section class="intro" aria-labelledby="page-title">
+      <div class="eyebrow"><span class="tiny-diamond" aria-hidden="true"></span> THE RANK TWO THROUGH SIX CLASSIFICATION PROJECT</div>
+      <div class="intro-grid">
+        <div>
+          <h1 id="page-title">Classifying small-rank<br><em>Grothendieck rings.</em></h1>
+          <p class="intro-text">Explore which based rings admit complex fusion-category realizations, which are excluded, and where general existence remains unresolved.</p>
+        </div>
+        <div class="intro-math" aria-hidden="true">
+          <div class="math-small">BASED RING &nbsp; / &nbsp; MULTIPLICITY</div>
+          <div class="math-formula">X<sub>i</sub> X<sub>j</sub> = <span class="math-sigma">∑</span><sub>k</sub> N<sub>ij</sub><sup>k</sup> X<sub>k</sub></div>
+          <div class="math-rule"></div>
+          <div class="math-small">m = max&nbsp; N<sub>ij</sub><sup>k</sup></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="atlas" class="workspace" aria-labelledby="atlas-heading">
+      <div class="section-heading">
+        <div>
+          <div class="eyebrow">01 / THE CLASSIFICATION</div>
+          <h2 id="atlas-heading">Results by rank and multiplicity</h2>
+        </div>
+        <div class="section-aside">BASED-RING COUNTS <span class="aside-line"></span> CATEGORIFICATION STATUS</div>
+      </div>
+      <div class="workspace-grid">
+        <div class="atlas-panel">
+          <div class="control-bar">
+            <div class="control-group" role="group" aria-label="Rank filters">
+              <span class="control-label">RANK</span>
+              <div id="rank-filters" class="rank-filters"></div>
+            </div>
+            <div class="control-group">
+              <label class="control-label" for="range-select">SHOW</label>
+              <select id="range-select" aria-label="Maximum multiplicity">
+                <option value="8">m ≤ 8</option>
+                <option value="20" selected>m ≤ 20</option>
+                <option value="128">m ≤ 128</option>
+                <option value="all">All recorded</option>
+              </select>
+            </div>
+            <label class="search-wrap">
+              <span class="search-symbol" aria-hidden="true">⌕</span>
+              <span class="sr-only">Jump to multiplicity</span>
+              <input id="jump-input" type="number" min="1" placeholder="Find m…" inputmode="numeric">
+            </label>
+          </div>
+          <div id="table-scroll" class="table-scroll" tabindex="0" aria-label="Fusion ring count table">
+            <table id="count-table">
+              <thead></thead><tbody></tbody>
+            </table>
+          </div>
+          <div id="table-footer" class="table-footer">
+            <span>Counts at exact multiplicity m.</span>
+            <span><span class="key-swatch" aria-hidden="true"></span> Shade: count within rank · left edge: classification status.</span>
+          </div>
+        </div>
+        <aside id="cell-detail" class="detail-panel" aria-live="polite"></aside>
+      </div>
+      <p class="scope-note">A ring count measures algebraic possibilities; a realization count measures rings with at least one fusion-category model. The table shows ranks with a classification manuscript and displays a band only when its categorification analysis is recorded.</p>
+    </section>
+
+    <section id="classification" class="classification-section" aria-labelledby="classification-heading">
+      <div class="section-heading">
+        <div><div class="eyebrow">02 / CATEGORIFICATION</div><h2 id="classification-heading">Classification scope</h2></div>
+        <div class="section-aside">OVER THE COMPLEX NUMBERS</div>
+      </div>
+      <div id="scope-cards" class="scope-cards"></div>
+      <div class="definition-strip">
+        <span class="definition-mark">↗</span>
+        <p><strong>What “complete” means here.</strong> Within the stated range, each counted based ring has either a categorical model or an exclusion by a necessary criterion. Results outside that range are not implied by the count table.</p>
+      </div>
+    </section>
+
+    <section id="papers" class="papers-section" aria-labelledby="papers-heading">
+      <div class="section-heading">
+        <div><div class="eyebrow">03 / THE MANUSCRIPTS</div><h2 id="papers-heading">Papers &amp; verification</h2></div>
+        <div class="section-aside">THEOREMS · CERTIFICATES · REPRODUCTION</div>
+      </div>
+      <div id="paper-grid" class="paper-grid"></div>
+    </section>
+
+    <section id="sources" class="sources-section" aria-labelledby="sources-heading">
+      <div class="section-heading">
+        <div><div class="eyebrow">04 / PROVENANCE</div><h2 id="sources-heading">Trace every number</h2></div>
+      </div>
+      <div class="source-grid">
+        <div class="source-item"><span class="source-index">A /</span><div><h3>Fusion-ring census</h3><p>The source of the complete based-ring counts and canonical multiplication data. <span id="source-commit"></span></p><a href="https://github.com/sebastienpalcoux/fusion-ring-census" target="_blank" rel="noopener">Open census repository <span aria-hidden="true">↗</span></a></div></div>
+        <div class="source-item"><span class="source-index">B /</span><div><h3>Classification research</h3><p>Manuscripts, model catalogues, exclusion certificates, and verification instructions.</p><a href="https://github.com/sebastienpalcoux/grothendieck-ring-classification" target="_blank" rel="noopener">Open classification repository <span aria-hidden="true">↗</span></a></div></div>
+        <div class="source-item"><span class="source-index">C /</span><div><h3>Download the data</h3><p>Export each exact census count and its source, or the classification ledger with exclusions, realizations, and unresolved cases.</p><a href="./data/counts.csv" download>Counts CSV <span aria-hidden="true">↓</span></a><a href="./data/classification_status.json" download>Status JSON <span aria-hidden="true">↓</span></a></div></div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer"><span>GROTHENDIECK RING ATLAS</span><span>Research snapshot · 23 September 2026</span><a href="#atlas">Back to counts ↑</a></footer>
+</body>
+</html>

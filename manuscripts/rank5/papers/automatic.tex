@@ -1,0 +1,154 @@
+\section{Automatic application and the next frontier}\label{sec:automatic}
+\subsection{A label-free decision procedure}
+Every exclusion receives its input as the complete integer multiplication
+tensor. The application order is arithmetic screening, the cyclic-four
+central-support criterion when recognized, quadratic parity when its
+hypotheses hold, and otherwise the positive-indicator sphericalization
+framework. Pseudo-unitary branches use the low-induction bounds followed
+by the same finite-indicator systems. Spherical branches exhaust the
+dimension-character components. Signed branches exhaust the bounded
+associative tables in the normalization \eqref{eq:positive-lifts} and
+every eligible character component. Successful branches are rechecked
+before a certificate is accepted.
+
+None of these functions receives a multiplicity index, historical label,
+previous status or positive-list complement as a hypothesis. The
+seventeen model matches are a separate positive channel. An arithmetic
+failure, field obstruction, missing complete low matrix, exact moment
+violation or integer separating vector is a mathematical witness. A
+search timeout, unsupported field or unsuccessful linear program is not.
+This policy is enforced by the decision ledger.
+
+The top-level allocations in Table~\ref{tab:allocation} are disjoint and
+follow the actual decision order. Formal-codegree arithmetic comes first
+because it settles almost all inputs without a central search. The
+cheap cyclotomic and fusion-subring checks follow. Exact recognition of
+cyclic-four and quadratic-parity tensors is cheap; their specialized
+systems are built only on those families. Positive reduction and central
+induction precede the full signed sphericalization search. These choices
+balance rejection frequency and cost, without claiming a formal runtime
+optimality theorem. The low-moment bounds are retained for their cost
+advantage, despite being consequences of stronger moment conditions.
+\input{allocation_table}
+\input{stage_table}
+\input{coverage_table}
+
+The last new \emph{criterion family} first used in the checked range is
+cyclic-four central support at multiplicity eight: from multiplicity nine
+through twenty, every exclusion uses the same repertoire. The
+parity-plus-spherical-character \emph{certificate type}, which combines
+already available conditions, first occurs at multiplicity twelve.
+Thus every top-level certificate type has already appeared by twelve,
+and from thirteen through twenty the executable proof allocation
+introduces no new type. This identifies the earliest multiplicity in
+the verified ledger after which no new criterion family, respectively
+certificate type, is needed. It makes no claim of a uniform unbounded
+classification: two general residuals occur at eighteen.
+
+For the cyclic-four tensors, automatic recognition returns $k=2,3,4,5$.
+The height-six criterion checks respectively $6,6,14,14$ support/indicator
+branches. At $k=2$ the balanced Galois test removes two and exact
+separators remove four; at $k=3,4,5$ all branches have exact separators.
+The same routine leaves the positive $k=1$ model unexcluded.
+These are recorded applications of Theorem~\ref{thm:cyclic}, not three
+separate nonexistence arguments. Similarly, the twenty-six top-level
+quadratic-parity applications are detected from the square rows and
+verified modulo two; no fixed list of radicands enters the code.
+
+Integral inputs use the rational specialization of
+Theorem~\ref{thm:finite}. No published classification of integral rings
+is invoked to exclude them. No one-ring two-moment calculation, special
+root-length test or isolated signed-case file is needed. All signed
+certificates use the positive-indicator normalization, rather than
+retaining separate ordinary and adjoint-parity enumeration modes in the
+proof allocation.
+
+\subsection{Proof of Theorem~\ref{thm:main}}
+The pinned repository census \cite{Census} gives the counts in
+Table~\ref{tab:census}. Section~\ref{sec:models} supplies the
+seventeen unitary realizations and their exact tensor matches.
+For every other ring with $\mu\le17$, the exhaustive ledger supplies a
+general exclusion certificate covered by the theorems and cited inputs
+above. There are $23396$ such certificates. At multiplicity eighteen,
+$5078$ of the $5080$ rings have general exclusion certificates. At exact
+multiplicities nineteen and twenty, every one of the $5640+6866$
+repository tensors has a general exclusion certificate. These later
+certificates use the same criterion order and exact checker, but are
+addressed directly against the pinned repository tensor order, not the
+older local basis labels. The two remaining multiplicity-eighteen
+rings have complete spherical exclusions. Their bases are
+self-dual, so every pivotal structure would be spherical: the left
+pivotal dimension of a simple equals the right dimension of its dual.
+This excludes pivotal existence as well. The inclusions among the five
+existence notions and the seventeen unitary realizations give all the
+asserted equivalences and ranges.\qed
+
+The exhaustive step here is a finite, exact certificate verification;
+it is not a proof-assistant formalization of the categorical theorems.
+The release includes every tensor, branch and integer witness, so its
+finite assertions can be reproduced from the pinned census rather than
+trusted as a numerical census label. The two proof-ledger verification
+commands recheck the entire $28493+12506=40999$-ring source and each
+accepted certificate.
+
+\subsection{The two general residuals}
+In the twenty self-dual coordinates of Section~\ref{sec:data}, the two
+remaining tensors are
+\input{frontier_tensors}
+They have common sorted FP type
+\[
+ (1,a,a,a+1,a+2),\qquad a=33+2\sqrt{285},
+ \qquad D=9120+540\sqrt{285}.
+\]
+Their formal-codegree polynomials are respectively
+\begin{align*}
+ (t-3)^2(t-15)(t^2-18240t+68400),\\
+ (t-3)(t-5)^2(t^2-18240t+68400).
+\end{align*}
+Both reduce to $t^2(t+1)^3$ modulo two. Therefore
+Lemma~\ref{lem:spectral} restricts a hypothetical sphericalization's
+entire dimension field to $\Q(\sqrt{285})$, not merely the field of its
+global dimension. However, the displayed FP dimensions do not satisfy
+Theorem~\ref{thm:parity}: $285\equiv1\pmod4$ and the irrational
+coefficient is two. The applicable ring of integers is
+$\ZZ[(1+\sqrt{285})/2]$. Extending the parity rigidity argument to this
+situation is a specific possible continuation, not a theorem used here.
+
+At both tensors, a complete spherical certificate was obtained; the
+general positive-indicator signed enumeration reached its sixty-second
+subprocess limit without completion. The discovery records preserve this
+distinction. Thus multiplicity eighteen is the first unresolved
+\emph{general} stage of the present pipeline after complete treatment of
+sixteen and seventeen. Neither tensor is certified feasible, and neither
+is asserted to be unknown throughout the literature.
+
+\subsection{Numbering and reproducibility}
+The release's notation $\F{m}{j}$ preserves the first index and basis
+from the historical ancillary file of \cite{VS} when one exists.
+Classes absent from that file have appended archival labels in local
+tensor order. Separately, the field \texttt{local\_index} gives the
+one-based ordinal within the archived tensor records at fixed $m$.
+At multiplicity eighteen the two indices coincide. Fingerprints
+of the full tensors, rather than these labels, key every certificate.
+
+The command \texttt{python verify.py} checks the first $28493$ tensors,
+canonical uniqueness, the full pinned-repository isomorphism crosswalk,
+and all $28474$ general exclusion
+certificates, the seventeen constructed model matches and both spherical
+frontier certificates. The companion command
+\texttt{python software/verify\_extension.py} checks exact source order,
+ring axioms, uniqueness and all $12506$ later general exclusion
+certificates. Both regenerate each finite matrix and signed branch.
+Python/native Gram comparisons and deliberate certificate mutations are
+additional controls. The command \texttt{python -O verify.py} performs
+the same proof checks: none is implemented using a removable Python
+\texttt{assert}. The accepted separating vectors are tested with integers;
+a numerical optimization solver is used only in discovery.
+
+The verification guide gives exact commands, input conventions, checked
+integer ranges, dependencies and the failure policy. The bundled pinned
+repository tensors are the census input. The discovery command
+accepts either an external tensor or a canonical index and
+applies the same criteria at the chosen moment height and search budget.
+The archive also contains complete decision and provenance ledgers,
+input hashes and provenance notes.

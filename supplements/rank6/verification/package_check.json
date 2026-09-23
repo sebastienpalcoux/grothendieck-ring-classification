@@ -1,0 +1,46 @@
+{
+  "passed": true,
+  "scope": "Revised package checksum, lower-rank-subring certificates and ledger consistency; no independent census enumeration or repeat full certificate sweep.",
+  "checks": [
+    {
+      "check": "manifest",
+      "command": [
+        "python",
+        "check_manifest.py"
+      ],
+      "returncode": 0,
+      "stdout": "Checked 253 files; 0 failures.\n"
+    },
+    {
+      "check": "ledger_consistency",
+      "command": [
+        "python",
+        "software/release_consistency.py"
+      ],
+      "returncode": 0,
+      "ledger_rows": 16612,
+      "model_rows": 54,
+      "residual_rows": 47
+    },
+    {
+      "check": "lower_rank_subring",
+      "command": "Reconstruct each stored lower-rank-subring exclusion with software/subring_descent.py:verify",
+      "returncode": 0,
+      "certificates_verified": 144
+    },
+    {
+      "check": "latex",
+      "command": [
+        "python",
+        "build_papers.py"
+      ],
+      "returncode": 0,
+      "pdfs": [
+        "papers/manuscript.pdf",
+        "papers/verification_guide.pdf"
+      ]
+    }
+  ],
+  "full_negative_certificate_sweep_in_this_revision": false,
+  "original_full_negative_certificate_checks": "verification/release_summary.json"
+}

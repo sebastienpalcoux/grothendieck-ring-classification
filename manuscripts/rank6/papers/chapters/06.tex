@@ -1,0 +1,1405 @@
+\section{Categorical models and exact tensor reconstruction}\label{sec:positive}
+Positive records are established by tensor matches to constructions,
+not by lack of an obstruction. We use Deligne products of the standard
+rank-two and rank-three unitary categories, the $TT_3$ category of
+\cite[Definition~2.5]{EM}, and the positive quadratic constructions
+of \cite[Proposition~5.1, Corollary~5.8]{MY}. We use the latter results
+only for existence, not as a negative classification oracle.
+Every displayed tensor is reconstructed from its defining rules and
+compared under unit-preserving permutations with the census.
+
+\subsection{A central fermion and a cyclic-four quadratic ring}
+Let $\mathcal D$ be the unitary near-group category
+$\operatorname{Ad}(E_6)$ with basis $1,h,X$ and rules
+\begin{equation}\label{eq:E6}
+ h^2=1,\qquad hX=Xh=X,\qquad X^2=1+h+2X.
+\end{equation}
+Its noninvertible dimension is $d=1+\sqrt3$, and
+$D=\dim\mathcal D=4+2d$.
+
+\begin{lemma}[Central fermion]\label{lem:fermion}
+There is an invertible $z\in Z(\mathcal D)$ with
+$F(z)=h$, $z^2=1$, and $\theta_z=-1$. The full subcategory generated
+by $z$ is the unitary symmetric category $\mathrm{sVec}$.
+\end{lemma}
+\begin{proof}
+The formal codegrees are $D$, $D'=6-2\sqrt3$, and $2$.
+Thus $I(1)=1\oplus A\oplus B$, with dimensions
+$1,1+d,2+d$. Since $FI(1)=3\cdot1+h+2X$, comparison of the unit
+multiplicities and of the coefficients of $1,d$ gives
+\[
+ F(A)=1+X,\qquad F(B)=1+h+X.
+\]
+All three low twists are one.
+
+The induction Gram matrix in the basis $(1,h,X)$ is
+\[
+ \begin{pmatrix}3&1&2\\1&3&2\\2&2&8\end{pmatrix}.
+\]
+Only $B$ among the low objects occurs in $I(h)$, once. The remaining
+endomorphism dimension is $3-1=2$, so the remainder consists of two
+distinct simples, both with multiplicity one. Its restriction is
+$FI(h)-F(B)=2h+X$. Consequently these two objects are $z,W$ with
+$F(z)=h$ and $F(W)=h+X$. The object $z$ has dimension one and is
+invertible. Its square restricts to the unit; the only central simple
+restricting to the unit is the unit itself, as the decomposition of
+$I(1)$ shows. Therefore $z^2=1$.
+
+The pointed associator class on $\langle h\rangle$ is trivial: the
+rank-one module category on $X$ supplies a two-cochain whose coboundary
+is the restricted associator. In the positive spherical structure,
+$\nu_2(h)=1$. Equation~\eqref{eq:indicator} at $k=2$ implies that every
+twist in $I(h)$ squares to one, because all dimensions are positive and
+their total is $D$. At $k=1$ it gives
+\[
+ 0=(2+d)+\theta_z+(1+d)\theta_W.
+\]
+The known positive summand has exactly the total dimension of the other
+two. Equality in the triangle inequality forces
+$\theta_z=\theta_W=-1$. Finally an order-two invertible in a unitary
+ribbon category with twist $-1$ has self-braiding $-1$ in its canonical
+positive structure. Its generated pointed braided category is
+$\mathrm{sVec}$.
+\end{proof}
+
+\begin{proposition}[Fermionic zesting]\label{prop:zest}
+The ring $\RR{2}{2}$ has a unitary categorification. More generally, if
+a unitary fusion category $\mathcal D$ has a central fermion $z$ of
+order two, the rules
+\begin{equation}\label{eq:zest}
+ (U,a)\star(V,b)=(U\otimes V\otimes F(z)^{ab},a+b),
+ \qquad a,b\in\ZZ/2,
+\end{equation}
+on $\mathcal D\boxtimes\Vec_{\ZZ/2}$ admit a unitary associator.
+\end{proposition}
+\begin{proof}
+Use the central two-cocycle $\lambda(a,b)=z^{ab}$ and normalized
+associativity scalar
+$\tau(a,b,c)=i^{abc}$, where the exponents use representatives
+$0,1$. The only central interchange obstruction is
+$c_{\lambda(a,b),\lambda(c,d)}=(-1)^{abcd}$. A direct calculation gives
+\begin{align*}
+ &bcd+a(b\mathbin\oplus c)d+abc
+ -(a\mathbin\oplus b)cd-ab(c\mathbin\oplus d)\\
+ &\hspace{35mm}\equiv 2abcd\pmod4,
+\end{align*}
+where $\oplus$ is addition modulo two. Thus the coboundary of $\tau$
+is precisely that interchange obstruction. The associative-zesting
+construction of \cite[Definition~3.2, Proposition~3.4]{DGP}, in the
+relative-center formulation also recalled in \cite[Definition~2.1]{AGM},
+therefore supplies the pentagon and rigidity for \eqref{eq:zest}.
+All structural maps used are unitary, including the scalar $\tau$, so
+the resulting fusion category is unitary. This use of a known
+construction does not claim to have independently solved its individual
+$F$-symbol equations.
+
+Apply Lemma~\ref{lem:fermion}. Let $g=(1,1)$, identify
+$g^2=(h,0)$, and write $Y=(X,0)$ and $X_1=(X,1)$.
+Then the invertibles form $C_4$,
+\[
+ gY=X_1,\quad gX_1=Y,\quad
+ Y^2=X_1^2=1+g^2+2Y,\quad
+ X_1Y=g+g^3+2X_1.
+\]
+These rules reconstruct the full tensor that is based-isomorphic to
+$\RR{2}{2}$. The supplement checks that equality and all sixteen scalar
+coboundary identities exactly.
+\end{proof}
+
+The proposition is a positive construction, not an assertion that this
+fusion category or its ring has not appeared in another presentation.
+It is particularly useful here because a ring that survived the first
+obstruction pass is thereby removed from the residual list for the
+correct reason: existence rather than an attempted exclusion.
+
+\subsection{Finite-group and group-theoretical models}
+For $G=(C_3\times C_3)\rtimes C_4$, with the order-four rotation
+$(x,y)\mapsto(-y,x)$, the character ring is reconstructed from four
+linear characters and two induced characters. Exact character inner
+products give all fusion coefficients and identify $\RR{2}{11}$.
+
+We also compute the untwisted group-theoretical categories
+$\mathcal C(G,1,H,1)$ for
+\[
+ (G,H)=(A_4,C_2),\quad(A_5,D_{10}),\quad(A_5,S_3).
+\]
+Here $D_{10}$ has order ten. The finite-group construction is standard;
+we recall its explicit tensor calculation to distinguish it from a
+mere comparison of dimension types. Realize the category as
+$H$-bimodules in $\Vec_G$. Its simples are supported on double cosets
+$HgH$ and indexed by irreducible representations of
+$H\cap gHg^{-1}$. The tensor product is relative tensor product over
+the group algebra of $H$. Equivalently it is convolution of the
+corresponding equivariant vector bundles. The character of a convolution
+fiber is computed by summing over the middle $H$-orbits and taking
+invariants under the stabilizer; averaging the finite stabilizer action
+gives its multiplicities. This is a finite exact character-inner-product
+calculation. The code lists the groups as permutations, computes the
+double cosets and stabilizers, and uses their exact character values.
+It then checks the resulting complete fusion tensors.
+
+The three outputs are respectively $\RR{2}{36}$,
+$\RR{2}{105}$, and $\RR{3}{141}$. The last model is also discussed in
+\cite[Section~6.5]{Integral}. Finite groups, ordinary unitary
+representations, and relative tensor product over a finite-dimensional
+$C^*$-algebra give unitary fusion categories in these untwisted cases.
+
+\subsection{ADE modules, cyclic Izumi models, and a finite group}\label{sec:additionalmodels}
+The following constructions add five realizations at multiplicity two
+and one at multiplicity three. Each constructor builds its fusion tensor
+without reading the census, then searches for a full based-ring match.
+
+\begin{proposition}[ADE modules and their zesting]\label{prop:ADEmodels}
+The rings $\RR{2}{75}$, $\RR{2}{14}$, $\RR{2}{128}$ and $\RR{2}{140}$
+admit unitary categorifications. They are, respectively, the $E_6$ module
+category over $SU(2)_{10}$, its fermionic grading zest, the $D_6$ module
+category over $SU(2)_8$, and the local $D_{10}$ module category over
+$SU(2)_{16}$.
+\end{proposition}
+\begin{proof}
+Use the unitary $SU(2)_k$ category with simples $V_0,\ldots,V_k$ and
+fusion coefficients
+\[
+ N_{ij}^l=1\quad\Longleftrightarrow\quad
+ |i-j|\le l\le\min(i+j,2k-i-j),\quad i+j+l\equiv0\pmod2.
+\]
+The $E_6$ algebra is $V_0\oplus V_6$ at level ten. The $D$-type algebra
+is $V_0\oplus V_k$ at levels divisible by four. Their existence,
+separability, module categories and the ADE module graphs are the
+Kirillov--Ostrik construction \cite[Theorem~6.1 and Section~7]{KO}.
+These algebras and their module tensor products have the standard
+unitary structures.
+
+For $E_6$, label the graph vertices $0,\ldots,5$ and its edges
+\[
+ 01,\quad12,\quad23,\quad34,\quad25,
+\]
+with unit vertex zero. Multiplication by the free image of $V_1$ is the
+adjacency matrix $B$. The rows $(B^j)_{0,*}$, $0\le j\le5$, form an
+invertible matrix $V$. Centrality of the free image of $V_1$ and the
+cyclicity of the unit vector imply that all multiplication matrices are
+uniquely determined by
+$N_i=\sum_j(V^{-1})_{ij}B^j$. The exact constructor evaluates these
+matrices, checks nonnegative integral entries and all tensor axioms,
+and matches $\RR{2}{75}$.
+
+The parity of the original $SU(2)$ labels descends to the module category;
+in these coordinates it is $(0,1,0,1,0,1)$. The free image of $V_{10}$
+is the degree-zero invertible at vertex four. The canonical central
+free functor sends the order-two fermion $V_{10}$ to a central fermion
+$g$ in the module category. Hence associative zesting may multiply the
+product of two odd objects by $g$. Its obstruction is the fermionic
+sign $(-1)^{abcd}$, trivialized by the scalar cochain $i^{abc}$, exactly
+as in Proposition~\ref{prop:zest}. All sixteen cochain identities are
+checked. This constructs a unitary fusion category and its tensor is
+$\RR{2}{14}$. The construction uses the actual grading and central
+fermion, not just a ring automorphism.
+
+For the $D$ cases put $m=k/2$. The orbit modules are $O_j$,
+$0\le j<m$, and the fixed object $V_m$ splits as $U_+\oplus U_-$.
+The free image of $V_j$ is $O_{\min(j,k-j)}$ unless $j=m$.
+Products of two orbit modules are obtained by applying this induction
+rule to the displayed $SU(2)$ coefficients. For an orbit module times
+$U_+\oplus U_-$ use the same rule; the difference $U_+-U_-$ has
+eigenvalue zero for odd $j$ and $(-1)^{j/2}$ for even $j$. At the two
+levels used here, $k\equiv0\pmod8$, the resolved objects are self-dual.
+The fixed-point resolution formulas of \cite[Section~7, $D_{2m}$ fusion
+table]{KO} give the remaining products. Equivalently, in the local
+sector of this congruence class,
+\[
+ U_\pm^2=U_\pm+O_0+O_4+\cdots+O_{m-4},\qquad
+ U_+U_-=O_2+O_6+\cdots+O_{m-2}.
+\]
+Together with Frobenius reciprocity these formulas are the constructor's
+complete specification. At $k=8$ use all six modules; at $k=16$ use the
+local modules $O_0,O_2,O_4,O_6,U_+,U_-$. Their tensors match
+$\RR{2}{128}$ and $\RR{2}{140}$ respectively.
+\end{proof}
+
+\begin{proposition}[The Izumi cyclic-five model]\label{prop:Izumimodel}
+The ring $\RR{2}{143}$ is the Grothendieck ring of the commutative even
+part of the unitary Izumi $C_5$ subfactor.
+\end{proposition}
+\begin{proof}
+The existence of the cyclic-five Izumi subfactor and the relevant even
+part are established in the literature summarized in
+\cite[Section~6.6]{GS}. Its commutative fusion rules are those in
+\cite[Theorem~7]{EG}. To specify the full tensor used for the match,
+write $1,a,b_1,b_2,c_1,c_2$, identify indices $i$ and $-i$ modulo five,
+and put $b_0=c_0=0$, $\Sigma=a+b_1+b_2+c_1+c_2$. The products are
+\begin{gather*}
+ a^2=1+\Sigma,\qquad ab_i=\Sigma-b_i,\qquad ac_i=\Sigma+c_i,\qquad b_ic_j=\Sigma,\\
+ b_ib_j=\delta_{ij}1+(1-\delta_{ij})a+\Sigma-a-b_{i+j}-b_{i-j},\\
+ c_ic_j=\delta_{ij}1+(1+\delta_{ij})a+\Sigma-a+c_{i+j}+c_{i-j}.
+\end{gather*}
+All products commute and all simples are self-dual. The independent
+constructor specializes these formulas at five and verifies all $216$
+coefficients of the matched tensor. Existence is the cited subfactor
+construction, not a consequence of the based-ring axioms alone.
+\end{proof}
+
+\begin{proposition}[An exact finite-group model]\label{prop:PSLmodel}
+The ring $\RR{3}{47}$ is categorified by
+$\Rep(GL(3,\FF_2))\simeq\Rep(PSL(2,7))$.
+\end{proposition}
+\begin{proof}
+Generate the group as all invertible $3\times3$ binary matrices, with
+actual matrix multiplication. It has $168$ elements and six conjugacy
+classes of sizes $1,21,56,42,24,24$, ordered by element orders
+$1,2,3,4,7,7$. Put $a=(-1+\sqrt{-7})/2$ and $b=\overline a$.
+The candidate character table is
+\[
+\begin{array}{c|rrrrrr}
+ &1&2&3&4&7&7\\\hline
+1&1&1&1&1&1&1\\
+3&3&-1&0&1&a&b\\
+\overline3&3&-1&0&1&b&a\\
+6&6&2&0&0&-1&-1\\
+7&7&-1&1&-1&0&0\\
+8&8&0&-1&0&1&1
+\end{array}.
+\]
+We verify its representation-theoretic meaning, not just orthogonality.
+The program computes the multiplication constants of the six class sums
+in $\CC[GL(3,\FF_2)]$. For each row $\chi$ it checks that
+$|C|\chi(C)/\chi(1)$ is a unital character of this class algebra.
+The six characters are distinct and therefore exhaust its primitive
+central characters. By semisimplicity they are the normalized central
+characters of the actual irreducible representations. Row orthogonality
+and positivity of the displayed degrees fix the normalization, so the
+rows are the actual irreducible characters. Taking their product inner
+products gives nonnegative integer structure constants, evaluated
+exactly in $\QQ(\sqrt{-7})$. The resulting full tensor is based-isomorphic
+to $\RR{3}{47}$. A finite-group representation category has its usual
+unitary realization.
+\end{proof}
+
+\subsection{Categorical structures, extensions, and central quotients}\label{sec:literature-models}
+The following determinations use categorical constructions, followed by
+exact identification of their full fusion tensors. A based-ring
+isomorphism transports both existence and a proved obstruction to a
+specified categorical structure. It does not turn spherical existence
+into pseudo-unitary existence. All identifications in this section are
+recomputed by \filename{software/literature_models.py}; no census label
+is an input to the construction.
+
+\subsubsection{Schopieray's spherical model}
+Schopieray constructs the rank-six modular category
+$\mathcal C(\mathfrak{so}_5,3/2)_{\mathrm{ad}}$ in
+\cite[Example~1, equations~(1)--(2)]{SchNonPU}. Its displayed fusion
+matrices, in the order $(X_0,\ldots,X_5)$, give our tensor $\RR{2}{124}$
+after the permutation
+\[
+ (0,1,5,4,2,3).
+\]
+Here, and in the electronic catalogue, a permutation $p$ means
+$N^{\rm census}_{ij}{}^k=N^{\rm source}_{p(i),p(j)}{}^{p(k)}$.
+There can be more than one such permutation; the catalogue stores the
+lexicographically first one. The six matrices are independently
+transcribed in the constructor and all $216$ coefficients are compared.
+Schopieray's Theorem~1 proves that this based ring admits no
+pseudo-unitary categorification. Its exact existence record is therefore
+\[
+\begin{array}{c|ccccc}
+ &\text{general}&\text{pivotal}&\text{spherical}&\text{pseudo-unitary}&\text{unitary}\\\hline
+\RR{2}{124}&\text{yes}&\text{yes}&\text{yes}&\text{no}&\text{no}.
+\end{array}
+\]
+The last entry follows because a unitary fusion category is
+pseudo-unitary. This is a ring-level nonexistence theorem, not only the
+failure of a particular spherical structure to have positive dimensions.
+It does not contribute to the count of \emph{general} exclusions.
+
+\subsubsection{A nilpotent extension and an Izumi even part}
+Write $H_8$ for the Kac--Paljutkin Hopf algebra of dimension eight.
+Choi--Lu--Sun give extensions of $\Rep(H_8)$ with one additional simple
+object in \cite[equation~(1.4), Section~7.1 and Tables~3--4]{CLS}.
+With basis $(1,a,b,ab,N,D)$ and $a^2=b^2=1$, their fusion rules are
+\begin{equation}\label{eq:h8-extension}
+ \begin{gathered}
+ gN=N,\quad gD=D,\quad N^2=\sum_{g\in C_2^2}g,\\
+ ND=DN=2D,\qquad D^2=\sum_{g\in C_2^2}g+2N.
+ \end{gathered}
+\end{equation}
+The relation $gN=N$ is meant for each $g\in C_2^2$, as is $gD=D$.
+The source provides existence; it is not inferred from associativity of
+these integer rules.
+
+For a separate categorical justification of unitarizability, the
+successive adjoint subcategories determined by
+\eqref{eq:h8-extension} have bases
+\[
+ \{1,a,b,ab,N,D\}\supset\{1,a,b,ab,N\}
+ \supset\{1,a,b,ab\}\supset\{1\}.
+\]
+Thus every categorification with these rules is nilpotent. A nilpotent
+fusion category is weakly group-theoretical and is unitarizable by
+\cite[Theorem~5.20]{GHR}. The program recomputes this adjoint series by
+support closure. The source tensor matches $\RR{2}{69}$ with the identity
+permutation. This proves unitary \emph{existence}; neither nilpotency
+alone nor a tensor-axiom check is used to assert existence.
+
+The dual even part of the Izumi $C_4$ subfactor is a unitary fusion
+category. Its multiplication table in \cite[p.~27]{IMP}, in the source
+order $(1,\kappa,\beta\kappa,\chi,\sigma,\beta)$, matches
+$\RR{2}{98}$ after the permutation
+\[
+ (0,5,1,2,4,3).
+\]
+The constructor recovers every entry of that table before making the
+comparison. The equality is with $\RR{2}{98}$, not with the
+dimension-matching tensor $\RR{2}{41}$. Equality of dimension lists
+would not establish this identification.
+
+\subsubsection{A free central-boson quotient}
+A \emph{central boson} here means an invertible object $\widetilde g$ in
+the unitary Drinfeld center $Z(\mathcal D)$, generating a symmetric
+subcategory equivalent to $\Rep(C_2)$, whose underlying object $g$ in
+$\mathcal D$ is nontrivial. This includes the half-braiding and the
+Tannakian structure. Centrality of the basis element $[g]$ in
+$K_0(\mathcal D)$ is not a substitute for this hypothesis.
+
+\begin{proposition}[Free central-boson quotient]\label{prop:central-boson}
+Let $\mathcal D$ be a unitary fusion category and let $\widetilde g$ be
+a central boson as above. Suppose tensoring with $g$ has no fixed point
+on $\Irr(\mathcal D)$. Then the right modules over the central algebra
+$A=1\oplus g$ form a unitary fusion category $\mathcal D_A$. Its simples
+are indexed by the two-element $g$-orbits. For orbit representatives
+$i,j,k$ its fusion coefficients are
+\begin{equation}\label{eq:orbit-quotient}
+ \widetilde N_{[i],[j]}^{[k]}=N_{ij}^{k}+N_{ij}^{gk}.
+\end{equation}
+\end{proposition}
+\begin{proof}
+The algebra $A$ is the image of the regular function algebra of $C_2$
+under the central Tannakian embedding. It is connected and separable,
+and is commutative as a central algebra. The half-braiding makes right
+$A$-modules into a tensor category with product $\otimes_A$; see
+\cite[Theorem~8.23.3]{EGNO}. Use the standard dagger Frobenius structure on the regular algebra.
+Work first with its unitary modules. Every algebraic module is a
+summand of a free module by separability; an idempotent in the
+finite-dimensional $C^*$-endomorphism algebra of a free unitary module
+is conjugate to an orthogonal projection. Thus these unitary modules
+represent the whole algebraic module category up to equivalence.
+Relative tensor products are the images of the self-adjoint
+separability projections. The unitary associativity maps of $\mathcal D$ descend
+to unitary maps between their images, and the module morphism spaces
+inherit the adjoint operation. Thus $\mathcal D_A$ is a unitary fusion
+category.
+
+The free-module functor $F(i)=i\otimes A$ is a tensor functor. By
+adjunction,
+\[
+ \operatorname{Hom}_A(F(i),F(j))
+ \cong\operatorname{Hom}_{\mathcal D}(i,j\oplus jg).
+\]
+For simple $i$, freeness of the $g$-action makes the endomorphism
+algebra of $F(i)$ one-dimensional, so $F(i)$ is simple. The same formula
+shows $F(i)\cong F(j)$ precisely when $j=i$ or $j=gi$. Every simple
+module is a summand of a free module, since $A$ is separable, and hence
+is one of these simple free modules. Finally
+\[
+ F(i)\otimes_A F(j)\cong F(i\otimes j).
+\]
+Collecting the two constituents $k,gk$ in each orbit gives
+\eqref{eq:orbit-quotient}. It also proves independence of the chosen
+representatives.
+\end{proof}
+
+Apply the proposition to
+\[
+ \mathcal D=\mathrm{Ising}\boxtimes PSU(2)_6,
+ \qquad g=(\psi,V_6).
+\]
+In the principal unitary braidings, $\psi$ and $V_6$ are order-two
+fermions. Their product has self-braiding $+1$ and generates a
+Tannakian $\Rep(C_2)$, with central lift supplied by the product braiding.
+The simple labels of $PSU(2)_6$ are $V_0,V_2,V_4,V_6$; tensoring by
+$V_6$ exchanges $V_0,V_6$ and $V_2,V_4$. Therefore the diagonal action
+on the twelve simples of $\mathcal D$ is free. Formula
+\eqref{eq:orbit-quotient} gives a rank-six unitary category, whose
+tensor is $\RR{2}{94}$. The checker reconstructs the parent tensor,
+checks all twelve action labels, computes the six orbits and verifies
+the displayed formula and its independence of representatives. Its
+orbit order is specified in \filename{data/diagonal_fermion_quotient.json};
+the final census permutation is $(0,3,1,2,4,5)$.
+
+The construction uses \emph{all} right $A$-modules with the tensor
+product supplied by the central lift. It does not identify them with
+the local modules of a braided algebra and does not assert that the
+quotient inherits the ambient braiding. In particular, no transparency
+hypothesis has been silently added or inferred from the fusion ring.
+
+\subsection{A diagonal fermion with a fixed point}\label{sec:fermionic-product}
+The free-action formula of Section~\ref{sec:literature-models} does not
+apply to a fixed simple object. Its two resolutions can have different
+duality depending on the local rotation data. We give a calculation
+which resolves the fixed point and determines every fusion coefficient.
+
+We use positive spherical structures in unitary categories. If $f^2=1$,
+$x^*=x$, and $t:f\otimes x\longrightarrow x$ is an isomorphism, denote
+by $t^{\mathsf T}:x\otimes f\longrightarrow x$ its pivotal transpose,
+using the specified self-dual identifications of $f$ and $x$. Equivalently
+it is obtained from $t$ by inserting a coevaluation for $x$ on the right
+and evaluating the left pair. Associators are suppressed in this notation.
+Normalize $t$ so that the action of two copies of $f$ is the identity.
+
+\begin{lemma}[Duality of a resolved fixed point]\label{lem:fixed-rotation}
+Let $(f,c)$ be a central boson of order two, and let $V$ be a self-dual
+simple fixed by $f$. Suppose $t:fV\to V$ is a normalized action and
+\begin{equation}\label{eq:dual-action-phase}
+ t^{\mathsf T}c_{f,V}=\delta t,\qquad \delta\in\{1,-1\}.
+\end{equation}
+For the central algebra $A=1\oplus f$, the two simple left $A$-modules
+with underlying object $V$ have actions $t$ and $-t$. Their duality is
+$V_\epsilon^*=V_{\delta\epsilon}$, where $\epsilon=\pm1$.
+\end{lemma}
+\begin{proof}
+The two actions satisfy the module equation because $t$ is normalized.
+They are simple and inequivalent since $V$ is simple and a scalar
+intertwiner cannot change the sign of its nonzero action.
+Their sum is the free module on $V$: the commuting algebra of that free
+module is the two-dimensional semisimple algebra of its stabilizer.
+
+The dual left action is obtained by transposing the given action and
+then moving $f$ from the left to the right of $V^*$ with its specified
+half-braiding. This is exactly the composite in
+\eqref{eq:dual-action-phase}. The normalization $f^2=1$ makes the inverse
+action equal to the action, and the symmetric Frobenius structure of
+$A$ supplies the ordinary pivotal transpose. Thus its sign is
+$\delta\epsilon$. Alternatively, on the one-dimensional ordinary
+vacuum channel of $V\otimes V$, the projector for the relative tensor
+product of signs $\epsilon,\eta$ has scalar
+$(1+\epsilon\eta\delta)/2$. The unit occurs precisely when
+$\eta=\delta\epsilon$, giving the same duality rule.
+\end{proof}
+
+\begin{theorem}[Equal-phase fermionic product]\label{thm:fermionic-product}
+Let $\mathcal E_m$ and $\mathcal E_n$ be unitary fusion categories with
+respective self-dual bases $1,f,x$ and $1,f',y$ and rules
+\[
+ f^2=1,\quad fx=xf=x,\quad x^2=1+f+mx,
+\qquad
+ (f')^2=1,\quad f'y=yf'=y,\quad y^2=1+f'+ny.
+\]
+Assume specified central fermions $f,f'$ and normalized actions $t,s$
+satisfy
+\begin{equation}\label{eq:two-fermion-phases}
+ t^{\mathsf T}c_{f,x}=-it,\qquad
+ s^{\mathsf T}c_{f',y}=-is.
+\end{equation}
+The categories have specified positive pivotal identifications used in
+these equations. Then $m,n$ are even, and the category of modules over
+the central algebra
+\[
+ A=1\oplus(f\boxtimes f')\quad\text{in}\quad
+ \mathcal E_m\boxtimes\mathcal E_n
+\]
+is a unitary fusion category of rank six. With basis $1,g,a,b,u,v$,
+its duality fixes $1,g,a,b$ and interchanges $u,v$. Its complete
+multiplication is determined by commutativity and
+\begin{gather}
+ g^2=1,\quad ga=a,\quad gb=b,\quad gu=v,\quad gv=u,
+ \label{eq:ferm-product-1}\\
+ a^2=1+g+ma,\quad b^2=1+g+nb,\quad ab=u+v,
+ \label{eq:ferm-product-2}\\
+ au=av=b+\tfrac m2(u+v),\qquad bu=bv=a+\tfrac n2(u+v),
+ \label{eq:ferm-product-3}\\
+ \begin{aligned}
+ u^2=v^2&=g+\tfrac m2a+\tfrac n2b+\tfrac{mn}{4}(u+v),\\
+ uv&=1+\tfrac m2a+\tfrac n2b+\tfrac{mn}{4}(u+v).
+ \end{aligned}\label{eq:ferm-product-4}
+\end{gather}
+If $d_m=\FPdim(x)$ and $d_n=\FPdim(y)$, its dimensions are
+$1,1,d_m,d_n,d_md_n/2,d_md_n/2$.
+\end{theorem}
+\begin{proof}
+The product of the specified fermions is a central boson: its
+self-braiding is $(-1)(-1)=1$. Its central regular algebra $A$ is connected
+and separable. Modules over this algebra have relative tensor product,
+with tensor unit $A$, and form a unitary fusion category. This uses all
+modules over a \emph{central} algebra; no braiding on the quotient is
+asserted. Write $Q$ for the tensor free-module functor.
+
+There are four free orbits and one fixed point in the nine simples of
+the Deligne product. The corresponding modules are
+\[
+ 1=Q(1,1),\quad g=Q(f,1),\quad a=Q(x,1),\quad b=Q(1,y),
+ \qquad Q(x,y)=u\oplus v.
+\]
+On the fixed point $V=x\boxtimes y$, use the action $t\boxtimes s$.
+Its square is one. The transpose and half-braiding in a Deligne product
+factor, so \eqref{eq:two-fermion-phases} gives
+\[
+ (t\boxtimes s)^{\mathsf T}c_{f\boxtimes f',V}
+   =(-i)^2(t\boxtimes s)=-(t\boxtimes s).
+\]
+Lemma~\ref{lem:fixed-rotation} proves $u^*=v$. The other four objects
+are self-dual because they are tensor free modules on self-dual objects.
+The module dimension equals the underlying dimension divided by
+$\dim A=2$, giving the asserted dimensions and rank.
+
+Tensoring a resolved fixed point by $g$ changes its action sign.
+Indeed, to form the relative product with $Q(f,1)$ the diagonal algebra
+line is moved past $(f,1)$; the scalar is $c_{f,f}=-1$. Identifying
+$(f,1)V$ with $V$ by $t\boxtimes\mathrm{id}$ leaves no other scalar,
+by the normalized square of $t$. Hence $gu=v$, $gv=u$.
+Taking duals gives $ug=v$, $vg=u$, so $g$ is central on these objects.
+The free-module tensor identity gives $g^2=1$, $ga=ag=a$, $gb=bg=b$
+and \eqref{eq:ferm-product-2}.
+
+Since $g$ fixes $a$, the two products $au,av$ are equal, and likewise
+$ua=va$. Their respective sums, computed by the tensor functor $Q$,
+both equal $2b+m(u+v)$. This proves the first half of
+\eqref{eq:ferm-product-3} on both sides and also forces $m$ even.
+The second half and the evenness of $n$ follow similarly. Thus all
+products involving $a,b,g$ commute. Since $v=gu$ and $g$ is central,
+$u$ and $v$ commute as well.
+
+Now $u^2=v^2$ and $(u^2)^*=v^2=u^2$. The coefficient of $1$ in $u^2$
+is zero and that of $g$ is one. Frobenius reciprocity and
+\eqref{eq:ferm-product-3} give coefficients $m/2,n/2$ on $a,b$.
+Self-duality of $u^2$ makes the coefficients of $u,v$ equal. Put
+$e=d_md_n/2$ and call the common coefficient $k$. From
+$d_m^2=2+md_m$ and $d_n^2=2+nd_n$ one obtains
+\[
+ e^2=1+\tfrac m2d_m+\tfrac n2d_n+\tfrac{mn}{2}e.
+\]
+Dimension comparison gives $k=mn/4$ and proves the square formula.
+Multiplication by $g$ then gives the formula for $uv$.
+\end{proof}
+
+\begin{corollary}[Three tensor identifications]\label{cor:fermionic-models}
+The cases $(m,n)=(0,0),(0,2),(2,2)$ of
+Theorem~\ref{thm:fermionic-product} have unitary realizations and identify,
+respectively, the census rings
+\[
+ \RR{1}{3},\qquad \RR{2}{14},\qquad \RR{2}{40}.
+\]
+In particular, $\RR{2}{40}$ is the diagonal-fermion quotient of two
+\emph{identical} unitary half-$E_6$ categories.
+\end{corollary}
+\begin{proof}
+For $m=0$ use the Ising category with positive dimension $\sqrt2$ and
+Frobenius--Schur sign $+1$. In the conventions of
+\cite[Section~2.1, equations~(9)--(13)]{ALW}, choose $A=e^{3\pi i/8}$;
+then $d=-A^2-A^{-2}=\sqrt2$ and $A^4=-i$. The displayed fermion
+half-braiding and pivotal normalizations give
+\eqref{eq:two-fermion-phases}.
+
+For $m=2$ use unitary half-$E_6$, the category with
+\eqref{eq:E6}. The local data in
+\cite[Section~7.1, equation~(235), Section~7.2, equation~(240),
+Appendix~D.1, equation~(467)]{ALW} give the normalized action square one,
+pivotal rotation scalar one, and the half-braiding scalar $-i$ on the
+noninvertible object. They therefore give exactly the second input
+needed in \eqref{eq:two-fermion-phases}. Categorical existence and
+unitarity are those of the Ising and half-$E_6$ constructions, not
+inferences from these few scalar identities alone.
+
+The code reconstructs \eqref{eq:ferm-product-1}--\eqref{eq:ferm-product-4}
+for the three pairs, checks every fusion-ring axiom, and matches all
+$216$ coefficients under unit-fixing permutations. For $(2,2)$ the
+census basis is $(1,u,v,g,a,b)$, giving the stated identification.
+\end{proof}
+
+The two half-$E_6$ factors must not be replaced without comment by a
+category and its complex conjugate. Conjugation changes $-i$ to $+i$;
+the product of the rotation phases is then $+1$, and
+Lemma~\ref{lem:fixed-rotation} makes the two resolutions self-dual.
+The relative-product description of the $3311$ category in
+\cite[Section~5.1]{IJMS} uses the opposite/conjugate factors.
+Our non-self-dual resolution is therefore not a dimension-only
+reidentification of that model. The construction uses central boson
+condensation with a fixed point, not the earlier free-orbit formula.
+
+\subsection{The exceptional $G_2$ level-four model}\label{sec:g2-e4}
+The cyclic-four tensor $\RR{2}{4}$ has a unitary realization.
+We identify it with the exceptional
+quantum subgroup $\mathcal E_4(G_2)$ associated with the conformal
+embedding
+\begin{equation}\label{eq:g2-embedding}
+ G_{2,4}\ \subset\ \operatorname{Spin}(14)_1.
+\end{equation}
+The embedding, vacuum algebra, annular matrix and branching matrix
+used below are given in \cite[Section~4.5, pp.~29--32]{CRT}. We use
+existence of this conformal-embedding algebra, not existence inferred
+merely from a commuting modular-invariant matrix.
+
+Let $\mathcal B$ be the unitary WZW category of $G_2$ at level four,
+with the long fundamental weight first, as in \cite{CRT}. The vacuum
+algebra is
+\[
+ A=V_{(0,0)}\oplus V_{(0,3)},\qquad
+ \dim A=6+2\sqrt6.
+\]
+It is the connected commutative separable algebra, with its unitary
+structure, supplied by \eqref{eq:g2-embedding}. Thus $\mathcal B_A$,
+the category of all right modules with tensor product over $A$, is an
+ordinary unitary fusion category. Its subcategory of local modules is
+the level-one category of $\operatorname{Spin}(14)$.
+This distinction between all modules and local modules matters: the
+former has six simples, the latter only four.
+
+\begin{proposition}\label{prop:g2-e4}
+The Grothendieck ring of $\mathcal B_A$ is based-isomorphic to
+$\RR{2}{4}$. In particular this ring has a unitary categorification.
+\end{proposition}
+\begin{proof}
+In the source ordering $(1,X,Y,h,g,g^{-1})$, the basic annular matrix
+and branching matrix are
+\[
+ N_X=\begin{pmatrix}
+ 0&1&0&0&0&0\\1&2&2&1&0&0\\0&2&2&0&1&1\\
+ 0&1&0&0&0&0\\0&0&1&0&0&0\\0&0&1&0&0&0
+ \end{pmatrix},\qquad
+ E=\begin{pmatrix}
+ 1&0&0&0&0&0\\0&1&0&0&0&0\\0&1&1&0&0&0\\
+ 0&0&1&1&0&0\\1&1&1&0&0&0\\0&1&1&0&1&1\\
+ 0&1&0&1&0&0\\0&1&1&0&0&0\\0&0&1&0&0&0
+ \end{pmatrix}.
+\]
+The source weights, indexing the rows of $E$, are
+\[
+ (0,0),(0,1),(0,2),(1,0),(0,3),(1,1),(0,4),(1,2),(2,0).
+\]
+The free-module image of $V_{(0,1)}$ is the simple $X$, by the second
+row of $E$, so its annular action really is multiplication by $X$.
+The free-module functor is central, hence $X$ commutes with every
+object. The local simples are $1,h,g,g^{-1}$, corresponding to the
+vacuum, vector, and two spinor representations. The level-one fusion
+group of $D_7$ is $P/Q\simeq C_4$; equivalently its vector is the square
+of either spinor. Thus $g^2=h$ and $g^4=1$. These four objects remain
+distinct and invertible in $\mathcal B_A$, since the local subcategory
+is a full tensor subcategory.
+
+Reading the displayed matrix gives
+\[
+ X^2=1+h+2X+2Y,\qquad hX=X,\qquad gX=g^{-1}X=Y.
+\]
+The image $X$ is self-dual, since $V_{(0,1)}$ is self-dual. Moreover
+$Y=gX$, so $Y^*=Xg^{-1}=Y$. The category is tensor generated by the
+central object $X$ and the cyclic local group, so its ring is
+commutative. Associativity now determines all remaining products:
+\begin{equation}\label{eq:g2-e4-rules}
+ \begin{gathered}
+ g^4=1,\quad gX=Y,\quad gY=X,\\
+ X^2=Y^2=1+g^2+2X+2Y,\qquad
+ XY=g+g^3+2X+2Y.
+ \end{gathered}
+\end{equation}
+These are the required full fusion rules, with census order
+$(1,g,g^{-1},X,Y,h)$; in source coordinates the permutation is
+$(0,4,5,1,2,3)$. The resulting $216$ coefficients, including the
+nontrivial duality $g^*=g^{-1}$ and the self-duality of $X,Y$, agree
+with $\RR{2}{4}$.
+\end{proof}
+
+The mathematical inputs to this identification and its arithmetic
+checks are separated. Existence and unitarity come from the conformal
+embedding. The source annular and branching matrices determine the
+module action; the cyclic local group then determines its full fusion
+ring. Independently, the constructor calculates all nine $G_{2,4}$
+fusion matrices by Weyl alternants in $\QQ(\zeta_{24})$, and verifies
+\[
+ N_i^{\mathcal B}E
+   =E\Bigl(\sum_a E_{ia}N_a^{\mathcal B_A}\Bigr),\qquad
+ EE^{\mathsf T}=I+N_{(0,3)}^{\mathcal B}.
+\]
+The latter is free-module adjunction for the stated vacuum algebra.
+All entries, all unit-fixing identifications with the census, and the
+cyclic group action are exact. A dimension match alone would not prove
+the proposition: it would fail to distinguish the cyclic-four ring
+from the Klein-four rings with the same dimension list.
+
+The dimensions are $(1,1,1,1,2+\sqrt6,2+\sqrt6)$ and
+$\FPdim(\mathcal B_A)=24+8\sqrt6$. The published construction and its
+exact tensor identification provide a positive control for the finite
+necessary systems in Section~\ref{sec:frontier}.
+
+\subsection{Inversion equivariantization of an odd near-group category}
+\label{sec:inversion-model}
+The positive case at multiplicity three is an existing unitary model,
+not a proposed solution of new pentagon equations. We use the coherent
+order-two action constructed in \cite[Section~13.3]{Izumi}. The following
+formulation separates that categorical input from the reconstruction of
+the entire fusion tensor.
+
+\begin{proposition}[An inversion-equivariantization constructor]
+\label{prop:inversion-model}
+Let $n$ be odd, and let $\mathcal N$ be a unitary near-group category with
+invertibles $\alpha_j$, $j\in\ZZ/n\ZZ$, and one further simple $\rho$,
+with
+\[
+ \alpha_j\rho=\rho\alpha_j=\rho,\qquad
+ \rho^2=\bigoplus_j\alpha_j\oplus n\rho.
+\]
+Assume a coherent unitary $C_2$-action fixes $\rho$, takes $\alpha_j$ to
+$\alpha_{-j}$, fixes the unit channel of $\rho^2$, and acts on a chosen
+basis $(T_j)_j$ of $\operatorname{Hom}(\rho,\rho^2)$ by $T_j\mapsto T_{-j}$.
+Assume moreover that the action on the pointed part has the standard
+inversion equivariantization $\Rep(\widehat C_n\rtimes C_2)$.
+Then $\mathcal N^{C_2}$ is a unitary fusion category of rank $(n+7)/2$.
+Its simples are
+\[
+ 1,g,x_+,x_-,v_1,\ldots,v_{(n-1)/2}.
+\]
+Writing $v_0=1+g$ and $v_j=v_{-j}$, with indices modulo $n$, its products
+are determined by
+\[
+ g^2=1,\qquad gx_+=x_-,\qquad gx_-=x_+,\qquad gv_i=v_i.
+\]
+\begin{align*}
+ v_i v_j&=v_{i+j}+v_{i-j},\\
+ v_i x_\pm=x_\pm v_i&=x_++x_-,\\
+ x_+^2=x_-^2
+ &=1+\sum_i v_i+\frac{n+1}{2}x_++\frac{n-1}{2}x_-,\\
+ x_+x_-=x_-x_+
+ &=g+\sum_i v_i+\frac{n-1}{2}x_++\frac{n+1}{2}x_-.
+\end{align*}
+All its simples are self-dual. The dimensions are $1,1,d,d,2,\ldots,2$,
+where $d>0$ satisfies $d^2=n+nd$.
+\end{proposition}
+\begin{proof}
+For an action on a semisimple category, equivariant simple objects are
+obtained from orbits of simple objects and irreducible projective
+representations of their stabilizers. In the present explicitly given
+action, the fixed simples $1,\rho$ have their indicated equivariant
+structures and each admits the two sign choices. Denote these by $1,g$
+and $x_+,x_-$. Each nontrivial inversion orbit has trivial stabilizer
+and yields a single $v_i$ with underlying object
+$\alpha_i\oplus\alpha_{-i}$. This proves the rank and dimension statements.
+Tensoring with $g$ changes the sign of an equivariant structure and
+therefore exchanges $x_+,x_-$ while fixing every $v_i$.
+
+The pointed equivariantization hypothesis gives the displayed products
+of the $v_i$. For $v_i\rho$, the two summands of the underlying object
+are exchanged by the action. Its $+1$ and $-1$ eigenspaces are both
+one-dimensional, proving $v_i x_\pm=x_++x_-$, and likewise for products
+in the opposite order.
+
+The unit channel in $\rho^2$ contributes $1$ to $x_+^2$. The other
+invertible channels are paired and contribute the $v_i$. In the
+$\rho$-multiplicity space, inversion fixes exactly $T_0$ and pairs the
+other $n-1$ basis vectors. Its eigenspaces have dimensions $(n+1)/2$
+and $(n-1)/2$. This proves the formula for $x_+^2$. Multiplying by $g$
+proves the mixed product, and multiplying twice proves $x_-^2=x_+^2$.
+The unit coefficients in these formulas show self-duality. A coherent
+unitary action has a unitary equivariantization; thus the construction
+uses actual associativity data, not merely an automorphism of a based
+ring.
+\end{proof}
+
+\begin{corollary}\label{cor:inversion-five}
+The ring $\RR{3}{218}$ admits a unitary categorification.
+\end{corollary}
+\begin{proof}
+Izumi's $C_5+5$ category has the inversion symmetry of
+\cite[Example~13.8]{Izumi}. Section~13.3 constructs an actual order-two
+automorphism commuting with $\rho$, not just an outer automorphism
+class. Its action on the isometries is $S_j\mapsto S_{-j}$ and
+$T_j\mapsto T_{-j}$. Theorems~13.17--13.18 of that source establish
+precisely the hypotheses and product decompositions used above,
+including the pointed representation subcategory.
+
+The source scalar symmetries can also be checked directly: with
+$\zeta=\exp(2\pi i/5)$, the quadratic phases are
+$a(j)=\zeta^{2j^2}$ and the nonzero $b$-phases have exponents
+$(4,1,1,4)$ at $j=1,2,3,4$, each divided by $\sqrt5$.
+Both lists are inversion invariant. The dimension used here is derived
+from the fusion equation,
+\[
+ d=\frac{5+3\sqrt5}{2},\qquad d^2=5+5d,
+ \qquad\dim(\mathcal N^{C_2})=45+15\sqrt5.
+\]
+Thus no independently copied numerical dimension enters the constructor.
+The source supplies existence and the coherent action; the finite
+checks validate the specified permutations and scalar symmetries.
+
+In the proposition's order $(1,g,x_+,x_-,v_1,v_2)$, the census order is
+$(1,g,x_-,x_+,v_1,v_2)$. The function
+\filename{inversion_rules(5)} constructs every product and the recorded
+permutation $(0,1,3,2,4,5)$ identifies all $216$ structure constants with
+$\RR{3}{218}$. This is a based-ring identification, not a match of
+Frobenius--Perron dimensions alone.
+\end{proof}
+
+The generic formula is not a claim that the categorical input exists
+for every odd $n$. The positive registry supplies only the cited $n=5$
+input. This constructor and its full based isomorphism are included in
+Table~\ref{tab:models} and in the electronic model catalogue.
+
+\subsection{Higher subfactor and affine-group models}\label{sec:through7-models}
+\subsubsection{The six-object Asaeda--Haagerup category}
+The unitary category $\mathcal{AH}_1$ has the six-object fusion table
+in \cite[Table~1]{GSAH}. In its source order
+$(1,\psi,\chi,\sigma,\zeta,\tau)$, the permutation
+$(0,1,3,2,5,4)$ identifies all $216$ structure constants with
+$\RR{6}{1764}$. The supplement encodes the source table separately from
+the census and checks this complete equality. Existence comes from the
+published subfactor category, not from the arithmetic of that table.
+This is a known unitary model. Its global dimension coinciding with
+that of another tensor, in particular $\RR{3}{215}$, proves neither a
+based-ring isomorphism nor a Morita equivalence.
+
+\subsubsection{A regular-orbit representation-ring constructor}
+\begin{proposition}\label{prop:regular-orbit-model}
+Let $V$ be a nontrivial finite abelian group and suppose that $H$ acts
+freely and transitively on $\widehat V\setminus\{1\}$. Put
+$h=|H|=|V|-1$. The irreducibles of $G=V\rtimes H$ consist of the
+inflations of $\Irr(H)$ and one additional self-dual representation
+$\rho$ of dimension $h$. Their products satisfy
+\begin{equation}\label{eq:regular-orbit-products}
+ \sigma\rho=(\dim\sigma)\rho,\qquad
+ \rho^2=\sum_{\sigma\in\Irr(H)}(\dim\sigma)\sigma+(h-1)\rho.
+\end{equation}
+Consequently these rules, together with $\Rep(H)$, define a unitary
+categorical model, whenever the stated group action is supplied.
+\end{proposition}
+\begin{proof}
+The irreducibles of a semidirect product by an abelian normal subgroup
+are obtained from $H$-orbits in $\widehat V$ and representations of their
+stabilizers. The trivial orbit gives the inflated representations of
+$H$. The single nontrivial orbit has trivial stabilizer and gives
+$\rho=\operatorname{Ind}_V^G\lambda$, for any nontrivial $\lambda$.
+Inversion preserves this orbit, so $\rho$ is self-dual. Restriction of
+an inflated $\sigma$ to $V$ is $(\dim\sigma)1$, and induction gives
+the first equation. Its reciprocity then gives the multiplicity
+$\dim\sigma$ of each inflation in $\rho^2$. If the remaining
+multiplicity of $\rho$ is $a$, comparing dimensions yields
+$h^2=\sum_\sigma(\dim\sigma)^2+ah=h+ah$, so $a=h-1$.
+The representation category of a finite group is unitary.
+\end{proof}
+
+Take $V=\FF_3^2$ and let $H$ be generated by
+\[
+ I=\begin{pmatrix}0&1\\2&0\end{pmatrix},\qquad
+ J=\begin{pmatrix}1&1\\1&2\end{pmatrix}.
+\]
+The identities $I^2=J^2=-1$ and $IJ=-JI$ identify $H$ with $Q_8$.
+Its orbit on the eight nonzero vectors is free and transitive; the
+contragredient action has the same property. Thus
+Proposition~\ref{prop:regular-orbit-model} gives a six-object category
+of dimension $72$, with simple dimensions $(1,1,1,1,2,8)$ and
+multiplicity seven. It realizes $\RR{7}{572}$.
+
+The constructor generates the actual $72$-element semidirect product,
+checks its multiplication and action, and computes the four linear
+characters, the inflated two-dimensional quaternion character, and
+the induced eight-dimensional character. It verifies orthogonality,
+completeness by the sum of squares, and all tensor coefficients by
+character inner products. The resulting tensor is then compared to the
+census. This test is an application of the proposition to explicit
+group data, not a rule accepting all abstract rings with these dimensions.
+
+\subsection{The complete catalogue and group-theoretical constructions}\label{sec:model-catalogue}
+The positive part of the classification is recorded as explicitly as the
+negative part. Table~\ref{tab:models} contains one row for every one of the
+$\PositiveCount$ positive rings, including all twenty-one rings of
+multiplicity one. The electronic catalogue records every constructor used,
+not merely one representative: there are $\ConstructorCount$ constructor records,
+with an explicit unit-fixing basis permutation from each output to its
+census representative. These permutations are verified entry by entry.
+The names in the table are presentation labels, not hypotheses in a
+categorification test. The symbols U and S distinguish unitary existence
+from spherical existence with proved nonexistence of a pseudo-unitary
+categorification. The single S entry is not counted among the unitary
+models.
+
+\subsubsection{Small constructions and conventions}
+Here $PSU(2)_k$ means the even subcategory of the principal unitary
+$SU(2)_k$ category, and $D_9$ has order eighteen. The indicated $C_2$ action
+on $C_3\times C_3$ is inversion. In $C_3\rtimes C_4$, a generator of $C_4$
+acts by inversion on $C_3$; the action therefore factors through $C_2$.
+The positive Ising-type rings in the table are denoted $\mathcal I(G,r)$,
+where $|G|=4$, a subgroup $H$ of order two is fixed, and $r\in\{0,1\}$.
+Their basis consists of $G$ and $\sigma_0,\sigma_1$. An element of
+$G/H\cong C_2$ translates the subscripts, and
+\[
+ \sigma_i\sigma_j=\sum_{a\in G:\,\bar a=i+j+r}a.
+\]
+The unitary realizations are the Ising zestings constructed in
+\cite[Section~4.3]{LPR}; the metaplectic category $SO(5)_2$ and its listed
+zest are treated there as well. The program reconstructs these formulas,
+ordinary finite-group character products, the Haagerup tensor, and the
+$SU(2)$ fusion rules before matching the resulting tensors. Thus the
+multiplicity-one positives do not depend on a cardinality-complement
+argument.
+
+\input{generated_models}
+
+\subsubsection{Exact Weyl-character reconstruction}
+We use the principal unitary categories $\mathcal C(\mathfrak g,k)$
+at positive integral level. Their construction and the Weyl-alcove and
+character formulas are reviewed in \cite{QGsurvey}; these are categorical
+inputs, not consequences of a numerically fitted modular matrix. Normalize
+long roots to have squared length two, let $W$ be the Weyl group, and put
+$\rho=\sum_i\lambda_i$. For dominant weights in the level-$k$ alcove define
+\begin{equation}\label{eq:weyl-model}
+ C_{\lambda\mu}=\frac{\sum_{w\in W}\det(w)
+ \exp\bigl(-2\pi i(w(\lambda+\rho),\mu+\rho)/(k+h^\vee)\bigr)}
+ {\sum_{w\in W}\det(w)
+ \exp\bigl(-2\pi i(w\rho,\mu+\rho)/(k+h^\vee)\bigr)}.
+\end{equation}
+These are the fusion characters. Their products determine the fusion
+coefficients by
+\[
+ C_{\lambda\mu}C_{\nu\mu}=\sum_\tau N_{\lambda\nu}^{\tau}C_{\tau\mu}.
+\]
+All denominators and the required character-matrix rank are checked in the
+cyclotomic number field. Exact Gaussian elimination determines the
+coefficients, which are then checked to be nonnegative integers and to
+satisfy every character equation, including columns not used to solve the
+linear system. This also works for the root-lattice subcategory of type
+$A_2$, using a full-rank submatrix of its restricted characters.
+
+For $G_2$ at level three, the short fundamental weight is first, and the
+input data are
+\[
+ \bigl((\lambda_i,\lambda_j)\bigr)=
+ \begin{pmatrix}2/3&1\\1&2\end{pmatrix},\qquad h^\vee=4,
+ \qquad\Lambda_3=\{(0,0),(1,0),(2,0),(3,0),(0,1),(1,1)\}.
+\]
+The calculation takes place in $\QQ(\zeta_{21})$, and produces a
+rank-six tensor of multiplicity two.
+\begin{proposition}\label{prop:g2model}
+The tensor obtained from \eqref{eq:weyl-model} for $(\mathfrak g,k)=(G_2,3)$
+is based-isomorphic to $\RR{2}{144}$. In particular this ring admits a
+unitary modular categorification.
+\end{proposition}
+\begin{proof}
+The Weyl construction supplies the category and the displayed character
+formula supplies its fusion rules. The exact calculation just described
+is implemented independently of the census in
+\filename{software/quantum_rank2.py}. The resulting $216$ coefficients
+and a basis permutation are recorded in the model catalogue; the checker
+recomputes them and verifies their equality to the census tensor. This is
+a full-tensor identification, not an identification by dimension type.
+\end{proof}
+
+\subsubsection{The dual $3311$ even part}
+The dual even-part identification is
+\begin{equation}\label{eq:ghjmodel}
+ \RR{2}{97}\cong K_0\bigl((A_{11}^{\mathrm{even}})^*_{E_6^{\mathrm{even}}}\bigr).
+\end{equation}
+The category on the right is the dual even part of the
+Goodman--de la Harpe--Jones $3311$ subfactor and is unitary.
+Its complete multiplication table is Figure~2 of
+\cite[Section~5.1]{IJMS}. The independent constructor uses the basis
+$(1,B,C,C',D,g)$ of that figure; in particular
+\[
+ C^2=1+g+2C,\quad (C')^2=1+g+2C',\quad CC'=B+D,
+ \quad gC=C,\quad gC'=C',\quad gB=D.
+\]
+The other products are reconstructed from the same published table and
+all tensor axioms and the based isomorphism in \eqref{eq:ghjmodel} are
+checked. The other $3311$ even-part ring is already $\RR{1}{24}$.
+Neither identification implies that another ring with the same
+Frobenius--Perron dimensions is categorifiable; in particular it does not
+settle the non-self-dual ring $\RR{2}{40}$.
+
+\subsubsection{A three-double-coset realization criterion}
+For finite $G$, a subgroup $H$, and unit-modulus normalized cochains
+$\omega\in Z^3(G,\CC^\times)$ and $\psi\in C^2(H,\CC^\times)$ with
+$\omega|_H=\delta\psi$, write $\mathcal C(G,\omega,H,\psi)$ for the
+category of $\psi$-twisted $H$-bimodules in $\Vec_G^\omega$, with the
+conventions of \cite{GNgt}. For $u\in G$ put $H^u=H\cap uHu^{-1}$.
+Simple objects over $HuH$ correspond to irreducible projective
+representations of $H^u$ with factor
+\begin{align}\label{eq:stabilizer-factor}
+ \psi^u(a,b)={}&\psi(a,b)\psi(u^{-1}b^{-1}u,u^{-1}a^{-1}u)\nonumber\\
+ &\quad\cdot\frac{\omega(a,b,u)\omega(a,bu,u^{-1}b^{-1}u)}
+ {\omega(abu,u^{-1}b^{-1}u,u^{-1}a^{-1}u)}.
+\end{align}
+Such a simple has Frobenius--Perron dimension
+$[H:H^u]\dim\pi$. These statements, and support of tensor products on
+products of double cosets, are \cite[Theorems~4.1 and~5.1]{GNgt}.
+We call a factor on an abelian group nondegenerate when its twisted group
+algebra has one irreducible representation; equivalently its commutator
+bicharacter has trivial radical.
+
+\begin{theorem}[Three-double-coset realization]\label{thm:three-coset}
+Suppose $H$ is abelian of order $h=s^2>1$ and
+\[
+ G=H\sqcup tH\sqcup HuH,\qquad
+ N_G(H)=H\sqcup tH,\qquad H^u=\{1\}.
+\]
+If the factor $\psi^t$ in \eqref{eq:stabilizer-factor} is nondegenerate,
+then $\mathcal C(G,\omega,H,\psi)$ is a unitary categorification of the
+commutative fusion ring with basis $\widehat H\sqcup\{X,Y\}$ and rules
+\begin{equation}\label{eq:three-coset-ring}
+\begin{gathered}
+ \chi X=X\chi=X,\qquad\chi Y=Y\chi=Y,\qquad XY=YX=sY,\\
+ X^2=\sum_{\chi\in\widehat H}\chi,\qquad
+ Y^2=\sum_{\chi\in\widehat H}\chi+sX+(h-2)Y.
+\end{gathered}
+\end{equation}
+Its dimension type is $(1^h,s,h)$.
+\end{theorem}
+\begin{proof}
+The component over $H$ is $\Rep(H)$, so it consists of the $h$ invertibles
+indexed by $\widehat H$ with their ordinary group multiplication.
+Nondegeneracy of $\psi^t$ gives one simple $X$ of dimension $s$ over
+$tH$. The trivial stabilizer of $HuH$ gives one simple $Y$ of dimension
+$h$. Hence these are all the simple objects.
+
+The normalizer is a subgroup with quotient $N_G(H)/H$ of order two.
+Consequently $tH$ is closed under inversion. Its complement $HuH$ in
+$G$ is also closed under inversion and is stable under multiplication
+on either side by $N_G(H)$. Since $X$ and $Y$ are unique on their
+supports, both are self-dual and all the invertibles fix them on both
+sides. Support forces $X^2$ into $\Rep(H)$. Frobenius reciprocity gives
+$[X^2:\chi]=[\chi X:X]=1$, proving the first square formula. Similarly,
+$XY$ and $YX$ are supported on $HuH$, and dimensions give $XY=YX=sY$.
+Reciprocity gives $[Y^2:\chi]=1$ and $[Y^2:X]=s$. The remaining
+coefficient is therefore determined by
+$h^2=h+s^2+h[Y^2:Y]$, namely $[Y^2:Y]=h-2$.
+
+Finally $\Vec_G^\omega$ is unitary for unit-modulus $\omega$. The
+admissible twisted regular algebra of $H$, with its normalized regular
+inner product, is a connected separable $C^*$-algebra object. Its
+bimodule category is unitary. This is the standard unitary form of the
+group-theoretical construction, and proves existence rather than merely
+associativity of the displayed ring.
+\end{proof}
+
+\subsubsection{An explicit twisted $S_4$ model}
+The following cochain certificate makes the realization criterion
+applicable to a residual that is not realized by the corresponding
+untwisted construction.
+
+Realize $G=PGL(2,\FF_3)\cong S_4$ by its action on
+$\mathbb P^1(\FF_3)=\{(1,0),(0,1),(1,1),(1,2)\}$.
+In each projective class choose the matrix $s(g)$ whose first nonzero
+entry in row-major order is one. Define
+\[
+ s(g)s(k)=(-I)^{\beta(g,k)}s(gk),\qquad
+ \alpha(g)=\begin{cases}0,&\det s(g)=1,\\1,&\det s(g)=2,\end{cases}
+ \qquad
+ \omega(g,k,l)=(-1)^{\alpha(g)\beta(k,l)}.
+\]
+Here $\beta$ is a normalized $\FF_2$-valued $2$-cocycle from the central
+extension $GL(2,\FF_3)$, and $\alpha$ is a homomorphism. The cup-product
+identity therefore proves that $\omega$ is a normalized $3$-cocycle.
+Take $H=\{1,a,b,c\}$ represented, respectively, by
+\[
+ I,\quad
+ \begin{pmatrix}0&1\\1&0\end{pmatrix},\quad
+ \begin{pmatrix}0&1\\2&0\end{pmatrix},\quad
+ \begin{pmatrix}1&0\\0&2\end{pmatrix}.
+\]
+Its action is the subgroup generated by the two disjoint transpositions
+on the displayed ordered projective line, so $H\cong C_2^2$.
+Put $\psi(x,y)=i^{q(x,y)}$, with $q(1,x)=q(x,1)=0$ and
+\begin{equation}\label{eq:s4-cochain}
+ \begin{array}{c|rrr}
+ q&a&b&c\\\hline
+ a&0&2&0\\
+ b&3&0&1\\
+ c&1&0&1
+ \end{array}\quad\text{in }\ZZ/4\ZZ.
+\end{equation}
+For every $x,y,z\in H$ the admissibility identity is
+\[
+ q(y,z)+q(x,yz)-q(xy,z)-q(x,y)
+ \equiv 2\alpha(x)\beta(y,z)\pmod4.
+\]
+It follows either by substitution in the nine-entry table or by the
+complete $4^3$-triple check in the supplement.
+
+\begin{theorem}\label{thm:s4-model}
+For the cochains just defined,
+$\mathcal C(S_4,\omega,C_2^2,\psi)$ is a unitary categorification of
+$\RR{2}{71}$.
+\end{theorem}
+\begin{proof}
+Choose
+\[
+ t=\left[\begin{pmatrix}1&1\\1&2\end{pmatrix}\right],\qquad
+ u=\left[\begin{pmatrix}0&1\\1&1\end{pmatrix}\right].
+\]
+Matrix multiplication over $\FF_3$ gives exactly three double cosets,
+of sizes $4,4,16$, represented by $1,t,u$. The first two form
+$N_G(H)$, and $H^u$ is trivial. Substitution in
+\eqref{eq:stabilizer-factor} gives the following exponent matrix for
+$\psi^t$, in the order $(1,a,b,c)$:
+\[
+ \begin{pmatrix}
+ 0&0&0&0\\0&1&1&0\\0&3&0&1\\0&2&3&1
+ \end{pmatrix}\pmod4.
+\]
+Its commutator bicharacter has trivial radical: each nonidentity row
+has an entry different from the corresponding transposed entry.
+Thus its twisted group algebra is $M_2(\CC)$, and
+Theorem~\ref{thm:three-coset} applies with $h=4$, $s=2$.
+
+The constructor regenerates the twenty-four projective matrices, their
+faithful permutation action, the subgroup, all double cosets, and every
+stabilizer factor. It checks the admissibility identity and, in addition
+to the cup-product proof, all $24^4$ cocycle identities. It then uses
+\eqref{eq:three-coset-ring} to reconstruct the full tensor and checks its
+based isomorphism with $\RR{2}{71}$. The complete data are in
+\filename{data/twisted_s4_certificate.json}. Thus no inference from
+Frobenius--Perron dimensions alone is used.
+\end{proof}
+
+The three additions in this section are positive determinations, not
+new exclusions. In particular, searching only untwisted group-theoretical
+models would miss the last construction. All allocated negative
+certificates remain applications of the unified obstruction framework
+stated earlier in the paper.
+
+
+
+\subsection{Exceptional and near-group source identifications}\label{sec:source-audit}
+Two source tensors must be included independently of any obstruction search.
+The principal even part $\mathcal{EH}_1$ of the extended Haagerup subfactor
+is unitary by its subfactor construction \cite{BMPS}. Its six fusion matrices
+are explicitly displayed in \cite[Section~5.1]{BPEH}. In that source order,
+the permutation $(0,1,3,4,5,2)$ gives $\RR{7}{2274}$. The largest coefficient
+is seven. The constructor transcribes the published matrices and checks
+all $216$ coefficients, not merely the dimension field or formal codegrees.
+
+The unitary $C_5+5$ near-group category in \cite[Example~13.8]{Izumi} has
+basis $\alpha_0,\ldots,\alpha_4,\rho$ and products
+\[
+ \alpha_i\alpha_j=\alpha_{i+j},\qquad
+ \alpha_i\rho=\rho\alpha_i=\rho,\qquad
+ \rho^2=\sum_{i=0}^4\alpha_i+5\rho.
+\]
+Its tensor identifies $\RR{5}{17}$ with permutation $(0,1,4,3,2,5)$.
+The positive root of the dimension equation is $(5+3\sqrt5)/2$.
+This is the near-group input itself, distinct from the inversion
+equivariantization of Corollary~\ref{cor:inversion-five}. Both source
+identifications are independent of the census and both are matched under
+all unit-preserving permutations.
+
+\subsection{A mixed diagonal-fermion quotient}\label{sec:mixed-fermion}
+Let $\mathcal E$ be the unitary half-$E_6$ category of \eqref{eq:E6}, and
+let $\mathcal P=PSU(2)_6$. The object $h$ of $\mathcal E$ has the central
+fermion of Lemma~\ref{lem:fermion}. In the standard unitary $SU(2)_6$
+category, $V_6$ is an order-two fermion; restricting its half-braiding gives
+a central fermion in $\mathcal P$. Thus $(h,V_6)$ is a central boson in
+$\mathcal E\boxtimes\mathcal P$.
+
+\begin{proposition}\label{prop:mixed-fermion}
+The category of modules over $1\oplus(h,V_6)$ in
+$\mathcal E\boxtimes\mathcal P$ is a unitary fusion category with
+Grothendieck ring $\RR{4}{322}$.
+\end{proposition}
+\begin{proof}
+The second factor has basis $(V_0,V_2,V_4,V_6)$, with $V_6$ interchanging
+$V_0,V_6$ and $V_2,V_4$. The diagonal action is therefore free, even on
+objects whose first component is $X$. Proposition~\ref{prop:central-boson}
+applies without a fixed-point choice. In the product order
+$(1,h,X)\times(V_0,V_2,V_4,V_6)$, its permutation of the twelve simples is
+\[
+ (7,6,5,4,3,2,1,0,11,10,9,8).
+\]
+Take orbit representatives $(0,1,2,3,8,9)$. The quotient formula
+of Proposition~\ref{prop:central-boson}, applied to the independently
+constructed half-$E_6$ and $SU(2)_6$ tensors, gives the census tensor after
+permutation $(0,3,1,2,4,5)$. The implementation checks every product and
+its independence of the chosen representative. Existence and unitarity
+come from the central separable algebra; the tensor comparison identifies
+its Grothendieck ring.
+\end{proof}
+
+\subsection{A sign-twisted swap on a fermionic product}\label{sec:sign-swap}
+The next construction has a categorical hypothesis. Associativity of the
+integer tensor for a formal parameter does not provide its input category.
+
+\begin{theorem}[Sign-swap equivariantization]\label{thm:sign-swap}
+Let $\mathcal E$ be a unitary fusion category with simples $1,f,x$, a
+specified central fermion $f$, and rules
+\[
+ f^2=1,\quad fx=xf=x,\quad x^2=1+f+mx.
+\]
+Suppose $d=\FPdim(x)$ is irrational. There is a unitary fusion category
+with invertible group $G=C_2\times C_2$ and two self-dual simples $X,Y$,
+fixed by all invertibles, with
+\begin{align}
+ X^2&=\sum_{g\in G}g+mX+2Y,\label{eq:sign-swap}\\
+ XY=YX&=2X+2mY,\notag\\
+ Y^2&=\sum_{g\in G}g+2mX+m^2Y.\notag
+\end{align}
+Their dimensions are $2d$ and $d^2$. The Ising input $m=0$ gives
+$\RR{2}{69}$, and the half-$E_6$ input $m=2$ gives $\RR{4}{249}$.
+\end{theorem}
+\begin{proof}
+In $\mathcal E\boxtimes\mathcal E$ put $b=f\boxtimes f$ and $A=1\oplus b$.
+This is the regular algebra of a central Tannakian subcategory. The
+factor-swap tensor functor $S$ preserves the central lift of $b$.
+Equip $A$ with the algebra isomorphism $\phi:S(A)\to A$ that is $+1$ on
+$1$ and $-1$ on $b$. It satisfies $\phi S(\phi)=\operatorname{id}$.
+Transport of module actions through $S$ and $\phi$ defines a coherent
+unitary $C_2$ action $T$ on $\mathcal Q=(\mathcal E\boxtimes\mathcal E)_A$.
+The category we use is the ordinary equivariantization $\mathcal Q^{C_2}$.
+
+The free $b$-orbits give four simples of $\mathcal Q$: the unit,
+$g=(f\boxtimes1)A$, and $a=(x\boxtimes1)A$, $a'=(1\boxtimes x)A$.
+The fixed object $x\boxtimes x$ gives two simples $u_+,u_-$, each of
+dimension $d^2/2$. To see the action explicitly, choose the right
+$f$-action $t:x\otimes f\to x$ with square one, using the module
+associativity constraint. Such a normalization exists because
+$1\oplus f$ is the regular separable algebra and its two actions on $x$
+differ by sign. The right $b$-actions on the fixed object are
+$\pm(t\boxtimes t)$. Swap preserves this tensor, while $\phi$ changes its
+sign. Hence $T$ interchanges $u_+,u_-$; it also interchanges $a,a'$ and
+fixes $1,g$.
+
+An orbit of size two has trivial stabilizer and yields one simple in the
+equivariantization; a fixed simple has two equivariant structures, since
+projective representations of $C_2$ over $\CC$ can be linearized. Thus
+there are four invertibles, one simple $X$ over $a\oplus a'$ and one
+simple $Y$ over $u_+\oplus u_-$. Their dimensions are $2d,d^2$.
+Their supports are invariant under duality, so $X,Y$ are self-dual.
+They are fixed by all invertibles: tensoring preserves their distinct
+dimensions and there is only one simple of either dimension.
+
+We check the group law on the four invertibles; dimensions alone would
+not distinguish $C_4$ from $C_2\times C_2$. Work in the pointed part
+$\mathrm{sVec}\boxtimes\mathrm{sVec}$, with trivial associator and the
+specified self-braidings $-1$. Let $e_0,e_1$ be the two homogeneous
+components of $g=(f,1)A$, in degrees $(f,1),(1,f)$. An isomorphism
+$g\otimes_A g\to A$ has the normalized coefficients
+\[
+ \mu_{00}=1,\qquad \mu_{01}=b,\qquad
+ \mu_{10}=-b,\qquad \mu_{11}=-1.
+\]
+The minus sign in balancing is forced by the half-braiding of $b$ with
+$(f,1)$; it is not a choice of a ring sign. Give $g$ the equivariance
+$T(e_0)\mapsto i e_1$, $T(e_1)\mapsto-i e_0$. Its square is the identity.
+On each of the four pairs $(e_r,e_s)$, the displayed $\mu$ intertwines
+this tensor-square equivariance with $\phi$, which acts on $A$ as
+$(1,-1)$. Therefore this lift of $g$ squares to the tensor unit.
+Together with the independent sign representation of $C_2$, it generates
+$C_2\times C_2$. The six scalar equalities (two for coherence, four for
+multiplication) are also checked exactly over $\QQ(i)$.
+
+Frobenius reciprocity now puts each invertible once in $X^2,Y^2$ and none
+in $XY$. Write $d^2=2+md$. Comparing coefficients of $1,d$ in
+$(2d)^2$, $(2d)d^2$ and $d^4$ forces respectively the coefficients in
+\eqref{eq:sign-swap}; their uniqueness uses the irrationality of $d$.
+For example $X^2=\sum_g g+aX+cY$ gives $8+4md=4+2c+(2a+cm)d$,
+so $c=2$ and $a=m$. For $XY=aX+cY$, comparison gives $c=2m,a=2$;
+for $Y^2=\sum_g g+aX+cY$, it gives $c=m^2,a=2m$.
+All operations used preserve unitarity.
+
+The Ising and half-$E_6$ inputs and their central fermions are supplied by
+standard Ising theory and Lemma~\ref{lem:fermion} (see also \cite{ALW}).
+Their tensors, constructed from \eqref{eq:sign-swap}, match the census
+with permutations $(0,1,2,3,5,4)$ and the identity. These two categorical
+inputs, not arbitrary values of $m$, are admitted by the model registry.
+\end{proof}
+
+\subsection{Reconstruction from a relative center}\label{sec:relative-fibonacci}
+For a full fusion subcategory $\mathcal D\subset\mathcal C$, the relative
+center $Z_{\mathcal D}(\mathcal C)$ consists of objects of $\mathcal C$
+equipped with a coherent half-braiding against objects of $\mathcal D$.
+It is not the M\"uger centralizer in a braided category. It is a fusion
+category, is Morita equivalent to $\mathcal D\boxtimes\mathcal C^{\rm rev}$,
+and has dimension $\FPdim(\mathcal D)\FPdim(\mathcal C)$
+\cite[Remark~2.4]{GNNrel}. For unitary input, its realization as the dual
+of the natural unitary module category gives a unitary fusion category.
+
+\begin{proposition}[Forced relative-center reconstruction]\label{prop:relative-reconstruction}
+Suppose $\mathcal D=\langle a\rangle\subset\mathcal C$ is a Fibonacci
+subcategory, so $a^2=1+a$. In the simple basis of $\mathcal C$, let $L_a,R_a$
+be the matrices of left and right multiplication by $a$, and put
+\[
+ B=I+L_aR_a,\qquad
+ L=(e_0,e_a,e_a,e_0+e_a),\qquad Q=B-LL^{\mathsf T}.
+\]
+Starting from $Q$, whenever a diagonal entry is one, its column is a
+forced nonnegative integral Gram column. Subtract its outer product and
+repeat. If this process reaches zero, it determines the entire restriction
+matrix $F=(L,H)$ of $Z_{\mathcal D}(\mathcal C)$.
+
+Assume additionally that the high columns are pairwise distinct, distinct
+from the low columns, and individually invariant under duality in
+$\mathcal C$. Then the relative center is self-dual. Impose the known
+$\mathrm{Fib}\boxtimes\mathrm{Fib}^{\rm rev}$ multiplication on its first
+four simples and the ring-homomorphism equations for $F$. If these linear
+equations in the symmetric nonunit structure constants have a unique
+solution, that solution is its complete Grothendieck tensor.
+\end{proposition}
+\begin{proof}
+For the forgetful functor and its adjoint, relative central induction has
+underlying object $FI(V)=V\oplus aVa$; equivalently it is the finite
+semisimple coend $\bigoplus_{U\in\Irr\mathcal D}U\otimes V\otimes U^*$.
+Adjunction gives the Gram identity $FF^{\mathsf T}=B$.
+The full inclusion $\mathcal D\subset\mathcal C$ induces a fully faithful
+tensor inclusion $Z(\mathcal D)\subset Z_{\mathcal D}(\mathcal C)$:
+the half-braiding condition and all morphism spaces between objects of
+$\mathcal D$ are unchanged. The standard nondegenerate Fibonacci braiding
+identifies $Z(\mathcal D)$ with
+$\mathrm{Fib}\boxtimes\mathrm{Fib}^{\rm rev}$, whose four restriction
+columns are exactly $L$.
+
+If $Q_{ii}=1$, exactly one remaining simple has restriction coefficient
+one in row $i$, and all the others have coefficient zero. Its full
+restriction column is therefore $Q_{\bullet i}$. Subtracting its outer
+product is mandatory. At zero residual no further nonzero restriction
+column is possible. This proves the asserted uniqueness without a
+numerical factorization or a conjectural central rank.
+
+The low four simples are self-dual. The additional hypotheses force every
+high simple to be self-dual, because duality permutes restriction columns
+and no other simple has the same column. A based ring all of whose simples
+are self-dual is commutative. Frobenius reciprocity makes its nonunit
+coefficients symmetric in all three indices. Its forgetful functor is a
+ring homomorphism and the low multiplication is already known. Hence its
+actual tensor solves the stated linear system. Uniqueness determines
+that tensor; categorical existence was supplied before solving the
+system. If a pivot or uniqueness test fails, the recipe is inconclusive,
+not an exclusion or a claimed construction from arbitrary ring data.
+\end{proof}
+
+\begin{corollary}\label{cor:tt3-relative}
+For the unitary category $TT_3$ and either of its Fibonacci generators,
+$Z_{\mathrm{Fib}}(TT_3)$ has Grothendieck ring $\RR{6}{1712}$.
+\end{corollary}
+\begin{proof}
+Use the source basis $(1,f^{(2)},\rho,\sigma,\bar\sigma,\mu)$ of
+\cite[Definition~2.5]{EM} and $a=\rho$. Its dimension vector is
+$(1,\varphi^3,\varphi,\varphi^2,\varphi^2,\varphi)$,
+where $\varphi=(1+\sqrt5)/2$. The source provides the unitary category and
+its complete multiplication table. The Gram procedure of
+Proposition~\ref{prop:relative-reconstruction} gives
+\[
+ F=\begin{pmatrix}
+ 1&0&0&1&0&0\\
+ 0&0&0&0&1&1\\
+ 0&1&1&1&0&0\\
+ 0&0&0&0&0&1\\
+ 0&0&0&0&0&1\\
+ 0&0&0&0&1&0
+ \end{pmatrix}.
+\]
+Indeed, after removal of the low columns the row of $\sigma$ is a
+diagonal-one pivot; after its forced subtraction the row of $f^{(2)}$
+is another such pivot. Their removal leaves zero. Denote the columns by
+$(1,p,q,pq,X,Y)$. Then $p^2=1+p$, $q^2=1+q$, and the complete remaining
+rules are
+\begin{align*}
+ pX=qX&=Y,&pY=qY&=X+Y,\\
+ (pq)X&=X+Y,&(pq)Y&=X+2Y,\\
+ X^2&=1+pq+2X+2Y,\\
+ XY&=p+q+pq+2X+4Y,\\
+ Y^2&=1+p+q+2pq+4X+6Y.
+\end{align*}
+For detail on uniqueness, there are $\binom{7}{3}=35$ symmetric nonunit
+unknowns. The low products and all $36$ restriction-product identities
+give $312$ scalar linear equations of exact rank $35$. The verifier
+reconstructs this integer system and its unique nonnegative integral
+solution, and independently checks every based-ring axiom. The displayed
+rules also permit direct substitution into every identity.
+
+The full tensor matches $\RR{6}{1712}$ under $(0,1,2,4,5,3)$.
+Repeating the calculation with $a=\mu$ gives a based-isomorphic result.
+Applying the same recipe to $\mathcal C=\mathcal D=\mathrm{Fib}$ recovers
+$\mathrm{Fib}\boxtimes\mathrm{Fib}^{\rm rev}$ as an independent positive
+control. Thus neither the rank-six answer nor its census identification
+is an input to the reconstruction.
+\end{proof}

@@ -1,0 +1,31 @@
+\section{Arbitrary twist sectors}\label{sec:twist-sectors}
+For $\zeta\in\CC^\times$, let $I(V)_\zeta$ denote the part of $I(V)$ with
+twist $\zeta$, including multiplicities. This appendix is not required
+for the finite classification; its twist-one instance is already used
+in Theorem~\ref{thm:higher-indicator}.
+
+\begin{proposition}[Twist-sector bound]\label{prop:twist-sector}
+For every object $V$ in a pseudo-unitary fusion category,
+\[
+ 2\FPdim(I(V)_\zeta)\leq D\bigl(\FPdim(V)+[V:1]\bigr).
+\]
+\end{proposition}
+\begin{proof}
+Put $n=[V:1]$ and $W=\FPdim(I(V)_\zeta)$. If $W=0$ there is nothing to
+prove. Otherwise $|\zeta|=1$, and the first indicator gives
+$nD=\zeta W+\sum_{\theta_A\ne\zeta}w_A\theta_A$. The triangle inequality
+implies $W\leq nD+D\FPdim(V)-W$.
+\end{proof}
+
+\begin{corollary}[Higher-indicator twist sectors]\label{cor:higher-sector}
+If $\nu_1(V)=\cdots=\nu_m(V)=0$, then, for every $\zeta\in\CC^\times$,
+\[
+ (m+1)\FPdim(I(V)_\zeta)\leq D\FPdim(V).
+\]
+\end{corollary}
+\begin{proof}
+For a nonzero sector $|\zeta|=1$. Apply the proof of
+Theorem~\ref{thm:higher-indicator} to
+$|1+\zeta^{-1}\theta_A+\cdots+(\zeta^{-1}\theta_A)^m|^2$.
+The vanished moments remain zero after these rotations.
+\end{proof}

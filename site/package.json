@@ -1,0 +1,10 @@
+{
+  "name": "grothendieck-ring-atlas",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node dev-preview.mjs",
+    "check": "node --check dist/app.js && python3 smoke_test.py"
+  }
+}

@@ -1,0 +1,161 @@
+\section{Classification results and scope}\label{sec:results}
+A fusion ring is a finite-rank based ring with nonnegative integral
+structure constants, a distinguished unit, and duality satisfying
+Frobenius reciprocity. We work with full ordered multiplication tensors;
+in particular, commutativity is not part of the definition.
+The multiplicity is the maximum of all structure constants, including
+the unit coefficients. A categorification means a fusion category over
+$\CC$, without an assumed pivotal, spherical, or unitary structure.
+We classify existence for a ring, not equivalence classes of categories
+with that ring.
+
+Vercleyen--Slingerland constructed a substantial low-rank database
+\cite{VS}. Its rank-six portion is complete through multiplicity four.
+The multiplicity-one categorification problem was settled by
+Liu--Palcoux--Ren \cite{LPR}. The rank-four and rank-five projects
+\cite{DP4,DP5} develop arithmetic, sphericalization, and central-induction
+certificates. At rank six, however, neither the ring nor a signed quotient
+of its sphericalization can simply be assumed commutative. This is the
+principal structural change addressed here.
+
+
+All positively identified rings and their models appear in
+Table~\ref{tab:models}; its structure column is part of the classification
+statement, not merely a description of a chosen presentation. In
+particular, Schopieray's category \cite[Example~1]{SchNonPU} realizes
+$\RR{2}{124}$ spherically, whereas \cite[Theorem~1]{SchNonPU} excludes
+\emph{every} pseudo-unitary categorification of that same ring.
+Thus general or spherical existence cannot be identified with unitary
+existence, even in rank six and multiplicity two. The electronic ledger
+records general, pivotal, spherical, pseudo-unitary and unitary existence
+separately for every tensor. The source identifications are detailed in Section~\ref{sec:literature-models}.
+The paper is organized by mathematical operation rather than by individual
+exceptions. Section~\ref{sec:enumeration} fixes the source census, its scope, and
+the tensor conventions used by every automated test. Section~\ref{sec:reductions} reduces arbitrary
+categorifications to the appropriate arithmetic and spherical cases.
+Section~\ref{sec:unified-induction} presents one central-induction framework,
+with precisely scoped refinements rather than separate ad hoc tests.
+Section~\ref{sec:newalgebra} supplies module and Morita constraints.
+Section~\ref{sec:positive} treats models by construction, including
+central-boson quotients, equivariantizations, and relative centers.
+Section~\ref{sec:certification} specifies exhaustive certificate checking
+and the remaining frontier.
+
+In particular, the positive catalogue includes the extended Haagerup
+category $\mathcal{EH}_1$ \cite{BMPS,BPEH} and Izumi's $C_5+5$ near-group
+category \cite{Izumi}, not just the constructions derived from them.
+The mixed fermionic quotient of Proposition~\ref{prop:mixed-fermion}, the
+sign-swap equivariantization of Theorem~\ref{thm:sign-swap}, and the
+relative-center construction of Corollary~\ref{cor:tt3-relative} give
+three additional full-tensor identifications. None is inferred merely
+from a dimension match or from survival of the necessary criteria.
+
+\begin{theorem}[Source census {\cite{CensusRepo}}]\label{thm:census}
+The published \emph{Fusion Ring Census}, at the revision fixed in
+Section~\ref{sec:enumeration}, contains exactly $16612$
+based-isomorphism classes of rank-six fusion rings of multiplicity at
+most eight. The numbers at exact multiplicities $1,\ldots,8$ are
+\[
+39,\quad154,\quad384,\quad872,\quad1582,\quad2768,\quad3814,\quad6999.
+\]
+All three possible duality types and all noncommutative cases are
+included. No categorifiability filter is applied. Completeness of this
+counting input is the result of the cited repository; the present paper
+addresses categorification of its tensors.
+\end{theorem}
+
+\begin{theorem}[Classification through multiplicity two and certified extension]\label{thm:classification}
+In the census of Theorem~\ref{thm:census}, the accompanying exact
+certificates exclude $\NegativeCount$ rings from general complex
+categorification. There are $\PositiveCount$ positively identified rings:
+$\UnitaryCount$ have unitary categorifications, whereas $\RR{2}{124}$ has
+a spherical categorification but no pseudo-unitary categorification.
+These positive sets and the general exclusions are pairwise disjoint.
+The remaining $\UnresolvedCount$ rings are not decided for general existence by the present criteria and bounded searches. Structure-specific pseudo-unitary exclusions are recorded separately and do not alter that general status. Their distribution is given in
+Table~\ref{tab:classification}.
+
+Among the $193$ rings of multiplicity at most two, precisely $43$
+admit general, pivotal, or spherical categorifications. Exactly $42$ of
+these admit pseudo-unitary or unitary categorifications; the sole
+exception is $\RR{2}{124}$. At exact multiplicity two the $154$ rings
+split into $132$ general exclusions, $21$ unitary positives and that
+one spherical non-pseudo-unitarily-categorifiable ring. There are no
+residuals at multiplicity two. The higher-multiplicity results in
+Table~\ref{tab:classification} are partial; their residuals are listed
+in the complete electronic ledger.
+\end{theorem}
+
+\input{generated_classification}
+\input{generated_low_residuals}
+
+The phrase ``undecided'' is deliberately local to this computation. A
+search timeout is not an obstruction, and failure to produce a separating
+functional is not a construction. Nor do we claim that every residual
+is open throughout the literature. Section~\ref{sec:frontier} retains exact feasible points for the now positively identified cyclic-four ring as regression controls. Such points were not used to infer existence; the conformal-embedding construction supplies it.
+
+For reproducible identifiers, retain the unit as the zeroth basis element,
+use the exported representatives in the generator's fixed coordinate
+conventions, and sort their full tensors in row-major lexicographic order
+at each exact multiplicity. This order is a convention on the exported
+representatives, not a claim that each is the lexicographic minimum under
+all $120$ relabellings. Distinctness up to based isomorphism is supplied
+by the cited census.
+The established representatives and identifiers through multiplicity seven are preserved; the multiplicity-eight stratum is sorted by the same row-major convention. The $j$th tensor at multiplicity $m$ is denoted
+$\RR{m}{j}$. The complete tensor, rather than this identifier, is the input
+to every obstruction. A separate crosswalk records matches to the
+ancillary database of \cite{VS}; its indices play no role in a proof.
+
+All reductions are applied to full tensors. The cheap arithmetic filters
+are retained because they avoid unnecessary induction searches; the
+stronger blocks are used only with their stated hypotheses. The
+rank-four and rank-five results are cited rather than reproved. This is
+a unified implementation of sufficient exclusion certificates, not a
+claim that the criterion set is logically minimal.
+
+\paragraph{Progress at the first unresolved multiplicity.}
+The earliest general residual remains $\RR{3}{215}$. We do not skip it
+in favor of larger-multiplicity examples. Section~\ref{sec:joint-low-product-gram}
+proves a joint low-product Gram condition, combining fourth-order
+modular moments with integral product restrictions. Its exact automated
+test shows that the formal rank-$22$ witness survives; this is a precise
+limit of the strengthened necessary system, not a new general exclusion.
+Section~\ref{sec:premodular-frontier-bound} derives from
+Dong--Schopieray a rank-six bound $\FPdim\leq168$ for braided spherical
+categorifications. Since the tensor has
+$\FPdim=136+32\sqrt{17}>168$, it is excluded in that scope only.
+A full-census tensor comparison with the rank-six ancillary data of
+Ng--Rowell--Wen gives no new model. Each numerical conclusion is produced
+by the supplied scripts from tensors and exact source data, without
+manual case arithmetic.
+
+\paragraph{What the exclusion table measures.}
+The sequential table in Section~\ref{sec:verification} applies the
+available criteria in an explicit order and reports new removals and
+remaining tensors at each exact multiplicity. Simple structural and
+arithmetic tests precede finite induction and signed searches. This is
+a reproducible compromise between cost and yield, not a proof of a
+universally optimal order. A theorem with a stronger conclusion can be
+more expensive to apply, and a successful earlier test makes later tests
+unnecessary for that tensor.
+Dimension-order and character-induction stages first make additional
+top-level removals at multiplicity eight, one and four respectively.
+This describes the executed sieve through eight; it does not claim
+that the same criteria decide larger multiplicities.
+
+The earliest unresolved multiplicity is the first stratum in which the
+current automated procedure does not decide every ring. It marks where
+further work should begin; that work may be a new exclusion criterion,
+a sharper application of an existing criterion, or a positive model.
+A zero residual count in a later stratum means that the present methods
+suffice for that stratum. Even if an entire terminal interval through
+multiplicity eight has zero residuals, this would not imply that no new
+criterion is needed at multiplicity nine or higher. Conversely, a
+bounded search that stops without a certificate does not show that a
+new theorem is logically necessary.
+
+The same reporting scheme applies at lower ranks: one fixes a complete
+counting range, runs the necessary criteria and model constructors, and
+locates the first nonzero residual stratum. Here the detailed automated
+ledger is rank six. The cited rank-four and rank-five categorification
+results are used only in their proved ranges; the larger counting ranges
+of the source repository do not by themselves extend those theorems.

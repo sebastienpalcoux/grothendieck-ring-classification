@@ -1,0 +1,46 @@
+\subsection{Higher vanishing moments}
+We use the arbitrary-rank higher-indicator theorem and its twist-sector
+corollary from \cite[Theorem~\ref{B-thm:higher-indicator} and
+Corollary~\ref{B-cor:higher-sector}]{Finite}. For
+$W_\zeta(V)=\FPdim(I(V)_\zeta)$ they state that
+\[
+ (r+1)W_\zeta(V)\leq D\FPdim(V)
+ \quad\text{if }\nu_1(V)=\cdots=\nu_r(V)=0.
+\]
+Here $\mathcal C$ is pseudo-unitary with its canonical spherical structure.
+The proof uses the nonnegative polynomial
+$|1+z+\cdots+z^r|^2$ and the moment identity
+\begin{equation}\label{eq:indicator-moments}
+ \sum_Z[I(V):Z]\FPdim(Z)\theta_Z^n=D\nu_n(V).
+\end{equation}
+In particular, non-self-dual simples have vanishing first and second
+indicators and satisfy
+\begin{equation}\label{eq:nonselfdual-third}
+ 3\FPdim(I_{\rm low}(X))\leq D\FPdim(X).
+\end{equation}
+
+\begin{remark}
+The proof also gives an explicit bound when the indicators do not vanish:
+\[
+ (r+1)^2W_\zeta(V)\leq
+ (r+1)D\operatorname{FPdim}(V)
+ +2D\operatorname{Re}\sum_{j=1}^r(r+1-j)\zeta^{-j}\nu_j(V).
+\]
+Only positivity of the canonical dimensions and the indicator formula are used;
+no $*$-structure is assumed. Positivity must not be dropped in a general spherical
+category. The polynomial is the unnormalised Fej\'er kernel.
+\end{remark}
+
+\begin{corollary}[Aggregating nontrivial simples]\label{cor:aggregate}
+Let $V=\bigoplus_{i>0}a_iX_i$, with $a_i\in\mathbb Z_{\geq0}$, and let
+$L_V$ be a known contribution to its twist-one mass. Then
+\[
+ 2L_V\leq D\FPdim(V),\qquad
+ 9L_V\leq D\bigl(3\FPdim(V)+2\sum_{i>0}a_i\bigr).
+\]
+\end{corollary}
+\begin{proof}
+The first indicator vanishes on every summand, while
+$\nu_2(V)=\sum a_i\nu_2(X_i)\leq\sum a_i$. Apply the degree-one and
+degree-two Fej\'er polynomials. Equivalently, add the individual bounds.
+\end{proof}

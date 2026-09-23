@@ -1,0 +1,77 @@
+\subsection{The sharp conductor-forty boundary}
+\begin{lemma}[A root-of-unity length certificate]\label{lem:rootlength40}
+Suppose that $\xi_1,\ldots,\xi_n$ are roots of unity and
+\[
+ \sum_{j=1}^n\xi_j=a+b\sqrt{10},\qquad a,b\in\mathbb Q.
+\]
+Then $n\geq -a-8b$. If equality holds, every $\xi_j$ is either $-1$ or
+is a primitive fortieth root $\zeta_{40}^{r}$ with
+$\chi_{40}(r)=-1$, where $\chi_{40}(r)=(40/r)$ is the primitive quadratic
+Dirichlet character of conductor $40$.
+Consequently, if
+\[
+ n=18,\qquad\sum_{j=1}^{18}\xi_j=-2-2\sqrt{10},
+\]
+then exactly two of the roots are $-1$, and the normalized absolute trace of
+$\sum_j\xi_j^2$ is $2$.
+\end{lemma}
+
+\begin{proof}
+Put $s=\sqrt{10}$. Let $K=\mathbb Q(s)$, whose conductor is $40$, and choose a cyclotomic field
+$L$ containing $K$ and all the roots under consideration. Write
+\[
+ T(u)=\frac{\operatorname{Tr}_{L/K}(u)}{[L:K]},\qquad
+ \ell(a+bs)=-a-8b.
+\]
+We claim that $\ell(T(\xi))\leq1$ for every root of unity $\xi$, with precisely
+the equality cases stated above. The normalized relative trace does not depend
+on the choice of common cyclotomic overfield.
+
+Let $m$ be the exact order of $\xi$. If $40\nmid m$, the intersection
+$K\cap\mathbb Q(\xi)$ is $\mathbb Q$: otherwise the conductor of $K$ would
+divide $m$. Restriction of automorphisms consequently gives
+\[
+ T(\xi)=\frac{\mu(m)}{\varphi(m)}.
+\]
+It follows that $\ell(T(\xi))\leq1$, with equality only when $m=2$.
+
+Now suppose $m=40h$, and write $\xi=\zeta_m^r$, $(r,m)=1$. Since $\mu(m)=0$,
+the rational coefficient of $T(\xi)$ is zero. The quadratic coefficient is
+computed by the induced quadratic Gauss sum:
+\[
+ G_m(r)=\sum_{v\in(\mathbb Z/m\mathbb Z)^\times}
+             \chi_{40}(v)\zeta_m^{rv}.
+\]
+For completeness, the standard induced-Gauss-sum identity gives
+\[
+ G_m(r)=
+ \begin{cases}
+ \chi_{40}(r)\mu(h)\chi_{40}(h)\,2s,&(h,40)=1,\\
+ 0,&(h,40)>1.
+ \end{cases}
+\]
+Here $\mu(h)=0$ already covers nonsquarefree $h$. This identity can also be
+obtained directly from the Chinese remainder theorem when $(h,40)=1$:
+the sum factors into the primitive Gauss sum
+$G_{40}(1)=\sqrt{40}=2s$ and the Ramanujan sum $\mu(h)$, with the displayed
+quadratic character factors. If an extra power of $2$ or $5$ occurs in $m$,
+summing over the last such prime-power layer gives zero.
+The terms with $\chi_{40}(v)=1$ are the automorphisms fixing $K$; their sum
+is $(\mu(m)+G_m(r))/2$. Since there are $\varphi(m)/2$ such automorphisms,
+\[
+ T(\xi)=\frac{G_m(r)}{\varphi(m)}
+ =\frac{\chi_{40}(r)\mu(h)\chi_{40}(h)}{8\varphi(h)}s
+ \quad\text{if }(h,40)=1,
+\]
+and it is zero otherwise. Thus $|\ell(T(\xi))|\leq1$. Equality with value
+$1$ forces $\varphi(h)=1$ and $(h,40)=1$, hence $h=1$, and then
+$\chi_{40}(r)=-1$. This proves the claim. Applying $\ell\circ T$ to the sum
+of the roots proves the inequality and its equality statement.
+
+In the particular equality case, primitive fortieth roots have normalized
+absolute trace $\mu(40)/\varphi(40)=0$, whereas $-1$ has trace $-1$.
+The absolute trace of $-2-2s$ is $-2$, so exactly two roots are $-1$.
+The square of a primitive fortieth root is primitive of order $20$ and has
+normalized absolute trace $\mu(20)/\varphi(20)=0$. The two other squares
+are $1$, proving the last assertion.
+\end{proof}

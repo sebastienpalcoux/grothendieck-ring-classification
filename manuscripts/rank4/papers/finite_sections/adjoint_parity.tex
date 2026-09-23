@@ -1,0 +1,184 @@
+\section{An adjoint-parity obstruction}\label{sec:adjoint-parity}
+The following elementary property of pivotal duality gives an additional
+constraint on the signed tables. It does not require a braiding,
+pseudo-unitarity or a choice of dimensions.
+
+\begin{lemma}[Skew simples in adjoint products]\label{lem:adjoint-parity}
+Let $\mathcal C$ be a pivotal fusion category over $\mathbb C$, and let
+$X$ be a self-dual simple with $\nu_2(X)=-1$. For every object $Y$,
+the multiplicity of $X$ in $Y^*\otimes Y$ is even.
+\end{lemma}
+\begin{proof}
+Write $j_V:V\longrightarrow V^{**}$ for the pivotal structure. On
+$\operatorname{Hom}(V,V^*)$ use the transpose $f^t=f^*j_V$.
+The definition of the second indicator gives an isomorphism
+$f:X\longrightarrow X^*$ with $f^t=-f$.
+Put $W=Y\otimes X\otimes Y^*$ and
+\[
+ \alpha=j_Y\otimes f\otimes\mathrm{id}_{Y^*}:W\longrightarrow W^*.
+\]
+Duality reverses tensor factors. The identity
+$j_Y^*j_{Y^*}=\mathrm{id}_{Y^*}$ and monoidality of $j$ therefore give
+$\alpha^t=-\alpha$. Associativity and duality coherence maps are
+understood in this formula.
+
+On the complex vector space $\operatorname{Hom}(1,W)$ the pairing
+\[
+ B(v,w)=v^*\alpha w
+\]
+is nondegenerate: duality identifies this space with
+$\operatorname{Hom}(W^*,1)$, composition with $\alpha$ is an
+isomorphism, and the composition pairing on the unit isotypic component
+is perfect by semisimplicity. Dualizing the scalar $B(v,w)$ and using
+$v^{**}=j_Wv$ gives
+$B(v,w)=w^*\alpha^t v=-B(w,v)$. Thus its dimension is even.
+Rigidity identifies its dimension with
+$\dim\operatorname{Hom}(X,Y^*\otimes Y)$, proving the assertion.
+\end{proof}
+
+\begin{corollary}[A congruence for sphericalization]\label{cor:signed-parity}
+Let $R,T$ be an unsigned and signed pair as in
+Proposition~\ref{prop:signed}, arising from a categorification.
+For every self-dual basis element $b_i$ there is a sign
+$\nu_i\in\{1,-1\}$ such that, for every $j$,
+\begin{equation}\label{eq:signed-parity}
+ N_{j,j^*}^{i}-\nu_i T_{j,j^*}^{i}\equiv0\pmod4.
+\end{equation}
+Consequently, if neither sign satisfies these congruences for some $i$,
+the signed table cannot arise from a sphericalization.
+\end{corollary}
+\begin{proof}
+The two lifts $X_i^+,X_i^-$ have opposite second indicators, as explained
+in Section~\ref{sec:frontier-signed-gauss}. Take
+$\nu_i=\nu_2(X_i^+)$. In the adjoint product of a chosen lift of $b_j$,
+their multiplicities are respectively
+$(N_{j,j^*}^{i}+T_{j,j^*}^{i})/2$ and
+$(N_{j,j^*}^{i}-T_{j,j^*}^{i})/2$.
+The lift whose indicator is $-1$ has even multiplicity by
+Lemma~\ref{lem:adjoint-parity}; this is precisely
+\eqref{eq:signed-parity}. The same $\nu_i$ must work for all $j$.
+\end{proof}
+
+The verifier applies this congruence to every self-dual basis element
+of every retained signed table. A witness records an index for which
+both indicator choices fail, and the checker recomputes the unsigned
+and signed adjoint coefficients from the two tensors. Thus a parity
+exclusion depends only on the fusion data. Its occurrences, including
+the signed branches it resolves, are tabulated automatically in the
+certificate ledger.
+
+\subsection{Joint use of arithmetic, parity and moments}
+The preceding criteria constrain the same hypothetical sphericalization.
+They may therefore be imposed jointly, before expanding its possible
+signed tables or indicator assignments.
+
+\begin{corollary}[Joint necessary conditions for a signed lift]
+\label{cor:joint-signed-conditions}
+Let $R,T,\chi$ be as in Proposition~\ref{prop:signed}, and put
+$K=\mathbb Q(\chi(b_i):i)$. If these data arise from a
+sphericalization, then both of the following conditions hold.
+\begin{enumerate}
+\item Every formal codegree of $T$ is a $d$-number, and every value
+of every character of $T$ is a cyclotomic integer.
+\item The indicators in Corollary~\ref{cor:sign-certificate} satisfy
+\[
+ N_{j,j^*}^{i}-\nu_iT_{j,j^*}^{i}\equiv0\pmod4
+ \qquad\text{for every }j
+\]
+for each self-dual nonunit $b_i$. One assignment of these indicators
+and the twist signs $\eta_j$ must satisfy the signed-translate
+moment inequalities at every real embedding of $K$.
+\end{enumerate}
+\end{corollary}
+\begin{proof}
+The characters of $T$ are the characters of the sphericalization's
+Grothendieck ring on which the central sign object acts as $-1$.
+Its formal codegrees on this summand are $2f$, with $f$ a formal
+codegree of $T$. Proposition~\ref{prop:standard} applies:
+multiplication by a nonzero rational number preserves the
+$d$-number property, and the character values remain cyclotomic
+integers.
+
+The congruences are Corollary~\ref{cor:signed-parity} and concern
+the same second indicators as the moment identities. Their choices
+must therefore agree. Under Galois conjugation the indicators and
+relevant twist signs remain fixed, since they lie in $\{1,-1\}$.
+The dimensions remain real and the squared-dimensional measure
+remains positive, so Proposition~\ref{prop:signed-translate-moment}
+applies at every real embedding with that same assignment.
+\end{proof}
+
+\begin{corollary}[Parity-refined spherical bound]
+\label{cor:parity-spherical-bound}
+In Proposition~\ref{prop:spherical-codegree-moment}, replace $S$ by
+\[
+ S_{\rm par}=1+\sum_{i\in J}d_i+
+ \sum_{\substack{i>0,\ i=i^*\\i\notin J}}|d_i|,
+ \qquad
+ J=\{i>0:i=i^*,\ N_{j,j^*}^{i}\text{ is odd for some }j\}.
+\]
+The resulting inequality remains necessary at every real embedding.
+\end{corollary}
+\begin{proof}
+Lemma~\ref{lem:adjoint-parity} forces $\nu_2(X_i)=1$ for $i\in J$.
+Thus $s=\sum_i d_i\nu_2(X_i)\leq S_{\rm par}$ at every real
+embedding. The proof of Proposition~\ref{prop:spherical-codegree-moment}
+uses this upper bound only after multiplication by the nonnegative
+remaining mass $\Delta^2-h$, so the replacement preserves the
+necessary inequality.
+\end{proof}
+
+\begin{corollary}[Parity-restricted signed enumeration]
+\label{cor:parity-restricted-enumeration}
+For a self-dual rank-four fusion ring, write the unsigned and signed
+parameter tuples as $N=(N_0,\ldots,N_9)$ and $p=(p_0,\ldots,p_9)$
+in the order $(a,b,c,d,e,f,g,h,i,j)$. Put
+\[
+ J_1=\{0,3,5\},\qquad J_2=\{1,6,8\},\qquad
+ J_3=\{2,7,9\}.
+\]
+It suffices to search the union, over
+$\nu=(\nu_1,\nu_2,\nu_3)\in\{1,-1\}^3$, of the domains
+\[
+ |p_k|\leq N_k,\qquad
+ p_k\equiv\nu_iN_k\pmod4\quad(k\in J_i),\qquad
+ p_4\equiv N_4\pmod2.
+\]
+One may intersect these domains with the prescribed odd-coefficient
+positivity normalization. After duplicate and empty domains are
+removed, the resulting at most eight boxes are pairwise disjoint.
+\end{corollary}
+\begin{proof}
+Corollary~\ref{cor:signed-parity} supplies three indicator signs
+for every categorical signed table. The sets $J_i$ are precisely
+the coefficients of the three nonunit simples in the three adjoint
+products. The remaining parameter $e$ retains its original signed
+parity and size restrictions.
+
+For fixed $i$, the domains for $\nu_i=1$ and $\nu_i=-1$
+coincide if every $N_k$, $k\in J_i$, is even. Otherwise an odd
+$N_k$ gives distinct residues modulo four, making these domains
+disjoint. Intersecting with positivity restrictions preserves this
+dichotomy, except that a domain may become empty. Since the sets
+$J_i$ are disjoint, the assertion about the boxes follows.
+
+A basis-sign change $s_i\in\{1,-1\}$ multiplies $T_{j,j}^{i}$
+by $s_i$ and changes the chosen lift's indicator to $s_i\nu_i$.
+The product $\nu_iT_{j,j}^{i}$ is unchanged. Thus the union is
+preserved by basis-sign changes, and the positivity normalization
+retains a representative of every categorical possibility.
+\end{proof}
+The omitted coefficient tuples violate adjoint parity, whether or not
+they are associative. A search restricted to these domains therefore
+counts parity-admissible normalized associative tables. Coincident
+domains do not identify their indicator choices: all compatible
+indicators remain available in the joint moment test. These refinements
+use the same categorical criteria; they change their order of application
+and the size of the finite searches.
+
+The arithmetic conditions can also be applied once to a common bounded
+set of signed tables before testing compatibility with any unsigned
+ring. Appendix~\ref{sec:shared-signed-cover} proves completeness of
+such a shared cover under basis permutations and sign changes. Every
+compatible transform of a surviving orbit is still checked against
+the unsigned ring's bounds, parities and remaining moment conditions.

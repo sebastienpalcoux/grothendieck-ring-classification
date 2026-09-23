@@ -1,0 +1,26 @@
+{
+  "passed": true,
+  "results": [
+    {
+      "command": [
+        "/workspace/scratch/dbf603717127/rank6_m8_paper/Rank6_Unified_Models_Release/../.venv/bin/python",
+        "research/m8_frontier/premodular_bound.py"
+      ],
+      "returncode": 0,
+      "passed": true,
+      "seconds": 4.494231677999778,
+      "log": "verification/current/premodular_bound_final.log"
+    },
+    {
+      "command": [
+        "/workspace/scratch/dbf603717127/rank6_m8_paper/Rank6_Unified_Models_Release/../.venv/bin/python",
+        "research/m8_frontier/nrw_rank6_scan.py"
+      ],
+      "returncode": 0,
+      "passed": true,
+      "seconds": 1.0829610159998992,
+      "log": "verification/current/nrw_rank6_scan_final.log"
+    }
+  ],
+  "census_recomputed": false
+}

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Check that a released rank-six tensor list is the source census through 7."""
+"""Check that the released rank-six tensor list is the pinned census through 8."""
 import argparse
 import gzip
 import hashlib
@@ -26,15 +26,12 @@ if __name__=='__main__':
     p.add_argument('--report',type=Path)
     a=p.parse_args()
     old=list(rows(a.release_tables))
-    live=[]
-    for line in rows(a.repository_tables):
-        m=max(map(int,line.replace('{','').replace('}','').split(',')))
-        if m<=7:live.append(line)
-    assert len(old)==len(live)==9613
-    assert len(set(old))==9613
+    live=list(rows(a.repository_tables))
+    assert len(old)==len(live)==16612
+    assert len(set(old))==16612
     assert old==live, 'Tensors or source ordering differ'
-    summary={'result':'9,613 identical full tensor lines in identical order',
-             'scope':'rank 6, multiplicity <= 7',
+    summary={'result':'16,612 identical full tensor lines in identical order',
+             'scope':'rank 6, multiplicity <= 8',
              'release_tables_gz_sha256':sha(a.release_tables),
              'repository_tables_gz_sha256':sha(a.repository_tables),
              'records':len(old)}

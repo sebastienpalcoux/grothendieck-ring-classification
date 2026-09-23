@@ -1,0 +1,111 @@
+\section{A shared exhaustive signed cover}\label{sec:shared-signed-cover}
+The signed reduction permits an arithmetic exclusion to be shared among
+all unsigned rings compatible with a signed table. The following
+construction makes that shared search exhaustive.
+
+\begin{proposition}[A shared exhaustive signed cover]
+\label{prop:global-signed-cover}
+Fix $M\geq1$. Consider the integral self-dual rank-four signed tables
+with the prescribed unit and reciprocity, parameter tuple
+$(a,b,c,d,e,f,g,h,i,j)$, and all ten coefficients of absolute value
+at most $M$. The six associativity equations define a finite set
+preserved by the group of nonunit basis permutations and basis-sign
+changes, of order $48$.
+
+Every orbit has a representative satisfying
+\[
+ b,c,d\geq0,\qquad
+ b=\min\{|b|,|c|,|d|,|f|,|h|,|i|\},
+ \qquad e\geq0\ \text{if }b=c=0.
+\]
+Enumerating all such representatives and retaining only the
+lexicographically least preferred tuple in each of their $48$
+transforms gives exactly one table per orbit.
+
+For every self-dual unsigned fusion ring $R$ of multiplicity at
+most $M$, all its possible sphericalization quotients are covered
+by the transforms of these representatives that satisfy its signed
+coefficient bounds, parities, and adjoint-parity conditions.
+A representative failing the formal-codegree $d$-number criterion
+or character cyclotomicity can be discarded for every $R$
+simultaneously.
+\end{proposition}
+\begin{proof}
+The permutation group is transitive on the six mixed positions
+$b,c,d,f,h,i$. Place a position of minimum absolute value at $b$.
+Under a basis-sign change $(s_1,s_2,s_3)$, the signs multiplying
+$b,c,d$ are respectively $s_2,s_3,s_1$. Hence these three entries
+can be made nonnegative independently, without changing their
+absolute values. If $b=c=0$, the remaining choices of $s_2,s_3$
+also make $e$ nonnegative while preserving $d\geq0$.
+Thus the preferred set meets every orbit. Its least element in
+each finite orbit is unique; checking all $48$ transforms selects
+precisely that element.
+
+For completeness, the preferred set is exhausted by the following
+disjoint branches of the associativity equations. If $b>0$, then
+$c,d\geq b$ and $|f|,|h|,|i|\geq b$; the two-coefficient
+Diophantine relation \eqref{eq:census-linear}, with the polynomial
+coefficients from Appendix~\ref{sec:census}, holds for signed
+parameters as well. Exhaust the bounded choices of $b,c,d,e,f$
+and solve that relation for all bounded integer pairs $a,i$ by
+exact greatest-common-divisor progressions. If one coefficient
+vanishes, exhaust its free variable; if both vanish, retain the
+entire bounded product precisely when the constant term vanishes.
+The formulas in that appendix then determine $h,g,j$. Impose the
+signed bounds and the preferred-representative conditions on all
+coordinates, and check the original six equations.
+If $b=0<c$ and $e\ne0$, the equations determine
+\begin{align*}
+ h&=\frac{d^2+e^2-ad-1}{c},&
+ i&=\frac{e(d+f-a)}c,\\
+ j&=\frac{c^2+e^2+f^2-af-1}{c},&
+ g&=\frac{h(d-f)+ei-cd}{e}.
+\end{align*}
+The divisibility for $i$ gives
+$a\equiv d+f\pmod{c/\gcd(c,e)}$; all bounded choices in this
+progression are checked. If $b=0<c$, $e=0$ and $d>0$, then
+\[
+ \gcd(c,d)=1,\quad i=0,\quad
+ h=\frac{d^2-ad-1}{c}\ne0,\quad f=d-\frac{cd}{h},
+\]
+and $j$ is given by the preceding formula, while $g$ is enumerated.
+The remaining case $b=0<c$, $e=d=0$ forces
+$(c,h,f,i,j)=(1,-1,0,0,0)$ and leaves $a,g$ free.
+
+If $b=c=0<e$, then $a=d+f$ and $df=e^2-1$;
+the equations determine $g,j$ from $d,e,f,h,i$, with the case
+$d=0$ retained. Finally, $b=c=e=0$ forces $d=1,a=0$ and
+$f\in\{1,-1\}$. For $f=1$ the remaining equation is
+\[
+ gi+hj=h^2+i^2-2,
+\]
+including its $h=0$ branch. For $f=-1$ one has $h=i=0$
+and $g,j$ are free. Coordinates whose signs are not fixed by the
+preferred convention retain both signs and the original size
+bounds, and every emitted tuple is checked
+against all six equations. This proves exhaustive enumeration
+of the preferred set, including the zero denominators.
+
+Any sphericalization quotient for $R$ lies in the bounded signed
+set by Proposition~\ref{prop:signed}. One of the $48$ transforms
+of its global representative is the quotient in the basis of $R$,
+so testing all compatible transforms loses no categorical
+possibility. Formal codegrees are unchanged by permutations and
+basis signs, and character values change only by permutation and
+sign. Their $d$-number and cyclotomicity conditions are therefore
+orbit-invariant. Both conditions are necessary for a signed
+sphericalization quotient by Corollary~\ref{cor:joint-signed-conditions},
+which proves the common exclusions.
+\end{proof}
+
+\begin{remark}[Certificate reuse]
+The global signed census is regenerated exhaustively during the
+verification workflow; its completeness is not inferred from a
+cached list. Universally excluded orbits receive a checked common
+arithmetic rejection. Every other orbit is expanded into all
+distinct transforms compatible with each unsigned ring, and every
+such candidate receives the corresponding signed-branch check.
+Sharing these computations changes their allocation among records,
+not the necessary criteria or the scope of the classification.
+\end{remark}

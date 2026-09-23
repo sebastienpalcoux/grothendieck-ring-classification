@@ -48,14 +48,21 @@ def export(args):
         assert set(summary) == set(range(1, max(summary) + 1))
         assert all(sum(summary[m].values()) == census['ranks'][str(rank)]['counts'][str(m)]
                    for m in summary)
-        expected = {4: (128, 889530), 5: (18, 28493), 6: (7, 9613)}[rank]
+        expected = {4: (128, 889530), 5: (20, 40999), 6: (8, 16612)}[rank]
         assert (max(summary), sum(map(sum, (x.values() for x in summary.values())))) == expected
 
     data = []
-    for rank in (4, 5, 6):
-        census_counts = census['ranks'][str(rank)]['counts']
+    for rank in (2, 3, 4, 5, 6):
+        census_counts = census['ranks'][str(rank)]['counts'] if rank>=3 else {
+            str(m):(2 if m==1 else 1) for m in range(1,1001)}
         for m in sorted(map(int, census_counts)):
-            statuses = by_rank[rank].get(m, Counter())
+            if rank==2:
+                statuses=Counter({'realized':2}) if m==1 else Counter({'excluded':1})
+            elif rank==3:
+                positive=4 if m==1 else 1 if m==2 else 0
+                statuses=Counter({'realized':positive,'excluded':census_counts[str(m)]-positive})
+            else:
+                statuses = by_rank[rank].get(m, Counter())
             excluded = statuses.get('excluded', 0)
             realized_unitary = statuses.get('unitarily_realized', 0)
             realized_unspecified = statuses.get('realized', 0)
@@ -83,9 +90,16 @@ def export(args):
                               'classified_through': max(by_rank[rank]),
                               'status_totals': dict(sum(by_rank[rank].values(), Counter()))}
               for rank in (4, 5, 6)}
+    inputs['rank2']={'basis':'X²=1+nX, n>=0; complex realizations exactly n=0,1',
+                     'classified_through':'all'}
+    inputs['rank3']={'basis':'Five unrestricted categorical Grothendieck rings: four of multiplicity 1 and one of multiplicity 2; see the standalone sphericality and ring-classification manuscript',
+                     'classified_through':'all',
+                     'proof_status':'Independent ring-level necessity proof and sphericality argument in manuscripts/rank3.tex; source includes an exact arithmetic checker.'}
+    bundles=[{'name':args.bundle.name,'sha256':digest(args.bundle)}]
+    if args.rank6_bundle:bundles.append({'name':args.rank6_bundle.name,'sha256':digest(args.rank6_bundle)})
     out = dict(schema='grothendieck-ring-classification/status/v1',
                semantics='Rows count based-isomorphism classes. Unresolved means a general categorification decision remains open in the attached release; unassessed means no classification ledger for this census band. Realized means at least one realization, not every categorification has the given structure.',
-               bundle={'name':'FusionFrontier.tar.xz','sha256':digest(args.bundle)},
+               bundles=bundles,
                inputs=inputs, rows=data)
     target = ROOT/'data/classification_status.json'
     target.write_text(json.dumps(out, indent=2)+'\n')
@@ -100,6 +114,7 @@ def export(args):
 if __name__ == '__main__':
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('--bundle', required=True, type=Path)
+    p.add_argument('--rank6-bundle', type=Path)
     p.add_argument('--census', required=True, type=Path)
     for r in (4,5,6):p.add_argument(f'--rank{r}', required=True, type=Path)
     export(p.parse_args())

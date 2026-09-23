@@ -1,0 +1,256 @@
+\section{Certificates, research coverage, and the remaining frontier}\label{sec:certification}
+\subsection{Automated allocation and verification}\label{sec:verification}
+The computation has three separate layers: the frozen source census,
+a discovery pipeline, and an exact categorification-certificate checker. Discovery is permitted to time
+out or to use numerical linear programming to propose a functional.
+Only the checker can validate a negative record. The final ledger
+contains one of four disjoint reporting classes: generally excluded,
+unitarily realized, spherically realized with no pseudo-unitary
+categorification, or unresolved. Five separate existence columns record
+the categorical structures, with no implication from spherical to
+pseudo-unitary existence. The pipeline rejects any intersection
+of its positive and negative sets.
+
+\input{generated_stages}
+
+Table~\ref{tab:stages} gives a sequential view: a tensor removed at one
+stage is not counted as a new removal at any later stage. The order
+places inexpensive structural and arithmetic obstructions before
+larger finite branch searches. Effectiveness means the number of
+\emph{additional} tensors decided at that point, rather than the number
+that a criterion could reject when run in isolation. The table is a
+transparent operational order, not a comparison of logical strength or
+a hardware-independent timing ranking. Ineligible hypotheses, an
+unfinished search and a feasible necessary relaxation all leave a
+ring undecided unless another accepted certificate or model resolves it.
+At multiplicity eight, the dimension-order and character-induction
+stages first contribute new removals in this top-level sieve, excluding
+one and four additional rings respectively. This first contribution
+does not assert that these mathematical tools were absent from nested
+certificates at lower multiplicities, nor that the repertoire will
+suffice at multiplicity nine. Nineteen rings remain unresolved at
+exact multiplicity eight.
+
+\input{generated_allocation}
+
+The allocation in Table~\ref{tab:allocation} is disjoint. It records
+the certificate family stored for each exclusion, while
+Table~\ref{tab:stages} makes the sequential accounting explicit.
+Neither table asserts mathematical independence of the criteria. The signed and positive-dimension records call the
+same low-induction and finite-indicator framework internally. When an
+older unbalanced relative-trace certificate suffices, it is interpreted
+as a certificate for Theorem~\ref{thm:balanced} with zero coefficients
+on the added balance equations. Likewise every inherited Farkas vector remains valid after the Galois-forbidden columns of Theorem~\ref{thm:character-induction} are removed: the inequalities on retained columns are unchanged. The stronger framework therefore retains the old exact witnesses rather than treating their special cases as unrelated obstructions.
+
+Every certificate is verified from the original ordered tensor. The
+checker reconstructs number fields, verifies separating elements and
+factorizations, recomputes low-column and signed-table possibilities,
+and checks all integer inequalities. In particular it does not assume
+that a stored list of branches is exhaustive. For Farkas records it
+checks \eqref{eq:farkas} with Python integers. During certificate
+verification the floating-point linear-programming entry point is
+replaced by a function that raises an error if called.
+
+The source revision and tensor hashes fix the counting input. No census
+is regenerated for the categorification analysis. The positive check
+reconstructs the listed products, the zesting tensor and scalar
+coboundary, finite-group character rings, and group-theoretical
+convolution tensors, including the twisted $S_4$ cochains and their
+projective stabilizer factors. Exact Weyl characters reconstruct the
+$G_2$ model. Every positive entry, including every multiplicity-one
+entry, is matched by an explicit unit-fixing basis permutation; the
+complete $\ConstructorCount$-record constructor catalogue is checked for omissions. Regression tests compare the native integer
+routines with straightforward exact implementations, and deliberately
+corrupted certificates must be rejected.
+
+This is an exact computer-assisted verification, not a formalization in
+a proof assistant. The categorical input theorems, their hypotheses,
+and the mathematical completeness argument remain part of the written
+proof. A checksum proves file integrity, not a mathematical theorem.
+
+\begin{proof}[Proof of Theorem~\ref{thm:classification}]
+Each negative record is an application of Theorems~\ref{thm:involution}
+and~\ref{thm:automorphisms}, or of Proposition~\ref{prop:inputs},
+Corollary~\ref{cor:subring}, or of an exhaustive signed/positive reduction
+followed by Theorem~\ref{thm:weighted} or Theorem~\ref{thm:balanced}
+and the cited rank-four or rank-five tests, with the tensor-sign
+reduction of Lemma~\ref{lem:positive-sign} and the extension of
+Theorem~\ref{thm:rotation} where recorded. The stronger character-aware system of Theorem~\ref{thm:character-induction}, dimension-order test of Proposition~\ref{prop:dimension-order}, and signed refinement of Theorem~\ref{thm:signed-traces} are used where recorded. The exact checker validates
+all hypotheses and exhausts the required finite alternatives. Thus no
+excluded tensor has a complex categorification. Section~\ref{sec:positive}
+constructs and tensor-matches all claimed positive examples, with the
+additional models in Sections~\ref{sec:literature-models} and~\ref{sec:g2-e4}, the higher models of Section~\ref{sec:through7-models}, and complete
+catalogue in Section~\ref{sec:model-catalogue}. In particular the spherical
+existence and pseudo-unitary nonexistence for $\RR{2}{124}$ use the
+full-tensor identification and the two cited results of Schopieray. No complement argument is used
+to assign the positive records. The census and disjoint ledger establish the counts in
+Table~\ref{tab:classification}. The other records are left undecided,
+with no assertion of nonexistence or realizability.
+\end{proof}
+
+\subsection{A realized boundary of the finite relaxations}\label{sec:frontier}
+The ring $\RR{2}{4}$, realized in Proposition~\ref{prop:g2-e4}, has invertible group
+$\langle g\rangle=C_4$ and two self-dual noninvertibles $X,Y$.
+Its rules are
+\begin{equation}\label{eq:firstresidual}
+ \begin{gathered}
+ gX=Y=Xg,\qquad gY=X=Yg,\\
+ X^2=Y^2=1+g^2+2X+2Y,\\
+ XY=YX=g+g^3+2X+2Y.
+ \end{gathered}
+\end{equation}
+The dimensions are $(1,1,1,1,d,d)$ with $d=2+\sqrt6$ and
+$D=4+2d^2=24+8\sqrt6$. This ring is not confused with the Klein-four
+quadratic ring of the same dimension type: its invertible group is
+cyclic. Nor is it the zesting example in Proposition~\ref{prop:zest},
+whose noninvertible square has only one of the two noninvertibles.
+
+\begin{proposition}[An exact finite feasible branch]\label{prop:frontier}
+For the ring \eqref{eq:firstresidual}, the height-six balanced
+finite-indicator system has a rational nonnegative feasible point after
+fixing an integral high-column Gram decomposition. The associated
+formal list has twenty-two central simples. Thus the necessary system
+consisting of the chosen low data, Gram equations, algebraic-integrality
+column bounds, height-six relative traces, duality balance, Galois
+dimension-count balance, and integer column counts cannot by itself
+exclude this ring.
+\end{proposition}
+\begin{proof}
+The file \filename{data/frontier_feasible.json} specifies the complete
+tensor, low matrix, allowed second indicators, nonnegative integral
+column counts, and rational values of the trace variables. The checker
+reconstructs the low-column list and confirms membership, computes every
+high column, and checks \eqref{eq:integergram}. It then reconstructs the
+balanced system and the fixed-count rows and verifies $Ax=b$ and
+$x\ge0$ by exact rational arithmetic. The specified column counts sum
+to sixteen and the low part has six distinct columns, giving twenty-two
+formal simples. The exact entries, system dimensions, and a successful
+verification report are included in the supplement.
+\end{proof}
+
+\begin{proposition}[Integral counts in the rotation relaxation]\label{prop:rotation-frontier}
+For $\RR{2}{4}$, the height-six system of Theorem~\ref{thm:rotation}
+has an exact nonnegative feasible point with integer high-center counts
+and integer cyclic-character counts. Its system has $377$ equations in
+$893$ variables, with $60$ nonzero coordinates and formal central rank
+$27$.
+\end{proposition}
+\begin{proof}
+The file \filename{data/frontier_rotation_feasible.json} supplies its
+low columns, second indicators and exact rational coordinates. The
+checker independently regenerates all center and rotation rows,
+verifies nonnegativity and every equality, and checks integrality of
+all $798$ high-center and $55$ rotation-count coordinates. Only the
+inequality slack coordinates are permitted to be rational. Summing the
+high-center counts and the six low columns gives $27$.
+\end{proof}
+This is a different feasible point from the rank-twenty-two point in
+Proposition~\ref{prop:frontier}; they must not be combined into one
+claimed center. The stronger point shows that adding the displayed
+tensor-rotation equations and integrality of these grouped counts
+does not exclude the cyclic-four tensor, now positively realized in Section~\ref{sec:g2-e4}. A separate
+height-twelve rational search also found no exclusion, but only the
+height-six exact point is used for the proposition.
+
+Neither proposition constructs a modular datum or a category.
+In Proposition~\ref{prop:frontier} trace counts may be rational.
+Even the grouped integer counts of Proposition~\ref{prop:rotation-frontier}
+specify
+averaged twist information rather than individual twists satisfying
+Verlinde and balancing identities. These points are now positive controls for the realized tensor
+$\RR{2}{4}$, not grounds for pursuing an exclusion of it. For unresolved
+tensors, additional information such as individual twist sectors,
+center fusion coefficients and multiplication compatibility can refine
+the necessary systems. The distinct point in
+Section~\ref{sec:modular-frontier} concerns $\RR{3}{215}$ and is verified
+separately. No feasible system is promoted to categorical existence.
+
+The higher-multiplicity residuals include both finite feasible relaxations and bounded signed searches that did not finish. Their diagnostics and complete
+tensors are supplied separately. The verified feasible points for $\RR{2}{4}$ must not be silently assigned to other rings. Current
+quadratic-category work such as \cite{MY} is relevant context, but
+its Klein-four classification is distinct from the cyclic-four conformal-embedding construction above.
+
+\subsection{Reproduction and counting data}\label{sec:reproduction}
+The top-level command
+\begin{center}\texttt{python verify.py --jobs 2}\end{center}
+checks the frozen input correspondence, positive models, and allocated
+negative certificates. The command with \texttt{python -O} checks
+that correctness does not depend on Python assertions. Regression
+controls exercise exact arithmetic, corrupted certificates and the
+frontier witnesses. Precise dependencies, commands, report scope and
+search-stop behavior are given in the accompanying verification guide.
+These are classification checks, not a new enumeration of fusion rings.
+
+The \filename{oeis/} directory contains an eight-term b-file, a CSV,
+and proposed definition and provenance text. The definition is the
+number of based-isomorphism classes of rank-six fusion rings of
+\emph{exact} multiplicity $m$, without assuming commutativity,
+self-duality, integrality or categorifiability. The terms are copied
+from the pinned census. No accession number is assumed and no online
+submission is claimed. Counting farther and classifying farther are
+separate achievements.
+
+\subsection{Research coverage and the next unresolved stratum}\label{sec:research-coverage}
+The residual list is derived from the complete decision ledger, not
+from a hand-selected sample. Multiplicity two is completely decided.
+The smallest unresolved multiplicity and the exact residual tensors
+are reported in Section~\ref{sec:results}; the first such tensor is the
+priority for further theoretical and automated work. The stage table
+also shows whether difficulties reappear at larger multiplicities.
+A criterion applied successfully at one bound remains the same
+mathematical criterion at the next bound: additional computation alone
+is not presented as a new theorem.
+
+The module-Gram refinements and relative-center constructions are
+necessary tests or model constructions with explicit hypotheses.
+A failed eligibility check does not exclude a ring. An inconclusive
+Gram factor does not supply a model. For the relative Fibonacci center
+of $TT_3$, the categorical construction and exact tensor reconstruction
+supply the positive conclusion; feasible Gram data by themselves do not.
+
+Literature comparisons distinguish exact fusion-rule matches from
+shared dimensions. Unitary-only classifications do not exclude arbitrary
+complex fusion categories, and candidate modular data are not
+categorifications unless the source supplies a construction. The same
+principles govern new models and new necessary criteria: a model must
+have a justified categorical source and an exact full-tensor match;
+an obstruction must state its hypotheses and exhaust all branches
+needed for the claimed categorical structure.
+
+The first residual $\RR{3}{215}$ has been subjected to the new joint
+low-product Gram condition of Section~\ref{sec:joint-low-product-gram}.
+The program rechecks the $230$-equation induction witness, computes all
+cubic and fourth-order moments and constructs an integral product matrix
+satisfying the Gram and restriction identities. Its formal rank-$22$
+point survives. This supplies additional exact information about the
+frontier but no general exclusion or category. The two-sided module
+Gram identities in Section~\ref{sec:dual-module-gram} provide a separate
+refinement with their stated module hypotheses; they are not a license
+to assume a module category exists.
+
+The Dong--Schopieray bound in
+Section~\ref{sec:premodular-frontier-bound} does give a negative result
+for the first residual, specifically for braided spherical
+categorification. It leaves the five unbraided existence fields
+unchanged. The Ng--Rowell--Wen comparison screens every one of the
+$16612$ source tensors against the rank-six ancillary data and performs
+exact based-ring comparisons after invariant filtering. It finds no
+new model; the source's largest fusion coefficient is two. Neither
+failure to match that modular list nor failure of the premodular bound
+is promoted to nonexistence of an arbitrary fusion category.
+
+These computations are reproduced by
+\begin{verbatim}
+python research/m8_frontier/low_product_gram.py --check
+python research/m8_frontier/premodular_bound.py
+python research/m8_frontier/nrw_rank6_scan.py
+\end{verbatim}
+The programs retain exact certificates and scoped reports alongside
+their source. They apply their conditions to tensor data rather than
+using a desired classification outcome as input.
+
+The remaining $\UnresolvedCount$ tensors are unresolved by this release.
+No literature-wide open-problem claim is attached to that word. In
+particular, survival of all implemented tests means only that these
+tests have not decided the input. The paper makes no prediction of
+counts or categorifiability beyond multiplicity eight.

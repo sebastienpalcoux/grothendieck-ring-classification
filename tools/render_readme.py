@@ -17,7 +17,9 @@ An atlas of **exact based-ring counts**, **categorification decisions** and the
 proofs behind those decisions. The census and classification have different
 bounds. A ring counted by the census is not thereby categorifiable.
 
-**[Browse all counts](data/counts.csv)** · **[Classification outcomes](data/classification_status.csv)** · **[Provenance](docs/PROVENANCE.md)** · **[Verify the data](docs/VERIFY.md)** · **[Manuscripts](manuscripts/README.md)**
+**[Browse all counts](data/counts.csv)** · **[Classification outcomes](data/classification_status.csv)** · **[Provenance](docs/PROVENANCE.md)** · **[Verify the data](docs/VERIFY.md)** · **[Manuscripts](manuscripts/README.md)** · **[OEIS drafts](oeis/README.md)**
+
+[**Private working atlas (owner-only)**](https://grothendieck-ring-atlas.sebastien-palcoux.chatgpt.site) · [Atlas source and snapshot](site/)
 
 > **Scope.** Multiplicity is the maximum fusion coefficient. Each cell below
 > counts based-isomorphism classes with *exactly* that multiplicity. A dash
@@ -26,10 +28,10 @@ bounds. A ring counted by the census is not thereby categorifiable.
 
 ## Census · rings at each exact multiplicity
 
-| Multiplicity | Rank 2 | Rank 3 | Rank 4 | Rank 5 | Rank 6 | Rank 7 | Rank 8 |
-|---:|---:|---:|---:|---:|---:|---:|---:|''']
+| Multiplicity | Rank 2 | Rank 3 | Rank 4 | Rank 5 | Rank 6 |
+|---:|---:|---:|---:|---:|---:|''']
 for m in range(1,21):
-    row=[str(m)]+[f'{by[(r,m)]:,}' if (r,m) in by else '—' for r in range(2,9)]
+    row=[str(m)]+[f'{by[(r,m)]:,}' if (r,m) in by else '—' for r in range(2,7)]
     lines.append('| '+' | '.join(row)+' |')
 
 lines.append('''
@@ -44,20 +46,18 @@ multiplicity 1, then one at every multiplicity `m ≥ 2`.
 
 | Rank | Full census | General classification | Current conclusion |
 |---:|---:|---:|---|
-| 2 | Symbolic, all multiplicities | All multiplicities over ℂ | Exactly the rings `n = 0, 1` are realized; revised proof in preparation. |
-| 3 | Through 1,000 | Unrestricted theorem | See the short rank-three sphericality and classification manuscript. |
+| 2 | Symbolic, all multiplicities | All multiplicities over ℂ | Exactly the rings `n = 0, 1` are realized; see the revised proof. |
+| 3 | Through 1,000 | Unrestricted theorem | Five realized rings: four at multiplicity 1 and one at 2; see the standalone sphericality and ring-classification proof. |
 | 4 | Through 128 | **Complete through 128** | 15 realized rings, 889,515 general exclusions. |
-| 5 | Through 20 | **Complete through 17** | 17 realized rings. At 18, 5,078 excluded and two generally unresolved. At 19–20, the census is available but no classification ledger is supplied. |
-| 6 | Through 8 | **Complete through 2** | Through 7: 9,530 excluded, 54 realized, 29 unresolved. Multiplicity 8 is census-only. |
-| 7 | Through 4 | No manuscript classification ledger | Census counts only. |
-| 8 | Through 2 | No manuscript classification ledger | Census counts only. |
+| 5 | Through 20 | **Complete through 17, and separately at 19–20** | 17 realized rings. At 18, 5,078 excluded and two generally unresolved; all 12,506 rings at 19–20 are excluded. |
+| 6 | Through 8 | **Complete through 2** | Through 8: 16,511 excluded, 54 realized, 47 unresolved; 19 of those residuals occur at multiplicity 8. |
 
-Rank-six realization counts through multiplicity 7 split into **53 unitary
+Rank-six realization counts through multiplicity 8 split into **53 unitary
 models** and **one spherical model whose ring has no pseudo-unitary
 categorification**. “Realized” means that at least one categorification is
 constructed; it does not assert that every categorification of that ring is
-unitary. The rank-five two residual rings have spherical exclusions but their
-general categorification status remains unresolved.
+unitary. The rank-five two residual rings at multiplicity 18 have spherical
+exclusions but their general categorification status remains unresolved.
 
 ### The classification boundary, band by band
 
@@ -81,6 +81,20 @@ Full decision bands: [JSON](data/classification_status.json) ·
 rank-four, rank-five and rank-six certificate ledgers; their SHA-256 hashes,
 row checks and scope appear in [the provenance record](docs/PROVENANCE.md).
 
+### When did the current criterion repertoire stabilize?
+
+| Rank | Last first use of a mathematical criterion family | Checked range afterward |
+|---:|---:|---|
+| 4 | Multiplicity 18 | The same criterion families suffice for the allocated exclusions at 19–128. |
+| 5 | Multiplicity 8 | The same theoretical families suffice at 9–20; a combined executable certificate type first appears at 12. Two rings at 18 remain unresolved. |
+| 6 | Multiplicity 8 | Dimension-order and character-induction exclusions first succeed at 8; 47 general cases remain unresolved. No later multiplicity is covered. |
+
+This records **first use in the chosen certificate allocation**, not an
+optimal ordering theorem or a claim that the criteria settle higher
+multiplicities. Rank-four nested signed cyclotomicity first succeeds at 95,
+using a general cyclotomicity theorem already used at 9. The ordered
+step-by-step exclusion tables and proof dependencies are in the manuscripts.
+
 ## Read the mathematics
 
 The [manuscripts](manuscripts/README.md) are kept as TeX/PDF pairs. The
@@ -97,8 +111,10 @@ stored checks establish.
 data/         Pinned census matrix and classification-status tables
 docs/         Provenance, terminology and verification paths
 manuscripts/  Revised TeX and PDF pairs, as released
+supplements/  Proof software, compact certificates and verification reports
 site/         Static atlas source and private-preview assets
 tools/        Deterministic count/status export and crosswalk checks
+oeis/         Sequence drafts, pending an OEIS submission
 ```
 
 **Source of truth:** the [fusion-ring-census repository](https://github.com/sebastienpalcoux/fusion-ring-census)

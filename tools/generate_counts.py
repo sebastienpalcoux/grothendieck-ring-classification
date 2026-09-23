@@ -20,7 +20,7 @@ def export(path):
             for m in range(1,1001)]
     summary = [dict(rank=2, census_through='all', recorded_through=1000,
                     classes_at_recorded_bound=1001, method='symbolic')]
-    for rank in range(3,9):
+    for rank in range(3,7):
         entry = manifest['ranks'][str(rank)]
         assert entry['complete'] and entry['verified']
         bound = entry['bound']

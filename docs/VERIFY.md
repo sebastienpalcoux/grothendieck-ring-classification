@@ -32,22 +32,28 @@ the repository enumeration.
 
 ## Rebuild classification partitions
 
-Unpack the attached `FusionFrontier.tar.xz`. The rank-four ledger is the
-`Rank4/.../certificates/classification.jsonl.gz` file. Rank-five and rank-six
-ledgers live as `data/decisions.json` inside their respective release ZIPs.
+Unpack the attached `FusionFrontier.tar.xz` and the updated
+`Rank6_Categorification_M8(1).zip` and the revised rank-five release. The
+rank-four ledger is the `Rank4/.../certificates/classification.jsonl.gz` file.
+The revised rank-five `data/decisions_all.json` extends the attached archive's
+28,493 decisions to all 40,999 census tensors through multiplicity 20;
+rank-six decisions use the updated M8 ZIP.
 Then run, substituting the actual extracted paths:
 
 ```bash
 python3 tools/generate_classification.py \
   --bundle FusionFrontier.tar.xz \
+  --rank6-bundle 'Rank6_Categorification_M8(1).zip' \
   --census fusion-ring-census/results/census.json \
   --rank4 classification.jsonl.gz \
-  --rank5 rank5-decisions.json \
+  --rank5 rank5-decisions_all.json \
   --rank6 rank6-decisions.json
 ```
 
-The exporter records source checksums, checks cardinalities and agreement with every
-census band. It assigns `unassessed` to entire bands absent from the ledgers.
+The exporter records source checksums, checks cardinalities and agreement with
+every census band. The released rows have no unassessed bands; two rank-five
+cases at multiplicity 18 and 47 rank-six cases through multiplicity 8 remain
+generally unresolved.
 
 The rank-five and rank-six source-tensor crosswalks can be rerun:
 
@@ -55,7 +61,7 @@ The rank-five and rank-six source-tensor crosswalks can be rerun:
 python3 tools/check_rank5_crosswalk.py census_independent.json \
   fusion-ring-census/results/rank5/tables.txt.gz \
   --report data/rank5_crosswalk.json
-python3 tools/check_rank6_crosswalk.py rank6_through7_tables.txt.gz \
+python3 tools/check_rank6_crosswalk.py rank6_tables.txt.gz \
   fusion-ring-census/results/rank6/tables.txt.gz \
   --report data/rank6_crosswalk.json
 ```
@@ -68,11 +74,19 @@ models and theoretical coverage arguments, use the `verify.py` programs and
 verification guides in the attached rank-specific research releases and the
 revised manuscripts.
 
+The revised rank-five extension includes
+`software/verify_extension.py` and its
+`verification/extension19_20_verification.json` PASS record for 12,506
+per-tensor general exclusions at exact multiplicities 19 and 20. Its
+`repository_index` is the 1-based position in the corresponding pinned
+`results/rank5/tables.txt.gz` multiplicity band; the earlier 28,493 decisions
+are matched through the canonical crosswalk above.
+
 ## Release discipline
 
 When the source census advances, record its new commit and compare every
-affected rank/multiplicity band before changing `data/`. If a classification
-ledger does not yet cover a newly available census band, keep that band's
-classification state as `census_only`; do not infer exclusions or count
-unresolved rings from census data alone. Do not treat a search timeout as a
-negative categorification result.
+affected rank/multiplicity band before changing `data/`. A newly enumerated
+band must not be shown as classified until the criterion engine has addressed
+it; unassessed bands can be withheld from the classification explorer. Do
+not infer exclusions or count unresolved rings from census data alone. Do
+not treat a search timeout as a negative categorification result.

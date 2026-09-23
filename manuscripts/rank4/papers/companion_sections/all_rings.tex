@@ -1,0 +1,87 @@
+\subsection{All fusion rings versus categorifiable fusion rings}
+There are two distinct ways an unrestricted classification could be
+completed. One could parametrize all rank-four fusion rings and then
+prove a uniform realization-or-exclusion theorem for those parameters.
+Alternatively one could bound the multiplicity or Frobenius--Perron
+dimension of every potentially categorifiable ring and use the bounded
+classification. The latter route does not require classifying all
+noncategorifiable fusion rings.
+
+\begin{proposition}[An infinite family of raw fusion rings]\label{prop:raw-family}
+For all integers $a,b\geq0$, the tensor product of the rank-two based rings
+$x^2=1+ax$ and $y^2=1+by$ is a self-dual rank-four fusion ring. With
+$z=xy$, its remaining products are
+\[
+ xz=y+az,\qquad yz=x+bz,\qquad
+ z^2=1+ax+by+abz.
+\]
+Its multiplicity is $\max\{1,a,b,ab\}$. It admits a complex fusion
+categorification if and only if $a,b\in\{0,1\}$.
+\end{proposition}
+\begin{proof}
+The tensor product basis is $1,x,y,xy$; positivity, the unit coefficient,
+duality and associativity are inherited from the two rank-two based rings.
+The displayed products give the multiplicity. A categorification would
+categorify both rank-two subrings, forcing $a,b\in\{0,1\}$ by \cite[Proposition~\ref{B-prop:ranktwo}]{Finite}. Conversely their pointed or Fibonacci unitary models
+have the required Deligne products.
+\end{proof}
+In particular, raw rank-four fusion rings have unbounded multiplicity and
+cannot be classified by a finite list. This is not an obstruction to a
+parametric classification: the entire infinite family above is decided by
+one rank-two theorem.
+
+\subsection{Diophantine presentations and finite census data}
+Appendix~\ref{B-sec:census} of \cite{Finite} recalls the self-dual
+ten-parameter and non-self-dual six-parameter tensor presentations and
+their necessary and sufficient associativity equations. The
+bounded classification \cite{Finite} uses pinned complete repository
+data through multiplicity $128$, comprising $889530$ rings. These
+bounded lists do not parametrize the unbounded nonnegative solutions
+in disjoint families.
+
+For the following calculation we use the non-self-dual parameters
+$(a,b,c,d,e,f)$ of that presentation. A useful further elimination illustrates the arithmetic structure. In the
+non-self-dual case set $u=c-d$ and $P(u)=u^2-au-1$. Subtraction of the
+first two equations and use of the third give
+\[
+ b(e-f)=P(u),\qquad dP(u)=-b^2u.
+\]
+If $b\ne0$, then $P(u)\ne0$: an integer root of $u^2-au-1$
+would have $u=\pm1$, and $dP(u)=-b^2u$ would force $b=0$.
+Since $P(u)\equiv-1\pmod u$, one has $\gcd(P(u),u)=1$; consequently
+\[
+ P(u)\mid b^2\qquad(b\ne0).
+\]
+The branch $b=0$ is retained separately rather than discarded by division.
+This divisor restriction can replace an unstructured search by arithmetic
+branches; it is not, by itself, a bound on the parameters.
+
+\subsection{What remains to be proved}
+A parametric classification of all rank-four fusion rings is a concrete
+Diophantine problem with a fixed small system of equations, rather than
+an unformulated search. The proper-subring families and the dimension-field
+reductions proved here make a systematic approach plausible. Nevertheless,
+the equations have unbounded integral solutions, and the present arguments
+do not prove a descent to finitely many seed families in the residual
+self-dual case.
+
+For the Grothendieck-ring problem the more focused target is the residual
+cubic or quartic branch of Question~\ref{question:unrestricted-simple}.
+A uniform bound on its potentially categorifiable parameters, or a uniform
+moment or arithmetic obstruction for every additional family, would close
+the pivotal classification. General categorification requires, in addition,
+control of the possible proper signed sphericalizations. The finite
+certificate records the outcome of that control over the bounded
+census; its uniform completeness remains a separate question.
+
+Thus success of the fixed criterion suite at every tested multiplicity is
+meaningful evidence for further investigation, but neither a proof that
+all necessary criteria have been found nor a reason to identify raw fusion
+ring enumeration as the sole remaining obstacle. The companion results
+supply reductions toward both tasks while keeping their logical roles
+separate.
+
+The finite paper formulates the unrestricted fifteen-ring classification
+and the stronger sufficiency of its certificate criteria as conjectures.
+The reductions proved here support those conjectures but leave
+Question~\ref{question:unrestricted-simple} open.

@@ -1,0 +1,892 @@
+{
+  "source": {
+    "tensors": 16612,
+    "source_commit": "b86eb6dc6eeeafe5fc5f6906d7b074e0322e9726",
+    "sha256": "0138c6228dbb06b0861ad38b8dfe67fcd1fc829add80d441c34c09a1afb78675",
+    "counts": {
+      "1": 39,
+      "2": 154,
+      "3": 384,
+      "4": 872,
+      "5": 1582,
+      "6": 2768,
+      "7": 3814,
+      "8": 6999
+    },
+    "method": "pinned-source checksum and exact representative coverage",
+    "independent_census_recomputed": false
+  },
+  "census_sha256": "aa0cc6d10f4934752a621d4e92aa6603278707e512b483a429ed9d788fa5270a",
+  "python": "3.12.14",
+  "jobs": 8,
+  "advanced_multiplicities": [
+    3,
+    8
+  ],
+  "stages": [
+    {
+      "stage": "rank_two",
+      "label": "Rank-two fusion subring",
+      "entered": 16612,
+      "removed": 631,
+      "remaining": 15981,
+      "wall_seconds": 0.9095076690000496,
+      "worker_seconds": 1.5992685930200423,
+      "errors": 0,
+      "budget_exhausted": 0,
+      "by_multiplicity": {
+        "1": {
+          "entered": 39,
+          "removed": 0,
+          "remaining": 39
+        },
+        "2": {
+          "entered": 154,
+          "removed": 4,
+          "remaining": 150
+        },
+        "3": {
+          "entered": 384,
+          "removed": 4,
+          "remaining": 380
+        },
+        "4": {
+          "entered": 872,
+          "removed": 49,
+          "remaining": 823
+        },
+        "5": {
+          "entered": 1582,
+          "removed": 81,
+          "remaining": 1501
+        },
+        "6": {
+          "entered": 2768,
+          "removed": 121,
+          "remaining": 2647
+        },
+        "7": {
+          "entered": 3814,
+          "removed": 113,
+          "remaining": 3701
+        },
+        "8": {
+          "entered": 6999,
+          "removed": 259,
+          "remaining": 6740
+        }
+      },
+      "jobs": 4
+    },
+    {
+      "stage": "dnumber",
+      "label": "Formal-codegree d-number",
+      "entered": 15981,
+      "removed": 14753,
+      "remaining": 1228,
+      "wall_seconds": 11.591216731999793,
+      "worker_seconds": 44.39531261096408,
+      "errors": 0,
+      "budget_exhausted": 0,
+      "by_multiplicity": {
+        "1": {
+          "entered": 39,
+          "removed": 10,
+          "remaining": 29
+        },
+        "2": {
+          "entered": 150,
+          "removed": 87,
+          "remaining": 63
+        },
+        "3": {
+          "entered": 380,
+          "removed": 312,
+          "remaining": 68
+        },
+        "4": {
+          "entered": 823,
+          "removed": 687,
+          "remaining": 136
+        },
+        "5": {
+          "entered": 1501,
+          "removed": 1356,
+          "remaining": 145
+        },
+        "6": {
+          "entered": 2647,
+          "removed": 2442,
+          "remaining": 205
+        },
+        "7": {
+          "entered": 3701,
+          "removed": 3473,
+          "remaining": 228
+        },
+        "8": {
+          "entered": 6740,
+          "removed": 6386,
+          "remaining": 354
+        }
+      },
+      "jobs": 4
+    },
+    {
+      "stage": "zero_spectrum",
+      "label": "Zero-spectrum",
+      "entered": 1228,
+      "removed": 4,
+      "remaining": 1224,
+      "wall_seconds": 0.5989485509999213,
+      "worker_seconds": 0.5884642770001847,
+      "errors": 0,
+      "budget_exhausted": 0,
+      "by_multiplicity": {
+        "1": {
+          "entered": 29,
+          "removed": 2,
+          "remaining": 27
+        },
+        "2": {
+          "entered": 63,
+          "removed": 0,
+          "remaining": 63
+        },
+        "3": {
+          "entered": 68,
+          "removed": 1,
+          "remaining": 67
+        },
+        "4": {
+          "entered": 136,
+          "removed": 0,
+          "remaining": 136
+        },
+        "5": {
+          "entered": 145,
+          "removed": 0,
+          "remaining": 145
+        },
+        "6": {
+          "entered": 205,
+          "removed": 1,
+          "remaining": 204
+        },
+        "7": {
+          "entered": 228,
+          "removed": 0,
+          "remaining": 228
+        },
+        "8": {
+          "entered": 354,
+          "removed": 0,
+          "remaining": 354
+        }
+      },
+      "jobs": 4
+    },
+    {
+      "stage": "lower_rank_subring",
+      "label": "Closed lower-rank subring",
+      "entered": 1224,
+      "removed": 144,
+      "remaining": 1080,
+      "wall_seconds": 0.4475620389998767,
+      "worker_seconds": 1.2269603599938819,
+      "errors": 0,
+      "budget_exhausted": 0,
+      "by_multiplicity": {
+        "1": {
+          "entered": 27,
+          "removed": 0,
+          "remaining": 27
+        },
+        "2": {
+          "entered": 63,
+          "removed": 0,
+          "remaining": 63
+        },
+        "3": {
+          "entered": 67,
+          "removed": 6,
+          "remaining": 61
+        },
+        "4": {
+          "entered": 136,
+          "removed": 16,
+          "remaining": 120
+        },
+        "5": {
+          "entered": 145,
+          "removed": 25,
+          "remaining": 120
+        },
+        "6": {
+          "entered": 204,
+          "removed": 28,
+          "remaining": 176
+        },
+        "7": {
+          "entered": 228,
+          "removed": 22,
+          "remaining": 206
+        },
+        "8": {
+          "entered": 354,
+          "removed": 47,
+          "remaining": 307
+        }
+      },
+      "jobs": 4
+    },
+    {
+      "stage": "involution_module",
+      "label": "Involution module",
+      "entered": 1080,
+      "removed": 233,
+      "remaining": 847,
+      "wall_seconds": 51.96583922800028,
+      "worker_seconds": 200.29292754200696,
+      "errors": 0,
+      "budget_exhausted": 2,
+      "by_multiplicity": {
+        "1": {
+          "entered": 27,
+          "removed": 4,
+          "remaining": 23
+        },
+        "2": {
+          "entered": 63,
+          "removed": 3,
+          "remaining": 60
+        },
+        "3": {
+          "entered": 61,
+          "removed": 19,
+          "remaining": 42
+        },
+        "4": {
+          "entered": 120,
+          "removed": 13,
+          "remaining": 107
+        },
+        "5": {
+          "entered": 120,
+          "removed": 49,
+          "remaining": 71
+        },
+        "6": {
+          "entered": 176,
+          "removed": 23,
+          "remaining": 153
+        },
+        "7": {
+          "entered": 206,
+          "removed": 78,
+          "remaining": 128
+        },
+        "8": {
+          "entered": 307,
+          "removed": 44,
+          "remaining": 263
+        }
+      },
+      "jobs": 4
+    },
+    {
+      "stage": "subring",
+      "label": "Subcategory dimension quotient",
+      "entered": 847,
+      "removed": 20,
+      "remaining": 827,
+      "wall_seconds": 6.4640189570000075,
+      "worker_seconds": 25.571693389998472,
+      "errors": 0,
+      "budget_exhausted": 0,
+      "by_multiplicity": {
+        "1": {
+          "entered": 23,
+          "removed": 0,
+          "remaining": 23
+        },
+        "2": {
+          "entered": 60,
+          "removed": 1,
+          "remaining": 59
+        },
+        "3": {
+          "entered": 42,
+          "removed": 2,
+          "remaining": 40
+        },
+        "4": {
+          "entered": 107,
+          "removed": 2,
+          "remaining": 105
+        },
+        "5": {
+          "entered": 71,
+          "removed": 6,
+          "remaining": 65
+        },
+        "6": {
+          "entered": 153,
+          "removed": 2,
+          "remaining": 151
+        },
+        "7": {
+          "entered": 128,
+          "removed": 4,
+          "remaining": 124
+        },
+        "8": {
+          "entered": 263,
+          "removed": 3,
+          "remaining": 260
+        }
+      },
+      "jobs": 4
+    },
+    {
+      "stage": "cyclotomic",
+      "label": "Cyclotomicity",
+      "entered": 827,
+      "removed": 14,
+      "remaining": 813,
+      "wall_seconds": 2.2247089640000013,
+      "worker_seconds": 8.581531184997402,
+      "errors": 0,
+      "budget_exhausted": 0,
+      "by_multiplicity": {
+        "1": {
+          "entered": 23,
+          "removed": 0,
+          "remaining": 23
+        },
+        "2": {
+          "entered": 59,
+          "removed": 0,
+          "remaining": 59
+        },
+        "3": {
+          "entered": 40,
+          "removed": 2,
+          "remaining": 38
+        },
+        "4": {
+          "entered": 105,
+          "removed": 1,
+          "remaining": 104
+        },
+        "5": {
+          "entered": 65,
+          "removed": 1,
+          "remaining": 64
+        },
+        "6": {
+          "entered": 151,
+          "removed": 3,
+          "remaining": 148
+        },
+        "7": {
+          "entered": 124,
+          "removed": 0,
+          "remaining": 124
+        },
+        "8": {
+          "entered": 260,
+          "removed": 7,
+          "remaining": 253
+        }
+      },
+      "jobs": 4
+    },
+    {
+      "stage": "small_dimension_morita",
+      "label": "Small-dimension Morita descent",
+      "entered": 813,
+      "removed": 4,
+      "remaining": 809,
+      "wall_seconds": 0.5814761849997012,
+      "worker_seconds": 2.1357346129962025,
+      "errors": 0,
+      "budget_exhausted": 0,
+      "by_multiplicity": {
+        "1": {
+          "entered": 23,
+          "removed": 0,
+          "remaining": 23
+        },
+        "2": {
+          "entered": 59,
+          "removed": 2,
+          "remaining": 57
+        },
+        "3": {
+          "entered": 38,
+          "removed": 1,
+          "remaining": 37
+        },
+        "4": {
+          "entered": 104,
+          "removed": 1,
+          "remaining": 103
+        },
+        "5": {
+          "entered": 64,
+          "removed": 0,
+          "remaining": 64
+        },
+        "6": {
+          "entered": 148,
+          "removed": 0,
+          "remaining": 148
+        },
+        "7": {
+          "entered": 124,
+          "removed": 0,
+          "remaining": 124
+        },
+        "8": {
+          "entered": 253,
+          "removed": 0,
+          "remaining": 253
+        }
+      },
+      "jobs": 4
+    },
+    {
+      "stage": "field_automorphisms",
+      "label": "Dimension-field automorphisms",
+      "entered": 809,
+      "removed": 2,
+      "remaining": 807,
+      "wall_seconds": 5.752839058000063,
+      "worker_seconds": 22.036324080002487,
+      "errors": 0,
+      "budget_exhausted": 0,
+      "by_multiplicity": {
+        "1": {
+          "entered": 23,
+          "removed": 0,
+          "remaining": 23
+        },
+        "2": {
+          "entered": 57,
+          "removed": 1,
+          "remaining": 56
+        },
+        "3": {
+          "entered": 37,
+          "removed": 0,
+          "remaining": 37
+        },
+        "4": {
+          "entered": 103,
+          "removed": 0,
+          "remaining": 103
+        },
+        "5": {
+          "entered": 64,
+          "removed": 0,
+          "remaining": 64
+        },
+        "6": {
+          "entered": 148,
+          "removed": 1,
+          "remaining": 147
+        },
+        "7": {
+          "entered": 124,
+          "removed": 0,
+          "remaining": 124
+        },
+        "8": {
+          "entered": 253,
+          "removed": 0,
+          "remaining": 253
+        }
+      },
+      "jobs": 4
+    },
+    {
+      "stage": "weighted_induction",
+      "label": "Noncommutative weighted induction",
+      "entered": 807,
+      "removed": 7,
+      "remaining": 800,
+      "wall_seconds": 5.524161300999822,
+      "worker_seconds": 10.778533499002151,
+      "errors": 0,
+      "budget_exhausted": 0,
+      "by_multiplicity": {
+        "1": {
+          "entered": 23,
+          "removed": 0,
+          "remaining": 23
+        },
+        "2": {
+          "entered": 56,
+          "removed": 1,
+          "remaining": 55
+        },
+        "3": {
+          "entered": 37,
+          "removed": 1,
+          "remaining": 36
+        },
+        "4": {
+          "entered": 103,
+          "removed": 1,
+          "remaining": 102
+        },
+        "5": {
+          "entered": 64,
+          "removed": 1,
+          "remaining": 63
+        },
+        "6": {
+          "entered": 147,
+          "removed": 1,
+          "remaining": 146
+        },
+        "7": {
+          "entered": 124,
+          "removed": 1,
+          "remaining": 123
+        },
+        "8": {
+          "entered": 253,
+          "removed": 1,
+          "remaining": 252
+        }
+      },
+      "jobs": 4
+    },
+    {
+      "stage": "general_induction",
+      "label": "Sphericalization/induction proof trees",
+      "jobs": 8,
+      "entered": 800,
+      "removed": 693,
+      "remaining": 107,
+      "wall_seconds": 857.5890435749998,
+      "worker_seconds": 6330.960553555982,
+      "errors": 0,
+      "budget_exhausted": 17,
+      "by_multiplicity": {
+        "1": {
+          "entered": 23,
+          "removed": 2,
+          "remaining": 21
+        },
+        "2": {
+          "entered": 55,
+          "removed": 33,
+          "remaining": 22
+        },
+        "3": {
+          "entered": 36,
+          "removed": 32,
+          "remaining": 4
+        },
+        "4": {
+          "entered": 102,
+          "removed": 85,
+          "remaining": 17
+        },
+        "5": {
+          "entered": 63,
+          "removed": 58,
+          "remaining": 5
+        },
+        "6": {
+          "entered": 146,
+          "removed": 140,
+          "remaining": 6
+        },
+        "7": {
+          "entered": 123,
+          "removed": 115,
+          "remaining": 8
+        },
+        "8": {
+          "entered": 252,
+          "removed": 228,
+          "remaining": 24
+        }
+      }
+    },
+    {
+      "stage": "dimension_order",
+      "label": "Spherical dimension order",
+      "jobs": 8,
+      "entered": 107,
+      "removed": 1,
+      "remaining": 106,
+      "wall_seconds": 184.09899128600046,
+      "worker_seconds": 1308.1463820529998,
+      "errors": 0,
+      "budget_exhausted": 16,
+      "by_multiplicity": {
+        "1": {
+          "entered": 21,
+          "removed": 0,
+          "remaining": 21
+        },
+        "2": {
+          "entered": 22,
+          "removed": 0,
+          "remaining": 22
+        },
+        "3": {
+          "entered": 4,
+          "removed": 0,
+          "remaining": 4
+        },
+        "4": {
+          "entered": 17,
+          "removed": 0,
+          "remaining": 17
+        },
+        "5": {
+          "entered": 5,
+          "removed": 0,
+          "remaining": 5
+        },
+        "6": {
+          "entered": 6,
+          "removed": 0,
+          "remaining": 6
+        },
+        "7": {
+          "entered": 8,
+          "removed": 0,
+          "remaining": 8
+        },
+        "8": {
+          "entered": 24,
+          "removed": 1,
+          "remaining": 23
+        }
+      }
+    },
+    {
+      "stage": "character",
+      "label": "Character-aware central induction",
+      "jobs": 8,
+      "entered": 106,
+      "removed": 4,
+      "remaining": 102,
+      "wall_seconds": 98.68428288300038,
+      "worker_seconds": 515.5988763920022,
+      "errors": 0,
+      "budget_exhausted": 4,
+      "by_multiplicity": {
+        "1": {
+          "entered": 21,
+          "removed": 0,
+          "remaining": 21
+        },
+        "2": {
+          "entered": 22,
+          "removed": 0,
+          "remaining": 22
+        },
+        "3": {
+          "entered": 4,
+          "removed": 0,
+          "remaining": 4
+        },
+        "4": {
+          "entered": 17,
+          "removed": 0,
+          "remaining": 17
+        },
+        "5": {
+          "entered": 5,
+          "removed": 0,
+          "remaining": 5
+        },
+        "6": {
+          "entered": 6,
+          "removed": 0,
+          "remaining": 6
+        },
+        "7": {
+          "entered": 8,
+          "removed": 0,
+          "remaining": 8
+        },
+        "8": {
+          "entered": 23,
+          "removed": 4,
+          "remaining": 19
+        }
+      }
+    },
+    {
+      "stage": "tensor_rotation",
+      "label": "Tensor-rotation traces",
+      "jobs": 8,
+      "entered": 102,
+      "removed": 0,
+      "remaining": 102,
+      "wall_seconds": 81.8159550600003,
+      "worker_seconds": 545.7453065240034,
+      "errors": 0,
+      "budget_exhausted": 8,
+      "by_multiplicity": {
+        "1": {
+          "entered": 21,
+          "removed": 0,
+          "remaining": 21
+        },
+        "2": {
+          "entered": 22,
+          "removed": 0,
+          "remaining": 22
+        },
+        "3": {
+          "entered": 4,
+          "removed": 0,
+          "remaining": 4
+        },
+        "4": {
+          "entered": 17,
+          "removed": 0,
+          "remaining": 17
+        },
+        "5": {
+          "entered": 5,
+          "removed": 0,
+          "remaining": 5
+        },
+        "6": {
+          "entered": 6,
+          "removed": 0,
+          "remaining": 6
+        },
+        "7": {
+          "entered": 8,
+          "removed": 0,
+          "remaining": 8
+        },
+        "8": {
+          "entered": 19,
+          "removed": 0,
+          "remaining": 19
+        }
+      }
+    },
+    {
+      "stage": "modular",
+      "label": "Modular character induction",
+      "jobs": 8,
+      "entered": 102,
+      "removed": 0,
+      "remaining": 102,
+      "wall_seconds": 65.19845286799955,
+      "worker_seconds": 136.0580084560006,
+      "errors": 0,
+      "budget_exhausted": 2,
+      "by_multiplicity": {
+        "1": {
+          "entered": 21,
+          "removed": 0,
+          "remaining": 21
+        },
+        "2": {
+          "entered": 22,
+          "removed": 0,
+          "remaining": 22
+        },
+        "3": {
+          "entered": 4,
+          "removed": 0,
+          "remaining": 4
+        },
+        "4": {
+          "entered": 17,
+          "removed": 0,
+          "remaining": 17
+        },
+        "5": {
+          "entered": 5,
+          "removed": 0,
+          "remaining": 5
+        },
+        "6": {
+          "entered": 6,
+          "removed": 0,
+          "remaining": 6
+        },
+        "7": {
+          "entered": 8,
+          "removed": 0,
+          "remaining": 8
+        },
+        "8": {
+          "entered": 19,
+          "removed": 0,
+          "remaining": 19
+        }
+      }
+    },
+    {
+      "stage": "retained_completion",
+      "label": "Deferred exact certificate checks",
+      "jobs": 8,
+      "entered": 102,
+      "removed": 1,
+      "remaining": 101,
+      "wall_seconds": 157.2260333889999,
+      "worker_seconds": 156.30435308900178,
+      "errors": 0,
+      "budget_exhausted": 0,
+      "by_multiplicity": {
+        "1": {
+          "entered": 21,
+          "removed": 0,
+          "remaining": 21
+        },
+        "2": {
+          "entered": 22,
+          "removed": 0,
+          "remaining": 22
+        },
+        "3": {
+          "entered": 4,
+          "removed": 0,
+          "remaining": 4
+        },
+        "4": {
+          "entered": 17,
+          "removed": 0,
+          "remaining": 17
+        },
+        "5": {
+          "entered": 5,
+          "removed": 0,
+          "remaining": 5
+        },
+        "6": {
+          "entered": 6,
+          "removed": 0,
+          "remaining": 6
+        },
+        "7": {
+          "entered": 8,
+          "removed": 1,
+          "remaining": 7
+        },
+        "8": {
+          "entered": 19,
+          "removed": 0,
+          "remaining": 19
+        }
+      }
+    }
+  ]
+}

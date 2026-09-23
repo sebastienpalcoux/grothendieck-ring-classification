@@ -1,0 +1,109 @@
+\documentclass[11pt]{article}
+\input{preamble}
+\hypersetup{pdftitle={Rank-five Grothendieck rings through multiplicity twenty: two general residuals at eighteen}}
+\title{Rank-five Grothendieck rings through multiplicity twenty:\\two general residuals at eighteen}
+\date{23 September 2026}
+\newcommand{\F}[2]{F^{(5)}_{#1,#2}}
+\newcommand{\FF}{\mathbb F}
+\newcommand{\OO}{\mathcal O}
+\newcommand{\supp}{\operatorname{supp}}
+\begin{document}
+\maketitle
+\begin{abstract}
+We classify the rank-five fusion rings of multiplicity at most seventeen
+that admit categorifications over $\CC$, without assuming pivotality.
+Exactly seventeen of the $23413$ rings admit categorifications, and each
+has a unitary realization. The exclusions are automatic applications of
+arithmetic and central-induction criteria. Two new reductions make the
+method effective: a mod-two spectral bound and parity rigidity force
+sphericality for a class of quadratic fusion rings, while a central-support
+analysis for cyclic order-four near-group rings supplies finite indicator
+systems. A single rational/quadratic relative-trace construction contains
+the higher-indicator obstructions. No exclusion is assigned by a census
+label or imported from a classification list. The pinned
+\texttt{fusion-ring-census} release records $40999$ rings through
+multiplicity twenty. At exact multiplicity nineteen and twenty, every
+ring is excluded from general categorification by an exact certificate.
+Only two general categorification questions, both at multiplicity
+eighteen, remain undecided by the implemented criteria; both rings are
+excluded pivotally. Exact data, certificates, verifiers and complete
+reproduction instructions accompany the paper.
+\end{abstract}
+\setcounter{tocdepth}{1}
+\tableofcontents
+
+\section{Introduction and results}
+A fusion ring is a based ring with nonnegative integral structure
+constants $N_{ij}^k$, distinguished unit and involutive duality, satisfying
+Frobenius reciprocity. Its rank is the number of basis elements, and its
+multiplicity is $\mu(R)=\max_{i,j,k}N_{ij}^k$. Unit coefficients are included,
+so $\mu(R)\ge1$. By a \emph{Grothendieck ring} we mean one admitting a
+fusion category over $\CC$. The question here is existence for a based
+ring, not classification of all associators realizing it.
+
+Small-rank enumeration provides candidates rather than categorifications.
+The pinned census \cite{Census} and the multiplicity-one analysis of \cite{LPR}
+make this distinction concrete. The rank-four methods of \cite{DP}
+combine formal codegrees, sphericalization and central induction to
+obtain general, not merely pivotal, exclusions. In rank five the main
+additional issue is to avoid introducing a new argument for each surviving
+ring. We address it with parameterized necessary conditions and exact
+certificates whose hypotheses are read from the multiplication tensor.
+
+\begin{theorem}\label{thm:main}
+Up to based-ring isomorphism, there are $23413$ rank-five fusion rings
+with $\mu\le17$. Exactly the seventeen rings in
+Table~\ref{tab:models} admit fusion-category categorifications over $\CC$.
+All seventeen have unitary realizations. Therefore general, pivotal,
+spherical, pseudo-unitary and unitary existence give the same
+classification of rings in this range.
+
+There are $28493$ rank-five fusion rings with $\mu\le18$.
+All except these seventeen and the two rings
+\[
+\F{18}{5073},\qquad \F{18}{5076}
+\]
+are excluded from general categorification by the supplied criteria.
+Both displayed rings are excluded spherically and pivotally. Hence the
+same seventeen rings are the complete positive list through multiplicity
+twenty for pivotal, spherical, pseudo-unitary and unitary existence.
+
+There are $5640$ and $6866$ rank-five rings of exact multiplicities
+nineteen and twenty, respectively. Every one has an exact general
+noncategorifiability certificate in the accompanying supplement. Thus
+through multiplicity twenty, of the $40999$ census rings, exactly
+seventeen are categorifiable, exactly two remain undecided for general
+categorification by these criteria, and the other $40980$ are excluded.
+\end{theorem}
+
+The numbering convention is fixed in Section~\ref{sec:automatic}; at
+multiplicity eighteen the two subscripts are also their independent
+lexicographic indices. Their full tensors, dimensions and certificates
+are supplied. ``Undecided'' means that no general exclusion certificate
+was obtained by the present criteria and bounded searches. In particular,
+a timed-out signed search is not treated as an exclusion, nor is it a
+proof of feasibility. We make no assertion that a literature-wide
+nonexistence result cannot decide either ring.
+
+The new theory has two roles. Theorem~\ref{thm:parity} gives a uniform
+sphericality criterion with only small integer and mod-two calculations;
+it eliminates the need for large signed-table searches on its domain.
+Theorem~\ref{thm:cyclic} turns the central support of $K(C_4,4k)$ into a
+finite obstruction compatible with the same relative-trace framework.
+The general finite-indicator criterion is Theorem~\ref{thm:finite}.
+The rank-four obstructions used within it or within sphericalization are
+stated with references, not reproved. The classification is completed by
+a single exhaustive application and by tensor matches to positive
+constructions, rather than by separate negative case proofs.
+
+\input{census}
+\input{known_criteria}
+\input{finite_indicators}
+\input{quadratic_parity}
+\input{cyclic_support}
+\input{positive_models}
+\input{automatic}
+\section*{AI use disclosure}
+GPT-6 Astra assisted with mathematical exploration, code development, and manuscript preparation.
+\input{bibliography}
+\end{document}

@@ -1,0 +1,273 @@
+\section{Uniform applications of the moment bounds}\label{sec:applications}
+The following consequences replace separate low-rank exclusion theorems.
+Throughout, the two-dimension Galois reduction is used only in the form
+stated in Proposition~\ref{prop:standard}(5).
+
+If $g$ is invertible of order two, its second indicator is
+$\epsilon\in\{-1,1\}$. Since $\FPdim(g)=1$, equality in the triangle
+inequality for the second indicator forces $\theta_A^2=\epsilon$ for
+every constituent $A$ of $I(g)$. More generally, if $H_X$ is any known
+mass in $I(X)$ supported on squared twist one, taking real parts of the
+second moment gives
+\begin{equation}\label{eq:square-sector}
+ 2H_X\leq D(d_X+\nu_2(X))\leq D(d_X+1).
+\end{equation}
+Indeed the remaining real trace is at least the negative of its mass.
+For a non-self-dual simple, equality in
+$3W_X\leq Dd_X$ forces the complementary twists to be primitive cube
+roots by Theorem~\ref{thm:higher-indicator}.
+
+\subsection{Rank two from the first moment}
+\begin{proposition}\label{prop:ranktwo}
+If a fusion ring contains a based fusion subring with basis $1,x$ and $x^2=1+ax$, where $a\geq2$, it has no complex fusion categorification. This conclusion follows from the low-part moment bound, without invoking the rank-two classification.
+\end{proposition}
+\begin{proof}
+A categorification would give a fusion subcategory with this based ring. Its nontrivial Frobenius--Perron dimension $d$ satisfies $d^2=1+ad$ and $d>a$. The two-dimension reduction permits us to assume pseudo-unitarity of this subcategory. Its formal codegrees are $D=1+d^2$ and $D'=1+d^{-2}$, and $D/D'=d^2$. Consequently
+\[
+I(1)=1\oplus A,\qquad \dim A=d^2,\qquad F(A)=1\oplus aX.
+\]
+The first-moment bound on $I(X)$ gives
+\[
+2ad^2\leq Dd.
+\]
+Dividing by $d$ and using $d^2=1+ad$ gives $ad\leq2$. But $ad>a^2\geq4$, a contradiction.
+\end{proof}
+The criterion applies whenever such a rank-two based subring is present.
+
+\subsection{A uniform diagonal two-invertible obstruction}
+\begin{theorem}\label{thm:diagonal}
+Let $R_m$ have self-dual basis $1,g,X,Y$ and products
+\[
+g^2=1,\quad gX=Y,\quad gY=X,\qquad
+X^2=Y^2=1+m(X+Y),\quad XY=g+m(X+Y).
+\]
+For every integer $m\geq3$, the ring $R_m$ has no fusion categorification over $\CC$.
+\end{theorem}
+\begin{proof}
+Its positive dimensions are $(1,1,d,d)$, where $d=m+\sqrt{m^2+1}$ and $d^2=1+2md$. The two-dimension reduction allows a pseudo-unitary assumption. Put $D=4+4md$ and $V=X\oplus Y$.
+
+The four dimensions in $I(1)$ are $1,d^2,1+md,1+md$. Moreover
+\[
+FI(1)=4\cdot1+2mX+2mY.
+\]
+In particular the low part of $I(g)$ is empty. Dimension comparison shows that the total multiplicities of $X,Y$ in the last three restrictions are $2m,m,m$. Therefore their known twist-one mass in $I(V)$ is, independently of its allocation between $X$ and $Y$,
+\begin{equation}\label{eq:diag-W}
+W=2md^2+2m(1+md)=4m+6m^2d.
+\end{equation}
+The total mass in $I(V)$ is
+\[
+M=2Dd=8m+(16m^2+8)d.
+\]
+
+The Gram entry $B_{gg}=4$ implies that $I(g)$ is either twice one simple or a sum of four distinct simples. The first possibility contradicts its zero first twist trace. Write the four simple dimensions as $\beta_j=1+k_jd$: each restriction contains $g$ once, no unit, and $k_j$ copies of $X,Y$ in total. Thus $k_j\in\ZZ_{\geq0}$ and $\sum_jk_j=4m$.
+
+Put $\epsilon=\nu_2(g)$. All four twists have square $\epsilon$. The zero first trace divides these four objects into the two possible twists, with mass $D/2$ at each. Since $d$ is irrational, each side has two objects and the two $k_j$ sum to $2m$. Each side therefore contributes at least
+\[
+2m+2m^2d
+\]
+to $I(V)$, by $k_1^2+k_2^2\geq(2m)^2/2$.
+
+If $\epsilon=1$, the new twist-one mass is at least $2m+2m^2d$, disjoint from the low part. Adding \eqref{eq:optimized} for $X,Y$ yields
+\[
+(3d+1)(6m+8m^2d)\leq 2Dd(d+1).
+\]
+After reduction by $d^2=1+2md$, the left side minus the right side is
+\[
+2(4m^2-m-4)+2(8m^3-4m^2-3m-4)d>0
+\]
+for $m\geq3$. For example, substituting $m=n+3$ gives coefficients
+$8n^2+46n+58$ and $16n^3+136n^2+378n+334$, respectively.
+
+Suppose instead $\epsilon=-1$. The four new twists are $\pm i$, and their total mass in $I(V)$ is at least
+\[
+H=4m+4m^2d.
+\]
+Remove this mass and the low mass $W$ from the positive measure of $I(V)$. For the remaining measure, the first cosine moment is $-W$, its total mass is at most
+\[
+M-W-H=(6m^2+8)d,
+\]
+and its second cosine moment is at most
+\[
+\frac{M+D(\nu_2(X)+\nu_2(Y))}{2}-W
+\leq \frac M2+D-W=4+(2m^2+4m+4)d.
+\]
+Cauchy--Schwarz therefore requires
+\[
+W^2\leq (6m^2+8)d\bigl(4+(2m^2+4m+4)d\bigr).
+\]
+The difference between the two sides, reduced by the dimension equation, is
+\begin{align*}
+&8(m-2)(3m^3+3m^2+3m+2)\\
+&\hspace{12mm}+8(m-2)(6m^4+6m^3+8m^2+5m+2)d>0.
+\end{align*}
+This excludes the second indicator choice as well.
+\end{proof}
+\subsection{Propagation from an invertible involution}
+\begin{proposition}[Residual-involution criterion]\label{prop:involution-propagation}
+Let $\mathcal C$ be pseudo-unitary with commutative Grothendieck ring,
+and let $g\ne1$ be an invertible
+simple with $g^2=1$. For its actual low restriction matrix $L$, put
+\[
+ Q=B-LL^{\mathsf T},\qquad W_i=(LL^{\mathsf T}d)_i.
+\]
+Suppose $Q_{gg}=2$ and $0<W_g<D/2$. The two constituents of $I(g)$
+outside $I(1)$ then have dimensions and twists
+\[
+ (D/2-W_g,1),\qquad(D/2,-1).
+\]
+If moreover $D/2-W_g=1$, their restriction columns are respectively
+$e_g$ and $Q_{g\bullet}^{\mathsf T}-e_g$. Consequently, for every
+nonunit simple $X_i\ne g$,
+\begin{equation}\label{eq:involution-propagation}
+ 2W_i+DQ_{gi}\leq D(d_i+\nu_2(X_i))\leq D(d_i+1).
+\end{equation}
+\end{proposition}
+\begin{proof}
+The residual Gram entry $Q_{gg}=2$ is a sum of squares of nonnegative
+integer multiplicities. Thus exactly two additional simples occur,
+each once. Equality in the triangle inequality for the second indicator
+of $g$ forces all twists in $I(g)$ to have square $\nu_2(g)$.
+The positive low mass has twist one, so $\nu_2(g)=1$.
+The vanishing first trace divides the total dimension $D$ equally
+between twists $1$ and $-1$. Since $0<W_g<D/2$, both additional
+sectors have positive mass and each contains one of the two remaining
+simples. Their dimensions follow.
+
+When the first dimension is one, its restriction contains $g$ and has
+Frobenius--Perron dimension one; hence its restriction is exactly $g$.
+Write $v$ for the other restriction column. In the residual Gram product,
+only these two columns contribute to row $g$, so
+$Q_{gi}=\delta_{gi}+v_i$ for every $i$.
+For $i\ne g$, the low constituents and the twist-minus-one constituent
+therefore give disjoint squared-twist-one mass
+$W_i+(D/2)Q_{gi}$ in $I(X_i)$. Equation~\eqref{eq:square-sector}
+proves the required bound.
+\end{proof}
+The criterion is finite and uniform: enumerate the admissible low parts
+by Proposition~\ref{prop:low-certificate} and check
+\eqref{eq:involution-propagation} whenever its hypotheses hold.
+Uniqueness of an admissible low part is sufficient but is not assumed.
+The automated dispatcher recognizes this obstruction from the complete
+low-induction proof of any weakly integral input ring; it does not match
+the tensor against a preselected exceptional ring.
+
+\begin{corollary}\label{prop:42}
+The ring with self-dual basis $1,g,r,x$ and products
+\[
+g^2=1,\quad gr=r,\quad gx=x,\quad r^2=1+g+r,\quad
+rx=2x,\quad x^2=1+g+2r+5x
+\]
+has no complex fusion categorification.
+\end{corollary}
+\begin{proof}
+The ring is integral, so any categorification would be pseudo-unitary.
+The exact application verifier constructs its dimensions, formal
+codegrees and all admissible low parts from the multiplication tensor.
+It verifies that, up to permuting the low columns, there is a unique
+admissible low part and that this low part violates
+\eqref{eq:involution-propagation}. This is the certificate recorded for
+$F_{5,33}$; the same general recognizer is applied to every weakly
+integral input and no restriction column or numerical inequality is
+assumed as an input.
+\end{proof}
+
+\subsection{Near-group root-length exclusions}
+\begin{proposition}\label{prop:near}
+Consider the near-group ring with invertible group $C_3=\{1,g,g^2\}$ and one further basis object $X$, with
+\[
+gX=X,\qquad X^2=1+g+g^2+3kX,
+\]
+where $k\geq1$ is an integer. Write
+\[
+9k^2+12=u^2q,\quad q>1\text{ squarefree},\qquad
+f=\begin{cases}q,&q\equiv1\pmod4,\\4q,&q\not\equiv1\pmod4,\end{cases}
+\quad \lambda=\frac{\varphi(f)-|\mu(f)|}{\sqrt{f/q}}.
+\]
+A necessary condition for a complex categorification is
+\begin{equation}\label{eq:near-bound}
+ku\lambda\leq7k^2+12.
+\end{equation}
+Every parameter violating this inequality is excluded without invoking
+the near-group classification.
+\end{proposition}
+\begin{proof}
+The two-dimension reduction again permits pseudo-unitarity. Put
+\[
+d=\frac{3k+\sqrt{9k^2+12}}2,\qquad d^2=3+3kd,\qquad D=6+3kd.
+\]
+The number $d$ is irrational: for $k\geq2$, $9k^2+12$ lies strictly between $(3k)^2$ and $(3k+1)^2$, and the case $k=1$ gives $21$.
+
+The formal codegrees are $D,D',3,3$, where $d'=-3/d$ and $D'=3+(d')^2$. Their corresponding low central dimensions are $1,1+kd,2+kd,2+kd$. Since
+\[
+FI(1)=4\cdot1+g+g^2+3kX,
+\]
+comparison of rational and irrational coefficients forces, in row order $(1,g,g^2,X)$,
+\[
+L=\begin{pmatrix}1&1&1&1\\0&0&1&0\\0&0&0&1\\0&k&k&k\end{pmatrix},\qquad
+B-LL^{\mathsf T}=\begin{pmatrix}
+0&0&0&0\\0&3&1&2k\\0&1&3&2k\\0&2k&2k&6k^2+6
+\end{pmatrix}.
+\]
+
+The low twist-one mass in each of $I(g),I(g^2)$ equals $2+kd=D/3$. Since these objects are non-self-dual, the two-moment bound is saturated. Every remaining twist in each induced object is consequently a primitive cube root of unity. Write these roots as $\omega,\omega^2$; the zero first trace forces mass $D/3$ at each.
+
+Each of $I(g),I(g^2)$ has three further constituents, with multiplicity one. Their common constituents number exactly one, because the residual $(g,g^2)$ Gram entry is one. The common constituent has dimension $2+hd$ for an integer $h\geq0$; every noncommon constituent has dimension $1+pd$ for an integer $p\geq0$.
+
+For either induced object, comparing rational coefficients in its two nontrivial twist sectors shows that the common constituent lies alone in one sector, and the two noncommon constituents form the other. Thus $h=k$. Exchange $\omega,\omega^2$ if necessary so that the common constituent has twist $\omega$. Write the four noncommon $X$ multiplicities as $p_1,p_2,p_3,p_4$, where
+\[
+p_1+p_2=k,\qquad p_3+p_4=k.
+\]
+They all have twist $\omega^2$. Put
+\[
+S=\sum_{j=1}^4p_j^2\geq k^2,\qquad t=S-k^2\in\ZZ_{\geq0}.
+\]
+Every further central constituent restricts to $nX$ for some positive integer $n$. The residual $(X,X)$ Gram entry gives
+\[
+\sum n^2=6k^2+6-k^2-S=4k^2+6-t.
+\]
+Let $\Theta=\sum n^2\theta$, with each twist repeated $n^2$ times. The first twist trace for $I(X)$ is
+\[
+0=(5k+3k^2d)+(2k+k^2d)\omega+(2k+Sd)\omega^2+d\Theta.
+\]
+Using $3/d=d-3k$ and $1+\omega+\omega^2=0$ gives
+\[
+\Theta=k^2-kd-t\omega^2.
+\]
+Consequently $\Theta+t\omega^2$ is a sum of exactly $4k^2+6$ roots of unity equal to
+\[
+k^2-kd=-\frac{k^2}{2}-\frac{ku}{2}\sqrt q.
+\]
+The quadratic root-of-unity bound, Lemma~\ref{lem:odd-quadratic-length}, now gives
+\[
+4k^2+6\geq\frac{k^2+ku\lambda}{2},
+\]
+which is \eqref{eq:near-bound}.
+\end{proof}
+The application verifier recognizes this entire family from its tensor,
+computes the squarefree part and the conductor, and checks the strict
+failure of \eqref{eq:near-bound} in exact arithmetic. Its applications
+are recorded in the generated certificate ledger. Only the first two
+indicator identities are used; the inequality does not by itself
+classify near-group rings at every parameter.
+
+
+\subsection{Automatic use of the near-group classification}
+\begin{proposition}[A cited exclusion with checked hypotheses]\label{prop:larson-automatic}
+A $C_3$ near-group ring
+\[
+ g^3=1,\qquad gX=Xg=X,\qquad X^2=1+g+g^2+mX
+\]
+can admit a complex categorification only if $m\in\{0,2,3,6\}$.
+\end{proposition}
+\begin{proof}
+It has exactly two distinct simple Frobenius--Perron dimensions, so any
+categorification has a pseudo-unitary Galois conjugate by
+Proposition~\ref{prop:standard}(5). The necessary list then follows from
+\cite[Theorem~1.1]{Larson}.
+\end{proof}
+The executable test compares the entire multiplication tensor after each
+permutation of the nonunit basis, verifies the two-dimension hypothesis,
+and checks the parameter against the stated set. It applies at every
+multiplicity. The root-length calculation above remains useful as an
+independent arithmetic application, but no separate proof of Larson's
+classification is needed for this branch.

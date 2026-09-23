@@ -1,0 +1,51 @@
+\begin{table}[p]\centering\small
+\setlength{\tabcolsep}{3pt}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lrrrrrr@{}}\toprule
+Criterion & $m=1$ & $m=2$ & $m=3$ & $m=4$ & Total removed & Seconds\\\midrule
+Input & 39 & 154 & 384 & 872 & --- & ---\\
+Rank-two subring & 0/39 & 4/150 & 4/380 & 49/823 & 631 & 0.9\\
+$d$-number & 10/29 & 87/63 & 312/68 & 687/136 & 14753 & 11.6\\
+Zero spectrum & 2/27 & 0/63 & 1/67 & 0/136 & 4 & 0.6\\
+Lower-rank subring & 0/27 & 0/63 & 6/61 & 16/120 & 144 & 0.4\\
+Involution module & 4/23 & 3/60 & 19/42 & 13/107 & 233 & 52.0\\
+Dimension quotient & 0/23 & 1/59 & 2/40 & 2/105 & 20 & 6.5\\
+Cyclotomicity & 0/23 & 0/59 & 2/38 & 1/104 & 14 & 2.2\\
+Morita descent & 0/23 & 2/57 & 1/37 & 1/103 & 4 & 0.6\\
+Field automorphisms & 0/23 & 1/56 & 0/37 & 0/103 & 2 & 5.8\\
+Weighted induction & 0/23 & 1/55 & 1/36 & 1/102 & 7 & 5.5\\
+Sphericalization/induction & 2/21 & 33/22 & 32/4 & 85/17 & 693 & 857.6\\
+Dimension order & 0/21 & 0/22 & 0/4 & 0/17 & 1 & 184.1\\
+Character induction & 0/21 & 0/22 & 0/4 & 0/17 & 4 & 98.7\\
+Tensor rotation & 0/21 & 0/22 & 0/4 & 0/17 & 0 & 81.8\\
+Modular induction & 0/21 & 0/22 & 0/4 & 0/17 & 0 & 65.2\\
+Deferred exact checks & 0/21 & 0/22 & 0/4 & 0/17 & 1 & 157.2\\
+\midrule
+Constructed models & 21 & 22 & 3 & 2 & --- & ---\\
+Unresolved & 0 & 0 & 1 & 15 & --- & ---\\
+\bottomrule\end{tabular*}
+\par\vspace{1.3em}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lrrrr@{}}\toprule
+Criterion & $m=5$ & $m=6$ & $m=7$ & $m=8$\\\midrule
+Input & 1582 & 2768 & 3814 & 6999\\
+Rank-two subring & 81/1501 & 121/2647 & 113/3701 & 259/6740\\
+$d$-number & 1356/145 & 2442/205 & 3473/228 & 6386/354\\
+Zero spectrum & 0/145 & 1/204 & 0/228 & 0/354\\
+Lower-rank subring & 25/120 & 28/176 & 22/206 & 47/307\\
+Involution module & 49/71 & 23/153 & 78/128 & 44/263\\
+Dimension quotient & 6/65 & 2/151 & 4/124 & 3/260\\
+Cyclotomicity & 1/64 & 3/148 & 0/124 & 7/253\\
+Morita descent & 0/64 & 0/148 & 0/124 & 0/253\\
+Field automorphisms & 0/64 & 1/147 & 0/124 & 0/253\\
+Weighted induction & 1/63 & 1/146 & 1/123 & 1/252\\
+Sphericalization/induction & 58/5 & 140/6 & 115/8 & 228/24\\
+Dimension order & 0/5 & 0/6 & 0/8 & 1/23\\
+Character induction & 0/5 & 0/6 & 0/8 & 4/19\\
+Tensor rotation & 0/5 & 0/6 & 0/8 & 0/19\\
+Modular induction & 0/5 & 0/6 & 0/8 & 0/19\\
+Deferred exact checks & 0/5 & 0/6 & 1/7 & 0/19\\
+\midrule
+Constructed models & 1 & 3 & 2 & 0\\
+Unresolved & 4 & 3 & 5 & 19\\
+\bottomrule\end{tabular*}
+\caption{The executed ordered sieve. Criterion cells are newly excluded / remaining. Seconds are recorded pass wall times; 4 or 8 workers per stage are recorded in the ledger. Sphericalization/induction checks retained proof trees for $m\le7$ and discovers proofs at $m=8$. Trees can use nested advanced filters; unfinished retained checks appear in the deferred row. Older residuals are retained. Later dimension-order, character, tensor-rotation and modular discovery targets $m\in\{3,8\}$. Timeouts remove nothing. This practical order is not claimed optimal.}\label{tab:stages}
+\end{table}

@@ -1,0 +1,76 @@
+\subsection{The non-self-dual quadratic family}
+
+For an integer $m\geq0$, let $S(m)$ be the commutative based ring with basis
+$\{1,g,x,y\}$, involution $g^*=g$, $x^*=y$, and multiplication
+\[
+ g^2=1,\qquad gx=y,\qquad gy=x,\qquad
+ x^2=y^2=g+m(x+y),\qquad xy=1+m(x+y).
+\]
+
+\begin{theorem}\label{thm:nonselfdual-quadratic}
+For every $m\geq2$, the fusion ring $S(m)$ admits no fusion categorification
+over $\mathbb C$.
+\end{theorem}
+
+\begin{proof}
+Put $d=m+\sqrt{m^2+1}$. Thus $d^2=1+2md$, and the Frobenius--Perron
+dimensions are $(1,1,d,d)$. By Schopieray's Galois-conjugacy theorem for
+two-dimension fusion rings \cite[Lemma~3.1]{Schopieray}, any fusion
+categorification would have a pseudo-unitary Galois conjugate with the same
+fusion rules. It is consequently sufficient to exclude pseudo-unitary
+categorifications.
+
+Suppose one exists, and use its canonical spherical structure. Its dimension is
+$D=2+2d^2=4+4md$. The four characters of $S(m)$, displayed by columns, are
+\[
+ \begin{pmatrix}
+ 1&1&1&1\\
+ 1&1&-1&-1\\
+ d&-d^{-1}&i&-i\\
+ d&-d^{-1}&-i&i
+ \end{pmatrix}.
+\]
+Their formal codegrees are $D$, $2+2d^{-2}$, $4$, $4$, respectively.
+The formal-codegree description of induction therefore gives
+\[
+ I(\mathbf1)\cong\mathbf1\oplus A\oplus B\oplus C,
+ \qquad
+ \operatorname{FPdim}(A)=d^2=1+2md,
+ \quad
+ \operatorname{FPdim}(B)=\operatorname{FPdim}(C)=1+md,
+\]
+where the four central simples are pairwise nonisomorphic and occur with
+multiplicity one. Indeed, every irreducible representation of this commutative
+rank-four ring is one-dimensional. Furthermore,
+\[
+ F I(\mathbf1)\cong
+ \bigoplus_{T\in\operatorname{Irr}\mathcal C}T\otimes T^*
+ \cong 4\mathbf1\oplus2mX\oplus2mY,
+\]
+where $X^*\cong Y$ correspond to $x,y$. By adjunction each of $F(A)$,
+$F(B)$, $F(C)$ contains $\mathbf1$ once, and the displayed decomposition
+shows that none contains $g$. Since $d$ is irrational, comparison of dimensions
+now forces
+\[
+ [F(A):X]+[F(A):Y]=2m,\qquad
+ [F(B):X]+[F(B):Y]=[F(C):X]+[F(C):Y]=m.
+\]
+These statements determine the sum of the two low-part dimensions without
+requiring the individual restriction multiplicities:
+\begin{align*}
+ L&=\operatorname{FPdim}(I_{\mathrm{low}}(X))+
+    \operatorname{FPdim}(I_{\mathrm{low}}(Y))\\
+  &=2m(1+2md)+2m(1+md)=4m+6m^2d.
+\end{align*}
+Both $X$ and $Y$ are non-self-dual. Applying
+\eqref{eq:nonselfdual-third} to each of them and adding gives $3L\leq2dD$.
+But
+\begin{align*}
+ 3L-2dD
+ &=12m+18m^2d-2d(4+4md)\\
+ &=12m+18m^2d-8d-8m(1+2md)\\
+ &=4m+(2m^2-8)d>0
+\end{align*}
+for $m\geq2$, a contradiction.
+\end{proof}
+
