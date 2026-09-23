@@ -58,6 +58,19 @@ with (ROOT/'data/classification_status.csv').open(newline='') as f:
 assert len(csvstatus)==len(statusrows)
 for a,b in zip(csvstatus,statusrows):
     assert all(a[k]==str(v) for k,v in b.items())
+realized=json.loads((ROOT/'data/grothendieck_counts.json').read_text())['rows']
+assert len(realized)==len(statusrows)
+with (ROOT/'data/grothendieck_counts.csv').open(newline='') as f:
+    csvrealized=list(csv.DictReader(f))
+assert len(csvrealized)==len(realized)
+for a,b,s in zip(csvrealized,realized,statusrows):
+    assert all(a[k]==str(v) for k,v in b.items())
+    assert (b['rank'],b['multiplicity'])==(s['rank'],s['multiplicity'])
+    assert b['known_realized']==sum(s[c] for c in ('realized_unitary',
+        'realized_other_or_unspecified','realized_spherical_nonpseudounitary'))
+    assert b['unresolved_general']==s['unresolved_general']
+    assert b['count_relation']==('unknown' if s['unassessed'] else
+          'lower_bound' if s['unresolved_general'] else 'exact')
 assert all(x['missing_in_repository']==x['additional_in_repository']==0
            for x in json.loads((ROOT/'data/rank5_crosswalk.json').read_text())['bands'])
 assert json.loads((ROOT/'data/rank6_crosswalk.json').read_text())['records']==16612

@@ -1,46 +1,62 @@
 #!/usr/bin/env python3
-"""Render the front-page count matrix from the checked machine-readable data."""
+"""Render the front-page Grothendieck ring matrix from status evidence."""
 import json
 from pathlib import Path
 
 ROOT=Path(__file__).resolve().parents[1]
-counts=json.loads((ROOT/'data/counts.json').read_text())
 status=json.loads((ROOT/'data/classification_status.json').read_text())
-by={(x['rank'],x['multiplicity']):x['rings'] for x in counts['rows']}
 state={(x['rank'],x['multiplicity']):x for x in status['rows']}
+ranks=sorted({r for r,m in state if 2 <= r <= 8})
+
+def realized(s):
+    return (s['realized_unitary'] + s['realized_other_or_unspecified'] +
+            s['realized_spherical_nonpseudounitary'])
+
+def outcome(rank, m):
+    s=state.get((rank,m))
+    if not s or s['classification_coverage']=='census_only':
+        return '—'
+    n=realized(s)
+    return ('≥' if s['unresolved_general'] or s['unassessed'] else '')+str(n)
 
 lines=['''# Grothendieck ring classification
 
 ### Which low-rank fusion rings admit fusion categories over ℂ?
 
-An atlas of **exact based-ring counts**, **categorification decisions** and the
-proofs behind those decisions. The census and classification have different
-bounds. A ring counted by the census is not thereby categorifiable.
+An atlas of **realized Grothendieck rings**, **categorification decisions** and
+the proofs behind those decisions. The fusion-ring census and classification
+have different bounds. A ring counted by the census is not thereby
+categorifiable.
 
-**[Browse all counts](data/counts.csv)** · **[Classification outcomes](data/classification_status.csv)** · **[Provenance](docs/PROVENANCE.md)** · **[Verify the data](docs/VERIFY.md)** · **[Manuscripts](manuscripts/README.md)** · **[OEIS drafts](oeis/README.md)**
+**[Grothendieck ring counts](data/grothendieck_counts.csv)** · **[Fusion-ring census](https://github.com/sebastienpalcoux/fusion-ring-census#readme)** · **[Classification outcomes](data/classification_status.csv)** · **[Provenance](docs/PROVENANCE.md)** · **[Verify the data](docs/VERIFY.md)** · **[Manuscripts](manuscripts/README.md)** · **[OEIS drafts](oeis/README.md)**
 
 [**Private working atlas (owner-only)**](https://grothendieck-ring-atlas.sebastien-palcoux.chatgpt.site) · [Atlas source and snapshot](site/)
 
 > **Scope.** Multiplicity is the maximum fusion coefficient. Each cell below
-> counts based-isomorphism classes with *exactly* that multiplicity. A dash
-> means the whole rank/multiplicity band has not been enumerated; it never
-> means zero. The symbolic rank-two sequence continues beyond this table.
+> counts known categorifiable based-isomorphism classes with *exactly* that
+> multiplicity. A plain number is exact where classification is complete;
+> `≥n` is a certified lower bound where general cases remain unresolved.
+> A dash denotes a band not analyzed here. Rows with no known realizations
+> are omitted; omission makes no assertion about unresolved cases.
 
-## Census · rings at each exact multiplicity
-
-| Multiplicity | Rank 2 | Rank 3 | Rank 4 | Rank 5 | Rank 6 |
-|---:|---:|---:|---:|---:|---:|''']
-for m in range(1,21):
-    row=[str(m)]+[f'{by[(r,m)]:,}' if (r,m) in by else '—' for r in range(2,7)]
+## Grothendieck rings · known realizations at each exact multiplicity
+''']
+lines.append('| Multiplicity | '+' | '.join(f'Rank {rank}' for rank in ranks)+' |')
+lines.append('|---:|'+'---:|'*len(ranks))
+for m in range(1,max(k[1] for k in state)+1):
+    if not any(realized(state[(r,m)]) for r in ranks if (r,m) in state):
+        continue
+    row=[str(m)]+[outcome(r,m) for r in ranks]
     lines.append('| '+' | '.join(row)+' |')
 
 lines.append('''
-Full data: [JSON](data/counts.json) · [CSV](data/counts.csv). The source
-[fusion-ring-census](https://github.com/sebastienpalcoux/fusion-ring-census)
-contains the tensors and enumerator. The table here is pinned to its commit
-`b86eb6dc6eeeafe5fc5f6906d7b074e0322e9726`. Rank-two counts follow
-directly from the normal form `X² = 1 + nX` for `n ≥ 0`: two rings at
-multiplicity 1, then one at every multiplicity `m ≥ 2`.
+Full realized-count data, including zero and unresolved bands:
+[JSON](data/grothendieck_counts.json) · [CSV](data/grothendieck_counts.csv).
+The [fusion-ring-census repository](https://github.com/sebastienpalcoux/fusion-ring-census)
+contains the separate table of **all fusion rings** and its enumerator;
+[this repository's pinned census import](data/counts.csv) supports the
+classification cross-check. Rank-two realized counts follow directly from
+`X² = 1+nX`: both categorifiable rings occur at multiplicity 1.
 
 ## Classification · what is decided?
 

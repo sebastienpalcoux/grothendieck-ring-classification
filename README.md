@@ -2,50 +2,41 @@
 
 ### Which low-rank fusion rings admit fusion categories over ℂ?
 
-An atlas of **exact based-ring counts**, **categorification decisions** and the
-proofs behind those decisions. The census and classification have different
-bounds. A ring counted by the census is not thereby categorifiable.
+An atlas of **realized Grothendieck rings**, **categorification decisions** and
+the proofs behind those decisions. The fusion-ring census and classification
+have different bounds. A ring counted by the census is not thereby
+categorifiable.
 
-**[Browse all counts](data/counts.csv)** · **[Classification outcomes](data/classification_status.csv)** · **[Provenance](docs/PROVENANCE.md)** · **[Verify the data](docs/VERIFY.md)** · **[Manuscripts](manuscripts/README.md)** · **[OEIS drafts](oeis/README.md)**
+**[Grothendieck ring counts](data/grothendieck_counts.csv)** · **[Fusion-ring census](https://github.com/sebastienpalcoux/fusion-ring-census#readme)** · **[Classification outcomes](data/classification_status.csv)** · **[Provenance](docs/PROVENANCE.md)** · **[Verify the data](docs/VERIFY.md)** · **[Manuscripts](manuscripts/README.md)** · **[OEIS drafts](oeis/README.md)**
 
 [**Private working atlas (owner-only)**](https://grothendieck-ring-atlas.sebastien-palcoux.chatgpt.site) · [Atlas source and snapshot](site/)
 
 > **Scope.** Multiplicity is the maximum fusion coefficient. Each cell below
-> counts based-isomorphism classes with *exactly* that multiplicity. A dash
-> means the whole rank/multiplicity band has not been enumerated; it never
-> means zero. The symbolic rank-two sequence continues beyond this table.
+> counts known categorifiable based-isomorphism classes with *exactly* that
+> multiplicity. A plain number is exact where classification is complete;
+> `≥n` is a certified lower bound where general cases remain unresolved.
+> A dash denotes a band not analyzed here. Rows with no known realizations
+> are omitted; omission makes no assertion about unresolved cases.
 
-## Census · rings at each exact multiplicity
+## Grothendieck rings · known realizations at each exact multiplicity
 
 | Multiplicity | Rank 2 | Rank 3 | Rank 4 | Rank 5 | Rank 6 |
 |---:|---:|---:|---:|---:|---:|
-| 1 | 2 | 4 | 10 | 16 | 39 |
-| 2 | 1 | 3 | 17 | 37 | 154 |
-| 3 | 1 | 4 | 24 | 82 | 384 |
-| 4 | 1 | 6 | 45 | 134 | 872 |
-| 5 | 1 | 5 | 55 | 209 | 1,582 |
-| 6 | 1 | 9 | 81 | 336 | 2,768 |
-| 7 | 1 | 6 | 92 | 477 | 3,814 |
-| 8 | 1 | 10 | 137 | 733 | 6,999 |
-| 9 | 1 | 12 | 151 | 863 | — |
-| 10 | 1 | 9 | 186 | 1,082 | — |
-| 11 | 1 | 10 | 238 | 1,383 | — |
-| 12 | 1 | 20 | 291 | 1,948 | — |
-| 13 | 1 | 9 | 246 | 2,211 | — |
-| 14 | 1 | 13 | 340 | 2,554 | — |
-| 15 | 1 | 16 | 349 | 2,936 | — |
-| 16 | 1 | 25 | 525 | 4,157 | — |
-| 17 | 1 | 11 | 424 | 4,255 | — |
-| 18 | 1 | 18 | 477 | 5,080 | — |
-| 19 | 1 | 20 | 513 | 5,640 | — |
-| 20 | 1 | 22 | 713 | 6,866 | — |
+| 1 | 2 | 4 | 9 | 10 | 21 |
+| 2 | 0 | 1 | 3 | 3 | 22 |
+| 3 | 0 | 0 | 2 | 2 | ≥3 |
+| 4 | 0 | 0 | 0 | 2 | ≥2 |
+| 5 | 0 | 0 | 0 | 0 | ≥1 |
+| 6 | 0 | 0 | 1 | 0 | ≥3 |
+| 7 | 0 | 0 | 0 | 0 | ≥2 |
 
-Full data: [JSON](data/counts.json) · [CSV](data/counts.csv). The source
-[fusion-ring-census](https://github.com/sebastienpalcoux/fusion-ring-census)
-contains the tensors and enumerator. The table here is pinned to its commit
-`b86eb6dc6eeeafe5fc5f6906d7b074e0322e9726`. Rank-two counts follow
-directly from the normal form `X² = 1 + nX` for `n ≥ 0`: two rings at
-multiplicity 1, then one at every multiplicity `m ≥ 2`.
+Full realized-count data, including zero and unresolved bands:
+[JSON](data/grothendieck_counts.json) · [CSV](data/grothendieck_counts.csv).
+The [fusion-ring-census repository](https://github.com/sebastienpalcoux/fusion-ring-census)
+contains the separate table of **all fusion rings** and its enumerator;
+[this repository's pinned census import](data/counts.csv) supports the
+classification cross-check. Rank-two realized counts follow directly from
+`X² = 1+nX`: both categorifiable rings occur at multiplicity 1.
 
 ## Classification · what is decided?
 
