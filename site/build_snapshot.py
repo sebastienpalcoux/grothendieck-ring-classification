@@ -119,7 +119,10 @@ def main():
         "scope":scope,
     }
     release = json.loads((repo / "supplements/rank6/verification/release_summary.json").read_text())
-    archive_name = "Rank6_Categorification_M8_Revised_2026-09-29_v2.zip"
+    archive_name = status["inputs"]["rank6"]["current_bundle"]
+    identity = json.loads((repo / "data/rank6_release_identity.json").read_text())
+    if identity["archive"]["name"] != archive_name:
+        raise ValueError("Rank-six archive identity differs from the classification source")
     archive_source = repo / "site/dist/downloads" / archive_name
     if not archive_source.is_file():
         raise FileNotFoundError("Run python3 tools/restore_data.py in the classification repository first.")
@@ -127,13 +130,17 @@ def main():
         "date": "2026-09-29", "excluded": release["excluded"],
         "realized": release["positive"], "unresolved": release["unresolved"],
         "complete_through": next(record["through"] for record in scope if record["rank"] == 6),
-        "new_exclusions_since_previous_site": release["continuation_excluded"],
+        "new_exclusions_since_previous_site": release["third_continuation_excluded"],
+        "complete_multiplicity_bands": [r["multiplicity"] for r in release["counts"] if r["unresolved"] == 0],
+        "documents": identity["documents"],
         "archive": {"path": "downloads/" + archive_name,
                     "bytes": archive_source.stat().st_size,
                     "sha256": hashlib.sha256(archive_source.read_bytes()).hexdigest()},
         "frontier_path": "data/rank6_unresolved_tensors.json",
         "summary_path": "data/rank6_release_summary.json",
     }
+    if data["rank6_release"]["archive"]["sha256"] != identity["archive"]["sha256"]:
+        raise ValueError("Rank-six archive bytes differ from the verified release")
     downloads = HERE / "dist/downloads"
     downloads.mkdir(parents=True, exist_ok=True)
     archive_target = downloads / archive_name

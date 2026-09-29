@@ -43,19 +43,24 @@ assert (root / "index.html").exists() and (root / "styles.css").exists() and (ro
 print(f"Atlas checked: {len(rows)} analyzed cells, {len(models)} explicit Grothendieck rings, {len({r['rank'] for r in rows})} ranks")
 
 rank6 = {r["multiplicity"]: r for r in status_payload["rows"] if r["rank"] == 6}
-expected_open = [0, 0, 0, 7, 2, 3, 2, 8]
-assert [rank6[m]["unresolved_general"] for m in range(1, 9)] == expected_open
-assert sum(r["excluded_general"] for r in rank6.values()) == 16536
-assert all(rank6[m]["classification_coverage"] == "complete_classification" for m in range(1, 4))
-scope6 = next(r for r in payload["scope"] if r["rank"] == 6)
-assert (scope6["through"], scope6["positive"], scope6["unresolved"]) == (3, 54, 22)
-import hashlib
 release = payload["rank6_release"]
-archive = root / release["archive"]["path"]
-assert hashlib.sha256(archive.read_bytes()).hexdigest() == release["archive"]["sha256"] == "c9508a49228f199e8f4bf476edddb72a0eddcce45b6e249a11b9f49105de2467"
-assert archive.stat().st_size == release["archive"]["bytes"] == 9398369
-assert hashlib.sha256((root / "papers/rank6.pdf").read_bytes()).hexdigest() == "e50d39340aca45e92b78f5334049f29f63f457494f5bbfaca4ec0f7c59e6fa1a"
-assert hashlib.sha256((root / "papers/rank6_guide.pdf").read_bytes()).hexdigest() == "349fb90e3c3c5562d8bb6033dca7443527b45c739c08e68cb8323545c161ed6f"
-frontier = json.loads((root / release["frontier_path"]).read_text())
-assert len(frontier) == 22 and not any(r["id"] == "R6_3_215" for r in frontier)
-print("Rank-six release verified: complete through 3, 22 residuals, exact archive and PDF hashes.")
+summary=json.loads((root / release["summary_path"]).read_text())
+expected_open=[r["unresolved"] for r in summary["counts"]]
+assert [rank6[m]["unresolved_general"] for m in range(1,9)] == expected_open
+assert sum(r["excluded_general"] for r in rank6.values()) == summary["excluded"]
+assert all(rank6[m]["classification_coverage"] == "complete_classification" for m in range(1,4))
+assert rank6[7]["classification_coverage"] == "complete_classification"
+scope6=next(r for r in payload["scope"] if r["rank"] == 6)
+assert (scope6["through"],scope6["positive"],scope6["unresolved"]) == (3,54,summary["unresolved"])
+assert release["new_exclusions_since_previous_site"] == summary["third_continuation_excluded"]
+import hashlib
+archive=root / release["archive"]["path"]
+assert hashlib.sha256(archive.read_bytes()).hexdigest() == release["archive"]["sha256"]
+assert archive.stat().st_size == release["archive"]["bytes"]
+for name,expected in release["documents"].items():
+    assert hashlib.sha256((root / "papers" / name).read_bytes()).hexdigest() == expected
+frontier=json.loads((root / release["frontier_path"]).read_text())
+assert len(frontier) == summary["unresolved"]
+assert [r["id"] for r in frontier] == summary["unresolved_ids"]
+assert not any(r["m"] <= 3 or r["m"] == 7 for r in frontier)
+print(f"Rank-six release verified: complete through 3 and at multiplicity 7; {len(frontier)} residuals; exact archive and PDF hashes.")

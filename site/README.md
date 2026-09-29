@@ -31,15 +31,20 @@ The rank-three manuscript proves unrestricted five-ring necessity directly, toge
 
 ## Rank-six revision · 29 September 2026
 
-The complete 605-file revised archive closes multiplicity three and records
-16,536 general exclusions, 54 realized rings and 22 unresolved cases through
-multiplicity eight. The two continuations add 7 and 18 exclusions to the
-previous 47-residual website snapshot. `build_snapshot.py` imports the current
-rank-six release report, all 22 residual tensors, the two revised PDFs, and
-the exact downloadable archive from the classification repository. Run its
-`tools/restore_data.py` before regenerating this snapshot. Positive model
-records are unchanged; their existing exact tensor checks remain applicable.
+The complete 914-file revised archive records **16,548 general exclusions,
+54 realized rings and 10 unresolved cases** through multiplicity eight.
+Classification is complete through multiplicity three and also at **exact
+multiplicity seven**. The third continuation adds 12 exclusions to the previous
+22-residual snapshot; the three continuations contribute 7, 18 and 12 disjoint
+exclusions. The ten residuals lie in bands four, five, six and eight.
 
-The archive SHA-256 is
-`c9508a49228f199e8f4bf476edddb72a0eddcce45b6e249a11b9f49105de2467`.
+`build_snapshot.py` imports the current rank-six release identity and report,
+all ten residual tensors, both revised PDFs, and the exact downloadable archive
+from the classification repository. Run its `tools/restore_data.py` before
+regenerating this snapshot. Positive model records are unchanged; their existing
+exact tensor checks remain applicable. Coverage reports distinguish exact
+exclusions from ineligible cases, surviving necessary systems and timeouts.
+
+Archive: `Rank6_Categorification_M8_Revised_2026-09-29_v3.zip`. SHA-256:
+`853820839d767224c810f232e479a768ee9b16150876f10848aba07be3d578df`.
 Published source links are pinned to the corresponding classification commit.
