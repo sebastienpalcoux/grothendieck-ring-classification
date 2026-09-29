@@ -1,0 +1,105 @@
+{
+  "status": "PASS",
+  "scope": "Exact finite checks; categorical inputs and exhaustive bounds are in the proof.",
+  "ring": "B_13 (local label)",
+  "rank": 6,
+  "multiplicity": 13,
+  "casimir_trace": 18725,
+  "tensor_sha256_canonical_json": "626c0106e1f2228e3a37701b3b02c17aa22ca817a779b24b9a094cedaf4a63ff",
+  "ring_checks": {
+    "associativity_equations": 1296,
+    "unit_duality_reciprocity": "PASS",
+    "simplicity_by_square_support": "PASS"
+  },
+  "codegrees_in_basis_1_sqrt5_sqrt149_sqrt745": [
+    [
+      "18625/2",
+      "0",
+      "1525/2",
+      "0"
+    ],
+    [
+      "18625/2",
+      "0",
+      "-1525/2",
+      "0"
+    ],
+    [
+      "25",
+      "-10",
+      "0",
+      "0"
+    ],
+    [
+      "25",
+      "-10",
+      "0",
+      "0"
+    ],
+    [
+      "25",
+      "10",
+      "0",
+      "0"
+    ],
+    [
+      "25",
+      "10",
+      "0",
+      "0"
+    ]
+  ],
+  "integral_basis_checks": {
+    "product_basis_discriminant": 555025,
+    "eta_roots_mod_5": [
+      2,
+      4
+    ],
+    "phi_roots_mod_149": [
+      41,
+      109
+    ]
+  },
+  "dimension_check": {
+    "positive_counts": {
+      "1": 0,
+      "2": 66,
+      "3": 132,
+      "4": 267,
+      "5": 664
+    },
+    "norm_survivor_counts": {
+      "1": 0,
+      "2": 0,
+      "3": 0,
+      "4": 1,
+      "5": 0
+    },
+    "total_positive_candidates": 1129,
+    "independent_norm_determinants_checked": 1129,
+    "survivors_m_w_x_y_norm": [
+      [
+        4,
+        0,
+        0,
+        0,
+        22201
+      ]
+    ],
+    "only_possible_global_dimension": 3725
+  },
+  "final_contradiction": {
+    "residual_codegree_polynomial": [
+      1,
+      -3721,
+      3725
+    ],
+    "discriminant": 13830941,
+    "bounding_squares": [
+      13823524,
+      13830961
+    ],
+    "trace_squared_mod_norm": 16,
+    "d_number_condition": "FAIL: 3725 does not divide 3721^2"
+  }
+}

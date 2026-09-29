@@ -1,0 +1,433 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=27mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,microtype,amsmath,amssymb,amsthm,mathtools,booktabs}
+\usepackage[hidelinks]{hyperref}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\newcommand{\C}{\mathbb C}\newcommand{\Q}{\mathbb Q}\newcommand{\Z}{\mathbb Z}\newcommand{\F}{\mathbb F}
+\newcommand{\one}{\mathbf1}\newcommand{\jv}{\boldsymbol{j}}\newcommand{\dd}{\boldsymbol{\delta}}
+\newcommand{\FPdim}{\operatorname{FPdim}}\newcommand{\Irr}{\operatorname{Irr}}\newcommand{\Tr}{\operatorname{Tr}}
+\newcommand{\rk}{\operatorname{rank}}\newcommand{\Gal}{\operatorname{Gal}}
+\title{A ramification obstruction to categorifying a rank-six fusion ring}
+\author{}
+\date{28 September 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+We prove that the rank-six, multiplicity-seven fusion ring $R^{(6)}_{7,3582}$ has no categorification over the complex numbers, without a pivotal hypothesis. Reduction modulo two isolates the dimension field of any hypothetical sphericalization. Formal-codegree divisibility and a sharp Casimir trace comparison then force a pseudo-unitary Galois conjugate. An independent central-induction argument reduces the pseudo-unitary case to an impossible expression of $-18-6\sqrt{226}$ as a sum of $434$ roots of unity. All finite arithmetic checks are exhaustively certified by a short exact program; no existing exclusion certificate, numerical optimization, or pentagon enumeration is used.
+\end{abstract}
+\tableofcontents
+
+\section{The ring and the result}
+Let $R$ have self-dual basis $(1,a,b,c,d,e)$, with commutative multiplication and unit $1$. Put $T=6(a+b+c+d+e)$. The upper triangle of the multiplication table is
+\begin{equation}\label{eq:table}
+\renewcommand{\arraystretch}{1.2}
+\begin{array}{c|ccccc}
+&a&b&c&d&e\\\hline
+a&1+T-b-c&T-a-b&T-a&T&T\\
+b&&1+T-a-c&T-b&T&T\\
+c&&&1+T&T+d&T+e\\
+d&&&&1+T+c+e&T+d+e\\
+e&&&&&1+T+c+d
+\end{array}.
+\end{equation}
+All nonunit structure constants lie between $5$ and $7$. The displayed subtractions therefore introduce no negative structure constants. The exact verifier checks the unit, duality, Frobenius reciprocity, and every associativity identity. Each nonunit square contains the entire basis, so the fusion ring is simple.
+
+\begin{theorem}\label{thm:main}
+There is no fusion category over $\C$ whose Grothendieck ring is $R$.
+\end{theorem}
+The proof separates into two assertions: every categorification would have a pseudo-unitary Galois conjugate, and no pseudo-unitary categorification exists. The first assertion is theoretical; the second uses two explicitly bounded, exactly verified integer enumerations.
+
+Set
+\[
+r=\sqrt{226},\qquad U=15+r,\qquad D=2260+150r,\qquad D'=2260-150r.
+\]
+For $p=(1+\sqrt5)/2$ and $q=(1-\sqrt5)/2$, the character table is
+\begin{equation}\label{eq:characters}
+\renewcommand{\arraystretch}{1.15}
+\begin{array}{c|rrrrrr}
+&1&a&b&c&d&e\\\hline
+\chi_+&1&14+r&14+r&15+r&16+r&16+r\\
+\chi_-&1&14-r&14-r&15-r&16-r&16-r\\
+\rho_+&1&p&q&-1&0&0\\
+\rho_-&1&q&p&-1&0&0\\
+\sigma_+&1&0&0&1&-p&-q\\
+\sigma_-&1&0&0&1&-q&-p
+\end{array}.
+\end{equation}
+Its determinant is $-250r$, and its rows are multiplicative, so the table is complete. The formal codegrees are
+\begin{equation}\label{eq:codegrees}
+D,\quad D',\quad 5,\quad5,\quad5,\quad5.
+\end{equation}
+The first row is the Frobenius--Perron character, and $\FPdim(R)=D$.
+
+Write $N_i=(N_{ij}^k)_{j,k=0}^5$, and let $G=\sum_iN_i^2$. In the last five coordinates put
+\[
+\jv=(1,1,1,1,1)^t,\qquad \dd=(-1,-1,0,1,1)^t.
+\]
+Direct multiplication gives the useful block formula
+\begin{equation}\label{eq:G}
+G=\begin{pmatrix}
+6&(30\jv+\dd)^t\\
+30\jv+\dd&5I+901\jv\jv^t+30(\jv\dd^t+\dd\jv^t)+\dd\dd^t
+\end{pmatrix},
+\qquad \Tr(G)=4540.
+\end{equation}
+The verifier establishes these identities directly from the full tensor.
+
+\section{Sphericalization and the dimension field}
+Assume $\mathcal C$ categorifies $R$, with no chosen pivotal structure. Its finite sphericalization $\mathcal S$ is spherical and has two simple lifts $X_i^+,X_i^-$ of each simple $X_i$, together with the central invertible sign object $\varepsilon$ satisfying
+\[
+\varepsilon^2=\one,\qquad X_i^-\cong\varepsilon\otimes X_i^+,\qquad\dim(\varepsilon)=-1.
+\]
+The construction and its sphericality are established in \cite[Corollary 7.6]{ENOR}; see also \cite[Section 5.1]{O}. Its global dimension is $2\dim(\mathcal C)$. Simple spherical dimensions are nonzero and real \cite[Section 2.1 and Corollary 2.10]{ENO}. Both lifts of a self-dual simple are self-dual: otherwise duality would interchange their opposite, nonzero dimensions. Thus every simple of $\mathcal S$ is self-dual, so its Grothendieck ring is commutative.
+
+Consider the signed quotient
+\[
+A=K_0(\mathcal S)/([\varepsilon]+1).
+\]
+Choose one lift of each simple, with the positive lift of the unit, and write their images as $x_0=1,x_1,\ldots,x_5$. Then $A$ is free of rank six over $\Z$, and
+\begin{equation}\label{eq:signed}
+x_ix_j=\sum_k t_{ij}^kx_k,\qquad t_{ij}^0=\delta_{ij},\qquad
+|t_{ij}^k|\le N_{ij}^k,\qquad t_{ij}^k\equiv N_{ij}^k\pmod2.
+\end{equation}
+These properties follow by subtracting the multiplicities of the two lifts; they are also recorded in \cite[Section 5.1]{O}. The tensor $t_{ij}^k$ is fully symmetric. Consequently, its multiplication matrices $M_i$ are real symmetric and commute. In particular, $A_\Q$ is a commutative semisimple algebra with six real characters.
+
+Let $d_i=\dim(X_i^+)$ for the chosen lifts and set
+\[
+K=\Q(d_1,\ldots,d_5),\qquad\Delta=\dim(\mathcal C)=\sum_{i=0}^5d_i^2.
+\]
+The dimension homomorphism makes $K$ a field factor of $A_\Q$.
+
+\begin{lemma}\label{lem:fieldcontainment}
+We have $\Q(r)\subseteq K$, and $\Delta/D$ is an algebraic integer in $K$.
+\end{lemma}
+\begin{proof}
+The Frobenius--Perron character of $R$, pulled back to $K_0(\mathcal S)$, has formal codegree $2D$. By \cite[Theorem 2.13]{O}, it corresponds to a simple object in $Z(\mathcal S)$ of dimension
+\[
+\frac{\dim(\mathcal S)}{2D}=\frac\Delta D.
+\]
+Forgetting this object into $\mathcal S$ expresses its dimension as an integer combination of $1,d_1,\ldots,d_5$. Thus $\Delta/D\in K$ and is an algebraic integer. Since $\Delta\ne0$, we obtain $D\in K$, and hence $r\in K$.
+\end{proof}
+
+\begin{lemma}[Ramified-factor isolation]\label{lem:ramification}
+In the present situation, $K=\Q(\sqrt{226})$.
+\end{lemma}
+\begin{proof}
+Equation \eqref{eq:signed} gives $A/2A\cong R/2R$. In the latter algebra, define
+\[
+\ell=a+b,\qquad h=d+e,\qquad e_0=1+\ell+h.
+\]
+These are pairwise orthogonal idempotents summing to $1$. Their factors have dimension two over $\F_2$. More explicitly,
+\[
+u=1+a+c=\ell a,\qquad v=1+c+d=hd,\qquad z=1+c
+\]
+satisfy
+\[
+u^2+u+\ell=0,\qquad v^2+v+h=0,\qquad e_0z=z,\qquad z^2=0.
+\]
+The six elements $e_0,z,\ell,u,h,v$ form an $\F_2$-basis. Therefore
+\begin{equation}\label{eq:mod2}
+A/2A\cong\F_2[z]/(z^2)\times\F_4\times\F_4.
+\end{equation}
+The idempotents lift to the complete commutative algebra $A\otimes\Z_2$. Each lifted factor has $\Z_2$-rank two. A finite free $\Z_2$-algebra with reduction $\F_4$ is unramified quadratic: lifting a generator gives a quadratic polynomial whose reduction is $X^2+X+1$, hence a unit discriminant. Thus
+\[
+A\otimes\Q_2=B_0\times L\times L,
+\]
+where $\dim_{\Q_2}B_0=2$ and $L/\Q_2$ is unramified quadratic.
+
+On the other hand, $\Q_2(r)/\Q_2$ is ramified quadratic, since $X^2-226$ is Eisenstein at $2$. Every field component of $K\otimes\Q_2$ contains $\Q_2(r)$. Since $K$ is a field factor of $A_\Q$, its local components must be selected among those of $B_0\times L\times L$. Neither unramified quadratic factor can contain $\Q_2(r)$. Hence $K\otimes\Q_2$ is supported entirely on $B_0$, and $[K:\Q]\le2$. Lemma~\ref{lem:fieldcontainment} gives equality.
+\end{proof}
+
+\begin{remark}
+The argument is not an identification of an order with a maximal order. It uses only finite freeness, lifting of idempotents, and the two unramified rank-two factors. More generally, whenever a prescribed ramified field must embed into a field factor of a finite algebra, unramified local factors cannot contribute to that field factor.
+\end{remark}
+
+\section{Casimir saturation forces a pseudo-unitary Galois conjugate}
+Since $226$ is squarefree and congruent to $2$ modulo $4$, the ring of integers of $K$ is $\Z[r]$. Write
+\[
+d_i=\alpha_i+\beta_i r\quad(i=1,\ldots,5),\qquad
+S=\sum_i\beta_i^2>0,\qquad B=\sum_i\alpha_i\beta_i.
+\]
+The two conjugate dimension characters are distinct. Their character vectors are orthogonal because the $M_i$ are commuting real symmetric matrices. Thus
+\[
+0=1+\sum_i(\alpha_i^2-226\beta_i^2),
+\qquad 1+\sum_i\alpha_i^2=226S,
+\qquad\Delta=452S+2Br.
+\]
+A direct division gives
+\begin{equation}\label{eq:ratio}
+\frac\Delta D=\frac{226S-15B}{5}+\frac{B-15S}{5}r.
+\end{equation}
+By Lemma~\ref{lem:fieldcontainment}, both coefficients are integers; consequently $5\mid S$ and $5\mid B$.
+
+For a character $\lambda$ of $A$, put $f_\lambda=\sum_i\lambda(x_i)^2$. The Casimir matrix $C_A=\sum_iM_i^2$ has the $f_\lambda$ as its six eigenvalues. Every $f_\lambda>1$: equality would force $\lambda(x_i)=0$ for all $i>0$, contradicting the unit coefficient of $x_i^2$. Also,
+\begin{equation}\label{eq:tracebudget}
+\Tr(C_A)=\sum_{i,j,k}(t_{ij}^k)^2\le\sum_{i,j,k}(N_{ij}^k)^2=4540.
+\end{equation}
+The two dimension characters contribute $\Delta+\Delta'=904S$. The other four eigenvalues exceed $1$. Hence
+\[
+904S+4<4540.
+\]
+Since $S$ is a positive multiple of $5$, necessarily $S=5$. It follows that
+\begin{equation}\label{eq:saturation}
+\Tr(C_A)>4520+4=4524.
+\end{equation}
+If some coefficient had $|t_{ij}^k|<N_{ij}^k$, parity in \eqref{eq:signed} would give $|t_{ij}^k|\le N_{ij}^k-2$. Coefficients involving the unit are fixed, and all other $N_{ij}^k\ge5$. Such a change would decrease \eqref{eq:tracebudget} by at least
+\[
+N^2-(N-2)^2=4(N-1)\ge16,
+\]
+forcing $\Tr(C_A)\le4524$, a contradiction. Therefore
+\begin{equation}\label{eq:nocancellation}
+|t_{ij}^k|=N_{ij}^k\quad\text{for all }i,j,k.
+\end{equation}
+
+We next normalize the signs of the square coefficients. Let $\tau$ denote coefficient of $1$. Associativity and Frobenius symmetry give, for nonunit $i,j$,
+\begin{align*}
+\sum_k t_{ii}^kt_{jj}^k
+&=\tau(x_i^2x_j^2)=\tau((x_ix_j)^2)
+=\sum_k(t_{ij}^k)^2\\
+&=\sum_k(N_{ij}^k)^2=\sum_kN_{ii}^kN_{jj}^k.
+\end{align*}
+Each summand on the first line is bounded above by the corresponding final summand. Since every $N_{ii}^kN_{jj}^k$ is positive, equality implies that the sign of $t_{ii}^k$ is independent of $i$, for each $k$. Replacing $x_k$ by the corresponding signed basis element therefore gives
+\begin{equation}\label{eq:squares}
+x_i^2=1+\sum_{k=1}^5N_{ii}^kx_k.
+\end{equation}
+This sign change does not alter $S=5$.
+
+The matrix of coefficients in \eqref{eq:squares} is
+\begin{equation}\label{eq:B}
+B_\square=\begin{pmatrix}
+6&5&5&6&6\\5&6&5&6&6\\6&6&6&6&6\\6&6&7&6&7\\6&6&7&7&6
+\end{pmatrix}.
+\end{equation}
+Comparison of the $r$-coefficients in the dimension equations yields
+\[
+2\alpha_i\beta_i=\sum_kN_{ii}^k\beta_k.
+\]
+An integer vector with squared norm $5$ either has all five entries in $\{\pm1\}$, or has one entry of absolute value $2$, one of absolute value $1$, and three zero entries. In the second case a row corresponding to a zero entry would give $0=\pm2N\pm M$, with $5\le N,M\le7$, which is impossible. Thus all $|\beta_i|=1$.
+
+Let $(A_i)=(14,14,15,16,16)$ be half the row sums of \eqref{eq:B}. Then
+\[
+|\alpha_i|\le A_i,\qquad\sum_i\alpha_i^2=1129=\sum_iA_i^2.
+\]
+Every bound is an equality. The row with all entries equal to $6$ implies that all $\beta_i$ have the same sign $\eta$. Substitution then gives $\alpha_i=A_i$. Consequently
+\[
+(d_1,\ldots,d_5)=(14+\eta r,14+\eta r,15+\eta r,16+\eta r,16+\eta r),
+\qquad \Delta=D\ \text{or}\ D'.
+\]
+
+\begin{proposition}\label{prop:PUreduction}
+Every complex fusion categorification of $R$ has a pseudo-unitary Galois conjugate.
+\end{proposition}
+\begin{proof}
+If $\Delta=D$, pseudo-unitarity holds by definition. If $\Delta=D'$, apply a field automorphism of $\C$ taking $r$ to $-r$ to the categorical data. Fusion coefficients remain unchanged, while the global dimension becomes $D$. The resulting category is pseudo-unitary and therefore has its canonical positive spherical structure \cite[Proposition 8.23]{ENO}.
+\end{proof}
+
+\section{An independent pseudo-unitary exclusion}
+Assume now that $\mathcal C$ is pseudo-unitary with Grothendieck ring $R$, and use its positive spherical structure. Let $F:Z(\mathcal C)\to\mathcal C$ be forgetful, with right adjoint $I$. For a central simple $Y$, let $v_Y=([F(Y):X_i])_i$ be its restriction column. Adjunction and $FI(X)\cong\bigoplus_jX_j\otimes X\otimes X_j^*$ imply
+\begin{equation}\label{eq:Gram}
+\sum_{Y\in\Irr Z(\mathcal C)}v_Yv_Y^t=G.
+\end{equation}
+This is \cite[Proposition 2.4]{O} in matrix form.
+
+\subsection{The low columns}
+By \cite[Theorem 2.13]{O}, $I(\one)$ consists of six distinct simple objects, corresponding to the six characters in \eqref{eq:characters}. Their dimensions are
+\[
+1,\qquad z:=D/D'=451+30r=U^2,\qquad t:=D/5=452+30r=z+1
+\]
+with $t$ repeated four times. Their restriction columns have unit coordinate $1$. The unit column is $(1,0,0,0,0,0)^t$.
+
+For a character $\chi$, denote its central simple by $Y_\chi$ and restriction column by $v_\chi$. The character interpretation of the modular $S$-matrix gives
+\begin{equation}\label{eq:reciprocity}
+\dim(Y_\chi)\chi(v_\psi)=\dim(Y_\psi)\psi(v_\chi).
+\end{equation}
+Indeed, both sides equal the symmetric matrix entry $S_{Y_\chi,Y_\psi}$; see \cite[Example 2.9 and Theorem 2.13]{O}.
+
+Let $h$ be the column of dimension $z$. For any column $v$ of dimension $t$, its $\chi_-$-value is $452-30r=t/z$. Equation \eqref{eq:reciprocity} therefore gives $\rho_\pm(h)=\sigma_\pm(h)=1$. Together with the two quadratic character values $z,z'$, the invertible character table determines
+\[
+h=(1,6,6,6,6,6)^t.
+\]
+Write the four remaining low columns as
+\[
+(1,6\jv+w_\nu)^t\qquad(\nu=1,2,3,4),\qquad w_\nu\in\Z^5.
+\]
+Their dimensions and their sum impose
+\begin{equation}\label{eq:wconstraints}
+\jv^tw_\nu=0,\qquad\dd^tw_\nu=1,\qquad\sum_\nu w_\nu=\dd.
+\end{equation}
+The final identity follows by comparing the unit column in \eqref{eq:Gram}, namely $G_{i0}=30+\delta_i$ for $i>0$.
+
+Let $L$ consist of the six low columns. The residual matrix $G-LL^t$ is a nonnegative Gram matrix. On the three-dimensional subspace
+\[
+V=\{v\in\Q^5:\jv^tv=\dd^tv=0\},
+\]
+the nonunit block of $G$ is $5I$. The first two low columns vanish on $V$, and the other four project to $w_\nu-\dd/4$. Taking a trace on $V$ gives
+\[
+\sum_\nu\|w_\nu-\dd/4\|^2\le15,
+\qquad \sum_\nu\|w_\nu\|^2\le16.
+\]
+Each integer $w_\nu$ has squared norm at least $2$, so $\|w_\nu\|^2\le10$ and all its entries lie in $[-3,3]$.
+
+\begin{lemma}[Exact low-column enumeration]\label{lem:lows}
+Up to permutation of the four equal-dimension columns, the only low-column lists satisfying \eqref{eq:wconstraints}, modular reciprocity, and residual Gram positivity have the following deviation matrices, whose rows are the $w_\nu$:
+\begin{align*}
+W_1&=\begin{pmatrix}-1&0&1&-1&1\\-1&1&-1&1&0\\0&-1&1&1&-1\\1&-1&-1&0&1\end{pmatrix},\qquad
+W_2=\begin{pmatrix}-1&0&1&0&0\\0&-1&1&0&0\\0&0&-1&0&1\\0&0&-1&1&0\end{pmatrix},\\
+W_3&=\begin{pmatrix}-1&0&1&1&-1\\-1&1&-1&0&1\\0&-1&1&-1&1\\1&-1&-1&1&0\end{pmatrix}.
+\end{align*}
+\end{lemma}
+\begin{proof}
+Enumerate $w\in[-3,3]^5\cap\Z^5$ with $\jv^tw=0$, $\dd^tw=1$, and $\|w\|^2\le10$: there are exactly $32$. Among their unordered quadruples, exactly $59$ satisfy the sum and total norm conditions. Test all $4!$ assignments of the four characters of codegree $5$ in \eqref{eq:reciprocity}; $11$ lists survive. All $11$ have entrywise nonnegative residual matrix, and precisely the three displayed lists have positive-semidefinite residual matrix. These finite statements are checked by \texttt{low\_branches} in the supplementary exact verifier. Its bounds were derived above and do not assume any missing categorical classification.
+\end{proof}
+
+\subsection{The high columns}
+A high column has the form $(0,v)^t$, $v\in\Z_{\ge0}^5\setminus\{0\}$. Let $Q$ be the nonunit residual Gram matrix. Necessarily
+\begin{equation}\label{eq:highconditions}
+Q-vv^t\succeq0,\qquad Q-vv^t\ge0\text{ entrywise},\qquad
+\frac{D}{(14,14,15,16,16)v+r\jv^tv}\text{ is an algebraic integer}.
+\end{equation}
+For the last condition, the formal codegree of a central simple of dimension $d_Y$ is $D^2/d_Y^2$; hence $D/d_Y$ is integral as well. No additional $d$-number test is needed.
+
+\begin{lemma}[Exact high-column enumeration]\label{lem:highs}
+For the $W_1$ and $W_3$ branches, the only columns satisfying \eqref{eq:highconditions} are $\jv$ and $2\jv$. For the $W_2$ branch, the complete list consists of the following $18$ columns:
+\begin{align*}
+&\jv,\ 2\jv;\\
+&k\jv\pm(e_a-e_b),\quad k\jv\pm(e_d-e_e)\qquad(k=1,2);\\
+&k\jv-e_i+e_j\qquad(k=6,12;\ i\in\{a,b\},\ j\in\{d,e\}).
+\end{align*}
+Here $e_a,\ldots,e_e$ are the coordinate vectors of $\Z^5$.
+\end{lemma}
+\begin{proof}
+All three residual matrices kill $(1,1,-4,1,1)^t$. Thus $a+b-4c+d+e=0$ for every candidate $v=(a,b,c,d,e)^t$. Positive-semidefiniteness also gives $0\le v_i\le\lfloor\sqrt{Q_{ii}}\rfloor$ and
+\[
+|a-b|\le\left\lfloor\sqrt{Q_{aa}+Q_{bb}-2Q_{ab}}\right\rfloor,\quad
+|d-e|\le\left\lfloor\sqrt{Q_{dd}+Q_{ee}-2Q_{de}}\right\rfloor.
+\]
+The two difference bounds are $0,0$ for the outer branches and $2,2$ for the middle branch. Enumerating $a,d$ and these two differences determines $b,e,c$. This gives respectively $377,4483,377$ nonzero candidates.
+
+To test $Q-vv^t\succeq0$ exactly, require $v\perp\ker Q$ and choose a nonsingular principal submatrix $Q_J$ of rank $\rk Q$. The condition is then $v_J^tQ_J^{-1}v_J\le1$. After this and entrywise positivity, the counts are $48,236,48$. Finally, for $x+y\sqrt{226}$, integrality is equivalent to $2x\in\Z$ and $x^2-226y^2\in\Z$. Applying this test to the quotient in \eqref{eq:highconditions} leaves precisely $2,18,2$ columns, as displayed. The function \texttt{high\_columns} checks all these statements with integers and rational numbers.
+\end{proof}
+
+The residual matrices for $W_1,W_3$ have rank two, but their admissible columns are all parallel. They cannot be Gram sums, so those branches are excluded. It remains to consider $W_2$, whose residual matrix is
+\begin{equation}\label{eq:Qmiddle}
+Q=\begin{pmatrix}
+678&674&698&720&720\\674&678&698&720&720\\698&698&722&746&746\\720&720&746&774&770\\720&720&746&770&774
+\end{pmatrix}.
+\end{equation}
+
+\subsection{The Gram identities determine the relevant counts}
+Put $u=e_a-e_b$ and $v=e_d-e_e$. Directly from \eqref{eq:Qmiddle},
+\begin{equation}\label{eq:Gramidentities}
+\begin{gathered}
+\dd^tQ\dd=32,\qquad\dd^tQ\jv=480,\qquad u^tQu=v^tQv=8,\\
+\dd^tQu=\dd^tQv=u^tQv=0.
+\end{gathered}
+\end{equation}
+For $k=6,12$, let $n_k$ be the total number of high simples whose column is $k\jv-e_i+e_j$. Such a column has $\dd$-value $2$ and coordinate sum $5k$. The other columns in Lemma~\ref{lem:highs} have $\dd$-value zero. Hence the first two identities give
+\[
+n_6+n_{12}=8,\qquad n_6+2n_{12}=8.
+\]
+Thus $n_{12}=0$ and $n_6=8$. Each of these eight columns contributes one to both $u^tQu$ and $v^tQv$. Those two forms are saturated, excluding every column of the form $k\jv\pm u$ or $k\jv\pm v$. The final three identities in \eqref{eq:Gramidentities} then force each of the four columns
+\[
+B_{ij}=6\jv-e_i+e_j\qquad(i\in\{a,b\},\ j\in\{d,e\})
+\]
+to occur exactly twice.
+
+Only the uniform columns $\jv$ and $2\jv$ remain. If their numbers are $m_1,m_2$, comparison of the $cc$ entry gives
+\begin{equation}\label{eq:434}
+m_1+4m_2=722-8\cdot36=434.
+\end{equation}
+Equivalently, $Q-2\sum_{i,j}B_{ij}B_{ij}^t=434\jv\jv^t$.
+
+\subsection{The first twist moment gives the contradiction}
+Every simple in $I(\one)$ has twist $1$, and for each nonunit simple $X$,
+\[
+\Tr(\theta_{I(X)})=0
+\]
+by \cite[Theorem 2.5]{O}. All central twists are roots of unity by Vafa's theorem; see \cite{E}.
+Let $\Theta_{ij}$ be the sum of the two twists of the high simples with column $B_{ij}$. Let
+\[
+\Lambda=\sum_{Y:\,v_Y=(0,\jv)}\theta_Y
++4\sum_{Y:\,v_Y=(0,2\jv)}\theta_Y.
+\]
+It is a sum of exactly $434$ roots of unity, counted with repetition, by \eqref{eq:434}.
+The dimension of a simple with column $(0,\jv)$ is $w=5U$, while each $B_{ij}$ has dimension $t$. The five first twist identities form the vector equation
+\begin{equation}\label{eq:firstmoment}
+w\Lambda\jv+t\sum_{i,j}\Theta_{ij}B_{ij}
+=-6z\jv-t(24\jv+\dd).
+\end{equation}
+Pairing with $\dd$ gives $\sum_{i,j}\Theta_{ij}=-2$. Pairing with $\jv$ and substituting this value gives
+\[
+w\Lambda=-6z-12t.
+\]
+Using $z=U^2$, $t=U^2+1$, and $U^2=30U+1$, this becomes
+\begin{equation}\label{eq:rootsum}
+\boxed{\Lambda=-18-6\sqrt{226}.}
+\end{equation}
+
+\begin{lemma}[Quadratic Gauss-sum length bound]\label{lem:Gauss}
+If $a+b\sqrt{226}$ is a sum of $L$ roots of unity, with $a,b\in\Q$, then $L\ge224|b|$.
+\end{lemma}
+\begin{proof}
+Let $K=\Q(\sqrt{226})$, of conductor $f=904$, and take a cyclotomic field containing $K$ and all the roots in question. Apply the normalized trace to $K$. We claim that the coefficient of $\sqrt{226}$ in the normalized trace of any single root has absolute value at most $1/224$.
+
+Let that root have order $n$. If $K\not\subseteq\Q(\zeta_n)$, its normalized trace to $K$ is rational. Otherwise $f\mid n$. Let $\chi$ be the primitive quadratic character of conductor $f$ and $\chi_n$ its inflation to $(\Z/n\Z)^\times$. Averaging over $\ker\chi_n$ gives, for a primitive $n$th root $\xi$,
+\[
+\frac{1}{\varphi(n)}\sum_{a\in(\Z/n\Z)^\times}(1+\chi_n(a))\xi^a.
+\]
+The unweighted sum is rational. The weighted sum is the induced Gauss sum. Writing $n=fm$, it is zero unless $m$ is squarefree and coprime to $f$; otherwise it equals, up to sign, the primitive quadratic Gauss sum of magnitude $\sqrt f=2\sqrt{226}$. Thus the coefficient in question is zero or has absolute value
+\[
+\frac{2}{\varphi(n)}\le\frac{2}{\varphi(904)}=\frac1{224}.
+\]
+For completeness, the induced Gauss-sum formula follows by the Chinese remainder theorem: if a prime dividing $f$ occurs to a higher exponent in $n$, summing over lifts gives zero; for the prime-to-$f$ part, the extra factor is the Ramanujan sum $\mu(m)$ times a quadratic-character value. For a primitive quadratic character, its Gauss sum lies in $\Q(\sqrt f)$ and has magnitude $\sqrt f$, by finite Fourier orthogonality; the standard Gauss and Ramanujan identities are also recorded in \cite[Section 27.10]{DLMF}. These arguments also cover vanishing when $m$ is not squarefree. The triangle inequality for the $L$ rational coefficients after normalized trace proves $|b|\le L/224$.
+\end{proof}
+
+Equation \eqref{eq:rootsum} and Lemma~\ref{lem:Gauss} require
+\[
+434\ge224\cdot6=1344,
+\]
+which is impossible. Therefore $R$ has no pseudo-unitary categorification. Proposition~\ref{prop:PUreduction} now proves Theorem~\ref{thm:main}.
+
+\section{Exact verification and scope}
+The companion program \texttt{verify.py} independently reconstructs the arithmetic from \texttt{ring.json}. It verifies every ring and character identity, the product decomposition modulo two, the dimension-ratio calculation, the trace gap, and the square-coefficient argument. For the pseudo-unitary exclusion it exhausts all bounded low and high columns, checks the Gram identities, and verifies the final twist simplification and numerical contradiction. The two finite enumerations have the following counts:
+\begin{center}
+\begin{tabular}{lr}
+\toprule
+Low-column stage&Count\\\midrule
+Individual deviation vectors&32\\
+Unordered quadruples satisfying sum and norm&59\\
+Quadruples admitting modular-reciprocity labellings&11\\
+Quadruples with positive-semidefinite residual Gram matrix&3\\\bottomrule
+\end{tabular}
+\medskip
+
+\begin{tabular}{lrrr}
+\toprule
+High-column stage&$W_1$&$W_2$&$W_3$\\\midrule
+Bounded candidates&377&4483&377\\
+Gram-compatible candidates&48&236&48\\
+Integral dimension-quotient candidates&2&18&2\\\bottomrule
+\end{tabular}
+\end{center}
+All finite decisions use exact integers or rational numbers. In particular, no floating-point feasibility test or existing higher-indicator exclusion is imported. The proof of the ramification reduction and the all-orders Gauss-sum bound is given in the text, not replaced by a finite numerical experiment.
+
+Run
+\begin{verbatim}
+python verify.py --output verification.json
+python -O verify.py --output verification_optimized.json
+\end{verbatim}
+The program uses explicit exception-raising checks, so optimized Python does not disable them. The supplied reports record the actual checks and their software version. The result concerns the single full tensor \eqref{eq:table}; it makes no claim that rank six is the minimum rank for a possible failure of pivotality.
+
+\begin{thebibliography}{9}
+\bibitem{ENO} P. Etingof, D. Nikshych, and V. Ostrik, \emph{On fusion categories}, Annals of Mathematics \textbf{162} (2005), 581--642. \href{https://annals.math.princeton.edu/wp-content/uploads/annals-v162-n2-p01.pdf}{Publisher's full text}.
+\bibitem{ENOR} P. Etingof, D. Nikshych, and V. Ostrik, \emph{An analogue of Radford's $S^4$-formula for finite tensor categories}, arXiv:math/0404504. \url{https://arxiv.org/abs/math/0404504}.
+\bibitem{O} V. Ostrik, \emph{Pivotal fusion categories of rank 3}, with an appendix written jointly with D. Nikshych, arXiv:1309.4822. \url{https://arxiv.org/abs/1309.4822}.
+\bibitem{E} P. Etingof, \emph{On Vafa's theorem for tensor categories}, arXiv:math/0207007. \url{https://arxiv.org/abs/math/0207007}.
+\bibitem{DLMF} NIST Digital Library of Mathematical Functions, \emph{Section 27.10: Periodic Number-Theoretic Functions}, in particular the Gauss and Ramanujan sum identities. \url{https://dlmf.nist.gov/27.10}.
+\end{thebibliography}
+\end{document}

@@ -7,6 +7,8 @@ data/counts.json is the source of truth; no count is scraped from a PDF.
 import argparse
 import csv
 import json
+import hashlib
+import shutil
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
@@ -26,7 +28,10 @@ def read_counts(path: Path):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--classification", type=Path, required=True)
+    parser.add_argument("--classification-commit", help="Full immutable commit containing this verified research release")
     args = parser.parse_args()
+    if args.classification_commit and (len(args.classification_commit) != 40 or any(c not in "0123456789abcdef" for c in args.classification_commit)):
+        parser.error("--classification-commit requires a full 40-character commit SHA")
     repo = args.classification.resolve()
     counts = read_counts(repo / "data" / "counts.json")
     rows = []
@@ -104,7 +109,8 @@ def main():
             "note":"Unrestricted complex classification."}
            if rank in (2,3) else scope_record(rank) for rank in scoped_ranks]
     data = {
-        "snapshot": "2026-09-23",
+        "snapshot": "2026-09-29",
+        "classification_commit": args.classification_commit,
         "source_repository": counts.get("census_repository", "https://github.com/sebastienpalcoux/fusion-ring-census"),
         "census_commit": counts.get("census_commit", ""),
         "classification_repository": "https://github.com/sebastienpalcoux/grothendieck-ring-classification",
@@ -112,6 +118,33 @@ def main():
         "grothendieck_rows":positive_rows,
         "scope":scope,
     }
+    release = json.loads((repo / "supplements/rank6/verification/release_summary.json").read_text())
+    archive_name = "Rank6_Categorification_M8_Revised_2026-09-29_v2.zip"
+    archive_source = repo / "site/dist/downloads" / archive_name
+    if not archive_source.is_file():
+        raise FileNotFoundError("Run python3 tools/restore_data.py in the classification repository first.")
+    data["rank6_release"] = {
+        "date": "2026-09-29", "excluded": release["excluded"],
+        "realized": release["positive"], "unresolved": release["unresolved"],
+        "complete_through": next(record["through"] for record in scope if record["rank"] == 6),
+        "new_exclusions_since_previous_site": release["continuation_excluded"],
+        "archive": {"path": "downloads/" + archive_name,
+                    "bytes": archive_source.stat().st_size,
+                    "sha256": hashlib.sha256(archive_source.read_bytes()).hexdigest()},
+        "frontier_path": "data/rank6_unresolved_tensors.json",
+        "summary_path": "data/rank6_release_summary.json",
+    }
+    downloads = HERE / "dist/downloads"
+    downloads.mkdir(parents=True, exist_ok=True)
+    archive_target = downloads / archive_name
+    if archive_source.resolve() != archive_target.resolve():
+        shutil.copy2(archive_source, archive_target)
+    (HERE / "dist/data").mkdir(parents=True, exist_ok=True)
+    for source_name, target_name in (("data/unresolved_tensors.json", "rank6_unresolved_tensors.json"),
+                                     ("verification/release_summary.json", "rank6_release_summary.json")):
+        shutil.copy2(repo / "supplements/rank6" / source_name, HERE / "dist/data" / target_name)
+    for name, target in (("manuscript.pdf", "rank6.pdf"), ("verification_guide.pdf", "rank6_guide.pdf")):
+        shutil.copy2(repo / "manuscripts/rank6/papers" / name, HERE / "dist/papers" / target)
     output = HERE / "dist" / "data" / "atlas.json"
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(json.dumps(data, ensure_ascii=False, separators=(",", ":")) + "\n")

@@ -544,7 +544,8 @@ Section~\ref{sec:verification} and its machine-readable ledger.
 
 The multiplicity-three applications are detailed in
 Section~\ref{sec:modular-frontier}. The complete consecutive classification
-range remains multiplicity two. In particular the counting bound eight is
+range now reaches multiplicity three by the stabilizer-rotation argument
+of Theorem~\ref{thm:frontier-noncategorifiable}. The counting bound eight is
 not presented as a categorification bound.
 
 \subsubsection{Modular equations retained inside the indicator system}
@@ -553,8 +554,8 @@ We describe one further strengthening of
 Theorem~\ref{thm:character-induction}. It uses the same high-column and
 relative-trace variables; it does not require enumerating an unknown
 center fusion ring. Its purpose here is also to specify exactly which
-stronger necessary conditions the remaining multiplicity-three example
-is known to satisfy.
+stronger necessary conditions the former multiplicity-three residual
+satisfies before the stabilizer constraint is imposed.
 
 Assume that all ring characters and positive dimensions lie in a real
 field $K$ of degree at most two, and let $P$ be the normalized relative
@@ -662,10 +663,11 @@ integer variables, including all indicator-slack coordinates, and formal central
 rank $22$. Its low frame, character labelling, second indicators and
 all rational coordinates are stored in
 \filename{systems/integral_frontier_215.json}. The verifier reconstructs
-the equations and checks the equalities exactly. The point is neither
-a modular datum nor a center fusion ring: individual twists and a
-complete associative fusion tensor have not been supplied. In
-particular, it does not prove categorifiability or noncategorifiability.
+the equations and checks the equalities exactly. That finite point alone
+does not specify individual twists or a complete associative center
+fusion tensor. Section~\ref{sec:cyclic-eight-center} now supplies a
+compatible exact completion of those data. Neither the finite point nor
+that completion proves categorifiability or noncategorifiability.
 
 The common framework is applied at every multiplicity in the extended
 census. Structure-specific pseudo-unitary certificates remain separate
@@ -673,7 +675,9 @@ from general exclusions. In particular the non-positive branches of
 $\RR{4}{375}$ and $\RR{4}{446}$ are closed by
 Section~\ref{sec:dimension-order}; a positive-dimension obstruction alone
 would not suffice. The surviving pseudo-unitary-only exclusions are
-$\RR{4}{162}$, $\RR{7}{3582}$ and $\RR{7}{3812}$.
+$\RR{7}{3582}$ and $\RR{7}{3812}$.
+The former structure-only case $\RR{4}{162}$ is now generally excluded
+by Theorem~\ref{thm:rank3-subring}.
 The complete general ledger and its distinct structure fields, rather
 than historical bounded-search outcomes, state the classification.
 
@@ -885,13 +889,15 @@ exhaustive signed alternatives, and these are retained rather than
 credited to a stronger criterion unnecessarily. The finite applications
 are specified by full tensors and exact proof trees.
 
-The separate certificates for $\RR{4}{162}$, $\RR{7}{3582}$ and
+The separate certificates for $\RR{7}{3582}$ and
 $\RR{7}{3812}$ exclude pseudo-unitary and therefore unitary
 categorification only. Their general, pivotal and spherical existence
 fields remain unknown. This distinction is enforced by the ledger
 checker, not left to a reader's interpretation of a single status label.
 
-\subsection{Joint products in the first unresolved center}
+\input{chapters/frontier_spherical_reduction}
+
+\subsection{Joint products in the former multiplicity-three frontier}
 \label{sec:joint-low-product-gram}
 The first general residual is still $\RR{3}{215}$. Its positive dimension
 vector, computed from its multiplication tensor, is
@@ -994,7 +1000,14 @@ The calculation and its frozen certificate are
 The program reconstructs the tensor, character table, inherited
 230-equation witness, every cubic and fourth-order moment, all product
 restrictions, and the expanded Gram identities. Thus the stronger test
-survives and contributes zero general exclusions. It supplies no full
-center fusion tensor, individual twists, associators or categorification.
-The earliest general unresolved multiplicity remains three; further
-conditions or a categorical construction are still required there.
+survives and contributes zero general exclusions. On its own it supplies
+no complete center fusion tensor or twists. The following subsection
+extends the witness to those additional data. A further source-specific
+argument then obstructs lifting its displayed map. These older necessary
+systems alone do not settle general existence; the stabilizer-rotation
+criterion in Theorem~\ref{thm:frontier-noncategorifiable} supplies the
+general exclusion.
+
+\input{chapters/center_compatibility}
+
+\input{chapters/cyclic8_lift_obstruction}

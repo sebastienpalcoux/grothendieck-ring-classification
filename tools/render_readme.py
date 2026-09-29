@@ -19,6 +19,14 @@ def outcome(rank, m):
     n=realized(s)
     return ('≥' if s['unresolved_general'] or s['unassessed'] else '')+str(n)
 
+rank6=[state[(6,m)] for m in range(1,9)]
+rank6_excluded=sum(x['excluded_general'] for x in rank6)
+rank6_realized=sum(realized(x) for x in rank6)
+rank6_open=sum(x['unresolved_general'] for x in rank6)
+rank6_complete=next((x['multiplicity']-1 for x in rank6 if x['unresolved_general']),8)
+rank6_summary=(f'| 6 | Through 8 | **Complete through {rank6_complete}** | '
+               f'Through 8: {rank6_excluded:,} excluded, {rank6_realized} realized, '
+               f'{rank6_open} unresolved; {state[(6,8)]["unresolved_general"]} of those residuals occur at multiplicity 8. |')
 lines=['''# Grothendieck ring classification
 
 ### Which low-rank fusion rings admit fusion categories over ℂ?
@@ -66,7 +74,7 @@ classification cross-check. Rank-two realized counts follow directly from
 | 3 | Through 1,000 | Unrestricted theorem | Five realized rings: four at multiplicity 1 and one at 2; see the standalone sphericality and ring-classification proof. |
 | 4 | Through 128 | **Complete through 128** | 15 realized rings, 889,515 general exclusions. |
 | 5 | Through 20 | **Complete through 20** | 17 realized rings and 40,982 generally excluded. The two former multiplicity-18 residuals are now excluded by inert-prime parity and exact induction. |
-| 6 | Through 8 | **Complete through 2** | Through 8: 16,511 excluded, 54 realized, 47 unresolved; 19 of those residuals occur at multiplicity 8. |
+__RANK6_SUMMARY__
 | 7 | Through 4 | Partial at every band | Through 4: 4,107 excluded, 16 realized, 78 unresolved; full normal and optimized certificate replays passed. |
 | 8 | Through 2 | Partial at both bands | Through 2: 824 excluded, 33 realized, 116 unresolved; positive tensors and transferred certificates verified. |
 
@@ -75,6 +83,20 @@ models** and **one spherical model whose ring has no pseudo-unitary
 categorification**. “Realized” means that at least one categorification is
 constructed; it does not assert that every categorification of that ring is
 unitary. Rank five has no unresolved ring through multiplicity 20.
+
+The rank-six continuation closes the final multiplicity-three case,
+`R6_3_215`, using Clifford stabilizer rotation and exhaustive central-induction
+certificates. General classification is complete for all **577 rings through
+multiplicity three**: **531 excluded and 46 realized**, including 45 with
+unitary models. The two continuations add **25 general exclusions** to the
+previous repository release (7 in the first continuation and 18 in the second).
+The new stabilizer, cyclotomic-trace, ramification, norm, trace-ideal and Gauss
+criteria have been applied through multiplicity eight. See the
+[revision notes](supplements/rank6/REVISION_NOTES.md),
+[22 remaining tensors](supplements/rank6/data/unresolved_tensors.json), and
+[exact continuation replay](supplements/rank6/verification/round2/release_replay.json).
+The [complete revised rank-six ZIP](https://grothendieck-ring-atlas.sebastien-palcoux.chatgpt.site/downloads/Rank6_Categorification_M8_Revised_2026-09-29_v2.zip)
+contains all 605 released files, including both continuation certificate files.
 
 ### The classification boundary, band by band
 
@@ -104,7 +126,7 @@ row checks and scope appear in [the provenance record](docs/PROVENANCE.md).
 |---:|---:|---|
 | 4 | Multiplicity 18 | The same criterion families suffice for the allocated exclusions at 19–128. |
 | 5 | Multiplicity 18 | Inert-prime quadratic parity first closes two cases at 18; no new criterion family is needed at 19–20. |
-| 6 | Multiplicity 8 | Dimension-order and character-induction exclusions first succeed at 8; 47 general cases remain unresolved. No later multiplicity is covered. |
+| 6 | Multiplicity 8 | The current allocation includes new stabilizer, cyclotomic-trace and signed arithmetic criteria; the formal-codegree trace-ideal family first contributes at 8. __RANK6_OPEN__ general cases remain unresolved. No later multiplicity is covered. |
 | 7 | Multiplicity 2 | Signed sphericalization first contributes at 1; the last first successful application of a listed family occurs at 2. There are 78 open rings through 4, so no stabilization conclusion follows. |
 | 8 | Multiplicity 2 | Signed obstructions first contribute at 1; the last first successful application of a listed family occurs at 2. There are 116 open rings through 2, so no stabilization conclusion follows. |
 
@@ -152,5 +174,6 @@ classification, proofs and models; it does not recompute the census. Changes
 to a source census cell are imported only from a named commit and rechecked
 against classification ledgers.
 ''')
-(ROOT/'README.md').write_text('\n'.join(lines))
+(ROOT/'README.md').write_text('\n'.join(lines).replace('__RANK6_SUMMARY__',rank6_summary)
+                              .replace('__RANK6_OPEN__',str(rank6_open)))
 print('Rendered README.md')

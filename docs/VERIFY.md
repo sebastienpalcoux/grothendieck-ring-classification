@@ -16,13 +16,16 @@ sequence, CSV/JSON agreement, and each classification partition. They do not
 rerun the mathematical criteria or enumerate the fusion rings. Continuous
 integration performs the same checks on every change.
 
-`restore_data.py` reconstructs the five largest source datasets from small
+`restore_data.py` reconstructs large source datasets and the complete rank-six
+download archive from small
 compressed parts stored in this repository. It needs only the Python standard
 library, uses no network, and checks SHA-256 for every part and every restored
 file. Run it once after cloning, before running the full rank-specific
 verifiers. `python3 tools/restore_data.py --check` verifies reconstruction
 without writing files. The complete downloadable research archive already
-contains the original datasets.
+contains all 605 released files, including both the 7-record and 18-record
+continuation certificate files. Its repository mirror is restored at
+`site/dist/downloads/Rank6_Categorification_M8_Revised_2026-09-29_v2.zip`.
 
 ## Rebuild from the pinned census
 
@@ -42,7 +45,7 @@ the repository enumeration.
 ## Rebuild classification partitions
 
 Unpack the attached `FusionFrontier.tar.xz` and the updated
-`Rank6_Categorification_M8(1).zip` and the revised rank-five release. The
+`Rank6_Categorification_M8_Revised_2026-09-29_v2.zip` and the revised rank-five release. The
 rank-four ledger is the `Rank4/.../certificates/classification.jsonl.gz` file.
 The revised rank-five `data/decisions_all.json` extends the attached archive's
 28,493 decisions to all 40,999 census tensors through multiplicity 20,
@@ -57,7 +60,7 @@ Then run, substituting the actual extracted paths:
 ```bash
 python3 tools/generate_classification.py \
   --bundle FusionFrontier.tar.xz \
-  --rank6-bundle 'Rank6_Categorification_M8(1).zip' \
+  --rank6-bundle Rank6_Categorification_M8_Revised_2026-09-29_v2.zip \
   --census fusion-ring-census/results/census.json \
   --rank4 classification.jsonl.gz \
   --rank5 rank5-decisions_all.json \
@@ -68,10 +71,62 @@ python3 tools/generate_classification.py \
 
 The exporter records source checksums, checks cardinalities and agreement with
 every census band. The released rows have no unassessed bands. Rank five is
-complete through multiplicity 20; 47 rank-six cases through multiplicity 8
-remain generally unresolved. Rank seven has 78 open cases through
+complete through multiplicity 20; rank six is complete through multiplicity
+three, with 22 cases through multiplicity eight remaining generally unresolved.
+Rank seven has 78 open cases through
 multiplicity four, and rank eight has 116 through multiplicity two. Those
 figures are stored as unresolved, never as exclusions or zero positive counts.
+
+To refresh only rank six from the revised archive while preserving every
+other rank's current rows and provenance, use:
+
+```bash
+python3 tools/generate_classification.py --refresh-rank6 \
+  --rank6 supplements/rank6/data/decisions.json \
+  --rank6-bundle Rank6_Categorification_M8_Revised_2026-09-29_v2.zip
+python3 tools/export_grothendieck_counts.py
+python3 tools/render_readme.py
+python3 tools/validate_release.py
+```
+
+The incremental exporter verifies all 16,612 distinct records and each pinned
+census-band total before replacing rank-six rows. Its current input hash and
+bundle identity are explicit in `data/classification_status.json`; earlier
+bundle entries remain as provenance. `validate_release.py` compares all eight
+rank-six bands against the authoritative ledger, checks the 16,536/54/22
+partition, the completed multiplicity-three frontier and the current release
+summary. Export checks are separate from replaying mathematical certificates.
+
+## Rank-six continuation evidence
+
+The complete revised source is in `supplements/rank6/`. Restore repository
+large files first, install that release's pinned requirements, then run from
+its directory:
+
+```bash
+python check_manifest.py
+python -O software/continuation_controls.py --jobs 3
+python software/release_consistency.py
+```
+
+The two continuation files contain 7 and 18 disjoint general exclusions.
+`verification/round2/release_replay.json` records their exact replay with
+assertions and numerical optimization disabled. The new multiplicity-three
+proof exhausts all module and central-induction branches for `R6_3_215`;
+its 200 separating vectors do not assume that an unknown center equals a
+known modular category. Higher-multiplicity criteria cover the frozen
+40-residual input domain, with full-census scans and positive controls where
+specified by the revised manuscript and revision notes. A necessary-system
+survivor, ineligible input or stopped search is not an exclusion or a model.
+
+The unchanged original 16,511-certificate campaign retains its earlier
+verification. A fresh complete negative replay is available with
+`python -O verify.py --jobs 2 --out verification/current/recheck_O.jsonl`;
+it is not claimed to have been rerun for this publication update.
+The current authoritative ledger and 22 residual tensors are under `data/`;
+old research logs and the preserved first-continuation summary are historical.
+
+## Tensor crosswalks
 
 The rank-five and rank-six source-tensor crosswalks can be rerun:
 

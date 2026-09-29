@@ -10,7 +10,11 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - run: python tools/restore_data.py
+      - run: python supplements/rank6/check_manifest.py
       - run: python tools/validate_release.py
       - run: |
           python tools/render_readme.py
           git diff --exit-code README.md
+      - run: python site/smoke_test.py
+      - run: node --check site/dist/app.js

@@ -44,9 +44,6 @@ def main():
     destination = ROOT / 'verification/current'
     destination.mkdir(parents=True, exist_ok=True)
     environment = dict(os.environ)
-    # Exact Farkas vectors are row-indexed; pin the SymPy backend used when
-    # the archived systems were generated, even if python-flint is installed.
-    environment['SYMPY_GROUND_TYPES'] = 'python'
     for variable in ('OPENBLAS_NUM_THREADS', 'OMP_NUM_THREADS', 'MKL_NUM_THREADS'):
         environment[variable] = '1'
     modes = ('normal', 'optimized') if args.mode == 'both' else (args.mode,)

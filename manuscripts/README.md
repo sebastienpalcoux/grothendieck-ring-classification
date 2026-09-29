@@ -12,8 +12,8 @@ fixed-rank census and explicit criteria for categorification.
 | Rank four, companion | [TeX](rank4/papers/companion.tex) | [PDF](rank4/papers/companion.pdf) | Criteria, positive models and frontier proofs |
 | Rank four, verification guide | [TeX](rank4/papers/verification_guide.tex) | [PDF](rank4/papers/verification_guide.pdf) | Software and certificate checks |
 | *Rank-five Grothendieck rings through multiplicity twenty* | [TeX](rank5/papers/manuscript.tex) | [PDF](rank5/papers/manuscript.pdf) | Complete general classification through multiplicity 20 |
-| Rank six | [TeX](rank6/papers/manuscript.tex) | [PDF](rank6/papers/manuscript.pdf) | Complete through 2, analyzed through 8 with 47 general residuals |
-| Rank six, verification guide | [TeX](rank6/papers/verification_guide.tex) | [PDF](rank6/papers/verification_guide.pdf) | Multiplicity-eight ledger and software checks |
+| Rank six | [TeX](rank6/papers/manuscript.tex) | [PDF](rank6/papers/manuscript.pdf) | Complete through 3, analyzed through 8 with 22 general residuals |
+| Rank six, verification guide | [TeX](rank6/papers/verification_guide.tex) | [PDF](rank6/papers/verification_guide.pdf) | Two continuation replays, multiplicity-eight ledger and software checks |
 | Rank seven | [TeX](rank7/papers/manuscript.tex) | [PDF](rank7/papers/manuscript.pdf) | Certified partial classification through multiplicity 4; 78 unresolved |
 | Rank eight | [TeX](rank8/paper/rank8.tex) | [PDF](rank8/paper/rank8.pdf) | Certified partial classification through multiplicity 2; 116 unresolved |
 
@@ -21,3 +21,11 @@ Rank-four through rank-eight TeX files use sections and generated tables
 from their sibling source trees. [Provenance](../docs/PROVENANCE.md) explains
 the separately versioned census and classification ledgers. These manuscripts
 are working research releases, with unresolved rings identified explicitly.
+
+
+The current rank-six paper includes the completed `R6_3_215` proof and the
+new stabilizer, cyclotomic-trace and signed arithmetic criteria through
+multiplicity eight. Its 16,536 general exclusions and 54 realizations leave
+22 unresolved rings. [Revision notes](../supplements/rank6/REVISION_NOTES.md)
+separate the 7 first-continuation and 18 second-continuation exclusions from
+the unchanged original campaign, and describe the precise verification scope.

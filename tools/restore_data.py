@@ -31,9 +31,10 @@ def main():
             raise ValueError('Reconstructed file checksum mismatch: ' + item['path'])
         target = ROOT / item['path']
         if not args.check:
-            if target.exists() and digest(target.read_bytes()) != item['sha256']:
+            existing = digest(target.read_bytes()) if target.exists() else None
+            if existing is not None and existing != item['sha256'] and existing not in item.get('previous_sha256', []):
                 raise FileExistsError('Refusing to overwrite a modified file: ' + str(target))
-            if not target.exists():
+            if existing != item['sha256']:
                 target.parent.mkdir(parents=True, exist_ok=True)
                 temp = target.with_name(target.name + '.restoring')
                 temp.write_bytes(raw)

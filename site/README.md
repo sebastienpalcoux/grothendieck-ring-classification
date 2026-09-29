@@ -6,7 +6,7 @@ Private research site with two clearly distinguished populations. Its main table
 
 Run these commands from this Site checkout, passing the private classification repository as input:
 
-    python3 build_snapshot.py --classification /path/to/classification-repository
+    python3 build_snapshot.py --classification /path/to/classification-repository --classification-commit FULL_RELEASE_COMMIT_SHA
     python3 build_realized.py --classification /path/to/classification-repository
     npm run check
     npm run dev
@@ -28,3 +28,18 @@ Run these commands from this Site checkout, passing the private classification r
 The source and associated GitHub classification repository remain private. The Site uses owner-only access unless the owner invites a viewer through **Share**. Preserve that audience when publishing revised versions.
 
 The rank-three manuscript proves unrestricted five-ring necessity directly, together with sphericality. Its classification-status ledger marks every displayed rank-three multiplicity as complete. By default an individual ring profile shows one fusion matrix at a time and offers a full tensor download. The character page distinguishes exact primitive-root formulas from approximate numerical tables.
+
+## Rank-six revision · 29 September 2026
+
+The complete 605-file revised archive closes multiplicity three and records
+16,536 general exclusions, 54 realized rings and 22 unresolved cases through
+multiplicity eight. The two continuations add 7 and 18 exclusions to the
+previous 47-residual website snapshot. `build_snapshot.py` imports the current
+rank-six release report, all 22 residual tensors, the two revised PDFs, and
+the exact downloadable archive from the classification repository. Run its
+`tools/restore_data.py` before regenerating this snapshot. Positive model
+records are unchanged; their existing exact tensor checks remain applicable.
+
+The archive SHA-256 is
+`c9508a49228f199e8f4bf476edddb72a0eddcce45b6e249a11b9f49105de2467`.
+Published source links are pinned to the corresponding classification commit.

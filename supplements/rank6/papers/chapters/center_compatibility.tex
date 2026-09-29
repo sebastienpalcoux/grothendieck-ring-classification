@@ -1,0 +1,100 @@
+\subsection{An exact center-ring completion of the multiplicity-three data}
+\label{sec:cyclic-eight-center}
+The surviving low-product witness extends substantially further than the
+Gram conditions alone: it admits a full modular datum from a known unitary
+category, together with a positive based-ring map to $\RR{3}{215}$.
+This is still weaker than a tensor functor or a categorification of the
+rank-six ring.
+
+Let $\mathcal D$ be the $\ZZ/2\ZZ$-de-equivariantization of the generalized
+Haagerup category for $\ZZ/8\ZZ$ in
+\cite[Theorem~6.8 and Example~6.10]{GIcenters}. Put $d=4+\sqrt{17}$ and
+$D=136+32\sqrt{17}$. We use the source's labels
+$\mathbf1,\pi,\varphi_\pm,\sigma^g_k,\psi_{\epsilon_1,\epsilon_2},\xi_j$
+for the $22$ simples of $Z(\mathcal D)$.
+Here the six $\sigma$ labels are $(g,k)=(0,1),(2,1),(1,0),\ldots,(1,3)$,
+the four $\psi$ labels have $\epsilon_1,\epsilon_2\in\{\pm1\}$, and
+$1\le j\le8$.
+
+\begin{proposition}[Exact compatibility with a known center]
+\label{prop:cyclic-eight-center}
+There is a unital, duality-preserving homomorphism
+\[
+ f:K_0(Z(\mathcal D))\longrightarrow \RR{3}{215}
+\]
+which sends every simple basis element to a nonnegative integral combination
+of the target basis. Its values are the vectors in the following table.
+The target basis has dimensions $(1,1,d,d,d-1,d+1)$.
+\begin{center}
+\small
+\begin{tabular}{@{}llll@{}}
+\toprule
+Central label & Dimension & Twist & $f$-vector\\
+\midrule
+$\mathbf1$ & $1$ & $1$ & $(1,0,0,0,0,0)$\\
+$\pi$ & $8d+1$ & $1$ & $(1,0,2,2,2,2)$\\
+$\sigma^0_1$ & $8d+2$ & $1$ & $(1,1,1,3,2,2)$\\
+$\sigma^2_1$ & $8d+2$ & $1$ & $(1,1,3,1,2,2)$\\
+$\varphi_+$ & $4d+1$ & $1$ & $(1,0,0,0,2,2)$\\
+$\varphi_-$ & $4d+1$ & $1$ & $(1,0,2,2,0,0)$\\
+$\sigma^1_k$, $0\le k<4$ & $8d+2$ & $\zeta_8^{1+2k}$ & $(0,0,2,2,1,3)$\\
+$\xi_j$, $1\le j\le8$ & $8d$ & $\zeta_{17}^{3j^2}$ & $(0,0,2,2,2,2)$\\
+$\psi_{\epsilon_1,\epsilon_2}$ & $4d+1$ & $-1$ & $(0,1,1,1,1,1)$\\
+\bottomrule
+\end{tabular}
+\end{center}
+Every simple object of this center has second Frobenius--Schur indicator
+$+1$.
+\end{proposition}
+\begin{proof}
+We specialize the cited modular-data formulas to $m=2$ and reconstruct the
+complete center fusion tensor by the Verlinde formula. The exact certificate
+stores its $22^3$ structure constants, the normalized matrix $s$, its twists,
+and the displayed $22\times6$ matrix $F$.
+All entries of $136s$ belong to
+$\ZZ[x]/(\Phi_{136}(x))$, where
+\[
+ \Phi_{136}(x)=\sum_{j=0}^{16}(-x^4)^j,
+ \qquad x=\zeta_{136}.
+\]
+The checker verifies symmetry, $s^2=I$ and
+$sts=t^{-1}st^{-1}$ exactly, where $t$ is the diagonal twist matrix.
+For every $a,b,\ell$ it verifies
+\[
+ \sum_c N_{ab}^{c}s_{c\ell}s_{0\ell}
+       =s_{a\ell}s_{b\ell}.
+\]
+Together with invertibility of $s$, these $10\,648$ identities certify the
+Verlinde tensor without numerical rounding. Its coefficients are
+nonnegative integers; the unit, duality and associativity identities are
+checked independently. For every $a,b,i$ the checker then verifies
+\[
+ \sum_c N_{ab}^{c}F_{ci}
+ =\sum_{j,k}F_{aj}F_{bk}N_{jk}^{i}(\RR{3}{215}).
+\]
+These $2\,904$ identities prove the asserted ring homomorphism. Finally it
+checks the second-indicator formula
+\[
+ \nu_2(a)=\sum_{i,j}N_{ij}^{a}s_{0i}s_{0j}
+                     (t_i/t_j)^2=1
+\]
+in the same cyclotomic field.
+\end{proof}
+
+The proof is reproduced by
+\filename{research/center_continuation/exact_cyclic8_center.py}; it remains
+valid under Python's optimization flag. The frozen data are
+\filename{cyclic8_center_tensor.json} and
+\filename{cyclic8_modular_data.json} in the same directory.
+Thus the frontier is compatible with a complete known central fusion ring,
+individual twists, modular relations and all second indicators.
+These compatibility checks do not produce an algebra or a central tensor
+functor. In fact, Proposition~\ref{prop:cyclic-eight-lift-obstruction}
+proves that this specified map cannot be the central forgetful functor
+under an equivalence with the actual known center used here. This does
+not identify every modular category with the same datum. The general
+nonexistence result instead follows from the stabilizer-rotation
+obstruction in Theorem~\ref{thm:stabilizer-rotation-frontier}, which
+applies to every possible center. The numerical compatibility above
+therefore illustrates why a fusion tensor and modular datum alone do
+not provide a categorification.

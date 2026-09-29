@@ -5,10 +5,7 @@ No tensor enumeration is performed. Discovery budgets never imply exclusion:
 each accepted certificate is checked by the exact dispatcher. Earlier proofs
 are reusable witnesses, after all cheaper stages have actually been applied.
 """
-import os,sys
-if os.environ.get('SYMPY_GROUND_TYPES') != 'python':
-    os.environ['SYMPY_GROUND_TYPES'] = 'python'
-    os.execvpe(sys.executable, sys.orig_argv, os.environ)
+import os
 for variable in ('OPENBLAS_NUM_THREADS','OMP_NUM_THREADS','MKL_NUM_THREADS'):
     os.environ[variable]='1'
 import argparse, collections, csv, hashlib, json, platform, signal, time, traceback,subprocess,sys
@@ -50,11 +47,17 @@ def discover(stage,row):
         from rings import dnumber
         return dnumber(R)
     elif stage=='lower_rank_subring':
+        from new_rank3_subring import certificate as rank3_certificate
+        result=rank3_certificate(R)
+        if result is not None:return result
         from subring_descent import certificate
         return certificate(R)
     elif stage=='involution_module' and row['commutative']:
         from involution_module import certificate
-        return certificate(R)
+        result=certificate(R)
+        if result is not None:return result
+        from new_module_spectral import certificate as spectral_certificate
+        return spectral_certificate(R)
     elif stage=='subring' and row['commutative']:
         # Avoid constructing a character field when no proper subring exists.
         from subring_descent import closed_subrings
@@ -67,7 +70,10 @@ def discover(stage,row):
         return cyclotomic_failure([a.charpoly(t).as_poly() for a in matrices(R)])
     elif stage=='small_dimension_morita':
         from small_dimension_morita import certificate
-        return certificate(R)
+        result=certificate(R)
+        if result is not None:return result
+        from new_morita_order6 import certificate as order6_certificate
+        return order6_certificate(R)
     elif stage=='field_automorphisms' and row['commutative']:
         from field_automorphisms import certificate
         return certificate(R)
@@ -159,6 +165,9 @@ def hard_worker(task):
 
 def retained_stage(kind):
     if kind=='noncommuting_field_automorphisms':return 'field_automorphisms'
+    if kind=='rank3_c2_neargroup_subring':return 'lower_rank_subring'
+    if kind=='spectral_involution_module':return 'involution_module'
+    if kind=='morita_order6':return 'small_dimension_morita'
     if kind in {s[0] for s in STAGES}:return kind
     return 'general_induction'
 

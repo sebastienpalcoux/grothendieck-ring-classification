@@ -24,7 +24,7 @@ categorifiable.
 |---:|---:|---:|---:|---:|---:|---:|---:|
 | 1 | 2 | 4 | 9 | 10 | 21 | ≥10 | ≥25 |
 | 2 | 0 | 1 | 3 | 3 | 22 | ≥5 | ≥8 |
-| 3 | 0 | 0 | 2 | 2 | ≥3 | ≥1 | — |
+| 3 | 0 | 0 | 2 | 2 | 3 | ≥1 | — |
 | 4 | 0 | 0 | 0 | 2 | ≥2 | ≥0 | — |
 | 5 | 0 | 0 | 0 | 0 | ≥1 | — | — |
 | 6 | 0 | 0 | 1 | 0 | ≥3 | — | — |
@@ -46,7 +46,7 @@ classification cross-check. Rank-two realized counts follow directly from
 | 3 | Through 1,000 | Unrestricted theorem | Five realized rings: four at multiplicity 1 and one at 2; see the standalone sphericality and ring-classification proof. |
 | 4 | Through 128 | **Complete through 128** | 15 realized rings, 889,515 general exclusions. |
 | 5 | Through 20 | **Complete through 20** | 17 realized rings and 40,982 generally excluded. The two former multiplicity-18 residuals are now excluded by inert-prime parity and exact induction. |
-| 6 | Through 8 | **Complete through 2** | Through 8: 16,511 excluded, 54 realized, 47 unresolved; 19 of those residuals occur at multiplicity 8. |
+| 6 | Through 8 | **Complete through 3** | Through 8: 16,536 excluded, 54 realized, 22 unresolved; 8 of those residuals occur at multiplicity 8. |
 | 7 | Through 4 | Partial at every band | Through 4: 4,107 excluded, 16 realized, 78 unresolved; full normal and optimized certificate replays passed. |
 | 8 | Through 2 | Partial at both bands | Through 2: 824 excluded, 33 realized, 116 unresolved; positive tensors and transferred certificates verified. |
 
@@ -56,18 +56,32 @@ categorification**. “Realized” means that at least one categorification is
 constructed; it does not assert that every categorification of that ring is
 unitary. Rank five has no unresolved ring through multiplicity 20.
 
+The rank-six continuation closes the final multiplicity-three case,
+`R6_3_215`, using Clifford stabilizer rotation and exhaustive central-induction
+certificates. General classification is complete for all **577 rings through
+multiplicity three**: **531 excluded and 46 realized**, including 45 with
+unitary models. The two continuations add **25 general exclusions** to the
+previous repository release (7 in the first continuation and 18 in the second).
+The new stabilizer, cyclotomic-trace, ramification, norm, trace-ideal and Gauss
+criteria have been applied through multiplicity eight. See the
+[revision notes](supplements/rank6/REVISION_NOTES.md),
+[22 remaining tensors](supplements/rank6/data/unresolved_tensors.json), and
+[exact continuation replay](supplements/rank6/verification/round2/release_replay.json).
+The [complete revised rank-six ZIP](https://grothendieck-ring-atlas.sebastien-palcoux.chatgpt.site/downloads/Rank6_Categorification_M8_Revised_2026-09-29_v2.zip)
+contains all 605 released files, including both continuation certificate files.
+
 ### The classification boundary, band by band
 
 | Multiplicity | Rank 4 | Rank 5 | Rank 6 | Rank 7 | Rank 8 |
 |---:|---:|---:|---:|---:|---:|
 | 1 | 1 excluded · 9 realized | 6 excluded · 10 realized | 18 excluded · 21 realized | 30 excluded · 10 realized · **3 open** | 41 excluded · 25 realized · **30 open** |
 | 2 | 14 excluded · 3 realized | 34 excluded · 3 realized | 132 excluded · 22 realized | 291 excluded · 5 realized · **23 open** | 783 excluded · 8 realized · **86 open** |
-| 3 | 22 excluded · 2 realized | 80 excluded · 2 realized | 380 excluded · 3 realized · **1 open** | 1,035 excluded · 1 realized · **23 open** | — |
-| 4 | 45 excluded · 0 realized | 132 excluded · 2 realized | 855 excluded · 2 realized · **15 open** | 2,751 excluded · 0 realized · **29 open** | — |
-| 5 | 55 excluded · 0 realized | 209 excluded · 0 realized | 1,577 excluded · 1 realized · **4 open** | — | — |
+| 3 | 22 excluded · 2 realized | 80 excluded · 2 realized | 381 excluded · 3 realized | 1,035 excluded · 1 realized · **23 open** | — |
+| 4 | 45 excluded · 0 realized | 132 excluded · 2 realized | 863 excluded · 2 realized · **7 open** | 2,751 excluded · 0 realized · **29 open** | — |
+| 5 | 55 excluded · 0 realized | 209 excluded · 0 realized | 1,579 excluded · 1 realized · **2 open** | — | — |
 | 6 | 80 excluded · 1 realized | 336 excluded · 0 realized | 2,762 excluded · 3 realized · **3 open** | — | — |
-| 7 | 92 excluded · 0 realized | 477 excluded · 0 realized | 3,807 excluded · 2 realized · **5 open** | — | — |
-| 8 | 137 excluded · 0 realized | 733 excluded · 0 realized | 6,980 excluded · 0 realized · **19 open** | — | — |
+| 7 | 92 excluded · 0 realized | 477 excluded · 0 realized | 3,810 excluded · 2 realized · **2 open** | — | — |
+| 8 | 137 excluded · 0 realized | 733 excluded · 0 realized | 6,991 excluded · 0 realized · **8 open** | — | — |
 | 9 | 151 excluded · 0 realized | 863 excluded · 0 realized | — | — | — |
 | 10 | 186 excluded · 0 realized | 1,082 excluded · 0 realized | — | — | — |
 | 11 | 238 excluded · 0 realized | 1,383 excluded · 0 realized | — | — | — |
@@ -92,7 +106,7 @@ row checks and scope appear in [the provenance record](docs/PROVENANCE.md).
 |---:|---:|---|
 | 4 | Multiplicity 18 | The same criterion families suffice for the allocated exclusions at 19–128. |
 | 5 | Multiplicity 18 | Inert-prime quadratic parity first closes two cases at 18; no new criterion family is needed at 19–20. |
-| 6 | Multiplicity 8 | Dimension-order and character-induction exclusions first succeed at 8; 47 general cases remain unresolved. No later multiplicity is covered. |
+| 6 | Multiplicity 8 | The current allocation includes new stabilizer, cyclotomic-trace and signed arithmetic criteria; the formal-codegree trace-ideal family first contributes at 8. 22 general cases remain unresolved. No later multiplicity is covered. |
 | 7 | Multiplicity 2 | Signed sphericalization first contributes at 1; the last first successful application of a listed family occurs at 2. There are 78 open rings through 4, so no stabilization conclusion follows. |
 | 8 | Multiplicity 2 | Signed obstructions first contribute at 1; the last first successful application of a listed family occurs at 2. There are 116 open rings through 2, so no stabilization conclusion follows. |
 

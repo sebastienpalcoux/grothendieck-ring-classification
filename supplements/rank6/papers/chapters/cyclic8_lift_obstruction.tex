@@ -1,0 +1,146 @@
+\subsection{The displayed restriction map does not lift categorically}
+\label{sec:cyclic-eight-lift-obstruction}
+The distinction between a positive ring map and a central tensor functor
+is essential in Proposition~\ref{prop:cyclic-eight-center}.
+
+\begin{proposition}[Obstruction for the specified cyclic-eight data]
+\label{prop:cyclic-eight-lift-obstruction}
+Let $\mathcal D$ be the actual cyclic-eight quotient category used in
+Proposition~\ref{prop:cyclic-eight-center}, and let $f$ be its displayed
+positive based-ring map. There is no fusion category $\mathcal C$ with
+based ring $\RR{3}{215}$ and a braided equivalence
+$Z(\mathcal D)\simeq Z(\mathcal C)$ under which the central forgetful
+functor induces $f$. The same holds after dimension- and twist-preserving
+permutations of the displayed central labels.
+\end{proposition}
+\begin{proof}
+Write $d=4+\sqrt{17}$, so $d^2=8d+1$. The simple objects of
+$\mathcal D$ are $\alpha^j,\alpha^j\rho$ for $j\in\ZZ/4\ZZ$, with
+\[
+ \rho\alpha=\alpha^{-1}\rho,
+ \qquad \rho^2=1+2\sum_j\alpha^j\rho.
+\]
+The category has connected separable algebras $1+\alpha^j\rho$ for
+every $j$; these come from the generalized Haagerup construction and
+descend under the quotient tensor functor
+\cite[Section~2.4 and Example~4.4]{GIcenters}.
+
+Suppose the asserted equivalence and central functor exist, and let
+$\mathcal M$ be the corresponding $\mathcal D$--$\mathcal C$ Morita
+bimodule. The actual source restriction matrix $F_{\mathcal D}$ is
+recorded in
+\filename{research/center_continuation/cyclic8_canonical_restriction.json}.
+Its complete tensor compatibility is verified against the same center
+tensor as $f$. The trace identity given by the cross Gram matrix
+$F_{\mathcal D}^{t}F$ yields
+\[
+ |\Irr(\mathcal M)|=6,\quad
+ \operatorname{Tr}(L_\alpha)=0,\quad
+ \operatorname{Tr}(L_{\alpha^2})=2,\quad
+ \operatorname{Tr}(L_{\alpha^j\rho})=8,\quad
+ \operatorname{Tr}(R_g)=2.
+\]
+Here $g$ is the nontrivial invertible of $\mathcal C$. The two columns
+of $F$ used in these identities are constant on each class of central
+simples having equal dimension and twist, so the permitted relabelings
+do not change the argument.
+
+The permutation $L_\alpha$ has one four-cycle and one two-cycle.
+Symmetry and $L_\rho L_\alpha=L_\alpha^{-1}L_\rho$ put $L_\rho$ in
+a reverse-circulant four-by-four block, an alternating cross block, and
+a lower block $\left(\begin{smallmatrix}u&v\\v&u\end{smallmatrix}\right)$.
+The trace equations give
+$u=4-r_0-r_2$, $v=4-r_1-r_3$ and
+$\operatorname{Tr}(L_\rho^2)=70$.
+The exact enumeration in
+\filename{research/new_frontier/cyclic8_rank6_modules.py}
+checks all $2025$ bounded integer assignments. Exactly eight remain,
+four of each type in the table below. Both cross entries equal one.
+The squared dimensions use Morita normalization, so their sum is
+$\operatorname{FPdim}(\mathcal D)=8+32d$.
+\begin{center}
+\begin{tabular}{@{}ccc@{}}
+\toprule
+Upper row sum & Four-cycle objects & Two-cycle objects\\
+\midrule
+$1$ & $1+d$ & $2+14d$\\
+$7$ & $1+7d$ & $2+2d$\\
+\bottomrule
+\end{tabular}
+\end{center}
+The unique involutory permutation of trace two commuting with
+$L_\alpha$ shifts its four-cycle by two and fixes its two-cycle.
+This determines $R_g$.
+
+The algebra $A=1+g$ exists because $g$ fixes a simple object. Indeed that
+object gives a one-object module over the pointed subcategory generated
+by $g$, trivializing its associator. The exact full Morita calculation
+\filename{research/new_frontier/verify_frontier_full_morita.py}
+shows that the based ring of
+$\mathcal C'=A\text{-bimod}(\mathcal C)$ is again $\RR{3}{215}$.
+It does not identify $\mathcal C$ and $\mathcal C'$ categorically.
+In the second row of the table, pass to right $A$-modules in
+$\mathcal M$. Each fixed simple has two module structures, whose
+squared Morita dimensions are $(2+2d)/2=1+d$; each free pair gives one
+simple of squared dimension $4(1+7d)/2=2+14d$.
+Thus in either case there is a Morita bimodule, with right based ring
+$\RR{3}{215}$, containing a simple $\iota$ with
+$\iota\iota^*=1+\alpha^h\rho$. Rename $\alpha^h\rho$ as $\rho$.
+
+For clarity, this reduction does not assume that every algebra
+$1+\rho$ has the same module action. Its four $\alpha$-translates are
+distinct. The upper $\rho$ block and its diagonal square equation force
+both cross entries to be one. The remaining lower block has
+$u+v=7$ and $|u-v|=1$. If $u=4$, the object $\iota^*\kappa$ in the
+right category would have dimension $4d$ and endomorphism dimension
+$5$. It has no invertible summands since $\iota$ and $\kappa$ have
+different dimensions. Writing its other multiplicities as $a,b,c,e$
+gives $e=c$, $a+b+2c=4$ and squared norm $a^2+b^2+2c^2$.
+The possible norms are $4,6,8,10,16$, never $5$. Hence $u=3$, $v=4$.
+
+Choose a Morita object $\lambda$ in a second module category over
+$\mathcal D$ with $\lambda\lambda^*=1+\alpha\rho$.
+In the composed bimodule, Frobenius reciprocity gives two distinct
+simples $\beta_0=\lambda^*\iota$ and
+$\beta_2=\lambda^*\alpha^2\iota$, each of dimension $d+1$.
+The object $\Gamma=\lambda^*\kappa$ has dimension $4d$, endomorphism
+dimension $5$, and contains both $\beta$'s once. Its three other simple
+summands have total dimension $2(d-1)$. One of them, $\gamma$, therefore
+has dimension at most $2(d-1)/3$.
+
+All dimensions in this composed bimodule lie in $K=\QQ(\sqrt{17})$:
+the simple Perron eigenspace of the sum of the right action matrices
+is defined over $K$, and the known dimension $d+1$ fixes its scale.
+Thus the connected internal end $B=\gamma^*\gamma$ has dimension a
+square in $K$, at most $L=4(d-1)^2/9$. It cannot be the unit algebra;
+otherwise the bimodule would be the regular module and its two distinct
+simples of dimension $d+1$ would contradict the dimensions of
+$\RR{3}{215}$.
+
+The unit has multiplicity one in $B$ and the other invertible has
+multiplicity at most one. The complete list of dimensions at most $L$ is
+\[
+ 1,2,d,d+1,d+2,d+3,
+ 2d-1,2d,2d+1,2d+2,2d+3,2d+4,3d-2.
+\]
+Here $2$ is not a square in $K$, and the field norms of the other
+nontrivial entries are respectively
+\[
+ -1,8,19,32,-19,-4,13,32,53,76,-53,
+\]
+none a nonnegative rational square. This contradicts the existence of
+$B$. The exhaustive bound and these norms are verified by
+\filename{research/new_frontier/cyclic8_small_algebra_dimensions.py}.
+This extends the second-algebra argument of
+\cite[Lemmas~4.15--4.16]{GISAH}; the additional possibility $3d-2$,
+omitted from that paper's small-dimension list, has norm $-53$ and
+does not affect the contradiction.
+\end{proof}
+
+The source category and specified induction data in this proposition
+are substantive hypotheses. An abstract modular datum or an integral
+Verlinde tensor does not identify a braided category with $Z(\mathcal D)$.
+Consequently this proposition alone does not resolve general
+categorifiability. The independent stabilizer-rotation argument in
+Theorem~\ref{thm:stabilizer-rotation-frontier} supplies that general
+exclusion without identifying an unknown center with $Z(\mathcal D)$.

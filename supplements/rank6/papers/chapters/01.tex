@@ -64,7 +64,7 @@ counting input is the result of the cited repository; the present paper
 addresses categorification of its tensors.
 \end{theorem}
 
-\begin{theorem}[Classification through multiplicity two and certified extension]\label{thm:classification}
+\begin{theorem}[Classification through multiplicity three and certified extension]\label{thm:classification}
 In the census of Theorem~\ref{thm:census}, the accompanying exact
 certificates exclude $\NegativeCount$ rings from general complex
 categorification. There are $\PositiveCount$ positively identified rings:
@@ -74,13 +74,14 @@ These positive sets and the general exclusions are pairwise disjoint.
 The remaining $\UnresolvedCount$ rings are not decided for general existence by the present criteria and bounded searches. Structure-specific pseudo-unitary exclusions are recorded separately and do not alter that general status. Their distribution is given in
 Table~\ref{tab:classification}.
 
-Among the $193$ rings of multiplicity at most two, precisely $43$
-admit general, pivotal, or spherical categorifications. Exactly $42$ of
-these admit pseudo-unitary or unitary categorifications; the sole
-exception is $\RR{2}{124}$. At exact multiplicity two the $154$ rings
-split into $132$ general exclusions, $21$ unitary positives and that
-one spherical non-pseudo-unitarily-categorifiable ring. There are no
-residuals at multiplicity two. The higher-multiplicity results in
+Among the $577$ rings of multiplicity at most three, precisely $46$
+admit general, pivotal, or spherical categorifications; the other $531$
+are generally excluded. Exactly $45$ of the positive rings admit
+pseudo-unitary or unitary categorifications; the sole exception is
+$\RR{2}{124}$. At exact multiplicity three, all $384$ rings are decided:
+three have unitary models and $381$ are generally excluded. In particular,
+Theorem~\ref{thm:stabilizer-rotation-frontier} excludes $\RR{3}{215}$,
+the last residual from that stratum. The higher-multiplicity results in
 Table~\ref{tab:classification} are partial; their residuals are listed
 in the complete electronic ledger.
 \end{theorem}
@@ -112,21 +113,36 @@ rank-four and rank-five results are cited rather than reproved. This is
 a unified implementation of sufficient exclusion certificates, not a
 claim that the criterion set is logically minimal.
 
-\paragraph{Progress at the first unresolved multiplicity.}
-The earliest general residual remains $\RR{3}{215}$. We do not skip it
-in favor of larger-multiplicity examples. Section~\ref{sec:joint-low-product-gram}
-proves a joint low-product Gram condition, combining fourth-order
-modular moments with integral product restrictions. Its exact automated
-test shows that the formal rank-$22$ witness survives; this is a precise
-limit of the strengthened necessary system, not a new general exclusion.
-Section~\ref{sec:premodular-frontier-bound} derives from
-Dong--Schopieray a rank-six bound $\FPdim\leq168$ for braided spherical
-categorifications. Since the tensor has
-$\FPdim=136+32\sqrt{17}>168$, it is excluded in that scope only.
-A full-census tensor comparison with the rank-six ancillary data of
-Ng--Rowell--Wen gives no new model. Each numerical conclusion is produced
-by the supplied scripts from tensors and exact source data, without
-manual case arithmetic.
+\paragraph{Completing multiplicity three.}
+Theorem~\ref{thm:stabilizer-rotation-frontier} generally excludes
+$\RR{3}{215}$. Proposition~\ref{prop:frontier-galois-pu} first reduces
+arbitrary categorification to pseudo-unitary categorification by an
+exhaustive signed sphericalization calculation. The full two-sided
+Morita-action Gram calculation then forces the involution to interchange
+the two module structures on each of its fixed simple objects. The
+resulting local anticommutation relation forces their third
+Frobenius--Schur indicators to equal $-1$. Exhaustive exact separation
+of the central-induction branches contradicts these two requirements.
+Thus no pivotal or positivity hypothesis remains in the exclusion.
+
+The earlier rank-$22$ witness survives the joint low-product Gram
+condition of Section~\ref{sec:joint-low-product-gram} and extends to
+exact modular and fusion data with a positive restriction-ring map.
+These remain useful records of the limits of the earlier necessary
+systems. They provide neither a tensor functor nor an algebra structure,
+and the new local rotation condition excludes them as categorification
+data for this target. The independent Dong--Schopieray premodular bound
+and the source-specific cyclic-eight Morita argument retain their stated
+scopes; neither is used to identify arbitrary modular categories from
+equal modular data. The higher-multiplicity exclusions use the spectral
+module, rank-three descent, and order-six Morita--grading criteria of
+Section~\ref{sec:newalgebra}, the biquadratic trace and Casimir-parity
+criterion of Proposition~\ref{prop:biquadratic-trace-obstruction}, and
+the formal-codegree trace-ideal theorem and ramification criterion of
+Section~\ref{sec:reductions}, the all-orders Gauss obstruction of
+Proposition~\ref{prop:quadratic-gauss-family}, and the higher-dimensional and
+quartic stabilizer-trace extensions of Section~\ref{sec:newalgebra}.
+The completed signed and character-induction searches are recorded in the ledger.
 
 \paragraph{What the exclusion table measures.}
 The sequential table in Section~\ref{sec:verification} applies the
@@ -137,10 +153,6 @@ a reproducible compromise between cost and yield, not a proof of a
 universally optimal order. A theorem with a stronger conclusion can be
 more expensive to apply, and a successful earlier test makes later tests
 unnecessary for that tensor.
-Dimension-order and character-induction stages first make additional
-top-level removals at multiplicity eight, one and four respectively.
-This describes the executed sieve through eight; it does not claim
-that the same criteria decide larger multiplicities.
 
 The earliest unresolved multiplicity is the first stratum in which the
 current automated procedure does not decide every ring. It marks where

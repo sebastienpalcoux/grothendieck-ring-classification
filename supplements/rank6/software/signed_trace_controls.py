@@ -1,8 +1,5 @@
 """Verify cached endpoint reconstruction against independent mixed-sign systems."""
-import os,sys
-if os.environ.get('SYMPY_GROUND_TYPES') != 'python':
-    os.environ['SYMPY_GROUND_TYPES'] = 'python'
-    os.execvpe(sys.executable, sys.orig_argv, os.environ)
+import os
 for k in ['OPENBLAS_NUM_THREADS','OMP_NUM_THREADS','MKL_NUM_THREADS']:os.environ[k]='1'
 from pathlib import Path
 import json,time,itertools

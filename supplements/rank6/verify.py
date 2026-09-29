@@ -5,14 +5,9 @@ Census exhaustiveness and based-isomorphism uniqueness are inherited from the
 trusted fusion-ring-census release; this script does not enumerate a census or
 repeat its all-tensor verification.
 """
-import os,sys
-# The runtime may load SymPy during site startup, before this file executes.
-# Restart once with the polynomial backend used to generate row-indexed rays.
-if os.environ.get('SYMPY_GROUND_TYPES') != 'python':
-    os.environ['SYMPY_GROUND_TYPES'] = 'python'
-    os.execvpe(sys.executable, sys.orig_argv, os.environ)
+import os
 for v in ['OPENBLAS_NUM_THREADS','OMP_NUM_THREADS','MKL_NUM_THREADS']:os.environ[v]='1'
-import json,time,argparse,hashlib,traceback,collections
+import sys,json,time,argparse,hashlib,traceback,collections
 from pathlib import Path
 from concurrent.futures import ProcessPoolExecutor
 P=Path(__file__).resolve().parent;sys.path.insert(0,str(P/'software'))

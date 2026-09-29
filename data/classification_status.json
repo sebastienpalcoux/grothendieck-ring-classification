@@ -25,6 +25,10 @@
     {
       "name": "Rank6_Categorification_M8_CrossRank_2026-09-23.zip",
       "sha256": "4027dc2a563a4fef5e46a11e2f307ef66b83f34cc5ebf6944438d4e5d340cc71"
+    },
+    {
+      "name": "Rank6_Categorification_M8_Revised_2026-09-29_v2.zip",
+      "sha256": "c9508a49228f199e8f4bf476edddb72a0eddcce45b6e249a11b9f49105de2467"
     }
   ],
   "inputs": {
@@ -48,17 +52,19 @@
     },
     "rank6": {
       "file": "decisions.json",
-      "sha256": "1747b3e94815ccd90ca8bf7b798bd61e5c6f8537af633894e7ad25c062a32876",
+      "sha256": "c8ad5ac40750125259e14b01a70f174abd1d76e97cbc596473a1481b6717adab",
       "classified_through": 8,
+      "general_complete_through": 3,
       "status_totals": {
         "unitarily_realized": 53,
-        "excluded": 16511,
+        "excluded": 16536,
         "spherically_realized_nonpseudounitary": 1,
-        "unresolved": 47
-      }
+        "unresolved": 22
+      },
+      "current_bundle": "Rank6_Categorification_M8_Revised_2026-09-29_v2.zip"
     },
     "rank2": {
-      "basis": "X²=1+nX, n>=0; complex realizations exactly n=0,1",
+      "basis": "X\u00b2=1+nX, n>=0; complex realizations exactly n=0,1",
       "classified_through": "all"
     },
     "rank3": {
@@ -25892,23 +25898,23 @@
       "rank": 6,
       "multiplicity": 3,
       "rings": 384,
-      "excluded_general": 380,
+      "excluded_general": 381,
       "realized_unitary": 3,
       "realized_other_or_unspecified": 0,
       "realized_spherical_nonpseudounitary": 0,
-      "unresolved_general": 1,
+      "unresolved_general": 0,
       "unassessed": 0,
-      "classification_coverage": "partial_classification"
+      "classification_coverage": "complete_classification"
     },
     {
       "rank": 6,
       "multiplicity": 4,
       "rings": 872,
-      "excluded_general": 855,
+      "excluded_general": 863,
       "realized_unitary": 2,
       "realized_other_or_unspecified": 0,
       "realized_spherical_nonpseudounitary": 0,
-      "unresolved_general": 15,
+      "unresolved_general": 7,
       "unassessed": 0,
       "classification_coverage": "partial_classification"
     },
@@ -25916,11 +25922,11 @@
       "rank": 6,
       "multiplicity": 5,
       "rings": 1582,
-      "excluded_general": 1577,
+      "excluded_general": 1579,
       "realized_unitary": 1,
       "realized_other_or_unspecified": 0,
       "realized_spherical_nonpseudounitary": 0,
-      "unresolved_general": 4,
+      "unresolved_general": 2,
       "unassessed": 0,
       "classification_coverage": "partial_classification"
     },
@@ -25940,11 +25946,11 @@
       "rank": 6,
       "multiplicity": 7,
       "rings": 3814,
-      "excluded_general": 3807,
+      "excluded_general": 3810,
       "realized_unitary": 2,
       "realized_other_or_unspecified": 0,
       "realized_spherical_nonpseudounitary": 0,
-      "unresolved_general": 5,
+      "unresolved_general": 2,
       "unassessed": 0,
       "classification_coverage": "partial_classification"
     },
@@ -25952,11 +25958,11 @@
       "rank": 6,
       "multiplicity": 8,
       "rings": 6999,
-      "excluded_general": 6980,
+      "excluded_general": 6991,
       "realized_unitary": 0,
       "realized_other_or_unspecified": 0,
       "realized_spherical_nonpseudounitary": 0,
-      "unresolved_general": 19,
+      "unresolved_general": 8,
       "unassessed": 0,
       "classification_coverage": "partial_classification"
     },

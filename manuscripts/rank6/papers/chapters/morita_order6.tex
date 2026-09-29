@@ -1,0 +1,216 @@
+\subsection{An order-six Morita--grading obstruction}
+\label{sec:morita-order6}
+
+The dimension reconstruction above can force a dual category whose
+based ring has a short exhaustive parametrization. This supplies two
+further exclusions without assuming a pivotal structure on the original
+category.
+
+\begin{theorem}\label{thm:morita-order6}
+Let $\mathcal C$ be a fusion category, and let $g$ be an invertible
+involution fixing a simple object. Set $A=\one\oplus g$. Suppose the
+simple Frobenius--Perron dimensions of
+$\mathcal D={}_A\mathcal C_A$ are
+\[
+  \underbrace{1,\ldots,1}_{6},\qquad
+  \underbrace{d,\ldots,d}_{6},\qquad d=2+\sqrt5.
+\]
+Then $\mathcal C$ has a faithful $C_3$ grading. In particular, a fusion
+ring with trivial universal grading and the stated forced dual dimension
+profile cannot be categorified. This excludes
+$\RR{5}{100}$ and $\RR{5}{408}$ over $\CC$.
+\end{theorem}
+
+\begin{proof}
+The algebra $A$ exists by the fixed-object argument of
+Theorem~\ref{thm:involution}. We first exhaust the possible based rings
+of $\mathcal D$. Its invertible objects form a group $G$ of order six.
+The multiplicity of an invertible $h$ in $\rho\rho^*$, for a
+noninvertible simple $\rho$, is one precisely when $h\rho\cong\rho$.
+The identity $d^2=1+4d$ and irrationality of $d$ therefore imply that
+the stabilizer of $\rho$ is trivial. Thus the noninvertibles are exactly
+$h\rho$, $h\in G$. The right action is free for the same reason, so
+\begin{equation}\label{eq:morita-six-relations}
+ \rho h=\phi(h)\rho,\qquad
+ \rho^2=u+\sum_{h\in G}a_hh\rho,\qquad
+ \sum_{h\in G}a_h=4,
+\end{equation}
+where $\phi\in\operatorname{Aut}(G)$, $u\in G$, and
+$a_h\in\ZZ_{\ge0}$. Associativity gives
+$\phi^2=\operatorname{Ad}(u)$ and $\phi(u)=u$; comparison of
+$(\rho^2)h$ with $\rho(\rho h)$ also makes the coefficient function
+invariant under
+\[
+ k\longmapsto\phi^2(h)k\phi(h)^{-1}.
+\]
+Only $C_6$ and $S_3$ can occur as $G$.
+
+\smallskip\noindent
+\emph{The cyclic case.}
+The automorphism $\phi$ is either the identity or inversion. Inversion
+would make $(a_h)$ constant on cosets of the square subgroup of order
+three, contradicting $\sum a_h=4$. Hence $\phi$ is the identity.
+Use additive labels $0,\ldots,5$ for $C_6$. Duality gives
+$\rho^*=(-u)\rho$ and
+\begin{equation}\label{eq:morita-six-domain}
+ u\in\ZZ/6\ZZ,\qquad a_k\ge0,\qquad
+ \sum_{k=0}^5a_k=4,\qquad a_k=a_{u-k}.
+\end{equation}
+There are exactly $60$ pairs $(u,a)$ satisfying these conditions.
+Each supplies the entire candidate tensor by
+\[
+ h\cdot k=h+k,\qquad h\cdot(k\rho)=(h+k)\rho,\qquad
+ (h\rho)(k\rho)=h+k+u+\sum_j a_j(h+k+j)\rho.
+\]
+An exact exhaustive calculation partitions the $60$ pairs as follows:
+\begin{center}
+\begin{tabular}{@{}rl@{}}
+\toprule
+Number & Exact consequence \\
+\midrule
+$42$ & A formal-codegree norm obstruction \\
+$6$ & A closed based subring isomorphic to $\RR{2}{20}$ \\
+$12$ & A faithful $C_3$ grading with neutral invertible involution \\
+\bottomrule
+\end{tabular}
+\end{center}
+The first row is a general obstruction here: by
+\cite[Lemma~3.1]{SchTwo}, a category with these two distinct
+Frobenius--Perron dimensions is Galois conjugate to a pseudo-unitary
+category with the same based ring. In that category $\FPdim(\mathcal
+D)/f$ must be an algebraic integer for every formal codegree $f$.
+The cyclic candidate ring is commutative, so the Casimir characteristic
+roots used in the check are its formal codegrees, with no representation
+dimension correction. Its global dimension is
+\[
+ D=6+6d^2=60+24\sqrt5,
+ \qquad p_D(t)=t^2-120t+720.
+\]
+For each of the $42$ cases, the certificate gives the exact minimal
+polynomial $q$ of a formal codegree and a prime $p$ for which
+\begin{equation}\label{eq:morita-normalized-norm}
+ \frac{v_p(|p_D(0)|)}{\deg p_D}
+ <\frac{v_p(|q(0)|)}{\deg q}.
+\end{equation}
+This contradicts integrality of $D/f$: take the norm in any common
+number field containing $D$ and $f$. The second row uses the previously
+established general exclusion for $\RR{2}{20}$, whose original exact
+certificate is replayed, not just its allocated status.
+For each of the remaining $12$ pairs the grading is explicitly
+\begin{equation}\label{eq:morita-six-grading}
+ \deg(h)=h\pmod3,\qquad \deg(h\rho)=h+2u\pmod3.
+\end{equation}
+Every nonzero structure constant respects this degree assignment.
+The unique nonidentity invertible involution, namely $3\in C_6$, has
+degree zero.
+
+\smallskip\noindent
+\emph{The nonabelian case.}
+Every automorphism of $S_3$ is inner. Replacing $\rho$ by an invertible
+multiple makes $\phi$ the identity. Then $u$ is central, so $u=1$,
+and $a$ is constant on conjugacy classes. Its values
+$(a_e,a_t,a_c)$ on the identity, transpositions and three-cycles satisfy
+\[
+ a_e+3a_t+2a_c=4.
+\]
+The complete domain and its obstructions are
+\begin{center}
+\begin{tabular}{@{}ll@{}}
+\toprule
+$(a_e,a_t,a_c)$ & Obstruction \\
+\midrule
+$(4,0,0)$ & The rank-two subring $\rho^2=1+4\rho$ \\
+$(2,0,1)$ & The closed subring $\RR{2}{20}$ \\
+$(0,0,2)$ & The closed subring $\RR{2}{21}$ \\
+$(1,1,0)$ & A one-dimensional formal-codegree norm obstruction \\
+\bottomrule
+\end{tabular}
+\end{center}
+The first row is excluded by \cite{Ostrik2}. In the next two rows the
+subring is generated by $C_3$ and $\rho$; its based isomorphism and the
+previously established general certificate are checked exactly.
+For the last row, extend the sign representation of $S_3$ by assigning
+$\rho$ a root $\lambda$ of $\lambda^2+2\lambda-1=0$. Equation
+\eqref{eq:morita-six-relations} verifies this as a one-dimensional
+representation of the full ring. Its genuine formal codegree is
+\[
+ f=\sum_{h\in S_3}1+\sum_{h\in S_3}\lambda^2
+   =6(1+\lambda^2)=24\pm12\sqrt2,
+ \qquad q(t)=t^2-48t+288.
+\]
+Here $\rho^*=\rho$. Since $v_2(720)=4$ and $v_2(288)=5$, condition
+\eqref{eq:morita-normalized-norm} holds. The two-dimension reduction
+again makes this a general categorical obstruction. In particular, this
+step does not identify an unweighted Casimir eigenvalue from a
+higher-dimensional irreducible representation with a formal codegree.
+All nonabelian possibilities have now been excluded.
+
+\smallskip\noindent
+\emph{Returning through Morita duality.}
+Consequently $\mathcal D$ has one of the faithful gradings
+\eqref{eq:morita-six-grading}. Regard $A$ as the distinguished simple
+right module in $\mathcal M=\mathcal C_A$, and let
+$B=\underline{\operatorname{End}}_{\mathcal D}(A)$. Double Morita
+duality identifies $\mathcal C$ with ${}_B\mathcal D_B$, up to the
+opposite tensor convention; see \cite[Chapter~7]{EGNO}.
+For a simple $A$-bimodule $Y$, its multiplicity in $B$ is
+\[
+ \dim\operatorname{Hom}_{\mathcal M}(A\otimes_A Y,A)
+ =\dim\operatorname{Hom}_{\mathcal M}(Y,A).
+\]
+There are exactly two simple bimodules restricting to the right module
+$A$: the regular bimodule and its twist by the nontrivial character of
+$C_2$. Each has multiplicity one. This can also be read directly from
+the two unit columns at $A$ in the Gram matrix $I+M_g$ of
+Proposition~\ref{prop:dual-module-gram}; off-diagonal entries in that
+row vanish. All other simple bimodules have zero multiplicity. Thus
+$B=\one\oplus b$, where $b$ is a nontrivial invertible involution.
+In the cyclic case $b$ is necessarily $3\in C_6$, hence $B$ lies in
+the neutral component.
+
+A connected separable algebra in the neutral component of a faithful
+group grading transfers that grading to its bimodule category. Indeed,
+the left and right algebra actions preserve each homogeneous support,
+and tensor product over the algebra multiplies the degrees. Every
+component is nonzero: for a nonzero homogeneous object $Y$, the free
+bimodule $B\otimes Y\otimes B$ is nonzero and has the same degree.
+It follows that $\mathcal C$ is faithfully $C_3$-graded.
+
+Finally, for $\RR{5}{100}$ the involution is basis label $4$, the
+fixed labels are $3,5$, and the exhaustive anti-invariant generator
+search has $16$ tuples. For $\RR{5}{408}$ these data are respectively
+$1$, $4,5$, and $8$. Each search has exactly one admissible
+representation, in which the involution acts as $+I$ on the two
+anti-invariant coordinates. The Gram reconstruction forces exactly the
+dimension profile in the statement. In both original tensors the
+multiplicative closure of the supports of all $XX^*$ is the whole
+basis. Thus the adjoint subcategory would be all of $\mathcal C$,
+which rules out any nontrivial faithful grading. This proves the two
+claimed exclusions.
+\end{proof}
+
+\paragraph{Exact finite certificate.}
+The implementation is \filename{software/new_morita_order6.py}, with
+audit output in
+\filename{research/model_continuation/morita_order6_certificates.json}.
+The input certificate stores the involution, fixed labels, generator
+search size, every admissible anti-invariant representation, and the
+reconstructed dual dimensions in exact field coordinates. Verification
+reconstructs the exhaustive representation domain, rather than trusting
+a proposed list of branches. The finite dual routine enumerates every
+composition of $4$ into six nonnegative parts, applies exactly
+\eqref{eq:morita-six-domain}, and checks that there are $60$ cases.
+It constructs each full tensor, factors its Casimir polynomial exactly,
+and checks the recorded norm witness, the full grading identities, or
+the closed-subring support and unit-preserving based isomorphism.
+The four $S_3$ class triples are independently exhausted. The inherited
+certificates for $\RR{2}{20}$ and $\RR{2}{21}$ are replayed before they
+are used. Thus the audit output is a reproducible record of a complete
+finite necessary-condition calculation, with no unresolved branch
+silently discarded.
+
+A separate replay, \filename{research/model_continuation/replay_morita_order6.py},
+checks equality with the saved finite audit and rejects mutations of the
+involution, branch list, generator count, representation matrices, dual
+dimension counts, and input basis labels. Its checks use explicit
+exceptions and remain active under \texttt{python -O}.

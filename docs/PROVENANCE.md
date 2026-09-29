@@ -28,11 +28,39 @@ The authorless, citation-updated rank-six reading/source release
 `Rank6_Categorification_M8_Revised_2026-09-23.zip` has SHA-256
 `5981d4ee065f78cf3057eb3c289c9675480f5f59f8e7534e74c13155a99d6a63`;
 its decision partition agrees with the prior M8 ledger.
-The final cross-rank rank-six release
+The earlier cross-rank rank-six release
 `Rank6_Categorification_M8_CrossRank_2026-09-23.zip` has SHA-256
 `4027dc2a563a4fef5e46a11e2f307ef66b83f34cc5ebf6944438d4e5d340cc71`;
 its normal and optimized 26-process regression gates passed after explicitly
-pinning the SymPy arithmetic backend. The verified rank-seven release through
+pinning the SymPy arithmetic backend.
+
+The current rank-six release is
+`Rank6_Categorification_M8_Revised_2026-09-29_v2.zip`, SHA-256
+`c9508a49228f199e8f4bf476edddb72a0eddcce45b6e249a11b9f49105de2467`.
+The [complete 605-file archive](https://grothendieck-ring-atlas.sebastien-palcoux.chatgpt.site/downloads/Rank6_Categorification_M8_Revised_2026-09-29_v2.zip)
+is also reconstructed from repository parts by `tools/restore_data.py`.
+It supersedes the earlier rank-six classification: the two continuations add
+25 general exclusions (7 followed by 18), reducing 47 residuals to 22 and
+completing general categorifiability through multiplicity three. In particular,
+`R6_3_215` is excluded by the Clifford stabilizer rotation theorem, signed
+Galois reduction and exhaustive central-induction certificates. Among the
+577 rings through multiplicity three, 531 are excluded and 46 are realized
+(45 unitary and one spherical non-pseudo-unitary).
+The 16,612 census tensors, identifiers and 54 positive-model identifications
+are unchanged. The [revision notes](../supplements/rank6/REVISION_NOTES.md)
+record the general criteria, their full-census or frozen-frontier scopes,
+and all 18 second-continuation allocations. The canonical original and
+first-continuation certificate files remain unchanged; the new certificate
+file has SHA-256
+`78dcc03b60d0e3ce1ec877bded9b3c2fe20ec20ca1a288a64d40a31279e843fd`.
+Both continuations were exactly replayed with Python assertions and numerical
+optimization disabled. The original 16,511-certificate campaign retains its
+previous verification evidence; the continuation does not claim a fresh full
+replay of that original campaign. See the
+[current release summary](../supplements/rank6/verification/release_summary.json)
+and [replay record](../supplements/rank6/verification/round2/release_replay.json).
+
+The verified rank-seven release through
 multiplicity four has SHA-256
 `2a66d34b185fb9178b34e30bedf4a4a2eb44343d774e94a56dfcf4f27308c128`;
 both normal and optimized full 4,201-row verifiers passed. The rank-eight
@@ -47,7 +75,7 @@ are categorification questions, not negative certificates.
 | 3 | `results/census.json` | 1,000 | Five-ring unrestricted theorem | Per-band decisions exported through 1,000; four realized at multiplicity 1 and one at 2 |
 | 4 | `results/rank4/tables.txt.gz` | 128 | `certificates/classification.jsonl.gz` | Complete through 128 |
 | 5 | `results/rank5/tables.txt.gz` | 20 | Revised `data/decisions_all.json` | Complete general classification through 20 |
-| 6 | `results/rank6/tables.txt.gz` | 8 | New `data/decisions.json` | Complete through 2; 47 general residuals through 8 |
+| 6 | `results/rank6/tables.txt.gz` | 8 | `supplements/rank6/data/decisions.json` | Complete through 3; 22 general residuals through 8 |
 | 7 | `results/rank7/tables.txt.gz` | 4 | `supplements/rank7/output/rank7_ledger.json` | Partial at all four bands; 78 unresolved |
 | 8 | `results/rank8/tables.txt.gz` | 2 | `supplements/rank8/data/decisions.json` | Partial at both bands; 116 unresolved |
 
@@ -68,7 +96,7 @@ with its [arithmetic checker](../supplements/rank3/audit_rank3.py).
 |---:|---|---:|---|
 | 4 | `969a2a5a84b794a3da1d9cd3978f92324d631760f503f5d208011923a723920f` | 889,530 | 889,515 excluded; 15 realized |
 | 5 | `9261917451d469ece9929a1756f505924cf84adf34e79a0d2e6f68fed43f55cf` | 40,999 | 40,982 excluded; 17 realized; 0 unresolved |
-| 6 | `1747b3e94815ccd90ca8bf7b798bd61e5c6f8537af633894e7ad25c062a32876` | 16,612 | 16,511 excluded; 53 unitary models; 1 spherical model with no pseudo-unitary categorification; 47 generally unresolved |
+| 6 | `c8ad5ac40750125259e14b01a70f174abd1d76e97cbc596473a1481b6717adab` | 16,612 | 16,536 excluded; 53 unitary models; 1 spherical model with no pseudo-unitary categorification; 22 generally unresolved |
 | 7 | `de2eb6c024a9271a66d8b34c187ebc4eca9bbd6fc1625b8e85c18b66c4abbb73` | 4,201 | 4,107 excluded; 16 unitary models; 78 unresolved |
 | 8 | `555e206a8df62db6ddb557543ae37a77a7345f6129881de26fb70d3c927203df` | 973 | 824 excluded; 33 unitary models; 116 unresolved |
 
@@ -97,7 +125,7 @@ census. Two exact comparisons record that relationship:
   checked against source tables SHA-256
   `4542c0871498337ef38ce3903407933289699a5ff06c85ad0f6c2bd57da823fb`.
 * Rank six: [`rank6_crosswalk.json`](../data/rank6_crosswalk.json) checks that
-  the new attachment's 16,612 full tensor lines through multiplicity 8 are
+  the release's unchanged 16,612 full tensor lines through multiplicity 8 are
   exactly the same lines in the same order as the live source census. Their
   compressed table files also have identical SHA-256 checksums.
 

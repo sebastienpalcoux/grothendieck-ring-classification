@@ -84,8 +84,8 @@ forbidden labels.
 
 \begin{corollary}[Certified lower-rank descent]\label{cor:subring}
 Suppose a rank-six fusion ring contains a based fusion subring of rank
-four and multiplicity at most $128$, or of rank five and multiplicity at
-most $20$. If that subring is not based-isomorphic to one of the positive
+four and multiplicity at most $32$, or of rank five and multiplicity at
+most $17$. If that subring is not based-isomorphic to one of the positive
 rings in the respective main theorem of \cite{DP4,DP5}, the rank-six
 ring is not categorifiable over $\CC$.
 \end{corollary}
@@ -367,7 +367,7 @@ embedding from each tensor. It then decides
 $\operatorname{FPdim}(R)-168>0$ by exact real-root isolation, recording
 the defining polynomial, dimension coordinates and isolating interval.
 No tensor identifier is used to select the outcome. In particular,
-the least-multiplicity residual $\RR{3}{215}$ has the automatically
+the former multiplicity-three residual $\RR{3}{215}$ has the automatically
 verified positive dimension vector
 \[
  (1,1,d,d,d-1,d+1),\qquad d=4+\sqrt{17},
@@ -376,7 +376,8 @@ verified positive dimension vector
 It therefore has no premodular categorification. Its general, pivotal,
 spherical, pseudo-unitary and unitary existence questions are not
 resolved by this proposition, because none of those hypotheses alone
-supplies a braiding.
+supplies a braiding. They are resolved negatively by the independent
+stabilizer-rotation argument of Theorem~\ref{thm:frontier-noncategorifiable}.
 
 For a separate complete-tensor model audit, the rank-six ancillary data
 of Ng--Rowell--Wen \cite{NRW12} contain $192$ modular records in $20$
@@ -386,3 +387,8 @@ unit. Their largest fusion coefficient is $2$, so this source supplies
 no new model at multiplicity eight or for the multiplicity-three
 frontier. This comparison is a model search within a specified
 literature class, not an exclusion of arbitrary fusion categories.
+
+\input{chapters/biquadratic_trace}
+\input{chapters/trace_ideal}
+\input{chapters/gauss_family}
+\input{chapters/ramification_trace}

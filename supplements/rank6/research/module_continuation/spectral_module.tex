@@ -1,0 +1,106 @@
+\subsection{Spectral pruning of the antiinvariant module}
+\label{sec:spectral-involution}
+The matrix system in Theorem~\ref{thm:involution} is useful beyond the
+two-dimensional antiinvariant space. Its entry bounds impose an additional
+spectral restriction that makes larger fixed-point sets accessible.
+
+\begin{proposition}[Perron-factor exclusion]\label{prop:module-perron}
+Retain the notation of Theorem~\ref{thm:involution}, and let $i=i^*$.
+Suppose the nonnegative regular fusion matrix $N_i$ is irreducible.
+Then no $T_i$ can have an eigenvalue whose minimal polynomial contains
+$\FPdim(i)$ as a root. Moreover, if for every $x\in J$ there are
+$a,y\in J$ with $N_{ax}^{y}$ odd, then $T_g=I$.
+\end{proposition}
+\begin{proof}
+Write $B_i=(N_{ix}^{y})_{x,y\in J}$. Since $J$ is a proper subset of
+the basis, the strict Perron--Frobenius inequality for a proper principal
+submatrix of an irreducible nonnegative matrix gives
+\[
+ \rho(T_i)\leq\rho(|T_i|)\leq\rho(B_i)<\rho(N_i)=\FPdim(i).
+\]
+The characteristic polynomial of the integer matrix $T_i$ is rational;
+thus an irreducible factor containing $\FPdim(i)$ cannot divide it.
+The bounds on $T_g$ make it diagonal with entries $\pm1$.
+For $a\in J$, the identity $ga=a$ gives $T_gT_a=T_a$.
+A diagonal entry $-1$ would therefore force the corresponding row of
+every such $T_a$ to vanish, contradicting the indicated odd entry.
+\end{proof}
+
+If $i$ generates $R\otimes\mathbb Q$, express each basis element as a
+rational polynomial $p_a(i)$. The preceding proposition removes the
+Perron factor from the possible minimal polynomial of $T_i$; when
+$T_g=I$, every remaining factor must also divide $p_g(t)-1$.
+Since $T_i\equiv B_i\pmod2$, its characteristic polynomial must reduce
+to that of $B_i$ modulo two. Enumerate all products of the remaining
+irreducible factors of total degree $|J|$, allowing repetitions. Each
+product fixes both $\operatorname{Tr}(T_i)$ and
+$\operatorname{Tr}(T_i^2)=\sum_{x,y}(T_i)_{xy}^2$.
+These equalities reduce the finite entry search substantially.
+Reconstruction by the $p_a$ and verification of the entire system
+\eqref{eq:module-rep}--\eqref{eq:module-bound} finish the test.
+The search is exhaustive because every possible module representation
+has one of the enumerated rational characteristic polynomials.
+
+\begin{proposition}\label{prop:two-four-fixed-exclusions}
+The rings $\RR{8}{2945}$ and $\RR{8}{3071}$ have no categorification
+as complex fusion categories.
+\end{proposition}
+\begin{proof}
+In both rings the involution is $g=b_1$ and
+$J=\{b_2,b_3,b_4,b_5\}$; all basis elements are self-dual.
+All tensor identities used below are checked automatically from the
+census tensors in the supplementary certificates.
+
+For $\RR{8}{2945}$, the element $b_3$ generates the rational algebra,
+its regular matrix is irreducible, and
+\[
+ \det(tI-N_3)=t(t-2)(t^2-23t-1)(t^2+t-1).
+\]
+The Perron factor is $t^2-23t-1$. The parity criterion gives $T_g=I$,
+and the character with $b_3$-value zero has $g$-value $-1$, so this
+character cannot occur. Thus only $t-2$ and $t^2+t-1$ remain.
+The fixed block has characteristic polynomial
+$t^4+t^2+1$ modulo two. Of the three degree-four products of the two
+remaining factors, only $(t^2+t-1)^2$ has this reduction. Hence
+\[
+ \operatorname{Tr}(T_3)=-2,\qquad
+ \operatorname{Tr}(T_3^2)=6,\qquad T_3^2+T_3-I=0.
+\]
+In the ordered basis $J$, the required odd entries of $T_3$ are the
+last two diagonal entries and the symmetric pairs $(1,4),(2,3)$.
+Their squared contributions already sum to six. Consequently
+\[
+ T_3=\begin{pmatrix}
+ 0&0&0&\varepsilon\\
+ 0&0&\delta&0\\
+ 0&\delta&-1&0\\
+ \varepsilon&0&0&-1
+ \end{pmatrix},\qquad \varepsilon,\delta\in\{1,-1\}.
+\]
+Rational reconstruction, reduced modulo $t^2+t-1$, gives
+$T_2=-3T_3-4I$. Its first diagonal entry is $-4$, contradicting the
+bound $|(T_2)_{11}|\leq N_{b_2b_2}^{b_2}=2$.
+
+For $\RR{8}{3071}$, the regular matrix $N_3$ is irreducible and
+\[
+ \det(tI-N_3)=t^3(t+2)(t^2-26t+24).
+\]
+The last factor is the Perron factor. After removing it, the symmetric
+matrix $T_3$ has eigenvalues in $\{0,-2\}$, so $T_3^2=-2T_3$.
+Every diagonal entry of its fixed block is six, and therefore every
+diagonal entry $d$ of $T_3$ is even. The diagonal of the matrix identity
+gives
+\[
+ d^2+\sum_{y\ne x}(T_3)_{xy}^2=-2d.
+\]
+It follows that $d\in[-2,0]\cap2\mathbb Z=\{-2,0\}$, and either
+choice forces all off-diagonal entries in that row to vanish. This
+contradicts $N_{b_3b_2}^{b_3}=7$, which requires the corresponding
+off-diagonal entry to be odd.
+\end{proof}
+
+The exact generator search checks respectively four and zero
+trace-and-norm-compatible matrices for these two records. The second
+search uses $b_5$ as a rational algebra generator; the displayed direct
+argument uses $b_3$ to make the contradiction shorter. Both certificates
+are general categorification obstructions, with no pivotal assumption.

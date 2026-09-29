@@ -13,7 +13,7 @@ of its positive and negative sets.
 
 \input{generated_stages}
 
-Table~\ref{tab:stages} gives a sequential view: a tensor removed at one
+Tables~\ref{tab:stages} and~\ref{tab:stages-high} give a sequential view: a tensor removed at one
 stage is not counted as a new removal at any later stage. The order
 places inexpensive structural and arithmetic obstructions before
 larger finite branch searches. Effectiveness means the number of
@@ -23,19 +23,12 @@ transparent operational order, not a comparison of logical strength or
 a hardware-independent timing ranking. Ineligible hypotheses, an
 unfinished search and a feasible necessary relaxation all leave a
 ring undecided unless another accepted certificate or model resolves it.
-At multiplicity eight, the dimension-order and character-induction
-stages first contribute new removals in this top-level sieve, excluding
-one and four additional rings respectively. This first contribution
-does not assert that these mathematical tools were absent from nested
-certificates at lower multiplicities, nor that the repertoire will
-suffice at multiplicity nine. Nineteen rings remain unresolved at
-exact multiplicity eight.
 
 \input{generated_allocation}
 
 The allocation in Table~\ref{tab:allocation} is disjoint. It records
 the certificate family stored for each exclusion, while
-Table~\ref{tab:stages} makes the sequential accounting explicit.
+Tables~\ref{tab:stages} and~\ref{tab:stages-high} make the sequential accounting explicit.
 Neither table asserts mathematical independence of the criteria. The signed and positive-dimension records call the
 same low-induction and finite-indicator framework internally. When an
 older unbalanced relative-trace certificate suffices, it is interpreted
@@ -75,7 +68,21 @@ Corollary~\ref{cor:subring}, or of an exhaustive signed/positive reduction
 followed by Theorem~\ref{thm:weighted} or Theorem~\ref{thm:balanced}
 and the cited rank-four or rank-five tests, with the tensor-sign
 reduction of Lemma~\ref{lem:positive-sign} and the extension of
-Theorem~\ref{thm:rotation} where recorded. The stronger character-aware system of Theorem~\ref{thm:character-induction}, dimension-order test of Proposition~\ref{prop:dimension-order}, and signed refinement of Theorem~\ref{thm:signed-traces} are used where recorded. The exact checker validates
+Theorem~\ref{thm:rotation} where recorded. The stronger character-aware system of Theorem~\ref{thm:character-induction}, dimension-order test of Proposition~\ref{prop:dimension-order}, and signed refinement of Theorem~\ref{thm:signed-traces} are used where recorded. The spectral refinement of Proposition~\ref{prop:module-perron},
+rank-three subring descent, Theorem~\ref{thm:morita-order6}, and
+Proposition~\ref{prop:biquadratic-trace-obstruction} supply the
+additional continuation certificates. The second continuation also
+uses the ramification criterion of Proposition~\ref{prop:ramification-trace},
+Theorem~\ref{thm:formal-codegree-trace-ideal}, the signed saturation
+corollary, and Proposition~\ref{prop:quadratic-gauss-family}. The higher
+stabilizer and ambient cyclotomic refinements use
+Corollary~\ref{cor:stabilizer-average} and
+Theorem~\ref{thm:quartic-stabilizer}, with a complete general-to-pseudo-unitary
+reduction whenever their inner certificate has only pseudo-unitary scope.
+Theorem~\ref{thm:stabilizer-rotation-frontier} supplies the final general
+multiplicity-three exclusion: its sphericalization reduction, full
+Morita-action calculation, local rotation lemma and complete exact
+indicator separation are all required. The exact checker validates
 all hypotheses and exhausts the required finite alternatives. Thus no
 excluded tensor has a complex categorification. Section~\ref{sec:positive}
 constructs and tensor-matches all claimed positive examples, with the
@@ -192,7 +199,7 @@ separate achievements.
 
 \subsection{Research coverage and the next unresolved stratum}\label{sec:research-coverage}
 The residual list is derived from the complete decision ledger, not
-from a hand-selected sample. Multiplicity two is completely decided.
+from a hand-selected sample. Multiplicities one through three are completely decided.
 The smallest unresolved multiplicity and the exact residual tensors
 are reported in Section~\ref{sec:results}; the first such tensor is the
 priority for further theoretical and automated work. The stage table
@@ -217,27 +224,37 @@ have a justified categorical source and an exact full-tensor match;
 an obstruction must state its hypotheses and exhaust all branches
 needed for the claimed categorical structure.
 
-The first residual $\RR{3}{215}$ has been subjected to the new joint
-low-product Gram condition of Section~\ref{sec:joint-low-product-gram}.
-The program rechecks the $230$-equation induction witness, computes all
-cubic and fourth-order moments and constructs an integral product matrix
-satisfying the Gram and restriction identities. Its formal rank-$22$
-point survives. This supplies additional exact information about the
-frontier but no general exclusion or category. The two-sided module
-Gram identities in Section~\ref{sec:dual-module-gram} provide a separate
-refinement with their stated module hypotheses; they are not a license
-to assume a module category exists.
+The former residual $\RR{3}{215}$ illustrates the distinction between
+feasible necessary data and categorical existence. Its $230$-equation
+induction witness satisfies the joint low-product Gram condition in
+Section~\ref{sec:joint-low-product-gram}. Proposition~\ref{prop:cyclic-eight-center}
+extends that rank-$22$ point to exact modular and full center fusion
+data with a compatible restriction-ring map. These are historical
+feasible controls for the specified relaxations. They do not satisfy
+the additional local involution-rotation condition used in
+Theorem~\ref{thm:stabilizer-rotation-frontier}, which now generally
+excludes the target ring.
+
+There is also an independent strengthening of the source-specific
+cyclic-eight argument: the actual Grossman--Izumi center forces the
+six twist-one constituents of canonical unit induction. Applying the
+same observation to the involution Morita dual forces the missing
+right-action trace. The earlier six-object module and second-algebra
+argument therefore excludes the whole actual cyclic-eight Morita class,
+without fixing a candidate restriction map. The proof and exact trace
+check are retained in
+\filename{research/round2_audit/actual_cyclic8_morita.md} and its
+companion program. This argument does not assert rigidity of braided
+categories from their modular data.
 
 The Dong--Schopieray bound in
-Section~\ref{sec:premodular-frontier-bound} does give a negative result
-for the first residual, specifically for braided spherical
-categorification. It leaves the five unbraided existence fields
-unchanged. The Ng--Rowell--Wen comparison screens every one of the
-$16612$ source tensors against the rank-six ancillary data and performs
-exact based-ring comparisons after invariant filtering. It finds no
-new model; the source's largest fusion coefficient is two. Neither
-failure to match that modular list nor failure of the premodular bound
-is promoted to nonexistence of an arbitrary fusion category.
+Section~\ref{sec:premodular-frontier-bound} separately excludes a braided
+spherical categorification of this tensor. Its scope is narrower than
+the final general obstruction. The Ng--Rowell--Wen comparison screens
+all $\CensusCount$ source tensors against the rank-six ancillary data
+and performs exact based-ring comparisons after invariant filtering.
+It finds no new model; the source's largest fusion coefficient is two.
+Failure to match that modular catalogue is not a general obstruction.
 
 These computations are reproduced by
 \begin{verbatim}
@@ -248,6 +265,63 @@ python research/m8_frontier/nrw_rank6_scan.py
 The programs retain exact certificates and scoped reports alongside
 their source. They apply their conditions to tensor data rather than
 using a desired classification outcome as input.
+
+\paragraph{The two frozen continuations.}
+The original sixteen-stage classification campaign and its accepted
+certificate file are retained unchanged. The first continuation used
+forty-seven frozen residual inputs and accepted seven general exclusions.
+Its bounded discovery attempts, including higher multiplicities, remain
+in \filename{verification/continuation/}; its accepted file is
+\filename{certificates/continuation_20260929.jsonl}. The rank-three
+subring scan covered the whole census, while the module and order-six
+Morita refinements used their recorded residual domains. The Morita
+argument's pseudo-unitary step follows a proved two-dimension Galois
+reduction on the dual category. Ineligible inputs, interrupted searches
+and surviving necessary systems were not accepted as exclusions.
+
+The second continuation starts from the forty complete tensors in
+\filename{verification/round2/campaign_manifest.json}. This immutable
+domain contains the former multiplicity-three frontier and all
+thirty-nine remaining inputs at multiplicities four through eight.
+Regenerating the smaller final residual export does not change the
+continuation's input. Its accepted general records are frozen in
+\filename{certificates/continuation_round2.jsonl}; the disjoint union of
+both continuations with the original campaign determines the ledger.
+A tensor may have several independently checked proofs but receives
+only one exclusion allocation.
+
+The local stabilizer-rotation theorem completes multiplicity three.
+Its higher-dimensional and cyclotomic refinements retain all required
+module branches, character alternatives and exact separating witnesses.
+The ramification, biquadratic and formal-codegree trace-ideal criteria
+are applied by uniform tensor-based scans, including every frozen
+higher input; the higher stabilizer campaign separately records
+eligibility, finite search outcomes and budget stops for that same
+input domain. This coverage does not mean that every possible search
+completed or that every criterion's hypotheses held for every tensor.
+The all-orders Gauss obstruction has pseudo-unitary scope; its general
+applications include the separately verified signed reduction.
+
+Two independent full-census scans illustrate the distinction between
+criterion coverage and new allocations. The biquadratic checker
+excludes fifty-one of the $\CensusCount$ tensors in isolation, and the
+trace-ideal checker excludes $1827$. These totals include already
+excluded rings and overlap other criteria; they are not added to the
+classification count. Their complete reports and positive controls are
+retained in \filename{research/round2_external/}. The Gauss family scan
+also checks the full census, identifying the applicable parameter
+family by complete tensor comparison. The imported multiplicity-thirteen
+example is a regression input, not a census record.
+
+The command \filename{software/round2_release.py} checks all candidate
+general records, including alternative proofs, replays the first
+continuation, freezes the second accepted file and builds the ledger
+in one process. \filename{software/continuation_controls.py} independently
+replays every accepted record in both continuation files against that
+ledger, with numerical optimizers disabled. It is an incremental check
+and does not claim to rerun the unchanged original campaign. A full
+current-ledger replay is available through \filename{verify.py}.
+The verification guide gives exact commands and report locations.
 
 The remaining $\UnresolvedCount$ tensors are unresolved by this release.
 No literature-wide open-problem claim is attached to that word. In

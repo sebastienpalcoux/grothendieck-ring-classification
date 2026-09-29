@@ -7,38 +7,44 @@ def stage_table(rows,decisions):
  if not path.exists():return
  report=json.loads(path.read_text());bound=max(r['m'] for r in rows)
  worker_counts=sorted({stage.get('jobs',report['jobs']) for stage in report['stages']})
+ from release import continuation_stage_reports,CONTINUATION_PATHS
+ stages=report['stages']+continuation_stage_reports(rows,decisions,report['stages'])
  labels={'rank_two':'Rank-two subring','dnumber':r'$d$-number','zero_spectrum':'Zero spectrum','lower_rank_subring':'Lower-rank subring',
          'involution_module':'Involution module','subring':'Dimension quotient','cyclotomic':'Cyclotomicity',
          'small_dimension_morita':'Morita descent','field_automorphisms':'Field automorphisms',
          'weighted_induction':'Weighted induction','general_induction':'Sphericalization/induction trees',
          'dimension_order':'Dimension order','character':'Character induction','tensor_rotation':'Tensor rotation','modular':'Modular induction',
          'retained_completion':'Deferred exact checks'}
- text=[r'\begin{table}[p]\centering\small',r'\setlength{\tabcolsep}{3pt}']
+ text=[]
  initial=[sum(r['m']==m for r in rows) for m in range(1,bound+1)]
  positive=[sum(r['m']==m and r['status'] not in ('excluded','unresolved') for r in decisions) for m in range(1,bound+1)]
  unknown=[sum(r['m']==m and r['status']=='unresolved' for r in decisions) for m in range(1,bound+1)]
  for first in range(1,bound+1,4):
   columns=list(range(first,min(first+4,bound+1)));global_columns=first==1
   extra=2 if global_columns else 0
+  text += [r'\begin{table}[p]\centering\small',r'\setlength{\tabcolsep}{3pt}']
   text += [r'\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}l'+'r'*(len(columns)+extra)+r'@{}}\toprule',
            'Criterion & '+' & '.join('$m='+str(m)+'$' for m in columns)+(r' & Total removed & Seconds' if global_columns else '')+r'\\\midrule',
            'Input & '+' & '.join(str(initial[m-1]) for m in columns)+(r' & --- & ---' if global_columns else '')+r'\\']
-  for stage in report['stages']:
+  for stage in stages:
    cells=[str(stage['by_multiplicity'][str(m)]['removed'])+'/'+str(stage['by_multiplicity'][str(m)]['remaining']) for m in columns]
    label=labels.get(stage['stage'],stage['label'].replace('_',' '))
    if stage['stage']=='general_induction':label='Sphericalization/induction'
-   text.append(label+' & '+' & '.join(cells)+(' & '+str(stage['removed'])+' & '+f"{stage['wall_seconds']:.1f}" if global_columns else '')+r'\\')
+   timing='---' if stage['wall_seconds'] is None else f"{stage['wall_seconds']:.1f}"
+   text.append(label+' & '+' & '.join(cells)+(' & '+str(stage['removed'])+' & '+timing if global_columns else '')+r'\\')
   text += [r'\midrule',
            'Constructed models & '+' & '.join(str(positive[m-1]) for m in columns)+(r' & --- & ---' if global_columns else '')+r'\\',
            'Unresolved & '+' & '.join(str(unknown[m-1]) for m in columns)+(r' & --- & ---' if global_columns else '')+r'\\',
            r'\bottomrule\end{tabular*}']
-  if first+4<=bound:text.append(r'\par\vspace{1.3em}')
- text += [
-  r'\caption{The executed ordered sieve. Criterion cells are newly excluded / remaining. Seconds are recorded pass wall times; '+(' or '.join(map(str,worker_counts)))+r' workers per stage are recorded in the ledger. Sphericalization/induction checks retained proof trees for $m\le7$ and discovers proofs at $m=8$. Trees can use nested advanced filters; unfinished retained checks appear in the deferred row. Older residuals are retained. Later dimension-order, character, tensor-rotation and modular discovery targets $m\in\{'+','.join(map(str,report.get('advanced_multiplicities',[3,bound])))+r'\}$. Timeouts remove nothing. This practical order is not claimed optimal.}\label{tab:stages}',r'\end{table}']
+  if global_columns:
+   text.append(r'\caption{Executed ordered sieve and verified continuation, multiplicities one to four. Criterion cells are newly excluded / remaining; the total column covers all eight multiplicities. Seconds are original pass wall times with '+(' or '.join(map(str,worker_counts)))+r' workers. Continuation dashes indicate that no comparable pass wall time is assigned. Timeouts remove nothing.}\label{tab:stages}')
+  else:
+   text.append(r'\caption{The same ordered sieve, multiplicities five to eight. Sphericalization/induction checks retained proof trees for $m\le7$ and discovers proofs at $m=8$. Trees can use nested advanced filters; unfinished retained checks appear in the deferred row. Original advanced passes target $m\in\{'+','.join(map(str,report.get('advanced_multiplicities',[3,bound])))+r'\}$. Continuation rows apply additional complete certificates to the original survivors. This practical order is not claimed optimal.}\label{tab:stages-high}')
+  text.append(r'\end{table}')
  (P/'papers/generated_stages.tex').write_text('\n'.join(text)+'\n')
  with (P/'data/exclusion_stages.csv').open('w',newline='') as f:
   w=csv.writer(f);w.writerow(['step','criterion','multiplicity','entered','newly_excluded','remaining','stage_wall_seconds','errors','budget_exhausted'])
-  for step,stage in enumerate(report['stages'],1):
+  for step,stage in enumerate(stages,1):
    for m in range(1,bound+1):
     c=stage['by_multiplicity'][str(m)];w.writerow([step,stage['stage'],m,c['entered'],c['removed'],c['remaining'],stage['wall_seconds'],stage['errors'],stage['budget_exhausted']])
  (P/'data/resolution_frontier.json').write_text(json.dumps({'counts':[{ 'multiplicity':m,'models':positive[m-1],'unresolved':unknown[m-1]} for m in range(1,bound+1)],'smallest_unresolved_multiplicity':next((m for m in range(1,bound+1) if unknown[m-1]),None),'scope':'Exact tested multiplicities only. An unresolved test does not prove that a new mathematical criterion is necessary; no claim is made above the source bound.'},indent=2)+'\n')
@@ -53,6 +59,9 @@ def stage_table(rows,decisions):
  signatures=collections.Counter();stageby={}
  accepted=P/'certificates/classification.jsonl'
  if accepted.exists():stageby={r['id']:r['stage'] for r in map(json.loads,accepted.read_text().splitlines())}
+ for path in CONTINUATION_PATHS:
+  if path.exists():
+   for r in map(json.loads,path.read_text().splitlines()):stageby.setdefault(r['id'],r['stage'])
  with (P/'data/proof_mechanisms.csv').open('w',newline='') as f:
   w=csv.writer(f);w.writerow(['id','multiplicity','first_accepted_stage','complete_certificate_kind_signature'])
   for d in decisions:
@@ -66,6 +75,7 @@ def main():
  rows=json.load(open(P/'data/census.json'));ds=json.load(open(P/'data/decisions.json'));counts=collections.Counter(d['status'] for d in ds)
  character_examples={record['id']:record for name in ('character_induction.json','character_higher.json','multiplicity_three.json') for record in json.loads((P/'certificates'/name).read_text())}
  stats={'NegativeCount':counts['excluded'],'UnitaryCount':counts['unitarily_realized'],'SphericalOnlyCount':counts['spherically_realized_nonpseudounitary'],'PositiveCount':counts['unitarily_realized']+counts['spherically_realized_nonpseudounitary'],'UnresolvedCount':counts['unresolved']}
+ stats['CompleteBound']=min((r['m'] for r in ds if r['status']=='unresolved'),default=max(r['m'] for r in rows)+1)-1
  stats['CharacterExampleCount']=len(character_examples)
  stats['CensusCount']=len(rows);stats['CensusBound']=max(r['m'] for r in rows)
  stats['ConstructorCount']=sum(len(r['constructors']) for r in json.load(open(P/'data/model_catalog.json')))
@@ -73,22 +83,28 @@ def main():
  text=[r'\begin{table}[ht]\centering\small',r'\begin{tabular}{rrrrrr}\toprule',r'Exact multiplicity & Rings & Excluded & Unitary & S, not PU & Undecided\\\midrule']
  for m in range(1,max(r['m'] for r in rows)+1):
   c=collections.Counter(x['status'] for x in ds if x['m']==m);text.append(f"{m} & {sum(c.values())} & {c['excluded']} & {c['unitarily_realized']} & {c['spherically_realized_nonpseudounitary']} & {c['unresolved']}\\\\")
- text += [r'\midrule',f"Total & {len(rows)} & {counts['excluded']} & {counts['unitarily_realized']} & {counts['spherically_realized_nonpseudounitary']} & {counts['unresolved']}\\\\",r'\bottomrule\end{tabular}',r"\caption{Complete counting census; categorification is complete through multiplicity two and partial above. The column S, not PU denotes a spherical realization with no pseudo-unitary categorification. All excluded rings are ruled out generally.}\label{tab:classification}",r'\end{table}'];(P/'papers/generated_classification.tex').write_text('\n'.join(text)+'\n')
+ text += [r'\midrule',f"Total & {len(rows)} & {counts['excluded']} & {counts['unitarily_realized']} & {counts['spherically_realized_nonpseudounitary']} & {counts['unresolved']}\\\\",r'\bottomrule\end{tabular}',r"\caption{Complete counting census; categorification is complete through multiplicity $\CompleteBound$ and partial above. The column S, not PU denotes a spherical realization with no pseudo-unitary categorification. All excluded rings are ruled out generally.}\label{tab:classification}",r'\end{table}'];(P/'papers/generated_classification.tex').write_text('\n'.join(text)+'\n')
  labels={'small_dimension_morita':'Solvability descent and involution-return indicators','involution_module':'Involution-module representation obstruction','noncommuting_field_automorphisms':'Noncommuting dimension-field automorphisms','dnumber':'Formal-codegree $d$-number obstruction','rank_two':'Rank-two fusion subring','zero_spectrum':'Zero-spectrum obstruction','lower_rank_subring':'Complete lower-rank subring descent','subring':'Subcategory dimension divisibility','cyclotomic':'Cyclotomicity','signed_extension_positive':'Commutative signed sphericalization','pseudo_gate':'Direct general-to-positive reduction','weighted_induction':'Multiplicity-weighted noncommutative induction','signed_integral':'Signed reduction with the common induction test','oriented_signed':'Complete oriented signed sphericalization','oriented_pseudo_gate':'Further general-to-positive certificates'}
- kinds=collections.Counter(d['certificate']['kind'] for d in ds if d['status']=='excluded')
- kind_order=['rank_two','dnumber','zero_spectrum','lower_rank_subring','involution_module',
-             'subring','cyclotomic','small_dimension_morita',
-             'noncommuting_field_automorphisms','weighted_induction',
-             'signed_extension_positive','oriented_signed','pseudo_gate',
-             'oriented_pseudo_gate','signed_integral']
- assert set(kinds)==set(kind_order),set(kinds)^set(kind_order)
- text=['\\begin{table}[ht]\\centering','\\begin{tabular}{lr}\\toprule','Retained proof family & Rings\\\\\\midrule']
- for k in kind_order:text.append(labels[k]+f' & {kinds[k]}\\\\')
- text += ['\\midrule',f"Total & {sum(kinds.values())}\\\\",'\\bottomrule\\end{tabular}',r'\caption{Disjoint retained proof families, listed in the order of the corresponding sieve stages. Several signed and positive-dimension families occur within the sphericalization/induction stage. Nested criteria are not counted a second time.}\label{tab:allocation}','\\end{table}'];(P/'papers/generated_allocation.tex').write_text('\n'.join(text)+'\n')
+ labels.update({'rank3_c2_neargroup_subring':'Rank-three near-group subring descent',
+                'spectral_involution_module':'Spectral involution-module obstruction',
+                'morita_order6':'Order-six Morita dual and grading obstruction',
+                'full_morita_gram':'Full Morita-action Gram obstruction',
+                'general_stabilizer_rotation':'Stabilizer and third-rotation obstruction',
+                'ramified_signed_pseudo_exclusion':'Ramification and signed reduction',
+                'ramified_signed_arithmetic_exclusion':'Ramification and signed arithmetic',
+                'ramified_Casimir_trace_exclusion':'Ramification and Casimir trace',
+                'general_stabilizer_rotation_higher':'Stabilizer and averaged third rotation',
+                'general_cyclotomic_stabilizer_trace':'Stabilizer and cyclotomic traces',
+                'biquadratic_spherical_trace':'Biquadratic norm and trace obstruction',
+                'formal_codegree_trace_ideal':'Formal-codegree trace-ideal obstruction',
+                'trace_ideal_signed_pseudo_exclusion':'Trace ideal and signed saturation'})
+ kinds=collections.Counter(d['certificate']['kind'] for d in ds if d['status']=='excluded');text=['\\begin{table}[ht]\\centering','\\begin{tabular}{lr}\\toprule','First retained certificate & Rings\\\\\\midrule']
+ for k,v in sorted(kinds.items(),key=lambda z:(-z[1],z[0])):text.append(labels.get(k,k.replace('_',' '))+f' & {v}\\\\')
+ text += ['\\midrule',f"Total & {sum(kinds.values())}\\\\",'\\bottomrule\\end{tabular}','\\caption{Disjoint allocation of general exclusions. Nested criteria are not counted again.}\\label{tab:allocation}','\\end{table}'];(P/'papers/generated_allocation.tex').write_text('\n'.join(text)+'\n')
  from model_catalog import build_catalog,latex_table
  build_catalog();latex_table()
  lowtext=[r'\paragraph{The low-multiplicity residuals.}']
- for mult in [2,3]:
+ for mult in [2,3,4]:
   entries=[r'\RR{%s}{%s}'%(d['m'],d['index']) for d in ds if d['m']==mult and d['status']=='unresolved']
   if not entries:
    lowtext.append('Every ring at exact multiplicity %s is decided.'%mult);continue

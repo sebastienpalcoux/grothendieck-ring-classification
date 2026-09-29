@@ -1,0 +1,55 @@
+\subsection{Exact certificate and exhaustive coverage}
+\label{subsec:stabilizer-rotation-certificate}
+The new obstruction is implemented without a distinguished census label in
+\texttt{software/stabilizer\_rotation.py}.  Its input is the multiplication
+tensor.  The certificate first reconstructs the complete list of
+anti-invariant actions for the forced algebra $\mathbf1\oplus g$.
+For the multiplicity-three frontier this list has sixteen entries.  Twelve
+are rejected by exact separating functionals for the full Morita-action Gram
+system, and two by its rank bound.  In each of the remaining two entries,
+left multiplication by $g$ exchanges both pairs of module structures on the
+fixed simples $b_4,b_5$.  Equivalently, the diagonal entries of $T_g$ on their
+anti-invariant lines are both $-1$.  Their cubic invariant spaces have
+ dimension two.  The pair-insertion theorem therefore forces
+$\nu_3(b_4)=\nu_3(b_5)=-1$, since the Cauchy prime support is $\{2,17\}$.
+
+The central calculation is exhaustive; it does not assume the rank-twenty-two
+modular datum retained elsewhere as a relaxation witness.  All ninety-one
+low induction frames are reconstructed from the tensor and its formal
+codegrees.  Thirty-one frames admit character labellings; there are fifty
+labellings in total and four possible second-indicator assignments.  The
+certificate contains an exact Farkas vector for each of these two hundred
+systems.  Each system includes the induction Gram equations, relative twist
+traces through order three, cyclic-rotation character constraints, joint
+Galois compatibility of dimensions and eigenvalues, and the low-row modular
+relations.  It additionally imposes the two forced third indicators.  If
+$Ax=b$ is such a system, its recorded integral vector $y$ is checked to satisfy
+\[
+ A^{\mathsf T}y\geq0,\qquad b^{\mathsf T}y<0.
+\]
+Every feasible central decomposition supplies $x\geq0$, so these inequalities
+exclude every branch.  The variables allow all roots of unity whose prime
+support is $\{2,17\}$ via their finite joint relative-trace types; no finite
+upper bound on the actual exponent or central rank is imposed.  For clarity, the order-three relative-trace domain has exactly ten joint
+patterns.  Write a root's order as $2^a17^b$.  If $b\geq2$ or $a\geq3$,
+its normalized traces at powers $1,2,3$ all vanish.  Otherwise
+$a\in\{0,1,2\}$ and $b\in\{0,1\}$ give the remaining nine distinct
+patterns, with the two quadratic signs when $17$ divides the order.
+For primitive seventeenth roots the first trace is
+$(-1\pm\sqrt{17})/16$; the quadratic character of $2$ is $+1$ and
+that of $3$ is $-1$.  This elementary enumeration explicitly includes
+arbitrarily large exponent orders through the all-zero pattern.
+Integral high-column decompositions are not needed for this final exclusion.
+
+The general-scope wrapper is
+\texttt{software/galois\_pseudo\_reduction.py}.  It reconstructs the full
+unrestricted signed-sphericalization enumeration, including all $1480$
+signed quotient tables and all sign orbits.  Every nongauge character
+component is rejected by its exact arithmetic certificate, and the only
+nonzero dimension-character orbit of the original ring is checked directly
+to be its Frobenius--Perron orbit.  Consequently every hypothetical complex
+categorification has a pseudo-unitary Galois conjugate to which the preceding
+obstruction applies.  No positivity normalization is imposed during the
+signed enumeration.  The combined certificate is stored in
+\texttt{certificates/stabilizer\_rotation\_215.json}; the public replay entry
+point is \texttt{stabilizer\_rotation.verify\_general(R,c)}.

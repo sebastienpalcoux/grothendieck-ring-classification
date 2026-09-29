@@ -1,0 +1,688 @@
+{
+  "criterion": "software/cyclotomic_stabilizer_trace.py",
+  "criterion_sha256": "bb4dc4378cc35df6e6269b849acdfb29aa396b42b82902c3ac415d13166d8be9",
+  "model_domain": "all 54 model_catalog IDs, exactly equal to all general=yes decision IDs",
+  "optimized_python": true,
+  "per_model_budget_seconds": 180,
+  "scope": "Eligibility and canonical criterion nonexclusion; ineligible inputs are not feasible trace-LP witnesses.",
+  "completed": true,
+  "counts": {
+    "ineligible_for_forced_local_stabilizer": 41,
+    "ineligible_noncommutative": 3,
+    "ineligible_field_degree": 8,
+    "ineligible_cyclotomic_field": 1,
+    "ineligible_third_indicator_rationality": 1
+  },
+  "criterion_calls": {
+    "trace_systems": 0,
+    "farkas_searches": 0
+  },
+  "rows": [
+    {
+      "id": "R6_1_1",
+      "model": "$\\mathcal I(C_4,1)$: cyclic, non-self-dual Ising zest",
+      "commutative": true,
+      "local_stabilizer_eligible": false,
+      "canonical_api": "returned_none",
+      "outcome": "ineligible_for_forced_local_stabilizer",
+      "seconds": 0.132839
+    },
+    {
+      "id": "R6_1_3",
+      "model": "$\\mathcal I(C_4,0)$: cyclic, self-dual Ising zest",
+      "commutative": true,
+      "local_stabilizer_eligible": false,
+      "canonical_api": "returned_none",
+      "outcome": "ineligible_for_forced_local_stabilizer",
+      "seconds": 0.27477
+    },
+    {
+      "id": "R6_1_4",
+      "model": "$\\Rep(C_3\\rtimes C_4)$",
+      "commutative": true,
+      "local_stabilizer_eligible": false,
+      "canonical_api": "returned_none",
+      "outcome": "ineligible_for_forced_local_stabilizer",
+      "seconds": 0.123521
+    },
+    {
+      "id": "R6_1_6",
+      "model": "$\\Vec_{C_2}\\boxtimes\\Vec_{C_3}\\simeq\\Vec_{C_6}$",
+      "commutative": true,
+      "local_stabilizer_eligible": false,
+      "canonical_api": "returned_none",
+      "outcome": "ineligible_for_forced_local_stabilizer",
+      "seconds": 4.2e-05
+    },
+    {
+      "id": "R6_1_7",
+      "model": "Tambara--Yamagami category for $C_5$",
+      "commutative": true,
+      "local_stabilizer_eligible": false,
+      "canonical_api": "returned_none",
+      "outcome": "ineligible_for_forced_local_stabilizer",
+      "seconds": 0.000174
+    },
+    {
+      "id": "R6_1_9",
+      "model": "$\\mathcal I(C_2^2,1)$: non-self-dual Ising zest",
+      "commutative": true,
+      "local_stabilizer_eligible": false,
+      "canonical_api": "returned_none",
+      "outcome": "ineligible_for_forced_local_stabilizer",
+      "seconds": 0.146831
+    },
+    {
+      "id": "R6_1_10",
+      "model": "Zested $SO(5)_2$ category",
+      "commutative": true,
+      "local_stabilizer_eligible": false,
+      "canonical_api": "returned_none",
+      "outcome": "ineligible_for_forced_local_stabilizer",
+      "seconds": 0.132369
+    },
+    {
+      "id": "R6_1_11",
+      "model": "$\\mathrm{Fib}\\boxtimes\\Vec_{C_3}$",
+      "commutative": true,
+      "local_stabilizer_eligible": false,
+      "canonical_api": "returned_none",
+      "outcome": "ineligible_for_forced_local_stabilizer",
+      "seconds": 2.7e-05
+    },
+    {
+      "id": "R6_1_14",
+      "model": "$\\Vec_{S_3}$",
+      "commutative": false,
+      "local_stabilizer_eligible": false,
+      "outcome": "ineligible_noncommutative",
+      "canonical_api": "explicit_eligibility_guard",
+      "reason": "commutativity required",
+      "seconds": 3.4e-05
+    },
+    {
+      "id": "R6_1_15",
+      "model": "Haagerup category $\\mathcal H_3$",
+      "commutative": false,
+      "local_stabilizer_eligible": false,
+      "canonical_api": "returned_none",
+      "outcome": "ineligible_noncommutative",
+      "reason": "noncommutative tensor; canonical API returned None before requiring commutativity",
+      "seconds": 3.5e-05
+    },
+    {
+      "id": "R6_1_20",
+      "model": "$\\Vec_{C_2}\\boxtimes\\mathrm{Ising}$; also $R(0,0)$",
+      "commutative": true,
+      "local_stabilizer_eligible": false,
+      "canonical_api": "returned_none",
+      "outcome": "ineligible_for_forced_local_stabilizer",
+      "seconds": 0.093179
+    },
+    {
+      "id": "R6_1_21",
+      "model": "$\\Vec_{C_2}\\boxtimes\\Rep(S_3)$; also $R(0,1)$",
+      "commutative": true,
+      "local_stabilizer_eligible": false,
+      "canonical_api": "returned_none",
+      "outcome": "ineligible_for_forced_local_stabilizer",
+      "seconds": 0.107369
+    },
+    {
+      "id": "R6_1_23",
+      "model": "$\\Vec_{C_2}\\boxtimes PSU(2)_5$",
+      "commutative": true,
+      "local_stabilizer_eligible": false,
+      "canonical_api": "returned_none",
+      "outcome": "ineligible_for_forced_local_stabilizer",
+      "seconds": 7.6e-05
+    },
+    {
+      "id": "R6_1_24",
+      "model": "$PSU(2)_{10}$ (the other $3311$ even-part ring)",
+      "commutative": true,
+      "local_stabilizer_eligible": false,
+      "canonical_api": "returned_none",
+      "outcome": "ineligible_for_forced_local_stabilizer",
+      "seconds": 3.5e-05
+    },
+    {
+      "id": "R6_1_26",
+      "model": "$SO(5)_2$",
+      "commutative": true,
+      "local_stabilizer_eligible": false,
+      "canonical_api": "returned_none",
+      "outcome": "ineligible_for_forced_local_stabilizer",
+      "seconds": 0.15437
+    },
+    {
+      "id": "R6_1_30",
+      "model": "$\\Rep(D_9)$, with $|D_9|=18$",
+      "commutative": true,
+      "local_stabilizer_eligible": false,
+      "canonical_api": "returned_none",
+      "outcome": "ineligible_for_forced_local_stabilizer",
+      "seconds": 5.6e-05
+    },
+    {
+      "id": "R6_1_32",
+      "model": "$\\Rep((C_3\\times C_3)\\rtimes C_2)$, inversion action",
+      "commutative": true,
+      "local_stabilizer_eligible": false,
+      "canonical_api": "returned_none",
+      "outcome": "ineligible_for_forced_local_stabilizer",
+      "seconds": 4.9e-05
+    },
+    {
+      "id": "R6_1_34",
+      "model": "$PSU(2)_{11}$",
+      "commutative": true,
+      "local_stabilizer_eligible": false,
+      "canonical_api": "returned_none",
+      "outcome": "ineligible_for_forced_local_stabilizer",
+      "seconds": 2.4e-05
+    },
+    {
+      "id": "R6_1_36",
+      "model": "$\\mathrm{Fib}\\boxtimes\\mathrm{Ising}$",
+      "commutative": true,
+      "local_stabilizer_eligible": false,
+      "canonical_api": "returned_none",
+      "outcome": "ineligible_for_forced_local_stabilizer",
+      "seconds": 0.126059
+    },
+    {
+      "id": "R6_1_37",
+      "model": "$\\mathrm{Fib}\\boxtimes\\Rep(S_3)$",
+      "commutative": true,
+      "local_stabilizer_eligible": false,
+      "canonical_api": "returned_none",
+      "outcome": "ineligible_for_forced_local_stabilizer",
+      "seconds": 0.108874
+    },
+    {
+      "id": "R6_1_38",
+      "model": "$\\mathrm{Fib}\\boxtimes PSU(2)_5$",
+      "commutative": true,
+      "local_stabilizer_eligible": false,
+      "canonical_api": "returned_none",
+      "outcome": "ineligible_for_forced_local_stabilizer",
+      "seconds": 2.4e-05
+    },
+    {
+      "id": "R6_2_2",
+      "model": "Fermionic $C_2$-zest of $\\operatorname{Ad}(E_6)\\boxtimes\\Vec_{C_2}$",
+      "commutative": true,
+      "local_stabilizer_eligible": true,
+      "local": {
+        "involution": 5,
+        "objects": [
+          4
+        ],
+        "module_branches": 1
+      },
+      "fp_field_degree": 2,
+      "global_dimension_degree": 2,
+      "global_dimension_polynomial": "t**2 - 24*t + 96",
+      "prime_support": [
+        2,
+        3
+      ],
+      "outcome": "ineligible_field_degree",
+      "canonical_api": "explicit_eligibility_guard",
+      "reason": "expected quartic FP field",
+      "seconds": 0.185551
+    },
+    {
+      "id": "R6_2_4",
+      "model": "$\\mathcal E_4(G_2)$: modules for $G_{2,4}\\subset\\operatorname{Spin}(14)_1$",
+      "commutative": true,
+      "local_stabilizer_eligible": true,
+      "local": {
+        "involution": 5,
+        "objects": [
+          3,
+          4
+        ],
+        "module_branches": 1
+      },
+      "fp_field_degree": 2,
+      "global_dimension_degree": 2,
+      "global_dimension_polynomial": "t**2 - 48*t + 192",
+      "prime_support": [
+        2,
+        3
+      ],
+      "outcome": "ineligible_field_degree",
+      "canonical_api": "explicit_eligibility_guard",
+      "reason": "expected quartic FP field",
+      "seconds": 0.202314
+    },
+    {
+      "id": "R6_2_11",
+      "model": "$\\Rep((C_3\\times C_3)\\rtimes C_4)$",
+      "commutative": true,
+      "local_stabilizer_eligible": false,
+      "canonical_api": "returned_none",
+      "outcome": "ineligible_for_forced_local_stabilizer",
+      "seconds": 0.138198
+    },
+    {
+      "id": "R6_2_14",
+      "model": "Fermionic grading zest of the $E_6$ category",
+      "commutative": true,
+      "local_stabilizer_eligible": true,
+      "local": {
+        "involution": 4,
+        "objects": [
+          5
+        ],
+        "module_branches": 1
+      },
+      "fp_field_degree": 4,
+      "global_dimension_degree": 2,
+      "global_dimension_polynomial": "t**2 - 24*t + 96",
+      "prime_support": [
+        2,
+        3
+      ],
+      "outcome": "ineligible_field_degree",
+      "canonical_api": "explicit_eligibility_guard",
+      "reason": "expected quartic FP field",
+      "seconds": 0.081045
+    },
+    {
+      "id": "R6_2_34",
+      "model": "$TT_3$",
+      "commutative": false,
+      "local_stabilizer_eligible": false,
+      "canonical_api": "returned_none",
+      "outcome": "ineligible_noncommutative",
+      "reason": "noncommutative tensor; canonical API returned None before requiring commutativity",
+      "seconds": 2.2e-05
+    },
+    {
+      "id": "R6_2_36",
+      "model": "$\\mathcal C(A_4,1,C_2,1)$",
+      "commutative": true,
+      "local_stabilizer_eligible": false,
+      "canonical_api": "returned_none",
+      "outcome": "ineligible_for_forced_local_stabilizer",
+      "seconds": 1.030451
+    },
+    {
+      "id": "R6_2_40",
+      "model": "Diagonal-fermion quotient of two identical half-$E_6$ categories",
+      "commutative": true,
+      "local_stabilizer_eligible": true,
+      "local": {
+        "involution": 3,
+        "objects": [
+          4,
+          5
+        ],
+        "module_branches": 1
+      },
+      "fp_field_degree": 2,
+      "global_dimension_degree": 2,
+      "global_dimension_polynomial": "t**2 - 48*t + 144",
+      "prime_support": [
+        2,
+        3
+      ],
+      "outcome": "ineligible_field_degree",
+      "canonical_api": "explicit_eligibility_guard",
+      "reason": "expected quartic FP field",
+      "seconds": 0.260073
+    },
+    {
+      "id": "R6_2_49",
+      "model": "Quadratic category $R^{\\prime}(2)$",
+      "commutative": true,
+      "local_stabilizer_eligible": false,
+      "canonical_api": "returned_none",
+      "outcome": "ineligible_for_forced_local_stabilizer",
+      "seconds": 0.161013
+    },
+    {
+      "id": "R6_2_53",
+      "model": "$\\Vec_{C_2}\\boxtimes\\operatorname{Ad}(E_6)$; also $R(0,2)$",
+      "commutative": true,
+      "local_stabilizer_eligible": true,
+      "local": {
+        "involution": 5,
+        "objects": [
+          4
+        ],
+        "module_branches": 1
+      },
+      "fp_field_degree": 2,
+      "global_dimension_degree": 2,
+      "global_dimension_polynomial": "t**2 - 24*t + 96",
+      "prime_support": [
+        2,
+        3
+      ],
+      "outcome": "ineligible_field_degree",
+      "canonical_api": "explicit_eligibility_guard",
+      "reason": "expected quartic FP field",
+      "seconds": 0.202573
+    },
+    {
+      "id": "R6_2_69",
+      "model": "$C_2$-extension of $\\Rep(H_8)$",
+      "commutative": true,
+      "local_stabilizer_eligible": false,
+      "canonical_api": "returned_none",
+      "outcome": "ineligible_for_forced_local_stabilizer",
+      "seconds": 0.396009
+    },
+    {
+      "id": "R6_2_71",
+      "model": "$\\mathcal C(S_4,\\omega,C_2^2,\\psi)$ of Theorem~\\ref{thm:s4-model}",
+      "commutative": true,
+      "local_stabilizer_eligible": false,
+      "canonical_api": "returned_none",
+      "outcome": "ineligible_for_forced_local_stabilizer",
+      "seconds": 0.305894
+    },
+    {
+      "id": "R6_2_75",
+      "model": "$E_6$ modules over $SU(2)_{10}$",
+      "commutative": true,
+      "local_stabilizer_eligible": true,
+      "local": {
+        "involution": 1,
+        "objects": [
+          5
+        ],
+        "module_branches": 1
+      },
+      "fp_field_degree": 4,
+      "global_dimension_degree": 2,
+      "global_dimension_polynomial": "t**2 - 24*t + 96",
+      "prime_support": [
+        2,
+        3
+      ],
+      "outcome": "ineligible_field_degree",
+      "canonical_api": "explicit_eligibility_guard",
+      "reason": "expected quartic FP field",
+      "seconds": 0.084149
+    },
+    {
+      "id": "R6_2_94",
+      "model": "Diagonal-fermion quotient of $\\mathrm{Ising}\\boxtimes PSU(2)_6$",
+      "commutative": true,
+      "local_stabilizer_eligible": false,
+      "canonical_api": "returned_none",
+      "outcome": "ineligible_for_forced_local_stabilizer",
+      "seconds": 0.140641
+    },
+    {
+      "id": "R6_2_97",
+      "model": "Dual Goodman--de la Harpe--Jones $3311$ even part",
+      "commutative": true,
+      "local_stabilizer_eligible": true,
+      "local": {
+        "involution": 1,
+        "objects": [
+          4,
+          5
+        ],
+        "module_branches": 1
+      },
+      "fp_field_degree": 2,
+      "global_dimension_degree": 2,
+      "global_dimension_polynomial": "t**2 - 48*t + 144",
+      "prime_support": [
+        2,
+        3
+      ],
+      "outcome": "ineligible_field_degree",
+      "canonical_api": "explicit_eligibility_guard",
+      "reason": "expected quartic FP field",
+      "seconds": 0.241312
+    },
+    {
+      "id": "R6_2_98",
+      "model": "Dual even part of the Izumi $C_4$ subfactor",
+      "commutative": true,
+      "local_stabilizer_eligible": false,
+      "canonical_api": "returned_none",
+      "outcome": "ineligible_for_forced_local_stabilizer",
+      "seconds": 0.20173
+    },
+    {
+      "id": "R6_2_105",
+      "model": "$\\mathcal C(A_5,1,D_{10},1)$",
+      "commutative": true,
+      "local_stabilizer_eligible": false,
+      "canonical_api": "returned_none",
+      "outcome": "ineligible_for_forced_local_stabilizer",
+      "seconds": 0.166271
+    },
+    {
+      "id": "R6_2_124",
+      "model": "Schopieray: $\\mathcal C(\\mathfrak{so}_5,3/2)_{\\mathrm{ad}}$",
+      "commutative": true,
+      "local_stabilizer_eligible": false,
+      "canonical_api": "returned_none",
+      "outcome": "ineligible_for_forced_local_stabilizer",
+      "seconds": 2.6e-05
+    },
+    {
+      "id": "R6_2_127",
+      "model": "$\\mathrm{Fib}\\boxtimes\\operatorname{Ad}(E_6)$",
+      "commutative": true,
+      "local_stabilizer_eligible": true,
+      "local": {
+        "involution": 2,
+        "objects": [
+          3,
+          4
+        ],
+        "module_branches": 1
+      },
+      "fp_field_degree": 4,
+      "global_dimension_degree": 4,
+      "global_dimension_polynomial": "t**4 - 60*t**3 + 1080*t**2 - 7200*t + 14400",
+      "prime_support": [
+        2,
+        3,
+        5
+      ],
+      "outcome": "ineligible_cyclotomic_field",
+      "canonical_api": "explicit_eligibility_guard",
+      "reason": "no supported exact cyclotomic embedding",
+      "seconds": 0.485774
+    },
+    {
+      "id": "R6_2_128",
+      "model": "$D_6$ modules over $SU(2)_8$",
+      "commutative": true,
+      "local_stabilizer_eligible": false,
+      "canonical_api": "returned_none",
+      "outcome": "ineligible_for_forced_local_stabilizer",
+      "seconds": 3.5e-05
+    },
+    {
+      "id": "R6_2_140",
+      "model": "Local $D_{10}$ modules over $SU(2)_{16}$",
+      "commutative": true,
+      "local_stabilizer_eligible": false,
+      "canonical_api": "returned_none",
+      "outcome": "ineligible_for_forced_local_stabilizer",
+      "seconds": 4.8e-05
+    },
+    {
+      "id": "R6_2_143",
+      "model": "Commutative even part of the Izumi $C_5$ subfactor",
+      "commutative": true,
+      "local_stabilizer_eligible": false,
+      "canonical_api": "returned_none",
+      "outcome": "ineligible_for_forced_local_stabilizer",
+      "seconds": 2.4e-05
+    },
+    {
+      "id": "R6_2_144",
+      "model": "Principal $G_2$ level-three category",
+      "commutative": true,
+      "local_stabilizer_eligible": false,
+      "canonical_api": "returned_none",
+      "outcome": "ineligible_for_forced_local_stabilizer",
+      "seconds": 2.3e-05
+    },
+    {
+      "id": "R6_3_47",
+      "model": "$\\Rep(GL(3,\\FF_2))\\simeq\\Rep(PSL(2,7))$",
+      "commutative": true,
+      "local_stabilizer_eligible": false,
+      "canonical_api": "returned_none",
+      "outcome": "ineligible_for_forced_local_stabilizer",
+      "seconds": 2.4e-05
+    },
+    {
+      "id": "R6_3_141",
+      "model": "$\\mathcal C(A_5,1,S_3,1)$",
+      "commutative": true,
+      "local_stabilizer_eligible": false,
+      "canonical_api": "returned_none",
+      "outcome": "ineligible_for_forced_local_stabilizer",
+      "seconds": 0.180868
+    },
+    {
+      "id": "R6_3_218",
+      "model": "Inversion equivariantization of Izumi's $C_5+5$ near-group category",
+      "commutative": true,
+      "local_stabilizer_eligible": false,
+      "canonical_api": "returned_none",
+      "outcome": "ineligible_for_forced_local_stabilizer",
+      "seconds": 0.134409
+    },
+    {
+      "id": "R6_4_249",
+      "model": "Sign-swap equivariantization of the equal half-$E_6$ quotient",
+      "commutative": true,
+      "local_stabilizer_eligible": false,
+      "canonical_api": "returned_none",
+      "outcome": "ineligible_for_forced_local_stabilizer",
+      "seconds": 0.379515
+    },
+    {
+      "id": "R6_4_322",
+      "model": "Diagonal-fermion quotient of half-$E_6\\boxtimes PSU(2)_6$",
+      "commutative": true,
+      "local_stabilizer_eligible": true,
+      "local": {
+        "involution": 1,
+        "objects": [
+          4,
+          5
+        ],
+        "module_branches": 1
+      },
+      "fp_field_degree": 4,
+      "global_dimension_degree": 4,
+      "global_dimension_polynomial": "t**4 - 96*t**3 + 2304*t**2 - 18432*t + 36864",
+      "prime_support": [
+        2,
+        3
+      ],
+      "canonical_api": "returned_none",
+      "field": {
+        "ambient_conductor": 24,
+        "prime_support": [
+          2,
+          3
+        ],
+        "order_bound": 144,
+        "trace_types": 53,
+        "global_dimension_in_real_generator": [
+          "8",
+          "8",
+          "-16",
+          "8"
+        ],
+        "column_counts": [
+          3,
+          1,
+          3,
+          3,
+          3
+        ]
+      },
+      "outcome": "ineligible_third_indicator_rationality",
+      "seconds": 1.716459
+    },
+    {
+      "id": "R6_5_17",
+      "model": "Izumi's $C_5+5$ near-group category",
+      "commutative": true,
+      "local_stabilizer_eligible": false,
+      "canonical_api": "returned_none",
+      "outcome": "ineligible_for_forced_local_stabilizer",
+      "seconds": 3e-05
+    },
+    {
+      "id": "R6_6_345",
+      "model": "$\\mathcal C_{4,8,4}$, with ring $R(4,6)$",
+      "commutative": true,
+      "local_stabilizer_eligible": true,
+      "local": {
+        "involution": 5,
+        "objects": [
+          3
+        ],
+        "module_branches": 1
+      },
+      "fp_field_degree": 2,
+      "global_dimension_degree": 2,
+      "global_dimension_polynomial": "t**2 - 216*t + 864",
+      "prime_support": [
+        2,
+        3
+      ],
+      "outcome": "ineligible_field_degree",
+      "canonical_api": "explicit_eligibility_guard",
+      "reason": "expected quartic FP field",
+      "seconds": 0.291219
+    },
+    {
+      "id": "R6_6_1712",
+      "model": "Relative Fibonacci center $Z_{\\mathrm{Fib}}(TT_3)$",
+      "commutative": true,
+      "local_stabilizer_eligible": false,
+      "canonical_api": "returned_none",
+      "outcome": "ineligible_for_forced_local_stabilizer",
+      "seconds": 3.8e-05
+    },
+    {
+      "id": "R6_6_1764",
+      "model": "Asaeda--Haagerup category $\\mathcal{AH}_1$",
+      "commutative": true,
+      "local_stabilizer_eligible": false,
+      "canonical_api": "returned_none",
+      "outcome": "ineligible_for_forced_local_stabilizer",
+      "seconds": 2.7e-05
+    },
+    {
+      "id": "R6_7_572",
+      "model": "$\\Rep((C_3\\times C_3)\\rtimes Q_8)$",
+      "commutative": true,
+      "local_stabilizer_eligible": false,
+      "canonical_api": "returned_none",
+      "outcome": "ineligible_for_forced_local_stabilizer",
+      "seconds": 0.436648
+    },
+    {
+      "id": "R6_7_2274",
+      "model": "Extended Haagerup category $\\mathcal{EH}_1$",
+      "commutative": true,
+      "local_stabilizer_eligible": false,
+      "canonical_api": "returned_none",
+      "outcome": "ineligible_for_forced_local_stabilizer",
+      "seconds": 3.4e-05
+    }
+  ]
+}

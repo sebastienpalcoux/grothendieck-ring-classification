@@ -1,0 +1,104 @@
+{
+  "reports": [
+    {
+      "general_categorification_excluded": true,
+      "reduction": {
+        "signed_quotients": 1472,
+        "sign_orbits": 46,
+        "gauge_original_orbits": 1,
+        "nongauge_character_rejections": 111,
+        "categorifications_spherical": true,
+        "galois_pseudo_unitary": true
+      },
+      "pseudo": {
+        "involution_branches": 1,
+        "low_frames": 7,
+        "rays": 28,
+        "ambient_conductor": 20,
+        "prime_support": [
+          2,
+          5
+        ],
+        "order_bound": 40,
+        "trace_types": 31,
+        "global_dimension_in_real_generator": [
+          "160",
+          "300",
+          "-220",
+          "-400"
+        ],
+        "column_counts": [
+          5,
+          3,
+          17,
+          12,
+          12
+        ]
+      },
+      "id": "R6_8_2203",
+      "optimized_python": true,
+      "optimizer_disabled": true,
+      "seconds": 291.20182485999976,
+      "certificate_sha256": "3b7f079c101a7e67cd64355ed8b43dd0932ca68b12bb0ad6be132e2411df826e",
+      "mutation_controls": [
+        {
+          "mutation": "false_general_scope",
+          "rejected": true,
+          "reason": "bad general cyclotomic trace scope"
+        },
+        {
+          "mutation": "omitted_unrestricted_signed_quotient",
+          "rejected": true,
+          "reason": "incomplete unrestricted signed domain"
+        },
+        {
+          "mutation": "omitted_involution_module_branch",
+          "rejected": true,
+          "reason": "incomplete involution-module domain"
+        },
+        {
+          "mutation": "missing_forced_stabilizer_objects",
+          "rejected": true,
+          "reason": "incomplete involution-module domain"
+        },
+        {
+          "mutation": "altered_conductor_box",
+          "rejected": true,
+          "reason": "incorrect ambient trace field/domain"
+        },
+        {
+          "mutation": "omitted_relative_trace_type",
+          "rejected": true,
+          "reason": "incorrect ambient trace field/domain"
+        },
+        {
+          "mutation": "wrong_cyclotomic_dimension_embedding",
+          "rejected": true,
+          "reason": "incorrect ambient trace field/domain"
+        },
+        {
+          "mutation": "omitted_low_induction_frame",
+          "rejected": true,
+          "reason": "missing low induction frame"
+        },
+        {
+          "mutation": "omitted_second_indicator_case",
+          "rejected": true,
+          "reason": "missing second indicator case"
+        },
+        {
+          "mutation": "altered_high_column_pruning_count",
+          "rejected": true,
+          "reason": "incorrect cyclotomic system metadata"
+        },
+        {
+          "mutation": "zero_separating_vector",
+          "rejected": true,
+          "reason": "higher-indicator Farkas certificate fails"
+        }
+      ],
+      "all_mutations_rejected": true
+    }
+  ],
+  "complete": true
+}

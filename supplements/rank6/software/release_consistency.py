@@ -1,5 +1,5 @@
 """Cross-check live human-readable exports against the authoritative JSON ledger."""
-import collections,csv,json,time
+import collections,csv,json,time,hashlib
 from pathlib import Path
 from exact import require
 from existence import STRUCTURES,verify_ledger
@@ -15,6 +15,12 @@ def verify_consistency():
         require((a['id'],a['m'],a['index'],a['status'])==(b['id'],int(b['multiplicity']),int(b['index']),b['status']),'CSV ledger identity mismatch')
         require(all(a['existence'][s]==b[s] for s in STRUCTURES),'CSV structure mismatch')
     counts=json.loads((ROOT/'data/classification_counts.json').read_text())
+    report=json.loads((ROOT/'verification/release_summary.json').read_text())
+    require(report['counts']==counts,'release summary counts are stale')
+    require(report['excluded']==sum(r['status']=='excluded' for r in ledger)
+            and report['unresolved']==sum(r['status']=='unresolved' for r in ledger),'release summary totals are stale')
+    require(report['ledger_sha256']==hashlib.sha256((ROOT/'data/decisions.json').read_bytes()).hexdigest(),'release summary ledger hash')
+    require(report['general_multiplicity_three_complete']==(not any(r['m']<=3 and r['status']=='unresolved' for r in ledger)),'release summary completion flag')
     multiplicities=sorted({d['m'] for d in ledger})
     require(multiplicities==list(range(1,max(multiplicities)+1)),'census multiplicities are not consecutive')
     require([c['multiplicity'] for c in counts]==multiplicities,'classification counts omit or duplicate a multiplicity')

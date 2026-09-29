@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Summarize the attached rank 4–8 classification ledgers, preserving gaps.
 
-Run with the four paths shown by ``--help``. This script never assigns a
+Run with the source paths shown by ``--help``, or use ``--refresh-rank6`` to
+replace only the rank-six partition in an existing export. This script never assigns a
 categorifiability decision to a census ring absent from the relevant ledger.
 """
 import argparse
@@ -33,6 +34,59 @@ def records(rank, path):
     else:
         for row in json.loads(path.read_text()):
             yield row['multiplicity'] if rank >= 7 else row['m'], row['general'] if rank == 5 else row['status']
+
+
+def write_export(out, output_dir):
+    output_dir.mkdir(parents=True, exist_ok=True)
+    (output_dir/'classification_status.json').write_text(json.dumps(out, indent=2)+'\n')
+    with (output_dir/'classification_status.csv').open('w', newline='') as stream:
+        writer=csv.DictWriter(stream, fieldnames=list(out['rows'][0]))
+        writer.writeheader()
+        writer.writerows(out['rows'])
+
+
+def refresh_rank6(args):
+    """Refresh one ledger without requiring or regenerating other rank releases."""
+    out=json.loads((args.output_dir/'classification_status.json').read_text())
+    summary=defaultdict(Counter)
+    allowed={'excluded', 'unitarily_realized',
+             'spherically_realized_nonpseudounitary', 'unresolved'}
+    ledger=json.loads(args.rank6.read_text())
+    if len(ledger)!=16612 or len({x['id'] for x in ledger})!=16612:
+        raise ValueError('Rank-six ledger must contain 16,612 distinct records')
+    for row in ledger:
+        if type(row['m']) is not int or row['status'] not in allowed:
+            raise ValueError('Unknown rank-six multiplicity or status')
+        summary[row['m']][row['status']]+=1
+    if set(summary)!=set(range(1,9)):
+        raise ValueError('Rank-six ledger must cover exact multiplicities 1–8')
+    current=[x for x in out['rows'] if x['rank']==6]
+    if len(current)!=8 or {x['multiplicity'] for x in current}!=set(summary):
+        raise ValueError('Existing export has an unexpected rank-six domain')
+    for row in current:
+        totals=summary[row['multiplicity']]
+        if sum(totals.values())!=row['rings']:
+            raise ValueError('The new ledger changes the pinned census partition')
+        row.update(excluded_general=totals['excluded'],
+                   realized_unitary=totals['unitarily_realized'],
+                   realized_other_or_unspecified=0,
+                   realized_spherical_nonpseudounitary=totals['spherically_realized_nonpseudounitary'],
+                   unresolved_general=totals['unresolved'], unassessed=0,
+                   classification_coverage=('partial_classification' if totals['unresolved']
+                                            else 'complete_classification'))
+    complete=0
+    for m in range(1,9):
+        if summary[m]['unresolved']:break
+        complete=m
+    out['inputs']['rank6']={
+        'file':args.rank6.name, 'sha256':digest(args.rank6),
+        'classified_through':8, 'general_complete_through':complete,
+        'status_totals':dict(sum(summary.values(),Counter())),
+        'current_bundle':args.rank6_bundle.name}
+    bundle={'name':args.rank6_bundle.name,'sha256':digest(args.rank6_bundle)}
+    out['bundles']=[x for x in out['bundles'] if x['name']!=bundle['name']]+[bundle]
+    write_export(out,args.output_dir)
+    print('Refreshed rank-six partition; all other rank rows and inputs preserved.')
 
 
 def export(args):
@@ -90,6 +144,12 @@ def export(args):
                               'classified_through': max(by_rank[rank]),
                               'status_totals': dict(sum(by_rank[rank].values(), Counter()))}
               for rank in (4, 5, 6, 7, 8)}
+    complete=0
+    for m in sorted(by_rank[6]):
+        if by_rank[6][m]['unresolved']:break
+        complete=m
+    inputs['rank6']['general_complete_through']=complete
+    if args.rank6_bundle:inputs['rank6']['current_bundle']=args.rank6_bundle.name
     inputs['rank2']={'basis':'X²=1+nX, n>=0; complex realizations exactly n=0,1',
                      'classified_through':'all'}
     inputs['rank3']={'basis':'Five unrestricted categorical Grothendieck rings: four of multiplicity 1 and one of multiplicity 2; see the standalone sphericality and ring-classification manuscript',
@@ -103,12 +163,7 @@ def export(args):
                semantics='Rows count based-isomorphism classes. Unresolved means a general categorification decision remains open in the attached release; unassessed means no classification ledger for this census band. Realized means at least one realization, not every categorification has the given structure.',
                bundles=bundles,
                inputs=inputs, rows=data)
-    args.output_dir.mkdir(parents=True,exist_ok=True)
-    target = args.output_dir/'classification_status.json'
-    target.write_text(json.dumps(out, indent=2)+'\n')
-    with (args.output_dir/'classification_status.csv').open('w', newline='') as stream:
-        writer=csv.DictWriter(stream, fieldnames=list(data[0]))
-        writer.writeheader();writer.writerows(data)
+    write_export(out,args.output_dir)
     print('Wrote status for', len(data), 'rank/multiplicity bands:',
           [(r,max(by_rank[r]),sum(map(sum,(x.values() for x in by_rank[r].values()))))
            for r in (4,5,6,7,8)])
@@ -116,11 +171,17 @@ def export(args):
 
 if __name__ == '__main__':
     p=argparse.ArgumentParser(description=__doc__)
-    p.add_argument('--bundle', required=True, type=Path)
+    p.add_argument('--refresh-rank6',action='store_true',
+                   help='Replace only rank-six rows/metadata in the existing status export')
+    p.add_argument('--bundle', type=Path)
     for r in (5,6,7,8):p.add_argument(f'--rank{r}-bundle',type=Path)
     p.add_argument('--output-dir',type=Path,default=ROOT/'data')
-    p.add_argument('--census', required=True, type=Path)
-    for r in (4,5,6):p.add_argument(f'--rank{r}', required=True, type=Path)
+    p.add_argument('--census', type=Path)
+    for r in (4,5,6):p.add_argument(f'--rank{r}', type=Path)
     p.add_argument('--rank7',type=Path,default=ROOT/'supplements/rank7/output/rank7_ledger.json')
     p.add_argument('--rank8',type=Path,default=ROOT/'supplements/rank8/data/decisions.json')
-    export(p.parse_args())
+    args=p.parse_args()
+    required=('rank6','rank6_bundle') if args.refresh_rank6 else ('bundle','census','rank4','rank5','rank6')
+    for name in required:
+        if getattr(args,name) is None:p.error('--'+name.replace('_','-')+' is required')
+    (refresh_rank6 if args.refresh_rank6 else export)(args)

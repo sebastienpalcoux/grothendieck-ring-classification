@@ -61,7 +61,10 @@ def unresolved_existence(rid):
 def verify_ledger(ledger):
     positive=positive_registry()
     claims={r['id'] for r in structure_only_records()}
-    require(claims<={d['id'] for d in ledger if d['status']=='unresolved'},'structure-only certificate assigned to a decided ring')
+    # A later general exclusion strengthens an earlier structure-only result;
+    # retain the latter certificate as compatible provenance.
+    require(claims<={d['id'] for d in ledger if d['status'] in ('unresolved','excluded')},'structure-only certificate contradicts a positive allocation')
+    require(all(d['existence']['pseudo_unitary']=='no' for d in ledger if d['id'] in claims),'structure-only certificate contradicts the categorical existence fields')
     for d in ledger:
         if d['status']=='excluded':expected=all_values('no')
         elif d['status']=='unresolved':expected=unresolved_existence(d['id'])

@@ -1,0 +1,247 @@
+{
+  "scope": "general_complex_fusion_categories",
+  "residuals_checked": 40,
+  "input_ids": [
+    "R6_3_215",
+    "R6_4_6",
+    "R6_4_22",
+    "R6_4_91",
+    "R6_4_155",
+    "R6_4_174",
+    "R6_4_211",
+    "R6_4_243",
+    "R6_4_258",
+    "R6_4_325",
+    "R6_4_416",
+    "R6_4_427",
+    "R6_4_629",
+    "R6_5_638",
+    "R6_5_1204",
+    "R6_6_49",
+    "R6_6_170",
+    "R6_6_1035",
+    "R6_7_200",
+    "R6_7_1225",
+    "R6_7_3582",
+    "R6_7_3812",
+    "R6_7_3813",
+    "R6_8_311",
+    "R6_8_491",
+    "R6_8_570",
+    "R6_8_1660",
+    "R6_8_2203",
+    "R6_8_3664",
+    "R6_8_6234",
+    "R6_8_6509",
+    "R6_8_6520",
+    "R6_8_6524",
+    "R6_8_6525",
+    "R6_8_6526",
+    "R6_8_6940",
+    "R6_8_6973",
+    "R6_8_6997",
+    "R6_8_6998",
+    "R6_8_6999"
+  ],
+  "census_sha256": "aa0cc6d10f4934752a621d4e92aa6603278707e512b483a429ed9d788fa5270a",
+  "new_exclusions": [
+    "R6_7_3813",
+    "R6_8_6940",
+    "R6_8_6973",
+    "R6_8_6998"
+  ],
+  "positive_controls": [
+    "R6_1_1",
+    "R6_1_3",
+    "R6_1_4",
+    "R6_1_6",
+    "R6_1_7",
+    "R6_1_9",
+    "R6_1_10",
+    "R6_1_11",
+    "R6_1_14",
+    "R6_1_15",
+    "R6_1_20",
+    "R6_1_21",
+    "R6_1_23",
+    "R6_1_24",
+    "R6_1_26",
+    "R6_1_30",
+    "R6_1_32",
+    "R6_1_34",
+    "R6_1_36",
+    "R6_1_37",
+    "R6_1_38",
+    "R6_2_2",
+    "R6_2_4",
+    "R6_2_11",
+    "R6_2_14",
+    "R6_2_34",
+    "R6_2_36",
+    "R6_2_40",
+    "R6_2_49",
+    "R6_2_53",
+    "R6_2_69",
+    "R6_2_71",
+    "R6_2_75",
+    "R6_2_94",
+    "R6_2_97",
+    "R6_2_98",
+    "R6_2_105",
+    "R6_2_124",
+    "R6_2_127",
+    "R6_2_128",
+    "R6_2_140",
+    "R6_2_143",
+    "R6_2_144",
+    "R6_3_47",
+    "R6_3_141",
+    "R6_3_218",
+    "R6_4_249",
+    "R6_4_322",
+    "R6_5_17",
+    "R6_6_345",
+    "R6_6_1712",
+    "R6_6_1764",
+    "R6_7_572",
+    "R6_7_2274"
+  ],
+  "positive_controls_passed": 54,
+  "basis_permutation_controls": [
+    {
+      "id": "R6_7_3813",
+      "basis_permutation": [
+        0,
+        5,
+        3,
+        1,
+        4,
+        2
+      ],
+      "verified": true
+    },
+    {
+      "id": "R6_8_6940",
+      "basis_permutation": [
+        0,
+        5,
+        3,
+        1,
+        4,
+        2
+      ],
+      "verified": true
+    },
+    {
+      "id": "R6_8_6973",
+      "basis_permutation": [
+        0,
+        5,
+        3,
+        1,
+        4,
+        2
+      ],
+      "verified": true
+    },
+    {
+      "id": "R6_8_6998",
+      "basis_permutation": [
+        0,
+        5,
+        3,
+        1,
+        4,
+        2
+      ],
+      "verified": true
+    }
+  ],
+  "tampering_controls": [
+    {
+      "id": "R6_7_3813",
+      "mutation": "trace",
+      "rejected": true
+    },
+    {
+      "id": "R6_7_3813",
+      "mutation": "field",
+      "rejected": true
+    },
+    {
+      "id": "R6_7_3813",
+      "mutation": "claim",
+      "rejected": true
+    },
+    {
+      "id": "R6_7_3813",
+      "mutation": "tensor_unit_pairing",
+      "rejected": true
+    },
+    {
+      "id": "R6_8_6940",
+      "mutation": "trace",
+      "rejected": true
+    },
+    {
+      "id": "R6_8_6940",
+      "mutation": "field",
+      "rejected": true
+    },
+    {
+      "id": "R6_8_6940",
+      "mutation": "claim",
+      "rejected": true
+    },
+    {
+      "id": "R6_8_6940",
+      "mutation": "tensor_unit_pairing",
+      "rejected": true
+    },
+    {
+      "id": "R6_8_6973",
+      "mutation": "trace",
+      "rejected": true
+    },
+    {
+      "id": "R6_8_6973",
+      "mutation": "field",
+      "rejected": true
+    },
+    {
+      "id": "R6_8_6973",
+      "mutation": "claim",
+      "rejected": true
+    },
+    {
+      "id": "R6_8_6973",
+      "mutation": "tensor_unit_pairing",
+      "rejected": true
+    },
+    {
+      "id": "R6_8_6998",
+      "mutation": "trace",
+      "rejected": true
+    },
+    {
+      "id": "R6_8_6998",
+      "mutation": "field",
+      "rejected": true
+    },
+    {
+      "id": "R6_8_6998",
+      "mutation": "claim",
+      "rejected": true
+    },
+    {
+      "id": "R6_8_6998",
+      "mutation": "tensor_unit_pairing",
+      "rejected": true
+    }
+  ],
+  "B13_regression": {
+    "totally_positive_candidates": 1129,
+    "norm_survivors": 1,
+    "excluded": true
+  }
+}

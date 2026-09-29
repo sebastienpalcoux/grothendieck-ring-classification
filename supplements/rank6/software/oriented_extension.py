@@ -35,6 +35,9 @@ def nc_certificate(R,T):
     return {'kind':'noncommutative_signed','characters':out}
 
 def pseudo_check(R,c):
+    if c['kind']=='quadratic_Gauss_family':
+        import new_gauss_family
+        new_gauss_family.verify(R,c);return
     if c['kind']=='modular_character_induction':
         import modular_character_induction
         modular_character_induction.verify(R,c);return

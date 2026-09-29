@@ -1,0 +1,27 @@
+\subsection{A further exclusion at multiplicity four}
+\label{subsec:stabilizer-rotation-416}
+The same local theorem excludes \texttt{R6\_4\_416} without changing its
+hypotheses to fit the input.  The unique relevant invertible involution is
+$b_1$, with fixed simples $b_4,b_5$.  Both exhaustive anti-invariant module
+actions have negative stabilizer sign on both fixed objects.  Each cubic
+invariant space has dimension four.  The Clifford-rotation trace therefore
+lies in $\{-2,1\}$, since the Cauchy prime support is $\{2,5\}$.
+In particular its upper bound is one.
+
+The quadratic central-induction calculation reconstructs all $895$ low
+frames.  After character reciprocity and joint Galois pruning, two relevant
+character labellings remain.  All sixteen second-indicator choices for each
+labelling are excluded by exact Farkas rays, using the interval bound
+$-2\leq\nu_3(b_4),\nu_3(b_5)\leq1$.  Thus only $32$ separating vectors are
+needed, and no discrete guess for the third indicators is required.
+
+For general scope, the unrestricted signed enumeration has $2376$ quotient
+tables in $83$ sign orbits.  All nongauge branches are rejected by $222$
+exact character obstructions.  Of the original nonzero dimension-character
+components, the non-Frobenius--Perron component has global dimension polynomial
+$x^2-32x+128$ and fails the norm condition at prime $5$, required by the
+Frobenius--Perron global dimension polynomial $x^2-800x+3200$.
+Consequently the same general-to-Galois-pseudo-unitary reduction applies.
+The combined general-scope certificate is
+\texttt{certificates/stabilizer\_rotation\_416.json}; it has been replayed
+under optimized Python with all numerical optimizer entry points disabled.

@@ -27,7 +27,7 @@ def certificate(R):
     reg=registry()
     for J,S in closed_subrings(R):
         n=len(J);m=max(flatten(S))
-        if n in (4,5) and m<=({4:128,5:20}[n]) and key(S) not in reg[n]:
+        if n in (4,5) and m<=({4:32,5:17}[n]) and key(S) not in reg[n]:
             return {'kind':'lower_rank_subring','subset':list(J),'rank':n,'multiplicity':m,'theorem':f'DP{n}.1.1'}
     return None
 
@@ -37,5 +37,5 @@ def verify(R,c):
     for jj,ss in closed_subrings(R):
         if list(jj)==J:S=ss;break
     require(S is not None and n==c['rank'] and n in (4,5),'invalid closed subring')
-    m=max(flatten(S));require(m==c['multiplicity'] and m<={4:128,5:20}[n],'outside cited theorem range')
+    m=max(flatten(S));require(m==c['multiplicity'] and m<={4:32,5:17}[n],'outside cited theorem range')
     require(key(S) not in registry()[n],'subring has a positive model')

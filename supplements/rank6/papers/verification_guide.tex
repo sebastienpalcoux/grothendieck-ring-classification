@@ -3,7 +3,7 @@
 \hypersetup{pdftitle={Verification guide: rank-six categorification through multiplicity eight},pdfauthor={}}
 \title{Verification guide\\\large Rank-six categorification through multiplicity eight}
 \author{}
-\date{23 September 2026}
+\date{29 September 2026}
 \begin{document}\maketitle
 \section{Scope and authoritative records}
 This guide accompanies \emph{Rank-six fusion rings: categorification
@@ -17,9 +17,9 @@ $\UnitaryCount$ unitary-positive rings, one spherical positive ring with
 no pseudo-unitary categorification, and $\UnresolvedCount$ residuals.
 The $\PositiveCount$ positive rings have $\ConstructorCount$ constructor
 records, including alternative models. General categorifiability is
-completely classified through multiplicity two: precisely $43$ of the
-$193$ rings in that range are categorifiable, all have spherical models,
-and $42$ have unitary models. The exception to pseudo-unitary existence
+completely classified through multiplicity three: precisely $46$ of the
+$577$ rings in that range are categorifiable, all have spherical models,
+and $45$ have unitary models. The other $531$ rings are generally excluded. The exception to pseudo-unitary existence
 is Schopieray's $\RR{2}{124}$.
 
 The authoritative files are \filename{data/census.json},
@@ -65,18 +65,10 @@ with transparency; it is not a proof of a universally optimal runtime.
 The first unresolved multiplicity identifies the next stratum requiring
 work. A zero residual count at some larger tested multiplicity says
 nothing by itself about untested multiplicities.
-The dimension-order and character-induction stages first contribute new
-top-level removals at multiplicity eight, one and four respectively.
-They may occur inside earlier nested certificates, and their first
-contribution cannot establish criterion stability beyond multiplicity eight.
 
 Use Python with the versions in \filename{requirements.txt}, a C++17
 compiler for the finite-search helpers, and \filename{pdflatex} for the
 PDFs. Native helpers are compiled from their supplied source as needed.
-The verification and discovery entry points select SymPy's pure-Python
-polynomial backend before importing SymPy. The archived exact separating
-vectors are indexed by the resulting equation-row order, including when
-the optional python-flint package is installed elsewhere.
 The verification commands are:
 \begin{verbatim}
 python -m pip install -r requirements.txt
@@ -85,7 +77,9 @@ python verify.py --jobs 2 --out verification/current/recheck.jsonl
 python -O verify.py --jobs 2 --out verification/current/recheck_O.jsonl
 python software/current_regressions.py
 \end{verbatim}
-To repeat ordered discovery on the source tensors, use:
+For a fresh discovery campaign, first copy the archive to a separate
+working directory. The following commands overwrite its campaign files;
+they are not needed to verify the frozen release:
 \begin{verbatim}
 python software/import_repository.py
 python software/classify.py --jobs 4
@@ -157,6 +151,277 @@ categorification theorem. Module-Gram and Morita constraints likewise
 require the module or subcategory hypotheses proved in the manuscript.
 Their applicability is checked before a certificate is accepted.
 
+\subsection{The two continuation files and release workflow}
+The original sixteen-stage campaign is preserved in
+\filename{verification/classification/}, including its unchanged
+accepted-certificate file. The first continuation used forty-seven
+frozen inputs and accepted seven general exclusions in
+\filename{certificates/continuation_20260929.jsonl}. Its bounded discovery
+outcomes and replay evidence are in \filename{verification/continuation/}.
+These are historical records with their own ledger and input hashes.
+
+The second continuation begins with forty tensors fixed in
+\filename{verification/round2/campaign_manifest.json}: the last
+multiplicity-three residual and all thirty-nine remaining tensors of
+multiplicities four through eight. This file preserves full tensors,
+identifiers and input hashes. The criterion scans and higher stabilizer
+campaign use this domain rather than a residual list that shrinks after
+new exclusions. A recorded ineligibility, timeout or surviving necessary
+system is a research outcome, not a negative certificate.
+
+Only general certificates accepted by the checker enter
+\filename{certificates/continuation_round2.jsonl}. The release is the
+disjoint union of the original campaign and both continuation files.
+Alternative proofs of the same tensor are verified but not counted twice.
+The following commands perform the second freeze and an independent
+replay of the accepted continuation records:
+\begin{verbatim}
+python -O software/round2_release.py
+python -O software/continuation_controls.py --jobs 2 \
+  --out verification/round2/replay_optimized.json
+\end{verbatim}
+The first command reads the canonical general proof sources, checks
+their tensors against the frozen input manifest, disables numerical
+optimization, verifies alternatives and all accepted continuation
+certificates, writes the second JSONL file and rebuilds the ledger in
+one process. Its receipt is
+\filename{verification/round2/release_replay.json}. The second command
+checks both continuation files against the current ledger and replays
+each certificate independently, again with both linear and mixed-integer
+optimizers disabled. The supplied output argument keeps its report
+separate from the first continuation's historical reports. Omitting
+\filename{-O} gives the corresponding normal-Python check; report
+filenames and hashes identify which invocation actually ran.
+
+Neither command reruns all unchanged original negative certificates.
+The full-ledger \filename{verify.py} commands above do that and also
+check the source and positive models, unless explicitly restricted by
+\filename{--proofs-only}. Retained incremental evidence is not described
+as a newly executed full replay.
+
+The first continuation's three additional general obstructions are implemented by
+\filename{new_rank3_subring.py},
+\filename{new_module_spectral.py}, and
+\filename{new_morita_order6.py} in \filename{software/}.
+Their checkers reconstruct the closed subring or the entire finite
+matrix/ring domain from the input tensor. The order-six reduction
+checks all $60$ cyclic and four nonabelian possibilities, including
+inherited subring certificates and the explicit faithful gradings.
+The revised general character-induction exclusions are accepted only
+with complete signed/character branch coverage and exact separating
+witnesses.
+
+The full Morita-action Gram criterion is in
+\filename{software/full_morita_gram.py}. Its first-continuation residual
+scan alone yielded no additional whole-ring exclusion. The second
+continuation couples complete Morita actions to the local rotation
+constraint; that stronger argument has its own general certificate. A feasible rational Gram system is
+only a necessary condition; the exploratory finite-completion scripts
+are not used to allocate a status from a numerical infeasibility flag.
+
+\subsection{Historical center compatibility and the final obstruction}
+The command
+\begin{verbatim}
+python research/center_continuation/exact_cyclic8_center.py
+\end{verbatim}
+checks the frozen rank-$22$ center tensor and modular datum in the exact
+cyclotomic quotient $\ZZ[x]/(\Phi_{136}(x))$. It verifies all $10\,648$
+spectral fusion identities, associativity, all $2\,904$ restriction-ring
+identities and all second indicators. The same command with Python's
+\filename{-O} flag checks without assertions. This is a compatibility
+certificate for $\RR{3}{215}$, not a categorical model: the required
+connected commutative separable algebra and tensor functor are not
+constructed by that compatibility test. A separate source-specific
+Morita argument now rules out lifting this displayed map from the actual
+known center. The audit in
+\filename{research/round2_audit/actual_cyclic8_morita.md} strengthens
+that source-specific argument to the entire actual cyclic-eight Morita
+class by forcing the canonical unit-induction support and module
+traces. Neither argument classifies all braided categories having the
+same modular data. The new local involution-rotation obstruction independently gives a
+general exclusion of the target ring; it does not identify a braided
+category from these modular data.
+
+The additional script
+\filename{research/new_frontier/frontier_spherical_reduction.py}
+checks unrestricted signed sphericalization: $1480$ quotients in $63$
+sign-gauge orbits, with every nongauge orbit excluded by exact zero or
+norm tests. The surviving gauges give a spherical structure, and their
+only nonzero dimension-character orbit is the Frobenius--Perron orbit.
+Thus general existence for this one ring is equivalent to pseudo-unitary
+existence. This reduction is one required component of the final general
+exclusion, together with the full Morita-action calculation and the
+stabilizer-rotation certificate described below.
+
+\subsection{Biquadratic dimension-field traces}
+\filename{software/new_biquadratic_trace.py} implements the general
+trace obstruction whose accepted records are in
+\filename{certificates/biquadratic_exclusions.json}. Central induction
+in the sphericalization forces its dimension field to be the
+biquadratic field generated by the original formal codegrees. Character
+orthogonality, the integral basis and the Casimir trace bound give a
+finite domain of totally positive possible dimensions. The $d$-number
+norm condition and the two remaining signed codegrees reduce that
+domain further. Finally, the signed and original Casimir characteristic
+polynomials must agree modulo two.
+
+The checker reconstructs these finite domains from the full tensor.
+The frozen-input scan covers all forty inputs, including all thirty-nine
+higher-multiplicity tensors. A separate scan checks all $\CensusCount$
+census tensors and yields fifty-one independent exclusions, with counts
+$1,6,11,15,18$ at multiplicities four through eight. These overlapping
+criterion totals are not new-ledger allocations. All $\PositiveCount$
+established positive models pass the necessary test. The independent
+scope audit is in
+\filename{research/round2_literature/biquadratic_trace_audit.md}; the
+optimized exact replay, imported-example regression and
+corrupted-certificate controls are recorded in
+\filename{research/round2_external/biquadratic_trace_audit.json}.
+The proof uses the sphericalization of an arbitrary category, so it
+does not require a pivotal assumption on the original categorification.
+
+\subsection{Ramification, trace ideals and all-orders Gauss bounds}
+\filename{software/new_ramified_signed.py} reconstructs the mod-two
+algebra, its primitive factors and the formal-codegree integrality
+constraints. A ramified quadratic dimension field can be isolated by
+these local factors. The resulting Casimir bound either contradicts
+the tensor directly or bounds a complete signed search. A successful
+signed reduction to the FP orbit must still be combined with a verified
+pseudo-unitary obstruction before receiving a general exclusion status.
+The uniform frozen-input report is
+\filename{research/round2_higher/ramification_application.json}; it
+includes every higher input and explicit failures of applicability.
+
+\filename{software/new_trace_ideal.py} does not require isolation of
+the dimension field. For each original rational or quadratic codegree
+$f$, relative trace forces the global-dimension trace into
+$\operatorname{Tr}_{\mathbb Q(f)/\mathbb Q}(f\mathcal O_{\mathbb Q(f)})$.
+Their least common multiple cannot exceed the original Casimir trace.
+The same bound can force every signed coefficient to retain its full
+absolute value, leaving an exhaustive sign search. Its full-census
+scan checks all $\CensusCount$ tensors; $11241$ satisfy the implemented
+self-dual applicability tests, and $1827$ are independently excluded.
+The corresponding exclusion counts at multiplicities four through eight
+are $115,238,317,443,634$. These numbers include previously excluded
+rings. The full reports and optimized controls are
+\filename{research/round2_external/trace_ideal_full_census_scan.json},
+\filename{trace_ideal_full_census_summary.json}, and
+\filename{trace_ideal_audit.json} in that directory.
+
+\filename{software/new_gauss_family.py} recognizes a rank-six family
+by its full tensor. It exhausts the low and high central restriction
+columns and then uses a quadratic Gauss-sum bound on roots of unity of
+all orders; no conductor cutoff is substituted for that bound. Its
+inner certificate has pseudo-unitary scope. For $\RR{8}{6520}$, the
+trace-ideal saturation reduction and this inner certificate form the
+general wrapper in
+\filename{research/round2_external/R6_8_6520_general.json}. Its exact
+replay requires $4298$ roots where the Gram and twist equations permit
+only $590$. The family scan covers the entire census and finds one
+applicable member at each multiplicity four through eight; those
+pseudo-unitary results are not automatically general exclusions without
+their recorded reductions.
+
+The imported proofs in \filename{research/round2_external/sources/}
+are retained with their original tensors and audit. The R3582 input
+matches $\RR{7}{3582}$ exactly; its release certificate uses the generic
+ramification reduction and a generic induction obstruction. The B13
+input has multiplicity thirteen, supplies a regression test for the
+biquadratic arithmetic, and adds no tensor to the census.
+
+The uniform arithmetic scans and controls can be reproduced by
+\begin{verbatim}
+python -O research/round2_external/audit_biquadratic_trace.py
+python -O research/round2_external/audit_trace_ideal.py
+python -O software/new_biquadratic_trace.py --all \
+  --output research/round2_external/biquadratic_full_census_scan.json
+python -O software/new_trace_ideal.py --all \
+  --output research/round2_external/trace_ideal_full_census_scan.json
+python -O research/round2_higher/verify_ramified.py --audit
+python -O research/round2_higher/verify_gauss_family.py
+\end{verbatim}
+These commands rewrite their stated research reports and, for the
+audit scripts, their canonical source records; run them in a working
+copy after checking the archive manifest. They do not modify the census.
+Re-freezing the release after source-record regeneration uses
+\filename{software/round2_release.py}.
+
+\subsection{The complete multiplicity-three obstruction}
+The manuscript's stabilizer-rotation theorem combines
+four independently necessary steps: exhaustive signed sphericalization,
+full two-sided Morita actions for the algebra $1+g$, the local
+involution-rotation lemma, and exhaustive central-induction separation.
+The module action forces the mixed left/right stabilizer commutator to
+be $-1$ for the two $g$-fixed simples. Adjacent pair-insertion operators
+therefore anticommute on their two-dimensional cubic invariant spaces.
+Naturality of pivotal rotation makes the rotation nonscalar; the
+Cauchy theorem and cyclotomic field intersection force the third
+indicators to be $-1$.
+
+\filename{software/stabilizer_rotation.py} implements both the
+positive-spherical inner criterion and the complete general wrapper.
+The certificate \filename{certificates/stabilizer_rotation_215.json}
+replays through \texttt{verify\_general(R,c)}. It reconstructs all
+$1480$ signed quotients, $63$ sign-gauge orbits, and $271$ required
+nongauge character rejections; it then checks all $16$ involution-module
+branches, $91$ low induction frames, and $200$ exact height-three
+separating rays. The reduction is implemented in
+\filename{software/galois_pseudo_reduction.py}. The local proof and
+source audit are in
+\filename{research/round2_literature/local_involution_rotation.md}.
+
+The direct replay commands read the existing certificate without
+regenerating it:
+\begin{verbatim}
+python software/stabilizer_rotation.py R6_3_215 \
+  --output certificates/stabilizer_rotation_215.json --verify
+python -O software/stabilizer_rotation.py R6_3_215 \
+  --output certificates/stabilizer_rotation_215.json --verify
+\end{verbatim}
+The general record is also checked by the top-level verifier. Its
+checker reconstructs the finite branch domains and uses exact integer
+arithmetic for every separating vector. An isolated positive-spherical
+inner certificate would not supply the required general conclusion.
+
+\subsection{Higher stabilizer and quartic ambient-field refinements}
+\filename{software/stabilizer_rotation_higher.py} extends the local
+Clifford constraint to larger cubic invariant spaces, including eligible
+non-self-dual simples. It checks every involution-module possibility.
+For a negative stabilizer commutator it first imposes the proved
+indicator interval, then, when needed, all discrete averaged values.
+Every accepted branch has an exact separating ray. Its inner scope is
+pseudo-unitary; the general wrapper verifies the independent signed
+reduction from \filename{software/galois_pseudo_reduction.py}.
+
+\filename{research/round2_theory/higher_campaign.json} indexes the
+frozen forty-input campaign, including every one of the thirty-nine
+higher inputs. Its outcomes distinguish completed exclusions,
+ineligibility, surviving necessary systems and explicit budget stops.
+Higher trace heights are additional recorded attempts, not a claim of
+complete search at arbitrary height. The positive controls include the
+entire $\PositiveCount$-model catalogue. The optional
+\filename{software/new_signed_csp.py} and
+\filename{software/new_signed_csp.cpp} are discovery helpers; unfinished unrestricted searches supply no negative records.
+
+\filename{software/cyclotomic_stabilizer_trace.py} handles supported
+quartic FP fields by verifying an embedding into a real cyclotomic
+field. It exhausts the proved finite relative-trace domain, including
+the zero trace vector accounting for all orders outside the stated
+box, all admissible high columns, and the required indicator choices.
+The inner condition combines these traces with the tensor-forced local
+rotation bound. The general wrapper additionally checks unrestricted
+signed sphericalization and all dimension-character alternatives.
+It does not identify a fusion category from a matching number field.
+
+Canonical general records for these refinements occur in the
+\filename{research/round2_center/}, \filename{research/round2_theory/}
+and \filename{research/round2_literature/} directories. The release
+script admits only supported general proof kinds from those records.
+Standalone necessary-system certificates, reductions without an inner
+obstruction, partial searches and exploratory module completions are
+kept out of the accepted JSONL file. No hard-coded list of ring labels
+replaces the tensor hypotheses or the exhaustive checking routines.
+
 \section{Positive models}
 Positive conclusions require a categorical construction and a complete
 tensor match. Sources include quantum-group categories, finite-group
@@ -189,8 +454,10 @@ newly resolved rings.
 
 \section{Residual tensors and finite witnesses}
 The first unresolved stratum is read from
-\filename{data/unresolved_tensors.json}. The tensor $\RR{3}{215}$ is the
-central low-multiplicity research target described in the manuscript.
+\filename{data/unresolved_tensors.json}; there are no residuals through
+multiplicity three. The tensor $\RR{3}{215}$ was the last residual at
+that bound and is now generally excluded. Its older feasible
+relaxations remain archived as scoped regression controls.
 Its file \filename{systems/integral_frontier_215.json} records a feasible
 point for a specified central-induction relaxation. The commands
 \begin{verbatim}
@@ -200,11 +467,14 @@ python -O software/modular_frontier.py
 reconstruct the low frame, character labels, second indicators, pruning
 and $230$ rational equations in $199$ variables. The supplied point has
 nonnegative integral coordinates and formal central rank $22$. This
-statement concerns that relaxation; it supplies neither individual
-twists, a complete center fusion ring, nor associators.
+statement concerns that relaxation. The separate exact center
+completion described above now supplies compatible twists and a full
+center fusion ring, but still no associators for the rank-six target
+or an algebra structure realizing its restriction map.
 
 \subsection{The joint product test and literature comparisons}
-The first general residual remains $\RR{3}{215}$. The manuscript proves
+Before the final rotation obstruction, $\RR{3}{215}$ was the first
+general residual. The manuscript retains
 a joint fourth-order product-Gram condition for pseudo-unitary center
 data with specified self-dual low objects. This couples all low products
 in a single nonnegative integral Gram factorization and enforces their
@@ -217,8 +487,9 @@ fourth-order moments, all fifteen product restrictions and the expanded
 Gram factorization. The rank-$22$ formal point survives: the residual
 $15\times15$ Gram matrix has rank three, its three high restriction types
 have multiplicities $(4,8,4)$, and the forced per-object product
-coefficients are nonnegative integers. The test supplies no complete
-center fusion tensor, individual twists or associators. Rejecting just
+coefficients are nonnegative integers. The product-Gram test alone supplies no complete
+center fusion tensor, individual twists or associators; these first two
+data are supplied by the separate continuation certificate above. Rejecting just
 one proposed center point would not by itself exclude the ring either.
 
 The two literature checks are
@@ -239,7 +510,7 @@ Ng--Rowell--Wen rank-six ancillary data and screens all $16612$ census
 tensors. Exact basis-permutation comparisons follow invariant filtering.
 The $192$ modular records comprise $20$ Galois orbits and eleven
 based-ring types, all of multiplicity at most two; there is no new model
-for the multiplicity-three frontier or the multiplicity-eight stratum.
+for the former multiplicity-three frontier or the multiplicity-eight stratum.
 The source comparison does not exclude arbitrary fusion categories.
 Both programs save explicit scope and source identities with their
 reports. No ring-specific hand arithmetic is required to reproduce any
@@ -254,9 +525,10 @@ as a new model only when the source actually constructs a category and
 its full fusion tensor agrees.
 
 \section{Regenerating the presentation}
-The manuscript has seven source chapters organized by mathematical
-operation. The following commands rebuild the derived ledgers, tables
-and the two companion PDFs from the retained records:
+The manuscript has seven main source chapters, with continuation
+subsections included from their separate theorem files. After the second-continuation freeze and replay described above, the
+following commands rebuild the derived ledgers, tables and companion
+PDFs from the retained records:
 \begin{verbatim}
 python software/release.py
 python software/model_catalog.py
@@ -269,6 +541,4 @@ All generated counts must agree with the authoritative decision ledger.
 The eight OEIS terms count based rings rather than categorifiable rings;
 no accession or online submission is claimed. No census enumeration is
 part of this reproduction procedure.
-\par\medskip\noindent\textbf{AI assistance.} GPT-6 Astra assisted with research,
-computation, and document preparation.
 \end{document}

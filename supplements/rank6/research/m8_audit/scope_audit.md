@@ -22,11 +22,7 @@ the corresponding manuscript statements. It did not enumerate fusion rings.
 * Lower-rank subring descent uses the stated classification range of its
   imported theorem. A larger counting census alone does not extend the
   classification range. Here those imported ranges are rank four through
-  multiplicity 128 and rank five through multiplicity 17. This widens
-  the cited theorem's range, while every subring actually tested in the
-  rank-six source range has multiplicity at most eight. The change in
-  the imported theorem bound therefore creates no new rank-six
-  exclusion in the present ledger.
+  multiplicity 32 and rank five through multiplicity 17.
 
 ## Reusable criteria
 

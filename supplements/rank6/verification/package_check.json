@@ -1,46 +1,40 @@
 {
   "passed": true,
-  "scope": "Revised package checksum, lower-rank-subring certificates and ledger consistency; no independent census enumeration or repeat full certificate sweep.",
+  "scope": "Curated deliverable; manifest, source correspondence, and ledger/export checks only. No census enumeration.",
   "checks": [
     {
       "check": "manifest",
       "command": [
-        "python",
+        "/workspace/scratch/dbf603717127/rank6_m8_paper/.venv/bin/python",
         "check_manifest.py"
       ],
       "returncode": 0,
-      "stdout": "Checked 253 files; 0 failures.\n"
+      "seconds": 0.10674702300002537,
+      "stdout": "Checked 250 files; 0 failures.\n",
+      "stderr": ""
+    },
+    {
+      "check": "source_integrity",
+      "command": [
+        "/workspace/scratch/dbf603717127/rank6_m8_paper/.venv/bin/python",
+        "software/import_repository.py"
+      ],
+      "returncode": 0,
+      "seconds": 1.8067713149994233,
+      "stdout": "{\n  \"tensors\": 16612,\n  \"source_commit\": \"b86eb6dc6eeeafe5fc5f6906d7b074e0322e9726\",\n  \"sha256\": \"0138c6228dbb06b0861ad38b8dfe67fcd1fc829add80d441c34c09a1afb78675\",\n  \"counts\": {\n    \"1\": 39,\n    \"2\": 154,\n    \"3\": 384,\n    \"4\": 872,\n    \"5\": 1582,\n    \"6\": 2768,\n    \"7\": 3814,\n    \"8\": 6999\n  },\n  \"method\": \"pinned-source checksum and exact representative coverage\",\n  \"independent_census_recomputed\": false\n}\n",
+      "stderr": ""
     },
     {
       "check": "ledger_consistency",
       "command": [
-        "python",
-        "software/release_consistency.py"
+        "/workspace/scratch/dbf603717127/rank6_m8_paper/.venv/bin/python",
+        "-c",
+        "import sys,json;sys.path.insert(0,\"software\");from release_consistency import verify_consistency;print(json.dumps(verify_consistency(),indent=2))"
       ],
       "returncode": 0,
-      "ledger_rows": 16612,
-      "model_rows": 54,
-      "residual_rows": 47
-    },
-    {
-      "check": "lower_rank_subring",
-      "command": "Reconstruct each stored lower-rank-subring exclusion with software/subring_descent.py:verify",
-      "returncode": 0,
-      "certificates_verified": 144
-    },
-    {
-      "check": "latex",
-      "command": [
-        "python",
-        "build_papers.py"
-      ],
-      "returncode": 0,
-      "pdfs": [
-        "papers/manuscript.pdf",
-        "papers/verification_guide.pdf"
-      ]
+      "seconds": 1.2996265170004335,
+      "stdout": "{\n  \"passed\": true,\n  \"optimized_python\": false,\n  \"seconds\": 0.9692148799995266,\n  \"ledger_rows\": 16612,\n  \"model_rows\": 54,\n  \"constructor_rows\": 61,\n  \"residual_rows\": 47,\n  \"five_structure_CSV_checks\": true,\n  \"residual_structure_checks\": true,\n  \"constructor_macro_checked\": true,\n  \"OEIS_prefix_preserved\": true,\n  \"OEIS_complete_terms\": 8\n}\n",
+      "stderr": ""
     }
-  ],
-  "full_negative_certificate_sweep_in_this_revision": false,
-  "original_full_negative_certificate_checks": "verification/release_summary.json"
+  ]
 }

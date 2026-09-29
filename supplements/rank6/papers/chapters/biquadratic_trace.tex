@@ -1,0 +1,125 @@
+\subsection{Biquadratic spherical traces}
+\label{subsec:biquadratic-spherical-traces}
+The following test uses sphericalization to obstruct a fusion category without
+assuming that it itself admits a spherical structure.  Throughout this
+subsection the input ring is commutative, self-dual, and of rank six.
+Write $N_i$ for its regular multiplication matrices and
+$T_0=\operatorname{Tr}(\sum_i N_i^2)$.
+
+\begin{lemma}[Dimension-field containment]\label{lem:dimension-field-containment}
+If the input ring is categorifiable, there is a commutative integral signed
+based algebra $A$ of rank six, with symmetric multiplication matrices $M_i$,
+such that $M_i\equiv N_i\pmod2$ and $|(M_i)_{jk}|\le (N_i)_{jk}$.
+It has a dimension character $d=(1,d_1,\ldots,d_5)$ in a totally real field
+$K$ of degree at most six.  If $\Delta=\sum_i d_i^2$, every original formal
+codegree $f$ belongs to $K$, and $\Delta/f$ is an algebraic integer in $K$.
+The same statement holds for every formal codegree of $A$.
+\end{lemma}
+\begin{proof}
+Sphericalization has two lifts of each simple and a central sign object
+$\epsilon$ of dimension $-1$.  Each lift of a self-dual simple is self-dual:
+its two possible lifts have opposite nonzero dimensions, whereas a dual has
+the same dimension.  Thus its Grothendieck ring is commutative.  Quotienting
+by $\epsilon+1$ gives $A$ and the asserted bounds and parity.  Its regular
+matrices are real symmetric, hence simultaneously diagonalizable with real
+characters.  Evaluation at the dimension character is a field quotient
+of $A\otimes\mathbb Q$, proving $[K:\mathbb Q]\le6$.
+An original character extends to sphericalization with $\epsilon=1$ and
+formal codegree $2f$.  The induction theorem for formal codegrees
+\cite[Theorem~2.13]{Ostrik3} produces a central simple object of dimension
+$2\Delta/(2f)=\Delta/f$.  Forgetting it to sphericalization expresses this
+dimension as an integer combination of the numbers $\pm d_i$.
+The same argument applies to signed characters with $\epsilon=-1$.
+\end{proof}
+
+Suppose the original formal-codegree fields generate
+$E=\mathbb Q(\sqrt p,\sqrt q)$, where $p,q>1$ are squarefree, $p\equiv1\pmod4$,
+and their quadratic field discriminants are coprime.  The lemma forces
+$K=E$, since $4\mid[K:\mathbb Q]\le6$.  Write
+$d_i=(\alpha_i+\beta_i\sqrt p+\gamma_i\sqrt q+
+\delta_i\sqrt{pq})/4$.  Orthogonality of the four distinct Galois-conjugate
+characters gives
+\[
+16+\sum_{i=1}^5\alpha_i^2
+=p\sum_{i=1}^5\beta_i^2
+=q\sum_{i=1}^5\gamma_i^2
+=pq\sum_{i=1}^5\delta_i^2.
+\]
+Consequently $\operatorname{Tr}_{E/\mathbb Q}(\Delta)\in pq\mathbb Z_{>0}$.
+The two remaining signed formal codegrees are greater than one, since all
+are positive and their reciprocals sum to one.  Since the signed Casimir
+trace is at most $T_0$,
+\begin{equation}\label{eq:biquadratic-trace-bound}
+\operatorname{Tr}_{E/\mathbb Q}(\Delta)<T_0-2.
+\end{equation}
+
+\begin{proposition}[Finite biquadratic obstruction]
+\label{prop:biquadratic-trace-obstruction}
+Assume in addition that the Frobenius--Perron formal codegree has minimal
+polynomial $X^2-5nX+25n$, where $n=s^2+4=k^2\ell$ and
+$\ell\in\{q,pq\}$.  Every categorification supplies an integral element
+\[
+\theta=\frac{\Delta}{5k\sqrt\ell}
+=\frac{x+y\sqrt p+z\sqrt q+w\sqrt{pq}}4
+\]
+subject to all the following finite tests:
+\begin{enumerate}
+\item $\Delta$ is totally positive, its trace satisfies
+\eqref{eq:biquadratic-trace-bound}, and $pq$ divides that trace.
+Put $m=z$ if $\ell=q$ and $m=w$ if $\ell=pq$.  Then $m>0$ and
+$\operatorname{Tr}(\Delta)=5k\ell m$.
+\item $\operatorname{Norm}(\theta)$ divides $\ell^2m^4$.
+\item Put $1-\operatorname{Tr}(1/\Delta)=A/B$ in lowest positive terms.
+For some positive integer $j$, the last two signed codegrees have sum $Aj$
+and product $Bj$, both roots greater than one, and sum at most
+$T_0-\operatorname{Tr}(\Delta)$.  If their quadratic polynomial is
+irreducible, $Bj\mid(Aj)^2$ and its quadratic field embeds into $E$.
+\item The product of this quadratic polynomial and
+$\prod_{\sigma:E\hookrightarrow\mathbb R}(X-\sigma\Delta)$ is congruent
+modulo two to the original Casimir characteristic polynomial.
+\end{enumerate}
+If the finite set is empty, no complex fusion category realizes the ring.
+\end{proposition}
+\begin{proof}
+For $u=(s+\sqrt n)/2$ one has $u^2-su-1=0$ and
+$D=5\sqrt n\,u$.  Thus $\theta=u\Delta/D$ is integral by
+Lemma~\ref{lem:dimension-field-containment}.
+The integral basis is the product of the integral bases of the two quadratic
+fields, because their discriminants are coprime.  If $(e,h)=(1,2)$ for
+$q\equiv1\pmod4$, and $(e,h)=(0,1)$ otherwise, its congruences are
+\[
+\begin{aligned}
+hw&\equiv0\pmod2,& h(z-w)&\equiv0\pmod4,\\
+y-ew&\equiv0\pmod2,& x-y-ez+ew&\equiv0\pmod4.
+\end{aligned}
+\]
+Total positivity supplies the strict coordinate bounds
+$|w|<m/\sqrt p$, $|x|<m\sqrt q$, $|y|<m\sqrt{q/p}$ when $\ell=q$;
+and $|x|<m\sqrt{pq}$, $|y|<m\sqrt q$, $|z|<m\sqrt p$ when $\ell=pq$.
+Together with the trace bound these give the finite search.
+The global dimension is a $d$-number by \cite[Theorem~1.2]{Ocode}.  For a nonzero $d$-number $a$ in a
+Galois field, $\operatorname{Tr}(a)^4/\operatorname{Norm}(a)$ is integral:
+$\operatorname{Tr}(a)/a$ is integral and one takes its norm.  Applying this
+to $\Delta$ gives the norm divisibility in (2).
+The two complementary codegrees are Galois stable, so their sum and product
+are integers.  The reciprocal identity gives $(Aj,Bj)$; the quadratic
+$d$-number test and Lemma~\ref{lem:dimension-field-containment} give (3).
+Finally $M_i\equiv N_i\pmod2$ implies the congruence in (4).
+\end{proof}
+
+The tensor-only implementation \texttt{new\_biquadratic\_trace.py} excludes
+\texttt{R6\_7\_3813}, \texttt{R6\_8\_6940}, \texttt{R6\_8\_6973}, and
+\texttt{R6\_8\_6998}.  Their fields are respectively
+$\mathbb Q(\sqrt5,\sqrt{193})$,
+$\mathbb Q(\sqrt5,\sqrt{34})$,
+$\mathbb Q(\sqrt{17},\sqrt{257})$, and
+$\mathbb Q(\sqrt5,\sqrt{13})$.
+For \texttt{R6\_8\_6973}, the trace is $2570m$, the trace bound gives
+$1\le m\le2$, and the lattice condition requires $17\mid m$.
+For \texttt{R6\_8\_6998}, the only remaining complementary pair has polynomial
+$X^2-2350X+2500$; its product with the four dimension codegrees is
+$X^6$ modulo two, whereas the original Casimir polynomial is $X^6+X^2$.
+All four certificates replay with Python optimization enabled.  The checker
+also reproduces the imported multiplicity-thirteen example's 1129 totally
+positive candidates, rejects altered certificates, respects simultaneous
+basis permutations, and excludes none of the 54 established positive models.

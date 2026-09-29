@@ -1,0 +1,94 @@
+{
+  "reports": [
+    {
+      "id": "R6_4_258",
+      "optimized": true,
+      "optimizer_disabled": true,
+      "seconds": 69.4035082770024,
+      "report": {
+        "general_categorification_excluded": true,
+        "reduction": {
+          "signed_quotients": 32,
+          "sign_orbits": 1,
+          "gauge_original_orbits": 1,
+          "nongauge_character_rejections": 0,
+          "categorifications_spherical": true,
+          "galois_pseudo_unitary": true
+        },
+        "pseudo": {
+          "involution_branches": 1,
+          "low_frames": 3,
+          "rays": 12,
+          "ambient_conductor": 20,
+          "prime_support": [
+            2,
+            5
+          ],
+          "order_bound": 40,
+          "trace_types": 31,
+          "global_dimension_in_real_generator": [
+            "12",
+            "20",
+            "-20",
+            "-20"
+          ],
+          "column_counts": [
+            1,
+            3,
+            1,
+            2,
+            2
+          ]
+        }
+      }
+    },
+    {
+      "id": "R6_4_325",
+      "optimized": true,
+      "optimizer_disabled": true,
+      "seconds": 40.28654348600321,
+      "report": {
+        "general_categorification_excluded": true,
+        "reduction": {
+          "signed_quotients": 96,
+          "sign_orbits": 4,
+          "gauge_original_orbits": 1,
+          "nongauge_character_rejections": 9,
+          "categorifications_spherical": true,
+          "galois_pseudo_unitary": true
+        },
+        "pseudo": {
+          "involution_branches": 1,
+          "low_frames": 2,
+          "rays": 8,
+          "ambient_conductor": 16,
+          "prime_support": [
+            2
+          ],
+          "order_bound": 32,
+          "trace_types": 25,
+          "global_dimension_in_real_generator": [
+            "8",
+            "16",
+            "0",
+            "0"
+          ],
+          "column_counts": [
+            3,
+            1,
+            3,
+            3,
+            3
+          ]
+        }
+      }
+    }
+  ],
+  "rejected_mutations": [
+    "scope",
+    "module_object",
+    "trace_bound",
+    "low_branch",
+    "ray_sign"
+  ]
+}

@@ -9,7 +9,7 @@ const paperEntries = [
   {rank:3, title:"Galois-averaged indicators and sphericality in rank three", subtitle:"Direct five-ring classification and sphericality", type:"MANUSCRIPT", slug:"rank3"},
   {rank:4, title:"Rank-four Grothendieck rings through multiplicity 128", subtitle:"Complete general categorification", type:"CLASSIFICATION", slug:"rank4"},
   {rank:5, title:"Rank-five Grothendieck rings through multiplicity twenty", subtitle:"Complete general classification through m = 20", type:"CLASSIFICATION", slug:"rank5"},
-  {rank:6, title:"Rank-six fusion rings: categorification criteria and models through multiplicity eight", subtitle:"Complete to 2; partial general analysis through 8", type:"CLASSIFICATION", slug:"rank6"},
+  {rank:6, title:"Rank-six fusion rings: categorification criteria and models through multiplicity eight", subtitle:"Complete to 3; 22 general cases remain through 8", type:"CLASSIFICATION", slug:"rank6"},
 ];
 function paperSourcePath(rank,extension="pdf") {
   if (rank<=3) return `manuscripts/rank${rank}.${extension}`;
@@ -271,9 +271,19 @@ function renderScope() {
   }
 }
 function renderPapers() {
+  const release = state.data.rank6_release;
+  if (release) {
+    const summary = $("#rank6-release");
+    summary.replaceChildren(element("strong", "", "Rank-six update · 29 September 2026. "));
+    summary.append(document.createTextNode(`General categorification is complete through multiplicity ${release.complete_through}. Through multiplicity eight: ${fmt.format(release.excluded)} excluded, ${release.realized} realized, and ${release.unresolved} unresolved. The two continuations supply ${release.new_exclusions_since_previous_site} additional exclusions. New criteria include stabilizer rotation, cyclotomic traces, ramification, and trace ideals. `));
+    const archive=element("a", "", "Download the complete revised archive");
+    archive.href=`./${release.archive.path}`;archive.download="";summary.append(archive);
+  }
   const grid=$("#paper-grid");
   grid.replaceChildren();
   const entries=[...paperEntries];
+  const r6=state.data.scope.find((x)=>x.rank===6);
+  if (r6) entries.find((entry)=>entry.rank===6).subtitle=`Complete to ${r6.through}; ${r6.unresolved} general cases remain through ${r6.analyzed_through}`;
   const r7=state.data.scope.find((x)=>x.rank===7);
   const r8=state.data.scope.find((x)=>x.rank===8);
   if (r7)
@@ -295,7 +305,7 @@ function renderPapers() {
     manuscript.href=`./papers/${paper.slug}.pdf`;
     manuscript.dataset.localPaper=paper.slug;
     const source=element("a","","Source & verification ↗");
-    source.href=`${state.data.classification_repository}/blob/main/${paperSourcePath(paper.rank,"tex")}`;
+    source.href=`${state.data.classification_repository}/blob/${state.data.classification_commit || "main"}/${paperSourcePath(paper.rank,"tex")}`;
     source.target="_blank";source.rel="noopener";
     actions.append(manuscript);
     if (paper.rank===4) {
@@ -448,7 +458,7 @@ function renderRingProfile() {
   } else {
     panel.append(profileFact("Existence",ring.existence));
     panel.append(element("p","profile-citation",ring.model_reference));
-    panel.append(link("Inspect this exact model record ↗",`${state.data.classification_repository}/blob/main/${ring.source_file}`));
+    panel.append(link("Inspect this exact model record ↗",`${state.data.classification_repository}/blob/${state.data.classification_commit || "main"}/${ring.source_file}`));
     if (ring.model_reference_url)
       panel.append(link("Open the model's cited source ↗",ring.model_reference_url));
     panel.append(element("p","profile-note",`Source entry: ${ring.source_location}. Catalogue tensors were checked for unit, duality and associativity; existence is cited from the model source, not inferred from ring axioms.`));
@@ -511,7 +521,7 @@ async function verifyLocalPapers() {
       const response=await fetch(a.href,{method:"HEAD"});
       if (!response.ok || !/pdf/i.test(response.headers.get("content-type")||"")) throw new Error("missing");
     } catch {
-      a.href=`${state.data.classification_repository}/blob/main/${paperSourcePath(Number(a.dataset.localPaper.slice(4)))}`;
+      a.href=`${state.data.classification_repository}/blob/${state.data.classification_commit || "main"}/${paperSourcePath(Number(a.dataset.localPaper.slice(4)))}`;
       a.textContent="View paper files ↗";
       a.target="_blank";a.rel="noopener";
     }

@@ -1,22 +1,49 @@
 # Automated frontier research
 
-The main paper proves the necessary criteria and states their categorical scope.
-All current decisions come from `data/decisions.json`; feasible relaxations do
-not establish existence.
+The decision ledger is `data/decisions.json`. Necessary data and feasible
+relaxations do not establish categorifiability.
 
-The current research is in `m8_frontier/`:
+The second continuation completes multiplicity three. Its current work is
+organized as follows:
 
-- `low_product_gram.py --check` reconstructs and checks the joint fourth-order
-  Gram and restriction equations at the first unresolved tensor. The retained
-  point survives; no general exclusion or model is asserted.
-- `premodular_bound.py` derives exact Frobenius–Perron dimensions and applies
-  the Dong–Schopieray rank-six bound to all nonexcluded ledger entries. Its
-  conclusions concern braided spherical categorification only.
-- `nrw_rank6_scan.py` compares the entire trusted census with the pinned
-  Ng–Rowell–Wen rank-six modular tensors, including every unit-preserving basis
-  permutation after invariant prefilters.
+- `round2_center/`: the complete general certificate for R6_3_215, the
+  R6_4_416 extension, unrestricted signed reductions, and independent
+  quartic certificate audits.
+- `round2_theory/`: higher-dimensional Clifford rotation, the frozen
+  forty-input scan, height-six refinements, and all 54 positive controls.
+- `round2_literature/`: ambient cyclotomic trace certificates for the four
+  quartic-field exclusions, together with scoped surviving refinements.
+- `round2_higher/`: ramification and signed Casimir trace criteria, and the
+  all-orders Gauss family theorem with its full-census application.
+- `round2_external/`: imported-proof tensor audits, biquadratic and trace-ideal
+  criteria, full-census scans, and general signed-reduction certificates.
+- `round2_audit/`: independent mathematical and executable audits, including
+  the local Clifford theorem and the actual cyclic-eight Morita-class argument.
 
-These commands use standalone exact programs and local source data. They do
-not invoke AI services or enumerate a new census. Source URLs, hashes, computed
-certificates and explicit nonconclusions are included alongside the scripts.
-The `m8_audit/` notes record scope checks and targeted automation controls.
+The accepted general conclusions are frozen in
+`certificates/continuation_round2.jsonl`. The precise current residuals are
+always those in the decision ledger. A historical file describing R6_3_215
+as unresolved is superseded by the second-continuation theorem.
+
+The first 29 September continuation is retained as follows:
+
+- `new_frontier/`: full commuting Morita-action Gram identities, exact rejection
+  of 14 multiplicity-three branches, and unique completions of the two survivors.
+- `center_continuation/`: an exact rank-22 modular fusion tensor and positive
+  restriction-ring map, indicator tests and scoped congruence investigations.
+- `module_continuation/`: the two new multiplicity-eight spectral exclusions,
+  their exact certificates and positive-model controls.
+- `model_continuation/`: exhaustive order-six dual-ring classification and the
+  two new multiplicity-five Morita-grading exclusions, with mutation controls.
+- `new_rank3_descent.md`: general rank-three subring descent and the complete
+  census scan; the new residual exclusion is R6_4_162.
+
+The earlier `m8_frontier/` contains the joint fourth-order low-product Gram
+calculation, the braided-spherical bound and the frozen rank-six modular-data
+comparison. Their narrower claims remain valid. `m8_audit/` records the earlier
+scope controls. Earlier research data are retained as provenance.
+
+All accepted negatives are copied into checked certificate records and merged
+into the disjoint ledger. Numerical discoveries, process deadlines, failed
+hypotheses and surviving necessary systems do not assign an existence status.
+The source census remains trusted; no new census enumeration is claimed.

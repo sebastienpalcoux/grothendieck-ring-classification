@@ -7,7 +7,7 @@ from pathlib import Path
 from rings import *
 from signed import from_values,gauge_original
 
-def problem(R):
+def problem(R,normalized=True):
     n=len(R);require(n<=6 and max(flat(R))<=32,'oriented engine range');du=dual(R)
     def orbit(tri):
         a,b,c=tri;d=(du[c],du[b],du[a]);return sorted({tri,(b,c,a),(c,a,b),d,(d[1],d[2],d[0]),(d[2],d[0],d[1])})
@@ -22,7 +22,7 @@ def problem(R):
         for i,j,k in orb:mapping[i,j,du[k]]=v
     # Choose the positive-second-indicator lift for every self-dual simple.
     for i in range(1,n):
-        if du[i]!=i:continue
+        if du[i]!=i or not normalized:continue
         for j in range(1,n):
             bound=R[j][du[j]][i]
             if bound:
@@ -66,8 +66,8 @@ def problem(R):
     body.append('int main(){dfs(0);cerr<<"nodes "<<nodes<<" solutions "<<solutions<<"\\n";}')
     return dict(active=active,mapping=mapping,domains=domains,order=order,source='\n'.join(body)+'\n')
 
-def enumerate_all(R,timeout=60):
-    p=problem(R)
+def enumerate_all(R,timeout=60,normalized=True):
+    p=problem(R,normalized=normalized)
     with tempfile.TemporaryDirectory() as td:
         cpp=Path(td)/'enum.cpp';exe=Path(td)/'enum';cpp.write_text(p['source']);subprocess.run(['g++','-std=c++17','-O3',str(cpp),'-o',str(exe)],check=True,capture_output=True)
         run=subprocess.run([str(exe)],capture_output=True,text=True,check=True,timeout=timeout)
