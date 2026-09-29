@@ -12,9 +12,14 @@ multiplicity `m` with at least one fusion-category realization over ℂ.
 Generate from the exact status partitions with
 `python3 tools/export_oeis_drafts.py`. Every exported band has zero unresolved
 and zero unassessed rings; rank-five multiplicities 18–20 are now included after general exclusion certificates closed the former residuals.
-Rank-six general classification is complete only at multiplicities 1–2;
-rank seven and eight have unresolved cases even in their first analyzed
-bands. No sequence file is proposed for those partial classifications.
+Rank-six general classification is complete at multiplicities **1–3** and,
+separately, at **exact multiplicity 7**. Multiplicities 4–6 and 8 remain
+partial. The isolated completed seventh band does not extend the contiguous
+initial classification range and must not be used to fill its intervening
+gaps. Rank seven and eight have unresolved cases even in their first analyzed
+bands. The exporter currently emits only the rank-four and rank-five drafts
+listed above; no rank-six, rank-seven or rank-eight sequence file is proposed
+in this directory.
 No zero beyond a proven finite
 classification bound is inferred from the conjectured unrestricted
 classification.

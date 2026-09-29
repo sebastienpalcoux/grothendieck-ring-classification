@@ -1,0 +1,73 @@
+{
+  "passed": true,
+  "additional_general_certificates": [
+    {
+      "id": "R6_7_200",
+      "passed": true,
+      "certificate_sha256": "b403797d77378560f4f3d6d36aa2e44e395c2b52b6dd602929bffa943758989d",
+      "full_relabeled_replay": [
+        0,
+        5,
+        4,
+        3,
+        2,
+        1
+      ],
+      "missing_sector_rejected": true
+    },
+    {
+      "id": "R6_8_491",
+      "passed": true,
+      "certificate_sha256": "e7c024936622ad8fd6fec9b5313704e2f72d9876059d19422e8d39e6fa8a3780",
+      "full_relabeled_replay": [
+        0,
+        5,
+        4,
+        3,
+        2,
+        1
+      ],
+      "missing_sector_rejected": true
+    }
+  ],
+  "optimized_python": true,
+  "optimizer_disabled": true,
+  "seconds": 45.68453335600134,
+  "certificate_sha256": "bf0e1b98730aefacdeb26de03afaad309fba8ce117ef1af11b7882b18bb5cd0e",
+  "mutations_rejected": [
+    "trace",
+    "spectrum",
+    "sign_table",
+    "gauge",
+    "induction_branch",
+    "scope"
+  ],
+  "full_relabeled_replays": [
+    [
+      0,
+      2,
+      1,
+      3,
+      4,
+      5
+    ],
+    [
+      0,
+      5,
+      4,
+      3,
+      2,
+      1
+    ],
+    [
+      0,
+      3,
+      1,
+      5,
+      2,
+      4
+    ]
+  ],
+  "positive_controls": 54,
+  "census_tensors_screened": 16612
+}

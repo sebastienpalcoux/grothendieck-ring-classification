@@ -1,0 +1,195 @@
+\subsection{Full-character traces and low Verlinde compatibility}
+\label{subsec:round3-ambient}
+The full character field can contain useful information that disappears
+under projection to the Frobenius--Perron dimension field.  We retain this
+information by applying the ambient trace construction of
+Proposition~\ref{prop:ambient-trace-domain} to a cyclotomic field containing
+all characters.  The following formula makes this extension inexpensive.
+
+\begin{lemma}[Direct cyclotomic relative trace]
+\label{lem:round3-relative-trace}
+Let $K=\QQ(\zeta_F)$ and let $\theta=\zeta_m^b$ have exact order $m$.
+Put $d=\gcd(m,F)$ and $r=m/d$.  If $\gcd(r,F)>1$, the normalized relative
+trace of $\theta$ to $K$ is zero.  Otherwise it is
+\[
+ \frac{\Tr_{K(\theta)/K}(\theta)}{[K(\theta):K]}
+ =\frac{\mu(r)}{\varphi(r)}\,\zeta_d^{\,b r^{-1}},
+\]
+where the inverse is taken modulo $d$, and the last factor is $1$ when
+$d=1$.
+\end{lemma}
+\begin{proof}
+If a prime divides both $r$ and $F$, its exponent in $m$ exceeds its
+exponent in $F$.  The last cyclotomic layer at this prime fixes $K$ and
+the other primary components; the corresponding primitive root sum is
+zero.  Transitivity of normalized trace proves the first assertion.
+Otherwise $r$ is coprime to $F$, and hence to $d$.  The Chinese remainder
+identity writes
+\[
+ \zeta_m^b=\zeta_d^{\,b r^{-1}}\zeta_r^{\,b d^{-1}}.
+\]
+The first factor lies in $K$.  Averaging the second factor over the
+cyclotomic Galois group gives the primitive root sum $\mu(r)$ divided
+by $\varphi(r)$.  Coprimality ensures that adjoining $K$ does not change
+this average.
+\end{proof}
+
+Apply the lemma separately to the powers $\theta^j$.  With the finite
+bound $B$ of Proposition~\ref{prop:ambient-trace-domain}, this computes
+the complete joint trace domain directly in $K$, without constructing
+$\QQ(\zeta_B)$.  An independent implementation compares this formula
+with explicit Galois averaging in compositum fields: all $1056$ exact
+comparisons, covering $176$ conductor--order pairs, agree.
+
+\begin{proposition}[Full-character moment compatibility]
+\label{prop:round3-full-character}
+Suppose a commutative fusion ring has a pseudo-unitary categorification.
+Let $D$ be its global dimension and let $K=\QQ(\zeta_F)$ contain its
+full character table.  For every possible low induction frame, the
+nonnegative counts of high restriction columns and joint twist traces
+satisfy the following conditions:
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item the induction Gram identities and the central indicator formulas;
+\item for every simple $X$, every tested order $n$, and every proper
+ divisor $r$ of $n$, the cyclic rotation character identity
+\[
+ \Tr(E_{X,n}^{r})=\nu_{n/r}(X^r),\qquad
+ \dim\operatorname{Hom}(\one,X^n)=[X^n:\one];
+\]
+\item the low-pair modular equations and the integrality and Galois
+ compatibility of the joint fusion eigenvalues;
+\item equality of the multiplicities of paired types
+ $(\lambda,\tau)$ and $(\sigma\lambda,\sigma^2\tau)$, where $\lambda$
+ is the joint low fusion eigenvalue vector and $\tau$ the joint
+ normalized twist-trace vector.
+\end{enumerate}
+Thus exact infeasibility of all these finite systems excludes a
+pseudo-unitary categorification.
+\end{proposition}
+\begin{proof}
+The Gram identities and the indicator formula are the established
+induction constraints; the latter are applied coefficientwise in $K$
+using \cite[Theorem~4.1]{NS}.  The cyclic rotation operator has $n$th
+roots of unity as eigenvalues, and the divisor-power identity follows
+by grouping the tensor factors into blocks of length $r$; see
+\cite{NSpiv}.  Introduce nonnegative variables for these rotation
+eigenvalue multiplicities and apply normalized relative trace.  The
+resulting equations are rational after expansion in a power basis.
+
+For low central objects $A,B$, both twists are one, so the center
+identity $STS=DT^{-1}ST^{-1}$ gives the low-pair equations.
+Their joint eigenvalues are algebraic integers and occur with
+Galois-invariant multiplicities.  Under a Galois automorphism the
+fusion eigenvalues transform by $\sigma$, whereas the canonical center
+twists transform by $\sigma^2$.  Normalized relative trace commutes
+with these automorphisms, proving the paired-type equality.  If an
+ambient automorphism requires a lift to a compositum, the resulting
+normalized trace is independent of that lift.  The twist-one low
+objects contribute the known constant terms.  Relaxing integer
+multiplicities to nonnegative real variables enlarges the set of
+possible solutions, so an exact separating functional proves the
+claimed necessary obstruction.
+\end{proof}
+
+There is a complementary refinement using low fusion products.  Write
+$v_Z$ for the restriction column of a central simple $Z$ and
+$d(v)=\sum_i v_i\FPdim(b_i)$.  For a low central simple $A_a$ associated
+to a character $\chi_a$ of formal codegree $f_a$, put
+\[
+ t_a(v)=\frac{D}{f_a}\frac{\chi_a(v)}{d(v)}.
+\]
+Then $t_a(v_Z)=S_{A_a,Z}/d_Z$.
+
+\begin{proposition}[Low Verlinde and restriction-product constraints]
+\label{prop:round3-low-verlinde}
+Assume additionally that the ring is self-dual.  The low central
+simples are self-dual, and their fusion coefficients satisfy
+\[
+ n_{abc}:=N_{A_a,A_b}^{A_c}
+ =\sum_Z\frac{t_a(v_Z)t_b(v_Z)t_c(v_Z)d_Z^2}{D^2}
+ \in\ZZ_{\ge0}.
+\]
+Let $m_v$ be the number of high central simples with restriction
+column $v$.  For every pair $a,b$ there are integers $q_{abv}\ge0$
+such that
+\[
+ v_{A_a}v_{A_b}
+ =\delta_{ab}e_0+\sum_{c\ne0}n_{abc}v_{A_c}
+       +\sum_{v\text{ high}}q_{abv}v,
+ \qquad
+ q_{abv}\le M_{abv}m_v,
+\]
+where multiplication on the left is in the original based ring and
+\[
+ M_{abv}=\min_{v_i>0}
+ \left\lfloor\frac{(v_{A_a}v_{A_b})_i}{v_i}\right\rfloor.
+\]
+These give additional rational linear equations and inequalities.
+\end{proposition}
+\begin{proof}
+All characters of a commutative self-dual based ring are real, so the
+low central $S$-rows are real.  Complex conjugation of a modular
+$S$-row corresponds to duality; invertibility of $S$ therefore makes
+each low central object self-dual.  The displayed formula is then the
+Verlinde formula, since the center has global dimension $D^2$.
+Restriction is a tensor functor, which proves the product identity.
+For each high central simple $Z$ of restriction $v$, coefficientwise
+nonnegativity bounds $N_{A_a,A_b}^Z$ by $M_{abv}$.  Summing this bound
+over the $m_v$ such simples proves the final inequality.
+\end{proof}
+
+The implementation may retain integer variables and test congruences.
+Only rows with integer-count variables are used for a congruence
+witness.  In the applications below, however, nonnegative linear
+infeasibility already suffices: each stored ray $y$ satisfies
+$y^TA\ge0$ and $y^Tb<0$ over the integers.  No numerical optimizer is
+used by the final verifier.
+
+\begin{theorem}\label{thm:round3-m4-211-243}
+The rings $\RR{4}{211}$ and $\RR{4}{243}$ have no complex fusion
+categorification.
+\end{theorem}
+\begin{proof}
+For $\RR{4}{211}$, the simple dimensions are
+$(1,1,d,2d+1,2d+1,d)$, where $d=2+\sqrt6$, and
+$D=120+48\sqrt6$.  Its full character field is
+$\QQ(\sqrt2,\sqrt3)$, so take $F=24$.  At height three the Cauchy
+prime support $\{2,3\}$ gives $B=144$ and $53$ joint trace types.
+The exhaustive low enumeration has $130$ frames.  Only two frames
+have relevant character assignments: each has two assignments and
+four second-indicator choices.  All $16$ systems are excluded by
+exact rays from Proposition~\ref{prop:round3-full-character}.
+Here even the weaker equality of total joint-type Galois
+multiplicities suffices; the coupled trace refinement is not needed.
+
+For $\RR{4}{243}$, the dimensions are $(1,1,d,d+1,d+1,d)$ with
+$d=7+\sqrt{57}$ and $D=456+60\sqrt{57}$.  The full character field is
+quadratic.  The height-six systems use
+Proposition~\ref{prop:round3-low-verlinde}, including restriction-product
+bounds.  There are $210$ low frames.  Four relevant frames contribute
+respectively two, one, one, and two character assignments, each with
+eight second-indicator choices.  The resulting $48$ systems all have
+exact separating rays.
+
+Finally, general scope is supplied independently by unrestricted
+signed sphericalization.  For the two rings the complete signed
+enumerations have respectively $128$ and $1584$ tables, in $4$ and
+$53$ sign-gauge orbits.  Exactly one orbit in each case is gauge
+isomorphic to the original tensor; the remaining character branches
+are rejected by respectively $8$ and $176$ exact arithmetic
+obstructions.  The surviving nonzero dimension characters belong to
+the Frobenius--Perron Galois orbit.  Thus any complex categorification would admit a pseudo-unitary
+Galois conjugate, contradicting the preceding exclusions.
+\end{proof}
+
+The full certificates and exact replay reports are retained in
+\filename{research/round3/m4}.  The verifiers
+\filename{software/round3_m4.py} and
+\filename{software/round3_verlinde.py} reconstruct the complete branch
+domains from the input tensors.  Both new necessary systems are also
+applied to the entire frozen $22$-ring frontier and all $54$ positive
+model controls, with explicit eligibility and time-budget outcomes;
+a timeout is inconclusive.  In particular, $\RR{4}{155}$ and
+$\RR{4}{629}$ survive the stronger full-character height-six systems
+with coupled Galois spectrum/twist counts.  These surviving systems
+are not asserted to be modular data or categorifications.

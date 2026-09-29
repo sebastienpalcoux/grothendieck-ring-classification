@@ -27,6 +27,26 @@ rank6_complete=next((x['multiplicity']-1 for x in rank6 if x['unresolved_general
 rank6_summary=(f'| 6 | Through 8 | **Complete through {rank6_complete}** | '
                f'Through 8: {rank6_excluded:,} excluded, {rank6_realized} realized, '
                f'{rank6_open} unresolved; {state[(6,8)]["unresolved_general"]} of those residuals occur at multiplicity 8. |')
+identity=json.loads((ROOT/'data/rank6_release_identity.json').read_text())
+release=identity['summary']
+complete_bands=', '.join(str(r[0]) for r in [(m, state[(6,m)]['unresolved_general']) for m in range(1,9)] if r[1]==0)
+rank6_continuation=f"""The latest rank-six continuation adds **{release['third_continuation_excluded']} general exclusions**, reducing
+the frontier from 22 cases to **{rank6_open}**. It settles three multiplicity-four cases,
+all remaining noncommutative frontier cases, and the four dense multiplicity-eight
+cases. The exact multiplicity bands **{complete_bands}** are now fully classified.
+All **577 rings through multiplicity three** remain classified: **531 excluded
+and 46 realized**, including 45 with unitary models.
+
+The three continuation files contain 7, 18 and {release['third_continuation_excluded']} disjoint general
+exclusions. New cyclic-associator, full-character, integral Morita, dimension-field
+and signed-spectrum criteria have been applied through multiplicity eight.
+See the [revision notes](supplements/rank6/REVISION_NOTES.md),
+[{rank6_open} remaining tensors](supplements/rank6/data/unresolved_tensors.json),
+[criterion coverage](supplements/rank6/research/round3/coverage.json), and
+[exact new-proof replay](supplements/rank6/verification/round3/release_replay.json).
+The [complete revised rank-six ZIP](https://grothendieck-ring-atlas.sebastien-palcoux.chatgpt.site/downloads/{identity['archive']['name']})
+contains all {identity['archive']['files']} released files, including all three continuation files.
+"""
 lines=['''# Grothendieck ring classification
 
 ### Which low-rank fusion rings admit fusion categories over ℂ?
@@ -84,19 +104,7 @@ categorification**. “Realized” means that at least one categorification is
 constructed; it does not assert that every categorification of that ring is
 unitary. Rank five has no unresolved ring through multiplicity 20.
 
-The rank-six continuation closes the final multiplicity-three case,
-`R6_3_215`, using Clifford stabilizer rotation and exhaustive central-induction
-certificates. General classification is complete for all **577 rings through
-multiplicity three**: **531 excluded and 46 realized**, including 45 with
-unitary models. The two continuations add **25 general exclusions** to the
-previous repository release (7 in the first continuation and 18 in the second).
-The new stabilizer, cyclotomic-trace, ramification, norm, trace-ideal and Gauss
-criteria have been applied through multiplicity eight. See the
-[revision notes](supplements/rank6/REVISION_NOTES.md),
-[22 remaining tensors](supplements/rank6/data/unresolved_tensors.json), and
-[exact continuation replay](supplements/rank6/verification/round2/release_replay.json).
-The [complete revised rank-six ZIP](https://grothendieck-ring-atlas.sebastien-palcoux.chatgpt.site/downloads/Rank6_Categorification_M8_Revised_2026-09-29_v2.zip)
-contains all 605 released files, including both continuation certificate files.
+__RANK6_CONTINUATION__
 
 ### The classification boundary, band by band
 
@@ -175,5 +183,6 @@ to a source census cell are imported only from a named commit and rechecked
 against classification ledgers.
 ''')
 (ROOT/'README.md').write_text('\n'.join(lines).replace('__RANK6_SUMMARY__',rank6_summary)
-                              .replace('__RANK6_OPEN__',str(rank6_open)))
+                              .replace('__RANK6_OPEN__',str(rank6_open))
+                              .replace('__RANK6_CONTINUATION__',rank6_continuation))
 print('Rendered README.md')

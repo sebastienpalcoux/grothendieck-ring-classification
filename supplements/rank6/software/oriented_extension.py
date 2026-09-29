@@ -21,7 +21,13 @@ def linear_data(T):
     return p,co,q,fe,cf
 
 def nc_certificate(R,T):
-    p,co,q,fe,cf=linear_data(T);required=list(codegree_factors(R))+cf;out=[];du=dual(T)
+    p,co,q,fe,cf=linear_data(T)
+    # For a noncommutative source, the regular Casimir eigenvalue of the
+    # matrix block is 2*f_E, not its formal codegree f_E. Preserve the
+    # commutative path while using actual weighted source codegrees here.
+    original_cf=(linear_data(R)[4] if any(R[i][j]!=R[j][i]
+                    for i in range(len(R)) for j in range(len(R))) else codegree_factors(R))
+    required=list(original_cf)+cf;out=[];du=dual(T)
     for f,m in p.factor_list()[1]:
         K=field(f);ds=[K(s.Poly.from_list(list(reversed(c)),t,domain=s.QQ).rem(f).all_coeffs()) for c in co];delta=sum((ds[i]*ds[du[i]] for i in range(6)),K.zero)
         pD=multiplication_matrix(delta,K,f).charpoly(t).as_poly().sqf_part();why=None

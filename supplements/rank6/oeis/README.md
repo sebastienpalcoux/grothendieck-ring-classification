@@ -21,4 +21,4 @@ does not run a separate census.
 - `proposal.txt`: sequence definition and source information.
 
 No accession is presumed and no online submission is claimed. The partial
-categorification results above multiplicity two do not affect these counts.
+categorification results in the remaining higher bands do not affect these counts.

@@ -20,7 +20,28 @@ def integral_general(R,c):
 def verify(R,c):
     global _order6_finite_checked
     k=c['kind']
-    if k=='general_stabilizer_rotation':
+    if k=='c4_associator_stabilizer':
+        import round3_smallest
+        round3_smallest.verify(R,c)
+    elif k in ('inert_quadratic_pseudo_exclusion','inert_quadratic_signed_spectrum'):
+        import round3_arithmetic
+        round3_arithmetic.verify(R,c)
+    elif k=='split_quadratic_different_pseudo_exclusion':
+        import round3_split_arithmetic
+        round3_split_arithmetic.verify(R,c)
+    elif k=='noncommutative_signed_exclusion':
+        import round3_noncommutative
+        round3_noncommutative.verify(R,c)
+    elif k=='general_integral_morita_rotation':
+        import round3_integral_morita
+        round3_integral_morita.verify_general(R,c)
+    elif k=='general_ambient_full_character_rotation':
+        import round3_m4
+        round3_m4.verify_general(R,c)
+    elif k=='general_low_verlinde_restriction':
+        import round3_verlinde
+        round3_verlinde.verify_general(R,c)
+    elif k=='general_stabilizer_rotation':
         import stabilizer_rotation
         stabilizer_rotation.verify_general(R,c)
     elif k=='general_stabilizer_rotation_higher':

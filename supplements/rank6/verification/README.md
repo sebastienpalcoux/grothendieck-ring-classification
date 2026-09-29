@@ -16,9 +16,19 @@ sources, alternative proofs and both continuations, freezes
 `certificates/continuation_round2.jsonl`, and rebuilds the ledger. Its
 `release_replay.json` receipt records the exact accepted file and ledger hashes.
 `software/continuation_controls.py` independently checks every certificate in
-both continuation files with numerical optimizers disabled; use an explicit
+all continuation files with numerical optimizers disabled; use an explicit
 `--out verification/round2/replay_optimized.json` to preserve the historical
 first-continuation reports.
+
+`round3/` freezes the next 22 full tensors and the sources of 12 further
+general exclusions. `software/round3_release.py` reconstructs each new proof
+with numerical optimizers disabled, freezes the third disjoint certificate
+file, and rebuilds the combined ledger. Its `release_replay.json` records
+the new file and ledger hashes and explicitly distinguishes newly repeated
+checks from inherited earlier evidence. The theorem-specific audits, full
+census scans, 22-input frontier tests and 54 model-control outcomes are under
+`research/round3/`; `coverage.json` records their different scopes and budgets.
+The current frontier has 10 tensors; exact multiplicity seven is complete.
 
 `current/` contains regression and consistency checks; each retained report
 refers to the input and scope recorded when it ran. Normal and
@@ -42,7 +52,7 @@ A full current-ledger replay is available through `verify.py`; incremental
 continuation checking does not claim to have repeated that full run.
 
 The original sixteen-stage campaign and first continuation remain unchanged.
-The second accepted JSONL is a disjoint extension, not a rewritten historical
+The second and third accepted JSONL files are disjoint extensions, not a rewritten historical
 campaign. Complete all-census scans of the new biquadratic and trace-ideal
 criteria are retained in `research/round2_external/`; their overlapping
 exclusion totals are criterion coverage, not additional ledger allocations.

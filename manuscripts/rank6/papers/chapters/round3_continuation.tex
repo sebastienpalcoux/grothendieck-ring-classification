@@ -1,0 +1,543 @@
+\subsection{Forced pointed associators and the multiplicity-four frontier}
+\label{sec:c4-forced-associator}
+
+The next obstruction uses the associator of a pointed subcategory to restrict
+central twists. It is a tensor criterion and applies to an entire family.
+
+\begin{proposition}\label{prop:c4-forced-associator}
+Let $m\geq0$, and suppose a fusion category has invertible objects
+$1,t,t^2,t^3$, with $t$ of order four, and two self-dual noninvertible
+objects $X,Y$ satisfying
+\[
+ \begin{gathered}
+ tX=Y=Xt,\qquad tY=X=Yt,\\
+ X^2=Y^2=1+t^2+m(X+Y),\qquad XY=t+t^3+m(X+Y).
+ \end{gathered}
+\]
+Then the pointed associator has class $2$ in
+$H^3(C_4,\mathbb C^\times)\cong\mathbb Z/4\mathbb Z$.
+In a pseudo-unitary realization, every simple central summand of
+$I(t)$ or $I(t^3)$ has twist satisfying $\theta^4=-1$.
+\end{proposition}
+\begin{proof}
+Put $H=\langle t^2\rangle$. Because $t^2$ fixes a simple object,
+the associator restricts trivially to $H$: the associativity scalars
+of the action on that object give a two-cochain trivializing the
+restriction. Thus its class in $H^3(C_4,\mathbb C^\times)$ is either
+$0$ or $2$.
+
+Suppose first that the class is zero. The regular pointed algebra
+$A=1\oplus t\oplus t^2\oplus t^3$ exists. Its right-module category
+has three simple objects. The invertible orbit contributes $A$;
+the orbit $\{X,Y\}$ contributes two simples $M_+,M_-$, each with
+underlying object $X\oplus Y$. Indeed its stabilizer is $C_2$,
+whose projective irreducible representations are the two ordinary
+one-dimensional representations, because $H^2(C_2,\mathbb C^\times)=0$.
+This is the usual orbit--stabilizer description of modules over a
+regular pointed algebra (equivalently, the classification of modules
+over its action groupoid algebra).
+
+Let $d=\operatorname{FPdim}(X)=\operatorname{FPdim}(Y)$, so
+$d^2=2+2md$ and $d=m+\sqrt{m^2+2}$. Normalize module dimensions
+by $\operatorname{FPdim}(A)=4$; their vector is $(1,d/2,d/2)$.
+Every invertible fixes the simple module $A$ and permutes $M_+,M_-$.
+On their difference line its action is a character
+$\chi:C_4\to\{\pm1\}$, hence $\chi(t^2)=1$.
+The action matrix of $X$ is symmetric, since $X$ is self-dual.
+Its first row and column are $(0,1,1)$ by free--forgetful adjunction.
+The dimension eigenvector therefore forces its remaining block to be
+\[
+ \begin{pmatrix}a&2m-a\\2m-a&a\end{pmatrix}
+ \quad (a\in\mathbb Z).
+\]
+Thus its eigenvalue on the difference line is the integer
+$\lambda=2a-2m$. Applying the fusion relation for $X^2$ on this
+line gives
+\[
+ \lambda^2=2+m(1+\chi(t))\lambda.
+\]
+For $\chi(t)=-1$ this says $\lambda^2=2$; for $\chi(t)=1$
+it says $(\lambda-m)^2=m^2+2$. Both are impossible for integers:
+$m^2+2$ lies strictly between consecutive squares for $m\geq1$,
+and equals $2$ for $m=0$. Hence class $0$ is impossible.
+
+For completeness use representatives $a,b,c\in\{0,1,2,3\}$ and
+standard cyclic cocycles
+\[
+ \omega_k(a,b,c)=\exp\left(\frac{2\pi i k}{4}
+          a\left\lfloor\frac{b+c}{4}\right\rfloor\right).
+\]
+Their restrictions have $\omega_k(2,2,2)=(-1)^k$, confirming
+that the restriction kernel is $\{0,2\}$. The canonical
+pseudo-unitary indicator formula gives
+$\nu_4(t)=i^k$ and $\nu_4(t^3)=i^{9k}$; for $k=2$ both equal
+$-1$. Reversing the cocycle convention inverts these values and
+has no effect on this conclusion.
+
+The center indicator formula reads
+\[
+ \operatorname{FPdim}(\mathcal C)\nu_4(t)
+   =\sum_{Z\subset I(t)}[Z:I(t)]\operatorname{FPdim}(Z)\theta_Z^4.
+\]
+The positive coefficients on the right sum to
+$\operatorname{FPdim}(I(t))=\operatorname{FPdim}(\mathcal C)$.
+Equality in the triangle inequality forces every $\theta_Z^4=-1$.
+The same argument applies to $t^3$; compare
+\cite[Proposition~3.8]{SchTwo}.
+\end{proof}
+
+\begin{lemma}\label{lem:c4-uniform-module}
+Under the hypotheses of Proposition~\ref{prop:c4-forced-associator},
+$m$ is even. For the algebra $1\oplus t^2$, its anti-invariant
+module action on the two fixed-object coordinates is, up to sign gauge,
+\[
+ T_t=\begin{pmatrix}0&-1\\1&0\end{pmatrix},\qquad
+ T_{t^2}=-I,\qquad T_X=T_Y=0.
+\]
+In particular both noninvertibles have the anticommuting stabilizer
+used in Proposition~\ref{prop:stabilizer-rotation}.
+\end{lemma}
+\begin{proof}
+The involution-module construction gives
+$T_t=\left(\begin{smallmatrix}0&\epsilon\\\delta&0\end{smallmatrix}\right)$,
+where $\epsilon,\delta\in\{\pm1\}$, and
+$T_{t^2}=\epsilon\delta I$. Since $X,Y$ are self-dual,
+$T_X$ and $T_Y$ are symmetric integer matrices; they commute with
+$T_t$ and satisfy $T_Y=T_tT_X$.
+If $\epsilon\delta=1$, commutation makes the diagonal entries
+of $T_X$ equal. Its eigenvalue $\lambda$ on the $+1$ eigenspace
+of $T_t$ is therefore an integer. But the relation for $X^2$
+gives $\lambda^2=2+2m\lambda$, which is impossible as above.
+Consequently $\epsilon\delta=-1$. A symmetric matrix commuting
+with this skew-symmetric $T_t$ is scalar, so $T_X=aI$.
+The symmetry of $T_Y=aT_t$ forces $a=0$. Finally every entry
+of $T_X$ is congruent modulo two to the corresponding coefficient
+of multiplication by $X$ on $\{X,Y\}$, namely $m$. Hence $m$
+is even. Changing the sign of one fixed-object coordinate gives
+the displayed sign gauge.
+\end{proof}
+
+\begin{theorem}\label{thm:c4-multiplicity-four}
+The fusion ring $\RR{4}{6}$ has no categorification over $\mathbb C$.
+\end{theorem}
+\begin{proof}
+Its full tensor has the family in
+Proposition~\ref{prop:c4-forced-associator} with $m=4$ and
+$(t,t^2,t^3,X,Y)=(b_1,b_5,b_2,b_3,b_4)$.
+All simple Frobenius--Perron dimensions belong to
+$\{1,4+3\sqrt2\}$. The two-dimension Galois-pseudo-unitarity
+theorem therefore reduces general existence to pseudo-unitary
+existence, without a pivotality assumption on the original category.
+
+Lemma~\ref{lem:c4-uniform-module} gives exactly one anti-invariant
+module representation for the split involution algebra $1\oplus t^2$,
+after sign gauge. The finite module checker independently reconstructs it.
+The action of $t^2$ is $-I$ on both fixed-object coordinates.
+The cubic spaces of $X$ and $Y$ each have dimension four;
+Proposition~\ref{prop:stabilizer-rotation} therefore forces
+\[
+ -2\leq\operatorname{Re}\nu_3(X),
+          \operatorname{Re}\nu_3(Y)\leq1.
+\]
+The exact central-induction calculation has ten low frames and
+four second-indicator assignments per frame. All low summands
+have twist one. Every high restriction column containing $t$ or
+$t^3$ is restricted by Proposition~\ref{prop:c4-forced-associator}
+to $\theta^4=-1$. In the normalized relative-trace domain over
+$\mathbb Q(\sqrt2)$, this means its fourth coordinate is exactly
+$(-1,0)$. Keeping only those trace types is necessary; actual roots
+with $\theta^4=-1$ have precisely that coordinate under every
+relative Galois embedding. The order-four trace system includes
+all root orders with the allowed prime support $\{2,3\}$,
+including arbitrarily large orders through their zero trace type.
+
+Each of the resulting forty rational nonnegative systems has a
+recorded integral separating vector. Verification reconstructs
+the low frames, the unique module branch, the entire joint trace
+domain, the four second-indicator assignments, and the forced-twist
+variable deletion. For every system $Az=b$, its vector $y$
+satisfies $A^Ty\geq0$ and $b^Ty<0$. Therefore no feasible central
+induction data, and hence no pseudo-unitary categorification,
+exists. This contradicts the general-to-pseudo-unitary reduction.
+\end{proof}
+
+\paragraph{Certificate and implementation.}
+The tensor-based implementation is
+\filename{software/round3_smallest.py}. Its verifier never calls
+an optimizer; the discovery routine merely proposes exact rays.
+The certificate, proof audit, all-census applicability scan,
+positive controls and optimized replay are retained in
+\filename{research/round3/smallest/}.
+
+\subsection{Local character fields and quadratic codegree saturation}
+\label{sec:r3-local-fields}
+
+The next criterion strengthens the signed Casimir bounds by determining
+the dimension field before enumerating possible formal codegrees.
+Write $A$ for the signed algebra supplied by
+Lemma~\ref{lem:dimension-field-containment}, $K$ for its dimension
+character field, and $\Delta$ for its dimension codegree. Thus every
+original or signed formal codegree $f$ lies in $K$, and
+$\Delta/f$ is an algebraic integer. In particular this statement
+concerns the sphericalization of an arbitrary categorification; it
+does not assume a pivotal structure on that category.
+
+\begin{proposition}[Two local ways to isolate the dimension field]
+\label{prop:r3-local-isolation}
+Let $R$ be commutative and self-dual of rank six, and suppose an
+original formal codegree generates $E=\mathbb Q(\sqrt q)$, where
+$q>1$ is squarefree. Either of the following conditions implies
+$K=E$ and that the other four signed formal codegrees are rational
+integers greater than one:
+\begin{enumerate}
+\item $q\equiv5\pmod8$, and $R/2R$ is a product of finite fields
+with exactly one even-degree factor, of degree two;
+\item $R/2R$ has three local factors: $\mathbb F_8$, a rank-two
+local algebra, and $\mathbb F_2$.
+\end{enumerate}
+In the second case the conclusion uses cyclotomicity of characters
+of a categorifiable fusion ring.
+\end{proposition}
+\begin{proof}
+The dimension-field containment lemma gives $E\subset K$.
+Because the regular matrices of $A$ are symmetric, $A\otimes\mathbb Q$
+is a product of totally real number fields. Its primitive local
+idempotents at two lift from $A/2A=R/2R$ to $A\otimes\mathbb Z_2$.
+A finite free local factor with finite-field special fibre is finite
+\'etale: its relative differentials vanish by Nakayama, and it is
+flat. It is therefore the unramified extension with that residue
+degree. Equivalently one may apply the classification of finite
+\'etale algebras over a henselian local ring; see the Stacks Project,
+\href{https://stacks.math.columbia.edu/tag/04GK}{Tag 04GK}.
+
+In the first case $E\otimes\mathbb Q_2$ is the unramified quadratic
+field. Every completion of a number field containing $E$ has even
+degree over $\mathbb Q_2$. Since $K$ is a field quotient of
+$A\otimes\mathbb Q$, its completions must use only the unique
+even-degree local factor. That factor has degree two, so $K=E$.
+If a codegree belonging to another character field $F$ were
+irrational, it would generate $E$, because it already belongs to
+$K=E$. Then $F$ would require another even-degree local factor,
+which is impossible. All remaining codegrees are therefore rational.
+
+In the second case the lifted rank-three factor has generic fibre
+the unramified cubic extension of $\mathbb Q_2$. Let $F$ be the
+global character field containing this local factor. A signed
+character extends to a character of the sphericalization with
+the sign object sent to $-1$. Hence its values are cyclotomic by
+\cite[Theorem~8.51]{ENO}; in particular $F/\mathbb Q$ is abelian
+and Galois. All its completions at two have the same local degree,
+here three. Thus $[F:\mathbb Q]$ is three or six. Degree six would
+require two degree-three local factors, whereas the remaining
+lifted blocks have ranks two and one. Hence $F$ is cubic and uses
+the entire rank-three block. The remaining rational algebra has
+dimension three. The field $K$ contains the quadratic field $E$,
+so it lies in this remainder and has degree two. Thus $K=E$.
+The other character fields are $F$ and $\mathbb Q$; their
+intersections with $E$ are rational. The remaining codegrees,
+which lie in these intersections, are rational as claimed.
+
+In both cases rational formal codegrees are algebraic integers.
+They are positive, and the sum of reciprocals of the six signed
+codegrees is one. Each is consequently greater than one.
+\end{proof}
+
+The second argument does not assert that the whole two-adic order
+is \'etale. In particular a rank-two order with dual-number
+reduction may have split generic fibre. Only its rank and its
+separation from the cubic block are needed.
+
+\begin{proposition}[Finite quadratic spectrum bound]
+\label{prop:r3-quadratic-spectrum}
+Suppose $K=E=\mathbb Q(\sqrt q)$ and the complementary four
+codegrees are rational, as in Proposition~\ref{prop:r3-local-isolation}.
+Assume $q\equiv1\pmod4$ and the original Frobenius--Perron
+codegree has the form $D=c\sqrt q\,u$, where $c$ is a positive
+integer and $u$ is an integral unit of norm $-1$.
+Let $T=\operatorname{Tr}(\sum_iN_i^2)$.
+Every categorification supplies integers $x,y$ and
+$f_1\leq\cdots\leq f_4$ satisfying the following finite system:
+\[
+\begin{gathered}
+ \Delta=\frac{c(qy+x\sqrt q)}2,\qquad
+ x\equiv y\pmod2,\quad y>0,\quad x^2<qy^2,\quad cqy\leq T-5,\\
+ n=qy^2-x^2,\qquad n\mid4qy^2,\qquad
+ \sum_{i=1}^4\frac1{f_i}=1-\frac{4y}{cn}>0,\\
+ f_i>1,\qquad
+ f_i\mid\gcd\left(\frac{c(qy-x)}2,cx\right),\qquad
+ cqy+\sum_{i=1}^4f_i\leq T.
+\end{gathered}
+\]
+In addition $\Delta/f$ is integral for every original rational
+codegree $f$, and the polynomial
+\[
+ \left(z^2-cqy\,z+\frac{c^2qn}{4}\right)
+       \prod_{i=1}^4(z-f_i)
+\]
+is congruent modulo two to the original Casimir polynomial.
+If the system is empty, $R$ is not categorifiable. Otherwise its
+least total trace bounds the possible signed Casimir deficit.
+\end{proposition}
+\begin{proof}
+Since $\Delta/D$ is integral,
+$\theta=\Delta/(c\sqrt q)=u\Delta/D$ is integral. The integral
+basis of $E$ gives $\theta=(x+y\sqrt q)/2$ with the stated
+parity. Total positivity of $\Delta$ gives $y>0$ and
+$x^2<qy^2$. Its two dimension characters contribute trace $cqy$;
+the other four codegrees exceed one. The signed Casimir trace is
+an integer at most $T$, giving the displayed finite bound.
+
+The global dimension is a $d$-number by
+\cite[Theorem~1.2]{Ocode}. Here
+\[
+ \operatorname{Tr}(\Delta)=cqy,\quad
+ \operatorname{N}(\Delta)=\frac{c^2qn}{4},\quad
+ \operatorname{Tr}(1/\Delta)=\frac{4y}{cn}.
+\]
+The quadratic $d$-number divisibility gives $n\mid4qy^2$,
+and the reciprocal-codegree identity gives the reciprocal equation.
+The integral-basis coordinates of $\Delta$ are
+$c(qy-x)/2$ and $cx$. Thus $\Delta/f_i$ is integral precisely
+when $f_i$ divides their greatest common divisor. Divisibility
+by original rational codegrees follows separately from induction.
+Finally the signed and original matrices are congruent modulo two,
+so their Casimir characteristic polynomials have the same reduction.
+Every enumeration range is finite. The case $x=0$ is retained:
+$K$ can be quadratic even when $\Delta$ itself is rational.
+\end{proof}
+
+\begin{theorem}\label{thm:r3-arithmetic-exclusions}
+The rings $\RR{8}{6524}$, $\RR{8}{6525}$ and $\RR{8}{6999}$
+have no complex fusion categorifications.
+\end{theorem}
+\begin{proof}
+For the first two rings, $q=149$, $c=9$,
+\[
+ D=\frac{6705+549\sqrt{149}}2,\qquad T=6741.
+\]
+Their reductions at two have field degrees $(2,3,1)$ and
+$(2,1,1,1,1)$, respectively. Proposition~\ref{prop:r3-local-isolation}(1)
+applies. The finite spectrum test has $1\leq y\leq5$ and leaves
+only
+\[
+ y=5,\qquad x=\pm61,\qquad (f_1,f_2,f_3,f_4)=(9,9,9,9).
+\]
+Both traces equal $6741$.
+
+For $\RR{8}{6999}$, $q=41$, $c=18$,
+\[
+ D=3690+576\sqrt{41},\qquad T=7416.
+\]
+The local factors are $\mathbb F_8$, the dual numbers of rank two,
+and $\mathbb F_2$. Proposition~\ref{prop:r3-local-isolation}(2)
+applies. The bound is $1\leq y\leq10$; the only survivors are
+\[
+ y=10,\qquad x=\pm64,\qquad (f_1,f_2,f_3,f_4)=(9,9,9,9),
+\]
+again with total trace $T$.
+
+In all three cases the signed Casimir trace is the sum of the
+squares of the signed structure constants. Since each absolute
+value is bounded by its original coefficient, equality of traces
+forces equality of every absolute value. The remaining unrestricted
+sign-only associativity systems are exhausted exactly. Every
+solution is a dual-compatible sign gauge of the original tensor.
+After this gauge, the lift fusion rules are the original positive
+ones, and the recorded dimension-character tests leave only the
+Galois orbit of the positive character. Any categorification would
+therefore have a pseudo-unitary Galois conjugate.
+
+The pseudo-unitary possibility is excluded by the exact
+\texttt{global\_codegree\_moment} certificates, checked independently
+on the full input tensors. For the first two rings the obstruction
+is visible already in the integral span of simple dimensions.
+They are $1,u-1,u,u,u,u$, where
+$u=(37+3\sqrt{149})/2$ and $u^2-37u+7=0$.
+The codegree $9$ would require a central simple of dimension
+\[
+ D/9=(61u-11)/3\notin\mathbb Z+\mathbb Z u,
+\]
+which cannot be the dimension of an integral restriction to the
+original category. This also gives a direct check on the final
+induction obstruction in those two cases.
+\end{proof}
+
+The tensor-only generator and exact verifier are
+\filename{software/round3_arithmetic.py}; all local algebras,
+surviving spectra, sign gauges, and complete general certificates
+are recorded in \filename{research/round3/arithmetic/}.
+The independent enumeration in
+\filename{research/round3/models/arithmetic_audit.py} reproduces
+the first pair of saturated spectra without an optimizer or the
+generator's recursive divisor enumeration.
+
+\subsection{Noncommutative signed spectra}
+\label{sec:r3-noncommutative}
+
+The preceding field-isolation argument has a different replacement
+when the signed quotient is forced to be noncommutative. This follows
+either from reduction modulo two or from a separate exhaustive
+exclusion of the commutative signed sector. It is essential in this
+case to keep the representation multiplicities.
+
+\begin{proposition}\label{prop:r3-noncommutative-spectrum}
+Let $R$ have rank six. Suppose either that its reduction modulo two
+is noncommutative, or that every commutative signed quotient permitted
+by sphericalization has been excluded by necessary conditions.
+Suppose its two linear characters form a real quadratic orbit
+over $E=\mathbb Q(\sqrt q)$, and let $D,D'$ be their formal
+codegrees and $c$ that of its unique two-dimensional representation.
+For any categorification there are $\Delta\in E$ and
+$h\in\mathbb Z_{>2}$ satisfying
+\[
+ \frac1\Delta+\frac1{\Delta'}+\frac2h=1,
+ \qquad \operatorname{Tr}_{E/\mathbb Q}(\Delta)+8h\leq T,
+ \qquad T=\sum_{i,j,k}(N_{ij}^k)^2.
+\]
+Both embeddings of $\Delta$ are positive, $\Delta$ is a
+$d$-number, and
+\[
+ \Delta/D,\quad \Delta/D',\quad \Delta/c,\quad \Delta/h
+ \quad\hbox{belong to }\mathcal O_E.
+\]
+For fixed $R$ these conditions are a finite exact search.
+\end{proposition}
+\begin{proof}
+The negative-sign quotient of sphericalization is now an oriented
+signed algebra $A$. Its signed basis is orthonormal for the
+coefficient-of-unit inner product, and duality gives adjoints of
+left multiplication. Thus its regular representation is a finite
+dimensional $*$-algebra with positive inner product and is
+semisimple. In the first case parity preserves a nonzero commutator;
+in the second case the commutative alternative is excluded separately.
+In either case dimension six and the existence of a linear character give
+\[
+ A\otimes\mathbb C\cong\mathbb C\oplus\mathbb C\oplus M_2(\mathbb C).
+\]
+There are exactly two linear characters. The spherical dimension
+character is real and dual invariant, and its field $K$ therefore
+has degree at most two. Induction applied to the original characters
+still gives $\Delta/f\in\mathcal O_K$. In particular $D\in K$,
+so $K=E$. The signed linear codegrees are $\Delta,\Delta'$.
+
+The unique two-dimensional representation is preserved by Galois
+action. Its formal codegree $h$ is consequently rational and an
+algebraic integer, hence an integer. The formal-codegree reciprocal
+identity weights it by its representation dimension two. On the
+four-dimensional regular matrix block the Casimir has eigenvalue
+$2h$, so that block contributes $8h$ to the regular trace.
+This proves both displayed identities, with the trace inequality
+following from the coefficient bounds. Positivity of the two linear
+codegrees and the reciprocal equation imply $h>2$.
+Induction from the negative-sign character gives $\Delta/h$;
+induction from the original characters gives the other quotients.
+The usual global-dimension $d$-number theorem applies to $\Delta$.
+
+For example, when $q\equiv1\pmod4$, write
+$\Delta=(a+b\sqrt q)/2$, with $a\equiv b\pmod2$.
+Then $0<a\leq T-24$ and $qb^2<a^2$. These bounds are finite.
+For each pair $(a,b)$ the reciprocal equation determines
+\[
+ h=\frac{2}{1-a/\operatorname{N}(\Delta)}.
+\]
+Testing integrality, positivity, the four quotients, and the
+quadratic $d$-number condition completes the exact necessary search.
+\end{proof}
+
+\begin{theorem}\label{thm:r3-noncommutative-exclusion}
+The ring $\RR{6}{170}$ has no complex fusion categorification.
+\end{theorem}
+\begin{proof}
+Its original codegrees are $148\pm24\sqrt{37}$ and $4$, with
+representation dimensions $1,1,2$, and $T=328$.
+The preceding finite system leaves exactly
+\[
+ \Delta=148\pm24\sqrt{37},\qquad h=4,
+ \qquad \operatorname{Tr}(\Delta)+8h=328.
+\]
+Thus every signed coefficient has its original absolute value.
+The complete oriented sign-only associativity enumeration has
+$1631$ search nodes and $16$ solutions; all sixteen are
+dual-compatible sign gauges of $R$. No commutativity or indicator
+normalization is imposed. Under each gauge the two possible
+dimension characters are Galois conjugates of the positive one,
+so every categorification would have a pseudo-unitary Galois
+conjugate.
+
+Multiplicity-weighted central induction has $146$ candidate
+restriction columns for the nontrivial linear character and $25$
+for the two-dimensional representation. Their complete compatibility
+search yields nineteen low frames. Every frame violates an ordinary
+exact Gram or moment condition. The pseudo-unitary possibility is
+therefore impossible, completing the general exclusion.
+\end{proof}
+
+The implementation is \filename{software/round3_noncommutative.py},
+with arithmetic spectra, all oriented sign tables, the nineteen
+induction branches, and replays in
+\filename{research/round3/noncommutative/}.
+For rings with commutative reduction modulo two, the first hypothesis
+of Proposition~\ref{prop:r3-noncommutative-spectrum} is unavailable.
+Their entire commutative signed sector must be treated before the
+noncommutative spectrum calculation supplies a general reduction.
+
+\begin{theorem}\label{thm:r3-noncommutative-sector-exclusions}
+The rings $\RR{7}{200}$ and $\RR{8}{491}$ have no complex fusion
+categorifications.
+\end{theorem}
+\begin{proof}
+Both reductions modulo two are commutative. First impose commutativity
+on the unrestricted oriented signed coefficient problem, identifying
+opposite coefficient variables and intersecting their original parity
+intervals. If an opposite original coefficient is zero, its identified
+signed coefficient is forced to zero. This exhausts all commutative
+signed quotients without an indicator normalization.
+
+The complete enumerations have respectively $176$ and $208$ signed
+tables, forming $11$ and $13$ dual-compatible sign-gauge orbits.
+Their character algebras have respectively $27$ and $53$ components.
+Each component has a zero dimension, unequal dimensions on dual
+objects, or an exact norm-divisibility obstruction to induction.
+The latter uses the original formal codegrees, whose quadratic
+polynomial is $z^2-1560z+1872$, and the matrix-block codegree $12$.
+The regular Casimir eigenvalue of that block is $24$; it must not
+replace the formal codegree in the induction test. The recorded
+norm obstructions occur at primes $3$ or $13$. Consequently no
+categorical signed quotient is commutative.
+
+Proposition~\ref{prop:r3-noncommutative-spectrum} now applies.
+For both rings its finite system has exactly
+\[
+ \Delta=780\pm216\sqrt{13},\qquad h=12,\qquad
+ \operatorname{Tr}(\Delta)+8h=1656=T.
+\]
+The resulting sign-only searches have $4927$ and $6463$ nodes,
+respectively, and sixteen solutions each. Every solution is a
+dual-compatible gauge of the original tensor. Thus any
+categorification has a pseudo-unitary Galois conjugate. In each
+ring the multiplicity-weighted induction problem has ten complete
+low frames, all excluded by exact ordinary Gram or moment conditions.
+This excludes the pseudo-unitary possibility and proves the claim.
+\end{proof}
+
+The separate commutative-sector verifier is
+\filename{software/round3_commutative_sector.py}; its complete
+certificate is included in each general certificate in
+\filename{research/round3/noncommutative/}.
+Both general replays also reconstruct the noncommutative arithmetic
+and induction calculations. Removing the sector certificate is
+explicitly rejected by the verifier.
+
+\paragraph{Scope and controls.}
+Each detector reconstructs its hypotheses from the full tensor.
+The new family and arithmetic criteria are reapplied to the complete
+census through multiplicity eight; exclusions of already resolved
+rings are counted as confirmations. Exact replay disables numerical
+optimizers and includes altered-certificate rejection and changes
+of basis. All $54$ positively realized rings are controls, with
+ineligibility distinguished from survival of an applicable system.
+The C4 family includes the positive parameter-zero member in its
+applicability scan, although the present irrational-dimension trace
+engine does not apply to it. Its positive parameter-two member
+survives the necessary system. These controls check scope; they do
+not turn a surviving necessary condition into a categorical model.

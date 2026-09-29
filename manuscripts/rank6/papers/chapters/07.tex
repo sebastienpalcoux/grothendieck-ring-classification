@@ -266,7 +266,7 @@ The programs retain exact certificates and scoped reports alongside
 their source. They apply their conditions to tensor data rather than
 using a desired classification outcome as input.
 
-\paragraph{The two frozen continuations.}
+\paragraph{The frozen continuations.}
 The original sixteen-stage classification campaign and its accepted
 certificate file are retained unchanged. The first continuation used
 forty-seven frozen residual inputs and accepted seven general exclusions.
@@ -286,7 +286,7 @@ thirty-nine remaining inputs at multiplicities four through eight.
 Regenerating the smaller final residual export does not change the
 continuation's input. Its accepted general records are frozen in
 \filename{certificates/continuation_round2.jsonl}; the disjoint union of
-both continuations with the original campaign determines the ledger.
+the continuations with the original campaign determines the ledger.
 A tensor may have several independently checked proofs but receives
 only one exclusion allocation.
 
@@ -317,11 +317,25 @@ The command \filename{software/round2_release.py} checks all candidate
 general records, including alternative proofs, replays the first
 continuation, freezes the second accepted file and builds the ledger
 in one process. \filename{software/continuation_controls.py} independently
-replays every accepted record in both continuation files against that
+replays every accepted record in all continuation files against that
 ledger, with numerical optimizers disabled. It is an incremental check
 and does not claim to rerun the unchanged original campaign. A full
 current-ledger replay is available through \filename{verify.py}.
 The verification guide gives exact commands and report locations.
+
+The third continuation starts from the twenty-two complete tensors in
+\filename{verification/round3/campaign_manifest.json}. Its accepted
+general proofs are allocated separately in
+\filename{certificates/continuation_round3.jsonl}, preserving all earlier
+certificate files. The tensor-based criteria, full-census applicability
+scans, positive controls and surviving relaxations are recorded in
+\filename{research/round3/}. The new signed-spectrum arguments separate
+general categorical necessity from the pseudo-unitary induction step;
+the latter is used only after a complete Galois reduction.
+\filename{software/round3_release.py} replays the accepted new proofs
+with numerical optimization disabled before rebuilding the combined
+ledger. It retains the unchanged earlier exact evidence and does not
+claim to repeat the complete original negative catalogue.
 
 The remaining $\UnresolvedCount$ tensors are unresolved by this release.
 No literature-wide open-problem claim is attached to that word. In

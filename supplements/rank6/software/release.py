@@ -5,7 +5,8 @@ from pathlib import Path
 P=Path(__file__).resolve().parents[1]
 CONTINUATION=P/'certificates/continuation_20260929.jsonl'
 ROUND2=P/'certificates/continuation_round2.jsonl'
-CONTINUATION_PATHS=(CONTINUATION,ROUND2)
+ROUND3=P/'certificates/continuation_round3.jsonl'
+CONTINUATION_PATHS=(CONTINUATION,ROUND2,ROUND3)
 CONTINUATION_LABELS={
     'continuation_lower_rank_subring':'Continuation: rank-three subring',
     'continuation_involution_module':'Continuation: spectral module',
@@ -21,6 +22,11 @@ CONTINUATION_LABELS={
     'continuation_ramified_dimension':'Continuation: ramified dimension field',
     'continuation_biquadratic_norm':'Continuation: biquadratic norm and trace',
     'continuation_trace_ideal':'Continuation: formal-codegree trace ideal',
+    'continuation_c4_associator':'Continuation: forced cyclic associator',
+    'continuation_signed_spectrum':'Continuation: local signed spectra',
+    'continuation_noncommutative_spectrum':'Continuation: noncommutative signed spectra',
+    'continuation_ambient_character':'Continuation: ambient character rotations',
+    'continuation_integral_morita':'Continuation: integral Morita constraints',
 }
 
 def load(path):
@@ -217,6 +223,7 @@ def build(verified_continuation=None):
             first_unresolved=remaining[0]['id'] if remaining else None,
             first_continuation_excluded=len(load(CONTINUATION)),
             second_continuation_excluded=len(load(ROUND2)) if ROUND2.exists() else 0,
+            third_continuation_excluded=len(load(ROUND3)) if ROUND3.exists() else 0,
             original_release_summary='verification/original_release_summary.json',
             first_continuation_release_summary='verification/continuation/release_summary_before_round2.json',
             full_original_negative_replay_repeated=False,
@@ -226,6 +233,10 @@ def build(verified_continuation=None):
             report['second_continuation_replay']='verification/round2/release_replay.json'
             report['second_continuation_frozen_inputs']='verification/round2/campaign_manifest.json'
             report['document_checks']='verification/round2/document_qa.json'
+        if ROUND3.exists():
+            report['third_continuation_replay']='verification/round3/release_replay.json'
+            report['third_continuation_frozen_inputs']='verification/round3/campaign_manifest.json'
+            report['document_checks']='verification/round3/document_qa.json'
         target=P/'verification/continuation/release_summary.json';target.parent.mkdir(parents=True,exist_ok=True)
         target.write_text(json.dumps(report,indent=2)+'\n')
         (P/'verification/release_summary.json').write_text(json.dumps(report,indent=2)+'\n')

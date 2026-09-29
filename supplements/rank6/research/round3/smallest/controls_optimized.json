@@ -1,0 +1,42 @@
+{
+  "all120_based_relabellings": 120,
+  "mutations": [
+    {
+      "mutation": "wrong_associator_class",
+      "rejected": true,
+      "error": "VerificationError: full tensor C4 hypothesis failed",
+      "seconds": 0.0036492347717285156
+    },
+    {
+      "mutation": "omitted_module_branch",
+      "rejected": true,
+      "error": "VerificationError: incomplete module domain",
+      "seconds": 0.12062668800354004
+    },
+    {
+      "mutation": "omitted_low_frame",
+      "rejected": true,
+      "error": "VerificationError: missing low frame",
+      "seconds": 0.46838951110839844
+    },
+    {
+      "mutation": "omitted_FS2_assignment",
+      "rejected": true,
+      "error": "VerificationError: omitted FS2 assignment",
+      "seconds": 0.5004293918609619
+    },
+    {
+      "mutation": "zero_separator",
+      "rejected": true,
+      "error": "VerificationError: higher-indicator Farkas certificate fails",
+      "seconds": 3.1143486499786377
+    },
+    {
+      "mutation": "altered_twist_metadata",
+      "rejected": true,
+      "error": "VerificationError: wrong reconstructed system",
+      "seconds": 3.0257649421691895
+    }
+  ],
+  "optimized": true
+}

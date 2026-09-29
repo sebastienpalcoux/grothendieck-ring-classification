@@ -35,30 +35,49 @@ its normal and optimized 26-process regression gates passed after explicitly
 pinning the SymPy arithmetic backend.
 
 The current rank-six release is
-`Rank6_Categorification_M8_Revised_2026-09-29_v2.zip`, SHA-256
-`c9508a49228f199e8f4bf476edddb72a0eddcce45b6e249a11b9f49105de2467`.
-The [complete 605-file archive](https://grothendieck-ring-atlas.sebastien-palcoux.chatgpt.site/downloads/Rank6_Categorification_M8_Revised_2026-09-29_v2.zip)
+`Rank6_Categorification_M8_Revised_2026-09-29_v3.zip`, SHA-256
+`853820839d767224c810f232e479a768ee9b16150876f10848aba07be3d578df`.
+The [complete 914-file archive](https://grothendieck-ring-atlas.sebastien-palcoux.chatgpt.site/downloads/Rank6_Categorification_M8_Revised_2026-09-29_v3.zip)
 is also reconstructed from repository parts by `tools/restore_data.py`.
-It supersedes the earlier rank-six classification: the two continuations add
-25 general exclusions (7 followed by 18), reducing 47 residuals to 22 and
-completing general categorifiability through multiplicity three. In particular,
-`R6_3_215` is excluded by the Clifford stabilizer rotation theorem, signed
-Galois reduction and exhaustive central-induction certificates. Among the
-577 rings through multiplicity three, 531 are excluded and 46 are realized
-(45 unitary and one spherical non-pseudo-unitary).
-The 16,612 census tensors, identifiers and 54 positive-model identifications
-are unchanged. The [revision notes](../supplements/rank6/REVISION_NOTES.md)
-record the general criteria, their full-census or frozen-frontier scopes,
-and all 18 second-continuation allocations. The canonical original and
-first-continuation certificate files remain unchanged; the new certificate
-file has SHA-256
+The third continuation adds **12 general exclusions**, reducing the preceding
+22 residuals to **10**. The current partition is **16,548 excluded, 54 realized
+and 10 unresolved** among 16,612 tensors. General categorifiability remains
+complete through multiplicity three and is now also complete at **exact
+multiplicity seven**. The isolated completed seventh band does not imply
+completion of multiplicities four through six.
+
+The previous release
+`Rank6_Categorification_M8_Revised_2026-09-29_v2.zip` had SHA-256
+`c9508a49228f199e8f4bf476edddb72a0eddcce45b6e249a11b9f49105de2467`
+and contained 605 files. Its first two continuations added 25 general
+exclusions (7 followed by 18), reducing 47 residuals to 22 and completing
+multiplicity three. In particular, `R6_3_215` was excluded by the Clifford
+stabilizer rotation theorem, signed Galois reduction and exhaustive
+central-induction certificates. Among the 577 rings through multiplicity
+three, 531 remain excluded and 46 realized (45 unitary and one spherical
+non-pseudo-unitary).
+
+The census tensors, identifiers and 54 positive-model identifications are
+unchanged. The [revision notes](../supplements/rank6/REVISION_NOTES.md)
+record the new forced-associator, signed-spectrum, Morita and central-induction
+criteria, their full-census or frozen-frontier scopes, and all 12 new
+allocations. The original certificate campaign and both previous continuation
+files remain unchanged. In particular, the 18-record second-continuation file
+retains SHA-256
 `78dcc03b60d0e3ce1ec877bded9b3c2fe20ec20ca1a288a64d40a31279e843fd`.
-Both continuations were exactly replayed with Python assertions and numerical
-optimization disabled. The original 16,511-certificate campaign retains its
-previous verification evidence; the continuation does not claim a fresh full
-replay of that original campaign. See the
+The new 12-record `certificates/continuation_round3.jsonl` has SHA-256
+`d97910a14e0c1897f405bb24e616d2a715fdb9eb93d94ff0a31001fb26c89aa8`.
+
+The third-continuation proofs are exactly replayed with Python assertions and
+numerical optimization disabled; see the
+[current replay record](../supplements/rank6/verification/round3/release_replay.json).
+The previous 7- and 18-record continuations retain their completed exact replay
+evidence in the [second-continuation record](../supplements/rank6/verification/round2/release_replay.json).
+The original 16,511-certificate campaign likewise retains its previous
+verification evidence. This publication update does not claim a fresh replay
+of those unchanged earlier campaigns. The
 [current release summary](../supplements/rank6/verification/release_summary.json)
-and [replay record](../supplements/rank6/verification/round2/release_replay.json).
+and authoritative ledger describe the current 16,548/54/10 partition.
 
 The verified rank-seven release through
 multiplicity four has SHA-256
@@ -75,7 +94,7 @@ are categorification questions, not negative certificates.
 | 3 | `results/census.json` | 1,000 | Five-ring unrestricted theorem | Per-band decisions exported through 1,000; four realized at multiplicity 1 and one at 2 |
 | 4 | `results/rank4/tables.txt.gz` | 128 | `certificates/classification.jsonl.gz` | Complete through 128 |
 | 5 | `results/rank5/tables.txt.gz` | 20 | Revised `data/decisions_all.json` | Complete general classification through 20 |
-| 6 | `results/rank6/tables.txt.gz` | 8 | `supplements/rank6/data/decisions.json` | Complete through 3; 22 general residuals through 8 |
+| 6 | `results/rank6/tables.txt.gz` | 8 | `supplements/rank6/data/decisions.json` | Complete through 3 and at exact 7; 10 general residuals through 8 |
 | 7 | `results/rank7/tables.txt.gz` | 4 | `supplements/rank7/output/rank7_ledger.json` | Partial at all four bands; 78 unresolved |
 | 8 | `results/rank8/tables.txt.gz` | 2 | `supplements/rank8/data/decisions.json` | Partial at both bands; 116 unresolved |
 
@@ -96,7 +115,7 @@ with its [arithmetic checker](../supplements/rank3/audit_rank3.py).
 |---:|---|---:|---|
 | 4 | `969a2a5a84b794a3da1d9cd3978f92324d631760f503f5d208011923a723920f` | 889,530 | 889,515 excluded; 15 realized |
 | 5 | `9261917451d469ece9929a1756f505924cf84adf34e79a0d2e6f68fed43f55cf` | 40,999 | 40,982 excluded; 17 realized; 0 unresolved |
-| 6 | `c8ad5ac40750125259e14b01a70f174abd1d76e97cbc596473a1481b6717adab` | 16,612 | 16,536 excluded; 53 unitary models; 1 spherical model with no pseudo-unitary categorification; 22 generally unresolved |
+| 6 | `89d9f35a663c9b886d59e836ba09892b9e2a2b34ae3809594b535320830f3ade` | 16,612 | 16,548 excluded; 53 unitary models; 1 spherical model with no pseudo-unitary categorification; 10 generally unresolved |
 | 7 | `de2eb6c024a9271a66d8b34c187ebc4eca9bbd6fc1625b8e85c18b66c4abbb73` | 4,201 | 4,107 excluded; 16 unitary models; 78 unresolved |
 | 8 | `555e206a8df62db6ddb557543ae37a77a7345f6129881de26fb70d3c927203df` | 973 | 824 excluded; 33 unitary models; 116 unresolved |
 

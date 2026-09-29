@@ -9,6 +9,7 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 counts=json.loads((ROOT/'data/counts.json').read_text())
 status=json.loads((ROOT/'data/classification_status.json').read_text())
+rank6_identity=json.loads((ROOT/'data/rank6_release_identity.json').read_text())
 assert counts['census_commit']=='b86eb6dc6eeeafe5fc5f6906d7b074e0322e9726'
 rows=counts['rows']
 cells={(x['rank'],x['multiplicity']):x['rings'] for x in rows}
@@ -43,19 +44,17 @@ assert byrank[4]['excluded_general']==889515 and byrank[4]['realized_other_or_un
 assert byrank[5]['excluded_general']==40982 and byrank[5]['realized_other_or_unspecified']==17 and byrank[5]['unresolved_general']==0
 assert byrank[2]['realized_other_or_unspecified']==2 and byrank[2]['excluded_general']==999
 assert byrank[3]['realized_other_or_unspecified']==5 and byrank[3]['excluded_general']==460348
-assert byrank[6]['excluded_general']==16536 and byrank[6]['realized_unitary']==53 and byrank[6]['realized_spherical_nonpseudounitary']==1 and byrank[6]['unresolved_general']==22
+assert byrank[6]['excluded_general']==rank6_identity['summary']['excluded'] and byrank[6]['realized_unitary']==53 and byrank[6]['realized_spherical_nonpseudounitary']==1 and byrank[6]['unresolved_general']==rank6_identity['summary']['unresolved']
 assert (byrank[7]['excluded_general'],byrank[7]['realized_unitary'],byrank[7]['unresolved_general'])==(4107,16,78)
 assert (byrank[8]['excluded_general'],byrank[8]['realized_unitary'],byrank[8]['unresolved_general'])==(824,33,116)
-rank6_expected=[(39,18,21,0,0),(154,132,21,1,0),(384,381,3,0,0),
-                (872,863,2,0,7),(1582,1579,1,0,2),(2768,2762,3,0,3),
-                (3814,3810,2,0,2),(6999,6991,0,0,8)]
+rank6_expected=[tuple(row) for row in rank6_identity['counts']]
 for m,expected in enumerate(rank6_expected,1):
     row=next(x for x in statusrows if x['rank']==6 and x['multiplicity']==m)
     assert tuple(row[k] for k in ('rings','excluded_general','realized_unitary',
                                   'realized_spherical_nonpseudounitary','unresolved_general'))==expected
 rank6_root=ROOT/'supplements/rank6'
 rank6_raw=(rank6_root/'data/decisions.json').read_bytes()
-assert hashlib.sha256(rank6_raw).hexdigest()==status['inputs']['rank6']['sha256']=='c8ad5ac40750125259e14b01a70f174abd1d76e97cbc596473a1481b6717adab'
+assert hashlib.sha256(rank6_raw).hexdigest()==status['inputs']['rank6']['sha256']==rank6_identity['ledger_sha256']
 rank6_ledger=json.loads(rank6_raw)
 assert len(rank6_ledger)==len({x['id'] for x in rank6_ledger})==16612
 for m,expected in enumerate(rank6_expected,1):
@@ -63,18 +62,19 @@ for m,expected in enumerate(rank6_expected,1):
     assert (len(band),*(sum(x['status']==s for x in band) for s in
             ('excluded','unitarily_realized','spherically_realized_nonpseudounitary','unresolved')))==expected
 rank6_summary=json.loads((rank6_root/'verification/release_summary.json').read_text())
-assert (rank6_summary['excluded'],rank6_summary['positive'],rank6_summary['unresolved'])==(16536,54,22)
+assert (rank6_summary['excluded'],rank6_summary['positive'],rank6_summary['unresolved'])==tuple(rank6_identity['summary'][k] for k in ('excluded','positive','unresolved'))
 assert rank6_summary['general_multiplicity_three_complete'] is True
 assert rank6_summary['complete_through_multiplicity']==status['inputs']['rank6']['general_complete_through']==3
-assert rank6_summary['first_unresolved']=='R6_4_6'
+assert rank6_summary['first_unresolved']==rank6_identity['summary']['first_unresolved']
 assert (rank6_summary['first_continuation_excluded'],rank6_summary['second_continuation_excluded'])==(7,18)
+assert rank6_summary['third_continuation_excluded']==rank6_identity['summary']['third_continuation_excluded']
+assert hashlib.sha256((rank6_root/'certificates/continuation_round3.jsonl').read_bytes()).hexdigest()==rank6_identity['third_certificate_sha256']
 assert len(json.loads((rank6_root/'data/model_catalog.json').read_text()))==54
 assert next(x for x in rank6_ledger if x['id']=='R6_3_215')['status']=='excluded'
 assert sum(x['rings'] for x in statusrows if x['rank']==6 and x['multiplicity']<=3)==577
 assert sum(x['excluded_general'] for x in statusrows if x['rank']==6 and x['multiplicity']<=3)==531
 rank6_bundle=next(x for x in status['bundles'] if x['name']==status['inputs']['rank6']['current_bundle'])
-assert rank6_bundle=={'name':'Rank6_Categorification_M8_Revised_2026-09-29_v2.zip',
-                      'sha256':'c9508a49228f199e8f4bf476edddb72a0eddcce45b6e249a11b9f49105de2467'}
+assert rank6_bundle=={k:rank6_identity['archive'][k] for k in ('name','sha256')}
 assert next(x for x in statusrows if x['rank']==5 and x['multiplicity']==18)['excluded_general']==5080
 assert all(next(x for x in statusrows if x['rank']==5 and x['multiplicity']==m)['excluded_general']==cells[(5,m)] for m in (19,20))
 assert all(x['unassessed']==0 for x in statusrows)

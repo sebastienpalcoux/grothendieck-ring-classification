@@ -14,6 +14,8 @@ bibliography and model catalogue give attribution for categorical inputs.
 
 `REVISION_NOTES_first_continuation.md` preserves the earlier seven-exclusion
 release. Its unresolved statuses are historical. The root revision notes and
-decision ledger describe the current second continuation. The full-tensor
+decision ledger describe the current third continuation.
+`REVISION_NOTES_second_continuation.md` preserves the intervening
+18-exclusion release. The full-tensor
 import audit for the standalone R3582 and B13 arguments is retained in
 `research/round2_external/IMPORT_AUDIT.md`; B13 lies outside this census.

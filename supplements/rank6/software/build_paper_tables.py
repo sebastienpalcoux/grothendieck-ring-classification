@@ -29,6 +29,7 @@ def stage_table(rows,decisions):
   for stage in stages:
    cells=[str(stage['by_multiplicity'][str(m)]['removed'])+'/'+str(stage['by_multiplicity'][str(m)]['remaining']) for m in columns]
    label=labels.get(stage['stage'],stage['label'].replace('_',' '))
+   label=label.replace('Continuation: ', 'Added: ')
    if stage['stage']=='general_induction':label='Sphericalization/induction'
    timing='---' if stage['wall_seconds'] is None else f"{stage['wall_seconds']:.1f}"
    text.append(label+' & '+' & '.join(cells)+(' & '+str(stage['removed'])+' & '+timing if global_columns else '')+r'\\')
@@ -97,7 +98,14 @@ def main():
                 'general_cyclotomic_stabilizer_trace':'Stabilizer and cyclotomic traces',
                 'biquadratic_spherical_trace':'Biquadratic norm and trace obstruction',
                 'formal_codegree_trace_ideal':'Formal-codegree trace-ideal obstruction',
-                'trace_ideal_signed_pseudo_exclusion':'Trace ideal and signed saturation'})
+                'trace_ideal_signed_pseudo_exclusion':'Trace ideal and signed saturation',
+                'inert_quadratic_pseudo_exclusion':'Local signed-spectrum saturation',
+                'noncommutative_signed_exclusion':'Noncommutative signed-spectrum saturation',
+                'general_integral_morita_rotation':'Integral Morita and Clifford rotation',
+                'c4_associator_stabilizer':'Cyclic associator and stabilizer rotation',
+                'general_ambient_full_character_rotation':'Full-character cyclotomic rotation',
+                'general_low_verlinde_restriction':'Low Verlinde and restriction products',
+                'split_quadratic_different_pseudo_exclusion':'Different ideal and signed saturation'})
  kinds=collections.Counter(d['certificate']['kind'] for d in ds if d['status']=='excluded');text=['\\begin{table}[ht]\\centering','\\begin{tabular}{lr}\\toprule','First retained certificate & Rings\\\\\\midrule']
  for k,v in sorted(kinds.items(),key=lambda z:(-z[1],z[0])):text.append(labels.get(k,k.replace('_',' '))+f' & {v}\\\\')
  text += ['\\midrule',f"Total & {sum(kinds.values())}\\\\",'\\bottomrule\\end{tabular}','\\caption{Disjoint allocation of general exclusions. Nested criteria are not counted again.}\\label{tab:allocation}','\\end{table}'];(P/'papers/generated_allocation.tex').write_text('\n'.join(text)+'\n')

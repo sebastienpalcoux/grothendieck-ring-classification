@@ -151,7 +151,7 @@ categorification theorem. Module-Gram and Morita constraints likewise
 require the module or subcategory hypotheses proved in the manuscript.
 Their applicability is checked before a certificate is accepted.
 
-\subsection{The two continuation files and release workflow}
+\subsection{The continuation files and release workflow}
 The original sixteen-stage campaign is preserved in
 \filename{verification/classification/}, including its unchanged
 accepted-certificate file. The first continuation used forty-seven
@@ -171,7 +171,7 @@ system is a research outcome, not a negative certificate.
 
 Only general certificates accepted by the checker enter
 \filename{certificates/continuation_round2.jsonl}. The release is the
-disjoint union of the original campaign and both continuation files.
+disjoint union of the original campaign and the continuation files.
 Alternative proofs of the same tensor are verified but not counted twice.
 The following commands perform the second freeze and an independent
 replay of the accepted continuation records:
@@ -186,7 +186,7 @@ optimization, verifies alternatives and all accepted continuation
 certificates, writes the second JSONL file and rebuilds the ledger in
 one process. Its receipt is
 \filename{verification/round2/release_replay.json}. The second command
-checks both continuation files against the current ledger and replays
+checks all continuation files against the current ledger and replays
 each certificate independently, again with both linear and mixed-integer
 optimizers disabled. The supplied output argument keeps its report
 separate from the first continuation's historical reports. Omitting
@@ -198,6 +198,32 @@ The full-ledger \filename{verify.py} commands above do that and also
 check the source and positive models, unless explicitly restricted by
 \filename{--proofs-only}. Retained incremental evidence is not described
 as a newly executed full replay.
+
+\paragraph{Third-continuation replay.}
+The next input domain is the twenty-two full tensors frozen in
+\filename{verification/round3/campaign_manifest.json}. Its proof-source
+index is \filename{verification/round3/proof_sources.json}; accepted
+general certificates are stored in
+\filename{certificates/continuation_round3.jsonl}. Run
+\begin{verbatim}
+python -O software/round3_release.py --jobs 3
+python software/model_catalog.py
+python software/build_paper_tables.py
+python software/release_consistency.py
+python -O software/release_consistency.py
+\end{verbatim}
+The first command reconstructs the new proof branches with both SciPy
+optimizers disabled, checks membership in the immutable input domain,
+freezes the accepted file, and combines it with the unchanged prior
+campaigns. \filename{verification/round3/release_replay.json} records
+the resulting certificate and ledger hashes and distinguishes the new
+replays from inherited evidence. Independent normal and optimized
+checks, relabeling controls and rejected corruptions are retained in
+the criterion directories under \filename{research/round3/}.
+The arithmetic and cyclic-family scans screen the full census; the
+more expensive induction scans record their actual finite residual
+domains, eligibility and budgets. No stopped or feasible relaxation
+is allocated as an exclusion.
 
 The first continuation's three additional general obstructions are implemented by
 \filename{new_rank3_subring.py},
@@ -526,7 +552,8 @@ its full fusion tensor agrees.
 
 \section{Regenerating the presentation}
 The manuscript has seven main source chapters, with continuation
-subsections included from their separate theorem files. After the second-continuation freeze and replay described above, the
+subsections included from their separate theorem files, together with
+the new continuation chapter. After the current continuation freeze and replay described above, the
 following commands rebuild the derived ledgers, tables and companion
 PDFs from the retained records:
 \begin{verbatim}
