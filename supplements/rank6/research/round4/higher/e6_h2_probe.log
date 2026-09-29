@@ -1,0 +1,45 @@
+data {'F': 60, 'prime_support': [2, 3, 5], 'order_bound': 120, 'height': 2, 'types': 91, 'columns': [4, 6, 11, 5, 7], 'lows': 12} 28.743522577002295
+build 1 False (1, 1, 1, 1, -1) 28.834495699004037
+farkas 3445 4318 734.3810036720024
+result True 744.3704268380025
+build 1 False (1, 1, 1, 1, 1) 744.3711531240042
+Traceback (most recent call last):
+  File "/workspace/scratch/68e7dbe896a7/work_round4/Rank6_Categorification_M8/research/round4/higher/e6_h2_probe.py", line 21, in <module>
+    A,b,meta=m.system(R,data,cols,ep,lab,g,x,conj);print('farkas',len(A),len(A[0]),time.monotonic()-st,flush=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/68e7dbe896a7/work_round4/Rank6_Categorification_M8/software/round4_higher_e6.py", line 49, in system
+    # Galois-orbit count equality, without invalid fixed-trace refinement.
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/68e7dbe896a7/work_round4/Rank6_Categorification_M8/software/round3_m4.py", line 131, in coupled_balance
+    tt=tuple(evaluate(v.to_list(),z,C) for v in typ);tj=pm[ti]
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/68e7dbe896a7/work_round4/Rank6_Categorification_M8/software/round3_m4.py", line 131, in <genexpr>
+    tt=tuple(evaluate(v.to_list(),z,C) for v in typ);tj=pm[ti]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/68e7dbe896a7/work_round4/Rank6_Categorification_M8/software/exact.py", line 20, in evaluate
+    for c in co:v=v*a+K(s.Rational(c))
+                  ~^~
+  File "/root/.local/lib/python3.12/site-packages/sympy/polys/polyclasses.py", line 3125, in __mul__
+    return f.mul(g)
+           ^^^^^^^^
+  File "/root/.local/lib/python3.12/site-packages/sympy/polys/polyclasses.py", line 3033, in mul
+    return f.new(F.mul(G).rem(mod), mod, dom)
+                 ^^^^^^^^
+  File "/root/.local/lib/python3.12/site-packages/sympy/polys/polyclasses.py", line 512, in mul
+    return F._mul(G)
+           ^^^^^^^^^
+  File "/root/.local/lib/python3.12/site-packages/sympy/polys/polyclasses.py", line 1390, in _mul
+    return f.per(dmp_mul(f._rep, g._rep, f.lev, f.dom))
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/.local/lib/python3.12/site-packages/sympy/polys/densearith.py", line 807, in dmp_mul
+    return dup_mul(f, g, K)
+           ^^^^^^^^^^^^^^^^
+  File "/root/.local/lib/python3.12/site-packages/sympy/polys/densearith.py", line 767, in dup_mul
+    coeff += f[j]*g[i - j]
+  File "/root/.local/lib/python3.12/site-packages/sympy/external/pythonmpq.py", line 213, in __add__
+    g = gcd(aq, bq)
+        ^^^^^^^^^^^
+  File "/workspace/scratch/68e7dbe896a7/work_round4/Rank6_Categorification_M8/research/round4/higher/e6_h2_probe.py", line 6, in stop
+    def stop(*a):raise TimeoutError('840-second external budget')
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TimeoutError: 840-second external budget

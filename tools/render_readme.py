@@ -30,22 +30,24 @@ rank6_summary=(f'| 6 | Through 8 | **Complete through {rank6_complete}** | '
 identity=json.loads((ROOT/'data/rank6_release_identity.json').read_text())
 release=identity['summary']
 complete_bands=', '.join(str(r[0]) for r in [(m, state[(6,m)]['unresolved_general']) for m in range(1,9)] if r[1]==0)
-rank6_continuation=f"""The latest rank-six continuation adds **{release['third_continuation_excluded']} general exclusions**, reducing
-the frontier from 22 cases to **{rank6_open}**. It settles three multiplicity-four cases,
-all remaining noncommutative frontier cases, and the four dense multiplicity-eight
-cases. The exact multiplicity bands **{complete_bands}** are now fully classified.
-All **577 rings through multiplicity three** remain classified: **531 excluded
-and 46 realized**, including 45 with unitary models.
+rank6_continuation=f"""The fourth rank-six continuation adds **{release['fourth_continuation_excluded']} general exclusions**, reducing
+the frontier from ten cases to **{rank6_open}**. The exact multiplicity bands
+**{complete_bands}** are fully classified. All **577 rings through multiplicity
+three** remain classified: **531 excluded and 46 realized**, including 45 with
+unitary models.
 
-The three continuation files contain 7, 18 and {release['third_continuation_excluded']} disjoint general
-exclusions. New cyclic-associator, full-character, integral Morita, dimension-field
-and signed-spectrum criteria have been applied through multiplicity eight.
-See the [revision notes](supplements/rank6/REVISION_NOTES.md),
+New twist-preserving subcategory projections and exact twist masses strengthen
+central induction at higher multiplicities. Exhaustive finite restriction-profile
+searches substantially narrow the multiplicity-four frontier. Surviving necessary
+systems are retained without treating them as categorical models.
+
+The four continuation files contain 7, 18, 12 and {release['fourth_continuation_excluded']} disjoint general
+exclusions. See the [revision notes](supplements/rank6/REVISION_NOTES.md),
 [{rank6_open} remaining tensors](supplements/rank6/data/unresolved_tensors.json),
-[criterion coverage](supplements/rank6/research/round3/coverage.json), and
-[exact new-proof replay](supplements/rank6/verification/round3/release_replay.json).
+[criterion coverage](supplements/rank6/research/round4/coverage.json), and
+[exact new-proof replay](supplements/rank6/verification/round4/release_replay.json).
 The [complete revised rank-six ZIP](https://grothendieck-ring-atlas.sebastien-palcoux.chatgpt.site/downloads/{identity['archive']['name']})
-contains all {identity['archive']['files']} released files, including all three continuation files.
+contains all {identity['archive']['files']} released files, including all four continuation files.
 """
 lines=['''# Grothendieck ring classification
 

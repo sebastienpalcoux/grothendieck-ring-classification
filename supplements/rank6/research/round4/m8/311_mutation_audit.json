@@ -1,0 +1,48 @@
+{
+  "passed": true,
+  "optimizer_disabled": true,
+  "domain_cache_key": "exact tensor,height,conductor",
+  "checks": [
+    {
+      "mutation": "omit a low frame",
+      "rejected": true,
+      "reason": "missing low frames"
+    },
+    {
+      "mutation": "incorrect conductor completeness bound",
+      "rejected": true,
+      "reason": "wrong subfield/trace domain"
+    },
+    {
+      "mutation": "alter low restriction column",
+      "rejected": true,
+      "reason": "wrong low frame"
+    },
+    {
+      "mutation": "false Ising subcategory identification",
+      "rejected": true,
+      "reason": "wrong subfield/trace domain"
+    },
+    {
+      "mutation": "negate exact Farkas ray",
+      "rejected": true,
+      "reason": "higher-indicator Farkas certificate fails"
+    },
+    {
+      "mutation": "omit signed sphericalization quotient",
+      "rejected": true,
+      "reason": "incomplete unrestricted signed domain"
+    },
+    {
+      "mutation": "change claimed general scope",
+      "rejected": true,
+      "reason": "wrong general Ising certificate"
+    },
+    {
+      "mutation": "alter input tensor unit coefficient",
+      "rejected": true,
+      "reason": "duality is not unique"
+    }
+  ],
+  "seconds": 16.208129462000215
+}

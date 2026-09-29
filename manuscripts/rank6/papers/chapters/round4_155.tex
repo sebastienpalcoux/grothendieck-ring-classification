@@ -1,0 +1,154 @@
+\section{Complex low fusion products and their fourth moments}
+\label{sec:complex-low-fourth}
+
+The remaining non-self-dual quadratic tensor $\RR{4}{155}$ illustrates why
+survival certificates should be retained as carefully as exclusion
+certificates. Its invertible group is $C_2\times C_2$, its two noninvertible
+simples are dual to one another, and their common Frobenius--Perron dimension
+is $d=4+3\sqrt2$. Thus
+\[
+ \operatorname{FPdim}(\mathcal C)=4+2d^2=72+48\sqrt2,
+ \qquad p_D(t)=t^2-144t+576.
+\]
+The criteria below use the entire input tensor and are not specific to this
+example. All categorical conclusions are conditional on a pseudo-unitary
+categorification; the accompanying signed-reduction certificate separately
+checks the passage from unrestricted categorification to a pseudo-unitary
+Galois conjugate for this tensor.
+
+\subsection{Complex low Verlinde coefficients}
+Write $D=\operatorname{FPdim}(\mathcal C)$, and let $A_a$ denote the simple
+summands of $I(\mathbf1)$, with $A_0=\mathbf1$. For a central simple $Z$ set
+$d_Z=\operatorname{FPdim}(Z)$ and
+\[
+ \lambda_a(Z)=\frac{S_{A_a,Z}}{S_{\mathbf1,Z}}.
+\]
+The induction character table and the restriction column of $Z$ determine
+these numbers. They need not be real. Complex conjugation of the complete
+character table determines the permutation $a\mapsto a^*$, and one must
+retain this permutation when writing restriction-product equations.
+The Verlinde formula gives
+\begin{equation}\label{eq:r4-complex-triple}
+ t_{abc}:=\dim\operatorname{Hom}(\mathbf1,A_aA_bA_c)
+ =\frac1{D^2}\sum_Z
+       d_Z^2\lambda_a(Z)\lambda_b(Z)\lambda_c(Z)
+ \in\mathbb Z_{\ge0}.
+\end{equation}
+In particular $N_{A_a,A_b}^{A_c}=t_{ab c^*}$, not necessarily $t_{abc}$.
+This identity is linear in the numbers of high central simples with each
+restriction column and relative twist-trace type.
+
+For a high restriction column $v$, put
+\[
+ x_v=\#\{Z:F(Z)=v\},\qquad
+ q_{ab,v}=\sum_{F(Z)=v}N_{A_a,A_b}^Z.
+\]
+If $f_{ab}$ is the coefficient vector of $F(A_a)F(A_b)$, tensoriality of $F$
+gives the exact componentwise equality
+\begin{equation}\label{eq:r4-complex-restriction}
+ f_{ab}=\delta_{a,b^*}e_0+
+          \sum_{c\ne0}t_{ab c^*}F(A_c)+\sum_v q_{ab,v}v.
+\end{equation}
+For every nonzero coordinate of $v$, nonnegativity gives
+$N_{A_a,A_b}^Z v_i\le(f_{ab})_i$. Consequently, with
+\[
+ B_{ab,v}=\min_{i:v_i>0}\left\lfloor\frac{(f_{ab})_i}{v_i}\right\rfloor,
+ \qquad 0\le q_{ab,v}\le B_{ab,v}x_v.
+\]
+All variables in these equations are nonnegative integers in an actual
+category. Linear infeasibility is therefore an obstruction; a solution,
+even integral, constructs no category.
+
+\subsection{Fourth moments and integer squares}
+There is a useful further identity that does not require the input tensor
+to be self-dual:
+\begin{equation}\label{eq:r4-fourth-moment}
+ Q_{ab}:=\frac1{D^2}\sum_Z d_Z^2
+  \lambda_a(Z)\lambda_b(Z)\lambda_{a^*}(Z)\lambda_{b^*}(Z)
+ =\sum_Z\bigl(N_{A_a,A_b}^Z\bigr)^2.
+\end{equation}
+Indeed the left side is the coefficient of the unit in
+$(A_aA_b)(A_aA_b)^*$, by simultaneous diagonalization of the fusion matrices.
+Expanding $A_aA_b$ in the simple basis gives the right side by rigidity.
+Thus this assertion uses the based-ring involution and positivity of fusion
+multiplicities, not an assumption that the category is unitary.
+
+Introduce $z_{ab,v}=\sum_{F(Z)=v}(N_{A_a,A_b}^Z)^2$ and corresponding
+square variables for the known low coefficients. For integers $n\ge0$ and
+$0\le n\le B$, the identities
+\[
+ n^2-(2k+1)n+k(k+1)=(n-k)(n-k-1)\ge0,
+ \qquad n^2\le Bn
+\]
+hold for every integer $k\ge0$. Summing them over a restriction type gives
+\begin{equation}\label{eq:r4-square-cuts}
+ (2k+1)q_{ab,v}-k(k+1)x_v\le z_{ab,v}
+          \le B_{ab,v}q_{ab,v}.
+\end{equation}
+For a low simple, replace $x_v$ by $1$ and $q_{ab,v}$ by its individual
+Verlinde multiplicity. Equation~\eqref{eq:r4-fourth-moment} becomes the sum
+of these square variables, together with the unit contribution
+$\delta_{a,b^*}$. Any finite selection of the lower inequalities is valid;
+the implementation supports both all $0\le k<B$ and a stated cutoff.
+This gives an exact linear strengthening, with integrality retained in
+bounded discovery experiments. Failure of a mixed-integer optimizer to
+finish is recorded only as an incomplete search.
+
+\subsection{Transport by central invertibles}
+Suppose the low frame has exactly one column equal to $e_0$.
+A central invertible restricting to the unit must occur in $I(\mathbf1)$,
+so the forgetful homomorphism on invertible objects has trivial kernel.
+Its image is therefore a subgroup $K$ of the based-ring invertible group,
+and each $g\in K$ has exactly one invertible lift.
+For any such lift $L$, tensoring by $L$ permutes all central simples and sends
+a restriction vector $v$ to the coefficient vector of $gv$. In particular,
+the total counts of these restriction types agree, including low objects.
+
+There is a stronger constraint when $g^2=1$ and $\nu_2(g)=-1$.
+The lift has order two and twist $\theta_L=\pm i$. Its monodromy with a
+simple $Z$ is a scalar in $\{1,-1\}$: monodromy with invertibles is
+multiplicative, and $L^2=\mathbf1$. The balancing identity therefore gives
+\[
+ \theta_{LZ}=\pm i\theta_Z.
+\]
+In particular $LZ\not\cong Z$, so this permutation is a fixed-point-free
+involution. When the ambient cyclotomic field contains $i$, normalized
+relative traces transform by
+$(t_j)_j\mapsto((\pm i)^j t_j)_j$.
+One can encode the resulting matching with nonnegative integral edge
+variables between allowed pairs of restriction/trace types. An edge
+joining distinct types contributes one to each marginal; a loop in the
+\emph{type} graph contributes two, because it still represents two distinct
+simples. This last convention is necessary when relative trace loses the
+underlying twist information. These matching equations are necessary only;
+for several lifts they do not impose all simultaneous group-action
+relations.
+
+\subsection{Recorded scope and exact surviving branches}
+For $\RR{4}{155}$ the signed-reduction replay reconstructs all $40$ signed
+quotients in three sign orbits. Exactly one orbit consists of sign gauges
+of the original tensor, and eight nongauge character components are
+rejected. Thus every categorification is spherical and has a pseudo-unitary
+Galois conjugate, by the signed-reduction theorem used earlier.
+
+The complex low-Verlinde and restriction-product system admits an exact
+nonnegative integral solution at ambient conductor $8$ and trace height
+$6$: it has $2,674$ equations, $4,295$ variables, and total central-object
+count $48$. Enlarging the ambient field to conductor $24$, at height $3$,
+also admits an exact integral solution, with $2,940$ equations and $4,698$
+variables. These solutions are replayed using exact rational arithmetic
+with numerical optimizers disabled. They certify survival of precisely
+the stated necessary systems. They are not modular data, and their
+central-object counts are not asserted to be the rank of an existing
+center.
+
+The combined fourth-moment and central-invertible system also has an
+exact integral survivor at conductor $8$, height $3$, and square-cut
+cutoff $8$: $7,764$ equations in $9,982$ variables, with central-object
+count $36$ and pointed image $\{1,h\}$. Its optimized-Python replay
+checks every equation with numerical optimizers disabled. Their complete
+per-input applicability records, including all ten input frontier rings
+and all $54$ positive controls, are in
+\texttt{research/round4/m4\_155/}. No timeout or numerical feasibility
+result is used as a categorical decision. The exact witnesses are stored
+separately from exclusion certificates.

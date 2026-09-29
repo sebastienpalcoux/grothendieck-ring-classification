@@ -20,7 +20,19 @@ def integral_general(R,c):
 def verify(R,c):
     global _order6_finite_checked
     k=c['kind']
-    if k=='c4_associator_stabilizer':
+    if k=='general_fibonacci_subfield_rotation':
+        import round4_m8_subfield
+        round4_m8_subfield.verify_general(R,c)
+    elif k=='general_ising_projection_rotation':
+        import round4_m8_ising
+        round4_m8_ising.verify_general(R,c)
+    elif k=='general_cyclic_three_projection':
+        import round4_higher_c3
+        round4_higher_c3.verify_general(R,c)
+    elif k=='general_half_e6_projection':
+        import round4_higher_e6
+        round4_higher_e6.verify_general(R,c)
+    elif k=='c4_associator_stabilizer':
         import round3_smallest
         round3_smallest.verify(R,c)
     elif k in ('inert_quadratic_pseudo_exclusion','inert_quadratic_signed_spectrum'):

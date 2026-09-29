@@ -1,0 +1,126 @@
+\subsection{Twist-resolved subcategory constraints at higher multiplicity}
+\label{subsec:round4-higher}
+
+The projection in Proposition~\ref{prop:central-subcategory-projection}
+can be used before enumerating a complete modular datum.  In particular,
+it couples a restriction column to its twist; checking the column and the
+twist separately loses information.  We record two explicit source tables
+which make this necessary condition fully effective.
+
+\paragraph{The half-$E_6$ subcategory.}
+Suppose that the based subring on $\{1,g,x\}$ satisfies
+$g^2=1$, $gx=xg=x$, and $x^2=1+g+2x$.
+Put $d=1+\sqrt3$ and $D_0=2+d^2=6+2\sqrt3$.
+Hagge--Hong classify its four categorifications
+\cite[Theorem~1 and Sections~4.7--4.8]{HH3}.
+The relations imply that every tensor automorphism of the identity is
+trivial: its scalar on $x$ satisfies $\eta_x^2=\eta_x$, and then
+$\eta_g=1$.  Hence a pivotal structure, when present, is unique.
+Two Galois conjugates have $\dim(x)=1-\sqrt3<0$ and cannot be
+pseudo-unitary.  The two remaining cases are complex conjugate.
+Their center restriction columns and twists are given by
+Hong--Rowell--Wang \cite[Section~2.1]{HRWexotic}.  Writing $\zeta=\exp(2\pi i/12)$, one table is
+\begingroup\setlength{\arraycolsep}{3pt}
+\[
+\begin{array}{c|cccccccccc}
+Z&1&Y&X_1&X_2&X_3&X_4&X_5&U&V&W\\ \hline
+F(Z)&1&g&x&x&x&x&x&1+x&g+x&1+g+x\\
+\theta_Z&1&-1&\zeta^{-3}&\zeta^5&\zeta^5&\zeta^2&\zeta^{-4}&1&-1&1.
+\end{array}
+\]
+\endgroup
+The other table conjugates every twist.  Complex conjugation of the entire
+putative pseudo-unitary category preserves its based ring and its positive
+dimensions, and exchanges these two subcategory choices.  Thus exclusion
+for the displayed choice excludes both choices; this is a reduction of
+existence, not an omission of a categorical branch.
+
+For a high induction column $c$, the unit coordinate is zero.
+Consequently, $c_g>0$ forces $\theta=-1$ and $c_g\ge c_x$;
+if $c_g=0<c_x$, the twist must be one of the four displayed $X$-twists.
+A low column has twist one, and its coordinates must satisfy
+$0\le c_g\le c_x\le c_1$.
+These statements concern all structure constants, with the subring
+located by its multiplication table, rather than by census labels.
+
+The twist masses give additional equalities.  If the ambient category has
+FP dimension $D$, Corollary~\ref{cor:subcategory-twist-masses} implies
+\[
+ \sum_{Z:\,\theta_Z=\lambda} c_{x,Z}\operatorname{FPdim}(Z)
+       =\frac{D}{D_0}M_\lambda,
+\]
+where the successive values of $M_\lambda$ at
+$\lambda=\zeta^{-3},\zeta^5,\zeta^2,\zeta^{-4},-1,1$
+are
+\[
+ d,\quad 2d,\quad d,\quad d,\quad d+1,\quad 2d+3.
+\]
+Known low columns are subtracted from the right-hand sides.
+The existence reduction by conjugating the entire category, given above,
+covers the conjugate source table as well.  The implementation combines it with the full
+induction Gram equations, the integrality of joint character spectra,
+and equality of multiplicities along Galois orbits.  Optional refinements
+add the low Verlinde coefficients and restriction products.
+
+\paragraph{Cyclic pointed subcategories of order three.}
+For a generator $g$ of a pointed $C_3$ subcategory, all associator classes
+are represented by $s\in\{0,1,2\}$.  A standard cocycle representative is
+\[
+ \omega_s(a,b,c)=\exp\!\left(\frac{2\pi i s a}{3}
+                         \left\lfloor\frac{b+c}{3}\right\rfloor\right),
+ \qquad 0\le a,b,c<3.
+\]
+Solving the one-dimensional half-braiding equations gives, over the
+underlying object $g^a$, the three twists
+\[
+ \exp\!\left(2\pi i\left(\frac{sa^2}{9}+\frac{ab}{3}\right)\right),
+ \qquad b\in\{0,1,2\}.
+\]
+Thus a central object whose restriction contains $g$ or $g^2$ has
+$\theta^3=\exp(2\pi i s/3)$.  For the ambient field
+$\mathbb Q(\zeta_{24})$, the three height-three relative-trace types
+when $s=0$ are $(\lambda,\lambda^2,1)$, $\lambda^3=1$.
+For $s=1,2$, the three possible ninth roots have the same normalized
+relative-trace type $(0,0,\exp(2\pi i s/3))$.
+All three associator classes must be retained.  No triviality assumption
+on the pointed associator is used.
+
+\paragraph{Exact arithmetic and scope.}
+The supplementary implementations retain rational equations and integer
+separating rays.  For the half-$E_6$ input with FP field
+$\mathbb Q(\sqrt3,\sqrt5)$, normalized traces from
+$\mathbb Q(\zeta_{60})$ to the real FP field reduce the height-three
+twist domain from $131$ to $40$ types.  A field pullback is accepted only
+after exact reconstruction of every coordinate.  The Galois group of
+this real field has exponent two, so the square action on these relative
+twist traces is trivial; joint-spectrum multiplicity equalities can
+therefore be imposed separately for each relative-trace type.
+Additional negative-stabilizer rotation conditions are imposed only
+after exhaustive reconstruction of the relevant involution module.
+Surviving systems remain necessary relaxations and do not provide
+categorifications or modular data.
+
+
+\paragraph{Certified applications and the remaining multiplicity-five input.}
+For $R_{6,6,49}$ the complete low domain has $353$ frames, of which only
+one remains after the ordinary and character-assignment checks.  Its four assignments, three pointed
+associator classes, and two second-indicator choices give $24$ exact
+separating rays.  The established two-FP-value reduction gives unrestricted
+categorical scope.
+For $R_{6,6,1035}$ there are $12$ low frames, of which two admit a character
+assignment.  Each has two second-indicator choices; all four full
+cyclotomic projection systems have exact separating rays.  The unrestricted
+signed reduction exhausts $448$ signed tables in $14$ sign orbits and
+reduces every possible categorification to the pseudo-unitary problem.
+These two exclusions complete the exact multiplicity-six stratum.
+The final half-$E_6$ certificate uses the full conductor-$60$ system;
+its validity does not depend on the exploratory real-field MILP
+infeasibility results or on additional Clifford rotation constraints.
+
+The multiplicity-five input $R_{6,5,1204}$ remains unresolved.  Its
+$39$ low frames admit eight character assignments across two frames.
+The height-three full-character system, and the subsequent low-Verlinde
+and restriction-product refinement, exclude the two assignments of the
+first frame but retain a necessary relaxation on the second.  Neither
+numerical feasibility nor the failure of particular Morita model searches
+is a categorification or a general exclusion.

@@ -28,7 +28,17 @@ the new file and ledger hashes and explicitly distinguishes newly repeated
 checks from inherited earlier evidence. The theorem-specific audits, full
 census scans, 22-input frontier tests and 54 model-control outcomes are under
 `research/round3/`; `coverage.json` records their different scopes and budgets.
-The current frontier has 10 tensors; exact multiplicity seven is complete.
+At the end of the third continuation, ten tensors remained; exact multiplicity seven was complete.
+
+`round4/` freezes the next ten full tensors and the sources of 4 further
+general exclusions. `software/round4_release.py` reconstructs every new
+proof with optimizers disabled and preserves the earlier campaigns.
+Its source-bound replay yields 16,552 exclusions, 54 realized rings and
+6 unresolved cases. Exact completed multiplicity bands are 1, 2, 3, 6, 7.
+The new criterion scans and all 54 model controls are reconciled in
+`research/round4/coverage.json`; eligibility and budgets are explicit.
+Finite restriction profiles and surviving integer or rational systems
+are necessary conditions, not categorical models.
 
 `current/` contains regression and consistency checks; each retained report
 refers to the input and scope recorded when it ran. Normal and
@@ -52,7 +62,7 @@ A full current-ledger replay is available through `verify.py`; incremental
 continuation checking does not claim to have repeated that full run.
 
 The original sixteen-stage campaign and first continuation remain unchanged.
-The second and third accepted JSONL files are disjoint extensions, not a rewritten historical
+The second, third and fourth accepted JSONL files are disjoint extensions, not a rewritten historical
 campaign. Complete all-census scans of the new biquadratic and trace-ideal
 criteria are retained in `research/round2_external/`; their overlapping
 exclusion totals are criterion coverage, not additional ledger allocations.

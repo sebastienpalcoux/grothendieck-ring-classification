@@ -152,6 +152,11 @@ require the module or subcategory hypotheses proved in the manuscript.
 Their applicability is checked before a certificate is accepted.
 
 \subsection{The continuation files and release workflow}
+Earlier freeze commands in this subsection describe their recorded release
+snapshots.  For the current package, rebuild with the fourth-continuation
+workflow below; use \filename{continuation_controls.py} to replay earlier
+proofs against the current ledger.
+
 The original sixteen-stage campaign is preserved in
 \filename{verification/classification/}, including its unchanged
 accepted-certificate file. The first continuation used forty-seven
@@ -224,6 +229,46 @@ The arithmetic and cyclic-family scans screen the full census; the
 more expensive induction scans record their actual finite residual
 domains, eligibility and budgets. No stopped or feasible relaxation
 is allocated as an exclusion.
+
+\paragraph{Fourth-continuation replay.}
+The ten residual tensors are frozen in
+\filename{verification/round4/campaign_manifest.json}. The new exact
+proof sources are indexed in \filename{verification/round4/proof_sources.json};
+the accepted allocation is \filename{certificates/continuation_round4.jsonl}.
+Use the following current workflow:
+\begin{verbatim}
+python -O software/round4_release.py --jobs 3
+python software/model_catalog.py
+python software/build_paper_tables.py
+python software/round4_documents.py
+python research/round4/coverage.py --require-canonical \
+  --output research/round4/coverage.json
+python software/release_consistency.py
+python -O software/release_consistency.py
+python build_papers.py
+\end{verbatim}
+The first command checks the new general certificates from their full
+input tensors, with numerical optimizers disabled, and retains the
+preceding campaigns unchanged. Its source-bound receipt is
+\filename{verification/round4/release_replay.json}. The coverage report
+checks the frozen ten-input frontier and all $54$ positive controls,
+distinguishing ineligibility, exact survival, numerical results and
+unfinished attempts. It does not rerun every old negative certificate.
+
+The new projection theorem preserves the exact twist of a central object
+under projection to a fusion subcategory. Indicator Fourier inversion
+then gives exact masses at each subcategory twist. Implementations must
+aggregate coincident normalized trace types; a projected trace is not
+itself the original twist. General scope requires the separate signed or
+structural reduction stored with each accepted obstruction.
+
+Finite Gram and Galois profile enumeration is also retained for the
+multiplicity-four frontier. The exhaustive profile counts, exact
+word-multiplicity rejections and surviving integer witnesses describe
+necessary systems. They do not construct associators, a full center
+fusion ring, or a categorical model. The fourth-moment square cuts and
+odd-conductor orbit criterion are proved in the new manuscript chapters;
+the squared Galois action is essential in the orbit argument.
 
 The first continuation's three additional general obstructions are implemented by
 \filename{new_rank3_subring.py},

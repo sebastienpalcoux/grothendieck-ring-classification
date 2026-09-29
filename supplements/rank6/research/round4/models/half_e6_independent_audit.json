@@ -1,0 +1,69 @@
+{
+  "passed": true,
+  "optimizer_disabled": true,
+  "python_optimized": true,
+  "certificate_sha256": "2e1a64728013d735080335a5053bbb190ce07eec971736570c2daaaed4822e48",
+  "checks": [
+    {
+      "check": "both source tables give nu2(g)=nu2(x)=1 and exchange by complex conjugation",
+      "passed": true
+    },
+    {
+      "check": "all120 unit-preserving relabellings",
+      "input": "R6_6_1035",
+      "passed": true
+    },
+    {
+      "check": "all120 unit-preserving relabellings",
+      "input": "half_E6_times_Vec_C2",
+      "passed": true
+    },
+    {
+      "check": "remove global conjugation reduction",
+      "rejected": true,
+      "reason": "missing conjugation reduction"
+    },
+    {
+      "check": "omit a low frame",
+      "rejected": true,
+      "reason": "omitted low frame"
+    },
+    {
+      "check": "corrupt conductor bound",
+      "rejected": true,
+      "reason": "wrong trace domain or subcategory"
+    },
+    {
+      "check": "claim wrong half-E6 subcategory",
+      "rejected": true,
+      "reason": "wrong trace domain or subcategory"
+    },
+    {
+      "check": "omit a second-indicator branch",
+      "rejected": true,
+      "reason": "omitted indicator branch"
+    },
+    {
+      "check": "omit a character labelling",
+      "rejected": true,
+      "reason": "omitted character labelling"
+    },
+    {
+      "check": "unannounced source-table convention",
+      "rejected": true,
+      "reason": "omitted indicator branch"
+    },
+    {
+      "check": "invalid half-E6 second indicator",
+      "rejected": true,
+      "reason": "omitted indicator branch"
+    },
+    {
+      "check": "alter general scope",
+      "rejected": true,
+      "reason": "wrong general half-E6 projection certificate"
+    }
+  ],
+  "scope": "source and targeted schema audit; complete numerical-free replays recorded by case and release agents",
+  "seconds": 25.044350877004035
+}

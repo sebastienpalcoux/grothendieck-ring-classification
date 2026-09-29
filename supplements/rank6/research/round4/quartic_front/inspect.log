@@ -1,0 +1,19 @@
+Traceback (most recent call last):
+  File "/workspace/scratch/68e7dbe896a7/work_round4/Rank6_Categorification_M8/research/round4/quartic_front/inspect.py", line 4, in <module>
+    from galois_probe import *
+  File "/workspace/scratch/68e7dbe896a7/work_round4/Rank6_Categorification_M8/research/round3/quartic/galois_probe.py", line 5, in <module>
+    import modular_cyclotomic_trace as m
+  File "/workspace/scratch/68e7dbe896a7/work_round4/Rank6_Categorification_M8/research/round2_literature/quartic/modular_cyclotomic_trace.py", line 2, in <module>
+    from cyclotomic_trace import *
+  File "/workspace/scratch/68e7dbe896a7/work_round4/Rank6_Categorification_M8/research/round2_literature/quartic/cyclotomic_trace.py", line 10, in <module>
+    import sympy as s
+  File "/root/.local/lib/python3.12/site-packages/sympy/__init__.py", line 31, in <module>
+    from sympy.core.cache import lazy_function
+  File "/root/.local/lib/python3.12/site-packages/sympy/core/__init__.py", line 4, in <module>
+    from .sympify import sympify, SympifyError
+  File "/root/.local/lib/python3.12/site-packages/sympy/core/sympify.py", line 9, in <module>
+    from inspect import getmro
+  File "/workspace/scratch/68e7dbe896a7/work_round4/Rank6_Categorification_M8/research/round4/quartic_front/inspect.py", line 6, in <module>
+    R=next(r['N'] for r in json.load(open(ROOT/'data/census.json')) if r['id']==rid);m.R=R;data=data_for(R,3);tab=table_for(R,data);cols=data['lows'][1];C=data['C'];z=__import__('cmath').exp(2j*__import__('math').pi/data['F'])
+                                                                                     ^
+NameError: name 'm' is not defined

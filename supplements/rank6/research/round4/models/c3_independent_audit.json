@@ -1,0 +1,66 @@
+{
+  "passed": true,
+  "optimizer_disabled": true,
+  "python_optimized": true,
+  "certificate_sha256": "f63b3c8c06de61635672ebc96303d008250fab193ec4e0f97ef325673ccbbe7b",
+  "domain_cache": "exact tensor,height3,conductor24 only",
+  "checks": [
+    {
+      "check": "direct C72 relative Galois phase sum",
+      "cases": 18,
+      "passed": true
+    },
+    {
+      "check": "all120 unit-preserving relabellings",
+      "input": "R6_6_49",
+      "passed": true
+    },
+    {
+      "check": "all120 unit-preserving relabellings",
+      "input": "Vec_C6",
+      "passed": true
+    },
+    {
+      "check": "invalid general reduction gate",
+      "rejected": true,
+      "reason": "wrong general-scope gate"
+    },
+    {
+      "check": "omitted low frame",
+      "rejected": true,
+      "reason": "omitted low frame"
+    },
+    {
+      "check": "false complete conductor bound",
+      "rejected": true,
+      "reason": "wrong trace domain or pointed subcategory"
+    },
+    {
+      "check": "wrong C3 subgroup",
+      "rejected": true,
+      "reason": "wrong trace domain or pointed subcategory"
+    },
+    {
+      "check": "altered low column",
+      "rejected": true,
+      "reason": "wrong low frame"
+    },
+    {
+      "check": "omitted nontrivial associator class",
+      "rejected": true,
+      "reason": "omitted associator or indicator branch"
+    },
+    {
+      "check": "omitted indicator branch",
+      "rejected": true,
+      "reason": "omitted associator or indicator branch"
+    },
+    {
+      "check": "negated exact separating ray",
+      "rejected": true,
+      "reason": "higher-indicator Farkas certificate fails"
+    }
+  ],
+  "scope": "independent targeted audit, not a third complete exclusion replay",
+  "seconds": 24.746893802999693
+}

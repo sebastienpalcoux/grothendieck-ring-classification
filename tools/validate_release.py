@@ -69,6 +69,8 @@ assert rank6_summary['first_unresolved']==rank6_identity['summary']['first_unres
 assert (rank6_summary['first_continuation_excluded'],rank6_summary['second_continuation_excluded'])==(7,18)
 assert rank6_summary['third_continuation_excluded']==rank6_identity['summary']['third_continuation_excluded']
 assert hashlib.sha256((rank6_root/'certificates/continuation_round3.jsonl').read_bytes()).hexdigest()==rank6_identity['third_certificate_sha256']
+assert rank6_summary['fourth_continuation_excluded']==rank6_identity['summary']['fourth_continuation_excluded']
+assert hashlib.sha256((rank6_root/'certificates/continuation_round4.jsonl').read_bytes()).hexdigest()==rank6_identity['fourth_certificate_sha256']
 assert len(json.loads((rank6_root/'data/model_catalog.json').read_text()))==54
 assert next(x for x in rank6_ledger if x['id']=='R6_3_215')['status']=='excluded'
 assert sum(x['rings'] for x in statusrows if x['rank']==6 and x['multiplicity']<=3)==577

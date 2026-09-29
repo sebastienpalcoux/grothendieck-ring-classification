@@ -1,0 +1,128 @@
+\subsection{Exhaustive induction profiles at the quartic frontier}
+\label{subsec:round4-quartic-profiles}
+The two smallest residual tensors admit a substantially smaller finite
+search space than the unrestricted central systems suggest.  We enumerate
+complete induction multiplicity profiles before searching for additional
+twists or fusion coefficients.  A profile specifies the multiplicity of
+every possible restriction column; it does not specify a fusion category.
+
+Fix a low induction frame $L$ and let $v_1,\ldots,v_t$ be the remaining
+admissible high restriction columns.  If $m_j$ is the number of central
+simples with column $v_j$, then
+\[
+ \sum_{j=1}^t m_jv_jv_j^{\mathsf T}=G,
+ \qquad m_j\in\ZZ_{\geq0},
+ \qquad
+ m_j\leq \min_{i:(v_j)_i>0}
+       \left\lfloor\frac{G_{ii}}{(v_j)_i^2}\right\rfloor,
+\]
+where $G$ is the induction Gram matrix after subtracting $LL^{\mathsf T}$.
+The joint character spectrum supplies additional linear equations equating
+Galois multiplicities.  All these equations have integer coefficients.
+
+\begin{proposition}[Exact bounded affine enumeration]
+\label{prop:round4-affine-profile-enumeration}
+For an integer system $Am=b$ with prescribed finite bounds
+$0\leq m_j\leq u_j$, row reduction over $\QQ$, followed by the bounded
+search below, enumerates every integral solution exactly once.
+\end{proposition}
+\begin{proof}
+Choose the nonpivot coordinates as free variables.  Each pivot coordinate
+is an affine rational function of them.  Clear its denominator separately.
+Enumerate the free coordinates in any fixed order within their given
+integer bounds.  At a partial assignment, the unused coordinates give an
+explicit lower and upper bound for each pivot numerator: for a coefficient
+$a$ and remaining variable in $[0,u]$, its contribution belongs to
+$[\min(0,au),\max(0,au)]$.  Discard a node only if one such interval misses
+the allowed interval for that numerator.  At a leaf check divisibility by
+each cleared denominator and the original equations.  Every integral
+solution follows a unique unpruned path; every retained leaf satisfies the
+original system and all bounds.  A node or time budget interrupts this
+argument and is therefore recorded as incomplete, never as an exclusion.
+\end{proof}
+
+There is a useful inexpensive sieve after enumeration.  Write $D$ for the
+global dimension of the original pseudo-unitary category and $d_Z$ for a
+central dimension.  If $A_1,\ldots,A_s$ are the nonunit low central simples,
+put $\lambda_a(Z)=S_{A_a,Z}/S_{\mathbf1,Z}$, with the normalized modular
+matrix $S$.  The character and restriction data determine these numbers.
+For every word $w=(a_1,\ldots,a_k)$, simultaneous diagonalization of the
+fusion matrices gives
+\begin{equation}
+\label{eq:round4-word-multiplicity}
+ \dim\operatorname{Hom}(\mathbf1,A_{a_1}\otimes\cdots\otimes A_{a_k})
+ =\sum_Z\frac{d_Z^2}{D^2}\prod_{j=1}^k\lambda_{a_j}(Z)
+ \in\ZZ_{\geq0}.
+\end{equation}
+No duality assumption on the $A_a$ is needed.  In degree three these are
+precisely the low fusion multiplicities after the appropriate dual label
+is inserted.  Their restrictions must leave a nonnegative remainder in
+every low product.  Both tests are exact linear evaluations of a fixed
+profile.  We subsequently check all nonunit low words through degree six.
+
+\begin{proposition}[Finite quartic frontier]
+\label{prop:round4-quartic-frontier}
+For each of the two surviving low-character labellings, the following
+numbers of complete induction profiles remain necessary:
+\[
+\begin{array}{c|r|r|r|r|l}
+\text{tensor}&\text{Gram/Galois}&\text{degree three}&
+ \text{words through six}&\text{certified final}&\text{center ranks}\\\hline
+R6\_4\_22&93&3&2&2&30,36\\
+R6\_4\_91&524&6&6&2&36,42
+\end{array}
+\]
+Any categorification of $R6\_4\_22$ has exactly one central simple whose
+restriction is its nontrivial invertible object.  For $R6\_4\_91$, both
+simples $g,\sigma$ of its Ising subcategory have exactly one central lift.
+These lifts generate an Ising fusion subcategory of its center.
+\end{proposition}
+\begin{proof}
+The general sphericalization and Galois-to-pseudo-unitary reductions are
+replayed in the accompanying records, so it suffices to impose the
+pseudo-unitary necessary conditions.  All low frames and all second
+indicator choices are covered.  The previous exact modular trace rays
+remove the other frames and indicator branches; their rational dual
+inequalities are replayed here, rather than inferred from numerical
+solver status.
+
+For the remaining low frame, Proposition~\ref{prop:round4-affine-profile-enumeration}
+visits respectively $20791$ and $4295$ exact search nodes, yielding the
+first column of counts.  Equation~\eqref{eq:round4-word-multiplicity} and
+restriction products give the next two columns.  One of the three
+intermediate profiles for $R6\_4\_22$ has multiplicity $9/2$ for the word
+$(1,1,1,1)$ and is discarded.
+
+We then impose the pointed or Ising subcategory projection, the coupled
+Galois--twist equations, and the low fusion and restriction equations.
+For $R6\_4\_91$, four of the six profiles fail an exact congruence modulo
+$2$, on both labellings.  Each certificate is a specified linear
+combination of integer-count equations: its coefficient vector vanishes
+modulo $2$, while its right side is $1$.  The two remaining profiles have
+exact nonnegative witnesses with the required integral multiplicities.
+For $R6\_4\_22$, the rank-$36$ profile has such a witness.  The rank-$30$
+profile is retained because the bounded search has not supplied an exact
+rejection; no feasibility assertion is made for that profile.
+
+Finally, inspection of the exhaustively verified profiles gives
+multiplicity one for each stated pure restriction column.  In the Ising
+case write the lifts as $G,\Sigma$.  The unique pure unit column is the
+central unit.  Uniqueness makes $\Sigma$ self-dual, so rigidity supplies
+the unit summand of $\Sigma^2$; the remaining forgotten object is $g$.
+Duality and restriction therefore give
+$G^2=\mathbf1$, $G\Sigma=\Sigma$ and
+$\Sigma^2=\mathbf1+G$, proving the last assertion.  These statements descend
+from a pseudo-unitary Galois conjugate because the fusion coefficients and
+restriction multiplicities are unchanged.
+\end{proof}
+
+The canonical records are
+\filename{R6_4_22_frontier_certificate.json} and
+\filename{R6_4_91_frontier_certificate.json}, in
+\filename{research/round4/quartic_front/}.  The modules
+\filename{round4_quartic_profiles.py} and
+\filename{round4_quartic_twists.py} reconstruct the finite domains and check
+all equalities, congruences, rays and retained witnesses without a
+numerical optimizer.  These finite reductions do not construct complete
+central fusion data, modular data, or categorifications.  In particular,
+both census tensors remain unresolved.

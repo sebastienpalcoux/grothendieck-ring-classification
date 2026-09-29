@@ -1,0 +1,10 @@
+/workspace/scratch/68e7dbe896a7/work_round4/Rank6_Categorification_M8/software/round4_higher_real.py:53: SyntaxWarning: invalid decimal literal
+  ha,hb=lab[aa],lab[bb];weights={v:tuples[v][ha]*tuples[v][hb]*tab.dims[v]**2for v in set(sp.vectors)};rhs=D*tab.dims[tuple(cols[aa])]*tab.values[ha,tuple(cols[bb])]-sum((weights[v]for v in sp.low),K.zero)
+data {'ambient_conductor': 60, 'ambient_types': 131, 'real_types': 40, 'relative_degree': 4} 42.19223021400103
+system 1 (1, 1, 1, 1, -1) 668 1982 77.85916991800332
+ray False 80.7998087540036
+Traceback (most recent call last):
+  File "/workspace/scratch/68e7dbe896a7/work_round4/Rank6_Categorification_M8/research/round4/higher/real_probe.py", line 20, in <module>
+    if y is None:raise ValueError('no_exact_obstruction')
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: no_exact_obstruction
