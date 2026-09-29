@@ -31,20 +31,16 @@ The rank-three manuscript proves unrestricted five-ring necessity directly, toge
 
 ## Rank-six revision · 29 September 2026
 
-The complete 914-file revised archive records **16,548 general exclusions,
-54 realized rings and 10 unresolved cases** through multiplicity eight.
-Classification is complete through multiplicity three and also at **exact
-multiplicity seven**. The third continuation adds 12 exclusions to the previous
-22-residual snapshot; the three continuations contribute 7, 18 and 12 disjoint
-exclusions. The ten residuals lie in bands four, five, six and eight.
+The complete 1345-file revised archive records **16,552 general exclusions,
+54 realized rings and 6 unresolved cases** through multiplicity eight.
+General classification is complete through multiplicity three; exact
+completed bands are **1, 2, 3, 6, 7**. The fourth continuation adds 4 exclusions
+and substantial exact finite-profile reductions at multiplicity four.
 
-`build_snapshot.py` imports the current rank-six release identity and report,
-all ten residual tensors, both revised PDFs, and the exact downloadable archive
-from the classification repository. Run its `tools/restore_data.py` before
-regenerating this snapshot. Positive model records are unchanged; their existing
-exact tensor checks remain applicable. Coverage reports distinguish exact
-exclusions from ineligible cases, surviving necessary systems and timeouts.
+The site uses the authoritative rank-six ledger, current residual tensors,
+revised paper and verification guide. Its validation checks archive and PDF
+hashes and matches all counts to the release summary. The research source
+and every earlier accepted certificate remain available in the revised ZIP.
 
-Archive: `Rank6_Categorification_M8_Revised_2026-09-29_v3.zip`. SHA-256:
-`853820839d767224c810f232e479a768ee9b16150876f10848aba07be3d578df`.
-Published source links are pinned to the corresponding classification commit.
+Archive: `Rank6_Categorification_M8_Revised_2026-09-29_v4.zip`. SHA-256:
+`e8ca671cbb20ab8f1b980d28e7cbd696b6f52cbfc5d36b0d09a2665a35df728b`.

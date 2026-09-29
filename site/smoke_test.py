@@ -48,11 +48,11 @@ summary=json.loads((root / release["summary_path"]).read_text())
 expected_open=[r["unresolved"] for r in summary["counts"]]
 assert [rank6[m]["unresolved_general"] for m in range(1,9)] == expected_open
 assert sum(r["excluded_general"] for r in rank6.values()) == summary["excluded"]
-assert all(rank6[m]["classification_coverage"] == "complete_classification" for m in range(1,4))
-assert rank6[7]["classification_coverage"] == "complete_classification"
+assert all(rank6[m]["classification_coverage"] == "complete_classification" for m in release["complete_multiplicity_bands"])
+assert release["complete_multiplicity_bands"] == [1,2,3,6,7]
 scope6=next(r for r in payload["scope"] if r["rank"] == 6)
 assert (scope6["through"],scope6["positive"],scope6["unresolved"]) == (3,54,summary["unresolved"])
-assert release["new_exclusions_since_previous_site"] == summary["third_continuation_excluded"]
+assert release["new_exclusions_since_previous_site"] == summary["fourth_continuation_excluded"]
 import hashlib
 archive=root / release["archive"]["path"]
 assert hashlib.sha256(archive.read_bytes()).hexdigest() == release["archive"]["sha256"]
@@ -62,5 +62,5 @@ for name,expected in release["documents"].items():
 frontier=json.loads((root / release["frontier_path"]).read_text())
 assert len(frontier) == summary["unresolved"]
 assert [r["id"] for r in frontier] == summary["unresolved_ids"]
-assert not any(r["m"] <= 3 or r["m"] == 7 for r in frontier)
-print(f"Rank-six release verified: complete through 3 and at multiplicity 7; {len(frontier)} residuals; exact archive and PDF hashes.")
+assert not any(r["m"] in release["complete_multiplicity_bands"] for r in frontier)
+print(f"Rank-six release verified: complete bands {release['complete_multiplicity_bands']}; {len(frontier)} residuals; exact archive and PDF hashes.")

@@ -130,7 +130,7 @@ def main():
         "date": "2026-09-29", "excluded": release["excluded"],
         "realized": release["positive"], "unresolved": release["unresolved"],
         "complete_through": next(record["through"] for record in scope if record["rank"] == 6),
-        "new_exclusions_since_previous_site": release["third_continuation_excluded"],
+        "new_exclusions_since_previous_site": release["fourth_continuation_excluded"],
         "complete_multiplicity_bands": [r["multiplicity"] for r in release["counts"] if r["unresolved"] == 0],
         "documents": identity["documents"],
         "archive": {"path": "downloads/" + archive_name,

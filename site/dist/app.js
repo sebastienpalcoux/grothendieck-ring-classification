@@ -9,7 +9,7 @@ const paperEntries = [
   {rank:3, title:"Galois-averaged indicators and sphericality in rank three", subtitle:"Direct five-ring classification and sphericality", type:"MANUSCRIPT", slug:"rank3"},
   {rank:4, title:"Rank-four Grothendieck rings through multiplicity 128", subtitle:"Complete general categorification", type:"CLASSIFICATION", slug:"rank4"},
   {rank:5, title:"Rank-five Grothendieck rings through multiplicity twenty", subtitle:"Complete general classification through m = 20", type:"CLASSIFICATION", slug:"rank5"},
-  {rank:6, title:"Rank-six fusion rings: categorification criteria and models through multiplicity eight", subtitle:"Complete to 3; 10 general cases remain through 8", type:"CLASSIFICATION", slug:"rank6"},
+  {rank:6, title:"Rank-six fusion rings: categorification criteria and models through multiplicity eight", subtitle:"Complete to 3; 6 general cases remain through 8", type:"CLASSIFICATION", slug:"rank6"},
 ];
 function paperSourcePath(rank,extension="pdf") {
   if (rank<=3) return `manuscripts/rank${rank}.${extension}`;
@@ -275,7 +275,7 @@ function renderPapers() {
   if (release) {
     const summary = $("#rank6-release");
     summary.replaceChildren(element("strong", "", "Rank-six update · 29 September 2026. "));
-    summary.append(document.createTextNode(`General categorification is complete through multiplicity ${release.complete_through}, and also at exact multiplicity seven. Through multiplicity eight: ${fmt.format(release.excluded)} excluded, ${release.realized} realized, and ${release.unresolved} unresolved. The third continuation adds ${release.new_exclusions_since_previous_site} exclusions. New criteria use cyclic associators, full-character rotation, integral Morita descent, signed spectra, and the different ideal. `));
+    summary.append(document.createTextNode(`General categorification is complete through multiplicity ${release.complete_through}, with completed exact bands ${release.complete_multiplicity_bands.join(", ")}. Through multiplicity eight: ${fmt.format(release.excluded)} excluded, ${release.realized} realized, and ${release.unresolved} unresolved. The fourth continuation adds ${release.new_exclusions_since_previous_site} exclusions. New criteria use twist-preserving subcategory projection, exact twist masses, and finite restriction-profile enumeration. `));
     const archive=element("a", "", "Download the complete revised archive");
     archive.href=`./${release.archive.path}`;archive.download="";summary.append(archive);
   }
