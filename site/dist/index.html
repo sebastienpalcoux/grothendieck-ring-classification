@@ -24,7 +24,7 @@
       <a href="#papers">Papers</a>
       <a href="#sources">Sources</a>
     </nav>
-    <span class="edition">RESEARCH EDITION <span class="edition-dot" aria-hidden="true"></span> 23 SEP 2026</span>
+    <span class="edition">RESEARCH EDITION <span class="edition-dot" aria-hidden="true"></span> <span id="edition-date">30 SEP 2026</span></span>
   </header>
 
   <main>
@@ -142,6 +142,12 @@
         <div class="section-aside">THEOREMS · CERTIFICATES · REPRODUCTION</div>
       </div>
       <p id="rank6-release" class="scope-note"></p>
+      <details id="rank6-frontier" class="frontier-panel">
+        <summary>Current rank-six frontier</summary>
+        <p>These are necessary-data reductions. Each ring still requires a categorical construction or a complete obstruction.</p>
+        <div class="profile-table-scroll"><table class="profile-table frontier-table"><thead><tr><th scope="col">Fusion ring</th><th scope="col">Verified progress</th></tr></thead><tbody id="rank6-frontier-rows"></tbody></table></div>
+        <a href="./data/rank6_research_coverage.json" download>Download the exact research coverage ↓</a>
+      </details>
       <div id="paper-grid" class="paper-grid"></div>
     </section>
 
@@ -152,10 +158,10 @@
       <div class="source-grid">
         <div class="source-item"><span class="source-index">A /</span><div><h3>Fusion-ring census</h3><p>The source of the complete based-ring counts and canonical multiplication data. <span id="source-commit"></span></p><a href="https://github.com/sebastienpalcoux/fusion-ring-census" target="_blank" rel="noopener">Open census repository <span aria-hidden="true">↗</span></a></div></div>
         <div class="source-item"><span class="source-index">B /</span><div><h3>Classification research</h3><p>Manuscripts, model catalogues, exclusion certificates, and verification instructions.</p><a href="https://github.com/sebastienpalcoux/grothendieck-ring-classification" target="_blank" rel="noopener">Open classification repository <span aria-hidden="true">↗</span></a></div></div>
-        <div class="source-item"><span class="source-index">C /</span><div><h3>Download the data</h3><p>Export the realized-ring records, Grothendieck counts, fusion-ring counts, or categorification ledger.</p><a href="./data/realized_rings.json" download>Explicit rings JSON <span aria-hidden="true">↓</span></a><a href="./data/grothendieck_counts.csv" download>Grothendieck counts CSV <span aria-hidden="true">↓</span></a><a href="./data/counts.csv" download>Fusion counts CSV <span aria-hidden="true">↓</span></a><a href="./data/classification_status.json" download>Status JSON <span aria-hidden="true">↓</span></a><a href="./data/rank6_unresolved_tensors.json" download>22 rank-six residuals JSON <span aria-hidden="true">↓</span></a><a href="./data/rank6_release_summary.json" download>Rank-six release summary <span aria-hidden="true">↓</span></a></div></div>
+        <div class="source-item"><span class="source-index">C /</span><div><h3>Download the data</h3><p>Export the realized-ring records, Grothendieck counts, fusion-ring counts, or categorification ledger.</p><a href="./data/realized_rings.json" download>Explicit rings JSON <span aria-hidden="true">↓</span></a><a href="./data/grothendieck_counts.csv" download>Grothendieck counts CSV <span aria-hidden="true">↓</span></a><a href="./data/counts.csv" download>Fusion counts CSV <span aria-hidden="true">↓</span></a><a href="./data/classification_status.json" download>Status JSON <span aria-hidden="true">↓</span></a><a href="./data/rank6_unresolved_tensors.json" download>Rank-six residual tensors JSON <span aria-hidden="true">↓</span></a><a href="./data/rank6_release_summary.json" download>Rank-six release summary <span aria-hidden="true">↓</span></a></div></div>
       </div>
     </section>
   </main>
-  <footer class="site-footer"><span>FUSION &amp; GROTHENDIECK RING ATLAS</span><span>Research snapshot · 29 September 2026</span><a href="#atlas">Back to rings ↑</a></footer>
+  <footer class="site-footer"><span>FUSION &amp; GROTHENDIECK RING ATLAS</span><span id="snapshot-date">Research snapshot · 30 September 2026</span><a href="#atlas">Back to rings ↑</a></footer>
 </body>
 </html>

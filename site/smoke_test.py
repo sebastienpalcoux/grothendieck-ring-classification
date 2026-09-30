@@ -52,7 +52,12 @@ assert all(rank6[m]["classification_coverage"] == "complete_classification" for 
 assert release["complete_multiplicity_bands"] == [1,2,3,6,7]
 scope6=next(r for r in payload["scope"] if r["rank"] == 6)
 assert (scope6["through"],scope6["positive"],scope6["unresolved"]) == (3,54,summary["unresolved"])
-assert release["new_exclusions_since_previous_site"] == summary["fourth_continuation_excluded"]
+assert release["new_exclusions_since_previous_site"] == 0
+assert release["date"] == payload["snapshot"] == "2026-09-30"
+coverage=json.loads((root / release["research_coverage_path"]).read_text())
+assert release["research_cases"] == [{key: case[key] for key in ("id", "categorical_status", "public_summary")} for case in coverage["cases"]]
+assert {r["id"] for r in release["research_cases"]} == set(summary["unresolved_ids"])
+assert all(r["categorical_status"] == "unresolved" and r["public_summary"] for r in release["research_cases"])
 import hashlib
 archive=root / release["archive"]["path"]
 assert hashlib.sha256(archive.read_bytes()).hexdigest() == release["archive"]["sha256"]

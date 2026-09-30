@@ -109,7 +109,7 @@ def main():
             "note":"Unrestricted complex classification."}
            if rank in (2,3) else scope_record(rank) for rank in scoped_ranks]
     data = {
-        "snapshot": "2026-09-29",
+        "snapshot": None,
         "classification_commit": args.classification_commit,
         "source_repository": counts.get("census_repository", "https://github.com/sebastienpalcoux/fusion-ring-census"),
         "census_commit": counts.get("census_commit", ""),
@@ -121,16 +121,22 @@ def main():
     release = json.loads((repo / "supplements/rank6/verification/release_summary.json").read_text())
     archive_name = status["inputs"]["rank6"]["current_bundle"]
     identity = json.loads((repo / "data/rank6_release_identity.json").read_text())
+    coverage = json.loads((repo / "supplements/rank6/research/round5/coverage.json").read_text())
+    data["snapshot"] = identity["date"]
     if identity["archive"]["name"] != archive_name:
         raise ValueError("Rank-six archive identity differs from the classification source")
     archive_source = repo / "site/dist/downloads" / archive_name
     if not archive_source.is_file():
         raise FileNotFoundError("Run python3 tools/restore_data.py in the classification repository first.")
     data["rank6_release"] = {
-        "date": "2026-09-29", "excluded": release["excluded"],
+        "date": identity["date"], "excluded": release["excluded"],
         "realized": release["positive"], "unresolved": release["unresolved"],
         "complete_through": next(record["through"] for record in scope if record["rank"] == 6),
-        "new_exclusions_since_previous_site": release["fourth_continuation_excluded"],
+        "new_exclusions_since_previous_site": identity.get("new_exclusions", 0),
+        "research_summary": identity["research_summary"],
+        "research_cases": [{key: case[key] for key in ("id", "categorical_status", "public_summary")}
+                           for case in coverage["cases"]],
+        "research_coverage_path": "data/rank6_research_coverage.json",
         "complete_multiplicity_bands": [r["multiplicity"] for r in release["counts"] if r["unresolved"] == 0],
         "documents": identity["documents"],
         "archive": {"path": "downloads/" + archive_name,
@@ -148,7 +154,8 @@ def main():
         shutil.copy2(archive_source, archive_target)
     (HERE / "dist/data").mkdir(parents=True, exist_ok=True)
     for source_name, target_name in (("data/unresolved_tensors.json", "rank6_unresolved_tensors.json"),
-                                     ("verification/release_summary.json", "rank6_release_summary.json")):
+                                     ("verification/release_summary.json", "rank6_release_summary.json"),
+                                     ("research/round5/coverage.json", "rank6_research_coverage.json")):
         shutil.copy2(repo / "supplements/rank6" / source_name, HERE / "dist/data" / target_name)
     for name, target in (("manuscript.pdf", "rank6.pdf"), ("verification_guide.pdf", "rank6_guide.pdf")):
         shutil.copy2(repo / "manuscripts/rank6/papers" / name, HERE / "dist/papers" / target)

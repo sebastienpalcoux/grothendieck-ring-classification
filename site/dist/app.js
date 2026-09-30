@@ -273,9 +273,23 @@ function renderScope() {
 function renderPapers() {
   const release = state.data.rank6_release;
   if (release) {
+    const date = new Date(release.date+"T12:00:00Z");
+    const dateOptions = {day:"numeric",month:"long",year:"numeric",timeZone:"UTC"};
+    $("#edition-date").textContent = date.toLocaleDateString("en-GB", {...dateOptions,month:"short"}).toUpperCase();
+    $("#snapshot-date").textContent = `Research snapshot · ${date.toLocaleDateString("en-GB", dateOptions)}`;
+    const frontierRows = $("#rank6-frontier-rows");
+    frontierRows.replaceChildren();
+    for (const record of release.research_cases || []) {
+      const row = element("tr");
+      const name = element("th", "", record.id);
+      name.scope = "row";
+      row.append(name, element("td", "", record.public_summary));
+      frontierRows.append(row);
+    }
+    $("#rank6-frontier").hidden = !frontierRows.children.length;
     const summary = $("#rank6-release");
-    summary.replaceChildren(element("strong", "", "Rank-six update · 29 September 2026. "));
-    summary.append(document.createTextNode(`General categorification is complete through multiplicity ${release.complete_through}, with completed exact bands ${release.complete_multiplicity_bands.join(", ")}. Through multiplicity eight: ${fmt.format(release.excluded)} excluded, ${release.realized} realized, and ${release.unresolved} unresolved. The fourth continuation adds ${release.new_exclusions_since_previous_site} exclusions. New criteria use twist-preserving subcategory projection, exact twist masses, and finite restriction-profile enumeration. `));
+    summary.replaceChildren(element("strong", "", `Rank-six update · ${new Date(release.date+"T12:00:00Z").toLocaleDateString("en-GB", {day:"numeric",month:"long",year:"numeric",timeZone:"UTC"})}. `));
+    summary.append(document.createTextNode(`General categorification is complete through multiplicity ${release.complete_through}, with completed exact bands ${release.complete_multiplicity_bands.join(", ")}. Through multiplicity eight: ${fmt.format(release.excluded)} excluded, ${release.realized} realized, and ${release.unresolved} unresolved. ${release.research_summary || "Exact certificates and categorical constructions determine the reported status."} `));
     const archive=element("a", "", "Download the complete revised archive");
     archive.href=`./${release.archive.path}`;archive.download="";summary.append(archive);
   }

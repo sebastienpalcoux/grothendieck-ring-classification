@@ -29,18 +29,22 @@ The source and associated GitHub classification repository remain private. The S
 
 The rank-three manuscript proves unrestricted five-ring necessity directly, together with sphericality. Its classification-status ledger marks every displayed rank-three multiplicity as complete. By default an individual ring profile shows one fusion matrix at a time and offers a full tensor download. The character page distinguishes exact primitive-root formulas from approximate numerical tables.
 
-## Rank-six revision · 29 September 2026
+## Rank-six revision · 30 September 2026
 
-The complete 1345-file revised archive records **16,552 general exclusions,
-54 realized rings and 6 unresolved cases** through multiplicity eight.
-General classification is complete through multiplicity three; exact
-completed bands are **1, 2, 3, 6, 7**. The fourth continuation adds 4 exclusions
-and substantial exact finite-profile reductions at multiplicity four.
+The current archive records **16,552 general exclusions, 54 realized rings
+and 6 unresolved cases** through multiplicity eight. General classification
+is complete through multiplicity three; exact completed bands are
+**1, 2, 3, 6, 7**. This revision develops unified joint Gram, ribbon-balancing,
+monodromy, fusion-action and modular-completion criteria. It does not add a
+whole-ring decision.
 
-The site uses the authoritative rank-six ledger, current residual tensors,
-revised paper and verification guide. Its validation checks archive and PDF
-hashes and matches all counts to the release summary. The research source
-and every earlier accepted certificate remain available in the revised ZIP.
+The expandable frontier table is generated from the exact per-case research
+coverage. It describes necessary profiles and modular data without presenting
+them as categorical models. The manuscript is organized by mathematical
+dependency, with repeated arguments and superseded exploration removed.
 
-Archive: `Rank6_Categorification_M8_Revised_2026-09-29_v4.zip`. SHA-256:
-`e8ca671cbb20ab8f1b980d28e7cbd696b6f52cbfc5d36b0d09a2665a35df728b`.
+The snapshot uses the authoritative ledger, current residual tensors, revised
+paper and verification guide. Validation checks the six coverage identifiers,
+all displayed counts, and the exact archive and PDF hashes. The canonical
+archive name and SHA-256 are recorded in `dist/data/atlas.json`; the archive
+contains the retained source-bound proofs and their replay commands.
