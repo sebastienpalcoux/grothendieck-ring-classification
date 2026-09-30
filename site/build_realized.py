@@ -319,7 +319,7 @@ def sha_tensor(tensor):
 
 
 def model_link(reference):
-    match=re.search(r"arXiv:(\d{4}\.\d{4,5})(?:v\d+)?",reference,re.I)
+    match=re.search(r"arXiv:(\d{4}\.\d{4,5}|[a-z-]+(?:\.[A-Z]{2})?/\d{7})(?:v\d+)?",reference,re.I)
     if match:
         return f"https://arxiv.org/abs/{match.group(1)}"
     # These abbreviations identify specific papers in the source catalogues.
@@ -489,7 +489,8 @@ def main():
     ids = [r["id"] for r in records]
     if len(set(ids)) != len(ids):
         raise ValueError("Duplicate identifiers in positive model catalogue")
-    expected = {2:2,3:5,4:15,5:17,6:54}
+    expected = {2:2,3:5,4:15,5:17}
+    expected[6] = json.loads((repo/"supplements/rank6/verification/release_summary.json").read_text())["positive"]
     if any(Counter(r["rank"] for r in records)[rank]!=n for rank,n in expected.items()):
         raise ValueError("Positive catalogue cardinality mismatch")
     records.sort(key=lambda r:(r["rank"],r["multiplicity"],r["id"]))

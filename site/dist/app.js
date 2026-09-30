@@ -9,7 +9,7 @@ const paperEntries = [
   {rank:3, title:"Galois-averaged indicators and sphericality in rank three", subtitle:"Direct five-ring classification and sphericality", type:"MANUSCRIPT", slug:"rank3"},
   {rank:4, title:"Rank-four Grothendieck rings through multiplicity 128", subtitle:"Complete general categorification", type:"CLASSIFICATION", slug:"rank4"},
   {rank:5, title:"Rank-five Grothendieck rings through multiplicity twenty", subtitle:"Complete general classification through m = 20", type:"CLASSIFICATION", slug:"rank5"},
-  {rank:6, title:"Rank-six fusion rings: categorification criteria and models through multiplicity eight", subtitle:"Complete to 3; 6 general cases remain through 8", type:"CLASSIFICATION", slug:"rank6"},
+  {rank:6, title:"Rank-six fusion rings: categorification criteria and models through multiplicity eight", subtitle:"Categorification through multiplicity eight", type:"CLASSIFICATION", slug:"rank6"},
 ];
 function paperSourcePath(rank,extension="pdf") {
   if (rank<=3) return `manuscripts/rank${rank}.${extension}`;
@@ -288,16 +288,18 @@ function renderPapers() {
     }
     $("#rank6-frontier").hidden = !frontierRows.children.length;
     const summary = $("#rank6-release");
-    summary.replaceChildren(element("strong", "", `Rank-six update · ${new Date(release.date+"T12:00:00Z").toLocaleDateString("en-GB", {day:"numeric",month:"long",year:"numeric",timeZone:"UTC"})}. `));
-    summary.append(document.createTextNode(`General categorification is complete through multiplicity ${release.complete_through}, with completed exact bands ${release.complete_multiplicity_bands.join(", ")}. Through multiplicity eight: ${fmt.format(release.excluded)} excluded, ${release.realized} realized, and ${release.unresolved} unresolved. ${release.research_summary || "Exact certificates and categorical constructions determine the reported status."} `));
-    const archive=element("a", "", "Download the complete revised archive");
+    summary.replaceChildren(element("strong", "", "Rank six, multiplicity at most eight. "));
+    summary.append(document.createTextNode(`${fmt.format(release.excluded)} excluded, ${release.realized} realized, ${release.unresolved} unresolved. ${release.research_summary || ""} `));
+    const archive=element("a", "", "Download manuscript and certificates");
     archive.href=`./${release.archive.path}`;archive.download="";summary.append(archive);
   }
   const grid=$("#paper-grid");
   grid.replaceChildren();
   const entries=[...paperEntries];
   const r6=state.data.scope.find((x)=>x.rank===6);
-  if (r6) entries.find((entry)=>entry.rank===6).subtitle=`Complete to ${r6.through}; ${r6.unresolved} general cases remain through ${r6.analyzed_through}`;
+  if (r6) entries.find((entry)=>entry.rank===6).subtitle=r6.unresolved
+    ? `Complete to ${r6.through}; ${r6.unresolved} cases remain through ${r6.analyzed_through}`
+    : `Complete through multiplicity ${r6.analyzed_through}`;
   const r7=state.data.scope.find((x)=>x.rank===7);
   const r8=state.data.scope.find((x)=>x.rank===8);
   if (r7)

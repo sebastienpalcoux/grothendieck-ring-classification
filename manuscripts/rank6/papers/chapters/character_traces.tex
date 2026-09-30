@@ -116,9 +116,13 @@ invertibility of $S$ forces $a^*=a$. The assertion follows from the
 general formulas, retaining the same bounded high coefficient variables.
 \end{proof}
 
-The implementation may retain integer variables and test congruences.
+The rotation multiplicities remain integers after grouping eigenvalues
+by joint normalized-trace tuples: each grouped count is a sum of
+eigenspace dimensions. The same applies to counts of central simples
+with a fixed restriction column and joint twist-trace tuple.
+The implementation may retain these integer variables and test congruences.
 Only rows with integer-count variables are used for a congruence
-witness.  In the applications below, however, nonnegative linear
+witness.  For the next two rings, nonnegative linear
 infeasibility already suffices: each stored ray $y$ satisfies
 $y^TA\ge0$ and $y^Tb<0$ over the integers.  No numerical optimizer is
 used by the final verifier.
@@ -164,10 +168,4 @@ The full certificates and exact replay reports are retained in
 \filename{research/round3/m4}.  The verifiers
 \filename{software/round3_m4.py} and
 \filename{software/round3_verlinde.py} reconstruct the complete branch
-domains from the input tensors.  Both new necessary systems are also
-applied to the entire frozen $22$-ring frontier and all $54$ positive
-model controls, with explicit eligibility and time-budget outcomes;
-a timeout is inconclusive.  In particular, $\RR{4}{155}$ and
-$\RR{4}{629}$ survive the stronger full-character height-six systems
-with coupled Galois spectrum/twist counts.  These surviving systems
-are not asserted to be modular data or categorifications.
+domains from the input tensors.

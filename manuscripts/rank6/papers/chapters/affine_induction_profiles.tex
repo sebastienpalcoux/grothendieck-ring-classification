@@ -1,10 +1,8 @@
-\subsection{Exhaustive induction profiles at the quartic frontier}
+\subsection{Bounded induction profiles and word moments}
 \label{subsec:round4-quartic-profiles}
-The two quartic tensors admit a substantially smaller finite
-search space than the unrestricted central systems suggest.  We enumerate
-complete induction multiplicity profiles before searching for additional
-twists or fusion coefficients.  A profile specifies the multiplicity of
-every possible restriction column; it does not specify a fusion category.
+Induction multiplicity profiles give a finite necessary domain before
+searching for twists or fusion coefficients. A profile specifies the
+multiplicity of each restriction column.
 
 Fix a low induction frame $L$ and let $v_1,\ldots,v_t$ be the remaining
 admissible high restriction columns.  If $m_j$ is the number of central
@@ -60,76 +58,3 @@ is inserted.  Their restrictions must leave a nonnegative remainder in
 every low product.  Both tests are exact linear evaluations of a fixed
 profile.  We subsequently check all nonunit low words through degree six.
 
-\begin{proposition}[Intermediate quartic induction profiles]
-\label{prop:round4-quartic-frontier}
-Before full fusion completion, each of the two surviving low-character
-labellings has the following complete domain of necessary induction profiles:
-\[
-\begin{array}{c|r|r|r|r|l}
-\text{tensor}&\text{Gram/Galois}&\text{degree three}&
- \text{words through six}&\text{refined}&\text{center ranks}\\\hline
-R6\_4\_22&93&3&2&2&30,36\\
-R6\_4\_91&524&6&6&2&36,42
-\end{array}
-\]
-Any categorification of $R6\_4\_22$ has exactly one central simple whose
-restriction is its nontrivial invertible object.  For $R6\_4\_91$, both
-simples $g,\sigma$ of its Ising subcategory have exactly one central lift.
-These lifts generate an Ising fusion subcategory of its center.
-Theorems~\ref{thm:22-central-completion} and
-\ref{thm:91-centralizer-completion} refine these intermediate domains
-to center ranks $36$ and $42$, respectively.
-\end{proposition}
-\begin{proof}
-The general sphericalization and Galois-to-pseudo-unitary reductions are
-replayed in the accompanying records, so it suffices to impose the
-pseudo-unitary necessary conditions.  All low frames and all second
-indicator choices are covered.  The previous exact modular trace rays
-remove the other frames and indicator branches; their rational dual
-inequalities are replayed here, rather than inferred from numerical
-solver status.
-
-For the remaining low frame, Proposition~\ref{prop:round4-affine-profile-enumeration}
-visits respectively $20791$ and $4295$ exact search nodes, yielding the
-first column of counts.  Equation~\eqref{eq:round4-word-multiplicity} and
-restriction products give the next two columns.  One of the three
-intermediate profiles for $R6\_4\_22$ has multiplicity $9/2$ for the word
-$(1,1,1,1)$ and is discarded.
-
-We then impose the pointed or Ising subcategory projection, the coupled
-Galois--twist equations, and the low fusion and restriction equations.
-For $R6\_4\_91$, four of the six profiles fail an exact congruence modulo
-$2$, on both labellings.  Each certificate is a specified linear
-combination of integer-count equations: its coefficient vector vanishes
-modulo $2$, while its right side is $1$.  The two remaining profiles have
-exact nonnegative witnesses with the required integral multiplicities.
-For $R6\_4\_22$, the rank-$36$ profile has such a witness. At this
-stage the rank-$30$ profile is retained without a feasibility assertion.
-The joint word--twist balancing criterion of
-Proposition~\ref{prop:projected-product-balancing} subsequently excludes
-it for both character labellings. Likewise the centralizer analysis in
-Section~\ref{subsec:frontier-quartic-completion} excludes the rank-$36$
-profile of $R6\_4\_91$. The displayed table records the complete
-intermediate domains used by those stronger proofs.
-
-Finally, inspection of the exhaustively verified profiles gives
-multiplicity one for each stated pure restriction column.  In the Ising
-case write the lifts as $G,\Sigma$.  The unique pure unit column is the
-central unit.  Uniqueness makes $\Sigma$ self-dual, so rigidity supplies
-the unit summand of $\Sigma^2$; the remaining forgotten object is $g$.
-Duality and restriction therefore give
-$G^2=\mathbf1$, $G\Sigma=\Sigma$ and
-$\Sigma^2=\mathbf1+G$, proving the last assertion.  These statements descend
-from a pseudo-unitary Galois conjugate because the fusion coefficients and
-restriction multiplicities are unchanged.
-\end{proof}
-
-The canonical records are
-\filename{R6_4_22_frontier_certificate.json} and
-\filename{R6_4_91_frontier_certificate.json}, in
-\filename{research/round4/quartic_front/}.  The modules
-\filename{round4_quartic_profiles.py} and
-\filename{round4_quartic_twists.py} reconstruct the finite domains and check
-all equalities, congruences, rays and retained witnesses without a
-numerical optimizer.  The current stronger outcomes and their exact verification are given in
-Section~\ref{subsec:frontier-quartic-completion}.

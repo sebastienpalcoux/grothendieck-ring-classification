@@ -34,56 +34,24 @@ The earlier cross-rank rank-six release
 its normal and optimized 26-process regression gates passed after explicitly
 pinning the SymPy arithmetic backend.
 
-The current rank-six release is
-`Rank6_Categorification_M8_Revised_2026-09-30_v5.zip`, SHA-256
-`164bd32c359a293dffa2988a1fef68f36f2ee682ba30d41020e1c2abcab2c707`.
-The [complete 1,577-file archive](https://grothendieck-ring-atlas.sebastien-palcoux.chatgpt.site/downloads/Rank6_Categorification_M8_Revised_2026-09-30_v5.zip) is reconstructed
-from repository parts by `tools/restore_data.py`. Revision `round5`, dated
-2026-09-30, adds **zero categorical exclusions**. The partition remains
-**16,552 excluded, 54 realized and 6 unresolved** among 16,612 tensors.
-General categorifiability is complete through multiplicity three; the exact
-completed bands are **1, 2, 3, 6, 7**. Isolated higher completed bands do not
-complete intervening unresolved bands.
+The current rank-six release is `Rank6_Categorification_M8_Revised_2026-09-30_v6.zip` (SHA-256
+`69bdaa2b4ce39c08a8bb4c14ebfed264a2a5d796ede8488f44cd524ed87fab3d`). The [complete archive](https://grothendieck-ring-atlas.sebastien-palcoux.chatgpt.site/downloads/Rank6_Categorification_M8_Revised_2026-09-30_v6.zip) contains
+449 files and the pinned census, proof certificates and exact constructors.
+The partition is **16,553 excluded, 57 realized and 2 unresolved**.
+There are 56 unitary models and one spherical model with no pseudo-unitary
+categorification. The source census is unchanged. A new exact certificate excludes R6_5_1204.
+Three conformal-embedding constructions settle R6_4_22, R6_4_91 and R6_4_629.
 
-The preceding v4 archive `Rank6_Categorification_M8_Revised_2026-09-29_v4.zip` had SHA-256
-`e8ca671cbb20ab8f1b980d28e7cbd696b6f52cbfc5d36b0d09a2665a35df728b` and contained 1,345 files. That fourth
-continuation added four exclusions, reducing ten residuals to six. The v3
-archive had SHA-256
-`853820839d767224c810f232e479a768ee9b16150876f10848aba07be3d578df`
-and contained 914 files; its twelve exclusions reduced 22 residuals to ten.
-The first two continuations added seven and eighteen exclusions, including
-the final multiplicity-three case. All 577 rings through multiplicity three
-remain classified: 531 excluded and 46 realized, including 45 unitary models.
+The current ledger is `supplements/rank6/data/decisions.json`, SHA-256
+`c28936c9dd3f64c8b85d668a667a7cde65d77161850c0c51bc05c594189f521c`. Fresh exact checks reconstruct all 216 tensor
+coefficients of each new model. The unchanged negative proofs retain their
+original exact verification evidence; this release does not claim a fresh
+replay of every earlier proof. See [verification instructions](VERIFY.md).
 
-The census tensors, identifiers, categorical decisions and 54 positive-model
-identifications are unchanged. The [revision notes](../supplements/rank6/REVISION_NOTES.md)
-and [round-five research inventory](../supplements/rank6/research/round5/coverage.json)
-record the new unified necessary criteria and the exact finite reductions:
-
-| Unresolved ring | Exact necessary-data reduction |
+| Unresolved ring | Necessary reduction |
 |---|---|
-| `R6_4_22` | The remaining center has rank 36. Its necessary fusion ring and modular data are unique up to relabelling and complex conjugation; categorification remains open. |
-| `R6_4_91` | Only center rank 42 remains: a forced Ising factor and a rank 14 centralizer with one fusion-ring orbit and two conjugate modular data. |
-| `R6_4_155` | Six induction profiles remain, each with one forced pair of low fusion matrices in its semion centralizer. None is a categorification certificate. |
-| `R6_4_629` | Only center rank 35 remains, with one necessary fusion/modular datum up to conjugation and identical-column relabelling; categorical realization remains open. |
-| `R6_5_1204` | A complete exact reduction leaves 171 induction profiles; the signed-gauge argument covers general categorifications. |
-| `R6_8_1660` | Actual-root induction and congruence cuts leave three branches with 168, 798 and 798 necessary profiles; the center twist exponent divides 48. |
-
-No surviving necessary datum is promoted to a category. The joint word-pattern candidate for `R6_8_1660` and its twist witness are
-separate necessary results.
-The fourth exclusion file retains SHA-256
-`25e92eac5e4506906437765e31ed452e9042213f08e079c7ff81db2fb7e42062`; the third retains
-`d97910a14e0c1897f405bb24e616d2a715fdb9eb93d94ff0a31001fb26c89aa8`. All four accepted continuation
-files, containing 7, 18, 12 and 4 exclusions, retain their proof provenance.
-
-The new [replay orchestrator](../supplements/rank6/software/round5_replay.py)
-and source-bound receipts distinguish the round-five exact computations from
-the inherited profile enumerations, prior 41 continuation exclusions and
-original 16,511-certificate campaign. The current update does not claim a
-fresh replay of every earlier campaign. See [verification instructions](VERIFY.md)
-for the recorded scopes and the commands for additional reconstruction.
-The [current summary](../supplements/rank6/verification/release_summary.json)
-and authoritative ledger retain the 16552/54/6 partition.
+| `R6_4_155` | Generalized near-group ring R′(4). No braided category lies in the Morita class of a categorification. Existence remains unresolved. |
+| `R6_8_1660` | Free of rank two over its Ising fusion subring. Central Frobenius–Schur and invertible-lift obstructions leave one possible relative-center based ring. |
 
 The verified rank-seven release through
 multiplicity four has SHA-256
@@ -100,7 +68,7 @@ are categorification questions, not negative certificates.
 | 3 | `results/census.json` | 1,000 | Five-ring unrestricted theorem | Per-band decisions exported through 1,000; four realized at multiplicity 1 and one at 2 |
 | 4 | `results/rank4/tables.txt.gz` | 128 | `certificates/classification.jsonl.gz` | Complete through 128 |
 | 5 | `results/rank5/tables.txt.gz` | 20 | Revised `data/decisions_all.json` | Complete general classification through 20 |
-| 6 | `results/rank6/tables.txt.gz` | 8 | `supplements/rank6/data/decisions.json` | Complete through 3; exact bands 1, 2, 3, 6, 7; six general residuals through 8 |
+| 6 | `results/rank6/tables.txt.gz` | 8 | `supplements/rank6/data/decisions.json` | Complete through 3; exact bands 1, 2, 3, 5, 6, 7; two unresolved through 8 |
 | 7 | `results/rank7/tables.txt.gz` | 4 | `supplements/rank7/output/rank7_ledger.json` | Partial at all four bands; 78 unresolved |
 | 8 | `results/rank8/tables.txt.gz` | 2 | `supplements/rank8/data/decisions.json` | Partial at both bands; 116 unresolved |
 
@@ -121,7 +89,7 @@ with its [arithmetic checker](../supplements/rank3/audit_rank3.py).
 |---:|---|---:|---|
 | 4 | `969a2a5a84b794a3da1d9cd3978f92324d631760f503f5d208011923a723920f` | 889,530 | 889,515 excluded; 15 realized |
 | 5 | `9261917451d469ece9929a1756f505924cf84adf34e79a0d2e6f68fed43f55cf` | 40,999 | 40,982 excluded; 17 realized; 0 unresolved |
-| 6 | `06416f5bed05836eb7c773788cc6f2cec937aded094164cc4b81881fee70fabe` | 16,612 | 16,552 excluded; 53 unitary models; 1 spherical model with no pseudo-unitary categorification; six generally unresolved |
+| 6 | `c28936c9dd3f64c8b85d668a667a7cde65d77161850c0c51bc05c594189f521c` | 16,612 | 16,553 excluded; 56 unitary; 1 spherical non-pseudo-unitary; 2 unresolved |
 | 7 | `de2eb6c024a9271a66d8b34c187ebc4eca9bbd6fc1625b8e85c18b66c4abbb73` | 4,201 | 4,107 excluded; 16 unitary models; 78 unresolved |
 | 8 | `555e206a8df62db6ddb557543ae37a77a7345f6129881de26fb70d3c927203df` | 973 | 824 excluded; 33 unitary models; 116 unresolved |
 

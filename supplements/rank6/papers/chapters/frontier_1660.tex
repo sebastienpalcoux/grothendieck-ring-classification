@@ -1,229 +1,262 @@
-\subsection{The remaining multiplicity-eight ring}
+\subsection{The Ising subcategory at multiplicity eight}
 \label{subsec:frontier-1660}
-
-The ring $R_{6,8,1660}$ is self-dual and contains the Ising based
-subcategory with $g=b_1$ and $\sigma=b_4$. The unrestricted signed
-reduction recalled above reduces every categorification to the
-pseudo-unitary case. Its complete replay is
-\filename{research/round5/m8_1660_conductor/replay_reduction.py}.
-We use positive dimensions and put $D=\operatorname{FPdim}(\mathcal C)$.
-
-\begin{proposition}[Actual-twist support and individual capacity]
-\label{prop:1660-actual-support}
-For a central simple with restriction $v=(v_0,\ldots,v_5)$, put
+The ring $\RR{8}{1660}$ is self-dual. In the basis
+$1,g,X,gX,\sigma,\sigma X$ its products are determined by
 \[
- A(v)=v_0+v_1+v_2+v_3+2v_4-2v_5,\qquad
- B(v)=v_0+v_1-v_2-v_3+v_4+v_5.
+ g^2=1,\quad g\sigma=\sigma,\quad\sigma^2=1+g,\qquad
+ X^2=1+\bigl(3(1+g)+4\sigma\bigr)X,
 \]
-Then $A(v)\ne0$ implies $\theta_v^{24}=1$, and $B(v)\ne0$
-implies $\theta_v^{12}=1$. Every actual central twist has order
-dividing $48$.
+with commuting generators. Put $d=3+2\sqrt2+2\sqrt3+\sqrt6$.
+Then $\FPdim X=d$ and $\FPdim\mathcal C=4(1+d^2)$.
+The retained unrestricted sphericalization certificate reduces every
+categorification to its pseudo-unitary Galois conjugate, without
+assuming a pivotal structure. The signed reduction and actual-root
+certificate in \filename{research/frontier/R6_8_1660/} also force
+second indicators $(1,1,1,-1,1)$ on the nonunit basis objects.
+The Ising subcategory gives the following small structural problem.
 
-Every high column containing $\sigma$ satisfies
-\[
- v_0=v_1=0,\qquad v_4=1,\qquad v_2+v_3=4,\qquad v_5=3.
-\]
-There are exactly eight such central simples, each of dimension
-$D\sqrt2/8$. Each of the four allowed actual Ising twists occurs on
-exactly two of these simples.
-\end{proposition}
+\begin{lemma}
+For a fusion subcategory $\mathcal D\subset\mathcal C$, the category
+$Z(\mathcal D)$ has a central lift, with reverse braiding, to
+$Z(Z_{\mathcal D}(\mathcal C))$. In particular its Grothendieck ring
+is central in that of the relative center.
+\end{lemma}
 \begin{proof}
-The two saturated dimension-field characters have conductors $24$ and
-$12$. Evaluating their Fourier coefficients in
-\eqref{eq:saturated-column-support} gives nonzero constant multiples
-of $A$ and $B$, respectively. The character representatives are
-$1,5,7,11$; their sign vectors are $(1,1,-1,-1)$ and
-$(1,-1,-1,1)$. The exact coefficient calculation is reconstructed by
-\filename{software/dimension_block_support.py}.
-Proposition~\ref{prop:saturated-conductor-support} gives the order bounds.
-
-If a high column contains $\sigma$, its actual twist is primitive of
-order $16$ and its $g$-coordinate is zero, by
-Corollary~\ref{cor:fibonacci-ising-projection}. Therefore both Fourier
-coefficients vanish. Solving these two integer linear equations gives
-$v_2+v_3=4v_4$ and $v_5=3v_4$. Exact evaluation of the dimensions gives
+Use strict notation and write a relative-central object as $(X,\gamma)$,
+where $\gamma_V:VX\to XV$ for $V\in\mathcal D$. For
+$b=(Y,\beta)\in Z(\mathcal D)$, define its commutation with $(X,\gamma)$
+by $\gamma_Y:YX\to XY$. To check that this is a relative-central morphism,
+we must verify
 \[
- \frac{v_4\operatorname{FPdim}(v)}{D\sqrt2/4}
-       =\frac{v_4^2}{2}.
+ (\gamma_Y\otimes1_V)(1_Y\otimes\gamma_V)(\beta_V\otimes1_X)
+ =(1_X\otimes\beta_V)(\gamma_V\otimes1_Y)(1_V\otimes\gamma_Y).
 \]
-The individual capacity bound \eqref{eq:individual-projection-capacity}
-makes this ratio at most one. Hence $v_4=1$.
-The induction Gram entry at $(\sigma,\sigma)$ is eight, and no low
-column contains $\sigma$. Thus there are eight such simples, each
-contributing half of one root mass, proving the stated allocation.
-This uses individual actual-root masses before relative trace projection.
-
-For the exponent bound, consider a high column on which both $A$ and
-$B$ vanish. If $v_4>0$, the Ising support gives order $16$.
-Otherwise $v_5=2(v_0+v_1)$ and $v_2+v_3=3(v_0+v_1)$.
-Since $v_0=0$ and the column is nonzero, $v_1>0$, so its twist is $-1$.
-All other high columns have twist order dividing $24$, and low twists
-are one. Their least common multiple divides $48$.
+The two half-braiding identities rewrite this as naturality of $\gamma$
+at the morphism $\beta_V:VY\to YV$. Naturality in relative-central objects
+and tensor compatibility follow from their defining identities. On
+$Z(\mathcal D)$ the resulting braiding is the reverse of its usual braiding.
 \end{proof}
 
-\begin{proposition}[Complete necessary restriction profiles]
-\label{prop:1660-profiles}
-For a categorification of $R_{6,8,1660}$, the pseudo-unitary Galois
-conjugate has one of two low frames, each with two admissible character
-labellings. After the actual-twist support and capacity bounds,
-the complete induction Gram equations, joint-character and
-normalized-dimension Galois balance, integer cubic Verlinde
-multiplicities, and nonnegative low-product restriction remainders,
-the numbers of high restriction profiles are as follows, per labelling:
+\begin{proposition}[Relative-center reconstruction]\label{prop:1660-relative-center}
+Any categorification $\mathcal C$ of $\RR{8}{1660}$ has a rank-eighteen
+relative center $\mathcal E=Z_{\mathcal I}(\mathcal C)$, where
+$\mathcal I=\langle g,\sigma\rangle$ is Ising. Write
+$B=K_0(Z(\mathcal I))\cong K_0(\mathcal I)\otimes K_0(\mathcal I)$ and
+$e=g\otimes g$. Its Grothendieck ring has basis $b,bt$ for the nine
+basis elements $b$ of $B$, with
 \[
-\begin{array}{c|r|r|c}
- \text{low frame}&\text{cubic constraints}&\text{words through degree six}
- &\text{range of possible center ranks}\\\hline
- 0&371&371&25\text{--}76\\
- 1&2011&1999&25\text{--}82
-\end{array}
+ tb=bt,\qquad t^2=L+At,\qquad L\in\{1,e\},\qquad A\in B_{\ge0},
+ \qquad A=LA.
 \]
-For a fixed low frame the two labellings give the same surviving
-restriction profiles. Every retained profile also passes entrywise
-nonnegativity of the residual Gram matrix of all fifteen quadratic
-words in the five nonunit low simples.
+The forgetful map on $B$ is $F(a\otimes b)=ab$, and
+\[
+ F(t)=X,\qquad F(A)=3(1+g)+4\sigma,\qquad t^*=Lt.
+\]
 \end{proposition}
 \begin{proof}
-Enumerate the high columns using the induction Gram bounds,
-formal-codegree divisibility, complete character integrality and
-Galois closure, and the Ising projection constraints. Apply
-Proposition~\ref{prop:1660-actual-support} and
-Lemma~\ref{lem:simple-restriction-support}; the latter bounds the pure
-$g$ multiplicity by one. There remain $20$ high columns in the first
-frame and $52$ in the second.
+The complement $\mathcal M=\langle X,gX,\sigma X\rangle$ is an
+$\mathcal I$-bimodule category. The functor $Y\mapsto YX$ is a left
+module equivalence from $\mathcal I$ onto $\mathcal M$: it takes the
+three simples bijectively to the three simples, or equivalently
+$\underline{\operatorname{End}}_{\mathcal I}(X)=1$.
+Transport the right action to this regular left module. It becomes a
+tensor autoequivalence of $\mathcal I^{\rm rev}$, since it fixes all
+simple classes. Every tensor autoequivalence of an Ising category is
+isomorphic to the identity \cite[Remark B.6(i)]{DGNO}. Thus
+$\mathcal M$ is the regular bimodule, with $1$ corresponding to $X$.
 
-Their nonnegative integral multiplicities satisfy a bounded affine
-system. The Gram and Galois equations have ranks $11$ and $30$;
-exact row reduction leaves $9$ and $22$ free coordinates. Diagonal
-Gram entries bound every multiplicity. Cubic character formulas give
-integrality congruences and nonnegativity inequalities. Restricting
-each low product to the source based ring supplies coordinate bounds.
-
-The bounded free coordinates are enumerated with exact interval and
-divisibility pruning. The complete searches visit $1009$ and $63366$
-nodes, respectively, per character labelling. Higher-word tests use
-\eqref{eq:unified-word-pairing}; degrees four through six remove
-twelve profiles in the second frame and none in the first.
-The quadratic-word residual Gram test subtracts the known low
-constituents as in Theorem~\ref{thm:joint-restriction-word-gram}.
-
-All domains, rational row reductions, pruning decisions and retained
-profiles are reconstructed by \filename{software/round5_1660.py}.
-The records are \filename{research/round5/m8_1660/low0_profiles.json}
-and \filename{low1_profiles.json} in the same directory.
-The source-bound receipts \filename{low0_replay.json} and
-\filename{low1_replay.json} record complete optimizer-free replays
-under \texttt{python -O}. Consequently neither numerical solver
-status nor Python assertions are used to prove completeness.
+Passing to bimodule centers gives a regular $Z(\mathcal I)$-module
+$Z_{\mathcal I}(\mathcal M)$ \cite[Definition 2.1 and Remark 2.2]{GNNrel}.
+Consequently its simples are $bt$, and $\mathcal E$ has eighteen
+simples. The lemma gives commutativity. The part of $t^2$ supported on
+$Z(\mathcal I)$ forgets to $1$, and hence is exactly $1$ or $e$.
+Frobenius reciprocity gives $t^*=Lt$. All simples of $B$ are self-dual;
+taking duals of $t^2=L+At$ therefore gives $A=LA$. The remaining
+statements follow by applying the forgetful functor.
 \end{proof}
 
-The eight $\sigma$-supported simples have only two possible restriction
-multisets in these lists. In frame zero all eight have column
-$(0,0,2,2,1,3)$. In frame one, $1628$ profiles have this same multiset;
-the other $371$ have six copies of this column and one each of
-$(0,0,1,3,1,3)$ and $(0,0,3,1,1,3)$, per labelling.
-The exact first-trace cancellation condition on opposite actual Ising
-roots admits an allocation for both multisets, so it supplies no
-additional exclusion by itself. The exact control
-\filename{research/round5/m8_1660/verify_sigma_partitions.py}
-reconstructs these multisets and their allocations, and checks the
-displayed Fourier forms on all six basis columns.
-
-\begin{proposition}[Complete actual-root profile reduction]
-\label{prop:1660-actual-frontier}
-The actual-root equations leave precisely the following necessary
-profile alternatives:
-\[
-\begin{array}{c|c|r|r}
-\text{low frame}&\text{character labelling}&\text{input profiles}
- &\text{remaining profiles}\\\hline
-0&(0,5,4,1,3,2)&371&168\\
-1&(0,5,4,1,2,3)&1999&798\\
-1&(0,5,4,1,3,2)&1999&798
-\end{array}
-\]
-All three branches have second indicators $(1,1,1,-1,1)$.
-Every retained profile has eight copies of the balanced
-$\sigma$-supported column $(0,0,2,2,1,3)$.
-Their possible center ranks are $28,31,\ldots,76$ in the first frame
-and $28,31,\ldots,82$ in the second.
+\begin{proposition}[An arithmetic relative-center domain]\label{prop:1660-arithmetic-domain}
+Using the previously proved reduction to a pseudo-unitary
+categorification, the above relative-center rings reduce to $58$
+labelled alternatives.
 \end{proposition}
 \begin{proof}
-The proved exponent bound permits the use of the $48$ actual roots as
-the complete twist domain. Impose the induction Gram equations,
-first and second indicator traces, cyclic-rotation multiplicities,
-joint-character reciprocity, normalized-dimension Galois balance,
-the four individual Ising-root masses, and the low-product
-restriction constraints. There are sixteen low-frame, character,
-and indicator branches. Exact Farkas vectors exclude thirteen of
-them. In the first retained branch, three shared separating vectors
-exclude $203$ of the $371$ restriction profiles.
+The relative center inherits positive spherical dimensions from
+$\mathcal C$. Its dimension and dimension field are
+\[
+ D=16(1+d^2)=576+384\sqrt2+320\sqrt3+224\sqrt6,
+ \qquad K=\mathbb Q(\sqrt2,\sqrt3).
+\]
+Its dimension has minimal polynomial
+\[
+ z^4-2304z^3+184320z^2-4718592z+37748736,
+\]
+whose constant term is $2^{22}3^2$.
 
-For each second-frame branch the shared separating vectors leave
-$966$ profiles. A six-row integer combination of the fixed-profile
-system has every coefficient divisible by four, but its right-hand
-side is not divisible by four for any asymmetric $(1,6,1)$
-$\sigma$-pattern. This excludes all such patterns, including the
-$168$ that remained after the separating-vector tests, leaving
-$798$ profiles per labelling. The checker intersects these results
-with the complete degree-six survivor indices; it does not truncate
-the stored $2011$-element cubic list.
+The Ising character rows are $(1,1,\sqrt2)$, $(1,1,-\sqrt2)$ and
+$(1,-1,0)$, with formal codegrees $4,4,2$. Thus for a character $\chi$
+of $B$, let $f_B$ be the product of these codegrees and write
+$a=\chi(A)=u+v\sqrt2$. If $\chi(L)=-1$, the identity $A=LA$ forces
+$a=0$; its two extensions have formal codegree $2f_B$. If
+$\chi(L)=1$, their formal codegrees are
+\[
+ f_\pm=\frac{f_B}{2}\left(4+a^2\pm a\sqrt{a^2+4}\right).
+\]
+Every $D/f_\pm$ is an algebraic integer and every $f_\pm$ belongs to
+$K$ \cite[Corollaries 2.14--2.15]{Ostrik3}.
 
-The compact record
-\filename{research/round5/m8_actual48/certificate.json} stores the
-shared integer vectors, congruences, and complete remaining index
-lists. Its replay program \filename{certificate.py} reconstructs
-all sixteen systems and checks every applicable profile exactly.
-The source-bound \filename{replay_O.json} records a complete run
-with numerical optimizers and Python assertions disabled.
+First, $f_+f_-=f_B^2(a^2+4)$ implies that
+\[
+ n(u,v)=(u^2+2v^2+4)^2-8u^2v^2
+\]
+has no prime divisor other than $2$ and $3$. Second, the primitive
+minimal polynomial of $D/f_\pm$ must be monic. Finally, if $a\ne0$,
+field membership implies $\sqrt{a^2+4}\in K$. A square root in
+$K=\mathbb Q(\sqrt2)\oplus\sqrt3\mathbb Q(\sqrt2)$ of an element of
+$\mathbb Q(\sqrt2)$ lies in one of those two summands. Taking its
+quadratic norm shows that $n(u,v)$ must be a square in $\mathbb Q$,
+hence an integer square.
+
+The finite domain is particularly small. If $z$ is the coefficient of
+$\sigma\otimes\sigma$ in $A$, then $0\le z\le3$. The coefficients
+of $1\otimes1,g\otimes g$ sum to $3-z$, those of
+$1\otimes g,g\otimes1$ also sum to $3-z$, and the coefficients of the
+four $\sigma$-supported simples sum to four. This gives $1050$ possible
+$A$ for $L=1$ and six satisfying $A=eA$ for $L=e$.
+The exact checker produces
+\[
+1056\xrightarrow{\text{prime norms}}158
+\xrightarrow{D/f\text{ integral}}130
+\xrightarrow{\text{dimension field}}58.
+\]
 \end{proof}
 
-\begin{proposition}[A forced Ising-center subrepresentation]
-\label{prop:1660-ising-subrepresentation}
-The canonical modular representation of a hypothetical center
-contains the full nine-dimensional representation of the Ising
-center as a subrepresentation. Its central projection matrix $B$
-satisfies $BB^\dagger=2I_9$.
+The following categorical conditions reduce this arithmetic domain further.
+
+\begin{proposition}[Uniform indicator and central-lift constraints]
+\label{prop:1660-uniform-indicators}
+Every pseudo-unitary categorification of $\RR{8}{1660}$ has
+\[
+ \nu_2(g)=\nu_2(X)=\nu_2(gX)=\nu_2(\sigma X)=1,
+ \qquad\nu_2(\sigma)=-1,
+\]
+and its center contains a unique simple restricting to $g$ alone.
 \end{proposition}
 \begin{proof}
-For every occupied column in the complete lists of
-Proposition~\ref{prop:1660-profiles}, its Ising projection is one of
+We describe the finite certificate and the twist bound making it complete.
+For a central restriction column $v=(v_0,\ldots,v_5)$ put
 \[
- (0,0,0),\quad(1,0,0),\quad(1,1,0),\quad(0,1,0),\quad(0,0,1).
+ a(v)=v_0+v_1+v_2+v_3+2v_4-2v_5,
+ \qquad b(v)=v_0+v_1-v_2-v_3+v_4+v_5.
 \]
-At the allowed actual twist, each nonzero projection is a single
-simple of the Ising center, with multiplicity one. This finite
-support assertion is reconstructed for all $4740$ labelled profiles
-by \filename{research/round5/m8_modrep/ising_complement.py}.
-Corollary~\ref{cor:disjoint-central-projection} therefore applies:
-the rows of $B$ have disjoint supports, their individual positive
-dimension masses make them nonzero, and $BB^\dagger$ is a positive
-scalar matrix. The four $\sigma$ rows each contain exactly two
-objects, so that scalar is two.
+The saturated dimension-field characters of conductors $24$ and $12$
+give $a(v)\ne0\Rightarrow\theta_v^{24}=1$ and
+$b(v)\ne0\Rightarrow\theta_v^{12}=1$, by
+Proposition~\ref{prop:saturated-conductor-support}.
+A high column containing $\sigma$ has primitive order-$16$ twist and
+$v_1=0$, by the Ising projection. Both displayed forms then vanish,
+forcing $v_2+v_3=4v_4$ and $v_5=3v_4$.
+The individual root-mass capacity gives $v_4^2/2\le1$, hence $v_4=1$.
+If both forms vanish and $v_4=0$, then $v_5=2v_1$ and
+$v_2+v_3=3v_1$; a nonzero high column has $v_1>0$ and twist $-1$.
+Thus every actual twist has order dividing $48$.
+
+The first three indicators are already $+1$ by odd multiplicities in
+squares. Exhaust all four choices for the other two signs, all low
+frames and all character assignments. There are two low frames, each
+with two assignments, hence $16$ global systems. The equations use all
+$48$ actual roots, induction Gram identities, joint Galois balance,
+Ising root masses, low-product restriction constraints and cyclic
+rotation moments. Thirteen exact integer separating vectors exclude
+thirteen systems. Every one of the other three has the displayed
+indicator pattern. This conclusion precedes any specialization to
+individual high profiles.
+
+For the central lift, bounded affine enumeration of the Gram, character,
+Galois and cubic-word equations gives $371$ profiles in each assignment
+of the first frame and $2011$ in each assignment of the second.
+Every profile contains exactly one copy of the high vector
+$(0,1,0,0,0,0)$. All domains are reconstructed by the retained exact
+profile checker; the uniform multiplicity is checked on all $4764$
+raw profiles. A simple with this restriction has dimension one and is
+the required central invertible. The sources, separating vectors and
+independent replay are indexed in
+\filename{research/frontier/R6_8_1660/}.
 \end{proof}
 
-The finite-quotient criterion of
-Subsection~\ref{subsec:modular-word-closure} is implemented for
-$\mathrm{SL}_2(\mathbb Z/48\mathbb Z)$ using its two Chinese-remainder
-factors. The exact class algebras give $76$ irreducible characters
-for $\mathrm{SL}_2(\mathbb Z/16\mathbb Z)$ and seven for
-$\mathrm{SL}_2(\mathbb Z/3\mathbb Z)$. Their $532$ tensor products
-give $504$ distinct signed $T$-spectra. The independent replay checks
-all class-algebra identities, character orthogonality, degrees,
-central signs and exact Fourier multiplicities. Two Ising-center
-spectra serve as positive controls. These records are in
-\filename{research/round5/m8_modrep/}.
+\begin{lemma}[Second indicator with a central factor]
+\label{lem:central-second-indicator}
+Let $\mathcal A$ be pivotal, let $b$ be self-dual in $Z(\mathcal A)$
+with simple underlying object, and let $t$ be self-dual and simple in
+$\mathcal A$. If $bt$ is simple, then
+$\nu_2(bt)=\nu_2(b)\nu_2(t)$.
+\end{lemma}
+\begin{proof}
+Use half-braidings $c_{b,x}:bx\to xb$. Choose a central self-duality
+$f_b:b\to b^*$ and a self-duality $f_t:t\to t^*$, and put
+$f=c_{b^*,t^*}(f_b\otimes f_t):bt\to(bt)^*$.
+Dual compatibility gives $(c_{b^*,t^*})^*=c_{b^{**},t^{**}}$.
+Writing $j$ for the pivotal structure, naturality and centrality of
+$f_b$ give
+\begin{align*}
+ f^*j_{bt}
+ &=(f_t^*j_t\otimes f_b^*j_b)c_{b,t}\\
+ &=\nu_2(b)\nu_2(t)(f_t\otimes f_b)c_{b,t}
+ =\nu_2(b)\nu_2(t)f.
+\end{align*}
+Since $bt$ is simple, this transpose scalar is its second indicator.
+No half-braiding for $t$ is needed.
+\end{proof}
 
-One may apply this spectrum cone to the complement of the forced
-Ising-center representation. Its known $T$-spectrum has multiplicity
-three at $1$, two at $-1$, and one at each of the four Ising roots.
-The signed-trace lower bounds must also subtract these multiplicities:
-they become $3$ at $1$, $-2$ at $-1$, and $-1$ at the four Ising roots.
-The complement itself need not have permutation duality.
+\begin{theorem}[A single relative-center ring]
+\label{thm:1660-single-relative-ring}
+Up to exchanging the Ising factors, the relative center of a
+categorification of $\RR{8}{1660}$ must have
+\[
+ L=e=(g,g),\qquad
+ A=2(\sigma,1)+2(\sigma,g)+3(\sigma,\sigma).
+\]
+\end{theorem}
+\begin{proof}
+The forgetful functor $F:\mathcal E\to\mathcal C$ is faithful and
+pivotal. It preserves second indicators for a self-dual simple whose
+image is simple: it preserves a nonzero self-duality and its transpose
+scalar, both computed in one-dimensional Hom spaces.
+If $L=1$, apply Lemma~\ref{lem:central-second-indicator} to
+$b=(\sigma,1)$ and $t$. Their images, and that of $bt$, are
+$\sigma,X,\sigma X$. Proposition~\ref{prop:1660-uniform-indicators}
+gives their signs $-1,1,1$, contradicting the lemma. Thus $L=e$.
+Of the $58$ arithmetic alternatives, only three have $L=e$: the
+stated coefficient, its factor exchange, and the all-ones coefficient
+$A=\sum_{b\in\Irr Z(\mathcal I)}b$.
 
-The full-spectrum and forced-complement searches produced no further
-exact exclusion. The finite-group character enumeration is complete;
-the coupled nonnegative integral completion problem for the remaining
-profiles is not solved. The ring remains unresolved. The remaining
-lists are necessary alternatives, not induction matrices or modular
-data asserted to come from fusion categories.
+To exclude the last choice, realize $\mathcal E$ as the dual of
+$\mathcal C\boxtimes\mathcal I^{\rm op}$ acting on $\mathcal C$ by
+left and right tensor multiplication. Compatibility of a module
+endofunctor with the right action is exactly its relative half-braiding.
+Morita invariance therefore gives
+\[
+ |\operatorname{Inv}Z(\mathcal E)|
+       =4|\operatorname{Inv}Z(\mathcal C)|.
+\]
+All four invertibles of $\mathcal E$ belong to $B$ and have canonical
+central lifts. The forgetful map on central invertibles is surjective;
+its kernel is the group of tensor automorphisms of the identity.
+For the all-ones coefficient, $t^2$ contains $t$ and every $bt$.
+A tensor automorphism's scalars therefore satisfy
+$\lambda_t^2=\lambda_t=1$ and $\lambda_{bt}=\lambda_b=1$.
+The kernel is trivial, so $|\operatorname{Inv}Z(\mathcal E)|=4$.
+This contradicts the nontrivial central invertible of
+Proposition~\ref{prop:1660-uniform-indicators}.
+\end{proof}
+
+The last theorem is a necessary reduction, not a categorification of
+the remaining ring. Its universal grading is $C_2$: the first Ising
+spin and $t$ have odd degree. The neutral component has nine simples.
+Writing $p=(g,1)$, $q=(1,g)$, $s=(1,\sigma)$ and $Y=(\sigma,1)t$,
+its additional rules are
+\[
+ pY=Y,\qquad Y^*=qY,\qquad
+ Y^2=q(1+p)+\bigl(4(1+q)+6s\bigr)Y,
+\]
+together with $p^2=q^2=1$, $qs=s$ and $s^2=1+q$.

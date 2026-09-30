@@ -1,124 +1,123 @@
-\subsection{The finite centralizer frontier for $R^\prime(4)$}
+\subsection{The generalized near-group ring $R^\prime(4)$}
 \label{sec:frontier-155}
+Write the basis of $\RR{4}{155}$ as $1,h,g,hg,X,Y$, where the
+invertibles form $C_2^2$, $h$ fixes $X,Y$, and $g$ exchanges them.
+The ring belongs to the family
+\begin{equation}\label{eq:nonselfdual-neargroup}
+ Y=X^*,\qquad XY=1+h+m(X+Y),\qquad X^2=g+hg+m(X+Y),
+\end{equation}
+with $m=4$. The following uniform argument eliminates signed-table
+search for this family.
 
-The ring $R6\_4\_155$ remains unresolved.  The new certificate replaces its
-previous necessary-data witness by a complete finite list of six
-induction profiles, each with a forced pair of low fusion matrices in a
-semion centralizer.  This is a reduction of the categorification problem, not an
-existence claim for any profile.
-
-Write the basis as $\mathbf1,X,X^*,h,g,hg$, where the invertibles form
-$C_2^2$, $h$ fixes $X,X^*$, and $g$ exchanges them.  The exact dimension
-and products are
+\begin{proposition}\label{prop:nonselfdual-neargroup-spherical}
+Every complex fusion category with rules
+\eqref{eq:nonselfdual-neargroup}, for $m\ge0$, is spherical and has a
+pseudo-unitary Galois conjugate.
+\end{proposition}
+\begin{proof}
+In the sphericalization choose the dimension-one lifts $k_+$ of the
+invertibles, and choose $X_+$ and $Y_+=g_+X_+$. Their common nonzero
+dimension $\delta$ forces
+$h_+X_+=X_+$, $h_+Y_+=Y_+$ and $X_+^*=Y_+$.
+The invertible part of the self-dual product $X_+Y_+$ is $1_++h_+$,
+by reciprocity; hence
 \[
- d=4+3\sqrt2,\qquad D=72+48\sqrt2,\qquad
- X^2=g+hg+4X+4X^*,\quad XX^*=\mathbf1+h+4X+4X^*.
+ X_+Y_+=1_++h_++s(X_++Y_+)+t(X_-+Y_-),\qquad s+t=m.
 \]
-The previously certified sphericalization reduction applies to every
-categorification of this ring.  We therefore use its pseudo-unitary
-Galois representative throughout the necessary-data computation.
-
-First apply the pointed version of
-Proposition~\ref{prop:central-subcategory-projection} to all three
-involutions.  If a central simple restricts with a nonzero coefficient of
-an involution $k$, its twist has square $\nu_2(k)$.  Of the ten ordinary
-induction frames, only one survives the resulting exact systems.  Its six
-low columns are
+Thus $\delta^2=2+r\delta$ with $r=2(s-t)$; changing both lifts if
+necessary gives $0\le r\le2m$. The squared-norm global dimension and
+the Frobenius--Perron dimension are
 \[
- (1,0,0,0,0,0),\quad (1,2,2,0,0,0),\quad
- (1,2,2,1,0,0)\ \text{twice},\quad
- (1,1,1,0,0,0)\ \text{twice}.
+ d_r=8+r^2\pm r\sqrt{r^2+8},\qquad
+ D_m=8+4m^2+2m\sqrt{4m^2+8}.
 \]
-Its four character labellings differ by permutations of equal columns;
-the verifier checks the permutations explicitly.  The surviving second
-indicators, in the displayed basis order after the unit, are
-$(0,0,1,-1,-1)$.  This first reduction uses twenty-eight exact Farkas
-certificates.
-
-The exact right-$(\mathbf1\oplus h)$ module enumeration has one
-anti-invariant representation, in which $h$ exchanges the two module
-structures on both $X$ and $X^*$.  Proposition~\ref{prop:stabilizer-rotation}
-applies to these non-self-dual objects: its hypothesis concerns left and
-right stabilizers and does not require self-duality.  Since
-$[X^3:\mathbf1]=[(X^*)^3:\mathbf1]=4$, the third indicators have the form
-$-(a+b\zeta_3+c\zeta_3^2)$ with $a+b+c=2$.  Their normalized relative
-traces to $\mathbb Q(\zeta_8)$ belong to
-$\{-2,-\tfrac12,1\}$.  Duality gives the same value for $X$ and $X^*$.
-Eight further exact Farkas certificates exclude the first two values in
-all four labellings.
-
-The remaining bounded Gram--Galois lattice has exactly $1066$ integral
-profiles; an independent optimizer-free recursion enumerates all of them.
-The unique central object restricting to the unit makes the image of
-central invertibles injective.  Subgroup closure and their tensor
-permutation of restriction types leave $874$ profiles.  The unified joint
-restriction--word Gram criterion, using all fifteen quadratic and
-thirty-five cubic low words, excludes $772$ profiles by an empty exact
-coefficient domain and four by exact Farkas inequalities.  Coupling the
-remaining coefficient vectors to the same twist-trace variables and
-imposing ribbon balancing excludes another $39$ profiles.  For the
-non-self-dual low pair the balancing target is $S_{A_a^*,A_b}$, as in
-Proposition~\ref{prop:projected-product-balancing}.
-
-All $59$ remaining profiles force unique central lifts of $h,g,hg$.
-Their twists satisfy $q(g),q(hg)\in\{i,-i\}$.  The lift of $h$ is
-fermionic: a bosonic lift would allow de-equivariantization by
-$\mathbf1\oplus h$, and the fixed simple $X$ would split into objects of
-dimension $d/2$; its norm is $-1/2$, contradicting algebraic integrality.
-If $q(g)=q(hg)$, the pointed monodromy form has trivial radical; otherwise
-its radical is $\langle h\rangle$.  The exact divisibility test in
-Proposition~\ref{prop:pointed-stabilizer-divisibility} leaves respectively
-seven and twenty-five profiles, with the former contained in the latter.
-
-Finally the central lift of $g$ generates a nondegenerate semion
-subcategory, so the \emph{center} decomposes as its product with a modular
-centralizer $\mathcal E$.  Restriction columns occur in pairs $(v,gv)$.
-The low monodromies select the low objects $\mathbf1,A_1,A_2$ in
-$\mathcal E$, hence the restricted adjoint algebra is
-$\mathbf1\oplus A_1\oplus A_2$.  For every endpoint orientation the
-restricted adjunction identity is
+The ratio $d_r/D_m$ is an algebraic integer
+\cite[Proposition~8.22]{ENO}. For nonzero even $r$, $r^2+8$ is not a
+square: $(v-r)(v+r)=8$ would force $r=1$. The same holds for $2m$.
+When $m>0$, the compositum admits an automorphism negating both
+quadratic roots (or only the denominator root when $r=0$).
+Multiplying the ratio by its image gives the positive rational
+algebraic integer
 \[
- V^{\mathsf T}V=I+N_{A_1}+N_{A_2}.
+ \frac{r^2+8}{4m^2+8}\le1.
 \]
-Exhaustive endpoint enumeration, closure under duality, and restriction
-compatibility leave fifteen profiles and thirty orientations.  The
-possible center ranks are
+It equals one, so $r=2m$ and $t=0$. For $m=0$ this holds directly.
+The lift $g_+$ commutes with $X_+,Y_+$, since both orders have the same
+underlying simple and nonzero dimension. Therefore
+$X_+^2=Y_+^2=g_+X_+Y_+$, and all products of the chosen lifts close
+among them. They form a full spherical fusion subcategory projecting
+tensor-equivalently onto the original category. Its noninvertible
+dimension is $m\pm\sqrt{m^2+2}$; conjugating to the positive root
+gives pseudo-unitarity.
+\end{proof}
+
+For $m=4$ the dimensions are
 \[
- 30,32,36,38,40,42,44,46,48,52,54,60.
+ d=4+3\sqrt2,\qquad D=72+48\sqrt2.
 \]
-No decomposition of the original unbraided category is asserted.
+There is no nontrivial faithful grading: the adjoint subring is the
+whole ring. The pointed subrings are its only proper nontrivial fusion
+subrings. Thus neither a grading nor rank-three subring descent resolves
+this case.
 
-The remaining adjunction matrix splits by
-Corollary~\ref{cor:graded-adjunction-splitting}.  The monodromy charges of $A_1,A_2$ against $h$ are respectively
-$+1,-1$.  For any assignment $\epsilon_i\in\{\pm1\}$ to the centralizer
-simples, $N_{A_1}$ is the same-charge block of $V^{\mathsf T}V-I$, and
-$N_{A_2}$ is the complementary block.  Equal restriction columns are
-permuted freely, so the verifier enumerates charge counts within each
-type rather than labelled sign vectors.  It enforces the known low
-charges, duality, restriction products, and commutation.  In the opposite
-quadratic form the centralizer contains the fermion $h$, which preserves
-charges and cannot fix a charge-$+1$ simple.  In the equal quadratic form
-it contains the semion $hg$, whose tensor action reverses charges.
-These exact finite tests leave six profiles and nine low-matrix pairs.
+The retained central-induction certificate gives a finite necessary
+domain of five profiles, with center ranks $46,48,52,54,60$.
+For clarity, its categorical reductions are as follows. Pointed
+subcategory projection for all three involutions leaves one low frame
+and indicators $(\nu_2(X),\nu_2(Y),\nu_2(h),\nu_2(g),\nu_2(hg))
+=(0,0,1,-1,-1)$. The $1+h$ module action and stabilizer-rotation
+criterion constrain the third indicators. Exact Gram, Galois, word
+and balancing equations then force central lifts of $h,g,hg$.
+The lift of $h$ is fermionic: if it were bosonic, de-equivariantization
+would split the fixed object $X$ into dimensions $d/2$, whose norm
+is $-1/2$, contrary to integrality. A lift of $g$ generates a semion
+subcategory of the center, which splits off from the center.
 
-Complex conjugation of the entire pseudo-unitary category preserves its
-positive dimensions and restriction columns and conjugates all twists.
-The checked low-labelling permutations therefore allow the normalization
-$q(g)=i$.  Three exact simultaneous-pointed-action and ribbon-balancing
-rays eliminate the remaining equal-form pairs.  The final six profiles
-have center ranks $44,46,48,52,54,60$, and each has one forced pair
-$(N_{A_1},N_{A_2})$ in the opposite quadratic form.  The surviving profile
-indices in the independently reconstructed enumeration are
-$275,277,279,296,298,306$.
+In its modular centralizer the restricted adjoint algebra is
+$1+A_1+A_2$. For its restriction matrix $V$, adjunction gives
+$V^{\mathsf T}V=I+N_{A_1}+N_{A_2}$. The two low simples have opposite
+monodromy charges against the fermion. Consequently their multiplication
+matrices are the same-charge and opposite-charge blocks of
+$V^{\mathsf T}V-I$. Exhausting charge counts, duality, pointed actions,
+restriction products and ribbon balancing leaves the six profiles,
+each with a forced pair of low fusion matrices. For the rank-$44$ profile, the height-six full-character system of
+Proposition~\ref{prop:round3-full-character}, in $\QQ(\zeta_{24})$,
+has no solution with integral twist-type and rotation-eigenvalue counts.
+The exact certificate gives $49$ integral-bound inferences followed
+by one separating ray, using the bound argument in the proof of
+Theorem~\ref{thm:1204-excluded}. Pointed restriction columns use their
+proved twists $\pm1$ or $\pm i$; the other columns retain the complete
+joint trace domain. All surviving character assignments differ only
+by permutations of identical low columns, and no third-indicator value
+is imposed. This removes the rank-$44$ profile.
 
+The five remaining profiles are necessary conditions. The semion splitting of the center does
+not assert a tensor-product splitting of the original category.
 
-The compact certificate is
-\texttt{research/round5/m4\_155/frontier\_certificate.json}; its independent
-reconstruction is \texttt{replay\_frontier.py}.  The final packet
-reconstruction is \texttt{replay\_packets.py}, with output
-\texttt{packet\_frontier.json}.  The packet replay also reconstructs the charge splittings and the three
-final rays.  Both replay programs disable numerical
-optimizers and use explicit checks that remain active under
-\texttt{python -O}.  Full fusion associativity and modular completion of
-this finite frontier remain necessary before any categorification can be
-claimed.
+\begin{proposition}[No braided Morita representative]
+\label{prop:155-no-braided-morita}
+A categorification of $\RR{4}{155}$ is not Morita equivalent to any
+braided fusion category.
+\end{proposition}
+\begin{proof}
+Work with a pseudo-unitary Galois representative. Since the adjoint
+subcategory is the whole category, the forgetful map on central
+invertibles is injective. The central-induction certificate gives all four
+central lifts, with twists $1,-1,i,-i$, up to complex conjugation.
+Thus the center has no nonidentity invertible of twist one.
+
+If a braided category $\mathcal M$ were Morita equivalent, it would
+also be pseudo-unitary. The equivalence of centers preserves their
+canonical positive ribbon structures. Every central invertible
+forgetting to the unit of $\mathcal M$ has twist one, so this
+forgetful map is injective. The image $a$ of the central semion has
+its canonical lift supplied by the braiding of $\mathcal M$; uniqueness
+forces that lift to be the semion itself. Hence $\langle a\rangle$
+is nondegenerate, and braided decomposition gives
+$\mathcal M\simeq\mathrm{Semion}\boxtimes\mathcal M_0$
+\cite{DGNO}. Its center then contains the nonidentity twist-one
+invertible $(a,a)$ from
+$Z(\mathrm{Semion})\simeq\mathrm{Semion}\boxtimes\mathrm{Semion}^{\rm rev}$,
+a contradiction. Galois conjugation preserves braidings and Morita
+contexts, so the conclusion applies to the original category.
+\end{proof}

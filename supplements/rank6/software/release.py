@@ -7,8 +7,10 @@ CONTINUATION=P/'certificates/continuation_20260929.jsonl'
 ROUND2=P/'certificates/continuation_round2.jsonl'
 ROUND3=P/'certificates/continuation_round3.jsonl'
 ROUND4=P/'certificates/continuation_round4.jsonl'
-CONTINUATION_PATHS=(CONTINUATION,ROUND2,ROUND3,ROUND4)
+STRUCTURAL=P/'certificates/structural_exclusions.jsonl'
+CONTINUATION_PATHS=(CONTINUATION,ROUND2,ROUND3,ROUND4,STRUCTURAL)
 CONTINUATION_LABELS={
+    'continuation_center_integrality':'Continuation: center rotation integrality',
     'continuation_lower_rank_subring':'Continuation: rank-three subring',
     'continuation_involution_module':'Continuation: spectral module',
     'continuation_small_dimension_morita':'Continuation: order-six Morita',
@@ -178,6 +180,8 @@ def build(verified_continuation=None):
         if continuation!=verified_continuation:raise ValueError('continuation changed after the supplied exact replay')
         print('RETAINED_EXACT_CONTINUATION_REPLAY',len(continuation),flush=True)
     for rec in continuation:neg[rec['id']]=rec['certificate']
+    from conformal_models import verify as verify_conformal
+    verify_conformal(fresh=False)
     pos=positive_registry()
     m1=[r for r in rows if r['m']==1];remain=[r for r in m1 if r['id'] not in neg]
     if len(m1)!=39 or len(remain)!=21:raise ValueError('multiplicity-one classification count mismatch')
@@ -244,12 +248,12 @@ def build(verified_continuation=None):
             report['fourth_continuation_replay']='verification/round4/release_replay.json'
             report['fourth_continuation_frozen_inputs']='verification/round4/campaign_manifest.json'
             report['document_checks']='verification/round4/document_qa.json'
-        research=P/'research/round5/coverage.json'
-        if research.exists():
-            report['current_research_revision']='round5'
-            report['current_research_coverage']='research/round5/coverage.json'
-            report['current_research_coverage_sha256']=hashlib.sha256(research.read_bytes()).hexdigest()
-            report['document_checks']='verification/round5/document_qa.json'
+        report['current_revision']='v6'
+        report['current_frontier']='data/frontier_summary.json'
+        report['new_realizations']=['R6_4_22','R6_4_91','R6_4_629']
+        report['new_exclusions']=['R6_5_1204']
+        report['structural_exclusion_verification']='verification/current/center_integrality.json'
+        report['conformal_model_verification']='verification/current/conformal_models.json'
         target=P/'verification/continuation/release_summary.json';target.parent.mkdir(parents=True,exist_ok=True)
         target.write_text(json.dumps(report,indent=2)+'\n')
         (P/'verification/release_summary.json').write_text(json.dumps(report,indent=2)+'\n')

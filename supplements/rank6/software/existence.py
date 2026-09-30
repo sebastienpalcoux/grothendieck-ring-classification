@@ -5,7 +5,7 @@ from exact import require
 ROOT=Path(__file__).resolve().parents[1]
 STRUCTURES=('general','pivotal','spherical','pseudo_unitary','unitary')
 REGISTRIES=('constructed_positive_models','group_theoretical_models',
-            'additional_positive_models','complete_positive_models','literature_positive_models','fermionic_product_models','exceptional_g2_models','inversion_models','through7_positive_models','residual_positive_models')
+            'additional_positive_models','complete_positive_models','literature_positive_models','fermionic_product_models','exceptional_g2_models','inversion_models','through7_positive_models','residual_positive_models','conformal_positive_models')
 POSITIVE_STATUSES=('unitarily_realized','spherically_realized_nonpseudounitary')
 
 def all_values(value):return {k:value for k in STRUCTURES}

@@ -49,11 +49,10 @@ expected_open=[r["unresolved"] for r in summary["counts"]]
 assert [rank6[m]["unresolved_general"] for m in range(1,9)] == expected_open
 assert sum(r["excluded_general"] for r in rank6.values()) == summary["excluded"]
 assert all(rank6[m]["classification_coverage"] == "complete_classification" for m in release["complete_multiplicity_bands"])
-assert release["complete_multiplicity_bands"] == [1,2,3,6,7]
+assert release["complete_multiplicity_bands"] == [r["multiplicity"] for r in summary["counts"] if r["unresolved"] == 0]
 scope6=next(r for r in payload["scope"] if r["rank"] == 6)
-assert (scope6["through"],scope6["positive"],scope6["unresolved"]) == (3,54,summary["unresolved"])
-assert release["new_exclusions_since_previous_site"] == 0
-assert release["date"] == payload["snapshot"] == "2026-09-30"
+assert (scope6["through"],scope6["positive"],scope6["unresolved"]) == (release["complete_through"],summary["positive"],summary["unresolved"])
+assert release["date"] == payload["snapshot"]
 coverage=json.loads((root / release["research_coverage_path"]).read_text())
 assert release["research_cases"] == [{key: case[key] for key in ("id", "categorical_status", "public_summary")} for case in coverage["cases"]]
 assert {r["id"] for r in release["research_cases"]} == set(summary["unresolved_ids"])

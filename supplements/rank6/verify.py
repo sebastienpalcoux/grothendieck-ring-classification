@@ -90,6 +90,8 @@ def main():
         verify_through7_models()
         from residual_models import verify as verify_residual_models
         verify_residual_models()
+        from conformal_models import verify as verify_conformal
+        verify_conformal(fresh=True)
         from model_catalog import verify_catalog
         verify_catalog()
         print('TRUSTED SOURCE IMPORT AND CONSTRUCTED MODELS VERIFIED',flush=True)

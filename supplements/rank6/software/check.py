@@ -20,7 +20,10 @@ def integral_general(R,c):
 def verify(R,c):
     global _order6_finite_checked
     k=c['kind']
-    if k=='general_fibonacci_subfield_rotation':
+    if k=='general_center_rotation_integrality':
+        import center_integrality
+        center_integrality.verify(R,c)
+    elif k=='general_fibonacci_subfield_rotation':
         import round4_m8_subfield
         round4_m8_subfield.verify_general(R,c)
     elif k=='general_ising_projection_rotation':

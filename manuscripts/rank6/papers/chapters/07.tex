@@ -1,4 +1,4 @@
-\section{Certificates, research coverage, and the remaining frontier}\label{sec:certification}
+\section{Exact certificates and the remaining two rings}\label{sec:certification}
 \subsection{Automated allocation and verification}\label{sec:verification}
 The computation has three separate layers: the frozen source census,
 a discovery pipeline, and an exact categorification-certificate checker. Discovery is permitted to time
@@ -70,9 +70,8 @@ and the cited rank-four or rank-five tests, with the tensor-sign
 reduction of Lemma~\ref{lem:positive-sign} and the extension of
 Theorem~\ref{thm:rotation} where recorded. The stronger character-aware system of Theorem~\ref{thm:character-induction}, dimension-order test of Proposition~\ref{prop:dimension-order}, and signed refinement of Theorem~\ref{thm:signed-traces} are used where recorded. The spectral refinement of Proposition~\ref{prop:module-perron},
 rank-three subring descent, Theorem~\ref{thm:morita-order6}, and
-Proposition~\ref{prop:biquadratic-trace-obstruction} supply the
-additional continuation certificates. The second continuation also
-uses the ramification criterion of Proposition~\ref{prop:ramification-trace},
+Proposition~\ref{prop:biquadratic-trace-obstruction} supply further certificates. The certificates also
+use the ramification criterion of Proposition~\ref{prop:ramification-trace},
 Theorem~\ref{thm:formal-codegree-trace-ideal}, the signed saturation
 corollary, and Proposition~\ref{prop:quadratic-gauss-family}. The higher
 stabilizer and ambient cyclotomic refinements use
@@ -83,10 +82,13 @@ Theorem~\ref{thm:stabilizer-rotation-frontier} supplies the final general
 multiplicity-three exclusion: its sphericalization reduction, full
 Morita-action calculation, local rotation lemma and complete exact
 indicator separation are all required. The exact checker validates
-all hypotheses and exhausts the required finite alternatives. Thus no
+all hypotheses and exhausts the required finite alternatives.
+Theorem~\ref{thm:1204-excluded} adds the forced-product and integral
+rotation obstruction at multiplicity five. Thus no
 excluded tensor has a complex categorification. Section~\ref{sec:positive}
 constructs and tensor-matches all claimed positive examples, with the
-additional models in Sections~\ref{sec:literature-models} and~\ref{sec:g2-e4}, the higher models of Section~\ref{sec:through7-models}, and complete
+additional models in Sections~\ref{sec:literature-models} and~\ref{sec:g2-e4}, the higher models of Section~\ref{sec:through7-models}, the conformal
+models of Theorem~\ref{thm:conformal-models}, and the complete
 catalogue in Section~\ref{sec:model-catalogue}. In particular the spherical
 existence and pseudo-unitary nonexistence for $\RR{2}{124}$ use the
 full-tensor identification and the two cited results of Schopieray. No complement argument is used
@@ -95,91 +97,30 @@ Table~\ref{tab:classification}. The other records are left undecided,
 with no assertion of nonexistence or realizability.
 \end{proof}
 
-\subsection{Regression controls}\label{sec:frontier}
-The positively realized ring $\RR{2}{4}$ supplies independent controls
-for the balanced and rotation systems. Their exact witnesses are
-\filename{data/frontier_feasible.json} (formal rank $22$) and
-\filename{data/frontier_rotation_feasible.json} (formal rank $27$).
-Each is checked only against its own reconstructed necessary system;
-the different formal ranks do not describe a single center. Existence
-comes from Proposition~\ref{prop:g2-e4}.
+\subsection{Reproduction}\label{sec:reproduction}\label{sec:frontier}
+The command \texttt{python verify.py --jobs 2} checks the frozen input,
+positive models and allocated negative certificates. Repeating it with
+\texttt{python -O} confirms that the checks do not depend on removable
+Python assertions. The conformal models have the independent exact
+replay \texttt{python -O software/conformal\_models.py --verify}.
+The verification guide gives dependencies, commands and the scope of
+retained certificates. The controls include actual positive categories
+and corrupted certificates that must be rejected. All of this checks
+categorification evidence; no new census is enumerated.
 
-Conversely, the generally excluded ring $\RR{3}{215}$ has an exact
-rank-$22$ induction, fusion and modular-data relaxation. The stored
-replay programs in \filename{research/m8_frontier/} preserve this
-negative control for overinterpreting feasible data. The additional
-stabilizer-rotation obstruction, not a failure of those weaker systems,
-proves its nonexistence. These controls are kept outside the main
-classification argument.
+\subsection{The remaining two rings}\label{sec:research-coverage}
+The remaining tensors are precisely $\RR{4}{155}$ and $\RR{8}{1660}$. Every categorification of each is spherical and has a
+pseudo-unitary Galois conjugate, by the arguments below and the retained
+signed-sphericalization certificates. These reductions permit positive
+dimensions in the subsequent necessary conditions without assuming
+pivotality in the original existence question. The generalized near-group
+and Ising subcategories give smaller structural problems.
 
-\subsection{Reproduction and counting data}\label{sec:reproduction}
-The top-level command
-\begin{center}\texttt{python verify.py --jobs 2}\end{center}
-checks the frozen input correspondence, positive models, and allocated
-negative certificates. The command with \texttt{python -O} checks
-that correctness does not depend on Python assertions. Regression
-controls exercise exact arithmetic, corrupted certificates and the
-frontier witnesses. Precise dependencies, commands, report scope and
-search-stop behavior are given in the accompanying verification guide.
-These are classification checks, not a new enumeration of fusion rings.
-
-The \filename{oeis/} directory contains an eight-term b-file, a CSV,
-and proposed definition and provenance text. The definition is the
-number of based-isomorphism classes of rank-six fusion rings of
-\emph{exact} multiplicity $m$, without assuming commutativity,
-self-duality, integrality or categorifiability. The terms are copied
-from the pinned census. No accession number is assumed and no online
-submission is claimed. Counting farther and classifying farther are
-separate achievements.
-
-\subsection{Research coverage and the next unresolved stratum}\label{sec:research-coverage}
-The residual list is derived from the complete decision ledger, not
-from a hand-selected sample. Multiplicities one through three are completely decided.
-The smallest unresolved multiplicity and the exact residual tensors
-are reported in Section~\ref{sec:results}; the first such tensor is the
-priority for further theoretical and automated work. The stage table
-also shows whether difficulties reappear at larger multiplicities.
-A criterion applied successfully at one bound remains the same
-mathematical criterion at the next bound: additional computation alone
-is not presented as a new theorem.
-
-The module-Gram refinements and relative-center constructions are
-necessary tests or model constructions with explicit hypotheses.
-A failed eligibility check does not exclude a ring. An inconclusive
-Gram factor does not supply a model. For the relative Fibonacci center
-of $TT_3$, the categorical construction and exact tensor reconstruction
-supply the positive conclusion; feasible Gram data by themselves do not.
-
-Literature comparisons distinguish exact fusion-rule matches from
-shared dimensions. Unitary-only classifications do not exclude arbitrary
-complex fusion categories, and candidate modular data are not
-categorifications unless the source supplies a construction. The same
-principles govern new models and new necessary criteria: a model must
-have a justified categorical source and an exact full-tensor match;
-an obstruction must state its hypotheses and exhaust all branches
-needed for the claimed categorical structure.
-
-The certificate files and immutable campaign manifests preserve provenance
-without entering the mathematical criteria as lists of forbidden IDs.
-The authoritative ledger is rebuilt from their disjoint union. Alternative
-proofs can be retained, but a tensor receives only one exclusion allocation.
-\filename{software/continuation_controls.py} independently checks accepted
-continuation records with numerical optimizers disabled; \filename{verify.py}
-replays the full current ledger. Discovery logs and incomplete searches
-are not verification receipts.
-
-The present frontier is described by complete tensor-derived necessary
-data in the current research report. Its counts are not predictions about
-categorifiability beyond multiplicity eight. A surviving integral profile,
-fusion tensor or modular datum is assigned categorical existence only when
-a categorical construction and exact tensor identification are supplied.
-
-\input{chapters/frontier_quartic}
+The current exact records are under \filename{research/frontier/},
+with one directory per tensor. Necessary induction profiles and
+relative-center rings are not assigned categorical existence. Only the
+three conformal constructions of Section~\ref{sec:conformal-models}
+enter the positive catalogue.
 
 \input{chapters/frontier_155}
-
-\input{chapters/frontier_629}
-
-\input{chapters/frontier_1204}
-
 \input{chapters/frontier_1660}

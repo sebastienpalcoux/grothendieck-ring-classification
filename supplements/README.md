@@ -4,7 +4,7 @@ These directories expose the exact exclusion engines and verification entry
 points accompanying the rank-specific manuscripts. Restore the compressed
 repository datasets with `python3 tools/restore_data.py` before running the
 checks. Rank six includes the complete revised research release, including
-its census data, model catalogs, all four accepted exclusion continuations and the round-five refinements, exact proof sources and
+its census data, model catalogs, accepted exclusion certificates and conformal constructions, exact proof sources and
 verification records. Other rank directories describe any full source-release
 inputs needed by their verifiers. Copying just `software/` and `verify.py`
 does not create a self-contained verification run.
@@ -13,7 +13,7 @@ does not create a self-contained verification run.
 |---:|---|---|
 | 4 | [`rank4/software/`](rank4/software/) and [`verify.py`](rank4/verify.py) | Rank-four source release, including 75.8 MB compressed classification ledger |
 | 5 | [`rank5/software/`](rank5/software/) and [`verify.py`](rank5/verify.py) | Rank-five source release, including its decisions and exclusion certificates |
-| 6 | [`rank6/software/`](rank6/software/) and [`verify.py`](rank6/verify.py) | Complete release included here; 16,552 excluded, 54 realized, six unresolved; complete through multiplicity 3, with exact completed bands 1, 2, 3, 6, 7 |
+| 6 | [`rank6/software/`](rank6/software/) and [`verify.py`](rank6/verify.py) | Complete release; 16,553 excluded, 57 realized, 2 unresolved; complete through 3 and exact bands 1, 2, 3, 5, 6, 7 |
 
 The public [fusion-ring-census](https://github.com/sebastienpalcoux/fusion-ring-census)
 continues to own the raw tensor census and enumeration code. See the
@@ -23,13 +23,6 @@ rank-specific software directory.
 
 
 For the rank-six update, start with its [README](rank6/README.md),
-[revision notes](rank6/REVISION_NOTES.md),
-[current release summary](rank6/verification/release_summary.json) and
-[round-five coverage inventory](rank6/research/round5/coverage.json).
-The original campaign and four exclusion continuations are kept separately;
-the current decisions come from `rank6/data/decisions.json`. Round five makes
-no categorical decision and supplies new finite necessary-data reductions
-for all six residual rings. Use `python -O software/round5_replay.py --list`
-inside `rank6/` to see the replay commands and their exact scopes. Earlier
-accepted certificates and verification records retain their provenance.
-The current archive is `Rank6_Categorification_M8_Revised_2026-09-30_v5.zip`.
+[models](rank6/data/model_catalog.csv) and [current frontier](rank6/research/frontier/README.md).
+The authoritative ledger is `rank6/data/decisions.json`. The archive is
+`Rank6_Categorification_M8_Revised_2026-09-30_v6.zip`. Source-bound certificates retain their internal paths.

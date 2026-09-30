@@ -1,52 +1,42 @@
 {
   "schema": "rank6-release-identity/v1",
   "date": "2026-09-30",
-  "revision": "round5",
-  "new_exclusions": 0,
-  "research_summary": "Round five unifies joint restriction-word Gram constraints, exact bounded integer searches and modular-representation completion. The six unresolved rings have the finite necessary-data reductions recorded in the research coverage inventory. No categorical exclusion or realization is allocated.",
+  "revision": "v6",
+  "new_exclusions": 1,
+  "new_exclusion_ids": [
+    "R6_5_1204"
+  ],
+  "new_realizations": [
+    "R6_4_22",
+    "R6_4_91",
+    "R6_4_629"
+  ],
+  "research_summary": "Three unitary conformal-embedding models are constructed and matched in all 216 fusion coefficients. Exact center rotation integrality excludes R6_5_1204. Two rings remain unresolved; R6_4_155 has no braided Morita representative, and R6_8_1660 has one possible relative-center based ring.",
   "research_progress": [
     {
-      "id": "R6_4_22",
-      "result": "The remaining center has rank 36. Its necessary fusion ring and modular data are unique up to relabelling and complex conjugation; categorification remains open."
-    },
-    {
-      "id": "R6_4_91",
-      "result": "Only center rank 42 remains: a forced Ising factor and a rank 14 centralizer with one fusion-ring orbit and two conjugate modular data."
-    },
-    {
       "id": "R6_4_155",
-      "result": "Six induction profiles remain, each with one forced pair of low fusion matrices in its semion centralizer. None is a categorification certificate."
-    },
-    {
-      "id": "R6_4_629",
-      "result": "Only center rank 35 remains, with one necessary fusion/modular datum up to conjugation and identical-column relabelling; categorical realization remains open."
-    },
-    {
-      "id": "R6_5_1204",
-      "result": "A complete exact reduction leaves 171 induction profiles; the signed-gauge argument covers general categorifications."
+      "result": "Generalized near-group ring R\u2032(4). No braided category lies in the Morita class of a categorification. Existence remains unresolved."
     },
     {
       "id": "R6_8_1660",
-      "result": "Actual-root induction and congruence cuts leave three branches with 168, 798 and 798 necessary profiles; the center twist exponent divides 48."
+      "result": "Free of rank two over its Ising fusion subring. Central Frobenius\u2013Schur and invertible-lift obstructions leave one possible relative-center based ring."
     }
   ],
   "archive": {
-    "name": "Rank6_Categorification_M8_Revised_2026-09-30_v5.zip",
-    "sha256": "164bd32c359a293dffa2988a1fef68f36f2ee682ba30d41020e1c2abcab2c707",
-    "bytes": 14059475,
-    "files": 1577
+    "name": "Rank6_Categorification_M8_Revised_2026-09-30_v6.zip",
+    "sha256": "69bdaa2b4ce39c08a8bb4c14ebfed264a2a5d796ede8488f44cd524ed87fab3d",
+    "bytes": 9645030,
+    "files": 449
   },
-  "ledger_sha256": "06416f5bed05836eb7c773788cc6f2cec937aded094164cc4b81881fee70fabe",
+  "ledger_sha256": "c28936c9dd3f64c8b85d668a667a7cde65d77161850c0c51bc05c594189f521c",
   "summary": {
-    "excluded": 16552,
-    "positive": 54,
-    "unresolved": 6,
-    "first_unresolved": "R6_4_22",
+    "excluded": 16553,
+    "positive": 57,
+    "unresolved": 2,
+    "first_unresolved": "R6_4_155",
     "complete_through_multiplicity": 3,
     "third_continuation_excluded": 12,
-    "fourth_continuation_excluded": 4,
-    "revision": "round5",
-    "new_exclusions": 0
+    "fourth_continuation_excluded": 4
   },
   "counts": [
     [
@@ -73,16 +63,16 @@
     [
       872,
       866,
-      2,
+      5,
       0,
-      4
+      1
     ],
     [
       1582,
-      1580,
+      1581,
       1,
       0,
-      1
+      0
     ],
     [
       2768,
@@ -106,23 +96,31 @@
       1
     ]
   ],
-  "fourth_certificate_sha256": "25e92eac5e4506906437765e31ed452e9042213f08e079c7ff81db2fb7e42062",
   "third_certificate_sha256": "d97910a14e0c1897f405bb24e616d2a715fdb9eb93d94ff0a31001fb26c89aa8",
-  "documents": {
-    "rank6.pdf": "2eaf1bbbe260d07a313947bf6b322ece0d80c78cdc0381702d6884e923cbc145",
-    "rank6_guide.pdf": "dc67f944befa97d04e06e6f375502cb43a65f3601db494dcca9dcf238ea55291"
-  },
-  "previous_release": {
-    "archive": {
-      "name": "Rank6_Categorification_M8_Revised_2026-09-29_v4.zip",
-      "sha256": "e8ca671cbb20ab8f1b980d28e7cbd696b6f52cbfc5d36b0d09a2665a35df728b",
-      "bytes": 13038917,
-      "files": 1345
-    },
-    "ledger_sha256": "06416f5bed05836eb7c773788cc6f2cec937aded094164cc4b81881fee70fabe"
-  },
+  "fourth_certificate_sha256": "25e92eac5e4506906437765e31ed452e9042213f08e079c7ff81db2fb7e42062",
   "research_files_sha256": {
-    "research/round5/coverage.json": "d65c70b167fcf28fbeff68552f0b63bc6c6e2e4aa10d4b28ed1965eeb02dfa92",
-    "verification/round5/campaign_manifest.json": "cb0a559996db6e063b8ac3bcdf6002da953fffe99116fa3aca826f602d6e5b8c"
+    "data/conformal_positive_models.json": "b76aeb3499c5858e8f1eab67c1a40ce639fea9053688150e25a6b2ef77a2c23b",
+    "data/frontier_summary.json": "ae4b2c4e919d1415f001f8af164dbdc021fd77f18c95d016873308c096c28481",
+    "research/frontier/coverage.json": "4ece4a33e06c0bbb77bee20a5f45d5364525e83343921181c41afcb0d8933ff2",
+    "research/frontier/R6_8_1660/relative_center/relative_reduction_certificate.json": "c81f6ff8ca591259f88b7e638a5a0768c28fdfde49e34854dc12dfc0e0cf51e5",
+    "software/conformal_models.py": "85a76b29d4ec5f66392ff249f5b1c0fce3cdbfd5120226d671d4123cfa2a3ebf",
+    "software/center_integrality.py": "55745a55f164ba0053d9e159711326e4a8d83fe9502eacaa62169da2159c2b57",
+    "certificates/structural_exclusions.jsonl": "48b08a15905ee1930561c321ff764f213c0059e33fcb8de31ac79e61d2bbff87",
+    "research/exclusions/R6_5_1204/exact_trace_h6.json": "bc39f082a7811df93fe13de42fb73e5c32c492dcfe9b7faa7c0759c07d54ce65",
+    "research/exclusions/R6_5_1204/forced_W.json": "41dec218f8654cd90c79fe5459e02f0621eb19a59dbcf222e34b481d4fa569f8",
+    "research/exclusions/R6_5_1204/verify_exclusion.py": "4a2193343576834621bcce71b9d2d0ecfc260eb91e56ab3df1dcdfc44af8fc40",
+    "research/frontier/R6_8_1660/relative_center/structural_cuts_certificate.json": "5107b54f82fb31dc794db44ce8ec3dafc37d3dd0f5180bc09b2558f8302d178d"
+  },
+  "documents": {
+    "manuscript.pdf": {
+      "path": "papers/manuscript.pdf",
+      "sha256": "7053aa3b5c41e6859a87d04951ac6057893242be95d8da49da480fcd2b1659f9",
+      "bytes": 1161991
+    },
+    "verification_guide.pdf": {
+      "path": "papers/verification_guide.pdf",
+      "sha256": "afa50d2d49aa347e395379aa7dda69d0622750d296ee7efcb0a686e7bf1a3175",
+      "bytes": 227290
+    }
   }
 }

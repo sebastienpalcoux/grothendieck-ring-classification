@@ -84,7 +84,7 @@ def refresh_rank6(args):
         'status_totals':dict(sum(summary.values(),Counter())),
         'current_bundle':args.rank6_bundle.name}
     bundle={'name':args.rank6_bundle.name,'sha256':digest(args.rank6_bundle)}
-    out['bundles']=[x for x in out['bundles'] if x['name']!=bundle['name']]+[bundle]
+    out['bundles']=[x for x in out['bundles'] if not x['name'].startswith('Rank6_Categorification_M8')]+[bundle]
     write_export(out,args.output_dir)
     print('Refreshed rank-six partition; all other rank rows and inputs preserved.')
 

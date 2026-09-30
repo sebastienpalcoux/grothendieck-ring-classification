@@ -1,0 +1,787 @@
+{
+  "cases": [
+    {
+      "binding": {
+        "files_sha256": {
+          "data/census.json": "aa0cc6d10f4934752a621d4e92aa6603278707e512b483a429ed9d788fa5270a",
+          "research/round4/m4_155/reduction.json": "72c86999d7dfa7f93fdc497266f9dd75784389055bdb839ad59ca46925024a25",
+          "research/round5/m4_155/frontier_certificate.json": "518d10734192faebbb8a116140039e19cfe660f6e4ec9705f85f95f15aa55378",
+          "research/round5/m4_155/frontier_replay_optimized.json": "fd67abdc54407b13932e19f9229c1ff72d7ca1fda3cf300f38d5c2a31cbf8f5c",
+          "research/round5/m4_155/frontier_replay_optimized.log": "9b625a6890c9ec787d5c3b0c763ab9776f9c0cbab8cc3fb365af299517aca2b2",
+          "research/round5/m4_155/general_reduction_replay.json": "ab4e7041166846eb15e41036209f186fe5669f5d1b55f3b9795c7f1d0b48967b",
+          "research/round5/m4_155/packet_frontier.json": "d5e8b8cc6a1845ae50fc072806285053e964f9c8fded3df24b9947135b8d51ee",
+          "research/round5/m4_155/packet_replay_optimized.log": "a92c75491e743d17ec12781e57a6c3c25814097c0766000e3286c74fa663efa0",
+          "research/round5/m4_155/replay_frontier.py": "9222e416291c0b348c4402b3c510b96a606d258914042606cc6772cf164370db",
+          "research/round5/m4_155/replay_packets.py": "8d8665de727f7b38300fffab3c71427a05656aafe89909809af7f331af5e8d92",
+          "software/character_induction.py": "24b6cd35eef042005a836636f85e68492acbead2ba15dfb567d272aa37adf945",
+          "software/commutative_descent.py": "8c9d452746c3bdbec819b90f8cd030690a71abc4dc17f9489b16b6523e129033",
+          "software/exact.py": "7a7525840192647312de0c2206d1e83a5b1fd2f592a3fa4830c730aea3a225c7",
+          "software/galois_pseudo_reduction.py": "37832ea9e951831f262666e0520f767c5b8ae053d1bc8cb1a592e6c76bed8d84",
+          "software/higher_traces.py": "e97206ffabda63481318c5a2cc924963a283a859179d6a2fdfda7710f460a048",
+          "software/induction.py": "ed825b0b24a16fb379cdb06da1610dc9201961bea50fd3c78990605f17d3f7ef",
+          "software/modular_character_induction.py": "2f9a7ea0b5930ce0d6da9b205e169cea2dcca91d8225c96d2da53791c6279b0a",
+          "software/oriented_signed.py": "099a4f510f480203ab62949c3550cd06460ad94658a8c95703fa695bc3002db5",
+          "software/proofs.py": "c8cb1d79dd1de60e11a83cf4ea02e1a3bbb0a2febc137665de2997a9ab0de28d",
+          "software/rings.py": "a992210513c5a3ecad6d700dec3020789ee74972e158296f589fb9668799cf33",
+          "software/round3_m4.py": "489cf017e6be4acb0252d31cc11a3e1b27c8dc604f0fc497247c3f0958cd9223",
+          "software/round5_155.py": "46f6572c5b5fd2d6d58d9395a96caa71ac945f9f46845caa00cbd2f5b4cdeaae",
+          "software/round5_balancing.py": "94e6acdacdabe76615b7571dad716327ae03bc87fd66491d5e41d12681878492",
+          "software/round5_unified.py": "07ac3ce9e96b9efcbb054197d55b56133f805adf626cbbb5a1c49d5329585fb1",
+          "software/signed.py": "29b9c53e0c3fca8a253ae32126e98fc1c576c8be2ae5e6ad126aafb403769101",
+          "software/spectral_induction.py": "8748243602cbd0e6be4537f920d8dda8992c4409e964d2221bf4b9f1b8474365",
+          "software/frontier_replay.py": "3d36a95535763e35bf55534a3b39f7b0fc9589b6e596304320e73ac7453b16a1",
+          "verification/current/R6_4_155_general_reduction.json": "7f2dd5120d03dd236fdc7b8935b6001fe8a80db424880e6f4eb310025c6e5d8e",
+          "research/frontier/R6_4_155/integer_trace_note.md": "f97fe9dd94982273ecc373e49e9b430e13125c4aa2f964dd75c0aabefc1c4923",
+          "research/frontier/R6_4_155/structural_reductions.md": "8ff2d8bd023f98a9b83b72b979e60618c5f064bf20a831805facf68290c23eb6",
+          "research/frontier/R6_4_155/verify_integral_306.py": "b9a6a6050510d3e2fdab045234378dd0d6edbbecf4f6f17ee5047ff9ce88dffb",
+          "research/frontier/R6_4_155/integer_trace_system.py": "6f09e3f6f5a6f15afa72809d65bf63bb5f9d9eeeac6fd99c8a22822055ed4395",
+          "research/frontier/R6_4_155/structural_note.md": "0fe1091513abd58911060e35bca170f6b925ce0c62674e1b34adcebb0ffc4474",
+          "research/frontier/R6_4_155/README.md": "de1db2fd748342553f1c6242542195bfc6b66490769e67059ef22384e8595604",
+          "research/frontier/R6_4_155/exact_integral_306.json": "f15526c4eefe941ab59e4b08a228bdb7e3364afbbc975c8eaca35ad29f24b8d2",
+          "research/frontier/R6_4_155/ising_final_reduction.md": "31d4f3e9f2d3c063ee98db4edf5989a0975986755c77aa1b0b085832241a3399",
+          "verification/current/R6_4_155_integral_306.json": "2aca84ccb51320be815113df0c56cc0a92bd9e0d6dd87e5e74d55b890645b58c"
+        },
+        "method": "post-replay inventory of final mathematical sources and optimized exact receipts",
+        "scope": "Only explicitly listed files; these completed mathematical replays are retained evidence, not rerun by inventory audit.",
+        "status": "frozen"
+      },
+      "categorical_status": "unresolved",
+      "categorification_constructed": false,
+      "commands": [
+        {
+          "argv": [
+            "software/frontier_replay.py",
+            "--general-reduction",
+            "R6_4_155"
+          ],
+          "predicate": {
+            "categorifications_spherical": true,
+            "galois_pseudo_unitary": true,
+            "passed": true
+          }
+        },
+        {
+          "argv": [
+            "research/round5/m4_155/replay_frontier.py"
+          ],
+          "predicate": {
+            "passed": true,
+            "remaining_profiles": 25
+          },
+          "receipt": "research/round5/m4_155/frontier_replay_optimized.json"
+        },
+        {
+          "argv": [
+            "research/round5/m4_155/replay_packets.py"
+          ],
+          "predicate": {
+            "complete": true,
+            "low_matrix_pairs": 6,
+            "remaining_profiles": [
+              275,
+              277,
+              279,
+              296,
+              298,
+              306
+            ]
+          },
+          "receipt": "research/round5/m4_155/packet_frontier.json"
+        },
+        {
+          "argv": [
+            "research/frontier/R6_4_155/verify_integral_306.py"
+          ],
+          "predicate": {
+            "passed": true,
+            "profile": 306,
+            "integer_bounds": 49,
+            "remaining_profiles": [
+              275,
+              277,
+              279,
+              296,
+              298
+            ]
+          },
+          "receipt": "verification/current/R6_4_155_integral_306.json"
+        }
+      ],
+      "general_reduction": {
+        "certificate": "research/round4/m4_155/reduction.json",
+        "expected_key": "replay",
+        "payload_key": "certificate"
+      },
+      "id": "R6_4_155",
+      "primary_certificates": [
+        "research/round4/m4_155/reduction.json",
+        "research/round5/m4_155/frontier_certificate.json"
+      ],
+      "protected_files": [
+        "research/round4/m4_155/reduction.json",
+        "research/round5/m4_155/frontier_certificate.json"
+      ],
+      "public_summary": "Five necessary induction profiles remain, with center ranks46,48,52,54,60. No braided Morita representative exists; general existence remains unresolved.",
+      "replay_status": "ready",
+      "retained_receipts": [
+        {
+          "path": "verification/current/R6_4_155_general_reduction.json",
+          "predicate": {
+            "categorifications_spherical": true,
+            "galois_pseudo_unitary": true,
+            "passed": true
+          }
+        },
+        {
+          "path": "research/round5/m4_155/frontier_replay_optimized.json",
+          "predicate": {
+            "passed": true
+          }
+        },
+        {
+          "path": "research/round5/m4_155/packet_frontier.json",
+          "predicate": {
+            "complete": true,
+            "low_matrix_pairs": 6,
+            "remaining_profiles": [
+              275,
+              277,
+              279,
+              296,
+              298,
+              306
+            ]
+          }
+        },
+        {
+          "path": "verification/current/R6_4_155_integral_306.json",
+          "predicate": {
+            "passed": true,
+            "profile": 306,
+            "integer_bounds": 49,
+            "remaining_profiles": [
+              275,
+              277,
+              279,
+              296,
+              298
+            ]
+          }
+        }
+      ],
+      "scope": "general necessary frontier reduction",
+      "stages": [
+        {
+          "criterion": "general spherical/Galois pseudo-unitary reduction",
+          "nongauge_character_rejections": 8,
+          "original_gauge_orbits": 1,
+          "sign_orbits": 3,
+          "signed_quotients": 40
+        },
+        {
+          "criterion": "pointed and Clifford-cubic exact rays",
+          "cubic_rays": 8,
+          "pointed_rays": 28,
+          "surviving_low_frame": 6
+        },
+        {
+          "criterion": "complete induction-profile enumeration",
+          "profiles": 1066
+        },
+        {
+          "criterion": "pointed compatibility",
+          "profiles": 874
+        },
+        {
+          "criterion": "joint cubic-word Gram domains",
+          "empty_domains": 772,
+          "exact_rays": 4,
+          "profiles": 98
+        },
+        {
+          "criterion": "coupled coefficient/twist balancing",
+          "exact_rays": 39,
+          "profiles": 59
+        },
+        {
+          "criterion": "pointed stabilizer divisibility",
+          "profiles": 25
+        },
+        {
+          "criterion": "semion centralizer adjunction and dual closure",
+          "orientations": 30,
+          "profiles": 15
+        },
+        {
+          "criterion": "semion monodromy splitting, pointed actions, dual charges and three same-form exact rays",
+          "low_fusion_matrix_pairs": 6,
+          "profiles": 6,
+          "remaining_center_ranks": [
+            60,
+            54,
+            48,
+            52,
+            46,
+            44
+          ],
+          "remaining_profile_indices": [
+            275,
+            277,
+            279,
+            296,
+            298,
+            306
+          ]
+        },
+        {
+          "criterion": "integral rotation and central-simple trace counts",
+          "excluded_profile": 306,
+          "integer_bound_steps": 49,
+          "remaining_profile_indices": [
+            275,
+            277,
+            279,
+            296,
+            298
+          ],
+          "remaining_center_ranks": [
+            46,
+            48,
+            52,
+            54,
+            60
+          ]
+        }
+      ],
+      "whole_ring_exclusion": false
+    },
+    {
+      "binding": {
+        "files_sha256": {
+          "data/census.json": "aa0cc6d10f4934752a621d4e92aa6603278707e512b483a429ed9d788fa5270a",
+          "research/round4/m8/R6_8_1660_reduction.json": "ae61e0cae73068cbf0950ce4b435bfa60a09f02851b77d4e27c4e40c9f0bde34",
+          "research/round5/m8_1660/low0_profiles.json": "c74ce8eded70ee44ca896bfa6d5cbe42fb95804fea5f967018b6f7dbf42097cb",
+          "research/round5/m8_1660/low0_replay.json": "57b44163933101c9cec89a880b89287d3ed2abd4c90bf5a5bbc1923f8600be1f",
+          "research/round5/m8_1660/low1_profiles.json": "277d26f16fc44fd2a2cd2caec339408b56fd77d14fcaeac96d3dbe9f5c9aa014",
+          "research/round5/m8_1660/low1_replay.json": "0b52c27327f3d88d7a337c54b66dad664476fcf54a52b58e62eb4af16300bf3a",
+          "research/round5/m8_1660/sigma_partitions.json": "be92f54efc381ca09e5374fcf19cfae4959fadfaf2ddcf7e5849ac89da629922",
+          "research/round5/m8_1660/sigma_partitions_replay.json": "043f7a14e796c717fabf58e2fb9ba62d18b82ed3bf2c5fbc63039af2b5eceff6",
+          "research/round5/m8_1660/verify_sigma_partitions.py": "9c0a193eaca5875a3aaf8bae4bb75c9e98572dd6da0a28a2bc25435a52ae4128",
+          "research/round5/m8_1660_conductor/reduction_replay.json": "bf9e31d03e65c9b1af4a1640437c3312762dc6e124b26b4d00ffe8f338d6b8ef",
+          "research/round5/m8_1660_conductor/replay_reduction.py": "b44b9547fd43efd484790ca6c0c233d65da7e6f53eef5207db882c964fbf2d99",
+          "research/round5/m8_actual48/actual48.py": "a1eef78dff2befbfd507cb077753123d20ed8a9e6b2b293e76ab9eeab99e9d68",
+          "research/round5/m8_actual48/certificate.json": "693f634df50beac8cb0d5353ade3ea62c562309926939a24e458eeda7c97a7c7",
+          "research/round5/m8_actual48/certificate.py": "3a5da3b17a165e8d3bb85f2fedd9058a98f2e392b4bb149a10e27bccd92c8a81",
+          "research/round5/m8_actual48/exploration_summary.json": "5f69a2efafbb1214083906595104df67321a2d8d6cb04c4bb401df08aa58fcab",
+          "research/round5/m8_actual48/moment48.py": "aff6fb6fe2204c94474306078347a091cb9ff95bb224d943db628b32cb2c469b",
+          "research/round5/m8_actual48/moment_identity_replay_O.json": "bc5431c58b8ad4dfc70cfd7771aaa168efe7a69cce6e837fe0e5c16156b6c0c1",
+          "research/round5/m8_actual48/replay_O.json": "117780f4f5522c10c089367116fc13be89b59181fc86ccf1e9da6b11823ce0f1",
+          "research/round5/m8_modrep/finite_spectra48.py": "e3c46654480f3c568903f63dd09f2f4b3668190f45f860caa869657f760445f3",
+          "research/round5/m8_modrep/ising_complement.py": "18c8ba60fe4b4a0721ae4a953caa888eb4bc5d723b011a84a65b362c42d32db2",
+          "research/round5/m8_modrep/ising_projection_rank.json": "2d0bd05a4afa816fdbf7e9e53d9668d612fb3b50428ad4ebdf5388747439c3c4",
+          "research/round5/m8_modrep/ising_projection_rank_replay.json": "7ebfd34aac3122e3108d98416507fc716e8b2d2ee8d1c05d9c74724c418fbaf5",
+          "research/round5/m8_modrep/representation_cone.json": "441eb37bf6d2d20ca8f854d7e1e805840fa9ea7cab014d06c93894afc19d8ed8",
+          "research/round5/m8_modrep/representation_cone.py": "4bee07110433ed77b505c9140824ddf933902d8041ee7917fbb55257268787ac",
+          "research/round5/m8_modrep/representation_cone_replay.json": "06316461ec3c9cd68df992f2f185bce6c2c15547d0f2de39e2e72daacd42b028",
+          "research/round5/m8_modrep/sl2_16.json": "dd179136c6e534db88036a626ac50cd48a40e65b6a8c142c2d42ae25232cb978",
+          "research/round5/m8_modrep/sl2_16_replay.json": "339179a9810601d3f75067d8891288ab0a911d7e666e1729d1df6e646fb1c8d0",
+          "research/round5/m8_modrep/sl2_3.json": "d43af23f8ad2215828111c6933605262fe286ff5a39e1ddaf902bfde2628c6e5",
+          "research/round5/m8_modrep/sl2_3_replay.json": "2febb006f350adefcd36e1f2442da1ce5fa382b4f9b4c9aa7379beeecfdb0ef6",
+          "research/round5/unification/equality_modrep.json": "17531d996803c9eded5e94bcdfb680efeb7afdd9467488267043297a6cb485f7",
+          "research/round5/unification/equality_modrep.py": "263ae63bf25893d1c6ae62831bbdf8a163c0621286fdb2403afcb972eb1d6ca5",
+          "software/balanced_traces.py": "cee718162e664c2e694f957a8a6cc9c33737760735901889ae14e464b597ddb5",
+          "software/character_induction.py": "24b6cd35eef042005a836636f85e68492acbead2ba15dfb567d272aa37adf945",
+          "software/commutative_descent.py": "8c9d452746c3bdbec819b90f8cd030690a71abc4dc17f9489b16b6523e129033",
+          "software/cyclotomic_stabilizer_trace.py": "bb4dc4378cc35df6e6269b849acdfb29aa396b42b82902c3ac415d13166d8be9",
+          "software/dimension_block_support.py": "8ba5d62f147222142a7ef41d059449260e96230e913aa564961cc21894c16154",
+          "software/exact.py": "7a7525840192647312de0c2206d1e83a5b1fd2f592a3fa4830c730aea3a225c7",
+          "software/galois_pseudo_reduction.py": "37832ea9e951831f262666e0520f767c5b8ae053d1bc8cb1a592e6c76bed8d84",
+          "software/gram_vectors_general.py": "286f8d5c45286e5c79246283f474567163c83b051192b98ef024a1f675aa4c29",
+          "software/higher_traces.py": "e97206ffabda63481318c5a2cc924963a283a859179d6a2fdfda7710f460a048",
+          "software/induction.py": "ed825b0b24a16fb379cdb06da1610dc9201961bea50fd3c78990605f17d3f7ef",
+          "software/involution_module.py": "e9397147d21d09aab9f0b18734b88a14cfe80ad8b13dd374d5bd4b49f0af3ade",
+          "software/modular_character_induction.py": "2f9a7ea0b5930ce0d6da9b205e169cea2dcca91d8225c96d2da53791c6279b0a",
+          "software/module_dual_gram.py": "fdc0008911b95d93afda1937d8fe3a5aff1450db14ee04a14995b39a3f435684",
+          "software/oriented_signed.py": "099a4f510f480203ab62949c3550cd06460ad94658a8c95703fa695bc3002db5",
+          "software/proofs.py": "c8cb1d79dd1de60e11a83cf4ea02e1a3bbb0a2febc137665de2997a9ab0de28d",
+          "software/rings.py": "a992210513c5a3ecad6d700dec3020789ee74972e158296f589fb9668799cf33",
+          "software/round3_m4.py": "489cf017e6be4acb0252d31cc11a3e1b27c8dc604f0fc497247c3f0958cd9223",
+          "software/round4_m8_ising.py": "7d77623d4e54a32d33c20de257d4f2f6f471542801a59877c7c0becd9bef881e",
+          "software/round4_m8_ising_verlinde.py": "ac45f35a7ce479900739cd579173000b464d136eedf32227f41600279cddf998",
+          "software/round4_quartic_profiles.py": "2507292908422304a9292aefd9d7ea4f895952bcaea768a00bf03fe709e895cb",
+          "software/round5_1660.py": "5cf574f4b51b2ec74f7914ddd5549cea4f8db03af2020e4ae133c0b3c2c90557",
+          "software/signed.py": "29b9c53e0c3fca8a253ae32126e98fc1c576c8be2ae5e6ad126aafb403769101",
+          "software/spectral_induction.py": "8748243602cbd0e6be4537f920d8dda8992c4409e964d2221bf4b9f1b8474365",
+          "software/tensor_rotation.py": "f2d8f7eb43fe926cdffd107764872d4120d1cb344b323ad3d9b59ca56391740b",
+          "research/frontier/R6_8_1660/relative_center/verify_structural_cuts.py": "1e9158688c64c8e8fa7cfc1458583344e3829ab198522a2cbdb860713c83c18f",
+          "research/frontier/R6_8_1660/relative_center/central_fs_note.tex": "4ec11919ade08a99ea716e9863ee65d3559ac66cea06d2d4ecdfc2bf7fb75caf",
+          "research/frontier/R6_8_1660/relative_center/structural_cuts_certificate.json": "5107b54f82fb31dc794db44ce8ec3dafc37d3dd0f5180bc09b2558f8302d178d",
+          "research/frontier/R6_8_1660/relative_center/relative_reduction_certificate.json": "c81f6ff8ca591259f88b7e638a5a0768c28fdfde49e34854dc12dfc0e0cf51e5",
+          "research/frontier/R6_8_1660/relative_center/verify_relative_reduction.py": "16a40e3ab6049c4acc4638a49f3a246c290234c606d9b7b00e3e67e8d94a8592",
+          "research/frontier/R6_8_1660/relative_center/relative_center_note.tex": "9c38a8e88241a5f8bd7b66b056f0f138e5c4787a02cc9ee8932cd06c88ba1d3d"
+        },
+        "method": "source-bound general reduction plus post-replay inventory of exact frontier transcripts",
+        "scope": "Only explicitly listed files; an inventory audit is not a fresh mathematical replay.",
+        "status": "frozen"
+      },
+      "categorical_status": "unresolved",
+      "categorification_constructed": false,
+      "commands": [
+        {
+          "argv": [
+            "research/round5/m8_1660_conductor/replay_reduction.py"
+          ],
+          "predicate": {
+            "categorifications_spherical": true,
+            "galois_pseudo_unitary": true,
+            "passed": true
+          },
+          "receipt": "research/round5/m8_1660_conductor/reduction_replay.json"
+        },
+        {
+          "argv": [
+            "software/round5_1660.py",
+            "--verify",
+            "--seconds",
+            "901",
+            "--output",
+            "research/round5/m8_1660/low0_profiles.json"
+          ],
+          "predicate": {
+            "low": 0,
+            "passed": true,
+            "survivors": [
+              371,
+              371
+            ]
+          }
+        },
+        {
+          "argv": [
+            "software/round5_1660.py",
+            "--verify",
+            "--seconds",
+            "901",
+            "--output",
+            "research/round5/m8_1660/low1_profiles.json"
+          ],
+          "predicate": {
+            "low": 1,
+            "passed": true,
+            "survivors": [
+              1999,
+              1999
+            ]
+          }
+        },
+        {
+          "argv": [
+            "research/round5/m8_actual48/certificate.py"
+          ],
+          "predicate": {
+            "all_actual48_branches_excluded": false,
+            "global_branches": 16,
+            "global_excluded": 13,
+            "passed": true
+          },
+          "receipt": "research/round5/m8_actual48/replay_O.json"
+        },
+        {
+          "argv": [
+            "research/round5/m8_1660/verify_sigma_partitions.py",
+            "--verify"
+          ],
+          "predicate": {
+            "passed": true,
+            "patterns": 2
+          },
+          "receipt": "research/round5/m8_1660/sigma_partitions_replay.json"
+        },
+        {
+          "argv": [
+            "research/round5/m8_modrep/finite_spectra48.py",
+            "--modulus",
+            "16",
+            "--verify"
+          ],
+          "predicate": {
+            "irreducibles": 76,
+            "modulus": 16,
+            "passed": true
+          },
+          "receipt": "research/round5/m8_modrep/sl2_16_replay.json"
+        },
+        {
+          "argv": [
+            "research/round5/m8_modrep/finite_spectra48.py",
+            "--modulus",
+            "3",
+            "--verify"
+          ],
+          "predicate": {
+            "irreducibles": 7,
+            "modulus": 3,
+            "passed": true
+          },
+          "receipt": "research/round5/m8_modrep/sl2_3_replay.json"
+        },
+        {
+          "argv": [
+            "research/round5/m8_modrep/representation_cone.py",
+            "--verify"
+          ],
+          "predicate": {
+            "irreducible_count": 532,
+            "passed": true,
+            "signed_spectrum_types": 504
+          },
+          "receipt": "research/round5/m8_modrep/representation_cone_replay.json"
+        },
+        {
+          "argv": [
+            "research/round5/m8_modrep/ising_complement.py",
+            "--verify"
+          ],
+          "predicate": {
+            "passed": true,
+            "profiles_checked": 4740
+          },
+          "receipt": "research/round5/m8_modrep/ising_projection_rank_replay.json"
+        },
+        {
+          "argv": [
+            "research/round5/m8_actual48/moment48.py"
+          ],
+          "predicate": {
+            "identity_count": 44,
+            "passed": true
+          },
+          "receipt": "research/round5/m8_actual48/moment_identity_replay_O.json"
+        },
+        {
+          "argv": [
+            "research/frontier/R6_8_1660/relative_center/verify_structural_cuts.py"
+          ],
+          "predicate": {
+            "arithmetic": 58,
+            "after_FS": 3,
+            "after_central_g": 2,
+            "up_to_factor_exchange": 1,
+            "raw_profiles_checked": 4764
+          }
+        }
+      ],
+      "id": "R6_8_1660",
+      "primary_certificates": [
+        "research/round4/m8/R6_8_1660_reduction.json",
+        "research/round5/m8_1660/low0_profiles.json",
+        "research/round5/m8_1660/low1_profiles.json",
+        "research/round5/m8_actual48/certificate.json"
+      ],
+      "protected_files": [
+        "research/round4/m8/R6_8_1660_reduction.json",
+        "research/round5/m8_1660/low0_profiles.json",
+        "research/round5/m8_1660/low1_profiles.json",
+        "research/round5/m8_1660/sigma_partitions.json",
+        "research/round5/m8_modrep/sl2_16.json",
+        "research/round5/m8_modrep/sl2_3.json",
+        "research/round5/m8_modrep/representation_cone.json",
+        "research/round5/m8_actual48/certificate.json",
+        "research/round5/m8_modrep/ising_projection_rank.json"
+      ],
+      "public_summary": "One possible relative-center based ring survives the central Frobenius\u2013Schur and invertible-lift obstructions. General existence remains unresolved.",
+      "replay_status": "ready",
+      "retained_receipts": [
+        {
+          "path": "research/round5/m8_1660_conductor/reduction_replay.json",
+          "predicate": {
+            "categorifications_spherical": true,
+            "galois_pseudo_unitary": true,
+            "passed": true
+          }
+        },
+        {
+          "path": "research/round5/m8_1660/low0_replay.json",
+          "predicate": {
+            "low": 0,
+            "passed": true,
+            "survivors": [
+              371,
+              371
+            ]
+          }
+        },
+        {
+          "path": "research/round5/m8_1660/low1_replay.json",
+          "predicate": {
+            "low": 1,
+            "passed": true,
+            "survivors": [
+              1999,
+              1999
+            ]
+          }
+        },
+        {
+          "path": "research/round5/m8_1660/sigma_partitions_replay.json",
+          "predicate": {
+            "passed": true,
+            "patterns": 2
+          }
+        },
+        {
+          "path": "research/round5/m8_modrep/sl2_16_replay.json",
+          "predicate": {
+            "irreducibles": 76,
+            "modulus": 16,
+            "passed": true
+          }
+        },
+        {
+          "path": "research/round5/m8_modrep/sl2_3_replay.json",
+          "predicate": {
+            "irreducibles": 7,
+            "modulus": 3,
+            "passed": true
+          }
+        },
+        {
+          "path": "research/round5/m8_modrep/representation_cone_replay.json",
+          "predicate": {
+            "irreducible_count": 532,
+            "passed": true,
+            "signed_spectrum_types": 504
+          }
+        },
+        {
+          "path": "research/round5/m8_actual48/replay_O.json",
+          "predicate": {
+            "all_actual48_branches_excluded": false,
+            "global_branches": 16,
+            "global_excluded": 13,
+            "passed": true
+          }
+        },
+        {
+          "path": "research/round5/m8_modrep/ising_projection_rank_replay.json",
+          "predicate": {
+            "passed": true,
+            "profiles_checked": 4740
+          }
+        },
+        {
+          "path": "research/round5/m8_actual48/moment_identity_replay_O.json",
+          "predicate": {
+            "identity_count": 44,
+            "passed": true
+          }
+        },
+        {
+          "path": "research/frontier/R6_8_1660/relative_center/structural_cuts_certificate.json",
+          "predicate": {
+            "status": "necessary_reduction_only_original_unresolved",
+            "arithmetic_candidates": 58,
+            "central_g_cut": {
+              "excluded_all_ones": 1,
+              "remaining_labelled": 2,
+              "remaining_factor_exchange_classes": 1
+            }
+          }
+        }
+      ],
+      "scope": "general necessary frontier via verified spherical/Galois pseudo-unitary reduction",
+      "stages": [
+        {
+          "certificate": "research/round4/m8/R6_8_1660_reduction.json",
+          "criterion": "general spherical/Galois pseudo-unitary reduction",
+          "fresh_replay": "research/round5/m8_1660_conductor/reduction_replay.json",
+          "nongauge_character_rejections": 58,
+          "original_gauge_orbits": 1,
+          "sign_orbits": 24,
+          "signed_quotients": 640
+        },
+        {
+          "criterion": "complete induction profiles with saturated conductor support, individual-root Ising masses, low-word tests through degree six and residual Gram inequalities",
+          "full_twist_exponent_divides": 48,
+          "low_frames": [
+            {
+              "affine_rank": 11,
+              "character_labellings": [
+                [
+                  0,
+                  5,
+                  4,
+                  1,
+                  2,
+                  3
+                ],
+                [
+                  0,
+                  5,
+                  4,
+                  1,
+                  3,
+                  2
+                ]
+              ],
+              "high_columns": 20,
+              "low_frame": 0,
+              "nodes_per_labelling": [
+                1009,
+                1009
+              ],
+              "profiles_after_word_and_gram_filter": [
+                371,
+                371
+              ],
+              "profiles_before_word_filter": [
+                371,
+                371
+              ]
+            },
+            {
+              "affine_rank": 30,
+              "character_labellings": [
+                [
+                  0,
+                  5,
+                  4,
+                  1,
+                  2,
+                  3
+                ],
+                [
+                  0,
+                  5,
+                  4,
+                  1,
+                  3,
+                  2
+                ]
+              ],
+              "high_columns": 52,
+              "low_frame": 1,
+              "nodes_per_labelling": [
+                63366,
+                63366
+              ],
+              "profiles_after_word_and_gram_filter": [
+                1999,
+                1999
+              ],
+              "profiles_before_word_filter": [
+                2011,
+                2011
+              ]
+            }
+          ]
+        },
+        {
+          "certificate": "research/round5/m8_1660/sigma_partitions.json",
+          "criterion": "exact Fourier forms and opposite-root first-trace sigma partitions",
+          "patterns": 2,
+          "scope": "necessary sigma-only assignments; no additional profile exclusion or full twist assignment"
+        },
+        {
+          "certificate": "research/round5/m8_modrep/representation_cone.json",
+          "criterion": "complete irreducible signed twist-spectrum cone for SL2(Z/48)",
+          "factor_irreducible_counts": [
+            76,
+            7
+          ],
+          "irreducible_count": 532,
+          "prime_power_factors": [
+            16,
+            3
+          ],
+          "scope": "finite-group representation prerequisite; application to the remaining actual-twist systems is recorded separately",
+          "signed_spectrum_types": 504
+        },
+        {
+          "actual_twist_exponent_divides": 48,
+          "all_branches_excluded": false,
+          "certificate": "research/round5/m8_actual48/certificate.json",
+          "criterion": "complete actual-root induction systems and exact profile congruences",
+          "exact_global_exclusions": 13,
+          "global_branches": 16,
+          "profile_branches": [
+            {
+              "excluded": 203,
+              "labelling": [
+                0,
+                5,
+                4,
+                1,
+                3,
+                2
+              ],
+              "low": 0,
+              "modular_conditions": 0,
+              "rays": 3,
+              "remaining_profiles": 168
+            },
+            {
+              "excluded": 1201,
+              "labelling": [
+                0,
+                5,
+                4,
+                1,
+                2,
+                3
+              ],
+              "low": 1,
+              "modular_conditions": 1,
+              "rays": 3,
+              "remaining_profiles": 798
+            },
+            {
+              "excluded": 1201,
+              "labelling": [
+                0,
+                5,
+                4,
+                1,
+                3,
+                2
+              ],
+              "low": 1,
+              "modular_conditions": 1,
+              "rays": 3,
+              "remaining_profiles": 798
+            }
+          ]
+        },
+        {
+          "certificate": "research/round5/m8_modrep/ising_projection_rank.json",
+          "criterion": "disjoint central projection and forced Ising-center subrepresentation",
+          "profiles_checked": 4740,
+          "scope": "all labelled profiles before actual-root cuts; finite-representation subtraction is justified, with no new exclusion",
+          "subrepresentation_dimension": 9
+        },
+        {
+          "criterion": "exact saturated-character moment identities lifted to actual roots",
+          "identities": 44,
+          "receipt": "research/round5/m8_actual48/moment_identity_replay_O.json",
+          "scope": "exact identity-source replay; no extra profile exclusion"
+        },
+        {
+          "criterion": "central Frobenius\u2013Schur and invertible-lift constraints",
+          "relative_center_based_ring_types": 1
+        }
+      ],
+      "whole_ring_exclusion": false
+    }
+  ],
+  "classification": {
+    "rings": 16612,
+    "excluded": 16553,
+    "realized": 57,
+    "unresolved": 2
+  },
+  "coverage_scope": "Exact retained necessary-profile reductions of the two unresolved rings. Models and complete exclusions are certified separately.",
+  "input_manifest": "research/frontier/inputs.json",
+  "input_manifest_sha256": "9b6fe13a3c788d13cd6e0513fed2b45e253dea54dd2bd6dda3f0726ef2818143",
+  "receipt_policy": "A retained receipt audit checks declared predicates and hashes only; it never claims a fresh mathematical replay. Missing final bindings remain pending. Every surviving alternative is necessary data, not a categorification.",
+  "schema": "rank6-frontier-coverage/v1"
+}

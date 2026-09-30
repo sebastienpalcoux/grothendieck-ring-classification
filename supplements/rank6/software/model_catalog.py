@@ -7,6 +7,9 @@ P=Path(__file__).resolve().parents[1]
 from existence import REGISTRIES,POSITIVE_STATUSES,model_existence,verify_ledger
 # The keys only control presentation. No classification decision uses these names.
 LABELS={
+'R6_4_22':(r'Neutral modules for $(B_2)_7\subset(D_7)_1$','CRT'),
+'R6_4_91':(r'Neutral modules for $(C_3)_4\subset(B_{10})_1$','CKMP'),
+'R6_4_629':(r'Neutral modules for $(B_2)_{12}\subset(E_8)_1$','CRT'),
 'R6_6_1712':(r'Relative Fibonacci center $Z_{\mathrm{Fib}}(TT_3)$','GNNrel,EM'),
 'R6_4_249':(r'Sign-swap equivariantization of the equal half-$E_6$ quotient','ALW'),
 'R6_4_322':(r'Diagonal-fermion quotient of half-$E_6\boxtimes PSU(2)_6$','ALW'),
@@ -114,7 +117,7 @@ def latex_table():
         if old is not None and row['multiplicity']!=old:text.append(r'\addlinespace')
         old=row['multiplicity']
         tag='U' if row['existence']['unitary']=='yes' else 'S'
-        construction_sections={'R6_4_249':'sec:sign-swap','R6_4_322':'sec:mixed-fermion','R6_6_1712':'sec:relative-fibonacci'}
+        construction_sections={'R6_4_22':'sec:conformal-models','R6_4_91':'sec:conformal-models','R6_4_629':'sec:conformal-models','R6_4_249':'sec:sign-swap','R6_4_322':'sec:mixed-fermion','R6_6_1712':'sec:relative-fibonacci'}
         source=(r'\S\ref{%s}'%construction_sections[row['id']] if row['id'] in construction_sections else r'\cite{%s}'%row['citation_keys'])
         text.append(r'$R_{%s,%s}$ & %s & %s & %s\\'%(row['multiplicity'],row['index'],row['latex_model'],tag,source))
     text += [r'\end{longtable}',r'\endgroup']

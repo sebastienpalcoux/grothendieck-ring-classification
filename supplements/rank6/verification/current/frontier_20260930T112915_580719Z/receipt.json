@@ -1,0 +1,106 @@
+{
+  "schema": "rank6-frontier-replay/v1",
+  "passed": true,
+  "mode": "retained_receipt_audit",
+  "mathematical_replay_performed": false,
+  "whole_ring_decisions_changed": false,
+  "coverage_sha256": "4ece4a33e06c0bbb77bee20a5f45d5364525e83343921181c41afcb0d8933ff2",
+  "results": [
+    {
+      "id": "R6_4_155",
+      "passed": true,
+      "mathematical_replay_performed": false,
+      "frozen_files_checked": 37,
+      "receipts": [
+        {
+          "path": "verification/current/R6_4_155_general_reduction.json",
+          "predicate_passed": true,
+          "embedded_hash_mismatches": []
+        },
+        {
+          "path": "research/round5/m4_155/frontier_replay_optimized.json",
+          "predicate_passed": true,
+          "embedded_hash_mismatches": []
+        },
+        {
+          "path": "research/round5/m4_155/packet_frontier.json",
+          "predicate_passed": true,
+          "embedded_hash_mismatches": []
+        },
+        {
+          "path": "verification/current/R6_4_155_integral_306.json",
+          "predicate_passed": true,
+          "embedded_hash_mismatches": []
+        }
+      ],
+      "issues": [],
+      "source_binding_scope": "Only explicitly listed files; these completed mathematical replays are retained evidence, not rerun by inventory audit."
+    },
+    {
+      "id": "R6_8_1660",
+      "passed": true,
+      "mathematical_replay_performed": false,
+      "frozen_files_checked": 61,
+      "receipts": [
+        {
+          "path": "research/round5/m8_1660_conductor/reduction_replay.json",
+          "predicate_passed": true,
+          "embedded_hash_mismatches": []
+        },
+        {
+          "path": "research/round5/m8_1660/low0_replay.json",
+          "predicate_passed": true,
+          "embedded_hash_mismatches": []
+        },
+        {
+          "path": "research/round5/m8_1660/low1_replay.json",
+          "predicate_passed": true,
+          "embedded_hash_mismatches": []
+        },
+        {
+          "path": "research/round5/m8_1660/sigma_partitions_replay.json",
+          "predicate_passed": true,
+          "embedded_hash_mismatches": []
+        },
+        {
+          "path": "research/round5/m8_modrep/sl2_16_replay.json",
+          "predicate_passed": true,
+          "embedded_hash_mismatches": []
+        },
+        {
+          "path": "research/round5/m8_modrep/sl2_3_replay.json",
+          "predicate_passed": true,
+          "embedded_hash_mismatches": []
+        },
+        {
+          "path": "research/round5/m8_modrep/representation_cone_replay.json",
+          "predicate_passed": true,
+          "embedded_hash_mismatches": []
+        },
+        {
+          "path": "research/round5/m8_actual48/replay_O.json",
+          "predicate_passed": true,
+          "embedded_hash_mismatches": []
+        },
+        {
+          "path": "research/round5/m8_modrep/ising_projection_rank_replay.json",
+          "predicate_passed": true,
+          "embedded_hash_mismatches": []
+        },
+        {
+          "path": "research/round5/m8_actual48/moment_identity_replay_O.json",
+          "predicate_passed": true,
+          "embedded_hash_mismatches": []
+        },
+        {
+          "path": "research/frontier/R6_8_1660/relative_center/structural_cuts_certificate.json",
+          "predicate_passed": true,
+          "embedded_hash_mismatches": []
+        }
+      ],
+      "issues": [],
+      "source_binding_scope": "Only explicitly listed files; an inventory audit is not a fresh mathematical replay."
+    }
+  ],
+  "scope": "Only the selected necessary reductions and controls; no full-census replay."
+}

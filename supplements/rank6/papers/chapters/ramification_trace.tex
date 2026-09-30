@@ -130,16 +130,8 @@ one nonzero square-zero element.  The lattice step is recovered from exact
 congruences, not floating-point bounds.  The three certificates require
 neither a signed-table search nor a pseudo-unitary exclusion.
 
-The tensor-based implementation is
-\filename{software/new_ramified_signed.py}.  It was applied to the frozen
-second-round frontier of $40$ rings, including all $39$ with multiplicity
-four through eight.  Of those $39$, the hypotheses fail for $34$, one
-($\RR{7}{3582}$) proceeds to a bounded signed reduction, and four are
-excluded directly: the three above and an independent field-containment
-exclusion of $\RR{8}{6940}$.  The latter is also covered by the
-biquadratic criterion, so it is not counted twice.
-The complete per-input report is
+The exact certificates and their tensor-based replay are indexed by
+\filename{software/new_ramified_signed.py} and
 \filename{research/round2_higher/ramification_application.json}.
-All $54$ positive models are preserved.  Ordinary and optimized Python
-checks verify the three certificates after nontrivial basis permutations
-and reject six certificate corruptions and a corrupted tensor.
+The independent field-containment exclusion of $\RR{8}{6940}$
+overlaps the biquadratic criterion and is counted only once.

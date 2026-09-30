@@ -121,7 +121,7 @@ def main():
     release = json.loads((repo / "supplements/rank6/verification/release_summary.json").read_text())
     archive_name = status["inputs"]["rank6"]["current_bundle"]
     identity = json.loads((repo / "data/rank6_release_identity.json").read_text())
-    coverage = json.loads((repo / "supplements/rank6/research/round5/coverage.json").read_text())
+    coverage = json.loads((repo / "supplements/rank6/data/frontier_summary.json").read_text())
     data["snapshot"] = identity["date"]
     if identity["archive"]["name"] != archive_name:
         raise ValueError("Rank-six archive identity differs from the classification source")
@@ -132,13 +132,15 @@ def main():
         "date": identity["date"], "excluded": release["excluded"],
         "realized": release["positive"], "unresolved": release["unresolved"],
         "complete_through": next(record["through"] for record in scope if record["rank"] == 6),
-        "new_exclusions_since_previous_site": identity.get("new_exclusions", 0),
         "research_summary": identity["research_summary"],
         "research_cases": [{key: case[key] for key in ("id", "categorical_status", "public_summary")}
                            for case in coverage["cases"]],
         "research_coverage_path": "data/rank6_research_coverage.json",
         "complete_multiplicity_bands": [r["multiplicity"] for r in release["counts"] if r["unresolved"] == 0],
-        "documents": identity["documents"],
+        "documents": {
+            target: hashlib.sha256((repo / "manuscripts/rank6/papers" / source).read_bytes()).hexdigest()
+            for source, target in (("manuscript.pdf", "rank6.pdf"), ("verification_guide.pdf", "rank6_guide.pdf"))
+        },
         "archive": {"path": "downloads/" + archive_name,
                     "bytes": archive_source.stat().st_size,
                     "sha256": hashlib.sha256(archive_source.read_bytes()).hexdigest()},
@@ -152,10 +154,13 @@ def main():
     archive_target = downloads / archive_name
     if archive_source.resolve() != archive_target.resolve():
         shutil.copy2(archive_source, archive_target)
+    for obsolete in downloads.glob("Rank6_Categorification_M8*.zip"):
+        if obsolete.name != archive_name:
+            obsolete.unlink()
     (HERE / "dist/data").mkdir(parents=True, exist_ok=True)
     for source_name, target_name in (("data/unresolved_tensors.json", "rank6_unresolved_tensors.json"),
                                      ("verification/release_summary.json", "rank6_release_summary.json"),
-                                     ("research/round5/coverage.json", "rank6_research_coverage.json")):
+                                     ("data/frontier_summary.json", "rank6_research_coverage.json")):
         shutil.copy2(repo / "supplements/rank6" / source_name, HERE / "dist/data" / target_name)
     for name, target in (("manuscript.pdf", "rank6.pdf"), ("verification_guide.pdf", "rank6_guide.pdf")):
         shutil.copy2(repo / "manuscripts/rank6/papers" / name, HERE / "dist/papers" / target)

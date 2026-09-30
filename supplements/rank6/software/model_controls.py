@@ -18,6 +18,8 @@ def main():
     import involution_module
     rows={r['id']:r for r in json.load(open(P/'data/census.json'))}
     report['catalogue']=verify_catalog()
+    from conformal_models import verify as verify_conformal
+    report['conformal_models']=verify_conformal(fresh=True)
     census_index={}
     for r in rows.values():census_index.setdefault(key(r['N']),[]).append(r['id'])
     models=list(examples());checks=0

@@ -46,7 +46,7 @@ assert byrank[4]['excluded_general']==889515 and byrank[4]['realized_other_or_un
 assert byrank[5]['excluded_general']==40982 and byrank[5]['realized_other_or_unspecified']==17 and byrank[5]['unresolved_general']==0
 assert byrank[2]['realized_other_or_unspecified']==2 and byrank[2]['excluded_general']==999
 assert byrank[3]['realized_other_or_unspecified']==5 and byrank[3]['excluded_general']==460348
-assert byrank[6]['excluded_general']==rank6_identity['summary']['excluded'] and byrank[6]['realized_unitary']==53 and byrank[6]['realized_spherical_nonpseudounitary']==1 and byrank[6]['unresolved_general']==rank6_identity['summary']['unresolved']
+assert byrank[6]['excluded_general']==rank6_identity['summary']['excluded'] and byrank[6]['realized_unitary']==56 and byrank[6]['realized_spherical_nonpseudounitary']==1 and byrank[6]['unresolved_general']==rank6_identity['summary']['unresolved']
 assert (byrank[7]['excluded_general'],byrank[7]['realized_unitary'],byrank[7]['unresolved_general'])==(4107,16,78)
 assert (byrank[8]['excluded_general'],byrank[8]['realized_unitary'],byrank[8]['unresolved_general'])==(824,33,116)
 rank6_expected=[tuple(row) for row in rank6_identity['counts']]
@@ -75,16 +75,17 @@ assert rank6_summary['fourth_continuation_excluded']==rank6_identity['summary'][
 assert hashlib.sha256((rank6_root/'certificates/continuation_round4.jsonl').read_bytes()).hexdigest()==rank6_identity['fourth_certificate_sha256']
 for relative, digest in rank6_identity['research_files_sha256'].items():
     if hashlib.sha256((rank6_root/relative).read_bytes()).hexdigest()!=digest:
-        raise ValueError('Round-five research provenance changed: '+relative)
-round5_coverage=json.loads((rank6_root/'research/round5/coverage.json').read_text())
-round5_expected={'rings':16612,'excluded':16552,'realized':54,'unresolved':6,
-                 'new_whole_ring_exclusions':0,'new_categorical_realizations':0}
-if any(round5_coverage['classification'].get(k)!=v for k,v in round5_expected.items()):
-    raise ValueError('Round-five coverage changes categorical decisions')
-if {x['id'] for x in round5_coverage['cases']}!={x['id'] for x in rank6_identity['research_progress']}:
-    raise ValueError('Publication progress omits a round-five case')
-assert len(json.loads((rank6_root/'data/model_catalog.json').read_text()))==54
+        raise ValueError('Current research provenance changed: '+relative)
+frontier=json.loads((rank6_root/'data/frontier_summary.json').read_text())
+if {x['id'] for x in frontier['cases']}!={x['id'] for x in rank6_identity['research_progress']}:
+    raise ValueError('Publication omits a current frontier case')
+new_models=json.loads((rank6_root/'data/conformal_positive_models.json').read_text())
+if {x['id'] for x in new_models}!=set(rank6_identity['new_realizations']):
+    raise ValueError('Conformal constructors do not match the release identity')
+assert len(json.loads((rank6_root/'data/model_catalog.json').read_text()))==57
 assert next(x for x in rank6_ledger if x['id']=='R6_3_215')['status']=='excluded'
+assert next(x for x in rank6_ledger if x['id']=='R6_5_1204')['status']=='excluded'
+assert {x['id'] for x in rank6_ledger if x['status']=='unresolved'}=={'R6_4_155','R6_8_1660'}
 assert sum(x['rings'] for x in statusrows if x['rank']==6 and x['multiplicity']<=3)==577
 assert sum(x['excluded_general'] for x in statusrows if x['rank']==6 and x['multiplicity']<=3)==531
 rank6_bundle=next(x for x in status['bundles'] if x['name']==status['inputs']['rank6']['current_bundle'])

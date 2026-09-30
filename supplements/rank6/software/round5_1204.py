@@ -119,7 +119,7 @@ def phase_system(base,V,profile,nt):
  for row,(i,v)in enumerate(active):ar.append([int(row*nt<=k<(row+1)*nt)for k in range(len(keep))]);rb.append(profile[vix[v]])
  nz=[i for i,row in enumerate(ar)if any(row)or rb[i]];return [ar[i]for i in nz],[rb[i]for i in nz]
 
-def verify(R,c,progress=print):
+def verify(R,c,progress=print,frontier=None):
  require(c['kind']=='exact_joint_center_profile_reduction'and c['version']==1,'wrong profile certificate');st=time.monotonic()
  import galois_pseudo_reduction as reduction
  red=reduction.verify(R,c['general_reduction']);d=M.data_for(R,3,24);require(M.metadata(d)==c['metadata'],'wrong complete low domain');admitted=[]
@@ -152,6 +152,10 @@ def verify(R,c,progress=print):
    A,b=phase_system(base,V,r['counts'],len(d['phases']));check_farkas(A,b,pr['ray'])
   else:require(kind=='retained','unsupported proof kind');remaining.append(pi)
  require(remaining==c['remaining_profile_indices'],'wrong residual profile list');require(not c['categorification_claimed'],'necessary data claimed categorical')
+ if frontier is not None:
+  require(frontier['low_columns']==[list(v) for v in cols] and frontier['high_columns']==[list(v) for v in V],'frontier restriction columns do not match exact reconstruction')
+  expected=[dict(profile_index=pi,rank=byrecord[pi]['rank'],multiplicities=[[i,n] for i,n in enumerate(byrecord[pi]['counts']) if n]) for pi in remaining]
+  require(frontier['profiles']==expected,'frontier multiplicities do not match complete exact reconstruction')
  return dict(passed=True,scope='general_necessary_profile_reduction',optimizer_used=False,low_frames=len(d['lows']),raw_profiles=c['raw_profile_count'],low_word_profiles=len(records),joint_forms=len(groups),proof_counts=dict(counts),remaining_profiles=len(remaining),remaining_ranks=sorted({byrecord[i]['rank']for i in remaining}),general_reduction=red,seconds=time.monotonic()-st)
 
 if __name__=='__main__':

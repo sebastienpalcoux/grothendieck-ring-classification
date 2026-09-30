@@ -88,7 +88,7 @@ __RANK6_SUMMARY__
 | 7 | Through 4 | Partial at every band | Through 4: 4,107 excluded, 16 realized, 78 unresolved; full normal and optimized certificate replays passed. |
 | 8 | Through 2 | Partial at both bands | Through 2: 824 excluded, 33 realized, 116 unresolved; positive tensors and transferred certificates verified. |
 
-Rank-six realization counts through multiplicity 8 split into **53 unitary
+Rank-six realization counts through multiplicity 8 split into **56 unitary
 models** and **one spherical model whose ring has no pseudo-unitary
 categorification**. “Realized” means that at least one categorification is
 constructed; it does not assert that every categorification of that ring is

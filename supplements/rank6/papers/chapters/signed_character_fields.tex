@@ -357,20 +357,6 @@ Both general replays also reconstruct the noncommutative arithmetic
 and induction calculations. Removing the sector certificate is
 explicitly rejected by the verifier.
 
-\paragraph{Scope and controls.}
-Each detector reconstructs its hypotheses from the full tensor.
-The new family and arithmetic criteria are reapplied to the complete
-census through multiplicity eight; exclusions of already resolved
-rings are counted as confirmations. Exact replay disables numerical
-optimizers and includes altered-certificate rejection and changes
-of basis. All $54$ positively realized rings are controls, with
-ineligibility distinguished from survival of an applicable system.
-The C4 family includes the positive parameter-zero member in its
-applicability scan, although the present irrational-dimension trace
-engine does not apply to it. Its positive parameter-two member
-survives the necessary system. These controls check scope; they do
-not turn a surviving necessary condition into a categorical model.
-
 \subsection{Dimension-block Fourier bounds and saturated twist support}
 \label{subsec:dimension-block-support}
 Let $K_1=\QQ(d_i)$, $K_0=\QQ(D)$ and $e=[K_1:K_0]$ for a spherical
@@ -456,17 +442,11 @@ is precisely $L_\chi(v)$. This proves
 assertion follows by intersecting root-of-unity groups.
 \end{proof}
 
-The exact audit \filename{research/round5/unification/dimension_block_bound.py}
-enumerates every dimension-field character for the six unresolved rings.
-All satisfy the bound. Their nontrivial equality conductors are
-$20$ for $R_{6,4,22}$, $16$ for $R_{6,4,91}$, $15$ for $R_{6,4,629}$,
-$12$ for $R_{6,5,1204}$, and $12,24$ for $R_{6,8,1660}$;
-$R_{6,4,155}$ has strict inequalities. The receipt records all Fourier
-values, including trivial characters, in exact cyclotomic coordinates.
-The reusable implementation \filename{software/dimension_block_support.py}
-computes \eqref{eq:saturated-column-support} from the dimensions and each
-restriction column. When the forced roots lie in the retained field,
-their complete power tuples filter the projected twist types exactly.
+For the remaining rings, the nontrivial equality conductors are
+$12$ for $\RR{5}{1204}$ and $12,24$ for $\RR{8}{1660}$;
+$\RR{4}{155}$ has strict inequalities. The exact implementation
+computes \eqref{eq:saturated-column-support} from the dimensions
+and each restriction column.
 
 \begin{proposition}[Universal moments of a saturated real character]
 \label{prop:saturated-modular-moments}

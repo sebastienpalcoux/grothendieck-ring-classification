@@ -13,14 +13,10 @@ Generate from the exact status partitions with
 `python3 tools/export_oeis_drafts.py`. Every exported band has zero unresolved
 and zero unassessed rings; rank-five multiplicities 18–20 are now included after general exclusion certificates closed the former residuals.
 Rank-six general classification is complete at exact multiplicities
-**1, 2, 3, 6, 7**, with contiguous completion through multiplicity **3**.
-Multiplicities 4, 5 and 8 remain partial, with six unresolved rings in total.
-Round five adds necessary-data reductions but no categorical decisions, so
-it changes no exact counting term. Isolated higher completed bands do not
-extend the initial classification range or fill its intervening gaps.
-Rank seven and eight have unresolved cases even in their first analyzed
-bands. The exporter emits only the rank-four and rank-five drafts listed
-above; no rank-six, rank-seven or rank-eight sequence file is proposed here.
+**1, 2, 3, 5, 6, 7**, contiguously through **3**. The two unresolved rings occur
+at multiplicities 4 and 8. The new models raise the multiplicity-four
+realized lower bound to five. The exporter proposes only the rank-four and
+rank-five drafts listed above; no incomplete band is an exact sequence term.
 No zero beyond a proven finite
 classification bound is inferred from the conjectured unrestricted
 classification.

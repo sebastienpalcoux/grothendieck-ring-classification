@@ -1,0 +1,223 @@
+\subsection{Three neutral components of conformal extensions}
+\label{sec:conformal-models}
+The same construction realizes three further census rings. We write
+$\mathcal B(\mathfrak g,k)$ for the principal unitary WZW category and
+use finite Dynkin labels for its simple objects.
+
+\begin{theorem}\label{thm:conformal-models}
+The rings $\RR{4}{22}$, $\RR{4}{91}$ and $\RR{4}{629}$ admit unitary
+categorifications. They are the neutral components of the module
+categories for the conformal embeddings
+\[
+ (B_2)_7\subset(D_7)_1,\qquad
+ (C_3)_4\subset(B_{10})_1,\qquad
+ (B_2)_{12}\subset(E_8)_1,
+\]
+respectively.
+\end{theorem}
+
+\paragraph{Common construction and identification principle.}
+A unitary conformal extension supplies an actual connected commutative
+separable algebra $A$ in its source category $\mathcal B$.
+Consequently $\mathcal E=\mathcal B_A$ is a unitary fusion category,
+$F:\mathcal B\to\mathcal E$, $U\mapsto U\otimes A$, is a central
+ tensor functor, and the local modules are the level-one target category
+$\mathcal L$. These facts use the conformal algebra, not just a modular
+invariant \cite[Sections~6.1--6.2]{DMNO}.
+In each case $A$ belongs to the even part of the source parity grading.
+The two homogeneous parts of any module are submodules. Thus simples
+have definite parity, relative tensor product respects parity, and odd
+free modules make the grading faithful. Its neutral component
+$\mathcal C=\mathcal E_0$ is therefore an actual unitary fusion category.
+
+We identify its full based ring from free induction and local modules.
+Two standard tests resolve the few possible tensor completions. First,
+\cite[Corollary~3.30]{DMNO} and \cite[Proposition~8.23.11]{EGNO} give
+\begin{equation}\label{eq:conformal-neutral-center}
+ Z(\mathcal E)\simeq\mathcal B\boxtimes\mathcal L^{\rm rev},
+ \qquad
+ Z(\mathcal C)\simeq
+ \bigl(\Rep(C_2)'\subset Z(\mathcal E)\bigr)_{\Rep(C_2)},
+\end{equation}
+where $\Rep(C_2)$ is the canonical grading subcategory. If a commutative
+candidate ring has formal codegree $f$, the actual known center must
+contain a simple of dimension $\dim(\mathcal C)/f$
+\cite[Theorem~2.13]{Ostrik3}. Second, indicators can be computed directly
+from the actual center and its forgetful functor \cite{NS}.
+These tests concern the constructed category and do not presume that
+archived modular data have been categorified.
+
+\paragraph{The $B_2$ level-seven component.}
+The source \cite[Section~3.5, Figure~11(a)]{CRT} gives
+\[
+ A=(0,0)\oplus(1,6)\oplus(2,2)\oplus(5,0),
+ \qquad \mathcal L=\mathcal B(D_7,1).
+\]
+Parity is the second Dynkin coordinate modulo two. The six even vertices,
+in source order $(1,9,10,2,5,6)$, will be denoted $(1,x,y,g,e,f)$.
+Here $e=F(1,0)$ and $g=F(7,0)$ are simple, hence central in the fusion
+ring, and $e$ is self-dual. The published vector-action graph gives
+\[
+ E=N_e=\begin{pmatrix}
+ 0&0&0&0&1&0\\
+ 0&1&1&0&0&1\\
+ 0&1&1&0&0&1\\
+ 0&0&0&0&1&0\\
+ 1&0&0&1&0&2\\
+ 0&1&1&0&2&2
+ \end{pmatrix}.
+\]
+The local category has fusion group $C_4$; an odd local spinor $z$
+satisfies $z^2=g$ \cite[Theorem~7.1]{Bock}. The odd simple
+$s=F(0,1)$ is self-dual and central, and $zs$ is one of $x,y$.
+Consequently $(zs)^*=gzs$: duality on this pair is the action of $g$.
+Dimensions force $g$ to fix $e,f$ and either fix or interchange $x,y$.
+The first row of $E^2$ gives $e^2=1+g+2f$; the matrix
+$(E^2-I-N_g)/2$ is integral only for the interchange. Thus $x^*=y$.
+
+Put $G=N_g$, $H=(E^2-I-G)/2$ and $X=N_x$.
+The equation $ef=x+y+2e+2f$ and rigidity imply
+\[
+ X+GX=EH-2E-2H,\qquad X^{\mathsf T}=GX.
+\]
+Also $X$ commutes with $E,G,H$, and its unit row is the basis vector
+of $x$. These are linear equations over $\QQ$ in the $36$ entries of
+$X$. Their coefficient matrix has rank $36$. The unique solution is
+nonnegative integral and, with $N_y=GX$ and $N_f=H$, gives exactly all
+$216$ coefficients of $\RR{4}{22}$. The accompanying checker extracts
+the graph directly from the source PDF and reconstructs this linear
+system, its rank, and the full tensor comparison.
+
+\paragraph{The $B_2$ level-twelve component.}
+Here \cite[Section~3.6, Figure~13]{CRT} gives
+\begin{align*}
+ A={}&(0,0)\oplus(0,6)\oplus(1,8)\oplus(3,2)\oplus(3,8)\\
+ &\oplus2(4,4)\oplus(6,6)\oplus(7,2)\oplus(12,0).
+\end{align*}
+The target category $\mathcal L$ is $\Vec$, so $A$ is Lagrangian and
+$Z(\mathcal E)\simeq\mathcal B(B_2,12)$.
+The even graph component has source vertices $(1,3,7,8,4,6)$.
+The central simple $x=F(1,0)$ has multiplication matrix of characteristic
+polynomial $t^2(t^4-5t^3+10t-5)$. Every eigenvalue has multiplicity at
+most two. A noncommutative matrix summand $M_n(\CC)$ of the complexified
+fusion ring would contribute at least $n^2\ge4$ to the multiplicity of
+an eigenvalue of this central element. The ring is therefore commutative.
+
+The only duality permutations fixing $1,x$ and commuting with $N_x$
+are the identity and the interchange of vertices $7,8$. In the latter
+case, Frobenius reciprocity and associativity with $x$ force coefficients
+$1/2$ and $3/2$, which are impossible. For identity duality the same
+linear constraints leave one parameter $t$. In the indicated basis
+$(1,x,u,v,w,z)$,
+\[
+ N_u=\begin{pmatrix}
+ 0&0&1&0&0&0\\
+ 0&0&1&1&1&1\\
+ 1&1&4-t&t-1&1&2\\
+ 0&1&t-1&3-t&2&2\\
+ 0&1&1&2&2&2\\
+ 0&1&2&2&2&3
+ \end{pmatrix}.
+\]
+All other products are determined and associative; integrality and
+nonnegativity give $t\in\{1,2,3\}$. The middle value is exactly
+$\RR{4}{629}$. The outer values have formal codegrees $3,15$.
+
+The unique nontrivial invertible $J=(12,0)$ in $\mathcal B(B_2,12)$
+is a boson. Thus \eqref{eq:conformal-neutral-center} identifies the
+actual center as $(\mathcal B(B_2,12)_{\rm ad})_{\langle J\rangle}$.
+Among the $49$ even weights, the involution
+$(a,b)\mapsto(12-a-b,b)$ has $21$ ordinary orbits and seven fixed
+points. Each ordinary orbit gives one simple of the original Weyl
+dimension; each fixed point gives two simples of half that dimension.
+This determines all $35$ simple dimensions of the center. With
+$D=\dim(A)/2$, exact Weyl arithmetic in $\QQ(\zeta_{60})$ shows that
+neither $D/3$ nor $D/15$ occurs. The formal-codegree test excludes both
+outer completions, proving the required tensor identification.
+
+\paragraph{The $C_3$ level-four component.}
+The adjoint conformal branching theorem
+\cite[Theorem~3.9 and Proposition~4.1]{CKMP} gives the three local
+Ising modules $1,\psi,\sigma$ with underlying source objects
+\begin{align*}
+ U(1)=A&=000\oplus210\oplus004\oplus121,\\
+ U(\psi)&=200\oplus030\oplus022\oplus301,\\
+ U(\sigma)&=2(111).
+\end{align*}
+Their dimensions are $1,1,\sqrt2$ and their twists are
+$1,-1,\zeta_{16}^{5}$. The source parity is $a+c$ modulo two;
+there are $19$ even weights.
+For free modules the exact induction Gram matrix is
+\[
+ G_{\lambda\mu}=\langle F(\lambda),F(\mu)\rangle
+      =\sum_\alpha[A:\alpha]N_{\lambda\alpha}^{\mu}.
+\]
+The three local columns are known from branching, while
+$\tau=F(010)$ has norm one and is orthogonal to them. Subtracting these
+four columns leaves $2vv^{\mathsf T}$ with $v\ge0$ integral and
+$v_{002}=1$. The row of norm two must be a sum of two distinct unit
+vectors. Rank one forces every other residual row to be proportional
+to it. Thus there are exactly two further simples $x,y$, with identical
+restriction columns, and $F(002)=x+y$.
+Dominance of free induction rules out further simples.
+
+The free image has rank five in the six-dimensional complexified fusion
+ring. It is central, so the ring is commutative: a noncommutative matrix
+block would make the difference between algebra and center dimensions
+at least three. The objects $1,\psi,\sigma,\tau$ are self-dual, leaving
+only the alternatives $x^*=y$ and self-duality of both $x,y$.
+Source fusion, the induction matrix, the Ising products, Frobenius
+reciprocity and associativity give a bounded exact completion problem.
+Its four or five free integer parameters lie between zero and four,
+as follows from coefficient nonnegativity. In the non-self-dual case
+there is one tensor, equal in all $216$ entries to $\RR{4}{91}$.
+There are three self-dual possibilities, with respectively
+\[
+ x^2=y^2=1+2y+2\tau,\qquad
+ 1+x+y+2\tau,\qquad
+ 1+2x+2\tau.
+\]
+
+To exclude the middle possibility, note that a self-dual simple $X$
+has a symmetric self-duality on $X\otimes X$. Indeed, if the pivotal
+transpose of $f:X\to X^*$ is $\epsilon f$, then the transpose of
+$f\otimes f$, under the reversed dual-tensor identification, is
+$\epsilon^2(f\otimes f)$. Every self-dual constituent of multiplicity
+one therefore has second indicator $+1$. The middle rule would give
+$\nu_2(x)=\nu_2(y)=1$.
+On the other hand, the known center
+$Z(\mathcal E)\simeq\mathcal B(C_3,4)\boxtimes\mathcal L^{\rm rev}$
+and the displayed branching give
+\[
+ \nu_2(F(\mu))=
+ \frac1{\dim\mathcal E}\sum_{\lambda,a,\nu}
+ \theta_\lambda^2\theta_a^{-2}d_\lambda d_a
+ [U(a):\nu]N_{\nu\lambda}^{\mu}.
+\]
+Exact evaluation in $\QQ(\zeta_{32})$ gives
+$\nu_2(F(002))=0$, contradicting $\nu_2(x+y)=2$.
+
+For the outer two completions the formal codegrees include
+$8\pm4\sqrt2$. The boson $J=004$ belongs to $A$, so $F(J)=1$;
+the canonical grading subcategory in the known center is generated by
+$(J,1)$. Formula~\eqref{eq:conformal-neutral-center} gives
+\[
+ Z(\mathcal C)\simeq
+ (\mathcal B(C_3,4)_{\rm ad})_{\langle J\rangle}
+ \boxtimes\mathcal L^{\rm rev}.
+\]
+The action $J(a,b,c)=(b,a,4-a-b-c)$ has eight ordinary orbits and three
+fixed weights among the even weights. Fixed-point splitting gives
+rank $14$ for the first factor and rank $42$ for the center.
+Its dimension list contains neither
+$\dim(\mathcal C)/(8+4\sqrt2)$ nor
+$\dim(\mathcal C)/(8-4\sqrt2)$, as checked exactly by the Weyl formula.
+The formal-codegree test excludes both outer completions. Only the
+non-self-dual target remains, completing the proof of
+Theorem~\ref{thm:conformal-models}.
+
+The supplement reconstructs the branching from the abelian ideals of
+$C_3$, certifies the source fusion coefficients by exact Weyl-character
+identities, and checks every finite completion and dimension comparison.
+All three arguments establish categorical existence and full tensor
+identifications; they do not classify associators on these rings.

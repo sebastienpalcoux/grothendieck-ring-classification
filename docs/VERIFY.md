@@ -24,10 +24,8 @@ library, uses no network, and checks SHA-256 for every part and every restored
 file. Run it once after cloning, before running the full rank-specific
 verifiers. `python3 tools/restore_data.py --check` verifies reconstruction
 without writing files. The complete downloadable research archive already
-contains all 1,577 released files and the four unchanged exclusion
-continuations with 7, 18, 12 and 4 records. Round five adds no categorical
-exclusion; it contains the new exact necessary-profile and modular-data
-reductions. The archive is restored at `site/dist/downloads/Rank6_Categorification_M8_Revised_2026-09-30_v5.zip`.
+contains all 449 current release files. It is restored at
+`site/dist/downloads/Rank6_Categorification_M8_Revised_2026-09-30_v6.zip`.
 
 ## Rebuild from the pinned census
 
@@ -47,7 +45,7 @@ the repository enumeration.
 ## Rebuild classification partitions
 
 Unpack the attached `FusionFrontier.tar.xz` and the updated
-`Rank6_Categorification_M8_Revised_2026-09-30_v5.zip` and the revised rank-five release. The
+`Rank6_Categorification_M8_Revised_2026-09-30_v6.zip` and the revised rank-five release. The
 rank-four ledger is the `Rank4/.../certificates/classification.jsonl.gz` file.
 The revised rank-five `data/decisions_all.json` extends the attached archive's
 28,493 decisions to all 40,999 census tensors through multiplicity 20,
@@ -62,7 +60,7 @@ Then run, substituting the actual extracted paths:
 ```bash
 python3 tools/generate_classification.py \
   --bundle FusionFrontier.tar.xz \
-  --rank6-bundle Rank6_Categorification_M8_Revised_2026-09-30_v5.zip \
+  --rank6-bundle Rank6_Categorification_M8_Revised_2026-09-30_v6.zip \
   --census fusion-ring-census/results/census.json \
   --rank4 classification.jsonl.gz \
   --rank5 rank5-decisions_all.json \
@@ -87,7 +85,7 @@ other rank's current rows and provenance, use:
 ```bash
 python3 tools/generate_classification.py --refresh-rank6 \
   --rank6 supplements/rank6/data/decisions.json \
-  --rank6-bundle site/dist/downloads/Rank6_Categorification_M8_Revised_2026-09-30_v5.zip
+  --rank6-bundle site/dist/downloads/Rank6_Categorification_M8_Revised_2026-09-30_v6.zip
 python3 tools/export_grothendieck_counts.py
 python3 tools/render_readme.py
 python3 tools/validate_release.py
@@ -107,47 +105,28 @@ From the complete mirrored release:
 ```bash
 cd supplements/rank6
 python check_manifest.py
-python -O software/round5_replay.py --list
-python -O software/round5_replay.py --check-receipts
-python software/release_consistency.py
+python -O software/conformal_models.py --verify
+python -O software/release_consistency.py
+python -O research/exclusions/R6_5_1204/verify_exclusion.py
+python -O software/frontier_replay.py --check-receipts
+python -O software/frontier_replay.py --list
 ```
 
-The first command checks the shipped bytes; receipt checking verifies the
-recorded sources and their stated scope. Neither is a new mathematical
-reconstruction. To rerun selected round-five criteria with numerical
-optimizers disabled and assertions removed, use:
+The conformal-model command freshly reconstructs the three unitary models.
+The frontier receipt audit checks hashes and completion predicates, not the
+mathematics. To replay a necessary reduction, select one current ring, for
+example `python -O software/frontier_replay.py --select R6_4_155`.
+Each command has a 15-minute deadline. A timeout establishes no exclusion.
 
-```bash
-python -O software/round5_replay.py --select R6_4_629 --jobs 1
-```
-
-Omit `--select` to run the complete listed round-five suite, or choose its
-`controls` entry. The [coverage inventory](../supplements/rank6/research/round5/coverage.json)
-identifies each criterion's eligible cases, controls, exact outputs and
-replay receipts. Read each entry's scope: inherited complete profile
-enumerations are distinct from newly computed refinements. These tests
-retain six unresolved rings, not six categorical constructions.
-
-The joint restriction-word Gram and bounded integer criteria narrow the
-finite profiles. Modular-word closure and finite representation enumeration
-determine necessary modular completions for the retained branches.
-`R6_4_629` includes an independent rational-arithmetic verification of the
-rank-38 obstruction; its surviving rank-35 datum remains unresolved.
-For `R6_8_1660`, the joint word patterns and twist witness are separate tests.
-
-The unchanged accepted continuation files contain **7, 18, 12 and 4**
-disjoint general exclusions. Their prior verification records are retained,
-including `verification/round4/release_replay.json`. They and the original
-16,511-certificate campaign are not relabelled as new round-five results.
-A fresh full negative replay remains available with:
+The new exclusion is independently replayed with exact integer arithmetic. A complete fresh replay is:
 
 ```bash
 python -O verify.py --jobs 2 --out verification/current/recheck_O.jsonl
 ```
 
-The authoritative ledger and six residual tensors are under `data/`.
-Earlier summaries and discovery logs are historical evidence, while the
-current release summary and round-five inventory state the present scope.
+The authoritative decisions and two unresolved tensors are in `data/`.
+The [frontier](../supplements/rank6/research/frontier/README.md) identifies the
+current necessary reductions, and the model catalogue lists all realizations.
 
 ## Tensor crosswalks
 

@@ -37,7 +37,8 @@ Section~\ref{sec:unified-induction} presents one central-induction framework,
 with precisely scoped refinements rather than separate ad hoc tests.
 Section~\ref{sec:newalgebra} supplies module and Morita constraints.
 Section~\ref{sec:positive} treats models by construction, including
-central-boson quotients, equivariantizations, and relative centers.
+central-boson quotients, equivariantizations, relative centers, and
+neutral components of conformal extensions.
 Section~\ref{sec:certification} specifies exhaustive certificate checking
 and the remaining frontier.
 
@@ -64,7 +65,7 @@ counting input is the result of the cited repository; the present paper
 addresses categorification of its tensors.
 \end{theorem}
 
-\begin{theorem}[Classification through multiplicity three and certified extension]\label{thm:classification}
+\begin{theorem}[Categorification status through multiplicity eight]\label{thm:classification}
 In the census of Theorem~\ref{thm:census}, the accompanying exact
 certificates exclude $\NegativeCount$ rings from general complex
 categorification. There are $\PositiveCount$ positively identified rings:
@@ -89,10 +90,11 @@ listed in Table~\ref{tab:classification} and the electronic ledger.
 \input{generated_classification}
 \input{generated_low_residuals}
 
-The phrase ``undecided'' is deliberately local to this computation. A
-search timeout is not an obstruction, and failure to produce a separating
-functional is not a construction. Nor do we claim that every residual
-is open throughout the literature. Section~\ref{sec:frontier} retains exact feasible points for the now positively identified cyclic-four ring as regression controls. Such points were not used to infer existence; the conformal-embedding construction supplies it.
+The two unresolved rings are $\RR{4}{155}$ and $\RR{8}{1660}$;
+their structural reductions are given in Section~\ref{sec:research-coverage}.
+Theorem~\ref{thm:1204-excluded} completes the exact multiplicity-five band. Theorem~\ref{thm:conformal-models}
+identifies the other three former residuals by actual unitary conformal
+extensions and complete tensor reconstruction.
 
 For reproducible identifiers, retain the unit as the zeroth basis element,
 use the exported representatives in the generator's fixed coordinate
@@ -125,16 +127,7 @@ Frobenius--Schur indicators to equal $-1$. Exhaustive exact separation
 of the central-induction branches contradicts these two requirements.
 Thus no pivotal or positivity hypothesis remains in the exclusion.
 
-The earlier rank-$22$ witness survives the joint low-product Gram
-condition of Section~\ref{sec:joint-low-product-gram} and extends to
-exact modular and fusion data with a positive restriction-ring map.
-These remain useful records of the limits of the earlier necessary
-systems. They provide neither a tensor functor nor an algebra structure,
-and the new local rotation condition excludes them as categorification
-data for this target. The independent Dong--Schopieray premodular bound
-and the source-specific cyclic-eight Morita argument retain their stated
-scopes; neither is used to identify arbitrary modular categories from
-equal modular data. The higher-multiplicity exclusions use the spectral
+The higher-multiplicity exclusions use the spectral
 module, rank-three descent, and order-six Morita--grading criteria of
 Section~\ref{sec:newalgebra}, the biquadratic trace and Casimir-parity
 criterion of Proposition~\ref{prop:biquadratic-trace-obstruction}, and
@@ -144,30 +137,10 @@ Proposition~\ref{prop:quadratic-gauss-family}, and the higher-dimensional and
 quartic stabilizer-trace extensions of Section~\ref{sec:newalgebra}.
 The completed signed and character-induction searches are recorded in the ledger.
 
-\paragraph{What the exclusion table measures.}
-The sequential table in Section~\ref{sec:verification} applies the
-available criteria in an explicit order and reports new removals and
-remaining tensors at each exact multiplicity. Simple structural and
-arithmetic tests precede finite induction and signed searches. This is
-a reproducible compromise between cost and yield, not a proof of a
-universally optimal order. A theorem with a stronger conclusion can be
-more expensive to apply, and a successful earlier test makes later tests
-unnecessary for that tensor.
-
-The earliest unresolved multiplicity is the first stratum in which the
-current automated procedure does not decide every ring. It marks where
-further work should begin; that work may be a new exclusion criterion,
-a sharper application of an existing criterion, or a positive model.
-A zero residual count in a later stratum means that the present methods
-suffice for that stratum. Even if an entire terminal interval through
-multiplicity eight has zero residuals, this would not imply that no new
-criterion is needed at multiplicity nine or higher. Conversely, a
-bounded search that stops without a certificate does not show that a
-new theorem is logically necessary.
-
-The same reporting scheme applies at lower ranks: one fixes a complete
-counting range, runs the necessary criteria and model constructors, and
-locates the first nonzero residual stratum. Here the detailed automated
-ledger is rank six. The cited rank-four and rank-five categorification
-results are used only in their proved ranges; the larger counting ranges
-of the source repository do not by themselves extend those theorems.
+The sequential exclusion table in Section~\ref{sec:verification} counts
+each removed tensor once. Structural and arithmetic tests precede finite
+induction and signed searches. A tensor is declared positive only after
+identifying its complete based ring with a categorical construction; an
+unfinished search or a surviving necessary system leaves it unresolved.
+The lower-rank categorification results are used only in their proved
+ranges.
