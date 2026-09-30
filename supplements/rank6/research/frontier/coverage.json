@@ -31,15 +31,18 @@
           "software/spectral_induction.py": "8748243602cbd0e6be4537f920d8dda8992c4409e964d2221bf4b9f1b8474365",
           "software/frontier_replay.py": "3d36a95535763e35bf55534a3b39f7b0fc9589b6e596304320e73ac7453b16a1",
           "verification/current/R6_4_155_general_reduction.json": "7f2dd5120d03dd236fdc7b8935b6001fe8a80db424880e6f4eb310025c6e5d8e",
-          "research/frontier/R6_4_155/integer_trace_note.md": "f97fe9dd94982273ecc373e49e9b430e13125c4aa2f964dd75c0aabefc1c4923",
           "research/frontier/R6_4_155/structural_reductions.md": "8ff2d8bd023f98a9b83b72b979e60618c5f064bf20a831805facf68290c23eb6",
-          "research/frontier/R6_4_155/verify_integral_306.py": "b9a6a6050510d3e2fdab045234378dd0d6edbbecf4f6f17ee5047ff9ce88dffb",
-          "research/frontier/R6_4_155/integer_trace_system.py": "6f09e3f6f5a6f15afa72809d65bf63bb5f9d9eeeac6fd99c8a22822055ed4395",
-          "research/frontier/R6_4_155/structural_note.md": "0fe1091513abd58911060e35bca170f6b925ce0c62674e1b34adcebb0ffc4474",
-          "research/frontier/R6_4_155/README.md": "de1db2fd748342553f1c6242542195bfc6b66490769e67059ef22384e8595604",
-          "research/frontier/R6_4_155/exact_integral_306.json": "f15526c4eefe941ab59e4b08a228bdb7e3364afbbc975c8eaca35ad29f24b8d2",
+          "research/frontier/R6_4_155/structural_note.md": "b3ead8c7c896ab8df97906f69e8555039c590e978b040529557c4d12ca5bc3cd",
+          "research/frontier/R6_4_155/README.md": "1f97a8d35b6ac5a2ebc7c12d3c696f3aa70e1c634b8f0e925b549f8fde0a9b36",
           "research/frontier/R6_4_155/ising_final_reduction.md": "31d4f3e9f2d3c063ee98db4edf5989a0975986755c77aa1b0b085832241a3399",
-          "verification/current/R6_4_155_integral_306.json": "2aca84ccb51320be815113df0c56cc0a92bd9e0d6dd87e5e74d55b890645b58c"
+          "research/frontier/R6_4_155/center_cuts_certificate.json": "1ac1b1c0b381bd11a091c0f617e42246a837d6de76439007d94d92e17cf4c31f",
+          "research/frontier/R6_4_155/verify_center_cuts.py": "7391675b1ecb52303b21468f4ebbccb51627d509786256fb4f59191ae1992f71",
+          "research/frontier/R6_4_155/check_center_profiles.py": "a255ddcd703732f1fac27a86d1b94eb323b01e2732ec23af1f5dd1decf196244",
+          "research/frontier/R6_4_155/center_cuts.md": "3a3fa8cb96f0473459b187dbb50dc2e6c0d3c31849c9fee0d5225cd00c565464",
+          "research/frontier/R6_4_155/gauss277.py": "a618c2872ad6bcf98c3b87f6276e8e5f08de9708821369922c5d062e78aa633f",
+          "research/frontier/R6_4_155/forced_twists.md": "568fb86381fd2353145b3c1b49db1167c0ff9f6dff1fd5685f121828962083b4",
+          "research/frontier/R6_4_155/forced_twists_certificate.json": "7131bac60e1feef47e4edd3181df26a6f77188e0017bcc4130597d1fbf248bf5",
+          "research/frontier/R6_4_155/verify_forced_twists.py": "840472deb909cd271b637d66d9e1cb44a4a8cfa03b74be4738f17b8f569791b9"
         },
         "method": "post-replay inventory of final mathematical sources and optimized exact receipts",
         "scope": "Only explicitly listed files; these completed mathematical replays are retained evidence, not rerun by inventory audit.",
@@ -90,21 +93,34 @@
         },
         {
           "argv": [
-            "research/frontier/R6_4_155/verify_integral_306.py"
+            "research/frontier/R6_4_155/verify_center_cuts.py",
+            "--verify"
           ],
           "predicate": {
             "passed": true,
-            "profile": 306,
-            "integer_bounds": 49,
             "remaining_profiles": [
+              296
+            ],
+            "excluded_profiles": [
               275,
               277,
               279,
-              296,
-              298
+              298,
+              306
             ]
-          },
-          "receipt": "verification/current/R6_4_155_integral_306.json"
+          }
+        },
+        {
+          "argv": [
+            "research/frontier/R6_4_155/verify_forced_twists.py"
+          ],
+          "predicate": {
+            "passed": true,
+            "profile": 296,
+            "center_rank": 52,
+            "symbolic_second_indicator_identities": true,
+            "complete_low_balancing": true
+          }
         }
       ],
       "general_reduction": {
@@ -121,7 +137,7 @@
         "research/round4/m4_155/reduction.json",
         "research/round5/m4_155/frontier_certificate.json"
       ],
-      "public_summary": "Five necessary induction profiles remain, with center ranks46,48,52,54,60. No braided Morita representative exists; general existence remains unresolved.",
+      "public_summary": "One rank-52 center profile remains, with a forced twist spectrum and exponent 24. General existence remains unresolved.",
       "replay_status": "ready",
       "retained_receipts": [
         {
@@ -154,18 +170,29 @@
           }
         },
         {
-          "path": "verification/current/R6_4_155_integral_306.json",
+          "path": "research/frontier/R6_4_155/center_cuts_certificate.json",
           "predicate": {
             "passed": true,
-            "profile": 306,
-            "integer_bounds": 49,
             "remaining_profiles": [
+              296
+            ],
+            "excluded_profiles": [
               275,
               277,
               279,
-              296,
-              298
+              298,
+              306
             ]
+          }
+        },
+        {
+          "path": "research/frontier/R6_4_155/forced_twists_certificate.json",
+          "predicate": {
+            "passed": true,
+            "profile": 296,
+            "center_rank": 52,
+            "symbolic_second_indicator_identities": true,
+            "complete_low_balancing": true
           }
         }
       ],
@@ -234,23 +261,27 @@
           ]
         },
         {
-          "criterion": "integral rotation and central-simple trace counts",
-          "excluded_profile": 306,
-          "integer_bound_steps": 49,
-          "remaining_profile_indices": [
+          "criterion": "fermion fixed-point traces, odd Gauss sums and Galois twist orbits",
+          "excluded_profiles": [
             275,
             277,
             279,
-            296,
-            298
+            298,
+            306
+          ],
+          "remaining_profile_indices": [
+            296
           ],
           "remaining_center_ranks": [
-            46,
-            48,
-            52,
-            54,
-            60
+            52
           ]
+        },
+        {
+          "criterion": "analytic low-indicator twist forcing",
+          "profile": 296,
+          "center_rank": 52,
+          "FS_exponent": 24,
+          "twist_spectrum_forced": true
         }
       ],
       "whole_ring_exclusion": false
@@ -318,7 +349,11 @@
           "research/frontier/R6_8_1660/relative_center/structural_cuts_certificate.json": "5107b54f82fb31dc794db44ce8ec3dafc37d3dd0f5180bc09b2558f8302d178d",
           "research/frontier/R6_8_1660/relative_center/relative_reduction_certificate.json": "c81f6ff8ca591259f88b7e638a5a0768c28fdfde49e34854dc12dfc0e0cf51e5",
           "research/frontier/R6_8_1660/relative_center/verify_relative_reduction.py": "16a40e3ab6049c4acc4638a49f3a246c290234c606d9b7b00e3e67e8d94a8592",
-          "research/frontier/R6_8_1660/relative_center/relative_center_note.tex": "9c38a8e88241a5f8bd7b66b056f0f138e5c4787a02cc9ee8932cd06c88ba1d3d"
+          "research/frontier/R6_8_1660/relative_center/relative_center_note.tex": "9c38a8e88241a5f8bd7b66b056f0f138e5c4787a02cc9ee8932cd06c88ba1d3d",
+          "research/frontier/R6_8_1660/fermion_profiles/verify_fermion_profiles.py": "f734af079a749224eadd5781d57e6288a82faab8075a6c8941aedc9743978770",
+          "research/frontier/R6_8_1660/fermion_profiles/README.md": "9ea7cc070f65295df9f312aeb2f3535d2eb14159aaa44a810a781a23da36e62d",
+          "research/frontier/R6_8_1660/fermion_profiles/fermion_profiles_certificate.json": "a77b35ba6e069391a77ee41af9367b93e14254bf966b9720738106e601f2c48c",
+          "research/frontier/R6_8_1660/README.md": "123647d4ca9c726cecb371f55393e18ce07ec632a118f24bf02d16bd5e4c5e97"
         },
         "method": "source-bound general reduction plus post-replay inventory of exact frontier transcripts",
         "scope": "Only explicitly listed files; an inventory audit is not a fresh mathematical replay.",
@@ -469,6 +504,18 @@
             "up_to_factor_exchange": 1,
             "raw_profiles_checked": 4764
           }
+        },
+        {
+          "argv": [
+            "research/frontier/R6_8_1660/fermion_profiles/verify_fermion_profiles.py"
+          ],
+          "predicate": {
+            "passed": true,
+            "input_count": 1764,
+            "fermion_exclusions": 25,
+            "center_fs_exclusions": 12,
+            "surviving_count": 1727
+          }
         }
       ],
       "id": "R6_8_1660",
@@ -489,7 +536,7 @@
         "research/round5/m8_actual48/certificate.json",
         "research/round5/m8_modrep/ising_projection_rank.json"
       ],
-      "public_summary": "One possible relative-center based ring survives the central Frobenius\u2013Schur and invertible-lift obstructions. General existence remains unresolved.",
+      "public_summary": "One relative-center based ring and 1727 labelled full-center profiles remain. Fermion orbits and a second-indicator congruence remove 37 further profiles.",
       "replay_status": "ready",
       "retained_receipts": [
         {
@@ -586,6 +633,16 @@
               "remaining_labelled": 2,
               "remaining_factor_exchange_classes": 1
             }
+          }
+        },
+        {
+          "path": "research/frontier/R6_8_1660/fermion_profiles/fermion_profiles_certificate.json",
+          "predicate": {
+            "exact": true,
+            "input_count": 1764,
+            "fermion_orbit_exclusions": 25,
+            "center_fs_congruence_exclusions": 12,
+            "surviving_count": 1727
           }
         }
       ],
@@ -768,6 +825,13 @@
         {
           "criterion": "central Frobenius\u2013Schur and invertible-lift constraints",
           "relative_center_based_ring_types": 1
+        },
+        {
+          "criterion": "fermion orbits and weighted center second-indicator congruence",
+          "input_profiles": 1764,
+          "fermion_exclusions": 25,
+          "center_fs_exclusions": 12,
+          "remaining_profiles": 1727
         }
       ],
       "whole_ring_exclusion": false

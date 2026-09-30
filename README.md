@@ -66,13 +66,13 @@ R6_5_1204 is excluded by a complete exact center-integrality certificate.
 
 | Unresolved ring | Necessary reduction |
 |---|---|
-| `R6_4_155` | Generalized near-group ring R′(4). No braided category lies in the Morita class of a categorification. Existence remains unresolved. |
-| `R6_8_1660` | Free of rank two over its Ising fusion subring. Central Frobenius–Schur and invertible-lift obstructions leave one possible relative-center based ring. |
+| `R6_4_155` | One rank-52 center profile remains, with a forced twist spectrum and exponent 24. General existence remains unresolved. |
+| `R6_8_1660` | One relative-center based ring and 1727 labelled full-center profiles remain. Fermion orbits and a second-indicator congruence remove 37 further profiles. |
 
 [Manuscript](manuscripts/rank6/papers/manuscript.pdf) ·
 [Exact constructors](supplements/rank6/software/conformal_models.py) ·
 [Current frontier](supplements/rank6/research/frontier/README.md) ·
-[Complete release](https://grothendieck-ring-atlas.sebastien-palcoux.chatgpt.site/downloads/Rank6_Categorification_M8_Revised_2026-09-30_v6.zip)
+[Complete release](https://grothendieck-ring-atlas.sebastien-palcoux.chatgpt.site/downloads/Rank6_Categorification_M8_Revised_2026-09-30_v7.zip)
 
 
 ### The classification boundary, band by band

@@ -1,7 +1,7 @@
 {
   "schema": "rank6-release-identity/v1",
   "date": "2026-09-30",
-  "revision": "v6",
+  "revision": "v7",
   "new_exclusions": 1,
   "new_exclusion_ids": [
     "R6_5_1204"
@@ -11,22 +11,22 @@
     "R6_4_91",
     "R6_4_629"
   ],
-  "research_summary": "Three unitary conformal-embedding models are constructed and matched in all 216 fusion coefficients. Exact center rotation integrality excludes R6_5_1204. Two rings remain unresolved; R6_4_155 has no braided Morita representative, and R6_8_1660 has one possible relative-center based ring.",
+  "research_summary": "Three unitary conformal-embedding models are constructed and matched in all 216 fusion coefficients. Exact center rotation integrality excludes R6_5_1204. Two rings remain unresolved. Fermion traces and Gauss sums leave one rank-52 center profile for R6_4_155. Fermion orbits and second-indicator congruences leave 1727 center profiles for R6_8_1660.",
   "research_progress": [
     {
       "id": "R6_4_155",
-      "result": "Generalized near-group ring R\u2032(4). No braided category lies in the Morita class of a categorification. Existence remains unresolved."
+      "result": "One rank-52 center profile remains, with a forced twist spectrum and exponent 24. General existence remains unresolved."
     },
     {
       "id": "R6_8_1660",
-      "result": "Free of rank two over its Ising fusion subring. Central Frobenius\u2013Schur and invertible-lift obstructions leave one possible relative-center based ring."
+      "result": "One relative-center based ring and 1727 labelled full-center profiles remain. Fermion orbits and a second-indicator congruence remove 37 further profiles."
     }
   ],
   "archive": {
-    "name": "Rank6_Categorification_M8_Revised_2026-09-30_v6.zip",
-    "sha256": "69bdaa2b4ce39c08a8bb4c14ebfed264a2a5d796ede8488f44cd524ed87fab3d",
-    "bytes": 9645030,
-    "files": 449
+    "name": "Rank6_Categorification_M8_Revised_2026-09-30_v7.zip",
+    "sha256": "552363aa1c50e13f954455cdbfaff564f1d1aa8a2eca2472af6c6a09819613cf",
+    "bytes": 9646783,
+    "files": 452
   },
   "ledger_sha256": "c28936c9dd3f64c8b85d668a667a7cde65d77161850c0c51bc05c594189f521c",
   "summary": {
@@ -100,8 +100,12 @@
   "fourth_certificate_sha256": "25e92eac5e4506906437765e31ed452e9042213f08e079c7ff81db2fb7e42062",
   "research_files_sha256": {
     "data/conformal_positive_models.json": "b76aeb3499c5858e8f1eab67c1a40ce639fea9053688150e25a6b2ef77a2c23b",
-    "data/frontier_summary.json": "ae4b2c4e919d1415f001f8af164dbdc021fd77f18c95d016873308c096c28481",
-    "research/frontier/coverage.json": "4ece4a33e06c0bbb77bee20a5f45d5364525e83343921181c41afcb0d8933ff2",
+    "data/frontier_summary.json": "9e1e23139109272f0ebb4f6b8cb7de17c34c47a553bc9f6db0757bf0bcf0034d",
+    "research/frontier/coverage.json": "4b1c7b84801a1158d05e5e06f7c5f23fbce9ee048d119eaf5d0416f8345139ab",
+    "research/frontier/R6_4_155/center_cuts_certificate.json": "1ac1b1c0b381bd11a091c0f617e42246a837d6de76439007d94d92e17cf4c31f",
+    "research/frontier/R6_4_155/forced_twists_certificate.json": "7131bac60e1feef47e4edd3181df26a6f77188e0017bcc4130597d1fbf248bf5",
+    "research/frontier/R6_4_155/verify_center_cuts.py": "7391675b1ecb52303b21468f4ebbccb51627d509786256fb4f59191ae1992f71",
+    "research/frontier/R6_8_1660/fermion_profiles/fermion_profiles_certificate.json": "a77b35ba6e069391a77ee41af9367b93e14254bf966b9720738106e601f2c48c",
     "research/frontier/R6_8_1660/relative_center/relative_reduction_certificate.json": "c81f6ff8ca591259f88b7e638a5a0768c28fdfde49e34854dc12dfc0e0cf51e5",
     "software/conformal_models.py": "85a76b29d4ec5f66392ff249f5b1c0fce3cdbfd5120226d671d4123cfa2a3ebf",
     "software/center_integrality.py": "55745a55f164ba0053d9e159711326e4a8d83fe9502eacaa62169da2159c2b57",
@@ -114,13 +118,13 @@
   "documents": {
     "manuscript.pdf": {
       "path": "papers/manuscript.pdf",
-      "sha256": "7053aa3b5c41e6859a87d04951ac6057893242be95d8da49da480fcd2b1659f9",
-      "bytes": 1161991
+      "sha256": "1cc5f6cdb93d106948af1789c258f98a3747be3eaafdea3f841a3067377250d2",
+      "bytes": 1186635
     },
     "verification_guide.pdf": {
       "path": "papers/verification_guide.pdf",
-      "sha256": "afa50d2d49aa347e395379aa7dda69d0622750d296ee7efcb0a686e7bf1a3175",
-      "bytes": 227290
+      "sha256": "3d69546e6b5ab36bb4887f692f593e249da376a1de88238d97cf8fb229f69d5b",
+      "bytes": 227300
     }
   }
 }

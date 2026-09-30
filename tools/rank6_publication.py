@@ -1,6 +1,6 @@
 """Current rank-six publication text, derived from one release identity."""
 DATE='2026-09-30'
-REVISION='v6'
+REVISION='v7'
 CASE_IDS=('R6_4_155','R6_8_1660')
 def require(test,message):
     if not test:raise ValueError(message)

@@ -5,8 +5,8 @@ The current tensors and status are in `data/unresolved_tensors.json` and
 
 | Ring | Structural description | Exact retained reduction |
 |---|---|---|
-| [R6_4_155](R6_4_155/) | Generalized near-group R′(4) | No braided Morita representative |
-| [R6_8_1660](R6_8_1660/) | Free rank-two module over Ising | One relative-center ring representative |
+| [R6_4_155](R6_4_155/) | Generalized near-group R′(4) | One center profile of rank 52 |
+| [R6_8_1660](R6_8_1660/) | Free rank-two module over Ising | One relative-center ring; 1727 center profiles |
 
 Run `python -O software/frontier_replay.py --list` from the package root for
 retained finite-profile replays. Each command has a 15-minute deadline.

@@ -61,7 +61,7 @@ subrings. Thus neither a grading nor rank-three subring descent resolves
 this case.
 
 The retained central-induction certificate gives a finite necessary
-domain of five profiles, with center ranks $46,48,52,54,60$.
+domain of six profiles, reduced below to the single center rank $52$.
 For clarity, its categorical reductions are as follows. Pointed
 subcategory projection for all three involutions leaves one low frame
 and indicators $(\nu_2(X),\nu_2(Y),\nu_2(h),\nu_2(g),\nu_2(hg))
@@ -80,19 +80,172 @@ monodromy charges against the fermion. Consequently their multiplication
 matrices are the same-charge and opposite-charge blocks of
 $V^{\mathsf T}V-I$. Exhausting charge counts, duality, pointed actions,
 restriction products and ribbon balancing leaves the six profiles,
-each with a forced pair of low fusion matrices. For the rank-$44$ profile, the height-six full-character system of
-Proposition~\ref{prop:round3-full-character}, in $\QQ(\zeta_{24})$,
-has no solution with integral twist-type and rotation-eigenvalue counts.
-The exact certificate gives $49$ integral-bound inferences followed
-by one separating ray, using the bound argument in the proof of
-Theorem~\ref{thm:1204-excluded}. Pointed restriction columns use their
-proved twists $\pm1$ or $\pm i$; the other columns retain the complete
-joint trace domain. All surviving character assignments differ only
-by permutations of identical low columns, and no third-indicator value
-is imposed. This removes the rank-$44$ profile.
+each with a forced pair of low fusion matrices.
 
-The five remaining profiles are necessary conditions. The semion splitting of the center does
-not assert a tensor-product splitting of the original category.
+\begin{proposition}[Fermion traces and odd Gauss sums]
+\label{prop:155-centralizer-cuts}
+The centralizer profiles $275,277,279,298,306$ cannot occur.
+\end{proposition}
+\begin{proof}
+Work in the positive spherical representative and normalize the central
+semion twist to $i$. Write
+\[
+ d=4+3\sqrt2,\quad D=\dim\mathcal C=72+48\sqrt2,\quad
+ b=2+4d=D/4=3\sqrt2d,\quad u=\zeta_8^{-1}.
+\]
+Split the center as $Z(\mathcal C)\simeq\mathrm{Semion}\boxtimes\mathcal B$;
+let $f\in\mathcal B$ be its fermion. The packet and charge enumeration,
+using Proposition~\ref{prop:central-packets-adjunction} and
+Corollary~\ref{cor:graded-adjunction-splitting}, gives the following data.
+Exponents in the last column denote multiplicities; signs denote
+monodromy with $f$.
+\[
+\begin{array}{c|rrr|l}
+ \text{profile}&r_+&r_-&r_+-r_-&\text{odd dimensions}\\\hline
+ 275&16&14&2 &d^4,(2d)^8,b^2\\
+ 277&16&11&5 &d^4,(2d)^4,4d,b^2\\
+ 279&16&8 &8 &d^4,(4d)^2,b^2\\
+ 296&16&10&6 &d^2,(2d)^4,(3d)^2,b^2\\
+ 298&16&7 &9 &d^2,(3d)^2,4d,b^2\\
+ 306&16&6 &10&(3d)^4,b^2
+\end{array}
+\]
+All packet orientations and charge counts are reconstructed by
+\filename{verify_center_cuts.py}. In every row the two $b$ objects
+have restrictions $1+h+2X+2Y$ and $g+gh+2X+2Y$ and twists $1,-i$.
+Each is $f$-fixed, being unique in its restriction type.
+
+Verlinde diagonalization gives
+$\#\operatorname{Fix}(f)=\Tr(N_f)=r_+-r_-$. Balancing implies that a
+fixed simple is odd, immediately excluding $298$ and $306$.
+Even $f$-pairs have opposite twists and cancel in the Gauss sum.
+Odd pairs have equal twists, as do dual simples. Since
+$\tau^+(\mathcal B)=D/(1+i)$ and the $b$ pair contributes $b^2(1-i)$,
+the other odd contributions, divided by $d^2$, sum to $-24u$.
+
+For $275$, the $b$ pair accounts for all fixed points. The four
+$d$ objects restrict to $X,X,Y,Y$; the free $f$-pairs and duality force
+one common twist $\alpha$. The eight $2d$ objects form four pairs of
+twists $\beta_j$. Thus
+$\alpha+2\sum_j\beta_j=-6u$, making the root of unity $\alpha$ divisible
+by $2$ in the ring of algebraic integers, a contradiction.
+For $279$, duality gives the four $d$ twists as
+$\alpha,\alpha,\beta,\beta$. If $\gamma,\delta$ are the $4d$ twists,
+\[
+ \alpha+\beta+8(\gamma+\delta)=-12u.
+\]
+The algebraic integer $(\alpha+\beta)/4$ has all conjugates of absolute
+value at most $1/2$, so it vanishes. Then
+$\gamma+\delta=-3u/2$ is not integral, again a contradiction.
+
+For $277$, the $b$ pair and the unique $4d$ simple supply three of five
+fixed points. Fixed points among the restrictions $X,X,Y,Y$ occur in
+multiples of four, since duality commutes with $f$. Hence these four
+are free with common twist $\alpha$; the $2d$ objects have two fixed
+twists $\beta,\gamma$ and one free-pair twist $\delta$. Write
+$\epsilon$ for the $4d$ twist. The Gauss equation is
+\begin{equation}\label{eq:155-277-gauss}
+ \alpha+\beta+\gamma+2\delta+4\epsilon=-6u.
+\end{equation}
+
+Use Galois symmetry in the full center, whose anomaly is trivial:
+$\theta_{\widehat\sigma Z}=\theta_Z^{a^2}$
+\cite[Theorem~II]{DLN}. Rational pointed eigenvalues preserve both
+monodromy charges, and the signed Galois permutation commutes with
+$N_f$, preserving fixedness. Pure dimensions $kd$ are preserved: when
+$\sigma(\sqrt2)=-\sqrt2$,
+$D/\sigma(D)=1+4d$ and $(1+4d)\sigma(d)=-d$;
+the Galois dimension sign gives positive dimension $kd$.
+Consequently $\alpha,\delta,\epsilon$ are fixed by every square power
+and have orders dividing $24$. The pair $\beta,\gamma$ has square-power
+orbit of size at most two. Cauchy's prime support is $\{2,3\}$, so their
+orders divide $48$: the square subgroup modulo $2^a3^c$ has order
+$2^{\max(a-3,0)}3^{\max(c-1,0)}$. If a $16$-part occurs, the nontrivial
+square sends the root to its negative (also at order $48$), so
+$\gamma=-\beta$. Their first and third sums vanish, allowing replacement
+by an opposite pair of $24$th roots for the following equations.
+
+The spherical center formula \cite[Theorem~4.1]{NS}, grouping
+$Z\in\mathcal B$ with $gZ$, gives
+\[
+ \nu_3(X)=1+\frac{u}{6}S_3,\qquad
+ S_3=\alpha^3+\beta^3+\gamma^3+2\delta^3+4\epsilon^3.
+\]
+Indeed, their numerator is
+$d_Z\theta_Z^3([F(Z):X]-i[F(Z):Y])$; even $f$-pairs cancel,
+the $b$ terms contribute $4b=D$, and $2d/D=1/(6\sqrt2)$.
+Thus $|\nu_3(X)-1|\le3/2$. Proposition~\ref{prop:stabilizer-rotation}
+gives the complete four-dimensional rotation domain
+$\{-2,-2\zeta_3,-2\zeta_3^2,1,\zeta_3,\zeta_3^2\}$.
+Every value except $1$ is at distance at least $\sqrt3$ from $1$;
+hence $S_3=0$.
+
+Finally, the same verifier tests the $24^3$ choices of
+$\alpha,\delta,\epsilon$ in
+$\ZZ[t]/(t^8-t^4+1)$, looking up all unordered $\beta,\gamma$ sums.
+Equation~\eqref{eq:155-277-gauss} has $30$ solutions and none has
+$S_3=0$. This finite integer calculation completes the exclusion.
+\end{proof}
+
+Only profile $296$ remains, of center rank $52$. This is a necessary
+condition, not a categorical construction. The semion factorization
+applies to the center.
+
+\begin{proposition}
+If profile $296$ is categorifiable, normalize the central semion to twist
+$i$ and put $\mathcal B=\langle g\rangle'\subset Z(\mathcal C)$.
+Set $d=4+3\sqrt2$, $b=2+4d$, $u=\zeta_8^{-1}$ and $w=\zeta_3$.
+The twist multiset of $\mathcal B$ is forced as follows:
+\[
+\begin{array}{c|c|l}
+ h\text{-charge}&\text{dimension}&\text{twists}\\\hline
+ +&1&1,-1\\
+ +&d&1,1,-1,-1\\
+ +&2d&w,-w,w^2,-w^2\\
+ +&1+2d&i,i,-i,-i\\
+ +&1+4d&1,-1\\
+ -&d&u,u\\
+ -&2d&uw,uw,uw^2,uw^2\\
+ -&3d&-u,-u\\
+ -&b&1,-i
+\end{array}
+\]
+Consequently $Z(\mathcal C)$ has rank $52$ and
+$\operatorname{FSexp}(\mathcal C)=24$.
+\end{proposition}
+\begin{proof}
+The fermion trace is $16-10=6$. The six odd simples with unique charged
+restriction columns exhaust the fixed points. Gauss summation gives
+$\alpha+9\beta+4(\gamma+\delta)=-12u$ for the remaining odd twists.
+The algebraic norm bound gives $\beta=-\alpha$; then
+$|2\sigma(\alpha/u)-3|\le2$ for every Galois conjugate forces
+$\alpha=u$ and $\{\gamma,\delta\}=\{uw,uw^2\}$.
+Low balancing leaves the even twists $a,-a,a,-a$ at dimension $d$ and
+$c,-c,e,-e$ at dimension $2d$.
+Write $t=a^2$, $p=c^2$, $q=e^2$, $F=8+2t+4p+4q$.
+For the self-dual low objects $A,L$ of dimensions $1+4d,b$, the known
+fusion matrices give exactly
+\[
+ \nu_2(A)=\frac{|F|^2+36}{72},\qquad
+ \nu_2(L)=1-\frac{\operatorname{Im}F}{6}.
+\]
+Since $|\operatorname{Im}F|\le10$ and $\operatorname{Re}F\ge-2$,
+these indicators, each equal to $\pm1$, force $F=6$.
+Thus $t+2(p+q)=-1$; the norm bound on the algebraic integer $(t+1)/2$
+gives either $t=1$, $\{p,q\}=\{w,w^2\}$, or $t=-1$, $q=-p$.
+The fourth rotation has dimension $34$ and half-turn trace $-2$, so
+$\nu_4(X)\in2\mathbb Z+2i\mathbb Z$. But
+\[
+ \nu_4(X)=4+\frac{1+t^2+2p^2+2q^2}{3\sqrt2}
+\]
+lies within $\sqrt2$ of $4$, and hence equals $4$. The second branch
+would require $2+4p^2=0$, an impossibility. This proves the table.
+The center spectrum is this spectrum together with its multiple by $i$.
+The accompanying exact verifier checks the moment identities and full
+low balancing; no root-order cutoff is assumed. This remains a necessary
+condition, not a realization or exclusion of profile $296$.
+\end{proof}
+
 
 \begin{proposition}[No braided Morita representative]
 \label{prop:155-no-braided-morita}

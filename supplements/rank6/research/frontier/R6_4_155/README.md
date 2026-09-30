@@ -1,11 +1,20 @@
 # R6_4_155
 
-The generalized near-group ring R′(4) remains unresolved.
+The generalized near-group ring R′(4) remains unresolved. Fermion fixed-point
+traces and odd Gauss sums leave one induction profile, of center rank 52.
+Its twist spectrum is forced, with exponent 24.
 
-* [Structural reductions](structural_reductions.md): no braided Morita representative.
-* [Canonical Ising extension and relative center](ising_final_reduction.md).
-* [Uniform spherical reduction](structural_note.md).
-* The retained [six-profile induction reduction](../../round5/m4_155/) is the input to the final integral-rotation cut, leaving five profiles of center ranks 46, 48, 52, 54 and 60.
+* [Center profile proof](center_cuts.md) and [exact replay](verify_center_cuts.py).
+* [Forced twist spectrum](forced_twists.md) and [symbolic replay](verify_forced_twists.py).
+* [Spherical reduction](structural_note.md).
+* [No braided Morita representative](structural_reductions.md).
+* [Canonical Ising extension](ising_final_reduction.md).
 
-The exact commands are listed by `python -O software/frontier_replay.py --list`.
-These necessary reductions do not construct or exclude a categorification.
+From the package root:
+
+```bash
+python -O research/frontier/R6_4_155/verify_center_cuts.py --verify
+```
+
+The retained [six-profile reduction](../../round5/m4_155/) supplies the
+exhaustive input. These necessary conditions do not construct a category.

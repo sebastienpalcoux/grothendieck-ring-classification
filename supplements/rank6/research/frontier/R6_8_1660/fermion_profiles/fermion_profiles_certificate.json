@@ -1,0 +1,176 @@
+{
+  "status": "necessary_reduction_only_original_unresolved",
+  "exact": true,
+  "optimizer_used": false,
+  "conservative_low_one_action": [
+    "swap",
+    "two_fixed"
+  ],
+  "source_sha256": {
+    "research/round5/m8_actual48/certificate.json": "693f634df50beac8cb0d5353ade3ea62c562309926939a24e458eeda7c97a7c7",
+    "research/round5/m8_1660/low0_profiles.json": "c74ce8eded70ee44ca896bfa6d5cbe42fb95804fea5f967018b6f7dbf42097cb",
+    "research/round5/m8_1660/low1_profiles.json": "277d26f16fc44fd2a2cd2caec339408b56fd77d14fcaeac96d3dbe9f5c9aa014"
+  },
+  "branches": [
+    {
+      "low": 0,
+      "labelling": [
+        0,
+        5,
+        4,
+        1,
+        3,
+        2
+      ],
+      "input_count": 168,
+      "fermion_orbit_rejected": [
+        4,
+        16,
+        28
+      ],
+      "center_fs_congruence_rejected": [],
+      "center_fs_conditions": [],
+      "surviving_count": 165,
+      "surviving_indices_sha256": "596c33bcc26276e82c152b5af1bd8eabb8a8e4069ebda10eaf3591ee719174b5"
+    },
+    {
+      "low": 1,
+      "labelling": [
+        0,
+        5,
+        4,
+        1,
+        2,
+        3
+      ],
+      "input_count": 798,
+      "fermion_orbit_rejected": [
+        12,
+        141,
+        153,
+        165,
+        204,
+        216,
+        255,
+        257,
+        267,
+        279,
+        376
+      ],
+      "center_fs_congruence_rejected": [
+        1032,
+        1033,
+        1034,
+        1035,
+        1036,
+        1037
+      ],
+      "center_fs_conditions": [
+        {
+          "index": 1032,
+          "divisor": 8,
+          "residue": 4
+        },
+        {
+          "index": 1033,
+          "divisor": 8,
+          "residue": 4
+        },
+        {
+          "index": 1034,
+          "divisor": 8,
+          "residue": 4
+        },
+        {
+          "index": 1035,
+          "divisor": 8,
+          "residue": 4
+        },
+        {
+          "index": 1036,
+          "divisor": 8,
+          "residue": 4
+        },
+        {
+          "index": 1037,
+          "divisor": 8,
+          "residue": 4
+        }
+      ],
+      "surviving_count": 781,
+      "surviving_indices_sha256": "b23f0385d8adb746f7b053608463e247d2b5528b3fd21dbf5a44345258b99be3"
+    },
+    {
+      "low": 1,
+      "labelling": [
+        0,
+        5,
+        4,
+        1,
+        3,
+        2
+      ],
+      "input_count": 798,
+      "fermion_orbit_rejected": [
+        12,
+        141,
+        153,
+        165,
+        204,
+        216,
+        255,
+        257,
+        267,
+        279,
+        376
+      ],
+      "center_fs_congruence_rejected": [
+        1032,
+        1033,
+        1034,
+        1035,
+        1036,
+        1037
+      ],
+      "center_fs_conditions": [
+        {
+          "index": 1032,
+          "divisor": 8,
+          "residue": 4
+        },
+        {
+          "index": 1033,
+          "divisor": 8,
+          "residue": 4
+        },
+        {
+          "index": 1034,
+          "divisor": 8,
+          "residue": 4
+        },
+        {
+          "index": 1035,
+          "divisor": 8,
+          "residue": 4
+        },
+        {
+          "index": 1036,
+          "divisor": 8,
+          "residue": 4
+        },
+        {
+          "index": 1037,
+          "divisor": 8,
+          "residue": 4
+        }
+      ],
+      "surviving_count": 781,
+      "surviving_indices_sha256": "b23f0385d8adb746f7b053608463e247d2b5528b3fd21dbf5a44345258b99be3"
+    }
+  ],
+  "input_count": 1764,
+  "fermion_orbit_exclusions": 25,
+  "center_fs_congruence_exclusions": 12,
+  "surviving_count": 1727,
+  "independently_rechecked_rejected_orbit_branches": 57
+}

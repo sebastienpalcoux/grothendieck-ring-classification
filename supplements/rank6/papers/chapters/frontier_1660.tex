@@ -260,3 +260,157 @@ its additional rules are
  Y^2=q(1+p)+\bigl(4(1+q)+6s\bigr)Y,
 \]
 together with $p^2=q^2=1$, $qs=s$ and $s^2=1+q$.
+
+\subsubsection{Two exact fermionic cuts on the remaining profiles}
+
+Write $d=3+2\sqrt2+2\sqrt3+\sqrt6$ and $D=4(1+d^2)$.
+The previous actual-twist certificate leaves $1764$ labelled restriction
+profiles, in branches of sizes $168,798,798$.
+The following reduction uses the already forced central fermion and second
+indicators. It makes no unitarity assumption and does not resolve the ring.
+
+\begin{proposition}[Fermion profile reduction]\label{prop:1660-fermion-profiles}
+The necessary restriction-profile domain for $\RR{8}{1660}$ reduces from
+$1764$ to $1727$. Exactly $25$ profiles fail the fermion orbit, dimension,
+and rank conditions below, and $12$ further profiles fail an integral
+second-indicator congruence. The two excluded sets are disjoint.
+\end{proposition}
+\begin{proof}
+Work in the retained pseudo-unitary Galois form.
+Let $\mathcal M=Z(\mathcal C)$, and let $h$ be its unique nontrivial
+invertible, with $F(h)=g$ and $\theta_h=-1$.
+For a simple $Z$, write $\epsilon_Z\in\{1,-1\}$ for its monodromy with
+$h$. Balancing gives
+\[
+ \theta_{hZ}=-\epsilon_Z\theta_Z.
+\]
+Thus the even sector consists of free $h$-pairs. Write its number of
+pairs as $p$, and write the odd sector as $s$ free pairs and $t$ fixed
+simples. The Verlinde diagonalization of $N_h$ gives
+\[
+ t=\operatorname{Tr}(N_h)=\sum_Z\epsilon_Z=2p-2s-t,
+ \qquad p=s+t.
+\]
+The two sectors each have dimension $D^2/2$.
+
+The six low simples are the summands of $I(1)$ indexed by the six ring
+characters. Their monodromies are the characters' values on $g$.
+The first four are even, and their restrictions, in order
+$(1,g,X,gX,\sigma,\sigma X)$, are
+\[
+ (1,0,0,0,0,0),\quad(1,0,3,3,0,4),\quad
+ (1,0,1,1,0,2),\quad(1,0,2,2,0,2).
+\]
+They give four forced even pairs, whose high partners have the
+$g$-translated restrictions and twist $-1$. The two other low simples
+are odd. In low frame zero their distinct restrictions force an
+$h$-transposition. In low frame one the computation conservatively
+allows either a transposition or two fixed simples.
+
+Remove the four forced high partners. Tensoring with $h$ exchanges the
+$X$ and $gX$ coordinates of each remaining restriction vector, so
+asymmetric vector types must occur in pairs with equal multiplicities.
+All remaining high vectors have zero $g$ coordinate.
+Let $E,O,T$ count the remaining even pairs, odd pairs, and odd fixed
+simples, and let $N$ be the number of remaining high simples. Then
+\[
+ (O,T)=
+ \begin{cases}
+ (N-3E-3,\,4E+6-N),&\text{odd low transposition},\\
+ (N-3E-2,\,4E+4-N),&\text{two fixed odd low simples}.
+ \end{cases}
+\]
+The even dimension condition becomes
+\[
+ \sum_{\text{remaining even pairs}}\frac{d_Z^2}{d^2}
+       =180+120\sqrt2.
+\]
+Here high vectors omit the unit coordinate. For a vector $(0,b,c,0,a)$, the summand is
+$(b+c+a\sqrt2)^2$. Every $\sigma$-containing type has
+$b+c=4$, $\sigma$ coefficient $1$, and $\sigma X$ coefficient $3$;
+its summand is $36+24\sqrt2$.
+
+There is also a pivotal parity condition. A self-duality of $Z$ with
+indicator $\eta$ induces a nondegenerate form with the same transpose
+sign on $F(Z)$. An odd multiplicity of a base simple of indicator
+$\delta$ forces $\eta=\delta$. Hence a type with odd $\sigma$ multiplicity
+and an odd positive-indicator multiplicity cannot be self-dual.
+Its total multiplicity is even. Its number of even $h$-pairs is also
+even: duality preserves twists, and therefore must pair distinct even
+$h$-orbits, whose two twists are opposite. This does not assert that
+$h$-fixed objects are self-dual.
+
+A bounded integer calculation of these dimension and rank equations,
+with these orbit and parity conditions, excludes $3,11,11$ profiles in
+the three branches. A separate recursion over the three orbit counts
+independently verifies every rejected low-action branch.
+
+For the second cut, put $\tau_n(\mathcal M)=\sum_Zd_Z^2\theta_Z^n$.
+The modular indicator formula \cite[Theorem~7.5]{NS} implies
+\[
+ \sum_{Z\in\operatorname{Irr}\mathcal M}\nu_2(Z)d_Z
+    =\frac{\tau_2(\mathcal M)\tau_{-2}(\mathcal M)}{\dim\mathcal M}.
+\]
+Indeed, multiply
+$\nu_2(Z)=(\dim\mathcal M)^{-1}
+\sum_{A,B}N_{AB}^{Z}d_A d_B(\theta_A/\theta_B)^2$
+by $d_Z$ and sum. The center identity \cite[Theorem~4.1]{NS} gives
+$\tau_2(Z(\mathcal C))=D\sum_Xd_X\nu_2(X)$. Dimensions and second
+indicators are real, and twists are roots of unity, so
+$\tau_{-2}=\overline{\tau_2}=\tau_2$. As $\dim\mathcal M=D^2$,
+\[
+ \sum_Z\nu_2(Z)d_Z
+   =\bigl(2-\sqrt2+(2+\sqrt2)d\bigr)^2.
+\]
+The four even low restrictions are unique, so their simples are self-dual;
+the odd unit multiplicity forces indicator $1$, as for their $h$-partners.
+The two odd low objects also have indicator
+$1$. This is immediate in frame zero. In frame one their alternative
+would be a dual pair: after removing the four even pairs, the displayed identity would
+then require an additional term $(8\sqrt3+4\sqrt6)d$. Every remaining
+possible nonzero indicator contribution divided by $d$ belongs to
+$\mathbb Q(\sqrt2)$; the $\sigma$-containing types have indicator zero.
+This rules out that alternative.
+
+After removing all these forced contributions, the identity reads
+\[
+ \sum_{\text{remaining high }Z}\nu_2(Z)\frac{d_Z}{d}
+      =36+24\sqrt2.
+\]
+For a restriction type of multiplicity $n_v$, its aggregate indicator
+$s_v$ satisfies $s_v\equiv n_v\pmod2$, since nonself-dual objects occur in dual
+pairs. Also $\nu_2(hZ)=\nu_2(Z)$ by
+Lemma~\ref{lem:central-invertible-indicators}, applied to the braided
+lift of $h$ in $Z(\mathcal M)$, whose twist is $-1$.
+Thus asymmetric $h$-paired vector types have equal aggregate indicators.
+For each type $(0,b,c,0,a)$, let $q_v=b+c$ if it is $h$-invariant,
+and $q_v=2(b+c)$ for an asymmetric pair. The rational coefficient is
+$\sum_v q_vs_v$.
+For each low-one labelling, profiles $1032,\ldots,1037$ force the
+integers $2q_v$ to be divisible by $8$ and
+$\sum_vq_vn_v\equiv0\pmod8$. The rational coefficient is therefore
+$0$ modulo $8$, whereas
+$36$ is $4$ modulo $8$. These six profiles in each labelling are excluded.
+
+The verifier \filename{verify\_fermion\_profiles.py} in
+\filename{research/frontier/R6_8_1660/fermion_profiles/} reconstructs the entire old frontier
+from its hash-bound source files, checks all field identities by integer
+arithmetic in $\mathbb Q(\sqrt2,\sqrt3)$, and records both disjoint
+excluded sets in \filename{fermion\_profiles\_certificate.json}.
+It uses no optimizer and retains both low-one actions. The remaining count is
+$165+781+781=1727$.
+\end{proof}
+
+\begin{corollary}\label{cor:1660-no-braiding}
+No categorification of $\RR{8}{1660}$ admits a braiding.
+\end{corollary}
+\begin{proof}
+Its Ising subcategory would be nondegenerate, so braided decomposition
+would give $\mathcal C\simeq\mathcal I\boxtimes\mathcal D$ with
+$\rk\mathcal D=2$ \cite[Corollary~B.12 and Theorem~3.13]{DGNO}.
+Write $z$ for the nonunit simple of $\mathcal D$; then
+$z^2=1+nz$. The dimension multiset forces $\FPdim z=d$, so
+$X$ corresponds to $1\boxtimes z$ or $g\boxtimes z$.
+Its square cannot contain $\sigma\boxtimes z$, contrary to
+$N_{XX}^{\sigma X}=4$.
+\end{proof}

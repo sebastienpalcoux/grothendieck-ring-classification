@@ -24,8 +24,8 @@ library, uses no network, and checks SHA-256 for every part and every restored
 file. Run it once after cloning, before running the full rank-specific
 verifiers. `python3 tools/restore_data.py --check` verifies reconstruction
 without writing files. The complete downloadable research archive already
-contains all 449 current release files. It is restored at
-`site/dist/downloads/Rank6_Categorification_M8_Revised_2026-09-30_v6.zip`.
+contains all 452 current release files. It is restored at
+`site/dist/downloads/Rank6_Categorification_M8_Revised_2026-09-30_v7.zip`.
 
 ## Rebuild from the pinned census
 
@@ -45,7 +45,7 @@ the repository enumeration.
 ## Rebuild classification partitions
 
 Unpack the attached `FusionFrontier.tar.xz` and the updated
-`Rank6_Categorification_M8_Revised_2026-09-30_v6.zip` and the revised rank-five release. The
+`Rank6_Categorification_M8_Revised_2026-09-30_v7.zip` and the revised rank-five release. The
 rank-four ledger is the `Rank4/.../certificates/classification.jsonl.gz` file.
 The revised rank-five `data/decisions_all.json` extends the attached archive's
 28,493 decisions to all 40,999 census tensors through multiplicity 20,
@@ -60,7 +60,7 @@ Then run, substituting the actual extracted paths:
 ```bash
 python3 tools/generate_classification.py \
   --bundle FusionFrontier.tar.xz \
-  --rank6-bundle Rank6_Categorification_M8_Revised_2026-09-30_v6.zip \
+  --rank6-bundle Rank6_Categorification_M8_Revised_2026-09-30_v7.zip \
   --census fusion-ring-census/results/census.json \
   --rank4 classification.jsonl.gz \
   --rank5 rank5-decisions_all.json \
@@ -85,7 +85,7 @@ other rank's current rows and provenance, use:
 ```bash
 python3 tools/generate_classification.py --refresh-rank6 \
   --rank6 supplements/rank6/data/decisions.json \
-  --rank6-bundle site/dist/downloads/Rank6_Categorification_M8_Revised_2026-09-30_v6.zip
+  --rank6-bundle site/dist/downloads/Rank6_Categorification_M8_Revised_2026-09-30_v7.zip
 python3 tools/export_grothendieck_counts.py
 python3 tools/render_readme.py
 python3 tools/validate_release.py

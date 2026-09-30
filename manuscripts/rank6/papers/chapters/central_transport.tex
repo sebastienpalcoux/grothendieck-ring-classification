@@ -34,6 +34,32 @@ For any such lift $L$, tensoring by $L$ permutes all central simples and sends
 a restriction vector $v$ to the coefficient vector of $gv$. In particular,
 the total counts of these restriction types agree, including low objects.
 
+\begin{lemma}[Indicator transport by a central invertible]
+\label{lem:central-invertible-indicators}
+Let $\mathcal C$ be spherical and let $b\in Z(\mathcal C)$ be
+invertible of order $m$, with $\dim b=1$. Write $bX=F(b)\otimes X$.
+For every $n\ge1$, $\nu_n(X^*)=\nu_n(X)$; whenever $m\mid n$,
+\[
+ \nu_n(bX)=\theta_b^n\nu_n(X).
+\]
+\end{lemma}
+\begin{proof}
+For the adjoint $I$ of $F$, the projection formula gives
+$I(bX)\cong b\otimes I(X)$. For each central simple $Z$, write
+$\lambda_Z$ for its monodromy scalar with $b$. The hexagon and
+$b^m\cong\one$ imply $\lambda_Z^m=1$, while balancing gives
+$\theta_{bZ}=\theta_b\theta_Z\lambda_Z$. Thus
+$\theta_{bZ}^n=\theta_b^n\theta_Z^n$ and $\dim(bZ)=\dim Z$.
+Apply the spherical center formula \cite[Theorem~4.1]{NS}:
+\[
+ \nu_n(X)=\frac1{\dim\mathcal C}
+ \sum_{Z\in\Irr Z(\mathcal C)}[F(Z):X]\dim Z\,\theta_Z^n.
+\]
+Relabelling $Z$ by $Z^*$ proves the duality identity, since
+$\theta_{Z^*}=\theta_Z$ and $\dim Z^*=\dim Z$; see also
+\cite[Remark~4.2]{NS}. No complex conjugation or unitarity is used.
+\end{proof}
+
 There is a stronger constraint when $g^2=1$ and $\nu_2(g)=-1$.
 The lift has order two and twist $\theta_L=\pm i$. Its monodromy with a
 simple $Z$ is a scalar in $\{1,-1\}$: monodromy with invertibles is
@@ -53,4 +79,3 @@ simples. This last convention is necessary when relative trace loses the
 underlying twist information. These matching equations are necessary only;
 for several lifts they do not impose all simultaneous group-action
 relations.
-
