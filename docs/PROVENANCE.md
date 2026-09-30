@@ -34,9 +34,9 @@ The earlier cross-rank rank-six release
 its normal and optimized 26-process regression gates passed after explicitly
 pinning the SymPy arithmetic backend.
 
-The current rank-six release is `Rank6_Categorification_M8_Revised_2026-09-30_v7.zip` (SHA-256
-`552363aa1c50e13f954455cdbfaff564f1d1aa8a2eca2472af6c6a09819613cf`). The [complete archive](https://grothendieck-ring-atlas.sebastien-palcoux.chatgpt.site/downloads/Rank6_Categorification_M8_Revised_2026-09-30_v7.zip) contains
-452 files and the pinned census, proof certificates and exact constructors.
+The current rank-six release is `Rank6_Categorification_M8_Revised_2026-09-30_v8.zip` (SHA-256
+`e138a510a1b5b4a65e00bfc3777e9278031522ac939f0ae1baef521d4c52becd`). The [complete archive](https://grothendieck-ring-atlas.sebastien-palcoux.chatgpt.site/downloads/Rank6_Categorification_M8_Revised_2026-09-30_v8.zip) contains
+461 files and the pinned census, proof certificates and exact constructors.
 The partition is **16,553 excluded, 57 realized and 2 unresolved**.
 There are 56 unitary models and one spherical model with no pseudo-unitary
 categorification. The source census is unchanged. A new exact certificate excludes R6_5_1204.
@@ -50,8 +50,8 @@ replay of every earlier proof. See [verification instructions](VERIFY.md).
 
 | Unresolved ring | Necessary reduction |
 |---|---|
-| `R6_4_155` | One rank-52 center profile remains, with a forced twist spectrum and exponent 24. General existence remains unresolved. |
-| `R6_8_1660` | One relative-center based ring and 1727 labelled full-center profiles remain. Fermion orbits and a second-indicator congruence remove 37 further profiles. |
+| `R6_4_155` | One rank-52 center profile remains, with forced twists of exponent 24 and four duality choices. This is not yet complete modular data or a model. |
+| `R6_8_1660` | One relative-center based ring and 1670 labelled center profiles remain. A tensor involution and Vafa/indicator constraints remove 57 more profiles. |
 
 The verified rank-seven release through
 multiplicity four has SHA-256

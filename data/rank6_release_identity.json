@@ -1,7 +1,7 @@
 {
   "schema": "rank6-release-identity/v1",
   "date": "2026-09-30",
-  "revision": "v7",
+  "revision": "v8",
   "new_exclusions": 1,
   "new_exclusion_ids": [
     "R6_5_1204"
@@ -11,22 +11,22 @@
     "R6_4_91",
     "R6_4_629"
   ],
-  "research_summary": "Three unitary conformal-embedding models are constructed and matched in all 216 fusion coefficients. Exact center rotation integrality excludes R6_5_1204. Two rings remain unresolved. Fermion traces and Gauss sums leave one rank-52 center profile for R6_4_155. Fermion orbits and second-indicator congruences leave 1727 center profiles for R6_8_1660.",
+  "research_summary": "Three unitary conformal-embedding models are constructed and matched in all 216 fusion coefficients. Exact center rotation integrality excludes R6_5_1204. Two rings remain unresolved. R6_4_155 has one rank-52 center profile and forced twists, not complete modular data. Tensor-involution parity and Anderson-Moore-Vafa/indicator constraints leave 1670 center profiles for R6_8_1660.",
   "research_progress": [
     {
       "id": "R6_4_155",
-      "result": "One rank-52 center profile remains, with a forced twist spectrum and exponent 24. General existence remains unresolved."
+      "result": "One rank-52 center profile remains, with forced twists of exponent 24 and four duality choices. This is not yet complete modular data or a model."
     },
     {
       "id": "R6_8_1660",
-      "result": "One relative-center based ring and 1727 labelled full-center profiles remain. Fermion orbits and a second-indicator congruence remove 37 further profiles."
+      "result": "One relative-center based ring and 1670 labelled center profiles remain. A tensor involution and Vafa/indicator constraints remove 57 more profiles."
     }
   ],
   "archive": {
-    "name": "Rank6_Categorification_M8_Revised_2026-09-30_v7.zip",
-    "sha256": "552363aa1c50e13f954455cdbfaff564f1d1aa8a2eca2472af6c6a09819613cf",
-    "bytes": 9646783,
-    "files": 452
+    "name": "Rank6_Categorification_M8_Revised_2026-09-30_v8.zip",
+    "sha256": "e138a510a1b5b4a65e00bfc3777e9278031522ac939f0ae1baef521d4c52becd",
+    "bytes": 9696756,
+    "files": 461
   },
   "ledger_sha256": "c28936c9dd3f64c8b85d668a667a7cde65d77161850c0c51bc05c594189f521c",
   "summary": {
@@ -100,11 +100,17 @@
   "fourth_certificate_sha256": "25e92eac5e4506906437765e31ed452e9042213f08e079c7ff81db2fb7e42062",
   "research_files_sha256": {
     "data/conformal_positive_models.json": "b76aeb3499c5858e8f1eab67c1a40ce639fea9053688150e25a6b2ef77a2c23b",
-    "data/frontier_summary.json": "9e1e23139109272f0ebb4f6b8cb7de17c34c47a553bc9f6db0757bf0bcf0034d",
-    "research/frontier/coverage.json": "4b1c7b84801a1158d05e5e06f7c5f23fbce9ee048d119eaf5d0416f8345139ab",
+    "data/frontier_summary.json": "8d56e12d33d77b66c3c1ef6080c93889e0d3af4c0539766128a76c911850cd39",
+    "research/frontier/coverage.json": "f536708b35fd41b8905d8c259c9d064b54abc515e02ad99513deefb33b7500a3",
     "research/frontier/R6_4_155/center_cuts_certificate.json": "1ac1b1c0b381bd11a091c0f617e42246a837d6de76439007d94d92e17cf4c31f",
     "research/frontier/R6_4_155/forced_twists_certificate.json": "7131bac60e1feef47e4edd3181df26a6f77188e0017bcc4130597d1fbf248bf5",
     "research/frontier/R6_4_155/verify_center_cuts.py": "7391675b1ecb52303b21468f4ebbccb51627d509786256fb4f59191ae1992f71",
+    "research/frontier/R6_4_155/verify_low_checks.py": "e63e16b2b14fdcc1abfca2394e383a23891b7b2d2cc18a68c18b714ae9231370",
+    "research/frontier/R6_4_155/low_checks_certificate.json": "c49d8392e00bebb463a46733fb156b184a92b4ae1608db8adbe4081642c5f079",
+    "research/frontier/R6_4_155/MODELS_IDENTIFICATION.md": "4849e47dd0043aa170680451eb1f614e2711b495a82e8863e4423116a1f6e4e9",
+    "research/frontier/R6_8_1660/spin_profiles/verify_spin_profiles.py": "f05c7b60bde671506a3bdb4a00c5a4b39cd7d5039d386c6f846891bf91671757",
+    "research/frontier/R6_8_1660/spin_profiles/spin_profiles_certificate.json": "0df20d824ffee348947302c1e85b1971ae9795b736f11799f03f61d9f6b0c497",
+    "research/frontier/indicator_audit.md": "29cc44062eab12d898e105c48dbf4a0d22a3f137bae11b6321b514a80c6c069e",
     "research/frontier/R6_8_1660/fermion_profiles/fermion_profiles_certificate.json": "a77b35ba6e069391a77ee41af9367b93e14254bf966b9720738106e601f2c48c",
     "research/frontier/R6_8_1660/relative_center/relative_reduction_certificate.json": "c81f6ff8ca591259f88b7e638a5a0768c28fdfde49e34854dc12dfc0e0cf51e5",
     "software/conformal_models.py": "85a76b29d4ec5f66392ff249f5b1c0fce3cdbfd5120226d671d4123cfa2a3ebf",
@@ -118,13 +124,13 @@
   "documents": {
     "manuscript.pdf": {
       "path": "papers/manuscript.pdf",
-      "sha256": "1cc5f6cdb93d106948af1789c258f98a3747be3eaafdea3f841a3067377250d2",
-      "bytes": 1186635
+      "sha256": "cc92e93a77153633d0cc30c4b4bd78e239778fc9f35ff755e5cb4ac50efcb57d",
+      "bytes": 1211344
     },
     "verification_guide.pdf": {
       "path": "papers/verification_guide.pdf",
-      "sha256": "3d69546e6b5ab36bb4887f692f593e249da376a1de88238d97cf8fb229f69d5b",
-      "bytes": 227300
+      "sha256": "6391cee980838fad2926a423c4720be0a0b89d73ef598ef754094d1008f74749",
+      "bytes": 227597
     }
   }
 }

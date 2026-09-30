@@ -4,13 +4,13 @@
   "mode": "retained_receipt_audit",
   "mathematical_replay_performed": false,
   "whole_ring_decisions_changed": false,
-  "coverage_sha256": "4b1c7b84801a1158d05e5e06f7c5f23fbce9ee048d119eaf5d0416f8345139ab",
+  "coverage_sha256": "f536708b35fd41b8905d8c259c9d064b54abc515e02ad99513deefb33b7500a3",
   "results": [
     {
       "id": "R6_4_155",
       "passed": true,
       "mathematical_replay_performed": false,
-      "frozen_files_checked": 40,
+      "frozen_files_checked": 45,
       "receipts": [
         {
           "path": "verification/current/R6_4_155_general_reduction.json",
@@ -36,6 +36,11 @@
           "path": "research/frontier/R6_4_155/forced_twists_certificate.json",
           "predicate_passed": true,
           "embedded_hash_mismatches": []
+        },
+        {
+          "path": "research/frontier/R6_4_155/low_checks_certificate.json",
+          "predicate_passed": true,
+          "embedded_hash_mismatches": []
         }
       ],
       "issues": [],
@@ -45,7 +50,7 @@
       "id": "R6_8_1660",
       "passed": true,
       "mathematical_replay_performed": false,
-      "frozen_files_checked": 65,
+      "frozen_files_checked": 68,
       "receipts": [
         {
           "path": "research/round5/m8_1660_conductor/reduction_replay.json",
@@ -104,6 +109,11 @@
         },
         {
           "path": "research/frontier/R6_8_1660/fermion_profiles/fermion_profiles_certificate.json",
+          "predicate_passed": true,
+          "embedded_hash_mismatches": []
+        },
+        {
+          "path": "research/frontier/R6_8_1660/spin_profiles/spin_profiles_certificate.json",
           "predicate_passed": true,
           "embedded_hash_mismatches": []
         }

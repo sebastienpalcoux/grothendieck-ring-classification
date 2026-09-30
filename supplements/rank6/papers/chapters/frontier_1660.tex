@@ -401,6 +401,263 @@ It uses no optimizer and retains both low-one actions. The remaining count is
 $165+781+781=1727$.
 \end{proof}
 
+\subsubsection{An involution and higher-indicator constraints}
+
+Put $T=\sigma X$, $S=sY$, and
+$\mathcal A=\mathcal E_{\mathrm{ad}}$.
+All categories below carry their canonical positive spherical structures.
+
+\begin{proposition}[A tensor involution]\label{prop:1660-tensor-involution}
+There is a coherent tensor action of $C_2$ on $\mathcal C$ whose generator
+$\alpha$ exchanges $X,gX$ and fixes the other four simple classes.
+Consequently $\nu_n(X)=\nu_n(gX)$ for every $n\geq1$; their entire
+$n$th pivotal rotation representations are isomorphic.
+\end{proposition}
+\begin{proof}
+The nine simples of $\mathcal A$ are $1,p,q,e,s,ps,Y,qY,S$, and the
+relative-center forgetful functor has fibers
+\[
+ \{1,e\}\mapsto1,\quad\{p,q\}\mapsto g,\quad
+ \{s,ps\}\mapsto\sigma,\quad\{Y,qY\}\mapsto T,\quad
+ S\mapsto X\oplus gX.
+\]
+It is therefore dominant, and $\FPdim\mathcal A=2\FPdim\mathcal C$.
+The canonical central lift of $e=pq$ is a boson: its self-braiding is
+the product of the two Ising fermions' self-braidings. It generates a
+central $\operatorname{Rep}(C_2)$, with regular algebra $R=1\oplus e$.
+Moreover its half-braiding becomes trivial under $F$. Indeed, the
+explicit central lift above commutes with $(V,\gamma)$ by evaluating
+$\gamma$ at the underlying Ising object of $e$, which is isomorphic
+to $1$; naturality and the unit identity give ordinary unit commutation.
+Thus $F(R)$ is the split central algebra $1\oplus1$. Choosing either
+augmentation $F(R)\to1$, base change defines a tensor functor
+\[
+ \overline F:\mathcal A_R\longrightarrow\mathcal C,
+ \qquad M\longmapsto F(M)\otimes_{F(R)}1.
+\]
+It factors $F$ through the free-module functor and is dominant.
+De-equivariantization gives
+$\FPdim\mathcal A_R=\FPdim\mathcal A/2=\FPdim\mathcal C$,
+so $\overline F$ is an equivalence. Equivariantization and
+de-equivariantization therefore identify $\mathcal A$ with
+$\mathcal C^{C_2}$ \cite[Section~4.2, especially Theorem~4.18 and
+Proposition~4.26]{DGNO}. The underlying support of a simple equivariant
+object is a single group orbit; the displayed fibers force the stated
+action on simples. A tensor autoequivalence preserves the unique positive
+spherical structure and hence intertwines all pivotal rotations
+\cite{NSpiv}.
+\end{proof}
+
+\begin{lemma}[Parity within a restriction fiber]\label{lem:1660-fiber-parity}
+In every central restriction type with equal $1$ and $g$ multiplicities,
+the number of charge-even simples is even, and their twist multiset is
+invariant under $\theta\mapsto-\theta$. This applies to every remaining
+high type, including those asymmetric in $X,gX$.
+\end{lemma}
+\begin{proof}
+The braided autoequivalence $\widehat\alpha=Z(\alpha)$ preserves twists
+and fixes $h$, since $h$ is the unique central lift of $g$.
+The permutation $\beta(Z)=h\otimes\widehat\alpha(Z)$ of simple classes
+satisfies $\beta^2=1$, preserves monodromy charge $\epsilon_Z$, and has
+$\theta_{\beta(Z)}=-\epsilon_Z\theta_Z$. Its restriction vector is
+\[
+ (a_1,a_g,a_X,a_{gX},a_\sigma,a_T)
+ \longmapsto(a_g,a_1,a_X,a_{gX},a_\sigma,a_T).
+\]
+Thus it preserves each stated fiber and acts freely on its even part,
+pairing opposite twists. No assertion that tensoring with $h$ is a
+tensor autoequivalence is needed.
+\end{proof}
+
+\begin{proposition}[Odd rotation multiplicities]\label{prop:1660-odd-rotation}
+For every odd $n$, the cyclic rotation representation on
+$\operatorname{Hom}_{\mathcal C}(1,T^n)$ is twice that on
+$\operatorname{Hom}_{\mathcal E}(1,Y^n)$. In particular all its
+eigenvalue multiplicities are even, and, writing $\omega=\zeta_3$,
+\[
+ \nu_3(T)\in\{2,2\omega,2\omega^2,-4,-4\omega,-4\omega^2\}.
+\]
+\end{proposition}
+\begin{proof}
+For a pseudo-unitary category $\mathcal D$, the center formula gives
+\[
+ W_n(\mathcal D):=\sum_Vd_V\nu_n(V)
+   =\frac{\tau_n(Z(\mathcal D))}{\dim\mathcal D}
+   \quad\text{\cite[Theorem~4.1]{NS}}.
+\]
+Hence $W_n$ is Morita invariant and multiplicative under Deligne products.
+Use the established Morita equivalence
+$\mathcal E\sim\mathcal C\boxtimes\mathcal I^{\rm op}$.
+For odd $n$, the Ising factor contributes $W_n=1$; the odd component
+of $\mathcal E$ has zero indicators, and among the six $B$-simples
+in $\mathcal A$ only $1$ contributes. Since $Y^*=qY$, dual invariance
+\cite[Remark~4.2]{NS} yields
+\[
+ 2\sqrt2\nu_n(Y)+2\nu_n(S)
+ =\nu_n(X)+\nu_n(gX)+\sqrt2\nu_n(T).
+\]
+Indicators belong to $\mathbb Q(\zeta_n)$, which does not contain
+$\sqrt2$ for odd $n$. Comparing coefficients proves
+$\nu_n(T)=2\nu_n(Y)$ and
+$\nu_n(X)+\nu_n(gX)=2\nu_n(S)$.
+
+To obtain all rotation powers, let $r$ be odd. Since $Y^*=eY$,
+duality gives $[Y^r:e]=[Y^r:1]$. These are precisely the two simples
+in $\mathcal A$ whose forgetful image contains $1$, so
+$\dim\operatorname{Hom}_{\mathcal C}(1,T^r)
+=2\dim\operatorname{Hom}_{\mathcal E}(1,Y^r)$.
+Expanding $Y^r$ in the nine simple classes and using the preceding
+indicator identities also gives
+$\nu_m^{\mathcal C}(T^r)=2\nu_m^{\mathcal E}(Y^r)$ for every odd $m$.
+For the $k$th power of $n$th rotation put $r=\gcd(n,k)$ and $m=n/r$.
+Grouping $r$ adjacent tensor factors identifies rotation through $r$
+places with $m$th rotation on the object's $r$th power; raising to
+$k/r$ applies the cyclotomic automorphism
+$\zeta_m\mapsto\zeta_m^{k/r}$ to its trace. The preceding equality
+therefore doubles every character value. The identity character value
+is covered by the dimension equality.
+
+Finally the central fermion fixes $T$. Its self-braiding $-1$ gives
+the anticommuting left and right stabilizers of
+Proposition~\ref{prop:stabilizer-rotation}. Since
+$\dim\operatorname{Hom}(1,T^3)=8$, that proposition gives
+$\nu_3(T)=-(a+b\omega+c\omega^2)$ with $a+b+c=4$.
+The actual rotation multiplicities are $(4-a,4-b,4-c)$;
+their evenness makes $a,b,c$ even and leaves the six displayed values.
+\end{proof}
+
+\subsubsection{Homogeneous-packet Vafa equations}
+
+We combine Proposition~\ref{prop:1660-tensor-involution} and
+Lemma~\ref{lem:1660-fiber-parity} with a Vafa congruence using only
+known induction matrices.
+
+\begin{proposition}
+The $1727$ restriction profiles reduce further to $1670$.
+There are $18$ exclusions from the involution and $39$ additional exclusions
+from Anderson--Moore--Vafa equations and a sixteenth-indicator field test.
+Neither a braiding on $\mathcal C$ nor a braiding on its relative center
+is assumed.
+\end{proposition}
+\begin{proof}
+On simple labels of $Z(\mathcal C)$ consider
+$\beta(Z)=h\otimes Z(\alpha)(Z)$. It preserves the monodromy sign
+$\epsilon_Z$ with $h$, and
+\[
+ \theta_{\beta(Z)}=-\epsilon_Z\theta_Z.
+\]
+Its restriction vector exchanges the unit and $g$ coordinates and fixes
+the other four coordinates. Consequently, on every restriction fiber
+whose unit and $g$ multiplicities are both zero, its even sector is paired
+with opposite twists. The cardinality of this even sector is even.
+After the four forced low/high pairs are removed, all remaining high
+fibers have this form. In the previous orbit calculation this adds the
+condition that the number of even $h$-pairs joining two asymmetric
+restriction types is even. The other low-one alternatives remain allowed.
+
+Here is the Vafa specialization used for the second cut. In any ribbon
+fusion category with twists $\theta_i=\zeta_N^{k_i}$, the
+Anderson--Moore--Vafa equation \cite[Theorem~8.18.1]{EGNO} is
+\[
+ (\theta_i\theta_j\theta_m\theta_r)^{N_{ijm}^{r}}
+ =\prod_p\theta_p^{N_{ij}^{p}N_{pm}^{r}
+                     +N_{im}^{p}N_{jp}^{r}
+                     +N_{jm}^{p}N_{ip}^{r}}.
+\]
+Let $U=\bigoplus_i n_i i$ have one common twist
+$\zeta_N^\kappa$ on its constituents. Put $P=N_U$ and
+$a_j=[U^{\otimes j}]$. Multiplying the equations with weights
+$n_i n_j n_m$ gives the useful identity
+\[
+ (a_3)_r(3\kappa+k_r)
+     \equiv3\sum_p (a_2)_p P_{rp}k_p\pmod N.             \tag{V}
+\]
+This identity only requires the fusion matrix of the homogeneous-twist
+object $U$, rather than all simple fusion matrices.
+
+Apply it in $Z(\mathcal C)$, whose actual twist exponent divides $48$.
+Let $R$ be its restriction matrix and $A=I(1)$.
+The projection formula $A\otimes Z\cong I(F(Z))$ gives
+$N_A=R^{\mathsf T}R$. Split $A=A_+\oplus A_-$ into its four even and two
+odd low simples. Every constituent still has twist one. The fusion matrices
+of $A_+$ and $A_-$ are precisely the equal-charge and opposite-charge
+blocks of $R^{\mathsf T}R$, respectively. Thus they are known after an
+assignment of the fermion charges; no general center fusion reconstruction
+is involved.
+
+In the base order $(1,g,X,gX,\sigma,\sigma X)$ write
+\[
+ u_+=F(A_+)=(4,0,6,6,0,8),\qquad
+ u_-=F(A_-)=(2,2,6,6,0,8),
+\]
+and $H_+=\sum_{Z\text{ even}}v_Zv_Z^{\mathsf T}$, where $v_Z=F(Z)$.
+For a remaining high simple $Z$, use $U=A_+$ if $Z$ is even and $U=A_-$
+if $Z$ is odd. The coefficient of $Z$ in $U^3$ is
+\[
+ (a_3)_Z=v_Z^{\mathsf T}H_+u_-.
+\]
+For the even case, replacing $u_+$ by $u_-$ is legitimate:
+$H_+(u_+-u_-)=(8,-8,0,0,0,0)$, which pairs to zero with every
+remaining high vector.
+
+The four forced even low/high pairs contribute
+\[
+ H_+u_-=(144,144,648,648,0,848)
+       +\text{contributions of remaining even pairs}.
+\]
+For a sigma-free high vector
+$w=(0,0,b,c,0,a)$ put $x=b+c$. An even $h$-pair supported on
+$w,gw$ contributes, modulo $3$,
+\[
+ (0,0,2xa,2xa,0,a^2).
+\]
+The sigma-containing types have $a=3$ and contribute zero modulo $3$.
+The already imposed even dimension balance has square-root coefficient
+$120$, and hence $\sum 2xa\equiv0\pmod3$ over remaining even pairs.
+Put
+\[
+ T=\sum_{\text{remaining even pairs}}a^2\pmod3.
+\]
+It follows that
+\[
+ (a_3)_Z\equiv (v_Z)_{\sigma X}(T-1)\pmod3.
+\]
+Reducing (V) modulo $3$ therefore gives the spin constraint
+\[
+ (v_Z)_{\sigma X}(T-1)k_Z\equiv0\pmod3.                 \tag{S}
+\]
+
+Suppose a profile contains no sigma-free high type with positive
+sigma-X multiplicity divisible by $3$. If $T\ne1$, (S) says that every
+sigma-free high simple contributing to $I(\sigma X)$ has $3\mid k_Z$,
+so its twist order divides $16$. The sigma-containing high types already
+have twist order dividing $16$; low objects and their four forced high
+partners have twists $1$ and $-1$. Thus all simples in $I(\sigma X)$
+would have sixteenth power of their twist equal to one. The center
+indicator formula would give
+\[
+ \nu_{16}(\sigma X)=\dim(\sigma X)
+       =4+3\sqrt2+2\sqrt3+2\sqrt6.
+\]
+This is impossible: the left side is the trace of an order-sixteen cyclic
+rotation and lies in $\mathbb Q(\zeta_{16})$. The right side does not.
+For example, the automorphism $\zeta_{48}\mapsto\zeta_{48}^{17}$ fixes
+$\zeta_{16}$ and $\sqrt2$ but negates $\sqrt3$.
+Therefore such a profile must have $T=1\pmod3$.
+
+The exact bounded orbit calculation is now repeated with the new
+asymmetric-even parity condition and this single residue $T$.
+It excludes $18$ profiles by parity and a further $39$ by the spin/field
+condition, leaving branch sizes $164,753,753$.
+The portable verifier \texttt{verify\_spin\_profiles.py} first replays the
+previous $1727$-profile certificate and checks its surviving-index hashes.
+It uses only integer arithmetic and independently rechecks every rejected
+charge branch by a second recursion over the individual orbit counts.
+The small receipt \texttt{spin\_profiles\_certificate.json} records all
+excluded indices and the final count $1670$.
+\end{proof}
+
+
 \begin{corollary}\label{cor:1660-no-braiding}
 No categorification of $\RR{8}{1660}$ admits a braiding.
 \end{corollary}

@@ -246,6 +246,91 @@ low balancing; no root-order cutoff is assumed. This remains a necessary
 condition, not a realization or exclusion of profile $296$.
 \end{proof}
 
+\begin{remark}[What is determined]
+The unique retained profile and twist multiset do not determine complete
+modular data. The remaining entries of $S$, the remaining fusion
+matrices, and categorical existence are unknown. In particular, matching
+the displayed $T$-spectrum alone would not identify a category.
+\end{remark}
+
+\begin{proposition}[Duality and indecomposability]
+\label{prop:155-prime-centralizer}
+In profile $296$, the four simples of dimension $1+2d$ form two dual
+pairs. Only four residual duality assignments remain, giving respectively
+$10,12,$ or $14$ self-dual simples in $\mathcal B$.
+The modular category $\mathcal B$ is prime, and its rank-$16$ fermion
+centralizer is a nonsplit supermodular category.
+\end{proposition}
+\begin{proof}
+The two dimension-$1+2d$ constituents of $I(1)$ correspond to the
+characters $\phi_\pm$ with
+$\phi_\pm(X)=\pm i\sqrt2$ and $\phi_\pm(Y)=\mp i\sqrt2$.
+For either constituent $M$ and every center simple $Z$, ribbon duality
+and the low-character formula give
+\[
+ S_{M^*,Z}=S_{M,Z^*}
+   =d_M\phi_M(F(Z)^*).
+\]
+Thus duality exchanges these two character rows and hence the two
+constituents, since $S$ is invertible. Removing their common semion
+factor gives the dual pair of twist $-i$ in $\mathcal B$; their fermion
+translates give the pair of twist $i$. All other dualities are forced
+except on the two odd $2d$ pairs, of twists $uw$ and $uw^2$.
+On each pair duality is either the identity or the transposition. The
+ten already self-dual simples therefore acquire zero, two, or four more.
+
+A nontrivial modular factorization of rank $26$ would have a rank-two
+factor. Its nonunit simple has dimension $x$ satisfying
+$x^2=1+rx$, $r\in\ZZ_{\ge0}$. If $x$ is irrational, its
+$\QQ(\sqrt2)$-norm is $-1$, whereas the available norms are
+\[
+\begin{array}{c|rrrrrrr}
+ x&1&d&2d&3d&1+2d&1+4d&b\\\hline
+ N(x)&1&-2&-8&-18&9&1&36.
+\end{array}
+\]
+If $x$ is rational, the same equation forces $x=1,r=0$. But
+$\mathcal B$ has only one nonidentity invertible, its fermion, so its
+rank-two pointed subcategory is degenerate. This proves primeness.
+Finally, a splitting $\langle f\rangle'\simeq
+\mathrm{sVec}\boxtimes\mathcal A$ would give a modular rank-eight
+subcategory $\mathcal A\subset\mathcal B$. M\"uger decomposition
+\cite{DGNO} would then force $8\mid26$, a contradiction.
+\end{proof}
+
+\begin{proposition}[Near-group dimension comparison]
+\label{prop:155-neargroup-dimensions}
+If the Frobenius--Perron dimension of the center of a near-group
+categorification of group order $n$ and multiplicity $m$ is a positive
+rational multiple of $D^2$, then
+\[
+ (n,m)=(8,16)\quad\text{or}\quad(32,32).
+\]
+This is a necessary dimension comparison, not a construction or a
+Morita equivalence.
+\end{proposition}
+\begin{proof}
+Put $\rho^2=n+m\rho$ and $\Delta=n+\rho^2$. Rational dimension is
+impossible here. For the quadratic field trace and norm,
+\[
+ \frac{\Tr(\Delta^2)}{\sqrt{N(\Delta^2)}}
+   =\frac{m^2}{n}+2,
+ \qquad
+ \frac{\Tr(D^2)}{\sqrt{N(D^2)}}=34.
+\]
+These quotients are unchanged by positive rational scaling, so
+$m^2=32n$, or $m=8k,n=2k^2$ for a positive integer $k$.
+Pass to a pseudo-unitary Galois representative using the two-dimension
+reduction in Proposition~\ref{prop:inputs}(iv).
+The formal-codegree argument of \cite[Proposition~3.3]{SchTwo} gives
+$n\mid m$: the relevant induced simple has dimension
+$1+(m/n)\rho$, whose restriction forces $m/n$ to be an integer.
+This use of a Galois representative does not assume unitarity or
+pseudo-unitarity of the original category. Hence $k\mid4$.
+The case $(n,m)=(2,8)$ is excluded by
+\cite[Theorem~1.1]{SchTwo}, leaving the two displayed possibilities.
+\end{proof}
+
 
 \begin{proposition}[No braided Morita representative]
 \label{prop:155-no-braided-morita}
