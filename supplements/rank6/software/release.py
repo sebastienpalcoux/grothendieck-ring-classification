@@ -244,6 +244,12 @@ def build(verified_continuation=None):
             report['fourth_continuation_replay']='verification/round4/release_replay.json'
             report['fourth_continuation_frozen_inputs']='verification/round4/campaign_manifest.json'
             report['document_checks']='verification/round4/document_qa.json'
+        research=P/'research/round5/coverage.json'
+        if research.exists():
+            report['current_research_revision']='round5'
+            report['current_research_coverage']='research/round5/coverage.json'
+            report['current_research_coverage_sha256']=hashlib.sha256(research.read_bytes()).hexdigest()
+            report['document_checks']='verification/round5/document_qa.json'
         target=P/'verification/continuation/release_summary.json';target.parent.mkdir(parents=True,exist_ok=True)
         target.write_text(json.dumps(report,indent=2)+'\n')
         (P/'verification/release_summary.json').write_text(json.dumps(report,indent=2)+'\n')

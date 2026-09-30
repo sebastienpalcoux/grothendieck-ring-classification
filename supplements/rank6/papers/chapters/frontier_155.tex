@@ -1,0 +1,124 @@
+\subsection{The finite centralizer frontier for $R^\prime(4)$}
+\label{sec:frontier-155}
+
+The ring $R6\_4\_155$ remains unresolved.  The new certificate replaces its
+previous necessary-data witness by a complete finite list of six
+induction profiles, each with a forced pair of low fusion matrices in a
+semion centralizer.  This is a reduction of the categorification problem, not an
+existence claim for any profile.
+
+Write the basis as $\mathbf1,X,X^*,h,g,hg$, where the invertibles form
+$C_2^2$, $h$ fixes $X,X^*$, and $g$ exchanges them.  The exact dimension
+and products are
+\[
+ d=4+3\sqrt2,\qquad D=72+48\sqrt2,\qquad
+ X^2=g+hg+4X+4X^*,\quad XX^*=\mathbf1+h+4X+4X^*.
+\]
+The previously certified sphericalization reduction applies to every
+categorification of this ring.  We therefore use its pseudo-unitary
+Galois representative throughout the necessary-data computation.
+
+First apply the pointed version of
+Proposition~\ref{prop:central-subcategory-projection} to all three
+involutions.  If a central simple restricts with a nonzero coefficient of
+an involution $k$, its twist has square $\nu_2(k)$.  Of the ten ordinary
+induction frames, only one survives the resulting exact systems.  Its six
+low columns are
+\[
+ (1,0,0,0,0,0),\quad (1,2,2,0,0,0),\quad
+ (1,2,2,1,0,0)\ \text{twice},\quad
+ (1,1,1,0,0,0)\ \text{twice}.
+\]
+Its four character labellings differ by permutations of equal columns;
+the verifier checks the permutations explicitly.  The surviving second
+indicators, in the displayed basis order after the unit, are
+$(0,0,1,-1,-1)$.  This first reduction uses twenty-eight exact Farkas
+certificates.
+
+The exact right-$(\mathbf1\oplus h)$ module enumeration has one
+anti-invariant representation, in which $h$ exchanges the two module
+structures on both $X$ and $X^*$.  Proposition~\ref{prop:stabilizer-rotation}
+applies to these non-self-dual objects: its hypothesis concerns left and
+right stabilizers and does not require self-duality.  Since
+$[X^3:\mathbf1]=[(X^*)^3:\mathbf1]=4$, the third indicators have the form
+$-(a+b\zeta_3+c\zeta_3^2)$ with $a+b+c=2$.  Their normalized relative
+traces to $\mathbb Q(\zeta_8)$ belong to
+$\{-2,-\tfrac12,1\}$.  Duality gives the same value for $X$ and $X^*$.
+Eight further exact Farkas certificates exclude the first two values in
+all four labellings.
+
+The remaining bounded Gram--Galois lattice has exactly $1066$ integral
+profiles; an independent optimizer-free recursion enumerates all of them.
+The unique central object restricting to the unit makes the image of
+central invertibles injective.  Subgroup closure and their tensor
+permutation of restriction types leave $874$ profiles.  The unified joint
+restriction--word Gram criterion, using all fifteen quadratic and
+thirty-five cubic low words, excludes $772$ profiles by an empty exact
+coefficient domain and four by exact Farkas inequalities.  Coupling the
+remaining coefficient vectors to the same twist-trace variables and
+imposing ribbon balancing excludes another $39$ profiles.  For the
+non-self-dual low pair the balancing target is $S_{A_a^*,A_b}$, as in
+Proposition~\ref{prop:projected-product-balancing}.
+
+All $59$ remaining profiles force unique central lifts of $h,g,hg$.
+Their twists satisfy $q(g),q(hg)\in\{i,-i\}$.  The lift of $h$ is
+fermionic: a bosonic lift would allow de-equivariantization by
+$\mathbf1\oplus h$, and the fixed simple $X$ would split into objects of
+dimension $d/2$; its norm is $-1/2$, contradicting algebraic integrality.
+If $q(g)=q(hg)$, the pointed monodromy form has trivial radical; otherwise
+its radical is $\langle h\rangle$.  The exact divisibility test in
+Proposition~\ref{prop:pointed-stabilizer-divisibility} leaves respectively
+seven and twenty-five profiles, with the former contained in the latter.
+
+Finally the central lift of $g$ generates a nondegenerate semion
+subcategory, so the \emph{center} decomposes as its product with a modular
+centralizer $\mathcal E$.  Restriction columns occur in pairs $(v,gv)$.
+The low monodromies select the low objects $\mathbf1,A_1,A_2$ in
+$\mathcal E$, hence the restricted adjoint algebra is
+$\mathbf1\oplus A_1\oplus A_2$.  For every endpoint orientation the
+restricted adjunction identity is
+\[
+ V^{\mathsf T}V=I+N_{A_1}+N_{A_2}.
+\]
+Exhaustive endpoint enumeration, closure under duality, and restriction
+compatibility leave fifteen profiles and thirty orientations.  The
+possible center ranks are
+\[
+ 30,32,36,38,40,42,44,46,48,52,54,60.
+\]
+No decomposition of the original unbraided category is asserted.
+
+The remaining adjunction matrix splits by
+Corollary~\ref{cor:graded-adjunction-splitting}.  The monodromy charges of $A_1,A_2$ against $h$ are respectively
+$+1,-1$.  For any assignment $\epsilon_i\in\{\pm1\}$ to the centralizer
+simples, $N_{A_1}$ is the same-charge block of $V^{\mathsf T}V-I$, and
+$N_{A_2}$ is the complementary block.  Equal restriction columns are
+permuted freely, so the verifier enumerates charge counts within each
+type rather than labelled sign vectors.  It enforces the known low
+charges, duality, restriction products, and commutation.  In the opposite
+quadratic form the centralizer contains the fermion $h$, which preserves
+charges and cannot fix a charge-$+1$ simple.  In the equal quadratic form
+it contains the semion $hg$, whose tensor action reverses charges.
+These exact finite tests leave six profiles and nine low-matrix pairs.
+
+Complex conjugation of the entire pseudo-unitary category preserves its
+positive dimensions and restriction columns and conjugates all twists.
+The checked low-labelling permutations therefore allow the normalization
+$q(g)=i$.  Three exact simultaneous-pointed-action and ribbon-balancing
+rays eliminate the remaining equal-form pairs.  The final six profiles
+have center ranks $44,46,48,52,54,60$, and each has one forced pair
+$(N_{A_1},N_{A_2})$ in the opposite quadratic form.  The surviving profile
+indices in the independently reconstructed enumeration are
+$275,277,279,296,298,306$.
+
+
+The compact certificate is
+\texttt{research/round5/m4\_155/frontier\_certificate.json}; its independent
+reconstruction is \texttt{replay\_frontier.py}.  The final packet
+reconstruction is \texttt{replay\_packets.py}, with output
+\texttt{packet\_frontier.json}.  The packet replay also reconstructs the charge splittings and the three
+final rays.  Both replay programs disable numerical
+optimizers and use explicit checks that remain active under
+\texttt{python -O}.  Full fusion associativity and modular completion of
+this finite frontier remain necessary before any categorification can be
+claimed.

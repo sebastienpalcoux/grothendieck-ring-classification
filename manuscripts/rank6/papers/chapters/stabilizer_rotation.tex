@@ -111,27 +111,58 @@ $\QQ(\zeta_N)\cap\QQ(\zeta_3)=\QQ$. Hence $b=c$, and
 $a+2b=m/2$ gives the rational-value list.
 \end{proof}
 
-\begin{corollary}[Averaged third-indicator bound]
+\begin{remark}[No self-duality requirement]
+The stabilizer-rotation proposition applies equally to a non-self-dual
+simple $Y$. Its hypotheses and proof use isomorphisms $gY\cong Y\cong Yg$,
+not an isomorphism $Y\cong Y^*$. In particular, rigidity gives
+\[
+ m=\dim\operatorname{Hom}(\mathbf1,Y^{\otimes3})=N_{Y,Y}^{Y^*};
+\]
+one must not replace the last index by $Y$ unless $Y$ is self-dual.
+The pair-insertion operators act on $Y^3$ itself, and naturality of pivotal
+rotation applies to $Y^2$ and its endomorphism $a$ without dualizing $Y$.
+Thus the same Clifford multiplicity formula applies to each member of a
+dual pair separately.
+\end{remark}
+
+\begin{corollary}[Projected third-indicator spectrum]
 \label{cor:stabilizer-average}
 Under the hypotheses of Proposition~\ref{prop:stabilizer-rotation},
 \[
- -m/2\le\operatorname{Re}\nu_3(Y)\le m/4.
-\]
-More precisely, its possible real parts belong to the finite set
-\[
+ -m/2\le\operatorname{Re}\nu_3(Y)\le m/4,
+ \qquad
+ \operatorname{Re}\nu_3(Y)\in
  \{m/4-3a/2: a=0,1,\ldots,m/2\}.
 \]
-For any real number field $K$, the normalized relative Galois average
-of $\nu_3(Y)$ over $K$ equals this real part. Thus the same bounds apply
-to the relative traces used in the finite central-induction tests,
-without assuming $3$ coprime to the Frobenius--Schur exponent.
+Let $K$ be any number field satisfying
+$K\cap\mathbb Q(\zeta_3)=\mathbb Q$. The normalized relative trace of
+$\nu_3(Y)$ to $K$ equals its real part and therefore belongs to the
+displayed finite set. This includes every real number field and the
+complex cyclotomic field $\mathbb Q(\zeta_8)$.
+If instead $K$ contains $\zeta_3$, the unprojected possibilities are the
+full set
+\[
+ \{-(a+b\zeta_3+c\zeta_3^2):
+       a,b,c\in\mathbb Z_{\ge0},\ a+b+c=m/2\}.
+\]
 \end{corollary}
 \begin{proof}
-The preceding formula gives
-$\operatorname{Re}\nu_3(Y)=-a+(b+c)/2$ with $a+b+c=m/2$.
-Since $K\subset\mathbb R$ cannot contain $\zeta_3$, averaging over $K$
-pairs the two embeddings of $\QQ(\zeta_3)$ and gives the real part.
+The preceding proposition gives
+$\nu_3(Y)=-(a+b\zeta_3+c\zeta_3^2)$ with $a+b+c=m/2$.
+Its real part is $-a+(b+c)/2=m/4-3a/2$, which gives the stated set and
+bounds. Under the intersection hypothesis, $K(\zeta_3)/K$ is quadratic
+and its nontrivial automorphism exchanges $\zeta_3$ and $\zeta_3^2$.
+Consequently its normalized relative trace sends both roots to $-1/2$,
+and sends the indicator to $-a+(b+c)/2$. Transitivity gives the same
+value when the trace is taken from any larger common field.
+The quadratic field $\mathbb Q(\zeta_3)=\mathbb Q(\sqrt{-3})$ does not
+embed into $\mathbb Q(\zeta_8)$: the latter's three quadratic subfields
+are $\mathbb Q(i)$, $\mathbb Q(\sqrt2)$ and
+$\mathbb Q(\sqrt{-2})$. This proves the stated complex-field example.
+When $K$ contains $\zeta_3$, normalized trace fixes the entire indicator,
+so the original Clifford multiplicity set must be retained.
 \end{proof}
+
 
 \begin{corollary}\label{cor:frontier-third-indicators}
 Every pseudo-unitary categorification of $\RR{3}{215}$, in the basis

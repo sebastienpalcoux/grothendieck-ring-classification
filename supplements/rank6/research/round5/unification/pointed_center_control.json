@@ -1,0 +1,63 @@
+{
+  "passed": true,
+  "optimizer_used": false,
+  "optimized_python": true,
+  "cases": [
+    {
+      "category": "Vec_C2",
+      "center_simples": 4,
+      "low_simples": 2,
+      "low_duality": [
+        0,
+        1
+      ],
+      "quadratic_words": 3,
+      "cubic_words": 4,
+      "joint_domain_complete": true,
+      "gram_count_equations": 1,
+      "paired_twist_rows": 3,
+      "coupled_rows": 5,
+      "refined_variables": 2,
+      "known_integer_point": [
+        1,
+        1
+      ],
+      "full_center_ribbon_equations": 16,
+      "wrong_star_failures": 0,
+      "limitation": "Low words stay electric; high coefficients vanish. Full-center ribbon identities independently test the complex star convention."
+    },
+    {
+      "category": "Vec_C3",
+      "center_simples": 9,
+      "low_simples": 3,
+      "low_duality": [
+        0,
+        2,
+        1
+      ],
+      "quadratic_words": 6,
+      "cubic_words": 10,
+      "joint_domain_complete": true,
+      "gram_count_equations": 2,
+      "paired_twist_rows": 12,
+      "coupled_rows": 16,
+      "refined_variables": 6,
+      "known_integer_point": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "full_center_ribbon_equations": 81,
+      "wrong_star_failures": 48,
+      "limitation": "Low words stay electric; high coefficients vanish. Full-center ribbon identities independently test the complex star convention."
+    }
+  ],
+  "source_sha256": {
+    "software/round5_unified.py": "07ac3ce9e96b9efcbb054197d55b56133f805adf626cbbb5a1c49d5329585fb1",
+    "software/round5_balancing.py": "94e6acdacdabe76615b7571dad716327ae03bc87fd66491d5e41d12681878492",
+    "research/round5/unification/pointed_center_control.py": "1d6809caf5b4176e7adb1762fc2f924da18dfdde1b8d9899c58d4c714e6796ae"
+  }
+}

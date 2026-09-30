@@ -1,0 +1,156 @@
+{
+  "passed": true,
+  "optimizer_used": false,
+  "python_optimized": true,
+  "category": "Fibonacci",
+  "center": "Fibonacci x Fibonacci^rev",
+  "support": {
+    "metadata": {
+      "ambient_conductor": 5,
+      "calculation_conductor": 10,
+      "galois_representatives": [
+        1,
+        2
+      ],
+      "character_root_order": 2,
+      "saturated_characters": [
+        {
+          "conductor": 1,
+          "phases": [
+            0,
+            0
+          ],
+          "fourier": [
+            "1"
+          ]
+        },
+        {
+          "conductor": 5,
+          "phases": [
+            0,
+            1
+          ],
+          "fourier": [
+            "2/5",
+            "-2/5",
+            "0",
+            "-1/5"
+          ]
+        }
+      ]
+    },
+    "columns": [
+      {
+        "column": [
+          1,
+          0
+        ],
+        "order_bound": 1,
+        "active_conductors": [
+          1,
+          5
+        ],
+        "coefficients": [
+          [
+            "1"
+          ],
+          [
+            "2/5",
+            "-2/5",
+            "0",
+            "-1/5"
+          ]
+        ]
+      },
+      {
+        "column": [
+          0,
+          1
+        ],
+        "order_bound": 5,
+        "active_conductors": [
+          5
+        ],
+        "coefficients": [
+          [],
+          [
+            "-4/5",
+            "4/5",
+            "0",
+            "2/5"
+          ]
+        ]
+      },
+      {
+        "column": [
+          0,
+          1
+        ],
+        "order_bound": 5,
+        "active_conductors": [
+          5
+        ],
+        "coefficients": [
+          [],
+          [
+            "-4/5",
+            "4/5",
+            "0",
+            "2/5"
+          ]
+        ]
+      },
+      {
+        "column": [
+          1,
+          1
+        ],
+        "order_bound": 1,
+        "active_conductors": [
+          1,
+          5
+        ],
+        "coefficients": [
+          [
+            "1"
+          ],
+          [
+            "-2/5",
+            "2/5",
+            "0",
+            "1/5"
+          ]
+        ]
+      }
+    ]
+  },
+  "order_two_mutation_rejected": true,
+  "source_sha256": {
+    "software/dimension_block_support.py": "8ba5d62f147222142a7ef41d059449260e96230e913aa564961cc21894c16154",
+    "research/round5/unification/equality_modrep.py": "263ae63bf25893d1c6ae62831bbdf8a163c0621286fdb2403afcb972eb1d6ca5",
+    "research/round5/unification/conductor_support_control.py": "2ea164c4acfd90d52b7c017188cfb8648e2bd233ed6671c529d9adf54273b7d6"
+  },
+  "modular_moment_controls": [
+    {
+      "conductor": 1,
+      "induced_dimension": 1,
+      "equality_dimension": 1,
+      "cyclic_dimension": 1,
+      "moment_relations": 0,
+      "forbidden_root_powers": [],
+      "all_twists_one_failures": 0
+    },
+    {
+      "conductor": 5,
+      "induced_dimension": 6,
+      "equality_dimension": 1,
+      "cyclic_dimension": 3,
+      "moment_relations": 4,
+      "forbidden_root_powers": [
+        1,
+        4
+      ],
+      "all_twists_one_failures": 4
+    }
+  ]
+}

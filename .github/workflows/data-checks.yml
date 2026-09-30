@@ -13,6 +13,7 @@ jobs:
       - run: python tools/restore_data.py
       - run: python supplements/rank6/check_manifest.py
       - run: python tools/validate_release.py
+      - run: python tools/render_publication_docs.py --check
       - run: |
           python tools/render_readme.py
           git diff --exit-code README.md

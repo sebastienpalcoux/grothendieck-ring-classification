@@ -1,0 +1,79 @@
+\subsection{The multiplicity-five frontier}
+\label{sec:frontier-1204}
+
+\begin{proposition}\label{prop:1204-finite-profiles}
+Every complex categorification of $\RR{5}{1204}$ is spherical and has a
+pseudo-unitary Galois conjugate. Its central induction matrix belongs,
+up to permutation of central simples, to an explicitly certified list of
+$171$ restriction profiles. Their central ranks lie between $22$ and $51$.
+The list is a necessary condition; it supplies neither a categorification
+nor a complete fusion ring or modular datum for the center.
+\end{proposition}
+
+\begin{proof}
+The unrestricted signed-sphericalization test of Section~\ref{sec:signed}
+enumerates $512$ associative signed quotient tables, partitioned into
+$16$ sign-gauge orbits. One orbit consists of gauges of the original
+fusion tensor. The exact dimension-character tests reject all $46$
+character components on the other orbit representatives. As in the
+sphericality argument of Proposition~\ref{prop:frontier-galois-pu}, a
+categorification must therefore admit a spherical structure. Among the
+character components of the original ring, the only one without a zero
+simple dimension is the Frobenius--Perron orbit. Conjugating to its
+positive embedding gives pseudo-unitarity. The positive global dimension
+is $336+192\sqrt3$.
+
+We may consequently apply the central-induction criteria with positive
+dimensions. Exhaustive low-column enumeration gives $39$ frames. Only
+two admit the required character assignments. Both assignments on the
+first frame are excluded by exact full-character twist equations. The
+second frame has three identical low restriction columns; its six
+assignments are precisely the permutations of those columns. Relabelling
+the corresponding low simples identifies these six necessary-data
+problems, so one representative suffices.
+
+For this representative, write the restriction Gram equations, joint
+Galois multiplicity equations, and low cubic-word equations as an
+integer nonnegative system $An=b$. Here $n$ includes both high-column
+counts and low fusion multiplicities. The supplement records $165$
+exact bound certificates. Each upper bound $n_j\le B$ is proved by a
+separating functional for the augmented system
+\[
+ An=b,\qquad n_j-s=B+1,\qquad n,s\ge0;
+\]
+its infeasibility and integrality exclude $n_j\ge B+1$. Replacing $n_j$
+by $-n_j$ gives lower bounds in the same way. Every bound is checked
+against the preceding certified system. Bounded affine-lattice
+enumeration then visits $293972$ nodes and produces exactly $39800$
+high restriction profiles. Requiring integral nonnegative low-word
+multiplicities through degree six and nonnegative restriction remainders
+leaves $1833$ profiles.
+
+For all unordered pairs of nonunit low simples, apply
+Theorem~\ref{thm:joint-restriction-word-gram}. The profiles determine
+$43$ distinct joint restriction--word Gram matrices. The exact fixed-column
+Schur bounds of Lemma~\ref{lem:exact-rank-one-gram} enumerate every possible
+joint coefficient column. The resulting count, Gram, and restriction
+systems exclude $1568$ profiles by exact separating functionals. The
+height-three full-character twist systems exclude another $91$.
+Two additional joint count systems have inconsistent parity equations.
+Finally, adjoining all cubic words in the last three low simples gives
+an exact joint Gram obstruction for one further profile. Thus precisely
+\[
+ 1833-1568-91-2-1=171
+\]
+profiles remain in the certified necessary domain. None is discarded
+because a numerical optimizer reports infeasibility or exhausts its
+running-time budget.
+
+The complete certificate is
+\filename{research/round5/m5_1204/profile_certificate.json}; the sparse
+retained matrices are in
+\filename{research/round5/m5_1204/remaining_profiles.json}.
+The replay program \filename{software/round5_1204.py}, with its exact
+bounded integer enumerator \filename{software/round5_1204.cpp}, reconstructs
+all low frames, the labelling quotient, every integral bound, the complete
+profile enumeration, and every joint-column domain before checking the
+separating and congruence certificates. Numerical optimization is disabled
+during replay, including under Python's optimized execution mode.
+\end{proof}

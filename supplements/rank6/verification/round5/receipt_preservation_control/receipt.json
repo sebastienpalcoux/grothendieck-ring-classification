@@ -1,0 +1,29 @@
+{
+  "passed": true,
+  "mathematical_replay_performed": true,
+  "scope": "one exact supplementary R155 replay plus preservation of its retained receipt",
+  "retained_receipt_unchanged": true,
+  "result": {
+    "id": "R6_4_155",
+    "passed": true,
+    "mathematical_replay_performed": true,
+    "steps": [
+      {
+        "argv": [
+          "python",
+          "-O",
+          "research/round5/m4_155/replay_algebra_saturation.py"
+        ],
+        "log": "verification/round5/receipt_preservation_control/R6_4_155/01.log",
+        "passed": true,
+        "returncode": 0,
+        "receipt": "verification/round5/receipt_preservation_control/R6_4_155/01.algebra_saturation_replay_O.json",
+        "fresh_receipts": [
+          "verification/round5/receipt_preservation_control/R6_4_155/01.algebra_saturation_replay_O.json"
+        ],
+        "seconds": 12.505
+      }
+    ],
+    "seconds": 12.506
+  }
+}

@@ -1,0 +1,292 @@
+\subsection{Subcategory projection and exact twist support}
+\label{sec:subcategory-projection}
+
+Information about the center of a proper fusion subcategory imposes constraints
+on individual restriction columns of the ambient center. It does not require
+a braiding on the ambient fusion category, or an extension of a chosen
+subcategory braiding.
+
+\begin{proposition}\label{prop:central-subcategory-projection}
+Let $\mathcal D\subset\mathcal C$ be a full fusion subcategory of a pivotal
+fusion category, with the inherited pivotal structure. Let $P(V)$ be the sum
+of all simple summands of $V$ belonging to $\mathcal D$.
+If $(V,c)$ is an object of $Z(\mathcal C)$, then $P(V)$ has a canonical
+$\mathcal D$-half-braiding. If $V$ is central simple with twist $\lambda$,
+every simple constituent of $P(V)$ in $Z(\mathcal D)$ has twist $\lambda$.
+Consequently, writing $F_{\mathcal D}:Z(\mathcal D)\to\mathcal D$ for the
+forgetful functor, the $\mathcal D$-part of a central restriction column
+belongs to the nonnegative integral span of the columns
+$[F_{\mathcal D}(W)]$ with $\theta_W=\lambda$.
+\end{proposition}
+\begin{proof}
+The complement of $\mathcal D$ is stable under tensoring on either side by
+objects of $\mathcal D$. Indeed, if a simple $S\notin\mathcal D$ and
+$X,T\in\mathcal D$ satisfy $\operatorname{Hom}(T,X\otimes S)\ne0$,
+rigidity makes $S$ a constituent of $X^*\otimes T\in\mathcal D$, a
+contradiction. Hence $P$ is a projection of $\mathcal D$-bimodule categories.
+Put $W=P(V)$ and choose $i:W\to V$, $p:V\to W$ with $pi=1_W$.
+For $X\in\mathcal D$ the maps
+\[
+ c^W_X=(1_X\otimes p)c_X(i\otimes1_X)
+\]
+are isomorphisms. Naturality and the half-braiding identity restrict to this
+summand, so they make $W$ an object of $Z(\mathcal D)$.
+
+It remains to check the twist, rather than merely the half-braiding.
+Suppress associators and use the Drinfeld isomorphism
+\[
+ u_V=(\operatorname{ev}_V\otimes1_{V^{**}})
+       (c_{V^*}\otimes1_{V^{**}})
+       (1_V\otimes\operatorname{coev}_{V^*}):V\longrightarrow V^{**}.
+\]
+The duality identities give
+\[
+ \begin{split}
+ (1_{V^*}\otimes p^{**})\operatorname{coev}_{V^*}
+   &=(p^*\otimes1_{W^{**}})\operatorname{coev}_{W^*},\\
+ \operatorname{ev}_V(p^*\otimes1_V)
+   &=\operatorname{ev}_W(1_{W^*}\otimes p).
+ \end{split}
+\]
+Using naturality of $c$ in its second argument between these two identities
+gives $p^{**}u_Vi=u_W$. If $j$ denotes the pivotal isomorphism, then
+$p^{**}j_Vi=j_W$. With the convention $\theta=u^{-1}j$, central simplicity
+gives $u_V=\lambda^{-1}j_V$, and therefore
+$u_W=\lambda^{-1}j_W$. Thus $\theta_W=\lambda1_W$.
+Decomposing $W$ into central simples proves the integral-span assertion.
+The opposite twist convention gives the same conclusion when used in both
+centers.
+\end{proof}
+
+\begin{proposition}[Modular subcategory projection]
+\label{prop:modular-subcategory-projection}
+Suppose $\mathcal C$ is pseudo-unitary and $\mathcal D\subset\mathcal C$
+is a full fusion subcategory, both with their positive spherical structures.
+Let $\Pi:Z(\mathcal C)\to Z(\mathcal D)$ be the additive central
+projection constructed above, and put
+\[
+ B_{WZ}=\dim\operatorname{Hom}_{Z(\mathcal D)}(W,\Pi Z).
+\]
+For the canonical normalized modular matrices of the two centers,
+\begin{equation}\label{eq:subcategory-modular-intertwiner}
+ S_{\mathcal D}B=BS_{\mathcal C},\qquad
+ T_{\mathcal D}B=BT_{\mathcal C},\qquad
+ B_{W,\mathbf1}=\delta_{W,\mathbf1}.
+\end{equation}
+In particular, each individual simple $W\in Z(\mathcal D)$ has the mass
+and capacity bounds
+\begin{equation}\label{eq:individual-central-projection-capacity}
+ \sum_Z B_{WZ}d_Z
+   =\frac{D_{\mathcal C}}{D_{\mathcal D}}d_W,
+ \qquad
+ B_{WZ}d_Z\le\frac{D_{\mathcal C}}{D_{\mathcal D}}d_W.
+\end{equation}
+The second inequality concerns one ambient central simple and one
+subcategory central simple, even if several $W$ have the same twist and
+forgetful image.
+\end{proposition}
+\begin{proof}
+Regard $\mathcal M=\mathcal C$ as a
+$\mathcal D$--$\mathcal C$ bimodule by tensor multiplication.
+It is indecomposable, since its right $\mathcal C$ action alone generates
+every simple from the unit. The full center of this module category is a
+Lagrangian algebra
+\[
+ L\in Z(\mathcal D)\boxtimes Z(\mathcal C)^{\mathrm{rev}};
+\]
+see the module-category full-center construction
+\cite[Section~6, Theorem~6.2]{DavydovCentre} and the correspondence
+\cite[Proposition~4.8]{DMNO}. We identify its multiplicities explicitly.
+For $W\in Z(\mathcal D)$ and $Z\in Z(\mathcal C)$, define bimodule
+endofunctors on $\mathcal M$ by
+\[
+ L_W(X)=F_{\mathcal D}(W)\otimes X,
+ \qquad R_Z(X)=X\otimes F_{\mathcal C}(Z).
+\]
+Their left and right module structures use the respective half-braidings.
+The defining full-center adjunction identifies the coefficient of
+$W\boxtimes Z^*$ with
+$\dim\operatorname{Nat}_{\mathcal D-\mathcal C}(L_W,R_Z)$.
+A right $\mathcal C$-module natural transformation is determined by its
+component at the unit, a map
+$f:F_{\mathcal D}(W)\to F_{\mathcal C}(Z)$.
+Its left $\mathcal D$-linearity says precisely
+\[
+ c^Z_X(f\otimes1_X)=(1_X\otimes f)c^W_X
+       \qquad(X\in\mathcal D).
+\]
+Because its source belongs to $\mathcal D$, $f$ factors uniquely through
+$P(F_{\mathcal C}(Z))$. The displayed condition then says that this
+factorization is a morphism $W\to\Pi Z$ in $Z(\mathcal D)$.
+Consequently
+\[
+ L\cong\bigoplus_{W,Z}B_{WZ}\,W\boxtimes Z^*.
+\]
+This fixes the dual convention: when $\mathcal D=\mathcal C$, $B$ is the
+identity and $L$ is the usual diagonal Lagrangian algebra.
+
+The class of a Lagrangian algebra is fixed by the canonical normalized
+$S$ and $T$. Indeed, the Morita description identifies it with induction
+of the unit in a center, where this is
+\cite[Theorem~2.5, Proposition~2.8]{Ostrik3}; the positive spherical
+structures make the center equivalence ribbon. Let $C_{\mathcal C}$ be
+the duality permutation of the ambient center. The coefficient matrix
+of $L$ is $BC_{\mathcal C}$, and the reversed center has matrix
+$\overline{S_{\mathcal C}}=S_{\mathcal C}^{-1}$ and inverse twists.
+Thus invariance is
+\[
+ S_{\mathcal D}BC_{\mathcal C}S_{\mathcal C}^{-1}
+       =BC_{\mathcal C},\qquad
+ T_{\mathcal D}BC_{\mathcal C}T_{\mathcal C}^{-1}
+       =BC_{\mathcal C}.
+\]
+Duality commutes with both matrices, so these equalities give the first
+two identities in \eqref{eq:subcategory-modular-intertwiner}.
+Projection sends the ambient central unit to the subcategory central
+unit, proving the last identity. Finally compare the ambient-unit column
+of $S_{\mathcal D}B=BS_{\mathcal C}$ and use
+$S_{\mathcal D,W0}=d_W/D_{\mathcal D}$ and
+$S_{\mathcal C,Z0}=d_Z/D_{\mathcal C}$.
+Positivity of all summands proves the individual capacity inequality.
+\end{proof}
+
+\begin{corollary}[Disjoint central projection rows]
+\label{cor:disjoint-central-projection}
+In the setting of Proposition~\ref{prop:modular-subcategory-projection},
+suppose every ambient central simple projects either to zero or to a
+single simple of $Z(\mathcal D)$ with multiplicity one. Then, for a
+positive integer $r$,
+\[
+ BB^{\mathsf T}=rI.
+\]
+Thus $B^{\mathsf T}/\sqrt r$ is an isometric intertwining embedding of
+the entire canonical modular representation of $Z(\mathcal D)$ into
+that of $Z(\mathcal C)$. Its $T$-spectrum can be subtracted before the
+finite-quotient representation test. Any signed charge-conjugation
+bound for the complement is obtained by subtracting this known
+subrepresentation's signed trace from the corresponding full-space
+bound; it need not be nonnegative.
+\end{corollary}
+\begin{proof}
+The hypothesis says each column of $B$ is zero or a standard basis
+vector. Hence $BB^{\mathsf T}$ is diagonal, with entries equal to the
+numbers of simples in the projection fibers. Each entry is positive
+by \eqref{eq:individual-central-projection-capacity}. The normalized
+modular representations are unitary, so the intertwining identities
+imply that $BB^{\mathsf T}$ commutes with $S_{\mathcal D}$ and
+$T_{\mathcal D}$. Comparing its $W,\mathbf1$ entries and using
+$S_{\mathcal D,W\mathbf1}=d_W/D_{\mathcal D}>0$ shows that all diagonal
+entries equal the same positive integer $r$. The embedding and the
+subtraction statements follow by taking adjoints. The orthogonal
+complement is a representation space, but is not required to have a
+simple basis permuted by charge conjugation.
+\end{proof}
+
+The disjoint-column hypothesis must be verified. The exact categorical
+control \filename{research/round5/unification/subcategory_intertwiner_control.py}
+derives $S$, $T$ and $B$ from finite group character sums for
+$\mathrm{Vec}(C_2),\mathrm{Vec}(C_3)\subset\mathrm{Vec}(S_3)$.
+Both rectangular modular identities and all individual masses hold.
+The second projection has rank five although its target center has rank
+nine, illustrating why a general subcategory inclusion alone does not
+justify subtracting the entire target representation. Mutating one
+restriction multiplicity violates the checked $S$-identity.
+
+For an Ising subcategory, the two twist-minus-one simples of its center
+are $\mathbf1\boxtimes g$ and $g\boxtimes\mathbf1$, each of dimension
+one. Hence every high ambient central simple whose restriction contains
+$g$ has dimension at most $D_{\mathcal C}/4$. This is stronger than the
+combined twist-minus-one mass $D_{\mathcal C}/2$.
+For $\mathcal D=\mathrm{Vec}$, the same proposition says that the
+multiplicity vector of $I_{\mathcal C}(\mathbf1)$ is fixed by $S$ and $T$;
+thus the full modular representation contains a trivial constituent.
+
+The projection also gives exact, twist-resolved dimension identities.
+Here and below spherical structures are inherited, so the centers carry their
+standard ribbon structures.
+
+\begin{corollary}\label{cor:subcategory-twist-masses}
+Let $\mathcal C$ be spherical and $\mathcal D\subset\mathcal C$ a full fusion
+subcategory. Put $D_{\mathcal C}=\dim(\mathcal C)$ and
+$D_{\mathcal D}=\dim(\mathcal D)$. For a simple $X\in\mathcal D$ and a root
+of unity $\lambda$,
+\[
+ \sum_{\substack{Z\in\operatorname{Irr}Z(\mathcal C)\\\theta_Z=\lambda}}
+       \dim(Z)[F_{\mathcal C}(Z):X]
+ =\frac{D_{\mathcal C}}{D_{\mathcal D}}
+   \sum_{\substack{W\in\operatorname{Irr}Z(\mathcal D)\\\theta_W=\lambda}}
+       \dim(W)[F_{\mathcal D}(W):X].
+\]
+An empty right-hand side is zero. In the pseudo-unitary case all weights are
+positive and dimensions can be replaced by Frobenius--Perron dimensions.
+\end{corollary}
+\begin{proof}
+Choose $N$ divisible by the orders of all twists in $Z(\mathcal D)$.
+Proposition~\ref{prop:central-subcategory-projection} shows that every central
+simple contributing to the left-hand side has twist in $\mu_N$.
+The indicator formula \cite{NS} gives, for $1\le n<N$,
+\[
+ D_{\mathcal C}\nu_n(X)
+ =\sum_Z\theta_Z^n\dim(Z)[F_{\mathcal C}(Z):X].
+\]
+The same formula holds in $\mathcal D$, and the indicators agree: their
+defining pivotal rotations act on the same spaces
+$\operatorname{Hom}(1,X^{\otimes n})$. For $n=0$, the corresponding equality
+is $\dim I_{\mathcal C}(X)=D_{\mathcal C}\dim(X)$, and similarly in
+$\mathcal D$. Fourier inversion on $\mu_N$ proves the assertion.
+\end{proof}
+
+\begin{corollary}\label{cor:fibonacci-ising-projection}
+In the pseudo-unitary setting the following subcategory constraints hold.
+\begin{enumerate}
+\item For a Fibonacci subcategory with basis $(1,a)$, $a^2=1+a$, write
+$\varphi=\operatorname{FPdim}(a)=(1+\sqrt5)/2$. A nonzero projected
+column $(r,s)$ has either twist $1$ and $r\ge s$, or $r=0$ and twist
+$\zeta_5^2$ or $\zeta_5^{-2}$. For each of the latter twists, the
+$a$-mass in Corollary~\ref{cor:subcategory-twist-masses} is
+$D_{\mathcal C}\varphi/(\varphi+2)$; the twist-one $a$-mass is
+$D_{\mathcal C}\varphi^2/(\varphi+2)$.
+\item For an Ising subcategory with basis $(1,g,\sigma)$, a nonzero projected
+column $(r,s,t)$ has one of the following forms: twist $1$ with $t=0$ and
+$r\ge s$; twist $-1$ with $r=t=0$; or one of four Ising twists
+$\{z,-z,z^{-1},-z^{-1}\}$ with $r=s=0$, where $z$ is an appropriate
+primitive sixteenth root. The $g$-masses at $1$ and $-1$ are each
+$D_{\mathcal C}/2$. The $\sigma$-mass at each of its four twists is
+$D_{\mathcal C}\sqrt2/4$.
+\end{enumerate}
+In particular, a high column, whose unit coordinate is zero, cannot combine
+$g$ and $\sigma$ in its Ising projection, or contain either $a$, $g$ or
+$\sigma$ at twist one in the respective cases.
+\end{corollary}
+\begin{proof}
+The rank-two and Ising classifications \cite{Ostrik2,EGNO} provide
+nondegenerate braidings on these subcategories. For either such category
+$\mathcal D$, its center is
+$\mathcal D\boxtimes\mathcal D^{\mathrm{rev}}$ and the restriction of
+$(U,V)$ is $U\otimes V$.
+For Fibonacci the four columns are
+\[
+ (1,0),\quad(0,1),\quad(0,1),\quad(1,1),
+\]
+with twists $1,z,z^{-1},1$. Positivity gives the usual Fibonacci modular
+$S$-matrix; balancing gives $z^2+\varphi z+1=0$, hence
+$z=\zeta_5^{\pm2}$. The center dimensions are respectively
+$1,\varphi,\varphi,\varphi^2$.
+For Ising, the twist-one columns are $(1,0,0)$ twice and $(1,1,0)$ once;
+the twist-$-1$ columns are $(0,1,0)$ twice; and each of
+$z,-z,z^{-1},-z^{-1}$ has the column $(0,0,1)$ once. Their dimensions are
+$1,2,\sqrt2$ as determined by these columns. Taking their additive spans
+and applying the preceding corollary gives every assertion.
+All inherited Ising spherical choices must be retained. If the second
+indicator of $\sigma$ is fixed, the identity
+$z^2+z^{-2}=\nu_2(\sigma)\sqrt2$ selects the appropriate set of four twists.
+\end{proof}
+
+\paragraph{Computational use.}
+The criteria first restrict the allowed high-column/twist pairs and the
+twist-one low columns. They then add the exact mass identities to the
+integer linear equations. When using normalized relative twist traces,
+one projects the identities to the chosen field, combining coincident
+trace types; one must not confuse a projected trace with an actual twist.
+These are necessary conditions only. General exclusions still require the
+separately checked general-to-pseudo-unitary reduction.

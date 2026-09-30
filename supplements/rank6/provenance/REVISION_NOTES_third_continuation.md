@@ -24,18 +24,18 @@ identifications and no changes to the underlying census or identifiers.
 
 | Tensor | General obstruction | Exact proof source |
 |---|---|---|
-| `R6_4_6` | Forced cyclic associator and Clifford rotation | [`research/round3/smallest/R6_4_6_certificate.json`](research/round3/smallest/R6_4_6_certificate.json) |
-| `R6_4_211` | Full-character cyclotomic rotation and signed Galois reduction | [`research/round3/m4/R6_4_211_general.json`](research/round3/m4/R6_4_211_general.json) |
-| `R6_4_243` | Low Verlinde and restriction-product constraints; signed reduction | [`research/round3/m4/R6_4_243_general.json`](research/round3/m4/R6_4_243_general.json) |
-| `R6_5_638` | Integral Morita congruences and higher Clifford rotation | [`research/round3/higher/R6_5_638_general.json`](research/round3/higher/R6_5_638_general.json) |
-| `R6_6_170` | Complete signed-sector exhaustion and weighted induction | [`research/round3/noncommutative/R6_6_170_certificate.json`](research/round3/noncommutative/R6_6_170_certificate.json) |
-| `R6_7_200` | Complete signed-sector exhaustion and weighted induction | [`research/round3/noncommutative/R6_7_200_certificate.json`](research/round3/noncommutative/R6_7_200_certificate.json) |
-| `R6_7_1225` | Integral Morita congruences and higher Clifford rotation | [`research/round3/higher/R6_7_1225_general.json`](research/round3/higher/R6_7_1225_general.json) |
-| `R6_8_491` | Complete signed-sector exhaustion and weighted induction | [`research/round3/noncommutative/R6_8_491_certificate.json`](research/round3/noncommutative/R6_8_491_certificate.json) |
-| `R6_8_6524` | Local dimension-field isolation and signed-spectrum saturation | [`research/round3/arithmetic/R6_8_6524_general.json`](research/round3/arithmetic/R6_8_6524_general.json) |
-| `R6_8_6525` | Local dimension-field isolation and signed-spectrum saturation | [`research/round3/arithmetic/R6_8_6525_general.json`](research/round3/arithmetic/R6_8_6525_general.json) |
-| `R6_8_6526` | Different ideal, abelian field exhaustion and signed saturation | [`research/round3/arithmetic/R6_8_6526_general.json`](research/round3/arithmetic/R6_8_6526_general.json) |
-| `R6_8_6999` | Local dimension-field isolation and signed-spectrum saturation | [`research/round3/arithmetic/R6_8_6999_general.json`](research/round3/arithmetic/R6_8_6999_general.json) |
+| `R6_4_6` | Forced cyclic associator and Clifford rotation | [`research/round3/smallest/R6_4_6_certificate.json`](../research/round3/smallest/R6_4_6_certificate.json) |
+| `R6_4_211` | Full-character cyclotomic rotation and signed Galois reduction | [`research/round3/m4/R6_4_211_general.json`](../research/round3/m4/R6_4_211_general.json) |
+| `R6_4_243` | Low Verlinde and restriction-product constraints; signed reduction | [`research/round3/m4/R6_4_243_general.json`](../research/round3/m4/R6_4_243_general.json) |
+| `R6_5_638` | Integral Morita congruences and higher Clifford rotation | [`research/round3/higher/R6_5_638_general.json`](../research/round3/higher/R6_5_638_general.json) |
+| `R6_6_170` | Complete signed-sector exhaustion and weighted induction | [`research/round3/noncommutative/R6_6_170_certificate.json`](../research/round3/noncommutative/R6_6_170_certificate.json) |
+| `R6_7_200` | Complete signed-sector exhaustion and weighted induction | [`research/round3/noncommutative/R6_7_200_certificate.json`](../research/round3/noncommutative/R6_7_200_certificate.json) |
+| `R6_7_1225` | Integral Morita congruences and higher Clifford rotation | [`research/round3/higher/R6_7_1225_general.json`](../research/round3/higher/R6_7_1225_general.json) |
+| `R6_8_491` | Complete signed-sector exhaustion and weighted induction | [`research/round3/noncommutative/R6_8_491_certificate.json`](../research/round3/noncommutative/R6_8_491_certificate.json) |
+| `R6_8_6524` | Local dimension-field isolation and signed-spectrum saturation | [`research/round3/arithmetic/R6_8_6524_general.json`](../research/round3/arithmetic/R6_8_6524_general.json) |
+| `R6_8_6525` | Local dimension-field isolation and signed-spectrum saturation | [`research/round3/arithmetic/R6_8_6525_general.json`](../research/round3/arithmetic/R6_8_6525_general.json) |
+| `R6_8_6526` | Different ideal, abelian field exhaustion and signed saturation | [`research/round3/arithmetic/R6_8_6526_general.json`](../research/round3/arithmetic/R6_8_6526_general.json) |
+| `R6_8_6999` | Local dimension-field isolation and signed-spectrum saturation | [`research/round3/arithmetic/R6_8_6999_general.json`](../research/round3/arithmetic/R6_8_6999_general.json) |
 
 The canonical disjoint allocation is
 `certificates/continuation_round3.jsonl`. Alternative proofs and new

@@ -1,0 +1,101 @@
+{
+  "id": "R6_4_629",
+  "kind": "exact_modular_frontier_reduction",
+  "version": 1,
+  "scope": "all three inherited retained induction profiles",
+  "excluded_profile_ranks": [
+    30,
+    38
+  ],
+  "remaining_profile_ranks": [
+    35
+  ],
+  "twist_exponent": 15,
+  "twist_branches": "one complex-conjugate pair",
+  "modular_completions_up_to_conjugation_and_twin_relabelling": 1,
+  "remaining_central_fusion_rank": 35,
+  "ring_status": "unresolved",
+  "category_constructed": false,
+  "optimizer_used": false,
+  "checks": [
+    {
+      "input": "rank30_certificate.json",
+      "result": {
+        "passed": true,
+        "optimizer_used": false,
+        "rank30_profile_excluded": true,
+        "remaining_profile_ranks": [
+          35,
+          38
+        ],
+        "ring_status": "unresolved",
+        "nodes": 203
+      }
+    },
+    {
+      "input": "exact_rank35_h10.json",
+      "result": {
+        "passed": true,
+        "optimizer_used": false,
+        "profile_excluded": false,
+        "rank": 35,
+        "nodes": 4157
+      }
+    },
+    {
+      "input": "exact_rank38_h10.json",
+      "result": {
+        "passed": true,
+        "optimizer_used": false,
+        "profile_excluded": false,
+        "rank": 38,
+        "nodes": 2408
+      }
+    },
+    {
+      "script": "decode_twists.py",
+      "output": "decoded_twists.json",
+      "passed": true
+    },
+    {
+      "script": "modular_closure.py",
+      "output": "modular_closure.json",
+      "passed": true
+    },
+    {
+      "script": "known_verlinde.py",
+      "output": "known_verlinde.json",
+      "passed": true
+    },
+    {
+      "script": "independent_fraction.py",
+      "output": "independent_fraction.json",
+      "passed": true
+    },
+    {
+      "script": "finite_modular_reps.py",
+      "output": "finite_modular_reps.json",
+      "passed": true
+    },
+    {
+      "script": "complete_rank35.py",
+      "output": "rank35_modular_completions.json",
+      "passed": true
+    },
+    {
+      "script": "fusion_completion_analysis.py",
+      "output": "rank35_fusion_data.json",
+      "passed": true
+    },
+    {
+      "script": "equivalences.py",
+      "output": "equivalences.json",
+      "passed": true
+    },
+    {
+      "script": "full_restriction_check.py",
+      "output": "full_restriction_check.json",
+      "passed": true
+    }
+  ]
+}

@@ -12,10 +12,19 @@ The Ng–Rowell–Wen rank-six ancillary tensors and their exact download URL an
 hash are recorded in `research/m8_frontier/nrw_rank6_scan.json`. The manuscript
 bibliography and model catalogue give attribution for categorical inputs.
 
-`REVISION_NOTES_first_continuation.md` preserves the earlier seven-exclusion
-release. Its unresolved statuses are historical. The root revision notes and
-decision ledger describe the current third continuation.
-`REVISION_NOTES_second_continuation.md` preserves the intervening
-18-exclusion release. The full-tensor
-import audit for the standalone R3582 and B13 arguments is retained in
-`research/round2_external/IMPORT_AUDIT.md`; B13 lies outside this census.
+The retained revision notes preserve earlier releases and their original
+status statements:
+
+- [`REVISION_NOTES_first_continuation.md`](REVISION_NOTES_first_continuation.md)
+- [`REVISION_NOTES_second_continuation.md`](REVISION_NOTES_second_continuation.md)
+- [`REVISION_NOTES_third_continuation.md`](REVISION_NOTES_third_continuation.md)
+
+These files are historical provenance. The [root revision notes](../REVISION_NOTES.md),
+[decision ledger](../data/decisions.json) and
+[current frontier coverage](../research/round5/coverage.json) describe the
+six unresolved rings and their latest necessary reductions. Earlier proof
+sources remain available and retain their original scope.
+
+The full-tensor import audit for the standalone R3582 and B13 arguments is
+retained in [`IMPORT_AUDIT.md`](../research/round2_external/IMPORT_AUDIT.md);
+B13 lies outside this census.

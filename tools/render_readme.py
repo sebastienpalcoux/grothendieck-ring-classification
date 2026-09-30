@@ -1,9 +1,14 @@
 #!/usr/bin/env python3
 """Render the front-page Grothendieck ring matrix from status evidence."""
 import json
+import argparse
 from pathlib import Path
 
 ROOT=Path(__file__).resolve().parents[1]
+parser=argparse.ArgumentParser(description=__doc__)
+parser.add_argument('--identity',type=Path,default=ROOT/'data/rank6_release_identity.json')
+parser.add_argument('--output',type=Path,default=ROOT/'README.md')
+args=parser.parse_args()
 status=json.loads((ROOT/'data/classification_status.json').read_text())
 state={(x['rank'],x['multiplicity']):x for x in status['rows']}
 ranks=sorted({r for r,m in state if 2 <= r <= 8})
@@ -26,29 +31,12 @@ rank6_open=sum(x['unresolved_general'] for x in rank6)
 rank6_complete=next((x['multiplicity']-1 for x in rank6 if x['unresolved_general']),8)
 rank6_summary=(f'| 6 | Through 8 | **Complete through {rank6_complete}** | '
                f'Through 8: {rank6_excluded:,} excluded, {rank6_realized} realized, '
-               f'{rank6_open} unresolved; {state[(6,8)]["unresolved_general"]} of those residuals occur at multiplicity 8. |')
-identity=json.loads((ROOT/'data/rank6_release_identity.json').read_text())
+               f'{rank6_open} unresolved; {state[(6,8)]["unresolved_general"]} residual at multiplicity 8. |')
+identity=json.loads(args.identity.read_text())
 release=identity['summary']
 complete_bands=', '.join(str(r[0]) for r in [(m, state[(6,m)]['unresolved_general']) for m in range(1,9)] if r[1]==0)
-rank6_continuation=f"""The fourth rank-six continuation adds **{release['fourth_continuation_excluded']} general exclusions**, reducing
-the frontier from ten cases to **{rank6_open}**. The exact multiplicity bands
-**{complete_bands}** are fully classified. All **577 rings through multiplicity
-three** remain classified: **531 excluded and 46 realized**, including 45 with
-unitary models.
-
-New twist-preserving subcategory projections and exact twist masses strengthen
-central induction at higher multiplicities. Exhaustive finite restriction-profile
-searches substantially narrow the multiplicity-four frontier. Surviving necessary
-systems are retained without treating them as categorical models.
-
-The four continuation files contain 7, 18, 12 and {release['fourth_continuation_excluded']} disjoint general
-exclusions. See the [revision notes](supplements/rank6/REVISION_NOTES.md),
-[{rank6_open} remaining tensors](supplements/rank6/data/unresolved_tensors.json),
-[criterion coverage](supplements/rank6/research/round4/coverage.json), and
-[exact new-proof replay](supplements/rank6/verification/round4/release_replay.json).
-The [complete revised rank-six ZIP](https://grothendieck-ring-atlas.sebastien-palcoux.chatgpt.site/downloads/{identity['archive']['name']})
-contains all {identity['archive']['files']} released files, including all four continuation files.
-"""
+from rank6_publication import continuation_text
+rank6_continuation = continuation_text(identity)
 lines=['''# Grothendieck ring classification
 
 ### Which low-rank fusion rings admit fusion categories over ℂ?
@@ -184,7 +172,8 @@ classification, proofs and models; it does not recompute the census. Changes
 to a source census cell are imported only from a named commit and rechecked
 against classification ledgers.
 ''')
-(ROOT/'README.md').write_text('\n'.join(lines).replace('__RANK6_SUMMARY__',rank6_summary)
+args.output.parent.mkdir(parents=True,exist_ok=True)
+args.output.write_text('\n'.join(lines).replace('__RANK6_SUMMARY__',rank6_summary)
                               .replace('__RANK6_OPEN__',str(rank6_open))
                               .replace('__RANK6_CONTINUATION__',rank6_continuation))
 print('Rendered README.md')

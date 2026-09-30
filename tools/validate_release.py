@@ -5,11 +5,13 @@ import hashlib
 import json
 from collections import defaultdict
 from pathlib import Path
+from rank6_publication import validate_identity
 
 ROOT=Path(__file__).resolve().parents[1]
 counts=json.loads((ROOT/'data/counts.json').read_text())
 status=json.loads((ROOT/'data/classification_status.json').read_text())
 rank6_identity=json.loads((ROOT/'data/rank6_release_identity.json').read_text())
+validate_identity(rank6_identity)
 assert counts['census_commit']=='b86eb6dc6eeeafe5fc5f6906d7b074e0322e9726'
 rows=counts['rows']
 cells={(x['rank'],x['multiplicity']):x['rings'] for x in rows}
@@ -71,6 +73,16 @@ assert rank6_summary['third_continuation_excluded']==rank6_identity['summary']['
 assert hashlib.sha256((rank6_root/'certificates/continuation_round3.jsonl').read_bytes()).hexdigest()==rank6_identity['third_certificate_sha256']
 assert rank6_summary['fourth_continuation_excluded']==rank6_identity['summary']['fourth_continuation_excluded']
 assert hashlib.sha256((rank6_root/'certificates/continuation_round4.jsonl').read_bytes()).hexdigest()==rank6_identity['fourth_certificate_sha256']
+for relative, digest in rank6_identity['research_files_sha256'].items():
+    if hashlib.sha256((rank6_root/relative).read_bytes()).hexdigest()!=digest:
+        raise ValueError('Round-five research provenance changed: '+relative)
+round5_coverage=json.loads((rank6_root/'research/round5/coverage.json').read_text())
+round5_expected={'rings':16612,'excluded':16552,'realized':54,'unresolved':6,
+                 'new_whole_ring_exclusions':0,'new_categorical_realizations':0}
+if any(round5_coverage['classification'].get(k)!=v for k,v in round5_expected.items()):
+    raise ValueError('Round-five coverage changes categorical decisions')
+if {x['id'] for x in round5_coverage['cases']}!={x['id'] for x in rank6_identity['research_progress']}:
+    raise ValueError('Publication progress omits a round-five case')
 assert len(json.loads((rank6_root/'data/model_catalog.json').read_text()))==54
 assert next(x for x in rank6_ledger if x['id']=='R6_3_215')['status']=='excluded'
 assert sum(x['rings'] for x in statusrows if x['rank']==6 and x['multiplicity']<=3)==577

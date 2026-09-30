@@ -1,0 +1,2177 @@
+{
+  "kind": "large_prime_indicator_congruence_campaign",
+  "version": 1,
+  "optimizer_used": false,
+  "controls": {
+    "cyclic_C3": {
+      "exponent": 3,
+      "scope": "conditional_on_proved_center_twist_exponent_and_pseudo_unitarity",
+      "samples_per_residue": 2,
+      "row_sum_bounds": [
+        1,
+        1,
+        1
+      ],
+      "prime_cutoff_strict": 2,
+      "residue_count": 2,
+      "targets": [
+        {
+          "residue": 1,
+          "values": [
+            1,
+            0,
+            0
+          ],
+          "observations": [
+            {
+              "prime": 7,
+              "values": [
+                1,
+                0,
+                0
+              ]
+            },
+            {
+              "prime": 13,
+              "values": [
+                1,
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "residue": 2,
+          "values": [
+            1,
+            0,
+            0
+          ],
+          "observations": [
+            {
+              "prime": 5,
+              "values": [
+                1,
+                0,
+                0
+              ]
+            },
+            {
+              "prime": 11,
+              "values": [
+                1,
+                0,
+                0
+              ]
+            }
+          ]
+        }
+      ],
+      "failures": [],
+      "passed": true,
+      "optimizer_used": false
+    },
+    "fibonacci": {
+      "exponent": 5,
+      "scope": "conditional_on_proved_center_twist_exponent_and_pseudo_unitarity",
+      "samples_per_residue": 2,
+      "row_sum_bounds": [
+        1,
+        2
+      ],
+      "prime_cutoff_strict": 4,
+      "residue_count": 4,
+      "targets": [
+        {
+          "residue": 1,
+          "values": [
+            1,
+            0
+          ],
+          "observations": [
+            {
+              "prime": 11,
+              "values": [
+                1,
+                0
+              ]
+            },
+            {
+              "prime": 31,
+              "values": [
+                1,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "residue": 2,
+          "values": [
+            1,
+            1
+          ],
+          "observations": [
+            {
+              "prime": 7,
+              "values": [
+                1,
+                1
+              ]
+            },
+            {
+              "prime": 17,
+              "values": [
+                1,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "residue": 3,
+          "values": [
+            1,
+            1
+          ],
+          "observations": [
+            {
+              "prime": 13,
+              "values": [
+                1,
+                1
+              ]
+            },
+            {
+              "prime": 23,
+              "values": [
+                1,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "residue": 4,
+          "values": [
+            1,
+            0
+          ],
+          "observations": [
+            {
+              "prime": 19,
+              "values": [
+                1,
+                0
+              ]
+            },
+            {
+              "prime": 29,
+              "values": [
+                1,
+                0
+              ]
+            }
+          ]
+        }
+      ],
+      "failures": [],
+      "passed": true,
+      "optimizer_used": false
+    },
+    "false_exponent": {
+      "exponent": 2,
+      "scope": "conditional_on_proved_center_twist_exponent_and_pseudo_unitarity",
+      "samples_per_residue": 2,
+      "row_sum_bounds": [
+        1,
+        1,
+        1
+      ],
+      "prime_cutoff_strict": 2,
+      "residue_count": 1,
+      "targets": [
+        {
+          "residue": 1,
+          "values": [
+            1,
+            1,
+            1
+          ],
+          "observations": [
+            {
+              "prime": 3,
+              "values": [
+                1,
+                1,
+                1
+              ]
+            },
+            {
+              "prime": 5,
+              "values": [
+                1,
+                0,
+                0
+              ]
+            }
+          ]
+        }
+      ],
+      "failures": [
+        {
+          "residue": 1,
+          "reason": "same_residue_disagrees",
+          "observations": [
+            {
+              "prime": 3,
+              "values": [
+                1,
+                1,
+                1
+              ]
+            },
+            {
+              "prime": 5,
+              "values": [
+                1,
+                0,
+                0
+              ]
+            }
+          ]
+        }
+      ],
+      "passed": false,
+      "optimizer_used": false
+    },
+    "binary_power_checks": 20
+  },
+  "cases": [
+    {
+      "id": "R6_4_22",
+      "exponent": 20,
+      "scope": "conditional_on_proved_center_twist_exponent_and_pseudo_unitarity",
+      "samples_per_residue": 3,
+      "row_sum_bounds": [
+        1,
+        5,
+        5,
+        1,
+        6,
+        12
+      ],
+      "prime_cutoff_strict": 24,
+      "residue_count": 8,
+      "targets": [
+        {
+          "residue": 1,
+          "values": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "observations": [
+            {
+              "prime": 41,
+              "values": [
+                1,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "prime": 61,
+              "values": [
+                1,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "prime": 101,
+              "values": [
+                1,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "residue": 3,
+          "values": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "observations": [
+            {
+              "prime": 43,
+              "values": [
+                1,
+                0,
+                0,
+                0,
+                0,
+                1
+              ]
+            },
+            {
+              "prime": 83,
+              "values": [
+                1,
+                0,
+                0,
+                0,
+                0,
+                1
+              ]
+            },
+            {
+              "prime": 103,
+              "values": [
+                1,
+                0,
+                0,
+                0,
+                0,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "residue": 7,
+          "values": [
+            1,
+            1,
+            1,
+            0,
+            1,
+            2
+          ],
+          "observations": [
+            {
+              "prime": 47,
+              "values": [
+                1,
+                1,
+                1,
+                0,
+                1,
+                2
+              ]
+            },
+            {
+              "prime": 67,
+              "values": [
+                1,
+                1,
+                1,
+                0,
+                1,
+                2
+              ]
+            },
+            {
+              "prime": 107,
+              "values": [
+                1,
+                1,
+                1,
+                0,
+                1,
+                2
+              ]
+            }
+          ]
+        },
+        {
+          "residue": 9,
+          "values": [
+            1,
+            0,
+            0,
+            0,
+            1,
+            1
+          ],
+          "observations": [
+            {
+              "prime": 29,
+              "values": [
+                1,
+                0,
+                0,
+                0,
+                1,
+                1
+              ]
+            },
+            {
+              "prime": 89,
+              "values": [
+                1,
+                0,
+                0,
+                0,
+                1,
+                1
+              ]
+            },
+            {
+              "prime": 109,
+              "values": [
+                1,
+                0,
+                0,
+                0,
+                1,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "residue": 11,
+          "values": [
+            1,
+            0,
+            0,
+            0,
+            1,
+            1
+          ],
+          "observations": [
+            {
+              "prime": 31,
+              "values": [
+                1,
+                0,
+                0,
+                0,
+                1,
+                1
+              ]
+            },
+            {
+              "prime": 71,
+              "values": [
+                1,
+                0,
+                0,
+                0,
+                1,
+                1
+              ]
+            },
+            {
+              "prime": 131,
+              "values": [
+                1,
+                0,
+                0,
+                0,
+                1,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "residue": 13,
+          "values": [
+            1,
+            1,
+            1,
+            0,
+            1,
+            2
+          ],
+          "observations": [
+            {
+              "prime": 53,
+              "values": [
+                1,
+                1,
+                1,
+                0,
+                1,
+                2
+              ]
+            },
+            {
+              "prime": 73,
+              "values": [
+                1,
+                1,
+                1,
+                0,
+                1,
+                2
+              ]
+            },
+            {
+              "prime": 113,
+              "values": [
+                1,
+                1,
+                1,
+                0,
+                1,
+                2
+              ]
+            }
+          ]
+        },
+        {
+          "residue": 17,
+          "values": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "observations": [
+            {
+              "prime": 37,
+              "values": [
+                1,
+                0,
+                0,
+                0,
+                0,
+                1
+              ]
+            },
+            {
+              "prime": 97,
+              "values": [
+                1,
+                0,
+                0,
+                0,
+                0,
+                1
+              ]
+            },
+            {
+              "prime": 137,
+              "values": [
+                1,
+                0,
+                0,
+                0,
+                0,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "residue": 19,
+          "values": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "observations": [
+            {
+              "prime": 59,
+              "values": [
+                1,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "prime": 79,
+              "values": [
+                1,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "prime": 139,
+              "values": [
+                1,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            }
+          ]
+        }
+      ],
+      "failures": [],
+      "passed": true,
+      "optimizer_used": false
+    },
+    {
+      "id": "R6_4_91",
+      "exponent": 16,
+      "scope": "conditional_on_proved_center_twist_exponent_and_pseudo_unitarity",
+      "samples_per_residue": 3,
+      "row_sum_bounds": [
+        1,
+        7,
+        7,
+        2,
+        1,
+        10
+      ],
+      "prime_cutoff_strict": 20,
+      "residue_count": 8,
+      "targets": [
+        {
+          "residue": 1,
+          "values": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "observations": [
+            {
+              "prime": 97,
+              "values": [
+                1,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "prime": 113,
+              "values": [
+                1,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "prime": 193,
+              "values": [
+                1,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "residue": 3,
+          "values": [
+            1,
+            1,
+            1,
+            0,
+            0,
+            1
+          ],
+          "observations": [
+            {
+              "prime": 67,
+              "values": [
+                1,
+                1,
+                1,
+                0,
+                0,
+                1
+              ]
+            },
+            {
+              "prime": 83,
+              "values": [
+                1,
+                1,
+                1,
+                0,
+                0,
+                1
+              ]
+            },
+            {
+              "prime": 131,
+              "values": [
+                1,
+                1,
+                1,
+                0,
+                0,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "residue": 5,
+          "values": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "observations": [
+            {
+              "prime": 37,
+              "values": [
+                1,
+                0,
+                0,
+                0,
+                0,
+                1
+              ]
+            },
+            {
+              "prime": 53,
+              "values": [
+                1,
+                0,
+                0,
+                0,
+                0,
+                1
+              ]
+            },
+            {
+              "prime": 101,
+              "values": [
+                1,
+                0,
+                0,
+                0,
+                0,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "residue": 7,
+          "values": [
+            1,
+            1,
+            1,
+            0,
+            0,
+            2
+          ],
+          "observations": [
+            {
+              "prime": 23,
+              "values": [
+                1,
+                1,
+                1,
+                0,
+                0,
+                2
+              ]
+            },
+            {
+              "prime": 71,
+              "values": [
+                1,
+                1,
+                1,
+                0,
+                0,
+                2
+              ]
+            },
+            {
+              "prime": 103,
+              "values": [
+                1,
+                1,
+                1,
+                0,
+                0,
+                2
+              ]
+            }
+          ]
+        },
+        {
+          "residue": 9,
+          "values": [
+            1,
+            1,
+            1,
+            0,
+            0,
+            2
+          ],
+          "observations": [
+            {
+              "prime": 41,
+              "values": [
+                1,
+                1,
+                1,
+                0,
+                0,
+                2
+              ]
+            },
+            {
+              "prime": 73,
+              "values": [
+                1,
+                1,
+                1,
+                0,
+                0,
+                2
+              ]
+            },
+            {
+              "prime": 89,
+              "values": [
+                1,
+                1,
+                1,
+                0,
+                0,
+                2
+              ]
+            }
+          ]
+        },
+        {
+          "residue": 11,
+          "values": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            1
+          ],
+          "observations": [
+            {
+              "prime": 43,
+              "values": [
+                1,
+                0,
+                0,
+                0,
+                0,
+                1
+              ]
+            },
+            {
+              "prime": 59,
+              "values": [
+                1,
+                0,
+                0,
+                0,
+                0,
+                1
+              ]
+            },
+            {
+              "prime": 107,
+              "values": [
+                1,
+                0,
+                0,
+                0,
+                0,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "residue": 13,
+          "values": [
+            1,
+            1,
+            1,
+            0,
+            0,
+            1
+          ],
+          "observations": [
+            {
+              "prime": 29,
+              "values": [
+                1,
+                1,
+                1,
+                0,
+                0,
+                1
+              ]
+            },
+            {
+              "prime": 61,
+              "values": [
+                1,
+                1,
+                1,
+                0,
+                0,
+                1
+              ]
+            },
+            {
+              "prime": 109,
+              "values": [
+                1,
+                1,
+                1,
+                0,
+                0,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "residue": 15,
+          "values": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "observations": [
+            {
+              "prime": 31,
+              "values": [
+                1,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "prime": 47,
+              "values": [
+                1,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "prime": 79,
+              "values": [
+                1,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            }
+          ]
+        }
+      ],
+      "failures": [],
+      "passed": true,
+      "optimizer_used": false
+    },
+    {
+      "id": "R6_4_629",
+      "exponent": 15,
+      "scope": "conditional_on_proved_center_twist_exponent_and_pseudo_unitarity",
+      "samples_per_residue": 3,
+      "row_sum_bounds": [
+        1,
+        6,
+        10,
+        10,
+        11,
+        16
+      ],
+      "prime_cutoff_strict": 32,
+      "residue_count": 8,
+      "targets": [
+        {
+          "residue": 1,
+          "values": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "observations": [
+            {
+              "prime": 61,
+              "values": [
+                1,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "prime": 151,
+              "values": [
+                1,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "prime": 181,
+              "values": [
+                1,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "residue": 2,
+          "values": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "observations": [
+            {
+              "prime": 47,
+              "values": [
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ]
+            },
+            {
+              "prime": 107,
+              "values": [
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ]
+            },
+            {
+              "prime": 137,
+              "values": [
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "residue": 4,
+          "values": [
+            1,
+            1,
+            2,
+            2,
+            2,
+            2
+          ],
+          "observations": [
+            {
+              "prime": 79,
+              "values": [
+                1,
+                1,
+                2,
+                2,
+                2,
+                2
+              ]
+            },
+            {
+              "prime": 109,
+              "values": [
+                1,
+                1,
+                2,
+                2,
+                2,
+                2
+              ]
+            },
+            {
+              "prime": 139,
+              "values": [
+                1,
+                1,
+                2,
+                2,
+                2,
+                2
+              ]
+            }
+          ]
+        },
+        {
+          "residue": 7,
+          "values": [
+            1,
+            1,
+            2,
+            2,
+            2,
+            3
+          ],
+          "observations": [
+            {
+              "prime": 37,
+              "values": [
+                1,
+                1,
+                2,
+                2,
+                2,
+                3
+              ]
+            },
+            {
+              "prime": 67,
+              "values": [
+                1,
+                1,
+                2,
+                2,
+                2,
+                3
+              ]
+            },
+            {
+              "prime": 97,
+              "values": [
+                1,
+                1,
+                2,
+                2,
+                2,
+                3
+              ]
+            }
+          ]
+        },
+        {
+          "residue": 8,
+          "values": [
+            1,
+            1,
+            2,
+            2,
+            2,
+            3
+          ],
+          "observations": [
+            {
+              "prime": 53,
+              "values": [
+                1,
+                1,
+                2,
+                2,
+                2,
+                3
+              ]
+            },
+            {
+              "prime": 83,
+              "values": [
+                1,
+                1,
+                2,
+                2,
+                2,
+                3
+              ]
+            },
+            {
+              "prime": 113,
+              "values": [
+                1,
+                1,
+                2,
+                2,
+                2,
+                3
+              ]
+            }
+          ]
+        },
+        {
+          "residue": 11,
+          "values": [
+            1,
+            1,
+            2,
+            2,
+            2,
+            2
+          ],
+          "observations": [
+            {
+              "prime": 41,
+              "values": [
+                1,
+                1,
+                2,
+                2,
+                2,
+                2
+              ]
+            },
+            {
+              "prime": 71,
+              "values": [
+                1,
+                1,
+                2,
+                2,
+                2,
+                2
+              ]
+            },
+            {
+              "prime": 101,
+              "values": [
+                1,
+                1,
+                2,
+                2,
+                2,
+                2
+              ]
+            }
+          ]
+        },
+        {
+          "residue": 13,
+          "values": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "observations": [
+            {
+              "prime": 43,
+              "values": [
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ]
+            },
+            {
+              "prime": 73,
+              "values": [
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ]
+            },
+            {
+              "prime": 103,
+              "values": [
+                1,
+                1,
+                1,
+                1,
+                1,
+                1
+              ]
+            }
+          ]
+        },
+        {
+          "residue": 14,
+          "values": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "observations": [
+            {
+              "prime": 59,
+              "values": [
+                1,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "prime": 89,
+              "values": [
+                1,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "prime": 149,
+              "values": [
+                1,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            }
+          ]
+        }
+      ],
+      "failures": [],
+      "passed": true,
+      "optimizer_used": false
+    },
+    {
+      "id": "R6_8_1660",
+      "exponent": 48,
+      "scope": "conditional_on_proved_center_twist_exponent_and_pseudo_unitarity",
+      "samples_per_residue": 3,
+      "row_sum_bounds": [
+        1,
+        1,
+        15,
+        15,
+        2,
+        22
+      ],
+      "prime_cutoff_strict": 44,
+      "residue_count": 16,
+      "targets": [
+        {
+          "residue": 1,
+          "values": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "observations": [
+            {
+              "prime": 97,
+              "values": [
+                1,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "prime": 193,
+              "values": [
+                1,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "prime": 241,
+              "values": [
+                1,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "residue": 5,
+          "values": [
+            1,
+            0,
+            2,
+            2,
+            0,
+            2
+          ],
+          "observations": [
+            {
+              "prime": 53,
+              "values": [
+                1,
+                0,
+                2,
+                2,
+                0,
+                2
+              ]
+            },
+            {
+              "prime": 101,
+              "values": [
+                1,
+                0,
+                2,
+                2,
+                0,
+                2
+              ]
+            },
+            {
+              "prime": 149,
+              "values": [
+                1,
+                0,
+                2,
+                2,
+                0,
+                2
+              ]
+            }
+          ]
+        },
+        {
+          "residue": 7,
+          "values": [
+            1,
+            0,
+            3,
+            3,
+            0,
+            4
+          ],
+          "observations": [
+            {
+              "prime": 103,
+              "values": [
+                1,
+                0,
+                3,
+                3,
+                0,
+                4
+              ]
+            },
+            {
+              "prime": 151,
+              "values": [
+                1,
+                0,
+                3,
+                3,
+                0,
+                4
+              ]
+            },
+            {
+              "prime": 199,
+              "values": [
+                1,
+                0,
+                3,
+                3,
+                0,
+                4
+              ]
+            }
+          ]
+        },
+        {
+          "residue": 11,
+          "values": [
+            1,
+            0,
+            1,
+            1,
+            0,
+            2
+          ],
+          "observations": [
+            {
+              "prime": 59,
+              "values": [
+                1,
+                0,
+                1,
+                1,
+                0,
+                2
+              ]
+            },
+            {
+              "prime": 107,
+              "values": [
+                1,
+                0,
+                1,
+                1,
+                0,
+                2
+              ]
+            },
+            {
+              "prime": 251,
+              "values": [
+                1,
+                0,
+                1,
+                1,
+                0,
+                2
+              ]
+            }
+          ]
+        },
+        {
+          "residue": 13,
+          "values": [
+            1,
+            0,
+            1,
+            1,
+            0,
+            2
+          ],
+          "observations": [
+            {
+              "prime": 61,
+              "values": [
+                1,
+                0,
+                1,
+                1,
+                0,
+                2
+              ]
+            },
+            {
+              "prime": 109,
+              "values": [
+                1,
+                0,
+                1,
+                1,
+                0,
+                2
+              ]
+            },
+            {
+              "prime": 157,
+              "values": [
+                1,
+                0,
+                1,
+                1,
+                0,
+                2
+              ]
+            }
+          ]
+        },
+        {
+          "residue": 17,
+          "values": [
+            1,
+            0,
+            3,
+            3,
+            0,
+            4
+          ],
+          "observations": [
+            {
+              "prime": 113,
+              "values": [
+                1,
+                0,
+                3,
+                3,
+                0,
+                4
+              ]
+            },
+            {
+              "prime": 257,
+              "values": [
+                1,
+                0,
+                3,
+                3,
+                0,
+                4
+              ]
+            },
+            {
+              "prime": 353,
+              "values": [
+                1,
+                0,
+                3,
+                3,
+                0,
+                4
+              ]
+            }
+          ]
+        },
+        {
+          "residue": 19,
+          "values": [
+            1,
+            0,
+            2,
+            2,
+            0,
+            2
+          ],
+          "observations": [
+            {
+              "prime": 67,
+              "values": [
+                1,
+                0,
+                2,
+                2,
+                0,
+                2
+              ]
+            },
+            {
+              "prime": 163,
+              "values": [
+                1,
+                0,
+                2,
+                2,
+                0,
+                2
+              ]
+            },
+            {
+              "prime": 211,
+              "values": [
+                1,
+                0,
+                2,
+                2,
+                0,
+                2
+              ]
+            }
+          ]
+        },
+        {
+          "residue": 23,
+          "values": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "observations": [
+            {
+              "prime": 71,
+              "values": [
+                1,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "prime": 167,
+              "values": [
+                1,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "prime": 263,
+              "values": [
+                1,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "residue": 25,
+          "values": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "observations": [
+            {
+              "prime": 73,
+              "values": [
+                1,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "prime": 313,
+              "values": [
+                1,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "prime": 409,
+              "values": [
+                1,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            }
+          ]
+        },
+        {
+          "residue": 29,
+          "values": [
+            1,
+            0,
+            2,
+            2,
+            0,
+            2
+          ],
+          "observations": [
+            {
+              "prime": 173,
+              "values": [
+                1,
+                0,
+                2,
+                2,
+                0,
+                2
+              ]
+            },
+            {
+              "prime": 269,
+              "values": [
+                1,
+                0,
+                2,
+                2,
+                0,
+                2
+              ]
+            },
+            {
+              "prime": 317,
+              "values": [
+                1,
+                0,
+                2,
+                2,
+                0,
+                2
+              ]
+            }
+          ]
+        },
+        {
+          "residue": 31,
+          "values": [
+            1,
+            0,
+            3,
+            3,
+            0,
+            4
+          ],
+          "observations": [
+            {
+              "prime": 79,
+              "values": [
+                1,
+                0,
+                3,
+                3,
+                0,
+                4
+              ]
+            },
+            {
+              "prime": 127,
+              "values": [
+                1,
+                0,
+                3,
+                3,
+                0,
+                4
+              ]
+            },
+            {
+              "prime": 223,
+              "values": [
+                1,
+                0,
+                3,
+                3,
+                0,
+                4
+              ]
+            }
+          ]
+        },
+        {
+          "residue": 35,
+          "values": [
+            1,
+            0,
+            1,
+            1,
+            0,
+            2
+          ],
+          "observations": [
+            {
+              "prime": 83,
+              "values": [
+                1,
+                0,
+                1,
+                1,
+                0,
+                2
+              ]
+            },
+            {
+              "prime": 131,
+              "values": [
+                1,
+                0,
+                1,
+                1,
+                0,
+                2
+              ]
+            },
+            {
+              "prime": 179,
+              "values": [
+                1,
+                0,
+                1,
+                1,
+                0,
+                2
+              ]
+            }
+          ]
+        },
+        {
+          "residue": 37,
+          "values": [
+            1,
+            0,
+            1,
+            1,
+            0,
+            2
+          ],
+          "observations": [
+            {
+              "prime": 181,
+              "values": [
+                1,
+                0,
+                1,
+                1,
+                0,
+                2
+              ]
+            },
+            {
+              "prime": 229,
+              "values": [
+                1,
+                0,
+                1,
+                1,
+                0,
+                2
+              ]
+            },
+            {
+              "prime": 277,
+              "values": [
+                1,
+                0,
+                1,
+                1,
+                0,
+                2
+              ]
+            }
+          ]
+        },
+        {
+          "residue": 41,
+          "values": [
+            1,
+            0,
+            3,
+            3,
+            0,
+            4
+          ],
+          "observations": [
+            {
+              "prime": 89,
+              "values": [
+                1,
+                0,
+                3,
+                3,
+                0,
+                4
+              ]
+            },
+            {
+              "prime": 137,
+              "values": [
+                1,
+                0,
+                3,
+                3,
+                0,
+                4
+              ]
+            },
+            {
+              "prime": 233,
+              "values": [
+                1,
+                0,
+                3,
+                3,
+                0,
+                4
+              ]
+            }
+          ]
+        },
+        {
+          "residue": 43,
+          "values": [
+            1,
+            0,
+            2,
+            2,
+            0,
+            2
+          ],
+          "observations": [
+            {
+              "prime": 139,
+              "values": [
+                1,
+                0,
+                2,
+                2,
+                0,
+                2
+              ]
+            },
+            {
+              "prime": 283,
+              "values": [
+                1,
+                0,
+                2,
+                2,
+                0,
+                2
+              ]
+            },
+            {
+              "prime": 331,
+              "values": [
+                1,
+                0,
+                2,
+                2,
+                0,
+                2
+              ]
+            }
+          ]
+        },
+        {
+          "residue": 47,
+          "values": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "observations": [
+            {
+              "prime": 47,
+              "values": [
+                1,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "prime": 191,
+              "values": [
+                1,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "prime": 239,
+              "values": [
+                1,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            }
+          ]
+        }
+      ],
+      "failures": [],
+      "passed": true,
+      "optimizer_used": false
+    }
+  ]
+}

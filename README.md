@@ -46,7 +46,7 @@ classification cross-check. Rank-two realized counts follow directly from
 | 3 | Through 1,000 | Unrestricted theorem | Five realized rings: four at multiplicity 1 and one at 2; see the standalone sphericality and ring-classification proof. |
 | 4 | Through 128 | **Complete through 128** | 15 realized rings, 889,515 general exclusions. |
 | 5 | Through 20 | **Complete through 20** | 17 realized rings and 40,982 generally excluded. The two former multiplicity-18 residuals are now excluded by inert-prime parity and exact induction. |
-| 6 | Through 8 | **Complete through 3** | Through 8: 16,552 excluded, 54 realized, 6 unresolved; 1 of those residuals occur at multiplicity 8. |
+| 6 | Through 8 | **Complete through 3** | Through 8: 16,552 excluded, 54 realized, 6 unresolved; 1 residual at multiplicity 8. |
 | 7 | Through 4 | Partial at every band | Through 4: 4,107 excluded, 16 realized, 78 unresolved; full normal and optimized certificate replays passed. |
 | 8 | Through 2 | Partial at both bands | Through 2: 824 excluded, 33 realized, 116 unresolved; positive tensors and transferred certificates verified. |
 
@@ -56,24 +56,39 @@ categorification**. “Realized” means that at least one categorification is
 constructed; it does not assert that every categorification of that ring is
 unitary. Rank five has no unresolved ring through multiplicity 20.
 
-The fourth rank-six continuation adds **4 general exclusions**, reducing
-the frontier from ten cases to **6**. The exact multiplicity bands
-**1, 2, 3, 6, 7** are fully classified. All **577 rings through multiplicity
-three** remain classified: **531 excluded and 46 realized**, including 45 with
-unitary models.
+The fifth rank-six continuation makes **no new categorical decisions**:
+the partition remains **16,552 excluded, 54 realized and
+6 unresolved**. General classification is complete through
+multiplicity three, and the exact bands **1, 2, 3, 6, 7** are
+fully classified. All 577 rings through multiplicity three remain decided:
+531 excluded and 46 realized, including 45 with unitary models.
 
-New twist-preserving subcategory projections and exact twist masses strengthen
-central induction at higher multiplicities. Exhaustive finite restriction-profile
-searches substantially narrow the multiplicity-four frontier. Surviving necessary
-systems are retained without treating them as categorical models.
+The new joint restriction-word Gram criterion, exact bounded integer searches,
+modular-word closure and finite modular-representation completion give:
 
-The four continuation files contain 7, 18, 12 and 4 disjoint general
-exclusions. See the [revision notes](supplements/rank6/REVISION_NOTES.md),
-[6 remaining tensors](supplements/rank6/data/unresolved_tensors.json),
-[criterion coverage](supplements/rank6/research/round4/coverage.json), and
-[exact new-proof replay](supplements/rank6/verification/round4/release_replay.json).
-The [complete revised rank-six ZIP](https://grothendieck-ring-atlas.sebastien-palcoux.chatgpt.site/downloads/Rank6_Categorification_M8_Revised_2026-09-29_v4.zip)
-contains all 1345 released files, including all four continuation files.
+| Unresolved ring | Exact necessary-data reduction |
+|---|---|
+| `R6_4_22` | The remaining center has rank 36. Its necessary fusion ring and modular data are unique up to relabelling and complex conjugation; categorification remains open. |
+| `R6_4_91` | Only center rank 42 remains: a forced Ising factor and a rank 14 centralizer with one fusion-ring orbit and two conjugate modular data. |
+| `R6_4_155` | Six induction profiles remain, each with one forced pair of low fusion matrices in its semion centralizer. None is a categorification certificate. |
+| `R6_4_629` | Only center rank 35 remains, with one necessary fusion/modular datum up to conjugation and identical-column relabelling; categorical realization remains open. |
+| `R6_5_1204` | A complete exact reduction leaves 171 induction profiles; the signed-gauge argument covers general categorifications. |
+| `R6_8_1660` | Actual-root induction and congruence cuts leave three branches with 168, 798 and 798 necessary profiles; the center twist exponent divides 48. |
+
+These are necessary data. A surviving modular matrix, fusion tensor or exact
+integer witness supplies no associator or categorification. The joint-pattern result for `R6_8_1660` and its twist witness concern separate
+necessary systems.
+
+The four accepted exclusion continuation files still contain 7, 18, 12 and 4
+disjoint general exclusions. Their original proof provenance is retained.
+See the [revision notes](supplements/rank6/REVISION_NOTES.md),
+[six remaining tensors](supplements/rank6/data/unresolved_tensors.json),
+[round-five research](supplements/rank6/research/round5/README.md),
+[coverage and replay inventory](supplements/rank6/research/round5/coverage.json),
+and [verification instructions](docs/VERIFY.md).
+The [complete revised rank-six ZIP](https://grothendieck-ring-atlas.sebastien-palcoux.chatgpt.site/downloads/Rank6_Categorification_M8_Revised_2026-09-30_v5.zip) contains all
+1,577 released files. The preceding release's four general exclusions
+remain accepted; this revision adds finite reductions of the unresolved cases.
 
 
 ### The classification boundary, band by band

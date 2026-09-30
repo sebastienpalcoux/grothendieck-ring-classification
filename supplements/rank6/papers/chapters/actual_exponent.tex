@@ -1,0 +1,101 @@
+\subsection{Consequences of a proved twist exponent}
+\label{subsec:actual-exponent}
+
+Suppose the actual twists of $Z(\mathcal C)$ have order dividing a
+proved integer $N$. In this subsection $\mathcal C$ is pseudo-unitary,
+$D=\operatorname{FPdim}(\mathcal C)$, and all indicators are actual
+indicators, before relative trace projection. The center formula makes
+$\nu_k(X)$ periodic in $k$ modulo $N$. It also gives
+\begin{equation}\label{eq:actual-indicator-bound}
+ |\nu_k(X)|\le D^{-1}\sum_Z[F(Z):X]d_Z=d_X.
+\end{equation}
+The dimension identity on the right is
+$\operatorname{FPdim}I(X)=Dd_X$.
+
+\begin{proposition}[Full rotation spectra and prime recovery]
+\label{prop:actual-rotation-prime}
+Let $h_n(X)=[X^{\otimes n}:\mathbf1]$.
+\begin{enumerate}
+\item If $n\mid N$, the entire character of rotation on
+$\operatorname{Hom}(\mathbf1,X^{\otimes n})$ is determined by the actual
+center variables. Its value at the identity is $h_n(X)$. For
+$0<r<n$, put $d=\gcd(n,r)$ and $m=n/d$. Then
+\begin{equation}\label{eq:full-rotation-character}
+ t_r=\operatorname{Tr}((E_X^{(n)})^r)
+     =\sigma_{r/d}\!\left(\nu_m(X^{\otimes d})\right),
+ \qquad
+ c_e=\frac1n\sum_{r=0}^{n-1}t_r\zeta_n^{-er}
+       \in\mathbb Z_{\ge0}\quad(0\le e<n).
+\end{equation}
+Here $\sigma_{r/d}$ acts on $\mathbb Q(\zeta_m)$; any unit lift modulo
+$N$ gives the same answer.
+\item If $p\nmid N$ is prime, then
+\begin{equation}\label{eq:prime-indicator-congruence}
+ \nu_p(X)\in\mathbb Z,\qquad
+ \nu_p(X)\equiv h_p(X)\pmod p,\qquad |\nu_p(X)|\le d_X.
+\end{equation}
+Consequently, for an integer bound $B_X\ge d_X$ and a prime
+$p>2B_X$, the residue $h_p(X)\bmod p$ allows at most one value of
+$\nu_p(X)$ in $[-B_X,B_X]$. If no such value exists, categorification
+is impossible. Values obtained from primes in the same residue class
+modulo $N$ must agree.
+\end{enumerate}
+\end{proposition}
+\begin{proof}
+Lemma~\ref{lem:blockrotation} identifies $(E_X^{(n)})^d$ with rotation
+on $m$ blocks of length $d$. This operator has $m$th roots as eigenvalues.
+Raising it to the power $r/d$, which is coprime to $m$, applies the
+cyclotomic automorphism $\sigma_{r/d}$ to its trace. This proves the
+first formula. The reduction map from units modulo $N$ to units modulo
+$m\mid N$ is surjective, and its kernel fixes $\mathbb Q(\zeta_m)$,
+so the choice of lift is immaterial. Fourier inversion gives the actual
+eigenvalue multiplicities $c_e$, proving their integral positivity.
+
+For a prime $p\nmid N$, the indicator is both a rotation trace in
+$\mathbb Q(\zeta_p)$ and a center trace in $\mathbb Q(\zeta_N)$.
+The center field statement follows from its canonical congruence
+representation \cite[Theorem~II]{DLN}. These fields intersect in
+$\mathbb Q$, so it is a rational algebraic integer. A rational character of $C_p$ has equal multiplicity $b$ at
+each primitive $p$th root. If the multiplicity at one is $a$, then
+$h_p=a+(p-1)b$ and $\nu_p=a-b=h_p-pb$. This proves the congruence;
+\eqref{eq:actual-indicator-bound} proves the bound. An interval of
+length $2B_X<p$ contains at most one integer in a specified residue
+class. Finally, periodicity modulo $N$ proves the compatibility between
+primes. All $h_p\bmod p$ are obtained from based-ring matrix powers
+modulo $p$; a maximum row sum of a fusion matrix supplies an integer
+Perron--Frobenius bound $B_X$. No indicators are guessed.
+\end{proof}
+
+The same argument shows why an averaged primitive-root bucket cannot
+always be treated as an arbitrary integer count: for $p\nmid N$ its
+total multiplicity is divisible by $p-1$. Nonnegative real relaxations
+lose this divisibility, but exact modular row certificates retain it.
+
+\begin{proposition}[Coprime higher Gauss sums of the center]
+\label{prop:center-higher-gauss}
+Write $\tau_n=\sum_Z d_Z^2\theta_Z^n$. For every $n$ coprime to $N$,
+\begin{equation}\label{eq:center-higher-gauss}
+ \tau_n=\frac{D^2}{\sigma_{n^{-1}}(D)},
+\end{equation}
+where the inverse is modulo $N$.
+\end{proposition}
+\begin{proof}
+Use the canonical anomaly-one representation of the center, so that
+$\tau_1=D$, $S_{0Z}=d_Z/D$, and $T_{ZZ}=\theta_Z$.
+The signed Galois permutation $\pi_n$ satisfies
+\[
+ \sigma_n(d_Z)^2=\frac{\sigma_n(D)^2}{D^2}d_{\pi_n(Z)}^2,
+ \qquad \theta_{\pi_n(Z)}=\theta_Z^{n^2}
+\]
+by the Galois formulas of \cite[Theorem~II]{DLN}. Hence
+\[
+ \sigma_n(\tau_n)
+ =\frac{\sigma_n(D)^2}{D^2}
+     \sum_Zd_{\pi_n(Z)}^2\theta_{\pi_n(Z)}
+ =\frac{\sigma_n(D)^2}{D}.
+\]
+Applying $\sigma_{n^{-1}}$ gives
+\eqref{eq:center-higher-gauss}. These are exact linear equations in the
+actual restriction-and-twist counts. They do not require an independent
+choice of higher central charges.
+\end{proof}

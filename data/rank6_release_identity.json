@@ -1,10 +1,40 @@
 {
   "schema": "rank6-release-identity/v1",
+  "date": "2026-09-30",
+  "revision": "round5",
+  "new_exclusions": 0,
+  "research_summary": "Round five unifies joint restriction-word Gram constraints, exact bounded integer searches and modular-representation completion. The six unresolved rings have the finite necessary-data reductions recorded in the research coverage inventory. No categorical exclusion or realization is allocated.",
+  "research_progress": [
+    {
+      "id": "R6_4_22",
+      "result": "The remaining center has rank 36. Its necessary fusion ring and modular data are unique up to relabelling and complex conjugation; categorification remains open."
+    },
+    {
+      "id": "R6_4_91",
+      "result": "Only center rank 42 remains: a forced Ising factor and a rank 14 centralizer with one fusion-ring orbit and two conjugate modular data."
+    },
+    {
+      "id": "R6_4_155",
+      "result": "Six induction profiles remain, each with one forced pair of low fusion matrices in its semion centralizer. None is a categorification certificate."
+    },
+    {
+      "id": "R6_4_629",
+      "result": "Only center rank 35 remains, with one necessary fusion/modular datum up to conjugation and identical-column relabelling; categorical realization remains open."
+    },
+    {
+      "id": "R6_5_1204",
+      "result": "A complete exact reduction leaves 171 induction profiles; the signed-gauge argument covers general categorifications."
+    },
+    {
+      "id": "R6_8_1660",
+      "result": "Actual-root induction and congruence cuts leave three branches with 168, 798 and 798 necessary profiles; the center twist exponent divides 48."
+    }
+  ],
   "archive": {
-    "name": "Rank6_Categorification_M8_Revised_2026-09-29_v4.zip",
-    "sha256": "e8ca671cbb20ab8f1b980d28e7cbd696b6f52cbfc5d36b0d09a2665a35df728b",
-    "bytes": 13038917,
-    "files": 1345
+    "name": "Rank6_Categorification_M8_Revised_2026-09-30_v5.zip",
+    "sha256": "164bd32c359a293dffa2988a1fef68f36f2ee682ba30d41020e1c2abcab2c707",
+    "bytes": 14059475,
+    "files": 1577
   },
   "ledger_sha256": "06416f5bed05836eb7c773788cc6f2cec937aded094164cc4b81881fee70fabe",
   "summary": {
@@ -14,7 +44,9 @@
     "first_unresolved": "R6_4_22",
     "complete_through_multiplicity": 3,
     "third_continuation_excluded": 12,
-    "fourth_continuation_excluded": 4
+    "fourth_continuation_excluded": 4,
+    "revision": "round5",
+    "new_exclusions": 0
   },
   "counts": [
     [
@@ -77,7 +109,20 @@
   "fourth_certificate_sha256": "25e92eac5e4506906437765e31ed452e9042213f08e079c7ff81db2fb7e42062",
   "third_certificate_sha256": "d97910a14e0c1897f405bb24e616d2a715fdb9eb93d94ff0a31001fb26c89aa8",
   "documents": {
-    "rank6.pdf": "51caa2ae637ec06ae2e62bdfb47ed71929b563a5a742cd19ece20466dee5c4e5",
-    "rank6_guide.pdf": "5113b1f50f57daa75cb6ad274400ae82609ab04b6216cbb8f7eb018462d29df9"
+    "rank6.pdf": "2eaf1bbbe260d07a313947bf6b322ece0d80c78cdc0381702d6884e923cbc145",
+    "rank6_guide.pdf": "dc67f944befa97d04e06e6f375502cb43a65f3601db494dcca9dcf238ea55291"
+  },
+  "previous_release": {
+    "archive": {
+      "name": "Rank6_Categorification_M8_Revised_2026-09-29_v4.zip",
+      "sha256": "e8ca671cbb20ab8f1b980d28e7cbd696b6f52cbfc5d36b0d09a2665a35df728b",
+      "bytes": 13038917,
+      "files": 1345
+    },
+    "ledger_sha256": "06416f5bed05836eb7c773788cc6f2cec937aded094164cc4b81881fee70fabe"
+  },
+  "research_files_sha256": {
+    "research/round5/coverage.json": "d65c70b167fcf28fbeff68552f0b63bc6c6e2e4aa10d4b28ed1965eeb02dfa92",
+    "verification/round5/campaign_manifest.json": "cb0a559996db6e063b8ac3bcdf6002da953fffe99116fa3aca826f602d6e5b8c"
   }
 }

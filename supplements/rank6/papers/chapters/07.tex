@@ -95,87 +95,22 @@ Table~\ref{tab:classification}. The other records are left undecided,
 with no assertion of nonexistence or realizability.
 \end{proof}
 
-\subsection{A realized boundary of the finite relaxations}\label{sec:frontier}
-The ring $\RR{2}{4}$, realized in Proposition~\ref{prop:g2-e4}, has invertible group
-$\langle g\rangle=C_4$ and two self-dual noninvertibles $X,Y$.
-Its rules are
-\begin{equation}\label{eq:firstresidual}
- \begin{gathered}
- gX=Y=Xg,\qquad gY=X=Yg,\\
- X^2=Y^2=1+g^2+2X+2Y,\\
- XY=YX=g+g^3+2X+2Y.
- \end{gathered}
-\end{equation}
-The dimensions are $(1,1,1,1,d,d)$ with $d=2+\sqrt6$ and
-$D=4+2d^2=24+8\sqrt6$. This ring is not confused with the Klein-four
-quadratic ring of the same dimension type: its invertible group is
-cyclic. Nor is it the zesting example in Proposition~\ref{prop:zest},
-whose noninvertible square has only one of the two noninvertibles.
+\subsection{Regression controls}\label{sec:frontier}
+The positively realized ring $\RR{2}{4}$ supplies independent controls
+for the balanced and rotation systems. Their exact witnesses are
+\filename{data/frontier_feasible.json} (formal rank $22$) and
+\filename{data/frontier_rotation_feasible.json} (formal rank $27$).
+Each is checked only against its own reconstructed necessary system;
+the different formal ranks do not describe a single center. Existence
+comes from Proposition~\ref{prop:g2-e4}.
 
-\begin{proposition}[An exact finite feasible branch]\label{prop:frontier}
-For the ring \eqref{eq:firstresidual}, the height-six balanced
-finite-indicator system has a rational nonnegative feasible point after
-fixing an integral high-column Gram decomposition. The associated
-formal list has twenty-two central simples. Thus the necessary system
-consisting of the chosen low data, Gram equations, algebraic-integrality
-column bounds, height-six relative traces, duality balance, Galois
-dimension-count balance, and integer column counts cannot by itself
-exclude this ring.
-\end{proposition}
-\begin{proof}
-The file \filename{data/frontier_feasible.json} specifies the complete
-tensor, low matrix, allowed second indicators, nonnegative integral
-column counts, and rational values of the trace variables. The checker
-reconstructs the low-column list and confirms membership, computes every
-high column, and checks \eqref{eq:integergram}. It then reconstructs the
-balanced system and the fixed-count rows and verifies $Ax=b$ and
-$x\ge0$ by exact rational arithmetic. The specified column counts sum
-to sixteen and the low part has six distinct columns, giving twenty-two
-formal simples. The exact entries, system dimensions, and a successful
-verification report are included in the supplement.
-\end{proof}
-
-\begin{proposition}[Integral counts in the rotation relaxation]\label{prop:rotation-frontier}
-For $\RR{2}{4}$, the height-six system of Theorem~\ref{thm:rotation}
-has an exact nonnegative feasible point with integer high-center counts
-and integer cyclic-character counts. Its system has $377$ equations in
-$893$ variables, with $60$ nonzero coordinates and formal central rank
-$27$.
-\end{proposition}
-\begin{proof}
-The file \filename{data/frontier_rotation_feasible.json} supplies its
-low columns, second indicators and exact rational coordinates. The
-checker independently regenerates all center and rotation rows,
-verifies nonnegativity and every equality, and checks integrality of
-all $798$ high-center and $55$ rotation-count coordinates. Only the
-inequality slack coordinates are permitted to be rational. Summing the
-high-center counts and the six low columns gives $27$.
-\end{proof}
-This is a different feasible point from the rank-twenty-two point in
-Proposition~\ref{prop:frontier}; they must not be combined into one
-claimed center. The stronger point shows that adding the displayed
-tensor-rotation equations and integrality of these grouped counts
-does not exclude the cyclic-four tensor, now positively realized in Section~\ref{sec:g2-e4}. A separate
-height-twelve rational search also found no exclusion, but only the
-height-six exact point is used for the proposition.
-
-Neither proposition constructs a modular datum or a category.
-In Proposition~\ref{prop:frontier} trace counts may be rational.
-Even the grouped integer counts of Proposition~\ref{prop:rotation-frontier}
-specify
-averaged twist information rather than individual twists satisfying
-Verlinde and balancing identities. These points are now positive controls for the realized tensor
-$\RR{2}{4}$, not grounds for pursuing an exclusion of it. For unresolved
-tensors, additional information such as individual twist sectors,
-center fusion coefficients and multiplication compatibility can refine
-the necessary systems. The distinct point in
-Section~\ref{sec:modular-frontier} concerns $\RR{3}{215}$ and is verified
-separately. No feasible system is promoted to categorical existence.
-
-The higher-multiplicity residuals include both finite feasible relaxations and bounded signed searches that did not finish. Their diagnostics and complete
-tensors are supplied separately. The verified feasible points for $\RR{2}{4}$ must not be silently assigned to other rings. Current
-quadratic-category work such as \cite{MY} is relevant context, but
-its Klein-four classification is distinct from the cyclic-four conformal-embedding construction above.
+Conversely, the generally excluded ring $\RR{3}{215}$ has an exact
+rank-$22$ induction, fusion and modular-data relaxation. The stored
+replay programs in \filename{research/m8_frontier/} preserve this
+negative control for overinterpreting feasible data. The additional
+stabilizer-rotation obstruction, not a failure of those weaker systems,
+proves its nonexistence. These controls are kept outside the main
+classification argument.
 
 \subsection{Reproduction and counting data}\label{sec:reproduction}
 The top-level command
@@ -224,136 +159,27 @@ have a justified categorical source and an exact full-tensor match;
 an obstruction must state its hypotheses and exhaust all branches
 needed for the claimed categorical structure.
 
-The former residual $\RR{3}{215}$ illustrates the distinction between
-feasible necessary data and categorical existence. Its $230$-equation
-induction witness satisfies the joint low-product Gram condition in
-Section~\ref{sec:joint-low-product-gram}. Proposition~\ref{prop:cyclic-eight-center}
-extends that rank-$22$ point to exact modular and full center fusion
-data with a compatible restriction-ring map. These are historical
-feasible controls for the specified relaxations. They do not satisfy
-the additional local involution-rotation condition used in
-Theorem~\ref{thm:stabilizer-rotation-frontier}, which now generally
-excludes the target ring.
+The certificate files and immutable campaign manifests preserve provenance
+without entering the mathematical criteria as lists of forbidden IDs.
+The authoritative ledger is rebuilt from their disjoint union. Alternative
+proofs can be retained, but a tensor receives only one exclusion allocation.
+\filename{software/continuation_controls.py} independently checks accepted
+continuation records with numerical optimizers disabled; \filename{verify.py}
+replays the full current ledger. Discovery logs and incomplete searches
+are not verification receipts.
 
-There is also an independent strengthening of the source-specific
-cyclic-eight argument: the actual Grossman--Izumi center forces the
-six twist-one constituents of canonical unit induction. Applying the
-same observation to the involution Morita dual forces the missing
-right-action trace. The earlier six-object module and second-algebra
-argument therefore excludes the whole actual cyclic-eight Morita class,
-without fixing a candidate restriction map. The proof and exact trace
-check are retained in
-\filename{research/round2_audit/actual_cyclic8_morita.md} and its
-companion program. This argument does not assert rigidity of braided
-categories from their modular data.
+The present frontier is described by complete tensor-derived necessary
+data in the current research report. Its counts are not predictions about
+categorifiability beyond multiplicity eight. A surviving integral profile,
+fusion tensor or modular datum is assigned categorical existence only when
+a categorical construction and exact tensor identification are supplied.
 
-The Dong--Schopieray bound in
-Section~\ref{sec:premodular-frontier-bound} separately excludes a braided
-spherical categorification of this tensor. Its scope is narrower than
-the final general obstruction. The Ng--Rowell--Wen comparison screens
-all $\CensusCount$ source tensors against the rank-six ancillary data
-and performs exact based-ring comparisons after invariant filtering.
-It finds no new model; the source's largest fusion coefficient is two.
-Failure to match that modular catalogue is not a general obstruction.
+\input{chapters/frontier_quartic}
 
-These computations are reproduced by
-\begin{verbatim}
-python research/m8_frontier/low_product_gram.py --check
-python research/m8_frontier/premodular_bound.py
-python research/m8_frontier/nrw_rank6_scan.py
-\end{verbatim}
-The programs retain exact certificates and scoped reports alongside
-their source. They apply their conditions to tensor data rather than
-using a desired classification outcome as input.
+\input{chapters/frontier_155}
 
-\paragraph{The frozen continuations.}
-The original sixteen-stage classification campaign and its accepted
-certificate file are retained unchanged. The first continuation used
-forty-seven frozen residual inputs and accepted seven general exclusions.
-Its bounded discovery attempts, including higher multiplicities, remain
-in \filename{verification/continuation/}; its accepted file is
-\filename{certificates/continuation_20260929.jsonl}. The rank-three
-subring scan covered the whole census, while the module and order-six
-Morita refinements used their recorded residual domains. The Morita
-argument's pseudo-unitary step follows a proved two-dimension Galois
-reduction on the dual category. Ineligible inputs, interrupted searches
-and surviving necessary systems were not accepted as exclusions.
+\input{chapters/frontier_629}
 
-The second continuation starts from the forty complete tensors in
-\filename{verification/round2/campaign_manifest.json}. This immutable
-domain contains the former multiplicity-three frontier and all
-thirty-nine remaining inputs at multiplicities four through eight.
-Regenerating the smaller final residual export does not change the
-continuation's input. Its accepted general records are frozen in
-\filename{certificates/continuation_round2.jsonl}; the disjoint union of
-the continuations with the original campaign determines the ledger.
-A tensor may have several independently checked proofs but receives
-only one exclusion allocation.
+\input{chapters/frontier_1204}
 
-The local stabilizer-rotation theorem completes multiplicity three.
-Its higher-dimensional and cyclotomic refinements retain all required
-module branches, character alternatives and exact separating witnesses.
-The ramification, biquadratic and formal-codegree trace-ideal criteria
-are applied by uniform tensor-based scans, including every frozen
-higher input; the higher stabilizer campaign separately records
-eligibility, finite search outcomes and budget stops for that same
-input domain. This coverage does not mean that every possible search
-completed or that every criterion's hypotheses held for every tensor.
-The all-orders Gauss obstruction has pseudo-unitary scope; its general
-applications include the separately verified signed reduction.
-
-Two independent full-census scans illustrate the distinction between
-criterion coverage and new allocations. The biquadratic checker
-excludes fifty-one of the $\CensusCount$ tensors in isolation, and the
-trace-ideal checker excludes $1827$. These totals include already
-excluded rings and overlap other criteria; they are not added to the
-classification count. Their complete reports and positive controls are
-retained in \filename{research/round2_external/}. The Gauss family scan
-also checks the full census, identifying the applicable parameter
-family by complete tensor comparison. The imported multiplicity-thirteen
-example is a regression input, not a census record.
-
-The command \filename{software/round2_release.py} checks all candidate
-general records, including alternative proofs, replays the first
-continuation, freezes the second accepted file and builds the ledger
-in one process. \filename{software/continuation_controls.py} independently
-replays every accepted record in all continuation files against that
-ledger, with numerical optimizers disabled. It is an incremental check
-and does not claim to rerun the unchanged original campaign. A full
-current-ledger replay is available through \filename{verify.py}.
-The verification guide gives exact commands and report locations.
-
-The third continuation starts from the twenty-two complete tensors in
-\filename{verification/round3/campaign_manifest.json}. Its accepted
-general proofs are allocated separately in
-\filename{certificates/continuation_round3.jsonl}, preserving all earlier
-certificate files. The tensor-based criteria, full-census applicability
-scans, positive controls and surviving relaxations are recorded in
-\filename{research/round3/}. The new signed-spectrum arguments separate
-general categorical necessity from the pseudo-unitary induction step;
-the latter is used only after a complete Galois reduction.
-\filename{software/round3_release.py} replays the accepted new proofs
-with numerical optimization disabled before rebuilding the combined
-ledger. It retains the unchanged earlier exact evidence and does not
-claim to repeat the complete original negative catalogue.
-
-The fourth continuation begins with the ten tensors frozen in
-\filename{verification/round4/campaign_manifest.json} and adds four
-general exclusions in \filename{certificates/continuation_round4.jsonl}.
-Twist-preserving subcategory projection and the exact twist-mass identities
-complete multiplicity six and leave one multiplicity-eight residual.
-Exhaustive multiplicity-four restriction-profile searches leave respectively
-two, two and three alternatives for $\RR{4}{22}$, $\RR{4}{91}$ and
-$\RR{4}{629}$; a stronger exact integral witness is retained for
-$\RR{4}{155}$. These are necessary data, not categorical constructions.
-The ten-input and $54$-model scans, exact witnesses and incomplete searches
-are reconciled in \filename{research/round4/coverage.json}.
-Use \filename{software/round4_release.py} for the current incremental
-rebuild; its optimized, optimizer-disabled replay checks all four new
-proofs while preserving the $37$ earlier continuation certificates.
-
-The remaining $\UnresolvedCount$ tensors are unresolved by this release.
-No literature-wide open-problem claim is attached to that word. In
-particular, survival of all implemented tests means only that these
-tests have not decided the input. The paper makes no prediction of
-counts or categorifiability beyond multiplicity eight.
+\input{chapters/frontier_1660}

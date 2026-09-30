@@ -1,73 +1,73 @@
 # Automated frontier research
 
-The decision ledger is `data/decisions.json`. Necessary data and feasible
-relaxations do not establish categorifiability.
+The authoritative [decision ledger](../data/decisions.json) records 16,552
+general exclusions, 54 realized rings and six unresolved rings. Necessary
+profiles, fusion tensors and modular data do not establish categorification.
 
-The third continuation adds 12 general exclusions and leaves 10 unresolved
-tensors. Its full input domain contains 22 tensors, independently frozen
-before the current ledger was rebuilt. The current work is organized under
-`round3/`:
+## Current finite frontier
 
-- `smallest/`: the forced cyclic associator and complete C4-family criterion.
-- `m4/`: full-character cyclotomic traces, low Verlinde and restriction-product
-  equations, and the general exclusions of R6_4_211 and R6_4_243.
-- `higher/`: integral Morita congruences, complete higher-indicator proofs,
-  and their full frontier and positive-control scans.
-- `arithmetic/`: local dimension-field isolation, the different-ideal theorem,
-  finite field and signed-spectrum exhaustion, and four dense M8 exclusions.
-- `noncommutative/`: weighted signed-spectrum saturation and the complete
-  general exclusions of all three noncommutative frontier tensors.
-- `quartic/`: the complementary commutative signed-sector verifier and
-  precisely scoped surviving quartic necessary systems.
-- `models/`: independent theoretical audits and exact model-scope comparisons.
+[`round5/coverage.json`](round5/coverage.json) records the exact scope, staged
+reductions, canonical replay commands and file bindings for all six frozen
+inputs. The [input manifest](../verification/round5/campaign_manifest.json)
+contains the full tensors and their hashes. Run
+`python -O software/round5_replay.py --list` from the package root to inspect
+all current replay commands; `--check-receipts` audits retained evidence
+without claiming a new mathematical replay.
 
-The canonical new allocation is `certificates/continuation_round3.jsonl`.
-`round3/coverage.json` distinguishes all-census applicability scans, full
-22-input campaigns, positive controls and unfinished searches. Exact
-multiplicity seven is now completely classified; the remaining frontier is
-still defined by the authoritative decision ledger.
+- [`round5/quartic_pair/`](round5/quartic_pair/) and
+  [`round5/fermion/`](round5/fermion/) contain the full fusion/modular
+  reconstructions and coupled word/twist reductions for `R6_4_22` and `R6_4_91`.
+- [`round5/m4_155/`](round5/m4_155/) contains the complete profile reduction,
+  pointed constraints and semion-centralizer fusion-action frontier.
+- [`round5/m4_629/`](round5/m4_629/) contains the rank-30 and rank-38
+  obstructions and the exhaustive rank-35 modular completion.
+- [`round5/m5_1204/`](round5/m5_1204/) contains the complete general reduction
+  to 171 necessary induction profiles.
+- [`round5/m8_1660/`](round5/m8_1660/) contains both complete low-frame
+  enumerations with saturated conductor support and individual-root Ising
+  mass bounds. [`round5/m8_1660_conductor/`](round5/m8_1660_conductor/)
+  supplies the general categorical reduction. The complete actual-root
+  systems and congruence reductions are in [`round5/m8_actual48/`](round5/m8_actual48/);
+  [`round5/m8_modrep/`](round5/m8_modrep/) contains the exact finite modular
+  representation spectra used to refine them.
+- [`round5/unification/`](round5/unification/) contains independent audits,
+  exhaustive domain controls and categorical positive controls of the shared
+  Gram and balancing criteria.
 
-The second continuation completed multiplicity three. Its historical work is
-organized as follows:
+The exact multiplicity bands 1, 2, 3, 6 and 7 are complete. All six current
+frontier rings remain unresolved. The coverage file explicitly distinguishes
+complete profile domains from tests of one selected profile or factorization.
 
-- `round2_center/`: the complete general certificate for R6_3_215, the
-  R6_4_416 extension, unrestricted signed reductions, and independent
-  quartic certificate audits.
-- `round2_theory/`: higher-dimensional Clifford rotation, the frozen
-  forty-input scan, height-six refinements, and all 54 positive controls.
-- `round2_literature/`: ambient cyclotomic trace certificates for the four
-  quartic-field exclusions, together with scoped surviving refinements.
-- `round2_higher/`: ramification and signed Casimir trace criteria, and the
-  all-orders Gauss family theorem with its full-census application.
-- `round2_external/`: imported-proof tensor audits, biquadratic and trace-ideal
-  criteria, full-census scans, and general signed-reduction certificates.
-- `round2_audit/`: independent mathematical and executable audits, including
-  the local Clifford theorem and the actual cyclic-eight Morita-class argument.
+## Retained proof dependencies and provenance
 
-Those accepted general conclusions are frozen in
-`certificates/continuation_round2.jsonl`. The precise current residuals are
-always those in the decision ledger. A historical file describing R6_3_215
-as unresolved is superseded by the second-continuation theorem.
+Earlier criterion directories and their original receipts remain available
+for exact replay. Their counts and unresolved labels describe their frozen
+inputs; they do not override the current ledger.
 
-The first 29 September continuation is retained as follows:
+- [`round4/`](round4/README.md) supplies inherited finite profile reductions,
+  subcategory center projection, twist-resolved masses and accepted general
+  exclusions. Its earlier coverage report retains its original ten inputs.
+- [`round3/`](round3/README.md) contains the C4 associator, full-character
+  rotation, integral Morita, local arithmetic and signed-spectrum proofs,
+  with the original 22-input coverage and model controls.
+- [`round2_center/`](round2_center/README.md),
+  [`round2_theory/`](round2_theory/README.md),
+  [`round2_literature/`](round2_literature/),
+  [`round2_higher/`](round2_higher/README.md),
+  [`round2_external/`](round2_external/) and
+  [`round2_audit/`](round2_audit/README.md) retain the general multiplicity-three
+  completion, Clifford and arithmetic criteria, imported-proof audits and
+  their precisely scoped scans.
+- [`new_frontier/`](new_frontier/README.md),
+  [`center_continuation/`](center_continuation/README.md),
+  [`module_continuation/`](module_continuation/README.md) and
+  [`model_continuation/`](model_continuation/) retain the earlier Morita,
+  spectral, modular and grading calculations.
+- [`m8_frontier/`](m8_frontier/README.md) and [`m8_audit/`](m8_audit/)
+  retain the source-matching, modular comparison and scope controls.
 
-- `new_frontier/`: full commuting Morita-action Gram identities, exact rejection
-  of 14 multiplicity-three branches, and unique completions of the two survivors.
-- `center_continuation/`: an exact rank-22 modular fusion tensor and positive
-  restriction-ring map, indicator tests and scoped congruence investigations.
-- `module_continuation/`: the two new multiplicity-eight spectral exclusions,
-  their exact certificates and positive-model controls.
-- `model_continuation/`: exhaustive order-six dual-ring classification and the
-  two new multiplicity-five Morita-grading exclusions, with mutation controls.
-- `new_rank3_descent.md`: general rank-three subring descent and the complete
-  census scan; the new residual exclusion is R6_4_162.
-
-The earlier `m8_frontier/` contains the joint fourth-order low-product Gram
-calculation, the braided-spherical bound and the frozen rank-six modular-data
-comparison. Their narrower claims remain valid. `m8_audit/` records the earlier
-scope controls. Earlier research data are retained as provenance.
-
-All accepted negatives are copied into checked certificate records and merged
-into the disjoint ledger. Numerical discoveries, process deadlines, failed
-hypotheses and surviving necessary systems do not assign an existence status.
-The source census remains trusted; no new census enumeration is claimed.
+Accepted negatives occur in the disjoint [certificate allocations](../certificates/).
+Alternative proofs and overlapping criterion scans are not additional ledger
+allocations. Numerical solver outcomes, process deadlines, failed hypotheses
+and surviving necessary systems never assign an existence status. The source
+census remains trusted; no independent census enumeration is claimed.

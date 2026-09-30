@@ -1,71 +1,119 @@
 # Verification evidence
 
-`classification/` records the executed ordered sieve, its finite search budgets,
-per-ring outcomes, stage counts and exact-checked certificates. A stopped search
-is not an exclusion. The source census is trusted at the pinned revision; only
-its byte integrity and representative correspondence are checked here.
+The authoritative status is in [`data/decisions.json`](../data/decisions.json)
+and its derived [`classification_counts.json`](../data/classification_counts.json):
+16,552 general exclusions, 54 realized rings and 6 unresolved rings.
+The current finite-profile reductions do not add a general exclusion.
 
-`continuation/` contains the historical first continuation: its frozen 47
-inputs, bounded discovery outcomes, seven accepted exclusions and replay
-reports tied to that revision.
+## Current exact reductions
 
-`round2/` contains the second continuation. Its manifest freezes all 40
-inputs, including all 39 higher-multiplicity residuals, before the ledger
-shrinks. `software/round2_release.py` verifies the supported general proof
-sources, alternative proofs and both continuations, freezes
-`certificates/continuation_round2.jsonl`, and rebuilds the ledger. Its
-`release_replay.json` receipt records the exact accepted file and ledger hashes.
-`software/continuation_controls.py` independently checks every certificate in
-all continuation files with numerical optimizers disabled; use an explicit
-`--out verification/round2/replay_optimized.json` to preserve the historical
-first-continuation reports.
+The unified criterion factors restriction and low-word moments jointly,
+then couples the resulting coefficients to twist types through ribbon
+balancing. Each verifier reconstructs its stated finite domain and equations
+from the source tensor. An exact profile obstruction only excludes that
+profile; a surviving necessary witness is not a categorical model.
 
-`round3/` freezes the next 22 full tensors and the sources of 12 further
-general exclusions. `software/round3_release.py` reconstructs each new proof
-with numerical optimizers disabled, freezes the third disjoint certificate
-file, and rebuilds the combined ledger. Its `release_replay.json` records
-the new file and ledger hashes and explicitly distinguishes newly repeated
-checks from inherited earlier evidence. The theorem-specific audits, full
-census scans, 22-input frontier tests and 54 model-control outcomes are under
-`research/round3/`; `coverage.json` records their different scopes and budgets.
-At the end of the third continuation, ten tensors remained; exact multiplicity seven was complete.
+| Scope | Current evidence |
+|---|---|
+| Generic finite Gram domains | [Exhaustive controls](../research/round5/unification/domain_controls.json), [native/generic crosscheck](../research/round5/unification/native_1204_domain_crosscheck.json) |
+| `R6_4_22`: rank-30 obstruction and complete rank-36 fusion/modular reconstruction | [Balancing certificate](../research/round5/fermion/R6_4_22_certificate.json), [full reconstruction](../research/round5/quartic_pair/R6_4_22_center_reconstruction.json), [source-bound replay](../research/round5/quartic_pair/replay_O.json) |
+| `R6_4_91`: full fusion and modular reconstruction | [Certificate](../research/round5/quartic_pair/R6_4_91_center_reconstruction.json), [source-bound replay](../research/round5/quartic_pair/replay_O.json) |
+| `R6_4_155`: six profiles and forced semion-centralizer low actions | [Main exact replay](../research/round5/m4_155/frontier_replay_optimized.json), [packet reconstruction](../research/round5/m4_155/packet_frontier.json) |
+| `R6_4_629`: rank-30/rank-38 obstructions and unique rank-35 necessary modular datum | [Complete certificate](../research/round5/m4_629/modular_reduction_certificate.json), [source-bound replay](../research/round5/m4_629/modular_chain_replay_O.json) |
+| `R6_5_1204`: complete reduction to 171 profiles | [Certificate](../research/round5/m5_1204/profile_certificate.json), [optimizer-free replay](../research/round5/m5_1204/exact_replay_optimized.json) |
+| `R6_8_1660`: general reduction and complete actual-root/profile enumeration | [General replay](../research/round5/m8_1660_conductor/reduction_replay.json), [actual-root certificate](../research/round5/m8_actual48/certificate.json), [source-bound exact replay](../research/round5/m8_actual48/replay_O.json) |
 
-`round4/` freezes the next ten full tensors and the sources of 4 further
-general exclusions. `software/round4_release.py` reconstructs every new
-proof with optimizers disabled and preserves the earlier campaigns.
-Its source-bound replay yields 16,552 exclusions, 54 realized rings and
-6 unresolved cases. Exact completed multiplicity bands are 1, 2, 3, 6, 7.
-The new criterion scans and all 54 model controls are reconciled in
-`research/round4/coverage.json`; eligibility and budgets are explicit.
-Finite restriction profiles and surviving integer or rational systems
-are necessary conditions, not categorical models.
+The [frozen six-input manifest](round5/campaign_manifest.json) includes each
+full tensor and its SHA-256. The [coverage file](../research/round5/coverage.json)
+records all staged reductions, canonical commands and retained receipts.
+The reusable orchestration command is:
 
-`current/` contains regression and consistency checks; each retained report
-refers to the input and scope recorded when it ran. Normal and
-optimized Python modes test explicit error handling, scope guards, mathematical
-controls and deliberate corruptions. Each process record states what actually
-ran; no earlier smaller census report is relabelled as a multiplicity-eight run.
+```bash
+python -O software/round5_replay.py --list
+python -O software/round5_replay.py --check-receipts
+python -O software/round5_replay.py --select controls
+python -O software/round5_replay.py --select R6_5_1204,R6_4_629 --jobs 2
+```
 
-`release_summary.json` identifies the final ledger, scope and supporting reports.
-`document_build_logs/` contains the final LaTeX build logs. Document layout and
-cross-reference checks are recorded separately from mathematical evidence.
+`--check-receipts` checks the explicitly listed file hashes, each retained
+receipt's completion predicate and any hashes intrinsic to that receipt. It is
+an inventory audit, not a mathematical rerun, and makes no claim about unlisted
+dependencies. Pending bindings fail the audit. Ordinary replay executes the
+selected verifiers under optimized Python, captures separate logs and fresh
+receipts, restores retained receipt files, and requires explicit completion. Case steps are sequential, with a 15-minute per-command
+deadline. A stopped command is incomplete; use `--jobs 1` for the largest case.
 
-The commands in the verification guide reproduce classification checks, source
-matching, model reconstruction and exact certificate verification. They do not
-perform independent census enumeration.
+The [pointed-center control](../research/round5/unification/pointed_center_control.json)
+checks nontrivial complex duality, and the
+[`Rep(S3)` center control](../research/round5/unification/s3_center_control.json)
+checks nonzero high-word coefficients and common coefficient/twist balancing.
+They do not constitute a new all-model scan.
 
-The original release summary is preserved as `original_release_summary.json`.
-The revised summary distinguishes inherited exact evidence from checks repeated
-on the continuations. The current exclusion count is read from
-`data/classification_counts.json`, rather than from a historical report.
-A full current-ledger replay is available through `verify.py`; incremental
-continuation checking does not claim to have repeated that full run.
+The [Fibonacci-center control](../research/round5/unification/conductor_support_control.json)
+checks saturated conductor support, finite-representation moments and forbidden
+root powers. The [aggregate control receipt](round5/control_replay/receipt.json)
+records a fresh optimized replay of all thirteen declared shared checks.
+The [subcategory projection controls](../research/round5/unification/subcategory_intertwiner_control.json)
+construct the modular matrices and projection multiplicities from finite-group
+character sums, including a rank-deficient projection. Full subrepresentation
+subtraction requires the separate disjoint-column hypothesis.
+The [saturated Bruhat control](../research/round5/unification/saturated_bruhat_control.json)
+checks full induced character spaces and an actual Fibonacci center. Its
+171-profile R1204 scan found no additional exact obstruction, as recorded in
+the [discovery summary](../research/round5/m5_1204/exploration_summary.json).
 
-The original sixteen-stage campaign and first continuation remain unchanged.
-The second, third and fourth accepted JSONL files are disjoint extensions, not a rewritten historical
-campaign. Complete all-census scans of the new biquadratic and trace-ideal
-criteria are retained in `research/round2_external/`; their overlapping
-exclusion totals are criterion coverage, not additional ledger allocations.
-The higher stabilizer campaign records explicit eligibility and budget
-outcomes for the frozen input domain. A failed hypothesis, surviving
-relaxation or unfinished search is never an exclusion.
+The exact checks use explicit requirements and remain effective under
+`python -O`. Stored separating rays and integral points are checked without
+calling numerical optimizers. A budget stop, numerical infeasibility status,
+failed eligibility hypothesis or surviving relaxation is never an exclusion.
+The case directories record the actual hypotheses, bounds and replay scope.
+
+## Accepted classification evidence
+
+[`classification/`](classification/) contains the executed ordered sieve,
+its per-ring outcomes, finite search budgets, stage counts and exact-checked
+certificates. The source census is trusted at the pinned revision; byte
+integrity and representative correspondence are checked here. Verification
+does not independently enumerate the census.
+
+The accepted continuation allocations in [`certificates/`](../certificates/)
+are disjoint extensions of that catalogue. Their source-bound proofs, frozen
+input manifests and original replay receipts are retained in
+[`continuation/`](continuation/), [`round2/`](round2/), [`round3/`](round3/) and
+[`round4/`](round4/). Alternative proofs and overlapping full-census criterion
+scans remain evidence for their stated criteria, not additional allocations.
+Historical reports keep the counts and inputs applicable when they ran.
+
+To replay all accepted continuation certificates with numerical optimization
+disabled, run from the package root:
+
+```bash
+python -O software/continuation_controls.py --jobs 3 --out verification/current/all_continuations.json
+```
+
+To replay the complete negative catalogue, use:
+
+```bash
+python -O verify.py --jobs 2 --out verification/current/full_recheck.jsonl
+```
+
+Neither complete replay is implied by a case-specific reduction check.
+Use an explicit current output path to preserve historical receipts. The
+[package README](../README.md) gives commands for the shared domain controls,
+case reconstructions, ledger consistency and document builds.
+
+## Consistency, documents and archive integrity
+
+[`current/`](current/) holds regression and consistency receipts; each report
+states its executed scope and inputs. Normal and optimized Python checks
+cover explicit error handling, scope guards and mathematical controls.
+[`release_summary.json`](release_summary.json) links the authoritative ledger
+and retained classification evidence. The original summary is preserved as
+[`original_release_summary.json`](original_release_summary.json).
+
+Document compilation logs are under
+[`document_build_logs/`](document_build_logs/). PDF layout and cross-reference
+checks are separate from mathematical proof verification. The archive
+manifest checks file integrity, not the validity of a theorem. Run
+`python check_manifest.py` before generating new reports, since newly written
+reports change the archive's bytes.

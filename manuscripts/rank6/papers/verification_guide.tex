@@ -3,7 +3,7 @@
 \hypersetup{pdftitle={Verification guide: rank-six categorification through multiplicity eight},pdfauthor={}}
 \title{Verification guide\\\large Rank-six categorification through multiplicity eight}
 \author{}
-\date{29 September 2026}
+\date{30 September 2026}
 \begin{document}\maketitle
 \section{Scope and authoritative records}
 This guide accompanies \emph{Rank-six fusion rings: categorification
@@ -152,123 +152,62 @@ require the module or subcategory hypotheses proved in the manuscript.
 Their applicability is checked before a certificate is accepted.
 
 \subsection{The continuation files and release workflow}
-Earlier freeze commands in this subsection describe their recorded release
-snapshots.  For the current package, rebuild with the fourth-continuation
-workflow below; use \filename{continuation_controls.py} to replay earlier
-proofs against the current ledger.
+The ledger combines the original campaign with immutable accepted
+continuation files. Each manifest fixes complete tensors and hashes;
+regenerating the current residual list does not change an earlier input
+domain. Alternative proofs are checked without double counting.
 
-The original sixteen-stage campaign is preserved in
-\filename{verification/classification/}, including its unchanged
-accepted-certificate file. The first continuation used forty-seven
-frozen inputs and accepted seven general exclusions in
-\filename{certificates/continuation_20260929.jsonl}. Its bounded discovery
-outcomes and replay evidence are in \filename{verification/continuation/}.
-These are historical records with their own ledger and input hashes.
+\begin{center}\small
+\begin{tabular}{lrrl}
+Campaign&Inputs&New exclusions&Accepted file in \filename{certificates/}\\\hline
+First&47&7&\filename{continuation_20260929.jsonl}\\
+Second&40&18&\filename{continuation_round2.jsonl}\\
+Third&22&12&\filename{continuation_round3.jsonl}\\
+Fourth&10&4&\filename{continuation_round4.jsonl}
+\end{tabular}
+\end{center}
+The corresponding immutable manifests, source indices and original
+receipts are in \filename{verification/continuation/} and
+\filename{verification/round2/} through \filename{verification/round4/}.
+These receipts describe the release at which they were produced.
 
-The second continuation begins with forty tensors fixed in
-\filename{verification/round2/campaign_manifest.json}: the last
-multiplicity-three residual and all thirty-nine remaining tensors of
-multiplicities four through eight. This file preserves full tensors,
-identifiers and input hashes. The criterion scans and higher stabilizer
-campaign use this domain rather than a residual list that shrinks after
-new exclusions. A recorded ineligibility, timeout or surviving necessary
-system is a research outcome, not a negative certificate.
-
-Only general certificates accepted by the checker enter
-\filename{certificates/continuation_round2.jsonl}. The release is the
-disjoint union of the original campaign and the continuation files.
-Alternative proofs of the same tensor are verified but not counted twice.
-The following commands perform the second freeze and an independent
-replay of the accepted continuation records:
+For an independent replay against the current ledger, use
 \begin{verbatim}
-python -O software/round2_release.py
 python -O software/continuation_controls.py --jobs 2 \
-  --out verification/round2/replay_optimized.json
-\end{verbatim}
-The first command reads the canonical general proof sources, checks
-their tensors against the frozen input manifest, disables numerical
-optimization, verifies alternatives and all accepted continuation
-certificates, writes the second JSONL file and rebuilds the ledger in
-one process. Its receipt is
-\filename{verification/round2/release_replay.json}. The second command
-checks all continuation files against the current ledger and replays
-each certificate independently, again with both linear and mixed-integer
-optimizers disabled. The supplied output argument keeps its report
-separate from the first continuation's historical reports. Omitting
-\filename{-O} gives the corresponding normal-Python check; report
-filenames and hashes identify which invocation actually ran.
-
-Neither command reruns all unchanged original negative certificates.
-The full-ledger \filename{verify.py} commands above do that and also
-check the source and positive models, unless explicitly restricted by
-\filename{--proofs-only}. Retained incremental evidence is not described
-as a newly executed full replay.
-
-\paragraph{Third-continuation replay.}
-The next input domain is the twenty-two full tensors frozen in
-\filename{verification/round3/campaign_manifest.json}. Its proof-source
-index is \filename{verification/round3/proof_sources.json}; accepted
-general certificates are stored in
-\filename{certificates/continuation_round3.jsonl}. Run
-\begin{verbatim}
-python -O software/round3_release.py --jobs 3
+  --out verification/current/continuation_replay.json
 python software/model_catalog.py
 python software/build_paper_tables.py
-python software/release_consistency.py
-python -O software/release_consistency.py
-\end{verbatim}
-The first command reconstructs the new proof branches with both SciPy
-optimizers disabled, checks membership in the immutable input domain,
-freezes the accepted file, and combines it with the unchanged prior
-campaigns. \filename{verification/round3/release_replay.json} records
-the resulting certificate and ledger hashes and distinguishes the new
-replays from inherited evidence. Independent normal and optimized
-checks, relabeling controls and rejected corruptions are retained in
-the criterion directories under \filename{research/round3/}.
-The arithmetic and cyclic-family scans screen the full census; the
-more expensive induction scans record their actual finite residual
-domains, eligibility and budgets. No stopped or feasible relaxation
-is allocated as an exclusion.
-
-\paragraph{Fourth-continuation replay.}
-The ten residual tensors are frozen in
-\filename{verification/round4/campaign_manifest.json}. The new exact
-proof sources are indexed in \filename{verification/round4/proof_sources.json};
-the accepted allocation is \filename{certificates/continuation_round4.jsonl}.
-Use the following current workflow:
-\begin{verbatim}
-python -O software/round4_release.py --jobs 3
-python software/model_catalog.py
-python software/build_paper_tables.py
-python software/round4_documents.py
-python research/round4/coverage.py --require-canonical \
-  --output research/round4/coverage.json
 python software/release_consistency.py
 python -O software/release_consistency.py
 python build_papers.py
 \end{verbatim}
-The first command checks the new general certificates from their full
-input tensors, with numerical optimizers disabled, and retains the
-preceding campaigns unchanged. Its source-bound receipt is
-\filename{verification/round4/release_replay.json}. The coverage report
-checks the frozen ten-input frontier and all $54$ positive controls,
-distinguishing ineligibility, exact survival, numerical results and
-unfinished attempts. It does not rerun every old negative certificate.
+The continuation checker disables linear and mixed-integer optimizers.
+It verifies accepted records from the full tensors, including the
+separate general-to-pseudo-unitary reductions wherever required.
+It is an incremental replay: the full-ledger \filename{verify.py}
+commands above also check the original negative catalogue.
 
-The new projection theorem preserves the exact twist of a central object
-under projection to a fusion subcategory. Indicator Fourier inversion
-then gives exact masses at each subcategory twist. Implementations must
-aggregate coincident normalized trace types; a projected trace is not
-itself the original twist. General scope requires the separate signed or
-structural reduction stored with each accepted obstruction.
+The current research layer is kept separate from exclusion allocation.
+Joint restriction/word Gram domains, projected product balancing,
+centralizer packet factorizations and exact modular completions are
+necessary conditions. A finite reduction or a surviving modular datum
+does not enter the positive catalogue. Exact rays and exhaustive search
+receipts record precisely which branches have been eliminated.
 
-Finite Gram and Galois profile enumeration is also retained for the
-multiplicity-four frontier. The exhaustive profile counts, exact
-word-multiplicity rejections and surviving integer witnesses describe
-necessary systems. They do not construct associators, a full center
-fusion ring, or a categorical model. The fourth-moment square cuts and
-odd-conductor orbit criterion are proved in the new manuscript chapters;
-the squared Galois action is essential in the orbit argument.
+The complete current input domain is frozen in
+\filename{verification/round5/campaign_manifest.json}. The per-case
+reductions, commands, source bindings and actual replay scope are indexed
+by \filename{research/round5/coverage.json}. Use the common entry point:
+\begin{verbatim}
+python -O software/round5_replay.py --list
+python -O software/round5_replay.py --check-receipts
+python -O software/round5_replay.py --jobs 3
+\end{verbatim}
+The receipt check validates retained evidence and its declared hashes;
+it does not rerun the mathematics. The last command reconstructs the six
+case reductions and shared categorical controls. Neither operation
+replays the original full negative catalogue, and no necessary-data
+completion is promoted to a categorical construction.
 
 The first continuation's three additional general obstructions are implemented by
 \filename{new_rank3_subring.py},
@@ -523,82 +462,55 @@ numerical dimension match supplies neither the tensor match nor a
 category. These distinctions apply to alternative models as well as to
 newly resolved rings.
 
-\section{Residual tensors and finite witnesses}
-The first unresolved stratum is read from
-\filename{data/unresolved_tensors.json}; there are no residuals through
-multiplicity three. The tensor $\RR{3}{215}$ was the last residual at
-that bound and is now generally excluded. Its older feasible
-relaxations remain archived as scoped regression controls.
-Its file \filename{systems/integral_frontier_215.json} records a feasible
-point for a specified central-induction relaxation. The commands
-\begin{verbatim}
-python software/modular_frontier.py
-python -O software/modular_frontier.py
-\end{verbatim}
-reconstruct the low frame, character labels, second indicators, pruning
-and $230$ rational equations in $199$ variables. The supplied point has
-nonnegative integral coordinates and formal central rank $22$. This
-statement concerns that relaxation. The separate exact center
-completion described above now supplies compatible twists and a full
-center fusion ring, but still no associators for the rank-six target
-or an algebra structure realizing its restriction map.
+\section{Current frontier and regression controls}
+The six current residual tensors are recorded in
+\filename{data/unresolved_tensors.json}; none has multiplicity at most
+three. Their strongest verified necessary data and exact replay commands
+are indexed by \filename{research/round5/coverage.json}. The manuscript's
+final chapter explains the rank-$36$ and rank-$42$ quartic center data,
+the semion-centralizer profiles, the rank-$35$ modular completion, the
+finite multiplicity-five profiles and the multiplicity-eight actual-twist
+and finite-representation constraints. Their categorical status remains
+unresolved.
 
-\subsection{The joint product test and literature comparisons}
-Before the final rotation obstruction, $\RR{3}{215}$ was the first
-general residual. The manuscript retains
-a joint fourth-order product-Gram condition for pseudo-unitary center
-data with specified self-dual low objects. This couples all low products
-in a single nonnegative integral Gram factorization and enforces their
-restriction equations. The checking command is
+Earlier feasible points remain useful only as controls for the precise
+criteria they satisfy. For the now-excluded $\RR{3}{215}$,
+\filename{systems/integral_frontier_215.json} is an integral solution of
+$230$ central-induction equations in $199$ variables, with formal rank
+$22$. Its fourth-order residual product Gram has rank three, high-column
+multiplicities $(4,8,4)$, and integral product coefficients. These facts
+are reconstructed by
 \begin{verbatim}
+python -O software/modular_frontier.py
 python research/m8_frontier/low_product_gram.py --check
 \end{verbatim}
-It reconstructs the inherited induction witness, the cubic and
-fourth-order moments, all fifteen product restrictions and the expanded
-Gram factorization. The rank-$22$ formal point survives: the residual
-$15\times15$ Gram matrix has rank three, its three high restriction types
-have multiplicities $(4,8,4)$, and the forced per-object product
-coefficients are nonnegative integers. The product-Gram test alone supplies no complete
-center fusion tensor, individual twists or associators; these first two
-data are supplied by the separate continuation certificate above. Rejecting just
-one proposed center point would not by itself exclude the ring either.
+They do not contradict its stronger stabilizer-rotation obstruction.
+The separate feasible points for $\RR{2}{4}$ are positive regression
+controls because its categorical construction is established
+independently. The shared tests in
+\filename{research/round5/unification/} also use actual centers of pointed
+categories, Fibonacci and $\operatorname{Rep}(S_3)$. They exercise nonzero
+high-word coefficients, saturated conductor support, prime-indicator
+congruences and modular subcategory projection. Deliberately altered
+twists, false exponent bounds and corrupted projection matrices are
+rejected by the corresponding exact controls.
 
-The two literature checks are
-\begin{verbatim}
-python research/m8_frontier/premodular_bound.py
-python research/m8_frontier/nrw_rank6_scan.py
-\end{verbatim}
-The first implements the rank-six bound $\FPdim\leq168$ for braided
-spherical categorifications derived from the Dong--Schopieray
-catalogue. It checks the dimension character and the strict inequality
-$136+32\sqrt{17}>168$ exactly for the frontier tensor. The result excludes
-premodular categorification only; it is not a general, pivotal,
-spherical, pseudo-unitary or unitary exclusion without the additional
-braiding hypothesis.
-
-The second reads the frozen literal integer tensors in the
-Ng--Rowell--Wen rank-six ancillary data and screens all $16612$ census
-tensors. Exact basis-permutation comparisons follow invariant filtering.
-The $192$ modular records comprise $20$ Galois orbits and eleven
-based-ring types, all of multiplicity at most two; there is no new model
-for the former multiplicity-three frontier or the multiplicity-eight stratum.
-The source comparison does not exclude arbitrary fusion categories.
-Both programs save explicit scope and source identities with their
-reports. No ring-specific hand arithmetic is required to reproduce any
-of these calculations.
-
-The feasible witnesses for $\RR{2}{4}$ are separate controls for a ring
-with an independently justified positive model. They must not be
-transferred to a residual tensor. Exact feasible points explain the
-limits of the corresponding necessary systems; they do not show that
-all conceivable refinements would fail. A literature comparison counts
-as a new model only when the source actually constructs a category and
-its full fusion tensor agrees.
+The retained literature comparisons
+\filename{research/m8_frontier/premodular_bound.py} and
+\filename{research/m8_frontier/nrw_rank6_scan.py} keep their original
+scope. The former verifies the braided-spherical dimension bound and
+$136+32\sqrt{17}>168$ exactly. The latter compares every census tensor
+with the frozen Ng--Rowell--Wen modular tables by complete basis
+permutations: $192$ records in $20$ Galois orbits give eleven based-ring
+types, all of multiplicity at most two. These are source-bound comparison
+results, not exclusions of arbitrary unbraided categories. The retained
+scripts and reports supply their complete numerical details without
+repeating an obsolete frontier narrative.
 
 \section{Regenerating the presentation}
-The manuscript has seven main source chapters, with continuation
-subsections included from their separate theorem files, together with
-the new continuation chapter. After the current continuation freeze and replay described above, the
+The manuscript has seven main chapters organized by mathematical
+dependency. Separate theorem files are included in the arithmetic,
+central-induction and module-category chapters. After the exact replay, the
 following commands rebuild the derived ledgers, tables and companion
 PDFs from the retained records:
 \begin{verbatim}

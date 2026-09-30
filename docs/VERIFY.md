@@ -7,6 +7,7 @@ From this repository root:
 ```bash
 python3 tools/restore_data.py
 python3 tools/validate_release.py
+python3 tools/render_publication_docs.py --check
 python3 tools/render_readme.py
 git diff --exit-code README.md
 ```
@@ -23,9 +24,10 @@ library, uses no network, and checks SHA-256 for every part and every restored
 file. Run it once after cloning, before running the full rank-specific
 verifiers. `python3 tools/restore_data.py --check` verifies reconstruction
 without writing files. The complete downloadable research archive already
-contains all 1345 released files, including the unchanged 7-, 18- and
-12-record continuation files and the new 4-record fourth continuation.
-Its repository mirror is restored at `site/dist/downloads/Rank6_Categorification_M8_Revised_2026-09-29_v4.zip`.
+contains all 1,577 released files and the four unchanged exclusion
+continuations with 7, 18, 12 and 4 records. Round five adds no categorical
+exclusion; it contains the new exact necessary-profile and modular-data
+reductions. The archive is restored at `site/dist/downloads/Rank6_Categorification_M8_Revised_2026-09-30_v5.zip`.
 
 ## Rebuild from the pinned census
 
@@ -45,7 +47,7 @@ the repository enumeration.
 ## Rebuild classification partitions
 
 Unpack the attached `FusionFrontier.tar.xz` and the updated
-`Rank6_Categorification_M8_Revised_2026-09-29_v4.zip` and the revised rank-five release. The
+`Rank6_Categorification_M8_Revised_2026-09-30_v5.zip` and the revised rank-five release. The
 rank-four ledger is the `Rank4/.../certificates/classification.jsonl.gz` file.
 The revised rank-five `data/decisions_all.json` extends the attached archive's
 28,493 decisions to all 40,999 census tensors through multiplicity 20,
@@ -60,7 +62,7 @@ Then run, substituting the actual extracted paths:
 ```bash
 python3 tools/generate_classification.py \
   --bundle FusionFrontier.tar.xz \
-  --rank6-bundle Rank6_Categorification_M8_Revised_2026-09-29_v4.zip \
+  --rank6-bundle Rank6_Categorification_M8_Revised_2026-09-30_v5.zip \
   --census fusion-ring-census/results/census.json \
   --rank4 classification.jsonl.gz \
   --rank5 rank5-decisions_all.json \
@@ -85,7 +87,7 @@ other rank's current rows and provenance, use:
 ```bash
 python3 tools/generate_classification.py --refresh-rank6 \
   --rank6 supplements/rank6/data/decisions.json \
-  --rank6-bundle site/dist/downloads/Rank6_Categorification_M8_Revised_2026-09-29_v4.zip
+  --rank6-bundle site/dist/downloads/Rank6_Categorification_M8_Revised_2026-09-30_v5.zip
 python3 tools/export_grothendieck_counts.py
 python3 tools/render_readme.py
 python3 tools/validate_release.py
@@ -100,47 +102,52 @@ partition, every completed band, and the current release summary. Export checks 
 
 ## Rank-six continuation evidence
 
-The complete revised source is in `supplements/rank6/`. Restore repository
-large files first, install that release's pinned requirements, then run from
-its directory:
+From the complete mirrored release:
 
 ```bash
+cd supplements/rank6
 python check_manifest.py
-python -O software/continuation_controls.py --jobs 3
+python -O software/round5_replay.py --list
+python -O software/round5_replay.py --check-receipts
 python software/release_consistency.py
 ```
 
-The four continuation files contain 7, 18, 12 and 4 disjoint general exclusions.
-The command above replays all 41 continuation certificates. The current
-`verification/round4/release_replay.json` records exact reconstruction of
-the **4 new proofs**, with assertions and numerical optimization disabled.
-To replay only the new proofs and rebuild the fourth-continuation ledger:
+The first command checks the shipped bytes; receipt checking verifies the
+recorded sources and their stated scope. Neither is a new mathematical
+reconstruction. To rerun selected round-five criteria with numerical
+optimizers disabled and assertions removed, use:
 
 ```bash
-python -O software/round4_release.py --jobs 3
-python software/model_catalog.py
-python software/build_paper_tables.py
-python software/round4_documents.py
-python research/round4/coverage.py --require-canonical --output research/round4/coverage.json
-python software/release_consistency.py
+python -O software/round5_replay.py --select R6_4_629 --jobs 1
 ```
 
-The new theorem preserves twists under central-object projection to a
-fusion subcategory and gives exact twist-resolved masses. Its Fibonacci,
-Ising, cyclic-three and half-E6 refinements are tested on all ten frozen
-residuals and all 54 positive controls at their recorded eligibility scope.
-Exhaustive multiplicity-four restriction profiles, exact rejection witnesses
-and surviving necessary systems are retained in the research directories.
-Neither a feasible relaxation nor a numerical infeasibility flag supplies
-a categorical conclusion.
+Omit `--select` to run the complete listed round-five suite, or choose its
+`controls` entry. The [coverage inventory](../supplements/rank6/research/round5/coverage.json)
+identifies each criterion's eligible cases, controls, exact outputs and
+replay receipts. Read each entry's scope: inherited complete profile
+enumerations are distinct from newly computed refinements. These tests
+retain six unresolved rings, not six categorical constructions.
 
-The unchanged original 16,511-certificate campaign and 37 earlier
-continuation proofs retain their source-bound exact evidence. The present
-incremental replay does not repeat them. A fresh full negative replay is
-available with `python -O verify.py --jobs 2 --out verification/current/recheck_O.jsonl`.
-The current authoritative ledger and 6 residual tensors are under `data/`;
-older summaries and research logs are historical. The previous v3 archive
-describes the ten-residual snapshot and is not the current verification input.
+The joint restriction-word Gram and bounded integer criteria narrow the
+finite profiles. Modular-word closure and finite representation enumeration
+determine necessary modular completions for the retained branches.
+`R6_4_629` includes an independent rational-arithmetic verification of the
+rank-38 obstruction; its surviving rank-35 datum remains unresolved.
+For `R6_8_1660`, the joint word patterns and twist witness are separate tests.
+
+The unchanged accepted continuation files contain **7, 18, 12 and 4**
+disjoint general exclusions. Their prior verification records are retained,
+including `verification/round4/release_replay.json`. They and the original
+16,511-certificate campaign are not relabelled as new round-five results.
+A fresh full negative replay remains available with:
+
+```bash
+python -O verify.py --jobs 2 --out verification/current/recheck_O.jsonl
+```
+
+The authoritative ledger and six residual tensors are under `data/`.
+Earlier summaries and discovery logs are historical evidence, while the
+current release summary and round-five inventory state the present scope.
 
 ## Tensor crosswalks
 
