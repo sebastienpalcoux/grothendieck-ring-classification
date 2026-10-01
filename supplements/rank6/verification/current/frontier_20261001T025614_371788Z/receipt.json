@@ -1,0 +1,551 @@
+{
+  "schema": "rank6-frontier-replay/v1",
+  "passed": true,
+  "mode": "retained_receipt_audit",
+  "mathematical_replay_performed": false,
+  "historical_binding": {
+    "adapter": "research/frontier/m9_adapter/manifest.json",
+    "adapter_sha256": "550e0848edd4e072b13b6b097a98f44f3c5c295a840c8b2f255b22c5762317f2",
+    "implementation_sha256": "b45d03d83fa00dbd4e086469b3038c285d3f46c7c9430d8d548fbda88cb361ca",
+    "historical_prefixes": {
+      "data/census.json": {
+        "expected_sha256": "aa0cc6d10f4934752a621d4e92aa6603278707e512b483a429ed9d788fa5270a",
+        "current_file_sha256": "9bb71564082688f1c130050bfe42034431c90dd4f48e0e2d31be8e3a224552ff",
+        "historical_rows": 16612,
+        "current_rows": 25421,
+        "method": "exact ordered prefix serialized with compact JSON and one newline"
+      },
+      "data/decisions.json": {
+        "expected_sha256": "c28936c9dd3f64c8b85d668a667a7cde65d77161850c0c51bc05c594189f521c",
+        "current_file_sha256": "abb36cb0e7f9196e0a231cb85a601c82a1c8fd398996f77a8961487a7ca692e5",
+        "historical_rows": 16612,
+        "current_rows": 25421,
+        "method": "exact ordered prefix serialized with compact JSON and one newline"
+      }
+    },
+    "protected_bindings": {
+      "data/census.json": {
+        "expected_sha256": "aa0cc6d10f4934752a621d4e92aa6603278707e512b483a429ed9d788fa5270a",
+        "method": "exact_historical_prefix"
+      },
+      "research/round4/m4_155/reduction.json": {
+        "expected_sha256": "72c86999d7dfa7f93fdc497266f9dd75784389055bdb839ad59ca46925024a25",
+        "method": "unchanged_exact_file"
+      },
+      "research/round5/m4_155/frontier_certificate.json": {
+        "expected_sha256": "518d10734192faebbb8a116140039e19cfe660f6e4ec9705f85f95f15aa55378",
+        "method": "unchanged_exact_file"
+      },
+      "research/round5/m4_155/frontier_replay_optimized.json": {
+        "expected_sha256": "fd67abdc54407b13932e19f9229c1ff72d7ca1fda3cf300f38d5c2a31cbf8f5c",
+        "method": "unchanged_exact_file"
+      },
+      "research/round5/m4_155/frontier_replay_optimized.log": {
+        "expected_sha256": "9b625a6890c9ec787d5c3b0c763ab9776f9c0cbab8cc3fb365af299517aca2b2",
+        "method": "unchanged_exact_file"
+      },
+      "research/round5/m4_155/general_reduction_replay.json": {
+        "expected_sha256": "ab4e7041166846eb15e41036209f186fe5669f5d1b55f3b9795c7f1d0b48967b",
+        "method": "unchanged_exact_file"
+      },
+      "research/round5/m4_155/packet_frontier.json": {
+        "expected_sha256": "d5e8b8cc6a1845ae50fc072806285053e964f9c8fded3df24b9947135b8d51ee",
+        "method": "unchanged_exact_file"
+      },
+      "research/round5/m4_155/packet_replay_optimized.log": {
+        "expected_sha256": "a92c75491e743d17ec12781e57a6c3c25814097c0766000e3286c74fa663efa0",
+        "method": "unchanged_exact_file"
+      },
+      "research/round5/m4_155/replay_frontier.py": {
+        "expected_sha256": "9222e416291c0b348c4402b3c510b96a606d258914042606cc6772cf164370db",
+        "method": "unchanged_exact_file"
+      },
+      "research/round5/m4_155/replay_packets.py": {
+        "expected_sha256": "8d8665de727f7b38300fffab3c71427a05656aafe89909809af7f331af5e8d92",
+        "method": "unchanged_exact_file"
+      },
+      "software/character_induction.py": {
+        "expected_sha256": "24b6cd35eef042005a836636f85e68492acbead2ba15dfb567d272aa37adf945",
+        "method": "unchanged_exact_file"
+      },
+      "software/commutative_descent.py": {
+        "expected_sha256": "8c9d452746c3bdbec819b90f8cd030690a71abc4dc17f9489b16b6523e129033",
+        "method": "unchanged_exact_file"
+      },
+      "software/exact.py": {
+        "expected_sha256": "7a7525840192647312de0c2206d1e83a5b1fd2f592a3fa4830c730aea3a225c7",
+        "method": "unchanged_exact_file"
+      },
+      "software/galois_pseudo_reduction.py": {
+        "expected_sha256": "37832ea9e951831f262666e0520f767c5b8ae053d1bc8cb1a592e6c76bed8d84",
+        "method": "unchanged_exact_file"
+      },
+      "software/higher_traces.py": {
+        "expected_sha256": "e97206ffabda63481318c5a2cc924963a283a859179d6a2fdfda7710f460a048",
+        "method": "unchanged_exact_file"
+      },
+      "software/induction.py": {
+        "expected_sha256": "ed825b0b24a16fb379cdb06da1610dc9201961bea50fd3c78990605f17d3f7ef",
+        "method": "unchanged_exact_file"
+      },
+      "software/modular_character_induction.py": {
+        "expected_sha256": "2f9a7ea0b5930ce0d6da9b205e169cea2dcca91d8225c96d2da53791c6279b0a",
+        "method": "unchanged_exact_file"
+      },
+      "software/oriented_signed.py": {
+        "expected_sha256": "099a4f510f480203ab62949c3550cd06460ad94658a8c95703fa695bc3002db5",
+        "method": "unchanged_exact_file"
+      },
+      "software/proofs.py": {
+        "expected_sha256": "c8cb1d79dd1de60e11a83cf4ea02e1a3bbb0a2febc137665de2997a9ab0de28d",
+        "method": "unchanged_exact_file"
+      },
+      "software/rings.py": {
+        "expected_sha256": "a992210513c5a3ecad6d700dec3020789ee74972e158296f589fb9668799cf33",
+        "method": "unchanged_exact_file"
+      },
+      "software/round3_m4.py": {
+        "expected_sha256": "489cf017e6be4acb0252d31cc11a3e1b27c8dc604f0fc497247c3f0958cd9223",
+        "method": "unchanged_exact_file"
+      },
+      "software/round5_155.py": {
+        "expected_sha256": "46f6572c5b5fd2d6d58d9395a96caa71ac945f9f46845caa00cbd2f5b4cdeaae",
+        "method": "unchanged_exact_file"
+      },
+      "software/round5_balancing.py": {
+        "expected_sha256": "94e6acdacdabe76615b7571dad716327ae03bc87fd66491d5e41d12681878492",
+        "method": "unchanged_exact_file"
+      },
+      "software/round5_unified.py": {
+        "expected_sha256": "07ac3ce9e96b9efcbb054197d55b56133f805adf626cbbb5a1c49d5329585fb1",
+        "method": "unchanged_exact_file"
+      },
+      "software/signed.py": {
+        "expected_sha256": "29b9c53e0c3fca8a253ae32126e98fc1c576c8be2ae5e6ad126aafb403769101",
+        "method": "unchanged_exact_file"
+      },
+      "software/spectral_induction.py": {
+        "expected_sha256": "8748243602cbd0e6be4537f920d8dda8992c4409e964d2221bf4b9f1b8474365",
+        "method": "unchanged_exact_file"
+      },
+      "software/frontier_replay.py": {
+        "expected_sha256": "3d36a95535763e35bf55534a3b39f7b0fc9589b6e596304320e73ac7453b16a1",
+        "method": "declared_closed_source_adapter"
+      },
+      "verification/current/R6_4_155_general_reduction.json": {
+        "expected_sha256": "7f2dd5120d03dd236fdc7b8935b6001fe8a80db424880e6f4eb310025c6e5d8e",
+        "method": "unchanged_exact_file"
+      },
+      "research/frontier/R6_4_155/structural_reductions.md": {
+        "expected_sha256": "8ff2d8bd023f98a9b83b72b979e60618c5f064bf20a831805facf68290c23eb6",
+        "method": "unchanged_exact_file"
+      },
+      "research/frontier/R6_4_155/structural_note.md": {
+        "expected_sha256": "b3ead8c7c896ab8df97906f69e8555039c590e978b040529557c4d12ca5bc3cd",
+        "method": "unchanged_exact_file"
+      },
+      "research/frontier/R6_4_155/README.md": {
+        "expected_sha256": "08f7c7c3ffc68f5bcbf73562b694f04da8ada3d6a0f7c8c17506314a6d584c76",
+        "method": "unchanged_exact_file"
+      },
+      "research/frontier/R6_4_155/ising_final_reduction.md": {
+        "expected_sha256": "31d4f3e9f2d3c063ee98db4edf5989a0975986755c77aa1b0b085832241a3399",
+        "method": "unchanged_exact_file"
+      },
+      "research/frontier/R6_4_155/center_cuts_certificate.json": {
+        "expected_sha256": "1ac1b1c0b381bd11a091c0f617e42246a837d6de76439007d94d92e17cf4c31f",
+        "method": "unchanged_exact_file"
+      },
+      "research/frontier/R6_4_155/verify_center_cuts.py": {
+        "expected_sha256": "7391675b1ecb52303b21468f4ebbccb51627d509786256fb4f59191ae1992f71",
+        "method": "unchanged_exact_file"
+      },
+      "research/frontier/R6_4_155/check_center_profiles.py": {
+        "expected_sha256": "a255ddcd703732f1fac27a86d1b94eb323b01e2732ec23af1f5dd1decf196244",
+        "method": "unchanged_exact_file"
+      },
+      "research/frontier/R6_4_155/center_cuts.md": {
+        "expected_sha256": "3a3fa8cb96f0473459b187dbb50dc2e6c0d3c31849c9fee0d5225cd00c565464",
+        "method": "unchanged_exact_file"
+      },
+      "research/frontier/R6_4_155/gauss277.py": {
+        "expected_sha256": "a618c2872ad6bcf98c3b87f6276e8e5f08de9708821369922c5d062e78aa633f",
+        "method": "unchanged_exact_file"
+      },
+      "research/frontier/R6_4_155/forced_twists.md": {
+        "expected_sha256": "568fb86381fd2353145b3c1b49db1167c0ff9f6dff1fd5685f121828962083b4",
+        "method": "unchanged_exact_file"
+      },
+      "research/frontier/R6_4_155/forced_twists_certificate.json": {
+        "expected_sha256": "7131bac60e1feef47e4edd3181df26a6f77188e0017bcc4130597d1fbf248bf5",
+        "method": "unchanged_exact_file"
+      },
+      "research/frontier/R6_4_155/verify_forced_twists.py": {
+        "expected_sha256": "840472deb909cd271b637d66d9e1cb44a4a8cfa03b74be4738f17b8f569791b9",
+        "method": "unchanged_exact_file"
+      },
+      "research/frontier/R6_4_155/verify_low_checks.py": {
+        "expected_sha256": "e63e16b2b14fdcc1abfca2394e383a23891b7b2d2cc18a68c18b714ae9231370",
+        "method": "unchanged_exact_file"
+      },
+      "research/frontier/R6_4_155/low_checks_certificate.json": {
+        "expected_sha256": "c49d8392e00bebb463a46733fb156b184a92b4ae1608db8adbe4081642c5f079",
+        "method": "unchanged_exact_file"
+      },
+      "research/frontier/R6_4_155/MODELS_IDENTIFICATION.md": {
+        "expected_sha256": "4849e47dd0043aa170680451eb1f614e2711b495a82e8863e4423116a1f6e4e9",
+        "method": "unchanged_exact_file"
+      },
+      "research/frontier/R6_4_155/models_exact_comparisons.py": {
+        "expected_sha256": "36f29b260cca0ad05c3bc21e74727928cb39f0dc3e0ec221ecf6e45446366692",
+        "method": "unchanged_exact_file"
+      },
+      "research/frontier/R6_4_155/models_exact_comparisons.json": {
+        "expected_sha256": "ee098ddd8eed3fd934b9b7eebe5324049a093b10664269577612b9657ce6f837",
+        "method": "unchanged_exact_file"
+      },
+      "research/round4/m8/R6_8_1660_reduction.json": {
+        "expected_sha256": "ae61e0cae73068cbf0950ce4b435bfa60a09f02851b77d4e27c4e40c9f0bde34",
+        "method": "unchanged_exact_file"
+      },
+      "research/round5/m8_1660/low0_profiles.json": {
+        "expected_sha256": "c74ce8eded70ee44ca896bfa6d5cbe42fb95804fea5f967018b6f7dbf42097cb",
+        "method": "unchanged_exact_file"
+      },
+      "research/round5/m8_1660/low0_replay.json": {
+        "expected_sha256": "57b44163933101c9cec89a880b89287d3ed2abd4c90bf5a5bbc1923f8600be1f",
+        "method": "unchanged_exact_file"
+      },
+      "research/round5/m8_1660/low1_profiles.json": {
+        "expected_sha256": "277d26f16fc44fd2a2cd2caec339408b56fd77d14fcaeac96d3dbe9f5c9aa014",
+        "method": "unchanged_exact_file"
+      },
+      "research/round5/m8_1660/low1_replay.json": {
+        "expected_sha256": "0b52c27327f3d88d7a337c54b66dad664476fcf54a52b58e62eb4af16300bf3a",
+        "method": "unchanged_exact_file"
+      },
+      "research/round5/m8_1660/sigma_partitions.json": {
+        "expected_sha256": "be92f54efc381ca09e5374fcf19cfae4959fadfaf2ddcf7e5849ac89da629922",
+        "method": "unchanged_exact_file"
+      },
+      "research/round5/m8_1660/sigma_partitions_replay.json": {
+        "expected_sha256": "043f7a14e796c717fabf58e2fb9ba62d18b82ed3bf2c5fbc63039af2b5eceff6",
+        "method": "unchanged_exact_file"
+      },
+      "research/round5/m8_1660/verify_sigma_partitions.py": {
+        "expected_sha256": "9c0a193eaca5875a3aaf8bae4bb75c9e98572dd6da0a28a2bc25435a52ae4128",
+        "method": "unchanged_exact_file"
+      },
+      "research/round5/m8_1660_conductor/reduction_replay.json": {
+        "expected_sha256": "bf9e31d03e65c9b1af4a1640437c3312762dc6e124b26b4d00ffe8f338d6b8ef",
+        "method": "unchanged_exact_file"
+      },
+      "research/round5/m8_1660_conductor/replay_reduction.py": {
+        "expected_sha256": "b44b9547fd43efd484790ca6c0c233d65da7e6f53eef5207db882c964fbf2d99",
+        "method": "unchanged_exact_file"
+      },
+      "research/round5/m8_actual48/actual48.py": {
+        "expected_sha256": "a1eef78dff2befbfd507cb077753123d20ed8a9e6b2b293e76ab9eeab99e9d68",
+        "method": "unchanged_exact_file"
+      },
+      "research/round5/m8_actual48/certificate.json": {
+        "expected_sha256": "693f634df50beac8cb0d5353ade3ea62c562309926939a24e458eeda7c97a7c7",
+        "method": "unchanged_exact_file"
+      },
+      "research/round5/m8_actual48/certificate.py": {
+        "expected_sha256": "3a5da3b17a165e8d3bb85f2fedd9058a98f2e392b4bb149a10e27bccd92c8a81",
+        "method": "unchanged_exact_file"
+      },
+      "research/round5/m8_actual48/exploration_summary.json": {
+        "expected_sha256": "5f69a2efafbb1214083906595104df67321a2d8d6cb04c4bb401df08aa58fcab",
+        "method": "unchanged_exact_file"
+      },
+      "research/round5/m8_actual48/moment48.py": {
+        "expected_sha256": "aff6fb6fe2204c94474306078347a091cb9ff95bb224d943db628b32cb2c469b",
+        "method": "unchanged_exact_file"
+      },
+      "research/round5/m8_actual48/moment_identity_replay_O.json": {
+        "expected_sha256": "bc5431c58b8ad4dfc70cfd7771aaa168efe7a69cce6e837fe0e5c16156b6c0c1",
+        "method": "unchanged_exact_file"
+      },
+      "research/round5/m8_actual48/replay_O.json": {
+        "expected_sha256": "117780f4f5522c10c089367116fc13be89b59181fc86ccf1e9da6b11823ce0f1",
+        "method": "unchanged_exact_file"
+      },
+      "research/round5/m8_modrep/finite_spectra48.py": {
+        "expected_sha256": "e3c46654480f3c568903f63dd09f2f4b3668190f45f860caa869657f760445f3",
+        "method": "unchanged_exact_file"
+      },
+      "research/round5/m8_modrep/ising_complement.py": {
+        "expected_sha256": "18c8ba60fe4b4a0721ae4a953caa888eb4bc5d723b011a84a65b362c42d32db2",
+        "method": "unchanged_exact_file"
+      },
+      "research/round5/m8_modrep/ising_projection_rank.json": {
+        "expected_sha256": "2d0bd05a4afa816fdbf7e9e53d9668d612fb3b50428ad4ebdf5388747439c3c4",
+        "method": "unchanged_exact_file"
+      },
+      "research/round5/m8_modrep/ising_projection_rank_replay.json": {
+        "expected_sha256": "7ebfd34aac3122e3108d98416507fc716e8b2d2ee8d1c05d9c74724c418fbaf5",
+        "method": "unchanged_exact_file"
+      },
+      "research/round5/m8_modrep/representation_cone.json": {
+        "expected_sha256": "441eb37bf6d2d20ca8f854d7e1e805840fa9ea7cab014d06c93894afc19d8ed8",
+        "method": "unchanged_exact_file"
+      },
+      "research/round5/m8_modrep/representation_cone.py": {
+        "expected_sha256": "4bee07110433ed77b505c9140824ddf933902d8041ee7917fbb55257268787ac",
+        "method": "unchanged_exact_file"
+      },
+      "research/round5/m8_modrep/representation_cone_replay.json": {
+        "expected_sha256": "06316461ec3c9cd68df992f2f185bce6c2c15547d0f2de39e2e72daacd42b028",
+        "method": "unchanged_exact_file"
+      },
+      "research/round5/m8_modrep/sl2_16.json": {
+        "expected_sha256": "dd179136c6e534db88036a626ac50cd48a40e65b6a8c142c2d42ae25232cb978",
+        "method": "unchanged_exact_file"
+      },
+      "research/round5/m8_modrep/sl2_16_replay.json": {
+        "expected_sha256": "339179a9810601d3f75067d8891288ab0a911d7e666e1729d1df6e646fb1c8d0",
+        "method": "unchanged_exact_file"
+      },
+      "research/round5/m8_modrep/sl2_3.json": {
+        "expected_sha256": "d43af23f8ad2215828111c6933605262fe286ff5a39e1ddaf902bfde2628c6e5",
+        "method": "unchanged_exact_file"
+      },
+      "research/round5/m8_modrep/sl2_3_replay.json": {
+        "expected_sha256": "2febb006f350adefcd36e1f2442da1ce5fa382b4f9b4c9aa7379beeecfdb0ef6",
+        "method": "unchanged_exact_file"
+      },
+      "research/round5/unification/equality_modrep.json": {
+        "expected_sha256": "17531d996803c9eded5e94bcdfb680efeb7afdd9467488267043297a6cb485f7",
+        "method": "unchanged_exact_file"
+      },
+      "research/round5/unification/equality_modrep.py": {
+        "expected_sha256": "263ae63bf25893d1c6ae62831bbdf8a163c0621286fdb2403afcb972eb1d6ca5",
+        "method": "unchanged_exact_file"
+      },
+      "software/balanced_traces.py": {
+        "expected_sha256": "cee718162e664c2e694f957a8a6cc9c33737760735901889ae14e464b597ddb5",
+        "method": "unchanged_exact_file"
+      },
+      "software/cyclotomic_stabilizer_trace.py": {
+        "expected_sha256": "bb4dc4378cc35df6e6269b849acdfb29aa396b42b82902c3ac415d13166d8be9",
+        "method": "unchanged_exact_file"
+      },
+      "software/dimension_block_support.py": {
+        "expected_sha256": "8ba5d62f147222142a7ef41d059449260e96230e913aa564961cc21894c16154",
+        "method": "unchanged_exact_file"
+      },
+      "software/gram_vectors_general.py": {
+        "expected_sha256": "286f8d5c45286e5c79246283f474567163c83b051192b98ef024a1f675aa4c29",
+        "method": "unchanged_exact_file"
+      },
+      "software/involution_module.py": {
+        "expected_sha256": "e9397147d21d09aab9f0b18734b88a14cfe80ad8b13dd374d5bd4b49f0af3ade",
+        "method": "unchanged_exact_file"
+      },
+      "software/module_dual_gram.py": {
+        "expected_sha256": "fdc0008911b95d93afda1937d8fe3a5aff1450db14ee04a14995b39a3f435684",
+        "method": "unchanged_exact_file"
+      },
+      "software/round4_m8_ising.py": {
+        "expected_sha256": "7d77623d4e54a32d33c20de257d4f2f6f471542801a59877c7c0becd9bef881e",
+        "method": "unchanged_exact_file"
+      },
+      "software/round4_m8_ising_verlinde.py": {
+        "expected_sha256": "ac45f35a7ce479900739cd579173000b464d136eedf32227f41600279cddf998",
+        "method": "unchanged_exact_file"
+      },
+      "software/round4_quartic_profiles.py": {
+        "expected_sha256": "2507292908422304a9292aefd9d7ea4f895952bcaea768a00bf03fe709e895cb",
+        "method": "unchanged_exact_file"
+      },
+      "software/round5_1660.py": {
+        "expected_sha256": "5cf574f4b51b2ec74f7914ddd5549cea4f8db03af2020e4ae133c0b3c2c90557",
+        "method": "unchanged_exact_file"
+      },
+      "software/tensor_rotation.py": {
+        "expected_sha256": "f2d8f7eb43fe926cdffd107764872d4120d1cb344b323ad3d9b59ca56391740b",
+        "method": "unchanged_exact_file"
+      },
+      "research/frontier/R6_8_1660/relative_center/verify_structural_cuts.py": {
+        "expected_sha256": "1e9158688c64c8e8fa7cfc1458583344e3829ab198522a2cbdb860713c83c18f",
+        "method": "unchanged_exact_file"
+      },
+      "research/frontier/R6_8_1660/relative_center/central_fs_note.tex": {
+        "expected_sha256": "4ec11919ade08a99ea716e9863ee65d3559ac66cea06d2d4ecdfc2bf7fb75caf",
+        "method": "unchanged_exact_file"
+      },
+      "research/frontier/R6_8_1660/relative_center/structural_cuts_certificate.json": {
+        "expected_sha256": "5107b54f82fb31dc794db44ce8ec3dafc37d3dd0f5180bc09b2558f8302d178d",
+        "method": "unchanged_exact_file"
+      },
+      "research/frontier/R6_8_1660/relative_center/relative_reduction_certificate.json": {
+        "expected_sha256": "c81f6ff8ca591259f88b7e638a5a0768c28fdfde49e34854dc12dfc0e0cf51e5",
+        "method": "unchanged_exact_file"
+      },
+      "research/frontier/R6_8_1660/relative_center/verify_relative_reduction.py": {
+        "expected_sha256": "16a40e3ab6049c4acc4638a49f3a246c290234c606d9b7b00e3e67e8d94a8592",
+        "method": "unchanged_exact_file"
+      },
+      "research/frontier/R6_8_1660/relative_center/relative_center_note.tex": {
+        "expected_sha256": "9c38a8e88241a5f8bd7b66b056f0f138e5c4787a02cc9ee8932cd06c88ba1d3d",
+        "method": "unchanged_exact_file"
+      },
+      "research/frontier/R6_8_1660/fermion_profiles/verify_fermion_profiles.py": {
+        "expected_sha256": "f734af079a749224eadd5781d57e6288a82faab8075a6c8941aedc9743978770",
+        "method": "unchanged_exact_file"
+      },
+      "research/frontier/R6_8_1660/fermion_profiles/README.md": {
+        "expected_sha256": "9ea7cc070f65295df9f312aeb2f3535d2eb14159aaa44a810a781a23da36e62d",
+        "method": "unchanged_exact_file"
+      },
+      "research/frontier/R6_8_1660/fermion_profiles/fermion_profiles_certificate.json": {
+        "expected_sha256": "a77b35ba6e069391a77ee41af9367b93e14254bf966b9720738106e601f2c48c",
+        "method": "unchanged_exact_file"
+      },
+      "research/frontier/R6_8_1660/README.md": {
+        "expected_sha256": "627b1b9b8aed53312bbd6ce2270e7479043ab1372184d0b3bdbc02bd36c68a17",
+        "method": "unchanged_exact_file"
+      },
+      "research/frontier/R6_8_1660/spin_profiles/verify_spin_profiles.py": {
+        "expected_sha256": "f05c7b60bde671506a3bdb4a00c5a4b39cd7d5039d386c6f846891bf91671757",
+        "method": "unchanged_exact_file"
+      },
+      "research/frontier/R6_8_1660/spin_profiles/spin_profiles_certificate.json": {
+        "expected_sha256": "0df20d824ffee348947302c1e85b1971ae9795b736f11799f03f61d9f6b0c497",
+        "method": "unchanged_exact_file"
+      },
+      "research/frontier/R6_8_1660/spin_profiles/README.md": {
+        "expected_sha256": "05613a8a18aae11b7f182cb5e0d0d9d7a903f6445fe9c11efdc63750683a5f9e",
+        "method": "unchanged_exact_file"
+      },
+      "data/decisions.json": {
+        "expected_sha256": "c28936c9dd3f64c8b85d668a667a7cde65d77161850c0c51bc05c594189f521c",
+        "method": "exact_historical_prefix"
+      }
+    },
+    "mathematical_replay_performed": false,
+    "interpretation": "Old receipts retain their original hashes. Exact historical prefixes and a closed driver patch explain the extension; no historical mathematical replay is claimed."
+  },
+  "whole_ring_decisions_changed": false,
+  "coverage_sha256": "f536708b35fd41b8905d8c259c9d064b54abc515e02ad99513deefb33b7500a3",
+  "results": [
+    {
+      "id": "R6_4_155",
+      "passed": true,
+      "mathematical_replay_performed": false,
+      "frozen_files_checked": 45,
+      "receipts": [
+        {
+          "path": "verification/current/R6_4_155_general_reduction.json",
+          "predicate_passed": true,
+          "embedded_hash_mismatches": []
+        },
+        {
+          "path": "research/round5/m4_155/frontier_replay_optimized.json",
+          "predicate_passed": true,
+          "embedded_hash_mismatches": []
+        },
+        {
+          "path": "research/round5/m4_155/packet_frontier.json",
+          "predicate_passed": true,
+          "embedded_hash_mismatches": []
+        },
+        {
+          "path": "research/frontier/R6_4_155/center_cuts_certificate.json",
+          "predicate_passed": true,
+          "embedded_hash_mismatches": []
+        },
+        {
+          "path": "research/frontier/R6_4_155/forced_twists_certificate.json",
+          "predicate_passed": true,
+          "embedded_hash_mismatches": []
+        },
+        {
+          "path": "research/frontier/R6_4_155/low_checks_certificate.json",
+          "predicate_passed": true,
+          "embedded_hash_mismatches": []
+        }
+      ],
+      "issues": [],
+      "source_binding_scope": "Only explicitly listed files; these completed mathematical replays are retained evidence, not rerun by inventory audit."
+    },
+    {
+      "id": "R6_8_1660",
+      "passed": true,
+      "mathematical_replay_performed": false,
+      "frozen_files_checked": 68,
+      "receipts": [
+        {
+          "path": "research/round5/m8_1660_conductor/reduction_replay.json",
+          "predicate_passed": true,
+          "embedded_hash_mismatches": []
+        },
+        {
+          "path": "research/round5/m8_1660/low0_replay.json",
+          "predicate_passed": true,
+          "embedded_hash_mismatches": []
+        },
+        {
+          "path": "research/round5/m8_1660/low1_replay.json",
+          "predicate_passed": true,
+          "embedded_hash_mismatches": []
+        },
+        {
+          "path": "research/round5/m8_1660/sigma_partitions_replay.json",
+          "predicate_passed": true,
+          "embedded_hash_mismatches": []
+        },
+        {
+          "path": "research/round5/m8_modrep/sl2_16_replay.json",
+          "predicate_passed": true,
+          "embedded_hash_mismatches": []
+        },
+        {
+          "path": "research/round5/m8_modrep/sl2_3_replay.json",
+          "predicate_passed": true,
+          "embedded_hash_mismatches": []
+        },
+        {
+          "path": "research/round5/m8_modrep/representation_cone_replay.json",
+          "predicate_passed": true,
+          "embedded_hash_mismatches": []
+        },
+        {
+          "path": "research/round5/m8_actual48/replay_O.json",
+          "predicate_passed": true,
+          "embedded_hash_mismatches": []
+        },
+        {
+          "path": "research/round5/m8_modrep/ising_projection_rank_replay.json",
+          "predicate_passed": true,
+          "embedded_hash_mismatches": []
+        },
+        {
+          "path": "research/round5/m8_actual48/moment_identity_replay_O.json",
+          "predicate_passed": true,
+          "embedded_hash_mismatches": []
+        },
+        {
+          "path": "research/frontier/R6_8_1660/relative_center/structural_cuts_certificate.json",
+          "predicate_passed": true,
+          "embedded_hash_mismatches": []
+        },
+        {
+          "path": "research/frontier/R6_8_1660/fermion_profiles/fermion_profiles_certificate.json",
+          "predicate_passed": true,
+          "embedded_hash_mismatches": []
+        },
+        {
+          "path": "research/frontier/R6_8_1660/spin_profiles/spin_profiles_certificate.json",
+          "predicate_passed": true,
+          "embedded_hash_mismatches": []
+        }
+      ],
+      "issues": [],
+      "source_binding_scope": "Only explicitly listed files; an inventory audit is not a fresh mathematical replay."
+    }
+  ],
+  "scope": "Only the selected necessary reductions and controls; no full-census replay."
+}

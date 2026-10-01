@@ -51,9 +51,33 @@
       "replay": "verification/m9/advanced/replay_optimized.json",
       "replay_sha256": "fe1d4abf77f16e9c518e5b89acbb6e03923ba05cc1687ced95c983fcab0ceebc",
       "excluded": 0
+    },
+    {
+      "campaign": "completion",
+      "certificates": "certificates/m9_completion.jsonl",
+      "certificates_sha256": "0cea75a206ebadde858d7c0ef017d3a569c513b117729c62fd405269119ae3ad",
+      "summary": "verification/m9/completion/summary.json",
+      "summary_sha256": "0bbe7904bb60dfe294f1431740c4640b3623d2baef20da39b87e07a1e1731d70",
+      "replay": "verification/m9/completion/replay_optimized.json",
+      "replay_sha256": "f2b1de4350ff735ddc94abb522e89aa8ebc592a1048c9a93ce5086b5e9f25385",
+      "excluded": 11,
+      "proof_binding": {
+        "proof_manifest": "verification/m9/completion/proof_manifest.json",
+        "proof_manifest_sha256": "66bb4943388a5babd9288eef60b1ab3c68ae3ec0d50a290b70cfc7cf4231f1f7",
+        "checker_sha256": "48bc0181688d3ca4cc896f29851d99278ac5ad19bac8e03bfebcbe4a16739e11",
+        "bundles": {
+          "case8785": "393f892bbded709c9cd9c75f6348605b7819cd7ca30b72b5006cb285776f211e",
+          "free_involution": "ac3f21039e61446415b8752f105c8ab64c10e34e4f859299318603b4bfe0f804",
+          "gauss8200": "cd1a2ba84d6bf5449f84701dcecd59cd97e84b0cfa213d6880fa1d398050b35a",
+          "involution_pair": "e2799cf1ab3f1159c5a2dd41547d45beb3f32df7aae5f76e90d14df2ebdfdd5c",
+          "pivotal_gap": "85ede2aeea61d10aa812b2aa0d41dc3416be921cc76e0216c7571b38924f4a25",
+          "psu25": "c88389a7d79c1160170a7ba6ab6448a1ff73912287013bf08b6c61f88bb93e8b",
+          "triangle": "b9bfecf1aab73310ecbfb6a794a8113e73f535074ab89322a5bf7d465353f3f6"
+        }
+      }
     }
   ],
-  "m9_excluded": 8798,
+  "m9_excluded": 8809,
   "m9_structure_only_receipt": {
     "certificates": "certificates/m9_structure_only.json",
     "certificates_sha256": "f0db13768cec54abc6aa9f5b35b39ea8159e393c931c93cd6811d0d5f1bcbd37",
@@ -161,23 +185,12 @@
     "8": 18,
     "9": 0
   },
-  "excluded": 25351,
+  "excluded": 25362,
   "positive": 57,
-  "unresolved": 13,
+  "unresolved": 2,
   "unresolved_ids": [
     "R6_4_155",
-    "R6_8_1660",
-    "R6_9_529",
-    "R6_9_1060",
-    "R6_9_2455",
-    "R6_9_3748",
-    "R6_9_7018",
-    "R6_9_7741",
-    "R6_9_7742",
-    "R6_9_8099",
-    "R6_9_8101",
-    "R6_9_8200",
-    "R6_9_8785"
+    "R6_8_1660"
   ],
   "counts": [
     {
@@ -247,10 +260,10 @@
     {
       "multiplicity": 9,
       "classes": 8809,
-      "excluded": 8798,
+      "excluded": 8809,
       "unitarily_realized": 0,
       "spherically_realized_nonpseudounitary": 0,
-      "unresolved": 11
+      "unresolved": 0
     }
   ],
   "continuation_certificates_exactly_verified": true,
@@ -270,7 +283,7 @@
     }
   },
   "interpretation": "The completed multiplicity-one-through-eight campaign is preserved unchanged, bound by the exact serialized historical census. The ledger is its disjoint union with verified continuation and independently replayed multiplicity-nine certificates. Unfinished searches remove nothing.",
-  "ledger_sha256": "12f1375978b998e9717c5d75d87a5b29fcde89505a80012647910eb08b8550ae",
+  "ledger_sha256": "abb36cb0e7f9196e0a231cb85a601c82a1c8fd398996f77a8961487a7ca692e5",
   "general_multiplicity_three_complete": true,
   "complete_through_multiplicity": 3,
   "first_unresolved": "R6_4_155",
@@ -293,7 +306,7 @@
   "third_continuation_frozen_inputs": "verification/round3/campaign_manifest.json",
   "fourth_continuation_replay": "verification/round4/release_replay.json",
   "fourth_continuation_frozen_inputs": "verification/round4/campaign_manifest.json",
-  "current_revision": "2026-10-01-M9-v1",
+  "current_revision": "2026-10-01-M9-complete-v2",
   "current_frontier": "data/frontier_summary.json",
   "new_realizations": [],
   "new_exclusions": [
@@ -9094,7 +9107,18 @@
     "R6_9_8806",
     "R6_9_8807",
     "R6_9_8808",
-    "R6_9_8809"
+    "R6_9_8809",
+    "R6_9_529",
+    "R6_9_1060",
+    "R6_9_2455",
+    "R6_9_3748",
+    "R6_9_7018",
+    "R6_9_7741",
+    "R6_9_7742",
+    "R6_9_8099",
+    "R6_9_8101",
+    "R6_9_8200",
+    "R6_9_8785"
   ],
   "retained_structural_realizations": [
     "R6_4_22",

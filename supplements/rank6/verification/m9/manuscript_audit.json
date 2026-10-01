@@ -1,88 +1,83 @@
 {
   "date": "2026-10-01",
-  "scope": "Independent targeted proof-scope audit plus all-page layout inspection of the final 130-page manuscript and 4-page guide. This is not a complete independent mathematical reproof or a new enumeration/certificate replay.",
+  "status": "passed",
+  "scope": "Independent mathematical review of all eleven general M9 completion proofs, targeted integration review, and visual/layout verification of the revised manuscript and guide. Historical proofs were preserved; this is not a new full historical reproof or census enumeration.",
   "findings": [],
-  "checked": [
-    "General statement has no pivotal, spherical or unitary assumption; existence classes and necessary-data survivors are separated.",
-    "General M9 advancement retains PU-only results unless an explicit general reduction is verified; exceptions and exhausted budgets do not exclude.",
-    "All 293 inherited chapter labels retained. Aside from chapters 01,02,05,07 and gauss_family, inherited chapter files are byte-identical; mathematical content in reviewed edits of 05 and gauss_family is retained.",
-    "Formal-codegree trace ideal and biquadratic criteria derive signed sphericalization and dimension-field containment without assuming sphericality of the input category.",
-    "Weighted induction for the new noncommutative R6_9_71 includes and verifies the two-FP-dimensions general-to-PU gate.",
-    "Central packet theorem uses nondegenerate decomposition of the center, not a decomposition of the input category; V^T V = N_A is justified by adjunction without dominance.",
-    "Homogeneous weighted AMV identity and the mod-3 spin specialization are consistent under the stated ribbon and charge assumptions.",
-    "Inherited frontier text treats unique restriction/modular profiles and a single necessary relative-center based ring as necessary data, not categorification.",
-    "Classification proof references the trace-ideal, biquadratic, weighted-induction, signed and general-to-positive mechanisms used by current M9 certificates.",
-    "New multiplicity-nine chapter keeps all eleven residuals generally unresolved, records six pivotal/spherical/PU/unitary nonexistence claims separately, and does not infer model existence from surviving necessary constraints.",
-    "Pivotal plus self-duality of every simple implies sphericality by equality of left/right dimensions on simples and semisimplicity. Six canonical tensor dual maps and the certificate wrapper were checked.",
-    "R6_9_3748 rank-three subring products and all five displayed square supports match the canonical tensor. Simplicity and nonintegrality of that braided subcategory force nondegeneracy, and the rank-two centralizer contradiction follows from the cited DGNO decomposition theorem. This excludes braiding, without excluding arbitrary fusion-category existence.",
-    "Final manuscript, guide and tables agree on 25,421 census rings, 25,351 general exclusions, 57 realized rings (56 unitary and one spherical non-PU), and 13 general residuals; the M9 stratum contributes 8,798 exclusions and 11 residuals."
-  ],
   "pending": [],
-  "disposition": "No blocking mathematical-scope or layout error found in the reviewed material. The guide rebuild command-list split was corrected and visually rechecked.",
+  "checked": [
+    "All eleven M9 cases are excluded without assuming pivotality, sphericality, unitarity or braiding of the original category.",
+    "Self-dual signed lemmas are explicitly scoped; the nonselfdual 529 reduction is handled separately.",
+    "Indicator normalization uses the pivotal Fuchs-Runkel-Schweigert theorem (LPRV2025, Theorem 3.9) inside sphericalization. The three involution center checks retain every FS2 sign choice.",
+    "Signed dimension-field and different-ideal restrictions derive complete finite coefficient and conductor domains; no arbitrary conductor bound supplies an exclusion.",
+    "The 3748 proof constructs a coherent central lift and factors the Drinfeld center, without assuming a braiding or tensor factorization of the input category. Its Galois twist orbit needs six equal-dimension objects against a Gram bound of four.",
+    "Both exact completion replay modes passed all 11 cases; seven proof bundles and 61 checker source files are hash-bound. Deliberately corrupted certificates and an actual Farkas ray are rejected.",
+    "All 25,410 other ledger decisions remain unchanged. Final totals are 25,421 rings, 25,362 generally excluded, 57 realized (56 unitary and 1 spherical non-PU), and 2 older unresolved. Exact M9 has 8,809 generally excluded and 0 unresolved.",
+    "Current manuscript, guide, tables, README and frontier state that only R6_4_155 and R6_8_1660 remain open. Counting terms and source census are unchanged."
+  ],
   "layout": {
-    "manuscript": {
-      "pages": 130,
-      "sha256": "d58fc2e93502fb6c207b653abc0f1e495d3a2ebcca7b6f870d0a7895f3d26c1d",
-      "all_page_contacts_visually_inspected": true,
-      "full_size_detail_pages": [
-        1,
-        2,
-        3,
-        4,
-        5,
-        15,
-        67,
-        108,
-        109,
-        111,
-        125,
-        126,
-        127,
-        129,
-        130
-      ],
-      "findings": []
-    },
-    "guide": {
-      "pages": 4,
-      "sha256": "3b2177dd14d5355b11ddc9ae73a4cde2e5dc432c55c535c0fd7ace1610d9905e",
-      "all_pages_visually_inspected_at_full_size": true,
-      "final_changed_pages_rechecked": [
-        3,
-        4
-      ],
-      "rebuild_section_command_list_kept_together": true,
-      "findings": []
-    },
-    "scan_method": "PyMuPDF page text, text bounding boxes and 420px-wide per-page contact renders; full-size detailed images at 1.6x PDF points. Final compile logs scanned for undefined references, overfull boxes and LaTeX errors.",
-    "evidence_directory": "multiplicity9/final_pdf_qa",
-    "automated_checks": {
+    "scan_method": "PyMuPDF text and bounding-box scan, all-page contact sheets, and full-size detail review of changed mathematical pages and all guide pages.",
+    "evidence_directory": "m9_deep/final_pdf_qa",
+    "documents": {
       "manuscript": {
-        "blank_pages": [],
-        "outside_page_text": [],
-        "replacement_glyph_pages": [],
-        "repeated_question_mark_pages": []
+        "pages": 137,
+        "sha256": "d86407cd3afb9a394fad968013d28782dc06930dd0845cad6a1052546157590d",
+        "all_pages_visually_inspected": true,
+        "automated_checks": {
+          "blank_pages": [],
+          "outside_page_text": [],
+          "replacement_glyph_pages": [],
+          "repeated_question_mark_pages": []
+        },
+        "findings": [],
+        "detail_pages": [
+          1,
+          2,
+          3,
+          125,
+          126,
+          127,
+          128,
+          129,
+          130,
+          131,
+          132,
+          133,
+          134
+        ],
+        "review_continuity": "Independent contact review covered all 138 initial pages; final pages 1-133 have identical text. Root reviewed changed final pages 134-137 after removing one redundant closing paragraph; final length 137 pages."
       },
       "verification_guide": {
-        "blank_pages": [],
-        "outside_page_text": [],
-        "replacement_glyph_pages": [],
-        "repeated_question_mark_pages": []
+        "pages": 4,
+        "sha256": "c2ea7330c2d11e5485883d8bed1b5309a08cda3a8ccb598dad50f8a4f71be7c6",
+        "all_pages_visually_inspected": true,
+        "automated_checks": {
+          "blank_pages": [],
+          "outside_page_text": [],
+          "replacement_glyph_pages": [],
+          "repeated_question_mark_pages": []
+        },
+        "findings": [],
+        "detail_pages": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "corrected": "Kept a split closing paragraph together and visually rechecked final pages 3-4."
       }
     },
     "compile_logs": [
       {
         "path": "verification/document_build_logs/manuscript_pass3.log",
-        "sha256": "320bfeda3c9c37a5a8eb2f16a8b2768a5a78f0510eea4c41d3551e247bf71fd0",
+        "sha256": "08023e115c90d7727f787a4e9988757d323e033df48c11fd6df60d0a0a3c1bd3",
         "undefined_overfull_or_errors": []
       },
       {
         "path": "verification/document_build_logs/verification_guide_pass3.log",
-        "sha256": "95c3636feca50d82cd1d073a3250c4d60cd29956ac3a54fc4215fef5599a8363",
+        "sha256": "cdfb62ea417cd43679b24b2f5b88cfaf7983acc51bef52cf608984fdf84a58c1",
         "undefined_overfull_or_errors": []
       }
     ],
     "undefined_source_references": []
-  },
-  "status": "passed"
+  }
 }

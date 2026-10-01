@@ -17,8 +17,11 @@ def render(repo,i):
 {a['files']:,} files and the pinned census, proof certificates and exact constructors.
 The partition is **{s['excluded']:,} excluded, {s['positive']} realized and {s['unresolved']} unresolved**.
 There are 56 unitary models and one spherical model with no pseudo-unitary
-categorification. The census extension adds 8,809 rings of exact multiplicity nine.
-Their separately recorded certificates are independently checked with optimizers disabled.
+categorification. All 8,809 rings of exact multiplicity nine are generally excluded.
+The final eleven cases have portable proof bundles and exact completion replays
+in normal and optimized Python. Only the two earlier frontier rings remain open.
+The release identity binds the completion certificates, both replay reports,
+every completion proof file, and the manuscript and verification-guide sources and PDFs.
 
 The current ledger is `supplements/rank6/data/decisions.json`, SHA-256
 `{i['ledger_sha256']}`. The unchanged earlier negative proofs retain their
@@ -42,7 +45,7 @@ replay of every earlier proof. See [verification instructions](VERIFY.md).
   and preserves all 16,612 earlier representatives and identifiers.
 ''')
     out['docs/PROVENANCE.md']=text
-    text=read('docs/VERIFY.md');text=re.sub(r'Rank6_Categorification_M[0-9]+_Revised_[0-9-]+_v\d+\.zip',a['name'],text)
+    text=read('docs/VERIFY.md');text=re.sub(r'Rank6_Categorification_M[0-9]+_(?:Revised_[0-9-]+_v\d+|Complete_[0-9-]+)\.zip',a['name'],text)
     text=re.sub(r'git -C fusion-ring-census checkout [0-9a-f]{40}',f"git -C fusion-ring-census checkout {i['census_commit']}",text)
     text=text.replace('rank-six decisions use the updated M8 ZIP.','rank-six decisions use the current M9 ZIP.')
     text=re.sub(r'The incremental exporter verifies all [0-9,]+ distinct records',f'The incremental exporter verifies all {total:,} distinct records',text)
@@ -74,6 +77,8 @@ python -O software/conformal_models.py --verify
 python -O software/release_consistency.py
 python -O software/replay_m9.py --jobs 2
 python -O software/replay_m9_structure.py
+python software/replay_m9_completion.py --output verification/m9/completion/replay_normal.json
+python -O software/replay_m9_completion.py --output verification/m9/completion/replay_optimized.json
 python -O research/exclusions/R6_5_1204/verify_exclusion.py
 python -O software/frontier_replay.py --check-receipts
 python -O software/frontier_replay.py --list
@@ -85,7 +90,14 @@ mathematics. To replay a necessary reduction, select one current ring, for
 example `python -O software/frontier_replay.py --select R6_4_155`.
 Each command has a 15-minute deadline. A timeout establishes no exclusion.
 
-The multiplicity-nine replay checks the newly accepted certificates. A complete fresh replay of every accepted certificate is:
+The completion replay checks all eleven final multiplicity-nine exclusions
+against the frozen tensors and portable proof bundles. Its normal and optimized
+reports, input and proof manifests, and negative controls are recorded in
+`verification/m9/completion/`. The release identity hashes these records and
+every file in `research/exclusions/m9_completion/`. All 8,809 rings at exact
+multiplicity nine are excluded; the two remaining open rings have lower multiplicity.
+
+A complete fresh replay of every accepted certificate is:
 
 ```bash
 python -O verify.py --jobs 2 --out verification/current/recheck_O.jsonl
@@ -100,7 +112,9 @@ current necessary reductions, and the model catalogue lists all realizations.
         if line.startswith('| Rank six |'):lines[n]=f'| Rank six | [TeX](rank6/papers/manuscript.tex) | [PDF](rank6/papers/manuscript.pdf) | Complete through 3; exact bands {bands}; {s["positive"]} realized and {s["unresolved"]} unresolved through {bound} |'
         elif line.startswith('| Rank six, verification guide |'):lines[n]='| Rank six, verification guide | [TeX](rank6/papers/verification_guide.tex) | [PDF](rank6/papers/verification_guide.pdf) | Exact models, exclusion certificates and unresolved rings |'
     text='\n'.join(lines)+'\n';text=text[:text.index('The current rank-six paper')]+f'''The current rank-six paper contains {s['excluded']:,} general exclusions, {s['positive']} realizations
-and {s['unresolved']} unresolved rings through multiplicity {bound}. A unified conformal-embedding section constructs
+and {s['unresolved']} unresolved rings through multiplicity {bound}. All 8,809 exact-multiplicity-nine
+rings are excluded, including the final eleven cases proved in the completion chapter.
+A unified conformal-embedding section constructs
 R6_4_22, R6_4_91 and R6_4_629. Superseded necessary-center searches have been
 removed. The [current frontier](../supplements/rank6/research/frontier/README.md)
 and [verification instructions](../docs/VERIFY.md) give the retained evidence.

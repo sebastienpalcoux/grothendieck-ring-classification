@@ -24,8 +24,8 @@ library, uses no network, and checks SHA-256 for every part and every restored
 file. Run it once after cloning, before running the full rank-specific
 verifiers. `python3 tools/restore_data.py --check` verifies reconstruction
 without writing files. The complete downloadable research archive already
-contains all 567 current release files. It is restored at
-`site/dist/downloads/Rank6_Categorification_M9_Revised_2026-10-01_v1.zip`.
+contains all 679 current release files. It is restored at
+`site/dist/downloads/Rank6_Categorification_M9_Complete_2026-10-01.zip`.
 
 ## Rebuild from the pinned census
 
@@ -45,7 +45,7 @@ the repository enumeration.
 ## Rebuild classification partitions
 
 Unpack the attached `FusionFrontier.tar.xz` and the updated
-`Rank6_Categorification_M9_Revised_2026-10-01_v1.zip` and the revised rank-five release. The
+`Rank6_Categorification_M9_Complete_2026-10-01.zip` and the revised rank-five release. The
 rank-four ledger is the `Rank4/.../certificates/classification.jsonl.gz` file.
 The revised rank-five `data/decisions_all.json` extends the attached archive's
 28,493 decisions to all 40,999 census tensors through multiplicity 20,
@@ -60,7 +60,7 @@ Then run, substituting the actual extracted paths:
 ```bash
 python3 tools/generate_classification.py \
   --bundle FusionFrontier.tar.xz \
-  --rank6-bundle Rank6_Categorification_M9_Revised_2026-10-01_v1.zip \
+  --rank6-bundle Rank6_Categorification_M9_Complete_2026-10-01.zip \
   --census fusion-ring-census/results/census.json \
   --rank4 classification.jsonl.gz \
   --rank5 rank5-decisions_all.json \
@@ -72,7 +72,7 @@ python3 tools/generate_classification.py \
 The exporter records source checksums and verifies cardinalities against
 every census band. The released rows have no unassessed bands. Rank five is
 complete through multiplicity 20. Rank six is complete through multiplicity
-three, with exact completed bands 1, 2, 3, 5, 6, 7 and 13 cases through
+three, with exact completed bands 1, 2, 3, 5, 6, 7, 9 and 2 cases through
 multiplicity 9 generally unresolved. Isolated completed bands do not
 complete intervening unresolved bands.
 Rank seven has 78 open cases through
@@ -85,7 +85,7 @@ other rank's current rows and provenance, use:
 ```bash
 python3 tools/generate_classification.py --refresh-rank6 \
   --rank6 supplements/rank6/data/decisions.json \
-  --rank6-bundle site/dist/downloads/Rank6_Categorification_M9_Revised_2026-10-01_v1.zip
+  --rank6-bundle site/dist/downloads/Rank6_Categorification_M9_Complete_2026-10-01.zip
 python3 tools/export_grothendieck_counts.py
 python3 tools/render_readme.py
 python3 tools/validate_release.py
@@ -96,7 +96,7 @@ census-band total before replacing rank-six rows. Its input hash and current
 bundle are explicit in `data/classification_status.json`. Other ranks' rows
 and provenance are preserved. `validate_release.py` compares all 9
 rank-six bands with the authoritative ledger, checks the
-25,351/57/13 excluded/realized/unresolved
+25,362/57/2 excluded/realized/unresolved
 partition, every completed band and the release summary. These export checks
 are separate from mathematical certificate replay.
 
@@ -111,6 +111,8 @@ python -O software/conformal_models.py --verify
 python -O software/release_consistency.py
 python -O software/replay_m9.py --jobs 2
 python -O software/replay_m9_structure.py
+python software/replay_m9_completion.py --output verification/m9/completion/replay_normal.json
+python -O software/replay_m9_completion.py --output verification/m9/completion/replay_optimized.json
 python -O research/exclusions/R6_5_1204/verify_exclusion.py
 python -O software/frontier_replay.py --check-receipts
 python -O software/frontier_replay.py --list
@@ -122,7 +124,14 @@ mathematics. To replay a necessary reduction, select one current ring, for
 example `python -O software/frontier_replay.py --select R6_4_155`.
 Each command has a 15-minute deadline. A timeout establishes no exclusion.
 
-The multiplicity-nine replay checks the newly accepted certificates. A complete fresh replay of every accepted certificate is:
+The completion replay checks all eleven final multiplicity-nine exclusions
+against the frozen tensors and portable proof bundles. Its normal and optimized
+reports, input and proof manifests, and negative controls are recorded in
+`verification/m9/completion/`. The release identity hashes these records and
+every file in `research/exclusions/m9_completion/`. All 8,809 rings at exact
+multiplicity nine are excluded; the two remaining open rings have lower multiplicity.
+
+A complete fresh replay of every accepted certificate is:
 
 ```bash
 python -O verify.py --jobs 2 --out verification/current/recheck_O.jsonl

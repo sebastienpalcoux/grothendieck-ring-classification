@@ -13,7 +13,7 @@ does not create a self-contained verification run.
 |---:|---|---|
 | 4 | [`rank4/software/`](rank4/software/) and [`verify.py`](rank4/verify.py) | Rank-four source release, including 75.8 MB compressed classification ledger |
 | 5 | [`rank5/software/`](rank5/software/) and [`verify.py`](rank5/verify.py) | Rank-five source release, including its decisions and exclusion certificates |
-| 6 | [`rank6/software/`](rank6/software/) and [`verify.py`](rank6/verify.py) | Complete release; 25,351 excluded, 57 realized, 13 unresolved; complete through 3 and exact bands 1, 2, 3, 5, 6, 7 |
+| 6 | [`rank6/software/`](rank6/software/) and [`verify.py`](rank6/verify.py) | Complete release; 25,362 excluded, 57 realized, 2 unresolved; complete through 3 and exact bands 1, 2, 3, 5, 6, 7, 9 |
 
 The public [fusion-ring-census](https://github.com/sebastienpalcoux/fusion-ring-census)
 continues to own the raw tensor census and enumeration code. See the
@@ -25,4 +25,4 @@ rank-specific software directory.
 For the rank-six update, start with its [README](rank6/README.md),
 [models](rank6/data/model_catalog.csv) and [current frontier](rank6/research/frontier/README.md).
 The authoritative ledger is `rank6/data/decisions.json`. The archive is
-`Rank6_Categorification_M9_Revised_2026-10-01_v1.zip`. Source-bound certificates retain their internal paths.
+`Rank6_Categorification_M9_Complete_2026-10-01.zip`. Source-bound certificates retain their internal paths.

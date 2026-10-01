@@ -9,7 +9,8 @@ ROUND3=P/'certificates/continuation_round3.jsonl'
 ROUND4=P/'certificates/continuation_round4.jsonl'
 STRUCTURAL=P/'certificates/structural_exclusions.jsonl'
 CONTINUATION_PATHS=(CONTINUATION,ROUND2,ROUND3,ROUND4,STRUCTURAL)
-M9_PATHS=(P/'certificates/m9_classification.jsonl',P/'certificates/m9_advanced.jsonl')
+M9_CAMPAIGNS=('classification','advanced','completion')
+M9_PATHS=tuple(P/f'certificates/m9_{name}.jsonl' for name in M9_CAMPAIGNS)
 HISTORICAL_REPLAY=P/'verification/m9/retained_m8_release_summary.json'
 CONTINUATION_LABELS={
     'continuation_center_integrality':'Continuation: center rotation integrality',
@@ -104,7 +105,7 @@ def m9_records(rows):
     if len(by_id)!=sum(r['m']==9 for r in rows):
         raise ValueError('duplicate multiplicity-nine census identifier')
     records=[];seen=set();receipts=[]
-    for kind,path in zip(('classification','advanced'),M9_PATHS):
+    for kind,path in zip(M9_CAMPAIGNS,M9_PATHS):
         base=P/'verification/m9'/kind
         summary_path=base/'summary.json'
         if not path.exists() or not summary_path.exists():
@@ -157,6 +158,12 @@ def m9_records(rows):
                     or replay.get('census_sha256')!=source_hash
                     or replay.get('certificates_sha256')!=file_digest(path)):
                 raise ValueError('M9 advanced independent optimized replay is incomplete or stale')
+        completion_binding=None
+        if kind=='completion':
+            import m9_completion
+            completion_binding=m9_completion.validate_receipt(rows,current,replay,root=P)
+            if summary.get('proof_manifest_sha256')!=completion_binding['proof_manifest_sha256']:
+                raise ValueError('M9 completion summary proof binding changed')
         replay_by={r['id']:r for r in replay_records}
         if len(replay_by)!=len(replay_records) or set(replay_by)!={r.get('id') for r in current}:
             raise ValueError('M9 independent replay does not cover exactly the accepted IDs')
@@ -172,11 +179,11 @@ def m9_records(rows):
                     or result.get('certificate_sha256')!=certificate_digest(rec['certificate'])):
                 raise ValueError('M9 replay certificate mismatch: '+rid)
             if ((kind=='classification' and result.get('optimizer_disabled') is not True)
-                    or (kind=='advanced' and result.get('optimizer_used') is not False)):
+                    or (kind!='classification' and result.get('optimizer_used') is not False)):
                 raise ValueError('M9 exact replay did not disable numerical optimization: '+rid)
             if rec.get('census_sha256',source_hash)!=source_hash:
                 raise ValueError('M9 per-record source mismatch: '+rid)
-            if kind=='advanced':
+            if kind!='classification':
                 tensor_hash=hashlib.sha256(json.dumps(by_id[rid]['N'],separators=(',',':')).encode()).hexdigest()
                 if result.get('tensor_sha256')!=tensor_hash or rec.get('tensor_sha256')!=tensor_hash:
                     raise ValueError('M9 advanced tensor mismatch: '+rid)
@@ -185,6 +192,7 @@ def m9_records(rows):
             'certificates_sha256':file_digest(path),'summary':str(summary_path.relative_to(P)),
             'summary_sha256':file_digest(summary_path),'replay':str(replay_path.relative_to(P)),
             'replay_sha256':file_digest(replay_path),'excluded':len(current)})
+        if completion_binding is not None:receipts[-1]['proof_binding']=completion_binding
     return records,receipts
 
 def m9_stage_reports(rows,decisions):
@@ -195,7 +203,7 @@ def m9_stage_reports(rows,decisions):
     source_hash=file_digest(P/'data/census.json')
     live={r['id'] for r in rows if r['m']==9};reports=[]
     from classify_m9 import STAGES as NEW_STAGES
-    for campaign in ('classification','advanced'):
+    for campaign in M9_CAMPAIGNS:
         base=P/'verification/m9'/campaign
         summary=json.loads((base/'summary.json').read_text())
         attempts=load(base/'attempts.jsonl')
@@ -210,7 +218,8 @@ def m9_stage_reports(rows,decisions):
             original={s['stage']:s for s in state['stages']}
         else:
             names=summary['requested_stages']
-            labels={name:'Advanced: '+name.replace('_',' ') for name in names}
+            prefix='Completion: ' if campaign=='completion' else 'Advanced: '
+            labels={name:('Completion: general exclusions' if campaign=='completion' and name=='completion' else prefix+name.replace('_',' ')) for name in names}
             original={}
             if set(summary['input_ids'])!=live or summary['input_count']!=len(live):
                 raise ValueError('M9 advanced input is not the complete standard residual')
@@ -522,7 +531,7 @@ def build(verified_continuation=None,retain_historical_replay=False):
             report['fourth_continuation_replay']='verification/round4/release_replay.json'
             report['fourth_continuation_frozen_inputs']='verification/round4/campaign_manifest.json'
             report['document_checks']='verification/round4/document_qa.json'
-        report['current_revision']='2026-10-01-M9-v1'
+        report['current_revision']='2026-10-01-M9-complete-v2'
         report['current_frontier']='data/frontier_summary.json'
         report['new_realizations']=[r['id'] for r in ledger if r['m']==9 and r['status'] not in ('excluded','unresolved')]
         report['new_exclusions']=[r['id'] for r in new_records]

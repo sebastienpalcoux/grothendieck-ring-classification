@@ -13,7 +13,7 @@ Generate from the exact status partitions with
 `python3 tools/export_oeis_drafts.py`. Every exported band has zero unresolved
 and zero unassessed rings; rank-five multiplicities 18–20 are now included after general exclusion certificates closed the former residuals.
 Rank-six general classification is complete at exact multiplicities
-**1, 2, 3, 5, 6, 7**, contiguously through **3**. The unresolved rings are recorded in the current frontier.
+**1, 2, 3, 5, 6, 7, 9**, contiguously through **3**. The unresolved rings are recorded in the current frontier.
 The rank-six fusion-ring census draft is separately extended by a(9)=8809;
 it counts all based rings, regardless of categorifiability. The exporter proposes only the rank-four and
 rank-five drafts listed above; no incomplete band is an exact sequence term.

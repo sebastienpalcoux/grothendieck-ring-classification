@@ -1,0 +1,272 @@
+{
+  "schema": "m9-completion-proof-manifest-v1",
+  "scope": "general",
+  "cases": {
+    "R6_9_529": {
+      "mechanism": "involution_pair",
+      "bundles": [
+        "involution_pair"
+      ],
+      "tensor_sha256": "84f6db29c364e47a967ce6bf7da26bf37239fde9ac6480785e9d639814fa6c65"
+    },
+    "R6_9_1060": {
+      "mechanism": "free_involution",
+      "bundles": [
+        "free_involution"
+      ],
+      "tensor_sha256": "3d6747c2494cb99ed76d977a7025d3ef2d399371a2069a67a6ce2964cad7b353"
+    },
+    "R6_9_2455": {
+      "mechanism": "involution_pair",
+      "bundles": [
+        "involution_pair"
+      ],
+      "tensor_sha256": "02083204d03d8084f4e82fd397d1c6545936092ffe4074774901eb8201785440"
+    },
+    "R6_9_3748": {
+      "mechanism": "relative_center",
+      "bundles": [
+        "psu25"
+      ],
+      "tensor_sha256": "4b6a48b814338c03193a6b8a7916d403d1045ef2ed3db62aaa7890343420d6ca"
+    },
+    "R6_9_7018": {
+      "mechanism": "dimension_fields",
+      "bundles": [
+        "gauss8200",
+        "pivotal_gap"
+      ],
+      "tensor_sha256": "334eb4f6a9fd8af9c202e65c6900aa3348b17ac1425f826c4f49b12846056d64"
+    },
+    "R6_9_7741": {
+      "mechanism": "triangle_saturation",
+      "bundles": [
+        "triangle"
+      ],
+      "tensor_sha256": "02dde73bf8dd7f5247153f391734e56d0540a50cd7e7c04fc37334887010fbd5"
+    },
+    "R6_9_7742": {
+      "mechanism": "triangle_saturation",
+      "bundles": [
+        "triangle"
+      ],
+      "tensor_sha256": "1954c96b8d9264aedd4cd183b7396fcd457a8c8c9b619db5d8f236559ee4c649"
+    },
+    "R6_9_8099": {
+      "mechanism": "quartic_trace",
+      "bundles": [
+        "pivotal_gap"
+      ],
+      "tensor_sha256": "1695a35fedef9357d39f45630ad83b4eacd2682337b957d0dfbdf33803c2f879"
+    },
+    "R6_9_8101": {
+      "mechanism": "quartic_trace",
+      "bundles": [
+        "pivotal_gap"
+      ],
+      "tensor_sha256": "4f0fc9adabbf99f6b4ebe5808c786548671d47a6e4138155ee075e72163fe679"
+    },
+    "R6_9_8200": {
+      "mechanism": "gauss_parity",
+      "bundles": [
+        "gauss8200"
+      ],
+      "tensor_sha256": "2bb1330fb68a4ed1adaf6a9e11e6136348e074d5b7bb606ba6fb53899fe16103"
+    },
+    "R6_9_8785": {
+      "mechanism": "signed_spectrum",
+      "bundles": [
+        "gauss8200",
+        "case8785"
+      ],
+      "tensor_sha256": "7897af45c48cb1d416710f37ea9c4c11226490421317d193c85e3cc5022b3da8"
+    }
+  },
+  "bundles": {
+    "case8785": {
+      "files": {
+        "research/exclusions/m9_completion/case8785/README.txt": "304105e98dfe90aeabdd4200e6d29ad221c97f9273733eec4e4768847b455e03",
+        "research/exclusions/m9_completion/case8785/general_proof_8785.tex": "57b1023450e38f9ee64a6b146180d547664450bace28ced61fe375adc107d554",
+        "research/exclusions/m9_completion/case8785/manifest.json": "8ce0ade0209e31d3823397a592f9af74b378175242350c9388308dbe3efafd1b",
+        "research/exclusions/m9_completion/case8785/proof_8785.tex": "da9dbfffac27de71b616eef29fe7e5ba8193342292fe38aeb5d0b530c47c1883",
+        "research/exclusions/m9_completion/case8785/quadratic_certificate.json": "a3e44bd0740a8620c5f6421837a2b5a27acac5ee4ecb09d8eb5e2e45d40592d5",
+        "research/exclusions/m9_completion/case8785/signed_certificate.json": "3b87b7424d3ae178de36b066685de0eca1bcb535e83096ddc7f277077b0a6636",
+        "research/exclusions/m9_completion/case8785/signed_negative_controls.json": "e7b9281579680c49a943890a8a18cef02cbf960bdfdeb2e6be1c64e19a2852e2",
+        "research/exclusions/m9_completion/case8785/tensor_8785.json": "306d8fb1e5940cb8b29ccb10f2b1d4596a7ad9d0ca86281600fca4193dc434c2",
+        "research/exclusions/m9_completion/case8785/verified_certificate.json": "60bde0029cbf1dad58fec5944eb1408703f8cb4f46ff9d011fa404be740f1098",
+        "research/exclusions/m9_completion/case8785/verify_8785.py": "9d7fa48b11a28e15ee51535b6e8f215f95b60bee0c4a7595f1a5bd4875ad365c",
+        "research/exclusions/m9_completion/case8785/verify_quadratic_8785.py": "d2f6a274ecab27b464bcad81e54df297ea4169290cecb6130a572374528444dd",
+        "research/exclusions/m9_completion/case8785/verify_signed_8785.py": "3fe6318807ed316f0b1ebd27e785e286b518fde292b6ea0d7a395158827d4c50"
+      },
+      "sha256": "393f892bbded709c9cd9c75f6348605b7819cd7ca30b72b5006cb285776f211e"
+    },
+    "free_involution": {
+      "files": {
+        "research/exclusions/m9_completion/free_involution/PROOF.txt": "a0caf1922c117ee16eaafd60fc228153fcf37201aa080d94ac14c05fb1c7bb9a",
+        "research/exclusions/m9_completion/free_involution/README.md": "f4fbf39d0922e5ba6085e414f1f4be8a80b79f69c480b8efe549d00dfc06ff17",
+        "research/exclusions/m9_completion/free_involution/audit/mutated_ray.json": "6b6deeae8bb0f5a38cf047e07206e634524d7c8c9b936e35f8dd36ecada769f1",
+        "research/exclusions/m9_completion/free_involution/audit/normal.json": "8d1b6f6964dd7d315ab7e84d4760b2dba549c22f0131c004f31a5d54aff7b2aa",
+        "research/exclusions/m9_completion/free_involution/audit/optimized.json": "54c036c953ccefd7f44c534f232494c3cd21e4b4a12be4c1282dc51175dcf5f1",
+        "research/exclusions/m9_completion/free_involution/audit/summary.json": "ffccf7ab6b82279a8816b7fce6944aa1b85b3fb9f163fdbcdf091c6c8ae3cc23",
+        "research/exclusions/m9_completion/free_involution/audit_mutated_ray.py": "cfb20948cba14bf5733323b30db974dfcba221f133e3265266d8c423737fc711",
+        "research/exclusions/m9_completion/free_involution/bundle_manifest.json": "92ea29380833b64b18db73e1617fe55f2e050189dd3e4c1d08674123531bfd38",
+        "research/exclusions/m9_completion/free_involution/certificate.json": "4189d240621772128e60d974cebe4dc00f56f7890b2e93ed3f9cccb1bb751e8b",
+        "research/exclusions/m9_completion/free_involution/general_dimension_certificate.json": "e8d6c588f44f35a430799f4384793710276ea7e43423efdc78ebd82c94668dae",
+        "research/exclusions/m9_completion/free_involution/gram_vectors_general.cpp": "261a2bb99dd836d6703797cd7b2129ee2d1252e19dd7b8a355153c5af58cefff",
+        "research/exclusions/m9_completion/free_involution/gram_vectors_general.py": "207b377da528dcde20f5134005c9d297c0072810bb7fb81fddbb243475d70ea1",
+        "research/exclusions/m9_completion/free_involution/source_manifest.json": "275564411223020f06a6d62dcf1412840a68649cb104d4bf2b889a3d61d51f70",
+        "research/exclusions/m9_completion/free_involution/tensor.json": "bf8c1780e1d8fda3e7ef90b0bbb7527dd2b1d35f54e3303624f3916db3264645",
+        "research/exclusions/m9_completion/free_involution/verify.py": "0a16893699f63e7c02fd841ba124ad1bcc9642e78f5a24fc6e9c2c1b9a46180b"
+      },
+      "sha256": "ac3f21039e61446415b8752f105c8ab64c10e34e4f859299318603b4bfe0f804"
+    },
+    "gauss8200": {
+      "files": {
+        "research/exclusions/m9_completion/gauss8200/README.md": "0ffe774d32a383b3b6325fe2d8c7b05fb7c94f149f3b19a1f4800b6fa85f92ad",
+        "research/exclusions/m9_completion/gauss8200/SHA256SUMS": "39e43b0d803a107e1094bc68a492cb0c9f0b336d73c86793e38d46da9c219067",
+        "research/exclusions/m9_completion/gauss8200/certificates.json": "3dc2b49ca312f731c7417d1fec07b4f5be8dd2c1bab51987a2904440b0415e61",
+        "research/exclusions/m9_completion/gauss8200/common.py": "ed12917fa9253747af442bdc7dd842a40ed7ae5703c585d709e3d43521622ee0",
+        "research/exclusions/m9_completion/gauss8200/exclusion8200.py": "a7712ae73018e6be70f0641e576f3ccf39655574c15bc32907a2e4491098ded6",
+        "research/exclusions/m9_completion/gauss8200/gauss8200_proof.tex": "c4cf4bde1b2799a4aa0509b0d519f20cd987f08d087c562ad67c36d0c568d854",
+        "research/exclusions/m9_completion/gauss8200/gauss_family.py": "4d1df228bb33fcb601cf256902871f96c512eb5bd9a6c36ba9d7893c5705174f",
+        "research/exclusions/m9_completion/gauss8200/gauss_family_method.tex": "ec65f0111bd5baf1b907e6cbd96603a136e2ff7623c404d2baeef66eb8e07db8",
+        "research/exclusions/m9_completion/gauss8200/higher_fields.py": "dde550fd3b619ea558c6a13898f2a879d919b8f8a94a53ff2e0b54ce8b22bb8d",
+        "research/exclusions/m9_completion/gauss8200/higher_fields_proof.tex": "2bd3bad72f3c851224eafa967d895b7b8378a805a4a3ac52ee97a9aae9341746",
+        "research/exclusions/m9_completion/gauss8200/replay_normal.json": "a8398da8d5a36d019bc203e431424c131cbe0e45b03a330372bd91066516559f",
+        "research/exclusions/m9_completion/gauss8200/replay_optimized.json": "f2c4ce8a7c1bed4f2aad4167d091ceee2e2697766a85be7bedec34d8262aff41",
+        "research/exclusions/m9_completion/gauss8200/tensor_sha256.json": "e9e5007963c719449066b10c7103d0a66928b6ac1c67d293240006bf725a0f94",
+        "research/exclusions/m9_completion/gauss8200/tensors.json": "4dd7588e7b533570d03a06ec0cb60378d383dd20de1b48abc77da16694977d7c",
+        "research/exclusions/m9_completion/gauss8200/verify_bundle.py": "5ef837ab709ff0265f253ae14c4a601a48d3c8739f7778f3c187314e14ec17f2"
+      },
+      "sha256": "cd1a2ba84d6bf5449f84701dcecd59cd97e84b0cfa213d6880fa1d398050b35a"
+    },
+    "involution_pair": {
+      "files": {
+        "research/exclusions/m9_completion/involution_pair/R6_9_2455_pseudo.json": "1ddb40b7be6add4157ee304440ba043def3982777425f18512a362d87e3c3a64",
+        "research/exclusions/m9_completion/involution_pair/R6_9_529_pseudo.json": "d56a3196536c74780174493e648b2008a82036c5fc5b5829ff3b9f99c0832963",
+        "research/exclusions/m9_completion/involution_pair/README.md": "537ae5911e28c197da648b30a4fc0ca7fef546e4497570ed3c232b8e6937e4c9",
+        "research/exclusions/m9_completion/involution_pair/gram_vectors_general.cpp": "261a2bb99dd836d6703797cd7b2129ee2d1252e19dd7b8a355153c5af58cefff",
+        "research/exclusions/m9_completion/involution_pair/gram_vectors_general.py": "286f8d5c45286e5c79246283f474567163c83b051192b98ef024a1f675aa4c29",
+        "research/exclusions/m9_completion/involution_pair/manifest.json": "20de592939707cf65edc454418ab33a9712b0deeb9e0e7785c1d0d1fa1c18ff0",
+        "research/exclusions/m9_completion/involution_pair/proof.md": "9a3bc8236598de8e4c0e79af9d0238f8a491e08b29ec6097c17e71b3b655688a",
+        "research/exclusions/m9_completion/involution_pair/saturated_signs.json": "bf2bfa112c1dfa05b5f1350f719571be43b3259fdb26bbf82c80a6a1f0a7e365",
+        "research/exclusions/m9_completion/involution_pair/tensors.json": "ad0ec31975e7bead4fc1cc3b64d11e769a1da8aff3233003fbaa626f11a8d645",
+        "research/exclusions/m9_completion/involution_pair/verification.json": "9360d091dd4e6c2125573627e2093787e084329517a45f0daa7152f17004f9b5",
+        "research/exclusions/m9_completion/involution_pair/verify.py": "624946e97859a2c4a08bd84af1fb96e4f7fe31af61dc1db97aa6cee3a641788e"
+      },
+      "sha256": "e2799cf1ab3f1159c5a2dd41547d45beb3f32df7aae5f76e90d14df2ebdfdd5c"
+    },
+    "pivotal_gap": {
+      "files": {
+        "research/exclusions/m9_completion/pivotal_gap/7018_quadratic_proof.md": "37fec1b53e3ab593daa011903f2501fc73f6744bd7403ff342633d0cc15f4af3",
+        "research/exclusions/m9_completion/pivotal_gap/README.txt": "7b9b4013eea9c63920320b78895e4a6a50d02f5b739a4d272e66628e94415f6b",
+        "research/exclusions/m9_completion/pivotal_gap/certificates.json": "8f0401b209acfbd05c80c3076ba1c55ed9ea49ea1673a0b4e91f1c971c5e0d4d",
+        "research/exclusions/m9_completion/pivotal_gap/common.py": "1788a4b726736f292deaa086a3a52db4a40e07d483ad3d08c71eb0e1863c592d",
+        "research/exclusions/m9_completion/pivotal_gap/quartic_proof.md": "378ff97867ae9da993dcec3c8a8f0f65a051a424afb3db2ffe8a08432b6c045a",
+        "research/exclusions/m9_completion/pivotal_gap/tensor_hashes.json": "d4f57a57c377296b0ab06dc1c93108940953950ce9ac781bb225355934595bd3",
+        "research/exclusions/m9_completion/pivotal_gap/tensors.json": "8cb4990b90277e9413af7f1d0c867b8ae820ffd49530468380d3378ffb33ac7a",
+        "research/exclusions/m9_completion/pivotal_gap/verify_7018_quadratic.py": "375d852c3975f67b8bc6cabbddfcb65be5d5b95f812afe3512d87bc93aa5f002",
+        "research/exclusions/m9_completion/pivotal_gap/verify_bundle.py": "6e4b617a3d47b17a7e3203a26cd61823cc88f9507a0c0b72ae947b647308326e",
+        "research/exclusions/m9_completion/pivotal_gap/verify_quartic.py": "456143d0dd97549244845404b1fcb7a4862f4a1b64dd4f35aedcc1b0e3327258"
+      },
+      "sha256": "85ede2aeea61d10aa812b2aa0d41dc3416be921cc76e0216c7571b38924f4a25"
+    },
+    "psu25": {
+      "files": {
+        "research/exclusions/m9_completion/psu25/MANIFEST.json": "9079e0460be548b57a06daa530bf51778614fea1a9e6d1c5cc89ae1c00301608",
+        "research/exclusions/m9_completion/psu25/README.md": "ac949fcda0acd64dc906021d5adbfa15b38538655c892a9506aa52b542e723f5",
+        "research/exclusions/m9_completion/psu25/center_exclusion.pdf": "de5e81e3b1d5ce18cbcf80d41e2c06a4b7e0214cc18d7fe073ec0a2d9cb2bba3",
+        "research/exclusions/m9_completion/psu25/center_exclusion.tex": "ab0d41a9ca221a1a1b620a1b915807da0b3e44e9d13f701f39137ecea20fa1ef",
+        "research/exclusions/m9_completion/psu25/center_exclusion_certificate.json": "73c3b2329021e2a7c223699c7968deca4c21a6dcafe33406f536abf851a3fa9a",
+        "research/exclusions/m9_completion/psu25/input_tensor.json": "7d64ff2cd0dc0cb74c6faeb51bcb70d21d943834b5a0b1faf31828186b647b14",
+        "research/exclusions/m9_completion/psu25/relative_center_certificate.json": "46c385475d6d508be6c9e9a61098beb41e6bcaaa161cba1018087741ee54035b",
+        "research/exclusions/m9_completion/psu25/requirements.txt": "25f9f1fb1988b230147a1d3092d34e09c069eb7a6c6d6df46b3973b9f2d36efc",
+        "research/exclusions/m9_completion/psu25/source_metadata.json": "60e954127e332c9e1e32c7934cc89cb90387e8fbcad7b7fd43a698ad453ddcc8",
+        "research/exclusions/m9_completion/psu25/sphericality_certificate.json": "65b436b3631b5faf5b40881aefc7ac8d4df88cb2931f70d1d135233b45a43ee4",
+        "research/exclusions/m9_completion/psu25/structural_reduction.pdf": "79abdb376ecf5161f4fa8ab0f2d50bde12b0ba41d1f69fd5a448316ce4d0d1f5",
+        "research/exclusions/m9_completion/psu25/structural_reduction.tex": "6f79fc1c471748ed3741ad51086e6b5104279211f658bdc30f3d0c23513646b5",
+        "research/exclusions/m9_completion/psu25/verify_all.py": "f8a319d5b94104c2dfc237e5803c5dd2cfc63d5bd7ece9e797faca574d111c5e",
+        "research/exclusions/m9_completion/psu25/verify_center_exclusion.py": "19134640b3874d5a2221e2d86b54a653ea40db49fa1c5703d4bb162089a1d8dc",
+        "research/exclusions/m9_completion/psu25/verify_relative_center.py": "be8d6cb07f4e62d3b50c476d7093f4089fb7c3de33969885593ed8139ceddcac",
+        "research/exclusions/m9_completion/psu25/verify_sphericality.py": "cdf6b1cc80021ac4d980126e915c1e6c1b173299fdc0c92836a9c6939e4afe3e"
+      },
+      "sha256": "c88389a7d79c1160170a7ba6ab6448a1ff73912287013bf08b6c61f88bb93e8b"
+    },
+    "triangle": {
+      "files": {
+        "research/exclusions/m9_completion/triangle/README.md": "dd2610dad09f62a8112468937bd0e5e8c4eb59744830684e5fe75e74944ae226",
+        "research/exclusions/m9_completion/triangle/audit/normal.json": "b3da065483ede6f6ad7abd6ae5901069c2d3ab00982536a5a9ef9d43af872ae0",
+        "research/exclusions/m9_completion/triangle/audit/optimized.json": "567d79b7aaf6f54f305285432aa598294912343538f71acbe089168f2e634923",
+        "research/exclusions/m9_completion/triangle/manifest.json": "515600b0d2ee06235902b0f6cabb5b4b25b5b179f17b8bd588f6fd406dd8ef87",
+        "research/exclusions/m9_completion/triangle/spherical_certificates.json": "09eb947bf78c55f937a75c15a4e5ee343ffff464e9a3fa8bc766fa58e1aff5cd",
+        "research/exclusions/m9_completion/triangle/tensors.json": "8e5e47877354753ffb37e23fdb862cc3d390daab39a2f412a1bb195d0342f282",
+        "research/exclusions/m9_completion/triangle/verify.py": "a657a44636c6dd893a1d9abf2bc0c15864aa43a520629e30ae607e5defb5b1f8"
+      },
+      "sha256": "b9bfecf1aab73310ecbfb6a794a8113e73f535074ab89322a5bf7d465353f3f6"
+    }
+  },
+  "checker_files": {
+    "software/augmented_spectrum.py": "80447b3b8a062e933c62e53c5c6c4e28834b25bd5159c9127eea22f20179027a",
+    "software/balanced_traces.py": "cee718162e664c2e694f957a8a6cc9c33737760735901889ae14e464b597ddb5",
+    "software/center_integrality.py": "55745a55f164ba0053d9e159711326e4a8d83fe9502eacaa62169da2159c2b57",
+    "software/character_induction.py": "24b6cd35eef042005a836636f85e68492acbead2ba15dfb567d272aa37adf945",
+    "software/check.py": "a43a2e6ece4740513e62f3c634400038925f7dcc8ac9465bb83f4133f4afd30f",
+    "software/commutative_descent.py": "8c9d452746c3bdbec819b90f8cd030690a71abc4dc17f9489b16b6523e129033",
+    "software/cyclotomic_stabilizer_trace.py": "bb4dc4378cc35df6e6269b849acdfb29aa396b42b82902c3ac415d13166d8be9",
+    "software/dimension_order.py": "c83dd77bae77ddfb59d4835e4f3a0ca6a12ecc1248a8e25f01c3f0c793f477aa",
+    "software/exact.py": "7a7525840192647312de0c2206d1e83a5b1fd2f592a3fa4830c730aea3a225c7",
+    "software/extension.py": "b16bdcd845780139b854b019cad340914f11cd17487b13815d0f4289dc3698ce",
+    "software/field_automorphisms.py": "3d5a99f9fc81e9b2d606678f3def69b16662643015962a240aff0dcb29dd8b1c",
+    "software/full_morita_gram.py": "443b99bada9deb9f8ef622fc87542233d88158a5dadebec1a063eff9d498dfd9",
+    "software/galois_pseudo_reduction.py": "37832ea9e951831f262666e0520f767c5b8ae053d1bc8cb1a592e6c76bed8d84",
+    "software/gram_vectors_general.py": "286f8d5c45286e5c79246283f474567163c83b051192b98ef024a1f675aa4c29",
+    "software/higher_traces.py": "e97206ffabda63481318c5a2cc924963a283a859179d6a2fdfda7710f460a048",
+    "software/import_repository.py": "833b81c79c9ef534f4980f95e4a03bc62c5c9633918e9052b5186cce44c6076d",
+    "software/induction.py": "ed825b0b24a16fb379cdb06da1610dc9201961bea50fd3c78990605f17d3f7ef",
+    "software/integer_gram.py": "74e7a53cccb431e921cc0daa65a54bf01ea585ae4c817af99ab07bcf76e68f59",
+    "software/involution_module.py": "e9397147d21d09aab9f0b18734b88a14cfe80ad8b13dd374d5bd4b49f0af3ade",
+    "software/m9_completion.py": "c3e2884f628ddfd4a756431eccca72463c7e0a87db7cbec284c77c38088a8bcf",
+    "software/m9_completion_controls.py": "e389a7eded283a866dfaf6e578747141d40a3e50a1ab6a000c9b9e84851f653e",
+    "software/modular_character_induction.py": "2f9a7ea0b5930ce0d6da9b205e169cea2dcca91d8225c96d2da53791c6279b0a",
+    "software/modular_moments.py": "5d7496738756975466ec40ee1ea25bffd78ad3ce43b6bc7e81bc4c362c5ea419",
+    "software/module_dual_gram.py": "fdc0008911b95d93afda1937d8fe3a5aff1450db14ee04a14995b39a3f435684",
+    "software/new_biquadratic_trace.py": "32b417fc890f09386d58b0d0ef8ea00c625ff0866867f17a512f8958ba356ef7",
+    "software/new_gauss_family.py": "a02a5bab7f1beaccb94a150d4c6e08398bb86477d550c443d0db1396d9be0f2b",
+    "software/new_module_spectral.py": "987c3037cfe86f50fbeb693a67d7b67fb8de2c1704db8da2c448df724eda8be3",
+    "software/new_morita_order6.py": "23a314883f828891d874d75f2428366bd827f7e326b1537afd37c208937a9ce3",
+    "software/new_ramified_signed.py": "3b2d759f1d4c0b6a9c76d662aec8e005802de69594b25d327c6495cfccd9b570",
+    "software/new_rank3_subring.py": "042d32b083d2f61f485710cb915217879e323330a5d2d12c8ad8818ed53943c7",
+    "software/new_trace_ideal.py": "e301672025970cd57aa4cd1977e567b63190bf6993c2163dba95ed5435ac65c1",
+    "software/oriented_extension.py": "5872b90a524794475ab669ec9e74c3131209d59fd7f26127e9d5c240555a3524",
+    "software/oriented_signed.py": "099a4f510f480203ab62949c3550cd06460ad94658a8c95703fa695bc3002db5",
+    "software/prepare.py": "b7315baf290fc58e5a0350704c424d57a3d49125a5f2c547bafbde3c49431398",
+    "software/proofs.py": "c8cb1d79dd1de60e11a83cf4ea02e1a3bbb0a2febc137665de2997a9ab0de28d",
+    "software/replay_m9_completion.py": "f498c34a407ddbe57b65520254814b19cbe3422a04cefb1b11c29a91e380ab23",
+    "software/replay_m9_structure.py": "c92dd2126ca06c7d4d0ee90a4bc13b56ec78b8a3e45810392be51d25984918b7",
+    "software/rings.py": "a992210513c5a3ecad6d700dec3020789ee74972e158296f589fb9668799cf33",
+    "software/round3_arithmetic.py": "ac07be99d2e5790445d701a1231ca171652ccbdc44e0e69a879bb7f9ed97fa62",
+    "software/round3_commutative_sector.py": "0a56bc93b3225e7133eef38ef8381062ab053f5f5ddb705506fe4b868da90ea9",
+    "software/round3_integral_morita.py": "34a17ea640c93271016153ac98022def841e300bea3670f0fb7e0989f7254e7a",
+    "software/round3_m4.py": "489cf017e6be4acb0252d31cc11a3e1b27c8dc604f0fc497247c3f0958cd9223",
+    "software/round3_noncommutative.py": "30073df1709f3e55388197807c7adc7faf82d951ff0d8a20950f7427f7f84b02",
+    "software/round3_smallest.py": "cda9d097cbf046ba1d0c2d64d32f3a239b957d9384528c41287154f34cdb9c2a",
+    "software/round3_split_arithmetic.py": "63ce457c5f74c7e66bafa5892fdfb040a9b95df62b9555823df5796e3e51c2ed",
+    "software/round3_verlinde.py": "1d94c17020eb1472dfafe4b1d41d297a8c376621220158d0eedc6c3b192b857c",
+    "software/round4_higher_c3.py": "c36238a3f49a234dbd9554804ff68db165ff57097b2f0a911f76888f2ff5ae8f",
+    "software/round4_higher_e6.py": "f94673a0930030a4583f390abe0e9a57ab0a672ffdef7b19552a0be5dd009f7f",
+    "software/round4_higher_fast.py": "84840b893d50753c7fb23ed01f6f1da2fd32f7d9ae72ac11aff5524df8f9ad05",
+    "software/round4_m8_ising.py": "7d77623d4e54a32d33c20de257d4f2f6f471542801a59877c7c0becd9bef881e",
+    "software/round4_m8_subfield.py": "0b37de87b1fdd11e566a0dd2ab013add0481b76ea464558cce37f3cb68efcf13",
+    "software/signed.py": "29b9c53e0c3fca8a253ae32126e98fc1c576c8be2ae5e6ad126aafb403769101",
+    "software/signed_spherical_traces.py": "5c684d8cba8cfc27f08adce90d30a26039042c1cb9f7c8087b662997392e770f",
+    "software/small_dimension_morita.py": "625d92e1f6709339ae29e7105671a85bf0fea64039e98ee8acf24919eab41547",
+    "software/spectral_induction.py": "8748243602cbd0e6be4537f920d8dda8992c4409e964d2221bf4b9f1b8474365",
+    "software/stabilizer_rotation.py": "148ade7ada13372d0e1d1136ca5e8d9471ecf5e7f52fc5a960cc29cfe53be991",
+    "software/stabilizer_rotation_higher.py": "c28df000fd05d73fe754e2bf2fb6fef49f29947ace5fc5b4418e5477e56e901d",
+    "software/subring_descent.py": "d68f22aff7c018cb8c680826c104546df3a53c4abdd94cf4d6de75790aeec001",
+    "software/tensor_rotation.py": "f2d8f7eb43fe926cdffd107764872d4120d1cb344b323ad3d9b59ca56391740b",
+    "software/weighted_induction.py": "abd4b399b458dd6f5948242234dc9a808d4c092f63855769ee218203beb7a49d",
+    "software/zero_spectrum.py": "d676ea3ada92e84bc23b5ea73d87db41f132640abc78e360e01fa2392d6f647a"
+  },
+  "checker_sha256": "48bc0181688d3ca4cc896f29851d99278ac5ad19bac8e03bfebcbe4a16739e11"
+}

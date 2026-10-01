@@ -53,6 +53,7 @@ python software/current_regressions.py
 python -O software/conformal_models.py --verify
 python -O software/replay_m9.py --jobs 2
 python -O software/replay_m9_structure.py
+python -O software/replay_m9_completion.py
 python software/release_consistency.py
 \end{verbatim}
 Check the manifest before writing new reports. A new report changes file
@@ -105,6 +106,27 @@ python -O research/exclusions/R6_5_1204/verify_exclusion.py
 \end{verbatim}
 The inherited finite-profile certificate remains part of the proof.
 
+\section{Completion at multiplicity nine}
+Every one of the $8\,809$ rings of exact multiplicity nine is generally
+excluded. The eleven final exclusions combine signed dimension-field and
+different-ideal restrictions, diagonal associativity and trace saturation,
+complete Frobenius--Schur indicator systems, and a Galois spin-orbit bound.
+The proof does not assume the pivotality conjecture.
+
+The certificate ledger is \filename{certificates/m9_completion.jsonl}.
+Portable proof bundles are in
+\filename{research/exclusions/m9_completion/}; each contains its complete
+input tensors, mathematical argument and exact finite replay. Run
+\begin{verbatim}
+python software/replay_m9_completion.py
+python -O software/replay_m9_completion.py
+\end{verbatim}
+The source-bound receipt is recorded in
+\filename{verification/m9/completion/}. The checker regenerates the
+required finite domains, verifies every branch and rejects corrupted
+certificates. All correctness checks remain active with \filename{-O}.
+The already published counting census and the OEIS terms are unchanged.
+
 \section{The three conformal constructions}
 The positive registry \filename{data/conformal_positive_models.json}
 adds $\RR{4}{22}$, $\RR{4}{91}$ and $\RR{4}{629}$.
@@ -137,10 +159,9 @@ associators on the three rings or identify every archived modular-data
 matrix in a prescribed labelling.
 
 \section{The remaining problems}
-The canonical index \filename{research/frontier/} separates the inherited
-necessary reductions from the multiplicity-nine reports. It identifies
-retained certificates, open cases and replay commands; source-bound
-evidence keeps its original internal paths.
+The canonical index \filename{research/frontier/} describes the two
+remaining general existence questions, their necessary reductions and
+exact replay commands. No multiplicity-nine case remains open.
 
 The two inherited residuals through multiplicity eight retain the
 following reductions. For $\RR{4}{155}$, the generalized near-group fusion rules give a
@@ -170,23 +191,11 @@ homogeneous-packet Vafa equations then leave $1670$; the exact replays are in
 \filename{research/frontier/R6_8_1660/fermion_profiles/} and
 \filename{research/frontier/R6_8_1660/spin_profiles/}.
 
-The multiplicity-nine extension has eleven additional general residuals.
-Six have exact pivotal nonexistence certificates and hence no spherical,
-pseudo-unitary or unitary categorification. Their all-self-dual tensors
-allow the spherical obstructions to rule out pivotality. The records in
-\filename{certificates/m9_structure_only.json} and their independent replay
-state these scopes explicitly. The ring $\RR{9}{3748}$ has a separate
-braided nonexistence proof using its rank-three subcategory and the
-absence of a rank-two centralizer. None of these results establishes
-general nonexistence for the eleven new residuals. Their complete tensors,
-structure flags and current evidence are indexed in
-\filename{data/unresolved_tensors.json} and \filename{research/frontier/m9/}.
-
+\begin{samepage}
 None of these necessary alternatives is a categorical model. A claimed
 future exclusion must cover the entire necessary domain; a claimed model
 must have a categorical construction and complete tensor identification.
 
-\begin{samepage}
 \section{Rebuilding the presentation}
 After checking the retained evidence, regenerate the ledger exports,
 model catalogue, tables and PDFs with

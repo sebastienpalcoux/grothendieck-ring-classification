@@ -36,8 +36,11 @@ rank6_summary=(f'| 6 | Through {rank6_bound} | **Complete through {rank6_complet
 identity=json.loads(args.identity.read_text())
 release=identity['summary']
 complete_bands=', '.join(str(s['multiplicity']) for s in rank6 if s['unresolved_general']==0)
-from rank6_publication import continuation_text
+from rank6_publication import continuation_text,require
 rank6_continuation = continuation_text(identity)
+require([[s[k] for k in ('rings','excluded_general','realized_unitary',
+                         'realized_spherical_nonpseudounitary','unresolved_general')]
+         for s in rank6]==identity['counts'],'Refresh rank-six status rows before rendering the README')
 lines=['''# Grothendieck ring classification
 
 ### Which low-rank fusion rings admit fusion categories over ℂ?
@@ -125,7 +128,7 @@ row checks and scope appear in [the provenance record](docs/PROVENANCE.md).
 |---:|---:|---|
 | 4 | Multiplicity 18 | The same criterion families suffice for the allocated exclusions at 19–128. |
 | 5 | Multiplicity 18 | Inert-prime quadratic parity first closes two cases at 18; no new criterion family is needed at 19–20. |
-| 6 | See the allocation ledger | The current criteria include stabilizer, cyclotomic-trace and signed arithmetic obstructions. Every new multiplicity-nine tensor is processed separately from the preserved earlier campaign; __RANK6_OPEN__ general cases remain unresolved through multiplicity __RANK6_BOUND__. |
+| 6 | See the allocation ledger | The current criteria include stabilizer, cyclotomic-trace and signed arithmetic obstructions. All 8,809 exact-multiplicity-nine rings have general exclusion certificates; __RANK6_OPEN__ earlier cases remain unresolved through multiplicity __RANK6_BOUND__. |
 | 7 | Multiplicity 2 | Signed sphericalization first contributes at 1; the last first successful application of a listed family occurs at 2. There are 78 open rings through 4, so no stabilization conclusion follows. |
 | 8 | Multiplicity 2 | Signed obstructions first contribute at 1; the last first successful application of a listed family occurs at 2. There are 116 open rings through 2, so no stabilization conclusion follows. |
 

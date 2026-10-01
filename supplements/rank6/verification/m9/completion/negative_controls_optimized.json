@@ -1,0 +1,99 @@
+{
+  "passed": true,
+  "optimized_python": true,
+  "count": 18,
+  "results": [
+    {
+      "control": "altered_tensor",
+      "rejected": true,
+      "reason": "tensor is not one of the bound completion proof inputs"
+    },
+    {
+      "control": "omitted_required_proof_bundle",
+      "rejected": true,
+      "reason": "completion certificate/proof/tensor binding mismatch"
+    },
+    {
+      "control": "scope_downgrade",
+      "rejected": true,
+      "reason": "completion certificate/proof/tensor binding mismatch"
+    },
+    {
+      "control": "incomplete_receipt",
+      "rejected": true,
+      "reason": "completion receipt is incomplete"
+    },
+    {
+      "control": "nonoptimized_receipt",
+      "rejected": true,
+      "reason": "completion receipt mode/optimizer mismatch"
+    },
+    {
+      "control": "optimizer_not_disabled",
+      "rejected": true,
+      "reason": "completion receipt mode/optimizer mismatch"
+    },
+    {
+      "control": "stale_checker_receipt",
+      "rejected": true,
+      "reason": "completion receipt proof/checker binding changed"
+    },
+    {
+      "control": "stale_proof_receipt",
+      "rejected": true,
+      "reason": "completion receipt proof/checker binding changed"
+    },
+    {
+      "control": "missing_bundle_replay",
+      "rejected": true,
+      "reason": "completion replay bundle coverage differs"
+    },
+    {
+      "control": "missing_child_checker",
+      "rejected": true,
+      "reason": "completion child replay coverage differs: case8785"
+    },
+    {
+      "control": "duplicate_case_replay",
+      "rejected": true,
+      "reason": "completion replay case coverage differs"
+    },
+    {
+      "control": "altered_tensor_receipt",
+      "rejected": true,
+      "reason": "completion per-case replay binding mismatch: R6_9_529"
+    },
+    {
+      "control": "failed_finite_replay",
+      "rejected": true,
+      "reason": "completion replay bundle binding mismatch: involution_pair"
+    },
+    {
+      "control": "altered_proof_text",
+      "rejected": true,
+      "reason": "completion proof/checker bytes changed: research/exclusions/m9_completion/free_involution/PROOF.txt"
+    },
+    {
+      "control": "altered_integer_ray",
+      "rejected": true,
+      "reason": "completion proof/checker bytes changed: research/exclusions/m9_completion/free_involution/certificate.json"
+    },
+    {
+      "control": "altered_checker_source",
+      "rejected": true,
+      "reason": "completion proof/checker bytes changed: software/m9_completion.py"
+    },
+    {
+      "control": "altered_native_source",
+      "rejected": true,
+      "reason": "completion proof/checker bytes changed: research/exclusions/m9_completion/involution_pair/gram_vectors_general.cpp"
+    },
+    {
+      "control": "unbound_native_binary",
+      "rejected": true,
+      "reason": "completion proof tree inventory changed: involution_pair"
+    }
+  ],
+  "seconds": 6.114660619999995,
+  "scope": "Binding and completion controls; exact arithmetic mutation controls are also retained in the proof bundles."
+}

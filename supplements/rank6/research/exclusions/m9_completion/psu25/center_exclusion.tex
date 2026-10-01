@@ -1,0 +1,300 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=25mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,booktabs,hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newcommand{\D}{\mathcal D}
+\newcommand{\C}{\mathcal C}
+\newcommand{\E}{\mathcal E}
+\newcommand{\FP}{\operatorname{FPdim}}
+\title{A six-versus-four Galois obstruction for $R6_{9,3748}$}
+\author{}\date{1 October 2026}
+\begin{document}\maketitle
+
+\begin{theorem}
+The based ring $R6_{9,3748}$ admits no fusion categorification over an
+algebraically closed field of characteristic zero. In particular it has no
+pivotal, spherical, pseudo-unitary, unitary, or braided categorification.
+\end{theorem}
+
+The accompanying \texttt{structural\_reduction.tex} proves two categorical
+reductions without a pivotality assumption: every hypothetical categorification
+is spherical and Galois conjugate to a pseudo-unitary one; and it admits a
+fully faithful central lift of its $\operatorname{PSU}(2)_5$ subcategory,
+with a nondegenerate induced braiding. Its nine-case sphericalization
+certificate and the original fifteen-case relative-center certificate are
+part of the proof. This note excludes the resulting pseudo-unitary category.
+Only the braided Drinfeld center is factored below; the ambient fusion
+category is not assumed braided.
+
+\paragraph{Dimension field and center factorization.}
+Write the ring as
+\[
+ A[X]/(X^2-1-QX),\qquad
+ a^2=1+b,\quad ab=a+b,\quad b^2=1+a+b,\quad Q=2+2a+b,
+\]
+with ordered basis $(1,a,b,X,aX,bX)$ corresponding to source labels
+$(0,1,5,2,3,4)$. Henceforth the same lower-case letters denote positive
+dimensions:
+\[
+ a=2\cos(\pi/7),\quad b=a^2-1,\quad h=\sqrt{13},\quad
+ q=2+2a+b,\quad x=(q+bh)/2.
+\]
+The identities
+\[
+ a^3-a^2-2a+1=0,\qquad q^2+4=13b^2,\qquad x^2-qx-1=0
+\]
+hold exactly. Set
+\[
+ d=1+a^2+b^2,\qquad f=d(1+x^2)=\FP(\C).
+\]
+The six numbers $1,a,b,x,ax,bx$ are linearly independent over $\mathbb Q$;
+thus the dimension homomorphism $\mathbb Q\otimes K_0(\C)\to
+L=\mathbb Q(a,h)$ is injective. In particular a dimension determines
+the underlying Grothendieck class of an object of $\C$.
+
+By the central lift and the nondegenerate-subcategory decomposition theorem
+\cite[Theorem 3.13]{DGNO},
+\[
+ Z(\C)\simeq\D\boxtimes\E,\qquad
+ \dim\E=f^2/d,
+\]
+where $\E$ is the modular centralizer. All dimensions are positive: the
+canonical spherical structure of the pseudo-unitary center restricts to its
+two factors. The forgetful functor $F:Z(\C)\to\C$ restricts on $\D$
+to the given inclusion. We use the same letter $F$ on $\E$.
+
+\paragraph{The six known simples of $\E$.}
+Let $I$ be right adjoint to $F$, and let $n$ be the multiplicity vector of
+$I(1)$. Since $K_0(\C)$ is commutative of rank six, the formal-codegree
+description of induction gives six distinct simple summands, each of
+multiplicity one \cite[Theorem 2.13]{Ostrik}. Their twists are all one
+\cite[Theorem 2.5]{Ostrik}. For normalized modular $S$ in the center,
+\[
+ Sn=n
+\]
+by \cite[Proposition 2.8]{Ostrik}. Therefore, for every Galois
+automorphism $\sigma$, the signed permutation
+$G_\sigma=\sigma(S)S^{-1}$ fixes $n$. Its underlying permutation preserves
+the support of $I(1)$, which contains the unit.
+
+For clarity, the following standard modular Galois identities are used:
+\begin{align}
+ d_{\widehat\sigma(i)}
+   &=d_{\widehat\sigma(0)}\,|\sigma(d_i)|,
+   \label{eq:dim-galois}\\
+ \theta_{\widehat\sigma(i)}
+   &=\theta_{\widehat\sigma(0)}\,\sigma^2(\theta_i).
+   \label{eq:twist-galois}
+\end{align}
+The first follows from the signed action on normalized $S$, using positive
+dimensions. For the second take a modular representation with normalized
+$t_i=\theta_i/y$; the theorem $t_{\widehat\sigma(i)}=\sigma^2(t_i)$
+of \cite[Theorem II(iii)]{DLN}, divided by its case $i=0$, gives precisely
+\eqref{eq:twist-galois}. This unit-twist factor must not be omitted in
+general.
+
+In $Z(\C)$, the unit's Galois images have dimensions $f/\sigma(f)$.
+The formal-codegree polynomial
+\[
+ z^6-637z^5+22295z^4-298116z^3+1854944z^2-5274997z+5274997
+\]
+is irreducible and has six distinct positive roots. Thus these six images
+are distinct and exhaust the summands of $I(1)$.
+
+The normalized $S$-matrix of the Deligne product is the tensor product
+of the two normalized $S$-matrices. Consequently its Galois permutation
+sends $(1,1)$ to
+$(\widehat\sigma_{\D}(1),\widehat\sigma_{\E}(1))$.
+This directly identifies the factors of the six induced simples; no
+assumption about restriction of fusion characters is required.
+The three embeddings of $\mathbb Q(a)$ send $a$ to
+$a,a^2-a-1,2-a^2$. Since
+$d_{\widehat\sigma_{\D}(1)}^2=d/\sigma(d)$, the respective simple
+labels in $\D$ are $1,b,a$.
+The $\E$ factor therefore has dimension
+$(f/\sigma(f))/d_{\widehat\sigma_{\D}(1)}$.
+
+Using the injective dimension map gives the following exact forgetful
+vectors $v_e=[F(e)]$, in the six-element basis above. The verifier checks
+every identity in $L$.
+\begin{center}
+\begin{tabular}{cccl}\toprule
+$\sigma(a)$&$\sigma(h)$&$\D$ label&$v_e$\\\midrule
+$a$&$h$&$1$&$(1,0,0,0,0,0)$\\
+$a$&$-h$&$1$&$(1,0,0,2,2,1)$\\
+$a^2-a-1$&$h$&$b$&$(0,0,1,1,3,4)$\\
+$a^2-a-1$&$-h$&$b$&$(0,0,1,0,0,1)$\\
+$2-a^2$&$h$&$a$&$(0,1,0,1,2,1)$\\
+$2-a^2$&$-h$&$a$&$(0,1,0,1,1,2)$\\\bottomrule
+\end{tabular}
+\end{center}
+These are six distinct $\E$ simples, with distinct dimensions. Their twists
+are inverse to the twists of their $\D$ labels because the corresponding
+product objects lie in $I(1)$. Since $N_{\mathbb Q(a)/\mathbb Q}(d)=49$, the Cauchy theorem
+\cite[Theorem 3.9]{BNRW} applied to $\D$ shows that all six twists
+have seven-primary order.
+In particular the second object, denoted $e_-$, has
+\begin{equation}
+ d_{e_-}=x^2,\qquad \theta_{e_-}=1.
+ \label{eq:eminus}
+\end{equation}
+
+\paragraph{The induction Gram budget.}
+Let $N_i$ be the six fusion matrices of $\C$. The induction formula
+$FI(Y)=\bigoplus_j jYj^*$ \cite[Proposition 2.4]{Ostrik} and adjunction
+give
+\[
+ \sum_{z\in\operatorname{Irr}Z(\C)}[F(z)][F(z)]^t
+ =G:=\sum_{i=0}^5N_i^2
+ =\begin{pmatrix}
+6&2&4&10&15&16\\2&10&6&15&26&31\\4&6&12&16&31&41\\
+10&15&16&72&115&139\\15&26&31&115&211&254\\16&31&41&139&254&326
+\end{pmatrix}.
+\]
+Every simple $e\in\E$ supplies the three simple objects
+$1\boxtimes e,a\boxtimes e,b\boxtimes e$ with forgetful vectors
+$v_e,N_av_e,N_bv_e$. Subtracting the eighteen vectors from the six known
+objects above leaves
+\[
+ G-\sum_{e\ \mathrm{known}}\sum_{i=0}^2(N_iv_e)(N_iv_e)^t
+ =\begin{pmatrix}0&0\\0&T\end{pmatrix},\qquad
+ T=\begin{pmatrix}24&36&44\\36&68&80\\44&80&104\end{pmatrix}.
+\]
+All contributions are nonnegative outer products. Hence every further
+simple $y\in\E$ has
+\[
+ F(y)=XU,\qquad U=u_0+u_1a+u_2b,
+ \quad u=(u_0,u_1,u_2)^t\in\mathbb Z_{\geq0}^3\setminus\{0\}.
+\]
+None has the same dimension as one of the six known objects, since their
+forgetful vectors have a nonzero component in $A$.
+Let $M_0,M_a,M_b$ be the rank-three fusion matrices of $A$. The entire
+$\D$ block of $y$ contributes
+$\sum_i(M_iu)(M_iu)^t$ to $T$. Its upper-left entry is
+$u_0^2+u_1^2+u_2^2$. Therefore
+\begin{equation}
+ \sum_{y\ \mathrm{unknown}}\|u_y\|^2=24.
+ \label{eq:budget}
+\end{equation}
+
+\paragraph{Cubic Galois action bounds dimension multiplicities by four.}
+Take a cyclotomic Galois automorphism $\tau$ restricting to
+$a\mapsto a^2-a-1$ and fixing $h$. For any unknown simple, applying
+\eqref{eq:dim-galois} and the known Galois image of the unit gives
+\[
+ d_{\widehat\tau(y)}=x\left|
+ \frac{b^2}{\tau(b)}\tau(U)\right|.
+\]
+In the basis $(1,a,b)$, multiplication of $\tau(U)$ by
+$b^2/\tau(b)$ is represented by the exact matrix
+\[
+ H=\begin{pmatrix}0&-1&1\\-1&-1&1\\-2&0&1\end{pmatrix},
+ \qquad H^3=-I.
+\]
+The forgetful vector of $\widehat\tau(y)$ must be either $Hu$ or $-Hu$,
+whichever has nonnegative entries. A vector with mixed signs would be
+impossible by injectivity of the dimension map. In particular unknown
+simples remain unknown. Their dimensions form orbits of size one or three;
+the number of simple objects of each dimension is constant along each
+orbit, because the Galois permutation is bijective.
+
+Every such dimension orbit has total squared coordinate norm at least six.
+A fixed positive vector satisfies $Hu=-u$, and the positive integral
+solutions are $u=n(1,2,1)$, $n\geq1$, of norm squared $6n^2$.
+For a three-element orbit, a total smaller than six would require a vector
+of norm squared one. The only such nonnegative integral vectors are the
+three coordinate unit vectors. Their complete positive-sign $H$ orbits are
+\[
+\begin{array}{c|c}
+ \text{orbit}&\text{sum of squared norms}\\\hline
+ (1,0,0),(0,1,2),(1,1,2)&12\\
+ (0,1,0),(1,1,0),(1,2,2)&12\\
+ (0,0,1),(1,1,1),(0,1,1)&6.
+\end{array}
+\]
+Thus if $m$ distinct simples share any unknown dimension, their complete
+dimension orbit contributes at least $6m$ to \eqref{eq:budget}; consequently
+\begin{equation}
+ m\leq4.
+ \label{eq:four}
+\end{equation}
+The known dimensions have multiplicity one, so the same bound holds for
+every simple dimension in $\E$. This argument uses no enumeration of
+possible modular rings, and no simple-dimension $d$-number filter.
+
+\paragraph{A required twist forces multiplicity at least six.}
+The exact norm is
+\[
+ N_{L/\mathbb Q}(\dim\E)=N_{L/\mathbb Q}(f^2/d)=7^4\,13^6.
+\]
+The Cauchy theorem for spherical fusion categories
+\cite[Theorem 3.9]{BNRW} implies that thirteen divides the
+Frobenius--Schur exponent of $\E$. For a modular category this exponent
+is the order of its twist matrix. Hence some simple $y$ has twist with a
+nontrivial thirteen-primary component. Such a $y$ is unknown, because the
+six known twists have seven-primary order.
+
+Choose a Galois automorphism $\sigma$ which fixes all prime-to-thirteen
+roots of unity in a common cyclotomic field for the modular representations
+and acts by exponent two on its thirteen-primary roots. The Chinese
+remainder theorem permits this choice. Then
+\[
+ \sigma(a)=a,\qquad \sigma(h)=-h,\qquad\sigma(x)=-1/x,
+\]
+since two is a quadratic nonresidue modulo thirteen. Its Galois image of
+the unit in $\E$ is the known object $e_-$ of \eqref{eq:eminus}.
+For every unknown simple of dimension $xU$, equations
+\eqref{eq:dim-galois}--\eqref{eq:eminus} now give
+\[
+ d_{\widehat\sigma(y)}=x^2\,|\sigma(xU)|=xU,
+ \qquad
+ \theta_{\widehat\sigma(y)}=\sigma^2(\theta_y).
+\]
+Thus $\widehat\sigma$ preserves each equal-dimension block and acts on
+the thirteen-primary part of its twists by exponent four. The order of
+four modulo thirteen is six:
+\[
+ 1,4,3,12,9,10,1.
+\]
+For any nontrivial root of order $13^j$, the corresponding exponent-four
+orbit has length at least six, already by reduction modulo thirteen.
+It follows that the block containing $y$ has at least six distinct simples.
+This contradicts \eqref{eq:four}, excluding the pseudo-unitary category.
+The spherical/Galois reduction excludes every characteristic-zero
+categorification, proving the theorem.
+
+\paragraph{Exact verification and dependencies.}
+The short verifier \texttt{verify\_center\_exclusion.py} checks the source
+tensor, the dimension-field identities and injectivity, the six rows,
+their Galois $\D$ labels, the full induction Gram subtraction, the cubic
+matrix and its dimension multiplier, the fixed ray and all three
+unit-vector orbits, the global norm, quadratic conjugation, and the
+order-six residue orbit. Run with \texttt{--verify} to replay
+\texttt{center\_exclusion\_certificate.json}; it also succeeds under
+\texttt{python -O}. It does not claim that arithmetic alone proves the
+categorical reductions.
+The independent \texttt{verify\_sphericality.py --verify} replays the
+nine sphericalizations. The standalone \texttt{verify\_relative\_center.py --verify} replays all
+fifteen rank-eighteen candidates. All three verifiers use the accompanying
+complete frozen source row, \texttt{input\_tensor.json}, whose SHA256 is
+pinned in the helper verifier. No former research directory or external
+source checkout is required. Source provenance is recorded in
+\texttt{source\_metadata.json}; \texttt{verify\_all.py} runs all three
+verifiers under \texttt{python -O}.
+
+\begin{thebibliography}{9}
+\bibitem{Ostrik} V.~Ostrik, \emph{Pivotal fusion categories of rank 3},
+\href{https://arxiv.org/abs/1309.4822}{arXiv:1309.4822},
+Propositions 2.4 and 2.8, Theorems 2.5 and 2.13.
+\bibitem{DGNO} V.~Drinfeld, S.~Gelaki, D.~Nikshych, V.~Ostrik,
+\emph{On braided fusion categories I},
+\href{https://arxiv.org/abs/0906.0620}{arXiv:0906.0620}, Theorem 3.13.
+\bibitem{DLN} C.~Dong, X.~Lin, S.-H.~Ng,
+\emph{Congruence property in conformal field theory},
+\href{https://arxiv.org/abs/1201.6644}{arXiv:1201.6644}, Theorem II.
+\bibitem{BNRW} P.~Bruillard, S.-H.~Ng, E.~C.~Rowell, Z.~Wang,
+\emph{Rank-finiteness for modular categories},
+\href{https://arxiv.org/abs/1310.7050}{arXiv:1310.7050}, Theorem 3.9.
+\end{thebibliography}
+\end{document}

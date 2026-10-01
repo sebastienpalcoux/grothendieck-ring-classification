@@ -1,6 +1,6 @@
 # Rank-six categorification through multiplicity nine
 
-**25,421 rings: 25,351 excluded, 57 realized, 13 unresolved.**
+**25,421 rings: 25,362 excluded, 57 realized, 2 unresolved.**
 
 [Manuscript](papers/manuscript.pdf) · [Verification guide](papers/verification_guide.pdf) · [Decision ledger](data/decisions.csv) · [Models](data/model_catalog.csv)
 
@@ -14,20 +14,17 @@
 | 6 | 2,768 | 2,765 | 3 | 0 |
 | 7 | 3,814 | 3,812 | 2 | 0 |
 | 8 | 6,999 | 6,998 | 0 | 1 |
-| 9 | 8,809 | 8,798 | 0 | 11 |
-| **Total** | **25,421** | **25,351** | **57** | **13** |
+| 9 | 8,809 | 8,809 | 0 | 0 |
+| **Total** | **25,421** | **25,362** | **57** | **2** |
 
-The models comprise 56 unitary realizations and one spherical realization whose ring has no pseudo-unitary categorification. Every allocated exclusion applies to general complex fusion categories. The completed exact-multiplicity bands are 1, 2, 3, 5, 6, 7.
+The models comprise 56 unitary realizations and one spherical realization whose ring has no pseudo-unitary categorification. Every allocated exclusion applies to general complex fusion categories. The completed exact-multiplicity bands are 1, 2, 3, 5, 6, 7, 9.
 
-The extension adds 8,809 rings of exact multiplicity nine, with 8,798 exact exclusions and 11 unresolved cases. All 16,612 earlier representatives, identifiers and decisions are preserved. The [new campaign](verification/m9/) records the actual criterion order, discovery budgets and independent exact certificate replays. Timeouts and surviving necessary systems establish neither exclusion nor existence.
+All 8,809 rings of exact multiplicity nine are excluded for general complex fusion categories. The [completion proofs](research/exclusions/m9_completion/README.md) resolve the final eleven cases with standalone exact verifiers and frozen tensor inputs. All 16,612 earlier representatives, identifiers and decisions are preserved. The [new campaign](verification/m9/) records the actual criterion order, discovery budgets and independent exact certificate replays. Timeouts and surviving necessary systems establish neither exclusion nor existence.
 
 ## Remaining rings
 
 - `R6_4_155`: One rank-52 center profile remains, with forced twists of exponent 24 and four duality choices. This is not yet complete modular data or a model.
 - `R6_8_1660`: One relative-center based ring and 1670 labelled center profiles remain. A tensor involution and Vafa/indicator constraints remove 57 more profiles.
-- `R6_9_529`, `R6_9_1060`, `R6_9_2455`, `R6_9_8785`: Recorded multiplicity-nine searches leave this ring unresolved. No additional structural frontier reduction is asserted.
-- `R6_9_3748`: Braided categorifications are ruled out by the rank-three subcategory and centralizer obstruction. General, pivotal, spherical, pseudo-unitary and unitary existence remain unknown.
-- `R6_9_7018`, `R6_9_7741`, `R6_9_7742`, `R6_9_8099`, `R6_9_8101`, `R6_9_8200`: Pivotal, spherical, pseudo-unitary and unitary categorifications are ruled out by a retained exact certificate. General existence remains unknown.
 
 The [frontier index](research/frontier/README.md) gives the current evidence. The [model catalogue](data/model_catalog.csv) identifies actual categorical constructions and all 216 tensor coefficients, including the three conformal-embedding models.
 
@@ -38,6 +35,8 @@ python -m pip install -r requirements.txt
 python check_manifest.py
 python -O software/replay_m9.py --jobs 2
 python -O software/replay_m9_structure.py
+python -O software/replay_m9_completion.py
+python -O software/m9_completion_controls.py
 python -O software/conformal_models.py --verify
 python -O software/release_consistency.py
 python -O software/frontier_replay.py --check-receipts

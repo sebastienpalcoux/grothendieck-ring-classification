@@ -1,0 +1,72 @@
+{
+  "passed": true,
+  "optimized_python": true,
+  "seconds": 11.095518912999978,
+  "census_sha256": "9bb71564082688f1c130050bfe42034431c90dd4f48e0e2d31be8e3a224552ff",
+  "ledger_sha256": "abb36cb0e7f9196e0a231cb85a601c82a1c8fd398996f77a8961487a7ca692e5",
+  "historical_census_sha256": "aa0cc6d10f4934752a621d4e92aa6603278707e512b483a429ed9d788fa5270a",
+  "historical_rows_preserved": 16612,
+  "m9_campaign_receipts": [
+    {
+      "campaign": "classification",
+      "certificates": "certificates/m9_classification.jsonl",
+      "certificates_sha256": "64eae6cd3068bcf2b7bedc828d14eeff81a5eaba1efb71cb12660a14cf8e9695",
+      "summary": "verification/m9/classification/summary.json",
+      "summary_sha256": "38e5c406521b3fbb8ff1aab8570cdf15d5a01d85696ba618d7e775cb554044ae",
+      "replay": "verification/m9/replay/optimized_summary.json",
+      "replay_sha256": "f27d99095f90c485056d8da2d978365edd3b52dae69d10e676b44447416ea66c",
+      "excluded": 8798
+    },
+    {
+      "campaign": "advanced",
+      "certificates": "certificates/m9_advanced.jsonl",
+      "certificates_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "summary": "verification/m9/advanced/summary.json",
+      "summary_sha256": "3421dc36ec8a7f16ae12fa2af56d92b147b161d2e7c621aebe80b404c63f00ba",
+      "replay": "verification/m9/advanced/replay_optimized.json",
+      "replay_sha256": "fe1d4abf77f16e9c518e5b89acbb6e03923ba05cc1687ced95c983fcab0ceebc",
+      "excluded": 0
+    },
+    {
+      "campaign": "completion",
+      "certificates": "certificates/m9_completion.jsonl",
+      "certificates_sha256": "0cea75a206ebadde858d7c0ef017d3a569c513b117729c62fd405269119ae3ad",
+      "summary": "verification/m9/completion/summary.json",
+      "summary_sha256": "0bbe7904bb60dfe294f1431740c4640b3623d2baef20da39b87e07a1e1731d70",
+      "replay": "verification/m9/completion/replay_optimized.json",
+      "replay_sha256": "f2b1de4350ff735ddc94abb522e89aa8ebc592a1048c9a93ce5086b5e9f25385",
+      "excluded": 11,
+      "proof_binding": {
+        "proof_manifest": "verification/m9/completion/proof_manifest.json",
+        "proof_manifest_sha256": "66bb4943388a5babd9288eef60b1ab3c68ae3ec0d50a290b70cfc7cf4231f1f7",
+        "checker_sha256": "48bc0181688d3ca4cc896f29851d99278ac5ad19bac8e03bfebcbe4a16739e11",
+        "bundles": {
+          "case8785": "393f892bbded709c9cd9c75f6348605b7819cd7ca30b72b5006cb285776f211e",
+          "free_involution": "ac3f21039e61446415b8752f105c8ab64c10e34e4f859299318603b4bfe0f804",
+          "gauss8200": "cd1a2ba84d6bf5449f84701dcecd59cd97e84b0cfa213d6880fa1d398050b35a",
+          "involution_pair": "e2799cf1ab3f1159c5a2dd41547d45beb3f32df7aae5f76e90d14df2ebdfdd5c",
+          "pivotal_gap": "85ede2aeea61d10aa812b2aa0d41dc3416be921cc76e0216c7571b38924f4a25",
+          "psu25": "c88389a7d79c1160170a7ba6ab6448a1ff73912287013bf08b6c61f88bb93e8b",
+          "triangle": "b9bfecf1aab73310ecbfb6a794a8113e73f535074ab89322a5bf7d465353f3f6"
+        }
+      }
+    }
+  ],
+  "current_frontier": {
+    "passed": true,
+    "total_cases": 2,
+    "m9_cases": 0,
+    "historical_mathematical_replay_performed": false
+  },
+  "ledger_rows": 25421,
+  "model_rows": 57,
+  "constructor_rows": 64,
+  "residual_rows": 2,
+  "five_structure_CSV_checks": true,
+  "residual_structure_checks": true,
+  "constructor_macro_checked": true,
+  "separate_campaign_stage_tables_checked": true,
+  "proof_mechanism_rows": 25362,
+  "OEIS_prefix_preserved": true,
+  "OEIS_complete_terms": 9
+}

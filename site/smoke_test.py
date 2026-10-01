@@ -74,4 +74,21 @@ frontier=json.loads((root / release["frontier_path"]).read_text())
 assert len(frontier) == summary["unresolved"]
 assert [r["id"] for r in frontier] == summary["unresolved_ids"]
 assert not any(r["m"] in release["complete_multiplicity_bands"] for r in frontier)
+identity_path = root.parent.parent / "data/rank6_release_identity.json"
+if identity_path.is_file():
+    identity = json.loads(identity_path.read_text())
+    totals = tuple(identity["summary"][key] for key in ("excluded", "positive", "unresolved"))
+    if (tuple(summary[key] for key in ("excluded", "positive", "unresolved")) != totals or
+            tuple(release[key] for key in ("excluded", "realized", "unresolved")) != totals):
+        raise ValueError("Site rank-six totals differ from the canonical release identity")
+    bands = [[summary_counts[m][key] for key in ("classes", "excluded", "unitarily_realized",
+              "spherically_realized_nonpseudounitary", "unresolved")] for m in expected_bands]
+    if bands != identity["counts"]:
+        raise ValueError("Site rank-six bands differ from the canonical release identity")
+    if (release["archive"]["path"] != "downloads/" + identity["archive"]["name"] or
+            release["archive"]["sha256"] != identity["archive"]["sha256"]):
+        raise ValueError("Site rank-six archive differs from the canonical release identity")
+    for source, target in (("manuscript.pdf", "rank6.pdf"), ("verification_guide.pdf", "rank6_guide.pdf")):
+        if release["documents"].get(target) != identity["documents"][source]["sha256"]:
+            raise ValueError("Site PDF differs from the canonical release identity: " + target)
 print(f"Rank-six release verified through multiplicity {expected_bands[-1]}: complete bands {release['complete_multiplicity_bands']}; {len(frontier)} residuals; exact archive and PDF hashes.")

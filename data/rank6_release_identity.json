@@ -1,15 +1,15 @@
 {
   "schema": "rank6-release-identity/v1",
   "date": "2026-10-01",
-  "revision": "m9-v1",
+  "revision": "m9-complete-v2",
   "census_commit": "2a340871242879665fa7ba2b01fa15b8bdeaada3",
-  "new_exclusions": 8798,
+  "new_exclusions": 8809,
   "conformal_models": [
     "R6_4_22",
     "R6_4_91",
     "R6_4_629"
   ],
-  "research_summary": "The verified rank-six census contains 25421 rings through multiplicity nine. The new stratum has 8809 rings: 8798 excluded, 0 realized and 11 unresolved. Earlier decisions and exact certificates are preserved.",
+  "research_summary": "The verified rank-six census contains 25421 rings through multiplicity nine. The new stratum has 8809 rings: 8809 excluded, 0 realized and 0 unresolved. The final eleven multiplicity-nine cases have exact general exclusion certificates; only the two earlier frontier rings remain unresolved. Earlier decisions and exact certificates are preserved.",
   "research_progress": [
     {
       "id": "R6_4_155",
@@ -18,63 +18,19 @@
     {
       "id": "R6_8_1660",
       "result": "One relative-center based ring and 1670 labelled center profiles remain. A tensor involution and Vafa/indicator constraints remove 57 more profiles."
-    },
-    {
-      "id": "R6_9_529",
-      "result": "Recorded multiplicity-nine searches leave this ring unresolved. No additional structural frontier reduction is asserted."
-    },
-    {
-      "id": "R6_9_1060",
-      "result": "Recorded multiplicity-nine searches leave this ring unresolved. No additional structural frontier reduction is asserted."
-    },
-    {
-      "id": "R6_9_2455",
-      "result": "Recorded multiplicity-nine searches leave this ring unresolved. No additional structural frontier reduction is asserted."
-    },
-    {
-      "id": "R6_9_3748",
-      "result": "Braided categorifications are ruled out by the rank-three subcategory and centralizer obstruction. General, pivotal, spherical, pseudo-unitary and unitary existence remain unknown."
-    },
-    {
-      "id": "R6_9_7018",
-      "result": "Pivotal, spherical, pseudo-unitary and unitary categorifications are ruled out by a retained exact certificate. General existence remains unknown."
-    },
-    {
-      "id": "R6_9_7741",
-      "result": "Pivotal, spherical, pseudo-unitary and unitary categorifications are ruled out by a retained exact certificate. General existence remains unknown."
-    },
-    {
-      "id": "R6_9_7742",
-      "result": "Pivotal, spherical, pseudo-unitary and unitary categorifications are ruled out by a retained exact certificate. General existence remains unknown."
-    },
-    {
-      "id": "R6_9_8099",
-      "result": "Pivotal, spherical, pseudo-unitary and unitary categorifications are ruled out by a retained exact certificate. General existence remains unknown."
-    },
-    {
-      "id": "R6_9_8101",
-      "result": "Pivotal, spherical, pseudo-unitary and unitary categorifications are ruled out by a retained exact certificate. General existence remains unknown."
-    },
-    {
-      "id": "R6_9_8200",
-      "result": "Pivotal, spherical, pseudo-unitary and unitary categorifications are ruled out by a retained exact certificate. General existence remains unknown."
-    },
-    {
-      "id": "R6_9_8785",
-      "result": "Recorded multiplicity-nine searches leave this ring unresolved. No additional structural frontier reduction is asserted."
     }
   ],
   "archive": {
-    "name": "Rank6_Categorification_M9_Revised_2026-10-01_v1.zip",
-    "sha256": "7754e262efa4b7fe256d2f1872d9468e436d638cf384938f5ab8316fbe1f78fa",
-    "bytes": 15378889,
-    "files": 567
+    "name": "Rank6_Categorification_M9_Complete_2026-10-01.zip",
+    "sha256": "6cbed9b202f6fde6e789cbc4d0c2f00fce6af4dc57072226f612fa582c1bbbbd",
+    "bytes": 16082104,
+    "files": 679
   },
-  "ledger_sha256": "12f1375978b998e9717c5d75d87a5b29fcde89505a80012647910eb08b8550ae",
+  "ledger_sha256": "abb36cb0e7f9196e0a231cb85a601c82a1c8fd398996f77a8961487a7ca692e5",
   "summary": {
-    "excluded": 25351,
+    "excluded": 25362,
     "positive": 57,
-    "unresolved": 13,
+    "unresolved": 2,
     "first_unresolved": "R6_4_155",
     "complete_through_multiplicity": 3,
     "third_continuation_excluded": 12,
@@ -139,17 +95,17 @@
     ],
     [
       8809,
-      8798,
+      8809,
       0,
       0,
-      11
+      0
     ]
   ],
   "third_certificate_sha256": "d97910a14e0c1897f405bb24e616d2a715fdb9eb93d94ff0a31001fb26c89aa8",
   "fourth_certificate_sha256": "25e92eac5e4506906437765e31ed452e9042213f08e079c7ff81db2fb7e42062",
   "research_files_sha256": {
     "data/conformal_positive_models.json": "b76aeb3499c5858e8f1eab67c1a40ce639fea9053688150e25a6b2ef77a2c23b",
-    "data/frontier_summary.json": "98f8f16187c9af5ea545bed4c3e38ec5191c591aca8c939881c1f89abb48bc39",
+    "data/frontier_summary.json": "b22c6f35eb9eef7c36f5c0ee754620bde3a728659a899441b86048eb97e92b23",
     "research/frontier/coverage.json": "f536708b35fd41b8905d8c259c9d064b54abc515e02ad99513deefb33b7500a3",
     "certificates/m9_classification.jsonl": "64eae6cd3068bcf2b7bedc828d14eeff81a5eaba1efb71cb12660a14cf8e9695",
     "verification/m9/census_import.json": "079263320e56ce758fe4620708a2e44f38db0c4bf9ed6e9fa6015169124469a4",
@@ -182,15 +138,365 @@
     "verification/m9/criteria_coverage.md": "a105810349618339037f52fb1aa0e3654901e4da19b0e2ca767261befb8a5c3e"
   },
   "documents": {
+    "bibliography.tex": {
+      "path": "papers/bibliography.tex",
+      "sha256": "aa7b9afccf4e192eb4a734f298c3c8253f69773287f9b7834de019e9e074a1f8",
+      "bytes": 10566
+    },
+    "chapters/01.tex": {
+      "path": "papers/chapters/01.tex",
+      "sha256": "55d29825cf855ea2e7e5f56cbb345cb9de3fec02473975e9ade121ecf92ca3ba",
+      "bytes": 9246
+    },
+    "chapters/02.tex": {
+      "path": "papers/chapters/02.tex",
+      "sha256": "0c8b41eda1d01d7b4a4b6e06e39469aa3267f9008949b58191e0eb3a70e272e8",
+      "bytes": 4342
+    },
+    "chapters/03.tex": {
+      "path": "papers/chapters/03.tex",
+      "sha256": "94693c0bcd530434870df9798a28742e13a99f82c3d39c8755d82938548ec361",
+      "bytes": 15445
+    },
+    "chapters/04.tex": {
+      "path": "papers/chapters/04.tex",
+      "sha256": "0de526dec8a3e12f9912a788d5d616ff7ec8e4fc29c5c3cd75fbe4a9713f664b",
+      "bytes": 33164
+    },
+    "chapters/05.tex": {
+      "path": "papers/chapters/05.tex",
+      "sha256": "fef5759b58875f3ff252413e7cf30dab550c56c00ee9459bcfbfdb6b42965ce7",
+      "bytes": 27265
+    },
+    "chapters/06.tex": {
+      "path": "papers/chapters/06.tex",
+      "sha256": "16b0c29e34865577d8db4ee5a02cd6c89ec97d706a4251d95653bef6114454c7",
+      "bytes": 67537
+    },
+    "chapters/07.tex": {
+      "path": "papers/chapters/07.tex",
+      "sha256": "7d744607566b979d833447cdd13aa4a91dbc236329916afee733cf748fc31adc",
+      "bytes": 8707
+    },
+    "chapters/actual_exponent.tex": {
+      "path": "papers/chapters/actual_exponent.tex",
+      "sha256": "ec7ad40ce7b82592339f7dcbc9b831be687becd378f35ad1740f0a5618901d6f",
+      "bytes": 4631
+    },
+    "chapters/affine_induction_profiles.tex": {
+      "path": "papers/chapters/affine_induction_profiles.tex",
+      "sha256": "a6d11a8c8c8355cc91fb45a466b5ab55f66514bf7125bd683c4a5d6ba16032c1",
+      "bytes": 3089
+    },
+    "chapters/ambient_trace_domain.tex": {
+      "path": "papers/chapters/ambient_trace_domain.tex",
+      "sha256": "de5b563feceacf28feb16d7d24c8acc37c10cd74c2d2f9151587516bf98b3077",
+      "bytes": 2735
+    },
+    "chapters/biquadratic_trace.tex": {
+      "path": "papers/chapters/biquadratic_trace.tex",
+      "sha256": "016a48848a58ff3dbf264e2b9e90b19e41a94ba6d6e0a37e9e17759b4b4cee81",
+      "bytes": 6263
+    },
+    "chapters/central_transport.tex": {
+      "path": "papers/chapters/central_transport.tex",
+      "sha256": "9f3e4d19928df21ccc422fc53aec886ef0851e22d87d3a62b19d71934a5687ee",
+      "bytes": 4223
+    },
+    "chapters/character_traces.tex": {
+      "path": "papers/chapters/character_traces.tex",
+      "sha256": "41077704f927f0e261d57b69317bdb824cfea23ce53e8f85fbc09e5784a97fe0",
+      "bytes": 8534
+    },
+    "chapters/conformal_models.tex": {
+      "path": "papers/chapters/conformal_models.tex",
+      "sha256": "641dc99be8aa57428c82ffcaf1067c5c8da2507a57b306171a55a3b76fde6d8c",
+      "bytes": 10161
+    },
+    "chapters/cyclotomic_stabilizer.tex": {
+      "path": "papers/chapters/cyclotomic_stabilizer.tex",
+      "sha256": "20bbc8b48551a2d665f97ee684a445c86c931697b01d069c7c299aec8226ea26",
+      "bytes": 3985
+    },
+    "chapters/different_ideals.tex": {
+      "path": "papers/chapters/different_ideals.tex",
+      "sha256": "0afbd2f637029229bcbf29d0f2b7dda0d19e320240f6c65e27c169d4c3130a11",
+      "bytes": 8004
+    },
+    "chapters/frontier_155.tex": {
+      "path": "papers/chapters/frontier_155.tex",
+      "sha256": "16c6f17fc330f4bb55fec011d3cefdc42938d3070b8850790c5de93e75c3cef3",
+      "bytes": 16020
+    },
+    "chapters/frontier_1660.tex": {
+      "path": "papers/chapters/frontier_1660.tex",
+      "sha256": "f32494405b95dc34d8cd192efc8de95244a97415d2ad8ae4ba38ba7c77a57902",
+      "bytes": 29923
+    },
+    "chapters/frontier_spherical_reduction.tex": {
+      "path": "papers/chapters/frontier_spherical_reduction.tex",
+      "sha256": "8376b6abccb75eed9f867ca00f3eeab30269c23dc5c080c6297eda3e6876b750",
+      "bytes": 3290
+    },
+    "chapters/full_morita_gram.tex": {
+      "path": "papers/chapters/full_morita_gram.tex",
+      "sha256": "9b4205a0354842be9f7b86a47a8e9dcbe341834bb29c83dfc1268051f070bc6c",
+      "bytes": 6247
+    },
+    "chapters/gauss_family.tex": {
+      "path": "papers/chapters/gauss_family.tex",
+      "sha256": "ae1aa18ea4baee660617e4ca50e1f7f581396f8fef1d352b94295757d762702c",
+      "bytes": 9342
+    },
+    "chapters/higher_stabilizer.tex": {
+      "path": "papers/chapters/higher_stabilizer.tex",
+      "sha256": "957ae03278f67f83df6a49cf9596ad334539f55568c900a693f9f85fc086a1c8",
+      "bytes": 4369
+    },
+    "chapters/integral_morita.tex": {
+      "path": "papers/chapters/integral_morita.tex",
+      "sha256": "5cd5e82b86a5743742219af25b2d919193c0a2854db7da19f2d340ff2f61c676",
+      "bytes": 4297
+    },
+    "chapters/ising_projection.tex": {
+      "path": "papers/chapters/ising_projection.tex",
+      "sha256": "103323ff485f542a95c81da963dec481ededbb6369418a19e5e1ef17902ee69c",
+      "bytes": 3332
+    },
+    "chapters/m9_completion.tex": {
+      "path": "papers/chapters/m9_completion.tex",
+      "sha256": "eb747cb8f537901f0ac7d573f7107be8e4228625a6b1de66e52f1961795e5375",
+      "bytes": 29848
+    },
+    "chapters/morita_order6.tex": {
+      "path": "papers/chapters/morita_order6.tex",
+      "sha256": "de6c3f5cf0e71366f9a6f39805c55e8ce27e97fc894555c7f22e1f9e57269a5f",
+      "bytes": 9935
+    },
+    "chapters/multiplicity9.tex": {
+      "path": "papers/chapters/multiplicity9.tex",
+      "sha256": "98c7b8244d9167f1b71852e4e1ee000baf8fd89db7fc9b6b512e3d71ee4ab383",
+      "bytes": 939
+    },
+    "chapters/pointed_associators.tex": {
+      "path": "papers/chapters/pointed_associators.tex",
+      "sha256": "b2c867a124ed2f940721a55002bcaa757d6944e456d9e003a88d9c2c8268584f",
+      "bytes": 7766
+    },
+    "chapters/r1204_exclusion.tex": {
+      "path": "papers/chapters/r1204_exclusion.tex",
+      "sha256": "7a496c5196de285707f143aa62fd9875fbf232e0d2c65467fe9a2062204de2e1",
+      "bytes": 7217
+    },
+    "chapters/ramification_trace.tex": {
+      "path": "papers/chapters/ramification_trace.tex",
+      "sha256": "953bc57c505e4913c6243666fa119d9fc72e5a3357e09f6ba19b27dd4ca14fcd",
+      "bytes": 5593
+    },
+    "chapters/signed_central_traces.tex": {
+      "path": "papers/chapters/signed_central_traces.tex",
+      "sha256": "c0c0092c515ca273d78acac5236462be192af936ac85e4b754ed56a2d1d72905",
+      "bytes": 11274
+    },
+    "chapters/signed_character_fields.tex": {
+      "path": "papers/chapters/signed_character_fields.tex",
+      "sha256": "64942ca7550c0bba9943537e100b5fa8cd1665a43e0529f849877fd7b0e138ef",
+      "bytes": 25304
+    },
+    "chapters/stabilizer_rotation.tex": {
+      "path": "papers/chapters/stabilizer_rotation.tex",
+      "sha256": "01395f98266ca58d46a8136eaa701dc9e19cb1e5b768ddd4910e69ce3a87afcb",
+      "bytes": 13068
+    },
+    "chapters/subcategory_projection.tex": {
+      "path": "papers/chapters/subcategory_projection.tex",
+      "sha256": "acdc586bdf10934cb645555db94f9aa93ba778cf886ff4d2de334738a4de1875",
+      "bytes": 13969
+    },
+    "chapters/subfield_traces.tex": {
+      "path": "papers/chapters/subfield_traces.tex",
+      "sha256": "6468f486d9b6e2d9b95b5ce04842b6ea148314872533c9fb4955de0d3dfb822f",
+      "bytes": 5036
+    },
+    "chapters/trace_ideal.tex": {
+      "path": "papers/chapters/trace_ideal.tex",
+      "sha256": "2f8bd346f59f4b0bb9cbdb98d37b922ff6d7930479a963eda02bb620e437cd86",
+      "bytes": 4600
+    },
+    "chapters/twist_mass_applications.tex": {
+      "path": "papers/chapters/twist_mass_applications.tex",
+      "sha256": "68d787db2b7794d12945a4ff74fbdee2ebe2d9da363fa52feead509b788f5198",
+      "bytes": 6186
+    },
+    "chapters/unified_gram.tex": {
+      "path": "papers/chapters/unified_gram.tex",
+      "sha256": "06c520efc0b1c3514c15fe9a1ff78c82d66aa9cddfce2aac947e897fd3ec82e0",
+      "bytes": 36232
+    },
+    "generated_allocation.tex": {
+      "path": "papers/generated_allocation.tex",
+      "sha256": "9bf47b613d329806a764f2f836ef5cd4e973804345ae170eb98513d961bd872f",
+      "bytes": 2340
+    },
+    "generated_character_applications.tex": {
+      "path": "papers/generated_character_applications.tex",
+      "sha256": "b42ca80c671abe37ef47fb9a92e41e8fb35fd7fec478ed5c1eea64c0e1197350",
+      "bytes": 483
+    },
+    "generated_classification.tex": {
+      "path": "papers/generated_classification.tex",
+      "sha256": "4dbb850659013396f7479609e66ceba952b437c730c2e3ef1e1d473059590e43",
+      "bytes": 805
+    },
+    "generated_low_residuals.tex": {
+      "path": "papers/generated_low_residuals.tex",
+      "sha256": "8d5d83f5fc8ab56e8506ba655c489c492efc2ab4b825f6aeda2e3e6a25c8ebce",
+      "bytes": 238
+    },
+    "generated_models.tex": {
+      "path": "papers/generated_models.tex",
+      "sha256": "13369b05ca3219b1369abfcfa76c911efc3954db074ad6f6d8ca1bb8aee11969",
+      "bytes": 5307
+    },
+    "generated_stages.tex": {
+      "path": "papers/generated_stages.tex",
+      "sha256": "e435bfd03409bcfad25b3abf1bb46a24745a319762ce8866f7944dfa65b9b418",
+      "bytes": 5321
+    },
+    "generated_stages_m9.tex": {
+      "path": "papers/generated_stages_m9.tex",
+      "sha256": "992c7311102c1882a9d4ab48cead5d9314089f951c2d60b137f9c89f428faeeb",
+      "bytes": 2165
+    },
+    "generated_statistics.tex": {
+      "path": "papers/generated_statistics.tex",
+      "sha256": "2c4e943ba7a493b46848ca223b96acb20c09b86d9b8b54294c7a7feb40f94b9f",
+      "bytes": 384
+    },
     "manuscript.pdf": {
       "path": "papers/manuscript.pdf",
-      "sha256": "d58fc2e93502fb6c207b653abc0f1e495d3a2ebcca7b6f870d0a7895f3d26c1d",
-      "bytes": 1221003
+      "sha256": "d86407cd3afb9a394fad968013d28782dc06930dd0845cad6a1052546157590d",
+      "bytes": 1266506
+    },
+    "manuscript.tex": {
+      "path": "papers/manuscript.tex",
+      "sha256": "6268c335942a57ddeec9e59d8aaf328d4a032c3ef9be4efb4e8a0de2c19022c9",
+      "bytes": 1740
+    },
+    "preamble.tex": {
+      "path": "papers/preamble.tex",
+      "sha256": "57263c38f52ab8082e23f99ec1f05232a15b5667d14f0d20724836e92f913bad",
+      "bytes": 1171
     },
     "verification_guide.pdf": {
       "path": "papers/verification_guide.pdf",
-      "sha256": "3b2177dd14d5355b11ddc9ae73a4cde2e5dc432c55c535c0fd7ace1610d9905e",
-      "bytes": 228574
+      "sha256": "c2ea7330c2d11e5485883d8bed1b5309a08cda3a8ccb598dad50f8a4f71be7c6",
+      "bytes": 229732
+    },
+    "verification_guide.tex": {
+      "path": "papers/verification_guide.tex",
+      "sha256": "d6cd78d40a261f0540e3a964813e3f4e857853d942cf18818c7488419fff5960",
+      "bytes": 10952
     }
+  },
+  "completion_files_sha256": {
+    "certificates/m9_completion.jsonl": "0cea75a206ebadde858d7c0ef017d3a569c513b117729c62fd405269119ae3ad",
+    "research/exclusions/m9_completion/README.md": "c768f3ec4c2d5d19a02aa266d0230f4d3612d08ba3544d55297cfd6b110dcc69",
+    "research/exclusions/m9_completion/case8785/README.txt": "304105e98dfe90aeabdd4200e6d29ad221c97f9273733eec4e4768847b455e03",
+    "research/exclusions/m9_completion/case8785/general_proof_8785.tex": "57b1023450e38f9ee64a6b146180d547664450bace28ced61fe375adc107d554",
+    "research/exclusions/m9_completion/case8785/manifest.json": "8ce0ade0209e31d3823397a592f9af74b378175242350c9388308dbe3efafd1b",
+    "research/exclusions/m9_completion/case8785/proof_8785.tex": "da9dbfffac27de71b616eef29fe7e5ba8193342292fe38aeb5d0b530c47c1883",
+    "research/exclusions/m9_completion/case8785/quadratic_certificate.json": "a3e44bd0740a8620c5f6421837a2b5a27acac5ee4ecb09d8eb5e2e45d40592d5",
+    "research/exclusions/m9_completion/case8785/signed_certificate.json": "3b87b7424d3ae178de36b066685de0eca1bcb535e83096ddc7f277077b0a6636",
+    "research/exclusions/m9_completion/case8785/signed_negative_controls.json": "e7b9281579680c49a943890a8a18cef02cbf960bdfdeb2e6be1c64e19a2852e2",
+    "research/exclusions/m9_completion/case8785/tensor_8785.json": "306d8fb1e5940cb8b29ccb10f2b1d4596a7ad9d0ca86281600fca4193dc434c2",
+    "research/exclusions/m9_completion/case8785/verified_certificate.json": "60bde0029cbf1dad58fec5944eb1408703f8cb4f46ff9d011fa404be740f1098",
+    "research/exclusions/m9_completion/case8785/verify_8785.py": "9d7fa48b11a28e15ee51535b6e8f215f95b60bee0c4a7595f1a5bd4875ad365c",
+    "research/exclusions/m9_completion/case8785/verify_quadratic_8785.py": "d2f6a274ecab27b464bcad81e54df297ea4169290cecb6130a572374528444dd",
+    "research/exclusions/m9_completion/case8785/verify_signed_8785.py": "3fe6318807ed316f0b1ebd27e785e286b518fde292b6ea0d7a395158827d4c50",
+    "research/exclusions/m9_completion/free_involution/PROOF.txt": "a0caf1922c117ee16eaafd60fc228153fcf37201aa080d94ac14c05fb1c7bb9a",
+    "research/exclusions/m9_completion/free_involution/README.md": "f4fbf39d0922e5ba6085e414f1f4be8a80b79f69c480b8efe549d00dfc06ff17",
+    "research/exclusions/m9_completion/free_involution/audit/mutated_ray.json": "6b6deeae8bb0f5a38cf047e07206e634524d7c8c9b936e35f8dd36ecada769f1",
+    "research/exclusions/m9_completion/free_involution/audit/normal.json": "8d1b6f6964dd7d315ab7e84d4760b2dba549c22f0131c004f31a5d54aff7b2aa",
+    "research/exclusions/m9_completion/free_involution/audit/optimized.json": "54c036c953ccefd7f44c534f232494c3cd21e4b4a12be4c1282dc51175dcf5f1",
+    "research/exclusions/m9_completion/free_involution/audit/summary.json": "ffccf7ab6b82279a8816b7fce6944aa1b85b3fb9f163fdbcdf091c6c8ae3cc23",
+    "research/exclusions/m9_completion/free_involution/audit_mutated_ray.py": "cfb20948cba14bf5733323b30db974dfcba221f133e3265266d8c423737fc711",
+    "research/exclusions/m9_completion/free_involution/bundle_manifest.json": "92ea29380833b64b18db73e1617fe55f2e050189dd3e4c1d08674123531bfd38",
+    "research/exclusions/m9_completion/free_involution/certificate.json": "4189d240621772128e60d974cebe4dc00f56f7890b2e93ed3f9cccb1bb751e8b",
+    "research/exclusions/m9_completion/free_involution/general_dimension_certificate.json": "e8d6c588f44f35a430799f4384793710276ea7e43423efdc78ebd82c94668dae",
+    "research/exclusions/m9_completion/free_involution/gram_vectors_general.cpp": "261a2bb99dd836d6703797cd7b2129ee2d1252e19dd7b8a355153c5af58cefff",
+    "research/exclusions/m9_completion/free_involution/gram_vectors_general.py": "207b377da528dcde20f5134005c9d297c0072810bb7fb81fddbb243475d70ea1",
+    "research/exclusions/m9_completion/free_involution/source_manifest.json": "275564411223020f06a6d62dcf1412840a68649cb104d4bf2b889a3d61d51f70",
+    "research/exclusions/m9_completion/free_involution/tensor.json": "bf8c1780e1d8fda3e7ef90b0bbb7527dd2b1d35f54e3303624f3916db3264645",
+    "research/exclusions/m9_completion/free_involution/verify.py": "0a16893699f63e7c02fd841ba124ad1bcc9642e78f5a24fc6e9c2c1b9a46180b",
+    "research/exclusions/m9_completion/gauss8200/README.md": "0ffe774d32a383b3b6325fe2d8c7b05fb7c94f149f3b19a1f4800b6fa85f92ad",
+    "research/exclusions/m9_completion/gauss8200/SHA256SUMS": "39e43b0d803a107e1094bc68a492cb0c9f0b336d73c86793e38d46da9c219067",
+    "research/exclusions/m9_completion/gauss8200/certificates.json": "3dc2b49ca312f731c7417d1fec07b4f5be8dd2c1bab51987a2904440b0415e61",
+    "research/exclusions/m9_completion/gauss8200/common.py": "ed12917fa9253747af442bdc7dd842a40ed7ae5703c585d709e3d43521622ee0",
+    "research/exclusions/m9_completion/gauss8200/exclusion8200.py": "a7712ae73018e6be70f0641e576f3ccf39655574c15bc32907a2e4491098ded6",
+    "research/exclusions/m9_completion/gauss8200/gauss8200_proof.tex": "c4cf4bde1b2799a4aa0509b0d519f20cd987f08d087c562ad67c36d0c568d854",
+    "research/exclusions/m9_completion/gauss8200/gauss_family.py": "4d1df228bb33fcb601cf256902871f96c512eb5bd9a6c36ba9d7893c5705174f",
+    "research/exclusions/m9_completion/gauss8200/gauss_family_method.tex": "ec65f0111bd5baf1b907e6cbd96603a136e2ff7623c404d2baeef66eb8e07db8",
+    "research/exclusions/m9_completion/gauss8200/higher_fields.py": "dde550fd3b619ea558c6a13898f2a879d919b8f8a94a53ff2e0b54ce8b22bb8d",
+    "research/exclusions/m9_completion/gauss8200/higher_fields_proof.tex": "2bd3bad72f3c851224eafa967d895b7b8378a805a4a3ac52ee97a9aae9341746",
+    "research/exclusions/m9_completion/gauss8200/replay_normal.json": "a8398da8d5a36d019bc203e431424c131cbe0e45b03a330372bd91066516559f",
+    "research/exclusions/m9_completion/gauss8200/replay_optimized.json": "f2c4ce8a7c1bed4f2aad4167d091ceee2e2697766a85be7bedec34d8262aff41",
+    "research/exclusions/m9_completion/gauss8200/tensor_sha256.json": "e9e5007963c719449066b10c7103d0a66928b6ac1c67d293240006bf725a0f94",
+    "research/exclusions/m9_completion/gauss8200/tensors.json": "4dd7588e7b533570d03a06ec0cb60378d383dd20de1b48abc77da16694977d7c",
+    "research/exclusions/m9_completion/gauss8200/verify_bundle.py": "5ef837ab709ff0265f253ae14c4a601a48d3c8739f7778f3c187314e14ec17f2",
+    "research/exclusions/m9_completion/involution_pair/R6_9_2455_pseudo.json": "1ddb40b7be6add4157ee304440ba043def3982777425f18512a362d87e3c3a64",
+    "research/exclusions/m9_completion/involution_pair/R6_9_529_pseudo.json": "d56a3196536c74780174493e648b2008a82036c5fc5b5829ff3b9f99c0832963",
+    "research/exclusions/m9_completion/involution_pair/README.md": "537ae5911e28c197da648b30a4fc0ca7fef546e4497570ed3c232b8e6937e4c9",
+    "research/exclusions/m9_completion/involution_pair/gram_vectors_general.cpp": "261a2bb99dd836d6703797cd7b2129ee2d1252e19dd7b8a355153c5af58cefff",
+    "research/exclusions/m9_completion/involution_pair/gram_vectors_general.py": "286f8d5c45286e5c79246283f474567163c83b051192b98ef024a1f675aa4c29",
+    "research/exclusions/m9_completion/involution_pair/manifest.json": "20de592939707cf65edc454418ab33a9712b0deeb9e0e7785c1d0d1fa1c18ff0",
+    "research/exclusions/m9_completion/involution_pair/proof.md": "9a3bc8236598de8e4c0e79af9d0238f8a491e08b29ec6097c17e71b3b655688a",
+    "research/exclusions/m9_completion/involution_pair/saturated_signs.json": "bf2bfa112c1dfa05b5f1350f719571be43b3259fdb26bbf82c80a6a1f0a7e365",
+    "research/exclusions/m9_completion/involution_pair/tensors.json": "ad0ec31975e7bead4fc1cc3b64d11e769a1da8aff3233003fbaa626f11a8d645",
+    "research/exclusions/m9_completion/involution_pair/verification.json": "9360d091dd4e6c2125573627e2093787e084329517a45f0daa7152f17004f9b5",
+    "research/exclusions/m9_completion/involution_pair/verify.py": "624946e97859a2c4a08bd84af1fb96e4f7fe31af61dc1db97aa6cee3a641788e",
+    "research/exclusions/m9_completion/pivotal_gap/7018_quadratic_proof.md": "37fec1b53e3ab593daa011903f2501fc73f6744bd7403ff342633d0cc15f4af3",
+    "research/exclusions/m9_completion/pivotal_gap/README.txt": "7b9b4013eea9c63920320b78895e4a6a50d02f5b739a4d272e66628e94415f6b",
+    "research/exclusions/m9_completion/pivotal_gap/certificates.json": "8f0401b209acfbd05c80c3076ba1c55ed9ea49ea1673a0b4e91f1c971c5e0d4d",
+    "research/exclusions/m9_completion/pivotal_gap/common.py": "1788a4b726736f292deaa086a3a52db4a40e07d483ad3d08c71eb0e1863c592d",
+    "research/exclusions/m9_completion/pivotal_gap/quartic_proof.md": "378ff97867ae9da993dcec3c8a8f0f65a051a424afb3db2ffe8a08432b6c045a",
+    "research/exclusions/m9_completion/pivotal_gap/tensor_hashes.json": "d4f57a57c377296b0ab06dc1c93108940953950ce9ac781bb225355934595bd3",
+    "research/exclusions/m9_completion/pivotal_gap/tensors.json": "8cb4990b90277e9413af7f1d0c867b8ae820ffd49530468380d3378ffb33ac7a",
+    "research/exclusions/m9_completion/pivotal_gap/verify_7018_quadratic.py": "375d852c3975f67b8bc6cabbddfcb65be5d5b95f812afe3512d87bc93aa5f002",
+    "research/exclusions/m9_completion/pivotal_gap/verify_bundle.py": "6e4b617a3d47b17a7e3203a26cd61823cc88f9507a0c0b72ae947b647308326e",
+    "research/exclusions/m9_completion/pivotal_gap/verify_quartic.py": "456143d0dd97549244845404b1fcb7a4862f4a1b64dd4f35aedcc1b0e3327258",
+    "research/exclusions/m9_completion/psu25/MANIFEST.json": "9079e0460be548b57a06daa530bf51778614fea1a9e6d1c5cc89ae1c00301608",
+    "research/exclusions/m9_completion/psu25/README.md": "ac949fcda0acd64dc906021d5adbfa15b38538655c892a9506aa52b542e723f5",
+    "research/exclusions/m9_completion/psu25/center_exclusion.pdf": "de5e81e3b1d5ce18cbcf80d41e2c06a4b7e0214cc18d7fe073ec0a2d9cb2bba3",
+    "research/exclusions/m9_completion/psu25/center_exclusion.tex": "ab0d41a9ca221a1a1b620a1b915807da0b3e44e9d13f701f39137ecea20fa1ef",
+    "research/exclusions/m9_completion/psu25/center_exclusion_certificate.json": "73c3b2329021e2a7c223699c7968deca4c21a6dcafe33406f536abf851a3fa9a",
+    "research/exclusions/m9_completion/psu25/input_tensor.json": "7d64ff2cd0dc0cb74c6faeb51bcb70d21d943834b5a0b1faf31828186b647b14",
+    "research/exclusions/m9_completion/psu25/relative_center_certificate.json": "46c385475d6d508be6c9e9a61098beb41e6bcaaa161cba1018087741ee54035b",
+    "research/exclusions/m9_completion/psu25/requirements.txt": "25f9f1fb1988b230147a1d3092d34e09c069eb7a6c6d6df46b3973b9f2d36efc",
+    "research/exclusions/m9_completion/psu25/source_metadata.json": "60e954127e332c9e1e32c7934cc89cb90387e8fbcad7b7fd43a698ad453ddcc8",
+    "research/exclusions/m9_completion/psu25/sphericality_certificate.json": "65b436b3631b5faf5b40881aefc7ac8d4df88cb2931f70d1d135233b45a43ee4",
+    "research/exclusions/m9_completion/psu25/structural_reduction.pdf": "79abdb376ecf5161f4fa8ab0f2d50bde12b0ba41d1f69fd5a448316ce4d0d1f5",
+    "research/exclusions/m9_completion/psu25/structural_reduction.tex": "6f79fc1c471748ed3741ad51086e6b5104279211f658bdc30f3d0c23513646b5",
+    "research/exclusions/m9_completion/psu25/verify_all.py": "f8a319d5b94104c2dfc237e5803c5dd2cfc63d5bd7ece9e797faca574d111c5e",
+    "research/exclusions/m9_completion/psu25/verify_center_exclusion.py": "19134640b3874d5a2221e2d86b54a653ea40db49fa1c5703d4bb162089a1d8dc",
+    "research/exclusions/m9_completion/psu25/verify_relative_center.py": "be8d6cb07f4e62d3b50c476d7093f4089fb7c3de33969885593ed8139ceddcac",
+    "research/exclusions/m9_completion/psu25/verify_sphericality.py": "cdf6b1cc80021ac4d980126e915c1e6c1b173299fdc0c92836a9c6939e4afe3e",
+    "research/exclusions/m9_completion/triangle/README.md": "dd2610dad09f62a8112468937bd0e5e8c4eb59744830684e5fe75e74944ae226",
+    "research/exclusions/m9_completion/triangle/audit/normal.json": "b3da065483ede6f6ad7abd6ae5901069c2d3ab00982536a5a9ef9d43af872ae0",
+    "research/exclusions/m9_completion/triangle/audit/optimized.json": "567d79b7aaf6f54f305285432aa598294912343538f71acbe089168f2e634923",
+    "research/exclusions/m9_completion/triangle/manifest.json": "515600b0d2ee06235902b0f6cabb5b4b25b5b179f17b8bd588f6fd406dd8ef87",
+    "research/exclusions/m9_completion/triangle/spherical_certificates.json": "09eb947bf78c55f937a75c15a4e5ee343ffff464e9a3fa8bc766fa58e1aff5cd",
+    "research/exclusions/m9_completion/triangle/tensors.json": "8e5e47877354753ffb37e23fdb862cc3d390daab39a2f412a1bb195d0342f282",
+    "research/exclusions/m9_completion/triangle/verify.py": "a657a44636c6dd893a1d9abf2bc0c15864aa43a520629e30ae607e5defb5b1f8",
+    "software/m9_completion.py": "c3e2884f628ddfd4a756431eccca72463c7e0a87db7cbec284c77c38088a8bcf",
+    "software/m9_completion_controls.py": "e389a7eded283a866dfaf6e578747141d40a3e50a1ab6a000c9b9e84851f653e",
+    "software/replay_m9_completion.py": "f498c34a407ddbe57b65520254814b19cbe3422a04cefb1b11c29a91e380ab23",
+    "verification/m9/completion/attempts.jsonl": "58d5668fd91fa71f42b3179f4669565e030a169663f4e18ab7ff1ac737c13452",
+    "verification/m9/completion/input_manifest.json": "de2dc1f0a0ae6da083f063756289d027a3ffc9d15c86329269cb2d39206c2598",
+    "verification/m9/completion/negative_controls.json": "1ddf00ba15c568374ebd7e20d1cad37ad6e7628977aad181f232b6600d45c093",
+    "verification/m9/completion/proof_manifest.json": "66bb4943388a5babd9288eef60b1ab3c68ae3ec0d50a290b70cfc7cf4231f1f7",
+    "verification/m9/completion/replay_normal.json": "260c3a6de0c1afce4c2a7f53681e9111bbef4a25356c87d541cb3ade1de4ad14",
+    "verification/m9/completion/replay_optimized.json": "f2b1de4350ff735ddc94abb522e89aa8ebc592a1048c9a93ce5086b5e9f25385",
+    "verification/m9/completion/summary.json": "0bbe7904bb60dfe294f1431740c4640b3623d2baef20da39b87e07a1e1731d70"
   }
 }

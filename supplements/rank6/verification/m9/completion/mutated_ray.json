@@ -1,0 +1,19 @@
+{
+  "status": "passed",
+  "mutation": "replace the first full Farkas ray by zeros",
+  "reason_expected": "y^T b is not negative",
+  "receipts": [
+    {
+      "python_optimization_level": 0,
+      "returncode": 2,
+      "stderr": "REJECTED: VerificationError: higher-indicator Farkas certificate fails",
+      "seconds": 26.30969046700011
+    },
+    {
+      "python_optimization_level": 1,
+      "returncode": 2,
+      "stderr": "REJECTED: VerificationError: higher-indicator Farkas certificate fails",
+      "seconds": 28.43785964700146
+    }
+  ]
+}

@@ -1,0 +1,130 @@
+\documentclass{article}
+\usepackage{amsmath,amssymb,hyperref}
+\begin{document}
+\title{A complete pivotal obstruction for R6\_9\_8785}
+\author{}\date{1 October 2026}\maketitle
+
+\paragraph{Result and scope.}
+The ring R6\_9\_8785 has no pivotal, spherical, pseudo-unitary, or unitary
+categorification over $\mathbb C$. This is the pseudo-unitary ingredient
+of the complete general exclusion in \texttt{general\_proof\_8785.tex}. The tensor digest is
+\texttt{7897af45c48cb1d416710f37ea9c4c11226490421317d193c85e3cc5022b3da8}.
+The accompanying verifier uses exact integer pairs and rational linear algebra;
+it imports no census classification or induction algorithms.
+
+\paragraph{Exact character table.}
+Put $\phi=(1+\sqrt5)/2$, $t=8+13\phi=\phi^7$, and
+$D=5(1+t^2)=1170+1885\phi$.
+The six characters, in the input tensor's basis order, are
+\[
+\begin{array}{c|rrrrrr}
+ &0&1&2&3&4&5\\\hline
+ c_0&1&t&t-1&t-1&t+1&t+1\\
+ c_1&1&21-13\phi&20-13\phi&20-13\phi&22-13\phi&22-13\phi\\
+ c_2&1&1+2\phi&-1-\phi&1&\phi&-1-2\phi\\
+ c_3&1&1+2\phi&1&-1-\phi&-1-2\phi&\phi\\
+ c_4&1&3-2\phi&\phi-2&1&1-\phi&2\phi-3\\
+ c_5&1&3-2\phi&1&\phi-2&2\phi-3&1-\phi
+\end{array}
+\]
+The verifier checks all $6\cdot6^2$ multiplication equations. Six distinct
+characters exhaust the rank-six algebra. The first is positive and hence is
+FPdim. Their codegrees are $D,D',25+10\sqrt5,25+10\sqrt5,
+25-10\sqrt5,25-10\sqrt5$, respectively. Consequently their central simple
+dimensions $\beta_j=D/f_j$ in a hypothetical pseudo-unitary category are
+\[
+(1,\ 233+377\phi,\ 26+39\phi,\ 26+39\phi,
+442+715\phi,\ 442+715\phi).
+\]
+
+\paragraph{Small-column anchoring criterion.}
+For a commutative pseudo-unitary fusion category, label the summands $Z_j$ of
+$I(1)$ by their characters $c_j$ and let $v_j$ be the restriction column of
+$Z_j$. Then $v_{j0}=1$, $d(v_j)=\beta_j$, and
+\[
+ \beta_i c_i(v_j)=\beta_j c_j(v_i). \tag{1}
+\]
+Indeed, the character pulled back to the center is
+$c_i(FW)=S_{Z_i,W}/\beta_i$, by the character-level correspondence preceding
+Ostrik's Theorem 2.13, so (1) is symmetry of the modular $S$ matrix.
+When small-dimensional columns have short exhaustive domains, fixing their
+\emph{labeled} choices first makes (1) a rational linear system for every
+other column. This is a general exact pruning method; no choice of labels
+among equal codegrees is omitted.
+
+Here $\beta_2=\beta_3=3t+2$. The coefficient of $\phi$ in
+$d(v)=3t+2$, with $v_0=1$, forces $\sum_{i=1}^5v_i=3$.
+The complete eight-column domain is
+\[
+\begin{split}
+ &(1,0,0,1,0,2),\ (1,0,0,1,1,1),\ (1,0,0,1,2,0),\\
+ &(1,0,1,0,0,2),\ (1,0,1,0,1,1),\ (1,0,1,0,2,0),\\
+ &(1,2,0,0,0,1),\ (1,2,0,0,1,0).
+\end{split}
+\]
+Exhaust all $8^2=64$ ordered labeled pairs $(v_2,v_3)$.
+For each remaining column $v_j$, the equation $v_{j0}=1$, the two rational
+components of its dimension equation, and the four rational components of
+(1) with $i=2,3$ form a seven-by-six rational system of rank six.
+There are precisely ten nonnegative integral completions. The verifier
+also checks the complete row-sum and pairwise reciprocity identities for
+every completion. Thus the ten frames are an exhaustive domain, not
+numerically proposed induction data.
+
+\paragraph{The twist-moment bound.}
+For a nontrivial self-dual simple $X$ of dimension $d>0$, let $\ell$ be the
+positive dimension mass in $I(X)$ of its summands also occurring in $I(1)$.
+Their twists are one. The remaining positive weights have total $Dd-\ell$.
+Ostrik's Theorems 2.5 and 2.7 (the latter from Ng--Schauenburg) give their
+first real twist moment $-\ell$ and second real twist moment
+$D\nu_2(X)-\ell$, where $\nu_2(X)=\pm1$. Since
+$\cos^2\theta=(1+\cos2\theta)/2$, Cauchy--Schwarz gives
+\[
+ 2\ell^2\le (Dd-\ell)\bigl(D(d+1)-2\ell\bigr).
+\]
+Cancellation yields the necessary inequality
+\[
+ (3d+1)\ell\le Dd(d+1). \tag{2}
+\]
+No choice of second-indicator sign is assumed: replacing it by $+1$ only
+weakens the bound.
+
+For $X=X_1$ ($d=t$), the ten frames give just three possible low masses:
+\[
+\begin{array}{c|c|c}
+\ell&\text{number of frames}&(3t+1)\ell-Dt(t+1)\\\hline
+14473+23413\phi&6&257812+417144\phi\\
+13641+22061\phi&2&184284+298168\phi\\
+12809+20709\phi&2&110756+179192\phi
+\end{array}
+\]
+Every gap has two strictly positive integer coefficients. Thus every
+possible frame contradicts (2), proving pseudo-unitary nonexistence.
+
+\paragraph{Spherical and pivotal lifts.}
+A spherical dimension function is one of the six characters. The four
+characters $c_2,\ldots,c_5$ have global dimension of norm $125$. The FP
+codegree has norm $21125=125\cdot169$. Every formal codegree divides the
+global dimension (Ostrik Corollary 2.14); their quotient would have norm
+$1/169$, so cannot be an algebraic integer in $\mathbb Q(\sqrt5)$.
+The only remaining dimension characters are $c_0,c_1$, which are Galois
+conjugate. A categorification on either branch therefore has a Galois
+conjugate with all positive dimensions and would be pseudo-unitary,
+already excluded. Finally all six tensor simples are self-dual. Every
+pivotal structure is therefore spherical, proving the stated pivotal
+obstruction. Unitary categorifications are pseudo-unitary and are excluded.
+
+\paragraph{Primary sources.}
+V. Ostrik, \emph{Pivotal fusion categories of rank 3}, arXiv:1309.4822,
+Theorems 2.5, 2.7, 2.13 and Corollary 2.14,
+\url{https://arxiv.org/pdf/1309.4822}.
+S.-H. Ng and P. Schauenburg, \emph{Frobenius--Schur indicators and exponents
+of spherical categories}, arXiv:math/0601012, Theorem 4.1,
+\url{https://arxiv.org/pdf/math/0601012}.
+
+\paragraph{Replay.}
+Run \texttt{python -O verify\_8785.py}.
+The machine-readable exact frames are in
+\texttt{verified\_certificate.json}; the input is the sibling \texttt{tensor\_8785.json}. Neither numerical eigenvalues, LP solvers,
+root-of-unity bounds, nor incomplete induction searches enter the proof.
+\end{document}

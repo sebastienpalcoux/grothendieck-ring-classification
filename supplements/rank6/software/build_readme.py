@@ -38,7 +38,7 @@ def main():
 
 The models comprise 56 unitary realizations and one spherical realization whose ring has no pseudo-unitary categorification. Every allocated exclusion applies to general complex fusion categories. The completed exact-multiplicity bands are {bands}.
 
-The extension adds 8,809 rings of exact multiplicity nine, with {last['excluded']:,} exact exclusions and {last['unresolved']} unresolved cases. All 16,612 earlier representatives, identifiers and decisions are preserved. The [new campaign](verification/m9/) records the actual criterion order, discovery budgets and independent exact certificate replays. Timeouts and surviving necessary systems establish neither exclusion nor existence.
+All 8,809 rings of exact multiplicity nine are excluded for general complex fusion categories. The [completion proofs](research/exclusions/m9_completion/README.md) resolve the final eleven cases with standalone exact verifiers and frozen tensor inputs. All 16,612 earlier representatives, identifiers and decisions are preserved. The [new campaign](verification/m9/) records the actual criterion order, discovery budgets and independent exact certificate replays. Timeouts and surviving necessary systems establish neither exclusion nor existence.
 
 ## Remaining rings
 
@@ -53,6 +53,8 @@ python -m pip install -r requirements.txt
 python check_manifest.py
 python -O software/replay_m9.py --jobs 2
 python -O software/replay_m9_structure.py
+python -O software/replay_m9_completion.py
+python -O software/m9_completion_controls.py
 python -O software/conformal_models.py --verify
 python -O software/release_consistency.py
 python -O software/frontier_replay.py --check-receipts
@@ -69,7 +71,7 @@ The census is pinned to [Fusion Ring Census revision {source['published_data_com
 
 {summary}
 
-The verified census extension adds 8,809 tensors. The new campaign certifies {last['excluded']:,} general exclusions and leaves {last['unresolved']} new rings unresolved. Earlier decisions and mathematical certificates are preserved. New certificates have independent exact replays; historical replay receipts remain explicitly historical.
+All 8,809 exact-multiplicity-nine tensors are excluded generally. The final eleven exclusions are supplied by the separately replayed completion campaign; the two remaining open rings have multiplicities four and eight. Earlier decisions and mathematical certificates are preserved. New certificates have independent exact replays; historical replay receipts remain explicitly historical.
 
 The manuscript, ledger, proof allocation, frontier, source provenance and OEIS draft use this same census. Current evidence and required dependencies are retained; obsolete exploratory outputs are omitted.
 ''')

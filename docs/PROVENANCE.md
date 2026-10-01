@@ -21,16 +21,19 @@ Its complete bundle `Rank5_Complete_Through20_InertParity_2026-09-23.zip` has SH
 For multiplicities 1–18, internal archival indices are explicitly named
 `local_index`; at 19–20, `repository_index` directly identifies the pinned
 source census record within its exact-multiplicity band.
-The current rank-six release is `Rank6_Categorification_M9_Revised_2026-10-01_v1.zip` (SHA-256
-`7754e262efa4b7fe256d2f1872d9468e436d638cf384938f5ab8316fbe1f78fa`). The [complete archive](https://grothendieck-ring-atlas.sebastien-palcoux.chatgpt.site/downloads/Rank6_Categorification_M9_Revised_2026-10-01_v1.zip) contains
-567 files and the pinned census, proof certificates and exact constructors.
-The partition is **25,351 excluded, 57 realized and 13 unresolved**.
+The current rank-six release is `Rank6_Categorification_M9_Complete_2026-10-01.zip` (SHA-256
+`6cbed9b202f6fde6e789cbc4d0c2f00fce6af4dc57072226f612fa582c1bbbbd`). The [complete archive](https://grothendieck-ring-atlas.sebastien-palcoux.chatgpt.site/downloads/Rank6_Categorification_M9_Complete_2026-10-01.zip) contains
+679 files and the pinned census, proof certificates and exact constructors.
+The partition is **25,362 excluded, 57 realized and 2 unresolved**.
 There are 56 unitary models and one spherical model with no pseudo-unitary
-categorification. The census extension adds 8,809 rings of exact multiplicity nine.
-Their separately recorded certificates are independently checked with optimizers disabled.
+categorification. All 8,809 rings of exact multiplicity nine are generally excluded.
+The final eleven cases have portable proof bundles and exact completion replays
+in normal and optimized Python. Only the two earlier frontier rings remain open.
+The release identity binds the completion certificates, both replay reports,
+every completion proof file, and the manuscript and verification-guide sources and PDFs.
 
 The current ledger is `supplements/rank6/data/decisions.json`, SHA-256
-`12f1375978b998e9717c5d75d87a5b29fcde89505a80012647910eb08b8550ae`. The unchanged earlier negative proofs retain their
+`abb36cb0e7f9196e0a231cb85a601c82a1c8fd398996f77a8961487a7ca692e5`. The unchanged earlier negative proofs retain their
 original exact verification evidence; this release does not claim a fresh
 replay of every earlier proof. See [verification instructions](VERIFY.md).
 
@@ -38,17 +41,6 @@ replay of every earlier proof. See [verification instructions](VERIFY.md).
 |---|---|
 | `R6_4_155` | One rank-52 center profile remains, with forced twists of exponent 24 and four duality choices. This is not yet complete modular data or a model. |
 | `R6_8_1660` | One relative-center based ring and 1670 labelled center profiles remain. A tensor involution and Vafa/indicator constraints remove 57 more profiles. |
-| `R6_9_529` | Recorded multiplicity-nine searches leave this ring unresolved. No additional structural frontier reduction is asserted. |
-| `R6_9_1060` | Recorded multiplicity-nine searches leave this ring unresolved. No additional structural frontier reduction is asserted. |
-| `R6_9_2455` | Recorded multiplicity-nine searches leave this ring unresolved. No additional structural frontier reduction is asserted. |
-| `R6_9_3748` | Braided categorifications are ruled out by the rank-three subcategory and centralizer obstruction. General, pivotal, spherical, pseudo-unitary and unitary existence remain unknown. |
-| `R6_9_7018` | Pivotal, spherical, pseudo-unitary and unitary categorifications are ruled out by a retained exact certificate. General existence remains unknown. |
-| `R6_9_7741` | Pivotal, spherical, pseudo-unitary and unitary categorifications are ruled out by a retained exact certificate. General existence remains unknown. |
-| `R6_9_7742` | Pivotal, spherical, pseudo-unitary and unitary categorifications are ruled out by a retained exact certificate. General existence remains unknown. |
-| `R6_9_8099` | Pivotal, spherical, pseudo-unitary and unitary categorifications are ruled out by a retained exact certificate. General existence remains unknown. |
-| `R6_9_8101` | Pivotal, spherical, pseudo-unitary and unitary categorifications are ruled out by a retained exact certificate. General existence remains unknown. |
-| `R6_9_8200` | Pivotal, spherical, pseudo-unitary and unitary categorifications are ruled out by a retained exact certificate. General existence remains unknown. |
-| `R6_9_8785` | Recorded multiplicity-nine searches leave this ring unresolved. No additional structural frontier reduction is asserted. |
 
 The verified rank-seven release through
 multiplicity four has SHA-256
@@ -65,7 +57,7 @@ are categorification questions, not negative certificates.
 | 3 | `results/census.json` | 1,000 | Five-ring unrestricted theorem | Per-band decisions exported through 1,000; four realized at multiplicity 1 and one at 2 |
 | 4 | `results/rank4/tables.txt.gz` | 128 | `certificates/classification.jsonl.gz` | Complete through 128 |
 | 5 | `results/rank5/tables.txt.gz` | 20 | Revised `data/decisions_all.json` | Complete general classification through 20 |
-| 6 | `results/rank6/tables.txt.gz` | 9 | `supplements/rank6/data/decisions.json` | Complete through 3; exact bands 1, 2, 3, 5, 6, 7; 13 unresolved through 9 |
+| 6 | `results/rank6/tables.txt.gz` | 9 | `supplements/rank6/data/decisions.json` | Complete through 3; exact bands 1, 2, 3, 5, 6, 7, 9; 2 unresolved through 9 |
 | 7 | `results/rank7/tables.txt.gz` | 4 | `supplements/rank7/output/rank7_ledger.json` | Partial at all four bands; 78 unresolved |
 | 8 | `results/rank8/tables.txt.gz` | 2 | `supplements/rank8/data/decisions.json` | Partial at both bands; 116 unresolved |
 
@@ -86,7 +78,7 @@ with its [arithmetic checker](../supplements/rank3/audit_rank3.py).
 |---:|---|---:|---|
 | 4 | `969a2a5a84b794a3da1d9cd3978f92324d631760f503f5d208011923a723920f` | 889,530 | 889,515 excluded; 15 realized |
 | 5 | `9261917451d469ece9929a1756f505924cf84adf34e79a0d2e6f68fed43f55cf` | 40,999 | 40,982 excluded; 17 realized; 0 unresolved |
-| 6 | `12f1375978b998e9717c5d75d87a5b29fcde89505a80012647910eb08b8550ae` | 25,421 | 25,351 excluded; 56 unitary; 1 spherical non-pseudo-unitary; 13 unresolved |
+| 6 | `abb36cb0e7f9196e0a231cb85a601c82a1c8fd398996f77a8961487a7ca692e5` | 25,421 | 25,362 excluded; 56 unitary; 1 spherical non-pseudo-unitary; 2 unresolved |
 | 7 | `de2eb6c024a9271a66d8b34c187ebc4eca9bbd6fc1625b8e85c18b66c4abbb73` | 4,201 | 4,107 excluded; 16 unitary models; 78 unresolved |
 | 8 | `555e206a8df62db6ddb557543ae37a77a7345f6129881de26fb70d3c927203df` | 973 | 824 excluded; 33 unitary models; 116 unresolved |
 

@@ -141,6 +141,15 @@ def main():
                 'general_ising_projection_rotation':'Ising projection and rotation',
                 'general_low_verlinde_restriction':'Low Verlinde and restriction products',
                 'split_quadratic_different_pseudo_exclusion':'Different ideal and signed saturation'})
+ labels.update({
+                'm9_completion_involution_pair':'Signed involution fields and indicators',
+                'm9_completion_free_involution':'Free involution and indicators',
+                'm9_completion_relative_center':'Relative center and Galois spin orbits',
+                'm9_completion_dimension_fields':'Signed dimension fields and different ideals',
+                'm9_completion_triangle_saturation':'Diagonal associativity and trace saturation',
+                'm9_completion_quartic_trace':'Cyclic-quartic trace and complementary codegrees',
+                'm9_completion_gauss_parity':'Two-adic saturation and quadratic Gauss sums',
+                'm9_completion_signed_spectrum':'Indicator normalization and signed spectra'})
  kinds=collections.Counter(d['certificate']['kind'] for d in ds if d['status']=='excluded');text=['\\begin{table}[ht]\\centering','\\begin{tabular}{lr}\\toprule','First retained certificate & Rings\\\\\\midrule']
  for k,v in sorted(kinds.items(),key=lambda z:(-z[1],z[0])):text.append(labels.get(k,k.replace('_',' '))+f' & {v}\\\\')
  text += ['\\midrule',f"Total & {sum(kinds.values())}\\\\",'\\bottomrule\\end{tabular}','\\caption{Disjoint allocation of general exclusions. Nested criteria are not counted again.}\\label{tab:allocation}','\\end{table}'];(P/'papers/generated_allocation.tex').write_text('\n'.join(text)+'\n')

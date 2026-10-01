@@ -5,7 +5,7 @@ import hashlib
 import json
 from collections import defaultdict
 from pathlib import Path
-from rank6_publication import validate_identity
+from rank6_publication import validate_identity,completion_files,require,FRONTIER
 
 ROOT=Path(__file__).resolve().parents[1]
 counts=json.loads((ROOT/'data/counts.json').read_text())
@@ -55,14 +55,31 @@ for m,expected in enumerate(rank6_expected,1):
     assert tuple(row[k] for k in ('rings','excluded_general','realized_unitary',
                                   'realized_spherical_nonpseudounitary','unresolved_general'))==expected
 rank6_root=ROOT/'supplements/rank6'
+require(set(completion_files(rank6_root))==set(rank6_identity['completion_files_sha256']),
+        'Completion proof inventory differs from the release identity')
+for relative,digest in rank6_identity['completion_files_sha256'].items():
+    require(hashlib.sha256((rank6_root/relative).read_bytes()).hexdigest()==digest,
+            'Completion evidence changed: '+relative)
+paper_files={f.relative_to(rank6_root/'papers').as_posix()
+             for f in (rank6_root/'papers').rglob('*') if f.is_file()}
+require(paper_files==set(rank6_identity['documents']),'Publication document inventory changed')
+for name,document in rank6_identity['documents'].items():
+    for path in (rank6_root/document['path'],ROOT/'manuscripts/rank6/papers'/name):
+        raw=path.read_bytes()
+        require(len(raw)==document['bytes'] and hashlib.sha256(raw).hexdigest()==document['sha256'],
+                'Publication document changed: '+str(path.relative_to(ROOT)))
 rank6_raw=(rank6_root/'data/decisions.json').read_bytes()
-assert hashlib.sha256(rank6_raw).hexdigest()==status['inputs']['rank6']['sha256']==rank6_identity['ledger_sha256']
+require(hashlib.sha256(rank6_raw).hexdigest()==status['inputs']['rank6']['sha256']==rank6_identity['ledger_sha256'],
+        'Rank-six ledger hash differs from the release identity')
 rank6_ledger=json.loads(rank6_raw)
+require({x['id'] for x in rank6_ledger if x['status']=='unresolved'}==FRONTIER,
+        'The completed release must retain exactly the two earlier frontier cases')
 assert len(rank6_ledger)==len({x['id'] for x in rank6_ledger})==sum(row[0] for row in rank6_expected)
 for m,expected in enumerate(rank6_expected,1):
     band=[x for x in rank6_ledger if x['m']==m]
-    assert (len(band),*(sum(x['status']==s for x in band) for s in
-            ('excluded','unitarily_realized','spherically_realized_nonpseudounitary','unresolved')))==expected
+    require((len(band),*(sum(x['status']==s for x in band) for s in
+            ('excluded','unitarily_realized','spherically_realized_nonpseudounitary','unresolved')))==expected,
+            'Rank-six ledger band differs from the release identity: '+str(m))
 rank6_summary=json.loads((rank6_root/'verification/release_summary.json').read_text())
 assert (rank6_summary['excluded'],rank6_summary['positive'],rank6_summary['unresolved'])==tuple(rank6_identity['summary'][k] for k in ('excluded','positive','unresolved'))
 assert rank6_summary['general_multiplicity_three_complete'] is True
