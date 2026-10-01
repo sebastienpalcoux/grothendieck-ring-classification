@@ -1,0 +1,49 @@
+R6_9_529 budget_exhausted 30.04
+R6_9_1060 budget_exhausted 30.04
+R6_9_3748 survives 0.6
+R6_9_7018 pseudo_unitary_excluded 0.39
+R6_9_7741 pseudo_unitary_excluded 0.38
+R6_9_7742 pseudo_unitary_excluded 0.43
+R6_9_8099 pseudo_unitary_excluded 0.45
+R6_9_8101 pseudo_unitary_excluded 0.41
+R6_9_2455 budget_exhausted 30.04
+R6_9_8785 budget_exhausted 30.03
+{
+  "input_sha256": "6abbdd006cb0667f81a2494332a83432fa75b5962e7bbd0cc1dda24a089c5b63",
+  "input_ids": [
+    "R6_9_529",
+    "R6_9_1060",
+    "R6_9_2455",
+    "R6_9_3748",
+    "R6_9_7018",
+    "R6_9_7741",
+    "R6_9_7742",
+    "R6_9_8099",
+    "R6_9_8101",
+    "R6_9_8200",
+    "R6_9_8785"
+  ],
+  "input_count": 11,
+  "census_sha256": "9bb71564082688f1c130050bfe42034431c90dd4f48e0e2d31be8e3a224552ff",
+  "seconds_per_discovery": 30,
+  "seconds_per_exact_replay": 180,
+  "skip": [
+    "R6_9_8200"
+  ],
+  "scope": "Pseudo-unitary-only exclusions; general/pivotal/spherical status unaffected.",
+  "complete": true,
+  "attempts": 10,
+  "accepted": 5,
+  "accepted_ids": [
+    "R6_9_7018",
+    "R6_9_7741",
+    "R6_9_7742",
+    "R6_9_8099",
+    "R6_9_8101"
+  ],
+  "statuses": {
+    "budget_exhausted": 4,
+    "pseudo_unitary_excluded": 5,
+    "survives": 1
+  }
+}

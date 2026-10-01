@@ -5,7 +5,8 @@ P=Path(__file__).resolve().parents[1]
 def stage_table(rows,decisions):
  path=P/'verification/classification/stages.json'
  if not path.exists():return
- report=json.loads(path.read_text());bound=max(r['m'] for r in rows)
+ report=json.loads(path.read_text());full_bound=max(r['m'] for r in rows)
+ bound=max(map(int,report['stages'][-1]['by_multiplicity']))
  worker_counts=sorted({stage.get('jobs',report['jobs']) for stage in report['stages']})
  from release import continuation_stage_reports,CONTINUATION_PATHS
  stages=report['stages']+continuation_stage_reports(rows,decisions,report['stages'])
@@ -16,9 +17,9 @@ def stage_table(rows,decisions):
          'dimension_order':'Dimension order','character':'Character induction','tensor_rotation':'Tensor rotation','modular':'Modular induction',
          'retained_completion':'Deferred exact checks'}
  text=[]
- initial=[sum(r['m']==m for r in rows) for m in range(1,bound+1)]
- positive=[sum(r['m']==m and r['status'] not in ('excluded','unresolved') for r in decisions) for m in range(1,bound+1)]
- unknown=[sum(r['m']==m and r['status']=='unresolved' for r in decisions) for m in range(1,bound+1)]
+ initial=[sum(r['m']==m for r in rows) for m in range(1,full_bound+1)]
+ positive=[sum(r['m']==m and r['status'] not in ('excluded','unresolved') for r in decisions) for m in range(1,full_bound+1)]
+ unknown=[sum(r['m']==m and r['status']=='unresolved' for r in decisions) for m in range(1,full_bound+1)]
  for first in range(1,bound+1,4):
   columns=list(range(first,min(first+4,bound+1)));global_columns=first==1
   extra=2 if global_columns else 0
@@ -38,7 +39,7 @@ def stage_table(rows,decisions):
            'Unresolved & '+' & '.join(str(unknown[m-1]) for m in columns)+(r' & --- & ---' if global_columns else '')+r'\\',
            r'\bottomrule\end{tabular*}']
   if global_columns:
-   text.append(r'\caption{Executed ordered sieve and verified continuation, multiplicities one to four. Criterion cells are newly excluded / remaining; the total column covers all eight multiplicities. Seconds are original pass wall times with '+(' or '.join(map(str,worker_counts)))+r' workers. Continuation dashes indicate that no comparable pass wall time is assigned. Timeouts remove nothing.}\label{tab:stages}')
+   text.append(r'\caption{Historical executed ordered sieve and verified continuation, multiplicities one to four. Criterion cells are newly excluded / remaining; the total column covers the original multiplicities one through eight. Seconds are original pass wall times with '+(' or '.join(map(str,worker_counts)))+r' workers. Continuation dashes indicate that no comparable pass wall time is assigned. Timeouts remove nothing. The multiplicity-nine campaign is recorded separately.}\label{tab:stages}')
   else:
    text.append(r'\caption{The same ordered sieve, multiplicities five to eight. Sphericalization/induction checks retained proof trees for $m\le7$ and discovers proofs at $m=8$. Trees can use nested advanced filters; unfinished retained checks appear in the deferred row. Original advanced passes target $m\in\{'+','.join(map(str,report.get('advanced_multiplicities',[3,bound])))+r'\}$. Continuation rows apply additional complete certificates to the original survivors. This practical order is not claimed optimal.}\label{tab:stages-high}')
   text.append(r'\end{table}')
@@ -48,7 +49,26 @@ def stage_table(rows,decisions):
   for step,stage in enumerate(stages,1):
    for m in range(1,bound+1):
     c=stage['by_multiplicity'][str(m)];w.writerow([step,stage['stage'],m,c['entered'],c['removed'],c['remaining'],stage['wall_seconds'],stage['errors'],stage['budget_exhausted']])
- (P/'data/resolution_frontier.json').write_text(json.dumps({'counts':[{ 'multiplicity':m,'models':positive[m-1],'unresolved':unknown[m-1]} for m in range(1,bound+1)],'smallest_unresolved_multiplicity':next((m for m in range(1,bound+1) if unknown[m-1]),None),'scope':'Exact tested multiplicities only. An unresolved test does not prove that a new mathematical criterion is necessary; no claim is made above the source bound.'},indent=2)+'\n')
+ if full_bound>=9:
+  from release import m9_stage_reports
+  new_stages=m9_stage_reports(rows,decisions)
+  newtext=[r'\begin{table}[p]\centering\small',r'\setlength{\tabcolsep}{4pt}',
+           r'\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}p{0.46\textwidth}rrrr@{}}\toprule',
+           r'Criterion & \shortstack{Excluded /\\remaining} & \shortstack{Worker\\seconds} & Errors & Budgets\\\midrule',
+           r'Input & 0 / '+str(initial[8])+r' & --- & --- & ---\\']
+  for stage in new_stages:
+   label=labels.get(stage['stage'],stage['label']).replace('_',' ')
+   newtext.append(label+' & '+str(stage['removed'])+' / '+str(stage['remaining'])+' & '+f"{stage['worker_seconds']:.1f}"+' & '+str(stage['errors'])+' & '+str(stage['budget_exhausted'])+r'\\')
+  newtext += [r'\midrule',r'Constructed models & '+str(positive[8])+r' & --- & --- & ---\\',
+              r'Unresolved & '+str(unknown[8])+r' & --- & --- & ---\\',r'\bottomrule\end{tabular*}',
+              r'\caption{Separately executed exact-multiplicity-nine sieve and advanced continuation. Worker seconds sum the recorded per-tensor elapsed times and are not pass wall times. Errors and exhausted discovery budgets remove no rings. Every accepted exclusion has an independently replayed exact certificate. Earlier campaign timings and scope are unchanged.}\label{tab:stages-m9}',r'\end{table}']
+  (P/'papers/generated_stages_m9.tex').write_text('\n'.join(newtext)+'\n')
+  with (P/'data/exclusion_stages_m9.csv').open('w',newline='') as stream:
+   writer=csv.writer(stream);writer.writerow(['step','campaign','criterion','multiplicity','entered','newly_excluded','remaining','worker_seconds','errors','budget_exhausted'])
+   for step,stage in enumerate(new_stages,1):
+    writer.writerow([step,stage['campaign'],stage['stage'],9,stage['entered'],stage['removed'],stage['remaining'],stage['worker_seconds'],stage['errors'],stage['budget_exhausted']])
+ bound=full_bound
+ (P/'data/resolution_frontier.json').write_text(json.dumps({'counts':[{ 'multiplicity':m,'models':positive[m-1],'unresolved':unknown[m-1]} for m in range(1,bound+1)],'smallest_unresolved_multiplicity':next((m for m in range(1,bound+1) if unknown[m-1]),None),'scope':'Exact tested multiplicities only. Historical stage tables cover multiplicities one through eight; the separately executed multiplicity-nine stages have their own table. An unresolved test does not prove that a new mathematical criterion is necessary; no claim is made above the source bound.'},indent=2)+'\n')
  def kinds(value):
   found=set()
   if isinstance(value,dict):
@@ -63,17 +83,26 @@ def stage_table(rows,decisions):
  for path in CONTINUATION_PATHS:
   if path.exists():
    for r in map(json.loads,path.read_text().splitlines()):stageby.setdefault(r['id'],r['stage'])
+ from release import M9_PATHS
+ for path in M9_PATHS:
+  if path.exists():
+   for r in map(json.loads,path.read_text().splitlines()):
+    if r['id'] in stageby:raise ValueError('duplicate accepted proof stage')
+    stageby[r['id']]=r['stage']
  with (P/'data/proof_mechanisms.csv').open('w',newline='') as f:
   w=csv.writer(f);w.writerow(['id','multiplicity','first_accepted_stage','complete_certificate_kind_signature'])
   for d in decisions:
    if d['status']!='excluded':continue
    signature=';'.join(sorted(kinds(d['certificate'])))
-   w.writerow([d['id'],d['m'],stageby.get(d['id'],'retained'),signature]);signatures[(signature,d['m'])]+=1
+   if d['id'] not in stageby:raise ValueError('excluded ring has no recorded accepted stage')
+   w.writerow([d['id'],d['m'],stageby[d['id']],signature]);signatures[(signature,d['m'])]+=1
  groups=[{'signature':signature,'by_multiplicity':{str(m):signatures[(signature,m)] for m in range(1,bound+1)},'total':sum(signatures[(signature,m)] for m in range(1,bound+1))} for signature in sorted({s for s,m in signatures})]
  (P/'data/proof_mechanism_counts.json').write_text(json.dumps({'meaning':'Disjoint grouping by the entire set of primitive certificate kinds occurring in a retained proof tree. This records which joint mechanisms were used, not which are logically indispensable or historically first discovered. Each excluded tensor belongs to exactly one signature.','groups':groups,'total':sum(g['total'] for g in groups)},indent=2)+'\n')
 
 def main():
  rows=json.load(open(P/'data/census.json'));ds=json.load(open(P/'data/decisions.json'));counts=collections.Counter(d['status'] for d in ds)
+ if [(r['id'],r['m']) for r in rows]!=[(d['id'],d['m']) for d in ds]:
+  raise ValueError('rebuild the complete source-bound release ledger before generating exports')
  character_examples={record['id']:record for name in ('character_induction.json','character_higher.json','multiplicity_three.json') for record in json.loads((P/'certificates'/name).read_text())}
  stats={'NegativeCount':counts['excluded'],'UnitaryCount':counts['unitarily_realized'],'SphericalOnlyCount':counts['spherically_realized_nonpseudounitary'],'PositiveCount':counts['unitarily_realized']+counts['spherically_realized_nonpseudounitary'],'UnresolvedCount':counts['unresolved']}
  stats['CompleteBound']=min((r['m'] for r in ds if r['status']=='unresolved'),default=max(r['m'] for r in rows)+1)-1
@@ -106,6 +135,10 @@ def main():
                 'general_integral_morita_rotation':'Integral Morita and Clifford rotation',
                 'c4_associator_stabilizer':'Cyclic associator and stabilizer rotation',
                 'general_ambient_full_character_rotation':'Full-character cyclotomic rotation',
+                'general_cyclic_three_projection':'Cyclic order-three projection',
+                'general_fibonacci_subfield_rotation':'Fibonacci subfield and rotation',
+                'general_half_e6_projection':r'Half-$E_6$ projection',
+                'general_ising_projection_rotation':'Ising projection and rotation',
                 'general_low_verlinde_restriction':'Low Verlinde and restriction products',
                 'split_quadratic_different_pseudo_exclusion':'Different ideal and signed saturation'})
  kinds=collections.Counter(d['certificate']['kind'] for d in ds if d['status']=='excluded');text=['\\begin{table}[ht]\\centering','\\begin{tabular}{lr}\\toprule','First retained certificate & Rings\\\\\\midrule']

@@ -6,7 +6,7 @@ from unittest.mock import patch
 import sympy as s
 from exact import require,VerificationError
 from rings import validate,permute
-from existence import verify_ledger,positive_registry,structure_only_records
+from existence import verify_ledger,positive_registry,structure_only_records,unresolved_existence,all_values
 from near_group_inversion import inversion_rules,action_audit,models,verify as verify_model
 from modular_frontier import verify_record
 from character_induction import reciprocity_data,pruned_system,check_farkas,verify as check_pu
@@ -51,8 +51,12 @@ def run():
     def forbidden(*args,**kwargs):raise RuntimeError('numerical optimizer called by exact continuation checker')
     with patch('scipy.optimize.linprog',forbidden),patch('scipy.optimize.milp',forbidden):
         claims=structure_only_records()
-        require(all(r['id'] in rows and r['structure']=='pseudo_unitary' for r in claims),'structure-only inventory')
-        for item in claims:check_pu(rows[item['id']],item['certificate'])
+        require(all(r['id'] in rows and r['structure'] in ('pivotal','spherical','pseudo_unitary') for r in claims),'structure-only inventory')
+        for item in claims:
+            if item['id'].startswith('R6_9_'):
+                from replay_m9_structure import verify_record as verify_new_scope
+                verify_new_scope(rows[item['id']],item)
+            else:check_pu(rows[item['id']],item['certificate'])
         witness=json.load(open(P/'systems/integral_frontier_215.json'))
         require(witness['id']=='R6_3_215','wrong residual witness')
         result=verify_record(rows[witness['id']],witness)
@@ -65,8 +69,9 @@ def run():
         reject(lambda:verify_record(rows[witness['id']],bad))
     now=json.load(open(P/'data/decisions.json'));verify_ledger(now);by={r['id']:r for r in now}
     for rid in [r['id'] for r in claims]:
-        require(by[rid]['status']=='unresolved' and by[rid]['existence']==dict(general='unknown',pivotal='unknown',spherical='unknown',pseudo_unitary='no',unitary='no'),'PU-only exclusion overclaimed')
-    bad=copy.deepcopy(now);next(r for r in bad if r['id']=='R6_4_162')['existence']['general']='no';reject(lambda:verify_ledger(bad))
+        expected=all_values('no') if by[rid]['status']=='excluded' else unresolved_existence(rid)
+        require(by[rid]['status'] in ('excluded','unresolved') and by[rid]['existence']==expected,'structure-only exclusion overclaimed')
+    bad=copy.deepcopy(now);next(r for r in bad if r['status']=='unresolved')['existence']['general']='no';reject(lambda:verify_ledger(bad))
     require(by['R6_2_124']['existence']==dict(general='yes',pivotal='yes',spherical='yes',pseudo_unitary='no',unitary='no'),'Schopieray fields altered')
     remaining=[r['id'] for r in now if r['m']==3 and r['status']=='unresolved']
     return dict(passed=True,optimized_python=not __debug__,seconds=time.monotonic()-start,

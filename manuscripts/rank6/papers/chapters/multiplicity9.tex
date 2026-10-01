@@ -1,0 +1,101 @@
+\subsection{The exact-multiplicity-nine extension}
+\label{sec:multiplicity-nine}
+The extension contains $8\,809$ new rank-six based rings whose largest
+structure coefficient is exactly nine: $8\,808$ commutative rings and one
+noncommutative ring. The source-bound campaign certifies general
+nonexistence for $8\,798$ of them and supplies no new positive model.
+All accepted general certificates were independently replayed in optimized
+Python with numerical optimizers disabled. Eleven general existence
+questions remain open. The actual ordered campaign has seventeen stages,
+including the additional arithmetic/Morita stage; the detailed stage
+counts and all deadlines are retained in the verification manifests.
+
+The additional arithmetic stage removes nine rings by the signed
+trace-ideal obstruction, one by the biquadratic trace obstruction, and
+$\RR{9}{530}$ by Theorem~\ref{thm:full-morita-gram}. These eleven
+certificates belong to the main campaign only. A separate ten-stage
+advanced campaign covers precisely its eleven final residuals, with
+$110$ recorded attempts and no further general exclusion. A timeout
+records an unfinished search and has no mathematical force.
+
+\paragraph{The residuals and the strongest verified scopes.}
+The following table lists only the new multiplicity-nine residuals.
+Here ``open'' means that neither existence nor nonexistence of the named
+structure has been established by this release.
+\begin{center}
+\begin{tabular}{lccccc}
+Ring suffix in \texttt{R6\_9\_} & General & Pivotal & Spherical & PU & Unitary\\
+\hline
+529, 1060, 2455, 3748, 8785 & open & open & open & open & open\\
+7018, 7741, 7742, 8099, 8101, 8200 & open & no & no & no & no
+\end{tabular}
+\end{center}
+For the second row, exact pseudo-unitary obstructions were extended to
+complete spherical dimension-character proof trees. Five use global
+codegree moment or dimension-field obstructions; the sixth,
+$\RR{9}{8200}$, belongs to the quadratic Gauss family with parameter
+eight. Its all-orders Gauss argument requires at least $3200$ root
+contributions where only $770$ are available. The optimized exact replay
+checks every spherical character branch and the underlying
+pseudo-unitary witness.
+
+The upgrade from spherical to pivotal nonexistence uses the following
+simple lemma, with a tensor-checked hypothesis. In a pivotal category,
+\[
+ \dim_{\mathrm{left}}(X)=\dim_{\mathrm{right}}(X^*).
+\]
+Thus a pivotal fusion category in which every simple object is self-dual
+is spherical: the two dimensions agree on simples, and semisimplicity
+extends equality to the two traces of every endomorphism. This is the
+usual duality identity for pivotal traces \cite[Section~4.7]{EGNO}.
+All six tensors have identity dual map. The released pivotal obstruction
+wrapper checks this map and replays the entire spherical certificate.
+It makes no assumption that an arbitrary fusion categorification admits
+a pivotal structure.
+
+\paragraph{A separate braided obstruction for $\RR{9}{3748}$.}
+This ring has a dual-closed rank-three subring on labels $\{0,1,5\}$,
+with basis $1,a,b$ and rules
+\[
+ a^2=1+b,\qquad ab=a+b,\qquad b^2=1+a+b.
+\]
+It has no nontrivial proper fusion subring. The Frobenius--Perron
+dimension of $a$ satisfies $t^3-t^2-2t+1=0$, which has no rational root;
+in particular this subring is not integral. Suppose the ambient rank-six category were
+braided, and let $\mathcal A$ denote this fusion subcategory. Its M\"uger
+center is either trivial or all of $\mathcal A$. The latter possibility
+would make $\mathcal A$ symmetric, contradicting integrality of symmetric
+fusion categories in characteristic zero. Hence $\mathcal A$ is
+nondegenerate. The decomposition theorem for a nondegenerate braided
+subcategory then forces a rank-two fusion centralizer in the ambient
+category. No such based subring exists: for labels $j=1,\ldots,5$, the
+supports of $j^2$ are respectively
+\[
+ \{0,5\},\quad \{0,2,3,4\},\quad \{0,2,3,4,5\},\quad
+ \{0,1,2,3,4,5\},\quad \{0,1,5\};
+\]
+none is contained in $\{0,j\}$. This proves that
+$\RR{9}{3748}$ has no braided categorification, without any pivotal
+assumption. The invoked results are \cite[Corollary~2.46 and Theorem~3.13]{DGNO}.
+Braided nonexistence is recorded separately from the five existence
+columns above.
+
+\paragraph{Coverage and remaining limitations.}
+The audit distinguishes verified exclusions, failed mathematical
+hypotheses, bounded searches, and missing prerequisite data. None of the
+eleven residuals contains a Fibonacci, Ising, half-$E_6$, or cyclic
+order-three subring, so the corresponding historical projection
+criteria do not apply. The field of $\RR{9}{3748}$ has degree six,
+outside the inherited rational, quadratic, and degree-at-most-four
+center implementations. More elaborate full-center FS, balancing, and
+Vafa constraints require complete fusion, twist, or induction data that
+have not been constructed; their absence is not a passed test.
+
+No registered positive construction matches a new tensor: the sixty-four
+inherited model records all have largest coefficient at most seven, an
+invariant of based-ring isomorphism. Conditional relative-center
+calculations and bounded model searches are retained as research notes,
+with their hypotheses and search ranges; they establish no further
+existence decision. The release establishes the conclusions of
+its implemented, exactly checked criteria within the recorded limits,
+not an exhaustion of every possible categorical obstruction.

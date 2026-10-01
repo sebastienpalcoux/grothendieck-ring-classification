@@ -1,9 +1,7 @@
-# Current release
+# Current release: multiplicity nine
 
-The exact partition is 16,553 excluded, 57 realized and 2 unresolved.
-Three conformal-embedding constructions realize R6_4_22, R6_4_91 and R6_4_629.
-The complete center-integrality certificate excludes R6_5_1204.
+**25,421 rings: 25,351 excluded, 57 realized, 13 unresolved.**
 
-The manuscript and software retain the final proofs and their required inputs.
-R6_4_155 has no braided Morita representative. The relative-center constraints
-for R6_8_1660 leave one possible based ring. Both rings remain unresolved.
+The verified census extension adds 8,809 tensors. The new campaign certifies 8,798 general exclusions and leaves 11 new rings unresolved. Earlier decisions and mathematical certificates are preserved. New certificates have independent exact replays; historical replay receipts remain explicitly historical.
+
+The manuscript, ledger, proof allocation, frontier, source provenance and OEIS draft use this same census. Current evidence and required dependencies are retained; obsolete exploratory outputs are omitted.

@@ -1,0 +1,51 @@
+{
+  "schema": "rank6-historical-frontier-adapter/v1",
+  "historical_coverage_sha256": "f536708b35fd41b8905d8c259c9d064b54abc515e02ad99513deefb33b7500a3",
+  "historical_input_manifest_sha256": "9b6fe13a3c788d13cd6e0513fed2b45e253dea54dd2bd6dda3f0726ef2818143",
+  "adapter_implementation_sha256": "b45d03d83fa00dbd4e086469b3038c285d3f46c7c9430d8d548fbda88cb361ca",
+  "historical_census": {
+    "path": "data/census.json",
+    "sha256": "aa0cc6d10f4934752a621d4e92aa6603278707e512b483a429ed9d788fa5270a",
+    "rows": 16612,
+    "bound": 8,
+    "counts": {
+      "1": 39,
+      "2": 154,
+      "3": 384,
+      "4": 872,
+      "5": 1582,
+      "6": 2768,
+      "7": 3814,
+      "8": 6999
+    }
+  },
+  "historical_ledger": {
+    "path": "data/decisions.json",
+    "sha256": "c28936c9dd3f64c8b85d668a667a7cde65d77161850c0c51bc05c594189f521c",
+    "rows": 16612,
+    "bound": 8,
+    "counts": {
+      "1": 39,
+      "2": 154,
+      "3": 384,
+      "4": 872,
+      "5": 1582,
+      "6": 2768,
+      "7": 3814,
+      "8": 6999
+    }
+  },
+  "source_adapters": {
+    "software/frontier_replay.py": {
+      "kind": "closed_exact_driver_patch",
+      "frozen_source": "research/frontier/m9_adapter/frozen_sources/frontier_replay.py.txt",
+      "historical_sha256": "3d36a95535763e35bf55534a3b39f7b0fc9589b6e596304320e73ac7453b16a1",
+      "adapted_sha256": "ff5f33079087925ea1504b1daaca64ff04ecf83421b46f40e9d4fb90d4054fc6",
+      "allowed_change": "Route hash checks through exact historical prefix/source adapters and report their audit. Mathematical predicates, commands, subprocess replay and verification algorithms are unchanged."
+    }
+  },
+  "protected_inventory_count": 99,
+  "protected_inventory_sha256": "b28c66dc6bfead4c4ec406a95fedc90f72ed46fd7270583795523930fddd4508",
+  "mathematical_replay_performed": false,
+  "policy": "Historical coverage, inputs and receipts remain immutable. Every protected or embedded digest must match exact current bytes, a fully reconstructed historical ordered prefix, or the declared closed source patch. No other source divergence is accepted."
+}

@@ -1,4 +1,4 @@
-\section{Exact certificates and the remaining two rings}\label{sec:certification}
+\section{Exact certificates and the remaining rings}\label{sec:certification}
 \subsection{Automated allocation and verification}\label{sec:verification}
 The computation has three separate layers: the frozen source census,
 a discovery pipeline, and an exact categorification-certificate checker. Discovery is permitted to time
@@ -12,8 +12,9 @@ pseudo-unitary existence. The pipeline rejects any intersection
 of its positive and negative sets.
 
 \input{generated_stages}
+\input{generated_stages_m9}
 
-Tables~\ref{tab:stages} and~\ref{tab:stages-high} give a sequential view: a tensor removed at one
+Tables~\ref{tab:stages}, \ref{tab:stages-high} and~\ref{tab:stages-m9} give a sequential view: a tensor removed at one
 stage is not counted as a new removal at any later stage. The order
 places inexpensive structural and arithmetic obstructions before
 larger finite branch searches. Effectiveness means the number of
@@ -28,7 +29,7 @@ ring undecided unless another accepted certificate or model resolves it.
 
 The allocation in Table~\ref{tab:allocation} is disjoint. It records
 the certificate family stored for each exclusion, while
-Tables~\ref{tab:stages} and~\ref{tab:stages-high} make the sequential accounting explicit.
+Tables~\ref{tab:stages}, \ref{tab:stages-high} and~\ref{tab:stages-m9} make the sequential accounting explicit.
 Neither table asserts mathematical independence of the criteria. The signed and positive-dimension records call the
 same low-induction and finite-indicator framework internally. When an
 older unbalanced relative-trace certificate suffices, it is interpreted
@@ -69,7 +70,8 @@ followed by Theorem~\ref{thm:weighted} or Theorem~\ref{thm:balanced}
 and the cited rank-four or rank-five tests, with the tensor-sign
 reduction of Lemma~\ref{lem:positive-sign} and the extension of
 Theorem~\ref{thm:rotation} where recorded. The stronger character-aware system of Theorem~\ref{thm:character-induction}, dimension-order test of Proposition~\ref{prop:dimension-order}, and signed refinement of Theorem~\ref{thm:signed-traces} are used where recorded. The spectral refinement of Proposition~\ref{prop:module-perron},
-rank-three subring descent, Theorem~\ref{thm:morita-order6}, and
+rank-three subring descent, Theorems~\ref{thm:morita-order6}
+and~\ref{thm:full-morita-gram}, and
 Proposition~\ref{prop:biquadratic-trace-obstruction} supply further certificates. The certificates also
 use the ramification criterion of Proposition~\ref{prop:ramification-trace},
 Theorem~\ref{thm:formal-codegree-trace-ideal}, the signed saturation
@@ -108,8 +110,9 @@ retained certificates. The controls include actual positive categories
 and corrupted certificates that must be rejected. All of this checks
 categorification evidence; no new census is enumerated.
 
-\subsection{The remaining two rings}\label{sec:research-coverage}
-The remaining tensors are precisely $\RR{4}{155}$ and $\RR{8}{1660}$. Every categorification of each is spherical and has a
+\subsection{The inherited frontier}\label{sec:research-coverage}
+Through multiplicity eight, the remaining tensors are precisely
+$\RR{4}{155}$ and $\RR{8}{1660}$. Every categorification of each is spherical and has a
 pseudo-unitary Galois conjugate, by the arguments below and the retained
 signed-sphericalization certificates. These reductions permit positive
 dimensions in the subsequent necessary conditions without assuming
@@ -124,3 +127,4 @@ enter the positive catalogue.
 
 \input{chapters/frontier_155}
 \input{chapters/frontier_1660}
+\input{chapters/multiplicity9}

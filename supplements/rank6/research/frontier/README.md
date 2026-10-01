@@ -2,6 +2,11 @@
 
 The current tensors and status are in `data/unresolved_tensors.json` and
 `data/frontier_summary.json`. Surviving necessary data do not establish existence.
+The table below records the historical multiplicity-at-most-eight frontier.
+The M9 extension has separate `m9/inputs.json` and `m9/coverage.json`, generated
+from its final unresolved ledger. It inherits no structural reduction from
+these two historical rings. See [the source-binding adapter](m9_adapter/README.md)
+for exact historical prefix checks and the retained-receipt audit policy.
 
 | Ring | Structural description | Exact retained reduction |
 |---|---|---|

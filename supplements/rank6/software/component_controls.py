@@ -26,7 +26,7 @@ def run():
  require(len(prefix)==9613 and [sum(r['m']==m for r in prefix) for m in range(1,8)]==[39,154,384,872,1582,2768,3814],'established source count prefix')
  source=verify_source(rows)
  verify_ledger(ledger)
- require(all(x['id'] in idx and x['structure']=='pseudo_unitary' for x in structure_only_records()),'structure-only scope')
+ require(all(x['id'] in idx and x['structure'] in ('pivotal','spherical','pseudo_unitary') for x in structure_only_records()),'structure-only scope')
  record=next(json.loads(l) for l in open(P/'certificates/dimension_order_general.jsonl') if json.loads(l)['id']=='R6_4_375')
  sphere=record['certificate']['sphere'];a=Characters(idx[record['id']]['N'],sphere['generator'])
  cases=[x for x in sphere['characters'] if x['obstruction']['kind']=='dimension_order']

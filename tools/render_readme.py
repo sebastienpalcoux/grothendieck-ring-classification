@@ -24,17 +24,18 @@ def outcome(rank, m):
     n=realized(s)
     return ('≥' if s['unresolved_general'] or s['unassessed'] else '')+str(n)
 
-rank6=[state[(6,m)] for m in range(1,9)]
+rank6=sorted((s for (r,m),s in state.items() if r==6),key=lambda s:s['multiplicity'])
+rank6_bound=max(s['multiplicity'] for s in rank6)
 rank6_excluded=sum(x['excluded_general'] for x in rank6)
 rank6_realized=sum(realized(x) for x in rank6)
 rank6_open=sum(x['unresolved_general'] for x in rank6)
-rank6_complete=next((x['multiplicity']-1 for x in rank6 if x['unresolved_general']),8)
-rank6_summary=(f'| 6 | Through 8 | **Complete through {rank6_complete}** | '
-               f'Through 8: {rank6_excluded:,} excluded, {rank6_realized} realized, '
-               f'{rank6_open} unresolved; {state[(6,8)]["unresolved_general"]} residual at multiplicity 8. |')
+rank6_complete=next((x['multiplicity']-1 for x in rank6 if x['unresolved_general']),rank6_bound)
+rank6_summary=(f'| 6 | Through {rank6_bound} | **Complete through {rank6_complete}** | '
+               f'Through {rank6_bound}: {rank6_excluded:,} excluded, {rank6_realized} realized, '
+               f'{rank6_open} unresolved. |')
 identity=json.loads(args.identity.read_text())
 release=identity['summary']
-complete_bands=', '.join(str(r[0]) for r in [(m, state[(6,m)]['unresolved_general']) for m in range(1,9)] if r[1]==0)
+complete_bands=', '.join(str(s['multiplicity']) for s in rank6 if s['unresolved_general']==0)
 from rank6_publication import continuation_text
 rank6_continuation = continuation_text(identity)
 lines=['''# Grothendieck ring classification
@@ -88,7 +89,7 @@ __RANK6_SUMMARY__
 | 7 | Through 4 | Partial at every band | Through 4: 4,107 excluded, 16 realized, 78 unresolved; full normal and optimized certificate replays passed. |
 | 8 | Through 2 | Partial at both bands | Through 2: 824 excluded, 33 realized, 116 unresolved; positive tensors and transferred certificates verified. |
 
-Rank-six realization counts through multiplicity 8 split into **56 unitary
+Rank-six realization counts through multiplicity __RANK6_BOUND__ split into **56 unitary
 models** and **one spherical model whose ring has no pseudo-unitary
 categorification**. “Realized” means that at least one categorification is
 constructed; it does not assert that every categorification of that ring is
@@ -124,7 +125,7 @@ row checks and scope appear in [the provenance record](docs/PROVENANCE.md).
 |---:|---:|---|
 | 4 | Multiplicity 18 | The same criterion families suffice for the allocated exclusions at 19–128. |
 | 5 | Multiplicity 18 | Inert-prime quadratic parity first closes two cases at 18; no new criterion family is needed at 19–20. |
-| 6 | Multiplicity 8 | The current allocation includes new stabilizer, cyclotomic-trace and signed arithmetic criteria; the formal-codegree trace-ideal family first contributes at 8. __RANK6_OPEN__ general cases remain unresolved. No later multiplicity is covered. |
+| 6 | See the allocation ledger | The current criteria include stabilizer, cyclotomic-trace and signed arithmetic obstructions. Every new multiplicity-nine tensor is processed separately from the preserved earlier campaign; __RANK6_OPEN__ general cases remain unresolved through multiplicity __RANK6_BOUND__. |
 | 7 | Multiplicity 2 | Signed sphericalization first contributes at 1; the last first successful application of a listed family occurs at 2. There are 78 open rings through 4, so no stabilization conclusion follows. |
 | 8 | Multiplicity 2 | Signed obstructions first contribute at 1; the last first successful application of a listed family occurs at 2. There are 116 open rings through 2, so no stabilization conclusion follows. |
 
@@ -175,5 +176,6 @@ against classification ledgers.
 args.output.parent.mkdir(parents=True,exist_ok=True)
 args.output.write_text('\n'.join(lines).replace('__RANK6_SUMMARY__',rank6_summary)
                               .replace('__RANK6_OPEN__',str(rank6_open))
+                              .replace('__RANK6_BOUND__',str(rank6_bound))
                               .replace('__RANK6_CONTINUATION__',rank6_continuation))
 print('Rendered README.md')

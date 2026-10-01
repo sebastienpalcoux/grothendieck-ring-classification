@@ -44,18 +44,22 @@ def status_from_existence(e):
     raise ValueError('positive status is not yet represented by this release schema')
 
 def structure_only_records():
-    path=ROOT/'certificates/structure_only.json'
-    if not path.exists():return []
-    rows=json.loads(path.read_text());seen=set()
+    # Historical proof files remain immutable; new scoped claims have their own
+    # source-bound exact-replay campaign and are checked by release.py.
+    paths=[ROOT/'certificates/structure_only.json',ROOT/'certificates/m9_structure_only.json']
+    rows=[r for path in paths if path.exists() for r in json.loads(path.read_text())];seen=set()
     for r in rows:
-        require(r['id'] not in seen and r['structure']=='pseudo_unitary','invalid or duplicate structure-only claim')
+        require(r['id'] not in seen and r['structure'] in ('pivotal','spherical','pseudo_unitary'),
+                'invalid or duplicate structure-only claim')
         seen.add(r['id'])
     return rows
 
 def unresolved_existence(rid):
     result=all_values('unknown')
-    if rid in {r['id'] for r in structure_only_records()}:
-        result['pseudo_unitary']=result['unitary']='no'
+    claim=next((r for r in structure_only_records() if r['id']==rid),None)
+    if claim is not None:
+        for structure in STRUCTURES[STRUCTURES.index(claim['structure']):]:
+            result[structure]='no'
     return result
 
 def verify_ledger(ledger):

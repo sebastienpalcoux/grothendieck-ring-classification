@@ -45,12 +45,19 @@ print(f"Atlas checked: {len(rows)} analyzed cells, {len(models)} explicit Grothe
 rank6 = {r["multiplicity"]: r for r in status_payload["rows"] if r["rank"] == 6}
 release = payload["rank6_release"]
 summary=json.loads((root / release["summary_path"]).read_text())
-expected_open=[r["unresolved"] for r in summary["counts"]]
-assert [rank6[m]["unresolved_general"] for m in range(1,9)] == expected_open
+summary_counts={r["multiplicity"]:r for r in summary["counts"]}
+expected_bands=sorted(summary_counts)
+assert expected_bands and len(summary_counts)==len(summary["counts"])
+assert expected_bands==list(range(1,expected_bands[-1]+1)), "Rank-six summary has a coverage gap"
+assert sorted(rank6)==expected_bands, "Rank-six site and release summary cover different multiplicities"
+assert all(rank6[m]["unresolved_general"]==summary_counts[m]["unresolved"] for m in expected_bands)
+assert all(rank6[m]["rings"]==summary_counts[m]["classes"] for m in expected_bands)
 assert sum(r["excluded_general"] for r in rank6.values()) == summary["excluded"]
 assert all(rank6[m]["classification_coverage"] == "complete_classification" for m in release["complete_multiplicity_bands"])
 assert release["complete_multiplicity_bands"] == [r["multiplicity"] for r in summary["counts"] if r["unresolved"] == 0]
 scope6=next(r for r in payload["scope"] if r["rank"] == 6)
+assert scope6["analyzed_through"]==expected_bands[-1]
+assert release.get("analyzed_through",scope6["analyzed_through"])==expected_bands[-1]
 assert (scope6["through"],scope6["positive"],scope6["unresolved"]) == (release["complete_through"],summary["positive"],summary["unresolved"])
 assert release["date"] == payload["snapshot"]
 coverage=json.loads((root / release["research_coverage_path"]).read_text())
@@ -67,4 +74,4 @@ frontier=json.loads((root / release["frontier_path"]).read_text())
 assert len(frontier) == summary["unresolved"]
 assert [r["id"] for r in frontier] == summary["unresolved_ids"]
 assert not any(r["m"] in release["complete_multiplicity_bands"] for r in frontier)
-print(f"Rank-six release verified: complete bands {release['complete_multiplicity_bands']}; {len(frontier)} residuals; exact archive and PDF hashes.")
+print(f"Rank-six release verified through multiplicity {expected_bands[-1]}: complete bands {release['complete_multiplicity_bands']}; {len(frontier)} residuals; exact archive and PDF hashes.")

@@ -87,7 +87,17 @@ def discover(stage,row):
 
 def worker(task):
     stage,label,budget,row,cached,positive=task
-    start=time.monotonic(); out={'id':row['id'],'m':row['m'],'stage':stage,'status':'survives'}
+    # The M9 continuation may shorten discovery after earlier bounded attempts.
+    # This only limits search; every accepted certificate still completes the
+    # exact checker. Earlier multiplicities and frozen proof payloads are unchanged.
+    requested_budget=budget
+    policy=P/'verification/m9/discovery_budget_policy.json'
+    if row['m']==9 and policy.exists():
+        cap=json.loads(policy.read_text()).get('stage_seconds',{}).get(stage,budget)
+        if type(cap) is not int or not 1<=cap<=budget:raise ValueError('invalid M9 discovery allowance')
+        budget=cap
+    start=time.monotonic(); out={'id':row['id'],'m':row['m'],'stage':stage,'status':'survives',
+        'discovery_allowance_seconds':budget,'requested_allowance_seconds':requested_budget}
     signal.signal(signal.SIGALRM,stop); signal.alarm(budget)
     try:
         if stage=='general_induction' and cached is None and not positive and not row.get('_general_discover',True):

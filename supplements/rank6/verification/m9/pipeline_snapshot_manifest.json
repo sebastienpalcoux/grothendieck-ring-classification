@@ -1,0 +1,51 @@
+{
+  "requires_census_sha256": "9bb71564082688f1c130050bfe42034431c90dd4f48e0e2d31be8e3a224552ff",
+  "files": {
+    "certificates/m9_classification.jsonl": "64eae6cd3068bcf2b7bedc828d14eeff81a5eaba1efb71cb12660a14cf8e9695",
+    "software/classify.py": "be2af19de67b200224fd28cdd29a4f1167a052a829bbf463fed285529bffe5b3",
+    "software/classify_m9.py": "616b1a15ee15f7af66b02aec5cb99eac99e228ffa7c8471af373c35a05a78acf",
+    "software/replay_m9.py": "a077b46ff71786fafba964ccb90bb1f778cc6c0ea7ffc6401ce7996d6af61d3f",
+    "verification/m9/campaign_notes.json": "29106c94470736d08a787c62c742241039d7910541e8bdade28b00c3192be7fb",
+    "verification/m9/classification/attempts.jsonl": "0eeac8d8c76354d854422ce06bc0f7937e4053741716590e80ba244a9810ecaa",
+    "verification/m9/classification/audit.json": "01a1291bbfca4b00d7e19bc2e529f53535a628b9e5363e851f96d0cad91822c1",
+    "verification/m9/classification/input_manifest.json": "ca9f9a8645dac49b6393ce39f56008805bcc23b9823fd5dc2905320fa000f20e",
+    "verification/m9/classification/residual_tensors.json": "9c876d4996ce1616b340b17e65a02ee1805e5e27100190ceb6abacd139a8a6d6",
+    "verification/m9/classification/stages.json": "a368e418044a443085757fb78328d95569126b1b32f4c06923b68579fb533a6f",
+    "verification/m9/classification/summary.json": "38e5c406521b3fbb8ff1aab8570cdf15d5a01d85696ba618d7e775cb554044ae",
+    "verification/m9/discovery_budget_policy.json": "f6af2bc656ed18f24e0136754fbc13c617f58fe0af1e27eb37a172765e9a5373",
+    "verification/m9/early_arithmetic_certificates.jsonl": "e4dc6f8fd475f2ce769a204111f6f7a35abbbf97444930b4171b8e758022b2a3",
+    "verification/m9/replay/optimized.jsonl": "8b56011f288e3cf6426435a46eaec79f42fb865a32eb380ee815faf7050ce90f",
+    "verification/m9/replay/optimized_manifest.json": "dc1c7cf60cbd7be8c0344499592c5bc3d3596733acf33cf76df5a73522c4a8e2",
+    "verification/m9/replay/optimized_summary.json": "f27d99095f90c485056d8da2d978365edd3b52dae69d10e676b44447416ea66c",
+    "verification/m9/runtime.json": "507f11d3ecaefd949c12e74a9b78b7ef3419cf2aeec0d9cae0dfb8f31c4cdf4b",
+    "verify.py": "1c23416c5fd6ae6427f497f2616e35cfc53881aa51500b09aff0d76b7f88a1fc"
+  },
+  "audit": {
+    "passed": true,
+    "source_sha256": "9bb71564082688f1c130050bfe42034431c90dd4f48e0e2d31be8e3a224552ff",
+    "input_count": 8809,
+    "ordered_stages": 17,
+    "canonical_attempts": 19197,
+    "excluded": 8798,
+    "unresolved": 11,
+    "unresolved_ids": [
+      "R6_9_529",
+      "R6_9_1060",
+      "R6_9_2455",
+      "R6_9_3748",
+      "R6_9_7018",
+      "R6_9_7741",
+      "R6_9_7742",
+      "R6_9_8099",
+      "R6_9_8101",
+      "R6_9_8200",
+      "R6_9_8785"
+    ],
+    "certificate_sha256": "64eae6cd3068bcf2b7bedc828d14eeff81a5eaba1efb71cb12660a14cf8e9695",
+    "optimized_replay_count": 8798,
+    "disjoint_per_ring_allocation": true,
+    "exact_ordered_stage_coverage": true,
+    "all_new_certificates_optimized_replayed": true,
+    "historical_multiplicities_recomputed": false
+  }
+}

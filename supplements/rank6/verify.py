@@ -23,16 +23,22 @@ def worker(o):
         def forbidden(*a,**k):raise RuntimeError('floating-point linear programming is forbidden during checking')
         scipy.optimize.linprog=forbidden
         scipy.optimize.milp=forbidden
-        from check import verify
+        if c['kind']=='module_dual_gram':
+            from module_dual_gram import verify
+        elif c['kind']=='ramified_dimension_field_exclusion':
+            from new_ramified_signed import verify
+        else:
+            from check import verify
         verify(r['N'],c)
         return {'id':r['id'],'kind':c['kind'],'passed':True,'seconds':time.monotonic()-st}
     except Exception as e:return {'id':r['id'],'kind':c['kind'],'passed':False,'error':str(e),'traceback':traceback.format_exc(),'seconds':time.monotonic()-st}
 
 def main():
-    ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('--jobs',type=int,default=2);ap.add_argument('--out',default='verification/check.jsonl');ap.add_argument('--proofs-only',action='store_true');a=ap.parse_args()
+    ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('--jobs',type=int,default=2);ap.add_argument('--out',default='verification/check.jsonl');ap.add_argument('--proofs-only',action='store_true');ap.add_argument('--multiplicity',type=int,help='replay exclusions only at this exact multiplicity; retain other models and frontier evidence without recomputation');a=ap.parse_args()
     st=time.monotonic();rows=json.load(open(P/'data/census.json'));ledger=json.load(open(P/'data/decisions.json'));idx={r['id']:r for r in rows};require(len(idx)==len(rows),'duplicate census ID');source=verify_source(rows);require([r['id'] for r in rows]==[d['id'] for d in ledger],'ledger does not exactly cover census')
     verify_ledger(ledger)
-    if not a.proofs_only:
+    if a.multiplicity is not None:require(a.multiplicity in {r['m'] for r in rows},'requested multiplicity is absent from census')
+    if not a.proofs_only and a.multiplicity is None:
         from positive_models import examples
         from oriented_signed import validate_general
         constructors={name:(R,ref) for name,R,ref in examples()}
@@ -96,11 +102,18 @@ def main():
         verify_catalog()
         print('TRUSTED SOURCE IMPORT AND CONSTRUCTED MODELS VERIFIED',flush=True)
     from oriented_extension import pseudo_check
-    for rec in structure_only_records():
-        pseudo_check(idx[rec['id']]['N'],rec['certificate'])
-    from modular_frontier import verify as verify_modular_frontier
-    frontier=verify_modular_frontier()
-    work=[(idx[d['id']],d['certificate']) for d in ledger if d['status']=='excluded'];out=P/a.out;out.parent.mkdir(parents=True,exist_ok=True);fail=[]
+    scoped_structure=[r for r in structure_only_records() if a.multiplicity is None or idx[r['id']]['m']==a.multiplicity]
+    for rec in scoped_structure:
+        if idx[rec['id']]['m']==9:
+            from replay_m9_structure import verify_record
+            verify_record(idx[rec['id']]['N'],rec)
+        else:
+            pseudo_check(idx[rec['id']]['N'],rec['certificate'])
+    if a.multiplicity is None:
+        from modular_frontier import verify as verify_modular_frontier
+        frontier=verify_modular_frontier()
+    else:frontier={'replayed':False,'scope':'Other-multiplicity frontier evidence retained; this invocation checks only the selected multiplicity.'}
+    work=[(idx[d['id']],d['certificate']) for d in ledger if d['status']=='excluded' and (a.multiplicity is None or d['m']==a.multiplicity)];out=P/a.out;out.parent.mkdir(parents=True,exist_ok=True);fail=[]
     with ProcessPoolExecutor(max_workers=a.jobs) as ex,out.open('w') as f:
         for i,z in enumerate(ex.map(worker,work,chunksize=1)):
             f.write(json.dumps(z,separators=(',',':'))+'\n');f.flush()
@@ -110,6 +123,6 @@ def main():
     m1=[d for d in ledger if d['m']==1];require(len(m1)==39 and sum(d['status']=='excluded' for d in m1)==18 and sum(d['status']=='unitarily_realized' for d in m1)==21,'explicit multiplicity-one classification count mismatch')
     positive=set(positive_registry())
     require(positive=={d['id'] for d in ledger if d['status'] in POSITIVE_STATUSES},'positive registry not exhaustive for claimed positives')
-    stats={'passed':True,'optimized_python':not __debug__,'census_tensors':len(rows),'unit_fixing_permutations':0,'census_validation':'trusted repository SHA256, coverage and tensor-ID checks','source':source,'negative_certificates':len(work),'structure_only_exclusions':len(structure_only_records()),'frontier':frontier,'counts':dict(collections.Counter(d['status'] for d in ledger)),'seconds':time.monotonic()-st,'ledger_sha256':hashlib.sha256((P/'data/decisions.json').read_bytes()).hexdigest()}
+    stats={'passed':True,'optimized_python':not __debug__,'census_tensors':len(rows),'unit_fixing_permutations':0,'census_validation':'trusted repository SHA256, coverage and tensor-ID checks','source':source,'negative_certificates':len(work),'selected_multiplicity':a.multiplicity,'structure_only_exclusions':len(scoped_structure),'frontier':frontier,'counts':dict(collections.Counter(d['status'] for d in ledger)),'seconds':time.monotonic()-st,'ledger_sha256':hashlib.sha256((P/'data/decisions.json').read_bytes()).hexdigest()}
     out.with_suffix('.summary.json').write_text(json.dumps(stats,indent=2)+'\n');print(json.dumps(stats,indent=2));return 0
 if __name__=='__main__':raise SystemExit(main())

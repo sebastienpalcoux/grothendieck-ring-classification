@@ -12,10 +12,10 @@ counts=json.loads((ROOT/'data/counts.json').read_text())
 status=json.loads((ROOT/'data/classification_status.json').read_text())
 rank6_identity=json.loads((ROOT/'data/rank6_release_identity.json').read_text())
 validate_identity(rank6_identity)
-assert counts['census_commit']=='b86eb6dc6eeeafe5fc5f6906d7b074e0322e9726'
+assert counts['census_commit']==rank6_identity['census_commit']
 rows=counts['rows']
 cells={(x['rank'],x['multiplicity']):x['rings'] for x in rows}
-assert len(cells)==len(rows)==2162
+assert len(cells)==len(rows)==sum(x['recorded_through'] for x in counts['rank_summary'])
 assert all(x['rings']>=0 for x in rows)
 assert all(cells[(2,m)]==(2 if m==1 else 1) for m in range(1,1001))
 for entry in counts['rank_summary']:
@@ -27,8 +27,8 @@ with (ROOT/'data/counts.csv').open(newline='') as f:
 assert [(int(x['rank']),int(x['multiplicity']),int(x['rings'])) for x in csvrows]==[(x['rank'],x['multiplicity'],x['rings']) for x in rows]
 
 statusrows=status['rows']
-assert len(statusrows)==2162
-assert {(x['rank'],x['multiplicity']) for x in statusrows}==set((r,m) for r,b in [(2,1000),(3,1000),(4,128),(5,20),(6,8),(7,4),(8,2)] for m in range(1,b+1))
+assert len(statusrows)==len(rows)
+assert {(x['rank'],x['multiplicity']) for x in statusrows}==set(cells)
 byrank=defaultdict(lambda:defaultdict(int))
 for x in statusrows:
     r,m=x['rank'],x['multiplicity']
@@ -58,7 +58,7 @@ rank6_root=ROOT/'supplements/rank6'
 rank6_raw=(rank6_root/'data/decisions.json').read_bytes()
 assert hashlib.sha256(rank6_raw).hexdigest()==status['inputs']['rank6']['sha256']==rank6_identity['ledger_sha256']
 rank6_ledger=json.loads(rank6_raw)
-assert len(rank6_ledger)==len({x['id'] for x in rank6_ledger})==16612
+assert len(rank6_ledger)==len({x['id'] for x in rank6_ledger})==sum(row[0] for row in rank6_expected)
 for m,expected in enumerate(rank6_expected,1):
     band=[x for x in rank6_ledger if x['m']==m]
     assert (len(band),*(sum(x['status']==s for x in band) for s in
@@ -80,12 +80,12 @@ frontier=json.loads((rank6_root/'data/frontier_summary.json').read_text())
 if {x['id'] for x in frontier['cases']}!={x['id'] for x in rank6_identity['research_progress']}:
     raise ValueError('Publication omits a current frontier case')
 new_models=json.loads((rank6_root/'data/conformal_positive_models.json').read_text())
-if {x['id'] for x in new_models}!=set(rank6_identity['new_realizations']):
+if {x['id'] for x in new_models}!=set(rank6_identity['conformal_models']):
     raise ValueError('Conformal constructors do not match the release identity')
 assert len(json.loads((rank6_root/'data/model_catalog.json').read_text()))==57
 assert next(x for x in rank6_ledger if x['id']=='R6_3_215')['status']=='excluded'
 assert next(x for x in rank6_ledger if x['id']=='R6_5_1204')['status']=='excluded'
-assert {x['id'] for x in rank6_ledger if x['status']=='unresolved'}=={'R6_4_155','R6_8_1660'}
+assert {x['id'] for x in rank6_ledger if x['status']=='unresolved'}=={x['id'] for x in rank6_identity['research_progress']}
 assert sum(x['rings'] for x in statusrows if x['rank']==6 and x['multiplicity']<=3)==577
 assert sum(x['excluded_general'] for x in statusrows if x['rank']==6 and x['multiplicity']<=3)==531
 rank6_bundle=next(x for x in status['bundles'] if x['name']==status['inputs']['rank6']['current_bundle'])
@@ -128,7 +128,7 @@ for a,b,s in zip(csvrealized,realized,statusrows):
           'lower_bound' if s['unresolved_general'] else 'exact')
 assert all(x['missing_in_repository']==x['additional_in_repository']==0
            for x in json.loads((ROOT/'data/rank5_crosswalk.json').read_text())['bands'])
-assert json.loads((ROOT/'data/rank6_crosswalk.json').read_text())['records']==16612
+assert json.loads((ROOT/'data/rank6_crosswalk.json').read_text())['records']==len(rank6_ledger)
 for rank,bound in ((4,128),(5,20)):
     lines=(ROOT/f'oeis/draft_rank{rank}_realized.txt').read_text().splitlines()
     assert len(lines)==bound
@@ -136,4 +136,4 @@ for rank,bound in ((4,128),(5,20)):
         x=next(x for x in statusrows if x['rank']==rank and x['multiplicity']==m)
         assert x['classification_coverage']=='complete_classification'
         assert line==f"{m} {x['realized_unitary']+x['realized_other_or_unspecified']+x['realized_spherical_nonpseudounitary']}"
-print('Verified 2,162 census cells and 2,162 categorification bands; no unassessed band interpreted as zero.')
+print(f'Verified {len(rows):,} census cells and {len(statusrows):,} categorification bands; no unassessed band interpreted as zero.')

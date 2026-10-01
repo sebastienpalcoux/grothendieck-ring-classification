@@ -8,7 +8,7 @@ import json
 import sys
 from pathlib import Path
 
-PINNED_COMMIT = 'b86eb6dc6eeeafe5fc5f6906d7b074e0322e9726'
+PINNED_COMMIT = '2a340871242879665fa7ba2b01fa15b8bdeaada3'
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = 'https://github.com/sebastienpalcoux/fusion-ring-census'
 

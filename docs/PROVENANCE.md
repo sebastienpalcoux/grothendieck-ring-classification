@@ -3,7 +3,7 @@
 This release combines two distinct kinds of input. The public
 [fusion-ring-census](https://github.com/sebastienpalcoux/fusion-ring-census)
 supplies **all based-ring counts and tensors**, pinned at commit
-[`b86eb6dc6eeeafe5fc5f6906d7b074e0322e9726`](https://github.com/sebastienpalcoux/fusion-ring-census/tree/b86eb6dc6eeeafe5fc5f6906d7b074e0322e9726).
+[`2a340871242879665fa7ba2b01fa15b8bdeaada3`](https://github.com/sebastienpalcoux/fusion-ring-census/tree/2a340871242879665fa7ba2b01fa15b8bdeaada3).
 The attached research bundle `FusionFrontier.tar.xz` supplies rank-four
 **categorification decisions** and rank-five decisions through multiplicity
 18, SHA-256
@@ -21,30 +21,16 @@ Its complete bundle `Rank5_Complete_Through20_InertParity_2026-09-23.zip` has SH
 For multiplicities 1–18, internal archival indices are explicitly named
 `local_index`; at 19–20, `repository_index` directly identifies the pinned
 source census record within its exact-multiplicity band.
-The updated rank-six source `Rank6_Categorification_M8(1).zip`, SHA-256
-`6d8618e43cb0d16a78d9913e3ff6d6de615345b619d33f33e737f1dea99c280e`,
-extends its ledger through multiplicity eight.
-The authorless, citation-updated rank-six reading/source release
-`Rank6_Categorification_M8_Revised_2026-09-23.zip` has SHA-256
-`5981d4ee065f78cf3057eb3c289c9675480f5f59f8e7534e74c13155a99d6a63`;
-its decision partition agrees with the prior M8 ledger.
-The earlier cross-rank rank-six release
-`Rank6_Categorification_M8_CrossRank_2026-09-23.zip` has SHA-256
-`4027dc2a563a4fef5e46a11e2f307ef66b83f34cc5ebf6944438d4e5d340cc71`;
-its normal and optimized 26-process regression gates passed after explicitly
-pinning the SymPy arithmetic backend.
-
-The current rank-six release is `Rank6_Categorification_M8_Revised_2026-09-30_v8.zip` (SHA-256
-`e138a510a1b5b4a65e00bfc3777e9278031522ac939f0ae1baef521d4c52becd`). The [complete archive](https://grothendieck-ring-atlas.sebastien-palcoux.chatgpt.site/downloads/Rank6_Categorification_M8_Revised_2026-09-30_v8.zip) contains
-461 files and the pinned census, proof certificates and exact constructors.
-The partition is **16,553 excluded, 57 realized and 2 unresolved**.
+The current rank-six release is `Rank6_Categorification_M9_Revised_2026-10-01_v1.zip` (SHA-256
+`7754e262efa4b7fe256d2f1872d9468e436d638cf384938f5ab8316fbe1f78fa`). The [complete archive](https://grothendieck-ring-atlas.sebastien-palcoux.chatgpt.site/downloads/Rank6_Categorification_M9_Revised_2026-10-01_v1.zip) contains
+567 files and the pinned census, proof certificates and exact constructors.
+The partition is **25,351 excluded, 57 realized and 13 unresolved**.
 There are 56 unitary models and one spherical model with no pseudo-unitary
-categorification. The source census is unchanged. A new exact certificate excludes R6_5_1204.
-Three conformal-embedding constructions settle R6_4_22, R6_4_91 and R6_4_629.
+categorification. The census extension adds 8,809 rings of exact multiplicity nine.
+Their separately recorded certificates are independently checked with optimizers disabled.
 
 The current ledger is `supplements/rank6/data/decisions.json`, SHA-256
-`c28936c9dd3f64c8b85d668a667a7cde65d77161850c0c51bc05c594189f521c`. Fresh exact checks reconstruct all 216 tensor
-coefficients of each new model. The unchanged negative proofs retain their
+`12f1375978b998e9717c5d75d87a5b29fcde89505a80012647910eb08b8550ae`. The unchanged earlier negative proofs retain their
 original exact verification evidence; this release does not claim a fresh
 replay of every earlier proof. See [verification instructions](VERIFY.md).
 
@@ -52,6 +38,17 @@ replay of every earlier proof. See [verification instructions](VERIFY.md).
 |---|---|
 | `R6_4_155` | One rank-52 center profile remains, with forced twists of exponent 24 and four duality choices. This is not yet complete modular data or a model. |
 | `R6_8_1660` | One relative-center based ring and 1670 labelled center profiles remain. A tensor involution and Vafa/indicator constraints remove 57 more profiles. |
+| `R6_9_529` | Recorded multiplicity-nine searches leave this ring unresolved. No additional structural frontier reduction is asserted. |
+| `R6_9_1060` | Recorded multiplicity-nine searches leave this ring unresolved. No additional structural frontier reduction is asserted. |
+| `R6_9_2455` | Recorded multiplicity-nine searches leave this ring unresolved. No additional structural frontier reduction is asserted. |
+| `R6_9_3748` | Braided categorifications are ruled out by the rank-three subcategory and centralizer obstruction. General, pivotal, spherical, pseudo-unitary and unitary existence remain unknown. |
+| `R6_9_7018` | Pivotal, spherical, pseudo-unitary and unitary categorifications are ruled out by a retained exact certificate. General existence remains unknown. |
+| `R6_9_7741` | Pivotal, spherical, pseudo-unitary and unitary categorifications are ruled out by a retained exact certificate. General existence remains unknown. |
+| `R6_9_7742` | Pivotal, spherical, pseudo-unitary and unitary categorifications are ruled out by a retained exact certificate. General existence remains unknown. |
+| `R6_9_8099` | Pivotal, spherical, pseudo-unitary and unitary categorifications are ruled out by a retained exact certificate. General existence remains unknown. |
+| `R6_9_8101` | Pivotal, spherical, pseudo-unitary and unitary categorifications are ruled out by a retained exact certificate. General existence remains unknown. |
+| `R6_9_8200` | Pivotal, spherical, pseudo-unitary and unitary categorifications are ruled out by a retained exact certificate. General existence remains unknown. |
+| `R6_9_8785` | Recorded multiplicity-nine searches leave this ring unresolved. No additional structural frontier reduction is asserted. |
 
 The verified rank-seven release through
 multiplicity four has SHA-256
@@ -68,7 +65,7 @@ are categorification questions, not negative certificates.
 | 3 | `results/census.json` | 1,000 | Five-ring unrestricted theorem | Per-band decisions exported through 1,000; four realized at multiplicity 1 and one at 2 |
 | 4 | `results/rank4/tables.txt.gz` | 128 | `certificates/classification.jsonl.gz` | Complete through 128 |
 | 5 | `results/rank5/tables.txt.gz` | 20 | Revised `data/decisions_all.json` | Complete general classification through 20 |
-| 6 | `results/rank6/tables.txt.gz` | 8 | `supplements/rank6/data/decisions.json` | Complete through 3; exact bands 1, 2, 3, 5, 6, 7; two unresolved through 8 |
+| 6 | `results/rank6/tables.txt.gz` | 9 | `supplements/rank6/data/decisions.json` | Complete through 3; exact bands 1, 2, 3, 5, 6, 7; 13 unresolved through 9 |
 | 7 | `results/rank7/tables.txt.gz` | 4 | `supplements/rank7/output/rank7_ledger.json` | Partial at all four bands; 78 unresolved |
 | 8 | `results/rank8/tables.txt.gz` | 2 | `supplements/rank8/data/decisions.json` | Partial at both bands; 116 unresolved |
 
@@ -89,7 +86,7 @@ with its [arithmetic checker](../supplements/rank3/audit_rank3.py).
 |---:|---|---:|---|
 | 4 | `969a2a5a84b794a3da1d9cd3978f92324d631760f503f5d208011923a723920f` | 889,530 | 889,515 excluded; 15 realized |
 | 5 | `9261917451d469ece9929a1756f505924cf84adf34e79a0d2e6f68fed43f55cf` | 40,999 | 40,982 excluded; 17 realized; 0 unresolved |
-| 6 | `c28936c9dd3f64c8b85d668a667a7cde65d77161850c0c51bc05c594189f521c` | 16,612 | 16,553 excluded; 56 unitary; 1 spherical non-pseudo-unitary; 2 unresolved |
+| 6 | `12f1375978b998e9717c5d75d87a5b29fcde89505a80012647910eb08b8550ae` | 25,421 | 25,351 excluded; 56 unitary; 1 spherical non-pseudo-unitary; 13 unresolved |
 | 7 | `de2eb6c024a9271a66d8b34c187ebc4eca9bbd6fc1625b8e85c18b66c4abbb73` | 4,201 | 4,107 excluded; 16 unitary models; 78 unresolved |
 | 8 | `555e206a8df62db6ddb557543ae37a77a7345f6129881de26fb70d3c927203df` | 973 | 824 excluded; 33 unitary models; 116 unresolved |
 
@@ -117,10 +114,11 @@ census. Two exact comparisons record that relationship:
   see [`extension19_20_verification.json`](../supplements/rank5/verification/extension19_20_verification.json),
   checked against source tables SHA-256
   `4542c0871498337ef38ce3903407933289699a5ff06c85ad0f6c2bd57da823fb`.
-* Rank six: [`rank6_crosswalk.json`](../data/rank6_crosswalk.json) checks that
-  the release's unchanged 16,612 full tensor lines through multiplicity 8 are
-  exactly the same lines in the same order as the live source census. Their
-  compressed table files also have identical SHA-256 checksums.
+* Rank six: [`rank6_crosswalk.json`](../data/rank6_crosswalk.json) compares
+  all 25,421 full tensor lines through multiplicity 9 with the pinned
+  source export, and verifies identical compressed-file checksums. The import
+  separately checks every tensor against all 120 unit-fixing basis permutations
+  and preserves all 16,612 earlier representatives and identifiers.
 
 The crosswalk scripts are [rank five](../tools/check_rank5_crosswalk.py) and
 [rank six](../tools/check_rank6_crosswalk.py), with the additional rank-five

@@ -3,12 +3,12 @@
 All counting data are taken from the public repository
 \href{https://github.com/sebastienpalcoux/fusion-ring-census}{\emph{Fusion Ring Census}}
 \cite{CensusRepo}, pinned to revision
-\begin{center}\filename{b86eb6dc6eeeafe5fc5f6906d7b074e0322e9726}.\end{center}
+\begin{center}\filename{2a340871242879665fa7ba2b01fa15b8bdeaada3}.\end{center}
 The source files are \filename{results/census.json} and
 \filename{results/rank6/tables.txt.gz}. They declare a complete, verified
-rank-six census through multiplicity eight. Its $16612$ tensors include
-all $9613$ classes through multiplicity seven and $6999$ classes of exact
-multiplicity eight. The exact-multiplicity definition, inclusion of the
+rank-six census through multiplicity nine. Its $25421$ tensors include
+all $16612$ classes through multiplicity eight and $8809$ classes of exact
+multiplicity nine. The exact-multiplicity definition, inclusion of the
 unit in the rank, and inclusion of every duality type are unchanged.
 
 The paper trusts this census as its counting input. It supplies neither
@@ -24,11 +24,11 @@ A copy of the source tensor export is retained with the classification
 code, so a classification check has no live-network dependency. Its
 compressed SHA-256 is
 \begin{center}\small
-\filename{0138c6228dbb06b0861ad38b8dfe67fcd1fc829add80d441c34c09a1afb78675},
+\filename{0e7552e17620452f237e94751c40cd93b0757a466168629db8cc1bf0b9451d00},
 \end{center}
 and its uncompressed SHA-256 is
 \begin{center}\small
-\filename{7898a833dfffd0f645436c1d326740db29ea6a29980de307c67227f0b67122b0}.
+\filename{be377c8114d4c0a532b79850efd588090c1dfb5ae3ffc847ecf3eadb97f88ab3}.
 \end{center}
 These hashes identify the input bytes; they are not substitutes for the
 source's completeness argument or for categorification certificates.
@@ -42,14 +42,23 @@ comparison with a model uses the complete tensor, not only dimensions,
 a fusion graph, or a numerical fingerprint.
 
 The identifier $\RR{m}{j}$ is local to this paper's frozen tensor
-registry. Representatives and identifiers through multiplicity seven
-are retained. The new exact-multiplicity-eight tensors are placed in
+registry. Representatives and identifiers through multiplicity eight
+are retained exactly, including the fields used by the earlier certificates.
+The new exact-multiplicity-nine tensors are placed in
 row-major lexicographic order using the exported representatives.
 This order need not give the lexicographically smallest representative
 under all basis permutations. Import matching records the correspondence
 between the source representatives and the registry. Every mathematical
 criterion receives the tensor rather than the identifier, so relabelling
 cannot alter its conclusion.
+
+The import checks all $25421$ tensors for the fusion-ring axioms and
+examines all $120$ unit-fixing permutations of each tensor, for a total of
+$3050520$ canonicalization comparisons. It finds no repeated based-ring
+class. The explicit source-line and basis-permutation correspondence is
+retained in the supplement. These checks establish validity, distinctness,
+and agreement with the earlier registry; exhaustive enumeration remains
+the separate input described above.
 
 \subsection{Counting, exclusions and constructions}
 The source census answers a finite counting question about based rings.

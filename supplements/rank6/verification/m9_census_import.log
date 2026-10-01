@@ -1,0 +1,68 @@
+{
+  "passed": true,
+  "rank": 6,
+  "bound": 9,
+  "tensors": 25421,
+  "counts": {
+    "1": 39,
+    "2": 154,
+    "3": 384,
+    "4": 872,
+    "5": 1582,
+    "6": 2768,
+    "7": 3814,
+    "8": 6999,
+    "9": 8809
+  },
+  "checksum_files_verified": 17,
+  "source_sha256": "0e7552e17620452f237e94751c40cd93b0757a466168629db8cc1bf0b9451d00",
+  "source_uncompressed_sha256": "be377c8114d4c0a532b79850efd588090c1dfb5ae3ffc847ecf3eadb97f88ab3",
+  "independently_checked": [
+    "integer_nonnegative_coefficients",
+    "left_and_right_unit",
+    "unique_duality",
+    "duality_involution",
+    "duality_anti_involution",
+    "left_and_right_Frobenius_reciprocity",
+    "associativity",
+    "based_isomorphism_uniqueness"
+  ],
+  "canonical_mode": "all 120 unit-fixing permutations",
+  "permutations_examined": 3050520,
+  "duplicates": 0,
+  "arithmetic": "int64; each associativity sum is bounded by 486",
+  "enumeration_repeated": false,
+  "completeness_authority": "supplied complete enumeration run and its provenance",
+  "seconds": 3.8896650359999967,
+  "existing_rows_preserved": 16612,
+  "lower_rows_preserved": 16612,
+  "new_rows": 8809,
+  "exact_representative_matches": 25421,
+  "basis_relabelled_matches": 0,
+  "new_id_range": [
+    "R6_9_1",
+    "R6_9_8809"
+  ],
+  "previous_census_sha256": "aa0cc6d10f4934752a621d4e92aa6603278707e512b483a429ed9d788fa5270a",
+  "census_sha256": "9bb71564082688f1c130050bfe42034431c90dd4f48e0e2d31be8e3a224552ff",
+  "classification_transport_sha256": "c6374c81d5cc8ca8513622d375ff48a5a18badfa0fdc8f38f844be0120fce1d5",
+  "verifier_source_sha256": "f209b4f846c8d40fd71a71af703fe84fb4fed065e624df805e5af18a03aa239c",
+  "coverage_check": {
+    "tensors": 25421,
+    "source_commit": "942dbd9c4f4149479e51acb1224f3c71ca47a64b",
+    "sha256": "0e7552e17620452f237e94751c40cd93b0757a466168629db8cc1bf0b9451d00",
+    "counts": {
+      "1": 39,
+      "2": 154,
+      "3": 384,
+      "4": 872,
+      "5": 1582,
+      "6": 2768,
+      "7": 3814,
+      "8": 6999,
+      "9": 8809
+    },
+    "method": "pinned-source checksum and exact unit-fixing basis transport coverage",
+    "independent_census_recomputed": false
+  }
+}

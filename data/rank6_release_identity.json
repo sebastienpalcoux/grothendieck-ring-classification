@@ -1,17 +1,15 @@
 {
   "schema": "rank6-release-identity/v1",
-  "date": "2026-09-30",
-  "revision": "v8",
-  "new_exclusions": 1,
-  "new_exclusion_ids": [
-    "R6_5_1204"
-  ],
-  "new_realizations": [
+  "date": "2026-10-01",
+  "revision": "m9-v1",
+  "census_commit": "2a340871242879665fa7ba2b01fa15b8bdeaada3",
+  "new_exclusions": 8798,
+  "conformal_models": [
     "R6_4_22",
     "R6_4_91",
     "R6_4_629"
   ],
-  "research_summary": "Three unitary conformal-embedding models are constructed and matched in all 216 fusion coefficients. Exact center rotation integrality excludes R6_5_1204. Two rings remain unresolved. R6_4_155 has one rank-52 center profile and forced twists, not complete modular data. Tensor-involution parity and Anderson-Moore-Vafa/indicator constraints leave 1670 center profiles for R6_8_1660.",
+  "research_summary": "The verified rank-six census contains 25421 rings through multiplicity nine. The new stratum has 8809 rings: 8798 excluded, 0 realized and 11 unresolved. Earlier decisions and exact certificates are preserved.",
   "research_progress": [
     {
       "id": "R6_4_155",
@@ -20,19 +18,63 @@
     {
       "id": "R6_8_1660",
       "result": "One relative-center based ring and 1670 labelled center profiles remain. A tensor involution and Vafa/indicator constraints remove 57 more profiles."
+    },
+    {
+      "id": "R6_9_529",
+      "result": "Recorded multiplicity-nine searches leave this ring unresolved. No additional structural frontier reduction is asserted."
+    },
+    {
+      "id": "R6_9_1060",
+      "result": "Recorded multiplicity-nine searches leave this ring unresolved. No additional structural frontier reduction is asserted."
+    },
+    {
+      "id": "R6_9_2455",
+      "result": "Recorded multiplicity-nine searches leave this ring unresolved. No additional structural frontier reduction is asserted."
+    },
+    {
+      "id": "R6_9_3748",
+      "result": "Braided categorifications are ruled out by the rank-three subcategory and centralizer obstruction. General, pivotal, spherical, pseudo-unitary and unitary existence remain unknown."
+    },
+    {
+      "id": "R6_9_7018",
+      "result": "Pivotal, spherical, pseudo-unitary and unitary categorifications are ruled out by a retained exact certificate. General existence remains unknown."
+    },
+    {
+      "id": "R6_9_7741",
+      "result": "Pivotal, spherical, pseudo-unitary and unitary categorifications are ruled out by a retained exact certificate. General existence remains unknown."
+    },
+    {
+      "id": "R6_9_7742",
+      "result": "Pivotal, spherical, pseudo-unitary and unitary categorifications are ruled out by a retained exact certificate. General existence remains unknown."
+    },
+    {
+      "id": "R6_9_8099",
+      "result": "Pivotal, spherical, pseudo-unitary and unitary categorifications are ruled out by a retained exact certificate. General existence remains unknown."
+    },
+    {
+      "id": "R6_9_8101",
+      "result": "Pivotal, spherical, pseudo-unitary and unitary categorifications are ruled out by a retained exact certificate. General existence remains unknown."
+    },
+    {
+      "id": "R6_9_8200",
+      "result": "Pivotal, spherical, pseudo-unitary and unitary categorifications are ruled out by a retained exact certificate. General existence remains unknown."
+    },
+    {
+      "id": "R6_9_8785",
+      "result": "Recorded multiplicity-nine searches leave this ring unresolved. No additional structural frontier reduction is asserted."
     }
   ],
   "archive": {
-    "name": "Rank6_Categorification_M8_Revised_2026-09-30_v8.zip",
-    "sha256": "e138a510a1b5b4a65e00bfc3777e9278031522ac939f0ae1baef521d4c52becd",
-    "bytes": 9696756,
-    "files": 461
+    "name": "Rank6_Categorification_M9_Revised_2026-10-01_v1.zip",
+    "sha256": "7754e262efa4b7fe256d2f1872d9468e436d638cf384938f5ab8316fbe1f78fa",
+    "bytes": 15378889,
+    "files": 567
   },
-  "ledger_sha256": "c28936c9dd3f64c8b85d668a667a7cde65d77161850c0c51bc05c594189f521c",
+  "ledger_sha256": "12f1375978b998e9717c5d75d87a5b29fcde89505a80012647910eb08b8550ae",
   "summary": {
-    "excluded": 16553,
+    "excluded": 25351,
     "positive": 57,
-    "unresolved": 2,
+    "unresolved": 13,
     "first_unresolved": "R6_4_155",
     "complete_through_multiplicity": 3,
     "third_continuation_excluded": 12,
@@ -94,14 +136,25 @@
       0,
       0,
       1
+    ],
+    [
+      8809,
+      8798,
+      0,
+      0,
+      11
     ]
   ],
   "third_certificate_sha256": "d97910a14e0c1897f405bb24e616d2a715fdb9eb93d94ff0a31001fb26c89aa8",
   "fourth_certificate_sha256": "25e92eac5e4506906437765e31ed452e9042213f08e079c7ff81db2fb7e42062",
   "research_files_sha256": {
     "data/conformal_positive_models.json": "b76aeb3499c5858e8f1eab67c1a40ce639fea9053688150e25a6b2ef77a2c23b",
-    "data/frontier_summary.json": "8d56e12d33d77b66c3c1ef6080c93889e0d3af4c0539766128a76c911850cd39",
+    "data/frontier_summary.json": "98f8f16187c9af5ea545bed4c3e38ec5191c591aca8c939881c1f89abb48bc39",
     "research/frontier/coverage.json": "f536708b35fd41b8905d8c259c9d064b54abc515e02ad99513deefb33b7500a3",
+    "certificates/m9_classification.jsonl": "64eae6cd3068bcf2b7bedc828d14eeff81a5eaba1efb71cb12660a14cf8e9695",
+    "verification/m9/census_import.json": "079263320e56ce758fe4620708a2e44f38db0c4bf9ed6e9fa6015169124469a4",
+    "verification/m9/classification/summary.json": "38e5c406521b3fbb8ff1aab8570cdf15d5a01d85696ba618d7e775cb554044ae",
+    "verification/m9/replay/optimized_summary.json": "f27d99095f90c485056d8da2d978365edd3b52dae69d10e676b44447416ea66c",
     "research/frontier/R6_4_155/center_cuts_certificate.json": "1ac1b1c0b381bd11a091c0f617e42246a837d6de76439007d94d92e17cf4c31f",
     "research/frontier/R6_4_155/forced_twists_certificate.json": "7131bac60e1feef47e4edd3181df26a6f77188e0017bcc4130597d1fbf248bf5",
     "research/frontier/R6_4_155/verify_center_cuts.py": "7391675b1ecb52303b21468f4ebbccb51627d509786256fb4f59191ae1992f71",
@@ -119,18 +172,25 @@
     "research/exclusions/R6_5_1204/exact_trace_h6.json": "bc39f082a7811df93fe13de42fb73e5c32c492dcfe9b7faa7c0759c07d54ce65",
     "research/exclusions/R6_5_1204/forced_W.json": "41dec218f8654cd90c79fe5459e02f0621eb19a59dbcf222e34b481d4fa569f8",
     "research/exclusions/R6_5_1204/verify_exclusion.py": "4a2193343576834621bcce71b9d2d0ecfc260eb91e56ab3df1dcdfc44af8fc40",
-    "research/frontier/R6_8_1660/relative_center/structural_cuts_certificate.json": "5107b54f82fb31dc794db44ce8ec3dafc37d3dd0f5180bc09b2558f8302d178d"
+    "research/frontier/R6_8_1660/relative_center/structural_cuts_certificate.json": "5107b54f82fb31dc794db44ce8ec3dafc37d3dd0f5180bc09b2558f8302d178d",
+    "certificates/m9_advanced.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "certificates/m9_structure_only.json": "f0db13768cec54abc6aa9f5b35b39ea8159e393c931c93cd6811d0d5f1bcbd37",
+    "verification/m9/advanced/summary.json": "3421dc36ec8a7f16ae12fa2af56d92b147b161d2e7c621aebe80b404c63f00ba",
+    "verification/m9/advanced/replay_optimized.json": "fe1d4abf77f16e9c518e5b89acbb6e03923ba05cc1687ced95c983fcab0ceebc",
+    "verification/m9/structure_replay_optimized.json": "2193c16890424f6a1900f2e39cc8d92a8c23078cbe771cfc64995ffee30d2315",
+    "verification/m9/criteria_coverage.json": "690f73de9cea7e8f578ce8bbc654309e1c9187dcc97ad8c28943c8087944b9cb",
+    "verification/m9/criteria_coverage.md": "a105810349618339037f52fb1aa0e3654901e4da19b0e2ca767261befb8a5c3e"
   },
   "documents": {
     "manuscript.pdf": {
       "path": "papers/manuscript.pdf",
-      "sha256": "cc92e93a77153633d0cc30c4b4bd78e239778fc9f35ff755e5cb4ac50efcb57d",
-      "bytes": 1211344
+      "sha256": "d58fc2e93502fb6c207b653abc0f1e495d3a2ebcca7b6f870d0a7895f3d26c1d",
+      "bytes": 1221003
     },
     "verification_guide.pdf": {
       "path": "papers/verification_guide.pdf",
-      "sha256": "6391cee980838fad2926a423c4720be0a0b89d73ef598ef754094d1008f74749",
-      "bytes": 227597
+      "sha256": "3b2177dd14d5355b11ddc9ae73a4cde2e5dc432c55c535c0fd7ace1610d9905e",
+      "bytes": 228574
     }
   }
 }

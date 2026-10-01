@@ -52,18 +52,20 @@ def refresh_rank6(args):
     allowed={'excluded', 'unitarily_realized',
              'spherically_realized_nonpseudounitary', 'unresolved'}
     ledger=json.loads(args.rank6.read_text())
-    if len(ledger)!=16612 or len({x['id'] for x in ledger})!=16612:
-        raise ValueError('Rank-six ledger must contain 16,612 distinct records')
+    census=json.loads((args.output_dir/'counts.json').read_text())
+    expected={x['multiplicity']:x['rings'] for x in census['rows'] if x['rank']==6}
+    if len(ledger)!=sum(expected.values()) or len({x['id'] for x in ledger})!=len(ledger):
+        raise ValueError('Rank-six ledger must cover the pinned census exactly')
     for row in ledger:
         if type(row['m']) is not int or row['status'] not in allowed:
             raise ValueError('Unknown rank-six multiplicity or status')
         summary[row['m']][row['status']]+=1
-    if set(summary)!=set(range(1,9)):
-        raise ValueError('Rank-six ledger must cover exact multiplicities 1–8')
-    current=[x for x in out['rows'] if x['rank']==6]
-    if len(current)!=8 or {x['multiplicity'] for x in current}!=set(summary):
-        raise ValueError('Existing export has an unexpected rank-six domain')
-    for row in current:
+    bound=max(expected)
+    if set(summary)!=set(expected) or set(expected)!=set(range(1,bound+1)):
+        raise ValueError('Rank-six ledger has an unexpected multiplicity domain')
+    current=[]
+    for m in sorted(expected):
+        row={'rank':6,'multiplicity':m,'rings':expected[m]}
         totals=summary[row['multiplicity']]
         if sum(totals.values())!=row['rings']:
             raise ValueError('The new ledger changes the pinned census partition')
@@ -74,17 +76,20 @@ def refresh_rank6(args):
                    unresolved_general=totals['unresolved'], unassessed=0,
                    classification_coverage=('partial_classification' if totals['unresolved']
                                             else 'complete_classification'))
+        current.append(row)
+    out['rows']=sorted([x for x in out['rows'] if x['rank']!=6]+current,
+                       key=lambda x:(x['rank'],x['multiplicity']))
     complete=0
-    for m in range(1,9):
+    for m in range(1,bound+1):
         if summary[m]['unresolved']:break
         complete=m
     out['inputs']['rank6']={
         'file':args.rank6.name, 'sha256':digest(args.rank6),
-        'classified_through':8, 'general_complete_through':complete,
+        'classified_through':bound, 'general_complete_through':complete,
         'status_totals':dict(sum(summary.values(),Counter())),
         'current_bundle':args.rank6_bundle.name}
     bundle={'name':args.rank6_bundle.name,'sha256':digest(args.rank6_bundle)}
-    out['bundles']=[x for x in out['bundles'] if not x['name'].startswith('Rank6_Categorification_M8')]+[bundle]
+    out['bundles']=[x for x in out['bundles'] if not x['name'].startswith('Rank6_Categorification_M')]+[bundle]
     write_export(out,args.output_dir)
     print('Refreshed rank-six partition; all other rank rows and inputs preserved.')
 
@@ -102,7 +107,7 @@ def export(args):
         assert set(summary) == set(range(1, max(summary) + 1))
         assert all(sum(summary[m].values()) == census['ranks'][str(rank)]['counts'][str(m)]
                    for m in summary)
-        expected = {4: (128, 889530), 5: (20, 40999), 6: (8, 16612), 7: (4, 4201), 8: (2, 973)}[rank]
+        expected = (census['ranks'][str(rank)]['bound'], census['ranks'][str(rank)]['classes'])
         assert (max(summary), sum(map(sum, (x.values() for x in summary.values())))) == expected
 
     data = []

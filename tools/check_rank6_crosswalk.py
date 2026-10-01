@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Check that the released rank-six tensor list is the pinned census through 8."""
+"""Check exact equality of the released and pinned rank-six source exports."""
 import argparse
 import gzip
 import hashlib
@@ -27,11 +27,14 @@ if __name__=='__main__':
     a=p.parse_args()
     old=list(rows(a.release_tables))
     live=list(rows(a.repository_tables))
-    assert len(old)==len(live)==16612
-    assert len(set(old))==16612
-    assert old==live, 'Tensors or source ordering differ'
-    summary={'result':'16,612 identical full tensor lines in identical order',
-             'scope':'rank 6, multiplicity <= 8',
+    if not old or len(old)!=len(live) or len(set(old))!=len(old):
+        raise ValueError('Source tensor cardinality or literal uniqueness mismatch')
+    if old!=live:
+        raise ValueError('Tensors or source ordering differ')
+    bound=max(max(v for layer in json.loads(line.replace('{','[').replace('}',']'))
+                  for row in layer for v in row) for line in old)
+    summary={'result':f'{len(old):,} identical full tensor lines in identical order',
+             'scope':f'rank 6, multiplicity <= {bound}',
              'release_tables_gz_sha256':sha(a.release_tables),
              'repository_tables_gz_sha256':sha(a.repository_tables),
              'records':len(old)}

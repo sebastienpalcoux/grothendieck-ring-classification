@@ -1,0 +1,321 @@
+{
+  "identity": {
+    "census_sha256": "9bb71564082688f1c130050bfe42034431c90dd4f48e0e2d31be8e3a224552ff",
+    "input_sha256": "7bac1bece4b9bcdfb2eb07b70eeaf95988da3d0c70b59a760ada8428f3ab892c",
+    "input_count": 8809,
+    "multiplicity": 9
+  },
+  "source": {
+    "tensors": 25421,
+    "source_commit": "942dbd9c4f4149479e51acb1224f3c71ca47a64b",
+    "sha256": "0e7552e17620452f237e94751c40cd93b0757a466168629db8cc1bf0b9451d00",
+    "counts": {
+      "1": 39,
+      "2": 154,
+      "3": 384,
+      "4": 872,
+      "5": 1582,
+      "6": 2768,
+      "7": 3814,
+      "8": 6999,
+      "9": 8809
+    },
+    "method": "pinned-source checksum and exact unit-fixing basis transport coverage",
+    "independent_census_recomputed": false
+  },
+  "python": "3.12.14",
+  "stages": [
+    {
+      "stage": "rank_two",
+      "label": "Rank-two fusion subring",
+      "entered": 8809,
+      "removed": 211,
+      "remaining": 8598,
+      "worker_seconds": 3.7200616649954554,
+      "final_chunk_wall_seconds": 2.299814164000054,
+      "errors": 0,
+      "budget_exhausted": 0,
+      "statuses": {
+        "survives": 8598,
+        "excluded": 211
+      },
+      "jobs": 6,
+      "attempts_sha256": "8efc27ecb3eb4801c475cf8fc74795ecf1dc91d3961e9f49d84180014537443c"
+    },
+    {
+      "stage": "dnumber",
+      "label": "Formal-codegree d-number",
+      "entered": 8598,
+      "removed": 8277,
+      "remaining": 321,
+      "worker_seconds": 26.710301638992405,
+      "final_chunk_wall_seconds": 5.212133204000111,
+      "errors": 0,
+      "budget_exhausted": 0,
+      "statuses": {
+        "survives": 321,
+        "excluded": 8277
+      },
+      "jobs": 6,
+      "attempts_sha256": "ed2393c56fe96ca78db8e1fdd6c2d475808179e6639377568f2d86123607614c"
+    },
+    {
+      "stage": "zero_spectrum",
+      "label": "Zero-spectrum",
+      "entered": 321,
+      "removed": 0,
+      "remaining": 321,
+      "worker_seconds": 0.41244066400008705,
+      "final_chunk_wall_seconds": 0.41473242799997934,
+      "errors": 0,
+      "budget_exhausted": 0,
+      "statuses": {
+        "survives": 321
+      },
+      "jobs": 6,
+      "attempts_sha256": "10534219375fc496b4e6c5b87d6a09eccc808e3cf141649e63b0cc2de5e090ef"
+    },
+    {
+      "stage": "lower_rank_subring",
+      "label": "Closed lower-rank subring",
+      "entered": 321,
+      "removed": 49,
+      "remaining": 272,
+      "worker_seconds": 2.063398055000789,
+      "final_chunk_wall_seconds": 0.4094902209999418,
+      "errors": 0,
+      "budget_exhausted": 0,
+      "statuses": {
+        "survives": 272,
+        "excluded": 49
+      },
+      "jobs": 6,
+      "attempts_sha256": "1e76a88657462f287133a6628047da0b636212a20326cca9039b37ba4ed72d98"
+    },
+    {
+      "stage": "involution_module",
+      "label": "Involution module",
+      "entered": 272,
+      "removed": 134,
+      "remaining": 138,
+      "worker_seconds": 203.50101457300207,
+      "final_chunk_wall_seconds": 40.05173187799983,
+      "errors": 0,
+      "budget_exhausted": 1,
+      "statuses": {
+        "excluded": 134,
+        "survives": 137,
+        "budget_exhausted": 1
+      },
+      "jobs": 6,
+      "attempts_sha256": "bc8b173537b211cbc1a48197cb9fd301e1426f0005f7a5198f4894978a8f900d"
+    },
+    {
+      "stage": "subring",
+      "label": "Subcategory dimension quotient",
+      "entered": 138,
+      "removed": 4,
+      "remaining": 134,
+      "worker_seconds": 4.318809455000292,
+      "final_chunk_wall_seconds": 0.947950014999833,
+      "errors": 0,
+      "budget_exhausted": 0,
+      "statuses": {
+        "survives": 134,
+        "excluded": 4
+      },
+      "jobs": 6,
+      "attempts_sha256": "da915dbf2b0287b5f0621d3c13116f996d3c947ac3a1b21976dee530e7c1d1c0"
+    },
+    {
+      "stage": "cyclotomic",
+      "label": "Cyclotomicity",
+      "entered": 134,
+      "removed": 2,
+      "remaining": 132,
+      "worker_seconds": 1.1441058039981726,
+      "final_chunk_wall_seconds": 0.3688588529998924,
+      "errors": 0,
+      "budget_exhausted": 0,
+      "statuses": {
+        "survives": 132,
+        "excluded": 2
+      },
+      "jobs": 6,
+      "attempts_sha256": "ad00d1a70d854dcb74aa50b9031671e53501f2b69746af7165608adfe620c9a5"
+    },
+    {
+      "stage": "small_dimension_morita",
+      "label": "Small-dimension Morita descent",
+      "entered": 132,
+      "removed": 0,
+      "remaining": 132,
+      "worker_seconds": 42.03141147399856,
+      "final_chunk_wall_seconds": 30.13038558700009,
+      "errors": 0,
+      "budget_exhausted": 1,
+      "statuses": {
+        "survives": 131,
+        "budget_exhausted": 1
+      },
+      "jobs": 6,
+      "attempts_sha256": "45d654cdee421591582dcbe5c0d40df491b5681725183947e8d8868aecd5da77"
+    },
+    {
+      "stage": "field_automorphisms",
+      "label": "Dimension-field automorphisms",
+      "entered": 132,
+      "removed": 0,
+      "remaining": 132,
+      "worker_seconds": 1.9607903779988192,
+      "final_chunk_wall_seconds": 0.38704287699988527,
+      "errors": 0,
+      "budget_exhausted": 0,
+      "statuses": {
+        "survives": 132
+      },
+      "jobs": 6,
+      "attempts_sha256": "4a0cae2265bbf1749692d6d4f98ba2ca89d12a3d1dff5956db4616c0328b505b"
+    },
+    {
+      "stage": "weighted_induction",
+      "label": "Noncommutative weighted induction",
+      "entered": 132,
+      "removed": 1,
+      "remaining": 131,
+      "worker_seconds": 1.270099400000845,
+      "final_chunk_wall_seconds": 1.294730601999845,
+      "errors": 0,
+      "budget_exhausted": 0,
+      "statuses": {
+        "survives": 131,
+        "excluded": 1
+      },
+      "jobs": 6,
+      "attempts_sha256": "d162bdb9b7bf2f3a792317eda5d64335be90ce94620a3fd66e2a10f56823709e"
+    },
+    {
+      "stage": "general_induction",
+      "label": "Sphericalization/induction proof trees",
+      "entered": 131,
+      "removed": 109,
+      "remaining": 22,
+      "worker_seconds": 3172.098985276999,
+      "final_chunk_wall_seconds": 561.927523051,
+      "errors": 0,
+      "budget_exhausted": 21,
+      "statuses": {
+        "excluded": 109,
+        "survives": 1,
+        "budget_exhausted": 21
+      },
+      "jobs": 6,
+      "attempts_sha256": "9c6ab4e1eedd3deec5d08bb62cbbc6ff3d7d88cae3e33feab0f13cc9fbca4703"
+    },
+    {
+      "stage": "cheap_arithmetic_early",
+      "label": "Early exact arithmetic and Morita continuations",
+      "entered": 22,
+      "removed": 11,
+      "remaining": 11,
+      "worker_seconds": 67.61481643800016,
+      "final_chunk_wall_seconds": 62.51484686599997,
+      "errors": 0,
+      "budget_exhausted": 0,
+      "statuses": {
+        "survives": 11,
+        "excluded": 11
+      },
+      "jobs": 4,
+      "attempts_sha256": "977a5aad1bba6973c401cfcd5d5ffab1bc3215f959d8e7c7e8ee0fc23996d3f6",
+      "source_proofs_sha256": "e4dc6f8fd475f2ce769a204111f6f7a35abbbf97444930b4171b8e758022b2a3"
+    },
+    {
+      "stage": "dimension_order",
+      "label": "Spherical dimension order",
+      "entered": 11,
+      "removed": 0,
+      "remaining": 11,
+      "worker_seconds": 795.95513979,
+      "final_chunk_wall_seconds": 126.12150966800027,
+      "errors": 0,
+      "budget_exhausted": 10,
+      "statuses": {
+        "survives": 1,
+        "budget_exhausted": 10
+      },
+      "jobs": 4,
+      "attempts_sha256": "3791afdadaddc7dd71a6e9c07a5c7a44b2c91d10e7b7714f82a4dee8a7d6b542"
+    },
+    {
+      "stage": "character",
+      "label": "Character-aware central induction",
+      "entered": 11,
+      "removed": 0,
+      "remaining": 11,
+      "worker_seconds": 329.21116736099975,
+      "final_chunk_wall_seconds": 91.30890407000015,
+      "errors": 0,
+      "budget_exhausted": 7,
+      "statuses": {
+        "ineligible": 3,
+        "budget_exhausted": 7,
+        "survives": 1
+      },
+      "jobs": 4,
+      "attempts_sha256": "a1d8368a02ba5b3d948bebab5bfe66c65219fe76cda69d7203156a8f5d2389f2"
+    },
+    {
+      "stage": "tensor_rotation",
+      "label": "Tensor-rotation traces",
+      "entered": 11,
+      "removed": 0,
+      "remaining": 11,
+      "worker_seconds": 330.5302700590005,
+      "final_chunk_wall_seconds": 91.37879291300032,
+      "errors": 0,
+      "budget_exhausted": 7,
+      "statuses": {
+        "ineligible": 1,
+        "budget_exhausted": 7,
+        "survives": 3
+      },
+      "jobs": 4,
+      "attempts_sha256": "030938a5eeb32152110b36a2851fe75b3bd3fdf2968d47ae7b09614955b9afaa"
+    },
+    {
+      "stage": "modular",
+      "label": "Modular character induction",
+      "entered": 11,
+      "removed": 0,
+      "remaining": 11,
+      "worker_seconds": 140.53212105500006,
+      "final_chunk_wall_seconds": 48.16725335399997,
+      "errors": 0,
+      "budget_exhausted": 2,
+      "statuses": {
+        "ineligible": 7,
+        "survives": 2,
+        "budget_exhausted": 2
+      },
+      "jobs": 4,
+      "attempts_sha256": "6c27ebeab23564b1393ccbca616a82a21ac966cb6d33e6e34de165ddc4bb91b8"
+    },
+    {
+      "stage": "module_dual_gram",
+      "label": "Dual module Gram continuation",
+      "entered": 11,
+      "removed": 0,
+      "remaining": 11,
+      "worker_seconds": 9.141436002000319,
+      "final_chunk_wall_seconds": 3.080257726000127,
+      "errors": 0,
+      "budget_exhausted": 0,
+      "statuses": {
+        "survives": 11
+      },
+      "jobs": 4,
+      "attempts_sha256": "26b0484435029bdeebeb75960241f57697a8a9f3ccc7d9016ce417fcdfac07df"
+    }
+  ]
+}

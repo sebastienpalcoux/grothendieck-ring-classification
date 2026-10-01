@@ -122,15 +122,37 @@ def main():
     archive_name = status["inputs"]["rank6"]["current_bundle"]
     identity = json.loads((repo / "data/rank6_release_identity.json").read_text())
     coverage = json.loads((repo / "supplements/rank6/data/frontier_summary.json").read_text())
+    release_counts = {record["multiplicity"]: record for record in release["counts"]}
+    release_bands = sorted(release_counts)
+    if not release_bands or len(release_counts) != len(release["counts"]) or release_bands != list(range(1, release_bands[-1] + 1)):
+        raise ValueError("Rank-six release summary must contain each analyzed multiplicity exactly once")
+    rank6_status = {record["multiplicity"]: record for record in classifications if record["rank"] == 6}
+    if sorted(rank6_status) != release_bands:
+        raise ValueError("Rank-six site coverage differs from the release summary")
+    for multiplicity, record in release_counts.items():
+        published = rank6_status[multiplicity]
+        if (published["rings"], published["excluded_general"], positive(published), published["unresolved_general"]) != (
+            record["classes"], record["excluded"], record["unitarily_realized"] + record["spherically_realized_nonpseudounitary"], record["unresolved"]
+        ):
+            raise ValueError(f"Rank-six release/status mismatch at multiplicity {multiplicity}")
+    if any(identity["summary"][field] != release[field] for field in ("excluded", "positive", "unresolved")):
+        raise ValueError("Rank-six identity totals differ from the verified release")
+    if identity["ledger_sha256"] != release["ledger_sha256"]:
+        raise ValueError("Rank-six identity and release refer to different ledgers")
+    if {case["id"] for case in coverage["cases"]} != set(release["unresolved_ids"]):
+        raise ValueError("Rank-six research coverage does not match the unresolved frontier")
     data["snapshot"] = identity["date"]
     if identity["archive"]["name"] != archive_name:
         raise ValueError("Rank-six archive identity differs from the classification source")
+    if Path(archive_name).name != archive_name or not archive_name.endswith(".zip"):
+        raise ValueError("Rank-six archive must be a ZIP filename")
     archive_source = repo / "site/dist/downloads" / archive_name
     if not archive_source.is_file():
         raise FileNotFoundError("Run python3 tools/restore_data.py in the classification repository first.")
     data["rank6_release"] = {
         "date": identity["date"], "excluded": release["excluded"],
         "realized": release["positive"], "unresolved": release["unresolved"],
+        "analyzed_through": release_bands[-1],
         "complete_through": next(record["through"] for record in scope if record["rank"] == 6),
         "research_summary": identity["research_summary"],
         "research_cases": [{key: case[key] for key in ("id", "categorical_status", "public_summary")}
@@ -149,12 +171,17 @@ def main():
     }
     if data["rank6_release"]["archive"]["sha256"] != identity["archive"]["sha256"]:
         raise ValueError("Rank-six archive bytes differ from the verified release")
+    if data["rank6_release"]["archive"]["bytes"] != identity["archive"]["bytes"]:
+        raise ValueError("Rank-six archive size differs from the verified release")
+    for source, target in (("manuscript.pdf", "rank6.pdf"), ("verification_guide.pdf", "rank6_guide.pdf")):
+        if data["rank6_release"]["documents"][target] != identity["documents"][source]["sha256"]:
+            raise ValueError(f"Rank-six document differs from the verified release: {source}")
     downloads = HERE / "dist/downloads"
     downloads.mkdir(parents=True, exist_ok=True)
     archive_target = downloads / archive_name
     if archive_source.resolve() != archive_target.resolve():
         shutil.copy2(archive_source, archive_target)
-    for obsolete in downloads.glob("Rank6_Categorification_M8*.zip"):
+    for obsolete in downloads.glob("Rank6_Categorification_M*.zip"):
         if obsolete.name != archive_name:
             obsolete.unlink()
     (HERE / "dist/data").mkdir(parents=True, exist_ok=True)

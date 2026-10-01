@@ -1,0 +1,480 @@
+{
+  "passed": true,
+  "optimized_python": true,
+  "historical_controls": {
+    "valid_appended_m9_rows": {
+      "accepted": true,
+      "historical_rows": 2
+    },
+    "missing_source_label": {
+      "rejected": true,
+      "reason": "historical census rows changed, including identifier or provenance metadata"
+    },
+    "changed_source_label": {
+      "rejected": true,
+      "reason": "historical census rows changed, including identifier or provenance metadata"
+    },
+    "null_source_label": {
+      "rejected": true,
+      "reason": "historical census rows changed, including identifier or provenance metadata"
+    },
+    "missing_null_source_label": {
+      "rejected": true,
+      "reason": "historical census rows changed, including identifier or provenance metadata"
+    },
+    "changed_identifier": {
+      "rejected": true,
+      "reason": "historical census rows changed, including identifier or provenance metadata"
+    },
+    "changed_index": {
+      "rejected": true,
+      "reason": "historical census rows changed, including identifier or provenance metadata"
+    },
+    "changed_commutativity": {
+      "rejected": true,
+      "reason": "historical census rows changed, including identifier or provenance metadata"
+    },
+    "changed_duality": {
+      "rejected": true,
+      "reason": "historical census rows changed, including identifier or provenance metadata"
+    },
+    "changed_tensor": {
+      "rejected": true,
+      "reason": "historical census rows changed, including identifier or provenance metadata"
+    },
+    "added_metadata": {
+      "rejected": true,
+      "reason": "historical census rows changed, including identifier or provenance metadata"
+    },
+    "reordered_historical_rows": {
+      "rejected": true,
+      "reason": "historical census rows changed, including identifier or provenance metadata"
+    },
+    "missing_historical_row": {
+      "rejected": true,
+      "reason": "historical census multiplicities changed"
+    },
+    "duplicate_historical_row": {
+      "rejected": true,
+      "reason": "historical census multiplicities changed"
+    },
+    "changed_historical_multiplicity": {
+      "rejected": true,
+      "reason": "historical census multiplicities changed"
+    },
+    "stale_historical_hash": {
+      "rejected": true,
+      "reason": "historical census rows changed, including identifier or provenance metadata"
+    }
+  },
+  "m9_receipt_controls": {
+    "complete_standard_and_empty_advanced": {
+      "accepted": true,
+      "records": 1,
+      "campaign_receipts": 2
+    },
+    "complete_disjoint_standard_and_advanced": {
+      "accepted": true,
+      "records": 2,
+      "campaign_receipts": 2
+    },
+    "classification_incomplete_summary": {
+      "rejected": true,
+      "reason": "M9 campaign is unfinished or bound to a different census: classification"
+    },
+    "classification_stale_census_hash": {
+      "rejected": true,
+      "reason": "M9 campaign is unfinished or bound to a different census: classification"
+    },
+    "classification_stale_certificates_hash": {
+      "rejected": true,
+      "reason": "M9 certificate file/count changed: classification"
+    },
+    "classification_incorrect_certificate_count": {
+      "rejected": true,
+      "reason": "M9 certificate file/count changed: classification"
+    },
+    "advanced_incomplete_summary": {
+      "rejected": true,
+      "reason": "M9 campaign is unfinished or bound to a different census: advanced"
+    },
+    "advanced_stale_census_hash": {
+      "rejected": true,
+      "reason": "M9 campaign is unfinished or bound to a different census: advanced"
+    },
+    "advanced_stale_certificates_hash": {
+      "rejected": true,
+      "reason": "M9 certificate file/count changed: advanced"
+    },
+    "advanced_incorrect_certificate_count": {
+      "rejected": true,
+      "reason": "M9 certificate file/count changed: advanced"
+    },
+    "standard_completed_stages": {
+      "rejected": true,
+      "reason": "M9 original campaign input/stage mismatch"
+    },
+    "standard_stages_total": {
+      "rejected": true,
+      "reason": "M9 original campaign input/stage mismatch"
+    },
+    "standard_input_count": {
+      "rejected": true,
+      "reason": "M9 original campaign input/stage mismatch"
+    },
+    "standard_input_sha256": {
+      "rejected": true,
+      "reason": "M9 original campaign input/stage mismatch"
+    },
+    "standard_residual_ids": {
+      "rejected": true,
+      "reason": "M9 original campaign residual mismatch"
+    },
+    "standard_replay_complete": {
+      "rejected": true,
+      "reason": "M9 independent optimized replay is incomplete or stale"
+    },
+    "standard_replay_optimized_python": {
+      "rejected": true,
+      "reason": "M9 independent optimized replay is incomplete or stale"
+    },
+    "standard_replay_census_sha256": {
+      "rejected": true,
+      "reason": "M9 independent optimized replay is incomplete or stale"
+    },
+    "standard_replay_failed": {
+      "rejected": true,
+      "reason": "M9 independent optimized replay is incomplete or stale"
+    },
+    "standard_replay_passed": {
+      "rejected": true,
+      "reason": "M9 independent optimized replay is incomplete or stale"
+    },
+    "standard_replay_completed": {
+      "rejected": true,
+      "reason": "M9 independent optimized replay is incomplete or stale"
+    },
+    "standard_replay_input_count": {
+      "rejected": true,
+      "reason": "M9 independent optimized replay is incomplete or stale"
+    },
+    "standard_replay_optimizer_disabled": {
+      "rejected": true,
+      "reason": "M9 independent optimized replay is incomplete or stale"
+    },
+    "standard_replay_certificate_file_sha256": {
+      "rejected": true,
+      "reason": "M9 independent optimized replay is incomplete or stale"
+    },
+    "advanced_replay_complete": {
+      "rejected": true,
+      "reason": "M9 advanced independent optimized replay is incomplete or stale"
+    },
+    "advanced_replay_optimized_python": {
+      "rejected": true,
+      "reason": "M9 advanced independent optimized replay is incomplete or stale"
+    },
+    "advanced_replay_census_sha256": {
+      "rejected": true,
+      "reason": "M9 advanced independent optimized replay is incomplete or stale"
+    },
+    "advanced_replay_passed": {
+      "rejected": true,
+      "reason": "M9 advanced independent optimized replay is incomplete or stale"
+    },
+    "advanced_replay_count": {
+      "rejected": true,
+      "reason": "M9 advanced independent optimized replay is incomplete or stale"
+    },
+    "advanced_replay_optimizer_disabled": {
+      "rejected": true,
+      "reason": "M9 advanced independent optimized replay is incomplete or stale"
+    },
+    "advanced_replay_certificates_sha256": {
+      "rejected": true,
+      "reason": "M9 advanced independent optimized replay is incomplete or stale"
+    },
+    "standard_replay_record_passed": {
+      "rejected": true,
+      "reason": "M9 replay certificate mismatch: R6_9_1"
+    },
+    "standard_replay_record_m": {
+      "rejected": true,
+      "reason": "M9 replay certificate mismatch: R6_9_1"
+    },
+    "standard_replay_record_optimized_python": {
+      "rejected": true,
+      "reason": "M9 replay certificate mismatch: R6_9_1"
+    },
+    "standard_replay_record_certificate_sha256": {
+      "rejected": true,
+      "reason": "M9 replay certificate mismatch: R6_9_1"
+    },
+    "missing_replay_id": {
+      "rejected": true,
+      "reason": "M9 independent replay does not cover exactly the accepted IDs"
+    },
+    "duplicate_replay_id": {
+      "rejected": true,
+      "reason": "M9 independent replay does not cover exactly the accepted IDs"
+    },
+    "standard_replay_record_optimizer_disabled": {
+      "rejected": true,
+      "reason": "M9 exact replay did not disable numerical optimization: R6_9_1"
+    },
+    "duplicate_m9_census_id": {
+      "rejected": true,
+      "reason": "duplicate multiplicity-nine census identifier"
+    },
+    "mutated_proof_with_rebound_outer_hashes": {
+      "rejected": true,
+      "reason": "M9 replay certificate mismatch: R6_9_1"
+    },
+    "swapped_per_id_replay_proof_hashes": {
+      "rejected": true,
+      "reason": "M9 replay certificate mismatch: R6_9_1"
+    },
+    "duplicate_standard_certificate_id": {
+      "rejected": true,
+      "reason": "invalid or duplicate M9 negative: R6_9_1"
+    },
+    "overlap_standard_advanced_id": {
+      "rejected": true,
+      "reason": "invalid or duplicate M9 negative: R6_9_1"
+    },
+    "foreign_lower_multiplicity_id": {
+      "rejected": true,
+      "reason": "invalid or duplicate M9 negative: R6_8_1"
+    },
+    "malformed_standard_m": {
+      "rejected": true,
+      "reason": "invalid or duplicate M9 negative: R6_9_1"
+    },
+    "malformed_standard_exact_checked": {
+      "rejected": true,
+      "reason": "invalid or duplicate M9 negative: R6_9_1"
+    },
+    "malformed_standard_status": {
+      "rejected": true,
+      "reason": "invalid or duplicate M9 negative: R6_9_1"
+    },
+    "malformed_standard_stage": {
+      "rejected": true,
+      "reason": "invalid or duplicate M9 negative: R6_9_1"
+    },
+    "stale_per_record_source": {
+      "rejected": true,
+      "reason": "M9 per-record source mismatch: R6_9_1"
+    },
+    "missing_advanced_input": {
+      "rejected": true,
+      "reason": "M9 advanced input does not match the complete standard residual"
+    },
+    "duplicate_advanced_input": {
+      "rejected": true,
+      "reason": "M9 advanced input does not match the complete standard residual"
+    },
+    "wrong_advanced_input_count": {
+      "rejected": true,
+      "reason": "M9 advanced input tensor hash mismatch"
+    },
+    "stale_advanced_input_hash": {
+      "rejected": true,
+      "reason": "M9 advanced input tensor hash mismatch"
+    },
+    "wrong_advanced_residual": {
+      "rejected": true,
+      "reason": "M9 advanced campaign residual mismatch"
+    },
+    "stale_advanced_manifest": {
+      "rejected": true,
+      "reason": "M9 advanced input manifest mismatch"
+    },
+    "advanced_replay_record_passed": {
+      "rejected": true,
+      "reason": "M9 replay certificate mismatch: R6_9_2"
+    },
+    "advanced_replay_record_m": {
+      "rejected": true,
+      "reason": "M9 replay certificate mismatch: R6_9_2"
+    },
+    "advanced_replay_record_optimized_python": {
+      "rejected": true,
+      "reason": "M9 replay certificate mismatch: R6_9_2"
+    },
+    "advanced_replay_record_certificate_sha256": {
+      "rejected": true,
+      "reason": "M9 replay certificate mismatch: R6_9_2"
+    },
+    "advanced_replay_tensor_hash": {
+      "rejected": true,
+      "reason": "M9 advanced tensor mismatch: R6_9_2"
+    },
+    "advanced_replay_record_optimizer_used": {
+      "rejected": true,
+      "reason": "M9 exact replay did not disable numerical optimization: R6_9_2"
+    },
+    "advanced_certificate_tensor_hash": {
+      "rejected": true,
+      "reason": "M9 advanced tensor mismatch: R6_9_2"
+    }
+  },
+  "retained_historical_receipt_controls": {
+    "valid_retained_exact_receipt": {
+      "accepted": true,
+      "records": 2,
+      "proof_files": 2,
+      "fresh_replay_requested": false
+    },
+    "changed_historical_metadata": {
+      "rejected": true,
+      "reason": "historical census rows changed, including identifier or provenance metadata"
+    },
+    "changed_historical_summary_hash": {
+      "rejected": true,
+      "reason": "historical census rows changed, including identifier or provenance metadata"
+    },
+    "stale_receipt_census_hash": {
+      "rejected": true,
+      "reason": "frozen historical continuation exact-replay receipt does not match current proofs/source"
+    },
+    "changed_continuation_file_bytes": {
+      "rejected": true,
+      "reason": "frozen historical continuation exact-replay receipt does not match current proofs/source"
+    },
+    "changed_original_certificate_bytes": {
+      "rejected": true,
+      "reason": "frozen historical continuation exact-replay receipt does not match current proofs/source"
+    },
+    "stale_original_certificate_hash": {
+      "rejected": true,
+      "reason": "frozen historical continuation exact-replay receipt does not match current proofs/source"
+    },
+    "false_exact_verified_flag": {
+      "rejected": true,
+      "reason": "frozen historical continuation exact-replay receipt does not match current proofs/source"
+    },
+    "missing_exact_verified_flag": {
+      "rejected": true,
+      "reason": "frozen historical continuation exact-replay receipt does not match current proofs/source"
+    },
+    "omitted_proof_file_entry": {
+      "rejected": true,
+      "reason": "frozen historical continuation exact-replay receipt does not match current proofs/source"
+    },
+    "missing_proof_file": {
+      "rejected": true,
+      "reason": "frozen historical continuation exact-replay receipt does not match current proofs/source"
+    },
+    "missing_ordered_ids_field": {
+      "rejected": true,
+      "reason": "frozen historical continuation exact-replay receipt does not match current proofs/source"
+    },
+    "missing_ordered_id": {
+      "rejected": true,
+      "reason": "frozen historical continuation exact-replay receipt does not match current proofs/source"
+    },
+    "changed_ordered_id": {
+      "rejected": true,
+      "reason": "frozen historical continuation exact-replay receipt does not match current proofs/source"
+    },
+    "reversed_ordered_ids": {
+      "rejected": true,
+      "reason": "frozen historical continuation exact-replay receipt does not match current proofs/source"
+    },
+    "changed_continuation_count": {
+      "rejected": true,
+      "reason": "frozen historical continuation exact-replay receipt does not match current proofs/source"
+    },
+    "changed_original_campaign_count": {
+      "rejected": true,
+      "reason": "frozen historical continuation exact-replay receipt does not match current proofs/source"
+    }
+  },
+  "scoped_nonexistence_receipt_controls": {
+    "valid_scoped_receipt_kept_out_of_general_union": {
+      "accepted": true,
+      "scoped_records": 1,
+      "general_records": 0,
+      "declared_structure": "pivotal",
+      "original_tensor_sha256": "334eb4f6a9fd8af9c202e65c6900aa3348b17ac1425f826c4f49b12846056d64",
+      "original_certificate_sha256": "f692686b3898fb84bd6464ff5adefb1feac78997aa267be18abe5eb16b71e11e",
+      "scope": "Real tensor/proof with temporary receipt hashes; no new mathematical replay."
+    },
+    "scoped_receipt_complete": {
+      "rejected": true,
+      "reason": "M9 structure-only exact-replay receipt is incomplete or stale"
+    },
+    "scoped_receipt_passed": {
+      "rejected": true,
+      "reason": "M9 structure-only exact-replay receipt is incomplete or stale"
+    },
+    "scoped_receipt_optimized_python": {
+      "rejected": true,
+      "reason": "M9 structure-only exact-replay receipt is incomplete or stale"
+    },
+    "scoped_receipt_optimizer_disabled": {
+      "rejected": true,
+      "reason": "M9 structure-only exact-replay receipt is incomplete or stale"
+    },
+    "scoped_receipt_count": {
+      "rejected": true,
+      "reason": "M9 structure-only exact-replay receipt is incomplete or stale"
+    },
+    "scoped_receipt_census_sha256": {
+      "rejected": true,
+      "reason": "M9 structure-only exact-replay receipt is incomplete or stale"
+    },
+    "scoped_claim_promoted_to_general": {
+      "rejected": true,
+      "reason": "invalid M9 structure-only claim"
+    },
+    "scoped_declared_scope_differs_from_replay": {
+      "rejected": true,
+      "reason": "M9 structure-only proof/tensor replay mismatch"
+    },
+    "duplicate_strongest_scoped_claim": {
+      "rejected": true,
+      "reason": "invalid M9 structure-only claim"
+    },
+    "scoped_proof_mutated_after_replay": {
+      "rejected": true,
+      "reason": "M9 structure-only proof/tensor replay mismatch"
+    },
+    "scoped_record_tensor_hash": {
+      "rejected": true,
+      "reason": "M9 structure-only proof/tensor replay mismatch"
+    },
+    "scoped_replay_record_tensor_sha256": {
+      "rejected": true,
+      "reason": "M9 structure-only proof/tensor replay mismatch"
+    },
+    "scoped_replay_record_certificate_sha256": {
+      "rejected": true,
+      "reason": "M9 structure-only proof/tensor replay mismatch"
+    },
+    "scoped_replay_record_passed": {
+      "rejected": true,
+      "reason": "M9 structure-only proof/tensor replay mismatch"
+    },
+    "scoped_replay_record_m": {
+      "rejected": true,
+      "reason": "M9 structure-only proof/tensor replay mismatch"
+    },
+    "scoped_replay_record_structure": {
+      "rejected": true,
+      "reason": "M9 structure-only proof/tensor replay mismatch"
+    },
+    "scoped_replay_missing_id": {
+      "rejected": true,
+      "reason": "M9 structure-only replay coverage mismatch"
+    }
+  },
+  "rejected_mutations": 108,
+  "positive_fixtures": 5,
+  "release_source_sha256": "79f1be12783e1dac101aa5918aa3b952a836bdd89ca565ead6826cfa31680499",
+  "controls_source_sha256": "75d0d41f3c492deb3e324b5b79d069fec2e0211c66f7b943ea29d2ef761e9969",
+  "mock_standard_stage_count": 2,
+  "scope": "Synthetic isolated receipt controls; no mathematical proof replay or real census mutation.",
+  "seconds": 0.6781321710000157
+}

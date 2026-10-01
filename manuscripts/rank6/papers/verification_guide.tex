@@ -1,13 +1,13 @@
 \documentclass[11pt]{article}
 \input{preamble}\input{generated_statistics}
-\hypersetup{pdftitle={Verification guide: rank-six categorification through multiplicity eight},pdfauthor={}}
-\title{Verification guide\\\large Rank-six categorification through multiplicity eight}
-\author{}\date{30 September 2026}
+\hypersetup{pdftitle={Verification guide: rank-six categorification through multiplicity nine},pdfauthor={}}
+\title{Verification guide\\\large Rank-six categorification through multiplicity nine}
+\author{}\date{1 October 2026}
 \begin{document}\maketitle
 
 \section{Scope and authoritative records}
 The package classifies categorifiability of the $\CensusCount$ rank-six
-fusion rings of multiplicity at most eight in the published
+fusion rings of multiplicity at most nine in the published
 \emph{Fusion Ring Census}. The current ledger has $\NegativeCount$
 general exclusions, $\UnitaryCount$ unitary-positive rings, one
 spherical-positive ring admitting no pseudo-unitary categorification,
@@ -20,20 +20,20 @@ The authoritative files are \filename{data/census.json},
 \filename{data/classification_counts.json}. The CSV ledger and paper
 tables are derived from them. The model catalogue records the source,
 categorical structure and complete basis permutation for each model.
-The file \filename{data/unresolved_tensors.json} contains the two
+The file \filename{data/unresolved_tensors.json} contains all
 complete remaining tensors. General, pivotal, spherical,
 pseudo-unitary and unitary existence are separate fields.
 
 The census is pinned to
 \href{https://github.com/sebastienpalcoux/fusion-ring-census}{\emph{Fusion Ring Census}},
 revision
-\begin{center}\small\filename{b86eb6dc6eeeafe5fc5f6906d7b074e0322e9726}.\end{center}
+\begin{center}\small\filename{2a340871242879665fa7ba2b01fa15b8bdeaada3}.\end{center}
 Its rank-six exact-multiplicity counts are
-$39,154,384,872,1582,2768,3814,6999$.
+$39,154,384,872,1582,2768,3814,6999,8809$.
 The compressed tensor file \filename{data/rank6_tables.txt.gz} has
 SHA-256
 \begin{center}\small
-\filename{0138c6228dbb06b0861ad38b8dfe67fcd1fc829add80d441c34c09a1afb78675}.
+\filename{0e7552e17620452f237e94751c40cd93b0757a466168629db8cc1bf0b9451d00}.
 \end{center}
 The source and both compressed and uncompressed hashes are recorded in
 \filename{provenance/repository_source.json}. Import checks fix the
@@ -51,6 +51,8 @@ python verify.py --jobs 2 --out verification/current/recheck.jsonl
 python -O verify.py --jobs 2 --out verification/current/recheck_O.jsonl
 python software/current_regressions.py
 python -O software/conformal_models.py --verify
+python -O software/replay_m9.py --jobs 2
+python -O software/replay_m9_structure.py
 python software/release_consistency.py
 \end{verbatim}
 Check the manifest before writing new reports. A new report changes file
@@ -67,6 +69,13 @@ python -O software/continuation_controls.py --jobs 2 \
   --out verification/current/continuation_replay.json
 \end{verbatim}
 This incremental replay does not replace the full-ledger verification.
+The new multiplicity-nine campaign is recorded separately under
+\filename{verification/m9/}. Its optimized replay checks every newly
+allocated general exclusion. The structure-only replay checks the
+separately registered claims for specified categorical structures; it cannot establish general
+nonexistence. The additional-criterion campaign has its own source-bound
+input, attempt ledger and exact replay under
+\filename{verification/m9/advanced/}.
 The accepted certificate files retain their frozen tensors, source
 bindings and input manifests. Their historical filenames are evidence
 identifiers, not additional current classifications.
@@ -127,13 +136,14 @@ These constructions prove existence. They do not classify all
 associators on the three rings or identify every archived modular-data
 matrix in a prescribed labelling.
 
-\section{The remaining two problems}
-The canonical index \filename{research/frontier/} has one directory
-for each current residual. Each index identifies its retained frozen
-certificates and replay commands; existing source-bound evidence keeps
-its original internal paths.
+\section{The remaining problems}
+The canonical index \filename{research/frontier/} separates the inherited
+necessary reductions from the multiplicity-nine reports. It identifies
+retained certificates, open cases and replay commands; source-bound
+evidence keeps its original internal paths.
 
-For $\RR{4}{155}$, the generalized near-group fusion rules give a
+The two inherited residuals through multiplicity eight retain the
+following reductions. For $\RR{4}{155}$, the generalized near-group fusion rules give a
 uniform sphericality and Galois-pseudo-unitarity proof by one norm
 argument. It replaces the former signed-table search for this ring.
 Fermion fixed-point traces and odd Gauss sums leave one necessary
@@ -160,10 +170,23 @@ homogeneous-packet Vafa equations then leave $1670$; the exact replays are in
 \filename{research/frontier/R6_8_1660/fermion_profiles/} and
 \filename{research/frontier/R6_8_1660/spin_profiles/}.
 
+The multiplicity-nine extension has eleven additional general residuals.
+Six have exact pivotal nonexistence certificates and hence no spherical,
+pseudo-unitary or unitary categorification. Their all-self-dual tensors
+allow the spherical obstructions to rule out pivotality. The records in
+\filename{certificates/m9_structure_only.json} and their independent replay
+state these scopes explicitly. The ring $\RR{9}{3748}$ has a separate
+braided nonexistence proof using its rank-three subcategory and the
+absence of a rank-two centralizer. None of these results establishes
+general nonexistence for the eleven new residuals. Their complete tensors,
+structure flags and current evidence are indexed in
+\filename{data/unresolved_tensors.json} and \filename{research/frontier/m9/}.
+
 None of these necessary alternatives is a categorical model. A claimed
 future exclusion must cover the entire necessary domain; a claimed model
 must have a categorical construction and complete tensor identification.
 
+\begin{samepage}
 \section{Rebuilding the presentation}
 After checking the retained evidence, regenerate the ledger exports,
 model catalogue, tables and PDFs with
@@ -171,6 +194,7 @@ model catalogue, tables and PDFs with
 python software/release.py
 python software/model_catalog.py
 python software/build_paper_tables.py
+python software/build_readme.py
 python build_papers.py
 \end{verbatim}
 Run discovery or regeneration in a working copy, because these commands
@@ -178,4 +202,5 @@ write files. The build publishes PDFs only after successful compilation.
 All counts must agree with the decision ledger. The supplement retains
 accepted proofs, needed dependencies and current residual evidence;
 obsolete searches for the three conformally realized rings are omitted.
+\end{samepage}
 \end{document}

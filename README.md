@@ -46,33 +46,45 @@ classification cross-check. Rank-two realized counts follow directly from
 | 3 | Through 1,000 | Unrestricted theorem | Five realized rings: four at multiplicity 1 and one at 2; see the standalone sphericality and ring-classification proof. |
 | 4 | Through 128 | **Complete through 128** | 15 realized rings, 889,515 general exclusions. |
 | 5 | Through 20 | **Complete through 20** | 17 realized rings and 40,982 generally excluded. The two former multiplicity-18 residuals are now excluded by inert-prime parity and exact induction. |
-| 6 | Through 8 | **Complete through 3** | Through 8: 16,553 excluded, 57 realized, 2 unresolved; 1 residual at multiplicity 8. |
+| 6 | Through 9 | **Complete through 3** | Through 9: 25,351 excluded, 57 realized, 13 unresolved. |
 | 7 | Through 4 | Partial at every band | Through 4: 4,107 excluded, 16 realized, 78 unresolved; full normal and optimized certificate replays passed. |
 | 8 | Through 2 | Partial at both bands | Through 2: 824 excluded, 33 realized, 116 unresolved; positive tensors and transferred certificates verified. |
 
-Rank-six realization counts through multiplicity 8 split into **56 unitary
+Rank-six realization counts through multiplicity 9 split into **56 unitary
 models** and **one spherical model whose ring has no pseudo-unitary
 categorification**. “Realized” means that at least one categorification is
 constructed; it does not assert that every categorification of that ring is
 unitary. Rank five has no unresolved ring through multiplicity 20.
 
-The rank-six release constructs three unitary models from conformal embeddings:
-`R6_4_22` from `(B2)_7 ⊂ (D7)_1`, `R6_4_91` from `(C3)_4 ⊂ (B10)_1`,
-and `R6_4_629` from `(B2)_12 ⊂ (E8)_1`. Each is the neutral module category,
-with all 216 fusion coefficients verified. The census now has **16,553 excluded,
-57 realized and 2 unresolved rings**.
+The rank-six release covers **25,421 fusion rings through multiplicity 9**:
+**25,351 excluded, 57 realized and 13 unresolved**.
+The new stratum contains 8,809 rings, of which 8,798 have exact general
+exclusion certificates and 11 remain unresolved. The previous decisions,
+representatives and proof certificates are preserved.
 
-R6_5_1204 is excluded by a complete exact center-integrality certificate.
+The positive catalogue includes the three neutral module categories from
+`(B2)_7 ⊂ (D7)_1`, `(C3)_4 ⊂ (B10)_1`, and `(B2)_12 ⊂ (E8)_1`, with full tensor identifications.
 
 | Unresolved ring | Necessary reduction |
 |---|---|
 | `R6_4_155` | One rank-52 center profile remains, with forced twists of exponent 24 and four duality choices. This is not yet complete modular data or a model. |
 | `R6_8_1660` | One relative-center based ring and 1670 labelled center profiles remain. A tensor involution and Vafa/indicator constraints remove 57 more profiles. |
+| `R6_9_529` | Recorded multiplicity-nine searches leave this ring unresolved. No additional structural frontier reduction is asserted. |
+| `R6_9_1060` | Recorded multiplicity-nine searches leave this ring unresolved. No additional structural frontier reduction is asserted. |
+| `R6_9_2455` | Recorded multiplicity-nine searches leave this ring unresolved. No additional structural frontier reduction is asserted. |
+| `R6_9_3748` | Braided categorifications are ruled out by the rank-three subcategory and centralizer obstruction. General, pivotal, spherical, pseudo-unitary and unitary existence remain unknown. |
+| `R6_9_7018` | Pivotal, spherical, pseudo-unitary and unitary categorifications are ruled out by a retained exact certificate. General existence remains unknown. |
+| `R6_9_7741` | Pivotal, spherical, pseudo-unitary and unitary categorifications are ruled out by a retained exact certificate. General existence remains unknown. |
+| `R6_9_7742` | Pivotal, spherical, pseudo-unitary and unitary categorifications are ruled out by a retained exact certificate. General existence remains unknown. |
+| `R6_9_8099` | Pivotal, spherical, pseudo-unitary and unitary categorifications are ruled out by a retained exact certificate. General existence remains unknown. |
+| `R6_9_8101` | Pivotal, spherical, pseudo-unitary and unitary categorifications are ruled out by a retained exact certificate. General existence remains unknown. |
+| `R6_9_8200` | Pivotal, spherical, pseudo-unitary and unitary categorifications are ruled out by a retained exact certificate. General existence remains unknown. |
+| `R6_9_8785` | Recorded multiplicity-nine searches leave this ring unresolved. No additional structural frontier reduction is asserted. |
 
 [Manuscript](manuscripts/rank6/papers/manuscript.pdf) ·
-[Exact constructors](supplements/rank6/software/conformal_models.py) ·
+[Multiplicity-nine evidence](supplements/rank6/verification/m9/) ·
 [Current frontier](supplements/rank6/research/frontier/README.md) ·
-[Complete release](https://grothendieck-ring-atlas.sebastien-palcoux.chatgpt.site/downloads/Rank6_Categorification_M8_Revised_2026-09-30_v8.zip)
+[Complete release](https://grothendieck-ring-atlas.sebastien-palcoux.chatgpt.site/downloads/Rank6_Categorification_M9_Revised_2026-10-01_v1.zip)
 
 
 ### The classification boundary, band by band
@@ -87,7 +99,7 @@ R6_5_1204 is excluded by a complete exact center-integrality certificate.
 | 6 | 80 excluded · 1 realized | 336 excluded · 0 realized | 2,765 excluded · 3 realized | — | — |
 | 7 | 92 excluded · 0 realized | 477 excluded · 0 realized | 3,812 excluded · 2 realized | — | — |
 | 8 | 137 excluded · 0 realized | 733 excluded · 0 realized | 6,998 excluded · 0 realized · **1 open** | — | — |
-| 9 | 151 excluded · 0 realized | 863 excluded · 0 realized | — | — | — |
+| 9 | 151 excluded · 0 realized | 863 excluded · 0 realized | 8,798 excluded · 0 realized · **11 open** | — | — |
 | 10 | 186 excluded · 0 realized | 1,082 excluded · 0 realized | — | — | — |
 | 11 | 238 excluded · 0 realized | 1,383 excluded · 0 realized | — | — | — |
 | 12 | 291 excluded · 0 realized | 1,948 excluded · 0 realized | — | — | — |
@@ -111,7 +123,7 @@ row checks and scope appear in [the provenance record](docs/PROVENANCE.md).
 |---:|---:|---|
 | 4 | Multiplicity 18 | The same criterion families suffice for the allocated exclusions at 19–128. |
 | 5 | Multiplicity 18 | Inert-prime quadratic parity first closes two cases at 18; no new criterion family is needed at 19–20. |
-| 6 | Multiplicity 8 | The current allocation includes new stabilizer, cyclotomic-trace and signed arithmetic criteria; the formal-codegree trace-ideal family first contributes at 8. 2 general cases remain unresolved. No later multiplicity is covered. |
+| 6 | See the allocation ledger | The current criteria include stabilizer, cyclotomic-trace and signed arithmetic obstructions. Every new multiplicity-nine tensor is processed separately from the preserved earlier campaign; 13 general cases remain unresolved through multiplicity 9. |
 | 7 | Multiplicity 2 | Signed sphericalization first contributes at 1; the last first successful application of a listed family occurs at 2. There are 78 open rings through 4, so no stabilization conclusion follows. |
 | 8 | Multiplicity 2 | Signed obstructions first contribute at 1; the last first successful application of a listed family occurs at 2. There are 116 open rings through 2, so no stabilization conclusion follows. |
 

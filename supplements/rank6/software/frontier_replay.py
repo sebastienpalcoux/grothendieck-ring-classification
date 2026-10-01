@@ -87,17 +87,18 @@ def embedded_hashes(path):
     return result
 
 
-def audit(entry):
+def audit(entry, binding_check=None):
     issues = []
     binding = entry.get('binding', {})
     if binding.get('status') != 'frozen':
         issues.append('Source bindings remain pending: ' + binding.get('reason', 'not frozen'))
+    check = binding_check or (lambda name, expected: (ROOT/name).exists() and sha(ROOT/name) == expected)
     frozen = binding.get('files_sha256', {})
     if not frozen:
         issues.append('No frozen file inventory')
     for name, expected in frozen.items():
         path = ROOT/name
-        if not path.exists() or sha(path) != expected:
+        if not check(name, expected):
             issues.append('Frozen file mismatch: ' + name)
     receipts = []
     for receipt in entry.get('retained_receipts', []):
@@ -109,7 +110,7 @@ def audit(entry):
         if path.exists():
             for name, digest in embedded_hashes(path).items():
                 item = ROOT/name
-                if not item.exists() or sha(item) != digest:
+                if not check(name, digest):
                     source_issues.append(name)
             issues.extend('Embedded receipt hash mismatch: ' + name for name in source_issues)
         receipts.append(dict(path=receipt['path'],predicate_passed=passed,
@@ -205,7 +206,10 @@ def main():
     if sha(manifest_path) != coverage['input_manifest_sha256']:
         ap.error('frozen input manifest hash mismatch')
     manifest = json.loads(manifest_path.read_text())
-    if sha(ROOT/manifest['source_census']) != manifest['source_census_sha256']:
+    from frontier_m9 import HistoricalBinding
+    historical = HistoricalBinding(ROOT)
+    historical.validate_inventory()
+    if not historical.check(manifest['source_census'], manifest['source_census_sha256']):
         ap.error('frozen source census hash mismatch')
     census = {r['id']:r for r in json.loads((ROOT/manifest['source_census']).read_text())}
     for row in manifest['tensors']:
@@ -258,7 +262,7 @@ def main():
         ap.error('--output must be inside the package')
     out.mkdir(parents=True,exist_ok=True)
     if args.check_receipts:
-        results = [audit(entry) for entry in entries]
+        results = [audit(entry, historical.check) for entry in entries]
     else:
         with ThreadPoolExecutor(max_workers=args.jobs) as pool:
             futures = {pool.submit(run_entry,e,out,args.timeout):e['id'] for e in entries}
@@ -267,6 +271,7 @@ def main():
     report = dict(schema='rank6-frontier-replay/v1',passed=all(r['passed'] for r in results),
                   mode='retained_receipt_audit' if args.check_receipts else 'fresh_exact_frontier_replay',
                   mathematical_replay_performed=not args.check_receipts,
+                  historical_binding=historical.report(),
                   whole_ring_decisions_changed=False,coverage_sha256=sha(COVERAGE),
                   results=results,scope='Only the selected necessary reductions and controls; no full-census replay.')
     target = out/'receipt.json';target.write_text(json.dumps(report,indent=2)+'\n')
