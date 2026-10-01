@@ -26,9 +26,14 @@ def main(rank7_source:Path)->None:
     report=json.loads((ROOT/'verification/report.json').read_text())
     assert report['fully_checked'] and report['census_size']==973
     counts=json.loads((ROOT/'data/classification_counts.json').read_text())
-    assert counts==report['counts']==[
-        {'multiplicity':1,'fusion_rings':96,'excluded':41,'realized':25,'unresolved':30},
-        {'multiplicity':2,'fusion_rings':877,'excluded':783,'realized':8,'unresolved':86}]
+    assert counts==report['counts']
+    decisions=json.loads((ROOT/'data/decisions.json').read_text())
+    for band in counts:
+        rows=[x for x in decisions if x['multiplicity']==band['multiplicity']]
+        assert band==dict(multiplicity=band['multiplicity'],fusion_rings=len(rows),
+            excluded=sum(x['status']=='excluded'for x in rows),
+            realized=sum(x['status']=='unitarily_realized'for x in rows),
+            unresolved=sum(x['status']=='unresolved'for x in rows))
 
     original=json.loads((ROOT/'data/rank7_certified_negative_subrings.json').read_text())
     imported={z['id']:z for z in original}
@@ -75,7 +80,11 @@ def main(rank7_source:Path)->None:
         for pattern in patterns:
             files.extend(p for p in folder.glob(pattern) if p.is_file())
     files.append(ROOT/'README.md')
-    files=sorted(set(files),key=lambda p:p.relative_to(ROOT).as_posix())
+    evidence=ROOT.parents[1]/'evidence/anyonwiki'
+    external=[p for p in evidence.rglob('*')if p.is_file()and '__pycache__'not in p.parts]
+    def relative(p):
+        return p.relative_to(ROOT).as_posix() if p.is_relative_to(ROOT)else 'evidence/anyonwiki/'+p.relative_to(evidence).as_posix()
+    files=sorted(set(files+external),key=relative)
     assert len(files)>=130
     provenance={
         'status':'checked rank-eight categorification frontier through complete multiplicity two',
@@ -83,13 +92,13 @@ def main(rank7_source:Path)->None:
         'source_uncompressed_sha256':'97b86d2de8ca0352c5c6e14686cd1d43dbd52180dc53b2ff1ccf7a61788c9600',
         'rank7_parent_source_ledger_sha256':digest(rank7_source),
         'rank7_inherited_negative_ids':sorted(imported),
-        'positive_model_count':33,
+        'positive_model_count':sum(x['status']=='unitarily_realized'for x in decisions),
         'source_record_count':973,
         'excluded_count':824,
-        'unresolved_count':116,
+        'unresolved_count':sum(x['status']=='unresolved'for x in decisions),
         'signed_exact_witnesses':75,
         'counts':counts,
-        'files':{p.relative_to(ROOT).as_posix():{'sha256':digest(p),'bytes':p.stat().st_size}
+        'files':{relative(p):{'sha256':digest(p),'bytes':p.stat().st_size}
                  for p in files}}
     manifest=ROOT/'manifest.json'
     manifest.write_text(json.dumps(provenance,indent=2,ensure_ascii=False)+'\n')
@@ -97,7 +106,7 @@ def main(rank7_source:Path)->None:
     archive=ROOT/'rank8-verified-supplement.zip'
     with ZipFile(archive,'w',compression=ZIP_DEFLATED,compresslevel=9) as zf:
         for p in files:
-            name=p.relative_to(ROOT).as_posix()
+            name=relative(p)
             info=ZipInfo('rank8/'+name,date_time=(2026,9,23,0,0,0))
             info.compress_type=ZIP_DEFLATED
             zf.writestr(info,p.read_bytes(),compress_type=ZIP_DEFLATED,compresslevel=9)

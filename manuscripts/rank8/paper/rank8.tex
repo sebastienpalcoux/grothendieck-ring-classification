@@ -30,7 +30,7 @@ criteria, models, and the unresolved frontier}
 \keywords{Grothendieck ring, fusion category, formal codegree, categorification, exact certificate}
 \begin{document}
 \begin{abstract}
-We analyze general complex categorification of every rank-eight fusion ring of multiplicity at most two in a complete census. An ordered collection of exact tensor and arithmetic tests excludes 824 of the 973 rings. Full multiplication-tensor comparisons identify unitary categories for 33 more. The remaining 116 rings are recorded as unresolved, including 30 already at multiplicity one; thus this is an explicit categorification frontier, not a complete classification. A rank-eight Wedderburn lemma extends the formal-codegree $d$-number obstruction to noncommutative rings. Every decision and every positive tensor comparison accompanies the manuscript in a checked machine-readable ledger.
+We analyze general complex categorification of every rank-eight fusion ring of multiplicity at most two in a complete census. An ordered collection of exact tensor and arithmetic tests excludes 824 of the 973 rings. Full multiplication-tensor comparisons identify unitary categories for 38 more. The remaining 111 rings are recorded as unresolved, including 25 already at multiplicity one; thus this is an explicit categorification frontier, not a complete classification. A rank-eight Wedderburn lemma extends the formal-codegree $d$-number obstruction to noncommutative rings. Every decision and every positive tensor comparison accompanies the manuscript in a checked machine-readable ledger.
 \end{abstract}
 \maketitle
 \markboth{RANK-EIGHT GROTHENDIECK RINGS}{RANK-EIGHT GROTHENDIECK RINGS}
@@ -47,12 +47,12 @@ For the complete census through multiplicity two, the following trichotomy is ex
 \begin{center}
 \begin{tabular}{@{}rrrrr@{}}\toprule
 Exact multiplicity & Fusion rings & Excluded generally & Unitarily realized & Undecided generally\\\midrule
-$1$ & $96$ & $41$ & $25$ & $30$\\
+$1$ & $96$ & $41$ & $30$ & $25$\\
 $2$ & $877$ & $783$ & $8$ & $86$\\\midrule
-Total & $973$ & $824$ & $33$ & $116$\\\bottomrule
+Total & $973$ & $824$ & $38$ & $111$\\\bottomrule
 \end{tabular}
 \end{center}
-Every excluded ring is ruled out over $\C$ with no pivotality assumption. Each positive model is matched to the entire tensor under a unit-preserving permutation, and is therefore a Grothendieck ring. For the $116$ undecided rings, neither existence nor nonexistence is asserted. In particular, these numbers are \emph{certified lower bounds} of $25$ and $8$ for the number of Grothendieck rings at the two multiplicities, rather than total counts of Grothendieck rings.
+Every excluded ring is ruled out over $\C$ with no pivotality assumption. Each positive model is matched to the entire tensor under a unit-preserving permutation, and is therefore a Grothendieck ring. For the $111$ undecided rings, neither existence nor nonexistence is asserted. In particular, these numbers are \emph{certified lower bounds} of $30$ and $8$ for the number of Grothendieck rings at the two multiplicities, rather than total counts of Grothendieck rings.
 \end{theorem}
 
 The earliest undecided tensor in the local sorted order is $\sha{R8_1_3}$, a noncommutative integral fusion ring with four invertible basis elements, four elements of Frobenius--Perron dimension two and global Frobenius--Perron dimension $20$. Its ordinary Casimir polynomial is $(t-20)^2(t-4)^2(t-10)^4$. Although the first positive model $\sha{R8_1_1}$ has the same dimension vector, it is the commutative representation ring of the dicyclic group of order $20$; the two tensors are not isomorphic. This example demonstrates why a numerical dimension profile is not a model certificate.
@@ -145,6 +145,28 @@ the same product $\rho_i\rho_j=\rho_{i+j}+\rho_{|i-j|}$ completes the ring. Thes
 \end{proof}
 
 {\small\input{model_table}\par}
+Five further multiplicity-one models are imported from exact AnyonWiki
+tensor matches: $R8\_1\_36$ is the crossed product of
+$\operatorname{TY}(C_3)$ by the order-two inversion action;
+$R8\_1\_61$ is the rank-eight fusion subcategory called
+one-half $SO(12)_2$; $R8\_1\_78$ is $SO(9)_2$;
+$R8\_1\_79$ is $Z(\Vec_{S_3})\simeq\Rep(D(S_3))$; and
+$R8\_1\_85$ is the neutral component of the universal $\Z_2$
+grading after gauging the full $S_3$ symmetry of $SO(8)_1$
+\cite{AnyonWiki2026,Gauging}.
+For the crossed product, the standard bicharacter
+$\chi(a,b)=\exp(2\pi i ab/3)$ and positive
+$\tau=1/\sqrt3$ are invariant under simultaneous inversion.
+The induced tensor action squares to the identity, and the crossed
+product is unitary. Its independently constructed tensor is matched
+in all $512$ positions. The other four are standard unitary categories
+or fusion subcategories thereof; their complete sourced tensors and
+unit-preserving permutations are included in the positive catalogue.
+Existence of these models proves general complex categorifiability.
+No negative conclusion is imported merely from an AnyonWiki flag:
+in particular its reported pentagon no-go for $R8\_1\_26$ remains
+unresolved here pending a replayable exclusion certificate.
+
 The table provides one construction per positive tensor. Some have two isomorphic presentations; \sha{data/realized_models.json} records every matched constructor, exact model tensor, precise model source and source-to-model isomorphism. Labels such as ``pseudo-$PSU(2)_6$'' denote the conventional fusion-ring name, not a weaker existence assertion: the cited rank-four table supplies a unitary category \cite{R4}. No undecided ring is in this table.
 
 \section{Reproduction and mathematical limits}
@@ -152,11 +174,20 @@ The command \sha{python3 software/analyze.py} reads the frozen source, checks it
 
 Both commands treat discovery failure, timeout, or a failed consistency check as an error, never as an exclusion. The separate signed campaign records completed certificates, inconclusive attempts and timeouts distinctly. The verifier independently regenerates every admitted rank-eight signed tensor, the inherited rank-seven negative proof trees, and all six appendix-based tensor transfers. Character-field calculations and subcategory dimension quotients use rational/algebraic arithmetic; no floating-point approximation gives a mathematical decision.
 
-This verification establishes the finite applications \emph{conditional on} the cited theorems and the source census completeness. It does not settle $R8\_1\_3$ or the other $115$ undecided rings, certify a multiplicity-three census, or classify categories up to tensor equivalence. In particular, the last criterion with a first application in the current range appears at multiplicity two, but nothing here implies that no new criterion is needed beyond that bound. Noncommutative Extended Haagerup models at rank eight have multiplicities four and seven \cite{EH}; they are genuine models but outside the present complete census bound.
+This verification establishes the finite applications \emph{conditional on} the cited theorems and the source census completeness. It does not settle $R8\_1\_3$ or the other $110$ undecided rings, certify a multiplicity-three census, or classify categories up to tensor equivalence. In particular, the last criterion with a first application in the current range appears at multiplicity two, but nothing here implies that no new criterion is needed beyond that bound. Noncommutative Extended Haagerup models at rank eight have multiplicities four and seven \cite{EH}; they are genuine models but outside the present complete census bound.
 
 \par\medskip\noindent\textbf{AI disclosure.} GPT-6 Astra assisted with literature exploration, mathematical research, code development, and manuscript preparation.
 
 \begin{thebibliography}{99}
+\bibitem{AnyonWiki2026} G.~Vercleyen and J.~Slingerland,
+\emph{On Low-Rank Multiplicity-Free Complex Fusion Categories},
+\emph{Commun. Math. Phys.} \textbf{407}, 231 (2026),
+DOI:10.1007/s00220-026-05705-2;
+\url{https://anyonwiki.github.io/pages/Lists/losmffr.html}.
+\bibitem{Gauging} S.~X.~Cui, C.~Galindo, J.~Y.~Plavnik and Z.~Wang,
+\emph{On Gauging Symmetry of Modular Categories},
+\emph{Commun. Math. Phys.} \textbf{348} (2016), 1043--1064;
+arXiv:1510.03475.
 \bibitem{Census} S.~Palcoux, \emph{Fusion Ring Census}, exact tensor dataset and verification records, \url{https://github.com/sebastienpalcoux/fusion-ring-census}, commit \sha{b86eb6dc6eeeafe5fc5f6906d7b074e0322e9726} (2026).
 \bibitem{R2} \emph{A short classification of complex rank-two Grothendieck rings}, manuscript (2026).
 \bibitem{R3} \emph{Galois-averaged indicators and sphericality in rank three}, manuscript (2026).

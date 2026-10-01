@@ -47,8 +47,8 @@ assert byrank[5]['excluded_general']==40982 and byrank[5]['realized_other_or_uns
 assert byrank[2]['realized_other_or_unspecified']==2 and byrank[2]['excluded_general']==999
 assert byrank[3]['realized_other_or_unspecified']==5 and byrank[3]['excluded_general']==460348
 assert byrank[6]['excluded_general']==rank6_identity['summary']['excluded'] and byrank[6]['realized_unitary']==56 and byrank[6]['realized_spherical_nonpseudounitary']==1 and byrank[6]['unresolved_general']==rank6_identity['summary']['unresolved']
-assert (byrank[7]['excluded_general'],byrank[7]['realized_unitary'],byrank[7]['unresolved_general'])==(4107,16,78)
-assert (byrank[8]['excluded_general'],byrank[8]['realized_unitary'],byrank[8]['unresolved_general'])==(824,33,116)
+assert (byrank[7]['excluded_general'],byrank[7]['realized_unitary'],byrank[7]['unresolved_general'])==(4107,19,75)
+assert (byrank[8]['excluded_general'],byrank[8]['realized_unitary'],byrank[8]['unresolved_general'])==(824,38,111)
 rank6_expected=[tuple(row) for row in rank6_identity['counts']]
 for m,expected in enumerate(rank6_expected,1):
     row=next(x for x in statusrows if x['rank']==6 and x['multiplicity']==m)
@@ -122,6 +122,10 @@ for rank, expected, ledger in ((7,4201,'supplements/rank7/output/rank7_ledger.js
     assert sum(x['status']=='unitarily_realized' for x in records)==len(json.loads((ROOT/f'supplements/rank{rank}/data/model_catalog.json').read_text()))
     assert all(next(x for x in statusrows if x['rank']==rank and x['multiplicity']==m)['rings']==sum(x['multiplicity']==m for x in records)
                for m in set(x['multiplicity'] for x in records))
+    for m in set(x['multiplicity']for x in records):
+        band=next(x for x in statusrows if x['rank']==rank and x['multiplicity']==m)
+        for col,status_name in [('excluded_general','excluded'),('realized_unitary','unitarily_realized'),('unresolved_general','unresolved')]:
+            assert band[col]==sum(x['multiplicity']==m and x['status']==status_name for x in records)
 for name in ('pinned_full_verification','optimized_inert_full_verification',
              'extension19_20_verification','extension19_20_optimized_verification'):
     report=json.loads((ROOT/f'supplements/rank5/verification/{name}.json').read_text())

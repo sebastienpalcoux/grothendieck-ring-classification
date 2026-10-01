@@ -8,9 +8,9 @@ it is not counted as a Grothendieck ring.
 
 | Exact multiplicity | Census fusion rings | Generally excluded | Explicit unitary models | Unresolved |
 | ---: | ---: | ---: | ---: | ---: |
-| 1 | 96 | 41 | 25 | 30 |
+| 1 | 96 | 41 | 30 | 25 |
 | 2 | 877 | 783 | 8 | 86 |
-| Total | 973 | 824 | 33 | 116 |
+| Total | 973 | 824 | 38 | 111 |
 
 The source `data/rank8_tables.txt.gz` is a copy of the public
 [Fusion Ring Census](https://github.com/sebastienpalcoux/fusion-ring-census),
@@ -26,7 +26,7 @@ those fusion rings again.
 - `data/decisions.json`: all 973 stable IDs `R8_m_j`, their exact source
   tensor SHA-256, and one of `excluded`, `unitarily_realized`, `unresolved`.
   An exclusion carries an independently checked certificate.
-- `data/realized_models.json`: 33 source multiplication tensors and all
+- `data/realized_models.json`: 38 source multiplication tensors and all
   matched unitary constructors with explicit model multiplication tensors,
   `basis_map_source_to_model` permutations and specific references. Five
   published group-theoretical constructors include direct `source_url` links.
@@ -74,3 +74,5 @@ The paper is authorless and explicitly separates complete fusion-ring
 input, proven Grothendieck-ring models, and the remaining categorification
 frontier. Source and tool hashes are recorded in `manifest.json` after the
 final verification.
+
+The 2026-10-01 positive update is documented in [`../../evidence/anyonwiki/README.md`](../../evidence/anyonwiki/README.md). Run `python tools/verify_anyonwiki_import.py` from the repository root to replay the exact added witnesses and verify preservation of every previous exclusion. The earlier full-certificate report is retained separately; this update does not rerun its costly unchanged searches.

@@ -8,6 +8,9 @@ def section(text,start,end,replacement):
     a=text.index(start);b=text.index(end,a);return text[:a]+replacement+text[b:]
 def render(repo,i):
     validate_identity(i);out={};a=i['archive'];s=i['summary'];bands=completed_bands(i);bound=len(i['counts']);total=sum(r[0] for r in i['counts']);read=lambda n:(repo/n).read_text()
+    status=json.loads(read('data/classification_status.json'))
+    upper={r:status['inputs'][f'rank{r}']for r in (7,8)}
+    bundles={b['name']:b['sha256']for b in status['bundles']}
     text=read('docs/PROVENANCE.md')
     text=re.sub(r'\[`[0-9a-f]{40}`\]\(https://github.com/sebastienpalcoux/fusion-ring-census/tree/[0-9a-f]{40}\)',f"[`{i['census_commit']}`](https://github.com/sebastienpalcoux/fusion-ring-census/tree/{i['census_commit']})",text,count=1)
     if 'The updated rank-six source ' in text:
@@ -38,6 +41,29 @@ replay of every earlier proof. See [verification instructions](VERIFY.md).
         elif line.startswith('| 6 | `') and 'results/rank6/' not in line:
             lines[n]=f"| 6 | `{i['ledger_sha256']}` | {total:,} | {s['excluded']:,} excluded; 56 unitary; 1 spherical non-pseudo-unitary; {s['unresolved']} unresolved |"
     text='\n'.join(lines)+'\n'
+    text=section(text,'The verified rank-seven release through','\n| Rank | Census source',f'''The verified rank-seven release through
+multiplicity four has SHA-256 `{bundles['rank7-certified-through-m4.zip']}`.
+Its previous negative-certificate replays are preserved; the three additional
+AnyonWiki associators have independent exact pentagon, invertibility, unit
+and rigidity checks. Multiplicity one is complete with thirteen realized rings.
+The rank-eight release through multiplicity two has SHA-256
+`{bundles['rank8-verified-supplement.zip']}` and adds five sourced models with
+exact full-tensor matches. The remaining {upper[7]['status_totals']['unresolved']}
+and {upper[8]['status_totals']['unresolved']} cases respectively are
+categorification questions. See the [positive update](../evidence/anyonwiki/README.md).
+''')
+    lines=text.splitlines()
+    for n,line in enumerate(lines):
+        for rank in (7,8):
+            totals=upper[rank]['status_totals']
+            if line.startswith(f'| {rank} | `results/rank{rank}/'):
+                scope='Complete at multiplicity one; higher bands partial'if rank==7 else'Partial at both bands'
+                ledger=upper[rank]['file']
+                lines[n]=f'| {rank} | `results/rank{rank}/tables.txt.gz` | {upper[rank]["classified_through"]} | `{ledger}` | {scope}; {totals["unresolved"]} unresolved |'
+            elif line.startswith(f'| {rank} | `'):
+                count=sum(totals.values())
+                lines[n]=f'| {rank} | `{upper[rank]["sha256"]}` | {count:,} | {totals["excluded"]:,} excluded; {totals["unitarily_realized"]} unitary models; {totals["unresolved"]} unresolved |'
+    text='\n'.join(lines)+'\n'
     text=section(text,'* Rank six:','\nThe crosswalk scripts',f'''* Rank six: [`rank6_crosswalk.json`](../data/rank6_crosswalk.json) compares
   all {total:,} full tensor lines through multiplicity {bound} with the pinned
   source export, and verifies identical compressed-file checksums. The import
@@ -49,7 +75,7 @@ replay of every earlier proof. See [verification instructions](VERIFY.md).
     text=re.sub(r'git -C fusion-ring-census checkout [0-9a-f]{40}',f"git -C fusion-ring-census checkout {i['census_commit']}",text)
     text=text.replace('rank-six decisions use the updated M8 ZIP.','rank-six decisions use the current M9 ZIP.')
     text=re.sub(r'The incremental exporter verifies all [0-9,]+ distinct records',f'The incremental exporter verifies all {total:,} distinct records',text)
-    text=section(text,'The exporter records source checksums','Rank seven has 78 open cases',f'''The exporter records source checksums and verifies cardinalities against
+    text=section(text,'The exporter records source checksums','Rank seven has ',f'''The exporter records source checksums and verifies cardinalities against
 every census band. The released rows have no unassessed bands. Rank five is
 complete through multiplicity 20. Rank six is complete through multiplicity
 three, with exact completed bands {bands} and {s['unresolved']} cases through

@@ -221,6 +221,11 @@ def model_registry():
     assert [len(reg[i]) for i in (2, 3, 4, 5, 6)] == [2, 5, 15, 17, 43]
 
     rank8 = collections.defaultdict(list)
+    imported=ROOT/'data/anyonwiki_models.json'
+    if imported.exists():
+        for record in json.loads(imported.read_text()):
+            for ctor in record['constructors']:
+                rank8[ckey(ctor['tensor'])].append(dict(ctor))
     for name, A, ref in rest:
         if len(A) != 4 or mult(A) > 2:
             continue

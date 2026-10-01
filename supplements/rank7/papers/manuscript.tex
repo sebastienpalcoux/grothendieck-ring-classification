@@ -23,8 +23,10 @@ full-tensor identification. We include a rank-seven extension of the
 formal-codegree test to noncommutative rings, a global-dimension-fifteen
 obstruction, and complete oriented signed-sphericalization certificates
 for 246 rings through multiplicity four. The remaining tensors are recorded as
-\emph{undecided}: the present results do not classify all rank-seven
-Grothendieck rings, already at multiplicity one.
+\emph{undecided}. Three additional published AnyonWiki associators have
+independent exact pentagon, invertibility, unit and rigidity checks.
+Thus multiplicity one is complete, with thirteen realized rings;
+the first undecided multiplicity is two.
 \end{abstract}
 
 \section{Scope and statements}
@@ -46,14 +48,15 @@ claims of this manuscript.
 The numbers of excluded, explicitly unitarily realized, and undecided
 rank-seven fusion rings are given by Table~\ref{tab:status}.
 The negative conclusions hold for \emph{every} complex fusion category.
-The sixteen positive rows have the models in Table~\ref{tab:models},
+The nineteen positive rows have the models in Table~\ref{tab:models},
 matched against their complete fusion tensors. No conclusion is drawn
 for the undecided rows.
 \end{theorem}
 \input{generated_tables.tex}
 
-The first undecided multiplicity is one: the three remaining identifiers
-are $R7\_1\_19$, $R7\_1\_28$, and $R7\_1\_36$.
+Multiplicity one is complete: its former residuals $R7\_1\_19$,
+$R7\_1\_28$, and $R7\_1\_36$ have the AnyonWiki models described below.
+The first undecided multiplicity is two, beginning with $R7\_2\_1$.
 The exhaustive source-position convention is $R7\_m\_j$, where $j$
 is the position \emph{among rows of exact multiplicity $m$} in the
 pinned census file. This convention makes the positive-model
@@ -67,7 +70,7 @@ zero-spectrum and closed-subring passes are finite tensor scans;
 exact Casimir factoring and subcategory-dimension arithmetic follow;
 the complete oriented search is last. This order records precisely when
 a criterion first contributes rather than hiding it in an unordered
-union of tests. Multiplicity one is already undecided, so these stages
+union of tests. Multiplicity two is still undecided, so these stages
 do \emph{not} establish a multiplicity threshold beyond which no new
 criteria would be needed.
 The oriented criterion first contributes at multiplicity one, so it
@@ -201,6 +204,24 @@ model. This same standard applies to the larger residual sets at
 multiplicities two, three, and four.
 
 \section{Exact constructions and replay}
+The three formerly undecided multiplicity-one rings match AnyonWiki
+$\mathrm{FR}^{7,2}_3$, $\mathrm{FR}^{7,2}_{12}$, and
+$\mathrm{FR}^{7,4}_3$, respectively, by full based-ring isomorphisms.
+For each, we use the published category with code $(7,1,d,i,1,0,1)$
+in the Vercleyen--Slingerland census \cite{AnyonWiki2026}.
+The symbolic associators supplied through TensorCategories.jl lie over
+$\mathbb Q(\zeta_8)$, $\mathbb Q(\zeta_{28})$, and
+$\mathbb Q(\zeta_{16})$, respectively. Independent rational-polynomial
+replay checks all $9{,}856$, $45{,}061$, and $9{,}856$ admissible
+pentagon equations, all $585$, $837$, and $585$ nonempty associator
+blocks for invertibility, and the unit and rigidity constraints.
+These checks establish complex fusion categories directly, with no
+pivotality assumption. The AnyonWiki category list additionally records
+unitary gauges. Only existence of a model is used: neither completeness
+nor uniqueness of the external category census is required.
+The supplementary evidence records the exact category codes,
+cyclotomic coefficients, source hashes and basis permutations.
+
 The positive model catalogue constructs complete fusion tensors from
 the cyclic group, ordinary finite-group character products, the
 Tambara--Yamagami rule, $SU(2)_k$ truncation, its even parts, odd
@@ -235,6 +256,11 @@ relying on Python's optional \texttt{assert} statements.
 research, symbolic exploration, code development, and drafting.
 
 \begin{thebibliography}{99}
+\bibitem{AnyonWiki2026} G.~Vercleyen and J.~Slingerland,
+\emph{On Low-Rank Multiplicity-Free Complex Fusion Categories},
+\emph{Commun. Math. Phys.} \textbf{407}, 231 (2026),
+DOI:10.1007/s00220-026-05705-2;
+\url{https://anyonwiki.github.io/pages/Lists/losmffc.html}.
 \bibitem{Census} S. Palcoux, \emph{Fusion Ring Census},
 \url{https://github.com/sebastienpalcoux/fusion-ring-census},
 commit \texttt{b86eb6dc6eeeafe5fc5f6906d7b074e0322e9726}.

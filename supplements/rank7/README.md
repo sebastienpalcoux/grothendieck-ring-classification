@@ -2,17 +2,17 @@
 
 This package separates a complete **fusion-ring census** from **proved categorification decisions**. The rank-seven census is pinned at commit `b86eb6dc6eeeafe5fc5f6906d7b074e0322e9726` of [fusion-ring-census](https://github.com/sebastienpalcoux/fusion-ring-census); `data/rank7_tables.txt.gz` has SHA-256 `6ddea4c66de7fbe077e9552e71e8cf95ec3fec5bbd30a615e68e2d8fcb9ae9c9`. The census has respectively 43, 319, 1059, and 2780 rings of exact multiplicities 1 through 4.
 
-The authorless manuscript in [`papers/manuscript.tex`](papers/manuscript.tex) and [`papers/manuscript.pdf`](papers/manuscript.pdf) states the **certified partial** classification. Three multiplicity-one rings remain undecided, so the file must not be used as an exact table of Grothendieck-ring counts. Multiplicities at least five lie beyond the pinned rank-seven source.
+The authorless manuscript in [`papers/manuscript.tex`](papers/manuscript.tex) and [`papers/manuscript.pdf`](papers/manuscript.pdf) states the **certified partial** classification. Multiplicity one is now complete: thirteen of its 43 rings have models and thirty are generally excluded. The higher bands remain partial. Multiplicities at least five lie beyond the pinned rank-seven source.
 
 | Exact multiplicity | Fusion rings | Certified exclusions | Categorical models | Undecided |
 | ---: | ---: | ---: | ---: | ---: |
-| 1 | 43 | 30 | 10 | 3 |
+| 1 | 43 | 30 | 13 | 0 |
 | 2 | 319 | 291 | 5 | 23 |
 | 3 | 1059 | 1035 | 1 | 23 |
 | 4 | 2780 | 2751 | 0 | 29 |
 
 The first multiplicity needing the new exhaustive signed criterion is one.
-None of these four bands is a complete Grothendieck-ring classification.
+Multiplicity one is complete; multiplicities two through four have 75 unresolved rings.
 
 ## Repeat all decisions
 
@@ -39,7 +39,7 @@ The analyzer derives all asserted positive model tensors from explicit construct
 | `output/rank7_ledger.json` | One record per census ring, preserving ID, tensor, source line, criterion, status and optional proof tree |
 | `output/rank7_model_catalog.json` | Full tensors, exact model-to-census permutations, constructions and references |
 | `output/rank7_summary.json` | Sequential exclusion counts and resulting status counts per multiplicity |
-| `output/rank7_verification_report.json` | Ordinary and optimized full verifier results with SHA-256 provenance |
+| `output/rank7_verification_report.json` | Earlier ordinary and optimized negative replays, plus the independently checked positive update and SHA-256 provenance |
 | `analyze.py`, `verify.py`, `software/` | Discovery, independent replay, mathematical certificate checkers |
 | `release/rank7-certified-through-m4.zip` | Reproducible research bundle with checksum manifest and authorless PDF |
 
@@ -48,3 +48,5 @@ The only valid record statuses are `excluded`, `unitarily_realized` and `unresol
 The longer signed-sphericalization criterion generalizes the rank-six method. In each positive result of this criterion, the checker re-enumerates the *entire* integer domain of normalized oriented signed quotient structure constants, all associative tables, and all negative branch witnesses. Screening budgets were used only to choose which candidates to explore; they cannot create an exclusion.
 
 The source files for other ranks and the categorification literature remain cited in the manuscript. The Alekseyev–Bruns–Dong–Palcoux integral-rings paper is marked as accepted in *Letters in Mathematical Physics* as supplied with the project.
+
+The 2026-10-01 positive update is documented in [`../../evidence/anyonwiki/README.md`](../../evidence/anyonwiki/README.md). Run `python tools/verify_anyonwiki_import.py` from the repository root to replay the exact added witnesses and verify preservation of every previous exclusion. The earlier full-certificate report is retained separately; this update does not rerun its costly unchanged searches.

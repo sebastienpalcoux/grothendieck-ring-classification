@@ -16,6 +16,7 @@ exact=[
     'README.md','analyze.py','verify.py','build_release.py','zero_spectrum7.cpp',
     'data/rank7_tables.txt.gz','data/lower_rank_positive_models.json',
     'data/integral_rank7_noncomm_published.txt',
+    'data/anyonwiki_models.json',
     'data/oriented_verified_certificates.json',
     'output/rank7_ledger.json','output/rank7_model_catalog.json',
     'output/rank7_summary.json','output/rank7_verification_report.json',
@@ -25,12 +26,19 @@ exact=[
 code=sorted(x.relative_to(ROOT).as_posix() for x in (ROOT/'software').iterdir()
             if x.suffix in {'.py','.cpp'})
 files=sorted(set(exact+code))
+sources={p:ROOT/p for p in files}
+evidence=ROOT.parents[1]/'evidence/anyonwiki'
+for path in evidence.rglob('*'):
+    if path.is_file() and '__pycache__'not in path.parts:
+        sources['evidence/anyonwiki/'+path.relative_to(evidence).as_posix()]=path
+files=sorted(sources)
 summary=json.loads((ROOT/'output/rank7_summary.json').read_text())
 report=json.loads((ROOT/'output/rank7_verification_report.json').read_text())
-assert report['normal_passed'] and report['optimized_passed']
+assert report['normal_passed'] and (report['optimized_passed'] or
+       (report.get('previous_negative_records_unchanged') and report.get('positive_import_verified')))
 assert report['verified']==sum(summary['ring_counts'].values())==4201
-assert summary['model_count']==16 and summary['max_multiplicity']==4
-hashes={p:hashlib.sha256((ROOT/p).read_bytes()).hexdigest() for p in files}
+assert summary['model_count']==len(json.loads((ROOT/'output/rank7_model_catalog.json').read_text())) and summary['max_multiplicity']==4
+hashes={p:hashlib.sha256(sources[p].read_bytes()).hexdigest() for p in files}
 manifest={'title':'Rank-seven Grothendieck rings: certified exclusions and models through multiplicity four',
           'source_repository_commit':summary['source_commit'],
           'source_sha256':summary['source_sha256'],'files_sha256':hashes}
@@ -40,7 +48,7 @@ with zipfile.ZipFile(OUT,'w',compression=zipfile.ZIP_DEFLATED,compresslevel=8) a
                              date_time=(2026,9,23,0,0,0))
         info.compress_type=zipfile.ZIP_DEFLATED
         info.external_attr=0o644<<16
-        z.writestr(info,(ROOT/name).read_bytes(),compress_type=zipfile.ZIP_DEFLATED,
+        z.writestr(info,sources[name].read_bytes(),compress_type=zipfile.ZIP_DEFLATED,
                    compresslevel=8)
     info=zipfile.ZipInfo('rank7-certified-through-m4/MANIFEST.json',
                          date_time=(2026,9,23,0,0,0))

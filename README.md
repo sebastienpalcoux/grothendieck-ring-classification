@@ -22,7 +22,7 @@ categorifiable.
 
 | Multiplicity | Rank 2 | Rank 3 | Rank 4 | Rank 5 | Rank 6 | Rank 7 | Rank 8 |
 |---:|---:|---:|---:|---:|---:|---:|---:|
-| 1 | 2 | 4 | 9 | 10 | 21 | ≥10 | ≥25 |
+| 1 | 2 | 4 | 9 | 10 | 21 | 13 | ≥30 |
 | 2 | 0 | 1 | 3 | 3 | 22 | ≥5 | ≥8 |
 | 3 | 0 | 0 | 2 | 2 | 3 | ≥1 | — |
 | 4 | 0 | 0 | 0 | 2 | ≥5 | ≥0 | — |
@@ -47,8 +47,8 @@ classification cross-check. Rank-two realized counts follow directly from
 | 4 | Through 128 | **Complete through 128** | 15 realized rings, 889,515 general exclusions. |
 | 5 | Through 20 | **Complete through 20** | 17 realized rings and 40,982 generally excluded. The two former multiplicity-18 residuals are now excluded by inert-prime parity and exact induction. |
 | 6 | Through 9 | **Complete through 3** | Through 9: 25,362 excluded, 57 realized, 2 unresolved. |
-| 7 | Through 4 | Partial at every band | Through 4: 4,107 excluded, 16 realized, 78 unresolved; full normal and optimized certificate replays passed. |
-| 8 | Through 2 | Partial at both bands | Through 2: 824 excluded, 33 realized, 116 unresolved; positive tensors and transferred certificates verified. |
+| 7 | Through 4 | **Complete at multiplicity 1** | Through 4: 4,107 excluded, 19 realized, 75 unresolved; three additional AnyonWiki models have exact associator replays. |
+| 8 | Through 2 | Partial at both bands | Through 2: 824 excluded, 38 realized, 111 unresolved; five additional AnyonWiki constructions have full-tensor matches. |
 
 Rank-six realization counts through multiplicity 9 split into **56 unitary
 models** and **one spherical model whose ring has no pseudo-unitary
@@ -82,7 +82,7 @@ The positive catalogue includes the three neutral module categories from
 
 | Multiplicity | Rank 4 | Rank 5 | Rank 6 | Rank 7 | Rank 8 |
 |---:|---:|---:|---:|---:|---:|
-| 1 | 1 excluded · 9 realized | 6 excluded · 10 realized | 18 excluded · 21 realized | 30 excluded · 10 realized · **3 open** | 41 excluded · 25 realized · **30 open** |
+| 1 | 1 excluded · 9 realized | 6 excluded · 10 realized | 18 excluded · 21 realized | 30 excluded · 13 realized | 41 excluded · 30 realized · **25 open** |
 | 2 | 14 excluded · 3 realized | 34 excluded · 3 realized | 132 excluded · 22 realized | 291 excluded · 5 realized · **23 open** | 783 excluded · 8 realized · **86 open** |
 | 3 | 22 excluded · 2 realized | 80 excluded · 2 realized | 381 excluded · 3 realized | 1,035 excluded · 1 realized · **23 open** | — |
 | 4 | 45 excluded · 0 realized | 132 excluded · 2 realized | 866 excluded · 5 realized · **1 open** | 2,751 excluded · 0 realized · **29 open** | — |

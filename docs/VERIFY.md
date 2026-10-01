@@ -75,8 +75,8 @@ complete through multiplicity 20. Rank six is complete through multiplicity
 three, with exact completed bands 1, 2, 3, 5, 6, 7, 9 and 2 cases through
 multiplicity 9 generally unresolved. Isolated completed bands do not
 complete intervening unresolved bands.
-Rank seven has 78 open cases through
-multiplicity four, and rank eight has 116 through multiplicity two. Those
+Rank seven has 75 open cases through
+multiplicity four, and rank eight has 111 through multiplicity two. Those
 figures are stored as unresolved, never as exclusions or zero positive counts.
 
 To refresh only rank six from the revised archive while preserving every
@@ -192,3 +192,7 @@ band must not be shown as classified until the criterion engine has addressed
 it; unassessed bands can be withheld from the classification explorer. Do
 not infer exclusions or count unresolved rings from census data alone. Do
 not treat a search timeout as a negative categorification result.
+
+## AnyonWiki positive update
+
+Run `python tools/verify_anyonwiki_import.py` from the repository root. It checks all 139 rank-seven/eight multiplicity-one tensor matches, the added model permutations, three published associators over exact cyclotomic fields, and preservation of every previous negative and unaffected record. Multiplicity one at rank seven is complete; rank eight still has 25 open multiplicity-one cases. See [the evidence](../evidence/anyonwiki/README.md).

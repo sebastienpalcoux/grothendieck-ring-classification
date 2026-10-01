@@ -343,6 +343,22 @@ def model_matches(rows):
           'PSU(2)_13':'https://arxiv.org/abs/math/0101219'}[name],
                         'basis_permutation_model_to_census':list(p),'tensor':row['tensor'],
                         'existence':{x:'yes' for x in ('general','pivotal','spherical','pseudo_unitary','unitary')}})
+    # Positive AnyonWiki constructions are independently checked in the
+    # repository's evidence/anyonwiki exact-associator verifier.
+    imported=ROOT/'data/anyonwiki_models.json'
+    if imported.exists():
+        by_id={r['id']:r for r in rows}
+        for model in json.loads(imported.read_text()):
+            row=by_id[model['id']]
+            if row['tensor']!=model['tensor']:
+                raise ValueError('AnyonWiki census tensor changed')
+            p=model['census_to_wiki'];T=model['model_tensor']
+            if sorted(p)!=list(range(7)) or p[0]!=0 or not all(
+                row['tensor'][i][j][k]==T[p[i]][p[j]][p[k]]
+                for i,j,k in itertools.product(range(7),repeat=3)):
+                raise ValueError('AnyonWiki based isomorphism failed')
+            result.setdefault(row['id'],[]).append(model['name'])
+            catalog.append(model)
     return result,catalog
 
 def spectrum_batch(rows):

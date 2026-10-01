@@ -89,8 +89,8 @@ classification cross-check. Rank-two realized counts follow directly from
 | 4 | Through 128 | **Complete through 128** | 15 realized rings, 889,515 general exclusions. |
 | 5 | Through 20 | **Complete through 20** | 17 realized rings and 40,982 generally excluded. The two former multiplicity-18 residuals are now excluded by inert-prime parity and exact induction. |
 __RANK6_SUMMARY__
-| 7 | Through 4 | Partial at every band | Through 4: 4,107 excluded, 16 realized, 78 unresolved; full normal and optimized certificate replays passed. |
-| 8 | Through 2 | Partial at both bands | Through 2: 824 excluded, 33 realized, 116 unresolved; positive tensors and transferred certificates verified. |
+| 7 | Through 4 | **Complete at multiplicity 1** | Through 4: 4,107 excluded, 19 realized, 75 unresolved; three additional AnyonWiki models have exact associator replays. |
+| 8 | Through 2 | Partial at both bands | Through 2: 824 excluded, 38 realized, 111 unresolved; five additional AnyonWiki constructions have full-tensor matches. |
 
 Rank-six realization counts through multiplicity __RANK6_BOUND__ split into **56 unitary
 models** and **one spherical model whose ring has no pseudo-unitary

@@ -54,6 +54,9 @@ lines.extend([r'\bottomrule',r'\end{tabular}',r'\end{table}','',
               r'\begin{tabular}{@{}l l@{}}',r'\toprule',
               r'Census ID & Explicit model\\',r'\midrule'])
 for item in sorted(catalog,key=lambda r:(r['multiplicity'],int(r['id'].split('_')[-1]))):
-    lines.append(r'\texttt{'+esc(item['id'])+'} & '+pretty_models[item['name']]+r'\\')
+    model=pretty_models.get(item['name'])
+    if model is None:
+        c=item['category_code'];model=r'AnyonWiki $\mathrm{FC}^{7,1,'+str(c[2])+r'}_{'+','.join(map(str,c[3:]))+r'}$'
+    lines.append(r'\texttt{'+esc(item['id'])+'} & '+model+r'\\')
 lines.extend([r'\bottomrule',r'\end{tabular}',r'\end{table}', ''])
 (ROOT/'papers/generated_tables.tex').write_text('\n'.join(lines))
