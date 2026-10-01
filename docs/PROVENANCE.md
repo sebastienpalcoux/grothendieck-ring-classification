@@ -21,9 +21,9 @@ Its complete bundle `Rank5_Complete_Through20_InertParity_2026-09-23.zip` has SH
 For multiplicities 1–18, internal archival indices are explicitly named
 `local_index`; at 19–20, `repository_index` directly identifies the pinned
 source census record within its exact-multiplicity band.
-The current rank-six release is `Rank6_Categorification_M9_Complete_2026-10-01.zip` (SHA-256
-`6cbed9b202f6fde6e789cbc4d0c2f00fce6af4dc57072226f612fa582c1bbbbd`). The [complete archive](https://grothendieck-ring-atlas.sebastien-palcoux.chatgpt.site/downloads/Rank6_Categorification_M9_Complete_2026-10-01.zip) contains
-679 files and the pinned census, proof certificates and exact constructors.
+The current rank-six release is `Rank6_Categorification_M9_Frontier_2026-10-01.zip` (SHA-256
+`6f57efc66646f75b5ca307b6cc6660d17972f1453910d92c109b6002ba313cdc`). The [complete archive](https://grothendieck-ring-atlas.sebastien-palcoux.chatgpt.site/downloads/Rank6_Categorification_M9_Frontier_2026-10-01.zip) contains
+780 files and the pinned census, proof certificates and exact constructors.
 The partition is **25,362 excluded, 57 realized and 2 unresolved**.
 There are 56 unitary models and one spherical model with no pseudo-unitary
 categorification. All 8,809 rings of exact multiplicity nine are generally excluded.
@@ -39,8 +39,8 @@ replay of every earlier proof. See [verification instructions](VERIFY.md).
 
 | Unresolved ring | Necessary reduction |
 |---|---|
-| `R6_4_155` | One rank-52 center profile remains, with forced twists of exponent 24 and four duality choices. This is not yet complete modular data or a model. |
-| `R6_8_1660` | One relative-center based ring and 1670 labelled center profiles remain. A tensor involution and Vafa/indicator constraints remove 57 more profiles. |
+| `R6_4_155` | The unique rank-26 semion-centralizer modular candidate is completely reconstructed, with nonnegative integral Verlinde coefficients (maximum 9), ten self-dual objects, and all stated finite Vafa and indicator checks passing. The rank-52 center would have twenty self-dual objects. No categorification is known. |
+| `R6_8_1660` | One relative-center based ring and 1669 labelled center profiles remain, in branches 163, 753, 753. Every indecomposable module category has six simples; exact Morita and indicator reductions leave three possible dual based rings. No categorification is known. |
 
 The verified rank-seven release through
 multiplicity four has SHA-256

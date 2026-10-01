@@ -150,7 +150,7 @@ def main():
                 'm9_completion_quartic_trace':'Cyclic-quartic trace and complementary codegrees',
                 'm9_completion_gauss_parity':'Two-adic saturation and quadratic Gauss sums',
                 'm9_completion_signed_spectrum':'Indicator normalization and signed spectra'})
- kinds=collections.Counter(d['certificate']['kind'] for d in ds if d['status']=='excluded');text=['\\begin{table}[ht]\\centering','\\begin{tabular}{lr}\\toprule','First retained certificate & Rings\\\\\\midrule']
+ kinds=collections.Counter(d['certificate']['kind'] for d in ds if d['status']=='excluded');text=['\\begin{table}[p]\\centering\\small','\\begin{tabular}{lr}\\toprule','First retained certificate & Rings\\\\\\midrule']
  for k,v in sorted(kinds.items(),key=lambda z:(-z[1],z[0])):text.append(labels.get(k,k.replace('_',' '))+f' & {v}\\\\')
  text += ['\\midrule',f"Total & {sum(kinds.values())}\\\\",'\\bottomrule\\end{tabular}','\\caption{Disjoint allocation of general exclusions. Nested criteria are not counted again.}\\label{tab:allocation}','\\end{table}'];(P/'papers/generated_allocation.tex').write_text('\n'.join(text)+'\n')
  from model_catalog import build_catalog,latex_table

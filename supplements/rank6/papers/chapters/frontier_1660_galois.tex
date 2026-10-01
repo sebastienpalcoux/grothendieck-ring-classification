@@ -1,0 +1,138 @@
+\subsection{A signed Galois--fermion cut for \texorpdfstring{$\RR{8}{1660}$}{R6\_8\_1660}}
+\label{subsec:r1660-signed-galois}
+The following necessary condition removes one further labelled profile from
+ the frozen $1670$-profile frontier.  It leaves $1669$ profiles, in branches
+of sizes $163,753,753$; it does not resolve categorifiability.
+
+Work in the established pseudo-unitary Galois form, with
+$\mathcal M=Z(\mathcal C)$, $T=\sigma X$, and restriction vectors in the
+order $(1,g,X,gX,\sigma,T)$.  Let $h$ be the central fermion and let
+$\widehat\alpha=Z(\alpha)$ be the previously constructed involution.
+For $a\in(\mathbb Z/48\mathbb Z)^\times$, write $\pi_a$ for the Galois
+permutation and $\delta_a(Z)\in\{\pm1\}$ for its sign, so that for the
+normalized modular matrix $S$,
+\[
+ \sigma_a(S_{L,Z})=\delta_a(Z)S_{L,\pi_a Z},
+ \qquad \theta_{\pi_a Z}=\theta_Z^{a^2}.
+\]
+
+\begin{lemma}[The signed restriction action]
+For every central simple $Z$ with restriction vector $v$,
+\[
+ v_{\pi_5 Z}=\delta_5(Z)B_5v,\qquad
+ B_5=\begin{pmatrix}
+1&0&0&0&0&0\\
+0&1&0&0&0&0\\
+2&2&-1&-2&-2&2\\
+2&2&-2&-1&-2&2\\
+0&0&0&0&-1&0\\
+2&2&-2&-2&-4&3
+\end{pmatrix}.
+\]
+The sign is the one making the vector nonnegative.  Moreover $\pi_5$
+commutes with tensoring by $h$ and with $\widehat\alpha$, and preserves
+monodromy charge with $h$.
+\end{lemma}
+\begin{proof}
+The six constituents $L_\chi$ of $I(1)$ correspond to the six characters
+of $K_0(\mathcal C)$, with formal codegrees $f_\chi$.  The known induction
+rows are
+\[
+ S_{L_\chi,Z}=\frac{\chi(FZ)}{f_\chi}.
+\]
+On $K=\mathbb Q(\sqrt2,\sqrt3)$, $\sigma_5$ negates both square roots.
+For all six characters and all six basis elements, direct arithmetic gives
+\[
+ \sigma_5\!\left(\frac{\chi(v)}{f_\chi}\right)
+       =\frac{\chi(B_5v)}{f_\chi}.
+\]
+The character table is invertible, proving the asserted restriction formula.
+The verifier checks these $36$ identities exactly in the basis
+$1,\sqrt2,\sqrt3,\sqrt6$, and checks $B_5^2=1$.
+
+Write $\epsilon_Z$ for the charge.  Since
+$S_{h,Z}/S_{1,Z}=\epsilon_Z\in\{\pm1\}$, the column Galois identity
+shows that $\pi_5$ preserves charge.  Also
+$S_{hY,Z}=\epsilon_ZS_{Y,Z}$ and $d_{hY}=d_Y$ imply
+$\delta_5(hY)=\delta_5(Y)$; applying Galois to the row identity and
+using invertibility of $S$ gives $\pi_5(hY)=h\pi_5(Y)$.
+Finally, the permutation matrix of a braided autoequivalence commutes with
+$S$ and is rational, so it commutes with the signed Galois matrix
+$S^{-1}\sigma_5(S)$.  Preservation of dimensions also preserves its signs,
+proving commutation with $\widehat\alpha$.
+\end{proof}
+
+\begin{lemma}[Four-divisibility of the spin fixed locus]
+In a restriction fiber
+\[
+ v=(0,0,b,c,1,3),\qquad b+c=4,
+\]
+the number of $h$-fixed simples is divisible by four.
+\end{lemma}
+\begin{proof}
+The signed formula gives
+$B_5v=-(0,0,c,b,1,3)$, so
+$\gamma=\pi_5\widehat\alpha$ preserves the fiber.
+Its simples have primitive sixteenth-root twists; therefore
+$\theta_{\gamma Z}=\theta_Z^{25}=-\theta_Z$.
+The preceding lemma implies that $\gamma$ preserves the $h$-fixed locus.
+Duality preserves that locus, the restriction vector and the twist.
+It acts freely: a self-dual simple with this restriction would have to
+have indicator $-1$ from the odd $\sigma$ multiplicity and indicator
+$+1$ from the odd $T$ multiplicity.  Thus each twist occurs an even
+number of times in the fixed locus.  The bijection $\gamma$ gives equal
+multiplicities for the two twists $\theta,-\theta$, proving divisibility
+by four.  No claim that $\gamma$ is a tensor functor is used.
+\end{proof}
+
+Here is the complete exclusion of the zero-based raw profile $133$ in
+low frame zero, character labelling $(0,5,4,1,3,2)$.
+Remove the four forced even low/high pairs.  The remaining $18$ high
+simples have the following restrictions:
+\[
+\begin{array}{c|c|c}
+\text{symbol}&\text{restriction}&\text{multiplicity}\\\hline
+A&T&2\\
+A'&2X+2gX+3T&2\\
+B&X+gX+2T&2\\
+C&4X+4gX+4T&2\\
+\Sigma&2X+2gX+\sigma+3T&8\\
+P&2X+2gX+2T&1\\
+Q&4X+4gX+8T&1
+\end{array}
+\]
+All these fibers are $h$-invariant.  Let $e_U,o_U,t_U$ be their numbers
+of even $h$-pairs, odd $h$-pairs and odd $h$-fixed simples.  The signed
+Galois map exchanges $A,A'$, so all three orbit counts agree for this
+pair.  Put $a=e_A=e_{A'}$, $b=e_B$, $c=e_C$, and $z=e_\Sigma$.
+Then $a,b,c\in\{0,1\}$, $e_P=e_Q=0$, and the previously proved duality
+parity gives $z\in\{0,2,4\}$.  The even-dimension equation is exactly
+\[
+ 3a+b+8c+3z=15.
+\]
+Its only solutions are
+\[
+ (a,b,c,z)=(1,0,0,4),\qquad(0,1,1,2).
+\]
+For total remaining orbit counts $E,O,H$, the already established rank
+identity in this low frame is $O=18-3E-3$.  The first solution gives
+$E=6$ and $O=-3$, impossible.  The second gives $E=4$ and $O=3$.
+The fibers $B,C$ are entirely even, and $P,Q$ have multiplicity one.
+Consequently
+\[
+ 2o_A+o_\Sigma=3,\qquad 0\leq o_A\leq1,\quad
+ 0\leq o_\Sigma\leq2.
+\]
+Thus $o_A=o_\Sigma=1$, and
+$t_\Sigma=8-2e_\Sigma-2o_\Sigma=2$, contradicting the lemma.
+
+The portable verifier \texttt{verify.py} replays the frozen frontier,
+checks the signed identities, and supplies directly checked orbit-count
+witnesses for the other $1669$ profiles.  It also independently checks
+this two-case proof for profile $133$.  The broader replay imposes
+Galois equality of all three $h$-orbit counts, spin-fiber and spin-fixed
+four-divisibility, and the prior dimension, rank, involution and
+AMV/sixteenth-indicator conditions.  Its receipt is
+\texttt{certificate.json}; no optimizer or full center fusion
+reconstruction is used.  Passing this necessary test does not assert
+existence of spins, modular data, or a categorification.

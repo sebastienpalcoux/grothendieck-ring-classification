@@ -173,7 +173,12 @@ and has exponent $24$. They replace the former
 rank-$44$ integer-bound certificate. The short exact replay is
 \filename{research/frontier/R6_4_155/verify_center_cuts.py}.
 Its pointed center also rules out every braided representative of the
-Morita class.
+Morita class. The new exact reconstruction determines every entry of the
+rank-$26$ centralizer's modular datum. Its Verlinde coefficients are
+nonnegative integers, with maximum $9$. It forces ten self-dual
+objects in that factor and twenty in the full center. All stated finite
+ordinary and generalized indicator checks and all ordered rank-$26$
+Vafa equations pass. No categorical construction follows.
 
 For $\RR{8}{1660}$, the Ising subcategory makes its complement a
 regular bimodule. Its relative center has rank eighteen and rules
@@ -190,6 +195,21 @@ reduce their $1764$ labelled profiles to $1727$. The tensor involution and
 homogeneous-packet Vafa equations then leave $1670$; the exact replays are in
 \filename{research/frontier/R6_8_1660/fermion_profiles/} and
 \filename{research/frontier/R6_8_1660/spin_profiles/}.
+A subsequent signed Galois--fermion four-divisibility condition removes
+raw profile $133$ in low frame zero, leaving $1669$ profiles in branches
+$163,753,753$. Independently, every indecomposable module category has
+six simples; full-center saturation, integral Morita Gram reconstruction
+and a weighted second-indicator obstruction leave three possible dual
+based rings, of ranks six, six and eight.
+
+The new exact calculations and independent audits are under
+\filename{research/frontier/new_research/}. From the package root, run
+\begin{verbatim}
+python research/frontier/new_research/replay.py
+\end{verbatim}
+The current summaries are in \filename{data/frontier_research_progress.json}.
+The older \filename{data/frontier_summary.json} and source-bound per-ring
+readmes retain their exact historical-stage bytes.
 
 \begin{samepage}
 None of these necessary alternatives is a categorical model. A claimed

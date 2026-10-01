@@ -1,8 +1,8 @@
 """Current rank-six publication text, derived from one release identity."""
 from pathlib import PurePosixPath
 DATE='2026-10-01'
-REVISION='m9-complete-v2'
-ARCHIVE='Rank6_Categorification_M9_Complete_2026-10-01.zip'
+REVISION='m9-frontier-v3'
+ARCHIVE='Rank6_Categorification_M9_Frontier_2026-10-01.zip'
 FRONTIER={'R6_4_155','R6_8_1660'}
 COMPLETION_ROOT='research/exclusions/m9_completion'
 COMPLETION_BUNDLES=('free_involution','involution_pair','gauss8200','pivotal_gap','psu25','case8785','triangle')
@@ -55,6 +55,7 @@ def validate_identity(identity):
     require(all(any(name.startswith(COMPLETION_ROOT+'/'+bundle+'/') for name in evidence)
                 for bundle in COMPLETION_BUNDLES),'Missing completion proof bundle identity')
     require(all(valid_relative(name) and valid_digest(digest) for name,digest in evidence.items()),'Invalid completion evidence hash')
+    require('data/frontier_research_progress.json' in identity.get('research_files_sha256',{}),'Missing current frontier overlay identity')
     documents=identity.get('documents',{})
     require({'manuscript.tex','manuscript.pdf','verification_guide.tex','verification_guide.pdf'}<=set(documents),'Missing publication source or PDF identity')
     require(all(valid_relative(name) and item['path']=='papers/'+name and valid_digest(item['sha256']) and item['bytes']>0

@@ -93,9 +93,11 @@ assert hashlib.sha256((rank6_root/'certificates/continuation_round4.jsonl').read
 for relative, digest in rank6_identity['research_files_sha256'].items():
     if hashlib.sha256((rank6_root/relative).read_bytes()).hexdigest()!=digest:
         raise ValueError('Current research provenance changed: '+relative)
-frontier=json.loads((rank6_root/'data/frontier_summary.json').read_text())
+frontier=json.loads((rank6_root/'data/frontier_research_progress.json').read_text())
 if {x['id'] for x in frontier['cases']}!={x['id'] for x in rank6_identity['research_progress']}:
     raise ValueError('Publication omits a current frontier case')
+require([{'id':x['id'],'result':x['public_summary']} for x in frontier['cases']]==rank6_identity['research_progress'],
+        'Publication current summaries differ from the audited overlay')
 new_models=json.loads((rank6_root/'data/conformal_positive_models.json').read_text())
 if {x['id'] for x in new_models}!=set(rank6_identity['conformal_models']):
     raise ValueError('Conformal constructors do not match the release identity')

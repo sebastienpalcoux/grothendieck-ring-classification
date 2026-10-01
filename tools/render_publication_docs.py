@@ -45,7 +45,7 @@ replay of every earlier proof. See [verification instructions](VERIFY.md).
   and preserves all 16,612 earlier representatives and identifiers.
 ''')
     out['docs/PROVENANCE.md']=text
-    text=read('docs/VERIFY.md');text=re.sub(r'Rank6_Categorification_M[0-9]+_(?:Revised_[0-9-]+_v\d+|Complete_[0-9-]+)\.zip',a['name'],text)
+    text=read('docs/VERIFY.md');text=re.sub(r'Rank6_Categorification_M[0-9]+_(?:Revised_[0-9-]+_v\d+|(?:Complete|Frontier)_[0-9-]+)\.zip',a['name'],text)
     text=re.sub(r'git -C fusion-ring-census checkout [0-9a-f]{40}',f"git -C fusion-ring-census checkout {i['census_commit']}",text)
     text=text.replace('rank-six decisions use the updated M8 ZIP.','rank-six decisions use the current M9 ZIP.')
     text=re.sub(r'The incremental exporter verifies all [0-9,]+ distinct records',f'The incremental exporter verifies all {total:,} distinct records',text)
@@ -82,12 +82,17 @@ python -O software/replay_m9_completion.py --output verification/m9/completion/r
 python -O research/exclusions/R6_5_1204/verify_exclusion.py
 python -O software/frontier_replay.py --check-receipts
 python -O software/frontier_replay.py --list
+python research/frontier/new_research/replay.py
 ```
 
 The conformal-model command freshly reconstructs the three unitary models.
 The frontier receipt audit checks hashes and completion predicates, not the
 mathematics. To replay a necessary reduction, select one current ring, for
 example `python -O software/frontier_replay.py --select R6_4_155`.
+The current research replay checks the completed R6_4_155 modular-data candidate,
+finite indicator tests, and the R6_8_1660 module/Morita and 1,669-profile reductions.
+Its exact scope and receipts are in `research/frontier/new_research/`. These are
+necessary conditions; both categorification questions remain unresolved.
 Each command has a 15-minute deadline. A timeout establishes no exclusion.
 
 The completion replay checks all eleven final multiplicity-nine exclusions

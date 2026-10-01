@@ -68,14 +68,14 @@ The positive catalogue includes the three neutral module categories from
 
 | Unresolved ring | Necessary reduction |
 |---|---|
-| `R6_4_155` | One rank-52 center profile remains, with forced twists of exponent 24 and four duality choices. This is not yet complete modular data or a model. |
-| `R6_8_1660` | One relative-center based ring and 1670 labelled center profiles remain. A tensor involution and Vafa/indicator constraints remove 57 more profiles. |
+| `R6_4_155` | The unique rank-26 semion-centralizer modular candidate is completely reconstructed, with nonnegative integral Verlinde coefficients (maximum 9), ten self-dual objects, and all stated finite Vafa and indicator checks passing. The rank-52 center would have twenty self-dual objects. No categorification is known. |
+| `R6_8_1660` | One relative-center based ring and 1669 labelled center profiles remain, in branches 163, 753, 753. Every indecomposable module category has six simples; exact Morita and indicator reductions leave three possible dual based rings. No categorification is known. |
 
 [Manuscript](manuscripts/rank6/papers/manuscript.pdf) ·
 [Completion proofs](supplements/rank6/research/exclusions/m9_completion/) ·
 [Completion replay](supplements/rank6/verification/m9/completion/) ·
 [Current frontier](supplements/rank6/research/frontier/README.md) ·
-[Complete release](https://grothendieck-ring-atlas.sebastien-palcoux.chatgpt.site/downloads/Rank6_Categorification_M9_Complete_2026-10-01.zip)
+[Complete release](https://grothendieck-ring-atlas.sebastien-palcoux.chatgpt.site/downloads/Rank6_Categorification_M9_Frontier_2026-10-01.zip)
 
 
 ### The classification boundary, band by band

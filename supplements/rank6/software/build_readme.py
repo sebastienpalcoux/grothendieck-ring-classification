@@ -7,7 +7,7 @@ P = Path(__file__).resolve().parents[1]
 def main():
     counts = json.loads((P/'data/classification_counts.json').read_text())
     report = json.loads((P/'verification/release_summary.json').read_text())
-    frontier = json.loads((P/'data/frontier_summary.json').read_text())
+    frontier = json.loads((P/'data/frontier_research_progress.json').read_text())
     source = json.loads((P/'provenance/repository_source.json').read_text())
     total = sum(r['classes'] for r in counts)
     if total != 25421 or counts[-1]['multiplicity'] != 9:
@@ -44,7 +44,7 @@ All 8,809 rings of exact multiplicity nine are excluded for general complex fusi
 
 {cases}
 
-The [frontier index](research/frontier/README.md) gives the current evidence. The [model catalogue](data/model_catalog.csv) identifies actual categorical constructions and all 216 tensor coefficients, including the three conformal-embedding models.
+The [frontier index](research/frontier/README.md) gives the current evidence and distinguishes it from frozen historical stages. The [model catalogue](data/model_catalog.csv) identifies actual categorical constructions and all 216 tensor coefficients, including the three conformal-embedding models.
 
 ## Verification
 
@@ -58,6 +58,7 @@ python -O software/m9_completion_controls.py
 python -O software/conformal_models.py --verify
 python -O software/release_consistency.py
 python -O software/frontier_replay.py --check-receipts
+python research/frontier/new_research/replay.py
 ```
 
 The new certificate replay disables numerical optimizers. Historical proofs retain their original exact verification evidence; a receipt audit checks source hashes and predicates and does not rerun the mathematics. For a fresh full-ledger check, use `python -O verify.py --jobs 2 --out verification/current/full_recheck.jsonl`. The verification guide distinguishes these scopes and gives the remaining replay commands.
@@ -71,7 +72,7 @@ The census is pinned to [Fusion Ring Census revision {source['published_data_com
 
 {summary}
 
-All 8,809 exact-multiplicity-nine tensors are excluded generally. The final eleven exclusions are supplied by the separately replayed completion campaign; the two remaining open rings have multiplicities four and eight. Earlier decisions and mathematical certificates are preserved. New certificates have independent exact replays; historical replay receipts remain explicitly historical.
+All 8,809 exact-multiplicity-nine tensors are excluded generally. The final eleven exclusions are supplied by the separately replayed completion campaign; the two remaining open rings have multiplicities four and eight. Earlier decisions and mathematical certificates are preserved. The frontier research now determines a complete rank-26 modular candidate for R6_4_155 and reduces R6_8_1660 to three possible Morita-dual rings and 1669 labelled center profiles. Both rings remain unresolved. New certificates have independent exact replays; historical replay receipts remain explicitly historical.
 
 The manuscript, ledger, proof allocation, frontier, source provenance and OEIS draft use this same census. Current evidence and required dependencies are retained; obsolete exploratory outputs are omitted.
 ''')

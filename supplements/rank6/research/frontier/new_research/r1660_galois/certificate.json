@@ -1,0 +1,205 @@
+{
+  "status": "necessary_reduction_only_original_unresolved",
+  "exact": true,
+  "optimizer_used": false,
+  "center_fusion_enumerated": false,
+  "signed_matrix_B5": [
+    [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      1,
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      2,
+      2,
+      -1,
+      -2,
+      -2,
+      2
+    ],
+    [
+      2,
+      2,
+      -2,
+      -1,
+      -2,
+      2
+    ],
+    [
+      0,
+      0,
+      0,
+      0,
+      -1,
+      0
+    ],
+    [
+      2,
+      2,
+      -2,
+      -2,
+      -4,
+      3
+    ]
+  ],
+  "exact_character_basis_identities": 36,
+  "source_sha256": {
+    "research/frontier/R6_8_1660/fermion_profiles/verify_fermion_profiles.py": "f734af079a749224eadd5781d57e6288a82faab8075a6c8941aedc9743978770",
+    "research/frontier/R6_8_1660/spin_profiles/verify_spin_profiles.py": "f05c7b60bde671506a3bdb4a00c5a4b39cd7d5039d386c6f846891bf91671757",
+    "research/round5/m8_actual48/certificate.json": "693f634df50beac8cb0d5353ade3ea62c562309926939a24e458eeda7c97a7c7",
+    "research/frontier/R6_8_1660/fermion_profiles/fermion_profiles_certificate.json": "a77b35ba6e069391a77ee41af9367b93e14254bf966b9720738106e601f2c48c",
+    "research/frontier/R6_8_1660/spin_profiles/spin_profiles_certificate.json": "0df20d824ffee348947302c1e85b1971ae9795b736f11799f03f61d9f6b0c497",
+    "research/round5/m8_1660/low0_profiles.json": "c74ce8eded70ee44ca896bfa6d5cbe42fb95804fea5f967018b6f7dbf42097cb",
+    "research/round5/m8_1660/low1_profiles.json": "277d26f16fc44fd2a2cd2caec339408b56fd77d14fcaeac96d3dbe9f5c9aa014"
+  },
+  "branches": [
+    {
+      "low": 0,
+      "labelling": [
+        0,
+        5,
+        4,
+        1,
+        3,
+        2
+      ],
+      "input_count": 164,
+      "input_indices_sha256": "a848735d98b3561045c93d9d91912d00e13b103c04553d9c8bb81c2d36968d29",
+      "rejected": [
+        133
+      ],
+      "surviving_count": 163,
+      "sigma_multiplicity_distributions": [
+        {
+          "multiplicities": [
+            8
+          ],
+          "count": 164
+        }
+      ],
+      "witness_low_actions": {
+        "low_swap": 163
+      },
+      "directly_checked_witnesses": 163,
+      "witnesses_sha256": "de889f2bc1be687b275d2dc40379146443efdf62e3c5f8ad0968074729e724b1",
+      "signed_restriction_checks": 1782
+    },
+    {
+      "low": 1,
+      "labelling": [
+        0,
+        5,
+        4,
+        1,
+        2,
+        3
+      ],
+      "input_count": 753,
+      "input_indices_sha256": "58df4041ad48a67f57b0a90d538a74ac40de7c0dcb3f6316abf7b1e5865cb6b8",
+      "rejected": [],
+      "surviving_count": 753,
+      "sigma_multiplicity_distributions": [
+        {
+          "multiplicities": [
+            0,
+            8,
+            0
+          ],
+          "count": 753
+        }
+      ],
+      "witness_low_actions": {
+        "low_swap": 735,
+        "two_fixed": 18
+      },
+      "directly_checked_witnesses": 753,
+      "witnesses_sha256": "c0bd86c9321c58882bdfb9e1c731cebe2cbb7038d1610d515dd2ac7b2f90d6c5",
+      "signed_restriction_checks": 9971
+    },
+    {
+      "low": 1,
+      "labelling": [
+        0,
+        5,
+        4,
+        1,
+        3,
+        2
+      ],
+      "input_count": 753,
+      "input_indices_sha256": "58df4041ad48a67f57b0a90d538a74ac40de7c0dcb3f6316abf7b1e5865cb6b8",
+      "rejected": [],
+      "surviving_count": 753,
+      "sigma_multiplicity_distributions": [
+        {
+          "multiplicities": [
+            0,
+            8,
+            0
+          ],
+          "count": 753
+        }
+      ],
+      "witness_low_actions": {
+        "low_swap": 735,
+        "two_fixed": 18
+      },
+      "directly_checked_witnesses": 753,
+      "witnesses_sha256": "c0bd86c9321c58882bdfb9e1c731cebe2cbb7038d1610d515dd2ac7b2f90d6c5",
+      "signed_restriction_checks": 9971
+    }
+  ],
+  "input_count": 1670,
+  "excluded_count": 1,
+  "surviving_count": 1669,
+  "criterion": "Signed Galois5 restriction map; sigma-fiber and h-fixed-locus 4-divisibility, even sigma odd-pair counts; Galois-equivariant even/odd/fixed h-orbit counts, plus prior dimension, rank, alpha parity, and AMV/FS16 residue conditions.",
+  "independent_profile133_proof": {
+    "low": 0,
+    "labelling": [
+      0,
+      5,
+      4,
+      1,
+      3,
+      2
+    ],
+    "profile_index": 133,
+    "required_E_minus_O_minus_T": -3,
+    "even_dimension_equation": "3 e_a + e_b + 3 e_sigma + 8 e_c = 15",
+    "patterns": [
+      {
+        "e_a": 0,
+        "e_b": 1,
+        "e_sigma": 2,
+        "e_c": 1,
+        "possible_E_minus_O_minus_T": [
+          -6,
+          -4,
+          -2
+        ]
+      },
+      {
+        "e_a": 1,
+        "e_b": 0,
+        "e_sigma": 4,
+        "e_c": 0,
+        "possible_E_minus_O_minus_T": [
+          0,
+          1,
+          2
+        ]
+      }
+    ]
+  }
+}

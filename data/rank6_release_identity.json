@@ -1,7 +1,7 @@
 {
   "schema": "rank6-release-identity/v1",
   "date": "2026-10-01",
-  "revision": "m9-complete-v2",
+  "revision": "m9-frontier-v3",
   "census_commit": "2a340871242879665fa7ba2b01fa15b8bdeaada3",
   "new_exclusions": 8809,
   "conformal_models": [
@@ -9,22 +9,22 @@
     "R6_4_91",
     "R6_4_629"
   ],
-  "research_summary": "The verified rank-six census contains 25421 rings through multiplicity nine. The new stratum has 8809 rings: 8809 excluded, 0 realized and 0 unresolved. The final eleven multiplicity-nine cases have exact general exclusion certificates; only the two earlier frontier rings remain unresolved. Earlier decisions and exact certificates are preserved.",
+  "research_summary": "The verified rank-six census contains 25,421 rings through multiplicity nine. All 8,809 rings of exact multiplicity nine are excluded. The two remaining rings have new audited modular-data and Morita-dual reductions, with 1,669 labelled center profiles left for R6_8_1660. Both categorification questions remain open; no new categorical model or ring exclusion is claimed.",
   "research_progress": [
     {
       "id": "R6_4_155",
-      "result": "One rank-52 center profile remains, with forced twists of exponent 24 and four duality choices. This is not yet complete modular data or a model."
+      "result": "The unique rank-26 semion-centralizer modular candidate is completely reconstructed, with nonnegative integral Verlinde coefficients (maximum 9), ten self-dual objects, and all stated finite Vafa and indicator checks passing. The rank-52 center would have twenty self-dual objects. No categorification is known."
     },
     {
       "id": "R6_8_1660",
-      "result": "One relative-center based ring and 1670 labelled center profiles remain. A tensor involution and Vafa/indicator constraints remove 57 more profiles."
+      "result": "One relative-center based ring and 1669 labelled center profiles remain, in branches 163, 753, 753. Every indecomposable module category has six simples; exact Morita and indicator reductions leave three possible dual based rings. No categorification is known."
     }
   ],
   "archive": {
-    "name": "Rank6_Categorification_M9_Complete_2026-10-01.zip",
-    "sha256": "6cbed9b202f6fde6e789cbc4d0c2f00fce6af4dc57072226f612fa582c1bbbbd",
-    "bytes": 16082104,
-    "files": 679
+    "name": "Rank6_Categorification_M9_Frontier_2026-10-01.zip",
+    "sha256": "6f57efc66646f75b5ca307b6cc6660d17972f1453910d92c109b6002ba313cdc",
+    "bytes": 16924329,
+    "files": 780
   },
   "ledger_sha256": "abb36cb0e7f9196e0a231cb85a601c82a1c8fd398996f77a8961487a7ca692e5",
   "summary": {
@@ -104,38 +104,132 @@
   "third_certificate_sha256": "d97910a14e0c1897f405bb24e616d2a715fdb9eb93d94ff0a31001fb26c89aa8",
   "fourth_certificate_sha256": "25e92eac5e4506906437765e31ed452e9042213f08e079c7ff81db2fb7e42062",
   "research_files_sha256": {
-    "data/conformal_positive_models.json": "b76aeb3499c5858e8f1eab67c1a40ce639fea9053688150e25a6b2ef77a2c23b",
-    "data/frontier_summary.json": "b22c6f35eb9eef7c36f5c0ee754620bde3a728659a899441b86048eb97e92b23",
-    "research/frontier/coverage.json": "f536708b35fd41b8905d8c259c9d064b54abc515e02ad99513deefb33b7500a3",
+    "certificates/m9_advanced.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
     "certificates/m9_classification.jsonl": "64eae6cd3068bcf2b7bedc828d14eeff81a5eaba1efb71cb12660a14cf8e9695",
-    "verification/m9/census_import.json": "079263320e56ce758fe4620708a2e44f38db0c4bf9ed6e9fa6015169124469a4",
-    "verification/m9/classification/summary.json": "38e5c406521b3fbb8ff1aab8570cdf15d5a01d85696ba618d7e775cb554044ae",
-    "verification/m9/replay/optimized_summary.json": "f27d99095f90c485056d8da2d978365edd3b52dae69d10e676b44447416ea66c",
-    "research/frontier/R6_4_155/center_cuts_certificate.json": "1ac1b1c0b381bd11a091c0f617e42246a837d6de76439007d94d92e17cf4c31f",
-    "research/frontier/R6_4_155/forced_twists_certificate.json": "7131bac60e1feef47e4edd3181df26a6f77188e0017bcc4130597d1fbf248bf5",
-    "research/frontier/R6_4_155/verify_center_cuts.py": "7391675b1ecb52303b21468f4ebbccb51627d509786256fb4f59191ae1992f71",
-    "research/frontier/R6_4_155/verify_low_checks.py": "e63e16b2b14fdcc1abfca2394e383a23891b7b2d2cc18a68c18b714ae9231370",
-    "research/frontier/R6_4_155/low_checks_certificate.json": "c49d8392e00bebb463a46733fb156b184a92b4ae1608db8adbe4081642c5f079",
-    "research/frontier/R6_4_155/MODELS_IDENTIFICATION.md": "4849e47dd0043aa170680451eb1f614e2711b495a82e8863e4423116a1f6e4e9",
-    "research/frontier/R6_8_1660/spin_profiles/verify_spin_profiles.py": "f05c7b60bde671506a3bdb4a00c5a4b39cd7d5039d386c6f846891bf91671757",
-    "research/frontier/R6_8_1660/spin_profiles/spin_profiles_certificate.json": "0df20d824ffee348947302c1e85b1971ae9795b736f11799f03f61d9f6b0c497",
-    "research/frontier/indicator_audit.md": "29cc44062eab12d898e105c48dbf4a0d22a3f137bae11b6321b514a80c6c069e",
-    "research/frontier/R6_8_1660/fermion_profiles/fermion_profiles_certificate.json": "a77b35ba6e069391a77ee41af9367b93e14254bf966b9720738106e601f2c48c",
-    "research/frontier/R6_8_1660/relative_center/relative_reduction_certificate.json": "c81f6ff8ca591259f88b7e638a5a0768c28fdfde49e34854dc12dfc0e0cf51e5",
-    "software/conformal_models.py": "85a76b29d4ec5f66392ff249f5b1c0fce3cdbfd5120226d671d4123cfa2a3ebf",
-    "software/center_integrality.py": "55745a55f164ba0053d9e159711326e4a8d83fe9502eacaa62169da2159c2b57",
+    "certificates/m9_structure_only.json": "f0db13768cec54abc6aa9f5b35b39ea8159e393c931c93cd6811d0d5f1bcbd37",
     "certificates/structural_exclusions.jsonl": "48b08a15905ee1930561c321ff764f213c0059e33fcb8de31ac79e61d2bbff87",
+    "data/conformal_positive_models.json": "b76aeb3499c5858e8f1eab67c1a40ce639fea9053688150e25a6b2ef77a2c23b",
+    "data/frontier_research_progress.json": "77781fee75dfbeb95085348255b780eb71d023c262964c3d382633436a619fbc",
+    "data/frontier_summary.json": "b22c6f35eb9eef7c36f5c0ee754620bde3a728659a899441b86048eb97e92b23",
     "research/exclusions/R6_5_1204/exact_trace_h6.json": "bc39f082a7811df93fe13de42fb73e5c32c492dcfe9b7faa7c0759c07d54ce65",
     "research/exclusions/R6_5_1204/forced_W.json": "41dec218f8654cd90c79fe5459e02f0621eb19a59dbcf222e34b481d4fa569f8",
     "research/exclusions/R6_5_1204/verify_exclusion.py": "4a2193343576834621bcce71b9d2d0ecfc260eb91e56ab3df1dcdfc44af8fc40",
+    "research/frontier/R6_4_155/CURRENT_STATUS.md": "2df3bbd2558a33beaef1f0f8ca0e3857ee9e7413ff8e113f9f80aa0e1b26eaab",
+    "research/frontier/R6_4_155/MODELS_IDENTIFICATION.md": "4849e47dd0043aa170680451eb1f614e2711b495a82e8863e4423116a1f6e4e9",
+    "research/frontier/R6_4_155/center_cuts_certificate.json": "1ac1b1c0b381bd11a091c0f617e42246a837d6de76439007d94d92e17cf4c31f",
+    "research/frontier/R6_4_155/forced_twists_certificate.json": "7131bac60e1feef47e4edd3181df26a6f77188e0017bcc4130597d1fbf248bf5",
+    "research/frontier/R6_4_155/low_checks_certificate.json": "c49d8392e00bebb463a46733fb156b184a92b4ae1608db8adbe4081642c5f079",
+    "research/frontier/R6_4_155/verify_center_cuts.py": "7391675b1ecb52303b21468f4ebbccb51627d509786256fb4f59191ae1992f71",
+    "research/frontier/R6_4_155/verify_low_checks.py": "e63e16b2b14fdcc1abfca2394e383a23891b7b2d2cc18a68c18b714ae9231370",
+    "research/frontier/R6_8_1660/CURRENT_STATUS.md": "5a0e7035b1941b19e49348ac600e6d1eb7bc9510aba1defd225370019465a2f4",
+    "research/frontier/R6_8_1660/fermion_profiles/fermion_profiles_certificate.json": "a77b35ba6e069391a77ee41af9367b93e14254bf966b9720738106e601f2c48c",
+    "research/frontier/R6_8_1660/relative_center/relative_reduction_certificate.json": "c81f6ff8ca591259f88b7e638a5a0768c28fdfde49e34854dc12dfc0e0cf51e5",
     "research/frontier/R6_8_1660/relative_center/structural_cuts_certificate.json": "5107b54f82fb31dc794db44ce8ec3dafc37d3dd0f5180bc09b2558f8302d178d",
-    "certificates/m9_advanced.jsonl": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
-    "certificates/m9_structure_only.json": "f0db13768cec54abc6aa9f5b35b39ea8159e393c931c93cd6811d0d5f1bcbd37",
-    "verification/m9/advanced/summary.json": "3421dc36ec8a7f16ae12fa2af56d92b147b161d2e7c621aebe80b404c63f00ba",
+    "research/frontier/R6_8_1660/spin_profiles/spin_profiles_certificate.json": "0df20d824ffee348947302c1e85b1971ae9795b736f11799f03f61d9f6b0c497",
+    "research/frontier/R6_8_1660/spin_profiles/verify_spin_profiles.py": "f05c7b60bde671506a3bdb4a00c5a4b39cd7d5039d386c6f846891bf91671757",
+    "research/frontier/README.md": "1321856bf2110b0289e83a6200e495346f15c1fc68d740457043ff7c887282a1",
+    "research/frontier/coverage.json": "f536708b35fd41b8905d8c259c9d064b54abc515e02ad99513deefb33b7500a3",
+    "research/frontier/indicator_audit.md": "051cd783c369ab3dc2a96d1164607114ee065ee966fb9ceada730516a9aec7dd",
+    "research/frontier/new_research/README.md": "5713e89d27a661d163efa3e66a399c6d731e392fa7fa6adc6b5a75862c2a3949",
+    "research/frontier/new_research/r155_categorical/canonical_condensation_note.md": "407ebfdcf1ce0c6568334b532b1431bcca3c2d78f52498895dde6b7c37231514",
+    "research/frontier/new_research/r155_categorical/check_full_fusion_categorical.py": "2704fb0b023485ae09672d87bba63967a8abfd5bddf39c878bc8d43d91a412f4",
+    "research/frontier/new_research/r155_categorical/full_fusion_categorical_receipt.json": "7e9c23caed4b625878ccc86744e0014df64660496ec2d18e91e09c4b8b59efa6",
+    "research/frontier/new_research/r155_categorical/full_fusion_etale_classification.md": "1a9b74bb7ca8e1aa92497b68f0cde377ad24f010842474afbe015d85382d16f9",
+    "research/frontier/new_research/r155_categorical/research_section.tex": "6242f947c96398106f40d1b977345d9277fa9a31b4f6ceadb80408c803a8dfc0",
+    "research/frontier/new_research/r155_categorical/rw_small_algebra_obstruction.md": "f007b7e3a7e6ffa0834c738ade5f550644268bf99d0be96f47069be021999be4",
+    "research/frontier/new_research/r155_generalized/B_certificate.json": "c455acdcc3052a152bc4e97dde7e406698b06ee7a760bd8bdb93ad5d07a29e25",
+    "research/frontier/new_research/r155_generalized/README.md": "81c721126bdc1cb4431f913d015fdceb9bdbec738b6afbb21876705f0b5f3f91",
+    "research/frontier/new_research/r155_generalized/certificate.json": "b76cdb3fbc8c4cc6c23d3e177be26d0a74d1adab114069b9e40b04b62678fca7",
+    "research/frontier/new_research/r155_generalized/check.py": "636f251b7ff086a4be9b0173b0212107b9c87f79e2d4e494a2e347e1fa4217fa",
+    "research/frontier/new_research/r155_generalized/check_B.py": "6ac5bb14a2aa183395e4e8dad623d92bfec65e5a28d1c90fc243b8b26c9e9796",
+    "research/frontier/new_research/r155_generalized/summarize.py": "f79fb5aa65eb681f727872f4d3b8e1a5578a0f9005dab97db1f5369b23b3c8ee",
+    "research/frontier/new_research/r155_generalized/summary_certificate.json": "cc687bb460243404d4bc5b6b88e27c7e58a12bd676e63b8fdb989240be7a88ab",
+    "research/frontier/new_research/r155_models/MODELS_UPDATE_20261001.md": "ee20075643ffc6aeb4319e6d3c76796d8afa10274271084966507717663ff96f",
+    "research/frontier/new_research/r155_models/MODULAR_IDENTIFICATION_STATUS.md": "2ea3aff798418297938c5bddcafaf60bd28e714f5a5b1a7ce253e5d51add0d37",
+    "research/frontier/new_research/r155_models/bicharacter_order32_certificate.json": "83bd492da11cf1d4fdac4d4c26ae11748f1ff1cf4b252a4bea73b5b867c313d6",
+    "research/frontier/new_research/r155_models/modular_audit/INDEPENDENT_AUDIT.md": "9c3d85d5e410a058b9143a2b074ebe30c7a6d49fac1a9ece20fef8fcd89cf838",
+    "research/frontier/new_research/r155_models/modular_audit/forgetful_ring_audit.json": "ab959be66a8fa6ced78513c774e2917febcf58c9e751fe4cbb2c85afc839beea",
+    "research/frontier/new_research/r155_models/modular_audit/forgetful_ring_audit.py": "0a54643ad62d6d3324e3222f2482faa23ff1a83d4ebcdbb7db6fb44d787cc558",
+    "research/frontier/new_research/r155_models/modular_audit/independent_full_s_audit.json": "ab25e005cb6fad60d2a9aefba1c0c28ce70f73f08b895ebe623e59d1f4696bfc",
+    "research/frontier/new_research/r155_models/modular_audit/independent_full_s_audit.py": "a0bd607ce2ac3f064b4e676d4012509f16b32d397ae75b8d51487737359b5418",
+    "research/frontier/new_research/r155_models/verify_order32_bosons.py": "538da9aaebbe5aa0fd3d6c9958ebf92b589aed85222d709ec22a38dc6a9d8199",
+    "research/frontier/new_research/r155_models/wzw_rank26.json": "12fe9b37ffc214537a08f14d3b0cd5c1cc3d0c6276b7129bef899432e539dfb3",
+    "research/frontier/new_research/r155_models/wzw_rank26.py": "5a1a085e65c526f43edb29017de7c84039cb400ca543383636e865e35a868667",
+    "research/frontier/new_research/r155_modular/README.md": "3276c86c7f1552952adb7f4f117935e888175a593ef388792e9efbe6eb574bb1",
+    "research/frontier/new_research/r155_modular/chi_i_completion.json": "12855cec14d30a38b1c34c6475c38aa7d850bdd888d3f534c47047599ffda40f",
+    "research/frontier/new_research/r155_modular/chi_i_completion.py": "98d5d5287744bd92000c64ab21b6dbc87fe93a0aa209bb085692f91ea577352b",
+    "research/frontier/new_research/r155_modular/exact_enumeration.json": "ffb9b7aa45b874d14378876b42dc3ecc98efa53e5187736d5b2f34aa7c7d4450",
+    "research/frontier/new_research/r155_modular/exact_enumeration.py": "edc0002e0c953869a332916938b73a38179099f556862c1f7b6efb9fb2b2bc18",
+    "research/frontier/new_research/r155_modular/full_checks.json": "86d914f002361744fe8ed4997b73d990b5cd2728b03c3228488cee31b9ce16be",
+    "research/frontier/new_research/r155_modular/full_checks.py": "d23ab130fa4d58aa25f6952275889c01c8793de1b24b61e390a4e8928eb7ef6c",
+    "research/frontier/new_research/r155_modular/higher_ordinary.json": "964b0a25b3142e990a71a17d237512a1a81b25d0b3787db015e01ee48f366c87",
+    "research/frontier/new_research/r155_modular/higher_ordinary.py": "7c22291f8209522342de131681bf5ca598a8098d2eaa2b1ae2da83c3b32ed142",
+    "research/frontier/new_research/r155_modular/matrix_blocks.json": "4d60f1cb28906216b503c1d24fcdff145d8777ca0bd0285e32b0739cd2b45c33",
+    "research/frontier/new_research/r155_modular/reconstruct.py": "d61d3b62936829436b1e7052e085bd0314bb9f107aafd58246a846969c92d839",
+    "research/frontier/new_research/r155_modular/reconstruction.json": "756280ec124cfd90bcfe59e29cd39f52d3df6702633d2cf394ee409757ec7cdb",
+    "research/frontier/new_research/r155_modular/sl2_8.json": "cc0493c92e2902198d119b3ce1596a02b38d425b4cc0632cb2946cd27e9398dd",
+    "research/frontier/new_research/r155_modular/trivial12.json": "cd34cbf2483efd0100df6f9a41780700a2e65c898d25fc4502c3547e8f34c6b2",
+    "research/frontier/new_research/r155_modular/trivial12.py": "a6159a9cbbad29c3e751a1a7893f7350c52f36b7eb7f58d3b836e98611fe1b8d",
+    "research/frontier/new_research/r1660_categorical/INDEPENDENT_AUDIT.md": "a9f757818ecaf5dfa11b3574104f689e8fc209a45bbff27ca9afe31968c8c9db",
+    "research/frontier/new_research/r1660_categorical/dual_actions_receipt.json": "25bfac4b5fa6d93cd545ea308154b0a2b0aea26aae2fa22c8a5f7306db2affb6",
+    "research/frontier/new_research/r1660_categorical/independent_audit.py": "8feb4ddb8e1d3e3c5946d2ad6420dbcb594a3cfb572653e5fc8bd856d5a5427b",
+    "research/frontier/new_research/r1660_categorical/independent_audit_receipt.json": "661ce74df406d4f9763536e87877f986c0b6c825130887fac52899f64f21e9ae",
+    "research/frontier/new_research/r1660_categorical/module_rank_and_morita_targets.tex": "5544573462337f732ec308cc995d788a4b75481cf47246dd4fd552e10c1f21dc",
+    "research/frontier/new_research/r1660_categorical/module_targets_receipt.json": "a94cfa59e221722352bb6ededb59a0baea9049ee8fa309d99f939cbcb6c42f54",
+    "research/frontier/new_research/r1660_categorical/morita_second_indicator_receipt.json": "fefe98552a5dfb03b50cb20f2dc5b11ea7eee3f2d445b7c96139e41e3a5b7014",
+    "research/frontier/new_research/r1660_categorical/reconstruct_dual_actions.py": "649d6e9d94f19b8830fd5f644cf12459b463b44ce2b7fc787746c251cf2af7f1",
+    "research/frontier/new_research/r1660_categorical/reconstruct_type_iii.py": "80326a40e631badc2c81997523286f051ba09708d1872ce52b2cbca016f1d1d8",
+    "research/frontier/new_research/r1660_categorical/type_iii_dual_receipt.json": "140531291bbdb97a249491a2112669cb744e77f26efb873c7db05548ee0c4840",
+    "research/frontier/new_research/r1660_categorical/verify_module_targets.py": "8ccaf1f3319d042160de0f1328289e3c6c94656c7655fd5e686aa756667ecfff",
+    "research/frontier/new_research/r1660_galois/REPORT.md": "093e9e2af680290b92edf5fc5357c8451cf14efae1e146dbb10c9990bab20e85",
+    "research/frontier/new_research/r1660_galois/certificate.json": "c55032e35ccc5aa285a12a1a79cb249ea4f3f836ee4534c494b0d3d2ab2d9d00",
+    "research/frontier/new_research/r1660_galois/research_section.tex": "ecb227cbbeedae31bb6dc6ef6625504b8598ab73f3f2ad90e565675c754fe445",
+    "research/frontier/new_research/r1660_galois/verify.py": "0a6ada1f2c872581adc0ce25ebfe698c9a0b50f4ced89adfc4a35896f8d69a89",
+    "research/frontier/new_research/r1660_indicators/GALOIS_CUT_AUDIT.md": "095aec0b321cd95d41dab7b317e25c25ad3e53c0d1854fc0e7414892ac8d315f",
+    "research/frontier/new_research/r1660_indicators/REPORT.md": "c72f21da8da90f28826f5be0f7060acf3897750abf13c8908ec59f6b7739238e",
+    "research/frontier/new_research/r1660_indicators/audit_galois_cut.py": "014ed205f013e37674226085e48c61c03655d32593828f6facf0f7b2b912530b",
+    "research/frontier/new_research/r1660_indicators/certificate.json": "37b0402fb6234ab47470141cb0ac137e406a4e7e374f3ffb13b6aca244f1bc67",
+    "research/frontier/new_research/r1660_indicators/galois_cut_audit.json": "fcf7eef569a3834dae55f3dc7f071abaf914c7bda60187c30afef62d7c8f92d7",
+    "research/frontier/new_research/r1660_indicators/verify.py": "8431e0853909559fc980878e10356d1bfcb97971c8d52dcb7abd839b85805583",
+    "research/frontier/new_research/replay.py": "5f2040a5a2ebac75be40ba13b1d934da159dd473490f8ae9a0e602c095922a5c",
+    "research/frontier/new_research/report/categorical_155.tex": "6242f947c96398106f40d1b977345d9277fa9a31b4f6ceadb80408c803a8dfc0",
+    "research/frontier/new_research/report/frontier_research.pdf": "17accb6c50648b85ac598b7795a0bcaec6a2dd47d71fb1138bdc35dbd3f76d0b",
+    "research/frontier/new_research/report/frontier_research.tex": "bd6e5ee85350b0c87f006673df4d9c111d5ea3eb8314d7c6c33cd922d1b174b0",
+    "research/frontier/new_research/report/galois_1660.tex": "ecb227cbbeedae31bb6dc6ef6625504b8598ab73f3f2ad90e565675c754fe445",
+    "research/frontier/new_research/report/morita_1660.tex": "19bf8375b6c3d380dbfc9360325e771e09bdd8cd913a1445ccd5b62fa48445a4",
+    "research/frontier/new_research/requirements.txt": "11c495c6fd22a834f03652c1be83034c9a747b39e16b60ffae0249f92e6e4a09",
+    "research/frontier/new_research/verification/r155_categorical__check_full_fusion_categorical.py.log": "7e9c23caed4b625878ccc86744e0014df64660496ec2d18e91e09c4b8b59efa6",
+    "research/frontier/new_research/verification/r155_generalized__check.py.log": "de689413f2c79aa94c8504d8579b4b27d22416e7843f2db0044ad8a822307c39",
+    "research/frontier/new_research/verification/r155_generalized__check_B.py.log": "36e7e56d69ccbc298860a9df638e33c63be4fc78c63055c94a4fa85ee93b328f",
+    "research/frontier/new_research/verification/r155_generalized__summarize.py.log": "cc687bb460243404d4bc5b6b88e27c7e58a12bd676e63b8fdb989240be7a88ab",
+    "research/frontier/new_research/verification/r155_models__modular_audit__forgetful_ring_audit.py.log": "e92bd6819472dfe70343ace4de82d7b3cdb6509b10d7147c6edbb65d918c32bb",
+    "research/frontier/new_research/verification/r155_models__modular_audit__independent_full_s_audit.py.log": "99a306bea84cb678c4446a911b6a859bda0cf6ae3ecc98ab55224a26880460e3",
+    "research/frontier/new_research/verification/r155_models__verify_order32_bosons.py.log": "ef3a068aa4dc7e60b16c5e74e3dbec78a19be53d2e33769d9f319316b4bf0ecd",
+    "research/frontier/new_research/verification/r155_models__wzw_rank26.py.log": "d25c308b46a0c0637e35946c225417da51fcec52d42fe63bc9399e94fdcf15dd",
+    "research/frontier/new_research/verification/r155_modular__chi_i_completion.py.log": "d99dc8a39504d0ee477bc2fc5a6e369ea2596d7e211e9e34ab56bb678bc26865",
+    "research/frontier/new_research/verification/r155_modular__exact_enumeration.py.log": "b194fc65cab864bac4278b924c4fc21b70d645fcdce112c8b0b03d1274b72c16",
+    "research/frontier/new_research/verification/r155_modular__full_checks.py.log": "896ed8ad03405833c52d86249495929401bafd1209fdf829bb57137c868c1c8d",
+    "research/frontier/new_research/verification/r155_modular__higher_ordinary.py.log": "4c5e08768d3bdf23df59a7b503fd8dd6cd3836ea86049ff06dfa7e2cf728b3dc",
+    "research/frontier/new_research/verification/r155_modular__reconstruct.py.log": "5f4c7aedeacc3ad190871f2bb147da79cf04daa2e0ea1d33f689ba0ebd9bd4c7",
+    "research/frontier/new_research/verification/r155_modular__trivial12.py.log": "bde5a1c6e0d4d414b723ecec41762e60b8f637ac0c56d6b547f6984e83d005ce",
+    "research/frontier/new_research/verification/r1660_categorical__independent_audit.py.log": "5fc3ae50d1c8d951b8c682c7f779d890b3d8384c609062b27c79c41e5dba111e",
+    "research/frontier/new_research/verification/r1660_categorical__reconstruct_dual_actions.py.log": "813b24b520b71c2af86a3f3e2516c6c743d840b7d5b7e44c973760af9e641698",
+    "research/frontier/new_research/verification/r1660_categorical__verify_module_targets.py.log": "884a9236078d332defa1c5c5cf10d3216283e8cd234fb0ec0778c7769c108fed",
+    "research/frontier/new_research/verification/r1660_galois__verify.py.log": "dc2fcff55e94636f4f68e46da2436b28d0e4a071aa7bf1af117624eaa51ca9b9",
+    "research/frontier/new_research/verification/r1660_indicators__audit_galois_cut.py.log": "fcf7eef569a3834dae55f3dc7f071abaf914c7bda60187c30afef62d7c8f92d7",
+    "research/frontier/new_research/verification/r1660_indicators__verify.py.log": "337dc4cbe972c9488b9b8d02e8dfba03ed5cbde04ba2cde1d14f0c4fdd716c61",
+    "research/frontier/new_research/verification/replay.json": "e4b3ee536089a72f3d10f75f87d4bfa14fdd6cd2b2021c7c486a5573a6a399bd",
+    "research/frontier/new_research/verification/replay_optimized.json": "a394af1b23f638d25687ea3fed4c0ee0545648afd3eb09904e18e360b687f683",
+    "software/center_integrality.py": "55745a55f164ba0053d9e159711326e4a8d83fe9502eacaa62169da2159c2b57",
+    "software/conformal_models.py": "85a76b29d4ec5f66392ff249f5b1c0fce3cdbfd5120226d671d4123cfa2a3ebf",
     "verification/m9/advanced/replay_optimized.json": "fe1d4abf77f16e9c518e5b89acbb6e03923ba05cc1687ced95c983fcab0ceebc",
-    "verification/m9/structure_replay_optimized.json": "2193c16890424f6a1900f2e39cc8d92a8c23078cbe771cfc64995ffee30d2315",
+    "verification/m9/advanced/summary.json": "3421dc36ec8a7f16ae12fa2af56d92b147b161d2e7c621aebe80b404c63f00ba",
+    "verification/m9/census_import.json": "079263320e56ce758fe4620708a2e44f38db0c4bf9ed6e9fa6015169124469a4",
+    "verification/m9/classification/summary.json": "38e5c406521b3fbb8ff1aab8570cdf15d5a01d85696ba618d7e775cb554044ae",
     "verification/m9/criteria_coverage.json": "690f73de9cea7e8f578ce8bbc654309e1c9187dcc97ad8c28943c8087944b9cb",
-    "verification/m9/criteria_coverage.md": "a105810349618339037f52fb1aa0e3654901e4da19b0e2ca767261befb8a5c3e"
+    "verification/m9/criteria_coverage.md": "a105810349618339037f52fb1aa0e3654901e4da19b0e2ca767261befb8a5c3e",
+    "verification/m9/replay/optimized_summary.json": "f27d99095f90c485056d8da2d978365edd3b52dae69d10e676b44447416ea66c",
+    "verification/m9/structure_replay_optimized.json": "2193c16890424f6a1900f2e39cc8d92a8c23078cbe771cfc64995ffee30d2315"
   },
   "documents": {
     "bibliography.tex": {
@@ -225,13 +319,33 @@
     },
     "chapters/frontier_155.tex": {
       "path": "papers/chapters/frontier_155.tex",
-      "sha256": "16c6f17fc330f4bb55fec011d3cefdc42938d3070b8850790c5de93e75c3cef3",
-      "bytes": 16020
+      "sha256": "2d238415996eadf9ae70bdca0bda6d9e039ae06657f3b7549751f43f2721a6b1",
+      "bytes": 16132
+    },
+    "chapters/frontier_155_categorical.tex": {
+      "path": "papers/chapters/frontier_155_categorical.tex",
+      "sha256": "67f8e4d607f8f10e39fd77c6eff04e9cf52eb348acfe0d46c457a52baea8573e",
+      "bytes": 11977
+    },
+    "chapters/frontier_155_modular.tex": {
+      "path": "papers/chapters/frontier_155_modular.tex",
+      "sha256": "9f0c18eb64e04448f8ae964946d40b82981d4b703f33c7894c2248032c2c6384",
+      "bytes": 8017
     },
     "chapters/frontier_1660.tex": {
       "path": "papers/chapters/frontier_1660.tex",
       "sha256": "f32494405b95dc34d8cd192efc8de95244a97415d2ad8ae4ba38ba7c77a57902",
       "bytes": 29923
+    },
+    "chapters/frontier_1660_galois.tex": {
+      "path": "papers/chapters/frontier_1660_galois.tex",
+      "sha256": "b9daca0c55409ff7526e7f5788c6c7faa7c2b968993fb0facd0437677c9e8ea6",
+      "bytes": 5602
+    },
+    "chapters/frontier_1660_morita.tex": {
+      "path": "papers/chapters/frontier_1660_morita.tex",
+      "sha256": "400a5aa3f989ba52baf270bc17b60dc350feb5ee3036cfbe427a00a10de80bee",
+      "bytes": 19761
     },
     "chapters/frontier_spherical_reduction.tex": {
       "path": "papers/chapters/frontier_spherical_reduction.tex",
@@ -335,8 +449,8 @@
     },
     "generated_allocation.tex": {
       "path": "papers/generated_allocation.tex",
-      "sha256": "9bf47b613d329806a764f2f836ef5cd4e973804345ae170eb98513d961bd872f",
-      "bytes": 2340
+      "sha256": "d213be86e653266447dfba787a4f1804ff0b0a12325e0ed9225726568a2cea15",
+      "bytes": 2345
     },
     "generated_character_applications.tex": {
       "path": "papers/generated_character_applications.tex",
@@ -375,13 +489,13 @@
     },
     "manuscript.pdf": {
       "path": "papers/manuscript.pdf",
-      "sha256": "d86407cd3afb9a394fad968013d28782dc06930dd0845cad6a1052546157590d",
-      "bytes": 1266506
+      "sha256": "9a9022abba65da1600db4a40df6131c77f42096bf0a2bb09df59bafda08af8f6",
+      "bytes": 1345402
     },
     "manuscript.tex": {
       "path": "papers/manuscript.tex",
-      "sha256": "6268c335942a57ddeec9e59d8aaf328d4a032c3ef9be4efb4e8a0de2c19022c9",
-      "bytes": 1740
+      "sha256": "b7b9249a3246e930efec0d78ae533ff3f554aadee02b125a76a6e72b156945a6",
+      "bytes": 2223
     },
     "preamble.tex": {
       "path": "papers/preamble.tex",
@@ -390,13 +504,13 @@
     },
     "verification_guide.pdf": {
       "path": "papers/verification_guide.pdf",
-      "sha256": "c2ea7330c2d11e5485883d8bed1b5309a08cda3a8ccb598dad50f8a4f71be7c6",
-      "bytes": 229732
+      "sha256": "b7bbe595849ff7db057287744cd4d62c78f04cff68c1034fdc71fce035f622d9",
+      "bytes": 231150
     },
     "verification_guide.tex": {
       "path": "papers/verification_guide.tex",
-      "sha256": "d6cd78d40a261f0540e3a964813e3f4e857853d942cf18818c7488419fff5960",
-      "bytes": 10952
+      "sha256": "608d1e12813dc098f8822d739852fd4d414767e080bb4516a75fd4aa5bcb018d",
+      "bytes": 12158
     }
   },
   "completion_files_sha256": {

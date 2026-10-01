@@ -23,10 +23,10 @@ All 8,809 rings of exact multiplicity nine are excluded for general complex fusi
 
 ## Remaining rings
 
-- `R6_4_155`: One rank-52 center profile remains, with forced twists of exponent 24 and four duality choices. This is not yet complete modular data or a model.
-- `R6_8_1660`: One relative-center based ring and 1670 labelled center profiles remain. A tensor involution and Vafa/indicator constraints remove 57 more profiles.
+- `R6_4_155`: The unique rank-26 semion-centralizer modular candidate is completely reconstructed, with nonnegative integral Verlinde coefficients (maximum 9), ten self-dual objects, and all stated finite Vafa and indicator checks passing. The rank-52 center would have twenty self-dual objects. No categorification is known.
+- `R6_8_1660`: One relative-center based ring and 1669 labelled center profiles remain, in branches 163, 753, 753. Every indecomposable module category has six simples; exact Morita and indicator reductions leave three possible dual based rings. No categorification is known.
 
-The [frontier index](research/frontier/README.md) gives the current evidence. The [model catalogue](data/model_catalog.csv) identifies actual categorical constructions and all 216 tensor coefficients, including the three conformal-embedding models.
+The [frontier index](research/frontier/README.md) gives the current evidence and distinguishes it from frozen historical stages. The [model catalogue](data/model_catalog.csv) identifies actual categorical constructions and all 216 tensor coefficients, including the three conformal-embedding models.
 
 ## Verification
 
@@ -40,6 +40,7 @@ python -O software/m9_completion_controls.py
 python -O software/conformal_models.py --verify
 python -O software/release_consistency.py
 python -O software/frontier_replay.py --check-receipts
+python research/frontier/new_research/replay.py
 ```
 
 The new certificate replay disables numerical optimizers. Historical proofs retain their original exact verification evidence; a receipt audit checks source hashes and predicates and does not rerun the mathematics. For a fresh full-ledger check, use `python -O verify.py --jobs 2 --out verification/current/full_recheck.jsonl`. The verification guide distinguishes these scopes and gives the remaining replay commands.

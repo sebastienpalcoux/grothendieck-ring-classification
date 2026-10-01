@@ -25,4 +25,4 @@ rank-specific software directory.
 For the rank-six update, start with its [README](rank6/README.md),
 [models](rank6/data/model_catalog.csv) and [current frontier](rank6/research/frontier/README.md).
 The authoritative ledger is `rank6/data/decisions.json`. The archive is
-`Rank6_Categorification_M9_Complete_2026-10-01.zip`. Source-bound certificates retain their internal paths.
+`Rank6_Categorification_M9_Frontier_2026-10-01.zip`. Source-bound certificates retain their internal paths.

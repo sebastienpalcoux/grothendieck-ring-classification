@@ -121,7 +121,10 @@ def main():
     release = json.loads((repo / "supplements/rank6/verification/release_summary.json").read_text())
     archive_name = status["inputs"]["rank6"]["current_bundle"]
     identity = json.loads((repo / "data/rank6_release_identity.json").read_text())
-    coverage = json.loads((repo / "supplements/rank6/data/frontier_summary.json").read_text())
+    coverage_relative = "data/frontier_research_progress.json"
+    if not (repo / "supplements/rank6" / coverage_relative).is_file():
+        coverage_relative = "data/frontier_summary.json"
+    coverage = json.loads((repo / "supplements/rank6" / coverage_relative).read_text())
     release_counts = {record["multiplicity"]: record for record in release["counts"]}
     release_bands = sorted(release_counts)
     if not release_bands or len(release_counts) != len(release["counts"]) or release_bands != list(range(1, release_bands[-1] + 1)):
@@ -154,7 +157,7 @@ def main():
         "realized": release["positive"], "unresolved": release["unresolved"],
         "analyzed_through": release_bands[-1],
         "complete_through": next(record["through"] for record in scope if record["rank"] == 6),
-        "research_summary": identity["research_summary"],
+        "research_summary": coverage.get("research_summary", identity["research_summary"]),
         "research_cases": [{key: case[key] for key in ("id", "categorical_status", "public_summary")}
                            for case in coverage["cases"]],
         "research_coverage_path": "data/rank6_research_coverage.json",
@@ -187,7 +190,7 @@ def main():
     (HERE / "dist/data").mkdir(parents=True, exist_ok=True)
     for source_name, target_name in (("data/unresolved_tensors.json", "rank6_unresolved_tensors.json"),
                                      ("verification/release_summary.json", "rank6_release_summary.json"),
-                                     ("data/frontier_summary.json", "rank6_research_coverage.json")):
+                                     (coverage_relative, "rank6_research_coverage.json")):
         shutil.copy2(repo / "supplements/rank6" / source_name, HERE / "dist/data" / target_name)
     for name, target in (("manuscript.pdf", "rank6.pdf"), ("verification_guide.pdf", "rank6_guide.pdf")):
         shutil.copy2(repo / "manuscripts/rank6/papers" / name, HERE / "dist/papers" / target)

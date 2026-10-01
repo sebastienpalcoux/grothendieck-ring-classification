@@ -33,8 +33,11 @@ The rank-three manuscript proves unrestricted five-ring necessity directly, toge
 
 The classification counts come from the current release ledger; categorical
 models, exact fusion tensors and references come from the model catalogue.
-The residual summary is generated from
-`supplements/rank6/data/frontier_summary.json`. The snapshot includes one
+The residual summary uses
+`supplements/rank6/data/frontier_research_progress.json` when present, with
+`data/frontier_summary.json` as its historical fallback. The current overlay
+updates research progress without changing the frozen historical receipts.
+The snapshot includes one
 current archive, the manuscript and verification guide; superseded public
 archives are removed. Validation compares all displayed counts with the
 classification ledger and model catalogue and checks the archive and PDF

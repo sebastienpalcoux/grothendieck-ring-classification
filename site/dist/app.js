@@ -288,7 +288,7 @@ function renderPapers() {
     }
     $("#rank6-frontier").hidden = !frontierRows.children.length;
     const summary = $("#rank6-release");
-    summary.replaceChildren(element("strong", "", "Rank six, multiplicity at most eight. "));
+    summary.replaceChildren(element("strong", "", `Rank six, multiplicity at most ${release.analyzed_through}. `));
     summary.append(document.createTextNode(`${fmt.format(release.excluded)} excluded, ${release.realized} realized, ${release.unresolved} unresolved. ${release.research_summary || ""} `));
     const archive=element("a", "", "Download manuscript and certificates");
     archive.href=`./${release.archive.path}`;archive.download="";summary.append(archive);

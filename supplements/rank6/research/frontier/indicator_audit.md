@@ -1,7 +1,8 @@
 # Indicator and rotation audit: precise scope
 
 Both rings remain unresolved. The checks below impose necessary conditions;
-passing them does not provide complete modular data, associators, or a category.
+passing them does not provide associators or a category. R155 now has a complete
+necessary modular candidate; R1660 still has partial center data.
 They use the established spherical/pseudo-unitary reductions, without assuming
 unitarity. This inventory does not claim that all indicators have been exhausted.
 
@@ -26,11 +27,19 @@ The round-nine [low-data verifier](R6_4_155/verify_low_checks.py) and its
 | Character duality | The two distinct nonreal character rows and their associated central objects | Dual pairs (16,17) and (18,19) are forced in the retained ordering |
 
 The generalized rotations include the correction for nontrivial target twist.
-The duality result leaves four patterns, with 20, 24, or 28 self-dual simples in
-the full center. Spherical duality uses `nu_n(V*)=nu_n(V)`, without complex
-conjugation. These results concern known rows and fusion matrices only: most
-center fusion matrices and S entries remain unknown. The 625 equations are not
-all Vafa equations for the rank-26 or rank-52 category.
+At that historical stage, the duality result left four patterns, with 20, 24,
+or 28 self-dual simples in the full center. The complete reconstruction now
+forces twenty (ten in the rank-26 centralizer). Spherical duality uses `nu_n(V*)=nu_n(V)`, without complex
+conjugation. These historical checks used only the then-known rows and fusion matrices.
+They have now been supplemented by the complete exact reconstruction: all
+26³ Verlinde coefficients are nonnegative integers (maximum 9), all 456,976
+ordered rank-26 Vafa equations pass, and all 676 restriction products agree.
+The completed rank-26 candidate passes 182 ordinary cyclic spectra at orders
+2, 3, 4, 6, 8, 12, 24, all 17,576 generalized second-indicator blocks, and
+all 17,576 degree-one identities. The full rank-52 center passes 7,176
+generalized cyclic spectra (52 central targets, six original simples, orders
+2–24) and 312 degree-one normalization identities. See the
+[new research](new_research/README.md) for exact matrices, conventions and replays.
 
 ## R6_8_1660
 
@@ -44,7 +53,9 @@ The [new spin-profile reduction](R6_8_1660/spin_profiles/README.md),
 [verifier](R6_8_1660/spin_profiles/verify_spin_profiles.py), and
 [receipt](R6_8_1660/spin_profiles/spin_profiles_certificate.json) remove another
 57 profiles: 18 by involution parity and 39 by the spin/field condition.
-The remaining branch counts are 164,753,753, totaling **1670**.
+That stage left branch counts 164, 753, 753, totaling **1670**. The subsequent
+signed Galois–fermion four-divisibility test removes raw profile 133 in low
+frame zero, leaving **1669**, in branches **163, 753, 753**.
 The spin condition combines a homogeneous-packet Anderson–Moore–Vafa equation,
 its mod-3 specialization, and a sixteenth-indicator field constraint.
 The replay checks rejected charge branches by a second exact recursion;
@@ -72,8 +83,9 @@ indicator, or modular-data feasibility for every remaining profile, and are not
 used as such in the profile certificates. In particular, a global low-frame-zero
 witness cannot settle a new phase constraint in low frame one.
 
-Neither ring has undergone all generalized indicator tests for arbitrary high
-central targets. Indicator periodicity also does not by itself certify every
-cyclic eigenspace condition at arbitrarily large tensor order. The retained Vafa
-checks use available partial fusion data or aggregated identities; the remaining
-unknown fusion coefficients prevent treating them as a full Vafa solution.
+For R155 the completed data now cover all central targets in the finite scopes
+stated above; for R1660 high-target checks remain partial. Indicator periodicity
+does not by itself certify every cyclic eigenspace condition at arbitrarily
+large tensor order. All ordered rank-26 Vafa equations have been checked for
+R155. R1660 still uses partial fusion data and aggregated Vafa identities, so
+its surviving profiles must not be treated as complete Vafa solutions.

@@ -1,0 +1,385 @@
+{
+  "passed": true,
+  "optimizer_used": false,
+  "seconds": 6.169084310531616,
+  "cases": [
+    {
+      "type": "II",
+      "subtract_only": [
+        "I",
+        "G"
+      ],
+      "residual_rank": 4,
+      "pivots": [
+        7,
+        25,
+        24,
+        13
+      ],
+      "bounds": [
+        2,
+        3,
+        3,
+        3
+      ],
+      "candidates": 4,
+      "complete_Gram_bases": 1,
+      "largest_orthogonal_set": 4,
+      "accepted": 1,
+      "same_as_original_exact": true,
+      "type_III_forced_columns_appear_automatically": true
+    },
+    {
+      "type": "III_mixed",
+      "subtract_only": [
+        "I",
+        "G"
+      ],
+      "residual_rank": 4,
+      "pivots": [
+        7,
+        6,
+        13,
+        25
+      ],
+      "bounds": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "candidates": 4,
+      "complete_Gram_bases": 1,
+      "largest_orthogonal_set": 4,
+      "accepted": 1,
+      "same_as_original_exact": true,
+      "type_III_forced_columns_appear_automatically": true
+    },
+    {
+      "type": "III_same",
+      "subtract_only": [
+        "I",
+        "G"
+      ],
+      "residual_rank": 6,
+      "pivots": [
+        7,
+        6,
+        13,
+        25,
+        24,
+        10
+      ],
+      "bounds": [
+        1,
+        1,
+        1,
+        2,
+        2,
+        2
+      ],
+      "candidates": 12,
+      "complete_Gram_bases": 2,
+      "largest_orthogonal_set": 6,
+      "accepted": 2,
+      "same_as_original_exact": true,
+      "type_III_forced_columns_appear_automatically": true
+    },
+    {
+      "type": "IV_mixed",
+      "subtract_only": [
+        "I",
+        "G"
+      ],
+      "residual_rank": 4,
+      "pivots": [
+        7,
+        6,
+        13,
+        31
+      ],
+      "bounds": [
+        1,
+        1,
+        2,
+        3
+      ],
+      "candidates": 12,
+      "complete_Gram_bases": 3,
+      "largest_orthogonal_set": 4,
+      "accepted": 2,
+      "same_as_original_exact": true,
+      "type_III_forced_columns_appear_automatically": true
+    },
+    {
+      "type": "IV_same",
+      "subtract_only": [
+        "I",
+        "G"
+      ],
+      "residual_rank": 6,
+      "pivots": [
+        7,
+        6,
+        13,
+        25,
+        10,
+        31
+      ],
+      "bounds": [
+        1,
+        1,
+        2,
+        2,
+        2,
+        3
+      ],
+      "candidates": 12,
+      "complete_Gram_bases": 0,
+      "largest_orthogonal_set": 4,
+      "accepted": 0,
+      "same_as_original_exact": true,
+      "type_III_forced_columns_appear_automatically": true,
+      "pivot_inverse_denominator": 2,
+      "scaled_inverse_pivot": [
+        [
+          8,
+          6,
+          0,
+          -2,
+          -2,
+          -2
+        ],
+        [
+          6,
+          8,
+          0,
+          -2,
+          -2,
+          -2
+        ],
+        [
+          0,
+          0,
+          2,
+          0,
+          0,
+          -1
+        ],
+        [
+          -2,
+          -2,
+          0,
+          2,
+          0,
+          0
+        ],
+        [
+          -2,
+          -2,
+          0,
+          0,
+          2,
+          0
+        ],
+        [
+          -2,
+          -2,
+          -1,
+          0,
+          0,
+          2
+        ]
+      ],
+      "candidate_pivot_vectors": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          0,
+          1,
+          1,
+          1
+        ],
+        [
+          0,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          0,
+          1,
+          1,
+          1,
+          1,
+          2
+        ],
+        [
+          1,
+          0,
+          0,
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          1,
+          1,
+          1,
+          2
+        ],
+        [
+          1,
+          1,
+          1,
+          2,
+          2,
+          2
+        ],
+        [
+          1,
+          1,
+          1,
+          2,
+          2,
+          3
+        ],
+        [
+          1,
+          1,
+          2,
+          2,
+          2,
+          3
+        ]
+      ],
+      "orthogonality_edges": [
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          6
+        ],
+        [
+          0,
+          11
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          9
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          2,
+          7
+        ],
+        [
+          2,
+          10
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          3,
+          11
+        ],
+        [
+          4,
+          7
+        ],
+        [
+          4,
+          10
+        ],
+        [
+          5,
+          8
+        ],
+        [
+          5,
+          9
+        ],
+        [
+          6,
+          11
+        ],
+        [
+          7,
+          10
+        ],
+        [
+          8,
+          9
+        ]
+      ]
+    }
+  ],
+  "indicator_enumeration": [
+    {
+      "nondual_pair": "a",
+      "solutions": []
+    },
+    {
+      "nondual_pair": "b",
+      "solutions": [
+        [
+          2,
+          2,
+          2
+        ]
+      ]
+    }
+  ],
+  "formal_codegree_saturation": true
+}
