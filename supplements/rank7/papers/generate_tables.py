@@ -17,8 +17,8 @@ for m in range(1,summary['max_multiplicity']+1):
     c=summary['status_counts'][str(m)]
     lines.append(f"{m} & {summary['ring_counts'][str(m)]} & {c.get('excluded',0)} & {c.get('unitarily_realized',0)} & {c.get('unresolved',0)}"+r'\\')
 lines.extend([r'\bottomrule',r'\end{tabular}',r'\end{table}','',
-              r'\begin{table}[H]',r'\centering',
-              r'\caption{Sequential exclusion counts, charged only to the first successful criterion. Costs generally rise toward the bottom.}\label{tab:stages}',
+              r'\begin{table}[H]',r'\centering',r'\small',
+              r'\caption{Sequential exclusion counts, charged only to the first successful criterion. The final six rows record the further theoretical update.}\label{tab:stages}',
               r'\begin{tabular}{@{}l r r r r@{}}',r'\toprule',
               r'Criterion & $m=1$ & $m=2$ & $m=3$ & $m=4$\\',r'\midrule'])
 names={'near_group':'Near-group theorem',
@@ -27,13 +27,26 @@ names={'near_group':'Near-group theorem',
        'lower_rank_subring':'Closed rank-four/five subring',
        'dnumber':'Formal-codegree $d$-number',
        'subcategory_divisibility':'Subcategory dimension quotient',
-       'oriented_dimension_order':'Oriented dimension order'}
+       'oriented_dimension_order':'Oriented dimension order',
+       'localized_TPE_F210':'Localized triangular-prism equations',
+       'solvable_minkowski_support':'Solvability and support inequality',
+       'half_partition_tannakian':'Half-partition Tannakian criterion',
+       'odd_pointed_tannakian_120':'Odd pointed group in dimension 120',
+       'solvable_double_equivariantization_orbit_obstruction':'Double equivariantization in dimension 52',
+       'D96_solvable_order16_orbit_obstruction':'Order-sixteen orbit obstruction'}
 pretty_models={
     'Vec(C7)':r'$\operatorname{Vec}(C_7)$',
     'TY(C6)':r'$\operatorname{TY}(C_6)$',
     'Rep(D16)':r'$\operatorname{Rep}(D_{16})$',
     'Rep(D22)':r'$\operatorname{Rep}(D_{22})$',
     'Rep(SD16)':r'$\operatorname{Rep}(SD_{16})$',
+    'Rep(A6)':r'$\operatorname{Rep}(A_6)$',
+    'Rep(C13rtimesC4)':r'$\operatorname{Rep}(C_{13}\rtimes C_4)$',
+    'Adj(SU(3)_5)':r'$\operatorname{Adj}(\mathrm{SU}(3)_5)$',
+    'TY(C3)-parity-equivariantization':r'TY parity equivariantization (\S\ref{sec:tyequiv})',
+    'TY(C3)-twisted-C4-equivariantization':r'TY twisted-$C_4$ equivariantization (\S\ref{sec:tyequiv})',
+    'Vec(Q8)^S3':r'$\operatorname{Vec}(Q_8)^{S_3}$',
+    'C(Q8rtimesS3,Chern,S3,1)':r'Twisted quaternion model (\S\ref{sec:chern})',
     'Rep(S5)':r'$\operatorname{Rep}(S_5)$',
     'Rep(SL2(F3))':r'$\operatorname{Rep}(SL_2(\mathbb F_3))$',
     'Rep(C13rtimesC3)':r'$\operatorname{Rep}(C_{13}\rtimes C_3)$',
@@ -49,7 +62,7 @@ for stage in summary['stage_order']:
     c=summary['stage_counts'][stage]
     lines.append(names[stage]+' & '+' & '.join(str(c.get(str(m),0)) for m in range(1,5))+r'\\')
 lines.extend([r'\bottomrule',r'\end{tabular}',r'\end{table}','',
-              r'\begin{table}[H]',r'\centering',
+              r'\begin{table}[H]',r'\centering',r'\small',
               r'\caption{Unitary model constructions identified by exact full-tensor based-ring isomorphism. Each row denotes a ring, not a count of categories.}\label{tab:models}',
               r'\begin{tabular}{@{}l l@{}}',r'\toprule',
               r'Census ID & Explicit model\\',r'\midrule'])

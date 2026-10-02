@@ -1,0 +1,106 @@
+{
+  "algorithm": "bjt-scott-all-constituents-v1",
+  "data_sha256": "769250938d8bd0c8a251aaacc18832174af8175ed9b44fc487ec3f6d04357353",
+  "modulus": 144,
+  "results": {
+    "4,20": {
+      "a": 4,
+      "b": 20,
+      "dimension": 6,
+      "profile_sha256": "dce9cd5f44589392b105957ba37f4fd45164bbfbf79c0e9b3a3e6f7f66f0d792",
+      "spectra_mod144": [
+        [
+          [
+            0,
+            1
+          ],
+          [
+            18,
+            1
+          ],
+          [
+            54,
+            1
+          ],
+          [
+            72,
+            1
+          ],
+          [
+            108,
+            2
+          ]
+        ],
+        [
+          [
+            0,
+            2
+          ],
+          [
+            48,
+            2
+          ],
+          [
+            96,
+            2
+          ]
+        ],
+        [
+          [
+            0,
+            3
+          ],
+          [
+            72,
+            3
+          ]
+        ]
+      ],
+      "verdict": "PASS_NECESSARY",
+      "witness": [
+        [
+          [
+            1,
+            1,
+            1,
+            1,
+            2
+          ],
+          [
+            2,
+            2,
+            2
+          ],
+          [
+            3,
+            3
+          ]
+        ]
+      ],
+      "elapsed_seconds": 0.000781,
+      "states_proved_impossible": 0,
+      "recursive_calls": 1,
+      "constituent_patterns_checked": 0
+    }
+  },
+  "scope": "Necessary B3 spectral compatibility for the retained positive-ribbon rank26 modular candidate. Passing is not a model. A candidate obstruction requires independent exact replay before any classification change.",
+  "summary": {
+    "recorded_blocks": 1,
+    "verdicts": {
+      "PASS_NECESSARY": 1
+    },
+    "requested_blocks_this_run": 1,
+    "not_completed_this_run": 0
+  },
+  "last_run_parameters": {
+    "seconds_per_block": 2.0,
+    "budget_seconds": 5.0,
+    "max_states": 50000,
+    "min_dimension": 5,
+    "max_dimension": 308,
+    "only": [
+      4,
+      20
+    ]
+  }
+}

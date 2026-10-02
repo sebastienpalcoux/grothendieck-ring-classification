@@ -39,19 +39,24 @@ replay of every earlier proof. See [verification instructions](VERIFY.md).
 
 | Unresolved ring | Necessary reduction |
 |---|---|
-| `R6_4_155` | The unique rank-26 semion-centralizer modular candidate is completely reconstructed, with nonnegative integral Verlinde coefficients (maximum 9), ten self-dual objects, and all stated finite Vafa and indicator checks passing. The rank-52 center would have twenty self-dual objects. No categorification is known. |
-| `R6_8_1660` | One relative-center based ring and 1669 labelled center profiles remain, in branches 163, 753, 753. Every indecomposable module category has six simples; exact Morita and indicator reductions leave three possible dual based rings. No categorification is known. |
+| `R6_4_155` | The unique rank-26 modular candidate remains feasible. All 70 small B3 spectral-partition tests pass; neither these tests nor the modular datum constructs a category. No model or general exclusion is known. Exact probability couplings prove every Lim Corollary 3.4 inequality for every exponent and nonnegative vector. |
+| `R6_8_1660` | Exact graded induction-packet identities eliminate 533 further center profiles, leaving 1,136 in branches 120, 508, 508. Every dominant pivotal tensor quotient of the positive spherical form would be an equivalence. Three Morita-dual based rings remain possible; none admits a braiding. No model or general exclusion is known. Exact probability couplings prove every Lim Corollary 3.4 inequality for every exponent and nonnegative vector. |
 
 The verified rank-seven release through
-multiplicity four has SHA-256 `3377a10544cfeb356b5fb3c391e73f61bb7794c664c504015e55c768e314abbe`.
-Its previous negative-certificate replays are preserved; the three additional
-AnyonWiki associators have independent exact pentagon, invertibility, unit
-and rigidity checks. Multiplicity one is complete with thirteen realized rings.
-The rank-eight release through multiplicity two has SHA-256
-`700aa0188c6c4060c0cb239cf08a2007dca3dae8a15b77e8a00d52971839dd19` and adds five sourced models with
-exact full-tensor matches. The remaining 75
-and 111 cases respectively are
-categorification questions. See the [positive update](../evidence/anyonwiki/README.md).
+multiplicity four has SHA-256 `46fa0cec1af4ff3cbe97caf6deb06123fc7443fe3f50fec66a9d5da1d831f138`.
+Multiplicity one is complete with thirteen realized rings. Its earlier exact
+AnyonWiki associator replays are retained; the October 2 update adds
+7 unitary models and
+9 general exclusions. The rank-eight release through
+multiplicity two has SHA-256 `47ecdfa66941868c3376711c609d3b9a078914720aac05dbd6d020bdbfc02d62`.
+Its new categorical constructions are checked by full multiplication tensors,
+and the grading obstructions have short general proofs with finite exact replays.
+The remaining 59 and
+81 cases respectively are general
+categorification questions. Earlier unaffected records are checked for exact
+preservation, and historical full runs are distinguished from the finite update.
+See the [October 2 evidence](../evidence/residual_20261002/README.md) and
+[earlier AnyonWiki evidence](../evidence/anyonwiki/README.md).
 
 | Rank | Census source | Census complete through | Classification ledger | Classification status |
 |---:|---|---:|---|---|
@@ -60,8 +65,8 @@ categorification questions. See the [positive update](../evidence/anyonwiki/READ
 | 4 | `results/rank4/tables.txt.gz` | 128 | `certificates/classification.jsonl.gz` | Complete through 128 |
 | 5 | `results/rank5/tables.txt.gz` | 20 | Revised `data/decisions_all.json` | Complete general classification through 20 |
 | 6 | `results/rank6/tables.txt.gz` | 9 | `supplements/rank6/data/decisions.json` | Complete through 3; exact bands 1, 2, 3, 5, 6, 7, 9; 2 unresolved through 9 |
-| 7 | `results/rank7/tables.txt.gz` | 4 | `supplements/rank7/output/rank7_ledger.json` | Complete at multiplicity one; higher bands partial; 75 unresolved |
-| 8 | `results/rank8/tables.txt.gz` | 2 | `supplements/rank8/data/decisions.json` | Partial at both bands; 111 unresolved |
+| 7 | `results/rank7/tables.txt.gz` | 4 | `supplements/rank7/output/rank7_ledger.json` | Complete at multiplicity one; higher bands partial; 59 unresolved |
+| 8 | `results/rank8/tables.txt.gz` | 2 | `supplements/rank8/data/decisions.json` | Partial at both bands; 81 unresolved |
 
 The original source manifest is `results/census.json`. Its count rows are
 imported by `tools/generate_counts.py`, with exact bounds and cumulative sums
@@ -81,8 +86,8 @@ with its [arithmetic checker](../supplements/rank3/audit_rank3.py).
 | 4 | `969a2a5a84b794a3da1d9cd3978f92324d631760f503f5d208011923a723920f` | 889,530 | 889,515 excluded; 15 realized |
 | 5 | `9261917451d469ece9929a1756f505924cf84adf34e79a0d2e6f68fed43f55cf` | 40,999 | 40,982 excluded; 17 realized; 0 unresolved |
 | 6 | `abb36cb0e7f9196e0a231cb85a601c82a1c8fd398996f77a8961487a7ca692e5` | 25,421 | 25,362 excluded; 56 unitary; 1 spherical non-pseudo-unitary; 2 unresolved |
-| 7 | `4c0ff9f0cd73f994a941ef77c278c1d08f0ddc0409ea5ba9f50356a6388bf472` | 4,201 | 4,107 excluded; 19 unitary models; 75 unresolved |
-| 8 | `ea80964db4b32b1c6fbc79e0822ad4fa8041dddb81fd6dd2a09fd76713ef39d0` | 973 | 824 excluded; 38 unitary models; 111 unresolved |
+| 7 | `c99be817f8d43dd634a619fd74520506f9a1f968ff9e4dcb5e04999f84360bed` | 4,201 | 4,116 excluded; 26 unitary models; 59 unresolved |
+| 8 | `ffaed1193cfcea77de029dcc64254c1775ea85a1e279fff7acd6de9a15164ecc` | 973 | 832 excluded; 60 unitary models; 81 unresolved |
 
 The rank-four list in the attachment contains a header record and 889,530
 individual records. Each ledger partition matches its census total at each

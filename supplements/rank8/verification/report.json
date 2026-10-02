@@ -5,16 +5,16 @@
     {
       "multiplicity": 1,
       "fusion_rings": 96,
-      "excluded": 41,
-      "realized": 30,
-      "unresolved": 25
+      "excluded": 45,
+      "realized": 48,
+      "unresolved": 3
     },
     {
       "multiplicity": 2,
       "fusion_rings": 877,
-      "excluded": 783,
-      "realized": 8,
-      "unresolved": 86
+      "excluded": 787,
+      "realized": 12,
+      "unresolved": 78
     }
   ],
   "criterion_counts": {
@@ -36,11 +36,17 @@
     "m2:rank8_noncomm_dnumber": 17,
     "m2:rank_two": 10,
     "m2:subring_dimension": 1,
-    "m2:zero_spectrum": 80
+    "m2:zero_spectrum": 80,
+    "m1:graded_brauer_picard": 1,
+    "m2:graded_fiber_functor": 2,
+    "m2:graded_brauer_picard": 2,
+    "m1:solvable_equivariantization": 3
   },
   "fully_checked": true,
   "scope": "all exact rank-eight census records at multiplicities 1 and 2; unresolved cases are not classified",
   "previous_negative_records_unchanged": true,
   "positive_import_verified": true,
-  "verification_method": "Previous fully checked release plus exact preservation of all exclusions and unaffected records, full tensor replay for five additional sourced categorical constructions."
+  "verification_method": "Previous fully checked release and October 1 positive update, exact preservation of all unaffected ledger and positive-model records, twenty-two independently generated full-tensor positive models and eight exact general-category exclusions. No costly old proof search repeated.",
+  "previous_records_unchanged": true,
+  "oct2_update_verified": true
 }

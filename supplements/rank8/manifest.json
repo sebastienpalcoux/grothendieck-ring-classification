@@ -2,58 +2,66 @@
   "status": "checked rank-eight categorification frontier through complete multiplicity two",
   "source_fusion_census_commit": "b86eb6dc6eeeafe5fc5f6906d7b074e0322e9726",
   "source_uncompressed_sha256": "97b86d2de8ca0352c5c6e14686cd1d43dbd52180dc53b2ff1ccf7a61788c9600",
-  "rank7_parent_source_ledger_sha256": "4c0ff9f0cd73f994a941ef77c278c1d08f0ddc0409ea5ba9f50356a6388bf472",
+  "rank7_parent_source_ledger_sha256": "c99be817f8d43dd634a619fd74520506f9a1f968ff9e4dcb5e04999f84360bed",
   "rank7_inherited_negative_ids": [
     "R7_2_207",
     "R7_2_221",
     "R7_2_289",
     "R7_2_64"
   ],
-  "positive_model_count": 38,
+  "positive_model_count": 60,
   "source_record_count": 973,
-  "excluded_count": 824,
-  "unresolved_count": 111,
+  "excluded_count": 832,
+  "unresolved_count": 81,
   "signed_exact_witnesses": 75,
   "counts": [
     {
       "multiplicity": 1,
       "fusion_rings": 96,
-      "excluded": 41,
-      "realized": 30,
-      "unresolved": 25
+      "excluded": 45,
+      "realized": 48,
+      "unresolved": 3
     },
     {
       "multiplicity": 2,
       "fusion_rings": 877,
-      "excluded": 783,
-      "realized": 8,
-      "unresolved": 86
+      "excluded": 787,
+      "realized": 12,
+      "unresolved": 78
     }
   ],
   "files": {
     "README.md": {
-      "sha256": "facfd2e5696a7b008007fae9b97f1aa9621b25d25b1fb63feeb1db980db4a960",
-      "bytes": 4397
+      "sha256": "9c4b4e19fe9ed2fa151accb63b1fed802d354c588a6fae412c32a3f25e8757a6",
+      "bytes": 5809
     },
     "data/anyonwiki_models.json": {
       "sha256": "5598d9b2d2411eefc77216ab3fd210b0ddecef1d497b235dd3ba35c1e8fe7234",
       "bytes": 99699
     },
+    "data/cat_4_1_2_4_1_0_1.jl": {
+      "sha256": "0b18136ec84580b9ed808c73fdc43b4f693b74ec69384c3a5a0a6265f3cbf640",
+      "bytes": 11328
+    },
+    "data/cat_4_1_2_4_2_0_1.jl": {
+      "sha256": "7d80ef3cfc12087627f5a97e24b5641152ec6df8df949b24c2f4b026fe8cd0a9",
+      "bytes": 11340
+    },
     "data/classification_counts.json": {
-      "sha256": "e48b71366100a9fe2a14a8792a5ad25428351ff78ac0feb82f7f44a89579f315",
+      "sha256": "928062d38715e138ac83363b9a4b8401aaf968c8a12a1759c05ea0bd0d5b75ff",
       "bytes": 238
     },
     "data/criterion_first_occurrence.json": {
-      "sha256": "6c2b4d0fe2c58adb0dca2a22c5a45a4de61bcb9bacea870a3562e0a7ab558509",
-      "bytes": 3206
+      "sha256": "33fb02711935cb86cf9387656982298239dbb8f05928826df19ca3b9c0faa441",
+      "bytes": 3834
     },
     "data/decisions.json": {
-      "sha256": "ea80964db4b32b1c6fbc79e0822ad4fa8041dddb81fd6dd2a09fd76713ef39d0",
-      "bytes": 406325
+      "sha256": "ffaed1193cfcea77de029dcc64254c1775ea85a1e279fff7acd6de9a15164ecc",
+      "bytes": 414233
     },
     "data/exclusion_stages.csv": {
-      "sha256": "5c19af04b6069884b048eccc98731291560706d335e8c5b6dd765afe1b1f70c9",
-      "bytes": 847
+      "sha256": "f703e3a6275228f7539bb8fb8a4153540ee4c724d1dc18a5cc1bbd7dbee0e9c2",
+      "bytes": 1035
     },
     "data/fusion_ring_counts.csv": {
       "sha256": "d696e20698c7db59481d9bb3333be14cef7dbf95d5f82e83daafada1d3279873",
@@ -64,8 +72,36 @@
       "bytes": 10476
     },
     "data/model_catalog.json": {
-      "sha256": "dc4fb4e7b69eadf8a99e6baf51c703e185ab537ea8c2839ce74fc34e2c10a1a5",
-      "bytes": 827266
+      "sha256": "bd26a3336867c80a1f8b6d1ef115dab66092048429e4c59948fd4b85f58a9a76",
+      "bytes": 1258998
+    },
+    "data/oct2_baseline_fingerprints.json": {
+      "sha256": "d6b198efc9e2285aee06e31aa007e2c008ae15650127612d3de779c866bdbcec",
+      "bytes": 82932
+    },
+    "data/oct2_exclusions.json": {
+      "sha256": "acb100aa6160a2a36cf09097238bd86dcdd7b852a7638b5de06f3c1621bb5c0d",
+      "bytes": 71002
+    },
+    "data/oct2_models.json": {
+      "sha256": "6e5cf7a7802e3f26951359554ad4e11a79096fb5a95d29a116868ff0d5319f31",
+      "bytes": 431735
+    },
+    "data/pseudo_psu_swap_certificates.json": {
+      "sha256": "0f8d6e589fdd5d23395af2907f2c7288c129f8b9eaec313962110abcabf6df20",
+      "bytes": 16979
+    },
+    "data/r8_1_12_orbifold_certificate.json": {
+      "sha256": "16354c9b17f0b33dee7a1212aeb8505c593948ebe48d2d51c0dc22a1c039abb1",
+      "bytes": 7053
+    },
+    "data/r8_1_53_orbifold_certificate.json": {
+      "sha256": "483a8f7da54253a5d4cd3452113c679498af1d69e5403ed477a094ed1820f567",
+      "bytes": 7054
+    },
+    "data/r8_1_7_zesting_certificate.json": {
+      "sha256": "70142bc514db9c2987c66917ea8deb85c8841cb2a25dbfffd10e86a10e3863c1",
+      "bytes": 14997
     },
     "data/rank6_positive_models.json": {
       "sha256": "eeb972326f9892c1c1f89d0dfef3137b83dfe49410eebb2193ccc4b400d707c6",
@@ -80,12 +116,24 @@
       "bytes": 50783
     },
     "data/realized_models.json": {
-      "sha256": "dc4fb4e7b69eadf8a99e6baf51c703e185ab537ea8c2839ce74fc34e2c10a1a5",
-      "bytes": 827266
+      "sha256": "bd26a3336867c80a1f8b6d1ef115dab66092048429e4c59948fd4b85f58a9a76",
+      "bytes": 1258998
     },
     "data/signed_certified_witness_ids.json": {
       "sha256": "76c7304a85051842d5573091dc7230f89af3ffc6e5673fd62d0b12690fe16f39",
       "bytes": 1037
+    },
+    "data/solvable_d72_certificates.json": {
+      "sha256": "00dee02fbc56ff6418224c30f2d2888122c0e4c1fbe763114be2a5fa09565cf2",
+      "bytes": 16617
+    },
+    "data/solvable_r29_certificate.json": {
+      "sha256": "5ed04d0d9aba041b7f44213863d06a9a22b9fbac2838db3d7e8df96da560a11b",
+      "bytes": 6879
+    },
+    "data/triality_integral_m0.json": {
+      "sha256": "25454ec8a29a9431e6bd1d38fc01764deb6f480ba56c5b56822f84009b8d7ebf",
+      "bytes": 13778
     },
     "evidence/anyonwiki/README.md": {
       "sha256": "fd1eb56aa8b3b5f4749861956174ef66aca31ee04b65bb71e603479de42da849",
@@ -600,28 +648,36 @@
       "bytes": 1135
     },
     "paper/model_table.tex": {
-      "sha256": "0c62d7ac749fda9d035a2033332a519239dadae202475b5d48977e174549a2a5",
-      "bytes": 2716
+      "sha256": "aae41aac0ce73dbea6be4752024ee49c673fe5685081fb3625146da541395432",
+      "bytes": 4264
     },
     "paper/rank8.pdf": {
-      "sha256": "a7e981b3401661825ee18d67b0a5cf98f781fe2d2c5b97e1a06b79ec47af0606",
-      "bytes": 423940
+      "sha256": "aea9cf251c5047f890b1388a7c4f4033bde377c174bf602e0d96c217a5ed11a9",
+      "bytes": 544847
     },
     "paper/rank8.tex": {
-      "sha256": "d55ac4a03b9cca46ef9a560781ed16a80a380d25891d49664778d3861c676fbd",
-      "bytes": 27307
+      "sha256": "77bc6e1ec213dba1dd0fd9c457151b8676248a44c4ee248a5c6c198e82b06b86",
+      "bytes": 50778
+    },
+    "paper/solvable_proofs.tex": {
+      "sha256": "33afed9f42db414aab2ec7e8e70686e600e7864b96f026273d314010ebbfeb53",
+      "bytes": 10330
     },
     "paper/stage_table.tex": {
-      "sha256": "ac4d3f5c190620d5ac844ebc169484b8fd3664403d8d211b5f9cf2685f0aa850",
-      "bytes": 928
+      "sha256": "380b12b91b27d03e0f0c653225c2c7a07d69f8cbb1a4ff5a2b90bb534dfb8dbe",
+      "bytes": 1092
     },
     "software/analyze.py": {
-      "sha256": "0b0027a702ab726987d301830a93e2e25f8eaf1d7d58fd9799d8024b64e30925",
-      "bytes": 28481
+      "sha256": "6d9d84791362fc3ae09c91770e5bda6e17e1afb05a36fef840c26094782ef6a5",
+      "bytes": 29347
     },
     "software/exact.py": {
       "sha256": "7a7525840192647312de0c2206d1e83a5b1fd2f592a3fa4830c730aea3a225c7",
       "bytes": 5107
+    },
+    "software/extension_models.py": {
+      "sha256": "b0e3a6da628a28c49af99c60a8d761d0ee057519641d7a383a112c4af7168564",
+      "bytes": 5670
     },
     "software/field_automorphisms.py": {
       "sha256": "3d5a99f9fc81e9b2d606678f3def69b16662643015962a240aff0dcb29dd8b1c",
@@ -632,8 +688,12 @@
       "bytes": 4689
     },
     "software/make_release.py": {
-      "sha256": "3aa755d3976b2b74ba3e19c1bdd5cd7de5bcea49ee66d21c2f0dd37778aed3f3",
-      "bytes": 5613
+      "sha256": "f934600c4bdccfb45054f674ea5a962c7a4ffb727a6984e0a346ba56691285f2",
+      "bytes": 5665
+    },
+    "software/oct2_extensions.py": {
+      "sha256": "3b5da54588e7501a1b70aab046b5b98d1c2c6eae7f4a30a4c4ca329b62568745",
+      "bytes": 9996
     },
     "software/prepare.py": {
       "sha256": "0e3494d513bbb736051c3c65b781bc69d46efe5122b815b1a30e6af25cc54078",
@@ -643,9 +703,49 @@
       "sha256": "a992210513c5a3ecad6d700dec3020789ee74972e158296f589fb9668799cf33",
       "bytes": 4411
     },
+    "software/solvable_equivariantization.py": {
+      "sha256": "cc67e09a5b24b0ce6e34375c30b3653b43b57e8aac8aecb70b093d4b6cc602de",
+      "bytes": 1858
+    },
+    "software/twisted_group_theoretical_c2.py": {
+      "sha256": "32f5a28813627d5ba0f5c87f83d7f8ea7a897bfd0a7e8f445d4b7c8bd38444f9",
+      "bytes": 3806
+    },
     "software/verify.py": {
-      "sha256": "04ba37a793f22b7adcf5daaeb8d9f07bdac329a1a315884e3f7e5e6afa530f79",
-      "bytes": 8680
+      "sha256": "1814a68e081e4b6e508a8a706e8e6ee9338b86550cc80b731c4749f6f5a4926e",
+      "bytes": 8875
+    },
+    "software/verify_oct2.py": {
+      "sha256": "00b5a7d6269be72cb78fddd81fa695d11cdf4d48ad1fe0f8b5d0f848c9e5b0d4",
+      "bytes": 5157
+    },
+    "software/verify_pseudo_psu_swap.py": {
+      "sha256": "3b1e60d9e055f2c1f08ee0c125c6efabe7639df6c920d1d88be7aa47d78d6699",
+      "bytes": 4417
+    },
+    "software/verify_r8_1_12_orbifold.py": {
+      "sha256": "54f838e8d9a1257aee8c771a9fc5bb40c42105429ce6b01c2a177a78dffd80be",
+      "bytes": 3059
+    },
+    "software/verify_r8_1_53_orbifold.py": {
+      "sha256": "5f2e793efee862cb002dfff5083d5b98af43663283a515f0ccc70d7df74b8b33",
+      "bytes": 3601
+    },
+    "software/verify_r8_1_7_zesting.py": {
+      "sha256": "739b1d7503e3e7e855e4f8c7206bdfb43c76b1fd20b4fd0375555db69a3db465",
+      "bytes": 6152
+    },
+    "software/verify_r8_1_83_triality.py": {
+      "sha256": "ca8833b295d91894b1d186c90797a65dbb2b50e9bc79d4d14f485505377015b8",
+      "bytes": 3425
+    },
+    "software/verify_solvable_d72.py": {
+      "sha256": "e33d37c52959dd81dbb65fc045a151544a14e03ae19d09a3ff52850cd2e99cad",
+      "bytes": 7848
+    },
+    "software/verify_solvable_r29.py": {
+      "sha256": "71783bb0d2ba6a2140d3bf69e80a1451c8e1fc9e5e41d51d229195c03f755b4e",
+      "bytes": 5710
     },
     "software/zero_spectrum.cpp": {
       "sha256": "9688f447fd392b2752900139b52e8e2b178fdec70621382b2be4bf090704aa9a",
@@ -655,9 +755,21 @@
       "sha256": "d676ea3ada92e84bc23b5ea73d87db41f132640abc78e360e01fa2392d6f647a",
       "bytes": 2180
     },
-    "verification/report.json": {
+    "verification/oct2_report.json": {
+      "sha256": "6c63333b122be0482fdefa73ad1afd15d97486ce5773398d28e70127219bc510",
+      "bytes": 8119
+    },
+    "verification/pre_anyonwiki_report.json": {
+      "sha256": "ad267774d2e84c06b7edaeaf5174f2015ef776d9c10910606a89d6b31b70a096",
+      "bytes": 1110
+    },
+    "verification/pre_oct2_report.json": {
       "sha256": "0bab861fadb06ecceb32212433cb95cf4a6fdf9a49e6ae90965f0b401b9d3dbc",
       "bytes": 1392
+    },
+    "verification/report.json": {
+      "sha256": "0f18cb76de1263d306304aed5a07e611487c447357714d67443e44117de6cf22",
+      "bytes": 1713
     }
   }
 }

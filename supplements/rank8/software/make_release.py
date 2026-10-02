@@ -55,7 +55,7 @@ def main(rank7_source:Path)->None:
         assert digest(path)==z['certificate_sha256'],z['id']
 
     stages=list(csv.DictReader((ROOT/'data/exclusion_stages.csv').open()))
-    assert len(stages)==30
+    assert len(stages)==36
     by={}
     for row in stages:
         by.setdefault(row['stage'],{})[str(row['multiplicity'])]=int(row['new_exclusions'])
@@ -70,12 +70,12 @@ def main(rank7_source:Path)->None:
 
     files=[]
     for directory,patterns in (
-        ('data',('*.json','*.csv','*.gz')),
+        ('data',('*.json','*.csv','*.gz','*.jl')),
         ('software',('*.py','*.cpp')),
         ('experimental_signed',('*.py','*.cpp','*.json','README.md')),
         ('experimental_signed/certificates',('*.json',)),
-        ('paper',('*.tex','*.pdf')),
-        ('verification',('report.json',))):
+        ('paper',('*.tex','*.pdf','*.md')),
+        ('verification',('*.json',))):
         folder=ROOT/directory
         for pattern in patterns:
             files.extend(p for p in folder.glob(pattern) if p.is_file())
@@ -94,7 +94,7 @@ def main(rank7_source:Path)->None:
         'rank7_inherited_negative_ids':sorted(imported),
         'positive_model_count':sum(x['status']=='unitarily_realized'for x in decisions),
         'source_record_count':973,
-        'excluded_count':824,
+        'excluded_count':sum(x['status']=='excluded'for x in decisions),
         'unresolved_count':sum(x['status']=='unresolved'for x in decisions),
         'signed_exact_witnesses':75,
         'counts':counts,

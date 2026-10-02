@@ -30,6 +30,8 @@ def main():
     rows=read_source(summary['max_multiplicity'])
     ledger=json.loads((out/'rank7_ledger.json').read_text())
     catalog=json.loads((out/'rank7_model_catalog.json').read_text())
+    require((ROOT/'data/model_catalog.json').read_bytes()==(out/'rank7_model_catalog.json').read_bytes(),
+            'published model catalogue alias differs')
     require(len(ledger)==len(rows),'ledger count differs from census count')
     require(len({r['id'] for r in ledger})==len(ledger),'duplicate decision identifier')
     require(summary['source_sha256']==SOURCE_SHA,'summary source changed')

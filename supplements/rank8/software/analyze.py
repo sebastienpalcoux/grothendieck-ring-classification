@@ -221,6 +221,13 @@ def model_registry():
     assert [len(reg[i]) for i in (2, 3, 4, 5, 6)] == [2, 5, 15, 17, 43]
 
     rank8 = collections.defaultdict(list)
+    october=ROOT/'data/oct2_models.json'
+    if october.exists():
+        from oct2_extensions import model_tensor
+        for record in json.loads(october.read_text()):
+            for ctor in record['constructors']:
+                assert ctor['tensor']==model_tensor(record['id'])
+                rank8[ckey(ctor['tensor'])].append(dict(ctor))
     imported=ROOT/'data/anyonwiki_models.json'
     if imported.exists():
         for record in json.loads(imported.read_text()):
@@ -543,7 +550,7 @@ def main():
               "rank7_certified_subring",
               "dnumber", "noncomm_dnumber", "integral_drinfeld", "published_appendix_transfer",
               "involution_module", "field_automorphisms",
-              "subring_dimension", "primitive_codegree", "cyclotomic", "oriented_signed_sphericalization")
+              "subring_dimension", "primitive_codegree", "cyclotomic", "oriented_signed_sphericalization", "graded_brauer_picard", "graded_fiber_functor", "solvable_equivariantization")
     remaining = {(m,j): R for m in (1,2) for j,R in enumerate(grouped[m],1)}
     excluded, stage_rows = {}, []
     polys = {}
@@ -557,7 +564,14 @@ def main():
             spectrum=dict(zip(positions,zero_spectrum.batch([remaining[k] for k in positions])))
         for ij, R in list(remaining.items()):
             cert = None
-            if stage == "near_group": cert = near_group_certificate(R)
+            if stage in ("graded_brauer_picard", "graded_fiber_functor"):
+                from oct2_extensions import certificate
+                candidate=certificate(R)
+                if candidate and candidate["kind"]==stage:cert=candidate
+            elif stage == "solvable_equivariantization":
+                from solvable_equivariantization import certificate as solvable_certificate
+                cert=solvable_certificate(R)
+            elif stage == "near_group": cert = near_group_certificate(R)
             elif stage == "rank_two": cert = rank2_certificate(R)
             elif stage == "zero_spectrum": cert = spectrum[ij]
             elif stage == "lower_rank_subring": cert = lower_subring_certificate(R, reg)

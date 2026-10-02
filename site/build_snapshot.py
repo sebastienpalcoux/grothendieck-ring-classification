@@ -125,6 +125,15 @@ def main():
     if not (repo / "supplements/rank6" / coverage_relative).is_file():
         coverage_relative = "data/frontier_summary.json"
     coverage = json.loads((repo / "supplements/rank6" / coverage_relative).read_text())
+    research_update = repo / "evidence/residual_20261002/rank6/research_progress.json"
+    if research_update.is_file():
+        update = json.loads(research_update.read_text())
+        previous = repo / update["previous_coverage"]
+        if hashlib.sha256(previous.read_bytes()).hexdigest() != update["previous_coverage_sha256"]:
+            raise ValueError("Rank-six research update does not match its previous source")
+        if update["classification_counts"] != coverage["classification_counts"]:
+            raise ValueError("Research overlay cannot change categorification counts")
+        coverage = update
     release_counts = {record["multiplicity"]: record for record in release["counts"]}
     release_bands = sorted(release_counts)
     if not release_bands or len(release_counts) != len(release["counts"]) or release_bands != list(range(1, release_bands[-1] + 1)):
@@ -144,7 +153,7 @@ def main():
         raise ValueError("Rank-six identity and release refer to different ledgers")
     if {case["id"] for case in coverage["cases"]} != set(release["unresolved_ids"]):
         raise ValueError("Rank-six research coverage does not match the unresolved frontier")
-    data["snapshot"] = identity["date"]
+    data["snapshot"] = max(identity["date"], coverage["date"])
     if identity["archive"]["name"] != archive_name:
         raise ValueError("Rank-six archive identity differs from the classification source")
     if Path(archive_name).name != archive_name or not archive_name.endswith(".zip"):
@@ -189,11 +198,18 @@ def main():
             obsolete.unlink()
     (HERE / "dist/data").mkdir(parents=True, exist_ok=True)
     for source_name, target_name in (("data/unresolved_tensors.json", "rank6_unresolved_tensors.json"),
-                                     ("verification/release_summary.json", "rank6_release_summary.json"),
-                                     (coverage_relative, "rank6_research_coverage.json")):
+                                     ("verification/release_summary.json", "rank6_release_summary.json")):
         shutil.copy2(repo / "supplements/rank6" / source_name, HERE / "dist/data" / target_name)
+    (HERE / "dist/data/rank6_research_coverage.json").write_text(json.dumps(coverage, indent=2) + "\n")
     for name, target in (("manuscript.pdf", "rank6.pdf"), ("verification_guide.pdf", "rank6_guide.pdf")):
         shutil.copy2(repo / "manuscripts/rank6/papers" / name, HERE / "dist/papers" / target)
+    addendum = repo / "evidence/residual_20261002/rank6/research_addendum.pdf"
+    if research_update.is_file():
+        shutil.copy2(addendum, HERE / "dist/papers/rank6_addendum_20261002.pdf")
+        data["rank6_release"]["research_addendum"] = {
+            "path": "papers/rank6_addendum_20261002.pdf",
+            "sha256": hashlib.sha256(addendum.read_bytes()).hexdigest(),
+        }
     output = HERE / "dist" / "data" / "atlas.json"
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(json.dumps(data, ensure_ascii=False, separators=(",", ":")) + "\n")

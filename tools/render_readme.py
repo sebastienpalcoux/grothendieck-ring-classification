@@ -33,6 +33,12 @@ rank6_complete=next((x['multiplicity']-1 for x in rank6 if x['unresolved_general
 rank6_summary=(f'| 6 | Through {rank6_bound} | **Complete through {rank6_complete}** | '
                f'Through {rank6_bound}: {rank6_excluded:,} excluded, {rank6_realized} realized, '
                f'{rank6_open} unresolved. |')
+upper={rank:status['inputs'][f'rank{rank}']['status_totals'] for rank in (7,8)}
+def upper_summary(rank):
+    t=upper[rank];bound=status['inputs'][f'rank{rank}']['classified_through']
+    scope='**Complete at multiplicity 1**' if rank==7 else 'Partial at both bands'
+    return (f'| {rank} | Through {bound} | {scope} | Through {bound}: '
+            f"{t['excluded']:,} excluded, {t['unitarily_realized']} realized, {t['unresolved']} unresolved. |")
 identity=json.loads(args.identity.read_text())
 release=identity['summary']
 complete_bands=', '.join(str(s['multiplicity']) for s in rank6 if s['unresolved_general']==0)
@@ -89,8 +95,8 @@ classification cross-check. Rank-two realized counts follow directly from
 | 4 | Through 128 | **Complete through 128** | 15 realized rings, 889,515 general exclusions. |
 | 5 | Through 20 | **Complete through 20** | 17 realized rings and 40,982 generally excluded. The two former multiplicity-18 residuals are now excluded by inert-prime parity and exact induction. |
 __RANK6_SUMMARY__
-| 7 | Through 4 | **Complete at multiplicity 1** | Through 4: 4,107 excluded, 19 realized, 75 unresolved; three additional AnyonWiki models have exact associator replays. |
-| 8 | Through 2 | Partial at both bands | Through 2: 824 excluded, 38 realized, 111 unresolved; five additional AnyonWiki constructions have full-tensor matches. |
+__RANK7_SUMMARY__
+__RANK8_SUMMARY__
 
 Rank-six realization counts through multiplicity __RANK6_BOUND__ split into **56 unitary
 models** and **one spherical model whose ring has no pseudo-unitary
@@ -99,6 +105,11 @@ constructed; it does not assert that every categorification of that ring is
 unitary. Rank five has no unresolved ring through multiplicity 20.
 
 __RANK6_CONTINUATION__
+
+The [October 2 residual update](evidence/residual_20261002/README.md) gives new
+models from extensions and subfactors, general grading and dimension obstructions,
+and separate unitary-only exclusions. These structure-specific exclusions do not
+change a ring's general unresolved status.
 
 ### The classification boundary, band by band
 
@@ -129,8 +140,8 @@ row checks and scope appear in [the provenance record](docs/PROVENANCE.md).
 | 4 | Multiplicity 18 | The same criterion families suffice for the allocated exclusions at 19–128. |
 | 5 | Multiplicity 18 | Inert-prime quadratic parity first closes two cases at 18; no new criterion family is needed at 19–20. |
 | 6 | See the allocation ledger | The current criteria include stabilizer, cyclotomic-trace and signed arithmetic obstructions. All 8,809 exact-multiplicity-nine rings have general exclusion certificates; __RANK6_OPEN__ earlier cases remain unresolved through multiplicity __RANK6_BOUND__. |
-| 7 | Multiplicity 2 | Signed sphericalization first contributes at 1; the last first successful application of a listed family occurs at 2. There are 78 open rings through 4, so no stabilization conclusion follows. |
-| 8 | Multiplicity 2 | Signed obstructions first contribute at 1; the last first successful application of a listed family occurs at 2. There are 116 open rings through 2, so no stabilization conclusion follows. |
+| 7 | Multiplicity 3 | The solvable-category Minkowski obstruction first contributes at 3. There are __RANK7_OPEN__ generally open rings through 4, so no stabilization conclusion follows. |
+| 8 | Multiplicity 2 | Graded Brauer-Picard obstructions contribute at 1 and 2; the rank-one fiber-functor obstruction contributes at 2. There are __RANK8_OPEN__ generally open rings through 2, so no stabilization conclusion follows. |
 
 This records **first use in the chosen certificate allocation**, not an
 optimal ordering theorem or a claim that the criteria settle higher
@@ -178,6 +189,10 @@ against classification ledgers.
 ''')
 args.output.parent.mkdir(parents=True,exist_ok=True)
 args.output.write_text('\n'.join(lines).replace('__RANK6_SUMMARY__',rank6_summary)
+                              .replace('__RANK7_SUMMARY__',upper_summary(7))
+                              .replace('__RANK8_SUMMARY__',upper_summary(8))
+                              .replace('__RANK7_OPEN__',str(upper[7]['unresolved']))
+                              .replace('__RANK8_OPEN__',str(upper[8]['unresolved']))
                               .replace('__RANK6_OPEN__',str(rank6_open))
                               .replace('__RANK6_BOUND__',str(rank6_bound))
                               .replace('__RANK6_CONTINUATION__',rank6_continuation))

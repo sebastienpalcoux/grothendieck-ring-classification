@@ -22,10 +22,10 @@ categorifiable.
 
 | Multiplicity | Rank 2 | Rank 3 | Rank 4 | Rank 5 | Rank 6 | Rank 7 | Rank 8 |
 |---:|---:|---:|---:|---:|---:|---:|---:|
-| 1 | 2 | 4 | 9 | 10 | 21 | 13 | ≥30 |
-| 2 | 0 | 1 | 3 | 3 | 22 | ≥5 | ≥8 |
-| 3 | 0 | 0 | 2 | 2 | 3 | ≥1 | — |
-| 4 | 0 | 0 | 0 | 2 | ≥5 | ≥0 | — |
+| 1 | 2 | 4 | 9 | 10 | 21 | 13 | ≥48 |
+| 2 | 0 | 1 | 3 | 3 | 22 | ≥9 | ≥12 |
+| 3 | 0 | 0 | 2 | 2 | 3 | ≥2 | — |
+| 4 | 0 | 0 | 0 | 2 | ≥5 | ≥2 | — |
 | 5 | 0 | 0 | 0 | 0 | 1 | — | — |
 | 6 | 0 | 0 | 1 | 0 | 3 | — | — |
 | 7 | 0 | 0 | 0 | 0 | 2 | — | — |
@@ -47,8 +47,8 @@ classification cross-check. Rank-two realized counts follow directly from
 | 4 | Through 128 | **Complete through 128** | 15 realized rings, 889,515 general exclusions. |
 | 5 | Through 20 | **Complete through 20** | 17 realized rings and 40,982 generally excluded. The two former multiplicity-18 residuals are now excluded by inert-prime parity and exact induction. |
 | 6 | Through 9 | **Complete through 3** | Through 9: 25,362 excluded, 57 realized, 2 unresolved. |
-| 7 | Through 4 | **Complete at multiplicity 1** | Through 4: 4,107 excluded, 19 realized, 75 unresolved; three additional AnyonWiki models have exact associator replays. |
-| 8 | Through 2 | Partial at both bands | Through 2: 824 excluded, 38 realized, 111 unresolved; five additional AnyonWiki constructions have full-tensor matches. |
+| 7 | Through 4 | **Complete at multiplicity 1** | Through 4: 4,116 excluded, 26 realized, 59 unresolved. |
+| 8 | Through 2 | Partial at both bands | Through 2: 832 excluded, 60 realized, 81 unresolved. |
 
 Rank-six realization counts through multiplicity 9 split into **56 unitary
 models** and **one spherical model whose ring has no pseudo-unitary
@@ -68,24 +68,29 @@ The positive catalogue includes the three neutral module categories from
 
 | Unresolved ring | Necessary reduction |
 |---|---|
-| `R6_4_155` | The unique rank-26 semion-centralizer modular candidate is completely reconstructed, with nonnegative integral Verlinde coefficients (maximum 9), ten self-dual objects, and all stated finite Vafa and indicator checks passing. The rank-52 center would have twenty self-dual objects. No categorification is known. |
-| `R6_8_1660` | One relative-center based ring and 1669 labelled center profiles remain, in branches 163, 753, 753. Every indecomposable module category has six simples; exact Morita and indicator reductions leave three possible dual based rings. No categorification is known. |
+| `R6_4_155` | The unique rank-26 modular candidate remains feasible. All 70 small B3 spectral-partition tests pass; neither these tests nor the modular datum constructs a category. No model or general exclusion is known. Exact probability couplings prove every Lim Corollary 3.4 inequality for every exponent and nonnegative vector. |
+| `R6_8_1660` | Exact graded induction-packet identities eliminate 533 further center profiles, leaving 1,136 in branches 120, 508, 508. Every dominant pivotal tensor quotient of the positive spherical form would be an equivalence. Three Morita-dual based rings remain possible; none admits a braiding. No model or general exclusion is known. Exact probability couplings prove every Lim Corollary 3.4 inequality for every exponent and nonnegative vector. |
 
 [Manuscript](manuscripts/rank6/papers/manuscript.pdf) ·
 [Completion proofs](supplements/rank6/research/exclusions/m9_completion/) ·
 [Completion replay](supplements/rank6/verification/m9/completion/) ·
-[Current frontier](supplements/rank6/research/frontier/README.md) ·
+[2 October research addendum](evidence/residual_20261002/rank6/research_addendum.pdf) ·
 [Complete release](https://grothendieck-ring-atlas.sebastien-palcoux.chatgpt.site/downloads/Rank6_Categorification_M9_Frontier_2026-10-01.zip)
 
+
+The [October 2 residual update](evidence/residual_20261002/README.md) gives new
+models from extensions and subfactors, general grading and dimension obstructions,
+and separate unitary-only exclusions. These structure-specific exclusions do not
+change a ring's general unresolved status.
 
 ### The classification boundary, band by band
 
 | Multiplicity | Rank 4 | Rank 5 | Rank 6 | Rank 7 | Rank 8 |
 |---:|---:|---:|---:|---:|---:|
-| 1 | 1 excluded · 9 realized | 6 excluded · 10 realized | 18 excluded · 21 realized | 30 excluded · 13 realized | 41 excluded · 30 realized · **25 open** |
-| 2 | 14 excluded · 3 realized | 34 excluded · 3 realized | 132 excluded · 22 realized | 291 excluded · 5 realized · **23 open** | 783 excluded · 8 realized · **86 open** |
-| 3 | 22 excluded · 2 realized | 80 excluded · 2 realized | 381 excluded · 3 realized | 1,035 excluded · 1 realized · **23 open** | — |
-| 4 | 45 excluded · 0 realized | 132 excluded · 2 realized | 866 excluded · 5 realized · **1 open** | 2,751 excluded · 0 realized · **29 open** | — |
+| 1 | 1 excluded · 9 realized | 6 excluded · 10 realized | 18 excluded · 21 realized | 30 excluded · 13 realized | 45 excluded · 48 realized · **3 open** |
+| 2 | 14 excluded · 3 realized | 34 excluded · 3 realized | 132 excluded · 22 realized | 295 excluded · 9 realized · **15 open** | 787 excluded · 12 realized · **78 open** |
+| 3 | 22 excluded · 2 realized | 80 excluded · 2 realized | 381 excluded · 3 realized | 1,039 excluded · 2 realized · **18 open** | — |
+| 4 | 45 excluded · 0 realized | 132 excluded · 2 realized | 866 excluded · 5 realized · **1 open** | 2,752 excluded · 2 realized · **26 open** | — |
 | 5 | 55 excluded · 0 realized | 209 excluded · 0 realized | 1,581 excluded · 1 realized | — | — |
 | 6 | 80 excluded · 1 realized | 336 excluded · 0 realized | 2,765 excluded · 3 realized | — | — |
 | 7 | 92 excluded · 0 realized | 477 excluded · 0 realized | 3,812 excluded · 2 realized | — | — |
@@ -115,8 +120,8 @@ row checks and scope appear in [the provenance record](docs/PROVENANCE.md).
 | 4 | Multiplicity 18 | The same criterion families suffice for the allocated exclusions at 19–128. |
 | 5 | Multiplicity 18 | Inert-prime quadratic parity first closes two cases at 18; no new criterion family is needed at 19–20. |
 | 6 | See the allocation ledger | The current criteria include stabilizer, cyclotomic-trace and signed arithmetic obstructions. All 8,809 exact-multiplicity-nine rings have general exclusion certificates; 2 earlier cases remain unresolved through multiplicity 9. |
-| 7 | Multiplicity 2 | Signed sphericalization first contributes at 1; the last first successful application of a listed family occurs at 2. There are 78 open rings through 4, so no stabilization conclusion follows. |
-| 8 | Multiplicity 2 | Signed obstructions first contribute at 1; the last first successful application of a listed family occurs at 2. There are 116 open rings through 2, so no stabilization conclusion follows. |
+| 7 | Multiplicity 3 | The solvable-category Minkowski obstruction first contributes at 3. There are 59 generally open rings through 4, so no stabilization conclusion follows. |
+| 8 | Multiplicity 2 | Graded Brauer-Picard obstructions contribute at 1 and 2; the rank-one fiber-functor obstruction contributes at 2. There are 81 generally open rings through 2, so no stabilization conclusion follows. |
 
 This records **first use in the chosen certificate allocation**, not an
 optimal ordering theorem or a claim that the criteria settle higher

@@ -34,7 +34,10 @@
     "index": 3,
     "tensor_sha256": "8e5341d955006cc35e17908037e4552c31d1d97cbed4844002f68b353ee140b1",
     "commutative": false,
-    "status": "unresolved"
+    "status": "unitarily_realized",
+    "models": [
+      "C(C5 semidirect C4, inflated omega_2, C2, 1)"
+    ]
   },
   {
     "id": "R8_1_4",
@@ -65,7 +68,10 @@
     "index": 6,
     "tensor_sha256": "1b15304eb82cb70d12e69b2c62c1cb21a887b19c72117b7b5959636f338ce755",
     "commutative": true,
-    "status": "unresolved"
+    "status": "unitarily_realized",
+    "models": [
+      "Bosonic de-equivariantization of PSU(2)_6 x C(C4,q)"
+    ]
   },
   {
     "id": "R8_1_7",
@@ -73,7 +79,10 @@
     "index": 7,
     "tensor_sha256": "796289d029c66a86bc4c64cbed56f02a03324a41e36a64dc914f28ddc2bb94fb",
     "commutative": true,
-    "status": "unresolved"
+    "status": "unitarily_realized",
+    "models": [
+      "Central square-root extension of pseudo-PSU(2)_6"
+    ]
   },
   {
     "id": "R8_1_8",
@@ -114,7 +123,10 @@
     "index": 11,
     "tensor_sha256": "2b28c8278ab5a78db44104336714a412dd058b333077cbe86ec96f5bd1c02faf",
     "commutative": false,
-    "status": "unresolved"
+    "status": "unitarily_realized",
+    "models": [
+      "C2 flip extension of pseudo-PSU(2)_6 with central twist"
+    ]
   },
   {
     "id": "R8_1_12",
@@ -122,7 +134,10 @@
     "index": 12,
     "tensor_sha256": "b74a819f2b9b9ac19046c7ae33e4a62405b873e3c36f4621d8efd93a4d12bf20",
     "commutative": false,
-    "status": "unresolved"
+    "status": "unitarily_realized",
+    "models": [
+      "Isotropic H=4C16 orbifold of Budinski NG(C16,16)"
+    ]
   },
   {
     "id": "R8_1_13",
@@ -141,7 +156,10 @@
     "index": 14,
     "tensor_sha256": "ff46869def2da6f9eb1155db80851d4aea0e0a96ed6fefcb14e3816c2ea5e7b9",
     "commutative": false,
-    "status": "unresolved"
+    "status": "unitarily_realized",
+    "models": [
+      "C2 flip extension of PSU(2)_6 with central twist"
+    ]
   },
   {
     "id": "R8_1_15",
@@ -149,7 +167,10 @@
     "index": 15,
     "tensor_sha256": "6bd0009cd809b1a0f6d6c65861e7bb46ace9985d56b388a490e4611f8bc2f2f0",
     "commutative": false,
-    "status": "unresolved"
+    "status": "unitarily_realized",
+    "models": [
+      "HI(C4)"
+    ]
   },
   {
     "id": "R8_1_16",
@@ -190,7 +211,10 @@
     "index": 19,
     "tensor_sha256": "38af78bf046483a74950d6cf87d603af64cdedac3a92dfa122c298b5e7d4a100",
     "commutative": false,
-    "status": "unresolved"
+    "status": "unitarily_realized",
+    "models": [
+      "(Fib x Fib) crossed C2 (factor swap)"
+    ]
   },
   {
     "id": "R8_1_20",
@@ -232,7 +256,10 @@
     "index": 22,
     "tensor_sha256": "a16631f404ff24bf0a2ed789f1d959fe665568eb68f00dfdcd55a22dce81f29c",
     "commutative": true,
-    "status": "unresolved"
+    "status": "unitarily_realized",
+    "models": [
+      "TY(C3) x Vec(C4), diagonal parity subcategory"
+    ]
   },
   {
     "id": "R8_1_23",
@@ -240,7 +267,10 @@
     "index": 23,
     "tensor_sha256": "db83867a1f253b79bc6b7e48dac7bc080ee129af65c75a0e941eb06ea8e47cb8",
     "commutative": true,
-    "status": "unresolved"
+    "status": "unitarily_realized",
+    "models": [
+      "C3-equivariantization of Vec(Q8)"
+    ]
   },
   {
     "id": "R8_1_24",
@@ -260,7 +290,10 @@
     "index": 25,
     "tensor_sha256": "9cd1a450605bf455d7876f6fcc8e0342d2c5fe6e42e0703912c46d8529ad6443",
     "commutative": false,
-    "status": "unresolved"
+    "status": "unitarily_realized",
+    "models": [
+      "PSU(2)_6 crossed with its nontrivial C2 tensor action"
+    ]
   },
   {
     "id": "R8_1_26",
@@ -268,7 +301,64 @@
     "index": 26,
     "tensor_sha256": "4e46b1eab158f18a0fc9d79317bf851a9f40a7ad9670967f9b484850bc4d714c",
     "commutative": false,
-    "status": "unresolved"
+    "status": "excluded",
+    "certificate": {
+      "kind": "graded_brauer_picard",
+      "case": "C3_C4_inversion",
+      "neutral_basis": [
+        0,
+        3,
+        4
+      ],
+      "components": [
+        [
+          0,
+          3,
+          4
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          5,
+          6,
+          7
+        ]
+      ],
+      "component_group_table": [
+        [
+          0,
+          1,
+          2,
+          3
+        ],
+        [
+          1,
+          3,
+          0,
+          2
+        ],
+        [
+          2,
+          0,
+          3,
+          1
+        ],
+        [
+          3,
+          2,
+          1,
+          0
+        ]
+      ],
+      "degree_one_component": 1,
+      "inverting_object": 5,
+      "neutral_generator": 3,
+      "criterion": "ENO, Fusion categories and homotopy theory, Corollary 1.2 and Theorem 1.3; rank-one module lemma"
+    }
   },
   {
     "id": "R8_1_27",
@@ -308,7 +398,16 @@
     "index": 29,
     "tensor_sha256": "2f68033b856e4c4c4ca1d012ab586ef6b5a636be936cd8ac192bebcda417c032",
     "commutative": true,
-    "status": "unresolved"
+    "status": "excluded",
+    "certificate": {
+      "kind": "solvable_equivariantization",
+      "case": "FPdim24_prime_equivariantization",
+      "id": "R8_1_29",
+      "tensor_sha256": "2f68033b856e4c4c4ca1d012ab586ef6b5a636be936cd8ac192bebcda417c032",
+      "witness_file": "solvable_r29_certificate.json",
+      "criterion": "ENO solvability and prime equivariantization; complete pointed action or module-category exhaustion",
+      "scope": "no fusion category over C"
+    }
   },
   {
     "id": "R8_1_30",
@@ -316,7 +415,10 @@
     "index": 30,
     "tensor_sha256": "b457a3eb2c23c080346c3bc0593a602b602b4f7d0bd231e203aaef7455b92a9a",
     "commutative": true,
-    "status": "unresolved"
+    "status": "unitarily_realized",
+    "models": [
+      "TY(C6), inversion equivariantization, odd coherence -1"
+    ]
   },
   {
     "id": "R8_1_31",
@@ -379,7 +481,10 @@
     "index": 34,
     "tensor_sha256": "03be89fdc47af25f2598dd5349190624d735f2a2f00227e1ac37a705b60f073f",
     "commutative": true,
-    "status": "unresolved"
+    "status": "unitarily_realized",
+    "models": [
+      "TY(C9) inversion equivariantization with odd coherence -1"
+    ]
   },
   {
     "id": "R8_1_35",
@@ -387,7 +492,10 @@
     "index": 35,
     "tensor_sha256": "92346a4ab8ea920feffaa2591f8c167bc93e50eeea0b30fe8b765142038424c4",
     "commutative": true,
-    "status": "unresolved"
+    "status": "unitarily_realized",
+    "models": [
+      "TY(C3 x C3) inversion equivariantization with odd coherence -1"
+    ]
   },
   {
     "id": "R8_1_36",
@@ -509,7 +617,10 @@
     "index": 42,
     "tensor_sha256": "036f42c5f5f6faa55fda22bfc29021deaca7036ad9bf58532e5ed6abd283d783",
     "commutative": false,
-    "status": "unresolved"
+    "status": "unitarily_realized",
+    "models": [
+      "pseudo-PSU(2)_6 crossed with its explicit C2 tensor action"
+    ]
   },
   {
     "id": "R8_1_43",
@@ -546,7 +657,16 @@
     "index": 45,
     "tensor_sha256": "74e79737e79b32872d42e4fc0682353f9cddbddfc9deade3af809bc32e158eeb",
     "commutative": true,
-    "status": "unresolved"
+    "status": "excluded",
+    "certificate": {
+      "kind": "solvable_equivariantization",
+      "case": "FPdim72_module_rank_divisibility",
+      "id": "R8_1_45",
+      "tensor_sha256": "74e79737e79b32872d42e4fc0682353f9cddbddfc9deade3af809bc32e158eeb",
+      "witness_file": "solvable_d72_certificates.json",
+      "criterion": "ENO solvability and prime equivariantization; complete pointed action or module-category exhaustion",
+      "scope": "no fusion category over C"
+    }
   },
   {
     "id": "R8_1_46",
@@ -572,7 +692,16 @@
     "index": 47,
     "tensor_sha256": "9d952522ffad851f76c50c1d52f8e222f7cf7b2dbf1f1bab8bfd12642095d16c",
     "commutative": true,
-    "status": "unresolved"
+    "status": "excluded",
+    "certificate": {
+      "kind": "solvable_equivariantization",
+      "case": "FPdim72_module_rank_divisibility",
+      "id": "R8_1_47",
+      "tensor_sha256": "9d952522ffad851f76c50c1d52f8e222f7cf7b2dbf1f1bab8bfd12642095d16c",
+      "witness_file": "solvable_d72_certificates.json",
+      "criterion": "ENO solvability and prime equivariantization; complete pointed action or module-category exhaustion",
+      "scope": "no fusion category over C"
+    }
   },
   {
     "id": "R8_1_48",
@@ -665,7 +794,10 @@
     "index": 53,
     "tensor_sha256": "d5a84e5cf65e33f7d2b5519772741e664547db1549569bf9d67ee2774fbb208d",
     "commutative": true,
-    "status": "unresolved"
+    "status": "unitarily_realized",
+    "models": [
+      "Isotropic H=2G orbifold of Yu-Zhang NG(C4 x C4,16)"
+    ]
   },
   {
     "id": "R8_1_54",
@@ -920,7 +1052,10 @@
     "index": 69,
     "tensor_sha256": "498ed5976ce1a16923f6e304c31fdfc594699bd99c5feb323c9a250f528a475b",
     "commutative": true,
-    "status": "unresolved"
+    "status": "unitarily_realized",
+    "models": [
+      "HI(C2 x C2)"
+    ]
   },
   {
     "id": "R8_1_70",
@@ -1130,7 +1265,10 @@
     "index": 83,
     "tensor_sha256": "fbf36678312f6893d86b148f80991cc13b41393b26125b8d2f93d60cab5b8f80",
     "commutative": true,
-    "status": "unresolved"
+    "status": "unitarily_realized",
+    "models": [
+      "Integral subcategory of m=0 S3 gauging of the three-fermion category"
+    ]
   },
   {
     "id": "R8_1_84",
@@ -1955,7 +2093,10 @@
     "index": 39,
     "tensor_sha256": "0e9b85072acea8dbee8095f365279fbe6b4c2db116e6979d1583ae402244fdfc",
     "commutative": false,
-    "status": "unresolved"
+    "status": "unitarily_realized",
+    "models": [
+      "Asaeda-Haagerup AH4"
+    ]
   },
   {
     "id": "R8_2_40",
@@ -2645,7 +2786,61 @@
     "index": 78,
     "tensor_sha256": "57cc7c0c281f0ba6b2ca92417f11e2fa73df6a188e64459a1e50d49b780c36b3",
     "commutative": true,
-    "status": "unresolved"
+    "status": "excluded",
+    "certificate": {
+      "kind": "graded_fiber_functor",
+      "case": "rank3_dimension6_rank_one_component",
+      "neutral_basis": [
+        0,
+        5,
+        7
+      ],
+      "components": [
+        [
+          0,
+          5,
+          7
+        ],
+        [
+          1,
+          2,
+          6
+        ],
+        [
+          3
+        ],
+        [
+          4
+        ]
+      ],
+      "component_group_table": [
+        [
+          0,
+          1,
+          2,
+          3
+        ],
+        [
+          1,
+          0,
+          3,
+          2
+        ],
+        [
+          2,
+          3,
+          1,
+          0
+        ],
+        [
+          3,
+          2,
+          0,
+          1
+        ]
+      ],
+      "criterion": "ENO graded components are invertible; semisimple Hopf algebra dimension-six classification; rank-one module reconstruction"
+    }
   },
   {
     "id": "R8_2_79",
@@ -3379,7 +3574,76 @@
     "index": 116,
     "tensor_sha256": "280a1c5dd0a3eed8cd7afd41245514305313daa58f5b2ae8d36a935a3c12c673",
     "commutative": true,
-    "status": "unresolved"
+    "status": "excluded",
+    "certificate": {
+      "kind": "graded_brauer_picard",
+      "case": "C5_rank_one",
+      "neutral_group": "C4",
+      "neutral_basis": [
+        0,
+        1,
+        2,
+        7
+      ],
+      "components": [
+        [
+          0,
+          1,
+          2,
+          7
+        ],
+        [
+          3
+        ],
+        [
+          4
+        ],
+        [
+          5
+        ],
+        [
+          6
+        ]
+      ],
+      "component_group_table": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        [
+          1,
+          4,
+          0,
+          2,
+          3
+        ],
+        [
+          2,
+          0,
+          3,
+          4,
+          1
+        ],
+        [
+          3,
+          2,
+          4,
+          1,
+          0
+        ],
+        [
+          4,
+          3,
+          1,
+          0,
+          2
+        ]
+      ],
+      "criterion": "ENO, Fusion categories and homotopy theory, Corollary 1.2 and Theorem 1.3; rank-one module lemma"
+    }
   },
   {
     "id": "R8_2_117",
@@ -4089,7 +4353,10 @@
     "index": 154,
     "tensor_sha256": "e982329bc6d0a84609764690b6f9c49f641cebe49537ea20dc4253579f329745",
     "commutative": true,
-    "status": "unresolved"
+    "status": "unitarily_realized",
+    "models": [
+      "TY(V4) S3-equivariantization with parity action coherence"
+    ]
   },
   {
     "id": "R8_2_155",
@@ -4310,7 +4577,61 @@
     "index": 168,
     "tensor_sha256": "39014e9a825d42c9eb0fdf92158702b1a5e19f4bafd8d12b989e9fc52f56f7ba",
     "commutative": true,
-    "status": "unresolved"
+    "status": "excluded",
+    "certificate": {
+      "kind": "graded_fiber_functor",
+      "case": "rank3_dimension6_rank_one_component",
+      "neutral_basis": [
+        0,
+        3,
+        4
+      ],
+      "components": [
+        [
+          0,
+          3,
+          4
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          5,
+          6,
+          7
+        ]
+      ],
+      "component_group_table": [
+        [
+          0,
+          1,
+          2,
+          3
+        ],
+        [
+          1,
+          3,
+          0,
+          2
+        ],
+        [
+          2,
+          0,
+          3,
+          1
+        ],
+        [
+          3,
+          2,
+          1,
+          0
+        ]
+      ],
+      "criterion": "ENO graded components are invertible; semisimple Hopf algebra dimension-six classification; rank-one module reconstruction"
+    }
   },
   {
     "id": "R8_2_169",
@@ -4658,7 +4979,76 @@
     "index": 189,
     "tensor_sha256": "60aed12e5e87e56ed0a2cb3983450f3d1c7241fb032ce25d1c7586bda4689933",
     "commutative": true,
-    "status": "unresolved"
+    "status": "excluded",
+    "certificate": {
+      "kind": "graded_brauer_picard",
+      "case": "C5_rank_one",
+      "neutral_group": "C2xC2",
+      "neutral_basis": [
+        0,
+        5,
+        6,
+        7
+      ],
+      "components": [
+        [
+          0,
+          5,
+          6,
+          7
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ],
+        [
+          4
+        ]
+      ],
+      "component_group_table": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        [
+          1,
+          4,
+          0,
+          2,
+          3
+        ],
+        [
+          2,
+          0,
+          3,
+          4,
+          1
+        ],
+        [
+          3,
+          2,
+          4,
+          1,
+          0
+        ],
+        [
+          4,
+          3,
+          1,
+          0,
+          2
+        ]
+      ],
+      "criterion": "ENO, Fusion categories and homotopy theory, Corollary 1.2 and Theorem 1.3; rank-one module lemma"
+    }
   },
   {
     "id": "R8_2_190",
@@ -9939,7 +10329,10 @@
     "index": 484,
     "tensor_sha256": "aea7240194ac39f3660a7576d3afeb69a7db9d51789aeea4ba50409965fd547b",
     "commutative": true,
-    "status": "unresolved"
+    "status": "unitarily_realized",
+    "models": [
+      "Asaeda-Haagerup AH5"
+    ]
   },
   {
     "id": "R8_2_485",
@@ -12302,7 +12695,10 @@
     "index": 611,
     "tensor_sha256": "1ade84491bb76a80a2e79d91a095656d42556a2d3690cdf3cad4dac1c9d0a5ea",
     "commutative": true,
-    "status": "unresolved"
+    "status": "unitarily_realized",
+    "models": [
+      "TY(V4) S3-equivariantization with strict action"
+    ]
   },
   {
     "id": "R8_2_612",

@@ -1,0 +1,113 @@
+{
+  "status": "PASS",
+  "scope": "independent local B3 exact field, spectra and all-size partition audit; no R155 candidate computation or classification decision",
+  "producer_code_sha256": "6864d565bbf050f3a9f2cb21fa88a2230f34e2f56e6a3ce930b2972e3b4d8b8e",
+  "su2_fixture_sha256": "cd2a7680a01f2ba9fce795c69260e51f653c9a0333207c88b3492c74db4193f0",
+  "known_MTC_controls": [
+    {
+      "a": 1,
+      "b": 1,
+      "dimension": 2,
+      "spectra_mod144": [
+        [
+          [
+            6,
+            1
+          ],
+          [
+            54,
+            1
+          ]
+        ],
+        [
+          [
+            36,
+            1
+          ],
+          [
+            84,
+            1
+          ],
+          [
+            132,
+            0
+          ]
+        ],
+        [
+          [
+            54,
+            1
+          ],
+          [
+            126,
+            1
+          ]
+        ]
+      ],
+      "constituent_dimensions": [
+        2
+      ]
+    },
+    {
+      "a": 2,
+      "b": 2,
+      "dimension": 3,
+      "spectra_mod144": [
+        [
+          [
+            24,
+            1
+          ],
+          [
+            48,
+            1
+          ],
+          [
+            96,
+            1
+          ]
+        ],
+        [
+          [
+            16,
+            1
+          ],
+          [
+            64,
+            1
+          ],
+          [
+            112,
+            1
+          ]
+        ],
+        [
+          [
+            24,
+            1
+          ],
+          [
+            96,
+            2
+          ]
+        ]
+      ],
+      "constituent_dimensions": [
+        3
+      ]
+    }
+  ],
+  "producer_self_tests": {
+    "status": "PASS",
+    "controls": [
+      "SU2_level4_exact_spectra_dimensions2_and3",
+      "SU2_level4_positive",
+      "reducible_SU2_level4_positive",
+      "determinant_passes_Scott_partition_fails",
+      "timeout_is_unknown"
+    ]
+  },
+  "mathematical_audit": "INDEPENDENT_AUDIT.md",
+  "independent_matrix_control": "audit_b3_su2_controls.py",
+  "final_delta_review": "PASS: exact SU2 fixture self-tests added; resume summary refreshed; spectral ValueError reported as ERROR_REQUIRES_REVIEW. No spectral/search mathematics changed."
+}

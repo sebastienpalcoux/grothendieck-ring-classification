@@ -1,0 +1,310 @@
+\documentclass[10pt]{article}
+\usepackage[a4paper,margin=24mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,booktabs,array,microtype}
+\usepackage[colorlinks=true,linkcolor=blue,urlcolor=blue]{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newcommand{\FPdim}{\operatorname{FPdim}}
+\newcommand{\Irr}{\operatorname{Irr}}
+\newcommand{\C}{\mathcal C}
+\newcommand{\D}{\mathcal D}
+\newcommand{\M}{\mathcal M}
+\title{Rank-six residual cases: research addendum}
+\author{Categorification census project}
+\date{2 October 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+Both residual rings $R6\_4\_155$ and $R6\_8\_1660$ remain unresolved as fusion rings over $\mathbb C$. For the latter, a new graded induction identity eliminates 533 of the 1669 previously retained labelled center profiles, leaving $1136=120+508+508$. We also exclude proper dominant pivotal tensor quotients of its positive spherical Galois form. These are necessary restrictions, not nonexistence proofs for the ring. Both centers are forced to have no nontrivial Tannakian subcategory, and neither Morita class contains a braided representative. Exact analytic tests and a small braid-group test yield no additional categorification exclusion. This dated addendum supersedes the retained-profile count in the frozen 1 October release; it does not alter that archive or any categorification verdict.
+\end{abstract}
+
+\section{Scope and fixed inputs}
+We use the exact fusion data and established reductions of the multiplicity-nine rank-six release. For $R6\_8\_1660$, the ordered basis is
+\[
+ (1,g,X,gX,\sigma,T),\qquad T=\sigma X,
+\]
+with
+\[
+ g^2=1,\quad g\sigma=\sigma,\quad \sigma^2=1+g,
+ \qquad X^2=1+\bigl(3(1+g)+4\sigma\bigr)X.
+\]
+In its positive spherical Galois form,
+\[
+ d=\FPdim(X)=3+2\sqrt2+2\sqrt3+\sqrt6,
+ \quad (d_i)=(1,1,d,d,\sqrt2,\sqrt2d),
+\]
+and the second indicators are $\nu_2(\sigma)=-1$ and $\nu_2=+1$ for every other simple. The previous release establishes this Galois reduction, the complete based-module list used below, and the unique central fermion $h$ with forgetful image $g$. Its center twist orders divide 48. A retained profile specifies necessary restriction multiplicities, not a center or a categorification.
+
+\section{A tensor-quotient obstruction}
+\begin{theorem}
+Let $\C$ be the positive spherical Galois form of a hypothetical categorification of $R6\_8\_1660$. Every dominant pivotal tensor functor $F:\C\to\D$ to a pivotal fusion category is an equivalence. Consequently, a unitary categorification has no proper unitary tensor quotient.
+\end{theorem}
+\begin{proof}
+Regard $\D$ as a $\C$-module category through $F$. Dominance makes it indecomposable. The complete based-module analysis in the frozen release gives six simple module objects, arranged in two regular Ising blocks. With the two leaves followed by the middle vertex in each block,
+\[
+ N_X=P\otimes I+Q\otimes N_g+R\otimes N_\sigma,\quad
+ P+Q=\begin{pmatrix}a&b\\b&6-a\end{pmatrix},\quad
+ R=\begin{pmatrix}c&f\\f&4-c\end{pmatrix}.
+\]
+Up to exchanging blocks, the possibilities are
+\begin{center}
+\begin{tabular}{c@{\qquad}rrrr@{\qquad}l}
+\toprule
+Type&$a$&$b$&$c$&$f$&Second-to-first leaf dimension ratio $r$\\
+\midrule
+I&0&1&0&0&$3+2\sqrt2+2\sqrt3+\sqrt6$\\
+II&2&3&2&2&$3-2\sqrt2+2\sqrt3-\sqrt6$\\
+III&1&2&0&1&$\sqrt2+\sqrt3$\\
+IV&1&2&1&2&$(\sqrt2+\sqrt6)/2$\\
+\bottomrule
+\end{tabular}
+\end{center}
+All four ratios exceed one. The signed choices of $P-Q$ do not change the two entries used here.
+
+Tensor functors preserve Frobenius--Perron dimensions. Thus $F\sigma$ is simple, since its dimension is $\sqrt2<2$. Moreover $Fg\ne1$: otherwise $(F\sigma)^2=2\cdot1$, contradicting the multiplicity-one unit coefficient in the product of a simple with its dual. Hence $1,Fg,F\sigma$ form an Ising subcategory of $\D$. The unit of $\D$ must be a leaf, since $Fg$ fixes a middle vertex but $Fg\otimes1\ne1$. It must be a leaf of the first block: normalization at a leaf of the second block would give a simple dimension $1/r<1$. Therefore the target dimension vector is $(1,1,\sqrt2,r,r,\sqrt2r)$.
+
+A pivotal tensor functor preserves the transpose sign of a nondegenerate self-duality. A negative-sign self-dual simple can occur in a positive-sign self-dual object only with even multiplicity: its multiplicity space carries a nondegenerate alternating form. The simple $F\sigma$ has negative sign, while $F(X)$ and $F(T)$ carry positive-sign self-dualities. Their multiplicities of $F\sigma$ are respectively $c$ and $a$. Thus $a,c$ must both be even, excluding types III and IV. This argument does not assert the generally false equality $\nu_2(FX)=\nu_2(X)$ for nonsimple $FX$.
+
+For type II, rational bounds on the three square roots give
+\[
+ \frac{148}{125}<r<\frac{1189}{1000}<\frac65.
+\]
+Hence $1<r$ and $r^2<2$. This is impossible for a simple object $Y$ in a fusion category: an invertible has dimension one, while a noninvertible has $YY^*$ containing the unit and at least one other simple, so $\FPdim(Y)^2\ge2$.
+
+Only type I remains. At its possible unit leaf the internal end is $1$. If $R_F$ is the right adjoint, then $R_F(1)=1$, and the projection formula gives $R_FF(Z)\cong Z\otimes R_F(1)\cong Z$. Thus $F$ is fully faithful and, by dominance, an equivalence. A unitary tensor functor preserves the canonical positive pivotal structures, giving the stated corollary.
+\end{proof}
+
+The pivotal-functor hypothesis is essential to the argument as written; no assertion about arbitrary nonpivotal tensor functors is made. Nontrivial module categories and the retained Morita-dual based rings remain possible. The exact verifier checks all twelve raw signed choices (ten after leaf relabelling), the fusion identities, the entries $a,c$, and the rational dimension bounds. An independent audit rederives the based-module possibilities and the proof.
+
+\section{Graded induction packets}
+Put $\M=Z(\C)$, and grade its simples by monodromy with the fermion $h$. Write the canonical induced algebra as $A=I_{\C}(1)=A_+\oplus A_-$. If $R$ is the restriction matrix, with columns $v_Z$ in the fixed basis above, the projection formula gives
+\[
+ N_A=R^{\mathsf T}R.
+\]
+The matrices $P=N_{A_+}$ and $Q=N_{A_-}$ are respectively its same-charge and opposite-charge blocks. Since $\M$ is braided,
+\begin{equation}\label{eq:commute}
+ PQ=QP.
+\end{equation}
+Writing $H_+=R_+R_+^{\mathsf T}$ and $H_-=R_-R_-^{\mathsf T}$, the even-to-odd block of this identity says
+\begin{equation}\label{eq:gramcommute}
+ v^{\mathsf T}(H_+-H_-)w=0
+ \quad(v\text{ an even column},\ w\text{ an odd column}).
+\end{equation}
+This identity applies generally to such a grading and known induced object.
+
+For this ring the even low columns, constituting $A_+$, are
+\[
+ \begin{split}
+ &(1,0,0,0,0,0),\quad(1,0,3,3,0,4),\\
+ &(1,0,1,1,0,2),\quad(1,0,2,2,0,2).
+ \end{split}
+\]
+The odd low columns, constituting $A_-$, are either
+\[
+ (1,1,2,4,0,4),\ (1,1,4,2,0,4) \qquad\text{(frame 0)},
+\]
+or two copies of $(1,1,3,3,0,4)$ (frame 1). Their sums are
+\[
+ u_+=(4,0,6,6,0,8),\quad u_-=(2,2,6,6,0,8),
+ \quad u_+-u_-=2(1-g).
+\]
+There are four forced even $h$-partners of the even low columns; their restrictions interchange coordinates $1,g$ and $X,gX$. All other columns have zero in the first two coordinates. The coefficient of $A_+^2-A_-^2$ at an even simple with restriction $v$ is $v\cdot(u_+-u_-)=2(v_0-v_1)$; both sides have zero coefficients on odd simples. Therefore
+\begin{equation}\label{eq:square}
+ A_+^2-A_-^2=2(A_+-hA_+),\qquad
+ P^2-Q^2=2(1-N_h)P.
+\end{equation}
+This uses only the already forced low columns and their partners.
+
+\subsection*{The two possible even Grams}
+The fixed total Gram is
+\[
+ H=H_++H_-=
+ \begin{pmatrix}
+ 6&2&12&12&0&16\\2&6&12&12&0&16\\
+ 12&12&142&138&16&192\\12&12&138&142&16&192\\
+ 0&0&16&16&8&24\\16&16&192&192&24&280
+ \end{pmatrix}.
+\]
+After the four forced pairs, write a remaining high column as $(0,0,b,c,z,a)$, put $q=b+c$ and $\delta=b-c$, and sum one contribution per even $h$-pair with multiplicity $e$. The $z$-containing types have $(z,q,a)=(1,4,3)$; all other types have $z=0$. The previous exact even-sector dimension balance is
+\begin{equation}\label{eq:oldmoments}
+ \sum e(q^2+2a^2+2z^2)=180,\qquad \sum e(2qa)=120.
+\end{equation}
+In particular the $X,T$ and $gX,T$ entries of $H_+$ equal $36+\sum eqa=96$. Thus
+\[
+ H_+=\begin{pmatrix}
+ 4&0&6&6&0&8\\0&4&6&6&0&8\\
+ 6&6&B&C&E&96\\6&6&C&B&E&96\\
+ 0&0&E&E&F&G\\8&8&96&96&G&J
+ \end{pmatrix}.
+\]
+Apply \eqref{eq:gramcommute} to the even columns $(1,0,1,1,0,2)$ and $(1,0,3,3,0,4)$, and to the average odd low column $(1,1,3,3,0,4)$. The resulting equations are
+\[
+ 3(B+C)+960+4J=1940,\qquad
+ 9(B+C)+2304+8J=4684.
+\]
+They give $J=140$ and $B+C=140$. The forced pairs contribute 48 to $J$ and 56 to $B+C$. Subtracting those contributions and using \eqref{eq:oldmoments} yields
+\begin{equation}\label{eq:newmoments}
+ \boxed{\sum eq^2=84,\quad\sum eqa=60,\quad
+ \sum ea^2=46,\quad\sum ez^2=2.}
+\end{equation}
+Consequently $E=8,F=4,G=12$.
+
+The matrix $H_+-H_-=2H_+-H$ now vanishes outside the antisymmetric coordinate lines $1-g$ and $X-gX$. Its two blocks are respectively
+\[
+ 2\begin{pmatrix}1&-1\\-1&1\end{pmatrix},\qquad
+ (2B-142)\begin{pmatrix}1&-1\\-1&1\end{pmatrix}.
+\]
+For an even asymmetric high column, the diagonal entry of \eqref{eq:square} gives $(2B-142)\delta^2=2\delta^2$, so $B=72$. For an odd asymmetric column it gives $-(2B-142)\delta^2=2\delta^2$, so $B=70$. Thus asymmetric columns cannot occupy both charges. In frame 0 the odd low columns themselves force $B=70$ and exhaust the total asymmetric norm, so all high columns are symmetric. In frame 1 the low columns are symmetric but $H_{XX}-H_{X,gX}=4$, forcing an asymmetric high column. We obtain exactly
+\begin{equation}\label{eq:finalgram}
+ H_+(\Delta)=\begin{pmatrix}
+ 4&0&6&6&0&8\\0&4&6&6&0&8\\
+ 6&6&70+\Delta/2&70-\Delta/2&8&96\\
+ 6&6&70-\Delta/2&70+\Delta/2&8&96\\
+ 0&0&8&8&4&12\\8&8&96&96&12&140
+ \end{pmatrix},
+ \quad\Delta=\sum e\delta^2.
+\end{equation}
+Here $\Delta=0$ in frame 0 and $\Delta\in\{0,4\}$ in frame 1. In frame 1 all asymmetric high fibers are odd when $\Delta=0$, and even when $\Delta=4$.
+
+\begin{proposition}
+Exactly 533 of the previously retained 1669 labelled profiles fail the new necessary conditions. The retained upper bound becomes 1136.
+\end{proposition}
+The proof is a finite exact exhaustion of the previously certified signed-Galois and fermion-orbit count options, adding \eqref{eq:newmoments} and the uniform asymmetric charge. It retains both previously allowed low-frame-one $h$-actions. The branch counts are
+\begin{center}
+\begin{tabular}{lrrr}
+\toprule
+Branch&Previous&Newly excluded&Retained\\
+\midrule
+Frame 0&163&43&120\\
+Frame 1, first labelling&753&245&508\\
+Frame 1, second labelling&753&245&508\\
+\midrule
+Total&1669&533&1136\\
+\bottomrule
+\end{tabular}
+\end{center}
+The bounded integer recursion uses no optimizer. Every retained witness is expanded to its full restriction-column multiset and checked against \eqref{eq:commute}, \eqref{eq:square}, and \eqref{eq:finalgram}. A second implementation independently rebuilds the orbit options, reproduces every rejection, and checks the complete column multiplicities and both matrix identities. Both implementations bind their inputs to exact source files. This establishes only a necessary profile reduction, not center fusion rules or associators.
+
+\section{A uniform obstruction to group constructions}
+\begin{proposition}\label{prop:no-tannakian}
+Neither residual ring can have a categorification whose center contains a nontrivial Tannakian fusion subcategory. Consequently no category Morita equivalent to either residual is a nontrivial faithful finite-group extension or a nontrivial finite-group equivariantization.
+\end{proposition}
+\begin{proof}
+First work in the established positive pseudo-unitary Galois form. A useful general observation is the following. Suppose a positive braided category $\M$ has only the unit as an invertible object of twist one, and the rational norm of $\FPdim(\M)$ has at most two prime divisors. If $\operatorname{Rep}(G)\subset\M$ is Tannakian, categorical Lagrange gives
+\[
+ \FPdim(\M)/|G|\quad\hbox{an algebraic integer}.
+\]
+Taking its field norm shows that $|G|$ has at most those two prime divisors. Burnside's theorem makes $G$ solvable. If $G\ne1$, a nontrivial one-dimensional character of $G$ gives a nonunit invertible of twist one in $\M$, a contradiction. Here the positive spherical structure restricts to the canonical one on $\operatorname{Rep}(G)$.
+
+For $\M=Z(\C)$ the established complete invertible-twist inventories are $\{1,-1,i,-i\}$ for $R6\_4\_155$, up to conjugation, and $\{1,-1\}$ for $R6\_8\_1660$. Put $D=\FPdim(\C)$. The exact norms are
+\[
+ \begin{array}{c|c|c}
+ \text{ring}&\text{field}&\operatorname{Norm}(D)\\\hline
+ R6\_4\_155&\mathbb Q(\sqrt2)&576=2^6 3^2\\
+ R6\_8\_1660&\mathbb Q(\sqrt2,\sqrt3)&147456=2^{14}3^2.
+ \end{array}
+\]
+Since $\FPdim Z(\C)=D^2$, the observation applies to both centers.
+
+Every faithful $G$-grading supplies a Tannakian $\operatorname{Rep}(G)$ in the center; so does every $G$-equivariantization. See \cite[Propositions 8.23.1 and 8.23.11]{EGNO}. Braided centers are Morita invariant, giving the construction restrictions. Finally, the previously proved Galois reductions apply to every complex categorification of these rings. A hypothetical braided Tannakian embedding and its fiber functor transport under that same conjugation. Thus a Tannakian subcategory for the original category would give one for the positive form, which was excluded.
+\end{proof}
+This prohibits the stated group constructions as a last operation, including after Morita equivalence. It does not prohibit inverse operations such as de-equivariantization, taking a neutral component, or general connected-\'etale condensation.
+
+\section{No braided Morita model for the second residual}
+\begin{proposition}
+No complex categorification of $R6\_8\_1660$ is Morita equivalent to a braided fusion category.
+\end{proposition}
+\begin{proof}
+The exhaustive Morita reduction of the frozen release applies to \emph{every} indecomposable finite semisimple module category. The uniform module-rank theorem gives two regular Ising blocks, the complete based-module list has the four types above, and full-center saturation makes each dual action faithful. The bounded linking-Gram factorization and the second-indicator comparison then leave only three dual based rings: the original ring, a rank-six ring containing
+\begin{equation}\label{eq:e6-subring}
+ g^2=1,\quad gS=S,\quad S^2=1+g+2S,
+ \qquad\FPdim(S)=1+\sqrt3,
+\end{equation}
+and one noncommutative rank-eight ring. This reduction is not restricted to pivotal tensor quotients or to selected algebra structures.
+
+The original ring already has no braiding: its Ising subcategory would be nondegenerate, so braided decomposition would split off a rank-two factor, contradicting $N_{XX}^{\sigma X}=4$. A noncommutative based ring cannot underlie a braided category. It remains to exclude a braiding on the rank-six alternative.
+
+Work in the positive form. Monodromy with the invertible $g$ gives scalar charges compatible with fusion. In the rank-three subcategory \eqref{eq:e6-subring}, the occurrence of $S$ in $S^2$ forces its charge $\mu$ to obey $\mu=\mu^2$, hence $\mu=1$; the occurrence of $g$ in $S^2$ also gives charge one for $g$. Thus $g$ is transparent there. Balancing and $gS=S$ force $\theta_g=1$. In the canonical positive ribbon structure, $\langle g\rangle$ is therefore Tannakian $\operatorname{Rep}(C_2)$, rather than a transparent fermion.
+
+De-equivariantize this subcategory by $B=1+g$. For the free-module functor $F$,
+\[
+ \dim\operatorname{End}_{B}(F(S))
+ =\dim\operatorname{Hom}(S,S\otimes B)=2.
+\]
+Hence $F(S)$ is a sum of two distinct simple modules. Its underlying object is $2S$, so each summand has underlying object $S$. Each therefore has module-category Frobenius--Perron dimension $(1+\sqrt3)/2$. Its quadratic norm is $-1/2$, so it is not an algebraic integer, a contradiction.
+
+The positive structure needed here passes to every Morita dual: both global dimension and Frobenius--Perron dimension are Morita invariant, so their equality is preserved \cite[Theorem 2.15 and Corollary 8.14]{ENO}. Finally a hypothetical braiding and Morita context on an arbitrary complex form transport under the established Galois conjugation. This proves the asserted unrestricted Morita-model obstruction.
+\end{proof}
+The corresponding no-braided-Morita theorem for $R6\_4\_155$ was already established in the frozen release. Neither new proposition removes another retained based ring: direct exact closure of all supports of $i\otimes i^*$ gives the whole ring in each of the six stored dual tensors. In particular, the term ``$\operatorname{Ad}(E_6)$ extension'' for the rank-six alternative does not denote a nontrivial group grading. The three candidate Morita rings remain unresolved.
+
+\section{Tests that add no rank-six exclusion}
+For $R6\_4\_155$, let $\mathcal B$ hypothetically realize its retained rank-26 modular datum. The group $B_3$ acts on $\operatorname{Hom}(b,a^3)$. Ng--Rowell--Wen's generalized second-indicator formula determines the generator spectrum. The full twist acts by $\theta_b/\theta_a^3$. On an irreducible constituent of dimension $r\le4$, with generator eigenvalues $\lambda_j$ and full-twist scalar $z$, Tuba--Wenzl gives the necessary relations
+\[
+ \begin{array}{c|cccc}
+ r&1&2&3&4\\ \hline
+ \text{relation}&z=\lambda_1^6&z=-(\lambda_1\lambda_2)^3&
+ z=(\lambda_1\lambda_2\lambda_3)^2&z^2=(\lambda_1\lambda_2\lambda_3\lambda_4)^3.
+ \end{array}
+\]
+A Jordan--H\"older series forces the whole spectrum to partition accordingly, without assuming complete reducibility. All 70 nonzero blocks of dimension at most four pass the exact exponent test modulo 48. Passing such a partition constructs neither a braid representation nor a category; the dimension-four test does not impose all irreducibility conditions.
+
+For both residual rings the primary-three matrix
+\[
+ Q_3=\sum_i d_i^{-1}N_i\otimes N_i\otimes N_i
+\]
+is positive semidefinite by exact simultaneous character diagonalization. All $6^3=216$ character-triple eigenvalues are checked in each case: there are respectively 7 and 15 distinct values, with zero and otherwise strictly positive values. Huang--Liu--Palcoux--Wu's Theorem 3.9 implies that \emph{all} primary-$n$ criteria hold; their Proposition 3.13 also gives the Schur product criterion. This exhausts that family of necessary positivity tests for these two rings; it does not establish unitarity.
+
+The support-limit consequence of Lim's Minkowski criterion requires, whenever $N_{ij}^{\ell}>0$, for every subset $S$ of simple labels,
+\begin{equation}\label{eq:support}
+ \frac1{d_\ell}\sum_{n\in S}N_{\ell k}^{n}d_n
+ \le \frac1{d_j}\sum_{\substack{m:N_{jk}^{m}>0\\
+                  \exists n\in S:\ N_{im}^{n}>0}}N_{jk}^{m}d_m.
+\end{equation}
+All nonempty proper subsets and all applicable quadruples are exhausted: 17856 checks for $R6\_4\_155$ and 24924 for $R6\_8\_1660$. They reduce to 54 and 215 distinct integer linear forms in the positive dimensions, respectively, and all are nonnegative by exact algebraic root isolation. Empty and full subsets are automatic. This proves the entire $p=\infty$ inequality for arbitrary nonnegative vectors by integrating the level-set indicators in \eqref{eq:support}. The following stronger certificate also settles every finite exponent.
+
+\subsection{Exact exhaustion of the finite-exponent Minkowski family}
+\begin{proposition}
+Both residual tensors satisfy every inequality of \cite[Corollary 3.4]{Lim}, for every triple of their six simple labels, every real $1\le p<\infty$, and every nonnegative input vector.
+\end{proposition}
+\begin{proof}
+Put $P_{uv}(w)=N_{uv}^{w}d_w/(d_ud_v)$, and for fixed $i,j,k$ put $\mu_l=P_{ij}(l)$ and $\nu_m=P_{jk}(m)$. These are probability vectors. Dividing Lim's inequality by $d_i^{1/p}d_k$ gives
+\[
+ \left[\sum_l\mu_l\left(\sum_nP_{lk}(n)a_n\right)^p\right]^{1/p}
+ \le \sum_m\nu_m\left[\sum_nP_{im}(n)a_n^p\right]^{1/p}.
+\]
+It suffices to give a nonnegative array $q_{lmn}$ with the three marginals
+\[
+ \sum_nq_{lmn}=\mu_l\nu_m,\qquad
+ \sum_mq_{lmn}=\mu_lP_{lk}(n),\qquad
+ \sum_lq_{lmn}=\nu_mP_{im}(n).
+\]
+Indeed, after discarding zero-weight labels, set
+$f(l,m)=\sum_nq_{lmn}a_n/(\mu_l\nu_m)$.
+The second marginal identifies the left side with
+$\|\sum_m\nu_mf(\cdot,m)\|_{L^p(\mu)}$.
+Weighted Minkowski bounds this by $\sum_m\nu_m\|f(\cdot,m)\|_{L^p(\mu)}$.
+Conditional Jensen, using the first marginal, then bounds each norm by
+$[\sum_nP_{im}(n)a_n^p]^{1/p}$, by the third marginal.
+
+The portable certificates give exact algebraic arrays for all eight triples of noninvertible labels in $R6\_4\_155$ and all 64 such triples in $R6\_8\_1660$, with respectively 168 and 952 nonzero entries. If a label is invertible, either $\mu$ or $\nu$ is a point mass and a coupling is obtained directly from the other conditional distribution. The verifier checks all three marginals also in these cases. In total it checks all 216 triples and 23328 marginal equations per ring, as well as exact nonnegativity by real-root isolation and equality with the original census tensors. Floating-point optimization was used only to discover supports; the supplied proof uses exact coefficients and identities.
+\end{proof}
+This exhausts Corollary 3.4 on the two given six-element bases. It does not assert exhaustion of other commuting-square constructions or of tests on possible Morita duals, and it supplies no categorification. The proof and replay are in
+\path{evidence/rank6_laptop_20261002/all_p_minkowski/}.
+
+\section{Reproduction and conclusion}
+The accompanying quotient, packet-Gram, braid-group, and analytic-exhaustion verifiers retain their exact receipts and input bindings; the independent packet audit is retained separately. The corresponding Python entry points are \path{verify_tensor_quotient_obstruction.py}, \path{verify_packet_gram.py}, \path{verify_braid3.py}, \path{verify_analytic_exhaustion.py}, and \path{verify_morita_structure.py}. The previous low-profile, signed-Galois, indicator, and based-module certificates remain the fixed prerequisites.
+
+Neither ring has a categorical model or an unrestricted nonexistence proof from this work. In particular the new quotient theorem does not exclude pivotal, spherical, pseudo-unitary, or unitary categorifications themselves. The only changed rank-six frontier count is $1669\longrightarrow1136$ for $R6\_8\_1660$.
+
+\begin{thebibliography}{9}
+\bibitem{release} Rank-six categorification census, multiplicity-nine release, 1 October 2026. In particular \texttt{frontier\_1660.tex}, \texttt{frontier\_1660\_morita.tex}, and the retained profile certificates.
+\bibitem{ENO} P. Etingof, D. Nikshych and V. Ostrik, \emph{On fusion categories}, Annals of Mathematics 162 (2005), 581--642, \href{https://annals.math.princeton.edu/2005/162-2/p01}{primary journal version}, Theorem 2.15 and Corollary 8.14.
+\bibitem{BN} A. Brugui\`eres and S. Natale, \emph{Exact sequences of tensor categories}, \href{https://arxiv.org/abs/1006.0569}{arXiv:1006.0569}.
+\bibitem{EGNO} P. Etingof, S. Gelaki, D. Nikshych and V. Ostrik, \emph{Tensor Categories}, \href{https://math.mit.edu/~etingof/egnobookfinal.pdf}{author manuscript}, especially canonical spherical structures and tensor-functor adjunctions.
+\bibitem{Penneys} D. Penneys, \emph{Unitary dual functors for unitary multitensor categories}, \href{https://arxiv.org/abs/1808.00323}{arXiv:1808.00323}.
+\bibitem{NRW} S.-H. Ng, E. C. Rowell and Z. Wen, \href{https://arxiv.org/abs/2408.02748}{arXiv:2408.02748}, Theorem 3.1.
+\bibitem{TW} I. Tuba and H. Wenzl, \emph{Representations of the braid group $B_3$ and of $SL(2,\mathbb Z)$}, \href{https://arxiv.org/abs/math/9912013}{arXiv:math/9912013}, Propositions 2.5--2.6 and Theorem 2.9.
+\bibitem{HLPW} L. Huang, Z. Liu, S. Palcoux and J. Wu, \emph{Complete positivity of comultiplication and primary criteria for unitary categorification}, \href{https://arxiv.org/abs/2210.00792}{arXiv:2210.00792}, Theorems 3.9 and 3.12, Proposition 3.13.
+\bibitem{Lim} J. Lim, \emph{Noncommutative Minkowski integral inequality and a unitary categorification criterion for fusion rings}, \href{https://arxiv.org/abs/2601.13490}{arXiv:2601.13490}, Corollary 3.4.
+\end{thebibliography}
+\end{document}

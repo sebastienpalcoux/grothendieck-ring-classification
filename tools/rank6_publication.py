@@ -1,5 +1,6 @@
 """Current rank-six publication text, derived from one release identity."""
-from pathlib import PurePosixPath
+from pathlib import PurePosixPath, Path
+import hashlib, json
 DATE='2026-10-01'
 REVISION='m9-frontier-v3'
 ARCHIVE='Rank6_Categorification_M9_Frontier_2026-10-01.zip'
@@ -65,7 +66,19 @@ def archive_url(identity):
 def completed_bands(identity):
     return ', '.join(str(m) for m,row in enumerate(identity['counts'],1) if row[-1]==0)
 def progress_table(identity):
-    return '\n'.join(['| Unresolved ring | Necessary reduction |','|---|---|']+[f"| `{x['id']}` | {x['result']} |" for x in identity['research_progress']])
+    progress=identity['research_progress']
+    repo=Path(__file__).resolve().parents[1]
+    update=repo/'evidence/residual_20261002/rank6/research_progress.json'
+    if update.is_file():
+        research=json.loads(update.read_text())
+        previous=repo/research['previous_coverage']
+        require(hashlib.sha256(previous.read_bytes()).hexdigest()==research['previous_coverage_sha256'],
+                'Rank-six research update has a different prior source')
+        require({x['id'] for x in research['cases']}==FRONTIER and
+                all(x['categorical_status']=='unresolved' for x in research['cases']),
+                'Research update must preserve the unresolved frontier')
+        progress=[{'id':x['id'],'result':x['public_summary']} for x in research['cases']]
+    return '\n'.join(['| Unresolved ring | Necessary reduction |','|---|---|']+[f"| `{x['id']}` | {x['result']} |" for x in progress])
 def continuation_text(identity):
     validate_identity(identity);s=identity['summary'];last=identity['counts'][-1]
     return f'''The rank-six release covers **25,421 fusion rings through multiplicity 9**:
@@ -83,6 +96,6 @@ The positive catalogue includes the three neutral module categories from
 [Manuscript](manuscripts/rank6/papers/manuscript.pdf) ·
 [Completion proofs](supplements/rank6/research/exclusions/m9_completion/) ·
 [Completion replay](supplements/rank6/verification/m9/completion/) ·
-[Current frontier](supplements/rank6/research/frontier/README.md) ·
+[2 October research addendum](evidence/residual_20261002/rank6/research_addendum.pdf) ·
 [Complete release]({archive_url(identity)})
 '''

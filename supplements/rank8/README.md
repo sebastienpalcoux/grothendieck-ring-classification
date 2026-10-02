@@ -8,9 +8,9 @@ it is not counted as a Grothendieck ring.
 
 | Exact multiplicity | Census fusion rings | Generally excluded | Explicit unitary models | Unresolved |
 | ---: | ---: | ---: | ---: | ---: |
-| 1 | 96 | 41 | 30 | 25 |
-| 2 | 877 | 783 | 8 | 86 |
-| Total | 973 | 824 | 38 | 111 |
+| 1 | 96 | 45 | 48 | 3 |
+| 2 | 877 | 787 | 12 | 78 |
+| Total | 973 | 832 | 60 | 81 |
 
 The source `data/rank8_tables.txt.gz` is a copy of the public
 [Fusion Ring Census](https://github.com/sebastienpalcoux/fusion-ring-census),
@@ -26,7 +26,7 @@ those fusion rings again.
 - `data/decisions.json`: all 973 stable IDs `R8_m_j`, their exact source
   tensor SHA-256, and one of `excluded`, `unitarily_realized`, `unresolved`.
   An exclusion carries an independently checked certificate.
-- `data/realized_models.json`: 38 source multiplication tensors and all
+- `data/realized_models.json`: 60 source multiplication tensors and all
   matched unitary constructors with explicit model multiplication tensors,
   `basis_map_source_to_model` permutations and specific references. Five
   published group-theoretical constructors include direct `source_url` links.
@@ -48,7 +48,7 @@ those fusion rings again.
   induction-matrix exclusions. The independent checker verifies every
   full-tensor match; it does not repeat the paper's original Normaliz search.
 
-The first unresolved multiplicity-one ring is `R8_1_3` and the first
+The first unresolved multiplicity-one ring is `R8_1_6` and the first
 multiplicity-two ring is `R8_2_24`. In particular, a final fusion-ring census
 number alone is not a classification of Grothendieck rings at this bound.
 
@@ -76,3 +76,9 @@ frontier. Source and tool hashes are recorded in `manifest.json` after the
 final verification.
 
 The 2026-10-01 positive update is documented in [`../../evidence/anyonwiki/README.md`](../../evidence/anyonwiki/README.md). Run `python tools/verify_anyonwiki_import.py` from the repository root to replay the exact added witnesses and verify preservation of every previous exclusion. The earlier full-certificate report is retained separately; this update does not rerun its costly unchanged searches.
+
+The 2026-10-02 extension and subfactor update adds twenty-two unitary models and eight general exclusions. Run `python3 software/verify_oct2.py` for its finite independent replay. The constructors include generalized Haagerup and Asaeda-Haagerup categories, unitary graded extensions, group and TY equivariantizations, a twisted group-theoretical category, and a bosonic quotient. Three exclusions use Brauer-Picard groups of small pointed categories; two use the dimension-six Hopf classification. Three further exclusions exhaust the forced prime equivariantizations, using a module-rank divisibility obstruction in dimension 72. The full proofs are in the manuscript. All 943 unaffected ledger records and 38 earlier positive records are preserved exactly; the earlier report is `verification/pre_oct2_report.json`.
+
+The central-square-root model R8_1_7 uses the two source-bound pseudo-PSU(2)_6 associator tables in `data/*.jl`. `software/verify_r8_1_7_zesting.py` checks every pentagon and central half-braiding equation over an exact cyclotomic field; it requires SymPy and is included in `verify_oct2.py`.
+
+The further flip extensions, Vec(Q8) equivariantization, and TY(C9)/TY(C3 x C3) inversion equivariantizations have independent tensor constructors in `software/extension_models.py`. The nontrivial pseudo-PSU action is checked by `software/verify_pseudo_psu_swap.py`, included in the finite replay.

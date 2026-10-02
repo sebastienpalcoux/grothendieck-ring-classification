@@ -7,12 +7,12 @@ The authorless manuscript in [`papers/manuscript.tex`](papers/manuscript.tex) an
 | Exact multiplicity | Fusion rings | Certified exclusions | Categorical models | Undecided |
 | ---: | ---: | ---: | ---: | ---: |
 | 1 | 43 | 30 | 13 | 0 |
-| 2 | 319 | 291 | 5 | 23 |
-| 3 | 1059 | 1035 | 1 | 23 |
-| 4 | 2780 | 2751 | 0 | 29 |
+| 2 | 319 | 295 | 9 | 15 |
+| 3 | 1059 | 1039 | 2 | 18 |
+| 4 | 2780 | 2752 | 2 | 26 |
 
 The first multiplicity needing the new exhaustive signed criterion is one.
-Multiplicity one is complete; multiplicities two through four have 75 unresolved rings.
+Multiplicity one is complete; multiplicities two through four have 59 unresolved rings. The full census has 4116 excluded rings and 26 rings with unitary models.
 
 ## Repeat all decisions
 
@@ -50,3 +50,7 @@ The longer signed-sphericalization criterion generalizes the rank-six method. In
 The source files for other ranks and the categorification literature remain cited in the manuscript. The Alekseyev–Bruns–Dong–Palcoux integral-rings paper is marked as accepted in *Letters in Mathematical Physics* as supplied with the project.
 
 The 2026-10-01 positive update is documented in [`../../evidence/anyonwiki/README.md`](../../evidence/anyonwiki/README.md). Run `python tools/verify_anyonwiki_import.py` from the repository root to replay the exact added witnesses and verify preservation of every previous exclusion. The earlier full-certificate report is retained separately; this update does not rerun its costly unchanged searches.
+
+The 2026-10-02 update adds seven unitary models and nine general exclusions. Three models are standard-category identifications. Two more realize `R7_2_1` and `R7_2_195` by coherent `C2` equivariantizations built from `TY(C3)`; the latter uses an explicit unitary `C4` cocycle and tensorator. The proofs appear in the manuscript and [`papers/ty_equivariant_models.md`](papers/ty_equivariant_models.md). A third equivariantization, `Vec(Q8)^S3` for the signed permutation action on quaternion axes, realizes `R7_4_2`. The twisted quaternion group-theoretical category specified by a global Chern class realizes `R7_4_2019`; its construction is proved in [`papers/r7_4_2019_chern_proof.md`](papers/r7_4_2019_chern_proof.md). Portable replay checks the actions, coherence, characteristic-class restriction, equivariant fusion multiplicities, and all 1372 structure constants of these four models.
+
+The two local TPE certificates use the published inconsistent system of arXiv:2203.06522v5, Theorem 7.2, including its identical local subsystem for the dimension-210 variation. Two dimension-40 cases violate a unitary support inequality while solvability forces every categorification to be unitarizable. A half-partition argument forces weak group-theoreticity in the dimension-140 case and contradicts the Frobenius property; an odd pointed group and center dimensions similarly upgrade the dimension-120 case. Finally, solvability forces two successive equivariantizations for `R7_2_75`; their combined `V4` action has an impossible simple-object dimension type. This excludes every complex categorification, as proved in [`papers/r7_2_75_proof.md`](papers/r7_2_75_proof.md). Two dimension-96 rings, `R7_2_252` and `R7_2_315`, are excluded by a forced `S3` action on a group of order sixteen: the required orbit pattern would make an involution fix exactly two elements, while a theoretical group argument forces at least four. The proof is [`papers/D96_GENERAL_EXCLUSION_PROOF.md`](papers/D96_GENERAL_EXCLUSION_PROOF.md). The verifier checks exact theorem hypotheses; it does not independently repeat the source paper's Groebner calculation. Run `python software/verify_residual_20261002.py` (or `python -O software/verify_residual_20261002.py`) to replay all sixteen changes and verify preservation of every unaffected record and the previous 4107 exclusions.

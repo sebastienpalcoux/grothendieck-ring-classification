@@ -59,12 +59,16 @@ scope6=next(r for r in payload["scope"] if r["rank"] == 6)
 assert scope6["analyzed_through"]==expected_bands[-1]
 assert release.get("analyzed_through",scope6["analyzed_through"])==expected_bands[-1]
 assert (scope6["through"],scope6["positive"],scope6["unresolved"]) == (release["complete_through"],summary["positive"],summary["unresolved"])
-assert release["date"] == payload["snapshot"]
+assert release["date"] <= payload["snapshot"]
 coverage=json.loads((root / release["research_coverage_path"]).read_text())
+assert payload["snapshot"] == max(release["date"], coverage["date"])
 assert release["research_cases"] == [{key: case[key] for key in ("id", "categorical_status", "public_summary")} for case in coverage["cases"]]
 assert {r["id"] for r in release["research_cases"]} == set(summary["unresolved_ids"])
 assert all(r["categorical_status"] == "unresolved" and r["public_summary"] for r in release["research_cases"])
 import hashlib
+if "research_addendum" in release:
+    addendum=release["research_addendum"]
+    assert hashlib.sha256((root / addendum["path"]).read_bytes()).hexdigest() == addendum["sha256"]
 archive=root / release["archive"]["path"]
 assert hashlib.sha256(archive.read_bytes()).hexdigest() == release["archive"]["sha256"]
 assert archive.stat().st_size == release["archive"]["bytes"]

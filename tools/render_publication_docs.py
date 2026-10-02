@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Render current rank-six publication indexes while preserving other ranks."""
+"""Render publication indexes from the frozen rank-six identity and upper-rank ledgers."""
 import argparse,json,re
 from pathlib import Path
 from rank6_publication import validate_identity,archive_url,completed_bands,progress_table
@@ -10,6 +10,13 @@ def render(repo,i):
     validate_identity(i);out={};a=i['archive'];s=i['summary'];bands=completed_bands(i);bound=len(i['counts']);total=sum(r[0] for r in i['counts']);read=lambda n:(repo/n).read_text()
     status=json.loads(read('data/classification_status.json'))
     upper={r:status['inputs'][f'rank{r}']for r in (7,8)}
+    upper_decisions={d['id']:d['status'] for r in (7,8) for d in json.loads(read(upper[r]['file']))}
+    unitary_certificates=json.loads(read('evidence/residual_20261002/unitary/unitary_obstruction_certificates.json'))
+    braided_certificates=json.loads(read('evidence/residual_20261002/unitary/braided_upgrades.json'))['braided_exclusions']
+    open_unitary=sum(upper_decisions.get(d['id'])=='unresolved' for d in unitary_certificates)
+    open_braided=sum(upper_decisions.get(d['id'])=='unresolved' for d in braided_certificates)
+    new_rank8_models=len(json.loads(read('supplements/rank8/data/oct2_models.json')))
+    new_rank8_exclusions=len(json.loads(read('supplements/rank8/data/oct2_exclusions.json')))
     bundles={b['name']:b['sha256']for b in status['bundles']}
     text=read('docs/PROVENANCE.md')
     text=re.sub(r'\[`[0-9a-f]{40}`\]\(https://github.com/sebastienpalcoux/fusion-ring-census/tree/[0-9a-f]{40}\)',f"[`{i['census_commit']}`](https://github.com/sebastienpalcoux/fusion-ring-census/tree/{i['census_commit']})",text,count=1)
@@ -43,14 +50,19 @@ replay of every earlier proof. See [verification instructions](VERIFY.md).
     text='\n'.join(lines)+'\n'
     text=section(text,'The verified rank-seven release through','\n| Rank | Census source',f'''The verified rank-seven release through
 multiplicity four has SHA-256 `{bundles['rank7-certified-through-m4.zip']}`.
-Its previous negative-certificate replays are preserved; the three additional
-AnyonWiki associators have independent exact pentagon, invertibility, unit
-and rigidity checks. Multiplicity one is complete with thirteen realized rings.
-The rank-eight release through multiplicity two has SHA-256
-`{bundles['rank8-verified-supplement.zip']}` and adds five sourced models with
-exact full-tensor matches. The remaining {upper[7]['status_totals']['unresolved']}
-and {upper[8]['status_totals']['unresolved']} cases respectively are
-categorification questions. See the [positive update](../evidence/anyonwiki/README.md).
+Multiplicity one is complete with thirteen realized rings. Its earlier exact
+AnyonWiki associator replays are retained; the October 2 update adds
+{upper[7]['status_totals']['unitarily_realized']-19} unitary models and
+{upper[7]['status_totals']['excluded']-4107} general exclusions. The rank-eight release through
+multiplicity two has SHA-256 `{bundles['rank8-verified-supplement.zip']}`.
+Its new categorical constructions are checked by full multiplication tensors,
+and the grading obstructions have short general proofs with finite exact replays.
+The remaining {upper[7]['status_totals']['unresolved']} and
+{upper[8]['status_totals']['unresolved']} cases respectively are general
+categorification questions. Earlier unaffected records are checked for exact
+preservation, and historical full runs are distinguished from the finite update.
+See the [October 2 evidence](../evidence/residual_20261002/README.md) and
+[earlier AnyonWiki evidence](../evidence/anyonwiki/README.md).
 ''')
     lines=text.splitlines()
     for n,line in enumerate(lines):
@@ -81,6 +93,11 @@ complete through multiplicity 20. Rank six is complete through multiplicity
 three, with exact completed bands {bands} and {s['unresolved']} cases through
 multiplicity {bound} generally unresolved. Isolated completed bands do not
 complete intervening unresolved bands.
+''')
+    text=section(text,'Rank seven has ','\nTo refresh only rank six',f'''Rank seven has {upper[7]['status_totals']['unresolved']} open cases through
+multiplicity four, and rank eight has {upper[8]['status_totals']['unresolved']} through multiplicity two.
+These are general categorification questions. Separate unitary-only obstructions
+never change the general partition.
 ''')
     text=section(text,'The incremental exporter verifies all ','\n## Rank-six continuation evidence',f'''The incremental exporter verifies all {total:,} distinct records and each pinned
 census-band total before replacing rank-six rows. Its input hash and current
@@ -115,10 +132,19 @@ The conformal-model command freshly reconstructs the three unitary models.
 The frontier receipt audit checks hashes and completion predicates, not the
 mathematics. To replay a necessary reduction, select one current ring, for
 example `python -O software/frontier_replay.py --select R6_4_155`.
-The current research replay checks the completed R6_4_155 modular-data candidate,
+The dated October 1 research replay checks the completed R6_4_155 modular-data candidate,
 finite indicator tests, and the R6_8_1660 module/Morita and 1,669-profile reductions.
-Its exact scope and receipts are in `research/frontier/new_research/`. These are
+Its exact scope and receipts are in `research/frontier/new_research/`. The October 2
+[addendum](../evidence/residual_20261002/rank6/research_addendum.pdf) reduces the
+second frontier further to 1,136 profiles and proves a pivotal tensor-quotient
+obstruction. It also excludes braided Morita representatives and nontrivial
+finite-group extensions or equivariantizations in either Morita class. These are
 necessary conditions; both categorification questions remain unresolved.
+Exact probability couplings also prove every Lim Corollary 3.4 inequality on
+both six-element fusion bases, for every real exponent p >= 1 and nonnegative
+input vector. Replay the source-bound certificates with
+`python evidence/rank6_laptop_20261002/all_p_minkowski/verify.py --tensors supplements/rank6/data/unresolved_tensors.json`
+from the repository root.
 Each command has a 15-minute deadline. A timeout establishes no exclusion.
 
 The completion replay checks all eleven final multiplicity-nine exclusions
@@ -136,12 +162,63 @@ python -O verify.py --jobs 2 --out verification/current/recheck_O.jsonl
 
 The authoritative decisions and all unresolved tensors are in `data/`.
 The [frontier](../supplements/rank6/research/frontier/README.md) identifies the
-current necessary reductions, and the model catalogue lists all realizations.
-''');out['docs/VERIFY.md']=text
+October 1 necessary reductions; the October 2 addendum and its portable
+verifiers record subsequent progress. The model catalogue lists all realizations.
+''')
+    upper_start=text.index('The upper-rank bundles retain') if 'The upper-rank bundles retain' in text else text.index('The rank-seven bundle includes')
+    upper_end=text.index('The revised rank-five proof',upper_start)
+    text=text[:upper_start]+'''The upper-rank bundles retain the earlier full-certificate runs, including the
+rank-seven normal and optimized replays and the rank-eight exhaustive signed
+proofs. Subsequent finite updates have separate reports that check new models,
+new theoretical obstructions and exact preservation of earlier unaffected
+records. Published upstream lemmas remain explicit citation dependencies;
+external Normaliz or Groebner calculations are not claimed to have been rerun.
+
+'''+text[upper_end:]
+    text=text[:text.index('## AnyonWiki positive update')]+f'''## AnyonWiki positive update
+
+Run `python tools/verify_anyonwiki_import.py` from the repository root. It checks
+all 139 multiplicity-one tensor matches, the added model permutations, and three
+published associators over exact cyclotomic fields. Its historical preservation
+checks account explicitly for the separately certified October 2 changes.
+Multiplicity one at rank seven is complete; rank eight currently has
+{next(row['unresolved_general'] for row in status['rows'] if row['rank']==8 and row['multiplicity']==1)} generally open multiplicity-one cases.
+See [the original evidence](../evidence/anyonwiki/README.md).
+
+## October 2 residual update
+
+The [new evidence](../evidence/residual_20261002/README.md) records the exact
+models, general exclusions and structure-specific results. In addition to the
+general decisions, {open_unitary} still-generally-open rings have unitary exclusions and
+{open_braided} have braided exclusions; these are not general nonexistence claims.
+Replay the small new certificates using the commands in that evidence guide.
+For the rank-eight constructions and general obstructions, run:
+
+```bash
+python3 supplements/rank8/software/verify_oct2.py
+```
+
+To refresh the upper-rank status and publication indexes from their ledgers:
+
+```bash
+python3 tools/update_upper_rank_status.py
+python3 tools/export_grothendieck_counts.py
+python3 tools/render_readme.py
+python3 tools/render_publication_docs.py
+python3 tools/validate_release.py
+python3 tools/render_publication_docs.py --check
+```
+
+The upper-rank exporter preserves every lower-rank status row and input identity.
+Archive checksums must be refreshed only after the corresponding bundle is rebuilt.
+'''
+    out['docs/VERIFY.md']=text
     text=read('manuscripts/README.md');lines=text.splitlines()
     for n,line in enumerate(lines):
         if line.startswith('| Rank six |'):lines[n]=f'| Rank six | [TeX](rank6/papers/manuscript.tex) | [PDF](rank6/papers/manuscript.pdf) | Complete through 3; exact bands {bands}; {s["positive"]} realized and {s["unresolved"]} unresolved through {bound} |'
         elif line.startswith('| Rank six, verification guide |'):lines[n]='| Rank six, verification guide | [TeX](rank6/papers/verification_guide.tex) | [PDF](rank6/papers/verification_guide.pdf) | Exact models, exclusion certificates and unresolved rings |'
+        elif line.startswith('| Rank seven |'):lines[n]=f'| Rank seven | [TeX](rank7/papers/manuscript.tex) | [PDF](rank7/papers/manuscript.pdf) | Complete at multiplicity 1; {upper[7]["status_totals"]["unitarily_realized"]} realized and {upper[7]["status_totals"]["unresolved"]} unresolved through multiplicity 4 |'
+        elif line.startswith('| Rank eight |'):lines[n]=f'| Rank eight | [TeX](rank8/paper/rank8.tex) | [PDF](rank8/paper/rank8.pdf) | Partial through multiplicity 2; {upper[8]["status_totals"]["unitarily_realized"]} realized and {upper[8]["status_totals"]["unresolved"]} generally unresolved |'
     text='\n'.join(lines)+'\n';text=text[:text.index('The current rank-six paper')]+f'''The current rank-six paper contains {s['excluded']:,} general exclusions, {s['positive']} realizations
 and {s['unresolved']} unresolved rings through multiplicity {bound}. All 8,809 exact-multiplicity-nine
 rings are excluded, including the final eleven cases proved in the completion chapter.
@@ -149,15 +226,28 @@ A unified conformal-embedding section constructs
 R6_4_22, R6_4_91 and R6_4_629. Superseded necessary-center searches have been
 removed. The [current frontier](../supplements/rank6/research/frontier/README.md)
 and [verification instructions](../docs/VERIFY.md) give the retained evidence.
-''';out['manuscripts/README.md']=text
+'''
+    text+='\nThe dated [October 2 rank-six research addendum](../evidence/residual_20261002/rank6/research_addendum.pdf) records subsequent necessary reductions while preserving the October 1 release and its two unresolved categorification questions.\n'
+    text+='\nThe upper-rank papers include the [October 2 residual update](../evidence/residual_20261002/README.md): extension and subfactor models, short general exclusions, and explicit remaining questions.\n'
+    out['manuscripts/README.md']=text
     text=read('supplements/README.md');text=re.sub(r'all four accepted exclusion continuations and the round-five refinements','accepted exclusion certificates and conformal constructions',text);lines=text.splitlines()
     for n,line in enumerate(lines):
         if line.startswith('| 6 |'):lines[n]=f'| 6 | [`rank6/software/`](rank6/software/) and [`verify.py`](rank6/verify.py) | Complete release; {s["excluded"]:,} excluded, {s["positive"]} realized, {s["unresolved"]} unresolved; complete through 3 and exact bands {bands} |'
+    for rank in (7,8):
+        totals=upper[rank]['status_totals']
+        row=f'| {rank} | [`rank{rank}/`](rank{rank}/) | Complete census through {upper[rank]["classified_through"]}; {totals["excluded"]:,} generally excluded, {totals["unitarily_realized"]} realized, {totals["unresolved"]} generally unresolved |'
+        index=next((n for n,line in enumerate(lines) if line.startswith(f'| {rank} |')),None)
+        if index is None:
+            index=max(n for n,line in enumerate(lines) if line.startswith('| '))+1
+            lines.insert(index,row)
+        else:lines[index]=row
     text='\n'.join(lines)+'\n';text=text[:text.index('For the rank-six update')]+f'''For the rank-six update, start with its [README](rank6/README.md),
 [models](rank6/data/model_catalog.csv) and [current frontier](rank6/research/frontier/README.md).
 The authoritative ledger is `rank6/data/decisions.json`. The archive is
 `{a['name']}`. Source-bound certificates retain their internal paths.
-''';out['supplements/README.md']=text
+'''
+    text+=f'\nThe [October 2 evidence](../evidence/residual_20261002/README.md) describes the new upper-rank exact model and obstruction replays. Run `python3 rank8/software/verify_oct2.py` for its {new_rank8_models} new model tensors and {new_rank8_exclusions} general exclusions.\n'
+    out['supplements/README.md']=text
     text=read('oeis/README.md');out['oeis/README.md']=section(text,'Rank-six general classification','No zero beyond a proven finite',f'''Rank-six general classification is complete at exact multiplicities
 **{bands}**, contiguously through **3**. The unresolved rings are recorded in the current frontier.
 The rank-six fusion-ring census draft is separately extended by a(9)=8809;

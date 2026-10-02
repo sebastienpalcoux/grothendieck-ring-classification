@@ -15,7 +15,13 @@
     "lower_rank_subring",
     "dnumber",
     "subcategory_divisibility",
-    "oriented_dimension_order"
+    "oriented_dimension_order",
+    "localized_TPE_F210",
+    "solvable_minkowski_support",
+    "half_partition_tannakian",
+    "odd_pointed_tannakian_120",
+    "solvable_double_equivariantization_orbit_obstruction",
+    "D96_solvable_order16_orbit_obstruction"
   ],
   "stage_counts": {
     "near_group": {
@@ -54,6 +60,25 @@
       "4": 130,
       "1": 4,
       "3": 61
+    },
+    "localized_TPE_F210": {
+      "3": 1,
+      "2": 1
+    },
+    "solvable_minkowski_support": {
+      "3": 2
+    },
+    "half_partition_tannakian": {
+      "3": 1
+    },
+    "odd_pointed_tannakian_120": {
+      "4": 1
+    },
+    "solvable_double_equivariantization_orbit_obstruction": {
+      "2": 1
+    },
+    "D96_solvable_order16_orbit_obstruction": {
+      "2": 2
     }
   },
   "status_counts": {
@@ -62,21 +87,22 @@
       "excluded": 30
     },
     "2": {
-      "unresolved": 23,
-      "excluded": 291,
-      "unitarily_realized": 5
+      "unitarily_realized": 9,
+      "excluded": 295,
+      "unresolved": 15
     },
     "3": {
-      "excluded": 1035,
-      "unresolved": 23,
-      "unitarily_realized": 1
+      "excluded": 1039,
+      "unresolved": 18,
+      "unitarily_realized": 2
     },
     "4": {
-      "excluded": 2751,
-      "unresolved": 29
+      "excluded": 2752,
+      "unitarily_realized": 2,
+      "unresolved": 26
     }
   },
-  "model_count": 19,
-  "notes": "Unresolved means no general categorification conclusion; all negative certificates independently reevaluated.",
+  "model_count": 26,
+  "notes": "Every exclusion follows from a cited categorical theorem with exact checked tensor hypotheses or an existing complete certificate; unchanged earlier proof records are preserved.",
   "anyonwiki_import": "evidence/anyonwiki/README.md"
 }

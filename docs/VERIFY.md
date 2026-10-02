@@ -75,9 +75,10 @@ complete through multiplicity 20. Rank six is complete through multiplicity
 three, with exact completed bands 1, 2, 3, 5, 6, 7, 9 and 2 cases through
 multiplicity 9 generally unresolved. Isolated completed bands do not
 complete intervening unresolved bands.
-Rank seven has 75 open cases through
-multiplicity four, and rank eight has 111 through multiplicity two. Those
-figures are stored as unresolved, never as exclusions or zero positive counts.
+Rank seven has 59 open cases through
+multiplicity four, and rank eight has 81 through multiplicity two.
+These are general categorification questions. Separate unitary-only obstructions
+never change the general partition.
 
 To refresh only rank six from the revised archive while preserving every
 other rank's current rows and provenance, use:
@@ -123,10 +124,19 @@ The conformal-model command freshly reconstructs the three unitary models.
 The frontier receipt audit checks hashes and completion predicates, not the
 mathematics. To replay a necessary reduction, select one current ring, for
 example `python -O software/frontier_replay.py --select R6_4_155`.
-The current research replay checks the completed R6_4_155 modular-data candidate,
+The dated October 1 research replay checks the completed R6_4_155 modular-data candidate,
 finite indicator tests, and the R6_8_1660 module/Morita and 1,669-profile reductions.
-Its exact scope and receipts are in `research/frontier/new_research/`. These are
+Its exact scope and receipts are in `research/frontier/new_research/`. The October 2
+[addendum](../evidence/residual_20261002/rank6/research_addendum.pdf) reduces the
+second frontier further to 1,136 profiles and proves a pivotal tensor-quotient
+obstruction. It also excludes braided Morita representatives and nontrivial
+finite-group extensions or equivariantizations in either Morita class. These are
 necessary conditions; both categorification questions remain unresolved.
+Exact probability couplings also prove every Lim Corollary 3.4 inequality on
+both six-element fusion bases, for every real exponent p >= 1 and nonnegative
+input vector. Replay the source-bound certificates with
+`python evidence/rank6_laptop_20261002/all_p_minkowski/verify.py --tensors supplements/rank6/data/unresolved_tensors.json`
+from the repository root.
 Each command has a 15-minute deadline. A timeout establishes no exclusion.
 
 The completion replay checks all eleven final multiplicity-nine exclusions
@@ -144,7 +154,8 @@ python -O verify.py --jobs 2 --out verification/current/recheck_O.jsonl
 
 The authoritative decisions and all unresolved tensors are in `data/`.
 The [frontier](../supplements/rank6/research/frontier/README.md) identifies the
-current necessary reductions, and the model catalogue lists all realizations.
+October 1 necessary reductions; the October 2 addendum and its portable
+verifiers record subsequent progress. The model catalogue lists all realizations.
 
 ## Tensor crosswalks
 
@@ -167,13 +178,12 @@ models and theoretical coverage arguments, use the `verify.py` programs and
 verification guides in the attached rank-specific research releases and the
 revised manuscripts.
 
-The rank-seven bundle includes a full 4,201-record checker and a second pass
-under `python -O`, both passed on the released bytes. The rank-eight bundle
-includes a 973-record replay with 75 completed exhaustive signed trees,
-independently replayed inherited rank-seven subring proofs, and exact positive
-tensor comparisons. Some published upstream negative lemmas are used by
-citation rather than rerunning external Normaliz computations; see the
-rank-eight manuscript for the precise dependency.
+The upper-rank bundles retain the earlier full-certificate runs, including the
+rank-seven normal and optimized replays and the rank-eight exhaustive signed
+proofs. Subsequent finite updates have separate reports that check new models,
+new theoretical obstructions and exact preservation of earlier unaffected
+records. Published upstream lemmas remain explicit citation dependencies;
+external Normaliz or Groebner calculations are not claimed to have been rerun.
 
 The revised rank-five proof uses `software/inert_parity.py` for the
 former multiplicity-18 residuals. The extension includes
@@ -195,4 +205,37 @@ not treat a search timeout as a negative categorification result.
 
 ## AnyonWiki positive update
 
-Run `python tools/verify_anyonwiki_import.py` from the repository root. It checks all 139 rank-seven/eight multiplicity-one tensor matches, the added model permutations, three published associators over exact cyclotomic fields, and preservation of every previous negative and unaffected record. Multiplicity one at rank seven is complete; rank eight still has 25 open multiplicity-one cases. See [the evidence](../evidence/anyonwiki/README.md).
+Run `python tools/verify_anyonwiki_import.py` from the repository root. It checks
+all 139 multiplicity-one tensor matches, the added model permutations, and three
+published associators over exact cyclotomic fields. Its historical preservation
+checks account explicitly for the separately certified October 2 changes.
+Multiplicity one at rank seven is complete; rank eight currently has
+3 generally open multiplicity-one cases.
+See [the original evidence](../evidence/anyonwiki/README.md).
+
+## October 2 residual update
+
+The [new evidence](../evidence/residual_20261002/README.md) records the exact
+models, general exclusions and structure-specific results. In addition to the
+general decisions, 23 still-generally-open rings have unitary exclusions and
+5 have braided exclusions; these are not general nonexistence claims.
+Replay the small new certificates using the commands in that evidence guide.
+For the rank-eight constructions and general obstructions, run:
+
+```bash
+python3 supplements/rank8/software/verify_oct2.py
+```
+
+To refresh the upper-rank status and publication indexes from their ledgers:
+
+```bash
+python3 tools/update_upper_rank_status.py
+python3 tools/export_grothendieck_counts.py
+python3 tools/render_readme.py
+python3 tools/render_publication_docs.py
+python3 tools/validate_release.py
+python3 tools/render_publication_docs.py --check
+```
+
+The upper-rank exporter preserves every lower-rank status row and input identity.
+Archive checksums must be refreshed only after the corresponding bundle is rebuilt.

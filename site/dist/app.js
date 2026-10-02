@@ -273,7 +273,7 @@ function renderScope() {
 function renderPapers() {
   const release = state.data.rank6_release;
   if (release) {
-    const date = new Date(release.date+"T12:00:00Z");
+    const date = new Date(state.data.snapshot+"T12:00:00Z");
     const dateOptions = {day:"numeric",month:"long",year:"numeric",timeZone:"UTC"};
     $("#edition-date").textContent = date.toLocaleDateString("en-GB", {...dateOptions,month:"short"}).toUpperCase();
     $("#snapshot-date").textContent = `Research snapshot · ${date.toLocaleDateString("en-GB", dateOptions)}`;
@@ -290,8 +290,14 @@ function renderPapers() {
     const summary = $("#rank6-release");
     summary.replaceChildren(element("strong", "", `Rank six, multiplicity at most ${release.analyzed_through}. `));
     summary.append(document.createTextNode(`${fmt.format(release.excluded)} excluded, ${release.realized} realized, ${release.unresolved} unresolved. ${release.research_summary || ""} `));
-    const archive=element("a", "", "Download manuscript and certificates");
+    const archive=element("a", "", "Classification archive (1 October)");
     archive.href=`./${release.archive.path}`;archive.download="";summary.append(archive);
+    const update=element("a", "", "2 October research addendum");
+    update.href="./papers/rank6_addendum_20261002.pdf";
+    summary.append(document.createTextNode(" · "), update);
+    const local=element("a", "", "Local Python computations");
+    local.href="https://github.com/sebastienpalcoux/grothendieck-ring-classification/tree/main/evidence/rank6_laptop_20261002";
+    summary.append(document.createTextNode(" · "), local);
   }
   const grid=$("#paper-grid");
   grid.replaceChildren();

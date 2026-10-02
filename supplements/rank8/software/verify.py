@@ -51,7 +51,10 @@ def assert_fusion_tensor(R):
 
 def verify_certificate(R,c,reg,rank7_negative,signed_witnesses,published_negative):
     kind=c['kind']
-    if kind=='near_group':
+    if kind in ('graded_brauer_picard','graded_fiber_functor','solvable_equivariantization'):
+        from oct2_extensions import verify_certificate as verify_graded
+        verify_graded(R,c)
+    elif kind=='near_group':
         assert near_group_certificate(R)==c
     elif kind=='rank_two':
         assert rank2_certificate(R)==c

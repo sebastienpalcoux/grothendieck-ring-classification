@@ -359,6 +359,10 @@ def model_matches(rows):
                 raise ValueError('AnyonWiki based isomorphism failed')
             result.setdefault(row['id'],[]).append(model['name'])
             catalog.append(model)
+    from residual_update_20261002 import model_records
+    for model in model_records(rows):
+        result.setdefault(model['id'],[]).append(model['name'])
+        catalog.append(model)
     return result,catalog
 
 def spectrum_batch(rows):
@@ -427,6 +431,24 @@ def verify_own(R,c):
             raise ValueError('incorrect integral global dimension')
     elif c['kind']=='primitive_codegree':
         if primitive_codegree_certificate(R)!=c:raise ValueError('invalid primitive codegree')
+    elif c['kind']=='localized_TPE_F210':
+        from residual_update_20261002 import verify_f210
+        verify_f210(R,c)
+    elif c['kind']=='solvable_minkowski_support':
+        from residual_update_20261002 import verify_support40
+        verify_support40(R,c)
+    elif c['kind']=='half_partition_tannakian':
+        from half_partition_tannakian import verify
+        verify(R,c)
+    elif c['kind']=='odd_pointed_tannakian_120':
+        from half_partition_tannakian import verify_odd120
+        verify_odd120(R,c)
+    elif c['kind']=='solvable_double_equivariantization_orbit_obstruction':
+        from dimension52_equivariantization import verify
+        verify(R,c)
+    elif c['kind']=='D96_solvable_order16_orbit_obstruction':
+        from verify_d96_premises import verify
+        verify(R,c)
     elif c['kind']=='oriented_signed':
         from advanced_criteria import verify as verify_oriented
         verify_oriented(R,c)
@@ -449,7 +471,7 @@ def main():
     # Keep the allocation table lean: rank-two, primitive-codegree and
     # cyclotomic diagnostics were tested but contribute zero exclusions here.
     stages=['near_group','dimension_15','zero_spectrum','lower_rank_subring']+(
-            ['dnumber','subcategory_divisibility','oriented_dimension_order'] if args.dnumber else [])
+            ['dnumber','subcategory_divisibility','oriented_dimension_order','localized_TPE_F210','solvable_minkowski_support','half_partition_tannakian','odd_pointed_tannakian_120','solvable_double_equivariantization_orbit_obstruction','D96_solvable_order16_orbit_obstruction'] if args.dnumber else [])
     stage_counts={s:collections.Counter() for s in stages}
     remaining=list(range(len(rows)))
     records={r['id']:{'id':r['id'],'rank':7,'multiplicity':r['multiplicity'],
@@ -498,6 +520,24 @@ def main():
                         from proofs import subring_certificate
                         c=subring_certificate(R)
                     else:c=None
+                elif stage=='localized_TPE_F210':
+                    from residual_update_20261002 import f210_certificate
+                    c=f210_certificate(R)
+                elif stage=='solvable_minkowski_support':
+                    from residual_update_20261002 import support40_certificate
+                    c=support40_certificate(R)
+                elif stage=='half_partition_tannakian':
+                    from half_partition_tannakian import certificate
+                    c=certificate(R)
+                elif stage=='odd_pointed_tannakian_120':
+                    from half_partition_tannakian import odd_pointed120_certificate
+                    c=odd_pointed120_certificate(R)
+                elif stage=='solvable_double_equivariantization_orbit_obstruction':
+                    from dimension52_equivariantization import certificate
+                    c=certificate(R)
+                elif stage=='D96_solvable_order16_orbit_obstruction':
+                    from verify_d96_premises import certificate
+                    c=certificate(R)
                 elif stage=='oriented_dimension_order':
                     # All and only complete exact search certificates,
                     # rechecked by verify_own (which enumerates all signed
@@ -534,6 +574,7 @@ def main():
     ledger=sorted(records.values(),key=lambda x:x['source_line'])
     (output/'rank7_ledger.json').write_text(json.dumps(ledger,separators=(',',':'))+'\n')
     (output/'rank7_model_catalog.json').write_text(json.dumps(catalog,separators=(',',':'))+'\n')
+    (ROOT/'data/model_catalog.json').write_bytes((output/'rank7_model_catalog.json').read_bytes())
     summary={'source_sha256':SOURCE_SHA,'source_commit':'b86eb6dc6eeeafe5fc5f6906d7b074e0322e9726',
              'max_multiplicity':args.max_m,'ring_counts':{m:KNOWN[m] for m in range(1,args.max_m+1)},
              'stage_order':stages,'stage_counts':{s:dict(stage_counts[s]) for s in stages},

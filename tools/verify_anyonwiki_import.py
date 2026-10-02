@@ -33,7 +33,12 @@ def ty3_crossed():
 def main():
     imported=load(EVIDENCE/'positive_import.json')
     baseline=load(EVIDENCE/'baseline_ledger_fingerprints.json')
-    ledgers={7:load(ROOT/'supplements/rank7/output/rank7_ledger.json'),8:load(ROOT/'supplements/rank8/data/decisions.json')}
+    # First validate the later residual update, then recover the exact historical
+    # post-AnyonWiki stage. All original preservation checks below remain intact.
+    residual_spec=importlib.util.spec_from_file_location('residual_stage',ROOT/'tools/verify_residual_20261002.py')
+    residual_module=importlib.util.module_from_spec(residual_spec);residual_spec.loader.exec_module(residual_module)
+    residual_report,ledgers=residual_module.verify_update()
+    require(residual_report['status']=='PASS','later residual update failed')
     tensors={x['id']:x['tensor']for x in ledgers[7]if x['multiplicity']==1}
     tables=[json.loads(line.replace('{','[').replace('}',']'))for line in gzip.open(ROOT/'supplements/rank8/data/rank8_tables.txt.gz','rt')if line.strip()]
     tables=sorted([T for T in tables if max(v for A in T for row in A for v in row)==1],key=lambda T:tuple(v for A in T for row in A for v in row))
