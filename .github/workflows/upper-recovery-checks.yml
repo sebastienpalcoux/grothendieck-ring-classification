@@ -1,0 +1,20 @@
+name: Upper-rank recovery checkpoint checks
+on:
+  push:
+    branches:
+      - codex/upper-residual-recovery-20261002
+    paths:
+      - evidence/upper_residual_20261002b_recovery/**
+      - .github/workflows/upper-recovery-checks.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  recovery:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check recovery source binding and exact math
+        run: python3 evidence/upper_residual_20261002b_recovery/verify_recovery.py
+      - name: Check optimized Python semantics
+        run: python3 -O evidence/upper_residual_20261002b_recovery/verify_recovery.py
