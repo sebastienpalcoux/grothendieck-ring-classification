@@ -32,7 +32,7 @@ def publication_helpers():
     candidates.extend(ROOT.parents)
     for repo in candidates:
         helper = repo/'supplements/rank7/build_release.py'
-        if helper.is_file() and (repo/'tools/verify_upper_residual_20261002b.py').is_file():
+        if helper.is_file() and (repo/'tools/verify_upper_residual_20261002c.py').is_file():
             spec = importlib.util.spec_from_file_location('upper_release_shared_helpers',helper)
             module = importlib.util.module_from_spec(spec)
             spec.loader.exec_module(module)

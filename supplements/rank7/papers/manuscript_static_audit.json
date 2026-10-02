@@ -1,18 +1,42 @@
 {
   "status": "PASS",
   "citations": 32,
-  "labels": 10,
+  "bibliography_entries": 32,
+  "labels": 12,
+  "canonical_supplement_tex_identical": true,
+  "all_inputs_present": true,
   "source_hashes": {
-    "supplements/rank7/papers/manuscript.tex": "99cd70e0c83db5b53d736d61b28115cde39e720d18bdaa17087984e281586e23",
-    "supplements/rank7/papers/generated_tables.tex": "59fd5194c557459626eb9c5ea15859145a081d0a0c6d9dd79d76656f30d9cd50",
-    "supplements/rank7/papers/prime_descent_proofs.tex": "b032fcf4d36190db014b478bd3cd09149bf4a8d9555c591930a10f6a3a23d353",
-    "supplements/rank7/papers/d12_model.tex": "f7470c2d00aeabda20632f0f4e45a1eb188af9e2125fbc4dc3229414e104c8dc"
+    "manuscripts/rank7/papers/d12_model.tex": "02780d410df63fbb572cca6701fe7299ccba8d986273aeca1e2e99cc3272adb1",
+    "manuscripts/rank7/papers/generated_tables.tex": "ac483e650333b74db9e99876c9cf48fbade6bcde2b6a28306d226271f7874f3c",
+    "manuscripts/rank7/papers/manuscript.tex": "b285ec1fb79e411d108c6b4c842c391ebfca659f54989e764b550102c5991e67",
+    "manuscripts/rank7/papers/prime_descent_proofs.tex": "b87c6cdebc1e07f6ddeee5940c5b6610bfe705baf791e43109177a5dc2b6dfa0",
+    "manuscripts/rank7/papers/r160_proof.tex": "92fae6c0723177c272aa6416ed30deb7c3d24a610579ec1eb7fe60d9b76b0129",
+    "manuscripts/rank7/papers/relative_trace_proof.tex": "a34d9cfb3950632cf21e4674ec557abd11ce3febc9023cc805aaab6df4d623c1"
   },
   "counts": {
-    "excluded": 4132,
+    "excluded": 4135,
     "unitary_models": 27,
-    "general_open": 42
+    "general_open": 39
   },
-  "pdf_compiled_by_this_audit": false,
-  "claims": "General and scoped impossibility conclusions remain distinct."
+  "pdf_compiled_by_this_audit": true,
+  "builds": [
+    "canonical: two warning-free pdflatex passes; identical source and PDF mirrored to supplement"
+  ],
+  "visual_reviewed_pdf_pages": [
+    1,
+    2,
+    10,
+    11,
+    12
+  ],
+  "claims": "General and scope-specific conclusions remain distinct. Includes all three rank-seven and all eleven rank-eight continuation exclusions; eight weakly integral rank-eight exclusions included.",
+  "pdf_pages": 18,
+  "pdf_sha256": "1160a44b71635d592700eb6622d19f4f1cbea3903e43eff2412e7202ce67b823",
+  "checks": {
+    "canonical_supplement_sources_identical": true,
+    "citations_resolved": true,
+    "references_resolved": true,
+    "duplicate_labels": false,
+    "overfull_boxes": false
+  }
 }

@@ -1,0 +1,57 @@
+\subsection{A relative-trace obstruction without signed enumeration}
+\begin{proposition}[Relative-trace criterion]
+\label{prop:relative-trace}
+Let $R$ be a commutative fusion ring with self-dual basis, and put
+$B=\sum_{i,j,k}(N_{ij}^k)^2$. Suppose $L\in\Z_{>0}$ and $f$ are
+formal codegrees of $R$, and set $F=\mathbb Q(f)$.
+If every nonzero totally positive element of
+$L\mathcal O_F\cap f\mathcal O_F$ has field trace greater than $B$,
+then $R$ has no categorification over $\C$.
+\end{proposition}
+\begin{proof}
+Sphericalize a hypothetical category and take its quotient by
+$\varepsilon=-1$. Both lifts of a self-dual simple remain self-dual
+\cite[Section~5.1(a)]{OstrikRank3}; hence the signed multiplication
+matrices are symmetric and commute. Writing them as $M_i$, their
+Casimir satisfies
+\[
+ \operatorname{Tr}\Bigl(\sum_iM_i^2\Bigr)
+ =\sum_{i,j,k}(T_{ij}^k)^2\le B.
+\]
+Let $d_i$ be the lift dimensions, $K=\mathbb Q(d_i)$, and
+$\delta=\sum_i d_i^2$. Every embedding of $K$ gives a distinct
+dimension character and contributes its conjugate of $\delta$ as
+a Casimir eigenvalue. This counts $[K:\mathbb Q]$ characters even
+when some eigenvalues coincide. All Casimir eigenvalues are positive,
+so $\operatorname{Tr}_{K/\mathbb Q}(\delta)\le B$.
+
+The sphericalization has dimension $2\delta$ and formal codegrees
+$2L,2f$. The induced-unit theorem gives algebraic integers
+$\delta/L,\delta/f$ in its dimension field $K$
+\cite[Theorem~2.13 and Corollaries~2.14--2.15]{OstrikRank3}.
+Thus $F\subseteq K$. The element
+$t=\operatorname{Tr}_{K/F}(\delta)$ is totally positive and lies in
+$L\mathcal O_F\cap f\mathcal O_F$. Its trace is at most $B$, a
+contradiction. No equality $K=\mathbb Q(\delta)$ is assumed.
+\end{proof}
+
+\begin{proposition}
+The rings $R7\_4\_1417$ and $R7\_4\_1420$ admit no complex
+fusion-category categorification.
+\end{proposition}
+\begin{proof}
+Both rings have formal codegrees $20$ and
+$f=510+70\sqrt{51}$, whose minimal polynomial is
+$z^2-1020z+10200$. Here
+$\mathcal O_F=\Z[\sqrt{51}]$. Write
+$t=20(x+y\sqrt{51})$ in the intersection ideal. Then
+\[
+ \frac{t}{f}=(x-7y)+\left(y-\frac{7x}{51}\right)\sqrt{51}.
+\]
+Integrality forces $51\mid x$, while total positivity forces $x>0$.
+Consequently $\operatorname{Tr}_{F/\mathbb Q}(t)=40x\ge2040$.
+The exact Casimir trace bounds are $1086$ and $1070$, respectively,
+so Proposition~\ref{prop:relative-trace} applies. The source-bound
+checker recomputes both characteristic polynomials, trace bounds,
+and the displayed quotient identity using exact arithmetic.
+\end{proof}

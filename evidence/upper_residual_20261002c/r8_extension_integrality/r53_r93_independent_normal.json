@@ -1,0 +1,113 @@
+{
+  "status": "PASS",
+  "scope": "general_complex",
+  "independent_of_author_checker": true,
+  "sources": [
+    {
+      "id": "R8_2_53",
+      "tensor_sha256": "c854d300bf56c852309548b10f2ce8f493da94334b5a2599ae333973b08e9714",
+      "neutral_basis": [
+        0,
+        1,
+        7,
+        2,
+        4,
+        5
+      ],
+      "odd_basis": [
+        3,
+        6
+      ],
+      "duality": [
+        0,
+        2,
+        1,
+        3,
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    {
+      "id": "R8_2_93",
+      "tensor_sha256": "849670cc001125d962cd485001911a882613de081ec742af3c30f9420be8e400",
+      "neutral_basis": [
+        0,
+        1,
+        7,
+        2,
+        5,
+        6
+      ],
+      "odd_basis": [
+        3,
+        4
+      ],
+      "duality": [
+        0,
+        2,
+        1,
+        4,
+        3,
+        5,
+        6,
+        7
+      ]
+    }
+  ],
+  "finite_group_premises": {
+    "GL2_F3_order": 48,
+    "all_free_C4_generators": [
+      [
+        0,
+        1,
+        2,
+        0
+      ],
+      [
+        0,
+        2,
+        1,
+        0
+      ],
+      [
+        1,
+        1,
+        1,
+        2
+      ],
+      [
+        1,
+        2,
+        2,
+        2
+      ],
+      [
+        2,
+        1,
+        1,
+        1
+      ],
+      [
+        2,
+        2,
+        2,
+        1
+      ]
+    ],
+    "normal_abelian_subgroup_orders": [
+      1,
+      9
+    ],
+    "normalized_simple_dimensions": [
+      1,
+      3
+    ]
+  },
+  "proper_adjoint_dimensions": [
+    2,
+    6
+  ],
+  "python_optimized": false
+}

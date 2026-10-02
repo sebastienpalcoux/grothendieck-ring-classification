@@ -47,8 +47,8 @@ assert byrank[5]['excluded_general']==40982 and byrank[5]['realized_other_or_uns
 assert byrank[2]['realized_other_or_unspecified']==2 and byrank[2]['excluded_general']==999
 assert byrank[3]['realized_other_or_unspecified']==5 and byrank[3]['excluded_general']==460348
 assert byrank[6]['excluded_general']==rank6_identity['summary']['excluded'] and byrank[6]['realized_unitary']==56 and byrank[6]['realized_spherical_nonpseudounitary']==1 and byrank[6]['unresolved_general']==rank6_identity['summary']['unresolved']
-assert (byrank[7]['excluded_general'],byrank[7]['realized_unitary'],byrank[7]['unresolved_general'])==(4132, 27, 42)
-assert (byrank[8]['excluded_general'],byrank[8]['realized_unitary'],byrank[8]['unresolved_general'])==(846, 72, 55)
+assert (byrank[7]['excluded_general'],byrank[7]['realized_unitary'],byrank[7]['unresolved_general'])==(4135, 27, 39)
+assert (byrank[8]['excluded_general'],byrank[8]['realized_unitary'],byrank[8]['unresolved_general'])==(857, 72, 44)
 rank6_expected=[tuple(row) for row in rank6_identity['counts']]
 for m,expected in enumerate(rank6_expected,1):
     row=next(x for x in statusrows if x['rank']==6 and x['multiplicity']==m)

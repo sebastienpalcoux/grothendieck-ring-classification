@@ -35,6 +35,12 @@ names={'near_group':'Near-group theorem',
        'solvable_double_equivariantization_orbit_obstruction':'Double equivariantization in dimension 52',
        'D96_solvable_order16_orbit_obstruction':'Order-sixteen orbit obstruction'}
 names.update({
+ 'relative_trace_lattice':'Relative-trace lattice',
+ 'dimension150_forced_central_boson':'Dimension-150 central boson',
+ 'relative_trace_lattice':'Relative-trace lattice',
+ 'dimension150_forced_central_boson':'Dimension-150 central boson',
+ 'relative_trace_lattice':'Relative-trace lattice',
+ 'dimension150_forced_central_boson':'Dimension-150 central boson',
  'dimension96_new_rank_one_module_branch':'Dimension-96 rank-one modules',
  'eight_p_equivariantization':'Dimension-$8p$ equivariantization',
  'dimension96_existing_order16_orbit':'Dimension-96 order-sixteen orbits',

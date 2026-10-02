@@ -17,10 +17,11 @@
 \begin{abstract}
 We study complex categorification of the complete rank-seven fusion-ring
 census through multiplicity four. Exact necessary conditions exclude
-$4132$ rings, and complete tensor comparisons identify unitary models
-for $27$ more; $42$ remain unresolved. The theoretical arguments combine
+$4135$ rings, and complete tensor comparisons identify unitary models
+for $27$ more; $39$ remain unresolved. The theoretical arguments combine
 prime equivariantization, pointed-module and orbit obstructions, with
-complete signed-sphericalization certificates. Multiplicity one is
+complete signed-sphericalization certificates and a relative-trace
+obstruction that needs no signed enumeration. Multiplicity one is
 complete, with thirteen realized rings. Every counted general exclusion applies
 without a pivotality assumption, and every positive row has an actual
 categorical construction.
@@ -166,7 +167,7 @@ with the original ring, or the failure of every admissible spherical
 character by codegree and dimension-order tests. In particular the
 dimension-order test requires the central-induction dimension
 $\delta/f_\chi$ to lie in the $\Z$-span of the signed simple
-dimensions, as required by \cite{OstrikPivotal,Rank6}.
+dimensions, as required by \cite{OstrikRank3,Rank6}.
 
 \begin{proposition}[Verified exhaustive branches]
 The oriented-dimension-order criterion excludes four, fifty-one,
@@ -435,6 +436,7 @@ over $\C$. The supplement checks the exact tensor premises and also
 provides an independent finite corroboration of this theoretical lemma.
 
 \input{prime_descent_proofs.tex}
+\input{r160_proof.tex}
 
 \section{Exact constructions and replay}
 The three formerly undecided multiplicity-one rings match AnyonWiki
@@ -657,7 +659,7 @@ cocycle phases. The noncentral fibres each have size four. Hence
 In this order the model-to-census permutation is $(0,6,5,1,2,3,4)$.
 The supplement checks the representation relations, action,
 characteristic-class restriction, projective lift, and all $343$
-coefficients. The remaining $42$ tensors are undecided.
+coefficients. The remaining $39$ tensors are undecided.
 
 \input{d12_model.tex}
 
@@ -667,9 +669,12 @@ For the frozen release, run \texttt{python3 verify.py} and
 \texttt{python3 -O verify.py}. The portable residual-stage verifier
 checks the later prime-descent and signed certificates, the $D_{12}$
 model, source identities and preservation of earlier decisions. From
-the repository root its entry point is
-\texttt{python3 tools/verify\_upper\_residual\_20261002b.py}, also
-with \texttt{-O}; the archive dispatcher supplies the same stage.
+the repository root the two entry points are
+\begin{quote}\small
+\texttt{python3 tools/verify\_upper\_residual\_20261002b.py}\\
+\texttt{python3 tools/verify\_upper\_residual\_20261002c.py}.
+\end{quote}
+Run both also with \texttt{-O}. The archive dispatcher supplies both stages.
 Earlier full-certificate reports retain their own scopes and dates;
 preservation checks do not claim a fresh execution of all prior
 searches. Original discovery programs are retained separately and
@@ -729,6 +734,9 @@ accepted in \emph{Letters in Mathematical Physics}; arXiv:2507.07023.
 \bibitem{EGO} P. Etingof, S. Gelaki and V. Ostrik,
 \emph{Classification of fusion categories of dimension $pq$},
 \emph{Int. Math. Res. Not.} \textbf{2004}, 3041--3056; arXiv:math/0304194.
+\bibitem{EGpq} P.~Etingof and S.~Gelaki,
+\emph{Semisimple Hopf algebras of dimension $pq$ are trivial},
+arXiv:math/9801129.
 \bibitem{ENO} P. Etingof, D. Nikshych and V. Ostrik,
 \emph{On fusion categories}, \emph{Ann. of Math.} \textbf{162} (2005), 581--642; arXiv:math/0203060.
 \bibitem{KO} A. Kirillov Jr. and V. Ostrik,
@@ -743,9 +751,6 @@ accepted in \emph{Letters in Mathematical Physics}; arXiv:2507.07023.
 \bibitem{OstrikCodegrees} V. Ostrik,
 \emph{On formal codegrees of fusion categories},
 \emph{Math. Res. Lett.} \textbf{16} (2009), 895--901; arXiv:0810.3242.
-\bibitem{OstrikPivotal} V. Ostrik,
-\emph{Pivotal fusion categories of rank 3},
-\emph{Mosc. Math. J.} \textbf{15} (2015), 373--396; arXiv:1309.4822.
 \bibitem{Schopieray} A. Schopieray,
 \emph{Categorification of integral group rings extended by one dimension},
 \emph{J. Lond. Math. Soc.} \textbf{108} (2023); DOI:10.1112/jlms.12789; arXiv:2208.07319.
@@ -758,8 +763,6 @@ accepted in \emph{Letters in Mathematical Physics}; arXiv:2507.07023.
 \bibitem{Vercleyen} G. Vercleyen,
 \emph{On low-rank multiplicity-free fusion categories}, thesis (2024),
 arXiv:2405.20075.
-\bibitem{VercleyenInvariants} G. Vercleyen,
-\emph{Tables of practical invariants for distinguishing multiplicity-free fusion categories up to rank 7}, arXiv:2507.00652.
 \bibitem{ENOExt} P.~Etingof, D.~Nikshych and V.~Ostrik,
 \emph{Fusion categories and homotopy theory}, Quantum Topol.
 \textbf{1} (2010), 209--273; arXiv:0909.3140.

@@ -13,7 +13,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent
 DIST = ROOT/'release'
 OUT = DIST/'rank7-certified-through-m4.zip'
-STAGE = 'evidence/upper_residual_20261002b'
+STAGE = 'evidence/upper_residual_20261002c'
+REPLAY_STAGES = ('evidence/upper_residual_20261002b', STAGE)
 
 
 def require(condition, message):
@@ -34,7 +35,7 @@ def repository_root():
     candidates.extend(p/'verification-repository' for p in ROOT.parents)
     candidates.extend(ROOT.parents)
     for p in candidates:
-        if (p/'tools/verify_upper_residual_20261002b.py').is_file():
+        if (p/'tools/verify_upper_residual_20261002c.py').is_file():
             return p
     raise FileNotFoundError('The complete checked verification repository is required')
 
@@ -55,7 +56,7 @@ def verification_sources(repo):
         'supplements/rank7/evidence','supplements/rank7/papers',
         'supplements/rank8/software','supplements/rank8/data','supplements/rank8/verification',
         'supplements/rank8/experimental_signed','supplements/rank8/paper',
-        'evidence/anyonwiki','evidence/residual_20261002',STAGE,
+        'evidence/anyonwiki','evidence/residual_20261002',*REPLAY_STAGES,
         'evidence/upper_residual_20261002b_recovery',
     ]
     sources = {}
@@ -68,32 +69,44 @@ def verification_sources(repo):
                  'supplements/rank7/README.md','supplements/rank7/build_release.py',
                  'supplements/rank7/zero_spectrum7.cpp','supplements/rank8/README.md',
                  'tools/verify_upper_residual_20261002b.py',
-                 'tools/verify_residual_20261002.py','tools/verify_anyonwiki_import.py']:
+                 'tools/verify_upper_residual_20261002c.py',
+                 'tools/verify_residual_20261002.py','tools/verify_anyonwiki_import.py',
+                 'tools/publication_stages.py','tools/render_readme.py',
+                 'tools/render_publication_docs.py','tools/update_upper_rank_status.py']:
         require((repo/name).is_file(), 'Missing replay entrypoint '+name)
         sources[name] = repo/name
     old = json.loads((repo/'evidence/residual_20261002/previous_records.json').read_text())
     for name, expected in old['source_files_sha256'].items():
         require((repo/name).is_file(), 'Missing historical dependency '+name)
-        baseline = repo/STAGE/'baseline_files'/name
-        require(digest(repo/name) == expected or
-                (baseline.is_file() and digest(baseline) == expected),
+        baselines = [repo/stage/'baseline_files'/name for stage in REPLAY_STAGES]
+        require(digest(repo/name) == expected or any(
+                baseline.is_file() and digest(baseline) == expected for baseline in baselines),
                 'Missing exact historical source bytes '+name)
         sources[name] = repo/name
-        if baseline.is_file():
-            sources[baseline.relative_to(repo).as_posix()] = baseline
-    for name, expected in json.loads((repo/STAGE/'source_files.json').read_text()).items():
-        p = (repo/name).resolve()
-        require(repo.resolve() in p.parents and p.is_file(), 'Missing pinned current source '+name)
-        require(digest(p) == expected, 'Pinned current source changed '+name)
-        require(portable_file(p), 'Nonportable pinned source '+name)
-        sources[name] = p
+        for baseline in baselines:
+            if baseline.is_file():
+                sources[baseline.relative_to(repo).as_posix()] = baseline
+    for stage in REPLAY_STAGES:
+        for name, expected in json.loads((repo/stage/'source_files.json').read_text()).items():
+            p = (repo/name).resolve()
+            require(repo.resolve() in p.parents and p.is_file(), 'Missing pinned replay source '+name)
+            # The latest stage restores these exact parent-stage bytes before
+            # running the parent's verifier in an isolated temporary copy.
+            baseline = repo/STAGE/'baseline_files'/name
+            require(digest(p) == expected or (stage != STAGE
+                    and baseline.is_file() and digest(baseline) == expected),
+                    'Pinned replay source changed without historical override '+name)
+            require(portable_file(p), 'Nonportable pinned replay source '+name)
+            sources[name] = p
+            if baseline.is_file():
+                sources[baseline.relative_to(repo).as_posix()] = baseline
     sources['README.md'] = (
         '# Exact upper-rank verification repository\n\n'
         'This directory contains both census sources, current ledgers, new models, '
         'theoretical premise checkers, and exact historical overrides. With Python3 '
         'and SymPy installed, run from this directory:\n\n'
-        '```sh\npython3 tools/verify_upper_residual_20261002b.py\n'
-        'python3 -O tools/verify_upper_residual_20261002b.py\n```\n\n'
+        '```sh\npython3 tools/verify_upper_residual_20261002c.py\n'
+        'python3 -O tools/verify_upper_residual_20261002c.py\n```\n\n'
         'The outer rank-seven and rank-eight verify.py entrypoints dispatch here. '
         'Historical verification uses a temporary copy; current ledgers are never '
         'rewritten to obtain a historical pass. General exclusions and scoped '

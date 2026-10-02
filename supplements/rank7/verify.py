@@ -20,8 +20,8 @@ def _upper_verifier_root():
     candidates.extend(p / 'verification-repository' for p in here.parents)
     candidates.extend(here.parents)
     for root in candidates:
-        if ((root / 'tools/verify_upper_residual_20261002b.py').is_file()
-                and (root / 'evidence/upper_residual_20261002b/decisions.json').is_file()):
+        if ((root / 'tools/verify_upper_residual_20261002c.py').is_file()
+                and (root / 'evidence/upper_residual_20261002c/decisions.json').is_file()):
             return root
     return None
 
@@ -30,7 +30,7 @@ def _upper_verifier_root():
 # historical replay this file is restored to its byte-for-byte baseline.
 if __name__ == '__main__' and (current_root := _upper_verifier_root()) is not None:
     spec = importlib.util.spec_from_file_location(
-        'upper_residual_current', current_root / 'tools/verify_upper_residual_20261002b.py')
+        'upper_residual_current', current_root / 'tools/verify_upper_residual_20261002c.py')
     current = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(current)
     current.main()

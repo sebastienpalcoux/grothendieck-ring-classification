@@ -15,7 +15,7 @@ jobs:
       - run: python supplements/rank6/check_manifest.py
       - run: python tools/validate_release.py
       - run: python tools/verify_residual_20261002.py
-      - run: python -O tools/verify_upper_residual_20261002b.py
+      - run: python -O tools/verify_upper_residual_20261002c.py
       - run: python evidence/residual_20261002/rank6/verify_braid3.py
       - run: python evidence/residual_20261002/rank6/verify_tensor_quotient_obstruction.py
       - run: python evidence/residual_20261002/rank6/verify_packet_gram.py

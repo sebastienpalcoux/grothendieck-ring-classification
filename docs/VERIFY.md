@@ -75,8 +75,8 @@ complete through multiplicity 20. Rank six is complete through multiplicity
 three, with exact completed bands 1, 2, 3, 5, 6, 7, 9 and 2 cases through
 multiplicity 9 generally unresolved. Isolated completed bands do not
 complete intervening unresolved bands.
-Rank seven has 42 open cases through
-multiplicity four, and rank eight has 55 through multiplicity two.
+Rank seven has 39 open cases through
+multiplicity four, and rank eight has 44 through multiplicity two.
 These are general categorification questions. Separate unitary-only obstructions
 never change the general partition.
 
@@ -215,16 +215,15 @@ See [the original evidence](../evidence/anyonwiki/README.md).
 
 ## October 2 residual update
 
-The [latest evidence](../evidence/upper_residual_20261002b/README.md) resolves
-43 further cases with 13 unitary models and
-30 general exclusions. The [earlier residual stage](../evidence/residual_20261002/README.md)
+The [43-decision residual stage](../evidence/upper_residual_20261002b/README.md) and its [14-decision continuation](../evidence/upper_residual_20261002c/README.md) resolve 57 further rings: 44 general exclusions and 13 unitary models. The continuation generally excludes `R7_2_160`, `R7_4_1417`, `R7_4_1420`, `R8_2_312`, `R8_2_315`, `R8_2_317`, `R8_2_53`, `R8_2_93`, `R8_2_191`, `R8_2_299`, `R8_2_158`, `R8_2_186`, `R8_2_579`, `R8_2_682`. Stage b retains its frozen proofs and replay; stage c restores the historical ledgers when checking that replay.
+The [earlier residual stage](../evidence/residual_20261002/README.md)
 retains its own proofs and reports. Pivotal, pseudo-unitary, unitary and braided
 obstructions are distinguished from general nonexistence. Replay the latest
 source-bound stage in both normal and optimized Python:
 
 ```bash
-python3 tools/verify_upper_residual_20261002b.py
-python3 -O tools/verify_upper_residual_20261002b.py
+python3 tools/verify_upper_residual_20261002c.py
+python3 -O tools/verify_upper_residual_20261002c.py
 ```
 
 The verifier checks all latest source identities, model tensors and certificates,

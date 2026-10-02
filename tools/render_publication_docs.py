@@ -3,6 +3,7 @@
 import argparse,json,re
 from pathlib import Path
 from rank6_publication import validate_identity,archive_url,completed_bands,progress_table
+from publication_stages import load_stages,overview,replay_commands
 ROOT=Path(__file__).resolve().parents[1]
 def section(text,start,end,replacement):
     a=text.index(start);b=text.index(end,a);return text[:a]+replacement+text[b:]
@@ -10,9 +11,8 @@ def render(repo,i):
     validate_identity(i);out={};a=i['archive'];s=i['summary'];bands=completed_bands(i);bound=len(i['counts']);total=sum(r[0] for r in i['counts']);read=lambda n:(repo/n).read_text()
     status=json.loads(read('data/classification_status.json'))
     upper={r:status['inputs'][f'rank{r}']for r in (7,8)}
-    latest=json.loads(read('evidence/upper_residual_20261002b/decisions.json'))
-    latest_models=sum(d['status']=='unitarily_realized' for d in latest)
-    latest_exclusions=sum(d['status']=='excluded' for d in latest)
+    stage=load_stages(repo,status)
+    latest=stage['decisions'];latest_models=stage['models'];latest_exclusions=stage['exclusions']
     bundles={b['name']:b['sha256']for b in status['bundles']}
     text=read('docs/PROVENANCE.md')
     text=re.sub(r'\[`[0-9a-f]{40}`\]\(https://github.com/sebastienpalcoux/fusion-ring-census/tree/[0-9a-f]{40}\)',f"[`{i['census_commit']}`](https://github.com/sebastienpalcoux/fusion-ring-census/tree/{i['census_commit']})",text,count=1)
@@ -49,9 +49,8 @@ multiplicity four has SHA-256 `{bundles['rank7-certified-through-m4.zip']}`.
 Multiplicity one is complete with thirteen realized rings. The rank-eight
 release through multiplicity two has SHA-256
 `{bundles['rank8-verified-supplement.zip']}`.
-The [latest residual stage](../evidence/upper_residual_20261002b/README.md)
-resolves {len(latest)} further rings: {latest_exclusions} general exclusions
-and {latest_models} unitary models. It supplements the earlier
+{overview(stage,'../')}
+These proofs supplement the earlier
 [46-decision stage](../evidence/residual_20261002/README.md).
 The current general frontier has {upper[7]['status_totals']['unresolved']}
 rank-seven and {upper[8]['status_totals']['unresolved']} rank-eight rings.
@@ -184,16 +183,14 @@ See [the original evidence](../evidence/anyonwiki/README.md).
 
 ## October 2 residual update
 
-The [latest evidence](../evidence/upper_residual_20261002b/README.md) resolves
-{len(latest)} further cases with {latest_models} unitary models and
-{latest_exclusions} general exclusions. The [earlier residual stage](../evidence/residual_20261002/README.md)
+{overview(stage,'../')}
+The [earlier residual stage](../evidence/residual_20261002/README.md)
 retains its own proofs and reports. Pivotal, pseudo-unitary, unitary and braided
 obstructions are distinguished from general nonexistence. Replay the latest
 source-bound stage in both normal and optimized Python:
 
 ```bash
-python3 tools/verify_upper_residual_20261002b.py
-python3 -O tools/verify_upper_residual_20261002b.py
+{replay_commands(stage)}
 ```
 
 The verifier checks all latest source identities, model tensors and certificates,
@@ -233,7 +230,7 @@ removed. The [current frontier](../supplements/rank6/research/frontier/README.md
 and [verification instructions](../docs/VERIFY.md) give the retained evidence.
 '''
     text+='\nThe dated [October 2 rank-six research addendum](../evidence/residual_20261002/rank6/research_addendum.pdf) records subsequent necessary reductions while preserving the October 1 release and its two unresolved categorification questions.\n'
-    text+=f"\nThe upper-rank papers include the [latest {len(latest)}-decision residual stage](../evidence/upper_residual_20261002b/README.md): {latest_models} unitary models and {latest_exclusions} general exclusions, with {upper[7]['status_totals']['unresolved']} rank-seven and {upper[8]['status_totals']['unresolved']} rank-eight cases generally unresolved.\n"
+    text+=f"\n{overview(stage,'../')} The current frontier has {upper[7]['status_totals']['unresolved']} rank-seven and {upper[8]['status_totals']['unresolved']} rank-eight cases generally unresolved.\n"
     out['manuscripts/README.md']=text
     text=read('supplements/README.md');text=re.sub(r'all four accepted exclusion continuations and the round-five refinements','accepted exclusion certificates and conformal constructions',text);lines=text.splitlines()
     for n,line in enumerate(lines):
@@ -251,7 +248,7 @@ and [verification instructions](../docs/VERIFY.md) give the retained evidence.
 The authoritative ledger is `rank6/data/decisions.json`. The archive is
 `{a['name']}`. Source-bound certificates retain their internal paths.
 '''
-    text+=f'\nThe [latest residual evidence](../evidence/upper_residual_20261002b/README.md) supplies {latest_models} unitary models and {latest_exclusions} general exclusions. From the repository root, run `python3 tools/verify_upper_residual_20261002b.py` and its optimized-Python counterpart.\n'
+    text+=f"\n{overview(stage,'../')} From the repository root, run `python3 {stage['verifier']}` and its optimized-Python counterpart.\n"
     out['supplements/README.md']=text
     text=read('oeis/README.md');out['oeis/README.md']=section(text,'Rank-six general classification','No zero beyond a proven finite',f'''Rank-six general classification is complete at exact multiplicities
 **{bands}**, contiguously through **3**. The unresolved rings are recorded in the current frontier.
@@ -268,12 +265,12 @@ rank-five drafts listed above; no incomplete band is an exact sequence term.
 
 Counts refer to based-isomorphism classes of fusion rings admitting a fusion-category realization over the complex numbers, at exact multiplicity m. At rank seven, the multiplicity-one count is exactly 13. The confirmed lower bounds at multiplicities 2, 3 and 4 are {bounds7[0]}, {bounds7[1]} and {bounds7[2]}; respectively {open7[0]}, {open7[1]} and {open7[2]} general categorification questions remain unresolved. At rank eight, the confirmed lower bounds at multiplicities 1 and 2 are {bounds8[0]} and {bounds8[1]}; respectively {open8[0]} and {open8[1]} cases remain generally unresolved. These lower bounds are not exact sequence terms.
 
-The latest verified stage resolves {len(latest)} further cases: {latest_exclusions} general exclusions and {latest_models} unitary models. Across ranks seven and eight, the current partitions are respectively {upper[7]['status_totals']['excluded']} excluded, {upper[7]['status_totals']['unitarily_realized']} realized, {upper[7]['status_totals']['unresolved']} unresolved, and {upper[8]['status_totals']['excluded']} excluded, {upper[8]['status_totals']['unitarily_realized']} realized, {upper[8]['status_totals']['unresolved']} unresolved. General exclusion means no fusion-category categorification over the complex field, without an initial pivotality, sphericality or unitarity assumption. Scoped pivotal, pseudo-unitary, unitary or braided obstructions are not counted as general exclusions.
+The combined October 2 upper-rank update resolves {len(latest)} further cases: {latest_exclusions} general exclusions and {latest_models} unitary models.{(f' Its {len(stage["continuation_ids"])}-decision continuation generally excludes '+', '.join(stage['continuation_ids'])+'.') if stage['continuation'] else ''} Across ranks seven and eight, the current partitions are respectively {upper[7]['status_totals']['excluded']} excluded, {upper[7]['status_totals']['unitarily_realized']} realized, {upper[7]['status_totals']['unresolved']} unresolved, and {upper[8]['status_totals']['excluded']} excluded, {upper[8]['status_totals']['unitarily_realized']} realized, {upper[8]['status_totals']['unresolved']} unresolved. General exclusion means no fusion-category categorification over the complex field, without an initial pivotality, sphericality or unitarity assumption. Scoped pivotal, pseudo-unitary, unitary or braided obstructions are not counted as general exclusions.
 
 Rank six retains two unresolved cases through multiplicity 9, R6_4_155 and R6_8_1660. All 8809 fusion rings of exact multiplicity 9 are generally excluded. No count is changed by a necessary-condition reduction for an unresolved case.
 
 Reference / link:
-S. Palcoux, Grothendieck-ring classification, manuscripts and exact certificates, https://github.com/sebastienpalcoux/grothendieck-ring-classification/tree/main/evidence/upper_residual_20261002b .
+S. Palcoux, Grothendieck-ring classification, manuscripts and exact certificates, https://github.com/sebastienpalcoux/grothendieck-ring-classification/tree/main/evidence/{stage['latest']} .
 
 This is a draft comment, not a submission. Preserve the target entry's existing indexing and definition. The number 8809 counts all fusion rings, not realized Grothendieck rings. Do not enter any incomplete-band lower bound as an exact sequence term.
 """

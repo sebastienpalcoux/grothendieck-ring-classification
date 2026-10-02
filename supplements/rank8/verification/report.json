@@ -12,43 +12,55 @@
     {
       "multiplicity": 2,
       "fusion_rings": 877,
-      "excluded": 801,
+      "excluded": 812,
       "realized": 24,
-      "unresolved": 52
+      "unresolved": 41
     }
   ],
   "criterion_counts": {
     "m1:dnumber": 23,
+    "m1:graded_brauer_picard": 1,
     "m1:integral_drinfeld": 1,
     "m1:lower_rank_subring": 3,
     "m1:near_group": 1,
     "m1:oriented_signed_sphericalization": 3,
     "m1:published_induction_exclusion": 2,
     "m1:rank8_noncomm_dnumber": 1,
+    "m1:solvable_equivariantization": 3,
     "m1:zero_spectrum": 7,
+    "m2:Galois_invariant_pointed_associator_fixed_object": 1,
     "m2:dnumber": 462,
+    "m2:general_proof": 14,
+    "m2:graded_brauer_picard": 2,
+    "m2:graded_fiber_functor": 2,
+    "m2:incompatible_Galois_invariant_pointed_associators": 2,
     "m2:integral_drinfeld": 6,
     "m2:involution_module": 2,
     "m2:lower_rank_subring": 121,
     "m2:near_group": 1,
+    "m2:normal_abelian_square_extension_integrality": 2,
+    "m2:odd_module_forced_A4_extension_integrality": 2,
+    "m2:odd_module_forced_S4_extension_integrality": 4,
     "m2:oriented_signed_sphericalization": 71,
     "m2:rank7_certified_subring": 12,
     "m2:rank8_noncomm_dnumber": 17,
     "m2:rank_two": 10,
     "m2:subring_dimension": 1,
-    "m2:zero_spectrum": 80,
-    "m1:graded_brauer_picard": 1,
-    "m2:graded_fiber_functor": 2,
-    "m2:graded_brauer_picard": 2,
-    "m1:solvable_equivariantization": 3
+    "m2:zero_spectrum": 80
   },
   "fully_checked": true,
   "scope": "all exact rank-eight census records at multiplicities 1 and 2; unresolved cases are not classified",
   "previous_negative_records_unchanged": true,
   "positive_import_verified": true,
-  "verification_method": "Previous fully checked release and October 1 positive update, exact preservation of all unaffected ledger and positive-model records, twenty-two independently generated full-tensor positive models and eight exact general-category exclusions. No costly old proof search repeated.",
+  "verification_method": "Retained full previous verification, exact historical restoration, independent full-tensor model checks, and the 14-decision general continuation. The mathematical hypotheses are separately audited in the accompanying proofs; the replay checks their finite premises and preservation.",
   "previous_records_unchanged": true,
   "oct2_update_verified": true,
   "upper_residual_update_verified": true,
-  "upper_residual_update": "evidence/upper_residual_20261002b/README.md"
+  "upper_residual_update": "evidence/upper_residual_20261002c/README.md",
+  "upper_residual_continuation_verified": true,
+  "status_totals": {
+    "unitarily_realized": 72,
+    "excluded": 857,
+    "unresolved": 44
+  }
 }

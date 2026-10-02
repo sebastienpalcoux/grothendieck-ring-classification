@@ -1,23 +1,45 @@
 {
   "status": "PASS",
-  "citations": 54,
-  "labels": 20,
+  "citations": 60,
+  "labels": 27,
   "source_hashes": {
-    "supplements/rank8/paper/rank8.tex": "1ae3c739e999e82596f72b4d845f938d486343b592c6ecf2d794778b24709593",
-    "supplements/rank8/paper/solvable_proofs.tex": "33afed9f42db414aab2ec7e8e70686e600e7864b96f026273d314010ebbfeb53",
-    "supplements/rank8/paper/prime_and_hopf_proofs.tex": "e3e5c073354670b5a2892523d67e530741a5623cf614824113ca1ae7079a853e",
-    "supplements/rank8/paper/d96_pair_proof.tex": "922c14da367e3639c021de0ce3907b231dc1013ca0ceb73aa7b7e60a6b98230a",
-    "supplements/rank8/paper/r108_c4_proof.tex": "928b30c5efcb6c04ef044337c9cf3d57fd58aebd021a2e8778a4569a2bea4228",
-    "supplements/rank8/paper/stage_table.tex": "792ec6305817119f9f6aaf97c65b9c7179e680c7ab51f7c9a076b0f6c10e187f",
-    "supplements/rank8/paper/model_table.tex": "8e514e896340dac511408c6ea46d7a8655046d8922f1367e90ef2ed9ef3a9905",
-    "supplements/rank8/paper/additional_models.tex": "f18074b2e2656171f4fb074ae48fe159a96f1ba79a1fe672d264c8c9ee1352d5",
-    "supplements/rank8/paper/scoped_obstructions.tex": "6c7aa6bc761f661da267c6e221851e3beaaaed7748d2bb43830a3c3f3ecb8b4b"
+    "manuscripts/rank8/paper/additional_models.tex": "41644190fa3ff6e35cf774e79a37720217a82a3e6403922711e9a775b31231f2",
+    "manuscripts/rank8/paper/d96_pair_proof.tex": "922c14da367e3639c021de0ce3907b231dc1013ca0ceb73aa7b7e60a6b98230a",
+    "manuscripts/rank8/paper/extension_integrality.tex": "02e885ba03804d4ee00c648499fffe7786c05fbae205b86b7ca630445fa8ecf3",
+    "manuscripts/rank8/paper/model_table.tex": "8e514e896340dac511408c6ea46d7a8655046d8922f1367e90ef2ed9ef3a9905",
+    "manuscripts/rank8/paper/prime_and_hopf_proofs.tex": "e3e5c073354670b5a2892523d67e530741a5623cf614824113ca1ae7079a853e",
+    "manuscripts/rank8/paper/r108_c4_proof.tex": "928b30c5efcb6c04ef044337c9cf3d57fd58aebd021a2e8778a4569a2bea4228",
+    "manuscripts/rank8/paper/rank8.tex": "1da23268c8af1d1cc4f81619f5fc2508f4c2a472a7f4745ea8b3fc080fe7a0ff",
+    "manuscripts/rank8/paper/scoped_obstructions.tex": "a71d9fe698c693dac5e91a59571a61f8a983c3e821bf1c22f88295079f4090d7",
+    "manuscripts/rank8/paper/solvable_proofs.tex": "33afed9f42db414aab2ec7e8e70686e600e7864b96f026273d314010ebbfeb53",
+    "manuscripts/rank8/paper/stage_table.tex": "f193c62a53c1e6a28305bd2b037bae4248f8f7a3e61155ac69e62195cf3a8e28"
   },
   "counts": {
-    "excluded": 846,
+    "excluded": 857,
     "unitary_models": 72,
-    "general_open": 55
+    "general_open": 44
   },
-  "pdf_compiled_by_this_audit": false,
-  "claims": "General and scoped impossibility conclusions remain distinct."
+  "pdf_compiled_by_this_audit": true,
+  "pdf_pages": 28,
+  "pdf_sha256": "13f703be0c739338f2f20372ceec0c44e9d8f0b6374dc0a1abb55e3c59449412",
+  "checks": {
+    "canonical_supplement_sources_identical": true,
+    "citations_resolved": true,
+    "references_resolved": true,
+    "duplicate_labels": false,
+    "overfull_boxes": false
+  },
+  "claims": "General and scoped conclusions remain distinct; all eleven new rank-eight general exclusions are included, including the eight remaining weakly integral cases.",
+  "builds": [
+    "canonical: two pdflatex passes; references and citations resolved; identical source and PDF mirrored to supplement"
+  ],
+  "visual_reviewed_pdf_pages": [
+    1,
+    2,
+    11,
+    12,
+    13,
+    24,
+    25
+  ]
 }

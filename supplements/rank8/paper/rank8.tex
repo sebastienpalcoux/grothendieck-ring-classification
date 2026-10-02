@@ -30,9 +30,10 @@ criteria, models, and the unresolved frontier}
 \keywords{Grothendieck ring, fusion category, formal codegree, categorification, exact certificate}
 \begin{document}
 \begin{abstract}
-We analyze general complex categorification of every rank-eight fusion ring of multiplicity at most two in a complete census. An ordered collection of exact tensor and arithmetic tests excludes 846 of the 973 rings. Full multiplication-tensor comparisons identify unitary categories for 72 more. The remaining 55 rings are recorded as unresolved, including 3 already at multiplicity one; thus this is an explicit categorification frontier, not a complete classification. A rank-eight Wedderburn lemma extends the formal-codegree $d$-number obstruction to noncommutative rings. Every decision and every positive tensor comparison accompanies the manuscript in a checked machine-readable ledger.
+We analyze general complex categorification of every rank-eight fusion ring of multiplicity at most two in a complete census. An ordered collection of exact tensor and arithmetic tests excludes 857 of the 973 rings. Full multiplication-tensor comparisons identify unitary categories for 72 more. The remaining 44 rings are recorded as unresolved, including 3 already at multiplicity one; thus this is an explicit categorification frontier, not a complete classification. A rank-eight Wedderburn lemma extends the formal-codegree $d$-number obstruction to noncommutative rings. Every decision and every positive tensor comparison accompanies the manuscript in a checked machine-readable ledger.
 \end{abstract}
 \maketitle
+\raggedbottom
 \markboth{RANK-EIGHT GROTHENDIECK RINGS}{RANK-EIGHT GROTHENDIECK RINGS}
 
 \section{Introduction and exact scope}
@@ -48,11 +49,11 @@ For the complete census through multiplicity two, the following trichotomy is ex
 \begin{tabular}{@{}rrrrr@{}}\toprule
 Exact multiplicity & Fusion rings & Excluded generally & Unitarily realized & Undecided generally\\\midrule
 $1$ & $96$ & $45$ & $48$ & $3$\\
-$2$ & $877$ & $801$ & $24$ & $52$\\\midrule
-Total & $973$ & $846$ & $72$ & $55$\\\bottomrule
+$2$ & $877$ & $812$ & $24$ & $41$\\\midrule
+Total & $973$ & $857$ & $72$ & $44$\\\bottomrule
 \end{tabular}
 \end{center}
-Every excluded ring is ruled out over $\C$ with no pivotality assumption. Each positive model is matched to the entire tensor under a unit-preserving permutation, and is therefore a Grothendieck ring. For the $55$ undecided rings, neither existence nor nonexistence is asserted. In particular, these numbers are \emph{certified lower bounds} of $48$ and $24$ for the number of Grothendieck rings at the two multiplicities, rather than total counts of Grothendieck rings.
+Every excluded ring is ruled out over $\C$ with no pivotality assumption. Each positive model is matched to the entire tensor under a unit-preserving permutation, and is therefore a Grothendieck ring. For the $44$ undecided rings, neither existence nor nonexistence is asserted. In particular, these numbers are \emph{certified lower bounds} of $48$ and $24$ for the number of Grothendieck rings at the two multiplicities, rather than total counts of Grothendieck rings.
 \end{theorem}
 
 The earliest undecided tensors are now $\sha{R8_1_9}$ and $\sha{R8_2_24}$. The former first open ring $\sha{R8_1_3}$, of global FP dimension $20$, is realized below by a twisted group-theoretical category. Its dimension vector agrees with that of the commutative ring $\Rep(\mathrm{Dic}_5)$, although its multiplication is noncommutative. Thus full tensor comparison remains essential even after a suitable dimension profile is found.
@@ -149,10 +150,13 @@ Each has a faithful grading with a rank-one component and neutral fusion rules $
 \input{prime_and_hopf_proofs}
 \input{d96_pair_proof}
 \input{r108_c4_proof}
+\input{extension_integrality}
 
+\begin{samepage}
 \subsection{Ordered exclusion ledger and the first open cases}
 An excluded tensor is removed after the first verified certificate in the following order. For each row, ``left'' still counts rings subsequently recognized as positive, so this is an exclusion table rather than a table of outstanding questions.
 \begin{center}\small\input{stage_table}\end{center}
+\end{samepage}
 The first unresolved IDs are $R8\_1\_9$ and $R8\_2\_24$. Every negative stage is a theorem applied to tensor data or an exact based-tensor transfer of a published and proved no-go. Proposition~\ref{prop:noncomm} and the integral-divisibility stage both have certified first applications already at multiplicity one; the latter also resolves two multiplicity-two cases remaining open after the prior stages. These \emph{first appearances} refer only to the two multiplicities of the complete rank-eight census. Nothing in this calculation establishes a multiplicity from which no new criterion is needed.
 
 \section{Exact positive models}\label{sec:models}
@@ -348,7 +352,7 @@ The table provides one construction per positive tensor. Some have two isomorphi
 
 \section{Reproduction and mathematical limits}
 For the frozen release, run
-\sha{python3 tools/verify_upper_residual_20261002b.py} from the repository
+\sha{python3 tools/verify_upper_residual_20261002c.py} from the repository
 root, and repeat with \sha{-O}. The archive dispatcher supplies the same
 source-bound stage. It reconstructs the new model tensors, verifies the
 new general and scoped certificates, checks their source identities,
@@ -382,7 +386,7 @@ The known order-four Haagerup--Izumi Morita families
 \cite[Theorem~4.13 and Lemma~4.7]{Grossman} give no matching model;
 this exhaustion concerns those families, not all fusion categories.
 
-This verification establishes the finite applications \emph{conditional on} the cited theorems and the source census completeness. It does not settle the remaining $55$ generally undecided rings, certify a multiplicity-three census, or classify categories up to tensor equivalence. Some criteria first exclude rings at multiplicity two, but nothing here implies that no new criterion is needed beyond that bound. Noncommutative Extended Haagerup models at rank eight have multiplicities four and seven \cite{EH}; they are genuine models but outside the present complete census bound.
+This verification establishes the finite applications \emph{conditional on} the cited theorems and the source census completeness. It does not settle the remaining $44$ generally undecided rings, certify a multiplicity-three census, or classify categories up to tensor equivalence. Some criteria first exclude rings at multiplicity two, but nothing here implies that no new criterion is needed beyond that bound. Noncommutative Extended Haagerup models at rank eight have multiplicities four and seven \cite{EH}; they are genuine models but outside the present complete census bound.
 
 \par\medskip\noindent\textbf{AI disclosure.} GPT-6 Astra assisted with literature exploration, mathematical research, code development, and manuscript preparation.
 
@@ -417,7 +421,7 @@ arXiv:1510.03475.
 \bibitem{EGNO} P.~Etingof, S.~Gelaki, D.~Nikshych and V.~Ostrik, \emph{Tensor Categories}, AMS Mathematical Surveys and Monographs 205 (2015).
 \bibitem{Ostrik2} V.~Ostrik, \emph{Fusion categories of rank 2}, Math. Res. Lett. \textbf{10} (2003), 177--183.
 \bibitem{OstrikCode} V.~Ostrik, \emph{On formal codegrees of fusion categories}, Math. Res. Lett. \textbf{16} (2009), 895--901.
-\bibitem{SchNear} A.~Schopieray, \emph{Categorification of integral group rings extended by one dimension}, J. London Math. Soc. \textbf{108} (2023), 1617--1641, Proposition~3.2.
+\bibitem{SchNear} A.~Schopieray, \emph{Categorification of integral group rings extended by one dimension}, J. London Math. Soc. \textbf{108} (2023), 1617--1641, Lemma~3.1 and Proposition~3.2.
 \bibitem{SchNorm} A.~Schopieray, \emph{Norm, trace, and formal codegrees of fusion categories}, J. Algebra \textbf{568} (2021), 362--385, Theorem~4.4 and Corollary~4.3.
 \bibitem{SchGreedy} A.~Schopieray, \emph{Greedy fusion}, arXiv:2607.13126v1 (2026), Proposition~1 and Corollary~2.
 \bibitem{LPR} Z.~Liu, S.~Palcoux and Y.~Ren, \emph{Classification of Grothendieck rings of complex fusion categories of multiplicity one up to rank six}, Lett. Math. Phys. \textbf{112} (2022), article 54, Theorem~2.14.
@@ -478,5 +482,23 @@ $3+\sqrt5$}, arXiv:1612.07185.
 \bibitem{Larson} H.~K.~Larson,
 \emph{Pseudo-unitary non-self-dual fusion categories of rank 4},
 arXiv:1401.1879v2.
+\bibitem{NikshychRiepel} D.~Nikshych and B.~Riepel,
+\emph{Categorical Lagrangian Grassmannians and Brauer--Picard groups
+of pointed fusion categories}, arXiv:1309.5026v2.
+\bibitem{GalindoClifford} C.~Galindo,
+\emph{Clifford theory for graded fusion categories},
+arXiv:1010.5283v3, Theorem~1.3.
+\bibitem{NgIndicators} S.-H.~Ng and P.~Schauenburg,
+\emph{Frobenius--Schur indicators and exponents of spherical categories},
+Adv. Math. \textbf{211} (2007), 34--71; arXiv:math/0601012v3.
+\bibitem{NgCongruence} S.-H.~Ng and P.~Schauenburg,
+\emph{Congruence subgroups and generalized Frobenius--Schur indicators},
+Comm. Math. Phys. \textbf{300} (2010), 1--46; arXiv:0806.2493v3.
+\bibitem{BNRWCauchy} P.~Bruillard, S.-H.~Ng, E.~C.~Rowell and Z.~Wang,
+\emph{Rank-finiteness for modular categories}, arXiv:1310.7050v3,
+the Cauchy theorem for spherical fusion categories.
+\bibitem{TPEParity} Z.~Liu, S.~Palcoux, Y.~Ren and G.~Vercleyen,
+\emph{Triangular prism equations and categorification},
+arXiv:2203.06522v5, Theorem~3.9.
 \end{thebibliography}
 \end{document}

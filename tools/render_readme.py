@@ -3,6 +3,7 @@
 import json
 import argparse
 from pathlib import Path
+from publication_stages import load_stages, overview
 
 ROOT=Path(__file__).resolve().parents[1]
 parser=argparse.ArgumentParser(description=__doc__)
@@ -35,9 +36,7 @@ rank6_summary=(f'| 6 | Through {rank6_bound} | **Complete through {rank6_complet
                f'Through {rank6_bound}: {rank6_excluded:,} excluded, {rank6_realized} realized, '
                f'{rank6_open} unresolved. |')
 upper={rank:status['inputs'][f'rank{rank}']['status_totals'] for rank in (7,8)}
-latest=json.loads((ROOT/'evidence/upper_residual_20261002b/decisions.json').read_text())
-latest_models=sum(d['status']=='unitarily_realized' for d in latest)
-latest_exclusions=sum(d['status']=='excluded' for d in latest)
+stage=load_stages(ROOT,status)
 def upper_summary(rank):
     t=upper[rank];bound=status['inputs'][f'rank{rank}']['classified_through']
     scope='**Complete at multiplicity 1**' if rank==7 else 'Partial at both bands'
@@ -110,9 +109,8 @@ unitary. Rank five has no unresolved ring through multiplicity 20.
 
 __RANK6_CONTINUATION__
 
-The [latest residual stage](evidence/upper_residual_20261002b/README.md) resolves
-__LATEST_CASES__ further cases: __LATEST_EXCLUSIONS__ general exclusions and __LATEST_MODELS__ unitary models. Its prime-descent,
-Hopf and module arguments supplement the [earlier 46-decision stage](evidence/residual_20261002/README.md).
+__UPPER_RESIDUAL_OVERVIEW__
+These proofs supplement the [earlier 46-decision stage](evidence/residual_20261002/README.md).
 Scope-specific obstructions retain their stated assumptions and do not change
 a ring's general unresolved status.
 
@@ -201,9 +199,7 @@ rendered=('\n'.join(lines).replace('__RANK6_SUMMARY__',rank6_summary)
                               .replace('__RANK6_OPEN__',str(rank6_open))
                               .replace('__RANK6_BOUND__',str(rank6_bound))
                               .replace('__RANK6_CONTINUATION__',rank6_continuation)
-                              .replace('__LATEST_CASES__',str(len(latest)))
-                              .replace('__LATEST_EXCLUSIONS__',str(latest_exclusions))
-                              .replace('__LATEST_MODELS__',str(latest_models)))
+                              .replace('__UPPER_RESIDUAL_OVERVIEW__',overview(stage)))
 if args.check:
     if not args.output.is_file() or args.output.read_text()!=rendered:
         raise ValueError('Regenerate '+str(args.output))

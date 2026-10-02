@@ -43,16 +43,15 @@ replay of every earlier proof. See [verification instructions](VERIFY.md).
 | `R6_8_1660` | Exact graded induction-packet identities eliminate 533 further center profiles, leaving 1,136 in branches 120, 508, 508. Every dominant pivotal tensor quotient of the positive spherical form would be an equivalence. Three Morita-dual based rings remain possible; none admits a braiding. No model or general exclusion is known. Exact probability couplings prove every Lim Corollary 3.4 inequality for every exponent and nonnegative vector. |
 
 The verified rank-seven release through
-multiplicity four has SHA-256 `ff9f5e81b28a7eac4e44b5f753898f5906fcc46d372bc8ae803e84d0be25c15c`.
+multiplicity four has SHA-256 `91daee065eefaabdeded30bc4e8973e08a605156088655e7301b6357f1440765`.
 Multiplicity one is complete with thirteen realized rings. The rank-eight
 release through multiplicity two has SHA-256
-`cfa8d78109db167a592b4fc04cad7e1f7e5372429a32bc642c4e8b941b3691b1`.
-The [latest residual stage](../evidence/upper_residual_20261002b/README.md)
-resolves 43 further rings: 30 general exclusions
-and 13 unitary models. It supplements the earlier
+`e9b9f1cb1a3d6d62ec14add190f1c26bc9724ed812c2e03f474ad68a45e7d4f8`.
+The [43-decision residual stage](../evidence/upper_residual_20261002b/README.md) and its [14-decision continuation](../evidence/upper_residual_20261002c/README.md) resolve 57 further rings: 44 general exclusions and 13 unitary models. The continuation generally excludes `R7_2_160`, `R7_4_1417`, `R7_4_1420`, `R8_2_312`, `R8_2_315`, `R8_2_317`, `R8_2_53`, `R8_2_93`, `R8_2_191`, `R8_2_299`, `R8_2_158`, `R8_2_186`, `R8_2_579`, `R8_2_682`. Stage b retains its frozen proofs and replay; stage c restores the historical ledgers when checking that replay.
+These proofs supplement the earlier
 [46-decision stage](../evidence/residual_20261002/README.md).
-The current general frontier has 42
-rank-seven and 55 rank-eight rings.
+The current general frontier has 39
+rank-seven and 44 rank-eight rings.
 All positive tensors and negative source hypotheses are independently checked;
 earlier unaffected records retain their exact preservation evidence.
 Scope-specific obstructions do not change the general partition.
@@ -66,8 +65,8 @@ associator and full-tensor checks supporting earlier positive constructions.
 | 4 | `results/rank4/tables.txt.gz` | 128 | `certificates/classification.jsonl.gz` | Complete through 128 |
 | 5 | `results/rank5/tables.txt.gz` | 20 | Revised `data/decisions_all.json` | Complete general classification through 20 |
 | 6 | `results/rank6/tables.txt.gz` | 9 | `supplements/rank6/data/decisions.json` | Complete through 3; exact bands 1, 2, 3, 5, 6, 7, 9; 2 unresolved through 9 |
-| 7 | `results/rank7/tables.txt.gz` | 4 | `supplements/rank7/output/rank7_ledger.json` | Complete at multiplicity one; higher bands partial; 42 unresolved |
-| 8 | `results/rank8/tables.txt.gz` | 2 | `supplements/rank8/data/decisions.json` | Partial at both bands; 55 unresolved |
+| 7 | `results/rank7/tables.txt.gz` | 4 | `supplements/rank7/output/rank7_ledger.json` | Complete at multiplicity one; higher bands partial; 39 unresolved |
+| 8 | `results/rank8/tables.txt.gz` | 2 | `supplements/rank8/data/decisions.json` | Partial at both bands; 44 unresolved |
 
 The original source manifest is `results/census.json`. Its count rows are
 imported by `tools/generate_counts.py`, with exact bounds and cumulative sums
@@ -87,8 +86,8 @@ with its [arithmetic checker](../supplements/rank3/audit_rank3.py).
 | 4 | `969a2a5a84b794a3da1d9cd3978f92324d631760f503f5d208011923a723920f` | 889,530 | 889,515 excluded; 15 realized |
 | 5 | `9261917451d469ece9929a1756f505924cf84adf34e79a0d2e6f68fed43f55cf` | 40,999 | 40,982 excluded; 17 realized; 0 unresolved |
 | 6 | `abb36cb0e7f9196e0a231cb85a601c82a1c8fd398996f77a8961487a7ca692e5` | 25,421 | 25,362 excluded; 56 unitary; 1 spherical non-pseudo-unitary; 2 unresolved |
-| 7 | `e283c7940a33488d3a5a2c68d7ba55f3e0c2686f7300cb7e209839a054b964c9` | 4,201 | 4,132 excluded; 27 unitary models; 42 unresolved |
-| 8 | `6969d716d79868b40520edbbb8b35873a6f21c90ee41bc59f6fdee76fd70b3ca` | 973 | 846 excluded; 72 unitary models; 55 unresolved |
+| 7 | `4f3b6acf9a031ca7b5fd9d707c23701cbc6bbb111a8b9ebc928c9b1548af7784` | 4,201 | 4,135 excluded; 27 unitary models; 39 unresolved |
+| 8 | `2057164929c9d96083086e3d47a916c678f84401ceff122a985f053fd3d66a02` | 973 | 857 excluded; 72 unitary models; 44 unresolved |
 
 The rank-four list in the attachment contains a header record and 889,530
 individual records. Each ledger partition matches its census total at each

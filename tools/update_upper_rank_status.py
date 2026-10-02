@@ -5,16 +5,18 @@ The existing lower-rank status rows and input identities are preserved exactly.
 """
 import collections,csv,hashlib,json
 from pathlib import Path
+from publication_stages import load_stages
 ROOT=Path(__file__).resolve().parents[1]
 def main():
     target=ROOT/'data/classification_status.json';x=json.loads(target.read_text())
+    latest=load_stages(ROOT)['latest']
     old_lower=[r.copy() for r in x['rows'] if r['rank']<7]
     sources={7:('supplements/rank7/output/rank7_ledger.json','supplements/rank7/release/rank7-certified-through-m4.zip'),
              8:('supplements/rank8/data/decisions.json','supplements/rank8/rank8-verified-supplement.zip')}
     for rank,(ledger,archive) in sources.items():
         raw=(ROOT/ledger).read_bytes();rows=json.loads(raw);counts=collections.Counter(r['status'] for r in rows)
         x['inputs'][f'rank{rank}'].update(file=ledger,sha256=hashlib.sha256(raw).hexdigest(),status_totals=dict(counts),
-            residual_update='evidence/upper_residual_20261002b/README.md')
+            residual_update='evidence/'+latest+'/README.md')
         for row in x['rows']:
             if row['rank']!=rank:continue
             band=[d for d in rows if d['multiplicity']==row['multiplicity']]
