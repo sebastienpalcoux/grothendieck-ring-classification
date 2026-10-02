@@ -211,6 +211,24 @@ def main():
             "sha256": hashlib.sha256(addendum.read_bytes()).hexdigest(),
         }
     output = HERE / "dist" / "data" / "atlas.json"
+    data["upper_rank_releases"] = {}
+    bundles = {entry["name"]: entry["sha256"] for entry in status["bundles"]}
+    for rank, pdf_path, archive_path in (
+        (7, "manuscripts/rank7/papers/manuscript.pdf", "supplements/rank7/release/rank7-certified-through-m4.zip"),
+        (8, "manuscripts/rank8/paper/rank8.pdf", "supplements/rank8/rank8-verified-supplement.zip"),
+    ):
+        pdf_source, archive_source = repo / pdf_path, repo / archive_path
+        archive_hash = hashlib.sha256(archive_source.read_bytes()).hexdigest()
+        if archive_hash != bundles[archive_source.name]:
+            raise ValueError(f"Rank-{rank} archive differs from the publication ledger")
+        pdf_target = HERE / "dist/papers" / f"rank{rank}.pdf"
+        archive_target = downloads / archive_source.name
+        shutil.copy2(pdf_source, pdf_target)
+        shutil.copy2(archive_source, archive_target)
+        data["upper_rank_releases"][str(rank)] = {
+            "manuscript": {"path": f"papers/rank{rank}.pdf", "sha256": hashlib.sha256(pdf_source.read_bytes()).hexdigest()},
+            "archive": {"path": "downloads/" + archive_source.name, "sha256": archive_hash, "bytes": archive_source.stat().st_size},
+        }
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(json.dumps(data, ensure_ascii=False, separators=(",", ":")) + "\n")
     status["rows"] = classifications

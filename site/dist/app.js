@@ -342,6 +342,12 @@ function renderPapers() {
       guide.href=`./papers/rank${paper.rank}_guide.pdf`;
       actions.append(guide);
     }
+    const release=state.data.upper_rank_releases?.[String(paper.rank)];
+    if (release) {
+      const supplement=element("a","","Verified supplement ↗");
+      supplement.href=`./${release.archive.path}`;
+      actions.append(supplement);
+    }
     actions.append(source);
     card.append(actions);
     grid.append(card);

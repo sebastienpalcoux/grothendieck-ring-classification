@@ -96,3 +96,15 @@ if identity_path.is_file():
         if release["documents"].get(target) != identity["documents"][source]["sha256"]:
             raise ValueError("Site PDF differs from the canonical release identity: " + target)
 print(f"Rank-six release verified through multiplicity {expected_bands[-1]}: complete bands {release['complete_multiplicity_bands']}; {len(frontier)} residuals; exact archive and PDF hashes.")
+
+for rank in (7, 8):
+    release = payload["upper_rank_releases"][str(rank)]
+    for document in (release["manuscript"], release["archive"]):
+        path = root / document["path"]
+        assert hashlib.sha256(path.read_bytes()).hexdigest() == document["sha256"]
+        if "bytes" in document:
+            assert path.stat().st_size == document["bytes"]
+    expected = next(b["sha256"] for b in status_payload["bundles"]
+                    if b["name"] == Path(release["archive"]["path"]).name)
+    assert release["archive"]["sha256"] == expected
+print("Upper-rank manuscripts and portable supplements match their publication hashes.")
