@@ -1,0 +1,69 @@
+\subsection{An order-four action on rank-one components}
+\begin{proposition}\label{prop:r108}
+The ring $R8\_2\_68$ has no complex fusion categorification.
+\end{proposition}
+\begin{proof}
+Its exact type is $(1^4,4^2,6^2)$, its invertibles form $C_4$, its
+adjoint is the whole ring, and its order-two invertible fixes all four
+noninvertibles. Solvability in dimension $108$ therefore forces
+$\mathcal C=\mathcal D^{C_2}$ with $\mathcal D$ integral of dimension
+$54$ and type $(1^2,2^4,3^4)$. The outer involution exchanges both
+noninvertible dimension classes in pairs and fixes the invertibles.
+The possible proper dimensions of its invariant adjoint are
+$1,2,9,18,27$. Pointed dimensions one and two cannot contain the square
+of a dimension-three object; dimensions nine and twenty-seven would
+contain dimension-two objects, contradicting strong Frobenius
+divisibility \cite{ENOSolvable}. Thus either
+$\mathcal D_{\rm ad}=\mathcal D$ or its adjoint $\mathcal E$ has type
+$(1^2,2^4)$ and dimension eighteen.
+
+In the first case prime descent gives
+$\mathcal D=\mathcal F^{C_2}$, with $\mathcal F$ of type $(1^9,3^2)$.
+In the second case $U(\mathcal E)=1$: a grading of order two would
+have a dimension-nine neutral containing a dimension-two simple,
+again contradicting strong Frobenius; order-three components of
+dimension six would each require both invertibles; higher grading
+orders cannot accommodate a dimension-two simple. Hence
+$\mathcal E=(\Vec_A^\omega)^{C_2}$, $|A|=9$, with inversion on $A$.
+Its unique nontrivial central invertible $g$ is the canonical
+Tannakian lift. The relative-center $C_3$ action of the grading of
+$\mathcal D$ fixes this lift. Since $H^2(C_3,\C^\times)=0$, its
+central equivariant lifts, together with the unit lifts, form an
+abelian group of order six. The unique order-two lift restricts to
+$g$ and inherits its self-braiding $+1$; it therefore gives a central
+$\Rep(C_2)$ in $\mathcal D$. This explicitly verifies bosonicity,
+rather than inferring it from centrality alone.
+De-equivariantization again gives $\mathcal F$ of type $(1^9,3^2)$:
+a dimension-three object fixed by $g$ would descend to dimension
+$3/2$, which is not an algebraic integer.
+
+In both cases the order-two central lift in $\mathcal D$ is unique:
+its kernel is trivial when $U(\mathcal D)=1$, and has order three
+when $U(\mathcal D)=C_3$. The outer involution preserves this
+Tannakian subcategory. Combining the two equivariantizations gives
+$\mathcal C=\mathcal F^{C_4}$, because the intermediate symmetric
+subcategory has dimension four and its four characters form the
+census $C_4$. Let $\beta$ generate this coherent action. Its square
+acts by inversion on $A=\operatorname{Inv}(\mathcal F)$ and fixes
+the two dimension-three objects.
+
+The adjoint of $\mathcal F$ is $\Vec_A^\omega$, with a $C_3$ grading
+of ranks $9,1,1$. Rank-one components force $[\omega]=0$ by their
+module pentagon. The action of $\beta$ exchanges these two components;
+otherwise the original $\mathcal C$ would inherit a nontrivial
+$C_3$ grading. For $A=C_9$ no automorphism squares to inversion.
+For $A=C_3^2$, its matrix $B$ satisfies $B^2=-I$, so its minimal
+polynomial is the irreducible $t^2+1$ over $\mathbb F_3$ and
+$\det(B)=1$. Its tensorator class
+$\eta\in H^2(A,\C^\times)=C_3$ is fixed by $B$; order-four
+coherence gives $4\eta=0$, hence $\eta=0$.
+Such a tensor autoequivalence fixes every rank-one left-module class,
+since those classes are $H^2(A,\C^\times)$. But the two nonneutral
+components have different left-module classes: an equivalence,
+tensored with the inverse of one invertible bimodule, would identify
+the rank-nine regular module with a rank-one component.
+Thus $\beta$ cannot exchange them, a contradiction. The supplement
+checks every source coefficient, adjoint dimension partition and
+matrix calculation; the central lift and action tower use
+\cite{GNN,DGNO,ENOSolvable}.
+\end{proof}

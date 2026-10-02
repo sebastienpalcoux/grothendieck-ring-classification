@@ -14,8 +14,8 @@ fixed-rank census and explicit criteria for categorification.
 | *Rank-five Grothendieck rings through multiplicity twenty* | [TeX](rank5/papers/manuscript.tex) | [PDF](rank5/papers/manuscript.pdf) | Complete general classification through multiplicity 20 |
 | Rank six | [TeX](rank6/papers/manuscript.tex) | [PDF](rank6/papers/manuscript.pdf) | Complete through 3; exact bands 1, 2, 3, 5, 6, 7, 9; 57 realized and 2 unresolved through 9 |
 | Rank six, verification guide | [TeX](rank6/papers/verification_guide.tex) | [PDF](rank6/papers/verification_guide.pdf) | Exact models, exclusion certificates and unresolved rings |
-| Rank seven | [TeX](rank7/papers/manuscript.tex) | [PDF](rank7/papers/manuscript.pdf) | Complete at multiplicity 1; 26 realized and 59 unresolved through multiplicity 4 |
-| Rank eight | [TeX](rank8/paper/rank8.tex) | [PDF](rank8/paper/rank8.pdf) | Partial through multiplicity 2; 60 realized and 81 generally unresolved |
+| Rank seven | [TeX](rank7/papers/manuscript.tex) | [PDF](rank7/papers/manuscript.pdf) | Complete at multiplicity 1; 27 realized and 42 unresolved through multiplicity 4 |
+| Rank eight | [TeX](rank8/paper/rank8.tex) | [PDF](rank8/paper/rank8.pdf) | Partial through multiplicity 2; 72 realized and 55 generally unresolved |
 
 Rank-four through rank-eight TeX files use sections and generated tables
 from their sibling source trees. [Provenance](../docs/PROVENANCE.md) explains
@@ -33,4 +33,4 @@ and [verification instructions](../docs/VERIFY.md) give the retained evidence.
 
 The dated [October 2 rank-six research addendum](../evidence/residual_20261002/rank6/research_addendum.pdf) records subsequent necessary reductions while preserving the October 1 release and its two unresolved categorification questions.
 
-The upper-rank papers include the [October 2 residual update](../evidence/residual_20261002/README.md): extension and subfactor models, short general exclusions, and explicit remaining questions.
+The upper-rank papers include the [latest 43-decision residual stage](../evidence/upper_residual_20261002b/README.md): 13 unitary models and 30 general exclusions, with 42 rank-seven and 55 rank-eight cases generally unresolved.

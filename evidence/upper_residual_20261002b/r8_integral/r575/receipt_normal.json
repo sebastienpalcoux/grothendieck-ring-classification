@@ -1,0 +1,60 @@
+{
+  "id": "R8_2_575",
+  "status": "PASS",
+  "arithmetic": "Q[z]/(z^8+1)",
+  "assertions_used": false,
+  "scope": "unitary",
+  "model_to_census": [
+    0,
+    5,
+    1,
+    2,
+    3,
+    7,
+    4,
+    6
+  ],
+  "hopf": {
+    "algebra_associativity": 4096,
+    "coalgebra_coassociativity": 16,
+    "bialgebra_products": 256,
+    "unit_counit_antipode": "PASS",
+    "involutivity": "PASS"
+  },
+  "davydov_runkel": {
+    "hopf_pairing_identities": 8192,
+    "symmetric_nondegenerate_pairing": "PASS",
+    "explicit_fourier_inverse": "PASS",
+    "dr_dual_convention": "standard_dual_op_cop",
+    "gamma": "S composed with P inverse",
+    "gamma_symmetric": "PASS",
+    "gamma_actual_op_cop_dual_products": 256,
+    "gamma_actual_op_cop_dual_coproducts": 16,
+    "two_sided_cointegral": "PASS",
+    "distinguished_grouplike": 1,
+    "gamma_lambda": "4 Lambda",
+    "lambda_gamma_lambda": 1,
+    "dr_theorem_2_5_conditions": "PASS"
+  },
+  "census_tensor_sha256": "b69b81c82fee86626ed0d7c132227bee7a67fbf8f4c54a84f31d62a3a51858cf",
+  "raw_census_sha256": "97b86d2de8ca0352c5c6e14686cd1d43dbd52180dc53b2ff1ccf7a61788c9600",
+  "fusion": {
+    "neutral_character_values_checked": 784,
+    "full_tensor_coefficients": 512,
+    "independent_dihedral_character_products": 343,
+    "fusion_associativity": 4096,
+    "dimensions": [
+      1,
+      1,
+      1,
+      1,
+      2,
+      2,
+      2,
+      4
+    ],
+    "global_dimension": 32,
+    "full_source_match": true
+  },
+  "source_file_sha256": "4acaf69fbf1ffcaf56923203eb18048d85a77513881be80809b0482a29c1ef11"
+}

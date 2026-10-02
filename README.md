@@ -23,7 +23,7 @@ categorifiable.
 | Multiplicity | Rank 2 | Rank 3 | Rank 4 | Rank 5 | Rank 6 | Rank 7 | Rank 8 |
 |---:|---:|---:|---:|---:|---:|---:|---:|
 | 1 | 2 | 4 | 9 | 10 | 21 | 13 | ≥48 |
-| 2 | 0 | 1 | 3 | 3 | 22 | ≥9 | ≥12 |
+| 2 | 0 | 1 | 3 | 3 | 22 | ≥10 | ≥24 |
 | 3 | 0 | 0 | 2 | 2 | 3 | ≥2 | — |
 | 4 | 0 | 0 | 0 | 2 | ≥5 | ≥2 | — |
 | 5 | 0 | 0 | 0 | 0 | 1 | — | — |
@@ -47,8 +47,8 @@ classification cross-check. Rank-two realized counts follow directly from
 | 4 | Through 128 | **Complete through 128** | 15 realized rings, 889,515 general exclusions. |
 | 5 | Through 20 | **Complete through 20** | 17 realized rings and 40,982 generally excluded. The two former multiplicity-18 residuals are now excluded by inert-prime parity and exact induction. |
 | 6 | Through 9 | **Complete through 3** | Through 9: 25,362 excluded, 57 realized, 2 unresolved. |
-| 7 | Through 4 | **Complete at multiplicity 1** | Through 4: 4,116 excluded, 26 realized, 59 unresolved. |
-| 8 | Through 2 | Partial at both bands | Through 2: 832 excluded, 60 realized, 81 unresolved. |
+| 7 | Through 4 | **Complete at multiplicity 1** | Through 4: 4,132 excluded, 27 realized, 42 unresolved. |
+| 8 | Through 2 | Partial at both bands | Through 2: 846 excluded, 72 realized, 55 unresolved. |
 
 Rank-six realization counts through multiplicity 9 split into **56 unitary
 models** and **one spherical model whose ring has no pseudo-unitary
@@ -78,19 +78,20 @@ The positive catalogue includes the three neutral module categories from
 [Complete release](https://grothendieck-ring-atlas.sebastien-palcoux.chatgpt.site/downloads/Rank6_Categorification_M9_Frontier_2026-10-01.zip)
 
 
-The [October 2 residual update](evidence/residual_20261002/README.md) gives new
-models from extensions and subfactors, general grading and dimension obstructions,
-and separate unitary-only exclusions. These structure-specific exclusions do not
-change a ring's general unresolved status.
+The [latest residual stage](evidence/upper_residual_20261002b/README.md) resolves
+43 further cases: 30 general exclusions and 13 unitary models. Its prime-descent,
+Hopf and module arguments supplement the [earlier 46-decision stage](evidence/residual_20261002/README.md).
+Scope-specific obstructions retain their stated assumptions and do not change
+a ring's general unresolved status.
 
 ### The classification boundary, band by band
 
 | Multiplicity | Rank 4 | Rank 5 | Rank 6 | Rank 7 | Rank 8 |
 |---:|---:|---:|---:|---:|---:|
 | 1 | 1 excluded · 9 realized | 6 excluded · 10 realized | 18 excluded · 21 realized | 30 excluded · 13 realized | 45 excluded · 48 realized · **3 open** |
-| 2 | 14 excluded · 3 realized | 34 excluded · 3 realized | 132 excluded · 22 realized | 295 excluded · 9 realized · **15 open** | 787 excluded · 12 realized · **78 open** |
-| 3 | 22 excluded · 2 realized | 80 excluded · 2 realized | 381 excluded · 3 realized | 1,039 excluded · 2 realized · **18 open** | — |
-| 4 | 45 excluded · 0 realized | 132 excluded · 2 realized | 866 excluded · 5 realized · **1 open** | 2,752 excluded · 2 realized · **26 open** | — |
+| 2 | 14 excluded · 3 realized | 34 excluded · 3 realized | 132 excluded · 22 realized | 301 excluded · 10 realized · **8 open** | 801 excluded · 24 realized · **52 open** |
+| 3 | 22 excluded · 2 realized | 80 excluded · 2 realized | 381 excluded · 3 realized | 1,045 excluded · 2 realized · **12 open** | — |
+| 4 | 45 excluded · 0 realized | 132 excluded · 2 realized | 866 excluded · 5 realized · **1 open** | 2,756 excluded · 2 realized · **22 open** | — |
 | 5 | 55 excluded · 0 realized | 209 excluded · 0 realized | 1,581 excluded · 1 realized | — | — |
 | 6 | 80 excluded · 1 realized | 336 excluded · 0 realized | 2,765 excluded · 3 realized | — | — |
 | 7 | 92 excluded · 0 realized | 477 excluded · 0 realized | 3,812 excluded · 2 realized | — | — |
@@ -120,8 +121,8 @@ row checks and scope appear in [the provenance record](docs/PROVENANCE.md).
 | 4 | Multiplicity 18 | The same criterion families suffice for the allocated exclusions at 19–128. |
 | 5 | Multiplicity 18 | Inert-prime quadratic parity first closes two cases at 18; no new criterion family is needed at 19–20. |
 | 6 | See the allocation ledger | The current criteria include stabilizer, cyclotomic-trace and signed arithmetic obstructions. All 8,809 exact-multiplicity-nine rings have general exclusion certificates; 2 earlier cases remain unresolved through multiplicity 9. |
-| 7 | Multiplicity 3 | The solvable-category Minkowski obstruction first contributes at 3. There are 59 generally open rings through 4, so no stabilization conclusion follows. |
-| 8 | Multiplicity 2 | Graded Brauer-Picard obstructions contribute at 1 and 2; the rank-one fiber-functor obstruction contributes at 2. There are 81 generally open rings through 2, so no stabilization conclusion follows. |
+| 7 | Multiplicity 4 | The dimension-310 group-theoretical criterion first contributes at 4. There are 42 generally open rings through 4, so no stabilization conclusion follows. |
+| 8 | Multiplicity 2 | Graded Brauer-Picard obstructions contribute at 1 and 2; the rank-one fiber-functor obstruction contributes at 2. There are 55 generally open rings through 2, so no stabilization conclusion follows. |
 
 This records **first use in the chosen certificate allocation**, not an
 optimal ordering theorem or a claim that the criteria settle higher

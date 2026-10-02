@@ -18,7 +18,7 @@ for m in range(1,summary['max_multiplicity']+1):
     lines.append(f"{m} & {summary['ring_counts'][str(m)]} & {c.get('excluded',0)} & {c.get('unitarily_realized',0)} & {c.get('unresolved',0)}"+r'\\')
 lines.extend([r'\bottomrule',r'\end{tabular}',r'\end{table}','',
               r'\begin{table}[H]',r'\centering',r'\small',
-              r'\caption{Sequential exclusion counts, charged only to the first successful criterion. The final six rows record the further theoretical update.}\label{tab:stages}',
+              r'\caption{Sequential exclusion counts, charged only to the first successful criterion. The later rows apply prime-descent and exhaustive signed criteria to surviving tensors.}\label{tab:stages}',
               r'\begin{tabular}{@{}l r r r r@{}}',r'\toprule',
               r'Criterion & $m=1$ & $m=2$ & $m=3$ & $m=4$\\',r'\midrule'])
 names={'near_group':'Near-group theorem',
@@ -34,7 +34,19 @@ names={'near_group':'Near-group theorem',
        'odd_pointed_tannakian_120':'Odd pointed group in dimension 120',
        'solvable_double_equivariantization_orbit_obstruction':'Double equivariantization in dimension 52',
        'D96_solvable_order16_orbit_obstruction':'Order-sixteen orbit obstruction'}
+names.update({
+ 'dimension96_new_rank_one_module_branch':'Dimension-96 rank-one modules',
+ 'eight_p_equivariantization':'Dimension-$8p$ equivariantization',
+ 'dimension96_existing_order16_orbit':'Dimension-96 order-sixteen orbits',
+ 'dimension112_singer_normalizer':'Dimension-112 Singer normalizer',
+ 'dimension54_brauer_picard':'Dimension-54 Brauer--Picard',
+ 'dimension310_group_theoretical':'Dimension-310 group theory',
+ 'complete_oriented_signed_sphericalization':'Additional complete signed quotients',
+})
 pretty_models={
+    'D12_even_local_modules':r'$D_{12}$ even category (\S\ref{sec:d12})',
+    'D12_even_part':r'$D_{12}$ even category (\S\ref{sec:d12})',
+    'D12':r'$D_{12}$ even category (\S\ref{sec:d12})',
     'Vec(C7)':r'$\operatorname{Vec}(C_7)$',
     'TY(C6)':r'$\operatorname{TY}(C_6)$',
     'Rep(D16)':r'$\operatorname{Rep}(D_{16})$',
@@ -60,7 +72,7 @@ pretty_models={
     'PSU(2)_13':r'$\mathrm{PSU}(2)_{13}$'}
 for stage in summary['stage_order']:
     c=summary['stage_counts'][stage]
-    lines.append(names[stage]+' & '+' & '.join(str(c.get(str(m),0)) for m in range(1,5))+r'\\')
+    lines.append(names.get(stage,esc(stage))+' & '+' & '.join(str(c.get(str(m),0)) for m in range(1,5))+r'\\')
 lines.extend([r'\bottomrule',r'\end{tabular}',r'\end{table}','',
               r'\begin{table}[H]',r'\centering',r'\small',
               r'\caption{Unitary model constructions identified by exact full-tensor based-ring isomorphism. Each row denotes a ring, not a count of categories.}\label{tab:models}',
@@ -68,6 +80,8 @@ lines.extend([r'\bottomrule',r'\end{tabular}',r'\end{table}','',
               r'Census ID & Explicit model\\',r'\midrule'])
 for item in sorted(catalog,key=lambda r:(r['multiplicity'],int(r['id'].split('_')[-1]))):
     model=pretty_models.get(item['name'])
+    if model is None and item['id']=='R7_2_240':
+        model=r'$D_{12}$ even category (\S\ref{sec:d12})'
     if model is None:
         c=item['category_code'];model=r'AnyonWiki $\mathrm{FC}^{7,1,'+str(c[2])+r'}_{'+','.join(map(str,c[3:]))+r'}$'
     lines.append(r'\texttt{'+esc(item['id'])+'} & '+model+r'\\')

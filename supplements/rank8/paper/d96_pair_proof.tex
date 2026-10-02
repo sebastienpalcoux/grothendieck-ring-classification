@@ -1,0 +1,57 @@
+\subsection{A two-object orbit obstruction in dimension ninety-six}
+\begin{proposition}\label{prop:d96-pair}
+A fusion category of type $(1^4,2,4,6^2)$ has a nontrivial universal
+grading. In particular $R8\_2\_404$, $R8\_2\_418$, $R8\_2\_604$, $R8\_2\_692$
+have no complex fusion categorification.
+\end{proposition}
+\begin{proof}
+Suppose such a category has trivial universal grading. Its dimension
+is ninety-six, and its invertible group has order four. Solvability
+forces a last $C_2$
+ equivariantization $\mathcal C=\mathcal D^{C_2}$. Whichever nontrivial
+character occurs, it fixes the unique dimension-two and dimension-four
+simples. Thus the outer involution exchanges the two dimension-two
+simples of $\mathcal D$. Depending on whether it fixes or exchanges
+the dimension-six pair upstairs, $\mathcal D$ has type
+$(1^4,2^2,3^4)$ or $(1^4,2^2,6)$ and dimension forty-eight.
+
+Its canonical adjoint is preserved by the outer involution.
+A proper adjoint's dimension therefore has the form
+$a+4b+9c+36e$, where $a\in\{1,2,4\}$, $b\in\{0,2\}$,
+$c$ is even, and $e$ is zero or one according to the displayed type.
+The proper divisors of forty-eight among these possibilities are only
+$1,2,4,12$. A pointed adjoint of dimension at most four cannot contain
+the square of a dimension-three or dimension-six simple, since each
+invertible occurs there with coefficient at most one. An adjoint of
+dimension twelve consists of all four invertibles and both
+dimension-two simples. Every other grading component would then have
+dimension twelve using only dimension-three or dimension-six simples;
+a sum of their squared dimensions is divisible by nine, so this is
+impossible. Hence $\mathcal D_{\rm ad}=\mathcal D$.
+
+A second prime descent gives $\mathcal D=\mathcal E^{C_2}$,
+$\FPdim(\mathcal E)=24$. The complete cyclic-orbit dimension
+partitions are $(1^6,3^2)$ and $(1^2,2,3^2)$.
+In the first case the dimension-two pair of $\mathcal D$ comes from
+two free orbits in the invertible group $A$ of order six.
+The inner involution fixes exactly two elements of $A$.
+For $A=C_6$ it is inversion, and for $A=S_3$ it is conjugation by a
+transposition. In either group the coefficients of the two induced
+objects in their own squares are respectively zero and one, by
+ordinary orbit addition. The output stabilizers are trivial, so
+associator or tensorator phases cannot change these coefficients.
+The outer involution cannot exchange this pair as required.
+
+In the second case the unique dimension-two simple $x$ of
+$\mathcal E$ is fixed by the inner involution, with
+$x^2=1+g+x$. Its two equivariant lifts $x_+,x_-$ are exchanged by the
+central character $\varepsilon$. Therefore their squares are equal,
+because $\varepsilon^2=1$ and $\varepsilon$ is central.
+Each square has precisely one constituent from the dimension-two pair,
+by forgetting to the single $x$ channel. The outer involution exchanges
+$x_+,x_-$ but preserves their common square. Its unique dimension-two
+constituent would have to be fixed, which is impossible.
+Both dimension partitions and every initial character choice have
+therefore been excluded. The supplementary check binds the full four
+source tensors and exhausts these small dimension and orbit cases.
+\end{proof}

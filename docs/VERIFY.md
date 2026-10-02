@@ -75,8 +75,8 @@ complete through multiplicity 20. Rank six is complete through multiplicity
 three, with exact completed bands 1, 2, 3, 5, 6, 7, 9 and 2 cases through
 multiplicity 9 generally unresolved. Isolated completed bands do not
 complete intervening unresolved bands.
-Rank seven has 59 open cases through
-multiplicity four, and rank eight has 81 through multiplicity two.
+Rank seven has 42 open cases through
+multiplicity four, and rank eight has 55 through multiplicity two.
 These are general categorification questions. Separate unitary-only obstructions
 never change the general partition.
 
@@ -215,16 +215,24 @@ See [the original evidence](../evidence/anyonwiki/README.md).
 
 ## October 2 residual update
 
-The [new evidence](../evidence/residual_20261002/README.md) records the exact
-models, general exclusions and structure-specific results. In addition to the
-general decisions, 23 still-generally-open rings have unitary exclusions and
-5 have braided exclusions; these are not general nonexistence claims.
-Replay the small new certificates using the commands in that evidence guide.
-For the rank-eight constructions and general obstructions, run:
+The [latest evidence](../evidence/upper_residual_20261002b/README.md) resolves
+43 further cases with 13 unitary models and
+30 general exclusions. The [earlier residual stage](../evidence/residual_20261002/README.md)
+retains its own proofs and reports. Pivotal, pseudo-unitary, unitary and braided
+obstructions are distinguished from general nonexistence. Replay the latest
+source-bound stage in both normal and optimized Python:
 
 ```bash
-python3 supplements/rank8/software/verify_oct2.py
+python3 tools/verify_upper_residual_20261002b.py
+python3 -O tools/verify_upper_residual_20261002b.py
 ```
+
+The verifier checks all latest source identities, model tensors and certificates,
+as well as preservation of earlier decisions.
+The historical constructor replays run automatically against isolated copies
+of their original ledgers and model catalogues. Their original entry points
+are retained for provenance; they must not be run directly against an expanded
+current catalogue without restoring the corresponding historical snapshot.
 
 To refresh the upper-rank status and publication indexes from their ledgers:
 

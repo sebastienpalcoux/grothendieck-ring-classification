@@ -147,6 +147,11 @@ def verify_update(current_ledgers=None):
     Returns (report, restored_ledgers). Historical callers must use this method,
     not restoration alone, so a historical pass also validates the later stage.
     """
+    if (ROOT / "evidence/upper_residual_20261002b/source_files.json").exists():
+        require(current_ledgers is None, "new-stage replay requires on-disk ledgers")
+        spec = importlib.util.spec_from_file_location("upper_residual", ROOT / "tools/verify_upper_residual_20261002b.py")
+        module = importlib.util.module_from_spec(spec); spec.loader.exec_module(module)
+        return module.verify_update()
     ledgers, restored, manifest = verify_preservation(current_ledgers)
     # Rank verifiers read the on-disk ledgers; an in-memory caller may not replace them.
     require(all(ledgers[rank] == load(ROOT / path) for rank, path in LEDGER_PATHS.items()),
@@ -206,7 +211,8 @@ def verify_update(current_ledgers=None):
 
 def main():
     report, _ = verify_update()
-    (EVIDENCE / 'verification_report.json').write_text(json.dumps(report, indent=2) + '\n')
+    destination = ROOT / 'evidence/upper_residual_20261002b/verification_report.json' if (ROOT / 'evidence/upper_residual_20261002b/source_files.json').exists() else EVIDENCE / 'verification_report.json'
+    destination.write_text(json.dumps(report, indent=2) + '\n')
     print(json.dumps(report, indent=2))
     return report
 

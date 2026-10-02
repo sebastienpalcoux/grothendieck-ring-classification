@@ -30,13 +30,13 @@ criteria, models, and the unresolved frontier}
 \keywords{Grothendieck ring, fusion category, formal codegree, categorification, exact certificate}
 \begin{document}
 \begin{abstract}
-We analyze general complex categorification of every rank-eight fusion ring of multiplicity at most two in a complete census. An ordered collection of exact tensor and arithmetic tests excludes 832 of the 973 rings. Full multiplication-tensor comparisons identify unitary categories for 60 more. The remaining 81 rings are recorded as unresolved, including 3 already at multiplicity one; thus this is an explicit categorification frontier, not a complete classification. A rank-eight Wedderburn lemma extends the formal-codegree $d$-number obstruction to noncommutative rings. Every decision and every positive tensor comparison accompanies the manuscript in a checked machine-readable ledger.
+We analyze general complex categorification of every rank-eight fusion ring of multiplicity at most two in a complete census. An ordered collection of exact tensor and arithmetic tests excludes 846 of the 973 rings. Full multiplication-tensor comparisons identify unitary categories for 72 more. The remaining 55 rings are recorded as unresolved, including 3 already at multiplicity one; thus this is an explicit categorification frontier, not a complete classification. A rank-eight Wedderburn lemma extends the formal-codegree $d$-number obstruction to noncommutative rings. Every decision and every positive tensor comparison accompanies the manuscript in a checked machine-readable ledger.
 \end{abstract}
 \maketitle
 \markboth{RANK-EIGHT GROTHENDIECK RINGS}{RANK-EIGHT GROTHENDIECK RINGS}
 
 \section{Introduction and exact scope}
-The fusion-ring census \cite{Census} supplies all $96$ rank-eight based fusion rings of exact multiplicity one and all $877$ of exact multiplicity two. A fusion ring need not be the Grothendieck ring of a fusion category. We work over $\C$ and do not assume pivotality, sphericality, braiding, commutativity or unitarity when excluding a ring. A positive construction is a unitary category with the exact based-isomorphism type of its full multiplication tensor.
+The fusion-ring census \cite{Census} supplies all $96$ rank-eight based fusion rings of exact multiplicity one and all $877$ of exact multiplicity two. A fusion ring need not be the Grothendieck ring of a fusion category. We work over $\C$ and do not assume pivotality, sphericality, braiding, commutativity or unitarity when generally excluding a ring. A positive construction is a unitary category with the exact based-isomorphism type of its full multiplication tensor.
 
 The lower-rank criteria and their finite verifiers are developed in \cite{R2,R3,R4,R5,R6,R7}. We cite their theorems and do not reprove them. These new manuscripts are cited by title, with no byline. Our rank-eight observation, Proposition~\ref{prop:noncomm}, extracts ordinary formal codegrees from the Casimir spectrum even though the ring may be noncommutative. Known near-group, zero-spectrum and cyclotomic tests provide other general obstructions \cite{SchNear,LPR,ENO}. Standard quantum group, pointed, Tambara--Yamagami and representation categories supply the positive side \cite{KO,TY,EGNO,Serre}.
 
@@ -48,11 +48,11 @@ For the complete census through multiplicity two, the following trichotomy is ex
 \begin{tabular}{@{}rrrrr@{}}\toprule
 Exact multiplicity & Fusion rings & Excluded generally & Unitarily realized & Undecided generally\\\midrule
 $1$ & $96$ & $45$ & $48$ & $3$\\
-$2$ & $877$ & $787$ & $12$ & $78$\\\midrule
-Total & $973$ & $832$ & $60$ & $81$\\\bottomrule
+$2$ & $877$ & $801$ & $24$ & $52$\\\midrule
+Total & $973$ & $846$ & $72$ & $55$\\\bottomrule
 \end{tabular}
 \end{center}
-Every excluded ring is ruled out over $\C$ with no pivotality assumption. Each positive model is matched to the entire tensor under a unit-preserving permutation, and is therefore a Grothendieck ring. For the $81$ undecided rings, neither existence nor nonexistence is asserted. In particular, these numbers are \emph{certified lower bounds} of $48$ and $12$ for the number of Grothendieck rings at the two multiplicities, rather than total counts of Grothendieck rings.
+Every excluded ring is ruled out over $\C$ with no pivotality assumption. Each positive model is matched to the entire tensor under a unit-preserving permutation, and is therefore a Grothendieck ring. For the $55$ undecided rings, neither existence nor nonexistence is asserted. In particular, these numbers are \emph{certified lower bounds} of $48$ and $24$ for the number of Grothendieck rings at the two multiplicities, rather than total counts of Grothendieck rings.
 \end{theorem}
 
 The earliest undecided tensors are now $\sha{R8_1_9}$ and $\sha{R8_2_24}$. The former first open ring $\sha{R8_1_3}$, of global FP dimension $20$, is realized below by a twisted group-theoretical category. Its dimension vector agrees with that of the commutative ring $\Rep(\mathrm{Dic}_5)$, although its multiplication is noncommutative. Thus full tensor comparison remains essential even after a suitable dimension profile is found.
@@ -146,6 +146,9 @@ Each has a faithful grading with a rank-one component and neutral fusion rules $
 \end{proof}
 
 \input{solvable_proofs}
+\input{prime_and_hopf_proofs}
+\input{d96_pair_proof}
+\input{r108_c4_proof}
 
 \subsection{Ordered exclusion ledger and the first open cases}
 An excluded tensor is removed after the first verified certificate in the following order. For each row, ``left'' still counts rings subsequently recognized as positive, so this is an exclusion table rather than a table of outstanding questions.
@@ -339,14 +342,47 @@ The integer fusion formulas for this subcategory are independently checked again
 
 The table provides one construction per positive tensor. Some have two isomorphic presentations; \sha{data/realized_models.json} records every matched constructor, exact model tensor, precise model source and source-to-model isomorphism. Labels such as ``pseudo-$PSU(2)_6$'' denote the conventional fusion-ring name, not a weaker existence assertion: the cited rank-four table supplies a unitary category \cite{R4}. No undecided ring is in this table.
 
+\input{additional_models}
+
+\input{scoped_obstructions}
+
 \section{Reproduction and mathematical limits}
-The command \sha{python3 software/analyze.py} reads the frozen source, checks its checksum and count, applies the ordered tests, and produces \sha{data/decisions.json}, \sha{data/exclusion_stages.csv}, \sha{data/classification_counts.json} and \sha{data/realized_models.json}. The command \sha{python3 software/verify.py} checks source tensor identities, full based-ring uniqueness, all $973$ statuses, every negative witness and every positive tensor match. It checks finite-module certificates by exhaustive integer reconstruction. The only native component is the rank-eight zero-spectrum witness search, compiled from \sha{software/zero_spectrum.cpp}; the Python verifier rereads each nine-index witness and checks its conditions independently.
+For the frozen release, run
+\sha{python3 tools/verify_upper_residual_20261002b.py} from the repository
+root, and repeat with \sha{-O}. The archive dispatcher supplies the same
+source-bound stage. It reconstructs the new model tensors, verifies the
+new general and scoped certificates, checks their source identities,
+and verifies preservation of the earlier ledger decisions. All checks
+use exact integer or algebraic arithmetic; no numerical fit supplies a
+categorification decision.
 
-Both commands treat discovery failure, timeout, or a failed consistency check as an error, never as an exclusion. The separate signed campaign records completed certificates, inconclusive attempts and timeouts distinctly. The verifier independently regenerates every admitted rank-eight signed tensor, the inherited rank-seven negative proof trees, and all six appendix-based tensor transfers. Character-field calculations and subcategory dimension quotients use rational/algebraic arithmetic; no floating-point approximation gives a mathematical decision.
+The historical full-certificate runs, including the exhaustive signed
+proofs and appendix tensor transfers, retain their original reports.
+Historical constructor updates are automatically replayed against
+isolated copies of their original ledgers and model catalogues. Those
+entry points are not discovery commands for the expanded current
+catalogue. Preservation evidence does not claim a fresh execution of
+every earlier costly search. Original census analysis programs are
+retained for provenance and are not needed to verify the frozen release.
+A timeout or an unfinished branch never constitutes an exclusion.
 
-The finite update is independently replayed by \sha{python3 software/verify_oct2.py}. It regenerates the twenty-two new model tensors, verifies the five grading obstructions and three solvability exclusions, and compares hashes of all $943$ unaffected ledger records and all $38$ previous positive records. The prior report is retained as \sha{verification/pre_oct2_report.json}; the new report distinguishes this finite replay from the earlier full-certificate run.
+The three generally open multiplicity-one rings
+$R8\_1\_9$, $R8\_1\_18$, $R8\_1\_49$ each have two FP dimensions,
+$1$ and $2+\sqrt5$. Their noninvertibles form one orbit under the
+invertible action. The published formulation of
+\cite[Lemma~3.1]{SchNear} says that any categorification with two FP
+dimensions is Galois conjugate to a pseudo-unitary one. Consequently,
+for these rings, existence as a general, pivotal, spherical or
+pseudo-unitary category is equivalent. This does not say that every
+categorification is pseudo-unitary, and gives no unitary existence
+claim. The irrational braided generalized-near-group classification
+\cite[Theorem~3.6]{SchBraided} rules out a braiding on any of these
+three rings. Their general categorification remains unresolved.
+The known order-four Haagerup--Izumi Morita families
+\cite[Theorem~4.13 and Lemma~4.7]{Grossman} give no matching model;
+this exhaustion concerns those families, not all fusion categories.
 
-This verification establishes the finite applications \emph{conditional on} the cited theorems and the source census completeness. It does not settle the remaining $81$ generally undecided rings, certify a multiplicity-three census, or classify categories up to tensor equivalence. Some criteria first exclude rings at multiplicity two, but nothing here implies that no new criterion is needed beyond that bound. Noncommutative Extended Haagerup models at rank eight have multiplicities four and seven \cite{EH}; they are genuine models but outside the present complete census bound.
+This verification establishes the finite applications \emph{conditional on} the cited theorems and the source census completeness. It does not settle the remaining $55$ generally undecided rings, certify a multiplicity-three census, or classify categories up to tensor equivalence. Some criteria first exclude rings at multiplicity two, but nothing here implies that no new criterion is needed beyond that bound. Noncommutative Extended Haagerup models at rank eight have multiplicities four and seven \cite{EH}; they are genuine models but outside the present complete census bound.
 
 \par\medskip\noindent\textbf{AI disclosure.} GPT-6 Astra assisted with literature exploration, mathematical research, code development, and manuscript preparation.
 
@@ -400,5 +436,47 @@ arXiv:1510.03475.
 \bibitem{TY} D.~Tambara and S.~Yamagami, \emph{Tensor categories with fusion rules of self-duality for finite abelian groups}, J. Algebra \textbf{209} (1998), 692--707.
 \bibitem{Serre} J.-P.~Serre, \emph{Linear Representations of Finite Groups}, Springer Graduate Texts in Mathematics 42 (1977), Chapter~5.
 \bibitem{EH} P.~Grossman, S.~Morrison, D.~Penneys, E.~Peters and N.~Snyder, \emph{The Extended Haagerup fusion categories}, Ann. Sci. Ecole Norm. Sup. \textbf{56} (2023), 589--664; arXiv:1810.06076, Theorem~1.1 and Sections~2.2--2.4.
+\bibitem{Kashina} Y.~Kashina,
+\emph{Classification of semisimple Hopf algebras of dimension 16},
+J. Algebra \textbf{232} (2000), 617--663; arXiv:math/0004114.
+\bibitem{JordanLarson} D.~Jordan and E.~Larson,
+\emph{On the classification of certain fusion categories},
+J. Noncommut. Geom. \textbf{3} (2009), 481--499; arXiv:0812.1603.
+\bibitem{GelakiNaidu} S.~Gelaki and D.~Naidu,
+\emph{Some properties of group-theoretical categories},
+J. Algebra \textbf{322} (2009), 2631--2641; arXiv:0709.4326.
+\bibitem{GNN} S.~Gelaki, D.~Naidu and D.~Nikshych,
+\emph{Centers of graded fusion categories},
+Algebra Number Theory \textbf{3} (2009), 959--990; arXiv:0905.3117.
+\bibitem{MPSskein} S.~Morrison, E.~Peters and N.~Snyder,
+\emph{Skein theory for the $D_{2n}$ planar algebras},
+J. Pure Appl. Algebra \textbf{214} (2010), 117--139; arXiv:0808.0764.
+\bibitem{MPSknots} S.~Morrison, E.~Peters and N.~Snyder,
+\emph{Knot polynomial identities and quantum group coincidences},
+Quantum Topol. \textbf{2} (2011), 101--156; arXiv:1003.0022.
+\bibitem{EdieSU3} C.~Edie-Michell,
+\emph{Auto-equivalences of the modular tensor categories of type
+$A$, $B$, $C$ and $G$}, arXiv:2002.03220v2.
+\bibitem{Bischoff} M.~Bischoff,
+\emph{The rank of $G$-crossed braided extensions of modular tensor
+categories}, Contemp. Math. \textbf{747} (2020), 115--120;
+arXiv:1807.06131v2.
+\bibitem{DavydovRunkel} A.~Davydov and I.~Runkel,
+\emph{$\Z/2\Z$-extensions of Hopf algebra module categories by their
+base categories}, Adv. Math. \textbf{247} (2013), 192--265;
+arXiv:1207.3611v2.
+\bibitem{EvansGannon} D.~E.~Evans and T.~Gannon,
+\emph{The exoticness and realisability of twisted Haagerup--Izumi
+modular data}, Comm. Math. Phys. \textbf{307} (2011), 463--512;
+arXiv:1006.1326.
+\bibitem{SchBraided} A.~Schopieray,
+\emph{Irrational braided generalized near-groups},
+Canad. Math. Bull. (2023); DOI:10.4153/S0008439523000334.
+\bibitem{Grossman} P.~Grossman,
+\emph{Fusion categories associated to subfactors with index
+$3+\sqrt5$}, arXiv:1612.07185.
+\bibitem{Larson} H.~K.~Larson,
+\emph{Pseudo-unitary non-self-dual fusion categories of rank 4},
+arXiv:1401.1879v2.
 \end{thebibliography}
 \end{document}

@@ -15,19 +15,15 @@
 \begin{document}
 \maketitle
 \begin{abstract}
-We apply general categorification obstructions to the pinned, complete
-fusion-ring census of rank seven and multiplicity at most four. Every
-asserted exclusion has an exact certificate or a cited theorem with
-exactly checked tensor hypotheses; every asserted
-realization has an explicit unitary fusion-category model and an exact
-full-tensor identification. We include a rank-seven extension of the
-formal-codegree test to noncommutative rings, a global-dimension-fifteen
-obstruction, and complete oriented signed-sphericalization certificates
-for 246 rings through multiplicity four. The remaining tensors are recorded as
-\emph{undecided}. Three additional published AnyonWiki associators have
-independent exact pentagon, invertibility, unit and rigidity checks.
-Thus multiplicity one is complete, with thirteen realized rings;
-the first undecided multiplicity is two.
+We study complex categorification of the complete rank-seven fusion-ring
+census through multiplicity four. Exact necessary conditions exclude
+$4132$ rings, and complete tensor comparisons identify unitary models
+for $27$ more; $42$ remain unresolved. The theoretical arguments combine
+prime equivariantization, pointed-module and orbit obstructions, with
+complete signed-sphericalization certificates. Multiplicity one is
+complete, with thirteen realized rings. Every counted general exclusion applies
+without a pivotality assumption, and every positive row has an actual
+categorical construction.
 \end{abstract}
 
 \section{Scope and statements}
@@ -49,7 +45,7 @@ claims of this manuscript.
 The numbers of excluded, explicitly unitarily realized, and undecided
 rank-seven fusion rings are given by Table~\ref{tab:status}.
 The negative conclusions hold for \emph{every} complex fusion category.
-The twenty-six positive rows have the models in Table~\ref{tab:models},
+The twenty-seven positive rows have the models in Table~\ref{tab:models},
 matched against their complete fusion tensors. No conclusion is drawn
 for the undecided rows.
 \end{theorem}
@@ -438,6 +434,8 @@ This contradicts the required two fixed points and excludes both rings
 over $\C$. The supplement checks the exact tensor premises and also
 provides an independent finite corroboration of this theoretical lemma.
 
+\input{prime_descent_proofs.tex}
+
 \section{Exact constructions and replay}
 The three formerly undecided multiplicity-one rings match AnyonWiki
 $\mathrm{FR}^{7,2}_3$, $\mathrm{FR}^{7,2}_{12}$, and
@@ -659,24 +657,23 @@ cocycle phases. The noncentral fibres each have size four. Hence
 In this order the model-to-census permutation is $(0,6,5,1,2,3,4)$.
 The supplement checks the representation relations, action,
 characteristic-class restriction, projective lift, and all $343$
-coefficients. The remaining $59$ tensors are undecided.
+coefficients. The remaining $42$ tensors are undecided.
 
-The complete package contains the pinned gzip source, analysis code,
-negative proof trees, model tensors, the stage-count summary and a
-second entry point, \texttt{verify.py}. Run
-\texttt{python analyze.py --max-m 4 --dnumber} and then
-\texttt{python verify.py}. The verifier rechecks the source digest and
-every row, every full-tensor model isomorphism, each stage total and
-each exclusion certificate, including the exhaustive signed lists.
-Running \texttt{python -O verify.py} gives the same checks without
-relying on Python's optional \texttt{assert} statements.
-For the dated update alone,
-\texttt{python software/verify\_residual\_20261002.py} (also with
-\texttt{-O}) checks the seven new models and nine new exclusions,
-including the coherent actions, the Chern-class construction, and their fusion rules.
-It verifies preservation hashes for all $4185$ unaffected records and
-all $4107$ previous exclusions; the unchanged costly searches are not
-repeated by this shorter entry point.
+\input{d12_model.tex}
+
+The complete package contains the pinned source, negative certificates,
+independent model tensors, stage summary and verification reports.
+For the frozen release, run \texttt{python3 verify.py} and
+\texttt{python3 -O verify.py}. The portable residual-stage verifier
+checks the later prime-descent and signed certificates, the $D_{12}$
+model, source identities and preservation of earlier decisions. From
+the repository root its entry point is
+\texttt{python3 tools/verify\_upper\_residual\_20261002b.py}, also
+with \texttt{-O}; the archive dispatcher supplies the same stage.
+Earlier full-certificate reports retain their own scopes and dates;
+preservation checks do not claim a fresh execution of all prior
+searches. Original discovery programs are retained separately and
+are not required to verify this frozen release.
 
 \medskip\noindent\textbf{AI disclosure.} GPT-6 Astra assisted with
 research, symbolic exploration, code development, and drafting.
@@ -763,5 +760,14 @@ accepted in \emph{Letters in Mathematical Physics}; arXiv:2507.07023.
 arXiv:2405.20075.
 \bibitem{VercleyenInvariants} G. Vercleyen,
 \emph{Tables of practical invariants for distinguishing multiplicity-free fusion categories up to rank 7}, arXiv:2507.00652.
+\bibitem{ENOExt} P.~Etingof, D.~Nikshych and V.~Ostrik,
+\emph{Fusion categories and homotopy theory}, Quantum Topol.
+\textbf{1} (2010), 209--273; arXiv:0909.3140.
+\bibitem{MPSskein} S.~Morrison, E.~Peters and N.~Snyder,
+\emph{Skein theory for the $D_{2n}$ planar algebras},
+J. Pure Appl. Algebra \textbf{214} (2010), 117--139; arXiv:0808.0764.
+\bibitem{MPSknots} S.~Morrison, E.~Peters and N.~Snyder,
+\emph{Knot polynomial identities and quantum group coincidences},
+Quantum Topol. \textbf{2} (2011), 101--156; arXiv:1003.0022.
 \end{thebibliography}
 \end{document}

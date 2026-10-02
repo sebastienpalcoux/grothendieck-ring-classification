@@ -14,7 +14,7 @@ def main():
     for rank,(ledger,archive) in sources.items():
         raw=(ROOT/ledger).read_bytes();rows=json.loads(raw);counts=collections.Counter(r['status'] for r in rows)
         x['inputs'][f'rank{rank}'].update(file=ledger,sha256=hashlib.sha256(raw).hexdigest(),status_totals=dict(counts),
-            residual_update='evidence/residual_20261002/README.md')
+            residual_update='evidence/upper_residual_20261002b/README.md')
         for row in x['rows']:
             if row['rank']!=rank:continue
             band=[d for d in rows if d['multiplicity']==row['multiplicity']]

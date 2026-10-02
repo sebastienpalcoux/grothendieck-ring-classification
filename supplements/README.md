@@ -14,8 +14,8 @@ does not create a self-contained verification run.
 | 4 | [`rank4/software/`](rank4/software/) and [`verify.py`](rank4/verify.py) | Rank-four source release, including 75.8 MB compressed classification ledger |
 | 5 | [`rank5/software/`](rank5/software/) and [`verify.py`](rank5/verify.py) | Rank-five source release, including its decisions and exclusion certificates |
 | 6 | [`rank6/software/`](rank6/software/) and [`verify.py`](rank6/verify.py) | Complete release; 25,362 excluded, 57 realized, 2 unresolved; complete through 3 and exact bands 1, 2, 3, 5, 6, 7, 9 |
-| 7 | [`rank7/`](rank7/) | Complete census through 4; 4,116 generally excluded, 26 realized, 59 generally unresolved |
-| 8 | [`rank8/`](rank8/) | Complete census through 2; 832 generally excluded, 60 realized, 81 generally unresolved |
+| 7 | [`rank7/`](rank7/) | Complete census through 4; 4,132 generally excluded, 27 realized, 42 generally unresolved |
+| 8 | [`rank8/`](rank8/) | Complete census through 2; 846 generally excluded, 72 realized, 55 generally unresolved |
 
 The public [fusion-ring-census](https://github.com/sebastienpalcoux/fusion-ring-census)
 continues to own the raw tensor census and enumeration code. See the
@@ -29,4 +29,4 @@ For the rank-six update, start with its [README](rank6/README.md),
 The authoritative ledger is `rank6/data/decisions.json`. The archive is
 `Rank6_Categorification_M9_Frontier_2026-10-01.zip`. Source-bound certificates retain their internal paths.
 
-The [October 2 evidence](../evidence/residual_20261002/README.md) describes the new upper-rank exact model and obstruction replays. Run `python3 rank8/software/verify_oct2.py` for its 22 new model tensors and 8 general exclusions.
+The [latest residual evidence](../evidence/upper_residual_20261002b/README.md) supplies 13 unitary models and 30 general exclusions. From the repository root, run `python3 tools/verify_upper_residual_20261002b.py` and its optimized-Python counterpart.

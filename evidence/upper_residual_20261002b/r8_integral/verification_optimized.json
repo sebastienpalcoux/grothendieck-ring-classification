@@ -1,0 +1,797 @@
+{
+  "status": "PASS",
+  "python_optimized": true,
+  "general_exclusions": {
+    "R8_2_41": {
+      "dimensions": [
+        1,
+        1,
+        1,
+        2,
+        4,
+        2,
+        2,
+        1
+      ],
+      "global_dimension": 32,
+      "invertibles": [
+        0,
+        1,
+        2,
+        7
+      ],
+      "invertible_orders": [
+        1,
+        4,
+        4,
+        2
+      ],
+      "dual": [
+        0,
+        2,
+        1,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "adjoint_indices": [
+        0,
+        1,
+        2,
+        3,
+        5,
+        6,
+        7
+      ],
+      "neutral_indices": [
+        0,
+        1,
+        2,
+        3,
+        5,
+        6,
+        7
+      ],
+      "rank_one_component": 4,
+      "neutral_dual_rank_required": 7
+    },
+    "R8_2_86": {
+      "dimensions": [
+        1,
+        1,
+        1,
+        2,
+        2,
+        4,
+        2,
+        1
+      ],
+      "global_dimension": 32,
+      "invertibles": [
+        0,
+        1,
+        2,
+        7
+      ],
+      "invertible_orders": [
+        1,
+        4,
+        4,
+        2
+      ],
+      "dual": [
+        0,
+        2,
+        1,
+        4,
+        3,
+        5,
+        6,
+        7
+      ],
+      "adjoint_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        6,
+        7
+      ],
+      "neutral_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        6,
+        7
+      ],
+      "rank_one_component": 5,
+      "neutral_dual_rank_required": 7
+    },
+    "R8_2_162": {
+      "dimensions": [
+        1,
+        2,
+        2,
+        4,
+        1,
+        1,
+        1,
+        2
+      ],
+      "global_dimension": 32,
+      "invertibles": [
+        0,
+        4,
+        5,
+        6
+      ],
+      "invertible_orders": [
+        1,
+        2,
+        2,
+        2
+      ],
+      "dual": [
+        0,
+        2,
+        1,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "adjoint_indices": [
+        0,
+        1,
+        2,
+        4,
+        5,
+        6,
+        7
+      ],
+      "neutral_indices": [
+        0,
+        1,
+        2,
+        4,
+        5,
+        6,
+        7
+      ],
+      "rank_one_component": 3,
+      "neutral_dual_rank_required": 7
+    },
+    "R8_2_140": {
+      "dimensions": [
+        1,
+        1,
+        1,
+        2,
+        4,
+        4,
+        4,
+        1
+      ],
+      "global_dimension": 56,
+      "invertibles": [
+        0,
+        1,
+        2,
+        7
+      ],
+      "invertible_orders": [
+        1,
+        4,
+        4,
+        2
+      ],
+      "dual": [
+        0,
+        2,
+        1,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "adjoint_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "neutral_indices": [
+        0,
+        1,
+        2,
+        3,
+        7
+      ],
+      "neutral_dimension": 8,
+      "rank_one_modules": [
+        4,
+        5,
+        6
+      ]
+    },
+    "R8_2_694": {
+      "dimensions": [
+        1,
+        1,
+        1,
+        1,
+        2,
+        4,
+        4,
+        4
+      ],
+      "global_dimension": 56,
+      "invertibles": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "invertible_orders": [
+        1,
+        2,
+        2,
+        2
+      ],
+      "dual": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "adjoint_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "forced_first_descent_dimension": 28,
+      "nonpointed_dimension28_adjoint_type": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ]
+      ]
+    },
+    "R8_2_697": {
+      "dimensions": [
+        1,
+        1,
+        1,
+        1,
+        4,
+        4,
+        4,
+        4
+      ],
+      "global_dimension": 68,
+      "invertibles": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "invertible_orders": [
+        1,
+        2,
+        2,
+        2
+      ],
+      "dual": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "adjoint_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "forced_first_descent_type": {
+        "dimension": 34,
+        "type": [
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            8
+          ]
+        ]
+      },
+      "forced_combined_group": "V4"
+    },
+    "R8_2_808": {
+      "dimensions": [
+        1,
+        1,
+        2,
+        6,
+        6,
+        6,
+        6,
+        6
+      ],
+      "global_dimension": 186,
+      "invertibles": [
+        0,
+        1
+      ],
+      "invertible_orders": [
+        1,
+        2
+      ],
+      "dual": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "adjoint_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "forced_first_descent_type": {
+        "dimension": 93,
+        "type": [
+          [
+            1,
+            3
+          ],
+          [
+            3,
+            10
+          ]
+        ]
+      },
+      "forced_combined_group": "S3"
+    }
+  },
+  "unitary_models": {
+    "R8_2_244": {
+      "model_to_census": [
+        0,
+        1,
+        2,
+        3,
+        7,
+        4,
+        5,
+        6
+      ],
+      "orbits": [
+        [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            3,
+            3
+          ]
+        ],
+        [
+          [
+            0,
+            2
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            2,
+            2
+          ]
+        ],
+        [
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            3,
+            0
+          ]
+        ],
+        [
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        [
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            3,
+            2
+          ]
+        ]
+      ],
+      "model_tensor_sha256": "71a96da564c0fc3f63a1b782c1b1e7b6fb1f9c80c6c11fab64b03529961008f8",
+      "coefficients_compared": 512
+    },
+    "R8_2_289": {
+      "model_to_census": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "orbits": [
+        [
+          [
+            0,
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            0,
+            1,
+            1
+          ]
+        ],
+        [
+          [
+            0,
+            1,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            0,
+            0
+          ],
+          [
+            1,
+            1,
+            0,
+            0
+          ]
+        ],
+        [
+          [
+            0,
+            1,
+            0,
+            1
+          ],
+          [
+            1,
+            0,
+            1,
+            0
+          ],
+          [
+            1,
+            1,
+            1,
+            1
+          ]
+        ],
+        [
+          [
+            0,
+            1,
+            1,
+            0
+          ],
+          [
+            1,
+            0,
+            1,
+            1
+          ],
+          [
+            1,
+            1,
+            0,
+            1
+          ]
+        ],
+        [
+          [
+            0,
+            1,
+            1,
+            1
+          ],
+          [
+            1,
+            0,
+            0,
+            1
+          ],
+          [
+            1,
+            1,
+            1,
+            0
+          ]
+        ]
+      ],
+      "model_tensor_sha256": "77e7f30daccd9cbff0dc3ae86ea226555997d5d3d5b96b5fb2bf0c60c8c045dc",
+      "coefficients_compared": 512
+    },
+    "R8_2_143": {
+      "model_to_census": [
+        0,
+        1,
+        7,
+        2,
+        3,
+        5,
+        6,
+        4
+      ],
+      "orbits": [
+        [
+          1,
+          4,
+          13,
+          16
+        ],
+        [
+          2,
+          8,
+          9,
+          15
+        ],
+        [
+          3,
+          5,
+          12,
+          14
+        ],
+        [
+          6,
+          7,
+          10,
+          11
+        ]
+      ],
+      "model_tensor_sha256": "24cadb69e29180e63526a59e037bc514e965e1938bf9073d5ad6f7a427558780",
+      "coefficients_compared": 512
+    },
+    "R8_2_179": {
+      "model_to_census": [
+        0,
+        1,
+        4,
+        3,
+        2,
+        5,
+        6,
+        7
+      ],
+      "orbits": [
+        [
+          [
+            0,
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            0,
+            1,
+            0
+          ],
+          [
+            0,
+            1,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            0,
+            0
+          ],
+          [
+            1,
+            1,
+            1,
+            1
+          ]
+        ],
+        [
+          [
+            0,
+            0,
+            1,
+            1
+          ],
+          [
+            0,
+            1,
+            1,
+            0
+          ],
+          [
+            0,
+            1,
+            1,
+            1
+          ],
+          [
+            1,
+            1,
+            0,
+            0
+          ],
+          [
+            1,
+            1,
+            1,
+            0
+          ]
+        ],
+        [
+          [
+            0,
+            1,
+            0,
+            1
+          ],
+          [
+            1,
+            0,
+            0,
+            1
+          ],
+          [
+            1,
+            0,
+            1,
+            0
+          ],
+          [
+            1,
+            0,
+            1,
+            1
+          ],
+          [
+            1,
+            1,
+            0,
+            1
+          ]
+        ]
+      ],
+      "model_tensor_sha256": "aba9949dc1552548bcdbce8bdb305a7704d642d0bbf365d281aa6005ec22b285",
+      "coefficients_compared": 512
+    },
+    "R8_2_237": {
+      "group_order": 168,
+      "character_dimensions": [
+        1,
+        1,
+        1,
+        3,
+        3,
+        7,
+        7,
+        7
+      ],
+      "field_polynomial": [
+        1,
+        -1,
+        0,
+        1,
+        -1,
+        0,
+        1,
+        0,
+        -1,
+        1,
+        0,
+        -1,
+        1
+      ],
+      "orthogonality_pairs": 64,
+      "fusion_coefficients": 512,
+      "model_to_census": [
+        0,
+        1,
+        2,
+        5,
+        6,
+        7,
+        4,
+        3
+      ],
+      "model_tensor_sha256": "4ccb2da50d7e5c7abe5648a3cda0676b973f86905818b1e6c338da168430cc9e"
+    }
+  },
+  "seconds": 0.576
+}

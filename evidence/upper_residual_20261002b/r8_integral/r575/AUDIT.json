@@ -1,0 +1,50 @@
+{
+  "id": "R8_2_575",
+  "conclusion": "APPROVED",
+  "scope": "unitary",
+  "fresh_reconstruction": true,
+  "normal_optimized_equal": true,
+  "recovered_source_checked_against_raw_census": true,
+  "checks": "Hopf algebra; semisimple algebra decomposition; symmetric nondegenerate ordinary Hopf pairing; actual op/cop Gamma Hopf isomorphism; DR normalization and self-duality; direct Hopf characters; independent D16 characters; all512 source coefficients",
+  "hypothesis_audit": {
+    "Davydov-Runkel Theorem2.5": "All three hypotheses verified; H-vee is standard_dual_op_cop; g=1; S squared is identity; Gamma symmetric",
+    "Davydov-Runkel Proposition3.25": "Rigidity; previous Theorem3.25 label corrected",
+    "ENO Theorem1.6": "Fusion category dimension32=2^5; solvable hence weakly group-theoretical",
+    "GHR Theorem5.20": "Every weakly group-theoretical fusion category is completely unitary"
+  },
+  "program_sha256": "4acaf69fbf1ffcaf56923203eb18048d85a77513881be80809b0482a29c1ef11",
+  "census_tensor_sha256": "b69b81c82fee86626ed0d7c132227bee7a67fbf8f4c54a84f31d62a3a51858cf",
+  "primary_sources": [
+    {
+      "url": "https://arxiv.org/abs/1207.3611",
+      "version": "v2",
+      "locations": [
+        "equation2.3, footnote2",
+        "equation2.6",
+        "Theorem2.5",
+        "equation2.15",
+        "Proposition3.25"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/math/0004114",
+      "locations": [
+        "Theorem1.2",
+        "Table1 entry16"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/0809.3031",
+      "locations": [
+        "Theorem1.6"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/1105.5048",
+      "locations": [
+        "Theorem5.20"
+      ]
+    }
+  ],
+  "unresolved_gaps": []
+}

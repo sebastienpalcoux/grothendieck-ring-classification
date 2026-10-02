@@ -1,0 +1,52 @@
+\section{Scoped obstructions inside the general frontier}
+\label{sec:scoped}
+The following statements refine the frontier without changing any general
+exclusion count. The exact source subrings, grading supports and fixed
+objects are checked separately from the general-decision certificates.
+
+\begin{proposition}\label{prop:scoped-eight}
+The rings $R8\_2\_24$, $R8\_2\_152$, $R8\_2\_153$, $R8\_2\_166$, $R8\_2\_495$, $R8\_2\_315$, $R8\_2\_317$ have no unitary
+categorification. The ring $R8\_2\_312$ has no pseudo-unitary
+categorification. They remain generally unresolved.
+\end{proposition}
+\begin{proof}
+The first five rings contain the rank-four $2D2$ even ring. Its unitary
+categorification is unique \cite[Theorem~3.43]{EIP}. Every invertible
+bimodule over this category is an automorphism bimodule
+\cite[Theorem~4.19]{Grossman}, hence is regular as a left module.
+For $R8\_2\_152$, $R8\_2\_153$, $R8\_2\_166$, $R8\_2\_495$, the
+odd component of a faithful $C_2$ grading has no invertible simple.
+A regular module component has the regular dimension ratios, and its
+equal total FP dimension fixes the scaling to one; it must contain an
+invertible. This is a contradiction.
+
+For $R8\_2\_24$, the odd component contains an invertible $u$ of
+order four with $u^2=g$, where $g$ is the nontrivial neutral invertible.
+Commutativity of the tensor makes $\operatorname{Ad}(u)$ fix every
+neutral label, while
+$\operatorname{Ad}(u)^2=\operatorname{Ad}(g)$.
+The label-fixing kernel of the neutral tensor-automorphism group is
+$C_2^2$: Grossman's computation gives an order-eight automorphism
+group and a nontrivial $\operatorname{Ad}(g)$, and the outer,
+label-fixing order-two action of \cite[Corollary~3.45]{EIP} commutes
+with it. These two independent involutions exhaust the order-four
+kernel. Thus no label-fixing automorphism squares to
+$\operatorname{Ad}(g)$.
+
+The rings $R8\_2\_315$, $R8\_2\_317$ contain ordinary and
+pseudo-$PSU(2)_6$ subcategories with the same nontrivial invertible
+$g$. In the unitary classifications their second indicators are
+respectively $+1$ and $-1$. The canonical spherical structure
+restricts to the canonical one on each unitary fusion subcategory,
+so the indicator of the shared object cannot disagree.
+
+Finally $R8\_2\_312$ contains a pseudo-$PSU(2)_6$ subring and an
+additional $g$-fixed simple. Larson's pseudo-unitary analysis
+\cite[Proposition~5.5 and proof of Theorem~5.8, Case~1]{Larson}
+forces $\nu_2(g)=-1$, hence the nontrivial associator on its pointed
+$C_2$ subcategory. The $g$-fixed simple gives a rank-one module over
+that pointed category, forcing the associator class to be trivial by
+its scalar module pentagon. This proves the pseudo-unitary
+contradiction. None of the preceding arguments supplies a general
+exclusion for these eight rings.
+\end{proof}
