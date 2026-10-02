@@ -57,7 +57,8 @@ The census ring has only one2-dimensional simple. This contradiction proves the 
 
 - Etingof–Nikshych–Ostrik, Weakly group-theoretical and solvable fusion categories, https://arxiv.org/pdf/0809.3031 .
 - Jordan–Larson, On the classification of certain fusion categories, Theorem1.1, https://arxiv.org/pdf/0812.1603 .
-- Burciu–Natale, Fusion rules of equivariantizations of fusion categories, Corollary2.13 (orbit/stabilizer dimensions).
-- Standard group-theoretical double-coset description and universal-adjoint grading description.
+- Burciu–Natale, Fusion rules of equivariantizations of fusion categories, Corollary2.13 (orbit/stabilizer dimensions), https://arxiv.org/pdf/1206.6625 .
+- Gelaki–Naidu, Some properties of group-theoretical categories, Theorem5.1 and Section4, https://arxiv.org/pdf/0709.4326 .
+- Etingof–Gelaki–Nikshych–Ostrik, Tensor Categories, Definition4.14.5 and Example4.14.6, https://math.mit.edu/~etingof/egnobookfinal.pdf .
 
 The theoretical argument was independently audited during recovery. The source premises were then independently replayed from the remote published census. It is separate from the not-yet-rebuilt publication ledgers.
