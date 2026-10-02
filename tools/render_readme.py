@@ -8,6 +8,7 @@ ROOT=Path(__file__).resolve().parents[1]
 parser=argparse.ArgumentParser(description=__doc__)
 parser.add_argument('--identity',type=Path,default=ROOT/'data/rank6_release_identity.json')
 parser.add_argument('--output',type=Path,default=ROOT/'README.md')
+parser.add_argument('--check',action='store_true')
 args=parser.parse_args()
 status=json.loads((ROOT/'data/classification_status.json').read_text())
 state={(x['rank'],x['multiplicity']):x for x in status['rows']}
@@ -34,6 +35,9 @@ rank6_summary=(f'| 6 | Through {rank6_bound} | **Complete through {rank6_complet
                f'Through {rank6_bound}: {rank6_excluded:,} excluded, {rank6_realized} realized, '
                f'{rank6_open} unresolved. |')
 upper={rank:status['inputs'][f'rank{rank}']['status_totals'] for rank in (7,8)}
+latest=json.loads((ROOT/'evidence/upper_residual_20261002b/decisions.json').read_text())
+latest_models=sum(d['status']=='unitarily_realized' for d in latest)
+latest_exclusions=sum(d['status']=='excluded' for d in latest)
 def upper_summary(rank):
     t=upper[rank];bound=status['inputs'][f'rank{rank}']['classified_through']
     scope='**Complete at multiplicity 1**' if rank==7 else 'Partial at both bands'
@@ -106,10 +110,11 @@ unitary. Rank five has no unresolved ring through multiplicity 20.
 
 __RANK6_CONTINUATION__
 
-The [October 2 residual update](evidence/residual_20261002/README.md) gives new
-models from extensions and subfactors, general grading and dimension obstructions,
-and separate unitary-only exclusions. These structure-specific exclusions do not
-change a ring's general unresolved status.
+The [latest residual stage](evidence/upper_residual_20261002b/README.md) resolves
+__LATEST_CASES__ further cases: __LATEST_EXCLUSIONS__ general exclusions and __LATEST_MODELS__ unitary models. Its prime-descent,
+Hopf and module arguments supplement the [earlier 46-decision stage](evidence/residual_20261002/README.md).
+Scope-specific obstructions retain their stated assumptions and do not change
+a ring's general unresolved status.
 
 ### The classification boundary, band by band
 
@@ -140,7 +145,7 @@ row checks and scope appear in [the provenance record](docs/PROVENANCE.md).
 | 4 | Multiplicity 18 | The same criterion families suffice for the allocated exclusions at 19–128. |
 | 5 | Multiplicity 18 | Inert-prime quadratic parity first closes two cases at 18; no new criterion family is needed at 19–20. |
 | 6 | See the allocation ledger | The current criteria include stabilizer, cyclotomic-trace and signed arithmetic obstructions. All 8,809 exact-multiplicity-nine rings have general exclusion certificates; __RANK6_OPEN__ earlier cases remain unresolved through multiplicity __RANK6_BOUND__. |
-| 7 | Multiplicity 3 | The solvable-category Minkowski obstruction first contributes at 3. There are __RANK7_OPEN__ generally open rings through 4, so no stabilization conclusion follows. |
+| 7 | Multiplicity 4 | The dimension-310 group-theoretical criterion first contributes at 4. There are __RANK7_OPEN__ generally open rings through 4, so no stabilization conclusion follows. |
 | 8 | Multiplicity 2 | Graded Brauer-Picard obstructions contribute at 1 and 2; the rank-one fiber-functor obstruction contributes at 2. There are __RANK8_OPEN__ generally open rings through 2, so no stabilization conclusion follows. |
 
 This records **first use in the chosen certificate allocation**, not an
@@ -188,12 +193,20 @@ to a source census cell are imported only from a named commit and rechecked
 against classification ledgers.
 ''')
 args.output.parent.mkdir(parents=True,exist_ok=True)
-args.output.write_text('\n'.join(lines).replace('__RANK6_SUMMARY__',rank6_summary)
+rendered=('\n'.join(lines).replace('__RANK6_SUMMARY__',rank6_summary)
                               .replace('__RANK7_SUMMARY__',upper_summary(7))
                               .replace('__RANK8_SUMMARY__',upper_summary(8))
                               .replace('__RANK7_OPEN__',str(upper[7]['unresolved']))
                               .replace('__RANK8_OPEN__',str(upper[8]['unresolved']))
                               .replace('__RANK6_OPEN__',str(rank6_open))
                               .replace('__RANK6_BOUND__',str(rank6_bound))
-                              .replace('__RANK6_CONTINUATION__',rank6_continuation))
-print('Rendered README.md')
+                              .replace('__RANK6_CONTINUATION__',rank6_continuation)
+                              .replace('__LATEST_CASES__',str(len(latest)))
+                              .replace('__LATEST_EXCLUSIONS__',str(latest_exclusions))
+                              .replace('__LATEST_MODELS__',str(latest_models)))
+if args.check:
+    if not args.output.is_file() or args.output.read_text()!=rendered:
+        raise ValueError('Regenerate '+str(args.output))
+else:
+    args.output.write_text(rendered)
+print(('Checked' if args.check else 'Rendered')+' README.md')
