@@ -124,16 +124,46 @@ def main():
     coverage_relative = "data/frontier_research_progress.json"
     if not (repo / "supplements/rank6" / coverage_relative).is_file():
         coverage_relative = "data/frontier_summary.json"
-    coverage = json.loads((repo / "supplements/rank6" / coverage_relative).read_text())
-    research_update = repo / "evidence/residual_20261002/rank6/research_progress.json"
-    if research_update.is_file():
+    coverage_source = repo / "supplements/rank6" / coverage_relative
+    coverage = json.loads(coverage_source.read_text())
+    if hashlib.sha256(coverage_source.read_bytes()).hexdigest() != identity["research_files_sha256"][coverage_relative]:
+        raise ValueError("Frozen rank-six research source differs from the release identity")
+    coverage_chain = [(coverage_source, coverage)]
+    october2_update = repo / "evidence/residual_20261002/rank6/research_progress.json"
+    theoretical_update = repo / "evidence/rank6_theoretical_20261011/research_progress.json"
+    for research_update in (october2_update, theoretical_update):
+        if not research_update.is_file():
+            continue
         update = json.loads(research_update.read_text())
         previous = repo / update["previous_coverage"]
-        if hashlib.sha256(previous.read_bytes()).hexdigest() != update["previous_coverage_sha256"]:
+        if (previous.resolve() != coverage_source.resolve() or
+                hashlib.sha256(previous.read_bytes()).hexdigest() != update["previous_coverage_sha256"]):
             raise ValueError("Rank-six research update does not match its previous source")
         if update["classification_counts"] != coverage["classification_counts"]:
             raise ValueError("Research overlay cannot change categorification counts")
         coverage = update
+        coverage_source = research_update
+        coverage_chain.append((coverage_source, coverage))
+    revision_source = repo / "evidence/rank6_theoretical_20261011/document_revision.json"
+    revision = None
+    if theoretical_update.is_file() != revision_source.is_file():
+        raise ValueError("The theoretical research overlay and document revision must be published together")
+    if revision_source.is_file():
+        revision = json.loads(revision_source.read_text())
+        if (revision["date"] != coverage["date"] or
+                revision["research_progress"] != coverage_source.relative_to(repo).as_posix() or
+                revision["research_progress_sha256"] != hashlib.sha256(coverage_source.read_bytes()).hexdigest()):
+            raise ValueError("Current document revision does not match the current research overlay")
+        current_documents = {path.relative_to(repo).as_posix()
+                             for path in (repo / "manuscripts/rank6/papers").rglob("*")
+                             if path.is_file() and path.suffix in (".tex", ".pdf")}
+        if set(revision["documents"]) != current_documents:
+            raise ValueError("Current document revision must inventory every rank-six paper TEX/PDF")
+        for source, expected in revision["documents"].items():
+            document = repo / source
+            if (hashlib.sha256(document.read_bytes()).hexdigest() != expected["sha256"] or
+                    document.stat().st_size != expected["bytes"]):
+                raise ValueError(f"Rank-six document differs from its current revision: {source}")
     release_counts = {record["multiplicity"]: record for record in release["counts"]}
     release_bands = sorted(release_counts)
     if not release_bands or len(release_counts) != len(release["counts"]) or release_bands != list(range(1, release_bands[-1] + 1)):
@@ -151,6 +181,14 @@ def main():
         raise ValueError("Rank-six identity totals differ from the verified release")
     if identity["ledger_sha256"] != release["ledger_sha256"]:
         raise ValueError("Rank-six identity and release refer to different ledgers")
+    if [[release_counts[m][key] for key in ("classes", "excluded", "unitarily_realized",
+          "spherically_realized_nonpseudounitary", "unresolved")] for m in release_bands] != identity["counts"]:
+        raise ValueError("Rank-six bands differ from the frozen release identity")
+    if coverage["classification_counts"] != {
+        "total": sum(record["classes"] for record in release["counts"]),
+        "excluded": release["excluded"], "realized": release["positive"], "unresolved": release["unresolved"]
+    }:
+        raise ValueError("Rank-six research totals differ from the frozen release")
     if {case["id"] for case in coverage["cases"]} != set(release["unresolved_ids"]):
         raise ValueError("Rank-six research coverage does not match the unresolved frontier")
     data["snapshot"] = max(identity["date"], coverage["date"])
@@ -170,6 +208,13 @@ def main():
         "research_cases": [{key: case[key] for key in ("id", "categorical_status", "public_summary")}
                            for case in coverage["cases"]],
         "research_coverage_path": "data/rank6_research_coverage.json",
+        "research_coverage_source": coverage_source.relative_to(repo).as_posix(),
+        "research_coverage_chain": [{
+            "source": source.relative_to(repo).as_posix(),
+            "path": f"data/rank6_research_coverage_{record['date'].replace('-', '')}.json",
+            "sha256": hashlib.sha256(source.read_bytes()).hexdigest(), "date": record["date"],
+        } for source, record in coverage_chain],
+        "identity_path": "data/rank6_release_identity.json",
         "complete_multiplicity_bands": [r["multiplicity"] for r in release["counts"] if r["unresolved"] == 0],
         "documents": {
             target: hashlib.sha256((repo / "manuscripts/rank6/papers" / source).read_bytes()).hexdigest()
@@ -186,8 +231,10 @@ def main():
     if data["rank6_release"]["archive"]["bytes"] != identity["archive"]["bytes"]:
         raise ValueError("Rank-six archive size differs from the verified release")
     for source, target in (("manuscript.pdf", "rank6.pdf"), ("verification_guide.pdf", "rank6_guide.pdf")):
-        if data["rank6_release"]["documents"][target] != identity["documents"][source]["sha256"]:
-            raise ValueError(f"Rank-six document differs from the verified release: {source}")
+        expected = (revision["documents"]["manuscripts/rank6/papers/" + source]
+                    if revision else identity["documents"][source])
+        if data["rank6_release"]["documents"][target] != expected["sha256"]:
+            raise ValueError(f"Rank-six document differs from its verified revision: {source}")
     downloads = HERE / "dist/downloads"
     downloads.mkdir(parents=True, exist_ok=True)
     archive_target = downloads / archive_name
@@ -200,11 +247,20 @@ def main():
     for source_name, target_name in (("data/unresolved_tensors.json", "rank6_unresolved_tensors.json"),
                                      ("verification/release_summary.json", "rank6_release_summary.json")):
         shutil.copy2(repo / "supplements/rank6" / source_name, HERE / "dist/data" / target_name)
-    (HERE / "dist/data/rank6_research_coverage.json").write_text(json.dumps(coverage, indent=2) + "\n")
+    shutil.copy2(repo / "data/rank6_release_identity.json", HERE / "dist/data/rank6_release_identity.json")
+    shutil.copy2(coverage_source, HERE / "dist/data/rank6_research_coverage.json")
+    for (source, _), record in zip(coverage_chain, data["rank6_release"]["research_coverage_chain"]):
+        shutil.copy2(source, HERE / "dist" / record["path"])
+    if revision:
+        shutil.copy2(revision_source, HERE / "dist/data/rank6_document_revision.json")
+        data["rank6_release"]["document_revision"] = {
+            "path": "data/rank6_document_revision.json", "date": revision["date"],
+            "sha256": hashlib.sha256(revision_source.read_bytes()).hexdigest(),
+        }
     for name, target in (("manuscript.pdf", "rank6.pdf"), ("verification_guide.pdf", "rank6_guide.pdf")):
         shutil.copy2(repo / "manuscripts/rank6/papers" / name, HERE / "dist/papers" / target)
     addendum = repo / "evidence/residual_20261002/rank6/research_addendum.pdf"
-    if research_update.is_file():
+    if october2_update.is_file():
         shutil.copy2(addendum, HERE / "dist/papers/rank6_addendum_20261002.pdf")
         data["rank6_release"]["research_addendum"] = {
             "path": "papers/rank6_addendum_20261002.pdf",

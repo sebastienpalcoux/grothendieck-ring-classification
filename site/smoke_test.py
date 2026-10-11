@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Check a repository-derived atlas snapshot before publication."""
 import csv
+import hashlib
 import json
 from pathlib import Path
 
@@ -65,7 +66,25 @@ assert payload["snapshot"] == max(release["date"], coverage["date"])
 assert release["research_cases"] == [{key: case[key] for key in ("id", "categorical_status", "public_summary")} for case in coverage["cases"]]
 assert {r["id"] for r in release["research_cases"]} == set(summary["unresolved_ids"])
 assert all(r["categorical_status"] == "unresolved" and r["public_summary"] for r in release["research_cases"])
-import hashlib
+chain = release["research_coverage_chain"]
+assert chain, "Missing rank-six research provenance chain"
+previous = None
+for entry in chain:
+    source = root / entry["path"]
+    assert hashlib.sha256(source.read_bytes()).hexdigest() == entry["sha256"]
+    record = json.loads(source.read_text())
+    assert record["date"] == entry["date"]
+    assert record["classification_counts"] == coverage["classification_counts"]
+    if previous:
+        assert record["previous_coverage"] == previous["source"]
+        assert record["previous_coverage_sha256"] == previous["sha256"]
+    previous = entry
+assert chain[-1]["source"] == release["research_coverage_source"]
+assert hashlib.sha256((root / release["research_coverage_path"]).read_bytes()).hexdigest() == chain[-1]["sha256"]
+assert coverage["classification_counts"] == {
+    "total": sum(r["classes"] for r in summary["counts"]),
+    "excluded": summary["excluded"], "realized": summary["positive"], "unresolved": summary["unresolved"]
+}
 if "research_addendum" in release:
     addendum=release["research_addendum"]
     assert hashlib.sha256((root / addendum["path"]).read_bytes()).hexdigest() == addendum["sha256"]
@@ -78,24 +97,45 @@ frontier=json.loads((root / release["frontier_path"]).read_text())
 assert len(frontier) == summary["unresolved"]
 assert [r["id"] for r in frontier] == summary["unresolved_ids"]
 assert not any(r["m"] in release["complete_multiplicity_bands"] for r in frontier)
-identity_path = root.parent.parent / "data/rank6_release_identity.json"
-if identity_path.is_file():
-    identity = json.loads(identity_path.read_text())
-    totals = tuple(identity["summary"][key] for key in ("excluded", "positive", "unresolved"))
-    if (tuple(summary[key] for key in ("excluded", "positive", "unresolved")) != totals or
-            tuple(release[key] for key in ("excluded", "realized", "unresolved")) != totals):
-        raise ValueError("Site rank-six totals differ from the canonical release identity")
-    bands = [[summary_counts[m][key] for key in ("classes", "excluded", "unitarily_realized",
-              "spherically_realized_nonpseudounitary", "unresolved")] for m in expected_bands]
-    if bands != identity["counts"]:
-        raise ValueError("Site rank-six bands differ from the canonical release identity")
-    if (release["archive"]["path"] != "downloads/" + identity["archive"]["name"] or
-            release["archive"]["sha256"] != identity["archive"]["sha256"]):
-        raise ValueError("Site rank-six archive differs from the canonical release identity")
-    for source, target in (("manuscript.pdf", "rank6.pdf"), ("verification_guide.pdf", "rank6_guide.pdf")):
-        if release["documents"].get(target) != identity["documents"][source]["sha256"]:
-            raise ValueError("Site PDF differs from the canonical release identity: " + target)
-print(f"Rank-six release verified through multiplicity {expected_bands[-1]}: complete bands {release['complete_multiplicity_bands']}; {len(frontier)} residuals; exact archive and PDF hashes.")
+identity = json.loads((root / release["identity_path"]).read_text())
+canonical_identity = root.parent.parent / "data/rank6_release_identity.json"
+if canonical_identity.is_file():
+    assert canonical_identity.read_bytes() == (root / release["identity_path"]).read_bytes()
+assert chain[0]["source"] == "supplements/rank6/data/frontier_research_progress.json"
+assert chain[0]["sha256"] == identity["research_files_sha256"]["data/frontier_research_progress.json"]
+assert chain[0]["date"] == identity["date"]
+totals = tuple(identity["summary"][key] for key in ("excluded", "positive", "unresolved"))
+assert tuple(summary[key] for key in ("excluded", "positive", "unresolved")) == totals
+assert tuple(release[key] for key in ("excluded", "realized", "unresolved")) == totals
+bands = [[summary_counts[m][key] for key in ("classes", "excluded", "unitarily_realized",
+          "spherically_realized_nonpseudounitary", "unresolved")] for m in expected_bands]
+assert bands == identity["counts"], "Site rank-six bands differ from the frozen release identity"
+assert release["date"] == identity["date"]
+assert summary["ledger_sha256"] == identity["ledger_sha256"]
+assert release["archive"]["path"] == "downloads/" + identity["archive"]["name"]
+assert release["archive"]["sha256"] == identity["archive"]["sha256"]
+assert release["archive"]["bytes"] == identity["archive"]["bytes"]
+revision = None
+if "document_revision" in release:
+    revision_entry = release["document_revision"]
+    revision_path = root / revision_entry["path"]
+    assert hashlib.sha256(revision_path.read_bytes()).hexdigest() == revision_entry["sha256"]
+    revision = json.loads(revision_path.read_text())
+    canonical_revision = root.parent.parent / "evidence/rank6_theoretical_20261011/document_revision.json"
+    if canonical_revision.is_file():
+        assert canonical_revision.read_bytes() == revision_path.read_bytes()
+    assert revision["date"] == revision_entry["date"] == coverage["date"]
+    assert revision["research_progress"] == release["research_coverage_source"]
+    assert revision["research_progress_sha256"] == chain[-1]["sha256"]
+    assert all(name.startswith("manuscripts/rank6/papers/") and Path(name).suffix in (".tex", ".pdf")
+               and len(record["sha256"]) == 64 and record["bytes"] > 0
+               for name, record in revision["documents"].items())
+for source, target in (("manuscript.pdf", "rank6.pdf"), ("verification_guide.pdf", "rank6_guide.pdf")):
+    expected = (revision["documents"]["manuscripts/rank6/papers/" + source]
+                if revision else identity["documents"][source])
+    assert release["documents"][target] == expected["sha256"], "Site PDF differs from its current revision: " + target
+    assert (root / "papers" / target).stat().st_size == expected["bytes"]
+print(f"Rank-six release verified through multiplicity {expected_bands[-1]}: complete bands {release['complete_multiplicity_bands']}; {len(frontier)} residuals; frozen archive and current document revision hashes.")
 
 for rank in (7, 8):
     release = payload["upper_rank_releases"][str(rank)]

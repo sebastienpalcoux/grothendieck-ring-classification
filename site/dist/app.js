@@ -9,7 +9,7 @@ const paperEntries = [
   {rank:3, title:"Galois-averaged indicators and sphericality in rank three", subtitle:"Direct five-ring classification and sphericality", type:"MANUSCRIPT", slug:"rank3"},
   {rank:4, title:"Rank-four Grothendieck rings through multiplicity 128", subtitle:"Complete general categorification", type:"CLASSIFICATION", slug:"rank4"},
   {rank:5, title:"Rank-five Grothendieck rings through multiplicity twenty", subtitle:"Complete general classification through m = 20", type:"CLASSIFICATION", slug:"rank5"},
-  {rank:6, title:"Rank-six fusion rings: categorification criteria and models through multiplicity eight", subtitle:"Categorification through multiplicity eight", type:"CLASSIFICATION", slug:"rank6"},
+  {rank:6, title:"Rank-six fusion rings: categorification criteria and models through multiplicity nine", subtitle:"Categorification through multiplicity nine", type:"CLASSIFICATION", slug:"rank6"},
 ];
 function paperSourcePath(rank,extension="pdf") {
   if (rank<=3) return `manuscripts/rank${rank}.${extension}`;
@@ -290,11 +290,19 @@ function renderPapers() {
     const summary = $("#rank6-release");
     summary.replaceChildren(element("strong", "", `Rank six, multiplicity at most ${release.analyzed_through}. `));
     summary.append(document.createTextNode(`${fmt.format(release.excluded)} excluded, ${release.realized} realized, ${release.unresolved} unresolved. ${release.research_summary || ""} `));
-    const archive=element("a", "", "Classification archive (1 October)");
+    const archive=element("a", "", "Frozen classification archive (1 October)");
     archive.href=`./${release.archive.path}`;archive.download="";summary.append(archive);
     const update=element("a", "", "2 October research addendum");
     update.href="./papers/rank6_addendum_20261002.pdf";
     summary.append(document.createTextNode(" · "), update);
+    if (release.document_revision) {
+      const theory=element("a", "", "11 October theoretical revision");
+      theory.href=`${state.data.classification_repository}/tree/${state.data.classification_commit || "main"}/evidence/rank6_theoretical_20261011`;
+      summary.append(document.createTextNode(" · "), theory);
+      const revision=element("a", "", "Current manuscript checksums");
+      revision.href=`./${release.document_revision.path}`;revision.download="";
+      summary.append(document.createTextNode(" · "), revision);
+    }
     const local=element("a", "", "Local Python computations");
     local.href="https://github.com/sebastienpalcoux/grothendieck-ring-classification/tree/main/evidence/rank6_laptop_20261002";
     summary.append(document.createTextNode(" · "), local);

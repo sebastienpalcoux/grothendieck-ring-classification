@@ -33,12 +33,20 @@ The rank-three manuscript proves unrestricted five-ring necessity directly, toge
 
 The classification counts come from the current release ledger; categorical
 models, exact fusion tensors and references come from the model catalogue.
-The residual summary starts with the dated rank-six release and applies
-`evidence/residual_20261002/rank6/research_progress.json` after verifying its
-previous-source checksum and unchanged classification totals. The current
-research overlay and PDF addendum preserve the frozen October 1 archive.
-The snapshot includes one
-current archive, the manuscript and verification guide; superseded public
-archives are removed. Validation compares all displayed counts with the
-classification ledger and model catalogue and checks the archive and PDF
-hashes recorded in `dist/data/atlas.json`.
+The residual summary starts with the dated rank-six release and applies the
+October 2 and October 11 research overlays in order, checking each exact
+previous-source path and checksum and unchanged classification totals. The
+latest overlay is `evidence/rank6_theoretical_20261011/research_progress.json`.
+It records the purely theoretical absence of proper dominant tensor quotients
+for either hypothetical category; both categorification cases remain unresolved.
+
+The frozen October 1 archive, release identity, ledger and per-band counts are
+validated independently of the current manuscript. The current
+`evidence/rank6_theoretical_20261011/document_revision.json` binds the latest
+research overlay to every rank-six paper TEX/PDF by checksum and byte size.
+The site publishes this manifest as `dist/data/rank6_document_revision.json`,
+along with the current manuscript and verification-guide PDFs. It retains the
+October 2 PDF addendum and the complete research-summary provenance chain.
+Validation compares displayed counts with the classification ledger and model
+catalogue, checks the exact frozen archive, and checks current PDFs against
+their document revision rather than the historical archive's document hashes.

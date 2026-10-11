@@ -1,9 +1,9 @@
 {
   "schema": "rank6-frontier-research-progress/v2",
-  "date": "2026-10-02",
-  "scope": "Audited research update; categorification counts unchanged; the dated 1 October release and its hashes are preserved.",
+  "date": "2026-10-11",
+  "scope": "Purely theoretical tensor-functor rigidity; neither residual categorification is constructed or excluded. Classification counts and the frozen October 1 release remain unchanged.",
   "historical_summary": "data/frontier_summary.json",
-  "research_directory": "evidence/residual_20261002/rank6",
+  "research_directory": "evidence/rank6_theoretical_20261011",
   "classification_counts": {
     "total": 25421,
     "excluded": 25362,
@@ -14,33 +14,37 @@
     {
       "id": "R6_4_155",
       "categorical_status": "unresolved",
-      "public_summary": "The unique rank-26 modular candidate remains feasible. All 70 small B3 spectral-partition tests pass; neither these tests nor the modular datum constructs a category. No model or general exclusion is known. Exact probability couplings prove every Lim Corollary 3.4 inequality for every exponent and nonnegative vector.",
-      "current_status": "evidence/residual_20261002/rank6/R6_4_155.md",
+      "public_summary": "Every tensor functor from a hypothetical categorification is fully faithful: the twist-one central-algebra support and associativity force every dominant quotient to be an equivalence. The unique rank-26 modular candidate remains feasible. No categorification or general exclusion is established.",
+      "current_status": "evidence/rank6_theoretical_20261011/README.md",
       "proof_chapters": [
-        "evidence/residual_20261002/rank6/research_addendum.tex"
+        "manuscripts/rank6/papers/chapters/frontier_refined.tex",
+        "manuscripts/rank6/papers/chapters/frontier_tensor_functors.tex"
       ],
       "structural_obstructions": [
         "No nontrivial Tannakian fusion subcategory in the center.",
         "No Morita representative is a nontrivial faithful finite-group extension or equivariantization.",
-        "No braided Morita representative."
+        "No braided Morita representative.",
+        "Every tensor functor to a complex fusion category is fully faithful; every dominant tensor quotient is an equivalence, without an assumed pivotal compatibility."
       ]
     },
     {
       "id": "R6_8_1660",
       "categorical_status": "unresolved",
-      "public_summary": "Exact graded induction-packet identities eliminate 533 further center profiles, leaving 1,136 in branches 120, 508, 508. Every dominant pivotal tensor quotient of the positive spherical form would be an equivalence. Three Morita-dual based rings remain possible; none admits a braiding. No model or general exclusion is known. Exact probability couplings prove every Lim Corollary 3.4 inequality for every exponent and nonnegative vector.",
-      "current_status": "evidence/residual_20261002/rank6/R6_8_1660_packet_gram.md",
+      "public_summary": "Every tensor functor from a hypothetical categorification is fully faithful. Pseudo-unitarity descends to a dominant tensor image, and canonical pivotality is automatic, removing the earlier pivotal assumption from quotient rigidity. The 1,136 center profiles in branches 120, 508, 508 remain. No categorification or general exclusion is established.",
+      "current_status": "evidence/rank6_theoretical_20261011/README.md",
       "proof_chapters": [
-        "evidence/residual_20261002/rank6/research_addendum.tex"
+        "manuscripts/rank6/papers/chapters/frontier_refined.tex",
+        "manuscripts/rank6/papers/chapters/frontier_tensor_functors.tex"
       ],
       "structural_obstructions": [
         "No nontrivial Tannakian fusion subcategory in the center.",
         "No Morita representative is a nontrivial faithful finite-group extension or equivariantization.",
-        "No braided Morita representative."
+        "No braided Morita representative.",
+        "Every tensor functor to a complex fusion category is fully faithful; every dominant tensor quotient is an equivalence, without an assumed pivotal compatibility."
       ]
     }
   ],
-  "previous_coverage_sha256": "77781fee75dfbeb95085348255b780eb71d023c262964c3d382633436a619fbc",
-  "previous_coverage": "supplements/rank6/data/frontier_research_progress.json",
-  "research_summary": "Both rank-six cases remain unresolved. The 2 October addendum records the 533-profile reduction, restrictions on Morita models and finite-group constructions, and exact exhaustion of all primary-n and Lim Corollary 3.4 tests. The original classification release remains source-bound to 1 October."
+  "previous_coverage_sha256": "ef88d8356632809ae466b2e83c661eba03c3b3af865533e33c0fda2c6920ef3d",
+  "previous_coverage": "evidence/residual_20261002/rank6/research_progress.json",
+  "research_summary": "Both rank-six cases remain unresolved. The October 11 theoretical revision proves that every tensor functor from either hypothetical complex fusion category to a fusion category is fully faithful; every dominant tensor quotient is therefore an equivalence. The manuscript also incorporates the October 2 reduction to 1,136 center profiles for R6_8_1660. No new computational search or categorification decision is claimed."
 }
