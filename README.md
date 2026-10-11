@@ -68,14 +68,20 @@ The positive catalogue includes the three neutral module categories from
 
 | Unresolved ring | Necessary reduction |
 |---|---|
-| `R6_4_155` | The unique rank-26 modular candidate remains feasible. All 70 small B3 spectral-partition tests pass; neither these tests nor the modular datum constructs a category. No model or general exclusion is known. Exact probability couplings prove every Lim Corollary 3.4 inequality for every exponent and nonnegative vector. |
-| `R6_8_1660` | Exact graded induction-packet identities eliminate 533 further center profiles, leaving 1,136 in branches 120, 508, 508. Every dominant pivotal tensor quotient of the positive spherical form would be an equivalence. Three Morita-dual based rings remain possible; none admits a braiding. No model or general exclusion is known. Exact probability couplings prove every Lim Corollary 3.4 inequality for every exponent and nonnegative vector. |
+| `R6_4_155` | Every tensor functor from a hypothetical categorification is fully faithful: the twist-one central-algebra support and associativity force every dominant quotient to be an equivalence. The unique rank-26 modular candidate remains feasible. No categorification or general exclusion is established. |
+| `R6_8_1660` | Every tensor functor from a hypothetical categorification is fully faithful. Pseudo-unitarity descends to a dominant tensor image, and canonical pivotality is automatic, removing the earlier pivotal assumption from quotient rigidity. The 1,136 center profiles in branches 120, 508, 508 remain. No categorification or general exclusion is established. |
+
+The October 11 theoretical revision proves tensor-functor rigidity for both
+residual rings. Both categorification questions remain open. The current
+manuscript includes the October 2 addendum and the new proofs; its source/PDF
+hashes are recorded separately from the frozen October 1 release.
 
 [Manuscript](manuscripts/rank6/papers/manuscript.pdf) ·
+[11 October theoretical revision](evidence/rank6_theoretical_20261011/README.md) ·
 [Completion proofs](supplements/rank6/research/exclusions/m9_completion/) ·
 [Completion replay](supplements/rank6/verification/m9/completion/) ·
 [2 October research addendum](evidence/residual_20261002/rank6/research_addendum.pdf) ·
-[Complete release](https://grothendieck-ring-atlas.sebastien-palcoux.chatgpt.site/downloads/Rank6_Categorification_M9_Frontier_2026-10-01.zip)
+[Frozen 1 October release](https://grothendieck-ring-atlas.sebastien-palcoux.chatgpt.site/downloads/Rank6_Categorification_M9_Frontier_2026-10-01.zip)
 
 
 The [43-decision residual stage](evidence/upper_residual_20261002b/README.md) and its [14-decision continuation](evidence/upper_residual_20261002c/README.md) resolve 57 further rings: 44 general exclusions and 13 unitary models. The continuation generally excludes `R7_2_160`, `R7_4_1417`, `R7_4_1420`, `R8_2_312`, `R8_2_315`, `R8_2_317`, `R8_2_53`, `R8_2_93`, `R8_2_191`, `R8_2_299`, `R8_2_158`, `R8_2_186`, `R8_2_579`, `R8_2_682`. Stage b retains its frozen proofs and replay; stage c restores the historical ledgers when checking that replay.

@@ -2,13 +2,24 @@
 """Render publication indexes from the frozen rank-six identity and upper-rank ledgers."""
 import argparse,json,re
 from pathlib import Path
-from rank6_publication import validate_identity,archive_url,completed_bands,progress_table
+from rank6_publication import (validate_identity,archive_url,completed_bands,
+                              progress_table,validate_document_revision)
 from publication_stages import load_stages,overview,replay_commands
 ROOT=Path(__file__).resolve().parents[1]
 def section(text,start,end,replacement):
     a=text.index(start);b=text.index(end,a);return text[:a]+replacement+text[b:]
 def render(repo,i):
     validate_identity(i);out={};a=i['archive'];s=i['summary'];bands=completed_bands(i);bound=len(i['counts']);total=sum(r[0] for r in i['counts']);read=lambda n:(repo/n).read_text()
+    revision=validate_document_revision(i,repo)
+    revision_note=('''The October 11 theoretical revision proves that every dominant tensor
+functor from either remaining rank-six category would be an equivalence,
+without a pivotality assumption on the functor. Both categorification questions
+remain unresolved. The current manuscript sources and PDFs are bound by the
+[document revision](../evidence/rank6_theoretical_20261011/document_revision.json),
+whose [research record](../evidence/rank6_theoretical_20261011/research_progress.json)
+retains a hash-checked chain to the October 2 and frozen October 1 records.
+The frozen supplement, archive identity and classification counts are unchanged.
+''' if revision is not None else '')
     status=json.loads(read('data/classification_status.json'))
     upper={r:status['inputs'][f'rank{r}']for r in (7,8)}
     stage=load_stages(repo,status)
@@ -34,7 +45,9 @@ The current ledger is `supplements/rank6/data/decisions.json`, SHA-256
 original exact verification evidence; this release does not claim a fresh
 replay of every earlier proof. See [verification instructions](VERIFY.md).
 
-{progress_table(i)}
+{progress_table(i,repo)}
+
+{revision_note}
 
 ''')
     lines=text.splitlines()
@@ -161,6 +174,11 @@ The [frontier](../supplements/rank6/research/frontier/README.md) identifies the
 October 1 necessary reductions; the October 2 addendum and its portable
 verifiers record subsequent progress. The model catalogue lists all realizations.
 ''')
+    if revision_note:
+        text=text.replace('\n## Tensor crosswalks','\n'+revision_note+
+                          '\n`python tools/validate_release.py` checks the current document hashes, '
+                          'the research chain and the frozen release identities; it does not '
+                          'certify the new theoretical proofs.\n\n## Tensor crosswalks',1)
     upper_start=text.index('The upper-rank bundles retain') if 'The upper-rank bundles retain' in text else text.index('The rank-seven bundle includes')
     upper_end=text.index('The revised rank-five proof',upper_start)
     text=text[:upper_start]+'''The upper-rank bundles retain the earlier full-certificate runs, including the
@@ -230,6 +248,7 @@ removed. The [current frontier](../supplements/rank6/research/frontier/README.md
 and [verification instructions](../docs/VERIFY.md) give the retained evidence.
 '''
     text+='\nThe dated [October 2 rank-six research addendum](../evidence/residual_20261002/rank6/research_addendum.pdf) records subsequent necessary reductions while preserving the October 1 release and its two unresolved categorification questions.\n'
+    if revision_note:text+='\n'+revision_note
     text+=f"\n{overview(stage,'../')} The current frontier has {upper[7]['status_totals']['unresolved']} rank-seven and {upper[8]['status_totals']['unresolved']} rank-eight cases generally unresolved.\n"
     out['manuscripts/README.md']=text
     text=read('supplements/README.md');text=re.sub(r'all four accepted exclusion continuations and the round-five refinements','accepted exclusion certificates and conformal constructions',text);lines=text.splitlines()
@@ -284,3 +303,4 @@ def main():
         else:target.parent.mkdir(parents=True,exist_ok=True);target.write_text(text)
     print(('Checked' if a.check else 'Rendered'),len(files),'publication documents')
 if __name__=='__main__':main()
+

@@ -39,8 +39,18 @@ replay of every earlier proof. See [verification instructions](VERIFY.md).
 
 | Unresolved ring | Necessary reduction |
 |---|---|
-| `R6_4_155` | The unique rank-26 modular candidate remains feasible. All 70 small B3 spectral-partition tests pass; neither these tests nor the modular datum constructs a category. No model or general exclusion is known. Exact probability couplings prove every Lim Corollary 3.4 inequality for every exponent and nonnegative vector. |
-| `R6_8_1660` | Exact graded induction-packet identities eliminate 533 further center profiles, leaving 1,136 in branches 120, 508, 508. Every dominant pivotal tensor quotient of the positive spherical form would be an equivalence. Three Morita-dual based rings remain possible; none admits a braiding. No model or general exclusion is known. Exact probability couplings prove every Lim Corollary 3.4 inequality for every exponent and nonnegative vector. |
+| `R6_4_155` | Every tensor functor from a hypothetical categorification is fully faithful: the twist-one central-algebra support and associativity force every dominant quotient to be an equivalence. The unique rank-26 modular candidate remains feasible. No categorification or general exclusion is established. |
+| `R6_8_1660` | Every tensor functor from a hypothetical categorification is fully faithful. Pseudo-unitarity descends to a dominant tensor image, and canonical pivotality is automatic, removing the earlier pivotal assumption from quotient rigidity. The 1,136 center profiles in branches 120, 508, 508 remain. No categorification or general exclusion is established. |
+
+The October 11 theoretical revision proves that every dominant tensor
+functor from either remaining rank-six category would be an equivalence,
+without a pivotality assumption on the functor. Both categorification questions
+remain unresolved. The current manuscript sources and PDFs are bound by the
+[document revision](../evidence/rank6_theoretical_20261011/document_revision.json),
+whose [research record](../evidence/rank6_theoretical_20261011/research_progress.json)
+retains a hash-checked chain to the October 2 and frozen October 1 records.
+The frozen supplement, archive identity and classification counts are unchanged.
+
 
 The verified rank-seven release through
 multiplicity four has SHA-256 `91daee065eefaabdeded30bc4e8973e08a605156088655e7301b6357f1440765`.

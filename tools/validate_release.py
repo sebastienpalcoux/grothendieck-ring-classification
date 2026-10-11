@@ -5,7 +5,8 @@ import hashlib
 import json
 from collections import defaultdict
 from pathlib import Path
-from rank6_publication import validate_identity,completion_files,require,FRONTIER
+from rank6_publication import (validate_identity,completion_files,require,FRONTIER,
+                              current_research,validate_document_revision)
 
 ROOT=Path(__file__).resolve().parents[1]
 counts=json.loads((ROOT/'data/counts.json').read_text())
@@ -63,8 +64,17 @@ for relative,digest in rank6_identity['completion_files_sha256'].items():
 paper_files={f.relative_to(rank6_root/'papers').as_posix()
              for f in (rank6_root/'papers').rglob('*') if f.is_file()}
 require(paper_files==set(rank6_identity['documents']),'Publication document inventory changed')
+document_revision=validate_document_revision(rank6_identity,ROOT)
+current_research(rank6_identity,ROOT)
+if document_revision is not None:
+    restored={x['path'] for x in json.loads((ROOT/'data/large_files_manifest.json').read_text())['files']}
+    require(not restored.intersection(document_revision['documents']),
+            'Frozen payload restoration would replace a current publication document')
 for name,document in rank6_identity['documents'].items():
-    for path in (rank6_root/document['path'],ROOT/'manuscripts/rank6/papers'/name):
+    paths=[rank6_root/document['path']]
+    if document_revision is None:
+        paths.append(ROOT/'manuscripts/rank6/papers'/name)
+    for path in paths:
         raw=path.read_bytes()
         require(len(raw)==document['bytes'] and hashlib.sha256(raw).hexdigest()==document['sha256'],
                 'Publication document changed: '+str(path.relative_to(ROOT)))
@@ -160,3 +170,4 @@ for rank,bound in ((4,128),(5,20)):
         assert x['classification_coverage']=='complete_classification'
         assert line==f"{m} {x['realized_unitary']+x['realized_other_or_unspecified']+x['realized_spherical_nonpseudounitary']}"
 print(f'Verified {len(rows):,} census cells and {len(statusrows):,} categorification bands; no unassessed band interpreted as zero.')
+

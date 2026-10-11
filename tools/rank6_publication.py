@@ -5,6 +5,11 @@ DATE='2026-10-01'
 REVISION='m9-frontier-v3'
 ARCHIVE='Rank6_Categorification_M9_Frontier_2026-10-01.zip'
 FRONTIER={'R6_4_155','R6_8_1660'}
+RESEARCH_UPDATES=(
+    'evidence/residual_20261002/rank6/research_progress.json',
+    'evidence/rank6_theoretical_20261011/research_progress.json',
+)
+DOCUMENT_REVISION='evidence/rank6_theoretical_20261011/document_revision.json'
 COMPLETION_ROOT='research/exclusions/m9_completion'
 COMPLETION_BUNDLES=('free_involution','involution_pair','gauss8200','pivotal_gap','psu25','case8785','triangle')
 COMPLETION_FILES=(
@@ -65,18 +70,73 @@ def archive_url(identity):
     return 'https://grothendieck-ring-atlas.sebastien-palcoux.chatgpt.site/downloads/'+identity['archive']['name']
 def completed_bands(identity):
     return ', '.join(str(m) for m,row in enumerate(identity['counts'],1) if row[-1]==0)
-def progress_table(identity):
+def current_research(identity,repo=None):
+    """Validate the dated research chain without changing the frozen release."""
+    repo=Path(repo) if repo is not None else Path(__file__).resolve().parents[1]
+    previous='supplements/rank6/data/frontier_research_progress.json'
+    digest=identity['research_files_sha256']['data/frontier_research_progress.json']
+    expected={'total':sum(row[0] for row in identity['counts']),
+              'excluded':identity['summary']['excluded'],
+              'realized':identity['summary']['positive'],
+              'unresolved':identity['summary']['unresolved']}
+    result=None
+    for relative in RESEARCH_UPDATES:
+        path=repo/relative
+        if not path.is_file():
+            continue
+        raw=path.read_bytes();research=json.loads(raw)
+        require(research['previous_coverage']==previous and
+                research['previous_coverage_sha256']==digest,
+                'Rank-six research update has a different prior source: '+relative)
+        require(hashlib.sha256((repo/previous).read_bytes()).hexdigest()==digest,
+                'Rank-six prior research source changed: '+previous)
+        require(research['classification_counts']==expected,
+                'Research update changes frozen classification counts: '+relative)
+        require(len(research['cases'])==2 and
+                {x['id'] for x in research['cases']}==FRONTIER and
+                all(x['categorical_status']=='unresolved' and
+                    isinstance(x['public_summary'],str) and x['public_summary'].strip()
+                    for x in research['cases']),
+                'Research update must preserve the unresolved frontier: '+relative)
+        previous=relative;digest=hashlib.sha256(raw).hexdigest();result=research
+    return result
+def validate_document_revision(identity,repo=None):
+    """Bind the current sources/PDFs separately from the frozen archive copies."""
+    repo=Path(repo) if repo is not None else Path(__file__).resolve().parents[1]
+    path=repo/DOCUMENT_REVISION
+    if not path.is_file():
+        require(not (repo/RESEARCH_UPDATES[-1]).is_file(),
+                'Current theoretical research is missing its document revision')
+        return None
+    revision=json.loads(path.read_text())
+    research=current_research(identity,repo)
+    require(research is not None and revision['date']==research['date']=='2026-10-11',
+            'Publication revision and current research dates differ')
+    require(revision['research_progress']==RESEARCH_UPDATES[-1] and
+            valid_digest(revision['research_progress_sha256']) and
+            hashlib.sha256((repo/RESEARCH_UPDATES[-1]).read_bytes()).hexdigest()==revision['research_progress_sha256'],
+            'Publication revision has a different research source')
+    documents=revision['documents'];prefix='manuscripts/rank6/papers/'
+    current_files={f.relative_to(repo).as_posix() for f in (repo/prefix).rglob('*')
+                   if f.is_file() and f.suffix in ('.tex','.pdf')}
+    require(isinstance(documents,dict) and
+            {name for name in documents if name.startswith(prefix)}==current_files,
+            'Current manuscript source/PDF inventory differs from the revision')
+    require({prefix+name for name in identity['documents']}<=set(documents),
+            'Publication revision omits an existing source or PDF')
+    for relative,item in documents.items():
+        require(valid_relative(relative) and not relative.startswith('supplements/') and
+                PurePosixPath(relative).suffix in ('.tex','.pdf') and
+                valid_digest(item['sha256']) and type(item['bytes']) is int and item['bytes']>0,
+                'Invalid current publication document identity: '+relative)
+        raw=(repo/relative).read_bytes()
+        require(len(raw)==item['bytes'] and hashlib.sha256(raw).hexdigest()==item['sha256'],
+                'Current publication document changed: '+relative)
+    return revision
+def progress_table(identity,repo=None):
     progress=identity['research_progress']
-    repo=Path(__file__).resolve().parents[1]
-    update=repo/'evidence/residual_20261002/rank6/research_progress.json'
-    if update.is_file():
-        research=json.loads(update.read_text())
-        previous=repo/research['previous_coverage']
-        require(hashlib.sha256(previous.read_bytes()).hexdigest()==research['previous_coverage_sha256'],
-                'Rank-six research update has a different prior source')
-        require({x['id'] for x in research['cases']}==FRONTIER and
-                all(x['categorical_status']=='unresolved' for x in research['cases']),
-                'Research update must preserve the unresolved frontier')
+    research=current_research(identity,repo)
+    if research is not None:
         progress=[{'id':x['id'],'result':x['public_summary']} for x in research['cases']]
     return '\n'.join(['| Unresolved ring | Necessary reduction |','|---|---|']+[f"| `{x['id']}` | {x['result']} |" for x in progress])
 def continuation_text(identity):
@@ -93,9 +153,16 @@ The positive catalogue includes the three neutral module categories from
 
 {progress_table(identity)}
 
+The October 11 theoretical revision proves tensor-functor rigidity for both
+residual rings. Both categorification questions remain open. The current
+manuscript includes the October 2 addendum and the new proofs; its source/PDF
+hashes are recorded separately from the frozen October 1 release.
+
 [Manuscript](manuscripts/rank6/papers/manuscript.pdf) ·
+[11 October theoretical revision](evidence/rank6_theoretical_20261011/README.md) ·
 [Completion proofs](supplements/rank6/research/exclusions/m9_completion/) ·
 [Completion replay](supplements/rank6/verification/m9/completion/) ·
 [2 October research addendum](evidence/residual_20261002/rank6/research_addendum.pdf) ·
-[Complete release]({archive_url(identity)})
+[Frozen 1 October release]({archive_url(identity)})
 '''
+

@@ -157,6 +157,17 @@ The [frontier](../supplements/rank6/research/frontier/README.md) identifies the
 October 1 necessary reductions; the October 2 addendum and its portable
 verifiers record subsequent progress. The model catalogue lists all realizations.
 
+The October 11 theoretical revision proves that every dominant tensor
+functor from either remaining rank-six category would be an equivalence,
+without a pivotality assumption on the functor. Both categorification questions
+remain unresolved. The current manuscript sources and PDFs are bound by the
+[document revision](../evidence/rank6_theoretical_20261011/document_revision.json),
+whose [research record](../evidence/rank6_theoretical_20261011/research_progress.json)
+retains a hash-checked chain to the October 2 and frozen October 1 records.
+The frozen supplement, archive identity and classification counts are unchanged.
+
+`python tools/validate_release.py` checks the current document hashes, the research chain and the frozen release identities; it does not certify the new theoretical proofs.
+
 ## Tensor crosswalks
 
 The rank-five and rank-six source-tensor crosswalks can be rerun:

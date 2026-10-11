@@ -1,0 +1,199 @@
+\subsection{Automatic pivotality and tensor-quotient rigidity}
+\label{subsec:frontier-tensor-rigidity}
+The pivotal compatibility assumed in Theorem~\ref{thm:r1660-pivotal-quotient}
+is automatic after passage to the positive Galois form and its dominant
+image. We give the general argument before applying it to both residual
+rings.
+
+\begin{lemma}[Pseudo-unitary images and canonical pivotal structures]
+\label{lem:pu-tensor-functors}
+Let $F\colon\mathcal C\to\mathcal D$ be a tensor functor between
+complex fusion categories.
+\begin{enumerate}
+\item If $F$ is dominant and $\mathcal C$ is pseudo-unitary, then
+$\mathcal D$ is pseudo-unitary.
+\item If $\mathcal C$ and $\mathcal D$ are pseudo-unitary, then $F$
+preserves their canonical spherical structures.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+For (i), regard $\mathcal D$ as a left $\mathcal C$-module category via
+$X\cdot M=F(X)\otimes M$. Dominance implies that this module category
+is indecomposable: its component containing $\mathbf1$ contains every
+simple summand of every $F(X)$, hence every simple object of $\mathcal D$.
+Its dual $\mathcal E=\operatorname{Fun}_{\mathcal C}
+(\mathcal D,\mathcal D)$ is therefore a fusion category.
+It has the same categorical and Frobenius--Perron dimensions as
+$\mathcal C$, by \cite[Corollaries~9.3.3 and~7.16.7 and Proposition~9.3.9]{EGNO}. Thus $\mathcal E$ is pseudo-unitary.
+
+Right tensor multiplication defines a fully faithful tensor functor
+$\mathcal D^{\mathrm{rev}}\to\mathcal E$ (with composition as the
+tensor product in $\mathcal E$). Indeed, a $\mathcal C$-module natural
+transformation between $-\otimes Y$ and $-\otimes Z$ has component
+$\mathrm{id}_{F(X)}\otimes f$ at $F(X)$, where its component at
+$\mathbf1$ is $f\colon Y\to Z$. For a direct summand $M$ of $F(X)$,
+naturality with the splitting maps forces its component to be
+$\mathrm{id}_M\otimes f$. Dominance proves the assertion for every
+$M$, and conversely every $f$ gives such a transformation.
+Restricting the positive spherical structure of $\mathcal E$ to this
+fusion subcategory gives a positive spherical structure on
+$\mathcal D^{\mathrm{rev}}$, and hence on $\mathcal D$. Its dimensions
+equal Frobenius--Perron dimensions, so $\mathcal D$ is pseudo-unitary.
+
+We first record a finite-spectrum observation for (ii). Every monoidal
+natural automorphism $u$ of a tensor functor between fusion categories
+has finite order. To see this, choose representatives $X_i$ of the
+finitely many source simples. The union of the spectra of $u_{X_i}$,
+and the maximal size of their Jordan blocks, are finite. Naturality
+with direct-sum decompositions gives the same spectrum set and Jordan
+bound for $u_X$ for every source object $X$. If $\lambda$ is an
+eigenvalue of $u_X$, a nonzero eigensubobject has nonzero tensor powers,
+so monoidality shows that $\lambda^n$ is an eigenvalue of $u_{X^{\otimes n}}$
+for every $n\geq1$. Thus $\lambda$ is a root of unity.
+
+There cannot be a Jordan block of size $r>1$. Such a block occurs on
+a multiplicity space of a simple target object $Y$, and its $n$th
+tensor power occurs on a multiplicity space tensored with the nonzero
+object $Y^{\otimes n}$. The $n$th tensor power of a size-$r$ Jordan
+block with nonzero eigenvalue has a block of size $n(r-1)+1$ in
+characteristic zero. Explicitly, after removing its eigenvalue, write
+the block as $\exp(N)$, with $N^{r-1}\ne0$ and $N^r=0$.
+Its tensor power is the exponential of the sum of $n$ commuting
+copies of $N$; the power $n(r-1)$ of that sum is nonzero, by the
+multinomial formula, and its next power vanishes. This contradicts
+the uniform Jordan bound. Therefore all the $u_{X_i}$ are diagonalizable
+with root-of-unity eigenvalues. A common multiple of their eigenvalue
+orders is the order of $u$.
+
+Now write $j_{\mathcal C}$ and $j_{\mathcal D}$ for the canonical
+spherical structures, whose existence and uniqueness are
+\cite[Proposition~9.5.1]{EGNO}. The canonical comparison between $F$ and
+double duals identifies $F(j_{\mathcal C,X})$ with a monoidal natural
+isomorphism $F(X)\to F(X)^{**}$. Comparing this with
+$j_{\mathcal D,F(X)}$ gives a monoidal natural automorphism
+$u$ of $F$. Preservation of evaluation and coevaluation by $F$ gives
+\[
+ \operatorname{tr}_{\mathcal D}(u_X)
+ =\dim_{\mathcal C}(X)
+ =\operatorname{FPdim}(X)
+ =\operatorname{FPdim}(F(X))
+ =\dim_{\mathcal D}(F(X)).
+\]
+Here preservation of Frobenius--Perron dimension is
+\cite[Proposition~4.5.7]{EGNO}. By the observation just proved, $u_X$ is
+diagonalizable with eigenvalues of modulus one. Its categorical trace
+is the sum of these eigenvalues weighted by the positive dimensions
+of the corresponding eigensubobjects. The displayed equality forces
+every eigenvalue to be $1$. Hence $u_X=\mathrm{id}_{F(X)}$ for every
+$X$, which is exactly pivotal compatibility.
+\end{proof}
+
+\begin{theorem}[Tensor-quotient rigidity of the residual rings]
+\label{thm:frontier-all-tensor-functors}
+Let $\mathcal C$ be a complex fusion category with Grothendieck ring
+$\RR{4}{155}$ or $\RR{8}{1660}$. Every tensor functor from
+$\mathcal C$ to a complex fusion category is fully faithful.
+Equivalently, every dominant tensor functor from $\mathcal C$ is a
+tensor equivalence.
+\end{theorem}
+
+\begin{proof}
+First suppose $F\colon\mathcal C\to\mathcal D$ is dominant.
+Fusion categories and tensor functors between them are defined over
+algebraic number fields \cite[Corollary~9.1.8]{EGNO}; choose a common
+such field. Extend the Galois conjugation of
+Proposition~\ref{prop:frontier-galois-pu} to this field. It transports
+$F$ to a dominant tensor functor $F^\tau\colon\mathcal C^\tau\to
+\mathcal D^\tau$, with $\mathcal C^\tau$ pseudo-unitary and with the
+same based ring. Lemma~\ref{lem:pu-tensor-functors} makes
+$\mathcal D^\tau$ pseudo-unitary and $F^\tau$ pivotal for the canonical
+structures. An equivalence after conjugation is an equivalence before
+conjugation. Thus we may work in the positive spherical form.
+
+For $\RR{8}{1660}$, Theorem~\ref{thm:r1660-pivotal-quotient} now makes
+$F$ an equivalence.
+
+It remains to consider $\RR{4}{155}$. Write
+$U:\mathcal Z(\mathcal C)\to\mathcal C$ for the forgetful functor and
+use the established decomposition
+\[
+ \mathcal Z(\mathcal C)\simeq\mathcal S\boxtimes\mathcal B,
+ \qquad \theta_s=i,\qquad U(s\boxtimes\mathbf1)=g,
+\]
+where $s$ is the nontrivial semion. The basis of $K_0(\mathcal C)$ is
+$\mathbf1,h,g,hg,X,Y$, with $gX=Y$ and $hX=X$.
+For clarity denote the simple of $\mathcal B$ with numerical label $j$
+by $B_j$; thus $B_1=\mathbf1$.
+The complete list of twist-one simples of the center, with their
+forgetful images, is
+\begin{equation}\label{eq:r155-twist-one-restrictions}
+\begin{array}{c|l}
+\text{central simple}&\text{forgetful image}\\ \hline
+ \mathbf1\boxtimes B_1&\mathbf1\\
+ \mathbf1\boxtimes B_2&Y\\
+ \mathbf1\boxtimes B_5&X\\
+ \mathbf1\boxtimes B_{23}&\mathbf1+2X+2Y\\
+ \mathbf1\boxtimes B_{25}&\mathbf1+h+2X+2Y\\
+ s\boxtimes B_{18},\ s\boxtimes B_{19}&\mathbf1+X+Y\\
+ s\boxtimes B_{24}&\mathbf1+h+2X+2Y.
+\end{array}
+\end{equation}
+Indeed the twist-one labels in $\mathcal B$ are $1,2,5,23,25$, while
+the twist-$(-i)$ labels are $18,19,24$. Before tensoring by $s$, the
+last three restrict respectively to $g+X+Y$, $g+X+Y$, and
+$g+hg+2X+2Y$.
+
+Let $R$ be the right adjoint of $F$.
+Its induced central algebra $E$ has underlying algebra $R(\mathbf1)$,
+and
+\[
+ \dim\operatorname{Hom}_{\mathcal C}(\mathbf1,U(E))
+ =\dim\operatorname{Hom}_{\mathcal D}(F(\mathbf1),\mathbf1)=1.
+\]
+The induced central-algebra construction of Brugui\`eres--Natale
+\cite[Section~5]{BN} identifies $\mathcal D$ with the category of modules over $U(E)$.
+In characteristic zero this induced central algebra is separable:
+the underlying module category is semisimple, and the bimodule
+splitting of multiplication can be averaged to a morphism in the
+center. Thus $E$ is connected \'etale in $\mathcal Z(\mathcal C)$.
+Positivity of the spherical structure gives $\theta_E=\mathrm{id}_E$;
+see Schopieray \cite[Lemma~2.2.4]{SchLevelBounds}.
+The displayed connectedness in $\mathcal C$, together with
+\eqref{eq:r155-twist-one-restrictions}, therefore leaves only
+\[
+ E\simeq\mathbf1\oplus n(\mathbf1\boxtimes B_2)
+                  \oplus n(\mathbf1\boxtimes B_5),\qquad n\geq0.
+\]
+Here the two multiplicities agree because $B_2^*=B_5$ and an \'etale
+algebra has a nondegenerate Frobenius pairing.
+
+Put $Z=\mathbf1\boxtimes B_2$. The reconstructed fusion rules give
+\[
+ B_2^2=B_9+B_{10}+B_{16}+B_{19},\qquad
+ B_2B_5=B_1+B_8+B_{11}+B_{22}.
+\]
+Thus multiplication on any two copies of $Z$ in $E$ vanishes, and
+multiplication on a copy of $Z$ and a copy of $Z^*$ has image in the
+unit summand. If $n>0$, nondegeneracy of the Frobenius pairing supplies
+copies $Z\hookrightarrow E$ and $Z^*\hookrightarrow E$ for which this
+latter multiplication is nonzero. Associativity on
+$Z\otimes Z\otimes Z^*$ is then impossible: multiplying the first
+two factors gives zero, whereas multiplying the last two and then the
+first gives a nonzero multiple of
+$\mathrm{id}_Z\otimes\mathrm{ev}_Z$. Consequently $n=0$ and
+$R(\mathbf1)\simeq\mathbf1$. The projection formula gives
+$RF(V)\simeq V\otimes R(\mathbf1)\simeq V$; hence $F$ is fully
+faithful and, by dominance, an equivalence.
+
+
+Finally, an arbitrary tensor functor factors through the full fusion
+subcategory generated by its image. Its first factor is dominant and
+hence, by what we have proved, an equivalence. Its second factor is a
+fully faithful inclusion. This proves the statement for every tensor
+functor.
+\end{proof}
+
+This theorem gives a restriction on hypothetical categorifications;
+it neither constructs nor excludes either one. The two general
+categorification questions remain open.
