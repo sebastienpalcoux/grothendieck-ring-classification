@@ -1,0 +1,101 @@
+\documentclass[11pt]{article}
+\input{preamble}
+\hypersetup{pdftitle={Rank-five Grothendieck rings through multiplicity twenty}}
+\title{Rank-five Grothendieck rings through multiplicity twenty}
+\author{}
+\date{17 October 2026}
+\newcommand{\F}[2]{F^{(5)}_{#1,#2}}
+\newcommand{\FF}{\mathbb F}
+\newcommand{\OO}{\mathcal O}
+\newcommand{\supp}{\operatorname{supp}}
+\begin{document}
+\maketitle
+\begin{abstract}
+We classify the rank-five fusion rings of multiplicity at most twenty
+that admit categorifications over $\CC$, without assuming pivotality.
+Exactly seventeen of the $40999$ rings admit categorifications, each
+with a unitary realization; the other $40982$ have exact general
+exclusion certificates. The criteria combine arithmetic, central
+induction and finite higher-indicator systems. A new inert-prime
+quadratic parity theorem forces sphericality in two exceptional
+multiplicity-eighteen cases, which are then excluded by
+exact central-induction certificates. All applications are automatic
+from the multiplication tensors, checked against the pinned
+\texttt{fusion-ring-census} repository. Data, certificates and
+independent verification instructions accompany the paper.
+\end{abstract}
+\par\medskip\noindent\textbf{Research notice.}
+This is AI-generated research. The results, proofs, code and data have not yet
+been independently verified by human experts or formalized in Lean. Treat them
+as provisional; automated checks establish only their stated computational scope.
+\par\medskip
+
+\setcounter{tocdepth}{1}
+\tableofcontents
+
+\section{Introduction and results}
+A fusion ring is a based ring with nonnegative integral structure
+constants $N_{ij}^k$, distinguished unit and involutive duality, satisfying
+Frobenius reciprocity. Its rank is the number of basis elements, and its
+multiplicity is $\mu(R)=\max_{i,j,k}N_{ij}^k$. Unit coefficients are included,
+so $\mu(R)\ge1$. By a \emph{Grothendieck ring} we mean one admitting a
+fusion category over $\CC$. The question here is existence for a based
+ring, not classification of all associators realizing it.
+
+Small-rank enumeration provides candidates rather than categorifications.
+The pinned census \cite{Census} and the multiplicity-one analysis of \cite{LPR}
+make this distinction concrete. The rank-four methods of \cite{DP}
+combine formal codegrees, sphericalization and central induction to
+obtain general, not merely pivotal, exclusions. In rank five the main
+additional issue is to avoid introducing a new argument for each surviving
+ring. We address it with parameterized necessary conditions and exact
+certificates whose hypotheses are read from the multiplication tensor.
+
+\begin{theorem}\label{thm:main}
+Up to based-ring isomorphism, there are $40999$ rank-five fusion rings
+with $\mu\le20$. Exactly the seventeen rings in
+Table~\ref{tab:models} admit fusion-category categorifications over $\CC$.
+All seventeen have unitary realizations. Each of the other $40982$ rings
+is excluded from general categorification by the supplied criteria.
+Consequently general, pivotal, spherical, pseudo-unitary and unitary
+existence give the same classification of rank-five rings in this range.
+
+There are $28493$ such rings through multiplicity eighteen. The two
+exceptional rings $\F{18}{5073}$ and $\F{18}{5076}$ are excluded by
+Corollary~\ref{cor:inert-frontier} without a pivotal
+hypothesis. At exact multiplicities nineteen and twenty there are
+$5640$ and $6866$ rings, respectively; every one is excluded by an
+exact general certificate.
+\end{theorem}
+
+The numbering convention is fixed in Section~\ref{sec:automatic}; at
+multiplicity eighteen the two subscripts are also their independent
+lexicographic indices. Their full tensors, dimensions and certificates
+are supplied. The two exclusions use the new criterion and exact
+central-induction certificates.
+
+The new theory has three roles. Theorem~\ref{thm:parity} gives a uniform
+sphericality criterion with only small integer and mod-two calculations;
+it eliminates the need for large signed-table searches on its domain.
+Theorem~\ref{thm:inert-parity} uses the four-element residue field to
+extend parity rigidity to two genuinely different quadratic tensors.
+Theorem~\ref{thm:cyclic} turns the central support of $K(C_4,4k)$ into a
+finite obstruction compatible with the same relative-trace framework.
+The general finite-indicator criterion is Theorem~\ref{thm:finite}.
+The rank-four obstructions used within it or within sphericalization are
+stated with references, not reproved. The classification is completed by
+a single exhaustive application and by tensor matches to positive
+constructions, rather than by separate negative case proofs.
+
+\input{census}
+\input{known_criteria}
+\input{finite_indicators}
+\input{quadratic_parity}
+\input{cyclic_support}
+\input{inert_parity}
+\input{positive_models}
+\input{automatic}
+\section*{AI use disclosure}
+The research, code, and manuscript were generated with AI assistance. Independent human verification and Lean formalization are pending.
+\input{bibliography}
+\end{document}

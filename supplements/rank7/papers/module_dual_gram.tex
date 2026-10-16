@@ -1,0 +1,148 @@
+\section{Morita-dual Gram identities}
+\label{sec:dual-gram}
+The same module category gives stronger necessary conditions than its
+fusion-ring representation alone. These conditions use only
+Frobenius--Perron dimensions and semisimplicity.
+
+\begin{proposition}[Two evaluation Gram identities]
+\label{prop:dual-gram}
+Let $A=1\oplus g$ be the involution algebra above,
+$\mathcal M=\mathcal C_A$, and $\mathcal D={}_A\mathcal C_A$.
+Write $M_i$ for the action matrices of the source simples on the
+simple right $A$-modules, and normalize their positive dimension
+vector $d$ by $d_A=1$. The dimensions of the simple objects of
+$\mathcal D$ are obtained from the unique nonnegative integral
+column decomposition of $I+M_g$: there are two singleton columns at
+each fixed point of the involutive permutation $M_g$, and one
+pair-column at each transposition. A column $v$ gives dimension
+$\sum_a v_a d_a$.
+
+For every simple module $m$, there must also be nonnegative integral
+columns $v_Y$, one for each simple $Y$ of $\mathcal D$, such that
+\[
+ G_m:=\sum_i(M_i)_{mm}M_i=\sum_Yv_Yv_Y^{\mathsf t},\qquad
+ \sum_a(v_Y)_a d_a=\FPdim(Y)d_m.
+ \tag{$\dagger$}\label{eq:dual-gram}
+\]
+The column of the unit of $\mathcal D$ is $e_m$.
+\end{proposition}
+\begin{proof}
+The commuting actions of $\mathcal C$ and $\mathcal D$ make
+$\mathcal M$ a Morita equivalence. Tensor--Hom adjunction for
+evaluation at $m$ gives the Gram matrix in
+\eqref{eq:dual-gram}: the internal end of $m$ in $\mathcal C$ is
+$\bigoplus_i(M_i)_{mm}X_i$, and its action on $\mathcal M$ is the
+composite of evaluation and its adjoint. The columns are the
+multiplicities of the simples in $m\otimes_A Y$. Positivity of
+Frobenius--Perron dimensions gives the dimension identity, with
+$d_m=\FPdim_{\mathcal C}(m)/2$.
+At $m=A$, the internal end is $A=1\oplus g$, giving $I+M_g$.
+Its zero entries separate fixed points and transpositions. A fixed
+point has diagonal two, so it supplies two unit columns; a
+transposition supplies a single column with two ones. This proves
+uniqueness of the decomposition. Every simple bimodule has nonzero
+underlying right module, so none is omitted.
+\end{proof}
+
+\begin{theorem}
+\label{thm:dual-gram}
+The seven rings
+\[
+ \begin{gathered}
+ R7\_2\_11,\ R7\_2\_205,\ R7\_2\_275,\ R7\_2\_287,\\
+ R7\_3\_387,\ R7\_4\_2473,\ R7\_3\_1055
+ \end{gathered}
+\]
+have no categorification over $\C$.
+\end{theorem}
+\begin{proof}
+\emph{The four $\sqrt2$ cases.}
+The exact anti-module equations have one sign-gauge orbit for each of
+$R7\_2\_11$, $R7\_2\_205$, $R7\_2\_275$, and $R7\_2\_287$.
+This small statement is checked independently by the complete
+source-bound anti-module enumerator. It also follows by using the
+normality and spectral restrictions of the preceding proposition:
+for a noninvertible generator, the squared Frobenius norm is at most
+$20$, whereas the conjugate pair $2\pm2\sqrt2$ contributes $24$.
+The remaining pair $\pm\sqrt2$, or $\pm i\sqrt2$, forces its even
+entries to vanish and its four unit couplings to have absolute value
+one; the fusion relations determine the remaining matrices up to
+changing the signs of the three anti-module basis vectors.
+
+Put $\delta=1+\sqrt2$. The resulting right-module dimensions are
+$1^4,\delta^4$, and the dual dimensions are $1^8,\delta^8$.
+For a recorded module simple of dimension $\delta$, the full
+internal-end Gram matrix restricted to the four $\delta$ coordinates is
+\[
+ G_\delta=\begin{pmatrix}
+ 4&2&2&2\\2&4&2&2\\2&2&4&2\\2&2&2&4
+ \end{pmatrix}.
+\]
+Let $S(Q)=\operatorname{tr}(Q)-2\sum_{i<j}Q_{ij}$ on this block.
+A dual invertible acts by a column whose $\delta$ coordinates sum to
+one, so its contribution to $S$ is one. A dual simple of dimension
+$\delta$ has column dimension $\delta^2=1+2\delta$; hence its
+$\delta$ coordinates are nonnegative integers summing to two.
+Its contribution to $S$ is either zero or four. All contributions
+are therefore nonnegative, whereas $S(G_\delta)=16-24=-8$.
+This contradiction excludes all four cases without an optimizer or
+any pivotality assumption.
+
+
+\emph{The integral case $R7\_3\_387$.}
+The bound and spectrum of $T_2$ give
+$T_2=\operatorname{diag}(0,\varepsilon,\eta)$ with
+$\varepsilon,\eta=\pm1$, exactly as in the dimension-$240$
+case of Theorem~\ref{thm:three-fixed}. Commutation kills the possible
+off-diagonal entries of $T_5,T_6$, leaving disjoint diagonal supports.
+The product $X_5X_6=2X_2+2X_3$ gives $T_3=-T_2$.
+Since $gX_2=X_3$, the last two entries of $T_g$ are $-1$.
+As $g$ fixes $X_4,X_5,X_6$, their last two diagonal entries vanish.
+The source spectrum and bounds force
+$T_4=\operatorname{diag}(-1,0,0)$; then
+$X_4^2=1+g+X_4$ forces $T_g=\operatorname{diag}(1,-1,-1)$.
+Thus $T_5=T_6=0$, and precisely the four choices of
+$(\varepsilon,\eta)$ remain. In all four, the module dimensions are
+\[
+ (1,9,1,1,3,3,3,3),
+\]
+and the dual dimensions determined by $I+M_g$ are
+$(1^6,6^2,9^2)$. At the first dimension-three module, the full matrix
+$G_m$ has rows $0,2,3$ identical, with common diagonal entry one.
+They force a unique column
+\[
+ v=(1,1,1,1,1,1,0,0)^{\mathsf t}.
+\]
+Its dimension is eighteen, so it corresponds to one of the dual
+simples of dimension six. After subtracting $vv^{\mathsf t}$, rows
+$0,2,3$ vanish. The six invertible columns each have exactly one
+entry one among coordinates $4,5,6,7$, and vanish at coordinate one.
+For the remaining three columns, coordinate one's squared entries
+sum to twelve. The only expression of twelve as three nonnegative
+integer squares is $4+4+4$. Hence each entry there is two.
+The remaining dual dimension-six column has no other nonzero entry.
+The two dimension-nine columns have last-four-coordinate vectors
+$w,z$ with
+\[
+ \sum w_a=\sum z_a=3,\qquad w+z=(1,1,2,2).
+\]
+The $(4,5)$ Gram entry, after the forced column is removed, is one.
+It gives $w_4=w_5\in\{0,1\}$. The $(4,6)$ and $(4,7)$ entries
+are also one, forcing $w_6=w_7=1$. Thus
+$\sum w_a=2w_4+2\in\{2,4\}$, contradicting three. The entries used
+are identical in all four anti-invariant branches.
+
+\emph{Two remaining finite Gram certificates.}
+For $R7\_4\_2473$ and $R7\_3\_1055$, the complete anti-module
+systems have respectively seven and one sign-gauge orbits. For each
+orbit the verifier reconstructs the entire finite column domain of
+one internal-end Gram matrix, including its exact FP dimension
+constraint, and checks an integral separating vector $y$ with
+$y^TA\geq0$ and $y^Tb<0$. All eight systems are impossible.
+The public verifier reopens the census, regenerates all anti-module
+orbits and all Gram columns, and checks the frozen inequalities with
+exact arithmetic; it never invokes an optimizer. Together with the
+four cases above and the dimension-$240$ argument, this gives seven
+further general complex exclusions.
+
+\end{proof}

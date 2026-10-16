@@ -1,66 +1,57 @@
 # Research status and verification
 
-> [!IMPORTANT]
-> **This is AI-generated research.** The results, proofs, code and data have
-> not yet been independently verified by human experts or formalized in
-> Lean. Treat all conclusions as provisional and use them with caution.
-> Automated checks establish only their stated computational scope.
+> **AI-generated research · independent verification pending.** Treat these
+> results, proofs, code and data with caution. They have not yet been
+> independently verified by human experts or formalized in Lean. Automated
+> checks establish only their stated computational scope.
 
 The [public atlas](https://sebastienpalcoux.github.io/grothendieck-ring-classification/)
-is a reading and exploration interface to the research record. Publication
-on GitHub makes the material accessible; it does not confer mathematical
-validation. Read the [prepublication review and dated errata](PREPUBLICATION_REVIEW.md)
-alongside the frozen manuscripts and their supporting data.
+connects the current manuscripts, fusion rules, classification tables and
+reproducible evidence. Publication makes the material accessible; it does not
+confer mathematical validation.
 
-## How to read the status labels
+## Current classification
 
-| Label in the research record | Meaning within this project |
+The [current research account](../docs/RESEARCH_STATUS.md) records **35 decisions among 38 cases**: 28 proposed general exclusions and 7 unitary constructions. Three general questions remain open: `R6_4_155`, `R6_8_1660` and `R8_2_24`. The combined residual program records 139 decisions (119 exclusions and 20 constructions), all subject to independent mathematical verification.
+
+[All 38 cases and current proof references](CASE_INVENTORY.md).
+
+Rank six records **25,362 exclusions, 57 realizations and
+2 open cases** through multiplicity nine. Its complete contiguous
+range ends at three; exact bands 1, 2, 3, 5, 6, 7, 9 are complete. Rank seven records
+**4,172 exclusions and 29 realizations**,
+with no open case through multiplicity four. Rank eight records
+**895 exclusions, 77 realizations and
+one open case** through multiplicity two: multiplicity one is complete and
+multiplicity two is partial.
+
+| Open ring | Established necessary restrictions | Remaining question |
+|---|---|---|
+| `R6_4_155` | A unique rank-26 semion-centralizer modular candidate; a rank-22 based module satisfies the fermion Azumaya linking identities. | Coherent associators and module-category structures, or a general obstruction. |
+| `R6_8_1660` | One relative-center based ring, three possible Morita-dual rings and a bounded center-profile domain; saturated traces force `nu_3(T)=2`. | A categorification or an obstruction covering every possible profile. |
+| `R8_2_24` | A rank-four neutral component and a required tensor autoequivalence whose square is the indicated inner action. | A general categorical obstruction or construction; the mixed transport identities in the proposed local approach are unproved. |
+
+A necessary-condition witness is neither a categorification nor a general
+nonexistence proof. Scoped unitary, pseudo-unitary, pivotal or braided
+obstructions retain their assumptions and do not change a general open status.
+
+## Reading the labels
+
+| Label | Meaning within this project |
 |---|---|
-| **Realized** | A categorical model or construction is recorded for the ring. The supporting mathematical argument still requires independent review. |
-| **Excluded** | The project records an obstruction intended to exclude categorification under the stated assumptions. |
-| **Complete** | Every ring in a specified band has a recorded realization or exclusion; this is a coverage claim within the current research record. |
-| **Unresolved** | Neither a general exclusion nor a categorification is established by the project. A necessary-condition witness does not settle the question. |
-| **Certified**, **verified**, **PASS** | A specified calculation, consistency check or replay passed the associated program's checks. Read the program and its assumptions to determine what was checked. |
+| **Realized** | A categorical construction is recorded, subject to mathematical review. |
+| **Excluded** | An obstruction is recorded under its stated assumptions. |
+| **Complete** | Each ring in the specified band has a recorded realization or general exclusion. |
+| **Unresolved** | Neither a general exclusion nor a categorification is established. |
+| **Certified**, **verified**, **PASS** | The stated program checks passed; read their scope and hypotheses. |
 
-These labels do not assert that a human expert has verified a proof or that
-a proof assistant has checked it. Reports described as *independent audits*
-within this AI-generated research record are separate AI review passes,
-unless an explicitly identified human review says otherwise. They are not
-independent human verification.
+Reports described as independent audits are separate AI review passes unless
+an explicitly identified human review says otherwise. They are not independent
+human verification. Hashes establish source identity; they do not prove the
+mathematics. Successful computation does not validate the categorical reduction
+making that computation relevant.
 
-## What the automated evidence establishes
-
-The repository supplies exact tensors, ledgers, source hashes, derivations
-and replay programs. Depending on the program, these check algebraic
-identities, finite enumerations, model matches, checksum consistency or
-agreement between published counts and individual records. A checksum can
-identify an unchanged source; it cannot establish that the source's
-mathematics is correct. Likewise, a successfully replayed calculation does
-not by itself validate the theoretical reduction that makes the calculation
-relevant, or prove that every needed assumption is satisfied.
-
-The [verification guide](VERIFY.md) describes the intended replay paths.
-The [provenance record](PROVENANCE.md) identifies data sources and release
-boundaries. The [prepublication review](PREPUBLICATION_REVIEW.md) records
-the additional checks and limitations found before public release. The
-original dated research artifacts remain available so that a later
-correction can be compared with the claim it changes.
-
-## The remaining general questions
-
-The [17 October correction](../evidence/review_20261017/README.md) reopens
-`R8_2_24`: the original exclusion uses unsupported decorated-phase cancellation;
-the proposed repair lacks an established oriented g-cap/crossing sign in its
-categorical-to-linear bridge. The conditional repair does not
-settle that gap. The latest continuation retains 35 accepted decisions among
-38 former residuals: 28 proposed exclusions and 7 unitary constructions.
-Three general questions remain open: `R6_4_155`, `R6_8_1660`, and `R8_2_24`.
-Necessary-condition computations do not constitute categorifications or
-general nonexistence proofs. The frozen 36-decision snapshot and manuscripts
-are historical; their R8_2_24 exclusion is superseded by the dated errata.
-
-When relying on any other recorded conclusion, inspect its assumptions,
-proof and computation together, and check the dated review for errata.
-If you find a gap or error, a [repository issue](https://github.com/sebastienpalcoux/grothendieck-ring-classification/issues)
-with the ring ID, file or theorem, and the exact failing step will help
-make the correction traceable.
+Read the [verification scope](PREPUBLICATION_REVIEW.md), [replay guide](VERIFY.md)
+and [provenance](PROVENANCE.md) together with the
+[manuscripts](../manuscripts/README.md). A [repository issue](https://github.com/sebastienpalcoux/grothendieck-ring-classification/issues)
+identifying the ring, theorem and exact failing step makes a reported gap actionable.

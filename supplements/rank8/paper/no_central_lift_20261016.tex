@@ -1,0 +1,157 @@
+\subsection{A central-lift obstruction for the \texorpdfstring{$2D2$}{2D2} rules}
+\label{subsec:no-central-lift-2d2}
+\begin{proposition}[No central invertible lift for the $2D2$ rules]
+\label{prop:no-central-lift-2d2}
+Let $\mathcal Q$ be a pseudo-unitary fusion category with simple objects
+$1,f,r,s$ and fusion rules
+\[
+ f^2=1,\qquad fr=rf=s,\qquad
+ r^2=s^2=1+2r+2s,\qquad rs=sr=f+2r+2s.
+\]
+There is no invertible object $z\in Z(\mathcal Q)$ whose underlying
+object is $f$.
+\end{proposition}
+\begin{proof}
+Put $d=2+\sqrt5$, so $d^2=1+4d$. The displayed rules imply
+$\mathcal Q_{\rm ad}=\mathcal Q$. Consequently the only central
+lift of the tensor unit is the tensor unit: such lifts are tensor
+automorphisms of the identity, equivalently characters of the universal
+grading group. Thus a hypothetical $z$ satisfies $z^2\cong1$.
+In its pointed braided subcategory the positive ribbon twist
+$q=\theta_z$ belongs to $\{1,-1,i,-i\}$.
+
+If $q=1$, then $1\oplus z$ is the regular algebra of a central
+Tannakian $\operatorname{Rep}(C_2)$. Its module category has two simple
+free orbits, represented by $1,r$, and their rule is
+$\bar r^2=1+4\bar r$. This contradicts the rank-two fusion-category
+classification~\cite{Ostrik2}.
+
+Suppose $q=\pm i$. Write $I$ for induction to the center.
+The formal-codegree induction formula, as recalled in
+\cite[Appendix~A.2]{EIP}, gives the distinct constituents of $I(1)$
+dimensions
+\[
+ 1,\quad d^2,\quad1+2d,\quad1+2d.
+\]
+Every constituent has twist $1$. Each has tensor-unit multiplicity one
+after forgetting, and none contains $f$, because $F I(1)$ has no
+$f$-summand. The projection formula gives
+$I(f)\cong z\otimes I(1)$, disjoint from $I(1)$.
+Since $z^2=1$, the monodromy of $z$ with any simple central object is
+$\pm1$. Hence every constituent of $I(f)$ has twist $\pm i$.
+
+In $I(r)\oplus I(s)$ the constituents belonging to $I(1)$ have total
+dimension
+\[
+ K=4d^2+4(1+2d)=8+24d.
+\]
+Indeed their total multiplicities are, respectively, $0,4,2,2$.
+The constituents belonging to $I(f)$ have the same total dimension.
+Since
+\[
+ \dim\bigl(I(r)\oplus I(s)\bigr)
+ =2d(4+8d)=16+72d,
+\]
+the other constituents have total dimension $24d$. The first-indicator
+identity gives zero twist trace on $I(r)\oplus I(s)$. Its $I(1)$ part
+has real trace $8+24d$, its $I(f)$ part has purely imaginary trace,
+and the absolute real trace of the remaining part is at most $24d$.
+This is impossible.
+
+Finally suppose $q=-1$. Let $\mathcal I$ be an Ising category with
+fermion $\psi$ and noninvertible $\sigma$. The object
+$z\boxtimes\psi$ is a central boson in
+$\mathcal Q\boxtimes\mathcal I$. Condensing its regular algebra gives
+a pseudo-unitary fusion category $\mathcal D$ of rank six. All twelve
+simples before condensation have free orbits. Representatives give
+objects $1,f,u,r,s,v$ of dimensions
+\[
+ 1,1,\sqrt2,d,d,\sqrt2d,
+\]
+with the above rules on $1,f,r,s$ and additional rules
+\[
+ \begin{gathered}
+ fu=u,\quad fv=v,\quad u^2=1+f,\quad ur=us=v,\\
+ uv=r+s,\quad rv=sv=u+4v,\quad v^2=1+f+4r+4s.
+ \end{gathered}
+\]
+We prove directly that these rules have no pseudo-unitary
+categorification.
+
+Put $D=\dim(\mathcal D)=8+16d$ and $T=Dd=16+72d$.
+The six formal codegrees show that $I(1)$ has two constituents of each
+dimension $1,d^2,2+4d$, all of twist $1$, each with tensor-unit
+multiplicity one. Positivity and linear independence over
+$\mathbb Q(\sqrt5)$ show that their restrictions have no $u$ or $v$
+summands. The two constituents of dimension $d^2$ restrict to
+\[
+ 1+a_jr+(4-a_j)s\qquad (0\le a_j\le4),
+\]
+and the two of dimension $2+4d$ restrict to
+\[
+ 1+f+b_jr+(4-b_j)s\qquad (0\le b_j\le4).
+\]
+The $r$-coefficient of $FI(1)$ is $8$, so if $a=a_1+a_2$ then
+$b_1+b_2=8-a$. The total dimension $K$ of the twist-one summands of
+$I(r)$ supplied by $I(1)$ is therefore
+\[
+ K=a d^2+(8-a)(2+4d)=16-a+32d\ge8+32d.
+\]
+Let $R=T-K$ be the dimension of the other summands. The first two
+indicator identities~\cite{NgIndicators}, with $\nu_2(r)\le1$, imply
+\[
+ \sum_j w_j\cos t_j=-K,\qquad
+ \sum_j w_j\cos(2t_j)=D\nu_2(r)-K\le D-K,
+ \qquad \sum_j w_j=R,
+\]
+where $w_j>0$ and $e^{it_j}$ are their dimensions and twists.
+If $R=0$ the first equation is already impossible; otherwise
+Cauchy--Schwarz gives
+\[
+ 2K^2\le R(R+D-K),\qquad
+ 0\le T(T+D)-K(3T+D).
+\]
+But the last expression is at most
+\[
+ T(T+D)-(8+32d)(3T+D)
+ =-64-512d-1088d^2<0.
+\]
+This final contradiction excludes $q=-1$.
+\end{proof}
+
+\begin{remark}
+The published Galois pseudo-unitarity reduction~\cite[Lemma~3.1]{SchNear}
+for categories having
+two Frobenius--Perron dimensions upgrades this statement to arbitrary
+complex categorifications of the displayed ring: a central lift survives
+Galois conjugation. This uses the corrected published formulation
+``Galois conjugate to a pseudo-unitary category'', not a claim that every
+categorification is itself pseudo-unitary.
+\end{remark}
+
+\begin{remark}[Scope of the inner-conjugation construction]
+Let $\mathcal P=\mathcal Q_{\rm pt}$ and
+$\mathcal D=\mathcal Z_{\mathcal P}(\mathcal Q)$.
+By~\cite[Remark~2.4(i)]{GNN}, this relative center is Morita equivalent
+to $\mathcal P\boxtimes\mathcal Q^{\rm rev}$.
+Its invertibles are precisely those of $\mathcal Z(\mathcal P)$,
+whose group is $C_2\times C_2$ for either associator on
+$\mathcal P\simeq\operatorname{Vec}_{C_2}^{\omega}$.
+Thus this natural inner-conjugation construction cannot realize the
+$C_4$-based rings $R8\_1\_9$ or $R8\_1\_18$; no indicator assumption
+is needed.
+
+The displayed rank-four rules have trivial universal grading, so the
+theorem implies $\operatorname{Inv}\mathcal Z(\mathcal Q)=1$.
+Morita invariance then gives
+$|\operatorname{Inv}\mathcal Z(\mathcal D)|=4$.
+If $\mathcal D$ had the rules $R8\_1\_49$, its universal grading
+would also be trivial. The forgetful map on invertibles would therefore
+be injective, since its kernel is the group of tensor automorphisms of
+the identity, and hence bijective. Every invertible would have a central
+lift, contradicting the noncommuting invertible action in that ring.
+This rules out the proposed construction only. General exclusions are
+proved independently in Theorems~\ref{thm:r9-center-trace}
+and~\ref{thm:r18-sts-moments} and
+Proposition~\ref{prop:r49-fs-morita}.
+\end{remark}

@@ -62,8 +62,8 @@ assert release.get("analyzed_through",scope6["analyzed_through"])==expected_band
 assert (scope6["through"],scope6["positive"],scope6["unresolved"]) == (release["complete_through"],summary["positive"],summary["unresolved"])
 assert release["date"] <= payload["snapshot"]
 coverage=json.loads((root / release["research_coverage_path"]).read_text())
-assert payload["snapshot"] == max(release["date"], coverage["date"], payload.get("theoretical_update", {}).get("date", ""))
-assert release["research_cases"] == [{key: case[key] for key in ("id", "categorical_status", "public_summary")} for case in coverage["cases"]]
+assert payload["snapshot"] == max(release["date"], coverage["date"], payload.get("theoretical_update", {}).get("date", ""), payload["current_documents"]["date"])
+assert [(case["id"], case["categorical_status"]) for case in release["research_cases"]] == [(case["id"], case["categorical_status"]) for case in coverage["cases"]]
 assert {r["id"] for r in release["research_cases"]} == set(summary["unresolved_ids"])
 assert all(r["categorical_status"] == "unresolved" and r["public_summary"] for r in release["research_cases"])
 chain = release["research_coverage_chain"]
@@ -124,22 +124,20 @@ if "document_revision" in release:
     canonical_revision = root.parent.parent / revision_entry.get("source", "evidence/rank6_theoretical_20261011/document_revision.json")
     if canonical_revision.is_file():
         assert canonical_revision.read_bytes() == revision_path.read_bytes()
-    assert revision["date"] == revision_entry["date"] == coverage["date"]
-    assert revision["research_progress"] == release["research_coverage_source"]
-    assert revision["research_progress_sha256"] == chain[-1]["sha256"]
-    assert all(name.startswith("manuscripts/rank6/papers/") and Path(name).suffix in (".tex", ".pdf")
-               and len(record["sha256"]) == 64 and record["bytes"] > 0
+    assert revision["date"] == revision_entry["date"]
+    assert revision["schema"] == "current-document-revision/v1"
+    assert all(Path(name).suffix in (".tex", ".pdf") and len(record["sha256"]) == 64 and record["bytes"] > 0
                for name, record in revision["documents"].items())
 for source, target in (("manuscript.pdf", "rank6.pdf"), ("verification_guide.pdf", "rank6_guide.pdf")):
     expected = (revision["documents"]["manuscripts/rank6/papers/" + source]
                 if revision else identity["documents"][source])
     assert release["documents"][target] == expected["sha256"], "Site PDF differs from its current revision: " + target
     assert (root / "papers" / target).stat().st_size == expected["bytes"]
-print(f"Rank-six release verified through multiplicity {expected_bands[-1]}: complete bands {release['complete_multiplicity_bands']}; {len(frontier)} residuals; frozen archive and current document revision hashes.")
+print(f"Rank-six release verified through multiplicity {expected_bands[-1]}: complete bands {release['complete_multiplicity_bands']}; {len(frontier)} residuals; dataset and current document manifest hashes.")
 
 for rank in (7, 8):
     release = payload["upper_rank_releases"][str(rank)]
-    for document in (release["manuscript"], release["archive"]) + ((release["reading_edition"],) if "reading_edition" in release else ()):
+    for document in (release["manuscript"], release["archive"]):
         path = root / document["path"]
         assert hashlib.sha256(path.read_bytes()).hexdigest() == document["sha256"]
         if "bytes" in document:
@@ -148,6 +146,21 @@ for rank in (7, 8):
                     if b["name"] == Path(release["archive"]["path"]).name)
     assert release["archive"]["sha256"] == expected
 print("Upper-rank manuscripts and portable supplements match their publication hashes.")
+
+current_entry = payload["current_documents"]
+current_manifest_path = root / current_entry["path"]
+assert hashlib.sha256(current_manifest_path.read_bytes()).hexdigest() == current_entry["sha256"]
+current_manifest = json.loads(current_manifest_path.read_text())
+assert current_manifest["schema"] == "current-document-revision/v1"
+assert current_manifest["date"] == current_entry["date"]
+assert {f"papers/rank{rank}.pdf" for rank in range(2,9)} <= set(current_manifest["web_copies"])
+for local, canonical in current_manifest["web_copies"].items():
+    expected = current_manifest["documents"][canonical]
+    document = root / local
+    assert document.read_bytes().startswith(b"%PDF-")
+    assert document.stat().st_size == expected["bytes"]
+    assert hashlib.sha256(document.read_bytes()).hexdigest() == expected["sha256"], "Stale website manuscript: " + local
+print("All current website manuscripts match the publication manifest.")
 
 update = payload.get("theoretical_update")
 if update:
@@ -169,25 +182,13 @@ if update:
     totals = json.loads((root / update["files"]["expected_totals"]["path"]).read_text())
     assert update["remaining"] == {rank: len(ids) for rank, ids in remaining.items()}
     if is_review:
-        reading = payload["upper_rank_releases"]["8"].get("reading_edition")
-        assert reading is not None, "The review stage requires rank-eight reading-edition metadata"
-        assert reading["path"] == "papers/rank8-reviewed.pdf"
-        assert reading["source"] == "manuscripts/rank8/paper/rank8-reviewed.pdf"
-        assert reading["bytes"] > 0 and len(reading["sha256"]) == 64
-        assert (root / reading["path"]).read_bytes().startswith(b"%PDF-"), "Missing rank-eight reading PDF"
-        errata_path = root / "papers/prepublication-review-2026-10-17.pdf"
-        assert errata_path.read_bytes().startswith(b"%PDF-"), "Missing dated errata PDF"
+        assert "reading_edition" not in payload["upper_rank_releases"]["8"]
+        assert payload["upper_rank_releases"]["8"]["manuscript"]["path"] == "papers/rank8.pdf"
         assert update["proofs_source"] == "evidence/unified_20261016"
-        review = json.loads((root / update["files"]["review"]["path"]).read_text())
-        assert review == update["review"]
-        assert review["reopened_ids"] == ["R8_2_24"] and review["historical_stage"] == "unified_20261016"
         assert len(decisions) == 35 and update["original_case_count"] == 38
         assert (update["new_general_exclusions"], update["new_unitary_models"]) == (28, 7)
         assert "R8_2_24" not in {record["id"] for record in decisions}
         assert remaining == {"6": ["R6_4_155", "R6_8_1660"], "7": [], "8": ["R8_2_24"]}
-        assert update["historical_update"] == {
-            "source": "evidence/unified_20261016", "date": "2026-10-16",
-            "decision_count": 36, "general_exclusions": 29, "unitary_models": 7}
         assert totals["8"] == {"excluded": 895, "unitarily_realized": 77, "unresolved": 1}
         scope8 = next(record for record in payload["scope"] if record["rank"] == 8)
         assert (scope8["through"], scope8["analyzed_through"], scope8["kind"]) == (1, 2, "partial")
@@ -209,11 +210,13 @@ if update:
                    if name == "decisions.json" or name.endswith(update["source"].split("/")[-1] + "/decisions.json")]
         assert len(matches) == 1 and json.loads(bundle.read(matches[0])) == decisions, "Stale update bundle"
         if is_review:
-            for relative, local in (("manuscripts/prepublication-review-2026-10-17.pdf", errata_path),
-                                    (reading["source"], root / reading["path"])):
+            for relative in set(revision["web_copies"].values()) | {"data/current_document_revision.json"}:
                 documents = [name for name in bundle.namelist()
                              if name == relative or name.endswith("/" + relative)]
-                assert len(documents) == 1 and bundle.read(documents[0]) == local.read_bytes(), "Stale or missing review PDF in archive: " + relative
+                canonical = root.parent.parent / relative
+                assert len(documents) == 1, "Missing current document in archive: " + relative
+                if canonical.is_file():
+                    assert bundle.read(documents[0]) == canonical.read_bytes(), "Stale current document in archive: " + relative
             for decision in decisions:
                 proof_path = update["proofs_source"] + "/" + decision["proof"]
                 assert any(name == proof_path or name.endswith("/" + proof_path) for name in bundle.namelist()), "Missing inherited proof: " + proof_path
@@ -225,5 +228,16 @@ class LocalLinkCheck(HTMLParser):
     def handle_starttag(self, tag, attrs):
         for name, value in attrs:
             if name in ("href", "src") and value and value.startswith("./"):
-                assert (root / value[2:].split("#",1)[0]).is_file(), "Missing local page asset: " + value
-LocalLinkCheck().feed((root / "index.html").read_text())
+                relative = value[2:].split("#",1)[0]
+                assert not relative or (root / relative).is_file(), "Missing local page asset: " + value
+for filename in ("index.html", "review.html"):
+    LocalLinkCheck().feed((root / filename).read_text())
+reader_sources = "\n".join((root / filename).read_text() for filename in ("index.html", "review.html", "app.js"))
+for stale in ("rank8-reviewed.pdf", "Historical PDF", "Read reviewed edition", "Printable manuscript errata", "has been reopened", "Read with dated corrections"):
+    assert stale not in reader_sources, "Obsolete publication wording or link: " + stale
+assert "AI-generated research" in (root / "index.html").read_text()
+assert all(case in (root / "review.html").read_text() for case in ("R6_4_155", "R6_8_1660", "R8_2_24"))
+
+assert "docs/CASE_INVENTORY.md" in (root / "app.js").read_text(), "Missing current case-inventory route"
+assert "ALL38_COVERAGE.md" not in reader_sources, "Reader route points to an immutable stage guide"
+assert "tree/main/evidence/review_20261017" not in reader_sources, "Reader route points to an immutable stage overview"

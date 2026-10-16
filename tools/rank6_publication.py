@@ -11,7 +11,7 @@ RESEARCH_UPDATES=(
     'evidence/theoretical_20261016/rank6/research_progress.json',
     'evidence/unified_20261016/rank6/research_progress.json',
 )
-DOCUMENT_REVISION='evidence/unified_20261016/rank6/document_revision.json'
+DOCUMENT_REVISION='data/current_document_revision.json'
 COMPLETION_ROOT='research/exclusions/m9_completion'
 COMPLETION_BUNDLES=('free_involution','involution_pair','gauss8200','pivotal_gap','psu25','case8785','triangle')
 COMPLETION_FILES=(
@@ -103,42 +103,16 @@ def current_research(identity,repo=None):
         previous=relative;digest=hashlib.sha256(raw).hexdigest();result=research
     return result
 def validate_document_revision(identity,repo=None):
-    """Bind the current sources/PDFs separately from the frozen archive copies."""
+    """Bind the integrated manuscript sources and PDFs to the current edition."""
+    from current_publication import validate_documents
     repo=Path(repo) if repo is not None else Path(__file__).resolve().parents[1]
-    path=repo/DOCUMENT_REVISION
-    if not path.is_file():
-        require(not (repo/RESEARCH_UPDATES[-1]).is_file(),
-                'Current theoretical research is missing its document revision')
-        return None
-    revision=json.loads(path.read_text())
-    research=current_research(identity,repo)
-    require(research is not None and revision['date']==research['date']=='2026-10-16',
-            'Publication revision and current research dates differ')
-    require(revision['research_progress']==RESEARCH_UPDATES[-1] and
-            valid_digest(revision['research_progress_sha256']) and
-            hashlib.sha256((repo/RESEARCH_UPDATES[-1]).read_bytes()).hexdigest()==revision['research_progress_sha256'],
-            'Publication revision has a different research source')
-    previous=revision.get('previous_document_revision')
-    require(valid_relative(previous or '') and valid_digest(revision.get('previous_document_revision_sha256')) and
-            hashlib.sha256((repo/previous).read_bytes()).hexdigest()==revision['previous_document_revision_sha256'],
-            'Prior publication revision identity changed')
-    documents=revision['documents'];prefix='manuscripts/rank6/papers/'
-    current_files={f.relative_to(repo).as_posix() for f in (repo/prefix).rglob('*')
-                   if f.is_file() and f.suffix in ('.tex','.pdf')}
-    require(isinstance(documents,dict) and
-            {name for name in documents if name.startswith(prefix)}==current_files,
-            'Current manuscript source/PDF inventory differs from the revision')
-    require({prefix+name for name in identity['documents']}<=set(documents),
-            'Publication revision omits an existing source or PDF')
-    for relative,item in documents.items():
-        require(valid_relative(relative) and not relative.startswith('supplements/') and
-                PurePosixPath(relative).suffix in ('.tex','.pdf') and
-                valid_digest(item['sha256']) and type(item['bytes']) is int and item['bytes']>0,
-                'Invalid current publication document identity: '+relative)
-        raw=(repo/relative).read_bytes()
-        require(len(raw)==item['bytes'] and hashlib.sha256(raw).hexdigest()==item['sha256'],
-                'Current publication document changed: '+relative)
+    revision=validate_documents(repo)
+    current_research(identity,repo)
+    prefix='manuscripts/rank6/papers/'
+    require({prefix+name for name in identity['documents']}<=set(revision['documents']),
+            'Current publication omits an existing rank-six source or PDF')
     return revision
+
 def progress_table(identity,repo=None):
     progress=identity['research_progress']
     research=current_research(identity,repo)
@@ -146,30 +120,26 @@ def progress_table(identity,repo=None):
         progress=[{'id':x['id'],'result':x['public_summary']} for x in research['cases']]
     return '\n'.join(['| Unresolved ring | Necessary reduction |','|---|---|']+[f"| `{x['id']}` | {x['result']} |" for x in progress])
 def continuation_text(identity):
-    validate_identity(identity);s=identity['summary'];last=identity['counts'][-1]
-    return f'''The rank-six release covers **25,421 fusion rings through multiplicity 9**:
-**{s['excluded']:,} excluded, {s['positive']} realized and {s['unresolved']} unresolved**.
-All **8,809 rings of exact multiplicity nine are generally excluded**.
-The completion certificates settle the final eleven cases; the two remaining
-unresolved rings belong to earlier bands. Previous representatives and proof
-certificates are preserved.
+    validate_identity(identity)
+    return """The rank-six classification covers **25,421 fusion rings through multiplicity 9**:
+**25,362 excluded, 57 realized and two unresolved**. All **8,809 rings of
+exact multiplicity nine are generally excluded**.
 
-The positive catalogue includes the three neutral module categories from
-`(B2)_7 ⊂ (D7)_1`, `(C3)_4 ⊂ (B10)_1`, and `(B2)_12 ⊂ (E8)_1`, with full tensor identifications.
+The positive catalogue includes neutral module categories from
+`(B2)_7 ⊂ (D7)_1`, `(C3)_4 ⊂ (B10)_1`, and `(B2)_12 ⊂ (E8)_1`,
+with full tensor identifications.
 
-{progress_table(identity)}
+| Open ring | Necessary restrictions |
+|---|---|
+| `R6_4_155` | A unique rank-26 semion-centralizer modular candidate; a rank-22 based module passes all 234,256 fermion Azumaya linking identities. No coherent module category or categorification is constructed. |
+| `R6_8_1660` | Relative-center and Morita restrictions, full twist-one support and saturated indicators including `nu_3(T)=2`. A rank-37 candidate fails Verlinde integrality; other profiles remain open. |
 
-The October 16 revision identifies the entire twist-one support in the center
-of a positive Galois representative of R6_8_1660 and retains tensor-functor
-rigidity for both residual rings. Both categorification questions remain open.
-The current source/PDF hashes are recorded separately from the frozen release.
+Every tensor functor from a hypothetical categorification of either ring to
+a complex fusion category is fully faithful under the recorded theoretical
+arguments. These necessary restrictions do not decide categorifiability.
 
 [Manuscript](manuscripts/rank6/papers/manuscript.pdf) ·
-[16 October theoretical update](evidence/theoretical_20261016/README.md) ·
-[11 October theoretical revision](evidence/rank6_theoretical_20261011/README.md) ·
+[Verification scope](docs/PREPUBLICATION_REVIEW.md) ·
 [Completion proofs](supplements/rank6/research/exclusions/m9_completion/) ·
-[Completion replay](supplements/rank6/verification/m9/completion/) ·
-[2 October research addendum](evidence/residual_20261002/rank6/research_addendum.pdf) ·
-[Frozen 1 October release]({archive_url(identity)})
-'''
-
+[Replay guide](docs/VERIFY.md)
+"""

@@ -1,28 +1,29 @@
-# R6_8_1660: current research status
+# R6_8_1660: unresolved Ising-based ring
 
-The ring remains unresolved. The established relative-center reduction still
-leaves one based ring. Separately, the full-center frontier now has **1669**
-labelled profiles, in branches **163, 753, 753**. The new signed Galois–fermion
-four-divisibility condition excludes raw profile 133 in low frame zero from the
-previous 1670-profile stage.
+The commuting generators satisfy `g²=1`, `gσ=σ`, `σ²=1+g` and
+`X²=1+(3(1+g)+4σ)X`. The simple basis is `1,g,X,gX,σ,T`, where `T=σX`.
+Its positive dimension is `d=3+2√2+2√3+√6`, with global dimension `4(1+d²)`.
 
-Every indecomposable module category has six simple objects. Full-center
-saturation gives a faithful action of its Morita dual, whose rank is six or
-eight. The complete bounded integral Gram reconstruction excludes type-IV
-modules with equal signs. A weighted second-indicator argument excludes one of
-the two rank-eight dual rings. Exactly three possible dual based rings remain:
+A hypothetical categorification has one possible relative-center based ring,
+up to exchanging its Ising factors. Graded induction reduces the bounded
+full-center domain to **1,136 labelled profiles**, in branches **120,508,508**.
+Every indecomposable module category has six simples. Exact Morita and
+indicator restrictions leave three possible dual based rings: the original
+rank-six ring, a rank-six ring containing Ad(E6), and a noncommutative
+rank-eight ring. None of these necessary alternatives supplies associators.
 
-- The original rank-six ring.
-- A rank-six extension of Ad(E6), with maximal structure constant 16.
-- One rank-eight ring, with maximal structure constant 3.
+Saturated character traces force `nu_3(T)=2` and two conjugate options for
+`nu_3(X)`. An exact Verlinde calculation rejects a rank-37 candidate because
+one fusion coefficient is 1/2; other profiles remain possible. The twist-one
+support is the six simple summands of the induced unit, and the recorded
+arguments give fully-faithful tensor-functor rigidity. No general exclusion
+or categorification is established.
 
-These are necessary alternatives. Nontrivial module categories, their algebra
-structures and their associators have not been constructed.
+The [current manuscript](../../../../../manuscripts/rank6/papers/manuscript.pdf)
+and [verification guide](../../../../../docs/VERIFY.md) give the integrated
+proofs and replay paths. A subdirectory's profile count describes that
+component's input or output, not the total current domain. No timeout or
+surviving necessary-condition system decides categorification.
 
-The [new exact research](../new_research/README.md) and manuscript sections
-[Morita reduction](../../../papers/chapters/frontier_1660_morita.tex) and
-[signed Galois cut](../../../papers/chapters/frontier_1660_galois.tex) give the proofs.
-The original [README](README.md), [fermion-profile](fermion_profiles/README.md)
-and [spin-profile](spin_profiles/README.md) documents are frozen historical
-stages. Their 1727 and 1670 counts remain the correct outputs of those earlier
-certificates; this page states the subsequent reduction.
+**AI-generated research:** proofs and data require independent human
+verification and are not Lean-formalized. Treat the results with caution.

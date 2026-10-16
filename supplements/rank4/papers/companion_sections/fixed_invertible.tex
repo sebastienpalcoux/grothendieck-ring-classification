@@ -1,0 +1,188 @@
+\subsection{A central involution forced by two twist moments}
+\label{sec:unbounded-fixed-orbits}
+Consider a self-dual rank-four ring with exactly two invertible basis
+objects $1,g$, where $g$ fixes the other two objects $X,Y$. Its products are
+\begin{equation}\label{eq:fixed-orbit-rules}
+\begin{gathered}
+ g^2=1,\qquad gX=X,\qquad gY=Y,\\
+ X^2=1+g+aX+bY,\qquad XY=bX+cY,\\
+ Y^2=1+g+cX+eY,
+ \qquad 2+ac+be=b^2+c^2.
+\end{gathered}
+\end{equation}
+All parameters are nonnegative integers.
+
+\begin{lemma}\label{lem:fixed-orbits-galois}
+A ring of the form \eqref{eq:fixed-orbit-rules} admits a pivotal
+categorification if and only if it admits a pseudo-unitary categorification.
+\end{lemma}
+\begin{proof}
+The rational character $(1,-1,0,0)$ splits off a copy of $\mathbb Q$ from
+$R\otimes\mathbb Q$. Its complementary algebra has dimension three.
+Consequently the degree $k$ of the Frobenius--Perron character field is
+$1$, $2$, or $3$. A pivotal categorification is spherical because every
+simple is self-dual; its dimension character cannot be $(1,-1,0,0)$.
+
+If $k=1$, its Frobenius--Perron dimension is an integer, and the category is
+pseudo-unitary. If $k=3$, all three remaining characters form one Galois
+orbit, so \cite[Lemma~\ref{B-lem:galois}]{Finite} applies. Suppose $k=2$ and write
+$D=\operatorname{FPdim}(R)$. If $D$ is rational, it is an integer and the
+same weak-integrality argument applies. Otherwise $D$ generates the
+quadratic character field. Besides the two conjugate Frobenius--Perron
+characters, the only remaining character is rational. It cannot be the
+spherical dimension character, since the spherical dimension field must
+contain every formal codegree, including the nonrational number $D$.
+Thus the dimension character is Galois conjugate to Frobenius--Perron,
+which proves the assertion.
+\end{proof}
+
+\begin{proposition}\label{prop:fixed-orbits-boson}
+Suppose $b,c>0$ and that \eqref{eq:fixed-orbit-rules} admits a
+pseudo-unitary categorification $\mathcal C$. Then the object $g$ lifts
+to an invertible object of order two and twist one in $\mathcal Z(\mathcal C)$.
+Moreover $\mathcal C$ is a $C_2$-equivariantization of a rank-five fusion
+category on which the nontrivial group element fixes only the tensor unit.
+\end{proposition}
+\begin{proof}
+Use the canonical spherical structure and put $D=\operatorname{FPdim}(\mathcal C)$.
+The character $(1,-1,0,0)$ has formal codegree $2$. Thus
+\[
+ I(1)=1\oplus A\oplus B\oplus C,
+ \qquad \dim(B)=D/2,
+ \qquad \dim(A)+\dim(C)=D/2-1.
+\]
+All four summands have twist one. The coefficient of $g$ in $FI(1)$ is
+two, while $\dim\operatorname{End}(I(g))=4$, as follows directly from
+$FI(g)=\sum_U U\otimes g\otimes U^*$.
+
+The first twist moment gives that the dimension of the low part of $I(g)$
+is at most $D/2$. If $g$ occurred in $F(B)$, it would already contribute
+$D/2$, and the other required occurrence of $g$ would make this bound
+strictly fail. Hence $[F(B):g]=0$. The two occurrences of $g$ are therefore
+in $F(A)$ and $F(C)$. They cannot both be in one column: that multiplicity
+two would exhaust $\dim\operatorname{End}(I(g))=4$, so $I(g)$ would have
+only twist-one constituents, contrary to its vanishing first twist trace.
+Thus both multiplicities are one. The low dimension is
+\[
+ L=D/2-1.
+\]
+The residual value of $\dim\operatorname{End}(I(g))$ is two, so there
+are exactly two further simple summands, each with multiplicity one.
+Denote their positive dimensions by $\alpha,\beta$ and twists by $u,v$.
+The zeroth, first and second twist moments give
+\[
+ \alpha+\beta=D/2+1,\qquad
+ \alpha u+\beta v=-(D/2-1),\qquad
+ \alpha u^2+\beta v^2=D\nu_2(g)-(D/2-1).
+\]
+If $\nu_2(g)=-1$, the last right-hand side has absolute value
+$3D/2-1>D/2+1$, since $D>2$, violating the triangle inequality.
+Therefore $\nu_2(g)=1$. Equality in the triangle inequality for the last
+identity forces $u^2=v^2=1$. The first identity involving twists then
+forces, after interchanging the two summands,
+\[
+ (\alpha,u)=(1,1),\qquad (\beta,v)=(D/2,-1).
+\]
+Let $z$ be the central simple of dimension one. Its restriction contains
+$g$, and consequently $F(z)=g$.
+
+There is no nontrivial central invertible whose underlying object is the
+unit. Such an object would give a tensor automorphism of the identity of
+$\mathcal C$, with scalars $\lambda_g,\lambda_X,\lambda_Y$.
+The relations $gX=X$, $Y\subset X^2$, and $X\subset Y^2$, together with
+self-duality, force respectively
+$\lambda_g=1$, $\lambda_Y=\lambda_X^2=1$, and
+$\lambda_X=\lambda_Y^2=1$. Hence $z^2=1$.
+The order-two invertible $z$ has dimension and twist one, so it generates
+a Tannakian subcategory $\operatorname{Rep}(C_2)$ of the center, embedded
+fully faithfully into $\mathcal C$ by the forgetful functor.
+
+De-equivariantization gives a fusion category $\mathcal D$ with a
+$C_2$-action and $\mathcal C\simeq\mathcal D^{C_2}$.
+For clarity, the orbit description of equivariantization determines its
+simple objects without a dimension estimate. A fixed simple of
+$\mathcal D$ gives two simples of $\mathcal C$, interchanged by tensoring
+with the sign representation $g$, because $H^2(C_2,\mathbb C^\times)=0$.
+A two-element orbit gives one simple fixed by $g$. In \(\mathcal C\), the
+unit and $g$ form the sole two-element orbit under tensoring with $g$;
+$X$ and $Y$ are fixed. Thus the action on $\operatorname{Irr}(\mathcal D)$
+has exactly one fixed simple, the unit, and two orbits of size two.
+In particular $\mathcal D$ has rank five.
+\end{proof}
+
+\begin{theorem}\label{thm:fixed-orbits-unbounded}
+Among rings of the form \eqref{eq:fixed-orbit-rules}, the only one admitting
+a pivotal categorification is $K_0(\operatorname{Rep}(D_{10}))$.
+There is no multiplicity restriction.
+\end{theorem}
+\begin{proof}
+By Lemma~\ref{lem:fixed-orbits-galois} we can assume pseudo-unitarity.
+First suppose $b,c>0$ and form $\mathcal D$ as in
+Proposition~\ref{prop:fixed-orbits-boson}. The dimensions of its simples are
+\[
+ 1,u,u,v,v,\qquad
+ u=\operatorname{FPdim}(X)/2,\quad
+ v=\operatorname{FPdim}(Y)/2.
+\]
+They are integers, by the fixed-point-free automorphism theorem
+\cite[Theorem~2.3]{SchopierayFPF}.
+There is also a short rank-five verification of this integrality.
+The complexified fusion algebra is either $\mathbb C^5$ or
+$\mathbb C\oplus M_2(\mathbb C)$. In the second case its sole
+one-dimensional character, Frobenius--Perron dimension, is Galois fixed.
+In the first case, the involution has trace one in the based basis and
+therefore fixes exactly one primitive idempotent, hence exactly one
+character. Every Galois conjugate of Frobenius--Perron is fixed by the
+involution, so it must be that same character. Its values are rational
+algebraic integers in either case.
+
+An integral fusion ring with at most three distinct basis dimensions has
+a nontrivial pointed subring \cite[Lemma~4.2]{SchopierayFPF}.
+The pointed part of $K_0(\mathcal D)$ is invariant under the involution,
+so it has rank three or five. If its rank is three, the two remaining
+objects have a common integer dimension $v>1$ and are fixed by the
+three invertibles. Their product with their dual therefore gives
+$v^2=3+kv$ for an integer $k\geq0$, forcing $v=3$. After exchanging $X,Y$ if necessary, their dimensions in
+$\mathcal C$ would then be $2,6$. The equation for $X^2$ would read
+$4=2+2a+6b$, contradicting $b>0$. If its pointed rank is five, the dimensions of
+$\mathcal C$ are $(1,1,2,2)$. The dimension equations in
+\eqref{eq:fixed-orbit-rules} force
+$(a,b,c,e)=(0,1,1,0)$, the representation ring of $D_{10}$.
+
+It remains to treat a zero among $b,c$. By exchanging $X,Y$, assume
+$b=0$. Associativity reads $c(c-a)=2$, so $c=2$, $a=1$. Thus the ring
+is an extension of $K_0(\operatorname{Rep}(S_3))$ from
+Section~\ref{sec:near-s3}, with arbitrary coefficient $\kappa=e\geq0$.
+Put $d=(\kappa+\sqrt{\kappa^2+24})/2$ and $D=12+\kappa d$.
+For $\kappa\notin\{0,1,5\}$, this $D$ is quadratic, with minimal polynomial
+\[
+ t^2-(\kappa^2+24)t+6(\kappa^2+24).
+\]
+The $d$-number criterion implies $6\mid\kappa^2$, hence $6\mid\kappa$;
+these parameters, including $\kappa=0$, are excluded by
+Section~\ref{sec:near-s3}. The only positive $\kappa$ for which
+$\kappa^2+24$ is a square are $1$ and $5$, as follows by factoring
+$(s-\kappa)(s+\kappa)=24$. For the two remaining parameters $\kappa\in\{1,5\}$, the
+bounded-census verifier matches the complete tensors and checks their
+nonexistence certificates; see \cite[Theorem~\ref{B-thm:finite}]{Finite}.
+The finite theorem is independent of the present unrestricted argument.
+This completes the proof.
+\end{proof}
+
+\begin{corollary}\label{cor:nontrivial-invertible-unbounded}
+A rank-four fusion ring with a nontrivial invertible basis element admits
+a pivotal categorification if and only if it is one of the eleven rings
+in Theorem~\ref{thm:two-dimensions-unbounded}. These all admit unitary
+categorifications.
+\end{corollary}
+\begin{proof}
+For a non-self-dual ring with a nontrivial invertible, its noninvertibles
+are either a single object or a dual pair, and therefore have equal
+Frobenius--Perron dimensions. Theorem~\ref{thm:two-dimensions-unbounded}
+applies. In the self-dual case, four invertibles give a pointed ring;
+three invertibles cannot occur because a group of order three is not
+self-dual. With two invertibles, their action either interchanges the two
+remaining objects, which have equal dimensions and are covered by
+Theorem~\ref{thm:two-dimensions-unbounded}, or fixes both, which is exactly
+Theorem~\ref{thm:fixed-orbits-unbounded}.
+\end{proof}

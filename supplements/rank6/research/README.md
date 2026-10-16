@@ -1,6 +1,10 @@
 # Mathematical evidence
 
-* [Constructed conformal models](structural_models/): source graphs, branching data and exact full-tensor reconstruction.
-* [Two unresolved rings](frontier/): structural reductions and links to the retained necessary-profile certificates.
+- [Constructed conformal models](structural_models/): branching data and exact tensor reconstruction.
+- [Two unresolved rings](frontier/): necessary structural reductions and their finite certificates.
+- [Current manuscript](../../../manuscripts/rank6/papers/manuscript.pdf): integrated mathematical account.
+- [Verification scope](../../../docs/PREPUBLICATION_REVIEW.md): executed checks and limitations.
 
-Internal numbered paths are retained only where frozen source-bound certificates depend on them. They do not define the current classification.
+Numbered certificate paths identify source-bound calculations. Their local
+finite scopes do not define the current classification. These proofs and data
+are AI-generated, not independently human-verified and not Lean-formalized.

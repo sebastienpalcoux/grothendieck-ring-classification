@@ -52,11 +52,15 @@ right-hand sum by $i\mapsto i^*$.  This proves
 
 \paragraph{Application to $\RR{4}{155}$.}
 For the retained rank-$26$ modular candidate, reconstruct the $26$
-action matrices from the previously recorded six-dimensional
+action matrices from the six-dimensional
 anti-invariant witness.  All $22^4=234256$ identities
 \eqref{eq:fermion-azumaya-crossing} hold exactly.  The replay uses integer
 arithmetic and binds both frozen inputs by SHA256; it is recorded in
 \filename{evidence/unified_20261016/rank6/verify_fermion_crossing.py}.
+From the repository root, run
+\begin{verbatim}
+python evidence/unified_20261016/rank6/verify_fermion_crossing.py --repo .
+\end{verbatim}
 Thus the known based module is compatible with the prescribed Azumaya
 Morita self-duality.  The remaining problem is realization by coherent
 module associators.  This passing identity constructs no module category

@@ -1,0 +1,186 @@
+\section{A common two-dimension Morita reduction}
+
+Five further residual rings admit Morita duals with dimensions
+$1$ and $t=2+\sqrt5$, where $t^2=1+4t$. The following arguments
+concern arbitrary complex categories. The reductions feed two constructions,
+the staged obstruction below, and the final rank-eight endpoint exclusion.
+
+\begin{proposition}\label{prop:four-dihedral}
+Every categorification of $R7\_4\_35$, $R7\_4\_2053$,
+$R7\_4\_2603$, or $R7\_4\_2665$ is Morita equivalent to a
+category with eight invertibles forming $D_8$ and eight noninvertibles
+of dimension $t$, on which the invertibles act freely. Its based ring
+belongs to the four families described below.
+\end{proposition}
+\begin{proof}
+The source has four invertibles $G$, a simple $X$ of dimension two,
+and simples $Y,Z$ of dimension $2t$. There is an involution $h$ fixing
+all three on both sides, and
+\[
+ X^2=\sum_{g\in G}g,\qquad XY=YX=Y+Z,
+ \qquad [YY^*:X]=1.
+\]
+Put $H=\langle h\rangle$. Its pointed associator is trivial because
+it fixes $X$, so $A=1+h$ is a connected separable algebra. A fixed
+simple supports left and right $A$-module structures, since
+$H^2(C_2,\C^\times)=0$. A bimodule supported on a fixed simple $W$
+is a projective representation of $H\times H$ on its multiplicity
+space. A nontrivial projective class has only two-dimensional
+irreducibles. The multiplicity-one channels in $XY$ first force the
+classes for $Y,Z$ to be trivial; the $X$ channel in $YY^*$ does the
+same for $X$. Thus each of $X,Y,Z$ supports four simple bimodules
+with its original underlying object. The two free $H$-orbits in $G$
+each support two more. The dual consequently has eight invertibles
+and eight simples of dimension $t$. Irrationality and $t^2=1+4t$
+imply that $WW^*$ contains exactly one invertible, so the action is free.
+
+Let $K$ be the dual invertible group. The inverse algebra is the sum
+of the two invertibles supported on $H$: its multiplicity at a simple
+bimodule $V$ is $\dim\operatorname{Hom}_{\mathcal C}(1,V)$.
+Call this subgroup $L\leq K$. Its inverse pointed dual is the original
+integral subcategory, of rank five and type $1^4,2$.
+If $L$ were normal, all four double cosets would have stabilizer $C_2$
+and split into two one-dimensional projective representations. That
+dual would instead be pointed of rank eight. Hence $L$ is nonnormal,
+forcing $K=D_8$ and $L$ to be a reflection subgroup. This does not
+trivialize the pointed associator of the dual.
+
+Write $D_8=\langle r,s\mid r^4=s^2=1,\ srs=r^{-1}\rangle$ and
+choose a noninvertible $\rho$. Its products have the form
+\[
+ \rho g=\phi(g)\rho,\qquad \rho^2=a+N\rho,
+ \qquad N\in\Z_{\geq0}[D_8],\quad \sum_gN_g=4.
+\]
+Associativity and duality give
+\[
+ \phi^2=\operatorname{Ad}_a,\quad\phi(a)=a,\quad
+ Ng=\phi(g)N,\quad\phi(N)=N,\quad N^*=a^{-1}N.
+\]
+The inverse double orbit of $g\rho$ has stabilizer
+$L\cap g\phi(L)g^{-1}$. An order-two intersection would give
+noninvertibles of dimension $t$ in the source, which has none.
+Thus $\phi$ exchanges the two reflection conjugacy classes.
+Changing $\rho$ and the generators normalizes
+\[
+ \phi(r)=r^{-1},\qquad\phi(s)=rs,\qquad a\in\{1,r^2\}.
+\]
+The coefficient equations give a common coefficient $A$ on rotations
+and coefficients $B,B,C,C$ on adjacent reflection pairs, with
+$4A+2B+2C=4$. For $a=r^2$, duality also gives $B=C$; a generator
+change interchanges $B,C$. There are exactly five possibilities:
+\[
+\begin{array}{c|c}
+a&N\\\hline
+1&\sum\text{ rotations},\quad\sum\text{ reflections},\quad2(s+rs)\\
+r^2&\sum\text{ rotations},\quad\sum\text{ reflections}.
+\end{array}
+\]
+For $N=2(s+rs)$, the regular Casimir polynomial is
+\[
+ (x-16)^4(x^2-160x+1280)^2(x^2-96x+768)^4.
+\]
+Its roots $48\pm16\sqrt6$ force a formal codegree outside
+$\mathbb Q(\sqrt5)$. By the published two-dimension Galois reduction
+\cite[Lemma~3.1]{Schopieray}, a hypothetical dual can be assumed
+pseudo-unitary. The induced-unit formula
+\cite[Theorem~2.13]{OstrikRank3} then places every formal codegree
+in its simple-dimension field $\mathbb Q(t)$, a contradiction.
+
+The other four families have neutral rank-eight subrings. With $N$
+the rotation sum, these are $R8\_1\_15$ for $a=1$ and
+$R8\_1\_12$ for $a=r^2$. With $N$ the reflection sum, replacing
+$\rho$ by $s\rho$ gives $R8\_1\_18$ in either case. The two
+self-dual source cases $35,2053$ require $a=1$; the dual-pair cases
+$2603,2665$ require $a=r^2$. The source-bound verifier checks the
+full tensors of these statements, including every neutral-subring
+product. It does not construct the extensions.
+\end{proof}
+
+\begin{proposition}\label{prop:twisted-v4}
+Every categorification of $R7\_4\_2591$ is Morita equivalent to a
+category with eight invertibles and eight noninvertibles of dimension
+$t$, again with a free invertible action.
+\end{proposition}
+\begin{proof}
+Here $G=V_4$ fixes $X,Y,Z$ on both sides, $\dim X=2$,
+$\dim Y=\dim Z=2t$, and $Y^*=Z$. The source products include
+\[
+ X^2=\sum_{g\in G}g,\qquad XY=YX=2Z,\qquad
+ XZ=ZX=2Y,\qquad Y^2=2X+4Y+4Z.
+\]
+The integral subcategory is Tambara--Yamagami. Use its standard
+normalization, with nondegenerate symmetric bicharacter $\chi$.
+For a $G$-fixed simple $W$, let $\alpha_W,\beta_W\in\mathbb F_2$
+be its left and right projective classes and let $B_W$ be its mixed
+commutator matrix over $\mathbb F_2$. The full alternating matrix is
+\[
+ \begin{pmatrix}\alpha_WJ&B_W\\B_W^{\mathsf T}&\beta_WJ\end{pmatrix},
+ \qquad J=\begin{pmatrix}0&1\\1&0\end{pmatrix}.
+\]
+A rank-$2r$ form has projective irreducibles of dimension $2^r$ and
+$2^{4-2r}$ inequivalent such irreducibles.
+
+If $W$ occurs $n$ times in $U\otimes V$, its multiplicity space has
+diagonal classes $\alpha_U-\alpha_W$, $\beta_V-\beta_W$ and mixed
+block $B_W$, up to transpose and inverse. Indeed the left action on
+$U$ and right action on $V$ commute before the identifications with
+$W$; their residual defect is the mixed commutator of $W$.
+The resulting rank is at most $2\log_2n$.
+For the TY simple, $\alpha_X=\beta_X=0$ and $B_X=\chi$.
+Apply the rank bound to $X$ in $Y^2$. Invertibility of $\chi$ forces
+$\alpha_Y=\beta_Y=1$: if either diagonal block vanishes, the rank
+is four, whereas both equal to $J$ give rank two because
+$\chi^{\mathsf T}J\chi=J$.
+Duality gives the same classes for $Z$. Applying the bound to $Z$
+in $XY$ gives the matrix
+\[
+ \begin{pmatrix}J&B_Z\\B_Z^{\mathsf T}&0\end{pmatrix}.
+\]
+Its rank is $2+\operatorname{rank}(B_Z^{\mathsf T}JB_Z)$, so
+$\operatorname{rank}B_Z\leq1$, and likewise for $B_Y$.
+
+Twist the full regular algebra $A_\beta=\bigoplus_{g\in V_4}g$
+by the nontrivial element of $H^2(V_4,\C^\times)$. This adds $J$
+to both diagonal blocks and leaves the mixed block unchanged.
+The $X$ block now has rank two and yields four simple bimodules
+with underlying object $2X$, hence dual dimension one.
+The $Y,Z$ blocks become
+$\left(\begin{smallmatrix}0&B\\B^{\mathsf T}&0\end{smallmatrix}\right)$.
+Rank zero would give dual dimension $t/2$, impossible because its
+algebraic norm is $-1/4$. Thus both mixed blocks have rank one,
+and each yields four simples of dimension $t$.
+The pointed support supplies four further invertibles. This accounts
+for the whole dual, and the free-action claim again follows from
+$t^2=1+4t$.
+\end{proof}
+
+The inverse algebra in Proposition~\ref{prop:twisted-v4} is supported
+on a $V_4$ subgroup of the dual invertible group. That group can therefore
+be $C_4\times C_2$, $C_2^3$, or $D_8$. The staged inverse-algebra argument in
+Theorem~\ref{thm:r2591-staged-morita} excludes all these alternatives.
+Neither proposition uses a classification restricted to unitary
+categories or to trivial pointed associators.
+
+\begin{corollary}\label{cor:all-nine-galois}
+Every hypothetical complex categorification of the
+rank-seven ring $R7\_4\_2053$ is Galois conjugate to a pseudo-unitary
+category.
+\end{corollary}
+\begin{proof}
+For $R7\_4\_2053$ in Proposition~\ref{prop:four-dihedral}, apply
+\cite[Lemma~3.1]{Schopieray} to the two-dimension Morita dual.
+Categorical global dimension and Frobenius--Perron dimension are Morita
+invariant, and the Morita context can be Galois conjugated with the
+category. Thus equality of these dimensions transfers back to the
+conjugated source. The integral candidate $R7\_3\_601$ is excluded
+in Theorem~\ref{thm:r601-center-lattice}.
+\end{proof}
+
+The rings $R7\_4\_2665$ and $R7\_4\_35$ are realized in
+Theorems~\ref{thm:inversion-orbifold}--\ref{thm:inversion-v4}.
+The three quadratic cases are excluded in
+Theorem~\ref{thm:quadratic-center-trace}, and $R7\_4\_2591$ is
+excluded below. The further two-moment obstruction in
+Theorem~\ref{thm:r2603-center-moments} excludes $R7\_4\_2603$.
+The final case $R7\_4\_2053$ is excluded by the rank-eight endpoint
+in Theorem~\ref{thm:r2053-final}, completing the pinned rank-seven census.

@@ -1,19 +1,126 @@
 {
   "date": "17 October 2026",
-  "version": "Dated correction and computational review",
-  "baseline": "e6a36a6f247b2db05f5468ffd4be1752ff42f157",
-  "r24_status": "R8_2_24 reopened: the categorical bridge is unproved",
-  "r24_paragraphs": [
-    "The projective-inner-square argument claims a decorated-phase cancellation with an incorrect incoming index. The condition i=k does not make the two phases cancel without an additional relation. Its two diagonal D flips and resulting six-slot reduction are therefore unjustified.",
-    "A replacement retaining all eight even D slots gives the required scalar consequences. Its unit normalization and finite algebra have been checked, but four mixed B/C categorical transports still lack a proof accounting for the oriented crossing and skew g self-duality. Two separate AI reviews did not certify that step. The conditional repair contributes no classification decision.",
-    "R8_2_24 is reopened. The accepted continuation now covers 35 of the original 38 cases: 28 proposed exclusions and seven unitary constructions. R6_4_155, R6_8_1660 and R8_2_24 remain open. Rank eight records 895 exclusions, 77 models and one open case through multiplicity two; its complete contiguous range ends at multiplicity one. Older complete-through-two claims are superseded by this correction."
+  "version": "Current classification and verification scope",
+  "title": "Research status and verification",
+  "caution": "This is AI-generated research. The results, proofs, code and data have not been independently verified by human experts or formalized in Lean. Treat all conclusions as provisional and use them with caution. Automated checks establish only their stated computational scope.",
+  "summary": "The targeted study records 35 decisions among 38 cases: 28 exclusions and seven unitary constructions. Three general categorification questions remain open: R6_4_155, R6_8_1660 and R8_2_24. A feasible set of necessary conditions is not a categorical construction, and a conditional obstruction is not a nonexistence proof.",
+  "rank_counts": [
+    {
+      "rank": 4,
+      "bound": 128,
+      "rings": 889530,
+      "excluded": 889515,
+      "models": 15,
+      "open": 0
+    },
+    {
+      "rank": 5,
+      "bound": 20,
+      "rings": 40999,
+      "excluded": 40982,
+      "models": 17,
+      "open": 0
+    },
+    {
+      "rank": 6,
+      "bound": 9,
+      "rings": 25421,
+      "excluded": 25362,
+      "models": 57,
+      "open": 2
+    },
+    {
+      "rank": 7,
+      "bound": 4,
+      "rings": 4201,
+      "excluded": 4172,
+      "models": 29,
+      "open": 0
+    },
+    {
+      "rank": 8,
+      "bound": 2,
+      "rings": 973,
+      "excluded": 895,
+      "models": 77,
+      "open": 1
+    }
   ],
-  "replay_heading": "Separate source identity, calculation and proof",
-  "replay_paragraphs": [
-    "The full rank-seven and rank-eight base-release loops passed in normal Python. Later transitions and the corrected current record passed in normal and optimized Python with exact parent restoration and source bindings. Historical arithmetic success does not certify the withdrawn R24 categorical step.",
-    "The reconstructed rank-five package passed all 40,999 pinned classes, 17 model matches and 40,982 general exclusions in both modes. Its new ledgers agree byte-for-byte. The original complete ledger was not recovered; its older hash remains a historical reference only.",
-    "Both complete rank-four replays passed: 889,530 rings, 15 models and 889,515 exclusions. Each regenerated 6,470,006 signed orbits; an independent full unsigned recount also passed.",
-    "The rank-six campaign covers all 25,362 exclusion certificates: 25,355 passed initially and seven passed complete unchanged checks under the Python backend after equation-ordering failures. The original failed run is retained. Both checks skipped after its failure gate passed separately; a hash-bound aggregate verified complete coverage. This is a combined campaign, not a successful single full run. The new portable orchestrator has not itself been run end to end."
+  "coverage_notes": [
+    "The bound is the largest multiplicity included in the displayed census, not necessarily a complete classification range. Rank six is complete through multiplicity three; its exact bands 5, 6, 7 and 9 are also complete, while bands 4 and 8 each contain one open case.",
+    "Rank eight is complete through multiplicity one, with exactly 48 Grothendieck rings. At exact multiplicity two it records 847 exclusions, 29 unitary models and one open case. There are therefore 29 or 30 general complex Grothendieck rings in that band.",
+    "Rank-six models comprise 56 unitary constructions and one spherical construction that is not pseudo-unitary. Completeness means coverage of the stated census by the project's recorded arguments; it does not assert independent human or formal verification."
   ],
-  "replay_program": "tools/verify_review_20261017.py"
+  "open_cases": [
+    {
+      "id": "R6_4_155",
+      "heading": "A general existence question",
+      "paragraphs": [
+        "Neither a general complex categorification nor a general exclusion is established. The available reductions and necessary-condition calculations narrow the problem but do not construct an associator or supply a complete contradiction.",
+        "The applicable spherical reduction is Proposition 7.1 of the rank-six manuscript. Its use must remain distinct from the conclusion that a categorification exists."
+      ]
+    },
+    {
+      "id": "R6_8_1660",
+      "heading": "Necessary center data do not settle categorification",
+      "paragraphs": [
+        "The unrestricted sphericalization reduction in Section 7.5 of the rank-six manuscript is source-bound and has been replayed. It checks 640 signed quotients, 24 sign orbits and 58 nongauge character rejections.",
+        "A rank-37 Verlinde obstruction rejects a particular candidate witness, not the source fusion ring. Both existence and general nonexistence remain unresolved."
+      ]
+    },
+    {
+      "id": "R8_2_24",
+      "heading": "An inner-square condition with a transport gap",
+      "paragraphs": [
+        "Any complex categorification has a pseudo-unitary Galois conjugate whose rank-four neutral subcategory has 2D2 fusion rules. Conjugation by an odd invertible must fix all neutral simple labels and square tensor-isomorphically to conjugation by the neutral involution.",
+        "There is no unitary categorification, and a more general obstruction applies when the neutral category lies in the Galois class of the known unitary one. These scoped results do not settle the general complex case.",
+        "The candidate eight-slot coefficient argument requires four oriented B/C categorical transport identities in a common pivotal frame. The signs arising from the oriented crossing and the skew self-duality of the invertible object have not been established. The finite algebra and normalized unit contraction do not prove those transports. The conditional calculation contributes no classification decision."
+      ]
+    }
+  ],
+  "replay_sections": [
+    {
+      "heading": "Ranks four and five",
+      "paragraphs": [
+        "Both complete rank-four replays passed: 889,530 rings, 15 models and 889,515 exclusions. Each regenerated 6,470,006 signed orbits; an independent full unsigned recount also passed.",
+        "The reconstructed rank-five package passed all 40,999 pinned classes, 17 model matches and 40,982 general exclusions in normal and optimized Python. The two reconstructed ledgers agree byte-for-byte. The unavailable source ledger was not recovered; the reconstructed ledger has its own recorded digest."
+      ]
+    },
+    {
+      "heading": "Ranks seven and eight",
+      "paragraphs": [
+        "The complete base-certificate loops passed in normal Python. Separate source-bound transition replays and current-ledger checks passed in normal and optimized Python with exact parent restoration. These checks account for the current partitions displayed in this note.",
+        "The rank-eight base replay checks all 973 records, including 75 signed proof trees, four rank-seven subring proof transfers and six appendix tensor transfers. These finite checks do not establish the open R8_2_24 categorical transport identities."
+      ]
+    },
+    {
+      "heading": "Rank six: a combined verification campaign",
+      "paragraphs": [
+        "The complete initial process checked all 25,362 exclusion certificates: 25,355 passed and seven failed. Each of those seven then passed the complete unchanged checker under SymPy's Python backend. Exact matrix comparison attributes the failures to equation ordering or orientation and positional separating-vector conventions; no proof inequality or certificate was relaxed.",
+        "Both post-loop checks skipped by the initial failure gate passed separately. The model registry gives 57 matches, and the multiplicity-one partition gives 39 = 18 + 21. A hash-bound aggregate validates complete certificate coverage and 299 source/input bindings.",
+        "This is a combined campaign, not a successful single full run or an all-Python full-census pass. The initial process exited with failure, and that status is preserved in the evidence. Its loaded backend/version was not measured at startup; the global python-flint installation changed from 0.8.0 to 0.9.0 during the run, so worker and child processes may have loaded different versions.",
+        "The complete-replay orchestrator has passed identity and rejection-control checks but has not itself been executed end to end. Its existence must not be reported as an additional full-census success."
+      ]
+    }
+  ],
+  "replay_program": "tools/verify_current_publication.py",
+  "replay_note": "Add --historical to run the complete source-bound certificate chain on isolated inputs. Checkers using assert require normal Python; an optimized invocation alone removes those assertions. The current-publication verifier also checks the identity and consistency of the published documents and their website copies.",
+  "interpretation": [
+    {
+      "term": "Source identity",
+      "meaning": "A checksum binds a statement or calculation to specified bytes. It cannot establish that their mathematics is correct."
+    },
+    {
+      "term": "Exact replay",
+      "meaning": "A program verifies its implemented finite equations, enumerations or tensor comparisons. Its mathematical assumptions remain part of the proof obligation."
+    },
+    {
+      "term": "Categorical argument",
+      "meaning": "A claimed construction or obstruction must prove the hypotheses connecting the finite calculation to a fusion category. An unproved transport identity is not supplied by an arithmetic PASS."
+    },
+    {
+      "term": "Independent review",
+      "meaning": "Separate AI review passes are not independent human verification. No human verification or Lean formalization is claimed here."
+    }
+  ]
 }

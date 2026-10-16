@@ -1,24 +1,33 @@
 # Rank-7 Grothendieck rings through multiplicity 4
 
-The complete source census is pinned at `b86eb6dc6eeeafe5fc5f6906d7b074e0322e9726`. Current categorification decisions are in `output/rank7_ledger.json`.
+> **AI-generated research · independent verification pending.** Treat these
+> results, proofs, code and data with caution. They have not yet been
+> independently verified by human experts or formalized in Lean. Automated
+> checks establish only their stated computational scope.
 
-| Exact multiplicity | Fusion rings | Generally excluded | Unitarily realized | Generally unresolved |
+The authoritative decision ledger is [`output/rank7_ledger.json`](output/rank7_ledger.json). Classification is complete through multiplicity 4.
+
+| Exact multiplicity | Rings | General exclusions | Unitary models | Open |
 |---:|---:|---:|---:|---:|
 | 1 | 43 | 30 | 13 | 0 |
 | 2 | 319 | 309 | 10 | 0 |
-| 3 | 1,059 | 1,054 | 2 | 3 |
-| 4 | 2,780 | 2,771 | 2 | 7 |
-| Total | 4,201 | 4,164 | 27 | 10 |
+| 3 | 1,059 | 1,057 | 2 | 0 |
+| 4 | 2,780 | 2,776 | 4 | 0 |
+| **Total** | **4,201** | **4,172** | **29** | **0** |
 
-The [16 October theoretical update](../../evidence/theoretical_20261016/README.md) records the new general exclusions, exact source applications, and the complete remaining-case register. Positive counts in incomplete bands are lower bounds. Scoped pivotal or spherical obstructions do not decide arbitrary complex categorifiability.
-
-Current manuscript: [source](../../manuscripts/rank7/papers/manuscript.tex) and [PDF](../../manuscripts/rank7/papers/manuscript.pdf). The older archive and its paper copies retain the October 2 historical snapshot; use the dated theoretical update together with that archive, or the current repository, for the new results.
+[Manuscript source](../../manuscripts/rank7/papers/manuscript.tex) · [PDF](../../manuscripts/rank7/papers/manuscript.pdf) · [Research status](../../docs/RESEARCH_STATUS.md)
 
 From the repository root:
 
 ```bash
-python3 tools/verify_theoretical_20261016.py
-python3 -O tools/verify_theoretical_20261016.py --historical
+python3 tools/restore_data.py
+python3 tools/verify_current_publication.py --historical
+python3 -O tools/verify_current_publication.py --historical
 ```
 
-The second command restores historical ledgers in a temporary copy before replaying the frozen parent proofs. No timeout or unrefuted necessary-condition branch is an exclusion. See [verification instructions](../../docs/VERIFY.md).
+The history option checks source-bound dependencies in isolated compatible
+snapshots. These continuation checks do not replace the complete base-certificate
+loops in the [full replay guide](../../evidence/prepublication_20261017/FULL_REPLAY.md).
+Use normal Python for assertion-based checkers. Positive counts in an incomplete
+band are lower bounds; a timeout or surviving necessary system proves no exclusion.
+See [verification scope](../../docs/PREPUBLICATION_REVIEW.md).

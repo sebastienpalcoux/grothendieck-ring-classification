@@ -1,262 +1,490 @@
 #!/usr/bin/env python3
-"""Render publication indexes from the frozen rank-six identity and upper-rank ledgers."""
-import argparse,json,re
+"""Render current publication guides from authoritative classification ledgers."""
+import argparse
+import json
 from pathlib import Path
-from rank6_publication import (validate_identity,archive_url,completed_bands,
-                              progress_table,validate_document_revision)
-from publication_stages import load_stages,overview,replay_commands
-ROOT=Path(__file__).resolve().parents[1]
-def section(text,start,end,replacement):
-    a=text.index(start);b=text.index(end,a);return text[:a]+replacement+text[b:]
-def render(repo,i):
-    validate_identity(i);out={};a=i['archive'];s=i['summary'];bands=completed_bands(i);bound=len(i['counts']);total=sum(r[0] for r in i['counts']);read=lambda n:(repo/n).read_text()
-    revision=validate_document_revision(i,repo)
-    revision_note=('The unified October 16 revision adds the fermion Azumaya linking identity\nand checks it against the rank-22 R6_4_155 witness. It also derives the forced\nthird indicator nu_3(T)=2 for R6_8_1660 from its two saturated modular summands.\nAn exact half-integral Verlinde coefficient rejects its historical rank-37 witness,\nwhile leaving other profiles open. Both categorification questions remain unresolved. The current manuscript\nsources and PDFs are bound by the [document revision](../evidence/unified_20261016/rank6/document_revision.json),\nwhose [research record](../evidence/unified_20261016/rank6/research_progress.json)\nretains the hash-checked chain to earlier records. The frozen supplement,\narchive identity and classification counts are unchanged.\n' if revision is not None else '')
-    status=json.loads(read('data/classification_status.json'))
-    upper={r:status['inputs'][f'rank{r}']for r in (7,8)}
-    rows_by_band={(r['rank'],r['multiplicity']):r for r in status['rows']}
-    complete7=next((m-1 for m in range(1,5) if rows_by_band[(7,m)]['unresolved_general'] or rows_by_band[(7,m)]['unassessed']),4)
-    complete8=next((m-1 for m in range(1,3) if rows_by_band[(8,m)]['unresolved_general'] or rows_by_band[(8,m)]['unassessed']),2)
-    stage=load_stages(repo,status)
-    latest=stage['decisions'];latest_models=stage['models'];latest_exclusions=stage['exclusions']
-    bundles={b['name']:b['sha256']for b in status['bundles']}
-    rank5_package=json.loads(read('evidence/prepublication_20261017/rank5/package.json'))
-    text=read('docs/PROVENANCE.md')
-    text=re.sub(r'\[`[0-9a-f]{40}`\]\(https://github.com/sebastienpalcoux/fusion-ring-census/tree/[0-9a-f]{40}\)',f"[`{i['census_commit']}`](https://github.com/sebastienpalcoux/fusion-ring-census/tree/{i['census_commit']})",text,count=1)
-    if 'The updated rank-six source ' in text:
-        text=section(text,'The updated rank-six source ','The current rank-six release is','')
-    text=section(text,'The current rank-six release is','The verified rank-seven release through',f'''The current rank-six release is `{a['name']}` (SHA-256
-`{a['sha256']}`). The [complete archive]({archive_url(i)}) contains
-{a['files']:,} files and the pinned census, proof certificates and exact constructors.
-The partition is **{s['excluded']:,} excluded, {s['positive']} realized and {s['unresolved']} unresolved**.
-There are 56 unitary models and one spherical model with no pseudo-unitary
-categorification. All 8,809 rings of exact multiplicity nine are generally excluded.
-The final eleven cases have portable proof bundles and exact completion replays
-in normal and optimized Python. Only the two earlier frontier rings remain open.
-The release identity binds the completion certificates, both replay reports,
-every completion proof file, and the manuscript and verification-guide sources and PDFs.
+from rank6_publication import validate_identity, completed_bands, validate_document_revision
+from publication_stages import load_stages, overview
 
-The current ledger is `supplements/rank6/data/decisions.json`, SHA-256
-`{i['ledger_sha256']}`. The unchanged earlier negative proofs retain their
-original exact verification evidence; this release does not claim a fresh
-replay of every earlier proof. See [verification instructions](VERIFY.md).
+ROOT = Path(__file__).resolve().parents[1]
+CAUTION = '''> **AI-generated research · independent verification pending.** Treat these
+> results, proofs, code and data with caution. They have not yet been
+> independently verified by human experts or formalized in Lean. Automated
+> checks establish only their stated computational scope.
+'''
+FRONTIER = '''| Open ring | Established necessary restrictions | Remaining question |
+|---|---|---|
+| `R6_4_155` | A unique rank-26 semion-centralizer modular candidate; a rank-22 based module satisfies the fermion Azumaya linking identities. | Coherent associators and module-category structures, or a general obstruction. |
+| `R6_8_1660` | One relative-center based ring, three possible Morita-dual rings and a bounded center-profile domain; saturated traces force `nu_3(T)=2`. | A categorification or an obstruction covering every possible profile. |
+| `R8_2_24` | A rank-four neutral component and a required tensor autoequivalence whose square is the indicated inner action. | A general categorical obstruction or construction; the mixed transport identities in the proposed local approach are unproved. |
+'''
 
-{progress_table(i,repo)}
+def case_inventory(repo):
+    # Render every case with current proof sources.
+    all_cases=json.loads((repo/'evidence/review_20261017/all_cases.json').read_text())
+    decisions=json.loads((repo/'evidence/review_20261017/decisions.json').read_text())
+    accepted={d['id']:d for d in decisions}
+    open_ids={'R6_4_155','R6_8_1660','R8_2_24'}
+    if len(all_cases)!=38 or len({x['id'] for x in all_cases})!=38:
+        raise ValueError('Expected exactly 38 distinct case IDs')
+    if len(accepted)!=35 or {x['id'] for x in all_cases} != set(accepted)|open_ids:
+        raise ValueError('The current case inventory differs from the decision ledger')
+    if sum(d['status']=='excluded' for d in decisions)!=28 or sum(d['status']=='unitarily_realized' for d in decisions)!=7:
+        raise ValueError('Expected 28 general exclusions and seven unitary constructions')
+    if any(d['scope']!='general_complex' for d in decisions):
+        raise ValueError('Unexpected scope in accepted case inventory')
+    # Entries identify the integrated manuscript and its stable LaTeX label.
+    references={
+      'quadratic_center_Galois_two_moment':('Galois symmetry and two center moments','rank7/papers/quadratic_center_trace.tex','thm:quadratic-center-trace'),
+      'simple_center_prime_power_lattice':('Simple-center induction lattice','rank7/papers/r601_center_lattice.tex','thm:r601-center-lattice'),
+      'inverse_V4_Morita_near_group':('Inverse V4 Morita reduction to a near-group obstruction','rank7/papers/inverse_v4_morita.tex','thm:r1022-general'),
+      'C4_squared_orbifold_inversion_Morita':('Inversion orbifold and reflection Morita dual, from NG(C4 × C4,16)','rank7/papers/inversion_orbifold_model.tex','thm:inversion-v4'),
+      'dihedral_Morita_R18_obstruction':('Dihedral Morita reduction to the R8_1_18 obstruction','rank7/papers/r2053_r18_reduction.tex','thm:r2053-final'),
+      'twisted_v4_staged_morita_obstruction':('Twisted V4 Morita obstruction','rank7/papers/r2591_staged_morita.tex','thm:r2591-staged-morita'),
+      'quadratic_center_reciprocity_two_moment':('Reciprocity and two center moments','rank7/papers/r2603_center_moments.tex','thm:r2603-center-moments'),
+      'C16_orbifold_inversion_Morita':('Inversion orbifold and reflection Morita dual, from NG(C16,16)','rank7/papers/inversion_orbifold_model.tex','thm:inversion-orbifold'),
+      'cyclic_induction_phase_multiplicity':('Cyclic induction phase multiplicities','rank8/paper/r9_pointed_class2.tex','thm:r9-center-trace'),
+      'cyclic_induction_STS_fourth_moment':('Modular STS identity and a fourth-moment projection','rank8/paper/r18_center_trace.tex','thm:r18-sts-moments'),
+      'pivotal_parity_inverse_morita':('Frobenius–Schur parity and inverse Morita reduction','rank8/paper/unified_20261016.tex','prop:r49-fs-morita'),
+      'quadratic_prime_indicator_balance':('Conductor-seventeen indicator balance','rank8/paper/q17_indicator_balance.tex','thm:q17-five-exclusions'),
+      'nonsplit_2D2_extension':('Nonsplit C2 extension of the unitary 2D2 category','rank8/paper/unified_20261016.tex','prop:r37-model'),
+      'algebraic_2D2_planar_algebra':('Algebraic rigidity of the 2D2 module graph','rank8/paper/unified_20261016.tex','prop:2d2-four-general'),
+      'odd_involution_morita_near_group':('Odd-involution Morita reduction to a near-group obstruction','rank8/paper/unified_20261016.tex','prop:r170-morita'),
+      'Fibonacci_character_parity':('Fibonacci character parity','rank8/paper/unified_20261016.tex','thm:fib-character-parity'),
+      'twisted_half_braiding_support':('Pointed support of a twisted half-braiding','rank8/paper/unified_20261016.tex','prop:twisted-two'),
+      'PSU3_inverse_Morita_rigidity':('Quantum-group inverse-Morita rigidity','rank8/paper/unified_20261016.tex','prop:r342-morita'),
+      'HI_C6_Q_system_dual':('Dual of the Q-system 1+rho in a unitary HI(C6) category','rank8/paper/unified_20261016.tex','prop:r535-model'),
+      'quadratic_conductor_Galois_indicator':('Third-indicator triangle obstruction at conductor forty','rank8/paper/q630_weighted_indicator.tex','thm:q630-exclusion'),
+      'C4_near_group_pointed_centralizer':('Pointed centralizer in the center of NG(C4,4)','rank8/paper/unified_20261016.tex','prop:c4-centralizer'),
+      'quadratic_conductor40_center_trace':('Conductor-forty center trace obstruction','rank8/paper/r671_center_trace.tex','thm:r671-center-trace'),
+      'C5_near_group_center_factor':('Nonpointed center factor of NG(C5,5)','rank8/paper/unified_20261016.tex','prop:near-group-centralizers'),
+    }
+    open_references={
+      'R6_4_155':('The modular candidate and based-module linking identities do not supply coherent center or module associators.','rank6/papers/chapters/frontier_155_modular.tex','sec:155-complete-modular'),
+      'R6_8_1660':('Center-profile and Morita restrictions leave possible profiles; a complete associator construction or general obstruction is missing.','rank6/papers/chapters/frontier_1660.tex','subsec:frontier-1660'),
+      'R8_2_24':('General categorification is open. A unitary exclusion is recorded, but the inner-square transport identities needed by the proposed general approach are unproved.','rank8/paper/r24_inner_square.tex','sec:r24-open'),
+    }
+    def proof_link(path,label):
+        source=repo/'manuscripts'/path
+        if not source.is_file() or ('\\label{'+label+'}') not in source.read_text():
+            raise ValueError('Missing current manuscript reference: '+path+' '+label)
+        return f'[Source](../manuscripts/{path}) (`{label}`)'
+    text='# Current inventory of 38 cases\n\n'+CAUTION+'''
+**35 accepted decisions: 28 proposed general exclusions and seven unitary
+constructions. Three general questions remain open.** This inventory covers
+these 38 cases; it is not a count of every ring in the full census.
 
-{revision_note}
+A general exclusion concerns arbitrary complex fusion categories, without an
+initial pivotality, sphericality or unitarity assumption. A unitary construction
+establishes at least one realization, not uniqueness or unitarity of every
+realization. Necessary-condition witnesses do not settle a general question.
+All accepted arguments remain subject to independent mathematical verification.
 
-''')
-    lines=text.splitlines()
-    for n,line in enumerate(lines):
-        if line.startswith('| 5 | `') and 'results/rank5/' not in line:
-            totals5=status['inputs']['rank5']['status_totals']
-            lines[n]=f"| 5 | `{rank5_package['fresh_ledger_sha256']}` (reconstructed; [public replay package](../evidence/prepublication_20261017/rank5/package.json)) | {sum(totals5.values()):,} | {totals5['excluded']:,} excluded; {totals5['realized']} realized; {totals5.get('unresolved',0)} unresolved |"
-        elif line.startswith('| 6 | `results/rank6/'):
-            lines[n]=f'| 6 | `results/rank6/tables.txt.gz` | {bound} | `supplements/rank6/data/decisions.json` | Complete through 3; exact bands {bands}; {s["unresolved"]} unresolved through {bound} |'
-        elif line.startswith('| 6 | `') and 'results/rank6/' not in line:
-            lines[n]=f"| 6 | `{i['ledger_sha256']}` | {total:,} | {s['excluded']:,} excluded; 56 unitary; 1 spherical non-pseudo-unitary; {s['unresolved']} unresolved |"
-    text='\n'.join(lines)+'\n'
-    text=section(text,'The verified rank-seven release through','\n| Rank | Census source',f'''The verified rank-seven release through
-multiplicity four has SHA-256 `{bundles['rank7-certified-through-m4.zip']}`.
-The current rank-seven classification is complete through multiplicity {complete7},
-with thirteen realized rings at multiplicity one. The rank-eight
-release through multiplicity two has SHA-256
-`{bundles['rank8-verified-supplement.zip']}`.
-{overview(stage,'../')}
-These proofs supplement the earlier
-[46-decision stage](../evidence/residual_20261002/README.md).
-The current general frontier has {upper[7]['status_totals']['unresolved']}
-rank-seven and {upper[8]['status_totals']['unresolved']} rank-eight rings.
-Automated replays check the recorded positive tensors and finite negative-certificate hypotheses;
-the categorical reductions still require independent human review.
-Earlier unaffected records retain their exact preservation evidence.
-Scope-specific obstructions do not change the general partition.
-The [AnyonWiki evidence](../evidence/anyonwiki/README.md) retains the exact
-associator and full-tensor checks supporting earlier positive constructions.
-''')
-    lines=text.splitlines()
-    for n,line in enumerate(lines):
-        for rank in (7,8):
-            totals=upper[rank]['status_totals']
-            if line.startswith(f'| {rank} | `results/rank{rank}/'):
-                completed=complete7 if rank==7 else complete8
-                scope=f'Complete through multiplicity {completed}'
-                if completed < upper[rank]['classified_through']:scope+='; higher analyzed bands partial'
-                ledger=upper[rank]['file']
-                lines[n]=f'| {rank} | `results/rank{rank}/tables.txt.gz` | {upper[rank]["classified_through"]} | `{ledger}` | {scope}; {totals["unresolved"]} unresolved |'
-            elif line.startswith(f'| {rank} | `'):
-                count=sum(totals.values())
-                lines[n]=f'| {rank} | `{upper[rank]["sha256"]}` | {count:,} | {totals["excluded"]:,} excluded; {totals["unitarily_realized"]} unitary models; {totals["unresolved"]} unresolved |'
-    text='\n'.join(lines)+'\n'
-    text=section(text,'* Rank six:','\nThe crosswalk scripts',f'''* Rank six: [`rank6_crosswalk.json`](../data/rank6_crosswalk.json) compares
-  all {total:,} full tensor lines through multiplicity {bound} with the pinned
-  source export, and verifies identical compressed-file checksums. The import
-  separately checks every tensor against all 120 unit-fixing basis permutations
-  and preserves all 16,612 earlier representatives and identifiers.
-''')
-    out['docs/PROVENANCE.md']=text
-    text=read('docs/VERIFY.md');text=re.sub(r'Rank6_Categorification_M[0-9]+_(?:Revised_[0-9-]+_v\d+|(?:Complete|Frontier)_[0-9-]+)\.zip',a['name'],text)
-    text=re.sub(r'git -C fusion-ring-census checkout [0-9a-f]{40}',f"git -C fusion-ring-census checkout {i['census_commit']}",text)
-    text=text.replace('rank-six decisions use the updated M8 ZIP.','rank-six decisions use the current M9 ZIP.')
-    text=re.sub(r'The incremental exporter verifies all [0-9,]+ distinct records',f'The incremental exporter verifies all {total:,} distinct records',text)
-    text=section(text,'The exporter records source checksums','Rank seven has ',f'''The exporter records source checksums and verifies cardinalities against
-every census band. The released rows have no unassessed bands. Rank five is
-complete through multiplicity 20. Rank six is complete through multiplicity
-three, with exact completed bands {bands} and {s['unresolved']} cases through
-multiplicity {bound} generally unresolved. Isolated completed bands do not
-complete intervening unresolved bands.
-''')
-    text=section(text,'Rank seven has ','\nTo refresh only rank six',f'''Rank seven has {upper[7]['status_totals']['unresolved']} open cases through
-multiplicity four, and rank eight has {upper[8]['status_totals']['unresolved']} through multiplicity two.
-These are general categorification questions. Separate unitary-only obstructions
-never change the general partition.
-''')
-    text=section(text,'The incremental exporter verifies all ','\n## Rank-six continuation evidence',f'''The incremental exporter verifies all {total:,} distinct records and each pinned
-census-band total before replacing rank-six rows. Its input hash and current
-bundle are explicit in `data/classification_status.json`. Other ranks' rows
-and provenance are preserved. `validate_release.py` compares all {bound}
-rank-six bands with the authoritative ledger, checks the
-{s['excluded']:,}/{s['positive']}/{s['unresolved']} excluded/realized/unresolved
-partition, every completed band and the release summary. These export checks
-are separate from mathematical certificate replay.
-''')
-    text=section(text,'contains all ','\n## Rebuild from the pinned census',f"contains all {a['files']:,} current release files. It is restored at\n`site/dist/downloads/{a['name']}`.\n")
-    text=section(text,'## Rank-six continuation evidence','\n## Tensor crosswalks','''## Rank-six continuation evidence
+Read the [rank-six manuscript](../manuscripts/rank6/papers/manuscript.pdf),
+[rank-seven manuscript](../manuscripts/rank7/papers/manuscript.pdf) and
+[rank-eight manuscript](../manuscripts/rank8/paper/rank8.pdf).
+The source links below identify the current integrated proof or open-case
+section; the stable LaTeX label locates the exact statement in that source.
 
-**The new complete-replay orchestrator has not been executed end to end.**
-Its read-only identity checks and rejection controls have been tested. No
-all-Python full-replay pass is claimed. The [backend packet](../evidence/prepublication_20261017/rank6_backend/README.md)
-records the actual combined audit: the original complete receipt stream,
-strict Python replays of every failed complete certificate, separate original
-post-loop checks, and aggregate coverage validation. The original process's
-failed status remains preserved. Its loaded backend/version was not measured
-at startup. The global python-flint installation changed from 0.8.0 to 0.9.0
-during the run, so workers and later child processes may have loaded different
-versions. The new wrapper records actual per-process observations explicitly.
+## Three open cases
 
-For the complete two-backend route, use a fresh restored checkout with no
-pre-existing native binaries beside the rank-six C++ sources. From its
-repository root, install the pinned requirements in an isolated environment:
+| Case | Current status and remaining task | Current manuscript section |
+|---|---|---|
+'''
+    for rid in sorted(open_ids):
+        note,path,label=open_references[rid]
+        text+=f'| `{rid}` | **Open.** {note} | {proof_link(path,label)} |\n'
+    for rank in (7,8):
+        cases=[x for x in all_cases if x['rank']==rank and x['id'] in accepted]
+        text+=f'\n## Rank {rank}: accepted decisions\n\n| Case | Scope of decision | Argument or construction | Current proof |\n|---|---|---|---|\n'
+        for case in cases:
+            d=accepted[case['id']]
+            method,path,label=references[d['criterion']]
+            if case['id']=='R8_2_820':method+='; auxiliary group C3 × C3'
+            if case['id']=='R8_2_869':method+='; auxiliary group C9'
+            status='General exclusion' if d['status']=='excluded' else 'Unitary construction'
+            text+=f"| `{d['id']}` | {status} | {method} | {proof_link(path,label)} |\n"
+    text+='''
+## Classification boundary and checks
+
+Through multiplicity nine, rank six has 25,362 exclusions, 57 realizations and
+two open cases. Rank seven is complete through multiplicity four with 4,172
+exclusions and 29 models. Rank eight is complete through multiplicity one and
+partial at multiplicity two: 895 exclusions, 77 models and one open case in total.
+
+Run the current aggregate replay from the repository root:
 
 ```bash
 python3 tools/restore_data.py
+python3 tools/verify_current_publication.py --historical
+python3 -O tools/verify_current_publication.py --historical
+```
+
+These checks validate the accepted inventory and its source-bound computational
+dependencies. They do not replace the full base-certificate replays or prove
+categorical coherence. See [verification scope](PREPUBLICATION_REVIEW.md),
+[complete replay instructions](VERIFY.md) and [source provenance](PROVENANCE.md).
+'''
+    return text
+
+def section(text,start,end,replacement):
+    a=text.index(start);b=text.index(end,a)
+    return text[:a]+replacement+text[b:]
+
+def render(repo, identity):
+    validate_identity(identity)
+    validate_document_revision(identity, repo)
+    status=json.loads((repo/'data/classification_status.json').read_text())
+    stage=load_stages(repo,status)
+    s=identity['summary']; bands=completed_bands(identity)
+    rows={(r['rank'],r['multiplicity']):r for r in status['rows']}
+    upper={r:status['inputs'][f'rank{r}'] for r in (7,8)}
+    rank5=json.loads((repo/'evidence/prepublication_20261017/rank5/package.json').read_text())
+    def totals(r):return upper[r]['status_totals']
+    def bound(r):return upper[r]['classified_through']
+    def complete(r):return next((m-1 for m in range(1,bound(r)+1) if rows[r,m]['unresolved_general'] or rows[r,m]['unassessed']),bound(r))
+    out={"docs/CASE_INVENTORY.md":case_inventory(repo)}
+    out['docs/RESEARCH_STATUS.md']='# Research status and verification\n\n'+CAUTION+'''
+The [public atlas](https://sebastienpalcoux.github.io/grothendieck-ring-classification/)
+connects the current manuscripts, fusion rules, classification tables and
+reproducible evidence. Publication makes the material accessible; it does not
+confer mathematical validation.
+
+## Current classification
+
+'''+overview(stage,'../')+'''
+
+[All 38 cases and current proof references](CASE_INVENTORY.md).
+'''+f'''
+Rank six records **{s['excluded']:,} exclusions, {s['positive']} realizations and
+{s['unresolved']} open cases** through multiplicity nine. Its complete contiguous
+range ends at three; exact bands {bands} are complete. Rank seven records
+**{totals(7)['excluded']:,} exclusions and {totals(7)['unitarily_realized']} realizations**,
+with no open case through multiplicity four. Rank eight records
+**{totals(8)['excluded']} exclusions, {totals(8)['unitarily_realized']} realizations and
+one open case** through multiplicity two: multiplicity one is complete and
+multiplicity two is partial.
+
+'''+FRONTIER+'''
+A necessary-condition witness is neither a categorification nor a general
+nonexistence proof. Scoped unitary, pseudo-unitary, pivotal or braided
+obstructions retain their assumptions and do not change a general open status.
+
+## Reading the labels
+
+| Label | Meaning within this project |
+|---|---|
+| **Realized** | A categorical construction is recorded, subject to mathematical review. |
+| **Excluded** | An obstruction is recorded under its stated assumptions. |
+| **Complete** | Each ring in the specified band has a recorded realization or general exclusion. |
+| **Unresolved** | Neither a general exclusion nor a categorification is established. |
+| **Certified**, **verified**, **PASS** | The stated program checks passed; read their scope and hypotheses. |
+
+Reports described as independent audits are separate AI review passes unless
+an explicitly identified human review says otherwise. They are not independent
+human verification. Hashes establish source identity; they do not prove the
+mathematics. Successful computation does not validate the categorical reduction
+making that computation relevant.
+
+Read the [verification scope](PREPUBLICATION_REVIEW.md), [replay guide](VERIFY.md)
+and [provenance](PROVENANCE.md) together with the
+[manuscripts](../manuscripts/README.md). A [repository issue](https://github.com/sebastienpalcoux/grothendieck-ring-classification/issues)
+identifying the ring, theorem and exact failing step makes a reported gap actionable.
+'''
+    out['docs/PREPUBLICATION_REVIEW.md']='# Mathematical review and verification scope\n\n'+CAUTION+'''
+The current manuscripts give one account of the classification and its open
+questions. This guide states what the supporting review and computations
+establish, and where mathematical verification is still needed.
+
+## Mathematical scope
+
+'''+overview(stage,'../')+'\n\n'+FRONTIER+'''
+For `R8_2_24`, an eight-slot local calculation is conditional on mixed
+categorical transport identities. Verifying its algebra does not prove those
+identities. In particular, the incoming left-bend uses the complementary index;
+a diagonal condition alone does not establish decorated-phase cancellation.
+No general exclusion is counted for this case.
+
+The review examines general versus pivotal or pseudo-unitary scope, cited
+hypotheses, sphericalization and Galois reductions, Morita constructions,
+indicator constraints and root-order completeness. Further expert review
+should especially examine coherence of inverse-Morita constructions, the
+algebraic 2D2 arguments and the conductor-equality reductions. An AI review
+cannot certify that every mathematical step is correct.
+
+## Computational coverage
+
+| Check | Executed scope | Result and limit |
+|---|---|---|
+| Rank three | Bounded near-group enumeration, `b<50` | Five reduced tuples; categorical proof reviewed separately. |
+| Rank four | Two complete 889,530-ring replays, each regenerating 6,470,006 signed orbits; separate unsigned recount | Passed: 15 models and 889,515 exclusions. |
+| Rank five | All 40,999 classes, 17 models and 40,982 exclusion certificates in normal and optimized Python | Passed; complete reconstructed ledgers are byte-identical. |
+| Rank six | Model/import pipeline and all 25,362 exclusion certificates, followed by the two post-loop checks | Combined coverage passed; the initial full process failed on seven certificates, each of which passed a separate complete Python-backend replay. |
+| Rank seven base certificates | 4,201 records: 4,116 exclusions, 26 models and 59 cases deferred to continuation proofs | Passed in normal Python. |
+| Rank eight base certificates | 973 records: 832 exclusions, 60 models and 81 cases deferred to continuation proofs | Passed in normal Python, including signed proof trees. |
+| Continuation chain and current inventory | Source identities, accepted decisions and dependency replays in normal and optimized Python | Passed within each program's stated scope; does not prove categorical coherence. |
+
+The [full replay guide](../evidence/prepublication_20261017/FULL_REPLAY.md),
+[coverage audit](../evidence/prepublication_20261017/reviews/verification_coverage.md)
+and [current inventory receipts](../evidence/prepublication_20261017/current_history/receipt.json)
+identify the exact inputs and executed programs. Continuation checks supplement
+the base loops; they do not rerun every base certificate. An optimized run alone
+cannot check assertions removed by Python's `-O` option.
+
+## Rank-six environment and coverage
+
+The [complete packet](../evidence/prepublication_20261017/rank6_backend/README.md)
+records **25,355 initial passes plus seven complete Python-backend passes**,
+exactly covering 25,362 distinct certificates. It also records the separately
+executed post-loop counts and model registry and binds 299 source/input files.
+This was a **combined verification campaign, not a successful single full run**.
+
+The affected Galois-balance systems order some algebraic tuples by their string
+representations. SymPy's Python and Flint backends can reorder or reverse these
+equations, invalidating a positional Farkas vector for the other ordering.
+Exact matrix comparisons establish equivalence; complete retries use the
+unchanged checker with `SYMPY_GROUND_TYPES=python` set before importing SymPy.
+The initial failed status and receipts remain in the packet. No inequality is
+relaxed and a failed check is not counted as a pass.
+
+The initial process did not record its loaded backend/version. The installed
+Flint version changed from 0.8.0 to 0.9.0 during execution; no uniform measured
+runtime is claimed. The portable complete-replay orchestrator has **not itself
+been executed end to end**. Its identity, coverage and rejection controls were
+tested. No all-Python full-census pass is claimed.
+
+## Public reproducibility
+
+The [rank-four replay](../supplements/rank4/PUBLIC_REPLAY.md) uses checksummed
+public certificate parts. The [rank-five package](../evidence/prepublication_20261017/rank5/README.md)
+reconstructs every class from recovered proof sources and pinned tensors;
+the unavailable archive's ledger is not represented as recovered. Normal and
+optimized replays independently produce the recorded reconstructed digest.
+No private attachment is required for either public replay.
+
+[Verification instructions](VERIFY.md) give executable commands.
+[Provenance](PROVENANCE.md) records the exact ledger and archive identities.
+'''
+    ledger_rows=[('4','969a2a5a84b794a3da1d9cd3978f92324d631760f503f5d208011923a723920f','889,530','889,515 excluded; 15 realized'),('5',rank5['fresh_ledger_sha256'],'40,999','40,982 excluded; 17 realized'),('6',identity['ledger_sha256'],'25,421',f"{s['excluded']:,} excluded; {s['positive']} realized; {s['unresolved']} open")]
+    ledger_rows += [(str(r),upper[r]['sha256'],f"{sum(totals(r).values()):,}",f"{totals(r)['excluded']:,} excluded; {totals(r)['unitarily_realized']} realized; {totals(r)['unresolved']} open") for r in (7,8)]
+    out['docs/PROVENANCE.md']='# Provenance and boundaries\n\n'+CAUTION+f'''
+The [fusion-ring-census repository](https://github.com/sebastienpalcoux/fusion-ring-census)
+owns the based-ring enumeration and tensors. The classification import is pinned
+to [`{identity['census_commit']}`](https://github.com/sebastienpalcoux/fusion-ring-census/tree/{identity['census_commit']}).
+Rank-specific source manifests identify the exact census revision used by each
+certificate. Classification decisions are separate from census completeness.
+
+## Current scope
+
+| Rank | Census range | General classification |
+|---:|---|---|
+| 2 | Symbolic, all multiplicities | Two realized rings, both at multiplicity one. |
+| 3 | Export through 1,000 | Unrestricted five-ring theorem. |
+| 4 | Through 128 | Complete: 15 models and 889,515 exclusions. |
+| 5 | Through 20 | Complete: 17 models and 40,982 exclusions. |
+| 6 | Through 9 | Complete through 3 and exact bands {bands}; two open cases. |
+| 7 | Through 4 | Complete: 29 models and 4,172 exclusions. |
+| 8 | Through 2 | Complete through 1; multiplicity 2 partial: 77 models, 895 exclusions, one open case in total. |
+
+'''+overview(stage,'../')+'''
+
+The [current document manifest](../data/current_document_revision.json) binds
+the manuscript sources, PDFs and web copies. The
+[classification status](../data/classification_status.json) binds the decision
+ledgers and records every exact-multiplicity partition.
+
+## Ledger identity
+
+| Rank | Ledger SHA-256 | Records | Partition |
+|---:|---|---:|---|
+'''+''.join(f'| {r} | `{h}` | {n} | {v} |\n' for r,h,n,v in ledger_rows)+f'''
+Rank-six realizations comprise 56 unitary models and one spherical model whose
+ring has no pseudo-unitary categorification. The rank-four certificate contains
+one header and 889,530 decision records. Missing classification coverage is
+recorded as `unassessed`, never inferred to be an exclusion.
+
+The rank-five ledger is reconstructed; its [package manifest](../evidence/prepublication_20261017/rank5/package.json)
+binds the exact public inputs. Its archive digest is `{rank5['sha256']}`.
+The separately retained digest `{rank5['historical_ledger_reference_sha256']}`
+identifies an unavailable source ledger and is not a claim to possess those bytes.
+
+## Archive and source bindings
+
+The rank-six source archive `{identity['archive']['name']}` has SHA-256
+`{identity['archive']['sha256']}` and {identity['archive']['files']:,} files.
+Its source-bound certificates and replay receipts are identifiable independently
+of the current manuscript manifest. The [current research download](https://sebastienpalcoux.github.io/grothendieck-ring-classification/downloads/review-update-2026-10-17.zip)
+collects the integrated manuscripts and supporting evidence.
+
+The rank-four compressed certificate is 75,825,461 bytes with SHA-256
+`969a2a5a84b794a3da1d9cd3978f92324d631760f503f5d208011923a723920f`;
+its [public parts manifest](../supplements/rank4/certificates/manifest.json)
+is checked during restoration. The 610-file computational source manifest has
+SHA-256 `aea53af376ee1622554e969a3d178b0c42124abd8da3eadc08d62cc5ee5cd851`.
+Hashes identify sources and do not certify their mathematics.
+
+## Tensor crosswalks
+
+The [rank-five crosswalk](../data/rank5_crosswalk.json) compares all 28,493
+inputs at multiplicities 1–18 under all 24 unit-fixing basis permutations.
+The two sets of canonical representatives agree at every multiplicity.
+Labels may differ, so certificate transport requires the recorded based-ring
+isomorphism. At multiplicities 19–20 the extension verifies 12,506 tensors
+in the pinned source order. Its [report](../supplements/rank5/verification/extension19_20_verification.json)
+binds tensor source SHA-256 `4542c0871498337ef38ce3903407933289699a5ff06c85ad0f6c2bd57da823fb`.
+
+The [rank-six crosswalk](../data/rank6_crosswalk.json) compares all 25,421 full
+tensor lines through multiplicity nine and identical compressed-file hashes.
+The import additionally checks all 120 unit-fixing basis permutations and
+retains 16,612 established representatives and identifiers.
+
+For the exact scope of full-certificate and continuation checks, see
+[verification coverage](PREPUBLICATION_REVIEW.md) and [replay commands](VERIFY.md).
+The [AnyonWiki packet](../evidence/anyonwiki/README.md) binds the associators
+and tensor identifications used by the positive constructions.
+'''
+    out['docs/VERIFY.md']='# Reproduce the data and mathematical checks\n\n'+CAUTION+'''
+The [coverage report](PREPUBLICATION_REVIEW.md) states which computations were
+actually executed. Program success checks its declared algebraic conditions;
+it does not establish unproved categorical reductions or coherence.
+
+## Restore and validate
+
+From the repository root:
+
+```bash
+python3 tools/restore_data.py
+python3 tools/validate_release.py
+python3 tools/render_publication_docs.py --check
+python3 tools/render_readme.py --check
+```
+
+Restoration needs only Python's standard library, works offline and checks
+SHA-256 for every part and reconstructed file. `--check` verifies existing
+restored files. The validation commands check publication identities, data
+partitions and generated pages; they do not replay all mathematical proofs.
+
+## Complete rank-four and rank-five checks
+
+Rank four requires Python 3.10 or newer and a C++17 `g++` compiler:
+
+```bash
+python3 supplements/rank4/restore_certificate.py
+python3 -m pip install -r supplements/rank4/requirements.txt
+cd supplements/rank4
+python3 verify.py --workers 4
+```
+
+Return to the repository root for the rank-five public replay. Its
+[package guide](../evidence/prepublication_20261017/rank5/README.md) gives the
+pinned Python dependencies and C++17 requirement.
+
+```bash
+python3 evidence/prepublication_20261017/rank5/replay.py --check-package
+python3 evidence/prepublication_20261017/rank5/replay.py --jobs 2
+python3 -O evidence/prepublication_20261017/rank5/replay.py --jobs 2
+```
+
+These are full checks of 889,530 rank-four classes and 40,999 rank-five classes.
+The rank-five ledger is reconstructed and has its own source-bound digest.
+Neither public route requires a private attachment.
+
+## Complete rank-six route
+
+**The portable complete-replay orchestrator has not been executed end to end.**
+Its identity and rejection controls were tested. The executed campaign combines
+25,355 passes in the initial full process with seven complete Python-backend
+retries and two separate post-loop checks. The initial process's failed status
+is preserved. This is not a single successful full run or an all-Python full
+census replay. The [backend packet](../evidence/prepublication_20261017/rank6_backend/README.md)
+records exact coverage, environment observations and matrix comparisons.
+
+Use a fresh restored checkout, with no pre-existing native binaries beside
+the rank-six C++ sources. In an isolated environment, from the repository root:
+
+```bash
 python3 -m pip install -r supplements/rank6/requirements.txt
 python3 evidence/prepublication_20261017/rank6_backend/replay_complete.py \\
   --repo . --output-dir NEW_DIR --jobs 2
 ```
 
-Replace `NEW_DIR` with a new directory outside `supplements/rank6`.
-The wrapper uses normal Python throughout: unchanged full FLINT verification,
-complete Python-backend retries of every failure, then the exact original
-post-loop checks. It rejects incomplete coverage, unexpected failures, missing
-retries and changed inputs. Its combined summary preserves the initial run's
-actual outcome. See the [full replay guide](../evidence/prepublication_20261017/FULL_REPLAY.md#rank-six-combined-replay)
-for environment details, native-cache requirements and verification limits.
+`NEW_DIR` must be a new directory outside `supplements/rank6`. The wrapper runs
+normal Python: complete FLINT verification, complete Python-backend retries
+for every failure, then the original post-loop checks. It rejects incomplete
+coverage, changed inputs and unexpected failures. Read the
+[full replay instructions](../evidence/prepublication_20261017/FULL_REPLAY.md#rank-six-combined-replay)
+for native-cache and environment details. The initial audited process did not
+capture its loaded backend/version; the installed Flint version changed during
+execution, so no uniform measured runtime is claimed.
 
-The following historical component commands address individual continuation
-checks. They do not replace the combined full replay:
-
-```bash
-cd supplements/rank6
-python check_manifest.py
-python -O software/conformal_models.py --verify
-python -O software/release_consistency.py
-python -O software/replay_m9.py --jobs 2
-python -O software/replay_m9_structure.py
-python software/replay_m9_completion.py --output verification/m9/completion/replay_normal.json
-python -O software/replay_m9_completion.py --output verification/m9/completion/replay_optimized.json
-python -O research/exclusions/R6_5_1204/verify_exclusion.py
-python -O software/frontier_replay.py --check-receipts
-python -O software/frontier_replay.py --list
-python research/frontier/new_research/replay.py
-```
-
-The conformal-model command freshly reconstructs the three unitary models.
-The frontier receipt audit checks hashes and completion predicates, not the
-mathematics. To replay a necessary reduction, select one current ring, for
-example `python -O software/frontier_replay.py --select R6_4_155`.
-The dated October 1 research replay checks the completed R6_4_155 modular-data candidate,
-finite indicator tests, and the R6_8_1660 module/Morita and 1,669-profile reductions.
-Its exact scope and receipts are in `research/frontier/new_research/`. The October 2
-[addendum](../evidence/residual_20261002/rank6/research_addendum.pdf) reduces the
-second frontier further to 1,136 profiles and proves a pivotal tensor-quotient
-obstruction. It also excludes braided Morita representatives and nontrivial
-finite-group extensions or equivariantizations in either Morita class. These are
-necessary conditions; both categorification questions remain unresolved.
-Exact probability couplings also prove every Lim Corollary 3.4 inequality on
-both six-element fusion bases, for every real exponent p >= 1 and nonnegative
-input vector. Replay the source-bound certificates with
-`python evidence/rank6_laptop_20261002/all_p_minkowski/verify.py --tensors supplements/rank6/data/unresolved_tensors.json`
-from the repository root.
-Each command has a 15-minute deadline. A timeout establishes no exclusion.
-
-The completion replay checks all eleven final multiplicity-nine exclusions
-against the frozen tensors and portable proof bundles. Its normal and optimized
-reports, input and proof manifests, and negative controls are recorded in
-`verification/m9/completion/`. The release identity hashes these records and
-every file in `research/exclusions/m9_completion/`. All 8,809 rings at exact
-multiplicity nine are excluded; the two remaining open rings have lower multiplicity.
-
-For complete base-certificate coverage, use the normal-Python combined route
-above. An optimized or component-only invocation is not a substitute for that
-campaign, and no all-Python end-to-end result is asserted here.
-
-The authoritative decisions and all unresolved tensors are in `data/`.
-The [frontier](../supplements/rank6/research/frontier/README.md) identifies the
-October 1 necessary reductions; the October 2 addendum and its portable
-verifiers record subsequent progress. The model catalogue lists all realizations.
-''')
-    if revision_note:
-        text=text.replace('\n## Tensor crosswalks','\n'+revision_note+
-                          '\n`python tools/validate_release.py` checks the current document hashes, '
-                          'the research chain and the frozen release identities; it does not '
-                          'certify the new theoretical proofs.\n\n## Tensor crosswalks',1)
-    upper_start=text.index('The upper-rank bundles retain') if 'The upper-rank bundles retain' in text else text.index('The rank-seven bundle includes')
-    upper_end=text.index('The revised rank-five proof',upper_start)
-    text=text[:upper_start]+'''The upper-rank bundles retain the earlier full-certificate runs, including the
-rank-seven normal and optimized replays and the rank-eight exhaustive signed
-proofs. Subsequent finite updates have separate reports that check new models,
-new theoretical obstructions and exact preservation of earlier unaffected
-records. Published upstream lemmas remain explicit citation dependencies;
-external Normaliz or Groebner calculations are not claimed to have been rerun.
-
-'''+text[upper_end:]
-    text=text[:text.index('## AnyonWiki positive update')]+f'''## AnyonWiki positive update
-
-Run `python tools/verify_anyonwiki_import.py` from the repository root. It checks
-all 139 multiplicity-one tensor matches, the added model permutations, and three
-published associators over exact cyclotomic fields. Its historical preservation
-checks account explicitly for the separately certified October 2 changes.
-Multiplicity one at rank seven is complete; rank eight currently has
-{next(row['unresolved_general'] for row in status['rows'] if row['rank']==8 and row['multiplicity']==1)} generally open multiplicity-one cases.
-See [the original evidence](../evidence/anyonwiki/README.md).
-
-## October 2 residual update
-
-{overview(stage,'../')}
-The [earlier residual stage](../evidence/residual_20261002/README.md)
-retains its own proofs and reports. Pivotal, pseudo-unitary, unitary and braided
-obstructions are distinguished from general nonexistence. Replay the latest
-source-bound stage in both normal and optimized Python:
+## Upper-rank and continuation checks
 
 ```bash
-python3 {stage['verifier']} --historical
-python3 -O {stage['verifier']} --historical
+python3 tools/verify_current_publication.py --historical
+python3 -O tools/verify_current_publication.py --historical
 ```
 
-The current review verifier checks the reopened record, source identities and
-preservation of every other ledger entry. It restores the frozen parent files
-before running the unchanged unified computational checks. The historical
-R8_2_24 PASS does not reinstate the withdrawn categorical argument.
-With `--historical`, the historical constructor replays run against isolated
-copies of their original ledgers and model catalogues. Without that flag,
-the dispatcher checks the corrected record and frozen unified stage. This does not replace a full
-replay of every base-release certificate; see the
-[prepublication review](PREPUBLICATION_REVIEW.md) for the separate full replays. Their original entry points
-are retained for provenance; they must not be run directly against an expanded
-current catalogue without restoring the corresponding historical snapshot.
+The `--historical` option replays the complete dependency chain with each
+source-bound program run in its isolated compatible input snapshot. Omitting
+it does not execute all constructor dependencies. Both commands verify the
+current accepted decision inventory and source identities. They do not replace
+the original full base-certificate loops described in the
+[full replay guide](../evidence/prepublication_20261017/FULL_REPLAY.md).
+Use normal Python for any checker whose proof checks use `assert`.
 
-To refresh the upper-rank status and publication indexes from their ledgers:
+'''+overview(stage,'../')+'''
+
+A conditional local calculation for `R8_2_24` contributes no general exclusion.
+Cited mathematical theorems remain explicit dependencies. External Normaliz
+or Groebner calculations are not claimed to have been rerun.
+
+## Individual rank-six checks
+
+From `supplements/rank6`, the following check the named components:
+
+```bash
+python3 -O software/conformal_models.py --verify
+python3 -O software/release_consistency.py
+python3 -O software/replay_m9.py --jobs 2
+python3 -O software/replay_m9_structure.py
+python3 software/replay_m9_completion.py --output verification/m9/completion/replay_normal.json
+python3 -O software/replay_m9_completion.py --output verification/m9/completion/replay_optimized.json
+python3 -O research/exclusions/R6_5_1204/verify_exclusion.py
+python3 -O software/frontier_replay.py --check-receipts
+python3 -O software/frontier_replay.py --select R6_4_155
+python3 research/frontier/new_research/replay.py
+```
+
+A receipt audit checks source hashes and completion predicates, not the
+mathematics. The multiplicity-nine completion replay checks eleven standalone
+certificates; all 8,809 exact-multiplicity-nine rings have general exclusions.
+Necessary frontier reductions do not settle either rank-six open case.
+
+From the repository root, replay the exact fermion and all-exponent
+Minkowski certificates with:
+
+```bash
+python3 evidence/unified_20261016/rank6/verify_fermion_crossing.py --repo .
+python3 evidence/rank6_laptop_20261002/all_p_minkowski/verify.py \\
+  --tensors supplements/rank6/data/unresolved_tensors.json
+```
+
+No timeout constitutes an exclusion. Component checks do not replace complete
+base-certificate coverage.
+
+## Census crosswalk and publication exports
+
+'''+f'''```bash
+git clone https://github.com/sebastienpalcoux/fusion-ring-census.git
+git -C fusion-ring-census checkout {identity['census_commit']}
+python3 tools/generate_counts.py fusion-ring-census/results/census.json
+```
+
+'''+'''The [tensor crosswalks](PROVENANCE.md#tensor-crosswalks) compare based-ring
+isomorphism classes at rank five and exact labelled tensor lines at rank six.
+Count agreement alone does not establish tensor identification.
+
+Refresh publication indexes from the authoritative ledgers with:
 
 ```bash
 python3 tools/update_upper_rank_status.py
@@ -264,84 +492,124 @@ python3 tools/export_grothendieck_counts.py
 python3 tools/render_readme.py
 python3 tools/render_publication_docs.py
 python3 tools/validate_release.py
-python3 tools/render_publication_docs.py --check
 ```
 
-The upper-rank exporter preserves every lower-rank status row and input identity.
-Archive checksums must be refreshed only after the corresponding bundle is rebuilt.
+An enumerated band is not classified until every record has been addressed.
+Preserve the distinction between census, partial classification and complete
+classification. Do not enter incomplete-band lower bounds as exact OEIS terms.
+Archive identities must be updated only after rebuilding the corresponding
+bundle. Source and document integrity checks do not replace mathematical review.
 '''
-    out['docs/VERIFY.md']=text
-    text=read('manuscripts/README.md');lines=text.splitlines()
-    reading8=('[Read with dated corrections](rank8/paper/rank8-reviewed.pdf) · [historical PDF](rank8/paper/rank8.pdf)' if (repo/'manuscripts/rank8/paper/rank8-reviewed.pdf').is_file() else '[Historical PDF](rank8/paper/rank8.pdf) · [dated corrections](../docs/PREPUBLICATION_REVIEW.md)')
-    for n,line in enumerate(lines):
-        if line.startswith('| Rank six |'):lines[n]=f'| Rank six | [TeX](rank6/papers/manuscript.tex) | [PDF](rank6/papers/manuscript.pdf) | Complete through 3; exact bands {bands}; {s["positive"]} realized and {s["unresolved"]} unresolved through {bound} |'
-        elif line.startswith('| Rank six, verification guide |'):lines[n]='| Rank six, verification guide | [TeX](rank6/papers/verification_guide.tex) | [PDF](rank6/papers/verification_guide.pdf) | Exact models, exclusion certificates and unresolved rings |'
-        elif line.startswith('| Rank seven |'):lines[n]=f'| Rank seven | [TeX](rank7/papers/manuscript.tex) | [PDF](rank7/papers/manuscript.pdf) | Complete through multiplicity {complete7}; {upper[7]["status_totals"]["unitarily_realized"]} realized and {upper[7]["status_totals"]["unresolved"]} unresolved through multiplicity 4 |'
-        elif line.startswith('| Rank eight |'):lines[n]=f'| Rank eight | [Historical TeX](rank8/paper/rank8.tex) | {reading8} | Complete through multiplicity {complete8}; {upper[8]["status_totals"]["unitarily_realized"]} realized and {upper[8]["status_totals"]["unresolved"]} generally unresolved |'
-    text='\n'.join(lines)+'\n';text=text[:text.index('The current rank-six paper')]+f'''The current rank-six paper contains {s['excluded']:,} general exclusions, {s['positive']} realizations
-and {s['unresolved']} unresolved rings through multiplicity {bound}. All 8,809 exact-multiplicity-nine
-rings are excluded, including the final eleven cases proved in the completion chapter.
-A unified conformal-embedding section constructs
-R6_4_22, R6_4_91 and R6_4_629. Superseded necessary-center searches have been
-removed. The [current frontier](../supplements/rank6/research/frontier/README.md)
-and [verification instructions](../docs/VERIFY.md) give the retained evidence.
+    manuscript_rows=[('Rank two','rank2.tex','rank2.pdf','Unrestricted over ℂ; two realized rings'),('Rank three','rank3.tex','rank3.pdf','Unrestricted sphericality and five-ring classification'),('Rank four, finite range','rank4/papers/finite.tex','rank4/papers/finite.pdf','Complete through multiplicity 128'),('Rank four, companion','rank4/papers/companion.tex','rank4/papers/companion.pdf','General criteria, models and structural arguments'),('Rank four, verification guide','rank4/papers/verification_guide.tex','rank4/papers/verification_guide.pdf','Exact certificate checks'),('Rank five','rank5/papers/manuscript.tex','rank5/papers/manuscript.pdf','Complete through multiplicity 20'),('Rank five, verification guide','rank5/papers/verification_guide.tex','rank5/papers/verification_guide.pdf','Exact certificates, models and replay scope'),('Rank six','rank6/papers/manuscript.tex','rank6/papers/manuscript.pdf',f'25,362 exclusions, 57 realizations, two open through 9; complete through 3 and exact bands {bands}'),('Rank six, verification guide','rank6/papers/verification_guide.tex','rank6/papers/verification_guide.pdf','Models, certificates and open-case reductions'),('Rank seven','rank7/papers/manuscript.tex','rank7/papers/manuscript.pdf','Complete through multiplicity 4: 4,172 exclusions and 29 models'),('Rank eight','rank8/paper/rank8.tex','rank8/paper/rank8.pdf','Complete through multiplicity 1; partial at 2: 895 exclusions, 77 models and one open case')]
+    out['manuscripts/README.md']='# Manuscripts\n\n'+CAUTION+'''
+Each paper is a current TeX/PDF pair with its classification scope stated in
+its own text. Rank three gives an unrestricted sphericality and ring-level
+argument. Ranks four to eight use pinned finite censuses and explicit criteria.
+
+| Manuscript | Source | PDF | Scope |
+|---|---|---|---|
+'''+''.join(f'| {name} | [TeX]({tex}) | [PDF]({pdf}) | {scope} |\n' for name,tex,pdf,scope in manuscript_rows)+'''
+The sources use sections and generated tables in their sibling directories.
+The [document manifest](../data/current_document_revision.json) binds all
+current papers and their website copies.
+
+'''+overview(stage,'../')+'''
+
+The rank-six treatment includes conformal-embedding constructions, the
+fermion Azumaya compatibility test, saturated third indicators and
+fully-faithful tensor-functor constraints. The rank-22 based-module witness
+and modular-data candidates are necessary-condition evidence, not categorical
+constructions. A rank-37 candidate for the second residual fails an exact
+Verlinde integrality test; other profiles remain open.
+
+Read the [research status](../docs/RESEARCH_STATUS.md),
+[verification scope](../docs/PREPUBLICATION_REVIEW.md) and
+[replay guide](../docs/VERIFY.md) with the papers.
 '''
-    text+='\nThe dated [October 2 rank-six research addendum](../evidence/residual_20261002/rank6/research_addendum.pdf) records subsequent necessary reductions while preserving the October 1 release and its two unresolved categorification questions.\n'
-    if revision_note:text+='\n'+revision_note
-    text+=f"\n{overview(stage,'../')} The current frontier has {upper[7]['status_totals']['unresolved']} rank-seven and {upper[8]['status_totals']['unresolved']} rank-eight cases generally unresolved.\n"
-    out['manuscripts/README.md']=text
-    text=read('supplements/README.md');text=re.sub(r'all four accepted exclusion continuations and the round-five refinements','accepted exclusion certificates and conformal constructions',text);lines=text.splitlines()
-    for n,line in enumerate(lines):
-        if line.startswith('| 6 |'):lines[n]=f'| 6 | [`rank6/software/`](rank6/software/) and [`verify.py`](rank6/verify.py) | Complete release; {s["excluded"]:,} excluded, {s["positive"]} realized, {s["unresolved"]} unresolved; complete through 3 and exact bands {bands} |'
-    for rank in (7,8):
-        totals=upper[rank]['status_totals']
-        row=f'| {rank} | [`rank{rank}/`](rank{rank}/) | Complete census through {upper[rank]["classified_through"]}; {totals["excluded"]:,} generally excluded, {totals["unitarily_realized"]} realized, {totals["unresolved"]} generally unresolved |'
-        index=next((n for n,line in enumerate(lines) if line.startswith(f'| {rank} |')),None)
-        if index is None:
-            index=max(n for n,line in enumerate(lines) if line.startswith('| '))+1
-            lines.insert(index,row)
-        else:lines[index]=row
-    text='\n'.join(lines)+'\n';text=text[:text.index('For the rank-six update')]+f'''For the rank-six update, start with its [README](rank6/README.md),
-[models](rank6/data/model_catalog.csv) and [current frontier](rank6/research/frontier/README.md).
-The authoritative ledger is `rank6/data/decisions.json`. The archive is
-`{a['name']}`. Source-bound certificates retain their internal paths.
+    out['supplements/README.md']='# Classification software and evidence\n\n'+CAUTION+'''
+Restore the source datasets with `python3 tools/restore_data.py` from the
+repository root. Each rank's guide states its complete inputs, dependencies
+and replay scope. A copy of `software/` alone is not a complete verification
+package.
+
+| Rank | Entry point | Classification scope |
+|---:|---|---|
+| 4 | [Guide](rank4/README.md) · [full replay](rank4/PUBLIC_REPLAY.md) | 889,530 inputs; 889,515 exclusions and 15 models through 128. |
+| 5 | [Guide](rank5/README.md) · [complete public replay](../docs/VERIFY.md#complete-rank-four-and-rank-five-checks) | 40,999 inputs; 40,982 exclusions and 17 models through 20. |
+| 6 | [Guide](rank6/README.md) · [combined full replay](../docs/VERIFY.md#complete-rank-six-route) | 25,421 inputs; 25,362 exclusions, 57 models and two open cases through 9. |
+| 7 | [Guide](rank7/README.md) | Complete through 4: 4,172 exclusions and 29 models. |
+| 8 | [Guide](rank8/README.md) | Complete through 1, partial at 2: 895 exclusions, 77 models and one open case. |
+
+'''+overview(stage,'../')+'''
+
+Use the [verification guide](../docs/VERIFY.md) for full base loops and the
+continuation chain. Their scopes are separate. The census and enumeration code
+remain in [fusion-ring-census](https://github.com/sebastienpalcoux/fusion-ring-census).
+Copied census code retains its license and notices. Authoritative classification
+ledgers are identified in [provenance](../docs/PROVENANCE.md).
 '''
-    text+=f"\n{overview(stage,'../')} From the repository root, run `python3 {stage['verifier']} --historical` and its optimized-Python counterpart. The [current review and errata](../docs/PREPUBLICATION_REVIEW.md) distinguish these stage replays from full base-release checks; older bundled READMEs describe their frozen historical stages.\n"
-    out['supplements/README.md']=text
-    text=read('oeis/README.md');out['oeis/README.md']=section(text,'Rank-six general classification','No zero beyond a proven finite',f'''Rank-six general classification is complete at exact multiplicities
-**{bands}**, contiguously through **3**. The unresolved rings are recorded in the current frontier.
-The rank-six fusion-ring census draft is separately extended by a(9)=8809;
-it counts all based rings, regardless of categorifiability. The exporter proposes only the rank-four and
-rank-five drafts listed above; no incomplete band is an exact sequence term.
+    for r in (7,8):
+        mdir='rank7/papers/manuscript' if r==7 else 'rank8/paper/rank8'
+        ledger='output/rank7_ledger.json' if r==7 else 'data/decisions.json'
+        content=f'# Rank-{r} Grothendieck rings through multiplicity {bound(r)}\n\n'+CAUTION+f'\nThe authoritative decision ledger is [`{ledger}`]({ledger}). '
+        content+=f'Classification is complete through multiplicity {complete(r)}.'
+        if complete(r)<bound(r):content+=f' Multiplicity {bound(r)} is partial; `R8_2_24` remains open.'
+        content+='\n\n| Exact multiplicity | Rings | General exclusions | Unitary models | Open |\n|---:|---:|---:|---:|---:|\n'
+        for m in range(1,bound(r)+1):
+            row=rows[r,m]
+            content+=f"| {m} | {row['rings']:,} | {row['excluded_general']:,} | {row['realized_unitary']} | {row['unresolved_general']} |\n"
+        t=totals(r);content+=f"| **Total** | **{sum(t.values()):,}** | **{t['excluded']:,}** | **{t['unitarily_realized']}** | **{t['unresolved']}** |\n"
+        content+=f'''\n[Manuscript source](../../manuscripts/{mdir}.tex) · [PDF](../../manuscripts/{mdir}.pdf) · [Research status](../../docs/RESEARCH_STATUS.md)
+
+From the repository root:
+
+```bash
+python3 tools/restore_data.py
+python3 tools/verify_current_publication.py --historical
+python3 -O tools/verify_current_publication.py --historical
+```
+
+The history option checks source-bound dependencies in isolated compatible
+snapshots. These continuation checks do not replace the complete base-certificate
+loops in the [full replay guide](../../evidence/prepublication_20261017/FULL_REPLAY.md).
+Use normal Python for assertion-based checkers. Positive counts in an incomplete
+band are lower bounds; a timeout or surviving necessary system proves no exclusion.
+See [verification scope](../../docs/PREPUBLICATION_REVIEW.md).
+'''
+        out[f'supplements/rank{r}/README.md']=content
+    oeis=(repo/'oeis/README.md').read_text().replace('rank-five multiplicities 18–20 are now included after general exclusion certificates closed the former residuals.','rank-five multiplicities 18–20 are included with general exclusion certificates.')
+    out['oeis/README.md']=section(oeis,'Rank-six general classification','No zero beyond a proven finite',f'''Rank-six general classification is complete at exact multiplicities
+**{bands}**, contiguously through **3**. Two rings remain unresolved through 9.
+The rank-six census value a(9)=8809 counts all based rings regardless of
+categorifiability. The exporter proposes only the rank-four and rank-five
+drafts above; no incomplete band is an exact sequence term.
 ''')
-    rows={(r['rank'],r['multiplicity']):r for r in status['rows']}
-    bounds7=[rows[(7,m)]['realized_unitary'] for m in (2,3,4)]
-    open7=[rows[(7,m)]['unresolved_general'] for m in (2,3,4)]
-    bounds8=[rows[(8,m)]['realized_unitary'] for m in (1,2)]
-    open8=[rows[(8,m)]['unresolved_general'] for m in (1,2)]
-    counts7='; '.join(f"multiplicity {m}: {'at least ' if rows[(7,m)]['unresolved_general'] else 'exactly '}{rows[(7,m)]['realized_unitary']} ({rows[(7,m)]['unresolved_general']} unresolved)" for m in (1,2,3,4))
-    counts8='; '.join(f"multiplicity {m}: {'at least ' if rows[(8,m)]['unresolved_general'] else 'exactly '}{rows[(8,m)]['realized_unitary']} ({rows[(8,m)]['unresolved_general']} unresolved)" for m in (1,2))
-    out['oeis/update_2026-10-02.txt']=f"""Suggested comment update (16 October 2026):
+    out['oeis/update_2026-10-02.txt']=f'''Draft comment, not an OEIS submission:
 
-Counts refer to based-isomorphism classes of fusion rings admitting a fusion-category realization over the complex numbers, at exact multiplicity m. Rank seven is complete through multiplicity {complete7}, with the following counts: {counts7}. At rank eight, the corresponding counts are {counts8}. Bands with remaining questions supply lower bounds rather than exact sequence terms.
+Counts concern based-isomorphism classes of fusion rings admitting a fusion category over the complex numbers, at exact multiplicity m. Rank seven is complete through multiplicity 4 with 29 realized classes in total. Rank eight is complete through multiplicity 1 and partial at multiplicity 2: 895 exclusions, 77 models and one open case through 2. Rank six has 25,362 exclusions, 57 models and two open cases through multiplicity 9; all 8,809 exact-multiplicity-nine fusion rings have general exclusion certificates.
 
-The successive upper-rank residual updates resolve {len(latest)} further cases: {latest_exclusions} general exclusions and {latest_models} unitary models.{(f' Its {len(stage["continuation_ids"])}-decision continuation generally excludes '+', '.join(stage['continuation_ids'])+'.') if stage['continuation'] else ''} Across ranks seven and eight, the current partitions are respectively {upper[7]['status_totals']['excluded']} excluded, {upper[7]['status_totals']['unitarily_realized']} realized, {upper[7]['status_totals']['unresolved']} unresolved, and {upper[8]['status_totals']['excluded']} excluded, {upper[8]['status_totals']['unitarily_realized']} realized, {upper[8]['status_totals']['unresolved']} unresolved. General exclusion means no fusion-category categorification over the complex field, without an initial pivotality, sphericality or unitarity assumption. Scoped pivotal, pseudo-unitary, unitary or braided obstructions are not counted as general exclusions.
+The remaining questions are R6_4_155, R6_8_1660 and R8_2_24. The 38-case continuation records 35 decisions: 28 proposed general exclusions and 7 unitary constructions. Necessary-condition evidence and obstructions with extra assumptions do not change general unresolved status.
 
-Rank six retains two unresolved cases through multiplicity 9, R6_4_155 and R6_8_1660. All 8809 fusion rings of exact multiplicity 9 are generally excluded. No count is changed by a necessary-condition reduction for an unresolved case.
+Reference: https://github.com/sebastienpalcoux/grothendieck-ring-classification
 
-Reference / link:
-S. Palcoux, Grothendieck-ring classification, manuscripts and exact certificates, https://github.com/sebastienpalcoux/grothendieck-ring-classification/tree/main/evidence/{stage['latest']} .
-
-This is a draft comment, not a submission. Preserve the target entry's existing indexing and definition. The number 8809 counts all fusion rings, not realized Grothendieck rings. Do not enter any incomplete-band lower bound as an exact sequence term.
-"""
+All results and data are AI-generated, not independently human-verified and not Lean-formalized. Use with caution. Preserve the target entry's indexing and definition; never enter an incomplete-band lower bound as an exact sequence term.
+'''
     return out
-def main():
-    p=argparse.ArgumentParser(description=__doc__);p.add_argument('--repo',type=Path,default=ROOT);p.add_argument('--identity',type=Path);p.add_argument('--output-dir',type=Path);p.add_argument('--check',action='store_true');a=p.parse_args();i=json.loads((a.identity or a.repo/'data/rank6_release_identity.json').read_text());files=render(a.repo,i)
-    for name,text in files.items():
-        target=(a.output_dir or a.repo)/name
-        if a.check:
-            if not target.is_file() or target.read_text()!=text:raise ValueError('Regenerate '+name)
-        else:target.parent.mkdir(parents=True,exist_ok=True);target.write_text(text)
-    print(('Checked' if a.check else 'Rendered'),len(files),'publication documents')
-if __name__=='__main__':main()
 
+def main():
+    p=argparse.ArgumentParser(description=__doc__)
+    p.add_argument('--repo',type=Path,default=ROOT)
+    p.add_argument('--identity',type=Path)
+    p.add_argument('--output-dir',type=Path)
+    p.add_argument('--check',action='store_true')
+    args=p.parse_args()
+    identity=json.loads((args.identity or args.repo/'data/rank6_release_identity.json').read_text())
+    files=render(args.repo,identity)
+    for name,content in files.items():
+        target=(args.output_dir or args.repo)/name
+        if args.check:
+            if not target.is_file() or target.read_text()!=content:raise ValueError('Regenerate '+name)
+        else:
+            target.parent.mkdir(parents=True,exist_ok=True);target.write_text(content)
+    print(('Checked' if args.check else 'Rendered'),len(files),'publication documents')
+if __name__=='__main__':main()

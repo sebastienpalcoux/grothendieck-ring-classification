@@ -61,23 +61,19 @@ require(set(completion_files(rank6_root))==set(rank6_identity['completion_files_
 for relative,digest in rank6_identity['completion_files_sha256'].items():
     require(hashlib.sha256((rank6_root/relative).read_bytes()).hexdigest()==digest,
             'Completion evidence changed: '+relative)
-paper_files={f.relative_to(rank6_root/'papers').as_posix()
-             for f in (rank6_root/'papers').rglob('*') if f.is_file()}
-require(paper_files==set(rank6_identity['documents']),'Publication document inventory changed')
 document_revision=validate_document_revision(rank6_identity,ROOT)
 current_research(rank6_identity,ROOT)
 if document_revision is not None:
     restored={x['path'] for x in json.loads((ROOT/'data/large_files_manifest.json').read_text())['files']}
     require(not restored.intersection(document_revision['documents']),
             'Frozen payload restoration would replace a current publication document')
+from current_publication import replay_sources
+preserved_documents=replay_sources(ROOT)
 for name,document in rank6_identity['documents'].items():
-    paths=[rank6_root/document['path']]
-    if document_revision is None:
-        paths.append(ROOT/'manuscripts/rank6/papers'/name)
-    for path in paths:
-        raw=path.read_bytes()
-        require(len(raw)==document['bytes'] and hashlib.sha256(raw).hexdigest()==document['sha256'],
-                'Publication document changed: '+str(path.relative_to(ROOT)))
+    relative='supplements/rank6/'+document['path']
+    raw=preserved_documents.get(relative)
+    require(raw is not None and len(raw)==document['bytes'] and hashlib.sha256(raw).hexdigest()==document['sha256'],
+            'Immutable rank-six release document identity: '+relative)
 rank6_raw=(rank6_root/'data/decisions.json').read_bytes()
 require(hashlib.sha256(rank6_raw).hexdigest()==status['inputs']['rank6']['sha256']==rank6_identity['ledger_sha256'],
         'Rank-six ledger hash differs from the release identity')
@@ -101,8 +97,10 @@ assert hashlib.sha256((rank6_root/'certificates/continuation_round3.jsonl').read
 assert rank6_summary['fourth_continuation_excluded']==rank6_identity['summary']['fourth_continuation_excluded']
 assert hashlib.sha256((rank6_root/'certificates/continuation_round4.jsonl').read_bytes()).hexdigest()==rank6_identity['fourth_certificate_sha256']
 for relative, digest in rank6_identity['research_files_sha256'].items():
-    if hashlib.sha256((rank6_root/relative).read_bytes()).hexdigest()!=digest:
-        raise ValueError('Current research provenance changed: '+relative)
+    original=preserved_documents.get('supplements/rank6/'+relative,
+                                     (rank6_root/relative).read_bytes())
+    if hashlib.sha256(original).hexdigest()!=digest:
+        raise ValueError('Immutable research provenance changed: '+relative)
 frontier=json.loads((rank6_root/'data/frontier_research_progress.json').read_text())
 if {x['id'] for x in frontier['cases']}!={x['id'] for x in rank6_identity['research_progress']}:
     raise ValueError('Publication omits a current frontier case')

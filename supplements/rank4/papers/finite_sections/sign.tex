@@ -1,0 +1,171 @@
+% New proof: central sign translates and positive squared dimensions.
+% This file is independent of any unproved character/monodromy identification.
+\section{Positive central moments and the sign object}
+\label{sec:frontier-signed-gauss}
+
+We use the canonical spherical structure on the sphericalization
+$\mathcal S$ of a hypothetical fusion category. Its realization as an
+equivariantization for the canonical involutive pivotal functor gives
+a central copy of $\operatorname{Rep}(C_2)$; see \cite[Section~5.3]{Bartlett}. Its central sign object
+$\varepsilon$ has order two, dimension $-1$, and self-braiding $+1$.
+Consequently its twist in $\mathcal Z(\mathcal S)$ is $-1$.
+The two lifts of each original self-dual simple are self-dual; their
+dimensions and second Frobenius--Schur indicators have opposite signs.
+The latter assertion follows directly from the definition of the second
+indicator: the two lifts have the same evaluation and coevaluation maps
+after forgetting equivariance, while their pivotal maps differ by $-1$.
+
+\begin{lemma}[A positive measure without pseudo-unitarity]
+\label{lem:positive-central-squares}
+Let $\mathcal S$ be a spherical fusion category, and put
+$d=\dim\mathcal S$. For $A\in\operatorname{Irr}\mathcal Z(\mathcal S)$,
+let $a_A=\dim A$ and $\theta_A$ be its twist. Then $a_A$ is real and
+\[
+ \sum_A a_A^2=d^2,\qquad
+ \sum_A a_A^2\theta_A=d,\qquad
+ \sum_A a_A^2\theta_A^2=d\sum_V\dim(V)\nu_2(V).
+\]
+In particular the coefficients $a_A^2$ form a positive measure on roots
+of unity, even when some dimensions of $\mathcal S$ are negative.
+\end{lemma}
+\begin{proof}
+Simple dimensions in a spherical fusion category are totally real
+\cite[Section~2.1]{OstrikRank3}. The forgetful functor is spherical, so
+$a_A$ is an integral linear combination of these real dimensions. Let $I$ be
+central induction and $m_{V,A}=[I(V):A]$. Adjunction gives
+$a_A=\sum_Vm_{V,A}\dim V$.
+The indicator identity of \cite[Theorem~4.1]{NgSchauenburg}
+\[
+ \operatorname{Tr}(\theta^n\vert_{I(V)})=d\nu_n(V)
+\]
+therefore gives, after multiplication by $\dim V$ and summation over $V$,
+$\sum_A a_A^2\theta_A^n=d\sum_V\dim(V)\nu_n(V)$.
+For $n=1$ only the tensor unit contributes, and for $n=2$ this is the
+claimed formula. The zeroth moment is the standard identity
+$\dim\mathcal Z(\mathcal S)=d^2$. The twist is a root of unity by the
+Vafa theorem for the center of a spherical fusion category.
+\end{proof}
+
+\begin{proposition}[A global codegree moment bound]\label{prop:spherical-codegree-moment}
+Let a commutative fusion ring have a spherical categorification, with
+simple dimensions $d_i$, global dimension $\Delta=\sum_i d_i^2$ and
+formal codegrees $f_j$, counted with multiplicity. Put
+\[
+ w=\sum_j f_j^{-2},\qquad
+ S=\sum_{i=i^*}|d_i|,\qquad h=\Delta^2w.
+\]
+At every real embedding of its dimension field one has
+\begin{equation}\label{eq:spherical-codegree-moment}
+ 2(\Delta-h)^2\leq
+ (\Delta^2-h)(\Delta^2+\Delta S-2h).
+\end{equation}
+Equivalently,
+$\Delta(1-3w)+(1-w)S+4w-2/\Delta\geq0$.
+For a self-dual pseudo-unitary category,
+$S=\sum_i\operatorname{FPdim}(X_i)$.
+\end{proposition}
+\begin{proof}
+The constituents of $I(1)$ are distinct, have twist one and dimensions
+$\Delta/f_j$. Remove their squared mass $h$ from the positive measure
+of Lemma~\ref{lem:positive-central-squares}. The remaining mass is
+$\Delta^2-h$, its first moment is $\Delta-h$, and its second moment is
+$\Delta s-h$, where $s=\sum_i d_i\nu_2(X_i)\leq S$.
+The weighted sum of squared real parts of twists is
+$(\Delta^2+\Delta s-2h)/2$. Cauchy--Schwarz gives the displayed
+inequality with $s$ in place of $S$; increasing $s$ to $S$ preserves it
+because the remaining mass is nonnegative. Expanding and dividing by
+$\Delta^3>0$ gives the equivalent expression.
+The argument applies to every Galois conjugate spherical structure.
+The rational number $w$ can be computed without finding codegree roots:
+$w=\operatorname{Tr}(B^{-2})$ for the Casimir matrix $B$.
+\end{proof}
+
+This form of the bound applies to every possible spherical dimension
+character, including those outside the Frobenius--Perron orbit. In the
+finite certificates it excludes the remaining character branches for
+$F_{21,325}$ and $F_{24,735}$; a pseudo-unitary obstruction alone would
+not exclude those branches.
+
+\begin{proposition}[The signed-translate moment obstruction]
+\label{prop:signed-translate-moment}
+Let $\mathcal S$ be a sphericalization with
+$\dim\mathcal S=2\delta$ and commutative Grothendieck ring. Write
+$A_j$ for the simple constituents of $I(1)$ and $a_j=\dim A_j>0$.
+Put
+\[
+ h=\sum_j a_j^2,\qquad
+ 2s=\sum_{V\in\operatorname{Irr}\mathcal S}\dim(V)\nu_2(V).
+\]
+Then there are signs $\eta_j\in\{1,-1\}$, with $\eta_j=-1$ for
+$A_j=1$, such that
+\[
+ \sum_j\eta_ja_j=0.
+\]
+For $C=\sum_j\eta_ja_j^2$, one necessarily has
+\begin{gather*}
+ h\leq2\delta^2,\qquad h/\delta-\delta\leq s\leq\delta,\\
+ (2\delta-h-C)^2
+ \leq(4\delta^2-2h)(2\delta s+2\delta^2-2h).
+\end{gather*}
+These conditions hold after every Galois conjugation, with the same
+second indicators and twist signs.
+\end{proposition}
+\begin{proof}
+The formal-codegree theorem \cite[Theorem~2.13]{OstrikRank3} shows that
+$I(1)$ is multiplicity free and its constituents have positive dimensions;
+their twists are one by \cite[Theorem~2.5]{OstrikRank3}. The projection formula gives
+$I(\varepsilon)=\varepsilon\otimes I(1)$, whose constituents have
+dimensions $-a_j$ and are therefore disjoint from those of $I(1)$.
+Their twists $\eta_j$ are $\pm1$, by balancing and the fact that the
+monodromy with an invertible object of order two squares to one.
+The indicator identity for $I(\varepsilon)$ gives
+$\sum_j\eta_ja_j=0$; the constituent $\varepsilon\otimes1$ has twist
+$-1$.
+
+Remove these two sets of constituents from the positive measure of
+Lemma~\ref{lem:positive-central-squares}. The remaining mass is
+$M=4\delta^2-2h$, its first moment is $2\delta-h-C$, and its second
+moment is $4\delta s-2h$. If its twists are $e^{i\phi_A}$, then
+\[
+ \sum_{\rm remaining}a_A^2\cos^2\phi_A
+ =2\delta s+2\delta^2-2h.
+\]
+The inequalities $0\leq\sum a_A^2\cos^2\phi_A\leq M$ give the
+two bounds on $s$. Cauchy--Schwarz gives the last inequality. Every
+dimension remains real under the Galois embeddings under consideration,
+whereas the second indicators and the twist signs are rational numbers
+and remain fixed.
+\end{proof}
+
+
+\begin{corollary}[Finite signed-moment certificate]\label{cor:sign-certificate}
+Let $T$ be a proposed signed table from Proposition~\ref{prop:signed}, and
+let $\chi$ be a proposed dimension character, with
+$\delta=\sum_i\chi(b_i)^2$. Form the eight numbers $a_j=\delta/f_j$,
+where the $f_j$ are the formal codegrees of $R$ and $T$, with all
+multiplicities. Choose the occurrence $f_j=\delta$ corresponding to the
+central unit. For every self-dual nonunit basis element choose
+$\nu_i\in\{-1,1\}$ and put
+\[
+ s=1+\sum_{i>0,\ i=i^*}\nu_i\chi(b_i).
+\]
+If no joint choice of these indicators and the twist signs $\eta_j$
+satisfies Proposition~\ref{prop:signed-translate-moment} at every real
+embedding, $T$ cannot be the signed quotient of a sphericalization with
+dimension character $\chi$.
+\end{corollary}
+\begin{proof}
+The two lifts of a non-self-dual object have zero second indicator.
+For a self-dual object the two lift dimensions and indicators both change
+sign, so their products agree. The unit and its sign translate contribute
+two. This gives the displayed $s$ and exhausts the indicator possibilities.
+The formal-codegree description in Proposition~\ref{prop:signed} gives the
+eight $a_j$. The remaining assertions are exactly the necessary conditions
+of Proposition~\ref{prop:signed-translate-moment}. Equal codegrees retain
+separate occurrences; an occurrence of dimension one may be designated the
+unit without losing any possibility, since the other signs are all enumerated.
+\end{proof}
+
+The supplied certificate for $F_{17,308}$ uses this corollary in one
+character branch. The other signed branches are handled by the same
+arithmetic, spherical and parity routines as all other rings.

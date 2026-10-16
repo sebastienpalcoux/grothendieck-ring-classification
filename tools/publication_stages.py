@@ -132,45 +132,20 @@ def load_stages(repo, status=None):
             "verifier": "tools/verify_" + latest + ".py"}
 
 def overview(stage, prefix=""):
-    base_link = prefix + "evidence/" + BASE + "/README.md"
+    """Summarize the current accepted inventory without a revision narrative."""
     if stage.get('review'):
-        return (f"The [17 October prepublication correction]({prefix}evidence/{REVIEW}/README.md) "
-                "reopens **R8_2_24** because its categorical-to-linear bridge is unproved. "
-                f"The latest 38-case continuation retains **{stage['unified_count']} accepted decisions**: "
-                f"{stage['unified_exclusions']} proposed general exclusions and {stage['unified_models']} unitary constructions. "
-                "Three general questions remain open: R6_4_155, R6_8_1660 and R8_2_24. "
-                f"Together with earlier residual stages, {stage['count']} decisions remain accepted "
-                f"({stage['exclusions']} exclusions and {stage['models']} constructions), subject to independent review. "
-                f"The [frozen 36-decision snapshot]({prefix}evidence/{UNIFIED}/README.md) "
-                "and manuscripts remain available with dated errata and exact historical replay; "
-                "their R8_2_24 exclusion is superseded.")
-    if stage.get('unified'):
-        return (f"The [unified theoretical continuation]({prefix}evidence/{UNIFIED}/README.md) "
-                f"adds {stage['unified_exclusions']} general exclusions and "
+        return (f"The [current research account]({prefix}docs/RESEARCH_STATUS.md) "
+                f"records **{stage['unified_count']} decisions among 38 cases**: "
+                f"{stage['unified_exclusions']} proposed general exclusions and "
                 f"{stage['unified_models']} unitary constructions. "
-                f"Together with the earlier residual stages, these updates resolve "
-                f"{stage['count']} rings: {stage['exclusions']} general exclusions "
-                f"and {stage['models']} unitary models. "
-                "The remaining general questions and scoped results are identified explicitly. "
-                "Earlier proofs, decision records and manuscript versions retain historical replay.")
-    if stage.get("theoretical"):
-        return (f"The [16 October theoretical update]({prefix}evidence/{THEORETICAL}/README.md) "
-                f"adds {stage['theoretical_count']} general exclusions, with no new realization. "
-                f"Together with the frozen October 2 stages, these updates resolve {stage['count']} "
-                f"rings: {stage['exclusions']} general exclusions and {stage['models']} unitary models. "
-                "Scope-specific obstructions remain separate from general categorification decisions. "
-                "The earlier proofs and ledgers retain their historical replay.")
-    if stage["continuation"]:
-        extra_link = prefix + "evidence/" + CONTINUATION + "/README.md"
-        ids = ", ".join("`" + rid + "`" for rid in stage["continuation_ids"])
-        return (f"The [43-decision residual stage]({base_link}) and its "
-                f"[{len(stage["continuation_ids"])}-decision continuation]({extra_link}) resolve "
-                f"{stage['count']} further rings: {stage['exclusions']} general exclusions "
-                f"and {stage['models']} unitary models. The continuation generally excludes "
-                f"{ids}. Stage b retains its frozen proofs and replay; stage c restores "
-                "the historical ledgers when checking that replay.")
-    return (f"The [latest residual stage]({base_link}) resolves {stage['count']} further "
-            f"rings: {stage['exclusions']} general exclusions and {stage['models']} unitary models.")
+                "Three general questions remain open: `R6_4_155`, `R6_8_1660` and `R8_2_24`. "
+                f"The combined residual program records {stage['count']} decisions "
+                f"({stage['exclusions']} exclusions and {stage['models']} constructions), "
+                "all subject to independent mathematical verification.")
+    return (f"The current residual program records {stage['count']} decisions: "
+            f"{stage['exclusions']} general exclusions and {stage['models']} unitary models. "
+            "Scope-specific obstructions remain separate from general categorification decisions.")
+
 
 def replay_commands(stage):
     return "\n".join("python3 " + flag + stage["verifier"] for flag in ("", "-O "))

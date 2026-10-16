@@ -278,49 +278,34 @@ function renderTheoreticalUpdate() {
   notice.hidden = details.hidden = !update;
   if (!update) return;
   const date = new Date(update.date + "T12:00:00Z").toLocaleDateString("en-GB", {day:"numeric", month:"long", year:"numeric", timeZone:"UTC"});
-  const isReview = Boolean(update.review);
-  $("#research-update-title").textContent = `${date}${isReview ? " review" : ""} · ${update.new_general_exclusions} ${isReview ? "retained " : ""}exclusions · ${update.new_unitary_models || 0} unitary models`;
+  $("#research-update-title").textContent = `${date} · ${update.new_general_exclusions} exclusions · ${update.new_unitary_models || 0} unitary models`;
   const rankNames = {"6": "rank-six", "7": "rank-seven", "8": "rank-eight"};
   const openParts = Object.entries(update.remaining).filter(([, count]) => count > 0).map(([rank, count]) => `${count} ${rankNames[rank]}`);
   const openText = openParts.length ? ` General existence remains open for ${openParts.join(", ")} rings.` : " Every case in this continuation is resolved.";
-  const completion = (update.remaining["7"] === 0 ? " Rank seven is complete through multiplicity four." : "") + (update.remaining["8"] === 0 ? " Rank eight is complete through multiplicity two." : isReview ? " Rank eight is complete through multiplicity one; multiplicity two is partial." : "");
-  $("#research-update-summary").textContent = isReview
-    ? `R8_2_24 has been reopened. The current record retains ${update.decisions.length} of ${update.original_case_count} original cases as resolved: ${update.by_rank["7"]} at rank seven and ${update.by_rank["8"]} at rank eight.${completion}${openText}`
-    : `The continuation reports resolutions of ${update.by_rank["7"]} rank-seven and ${update.by_rank["8"]} rank-eight cases.${completion}${openText}`;
-  $("#theoretical-update-heading").textContent = isReview
-    ? `${date} · corrected record · ${update.decisions.length} retained decisions`
-    : `${date} · proofs for ${update.new_general_exclusions} exclusions · ${update.new_unitary_models || 0} unitary models`;
-  $("#theoretical-update-scope").textContent = isReview
-    ? "The prepublication review withdraws the general exclusion of R8_2_24: the required categorical step has not been established. The current record retains 28 proposed general exclusions and 7 unitary constructions from the continuation. The original 16 October record of 36 decisions and its manuscripts remain historical snapshots; read the dated correction alongside them. The links below preserve the original proof sources. Independent human verification and Lean formalization remain pending."
-    : "The new arguments combine Morita theory, Frobenius–Schur parity, center constraints, algebraic planar algebras, and tensor coherence. The bundle contains the proofs, exact replay programs, decision records, and the updated unresolved inventory. Further results with pivotal or unitary hypotheses retain their stated scope.";
-  const base = `${state.data.classification_repository}/tree/${state.data.classification_commit || "main"}/${update.source}`;
+  const completion = (update.remaining["7"] === 0 ? " Rank seven is complete through multiplicity four." : "") + (update.remaining["8"] === 0 ? " Rank eight is complete through multiplicity two." : " Rank eight is complete through multiplicity one; multiplicity two is partial.");
+  $("#research-update-summary").textContent = `The continuation records ${update.decisions.length} decisions among ${update.original_case_count || 38} cases: ${update.by_rank["7"]} at rank seven and ${update.by_rank["8"]} at rank eight.${completion}${openText}`;
+  $("#theoretical-update-heading").textContent = `${date} · ${update.decisions.length} decisions · ${Object.values(update.remaining).reduce((a,b)=>a+b,0)} open cases`;
+  $("#theoretical-update-scope").textContent = "The continuation gives 28 proposed general exclusions and 7 unitary constructions. R6_4_155, R6_8_1660 and R8_2_24 remain open. The methods combine Morita theory, Frobenius–Schur indicators, center constraints, algebraic planar algebras and tensor coherence. The bundle includes current manuscripts, proofs, exact replay programs and the unresolved inventory. Independent human verification and Lean formalization remain pending.";
+  const base = `${state.data.classification_repository}/blob/${state.data.classification_commit || "main"}/docs/RESEARCH_STATUS.md`;
   $("#latest-research-source").href = base;
-  $("#latest-research-source").textContent = `${date} ${isReview ? "review" : "proofs"} and remaining cases ↗`;
+  $("#latest-research-source").textContent = `${date} proofs and remaining cases ↗`;
   const actions = $("#theoretical-update-actions");
   actions.replaceChildren();
-  const archive = element("a", "", `${isReview ? "Download review & replay records" : "Download proofs & verification"} · ${(update.archive.bytes / 1048576).toFixed(1)} MB ↓`);
+  const archive = element("a", "", `Download proofs & verification · ${(update.archive.bytes / 1048576).toFixed(1)} MB ↓`);
   archive.href = `./${update.archive.path}`; archive.download = "";
-  const decisions = element("a", "", `${isReview ? "Current accepted decisions" : "Decision records"} JSON ↓`);
+  const decisions = element("a", "", "Decision records JSON ↓");
   decisions.href = `./${update.files.decisions.path}`; decisions.download = "";
   const remaining = element("a", "", "Remaining cases JSON ↓");
   remaining.href = `./${update.files.remaining_ids.path}`; remaining.download = "";
   const source = element("a", "", "Research source ↗");
   source.href = base; source.target = "_blank"; source.rel = "noopener";
-  const review = element("a", "", "Prepublication review & corrections ↗");
+  const review = element("a", "", "Research status & verification ↗");
   review.href = "./review.html";
   actions.append(archive, decisions, remaining, source, review);
-  if (isReview || update.source === "evidence/unified_20261016") {
-    const coverage = element("a", "", "All 38 original cases and remaining gaps ↗");
-    coverage.href = `${state.data.classification_repository}/blob/${state.data.classification_commit || "main"}/${update.source}/ALL38_COVERAGE.md`;
-    coverage.target = "_blank"; coverage.rel = "noopener";
-    actions.append(coverage);
-  }
-  if (isReview) {
-    const historical = element("a", "", "Historical 16 October record · 36 decisions ↗");
-    historical.href = `${state.data.classification_repository}/tree/${state.data.classification_commit || "main"}/${update.historical_update.source}`;
-    historical.target = "_blank"; historical.rel = "noopener";
-    actions.append(historical);
-  }
+  const coverage = element("a", "", "All 38 cases and remaining questions ↗");
+  coverage.href = `${state.data.classification_repository}/blob/${state.data.classification_commit || "main"}/docs/CASE_INVENTORY.md`;
+  coverage.target = "_blank"; coverage.rel = "noopener";
+  actions.append(coverage);
   const labels = {
     anti_invariant_involution_module: "Involution module and character obstruction",
     involution_anti_module_spectral: "Involution module and spectral obstruction",
@@ -370,7 +355,7 @@ function renderTheoreticalUpdate() {
     const cell = element("td"); cell.append(proof); row.append(name, cell); rows.append(row);
   }
   const checksum = $("#theoretical-update-checksum");
-  checksum.replaceChildren(document.createTextNode(isReview ? "Review bundle SHA-256: " : "Proof bundle SHA-256: "), element("code", "", update.archive.sha256));
+  checksum.replaceChildren(document.createTextNode("Proof bundle SHA-256: "), element("code", "", update.archive.sha256));
   notice.querySelector("a").addEventListener("click", () => { details.open = true; });
 }
 
@@ -394,23 +379,19 @@ function renderPapers() {
     const summary = $("#rank6-release");
     summary.replaceChildren(element("strong", "", `Rank six, multiplicity at most ${release.analyzed_through}. `));
     summary.append(document.createTextNode(`${fmt.format(release.excluded)} excluded, ${release.realized} realized, ${release.unresolved} unresolved. ${release.research_summary || ""} `));
-    const archive=element("a", "", "Frozen classification archive (1 October)");
-    archive.href=`./${release.archive.path}`;archive.download="";summary.append(archive);
-    const update=element("a", "", "2 October research addendum");
-    update.href="./papers/rank6_addendum_20261002.pdf";
-    summary.append(document.createTextNode(" · "), update);
-    if (release.document_revision) {
-      const revisionDate = new Date(release.document_revision.date+"T12:00:00Z").toLocaleDateString("en-GB", {day:"numeric",month:"long",timeZone:"UTC"});
-      const theory=element("a", "", `${revisionDate} theoretical revision`);
-      theory.href=`${state.data.classification_repository}/tree/${state.data.classification_commit || "main"}/${release.research_coverage_source.replace(/\/[^/]+$/, "")}`;
-      summary.append(document.createTextNode(" · "), theory);
-      const revision=element("a", "", "Current manuscript checksums");
-      revision.href=`./${release.document_revision.path}`;revision.download="";
-      summary.append(document.createTextNode(" · "), revision);
+    if (state.data.theoretical_update) {
+      const archive=element("a", "", "Proofs and verification bundle");
+      archive.href=`./${state.data.theoretical_update.archive.path}`;archive.download="";summary.append(archive);
     }
-    const local=element("a", "", "Local Python computations");
-    local.href="https://github.com/sebastienpalcoux/grothendieck-ring-classification/tree/main/evidence/rank6_laptop_20261002";
-    summary.append(document.createTextNode(" · "), local);
+    const manifest=state.data.current_documents;
+    if (manifest) {
+      const checksums=element("a", "", "Manuscript checksums");
+      checksums.href=`./${manifest.path}`;checksums.download="";
+      summary.append(document.createTextNode(" · "),checksums);
+    }
+    const verification=element("a", "", "Verification instructions");
+    verification.href=`${state.data.classification_repository}/blob/${state.data.classification_commit || "main"}/docs/VERIFY.md`;
+    summary.append(document.createTextNode(" · "),verification);
   }
   const grid=$("#paper-grid");
   grid.replaceChildren();
@@ -439,12 +420,6 @@ function renderPapers() {
     // A local PDF is included in the deployed snapshot when available.
     manuscript.href=`./papers/${paper.slug}.pdf`;
     manuscript.dataset.localPaper=paper.slug;
-    const readingEdition=state.data.upper_rank_releases?.[String(paper.rank)]?.reading_edition;
-    if (readingEdition) {
-      manuscript.href=`./${readingEdition.path}`;
-      manuscript.textContent="Read with dated corrections ↗";
-      manuscript.dataset.readingSource=readingEdition.source;
-    }
     const source=element("a","","Source & checks ↗");
     source.href=`${state.data.classification_repository}/blob/${state.data.classification_commit || "main"}/${paperSourcePath(paper.rank,"tex")}`;
     source.target="_blank";source.rel="noopener";
@@ -463,14 +438,6 @@ function renderPapers() {
     }
     const release=state.data.upper_rank_releases?.[String(paper.rank)];
     if (release) {
-      if (release.reading_edition) {
-        const historical=element("a","","Historical PDF ↗");
-        historical.href=`./${release.manuscript.path}`;
-        actions.append(historical);
-      }
-      const supplement=element("a","","Frozen supplement ↓");
-      supplement.href=`./${release.archive.path}`;supplement.download="";
-      actions.append(supplement);
       if (state.data.theoretical_update) {
         const current=element("a","","Current proof bundle ↓");
         current.href=`./${state.data.theoretical_update.archive.path}`;current.download="";
@@ -635,12 +602,7 @@ function renderRingProfile() {
       if (alternative.source_url) block.append(link("Open alternative source ↗",alternative.source_url));
       panel.append(block);
     }
-    const release=state.data.upper_rank_releases?.[String(ring.rank)];
-    if (release?.reading_edition) {
-      panel.append(link("Read reviewed edition ↗",`./${release.reading_edition.path}`));
-      if (release.manuscript?.path)
-        panel.append(link("Historical PDF ↗",`./${release.manuscript.path}`));
-    } else panel.append(link(`Rank-${ring.rank} manuscript ↗`,`./papers/rank${ring.rank}.pdf`));
+    panel.append(link(`Rank-${ring.rank} manuscript ↗`,`./papers/rank${ring.rank}.pdf`));
   }
 }
 function openRing(ring) {

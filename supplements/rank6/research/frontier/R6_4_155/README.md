@@ -1,34 +1,31 @@
-# R6_4_155
+# R6_4_155: unresolved generalized near-group ring R′(4)
 
-The generalized near-group ring R′(4) remains unresolved. Fermion fixed-point
-traces and odd Gauss sums leave one induction profile, of center rank 52.
-Its twist spectrum is forced, with exponent 24.
+The basis is `1,h,g,hg,X,Y`, with invertibles C2², `hX=X`, `gX=Y=X*`,
+`XY=1+h+4X+4Y` and `X²=g+hg+4X+4Y`. The noninvertible dimension is
+`4+3√2` and the global dimension is `72+48√2`.
 
-* [Center profile proof](center_cuts.md) and [exact replay](verify_center_cuts.py).
-* [Forced twist spectrum](forced_twists.md) and [symbolic replay](verify_forced_twists.py).
-* [Spherical reduction](structural_note.md).
-* [No braided Morita representative](structural_reductions.md).
-* [Canonical Ising extension](ising_final_reduction.md).
+The unique necessary rank-52 center profile has exponent 24 and a semion
+factor. Its rank-26 centralizer has complete modular data with all 26³
+Verlinde coefficients nonnegative integral (maximum 9), ten self-dual objects
+and 456,976 passing ordered Vafa equations. The recorded ordinary/generalized
+indicator checks are finite; they do not establish all tensor orders.
 
-From the package root:
+A rank-22 based module satisfies all 234,256 linking identities forced by the
+fermion Clifford algebra and its Azumaya Morita self-duality. It constructs no
+module associators. The possible connected-étale underlying objects in the
+rank-26 candidate are `1`, `1+A` and `1+A+L`; existence and uniqueness of
+algebra structures are not asserted.
 
-```bash
-python -O research/frontier/R6_4_155/verify_center_cuts.py --verify
-```
+The order-32 Radchenko–Wheeler near-group categories do not supply the target
+by dimension-eight connected-étale condensation. The canonical intermediate
+condensation supplies no near-group exchange action. Every tensor functor
+from a hypothetical categorification is fully faithful under the recorded
+theoretical arguments. No categorical model or general exclusion is known.
 
-The retained [six-profile reduction](../../round5/m4_155/) supplies the
-exhaustive input. These necessary conditions do not construct a category.
+Read the [current manuscript](../../../../../manuscripts/rank6/papers/manuscript.pdf)
+and [verification guide](../../../../../docs/VERIFY.md) for the integrated
+results and replay paths. Individual component files retain their stated
+calculation domains; passing one such component is not categorification.
 
-The forced twists are **not complete modular data**: most S entries and fusion
-matrices remain unknown. Character duality leaves four possible duality patterns.
-The rank-26 semion centralizer must be prime, with a nonsplit rank-16 fermion
-centralizer. The manuscript proves these restrictions;
-[model comparisons](MODELS_IDENTIFICATION.md) record the precise limits of the
-known-family identification attempts.
-
-```bash
-python -O research/frontier/R6_4_155/verify_low_checks.py
-```
-
-This exact check covers 1656 generalized low-center rotation blocks and 625
-available low Vafa equations. All pass; the scope is partial center data only.
+**AI-generated research:** proofs and data require independent human
+verification and are not Lean-formalized. Treat the results with caution.

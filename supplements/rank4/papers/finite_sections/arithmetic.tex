@@ -1,0 +1,169 @@
+\section{Arithmetic and signed dimension characters}\label{sec:finite-arithmetic}
+\subsection{Conventions and standard obstructions}
+A fusion ring has a distinguished basis $b_0=1,b_1,b_2,b_3$, nonnegative
+integral structure constants, duality $i\mapsto i^*$, and Frobenius
+reciprocity, with $N_{ij}^0=\delta_{i,j^*}$. We use the row convention
+$(N_i)_{jk}=N_{ij}^k$. Every rank-four fusion ring is commutative: its
+complexification is semisimple of dimension four and has the one-dimensional
+Frobenius--Perron representation; a noncommutative block would already have
+dimension at least four.
+
+Write $d_i=\FPdim(b_i)$ and $D=\sum_i d_i^2$. The four characters $\chi$
+have formal codegrees
+\[
+f_\chi=\sum_i\chi(b_i)\chi(b_{i^*})
+       =\sum_i|\chi(b_i)|^2.
+\]
+They are the eigenvalues, with multiplicity, of
+\begin{equation}\label{eq:casimir}
+ B=\sum_i N_iN_{i^*}=\sum_iN_iN_i^{\mathsf T}.
+\end{equation}
+The following necessary conditions will be used in their stated scope.
+\begin{proposition}[Established inputs]\label{prop:standard}
+\begin{enumerate}
+\item In any complex categorification every formal codegree is a
+$d$-number. For its monic minimal polynomial
+$t^e+a_1t^{e-1}+\cdots+a_e$, this means
+$a_e^j\mid a_j^e$ for $1\leq j\leq e$
+\cite{OstrikCodegrees}.
+\item If $S\subseteq R$ is a fusion subring, $D/\FPdim(S)$ is an
+algebraic integer \cite[Theorem 7.17.6]{EGNO}.
+\item Every character value of a complex-categorifiable fusion ring is
+cyclotomic \cite[Theorem 8.51 and Corollary 8.53]{ENO}.
+\item In a spherical categorification with dimension character $\chi$,
+every $\chi(b_i)$ is nonzero, $\chi(b_i)=\chi(b_{i^*})$, and its global
+dimension $\Delta=f_\chi$ satisfies $\Delta/f\in\overline{\mathbb Z}$
+for every formal codegree $f$. Its dimension field contains all formal
+codegrees \cite[Theorem 2.13 and Corollaries 2.14--2.15]{OstrikRank3}.
+\item A weakly integral fusion category is pseudo-unitary
+\cite[Proposition 8.24]{ENO}. A categorifiable fusion ring with precisely
+two distinct simple Frobenius--Perron dimensions has a pseudo-unitary
+Galois conjugate \cite[Lemma 3.1]{Schopieray}.
+\end{enumerate}
+\end{proposition}
+The last assertion concerns a Galois conjugate; it does not claim
+pseudo-unitarity of every categorification of the ring.
+
+\begin{lemma}[Galois reduction]\label{lem:galois}
+If a spherical dimension character belongs to the Galois orbit of the
+Frobenius--Perron character, a spherical categorification has a
+pseudo-unitary Galois conjugate with the same fusion rules.
+\end{lemma}
+\begin{proof}
+Extend the required number-field embedding to an automorphism of
+$\mathbb C$ and conjugate the finite associativity, rigidity and spherical
+structure data. The resulting simple dimensions are $d_i>0$, and its
+global dimension is $D$.
+\end{proof}
+
+The low-rank exclusions needed in the finite application are proved in
+Section~\ref{sec:applications} using these general inputs and central
+induction. The near-group branch also uses the explicit hypothesis check for
+Larson's classification stated in Section~\ref{sec:applications}.
+
+\subsection{Small arithmetic certificates}
+For a nonzero algebraic integer $u$, put
+$e_u=[\Q(u):\Q]$ and $n_u=|N_{\Q(u)/\Q}(u)|$.
+\begin{lemma}[Normalized norm obstruction]\label{lem:norm}
+If $u/v$ is an algebraic integer, then
+\begin{equation}\label{eq:norm}
+ \frac{v_p(n_u)}{e_u}\geq\frac{v_p(n_v)}{e_v}
+ \qquad\text{for every rational prime }p.
+\end{equation}
+\end{lemma}
+\begin{proof}
+Taking the norm in $L=\Q(u,v)$ shows that
+$n_u^{[L:\Q]/e_u}/n_v^{[L:\Q]/e_v}$ is an integer. Taking its
+$p$-valuation gives the assertion.
+\end{proof}
+Thus a failed divisibility needs only two irreducible polynomials and one
+prime. As a preliminary shortcut, a signed Casimir determinant not divisible
+by a prime required by every possible $\Delta$ excludes the whole table:
+if the minimal polynomial of $\Delta$ had norm divisible by that prime,
+the characteristic polynomial of the Casimir would have constant term
+divisible by it too.
+
+\begin{lemma}[Prime certificates for fields]\label{lem:field-prime}
+Let $g\in\mathbb Z[t]$ be monic irreducible and
+$K=\Q(\alpha)$, $g(\alpha)=0$.
+\begin{enumerate}
+\item If $K$ contains a root of a monic irreducible polynomial $f$, then
+$\deg f$ divides $\deg g$.
+\item Suppose $g$ splits into distinct linear factors modulo a prime $p$.
+If $K$ contains all roots of a monic integral polynomial $f$, then $f$
+splits into linear factors modulo $p$, with repetitions allowed.
+\item If the squarefree reduction modulo $p$ of a monic irreducible
+polynomial has irreducible factors of unequal degrees, its root field
+cannot be cyclotomic.
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+The first assertion is the tower formula. In the second, $p$ does not
+divide the discriminant of $g$, hence not the index of
+$\mathbb Z[\alpha]$ in the ring of integers of $K$. Every residue field
+above $p$ is therefore $\mathbb F_p$. Reduce the linear factorization of
+$f$ in the ring of integers of $K$ at any such prime.
+For the third, Dedekind's factorization theorem identifies the factor
+degrees with the cycle lengths of a Galois permutation of the roots.
+A transitive abelian permutation group acts regularly after quotienting
+its kernel, so all cycles of each element have the same length.
+Every subfield of a cyclotomic extension is Galois and abelian.
+\end{proof}
+These are rejection certificates: failure to find a prime certificate
+proves neither a field inclusion nor cyclotomicity. Positive root lists in
+a number field are instead verified by multiplying their linear factors
+and recovering the complete rational polynomial.
+
+\subsection{Sphericalization and exhaustive signed tables}
+\begin{proposition}[Signed reduction]\label{prop:signed}
+If a rank-four fusion ring $R$ admits a complex categorification, there
+is a commutative associative signed table $T$ with the same unit and duality,
+Frobenius reciprocity, and
+\begin{equation}\label{eq:signed-bounds}
+ |T_{ij}^k|\leq N_{ij}^k,\qquad T_{ij}^k\equiv N_{ij}^k\pmod2.
+\end{equation}
+It has a character $\chi$ nonzero on every basis element, equal on dual
+basis elements, with totally real values. Put
+$\delta=\sum_i\chi(b_i)^2$. For every formal codegree $f$ of either
+$R$ or $T$, $\delta/f$ is an algebraic integer and
+$f\in\Q(\chi(b_i):i=0,1,2,3)$.
+If $T$ becomes $R$ after a change of basis signs respecting duality,
+$R$ admits a spherical categorification.
+\end{proposition}
+\begin{proof}
+Take the sphericalization $\mathcal S\to\mathcal C$
+\cite[Section 5.1]{OstrikRank3}. The two lifts of each simple differ by the
+central sign object $\varepsilon$, of dimension $-1$. Choose self-dual
+lifts over self-dual simples and dual lifts over a dual pair. The first
+choice is possible because the dual has the same nonzero spherical
+dimension, whereas the two lifts have opposite dimensions. The signed
+quotient $K_0(\mathcal S)/(\varepsilon+1)$ has coefficients given by the
+differences of the two lift multiplicities. This proves
+\eqref{eq:signed-bounds} and the unit and reciprocity assertions.
+Its regular representation is closed under transpose, so its complexified
+algebra is semisimple. The spherical dimension character is a
+one-dimensional representation. The same dimension-four argument as
+above consequently makes this quotient commutative, also in the
+non-self-dual case. The other quotient,
+$K_0(\mathcal S)/(\varepsilon-1)$, is $R$. Thus $K_0(\mathcal S)$ is
+commutative as well.
+
+The eight formal codegrees of $\mathcal S$ are twice the four codegrees
+of $R$ together with twice the four codegrees of $T$: each character
+extends with the two lift values equal or opposite. Its global dimension
+is $2\delta$. Proposition~\ref{prop:standard}(4) applied to $\mathcal S$
+gives the norm and field assertions. If $T=R$ after choosing lift signs,
+one lift multiplicity in every product is zero. The chosen lifts close
+under tensor product and duality and give a spherical fusion subcategory
+equivalent to $\mathcal C$.
+\end{proof}
+
+The table search is finite by \eqref{eq:signed-bounds}. For self-duality
+there are ten independent coefficients; for one nontrivial dual pair
+there are six. The exact matrices and associativity equations are displayed
+in the verification guide. Changing lift signs is a finite gauge action;
+normalizing independent odd coefficients to be positive does not omit an
+orbit. Every zero-denominator branch in the elimination is retained.
+A successful signed certificate rejects \emph{all} resulting tables, by
+norms, dimension fields, spherical reduction, or the signed moment
+obstruction of Section~\ref{sec:frontier-signed-gauss}.

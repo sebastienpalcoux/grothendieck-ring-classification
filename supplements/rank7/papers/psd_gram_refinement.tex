@@ -1,0 +1,57 @@
+\subsection{A positive-semidefinite column refinement}
+\label{sec:psd-gram}
+The rank-one columns in Proposition~\ref{prop:dual-gram} satisfy an
+additional exact constraint. This sharpens the finite Gram systems
+without introducing categorical assumptions.
+
+\begin{proposition}[Rank-one positive-semidefinite constraint]
+\label{prop:psd-column}
+Let $Q$ be a nonzero rational symmetric positive-semidefinite matrix, let $I$
+index a maximal independent set of columns, and put $P=Q_{I,I}$.
+A column $v$ can occur in a decomposition $Q=\sum_jv_jv_j^{\mathsf t}$
+only if
+\[
+ v=Q_{:,I}P^{-1}v_I,\qquad v_I^{\mathsf t}P^{-1}v_I\leq1.
+ \tag{$\ddagger$}\label{eq:psd-column}
+\]
+These two conditions are equivalent to
+$Q-vv^{\mathsf t}\succeq0$. A nonpositive-semidefinite $Q$ admits
+no such column decomposition.
+\end{proposition}
+\begin{proof}
+Every summand has range contained in that of $Q$, giving the first
+identity. Since $Q$ is positive semidefinite and its selected columns
+are independent, $P$ is positive definite. Set $B=Q_{:,I}P^{-1}$.
+The rank identity $Q=BPB^{\mathsf t}$ and $v=Bv_I$ reduce the
+condition to $P-v_Iv_I^{\mathsf t}\succeq0$. Conjugating by
+$P^{-1/2}$ gives $I-ww^{\mathsf t}\succeq0$, where
+$w=P^{-1/2}v_I$, exactly the second inequality. These are rational
+identities and inequalities: a verifier can clear denominators and
+use positive principal minors, without numerical eigenvalues.
+\end{proof}
+
+\begin{theorem}
+\label{thm:psd-gram}
+The four rings $R7\_4\_776$, $R7\_4\_927$, $R7\_4\_2126$, and
+$R7\_3\_909$ have no categorification over $\C$.
+\end{theorem}
+\begin{proof}
+Proposition~\ref{prop:anti-module} gives a finite exact anti-module
+system for each source tensor. In the stated order, these systems have
+$55$, $20$, $12$, and $27$ sign-gauge orbits. For each orbit, take a recorded simple module
+$m$ and remove the unit column from its evaluation Gram matrix:
+$Q=G_m-e_me_m^{\mathsf t}$. The nonnegative integral columns already
+satisfy the dimension and coordinate bounds of
+Proposition~\ref{prop:dual-gram}. Retain only those satisfying
+\eqref{eq:psd-column}. The remaining Gram and dimension-class count
+equations form a finite system $Ax=b$, $x\geq0$.
+
+All $114$ systems have frozen integral separating vectors satisfying
+$y^{\mathsf t}A\geq0$ and $y^{\mathsf t}b<0$. The public verifier
+reopens the source census, regenerates every anti-module orbit,
+reconstructs each full column domain, applies the rational range and
+positive-semidefinite tests, and checks these inequalities. It uses
+no optimizer and no numerical spectral comparison. Thus every
+necessary module branch is impossible, proving the four general
+exclusions.
+\end{proof}

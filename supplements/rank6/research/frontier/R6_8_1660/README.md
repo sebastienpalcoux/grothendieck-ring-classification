@@ -1,30 +1,29 @@
-# R6_8_1660
+# R6_8_1660: unresolved Ising-based ring
 
-The ring is free of rank two over its Ising fusion subring and remains unresolved.
-The [relative-center construction](relative_center/relative_center_note.tex)
-first gives 14 necessary based-ring representatives. The
-[central Frobenius–Schur and invertible-lift argument](relative_center/central_fs_note.tex)
-reduces these to a single representative, up to exchanging the Ising factors.
+The commuting generators satisfy `g²=1`, `gσ=σ`, `σ²=1+g` and
+`X²=1+(3(1+g)+4σ)X`. The simple basis is `1,g,X,gX,σ,T`, where `T=σX`.
+Its positive dimension is `d=3+2√2+2√3+√6`, with global dimension `4(1+d²)`.
 
-From the package root:
+A hypothetical categorification has one possible relative-center based ring,
+up to exchanging its Ising factors. Graded induction reduces the bounded
+full-center domain to **1,136 labelled profiles**, in branches **120,508,508**.
+Every indecomposable module category has six simples. Exact Morita and
+indicator restrictions leave three possible dual based rings: the original
+rank-six ring, a rank-six ring containing Ad(E6), and a noncommutative
+rank-eight ring. None of these necessary alternatives supplies associators.
 
-```bash
-python -O research/frontier/R6_8_1660/relative_center/verify_relative_reduction.py
-python -O research/frontier/R6_8_1660/relative_center/verify_structural_cuts.py
-```
+Saturated character traces force `nu_3(T)=2` and two conjugate options for
+`nu_3(X)`. An exact Verlinde calculation rejects a rank-37 candidate because
+one fusion coefficient is 1/2; other profiles remain possible. The twist-one
+support is the six simple summands of the induced unit, and the recorded
+arguments give fully-faithful tensor-functor rigidity. No general exclusion
+or categorification is established.
 
-The second check reads the first certificate and all 4,764 raw restriction
-profiles in the [retained finite domain](../../round5/m8_1660/).
-The remaining based ring is a necessary condition, not a categorification.
+The [current manuscript](../../../../../manuscripts/rank6/papers/manuscript.pdf)
+and [verification guide](../../../../../docs/VERIFY.md) give the integrated
+proofs and replay paths. A subdirectory's profile count describes that
+component's input or output, not the total current domain. No timeout or
+surviving necessary-condition system decides categorification.
 
-The [fermion and second-indicator reduction](fermion_profiles/) leaves 1727 of
-the 1764 retained labelled full-center profiles.
-
-The [tensor-involution and Vafa/indicator reduction](spin_profiles/) removes
-57 further labelled profiles, leaving **1670**. The involution also proves
-`nu_n(X)=nu_n(gX)` for every n, and every odd rotation eigenvalue
-multiplicity for sigma X is even. These are necessary conditions only.
-
-```bash
-python -O research/frontier/R6_8_1660/spin_profiles/verify_spin_profiles.py
-```
+**AI-generated research:** proofs and data require independent human
+verification and are not Lean-formalized. Treat the results with caution.

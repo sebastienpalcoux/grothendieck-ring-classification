@@ -1,17 +1,20 @@
-# Verification
+# Rank-six verification
 
-`current/conformal_models.json` records the fresh exact source/tensor checks
-for the three conformal models. `current/release_consistency_optimized.json`
-checks the current ledger, five existence columns, tables and residual tensors.
-`release_summary.json` states the current partition and exact evidence scope.
+The [complete replay guide](../../../docs/VERIFY.md#complete-rank-six-route)
+describes the public route and exact environment requirements. The executed
+campaign covers all 25,362 exclusions through 25,355 initial passes plus seven
+complete Python-backend retries and two separately replayed post-loop checks.
+The initial full process failed; this is a combined campaign, not a successful
+single full run. The portable orchestrator has not itself been executed end to
+end. Its identity and rejection controls were tested.
 
-The unchanged negative allocation is stored in `certificates/`. Its original
-executed sieve and accepted continuation receipts are retained under
-`classification/`, `continuation/` and the numbered certificate directories.
-Their original dates, input domains and source hashes are evidence for those
-proofs; only `data/decisions.json` determines the current classification.
+`current/conformal_models.json` records the three exact conformal-model tensor
+checks. `current/release_consistency_optimized.json` checks the ledger, tables
+and residual tensors. `release_summary.json` records its stated partition and
+evidence scope. The source-bound certificate directories record exact inputs
+and program results. Only `data/decisions.json` determines classification.
 
-Use `python -O verify.py --jobs 2 --out verification/current/full_recheck.jsonl`
-for the complete exclusion replay. Use `python -O software/frontier_replay.py
---list` for the three necessary-profile reductions. Receipt audits do not run
-mathematical proofs. A timeout cannot establish an exclusion.
+Receipt audits verify hashes and completion predicates; they do not execute
+the mathematical proof. Use normal Python for checks implemented by `assert`.
+A timeout proves no exclusion. All results are AI-generated, not independently
+human-verified and not Lean-formalized; use them with caution.

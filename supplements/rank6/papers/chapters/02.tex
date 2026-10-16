@@ -8,8 +8,8 @@ The source files are \filename{results/census.json} and
 \filename{results/rank6/tables.txt.gz}. They declare a complete, verified
 rank-six census through multiplicity nine. Its $25421$ tensors include
 all $16612$ classes through multiplicity eight and $8809$ classes of exact
-multiplicity nine. The exact-multiplicity definition, inclusion of the
-unit in the rank, and inclusion of every duality type are unchanged.
+multiplicity nine. Rank includes the tensor unit; multiplicity is the
+largest structure coefficient, and every duality type is included.
 
 The paper trusts this census as its counting input. It supplies neither
 another census generator nor a claim to have independently enumerated
@@ -43,8 +43,8 @@ a fusion graph, or a numerical fingerprint.
 
 The identifier $\RR{m}{j}$ is local to this paper's frozen tensor
 registry. Representatives and identifiers through multiplicity eight
-are retained exactly, including the fields used by the earlier certificates.
-The new exact-multiplicity-nine tensors are placed in
+are fixed by the certificate registry.
+The exact-multiplicity-nine tensors are placed in
 row-major lexicographic order using the exported representatives.
 This order need not give the lexicographically smallest representative
 under all basis permutations. Import matching records the correspondence
@@ -57,7 +57,7 @@ examines all $120$ unit-fixing permutations of each tensor, for a total of
 $3050520$ canonicalization comparisons. It finds no repeated based-ring
 class. The explicit source-line and basis-permutation correspondence is
 retained in the supplement. These checks establish validity, distinctness,
-and agreement with the earlier registry; exhaustive enumeration remains
+and agreement with the certificate registry; exhaustive enumeration remains
 the separate input described above.
 
 \subsection{Counting, exclusions and constructions}

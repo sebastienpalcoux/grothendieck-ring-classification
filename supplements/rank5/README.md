@@ -1,7 +1,37 @@
-# Rank-five Grothendieck rings through multiplicity twenty
+# Rank-five classification through multiplicity twenty
 
-All 40,999 rank-five fusion rings of multiplicity at most 20 now have a general categorification decision: 17 exact unitary model tensors and 40,982 exclusions. The two former multiplicity-18 residuals, local indices 5073 and 5076, are excluded by the inert-prime quadratic parity theorem followed by exact spherical induction. The pinned [fusion-ring census](https://github.com/sebastienpalcoux/fusion-ring-census/tree/b86eb6dc6eeeafe5fc5f6906d7b074e0322e9726) supplies the candidate tensors; this work performs no independent census.
+> **AI-generated research · independent verification pending.** Treat these
+> results, proofs, code and data with caution. They have not yet been
+> independently verified by human experts or formalized in Lean. Automated
+> checks establish only their stated computational scope.
 
-This directory is a **compact GitHub supplement** with proof code, paper sources and verification reports. The complete 113-entry research release, including every tensor and exact exclusion certificate, is `Rank5_Complete_Through20_InertParity_2026-09-23.zip` (SHA-256 `6981c0ade02db714e38076ff30b3119712ce6b137ac376c2a8ae474a01bb9f49`). Run its `verify.py`, `software/verify_extension.py`, and their `-O` counterparts as described in the full release; the reports reproduced here record normal/optimized success for 28,476 general exclusions at multiplicities at most 18 and 12,506 at 19–20. The compact excerpt alone omits large raw tensor/certificate files needed for a full replay.
+The classification records **17 realized and 40,982 excluded rings among
+40,999 inputs**, with no open case through multiplicity twenty. Every recorded
+model is unitary. The unrestricted classification remains a separate question.
 
-The 40,999-row decision ledger's SHA-256 is `9261917451d469ece9929a1756f505924cf84adf34e79a0d2e6f68fed43f55cf`. Archival local indices through multiplicity 18 and pinned repository indices at 19–20 are not interchangeable without a full tensor basis isomorphism. The newest criterion family first contributes at multiplicity 18; no new family is needed at 19–20. This bounded observation says nothing about multiplicity 21 or higher.
+[Current manuscript](../../manuscripts/rank5/papers/manuscript.pdf) ·
+[TeX sources](../../manuscripts/rank5/papers/manuscript.tex) ·
+[Complete public replay package](../../evidence/prepublication_20261017/rank5/README.md)
+
+The complete public replay reconstructs all 40,999 decisions from pinned
+census tensors and proof sources, including inert-prime parity and the
+multiplicity-19–20 extension. Use this entry point from the repository root:
+
+```bash
+python3 tools/restore_data.py
+python3 evidence/prepublication_20261017/rank5/replay.py --check-package
+python3 evidence/prepublication_20261017/rank5/replay.py --jobs 2
+python3 -O evidence/prepublication_20261017/rank5/replay.py --jobs 2
+```
+
+The package guide specifies the pinned dependencies and C++17 compiler
+requirement. Both complete runs passed and produced byte-identical ledgers
+with SHA-256 `12886636134e0500a403ae1b635f5b901612d64b203dad1e1fdf94b0da2c31f1`.
+The ledger is reconstructed; unavailable source-archive bytes are not claimed
+to have been recovered. No private attachment is required.
+
+The compact source files in this directory support individual criteria and
+tensor crosswalks. Their standalone `verify.py` does not cover every criterion
+in the through-twenty classification and is not a substitute for the complete
+public replay. See [verification scope](../../docs/PREPUBLICATION_REVIEW.md) and
+[provenance](../../docs/PROVENANCE.md).

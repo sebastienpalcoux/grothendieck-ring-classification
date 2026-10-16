@@ -2,8 +2,9 @@
 \input{preamble}\input{generated_statistics}
 \hypersetup{pdftitle={Verification guide: rank-six categorification through multiplicity nine},pdfauthor={}}
 \title{Verification guide\\\large Rank-six categorification through multiplicity nine}
-\author{}\date{16 October 2026}
+\author{}\date{17 October 2026}
 \begin{document}\maketitle
+\paragraph{Research status.} This manuscript and its accompanying research data are AI-generated. They should be treated with caution: they have not been independently verified by a human mathematician or formalized in Lean.
 
 \section{Scope and authoritative records}
 The package classifies categorifiability of the $\CensusCount$ rank-six
@@ -40,15 +41,54 @@ The source and both compressed and uncompressed hashes are recorded in
 input correspondence; completeness of the counting input is supplied
 by the cited census. The classification does not rerun census enumeration.
 
-\section{Checking the release}
-Use the Python dependencies in \filename{requirements.txt}; C++17 is
-needed for finite-search helpers and \filename{pdflatex} for rebuilding
-the documents. From the package root run:
+\section{Verification scope and reproducible commands}
+The completed verification campaign covers all $25\,362$ general-exclusion
+certificates using the unchanged mathematical checker. Its full initial
+invocation records $25\,355$ passes and seven failures, with exit status
+one. Complete replays of all seven failed certificates then pass with
+SymPy's Python ground types selected before import. The two post-loop
+count and positive-registry checks also pass when run separately. The
+initial invocation completed the census import, positive-model and
+pre-negative checks. The aggregate receipt binds every accepted
+certificate to its source and input hashes and checks complete coverage.
+
+The seven selected certificates are $\RR{4}{416}$, $\RR{4}{427}$,
+$\RR{4}{446}$, $\RR{5}{638}$, $\RR{6}{1035}$, $\RR{8}{311}$ and
+$\RR{8}{3664}$. Their saved separating vectors use a positional ordering
+of exact balance equations. Different string representations of
+algebraic coefficients in SymPy's Python and Flint backends can change
+that ordering and its row signs. The diagnostic packets verify the
+corresponding exact signed permutations. Neither the mathematical
+checker nor the certificate vectors were relaxed or replaced.
+
+This is a combined campaign, not a single successful full invocation or
+an all-Python full-census replay. The initial invocation did not record
+its loaded backend and version at launch; the selected replays record
+theirs explicitly. The complete scope and preserved failures are in
+\filename{evidence/prepublication_20261017/rank6_backend/aggregate_summary.json}.
+The accompanying coverage file contains one record for every excluded
+ring. These checks do not provide independent human verification or a
+formal proof in Lean.
+
+After restoring the repository payloads and installing the dependencies
+in \filename{supplements/rank6/requirements.txt}, the supplied orchestration
+entry point is, from the repository root:
 \begin{verbatim}
-python -m pip install -r requirements.txt
+python evidence/prepublication_20261017/rank6_backend/replay_complete.py \
+  --repo . --output-dir /tmp/rank6-fresh-campaign --jobs 2
+\end{verbatim}
+The output directory must not already exist. C++17 is required for the
+finite-search helpers. The orchestrator records actual process
+backends, preserves failures, repeats every failed certificate with
+Python ground types, runs the post-loop checks and verifies complete
+coverage. Its identity, coverage and rejection controls have been
+tested; the orchestrator itself has not been executed end to end.
+The completed campaign used the separately recorded full invocation
+and selected replay commands.
+
+Individual package checks, from \filename{supplements/rank6/}, include
+\begin{verbatim}
 python check_manifest.py
-python verify.py --jobs 2 --out verification/current/recheck.jsonl
-python -O verify.py --jobs 2 --out verification/current/recheck_O.jsonl
 python software/current_regressions.py
 python -O software/conformal_models.py --verify
 python -O software/replay_m9.py --jobs 2
@@ -56,50 +96,30 @@ python -O software/replay_m9_structure.py
 python -O software/replay_m9_completion.py
 python software/release_consistency.py
 \end{verbatim}
-Check the manifest before writing new reports. A new report changes file
-bytes. The normal and optimized Python checks ensure that correctness
-does not depend on removable assertions. A subprocess failure has a
-nonzero return code and must not be reported as a passed check.
+The manifest should be checked before generating new report files.
+The optional \filename{--proofs-only} mode of \filename{verify.py}
+omits positive reconstruction and is not a complete release check.
+The structure-only replay concerns its specified categorical structures;
+it cannot establish unrestricted nonexistence.
 
-The top-level verifier checks the full accepted negative catalogue and
-positive constructors. The optional \filename{--proofs-only} mode omits
-positive reconstruction and is therefore not a complete release check.
-For an independent replay of the accepted continuation certificates use
-\begin{verbatim}
-python -O software/continuation_controls.py --jobs 2 \
-  --out verification/current/continuation_replay.json
-\end{verbatim}
-This incremental replay does not replace the full-ledger verification.
-The new multiplicity-nine campaign is recorded separately under
-\filename{verification/m9/}. Its optimized replay checks every newly
-allocated general exclusion. The structure-only replay checks the
-separately registered claims for specified categorical structures; it cannot establish general
-nonexistence. The additional-criterion campaign has its own source-bound
-input, attempt ledger and exact replay under
-\filename{verification/m9/advanced/}.
-The accepted certificate files retain their frozen tensors, source
-bindings and input manifests. Their historical filenames are evidence
-identifiers, not additional current classifications.
-
-A negative checker reconstructs the necessary number fields, finite
-branch domains, signed quotients, separating vectors and exact
-inequalities from the full tensor. Numerical optimizers may propose
-certificates during discovery; their entry points are disabled during
-negative-certificate checking. An incomplete search, timeout or numerical
-infeasibility flag cannot establish an exclusion. A successful necessary
-system cannot establish existence.
-
-These are exact computer-assisted checks, not a proof-assistant
-formalization. The cited categorical theorems and the proofs of their
-application remain mathematical inputs. Checksums establish integrity,
-not the mathematical conclusion.
+A negative checker reconstructs number fields, finite branch domains,
+signed quotients, separating vectors and exact inequalities from the
+full tensor. Numerical optimizers may propose certificates during
+discovery; their entry points are disabled during certificate checking.
+An incomplete search, timeout or numerical infeasibility flag cannot
+establish an exclusion. A successful necessary system cannot establish
+existence. Normal and optimized runs of the continuation checks verify
+that their correctness checks do not depend on removable assertions.
+The categorical theorems and the proofs of their application remain
+mathematical inputs. Checksums establish file integrity, not a
+mathematical conclusion.
 
 \paragraph{The multiplicity-five completion.}
 The exclusion of $\RR{5}{1204}$ first reconstructs its complete
 $171$-profile domain. A forced central product removes $72$ profiles;
 integral cyclic-rotation multiplicities remove the other $99$ using
 $112$ certified integer bounds and $99$ final exact separating rays.
-The new proof and solver-disabled replay are under
+The proof and solver-disabled replay are under
 \filename{research/exclusions/R6_5_1204/}:
 \begin{verbatim}
 python -O research/exclusions/R6_5_1204/verify_exclusion.py
@@ -125,7 +145,7 @@ The source-bound receipt is recorded in
 \filename{verification/m9/completion/}. The checker regenerates the
 required finite domains, verifies every branch and rejects corrupted
 certificates. All correctness checks remain active with \filename{-O}.
-The already published counting census and the OEIS terms are unchanged.
+This calculation concerns categorification; its counting input is the cited census.
 
 \section{The three conformal constructions}
 The positive registry \filename{data/conformal_positive_models.json}
@@ -163,17 +183,16 @@ The canonical index \filename{research/frontier/} describes the two
 remaining general existence questions, their necessary reductions and
 exact replay commands. No multiplicity-nine case remains open.
 
-The two inherited residuals through multiplicity eight retain the
-following reductions. For $\RR{4}{155}$, the generalized near-group fusion rules give a
+The two residuals through multiplicity eight satisfy the
+following necessary conditions. For $\RR{4}{155}$, the generalized near-group fusion rules give a
 uniform sphericality and Galois-pseudo-unitarity proof by one norm
-argument. It replaces the former signed-table search for this ring.
+argument.
 Fermion fixed-point traces and odd Gauss sums leave one necessary
 induction profile, of center rank $52$, whose twist spectrum is forced
-and has exponent $24$. They replace the former
-rank-$44$ integer-bound certificate. The short exact replay is
+and has exponent $24$. The short exact replay is
 \filename{research/frontier/R6_4_155/verify_center_cuts.py}.
 Its pointed center also rules out every braided representative of the
-Morita class. The new exact reconstruction determines every entry of the
+Morita class. The exact reconstruction determines every entry of the
 rank-$26$ centralizer's modular datum. Its Verlinde coefficients are
 nonnegative integers, with maximum $9$. It forces ten self-dual
 objects in that factor and twenty in the full center. All stated finite
@@ -202,17 +221,16 @@ six simples; full-center saturation, integral Morita Gram reconstruction
 and a weighted second-indicator obstruction leave three possible dual
 based rings, of ranks six, six and eight.
 
-The new exact calculations and independent audits are under
+The exact calculations and proof audits are under
 \filename{research/frontier/new_research/}. From the package root, run
 \begin{verbatim}
 python research/frontier/new_research/replay.py
 \end{verbatim}
-The summaries for that stage are in \filename{data/frontier_research_progress.json}.
-The older \filename{data/frontier_summary.json} and source-bound per-ring
-readmes retain their exact historical-stage bytes.
+The summaries of this finite system are in
+\filename{data/frontier_research_progress.json}.
 
-\subsection{Integrated further constraints}
-The manuscript also includes the subsequent graded-packet identities,
+\subsection{Further necessary conditions}
+The manuscript includes the graded-packet identities,
 tensor-quotient obstruction, restrictions on Tannakian subcategories and
 braided Morita models, and exact scope of the analytic tests.
 The graded-packet conditions exclude $533$ of the $1669$ profiles above,
@@ -226,8 +244,8 @@ the current endpoint is recorded there in
 \filename{research_progress.json}.
 The exact all-exponent Minkowski couplings are retained under
 \filename{evidence/rank6_laptop_20261002/all_p_minkowski/}.
-These records supplement the package-stage replay above; the dated
-October~1 archive and its historical hashes remain unchanged.
+The source hashes in these records identify the inputs required by each
+checker.
 
 The manuscript further gives a theoretical proof that every tensor
 functor from a hypothetical categorification of either residual ring
@@ -259,14 +277,14 @@ accepted proofs, needed dependencies and current residual evidence;
 obsolete searches for the three conformally realized rings are omitted.
 \end{samepage}
 
-\section{Unified theoretical continuation}
-The current repository manuscript adds the fermion Azumaya linking
+\section{Fermion linking and center indicators}
+The manuscript proves the fermion Azumaya linking
 identity and checks all $22^4=234256$ instances on the retained
 $R6\_4\_155$ based module. This is a necessary compatibility result,
 not a construction of module associators. Both rank-six categorification
 questions remain unresolved. For $R6\_8\_1660$, an exact character-trace
 refinement forces $\nu_3(T)=2$ and leaves two conjugate third-indicator
-profiles. A separate exact Verlinde calculation excludes the historical
+profiles. A separate exact Verlinde calculation excludes the specified
 rank-$37$ witness by forcing a fusion coefficient $1/2$; other profiles
 remain open. The source-bound
 standard-library replay and proof audit are in
@@ -275,15 +293,19 @@ standard-library replay and proof audit are in
 root, also with \filename{-O}. The scoped witness obstruction has its own
 standard-library checker
 \filename{verlinde_obstruction/verify_r1660_witness_verlinde.py}
-under the same evidence directory. It also replays the historical weaker
-system, which still passes. For the complete continuation, run
+under the same evidence directory. It also checks the linear necessary
+system, which passes. The fermion identity is reproduced from the
+repository root by
+\begin{verbatim}
+python evidence/unified_20261016/rank6/verify_fermion_crossing.py --repo .
+\end{verbatim}
+For the complete continuation, run
 \begin{quote}\small
-\verb|python3 tools/verify_unified_20261016.py --historical|
+\verb|python3 tools/verify_current_publication.py --historical|
 \end{quote}
-and repeat with \filename{-O}. The dated continuation preserves the
-preceding manuscript files and restores the prior ledgers before
-replaying their certificates. The frozen rank-six release itself is
-unchanged; current manuscript hashes are recorded separately in
-\filename{evidence/unified_20261016/rank6/document_revision.json}.
+and repeat with \filename{-O}. This mode reconstructs the source-bound
+input ledgers required by the certificates before replaying them. It is
+a continuation check, separate from the full rank-six campaign described
+above.
 
 \end{document}

@@ -16,8 +16,7 @@ individual ring profiles, manuscripts and reproducible computation records.
 > checks establish only their stated computational scope; they do not
 > replace mathematical review or formal proof.
 > [Research-status notice](docs/RESEARCH_STATUS.md) ·
-> [Prepublication review and dated errata](docs/PREPUBLICATION_REVIEW.md).
-> Read the errata alongside the frozen manuscripts.
+> [Verification scope and review](docs/PREPUBLICATION_REVIEW.md).
 
 | Start here | What you will find |
 |---|---|
@@ -26,14 +25,13 @@ individual ring profiles, manuscripts and reproducible computation records.
 | [Inspect the data](data/classification_status.csv) | Classification outcomes, [realized counts](data/grothendieck_counts.csv) and the separate [fusion-ring census](https://github.com/sebastienpalcoux/fusion-ring-census#readme). |
 | [Reproduce the checks](docs/VERIFY.md) | Replay instructions, [provenance](docs/PROVENANCE.md) and the limits of each check. |
 
-**Current research snapshot · 17 October 2026.** The prepublication review
-reopens **R8_2_24** after finding a gap in its proposed exclusion. The latest
-continuation retains **35 of 38** decisions: 28 proposed general exclusions
-and 7 unitary constructions. **Three general cases remain open:** `R6_4_155`,
-`R6_8_1660`, and `R8_2_24`. Read the [correction and current case inventory](evidence/review_20261017/README.md)
-alongside the frozen manuscripts. The tables below report the project's
-current classification claims; “complete” and “certified” do not imply
-independent human verification or Lean formalization.
+**Current research account.** The 38-case continuation records **35 decisions**:
+28 proposed general exclusions and 7 unitary constructions. **Three general
+cases remain open:** `R6_4_155`, `R6_8_1660`, and `R8_2_24`. Rank eight is
+complete through multiplicity one and partial at multiplicity two, with
+895 exclusions, 77 models and one unresolved ring through multiplicity two.
+The tables below report the project's classification claims; “complete” and
+“certified” do not imply independent human verification or Lean formalization.
 
 [Realized counts](#grothendieck-rings--known-realizations-at-each-exact-multiplicity) · [Classification](#classification--what-is-decided) · [Manuscripts](#read-the-mathematics) · [Repository guide](#structure) · [OEIS drafts](oeis/README.md)
 
@@ -67,17 +65,17 @@ classification cross-check. Rank-two realized counts follow directly from
 ## Classification · what is decided?
 
 These are the recorded outcomes of the current research program, subject to
-the verification notice and [prepublication review](docs/PREPUBLICATION_REVIEW.md).
+the verification notice and [verification scope](docs/PREPUBLICATION_REVIEW.md).
 
 | Rank | Full census | General classification | Current conclusion |
 |---:|---:|---:|---|
-| 2 | Symbolic, all multiplicities | All multiplicities over ℂ | Exactly the rings `n = 0, 1` are realized; see the revised proof. |
+| 2 | Symbolic, all multiplicities | All multiplicities over ℂ | Exactly the rings `n = 0, 1` are realized. |
 | 3 | Through 1,000 | Unrestricted theorem | Five realized rings: four at multiplicity 1 and one at 2; see the standalone sphericality and ring-classification proof. |
 | 4 | Through 128 | **Complete through 128** | 15 realized rings, 889,515 general exclusions. |
-| 5 | Through 20 | **Complete through 20** | 17 realized rings and 40,982 generally excluded. The two former multiplicity-18 residuals are now excluded by inert-prime parity and exact induction. |
+| 5 | Through 20 | **Complete through 20** | 17 realized rings and 40,982 generally excluded. Inert-prime parity and exact induction cover multiplicity 18. |
 | 6 | Through 9 | **Complete through 3** | Through 9: 25,362 excluded, 57 realized, 2 unresolved. |
 | 7 | Through 4 | **Complete through 4** | Through 4: 4,172 excluded, 29 realized, 0 unresolved. |
-| 8 | Through 2 | **Complete through 1** | Through 2: 895 excluded, 77 realized, 1 unresolved. |
+| 8 | Through 2 | **Complete through 1**; multiplicity 2 partial | Through 2: 895 excluded, 77 realized, 1 unresolved. |
 
 Rank-six realization counts through multiplicity 9 split into **56 unitary
 models** and **one spherical model whose ring has no pseudo-unitary
@@ -85,37 +83,31 @@ categorification**. “Realized” means that at least one categorification is
 constructed; it does not assert that every categorification of that ring is
 unitary. Rank five has no unresolved ring through multiplicity 20.
 
-The rank-six release covers **25,421 fusion rings through multiplicity 9**:
-**25,362 excluded, 57 realized and 2 unresolved**.
-All **8,809 rings of exact multiplicity nine are generally excluded**.
-The completion certificates settle the final eleven cases; the two remaining
-unresolved rings belong to earlier bands. Previous representatives and proof
-certificates are preserved.
+The rank-six classification covers **25,421 fusion rings through multiplicity 9**:
+**25,362 excluded, 57 realized and two unresolved**. All **8,809 rings of
+exact multiplicity nine are generally excluded**.
 
-The positive catalogue includes the three neutral module categories from
-`(B2)_7 ⊂ (D7)_1`, `(C3)_4 ⊂ (B10)_1`, and `(B2)_12 ⊂ (E8)_1`, with full tensor identifications.
+The positive catalogue includes neutral module categories from
+`(B2)_7 ⊂ (D7)_1`, `(C3)_4 ⊂ (B10)_1`, and `(B2)_12 ⊂ (E8)_1`,
+with full tensor identifications.
 
-| Unresolved ring | Necessary reduction |
+| Open ring | Necessary restrictions |
 |---|---|
-| `R6_4_155` | The inherited rank-22 based module passes all 234,256 linking identities forced by the fermion Clifford algebra and its Azumaya Morita self-duality. This strengthens the necessary compatibility check but constructs no coherent module category or categorification. The case remains unresolved. |
-| `R6_8_1660` | Saturated modular character traces force nu_3(T)=2 and two conjugate options for nu_3(X). A separate exact Verlinde calculation now excludes the historical rank-37 witness by forcing a fusion coefficient 1/2. Other profiles remain open; no general exclusion or categorification is claimed. |
+| `R6_4_155` | A unique rank-26 semion-centralizer modular candidate; a rank-22 based module passes all 234,256 fermion Azumaya linking identities. No coherent module category or categorification is constructed. |
+| `R6_8_1660` | Relative-center and Morita restrictions, full twist-one support and saturated indicators including `nu_3(T)=2`. A rank-37 candidate fails Verlinde integrality; other profiles remain open. |
 
-The October 16 revision identifies the entire twist-one support in the center
-of a positive Galois representative of R6_8_1660 and retains tensor-functor
-rigidity for both residual rings. Both categorification questions remain open.
-The current source/PDF hashes are recorded separately from the frozen release.
+Every tensor functor from a hypothetical categorification of either ring to
+a complex fusion category is fully faithful under the recorded theoretical
+arguments. These necessary restrictions do not decide categorifiability.
 
 [Manuscript](manuscripts/rank6/papers/manuscript.pdf) ·
-[16 October theoretical update](evidence/theoretical_20261016/README.md) ·
-[11 October theoretical revision](evidence/rank6_theoretical_20261011/README.md) ·
+[Verification scope](docs/PREPUBLICATION_REVIEW.md) ·
 [Completion proofs](supplements/rank6/research/exclusions/m9_completion/) ·
-[Completion replay](supplements/rank6/verification/m9/completion/) ·
-[2 October research addendum](evidence/residual_20261002/rank6/research_addendum.pdf) ·
-[Frozen 1 October release](https://sebastienpalcoux.github.io/grothendieck-ring-classification/downloads/Rank6_Categorification_M9_Frontier_2026-10-01.zip)
+[Replay guide](docs/VERIFY.md)
 
 
-The [17 October prepublication correction](evidence/review_20261017/README.md) reopens **R8_2_24** because its categorical-to-linear bridge is unproved. The latest 38-case continuation retains **35 accepted decisions**: 28 proposed general exclusions and 7 unitary constructions. Three general questions remain open: R6_4_155, R6_8_1660 and R8_2_24. Together with earlier residual stages, 139 decisions remain accepted (119 exclusions and 20 constructions), subject to independent review. The [frozen 36-decision snapshot](evidence/unified_20261016/README.md) and manuscripts remain available with dated errata and exact historical replay; their R8_2_24 exclusion is superseded.
-These proofs supplement the [earlier 46-decision stage](evidence/residual_20261002/README.md).
+The [current research account](docs/RESEARCH_STATUS.md) records **35 decisions among 38 cases**: 28 proposed general exclusions and 7 unitary constructions. Three general questions remain open: `R6_4_155`, `R6_8_1660` and `R8_2_24`. The combined residual program records 139 decisions (119 exclusions and 20 constructions), all subject to independent mathematical verification.
+The [proof inventory](docs/VERIFY.md) gives the replay paths.
 Scope-specific obstructions retain their stated assumptions and do not change
 a ring's general unresolved status.
 
@@ -157,7 +149,7 @@ row checks and scope appear in [the provenance record](docs/PROVENANCE.md).
 | 5 | Multiplicity 18 | Inert-prime quadratic parity first closes two cases at 18; no new criterion family is needed at 19–20. |
 | 6 | See the allocation ledger | The current criteria include stabilizer, cyclotomic-trace and signed arithmetic obstructions. All 8,809 exact-multiplicity-nine rings have general exclusion certificates; 2 earlier cases remain unresolved through multiplicity 9. |
 | 7 | Multiplicity 4 | Group-theoretical, Morita and center arguments contribute through 4. There are 0 generally open rings in the analyzed range; higher multiplicities are not classified here. |
-| 8 | Multiplicity 2 | Graded Brauer-Picard and fiber-functor obstructions contribute through 2; the proposed projective inner-square exclusion of R8_2_24 is withdrawn. There is 1 generally open ring in the analyzed range; higher multiplicities are not classified here. |
+| 8 | Multiplicity 2 | Graded Brauer-Picard and fiber-functor obstructions contribute through 2; R8_2_24 remains unresolved. There is 1 generally open ring in the analyzed range; higher multiplicities are not classified here. |
 
 This records **first use in the chosen certificate allocation**, not an
 optimal ordering theorem or a claim that the criteria settle higher
@@ -173,10 +165,9 @@ exact automated applications, positive model matches, and explicit residual
 frontiers. Rank three takes a separate, unrestricted route through the
 sphericality theorem. The papers and computation records remain research in
 progress; [the evidence guide](docs/VERIFY.md) identifies exactly what the
-stored checks establish. For rank eight, start with the
-[reading edition and dated corrections](manuscripts/rank8/paper/rank8-reviewed.pdf); the
-[historical PDF](manuscripts/rank8/paper/rank8.pdf) retains the superseded
-R8_2_24 exclusion for provenance.
+stored checks establish. Each manuscript states its current classification scope
+and the remaining questions directly; [rank eight](manuscripts/rank8/paper/rank8.pdf)
+records the unresolved case at multiplicity two.
 
 ## Structure
 
@@ -193,7 +184,7 @@ it requires only Python's standard library. See [verification instructions](docs
 ```text
 data/         Pinned census matrix and classification-status tables
 docs/         Provenance, terminology and verification paths
-manuscripts/  Revised TeX and PDF pairs, as released
+manuscripts/  Current TeX and PDF pairs
 supplements/  Proof software, compact certificates and verification reports
 site/         Public GitHub Pages atlas, source and reproducible snapshots
 tools/        Deterministic count/status export and crosswalk checks

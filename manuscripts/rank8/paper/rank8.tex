@@ -4,7 +4,7 @@
 \usepackage[margin=25mm]{geometry}
 \usepackage{amsmath,amssymb,amsthm,mathtools,booktabs,longtable,microtype,array,xcolor}
 \usepackage[colorlinks=true,urlcolor=blue!55!black,citecolor=blue!55!black,linkcolor=blue!45!black]{hyperref}
-\hypersetup{pdftitle={Rank-eight Grothendieck rings: a complete classification through multiplicity two},pdfauthor={}}
+\hypersetup{pdftitle={Rank-eight Grothendieck rings: classification through multiplicity two with one open case},pdfauthor={}}
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{proposition}[theorem]{Proposition}
 \newtheorem{lemma}[theorem]{Lemma}
@@ -25,16 +25,22 @@
 \newcommand{\rank}{\operatorname{rank}}
 \newcommand{\sha}[1]{\texttt{\detokenize{#1}}}
 \title{Rank-eight Grothendieck rings:\\
-a complete classification through multiplicity two}
+classification through multiplicity two\\
+with one open case}
 \subjclass[2020]{18M20, 18M15, 16T05}
 \keywords{Grothendieck ring, fusion category, formal codegree, categorification, exact certificate}
-\date{16 October 2026}
+\date{17 October 2026}
 \begin{document}
 \begin{abstract}
-We classify general complex categorification of every rank-eight fusion ring of multiplicity at most two in a complete census. Exact theoretical and arithmetic obstructions exclude 896 of the 973 rings, and full multiplication-tensor comparisons identify unitary categories for the other 77. There are exactly 48 Grothendieck rings of exact multiplicity one and 29 of exact multiplicity two. A rank-eight Wedderburn lemma extends the formal-codegree $d$-number obstruction to noncommutative rings. The unified continuation adds twenty-one general exclusions through graph-pair, Morita, coherence, character-parity, conductor-indicator and projective symmetry arguments, and five unitary constructions. The final obstruction rules out an inner square root on the trivalent spaces of a rank-four neutral category without classifying its associators. Every decision and every positive tensor comparison accompanies the manuscript in a checked machine-readable ledger.
+We study complex categorification of the complete census of $973$ rank-eight fusion rings of multiplicity at most two. Theoretical and exact arithmetic obstructions exclude $895$ rings, full multiplication-tensor comparisons identify unitary categories for $77$, and one ring, $R8\_2\_24$, remains open in the general complex setting. The multiplicity-one classification is complete, with exactly $48$ Grothendieck rings; at multiplicity two there are at least $29$, with at most one additional case. A rank-eight Wedderburn lemma extends the formal-codegree $d$-number obstruction to noncommutative rings. Further arguments use graph pairs, Morita theory, coherence, character parity and conductor-indicator identities. For the open ring we obtain a pseudo-unitary reduction, forced indicators and an inner-square-root condition, and isolate the categorical transport identities needed by a possible local obstruction. The source-bound decision ledger and exact positive tensor comparisons accompany the manuscript.
 \end{abstract}
 \maketitle
 \raggedbottom
+\par\smallskip\noindent\textbf{Research status.}
+This manuscript, its results and accompanying data are AI-generated research.
+They have not been independently verified by a human expert or formalized in Lean.
+Treat all claims and data with caution; exact computational checks do not establish
+unstated categorical hypotheses.
 \markboth{RANK-EIGHT GROTHENDIECK RINGS}{RANK-EIGHT GROTHENDIECK RINGS}
 
 \section{Introduction and exact scope}
@@ -44,20 +50,20 @@ The lower-rank criteria and their finite verifiers are developed in \cite{R2,R3,
 
 The accepted study of integral Grothendieck rings \cite{Integral,IntegralAppendix} supplies a necessary divisibility test and explicit group-theoretical rank-eight models and exclusions. Being an integral or Drinfeld ring does not itself supply a fusion category, so only its explicit categorical constructions enter our positive list.
 
-\begin{theorem}[Complete rank-eight classification]\label{thm:main}
-Among all rank-eight based fusion rings through multiplicity two, categorifiability is completely determined as follows.
+\begin{theorem}[Rank-eight classification with one open case]\label{thm:main}
+Among the rank-eight based fusion rings through multiplicity two, the established decisions and the remaining open case are as follows.
 \begin{center}
 \begin{tabular}{@{}rrrrr@{}}\toprule
 Exact multiplicity & Fusion rings & Excluded generally & Unitarily realized & Undecided generally\\\midrule
 $1$ & $96$ & $48$ & $48$ & $0$\\
-$2$ & $877$ & $848$ & $29$ & $0$\\\midrule
-Total & $973$ & $896$ & $77$ & $0$\\\bottomrule
+$2$ & $877$ & $847$ & $29$ & $1$\\\midrule
+Total & $973$ & $895$ & $77$ & $1$\\\bottomrule
 \end{tabular}
 \end{center}
-Every excluded ring is ruled out over $\C$ with no pivotality assumption. Each positive model is matched to the entire tensor under a unit-preserving permutation, and is therefore a Grothendieck ring. Thus there are exactly $48$ Grothendieck rings of exact multiplicity one and $29$ of exact multiplicity two. Every categorifiable ring in this range admits a unitary categorification.
+Every excluded ring is ruled out over $\C$ with no pivotality assumption. Each positive model is matched to the entire tensor under a unit-preserving permutation, and is therefore a Grothendieck ring. Thus there are exactly $48$ Grothendieck rings of exact multiplicity one and at least $29$ of exact multiplicity two. The only undecided ring is $R8\_2\_24$; it has no unitary categorification by Proposition~\ref{prop:scoped-eight}. The number of general complex Grothendieck rings of exact multiplicity two is therefore either $29$ or $30$.
 \end{theorem}
 
-The final former residual $\sha{R8_2_24}$ is excluded by the local projective symmetry obstruction in Theorem~\ref{thm:r24-inner-square}. The former first open ring $\sha{R8_1_3}$, of global FP dimension $20$, is realized below by a twisted group-theoretical category. Its dimension vector agrees with that of the commutative ring $\Rep(\mathrm{Dic}_5)$, although its multiplication is noncommutative. Thus full tensor comparison remains essential even after a suitable dimension profile is found.
+The open case $\sha{R8_2_24}$ is studied in Section~\ref{sec:r24-open}. The ring $\sha{R8_1_3}$, of global FP dimension $20$, is realized below by a twisted group-theoretical category. Its dimension vector agrees with that of the commutative ring $\Rep(\mathrm{Dic}_5)$, although its multiplication is noncommutative. Thus full tensor comparison remains essential even after a suitable dimension profile is found.
 
 \section{Trusted input and stable records}\label{sec:input}
 A rank-$r$ fusion ring has a distinguished basis $B=(b_0=1,b_1,\dots,b_{r-1})$, structure constants $N_{ij}^k\in\NN$, and a duality involution $i\mapsto i^*$ satisfying
@@ -160,12 +166,12 @@ Each has a faithful grading with a rank-one component and neutral fusion rules $
 An excluded tensor is removed after the first verified certificate in the following order. For each row, ``left'' still counts rings subsequently recognized as positive, so this is an exclusion table rather than a table of outstanding questions.
 \begin{center}\small\input{stage_table}\end{center}
 \end{samepage}
-The $77$ tensors left by the complete exclusion ledger are precisely the positive models. Every negative stage is a theorem applied to tensor data or an exact based-tensor transfer of a published and proved no-go. Proposition~\ref{prop:noncomm} and the integral-divisibility stage both have certified first applications already at multiplicity one; the latter also resolves two multiplicity-two cases remaining open after the prior stages. These \emph{first appearances} refer only to the two multiplicities of the complete rank-eight census. Nothing in this calculation establishes a multiplicity from which no new criterion is needed.
+The $78$ tensors left by the exclusion ledger comprise $77$ positive models and the open case $R8\_2\_24$. Every negative stage is a theorem applied to tensor data or an exact based-tensor transfer of a published and proved no-go. Proposition~\ref{prop:noncomm} and the integral-divisibility stage both have certified first applications already at multiplicity one; the latter also resolves two multiplicity-two cases not excluded by the preceding criteria. These \emph{first appearances} refer only to the two multiplicities of the complete rank-eight census. Nothing in this calculation establishes a multiplicity from which no new criterion is needed.
 
 \section{Exact positive models}\label{sec:models}
 Each standard family in this section admits a unitary complex realization. A pointed group ring of order eight is $K_0(\Vec_G)$ for the group reconstructed from its tensor. The five groups are $C_8$, $C_4\times C_2$, $C_2^3$, $D_8$ and $Q_8$. The near-group ring $C_7+0$ is realized by a Tambara--Yamagami category \cite{TY}. If $A$ is a rank-four unitary model from \cite[Table~1]{R4} and $B$ is either $\Vec_{C_2}$ or Fibonacci, the Deligne product $A\boxtimes B$ is a unitary rank-eight model with multiplication tensor $N_A\otimes N_B$. Its multiplicity is at most two precisely for the displayed matches.
 
-The three archived models $\mathcal C(F_5,1,D_5,1)$, $\mathcal C(S_4,1,A_4,1)$, and $\mathcal C(\mathrm{PSL}(2,7),1,C_7\rtimes C_3,1)$ are untwisted group-theoretical fusion categories, hence admit unitary realizations. Their exact appendix tensors are matched against the census in all $512$ positions, with a stored basis permutation for every match \cite[Appendix~C.3.2(3), (6), (11)]{IntegralAppendix}. Some admit a second subgroup construction, also recorded in the model catalogue.
+The three group-theoretical models $\mathcal C(F_5,1,D_5,1)$, $\mathcal C(S_4,1,A_4,1)$, and $\mathcal C(\mathrm{PSL}(2,7),1,C_7\rtimes C_3,1)$ are untwisted group-theoretical fusion categories, hence admit unitary realizations. Their exact appendix tensors are matched against the census in all $512$ positions, with a stored basis permutation for every match \cite[Appendix~C.3.2(3), (6), (11)]{IntegralAppendix}. Some admit a second subgroup construction, also recorded in the model catalogue.
 
 \begin{proposition}[Representation and quantum-group templates]\label{prop:models}
 All three character-ring templates $\Rep(D_{20})$, $\Rep(D_{26})$, and $\Rep(\mathrm{Dic}_5)$ have rank eight and multiplicity one. The standard unitary $SU(2)_7$ category, and the even subcategories of $SU(2)_{14}$ and $SU(2)_{15}$, also have rank eight and multiplicity one. Their generated multiplication tensors occur in the supplied census and are matched by full based-ring isomorphisms.
@@ -206,9 +212,9 @@ in all $512$ positions. The other four are standard unitary categories
 or fusion subcategories thereof; their complete sourced tensors and
 unit-preserving permutations are included in the positive catalogue.
 Existence of these models proves general complex categorifiability.
-No negative conclusion is imported merely from an AnyonWiki flag:
-the previously reported pentagon no-go for $R8\_1\_26$ is now
-replaced by the independent theoretical proof in Proposition~\ref{prop:graded}.
+No negative conclusion is imported merely from an AnyonWiki flag;
+$R8\_1\_26$ is excluded by the theoretical proof in
+Proposition~\ref{prop:graded}.
 
 \subsection{Twenty-two further constructions from extensions and subfactors}
 The following constructions are verified by generating their multiplication tensors directly and comparing all $512$ coefficients. No associator search is needed.
@@ -347,7 +353,7 @@ The ring $R8\_1\_83$ has a triality-gauging model. The $S_3$ gauging of the thre
 
 The integer fusion formulas for this subcategory are independently checked against the full twelve-object $S$-matrix of \cite[Eq.~(6.53), $m=0$]{THF}. Its entries lie in $\Q(\sqrt2)$; using the unnormalized matrix, the verifier checks $S^2=144I$, all $1728$ nonnegative integral Verlinde coefficients, and fusion closure of the eight integral simples. It then compares the entire tensor with the pinned census under the stored permutation. Category existence comes from the gauging construction, not merely from the feasible modular datum.
 
-The table provides one construction per positive tensor. Some have two isomorphic presentations; \sha{data/realized_models.json} records every matched constructor, exact model tensor, precise model source and source-to-model isomorphism. Labels such as ``pseudo-$PSU(2)_6$'' denote the conventional fusion-ring name, not a weaker existence assertion: the cited rank-four table supplies a unitary category \cite{R4}. The table exhausts the categorifiable rings in the stated census bound.
+The table provides one construction per positive tensor. Some have two isomorphic presentations; \sha{data/realized_models.json} records every matched constructor, exact model tensor, precise model source and source-to-model isomorphism. Labels such as ``pseudo-$PSU(2)_6$'' denote the conventional fusion-ring name, not a weaker existence assertion: the cited rank-four table supplies a unitary category \cite{R4}. The table exhausts the multiplicity-one positive list and records the $29$ established multiplicity-two models. General categorifiability of $R8\_2\_24$ remains open.
 
 \input{additional_models}
 
@@ -362,39 +368,48 @@ The table provides one construction per positive tensor. Some have two isomorphi
 \input{no_central_lift_20261016}
 
 \section{Reproduction and mathematical limits}
-For the current theoretical update, run
-\sha{python3 tools/verify_unified_20261016.py} from the repository
-root, and repeat with \sha{-O}. Add \sha{--historical} to replay the frozen
-parent stage against restored historical ledgers. The dated update archive
-contains the new proofs and exact source applications. The current replay verifies the
-new general and scoped certificates, checks their source identities,
-and verifies preservation of the earlier ledger decisions. All checks
-use exact integer or algebraic arithmetic; no numerical fit supplies a
-categorification decision.
+Run \sha{python3 tools/verify_current_publication.py} from the repository
+root, and repeat with \sha{-O}. The verifier checks the published documents and their website copies,
+the source identities, the current decision ledger and the accepted finite certificate applications,
+and the three unresolved cases across the rank-six and rank-eight studies.
+Its \sha{--historical} option also replays the full chain of source-bound
+certificate applications in isolated inputs. The exact replay instructions
+and the scope of every recorded run appear in \sha{docs/VERIFY.md}.
 
-The historical full-certificate runs, including the exhaustive signed
-proofs and appendix tensor transfers, retain their original reports.
-Historical constructor updates are automatically replayed against
-isolated copies of their original ledgers and model catalogues. Those
-entry points are not discovery commands for the expanded current
-catalogue. Preservation evidence does not claim a fresh execution of
-every earlier costly search. Original census analysis programs are
-retained for provenance and are not needed to verify the frozen release.
+The rank-eight full-certificate audit covers all $973$ input tensors,
+including the $75$ signed proof trees and four rank-seven subring proof
+transfers used by the corresponding base certificates. The theoretical
+applications and positive tensor comparisons are checked separately.
+All finite checks use integer or algebraic arithmetic. They validate their
+specified equations and source bindings; they do not independently prove
+categorical transport identities, cited theorems or census completeness.
 A timeout or an unfinished branch never constitutes an exclusion.
 
-The former multiplicity-one residuals $R8\_1\_9$ and $R8\_1\_18$
-are generally excluded by the cyclic induction and full center STS
-arguments in Theorems~\ref{thm:r9-center-trace} and~\ref{thm:r18-sts-moments}.
-Together with Proposition~\ref{prop:r49-fs-morita}, these results complete
-the multiplicity-one classification. Theorem~\ref{thm:r24-inner-square}
-excludes the final multiplicity-two residual $R8\_2\_24$. Its proof
-uses a local projective action on trivalent spaces, rather than a
-classification of all categories with the rank-four $2D2$ neutral ring.
-This completes categorifiability for every tensor in the stated bound.
+The cyclic induction and center STS arguments in
+Theorems~\ref{thm:r9-center-trace} and~\ref{thm:r18-sts-moments}, together
+with Proposition~\ref{prop:r49-fs-morita}, complete the multiplicity-one
+classification. At multiplicity two the conclusions are $847$ general
+exclusions, $29$ unitary constructions and the single open ring
+$R8\_2\_24$. Proposition~\ref{prop:r24-reduction} gives necessary conditions
+for that case; Section~\ref{sec:r24-transport} identifies an unproved
+categorical transport step. The conditional coefficient calculation in
+that section contributes no classification decision.
 
-This verification establishes the finite applications \emph{conditional on} the cited theorems and the source census completeness. It does not certify a multiplicity-three census or classify categories up to tensor equivalence. Some criteria first exclude rings at multiplicity two, but nothing here implies that no new criterion is needed beyond that bound. Noncommutative Extended Haagerup models at rank eight have multiplicities four and seven \cite{EH}; they are genuine models but outside the present complete census bound.
+The finite applications are conditional on the stated mathematical
+arguments, cited theorems and source census completeness. This work does
+not certify a multiplicity-three census or classify categories up to
+tensor equivalence. Nothing here implies that no new criterion is needed
+beyond multiplicity two. Noncommutative Extended Haagerup models at rank
+eight have multiplicities four and seven \cite{EH}; they are genuine
+models outside the present census bound.
 
-\par\medskip\noindent\textbf{AI disclosure.} GPT-6 Astra assisted with literature exploration, mathematical research, code development, and manuscript preparation.
+\par\medskip\noindent\textbf{AI disclosure and verification status.}
+GPT-6 Astra and GPT-6.1 Sol assisted with literature exploration,
+mathematical research, code development and manuscript preparation.
+The results, proofs and accompanying data are AI-generated and have not
+been independently verified by a human expert or formalized in Lean.
+They should be used with caution. Computational replay provides evidence
+for its explicit finite checks and does not replace mathematical review.
 
 \begin{thebibliography}{99}
 \bibitem{AnyonWiki2026} G.~Vercleyen and J.~Slingerland,

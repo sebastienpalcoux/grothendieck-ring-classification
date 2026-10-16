@@ -1,12 +1,9 @@
-Suggested comment update (16 October 2026):
+Draft comment, not an OEIS submission:
 
-Counts refer to based-isomorphism classes of fusion rings admitting a fusion-category realization over the complex numbers, at exact multiplicity m. Rank seven is complete through multiplicity 4, with the following counts: multiplicity 1: exactly 13 (0 unresolved); multiplicity 2: exactly 10 (0 unresolved); multiplicity 3: exactly 2 (0 unresolved); multiplicity 4: exactly 4 (0 unresolved). At rank eight, the corresponding counts are multiplicity 1: exactly 48 (0 unresolved); multiplicity 2: at least 29 (1 unresolved). Bands with remaining questions supply lower bounds rather than exact sequence terms.
+Counts concern based-isomorphism classes of fusion rings admitting a fusion category over the complex numbers, at exact multiplicity m. Rank seven is complete through multiplicity 4 with 29 realized classes in total. Rank eight is complete through multiplicity 1 and partial at multiplicity 2: 895 exclusions, 77 models and one open case through 2. Rank six has 25,362 exclusions, 57 models and two open cases through multiplicity 9; all 8,809 exact-multiplicity-nine fusion rings have general exclusion certificates.
 
-The successive upper-rank residual updates resolve 139 further cases: 119 general exclusions and 20 unitary models. Its 14-decision continuation generally excludes R7_2_160, R7_4_1417, R7_4_1420, R8_2_312, R8_2_315, R8_2_317, R8_2_53, R8_2_93, R8_2_191, R8_2_299, R8_2_158, R8_2_186, R8_2_579, R8_2_682. Across ranks seven and eight, the current partitions are respectively 4172 excluded, 29 realized, 0 unresolved, and 895 excluded, 77 realized, 1 unresolved. General exclusion means no fusion-category categorification over the complex field, without an initial pivotality, sphericality or unitarity assumption. Scoped pivotal, pseudo-unitary, unitary or braided obstructions are not counted as general exclusions.
+The remaining questions are R6_4_155, R6_8_1660 and R8_2_24. The 38-case continuation records 35 decisions: 28 proposed general exclusions and 7 unitary constructions. Necessary-condition evidence and obstructions with extra assumptions do not change general unresolved status.
 
-Rank six retains two unresolved cases through multiplicity 9, R6_4_155 and R6_8_1660. All 8809 fusion rings of exact multiplicity 9 are generally excluded. No count is changed by a necessary-condition reduction for an unresolved case.
+Reference: https://github.com/sebastienpalcoux/grothendieck-ring-classification
 
-Reference / link:
-S. Palcoux, Grothendieck-ring classification, manuscripts and exact certificates, https://github.com/sebastienpalcoux/grothendieck-ring-classification/tree/main/evidence/review_20261017 .
-
-This is a draft comment, not a submission. Preserve the target entry's existing indexing and definition. The number 8809 counts all fusion rings, not realized Grothendieck rings. Do not enter any incomplete-band lower bound as an exact sequence term.
+All results and data are AI-generated, not independently human-verified and not Lean-formalized. Use with caution. Preserve the target entry's indexing and definition; never enter an incomplete-band lower bound as an exact sequence term.

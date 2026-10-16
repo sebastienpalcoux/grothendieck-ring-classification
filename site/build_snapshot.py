@@ -36,7 +36,7 @@ def main():
         parser.error("--classification-commit requires a full 40-character commit SHA")
     repo = args.classification.resolve()
     sys.path.insert(0, str(repo / "tools"))
-    from rank6_publication import RESEARCH_UPDATES, DOCUMENT_REVISION
+    from rank6_publication import RESEARCH_UPDATES
     counts = read_counts(repo / "data" / "counts.json")
     rows = []
     for row in counts["rows"]:
@@ -148,26 +148,38 @@ def main():
         coverage = update
         coverage_source = research_update
         coverage_chain.append((coverage_source, coverage))
-    revision_source = repo / DOCUMENT_REVISION
-    revision = None
-    if (repo / RESEARCH_UPDATES[-1]).is_file() != revision_source.is_file():
-        raise ValueError("The theoretical research overlay and document revision must be published together")
-    if revision_source.is_file():
-        revision = json.loads(revision_source.read_text())
-        if (revision["date"] != coverage["date"] or
-                revision["research_progress"] != coverage_source.relative_to(repo).as_posix() or
-                revision["research_progress_sha256"] != hashlib.sha256(coverage_source.read_bytes()).hexdigest()):
-            raise ValueError("Current document revision does not match the current research overlay")
-        current_documents = {path.relative_to(repo).as_posix()
-                             for path in (repo / "manuscripts/rank6/papers").rglob("*")
-                             if path.is_file() and path.suffix in (".tex", ".pdf")}
-        if set(revision["documents"]) != current_documents:
-            raise ValueError("Current document revision must inventory every rank-six paper TEX/PDF")
-        for source, expected in revision["documents"].items():
-            document = repo / source
-            if (hashlib.sha256(document.read_bytes()).hexdigest() != expected["sha256"] or
-                    document.stat().st_size != expected["bytes"]):
-                raise ValueError(f"Rank-six document differs from its current revision: {source}")
+    revision_source = repo / "data/current_document_revision.json"
+    if not revision_source.is_file():
+        raise FileNotFoundError("Build the current document manifest before the website snapshot")
+    revision = json.loads(revision_source.read_text())
+    if revision.get("schema") != "current-document-revision/v1":
+        raise ValueError("Unexpected current document manifest schema")
+    for source, expected in revision["documents"].items():
+        document = repo / source
+        if (hashlib.sha256(document.read_bytes()).hexdigest() != expected["sha256"] or
+                document.stat().st_size != expected["bytes"]):
+            raise ValueError("Document differs from its current manifest: " + source)
+    for target, source in revision["web_copies"].items():
+        if target.startswith("/") or ".." in Path(target).parts or not target.startswith("papers/"):
+            raise ValueError("Invalid website manuscript path: " + target)
+        if source not in revision["documents"]:
+            raise ValueError("Website manuscript is missing from the document manifest: " + source)
+        document = repo / source
+        if not document.read_bytes().startswith(b"%PDF-"):
+            raise ValueError("Website manuscript is not a PDF: " + source)
+        destination = HERE / "dist" / target
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        if document.resolve() != destination.resolve():
+            shutil.copy2(document, destination)
+    required_papers = {f"papers/rank{rank}.pdf" for rank in range(2, 9)}
+    if not required_papers <= set(revision["web_copies"]):
+        raise ValueError("Current document manifest must include every rank manuscript")
+    (HERE / "dist/data").mkdir(parents=True, exist_ok=True)
+    shutil.copy2(revision_source, HERE / "dist/data/current_document_revision.json")
+    data["current_documents"] = {
+        "path": "data/current_document_revision.json", "source": "data/current_document_revision.json",
+        "date": revision["date"], "sha256": hashlib.sha256(revision_source.read_bytes()).hexdigest(),
+    }
     release_counts = {record["multiplicity"]: record for record in release["counts"]}
     release_bands = sorted(release_counts)
     if not release_bands or len(release_counts) != len(release["counts"]) or release_bands != list(range(1, release_bands[-1] + 1)):
@@ -195,7 +207,7 @@ def main():
         raise ValueError("Rank-six research totals differ from the frozen release")
     if {case["id"] for case in coverage["cases"]} != set(release["unresolved_ids"]):
         raise ValueError("Rank-six research coverage does not match the unresolved frontier")
-    data["snapshot"] = max(identity["date"], coverage["date"])
+    data["snapshot"] = max(identity["date"], coverage["date"], revision["date"])
     if identity["archive"]["name"] != archive_name:
         raise ValueError("Rank-six archive identity differs from the classification source")
     if Path(archive_name).name != archive_name or not archive_name.endswith(".zip"):
@@ -208,9 +220,11 @@ def main():
         "realized": release["positive"], "unresolved": release["unresolved"],
         "analyzed_through": release_bands[-1],
         "complete_through": next(record["through"] for record in scope if record["rank"] == 6),
-        "research_summary": coverage.get("research_summary", identity["research_summary"]),
-        "research_cases": [{key: case[key] for key in ("id", "categorical_status", "public_summary")}
-                           for case in coverage["cases"]],
+        "research_summary": "Both rank-six cases remain open. Their center, module and indicator constraints are necessary conditions; no categorification or general exclusion has been established.",
+        "research_cases": [
+            {"id": "R6_4_155", "categorical_status": "unresolved", "public_summary": "The rank-52 center candidate, its rank-26 modular factor and a rank-22 based module pass the recorded exact compatibility tests, including 234,256 linking identities. Constructing coherent associators, module data and the required algebra remains open."},
+            {"id": "R6_8_1660", "categorical_status": "unresolved", "public_summary": "Saturated modular traces force nu_3(T)=2 and two conjugate options for nu_3(X). A specific rank-37 witness fails Verlinde integrality. The other center profiles remain open; no general exclusion or categorification is established."},
+        ],
         "research_coverage_path": "data/rank6_research_coverage.json",
         "research_coverage_source": coverage_source.relative_to(repo).as_posix(),
         "research_coverage_chain": [{
@@ -265,13 +279,6 @@ def main():
         }
     for name, target in (("manuscript.pdf", "rank6.pdf"), ("verification_guide.pdf", "rank6_guide.pdf")):
         shutil.copy2(repo / "manuscripts/rank6/papers" / name, HERE / "dist/papers" / target)
-    addendum = repo / "evidence/residual_20261002/rank6/research_addendum.pdf"
-    if october2_update.is_file():
-        shutil.copy2(addendum, HERE / "dist/papers/rank6_addendum_20261002.pdf")
-        data["rank6_release"]["research_addendum"] = {
-            "path": "papers/rank6_addendum_20261002.pdf",
-            "sha256": hashlib.sha256(addendum.read_bytes()).hexdigest(),
-        }
     output = HERE / "dist" / "data" / "atlas.json"
     data["upper_rank_releases"] = {}
     bundles = {entry["name"]: entry["sha256"] for entry in status["bundles"]}
@@ -291,19 +298,6 @@ def main():
             "manuscript": {"path": f"papers/rank{rank}.pdf", "sha256": hashlib.sha256(pdf_source.read_bytes()).hexdigest()},
             "archive": {"path": "downloads/" + archive_source.name, "sha256": archive_hash, "bytes": archive_source.stat().st_size},
         }
-    reading_source = repo / "manuscripts/rank8/paper/rank8-reviewed.pdf"
-    reading_target = HERE / "dist/papers/rank8-reviewed.pdf"
-    if reading_source.is_file():
-        if not reading_source.read_bytes().startswith(b"%PDF-"):
-            raise ValueError("Rank-eight reading edition is not a PDF")
-        if reading_source.resolve() != reading_target.resolve():
-            shutil.copyfile(reading_source, reading_target)
-        data["upper_rank_releases"]["8"]["reading_edition"] = {
-            "path": "papers/rank8-reviewed.pdf", "source": "manuscripts/rank8/paper/rank8-reviewed.pdf",
-            "sha256": hashlib.sha256(reading_source.read_bytes()).hexdigest(),
-            "bytes": reading_source.stat().st_size,
-            "note": "Dated errata prefaced to the unchanged historical manuscript; R8_2_24 is reopened.",
-        }
     stage_path = next(("evidence/" + name for name in
                        ("review_20261017", "unified_20261016", "theoretical_20261016")
                        if (repo / "evidence" / name / "decisions.json").is_file()),
@@ -317,33 +311,11 @@ def main():
         is_review = stage_name == "review_20261017"
         stage_date = "2026-10-17" if is_review else "2026-10-16"
         proofs_source = "evidence/unified_20261016" if is_review else stage_path
-        review = None
-        historical_update = None
         if is_review:
-            if not reading_source.is_file() or "reading_edition" not in data["upper_rank_releases"]["8"]:
-                raise FileNotFoundError("The review stage requires the rank-eight reading edition: " + str(reading_source))
-            errata_source = repo / "manuscripts/prepublication-review-2026-10-17.pdf"
-            if not errata_source.is_file():
-                raise FileNotFoundError("The review stage requires the dated errata PDF: " + str(errata_source))
-            if not errata_source.read_bytes().startswith(b"%PDF-"):
-                raise ValueError("Dated errata document is not a PDF")
-            errata_target = HERE / "dist/papers/prepublication-review-2026-10-17.pdf"
-            if errata_source.resolve() != errata_target.resolve():
-                shutil.copyfile(errata_source, errata_target)
-            review = json.loads((stage / "review.json").read_text())
-            if review.get("reopened_ids") != ["R8_2_24"] or review.get("historical_stage") != "unified_20261016":
-                raise ValueError("Unexpected prepublication review transition")
-            historical_decisions = json.loads((repo / proofs_source / "decisions.json").read_text())
-            accepted = [record for record in historical_decisions if record["id"] not in review["reopened_ids"]]
-            if len(historical_decisions) != 36 or len(decisions) != 35 or decisions != accepted:
-                raise ValueError("Review must preserve every accepted unified decision and reopen only R8_2_24")
+            if len(decisions) != 35 or any(record["id"] == "R8_2_24" for record in decisions):
+                raise ValueError("The current continuation requires 35 decisions and an open R8_2_24")
             if remaining != {"6": ["R6_4_155", "R6_8_1660"], "7": [], "8": ["R8_2_24"]}:
-                raise ValueError("The review must retain exactly the three current open cases")
-            historical_update = {
-                "source": proofs_source, "date": "2026-10-16", "decision_count": 36,
-                "general_exclusions": sum(d["status"] == "excluded" for d in historical_decisions),
-                "unitary_models": sum(d["status"] == "unitarily_realized" for d in historical_decisions),
-            }
+                raise ValueError("The current record must retain exactly the three open cases")
         if not decisions or len({record["id"] for record in decisions}) != len(decisions):
             raise ValueError("The theoretical update must have distinct decisions")
         if any(record["status"] not in ("excluded", "unitarily_realized") or record["scope"] != "general_complex" or record["rank"] not in (7,8) for record in decisions):
@@ -379,17 +351,17 @@ def main():
             if len(matches) != 1 or json.loads(bundle.read(matches[0])) != decisions:
                 raise ValueError("Theoretical update archive contains stale or missing decision records")
             if is_review:
-                for source in (errata_source, reading_source):
-                    relative = source.relative_to(repo).as_posix()
+                for relative in set(revision["web_copies"].values()) | {"data/current_document_revision.json"}:
+                    source = repo / relative
                     documents = [name for name in bundle.namelist()
                                  if name == relative or name.endswith("/" + relative)]
                     if len(documents) != 1 or bundle.read(documents[0]) != source.read_bytes():
-                        raise ValueError("Review archive contains a stale or missing PDF: " + relative)
+                        raise ValueError("Proof bundle contains a stale or missing current document: " + relative)
         archive_target = downloads / archive_name
         if archive_source.resolve() != archive_target.resolve():
             shutil.copy2(archive_source, archive_target)
         local_files = {}
-        for filename in ("decisions.json", "remaining_ids.json", "expected_totals.json") + (("review.json",) if is_review else ()):
+        for filename in ("decisions.json", "remaining_ids.json", "expected_totals.json"):
             source = stage / filename
             target = HERE / "dist/data" / (stage_name + "_" + filename)
             shutil.copy2(source, target)
@@ -409,8 +381,7 @@ def main():
                         "sha256": hashlib.sha256(archive_source.read_bytes()).hexdigest()},
         }
         if is_review:
-            data["theoretical_update"].update(
-                review=review, historical_update=historical_update, original_case_count=38)
+            data["theoretical_update"]["original_case_count"] = 38
         data["snapshot"] = max(data["snapshot"], data["theoretical_update"]["date"])
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(json.dumps(data, ensure_ascii=False, separators=(",", ":")) + "\n")

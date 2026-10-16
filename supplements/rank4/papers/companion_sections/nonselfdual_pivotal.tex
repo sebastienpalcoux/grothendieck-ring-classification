@@ -1,0 +1,103 @@
+% Independent proof insert; source for slope is Bruguières--Virelizier,
+% On the center of fusion categories, Pacific J. Math. 264 (2013), 1--30, Section 4C.
+% Source for the ring parameterization is Larson, arXiv:1401.1879v2, Prop. 2.1.
+\subsection{Removing the multiplicity bound in the non-self-dual pivotal case}
+
+\begin{lemma}\label{lem:rank4-nonselfdual-spherical}
+Every pivotal structure on a nonpointed rank-four fusion category with a
+non-self-dual simple object is spherical.
+\end{lemma}
+\begin{proof}
+Write the simple objects as $1,X,Y,Z$, with $X^*=Z$ and $Y^*=Y$.
+The slope operator of a pivotal fusion category is the monoidal natural
+endomorphism of the identity whose scalar on a simple object $V$ is
+$\operatorname{sl}(V)=\dim_l(V)/\dim_r(V)$; see
+\cite[Section~4C]{BVCenter}.
+Consequently $N_{UV}^W>0$ implies
+$\operatorname{sl}(W)=\operatorname{sl}(U)\operatorname{sl}(V)$.
+The slopes of $1,Y$ are one, and those of $X,Z$ are $s,s^{-1}$.
+We prove $s=1$.
+
+Use the general rank-four non-self-dual multiplication table
+\[
+\begin{aligned}
+ X^2&=pX+lY+cZ,& X Y&=qX+kY+lZ,\\
+ Y^2&=1+kX+eY+kZ,& XZ&=1+pX+qY+pZ,\\
+ Z^2&=cX+lY+pZ,& YZ&=lX+kY+qZ,
+\end{aligned}
+\]
+where $c,e,k,l,p,q$ are nonnegative integers. Associativity gives
+\[
+ kl+lc=lp+kq,\qquad kp+le+kc=2lq+k^2,
+\]
+\[
+ l^2+c^2=1+q^2+p^2,\qquad l^2+k^2+q^2=1+2pk+qe.
+\]
+If $s\ne1$, the occurrences of $X$ in $X^2$ and of $Y$ in $XY$ force
+$p=k=0$. The first associativity equation then gives $lc=0$. If $l=0$,
+the third equation gives $(c-q)(c+q)=1$, hence $c=1,q=0$, contrary to
+the fourth equation. Therefore $l>0$ and $c=0$. The third equation now
+gives $(l-q)(l+q)=1$, hence $l=1,q=0$; the second then gives $e=0$.
+The resulting table is the pointed ring of $\mathbb Z/4\mathbb Z$,
+contrary to the hypothesis. Thus every slope is one, which is precisely
+sphericity.
+\end{proof}
+
+\begin{proposition}\label{prop:nonselfdual-pivotal-pu}
+A rank-four non-self-dual fusion ring admits a pivotal categorification
+if and only if it admits a pseudo-unitary categorification.
+\end{proposition}
+\begin{proof}
+Only the forward implication requires proof. If the ring is pointed,
+it admits a unitary model. Otherwise the preceding lemma makes any
+pivotal realization spherical.
+
+Let $R$ be the ring. Its four complex characters are permuted by the
+involution $\chi\mapsto(b\mapsto\chi(b^*))$. On $R\otimes_{\mathbb Z}\mathbb C$
+the involution has trace two, since it fixes the two basis elements
+$1,Y$ and exchanges $X,Z$. On the primitive idempotent basis its trace
+is the number of fixed characters. Hence precisely two characters are
+fixed by duality. These are exactly the real-valued characters, because
+characters of a commutative fusion ring satisfy
+$\chi(b^*)=\overline{\chi(b)}$.
+
+One of these real characters is the Frobenius--Perron character $d$.
+If all its values are rational, they are integers, and every fusion
+categorification is weakly integral and therefore pseudo-unitary.
+Otherwise the Galois orbit of $d$ has at least two members. It consists
+entirely of characters fixed by duality, since $d(b)=d(b^*)$ is preserved
+by field automorphisms. Thus it consists of both real-valued characters.
+The spherical dimension character is real-valued, so is Galois conjugate
+to $d$. Conjugating the category and its spherical structure gives
+positive Frobenius--Perron dimensions, hence a pseudo-unitary realization.
+\end{proof}
+
+\begin{corollary}\label{cor:nonselfdual-unbounded-classification}
+With no multiplicity restriction, the rank-four non-self-dual fusion
+rings admitting pivotal categorifications are exactly the six rings
+\[
+ \mathbb Z[\mathbb Z/4\mathbb Z],\quad
+ \operatorname{NG}(\mathbb Z/3\mathbb Z,m)\ (m=0,2,3,6),\quad S(1).
+\]
+All six admit unitary realizations.
+\end{corollary}
+\begin{proof}
+The proposition reduces the classification to the pseudo-unitary case.
+Larson's classification gives these six rings and the additional candidate
+$S(2)$. The uniform exclusion of $S(m)$ for $m\geq2$ removes that candidate.
+The known unitary models are the ones already recorded in the realization
+table: the cyclic group, Tambara--Yamagami, $\operatorname{Rep}(A_4)$,
+Izumi--Xu, the $m=6$ near-group model, and the non-self-dual quadratic model.
+\end{proof}
+
+\begin{corollary}\label{cor:rank4-pivotal-spherical-unbounded}
+Every pivotal structure on a nonpointed rank-four fusion category is
+spherical. Consequently, pivotal and spherical categorifiability are
+equivalent for all rank-four fusion rings, without a multiplicity bound.
+\end{corollary}
+\begin{proof}
+In the self-dual case, left and right dimensions agree on each simple
+object. The non-self-dual case is Lemma~\ref{lem:rank4-nonselfdual-spherical}.
+Every pointed rank-four ring has a unitary realization, which handles
+the remaining existence statement.
+\end{proof}

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""Package the corrected record, dated errata, audit receipts and frozen parent.
+"""Package current manuscripts, proof sources and exact verification evidence.
 
-The standalone extraction test checks correction metadata only. Full historical
+The standalone extraction test checks current documents and decision metadata. Full historical
 replay is a separate command requiring the complete repository. Repository
 archives above 12 MiB are stored as raw 6 MiB parts for tools/restore_data.py;
 the generated ZIP remains available locally for the site but is ignored by Git.
@@ -89,30 +89,45 @@ def package_publication_archive(root, output):
 
 
 def collect(root):
+    from current_publication import DOCUMENT_REVISION, validate_documents, replay_sources
+    revision = validate_documents(root)
+    preserved = replay_sources(root)
     spec = importlib.util.spec_from_file_location('frozen_bundle', root / 'tools/build_unified_20261016_archive.py')
     old = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(old)
-    payload = old.collect(root)
-    # Include the public audit record, receipts and reproduction instructions.
-    # Full historical replay still requires a complete repository checkout.
-    for folder in ('evidence/review_20261017', 'evidence/prepublication_20261017'):
-        for path in (root / folder).rglob('*'):
-            if (path.is_file() and not {'__pycache__', '.pytest_cache'}.intersection(path.parts)
-                    and path.suffix not in ('.pyc', '.pyo', '.tmp', '.writing', '.swp')
-                    and path.name != '.DS_Store'):
-                payload[path.relative_to(root).as_posix()] = path.read_bytes()
-    for relative in ('tools/verify_review_20261017.py', 'tools/build_review_20261017_archive.py',
-                     'tools/build_prepublication_review.py', 'docs/prepublication_review_content.json',
-                     'docs/PREPUBLICATION_REVIEW.md', 'docs/RESEARCH_STATUS.md', 'docs/VERIFY.md',
-                     'manuscripts/prepublication-review-2026-10-17.pdf',
-                     'manuscripts/rank8/paper/rank8-reviewed.pdf'):
-        payload[relative] = (root / relative).read_bytes()
-    for relative in ('manuscripts/prepublication-review-2026-10-17.pdf',
-                     'manuscripts/rank8/paper/rank8-reviewed.pdf'):
-        if not payload[relative].startswith(b'%PDF-'):
-            raise ValueError('Required review document is not a PDF: ' + relative)
-    # Both review PDFs are mandatory; the frozen source-file manifest and the
-    # original rank-eight PDF identity remain unchanged.
+    paths = set(old.REQUIRED)
+    for folder in ('evidence/unified_20261016', 'evidence/theoretical_20261016',
+                   'evidence/review_20261017', 'evidence/prepublication_20261017',
+                   'evidence/publication_20261017'):
+        paths.update(path.relative_to(root).as_posix() for path in (root / folder).rglob('*')
+                     if path.is_file() and not {'__pycache__', '.pytest_cache'}.intersection(path.parts)
+                     and path.suffix not in ('.pyc', '.pyo', '.tmp', '.writing', '.swp')
+                     and path.name != '.DS_Store')
+    paths.update(revision['documents'])
+    paths.update(path.relative_to(root).as_posix() for path in (root / 'docs').glob('*.md'))
+    paths.update(path.relative_to(root).as_posix() for path in (root / 'supplements').glob('rank*/README.md'))
+    # Include the current reader indexes and the clean status-PDF source, so the
+    # downloaded edition has the same navigation and rebuild inputs as GitHub.
+    paths.update(('manuscripts/README.md', 'supplements/README.md',
+                  'tools/build_prepublication_review.py', 'docs/prepublication_review_content.json'))
+    paths.update(path.relative_to(root).as_posix() for path in (root / 'supplements/rank6').rglob('*.md')
+                 if path.name in ('README.md', 'CURRENT_STATUS.md'))
+    paths.update((DOCUMENT_REVISION, 'tools/verify_current_publication.py',
+                  'tools/current_publication.py', 'tools/verify_review_20261017.py',
+                  'tools/build_review_20261017_archive.py', 'tools/build_current_document_revision.py',
+                  'docs/PREPUBLICATION_REVIEW.md', 'docs/RESEARCH_STATUS.md', 'docs/VERIFY.md'))
+    payload = {name: (root / name).read_bytes() for name in sorted(paths)}
+    # The immutable proof manifest keeps its exact original hashes. Revised
+    # documents are verified separately; their original replay bytes are in the
+    # independently pinned archive and are restored only by the dispatcher.
+    frozen = json.loads(payload['evidence/unified_20261016/source_files.json'])
+    for name, expected in frozen.items():
+        raw = preserved[name] if name in preserved else payload.get(name)
+        if raw is None or digest(raw) != expected:
+            raise ValueError('Missing or changed immutable proof source: ' + name)
+    for source in revision['web_copies'].values():
+        if source not in payload or not payload[source].startswith(b'%PDF-'):
+            raise ValueError('Current downloadable manuscript missing: ' + source)
     return payload
 
 
@@ -124,33 +139,33 @@ def main():
     root = args.repo.resolve()
     payload = collect(root)
     inputs = {name: digest(raw) for name, raw in payload.items()}
-    payload['README.md'] = ('''# Corrected research record · 17 October 2026
+    payload['README.md'] = ("""# Grothendieck-ring classification · manuscripts and verification
 
-R8_2_24 is reopened: its proposed categorical-to-linear exclusion bridge is unproved.
-The current continuation retains 35 accepted decisions (28 exclusions and 7 models),
-with R6_4_155, R6_8_1660 and R8_2_24 unresolved. All claims remain AI-generated,
-not independently human-verified and not Lean-formalized.
+This package contains the current manuscript sources and PDFs for ranks two
+through eight, verification guides, proof sources, exact computational evidence,
+and the publication identity manifest data/current_document_revision.json.
 
-Start with manuscripts/prepublication-review-2026-10-17.pdf and
-docs/PREPUBLICATION_REVIEW.md, then evidence/review_20261017/README.md.
-The included manuscripts/rank8/paper/rank8-reviewed.pdf places the dated
-errata before the unchanged historical paper. The inherited manuscripts and
-original 36-decision records are superseded historical snapshots for R8_2_24.
-The public audit reports, replay receipts and reconstruction instructions
-are included under evidence/prepublication_20261017/.
+The 38-case continuation has 35 accepted decisions (28 proposed exclusions and
+7 constructions). R6_4_155, R6_8_1660 and R8_2_24 remain unresolved.
+Treat these AI-generated results and data with caution: independent human
+verification and Lean formalization have not been completed.
 
-Standalone correction and source-identity check:
-    python3 tools/verify_review_20261017.py --metadata-only
+Start with docs/RESEARCH_STATUS.md and the manuscripts directory.
+The verification procedures and their precise limits are in docs/VERIFY.md.
 
-The full historical replay requires a complete repository checkout:
-    python3 tools/verify_review_20261017.py --historical
+Standalone publication, source-identity and decision check:
+    python3 tools/verify_current_publication.py --metadata-only
 
-A historical calculation PASS does not reinstate the withdrawn proof. Full base
-checks are separately documented in evidence/prepublication_20261017/FULL_REPLAY.md.
+Full proof-history replay, from a complete repository checkout:
+    python3 tools/verify_current_publication.py --historical
+
+The dispatcher reconstructs each immutable proof stage in an isolated temporary
+workspace. It never replaces the current manuscripts. A computational PASS
+certifies the stated checks, not the mathematical correctness of every argument.
 
 ARCHIVE_MANIFEST.json records each included source's SHA-256 and byte size.
 Fixed timestamps and sorted paths make identical inputs produce identical ZIP bytes.
-''').encode()
+""").encode()
     payload['ARCHIVE_MANIFEST.json'] = (json.dumps({name: {'bytes': len(raw), 'sha256': digest(raw)}
                                                    for name, raw in sorted(payload.items())}, indent=2) + '\n').encode()
     output = (args.output or root / 'site/dist/downloads' / f'{PREFIX}.zip').resolve()
@@ -178,10 +193,10 @@ Fixed timestamps and sorted paths make identical inputs produce identical ZIP by
             raw = (isolated / name).read_bytes()
             if len(raw) != expected['bytes'] or digest(raw) != expected['sha256']:
                 raise ValueError('Extracted archive source identity: ' + name)
-        run = subprocess.run([sys.executable, str(isolated / 'tools/verify_review_20261017.py'), '--metadata-only'],
+        run = subprocess.run([sys.executable, str(isolated / 'tools/verify_current_publication.py'), '--metadata-only'],
                              cwd=isolated, text=True, capture_output=True)
         if run.returncode:
-            raise ValueError('Standalone correction check failed:\n' + run.stdout + run.stderr)
+            raise ValueError('Standalone publication check failed:\n' + run.stdout + run.stderr)
         receipt = json.loads(run.stdout)
         if receipt['status'] != 'PASS' or receipt['accepted_decisions'] != 35:
             raise ValueError('Inconsistent receipt')

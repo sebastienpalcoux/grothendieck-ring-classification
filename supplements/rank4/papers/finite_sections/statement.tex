@@ -1,0 +1,78 @@
+\section{The finite classification}\label{sec:finite-statement}
+A \emph{Grothendieck ring} here means a fusion ring admitting a fusion-category
+categorification over $\mathbb C$. The question concerns existence for a
+based ring, not a classification of all tensor categories realizing it.
+For structure constants $N_{ij}^k$, put
+$\mu(R)=\max_{i,j,k}N_{ij}^k$. We use the pinned rank-four census
+\cite{Census} and write $F_{m,j}$ for its $j$th ring of exact multiplicity
+$m$. For compatibility with historical lists, the identifiers through
+$m=32$ follow the mapping supplied with the certificates; above $32$ they
+follow the pinned parameter-file order. The supplement records the source
+index, tensor digest, and any historical basis permutation. Identifiers
+name based rings but are never premises of an obstruction test.
+
+\begin{theorem}[Bounded classification]\label{thm:finite}
+A rank-four fusion ring $R$ with $\mu(R)\leq\MultiplicityBound$ admits a fusion
+categorification over $\mathbb C$ if and only if it appears in
+Table~\ref{tab:models}. Every ring in that table admits a unitary
+categorification. Consequently general, pivotal, spherical, pseudo-unitary
+and unitary categorifiability give the same fifteen based rings in this range.
+\end{theorem}
+
+The forward implication is the exclusion theorem proved below; the reverse
+implication uses the established models in the table. The logical reduction
+is particularly useful: a unitary realization establishes all five existence
+statements, whereas a general obstruction excludes all five. There is no
+need for five independent classification algorithms.
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{lll}
+\toprule
+Ring & A unitary realization & Source for existence\\
+\midrule
+$F_{1,1}$ & $\Vec_{C_2\times C_2}$ & \cite{LPR}\\
+$F_{1,2}$ & $\mathrm{Fib}\boxtimes\Vec_{C_2}$ & \cite{LPR}\\
+$F_{1,3}$ & $\Rep(D_{10})$ & \cite{LPR}\\
+$F_{1,4}$ & $\mathrm{PSU}(2)_6$ & \cite{LPR}\\
+$F_{1,5}$ & $\mathrm{Fib}\boxtimes\mathrm{Fib}$ & \cite{LPR}\\
+$F_{1,6}$ & $\mathrm{PSU}(2)_7$ & \cite{LPR}\\
+$F_{1,7}$ & $\Vec_{C_4}$ & \cite{LPR}\\
+$F_{1,8}$ & $\mathrm{TY}(C_3)$ & \cite{LPR}\\
+$F_{1,10}$ & the pseudo-$\mathrm{PSU}(2)_6$ ring & \cite{LPR}\\
+$F_{2,2}$ & the even part of $2D2$ & \cite[Theorem 3.1]{EIP}\\
+$F_{2,15}$ & the Haagerup category $\mathcal H_1$ & \cite[Table 2]{GrossmanSnyder}\\
+$F_{2,17}$ & $\Rep(A_4)$ & standard representation category\\
+$F_{3,19}$ & $\mathrm{Ad}(E_8)$ & \cite{EvansJones}\\
+$F_{3,24}$ & $C_3$ near-group, parameter $3$ & \cite[Theorem 9.1]{Izumi}\\
+$F_{6,81}$ & $C_3$ near-group, parameter $6$ & \cite[Theorem 10.19]{Izumi}\\
+\bottomrule
+\end{tabular}
+\caption{The fifteen positive rings. Here $D_{10}$ has order ten;
+$\mathrm{Fib}$ is unitary Fibonacci, and $\mathrm{PSU}(2)_k$ denotes the even
+part of the standard unitary $\mathrm{SU}(2)_k$ category. The word
+``pseudo'' in the name of $F_{1,10}$ does not weaken its unitary realization.}
+\label{tab:models}
+\end{table}
+
+The census contains $\CensusSize$ based rings through multiplicity
+$\MultiplicityBound$. Table~\ref{tab:census-bands} groups the exact counts
+in four disjoint ranges; the supplement gives the count at every exact
+multiplicity and a split by duality type.
+\input{generated/census_bands}
+The input is the rank-four data of the fusion-ring census
+\cite{Census} at commit
+\texttt{7f1b36e74df53a8a1cf8597db45d261e408d61b2}.
+That repository supplies exhaustive coverage and exact counts through
+$m=128$; Appendix~\ref{sec:census} records the tensor interface needed by
+the classification checker. Every identifier is accompanied by a full
+tensor digest, so no mathematical conclusion depends on catalogue order.
+Every input ring is covered by a realization or nonexistence certificate.
+
+The mathematical tools are presented before their finite application. Known
+results are cited with their hypotheses; the new inequalities and reductions
+are proved. The electronic supplement records applications as coefficient,
+polynomial, prime, sign and bounded-enumeration certificates, rather than as
+hundreds of separate case proofs. The companion paper studies what can be
+proved without a multiplicity bound and is not used to establish
+Theorem~\ref{thm:finite}.

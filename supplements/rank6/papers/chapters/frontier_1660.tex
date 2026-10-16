@@ -264,7 +264,7 @@ together with $p^2=q^2=1$, $qs=s$ and $s^2=1+q$.
 \subsubsection{Two exact fermionic cuts on the remaining profiles}
 
 Write $d=3+2\sqrt2+2\sqrt3+\sqrt6$ and $D=4(1+d^2)$.
-The previous actual-twist certificate leaves $1764$ labelled restriction
+The actual-twist certificate leaves $1764$ labelled restriction
 profiles, in branches of sizes $168,798,798$.
 The following reduction uses the already forced central fermion and second
 indicators. It makes no unitarity assumption and does not resolve the ring.
@@ -393,7 +393,7 @@ $0$ modulo $8$, whereas
 $36$ is $4$ modulo $8$. These six profiles in each labelling are excluded.
 
 The verifier \filename{verify\_fermion\_profiles.py} in
-\filename{research/frontier/R6_8_1660/fermion_profiles/} reconstructs the entire old frontier
+\filename{research/frontier/R6_8_1660/fermion_profiles/} reconstructs the entire input domain
 from its hash-bound source files, checks all field identities by integer
 arithmetic in $\mathbb Q(\sqrt2,\sqrt3)$, and records both disjoint
 excluded sets in \filename{fermion\_profiles\_certificate.json}.
@@ -645,12 +645,12 @@ For example, the automorphism $\zeta_{48}\mapsto\zeta_{48}^{17}$ fixes
 $\zeta_{16}$ and $\sqrt2$ but negates $\sqrt3$.
 Therefore such a profile must have $T=1\pmod3$.
 
-The exact bounded orbit calculation is now repeated with the new
+The exact bounded orbit calculation imposes the
 asymmetric-even parity condition and this single residue $T$.
 It excludes $18$ profiles by parity and a further $39$ by the spin/field
 condition, leaving branch sizes $164,753,753$.
 The portable verifier \texttt{verify\_spin\_profiles.py} first replays the
-previous $1727$-profile certificate and checks its surviving-index hashes.
+input $1727$-profile certificate and checks its surviving-index hashes.
 It uses only integer arithmetic and independently rechecks every rejected
 charge branch by a second recursion over the individual orbit counts.
 The small receipt \texttt{spin\_profiles\_certificate.json} records all

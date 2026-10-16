@@ -1,0 +1,175 @@
+\subsection{A uniform bound for the repeated-quadratic exception}
+\label{sec:repeated-quadratic-bound}
+
+All norms in the next argument are taken in the specified quadratic
+field, even when the element being normed is rational.
+
+\begin{theorem}\label{thm:non-galois-pu-bound}
+Let $\mathcal C$ be a self-dual rank-four pivotal fusion category.
+If no Galois conjugate of $\mathcal C$ is pseudo-unitary, then
+\[
+ \operatorname{FPdim}(\mathcal C)<196.
+\]
+Consequently its fusion-rule multiplicity is at most $13$.
+\end{theorem}
+\begin{proof}
+Self-duality makes the pivotal structure spherical.
+Proposition~\ref{prop:rank4-galois-exception} reduces the question to
+$R\otimes\mathbb Q\cong K\times K$ for a real quadratic field $K$.
+Write $D=\operatorname{FPdim}(\mathcal C)$ and let $D'$ denote its
+conjugate in $K$. Rational $D$ would make $\mathcal C$ weakly integral
+and pseudo-unitary, so $D$ is nonrational. The two remaining characters
+give formal codegrees $E,E'$, conjugate in $K$, possibly equal if
+$E\in\mathbb Q$. All four are positive.
+
+If the spherical dimension character belongs to the Frobenius--Perron
+orbit, its category has a pseudo-unitary Galois conjugate. We may
+therefore suppose its global dimension belongs to the other orbit,
+and conjugate the category so that its global dimension is
+$E\geq E'$. Every character value on a basis element has absolute
+value at most its Frobenius--Perron dimension; hence every formal
+codegree is at most $D$. Thus $E\leq D$, and equality would itself
+give pseudo-unitarity. Hence $E<D$.
+
+The formal-codegree theorem supplies a central simple of categorical
+dimension $E/D$. In particular, $E/D$ is an algebraic integer in $K$.
+Set
+\[
+ n=\operatorname{Norm}_{K/\mathbb Q}(D)=DD',\qquad
+ m=\operatorname{Norm}_{K/\mathbb Q}(E)=EE',\qquad
+ k=m/n.
+\]
+The norm of the nonzero algebraic integer $E/D$ is a positive integer,
+so $k\in\mathbb Z_{\geq1}$. The definitions remain valid when
+$E=E'$, in which case $m=E^2$.
+Put
+\[
+ A=D+D',\quad B=E+E',\quad p=A/n.
+\]
+The reciprocal-codegree identity, counting both characters when their
+codegrees coincide, gives
+\begin{equation}\label{eq:quadratic-reciprocal}
+ \frac An+\frac B{kn}=1.
+\end{equation}
+Consequently
+\begin{equation}\label{eq:quadratic-S}
+ S:=\frac1{D^2}+\frac1{(D')^2}+\frac1{E^2}+\frac1{(E')^2}
+ =p^2+(1-p)^2-\frac{2(1+1/k)}n.
+\end{equation}
+Ostrik's spherical inequality~\cite[Theorem~3.1.1]{OstrikGlobal} gives
+\begin{equation}\label{eq:quadratic-spherical-bound}
+ S\leq\frac12+\frac1{2E}.
+\end{equation}
+For completeness, the squared central dimensions give a positive
+measure on twists with total mass $E^2$ and first moment $E$.
+The four twist-one constituents of $I(1)$ have squared mass
+$h=E^2S$. The remaining mass and first moment are $E^2-h$ and $E-h$,
+so $h-E\leq|E-h|\leq E^2-h$. This proves the displayed inequality
+without any pseudo-unitarity hypothesis.
+Every formal codegree of a nontrivial self-dual fusion ring is strictly
+greater than one: it is $1+\sum_{X\ne1}\chi(X)^2$, and the character
+cannot vanish on every nonunit basis element because $[X^2:1]=1$.
+Thus $D'>1$, so $n>D$; furthermore $E\geq\sqrt{kn}>\sqrt D$.
+
+Suppose for a contradiction that $D\geq196$. First let $k\geq2$.
+The function $t+kn/t$ is increasing for $t\geq\sqrt{kn}$, so
+$E\leq D$ implies
+\[
+ B\leq D+kn/D=A+(k-1)n/D.
+\]
+Using \eqref{eq:quadratic-reciprocal} we obtain
+\[
+ p\geq\frac{k}{k+1}-\frac{k-1}{(k+1)D}
+       \geq\frac23-\frac1{3D}>\frac12.
+\]
+The last middle expression increases with $k$ because $D>2$.
+Equation~\eqref{eq:quadratic-S}, $n>D$, and $k\geq2$ now give
+\begin{align*}
+ S-\tfrac12
+ &>2\left(\frac16-\frac1{3D}\right)^2-\frac3D\\
+ &\geq2\left(\frac16-\frac1{588}\right)^2-\frac3{196}
+   =\frac1{28}+\frac{589}{172872}>\frac1{28}.
+\end{align*}
+The expression in the first line is increasing for $D\geq196$.
+Since $E>\sqrt D\geq14$, this contradicts
+\eqref{eq:quadratic-spherical-bound}.
+
+It remains to treat $k=1$. The algebraic integer $E/D$ is now a
+totally positive unit of norm one. Put $r=D/E>1$.
+Its two conjugates are $r,r^{-1}$, so $r+r^{-1}$ is an integer
+strictly greater than two. Therefore
+\[
+ r\geq\frac{3+\sqrt5}{2}>\frac52.
+\]
+Also $E\geq\sqrt n$ implies $r<\sqrt D$. Since $E=D/r$ and
+$E'=rD'$, the reciprocal identity gives
+\[
+ p=\frac r{r+1}-\frac{r-1}{D}.
+\]
+For fixed $D$ the right-hand side is a concave function of $r$.
+Its minimum on $[5/2,\sqrt D]$ occurs at an endpoint. At the first
+endpoint it equals $5/7-3/(2D)$, whereas at the second it is
+\[
+ 1-\frac1{\sqrt D+1}-\frac1{\sqrt D}+\frac1D
+ >1-\frac2{\sqrt D}\geq\frac67.
+\]
+Thus $p\geq5/7-3/(2D)>1/2$. Again
+\eqref{eq:quadratic-S} gives
+\begin{align*}
+ S-\tfrac12
+ &>2\left(\frac3{14}-\frac3{2D}\right)^2-\frac4D\\
+ &\geq2\left(\frac3{14}-\frac3{392}\right)^2-\frac4{196}
+    =\frac1{28}+\frac{2249}{76832}>\frac1{28},
+\end{align*}
+again contradicting \eqref{eq:quadratic-spherical-bound} and $E>14$.
+This proves $D<196$ in both cases.
+
+Finally every fusion matrix is real symmetric, and its operator norm
+is its Frobenius--Perron eigenvalue $d_X$. Thus
+$N_{XY}^{Z}\leq d_X<\sqrt D<14$ for every structure constant.
+The multiplicity is an integer and is therefore at most $13$.
+\end{proof}
+
+\begin{corollary}\label{cor:pivotal-pu-unrestricted}
+A rank-four fusion ring admits a pivotal categorification over
+$\mathbb C$ if and only if it admits a pseudo-unitary categorification.
+No multiplicity bound is imposed in this statement.
+\end{corollary}
+\begin{proof}
+For non-self-dual rings use the unrestricted non-self-dual theorem.
+For a self-dual pivotal category with a pseudo-unitary Galois conjugate
+there is nothing to prove. Otherwise
+Theorem~\ref{thm:non-galois-pu-bound} puts its fusion ring inside the
+verified bounded classification through multiplicity
+thirteen. Every positive pivotal ring in that classification has a unitary,
+and hence pseudo-unitary, realization. Conversely, a pseudo-unitary
+category has its canonical pivotal structure.
+\end{proof}
+
+\begin{corollary}\label{cor:simple-pivotal-galois-pu}
+Every pivotal rank-four category whose fusion ring has no proper
+nontrivial fusion subring has a pseudo-unitary Galois conjugate.
+\end{corollary}
+\begin{proof}
+Such a categorification is self-dual by the unrestricted non-self-dual
+classification. A hypothetical exception to Galois pseudo-unitarity
+would have multiplicity at most $13$ and rational fusion algebra
+$K\times K$. The bounded classification leaves only the rings of
+$\operatorname{PSU}(2)_7$ and $\mathcal H_1$ in the absence of a
+proper nontrivial fusion subring. Their rational fusion algebras have
+degree patterns $1+3$ and $1+1+2$, respectively, rather than $2+2$.
+This is a contradiction.
+\end{proof}
+
+\begin{remark}
+Theorem~\ref{thm:non-galois-pu-bound} bounds the case where the given
+category has no pseudo-unitary Galois conjugate. The separate moment
+argument of Theorem~\ref{thm:quadratic-product-bound} bounds the
+pseudo-unitary case for a product of two quadratic fields as well.
+Thus this repeated-field possibility creates
+no exception in the unrestricted classification by rational algebra type.
+The exception for individual realizations is real: the product of a
+Fibonacci category and its Yang--Lee conjugate has global dimension
+$E=5$, $D=5\phi^2$, and $n=m=25$, so none of its Galois conjugates
+is pseudo-unitary even though its fusion ring has a unitary realization.
+\end{remark}

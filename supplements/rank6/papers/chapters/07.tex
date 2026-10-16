@@ -102,17 +102,28 @@ with no assertion of nonexistence or realizability.
 \end{proof}
 
 \subsection{Reproduction}\label{sec:reproduction}\label{sec:frontier}
-The command \texttt{python verify.py --jobs 2} checks the frozen input,
-positive models and allocated negative certificates. Repeating it with
-\texttt{python -O} confirms that the checks do not depend on removable
-Python assertions. The conformal models have the independent exact
-replay \texttt{python -O software/conformal\_models.py --verify}.
-The verification guide gives dependencies, commands and the scope of
-retained certificates. The controls include actual positive categories
-and corrupted certificates that must be rejected. All of this checks
-categorification evidence; no new census is enumerated.
+The full verifier checks the source tensor import, positive models and
+allocated negative certificates. The completed rank-six campaign covers
+all $25\,362$ exclusions by combining $25\,355$ passes from the initial
+full invocation with complete, unchanged Python-backend replays of its
+seven failed certificates. The two post-loop count and registry checks
+pass separately. This is not a single successful full invocation.
+Backend-dependent ordering of exact balance equations accounts for the
+selected replay requirement; the verification guide specifies the
+source-bound evidence and the supplied orchestration command, whose
+end-to-end execution remains untested.
 
-\subsection{The inherited frontier}\label{sec:research-coverage}
+The conformal models have the exact replay
+\begin{quote}\small
+\verb|python -O software/conformal_models.py --verify|
+\end{quote}
+Normal and optimized continuation runs keep all correctness checks
+active. Controls include positive categories and corrupted certificates
+that must be rejected. The verification guide distinguishes the scope
+of every checker. These procedures check categorification evidence;
+the cited census supplies the counting input.
+
+\subsection{The remaining frontier}\label{sec:research-coverage}
 Through multiplicity eight, the remaining tensors are precisely
 $\RR{4}{155}$ and $\RR{8}{1660}$. Every categorification of each is spherical and has a
 pseudo-unitary Galois conjugate, by the arguments below and the retained

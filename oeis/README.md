@@ -11,12 +11,12 @@ multiplicity `m` with at least one fusion-category realization over ℂ.
 
 Generate from the exact status partitions with
 `python3 tools/export_oeis_drafts.py`. Every exported band has zero unresolved
-and zero unassessed rings; rank-five multiplicities 18–20 are now included after general exclusion certificates closed the former residuals.
+and zero unassessed rings; rank-five multiplicities 18–20 are included with general exclusion certificates.
 Rank-six general classification is complete at exact multiplicities
-**1, 2, 3, 5, 6, 7, 9**, contiguously through **3**. The unresolved rings are recorded in the current frontier.
-The rank-six fusion-ring census draft is separately extended by a(9)=8809;
-it counts all based rings, regardless of categorifiability. The exporter proposes only the rank-four and
-rank-five drafts listed above; no incomplete band is an exact sequence term.
+**1, 2, 3, 5, 6, 7, 9**, contiguously through **3**. Two rings remain unresolved through 9.
+The rank-six census value a(9)=8809 counts all based rings regardless of
+categorifiability. The exporter proposes only the rank-four and rank-five
+drafts above; no incomplete band is an exact sequence term.
 No zero beyond a proven finite
 classification bound is inferred from the conjectured unrestricted
 classification.

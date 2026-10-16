@@ -1,0 +1,24 @@
+{
+  "status": "PASS",
+  "controls": [
+    {
+      "control": "current document mutation",
+      "rejected": true,
+      "returncode": 1,
+      "reason": "ValueError: Current document identity: manuscripts/rank6/papers/chapters/01.tex"
+    },
+    {
+      "control": "immutable replay archive mutation",
+      "rejected": true,
+      "returncode": 1,
+      "reason": "ValueError: Immutable replay archive identity"
+    },
+    {
+      "control": "current unresolved ledger mutation",
+      "rejected": true,
+      "returncode": 1
+    }
+  ],
+  "schema": "current-publication-negative-controls/v1",
+  "scope": "Three isolated mutations of extracted publication inputs; each was rejected with a nonzero exit status. The repository inputs were unchanged."
+}

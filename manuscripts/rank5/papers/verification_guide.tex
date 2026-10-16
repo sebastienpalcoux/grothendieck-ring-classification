@@ -2,8 +2,15 @@
 \input{preamble}
 \hypersetup{pdftitle={Verification guide: rank-five rings through multiplicity twenty}}
 \title{Verification guide\\Rank-five rings through multiplicity twenty}
-\date{23 September 2026}
+\author{}
+\date{17 October 2026}
 \begin{document}\maketitle
+\par\medskip\noindent\textbf{Research notice.}
+This is AI-generated research. The results, proofs, code and data have not yet
+been independently verified by human experts or formalized in Lean. Treat them
+as provisional; automated checks establish only their stated computational scope.
+\par\medskip
+
 \section{What this release certifies}
 The pinned \texttt{fusion-ring-census} repository \cite{Census} records
 $40999$ pairwise nonisomorphic rank-five fusion rings through
@@ -11,42 +18,38 @@ multiplicity twenty. The checkers validate the release tensors against
 the ring axioms. Exactly
 seventeen match the constructed unitary models. The other $40982$
 have verified general exclusion certificates. In particular, the two
-formerly unresolved tensors at local indices $5073$ and $5076$ at
-exact multiplicity eighteen now have general certificates: a new
+tensors at local indices $5073$ and $5076$ at
+exact multiplicity eighteen have general certificates: a new
 inert-prime parity theorem forces any categorification to be spherical,
 and their existing exact spherical-character certificates then exclude
 it. Thus general, pivotal, spherical, pseudo-unitary and unitary
-categorification is classified through twenty. The old signed-search
-timeouts remain discovery diagnostics; they are not used as certificates.
+categorification is classified through twenty. Search timeouts are not exclusion certificates.
 
 \section{Environment and complete verification commands}
-Use Python 3.11 or later, SymPy and NumPy, and a C++17 compiler supporting
-OpenMP and \texttt{\_\_int128}. The recorded run used Python 3.13.5;
-\texttt{provenance/environment.json} records exact versions and the
-compiler. SciPy is required only for certificate discovery. The normal
-verifier does not call linear programming or accept any floating-point
-certificate. Install the declared Python packages and run, from the
-archive root,
+The complete replay package checks all $40999$ rings, $40982$ exclusion
+certificates, and $17$ model matches. Use Python 3.12, a C++17 compiler,
+and the package requirements (SymPy 1.14.0, NumPy 2.3.5 and SciPy 1.17.0).
+From the classification repository root run
 \begin{verbatim}
-python -m pip install -r requirements.txt
-python verify.py --jobs 2
-python software/verify_extension.py --jobs 2
-python -O verify.py --jobs 2
-python -O software/verify_extension.py --jobs 2
+python tools/restore_data.py
+python evidence/prepublication_20261017/rank5/replay.py --check-package
+python evidence/prepublication_20261017/rank5/replay.py --jobs 2
+python -O evidence/prepublication_20261017/rank5/replay.py --jobs 2
 \end{verbatim}
-The commands check every certificate, not just a sample or the final
-frontier. The optimized invocation confirms that no proof condition depends
-on a removable \texttt{assert}. A nonzero exit or an exception is failure,
-not partial certification. Each command writes a summary JSON and a
-per-certificate result file in \texttt{verification/}. The supplied logs
-are measurements, not substitutes for rerunning the checker.
+The package check verifies every extracted member and its agreement with the
+published counts. The two replay commands check the full pinned census, all
+exclusion certificates and positive models, and the secondary rejection
+controls. Proof conditions use explicit exceptions, so optimized Python
+retains them. Both recorded complete runs passed and produced byte-identical
+ledgers. Their digest is recorded in the package metadata.
 
-The optional \texttt{--skip-regressions} flag omits only the secondary
-controls; it still checks the full census, all exclusions, all models
-and both inert-parity/spherical composite certificates. It is not the command used
-for the archived full runs. Use \texttt{--output PATH} to preserve the
-archived summary when running a local copy. Local timing may vary with
-hardware and process contention.
+Fresh receipts and ledgers are written to \path{rank5-replay-output/}; use
+\texttt{--output-dir PATH} to select another location. The exact verifier
+uses rational and algebraic arithmetic; numerical optimization is used only
+in certificate discovery. A nonzero exit or an exception is a failed check.
+No conclusion is drawn from incomplete execution or a timeout. Source hashes
+and successful computations identify and test the encoded arguments; they do
+not replace independent mathematical review.
 
 \section{Census input and archival labels}
 The finite classification uses the pinned census repository
@@ -222,11 +225,11 @@ root to compile them. For current counts use the pinned repository
 \cite{Census}.
 
 \section*{AI use disclosure}
-GPT-6 Astra assisted with mathematical exploration, code development, and manuscript preparation.
+The research, code, and manuscript were generated with AI assistance. Independent human verification and Lean formalization are pending.
 \begin{thebibliography}{1}
 \sloppy
 \bibitem{Census} \emph{Fusion-ring census},
-\href{https://github.com/sebastienpalcoux/fusion-ring-census/tree/b86eb6dc6eeeafe5fc5f6906d7b074e0322e9726}{repository at commit \texttt{b86eb6dc6eeeafe5fc5f6906d7b074e0322e9726}},
+\href{https://github.com/sebastienpalcoux/fusion-ring-census/tree/b86eb6dc6eeeafe5fc5f6906d7b074e0322e9726}{repository}, commit \path{b86eb6dc6eeeafe5fc5f6906d7b074e0322e9726},
 \texttt{results/rank5/counts.csv} and \texttt{results/rank5/tables.txt.gz} (2026).
 \end{thebibliography}
 \end{document}

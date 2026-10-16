@@ -1,0 +1,59 @@
+\section{Census input and tensor conventions}\label{sec:census}
+The classification takes its exhaustive list of rank-four based rings from
+\cite{Census}, pinned to the commit specified in Section~\ref{sec:finite-statement}.
+The repository gives its enumeration method, canonicalization, counts,
+and full tensor data. We recall the coefficient conventions needed to
+reconstruct the local certificates and the signed search. All parameters
+below are integers between $0$ and the multiplicity bound $M$.
+
+\subsection{Self-dual basis}
+Frobenius reciprocity gives the regular matrices
+\[
+N_x=\begin{pmatrix}0&1&0&0\\1&a&b&c\\0&b&d&e\\0&c&e&f\end{pmatrix},\quad
+N_y=\begin{pmatrix}0&0&1&0\\0&b&d&e\\1&d&g&h\\0&e&h&i\end{pmatrix},\quad
+N_z=\begin{pmatrix}0&0&0&1\\0&c&e&f\\0&e&h&i\\1&f&i&j\end{pmatrix}.
+\]
+Associativity is equivalent to their pairwise commutativity, or to
+\begin{align}
+ ad-b^2+bg+ch-d^2-e^2+1&=0,\label{eq:census1}\\
+ ae-bc+bh+ci-de-ef&=0,\label{eq:census2}\\
+ be-cd+dh-eg+ei-fh&=0,\label{eq:census3}\\
+ af+bi-c^2+cj-e^2-f^2+1&=0,\label{eq:census4}\\
+ bf-ce+di-eh+ej-fi&=0,\label{eq:census5}\\
+ df-e^2+gi-h^2+hj-i^2+1&=0.\label{eq:census6}
+\end{align}
+The equivalence follows by comparing the first row of products of regular
+matrices and then using commutativity to recover every other row. It is
+also checked directly against the full associativity identities.
+For the signed-cover Diophantine reduction, when $b>0$ define
+\begin{align*}
+ H_0&=e(d+f)+bc,&G_0&=b^2+d^2+e^2-1,\\
+ A&=e(b^2-c^2)+bc(f-d),&C&=e(bf-ce),\\
+ B_0&=b^3e-b^2cd+b(d-f)H_0-ebG_0+ecH_0.
+\end{align*}
+Eliminating $h,g,j$ from the six equations yields the necessary identity
+\begin{equation}\label{eq:census-linear}
+ Ca+Ai+B_0=0.
+\end{equation}
+The signed verifier checks all six original equations after using this
+identity, retaining every vanishing-coefficient branch.
+
+\subsection{One nontrivial dual pair}
+For $X^*=X$ and $Y^*=Z$, the regular matrices are
+\[
+N_X=\begin{pmatrix}0&1&0&0\\1&a&b&b\\0&b&c&d\\0&b&d&c\end{pmatrix},\quad
+N_Y=\begin{pmatrix}0&0&1&0\\0&b&c&d\\0&d&e&f\\1&c&e&e\end{pmatrix},\quad
+N_Z=N_Y^{\mathsf T}.
+\]
+Associativity is equivalent to
+\begin{align*}
+ ac-b^2+2be-c^2-d^2+1&=0,&ad-b^2+be+bf-2cd&=0,\\
+ b(c-d)+d(e-f)&=0,&-c^2+d^2-e^2+f^2-1&=0.
+\end{align*}
+The pinned source contains $889530$ classes through $M=128$;
+\path{data/parameters_128.txt.gz} is its compact snapshot and
+\path{data/census_128_manifest.json} records the source commit and digests.
+The verifier reconstructs each full tensor, checks its axioms and digest,
+and tests its categorification certificate. The exhaustive census method
+and its count certification are supplied by the source repository
+\cite{Census}; no second rank-four census is required by the classification.

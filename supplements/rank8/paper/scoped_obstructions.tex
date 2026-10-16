@@ -128,38 +128,48 @@ separately; it assumes no simultaneous pseudo-unitarization of the
 ambient category.
 \end{proof}
 
-\section{Scoped obstructions inside the general frontier}
+\section{A scoped obstruction for the open case}
 \label{sec:scoped}
-The following statements refine the remaining frontier without changing
-any general exclusion count. Their source subrings and grading supports
-are checked separately from the general-decision certificates.
+The following obstruction applies to unitary categorifications and to a
+specified Galois class of neutral categories. Its source subring and
+grading support are checked separately. It does not settle general
+complex categorifiability.
 
 \begin{proposition}\label{prop:scoped-eight}
-The rings $R8\_2\_24$, $R8\_2\_152$, $R8\_2\_153$, $R8\_2\_166$ and
-$R8\_2\_495$ have no unitary categorification. They remain generally
-unresolved.
+The ring $R8\_2\_24$ has no unitary categorification. More
+generally, it admits no categorification
+whose neutral $2D2$ category is Galois conjugate to the known unitary
+one.
 \end{proposition}
 \begin{proof}
-These five rings contain the rank-four $2D2$ even ring. Its unitary
-categorification is unique \cite[Theorem~3.43]{EIP}. Every invertible
-bimodule over this category is an automorphism bimodule
-\cite[Theorem~4.19]{Grossman}, hence is regular as a left module.
-For $R8\_2\_152$, $R8\_2\_153$, $R8\_2\_166$ and $R8\_2\_495$, the
-odd component of a faithful $C_2$ grading has no invertible simple.
-A regular module component has the regular dimension ratios, and its
-equal total FP dimension fixes the scaling to one; it must contain an
-invertible. This is a contradiction.
+Let $\mathcal Q$ be the known unitary $2D2$ category. The
+construction in Proposition~\ref{prop:r37-model} gives a tensor
+autoequivalence $T=\operatorname{Ad}(b)|_{\mathcal Q}$ swapping
+$r,gr$, with $T^2=\operatorname{Ad}(g)$. Grossman's
+\cite[Lemma~4.1]{Grossman} shows that $\operatorname{Ad}(g)$ exchanges
+two inequivalent algebra structures on $1+r$, so it is nontrivial.
+Thus $T$ has order four. The factor automorphism fixing $M$ and
+sending $\lambda$ to $-\lambda$ induces an outer, label-fixing
+involution $S$ by \cite[Lemma~4.2]{Grossman}. It commutes with $b$
+on both $M$ and $\lambda$, hence $S$ commutes with $T$ and is
+independent of $T^2$. Grossman's order-eight computation
+\cite[Theorem~4.19 and its proof]{Grossman} therefore gives
+\[
+\operatorname{Aut}_{\otimes}(\mathcal Q)=\langle T,S\rangle
+ \cong C_4\times C_2.
+\]
+Its label-fixing subgroup is $\langle T^2,S\rangle\cong C_2^2$;
+every label-swapping element has square $T^2=\operatorname{Ad}(g)$.
 
-For $R8\_2\_24$, the odd component contains an invertible $u$ of
-order four with $u^2=g$, where $g$ is the nontrivial neutral invertible.
-Commutativity of the tensor makes $\operatorname{Ad}(u)$ fix every
-neutral label, while
-$\operatorname{Ad}(u)^2=\operatorname{Ad}(g)$.
-The label-fixing kernel of the neutral tensor-automorphism group is
-$C_2^2$: Grossman's computation gives an order-eight automorphism
-group and a nontrivial $\operatorname{Ad}(g)$, and the outer,
-label-fixing order-two action of \cite[Corollary~3.45]{EIP} commutes
-with it. These two independent involutions exhaust the order-four
-kernel. Thus no label-fixing automorphism squares to
-$\operatorname{Ad}(g)$.
+The neutral category of a unitary categorification is equivalent to
+$\mathcal Q$ by \cite[Theorem~3.31]{EIP}. In $R8\_2\_24$, an odd
+invertible $u$ has $u^2=g$ and fixes every neutral label by conjugation.
+Then $\operatorname{Ad}(u)$ would be a label-fixing autoequivalence
+whose square is the nontrivial $\operatorname{Ad}(g)$, impossible.
+Applying a Galois automorphism to the entire category
+proves the stated stronger scoped claim. The two-dimension Galois
+lemma supplies pseudo-unitarity of an arbitrary neutral category,
+not equivalence to $\mathcal Q$. General complex categorifiability
+therefore remains open; the necessary conditions and the outstanding
+local transport question appear in Section~\ref{sec:r24-open}.
 \end{proof}

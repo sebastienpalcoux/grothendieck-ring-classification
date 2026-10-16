@@ -1,0 +1,105 @@
+\section{Categorical inputs and a common certificate framework}
+\label{sec:inputs}
+Let $N_i=(N_{ij}^k)_{j,k}$ and
+\[
+ B=\sum_iN_iN_{i^*},\qquad p_R(t)=\det(tI-B).
+\]
+For a commutative fusion ring the eigenvalues of $B$, counted with
+multiplicity, are its formal codegrees. The same convention will be used
+for a commutative signed Frobenius quotient. We write $d_i=\FPdim(X_i)$,
+$D=\sum_i d_i^2$, and use $F:\Z(\C)\to\C$ and $I$ for forgetful and
+induction whenever $\C$ is spherical.
+
+\subsection{Arithmetic and sphericalization}
+We use the following necessary conditions from
+\cite[Section 2]{DP}. Formal codegrees of a complex fusion category are
+$d$-numbers. For a monic minimal polynomial
+$t^r+a_1t^{r-1}+\cdots+a_r$, this is the integer divisibility condition
+$a_r^j\mid a_j^r$ for $1\le j\le r$.
+Fusion eigenvalues are cyclotomic integers. For a based fusion subring
+$S\subset R$, the quotient $\FPdim(R)/\FPdim(S)$ is an algebraic integer.
+The normalized-norm and finite-prime field tests of
+\cite[Lemmas 2.3--2.4]{DP} give exact certificates of the required failures.
+These tests depend on polynomials, divisibility and factorizations over
+finite fields, not numerical approximations to roots.
+
+Weak integrality permits the pseudo-unitary reduction. More generally,
+a ring with exactly two distinct simple Frobenius--Perron dimensions
+has a pseudo-unitary Galois conjugate whenever it has a categorification;
+we use \cite[Proposition 2.1]{DP}. In the spherical case a dimension
+character in the FP Galois orbit gives the same reduction by
+\cite[Lemma 2.2]{DP}. Every dimension character is nonzero on simples
+and equal on dual pairs.
+
+For an arbitrary categorification, pass to the canonical sphericalization
+and quotient its ring by the relation $\varepsilon=-1$, where
+$\dim\varepsilon=-1$. The resulting signed coefficients satisfy
+\begin{equation}\label{eq:signed}
+ |T_{ij}^k|\le N_{ij}^k,\qquad T_{ij}^k\equiv N_{ij}^k\pmod2.
+\end{equation}
+The selected lifts may be chosen to have second indicator $+1$ whenever
+the underlying simple is self-dual. In that normalization the adjoint
+parity condition becomes
+\begin{equation}\label{eq:positive-lifts}
+ T_{jj^*}^i\equiv N_{jj^*}^i\pmod4
+ \quad(i=i^*).
+\end{equation}
+This is \cite[Lemma 7.1 and Corollary 7.2]{DP}. We impose no additional
+sign gauge on the odd coefficients: its compatibility with this
+normalization would need separate justification. Dual pairs are selected
+compatibly. The rank-five commutativity argument of Section~\ref{sec:data}
+applies because a spherical dimension character is nonzero on every
+simple. Thus commutative signed-table enumeration is exhaustive here.
+
+The spherical and signed character tests are exactly those of
+\cite[Sections 2, 6--7]{DP}: nonvanishing, equality on dual pairs,
+formal-codegree norm and field conditions, and the positive central-square
+moment inequalities, including the central sign object when necessary.
+A signed table that is a sign gauge of $R$ splits the sphericalization,
+so the spherical exclusion of $R$ applies. Every other signed character
+component must receive its own necessary-condition certificate. This
+is a quantified test over all signed tables and all components, not a
+conjecture that such tables suffice for associators.
+
+\subsection{Low induction and exact moments}
+In a pseudo-unitary categorification all central dimensions are positive.
+Since the ring is commutative, the induction of the unit is
+multiplicity-free. Its simple dimensions are $D/f$, one for each formal
+codegree $f$, and all its twists equal one
+\cite[Theorem 2.13]{Ostrik}. If $L$ is the matrix of their restrictions,
+including the unit column, then
+\begin{equation}\label{eq:low}
+ L_{0a}=1,\quad \sum_iL_{ia}d_i=D/f_a,\quad
+ (LL^{\mathsf T})_{0i}=B_{0i},\quad
+ Q=B-LL^{\mathsf T}\ge0\ \text{entrywise},\quad Q\succeq0.
+\end{equation}
+Column bounds $L_{ia}\le B_{0i}$ and $L_{ia}^2\le B_{ii}$ make this a
+finite enumeration. Equal formal-codegree columns may be put in
+lexicographic order to remove only redundant permutations.
+The low mass in $I(X_i)$ is
+$\ell_i=\sum_j(LL^{\mathsf T})_{ij}d_j$.
+The moment bounds of \cite[Theorem 3.1 and Proposition 3.2]{DP} include
+\begin{equation}\label{eq:low-moment}
+ (3d_i+1)\ell_i\le Dd_i(d_i+1)\quad(i=i^*),
+ \qquad 3\ell_i\le Dd_i\quad(i\ne i^*).
+\end{equation}
+Their low-column implementation is \cite[Proposition 3.3]{DP}.
+We retain them as cheap consequences of the common moment framework,
+not as separate ring-specific methods.
+
+For every positive integer $j$, the Ng--Schauenburg formula is
+\begin{equation}\label{eq:NS}
+ \sum_{Z\in\Irr\Z(\C)}[F(Z):X_i]\dim(Z)\theta_Z^j
+   =D\nu_j(X_i).
+\end{equation}
+Here $\nu_1(X_i)=0$ for $i\ne0$; $\nu_2(X_i)=0$ for a nonself-dual
+simple and is $\pm1$ otherwise. If a self-dual simple occurs oddly in
+some $Y\otimes Y^*$, its second indicator is $+1$ by the adjoint-parity
+result just cited. Formula~\eqref{eq:NS} is valid for spherical fusion
+categories \cite[Theorem 4.1]{NS}; the nonnegative weights used below
+require the stated pseudo-unitary reduction.
+
+The first tests in this section are inexpensive filters. Their
+consequences are not claimed to be logically independent or a minimal
+axiomatization. In particular, we retain an arithmetic rejection when
+it avoids constructing a much larger, logically stronger moment system.

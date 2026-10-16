@@ -1,10 +1,19 @@
 # Rank-six categorification through multiplicity nine
 
-**25,421 rings: 25,362 excluded, 57 realized, 2 unresolved.**
+> **AI-generated research · independent verification pending.** Treat these
+> results, proofs, code and data with caution. They have not yet been
+> independently verified by human experts or formalized in Lean. Automated
+> checks establish only their stated computational scope.
 
-[Manuscript](papers/manuscript.pdf) · [Verification guide](papers/verification_guide.pdf) · [Decision ledger](data/decisions.csv) · [Models](data/model_catalog.csv)
+**25,421 rings: 25,362 exclusions, 57 realizations and two open cases.**
+Classification is complete through multiplicity three and at exact
+multiplicities 5, 6, 7 and 9. Multiplicities 4 and 8 are partial.
 
-| Exact multiplicity | Rings | Excluded | Models | Unresolved |
+[Current manuscript](../../manuscripts/rank6/papers/manuscript.pdf) ·
+[Verification guide](../../manuscripts/rank6/papers/verification_guide.pdf) ·
+[Decision ledger](data/decisions.json) · [Models](data/model_catalog.csv)
+
+| Exact multiplicity | Rings | General exclusions | Models | Open |
 |---:|---:|---:|---:|---:|
 | 1 | 39 | 18 | 21 | 0 |
 | 2 | 154 | 132 | 22 | 0 |
@@ -17,34 +26,63 @@
 | 9 | 8,809 | 8,809 | 0 | 0 |
 | **Total** | **25,421** | **25,362** | **57** | **2** |
 
-The models comprise 56 unitary realizations and one spherical realization whose ring has no pseudo-unitary categorification. Every allocated exclusion applies to general complex fusion categories. The completed exact-multiplicity bands are 1, 2, 3, 5, 6, 7, 9.
+The models comprise 56 unitary realizations and one spherical realization
+whose ring has no pseudo-unitary categorification. General exclusions apply
+to complex fusion categories without an initial pivotality or unitarity
+assumption. A model proves existence of at least one categorification; it
+does not assert that all categorifications of that ring are unitary.
 
-All 8,809 rings of exact multiplicity nine are excluded for general complex fusion categories. The [completion proofs](research/exclusions/m9_completion/README.md) resolve the final eleven cases with standalone exact verifiers and frozen tensor inputs. All 16,612 earlier representatives, identifiers and decisions are preserved. The [new campaign](verification/m9/) records the actual criterion order, discovery budgets and independent exact certificate replays. Timeouts and surviving necessary systems establish neither exclusion nor existence.
+## Open cases
 
-## Remaining rings
+- `R6_4_155`: A unique rank-26 semion-centralizer modular candidate satisfies
+  the recorded finite Verlinde, Vafa and indicator checks. A rank-22 based
+  module passes 234,256 fermion Azumaya linking identities. Neither supplies
+  a coherent module category or associators for a categorification.
+- `R6_8_1660`: A unique relative-center based ring, three possible Morita-dual
+  rings and a bounded domain of center profiles remain. Graded induction
+  reduces the profile domain to 1,136. Saturated traces force `nu_3(T)=2`.
+  A rank-37 candidate fails an exact Verlinde integrality test. This does not
+  exclude every possible profile.
 
-- `R6_4_155`: The unique rank-26 semion-centralizer modular candidate is completely reconstructed, with nonnegative integral Verlinde coefficients (maximum 9), ten self-dual objects, and all stated finite Vafa and indicator checks passing. The rank-52 center would have twenty self-dual objects. No categorification is known.
-- `R6_8_1660`: One relative-center based ring and 1669 labelled center profiles remain, in branches 163, 753, 753. Every indecomposable module category has six simples; exact Morita and indicator reductions leave three possible dual based rings. No categorification is known.
+The [current research status](../../docs/RESEARCH_STATUS.md) states the complete
+three-case frontier across ranks six to eight. The model catalogue includes
+all tensor identifications for the three conformal-embedding constructions.
 
-The [frontier index](research/frontier/README.md) gives the current evidence and distinguishes it from frozen historical stages. The [model catalogue](data/model_catalog.csv) identifies actual categorical constructions and all 216 tensor coefficients, including the three conformal-embedding models.
+## Complete verification
 
-## Verification
+Use the [combined replay guide](../../evidence/prepublication_20261017/rank6_backend/README.md)
+from a fresh restored checkout. The executed campaign covers all 25,362
+exclusion certificates by 25,355 initial passes plus seven complete
+Python-backend retries, with the two post-loop checks executed separately.
+The initial full process failed and its failed status is retained. This was
+not a successful single full run or an all-Python full-census pass.
+
+The portable complete-replay orchestrator has not itself been executed end
+to end; its identity, coverage and rejection controls were tested. From the
+repository root, in an isolated environment and without native binaries cached
+beside the rank-six C++ sources:
 
 ```bash
-python -m pip install -r requirements.txt
-python check_manifest.py
-python -O software/replay_m9.py --jobs 2
-python -O software/replay_m9_structure.py
-python -O software/replay_m9_completion.py
-python -O software/m9_completion_controls.py
-python -O software/conformal_models.py --verify
-python -O software/release_consistency.py
-python -O software/frontier_replay.py --check-receipts
-python research/frontier/new_research/replay.py
+python3 tools/restore_data.py
+python3 -m pip install -r supplements/rank6/requirements.txt
+python3 evidence/prepublication_20261017/rank6_backend/replay_complete.py \
+  --repo . --output-dir NEW_DIR --jobs 2
 ```
 
-The new certificate replay disables numerical optimizers. Historical proofs retain their original exact verification evidence; a receipt audit checks source hashes and predicates and does not rerun the mathematics. For a fresh full-ledger check, use `python -O verify.py --jobs 2 --out verification/current/full_recheck.jsonl`. The verification guide distinguishes these scopes and gives the remaining replay commands.
+Choose a new output directory outside `supplements/rank6`. The
+[repository verification guide](../../docs/VERIFY.md) supplies the individual
+model, multiplicity-nine completion and frontier commands and explains their
+scope. A receipt audit checks source identities and predicates; it does not
+rerun the mathematics. A timeout proves no exclusion. Normal Python is
+required when proof checks use `assert`.
 
-`data/decisions.json` is authoritative. Regenerate exports with `python software/release.py`, `python software/model_catalog.py`, `python software/build_paper_tables.py`, `python software/build_readme.py` and `python build_papers.py`. Release generation replays historical continuation certificates by default; `--retain-historical-replay` instead checks their frozen source-bound receipt.
+## Source identity
 
-The census is pinned to [Fusion Ring Census revision 2a340871242879665fa7ba2b01fa15b8bdeaada3](https://github.com/sebastienpalcoux/fusion-ring-census/tree/2a340871242879665fa7ba2b01fa15b8bdeaada3). Enumeration completeness comes from that source; the import independently checks tensor validity, distinctness and exact correspondence. The [OEIS proposal](oeis/proposal.txt) counts all fusion rings, independently of categorifiability.
+The census is pinned to [revision 2a340871242879665fa7ba2b01fa15b8bdeaada3](https://github.com/sebastienpalcoux/fusion-ring-census/tree/2a340871242879665fa7ba2b01fa15b8bdeaada3).
+Its completeness comes from the census source; the import separately checks
+tensor validity, distinctness and exact correspondence. `data/decisions.json`
+is the authoritative classification ledger. The
+[current document manifest](../../data/current_document_revision.json) binds
+the current manuscripts, supplement copies and website PDFs. Source-bound
+replay programs run with the compatible snapshots specified by the aggregate
+wrapper. The [provenance guide](../../docs/PROVENANCE.md) gives all ledger hashes.
