@@ -1,0 +1,65 @@
+\subsection{A cyclic-stabilizer divisibility obstruction}
+\label{subsec:cyclic-module-divisibility}
+
+\begin{proposition}\label{prop:cyclic-module-divisibility}
+Let $H\cong C_p$, with $p$ prime, be a subgroup of invertible objects
+of a complex fusion category. Suppose that $X$ is a simple object
+fixed on the left by $H$, $Y$ is simple and fixed on the right, and
+$Z$ is simple and fixed on both sides. If
+$\FPdim(Z)/p$ is not an algebraic integer, then $p$ divides $N_{XY}^Z$.
+\end{proposition}
+\begin{proof}
+The one-element orbit of $X$ is a rank-one module category over the
+pointed subcategory $\operatorname{Vec}_H^\omega$. Choosing the
+isomorphisms $hX\simeq X$ shows that $\omega$ is a coboundary, so
+$A=\bigoplus_{h\in H}h$ has its connected separable algebra structure.
+The obstruction to giving $X$ a left $A$-module structure lies in
+$H^2(C_p,\mathbb C^\times)=0$; similarly $Y$ admits a right
+$A$-module structure. Thus $X\otimes Y$ is an $A$-bimodule, with the
+actions on its two factors.
+
+The $A$-bimodule block supported on $Z$ is described by a twisted
+group algebra of $C_p\times C_p$. Its projective irreducible
+representations have dimension one or $p$: after rescaling the two
+generators, their operators satisfy $U^p=V^p=1$ and
+$UV=\zeta VU$ with $\zeta^p=1$. If $\zeta=1$ the algebra is
+commutative; otherwise $\zeta$ is primitive and every irreducible
+representation has dimension $p$.
+
+For a simple bimodule with underlying object $mZ$, the
+Frobenius--Perron dimension in the Morita dual category is
+$m\FPdim(Z)/\FPdim(A)=m\FPdim(Z)/p$; see also the support and
+dimension argument in \cite[Lemmas~6.1--6.2]{EGO}.
+Algebraic integrality rules out $m=1$. Every simple bimodule in this
+block therefore has underlying object $pZ$. Decomposing the
+bimodule $X\otimes Y$ proves the required divisibility.
+\end{proof}
+
+\begin{proposition}\label{prop:cyclic-module-cases}
+The rings $R7\_4\_1212$, $R7\_4\_1213$, $R7\_4\_1438$,
+$R7\_4\_1440$, and $R7\_4\_2731$ have no categorification over
+$\mathbb C$.
+\end{proposition}
+\begin{proof}
+In every row of the following table, the census element $g=X_1$
+has order $p$ and fixes $X,Y,Z$ on both sides. The quotient norm is
+computed in the indicated quadratic dimension field.
+\[
+\begin{array}{c|r|c|r|c|c}
+\text{ring}&p&(X,Y,Z)&N_{XY}^Z&\FPdim(Z)&
+ \operatorname{Norm}(\FPdim(Z)/p)\\ \hline
+R7\_4\_1212,\ R7\_4\_1213&2&(X_2,X_2,X_3)&1&8+3\sqrt5&19/4\\
+R7\_4\_1438,\ R7\_4\_1440&2&(X_2,X_2,X_2)&1&6+3\sqrt5&-9/4\\
+R7\_4\_2731&3&(X_3,X_3,X_3)&2&5+\sqrt{13}&4/3
+\end{array}
+\]
+A nonintegral norm rules out algebraic integrality. Every displayed
+multiplicity violates Proposition~\ref{prop:cyclic-module-divisibility}.
+The source verifier checks the subgroup action and all equations for
+the exact positive dimension characters. No pivotal, spherical, or
+unitary hypothesis is used.
+\end{proof}
+
+Appendix~\ref{app:signed-independent} supplies an independent signed
+spectral proof for the first two rings, including a complete exact
+finite certificate.

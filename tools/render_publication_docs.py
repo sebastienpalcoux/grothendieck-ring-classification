@@ -11,15 +11,7 @@ def section(text,start,end,replacement):
 def render(repo,i):
     validate_identity(i);out={};a=i['archive'];s=i['summary'];bands=completed_bands(i);bound=len(i['counts']);total=sum(r[0] for r in i['counts']);read=lambda n:(repo/n).read_text()
     revision=validate_document_revision(i,repo)
-    revision_note=('''The October 11 theoretical revision proves that every dominant tensor
-functor from either remaining rank-six category would be an equivalence,
-without a pivotality assumption on the functor. Both categorification questions
-remain unresolved. The current manuscript sources and PDFs are bound by the
-[document revision](../evidence/rank6_theoretical_20261011/document_revision.json),
-whose [research record](../evidence/rank6_theoretical_20261011/research_progress.json)
-retains a hash-checked chain to the October 2 and frozen October 1 records.
-The frozen supplement, archive identity and classification counts are unchanged.
-''' if revision is not None else '')
+    revision_note=('The October 16 theoretical revision identifies the complete twist-one support\nfor R6_8_1660 and retains tensor-functor rigidity for both rank-six residuals.\nBoth categorification questions remain unresolved. The current manuscript\nsources and PDFs are bound by the [document revision](../evidence/theoretical_20261016/rank6/document_revision.json),\nwhose [research record](../evidence/theoretical_20261016/rank6/research_progress.json)\nretains the hash-checked chain to earlier records. The frozen supplement,\narchive identity and classification counts are unchanged.\n' if revision is not None else '')
     status=json.loads(read('data/classification_status.json'))
     upper={r:status['inputs'][f'rank{r}']for r in (7,8)}
     stage=load_stages(repo,status)
@@ -280,11 +272,11 @@ rank-five drafts listed above; no incomplete band is an exact sequence term.
     open7=[rows[(7,m)]['unresolved_general'] for m in (2,3,4)]
     bounds8=[rows[(8,m)]['realized_unitary'] for m in (1,2)]
     open8=[rows[(8,m)]['unresolved_general'] for m in (1,2)]
-    out['oeis/update_2026-10-02.txt']=f"""Suggested comment update (2 October 2026):
+    out['oeis/update_2026-10-02.txt']=f"""Suggested comment update (16 October 2026):
 
 Counts refer to based-isomorphism classes of fusion rings admitting a fusion-category realization over the complex numbers, at exact multiplicity m. At rank seven, the multiplicity-one count is exactly 13. The confirmed lower bounds at multiplicities 2, 3 and 4 are {bounds7[0]}, {bounds7[1]} and {bounds7[2]}; respectively {open7[0]}, {open7[1]} and {open7[2]} general categorification questions remain unresolved. At rank eight, the confirmed lower bounds at multiplicities 1 and 2 are {bounds8[0]} and {bounds8[1]}; respectively {open8[0]} and {open8[1]} cases remain generally unresolved. These lower bounds are not exact sequence terms.
 
-The combined October 2 upper-rank update resolves {len(latest)} further cases: {latest_exclusions} general exclusions and {latest_models} unitary models.{(f' Its {len(stage["continuation_ids"])}-decision continuation generally excludes '+', '.join(stage['continuation_ids'])+'.') if stage['continuation'] else ''} Across ranks seven and eight, the current partitions are respectively {upper[7]['status_totals']['excluded']} excluded, {upper[7]['status_totals']['unitarily_realized']} realized, {upper[7]['status_totals']['unresolved']} unresolved, and {upper[8]['status_totals']['excluded']} excluded, {upper[8]['status_totals']['unitarily_realized']} realized, {upper[8]['status_totals']['unresolved']} unresolved. General exclusion means no fusion-category categorification over the complex field, without an initial pivotality, sphericality or unitarity assumption. Scoped pivotal, pseudo-unitary, unitary or braided obstructions are not counted as general exclusions.
+The successive upper-rank residual updates resolve {len(latest)} further cases: {latest_exclusions} general exclusions and {latest_models} unitary models.{(f' Its {len(stage["continuation_ids"])}-decision continuation generally excludes '+', '.join(stage['continuation_ids'])+'.') if stage['continuation'] else ''} Across ranks seven and eight, the current partitions are respectively {upper[7]['status_totals']['excluded']} excluded, {upper[7]['status_totals']['unitarily_realized']} realized, {upper[7]['status_totals']['unresolved']} unresolved, and {upper[8]['status_totals']['excluded']} excluded, {upper[8]['status_totals']['unitarily_realized']} realized, {upper[8]['status_totals']['unresolved']} unresolved. General exclusion means no fusion-category categorification over the complex field, without an initial pivotality, sphericality or unitarity assumption. Scoped pivotal, pseudo-unitary, unitary or braided obstructions are not counted as general exclusions.
 
 Rank six retains two unresolved cases through multiplicity 9, R6_4_155 and R6_8_1660. All 8809 fusion rings of exact multiplicity 9 are generally excluded. No count is changed by a necessary-condition reduction for an unresolved case.
 

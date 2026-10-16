@@ -1,9 +1,9 @@
 {
   "schema": "rank6-frontier-research-progress/v2",
-  "date": "2026-10-11",
-  "scope": "Purely theoretical tensor-functor rigidity; neither residual categorification is constructed or excluded. Classification counts and the frozen October 1 release remain unchanged.",
+  "date": "2026-10-16",
+  "scope": "Theoretical center-support refinement and exact necessary braid-spectrum, based-module and finite modular representation checks; both categorification questions remain unresolved.",
   "historical_summary": "data/frontier_summary.json",
-  "research_directory": "evidence/rank6_theoretical_20261011",
+  "research_directory": "evidence/theoretical_20261016/rank6",
   "classification_counts": {
     "total": 25421,
     "excluded": 25362,
@@ -14,37 +14,90 @@
     {
       "id": "R6_4_155",
       "categorical_status": "unresolved",
-      "public_summary": "Every tensor functor from a hypothetical categorification is fully faithful: the twist-one central-algebra support and associativity force every dominant quotient to be an equivalence. The unique rank-26 modular candidate remains feasible. No categorification or general exclusion is established.",
-      "current_status": "evidence/rank6_theoretical_20261011/README.md",
+      "public_summary": "The rank-26 centralizer candidate passes the expanded six-fixed-label test: an explicit anti-invariant representation reconstructs a rank-22 integer based module. All 226 larger local braid blocks also pass necessary reflection-partition tests. These witnesses construct neither a module category nor a categorification. No original involution was omitted by the earlier fixed-label guard; the case remains unresolved.",
+      "current_status": "evidence/theoretical_20261016/README.md",
       "proof_chapters": [
         "manuscripts/rank6/papers/chapters/frontier_refined.tex",
-        "manuscripts/rank6/papers/chapters/frontier_tensor_functors.tex"
+        "manuscripts/rank6/papers/chapters/frontier_tensor_functors.tex",
+        "manuscripts/rank6/papers/chapters/dimension_block_20261016.tex"
       ],
       "structural_obstructions": [
         "No nontrivial Tannakian fusion subcategory in the center.",
         "No Morita representative is a nontrivial faithful finite-group extension or equivariantization.",
         "No braided Morita representative.",
         "Every tensor functor to a complex fusion category is fully faithful; every dominant tensor quotient is an equivalence, without an assumed pivotal compatibility."
-      ]
+      ],
+      "details": {
+        "original_involution_fixed_counts": [
+          2,
+          0,
+          0
+        ],
+        "missed_original_fixed_rank_branch": false,
+        "centralizer_fermion_fixed_labels": [
+          4,
+          7,
+          20,
+          21,
+          24,
+          25
+        ],
+        "anti_invariant_rank": 6,
+        "integer_based_module_rank": 22,
+        "anti_fusion_identities_checked": 676,
+        "based_module_fusion_identities_checked": 676,
+        "mathematical_verdict": "PASS_NECESSARY",
+        "module_witness": "evidence/theoretical_20261016/rank6/r155_center_module/anti_module_witness.json",
+        "module_replay": "evidence/theoretical_20261016/rank6/r155_center_module/verify_anti_module.py",
+        "module_receipt": "evidence/theoretical_20261016/rank6/r155_center_module/receipt.json",
+        "involution_coverage": "evidence/theoretical_20261016/rank6/involution_coverage.json"
+      }
     },
     {
       "id": "R6_8_1660",
       "categorical_status": "unresolved",
-      "public_summary": "Every tensor functor from a hypothetical categorification is fully faithful. Pseudo-unitarity descends to a dominant tensor image, and canonical pivotality is automatic, removing the earlier pivotal assumption from quotient rigidity. The 1,136 center profiles in branches 120, 508, 508 remain. No categorification or general exclusion is established.",
-      "current_status": "evidence/rank6_theoretical_20261011/README.md",
+      "public_summary": "In the positive Galois representative, the twist-one center simples are exactly the six constituents of I(1), giving a shorter tensor-functor-rigidity proof. A rank-37 integer witness satisfies all 1,536 equations of the strengthened finite modular representation system, including torus and compressed-S constraints. These are necessary conditions; no categorification or general exclusion is established.",
+      "current_status": "evidence/theoretical_20261016/README.md",
       "proof_chapters": [
         "manuscripts/rank6/papers/chapters/frontier_refined.tex",
-        "manuscripts/rank6/papers/chapters/frontier_tensor_functors.tex"
+        "manuscripts/rank6/papers/chapters/frontier_tensor_functors.tex",
+        "manuscripts/rank6/papers/chapters/dimension_block_20261016.tex"
       ],
       "structural_obstructions": [
         "No nontrivial Tannakian fusion subcategory in the center.",
         "No Morita representative is a nontrivial faithful finite-group extension or equivariantization.",
         "No braided Morita representative.",
         "Every tensor functor to a complex fusion category is fully faithful; every dominant tensor quotient is an equivalence, without an assumed pivotal compatibility."
-      ]
+      ],
+      "details": {
+        "twist_one_simple_count": 6,
+        "finite_modular_group": "SL2(Z/48)",
+        "finite_group_irreducible_count": 532,
+        "twist_one_torus_discriminants": [
+          1,
+          8,
+          12,
+          24
+        ],
+        "twist_one_torus_multiplicities": [
+          3,
+          1,
+          1,
+          1
+        ],
+        "passing_low_branch": 0,
+        "passing_profile_index": 10,
+        "necessary_system_center_rank": 37,
+        "integer_equations_checked": 1536,
+        "variable_bounds_checked": 1447,
+        "forced_Ising_subrepresentation_rank": 9,
+        "mathematical_verdict": "PASS_NECESSARY",
+        "evidence_directory": "evidence/theoretical_20261016/rank6/r1660_modular_witness",
+        "categorification_claimed": false
+      }
     }
   ],
-  "previous_coverage_sha256": "ef88d8356632809ae466b2e83c661eba03c3b3af865533e33c0fda2c6920ef3d",
-  "previous_coverage": "evidence/residual_20261002/rank6/research_progress.json",
-  "research_summary": "Both rank-six cases remain unresolved. The October 11 theoretical revision proves that every tensor functor from either hypothetical complex fusion category to a fusion category is fully faithful; every dominant tensor quotient is therefore an equivalence. The manuscript also incorporates the October 2 reduction to 1,136 center profiles for R6_8_1660. No new computational search or categorification decision is claimed."
+  "previous_coverage_sha256": "40b1d7ad855e0dfd7a1e9a40ae4bfac4a75c799b5d40a70413e132e929a73a47",
+  "previous_coverage": "evidence/rank6_theoretical_20261011/research_progress.json",
+  "research_summary": "Both rank-six cases remain unresolved. For R6_8_1660, the twist-one center simples are exactly the six constituents of I(1), giving a shorter tensor-functor-rigidity proof. An exact rank-37 integer witness passes all 1,536 equations of the strengthened finite modular representation system, including torus and compressed-S constraints. For R6_4_155, all 226 larger local braid blocks pass the strengthened reflection-partition conditions. Its rank-26 centralizer also admits a six-dimensional anti-invariant representation reconstructing a rank-22 integer based module. These are passing necessary tests, not modular-data, module-category or categorification constructions. No original rank-six involution was missed by the earlier two-fixed-label guard."
 }

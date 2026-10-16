@@ -11,11 +11,13 @@ jobs:
         with:
           python-version: '3.12'
       - run: python tools/restore_data.py
-      - run: python -m pip install sympy==1.14.0 numpy==2.2.6
+      - run: python -m pip install sympy==1.14.0 numpy==2.3.5
       - run: python supplements/rank6/check_manifest.py
       - run: python tools/validate_release.py
-      - run: python tools/verify_residual_20261002.py
-      - run: python -O tools/verify_upper_residual_20261002c.py
+      - name: Replay theoretical update and frozen history
+        run: python tools/verify_theoretical_20261016.py --historical
+      - name: Replay theoretical update and frozen history with assertions disabled
+        run: python -O tools/verify_theoretical_20261016.py --historical
       - run: python evidence/residual_20261002/rank6/verify_braid3.py
       - run: python evidence/residual_20261002/rank6/verify_tensor_quotient_obstruction.py
       - run: python evidence/residual_20261002/rank6/verify_packet_gram.py

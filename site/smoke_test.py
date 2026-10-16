@@ -62,7 +62,7 @@ assert release.get("analyzed_through",scope6["analyzed_through"])==expected_band
 assert (scope6["through"],scope6["positive"],scope6["unresolved"]) == (release["complete_through"],summary["positive"],summary["unresolved"])
 assert release["date"] <= payload["snapshot"]
 coverage=json.loads((root / release["research_coverage_path"]).read_text())
-assert payload["snapshot"] == max(release["date"], coverage["date"])
+assert payload["snapshot"] == max(release["date"], coverage["date"], payload.get("theoretical_update", {}).get("date", ""))
 assert release["research_cases"] == [{key: case[key] for key in ("id", "categorical_status", "public_summary")} for case in coverage["cases"]]
 assert {r["id"] for r in release["research_cases"]} == set(summary["unresolved_ids"])
 assert all(r["categorical_status"] == "unresolved" and r["public_summary"] for r in release["research_cases"])
@@ -121,7 +121,7 @@ if "document_revision" in release:
     revision_path = root / revision_entry["path"]
     assert hashlib.sha256(revision_path.read_bytes()).hexdigest() == revision_entry["sha256"]
     revision = json.loads(revision_path.read_text())
-    canonical_revision = root.parent.parent / "evidence/rank6_theoretical_20261011/document_revision.json"
+    canonical_revision = root.parent.parent / revision_entry.get("source", "evidence/rank6_theoretical_20261011/document_revision.json")
     if canonical_revision.is_file():
         assert canonical_revision.read_bytes() == revision_path.read_bytes()
     assert revision["date"] == revision_entry["date"] == coverage["date"]
@@ -148,3 +148,41 @@ for rank in (7, 8):
                     if b["name"] == Path(release["archive"]["path"]).name)
     assert release["archive"]["sha256"] == expected
 print("Upper-rank manuscripts and portable supplements match their publication hashes.")
+
+update = payload.get("theoretical_update")
+if update:
+    assert update["date"] == "2026-10-16" and update["source"] == "evidence/theoretical_20261016"
+    decisions = update["decisions"]
+    assert update["new_general_exclusions"] == len(decisions) == len({record["id"] for record in decisions})
+    assert all(record["status"] == "excluded" and record["scope"] == "general_complex" and record["rank"] in (7,8)
+               for record in decisions), "A scoped obstruction entered the general-exclusion notice"
+    for key, entry in update["files"].items():
+        assert hashlib.sha256((root / entry["path"]).read_bytes()).hexdigest() == entry["sha256"]
+    assert json.loads((root / update["files"]["decisions"]["path"]).read_text()) == decisions
+    remaining = json.loads((root / update["files"]["remaining_ids"]["path"]).read_text())
+    totals = json.loads((root / update["files"]["expected_totals"]["path"]).read_text())
+    assert update["remaining"] == {rank: len(ids) for rank, ids in remaining.items()}
+    for rank in (7,8):
+        assert update["by_rank"][str(rank)] == sum(record["rank"] == rank for record in decisions)
+        scope = next(record for record in payload["scope"] if record["rank"] == rank)
+        assert scope["unresolved"] == len(remaining[str(rank)]) == totals[str(rank)]["unresolved"]
+        assert scope["positive"] == totals[str(rank)]["unitarily_realized"]
+        assert scope["rings"] - scope["positive"] - scope["unresolved"] == totals[str(rank)]["excluded"]
+    archive = root / update["archive"]["path"]
+    assert hashlib.sha256(archive.read_bytes()).hexdigest() == update["archive"]["sha256"]
+    assert archive.stat().st_size == update["archive"]["bytes"]
+    import zipfile
+    with zipfile.ZipFile(archive) as bundle:
+        matches = [name for name in bundle.namelist()
+                   if name == "decisions.json" or name.endswith("theoretical_20261016/decisions.json")]
+        assert len(matches) == 1 and json.loads(bundle.read(matches[0])) == decisions, "Stale update bundle"
+    assert set(remaining["6"]) == {record["id"] for record in frontier}
+    print(f"Theoretical update checked: {len(decisions)} general exclusions; counts, proof records, residual inventory and download hashes agree.")
+
+from html.parser import HTMLParser
+class LocalLinkCheck(HTMLParser):
+    def handle_starttag(self, tag, attrs):
+        for name, value in attrs:
+            if name in ("href", "src") and value and value.startswith("./"):
+                assert (root / value[2:].split("#",1)[0]).is_file(), "Missing local page asset: " + value
+LocalLinkCheck().feed((root / "index.html").read_text())

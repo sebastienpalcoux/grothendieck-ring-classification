@@ -24,7 +24,7 @@
       <a href="#papers">Papers</a>
       <a href="#sources">Sources</a>
     </nav>
-    <span class="edition">RESEARCH EDITION <span class="edition-dot" aria-hidden="true"></span> <span id="edition-date">11 OCT 2026</span></span>
+    <span class="edition">RESEARCH EDITION <span class="edition-dot" aria-hidden="true"></span> <span id="edition-date">16 OCT 2026</span></span>
   </header>
 
   <main>
@@ -52,6 +52,10 @@
         </div>
         <div class="section-aside">EXPLICITLY REALIZED RING TYPES · ≥ ON PARTIAL BANDS</div>
       </div>
+      <aside id="research-update" class="research-update" aria-labelledby="research-update-title" hidden>
+        <div><p class="eyebrow">LATEST THEORETICAL UPDATE</p><h3 id="research-update-title"></h3><p id="research-update-summary"></p></div>
+        <a href="#theoretical-update">Read the new proofs <span aria-hidden="true">↘</span></a>
+      </aside>
       <div class="workspace-grid">
         <div class="atlas-panel">
           <div class="kind-switch" role="group" aria-label="Counted ring population">
@@ -141,10 +145,17 @@
         <div><div class="eyebrow">04 / THE MANUSCRIPTS</div><h2 id="papers-heading">Papers &amp; verification</h2></div>
         <div class="section-aside">THEOREMS · CERTIFICATES · REPRODUCTION</div>
       </div>
+      <details id="theoretical-update" class="frontier-panel theoretical-update" hidden>
+        <summary id="theoretical-update-heading">16 October 2026 theoretical update</summary>
+        <p id="theoretical-update-scope"></p>
+        <div class="update-actions" id="theoretical-update-actions"></div>
+        <div class="profile-table-scroll"><table class="profile-table frontier-table"><thead><tr><th scope="col">Fusion ring</th><th scope="col">Proof of general exclusion</th></tr></thead><tbody id="theoretical-update-rows"></tbody></table></div>
+        <p id="theoretical-update-checksum" class="download-checksum"></p>
+      </details>
       <p id="rank6-release" class="scope-note"></p>
       <details id="rank6-frontier" class="frontier-panel">
         <summary>Current rank-six frontier</summary>
-        <p>Both rank-six categorification cases remain unresolved. The 11 October theoretical revision proves that every tensor functor from either hypothetical fusion category is fully faithful; every dominant tensor quotient is an equivalence. This theorem supplies a further necessary condition, without constructing or excluding either category.</p>
+        <p>Both rank-six categorification cases remain unresolved. The 16 October revision identifies all twist-one simple objects in the hypothetical center of R6_8_1660: exactly the six constituents induced from the unit. Every tensor functor from either residual category is fully faithful. These necessary constraints leave both categorification questions open.</p>
         <div class="profile-table-scroll"><table class="profile-table frontier-table"><thead><tr><th scope="col">Fusion ring</th><th scope="col">Verified progress</th></tr></thead><tbody id="rank6-frontier-rows"></tbody></table></div>
         <a href="./data/rank6_research_coverage.json" download>Download the current frontier summary ↓</a>
       </details>
@@ -157,11 +168,11 @@
       </div>
       <div class="source-grid">
         <div class="source-item"><span class="source-index">A /</span><div><h3>Fusion-ring census</h3><p>The source of the complete based-ring counts and canonical multiplication data. <span id="source-commit"></span></p><a href="https://github.com/sebastienpalcoux/fusion-ring-census" target="_blank" rel="noopener">Open census repository <span aria-hidden="true">↗</span></a></div></div>
-        <div class="source-item"><span class="source-index">B /</span><div><h3>Classification research</h3><p>Manuscripts, model catalogues, exclusion certificates, and verification instructions.</p><a href="https://github.com/sebastienpalcoux/grothendieck-ring-classification" target="_blank" rel="noopener">Open classification repository <span aria-hidden="true">↗</span></a><a href="https://github.com/sebastienpalcoux/grothendieck-ring-classification/tree/main/evidence/upper_residual_20261002b" target="_blank" rel="noopener">2 October proofs and remaining cases <span aria-hidden="true">↗</span></a></div></div>
+        <div class="source-item"><span class="source-index">B /</span><div><h3>Classification research</h3><p>Manuscripts, model catalogues, exclusion certificates, and verification instructions.</p><a href="https://github.com/sebastienpalcoux/grothendieck-ring-classification" target="_blank" rel="noopener">Open classification repository <span aria-hidden="true">↗</span></a><a id="latest-research-source" href="https://github.com/sebastienpalcoux/grothendieck-ring-classification/tree/main/evidence/theoretical_20261016" target="_blank" rel="noopener">16 October proofs and remaining cases <span aria-hidden="true">↗</span></a></div></div>
         <div class="source-item"><span class="source-index">C /</span><div><h3>Download the data</h3><p>Export the realized-ring records, Grothendieck counts, fusion-ring counts, or categorification ledger.</p><a href="./data/realized_rings.json" download>Explicit rings JSON <span aria-hidden="true">↓</span></a><a href="./data/grothendieck_counts.csv" download>Grothendieck counts CSV <span aria-hidden="true">↓</span></a><a href="./data/counts.csv" download>Fusion counts CSV <span aria-hidden="true">↓</span></a><a href="./data/classification_status.json" download>Status JSON <span aria-hidden="true">↓</span></a><a href="./data/rank6_unresolved_tensors.json" download>Rank-six residual tensors JSON <span aria-hidden="true">↓</span></a><a href="./data/rank6_release_summary.json" download>Rank-six release summary <span aria-hidden="true">↓</span></a></div></div>
       </div>
     </section>
   </main>
-  <footer class="site-footer"><span>FUSION &amp; GROTHENDIECK RING ATLAS</span><span id="snapshot-date">Research snapshot · 11 October 2026</span><a href="#atlas">Back to rings ↑</a></footer>
+  <footer class="site-footer"><span>FUSION &amp; GROTHENDIECK RING ATLAS</span><span id="snapshot-date">Research snapshot · 16 October 2026</span><a href="#atlas">Back to rings ↑</a></footer>
 </body>
 </html>

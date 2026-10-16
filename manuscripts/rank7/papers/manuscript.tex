@@ -1,10 +1,12 @@
 \documentclass[11pt]{article}
 \usepackage[T1]{fontenc}
+\usepackage{needspace}
 \usepackage{lmodern,amsmath,amssymb,amsthm,booktabs,geometry,longtable,array,float,microtype,xcolor,hyperref}
 \geometry{margin=1.05in}
 \hypersetup{colorlinks=true,urlcolor=blue!60!black,linkcolor=blue!50!black,citecolor=blue!50!black,pdftitle={Rank-seven Grothendieck rings: a certified partial classification through multiplicity four},pdfauthor={}}
 \newtheorem{theorem}{Theorem}
 \newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
 \newtheorem{remark}[theorem]{Remark}
 \newcommand{\C}{\mathbb C}
 \newcommand{\Z}{\mathbb Z}
@@ -17,12 +19,21 @@
 \begin{abstract}
 We study complex categorification of the complete rank-seven fusion-ring
 census through multiplicity four. Exact necessary conditions exclude
-$4135$ rings, and complete tensor comparisons identify unitary models
-for $27$ more; $39$ remain unresolved. The theoretical arguments combine
+$4164$ rings, and complete tensor comparisons identify unitary models
+for $27$ more; $10$ remain unresolved. The theoretical arguments combine
 prime equivariantization, pointed-module and orbit obstructions, with
 complete signed-sphericalization certificates and a relative-trace
-obstruction that needs no signed enumeration. Multiplicity one is
-complete, with thirteen realized rings. Every counted general exclusion applies
+obstruction that needs no signed enumeration. A cyclic-stabilizer divisibility
+argument excludes five further rings, while a three-parameter
+argument forces sphericality for two rings with a dimension-block
+obstruction. Independent signed spectral certificates verify two
+of the cyclic-stabilizer exclusions. A full induced-unit compression
+bound yields a further general exclusion by a parity contradiction.
+Anti-invariant module spectra and Morita-dual Gram identities supply
+eighteen further general exclusions, twelve by elementary theoretical
+arguments and six by exact finite certificates. Two Morita transformations
+and a formal-codegree field obstruction give three more general exclusions.
+Multiplicities one and two are complete, with twenty-three realized rings. Every counted general exclusion applies
 without a pivotality assumption, and every positive row has an actual
 categorical construction.
 \end{abstract}
@@ -47,8 +58,7 @@ The numbers of excluded, explicitly unitarily realized, and undecided
 rank-seven fusion rings are given by Table~\ref{tab:status}.
 The negative conclusions hold for \emph{every} complex fusion category.
 The twenty-seven positive rows have the models in Table~\ref{tab:models},
-matched against their complete fusion tensors. No conclusion is drawn
-for the undecided rows.
+matched against their complete fusion tensors. No categorifiability conclusion is drawn for the undecided rows.
 \end{theorem}
 \input{generated_tables.tex}
 
@@ -437,6 +447,10 @@ provides an independent finite corroboration of this theoretical lemma.
 
 \input{prime_descent_proofs.tex}
 \input{r160_proof.tex}
+\input{three_fixed_module.tex}
+\input{module_dual_gram.tex}
+\input{psd_gram_refinement.tex}
+\input{c3_a4_morita.tex}
 
 \section{Exact constructions and replay}
 The three formerly undecided multiplicity-one rings match AnyonWiki
@@ -659,7 +673,7 @@ cocycle phases. The noncentral fibres each have size four. Hence
 In this order the model-to-census permutation is $(0,6,5,1,2,3,4)$.
 The supplement checks the representation relations, action,
 characteristic-class restriction, projective lift, and all $343$
-coefficients. The remaining $39$ tensors are undecided.
+coefficients. The remaining $10$ tensors are undecided.
 
 \input{d12_model.tex}
 
@@ -674,7 +688,29 @@ the repository root the two entry points are
 \texttt{python3 tools/verify\_upper\_residual\_20261002b.py}\\
 \texttt{python3 tools/verify\_upper\_residual\_20261002c.py}.
 \end{quote}
-Run both also with \texttt{-O}. The archive dispatcher supplies both stages.
+Run both also with \texttt{-O}. The subsequent exact verifiers are in
+\begin{quote}\small
+\path{evidence/theoretical_20261016/rank7/}
+\end{quote}
+and are named
+\begin{quote}\small
+\texttt{verify\_signed\_pair.py},\\
+\texttt{verify\_C3\_signed\_general.py},\\
+\texttt{verify\_cyclic\_module.py},\\
+\texttt{verify\_R695\_general.py},\\
+\texttt{verify\_three\_fixed.py},\\
+\texttt{verify\_three\_fixed\_gram.py},\\
+\texttt{verify\_psd\_gram.py},\\
+\texttt{verify\_C3\_A4\_reduction.py},\\
+\texttt{verify\_A4\_quadratic.py},\\
+\texttt{verify\_scoped\_dimension\_block.py}.
+\end{quote}
+Each accepts
+\texttt{--repo /path/to/repository}; the last makes no general decision
+by itself. The Gram verifiers use the frozen exact helpers in
+\texttt{gram\_support/}; their replay does not invoke an optimizer.
+Run each normally and with \texttt{-O}.
+ The archive dispatcher supplies both stages.
 Earlier full-certificate reports retain their own scopes and dates;
 preservation checks do not claim a fresh execution of all prior
 searches. Original discovery programs are retained separately and
@@ -682,6 +718,12 @@ are not required to verify this frozen release.
 
 \medskip\noindent\textbf{AI disclosure.} GPT-6 Astra assisted with
 research, symbolic exploration, code development, and drafting.
+
+\appendix
+\section{Independent signed verification of two quadratic cases}
+\label{app:signed-independent}
+\input{quadratic_signed_reduction.tex}
+\input{signed_pair_proof.tex}
 
 \begin{thebibliography}{99}
 \bibitem{DGNO} V.~Drinfeld, S.~Gelaki, D.~Nikshych and V.~Ostrik,
@@ -748,12 +790,19 @@ arXiv:math/9801129.
 \bibitem{Metaplectic} P. Bruillard, C. Galindo, S.-H. Ng, J. Y. Plavnik, E. C. Rowell and Z. Wang,
 \emph{On the classification of weakly integral modular categories},
 \emph{J. Pure Appl. Algebra} \textbf{220} (2016), 2364--2388; arXiv:1411.2313.
+\bibitem{OstrikRank2} V.~Ostrik, \emph{Fusion categories of rank 2},
+arXiv:math/0203255.
 \bibitem{OstrikCodegrees} V. Ostrik,
 \emph{On formal codegrees of fusion categories},
 \emph{Math. Res. Lett.} \textbf{16} (2009), 895--901; arXiv:0810.3242.
+\bibitem{SchopierayDimensionBlock} A.~Schopieray,
+\emph{The dimension block of a spherical fusion category},
+arXiv:2609.35287v1 (2026).
 \bibitem{Schopieray} A. Schopieray,
 \emph{Categorification of integral group rings extended by one dimension},
-\emph{J. Lond. Math. Soc.} \textbf{108} (2023); DOI:10.1112/jlms.12789; arXiv:2208.07319.
+\emph{J. Lond. Math. Soc.} \textbf{108} (2023), 1617--1641;
+DOI:10.1112/jlms.12789. We use the published Lemma~3.1 and
+Propositions~3.2--3.3.
 \bibitem{TY} D. Tambara and S. Yamagami,
 \emph{Tensor categories with fusion rules of self-duality for finite abelian groups},
 \emph{J. Algebra} \textbf{209} (1998), 692--707.

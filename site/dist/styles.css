@@ -104,3 +104,16 @@ main>section{padding-inline:clamp(22px,4.5vw,86px)}.intro{background:var(--navy)
  .frontier-table{width:100%;margin:12px 0}
  .frontier-panel .frontier-table td{white-space:normal;text-align:left;line-height:1.6;min-width:260px}
  .frontier-panel .frontier-table th{white-space:nowrap;text-align:left}
+
+/* Dated research updates keep classifications and scoped progress distinct. */
+.research-update{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:19px 22px;margin:0 0 18px;border:1px solid #c8b695;border-left:4px solid var(--accent);background:#eee7d9}
+.research-update[hidden],.theoretical-update[hidden]{display:none}
+.research-update .eyebrow{margin-bottom:8px;font-size:11px}
+.research-update h3{font:normal clamp(23px,2vw,30px)/1.15 var(--serif);margin-bottom:8px}
+.research-update p:last-child{font:14px/1.55 var(--sans);color:var(--ink-soft);max-width:850px;margin-bottom:0}
+.research-update>a{flex:none;font:600 13px/1.4 var(--sans);border-bottom:1px solid #ab8256;padding-bottom:4px;color:#704725}
+.update-actions{display:flex;flex-wrap:wrap;gap:12px 22px;margin:14px 0 18px}
+.update-actions a,.theoretical-update td a{font:13px/1.5 var(--sans);color:#775236;border-bottom:1px solid #b69c7a}
+.download-checksum{font:11px/1.6 var(--mono);overflow-wrap:anywhere;margin-bottom:0}
+.download-checksum code{font:inherit}
+@media(max-width:640px){.research-update{align-items:flex-start;flex-direction:column;gap:16px;padding:16px}.theoretical-update{padding:15px}.update-actions{gap:12px 16px}}

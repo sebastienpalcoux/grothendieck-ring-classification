@@ -30,7 +30,14 @@
     "complete_oriented_signed_sphericalization",
     "dimension310_group_theoretical",
     "relative_trace_lattice",
-    "dimension150_forced_central_boson"
+    "dimension150_forced_central_boson",
+    "full_induction_compression_parity",
+    "signed_C3_sphericality_dimension_block",
+    "cyclic_stabilizer_divisibility",
+    "anti_invariant_involution_module",
+    "three_fixed_dual_module_Gram",
+    "positive_semidefinite_module_Gram",
+    "C3_A4_Morita_formal_codegree"
   ],
   "stage_counts": {
     "near_group": {
@@ -117,6 +124,48 @@
     },
     "dimension150_forced_central_boson": {
       "2": 1
+    },
+    "full_induction_compression_parity": {
+      "1": 0,
+      "2": 0,
+      "3": 1,
+      "4": 0
+    },
+    "signed_C3_sphericality_dimension_block": {
+      "1": 0,
+      "2": 0,
+      "3": 2,
+      "4": 0
+    },
+    "cyclic_stabilizer_divisibility": {
+      "1": 0,
+      "2": 0,
+      "3": 0,
+      "4": 5
+    },
+    "anti_invariant_involution_module": {
+      "1": 0,
+      "2": 2,
+      "3": 3,
+      "4": 2
+    },
+    "three_fixed_dual_module_Gram": {
+      "1": 0,
+      "2": 4,
+      "3": 2,
+      "4": 1
+    },
+    "positive_semidefinite_module_Gram": {
+      "1": 0,
+      "2": 0,
+      "3": 1,
+      "4": 3
+    },
+    "C3_A4_Morita_formal_codegree": {
+      "1": 0,
+      "2": 1,
+      "3": 0,
+      "4": 2
     }
   },
   "status_counts": {
@@ -126,22 +175,22 @@
     },
     "2": {
       "unitarily_realized": 10,
-      "excluded": 302,
-      "unresolved": 7
+      "excluded": 309
     },
     "3": {
-      "excluded": 1045,
-      "unresolved": 12,
+      "excluded": 1054,
+      "unresolved": 3,
       "unitarily_realized": 2
     },
     "4": {
-      "excluded": 2758,
+      "excluded": 2771,
       "unitarily_realized": 2,
-      "unresolved": 20
+      "unresolved": 7
     }
   },
   "model_count": 27,
   "notes": "Every exclusion follows from a cited categorical theorem with exact checked tensor hypotheses or an existing complete certificate; unchanged earlier proof records are preserved.",
   "anyonwiki_import": "evidence/anyonwiki/README.md",
-  "upper_residual_update": "evidence/upper_residual_20261002c/README.md"
+  "upper_residual_update": "evidence/upper_residual_20261002c/README.md",
+  "theoretical_update": "evidence/theoretical_20261016/README.md"
 }

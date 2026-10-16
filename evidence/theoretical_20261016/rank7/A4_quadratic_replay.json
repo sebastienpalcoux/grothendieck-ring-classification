@@ -1,0 +1,238 @@
+{
+  "status": "PASS",
+  "counts": {
+    "3": 2,
+    "4": 2,
+    "6": 5
+  },
+  "unnormalized_counts": {
+    "3": 24,
+    "4": 24,
+    "6": 60
+  },
+  "results": [
+    {
+      "kind": "inner",
+      "k": 3,
+      "n_identity": 3,
+      "n_involution": 0,
+      "rho_self_dual": true,
+      "tensor_sha256": "36fab26c0d88924af9d6ab31ea4967a8411dc7e0a8b93ebdd2a14c61a1d53a78",
+      "V4_subring": null,
+      "Casimir_polynomial": "(X**2 - 156*X + 1872)**12",
+      "formal_codegrees": {
+        "dimension_1": "6*(k^2+4 +/- k*sqrt(k^2+4))",
+        "dimension_3": "2*((3)^2+4 +/- (3)*sqrt((3)^2+4))"
+      },
+      "codegree_field_obstruction": false,
+      "rank_two_subring_obstruction": true
+    },
+    {
+      "kind": "inner",
+      "k": 3,
+      "n_identity": 0,
+      "n_involution": 1,
+      "rho_self_dual": true,
+      "tensor_sha256": "c342faf0fbbdeb5668e612d6cd7461bc1030bd7b990963b3a62fa1c12a1539a5",
+      "V4_subring": {
+        "id": "R8_1_68",
+        "source_permutation": [
+          0,
+          1,
+          2,
+          7,
+          3,
+          6,
+          5,
+          4
+        ],
+        "decision": {
+          "id": "R8_1_68",
+          "multiplicity": 1,
+          "index": 68,
+          "tensor_sha256": "e7b3af54815a5e7d83a96ea722aaa199120723ff2010602d166260b8b5244ab6",
+          "commutative": true,
+          "status": "excluded",
+          "certificate": {
+            "kind": "oriented_signed_sphericalization",
+            "witness_id": "R8_1_68",
+            "signed_certificate_sha256": "32e5a05646c9c304a3b7b3f947401074527ddf0b903ca09dc5243a7907abf8af",
+            "criterion": "Rank-six oriented sphericalization and dimension-order theorem; rank-seven exact lifting"
+          }
+        }
+      },
+      "Casimir_polynomial": "(X**2 - 156*X + 1872)**3*(X**2 - 60*X + 720)**9",
+      "formal_codegrees": {
+        "dimension_1": "6*(k^2+4 +/- k*sqrt(k^2+4))",
+        "dimension_3": "2*((-1)^2+4 +/- (-1)*sqrt((-1)^2+4))"
+      },
+      "codegree_field_obstruction": true,
+      "rank_two_subring_obstruction": false
+    },
+    {
+      "kind": "inner",
+      "k": 4,
+      "n_identity": 4,
+      "n_involution": 0,
+      "rho_self_dual": true,
+      "tensor_sha256": "017c16a0a28595fbef10ef065e3c44e5223f3fabc4e74ade85c1d00114cbd86c",
+      "V4_subring": null,
+      "Casimir_polynomial": "(X**2 - 240*X + 2880)**12",
+      "formal_codegrees": {
+        "dimension_1": "6*(k^2+4 +/- k*sqrt(k^2+4))",
+        "dimension_3": "2*((4)^2+4 +/- (4)*sqrt((4)^2+4))"
+      },
+      "codegree_field_obstruction": false,
+      "rank_two_subring_obstruction": true
+    },
+    {
+      "kind": "inner",
+      "k": 4,
+      "n_identity": 1,
+      "n_involution": 1,
+      "rho_self_dual": true,
+      "tensor_sha256": "bc6341633b2eb3e7028b034022674172175bb0dbd3afeec1f4de716e97ea2d1c",
+      "V4_subring": {
+        "id": "R8_1_69",
+        "source_permutation": [
+          0,
+          1,
+          2,
+          7,
+          3,
+          6,
+          5,
+          4
+        ],
+        "decision": {
+          "id": "R8_1_69",
+          "multiplicity": 1,
+          "index": 69,
+          "tensor_sha256": "498ed5976ce1a16923f6e304c31fdfc594699bd99c5feb323c9a250f528a475b",
+          "commutative": true,
+          "status": "unitarily_realized",
+          "models": [
+            "HI(C2 x C2)"
+          ]
+        }
+      },
+      "Casimir_polynomial": "(X - 24)**18*(X**2 - 240*X + 2880)**3",
+      "formal_codegrees": {
+        "dimension_1": "6*(k^2+4 +/- k*sqrt(k^2+4))",
+        "dimension_3": "2*((0)^2+4 +/- (0)*sqrt((0)^2+4))"
+      },
+      "codegree_field_obstruction": false,
+      "rank_two_subring_obstruction": false
+    },
+    {
+      "kind": "inner",
+      "k": 6,
+      "n_identity": 6,
+      "n_involution": 0,
+      "rho_self_dual": true,
+      "tensor_sha256": "497a036af25952e5790aa73f81a76ca7e9da231e05e75f306e1c92b91a576c20",
+      "V4_subring": null,
+      "Casimir_polynomial": "(X**2 - 480*X + 5760)**12",
+      "formal_codegrees": {
+        "dimension_1": "6*(k^2+4 +/- k*sqrt(k^2+4))",
+        "dimension_3": "2*((6)^2+4 +/- (6)*sqrt((6)^2+4))"
+      },
+      "codegree_field_obstruction": false,
+      "rank_two_subring_obstruction": true
+    },
+    {
+      "kind": "inner",
+      "k": 6,
+      "n_identity": 3,
+      "n_involution": 1,
+      "rho_self_dual": true,
+      "tensor_sha256": "ff0b37f4e171aa81215d097da661506450c50fe3dff96cbd720425f34c2e6655",
+      "V4_subring": null,
+      "Casimir_polynomial": "(X**2 - 480*X + 5760)**3*(X**2 - 96*X + 1152)**9",
+      "formal_codegrees": {
+        "dimension_1": "6*(k^2+4 +/- k*sqrt(k^2+4))",
+        "dimension_3": "2*((2)^2+4 +/- (2)*sqrt((2)^2+4))"
+      },
+      "codegree_field_obstruction": true,
+      "rank_two_subring_obstruction": false
+    },
+    {
+      "kind": "inner",
+      "k": 6,
+      "n_identity": 0,
+      "n_involution": 2,
+      "rho_self_dual": true,
+      "tensor_sha256": "bebda45130e74d709483fdbe67ace46cf323101a23bc2e911d55906b920c2b35",
+      "V4_subring": {
+        "id": "R8_2_480",
+        "source_permutation": [
+          0,
+          1,
+          2,
+          7,
+          3,
+          6,
+          5,
+          4
+        ],
+        "decision": {
+          "id": "R8_2_480",
+          "multiplicity": 2,
+          "index": 480,
+          "tensor_sha256": "dd54618340171df4058e3bdedf3a4cfb4e088625b08ddfdc4ddad86dc71858d3",
+          "commutative": true,
+          "status": "excluded",
+          "certificate": {
+            "kind": "oriented_signed_sphericalization",
+            "witness_id": "R8_2_480",
+            "signed_certificate_sha256": "efe31878255a518a7ec5ce2108fe573f0b6eb211d68f0ecfcde3abf065b198e7",
+            "criterion": "Rank-six oriented sphericalization and dimension-order theorem; rank-seven exact lifting"
+          }
+        }
+      },
+      "Casimir_polynomial": "(X**2 - 480*X + 5760)**3*(X**2 - 96*X + 1152)**9",
+      "formal_codegrees": {
+        "dimension_1": "6*(k^2+4 +/- k*sqrt(k^2+4))",
+        "dimension_3": "2*((-2)^2+4 +/- (-2)*sqrt((-2)^2+4))"
+      },
+      "codegree_field_obstruction": true,
+      "rank_two_subring_obstruction": false
+    },
+    {
+      "kind": "outer",
+      "k": 6,
+      "odd_coset_cycle_type": [
+        1,
+        1,
+        2
+      ],
+      "rho_self_dual": true,
+      "tensor_sha256": "0355875bc46e4154b105bc8157b766f33bb3c1e7fb1f53b413bf8277fc7b2914",
+      "Casimir_polynomial": "(X - 24)**4*(X**2 - 480*X + 5760)*(X**2 - 96*X + 1152)**9",
+      "formal_codegrees": {
+        "dimension_1": "6*(k^2+4 +/- k*sqrt(k^2+4))",
+        "dimension_3": "2*((2)^2+4 +/- (2)*sqrt((2)^2+4))",
+        "dimension_2": "12"
+      },
+      "codegree_field_obstruction": true,
+      "rank_two_subring_obstruction": false
+    },
+    {
+      "kind": "outer",
+      "k": 6,
+      "odd_coset_cycle_type": [
+        4
+      ],
+      "rho_self_dual": true,
+      "tensor_sha256": "16780f441a1361b3bbcd307d96e1fd959a827fa3fa193efa4b583a37a07dbb3b",
+      "Casimir_polynomial": "(X - 24)**4*(X**2 - 480*X + 5760)*(X**2 - 96*X + 1152)**9",
+      "formal_codegrees": {
+        "dimension_1": "6*(k^2+4 +/- k*sqrt(k^2+4))",
+        "dimension_3": "2*((2)^2+4 +/- (2)*sqrt((2)^2+4))",
+        "dimension_2": "12"
+      },
+      "codegree_field_obstruction": true,
+      "rank_two_subring_obstruction": false
+    }
+  ]
+}

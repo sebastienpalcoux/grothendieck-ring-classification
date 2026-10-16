@@ -1,0 +1,76 @@
+{
+  "status": "PASS",
+  "cases": [
+    {
+      "id": "R6_4_155",
+      "tensor_sha256": "012ef716d19b96a2a800d7bcbb33f3ae5e99e3c6a223f6e14bcd20144d4072a3",
+      "involutions": [
+        {
+          "source_label": 3,
+          "permutation": [
+            3,
+            1,
+            2,
+            0,
+            5,
+            4
+          ],
+          "fixed_labels": [
+            1,
+            2
+          ]
+        },
+        {
+          "source_label": 4,
+          "permutation": [
+            4,
+            2,
+            1,
+            5,
+            0,
+            3
+          ],
+          "fixed_labels": []
+        },
+        {
+          "source_label": 5,
+          "permutation": [
+            5,
+            2,
+            1,
+            4,
+            3,
+            0
+          ],
+          "fixed_labels": []
+        }
+      ],
+      "max_fixed_count": 2,
+      "new_fixed_rank_at_least_3_branch": false
+    },
+    {
+      "id": "R6_8_1660",
+      "tensor_sha256": "697ec27fe203356199bfcf674587be9c71455dbb681f2e086a076f726b03d267",
+      "involutions": [
+        {
+          "source_label": 1,
+          "permutation": [
+            1,
+            0,
+            3,
+            2,
+            4,
+            5
+          ],
+          "fixed_labels": [
+            4,
+            5
+          ]
+        }
+      ],
+      "max_fixed_count": 2,
+      "new_fixed_rank_at_least_3_branch": false
+    }
+  ],
+  "scope": "No original rank-six involution was omitted by the prior at-most-two-fixed-label guard."
+}

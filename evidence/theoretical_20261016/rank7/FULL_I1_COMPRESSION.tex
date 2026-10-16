@@ -1,0 +1,92 @@
+% A consequence of the modular-representation compression argument in
+% Schopieray, arXiv:2609.35287v1, Lemma 4.1 and proof of Theorem 5.1.
+% This file deliberately does not use the paper's identification of
+% [K_1:Q(D)] with a dimensional grading for a non-pseudounitary category.
+
+\begin{proposition}[Compression over all constituents of $I(\mathbf1)$]
+Let $\mathcal C$ be a spherical fusion category, $D=\dim(\mathcal C)$,
+$K=\mathbb Q(\dim X:X\in\operatorname{Irr}(\mathcal C))$, and
+$G=\operatorname{Gal}(K/\mathbb Q)$.  For an irreducible representation
+$E$ of $K_0(\mathcal C)\otimes\mathbb C$, write $f_E$ for its formal
+codegree.  Then $f_E\in K$, and for every character $\chi$ of $G$,
+\begin{equation}\label{eq:full-I1-compression}
+ \sum_E\left|\sum_{\sigma\in G}
+       \chi(\sigma)\sigma(f_E^{-1})\right|^2
+       \leq \frac{|G|}{\mathfrak f(\chi)}.
+\end{equation}
+There is no factor $\dim E$ in the outer sum.
+\end{proposition}
+
+\begin{proof}
+Let $A_E$ be the simple constituent of $I(\mathbf1)$ attached to $E$.
+The induction theorem gives
+$\dim A_E=D/f_E$, $\theta_{A_E}=1$, and distinct $E$ give distinct
+$A_E$.  Since the forgetful image of every object of the center has
+dimension in $K$, this also proves $f_E\in K$.
+Write $s=S/D$ for the normalized center matrix and $P$ for orthogonal
+projection onto its twist-one subspace.  For the dimension character and
+its Galois conjugates let $A_\sigma$ denote the corresponding constituents
+of $I(\mathbf1)$, and set
+$w_\chi=\sum_{\sigma\in G}\chi(\sigma)e_{A_\sigma}$.
+The Galois compatibility of the modular representation gives
+$s_{A_\sigma,Y}=\sigma(\dim Y/D)$, and $w_\chi$ is fixed by the
+unipotent subgroup and has torus character $\chi$.  The local compression
+estimate for $SL_2(\mathbb Z/N)$, combined over prime powers, gives
+$\|Ps w_\chi\|^2\leq\|w_\chi\|^2/\mathfrak f(\chi)
+=|G|/\mathfrak f(\chi)$.
+Its $A_E$ coordinate is exactly the inner sum in
+\eqref{eq:full-I1-compression}.  Retaining these coordinates proves the
+claim.  The multiplicity $[I(\mathbf1):A_E]=\dim E$ does not repeat a
+coordinate of the modular representation.
+\end{proof}
+
+\begin{corollary}[Quadratic Casimir obstruction]\label{cor:quadratic-Casimir}
+Let $R$ be a fusion ring, let $N_i$ be its regular fusion matrices, and let
+$B=\sum_iN_iN_i^{\mathsf T}$.  Fix a real quadratic field $L$ of
+fundamental discriminant $q$.  List the irreducible quadratic factors of
+$\det(xI-B)$ whose roots generate $L$ as
+\[
+ \prod_j(x^2-t_jx+n_j)^{m_j},
+ \qquad
+ Q_L(R):=q\sum_jm_j\frac{t_j^2-4n_j}{n_j^2}.
+\]
+Assume that at least one such factor occurs.  If $R$ has a spherical categorification, then
+$Q_L(R)\leq1$.  More precisely, if $K$ is its dimension field, then
+$L\subseteq K$ and $[K:L]Q_L(R)\leq1$.
+\end{corollary}
+
+\begin{proof}
+The Casimir eigenvalue on a simple representation $E$ is
+$\lambda_E=(\dim E)f_E$, with regular multiplicity $(\dim E)^2$.
+In particular $L\subseteq K$.  Put $e'=[K:L]$ and pull back to
+$\operatorname{Gal}(K/\mathbb Q)$ the nontrivial quadratic character of
+$L$, whose conductor is $q$.  If $\lambda_E\in L$, its contribution to
+\eqref{eq:full-I1-compression} is
+$e'^2(\dim E)^2(\lambda_E^{-1}-\overline{\lambda_E}^{-1})^2$.
+Regular multiplicities therefore account for the squares of representation
+degrees, including when $R$ is noncommutative.  Each displayed factor
+contributes $2e'^2m_j(t_j^2-4n_j)/n_j^2$.  The upper bound is $2e'/q$,
+which gives the asserted inequality after cancellation.
+\end{proof}
+
+\begin{corollary}[Boundary constraint for an arbitrary categorification]
+If $R$ has any fusion-category categorification, then $Q_L(R)\leq4$.
+If $Q_L(R)=4$, its sphericalization has dimension field exactly $L$,
+and every formal codegree of its $\varepsilon=-1$ sector is rational.
+In particular its actual spherical global dimension is rational.
+\end{corollary}
+
+\begin{proof}
+The sphericalization has two lifts of every simple object and a central
+invertible $\varepsilon$ of order two and dimension $-1$.
+The $\varepsilon=1$ quotient of its fusion algebra is the original fusion
+algebra; in this sector its Casimir is $2B$.  Thus the factors supplied by
+this sector contribute $Q_L(R)/4$ to the preceding proof.  Its dimension
+field contains $L$, so $[K:L]Q_L(R)/4\leq1$.
+At equality $Q_L(R)=4$, necessarily $K=L$, and the known sector already
+exhausts the squared-norm bound.  All other $I(\mathbf1)$ coordinates must
+vanish under the nontrivial Fourier character of $L$, so their formal
+codegrees are rational.  The spherical dimension character belongs to the
+$\varepsilon=-1$ sector, and its formal codegree is the global dimension.
+\end{proof}
+

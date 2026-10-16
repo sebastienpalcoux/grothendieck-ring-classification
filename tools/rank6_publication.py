@@ -8,8 +8,9 @@ FRONTIER={'R6_4_155','R6_8_1660'}
 RESEARCH_UPDATES=(
     'evidence/residual_20261002/rank6/research_progress.json',
     'evidence/rank6_theoretical_20261011/research_progress.json',
+    'evidence/theoretical_20261016/rank6/research_progress.json',
 )
-DOCUMENT_REVISION='evidence/rank6_theoretical_20261011/document_revision.json'
+DOCUMENT_REVISION='evidence/theoretical_20261016/rank6/document_revision.json'
 COMPLETION_ROOT='research/exclusions/m9_completion'
 COMPLETION_BUNDLES=('free_involution','involution_pair','gauss8200','pivotal_gap','psu25','case8785','triangle')
 COMPLETION_FILES=(
@@ -110,12 +111,16 @@ def validate_document_revision(identity,repo=None):
         return None
     revision=json.loads(path.read_text())
     research=current_research(identity,repo)
-    require(research is not None and revision['date']==research['date']=='2026-10-11',
+    require(research is not None and revision['date']==research['date']=='2026-10-16',
             'Publication revision and current research dates differ')
     require(revision['research_progress']==RESEARCH_UPDATES[-1] and
             valid_digest(revision['research_progress_sha256']) and
             hashlib.sha256((repo/RESEARCH_UPDATES[-1]).read_bytes()).hexdigest()==revision['research_progress_sha256'],
             'Publication revision has a different research source')
+    previous=revision.get('previous_document_revision')
+    require(valid_relative(previous or '') and valid_digest(revision.get('previous_document_revision_sha256')) and
+            hashlib.sha256((repo/previous).read_bytes()).hexdigest()==revision['previous_document_revision_sha256'],
+            'Prior publication revision identity changed')
     documents=revision['documents'];prefix='manuscripts/rank6/papers/'
     current_files={f.relative_to(repo).as_posix() for f in (repo/prefix).rglob('*')
                    if f.is_file() and f.suffix in ('.tex','.pdf')}
@@ -153,12 +158,13 @@ The positive catalogue includes the three neutral module categories from
 
 {progress_table(identity)}
 
-The October 11 theoretical revision proves tensor-functor rigidity for both
-residual rings. Both categorification questions remain open. The current
-manuscript includes the October 2 addendum and the new proofs; its source/PDF
-hashes are recorded separately from the frozen October 1 release.
+The October 16 revision identifies the entire twist-one support in the center
+of a positive Galois representative of R6_8_1660 and retains tensor-functor
+rigidity for both residual rings. Both categorification questions remain open.
+The current source/PDF hashes are recorded separately from the frozen release.
 
 [Manuscript](manuscripts/rank6/papers/manuscript.pdf) ·
+[16 October theoretical update](evidence/theoretical_20261016/README.md) ·
 [11 October theoretical revision](evidence/rank6_theoretical_20261011/README.md) ·
 [Completion proofs](supplements/rank6/research/exclusions/m9_completion/) ·
 [Completion replay](supplements/rank6/verification/m9/completion/) ·

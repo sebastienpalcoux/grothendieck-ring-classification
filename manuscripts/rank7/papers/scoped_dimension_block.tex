@@ -1,0 +1,54 @@
+\subsection{Dimension-block obstructions and their scope}
+\label{subsec:dimension-block}
+
+\begin{proposition}\label{prop:pivotal-dimension-block}
+The rings $R7\_3\_695$, $R7\_3\_783$, and $R7\_3\_1015$ have no
+pivotal categorification over $\mathbb C$.
+\end{proposition}
+\begin{proof}
+For a spherical fusion category whose global dimension $D$ generates
+a real quadratic field of discriminant $f$, the nontrivial-character
+case of Schopieray's dimension-block theorem
+\cite[Theorem~5.1]{SchopierayDimensionBlock} gives
+\[
+ \left(\frac1D-\frac1{D'}\right)^2\leq\frac1{e^2 f}
+ \leq\frac1f,
+\]
+where $e$ is a positive integer. The relevant source dimensions and
+exact values are
+\[
+\begin{array}{c|c|r|c}
+ \text{ring}&D&f&(1/D-1/D')^2\\ \hline
+ R7\_3\_695&420+70\sqrt{35}&140&1/35\\
+ R7\_3\_783, R7\_3\_1015&120+30\sqrt{15}&60&1/15.
+\end{array}
+\]
+Both conjugates violate the necessary inequality in each case.
+
+It remains to exclude other dimension characters. Their global
+dimensions must be eigenvalues of the regular Casimir. For
+$R7\_3\_695$, the other roots are $5,7$, and
+$\operatorname{Norm}(D)=4900$; the norms of $5/D$ and $7/D$ are
+$1/196,1/100$. For the other two rings the rational roots are $6,15$,
+and $\operatorname{Norm}(D)=900$; the corresponding norms are
+$1/25,1/4$. Thus none of the rational alternatives satisfies
+formal-codegree divisibility
+\cite[Corollary~2.14]{OstrikRank3}. In the noncommutative case it is
+harmless to include the Casimir root from the matrix block in this
+necessary superset.
+
+Finally every pivotal dimension character for these rings is
+spherical. All objects of $R7\_3\_695$ are self-dual. In the other
+two rings, the three invertibles form $C_3$, a self-dual singleton
+$E$ satisfies $gE=E$, and the other three simples form one $C_3$-orbit.
+Nonvanishing of $\dim(E)$ forces $\dim(g)=1$; the three orbit dimensions
+are equal, so every simple and its dual have the same dimension.
+\end{proof}
+
+This proposition alone is a pivotal obstruction, not a general one.
+The full sphericalization doubles the global dimension, dividing the
+left-hand side of the displayed inequality by four; the strict
+violations then become equalities. No general exclusion is inferred
+solely from this dimension-block argument. The companion verifier
+keeps this scope explicit and checks all numerical and tensor
+hypotheses exactly.

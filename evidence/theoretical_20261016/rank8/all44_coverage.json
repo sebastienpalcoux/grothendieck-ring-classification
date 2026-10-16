@@ -1,0 +1,535 @@
+{
+  "source_stage": "upper_residual_20261002c",
+  "source_case_count": 44,
+  "new_general_exclusions": 18,
+  "still_generally_unresolved": 26,
+  "warning": "PASS is only an exact necessary-condition result. Scoped exclusions are not general exclusions. This is not a completed classification.",
+  "index_audit": "evidence/theoretical_20261016/rank8/all44_subcategory_indices_normal.json",
+  "cases": [
+    {
+      "id": "R8_1_9",
+      "tensor_sha256": "1718ab13b6969ed751b621f7303b9e2bb29bb8280f692315499b130a420538f6",
+      "index_condition": "PASS",
+      "proper_nontrivial_fusion_subring_count": 2,
+      "disposition": "unresolved; no braided categorification",
+      "strategy_or_proof": "Order-four generalized near-group rings with noninvertible dimension 2+sqrt(5); general existence is equivalent to pseudo-unitary existence by the two-dimension Galois bridge.",
+      "remaining_gap": "The old scalar-gauge central-lift calculations have not been reconstructed. Even a central lift need not be a boson. The new 2D2 central-lift obstruction alone does not supply the additional descended lift required for a contradiction.",
+      "evidence": [
+        "evidence/upper_residual_20261002b/r8_nonintegral/SCOPED_RESULTS.md",
+        "evidence/theoretical_20261016/rank8_m1/"
+      ]
+    },
+    {
+      "id": "R8_1_18",
+      "tensor_sha256": "cdd3aa4477861e8521c75ac63cb0f9e4e5d0a021073d1619aae358a0850704f2",
+      "index_condition": "PASS",
+      "proper_nontrivial_fusion_subring_count": 2,
+      "disposition": "unresolved; no braided categorification",
+      "strategy_or_proof": "Order-four generalized near-group rings with noninvertible dimension 2+sqrt(5); general existence is equivalent to pseudo-unitary existence by the two-dimension Galois bridge.",
+      "remaining_gap": "The old scalar-gauge central-lift calculations have not been reconstructed. Even a central lift need not be a boson. The new 2D2 central-lift obstruction alone does not supply the additional descended lift required for a contradiction.",
+      "evidence": [
+        "evidence/upper_residual_20261002b/r8_nonintegral/SCOPED_RESULTS.md",
+        "evidence/theoretical_20261016/rank8_m1/"
+      ]
+    },
+    {
+      "id": "R8_1_49",
+      "tensor_sha256": "a5cefbf544001818e1e5c6e5bde951601eaf35f3d71034a252df1b7de751ea85",
+      "index_condition": "PASS",
+      "proper_nontrivial_fusion_subring_count": 4,
+      "disposition": "unresolved; no braided categorification",
+      "strategy_or_proof": "Order-four generalized near-group rings with noninvertible dimension 2+sqrt(5); general existence is equivalent to pseudo-unitary existence by the two-dimension Galois bridge.",
+      "remaining_gap": "The old scalar-gauge central-lift calculations have not been reconstructed. Even a central lift need not be a boson. The new 2D2 central-lift obstruction alone does not supply the additional descended lift required for a contradiction.",
+      "evidence": [
+        "evidence/upper_residual_20261002b/r8_nonintegral/SCOPED_RESULTS.md",
+        "evidence/theoretical_20261016/rank8_m1/"
+      ]
+    },
+    {
+      "id": "R8_2_24",
+      "tensor_sha256": "2b4780441d9590e8e7269cd82b7675aa75cec11c39bd3e94bb372cca1ada6738",
+      "index_condition": "PASS",
+      "proper_nontrivial_fusion_subring_count": 3,
+      "disposition": "unresolved; unitary categorification excluded",
+      "strategy_or_proof": "A C2 extension of the 2D2 neutral subcategory with C4 invertibles; the label-fixing tensor-auto-equivalence kernel excludes its square relation in the unitary case.",
+      "remaining_gap": "The required uniqueness and auto-equivalence classification are unitary results; no classification of all nonunitary neutral categories is available here.",
+      "evidence": [
+        "evidence/upper_residual_20261002b/r8_nonintegral/SCOPED_RESULTS.md"
+      ]
+    },
+    {
+      "id": "R8_2_33",
+      "tensor_sha256": "7a97e02134591a480adaa70aa8c938366c7406db000ac258a9502822480365b9",
+      "index_condition": "PASS",
+      "proper_nontrivial_fusion_subring_count": 2,
+      "disposition": "unresolved",
+      "strategy_or_proof": "Order-four generalized near-group family with noninvertible dimension 4+sqrt(17); the conductor-17 dimension-block bound is attained.",
+      "remaining_gap": "The bound is an equality, not a contradiction; no associator construction or general exclusion has been established.",
+      "evidence": []
+    },
+    {
+      "id": "R8_2_35",
+      "tensor_sha256": "a8d7e8dea9b085e12af44d01fa32ca6d6226ea7f5121929f2301862b9af98758",
+      "index_condition": "PASS",
+      "proper_nontrivial_fusion_subring_count": 2,
+      "disposition": "excluded over C",
+      "strategy_or_proof": "Two-dimension Galois bridge followed by the conductor-40 dimension-block bound: 9/160 exceeds 1/40.",
+      "remaining_gap": "None for the asserted general exclusion.",
+      "evidence": [
+        "evidence/theoretical_20261016/rank8/DIMENSION_BLOCK_FOUR_PROOF.md"
+      ]
+    },
+    {
+      "id": "R8_2_36",
+      "tensor_sha256": "0f3439764ab3cf628490ff0427eee015eede38b83165a1413c93349b97240249",
+      "index_condition": "PASS",
+      "proper_nontrivial_fusion_subring_count": 2,
+      "disposition": "unresolved",
+      "strategy_or_proof": "Order-four generalized near-group family with noninvertible dimension 4+sqrt(17); the conductor-17 dimension-block bound is attained.",
+      "remaining_gap": "The bound is an equality, not a contradiction; no associator construction or general exclusion has been established.",
+      "evidence": []
+    },
+    {
+      "id": "R8_2_37",
+      "tensor_sha256": "1cfa463b5ec59daa44cc51752a6a58ea5378684a46ab7ee72147ab69153d5f6a",
+      "index_condition": "PASS",
+      "proper_nontrivial_fusion_subring_count": 3,
+      "disposition": "unresolved",
+      "strategy_or_proof": "Quasi-trivial C2 extensions of the 2D2 neutral ring; a label-swapping tensor auto-equivalence would control the candidate crossed product.",
+      "remaining_gap": "The multiplication and coherent square of the required auto-equivalence are not determined by the published order-eight auto-equivalence count. An abstract group order does not construct an extension.",
+      "evidence": []
+    },
+    {
+      "id": "R8_2_38",
+      "tensor_sha256": "48dca764c064d7e6b981902c5bb1092e49138eb6353f49b531eb84dccfba3fe4",
+      "index_condition": "PASS",
+      "proper_nontrivial_fusion_subring_count": 2,
+      "disposition": "excluded over C",
+      "strategy_or_proof": "Two-dimension Galois bridge followed by the conductor-40 dimension-block bound: 9/160 exceeds 1/40.",
+      "remaining_gap": "None for the asserted general exclusion.",
+      "evidence": [
+        "evidence/theoretical_20261016/rank8/DIMENSION_BLOCK_FOUR_PROOF.md"
+      ]
+    },
+    {
+      "id": "R8_2_76",
+      "tensor_sha256": "e633ff711a4d5bb15555d0b0ca78d810e9aa0e2e2a1b9336020d15e494303c5b",
+      "index_condition": "PASS",
+      "proper_nontrivial_fusion_subring_count": 2,
+      "disposition": "unresolved",
+      "strategy_or_proof": "Order-four generalized near-group family with noninvertible dimension 4+sqrt(17); the conductor-17 dimension-block bound is attained.",
+      "remaining_gap": "The bound is an equality, not a contradiction; no associator construction or general exclusion has been established.",
+      "evidence": []
+    },
+    {
+      "id": "R8_2_152",
+      "tensor_sha256": "0523e0c3e5986b3d8fe8b15ed4ef0590d2fa89dded0211546a6baab77dd46e9b",
+      "index_condition": "PASS",
+      "proper_nontrivial_fusion_subring_count": 2,
+      "disposition": "unresolved; unitary categorification excluded",
+      "strategy_or_proof": "Faithful C2 extensions of the 2D2 neutral category whose odd components have no invertible simple; this contradicts the unitary Brauer-Picard classification.",
+      "remaining_gap": "The unitary uniqueness theorem cannot be promoted to an unrestricted categorification theorem.",
+      "evidence": [
+        "evidence/upper_residual_20261002b/r8_nonintegral/SCOPED_RESULTS.md"
+      ]
+    },
+    {
+      "id": "R8_2_153",
+      "tensor_sha256": "bf4adfa05928a50f367117be3a10f1435514254eefd8b55b4d2030c0930c179f",
+      "index_condition": "PASS",
+      "proper_nontrivial_fusion_subring_count": 2,
+      "disposition": "unresolved; unitary categorification excluded",
+      "strategy_or_proof": "Faithful C2 extensions of the 2D2 neutral category whose odd components have no invertible simple; this contradicts the unitary Brauer-Picard classification.",
+      "remaining_gap": "The unitary uniqueness theorem cannot be promoted to an unrestricted categorification theorem.",
+      "evidence": [
+        "evidence/upper_residual_20261002b/r8_nonintegral/SCOPED_RESULTS.md"
+      ]
+    },
+    {
+      "id": "R8_2_166",
+      "tensor_sha256": "733921bea67078b3e389e30ff084194bef79995cdfd1698c7249ef087891e197",
+      "index_condition": "PASS",
+      "proper_nontrivial_fusion_subring_count": 2,
+      "disposition": "unresolved; unitary categorification excluded",
+      "strategy_or_proof": "Faithful C2 extensions of the 2D2 neutral category whose odd components have no invertible simple; this contradicts the unitary Brauer-Picard classification.",
+      "remaining_gap": "The unitary uniqueness theorem cannot be promoted to an unrestricted categorification theorem.",
+      "evidence": [
+        "evidence/upper_residual_20261002b/r8_nonintegral/SCOPED_RESULTS.md"
+      ]
+    },
+    {
+      "id": "R8_2_170",
+      "tensor_sha256": "78c260875e85e75fa8689dba58a9c5225942228315e25da354ad3da8b4bbf06d",
+      "index_condition": "PASS",
+      "proper_nontrivial_fusion_subring_count": 5,
+      "disposition": "unresolved",
+      "strategy_or_proof": "Quasi-trivial C2 extensions of the 2D2 neutral ring; a label-swapping tensor auto-equivalence would control the candidate crossed product.",
+      "remaining_gap": "The multiplication and coherent square of the required auto-equivalence are not determined by the published order-eight auto-equivalence count. An abstract group order does not construct an extension.",
+      "evidence": []
+    },
+    {
+      "id": "R8_2_190",
+      "tensor_sha256": "ef368ba29ddc183f215145eb6a50ead0655e91afff2d3e844f918c6d2a91d867",
+      "index_condition": "PASS",
+      "proper_nontrivial_fusion_subring_count": 3,
+      "disposition": "unresolved",
+      "strategy_or_proof": "Both contain a Fibonacci-times-C2 fusion subring. Their other dimensions are d and phi*d, with d=phi+sqrt((5+sqrt(5))/2).",
+      "remaining_gap": "A central lift or tensor factorization of the Fibonacci subcategory has not been established. The dimension pattern by itself does not yield such a factorization.",
+      "evidence": []
+    },
+    {
+      "id": "R8_2_209",
+      "tensor_sha256": "96529d853dc86a04505ac6d39dbb3284e11e4b3ee741b097bc97f65ca92c962a",
+      "index_condition": "FAIL",
+      "proper_nontrivial_fusion_subring_count": 1,
+      "disposition": "excluded over C",
+      "strategy_or_proof": "The C3 pointed subcategory has FP index with nonintegral trace 145/3.",
+      "remaining_gap": "None for the asserted general exclusion.",
+      "evidence": [
+        "evidence/theoretical_20261016/rank8/R209_GENERAL_PROOF.md"
+      ]
+    },
+    {
+      "id": "R8_2_260",
+      "tensor_sha256": "bb2b60d57bef35a56cfa0e14dd5282f8ce05e5b91540cdb1c4b643396a1e7af7",
+      "index_condition": "PASS",
+      "proper_nontrivial_fusion_subring_count": 2,
+      "disposition": "excluded over C",
+      "strategy_or_proof": "Cyclic-module divisibility for the fixed C3 action: Norm((3+2sqrt(3))/3)=-1/3 forces 3 to divide N33^3=2.",
+      "remaining_gap": "None for the asserted general exclusion.",
+      "evidence": [
+        "evidence/theoretical_20261016/CYCLIC_MODULE_DIVISIBILITY.md",
+        "evidence/theoretical_20261016/rank8/CYCLIC_STABILIZER_DIVISIBILITY.md"
+      ]
+    },
+    {
+      "id": "R8_2_314",
+      "tensor_sha256": "8cf291cb9760439f6bf64d131efe0052d3b48ef9bc2b9af1e5e8fe70c2aa6867",
+      "index_condition": "PASS",
+      "proper_nontrivial_fusion_subring_count": 3,
+      "disposition": "unresolved",
+      "strategy_or_proof": "Each noncommutative ring contains two rank-four PSU(2)_6-type subrings sharing an invertible; the global dimension is 48+32sqrt(2).",
+      "remaining_gap": "The subcategory-index and dimension-block calculations do not contradict existence; an associativity or compatibility obstruction is still required.",
+      "evidence": []
+    },
+    {
+      "id": "R8_2_318",
+      "tensor_sha256": "db78e9fe3fb5d6a6f96396f6ecdfdb301a90b9ecaa2f19e14338b7011f546180",
+      "index_condition": "PASS",
+      "proper_nontrivial_fusion_subring_count": 1,
+      "disposition": "excluded over C",
+      "strategy_or_proof": "The four-dimensional anti-invariant module of the regular involution algebra would have a normal integral generator with incompatible spectral norm and entry parity. For 318/735, the sole surviving spectrum also contradicts the trace bound.",
+      "remaining_gap": "None for the asserted general exclusion; no pivotality or sphericality is assumed.",
+      "evidence": [
+        "evidence/theoretical_20261016/rank8/ANTI_MODULE_EIGHT_GENERAL_PROOF.md",
+        "evidence/theoretical_20261016/rank8/anti_module_eight_normal.json"
+      ]
+    },
+    {
+      "id": "R8_2_319",
+      "tensor_sha256": "39da593e8ea73660b6c6646bdf1619f8eebdc32cd8379292cc2330ad2729abb5",
+      "index_condition": "PASS",
+      "proper_nontrivial_fusion_subring_count": 1,
+      "disposition": "excluded over C",
+      "strategy_or_proof": "The four-dimensional anti-invariant module of the regular involution algebra would have a normal integral generator with incompatible spectral norm and entry parity. For 318/735, the sole surviving spectrum also contradicts the trace bound.",
+      "remaining_gap": "None for the asserted general exclusion; no pivotality or sphericality is assumed.",
+      "evidence": [
+        "evidence/theoretical_20261016/rank8/ANTI_MODULE_EIGHT_GENERAL_PROOF.md",
+        "evidence/theoretical_20261016/rank8/anti_module_eight_normal.json"
+      ]
+    },
+    {
+      "id": "R8_2_320",
+      "tensor_sha256": "7a5fb6f31001f98563a02c869f91e4cf403308a5c4c82061c9740d6a0503c704",
+      "index_condition": "PASS",
+      "proper_nontrivial_fusion_subring_count": 1,
+      "disposition": "excluded over C",
+      "strategy_or_proof": "The four-dimensional anti-invariant module of the regular involution algebra would have a normal integral generator with incompatible spectral norm and entry parity. For 318/735, the sole surviving spectrum also contradicts the trace bound.",
+      "remaining_gap": "None for the asserted general exclusion; no pivotality or sphericality is assumed.",
+      "evidence": [
+        "evidence/theoretical_20261016/rank8/ANTI_MODULE_EIGHT_GENERAL_PROOF.md",
+        "evidence/theoretical_20261016/rank8/anti_module_eight_normal.json"
+      ]
+    },
+    {
+      "id": "R8_2_342",
+      "tensor_sha256": "6d9246ba099d4676e98ae3cc60bba5a176db651fa740b5f8c4c5906ff652ae5d",
+      "index_condition": "PASS",
+      "proper_nontrivial_fusion_subring_count": 1,
+      "disposition": "unresolved",
+      "strategy_or_proof": "Quadratic sqrt(2) family with global FP dimension 96+64sqrt(2); the complete involution anti-module domain has one sign-gauge class, and all six dual-module Gram systems have exact integral factor witnesses.",
+      "remaining_gap": "The relevant half-dimensions are algebraic integers, so cyclic-module divisibility gives no contradiction. Passing the necessary module conditions does not construct a categorification.",
+      "evidence": [
+        "evidence/theoretical_20261016/compression/README.md",
+        "evidence/theoretical_20261016/rank8/FRONTIER_MODULE_AUDIT.md",
+        "evidence/theoretical_20261016/rank8/frontier_modules_normal.json"
+      ]
+    },
+    {
+      "id": "R8_2_346",
+      "tensor_sha256": "3948ca735e1c982cee3a46289b7120d8be7395b771577983747e02d6d058860e",
+      "index_condition": "PASS",
+      "proper_nontrivial_fusion_subring_count": 4,
+      "disposition": "excluded over C",
+      "strategy_or_proof": "Two-dimension Galois bridge followed by the conductor-40 dimension-block bound: 9/160 exceeds 1/40.",
+      "remaining_gap": "None for the asserted general exclusion.",
+      "evidence": [
+        "evidence/theoretical_20261016/rank8/DIMENSION_BLOCK_FOUR_PROOF.md"
+      ]
+    },
+    {
+      "id": "R8_2_368",
+      "tensor_sha256": "0fcca294ad8cea3e77d9c3523e4592b479eee8f180310ae238a65b980d59b960",
+      "index_condition": "PASS",
+      "proper_nontrivial_fusion_subring_count": 1,
+      "disposition": "excluded over C",
+      "strategy_or_proof": "The four-dimensional anti-invariant module of the regular involution algebra would have a normal integral generator with incompatible spectral norm and entry parity. For 318/735, the sole surviving spectrum also contradicts the trace bound.",
+      "remaining_gap": "None for the asserted general exclusion; no pivotality or sphericality is assumed.",
+      "evidence": [
+        "evidence/theoretical_20261016/rank8/ANTI_MODULE_EIGHT_GENERAL_PROOF.md",
+        "evidence/theoretical_20261016/rank8/anti_module_eight_normal.json"
+      ]
+    },
+    {
+      "id": "R8_2_370",
+      "tensor_sha256": "ccb6cfb7ba070dd437df76fd88b0486dfa9d598ee565e1827bc92e3c119dbb0e",
+      "index_condition": "PASS",
+      "proper_nontrivial_fusion_subring_count": 1,
+      "disposition": "excluded over C",
+      "strategy_or_proof": "The four-dimensional anti-invariant module of the regular involution algebra would have a normal integral generator with incompatible spectral norm and entry parity. For 318/735, the sole surviving spectrum also contradicts the trace bound.",
+      "remaining_gap": "None for the asserted general exclusion; no pivotality or sphericality is assumed.",
+      "evidence": [
+        "evidence/theoretical_20261016/rank8/ANTI_MODULE_EIGHT_GENERAL_PROOF.md",
+        "evidence/theoretical_20261016/rank8/anti_module_eight_normal.json"
+      ]
+    },
+    {
+      "id": "R8_2_380",
+      "tensor_sha256": "1929b8d62a4b2cd0e643eb4fe40f75497689da47e7dac6008f8ef8ba2ebfe7b3",
+      "index_condition": "PASS",
+      "proper_nontrivial_fusion_subring_count": 2,
+      "disposition": "excluded over C",
+      "strategy_or_proof": "Regular-C2 Morita duality produces ten dihedral invertibles and two simples of each dimension x=4+sqrt(6), y=3+2sqrt(6). The C5 fixed action forces 5|b,c in b+2c=8.",
+      "remaining_gap": "None for the asserted general exclusion.",
+      "evidence": [
+        "evidence/theoretical_20261016/CYCLIC_MODULE_DIVISIBILITY.md",
+        "evidence/theoretical_20261016/rank8/CYCLIC_STABILIZER_DIVISIBILITY.md"
+      ]
+    },
+    {
+      "id": "R8_2_406",
+      "tensor_sha256": "fbd2f625f4e0bf21895e4da72c99eb06517e41e69c04d422ec6a796ccf88bbfd",
+      "index_condition": "PASS",
+      "proper_nontrivial_fusion_subring_count": 4,
+      "disposition": "excluded over C",
+      "strategy_or_proof": "Two-dimension Galois bridge followed by the conductor-40 dimension-block bound: 9/160 exceeds 1/40.",
+      "remaining_gap": "None for the asserted general exclusion.",
+      "evidence": [
+        "evidence/theoretical_20261016/rank8/DIMENSION_BLOCK_FOUR_PROOF.md"
+      ]
+    },
+    {
+      "id": "R8_2_412",
+      "tensor_sha256": "b4936146f9270530f3c5e5db5bddb1fb20b7353d859b60517e1446d749ed4e3c",
+      "index_condition": "PASS",
+      "proper_nontrivial_fusion_subring_count": 4,
+      "disposition": "unresolved",
+      "strategy_or_proof": "Order-four generalized near-group family with noninvertible dimension 4+sqrt(17); the conductor-17 dimension-block bound is attained.",
+      "remaining_gap": "The bound is an equality, not a contradiction; no associator construction or general exclusion has been established.",
+      "evidence": []
+    },
+    {
+      "id": "R8_2_432",
+      "tensor_sha256": "8fdcee799f7fc07a294221c5b2f37f45d1edb12874df13dc09ee0748f5f7b60e",
+      "index_condition": "PASS",
+      "proper_nontrivial_fusion_subring_count": 3,
+      "disposition": "unresolved",
+      "strategy_or_proof": "Each noncommutative ring contains two rank-four PSU(2)_6-type subrings sharing an invertible; the global dimension is 48+32sqrt(2).",
+      "remaining_gap": "The subcategory-index and dimension-block calculations do not contradict existence; an associativity or compatibility obstruction is still required.",
+      "evidence": []
+    },
+    {
+      "id": "R8_2_446",
+      "tensor_sha256": "79f08fcc6679f4480daeb6c14c68b422b7cceac4a8ed7616f3c27395723b0d3d",
+      "index_condition": "PASS",
+      "proper_nontrivial_fusion_subring_count": 4,
+      "disposition": "unresolved",
+      "strategy_or_proof": "Order-four generalized near-group family with noninvertible dimension 4+sqrt(17); the conductor-17 dimension-block bound is attained.",
+      "remaining_gap": "The bound is an equality, not a contradiction; no associator construction or general exclusion has been established.",
+      "evidence": []
+    },
+    {
+      "id": "R8_2_489",
+      "tensor_sha256": "23cae0639e4ce7e54428705a66098747319e26d5f29ad8dff05914a6d43caef1",
+      "index_condition": "PASS",
+      "proper_nontrivial_fusion_subring_count": 3,
+      "disposition": "unresolved",
+      "strategy_or_proof": "Both contain a Fibonacci-times-C2 fusion subring. Their other dimensions are d and phi*d, with d=phi+sqrt((5+sqrt(5))/2).",
+      "remaining_gap": "A central lift or tensor factorization of the Fibonacci subcategory has not been established. The dimension pattern by itself does not yield such a factorization.",
+      "evidence": []
+    },
+    {
+      "id": "R8_2_495",
+      "tensor_sha256": "585aab580e46c28c084e57f81ba28b70835fc15ee0ca657d790b86253c74c6b5",
+      "index_condition": "PASS",
+      "proper_nontrivial_fusion_subring_count": 2,
+      "disposition": "unresolved; unitary categorification excluded",
+      "strategy_or_proof": "Faithful C2 extensions of the 2D2 neutral category whose odd components have no invertible simple; this contradicts the unitary Brauer-Picard classification.",
+      "remaining_gap": "The unitary uniqueness theorem cannot be promoted to an unrestricted categorification theorem.",
+      "evidence": [
+        "evidence/upper_residual_20261002b/r8_nonintegral/SCOPED_RESULTS.md"
+      ]
+    },
+    {
+      "id": "R8_2_535",
+      "tensor_sha256": "bbec9e7a6c9699ef6dde3d09c0387b1ee426ea230c8bd0f94c7c48a4ec501edd",
+      "index_condition": "PASS",
+      "proper_nontrivial_fusion_subring_count": 1,
+      "disposition": "unresolved",
+      "strategy_or_proof": "Quadratic sqrt(10) family with global FP dimension 120+36sqrt(10); the conductor-40 bound is attained.",
+      "remaining_gap": "The remaining formal codegrees are rational, so the equality consequence gives no additional contradiction. For 630/671 the unique anti-module class passes all six dual-module Gram systems with exact integral factors; these necessary witnesses do not construct a category.",
+      "evidence": [
+        "evidence/theoretical_20261016/rank8/FRONTIER_MODULE_AUDIT.md",
+        "evidence/theoretical_20261016/rank8/frontier_modules_normal.json"
+      ]
+    },
+    {
+      "id": "R8_2_630",
+      "tensor_sha256": "4bf43a0204695223442fef2735e46289cded33126a6598118091a280cada93cb",
+      "index_condition": "PASS",
+      "proper_nontrivial_fusion_subring_count": 1,
+      "disposition": "unresolved",
+      "strategy_or_proof": "Quadratic sqrt(10) family with global FP dimension 120+36sqrt(10); the conductor-40 bound is attained.",
+      "remaining_gap": "The remaining formal codegrees are rational, so the equality consequence gives no additional contradiction. For 630/671 the unique anti-module class passes all six dual-module Gram systems with exact integral factors; these necessary witnesses do not construct a category.",
+      "evidence": [
+        "evidence/theoretical_20261016/rank8/FRONTIER_MODULE_AUDIT.md",
+        "evidence/theoretical_20261016/rank8/frontier_modules_normal.json"
+      ]
+    },
+    {
+      "id": "R8_2_666",
+      "tensor_sha256": "cfbe81aa760b11ab636b164d65c6985bafe05d675eeae0404a42b0ebc4c0d35b",
+      "index_condition": "PASS",
+      "proper_nontrivial_fusion_subring_count": 1,
+      "disposition": "unresolved",
+      "strategy_or_proof": "Quadratic sqrt(2) family with global FP dimension 96+64sqrt(2); the complete involution anti-module domain has one sign-gauge class, and all six dual-module Gram systems have exact integral factor witnesses.",
+      "remaining_gap": "The relevant half-dimensions are algebraic integers, so cyclic-module divisibility gives no contradiction. Passing the necessary module conditions does not construct a categorification.",
+      "evidence": [
+        "evidence/theoretical_20261016/compression/README.md",
+        "evidence/theoretical_20261016/rank8/FRONTIER_MODULE_AUDIT.md",
+        "evidence/theoretical_20261016/rank8/frontier_modules_normal.json"
+      ]
+    },
+    {
+      "id": "R8_2_671",
+      "tensor_sha256": "299ed4d94e5e3e54de5c4699704f5a335012b06efa9cc259c1f732b40f5c595d",
+      "index_condition": "PASS",
+      "proper_nontrivial_fusion_subring_count": 1,
+      "disposition": "unresolved",
+      "strategy_or_proof": "Quadratic sqrt(10) family with global FP dimension 120+36sqrt(10); the conductor-40 bound is attained.",
+      "remaining_gap": "The remaining formal codegrees are rational, so the equality consequence gives no additional contradiction. For 630/671 the unique anti-module class passes all six dual-module Gram systems with exact integral factors; these necessary witnesses do not construct a category.",
+      "evidence": [
+        "evidence/theoretical_20261016/rank8/FRONTIER_MODULE_AUDIT.md",
+        "evidence/theoretical_20261016/rank8/frontier_modules_normal.json"
+      ]
+    },
+    {
+      "id": "R8_2_673",
+      "tensor_sha256": "7a085fad52536ddb42e003e3929cd35fb63661adc81c460a4d194546caf275cb",
+      "index_condition": "PASS",
+      "proper_nontrivial_fusion_subring_count": 2,
+      "disposition": "excluded over C",
+      "strategy_or_proof": "Regular-C2 Morita duality produces ten dihedral invertibles and two simples of each dimension x=4+sqrt(6), y=3+2sqrt(6). The C5 fixed action forces 5|b,c in b+2c=8.",
+      "remaining_gap": "None for the asserted general exclusion.",
+      "evidence": [
+        "evidence/theoretical_20261016/CYCLIC_MODULE_DIVISIBILITY.md",
+        "evidence/theoretical_20261016/rank8/CYCLIC_STABILIZER_DIVISIBILITY.md"
+      ]
+    },
+    {
+      "id": "R8_2_735",
+      "tensor_sha256": "223ac5854812251279f2e28154786cb7d4829b9f0474661477e2865037945512",
+      "index_condition": "PASS",
+      "proper_nontrivial_fusion_subring_count": 1,
+      "disposition": "excluded over C",
+      "strategy_or_proof": "The four-dimensional anti-invariant module of the regular involution algebra would have a normal integral generator with incompatible spectral norm and entry parity. For 318/735, the sole surviving spectrum also contradicts the trace bound.",
+      "remaining_gap": "None for the asserted general exclusion; no pivotality or sphericality is assumed.",
+      "evidence": [
+        "evidence/theoretical_20261016/rank8/ANTI_MODULE_EIGHT_GENERAL_PROOF.md",
+        "evidence/theoretical_20261016/rank8/anti_module_eight_normal.json"
+      ]
+    },
+    {
+      "id": "R8_2_745",
+      "tensor_sha256": "c582e10cdb1898c636b0bac72085deaf653e939ba254fb74e22f842aba5980ed",
+      "index_condition": "PASS",
+      "proper_nontrivial_fusion_subring_count": 3,
+      "disposition": "excluded over C",
+      "strategy_or_proof": "Regular-C2 Morita duality gives a dihedral generalized near-group category whose adjoint subcategory would have a normal order-two invertible subgroup in D10.",
+      "remaining_gap": "No such normal subgroup exists; no gap for the asserted general exclusion.",
+      "evidence": [
+        "evidence/theoretical_20261016/rank8/R745_GENERAL_PROOF.md"
+      ]
+    },
+    {
+      "id": "R8_2_758",
+      "tensor_sha256": "204497eea4d44ca757c6a1edf9a5eb5324a4a458667a1df21f94aeaf61b03220",
+      "index_condition": "PASS",
+      "proper_nontrivial_fusion_subring_count": 1,
+      "disposition": "excluded over C",
+      "strategy_or_proof": "The four-dimensional anti-invariant module of the regular involution algebra would have a normal integral generator with incompatible spectral norm and entry parity. For 318/735, the sole surviving spectrum also contradicts the trace bound.",
+      "remaining_gap": "None for the asserted general exclusion; no pivotality or sphericality is assumed.",
+      "evidence": [
+        "evidence/theoretical_20261016/rank8/ANTI_MODULE_EIGHT_GENERAL_PROOF.md",
+        "evidence/theoretical_20261016/rank8/anti_module_eight_normal.json"
+      ]
+    },
+    {
+      "id": "R8_2_760",
+      "tensor_sha256": "0b062a68813cebe95606803e7b2b32c99aefc3dc15718638c1745d256636a008",
+      "index_condition": "PASS",
+      "proper_nontrivial_fusion_subring_count": 1,
+      "disposition": "excluded over C",
+      "strategy_or_proof": "The four-dimensional anti-invariant module of the regular involution algebra would have a normal integral generator with incompatible spectral norm and entry parity. For 318/735, the sole surviving spectrum also contradicts the trace bound.",
+      "remaining_gap": "None for the asserted general exclusion; no pivotality or sphericality is assumed.",
+      "evidence": [
+        "evidence/theoretical_20261016/rank8/ANTI_MODULE_EIGHT_GENERAL_PROOF.md",
+        "evidence/theoretical_20261016/rank8/anti_module_eight_normal.json"
+      ]
+    },
+    {
+      "id": "R8_2_820",
+      "tensor_sha256": "88d4e0d03d1f45b727bb5d973ee4c47ef114ff4870f397d9f08342d5db1d0373",
+      "index_condition": "VACUOUS",
+      "proper_nontrivial_fusion_subring_count": 0,
+      "disposition": "unresolved",
+      "strategy_or_proof": "Simple based rings with no proper nontrivial fusion subrings and global FP dimension (315+135sqrt(5))/2.",
+      "remaining_gap": "Subcategory-index methods are vacuous. A construction or a stronger center/associativity obstruction is needed.",
+      "evidence": []
+    },
+    {
+      "id": "R8_2_857",
+      "tensor_sha256": "cfd21669455748b2e8b1d9628c1e1cde5d22f442edbac56ed946e9b8eb4333dc",
+      "index_condition": "VACUOUS",
+      "proper_nontrivial_fusion_subring_count": 0,
+      "disposition": "excluded over C",
+      "strategy_or_proof": "A primitive conductor-32 Fourier bound forces any sphericalization dimension field to have degree eight. Three signed Jacobi-matrix branches give respectively an oversized fusion coefficient, field degree at most four, or an excluded spherical section.",
+      "remaining_gap": "None for the asserted general exclusion. The exact folded even level-30 SU(2) tensor identification provides its structural interpretation.",
+      "evidence": [
+        "evidence/theoretical_20261016/compression/R857_GENERAL_PROOF.md",
+        "evidence/theoretical_20261016/compression/R857_general_certificate.json",
+        "evidence/theoretical_20261016/rank8/R857_FOLDED_A31_IDENTIFICATION.md"
+      ]
+    },
+    {
+      "id": "R8_2_869",
+      "tensor_sha256": "6fd67687c6a4590e43cf539442042092ebc28973b626127f40d6f27fb66de112",
+      "index_condition": "VACUOUS",
+      "proper_nontrivial_fusion_subring_count": 0,
+      "disposition": "unresolved",
+      "strategy_or_proof": "Simple based rings with no proper nontrivial fusion subrings and global FP dimension (315+135sqrt(5))/2.",
+      "remaining_gap": "Subcategory-index methods are vacuous. A construction or a stronger center/associativity obstruction is needed.",
+      "evidence": []
+    }
+  ]
+}

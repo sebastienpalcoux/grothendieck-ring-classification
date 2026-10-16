@@ -1,0 +1,53 @@
+{
+  "status": "PASS",
+  "new_general_exclusions": 0,
+  "pivotal_only_exclusions": 3,
+  "source": "Schopieray arXiv:2609.35287v1, Theorem5.1",
+  "cases": [
+    {
+      "id": "R7_3_695",
+      "scope": "pivotal_only",
+      "general_conclusion_from_this_test": "none",
+      "Casimir_polynomial": "(x - 7)**3*(x - 5)**2*(x**2 - 840*x + 4900)",
+      "FP_dimension_polynomial": "x**2 - 840*x + 4900",
+      "quadratic_field_discriminant": 140,
+      "dimension_block_left": "1/35",
+      "dimension_block_bound": "1/140",
+      "rational_dimension_norm_obstructions": {
+        "5": "1/196",
+        "7": "1/100"
+      },
+      "tensor_sha256": "3746f2c9f447d84ac600dcdad135bfce60ed674c3f96da84e46261282dbc04f6"
+    },
+    {
+      "id": "R7_3_783",
+      "scope": "pivotal_only",
+      "general_conclusion_from_this_test": "none",
+      "Casimir_polynomial": "(x - 15)*(x - 6)**4*(x**2 - 240*x + 900)",
+      "FP_dimension_polynomial": "x**2 - 240*x + 900",
+      "quadratic_field_discriminant": 60,
+      "dimension_block_left": "1/15",
+      "dimension_block_bound": "1/60",
+      "rational_dimension_norm_obstructions": {
+        "6": "1/25",
+        "15": "1/4"
+      },
+      "tensor_sha256": "4695e56864eb1007e2486333d03b8c025762149f87b6a844b8b6bc736288e5d0"
+    },
+    {
+      "id": "R7_3_1015",
+      "scope": "pivotal_only",
+      "general_conclusion_from_this_test": "none",
+      "Casimir_polynomial": "(x - 15)*(x - 6)**4*(x**2 - 240*x + 900)",
+      "FP_dimension_polynomial": "x**2 - 240*x + 900",
+      "quadratic_field_discriminant": 60,
+      "dimension_block_left": "1/15",
+      "dimension_block_bound": "1/60",
+      "rational_dimension_norm_obstructions": {
+        "6": "1/25",
+        "15": "1/4"
+      },
+      "tensor_sha256": "484dbb8c91b9c2d53ddc04cfda77966346b1d6f67eb8c83cb4630b5044ac21fc"
+    }
+  ]
+}

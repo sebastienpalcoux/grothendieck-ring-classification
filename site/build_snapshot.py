@@ -9,6 +9,8 @@ import csv
 import json
 import hashlib
 import shutil
+import sys
+import zipfile
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
@@ -33,6 +35,8 @@ def main():
     if args.classification_commit and (len(args.classification_commit) != 40 or any(c not in "0123456789abcdef" for c in args.classification_commit)):
         parser.error("--classification-commit requires a full 40-character commit SHA")
     repo = args.classification.resolve()
+    sys.path.insert(0, str(repo / "tools"))
+    from rank6_publication import RESEARCH_UPDATES, DOCUMENT_REVISION
     counts = read_counts(repo / "data" / "counts.json")
     rows = []
     for row in counts["rows"]:
@@ -131,7 +135,7 @@ def main():
     coverage_chain = [(coverage_source, coverage)]
     october2_update = repo / "evidence/residual_20261002/rank6/research_progress.json"
     theoretical_update = repo / "evidence/rank6_theoretical_20261011/research_progress.json"
-    for research_update in (october2_update, theoretical_update):
+    for research_update in (repo / path for path in RESEARCH_UPDATES):
         if not research_update.is_file():
             continue
         update = json.loads(research_update.read_text())
@@ -144,9 +148,9 @@ def main():
         coverage = update
         coverage_source = research_update
         coverage_chain.append((coverage_source, coverage))
-    revision_source = repo / "evidence/rank6_theoretical_20261011/document_revision.json"
+    revision_source = repo / DOCUMENT_REVISION
     revision = None
-    if theoretical_update.is_file() != revision_source.is_file():
+    if (repo / RESEARCH_UPDATES[-1]).is_file() != revision_source.is_file():
         raise ValueError("The theoretical research overlay and document revision must be published together")
     if revision_source.is_file():
         revision = json.loads(revision_source.read_text())
@@ -255,6 +259,7 @@ def main():
         shutil.copy2(revision_source, HERE / "dist/data/rank6_document_revision.json")
         data["rank6_release"]["document_revision"] = {
             "path": "data/rank6_document_revision.json", "date": revision["date"],
+            "source": revision_source.relative_to(repo).as_posix(),
             "sha256": hashlib.sha256(revision_source.read_bytes()).hexdigest(),
         }
     for name, target in (("manuscript.pdf", "rank6.pdf"), ("verification_guide.pdf", "rank6_guide.pdf")):
@@ -285,6 +290,68 @@ def main():
             "manuscript": {"path": f"papers/rank{rank}.pdf", "sha256": hashlib.sha256(pdf_source.read_bytes()).hexdigest()},
             "archive": {"path": "downloads/" + archive_source.name, "sha256": archive_hash, "bytes": archive_source.stat().st_size},
         }
+    stage_path = "evidence/theoretical_20261016"
+    stage = repo / stage_path
+    if (stage / "decisions.json").is_file():
+        decisions = json.loads((stage / "decisions.json").read_text())
+        remaining = json.loads((stage / "remaining_ids.json").read_text())
+        expected_totals = json.loads((stage / "expected_totals.json").read_text())
+        if not decisions or len({record["id"] for record in decisions}) != len(decisions):
+            raise ValueError("The theoretical update must have distinct decisions")
+        if any(record["status"] != "excluded" or record["scope"] != "general_complex" or record["rank"] not in (7,8) for record in decisions):
+            raise ValueError("Only general exclusions may enter the theoretical-update count")
+        by_rank = {str(rank): sum(record["rank"] == rank for record in decisions) for rank in (7, 8)}
+        for rank, ledger_path in ((7, "supplements/rank7/output/rank7_ledger.json"),
+                                  (8, "supplements/rank8/data/decisions.json")):
+            ledger = json.loads((repo / ledger_path).read_text())
+            current = {record["id"]: record for record in ledger}
+            for decision in (record for record in decisions if record["rank"] == rank):
+                if current[decision["id"]]["status"] != "excluded":
+                    raise ValueError("Theoretical-update decision missing from ledger: " + decision["id"])
+                if not (stage / decision["proof"]).is_file():
+                    raise ValueError("Missing theoretical proof: " + decision["proof"])
+            actual = {key: sum(record["status"] == key for record in ledger)
+                      for key in ("excluded", "unitarily_realized", "unresolved")}
+            if actual != expected_totals[str(rank)]:
+                raise ValueError(f"Rank-{rank} update totals differ from the current ledger")
+            scope_row = next(record for record in scope if record["rank"] == rank)
+            if (scope_row["positive"], scope_row["unresolved"]) != (actual["unitarily_realized"], actual["unresolved"]):
+                raise ValueError(f"Refresh classification_status.json for rank {rank} before building the site")
+            if remaining[str(rank)] != [record["id"] for record in ledger if record["status"] == "unresolved"]:
+                raise ValueError(f"Rank-{rank} remaining cases differ from the current ledger")
+        if remaining["6"] != release["unresolved_ids"]:
+            raise ValueError("Theoretical update changes the rank-six unresolved inventory")
+        archive_name = "theoretical-update-2026-10-16.zip"
+        archive_source = repo / "site/dist/downloads" / archive_name
+        if not archive_source.is_file():
+            raise FileNotFoundError("Missing current theoretical update archive: " + str(archive_source))
+        with zipfile.ZipFile(archive_source) as bundle:
+            matches = [name for name in bundle.namelist()
+                       if name == "decisions.json" or name.endswith("theoretical_20261016/decisions.json")]
+            if len(matches) != 1 or json.loads(bundle.read(matches[0])) != decisions:
+                raise ValueError("Theoretical update archive contains stale or missing decision records")
+        archive_target = downloads / archive_name
+        if archive_source.resolve() != archive_target.resolve():
+            shutil.copy2(archive_source, archive_target)
+        local_files = {}
+        for filename in ("decisions.json", "remaining_ids.json", "expected_totals.json"):
+            source = stage / filename
+            target = HERE / "dist/data" / ("theoretical_20261016_" + filename)
+            shutil.copy2(source, target)
+            local_files[filename.removesuffix(".json")] = {
+                "path": "data/" + target.name,
+                "sha256": hashlib.sha256(source.read_bytes()).hexdigest(),
+            }
+        data["theoretical_update"] = {
+            "date": "2026-10-16", "source": stage_path,
+            "new_general_exclusions": len(decisions), "by_rank": by_rank,
+            "remaining": {rank: len(ids) for rank, ids in remaining.items()},
+            "decisions": decisions, "files": local_files,
+            "archive": {"path": "downloads/" + archive_name,
+                        "bytes": archive_source.stat().st_size,
+                        "sha256": hashlib.sha256(archive_source.read_bytes()).hexdigest()},
+        }
+        data["snapshot"] = max(data["snapshot"], data["theoretical_update"]["date"])
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(json.dumps(data, ensure_ascii=False, separators=(",", ":")) + "\n")
     status["rows"] = classifications

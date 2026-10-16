@@ -11,10 +11,11 @@ CONTINUATION = "upper_residual_20261002c"
 CONTINUATION_IDS = (
     "R7_2_160", "R7_4_1417", "R7_4_1420", "R8_2_312", "R8_2_315", "R8_2_317", "R8_2_53", "R8_2_93", "R8_2_191", "R8_2_299", "R8_2_158", "R8_2_186", "R8_2_579", "R8_2_682",
 )
-CURRENT_TOTALS = {
+STAGE_C_TOTALS = {
     "7": {"excluded": 4135, "unitarily_realized": 27, "unresolved": 39},
     "8": {"excluded": 857, "unitarily_realized": 72, "unresolved": 44},
 }
+THEORETICAL = "theoretical_20261016"
 
 def require(ok, message):
     if not ok:
@@ -46,11 +47,11 @@ def load_stages(repo, status=None):
                     and report["new_general_exclusions"] == len(CONTINUATION_IDS)
                     and report["new_unitary_models"] == 0,
                     "Stage-c publication replay report")
-            require(report["status_totals"] == CURRENT_TOTALS,
+            require(report["status_totals"] == STAGE_C_TOTALS,
                     "Stage-c publication replay totals")
-        if status is not None:
+        if status is not None and not (repo / "evidence" / THEORETICAL / "decisions.json").is_file():
             require(all(status["inputs"]["rank" + rank]["status_totals"] == totals
-                        for rank, totals in CURRENT_TOTALS.items()),
+                        for rank, totals in STAGE_C_TOTALS.items()),
                     "Refresh upper-rank status for stage c before rendering")
     decisions = base + extra
     totals = collections.Counter(d["status"] for d in decisions)
@@ -58,7 +59,29 @@ def load_stages(repo, status=None):
                        {"excluded": 30, "unitarily_realized": 13}),
             "Aggregated publication stage counts")
     latest = CONTINUATION if extra else BASE
+    advance_path = repo / "evidence" / THEORETICAL / "decisions.json"
+    advance = []
+    if advance_path.is_file():
+        advance = json.loads(advance_path.read_text())
+        require(len(advance) == len({d["id"] for d in advance}) and advance,
+                "Theoretical update decision inventory")
+        require(all(d["status"] == "excluded" and d["scope"] == "general_complex"
+                    and d["rank"] == int(d["id"].split("_")[0][1:]) for d in advance),
+                "Theoretical update scope")
+        require(not {d["id"] for d in advance}.intersection(d["id"] for d in decisions),
+                "Theoretical update overlaps historical stages")
+        current = {r: dict(v) for r, v in STAGE_C_TOTALS.items()}
+        for d in advance:
+            current[str(d["rank"])]["excluded"] += 1
+            current[str(d["rank"])]["unresolved"] -= 1
+        if status is not None:
+            require(all(status["inputs"]["rank" + r]["status_totals"] == v
+                        for r, v in current.items()), "Refresh theoretical-update status before rendering")
+        decisions += advance
+        totals = collections.Counter(d["status"] for d in decisions)
+        latest = THEORETICAL
     return {"latest": latest, "decisions": decisions, "continuation": bool(extra),
+            "theoretical": bool(advance), "theoretical_count": len(advance),
             "count": len(decisions), "exclusions": totals["excluded"],
             "models": totals["unitarily_realized"],
             "continuation_ids": list(CONTINUATION_IDS) if extra else [],
@@ -66,6 +89,13 @@ def load_stages(repo, status=None):
 
 def overview(stage, prefix=""):
     base_link = prefix + "evidence/" + BASE + "/README.md"
+    if stage.get("theoretical"):
+        return (f"The [16 October theoretical update]({prefix}evidence/{THEORETICAL}/README.md) "
+                f"adds {stage['theoretical_count']} general exclusions, with no new realization. "
+                f"Together with the frozen October 2 stages, these updates resolve {stage['count']} "
+                f"rings: {stage['exclusions']} general exclusions and {stage['models']} unitary models. "
+                "Scope-specific obstructions remain separate from general categorification decisions. "
+                "The earlier proofs and ledgers retain their historical replay.")
     if stage["continuation"]:
         extra_link = prefix + "evidence/" + CONTINUATION + "/README.md"
         ids = ", ".join("`" + rid + "`" for rid in stage["continuation_ids"])

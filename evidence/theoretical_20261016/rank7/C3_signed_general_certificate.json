@@ -1,0 +1,96 @@
+{
+  "status": "PASS",
+  "general_exclusions": 2,
+  "cases": [
+    {
+      "id": "R7_3_783",
+      "scope": "general_complex",
+      "decision": "excluded",
+      "g": 1,
+      "E": 4,
+      "rho": 6,
+      "orbit": [
+        6,
+        5,
+        3
+      ],
+      "commutation_exponent": -1,
+      "source_coefficients_checked": 343,
+      "signed_branches": [
+        {
+          "a": -2,
+          "b": -1,
+          "required_sum_c": 10,
+          "possible": false
+        },
+        {
+          "a": -2,
+          "b": 3,
+          "required_sum_c": 18,
+          "possible": false
+        },
+        {
+          "a": 2,
+          "b": -1,
+          "required_sum_c": 14,
+          "possible": false
+        },
+        {
+          "a": 2,
+          "b": 3,
+          "required_sum_c": 6,
+          "possible": true
+        }
+      ],
+      "Casimir_polynomial": "(x - 15)*(x - 6)**4*(x**2 - 240*x + 900)",
+      "dimension_block_left": "1/15",
+      "dimension_block_bound": "1/60",
+      "tensor_sha256": "4695e56864eb1007e2486333d03b8c025762149f87b6a844b8b6bc736288e5d0"
+    },
+    {
+      "id": "R7_3_1015",
+      "scope": "general_complex",
+      "decision": "excluded",
+      "g": 1,
+      "E": 5,
+      "rho": 6,
+      "orbit": [
+        6,
+        4,
+        3
+      ],
+      "commutation_exponent": 1,
+      "source_coefficients_checked": 343,
+      "signed_branches": [
+        {
+          "a": -2,
+          "b": -1,
+          "required_sum_c": 10,
+          "possible": false
+        },
+        {
+          "a": -2,
+          "b": 3,
+          "required_sum_c": 18,
+          "possible": false
+        },
+        {
+          "a": 2,
+          "b": -1,
+          "required_sum_c": 14,
+          "possible": false
+        },
+        {
+          "a": 2,
+          "b": 3,
+          "required_sum_c": 6,
+          "possible": true
+        }
+      ],
+      "Casimir_polynomial": "(x - 15)*(x - 6)**4*(x**2 - 240*x + 900)",
+      "dimension_block_left": "1/15",
+      "dimension_block_bound": "1/60",
+      "tensor_sha256": "484dbb8c91b9c2d53ddc04cfda77966346b1d6f67eb8c83cb4630b5044ac21fc"
+    }
+  ]
+}

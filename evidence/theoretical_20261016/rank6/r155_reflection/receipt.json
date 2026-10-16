@@ -1,0 +1,169 @@
+{
+  "status": "PASS",
+  "scope": "Necessary spectral partitions only; R6_4_155 remains unresolved in every categorification scope.",
+  "algorithm": "Scott inequalities plus multiplicative-preprojective reflection necessary conditions",
+  "recorded_blocks": 226,
+  "distinct_normalized_profiles": 80,
+  "dimension_range": [
+    6,
+    308
+  ],
+  "verdicts": {
+    "PASS_NECESSARY": 226
+  },
+  "unknown": 0,
+  "blocks_sha256": "59a4b17f468d068f1d0de8b34bea10b09f60f59c02a6ebeea32bbcd4aa00ac5a",
+  "files_sha256": {
+    "r155_data.json": "769250938d8bd0c8a251aaacc18832174af8175ed9b44fc487ec3f6d04357353",
+    "su2_4_control.json": "cd2a7680a01f2ba9fce795c69260e51f653c9a0333207c88b3492c74db4193f0",
+    "r155_braid_scott.py": "6864d565bbf050f3a9f2cb21fa88a2230f34e2f56e6a3ce930b2972e3b4d8b8e",
+    "reflection_test.py": "ec785dbaa2f6539a9408d0342a278f2bdf54fbd0394601b2eea5064e028e251b",
+    "r155_braid_reflections.py": "72de55f4a79ba97b77bffe411b98d3961195c62503ed9aea34c98d95cc7dd596",
+    "partitions.json": "0ad5ae62cb0b8d89d0d34b3d4b3d5fe6bafc0683b1576dc184bfd2f21de8a922",
+    "replay.py": "f535e647e3f0e2ee9431d2308eece47b39a55aa52cf65b71d124beeb98117383"
+  },
+  "controls": {
+    "status": "PASS",
+    "controls": [
+      "SU2_level4_exact_spectra_dimensions2_and3",
+      "SU2_level4_positive",
+      "reducible_SU2_level4_positive",
+      "determinant_passes_Scott_partition_fails",
+      "timeout_is_unknown"
+    ]
+  },
+  "local_restriction": {
+    "block": [
+      16,
+      3
+    ],
+    "dimension": 10,
+    "Scott_full_block": "PASS_NECESSARY",
+    "reflection_full_block": "CANNOT_BE_IRREDUCIBLE",
+    "reflection_trace": [
+      [
+        [
+          10,
+          8,
+          6,
+          5,
+          4,
+          3,
+          2,
+          1,
+          6,
+          2,
+          4
+        ],
+        [
+          78,
+          108,
+          72,
+          132,
+          96,
+          114,
+          126,
+          126,
+          96,
+          96,
+          72
+        ],
+        0
+      ],
+      [
+        [
+          8,
+          8,
+          6,
+          5,
+          4,
+          3,
+          2,
+          1,
+          6,
+          2,
+          4
+        ],
+        [
+          66,
+          42,
+          72,
+          132,
+          96,
+          114,
+          126,
+          126,
+          30,
+          96,
+          6
+        ],
+        1
+      ],
+      [
+        [
+          8,
+          6,
+          6,
+          5,
+          4,
+          3,
+          2,
+          1,
+          6,
+          2,
+          4
+        ],
+        [
+          108,
+          102,
+          114,
+          132,
+          96,
+          114,
+          126,
+          126,
+          30,
+          96,
+          6
+        ],
+        8
+      ],
+      [
+        [
+          8,
+          6,
+          6,
+          5,
+          4,
+          3,
+          2,
+          1,
+          4,
+          2,
+          4
+        ],
+        [
+          138,
+          102,
+          114,
+          132,
+          96,
+          114,
+          126,
+          126,
+          114,
+          126,
+          6
+        ],
+        0
+      ]
+    ],
+    "reason": "zero-parameter-positive-pair",
+    "passing_partition_dimensions": [
+      2,
+      6,
+      2
+    ]
+  },
+  "theoretical_source": "Crawley-Boevey--Shaw, arXiv:math/0404186v2, Theorem 1.7, Lemmas 5.1 and 8.3"
+}

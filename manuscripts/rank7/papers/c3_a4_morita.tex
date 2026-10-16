@@ -1,0 +1,157 @@
+\section{Two Morita transformations and an \texorpdfstring{$A_4$}{A4} obstruction}
+\label{sec:c3-a4}
+The following argument uses actual module categories of a hypothetical
+categorification. Its finite checks only verify the source products,
+eight alternating forms, and the elementary ring normalization.
+
+\begin{theorem}
+\label{thm:c3-a4}
+The rings $R7\_2\_236$, $R7\_4\_2167$, and $R7\_4\_2716$
+have no categorification over $\C$.
+\end{theorem}
+\begin{proof}
+Their dimension vectors are $(1,1,1,3,d,d,d)$, with
+$d^2=4+md$ and $m=6,12,12$, respectively. The invertibles form
+$C_3=\langle g\rangle$, fixing the dimension-three simple $X$ and
+permuting the other three simples freely. The source products give
+$X^2=1+g+g^2+2X$.
+
+\emph{The first Morita transformation.}
+The fixed simple $X$ trivializes the pointed associator, so the
+regular algebra $A=1+g+g^2$ exists. Since
+$H^2(C_3,\C^\times)=0$, $X$ has both left and right $A$-module
+structures. Thus $X\otimes X$ is an $A$-bimodule. Its $X$-isotypic
+part is $2X$. A nontrivial projective class for $C_3\times C_3$
+has irreducible degree three, so this multiplicity-two part forces
+the class on $X$ to be trivial. It gives nine simple bimodules with
+underlying object $X$, each of dual dimension one. The pointed
+orbit gives three more invertibles. The remaining orbit has cyclic
+stabilizer and gives three simples of dimension $d$.
+
+Consequently $\mathcal C_A$ has dimensions $1^4,d$, and its Morita
+dual $\mathcal D$ has dimensions $1^{12},d^3$. Already this excludes
+$m=6$: the published \cite[Proposition~3.3]{Schopieray} requires
+$s\mid r$ for a category with two simple dimensions $1,d$ and
+irrational $d$ satisfying $d^2=s+rd$. Here $4\nmid6$.
+
+For the two remaining cases, write $K$ for the twelve invertibles
+of $\mathcal D$. They fix the unique $d$-dimensional object of
+$\mathcal C_A$; its rank-one module structure trivializes the whole
+pointed associator. Thus $\mathcal D_{\rm pt}\simeq\mathrm{Vec}_K$.
+The integral subcategory of $\mathcal C$ has rank four, and its
+$A$-module category has four simple objects on which $K$ acts
+transitively. A stabilizer $L$ has order three. If $L$ were normal,
+the dual of $\mathrm{Vec}_K$ on this module category would have
+four double cosets, each contributing three characters of $L$,
+hence rank twelve instead of four. Therefore $L$ is nonnormal. Its core is trivial because $|L|=3$,
+so the action embeds $K$ as an index-two subgroup of $S_4$; hence
+$K=A_4$.
+
+For a noninvertible $Y$ of $\mathcal D$, comparison of rational and
+irrational coefficients in $\FPdim(YY^*)=4+12d$ shows that $YY^*$
+contains exactly four invertibles. Each occurs with multiplicity at
+most one by rigidity. Thus both stabilizers are the unique subgroup
+$H=V_4$ of $A_4$, and the three noninvertibles form one orbit.
+
+\emph{The second Morita transformation.}
+At least one of these three simples, say $Y$, is self-dual. The
+projective $H\times H$ stabilizer of $Y$ has an alternating
+commutator form on $\mathbb F_2^4$. Duality exchanges the left and
+right factors and inverts the commutator. Its values are $\pm1$,
+so in matched bases the form is
+\[
+ \beta=\begin{pmatrix}bJ&C\\ C&bJ\end{pmatrix},\qquad
+ J=\begin{pmatrix}0&1\\1&0\end{pmatrix},\quad C=C^{\mathsf t}.
+\]
+This uses rigidity, with no pivotal assumption. The two algebra
+structures on $\bigoplus_{h\in H}h$ differ by the unique nontrivial
+class in $H^2(H,\C^\times)$, adding $\operatorname{diag}(J,J)$ to
+$\beta$. For the eight symmetric matrices $C$, the two ranks are
+$2,4$ in some order, except for $C=0$, when they are $0,4$.
+The rank-zero alternative gives a simple bimodule of dimension
+$d/4$. Its monic minimum polynomial has constant coefficient
+$-1/4$, contradicting algebraic integrality. Hence one algebra
+choice gives rank two. The corresponding twisted group algebra
+has four irreducible representations of degree two, giving four
+simple bimodules over each $Y$, of dimension $t=d/2$.
+Transport by $A_4$ preserves the unique nontrivial $H$-cocycle
+class, so the same degree holds over all three noninvertibles.
+
+The pointed Morita dual is again $\mathrm{Vec}_{A_4}$ for either
+algebra choice. For the untwisted algebra this is Fourier duality
+for $V_4\rtimes C_3$. The other cocycle extends to $A_4$ through
+$Q_8\rtimes C_3\to A_4$, so an identity-on-objects tensor
+autoequivalence of the pointed subcategory identifies the two
+pointed duals. No extension of this autoequivalence to $\mathcal D$
+is assumed. The resulting category $\mathcal D'$ therefore has
+dimensions $1^{12},t^{12}$, with invertible group $A_4$ and
+$t^2=1+6t$. For every noninvertible $Z$, comparison of rational
+coefficients in $\FPdim(ZZ^*)=1+6t$ gives a trivial stabilizer.
+Thus these twelve objects form a free $A_4$-orbit.
+
+\emph{Normalization without a self-duality assumption.}
+Choose any noninvertible $\rho$ in $\mathcal D'$. Right
+multiplication is free as well, since duality turns a right
+stabilizer into a left stabilizer. Write
+\[
+ \rho g=\phi(g)\rho,\qquad \rho^2=a+N\rho,
+ \qquad N\in\Z_{\geq0}[A_4],\quad \sum_g n_g=6.
+\]
+Rigidity gives a unique invertible summand $a$. Associativity gives
+\[
+ \phi^2=\operatorname{Ad}_a,\quad \phi(a)=a,\quad
+ Ns=\phi(s)N,\quad \phi(N)=N,
+\]
+and then $\rho^*=a^{-1}\rho$ and $N^*=a^{-1}N$.
+Since $\operatorname{Aut}(A_4)=S_4$ and $Z(A_4)=1$, write
+$\phi=\operatorname{Ad}_\sigma$; necessarily $a=\sigma^2$.
+Replacing $\rho$ by $b\rho$ replaces $(\sigma,a,N)$ by
+$(b\sigma,(b\sigma)^2,bN)$. Choose $b=\sigma^{-1}$ when $\sigma$
+is even, and $b=\tau\sigma^{-1}$ otherwise, with $\tau$ a
+transposition. In either case $b\in A_4$, the new $a$ is one,
+and the new $\rho$ is self-dual. The two normalized actions are
+therefore the identity and conjugation by $\tau$.
+
+For the identity action, centrality and self-adjointness give
+\[
+ N=A\,1+B\sum_{h\in V_4\setminus\{1\}}h,
+ \qquad (A,B)=(6,0),(3,1),(0,2).
+\]
+The two size-four three-cycle classes would have equal
+coefficients, so neither can occur in a sum of size six.
+The first choice contains the forbidden rank-two subcategory
+$\rho^2=1+6\rho$ \cite{OstrikRank2}.
+For the other choices, $N$ acts on the three-dimensional
+representation of $A_4$ by $A-B=\pm2$. Taking $\rho$ to act by
+a root of $x^2\mp2x-1$ gives the formal codegrees
+\[
+                         16+8\sqrt2,\qquad16-8\sqrt2.
+\]
+For the transposition action, $\tau N$ is constant on the two
+$A_4$-conjugacy classes in the odd coset of $S_4$: the six
+transpositions and the six four-cycles. It must be one of their
+class sums. On the standard three-dimensional representation of
+$S_4$, these class sums act by $2$ and $-2$, respectively.
+Taking $\rho=rT$, where $T$ represents $\tau$ and
+$r^2=1\pm2r$, again gives the displayed formal codegrees.
+In both computations the Casimir is $12(1+\rho^2)$ and its
+scalar equals the representation degree times its formal codegree.
+
+Finally, the published \cite[p.~1628, Lemma~3.1]{Schopieray}
+states that every category with two simple Frobenius--Perron
+dimensions is Galois conjugate to a pseudo-unitary category, with
+the same based ring. In this conjugate, the central constituent
+$A_E$ associated to an irreducible representation has dimension
+$D/f_E$, where $D=\FPdim(\mathcal D')$
+\cite[Theorem~2.13]{OstrikRank3}. Its forgetful image has dimension
+in $\Z+\Z t$, so every $f_E$ must belong to $\mathbb Q(t)$.
+Here $t=3+\sqrt{10}$, whereas $16\pm8\sqrt2$ do not belong to
+$\mathbb Q(\sqrt{10})$. This contradiction excludes both remaining
+source rings.
+\end{proof}
+
+For $R7\_3\_1022$, the same reduction has $m=8$ and $t^2=1+4t$.
+Its normalized system retains the branch
+$N=\sum_{h\in V_4}h$, which passes the formal-codegree field
+condition. Thus this argument makes no categorifiability decision
+for that source ring.

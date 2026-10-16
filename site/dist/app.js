@@ -270,6 +270,59 @@ function renderScope() {
     grid.append(card);
   }
 }
+function renderTheoreticalUpdate() {
+  const update = state.data.theoretical_update;
+  const notice = $("#research-update");
+  const details = $("#theoretical-update");
+  notice.hidden = details.hidden = !update;
+  if (!update) return;
+  const date = new Date(update.date + "T12:00:00Z").toLocaleDateString("en-GB", {day:"numeric", month:"long", year:"numeric", timeZone:"UTC"});
+  $("#research-update-title").textContent = `${date} · ${update.new_general_exclusions} new general exclusions`;
+  $("#research-update-summary").textContent = `${update.by_rank["7"]} rank-seven and ${update.by_rank["8"]} rank-eight cases are now excluded over the complex numbers. General existence remains open for ${update.remaining["6"]} rank-six, ${update.remaining["7"]} rank-seven, and ${update.remaining["8"]} rank-eight rings.`;
+  $("#theoretical-update-heading").textContent = `${date} · proofs for ${update.new_general_exclusions} new general exclusions`;
+  $("#theoretical-update-scope").textContent = "The new arguments use module-category constraints, dimension-block compression, and Morita theory. The bundle contains the proofs, exact replay programs, decision records, and the updated unresolved inventory. Further results with pivotal or unitary hypotheses retain their stated scope.";
+  const base = `${state.data.classification_repository}/tree/${state.data.classification_commit || "main"}/${update.source}`;
+  $("#latest-research-source").href = base;
+  const actions = $("#theoretical-update-actions");
+  actions.replaceChildren();
+  const archive = element("a", "", `Download proofs & verification · ${(update.archive.bytes / 1048576).toFixed(1)} MB ↓`);
+  archive.href = `./${update.archive.path}`; archive.download = "";
+  const decisions = element("a", "", "Decision records JSON ↓");
+  decisions.href = `./${update.files.decisions.path}`; decisions.download = "";
+  const remaining = element("a", "", "Remaining cases JSON ↓");
+  remaining.href = `./${update.files.remaining_ids.path}`; remaining.download = "";
+  const source = element("a", "", "Research source ↗");
+  source.href = base; source.target = "_blank"; source.rel = "noopener";
+  actions.append(archive, decisions, remaining, source);
+  const labels = {
+    anti_invariant_involution_module: "Involution module and character obstruction",
+    involution_anti_module_spectral: "Involution module and spectral obstruction",
+    three_fixed_dual_module_Gram: "Morita dual module Gram obstruction",
+    positive_semidefinite_module_Gram: "Positive semidefinite module Gram obstruction",
+    full_induction_compression_parity: "Full-induction compression and parity",
+    signed_C3_sphericality_dimension_block: "Signed C₃ sphericality and dimension bound",
+    cyclic_stabilizer_divisibility: "Cyclic stabilizer divisibility",
+    dimension_block_conductor: "Dimension-block conductor bound",
+    quadratic_subcategory_index: "Quadratic subcategory index",
+    Morita_adjoint_normality: "Morita dual and stabilizer obstruction",
+    conductor32_signed_Jacobi: "Conductor-32 signed Jacobi obstruction",
+    C3_A4_Morita_formal_codegree: "Morita reduction and formal-codegree arithmetic",
+  };
+  const rows = $("#theoretical-update-rows");
+  rows.replaceChildren();
+  for (const record of update.decisions) {
+    const row = element("tr");
+    const name = element("th", "", record.id); name.scope = "row";
+    const proof = element("a", "", `${labels[record.criterion] || "Theoretical exclusion proof"} ↗`);
+    proof.href = `${state.data.classification_repository}/blob/${state.data.classification_commit || "main"}/${update.source}/${record.proof}`;
+    proof.target = "_blank"; proof.rel = "noopener";
+    const cell = element("td"); cell.append(proof); row.append(name, cell); rows.append(row);
+  }
+  const checksum = $("#theoretical-update-checksum");
+  checksum.replaceChildren(document.createTextNode("Proof bundle SHA-256: "), element("code", "", update.archive.sha256));
+  notice.querySelector("a").addEventListener("click", () => { details.open = true; });
+}
+
 function renderPapers() {
   const release = state.data.rank6_release;
   if (release) {
@@ -296,8 +349,9 @@ function renderPapers() {
     update.href="./papers/rank6_addendum_20261002.pdf";
     summary.append(document.createTextNode(" · "), update);
     if (release.document_revision) {
-      const theory=element("a", "", "11 October theoretical revision");
-      theory.href=`${state.data.classification_repository}/tree/${state.data.classification_commit || "main"}/evidence/rank6_theoretical_20261011`;
+      const revisionDate = new Date(release.document_revision.date+"T12:00:00Z").toLocaleDateString("en-GB", {day:"numeric",month:"long",timeZone:"UTC"});
+      const theory=element("a", "", `${revisionDate} theoretical revision`);
+      theory.href=`${state.data.classification_repository}/tree/${state.data.classification_commit || "main"}/${release.research_coverage_source.replace(/\/[^/]+$/, "")}`;
       summary.append(document.createTextNode(" · "), theory);
       const revision=element("a", "", "Current manuscript checksums");
       revision.href=`./${release.document_revision.path}`;revision.download="";
@@ -352,9 +406,14 @@ function renderPapers() {
     }
     const release=state.data.upper_rank_releases?.[String(paper.rank)];
     if (release) {
-      const supplement=element("a","","Verified supplement ↗");
-      supplement.href=`./${release.archive.path}`;
+      const supplement=element("a","","Frozen supplement ↓");
+      supplement.href=`./${release.archive.path}`;supplement.download="";
       actions.append(supplement);
+      if (state.data.theoretical_update) {
+        const current=element("a","","Current proof bundle ↓");
+        current.href=`./${state.data.theoretical_update.archive.path}`;current.download="";
+        actions.append(current);
+      }
     }
     actions.append(source);
     card.append(actions);
@@ -631,7 +690,7 @@ async function start() {
       || state.data.rows[0];
     if (requestedRank && state.data.scope.some((x)=>x.rank===requestedRank))state.rank=requestedRank;
     if (state.selected && requestedM>Number(state.range)) {state.range="all";$("#range-select").value="all"}
-    renderFilters();renderTable();renderDetail();renderScope();renderPapers();initControls();initCatalogue();renderCatalogue();
+    renderFilters();renderTable();renderDetail();renderScope();renderTheoreticalUpdate();renderPapers();initControls();initCatalogue();renderCatalogue();
     if (requestedRank && requestedM) {
       const index=state.virtual.bands.indexOf(requestedM);
       if(index>=0) {$("#table-scroll").scrollTop=Math.max(0,index*40-80);renderTableWindow()}
