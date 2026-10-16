@@ -14,6 +14,7 @@ import sys
 import tempfile
 from current_publication import validate_documents, replay_sources, restore_replay_sources, need
 from reader_resources import validate_reader_resources
+from verify_rigidity_20261017 import verify_current as verify_rigidity, restore_parent_files as restore_rigidity_parent
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -28,6 +29,16 @@ def main():
     has_website = (repo / 'site/dist/papers').is_dir()
     documents = validate_documents(repo, check_web=has_website)
     reader_resources = validate_reader_resources(repo, check_web=has_website)
+    rigidity = verify_rigidity(repo, replay=not args.metadata_only)
+    rank6_command = [sys.executable] + (['-O'] if sys.flags.optimize else [])
+    rank6_command += [str(repo / 'evidence/rigidity_20261017/rank6/run_checks.py'),
+                      '--repo', str(repo)]
+    if args.metadata_only:
+        rank6_command.append('--metadata-only')
+    rank6_check = subprocess.run(rank6_command, cwd=repo, text=True, capture_output=True)
+    need(rank6_check.returncode == 0, 'Rank-six necessary-condition evidence failed:\n'
+         + rank6_check.stdout + rank6_check.stderr)
+    rank6_progress = json.loads(rank6_check.stdout)
     rank4_package = repo / 'supplements/rank4/unrestricted'
     rank4_check = subprocess.run(
         [sys.executable, str(rank4_package / 'verify_package.py'),
@@ -61,6 +72,7 @@ def main():
                                                          'work', 'site', '*.bin', '*.aux',
                                                          '*.out', '*.toc', '*.fls', '*.fdb_latexmk'))
         restored = restore_replay_sources(repo, target, sources)
+        restored += restore_rigidity_parent(repo, target)
         if not args.metadata_only:
             archived = subprocess.run([sys.executable, str(target / 'supplements/rank6/check_manifest.py')],
                                       cwd=target, text=True, capture_output=True)
@@ -80,7 +92,9 @@ def main():
         report = {'status': 'PASS', 'current_documents': len(documents['documents']),
                   'website_pdf_copies_checked': len(documents['web_copies']) if has_website else 0,
                   'declared_website_pdf_copies': len(documents['web_copies']),
-                  'accepted_decisions': 35, 'remaining_ids': documents['remaining_ids'],
+                  'accepted_decisions': 36, 'remaining_ids': documents['remaining_ids'],
+                  'rigidity_stage': rigidity,
+                  'rank6_necessary_conditions': rank6_progress,
                   'reader_resources': reader_resources,
                   'rank4_unrestricted_package': 'PASS: source/data identities and generated manuscript tables; exact replay is a separate check',
                   'restored_replay_sources': restored,

@@ -36,17 +36,25 @@ does not assert that all categorifications of that ring are unitary.
 
 - `R6_4_155`: A unique rank-26 semion-centralizer modular candidate satisfies
   the recorded finite Verlinde, Vafa and indicator checks. A rank-22 based
-  module passes 234,256 fermion Azumaya linking identities. Neither supplies
-  a coherent module category or associators for a categorification.
+  module passes 234,256 fermion Azumaya linking identities. Odd cyclic Clifford
+  constraints pass on all 1,144 tested blocks. The all-order path-Clifford
+  divisibility condition for the family R′(m) holds exactly when m is even,
+  including m=4. These necessary data supply neither a coherent module
+  category nor associators for a categorification.
 - `R6_8_1660`: A unique relative-center based ring, three possible Morita-dual
-  rings and a bounded domain of center profiles remain. Graded induction
-  reduces the profile domain to 1,136. Saturated traces force `nu_3(T)=2`.
+  rings and a bounded domain of restriction profiles remain. In the positive
+  spherical representative, saturated modular representations determine all
+  indicator sequences and central phase masses. Eight spin objects form four
+  dual pairs, all restricting to `2X+2gX+σ+3T`. Exact phase Gram constraints
+  leave **640 labelled restriction-data profiles**, in branches **68, 286, 286**.
   A rank-37 candidate fails an exact Verlinde integrality test. This does not
   exclude every possible profile.
 
 The [current research status](../../docs/RESEARCH_STATUS.md) states the complete
-three-case frontier across ranks six to eight. The model catalogue includes
-all tensor identifications for the three conformal-embedding constructions.
+two-case frontier, both at rank six. The [necessary-condition package](../../evidence/rigidity_20261017/rank6/README.md)
+gives the Clifford, indicator and phase-mass proofs and exact replays. The model
+catalogue includes all tensor identifications for the three conformal-embedding
+constructions.
 
 ## Complete verification
 

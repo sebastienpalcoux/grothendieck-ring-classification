@@ -97,11 +97,14 @@ the original full base-certificate loops described in the
 [full replay guide](../evidence/prepublication_20261017/FULL_REPLAY.md).
 Use normal Python for any checker whose proof checks use `assert`.
 
-The [current research account](../docs/RESEARCH_STATUS.md) records **35 decisions among 38 cases**: 28 proposed general exclusions and 7 unitary constructions. Three general questions remain open: `R6_4_155`, `R6_8_1660` and `R8_2_24`. The combined residual program records 139 decisions (119 exclusions and 20 constructions), all subject to independent mathematical verification.
+The [current research account](../docs/RESEARCH_STATUS.md) records **36 decisions among 38 cases**: 29 proposed general exclusions and 7 unitary constructions. Two general questions remain open: `R6_4_155` and `R6_8_1660`. The combined residual program records 140 decisions (120 exclusions and 20 constructions), all subject to independent mathematical verification.
 
-A conditional local calculation for `R8_2_24` contributes no general exclusion.
-Cited mathematical theorems remain explicit dependencies. External Normaliz
-or Groebner calculations are not claimed to have been rerun.
+The [inner-square rigidity package](../evidence/rigidity_20261017/README.md)
+records the general `R8_2_24` obstruction and its source-bound finite checks.
+Run `python3 tools/verify_rigidity_20261017.py` from the repository root for
+that package. Cited mathematical theorems and categorical coherence remain
+explicit proof obligations. External Normaliz or Groebner calculations are
+not claimed to have been rerun.
 
 ## Individual rank-six checks
 
@@ -133,6 +136,17 @@ python3 evidence/unified_20261016/rank6/verify_fermion_crossing.py --repo .
 python3 evidence/rank6_laptop_20261002/all_p_minkowski/verify.py \
   --tensors supplements/rank6/data/unresolved_tensors.json
 ```
+
+The [rank-six rigidity package](../evidence/rigidity_20261017/rank6/README.md)
+checks the odd cyclic Clifford constraints, all indicator sequences and
+phase-mass restrictions, including the exact 640-profile domain. Run:
+
+```bash
+python3 evidence/rigidity_20261017/rank6/run_checks.py --repo .
+python3 -O evidence/rigidity_20261017/rank6/run_checks.py --repo .
+```
+
+These are necessary-condition checks. Both rank-six cases remain unresolved.
 
 No timeout constitutes an exclusion. Component checks do not replace complete
 base-certificate coverage.

@@ -23,20 +23,20 @@ Related work on the pivotal case: Jingcheng Dong, Sébastien Palcoux and Arnaud 
 | Rank four, verification guide | [TeX](rank4/papers/verification_guide.tex) | [PDF](rank4/papers/verification_guide.pdf) | 9 | Exact certificate checks |
 | Rank five | [TeX](rank5/papers/manuscript.tex) | [PDF](rank5/papers/manuscript.pdf) | 19 | Complete through multiplicity 20 |
 | Rank five, verification guide | [TeX](rank5/papers/verification_guide.tex) | [PDF](rank5/papers/verification_guide.pdf) | 4 | Exact certificates, models and replay scope |
-| Rank six | [TeX](rank6/papers/manuscript.tex) | [PDF](rank6/papers/manuscript.pdf) | 165 | 25,362 exclusions, 57 realizations, two open through 9; complete through 3 and exact bands 1, 2, 3, 5, 6, 7, 9 |
-| Rank six, verification guide | [TeX](rank6/papers/verification_guide.tex) | [PDF](rank6/papers/verification_guide.pdf) | 5 | Models, certificates and open-case reductions |
+| Rank six | [TeX](rank6/papers/manuscript.tex) | [PDF](rank6/papers/manuscript.pdf) | 170 | 25,362 exclusions, 57 realizations, two open through 9; complete through 3 and exact bands 1, 2, 3, 5, 6, 7, 9 |
+| Rank six, verification guide | [TeX](rank6/papers/verification_guide.tex) | [PDF](rank6/papers/verification_guide.pdf) | 6 | Models, certificates and open-case reductions |
 | Rank seven | [TeX](rank7/papers/manuscript.tex) | [PDF](rank7/papers/manuscript.pdf) | 56 | Complete through multiplicity 4: 4,172 exclusions and 29 models |
-| Rank eight | [TeX](rank8/paper/rank8.tex) | [PDF](rank8/paper/rank8.pdf) | 58 | Complete through multiplicity 1; partial at 2: 895 exclusions, 77 models and one open case |
+| Rank eight | [TeX](rank8/paper/rank8.tex) | [PDF](rank8/paper/rank8.pdf) | 61 | Complete through multiplicity 2: 896 exclusions and 77 models |
 
-The eight mathematical manuscripts contain **430 pages**.
-Including the three verification guides gives **448 pages**;
+The eight mathematical manuscripts contain **438 pages**.
+Including the three verification guides gives **457 pages**;
 including the 4-page [research-status report](prepublication-review-2026-10-17.pdf)
-gives **452 pages** across twelve distinct documents.
+gives **461 pages** across twelve distinct documents.
 These counts include references and appendices and count duplicate download
 copies only once. The [page inventory](../data/manuscript_page_counts.json)
 records every path, count and PDF checksum.
 
-Download the [three open fusion tensors as Python lists](../data/remaining_cases.py).
+Download the [two open fusion tensors as Python lists](../data/remaining_cases.py).
 The file names each case and states the zero-based convention `N[i][j][k]`,
 unit index, duality map and canonical source checksums.
 
@@ -45,14 +45,16 @@ The sources use sections and generated tables in their sibling directories.
 The [document manifest](../data/current_document_revision.json) binds all
 current papers and their website copies.
 
-The [current research account](../docs/RESEARCH_STATUS.md) records **35 decisions among 38 cases**: 28 proposed general exclusions and 7 unitary constructions. Three general questions remain open: `R6_4_155`, `R6_8_1660` and `R8_2_24`. The combined residual program records 139 decisions (119 exclusions and 20 constructions), all subject to independent mathematical verification.
+The [current research account](../docs/RESEARCH_STATUS.md) records **36 decisions among 38 cases**: 29 proposed general exclusions and 7 unitary constructions. Two general questions remain open: `R6_4_155` and `R6_8_1660`. The combined residual program records 140 decisions (120 exclusions and 20 constructions), all subject to independent mathematical verification.
 
-The rank-six treatment includes conformal-embedding constructions, the
-fermion Azumaya compatibility test, saturated third indicators and
-fully-faithful tensor-functor constraints. The rank-22 based-module witness
-and modular-data candidates are necessary-condition evidence, not categorical
-constructions. A rank-37 candidate for the second residual fails an exact
-Verlinde integrality test; other profiles remain open.
+The rank-six treatment includes conformal-embedding constructions, fermion
+Azumaya compatibility, odd cyclic Clifford constraints and fully-faithful
+tensor-functor restrictions. For the positive spherical representative of
+`R6_8_1660`, all indicator sequences and central phase masses are determined,
+and 640 labelled restriction-data
+profiles remain in branches 68, 286, 286. These profiles and the rank-22
+based-module witness are necessary-condition evidence. Both rank-six
+categorification questions remain open.
 
 Read the [research status](../docs/RESEARCH_STATUS.md),
 [verification scope](../docs/PREPUBLICATION_REVIEW.md) and

@@ -1,0 +1,61 @@
+{
+  "schema": "categorification-rigidity-stage/v1",
+  "date": "2026-10-17",
+  "parent_stage": "review_20261017",
+  "decision_ids": [
+    "R8_2_24"
+  ],
+  "ledger": "supplements/rank8/data/decisions.json",
+  "previous_record": {
+    "id": "R8_2_24",
+    "multiplicity": 2,
+    "index": 24,
+    "tensor_sha256": "2b4780441d9590e8e7269cd82b7675aa75cec11c39bd3e94bb372cca1ada6738",
+    "commutative": true,
+    "status": "unresolved",
+    "review": {
+      "date": "2026-10-17",
+      "disposition": "reopened",
+      "reason": "The original proof uses unsupported decorated-phase cancellation. The proposed paired-diagram repair has not established the oriented g-cap/crossing sign. Finite algebra checks do not settle categorification.",
+      "audit": "evidence/prepublication_20261017/r24/R24_BRIDGE_PREPUBLICATION_AUDIT.md",
+      "superseded_stage": "unified_20261016"
+    }
+  },
+  "current_record": {
+    "id": "R8_2_24",
+    "multiplicity": 2,
+    "index": 24,
+    "tensor_sha256": "2b4780441d9590e8e7269cd82b7675aa75cec11c39bd3e94bb372cca1ada6738",
+    "commutative": true,
+    "status": "excluded",
+    "criterion": "inner_square_torus_rigidity",
+    "certificate": {
+      "scope": "general_complex",
+      "kind": "theoretical_no_go",
+      "proof": "evidence/rigidity_20261017/rank8/R24_TORUS_RIGIDITY_PROOF.md",
+      "verifier": "tools/verify_rigidity_20261017.py",
+      "source_verifier": "evidence/rigidity_20261017/rank8/verify_r24_source.py",
+      "date": "2026-10-17",
+      "verification_scope": "Source hashes, ledger preservation, and exact finite checks; the categorical proof is not machine-verified.",
+      "caution": "AI-generated research · independent verification pending"
+    }
+  },
+  "previous_ledger_sha256": "d77a3aa234d86db69c2cf47499d857ba991ca8d29f0e5cc8c3cd09a4eaff2d51",
+  "current_ledger_sha256": "7f50213174f1020bb9d90d5981892c332448cf909a56bf60b29e1143228f3f24",
+  "previous_ledger_canonical_sha256": "633f4e3ed1be9e78aebbd7e3daa58914f5dfba0552c14f8a794ceafef32292f9",
+  "current_ledger_canonical_sha256": "3084da182cc46599f2552a38fafa6057374ad2773a2df9d69a11fde22719b1f8",
+  "unchanged_records_canonical_sha256": "7e886da71a8365670f1009fad7977c849853eaf55f2fc9b84db9e8da786d2b1f",
+  "retained_decisions": 35,
+  "accepted_decisions": 36,
+  "accepted_exclusions": 29,
+  "accepted_models": 7,
+  "new_general_exclusions": 1,
+  "new_unitary_models": 0,
+  "combined_decisions": 140,
+  "combined_exclusions": 120,
+  "combined_models": 20,
+  "proofs_source": "evidence/unified_20261016",
+  "new_proofs_source": "evidence/rigidity_20261017",
+  "scope": "One theoretical general-complex exclusion; automated checks do not certify the categorical proof.",
+  "caution": "AI-generated research · independent verification pending"
+}

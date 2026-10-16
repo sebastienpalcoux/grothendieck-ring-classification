@@ -14,23 +14,22 @@ CAUTION = '''> **AI-generated research · independent verification pending.** Tr
 '''
 FRONTIER = '''| Open ring | Established necessary restrictions | Remaining question |
 |---|---|---|
-| `R6_4_155` | A unique rank-26 semion-centralizer modular candidate; a rank-22 based module satisfies the fermion Azumaya linking identities. | Coherent associators and module-category structures, or a general obstruction. |
-| `R6_8_1660` | One relative-center based ring, three possible Morita-dual rings and a bounded center-profile domain; saturated traces force `nu_3(T)=2`. | A categorification or an obstruction covering every possible profile. |
-| `R8_2_24` | A rank-four neutral component and a required tensor autoequivalence whose square is the indicated inner action. | A general categorical obstruction or construction; the mixed transport identities in the proposed local approach are unproved. |
+| `R6_4_155` | A unique rank-26 modular candidate and a rank-22 based module; odd cyclic Clifford constraints pass on all 1,144 tested blocks, and the all-order path divisibility condition holds. | Coherent associators and module-category structures, or a general obstruction. |
+| `R6_8_1660` | In the positive spherical representative, all indicator sequences and central phase masses are determined; eight spin objects form four dual pairs, and 640 labelled restriction-data profiles remain in branches 68, 286, 286. | A categorification or an obstruction covering every possible profile. |
 '''
 
 def case_inventory(repo):
     # Render every case with current proof sources.
-    all_cases=json.loads((repo/'evidence/review_20261017/all_cases.json').read_text())
-    decisions=json.loads((repo/'evidence/review_20261017/decisions.json').read_text())
+    all_cases=json.loads((repo/'evidence/rigidity_20261017/all_cases.json').read_text())
+    decisions=json.loads((repo/'evidence/rigidity_20261017/decisions.json').read_text())
     accepted={d['id']:d for d in decisions}
-    open_ids={'R6_4_155','R6_8_1660','R8_2_24'}
+    open_ids={'R6_4_155','R6_8_1660'}
     if len(all_cases)!=38 or len({x['id'] for x in all_cases})!=38:
         raise ValueError('Expected exactly 38 distinct case IDs')
-    if len(accepted)!=35 or {x['id'] for x in all_cases} != set(accepted)|open_ids:
+    if len(accepted)!=36 or {x['id'] for x in all_cases} != set(accepted)|open_ids:
         raise ValueError('The current case inventory differs from the decision ledger')
-    if sum(d['status']=='excluded' for d in decisions)!=28 or sum(d['status']=='unitarily_realized' for d in decisions)!=7:
-        raise ValueError('Expected 28 general exclusions and seven unitary constructions')
+    if sum(d['status']=='excluded' for d in decisions)!=29 or sum(d['status']=='unitarily_realized' for d in decisions)!=7:
+        raise ValueError('Expected 29 general exclusions and seven unitary constructions')
     if any(d['scope']!='general_complex' for d in decisions):
         raise ValueError('Unexpected scope in accepted case inventory')
     # Entries identify the integrated manuscript and its stable LaTeX label.
@@ -58,11 +57,11 @@ def case_inventory(repo):
       'C4_near_group_pointed_centralizer':('Pointed centralizer in the center of NG(C4,4)','rank8/paper/unified_20261016.tex','prop:c4-centralizer'),
       'quadratic_conductor40_center_trace':('Conductor-forty center trace obstruction','rank8/paper/r671_center_trace.tex','thm:r671-center-trace'),
       'C5_near_group_center_factor':('Nonpointed center factor of NG(C5,5)','rank8/paper/unified_20261016.tex','prop:near-group-centralizers'),
+      'inner_square_torus_rigidity':('Inner-square obstruction from short gauge weights and tensor-functor rigidity','rank8/paper/r24_inner_square.tex','thm:r24-general-exclusion'),
     }
     open_references={
-      'R6_4_155':('The modular candidate and based-module linking identities do not supply coherent center or module associators.','rank6/papers/chapters/frontier_155_modular.tex','sec:155-complete-modular'),
-      'R6_8_1660':('Center-profile and Morita restrictions leave possible profiles; a complete associator construction or general obstruction is missing.','rank6/papers/chapters/frontier_1660.tex','subsec:frontier-1660'),
-      'R8_2_24':('General categorification is open. A unitary exclusion is recorded, but the inner-square transport identities needed by the proposed general approach are unproved.','rank8/paper/r24_inner_square.tex','sec:r24-open'),
+      'R6_4_155':('Odd cyclic Clifford constraints pass on 1,144 tested blocks, and the all-order path divisibility condition holds. The surviving modular and module data do not supply coherent associators.','rank6/papers/chapters/frontier_155_odd_clifford.tex','sec:r155-odd-clifford'),
+      'R6_8_1660':('In the positive spherical representative, all indicators and central phase masses are determined; 640 labelled restriction profiles survive in branches 68, 286, 286. These necessary data do not construct a category or yield a general obstruction.','rank6/papers/chapters/frontier_1660_phase_masses.tex','sec:1660-all-indicators-phase-masses'),
     }
     def proof_link(path,label):
         source=repo/'manuscripts'/path
@@ -70,8 +69,8 @@ def case_inventory(repo):
             raise ValueError('Missing current manuscript reference: '+path+' '+label)
         return f'[Source](../manuscripts/{path}) (`{label}`)'
     text='# Current inventory of 38 cases\n\n'+CAUTION+'''
-**35 accepted decisions: 28 proposed general exclusions and seven unitary
-constructions. Three general questions remain open.** This inventory covers
+**36 accepted decisions: 29 proposed general exclusions and seven unitary
+constructions. Two general questions remain open.** This inventory covers
 these 38 cases; it is not a count of every ring in the full census.
 
 A general exclusion concerns arbitrary complex fusion categories, without an
@@ -86,7 +85,7 @@ Read the [rank-six manuscript](../manuscripts/rank6/papers/manuscript.pdf),
 The source links below identify the current integrated proof or open-case
 section; the stable LaTeX label locates the exact statement in that source.
 
-## Three open cases
+## Two open cases
 
 | Case | Current status and remaining task | Current manuscript section |
 |---|---|---|
@@ -109,8 +108,8 @@ section; the stable LaTeX label locates the exact statement in that source.
 
 Through multiplicity nine, rank six has 25,362 exclusions, 57 realizations and
 two open cases. Rank seven is complete through multiplicity four with 4,172
-exclusions and 29 models. Rank eight is complete through multiplicity one and
-partial at multiplicity two: 895 exclusions, 77 models and one open case in total.
+exclusions and 29 models. Rank eight is complete through multiplicity two:
+896 exclusions and 77 models, with no open case.
 
 Run the current aggregate replay from the repository root:
 
@@ -161,9 +160,10 @@ Rank six records **{s['excluded']:,} exclusions, {s['positive']} realizations an
 range ends at three; exact bands {bands} are complete. Rank seven records
 **{totals(7)['excluded']:,} exclusions and {totals(7)['unitarily_realized']} realizations**,
 with no open case through multiplicity four. Rank eight records
-**{totals(8)['excluded']} exclusions, {totals(8)['unitarily_realized']} realizations and
-one open case** through multiplicity two: multiplicity one is complete and
-multiplicity two is partial.
+**{totals(8)['excluded']} exclusions and {totals(8)['unitarily_realized']} realizations**,
+with no open case through multiplicity two. The general exclusion of
+`R8_2_24` uses an inner-square obstruction from short gauge weights and
+tensor-functor rigidity.
 
 '''+FRONTIER+'''
 A necessary-condition witness is neither a categorification nor a general
@@ -199,11 +199,12 @@ establish, and where mathematical verification is still needed.
 ## Mathematical scope
 
 '''+overview(stage,'../')+'\n\n'+FRONTIER+'''
-For `R8_2_24`, an eight-slot local calculation is conditional on mixed
-categorical transport identities. Verifying its algebra does not prove those
-identities. In particular, the incoming left-bend uses the complementary index;
-a diagonal condition alone does not establish decorated-phase cancellation.
-No general exclusion is counted for this case.
+For `R8_2_24`, the general-complex proof passes to a pseudo-unitary Galois
+conjugate, forces the neutral indicators by saturated modular compression,
+and excludes the required square root of an inner tensor functor. The proof
+uses a simultaneous pivotal chart, short associator weights and finiteness
+of tensor functors. Its [theoretical argument and independent AI audits](../evidence/rigidity_20261017/README.md)
+are separate from the source and finite-weight checks.
 
 The review examines general versus pivotal or pseudo-unitary scope, cited
 hypotheses, sphericalization and Galois reductions, Morita constructions,
@@ -284,7 +285,7 @@ certificate. Classification decisions are separate from census completeness.
 | 5 | Through 20 | Complete: 17 models and 40,982 exclusions. |
 | 6 | Through 9 | Complete through 3 and exact bands {bands}; two open cases. |
 | 7 | Through 4 | Complete: 29 models and 4,172 exclusions. |
-| 8 | Through 2 | Complete through 1; multiplicity 2 partial: 77 models, 895 exclusions, one open case in total. |
+| 8 | Through 2 | Complete: 77 models and 896 exclusions. |
 
 '''+overview(stage,'../')+'''
 
@@ -438,9 +439,12 @@ Use normal Python for any checker whose proof checks use `assert`.
 
 '''+overview(stage,'../')+'''
 
-A conditional local calculation for `R8_2_24` contributes no general exclusion.
-Cited mathematical theorems remain explicit dependencies. External Normaliz
-or Groebner calculations are not claimed to have been rerun.
+The [inner-square rigidity package](../evidence/rigidity_20261017/README.md)
+records the general `R8_2_24` obstruction and its source-bound finite checks.
+Run `python3 tools/verify_rigidity_20261017.py` from the repository root for
+that package. Cited mathematical theorems and categorical coherence remain
+explicit proof obligations. External Normaliz or Groebner calculations are
+not claimed to have been rerun.
 
 ## Individual rank-six checks
 
@@ -473,6 +477,17 @@ python3 evidence/rank6_laptop_20261002/all_p_minkowski/verify.py \\
   --tensors supplements/rank6/data/unresolved_tensors.json
 ```
 
+The [rank-six rigidity package](../evidence/rigidity_20261017/rank6/README.md)
+checks the odd cyclic Clifford constraints, all indicator sequences and
+phase-mass restrictions, including the exact 640-profile domain. Run:
+
+```bash
+python3 evidence/rigidity_20261017/rank6/run_checks.py --repo .
+python3 -O evidence/rigidity_20261017/rank6/run_checks.py --repo .
+```
+
+These are necessary-condition checks. Both rank-six cases remain unresolved.
+
 No timeout constitutes an exclusion. Component checks do not replace complete
 base-certificate coverage.
 
@@ -504,7 +519,7 @@ classification. Do not enter incomplete-band lower bounds as exact OEIS terms.
 Archive identities must be updated only after rebuilding the corresponding
 bundle. Source and document integrity checks do not replace mathematical review.
 '''
-    manuscript_rows=[('Rank two','rank2.tex','rank2.pdf','Unrestricted over ℂ; two realized rings'),('Rank three','rank3.tex','rank3.pdf','Unrestricted sphericality and five-ring classification'),('Rank four, finite range','rank4/papers/finite.tex','rank4/papers/finite.pdf','Complete through multiplicity 128'),('Rank four, unrestricted classification','rank4/papers/companion.tex','rank4/papers/companion.pdf','Unrestricted over ℂ; 15 rings and automatic sphericality'),('Rank four, verification guide','rank4/papers/verification_guide.tex','rank4/papers/verification_guide.pdf','Exact certificate checks'),('Rank five','rank5/papers/manuscript.tex','rank5/papers/manuscript.pdf','Complete through multiplicity 20'),('Rank five, verification guide','rank5/papers/verification_guide.tex','rank5/papers/verification_guide.pdf','Exact certificates, models and replay scope'),('Rank six','rank6/papers/manuscript.tex','rank6/papers/manuscript.pdf',f'25,362 exclusions, 57 realizations, two open through 9; complete through 3 and exact bands {bands}'),('Rank six, verification guide','rank6/papers/verification_guide.tex','rank6/papers/verification_guide.pdf','Models, certificates and open-case reductions'),('Rank seven','rank7/papers/manuscript.tex','rank7/papers/manuscript.pdf','Complete through multiplicity 4: 4,172 exclusions and 29 models'),('Rank eight','rank8/paper/rank8.tex','rank8/paper/rank8.pdf','Complete through multiplicity 1; partial at 2: 895 exclusions, 77 models and one open case')]
+    manuscript_rows=[('Rank two','rank2.tex','rank2.pdf','Unrestricted over ℂ; two realized rings'),('Rank three','rank3.tex','rank3.pdf','Unrestricted sphericality and five-ring classification'),('Rank four, finite range','rank4/papers/finite.tex','rank4/papers/finite.pdf','Complete through multiplicity 128'),('Rank four, unrestricted classification','rank4/papers/companion.tex','rank4/papers/companion.pdf','Unrestricted over ℂ; 15 rings and automatic sphericality'),('Rank four, verification guide','rank4/papers/verification_guide.tex','rank4/papers/verification_guide.pdf','Exact certificate checks'),('Rank five','rank5/papers/manuscript.tex','rank5/papers/manuscript.pdf','Complete through multiplicity 20'),('Rank five, verification guide','rank5/papers/verification_guide.tex','rank5/papers/verification_guide.pdf','Exact certificates, models and replay scope'),('Rank six','rank6/papers/manuscript.tex','rank6/papers/manuscript.pdf',f'25,362 exclusions, 57 realizations, two open through 9; complete through 3 and exact bands {bands}'),('Rank six, verification guide','rank6/papers/verification_guide.tex','rank6/papers/verification_guide.pdf','Models, certificates and open-case reductions'),('Rank seven','rank7/papers/manuscript.tex','rank7/papers/manuscript.pdf','Complete through multiplicity 4: 4,172 exclusions and 29 models'),('Rank eight','rank8/paper/rank8.tex','rank8/paper/rank8.pdf','Complete through multiplicity 2: 896 exclusions and 77 models')]
     page_inventory=json.loads((repo/'data/manuscript_page_counts.json').read_text())
     page_counts={record['path'].removeprefix('manuscripts/'):record['pages'] for record in page_inventory['documents']}
     page_sums=page_inventory['totals']
@@ -529,7 +544,7 @@ These counts include references and appendices and count duplicate download
 copies only once. The [page inventory](../data/manuscript_page_counts.json)
 records every path, count and PDF checksum.
 
-Download the [three open fusion tensors as Python lists](../data/remaining_cases.py).
+Download the [two open fusion tensors as Python lists](../data/remaining_cases.py).
 The file names each case and states the zero-based convention `N[i][j][k]`,
 unit index, duality map and canonical source checksums.
 
@@ -540,12 +555,14 @@ current papers and their website copies.
 
 '''+overview(stage,'../')+'''
 
-The rank-six treatment includes conformal-embedding constructions, the
-fermion Azumaya compatibility test, saturated third indicators and
-fully-faithful tensor-functor constraints. The rank-22 based-module witness
-and modular-data candidates are necessary-condition evidence, not categorical
-constructions. A rank-37 candidate for the second residual fails an exact
-Verlinde integrality test; other profiles remain open.
+The rank-six treatment includes conformal-embedding constructions, fermion
+Azumaya compatibility, odd cyclic Clifford constraints and fully-faithful
+tensor-functor restrictions. For the positive spherical representative of
+`R6_8_1660`, all indicator sequences and central phase masses are determined,
+and 640 labelled restriction-data
+profiles remain in branches 68, 286, 286. These profiles and the rank-22
+based-module witness are necessary-condition evidence. Both rank-six
+categorification questions remain open.
 
 Read the [research status](../docs/RESEARCH_STATUS.md),
 [verification scope](../docs/PREPUBLICATION_REVIEW.md) and
@@ -563,7 +580,7 @@ package.
 | 5 | [Guide](rank5/README.md) · [complete public replay](../docs/VERIFY.md#complete-rank-four-and-rank-five-checks) | 40,999 inputs; 40,982 exclusions and 17 models through 20. |
 | 6 | [Guide](rank6/README.md) · [combined full replay](../docs/VERIFY.md#complete-rank-six-route) | 25,421 inputs; 25,362 exclusions, 57 models and two open cases through 9. |
 | 7 | [Guide](rank7/README.md) | Complete through 4: 4,172 exclusions and 29 models. |
-| 8 | [Guide](rank8/README.md) | Complete through 1, partial at 2: 895 exclusions, 77 models and one open case. |
+| 8 | [Guide](rank8/README.md) | Complete through 2: 896 exclusions and 77 models. |
 
 '''+overview(stage,'../')+'''
 
@@ -578,7 +595,7 @@ ledgers are identified in [provenance](../docs/PROVENANCE.md).
         ledger='output/rank7_ledger.json' if r==7 else 'data/decisions.json'
         content=f'# Rank-{r} Grothendieck rings through multiplicity {bound(r)}\n\n'+CAUTION+f'\nThe authoritative decision ledger is [`{ledger}`]({ledger}). '
         content+=f'Classification is complete through multiplicity {complete(r)}.'
-        if complete(r)<bound(r):content+=f' Multiplicity {bound(r)} is partial; `R8_2_24` remains open.'
+        if complete(r)<bound(r):content+=f' Multiplicity {bound(r)} has unresolved classification records.'
         content+='\n\n| Exact multiplicity | Rings | General exclusions | Unitary models | Open |\n|---:|---:|---:|---:|---:|\n'
         for m in range(1,bound(r)+1):
             row=rows[r,m]
@@ -611,9 +628,9 @@ drafts above; no incomplete band is an exact sequence term.
 ''')
     out['oeis/update_2026-10-02.txt']=f'''Draft comment, not an OEIS submission:
 
-Counts concern based-isomorphism classes of fusion rings admitting a fusion category over the complex numbers, at exact multiplicity m. Rank seven is complete through multiplicity 4 with 29 realized classes in total. Rank eight is complete through multiplicity 1 and partial at multiplicity 2: 895 exclusions, 77 models and one open case through 2. Rank six has 25,362 exclusions, 57 models and two open cases through multiplicity 9; all 8,809 exact-multiplicity-nine fusion rings have general exclusion certificates.
+Counts concern based-isomorphism classes of fusion rings admitting a fusion category over the complex numbers, at exact multiplicity m. Rank seven is complete through multiplicity 4 with 29 realized classes in total. Rank eight is complete through multiplicity 2: 896 exclusions and 77 models, comprising 48 models at exact multiplicity one and 29 at exact multiplicity two. Rank six has 25,362 exclusions, 57 models and two open cases through multiplicity 9; all 8,809 exact-multiplicity-nine fusion rings have general exclusion certificates.
 
-The remaining questions are R6_4_155, R6_8_1660 and R8_2_24. The 38-case continuation records 35 decisions: 28 proposed general exclusions and 7 unitary constructions. Necessary-condition evidence and obstructions with extra assumptions do not change general unresolved status.
+The remaining questions are R6_4_155 and R6_8_1660. The 38-case study records 36 decisions: 29 proposed general exclusions and 7 unitary constructions. The general R8_2_24 exclusion follows from inner-square tensor-functor rigidity. Necessary-condition evidence and obstructions with extra assumptions do not change general unresolved status.
 
 Reference: https://github.com/sebastienpalcoux/grothendieck-ring-classification
 

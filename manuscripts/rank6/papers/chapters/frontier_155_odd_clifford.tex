@@ -1,0 +1,158 @@
+\section{Odd cyclic Clifford constraints for the non-self-dual residual}
+\label{sec:r155-odd-clifford}
+
+The anticommuting stabilizers in
+Proposition~\ref{prop:stabilizer-rotation} constrain every odd pivotal
+rotation, including rotations with an arbitrary central target. The
+result gives a uniform necessary condition for the residual ring
+$\RR{4}{155}$. Its complete tested range passes this condition.
+
+\begin{theorem}[Odd cyclic Clifford factorization]
+\label{thm:odd-cyclic-clifford}
+Assume the hypotheses of Proposition~\ref{prop:stabilizer-rotation} for
+an object $Y$. Let $n\ge3$ be odd, let $Z$ be a simple of
+$Z(\mathcal C)$, and let $E$ be the generalized pivotal rotation on
+\[
+ V=\operatorname{Hom}_{\mathcal C}(F(Z),Y^{\otimes n}),
+ \qquad E^n=\theta_Z^{-1}I.
+\]
+Choose an $n$th root of $\theta_Z$ and use it to normalize $E$ to
+$E_0^n=I$. Put $r_n=2^{(n-1)/2}$ and define integers $c_j$ by
+\[
+ c_j=\#\left\{(\epsilon_1,\ldots,\epsilon_{(n-1)/2})\in\{\pm1\}^{(n-1)/2}:
+ \frac12\sum_{a=1}^{(n-1)/2}a\epsilon_a\equiv j\pmod n\right\},
+\]
+where division by two takes place in $\ZZ/n\ZZ$. If $m_j$ is the
+multiplicity of $\zeta_n^j$ as an eigenvalue of $E_0$, then there are
+nonnegative integers $b_j$ such that
+\begin{equation}\label{eq:odd-clifford-convolution}
+ m_j=\sum_{k\in\ZZ/n\ZZ}c_{j-k}b_k,
+ \qquad \sum_jb_j=\frac{\dim V}{r_n}.
+\end{equation}
+The circulant convolution matrix $(c_{j-k})$ is invertible over $\QQ$,
+so the integers $b_j$, when they exist, are uniquely determined.
+\end{theorem}
+\begin{proof}
+Use the normalized left and right stabilizer actions and pair-insertion
+endomorphism $a$ from Proposition~\ref{prop:stabilizer-rotation}.
+Insertions at adjacent positions anticommute, while insertions on disjoint
+pairs commute, and every insertion squares to the identity. Naturality
+of generalized rotation in the $n-1$ unmoved tensor factors transports
+one ordinary adjacent insertion to the next. The rotation definitions
+and naturality are those of \cite{NSpiv} and Ng--Schauenburg,
+\emph{Congruence subgroups and generalized Frobenius--Schur indicators},
+\href{https://arxiv.org/abs/0806.2493}{arXiv:0806.2493}, Lemmas~2.5--2.7.
+Define the cyclic boundary insertion by conjugation with $E$. Since
+$E^n$ is scalar, conjugation has exact period dividing $n$.
+Thus the $n$ operators $A_j$, indexed modulo $n$, satisfy
+\[
+ A_j^2=I,\qquad
+ A_jA_k=-A_kA_j\quad(j-k=\pm1),\qquad
+ A_jA_k=A_kA_j\quad(j-k\ne0,\pm1).
+\]
+For $n=3$, the three distinct pairs all anticommute. For $n\ge5$, any
+pair can be rotated away from the cyclic boundary, reducing these
+identities to the adjacent or disjoint insertion calculations.
+
+The abstract algebra with these relations has the ordered monomials
+$A_0^{e_0}\cdots A_{n-1}^{e_{n-1}}$, $e_j\in\{0,1\}$, as a basis.
+Its commutator form over $\mathbb F_2$ is the adjacency matrix of an
+$n$-cycle. Its radical is the line of the all-ones vector: the radical
+equations are $e_{j-1}=e_{j+1}$, and $n$ is odd. Hence the algebra is
+$M_{r_n}(\CC)\oplus M_{r_n}(\CC)$.
+
+For a concrete model, use Clifford generators $\gamma_j$ and put
+$A_j=i\gamma_j\gamma_{j+1}$, with cyclic indices. Replacing every
+$A_j$ by $-A_j$ gives the other simple block. The cyclic permutation
+of the $\gamma_j$ is an orthogonal transformation of determinant one.
+Its spin lift implements $A_j\mapsto A_{j+1}$ on either block.
+Choose the unique sign of that lift for which its $n$th power is one,
+and call the resulting operator $U$. The nontrivial orthogonal
+rotation angles are $2\pi a/n$, $1\le a\le(n-1)/2$. The exterior-algebra
+model of the spin representation therefore gives eigenvalues
+\[
+ \zeta_n^{\frac12\sum_a a\epsilon_a},\qquad \epsilon_a\in\{\pm1\},
+\]
+with the exponent interpreted modulo $n$. This includes the sign
+normalization $U^n=I$, and gives exactly the multiplicities $c_j$.
+Both simple algebra blocks have this same spectrum.
+
+The operators $E_0$ and $U$ implement the same algebra automorphism.
+Their quotient $U^{-1}E_0$ consequently acts on the multiplicity spaces,
+commutes with $U$, and has $n$th power one. Tensoring its cyclic
+characters with the spin character proves
+\eqref{eq:odd-clifford-convolution}. A different chosen $n$th root of
+$\theta_Z$ shifts all cyclic labels, and reversing the rotation reverses
+them; neither change affects feasibility.
+
+The eigenvalues of the circulant matrix are the traces of the powers
+of $U$. Every power of an odd cycle is a permutation with only odd
+cycles, so it has no orthogonal eigenvalue $-1$. The spin-character
+product of half-angle cosines is therefore nonzero. This proves
+invertibility.
+\end{proof}
+
+\begin{proposition}[All-order path divisibility for $R^\prime(m)$]
+\label{prop:rprime-path-divisibility}
+Under the same stabilizer hypotheses, every simple multiplicity in
+$Y^{\otimes n}$ is divisible by $2^{\lfloor(n-1)/2\rfloor}$ for all
+$n\ge1$. For the based rings $R^\prime(m)$ of
+\eqref{eq:nonselfdual-neargroup}, the corresponding infinite family of
+fusion-coefficient divisibilities holds if and only if $m$ is even.
+\end{proposition}
+\begin{proof}
+The $n-1$ ordinary adjacent insertions generate the twisted group algebra
+whose commutator form is the adjacency matrix of a path with $n-1$
+vertices. This matrix has rank $2\lfloor(n-1)/2\rfloor$ over
+$\mathbb F_2$. Every simple module consequently has dimension
+$2^{\lfloor(n-1)/2\rfloor}$. Restricting the insertion action to each
+simple multiplicity space proves the first assertion.
+
+Write $x=[X]$, $y=[Y]$ in $R^\prime(m)$. Direct multiplication gives
+\[
+ x^3=m(1+h+g+hg)+2m^2x+(2+2m^2)y.
+\]
+Thus the divisibility at $n=3$ requires $m$ even. Conversely, suppose
+$m$ is even. The coefficients of $x^3$ and $x^4$ are even, and the
+fusion relations give
+\[
+ x^4=2mx^3+4mx+2(1+h),\qquad
+ x^n=2mx^{n-1}+4mx^{n-3}+4x^{n-4}\quad(n\ge5).
+\]
+If the required divisibilities hold for smaller positive powers, the
+three terms on the right have respective two-adic divisibilities at least
+\[
+ 2+\left\lfloor\frac{n-2}{2}\right\rfloor,\qquad
+ 3+\left\lfloor\frac{n-4}{2}\right\rfloor,\qquad
+ 2+\left\lfloor\frac{n-5}{2}\right\rfloor.
+\]
+Each is at least $\lfloor(n-1)/2\rfloor$. The cases $n=1,2,3,4$
+start the induction. Duality proves the same statement for $y$.
+\end{proof}
+
+\paragraph{Exact scope for $\RR{4}{155}$.}
+The anticommuting-stabilizer hypothesis holds for $h$ and each of
+$X,Y$. The generalized rotation spectra from
+Section~\ref{sec:155-complete-modular} provide the input to
+\eqref{eq:odd-clifford-convolution}. Exact rational inversion checks
+both noninvertibles, all $52$ central targets, and every odd order
+$3,5,\ldots,23$: all $1144$ blocks have nonnegative integral quotient
+multiplicities. At order three the spin multiplicities are $(0,1,1)$,
+so the quotient is explicitly $b_j=\dim(V)/2-m_j$.
+The all-order path condition likewise holds because $m=4$ is even.
+These assertions give necessary constraints and exact surviving data;
+they supply neither associators nor a categorification or exclusion.
+
+The source-bound checker is
+\filename{evidence/rigidity_20261017/rank6/r155/verify_odd_clifford.py}.
+It pins the full generalized-rotation certificate and source tensor by
+SHA256, reconstructs each odd spin spectrum, solves every rational
+convolution exactly, and rejects nonintegral or negative quotients.
+Its negative controls run under both ordinary and optimized Python.
+From the repository root, run
+\begin{verbatim}
+python evidence/rigidity_20261017/rank6/r155/verify_odd_clifford.py \
+  --repo .
+\end{verbatim}
+The replay verifies these finite character assertions, not the categorical
+arguments of Theorem~\ref{thm:odd-cyclic-clifford}.

@@ -12,7 +12,7 @@ confer mathematical validation.
 
 ## Current classification
 
-The [current research account](../docs/RESEARCH_STATUS.md) records **35 decisions among 38 cases**: 28 proposed general exclusions and 7 unitary constructions. Three general questions remain open: `R6_4_155`, `R6_8_1660` and `R8_2_24`. The combined residual program records 139 decisions (119 exclusions and 20 constructions), all subject to independent mathematical verification.
+The [current research account](../docs/RESEARCH_STATUS.md) records **36 decisions among 38 cases**: 29 proposed general exclusions and 7 unitary constructions. Two general questions remain open: `R6_4_155` and `R6_8_1660`. The combined residual program records 140 decisions (120 exclusions and 20 constructions), all subject to independent mathematical verification.
 
 [All 38 cases and current proof references](CASE_INVENTORY.md).
 
@@ -21,15 +21,15 @@ Rank six records **25,362 exclusions, 57 realizations and
 range ends at three; exact bands 1, 2, 3, 5, 6, 7, 9 are complete. Rank seven records
 **4,172 exclusions and 29 realizations**,
 with no open case through multiplicity four. Rank eight records
-**895 exclusions, 77 realizations and
-one open case** through multiplicity two: multiplicity one is complete and
-multiplicity two is partial.
+**896 exclusions and 77 realizations**,
+with no open case through multiplicity two. The general exclusion of
+`R8_2_24` uses an inner-square obstruction from short gauge weights and
+tensor-functor rigidity.
 
 | Open ring | Established necessary restrictions | Remaining question |
 |---|---|---|
-| `R6_4_155` | A unique rank-26 semion-centralizer modular candidate; a rank-22 based module satisfies the fermion Azumaya linking identities. | Coherent associators and module-category structures, or a general obstruction. |
-| `R6_8_1660` | One relative-center based ring, three possible Morita-dual rings and a bounded center-profile domain; saturated traces force `nu_3(T)=2`. | A categorification or an obstruction covering every possible profile. |
-| `R8_2_24` | A rank-four neutral component and a required tensor autoequivalence whose square is the indicated inner action. | A general categorical obstruction or construction; the mixed transport identities in the proposed local approach are unproved. |
+| `R6_4_155` | A unique rank-26 modular candidate and a rank-22 based module; odd cyclic Clifford constraints pass on all 1,144 tested blocks, and the all-order path divisibility condition holds. | Coherent associators and module-category structures, or a general obstruction. |
+| `R6_8_1660` | In the positive spherical representative, all indicator sequences and central phase masses are determined; eight spin objects form four dual pairs, and 640 labelled restriction-data profiles remain in branches 68, 286, 286. | A categorification or an obstruction covering every possible profile. |
 
 A necessary-condition witness is neither a categorification nor a general
 nonexistence proof. Scoped unitary, pseudo-unitary, pivotal or braided

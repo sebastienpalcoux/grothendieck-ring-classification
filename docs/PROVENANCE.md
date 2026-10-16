@@ -21,9 +21,9 @@ certificate. Classification decisions are separate from census completeness.
 | 5 | Through 20 | Complete: 17 models and 40,982 exclusions. |
 | 6 | Through 9 | Complete through 3 and exact bands 1, 2, 3, 5, 6, 7, 9; two open cases. |
 | 7 | Through 4 | Complete: 29 models and 4,172 exclusions. |
-| 8 | Through 2 | Complete through 1; multiplicity 2 partial: 77 models, 895 exclusions, one open case in total. |
+| 8 | Through 2 | Complete: 77 models and 896 exclusions. |
 
-The [current research account](../docs/RESEARCH_STATUS.md) records **35 decisions among 38 cases**: 28 proposed general exclusions and 7 unitary constructions. Three general questions remain open: `R6_4_155`, `R6_8_1660` and `R8_2_24`. The combined residual program records 139 decisions (119 exclusions and 20 constructions), all subject to independent mathematical verification.
+The [current research account](../docs/RESEARCH_STATUS.md) records **36 decisions among 38 cases**: 29 proposed general exclusions and 7 unitary constructions. Two general questions remain open: `R6_4_155` and `R6_8_1660`. The combined residual program records 140 decisions (120 exclusions and 20 constructions), all subject to independent mathematical verification.
 
 The [current document manifest](../data/current_document_revision.json) binds
 the manuscript sources, PDFs and web copies. The
@@ -38,7 +38,7 @@ ledgers and records every exact-multiplicity partition.
 | 5 | `12886636134e0500a403ae1b635f5b901612d64b203dad1e1fdf94b0da2c31f1` | 40,999 | 40,982 excluded; 17 realized |
 | 6 | `abb36cb0e7f9196e0a231cb85a601c82a1c8fd398996f77a8961487a7ca692e5` | 25,421 | 25,362 excluded; 57 realized; 2 open |
 | 7 | `00edf884caa59384a1f7b9a91d7273539306443035db5144c02f9bda5bda3d2b` | 4,201 | 4,172 excluded; 29 realized; 0 open |
-| 8 | `d77a3aa234d86db69c2cf47499d857ba991ca8d29f0e5cc8c3cd09a4eaff2d51` | 973 | 895 excluded; 77 realized; 1 open |
+| 8 | `7f50213174f1020bb9d90d5981892c332448cf909a56bf60b29e1143228f3f24` | 973 | 896 excluded; 77 realized; 0 open |
 
 Rank-six realizations comprise 56 unitary models and one spherical model whose
 ring has no pseudo-unitary categorification. The rank-four certificate contains

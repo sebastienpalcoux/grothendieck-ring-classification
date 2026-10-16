@@ -1,0 +1,390 @@
+{
+  "checker": "rank8/verify_full_f_weights.py",
+  "python_optimization": 0,
+  "result": {
+    "status": "PASS",
+    "categorical_normalization_certified": false,
+    "classification_decisions": 0,
+    "independent_weight_pairs_checked": 104,
+    "J_reflection_phase_checks": 5888,
+    "nonempty_F_blocks": 136,
+    "full_F_coefficient_slots": 1472,
+    "weight_set": [
+      [
+        -4,
+        0
+      ],
+      [
+        -2,
+        -2
+      ],
+      [
+        -2,
+        0
+      ],
+      [
+        -2,
+        2
+      ],
+      [
+        0,
+        -4
+      ],
+      [
+        0,
+        -2
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        2
+      ],
+      [
+        0,
+        4
+      ],
+      [
+        2,
+        -2
+      ],
+      [
+        2,
+        0
+      ],
+      [
+        2,
+        2
+      ],
+      [
+        4,
+        0
+      ]
+    ],
+    "weight_counts": {
+      "(0, 0)": 544,
+      "(2, 0)": 176,
+      "(-2, 0)": 176,
+      "(0, 2)": 176,
+      "(0, -2)": 176,
+      "(4, 0)": 8,
+      "(2, -2)": 48,
+      "(2, 2)": 48,
+      "(-4, 0)": 8,
+      "(-2, -2)": 48,
+      "(-2, 2)": 48,
+      "(0, 4)": 8,
+      "(0, -4)": 8
+    },
+    "root_cases": [
+      {
+        "u_exponent_mod8": 1,
+        "v_exponent_mod8": 1,
+        "torus_slope": 1,
+        "allowed_weights": [
+          [
+            -2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            2,
+            -2
+          ]
+        ]
+      },
+      {
+        "u_exponent_mod8": 1,
+        "v_exponent_mod8": 3,
+        "torus_slope": -1,
+        "allowed_weights": [
+          [
+            -2,
+            -2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            2,
+            2
+          ]
+        ]
+      },
+      {
+        "u_exponent_mod8": 1,
+        "v_exponent_mod8": 5,
+        "torus_slope": 1,
+        "allowed_weights": [
+          [
+            -2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            2,
+            -2
+          ]
+        ]
+      },
+      {
+        "u_exponent_mod8": 1,
+        "v_exponent_mod8": 7,
+        "torus_slope": -1,
+        "allowed_weights": [
+          [
+            -2,
+            -2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            2,
+            2
+          ]
+        ]
+      },
+      {
+        "u_exponent_mod8": 3,
+        "v_exponent_mod8": 1,
+        "torus_slope": -1,
+        "allowed_weights": [
+          [
+            -2,
+            -2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            2,
+            2
+          ]
+        ]
+      },
+      {
+        "u_exponent_mod8": 3,
+        "v_exponent_mod8": 3,
+        "torus_slope": 1,
+        "allowed_weights": [
+          [
+            -2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            2,
+            -2
+          ]
+        ]
+      },
+      {
+        "u_exponent_mod8": 3,
+        "v_exponent_mod8": 5,
+        "torus_slope": -1,
+        "allowed_weights": [
+          [
+            -2,
+            -2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            2,
+            2
+          ]
+        ]
+      },
+      {
+        "u_exponent_mod8": 3,
+        "v_exponent_mod8": 7,
+        "torus_slope": 1,
+        "allowed_weights": [
+          [
+            -2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            2,
+            -2
+          ]
+        ]
+      },
+      {
+        "u_exponent_mod8": 5,
+        "v_exponent_mod8": 1,
+        "torus_slope": 1,
+        "allowed_weights": [
+          [
+            -2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            2,
+            -2
+          ]
+        ]
+      },
+      {
+        "u_exponent_mod8": 5,
+        "v_exponent_mod8": 3,
+        "torus_slope": -1,
+        "allowed_weights": [
+          [
+            -2,
+            -2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            2,
+            2
+          ]
+        ]
+      },
+      {
+        "u_exponent_mod8": 5,
+        "v_exponent_mod8": 5,
+        "torus_slope": 1,
+        "allowed_weights": [
+          [
+            -2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            2,
+            -2
+          ]
+        ]
+      },
+      {
+        "u_exponent_mod8": 5,
+        "v_exponent_mod8": 7,
+        "torus_slope": -1,
+        "allowed_weights": [
+          [
+            -2,
+            -2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            2,
+            2
+          ]
+        ]
+      },
+      {
+        "u_exponent_mod8": 7,
+        "v_exponent_mod8": 1,
+        "torus_slope": -1,
+        "allowed_weights": [
+          [
+            -2,
+            -2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            2,
+            2
+          ]
+        ]
+      },
+      {
+        "u_exponent_mod8": 7,
+        "v_exponent_mod8": 3,
+        "torus_slope": 1,
+        "allowed_weights": [
+          [
+            -2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            2,
+            -2
+          ]
+        ]
+      },
+      {
+        "u_exponent_mod8": 7,
+        "v_exponent_mod8": 5,
+        "torus_slope": -1,
+        "allowed_weights": [
+          [
+            -2,
+            -2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            2,
+            2
+          ]
+        ]
+      },
+      {
+        "u_exponent_mod8": 7,
+        "v_exponent_mod8": 7,
+        "torus_slope": 1,
+        "allowed_weights": [
+          [
+            -2,
+            2
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            2,
+            -2
+          ]
+        ]
+      }
+    ],
+    "scope": "All F-slot parity and weight bounds, and finite torus-annihilator implication; categorical structural normalization remains an independent premise."
+  },
+  "scope": "Complete F-slot parity and short-weight lattice and reflection phases; structural normalization is a mathematical premise."
+}

@@ -18,6 +18,7 @@ STAGE_C_TOTALS = {
 THEORETICAL = "theoretical_20261016"
 UNIFIED = "unified_20261016"
 REVIEW = "review_20261017"
+RIGIDITY = "rigidity_20261017"
 
 def require(ok, message):
     if not ok:
@@ -115,12 +116,37 @@ def load_stages(repo, status=None):
         decisions = [d for d in decisions if d['id'] != 'R8_2_24']
         totals = collections.Counter(d['status'] for d in decisions)
         expected = json.loads((review_path.parent / 'expected_totals.json').read_text())
-        if status is not None:
+        if status is not None and not (repo / 'evidence' / RIGIDITY / 'decisions.json').is_file():
             require(all(status['inputs']['rank' + r]['status_totals'] == v
                         for r, v in expected.items() if r in ('7', '8')),
                     'Refresh review-corrected status before rendering')
         latest = REVIEW
+    rigidity_path = repo / 'evidence' / RIGIDITY / 'decisions.json'
+    rigidity = False
+    if rigidity_path.is_file():
+        accepted = json.loads(rigidity_path.read_text())
+        additions = json.loads((rigidity_path.parent / 'new_decisions.json').read_text())
+        require(len(additions) == 1 and additions[0]['id'] == 'R8_2_24'
+                and additions[0]['status'] == 'excluded'
+                and additions[0]['scope'] == 'general_complex', 'Exact rigidity-stage decision')
+        require(accepted == unified + additions and len(accepted) == 36,
+                'Rigidity stage preserves the complete accepted continuation')
+        require(not {d['id'] for d in additions}.intersection(d['id'] for d in decisions),
+                'Rigidity decision overlaps accepted stages')
+        decisions += additions
+        unified = accepted
+        totals = collections.Counter(d['status'] for d in decisions)
+        require(totals == {'excluded': 120, 'unitarily_realized': 20},
+                'Combined residual program inventory')
+        expected = json.loads((rigidity_path.parent / 'expected_totals.json').read_text())
+        if status is not None:
+            require(all(status['inputs']['rank' + r]['status_totals'] == v
+                        for r, v in expected.items() if r in ('7', '8')),
+                    'Refresh rigidity-stage status before rendering')
+        latest = RIGIDITY
+        rigidity = True
     return {"latest": latest, "decisions": decisions, "continuation": bool(extra),
+            "rigidity": rigidity,
             "review": review, "historical_unified_count": len(historical_unified),
             "theoretical": bool(advance), "theoretical_count": len(advance),
             "unified": bool(unified), "unified_count": len(unified),
@@ -137,8 +163,10 @@ def overview(stage, prefix=""):
         return (f"The [current research account]({prefix}docs/RESEARCH_STATUS.md) "
                 f"records **{stage['unified_count']} decisions among 38 cases**: "
                 f"{stage['unified_exclusions']} proposed general exclusions and "
-                f"{stage['unified_models']} unitary constructions. "
-                "Three general questions remain open: `R6_4_155`, `R6_8_1660` and `R8_2_24`. "
+                f"{stage['unified_models']} unitary constructions. " +
+                ("Two general questions remain open: `R6_4_155` and `R6_8_1660`. "
+                 if stage.get('rigidity') else
+                 "Three general questions remain open: `R6_4_155`, `R6_8_1660` and `R8_2_24`. ") +
                 f"The combined residual program records {stage['count']} decisions "
                 f"({stage['exclusions']} exclusions and {stage['models']} constructions), "
                 "all subject to independent mathematical verification.")

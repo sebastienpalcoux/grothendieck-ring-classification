@@ -1,0 +1,35 @@
+{
+  "schema": "rank6-frontier-research-progress/v1",
+  "date": "2026-10-01",
+  "scope": "Current audited necessary reductions for the two unresolved rings; no classification or existence status changes. Historical source-bound data/frontier_summary.json retains its earlier-stage summaries.",
+  "historical_summary": "data/frontier_summary.json",
+  "research_directory": "research/frontier/new_research",
+  "classification_counts": {
+    "total": 25421,
+    "excluded": 25362,
+    "realized": 57,
+    "unresolved": 2
+  },
+  "cases": [
+    {
+      "id": "R6_4_155",
+      "categorical_status": "unresolved",
+      "public_summary": "The unique rank-26 semion-centralizer modular candidate is completely reconstructed, with nonnegative integral Verlinde coefficients (maximum 9), ten self-dual objects, and all stated finite Vafa and indicator checks passing. The rank-52 center would have twenty self-dual objects. No categorification is known.",
+      "current_status": "research/frontier/R6_4_155/CURRENT_STATUS.md",
+      "proof_chapters": [
+        "papers/chapters/frontier_155_modular.tex",
+        "papers/chapters/frontier_155_categorical.tex"
+      ]
+    },
+    {
+      "id": "R6_8_1660",
+      "categorical_status": "unresolved",
+      "public_summary": "One relative-center based ring and 1669 labelled center profiles remain, in branches 163, 753, 753. Every indecomposable module category has six simples; exact Morita and indicator reductions leave three possible dual based rings. No categorification is known.",
+      "current_status": "research/frontier/R6_8_1660/CURRENT_STATUS.md",
+      "proof_chapters": [
+        "papers/chapters/frontier_1660_morita.tex",
+        "papers/chapters/frontier_1660_galois.tex"
+      ]
+    }
+  ]
+}

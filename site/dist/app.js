@@ -285,7 +285,7 @@ function renderTheoreticalUpdate() {
   const completion = (update.remaining["7"] === 0 ? " Rank seven is complete through multiplicity four." : "") + (update.remaining["8"] === 0 ? " Rank eight is complete through multiplicity two." : " Rank eight is complete through multiplicity one; multiplicity two is partial.");
   $("#research-update-summary").textContent = `The continuation records ${update.decisions.length} decisions among ${update.original_case_count || 38} cases: ${update.by_rank["7"]} at rank seven and ${update.by_rank["8"]} at rank eight.${completion}${openText}`;
   $("#theoretical-update-heading").textContent = `${date} · ${update.decisions.length} decisions · ${Object.values(update.remaining).reduce((a,b)=>a+b,0)} open cases`;
-  $("#theoretical-update-scope").textContent = "The continuation gives 28 proposed general exclusions and 7 unitary constructions. R6_4_155, R6_8_1660 and R8_2_24 remain open. The methods combine Morita theory, Frobenius–Schur indicators, center constraints, algebraic planar algebras and tensor coherence. The bundle includes current manuscripts, proofs, exact replay programs and the unresolved inventory. Independent human verification and Lean formalization remain pending.";
+  $("#theoretical-update-scope").textContent = "The continuation gives 29 proposed general exclusions and 7 unitary constructions. R6_4_155 and R6_8_1660 remain open. The methods combine Morita theory, Frobenius–Schur indicators, center constraints, algebraic planar algebras and tensor-functor rigidity. The inner-square obstruction settles R8_2_24 over the complex numbers. The bundle includes current manuscripts, proofs, exact replay programs and the unresolved inventory. Independent human verification and Lean formalization remain pending.";
   const base = `${state.data.classification_repository}/blob/${state.data.classification_commit || "main"}/docs/RESEARCH_STATUS.md`;
   $("#latest-research-source").href = base;
   $("#latest-research-source").textContent = `${date} proofs and remaining cases ↗`;
@@ -338,6 +338,7 @@ function renderTheoreticalUpdate() {
     cyclic_induction_phase_multiplicity: "Cyclic induction phase multiplicity",
     cyclic_induction_STS_fourth_moment: "Full center STS and fourth indicator",
     projective_inner_square_obstruction: "Projective inner-square obstruction",
+    inner_square_torus_rigidity: "Inner-square obstruction by short gauge weights and rigidity",
     dihedral_Morita_R18_obstruction: "Dihedral Morita and center STS",
     PSU3_inverse_Morita_rigidity: "Quantum-group inverse Morita rigidity",
     C16_orbifold_inversion_Morita: "Unitary orbifold and reflection dual",
@@ -350,7 +351,7 @@ function renderTheoreticalUpdate() {
     const row = element("tr");
     const name = element("th", "", record.id); name.scope = "row";
     const proof = element("a", "", `${labels[record.criterion] || "Theoretical proof"} ↗`);
-    proof.href = `${state.data.classification_repository}/blob/${state.data.classification_commit || "main"}/${update.proofs_source || update.source}/${record.proof}`;
+    proof.href = `${state.data.classification_repository}/blob/${state.data.classification_commit || "main"}/${record.proof_source || update.proofs_source || update.source}/${record.proof}`;
     proof.target = "_blank"; proof.rel = "noopener";
     const cell = element("td"); cell.append(proof); row.append(name, cell); rows.append(row);
   }

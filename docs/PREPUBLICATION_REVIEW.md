@@ -11,19 +11,19 @@ establish, and where mathematical verification is still needed.
 
 ## Mathematical scope
 
-The [current research account](../docs/RESEARCH_STATUS.md) records **35 decisions among 38 cases**: 28 proposed general exclusions and 7 unitary constructions. Three general questions remain open: `R6_4_155`, `R6_8_1660` and `R8_2_24`. The combined residual program records 139 decisions (119 exclusions and 20 constructions), all subject to independent mathematical verification.
+The [current research account](../docs/RESEARCH_STATUS.md) records **36 decisions among 38 cases**: 29 proposed general exclusions and 7 unitary constructions. Two general questions remain open: `R6_4_155` and `R6_8_1660`. The combined residual program records 140 decisions (120 exclusions and 20 constructions), all subject to independent mathematical verification.
 
 | Open ring | Established necessary restrictions | Remaining question |
 |---|---|---|
-| `R6_4_155` | A unique rank-26 semion-centralizer modular candidate; a rank-22 based module satisfies the fermion Azumaya linking identities. | Coherent associators and module-category structures, or a general obstruction. |
-| `R6_8_1660` | One relative-center based ring, three possible Morita-dual rings and a bounded center-profile domain; saturated traces force `nu_3(T)=2`. | A categorification or an obstruction covering every possible profile. |
-| `R8_2_24` | A rank-four neutral component and a required tensor autoequivalence whose square is the indicated inner action. | A general categorical obstruction or construction; the mixed transport identities in the proposed local approach are unproved. |
+| `R6_4_155` | A unique rank-26 modular candidate and a rank-22 based module; odd cyclic Clifford constraints pass on all 1,144 tested blocks, and the all-order path divisibility condition holds. | Coherent associators and module-category structures, or a general obstruction. |
+| `R6_8_1660` | In the positive spherical representative, all indicator sequences and central phase masses are determined; eight spin objects form four dual pairs, and 640 labelled restriction-data profiles remain in branches 68, 286, 286. | A categorification or an obstruction covering every possible profile. |
 
-For `R8_2_24`, an eight-slot local calculation is conditional on mixed
-categorical transport identities. Verifying its algebra does not prove those
-identities. In particular, the incoming left-bend uses the complementary index;
-a diagonal condition alone does not establish decorated-phase cancellation.
-No general exclusion is counted for this case.
+For `R8_2_24`, the general-complex proof passes to a pseudo-unitary Galois
+conjugate, forces the neutral indicators by saturated modular compression,
+and excludes the required square root of an inner tensor functor. The proof
+uses a simultaneous pivotal chart, short associator weights and finiteness
+of tensor functors. Its [theoretical argument and independent AI audits](../evidence/rigidity_20261017/README.md)
+are separate from the source and finite-weight checks.
 
 The review examines general versus pivotal or pseudo-unitary scope, cited
 hypotheses, sphericalization and Galois reductions, Morita constructions,

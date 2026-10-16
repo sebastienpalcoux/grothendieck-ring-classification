@@ -221,17 +221,15 @@ def main():
         "realized": release["positive"], "unresolved": release["unresolved"],
         "analyzed_through": release_bands[-1],
         "complete_through": next(record["through"] for record in scope if record["rank"] == 6),
-        "research_summary": "Both rank-six cases remain open. Their center, module and indicator constraints are necessary conditions; no categorification or general exclusion has been established.",
-        "research_cases": [
-            {"id": "R6_4_155", "categorical_status": "unresolved", "public_summary": "The rank-52 center candidate, its rank-26 modular factor and a rank-22 based module pass the recorded exact compatibility tests, including 234,256 linking identities. Constructing coherent associators, module data and the required algebra remains open."},
-            {"id": "R6_8_1660", "categorical_status": "unresolved", "public_summary": "Saturated modular traces force nu_3(T)=2 and two conjugate options for nu_3(X). A specific rank-37 witness fails Verlinde integrality. The other center profiles remain open; no general exclusion or categorification is established."},
-        ],
+        "research_summary": coverage.get("research_summary", coverage.get("scope", "")),
+        "research_cases": [{key: case[key] for key in ("id", "categorical_status", "public_summary")}
+                           for case in coverage["cases"]],
         "research_coverage_path": "data/rank6_research_coverage.json",
         "research_coverage_source": coverage_source.relative_to(repo).as_posix(),
         "research_coverage_chain": [{
             "source": source.relative_to(repo).as_posix(),
             "path": (f"data/rank6_research_coverage_{record['date'].replace('-', '')}"
-                     + ("_unified" if "unified_20261016" in source.parts else "") + ".json"),
+                     + ("_unified" if "unified_20261016" in source.parts else "_rigidity" if "rigidity_20261017" in source.parts else "") + ".json"),
             "sha256": hashlib.sha256(source.read_bytes()).hexdigest(), "date": record["date"],
         } for source, record in coverage_chain],
         "identity_path": "data/rank6_release_identity.json",
@@ -321,7 +319,7 @@ def main():
             "archive": {"path": "downloads/" + archive_source.name, "sha256": archive_hash, "bytes": archive_source.stat().st_size},
         }
     stage_path = next(("evidence/" + name for name in
-                       ("review_20261017", "unified_20261016", "theoretical_20261016")
+                       ("rigidity_20261017", "review_20261017", "unified_20261016", "theoretical_20261016")
                        if (repo / "evidence" / name / "decisions.json").is_file()),
                       "evidence/theoretical_20261016")
     stage_name = stage_path.split("/")[-1]
@@ -331,13 +329,18 @@ def main():
         remaining = json.loads((stage / "remaining_ids.json").read_text())
         expected_totals = json.loads((stage / "expected_totals.json").read_text())
         is_review = stage_name == "review_20261017"
-        stage_date = "2026-10-17" if is_review else "2026-10-16"
-        proofs_source = "evidence/unified_20261016" if is_review else stage_path
+        is_rigidity = stage_name == "rigidity_20261017"
+        is_current = is_review or is_rigidity
+        stage_date = "2026-10-17" if is_current else "2026-10-16"
+        proofs_source = "evidence/unified_20261016" if is_current else stage_path
         if is_review:
             if len(decisions) != 35 or any(record["id"] == "R8_2_24" for record in decisions):
                 raise ValueError("The current continuation requires 35 decisions and an open R8_2_24")
             if remaining != {"6": ["R6_4_155", "R6_8_1660"], "7": [], "8": ["R8_2_24"]}:
                 raise ValueError("The current record must retain exactly the three open cases")
+        if is_rigidity:
+            if len(decisions) != 36 or remaining != {"6": ["R6_4_155", "R6_8_1660"], "7": [], "8": []}:
+                raise ValueError("The rigidity stage requires 36 decisions and exactly two open rank-six cases")
         if not decisions or len({record["id"] for record in decisions}) != len(decisions):
             raise ValueError("The theoretical update must have distinct decisions")
         if any(record["status"] not in ("excluded", "unitarily_realized") or record["scope"] != "general_complex" or record["rank"] not in (7,8) for record in decisions):
@@ -350,7 +353,7 @@ def main():
             for decision in (record for record in decisions if record["rank"] == rank):
                 if current[decision["id"]]["status"] != decision["status"]:
                     raise ValueError("Theoretical-update decision missing from ledger: " + decision["id"])
-                if not (repo / proofs_source / decision["proof"]).is_file():
+                if not (repo / decision.get("proof_source", proofs_source) / decision["proof"]).is_file():
                     raise ValueError("Missing theoretical proof: " + decision["proof"])
             actual = {key: sum(record["status"] == key for record in ledger)
                       for key in ("excluded", "unitarily_realized", "unresolved")}
@@ -363,7 +366,7 @@ def main():
                 raise ValueError(f"Rank-{rank} remaining cases differ from the current ledger")
         if remaining["6"] != release["unresolved_ids"]:
             raise ValueError("Theoretical update changes the rank-six unresolved inventory")
-        archive_name = ("review" if is_review else "unified" if stage_name.startswith("unified") else "theoretical") + "-update-" + stage_date + ".zip"
+        archive_name = ("review" if is_current else "unified" if stage_name.startswith("unified") else "theoretical") + "-update-" + stage_date + ".zip"
         archive_source = repo / "site/dist/downloads" / archive_name
         if not archive_source.is_file():
             raise FileNotFoundError("Missing current theoretical update archive: " + str(archive_source))
@@ -372,7 +375,7 @@ def main():
                        if name == "decisions.json" or name.endswith(stage_name + "/decisions.json")]
             if len(matches) != 1 or json.loads(bundle.read(matches[0])) != decisions:
                 raise ValueError("Theoretical update archive contains stale or missing decision records")
-            if is_review:
+            if is_current:
                 for relative in set(revision["web_copies"].values()) | {"data/current_document_revision.json"}:
                     source = repo / relative
                     documents = [name for name in bundle.namelist()
@@ -402,7 +405,7 @@ def main():
                         "bytes": archive_source.stat().st_size,
                         "sha256": hashlib.sha256(archive_source.read_bytes()).hexdigest()},
         }
-        if is_review:
+        if is_current:
             data["theoretical_update"]["original_case_count"] = 38
         data["snapshot"] = max(data["snapshot"], data["theoretical_update"]["date"])
     output.parent.mkdir(parents=True, exist_ok=True)
@@ -417,6 +420,16 @@ def main():
     with (output.parent / "grothendieck_counts.csv").open("w", newline="") as stream:
         writer=csv.DictWriter(stream,fieldnames=("rank","multiplicity","rings","is_lower_bound"))
         writer.writeheader();writer.writerows(positive_rows)
+    # Keep the repository's reader-facing aliases on the same exact snapshot.
+    aliases = {"data/atlas.json", "data/rank6_research_coverage.json",
+               "data/rank6_document_revision.json"}
+    aliases.update(entry["path"] for entry in data["rank6_release"]["research_coverage_chain"])
+    aliases.update(entry["path"] for entry in data.get("theoretical_update", {}).get("files", {}).values())
+    for relative in sorted(aliases):
+        source = HERE / "dist" / relative
+        target = repo / relative
+        if source.resolve() != target.resolve():
+            shutil.copy2(source, target)
     print(f"Wrote {len(rows)} count rows to {output}")
 
 

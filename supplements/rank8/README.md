@@ -5,13 +5,13 @@
 > independently verified by human experts or formalized in Lean. Automated
 > checks establish only their stated computational scope.
 
-The authoritative decision ledger is [`data/decisions.json`](data/decisions.json). Classification is complete through multiplicity 1. Multiplicity 2 is partial; `R8_2_24` remains open.
+The authoritative decision ledger is [`data/decisions.json`](data/decisions.json). Classification is complete through multiplicity 2.
 
 | Exact multiplicity | Rings | General exclusions | Unitary models | Open |
 |---:|---:|---:|---:|---:|
 | 1 | 96 | 48 | 48 | 0 |
-| 2 | 877 | 847 | 29 | 1 |
-| **Total** | **973** | **895** | **77** | **1** |
+| 2 | 877 | 848 | 29 | 0 |
+| **Total** | **973** | **896** | **77** | **0** |
 
 [Manuscript source](../../manuscripts/rank8/paper/rank8.tex) · [PDF](../../manuscripts/rank8/paper/rank8.pdf) · [Research status](../../docs/RESEARCH_STATUS.md)
 

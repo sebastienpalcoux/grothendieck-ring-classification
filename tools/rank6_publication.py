@@ -10,6 +10,7 @@ RESEARCH_UPDATES=(
     'evidence/rank6_theoretical_20261011/research_progress.json',
     'evidence/theoretical_20261016/rank6/research_progress.json',
     'evidence/unified_20261016/rank6/research_progress.json',
+    'evidence/rigidity_20261017/rank6/research_progress.json',
 )
 DOCUMENT_REVISION='data/current_document_revision.json'
 COMPLETION_ROOT='research/exclusions/m9_completion'

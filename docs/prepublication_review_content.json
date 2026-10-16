@@ -3,7 +3,7 @@
   "version": "Current classification and verification scope",
   "title": "Research status and verification",
   "caution": "AI-generated research · independent verification pending. The results, proofs, code and data have not yet been independently verified by human experts or formalized in Lean. Use them with caution; exact checks establish only their stated computational scope.",
-  "summary": "The targeted study records 35 decisions among 38 cases: 28 exclusions and seven unitary constructions. Three general categorification questions remain open: R6_4_155, R6_8_1660 and R8_2_24. A feasible set of necessary conditions is not a categorical construction, and a conditional obstruction is not a nonexistence proof.",
+  "summary": "The targeted study records 36 decisions among 38 cases: 29 exclusions and seven unitary constructions. Two general categorification questions remain open: R6_4_155 and R6_8_1660. Rank eight is complete through multiplicity two. A feasible set of necessary conditions is not a categorical construction.",
   "rank_counts": [
     {
       "rank": 4,
@@ -41,41 +41,32 @@
       "rank": 8,
       "bound": 2,
       "rings": 973,
-      "excluded": 895,
+      "excluded": 896,
       "models": 77,
-      "open": 1
+      "open": 0
     }
   ],
   "coverage_notes": [
     "Ranks two, three and four are classified without a multiplicity restriction. Exactly fifteen rank-four Grothendieck rings occur, and every rank-four categorification admits a spherical structure. The table records the separate finite censuses.",
     "The bound is the largest multiplicity included in the displayed census, not necessarily a complete classification range. Rank six is complete through multiplicity three; its exact bands 5, 6, 7 and 9 are also complete, while bands 4 and 8 each contain one open case.",
-    "Rank eight is complete through multiplicity one, with exactly 48 Grothendieck rings. At exact multiplicity two it records 847 exclusions, 29 unitary models and one open case. There are therefore 29 or 30 general complex Grothendieck rings in that band.",
+    "Rank eight is complete through multiplicity two: 48 Grothendieck rings at exact multiplicity one and 29 at exact multiplicity two. The latter band contains 848 exclusions and 29 unitary models.",
     "Rank-six models comprise 56 unitary constructions and one spherical construction that is not pseudo-unitary. Completeness means coverage of the stated census by the project's recorded arguments; it does not assert independent human or formal verification."
   ],
   "open_cases": [
     {
       "id": "R6_4_155",
-      "heading": "A general existence question",
+      "heading": "Odd cyclic Clifford constraints",
       "paragraphs": [
-        "Neither a general complex categorification nor a general exclusion is established. The available reductions and necessary-condition calculations narrow the problem but do not construct an associator or supply a complete contradiction.",
-        "The applicable spherical reduction is Proposition 7.1 of the rank-six manuscript. Its use must remain distinct from the conclusion that a categorification exists."
+        "Every odd generalized pivotal rotation must factor through a cyclic spin character. All 1,144 tested blocks pass. The all-order path-Clifford divisibility condition for the source family holds exactly at even parameter values, including the parameter four of this case.",
+        "The unique rank-26 modular candidate and rank-22 based-module witness remain necessary data. No compatible associators, coherent module category or general obstruction is established."
       ]
     },
     {
       "id": "R6_8_1660",
-      "heading": "Necessary center data do not settle categorification",
+      "heading": "Complete indicators and central phase masses",
       "paragraphs": [
-        "The unrestricted sphericalization reduction in Section 7.5 of the rank-six manuscript is source-bound and has been replayed. It checks 640 signed quotients, 24 sign orbits and 58 nongauge character rejections.",
-        "A rank-37 Verlinde obstruction rejects a particular candidate witness, not the source fusion ring. Both existence and general nonexistence remain unresolved."
-      ]
-    },
-    {
-      "id": "R8_2_24",
-      "heading": "An inner-square condition with a transport gap",
-      "paragraphs": [
-        "Any complex categorification has a pseudo-unitary Galois conjugate whose rank-four neutral subcategory has 2D2 fusion rules. Conjugation by an odd invertible must fix all neutral simple labels and square tensor-isomorphically to conjugation by the neutral involution.",
-        "There is no unitary categorification, and a more general obstruction applies when the neutral category lies in the Galois class of the known unitary one. These scoped results do not settle the general complex case.",
-        "The candidate eight-slot coefficient argument requires four oriented B/C categorical transport identities in a common pivotal frame. The signs arising from the oriented crossing and the skew self-duality of the invertible object have not been established. The finite algebra and normalized unit contraction do not prove those transports. The conditional calculation contributes no classification decision."
+        "In the positive spherical representative, saturated modular representations determine all indicator sequences and every central phase mass. The eight spin objects form four dual pairs, all with restriction 2X+2gX+sigma+3T.",
+        "Exact phase Gram constraints leave 640 labelled restriction-data profiles in three branches of 68, 286 and 286. These profiles are neither categories nor complete modular fusion data. They do not construct compatible associators or exclude all categorifications."
       ]
     }
   ],
@@ -92,7 +83,13 @@
       "heading": "Ranks seven and eight",
       "paragraphs": [
         "The complete base-certificate loops passed in normal Python. Separate source-bound transition replays and current-ledger checks passed in normal and optimized Python with exact parent restoration. These checks account for the current partitions displayed in this note.",
-        "The rank-eight base replay checks all 973 records, including 75 signed proof trees, four rank-seven subring proof transfers and six appendix tensor transfers. These finite checks do not establish the open R8_2_24 categorical transport identities."
+        "The rank-eight base replay checks all 973 records, including 75 signed proof trees, four rank-seven subring proof transfers and six appendix tensor transfers. The R8_2_24 rigidity package separately checks its canonical tensor, neutral fusion rules and finite associator-weight claims; the categorical proof has separate AI audits."
+      ]
+    },
+    {
+      "heading": "Rank-six necessary conditions",
+      "paragraphs": [
+        "The odd cyclic Clifford checker passes all 1,144 tested blocks and its invalid-input controls. Independent exact indicator and phase-mass checks cover both conjugate choices for the second residual; the complete profile allocation leaves 640 labelled possibilities. Normal and optimized replays pass within this necessary-condition scope."
       ]
     },
     {
@@ -118,11 +115,20 @@
     },
     {
       "term": "Categorical argument",
-      "meaning": "A claimed construction or obstruction must prove the hypotheses connecting the finite calculation to a fusion category. An unproved transport identity is not supplied by an arithmetic PASS."
+      "meaning": "A claimed construction or obstruction must establish the hypotheses connecting the finite calculation to a fusion category. Source and arithmetic checks support a categorical proof only within their stated scope."
     },
     {
       "term": "Independent review",
       "meaning": "Separate AI review passes are not independent human verification. No human verification or Lean formalization is claimed here."
+    }
+  ],
+  "theoretical_results": [
+    {
+      "heading": "Rank eight: an inner-square obstruction",
+      "paragraphs": [
+        "For R8_2_24, a hypothetical complex categorification has a pseudo-unitary Galois conjugate with a rank-four neutral component. Saturated modular compression forces its second indicators. Conjugation by an odd invertible would fix every neutral simple label and square to conjugation by the neutral involution.",
+        "A simultaneous pivotal chart and the short weights of associator coefficients show that such a square root would yield infinitely many inequivalent tensor functors between fixed fusion categories. Tensor-functor rigidity excludes this, giving a general complex obstruction. The source and finite-weight checks support the argument within their stated scope; its categorical reasoning remains subject to independent mathematical verification."
+      ]
     }
   ]
 }

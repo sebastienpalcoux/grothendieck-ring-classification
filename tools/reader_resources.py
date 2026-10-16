@@ -9,7 +9,7 @@ import itertools
 import json
 
 ROOT = Path(__file__).resolve().parents[1]
-IDS = ('R6_4_155', 'R6_8_1660', 'R8_2_24')
+IDS = ('R6_4_155', 'R6_8_1660')
 RESOURCE_NAMES = ('remaining_cases.py', 'manuscript_page_counts.json')
 PAPERS = (
     ('Rank two', 'rank2.pdf', 'mathematical_manuscript'),
@@ -67,29 +67,20 @@ def validate_tensor(tensor):
 
 def source_cases(repo):
     path6 = 'supplements/rank6/data/unresolved_tensors.json'
-    path8 = 'supplements/rank8/data/rank8_tables.txt.gz'
     records6 = {r['id']: r for r in json.loads((repo / path6).read_text())}
-    with gzip.open(repo / path8, 'rt') as stream:
-        rows = [json.loads(line.replace('{', '[').replace('}', ']')) for line in stream if line.strip()]
-    rows = sorted((r for r in rows if max(flat(r)) == 2), key=flat)
-    tensor8 = rows[23]
-    need(tensor_hash(tensor8) == '2b4780441d9590e8e7269cd82b7675aa75cec11c39bd3e94bb372cca1ada6738',
-         'Exact R8_2_24 source identity')
-    tensors = {name: records6[name]['N'] for name in IDS[:2]}
-    tensors[IDS[2]] = tensor8
+    tensors = {name: records6[name]['N'] for name in IDS}
     duals, metadata = {}, {}
     for name, tensor in tensors.items():
         duals[name] = validate_tensor(tensor)
         rank, multiplicity, index = map(int, name[1:].split('_'))
         need(len(tensor) == rank and max(flat(tensor)) == multiplicity, 'Rank and exact multiplicity')
-        source = path6 if rank == 6 else path8
+        source = path6
         metadata[name] = {
             'rank': rank, 'multiplicity': multiplicity, 'index': index,
             'status': 'unresolved', 'unit_index': 0,
             'source': source, 'source_sha256': sha((repo / source).read_bytes()),
             'tensor_sha256': tensor_hash(tensor),
-            'selection': ('JSON record with this id' if rank == 6 else
-                          'Exact multiplicity 2; lexicographic flattened-tensor order; zero-based index 23'),
+            'selection': 'JSON record with this id',
         }
         if rank == 6:
             need(duals[name] == records6[name]['dual'], 'Recorded rank-six duality')
@@ -103,7 +94,7 @@ def source_cases(repo):
 
 def render_tensors(repo):
     tensors, duals, metadata = source_cases(repo)
-    text = '''"""Exact fusion tensors of the three open general-complex cases.
+    text = '''"""Exact fusion tensors of the two open general-complex cases.
 
 N[i][j][k] is the coefficient of basis object k in the product i * j.
 Basis indices are zero-based; index 0 is the unit. Each named tensor is a

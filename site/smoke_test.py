@@ -205,18 +205,19 @@ assert '<span id="manuscript-page-summary">' + page_summary + '</span>' in (root
 tree = ast.parse((root / reader["files"]["remaining_cases.py"]["path"]).read_text())
 constants = {node.targets[0].id: ast.literal_eval(node.value) for node in tree.body
              if isinstance(node, ast.Assign) and node.targets[0].id != "TENSORS"}
-assert set(constants["METADATA"]) == set(constants["DUALS"]) == {"R6_4_155", "R6_8_1660", "R8_2_24"}
+assert set(constants["METADATA"]) == set(constants["DUALS"]) == {"R6_4_155", "R6_8_1660"}
 for name, metadata in constants["METADATA"].items():
     assert isinstance(constants[name], list) and len(constants[name]) == metadata["rank"]
     assert metadata["status"] == "unresolved" and metadata["unit_index"] == 0
     assert hashlib.sha256(json.dumps(constants[name], separators=(",", ":")).encode()).hexdigest() == metadata["tensor_sha256"]
-print("Reader downloads checked: three exact tensor constants and twelve distinct PDF page counts.")
+print("Reader downloads checked: two exact tensor constants and twelve distinct PDF page counts.")
 
 update = payload.get("theoretical_update")
 if update:
     stage_dates = {"evidence/theoretical_20261016": "2026-10-16",
                    "evidence/unified_20261016": "2026-10-16",
-                   "evidence/review_20261017": "2026-10-17"}
+                   "evidence/review_20261017": "2026-10-17",
+                   "evidence/rigidity_20261017": "2026-10-17"}
     assert update["source"] in stage_dates and update["date"] == stage_dates[update["source"]]
     is_review = update["source"] == "evidence/review_20261017"
     decisions = update["decisions"]
@@ -245,6 +246,18 @@ if update:
         assert positive_flags[(8, 2)] and positive[(8, 2)] == 29
         band8 = next(record for record in status_payload["rows"] if (record["rank"], record["multiplicity"]) == (8, 2))
         assert (band8["rings"], band8["excluded_general"], band8["unresolved_general"], band8["classification_coverage"]) == (877, 847, 1, "partial_classification")
+    if update["source"] == "evidence/rigidity_20261017":
+        assert len(decisions) == 36 and update["original_case_count"] == 38
+        assert (update["new_general_exclusions"], update["new_unitary_models"]) == (29, 7)
+        assert remaining == {"6": ["R6_4_155", "R6_8_1660"], "7": [], "8": []}
+        assert totals["8"] == {"excluded": 896, "unitarily_realized": 77, "unresolved": 0}
+        r24 = next(record for record in decisions if record["id"] == "R8_2_24")
+        assert r24["status"] == "excluded" and r24["proof_source"] == update["source"]
+        scope8 = next(record for record in payload["scope"] if record["rank"] == 8)
+        assert (scope8["through"], scope8["analyzed_through"], scope8["kind"]) == (2, 2, "complete")
+        assert not positive_flags[(8, 2)] and positive[(8, 2)] == 29
+        band8 = next(record for record in status_payload["rows"] if (record["rank"], record["multiplicity"]) == (8, 2))
+        assert (band8["rings"], band8["excluded_general"], band8["unresolved_general"], band8["classification_coverage"]) == (877, 848, 0, "complete_classification")
     for rank in (7,8):
         assert update["by_rank"][str(rank)] == sum(record["rank"] == rank for record in decisions)
         scope = next(record for record in payload["scope"] if record["rank"] == rank)

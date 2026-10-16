@@ -28,12 +28,12 @@ range, subject to the research caution. Individual ring profiles show one
 fusion matrix at a time and offer the full tensor for download. Character
 data distinguish exact primitive-root formulas from numerical approximations.
 
-The continuation records **35 decisions among 38 cases**: 28 proposed general
+The continuation records **36 decisions among 38 cases**: 29 proposed general
 exclusions and 7 unitary constructions. General complex categorifiability
-remains open for **R6_4_155, R6_8_1660 and R8_2_24**. Rank seven is complete
-through multiplicity four. Rank eight records **895 exclusions, 77 models
-and one open case** through multiplicity two; its complete contiguous range
-ends at multiplicity one.
+remains open for **R6_4_155 and R6_8_1660**. Rank seven is complete
+through multiplicity four. Rank eight is complete through multiplicity two: **896 exclusions and 77
+unitary models**. Its inner-square obstruction uses pivotal duality, short
+associator weights and tensor-functor rigidity.
 
 Ranks two, three and four have unrestricted complex classifications. The
 rank-four manuscript proves that exactly 15 rings occur and every
@@ -76,7 +76,7 @@ profiles link those current PDFs directly.
 `build_realized.py` checks each catalogued tensor's rank, unit, duality and
 associativity. It derives exact dual and invertibility data, approximate
 Perron dimensions, and character information with its precision stated.
-`smoke_test.py` checks count/model consistency, the three open cases,
+`smoke_test.py` checks count/model consistency, the two open cases,
 canonical PDF copies, bundle identity and local page links.
 
 ## Publication

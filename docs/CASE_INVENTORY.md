@@ -5,8 +5,8 @@
 > independently verified by human experts or formalized in Lean. Automated
 > checks establish only their stated computational scope.
 
-**35 accepted decisions: 28 proposed general exclusions and seven unitary
-constructions. Three general questions remain open.** This inventory covers
+**36 accepted decisions: 29 proposed general exclusions and seven unitary
+constructions. Two general questions remain open.** This inventory covers
 these 38 cases; it is not a count of every ring in the full census.
 
 A general exclusion concerns arbitrary complex fusion categories, without an
@@ -21,13 +21,12 @@ Read the [rank-six manuscript](../manuscripts/rank6/papers/manuscript.pdf),
 The source links below identify the current integrated proof or open-case
 section; the stable LaTeX label locates the exact statement in that source.
 
-## Three open cases
+## Two open cases
 
 | Case | Current status and remaining task | Current manuscript section |
 |---|---|---|
-| `R6_4_155` | **Open.** The modular candidate and based-module linking identities do not supply coherent center or module associators. | [Source](../manuscripts/rank6/papers/chapters/frontier_155_modular.tex) (`sec:155-complete-modular`) |
-| `R6_8_1660` | **Open.** Center-profile and Morita restrictions leave possible profiles; a complete associator construction or general obstruction is missing. | [Source](../manuscripts/rank6/papers/chapters/frontier_1660.tex) (`subsec:frontier-1660`) |
-| `R8_2_24` | **Open.** General categorification is open. A unitary exclusion is recorded, but the inner-square transport identities needed by the proposed general approach are unproved. | [Source](../manuscripts/rank8/paper/r24_inner_square.tex) (`sec:r24-open`) |
+| `R6_4_155` | **Open.** Odd cyclic Clifford constraints pass on 1,144 tested blocks, and the all-order path divisibility condition holds. The surviving modular and module data do not supply coherent associators. | [Source](../manuscripts/rank6/papers/chapters/frontier_155_odd_clifford.tex) (`sec:r155-odd-clifford`) |
+| `R6_8_1660` | **Open.** In the positive spherical representative, all indicators and central phase masses are determined; 640 labelled restriction profiles survive in branches 68, 286, 286. These necessary data do not construct a category or yield a general obstruction. | [Source](../manuscripts/rank6/papers/chapters/frontier_1660_phase_masses.tex) (`sec:1660-all-indicators-phase-masses`) |
 
 ## Rank 7: accepted decisions
 
@@ -51,6 +50,7 @@ section; the stable LaTeX label locates the exact statement in that source.
 | `R8_1_9` | General exclusion | Cyclic induction phase multiplicities | [Source](../manuscripts/rank8/paper/r9_pointed_class2.tex) (`thm:r9-center-trace`) |
 | `R8_1_18` | General exclusion | Modular STS identity and a fourth-moment projection | [Source](../manuscripts/rank8/paper/r18_center_trace.tex) (`thm:r18-sts-moments`) |
 | `R8_1_49` | General exclusion | Frobenius–Schur parity and inverse Morita reduction | [Source](../manuscripts/rank8/paper/unified_20261016.tex) (`prop:r49-fs-morita`) |
+| `R8_2_24` | General exclusion | Inner-square obstruction from short gauge weights and tensor-functor rigidity | [Source](../manuscripts/rank8/paper/r24_inner_square.tex) (`thm:r24-general-exclusion`) |
 | `R8_2_33` | General exclusion | Conductor-seventeen indicator balance | [Source](../manuscripts/rank8/paper/q17_indicator_balance.tex) (`thm:q17-five-exclusions`) |
 | `R8_2_36` | General exclusion | Conductor-seventeen indicator balance | [Source](../manuscripts/rank8/paper/q17_indicator_balance.tex) (`thm:q17-five-exclusions`) |
 | `R8_2_37` | Unitary construction | Nonsplit C2 extension of the unitary 2D2 category | [Source](../manuscripts/rank8/paper/unified_20261016.tex) (`prop:r37-model`) |
@@ -78,8 +78,8 @@ section; the stable LaTeX label locates the exact statement in that source.
 
 Through multiplicity nine, rank six has 25,362 exclusions, 57 realizations and
 two open cases. Rank seven is complete through multiplicity four with 4,172
-exclusions and 29 models. Rank eight is complete through multiplicity one and
-partial at multiplicity two: 895 exclusions, 77 models and one open case in total.
+exclusions and 29 models. Rank eight is complete through multiplicity two:
+896 exclusions and 77 models, with no open case.
 
 Run the current aggregate replay from the repository root:
 

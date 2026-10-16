@@ -122,11 +122,16 @@ story = [p('GROTHENDIECK RING CLASSIFICATION  /  RESEARCH NOTE', 'kicker'),
 story += [p(safe(x), 'small') for x in CONTENT['coverage_notes']]
 story += [p(f'<a href="{WEB}/" color="#126d6b">Public atlas</a>  |  <a href="{REPO}" color="#126d6b">GitHub repository</a>', 'small'), PageBreak()]
 
-story += [p('MATHEMATICAL FRONTIER', 'kicker'), p('Three open cases', 'h1'),
+open_count = len(CONTENT['open_cases'])
+open_heading = {1: 'One open case', 2: 'Two open cases'}.get(open_count, f'{open_count} open cases')
+story += [p('MATHEMATICAL FRONTIER', 'kicker'), p(open_heading, 'h1'),
           p('Each question concerns general complex fusion categorification. The reductions below are necessary conditions with explicit limits.')]
 for case in CONTENT['open_cases']:
     story += [p(safe(case['id']) + '  /  ' + safe(case['heading']), 'h2')]
     story += [p(safe(x)) for x in case['paragraphs']]
+for result in CONTENT.get('theoretical_results', []):
+    story += [p(safe(result['heading']), 'h2')]
+    story += [p(safe(x)) for x in result['paragraphs']]
 story += [box(p('<b>Status discipline.</b> A restricted nonexistence result applies only under its stated assumptions. An exact computation of conditional equations does not discharge the missing categorical hypothesis.', 'notice')), PageBreak()]
 
 story += [p('EXACT COMPUTATIONAL EVIDENCE', 'kicker'), p('What was checked', 'h1')]
@@ -154,7 +159,7 @@ doc = SimpleDocTemplate(str(OUT), pagesize=A4, rightMargin=50, leftMargin=50,
                         topMargin=48, bottomMargin=64,
                         title='Research status and verification - 17 October 2026',
                         author='Grothendieck Ring Classification project (AI-generated research)',
-                        subject='Current classification, three open cases, computational scope and limitations')
+                        subject=f'Current classification, {open_count} open cases, computational scope and limitations')
 doc.build(story, onFirstPage=footer, onLaterPages=footer)
 destination = ROOT / 'site/dist/papers' / NAME
 destination.parent.mkdir(parents=True, exist_ok=True)

@@ -1,0 +1,40 @@
+[
+  {
+    "name": "source",
+    "checker": "rank8/verify_r24_source.py",
+    "arguments": [
+      "--repo",
+      "{repo}"
+    ],
+    "normal_receipt": "rank8/receipts/source.normal.json",
+    "optimized_receipt": "rank8/receipts/source.optimized.json",
+    "scope": "Source tensor, neutral coefficients, associativity, invertible square and label-fixing conjugation."
+  },
+  {
+    "name": "prerequisites",
+    "checker": "rank8/check_prerequisites_independent.py",
+    "arguments": [
+      "--repo",
+      "{repo}"
+    ],
+    "normal_receipt": "rank8/receipts/prerequisites.normal.json",
+    "optimized_receipt": "rank8/receipts/prerequisites.optimized.json",
+    "scope": "Exact source, quadratic identities, forced sign arithmetic and finite level-25 equality-space consistency; no categorical theorem certification."
+  },
+  {
+    "name": "weights",
+    "checker": "rank8/verify_full_f_weights.py",
+    "arguments": [],
+    "normal_receipt": "rank8/receipts/weights.normal.json",
+    "optimized_receipt": "rank8/receipts/weights.optimized.json",
+    "scope": "Complete F-slot parity and short-weight lattice and reflection phases; structural normalization is a mathematical premise."
+  },
+  {
+    "name": "independent_weights",
+    "checker": "rank8/check_final_torus_audit.py",
+    "arguments": [],
+    "normal_receipt": "rank8/receipts/independent_weights.normal.json",
+    "optimized_receipt": "rank8/receipts/independent_weights.optimized.json",
+    "scope": "Independent literal-tensor F-slot parity, integer lattice witnesses and reflection phases; no categorical normalization certification."
+  }
+]

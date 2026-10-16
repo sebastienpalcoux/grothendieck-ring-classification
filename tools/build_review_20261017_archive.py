@@ -100,12 +100,16 @@ def collect(root):
     paths = set(old.REQUIRED)
     for folder in ('evidence/unified_20261016', 'evidence/theoretical_20261016',
                    'evidence/review_20261017', 'evidence/prepublication_20261017',
-                   'evidence/publication_20261017', 'evidence/rank4_unrestricted_20261017'):
+                   'evidence/publication_20261017', 'evidence/rank4_unrestricted_20261017',
+                   'evidence/rigidity_20261017'):
         paths.update(path.relative_to(root).as_posix() for path in (root / folder).rglob('*')
                      if path.is_file() and not {'__pycache__', '.pytest_cache'}.intersection(path.parts)
                      and path.suffix not in ('.pyc', '.pyo', '.tmp', '.writing', '.swp')
                      and path.name != '.DS_Store')
     paths.update(revision['documents'])
+    paths.update(json.loads((root / 'evidence/rigidity_20261017/source_files.json').read_text()))
+    necessary = json.loads((root / 'evidence/rigidity_20261017/rank6/MANIFEST.json').read_text())
+    paths.update(item['path'] for item in necessary['external_inputs'])
     paths.update(path.relative_to(root).as_posix()
                  for path in (root / 'supplements/rank4/unrestricted').rglob('*')
                  if path.is_file() and not {'__pycache__', '.pytest_cache'}.intersection(path.parts)
@@ -121,6 +125,7 @@ def collect(root):
                  if path.name in ('README.md', 'CURRENT_STATUS.md'))
     paths.update((DOCUMENT_REVISION, 'tools/verify_current_publication.py',
                   'tools/current_publication.py', 'tools/verify_review_20261017.py',
+                  'tools/verify_rigidity_20261017.py',
                   'tools/build_review_20261017_archive.py', 'tools/build_current_document_revision.py',
                   'tools/reader_resources.py', 'data/remaining_cases.py', 'data/manuscript_page_counts.json',
                   'docs/PREPUBLICATION_REVIEW.md', 'docs/RESEARCH_STATUS.md', 'docs/VERIFY.md'))
@@ -159,14 +164,16 @@ or a multiplicity restriction, then classifies its complete 1,692-ring
 finite census into 1,677 exclusions and 15 models. Its replay package is
 supplements/rank4/unrestricted; the sharp multiplicity bound is six.
 
-The 38-case continuation has 35 accepted decisions (28 proposed exclusions and
-7 constructions). R6_4_155, R6_8_1660 and R8_2_24 remain unresolved.
+The 38-case continuation has 36 accepted decisions (29 proposed exclusions and
+7 constructions). R6_4_155 and R6_8_1660 remain unresolved. Rank eight is complete
+through multiplicity two: 896 exclusions and 77 unitary models. The inner-square
+obstruction for R8_2_24 uses pivotal duality, short gauge weights and tensor-functor rigidity.
 Treat these AI-generated results and data with caution: independent human
 verification and Lean formalization have not been completed.
 
 Start with docs/RESEARCH_STATUS.md and the manuscripts directory.
 The verification procedures and their precise limits are in docs/VERIFY.md.
-The exact tensors of the three open cases are plain Python nested lists in
+The exact tensors of the two open cases are plain Python nested lists in
 data/remaining_cases.py, with unit, duality, convention and source hashes.
 data/manuscript_page_counts.json counts each distinct current PDF once.
 
@@ -215,7 +222,7 @@ Fixed timestamps and sorted paths make identical inputs produce identical ZIP by
         if run.returncode:
             raise ValueError('Standalone publication check failed:\n' + run.stdout + run.stderr)
         receipt = json.loads(run.stdout)
-        if receipt['status'] != 'PASS' or receipt['accepted_decisions'] != 35:
+        if receipt['status'] != 'PASS' or receipt['accepted_decisions'] != 36:
             raise ValueError('Inconsistent receipt')
         for name, expected in inputs.items():
             if digest((root / name).read_bytes()) != expected:

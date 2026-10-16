@@ -16,9 +16,9 @@ package.
 | 5 | [Guide](rank5/README.md) · [complete public replay](../docs/VERIFY.md#complete-rank-four-and-rank-five-checks) | 40,999 inputs; 40,982 exclusions and 17 models through 20. |
 | 6 | [Guide](rank6/README.md) · [combined full replay](../docs/VERIFY.md#complete-rank-six-route) | 25,421 inputs; 25,362 exclusions, 57 models and two open cases through 9. |
 | 7 | [Guide](rank7/README.md) | Complete through 4: 4,172 exclusions and 29 models. |
-| 8 | [Guide](rank8/README.md) | Complete through 1, partial at 2: 895 exclusions, 77 models and one open case. |
+| 8 | [Guide](rank8/README.md) | Complete through 2: 896 exclusions and 77 models. |
 
-The [current research account](../docs/RESEARCH_STATUS.md) records **35 decisions among 38 cases**: 28 proposed general exclusions and 7 unitary constructions. Three general questions remain open: `R6_4_155`, `R6_8_1660` and `R8_2_24`. The combined residual program records 139 decisions (119 exclusions and 20 constructions), all subject to independent mathematical verification.
+The [current research account](../docs/RESEARCH_STATUS.md) records **36 decisions among 38 cases**: 29 proposed general exclusions and 7 unitary constructions. Two general questions remain open: `R6_4_155` and `R6_8_1660`. The combined residual program records 140 decisions (120 exclusions and 20 constructions), all subject to independent mathematical verification.
 
 Use the [verification guide](../docs/VERIFY.md) for full base loops and the
 continuation chain. Their scopes are separate. The census and enumeration code

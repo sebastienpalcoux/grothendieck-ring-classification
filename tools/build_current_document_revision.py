@@ -36,10 +36,10 @@ def main():
         documents[name] = {'sha256': sha(raw), 'bytes': len(raw)}
     need(set(WEB_COPIES.values()) <= set(documents), 'Compile every current manuscript and guide before binding the revision')
     revision = {'schema': 'current-document-revision/v1', 'date': '2026-10-17',
-                'accepted_decisions': 35,
-                'remaining_ids': ['R6_4_155', 'R6_8_1660', 'R8_2_24'],
-                'research_progress': 'evidence/unified_20261016/rank6/research_progress.json',
-                'research_progress_sha256': sha((repo / 'evidence/unified_20261016/rank6/research_progress.json').read_bytes()),
+                'accepted_decisions': 36,
+                'remaining_ids': ['R6_4_155', 'R6_8_1660'],
+                'research_progress': 'evidence/rigidity_20261017/rank6/research_progress.json',
+                'research_progress_sha256': sha((repo / 'evidence/rigidity_20261017/rank6/research_progress.json').read_bytes()),
                 'documents': documents, 'web_copies': WEB_COPIES}
     text = json.dumps(revision, indent=2) + '\n'
     target = repo / DOCUMENT_REVISION

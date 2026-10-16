@@ -233,14 +233,21 @@ The summaries of this finite system are in
 The manuscript includes the graded-packet identities,
 tensor-quotient obstruction, restrictions on Tannakian subcategories and
 braided Morita models, and exact scope of the analytic tests.
-The graded-packet conditions exclude $533$ of the $1669$ profiles above,
-leaving $1136=120+508+508$. This changes no categorification verdict:
-both $\RR{4}{155}$ and $\RR{8}{1660}$ remain unresolved.
+The graded-packet conditions leave $1136=120+508+508$ profiles.
+All-order indicator identities determine the exact central phase masses;
+the full phase Gram constraints leave $640=68+286+286$ profiles.
+Exactly eight spin simples have restriction $2X+2gX+\sigma+3T$.
+For $\RR{4}{155}$, odd cyclic Clifford factorization is a necessary
+condition at every odd order; all $1144$ tested central-target rotation
+blocks at orders $3,5,\ldots,23$ pass. The all-order path-dimension
+condition is equivalent to even multiplicity in the stated ring family.
+Both $\RR{4}{155}$ and $\RR{8}{1660}$ remain unresolved.
 
 The source-bound receipts and verifiers for these results are retained
 at the repository path
 \filename{evidence/residual_20261002/rank6/};
-the current endpoint is recorded there in
+the current research summary and all-order refinements are recorded at
+\filename{evidence/rigidity_20261017/rank6/}, with its
 \filename{research_progress.json}.
 The exact all-exponent Minkowski couplings are retained under
 \filename{evidence/rank6_laptop_20261002/all_p_minkowski/}.
@@ -255,10 +262,32 @@ facts with the quotient obstruction and the complete twist-one
 restriction table. This strengthens the tensor-quotient restriction
 without changing either unresolved verdict.
 
+\subsection{All-order necessary conditions and exact phase masses}
+From the repository root, run
+\begin{verbatim}
+python evidence/rigidity_20261017/rank6/run_checks.py --repo .
+python -O evidence/rigidity_20261017/rank6/run_checks.py --repo .
+\end{verbatim}
+The two case folders contain their source-bound replay programs and
+independent audit receipts. The rank-six $R6\_4\_155$ checker verifies
+all $1144$ odd cyclic Clifford decompositions and the all-order path
+criterion; the latter does not exclude multiplicity four. The
+$R6\_8\_1660$ checker reconstructs every indicator at orders $1$ through
+$48$, all $288$ Fourier masses for each conjugate choice, the exact
+spin restrictions and the $640$-profile phase Gram domain. Independent
+SymPy arithmetic checks the Fourier formulas and the full Ising sequence;
+a separate coefficient-convolution implementation exhausts the phase
+allocation domain. Explicit rejection controls and both Python execution
+modes are included. These checks certify finite arithmetic and necessary
+conditions; neither residual has a categorification or a general
+nonexistence proof.
+
+
 \begin{samepage}
 None of these necessary alternatives is a categorical model. A claimed
 future exclusion must cover the entire necessary domain; a claimed model
 must have a categorical construction and complete tensor identification.
+
 
 \section{Rebuilding the presentation}
 After checking the retained evidence, regenerate the ledger exports,

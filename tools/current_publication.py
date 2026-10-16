@@ -35,9 +35,9 @@ def validate_documents(repo, check_web=False):
     revision = json.loads((repo / DOCUMENT_REVISION).read_text())
     need(revision['schema'] == 'current-document-revision/v1' and revision['date'] == '2026-10-17',
          'Current document revision identity')
-    need(revision['remaining_ids'] == ['R6_4_155', 'R6_8_1660', 'R8_2_24']
-         and revision['accepted_decisions'] == 35, 'Current document mathematical scope')
-    progress = 'evidence/unified_20261016/rank6/research_progress.json'
+    need(revision['remaining_ids'] == ['R6_4_155', 'R6_8_1660']
+         and revision['accepted_decisions'] == 36, 'Current document mathematical scope')
+    progress = 'evidence/rigidity_20261017/rank6/research_progress.json'
     need(revision['research_progress'] == progress and
          revision['research_progress_sha256'] == sha((repo / progress).read_bytes()),
          'Current document research identity')
