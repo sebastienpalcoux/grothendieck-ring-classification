@@ -13,6 +13,7 @@ import subprocess
 import sys
 import tempfile
 from current_publication import validate_documents, replay_sources, restore_replay_sources, need
+from reader_resources import validate_reader_resources
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -26,6 +27,14 @@ def main():
     repo = args.repo.resolve()
     has_website = (repo / 'site/dist/papers').is_dir()
     documents = validate_documents(repo, check_web=has_website)
+    reader_resources = validate_reader_resources(repo, check_web=has_website)
+    rank4_package = repo / 'supplements/rank4/unrestricted'
+    rank4_check = subprocess.run(
+        [sys.executable, str(rank4_package / 'verify_package.py'),
+         '--manuscript-root', str(repo / 'manuscripts/rank4/papers')],
+        cwd=repo, text=True, capture_output=True)
+    need(rank4_check.returncode == 0, 'Unrestricted rank-four publication binding failed:\n'
+         + rank4_check.stdout + rank4_check.stderr)
     sources = replay_sources(repo)
     with tempfile.TemporaryDirectory(prefix='grc-current-publication-') as folder:
         target = Path(folder) / 'repo'
@@ -72,6 +81,8 @@ def main():
                   'website_pdf_copies_checked': len(documents['web_copies']) if has_website else 0,
                   'declared_website_pdf_copies': len(documents['web_copies']),
                   'accepted_decisions': 35, 'remaining_ids': documents['remaining_ids'],
+                  'reader_resources': reader_resources,
+                  'rank4_unrestricted_package': 'PASS: source/data identities and generated manuscript tables; exact replay is a separate check',
                   'restored_replay_sources': restored,
                   'rank6_archive_checksums': 'not part of standalone metadata check' if args.metadata_only else 'PASS',
                   'mode': 'metadata' if args.metadata_only else ('full historical chain' if args.historical else 'unified proof replay'),

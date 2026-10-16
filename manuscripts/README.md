@@ -6,22 +6,40 @@
 > checks establish only their stated computational scope.
 
 Each paper is a current TeX/PDF pair with its classification scope stated in
-its own text. Rank three gives an unrestricted sphericality and ring-level
-argument. Ranks four to eight use pinned finite censuses and explicit criteria.
+its own text. Ranks two, three and four are unrestricted. The rank-four
+companion proves the complete fifteen-ring classification and sphericality
+without a multiplicity or pivotality hypothesis. The finite article supplies
+the separate classification through multiplicity 128.
+Ranks five to eight use pinned finite censuses and explicit criteria.
 
-| Manuscript | Source | PDF | Scope |
-|---|---|---|---|
-| Rank two | [TeX](rank2.tex) | [PDF](rank2.pdf) | Unrestricted over ℂ; two realized rings |
-| Rank three | [TeX](rank3.tex) | [PDF](rank3.pdf) | Unrestricted sphericality and five-ring classification |
-| Rank four, finite range | [TeX](rank4/papers/finite.tex) | [PDF](rank4/papers/finite.pdf) | Complete through multiplicity 128 |
-| Rank four, companion | [TeX](rank4/papers/companion.tex) | [PDF](rank4/papers/companion.pdf) | General criteria, models and structural arguments |
-| Rank four, verification guide | [TeX](rank4/papers/verification_guide.tex) | [PDF](rank4/papers/verification_guide.pdf) | Exact certificate checks |
-| Rank five | [TeX](rank5/papers/manuscript.tex) | [PDF](rank5/papers/manuscript.pdf) | Complete through multiplicity 20 |
-| Rank five, verification guide | [TeX](rank5/papers/verification_guide.tex) | [PDF](rank5/papers/verification_guide.pdf) | Exact certificates, models and replay scope |
-| Rank six | [TeX](rank6/papers/manuscript.tex) | [PDF](rank6/papers/manuscript.pdf) | 25,362 exclusions, 57 realizations, two open through 9; complete through 3 and exact bands 1, 2, 3, 5, 6, 7, 9 |
-| Rank six, verification guide | [TeX](rank6/papers/verification_guide.tex) | [PDF](rank6/papers/verification_guide.pdf) | Models, certificates and open-case reductions |
-| Rank seven | [TeX](rank7/papers/manuscript.tex) | [PDF](rank7/papers/manuscript.pdf) | Complete through multiplicity 4: 4,172 exclusions and 29 models |
-| Rank eight | [TeX](rank8/paper/rank8.tex) | [PDF](rank8/paper/rank8.pdf) | Complete through multiplicity 1; partial at 2: 895 exclusions, 77 models and one open case |
+Related work on the pivotal case: Jingcheng Dong, Sébastien Palcoux and Arnaud Plessis, [Classifying Grothendieck rings of pivotal fusion categories of rank four](https://arxiv.org/abs/2609.33272), arXiv:2609.33272. Its hypothesis is pivotality.
+
+| Manuscript | Source | PDF | Pages | Scope |
+|---|---|---|---:|---|
+| Rank two | [TeX](rank2.tex) | [PDF](rank2.pdf) | 3 | Unrestricted over ℂ; two realized rings |
+| Rank three | [TeX](rank3.tex) | [PDF](rank3.pdf) | 12 | Unrestricted sphericality and five-ring classification |
+| Rank four, finite range | [TeX](rank4/papers/finite.tex) | [PDF](rank4/papers/finite.pdf) | 29 | Complete through multiplicity 128 |
+| Rank four, unrestricted classification | [TeX](rank4/papers/companion.tex) | [PDF](rank4/papers/companion.pdf) | 88 | Unrestricted over ℂ; 15 rings and automatic sphericality |
+| Rank four, verification guide | [TeX](rank4/papers/verification_guide.tex) | [PDF](rank4/papers/verification_guide.pdf) | 9 | Exact certificate checks |
+| Rank five | [TeX](rank5/papers/manuscript.tex) | [PDF](rank5/papers/manuscript.pdf) | 19 | Complete through multiplicity 20 |
+| Rank five, verification guide | [TeX](rank5/papers/verification_guide.tex) | [PDF](rank5/papers/verification_guide.pdf) | 4 | Exact certificates, models and replay scope |
+| Rank six | [TeX](rank6/papers/manuscript.tex) | [PDF](rank6/papers/manuscript.pdf) | 165 | 25,362 exclusions, 57 realizations, two open through 9; complete through 3 and exact bands 1, 2, 3, 5, 6, 7, 9 |
+| Rank six, verification guide | [TeX](rank6/papers/verification_guide.tex) | [PDF](rank6/papers/verification_guide.pdf) | 5 | Models, certificates and open-case reductions |
+| Rank seven | [TeX](rank7/papers/manuscript.tex) | [PDF](rank7/papers/manuscript.pdf) | 56 | Complete through multiplicity 4: 4,172 exclusions and 29 models |
+| Rank eight | [TeX](rank8/paper/rank8.tex) | [PDF](rank8/paper/rank8.pdf) | 58 | Complete through multiplicity 1; partial at 2: 895 exclusions, 77 models and one open case |
+
+The eight mathematical manuscripts contain **430 pages**.
+Including the three verification guides gives **448 pages**;
+including the 4-page [research-status report](prepublication-review-2026-10-17.pdf)
+gives **452 pages** across twelve distinct documents.
+These counts include references and appendices and count duplicate download
+copies only once. The [page inventory](../data/manuscript_page_counts.json)
+records every path, count and PDF checksum.
+
+Download the [three open fusion tensors as Python lists](../data/remaining_cases.py).
+The file names each case and states the zero-based convention `N[i][j][k]`,
+unit index, duality map and canonical source checksums.
+
 
 The sources use sections and generated tables in their sibling directories.
 The [document manifest](../data/current_document_revision.json) binds all

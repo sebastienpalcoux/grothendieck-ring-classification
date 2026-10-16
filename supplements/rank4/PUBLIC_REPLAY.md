@@ -1,4 +1,4 @@
-# Reproduce the rank-four classification
+# Reproduce the rank-four finite census classification
 
 > **AI-generated research — independent verification pending.** Treat these results, proofs, code and data with caution. They have not yet been independently verified by human experts or formalized in Lean. A successful computer replay checks the implemented finite certificates; it does not replace those forms of verification.
 
@@ -26,7 +26,9 @@ The expected certificate SHA-256 is:
 
 To check the public parts without writing the restored stream, use `python3 supplements/rank4/restore_certificate.py --verify-only` from the repository root. `--output PATH` selects another destination. An existing destination with different contents is refused.
 
-The full verifier audits all input tensors and their identities, regenerates the shared signed catalog, then checks every certificate and every required bounded signed or induction search. The expected bounded result is **889,530 rings: 15 realized, 889,515 excluded, zero unresolved**, with **7,084 signed records and 801,047 signed candidate tables** under the recorded certificate allocation. The shared exhaustive gate checks **6,470,006 signed sign/permutation orbits**, retaining 30,207 after the necessary arithmetic filters. This is a classification through multiplicity 128; the unrestricted fifteen-ring classification remains a conjecture.
+The full verifier audits all input tensors and their identities, regenerates the shared signed catalog, then checks every certificate and every required bounded signed or induction search. The expected bounded result is **889,530 rings: 15 realized, 889,515 excluded, zero unresolved**, with **7,084 signed records and 801,047 signed candidate tables** under the recorded certificate allocation. The shared exhaustive gate checks **6,470,006 signed sign/permutation orbits**, retaining 30,207 after the necessary arithmetic filters. This package verifies the census through multiplicity 128.
+
+The [unrestricted classification](../../manuscripts/rank4/papers/companion.pdf) proves that precisely these fifteen rings occur at any multiplicity, and every categorification admits a spherical structure. Its theoretical bound and independent 1,692-ring census have a [self-contained replay package](unrestricted/README.md). That proof imposes neither pivotality nor a multiplicity restriction.
 
 ## Further checks
 

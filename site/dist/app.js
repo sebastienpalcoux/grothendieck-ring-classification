@@ -7,7 +7,7 @@ const state = { data: null, models: [], rank: "all", range: "20", mode: "grothen
 const paperEntries = [
   {rank:2, title:"A short classification of complex rank-two Grothendieck rings", subtitle:"Self-contained, unrestricted classification", type:"MANUSCRIPT", slug:"rank2"},
   {rank:3, title:"Galois-averaged indicators and sphericality in rank three", subtitle:"Direct five-ring classification and sphericality", type:"MANUSCRIPT", slug:"rank3"},
-  {rank:4, title:"Rank-four Grothendieck rings through multiplicity 128", subtitle:"Complete general categorification", type:"CLASSIFICATION", slug:"rank4"},
+  {rank:4, title:"Grothendieck rings of general fusion categories of rank four", subtitle:"Unrestricted classification · 15 rings · automatic sphericality", type:"CLASSIFICATION", slug:"rank4"},
   {rank:5, title:"Rank-five Grothendieck rings through multiplicity twenty", subtitle:"Complete general classification through m = 20", type:"CLASSIFICATION", slug:"rank5"},
   {rank:6, title:"Rank-six fusion rings: categorification criteria and models through multiplicity nine", subtitle:"Categorification through multiplicity nine", type:"CLASSIFICATION", slug:"rank6"},
 ];
@@ -15,7 +15,7 @@ function paperSourcePath(rank,extension="pdf") {
   if (rank<=3) return `manuscripts/rank${rank}.${extension}`;
   if (rank===7) return `manuscripts/rank7/papers/manuscript.${extension}`;
   if (rank===8) return `manuscripts/rank8/paper/rank8.${extension}`;
-  return `manuscripts/rank${rank}/papers/${rank===4?"finite":"manuscript"}.${extension}`;
+  return `manuscripts/rank${rank}/papers/${rank===4?"companion":"manuscript"}.${extension}`;
 }
 function getStatus(rank,multiplicity) {
   return state.statusMap?.get(`${rank}:${multiplicity}`);
@@ -225,7 +225,7 @@ function renderDetail() {
       if (status.realized_spherical_nonpseudounitary)
         appendDetailRow(panel,"Spherical, not pseudo-unitary",fmt.format(status.realized_spherical_nonpseudounitary));
     } else appendDetailRow(panel,"Unassessed",fmt.format(status.unassessed));
-  } else if (scope?.kind==="complete" && scope.through===null) appendDetailRow(panel,"Classification","Unrestricted rank");
+  } else if (scope?.kind==="unrestricted") appendDetailRow(panel,"Classification","Unrestricted rank");
   else if (scope?.kind==="provisional") appendDetailRow(panel,"Classification","Revision in progress");
   else appendDetailRow(panel,"Classification","No ledger in this release");
   if (typeof row.source==="string" && /^https?:\/\//.test(row.source))
@@ -292,7 +292,7 @@ function renderTheoreticalUpdate() {
   const actions = $("#theoretical-update-actions");
   actions.replaceChildren();
   const archive = element("a", "", `Download proofs & verification · ${(update.archive.bytes / 1048576).toFixed(1)} MB ↓`);
-  archive.href = `./${update.archive.path}`; archive.download = "";
+  archive.href = update.archive.url || `./${update.archive.path}`; archive.download = "";
   const decisions = element("a", "", "Decision records JSON ↓");
   decisions.href = `./${update.files.decisions.path}`; decisions.download = "";
   const remaining = element("a", "", "Remaining cases JSON ↓");
@@ -381,7 +381,7 @@ function renderPapers() {
     summary.append(document.createTextNode(`${fmt.format(release.excluded)} excluded, ${release.realized} realized, ${release.unresolved} unresolved. ${release.research_summary || ""} `));
     if (state.data.theoretical_update) {
       const archive=element("a", "", "Proofs and verification bundle");
-      archive.href=`./${state.data.theoretical_update.archive.path}`;archive.download="";summary.append(archive);
+      archive.href=state.data.theoretical_update.archive.url || `./${state.data.theoretical_update.archive.path}`;archive.download="";summary.append(archive);
     }
     const manifest=state.data.current_documents;
     if (manifest) {
@@ -425,11 +425,15 @@ function renderPapers() {
     source.target="_blank";source.rel="noopener";
     actions.append(manuscript);
     if (paper.rank===4) {
-      const companion=element("a","","Companion ↗");
-      companion.href="./papers/rank4_companion.pdf";
+      const companion=element("a","","Finite census paper ↗");
+      companion.href="./papers/rank4_finite.pdf";
       const guide=element("a","","Verification guide ↗");
       guide.href="./papers/rank4_guide.pdf";
       actions.append(companion,guide);
+      const pivotal=element("a","","Pivotal case · Dong–Palcoux–Plessis ↗");
+      pivotal.href="https://arxiv.org/abs/2609.33272";
+      pivotal.target="_blank";pivotal.rel="noopener";
+      actions.append(pivotal);
     }
     if (paper.rank===5 || paper.rank===6) {
       const guide=element("a","","Verification guide ↗");
@@ -440,7 +444,7 @@ function renderPapers() {
     if (release) {
       if (state.data.theoretical_update) {
         const current=element("a","","Current proof bundle ↓");
-        current.href=`./${state.data.theoretical_update.archive.path}`;current.download="";
+        current.href=state.data.theoretical_update.archive.url || `./${state.data.theoretical_update.archive.path}`;current.download="";
         actions.append(current);
       }
     }

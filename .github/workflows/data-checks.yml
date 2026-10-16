@@ -15,6 +15,10 @@ jobs:
       - run: python tools/restore_data.py
       - run: python -m pip install sympy==1.14.0 numpy==2.3.5
       - run: python tools/validate_release.py
+      - name: Verify unrestricted rank-four classification and census
+        run: python supplements/rank4/unrestricted/supplementary/check.py --deep
+      - name: Verify independent rank-four algebra and source bindings
+        run: python evidence/rank4_unrestricted_20261017/run_checks.py
       - name: Verify current publication and complete proof history
         run: python tools/verify_current_publication.py --historical
       - name: Verify publication and proof history with assertions disabled

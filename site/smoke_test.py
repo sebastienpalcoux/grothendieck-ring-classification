@@ -1,13 +1,28 @@
 #!/usr/bin/env python3
 """Check a repository-derived atlas snapshot before publication."""
 import csv
+import argparse
+import tempfile
+import urllib.request
+import ast
 import hashlib
 import json
 from pathlib import Path
 
+TRUSTED_PROOF_BUNDLE_URL = "https://sebastienpalcoux.github.io/grothendieck-ring-classification/downloads/review-update-2026-10-17.zip"
+parser = argparse.ArgumentParser(description=__doc__)
+parser.add_argument("--proof-bundle", type=Path, help="Verify this local copy of the externally hosted proof ZIP")
+args = parser.parse_args()
+proof_temporary_directory = None
+
 root = Path(__file__).resolve().parent / "dist"
 payload = json.loads((root / "data/atlas.json").read_text())
 status_payload=json.loads((root / "data/classification_status.json").read_text())
+scope4 = next(r for r in payload['scope'] if r['rank'] == 4)
+assert scope4['kind'] == 'unrestricted' and scope4['through'] is None
+assert scope4['positive'] == 15 and scope4['unresolved'] == 0
+assert status_payload['inputs']['rank4']['classification_scope'] == 'unrestricted'
+assert 'https://arxiv.org/abs/2609.33272' in (root / 'app.js').read_text()
 rows = payload["rows"]
 assert rows, "No census rows"
 assert len(rows) == len({(r["rank"], r["multiplicity"]) for r in rows}), "Duplicate cells"
@@ -162,6 +177,41 @@ for local, canonical in current_manifest["web_copies"].items():
     assert hashlib.sha256(document.read_bytes()).hexdigest() == expected["sha256"], "Stale website manuscript: " + local
 print("All current website manuscripts match the publication manifest.")
 
+reader = payload["reader_resources"]
+assert set(reader["files"]) == {"remaining_cases.py", "manuscript_page_counts.json"}
+for name, record in reader["files"].items():
+    raw = (root / record["path"]).read_bytes()
+    assert record["path"] == "downloads/" + name
+    assert hashlib.sha256(raw).hexdigest() == record["sha256"], "Reader resource hash: " + name
+    canonical = root.parent.parent / "data" / name
+    if canonical.is_file():
+        assert canonical.read_bytes() == raw, "Reader resource differs from repository: " + name
+pages = json.loads((root / reader["files"]["manuscript_page_counts.json"]["path"]).read_text())
+assert pages["document_counts"] == {"mathematical_manuscripts": 8, "verification_guides": 3, "research_status_reports": 1}
+assert len(pages["documents"]) == len({r["path"] for r in pages["documents"]}) == 12
+for record in pages["documents"]:
+    assert {key: record[key] for key in ("bytes", "sha256")} == current_manifest["documents"][record["path"]]
+    assert type(record["pages"]) is int and record["pages"] > 0
+sums = {kind: sum(r["pages"] for r in pages["documents"] if r["kind"] == kind)
+        for kind in ("mathematical_manuscript", "verification_guide", "research_status_report")}
+sums["mathematical_manuscripts_and_guides"] = sums["mathematical_manuscript"] + sums["verification_guide"]
+sums["all_distinct_documents"] = sum(r["pages"] for r in pages["documents"])
+assert sums == pages["totals"] == reader["page_totals"]
+page_summary = (f"Eight mathematical manuscripts: {sums['mathematical_manuscript']} pages; "
+                f"with the three verification guides: {sums['mathematical_manuscripts_and_guides']}; "
+                f"with the research-status report: {sums['all_distinct_documents']}. "
+                "Each distinct document is counted once.")
+assert '<span id="manuscript-page-summary">' + page_summary + '</span>' in (root / "index.html").read_text()
+tree = ast.parse((root / reader["files"]["remaining_cases.py"]["path"]).read_text())
+constants = {node.targets[0].id: ast.literal_eval(node.value) for node in tree.body
+             if isinstance(node, ast.Assign) and node.targets[0].id != "TENSORS"}
+assert set(constants["METADATA"]) == set(constants["DUALS"]) == {"R6_4_155", "R6_8_1660", "R8_2_24"}
+for name, metadata in constants["METADATA"].items():
+    assert isinstance(constants[name], list) and len(constants[name]) == metadata["rank"]
+    assert metadata["status"] == "unresolved" and metadata["unit_index"] == 0
+    assert hashlib.sha256(json.dumps(constants[name], separators=(",", ":")).encode()).hexdigest() == metadata["tensor_sha256"]
+print("Reader downloads checked: three exact tensor constants and twelve distinct PDF page counts.")
+
 update = payload.get("theoretical_update")
 if update:
     stage_dates = {"evidence/theoretical_20261016": "2026-10-16",
@@ -201,7 +251,24 @@ if update:
         assert scope["unresolved"] == len(remaining[str(rank)]) == totals[str(rank)]["unresolved"]
         assert scope["positive"] == totals[str(rank)]["unitarily_realized"]
         assert scope["rings"] - scope["positive"] - scope["unresolved"] == totals[str(rank)]["excluded"]
-    archive = root / update["archive"]["path"]
+    archive_metadata = update["archive"]
+    external_url = archive_metadata.get("url")
+    if external_url:
+        assert external_url == TRUSTED_PROOF_BUNDLE_URL, "Untrusted external proof-bundle URL"
+        assert archive_metadata["path"] == "downloads/review-update-2026-10-17.zip"
+        if args.proof_bundle:
+            archive = args.proof_bundle.resolve()
+        else:
+            proof_temporary_directory = tempfile.TemporaryDirectory(prefix="atlas-proof-check-")
+            archive = Path(proof_temporary_directory.name) / "proof-bundle.zip"
+            with urllib.request.urlopen(TRUSTED_PROOF_BUNDLE_URL, timeout=60) as response:
+                assert response.geturl() == TRUSTED_PROOF_BUNDLE_URL, "Unexpected proof-bundle redirect"
+                raw = response.read(archive_metadata["bytes"] + 1)
+            assert len(raw) == archive_metadata["bytes"], "External proof-bundle size mismatch"
+            archive.write_bytes(raw)
+    else:
+        assert args.proof_bundle is None, "--proof-bundle requires an external archive URL in the snapshot"
+        archive = root / archive_metadata["path"]
     assert hashlib.sha256(archive.read_bytes()).hexdigest() == update["archive"]["sha256"]
     assert archive.stat().st_size == update["archive"]["bytes"]
     import zipfile
@@ -241,3 +308,6 @@ assert all(case in (root / "review.html").read_text() for case in ("R6_4_155", "
 assert "docs/CASE_INVENTORY.md" in (root / "app.js").read_text(), "Missing current case-inventory route"
 assert "ALL38_COVERAGE.md" not in reader_sources, "Reader route points to an immutable stage guide"
 assert "tree/main/evidence/review_20261017" not in reader_sources, "Reader route points to an immutable stage overview"
+
+if proof_temporary_directory is not None:
+    proof_temporary_directory.cleanup()

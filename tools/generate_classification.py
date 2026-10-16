@@ -155,6 +155,14 @@ def export(args):
         complete=m
     inputs['rank6']['general_complete_through']=complete
     if args.rank6_bundle:inputs['rank6']['current_bundle']=args.rank6_bundle.name
+    # The finite ledger and the unrestricted theorem have separate scopes.
+    # Preserve the checked theorem record when rebuilding the finite export.
+    current_path = args.output_dir / 'classification_status.json'
+    if current_path.is_file():
+        prior = json.loads(current_path.read_text()).get('inputs', {}).get('rank4', {})
+        for key in ('classification_scope', 'general_classified_through', 'unrestricted_theorem'):
+            if key in prior:
+                inputs['rank4'][key] = prior[key]
     inputs['rank2']={'basis':'X²=1+nX, n>=0; complex realizations exactly n=0,1',
                      'classified_through':'all'}
     inputs['rank3']={'basis':'Five unrestricted categorical Grothendieck rings: four of multiplicity 1 and one of multiplicity 2; see the standalone sphericality and ring-classification manuscript',

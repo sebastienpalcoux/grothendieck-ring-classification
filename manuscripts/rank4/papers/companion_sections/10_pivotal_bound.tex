@@ -1,0 +1,543 @@
+\section{A uniform pivotal bound}\label{sec:pivotal-bound}
+
+\begin{theorem}\label{pivbd:main}
+Every rank-four complex fusion category admitting a pivotal structure
+has Frobenius--Perron dimension less than $1000$. Every coefficient of
+its Grothendieck ring is at most $31$.
+\end{theorem}
+
+The proof uses only positive central indicator identities, elementary
+matrix estimates, and the cubic classification already proved.
+A spherical dimension character in the Galois orbit of the FP character
+can be carried to it in these identities, as in
+Lemma~\ref{core:lem:family-pivotal-fejer}; hence every estimate below
+also applies in that situation. Equivalently, applying an extension of
+that field automorphism to skeletal tensor, duality and spherical
+structure constants gives a pseudo-unitary category with the same
+fusion rules. No algebraic field of definition is needed for this
+observation: an automorphism of the algebraic closure of $\Q$
+extends to $\CC$.
+
+\subsection{Character identities}
+
+For a self-dual category with positive FP central identities, put
+\[
+\begin{gathered}
+ d_i=\FPdim(X_i),\quad D=1+\sum_{i=1}^3d_i^2,\quad
+ S=\sum_{i=1}^3d_i,\quad a_i=N_{ii}^i,\\
+ A=\sum_{i=1}^3d_ia_i,\qquad
+ w=\sum_{j=0}^3f_j^{-2},\quad f_0=D.
+\end{gathered}
+\]
+Besides orthogonality~\eqref{core:orthog}, the diagonal matrix coefficient
+of $N_{X_i}$ gives
+\begin{equation}\label{pivbd:eq:short-character-identities}
+ \sum_jf_j^{-1}=1,\qquad
+ \sum_j\frac{\chi_j(X_i)^2}{f_j}=1,\qquad
+ a_i=\sum_j\frac{\chi_j(X_i)^3}{f_j}.
+\end{equation}
+\subsection{Centered character moments}
+
+We retain the notation $d_i,D,S,A,w$ above and put
+\[
+ t=\sqrt D,\quad q_j=f_j^{-1},\quad Q=1-D^{-1},\quad
+ V=\sum_{j=1}^3(q_j-Q/3)^2,\quad
+ \ell=Q/3-\sqrt{2V/3}.
+\]
+The unit--character orthogonality relation supplements these
+identities:
+\[
+ \sum_{j=1}^3q_j\chi_j(X_i)=-d_i/D.
+\]
+
+\begin{lemma}[Centered cubic estimate]\label{optpiv:lem:centered}
+Suppose $\ell>0$. Set
+\[
+ c_4=\frac{D+1}{(D-1)^2},\qquad
+ C=\frac{Q-2\ell}{\sqrt{Q\ell(Q-\ell)}},\qquad
+ R=\sum_{i=1}^3d_i\left(1-\frac{d_i^2}{D-1}\right)^{3/2}.
+\]
+Then
+\begin{equation}\label{optpiv:eq:centered-upper}
+ A\le c_4\sum_i d_i^4-3+CR.
+\end{equation}
+For every $a\ge0$ we also have
+\begin{equation}\label{optpiv:eq:parameter-lower}
+ A\ge2(a+1)^2(Dw-1)-(1+a^2)(D-1)-2aS.
+\end{equation}
+\end{lemma}
+\begin{proof}
+For three positive weights of sum $Q$, each at least $\ell$, a
+weighted-centered real triple of weighted squared norm $\rho$ has
+third moment at most $C\rho^{3/2}$. Indeed, at an extremum with the mean
+and squared norm fixed, the Lagrange multiplier equation is quadratic,
+so there are at most two distinct coordinates. If the positive value
+has total weight $b$, the normalized third moment is
+$(Q-2b)/\sqrt{Qb(Q-b)}$, which decreases with $b$ and is bounded by its
+value at $b=\ell$.
+
+Apply this to $\chi_j(X_i)+d_i/(D-1)$. Its weighted squared norm is
+$\rho_i=1-d_i^2/(D-1)$, and expansion of the cube gives
+\[
+ a_i\le\frac{(D+1)d_i^3}{(D-1)^2}
+       -\frac{3d_i}{D-1}+C\rho_i^{3/2}.
+\]
+Multiplication by $d_i$ and summation proves
+\eqref{optpiv:eq:centered-upper}. For
+\eqref{optpiv:eq:parameter-lower}, use the positive central twist
+measure of Lemma~\ref{core:lem:family-pivotal-fejer}. Its known twist-one
+mass for $I(X_i)$ is $L_i$, where
+$\sum_i d_iL_i=D^2w-D$. Integrate $|1+az+az^2+z^3|^2$.
+Its constant coefficient is $2+2a^2$, its coefficient of
+$z^2+z^{-2}$ is $2a$, and that of $z^3+z^{-3}$ is one.
+The first indicator of a nonunit simple vanishes, the second has
+absolute value one, and the third has absolute value at most $a_i$,
+since it is the trace of an order-three operator
+\cite[Theorem~5.1]{NSHigher}. Thus
+\[
+ 4(a+1)^2L_i\le D\bigl((2+2a^2)d_i+4a+2a_i\bigr).
+\]
+Multiply by $d_i$, sum over nonunit simples, and divide by $2D$.
+\end{proof}
+
+\begin{lemma}[Concentration at dimension $1000$]
+\label{optpiv:lem:concentration}\label{pivbd:lem:short-concentration}
+Suppose $D\ge1000$, and write
+\[
+ x=\max_i d_i,\qquad B=D-x^2.
+\]
+Then $f_j<5$ for $1\le j\le3$, $B<4\sqrt D$, and
+\begin{equation}\label{optpiv:eq:three-concentrations}
+ \begin{array}{c|c}
+ \text{condition}&\text{bound}\\ \hline
+ \text{all }V&B<(18/5)\sqrt D\\
+ V\ge1/1000&B<(10/3)\sqrt D\\
+ V\ge1/250&B<(5/2)\sqrt D.
+ \end{array}
+\end{equation}
+\end{lemma}
+\begin{proof}
+The three-term indicator estimate gives
+\[
+ V\le\frac4{3D}+\frac{2S}{9D}-\frac4{3D^2}<\frac7{500}.
+\]
+Thus $\eta=\sqrt{6V}/Q<3/10$ and $\ell>2331/10000$. In particular
+$f_j<5$ and $|\chi_j(X_i)|<11/6$, the latter using the unit coordinate
+in the character norm. The elementary spectral upper bound and the
+$a=2$ case of \eqref{optpiv:eq:parameter-lower} give
+\[
+ B\le25+(4+11/6)S<25+245t/24<11t.
+\]
+Here $t\ge\sqrt{1000}>600/19$.
+
+The function
+\[
+ F(\eta)=\frac{1+2\eta}{\sqrt{(1-\eta)(2+\eta)}}
+\]
+is convex on $[0,3/10]$, with $F(0)>7/10$ and $F(3/10)<32/25$.
+Its chord and $Q\ge999/1000$ imply
+\begin{equation}\label{optpiv:eq:C-linear}
+ C=Q^{-1/2}F(\eta)\le\frac{71}{100}+5\sqrt V.
+\end{equation}
+Write the other two nonunit dimensions as $y,z$, and put $H=B-1$.
+Since $(D/(D-1))^{3/2}<1003/1000$,
+\begin{equation}\label{optpiv:eq:R-upper}
+ R\le\sqrt{2B}+\frac{1003B^{3/2}}{1000D}
+       <\frac95\sqrt B \qquad(B<11t).
+\end{equation}
+Completing the square gives
+$5R\sqrt V-18DV\le25R^2/(72D)\le9B/(8D)$.
+Substitute these bounds into the centered upper estimate and the
+$a=2$ lower estimate. Using
+\[
+ c_4\le D^{-1}+\frac{301}{100D^2},\qquad
+ S\le t-B/(2t)+\sqrt{2B},
+\]
+and discarding positive terms gives
+\begin{equation}\label{optpiv:eq:g}
+ g(B):=2B-\frac{2007B^2}{1000t^2}-4t-\frac{1251}{50}
+ -\frac{20\sqrt B}{3}-\frac{18B^{3/2}}{25t^2}+\frac{2B}{t}\le0.
+\end{equation}
+On $4t\le B\le11t$,
+\[
+ g'(B)\ge2-\frac{21077}{500t}-\frac5{3\sqrt t}
+              -\frac{27\sqrt{11}}{25t^{3/2}}>0.
+\]
+Moreover
+\[
+ g(4t)=4t-\frac{12283}{250}-\frac{40\sqrt t}{3}
+                         -\frac{144}{25\sqrt t}>0.
+\]
+The last expression increases for $t\ge158/5$; its positivity at that
+endpoint follows from $28/5<\sqrt{158/5}<45/8$. Hence $B<4t$.
+
+Now choose $a=2-4/t$, and put $k=2(a+1)^2>16$. The lower estimate is
+$A\ge L_0+kDV-2aS$, where
+\[
+ L_0=t^2-\frac{91}{3}+\frac{64}{t}-\frac{40}{3t^2}
+                         -\frac{64}{t^3}+\frac{128}{3t^4}.
+\]
+For $s=y+z$ one has
+$y^4+z^4=H^2-(s^2-H)^2/2$. The relevant smaller-dimension terms are
+bounded by
+\[
+ c_4\bigl(H^2-(s^2-H)^2/2\bigr)
+       +(2a+71/100+5\sqrt V)s.
+\]
+Their derivative in $s\le\sqrt{2H}$ is positive: the negative term is
+at most $2\sqrt2c_4H^{3/2}<41/10$, whereas $2a+71/100>22/5$.
+We may therefore replace $y,z$ by equal dimensions in this upper bound.
+Define
+\begin{align*}
+ C_{\mathrm{aux}}(B,t)={}&L_0+3-c_4\bigl((D-B)^2+(B-1)^2/2\bigr)\\
+ &-2a\sqrt{D-B}-(2a+71/100)\sqrt{2(B-1)}\\
+ &-\frac{71}{100}\sqrt{D-B}
+                         \left(\frac{B-1}{D-1}\right)^{3/2},\\
+ R_0(B,t)={}&\sqrt{2(B-1)}+
+ \sqrt{D-B}\left(\frac{B-1}{D-1}\right)^{3/2}.
+\end{align*}
+Necessarily
+\begin{equation}\label{optpiv:eq:scalar-necessary}
+ C_{\mathrm{aux}}(B,t)+kDV-5R_0(B,t)\sqrt V\le0.
+\end{equation}
+Since $R_0<(8/5)\sqrt B$, completing the square shows that
+$C_{\mathrm{aux}}(B,t)-B/D\le0$. If $V\ge v$ for $v=1/1000$ or $1/250$, the last two
+terms of \eqref{optpiv:eq:scalar-necessary} increase with $V\ge v$;
+thus also
+\[
+ C_{\mathrm{aux}}(B,t)+kDv-5R_0(B,t)\sqrt v\le0.
+\]
+Each of these three left sides increases with $B$ on $[(5/2)t,4t]$.
+For example its derivative is greater than
+\[
+ 2-\frac{12}{t}-\frac{503}{100\sqrt{5t-2}}
+ -\frac{103}{100}\frac{3009}{1000t^{3/2}}-\frac1{t^2}>1.
+\]
+The exact endpoint comparisons recorded below show positivity at
+$B=(18/5)t,(10/3)t,(5/2)t$, respectively, proving
+\eqref{optpiv:eq:three-concentrations}.
+\end{proof}
+
+\paragraph{Rational endpoint comparisons.}
+For clarity, the scalar arithmetic in the preceding proof is included.
+Put $b=301/100$, and use the following rational numbers, satisfying
+$r_-<\sqrt{2e}<r_+$ and $e^{3/2}<h_+$:
+\[
+\begin{array}{c|c|c|c|c|c}
+ e&v&j&r_-&r_+&h_+\\\hline
+ 18/5&0&0&2683/1000&671/250&6831/1000\\
+ 10/3&1/1000&4/25&2581/1000&1291/500&3043/500\\
+ 5/2&1/250&8/25&559/250&2237/1000&3953/1000
+\end{array}
+\]
+In the last two rows $j\ge5\sqrt v$. At $B=et$ the relevant left side
+is bounded below by
+\[
+ L(t)=18vt^2+(A-48v)t-C_{\mathrm{aux}}\sqrt t+C_0+\frac{C_1}{\sqrt t}
+              +\frac{C_2}{t}-\frac{C_3}{t^2}+\frac{C_4}{t^3}
+              +\frac{C_5}{t^4},
+\]
+where
+\begin{align*}
+ A&=2e-4,& C_{\mathrm{aux}}&=(471/100+j)r_+,\\
+ C_0&=11-91/3-b+2e-3e^2/2+32v,\\
+ C_1&=8r_--(71213/100000+1003j/1000)h_+,\\
+ C_2&=64+(2b-3)e-e\,\mathbf1_{v=0},\\
+ C_3&=40/3+1/2+3be^2/2,& C_4&=-64+be,\qquad C_5=128/3-b/2.
+\end{align*}
+To obtain this bound, use $c_4\le D^{-1}+bD^{-2}$,
+$\sqrt{D-B}\le t-e/2$, $\sqrt{B-1}\le\sqrt{et}$, and
+$R_0\le\sqrt{2et}+(1003/1000)e^{3/2}/\sqrt t$.
+All $C_1,C_2,C_3,C_5$ are positive, and $C_4<0$.
+At $t_0=158/5$, using $28/5<\sqrt{t_0}<45/8$, rational substitution gives
+\[
+\begin{array}{c|c|c}
+ e& L(t_0)\text{ exceeds}&L'(t)\text{ exceeds for }t\ge t_0\\\hline
+ 18/5&1/2&19/10\\
+ 10/3&5/2&5/2\\
+ 5/2&12&4
+\end{array}
+\]
+For the derivative column use
+\[
+ 36vt_0+A-48v-\frac{C_{\mathrm{aux}}}{2(28/5)}
+ -\frac{C_1}{2t_0(28/5)}-\frac{C_2}{t_0^2}-\frac{4C_5}{t_0^5};
+\]
+every discarded derivative term is positive, and every retained negative
+term decreases in magnitude for $t\ge t_0$. This establishes the three
+comparisons for all $D\ge1000$ by rational arithmetic.
+
+
+\subsection{The determinant}
+
+\begin{lemma}[A determinant estimate using the character mean]
+\label{optpiv:lem:mean-determinant}
+Let $D\ge1000$, $t=\sqrt D$, and let $x$ be the largest simple
+Frobenius--Perron dimension. Put $B=D-x^2$, $q_j=f_j^{-1}$ for
+the three non-Frobenius--Perron characters, and
+\[
+ m=\frac{1-D^{-1}}3,\qquad V=\sum_{j=1}^3(q_j-m)^2.
+\]
+Suppose $V<7/500$ and
+\[
+ B\le\begin{cases}
+ 18t/5,&V\le1/1000,\\
+ 10t/3,&1/1000\le V\le1/250,\\
+ 5t/2,&V\ge1/250.
+ \end{cases}
+\]
+Then the fusion matrix of the simple object of dimension $x$ is singular.
+\end{lemma}
+\begin{proof}
+Write its other eigenvalues as $\lambda_1,\lambda_2,\lambda_3$.
+Besides the usual square-sum identity, character orthogonality gives
+\begin{equation}\label{optpiv:eq:mean-identity}
+ \sum_jq_j\lambda_j=-x/D,\qquad
+ \sum_jq_j\lambda_j^2=B/D.
+\end{equation}
+Set $r=B/D$, $z_j=\sqrt{q_j}\lambda_j$, and
+\[
+\begin{gathered}
+ l=m-\sqrt{2V/3},\qquad
+ p=m^3-\frac{mV}{2}-\sqrt{\frac{V^3}{54}},\\
+ c=\frac{\sqrt{(D-B)/(DB)}+\sqrt V/(2\sqrt l)}{\sqrt m}.
+\end{gathered}
+\]
+The present bounds imply $l>0$ and $p>17/500$.
+Since $q_j\ge l$, replacing $\sqrt{q_j}$ by $\sqrt m$ in the
+first identity in~\eqref{optpiv:eq:mean-identity} gives
+\[
+ \left|\sum_jz_j\right|\le c\sqrt r,
+ \qquad \sum_jz_j^2=r.
+\]
+Here we used
+$\sum_j(\sqrt{q_j}-\sqrt m)^2\le V/(4l)$.
+For a real triple of square sum $r$ whose sum has absolute value at most
+$c\sqrt r$, where $0\le c\le1/\sqrt3$, the elementary cubic bound is
+\begin{equation}\label{optpiv:eq:cubic-product}
+ |z_1z_2z_3|\le r^{3/2}P(c),\qquad
+ P(c)=\frac{c(9-5c^2)+\sqrt{2(3-c^2)^3}}{54}.
+\end{equation}
+To verify it, subtract the common mean and use
+$|u_1u_2u_3|\le(\sum u_j^2)^{3/2}/\sqrt{54}$ when
+$\sum u_j=0$. Expanding the original product gives~\eqref{optpiv:eq:cubic-product};
+$P$ is increasing on $[0,1/\sqrt3]$.
+The same zero-sum product inequality applied to $q_j-m$ yields
+$q_1q_2q_3\ge p$. Thus
+\begin{equation}\label{optpiv:eq:determinant-comparison}
+ |\det N_X|^2\le
+ F(D,B,V):=\frac{(D-B)(B/D)^3P(c)^2}{p}.
+\end{equation}
+
+We record why endpoint comparisons suffice. The function $F$ increases
+with $V$. In the first two variance intervals, for $25\le B$ below the
+stated bounds we have
+\[
+ B<D/8,\quad l>281/1000,\quad m\ge333/1000,
+ \quad c<46/100<1/\sqrt3.
+\]
+Moreover $P'/P<5/4$, since $P'\le1/6$ and $P\ge1/\sqrt{54}$.
+Consequently
+\[
+\begin{split}
+ B\,\partial_B\log F
+ &=3-\frac{B}{D-B}
+ -\frac{P'}P\frac{D}{D-B}
+       \left(c-\frac{\sqrt V}{2\sqrt{lm}}\right)\\
+ &>3-\frac17-\frac54\frac87\frac7{20}
+ =\frac{33}{14}>0.
+\end{split}
+\]
+We may therefore put $B=e\sqrt D$ at its upper endpoint. Then
+\[
+ (D-B)(B/D)^3=\frac{e^3(1-e/t)}t,\qquad
+ \frac{D-B}{DB}=\frac{t-e}{et^2}.
+\]
+Both decrease for $t>2e$. Meanwhile $m,l,p$ increase with $t$, so
+$c$ and $P(c)$ decrease. The worst endpoint is therefore $D=1000$.
+If $B<25$, ordinary weighted arithmetic--geometric mean already gives
+\[
+ |\det N_X|^2\le\frac{B^3}{27pD^2}
+ <\frac{25^3}{27(17/500)1000^2}<1.
+\]
+
+At $D=1000$, the following rational bounds certify the first two
+endpoints. The column headed $H$ bounds $(D-B)(B/D)^3$.
+\[
+\begin{array}{c|c|c|c|c|c}
+ e&V&c&P(c)&p&H\\ \hline
+ 18/5&1/1000&<41/200&<1/6&>147/4000&<327/250\\
+ 10/3&1/250&<27/100&<7/40&>181/5000&<53/50
+\end{array}
+\]
+For completeness, $\sqrt m>577/1000$. In the first row,
+$113<B<2277/20$, $l>307/1000$, and the two numerator terms of $c$
+are respectively less than $89/1000$ and $29/1000$; hence
+$c<118/577<41/200$. In the second row, $105<B<211/2$,
+$l>281/1000$, and these terms are less than $93/1000$ and $60/1000$;
+hence $c<153/577<27/100$. The bounds for $p$ and $H$ follow directly
+by squaring positive rational quantities. The two bounds for $P$ follow
+from
+\[
+\begin{aligned}
+ [9-c(9-5c^2)]^2-2(3-c^2)^3
+ &=\frac{3200085294507}{64000000000000}>0
+ &&(c=41/200),\\
+ [189/20-c(9-5c^2)]^2-2(3-c^2)^3
+ &=\frac{513547573203}{10^{12}}>0
+ &&(c=27/100).
+\end{aligned}
+\]
+Equation~\eqref{optpiv:eq:determinant-comparison} now gives, respectively,
+\[
+ |\det N_X|^2<\frac{436}{441}<1,
+ \qquad |\det N_X|^2<\frac{2597}{2896}<1.
+\]
+
+In the third variance interval ordinary weighted arithmetic--geometric
+mean suffices. We have $p>17/500$, and $B\le(5/2)\sqrt D$ implies
+$(D-B)(B/D)^3<12/25$, by the same endpoint monotonicity.
+Therefore
+\[
+ |\det N_X|^2\le\frac{(D-B)(B/D)^3}{27p}
+ <\frac{80}{153}<1.
+\]
+The determinant is an integer, so it vanishes in all three cases.
+\end{proof}
+
+
+\subsection{The positive-dimension bound}
+
+\begin{proposition}\label{pivbd:prop:pu}
+If a pseudo-unitary fusion category has rank four and all its simple objects are self-dual, then its Frobenius--Perron dimension is less than $1000$.
+\end{proposition}
+\begin{proof}
+Suppose $D\geq1000$, put $t=\sqrt D$, and let $X$ be the largest simple supplied by Lemma~\ref{pivbd:lem:short-concentration}. Since $B<4\sqrt D<D/2$, the largest simple is unique. Write the basis as $1,X,Y,Z$, with dimensions $1,x,y,z$, and put
+\[
+ K=\Q(x,y,z),\qquad r=[K:\Q],\qquad B=D-x^2.
+\]
+
+\smallskip\noindent
+\emph{The rank of $L_X$ is $r$.}
+The rational semisimple commutative algebra $R\otimes\Q$ is a product of number fields. Its character orbits are the embeddings of those fields, and the Frobenius--Perron orbit corresponds to $K$. If a character $\chi$ lies outside this orbit, all algebraic conjugates of $\chi(X)$ have absolute value less than one because $|\chi_j(X)|^2<f_jB/D<20/\sqrt D<1$. As $\chi(X)$ is an algebraic integer, its norm forces $\chi(X)=0$. On the Frobenius--Perron orbit the values are embeddings of the nonzero element $x\in K$, and are nonzero. Hence
+\begin{equation}\label{pivbd:eq:rank-degree}
+ \operatorname{rank} L_X=r.
+\end{equation}
+The principal block of $L_X$ on $1,X$ is
+$\left(\begin{smallmatrix}0&1\\1&a\end{smallmatrix}\right)$, so its rank is at least two. Its determinant vanishes by Lemma~\ref{optpiv:lem:mean-determinant}. Thus $r=2$ or $3$.
+
+\smallskip\noindent
+\emph{Rank two is impossible.}
+Write
+\[
+ L_X=\begin{pmatrix}
+ 0&1&0&0\\
+ 1&a&b&c\\
+ 0&b&e&h\\
+ 0&c&h&k
+ \end{pmatrix}.
+\]
+The upper left block is invertible and its Schur complement is exactly the lower right block. Rank two therefore gives $e=h=k=0$. Consequently $XY=bX$ and $XZ=cX$, so $y=b$ and $z=c$ are positive integers. The second character in the Frobenius--Perron orbit has codegree
+\[
+ 1+(x')^2+b^2+c^2<5.
+\]
+It follows that $b=c=1$. Thus $Y$ and $Z$ are distinct self-dual invertible objects. Their product is a fourth invertible basis element, necessarily $X$: it cannot be $1,Y$, or $Z$ by cancellation. This gives $D=4$, a contradiction.
+
+
+If $r=3$, Theorem~\ref{cub:thm:cubic-classification} applies. Its
+codegree polynomial~\eqref{cub:eq:cubic-nine-codegree} has trace $27$,
+so $D<27$, again a contradiction. This proves the proposition.
+\end{proof}
+\subsection{Pivotal characters outside the FP orbit}
+
+A pivotal category whose simples are self-dual is spherical: the left
+dimension of a simple equals the right dimension of its dual. Its
+simple dimensions are real, because they form a character of commuting
+real symmetric fusion matrices.
+
+\begin{lemma}\label{pivbd:lem:exceptional}
+Let $\C$ be a self-dual pivotal fusion category of rank four. Either it has a pseudo-unitary Galois conjugate, or $\FPdim(\C)<576$.
+\end{lemma}
+\begin{proof}
+Write $D=\FPdim(\C)$. If $D$ is rational, it is an integer and the category is pseudo-unitary by \cite[Proposition~8.24]{ENO}. For the rest of the proof, assume that no Galois conjugate is pseudo-unitary. Then $D$ is irrational, and the spherical dimension character is outside the Frobenius--Perron orbit.
+
+The field generated by spherical dimensions contains every formal codegree, including $D$, by \cite[Corollary~2.15]{Ostrik3}. Let $K$ be the Frobenius--Perron field. Its degree is between two and four. Degree four leaves no other character orbit, and in degree three the other orbit is rational, so neither case is possible. If $[K:\Q]=2$, the other factor of $R\otimes\Q$ must be a quadratic field containing $\Q(D)=K$. Thus
+\begin{equation}\label{pivbd:eq:repeated-quadratic}
+ R\otimes\Q\cong K\times K
+\end{equation}
+for a real quadratic field $K$, and the spherical dimension character belongs to the other factor.
+
+Denote the four formal codegrees by $D,D',H,H'$, with primes indicating conjugation in $K$. We allow $H=H'$ and retain both character multiplicities. After Galois conjugation, arrange that the spherical global dimension is $H\geq H'$. Each codegree is positive and greater than one. Also $H\leq D$, because each character value has absolute value at most the corresponding Frobenius--Perron dimension. Equality would make the category pseudo-unitary, so $H<D$ in the exceptional case.
+
+By the central-induction dimension formula, $H/D$ is a simple central dimension and hence an algebraic integer. Put
+\[
+ n=DD',\qquad k=\frac{HH'}{DD'}\in\ZZ_{\geq1},\qquad
+ p=\frac1D+\frac1{D'},\qquad
+ w=\frac1{D^2}+\frac1{(D')^2}+\frac1{H^2}+\frac1{(H')^2}.
+\]
+Here $k$ is the field norm of $H/D$, including when that element is rational. Since $D'>1$ and $H\geq H'$, we have
+\begin{equation}\label{pivbd:eq:exceptional-size}
+ n>D,\qquad H\geq\sqrt{kn}>\sqrt{kD}.
+\end{equation}
+The reciprocal-codegree identity gives
+\begin{equation}\label{pivbd:eq:exceptional-w}
+ w-\frac12=2\left(p-\frac12\right)^2-\frac{2(1+1/k)}n.
+\end{equation}
+
+We also need a spherical first-moment bound:
+\begin{equation}\label{pivbd:eq:spherical-mass}
+ w\leq\frac12+\frac1{2H}.
+\end{equation}
+Indeed, the dimensions of central simples are real, as they are dimensions of their restrictions to $\C$. Give a central simple $A$ the nonnegative weight $\dim(A)^2$ at its twist $\theta_A$. The total weight is $H^2$ and its first moment is $H$. To see both identities directly, multiply the dimension formula for $I(X)$ and the $k=1$ case of the central indicator formula by $\dim(X)$ and sum over simple $X$; adjunction identifies the coefficient of $\dim(A)$ with $\dim F(A)=\dim(A)$, while $\nu_1(X)=\delta_{X,1}$. The four constituents of $I(1)$ contribute weight $h=H^2w$, all at twist one. Since the remaining twists have absolute value one,
+\[
+ h-H\leq|H-h|\leq H^2-h.
+\]
+This proves \eqref{pivbd:eq:spherical-mass} without any positivity assumption on unsquared spherical dimensions.
+
+Set $r=D/H>1$. By \eqref{pivbd:eq:exceptional-size}, $r<\sqrt{D/k}\leq\sqrt D$. Moreover, $kr>2$. This is immediate when $k\geq2$. When $k=1$, $H/D$ is a totally positive algebraic-integer unit of norm one. Thus $r$ is also such a unit, with conjugate $r^{-1}$; the integer $r+r^{-1}>2$ is at least three, and $r\geq(3+\sqrt5)/2>2$.
+
+Since $H'=krD'$, the reciprocal-codegree identity gives
+\[
+ 1=\frac{1+r}{D}+\frac{1+1/(kr)}{D'},\qquad
+ p=\frac{kr}{kr+1}-\frac{kr^2-1}{(kr+1)D}
+ >\frac23-\frac rD>\frac23-\frac1{\sqrt D}.
+\]
+If $D\geq576$, then $p>5/8$ and $H>24$. Equation~\eqref{pivbd:eq:exceptional-w} consequently gives
+\[
+ w-\frac12>\frac1{32}-\frac4D
+ \geq\frac7{288}>\frac1{48}>\frac1{2H},
+\]
+contradicting \eqref{pivbd:eq:spherical-mass}. Thus $D<576$, as required.
+\end{proof}
+
+
+\subsection{Non-self-dual categories and conclusion}
+
+By Theorem~\ref{ns:thm:ns-spherical}, a rank-four category with a
+non-self-dual simple admits a spherical structure. There are exactly
+two real-valued characters: the complex-linear duality involution has
+trace two in the distinguished basis, hence fixes exactly two primitive
+idempotents. These are precisely the real characters. If the FP
+character is irrational, its Galois orbit consists of these two
+characters, so the real spherical dimension character belongs to that
+orbit. If the FP character is rational, weak integrality gives
+pseudo-unitarity by \cite[Proposition~8.24]{ENO}.
+Thus a pseudo-unitary Galois conjugate exists in either case.
+Larson's candidate theorem \cite[Theorem~1.1]{Larson} bounds its simple
+FP dimensions by the following possibilities, besides the pointed case:
+\[
+1,1,1,\frac{m+\sqrt{m^2+12}}2\quad(m=0,2,3,6),\qquad
+1,1,c+\sqrt{c^2+1},c+\sqrt{c^2+1}\quad(c=1,2).
+\]
+Their global dimensions are at most $24+12\sqrt3<45$ and
+$20+8\sqrt5<38$, respectively. Therefore $D<45$.
+
+For a self-dual pivotal category, Lemma~\ref{pivbd:lem:exceptional}
+gives $D<576$ unless its spherical dimension character belongs to the
+FP orbit. In the latter case Proposition~\ref{pivbd:prop:pu} gives
+$D<1000$. This proves the dimension assertion in
+Theorem~\ref{pivbd:main}.
+Lemma~\ref{core:lem:coefficient-bound} gives $N_{XY}^{Z}<\sqrt D<32$,
+and integrality gives the coefficient bound.
+
+

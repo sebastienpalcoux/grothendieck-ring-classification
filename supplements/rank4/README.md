@@ -1,13 +1,17 @@
-# Rank-four classification through multiplicity 128
+# Rank-four Grothendieck ring classification
 
 > **AI-generated research — independent verification pending.** Treat these results, proofs, code and data with caution. They have not yet been independently verified by human experts or formalized in Lean. See the [verification scope](../../docs/PREPUBLICATION_REVIEW.md).
 
-The bounded classification records **15 realized and 889,515 excluded rings among 889,530 inputs**, with no unresolved case through multiplicity 128. Every positive ring has a unitary model. The unrestricted fifteen-ring classification remains a conjecture.
+The unrestricted classification contains **exactly 15 complex Grothendieck rings**. Every categorification admits a spherical structure, and every ring has a unitary model. The sharp bounds are **FPdim ≤ 24+12√3** and **multiplicity ≤ 6**, with equality precisely for `NG(C₃,6)`.
+
+The [unrestricted replay package](unrestricted/README.md) accompanies the complete theoretical reduction to FPdim < 1000 and multiplicity at most 31. Its exact census contains 1,692 rings: 1,677 excluded and 15 realized. The separate bounded certificate contains 889,530 rings through multiplicity 128, with 889,515 exclusions and the same 15 models.
+
+Related work on the pivotal case: Jingcheng Dong, Sébastien Palcoux and Arnaud Plessis, [Classifying Grothendieck rings of pivotal fusion categories of rank four](https://arxiv.org/abs/2609.33272), arXiv:2609.33272. Its hypothesis is pivotality.
 
 ## Read the research
 
-- [Finite classification](../../site/dist/papers/rank4.pdf)
-- [Unrestricted structural companion](../../site/dist/papers/rank4_companion.pdf)
+- [Finite census classification](../../site/dist/papers/rank4_finite.pdf)
+- [Complete unrestricted classification](../../site/dist/papers/rank4_companion.pdf)
 - [Mathematical verification guide](../../site/dist/papers/rank4_guide.pdf)
 - [LaTeX sources](../../manuscripts/rank4/papers)
 

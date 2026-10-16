@@ -1,0 +1,340 @@
+\section{Sphericalization, central induction, and rigidity}\label{sec:core}
+Throughout, a fusion category is finite, semisimple, rigid and
+$\CC$-linear, with simple tensor unit. Its rank is the number
+of isomorphism classes of simple objects. A fusion ring is a based
+ring with nonnegative integral structure constants and the usual
+coefficient-of-unit pairing. A \emph{Grothendieck ring} is a fusion
+ring realized by such a category. A pivotal structure is a monoidal isomorphism from the identity to
+the double dual; it is spherical when its left and right traces agree.
+We impose no pivotal hypothesis; the general existence question is
+\cite[Conjecture~2.8]{ENO}.
+
+For a self-dual basis $1,X,Y,Z$ we use the convention
+\begin{equation}\label{eq:tuple-convention}
+\begin{aligned}
+X^2&=1+aX+bY+cZ,&XY&=bX+dY+eZ,&XZ&=cX+eY+fZ,\\
+Y^2&=1+dX+gY+hZ,&YZ&=eX+hY+iZ,&Z^2&=1+fX+iY+jZ.
+\end{aligned}
+\end{equation}
+Thus a table is denoted by $(a,b,c,d,e,f,g,h,i,j)$.
+The same convention applies to signed tables. All subsequent changes
+of labels or signs are explicitly local to the argument concerned.
+
+\begin{lemma}[Rank-four algebras and coefficient bounds]
+\label{core:lem:rank-four-algebra}\label{core:lem:coefficient-bound}
+A semisimple complex algebra of dimension four admitting a
+one-dimensional representation is commutative. In particular every
+rank-four fusion ring, and every rank-four signed sphericalization
+quotient, has commutative complexification. For an ordinary fusion ring,
+write $d_i=\FPdim(b_i)$ and $D=\sum_jd_j^2$. Then
+\[
+ N_{ij}^{k}\le d_i<\sqrt D.
+\]
+\end{lemma}
+\begin{proof}
+The only noncommutative semisimple complex algebra of dimension four
+is $M_2(\CC)$, which has no one-dimensional representation.
+The regular based $*$-algebras in question are semisimple; their
+Frobenius--Perron or signed dimension characters supply the required
+representation. In the ordinary ring, reciprocity gives
+$N_i^*=N_{i^*}$, so commutativity makes $N_i$ normal. Its operator norm
+is its spectral radius $d_i$. Every matrix entry is bounded by that
+norm, and $d_i^2<D=\sum_jd_j^2$.
+\end{proof}
+
+For a commutative self-dual table its characters have real values,
+and its formal codegrees are
+$f_\chi=\sum_i\chi(X_i)^2$. Orthogonality gives
+\begin{equation}\label{core:orthog}
+\sum_\chi\frac{\chi(X_i)\chi(X_j)}{f_\chi}=\delta_{ij},
+\qquad\sum_\chi f_\chi^{-1}=1.
+\end{equation}
+All codegrees are positive. The $d$-number and cyclotomicity conditions
+are collected in Proposition~\ref{finite:prop:standard}. In degree two,
+the $d$-number criterion says that the norm divides the square of the
+trace. A real character field of a categorification is totally real
+and abelian.
+
+We write $R=K_0(\C)$, $d_i=\FPdim(X_i)$ and
+$D=\sum_i d_i^2$. In the self-dual case, let $\mathcal S$ denote
+the sphericalization and $\varepsilon$ its canonical central sign
+object. Its central lift is the nontrivial object of the canonical
+$\Rep(C_2)$ in the equivariantization construction of sphericalization
+\cite[Section~5.3]{Bartlett}; its spherical dimension and ribbon twist
+are both $-1$. Write $T=K_0(\mathcal S)/(\varepsilon+1)$ and
+$x_i=\dim(X_i^+)$, so $E=\sum_i x_i^2$ and
+$\dim\mathcal S=2E$. The lifts are self-dual: duality preserves
+spherical dimensions, and the two lifts have opposite nonzero dimensions.
+The notation $\beta_i=x_i$ is used when the lift signs are chosen
+to make the embedded spherical dimensions positive at the selected real
+embedding.
+A Galois change of embedding is made explicitly; neither sphericality
+nor a unitary realization alone is used to assert pseudo-unitarity. The ordinary and signed
+codegrees are denoted by $f_i,g_i$, and
+\[
+u=\sum_i f_i^{-2},\qquad v=\sum_i g_i^{-2}.
+\]
+\begin{lemma}[Sphericalization and induction]\label{core:lem:family-induction}
+Let $\C$ be a complex fusion category with a self-dual
+rank-four ring $R$, FP dimensions $d_i$, and $D=\sum_i d_i^2$.
+Its sphericalization has a commutative signed quotient $T$ of rank
+four. Choose positive embedded spherical dimensions $\beta_i$ for its lifts and
+put $E=\sum_i\beta_i^2$. Then:
+\begin{enumerate}
+\item $|T_{ij}^k|\le N_{ij}^k$ and $T_{ij}^k\equiv N_{ij}^k\pmod2$;
+\item all ordinary and signed codegrees lie in $L=\Q(\beta_i)$,
+and $E/f$ is an algebraic integer for every such codegree $f$;
+\item every signed codegree is at most $D$ and $E\le D$;
+\item if $E=D$, the chosen lifts give a spherical section of
+$\C$.
+\end{enumerate}
+These statements remain valid after real embeddings of $L$ and
+changes of lift signs. In particular, in seeking a nonspherical
+categorification one may assume $E<D$ and select the larger
+conjugate when $[L:\Q]=2$.
+\end{lemma}
+\begin{proof}
+The sphericalization $\mathcal S$ has two self-dual lifts of each
+simple, exchanged by its canonical central sign object $\varepsilon$,
+whose dimension is $-1$ and whose square is one; see
+\cite[Section~5.3]{Bartlett} and \cite[Section~5.1]{Ostrik3}.
+Taking the quotient by $\varepsilon+1$ gives signed coefficients
+$T_{ij}^k=N_{ij}^{k,+}-N_{ij}^{k,-}$, while
+$N_{ij}^k=N_{ij}^{k,+}+N_{ij}^{k,-}$. Its real regular matrices
+are symmetric. Semisimplicity follows from the positive
+coefficient-of-unit form; the dimension character excludes
+$M_2(\CC)$, the sole noncommutative semisimple algebra of
+dimension four. Thus $T$ and $K_0(\mathcal S)$ are commutative.
+The latter has codegrees $2f_j,2g_j$ and spherical dimension $2E$.
+
+Central induction into $Z(\mathcal S)$ has one simple constituent
+of $I(1)$ per character, of dimension $E/f_j$ or $E/g_j$ and twist
+one \cite[Theorems~2.5 and~2.13]{Ostrik3}. These dimensions are
+algebraic integers; codegree-field containment is
+\cite[Corollary~2.15]{Ostrik3}. The signed $g_j$ are $d$-numbers
+because $2g_j$ are codegrees of $\mathcal S$.
+Spectral comparison $|T_i|\le N_i$ bounds every signed character
+value in absolute value by $d_i$. Thus its codegree is at most $D$.
+If $E=D$, then $\beta_i=d_i$ throughout, and
+\[
+ \sum_k(N_{ij}^k-T_{ij}^k)d_k=0
+\]
+forces $T_{ij}^k=N_{ij}^k$. The positive lifts are tensor closed
+and form the required spherical section. The same algebraic
+arguments hold after each real embedding, followed by choosing
+the signs of the lifts to make their values positive.
+\end{proof}
+
+The central quotients $E/f_i,E/g_i$ belong to the signed order itself,
+not merely to its field's ring of integers: the forgetful image is an
+integral signed combination of the chosen lifts.
+For a field algebra, the coefficient-of-unit functional satisfies
+\begin{equation}\label{core:frobenius-trace}
+\tau_T(a)=\Tr_{L/\Q}(a/E).
+\end{equation}
+Indeed $\Tr(a)=\sum_i\tau_T(x_i a x_i)=\tau_T(aE)$.
+In particular $\Tr(x_i/E)=\delta_{i0}$.
+When both ordinary and signed algebras are the same quartic field,
+\begin{equation}\label{core:discriminants}
+\disc(R)=N(D),\quad \disc(T)=N(E),\quad N(E/D)\in\ZZ_{>0}^2.
+\end{equation}
+The first two identities follow by comparing the trace pairing with
+the orthonormal based pairing. The last follows because the ratio
+of two order discriminants is a rational square and $E/D$ is integral.
+
+\subsection{Spectral and trace saturation}
+
+
+A self-dual based ring has a basis $b_0=1,b_1,b_2,b_3$ and a symmetric
+integral multiplication tensor, with coefficient-of-unit form
+$\langle b_i,b_j\rangle=\delta_{ij}$. A signed table below has the same
+unit and form; its nonunit structure constants need not be positive.
+A gauge change replaces each $b_i$ by $s_i b_i$, where $s_0=1$ and
+$s_i\in\{1,-1\}$.
+
+
+
+\begin{lemma}\label{trace:lem:absolute-rigidity}
+Let $N=(N_{ijk})$ be the structure tensor of a self-dual rank-four fusion ring, and let $T=(T_{ijk})$ be a symmetric integral structure tensor defining an associative unital algebra on the same orthonormal basis $1,X,Y,Z$, with $T_{0ij}=\delta_{ij}$. If
+\[
+|T_{ijk}|=N_{ijk}\qquad(0\le i,j,k\le3),
+\]
+then there are signs $s_0=1$, $s_1,s_2,s_3\in\{1,-1\}$ such that
+\[
+T_{ijk}=s_i s_j s_k N_{ijk}.
+\]
+\end{lemma}
+\begin{proof}
+Associativity and symmetry give, for every $i,j$,
+\[
+\sum_k T_{iik}T_{jjk}=\sum_k T_{ijk}^{\,2}.
+\]
+The same identity holds for $N$, and the right-hand sides agree. Each term
+$N_{iik}N_{jjk}-T_{iik}T_{jjk}$ is nonnegative; therefore each is zero. For a fixed $k$, all nonzero coefficients $T_{iik}$ consequently have the same sign.
+
+Use the usual ten-entry convention
+\[
+(a,b,c,d,e,f,g,h,i,j)
+=(N_{111},N_{112},N_{113},N_{122},N_{123},
+N_{133},N_{222},N_{223},N_{233},N_{333}).
+\]
+The three groups of diagonal coefficients are
+\[
+(a,d,f),\qquad(b,g,i),\qquad(c,h,j).
+\]
+Independent sign changes of $X,Y,Z$ make every signed coefficient in these groups nonnegative. Hence the two tables now agree except possibly at $e$. If they agree there too, we are done. Otherwise $e>0$ and the signed table has coefficient $-e$.
+
+Compare the associativity equations for the two choices of sign of $e$. Their linear and constant parts give
+\begin{gather*}
+a=d+f,\qquad g=b+i,\qquad j=c+h,\\
+bh+ci=bc,\qquad dh=cd+fh,\qquad bf+di=fi,\\
+e^2=1+df+bi+ch.
+\end{gather*}
+We claim that one of the three displayed diagonal groups is zero.
+If $d>f$, then $bf=i(f-d)$ forces $i=0$ and $bf=0$.
+For $f>0$ this gives $b=g=i=0$.
+For $f=0$, the equation $dh=cd$ gives $h=c$; then $e^2=1+c^2$ forces $c=h=j=0$ by integrality.
+If $d=f>0$, the equations give $b=c=0$ and then $e^2=1+d^2$, an impossibility.
+If $d=f=0$, then $a=d=f=0$.
+Finally, if $d<f$, the identity $cd=h(d-f)$ forces $h=0$ and $cd=0$.
+For $d>0$ this gives $c=h=j=0$.
+For $d=0$, the equation $bf=fi$ gives $b=i$; then $e^2=1+b^2$ forces $b=g=i=0$.
+This proves the claim in every case.
+
+Flip the basis sign belonging to a zero group. It preserves all nine diagonal coefficients and reverses the sign of $e$. The two tensors now agree, proving the lemma.
+\end{proof}
+
+\begin{corollary}\label{trace:cor:trace-rigidity}
+Under the same hypotheses, suppose only that $|T_{ijk}|\le N_{ijk}$. Let $C_N$ and $C_T$ be multiplication by the respective Casimir elements $\sum_i b_i^2$. If
+\[
+\operatorname{Tr}(C_T)=\operatorname{Tr}(C_N),
+\]
+then $T$ and $N$ are gauge equivalent.
+\end{corollary}
+\begin{proof}
+In the regular representation the multiplication matrices are symmetric, and
+\[
+\operatorname{Tr}(C_N)=\sum_{i,j,k}N_{ijk}^2,
+\qquad
+\operatorname{Tr}(C_T)=\sum_{i,j,k}T_{ijk}^2.
+\]
+Equality, together with termwise domination, forces equality of every absolute value. Apply Lemma~\ref{trace:lem:absolute-rigidity}.
+\end{proof}
+
+
+\begin{corollary}\label{core:trace-spherical}
+Equality of the ordinary and signed Casimir traces in a rank-four
+self-dual sphericalization implies that the original category is spherical.
+\end{corollary}
+\begin{proof}
+Corollary~\ref{trace:cor:trace-rigidity} supplies a basis sign change
+for which the signed and ordinary tensors agree. The chosen lifts
+are tensor closed, so the spherical structure restricts to a tensor
+subcategory equivalent to the original category.
+\end{proof}
+
+\begin{lemma}[Galois transport]\label{core:lem:galois-transport}
+If a spherical dimension character belongs to the Galois orbit of the
+Frobenius--Perron character, the category has a pseudo-unitary Galois
+conjugate with the same fusion rules. Its central identities can
+therefore be evaluated with positive Frobenius--Perron dimensions.
+\end{lemma}
+\begin{proof}
+Extend the required embedding of the dimension field to an automorphism
+of $\CC$. Apply it to skeletal tensor, duality and spherical
+structure constants. All their identities and the fusion rules persist,
+while the dimension character becomes the Frobenius--Perron character.
+This requires no algebraic field of definition for the associativity
+coefficients. Equivalently, apply the automorphism to the central
+identities; restriction multiplicities are fixed and twists remain
+roots of unity.
+\end{proof}
+
+\begin{corollary}[Multiplicity-one sphericality]
+\label{core:cor:multiplicity-one-spherical}
+Every complex categorification of a self-dual rank-four fusion ring
+of multiplicity one admits a spherical structure.
+\end{corollary}
+\begin{proof}
+For its signed quotient, domination and parity give
+$|T_{ij}^{k}|\le N_{ij}^{k}$ and
+$T_{ij}^{k}\equiv N_{ij}^{k}\pmod2$. Since $N_{ij}^{k}\in\{0,1\}$,
+$|T_{ij}^{k}|=N_{ij}^{k}$ for every coefficient.
+Lemma~\ref{trace:lem:absolute-rigidity} makes the two tables gauge
+equivalent. The corresponding tensor-closed lifts form a spherical
+subcategory equivalent to the original category.
+\end{proof}
+
+\begin{proposition}[Established inputs]\label{finite:prop:standard}
+\begin{enumerate}
+\item In any complex categorification every formal codegree is a
+$d$-number. For its monic minimal polynomial
+$t^e+a_1t^{e-1}+\cdots+a_e$, this means
+$a_e^j\mid a_j^e$ for $1\leq j\leq e$
+\cite{OstrikCodegrees}.
+\item If $S\subseteq R$ is a fusion subring, $D/\FPdim(S)$ is an
+algebraic integer \cite[Theorem 7.17.6]{EGNO}.
+\item Every character value of a complex-categorifiable fusion ring is
+cyclotomic \cite[Theorem 8.51 and Corollary 8.53]{ENO}.
+\item In a spherical categorification with dimension character $\chi$,
+every $\chi(b_i)$ is nonzero, $\chi(b_i)=\chi(b_{i^*})$, and its global
+dimension $\Delta=f_\chi$ satisfies $\Delta/f\in\overline{\ZZ}$
+for every formal codegree $f$. Its dimension field contains all formal
+codegrees \cite[Theorem 2.13 and Corollaries 2.14--2.15]{Ostrik3}.
+\item A weakly integral fusion category is pseudo-unitary
+\cite[Proposition 8.24]{ENO}. A categorifiable fusion ring with precisely
+two distinct simple Frobenius--Perron dimensions has a pseudo-unitary
+Galois conjugate \cite[Lemma 3.1]{Schopieray}.
+\end{enumerate}
+\end{proposition}
+
+For reference, for a spherical category of global dimension $H$,
+central induction and higher indicators satisfy
+\begin{equation}\label{core:central-indicator}
+\sum_{A\in\Irr Z(\mathcal A)}[I(V):A]\dim(A)\theta_A^n=H\nu_n(V).
+\end{equation}
+Here the twists are roots of unity, and
+$\nu_n(V)\in\Q(\zeta_n)$; see \cite[Theorem~4.1]{NS} and
+\cite[Theorem~5.1]{NSHigher}. Induction of the unit has one
+multiplicity-one constituent per character, of dimension $H/f_\chi$
+and twist one \cite[Theorems~2.5 and~2.13]{Ostrik3}.
+\begin{lemma}[The central sign and its translate twists]
+\label{core:lem:translate-twists}
+Let $\mathcal S$ be a rank-four self-dual sphericalization, with
+central sign $\varepsilon$, and let $A_\chi\subset I(1)$ be the
+multiplicity-one constituent corresponding to a character $\chi$.
+Its canonical central sign translate satisfies
+\[
+ \theta_{\widehat\varepsilon\otimes A_\chi}=\chi(\varepsilon).
+\]
+Thus ordinary constituents have translate twist $+1$ and signed
+constituents have translate twist $-1$. The constituents of $I(1)$
+and their sign translates are disjoint. Moreover
+$\nu_n(\varepsilon)=0$ for odd $n$ and $-1$ for even $n$.
+\end{lemma}
+\begin{proof}
+Central induction identifies modular characters by
+\[
+ \frac{S_{A_\chi,W}}{S_{A_\chi,0}}=\chi(F(W))
+\]
+\cite[Example~2.9 and the paragraph preceding Theorem~2.13]{Ostrik3}.
+At $W=\widehat\varepsilon$ the ratio is $\chi(\varepsilon)$;
+it is also $\dim(\varepsilon)$ times the monodromy scalar.
+Since $\dim(\widehat\varepsilon)=\theta_{\widehat\varepsilon}=-1$
+and $\theta_{A_\chi}=1$, balancing gives the asserted twist.
+The constituents have dimensions $E/f_i,E/g_i>0$, whereas their
+translates have the opposite dimensions, proving disjointness.
+For the indicator, the invariant space is zero for odd tensor powers
+of $\varepsilon$. For even powers it is one-dimensional, and the
+rotation is multiplied by the inverse pivotal map $-1$.
+\end{proof}
+
+\begin{lemma}\label{core:lem:adjoint-parity}
+In a pivotal fusion category, a self-dual simple with second indicator $-1$ has even multiplicity in every adjoint product $Y^*\otimes Y$.
+\end{lemma}
+\begin{proof}
+Let $j$ be the pivotal structure and choose $f:X\to X^*$ with transpose $f^t=f^*j_X=-f$. On $W=Y\otimes X\otimes Y^*$, the map
+$\alpha=j_Y\otimes f\otimes\operatorname{id}_{Y^*}:W\to W^*$ satisfies $\alpha^t=-\alpha$, by monoidality and $j_Y^*j_{Y^*}=1$. The pairing
+$B(v,w)=v^*\alpha w$ on $\operatorname{Hom}(1,W)$ is nondegenerate by semisimplicity and alternating by this transpose identity. Its dimension is even. Rigidity identifies that dimension with the desired multiplicity.
+\end{proof}
+

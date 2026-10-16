@@ -25,6 +25,10 @@ SHA-256 for every part and reconstructed file. `--check` verifies existing
 restored files. The validation commands check publication identities, data
 partitions and generated pages; they do not replay all mathematical proofs.
 
+## Unrestricted rank-four classification
+
+The theoretical proof gives FPdim < 1000 and multiplicity at most 31 without a pivotality hypothesis. The [self-contained replay package](../supplements/rank4/unrestricted/README.md) enumerates all 1,692 rings below that dimension bound and verifies 1,677 exclusions and 15 models. From its directory, run `python3 supplementary/check.py`; `--deep` adds unpruned and independent small-box checks. Mathematical hypotheses are proved in the [unrestricted manuscript](../manuscripts/rank4/papers/companion.pdf). Exact computation does not replace independent verification of those arguments.
+
 ## Complete rank-four and rank-five checks
 
 Rank four requires Python 3.10 or newer and a C++17 `g++` compiler:

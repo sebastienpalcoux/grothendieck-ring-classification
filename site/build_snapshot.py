@@ -8,6 +8,7 @@ import argparse
 import csv
 import json
 import hashlib
+import re
 import shutil
 import sys
 import zipfile
@@ -110,8 +111,8 @@ def main():
     scope=[{"rank":rank,"through":None,"analyzed_through":None,"kind":"unrestricted",
             "rings":None,"positive":sum(positive(r) for r in classifications if r["rank"]==rank),
             "unresolved":0,"paper":f"Rank-{rank} classification manuscript",
-            "note":"Unrestricted complex classification."}
-           if rank in (2,3) else scope_record(rank) for rank in scoped_ranks]
+            "note":("Unrestricted complex classification; every categorification is spherical. Multiplicity is at most six." if rank == 4 else "Unrestricted complex classification.")}
+           if rank in (2,3,4) else scope_record(rank) for rank in scoped_ranks]
     data = {
         "snapshot": None,
         "classification_commit": args.classification_commit,
@@ -256,6 +257,27 @@ def main():
             raise ValueError(f"Rank-six document differs from its verified revision: {source}")
     downloads = HERE / "dist/downloads"
     downloads.mkdir(parents=True, exist_ok=True)
+    from reader_resources import RESOURCE_NAMES, validate_reader_resources
+    reader_check = validate_reader_resources(repo)
+    page_inventory = json.loads((repo / "data/manuscript_page_counts.json").read_text())
+    data["reader_resources"] = {
+        "files": {name: {"path": "downloads/" + name, "sha256": reader_check["resource_sha256"][name]}
+                  for name in RESOURCE_NAMES},
+        "page_totals": page_inventory["totals"],
+    }
+    for name in RESOURCE_NAMES:
+        shutil.copy2(repo / "data" / name, downloads / name)
+    sums = page_inventory["totals"]
+    summary = (f"Eight mathematical manuscripts: {sums['mathematical_manuscript']} pages; "
+               f"with the three verification guides: {sums['mathematical_manuscripts_and_guides']}; "
+               f"with the research-status report: {sums['all_distinct_documents']}. "
+               "Each distinct document is counted once.")
+    index_path = HERE / "dist/index.html"
+    html, replacements = re.subn(r'(<span id="manuscript-page-summary">).*?(</span>)',
+                                 lambda match: match[1] + summary + match[2], index_path.read_text())
+    if replacements != 1:
+        raise ValueError("Missing unique manuscript-page summary")
+    index_path.write_text(html)
     archive_target = downloads / archive_name
     if archive_source.resolve() != archive_target.resolve():
         shutil.copy2(archive_source, archive_target)

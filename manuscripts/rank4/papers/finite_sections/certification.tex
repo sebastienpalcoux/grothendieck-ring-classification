@@ -146,27 +146,31 @@ for a complete replay are recorded in the verification guide. The
 verification of a finite certificate and the census completeness result
 documented in \cite{Census} are separate inputs, and both are required.
 
-\begin{conjecture}[Unrestricted classification]\label{conj:classification}
-The fifteen rings in Table~\ref{tab:models} are all the rank-four
-Grothendieck rings of complex fusion categories, without any multiplicity
-restriction.
-\end{conjecture}
-\begin{conjecture}[Sufficiency of the certificate criteria]\label{conj:criteria}
+\paragraph{Unrestricted classification and certificate scope.}
+The companion article \emph{Grothendieck rings of general fusion categories
+of rank four} proves that the fifteen rings in Table~\ref{tab:models}
+are all the rank-four Grothendieck rings, with no multiplicity restriction
+(Theorem~\ref{U-thm:classification}). Its independent theoretical bound
+$\FPdim(\C)<1000$, and hence $N_{XY}^{Z}\le31$, makes a complete local
+exact census sufficient. Every rank-four fusion category admits a
+spherical structure, and every surviving ring has a unitary realization.
+The present article verifies the larger finite census through
+multiplicity $\MultiplicityBound$ independently of that theoretical bound.
+
+\begin{conjecture}[Sufficiency of these certificate criteria]\label{conj:criteria}
 Every rank-four fusion ring outside Table~\ref{tab:models} has a finite
 nonexistence certificate using the necessary criteria and signed reduction
 of this paper.
 \end{conjecture}
-The second conjecture is stronger: it predicts that no additional
-categorical obstruction will be needed, with arbitrary exact witnesses
-allowed for the stated arithmetic tests. It concerns the mathematical
-criteria, not fixed prime-search limits or machine-integer bounds in an
-implementation. Its evidence is the complete certificate coverage of
-$\ExcludedCount$ exclusions through $\MultiplicityBound$, together with
-the unrestricted families handled by the uniform arguments. The two
-conjectures assert no theorem above this bound. A uniform obstruction or
-bound for the remaining families is still required. The companion paper
-develops unrestricted reductions and isolates the unresolved cubic and
-quartic pivotal cases.
+This conjecture concerns the sufficiency of this particular collection of
+criteria, not the classification of categorifiable rank-four rings, which
+is unrestricted. Arbitrary exact witnesses are allowed for the stated
+arithmetic tests; fixed prime-search limits and machine-integer bounds are
+not part of the claim. The complete coverage of $\ExcludedCount$ exclusions
+through multiplicity $\MultiplicityBound$ supplies its finite evidence.
+The unrestricted companion uses its own theoretical reductions and
+certificate collection and does not assert this stronger algorithmic
+sufficiency statement.
 
 The supplementary command \texttt{python verify.py} performs the complete
 bounded verification. Its default signed-table backend is the supplied C++17 enumerator;

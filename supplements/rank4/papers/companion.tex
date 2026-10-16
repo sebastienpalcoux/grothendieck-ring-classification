@@ -1,56 +1,52 @@
 \documentclass[11pt]{article}
 \input{preamble}
-\externaldocument[B-]{finite}
-\hypersetup{pdftitle={Toward an unrestricted classification of rank-four Grothendieck rings}}
-\title{Toward an unrestricted classification\\of rank-four Grothendieck rings}
+\input{generated/unrestricted/generated_scope.tex}
+\input{generated/unrestricted/generated_census.tex}
+\numberwithin{equation}{section}
+\setcounter{tocdepth}{1}
+\hypersetup{pdftitle={Grothendieck rings of general fusion categories of rank four}}
+\title{Grothendieck rings of general fusion categories\\of rank four}
 \date{}
 \begin{document}
+\raggedbottom
 \maketitle
 \begin{abstract}
-We study rank-four categorification without a multiplicity bound. Pivotal,
-spherical and pseudo-unitary existence are equivalent for rank-four fusion
-rings. We classify pivotal categorifiability for rings with a proper
-nontrivial fusion subring and for rings whose Frobenius--Perron character
-field has degree at most two. The remaining pivotal question concerns
-self-dual rings with no proper nontrivial fusion subring and character
-field of degree three or four; in the cubic case the rational formal
-codegree is three or four. The proofs combine uniform twist-moment
-estimates with explicitly bounded certificates. We also separate the
-Diophantine descriptions of rank-four fusion rings from the question
-of uniform completeness of categorification obstructions.
+Exactly fifteen based rings occur as Grothendieck rings of complex
+fusion categories of rank four. Every rank-four fusion category admits
+a spherical structure, and each of the fifteen rings has a unitary
+realization. No multiplicity bound or pivotal hypothesis is assumed.
+A uniform theoretical argument using sphericalization, central induction,
+dimension-field descent and indicator estimates first proves
+$\FPdim(\C)<1000$ and $N_{XY}^{Z}\le31$. An exhaustive exact census
+and categorical obstruction certificates then identify all surviving
+rings. The resulting sharp bounds are $24+12\sqrt3$ for the global
+Frobenius--Perron dimension and $6$ for the fusion multiplicities,
+with equality precisely for the $C_3$ near-group ring of parameter six.
 \end{abstract}
-\par\medskip\noindent\textbf{Research notice.}
-This is AI-generated research. The results, proofs, code and data have not yet
-been independently verified by human experts or formalized in Lean. Treat them
-as provisional; automated checks establish only their stated computational scope.
-\par\medskip
-
+\ResearchNotice
 \tableofcontents
-\input{companion_sections/introduction}
-\section{Uniform auxiliary obstructions}\label{sec:companion-auxiliary}
-\input{companion_sections/higher_moments}
-\input{companion_sections/moment_optimality}
-\input{companion_sections/uniform_discriminant}
-\input{companion_sections/uniform_root_conclusion}
-\input{companion_sections/determinant}
-\input{companion_sections/near_s3}
-\section{Invertible objects and proper fusion subrings}
-\input{companion_sections/two_dimensions}
-\input{companion_sections/nonselfdual_pivotal}
-\input{companion_sections/fixed_invertible}
-\input{companion_sections/fibonacci}
-\input{companion_sections/proper_subrings}
-\section{Dimension fields and Galois pseudo-unitarity}
-\input{companion_sections/quadratic_characters}
-\input{companion_sections/repeated_quadratic}
-\input{companion_sections/distinct_quadratics}
-\input{companion_sections/cubic_codegrees}
-\input{companion_sections/cubic_difference}
-\section{The unrestricted classification problem}
-\input{companion_sections/remaining}
-\input{companion_sections/all_rings}
-\section*{AI assistance}
-The research, computations, and manuscript were generated with AI assistance. Independent human verification and Lean formalization are pending.
+\input{companion_sections/01_introduction}
+\input{companion_sections/02_sphericalization}
+\input{companion_sections/03_indicators}
+\input{companion_sections/04_nonselfdual}
+\input{companion_sections/05_invertibles}
+\input{companion_sections/06_fibonacci}
+\input{companion_sections/07_dimension_descent}
+\input{companion_sections/08_quadratic}
+\input{companion_sections/09_cubic}
+\input{companion_sections/10_pivotal_bound}
+\input{companion_sections/11_quartic}
+\input{companion_sections/12_uniform_bound}
+\input{companion_sections/13_finite_criteria}
+\input{companion_sections/14_finite_certification}
+\appendix
+\input{companion_sections/15_census}
+\section*{AI assistance and verification}
+This manuscript and its accompanying code and data were prepared with AI
+assistance. Independent human verification and Lean formalization are
+pending. The exact checks certify the finite assertions described in the
+verification guide; they do not constitute a formal verification of the
+categorical proofs.
 \begingroup\small
 \input{companion_bibliography}
 \endgroup

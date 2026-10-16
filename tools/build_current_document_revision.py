@@ -9,7 +9,8 @@ ROOT = Path(__file__).resolve().parents[1]
 WEB_COPIES = {
     'papers/rank2.pdf': 'manuscripts/rank2.pdf',
     'papers/rank3.pdf': 'manuscripts/rank3.pdf',
-    'papers/rank4.pdf': 'manuscripts/rank4/papers/finite.pdf',
+    'papers/rank4.pdf': 'manuscripts/rank4/papers/companion.pdf',
+    'papers/rank4_finite.pdf': 'manuscripts/rank4/papers/finite.pdf',
     'papers/rank4_companion.pdf': 'manuscripts/rank4/papers/companion.pdf',
     'papers/rank4_guide.pdf': 'manuscripts/rank4/papers/verification_guide.pdf',
     'papers/rank5.pdf': 'manuscripts/rank5/papers/manuscript.pdf',

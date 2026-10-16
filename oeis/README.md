@@ -6,7 +6,7 @@ multiplicity `m` with at least one fusion-category realization over ℂ.
 
 | Draft | Complete classification range | Terms |
 |---|---:|---:|
-| [Rank four realized](draft_rank4_realized.txt) | 1–128 | 128 |
+| [Rank four realized](draft_rank4_realized.txt) | Unrestricted; file displays 1–128 | 128 |
 | [Rank five realized](draft_rank5_realized.txt) | 1–20 | 20 |
 
 Generate from the exact status partitions with
@@ -17,9 +17,11 @@ Rank-six general classification is complete at exact multiplicities
 The rank-six census value a(9)=8809 counts all based rings regardless of
 categorifiability. The exporter proposes only the rank-four and rank-five
 drafts above; no incomplete band is an exact sequence term.
-No zero beyond a proven finite
-classification bound is inferred from the conjectured unrestricted
-classification.
+The unrestricted rank-four theorem gives the sequence
+**9, 3, 2, 0, 0, 1, 0, 0, …**, with every term after multiplicity six zero.
+Its file retains 128 explicit terms to match the separate census export.
+Rank five remains a classification through multiplicity twenty; no assertion
+about higher multiplicities is inferred from its finite data.
 
 Before proposing any entry, search the live OEIS for duplicates and check
 its indexing, references and submission rules. Link both the mathematical

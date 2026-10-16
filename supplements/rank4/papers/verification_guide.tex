@@ -1,24 +1,89 @@
 \documentclass[11pt]{article}
 \input{preamble}
-\externaldocument[B-]{finite}
+\externaldocument[B-]{finite}[https://sebastienpalcoux.github.io/grothendieck-ring-classification/downloads/rank4_finite.pdf]
+\externaldocument[U-]{companion}[https://sebastienpalcoux.github.io/grothendieck-ring-classification/downloads/rank4.pdf]
 \hypersetup{pdftitle={Exact verification guide for the rank-four classification}}
 \title{Exact verification guide\\and electronic supplement}
 \date{}
 \begin{document}
 \maketitle
-\par\medskip\noindent\textbf{Research notice.}
-This is AI-generated research. The results, proofs, code and data have not yet
-been independently verified by human experts or formalized in Lean. Treat them
-as provisional; automated checks establish only their stated computational scope.
-\par\medskip
+\ResearchNotice
 
-This guide accompanies \emph{Rank-four Grothendieck rings through
-multiplicity 128}. It explains why the implementation checks the
-criteria proved there, including completeness of every finite search.
-It is not a second collection of case-by-case mathematical proofs.
+This guide accompanies \emph{Grothendieck rings of general fusion categories of rank four} and \emph{Rank-four Grothendieck rings
+through multiplicity 128}. The unrestricted article gives the theoretical
+bound that makes the full problem finite and supplies its own complete
+local census. The finite article verifies a larger multiplicity-bounded
+census independently. The two computational scopes are recorded
+separately below.
 
-\section{Reproduction and scope}
-From the package root, install the dependencies recorded in
+\section{Unrestricted classification: proof and exact replay}
+The unrestricted classification assumes neither a multiplicity bound nor
+a pivotal structure. Its theoretical reduction proves
+$\FPdim(\C)<1000$ and $N_{XY}^{Z}\le31$
+(Theorem~\ref{U-thm:uniform-global}). The local census contains
+$1692=1642+50$ rings: $1642$ self-dual rings and $50$ rings with a dual
+pair. The complete certificate ledger has $1677$ exclusions and $15$
+models, with no unresolved entry. The finite implication uses the
+necessary conditions proved in Section~\ref{U-sec:finite-criteria}; it
+does not infer exclusions from catalogue names or from an existing
+pivotal classification.
+
+The replay package is \path{supplements/rank4/unrestricted}. From the
+repository root, run
+\begin{verbatim}
+python3 supplements/rank4/unrestricted/supplementary/check.py
+\end{verbatim}
+Equivalently, from that package directory run
+\texttt{python3 supplementary/check.py}. The command regenerates the
+ordinary census, verifies every tensor and exact dimension test,
+regenerates the full certificate ledger and signed cover, checks the
+fifteen model identifications, and reconstructs the manuscript tables.
+It needs Python, SymPy and a C++17 compiler with OpenMP; FLINT is an
+optional acceleration backend. Every exclusion uses exact arithmetic.
+
+The independent ordinary-census coverage argument is
+Appendix~\ref{U-app:ordinary-census}. Its enumerator exhausts every branch
+of the two parameter presentations, including vanishing-denominator
+branches. Positivity and dimension pruning are justified mathematically.
+The \texttt{--deep} option adds an unpruned census comparison, an exhaustive
+small parameter box, signed-reference comparisons and scalar regressions.
+The unpruned multiplicity-$31$ enumeration has $16065$ classes; its exact
+$D<1000$ filter yields the same $1692$ inputs. The entire multiplicity-two
+parameter box has $3^{10}+3^6$ assignments and yields $27$ rings.
+
+The signed cover has $92795$ orbits. Its universal arithmetic tests retain
+$2217$ orbits, whose nonnegative gauges give a broader bank of $1182$
+positive ring orbits. That bank has $1173$ exclusions and $9$ self-dual
+models. These counts describe a signed-cover subroutine; they are not
+additional inputs to be added to the $1692$-ring ordinary census. The
+full-census classifier also handles the non-self-dual inputs, giving
+fifteen models in total.
+
+\begin{center}\small
+\begin{tabular}{p{.45\linewidth}p{.48\linewidth}}
+\toprule
+Path within the unrestricted package & Mathematical role\\
+\midrule
+\path{supplementary/census} & Complete ordinary enumeration, full tensors and exact dimension tests.\\
+\path{supplementary/classification} & Categorical obstruction certificates, signed-cover construction and full-census replay.\\
+\path{supplementary/independent} & Separate reconstructions of the fifteen models and census comparisons.\\
+\path{supplementary/check_manuscript.py} & Exact positive dimension characters, checked totals and generated model/filter tables.\\
+\path{audit/scalar_certificates} & Exact scalar inequalities used in the theoretical reductions.\\
+\path{supplementary/verification_report.json} & Machine-readable finite verification scope and run results.\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The generated tables in \path{papers/generated/unrestricted} are copies
+of the checked outputs in this package, so the manuscripts can be built
+from their own source directory. Publication checks compare these copies
+byte for byte with their generating outputs. Categorical necessity,
+automatic sphericality and existence of the cited categories remain
+mathematical inputs. An exact replay does not formalize those arguments;
+the research notice on the first page applies to the complete result.
+
+\section{The finite multiplicity-128 census: reproduction and scope}
+From the finite package directory \path{supplements/rank4}, install the dependencies recorded in
 \path{requirements.txt}, then regenerate and check the certificates:
 \begin{verbatim}
 python generate.py --workers 4
@@ -37,7 +102,7 @@ never interpreted as an exclusion. The criterion totals and complete
 ring-by-ring results are supplied in
 \path{verification/criterion_usage.json} and
 \path{verification/ledger.csv.gz}.
-The legacy tag \texttt{involution\_propagation\_42} is a certificate-schema
+The tag \texttt{involution\_propagation\_42} is a certificate-schema
 name. Discovery and checking apply the general residual-involution
 criterion to complete low-induction branches, with no equality test against
 a particular multiplication tensor.
@@ -84,9 +149,10 @@ format permits verification without keeping all tensors or proof trees
 in memory. Intermediate stage files are caches; the final verifier
 checks their mathematical assertions afresh.
 
-The separate command \texttt{python verify\_companion.py} checks the
-bounded arithmetic supporting the companion paper. Those results are
-not premises of the finite-classification verifier.
+The separate command \texttt{python verify\_companion.py} checks additional
+bounded arithmetic identities in the finite package. The unrestricted
+classification uses the complete replay specified in the preceding
+section; these additional checks are not premises of the finite verifier.
 
 \section{Files and mathematical interface}
 \begin{center}\small
@@ -118,7 +184,7 @@ Identifiers organize results; they never prove an exclusion. A positive record r
 tensor in the model table. The existence of the named category is the
 cited mathematical input, not a new computer construction of associators.
 
-The main paper proves the soundness implication in
+The finite paper proves the soundness implication in
 Proposition~\ref{B-prop:certificate-sound}. Its standard inputs and proved uniform
 applications justify direct recognizers. Lemmas~\ref{B-lem:norm} and
 \ref{B-lem:field-prime} justify the arithmetic witnesses.

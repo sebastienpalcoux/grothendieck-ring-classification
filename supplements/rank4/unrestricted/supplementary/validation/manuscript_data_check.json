@@ -1,0 +1,146 @@
+{
+  "passed": true,
+  "census": 1692,
+  "exclusions": 1677,
+  "models": 15,
+  "stages": [
+    {
+      "filter": "rank_two",
+      "title": "Rank-two subring obstruction",
+      "excluded": 375,
+      "remaining": 1317
+    },
+    {
+      "filter": "formal_codegree_dnumber",
+      "title": "Formal-codegree $d$-numbers",
+      "excluded": 1084,
+      "remaining": 233
+    },
+    {
+      "filter": "cyclotomicity",
+      "title": "Character cyclotomicity",
+      "excluded": 2,
+      "remaining": 231
+    },
+    {
+      "filter": "nonselfdual",
+      "title": "Non-self-dual reduction",
+      "excluded": 21,
+      "remaining": 210
+    },
+    {
+      "filter": "dimension_reduction",
+      "title": "Two-dimension and weak-integral reductions",
+      "excluded": 109,
+      "remaining": 101
+    },
+    {
+      "filter": "subring",
+      "title": "Subring dimension divisibility",
+      "excluded": 3,
+      "remaining": 98
+    },
+    {
+      "filter": "involution_moments",
+      "title": "Involution moment obstructions",
+      "excluded": 10,
+      "remaining": 88
+    },
+    {
+      "filter": "automatic_spherical",
+      "title": "Automatic sphericality and spherical tests",
+      "excluded": 6,
+      "remaining": 82
+    },
+    {
+      "filter": "signed",
+      "title": "Signed characters and central induction",
+      "excluded": 67,
+      "remaining": 15
+    }
+  ],
+  "model_checks": [
+    {
+      "model": "Vec_C2xC2",
+      "positive_character_checked": true,
+      "table_dimension_checked": true
+    },
+    {
+      "model": "Fib_times_Vec_C2",
+      "positive_character_checked": true,
+      "table_dimension_checked": true
+    },
+    {
+      "model": "Rep_D10",
+      "positive_character_checked": true,
+      "table_dimension_checked": true
+    },
+    {
+      "model": "PSU2_6",
+      "positive_character_checked": true,
+      "table_dimension_checked": true
+    },
+    {
+      "model": "Fib_times_Fib",
+      "positive_character_checked": true,
+      "table_dimension_checked": true
+    },
+    {
+      "model": "PSU2_7",
+      "positive_character_checked": true,
+      "table_dimension_checked": true
+    },
+    {
+      "model": "Vec_C4",
+      "positive_character_checked": true,
+      "table_dimension_checked": true
+    },
+    {
+      "model": "Tambara_Yamagami_C3",
+      "positive_character_checked": true,
+      "table_dimension_checked": true
+    },
+    {
+      "model": "pseudo_PSU2_6",
+      "positive_character_checked": true,
+      "table_dimension_checked": true
+    },
+    {
+      "model": "even_part_2D2",
+      "positive_character_checked": true,
+      "table_dimension_checked": true
+    },
+    {
+      "model": "Haagerup_H1",
+      "positive_character_checked": true,
+      "table_dimension_checked": true
+    },
+    {
+      "model": "Rep_A4",
+      "positive_character_checked": true,
+      "table_dimension_checked": true
+    },
+    {
+      "model": "Ad_E8",
+      "positive_character_checked": true,
+      "table_dimension_checked": true
+    },
+    {
+      "model": "near_group_C3_parameter3",
+      "positive_character_checked": true,
+      "table_dimension_checked": true
+    },
+    {
+      "model": "near_group_C3_parameter6",
+      "positive_character_checked": true,
+      "table_dimension_checked": true
+    }
+  ],
+  "census_sha256": "da6fbb3966175736c1a4317df4d30e198242b2b5deaa9f02bee052db4c14eaff",
+  "ledger_sha256": "067a5adeae7401434c99e5b3165c0bf13d2c7cd79f354af5d3efba4cf39fef29",
+  "generated_files": {
+    "source/models.tex": "ef40e35a442a080d061b24fbbc6675793cdc0298b01bd040a95e2d65c8df1b3b",
+    "source/generated_filters.tex": "4473d9d5ef5b74237bd6e8db230c3af9ff6f0f958b25dc7555f78aae57a74aaa",
+    "source/generated_census.tex": "b9f6bacb9094e438e286afe4deb32fc5e2e2eb468be30bdf545a8ddfeb4436c6"
+  }
+}

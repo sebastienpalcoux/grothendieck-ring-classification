@@ -1,0 +1,256 @@
+\section{Central columns and descent of the dimension field}\label{sec:central-columns}
+
+Let $\C$ be a self-dual rank-four complex fusion category,
+$\mathcal S$ its sphericalization, and $\varepsilon$ its sign object.
+Write $R=K_0(\C)$ and
+$T=K_0(\mathcal S)/(\varepsilon+1)$, and put
+$D=\operatorname{FPdim}(\C)$ and
+$2E=\dim(\mathcal S)$. The ordinary and signed rational algebras
+are commutative, as explained above. Let $L$ be the field generated
+by the signed spherical dimensions. It is totally real and abelian.
+Central induction gives $E/D\in L$, so $D\in L$.
+
+We use the canonical normalized modular matrix
+$S=s/(2E)$ of $Z(\mathcal S)$. For a one-dimensional character
+$\chi$ of $K_0(\mathcal S)$, let $A_\chi$ be the corresponding
+simple constituent of $I(\mathbf1)$. The central-induction theorem
+and modular-character formula give
+\begin{equation}\label{col:eq:central-column-character}
+ [I(\mathbf1):A_\chi]=1,\qquad
+ \dim A_\chi=\frac{2E}{f_\chi},\qquad
+ \frac{S_{A_\chi,V}}{S_{A_\chi,0}}=\chi(F(V)).
+\end{equation}
+Here $F:Z(\mathcal S)\to\mathcal S$ is forgetful; see
+\cite[Example~2.9 and Theorem~2.13]{Ostrik3}.
+
+\begin{proposition}[Simultaneous Galois columns]\label{col:prop:simultaneous-columns}
+Let $L$ be the signed dimension field and $\sigma\in\Gal(L/\Q)$.
+Let $B_\sigma$ be the induction constituent associated with the signed
+dimension character followed by $\sigma$. If $\chi$ is any ordinary
+or signed character and $f_\chi$ its codegree in $R$ or $T$, then
+\[
+\chi(F(B_\sigma))=\frac{f_\chi}{\sigma(f_\chi)}.
+\]
+Consequently the codegrees determine both its folded and signed
+forgetful classes, even if the rational algebras are products of fields.
+Their coefficient vectors $w_\sigma,z_\sigma$ satisfy
+\[
+w_{\sigma,0}=z_{\sigma,0}=1,\qquad
+w_{\sigma,i}\ge |z_{\sigma,i}|,\qquad
+w_{\sigma,i}\equiv z_{\sigma,i}\pmod2.
+\]
+\end{proposition}
+\begin{proof}
+Let $A_\chi$ be the induction constituent for $\chi$. Its dimension
+is $E/f_\chi$ and $S_{A_\chi,0}=1/(2f_\chi)$. The modular-character
+formula gives
+\[
+S_{B_\sigma,A_\chi}
+=\frac{\sigma(E/f_\chi)}{2\sigma(E)}
+=\frac1{2\sigma(f_\chi)}.
+\]
+Symmetry of $S$ gives the asserted character value. All characters
+together separate the commutative semisimple algebra, so these values
+determine each class. If the two lift multiplicities at $X_i$ are
+$m_i^+,m_i^-$, the two coefficients are their sum and difference.
+Adjunction gives unit multiplicity one. The sign multiplicity is zero:
+$I(\varepsilon)=\widehat\varepsilon\otimes I(1)$ has negative-dimensional
+constituents, whereas the constituents of $I(1)$ have positive dimensions.
+\end{proof}
+
+\begin{proposition}[Positive Galois columns]\label{col:prop:positive-Galois-columns}
+Suppose $[\Q(D):\Q]=4$. Identify $R$ with
+its Frobenius--Perron image and $T$ with its spherical-dimension
+image in the common field $K=L=\Q(D)$. For every
+$\sigma\in\operatorname{Gal}(K/\Q)$, the element
+\[
+ u_\sigma=\frac{D}{\sigma(D)}
+\]
+belongs to $R$ and has nonnegative integral coefficients in its
+distinguished basis. Write $w_\sigma$ for its coefficient vector and
+$z_\sigma$ for the signed coefficient vector of
+$v_\sigma=E/\sigma(E)\in T$. Then
+\[
+ w_{\sigma,0}=z_{\sigma,0}=1,\qquad
+ w_{\sigma,i}\ge |z_{\sigma,i}|,\qquad
+ w_{\sigma,i}\equiv z_{\sigma,i}\pmod2.
+\]
+\end{proposition}
+\begin{proof}
+Apply Proposition~\ref{col:prop:simultaneous-columns} to all ordinary
+and signed characters. In a quartic field the dimension maps are
+injective, so the folded and signed elements are respectively
+$D/\sigma(D)$ and $E/\sigma(E)$. The coefficient assertions are
+those of the proposition.
+\end{proof}
+
+
+
+\begin{proposition}[Descent of the dimension field]\label{col:prop:dimension-field-grading}
+If $L\ne\Q(D)$, then $\C$ admits a nontrivial
+faithful grading by a finite cyclic group.
+\end{proposition}
+\begin{proof}
+Choose a nonidentity $\sigma\in\operatorname{Gal}(L/\Q(D))$.
+Define $B_\sigma$ as in the preceding proof. The same
+calculation applies without any injectivity assumption on the
+dimension maps and gives
+\[
+ \operatorname{FPdim}(F(B_\sigma))=D/\sigma(D)=1.
+\]
+Adjunction gives $[F(B_\sigma):\mathbf1]=1$. Consequently
+$F(B_\sigma)=\mathbf1$ in $\mathcal S$. The character defining
+$B_\sigma$ differs from the dimension character, whose constituent
+is the tensor unit. Thus $B_\sigma\ne\mathbf1$ in $Z(\mathcal S)$.
+
+A central structure on the tensor unit is a monoidal natural
+automorphism $\gamma$ of $\operatorname{Id}_{\mathcal S}$, and here
+$\gamma$ is nonidentity. Its value at $\varepsilon$ is one.
+Indeed the modular-character formula evaluated at the canonical
+central lift $\widehat\varepsilon$ gives $-1$; on the other hand
+this value is $\dim(\varepsilon)$ times the monodromy scalar,
+namely $-\gamma_\varepsilon$. Hence
+$\gamma_\varepsilon=1$.
+
+The scalar values of $\gamma$ therefore agree on the two lifts of
+every simple of $\C$. They descend to a nonidentity
+monoidal natural automorphism of $\operatorname{Id}_{\C}$:
+if an ordinary fusion coefficient is nonzero, one of its lifted
+coefficients is nonzero and supplies the required product relation.
+The finitely many scalar values form a subgroup of $\CC^\times$,
+since tensor products give products and duals give inverses. This
+finite group is cyclic and gives the asserted faithful grading.
+\end{proof}
+
+\begin{lemma}\label{col:lem:rank-four-grading}
+A rank-four complex fusion category with a nontrivial faithful
+grading is either weakly integral or has a nontrivial invertible
+simple object.
+\end{lemma}
+\begin{proof}
+The neutral component has rank one, two, or three. In rank one,
+$X\otimes X^*$ is a sum of units for every simple $X$, and its
+unit multiplicity is one. Thus every simple is invertible.
+
+In rank two, the neutral component is pointed or has Fibonacci
+fusion rules by \cite{OstrikRankTwo}. In the pointed case its global
+dimension is two, and equality of the dimensions of homogeneous
+components makes the whole category weakly integral. In the
+Fibonacci case write $f^2=1+f$ and
+$\phi=(1+\sqrt5)/2$. A component of rank one is impossible:
+the integer multiplicity for multiplication by $f$ would satisfy
+$m^2=1+m$. Thus there is just one other component, of rank two.
+On its simples $X,Y$, multiplication by the self-dual object $f$
+has a symmetric nonnegative integer matrix $M$ satisfying
+$M^2=I+M$. Its eigenvalues are the two roots of $t^2-t-1$,
+so its trace is one and determinant is minus one. Up to exchanging
+$X,Y$,
+\[
+ M=\begin{pmatrix}0&1\\1&1\end{pmatrix},\qquad
+ \operatorname{FPdim}(Y)=\phi\operatorname{FPdim}(X).
+\]
+Equality of component dimensions now gives
+$(1+\phi^2)\operatorname{FPdim}(X)^2=1+\phi^2$.
+Hence $X$ is a nontrivial invertible object.
+
+In rank three, there is a single nonneutral simple $X$, and the
+grading group has order two. Each neutral simple $Y$ satisfies
+$Y\otimes X=m_YX$, so $\operatorname{FPdim}(Y)=m_Y$ is integral.
+The two homogeneous components have equal Frobenius--Perron
+dimension; hence the total dimension is an integer. See
+\cite[Proposition~8.20]{ENO} for equality of component dimensions.
+\end{proof}
+
+\begin{corollary}\label{col:cor:quartic-order-casimir-degree}
+If the rational Grothendieck algebra of a rank-four complex fusion
+category is a quartic field, its Frobenius--Perron global dimension
+has degree four.
+\end{corollary}
+\begin{proof}
+Its Frobenius--Perron character identifies the rational algebra with
+a real abelian quartic field $K$. Since this character is injective
+and $\FPdim(X^*)=\FPdim(X)$, every simple object is self-dual.
+Write $d_i$ for its simple
+dimensions. If $D=\sum_i d_i^2$ is rational, all four formal codegrees
+are $D$, so the reciprocal-codegree identity gives $D=4$. All four
+$d_i$ are then one, contradicting injectivity of the character.
+
+Otherwise, if $\Q(D)$ is a proper subfield of $K$, choose a
+nonidentity $\sigma$ fixing $D$. Character spectral domination gives
+$|\sigma(d_i)|\le d_i$. Equality of their square sums forces
+$\sigma(d_i)=s_i d_i$, with $s_i\in\{\pm1\}$. Applying $\sigma$
+to the dimension equations and comparing with the positive equations
+shows that $s_i s_j=s_k$ whenever $N_{ij}^k>0$. Since the $d_i$
+generate $K$, some $s_i$ is negative. Thus these signs define a
+nontrivial grading. Lemma~\ref{col:lem:rank-four-grading} gives weak
+integrality or a nontrivial invertible object. Weak integrality would
+make $D$ rational. A nontrivial invertible is also impossible in a
+totally real field algebra: it has finite order and thus equals
+$1$ or $-1$, while its positive dimension is one. Both alternatives
+are contradictory.
+\end{proof}
+
+\begin{corollary}\label{col:cor:rank-four-dimension-field-descent}
+Every nonspherical self-dual rank-four complex fusion category
+satisfies $L=\Q(D)$.
+\end{corollary}
+\begin{proof}
+Otherwise the preceding proposition and lemma apply. Weakly integral
+fusion categories are spherical by \cite[Proposition~8.24]{ENO}.
+Theorem~\ref{inv:thm:rankfour-invertible-spherical} gives a spherical
+structure in the remaining case, a contradiction.
+\end{proof}
+
+\subsection{The Haagerup ring}
+\begin{theorem}\label{haag:thm:automatic-spherical}
+Every complex fusion categorification of the rank-four Haagerup ring
+admits a spherical structure.
+\end{theorem}
+\begin{proof}
+In the tuple convention~\eqref{eq:tuple-convention}, this ring is
+\[
+ R_1=(0,0,1,1,1,1,1,1,2,2).
+\]
+Swapping $Y,Z$ gives the tuple $(0,1,0,1,1,1,2,2,1,1)$.
+In the original order, the characters of $R_1$ are $(1,0,1,-1)$, $(1,1,-1,0)$, and
+$(1,z-1,z,z+1)$ with $z^2=3z+1$. Consequently, writing
+$\eta=(3+\sqrt{13})/2$, its FP codegree is
+\[
+ D=3\sqrt{13}\eta=\frac{39+9\sqrt{13}}2,
+ \qquad DD'=117.
+\]
+Suppose the category has no spherical structure.
+Corollary~\ref{col:cor:rank-four-dimension-field-descent} makes the
+signed dimension field $K=\Q(\sqrt{13})$.
+Select its larger dimension codegree $E\ge E'$.
+Then $E<D$, while central induction makes $EE'/117$ a positive integer.
+
+The fundamental unit of $K$ is $\eta$, of norm $-1$.
+Indeed a positive unit of norm $-1$ has the form
+$(a+b\sqrt{13})/2$, with $a,b>0$ and $a^2+4=13b^2$;
+therefore $a\ge3$, with equality at $\eta$.
+A smaller positive unit of norm one would produce a smaller
+norm-minus-one unit by division into $\eta$.
+Because $E$ is a $d$-number, $E/E'$ is a totally positive unit,
+so $E/E'=\eta^{2h}$ for an integer $h\ge0$. Set $y=E\eta^{-h}$.
+Since $\eta'=-\eta^{-1}$, one has $y'=(-1)^h y$.
+Thus $y\in\Q$ if $h$ is even and
+$y\in\Q\sqrt{13}$ if $h$ is odd.
+The element $y$ is integral, because $\eta$ is an integral unit.
+As $\mathcal O_K=\ZZ[(1+\sqrt{13})/2]$, the two intersections
+are respectively $\ZZ$ and $\ZZ\sqrt{13}$.
+Hence the divisibility $117\mid EE'$ gives precisely
+\[
+ E=3s\sqrt{13}\eta^h\quad(h\ge1\text{ odd}),
+ \qquad\text{or}\qquad
+ E=39s\eta^h\quad(h\ge0\text{ even}),
+ \qquad s\in\ZZ_{>0}.
+\]
+For the first form, its norm is $13$ times the square of its rational
+coefficient, forcing that coefficient to be divisible by three.
+For the second, the rational coefficient has square divisible by
+$117=9\cdot13$, forcing divisibility by $39$.
+The first form satisfies $E\ge D$; the second satisfies
+$E\ge39>D$. Both contradict properness.
+\end{proof}
+

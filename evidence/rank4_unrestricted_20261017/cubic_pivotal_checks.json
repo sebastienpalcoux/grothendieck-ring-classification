@@ -1,0 +1,54 @@
+{
+  "status": "PASS",
+  "source_sha256": {
+    "manuscripts/rank4/papers/companion_sections/09_cubic.tex": "5931e1fed02d1a299bf15799af8ce7998453bfec01ff2f081efd17dd68d7e5a2",
+    "manuscripts/rank4/papers/companion_sections/10_pivotal_bound.tex": "c0859471c9cd31ad3f1fd4baba74622b6e6d419ee708ca3841de7c20bb2605c4"
+  },
+  "checks": [
+    "Schur boundary cubic discriminant",
+    "conductor-nine cubic discriminant",
+    "cubic normal-form Casimir trace",
+    "cubic normal-form associativity equation",
+    "Casimir-trace-30 nonnegative solutions",
+    "conductor-seven defining polynomial inert modulo three",
+    "trace-gap threshold implies largest codegree exceeds 1900",
+    "conductor-seven reciprocal-root interval",
+    "conductor-seven sharper reciprocal interval",
+    "conductor-seven s at most twelve",
+    "conductor-seven final integer contradiction",
+    "centered lower-bound L0 identity",
+    "g(B) square-root coefficient bound",
+    "g(B) quartic coefficient bound",
+    "g(B) B^(3/2) coefficient bound",
+    "endpoint radicals at e=18/5",
+    "concentration endpoint e=18/5",
+    "endpoint radicals at e=10/3",
+    "concentration endpoint e=10/3",
+    "endpoint radicals at e=5/2",
+    "concentration endpoint e=5/2",
+    "cubic-product radical bound V=1/1000",
+    "determinant exact bound V=1/1000",
+    "cubic-product radical bound V=1/250",
+    "determinant exact bound V=1/250",
+    "third variance determinant bound",
+    "exceptional pivotal-character contradiction at D=576"
+  ],
+  "rational_endpoints": [
+    {
+      "e": "18/5",
+      "value_lower": "49059630594683153/87637682250000000",
+      "derivative_lower": "8076758025718635529/4135563800256000000"
+    },
+    {
+      "e": "10/3",
+      "value_lower": "117728156124299623/43818841125000000",
+      "derivative_lower": "5202629311177278389/2067781900128000000"
+    },
+    {
+      "e": "5/2",
+      "value_lower": "237987455951518781/19475040500000000",
+      "derivative_lower": "17547549551602029511/4135563800256000000"
+    }
+  ],
+  "scope": "Exact arithmetic supplements a mathematical audit; no formal categorical verification."
+}

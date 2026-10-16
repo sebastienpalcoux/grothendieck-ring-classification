@@ -12,7 +12,7 @@ package.
 
 | Rank | Entry point | Classification scope |
 |---:|---|---|
-| 4 | [Guide](rank4/README.md) · [full replay](rank4/PUBLIC_REPLAY.md) | 889,530 inputs; 889,515 exclusions and 15 models through 128. |
+| 4 | [Guide](rank4/README.md) · [unrestricted replay](rank4/unrestricted/README.md) · [finite replay](rank4/PUBLIC_REPLAY.md) | Unrestricted: 15 models; theoretical bound and 1,692-input exact classification. Separate 889,530-input census through 128. |
 | 5 | [Guide](rank5/README.md) · [complete public replay](../docs/VERIFY.md#complete-rank-four-and-rank-five-checks) | 40,999 inputs; 40,982 exclusions and 17 models through 20. |
 | 6 | [Guide](rank6/README.md) · [combined full replay](../docs/VERIFY.md#complete-rank-six-route) | 25,421 inputs; 25,362 exclusions, 57 models and two open cases through 9. |
 | 7 | [Guide](rank7/README.md) | Complete through 4: 4,172 exclusions and 29 models. |

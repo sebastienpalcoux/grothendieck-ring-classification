@@ -1,0 +1,254 @@
+\section{Categories with a nontrivial invertible object}\label{sec:inv}
+\subsection{A nontrivial invertible object forces sphericality}
+
+\begin{theorem}\label{inv:thm:rankfour-invertible-spherical}
+Every self-dual rank-four complex fusion category with a nontrivial
+invertible simple object admits a spherical structure.
+\end{theorem}
+
+Use the sphericalization notation of Section~\ref{sec:core},
+choosing positive signed dimensions $\beta_i$ and a maximal conjugate
+$E$. Lemma~\ref{core:lem:family-induction} shows that, in the absence of a spherical section,
+\begin{equation}\label{inv:eq:proper-signed-strict}E<D.\end{equation}
+If $D$ is rational, the
+category is weakly integral and already spherical by
+\cite[Propositions~8.23--8.24]{ENO}. We therefore restrict attention
+to irrational $D$.
+
+
+
+\begin{lemma}[The fixed action, quadratic case]
+\label{inv:lem:fixed-invertible-quadratic}
+Suppose the nontrivial invertible simple $G$ fixes the other two
+simples. A proper signed quotient cannot have quadratic dimension
+field.
+\end{lemma}
+\begin{proof}
+The positive lift $G^+$ has dimension one and squares to the positive
+unit. It fixes the positive lifts of both other simples: a sign
+translate would have the wrong nonzero dimension. Both quotients
+therefore have the rational character $(1,-1,0,0)$ on $1,G,X,Y$,
+of codegree two. Field containment makes the ordinary FP field
+quadratic as well. Its other rational codegree $h_0$ gives
+\[
+ p=\frac1D+\frac1{D'}=\frac12-\frac1{h_0}<\frac12.
+\]
+The signed rational algebra is $\Q^2\times K$. Write its
+other rational character as $(1,1,r,t)$, its codegree as
+$h=2+r^2+t^2$, and its positive dimension character as $(1,1,u,v)$.
+Thus
+\[
+ 2+ru+tv=0,\qquad
+ q=\frac1E+\frac1{E'}=\frac12-\frac1h.
+\]
+Lemma~\ref{core:lem:family-comparison} gives $q<1/3$, so
+$2<h<6$. The case $h=5$ is impossible because $r^2+t^2=3$.
+
+Write the signed multiplication as
+\[
+ X^2=1+G+aX+bY,\qquad XY=bX+cY,\qquad
+ Y^2=1+G+cX+eY,
+\]
+where $a,b,c,e$ are integers.
+If $h=4$, then $|r|=|t|=1$. Both positive signs contradict
+$2+ru+tv=0$. Both negative signs give $u+v=2$, so $E<6$, whereas
+$q=1/4$ and $E\geq E'$ give $E\geq8$. After interchanging $X,Y$,
+the remaining case is $(r,t)=(1,-1)$, with $v=u+2$. Evaluation of
+the products gives
+\[
+ (a,b,c,e)=(b-1,b,b+1,b+2),\qquad
+ u^2=(2b-1)u+2b+2.
+\]
+Put $\Delta=4b^2+4b+9$, an odd integer. Substitution gives
+\[
+ E=4b+10+(4b+2)u,\qquad EE'=8\Delta.
+\]
+But $E/4$ is an algebraic integer, whose norm would be
+$\Delta/2$, a contradiction.
+
+It remains that $h=3$. After interchanging $X,Y$, positivity forces
+$(r,t)=(0,-1)$ and $v=2$. The table becomes
+\[
+ X^2=1+G+\mu X+2Y,\qquad XY=2X,\qquad Y^2=1+G+Y.
+\]
+Consequently
+\[
+ u^2=6+\mu u,\quad E=6+u^2,\quad E'=6+36/u^2,
+ \quad E+E'=\mu^2+24.
+\]
+Our ordering makes $\mu\geq0$. Integrality of $E/2$ and $E/3$
+forces $6\mid\mu$; write $\mu=6j$.
+Put $k=EE'/(DD')$ and
+$s=kD/E=(E/D)'$. Then
+\[
+ k<s<E',\qquad s'=k/s<1.
+\]
+If $j=0$, then $E=E'=12$ and $K=\Q(\sqrt6)$.
+Write $s=c+d\sqrt6$ with integers $c,d$. Since $s>s'>0$,
+$d\geq1$ and $c>d\sqrt6$, so $c\geq3$. Therefore
+\[
+ p=\frac{s+k/s}{12}=\frac c6\geq\frac12,
+\]
+a contradiction.
+
+Suppose $j>0$. Then $u>6j$, $E>42$, and $E'<7$.
+Equation~\eqref{core:quadratic-strict}, with
+$q=1/6$ and $p<1/2$, forces $k\leq3$: if $k\geq4$, then
+\[
+ \frac k6<\frac12+\frac{k-1}{42}\leq\frac k6.
+\]
+The integral trace $T=s+k/s$ satisfies $k+2\leq T\leq7$.
+The field $K=\Q(\sqrt{3(3j^2+2)})$ is ramified at three,
+so $T^2-4k$ has odd three-adic valuation. The only possibilities are
+\[
+ (k,T)=(1,4),(1,5),(3,6).
+\]
+Indeed $k=2$ is impossible modulo three; for $k=1$ the traces
+$3,6,7$ have respectively discriminants $5,32,45$, none ramified
+at three; and $k=3$ forces $T=6$.
+The first two possibilities would give $K=\Q(\sqrt3)$ or
+$\Q(\sqrt{21})$. They would force respectively
+$3j^2+2=a^2$ or $3j^2+2=7a^2$ for an integer $a$, impossible
+modulo three. Thus $k=3$ and $s=3+\sqrt6$. But
+\[
+ p=sq-\frac{s-k/s}{E}
+   =\frac12+\sqrt6\left(\frac16-\frac2E\right)>\frac12,
+\]
+again a contradiction.
+\end{proof}
+
+
+\begin{proposition}\label{inv:prop:cubic-rational-two-impossible}
+Let $\C$ be a self-dual rank-four complex fusion category. Suppose
+that both its ordinary rational Grothendieck algebra and the signed
+rational algebra of its sphericalization are the product of $\Q$
+with a totally real cubic field, and that the Frobenius--Perron and
+spherical dimension characters belong to the respective cubic factors.
+Then the ordinary rational character does not have formal codegree two.
+\end{proposition}
+
+\begin{proof}
+Suppose its codegree is two. After relabeling, the rational character is
+$(1,-1,0,0)$ on the basis $\mathbf1,G,X,Y$: orthogonality to the positive
+Frobenius--Perron character fixes the negative sign and gives
+$\operatorname{FPdim}(G)=1$. Thus $G$ is invertible. Its values on the
+three cubic characters are all one, so $G^2=\mathbf1$, $GX=X$, and $GY=Y$.
+
+Let $\mathcal S$ be the sphericalization, with central sign $\varepsilon$.
+Choose positive lifts $G^+,X^+,Y^+$ and their sign translates.
+The lift $G^+$ has dimension one, satisfies $(G^+)^2=\mathbf1$, and fixes
+$X^+,Y^+$ on both sides: the alternative sign translates have the wrong
+nonzero dimension. In the signed quotient write $G,X,Y$ for their
+classes. Its rational character is again $(1,-1,0,0)$ and has codegree
+two. Its multiplication has the form
+\[
+ \begin{aligned}
+ X^2&=1+G+aX+bY,& XY&=bX+cY,\\
+ Y^2&=1+G+cX+eY,
+ \end{aligned}
+\]
+with integers $a,b,c,e$, which may be negative. The signed Casimir is
+therefore
+\[
+ 1+G^2+X^2+Y^2=4+2G+(a+c)X+(b+e)Y.
+\]
+Put $x=\dim X^+$, $y=\dim Y^+$, and $E=2+x^2+y^2$.
+Since the dimension character is faithful on the cubic quotient by
+$G-1$, the numbers $1,x,y$ are linearly independent over $\Q$.
+Writing $p=a+c$ and $q=b+e$ gives
+\begin{equation}\label{inv:eq:cubic-two-halfdimension}
+ E=6+px+qy,\qquad E/2=3+(p/2)x+(q/2)y.
+\end{equation}
+
+Let $F:Z(\mathcal S)\to\mathcal S$ be forgetful and $I$ its right
+adjoint. The ordinary and signed rational characters give two distinct
+one-dimensional characters of $K_0(\mathcal S)$, with $\varepsilon$
+acting by $+1$ and $-1$, respectively. Both have formal codegree four.
+The central-induction theorem therefore supplies distinct constituents
+$B_+,B_-$ of $I(\mathbf1)$, each occurring once and satisfying
+\[
+ \dim B_+=\dim B_-=\frac{\dim\mathcal S}{4}=\frac E2,
+ \qquad \theta_{B_+}=\theta_{B_-}=1.
+\]
+Moreover $I(\mathbf1)$ and $I(\varepsilon)$ have no common constituent:
+by adjunction and the induction formula their inner product is the
+trace of multiplication by $\varepsilon$, which is zero since it
+interchanges every pair of lifts. Hence each $F(B_\pm)$ contains the
+unit once and contains no $\varepsilon$.
+
+Write its signed multiplicity at $G$ as
+\[
+ r_G=[F(B_\pm):G^+]-[F(B_\pm):\varepsilon G^+].
+\]
+Comparing dimensions with \eqref{inv:eq:cubic-two-halfdimension}, using
+the independence of $1,x,y$, gives $1+r_G=3$. Thus
+$[F(B_\pm):G^+]\ge2$, so each $B_\pm$ occurs in $I(G^+)$ at least twice.
+
+On the other hand,
+\[
+ \dim\operatorname{End}(I(G^+))
+ =\sum_{V\in\operatorname{Irr}(\mathcal S)}
+       \dim\operatorname{Hom}(VG^+,G^+V)=8.
+\]
+Here $G^+$ is invertible and commutes with every simple class; each
+summand equals one. The two multiplicities already contribute
+$2^2+2^2=8$. Consequently
+\[
+ I(G^+)=2B_+\oplus2B_-.
+\]
+Its twist is the identity, and its twist trace is $2E=\dim\mathcal S$.
+The center formula of \cite[Theorem~4.1]{NS} for the first Frobenius--Schur indicator would give
+$\nu_1(G^+)=1$. This contradicts $\nu_1(G^+)=0$, since $G^+$ is a
+nontrivial simple object.
+\end{proof}
+
+
+\begin{proof}[Proof of Theorem~\ref{inv:thm:rankfour-invertible-spherical}]
+Assume there is no spherical section of the sphericalization. We have
+already excluded rational $D$. Since every simple is self-dual, the
+group of invertible simples has exponent two. If it has four elements
+the category is pointed and spherical. Thus it has exactly two
+elements $1,G$, and $G$ either fixes or interchanges the other simples
+$X,Y$.
+
+First suppose $GX=Y$. Then $G^2=1$ and Frobenius reciprocity gives
+\[
+ X^2=Y^2=1+aX+bY,\qquad XY=G+bX+aY
+\]
+for nonnegative integers $a,b$. Put $m=a+b>0$. Their common FP
+dimension satisfies $d^2=1+md$, and
+\[
+ D=2+2d^2,\qquad DD'=4(m^2+4).
+\]
+Choose positive lifts $G^+,X^+$ and put $Y^+=G^+X^+$. Both latter
+lifts have the same dimension $x>0$, and the signed table has
+$X^2=1+a'X+b'Y$, with $|a'|\leq a$, $|b'|\leq b$. Thus
+\[
+ x^2=1+\mu x,\qquad E=2+2x^2,\qquad
+ \mu=a'+b',\quad |\mu|\leq m.
+\]
+The case $\mu=0$ would give a rational dimension field, contradicting
+field containment of the irrational $D$. Otherwise the signed
+field is quadratic and contains the ordinary quadratic field, so they
+coincide. Induction divisibility gives the positive integer
+\[
+ \frac{EE'}{DD'}=\frac{\mu^2+4}{m^2+4}\leq1.
+\]
+Hence $\mu^2=m^2$. The larger conjugate of $E$ equals $D$, contradicting
+\eqref{inv:eq:proper-signed-strict} after the permissible Galois conjugation.
+This proves the assertion for the interchanged action.
+
+Now suppose $GX=X$ and $GY=Y$. The signed quotient has the rational
+character $(1,-1,0,0)$, so its dimension field has degree at most three.
+A rational dimension field would contain the irrational $D$, which is
+impossible. A quadratic dimension field is excluded by
+Lemma~\ref{inv:lem:fixed-invertible-quadratic}. Finally, if the signed
+field is cubic, it contains the irrational $D$, so both ordinary and
+signed rational algebras are products of $\Q$ and a cubic
+field, with the dimension characters in the cubic factors. Their
+rational characters have codegree two. This contradicts
+Proposition~\ref{inv:prop:cubic-rational-two-impossible}.
+Every case gives a spherical section, completing the proof.
+\end{proof}
+
+

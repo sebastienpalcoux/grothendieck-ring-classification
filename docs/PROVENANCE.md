@@ -17,7 +17,7 @@ certificate. Classification decisions are separate from census completeness.
 |---:|---|---|
 | 2 | Symbolic, all multiplicities | Two realized rings, both at multiplicity one. |
 | 3 | Export through 1,000 | Unrestricted five-ring theorem. |
-| 4 | Through 128 | Complete: 15 models and 889,515 exclusions. |
+| 4 | Unrestricted | Exactly 15 models; every categorification is spherical; multiplicity at most 6. |
 | 5 | Through 20 | Complete: 17 models and 40,982 exclusions. |
 | 6 | Through 9 | Complete through 3 and exact bands 1, 2, 3, 5, 6, 7, 9; two open cases. |
 | 7 | Through 4 | Complete: 29 models and 4,172 exclusions. |

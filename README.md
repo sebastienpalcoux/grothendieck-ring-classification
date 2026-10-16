@@ -71,11 +71,15 @@ the verification notice and [verification scope](docs/PREPUBLICATION_REVIEW.md).
 |---:|---:|---:|---|
 | 2 | Symbolic, all multiplicities | All multiplicities over ℂ | Exactly the rings `n = 0, 1` are realized. |
 | 3 | Through 1,000 | Unrestricted theorem | Five realized rings: four at multiplicity 1 and one at 2; see the standalone sphericality and ring-classification proof. |
-| 4 | Through 128 | **Complete through 128** | 15 realized rings, 889,515 general exclusions. |
+| 4 | Independent finite censuses | **Unrestricted theorem** | Exactly 15 realized rings; every categorification is spherical; multiplicity at most 6. |
 | 5 | Through 20 | **Complete through 20** | 17 realized rings and 40,982 generally excluded. Inert-prime parity and exact induction cover multiplicity 18. |
 | 6 | Through 9 | **Complete through 3** | Through 9: 25,362 excluded, 57 realized, 2 unresolved. |
 | 7 | Through 4 | **Complete through 4** | Through 4: 4,172 excluded, 29 realized, 0 unresolved. |
 | 8 | Through 2 | **Complete through 1**; multiplicity 2 partial | Through 2: 895 excluded, 77 realized, 1 unresolved. |
+
+The [rank-four unrestricted proof](manuscripts/rank4/papers/companion.pdf) gives the sharp bound FPdim ≤ 24+12√3, attained only by the near-group ring `NG(C₃,6)`. Its theoretical reduction gives FPdim < 1000 and multiplicity at most 31; an independent exact census then checks 1,692 rings, with 1,677 exclusions and 15 models. The separate multiplicity-128 census contains 889,530 rings and 889,515 exclusions.
+
+Related work on the pivotal case: Jingcheng Dong, Sébastien Palcoux and Arnaud Plessis, [Classifying Grothendieck rings of pivotal fusion categories of rank four](https://arxiv.org/abs/2609.33272), arXiv:2609.33272. Its hypothesis is pivotality.
 
 Rank-six realization counts through multiplicity 9 split into **56 unitary
 models** and **one spherical model whose ring has no pseudo-unitary
@@ -162,8 +166,9 @@ step-by-step exclusion tables and proof dependencies are in the manuscripts.
 The [manuscripts](manuscripts/README.md) are kept as TeX/PDF pairs. The
 classification programs proceed rank by rank: general necessary criteria,
 exact automated applications, positive model matches, and explicit residual
-frontiers. Rank three takes a separate, unrestricted route through the
-sphericality theorem. The papers and computation records remain research in
+frontiers. Ranks two, three and four have unrestricted classification
+theorems. The rank-four article supplies the complete theoretical reduction
+and exact finite verification. The papers and computation records remain research in
 progress; [the evidence guide](docs/VERIFY.md) identifies exactly what the
 stored checks establish. Each manuscript states its current classification scope
 and the remaining questions directly; [rank eight](manuscripts/rank8/paper/rank8.pdf)

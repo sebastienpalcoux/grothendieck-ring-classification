@@ -1,0 +1,121 @@
+{
+  "schema": "manuscript-page-counts/v1",
+  "date": "2026-10-17",
+  "counting_rule": "Count each distinct current document once, including its references and appendices; exclude website/supplement copies and compatibility aliases.",
+  "document_counts": {
+    "mathematical_manuscripts": 8,
+    "verification_guides": 3,
+    "research_status_reports": 1
+  },
+  "documents": [
+    {
+      "title": "Rank two",
+      "kind": "mathematical_manuscript",
+      "path": "manuscripts/rank2.pdf",
+      "pages": 3,
+      "bytes": 325336,
+      "sha256": "3488327cdd434217b29fe48a6a32eb604ee5f0ceb7870bd33af3b1bc17ab9a36"
+    },
+    {
+      "title": "Rank three",
+      "kind": "mathematical_manuscript",
+      "path": "manuscripts/rank3.pdf",
+      "pages": 12,
+      "bytes": 383885,
+      "sha256": "4d6aa1d7cc813be1be6f9e1bc844a760eaee9c594483df920a472c419efe7669"
+    },
+    {
+      "title": "Rank four: finite classification",
+      "kind": "mathematical_manuscript",
+      "path": "manuscripts/rank4/papers/finite.pdf",
+      "pages": 29,
+      "bytes": 467296,
+      "sha256": "6971fd54e22550ef3bdbb5a0b30de8907e94f853c88245e1759a6e53b90e3cab"
+    },
+    {
+      "title": "Rank four: unrestricted classification",
+      "kind": "mathematical_manuscript",
+      "path": "manuscripts/rank4/papers/companion.pdf",
+      "pages": 88,
+      "bytes": 908990,
+      "sha256": "dd125eee1cb32dba20d08c9173214fd6fddc8c541154c53193c09ca5b6d2b5f3"
+    },
+    {
+      "title": "Rank five",
+      "kind": "mathematical_manuscript",
+      "path": "manuscripts/rank5/papers/manuscript.pdf",
+      "pages": 19,
+      "bytes": 437099,
+      "sha256": "9a5c368872235c08bd9f85707e2c2cbd91e2fd05c7e1ed96cb03210e52106826"
+    },
+    {
+      "title": "Rank six",
+      "kind": "mathematical_manuscript",
+      "path": "manuscripts/rank6/papers/manuscript.pdf",
+      "pages": 165,
+      "bytes": 1428841,
+      "sha256": "acf90ec6efb845b2d83d20edb4808f0080c2201c74c1c4ab57b7e182de374895"
+    },
+    {
+      "title": "Rank seven",
+      "kind": "mathematical_manuscript",
+      "path": "manuscripts/rank7/papers/manuscript.pdf",
+      "pages": 56,
+      "bytes": 752147,
+      "sha256": "a39b4637e86f1b7e0283dbe7998a1bb24f18ac149937eb7211f838af7d16984e"
+    },
+    {
+      "title": "Rank eight",
+      "kind": "mathematical_manuscript",
+      "path": "manuscripts/rank8/paper/rank8.pdf",
+      "pages": 58,
+      "bytes": 856008,
+      "sha256": "df37745252f78b365f53c8d8fb862dde1ff77d39c6a96bf9146e889c79197850"
+    },
+    {
+      "title": "Rank-four verification guide",
+      "kind": "verification_guide",
+      "path": "manuscripts/rank4/papers/verification_guide.pdf",
+      "pages": 9,
+      "bytes": 262214,
+      "sha256": "e6102a943db9ee6c6cbcc6a8603ba4b191fb3fda89be75b2a258c552db303cec"
+    },
+    {
+      "title": "Rank-five verification guide",
+      "kind": "verification_guide",
+      "path": "manuscripts/rank5/papers/verification_guide.pdf",
+      "pages": 4,
+      "bytes": 245775,
+      "sha256": "f0cca20643e0dd0764f7bb95e462466252d3be270765c54872cf5997a0ae8686"
+    },
+    {
+      "title": "Rank-six verification guide",
+      "kind": "verification_guide",
+      "path": "manuscripts/rank6/papers/verification_guide.pdf",
+      "pages": 5,
+      "bytes": 240539,
+      "sha256": "e0890f5dd2a33829786f3b559f9e69a044ecc4759d73d219ef21227e28dbe2ce"
+    },
+    {
+      "title": "Research status and verification",
+      "kind": "research_status_report",
+      "path": "manuscripts/prepublication-review-2026-10-17.pdf",
+      "pages": 4,
+      "bytes": 73019,
+      "sha256": "eca4b75522f7dee46ce9bf6d315e5260a651ab2057fd9cbdff87774d4dae23b3"
+    }
+  ],
+  "totals": {
+    "mathematical_manuscript": 430,
+    "verification_guide": 18,
+    "research_status_report": 4,
+    "mathematical_manuscripts_and_guides": 448,
+    "all_distinct_documents": 452
+  },
+  "classification_scope": {
+    "rank2": "Unrestricted",
+    "rank3": "Unrestricted",
+    "rank4": "Unrestricted complex classification: 15 Grothendieck rings; every categorification admits a spherical structure. The sharp bounds are FPdim \u2264 24+12\u221a3 and multiplicity \u2264 6."
+  },
+  "caution": "AI-generated research; independent human verification and Lean formalization pending."
+}

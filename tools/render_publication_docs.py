@@ -280,7 +280,7 @@ certificate. Classification decisions are separate from census completeness.
 |---:|---|---|
 | 2 | Symbolic, all multiplicities | Two realized rings, both at multiplicity one. |
 | 3 | Export through 1,000 | Unrestricted five-ring theorem. |
-| 4 | Through 128 | Complete: 15 models and 889,515 exclusions. |
+| 4 | Unrestricted | Exactly 15 models; every categorification is spherical; multiplicity at most 6. |
 | 5 | Through 20 | Complete: 17 models and 40,982 exclusions. |
 | 6 | Through 9 | Complete through 3 and exact bands {bands}; two open cases. |
 | 7 | Through 4 | Complete: 29 models and 4,172 exclusions. |
@@ -363,6 +363,10 @@ Restoration needs only Python's standard library, works offline and checks
 SHA-256 for every part and reconstructed file. `--check` verifies existing
 restored files. The validation commands check publication identities, data
 partitions and generated pages; they do not replay all mathematical proofs.
+
+## Unrestricted rank-four classification
+
+The theoretical proof gives FPdim < 1000 and multiplicity at most 31 without a pivotality hypothesis. The [self-contained replay package](../supplements/rank4/unrestricted/README.md) enumerates all 1,692 rings below that dimension bound and verifies 1,677 exclusions and 15 models. From its directory, run `python3 supplementary/check.py`; `--deep` adds unpruned and independent small-box checks. Mathematical hypotheses are proved in the [unrestricted manuscript](../manuscripts/rank4/papers/companion.pdf). Exact computation does not replace independent verification of those arguments.
 
 ## Complete rank-four and rank-five checks
 
@@ -500,15 +504,36 @@ classification. Do not enter incomplete-band lower bounds as exact OEIS terms.
 Archive identities must be updated only after rebuilding the corresponding
 bundle. Source and document integrity checks do not replace mathematical review.
 '''
-    manuscript_rows=[('Rank two','rank2.tex','rank2.pdf','Unrestricted over ℂ; two realized rings'),('Rank three','rank3.tex','rank3.pdf','Unrestricted sphericality and five-ring classification'),('Rank four, finite range','rank4/papers/finite.tex','rank4/papers/finite.pdf','Complete through multiplicity 128'),('Rank four, companion','rank4/papers/companion.tex','rank4/papers/companion.pdf','General criteria, models and structural arguments'),('Rank four, verification guide','rank4/papers/verification_guide.tex','rank4/papers/verification_guide.pdf','Exact certificate checks'),('Rank five','rank5/papers/manuscript.tex','rank5/papers/manuscript.pdf','Complete through multiplicity 20'),('Rank five, verification guide','rank5/papers/verification_guide.tex','rank5/papers/verification_guide.pdf','Exact certificates, models and replay scope'),('Rank six','rank6/papers/manuscript.tex','rank6/papers/manuscript.pdf',f'25,362 exclusions, 57 realizations, two open through 9; complete through 3 and exact bands {bands}'),('Rank six, verification guide','rank6/papers/verification_guide.tex','rank6/papers/verification_guide.pdf','Models, certificates and open-case reductions'),('Rank seven','rank7/papers/manuscript.tex','rank7/papers/manuscript.pdf','Complete through multiplicity 4: 4,172 exclusions and 29 models'),('Rank eight','rank8/paper/rank8.tex','rank8/paper/rank8.pdf','Complete through multiplicity 1; partial at 2: 895 exclusions, 77 models and one open case')]
+    manuscript_rows=[('Rank two','rank2.tex','rank2.pdf','Unrestricted over ℂ; two realized rings'),('Rank three','rank3.tex','rank3.pdf','Unrestricted sphericality and five-ring classification'),('Rank four, finite range','rank4/papers/finite.tex','rank4/papers/finite.pdf','Complete through multiplicity 128'),('Rank four, unrestricted classification','rank4/papers/companion.tex','rank4/papers/companion.pdf','Unrestricted over ℂ; 15 rings and automatic sphericality'),('Rank four, verification guide','rank4/papers/verification_guide.tex','rank4/papers/verification_guide.pdf','Exact certificate checks'),('Rank five','rank5/papers/manuscript.tex','rank5/papers/manuscript.pdf','Complete through multiplicity 20'),('Rank five, verification guide','rank5/papers/verification_guide.tex','rank5/papers/verification_guide.pdf','Exact certificates, models and replay scope'),('Rank six','rank6/papers/manuscript.tex','rank6/papers/manuscript.pdf',f'25,362 exclusions, 57 realizations, two open through 9; complete through 3 and exact bands {bands}'),('Rank six, verification guide','rank6/papers/verification_guide.tex','rank6/papers/verification_guide.pdf','Models, certificates and open-case reductions'),('Rank seven','rank7/papers/manuscript.tex','rank7/papers/manuscript.pdf','Complete through multiplicity 4: 4,172 exclusions and 29 models'),('Rank eight','rank8/paper/rank8.tex','rank8/paper/rank8.pdf','Complete through multiplicity 1; partial at 2: 895 exclusions, 77 models and one open case')]
+    page_inventory=json.loads((repo/'data/manuscript_page_counts.json').read_text())
+    page_counts={record['path'].removeprefix('manuscripts/'):record['pages'] for record in page_inventory['documents']}
+    page_sums=page_inventory['totals']
     out['manuscripts/README.md']='# Manuscripts\n\n'+CAUTION+'''
 Each paper is a current TeX/PDF pair with its classification scope stated in
-its own text. Rank three gives an unrestricted sphericality and ring-level
-argument. Ranks four to eight use pinned finite censuses and explicit criteria.
+its own text. Ranks two, three and four are unrestricted. The rank-four
+companion proves the complete fifteen-ring classification and sphericality
+without a multiplicity or pivotality hypothesis. The finite article supplies
+the separate classification through multiplicity 128.
+Ranks five to eight use pinned finite censuses and explicit criteria.
 
-| Manuscript | Source | PDF | Scope |
-|---|---|---|---|
-'''+''.join(f'| {name} | [TeX]({tex}) | [PDF]({pdf}) | {scope} |\n' for name,tex,pdf,scope in manuscript_rows)+'''
+Related work on the pivotal case: Jingcheng Dong, Sébastien Palcoux and Arnaud Plessis, [Classifying Grothendieck rings of pivotal fusion categories of rank four](https://arxiv.org/abs/2609.33272), arXiv:2609.33272. Its hypothesis is pivotality.
+
+| Manuscript | Source | PDF | Pages | Scope |
+|---|---|---|---:|---|
+'''+''.join(f'| {name} | [TeX]({tex}) | [PDF]({pdf}) | {page_counts[pdf]} | {scope} |\n' for name,tex,pdf,scope in manuscript_rows)+f'''
+The eight mathematical manuscripts contain **{page_sums['mathematical_manuscript']} pages**.
+Including the three verification guides gives **{page_sums['mathematical_manuscripts_and_guides']} pages**;
+including the {page_sums['research_status_report']}-page [research-status report](prepublication-review-2026-10-17.pdf)
+gives **{page_sums['all_distinct_documents']} pages** across twelve distinct documents.
+These counts include references and appendices and count duplicate download
+copies only once. The [page inventory](../data/manuscript_page_counts.json)
+records every path, count and PDF checksum.
+
+Download the [three open fusion tensors as Python lists](../data/remaining_cases.py).
+The file names each case and states the zero-based convention `N[i][j][k]`,
+unit index, duality map and canonical source checksums.
+
+'''+'''
 The sources use sections and generated tables in their sibling directories.
 The [document manifest](../data/current_document_revision.json) binds all
 current papers and their website copies.
@@ -534,7 +559,7 @@ package.
 
 | Rank | Entry point | Classification scope |
 |---:|---|---|
-| 4 | [Guide](rank4/README.md) · [full replay](rank4/PUBLIC_REPLAY.md) | 889,530 inputs; 889,515 exclusions and 15 models through 128. |
+| 4 | [Guide](rank4/README.md) · [unrestricted replay](rank4/unrestricted/README.md) · [finite replay](rank4/PUBLIC_REPLAY.md) | Unrestricted: 15 models; theoretical bound and 1,692-input exact classification. Separate 889,530-input census through 128. |
 | 5 | [Guide](rank5/README.md) · [complete public replay](../docs/VERIFY.md#complete-rank-four-and-rank-five-checks) | 40,999 inputs; 40,982 exclusions and 17 models through 20. |
 | 6 | [Guide](rank6/README.md) · [combined full replay](../docs/VERIFY.md#complete-rank-six-route) | 25,421 inputs; 25,362 exclusions, 57 models and two open cases through 9. |
 | 7 | [Guide](rank7/README.md) | Complete through 4: 4,172 exclusions and 29 models. |
@@ -578,7 +603,7 @@ See [verification scope](../../docs/PREPUBLICATION_REVIEW.md).
 '''
         out[f'supplements/rank{r}/README.md']=content
     oeis=(repo/'oeis/README.md').read_text().replace('rank-five multiplicities 18–20 are now included after general exclusion certificates closed the former residuals.','rank-five multiplicities 18–20 are included with general exclusion certificates.')
-    out['oeis/README.md']=section(oeis,'Rank-six general classification','No zero beyond a proven finite',f'''Rank-six general classification is complete at exact multiplicities
+    out['oeis/README.md']=section(oeis,'Rank-six general classification','The unrestricted rank-four theorem',f'''Rank-six general classification is complete at exact multiplicities
 **{bands}**, contiguously through **3**. Two rings remain unresolved through 9.
 The rank-six census value a(9)=8809 counts all based rings regardless of
 categorifiability. The exporter proposes only the rank-four and rank-five

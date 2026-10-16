@@ -1,0 +1,81 @@
+{
+  "passed": true,
+  "rank": 4,
+  "dimension_exclusive_bound": 1000,
+  "multiplicity_bound": 31,
+  "census_rings": 1692,
+  "excluded": 1677,
+  "models": 15,
+  "unresolved": 0,
+  "fresh_ordinary_census": true,
+  "fresh_signed_cover": true,
+  "deep_checks": true,
+  "local_signed_engine": "cpp",
+  "python": "3.12.14",
+  "elapsed_seconds": 35.189,
+  "steps": [
+    {
+      "name": "Generate the complete ordinary census",
+      "passed": true,
+      "elapsed_seconds": 1.576,
+      "log": "supplementary/validation/census_generation.log"
+    },
+    {
+      "name": "Check all tensors, dimensions, isomorphisms, and fresh census coverage",
+      "passed": true,
+      "elapsed_seconds": 2.23,
+      "log": "supplementary/validation/census_verification.log"
+    },
+    {
+      "name": "Generate the full-census classification ledger",
+      "passed": true,
+      "elapsed_seconds": 1.514,
+      "log": "supplementary/validation/classification_generation.log"
+    },
+    {
+      "name": "Regenerate the signed cover and replay both certificate scopes",
+      "passed": true,
+      "elapsed_seconds": 18.643,
+      "log": "supplementary/validation/classification_verification.log"
+    },
+    {
+      "name": "Independently reconstruct the fifteen model tensors",
+      "passed": true,
+      "elapsed_seconds": 0.33,
+      "log": "supplementary/validation/independent_models.log"
+    },
+    {
+      "name": "Generate checked signed-scope counts",
+      "passed": true,
+      "elapsed_seconds": 0.058,
+      "log": "supplementary/validation/scope_generation.log"
+    },
+    {
+      "name": "Check model characters and regenerate both manuscript tables",
+      "passed": true,
+      "elapsed_seconds": 1.105,
+      "log": "supplementary/validation/manuscript_data_check.log"
+    },
+    {
+      "name": "Remove ordinary-census dimension pruning and compare exact input sets",
+      "passed": true,
+      "elapsed_seconds": 2.064,
+      "log": "supplementary/validation/unpruned_census.log"
+    },
+    {
+      "name": "Check the exhaustive ordinary parameter box at multiplicity two",
+      "passed": true,
+      "elapsed_seconds": 1.583,
+      "log": "supplementary/validation/exhaustive_small_box.log"
+    },
+    {
+      "name": "Check signed reference enumeration and scalar/model regressions",
+      "passed": true,
+      "elapsed_seconds": 6.082,
+      "log": "supplementary/validation/exact_regression.log"
+    }
+  ],
+  "census_sha256": "da6fbb3966175736c1a4317df4d30e198242b2b5deaa9f02bee052db4c14eaff",
+  "ledger_sha256": "067a5adeae7401434c99e5b3165c0bf13d2c7cd79f354af5d3efba4cf39fef29",
+  "scope": "Exact finite certificate verification; categorical necessity and existence are mathematical inputs proved or cited in the manuscript."
+}

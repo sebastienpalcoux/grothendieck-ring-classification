@@ -35,6 +35,14 @@ through multiplicity four. Rank eight records **895 exclusions, 77 models
 and one open case** through multiplicity two; its complete contiguous range
 ends at multiplicity one.
 
+Ranks two, three and four have unrestricted complex classifications. The
+rank-four manuscript proves that exactly 15 rings occur and every
+categorification admits a spherical structure. Its theoretical reduction
+to FPdim < 1000 and multiplicity at most 31 is followed by an exact
+1,692-ring census. The sharp bounds are FPdim ≤ 24+12√3 and multiplicity ≤ 6.
+For the pivotal case, see Dong, Palcoux and Plessis,
+[Classifying Grothendieck rings of pivotal fusion categories of rank four](https://arxiv.org/abs/2609.33272).
+
 ## Build and check locally
 
 From the classification repository root:

@@ -2,7 +2,7 @@
   "date": "17 October 2026",
   "version": "Current classification and verification scope",
   "title": "Research status and verification",
-  "caution": "This is AI-generated research. The results, proofs, code and data have not been independently verified by human experts or formalized in Lean. Treat all conclusions as provisional and use them with caution. Automated checks establish only their stated computational scope.",
+  "caution": "AI-generated research · independent verification pending. The results, proofs, code and data have not yet been independently verified by human experts or formalized in Lean. Use them with caution; exact checks establish only their stated computational scope.",
   "summary": "The targeted study records 35 decisions among 38 cases: 28 exclusions and seven unitary constructions. Three general categorification questions remain open: R6_4_155, R6_8_1660 and R8_2_24. A feasible set of necessary conditions is not a categorical construction, and a conditional obstruction is not a nonexistence proof.",
   "rank_counts": [
     {
@@ -47,6 +47,7 @@
     }
   ],
   "coverage_notes": [
+    "Ranks two, three and four are classified without a multiplicity restriction. Exactly fifteen rank-four Grothendieck rings occur, and every rank-four categorification admits a spherical structure. The table records the separate finite censuses.",
     "The bound is the largest multiplicity included in the displayed census, not necessarily a complete classification range. Rank six is complete through multiplicity three; its exact bands 5, 6, 7 and 9 are also complete, while bands 4 and 8 each contain one open case.",
     "Rank eight is complete through multiplicity one, with exactly 48 Grothendieck rings. At exact multiplicity two it records 847 exclusions, 29 unitary models and one open case. There are therefore 29 or 30 general complex Grothendieck rings in that band.",
     "Rank-six models comprise 56 unitary constructions and one spherical construction that is not pseudo-unitary. Completeness means coverage of the stated census by the project's recorded arguments; it does not assert independent human or formal verification."
@@ -82,6 +83,7 @@
     {
       "heading": "Ranks four and five",
       "paragraphs": [
+        "The unrestricted rank-four proof gives FPdim < 1000 and multiplicity at most 31 without assuming pivotality. Its exact finite classification checks 1,692 rings, 1,677 exclusions and 15 models. Every rank-four complex fusion category admits a spherical structure; the sharp bounds are FPdim ≤ 24+12√3 and multiplicity ≤ 6. The theoretical arguments and exact computations have distinct verification obligations.",
         "Both complete rank-four replays passed: 889,530 rings, 15 models and 889,515 exclusions. Each regenerated 6,470,006 signed orbits; an independent full unsigned recount also passed.",
         "The reconstructed rank-five package passed all 40,999 pinned classes, 17 model matches and 40,982 general exclusions in normal and optimized Python. The two reconstructed ledgers agree byte-for-byte. The unavailable source ledger was not recovered; the reconstructed ledger has its own recorded digest."
       ]

@@ -1,0 +1,878 @@
+\section{Necessary conditions for the finite certificates}\label{sec:finite-criteria}
+The universal dimension bound makes the classification a finite problem.
+We record the necessary conditions used in its exact certificates. These
+conditions concern arbitrary complex categorifications; positive unsquared
+central dimensions are used only after an explicit pseudo-unitary reduction.
+
+\subsection{Arithmetic and signed dimension characters}\label{finite:sec:finite-arithmetic}
+\subsubsection{Conventions and standard obstructions}
+A fusion ring has a distinguished basis $b_0=1,b_1,b_2,b_3$, nonnegative
+integral structure constants, duality $i\mapsto i^*$, and Frobenius
+reciprocity, with $N_{ij}^0=\delta_{i,j^*}$. We use the row convention
+$(N_i)_{jk}=N_{ij}^k$. Commutativity is Lemma~\ref{core:lem:rank-four-algebra}.
+
+Write $d_i=\FPdim(b_i)$ and $D=\sum_i d_i^2$. The four characters $\chi$
+have formal codegrees
+\[
+f_\chi=\sum_i\chi(b_i)\chi(b_{i^*})
+       =\sum_i|\chi(b_i)|^2.
+\]
+They are the eigenvalues, with multiplicity, of
+\begin{equation}\label{finite:eq:casimir}
+ B=\sum_i N_iN_{i^*}=\sum_iN_iN_i^{\mathsf T}.
+\end{equation}
+The following necessary conditions will be used in their stated scope.
+The arithmetic inputs and permitted pseudo-unitary reductions are
+Proposition~\ref{finite:prop:standard}.
+The last assertion concerns a Galois conjugate; it does not claim
+pseudo-unitarity of every categorification of the ring.
+
+The Galois reduction used here is the one in
+Section~\ref{sec:pivotal-bound}: an embedding of the dimension field
+extends to an automorphism of $\CC$ and preserves all tensor and
+spherical identities. For the two-dimension case we use precisely the
+published statement in Proposition~\ref{finite:prop:standard}(5).
+
+\subsubsection{Small arithmetic certificates}
+For a nonzero algebraic integer $u$, put
+$e_u=[\Q(u):\Q]$ and $n_u=|N_{\Q(u)/\Q}(u)|$.
+\begin{lemma}[Normalized norm obstruction]\label{finite:lem:norm}
+If $u/v$ is an algebraic integer, then
+\begin{equation}\label{finite:eq:norm}
+ \frac{v_p(n_u)}{e_u}\geq\frac{v_p(n_v)}{e_v}
+ \qquad\text{for every rational prime }p.
+\end{equation}
+\end{lemma}
+\begin{proof}
+Taking the norm in $L=\Q(u,v)$ shows that
+$n_u^{[L:\Q]/e_u}/n_v^{[L:\Q]/e_v}$ is an integer. Taking its
+$p$-valuation gives the assertion.
+\end{proof}
+Thus a failed divisibility needs only two irreducible polynomials and one
+prime. As a preliminary shortcut, a signed Casimir determinant not divisible
+by a prime required by every possible $\Delta$ excludes the whole table:
+if the minimal polynomial of $\Delta$ had norm divisible by that prime,
+the characteristic polynomial of the Casimir would have constant term
+divisible by it too.
+
+\begin{lemma}[Prime certificates for fields]\label{finite:lem:field-prime}
+Let $g\in\ZZ[t]$ be monic irreducible and
+$K=\Q(\alpha)$, $g(\alpha)=0$.
+\begin{enumerate}
+\item If $K$ contains a root of a monic irreducible polynomial $f$, then
+$\deg f$ divides $\deg g$.
+\item Suppose $g$ splits into distinct linear factors modulo a prime $p$.
+If $K$ contains all roots of a monic integral polynomial $f$, then $f$
+splits into linear factors modulo $p$, with repetitions allowed.
+\item If the squarefree reduction modulo $p$ of a monic irreducible
+polynomial has irreducible factors of unequal degrees, its root field
+cannot be cyclotomic.
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+The first assertion is the tower formula. In the second, $p$ does not
+divide the discriminant of $g$, hence not the index of
+$\ZZ[\alpha]$ in the ring of integers of $K$. Every residue field
+above $p$ is therefore $\mathbb F_p$. Reduce the linear factorization of
+$f$ in the ring of integers of $K$ at any such prime.
+For the third, Dedekind's factorization theorem identifies the factor
+degrees with the cycle lengths of a Galois permutation of the roots.
+A transitive abelian permutation group acts regularly after quotienting
+its kernel, so all cycles of each element have the same length.
+Every subfield of a cyclotomic extension is Galois and abelian.
+\end{proof}
+These are rejection certificates: failure to find a prime certificate
+proves neither a field inclusion nor cyclotomicity. Positive root lists in
+a number field are instead verified by multiplying their linear factors
+and recovering the complete rational polynomial.
+
+\subsubsection{Sphericalization and exhaustive signed tables}
+Lemma~\ref{core:lem:family-induction} supplies the signed reduction.
+For the finite search its coefficient conditions are
+\begin{equation}\label{finite:eq:signed-bounds}
+ |T_{ij}^{k}|\le N_{ij}^{k},\qquad
+ T_{ij}^{k}\equiv N_{ij}^{k}\pmod2.
+\end{equation}
+All compatible signed tables, and all of their nonzero dimension
+characters, are retained until a stated necessary condition excludes
+them. A sign choice does not identify characters with different
+ordinary or signed provenance.
+
+
+The signed search is finite by \eqref{finite:eq:signed-bounds}. In the
+self-dual case there are ten independent coefficients. The exhaustive
+cover below retains all zero-denominator branches and all compatible
+basis-sign transforms. A signed certificate rejects every remaining
+table and every possible dimension-character factor.
+
+
+\subsection{Central induction and two twist moments}\label{finite:sec:finite-induction}
+Let $\C$ be pseudo-unitary, with its canonical spherical structure,
+and let $F:\Z(\C)\to\C$ have right adjoint $I$.
+For simples $X_i$ and $A$, write
+$M_{iA}=[F(A):X_i]=[I(X_i):A]$. The four simple summands of $I(1)$
+occur once, have twist one and dimensions $D/f_\chi$
+\cite[Theorems 2.5 and 2.13]{Ostrik3}.
+Let $L$ be their four restriction columns, including the central unit
+column $(1,0,0,0)^{\mathsf T}$. Then
+\begin{equation}\label{finite:eq:induction-gram}
+ MM^{\mathsf T}=B,\qquad
+ L\mathbf1=B_{\bullet0},\qquad
+ B-LL^{\mathsf T}\text{ is a nonnegative integral Gram matrix}.
+\end{equation}
+Indeed $FI(X)=\bigoplus_j X_j\otimes X\otimes X_j^*$, and adjunction
+gives the first identity. All remaining columns have first entry zero,
+which gives the other assertions. In particular the remainder is positive
+semidefinite and entrywise nonnegative.
+
+\begin{lemma}[Gram saturation]\label{finite:lem:gram-saturation}
+If $B=\sum_A m_Am_A^{\mathsf T}$ and some known columns already
+satisfy $\sum_{A\text{ known}}(v^{\mathsf T}m_A)^2=v^{\mathsf T}Bv$,
+then $v$ is orthogonal to every remaining column.
+\end{lemma}
+\begin{proof}
+The sum of the remaining nonnegative squares is zero.
+\end{proof}
+
+\subsubsection{Higher vanishing indicators}
+The following statement holds at arbitrary rank. For an object $V$, let
+$I_{\rm low}(V)$ be the sum, with its multiplicities in $I(V)$, of those
+simple constituents that occur in $I(1)$.
+
+\begin{theorem}[Higher-indicator bound]\label{finite:thm:higher-indicator}
+Let $\C$ be a pseudo-unitary fusion category over $\CC$, with its
+canonical spherical structure, and let $m\geq1$. If
+$\nu_1(V)=\cdots=\nu_m(V)=0$, then
+\[
+ (m+1)\FPdim(I_{\rm low}(V))\leq D\FPdim(V).
+\]
+More strongly, the same inequality holds with $I_{\rm low}(V)$ replaced
+by the full twist-one part of $I(V)$. Equality forces every other
+constituent to have a nontrivial $(m+1)$st root of unity as twist.
+In particular, if every simple constituent of $V$ is non-self-dual, then
+$3\FPdim(I_{\rm low}(V))\leq D\FPdim(V)$.
+\end{theorem}
+\begin{proof}
+Write $w_A=[I(V):A]\FPdim(A)\geq0$ and $T=D\FPdim(V)$.
+The indicator identity \cite[Theorem 4.1]{NS} is
+$\sum_Aw_A\theta_A^k=D\nu_k(V)$. Negative moments vanish by complex
+conjugation. Expanding the nonnegative polynomial
+\[
+ |1+z+\cdots+z^m|^2=(m+1)+
+ \sum_{k=1}^m(m+1-k)(z^k+z^{-k})\qquad(|z|=1)
+\]
+gives $\sum_Aw_A|1+\theta_A+\cdots+\theta_A^m|^2=(m+1)T$.
+Every twist-one constituent contributes $(m+1)^2w_A$; discarding the
+remaining nonnegative terms proves the bound. Equality requires the
+polynomial to vanish at every remaining twist, proving its stated support.
+The last assertion follows from additivity and
+$\nu_1(X)=\nu_2(X)=0$ for a non-self-dual simple $X$.
+\end{proof}
+For $m=1$ this is the low-part estimate explicit in the proof of
+\cite[Theorem 2.21]{Ostrik3}. Its higher-indicator proof is included here. 
+
+\subsubsection{The moment inequality}
+For a nontrivial simple $X$, put $d=\FPdim(X)$ and $\epsilon=\nu_2(X)$.
+The indicator formula \cite[Theorem 4.1]{NS} gives, with
+$w_A=[I(X):A]\FPdim(A)\geq0$,
+\begin{equation}\label{finite:eq:three-moments}
+ \sum_A w_A=Dd,\qquad \sum_A w_A\theta_A=0,\qquad
+ \sum_A w_A\theta_A^2=D\epsilon.
+\end{equation}
+Here the twists are roots of unity, $\epsilon\in\{-1,1\}$ for a self-dual
+simple and $\epsilon=0$ otherwise.
+
+\begin{proposition}[Two-moment bound]\label{finite:prop:optimized-moment}
+If $L_X$ is any known contribution to the twist-one mass of $I(X)$, then
+\[
+ (3d+\epsilon)L_X\leq Dd(d+\epsilon).
+\]
+Consequently the following bounds require no choice of second indicator:
+\begin{align}
+ (3d+1)L_X&\leq Dd(d+1)&& (X\cong X^*),\label{finite:eq:optimized}\\
+ 3L_X&\leq Dd&& (X\not\cong X^*).\label{finite:eq:nonselfdual-third}
+\end{align}
+One may take $L_X=\FPdim(I_{\rm low}(X))=(LL^{\mathsf T}d)_X$.
+\end{proposition}
+\begin{proof}
+For $P(z)=d+(d+\epsilon)z+dz^2$, expand $|P(z)|^2$ on the unit circle
+and use \eqref{finite:eq:three-moments}. This gives
+\[
+ \sum_Aw_A|P(\theta_A)|^2=Dd(3d+\epsilon)(d+\epsilon).
+\]
+The twist-one terms contribute at least $(3d+\epsilon)^2L_X$.
+Since $3d+\epsilon>0$, division gives the assertion.
+The function $e\mapsto(d+e)/(3d+e)$ is increasing on $[-1,1]$;
+replace $\epsilon$ by one in the self-dual case.
+\end{proof}
+
+The familiar first-moment bound $2L_X\leq Dd$ and the weaker Fej\'er
+bound $9L_X\leq D(3d+2)$ follow as well. The checker uses
+\eqref{finite:eq:optimized}--\eqref{finite:eq:nonselfdual-third}; these suffice for
+all the low-induction inequalities needed here. Positivity is essential:
+these bounds are not applied to arbitrary spherical categories with signed
+dimensions.
+
+\subsubsection{A finite restriction test}
+\begin{proposition}[Exhaustive low-induction certificate]\label{finite:prop:low-certificate}
+Fix the positive dimension character $d$. For each formal codegree $f$,
+form the set of vectors $v\in\ZZ_{\geq0}^4$ satisfying
+\begin{equation}\label{finite:eq:column-search}
+ v_0=1,\qquad \sum_i v_id_i=D/f,\qquad
+ v_i\leq\min\{B_{0i},\lfloor\sqrt{B_{ii}}\rfloor\}\quad(i>0).
+\end{equation}
+Reserve $(1,0,0,0)^{\mathsf T}$ for the central unit. Enumerate all choices
+of the other three columns, with the codegree multiplicities retained,
+whose sum together with the unit column is $B_{\bullet0}$.
+If every such choice fails the entrywise or positive-semidefinite condition
+in \eqref{finite:eq:induction-gram}, or one of
+\eqref{finite:eq:optimized}--\eqref{finite:eq:nonselfdual-third}, then $R$ admits no
+pseudo-unitary categorification.
+\end{proposition}
+\begin{proof}
+A genuine restriction column satisfies its dimension equation, and
+$M_{0A}=1$ on the four constituents of $I(1)$. The first row and the diagonal
+of \eqref{finite:eq:induction-gram} give the two bounds in
+\eqref{finite:eq:column-search}. Hence the actual low part occurs in the finite
+list and satisfies every tested necessary condition.
+\end{proof}
+
+The computation is only linear algebra over a number field. Express the
+four dimensions and $D/f$ in a rational power basis, row-reduce the dimension
+equation, and enumerate its bounded free integer coordinates. When the
+four dimensions are rationally independent, there is at most one possible
+column for each $f$; a negative or nonintegral coefficient is already an
+obstruction. When they are dependent, no uniqueness is presumed. Full
+induction matrices, modular data and associators are never enumerated.
+
+
+
+
+\subsection{Positive central moments and the sign object}
+\label{finite:sec:frontier-signed-gauss}
+
+We use the canonical spherical structure on the sphericalization
+$\mathcal S$ of a hypothetical fusion category. Its realization as an
+equivariantization for the canonical involutive pivotal functor gives
+a central copy of $\operatorname{Rep}(C_2)$; see \cite[Section~5.3]{Bartlett}. Its central sign object
+$\varepsilon$ has order two, dimension $-1$, and self-braiding $+1$.
+Consequently its twist in $\Z(\mathcal S)$ is $-1$.
+The two lifts of each original self-dual simple are self-dual; their
+dimensions and second Frobenius--Schur indicators have opposite signs.
+The latter assertion follows directly from the definition of the second
+indicator: the two lifts have the same evaluation and coevaluation maps
+after forgetting equivariance, while their pivotal maps differ by $-1$.
+
+\begin{lemma}[A positive measure without pseudo-unitarity]
+\label{finite:lem:positive-central-squares}
+Let $\mathcal S$ be a spherical fusion category, and put
+$d=\dim\mathcal S$. For $A\in\operatorname{Irr}\Z(\mathcal S)$,
+let $a_A=\dim A$ and $\theta_A$ be its twist. Then $a_A$ is real and
+\[
+ \sum_A a_A^2=d^2,\qquad
+ \sum_A a_A^2\theta_A=d,\qquad
+ \sum_A a_A^2\theta_A^2=d\sum_V\dim(V)\nu_2(V).
+\]
+In particular the coefficients $a_A^2$ form a positive measure on roots
+of unity, even when some dimensions of $\mathcal S$ are negative.
+\end{lemma}
+\begin{proof}
+Simple dimensions in a spherical fusion category are totally real
+\cite[Section~2.1]{Ostrik3}. The forgetful functor is spherical, so
+$a_A$ is an integral linear combination of these real dimensions. Let $I$ be
+central induction and $m_{V,A}=[I(V):A]$. Adjunction gives
+$a_A=\sum_Vm_{V,A}\dim V$.
+The indicator identity of \cite[Theorem~4.1]{NS}
+\[
+ \operatorname{Tr}(\theta^n\vert_{I(V)})=d\nu_n(V)
+\]
+therefore gives, after multiplication by $\dim V$ and summation over $V$,
+\[\sum_A a_A^2\theta_A^n=d\sum_V\dim(V)\nu_n(V).\]
+For $n=1$ only the tensor unit contributes, and for $n=2$ this is the
+claimed formula. The zeroth moment is the standard identity
+$\dim\Z(\mathcal S)=d^2$. The twist is a root of unity by the
+Vafa theorem for the center of a spherical fusion category.
+\end{proof}
+
+\begin{proposition}[A global codegree moment bound]\label{finite:prop:spherical-codegree-moment}
+Let a commutative fusion ring have a spherical categorification, with
+simple dimensions $d_i$, global dimension $\Delta=\sum_i d_i^2$ and
+formal codegrees $f_j$, counted with multiplicity. Put
+\[
+ w=\sum_j f_j^{-2},\qquad
+ S=\sum_{i=i^*}|d_i|,\qquad h=\Delta^2w.
+\]
+At every real embedding of its dimension field one has
+\begin{equation}\label{finite:eq:spherical-codegree-moment}
+ 2(\Delta-h)^2\leq
+ (\Delta^2-h)(\Delta^2+\Delta S-2h).
+\end{equation}
+Equivalently,
+$\Delta(1-3w)+(1-w)S+4w-2/\Delta\geq0$.
+For a self-dual pseudo-unitary category,
+$S=\sum_i\operatorname{FPdim}(X_i)$.
+\end{proposition}
+\begin{proof}
+The constituents of $I(1)$ are distinct, have twist one and dimensions
+$\Delta/f_j$. Remove their squared mass $h$ from the positive measure
+of Lemma~\ref{finite:lem:positive-central-squares}. The remaining mass is
+$\Delta^2-h$, its first moment is $\Delta-h$, and its second moment is
+$\Delta s-h$, where $s=\sum_i d_i\nu_2(X_i)\leq S$.
+The weighted sum of squared real parts of twists is
+$(\Delta^2+\Delta s-2h)/2$. Cauchy--Schwarz gives the displayed
+inequality with $s$ in place of $S$; increasing $s$ to $S$ preserves it
+because the remaining mass is nonnegative. Expanding and dividing by
+$\Delta^3>0$ gives the equivalent expression.
+The argument applies to every Galois conjugate spherical structure.
+The rational number $w$ can be computed without finding codegree roots:
+$w=\operatorname{Tr}(B^{-2})$ for the Casimir matrix $B$.
+\end{proof}
+
+This form of the bound applies to every possible spherical dimension
+character, including those outside the Frobenius--Perron orbit. A pseudo-unitary obstruction alone would not exclude such branches.
+
+\begin{proposition}[Determined-sign moment obstruction]
+\label{finite:prop:signed-translate-moment}
+For a self-dual rank-four sphericalization use the notation
+$E=\sum_i x_i^2$, $u=\sum f_i^{-2}$ and $v=\sum g_i^{-2}$ from
+Section~\ref{sec:core}. Put $s=1+\sum_{i=1}^3\nu_i x_i$, where
+$\nu_i=\nu_2(X_i^+)$. At every real embedding one has
+\begin{gather}
+ u+v\le2,\qquad E(u+v-1)\le s\le E,\label{finite:eq:sign-mass}\\
+ (2-u-v)\left(1-u-v+\frac{s}{E}\right)
+          \ge\left(u-\frac1E\right)^2.
+ \label{finite:eq:determined-sign-moment}
+\end{gather}
+The same indicator assignment must work at every embedding.
+\end{proposition}
+\begin{proof}
+The constituents of $I(1)$ have dimensions $E/f_i,E/g_i$ and twist
+one. Their disjoint sign translates have opposite dimensions and
+have twists $+1$ on the ordinary constituents and $-1$ on the signed
+ones, by Lemma~\ref{core:lem:translate-twists}.
+Thus their squared mass and signed first-moment contribution are
+\[
+ h=E^2(u+v),\qquad C=E^2(u-v).
+\]
+The first-moment identity for $I(\varepsilon)$ is automatic, since
+both reciprocal-codegree sums are one. Removing these two families
+from the positive squared-dimension measure leaves mass
+$M=4E^2-2h$, first moment $2E-h-C$, and second moment $4Es-2h$.
+Lemma~\ref{core:lem:measure-tools} gives the two mass bounds and
+\[
+ (2E-h-C)^2\le(4E^2-2h)(2Es+2E^2-2h).
+\]
+Substituting $h,C$ and dividing by $4E^4$ gives
+\eqref{finite:eq:determined-sign-moment}. The indicators are rational
+signs and remain fixed under Galois conjugation.
+\end{proof}
+
+\subsection{Joint arithmetic, parity and moment certificates}
+\label{finite:sec:adjoint-parity}
+\begin{theorem}[Joint signed certificate]\label{finite:cor:joint-signed-conditions}
+A proposed signed quotient $T$ and dimension character $\chi$ must
+satisfy all the following conditions. Its codegrees are $d$-numbers,
+its character values are cyclotomic integers, and each ordinary or
+signed codegree belongs to the character field and divides
+$E=\sum_i\chi(b_i)^2$ integrally. Moreover there must be signs
+$\nu_i\in\{1,-1\}$ such that
+\begin{equation}\label{finite:eq:signed-parity}
+ N_{j,j}^{i}-\nu_i T_{j,j}^{i}\equiv0\pmod4\qquad(1\le i\le3,\ 0\le j\le3),
+\end{equation}
+and \eqref{finite:eq:sign-mass}--\eqref{finite:eq:determined-sign-moment}
+hold at every real embedding with $x_i=\chi(b_i)$ and that same
+indicator assignment. Ordinary and signed occurrences of equal
+codegrees retain their provenance and multiplicity.
+\end{theorem}
+\begin{proof}
+The arithmetic statements are Lemma~\ref{core:lem:family-induction}
+and the standard codegree and cyclotomicity inputs. The two lifts
+of $b_i$ occur in an adjoint product with multiplicities
+$(N_{j,j}^i+T_{j,j}^i)/2$ and $(N_{j,j}^i-T_{j,j}^i)/2$ and have
+opposite indicators. By Lemma~\ref{core:lem:adjoint-parity}, the lift
+with indicator $-1$ occurs evenly. This is exactly
+\eqref{finite:eq:signed-parity}. These are the same indicators as
+in Proposition~\ref{finite:prop:signed-translate-moment}; hence the
+conditions must be imposed jointly, with one assignment at all
+embeddings. There is no additional twist-sign search.
+\end{proof}
+
+For a spherical character the same parity observation improves
+Proposition~\ref{finite:prop:spherical-codegree-moment}: replace its
+upper bound $S$ by
+\begin{equation}\label{finite:eq:parity-spherical-bound}
+ S_{\rm par}=1+\sum_{i\in J}d_i+
+       \sum_{\substack{i>0,\ i=i^*\\i\notin J}}|d_i|,
+ \qquad J=\{i>0:i=i^*,\ N_{j,j^*}^{i}\text{ odd for some }j\}.
+\end{equation}
+Indeed parity forces $\nu_2(X_i)=1$ for $i\in J$, so
+$s\le S_{\rm par}$. The remaining mass multiplying this upper bound
+is nonnegative, preserving the inequality at each embedding.
+
+\begin{lemma}[Parity-restricted signed enumeration]
+\label{finite:cor:parity-restricted-enumeration}
+Write the unsigned and signed tuples as $N=(N_0,\ldots,N_9)$ and
+$p=(p_0,\ldots,p_9)$ in the convention \eqref{eq:tuple-convention}.
+Let $J_1=\{0,3,5\}$, $J_2=\{1,6,8\}$ and $J_3=\{2,7,9\}$.
+It suffices to search the union over $\nu\in\{1,-1\}^3$ of
+\[
+ |p_k|\le N_k,\qquad p_k\equiv\nu_iN_k\pmod4\ (k\in J_i),
+ \qquad p_4\equiv N_4\pmod2.
+\]
+After identical and empty domains are removed, these are at most
+eight pairwise disjoint boxes, also after the chosen sign normalization.
+\end{lemma}
+\begin{proof}
+The congruences are \eqref{finite:eq:signed-parity}. For a fixed $i$,
+the two residue choices agree when all $N_k$, $k\in J_i$, are even;
+otherwise an odd coordinate makes them disjoint. Since the three
+$J_i$ are disjoint, the product boxes have the same property.
+A basis-sign change multiplies $T_{j,j}^i$ and $\nu_i$ by the same
+sign, so their product is unchanged. The normalization therefore
+preserves the union and loses no categorical possibility.
+\end{proof}
+Identical boxes do not identify their indicator assignments: every
+compatible assignment remains available in the joint moment test.
+The common bounded signed cover in
+Section~\ref{finite:sec:shared-signed-cover} applies the universal
+arithmetic conditions once, then tests all compatible transforms
+against each ordinary ring.
+
+\subsection{Uniform applications of the moment bounds}\label{finite:sec:applications}
+The following consequences replace separate low-rank exclusion theorems.
+Throughout, the two-dimension Galois reduction is used only in the form
+stated in Proposition~\ref{finite:prop:standard}(5).
+
+For the twist-sector observations in the next paragraph, work in a
+pseudo-unitary category with its canonical spherical structure.
+If $g$ is invertible of order two, its second indicator is
+$\epsilon\in\{-1,1\}$. Since $\FPdim(g)=1$, equality in the triangle
+inequality for the second indicator forces $\theta_A^2=\epsilon$ for
+every constituent $A$ of $I(g)$. More generally, if $H_X$ is any known
+mass in $I(X)$ supported on squared twist one, taking real parts of the
+second moment gives
+\begin{equation}\label{finite:eq:square-sector}
+ 2H_X\leq D(d_X+\nu_2(X))\leq D(d_X+1).
+\end{equation}
+Indeed the remaining real trace is at least the negative of its mass.
+For a non-self-dual simple, equality in
+$3W_X\leq Dd_X$ forces the complementary twists to be primitive cube
+roots by Theorem~\ref{finite:thm:higher-indicator}.
+
+\subsubsection{The rank-two subcategory obstruction}
+\begin{proposition}\label{finite:prop:ranktwo}
+If a fusion ring contains a based fusion subring with basis $1,x$ and $x^2=1+ax$, where $a\geq2$, it has no complex fusion categorification.
+\end{proposition}
+\begin{proof}
+The indicated rank-two based subring would be the Grothendieck ring
+of a fusion subcategory. Ostrik's rank-two classification
+\cite[Theorem~1]{OstrikRankTwo} allows only $x^2=1$ and $x^2=1+x$.
+\end{proof}
+The criterion applies whenever such a rank-two based subring is present.
+
+\subsubsection{A uniform diagonal two-invertible obstruction}
+\begin{theorem}\label{finite:thm:diagonal}
+Let $R_m$ have self-dual basis $1,g,X,Y$ and products
+\[
+g^2=1,\quad gX=Y,\quad gY=X,\qquad
+X^2=Y^2=1+m(X+Y),\quad XY=g+m(X+Y).
+\]
+For every integer $m\geq3$, the ring $R_m$ has no fusion categorification over $\CC$.
+\end{theorem}
+\begin{proof}
+Its positive dimensions are $(1,1,d,d)$, where $d=m+\sqrt{m^2+1}$ and $d^2=1+2md$. The two-dimension reduction allows a pseudo-unitary assumption. Put $D=4+4md$ and $V=X\oplus Y$.
+
+The four dimensions in $I(1)$ are $1,d^2,1+md,1+md$. Moreover
+\[
+FI(1)=4\cdot1+2mX+2mY.
+\]
+In particular the low part of $I(g)$ is empty. Dimension comparison shows that the total multiplicities of $X,Y$ in the last three restrictions are $2m,m,m$. Therefore their known twist-one mass in $I(V)$ is, independently of its allocation between $X$ and $Y$,
+\begin{equation}\label{finite:eq:diag-W}
+W=2md^2+2m(1+md)=4m+6m^2d.
+\end{equation}
+The total mass in $I(V)$ is
+\[
+M=2Dd=8m+(16m^2+8)d.
+\]
+
+The Gram entry $B_{gg}=4$ implies that $I(g)$ is either twice one simple or a sum of four distinct simples. The first possibility contradicts its zero first twist trace. Write the four simple dimensions as $\beta_j=1+k_jd$: each restriction contains $g$ once, no unit, and $k_j$ copies of $X,Y$ in total. Thus $k_j\in\ZZ_{\geq0}$ and $\sum_jk_j=4m$.
+
+Put $\epsilon=\nu_2(g)$. All four twists have square $\epsilon$. The zero first trace divides these four objects into the two possible twists, with mass $D/2$ at each. Since $d$ is irrational, each side has two objects and the two $k_j$ sum to $2m$. Each side therefore contributes at least
+\[
+2m+2m^2d
+\]
+to $I(V)$, by $k_1^2+k_2^2\geq(2m)^2/2$.
+
+If $\epsilon=1$, the new twist-one mass is at least $2m+2m^2d$, disjoint from the low part. Adding \eqref{finite:eq:optimized} for $X,Y$ yields
+\[
+(3d+1)(6m+8m^2d)\leq 2Dd(d+1).
+\]
+After reduction by $d^2=1+2md$, the left side minus the right side is
+\[
+2(4m^2-m-4)+2(8m^3-4m^2-3m-4)d>0
+\]
+for $m\geq3$. For example, substituting $m=n+3$ gives coefficients
+$8n^2+46n+58$ and $16n^3+136n^2+378n+334$, respectively.
+
+Suppose instead $\epsilon=-1$. The four new twists are $\pm i$, and their total mass in $I(V)$ is at least
+\[
+H=4m+4m^2d.
+\]
+Remove this mass and the low mass $W$ from the positive measure of $I(V)$. For the remaining measure, the first cosine moment is $-W$, its total mass is at most
+\[
+M-W-H=(6m^2+8)d,
+\]
+and its second cosine moment is at most
+\[
+\frac{M+D(\nu_2(X)+\nu_2(Y))}{2}-W
+\leq \frac M2+D-W=4+(2m^2+4m+4)d.
+\]
+Cauchy--Schwarz therefore requires
+\[
+W^2\leq (6m^2+8)d\bigl(4+(2m^2+4m+4)d\bigr).
+\]
+The difference between the two sides, reduced by the dimension equation, is
+\begin{align*}
+&8(m-2)(3m^3+3m^2+3m+2)\\
+&\hspace{12mm}+8(m-2)(6m^4+6m^3+8m^2+5m+2)d>0.
+\end{align*}
+This excludes the second indicator choice as well.
+\end{proof}
+\subsubsection{Propagation from an invertible involution}
+\begin{proposition}[Residual-involution criterion]\label{finite:prop:involution-propagation}
+Let $\C$ be pseudo-unitary with commutative Grothendieck ring,
+and let $g\ne1$ be an invertible
+simple with $g^2=1$. For its actual low restriction matrix $L$, put
+\[
+ Q=B-LL^{\mathsf T},\qquad W_i=(LL^{\mathsf T}d)_i.
+\]
+Suppose $Q_{gg}=2$ and $0<W_g<D/2$. The two constituents of $I(g)$
+outside $I(1)$ then have dimensions and twists
+\[
+ (D/2-W_g,1),\qquad(D/2,-1).
+\]
+If moreover $D/2-W_g=1$, their restriction columns are respectively
+$e_g$ and $Q_{g\bullet}^{\mathsf T}-e_g$. Consequently, for every
+nonunit simple $X_i\ne g$,
+\begin{equation}\label{finite:eq:involution-propagation}
+ 2W_i+DQ_{gi}\leq D(d_i+\nu_2(X_i))\leq D(d_i+1).
+\end{equation}
+\end{proposition}
+\begin{proof}
+The residual Gram entry $Q_{gg}=2$ is a sum of squares of nonnegative
+integer multiplicities. Thus exactly two additional simples occur,
+each once. Equality in the triangle inequality for the second indicator
+of $g$ forces all twists in $I(g)$ to have square $\nu_2(g)$.
+The positive low mass has twist one, so $\nu_2(g)=1$.
+The vanishing first trace divides the total dimension $D$ equally
+between twists $1$ and $-1$. Since $0<W_g<D/2$, both additional
+sectors have positive mass and each contains one of the two remaining
+simples. Their dimensions follow.
+
+When the first dimension is one, its restriction contains $g$ and has
+Frobenius--Perron dimension one; hence its restriction is exactly $g$.
+Write $v$ for the other restriction column. In the residual Gram product,
+only these two columns contribute to row $g$, so
+$Q_{gi}=\delta_{gi}+v_i$ for every $i$.
+For $i\ne g$, the low constituents and the twist-minus-one constituent
+therefore give disjoint squared-twist-one mass
+$W_i+(D/2)Q_{gi}$ in $I(X_i)$. Equation~\eqref{finite:eq:square-sector}
+proves the required bound.
+\end{proof}
+The criterion is finite and uniform: enumerate the admissible low parts
+by Proposition~\ref{finite:prop:low-certificate} and check
+\eqref{finite:eq:involution-propagation} whenever its hypotheses hold.
+Uniqueness of an admissible low part is sufficient but is not assumed.
+The automated dispatcher recognizes this obstruction from the complete
+low-induction proof of any weakly integral input ring; it does not match
+the tensor against a preselected exceptional ring.
+
+
+
+\subsubsection{The non-self-dual quadratic family}
+
+For an integer $m\geq0$, let $S(m)$ be the commutative based ring with basis
+$\{1,g,x,y\}$, involution $g^*=g$, $x^*=y$, and multiplication
+\[
+ g^2=1,\qquad gx=y,\qquad gy=x,\qquad
+ x^2=y^2=g+m(x+y),\qquad xy=1+m(x+y).
+\]
+
+\begin{theorem}\label{finite:thm:nonselfdual-quadratic}
+For every $m\geq2$, the fusion ring $S(m)$ admits no fusion categorification
+over $\CC$.
+\end{theorem}
+
+\begin{proof}
+Put $d=m+\sqrt{m^2+1}$. Thus $d^2=1+2md$, and the Frobenius--Perron
+dimensions are $(1,1,d,d)$. By Schopieray's Galois-conjugacy theorem for
+two-dimension fusion rings \cite[Lemma~3.1]{Schopieray}, any fusion
+categorification would have a pseudo-unitary Galois conjugate with the same
+fusion rules. It is consequently sufficient to exclude pseudo-unitary
+categorifications.
+
+Suppose one exists, and use its canonical spherical structure. Its dimension is
+$D=2+2d^2=4+4md$. The four characters of $S(m)$, displayed by columns, are
+\[
+ \begin{pmatrix}
+ 1&1&1&1\\
+ 1&1&-1&-1\\
+ d&-d^{-1}&i&-i\\
+ d&-d^{-1}&-i&i
+ \end{pmatrix}.
+\]
+Their formal codegrees are $D$, $2+2d^{-2}$, $4$, $4$, respectively.
+The formal-codegree description of induction therefore gives
+\[
+ I(\mathbf1)\cong\mathbf1\oplus A\oplus B\oplus C,
+ \qquad
+ \operatorname{FPdim}(A)=d^2=1+2md,
+ \quad
+ \operatorname{FPdim}(B)=\operatorname{FPdim}(C)=1+md,
+\]
+where the four central simples are pairwise nonisomorphic and occur with
+multiplicity one. Indeed, every irreducible representation of this commutative
+rank-four ring is one-dimensional. Furthermore,
+\[
+ F I(\mathbf1)\cong
+ \bigoplus_{T\in\operatorname{Irr}\C}T\otimes T^*
+ \cong 4\mathbf1\oplus2mX\oplus2mY,
+\]
+where $X^*\cong Y$ correspond to $x,y$. By adjunction each of $F(A)$,
+$F(B)$, $F(C)$ contains $\mathbf1$ once, and the displayed decomposition
+shows that none contains $g$. Since $d$ is irrational, comparison of dimensions
+now forces
+\[
+ [F(A):X]+[F(A):Y]=2m,\qquad
+ [F(B):X]+[F(B):Y]=[F(C):X]+[F(C):Y]=m.
+\]
+These statements determine the sum of the two low-part dimensions without
+requiring the individual restriction multiplicities:
+\begin{align*}
+ L&=\operatorname{FPdim}(I_{\mathrm{low}}(X))+
+    \operatorname{FPdim}(I_{\mathrm{low}}(Y))\\
+  &=2m(1+2md)+2m(1+md)=4m+6m^2d.
+\end{align*}
+Both $X$ and $Y$ are non-self-dual. Applying
+\eqref{finite:eq:nonselfdual-third} to each of them and adding gives $3L\leq2dD$.
+But
+\begin{align*}
+ 3L-2dD
+ &=12m+18m^2d-2d(4+4md)\\
+ &=12m+18m^2d-8d-8m(1+2md)\\
+ &=4m+(2m^2-8)d>0
+\end{align*}
+for $m\geq2$, a contradiction.
+\end{proof}
+
+
+
+\subsection{A quadratic root-of-unity obstruction}\label{finite:sec:quadratic-family}
+
+Let $R_n$ be the ordinary table in
+\eqref{quad:eq:rational-three-normal-form}, with $m=n\ge1$ and
+its tuple specified in the same calculation. Its positive dimension
+row is $(1,\delta-1,\delta,\delta+1)$, where
+\[
+ \delta=\frac{3n+\sqrt{9n^2+4}}2,
+ \qquad \delta^2=3n\delta+1,\qquad D=3+3\delta^2=6+9n\delta.
+\]
+
+\begin{lemma}\label{finite:lem:odd-quadratic-length}
+Let $d>1$ be squarefree and let $f$ be the conductor of $\Q(\sqrt d)$:
+$f=d$ if $d\equiv1\pmod4$ and $f=4d$ otherwise. Put
+$\kappa=\sqrt{f/d}$ and $\lambda=(\varphi(f)-|\mu(f)|)/\kappa$.
+Here $\varphi$ and $\mu$ denote Euler's totient and the M\"obius function.
+If a sum of $k$ roots of unity equals $a+b\sqrt d$, with
+$a,b\in\Q$, then $k\geq-a-\lambda b$.
+\end{lemma}
+\begin{proof}
+Let $K=\Q(\sqrt d)$, let $L$ be a common cyclotomic overfield, and
+write $T=\operatorname{Tr}_{L/K}/[L:K]$. Define
+$\ell(a+b\sqrt d)=-a-\lambda b$. We prove $\ell(T(\xi))\leq1$
+for every root of unity $\xi$.
+
+If $m$ is the exact order of $\xi$ and $f\nmid m$, then
+$K\cap\Q(\xi)=\Q$, because the conductor of $K$ is $f$.
+Consequently $T(\xi)=\mu(m)/\varphi(m)$, whose absolute value is at most one.
+If $m=fh$, let $\chi$ be the primitive quadratic character modulo $f$ and
+write $\xi=\zeta_m^r$, with $(r,m)=1$. The induced quadratic Gauss sum gives
+\[
+ T(\xi)=
+ \begin{cases}
+ \displaystyle\frac{\mu(f)\mu(h)+\chi(r)\mu(h)\chi(h)\kappa\sqrt d}
+                      {\varphi(f)\varphi(h)},&(f,h)=1,\\[6pt]
+ 0,&(f,h)>1.
+ \end{cases}
+\]
+For clarity, this follows by splitting the units modulo $m$ into the two
+values of $\chi$: their sum over $\chi=1$ is half the sum of the Ramanujan
+sum $\mu(m)$ and the induced Gauss sum. The latter equals
+$\chi(r)\mu(h)\chi(h)\sqrt f$ when $(f,h)=1$ and vanishes otherwise;
+an additional power of a prime dividing $f$ cancels upon summing over its
+last prime-power layer. The same formula includes nonsquarefree $h$ through
+$\mu(h)=0$.
+In the nonzero case, the definition of $\lambda$ gives
+\[
+ |\ell(T(\xi))|
+ \leq\frac{|\mu(f)|+\lambda\kappa}{\varphi(f)\varphi(h)}\leq1.
+\]
+Applying $\ell\circ T$ to the sum proves the lemma.
+\end{proof}
+
+\subsubsection{The conductor-forty equality case}
+\begin{lemma}\label{finite:lem:rootlength40}
+If $k$ roots of unity have sum $a+b\sqrt{10}$, then $k\ge-a-8b$.
+Equality forces each root to be either $-1$ or a primitive fortieth
+root $\zeta_{40}^r$ with $\chi_{40}(r)=-1$. In particular, if eighteen
+roots have sum $-2-2\sqrt{10}$, exactly two equal $-1$ and the
+normalized absolute trace of the sum of their squares is $2$.
+\end{lemma}
+\begin{proof}
+In Lemma~\ref{finite:lem:odd-quadratic-length}, $f=40$, $\kappa=2$ and
+$\lambda=8$. For a root of order $m$ not divisible by $40$, equality
+in the normalized trace bound requires
+$-\mu(m)/\varphi(m)=1$, hence $m=2$.
+For $m=40h$, the nonzero trace formula requires $(h,40)=1$, and
+equality requires $\varphi(h)=1$. Thus $h=1$, and equality with the
+positive sign means $\chi_{40}(r)=-1$. Equality in a sum requires
+these conditions for every summand.
+Primitive fortieth roots have normalized absolute trace zero, whereas
+$-1$ has trace $-1$. The trace of $-2-2\sqrt{10}$ is $-2$, so precisely
+two roots equal $-1$. Squaring a primitive fortieth root gives a
+primitive twentieth root, also of trace zero since $\mu(20)=0$.
+The other two squares are $1$, as asserted.
+\end{proof}
+
+
+\begin{proposition}\label{finite:prop:quadratic-family-n3-n4}
+Let $n\geq2$, write $9n^2+4=t^2d$ with $d$ squarefree, and define
+$\lambda$ as in Lemma~\ref{finite:lem:odd-quadratic-length}.
+If $n=2$, or if
+\begin{equation}\label{finite:eq:rootlength-parameter}
+ n^2+nt\lambda>8n^2+4,
+\end{equation}
+then $R_n$ admits no spherical categorification over $\CC$.
+The condition is an exact scalar arithmetic test for each parameter.
+\end{proposition}
+\begin{proof}
+We first derive a necessary root-of-unity identity for a pseudo-unitary
+categorification of $R_n$. Give such a category its canonical spherical
+structure, and use $F,I$ for forgetful functor and central induction.
+The four characters, displayed by rows, are
+\[
+ \begin{pmatrix}
+ 1&\delta-1&\delta&\delta+1\\
+ 1&\delta'-1&\delta'&\delta'+1\\
+ 1&0&1&-1\\
+ 1&1&-1&0
+ \end{pmatrix},\qquad \delta'=-\delta^{-1}.
+\]
+The formal codegrees are $D,D'=3+3(\delta')^2,3,3$. Accordingly,
+\[
+ I(1)=1\oplus A\oplus B\oplus C,
+ \qquad d_A=D/D'=1+3n\delta,\quad d_B=d_C=D/3=2+3n\delta.
+\]
+Every summand has multiplicity one and twist one. Comparing the coefficients
+of $1$ and $\delta$ in their restriction dimensions shows that their columns are
+\[
+ (1,a,3n-2a,a),\quad
+ (1,b,3n-1-2b,b+1),\quad
+ (1,c,3n-1-2c,c+1).
+\]
+The first row of $MM^{\mathsf T}=Q:=\sum_U N_U^2$, for the full induction
+matrix $M$, gives $a+b+c=3n-1$.
+
+Here the low part is forced without searching over $a,b,c$. Put
+$v=(0,1,-2,1)^{\mathsf T}$. Multiplication of the displayed matrices gives
+$v^{\mathsf T}Qv=18$. On the three low columns, the values of $v$ are
+\[
+ 6(a-n),\quad 6(b-n)+3,\quad6(c-n)+3.
+\]
+Their squares sum to at most $18$. The last two are odd multiples of three,
+so their squares already sum to at least $18$. It follows that
+$a=n$ and $\{b,c\}=\{n-1,n\}$. Thus
+\[
+ F(A)=(1,n,n,n),\quad F(B)=(1,n-1,n+1,n),\quad
+ F(C)=(1,n,n-1,n+1).
+\]
+Lemma~\ref{finite:lem:gram-saturation} now makes $v$ vanish on every
+remaining column. Such a column is therefore
+\[
+ (0,b-t,b,b+t),\qquad b\geq|t|,\quad b>0,
+\]
+and its central dimension is $3b\delta+2t$. Subtracting the four low columns
+from $Q$ and comparing its entries gives
+\begin{equation}\label{finite:eq:quadratic-family-gram}
+ \sum b^2=6n^2+2,\qquad \sum bt=2n,\qquad\sum t^2=2.
+\end{equation}
+Thus precisely two high columns have nonzero $t$, which equals $1$ or $-1$.
+Set $T=3n\delta+2$. Subtracting the first twist-trace equation for $X$ from
+that for $Z$, then dividing by two, gives
+\begin{equation}\label{finite:eq:quadratic-family-ttrace}
+ \sum t(3b\delta+2t)\theta=-T.
+\end{equation}
+If the two signs of $t$ differ, their $b$ values differ by $2n$, by
+\eqref{finite:eq:quadratic-family-gram}. Their positive dimensions then differ by
+$6n\delta+4=2T$, contradicting the reverse triangle inequality in
+\eqref{finite:eq:quadratic-family-ttrace}. Both signs cannot be negative. Hence both
+are positive; write their $b$ values as $p,q$, with $p+q=2n$.
+Their dimensions $\alpha=3p\delta+2$, $\beta=3q\delta+2$ satisfy
+\[
+ \alpha+\beta=2T,\qquad
+ \alpha\beta=(9pq+4)\delta^2,\qquad T^2=(9n^2+4)\delta^2.
+\]
+If their twists are $\zeta,\eta$, equation
+\eqref{finite:eq:quadratic-family-ttrace} implies
+\[
+ \zeta\eta^{-1}+\eta\zeta^{-1}
+ =2-\frac{3(9n^2+4)}{9pq+4}.
+\]
+This rational number is an algebraic integer and lies in $[-2,2]$.
+Since $pq\leq n^2$, it is at most $-1$. The value $-2$ would require
+$36pq=27n^2-4$, which is impossible modulo nine. The value $-1$ forces
+$pq=n^2$, hence $p=q=n$. The two twists then sum to $-1$ and are the
+primitive cube roots of unity.
+
+All other columns have $t=0$ and are of the form $(0,b,b,b)$. Their squared
+multiplicities sum to $4n^2+2$. Write $S=\sum b^2\theta$ over these uniform
+columns; it is a sum of $4n^2+2$ roots of unity, with repetitions.
+The first twist-trace equation for $X$ gives
+\[
+ S=n^2-n\delta.
+\]
+For completeness, the low contribution is
+$n(1+3n\delta)+(2n-1)T$; the two exceptional high columns contribute
+$-(n-1)T$, so the equation is
+$0=n(1+3n\delta)+nT+3\delta S$, which is equivalent to the claimed identity
+using $\delta^{-1}=\delta-3n$.
+
+Writing $9n^2+4=t^2d$ with $d$ squarefree, we have
+\[
+ S=-\frac{n^2}{2}-\frac{nt}{2}\sqrt d.
+\]
+Lemma~\ref{finite:lem:odd-quadratic-length} therefore requires
+\[
+ 4n^2+2\geq\frac{n^2+nt\lambda}{2}.
+\]
+Condition~\eqref{finite:eq:rootlength-parameter} contradicts this inequality.
+For $n=2$, the same reduction gives eighteen roots whose sum is
+$S_1=-2-2\sqrt{10}$. The second indicator of $X$ is
+$\epsilon\in\{1,-1\}$. The same twist-trace equation with twists squared,
+using that the two exceptional twists still sum to $-1$, gives
+\[
+ S_2=S_1+\epsilon\frac{D}{3\delta}
+     =-2+(2\epsilon-2)\sqrt{10}.
+\]
+For $\epsilon=-1$, Lemma~\ref{finite:lem:rootlength40} applied to the eighteen
+squared roots requires at least $34$ roots. For $\epsilon=1$, the same
+lemma applied to $S_1$ shows that the normalized absolute trace of $S_2$
+is $2$, whereas $S_2=-2$. Both cases are impossible.
+
+Finally, a spherical categorification has a dimension character with no zero entries,
+so the displayed character table restricts it to the two quadratic characters.
+These are Galois conjugate; conjugating its structure constants if necessary
+would give a pseudo-unitary categorification. This completes the proof.
+\end{proof}
+
+

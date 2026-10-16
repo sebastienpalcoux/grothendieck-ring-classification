@@ -1,0 +1,298 @@
+\section{Indicator inequalities}\label{sec:moments}
+\begin{lemma}[Positive-measure inequalities]\label{core:lem:measure-tools}
+Let $\mu$ be a finite positive measure on the unit circle, with mass
+$M$ and real first two moments $A,B$. Then
+\[
+ 0\le M+B\le2M,\qquad 2A^2\le M(M+B).
+\]
+If its first $m$ moments all equal the real number $c$, then
+\[
+ \mu(\{1\})\le\frac{M+mc}{m+1}.
+\]
+These statements also apply after subtracting any known positive
+atomic submeasure.
+\end{lemma}
+\begin{proof}
+Writing $z=e^{it}$, one has
+$\int\cos^2t\,d\mu=(M+B)/2$; Cauchy--Schwarz gives the first
+inequalities. The nonnegative Fej\'er polynomial
+$F_m(z)=|1+z+\cdots+z^m|^2/(m+1)$ has value $m+1$ at one and
+integral $M+mc$, proving the atom bound.
+\end{proof}
+
+\begin{lemma}[Second moment]\label{core:lem:family-signed-second}
+Let $u,v$ be the ordinary and signed inverse-square codegree sums.
+For any signed dimension character,
+\[
+ E(u+v-1)\le\sum_{i=0}^3|\beta_i|
+ \le1+\sqrt{3(E-1)}.
+\]
+\end{lemma}
+\begin{proof}
+The eight constituents of $I(1)$ have positive dimensions $E/f$
+and squared mass $H=E^2(u+v)$. Their translates by the canonical
+central sign object have opposite dimensions, are disjoint from
+them, and have twists $\pm1$. The center's total squared dimension
+is $4E^2$. The central indicator formula
+\cite[Theorem~4.1]{NS} gives
+\[
+ \sum_A (\dim A)^2\theta_A^2=4Es,
+ \qquad s=1+\sum_{i=1}^3\nu_2(X_i^+)\beta_i.
+\]
+Here each $\nu_2(X_i^+)=\pm1$ and the two lifts have opposite
+dimensions and opposite second indicators. Removing the sixteen
+known objects, the weighted sum of squared real parts of the
+remaining twists is
+\[
+ \tfrac12\bigl((4E^2-2H)+(4Es-2H)\bigr)
+ =2E^2+2Es-2H\ge0.
+\]
+This gives the first bound, and Cauchy's inequality gives the second.
+\end{proof}
+\begin{lemma}[Quartic trace and norm]\label{core:lem:family-trace-norm}
+If $L$ has degree four, the signed rational algebra is $L$ itself,
+and its four character codegrees are the conjugates of $E$, with
+multiplicity. Moreover
+\[
+ \Tr_{L/\Q}(E)\le\sum_j f_j,
+ \qquad \Norm_{L/\Q}(E/f)\in\ZZ_{>0}
+\]
+for every ordinary codegree $f$. If $v$ is the signed inverse-square
+sum, then
+\[
+ v\ge\frac12-\frac92\,
+ \frac{\Tr_{L/\Q}(E)}{\Norm_{L/\Q}(E)}.
+\]
+\end{lemma}
+\begin{proof}
+The dimension character is a surjection from a rational algebra of
+dimension four onto $L$, hence an isomorphism. The Casimir's regular
+trace is the sum of the codegrees. Its trace is also
+$\sum_i\Tr(T_i^2)=\sum_{i,j,k}(T_{ij}^k)^2$, at most the
+corresponding ordinary sum. Norm integrality is
+Lemma~\ref{core:lem:family-induction}. For $q_i=1/g_i$ the reciprocal
+identity gives $\sum q_i=1$, and the elementary four-variable
+Schur inequality $9e_3(q)+2\sum q_i^2\ge1$ gives the result,
+since $e_3(q)=\Tr(E)/\Norm(E)$.
+\end{proof}
+
+\subsection{Galois averages in a quartic signed field}
+Assume here that the signed dimension field $L$ has degree four.
+It identifies the signed rational algebra with $L$. We use the
+normalized trace identity~\eqref{core:frobenius-trace}.
+\begin{proposition}\label{core:prop:quartic-individual-disjointness}
+Suppose that, for every integer $1\le n\le m$,
+\begin{equation}\label{core:eq:quartic-individual-intersection}
+ L\cap\Q(\zeta_n)=\Q.
+\end{equation}
+Then
+\begin{equation}\label{core:eq:quartic-averaged-bound}
+ 2u+v\le\frac34+\frac3{m+1}.
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Choose a finite Galois extension $\Omega/\Q$ containing $L$,
+all twists of simple objects of $Z(\mathcal S)$, and
+$\Q(\zeta_n)$ for $1\le n\le m$.  Put
+$G=\operatorname{Gal}(\Omega/\Q)$.  On the unit circle define
+\[
+ \mu=\frac4{|G|}\sum_{\sigma\in G}
+       \sum_{A\in\operatorname{Irr}Z(\mathcal S)}
+       \frac{\sigma(\dim A)^2}{4\sigma(E)^2}\,
+       \operatorname{Dirac}_{\sigma(\theta_A)}.
+\]
+Every central dimension lies in $L$, since forgetting expresses it as
+an integral linear combination of the $x_i$.  All its conjugates are
+real, so this measure is positive.  The global-dimension identity for
+the center shows that its total mass is four.
+
+The central-induction indicator formula \cite[Theorem~4.1]{NS} is
+$\operatorname{tr}(\theta^n|_{I(V)})=2E\nu_n(V)$.
+Multiplying by $\dim V$ and summing, adjunction gives
+\[
+ \sum_A\dim(A)^2\theta_A^n
+ =2E\sum_{V\in\operatorname{Irr}\mathcal S}
+                    \dim(V)\nu_n(V).
+\]
+Consequently, for $1\le n\le m$,
+\begin{equation}\label{core:eq:quartic-moment-indicator}
+ \int z^n\,d\mu(z)
+ =\frac2{|G|}\sum_{\sigma\in G}
+       \sum_{V\in\operatorname{Irr}\mathcal S}
+       \sigma\!\left(\frac{\dim V}{E}\right)
+       \sigma\bigl(\nu_n(V)\bigr).
+\end{equation}
+The cyclic operator defining $\nu_n(V)$ has order dividing $n$;
+hence $\nu_n(V)\in\Q(\zeta_n)$
+\cite[Theorem~5.1]{NSHigher}.  By
+\eqref{core:eq:quartic-individual-intersection}, restriction of $G$ to
+$L$ and $\Q(\zeta_n)$ is onto the product of their Galois
+groups.  The average of each product in
+\eqref{core:eq:quartic-moment-indicator} therefore factors into the two
+separate averages.  Equation~\eqref{core:frobenius-trace}
+annihilates all nonunit terms.  The two remaining objects are
+$\mathbf1$ and $\varepsilon$.  The unit has every indicator equal to
+one.  The sign has indicator $-1$ at even orders and zero at odd orders.
+Their normalized dimension traces are respectively $1$ and $-1$.
+It follows that
+\begin{equation}\label{core:eq:quartic-constant-moments}
+ \int z^n\,d\mu(z)=
+ \begin{cases}1,&n\text{ even},\\[2pt]\tfrac12,&n\text{ odd}.
+ \end{cases}
+\end{equation}
+Lemma~\ref{core:lem:translate-twists} gives the indicator signs,
+the eight constituents of $I(1)$ of dimensions $E/f_i,E/g_i$,
+and their eight disjoint sign translates.
+Thus translates of the $R$ constituents have twist $+1$, while
+translates of the $T$ constituents have twist $-1$.  These statements
+are preserved by every $\sigma\in G$.  Summing the squared weights
+yields the two estimates
+\begin{equation}\label{core:eq:quartic-atom-bound}
+ \mu(\{1\})\ge 2u+v,\qquad \mu(\{-1\})\ge v.
+\end{equation}
+
+By Cauchy--Schwarz, $v\ge1/4$.  Consequently
+$\nu=\mu-\tfrac14\operatorname{Dirac}_{-1}$ is a positive measure.
+Its mass is $15/4$, and its first $m$ moments are all $3/4$.
+Apply Lemma~\ref{core:lem:measure-tools} to obtain
+$(m+1)\mu(\{1\})\le(15+3m)/4$. Together with
+\eqref{core:eq:quartic-atom-bound}, this proves the claim.
+\end{proof}
+
+
+\begin{proposition}[Squared moments]\label{core:squared-moments}
+If $L\cap\Q(\zeta_{2j})=\Q$ for $1\le j\le a$, then
+\[
+u+v\le\frac12+\frac{3}{2(a+1)}.
+\]
+In particular $u+v\le7/8$ always, and $u+v\le4/5$ if
+$\sqrt2\notin L$.
+\end{proposition}
+\begin{proof}
+Push the preceding averaged measure forward by $z\mapsto z^2$.
+Its total mass is four, its first $a$ moments are one, and its atom
+at one is at least $2(u+v)$. Apply Lemma~\ref{core:lem:measure-tools}. The first three
+intersections are trivial because $L$ is totally real. The fourth
+can be nontrivial only if $\Q(\sqrt2)\subset L$.
+\end{proof}
+\begin{corollary}\label{core:quartic-short-moments}
+If the signed dimension field $L$ is quartic, then
+\[
+ \sqrt2\notin L\ \Longrightarrow\ u+v\le\frac45,
+ \qquad
+ \sqrt5\notin L\ \Longrightarrow\ 2u+v\le\frac98.
+\]
+\end{corollary}
+\begin{proof}
+The first assertion is Proposition~\ref{core:squared-moments}.
+For the second, the only nontrivial totally real intersection of $L$
+with a cyclotomic field of order at most seven can be
+$\Q(\sqrt5)$. Apply
+Proposition~\ref{core:prop:quartic-individual-disjointness} with $m=7$.
+\end{proof}
+
+\begin{lemma}\label{core:lem:sqrt5-periodic-moments}
+Suppose the signed dimension field is $K=\Q(\sqrt2,\sqrt5)$.
+With the preceding notation, one has
+\[
+ 5u+4v\le\frac{15}{4}.
+\]
+\end{lemma}
+\begin{proof}
+Use the unsquared averaged central measure $\mu$ above.
+The nontrivial quadratic subfields of $K$ have conductors $5,8,40$.
+Hence $K\cap\Q(\zeta_n)=\Q$ whenever $5\nmid n$ and
+$8\nmid n$. The same indicator calculation gives
+\[
+ \int z^n\,d\mu=\begin{cases}1/2&n\text{ odd},\\1&n\text{ even},\end{cases}
+ \qquad 5\nmid n,\quad8\nmid n.
+\]
+These identities hold at every such order: extending the averaging
+field leaves the measure unchanged.
+
+Restrict $\mu$ to the fortieth roots of unity. Averaging the functions
+$z^{40j}$ over $j$ gives their indicator function, since the measure
+has finite root-of-unity support. Thus, for each residue $n$ divisible
+by neither $5$ nor $8$, the restricted measure retains the displayed
+$n$th Fourier coefficient. Subtract
+$\nu=\tfrac34\operatorname{Dirac}_1+\tfrac14\operatorname{Dirac}_{-1}$.
+The resulting forty weights have Fourier support only at multiples
+of $5$ or $8$. By the discrete Fourier transform they are therefore
+\[
+ r_{ij}=A_i+B_j,\qquad i\in\ZZ/8,\quad j\in\ZZ/5,
+\]
+where a fortieth root with exponent $l$ corresponds to
+$(i,j)=(l\bmod8,l\bmod5)$.
+All cells other than $(0,0)$ and $(4,0)$ are nonnegative. The forced
+atoms give
+\[
+ r_{00}\ge2u+v-\frac34,\qquad
+ r_{40}\ge v-\frac14.
+\]
+The total of the forty weights is at most $4-1=3$.
+For an additive array there is the exact identity
+\[
+ \sum_{i,j}r_{ij}-5r_{00}-3r_{40}
+ =\frac12\sum_{j\ne0}r_{4j}
+  +\frac54\sum_{\substack{i\ne0,4\\j\ne0}}r_{ij}\ge0.
+\]
+Consequently
+$3\ge5(2u+v-3/4)+3(v-1/4)$, proving the assertion.
+\end{proof}
+\subsection{Pivotal positivity and second-indicator parity}
+\begin{lemma}[A pivotal Fej\'er bound]\label{core:lem:family-pivotal-fejer}
+For a pseudo-unitary self-dual rank-four category,
+\[
+ (9u-3)D\le6+2\sqrt{3(D-1)}.
+\]
+The same holds for the FP data whenever a spherical dimension
+character is Galois conjugate to the FP character.
+\end{lemma}
+\begin{proof}
+Let $A_j$ be the constituents of $I(1)$, with dimensions $D/f_j$.
+Their known twist-one mass $L_X$ in $I(X)$ satisfies
+\[
+ \sum_{X\ne1}d_X L_X=\sum_j(D/f_j)(D/f_j-1)=D^2u-D.
+\]
+Apply $|1+z+z^2|^2$ to the positive twist weights of $I(X)$.
+The first indicator vanishes, the second is $\pm1$, and the
+polynomial has value nine at one. Thus
+$9L_X\le D(3d_X+2)$. Multiplying by $d_X$ and summing gives
+$9(Du-1)\le3(D-1)+2\sum_{X\ne1}d_X$; Cauchy's inequality
+finishes. For a conjugate dimension character, apply the embedding
+to the induction and indicator identities. Forgetful multiplicities
+are nonnegative integers, so all embedded central dimensions are
+positive; twists remain roots of unity and second indicators remain
+signs. The same proof applies.
+\end{proof}
+
+
+We will also use the unsimplified form of the same three-term estimate:
+\begin{equation}\label{core:three-term-unsimplified}
+9(D^2u-D)\le D\bigl(3(D-1)+2S\bigr),
+\qquad S=\sum_{X\ne1}d_X.
+\end{equation}
+It follows directly from the proof of
+Lemma~\ref{core:lem:family-pivotal-fejer} before applying Cauchy's inequality.
+\subsection{Quadratic comparison and determinant concentration}
+\begin{lemma}[Quadratic comparison]\label{core:lem:family-comparison}
+Let $D,D'$ be the ordinary FP orbit and $E\ge E'$ a proper signed
+dimension orbit in the same quadratic field. Set
+$P=D^{-1}+D'^{-1}$, $q=E^{-1}+E'^{-1}$, $N=DD'$ and
+$k=EE'/N$. Then $k$ is a positive integer,
+\begin{equation}\label{core:quadratic-strict}
+ kq<P+(k-1)/D,\qquad q\le2P/3.
+\end{equation}
+\end{lemma}
+\begin{proof}
+Norm divisibility gives $k\in\ZZ_{>0}$. Since
+$D>E\ge\sqrt{kN}$, compare $x+kN/x$ at $E$ and $D$ to obtain
+the strict inequality. If $k\ge2$, then $D/D'>k$ and
+$1/D<P/(k+1)$, whence $q<2P/(k+1)\le2P/3$.
+If $k=1$, $s=D/E>1$ is a totally positive unit, so its integral
+trace is at least three. Using $E\ge E'$ gives
+$q/P\le2/(s+s^{-1})\le2/3$.
+\end{proof}
+
+

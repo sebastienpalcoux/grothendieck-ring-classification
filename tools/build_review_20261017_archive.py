@@ -90,7 +90,9 @@ def package_publication_archive(root, output):
 
 def collect(root):
     from current_publication import DOCUMENT_REVISION, validate_documents, replay_sources
+    from reader_resources import validate_reader_resources
     revision = validate_documents(root)
+    validate_reader_resources(root)
     preserved = replay_sources(root)
     spec = importlib.util.spec_from_file_location('frozen_bundle', root / 'tools/build_unified_20261016_archive.py')
     old = importlib.util.module_from_spec(spec)
@@ -98,12 +100,17 @@ def collect(root):
     paths = set(old.REQUIRED)
     for folder in ('evidence/unified_20261016', 'evidence/theoretical_20261016',
                    'evidence/review_20261017', 'evidence/prepublication_20261017',
-                   'evidence/publication_20261017'):
+                   'evidence/publication_20261017', 'evidence/rank4_unrestricted_20261017'):
         paths.update(path.relative_to(root).as_posix() for path in (root / folder).rglob('*')
                      if path.is_file() and not {'__pycache__', '.pytest_cache'}.intersection(path.parts)
                      and path.suffix not in ('.pyc', '.pyo', '.tmp', '.writing', '.swp')
                      and path.name != '.DS_Store')
     paths.update(revision['documents'])
+    paths.update(path.relative_to(root).as_posix()
+                 for path in (root / 'supplements/rank4/unrestricted').rglob('*')
+                 if path.is_file() and not {'__pycache__', '.pytest_cache'}.intersection(path.parts)
+                 and path.suffix not in ('.pyc', '.pyo', '.o', '.aux', '.log', '.out', '.toc')
+                 and path.name not in ('enumerate', 'enumerate_signed'))
     paths.update(path.relative_to(root).as_posix() for path in (root / 'docs').glob('*.md'))
     paths.update(path.relative_to(root).as_posix() for path in (root / 'supplements').glob('rank*/README.md'))
     # Include the current reader indexes and the clean status-PDF source, so the
@@ -115,6 +122,7 @@ def collect(root):
     paths.update((DOCUMENT_REVISION, 'tools/verify_current_publication.py',
                   'tools/current_publication.py', 'tools/verify_review_20261017.py',
                   'tools/build_review_20261017_archive.py', 'tools/build_current_document_revision.py',
+                  'tools/reader_resources.py', 'data/remaining_cases.py', 'data/manuscript_page_counts.json',
                   'docs/PREPUBLICATION_REVIEW.md', 'docs/RESEARCH_STATUS.md', 'docs/VERIFY.md'))
     payload = {name: (root / name).read_bytes() for name in sorted(paths)}
     # The immutable proof manifest keeps its exact original hashes. Revised
@@ -145,6 +153,12 @@ This package contains the current manuscript sources and PDFs for ranks two
 through eight, verification guides, proof sources, exact computational evidence,
 and the publication identity manifest data/current_document_revision.json.
 
+Ranks two, three and four have unrestricted complex classifications. The
+rank-four article proves a theoretical dimension bound without pivotality
+or a multiplicity restriction, then classifies its complete 1,692-ring
+finite census into 1,677 exclusions and 15 models. Its replay package is
+supplements/rank4/unrestricted; the sharp multiplicity bound is six.
+
 The 38-case continuation has 35 accepted decisions (28 proposed exclusions and
 7 constructions). R6_4_155, R6_8_1660 and R8_2_24 remain unresolved.
 Treat these AI-generated results and data with caution: independent human
@@ -152,6 +166,9 @@ verification and Lean formalization have not been completed.
 
 Start with docs/RESEARCH_STATUS.md and the manuscripts directory.
 The verification procedures and their precise limits are in docs/VERIFY.md.
+The exact tensors of the three open cases are plain Python nested lists in
+data/remaining_cases.py, with unit, duality, convention and source hashes.
+data/manuscript_page_counts.json counts each distinct current PDF once.
 
 Standalone publication, source-identity and decision check:
     python3 tools/verify_current_publication.py --metadata-only
