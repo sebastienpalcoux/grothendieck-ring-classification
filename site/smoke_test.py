@@ -139,7 +139,7 @@ print(f"Rank-six release verified through multiplicity {expected_bands[-1]}: com
 
 for rank in (7, 8):
     release = payload["upper_rank_releases"][str(rank)]
-    for document in (release["manuscript"], release["archive"]):
+    for document in (release["manuscript"], release["archive"]) + ((release["reading_edition"],) if "reading_edition" in release else ()):
         path = root / document["path"]
         assert hashlib.sha256(path.read_bytes()).hexdigest() == document["sha256"]
         if "bytes" in document:
@@ -151,7 +151,11 @@ print("Upper-rank manuscripts and portable supplements match their publication h
 
 update = payload.get("theoretical_update")
 if update:
-    assert update["date"] == "2026-10-16" and update["source"] in ("evidence/theoretical_20261016", "evidence/unified_20261016")
+    stage_dates = {"evidence/theoretical_20261016": "2026-10-16",
+                   "evidence/unified_20261016": "2026-10-16",
+                   "evidence/review_20261017": "2026-10-17"}
+    assert update["source"] in stage_dates and update["date"] == stage_dates[update["source"]]
+    is_review = update["source"] == "evidence/review_20261017"
     decisions = update["decisions"]
     assert len(decisions) == len({record["id"] for record in decisions})
     assert update["new_general_exclusions"] == sum(d["status"] == "excluded" for d in decisions)
@@ -164,6 +168,32 @@ if update:
     remaining = json.loads((root / update["files"]["remaining_ids"]["path"]).read_text())
     totals = json.loads((root / update["files"]["expected_totals"]["path"]).read_text())
     assert update["remaining"] == {rank: len(ids) for rank, ids in remaining.items()}
+    if is_review:
+        reading = payload["upper_rank_releases"]["8"].get("reading_edition")
+        assert reading is not None, "The review stage requires rank-eight reading-edition metadata"
+        assert reading["path"] == "papers/rank8-reviewed.pdf"
+        assert reading["source"] == "manuscripts/rank8/paper/rank8-reviewed.pdf"
+        assert reading["bytes"] > 0 and len(reading["sha256"]) == 64
+        assert (root / reading["path"]).read_bytes().startswith(b"%PDF-"), "Missing rank-eight reading PDF"
+        errata_path = root / "papers/prepublication-review-2026-10-17.pdf"
+        assert errata_path.read_bytes().startswith(b"%PDF-"), "Missing dated errata PDF"
+        assert update["proofs_source"] == "evidence/unified_20261016"
+        review = json.loads((root / update["files"]["review"]["path"]).read_text())
+        assert review == update["review"]
+        assert review["reopened_ids"] == ["R8_2_24"] and review["historical_stage"] == "unified_20261016"
+        assert len(decisions) == 35 and update["original_case_count"] == 38
+        assert (update["new_general_exclusions"], update["new_unitary_models"]) == (28, 7)
+        assert "R8_2_24" not in {record["id"] for record in decisions}
+        assert remaining == {"6": ["R6_4_155", "R6_8_1660"], "7": [], "8": ["R8_2_24"]}
+        assert update["historical_update"] == {
+            "source": "evidence/unified_20261016", "date": "2026-10-16",
+            "decision_count": 36, "general_exclusions": 29, "unitary_models": 7}
+        assert totals["8"] == {"excluded": 895, "unitarily_realized": 77, "unresolved": 1}
+        scope8 = next(record for record in payload["scope"] if record["rank"] == 8)
+        assert (scope8["through"], scope8["analyzed_through"], scope8["kind"]) == (1, 2, "partial")
+        assert positive_flags[(8, 2)] and positive[(8, 2)] == 29
+        band8 = next(record for record in status_payload["rows"] if (record["rank"], record["multiplicity"]) == (8, 2))
+        assert (band8["rings"], band8["excluded_general"], band8["unresolved_general"], band8["classification_coverage"]) == (877, 847, 1, "partial_classification")
     for rank in (7,8):
         assert update["by_rank"][str(rank)] == sum(record["rank"] == rank for record in decisions)
         scope = next(record for record in payload["scope"] if record["rank"] == rank)
@@ -178,8 +208,17 @@ if update:
         matches = [name for name in bundle.namelist()
                    if name == "decisions.json" or name.endswith(update["source"].split("/")[-1] + "/decisions.json")]
         assert len(matches) == 1 and json.loads(bundle.read(matches[0])) == decisions, "Stale update bundle"
+        if is_review:
+            for relative, local in (("manuscripts/prepublication-review-2026-10-17.pdf", errata_path),
+                                    (reading["source"], root / reading["path"])):
+                documents = [name for name in bundle.namelist()
+                             if name == relative or name.endswith("/" + relative)]
+                assert len(documents) == 1 and bundle.read(documents[0]) == local.read_bytes(), "Stale or missing review PDF in archive: " + relative
+            for decision in decisions:
+                proof_path = update["proofs_source"] + "/" + decision["proof"]
+                assert any(name == proof_path or name.endswith("/" + proof_path) for name in bundle.namelist()), "Missing inherited proof: " + proof_path
     assert set(remaining["6"]) == {record["id"] for record in frontier}
-    print(f"Theoretical update checked: {len(decisions)} proved decisions; counts, proof records, residual inventory and download hashes agree.")
+    print(f"Current update checked: {len(decisions)} accepted decision records; counts, source records, residual inventory and download hashes agree.")
 
 from html.parser import HTMLParser
 class LocalLinkCheck(HTMLParser):

@@ -69,7 +69,7 @@ def validate_identity(identity):
     require(all(valid_relative(name) and item['path']=='papers/'+name and valid_digest(item['sha256']) and item['bytes']>0
                 for name,item in documents.items()),'Invalid publication document identity')
 def archive_url(identity):
-    return 'https://grothendieck-ring-atlas.sebastien-palcoux.chatgpt.site/downloads/'+identity['archive']['name']
+    return 'https://sebastienpalcoux.github.io/grothendieck-ring-classification/downloads/'+identity['archive']['name']
 def completed_bands(identity):
     return ', '.join(str(m) for m,row in enumerate(identity['counts'],1) if row[-1]==0)
 def current_research(identity,repo=None):

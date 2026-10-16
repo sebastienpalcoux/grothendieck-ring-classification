@@ -1,0 +1,154 @@
+Verified quartic/reconstruct_b2_7.py
+Verified r629/complete_from_generator.py
+Verified r629/check_center_dimensions.py
+Verified c3_model/exact_certificate.py
+Verified c3_model/complete_tensor.py
+TRUSTED SOURCE IMPORT AND CONSTRUCTED MODELS VERIFIED
+CHECKED 1 / 25362 R6_1_2
+CHECKED 201 / 25362 R6_3_52
+CHECKED 401 / 25362 R6_3_254
+CHECKED 601 / 25362 R6_4_71
+CHECKED 801 / 25362 R6_4_274
+FAIL {'id': 'R6_4_416', 'kind': 'general_stabilizer_rotation_higher', 'passed': False, 'error': 'higher-indicator Farkas certificate fails', 'traceback': 'Traceback (most recent call last):\n  File "/workspace/scratch/b038cfaffb82/work/prepublic_audit/replay_repo/supplements/rank6/verify.py", line 32, in worker\n    verify(r[\'N\'],c)\n  File "/workspace/scratch/b038cfaffb82/work/prepublic_audit/replay_repo/supplements/rank6/software/check.py", line 67, in verify\n    stabilizer_rotation_higher.verify_general(R,c)\n  File "/workspace/scratch/b038cfaffb82/work/prepublic_audit/replay_repo/supplements/rank6/software/stabilizer_rotation_higher.py", line 216, in verify_general\n    verify(R,c[\'pseudo\'])\n  File "/workspace/scratch/b038cfaffb82/work/prepublic_audit/replay_repo/supplements/rank6/software/stabilizer_rotation_higher.py", line 194, in verify\n    for cc in c[\'conditionals\']:verify_conditional(R,cc)\n                                ^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/workspace/scratch/b038cfaffb82/work/prepublic_audit/replay_repo/supplements/rank6/software/stabilizer_rotation_higher.py", line 142, in verify_conditional\n    require(meta==rec[\'system\'],\'wrong interval system\');check_farkas(A,b,rec[\'y\'])\n                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/workspace/scratch/b038cfaffb82/work/prepublic_audit/replay_repo/supplements/rank6/software/higher_traces.py", line 198, in check_farkas\n    if raise_error:require(okay,\'higher-indicator Farkas certificate fails\')\n                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/workspace/scratch/b038cfaffb82/work/prepublic_audit/replay_repo/supplements/rank6/software/exact.py", line 9, in require\n    if not test: raise VerificationError(message)\n                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nexact.VerificationError: higher-indicator Farkas certificate fails\n', 'seconds': 13.753684313996928}
+FAIL {'id': 'R6_4_427', 'kind': 'general_stabilizer_rotation_higher', 'passed': False, 'error': 'higher-indicator Farkas certificate fails', 'traceback': 'Traceback (most recent call last):\n  File "/workspace/scratch/b038cfaffb82/work/prepublic_audit/replay_repo/supplements/rank6/verify.py", line 32, in worker\n    verify(r[\'N\'],c)\n  File "/workspace/scratch/b038cfaffb82/work/prepublic_audit/replay_repo/supplements/rank6/software/check.py", line 67, in verify\n    stabilizer_rotation_higher.verify_general(R,c)\n  File "/workspace/scratch/b038cfaffb82/work/prepublic_audit/replay_repo/supplements/rank6/software/stabilizer_rotation_higher.py", line 216, in verify_general\n    verify(R,c[\'pseudo\'])\n  File "/workspace/scratch/b038cfaffb82/work/prepublic_audit/replay_repo/supplements/rank6/software/stabilizer_rotation_higher.py", line 194, in verify\n    for cc in c[\'conditionals\']:verify_conditional(R,cc)\n                                ^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/workspace/scratch/b038cfaffb82/work/prepublic_audit/replay_repo/supplements/rank6/software/stabilizer_rotation_higher.py", line 142, in verify_conditional\n    require(meta==rec[\'system\'],\'wrong interval system\');check_farkas(A,b,rec[\'y\'])\n                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/workspace/scratch/b038cfaffb82/work/prepublic_audit/replay_repo/supplements/rank6/software/higher_traces.py", line 198, in check_farkas\n    if raise_error:require(okay,\'higher-indicator Farkas certificate fails\')\n                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/workspace/scratch/b038cfaffb82/work/prepublic_audit/replay_repo/supplements/rank6/software/exact.py", line 9, in require\n    if not test: raise VerificationError(message)\n                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nexact.VerificationError: higher-indicator Farkas certificate fails\n', 'seconds': 10.647646935998637}
+FAIL {'id': 'R6_4_446', 'kind': 'oriented_signed', 'passed': False, 'error': 'signed Farkas coefficient is negative', 'traceback': 'Traceback (most recent call last):\n  File "/workspace/scratch/b038cfaffb82/work/prepublic_audit/replay_repo/supplements/rank6/verify.py", line 32, in worker\n    verify(r[\'N\'],c)\n  File "/workspace/scratch/b038cfaffb82/work/prepublic_audit/replay_repo/supplements/rank6/software/check.py", line 114, in verify\n    elif k.startswith(\'oriented_\'):oriented_extension.verify(R,c)\n                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/workspace/scratch/b038cfaffb82/work/prepublic_audit/replay_repo/supplements/rank6/software/oriented_extension.py", line 93, in verify\n    require(c[\'kind\']==\'oriented_signed\',\'wrong oriented certificate kind\');check_sphere(R,c[\'sphere\'],pseudo_check)\n                                                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/workspace/scratch/b038cfaffb82/work/prepublic_audit/replay_repo/supplements/rank6/software/proofs.py", line 93, in check_sphere\n    signed_spherical_traces.verify(R,a,f,v[\'certificate\'])\n  File "/workspace/scratch/b038cfaffb82/work/prepublic_audit/replay_repo/supplements/rank6/software/signed_spherical_traces.py", line 136, in verify\n    check_farkas_sparse(A,b,case[\'y\']);require(case[\'bTy\']==sum(x*y for x,y in zip(b,case[\'y\'])),\'wrong exact separation value\')\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/workspace/scratch/b038cfaffb82/work/prepublic_audit/replay_repo/supplements/rank6/software/signed_spherical_traces.py", line 86, in check_farkas_sparse\n    require(all(sum(A[i][j]*v for i,v in support)>=0 for j in range(len(A[0]))),\'signed Farkas coefficient is negative\')\n  File "/workspace/scratch/b038cfaffb82/work/prepublic_audit/replay_repo/supplements/rank6/software/exact.py", line 9, in require\n    if not test: raise VerificationError(message)\n                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nexact.VerificationError: signed Farkas coefficient is negative\n', 'seconds': 7.834261639996839}
+CHECKED 1001 / 25362 R6_4_475
+CHECKED 1201 / 25362 R6_4_676
+CHECKED 1401 / 25362 R6_5_4
+CHECKED 1601 / 25362 R6_5_205
+CHECKED 1801 / 25362 R6_5_405
+CHECKED 2001 / 25362 R6_5_605
+FAIL {'id': 'R6_5_638', 'kind': 'general_integral_morita_rotation', 'passed': False, 'error': 'higher-indicator Farkas certificate fails', 'traceback': 'Traceback (most recent call last):\n  File "/workspace/scratch/b038cfaffb82/work/prepublic_audit/replay_repo/supplements/rank6/verify.py", line 32, in worker\n    verify(r[\'N\'],c)\n  File "/workspace/scratch/b038cfaffb82/work/prepublic_audit/replay_repo/supplements/rank6/software/check.py", line 55, in verify\n    round3_integral_morita.verify_general(R,c)\n  File "/workspace/scratch/b038cfaffb82/work/prepublic_audit/replay_repo/supplements/rank6/software/round3_integral_morita.py", line 103, in verify_general\n    G.verify(R,c[\'reduction\']);verify(R,c[\'pseudo\']);return True\n                               ^^^^^^^^^^^^^^^^^^^^^\n  File "/workspace/scratch/b038cfaffb82/work/prepublic_audit/replay_repo/supplements/rank6/software/round3_integral_morita.py", line 85, in verify\n    for cc in c[\'conditionals\']:H.verify_conditional(R,cc)\n                                ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/workspace/scratch/b038cfaffb82/work/prepublic_audit/replay_repo/supplements/rank6/software/stabilizer_rotation_higher.py", line 142, in verify_conditional\n    require(meta==rec[\'system\'],\'wrong interval system\');check_farkas(A,b,rec[\'y\'])\n                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/workspace/scratch/b038cfaffb82/work/prepublic_audit/replay_repo/supplements/rank6/software/higher_traces.py", line 198, in check_farkas\n    if raise_error:require(okay,\'higher-indicator Farkas certificate fails\')\n                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/workspace/scratch/b038cfaffb82/work/prepublic_audit/replay_repo/supplements/rank6/software/exact.py", line 9, in require\n    if not test: raise VerificationError(message)\n                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nexact.VerificationError: higher-indicator Farkas certificate fails\n', 'seconds': 56.75611819099868}
+CHECKED 2201 / 25362 R6_5_805
+CHECKED 2401 / 25362 R6_5_1005
+CHECKED 2601 / 25362 R6_5_1205
+CHECKED 2801 / 25362 R6_5_1405
+CHECKED 3001 / 25362 R6_6_23
+CHECKED 3201 / 25362 R6_6_223
+CHECKED 3401 / 25362 R6_6_424
+CHECKED 3601 / 25362 R6_6_624
+CHECKED 3801 / 25362 R6_6_824
+CHECKED 4001 / 25362 R6_6_1024
+FAIL {'id': 'R6_6_1035', 'kind': 'general_half_e6_projection', 'passed': False, 'error': 'higher-indicator Farkas certificate fails', 'traceback': 'Traceback (most recent call last):\n  File "/workspace/scratch/b038cfaffb82/work/prepublic_audit/replay_repo/supplements/rank6/verify.py", line 32, in worker\n    verify(r[\'N\'],c)\n  File "/workspace/scratch/b038cfaffb82/work/prepublic_audit/replay_repo/supplements/rank6/software/check.py", line 40, in verify\n    round4_higher_e6.verify_general(R,c)\n  File "/workspace/scratch/b038cfaffb82/work/prepublic_audit/replay_repo/supplements/rank6/software/round4_higher_e6.py", line 84, in verify_general\n    red=G.verify(R,c[\'reduction\']);ans=verify(R,c[\'pseudo\']);ans[\'reduction\']=red;return ans\n                                       ^^^^^^^^^^^^^^^^^^^^^\n  File "/workspace/scratch/b038cfaffb82/work/prepublic_audit/replay_repo/supplements/rank6/software/round4_higher_e6.py", line 78, in verify\n    else:check_farkas(A,b,r[\'ray\']);rays+=1\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/workspace/scratch/b038cfaffb82/work/prepublic_audit/replay_repo/supplements/rank6/software/higher_traces.py", line 198, in check_farkas\n    if raise_error:require(okay,\'higher-indicator Farkas certificate fails\')\n                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/workspace/scratch/b038cfaffb82/work/prepublic_audit/replay_repo/supplements/rank6/software/exact.py", line 9, in require\n    if not test: raise VerificationError(message)\n                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nexact.VerificationError: higher-indicator Farkas certificate fails\n', 'seconds': 53.281785376995686}
+CHECKED 4201 / 25362 R6_6_1224
+CHECKED 4401 / 25362 R6_6_1424
+CHECKED 4601 / 25362 R6_6_1624
+CHECKED 4801 / 25362 R6_6_1826
+CHECKED 5001 / 25362 R6_6_2026
+CHECKED 5201 / 25362 R6_6_2226
+CHECKED 5401 / 25362 R6_6_2426
+CHECKED 5601 / 25362 R6_6_2626
+CHECKED 5801 / 25362 R6_7_58
+CHECKED 6001 / 25362 R6_7_258
+CHECKED 6201 / 25362 R6_7_458
+CHECKED 6401 / 25362 R6_7_659
+CHECKED 6601 / 25362 R6_7_859
+CHECKED 6801 / 25362 R6_7_1059
+CHECKED 7001 / 25362 R6_7_1259
+CHECKED 7201 / 25362 R6_7_1459
+CHECKED 7401 / 25362 R6_7_1659
+CHECKED 7601 / 25362 R6_7_1859
+CHECKED 7801 / 25362 R6_7_2059
+CHECKED 8001 / 25362 R6_7_2259
+CHECKED 8201 / 25362 R6_7_2460
+CHECKED 8401 / 25362 R6_7_2660
+CHECKED 8601 / 25362 R6_7_2860
+CHECKED 8801 / 25362 R6_7_3060
+CHECKED 9001 / 25362 R6_7_3260
+CHECKED 9201 / 25362 R6_7_3460
+CHECKED 9401 / 25362 R6_7_3660
+CHECKED 9601 / 25362 R6_8_46
+CHECKED 9801 / 25362 R6_8_246
+FAIL {'id': 'R6_8_311', 'kind': 'general_ising_projection_rotation', 'passed': False, 'error': 'higher-indicator Farkas certificate fails', 'traceback': 'Traceback (most recent call last):\n  File "/workspace/scratch/b038cfaffb82/work/prepublic_audit/replay_repo/supplements/rank6/verify.py", line 32, in worker\n    verify(r[\'N\'],c)\n  File "/workspace/scratch/b038cfaffb82/work/prepublic_audit/replay_repo/supplements/rank6/software/check.py", line 34, in verify\n    round4_m8_ising.verify_general(R,c)\n  File "/workspace/scratch/b038cfaffb82/work/prepublic_audit/replay_repo/supplements/rank6/software/round4_m8_ising.py", line 139, in verify_general\n    red=reduction.verify(R,c[\'reduction\']);out=verify(R,c[\'pseudo\']);return dict(out,reduction=red)\n                                               ^^^^^^^^^^^^^^^^^^^^^\n  File "/workspace/scratch/b038cfaffb82/work/prepublic_audit/replay_repo/supplements/rank6/software/round4_m8_ising.py", line 133, in verify\n    else:check_farkas(A,b,cc[\'ray\']);rays+=1\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/workspace/scratch/b038cfaffb82/work/prepublic_audit/replay_repo/supplements/rank6/software/higher_traces.py", line 198, in check_farkas\n    if raise_error:require(okay,\'higher-indicator Farkas certificate fails\')\n                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/workspace/scratch/b038cfaffb82/work/prepublic_audit/replay_repo/supplements/rank6/software/exact.py", line 9, in require\n    if not test: raise VerificationError(message)\n                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nexact.VerificationError: higher-indicator Farkas certificate fails\n', 'seconds': 28.30739675500081}
+CHECKED 10001 / 25362 R6_8_446
+CHECKED 10201 / 25362 R6_8_646
+CHECKED 10401 / 25362 R6_8_846
+CHECKED 10601 / 25362 R6_8_1046
+CHECKED 10801 / 25362 R6_8_1246
+CHECKED 11001 / 25362 R6_8_1446
+CHECKED 11201 / 25362 R6_8_1646
+CHECKED 11401 / 25362 R6_8_1847
+CHECKED 11601 / 25362 R6_8_2047
+CHECKED 11801 / 25362 R6_8_2247
+CHECKED 12001 / 25362 R6_8_2447
+CHECKED 12201 / 25362 R6_8_2647
+CHECKED 12401 / 25362 R6_8_2847
+CHECKED 12601 / 25362 R6_8_3047
+CHECKED 12801 / 25362 R6_8_3247
+CHECKED 13001 / 25362 R6_8_3447
+CHECKED 13201 / 25362 R6_8_3647
+FAIL {'id': 'R6_8_3664', 'kind': 'general_fibonacci_subfield_rotation', 'passed': False, 'error': 'higher-indicator Farkas certificate fails', 'traceback': 'Traceback (most recent call last):\n  File "/workspace/scratch/b038cfaffb82/work/prepublic_audit/replay_repo/supplements/rank6/verify.py", line 32, in worker\n    verify(r[\'N\'],c)\n  File "/workspace/scratch/b038cfaffb82/work/prepublic_audit/replay_repo/supplements/rank6/software/check.py", line 31, in verify\n    round4_m8_subfield.verify_general(R,c)\n  File "/workspace/scratch/b038cfaffb82/work/prepublic_audit/replay_repo/supplements/rank6/software/round4_m8_subfield.py", line 172, in verify_general\n    red=reduction.verify(R,c[\'reduction\']);out=verify(R,c[\'pseudo\']);return dict(out,reduction=red)\n                                               ^^^^^^^^^^^^^^^^^^^^^\n  File "/workspace/scratch/b038cfaffb82/work/prepublic_audit/replay_repo/supplements/rank6/software/round4_m8_subfield.py", line 166, in verify\n    else:check_farkas(A,b,cc[\'ray\']);rays+=1\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/workspace/scratch/b038cfaffb82/work/prepublic_audit/replay_repo/supplements/rank6/software/higher_traces.py", line 198, in check_farkas\n    if raise_error:require(okay,\'higher-indicator Farkas certificate fails\')\n                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "/workspace/scratch/b038cfaffb82/work/prepublic_audit/replay_repo/supplements/rank6/software/exact.py", line 9, in require\n    if not test: raise VerificationError(message)\n                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nexact.VerificationError: higher-indicator Farkas certificate fails\n', 'seconds': 15.341591571006575}
+CHECKED 13401 / 25362 R6_8_3847
+CHECKED 13601 / 25362 R6_8_4047
+CHECKED 13801 / 25362 R6_8_4247
+CHECKED 14001 / 25362 R6_8_4447
+CHECKED 14201 / 25362 R6_8_4647
+CHECKED 14401 / 25362 R6_8_4847
+CHECKED 14601 / 25362 R6_8_5047
+CHECKED 14801 / 25362 R6_8_5247
+CHECKED 15001 / 25362 R6_8_5447
+CHECKED 15201 / 25362 R6_8_5647
+CHECKED 15401 / 25362 R6_8_5847
+CHECKED 15601 / 25362 R6_8_6047
+CHECKED 15801 / 25362 R6_8_6247
+CHECKED 16001 / 25362 R6_8_6447
+CHECKED 16201 / 25362 R6_8_6647
+CHECKED 16401 / 25362 R6_8_6847
+CHECKED 16601 / 25362 R6_9_48
+CHECKED 16801 / 25362 R6_9_248
+CHECKED 17001 / 25362 R6_9_448
+CHECKED 17201 / 25362 R6_9_648
+CHECKED 17401 / 25362 R6_9_848
+CHECKED 17601 / 25362 R6_9_1048
+CHECKED 17801 / 25362 R6_9_1248
+CHECKED 18001 / 25362 R6_9_1448
+CHECKED 18201 / 25362 R6_9_1648
+CHECKED 18401 / 25362 R6_9_1848
+CHECKED 18601 / 25362 R6_9_2048
+CHECKED 18801 / 25362 R6_9_2248
+CHECKED 19001 / 25362 R6_9_2448
+CHECKED 19201 / 25362 R6_9_2648
+CHECKED 19401 / 25362 R6_9_2848
+CHECKED 19601 / 25362 R6_9_3048
+CHECKED 19801 / 25362 R6_9_3248
+CHECKED 20001 / 25362 R6_9_3448
+CHECKED 20201 / 25362 R6_9_3648
+CHECKED 20401 / 25362 R6_9_3848
+CHECKED 20601 / 25362 R6_9_4048
+CHECKED 20801 / 25362 R6_9_4248
+CHECKED 21001 / 25362 R6_9_4448
+CHECKED 21201 / 25362 R6_9_4648
+CHECKED 21401 / 25362 R6_9_4848
+CHECKED 21601 / 25362 R6_9_5048
+CHECKED 21801 / 25362 R6_9_5248
+CHECKED 22001 / 25362 R6_9_5448
+CHECKED 22201 / 25362 R6_9_5648
+CHECKED 22401 / 25362 R6_9_5848
+CHECKED 22601 / 25362 R6_9_6048
+CHECKED 22801 / 25362 R6_9_6248
+CHECKED 23001 / 25362 R6_9_6448
+CHECKED 23201 / 25362 R6_9_6648
+CHECKED 23401 / 25362 R6_9_6848
+CHECKED 23601 / 25362 R6_9_7048
+CHECKED 23801 / 25362 R6_9_7248
+CHECKED 24001 / 25362 R6_9_7448
+CHECKED 24201 / 25362 R6_9_7648
+CHECKED 24401 / 25362 R6_9_7848
+CHECKED 24601 / 25362 R6_9_8048
+CHECKED 24801 / 25362 R6_9_8248
+CHECKED 25001 / 25362 R6_9_8448
+CHECKED 25201 / 25362 R6_9_8648
+low frame20 excluded exactly
+complete low frame21 profiles: 1833
+complete joint coefficient domains: 43
+Exactly excluded 72 structural and 99 trace profiles
+Traceback (most recent call last):
+  File "/workspace/scratch/b038cfaffb82/work/prepublic_audit/replay_repo/supplements/rank6/verify.py", line 128, in <module>
+    if __name__=='__main__':raise SystemExit(main())
+                                             ^^^^^^
+  File "/workspace/scratch/b038cfaffb82/work/prepublic_audit/replay_repo/supplements/rank6/verify.py", line 122, in main
+    require(not fail,f'{len(fail)} negative certificates failed')
+  File "/workspace/scratch/b038cfaffb82/work/prepublic_audit/replay_repo/supplements/rank6/software/exact.py", line 9, in require
+    if not test: raise VerificationError(message)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+exact.VerificationError: 7 negative certificates failed

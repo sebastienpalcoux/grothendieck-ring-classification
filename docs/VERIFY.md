@@ -1,5 +1,42 @@
 # Reproduce the data
 
+> **AI-generated research — independent verification pending.** The results, proofs, code and data have not yet been independently verified by human experts or formalized in Lean. Read the [prepublication review and dated corrections](PREPUBLICATION_REVIEW.md) alongside these materials.
+
+## Complete prepublication replays
+
+The [dated review](PREPUBLICATION_REVIEW.md) separates fresh base-certificate
+checks from later transition checks. For complete public inputs and commands,
+use the [rank-four guide](../supplements/rank4/PUBLIC_REPLAY.md), the
+[rank-five current replay package](../evidence/prepublication_20261017/rank5/README.md)
+and the [full upper-rank replay guide](../evidence/prepublication_20261017/FULL_REPLAY.md).
+These replace private-attachment dependencies and stale entry-point guidance.
+
+For rank four, run from the repository root (Python 3.10 or newer and a C++17
+`g++` compiler are required):
+
+```bash
+python3 tools/restore_data.py
+python3 supplements/rank4/restore_certificate.py
+python3 -m pip install -r supplements/rank4/requirements.txt
+cd supplements/rank4
+python3 verify.py --workers 4
+```
+
+For rank five, return to the repository root and use the public package below.
+Its [guide](../evidence/prepublication_20261017/rank5/README.md) lists the pinned
+Python dependencies and C++17 compiler requirement.
+
+```bash
+python3 evidence/prepublication_20261017/rank5/replay.py --check-package
+python3 evidence/prepublication_20261017/rank5/replay.py --jobs 2
+python3 -O evidence/prepublication_20261017/rank5/replay.py --jobs 2
+```
+
+The rank-five replay reconstructs all 40,999 decisions and checks each
+multiplicity band against the published partition. Its new ledger has its own
+recorded digest; the unavailable historical ledger is not claimed to have been
+recovered. Neither public replay requires the original private attachments.
+
 ## Fast, offline checks
 
 From this repository root:
@@ -42,9 +79,16 @@ every count from 1 to the declared bound exists and sums to the published
 cumulative total. Rank two follows its symbolic normal form, independent of
 the repository enumeration.
 
-## Rebuild classification partitions
+## Historical full partition export
 
-Unpack the attached `FusionFrontier.tar.xz` and the updated
+The original full-export workflow is retained here for provenance. It requires
+the original `FusionFrontier.tar.xz` and revised rank-five release; that older
+rank-five archive and its final `decisions_all.json` were not recovered in the
+prepublication audit. This archive-dependent command is not a prerequisite for
+the complete public replays above. The exporter's full-export mode still
+requires `--bundle` to record the original archive identity.
+
+For readers who retain those original inputs, unpack `FusionFrontier.tar.xz`,
 `Rank6_Categorification_M9_Frontier_2026-10-01.zip` and the revised rank-five release. The
 rank-four ledger is the `Rank4/.../certificates/classification.jsonl.gz` file.
 The revised rank-five `data/decisions_all.json` extends the attached archive's
@@ -55,7 +99,8 @@ rank-six decisions use the current M9 ZIP. The command below rebuilds ranks
 frozen ledgers and audited with `tools/validate_release.py`. Their own full
 certificate replays are described in `supplements/rank7/README.md` and
 `supplements/rank8/README.md`.
-Then run, substituting the actual extracted paths:
+Then run, substituting the actual extracted paths. Do not substitute the
+reconstructed rank-five ledger while claiming the historical ledger's digest:
 
 ```bash
 python3 tools/generate_classification.py \
@@ -76,7 +121,7 @@ three, with exact completed bands 1, 2, 3, 5, 6, 7, 9 and 2 cases through
 multiplicity 9 generally unresolved. Isolated completed bands do not
 complete intervening unresolved bands.
 Rank seven has 0 open cases through
-multiplicity four, and rank eight has 0 through multiplicity two.
+multiplicity four, and rank eight has 1 through multiplicity two.
 These are general categorification questions. Separate unitary-only obstructions
 never change the general partition.
 
@@ -103,7 +148,38 @@ are separate from mathematical certificate replay.
 
 ## Rank-six continuation evidence
 
-From the complete mirrored release:
+**The new complete-replay orchestrator has not been executed end to end.**
+Its read-only identity checks and rejection controls have been tested. No
+all-Python full-replay pass is claimed. The [backend packet](../evidence/prepublication_20261017/rank6_backend/README.md)
+records the actual combined audit: the original complete receipt stream,
+strict Python replays of every failed complete certificate, separate original
+post-loop checks, and aggregate coverage validation. The original process's
+failed status remains preserved. Its loaded backend/version was not measured
+at startup. The global python-flint installation changed from 0.8.0 to 0.9.0
+during the run, so workers and later child processes may have loaded different
+versions. The new wrapper records actual per-process observations explicitly.
+
+For the complete two-backend route, use a fresh restored checkout with no
+pre-existing native binaries beside the rank-six C++ sources. From its
+repository root, install the pinned requirements in an isolated environment:
+
+```bash
+python3 tools/restore_data.py
+python3 -m pip install -r supplements/rank6/requirements.txt
+python3 evidence/prepublication_20261017/rank6_backend/replay_complete.py \
+  --repo . --output-dir NEW_DIR --jobs 2
+```
+
+Replace `NEW_DIR` with a new directory outside `supplements/rank6`.
+The wrapper uses normal Python throughout: unchanged full FLINT verification,
+complete Python-backend retries of every failure, then the exact original
+post-loop checks. It rejects incomplete coverage, unexpected failures, missing
+retries and changed inputs. Its combined summary preserves the initial run's
+actual outcome. See the [full replay guide](../evidence/prepublication_20261017/FULL_REPLAY.md#rank-six-combined-replay)
+for environment details, native-cache requirements and verification limits.
+
+The following historical component commands address individual continuation
+checks. They do not replace the combined full replay:
 
 ```bash
 cd supplements/rank6
@@ -146,11 +222,9 @@ reports, input and proof manifests, and negative controls are recorded in
 every file in `research/exclusions/m9_completion/`. All 8,809 rings at exact
 multiplicity nine are excluded; the two remaining open rings have lower multiplicity.
 
-A complete fresh replay of every accepted certificate is:
-
-```bash
-python -O verify.py --jobs 2 --out verification/current/recheck_O.jsonl
-```
+For complete base-certificate coverage, use the normal-Python combined route
+above. An optimized or component-only invocation is not a substitute for that
+campaign, and no all-Python end-to-end result is asserted here.
 
 The authoritative decisions and all unresolved tensors are in `data/`.
 The [frontier](../supplements/rank6/research/frontier/README.md) identifies the
@@ -227,21 +301,26 @@ See [the original evidence](../evidence/anyonwiki/README.md).
 
 ## October 2 residual update
 
-The [unified theoretical continuation](../evidence/unified_20261016/README.md) adds 29 general exclusions and 7 unitary constructions. Together with the earlier residual stages, these updates resolve 140 rings: 120 general exclusions and 20 unitary models. The remaining general questions and scoped results are identified explicitly. Earlier proofs, decision records and manuscript versions retain historical replay.
+The [17 October prepublication correction](../evidence/review_20261017/README.md) reopens **R8_2_24** because its categorical-to-linear bridge is unproved. The latest 38-case continuation retains **35 accepted decisions**: 28 proposed general exclusions and 7 unitary constructions. Three general questions remain open: R6_4_155, R6_8_1660 and R8_2_24. Together with earlier residual stages, 139 decisions remain accepted (119 exclusions and 20 constructions), subject to independent review. The [frozen 36-decision snapshot](../evidence/unified_20261016/README.md) and manuscripts remain available with dated errata and exact historical replay; their R8_2_24 exclusion is superseded.
 The [earlier residual stage](../evidence/residual_20261002/README.md)
 retains its own proofs and reports. Pivotal, pseudo-unitary, unitary and braided
 obstructions are distinguished from general nonexistence. Replay the latest
 source-bound stage in both normal and optimized Python:
 
 ```bash
-python3 tools/verify_unified_20261016.py
-python3 -O tools/verify_unified_20261016.py
+python3 tools/verify_review_20261017.py --historical
+python3 -O tools/verify_review_20261017.py --historical
 ```
 
-The verifier checks all latest source identities, model tensors and certificates,
-as well as preservation of earlier decisions.
-The historical constructor replays run automatically against isolated copies
-of their original ledgers and model catalogues. Their original entry points
+The current review verifier checks the reopened record, source identities and
+preservation of every other ledger entry. It restores the frozen parent files
+before running the unchanged unified computational checks. The historical
+R8_2_24 PASS does not reinstate the withdrawn categorical argument.
+With `--historical`, the historical constructor replays run against isolated
+copies of their original ledgers and model catalogues. Without that flag,
+the dispatcher checks the corrected record and frozen unified stage. This does not replace a full
+replay of every base-release certificate; see the
+[prepublication review](PREPUBLICATION_REVIEW.md) for the separate full replays. Their original entry points
 are retained for provenance; they must not be run directly against an expanded
 current catalogue without restoring the corresponding historical snapshot.
 

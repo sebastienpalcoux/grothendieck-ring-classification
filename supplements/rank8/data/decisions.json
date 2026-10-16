@@ -1926,13 +1926,13 @@
     "index": 24,
     "tensor_sha256": "2b4780441d9590e8e7269cd82b7675aa75cec11c39bd3e94bb372cca1ada6738",
     "commutative": true,
-    "status": "excluded",
-    "criterion": "projective_inner_square_obstruction",
-    "certificate": {
-      "scope": "general_complex",
-      "proof": "evidence/unified_20261016/rank8/R24_PROJECTIVE_INNER_SQUARE_PROOF.md",
-      "verifier": "evidence/unified_20261016/rank8/verify_r24_projective_inner_square.py",
-      "date": "2026-10-16"
+    "status": "unresolved",
+    "review": {
+      "date": "2026-10-17",
+      "disposition": "reopened",
+      "reason": "The original proof uses unsupported decorated-phase cancellation. The proposed paired-diagram repair has not established the oriented g-cap/crossing sign. Finite algebra checks do not settle categorification.",
+      "audit": "evidence/prepublication_20261017/r24/R24_BRIDGE_PREPUBLICATION_AUDIT.md",
+      "superseded_stage": "unified_20261016"
     }
   },
   {

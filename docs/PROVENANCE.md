@@ -1,28 +1,37 @@
 # Provenance and boundaries
 
+> **AI-generated research — independent verification pending.** The results, proofs, code and data have not yet been independently verified by human experts or formalized in Lean. Read the [prepublication review and dated corrections](PREPUBLICATION_REVIEW.md) alongside these materials.
+
 This release combines two distinct kinds of input. The public
 [fusion-ring-census](https://github.com/sebastienpalcoux/fusion-ring-census)
 supplies **all based-ring counts and tensors**, pinned at commit
 [`2a340871242879665fa7ba2b01fa15b8bdeaada3`](https://github.com/sebastienpalcoux/fusion-ring-census/tree/2a340871242879665fa7ba2b01fa15b8bdeaada3).
-The attached research bundle `FusionFrontier.tar.xz` supplies rank-four
+The historical research bundle `FusionFrontier.tar.xz` supplied rank-four
 **categorification decisions** and rank-five decisions through multiplicity
 18, SHA-256
 `5ef85daaa2f582f7466de5d122335eaedfa683d2804703ef18bdf36f22c0cfd9`.
 The filtered rank-four publication bundle
 `Rank4_Revised_Publication_Bundle_2026-09-23.zip` has SHA-256
 `6ddd84ff22e947095d9508529556121e94e1f4d33b2acca92ff8efcb4173e940`.
-It contains paper sources and compact code/data; the full 75,825,461-byte
-rank-four compressed certificate is in the original attachment, SHA-256
+It contains paper sources and compact code/data. The full 75,825,461-byte
+rank-four compressed certificate was recovered from the original attachment
+and is now available as [checksummed public parts](../supplements/rank4/certificates/manifest.json), SHA-256
 `969a2a5a84b794a3da1d9cd3978f92324d631760f503f5d208011923a723920f`.
+The [public restoration and replay guide](../supplements/rank4/PUBLIC_REPLAY.md)
+requires no private attachment.
 The revised rank-five release adds an inert-prime parity proof closing the two
 former multiplicity-eighteen general cases and all certificates for 19–20.
 Its complete bundle `Rank5_Complete_Through20_InertParity_2026-09-23.zip` has SHA-256
 `6981c0ade02db714e38076ff30b3119712ce6b137ac376c2a8ae474a01bb9f49`.
+That rank-five archive and its final ledger were not recovered in the audit.
+The [current public replay package](../evidence/prepublication_20261017/rank5/README.md)
+reconstructs and verifies all 40,999 decisions from the recovered sources and
+pinned tensors; its ledger identity is recorded separately below.
 For multiplicities 1–18, internal archival indices are explicitly named
 `local_index`; at 19–20, `repository_index` directly identifies the pinned
 source census record within its exact-multiplicity band.
 The current rank-six release is `Rank6_Categorification_M9_Frontier_2026-10-01.zip` (SHA-256
-`6f57efc66646f75b5ca307b6cc6660d17972f1453910d92c109b6002ba313cdc`). The [complete archive](https://grothendieck-ring-atlas.sebastien-palcoux.chatgpt.site/downloads/Rank6_Categorification_M9_Frontier_2026-10-01.zip) contains
+`6f57efc66646f75b5ca307b6cc6660d17972f1453910d92c109b6002ba313cdc`). The [complete archive](https://sebastienpalcoux.github.io/grothendieck-ring-classification/downloads/Rank6_Categorification_M9_Frontier_2026-10-01.zip) contains
 780 files and the pinned census, proof certificates and exact constructors.
 The partition is **25,362 excluded, 57 realized and 2 unresolved**.
 There are 56 unitary models and one spherical model with no pseudo-unitary
@@ -59,13 +68,14 @@ The current rank-seven classification is complete through multiplicity 4,
 with thirteen realized rings at multiplicity one. The rank-eight
 release through multiplicity two has SHA-256
 `e9b9f1cb1a3d6d62ec14add190f1c26bc9724ed812c2e03f474ad68a45e7d4f8`.
-The [unified theoretical continuation](../evidence/unified_20261016/README.md) adds 29 general exclusions and 7 unitary constructions. Together with the earlier residual stages, these updates resolve 140 rings: 120 general exclusions and 20 unitary models. The remaining general questions and scoped results are identified explicitly. Earlier proofs, decision records and manuscript versions retain historical replay.
+The [17 October prepublication correction](../evidence/review_20261017/README.md) reopens **R8_2_24** because its categorical-to-linear bridge is unproved. The latest 38-case continuation retains **35 accepted decisions**: 28 proposed general exclusions and 7 unitary constructions. Three general questions remain open: R6_4_155, R6_8_1660 and R8_2_24. Together with earlier residual stages, 139 decisions remain accepted (119 exclusions and 20 constructions), subject to independent review. The [frozen 36-decision snapshot](../evidence/unified_20261016/README.md) and manuscripts remain available with dated errata and exact historical replay; their R8_2_24 exclusion is superseded.
 These proofs supplement the earlier
 [46-decision stage](../evidence/residual_20261002/README.md).
 The current general frontier has 0
-rank-seven and 0 rank-eight rings.
-All positive tensors and negative source hypotheses are independently checked;
-earlier unaffected records retain their exact preservation evidence.
+rank-seven and 1 rank-eight rings.
+Automated replays check the recorded positive tensors and finite negative-certificate hypotheses;
+the categorical reductions still require independent human review.
+Earlier unaffected records retain their exact preservation evidence.
 Scope-specific obstructions do not change the general partition.
 The [AnyonWiki evidence](../evidence/anyonwiki/README.md) retains the exact
 associator and full-tensor checks supporting earlier positive constructions.
@@ -78,7 +88,7 @@ associator and full-tensor checks supporting earlier positive constructions.
 | 5 | `results/rank5/tables.txt.gz` | 20 | Revised `data/decisions_all.json` | Complete general classification through 20 |
 | 6 | `results/rank6/tables.txt.gz` | 9 | `supplements/rank6/data/decisions.json` | Complete through 3; exact bands 1, 2, 3, 5, 6, 7, 9; 2 unresolved through 9 |
 | 7 | `results/rank7/tables.txt.gz` | 4 | `supplements/rank7/output/rank7_ledger.json` | Complete through multiplicity 4; 0 unresolved |
-| 8 | `results/rank8/tables.txt.gz` | 2 | `supplements/rank8/data/decisions.json` | Complete through multiplicity 2; 0 unresolved |
+| 8 | `results/rank8/tables.txt.gz` | 2 | `supplements/rank8/data/decisions.json` | Complete through multiplicity 1; higher analyzed bands partial; 1 unresolved |
 
 The original source manifest is `results/census.json`. Its count rows are
 imported by `tools/generate_counts.py`, with exact bounds and cumulative sums
@@ -96,13 +106,20 @@ with its [arithmetic checker](../supplements/rank3/audit_rank3.py).
 | Rank | Compressed or JSON ledger SHA-256 | Records assigned a decision | Outcome totals |
 |---:|---|---:|---|
 | 4 | `969a2a5a84b794a3da1d9cd3978f92324d631760f503f5d208011923a723920f` | 889,530 | 889,515 excluded; 15 realized |
-| 5 | `9261917451d469ece9929a1756f505924cf84adf34e79a0d2e6f68fed43f55cf` | 40,999 | 40,982 excluded; 17 realized; 0 unresolved |
+| 5 | `12886636134e0500a403ae1b635f5b901612d64b203dad1e1fdf94b0da2c31f1` (reconstructed; [public replay package](../evidence/prepublication_20261017/rank5/package.json)) | 40,999 | 40,982 excluded; 17 realized; 0 unresolved |
 | 6 | `abb36cb0e7f9196e0a231cb85a601c82a1c8fd398996f77a8961487a7ca692e5` | 25,421 | 25,362 excluded; 56 unitary; 1 spherical non-pseudo-unitary; 2 unresolved |
 | 7 | `00edf884caa59384a1f7b9a91d7273539306443035db5144c02f9bda5bda3d2b` | 4,201 | 4,172 excluded; 29 unitary models; 0 unresolved |
-| 8 | `eab22773b2d1345bc6cb0bde2effbc42b5a893293164d0334175e94df9c8cdb4` | 973 | 896 excluded; 77 unitary models; 0 unresolved |
+| 8 | `d77a3aa234d86db69c2cf47499d857ba991ca8d29f0e5cc8c3cd09a4eaff2d51` | 973 | 895 excluded; 77 unitary models; 1 unresolved |
 
-The rank-four list in the attachment contains a header record and 889,530
-individual records. Each ledger partition matches its census total at each
+The rank-five digest `9261917451d469ece9929a1756f505924cf84adf34e79a0d2e6f68fed43f55cf`
+is an **unavailable historical ledger reference**, retained in the original
+status-export provenance. It is not the identity of the freshly replayed
+reconstructed ledger in the table. The [package manifest](../evidence/prepublication_20261017/rank5/package.json)
+records both identities; normal and optimized replays produced identical new
+ledgers and reproduced every published multiplicity-band total.
+
+The rank-four list, restored from the public parts, contains a header record
+and 889,530 individual records. Each ledger partition matches its census total at each
 exact multiplicity. A missing ledger above its scope appears as `unassessed`
 in the status file, never as a zero exclusion or a mathematical obstruction.
 

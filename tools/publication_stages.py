@@ -17,6 +17,7 @@ STAGE_C_TOTALS = {
 }
 THEORETICAL = "theoretical_20261016"
 UNIFIED = "unified_20261016"
+REVIEW = "review_20261017"
 
 def require(ok, message):
     if not ok:
@@ -93,14 +94,34 @@ def load_stages(repo, status=None):
         require(not {d['id'] for d in unified}.intersection(d['id'] for d in decisions),
                 'Unified update overlaps historical stages')
         expected = json.loads((unified_path.parent / 'expected_totals.json').read_text())
-        if status is not None:
+        if status is not None and not (repo / 'evidence' / REVIEW / 'review.json').is_file():
             require(all(status['inputs']['rank' + r]['status_totals'] == v
                         for r, v in expected.items() if r in ('7', '8')),
                     'Refresh unified-update status before rendering')
         decisions += unified
         totals = collections.Counter(d['status'] for d in decisions)
         latest = UNIFIED
+    historical_unified = list(unified)
+    review_path = repo / 'evidence' / REVIEW / 'review.json'
+    review = None
+    if review_path.is_file():
+        review = json.loads(review_path.read_text())
+        require(review['reopened_ids'] == ['R8_2_24'] and review['historical_stage'] == UNIFIED,
+                'Exact prepublication correction inventory')
+        accepted = json.loads((review_path.parent / 'decisions.json').read_text())
+        require(accepted == [d for d in historical_unified if d['id'] != 'R8_2_24'] and len(accepted) == 35,
+                'Correction preserves every other unified decision')
+        unified = accepted
+        decisions = [d for d in decisions if d['id'] != 'R8_2_24']
+        totals = collections.Counter(d['status'] for d in decisions)
+        expected = json.loads((review_path.parent / 'expected_totals.json').read_text())
+        if status is not None:
+            require(all(status['inputs']['rank' + r]['status_totals'] == v
+                        for r, v in expected.items() if r in ('7', '8')),
+                    'Refresh review-corrected status before rendering')
+        latest = REVIEW
     return {"latest": latest, "decisions": decisions, "continuation": bool(extra),
+            "review": review, "historical_unified_count": len(historical_unified),
             "theoretical": bool(advance), "theoretical_count": len(advance),
             "unified": bool(unified), "unified_count": len(unified),
             "unified_exclusions": sum(d['status'] == 'excluded' for d in unified),
@@ -112,6 +133,17 @@ def load_stages(repo, status=None):
 
 def overview(stage, prefix=""):
     base_link = prefix + "evidence/" + BASE + "/README.md"
+    if stage.get('review'):
+        return (f"The [17 October prepublication correction]({prefix}evidence/{REVIEW}/README.md) "
+                "reopens **R8_2_24** because its categorical-to-linear bridge is unproved. "
+                f"The latest 38-case continuation retains **{stage['unified_count']} accepted decisions**: "
+                f"{stage['unified_exclusions']} proposed general exclusions and {stage['unified_models']} unitary constructions. "
+                "Three general questions remain open: R6_4_155, R6_8_1660 and R8_2_24. "
+                f"Together with earlier residual stages, {stage['count']} decisions remain accepted "
+                f"({stage['exclusions']} exclusions and {stage['models']} constructions), subject to independent review. "
+                f"The [frozen 36-decision snapshot]({prefix}evidence/{UNIFIED}/README.md) "
+                "and manuscripts remain available with dated errata and exact historical replay; "
+                "their R8_2_24 exclusion is superseded.")
     if stage.get('unified'):
         return (f"The [unified theoretical continuation]({prefix}evidence/{UNIFIED}/README.md) "
                 f"adds {stage['unified_exclusions']} general exclusions and "

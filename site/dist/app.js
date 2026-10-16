@@ -75,7 +75,7 @@ function buildCountRow(m,visibleRanks,rows,maxima) {
       const button = element("button", `count-cell ${coverage} ${state.selected?.rank===rank && state.selected?.multiplicity===m ? "selected":""}`, `${state.mode==="grothendieck" && row.is_lower_bound?"≥ ":""}${fmt.format(row.rings)}`);
       button.type = "button";
       const coverageText={"complete_classification":"complete classification","partial_classification":"partial classification","census_only":"census only"}[coverage];
-      button.title = `Rank ${rank}, multiplicity ${m}: ${row.is_lower_bound && state.mode==="grothendieck"?"at least ":""}${fmt.format(row.rings)} ${state.mode==="grothendieck"?"confirmed realized Grothendieck":"censused fusion"} rings${coverageText ? `, ${coverageText}` : ""}`;
+      button.title = `Rank ${rank}, multiplicity ${m}: ${row.is_lower_bound && state.mode==="grothendieck"?"at least ":""}${fmt.format(row.rings)} ${state.mode==="grothendieck"?"reported realized Grothendieck":"censused fusion"} rings${coverageText ? `, ${coverageText}` : ""}`;
       button.setAttribute("aria-label", button.title);
       button.setAttribute("aria-pressed", String(state.selected?.rank===rank && state.selected?.multiplicity===m));
       const intensity = Math.log1p(row.rings) / Math.log1p(maxima[rank]);
@@ -134,6 +134,7 @@ function renderTable() {
   const header = element("tr");
   header.append(element("th", "", "m"));
   for (const rank of visibleRanks) header.append(element("th", "", `RANK ${rank}`));
+  for (const heading of header.children) heading.scope = "col";
   head.append(header);
   const maxima = Object.fromEntries(visibleRanks.map((rank) => [rank, Math.max(1,...sourceRows.filter((r) => r.rank === rank && r.multiplicity <= limit).map((r) => r.rings))]));
   const bands=[...new Set(sourceRows.filter((r)=>r.multiplicity<=limit && visibleRanks.includes(r.rank) && r.rings>0).map((r)=>r.multiplicity))].sort((a,b)=>a-b);
@@ -209,7 +210,7 @@ function renderDetail() {
   const realized=state.positiveMap.get(`${row.rank}:${row.multiplicity}`)?.rings||0;
   const lowerBound=state.positiveMap.get(`${row.rank}:${row.multiplicity}`)?.is_lower_bound;
   panel.append(element("div","detail-number",`${lowerBound?"≥ ":""}${fmt.format(realized)}`));
-  panel.append(element("p","detail-label",`${lowerBound?"confirmed ":""}${realized===1?"realized Grothendieck ring":"realized Grothendieck rings"}`));
+  panel.append(element("p","detail-label",`reported ${realized===1?"realized Grothendieck ring":"realized Grothendieck rings"}`));
   panel.append(element("div","detail-rule"));
   appendDetailRow(panel,"Fusion rings in census",fmt.format(row.rings));
   const status=getStatus(row.rank,row.multiplicity);
@@ -277,32 +278,48 @@ function renderTheoreticalUpdate() {
   notice.hidden = details.hidden = !update;
   if (!update) return;
   const date = new Date(update.date + "T12:00:00Z").toLocaleDateString("en-GB", {day:"numeric", month:"long", year:"numeric", timeZone:"UTC"});
-  $("#research-update-title").textContent = `${date} · ${update.new_general_exclusions} exclusions · ${update.new_unitary_models || 0} unitary models`;
+  const isReview = Boolean(update.review);
+  $("#research-update-title").textContent = `${date}${isReview ? " review" : ""} · ${update.new_general_exclusions} ${isReview ? "retained " : ""}exclusions · ${update.new_unitary_models || 0} unitary models`;
   const rankNames = {"6": "rank-six", "7": "rank-seven", "8": "rank-eight"};
   const openParts = Object.entries(update.remaining).filter(([, count]) => count > 0).map(([rank, count]) => `${count} ${rankNames[rank]}`);
   const openText = openParts.length ? ` General existence remains open for ${openParts.join(", ")} rings.` : " Every case in this continuation is resolved.";
-  const completion = (update.remaining["7"] === 0 ? " Rank seven is complete through multiplicity four." : "") + (update.remaining["8"] === 0 ? " Rank eight is complete through multiplicity two." : "");
-  $("#research-update-summary").textContent = `The continuation resolves ${update.by_rank["7"]} rank-seven and ${update.by_rank["8"]} rank-eight cases.${completion}${openText}`;
-  $("#theoretical-update-heading").textContent = `${date} · proofs for ${update.new_general_exclusions} exclusions · ${update.new_unitary_models || 0} unitary models`;
-  $("#theoretical-update-scope").textContent = "The new arguments combine Morita theory, Frobenius–Schur parity, center constraints, algebraic planar algebras, and tensor coherence. The bundle contains the proofs, exact replay programs, decision records, and the updated unresolved inventory. Further results with pivotal or unitary hypotheses retain their stated scope.";
+  const completion = (update.remaining["7"] === 0 ? " Rank seven is complete through multiplicity four." : "") + (update.remaining["8"] === 0 ? " Rank eight is complete through multiplicity two." : isReview ? " Rank eight is complete through multiplicity one; multiplicity two is partial." : "");
+  $("#research-update-summary").textContent = isReview
+    ? `R8_2_24 has been reopened. The current record retains ${update.decisions.length} of ${update.original_case_count} original cases as resolved: ${update.by_rank["7"]} at rank seven and ${update.by_rank["8"]} at rank eight.${completion}${openText}`
+    : `The continuation reports resolutions of ${update.by_rank["7"]} rank-seven and ${update.by_rank["8"]} rank-eight cases.${completion}${openText}`;
+  $("#theoretical-update-heading").textContent = isReview
+    ? `${date} · corrected record · ${update.decisions.length} retained decisions`
+    : `${date} · proofs for ${update.new_general_exclusions} exclusions · ${update.new_unitary_models || 0} unitary models`;
+  $("#theoretical-update-scope").textContent = isReview
+    ? "The prepublication review withdraws the general exclusion of R8_2_24: the required categorical step has not been established. The current record retains 28 proposed general exclusions and 7 unitary constructions from the continuation. The original 16 October record of 36 decisions and its manuscripts remain historical snapshots; read the dated correction alongside them. The links below preserve the original proof sources. Independent human verification and Lean formalization remain pending."
+    : "The new arguments combine Morita theory, Frobenius–Schur parity, center constraints, algebraic planar algebras, and tensor coherence. The bundle contains the proofs, exact replay programs, decision records, and the updated unresolved inventory. Further results with pivotal or unitary hypotheses retain their stated scope.";
   const base = `${state.data.classification_repository}/tree/${state.data.classification_commit || "main"}/${update.source}`;
   $("#latest-research-source").href = base;
+  $("#latest-research-source").textContent = `${date} ${isReview ? "review" : "proofs"} and remaining cases ↗`;
   const actions = $("#theoretical-update-actions");
   actions.replaceChildren();
-  const archive = element("a", "", `Download proofs & verification · ${(update.archive.bytes / 1048576).toFixed(1)} MB ↓`);
+  const archive = element("a", "", `${isReview ? "Download review & replay records" : "Download proofs & verification"} · ${(update.archive.bytes / 1048576).toFixed(1)} MB ↓`);
   archive.href = `./${update.archive.path}`; archive.download = "";
-  const decisions = element("a", "", "Decision records JSON ↓");
+  const decisions = element("a", "", `${isReview ? "Current accepted decisions" : "Decision records"} JSON ↓`);
   decisions.href = `./${update.files.decisions.path}`; decisions.download = "";
   const remaining = element("a", "", "Remaining cases JSON ↓");
   remaining.href = `./${update.files.remaining_ids.path}`; remaining.download = "";
   const source = element("a", "", "Research source ↗");
   source.href = base; source.target = "_blank"; source.rel = "noopener";
-  actions.append(archive, decisions, remaining, source);
-  if (update.source === "evidence/unified_20261016") {
+  const review = element("a", "", "Prepublication review & corrections ↗");
+  review.href = "./review.html";
+  actions.append(archive, decisions, remaining, source, review);
+  if (isReview || update.source === "evidence/unified_20261016") {
     const coverage = element("a", "", "All 38 original cases and remaining gaps ↗");
     coverage.href = `${state.data.classification_repository}/blob/${state.data.classification_commit || "main"}/${update.source}/ALL38_COVERAGE.md`;
     coverage.target = "_blank"; coverage.rel = "noopener";
     actions.append(coverage);
+  }
+  if (isReview) {
+    const historical = element("a", "", "Historical 16 October record · 36 decisions ↗");
+    historical.href = `${state.data.classification_repository}/tree/${state.data.classification_commit || "main"}/${update.historical_update.source}`;
+    historical.target = "_blank"; historical.rel = "noopener";
+    actions.append(historical);
   }
   const labels = {
     anti_invariant_involution_module: "Involution module and character obstruction",
@@ -348,12 +365,12 @@ function renderTheoreticalUpdate() {
     const row = element("tr");
     const name = element("th", "", record.id); name.scope = "row";
     const proof = element("a", "", `${labels[record.criterion] || "Theoretical proof"} ↗`);
-    proof.href = `${state.data.classification_repository}/blob/${state.data.classification_commit || "main"}/${update.source}/${record.proof}`;
+    proof.href = `${state.data.classification_repository}/blob/${state.data.classification_commit || "main"}/${update.proofs_source || update.source}/${record.proof}`;
     proof.target = "_blank"; proof.rel = "noopener";
     const cell = element("td"); cell.append(proof); row.append(name, cell); rows.append(row);
   }
   const checksum = $("#theoretical-update-checksum");
-  checksum.replaceChildren(document.createTextNode("Proof bundle SHA-256: "), element("code", "", update.archive.sha256));
+  checksum.replaceChildren(document.createTextNode(isReview ? "Review bundle SHA-256: " : "Proof bundle SHA-256: "), element("code", "", update.archive.sha256));
   notice.querySelector("a").addEventListener("click", () => { details.open = true; });
 }
 
@@ -406,10 +423,10 @@ function renderPapers() {
   const r8=state.data.scope.find((x)=>x.rank===8);
   if (r7)
     entries.push({rank:7,title:r7.unresolved ? "Rank-seven Grothendieck rings: certified exclusions and models through multiplicity four" : "Rank-seven Grothendieck rings: complete classification through multiplicity four",
-      subtitle:`${fmt.format(r7.rings)} analyzed; ${r7.positive} models${r7.unresolved ? ` and ${r7.unresolved} general open cases` : "; complete classification"}`,type:"CLASSIFICATION",slug:"rank7"});
+      subtitle:`${fmt.format(r7.rings)} analyzed; ${r7.positive} models${r7.unresolved ? ` and ${r7.unresolved} general open ${r7.unresolved===1?"case":"cases"}` : "; complete classification"}`,type:"CLASSIFICATION",slug:"rank7"});
   if (r8)
     entries.push({rank:8,title:r8.unresolved ? "Rank-eight Grothendieck rings through multiplicity two: criteria, models, and the unresolved frontier" : "Rank-eight Grothendieck rings: complete classification through multiplicity two",
-      subtitle:`${fmt.format(r8.rings)} analyzed; ${r8.positive} models${r8.unresolved ? ` and ${r8.unresolved} general open cases` : "; complete classification"}`,type:"CLASSIFICATION",slug:"rank8"});
+      subtitle:`${fmt.format(r8.rings)} analyzed; ${r8.positive} models${r8.unresolved ? ` and ${r8.unresolved} general open ${r8.unresolved===1?"case":"cases"}` : "; complete classification"}`,type:"CLASSIFICATION",slug:"rank8"});
   for (const paper of entries) {
     const card=element("article","paper-card");
     const content=element("div");
@@ -422,7 +439,13 @@ function renderPapers() {
     // A local PDF is included in the deployed snapshot when available.
     manuscript.href=`./papers/${paper.slug}.pdf`;
     manuscript.dataset.localPaper=paper.slug;
-    const source=element("a","","Source & verification ↗");
+    const readingEdition=state.data.upper_rank_releases?.[String(paper.rank)]?.reading_edition;
+    if (readingEdition) {
+      manuscript.href=`./${readingEdition.path}`;
+      manuscript.textContent="Read with dated corrections ↗";
+      manuscript.dataset.readingSource=readingEdition.source;
+    }
+    const source=element("a","","Source & checks ↗");
     source.href=`${state.data.classification_repository}/blob/${state.data.classification_commit || "main"}/${paperSourcePath(paper.rank,"tex")}`;
     source.target="_blank";source.rel="noopener";
     actions.append(manuscript);
@@ -440,6 +463,11 @@ function renderPapers() {
     }
     const release=state.data.upper_rank_releases?.[String(paper.rank)];
     if (release) {
+      if (release.reading_edition) {
+        const historical=element("a","","Historical PDF ↗");
+        historical.href=`./${release.manuscript.path}`;
+        actions.append(historical);
+      }
       const supplement=element("a","","Frozen supplement ↓");
       supplement.href=`./${release.archive.path}`;supplement.download="";
       actions.append(supplement);
@@ -526,6 +554,7 @@ function renderRingProfile() {
   document.querySelectorAll("[data-profile-tab]").forEach((button)=>{
     const selected=button.dataset.profileTab===state.profileTab;
     button.setAttribute("aria-selected",String(selected));button.tabIndex=selected?0:-1;
+    if (selected) $("#ring-profile").setAttribute("aria-labelledby",button.id);
   });
   const panel=$("#ring-profile");panel.replaceChildren();
   const inv=ring.invariants;
@@ -606,7 +635,12 @@ function renderRingProfile() {
       if (alternative.source_url) block.append(link("Open alternative source ↗",alternative.source_url));
       panel.append(block);
     }
-    panel.append(link(`Rank-${ring.rank} manuscript ↗`,`./papers/rank${ring.rank}.pdf`));
+    const release=state.data.upper_rank_releases?.[String(ring.rank)];
+    if (release?.reading_edition) {
+      panel.append(link("Read reviewed edition ↗",`./${release.reading_edition.path}`));
+      if (release.manuscript?.path)
+        panel.append(link("Historical PDF ↗",`./${release.manuscript.path}`));
+    } else panel.append(link(`Rank-${ring.rank} manuscript ↗`,`./papers/rank${ring.rank}.pdf`));
   }
 }
 function openRing(ring) {
@@ -650,7 +684,8 @@ async function verifyLocalPapers() {
       const response=await fetch(a.href,{method:"HEAD"});
       if (!response.ok || !/pdf/i.test(response.headers.get("content-type")||"")) throw new Error("missing");
     } catch {
-      a.href=`${state.data.classification_repository}/blob/${state.data.classification_commit || "main"}/${paperSourcePath(Number(a.dataset.localPaper.slice(4)))}`;
+      const fallback=a.dataset.readingSource || paperSourcePath(Number(a.dataset.localPaper.slice(4)));
+      a.href=`${state.data.classification_repository}/blob/${state.data.classification_commit || "main"}/${fallback}`;
       a.textContent="View paper files ↗";
       a.target="_blank";a.rel="noopener";
     }

@@ -1,0 +1,37 @@
+{
+  "status": "PASS",
+  "restored_bytes": 75825461,
+  "restored_sha256": "969a2a5a84b794a3da1d9cd3978f92324d631760f503f5d208011923a723920f",
+  "cases": [
+    {
+      "case": "verify all public chunks without writing",
+      "exit_code": 0,
+      "output": "PASS: 13 parts, 75,825,461 bytes, SHA-256 969a2a5a84b794a3da1d9cd3978f92324d631760f503f5d208011923a723920f\nVerified without writing.\n"
+    },
+    {
+      "case": "idempotent exact restored destination",
+      "exit_code": 0,
+      "output": "PASS: 13 parts, 75,825,461 bytes, SHA-256 969a2a5a84b794a3da1d9cd3978f92324d631760f503f5d208011923a723920f\nRestored or already verified: /workspace/scratch/b038cfaffb82/work/prepublic_audit/rank4_restored_test.jsonl.gz\n"
+    },
+    {
+      "case": "refuse mismatching existing destination",
+      "exit_code": 1,
+      "output": "Restoration failed: Existing destination differs; select a new --output path\n"
+    },
+    {
+      "case": "reject altered chunk and remove partial output",
+      "exit_code": 1,
+      "output": "Restoration failed: Part size or SHA-256 mismatch: parts/part-001.bin\n"
+    },
+    {
+      "case": "reject missing chunk",
+      "exit_code": 1,
+      "output": "Restoration failed: [Errno 2] No such file or directory: '/workspace/scratch/b038cfaffb82/work/prepublic_audit/rank4-restoration-tests-qt5j4hev/altered/parts/part-001.bin'\n"
+    },
+    {
+      "case": "reject changed whole-file commitment",
+      "exit_code": 1,
+      "output": "Restoration failed: Manifest does not describe the pinned rank-four certificate\n"
+    }
+  ]
+}

@@ -6,6 +6,7 @@ from pathlib import Path
 from publication_stages import load_stages, overview
 
 ROOT=Path(__file__).resolve().parents[1]
+PUBLIC_ATLAS='https://sebastienpalcoux.github.io/grothendieck-ring-classification/'
 parser=argparse.ArgumentParser(description=__doc__)
 parser.add_argument('--identity',type=Path,default=ROOT/'data/rank6_release_identity.json')
 parser.add_argument('--output',type=Path,default=ROOT/'README.md')
@@ -43,26 +44,56 @@ def upper_summary(rank):
     scope=f'**Complete through {complete}**' if complete else 'Partial at both bands'
     return (f'| {rank} | Through {bound} | {scope} | Through {bound}: '
             f"{t['excluded']:,} excluded, {t['unitarily_realized']} realized, {t['unresolved']} unresolved. |")
+def upper_open_phrase(rank):
+    count=upper[rank]['unresolved']
+    return f"There {'is' if count==1 else 'are'} {count} generally open {'ring' if count==1 else 'rings'}"
 identity=json.loads(args.identity.read_text())
 release=identity['summary']
 complete_bands=', '.join(str(s['multiplicity']) for s in rank6 if s['unresolved_general']==0)
 from rank6_publication import continuation_text,require
-rank6_continuation = continuation_text(identity)
+rank6_continuation = continuation_text(identity).replace(
+    'https://grothendieck-ring-atlas.sebastien-palcoux.chatgpt.site/', PUBLIC_ATLAS)
 require([[s[k] for k in ('rings','excluded_general','realized_unitary',
                          'realized_spherical_nonpseudounitary','unresolved_general')]
          for s in rank6]==identity['counts'],'Refresh rank-six status rows before rendering the README')
 lines=['''# Grothendieck ring classification
 
-### Which low-rank fusion rings admit fusion categories over ℂ?
+**Which low-rank fusion rings admit fusion categories over ℂ?**
 
-An atlas of **realized Grothendieck rings**, **categorification decisions** and
-the proofs behind those decisions. The fusion-ring census and classification
-have different bounds. A ring counted by the census is not thereby
-categorifiable.
+Explore realized Grothendieck rings, proposed categorification arguments and
+the exact data behind them. The public atlas connects interactive tables,
+individual ring profiles, manuscripts and reproducible computation records.
 
-**[Grothendieck ring counts](data/grothendieck_counts.csv)** · **[Fusion-ring census](https://github.com/sebastienpalcoux/fusion-ring-census#readme)** · **[Classification outcomes](data/classification_status.csv)** · **[Provenance](docs/PROVENANCE.md)** · **[Verify the data](docs/VERIFY.md)** · **[Manuscripts](manuscripts/README.md)** · **[OEIS drafts](oeis/README.md)**
+### [Open the interactive atlas →](https://sebastienpalcoux.github.io/grothendieck-ring-classification/)
 
-[**Private working atlas (owner-only)**](https://grothendieck-ring-atlas.sebastien-palcoux.chatgpt.site) · [Atlas source and snapshot](site/)
+> [!IMPORTANT]
+> **AI-generated research · independent verification pending.**
+> The results, proofs, code and data in this project are AI-generated and
+> have not yet been independently verified by human experts or formalized
+> in Lean. Treat them as provisional and use them with caution. Automated
+> checks establish only their stated computational scope; they do not
+> replace mathematical review or formal proof.
+> [Research-status notice](docs/RESEARCH_STATUS.md) ·
+> [Prepublication review and dated errata](docs/PREPUBLICATION_REVIEW.md).
+> Read the errata alongside the frozen manuscripts.
+
+| Start here | What you will find |
+|---|---|
+| [Explore the atlas](https://sebastienpalcoux.github.io/grothendieck-ring-classification/) | Filter counts, inspect fusion rules and character data, and follow source links. |
+| [Read the manuscripts](manuscripts/README.md) | TeX sources and PDFs, organized by rank. |
+| [Inspect the data](data/classification_status.csv) | Classification outcomes, [realized counts](data/grothendieck_counts.csv) and the separate [fusion-ring census](https://github.com/sebastienpalcoux/fusion-ring-census#readme). |
+| [Reproduce the checks](docs/VERIFY.md) | Replay instructions, [provenance](docs/PROVENANCE.md) and the limits of each check. |
+
+**Current research snapshot · 17 October 2026.** The prepublication review
+reopens **R8_2_24** after finding a gap in its proposed exclusion. The latest
+continuation retains **35 of 38** decisions: 28 proposed general exclusions
+and 7 unitary constructions. **Three general cases remain open:** `R6_4_155`,
+`R6_8_1660`, and `R8_2_24`. Read the [correction and current case inventory](evidence/review_20261017/README.md)
+alongside the frozen manuscripts. The tables below report the project's
+current classification claims; “complete” and “certified” do not imply
+independent human verification or Lean formalization.
+
+[Realized counts](#grothendieck-rings--known-realizations-at-each-exact-multiplicity) · [Classification](#classification--what-is-decided) · [Manuscripts](#read-the-mathematics) · [Repository guide](#structure) · [OEIS drafts](oeis/README.md)
 
 > **Scope.** Multiplicity is the maximum fusion coefficient. Each cell below
 > counts known categorifiable based-isomorphism classes with *exactly* that
@@ -91,6 +122,9 @@ classification cross-check. Rank-two realized counts follow directly from
 `X² = 1+nX`: both categorifiable rings occur at multiplicity 1.
 
 ## Classification · what is decided?
+
+These are the recorded outcomes of the current research program, subject to
+the verification notice and [prepublication review](docs/PREPUBLICATION_REVIEW.md).
 
 | Rank | Full census | General classification | Current conclusion |
 |---:|---:|---:|---|
@@ -144,8 +178,8 @@ row checks and scope appear in [the provenance record](docs/PROVENANCE.md).
 | 4 | Multiplicity 18 | The same criterion families suffice for the allocated exclusions at 19–128. |
 | 5 | Multiplicity 18 | Inert-prime quadratic parity first closes two cases at 18; no new criterion family is needed at 19–20. |
 | 6 | See the allocation ledger | The current criteria include stabilizer, cyclotomic-trace and signed arithmetic obstructions. All 8,809 exact-multiplicity-nine rings have general exclusion certificates; __RANK6_OPEN__ earlier cases remain unresolved through multiplicity __RANK6_BOUND__. |
-| 7 | Multiplicity 4 | Group-theoretical, Morita and center arguments contribute through 4. There are __RANK7_OPEN__ generally open rings in the analyzed range; higher multiplicities are not classified here. |
-| 8 | Multiplicity 2 | Graded Brauer-Picard, fiber-functor and projective inner-square obstructions contribute through 2. There are __RANK8_OPEN__ generally open rings in the analyzed range; higher multiplicities are not classified here. |
+| 7 | Multiplicity 4 | Group-theoretical, Morita and center arguments contribute through 4. __RANK7_OPEN_PHRASE__ in the analyzed range; higher multiplicities are not classified here. |
+| 8 | Multiplicity 2 | Graded Brauer-Picard and fiber-functor obstructions contribute through 2; the proposed projective inner-square exclusion of R8_2_24 is withdrawn. __RANK8_OPEN_PHRASE__ in the analyzed range; higher multiplicities are not classified here. |
 
 This records **first use in the chosen certificate allocation**, not an
 optimal ordering theorem or a claim that the criteria settle higher
@@ -161,7 +195,10 @@ exact automated applications, positive model matches, and explicit residual
 frontiers. Rank three takes a separate, unrestricted route through the
 sphericality theorem. The papers and computation records remain research in
 progress; [the evidence guide](docs/VERIFY.md) identifies exactly what the
-stored checks establish.
+stored checks establish. For rank eight, start with the
+[reading edition and dated corrections](__RANK8_READING__); the
+[historical PDF](manuscripts/rank8/paper/rank8.pdf) retains the superseded
+R8_2_24 exclusion for provenance.
 
 ## Structure
 
@@ -180,7 +217,7 @@ data/         Pinned census matrix and classification-status tables
 docs/         Provenance, terminology and verification paths
 manuscripts/  Revised TeX and PDF pairs, as released
 supplements/  Proof software, compact certificates and verification reports
-site/         Static atlas source and private-preview assets
+site/         Public GitHub Pages atlas, source and reproducible snapshots
 tools/        Deterministic count/status export and crosswalk checks
 oeis/         Sequence drafts, pending an OEIS submission
 ```
@@ -195,12 +232,13 @@ args.output.parent.mkdir(parents=True,exist_ok=True)
 rendered=('\n'.join(lines).replace('__RANK6_SUMMARY__',rank6_summary)
                               .replace('__RANK7_SUMMARY__',upper_summary(7))
                               .replace('__RANK8_SUMMARY__',upper_summary(8))
-                              .replace('__RANK7_OPEN__',str(upper[7]['unresolved']))
-                              .replace('__RANK8_OPEN__',str(upper[8]['unresolved']))
+                              .replace('__RANK7_OPEN_PHRASE__',upper_open_phrase(7))
+                              .replace('__RANK8_OPEN_PHRASE__',upper_open_phrase(8))
                               .replace('__RANK6_OPEN__',str(rank6_open))
                               .replace('__RANK6_BOUND__',str(rank6_bound))
                               .replace('__RANK6_CONTINUATION__',rank6_continuation)
-                              .replace('__UPPER_RESIDUAL_OVERVIEW__',overview(stage)))
+                              .replace('__UPPER_RESIDUAL_OVERVIEW__',overview(stage))
+                              .replace('__RANK8_READING__','manuscripts/rank8/paper/rank8-reviewed.pdf' if (ROOT/'manuscripts/rank8/paper/rank8-reviewed.pdf').is_file() else 'docs/PREPUBLICATION_REVIEW.md'))
 if args.check:
     if not args.output.is_file() or args.output.read_text()!=rendered:
         raise ValueError('Regenerate '+str(args.output))

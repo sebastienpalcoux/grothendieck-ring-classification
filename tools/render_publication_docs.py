@@ -20,6 +20,7 @@ def render(repo,i):
     stage=load_stages(repo,status)
     latest=stage['decisions'];latest_models=stage['models'];latest_exclusions=stage['exclusions']
     bundles={b['name']:b['sha256']for b in status['bundles']}
+    rank5_package=json.loads(read('evidence/prepublication_20261017/rank5/package.json'))
     text=read('docs/PROVENANCE.md')
     text=re.sub(r'\[`[0-9a-f]{40}`\]\(https://github.com/sebastienpalcoux/fusion-ring-census/tree/[0-9a-f]{40}\)',f"[`{i['census_commit']}`](https://github.com/sebastienpalcoux/fusion-ring-census/tree/{i['census_commit']})",text,count=1)
     if 'The updated rank-six source ' in text:
@@ -47,7 +48,10 @@ replay of every earlier proof. See [verification instructions](VERIFY.md).
 ''')
     lines=text.splitlines()
     for n,line in enumerate(lines):
-        if line.startswith('| 6 | `results/rank6/'):
+        if line.startswith('| 5 | `') and 'results/rank5/' not in line:
+            totals5=status['inputs']['rank5']['status_totals']
+            lines[n]=f"| 5 | `{rank5_package['fresh_ledger_sha256']}` (reconstructed; [public replay package](../evidence/prepublication_20261017/rank5/package.json)) | {sum(totals5.values()):,} | {totals5['excluded']:,} excluded; {totals5['realized']} realized; {totals5.get('unresolved',0)} unresolved |"
+        elif line.startswith('| 6 | `results/rank6/'):
             lines[n]=f'| 6 | `results/rank6/tables.txt.gz` | {bound} | `supplements/rank6/data/decisions.json` | Complete through 3; exact bands {bands}; {s["unresolved"]} unresolved through {bound} |'
         elif line.startswith('| 6 | `') and 'results/rank6/' not in line:
             lines[n]=f"| 6 | `{i['ledger_sha256']}` | {total:,} | {s['excluded']:,} excluded; 56 unitary; 1 spherical non-pseudo-unitary; {s['unresolved']} unresolved |"
@@ -63,8 +67,9 @@ These proofs supplement the earlier
 [46-decision stage](../evidence/residual_20261002/README.md).
 The current general frontier has {upper[7]['status_totals']['unresolved']}
 rank-seven and {upper[8]['status_totals']['unresolved']} rank-eight rings.
-All positive tensors and negative source hypotheses are independently checked;
-earlier unaffected records retain their exact preservation evidence.
+Automated replays check the recorded positive tensors and finite negative-certificate hypotheses;
+the categorical reductions still require independent human review.
+Earlier unaffected records retain their exact preservation evidence.
 Scope-specific obstructions do not change the general partition.
 The [AnyonWiki evidence](../evidence/anyonwiki/README.md) retains the exact
 associator and full-tensor checks supporting earlier positive constructions.
@@ -118,7 +123,38 @@ are separate from mathematical certificate replay.
     text=section(text,'contains all ','\n## Rebuild from the pinned census',f"contains all {a['files']:,} current release files. It is restored at\n`site/dist/downloads/{a['name']}`.\n")
     text=section(text,'## Rank-six continuation evidence','\n## Tensor crosswalks','''## Rank-six continuation evidence
 
-From the complete mirrored release:
+**The new complete-replay orchestrator has not been executed end to end.**
+Its read-only identity checks and rejection controls have been tested. No
+all-Python full-replay pass is claimed. The [backend packet](../evidence/prepublication_20261017/rank6_backend/README.md)
+records the actual combined audit: the original complete receipt stream,
+strict Python replays of every failed complete certificate, separate original
+post-loop checks, and aggregate coverage validation. The original process's
+failed status remains preserved. Its loaded backend/version was not measured
+at startup. The global python-flint installation changed from 0.8.0 to 0.9.0
+during the run, so workers and later child processes may have loaded different
+versions. The new wrapper records actual per-process observations explicitly.
+
+For the complete two-backend route, use a fresh restored checkout with no
+pre-existing native binaries beside the rank-six C++ sources. From its
+repository root, install the pinned requirements in an isolated environment:
+
+```bash
+python3 tools/restore_data.py
+python3 -m pip install -r supplements/rank6/requirements.txt
+python3 evidence/prepublication_20261017/rank6_backend/replay_complete.py \\
+  --repo . --output-dir NEW_DIR --jobs 2
+```
+
+Replace `NEW_DIR` with a new directory outside `supplements/rank6`.
+The wrapper uses normal Python throughout: unchanged full FLINT verification,
+complete Python-backend retries of every failure, then the exact original
+post-loop checks. It rejects incomplete coverage, unexpected failures, missing
+retries and changed inputs. Its combined summary preserves the initial run's
+actual outcome. See the [full replay guide](../evidence/prepublication_20261017/FULL_REPLAY.md#rank-six-combined-replay)
+for environment details, native-cache requirements and verification limits.
+
+The following historical component commands address individual continuation
+checks. They do not replace the combined full replay:
 
 ```bash
 cd supplements/rank6
@@ -161,11 +197,9 @@ reports, input and proof manifests, and negative controls are recorded in
 every file in `research/exclusions/m9_completion/`. All 8,809 rings at exact
 multiplicity nine are excluded; the two remaining open rings have lower multiplicity.
 
-A complete fresh replay of every accepted certificate is:
-
-```bash
-python -O verify.py --jobs 2 --out verification/current/recheck_O.jsonl
-```
+For complete base-certificate coverage, use the normal-Python combined route
+above. An optimized or component-only invocation is not a substitute for that
+campaign, and no all-Python end-to-end result is asserted here.
 
 The authoritative decisions and all unresolved tensors are in `data/`.
 The [frontier](../supplements/rank6/research/frontier/README.md) identifies the
@@ -206,13 +240,19 @@ obstructions are distinguished from general nonexistence. Replay the latest
 source-bound stage in both normal and optimized Python:
 
 ```bash
-{replay_commands(stage)}
+python3 {stage['verifier']} --historical
+python3 -O {stage['verifier']} --historical
 ```
 
-The verifier checks all latest source identities, model tensors and certificates,
-as well as preservation of earlier decisions.
-The historical constructor replays run automatically against isolated copies
-of their original ledgers and model catalogues. Their original entry points
+The current review verifier checks the reopened record, source identities and
+preservation of every other ledger entry. It restores the frozen parent files
+before running the unchanged unified computational checks. The historical
+R8_2_24 PASS does not reinstate the withdrawn categorical argument.
+With `--historical`, the historical constructor replays run against isolated
+copies of their original ledgers and model catalogues. Without that flag,
+the dispatcher checks the corrected record and frozen unified stage. This does not replace a full
+replay of every base-release certificate; see the
+[prepublication review](PREPUBLICATION_REVIEW.md) for the separate full replays. Their original entry points
 are retained for provenance; they must not be run directly against an expanded
 current catalogue without restoring the corresponding historical snapshot.
 
@@ -232,11 +272,12 @@ Archive checksums must be refreshed only after the corresponding bundle is rebui
 '''
     out['docs/VERIFY.md']=text
     text=read('manuscripts/README.md');lines=text.splitlines()
+    reading8=('[Read with dated corrections](rank8/paper/rank8-reviewed.pdf) · [historical PDF](rank8/paper/rank8.pdf)' if (repo/'manuscripts/rank8/paper/rank8-reviewed.pdf').is_file() else '[Historical PDF](rank8/paper/rank8.pdf) · [dated corrections](../docs/PREPUBLICATION_REVIEW.md)')
     for n,line in enumerate(lines):
         if line.startswith('| Rank six |'):lines[n]=f'| Rank six | [TeX](rank6/papers/manuscript.tex) | [PDF](rank6/papers/manuscript.pdf) | Complete through 3; exact bands {bands}; {s["positive"]} realized and {s["unresolved"]} unresolved through {bound} |'
         elif line.startswith('| Rank six, verification guide |'):lines[n]='| Rank six, verification guide | [TeX](rank6/papers/verification_guide.tex) | [PDF](rank6/papers/verification_guide.pdf) | Exact models, exclusion certificates and unresolved rings |'
         elif line.startswith('| Rank seven |'):lines[n]=f'| Rank seven | [TeX](rank7/papers/manuscript.tex) | [PDF](rank7/papers/manuscript.pdf) | Complete through multiplicity {complete7}; {upper[7]["status_totals"]["unitarily_realized"]} realized and {upper[7]["status_totals"]["unresolved"]} unresolved through multiplicity 4 |'
-        elif line.startswith('| Rank eight |'):lines[n]=f'| Rank eight | [TeX](rank8/paper/rank8.tex) | [PDF](rank8/paper/rank8.pdf) | Complete through multiplicity {complete8}; {upper[8]["status_totals"]["unitarily_realized"]} realized and {upper[8]["status_totals"]["unresolved"]} generally unresolved |'
+        elif line.startswith('| Rank eight |'):lines[n]=f'| Rank eight | [Historical TeX](rank8/paper/rank8.tex) | {reading8} | Complete through multiplicity {complete8}; {upper[8]["status_totals"]["unitarily_realized"]} realized and {upper[8]["status_totals"]["unresolved"]} generally unresolved |'
     text='\n'.join(lines)+'\n';text=text[:text.index('The current rank-six paper')]+f'''The current rank-six paper contains {s['excluded']:,} general exclusions, {s['positive']} realizations
 and {s['unresolved']} unresolved rings through multiplicity {bound}. All 8,809 exact-multiplicity-nine
 rings are excluded, including the final eleven cases proved in the completion chapter.
@@ -265,7 +306,7 @@ and [verification instructions](../docs/VERIFY.md) give the retained evidence.
 The authoritative ledger is `rank6/data/decisions.json`. The archive is
 `{a['name']}`. Source-bound certificates retain their internal paths.
 '''
-    text+=f"\n{overview(stage,'../')} From the repository root, run `python3 {stage['verifier']}` and its optimized-Python counterpart.\n"
+    text+=f"\n{overview(stage,'../')} From the repository root, run `python3 {stage['verifier']} --historical` and its optimized-Python counterpart. The [current review and errata](../docs/PREPUBLICATION_REVIEW.md) distinguish these stage replays from full base-release checks; older bundled READMEs describe their frozen historical stages.\n"
     out['supplements/README.md']=text
     text=read('oeis/README.md');out['oeis/README.md']=section(text,'Rank-six general classification','No zero beyond a proven finite',f'''Rank-six general classification is complete at exact multiplicities
 **{bands}**, contiguously through **3**. The unresolved rings are recorded in the current frontier.

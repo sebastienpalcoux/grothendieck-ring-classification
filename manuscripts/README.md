@@ -1,5 +1,10 @@
 # Manuscripts
 
+> **AI-generated research — independent verification pending.** The results, proofs, code and data have not yet been independently verified by human experts or formalized in Lean. Read the [prepublication review and dated corrections](../docs/PREPUBLICATION_REVIEW.md) alongside these materials.
+
+[Printable dated errata](prepublication-review-2026-10-17.pdf) accompany the
+frozen manuscripts. Read them together with the detailed review linked above.
+
 The papers are TeX/PDF pairs. Rank three is an unrestricted sphericality
 and ring-classification argument; ranks four to eight use the pinned
 fixed-rank census and explicit criteria for categorification.
@@ -15,7 +20,7 @@ fixed-rank census and explicit criteria for categorification.
 | Rank six | [TeX](rank6/papers/manuscript.tex) | [PDF](rank6/papers/manuscript.pdf) | Complete through 3; exact bands 1, 2, 3, 5, 6, 7, 9; 57 realized and 2 unresolved through 9 |
 | Rank six, verification guide | [TeX](rank6/papers/verification_guide.tex) | [PDF](rank6/papers/verification_guide.pdf) | Exact models, exclusion certificates and unresolved rings |
 | Rank seven | [TeX](rank7/papers/manuscript.tex) | [PDF](rank7/papers/manuscript.pdf) | Complete through multiplicity 4; 29 realized and 0 unresolved through multiplicity 4 |
-| Rank eight | [TeX](rank8/paper/rank8.tex) | [PDF](rank8/paper/rank8.pdf) | Complete through multiplicity 2; 77 realized and 0 generally unresolved |
+| Rank eight | [Historical TeX](rank8/paper/rank8.tex) | [Read with dated corrections](rank8/paper/rank8-reviewed.pdf) · [historical PDF](rank8/paper/rank8.pdf) | Complete through multiplicity 1; 77 realized and 1 generally unresolved |
 
 Rank-four through rank-eight TeX files use sections and generated tables
 from their sibling source trees. [Provenance](../docs/PROVENANCE.md) explains
@@ -43,4 +48,4 @@ whose [research record](../evidence/unified_20261016/rank6/research_progress.jso
 retains the hash-checked chain to earlier records. The frozen supplement,
 archive identity and classification counts are unchanged.
 
-The [unified theoretical continuation](../evidence/unified_20261016/README.md) adds 29 general exclusions and 7 unitary constructions. Together with the earlier residual stages, these updates resolve 140 rings: 120 general exclusions and 20 unitary models. The remaining general questions and scoped results are identified explicitly. Earlier proofs, decision records and manuscript versions retain historical replay. The current frontier has 0 rank-seven and 0 rank-eight cases generally unresolved.
+The [17 October prepublication correction](../evidence/review_20261017/README.md) reopens **R8_2_24** because its categorical-to-linear bridge is unproved. The latest 38-case continuation retains **35 accepted decisions**: 28 proposed general exclusions and 7 unitary constructions. Three general questions remain open: R6_4_155, R6_8_1660 and R8_2_24. Together with earlier residual stages, 139 decisions remain accepted (119 exclusions and 20 constructions), subject to independent review. The [frozen 36-decision snapshot](../evidence/unified_20261016/README.md) and manuscripts remain available with dated errata and exact historical replay; their R8_2_24 exclusion is superseded. The current frontier has 0 rank-seven and 1 rank-eight cases generally unresolved.

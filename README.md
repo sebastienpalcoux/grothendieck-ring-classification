@@ -1,15 +1,41 @@
 # Grothendieck ring classification
 
-### Which low-rank fusion rings admit fusion categories over ℂ?
+**Which low-rank fusion rings admit fusion categories over ℂ?**
 
-An atlas of **realized Grothendieck rings**, **categorification decisions** and
-the proofs behind those decisions. The fusion-ring census and classification
-have different bounds. A ring counted by the census is not thereby
-categorifiable.
+Explore realized Grothendieck rings, proposed categorification arguments and
+the exact data behind them. The public atlas connects interactive tables,
+individual ring profiles, manuscripts and reproducible computation records.
 
-**[Grothendieck ring counts](data/grothendieck_counts.csv)** · **[Fusion-ring census](https://github.com/sebastienpalcoux/fusion-ring-census#readme)** · **[Classification outcomes](data/classification_status.csv)** · **[Provenance](docs/PROVENANCE.md)** · **[Verify the data](docs/VERIFY.md)** · **[Manuscripts](manuscripts/README.md)** · **[OEIS drafts](oeis/README.md)**
+### [Open the interactive atlas →](https://sebastienpalcoux.github.io/grothendieck-ring-classification/)
 
-[**Private working atlas (owner-only)**](https://grothendieck-ring-atlas.sebastien-palcoux.chatgpt.site) · [Atlas source and snapshot](site/)
+> [!IMPORTANT]
+> **AI-generated research · independent verification pending.**
+> The results, proofs, code and data in this project are AI-generated and
+> have not yet been independently verified by human experts or formalized
+> in Lean. Treat them as provisional and use them with caution. Automated
+> checks establish only their stated computational scope; they do not
+> replace mathematical review or formal proof.
+> [Research-status notice](docs/RESEARCH_STATUS.md) ·
+> [Prepublication review and dated errata](docs/PREPUBLICATION_REVIEW.md).
+> Read the errata alongside the frozen manuscripts.
+
+| Start here | What you will find |
+|---|---|
+| [Explore the atlas](https://sebastienpalcoux.github.io/grothendieck-ring-classification/) | Filter counts, inspect fusion rules and character data, and follow source links. |
+| [Read the manuscripts](manuscripts/README.md) | TeX sources and PDFs, organized by rank. |
+| [Inspect the data](data/classification_status.csv) | Classification outcomes, [realized counts](data/grothendieck_counts.csv) and the separate [fusion-ring census](https://github.com/sebastienpalcoux/fusion-ring-census#readme). |
+| [Reproduce the checks](docs/VERIFY.md) | Replay instructions, [provenance](docs/PROVENANCE.md) and the limits of each check. |
+
+**Current research snapshot · 17 October 2026.** The prepublication review
+reopens **R8_2_24** after finding a gap in its proposed exclusion. The latest
+continuation retains **35 of 38** decisions: 28 proposed general exclusions
+and 7 unitary constructions. **Three general cases remain open:** `R6_4_155`,
+`R6_8_1660`, and `R8_2_24`. Read the [correction and current case inventory](evidence/review_20261017/README.md)
+alongside the frozen manuscripts. The tables below report the project's
+current classification claims; “complete” and “certified” do not imply
+independent human verification or Lean formalization.
+
+[Realized counts](#grothendieck-rings--known-realizations-at-each-exact-multiplicity) · [Classification](#classification--what-is-decided) · [Manuscripts](#read-the-mathematics) · [Repository guide](#structure) · [OEIS drafts](oeis/README.md)
 
 > **Scope.** Multiplicity is the maximum fusion coefficient. Each cell below
 > counts known categorifiable based-isomorphism classes with *exactly* that
@@ -23,7 +49,7 @@ categorifiable.
 | Multiplicity | Rank 2 | Rank 3 | Rank 4 | Rank 5 | Rank 6 | Rank 7 | Rank 8 |
 |---:|---:|---:|---:|---:|---:|---:|---:|
 | 1 | 2 | 4 | 9 | 10 | 21 | 13 | 48 |
-| 2 | 0 | 1 | 3 | 3 | 22 | 10 | 29 |
+| 2 | 0 | 1 | 3 | 3 | 22 | 10 | ≥29 |
 | 3 | 0 | 0 | 2 | 2 | 3 | 2 | — |
 | 4 | 0 | 0 | 0 | 2 | ≥5 | 4 | — |
 | 5 | 0 | 0 | 0 | 0 | 1 | — | — |
@@ -40,6 +66,9 @@ classification cross-check. Rank-two realized counts follow directly from
 
 ## Classification · what is decided?
 
+These are the recorded outcomes of the current research program, subject to
+the verification notice and [prepublication review](docs/PREPUBLICATION_REVIEW.md).
+
 | Rank | Full census | General classification | Current conclusion |
 |---:|---:|---:|---|
 | 2 | Symbolic, all multiplicities | All multiplicities over ℂ | Exactly the rings `n = 0, 1` are realized; see the revised proof. |
@@ -48,7 +77,7 @@ classification cross-check. Rank-two realized counts follow directly from
 | 5 | Through 20 | **Complete through 20** | 17 realized rings and 40,982 generally excluded. The two former multiplicity-18 residuals are now excluded by inert-prime parity and exact induction. |
 | 6 | Through 9 | **Complete through 3** | Through 9: 25,362 excluded, 57 realized, 2 unresolved. |
 | 7 | Through 4 | **Complete through 4** | Through 4: 4,172 excluded, 29 realized, 0 unresolved. |
-| 8 | Through 2 | **Complete through 2** | Through 2: 896 excluded, 77 realized, 0 unresolved. |
+| 8 | Through 2 | **Complete through 1** | Through 2: 895 excluded, 77 realized, 1 unresolved. |
 
 Rank-six realization counts through multiplicity 9 split into **56 unitary
 models** and **one spherical model whose ring has no pseudo-unitary
@@ -82,10 +111,10 @@ The current source/PDF hashes are recorded separately from the frozen release.
 [Completion proofs](supplements/rank6/research/exclusions/m9_completion/) ·
 [Completion replay](supplements/rank6/verification/m9/completion/) ·
 [2 October research addendum](evidence/residual_20261002/rank6/research_addendum.pdf) ·
-[Frozen 1 October release](https://grothendieck-ring-atlas.sebastien-palcoux.chatgpt.site/downloads/Rank6_Categorification_M9_Frontier_2026-10-01.zip)
+[Frozen 1 October release](https://sebastienpalcoux.github.io/grothendieck-ring-classification/downloads/Rank6_Categorification_M9_Frontier_2026-10-01.zip)
 
 
-The [unified theoretical continuation](evidence/unified_20261016/README.md) adds 29 general exclusions and 7 unitary constructions. Together with the earlier residual stages, these updates resolve 140 rings: 120 general exclusions and 20 unitary models. The remaining general questions and scoped results are identified explicitly. Earlier proofs, decision records and manuscript versions retain historical replay.
+The [17 October prepublication correction](evidence/review_20261017/README.md) reopens **R8_2_24** because its categorical-to-linear bridge is unproved. The latest 38-case continuation retains **35 accepted decisions**: 28 proposed general exclusions and 7 unitary constructions. Three general questions remain open: R6_4_155, R6_8_1660 and R8_2_24. Together with earlier residual stages, 139 decisions remain accepted (119 exclusions and 20 constructions), subject to independent review. The [frozen 36-decision snapshot](evidence/unified_20261016/README.md) and manuscripts remain available with dated errata and exact historical replay; their R8_2_24 exclusion is superseded.
 These proofs supplement the [earlier 46-decision stage](evidence/residual_20261002/README.md).
 Scope-specific obstructions retain their stated assumptions and do not change
 a ring's general unresolved status.
@@ -95,7 +124,7 @@ a ring's general unresolved status.
 | Multiplicity | Rank 4 | Rank 5 | Rank 6 | Rank 7 | Rank 8 |
 |---:|---:|---:|---:|---:|---:|
 | 1 | 1 excluded · 9 realized | 6 excluded · 10 realized | 18 excluded · 21 realized | 30 excluded · 13 realized | 48 excluded · 48 realized |
-| 2 | 14 excluded · 3 realized | 34 excluded · 3 realized | 132 excluded · 22 realized | 309 excluded · 10 realized | 848 excluded · 29 realized |
+| 2 | 14 excluded · 3 realized | 34 excluded · 3 realized | 132 excluded · 22 realized | 309 excluded · 10 realized | 847 excluded · 29 realized · **1 open** |
 | 3 | 22 excluded · 2 realized | 80 excluded · 2 realized | 381 excluded · 3 realized | 1,057 excluded · 2 realized | — |
 | 4 | 45 excluded · 0 realized | 132 excluded · 2 realized | 866 excluded · 5 realized · **1 open** | 2,776 excluded · 4 realized | — |
 | 5 | 55 excluded · 0 realized | 209 excluded · 0 realized | 1,581 excluded · 1 realized | — | — |
@@ -128,7 +157,7 @@ row checks and scope appear in [the provenance record](docs/PROVENANCE.md).
 | 5 | Multiplicity 18 | Inert-prime quadratic parity first closes two cases at 18; no new criterion family is needed at 19–20. |
 | 6 | See the allocation ledger | The current criteria include stabilizer, cyclotomic-trace and signed arithmetic obstructions. All 8,809 exact-multiplicity-nine rings have general exclusion certificates; 2 earlier cases remain unresolved through multiplicity 9. |
 | 7 | Multiplicity 4 | Group-theoretical, Morita and center arguments contribute through 4. There are 0 generally open rings in the analyzed range; higher multiplicities are not classified here. |
-| 8 | Multiplicity 2 | Graded Brauer-Picard, fiber-functor and projective inner-square obstructions contribute through 2. There are 0 generally open rings in the analyzed range; higher multiplicities are not classified here. |
+| 8 | Multiplicity 2 | Graded Brauer-Picard and fiber-functor obstructions contribute through 2; the proposed projective inner-square exclusion of R8_2_24 is withdrawn. There is 1 generally open ring in the analyzed range; higher multiplicities are not classified here. |
 
 This records **first use in the chosen certificate allocation**, not an
 optimal ordering theorem or a claim that the criteria settle higher
@@ -144,7 +173,10 @@ exact automated applications, positive model matches, and explicit residual
 frontiers. Rank three takes a separate, unrestricted route through the
 sphericality theorem. The papers and computation records remain research in
 progress; [the evidence guide](docs/VERIFY.md) identifies exactly what the
-stored checks establish.
+stored checks establish. For rank eight, start with the
+[reading edition and dated corrections](manuscripts/rank8/paper/rank8-reviewed.pdf); the
+[historical PDF](manuscripts/rank8/paper/rank8.pdf) retains the superseded
+R8_2_24 exclusion for provenance.
 
 ## Structure
 
@@ -163,7 +195,7 @@ data/         Pinned census matrix and classification-status tables
 docs/         Provenance, terminology and verification paths
 manuscripts/  Revised TeX and PDF pairs, as released
 supplements/  Proof software, compact certificates and verification reports
-site/         Static atlas source and private-preview assets
+site/         Public GitHub Pages atlas, source and reproducible snapshots
 tools/        Deterministic count/status export and crosswalk checks
 oeis/         Sequence drafts, pending an OEIS submission
 ```

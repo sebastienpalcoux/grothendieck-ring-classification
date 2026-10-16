@@ -1,0 +1,42 @@
+{
+  "passed": true,
+  "controls": [
+    {
+      "name": "cheap_valid",
+      "exit_code": 0,
+      "expected_success": true,
+      "control_passed": true,
+      "seconds": 2.973243801003264
+    },
+    {
+      "name": "unknown_id",
+      "exit_code": 1,
+      "expected_success": false,
+      "control_passed": true,
+      "seconds": 2.091546933996142
+    },
+    {
+      "name": "not_exclusion",
+      "exit_code": 1,
+      "expected_success": false,
+      "control_passed": true,
+      "seconds": 2.0932779840004514
+    },
+    {
+      "name": "duplicate_ids",
+      "exit_code": 1,
+      "expected_success": false,
+      "control_passed": true,
+      "seconds": 2.02177834000031
+    },
+    {
+      "name": "refuse_output_overwrite",
+      "exit_code": 1,
+      "control_passed": true
+    },
+    {
+      "name": "forces_python_despite_flint_environment",
+      "control_passed": true
+    }
+  ]
+}

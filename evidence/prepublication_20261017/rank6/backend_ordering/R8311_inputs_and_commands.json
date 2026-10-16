@@ -1,0 +1,19 @@
+{
+  "id": "R6_8_311",
+  "input_commitments": {
+    "census_record_canonical_sha256": "c74ac6ab17e9a8afe6f2380dd35b85cc3e66d3eb9b5891e0b50ae07c10f6b6f2",
+    "certificate_canonical_sha256": "a6632a9f81161d17c83a1b97e55e522def5cfa81ef967d68be92976995ff4aae"
+  },
+  "source_sha256": {
+    "software/check.py": "a43a2e6ece4740513e62f3c634400038925f7dcc8ac9465bb83f4133f4afd30f",
+    "software/round4_m8_ising.py": "7d77623d4e54a32d33c20de257d4f2f6f471542801a59877c7c0becd9bef881e",
+    "software/round3_m4.py": "489cf017e6be4acb0252d31cc11a3e1b27c8dc604f0fc497247c3f0958cd9223",
+    "software/higher_traces.py": "e97206ffabda63481318c5a2cc924963a283a859179d6a2fdfda7710f460a048",
+    "software/galois_pseudo_reduction.py": "37832ea9e951831f262666e0520f767c5b8ae053d1bc8cb1a592e6c76bed8d84"
+  },
+  "full_command": "SYMPY_GROUND_TYPES=python python3 reproduce.py --repo REPO --id R6_8_311 --out R8311_python_backend.json",
+  "certificate_inventory": {
+    "low_frames": 2,
+    "trace_cases": 16
+  }
+}

@@ -4,8 +4,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#0d1325">
-  <meta name="description" content="Explore fusion rings, explicitly realized Grothendieck rings, their fusion tensors, characters, formal codegrees, and classification proofs.">
+  <meta name="description" content="A research atlas of fusion rings, categorical models, manuscripts and reproducible data. AI-generated results await independent human verification and Lean formalization.">
   <title>Fusion &amp; Grothendieck Ring Atlas</title>
+  <link rel="canonical" href="https://sebastienpalcoux.github.io/grothendieck-ring-classification/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Fusion &amp; Grothendieck Ring Atlas">
+  <meta property="og:description" content="Explore the rings, read the arguments, inspect the data. AI-generated research; independent human verification and Lean formalization are pending.">
+  <meta property="og:url" content="https://sebastienpalcoux.github.io/grothendieck-ring-classification/">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230d1325'/%3E%3Cpath d='M17 43V20h28M17 32h20M29 20v23h18' fill='none' stroke='%23deb673' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E">
   <link rel="stylesheet" href="./styles.css">
   <script src="./app.js" defer></script>
@@ -24,7 +29,7 @@
       <a href="#papers">Papers</a>
       <a href="#sources">Sources</a>
     </nav>
-    <span class="edition">RESEARCH EDITION <span class="edition-dot" aria-hidden="true"></span> <span id="edition-date">16 OCT 2026</span></span>
+    <span class="edition">RESEARCH EDITION <span class="edition-dot" aria-hidden="true"></span> <span id="edition-date">17 OCT 2026</span></span>
   </header>
 
   <main>
@@ -32,8 +37,13 @@
       <div class="eyebrow"><span class="tiny-diamond" aria-hidden="true"></span> FUSION-RING CENSUS · CATEGORIFICATION BY RANK</div>
       <div class="intro-grid">
         <div>
-          <h1 id="page-title">Fusion rings,<br><em>categorified.</em></h1>
-          <p class="intro-text">See every realized ring in the classified bands. Open its fusion data, characters, codegrees, model reference, and exact census provenance.</p>
+          <h1 id="page-title">Fusion rings,<br><em>explored.</em></h1>
+          <p class="intro-text">Explore low-rank fusion rings and their categorical models. Follow each result to its multiplication data, characters, codegrees and source arguments.</p>
+          <div class="intro-actions">
+            <a class="intro-primary" href="#atlas">Explore the atlas <span aria-hidden="true">↓</span></a>
+            <a href="#papers">Read the manuscripts <span aria-hidden="true">↘</span></a>
+            <a href="https://github.com/sebastienpalcoux/grothendieck-ring-classification">View on GitHub <span aria-hidden="true">↗</span></a>
+          </div>
         </div>
         <div class="intro-math" aria-hidden="true">
           <div class="math-small">BASED RING &nbsp; / &nbsp; MULTIPLICITY</div>
@@ -44,6 +54,15 @@
       </div>
     </section>
 
+    <aside id="research-notice" class="research-notice" aria-labelledby="research-notice-heading">
+      <div class="notice-label"><span class="notice-mark" aria-hidden="true">i</span><h2 id="research-notice-heading">Research caution</h2><span>Independent verification pending</span></div>
+      <div class="notice-copy">
+        <p><strong>This is AI-generated research.</strong> The results, proofs, code and data have not yet been independently verified by human experts or formalized in Lean. Treat them as provisional and check the underlying arguments and computations before relying on them.</p>
+        <p>Labels such as “realized,” “excluded” and “complete” describe this project’s current claims within the stated ranges. Automated checks and AI reviews do not replace independent mathematical verification.</p>
+        <a href="./review.html">Prepublication review &amp; corrections <span aria-hidden="true">↗</span></a>
+      </div>
+    </aside>
+
     <section id="atlas" class="workspace" aria-labelledby="atlas-heading">
       <div class="section-heading">
         <div>
@@ -53,9 +72,10 @@
         <div class="section-aside">EXPLICITLY REALIZED RING TYPES · ≥ ON PARTIAL BANDS</div>
       </div>
       <aside id="research-update" class="research-update" aria-labelledby="research-update-title" hidden>
-        <div><p class="eyebrow">LATEST THEORETICAL UPDATE</p><h3 id="research-update-title"></h3><p id="research-update-summary"></p></div>
-        <a href="#theoretical-update">Read the new proofs <span aria-hidden="true">↘</span></a>
+        <div><p class="eyebrow">LATEST RESEARCH UPDATE</p><h3 id="research-update-title"></h3><p id="research-update-summary"></p></div>
+        <a href="#theoretical-update">Read the review <span aria-hidden="true">↘</span></a>
       </aside>
+      <noscript><p class="static-note">The interactive explorer needs JavaScript. The <a href="https://github.com/sebastienpalcoux/grothendieck-ring-classification/tree/main/manuscripts">manuscript index</a>, <a href="#sources">data downloads</a> and <a href="https://github.com/sebastienpalcoux/grothendieck-ring-classification">source repository</a> remain available.</p></noscript>
       <div class="workspace-grid">
         <div class="atlas-panel">
           <div class="kind-switch" role="group" aria-label="Counted ring population">
@@ -99,7 +119,7 @@
         </div>
         <aside id="cell-detail" class="detail-panel" aria-live="polite"></aside>
       </div>
-      <p class="scope-note">Grothendieck counts mean <strong>confirmed realized ring types</strong>. A ≥ sign marks a lower bound in a band containing unresolved fusion rings; the eventual total could be larger. The Grothendieck view omits rows containing only zeros. Fusion view includes every analyzed census band; the <a href="https://github.com/sebastienpalcoux/fusion-ring-census" target="_blank" rel="noopener">full fusion-ring census table ↗</a> covers more bands.</p>
+      <p class="scope-note">Grothendieck counts mean <strong>ring types reported as realized</strong>, subject to the <a href="#research-notice">research caution above</a>. A ≥ sign marks a lower bound in a band containing unresolved fusion rings; the eventual total could be larger. The Grothendieck view omits rows containing only zeros. Fusion view includes every analyzed census band; the <a href="https://github.com/sebastienpalcoux/fusion-ring-census" target="_blank" rel="noopener">full fusion-ring census table ↗</a> covers more bands.</p>
     </section>
 
     <section id="rings" class="rings-section" aria-labelledby="rings-heading">
@@ -121,11 +141,11 @@
       <h2 id="ring-title"></h2>
       <div id="ring-facts" class="ring-facts"></div>
       <div class="profile-tabs" role="tablist" aria-label="Ring details">
-        <button type="button" role="tab" data-profile-tab="tensor" aria-selected="true">Fusion data</button>
-        <button type="button" role="tab" data-profile-tab="characters" aria-selected="false">Characters &amp; codegrees</button>
-        <button type="button" role="tab" data-profile-tab="source" aria-selected="false">Model &amp; sources</button>
+        <button id="ring-tab-tensor" type="button" role="tab" data-profile-tab="tensor" aria-selected="true" aria-controls="ring-profile">Fusion data</button>
+        <button id="ring-tab-characters" type="button" role="tab" data-profile-tab="characters" aria-selected="false" aria-controls="ring-profile">Characters &amp; codegrees</button>
+        <button id="ring-tab-source" type="button" role="tab" data-profile-tab="source" aria-selected="false" aria-controls="ring-profile">Model &amp; sources</button>
       </div>
-      <div id="ring-profile" class="ring-profile" role="tabpanel"></div>
+      <div id="ring-profile" class="ring-profile" role="tabpanel" aria-labelledby="ring-tab-tensor" tabindex="0"></div>
     </dialog>
 
     <section id="classification" class="classification-section" aria-labelledby="classification-heading">
@@ -136,7 +156,7 @@
       <div id="scope-cards" class="scope-cards"></div>
       <div class="definition-strip">
         <span class="definition-mark">↗</span>
-        <p><strong>What “complete” means here.</strong> Within the stated range, each counted based ring has either a categorical model or an exclusion by a necessary criterion. Results outside that range are not implied by the count table.</p>
+        <p><strong>What “complete” means here.</strong> The current research assigns each counted based ring within the stated range either a categorical model or an exclusion by a necessary criterion. This is a coverage claim, pending independent verification. Results outside that range are not implied by the count table.</p>
       </div>
     </section>
 
@@ -145,18 +165,19 @@
         <div><div class="eyebrow">04 / THE MANUSCRIPTS</div><h2 id="papers-heading">Papers &amp; verification</h2></div>
         <div class="section-aside">THEOREMS · CERTIFICATES · REPRODUCTION</div>
       </div>
+      <div class="paper-review-note"><p><strong>Read the review alongside the manuscripts.</strong> The linked PDFs preserve the research snapshot. Corrections and the scope of the prepublication checks are recorded separately.</p><a href="./review.html">Prepublication review &amp; corrections <span aria-hidden="true">↗</span></a><a href="./papers/prepublication-review-2026-10-17.pdf">Printable manuscript errata <span aria-hidden="true">↓</span></a></div>
       <details id="theoretical-update" class="frontier-panel theoretical-update" hidden>
-        <summary id="theoretical-update-heading">16 October 2026 theoretical update</summary>
+        <summary id="theoretical-update-heading">17 October 2026 prepublication review</summary>
         <p id="theoretical-update-scope"></p>
         <div class="update-actions" id="theoretical-update-actions"></div>
-        <div class="profile-table-scroll"><table class="profile-table frontier-table"><thead><tr><th scope="col">Fusion ring</th><th scope="col">Proof of general exclusion</th></tr></thead><tbody id="theoretical-update-rows"></tbody></table></div>
+        <div class="profile-table-scroll"><table class="profile-table frontier-table"><thead><tr><th scope="col">Fusion ring</th><th scope="col">Argument or categorical construction</th></tr></thead><tbody id="theoretical-update-rows"></tbody></table></div>
         <p id="theoretical-update-checksum" class="download-checksum"></p>
       </details>
       <p id="rank6-release" class="scope-note"></p>
       <details id="rank6-frontier" class="frontier-panel">
         <summary>Current rank-six frontier</summary>
-        <p>Both rank-six categorification cases remain unresolved. The 16 October revision identifies all twist-one simple objects in the hypothetical center of R6_8_1660: exactly the six constituents induced from the unit. Every tensor functor from either residual category is fully faithful. These necessary constraints leave both categorification questions open.</p>
-        <div class="profile-table-scroll"><table class="profile-table frontier-table"><thead><tr><th scope="col">Fusion ring</th><th scope="col">Verified progress</th></tr></thead><tbody id="rank6-frontier-rows"></tbody></table></div>
+        <p>Two rank-six categorification cases remain unresolved. The summaries below distinguish necessary structural constraints from a category construction or a general exclusion. Consult the source arguments and the review notes for the precise scope of the current evidence.</p>
+        <div class="profile-table-scroll"><table class="profile-table frontier-table"><thead><tr><th scope="col">Fusion ring</th><th scope="col">Research progress</th></tr></thead><tbody id="rank6-frontier-rows"></tbody></table></div>
         <a href="./data/rank6_research_coverage.json" download>Download the current frontier summary ↓</a>
       </details>
       <div id="paper-grid" class="paper-grid"></div>
@@ -168,11 +189,14 @@
       </div>
       <div class="source-grid">
         <div class="source-item"><span class="source-index">A /</span><div><h3>Fusion-ring census</h3><p>The source of the complete based-ring counts and canonical multiplication data. <span id="source-commit"></span></p><a href="https://github.com/sebastienpalcoux/fusion-ring-census" target="_blank" rel="noopener">Open census repository <span aria-hidden="true">↗</span></a></div></div>
-        <div class="source-item"><span class="source-index">B /</span><div><h3>Classification research</h3><p>Manuscripts, model catalogues, exclusion certificates, and verification instructions.</p><a href="https://github.com/sebastienpalcoux/grothendieck-ring-classification" target="_blank" rel="noopener">Open classification repository <span aria-hidden="true">↗</span></a><a id="latest-research-source" href="https://github.com/sebastienpalcoux/grothendieck-ring-classification/tree/main/evidence/theoretical_20261016" target="_blank" rel="noopener">16 October proofs and remaining cases <span aria-hidden="true">↗</span></a></div></div>
+        <div class="source-item"><span class="source-index">B /</span><div><h3>Classification research</h3><p>Manuscripts, model catalogues, exclusion certificates, and verification instructions.</p><a href="https://github.com/sebastienpalcoux/grothendieck-ring-classification" target="_blank" rel="noopener">Open classification repository <span aria-hidden="true">↗</span></a><a id="latest-research-source" href="https://github.com/sebastienpalcoux/grothendieck-ring-classification/tree/main/evidence/review_20261017" target="_blank" rel="noopener">17 October 2026 review and remaining cases <span aria-hidden="true">↗</span></a></div></div>
         <div class="source-item"><span class="source-index">C /</span><div><h3>Download the data</h3><p>Export the realized-ring records, Grothendieck counts, fusion-ring counts, or categorification ledger.</p><a href="./data/realized_rings.json" download>Explicit rings JSON <span aria-hidden="true">↓</span></a><a href="./data/grothendieck_counts.csv" download>Grothendieck counts CSV <span aria-hidden="true">↓</span></a><a href="./data/counts.csv" download>Fusion counts CSV <span aria-hidden="true">↓</span></a><a href="./data/classification_status.json" download>Status JSON <span aria-hidden="true">↓</span></a><a href="./data/rank6_unresolved_tensors.json" download>Rank-six residual tensors JSON <span aria-hidden="true">↓</span></a><a href="./data/rank6_release_summary.json" download>Rank-six release summary <span aria-hidden="true">↓</span></a></div></div>
       </div>
     </section>
   </main>
-  <footer class="site-footer"><span>FUSION &amp; GROTHENDIECK RING ATLAS</span><span id="snapshot-date">Research snapshot · 16 October 2026</span><a href="#atlas">Back to rings ↑</a></footer>
+  <footer class="site-footer">
+    <div class="footer-main"><span class="footer-brand">FUSION &amp; GROTHENDIECK RING ATLAS</span><span id="snapshot-date">Research snapshot · 17 October 2026</span><a href="https://github.com/sebastienpalcoux/grothendieck-ring-classification">GitHub source ↗</a><a href="#atlas">Back to rings ↑</a></div>
+    <p class="footer-caution">AI-generated research · Independent human verification and Lean formalization pending. <a href="#research-notice">Read the research caution</a> · <a href="./review.html">Review &amp; corrections</a></p>
+  </footer>
 </body>
 </html>

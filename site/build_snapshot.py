@@ -291,13 +291,59 @@ def main():
             "manuscript": {"path": f"papers/rank{rank}.pdf", "sha256": hashlib.sha256(pdf_source.read_bytes()).hexdigest()},
             "archive": {"path": "downloads/" + archive_source.name, "sha256": archive_hash, "bytes": archive_source.stat().st_size},
         }
-    stage_path = "evidence/unified_20261016" if (repo / "evidence/unified_20261016/decisions.json").is_file() else "evidence/theoretical_20261016"
+    reading_source = repo / "manuscripts/rank8/paper/rank8-reviewed.pdf"
+    reading_target = HERE / "dist/papers/rank8-reviewed.pdf"
+    if reading_source.is_file():
+        if not reading_source.read_bytes().startswith(b"%PDF-"):
+            raise ValueError("Rank-eight reading edition is not a PDF")
+        if reading_source.resolve() != reading_target.resolve():
+            shutil.copyfile(reading_source, reading_target)
+        data["upper_rank_releases"]["8"]["reading_edition"] = {
+            "path": "papers/rank8-reviewed.pdf", "source": "manuscripts/rank8/paper/rank8-reviewed.pdf",
+            "sha256": hashlib.sha256(reading_source.read_bytes()).hexdigest(),
+            "bytes": reading_source.stat().st_size,
+            "note": "Dated errata prefaced to the unchanged historical manuscript; R8_2_24 is reopened.",
+        }
+    stage_path = next(("evidence/" + name for name in
+                       ("review_20261017", "unified_20261016", "theoretical_20261016")
+                       if (repo / "evidence" / name / "decisions.json").is_file()),
+                      "evidence/theoretical_20261016")
     stage_name = stage_path.split("/")[-1]
     stage = repo / stage_path
     if (stage / "decisions.json").is_file():
         decisions = json.loads((stage / "decisions.json").read_text())
         remaining = json.loads((stage / "remaining_ids.json").read_text())
         expected_totals = json.loads((stage / "expected_totals.json").read_text())
+        is_review = stage_name == "review_20261017"
+        stage_date = "2026-10-17" if is_review else "2026-10-16"
+        proofs_source = "evidence/unified_20261016" if is_review else stage_path
+        review = None
+        historical_update = None
+        if is_review:
+            if not reading_source.is_file() or "reading_edition" not in data["upper_rank_releases"]["8"]:
+                raise FileNotFoundError("The review stage requires the rank-eight reading edition: " + str(reading_source))
+            errata_source = repo / "manuscripts/prepublication-review-2026-10-17.pdf"
+            if not errata_source.is_file():
+                raise FileNotFoundError("The review stage requires the dated errata PDF: " + str(errata_source))
+            if not errata_source.read_bytes().startswith(b"%PDF-"):
+                raise ValueError("Dated errata document is not a PDF")
+            errata_target = HERE / "dist/papers/prepublication-review-2026-10-17.pdf"
+            if errata_source.resolve() != errata_target.resolve():
+                shutil.copyfile(errata_source, errata_target)
+            review = json.loads((stage / "review.json").read_text())
+            if review.get("reopened_ids") != ["R8_2_24"] or review.get("historical_stage") != "unified_20261016":
+                raise ValueError("Unexpected prepublication review transition")
+            historical_decisions = json.loads((repo / proofs_source / "decisions.json").read_text())
+            accepted = [record for record in historical_decisions if record["id"] not in review["reopened_ids"]]
+            if len(historical_decisions) != 36 or len(decisions) != 35 or decisions != accepted:
+                raise ValueError("Review must preserve every accepted unified decision and reopen only R8_2_24")
+            if remaining != {"6": ["R6_4_155", "R6_8_1660"], "7": [], "8": ["R8_2_24"]}:
+                raise ValueError("The review must retain exactly the three current open cases")
+            historical_update = {
+                "source": proofs_source, "date": "2026-10-16", "decision_count": 36,
+                "general_exclusions": sum(d["status"] == "excluded" for d in historical_decisions),
+                "unitary_models": sum(d["status"] == "unitarily_realized" for d in historical_decisions),
+            }
         if not decisions or len({record["id"] for record in decisions}) != len(decisions):
             raise ValueError("The theoretical update must have distinct decisions")
         if any(record["status"] not in ("excluded", "unitarily_realized") or record["scope"] != "general_complex" or record["rank"] not in (7,8) for record in decisions):
@@ -310,7 +356,7 @@ def main():
             for decision in (record for record in decisions if record["rank"] == rank):
                 if current[decision["id"]]["status"] != decision["status"]:
                     raise ValueError("Theoretical-update decision missing from ledger: " + decision["id"])
-                if not (stage / decision["proof"]).is_file():
+                if not (repo / proofs_source / decision["proof"]).is_file():
                     raise ValueError("Missing theoretical proof: " + decision["proof"])
             actual = {key: sum(record["status"] == key for record in ledger)
                       for key in ("excluded", "unitarily_realized", "unresolved")}
@@ -323,7 +369,7 @@ def main():
                 raise ValueError(f"Rank-{rank} remaining cases differ from the current ledger")
         if remaining["6"] != release["unresolved_ids"]:
             raise ValueError("Theoretical update changes the rank-six unresolved inventory")
-        archive_name = ("unified" if stage_name.startswith("unified") else "theoretical") + "-update-2026-10-16.zip"
+        archive_name = ("review" if is_review else "unified" if stage_name.startswith("unified") else "theoretical") + "-update-" + stage_date + ".zip"
         archive_source = repo / "site/dist/downloads" / archive_name
         if not archive_source.is_file():
             raise FileNotFoundError("Missing current theoretical update archive: " + str(archive_source))
@@ -332,11 +378,18 @@ def main():
                        if name == "decisions.json" or name.endswith(stage_name + "/decisions.json")]
             if len(matches) != 1 or json.loads(bundle.read(matches[0])) != decisions:
                 raise ValueError("Theoretical update archive contains stale or missing decision records")
+            if is_review:
+                for source in (errata_source, reading_source):
+                    relative = source.relative_to(repo).as_posix()
+                    documents = [name for name in bundle.namelist()
+                                 if name == relative or name.endswith("/" + relative)]
+                    if len(documents) != 1 or bundle.read(documents[0]) != source.read_bytes():
+                        raise ValueError("Review archive contains a stale or missing PDF: " + relative)
         archive_target = downloads / archive_name
         if archive_source.resolve() != archive_target.resolve():
             shutil.copy2(archive_source, archive_target)
         local_files = {}
-        for filename in ("decisions.json", "remaining_ids.json", "expected_totals.json"):
+        for filename in ("decisions.json", "remaining_ids.json", "expected_totals.json") + (("review.json",) if is_review else ()):
             source = stage / filename
             target = HERE / "dist/data" / (stage_name + "_" + filename)
             shutil.copy2(source, target)
@@ -345,7 +398,7 @@ def main():
                 "sha256": hashlib.sha256(source.read_bytes()).hexdigest(),
             }
         data["theoretical_update"] = {
-            "date": "2026-10-16", "source": stage_path,
+            "date": stage_date, "source": stage_path, "proofs_source": proofs_source,
             "new_general_exclusions": sum(d["status"] == "excluded" for d in decisions),
             "new_unitary_models": sum(d["status"] == "unitarily_realized" for d in decisions),
             "by_rank": by_rank,
@@ -355,6 +408,9 @@ def main():
                         "bytes": archive_source.stat().st_size,
                         "sha256": hashlib.sha256(archive_source.read_bytes()).hexdigest()},
         }
+        if is_review:
+            data["theoretical_update"].update(
+                review=review, historical_update=historical_update, original_case_count=38)
         data["snapshot"] = max(data["snapshot"], data["theoretical_update"]["date"])
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(json.dumps(data, ensure_ascii=False, separators=(",", ":")) + "\n")

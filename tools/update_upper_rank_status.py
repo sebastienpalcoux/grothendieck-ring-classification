@@ -27,6 +27,12 @@ def main():
             row.update(rings=len(band),excluded_general=co['excluded'],realized_unitary=co['unitarily_realized'],
                 realized_other_or_unspecified=0,realized_spherical_nonpseudounitary=0,unresolved_general=co['unresolved'],
                 unassessed=0,classification_coverage='partial_classification' if co['unresolved'] else 'complete_classification')
+        ordered=sorted((r for r in x['rows'] if r['rank']==rank),key=lambda r:r['multiplicity'])
+        complete=0
+        for row in ordered:
+            if row['multiplicity']!=complete+1 or row['classification_coverage']!='complete_classification':break
+            complete+=1
+        x['inputs'][f'rank{rank}']['general_complete_through']=complete
         a=ROOT/archive
         b=next(z for z in x['bundles'] if z['name']==a.name);b['sha256']=hashlib.sha256(a.read_bytes()).hexdigest()
     if old_lower!=[r for r in x['rows'] if r['rank']<7]:raise ValueError('Lower-rank status changed')

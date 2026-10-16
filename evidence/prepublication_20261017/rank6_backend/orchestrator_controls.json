@@ -1,0 +1,87 @@
+{
+  "schema": "rank6-complete-orchestrator-controls-v1",
+  "scope": "Read-only validator and control components only. Synthetic structural fixtures exercise rejection guards; they are not mathematical certificates or evidence of a full replay PASS. Only this control report is written.",
+  "controls_passed": true,
+  "command": "PYTHONDONTWRITEBYTECODE=1 python3 -c 'import json, sys; from pathlib import Path; output=Path(sys.argv[1]); record=json.loads(output.read_text()); exec(compile(record[\"validation_python\"], str(output)+\"::validation_python\", \"exec\"))' work/prepublic_audit/rank6_backend_patch/evidence/prepublication_20261017/rank6_backend/orchestrator_controls.json work/prepublic_audit/replay_repo work/prepublic_audit/rank6_full_receipts.jsonl",
+  "working_directory": "/workspace/scratch/b038cfaffb82",
+  "validation_python": "import ast, importlib.util\nfrom datetime import datetime, timezone\nwrapper = output.parent / \"replay_complete.py\"\nrepo = Path(sys.argv[2]).resolve()\ninitial = Path(sys.argv[3]).resolve()\nast.parse(wrapper.read_text())\nspec = importlib.util.spec_from_file_location(\"rank6_complete_controls\", wrapper)\nmodule = importlib.util.module_from_spec(spec)\nspec.loader.exec_module(module)\nbaseline, source_hashes = module.check_baseline(repo, output.parent / \"baseline_identity.json\")\nrows, ledger, excluded = module.load_context(repo)\nactual = module.load_jsonl(initial)\ncontrols = []\ndef rejected(name, operation):\n    try:\n        operation()\n    except (ValueError, KeyError, FileNotFoundError) as error:\n        controls.append({\"control\": name, \"rejected\": True, \"reason\": str(error)})\n    else:\n        raise RuntimeError(\"Rejected-input control unexpectedly accepted: \" + name)\nrejected(\"actual incomplete stream\", lambda: module.validate_initial_records(actual, excluded))\n# Synthetic structural fixtures exercise guard logic only. They are not mathematical receipts.\nfixture = [{\"id\": row[\"id\"], \"kind\": row[\"certificate\"][\"kind\"], \"passed\": True} for row in excluded]\nmodule.validate_initial_records(fixture, excluded)\nfor name, mutate in [\n    (\"oversized stream\", lambda value: value.append(dict(value[-1]))),\n    (\"duplicate ordered ID\", lambda value: value[1].update(id=value[0][\"id\"])),\n    (\"wrong certificate kind\", lambda value: value[0].update(kind=\"invalid_control_kind\")),\n    (\"nonboolean outcome\", lambda value: value[0].update(passed=1)),\n    (\"missing outcome\", lambda value: value[0].pop(\"passed\")),\n]:\n    changed = [dict(value) for value in fixture]\n    mutate(changed)\n    rejected(name, lambda changed=changed: module.validate_initial_records(changed, excluded))\nverifier = repo / \"supplements/rank6/verify.py\"\n_, statements, gate_line = module.extract_postloop(verifier)\nstdout = \"TRUSTED SOURCE IMPORT AND CONSTRUCTED MODELS VERIFIED\\n\"\nmissing_summary = output.parent / \"nonexistent_control_summary_46d5d103.json\"\nif missing_summary.exists():\n    raise RuntimeError(\"Control requires a nonexistent summary path\")\nvalid_error = f'  File \"{verifier}\", line {gate_line}, in main\\nexact.VerificationError: 1 negative certificates failed\\n'\nmodule.validate_initial_exit(1, [\"control_id\"], valid_error, stdout, verifier, missing_summary)\nrejected(\"wrong terminal exception\", lambda: module.validate_initial_exit(1, [\"control_id\"], \"RuntimeError: unrelated failure\\n\", stdout, verifier, missing_summary))\nrejected(\"wrong process return code\", lambda: module.validate_initial_exit(2, [\"control_id\"], valid_error, stdout, verifier, missing_summary))\nrejected(\"missing model/import completion\", lambda: module.validate_initial_exit(1, [\"control_id\"], valid_error, \"\", verifier, missing_summary))\nrejected(\"missing original gate location\", lambda: module.validate_initial_exit(1, [\"control_id\"], \"exact.VerificationError: 1 negative certificates failed\\n\", stdout, verifier, missing_summary))\nfailed = [value[\"id\"] for value in actual if value[\"passed\"] is False]\nif not failed:\n    raise RuntimeError(\"Control needs an actual initially failed ID\")\nchosen = failed[:1]\ndecision = next(value for value in excluded if value[\"id\"] == chosen[0])\ntensor = next(value for value in rows if value[\"id\"] == chosen[0])\nretry = {\n    \"id\": chosen[0], \"kind\": decision[\"certificate\"][\"kind\"],\n    \"passed\": False, \"complete_selected_certificate\": False, \"ground_types\": \"python\",\n    \"certificate_canonical_json_sha256\": module.objsha(decision[\"certificate\"]),\n    \"tensor_canonical_json_sha256\": module.objsha(tensor[\"N\"]),\n}\nrejected(\"selected complete certificate still failed\", lambda: module.validate_selected([retry], {}, chosen, excluded, rows, initial, initial, {}))\nrejected(\"missing selected replay\", lambda: module.validate_selected([], {}, chosen, excluded, rows, initial, initial, {}))\nif len(controls) != 12:\n    raise RuntimeError(\"Unexpected control count\")\nif module.check_baseline(repo, output.parent / \"baseline_identity.json\")[1] != source_hashes:\n    raise RuntimeError(\"Bound source/input changed during controls\")\nrecord.update({\n    \"recorded_utc\": datetime.now(timezone.utc).isoformat(),\n    \"controls_passed\": True, \"control_count\": len(controls), \"controls\": controls,\n    \"actual_partial_records\": len(actual), \"required_complete_records\": len(excluded),\n    \"initial_failed_id_used_for_selected_guards\": chosen[0],\n    \"source_input_bindings\": len(source_hashes),\n    \"tracked_bindings\": len(baseline[\"tracked_files\"]),\n    \"restored_bindings\": len(baseline[\"restored_inputs\"]),\n    \"baseline_sha256\": module.sha(output.parent / \"baseline_identity.json\"),\n    \"replay_complete_sha256\": module.sha(wrapper),\n    \"source_inputs_unchanged\": True,\n    \"original_postloop_statement_count_inspected\": len(statements),\n    \"mathematical_replay_executed\": False, \"mathematical_replay_pass_claimed\": False,\n    \"full_orchestration_executed\": False, \"all_python_full_replay_executed\": False,\n})\noutput.write_text(json.dumps(record, indent=2) + \"\\n\")\nprint(json.dumps({key: record[key] for key in (\"controls_passed\", \"control_count\", \"actual_partial_records\", \"source_input_bindings\", \"mathematical_replay_executed\", \"full_orchestration_executed\")}, indent=2))\n",
+  "validation_limit": "The full new two-backend orchestration and an all-Python full replay have not been executed end to end.",
+  "recorded_utc": "2026-10-16T19:50:42.940148+00:00",
+  "control_count": 12,
+  "controls": [
+    {
+      "control": "actual incomplete stream",
+      "rejected": true,
+      "reason": "Initial stream is incomplete or oversized"
+    },
+    {
+      "control": "oversized stream",
+      "rejected": true,
+      "reason": "Initial stream is incomplete or oversized"
+    },
+    {
+      "control": "duplicate ordered ID",
+      "rejected": true,
+      "reason": "Initial ordered IDs do not exactly cover the frozen exclusions"
+    },
+    {
+      "control": "wrong certificate kind",
+      "rejected": true,
+      "reason": "Initial certificate kind mismatch"
+    },
+    {
+      "control": "nonboolean outcome",
+      "rejected": true,
+      "reason": "Initial receipt lacks a Boolean outcome"
+    },
+    {
+      "control": "missing outcome",
+      "rejected": true,
+      "reason": "Initial receipt lacks a Boolean outcome"
+    },
+    {
+      "control": "wrong terminal exception",
+      "rejected": true,
+      "reason": "Initial process failed for a reason other than the final negative-certificate gate"
+    },
+    {
+      "control": "wrong process return code",
+      "rejected": true,
+      "reason": "Initial process did not exit at the expected certificate gate"
+    },
+    {
+      "control": "missing model/import completion",
+      "rejected": true,
+      "reason": "Initial full-model/import completion marker is missing"
+    },
+    {
+      "control": "missing original gate location",
+      "rejected": true,
+      "reason": "Initial traceback does not identify the original final gate"
+    },
+    {
+      "control": "selected complete certificate still failed",
+      "rejected": true,
+      "reason": "A selected complete certificate did not pass: R6_4_416"
+    },
+    {
+      "control": "missing selected replay",
+      "rejected": true,
+      "reason": "Python replays must cover every initial failure exactly once and in order"
+    }
+  ],
+  "actual_partial_records": 19007,
+  "required_complete_records": 25362,
+  "initial_failed_id_used_for_selected_guards": "R6_4_416",
+  "source_input_bindings": 299,
+  "tracked_bindings": 290,
+  "restored_bindings": 9,
+  "baseline_sha256": "edb46811a5a4fdccb239c47faa4e91df6d5a6da6407bd9a7b329c96074b8e69b",
+  "replay_complete_sha256": "9d9277339e5dd1aff9c9acee43026c8d16cfca76c23eeaa6449d613c0b86f6a5",
+  "source_inputs_unchanged": true,
+  "original_postloop_statement_count_inspected": 4,
+  "mathematical_replay_executed": false,
+  "mathematical_replay_pass_claimed": false,
+  "full_orchestration_executed": false,
+  "all_python_full_replay_executed": false
+}

@@ -1,0 +1,5910 @@
+{
+  "status": "PASS",
+  "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "python_optimized": false,
+  "assertions_enabled_in_parent_and_children": true,
+  "historical_stage": "pre-upper_residual_20261002b; after residual_20261002",
+  "checker": "/workspace/scratch/b038cfaffb82/work/prepublic_audit/rank8_base_repo/supplements/rank8/software/verify.py",
+  "checker_sha256": "1814a68e081e4b6e508a8a706e8e6ee9338b86550cc80b731c4749f6f5a4926e",
+  "frozen_source_checker_sha256": "1814a68e081e4b6e508a8a706e8e6ee9338b86550cc80b731c4749f6f5a4926e",
+  "baseline_ledger_sha256": "ffaed1193cfcea77de029dcc64254c1775ea85a1e279fff7acd6de9a15164ecc",
+  "driver_sha256": "a66da24a5bb10e4a71bbba9fe87481ca10ab260b9583cfbf4e7030b6ac36d32f",
+  "invocation": "Import frozen original under a non-main name, explicitly call original main()",
+  "checks_disabled_or_removed": [],
+  "tensor_checks_completed": 973,
+  "negative_certificate_checks_completed": 832,
+  "baseline_totals": {
+    "excluded": 832,
+    "unitarily_realized": 60,
+    "unresolved": 81
+  },
+  "original_checker_report": {
+    "census_size": 973,
+    "source_complete_through": 2,
+    "counts": [
+      {
+        "multiplicity": 1,
+        "fusion_rings": 96,
+        "excluded": 45,
+        "realized": 48,
+        "unresolved": 3
+      },
+      {
+        "multiplicity": 2,
+        "fusion_rings": 877,
+        "excluded": 787,
+        "realized": 12,
+        "unresolved": 78
+      }
+    ],
+    "criterion_counts": {
+      "m1:dnumber": 23,
+      "m1:graded_brauer_picard": 1,
+      "m1:integral_drinfeld": 1,
+      "m1:lower_rank_subring": 3,
+      "m1:near_group": 1,
+      "m1:oriented_signed_sphericalization": 3,
+      "m1:published_induction_exclusion": 2,
+      "m1:rank8_noncomm_dnumber": 1,
+      "m1:solvable_equivariantization": 3,
+      "m1:zero_spectrum": 7,
+      "m2:dnumber": 462,
+      "m2:graded_brauer_picard": 2,
+      "m2:graded_fiber_functor": 2,
+      "m2:integral_drinfeld": 6,
+      "m2:involution_module": 2,
+      "m2:lower_rank_subring": 121,
+      "m2:near_group": 1,
+      "m2:oriented_signed_sphericalization": 71,
+      "m2:rank7_certified_subring": 12,
+      "m2:rank8_noncomm_dnumber": 17,
+      "m2:rank_two": 10,
+      "m2:subring_dimension": 1,
+      "m2:zero_spectrum": 80
+    },
+    "fully_checked": true,
+    "scope": "all exact rank-eight census records at multiplicities 1 and 2; unresolved cases are not classified"
+  },
+  "elapsed_seconds": 449.989,
+  "records": [
+    {
+      "id": "R8_1_1",
+      "status": "unitarily_realized",
+      "tensor_sha256": "8cc24a06b75dfe64a56312bc62fb927c4c7476b631f54519ccf345c3b47327e1",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_1_2",
+      "status": "excluded",
+      "tensor_sha256": "c94d93937f0a94b9b10bd4278eb42b64f3c17b11535032816885f8084cbfe1db",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_1_3",
+      "status": "unitarily_realized",
+      "tensor_sha256": "8e5341d955006cc35e17908037e4552c31d1d97cbed4844002f68b353ee140b1",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_1_4",
+      "status": "unitarily_realized",
+      "tensor_sha256": "3ab01c8f197600c3114aec8763e8296989ae8fffc3b21857492d26d498753a44",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_1_5",
+      "status": "unitarily_realized",
+      "tensor_sha256": "7b9cefe3bab3384db015d543b82411a832f9ef60054b160d4abee56bcae1d11a",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_1_6",
+      "status": "unitarily_realized",
+      "tensor_sha256": "1b15304eb82cb70d12e69b2c62c1cb21a887b19c72117b7b5959636f338ce755",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_1_7",
+      "status": "unitarily_realized",
+      "tensor_sha256": "796289d029c66a86bc4c64cbed56f02a03324a41e36a64dc914f28ddc2bb94fb",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_1_8",
+      "status": "excluded",
+      "tensor_sha256": "e91f5422fda0c33070d23bb6001988ca830c6534c9d1a43607b38de9971031e9",
+      "certificate_kind": "oriented_signed_sphericalization"
+    },
+    {
+      "id": "R8_1_9",
+      "status": "unresolved",
+      "tensor_sha256": "1718ab13b6969ed751b621f7303b9e2bb29bb8280f692315499b130a420538f6",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_1_10",
+      "status": "unitarily_realized",
+      "tensor_sha256": "77048bdd2a7fa9826cdea41d6cb07eed972dbedf75f19fcec3d562a7dfac3c84",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_1_11",
+      "status": "unitarily_realized",
+      "tensor_sha256": "2b28c8278ab5a78db44104336714a412dd058b333077cbe86ec96f5bd1c02faf",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_1_12",
+      "status": "unitarily_realized",
+      "tensor_sha256": "b74a819f2b9b9ac19046c7ae33e4a62405b873e3c36f4621d8efd93a4d12bf20",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_1_13",
+      "status": "unitarily_realized",
+      "tensor_sha256": "4799c111c8490b6d564b7b691538b7d1086020e543f47c11705cc3376216eaa0",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_1_14",
+      "status": "unitarily_realized",
+      "tensor_sha256": "ff46869def2da6f9eb1155db80851d4aea0e0a96ed6fefcb14e3816c2ea5e7b9",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_1_15",
+      "status": "unitarily_realized",
+      "tensor_sha256": "6bd0009cd809b1a0f6d6c65861e7bb46ace9985d56b388a490e4611f8bc2f2f0",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_1_16",
+      "status": "unitarily_realized",
+      "tensor_sha256": "e16277b17fb10f3994338ad3828a872a642c328a1e03a2016f5ca6f98065854a",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_1_17",
+      "status": "excluded",
+      "tensor_sha256": "8bf77cd093c010e9f70d98950c42447a74739bc9321accd8f376a9d41a73b044",
+      "certificate_kind": "oriented_signed_sphericalization"
+    },
+    {
+      "id": "R8_1_18",
+      "status": "unresolved",
+      "tensor_sha256": "cdd3aa4477861e8521c75ac63cb0f9e4e5d0a021073d1619aae358a0850704f2",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_1_19",
+      "status": "unitarily_realized",
+      "tensor_sha256": "38af78bf046483a74950d6cf87d603af64cdedac3a92dfa122c298b5e7d4a100",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_1_20",
+      "status": "unitarily_realized",
+      "tensor_sha256": "0e2fa2d5e6ef2f8f91ae40144f9ae3a5e1fcfb13db1ffc8ac7707bfdf64bd365",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_1_21",
+      "status": "excluded",
+      "tensor_sha256": "4e50a8458947035f82d81eb2f20b339b88b51fb6c56a8ff7e297e5b359562fd9",
+      "certificate_kind": "near_group"
+    },
+    {
+      "id": "R8_1_22",
+      "status": "unitarily_realized",
+      "tensor_sha256": "a16631f404ff24bf0a2ed789f1d959fe665568eb68f00dfdcd55a22dce81f29c",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_1_23",
+      "status": "unitarily_realized",
+      "tensor_sha256": "db83867a1f253b79bc6b7e48dac7bc080ee129af65c75a0e941eb06ea8e47cb8",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_1_24",
+      "status": "unitarily_realized",
+      "tensor_sha256": "dfee87e6017e8b27ceb8ffae4e64c3a620bd492442f1dfc410cc8078233daa4b",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_1_25",
+      "status": "unitarily_realized",
+      "tensor_sha256": "9cd1a450605bf455d7876f6fcc8e0342d2c5fe6e42e0703912c46d8529ad6443",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_1_26",
+      "status": "excluded",
+      "tensor_sha256": "4e46b1eab158f18a0fc9d79317bf851a9f40a7ad9670967f9b484850bc4d714c",
+      "certificate_kind": "graded_brauer_picard"
+    },
+    {
+      "id": "R8_1_27",
+      "status": "unitarily_realized",
+      "tensor_sha256": "6b6ebd1fad141808d38877774fdd70effe90a86ae3e88664da55650722ee3c37",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_1_28",
+      "status": "excluded",
+      "tensor_sha256": "186b6cce401871757c3da1c4fde562eaf4f507c312e6b5fa5658a1817c05c50c",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_1_29",
+      "status": "excluded",
+      "tensor_sha256": "2f68033b856e4c4c4ca1d012ab586ef6b5a636be936cd8ac192bebcda417c032",
+      "certificate_kind": "solvable_equivariantization"
+    },
+    {
+      "id": "R8_1_30",
+      "status": "unitarily_realized",
+      "tensor_sha256": "b457a3eb2c23c080346c3bc0593a602b602b4f7d0bd231e203aaef7455b92a9a",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_1_31",
+      "status": "excluded",
+      "tensor_sha256": "d738c8c0b2c402395c48a69218e11219c5725f63ef405b4b7d7cd9827ac0e8fa",
+      "certificate_kind": "zero_spectrum"
+    },
+    {
+      "id": "R8_1_32",
+      "status": "unitarily_realized",
+      "tensor_sha256": "48fca2cf67c26a9033731fa8b0da5c2ec4e153761f43a45406fd79b08db10a90",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_1_33",
+      "status": "excluded",
+      "tensor_sha256": "1021399a88c2c9e80334c9e739c938f34f71959598668682ab667b73cd3c1fff",
+      "certificate_kind": "zero_spectrum"
+    },
+    {
+      "id": "R8_1_34",
+      "status": "unitarily_realized",
+      "tensor_sha256": "03be89fdc47af25f2598dd5349190624d735f2a2f00227e1ac37a705b60f073f",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_1_35",
+      "status": "unitarily_realized",
+      "tensor_sha256": "92346a4ab8ea920feffaa2591f8c167bc93e50eeea0b30fe8b765142038424c4",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_1_36",
+      "status": "unitarily_realized",
+      "tensor_sha256": "561ea09c9b9f3828ce0301be037cbd506bf6abdb6397aef856b537be5e69955a",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_1_37",
+      "status": "excluded",
+      "tensor_sha256": "475fa1e756b5aa8773437eaf0450e46b861bc32e766f0a9287561182b56895c1",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_1_38",
+      "status": "excluded",
+      "tensor_sha256": "0850cad5e6b36b3d7e4e44eb83179e43310f0fc4cabf393dbdb0eaf92e19f968",
+      "certificate_kind": "published_induction_exclusion"
+    },
+    {
+      "id": "R8_1_39",
+      "status": "unitarily_realized",
+      "tensor_sha256": "2d9c65923de2459c23b9e869ae3917d5263762149966ba79d1a234d3d88a9089",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_1_40",
+      "status": "excluded",
+      "tensor_sha256": "a30482fedd19fbfbe24a565e1ed3756fcc39f37aef6b0edb7adbad9a08fe976c",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_1_41",
+      "status": "excluded",
+      "tensor_sha256": "d94335082ff6086a0db25f420a1a15a5a3125f6186fb78bb3ee9572131420266",
+      "certificate_kind": "published_induction_exclusion"
+    },
+    {
+      "id": "R8_1_42",
+      "status": "unitarily_realized",
+      "tensor_sha256": "036f42c5f5f6faa55fda22bfc29021deaca7036ad9bf58532e5ed6abd283d783",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_1_43",
+      "status": "unitarily_realized",
+      "tensor_sha256": "e4e12bc2485c0f06a8bb483277adca68f35774fc4cfee4e3801ee557a06a3128",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_1_44",
+      "status": "excluded",
+      "tensor_sha256": "c8ec8e94fe96aeb48287eb42955d7e004c1c1f4660ed945293127d6b87b6ec47",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_1_45",
+      "status": "excluded",
+      "tensor_sha256": "74e79737e79b32872d42e4fc0682353f9cddbddfc9deade3af809bc32e158eeb",
+      "certificate_kind": "solvable_equivariantization"
+    },
+    {
+      "id": "R8_1_46",
+      "status": "excluded",
+      "tensor_sha256": "8fc9dd644d6f57e1b5f6fda00616184e9cc362c7a7a3b970e47e09ffa599c2ed",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_1_47",
+      "status": "excluded",
+      "tensor_sha256": "9d952522ffad851f76c50c1d52f8e222f7cf7b2dbf1f1bab8bfd12642095d16c",
+      "certificate_kind": "solvable_equivariantization"
+    },
+    {
+      "id": "R8_1_48",
+      "status": "excluded",
+      "tensor_sha256": "43f6dd612901ce4e0ef7fca6bccccedcf58d8014516077a3e57a6d29f583ea28",
+      "certificate_kind": "rank8_noncomm_dnumber"
+    },
+    {
+      "id": "R8_1_49",
+      "status": "unresolved",
+      "tensor_sha256": "a5cefbf544001818e1e5c6e5bde951601eaf35f3d71034a252df1b7de751ea85",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_1_50",
+      "status": "excluded",
+      "tensor_sha256": "912239135673d70b9cf889fb0e45a86a9ae5cfd067f7e0706de37416b3e951ee",
+      "certificate_kind": "zero_spectrum"
+    },
+    {
+      "id": "R8_1_51",
+      "status": "excluded",
+      "tensor_sha256": "8eedeaa5108770ba797a98856dd36711c930a5fcdc8d61e0caf8375164ef55fe",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_1_52",
+      "status": "excluded",
+      "tensor_sha256": "cf695ad3d4e4f1e40406d1096b433dac4a00d5dd2981a4ce5ffba1ff5e583af3",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_1_53",
+      "status": "unitarily_realized",
+      "tensor_sha256": "d5a84e5cf65e33f7d2b5519772741e664547db1549569bf9d67ee2774fbb208d",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_1_54",
+      "status": "excluded",
+      "tensor_sha256": "de0564b12a72cb4e20f7f1fa9cbe27966b170c027bb26ff65b06dac1e39efe20",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_1_55",
+      "status": "excluded",
+      "tensor_sha256": "90552d216aa9a1d3338dcd9fe266da1d12f816df0130e21a68d182b1caf34bf1",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_1_56",
+      "status": "excluded",
+      "tensor_sha256": "cdd2aaf99cc15da1903e5e85e264e6352537e4d191f84ca1e87f25c30b2deea1",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_1_57",
+      "status": "excluded",
+      "tensor_sha256": "0415c69a6bf3bd5b6842c4458b4acd3558e5714ec0f835cbd5d9d8cc8c4878e5",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_1_58",
+      "status": "excluded",
+      "tensor_sha256": "9764f4c8839b80241e6cf7b9b860f30bfebc5385de29d327cfb23a24080d77cc",
+      "certificate_kind": "zero_spectrum"
+    },
+    {
+      "id": "R8_1_59",
+      "status": "unitarily_realized",
+      "tensor_sha256": "47ce4b60bc10a5b4b504c49b618e0ebb8b413700164c8cae487cb69f242efb29",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_1_60",
+      "status": "excluded",
+      "tensor_sha256": "53ef5549a67862e4d03e5d822cd9ed575b1f5266ddb6433ce571c349ae678528",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_1_61",
+      "status": "unitarily_realized",
+      "tensor_sha256": "adedfa858caa9d8d051818e4be189b49e81fcd64dbd234220308598c0e530e9e",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_1_62",
+      "status": "excluded",
+      "tensor_sha256": "a6949b9827fefb462ff1ec6c25f8b0096a10566b8cb74204a8056102334f88a1",
+      "certificate_kind": "integral_drinfeld"
+    },
+    {
+      "id": "R8_1_63",
+      "status": "excluded",
+      "tensor_sha256": "24d89b379f96ab522a22e30b8d6f4f04f6cbb17a59247c48dc843e714a2afb07",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_1_64",
+      "status": "excluded",
+      "tensor_sha256": "e2992c2c1b905ddaba1e9770e917599b1849d2416cbd4410ef1f31562d18870d",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_1_65",
+      "status": "unitarily_realized",
+      "tensor_sha256": "59187509658d10091fec38474e0c49f385b3864ad70759b3273950da866c8063",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_1_66",
+      "status": "unitarily_realized",
+      "tensor_sha256": "d8147cadf55d7a37e8056280018e0ef31122b66284bbd51dd9f8738937261036",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_1_67",
+      "status": "unitarily_realized",
+      "tensor_sha256": "81f484cdeffc82ed1bac0e184d2dda6a69d909ce5b97f0a0f0487fb0f21916af",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_1_68",
+      "status": "excluded",
+      "tensor_sha256": "e7b3af54815a5e7d83a96ea722aaa199120723ff2010602d166260b8b5244ab6",
+      "certificate_kind": "oriented_signed_sphericalization"
+    },
+    {
+      "id": "R8_1_69",
+      "status": "unitarily_realized",
+      "tensor_sha256": "498ed5976ce1a16923f6e304c31fdfc594699bd99c5feb323c9a250f528a475b",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_1_70",
+      "status": "unitarily_realized",
+      "tensor_sha256": "6cdb04e28ee1a4d1ecfd3b94428b8c22d2bc3cd5f7faa1b2d81d4e6ce4b00382",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_1_71",
+      "status": "unitarily_realized",
+      "tensor_sha256": "dedb8c72dec425404e5894ed43eb5f821d458a9db4a44d66c1a9e1c64ab5915a",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_1_72",
+      "status": "unitarily_realized",
+      "tensor_sha256": "babd358142ab011347df9b26ea079984d7146ecf539cc9d5d3a8beebaf8d18a6",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_1_73",
+      "status": "unitarily_realized",
+      "tensor_sha256": "519d931799d44903d56efd720af68de705536c23e94bc54ee455eae5f644d3fd",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_1_74",
+      "status": "excluded",
+      "tensor_sha256": "ed4b88e4280482d9ba26912983a21fdfc2c2d9ac69cf1c8c2c7566396194725b",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_1_75",
+      "status": "excluded",
+      "tensor_sha256": "7319bcca6fdbd9c0c312e4515c0d3d6153546a825d1da43992441167ea4b3d3e",
+      "certificate_kind": "zero_spectrum"
+    },
+    {
+      "id": "R8_1_76",
+      "status": "excluded",
+      "tensor_sha256": "6f92c4626611e4606853b0f7128ea519abab6a4dfecd41dd31acb3793de64d13",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_1_77",
+      "status": "excluded",
+      "tensor_sha256": "29d4bedd3662caee040cc2b4152ba26f4ef95aa5ca3983713fb3069dcc67cdc8",
+      "certificate_kind": "zero_spectrum"
+    },
+    {
+      "id": "R8_1_78",
+      "status": "unitarily_realized",
+      "tensor_sha256": "2a4027260aa4cc9e9bb314ce8911ac8faa76425fae877e7132d45cc179e36b03",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_1_79",
+      "status": "unitarily_realized",
+      "tensor_sha256": "88a3ef9249ebdd92051298eecd5c2452a137c64b07b23d3f14e3cf8dfcb63d0b",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_1_80",
+      "status": "excluded",
+      "tensor_sha256": "f6b44798f051e0e7ed0afb339a9eb9d754d4a7f9004a8916347c214a32097586",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_1_81",
+      "status": "excluded",
+      "tensor_sha256": "2462b0bc5592407f798012c5966850cfd0ac033c71633a824a8121b4c77cbfe0",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_1_82",
+      "status": "excluded",
+      "tensor_sha256": "4b64d7c46cc2911c5f551e8f4238356858729f94031956ea0b74cccaf1d91f07",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_1_83",
+      "status": "unitarily_realized",
+      "tensor_sha256": "fbf36678312f6893d86b148f80991cc13b41393b26125b8d2f93d60cab5b8f80",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_1_84",
+      "status": "excluded",
+      "tensor_sha256": "64a41b4224f7c3fb4c39a6b89f699acb33232177f25d1b769612fda15c51526e",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_1_85",
+      "status": "unitarily_realized",
+      "tensor_sha256": "fa5de6cc127fc57e1aeb69dfa2e82bf107c34dcc4ee0bf94c97ef79d1da71fc3",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_1_86",
+      "status": "excluded",
+      "tensor_sha256": "d53dd3395c3200eb5b97c9af209932e34d3c49aa7a43fbd80a963ea868c67dcd",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_1_87",
+      "status": "excluded",
+      "tensor_sha256": "49a5520ae78b519bb748c262e83bdf9dd8e0a528676ee42bf5424bdc1700c521",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_1_88",
+      "status": "excluded",
+      "tensor_sha256": "8937813791d9bebf3006c57efc58e72de520c98a21ad50cde540d9278e0fd5a7",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_1_89",
+      "status": "excluded",
+      "tensor_sha256": "c71363031796f0362cfaf21f22552d619e8178f3b9ff6dbdbba08e495cfe451a",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_1_90",
+      "status": "excluded",
+      "tensor_sha256": "02acaffc176441d7c2af30043d010733e327dab41586e59ea4a6458344defef8",
+      "certificate_kind": "zero_spectrum"
+    },
+    {
+      "id": "R8_1_91",
+      "status": "unitarily_realized",
+      "tensor_sha256": "595fcf00863611a74b7cf04185ba2223cdfd3a57a3d5f766db6fec5a1cea5534",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_1_92",
+      "status": "unitarily_realized",
+      "tensor_sha256": "a2941dd16a34b70f304810370de00b5eae026723c8e33e33e922551106f4ac05",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_1_93",
+      "status": "unitarily_realized",
+      "tensor_sha256": "242db9a4dc5e9d512523852d560fbbe9a6fb3b56a88a983a80524b17b2748d34",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_1_94",
+      "status": "unitarily_realized",
+      "tensor_sha256": "f7266df3adf4bf80e408c8c4c148d387e52e1199eb4a41892a9dcabb23c34cb9",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_1_95",
+      "status": "unitarily_realized",
+      "tensor_sha256": "594c1eb2dcee388105f683ede23508ad644c727910d0b18d571cfa4dbc03a1e1",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_1_96",
+      "status": "excluded",
+      "tensor_sha256": "be9bc878d72c7cef6e5ae5a2fcd05720e1a62c78d91e01c5028f31d612c065c8",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_1",
+      "status": "excluded",
+      "tensor_sha256": "42239df73dbe3bede0466103f79ae5deea82d225c09873976174bcf36f228c19",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_2",
+      "status": "excluded",
+      "tensor_sha256": "6b907605b8197f1092ec9c3045f1d1587866281a4449e02bf113f8b3aa7fb9bd",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_3",
+      "status": "excluded",
+      "tensor_sha256": "08e2c2d68bbe1d01165b0baa57581e98acf3c8f0c32c506e0f59afee4a3f93e8",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_4",
+      "status": "excluded",
+      "tensor_sha256": "5a4b2c2b60d3d3c8e9455acb15c6c359db3de35cbc99ce4aa744a854d889b6bd",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_5",
+      "status": "excluded",
+      "tensor_sha256": "5094f5b547769fa64a462584535c1c1290e6a15ee9553485c2134be1e2c9751d",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_6",
+      "status": "excluded",
+      "tensor_sha256": "c867eba0671d20130ea8ebdf6c4a27703e29bd88ebf775918c4bc393aed62198",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_7",
+      "status": "excluded",
+      "tensor_sha256": "9dab50a6551e23c9cc36fead761037321eaa0ce241aec78f00e681538e6fd5ab",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_8",
+      "status": "excluded",
+      "tensor_sha256": "91ea30a0de24b839c87b787de81e7fc67bb85b24974858c88b2fdacc9593eec8",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_9",
+      "status": "excluded",
+      "tensor_sha256": "1469275bac3617a505277bc84c3b4b284efa4ab427363b4bbf395c7b490a698d",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_10",
+      "status": "excluded",
+      "tensor_sha256": "fdf43568c94e68be742b156af40ad1ed547e44f7d949d5af323e97ac6a46ddc9",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_11",
+      "status": "excluded",
+      "tensor_sha256": "1f8ff0c826b13eeea54efa6f10797368da0fe667e15ea776433d990778b559d5",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_12",
+      "status": "excluded",
+      "tensor_sha256": "15b304254f85bcc7a521f122e8d9d9ef796c19de910dab8f500c91ffa80a53d8",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_13",
+      "status": "excluded",
+      "tensor_sha256": "675c01ac575ea025839a3c5d30da41c32de7dd2f4751eabb432e059f9ec1a26b",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_14",
+      "status": "excluded",
+      "tensor_sha256": "a49e5ec73d10f788ed96b1b4a0e3b8d9a2545202ef1a8c9919b249dbe849fc0c",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_15",
+      "status": "excluded",
+      "tensor_sha256": "9bd864085191d75b21f4bbdbbfd735c3f2d022b1dff1b32a784d66ef0f90a24b",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_16",
+      "status": "excluded",
+      "tensor_sha256": "9ca9b1399e974e3adb88f53d69025971274d4e1c4f389fe614f8a00a93838190",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_17",
+      "status": "excluded",
+      "tensor_sha256": "655c69a98a812f9d91831bc04e5fa5a967e50881bc82da6afc4585553644e731",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_18",
+      "status": "excluded",
+      "tensor_sha256": "1cbad23cad6986d5af935681f950f7d6359352952ea5f406cd4ecf9e49b3eadc",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_19",
+      "status": "excluded",
+      "tensor_sha256": "c3b6b0b09b8927144cd51baa87a79ede4d08716b2b9d2dd8fd2c05729c3d5127",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_20",
+      "status": "excluded",
+      "tensor_sha256": "665106ac6a3eac22716df17e0a86f3b2e73579af92e373f9b1d8e26454678bf3",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_21",
+      "status": "excluded",
+      "tensor_sha256": "06c9ae4a471f678e5d5fae6bd4f0fc5d435e2eeae0980378ba89cec86fa02038",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_22",
+      "status": "excluded",
+      "tensor_sha256": "a8b8adf436bcda5d283062efe32eb805a78570819b022410371bea0816c2bb2e",
+      "certificate_kind": "rank_two"
+    },
+    {
+      "id": "R8_2_23",
+      "status": "excluded",
+      "tensor_sha256": "2203a48a028c52ae4d69e992d7b905fbe3aaeb923cd599ce87d8604078139ff1",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_24",
+      "status": "unresolved",
+      "tensor_sha256": "2b4780441d9590e8e7269cd82b7675aa75cec11c39bd3e94bb372cca1ada6738",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_2_25",
+      "status": "excluded",
+      "tensor_sha256": "00d7e8595414c56445f8bcabafe03e166966bd4bf51b8b0f6e40a6f088d3f937",
+      "certificate_kind": "oriented_signed_sphericalization"
+    },
+    {
+      "id": "R8_2_26",
+      "status": "excluded",
+      "tensor_sha256": "b288dd19cccd906b71b31c4b1fe81ded91c77648924d1b57ed1b8d9ae85d2ca9",
+      "certificate_kind": "oriented_signed_sphericalization"
+    },
+    {
+      "id": "R8_2_27",
+      "status": "excluded",
+      "tensor_sha256": "acb77690cd719f1f415661cc72dcb03a5dd537bf902281c6ad20d4c1e6d75de9",
+      "certificate_kind": "oriented_signed_sphericalization"
+    },
+    {
+      "id": "R8_2_28",
+      "status": "excluded",
+      "tensor_sha256": "d14462883e17493f9b6bd3868075947719d91d42259a791f75610e65fd3291e2",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_29",
+      "status": "excluded",
+      "tensor_sha256": "8f3ccdf6468bb11e48fc59731aeb857276611bd087cb20d988e8f3f4ec4cf9b9",
+      "certificate_kind": "oriented_signed_sphericalization"
+    },
+    {
+      "id": "R8_2_30",
+      "status": "excluded",
+      "tensor_sha256": "f43cbb190b97e75f3c3fb7f41f6bcc8bee10bce7713759f9acb99e1cdda27e08",
+      "certificate_kind": "oriented_signed_sphericalization"
+    },
+    {
+      "id": "R8_2_31",
+      "status": "excluded",
+      "tensor_sha256": "155949c011d43e825a9e8d92941378347b09f438c28710167ead58ae51640666",
+      "certificate_kind": "oriented_signed_sphericalization"
+    },
+    {
+      "id": "R8_2_32",
+      "status": "excluded",
+      "tensor_sha256": "84b1fe7601ddd85f5ff3424d33640e302cfedf658a04dea4c24aaabe5644d7a3",
+      "certificate_kind": "oriented_signed_sphericalization"
+    },
+    {
+      "id": "R8_2_33",
+      "status": "unresolved",
+      "tensor_sha256": "7a97e02134591a480adaa70aa8c938366c7406db000ac258a9502822480365b9",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_2_34",
+      "status": "excluded",
+      "tensor_sha256": "a9e24117d1ae29bff59532bcb685dddcd2bf0fa59188244ba5786d3b2b5aaeda",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_35",
+      "status": "unresolved",
+      "tensor_sha256": "a8d7e8dea9b085e12af44d01fa32ca6d6226ea7f5121929f2301862b9af98758",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_2_36",
+      "status": "unresolved",
+      "tensor_sha256": "0f3439764ab3cf628490ff0427eee015eede38b83165a1413c93349b97240249",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_2_37",
+      "status": "unresolved",
+      "tensor_sha256": "1cfa463b5ec59daa44cc51752a6a58ea5378684a46ab7ee72147ab69153d5f6a",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_2_38",
+      "status": "unresolved",
+      "tensor_sha256": "48dca764c064d7e6b981902c5bb1092e49138eb6353f49b531eb84dccfba3fe4",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_2_39",
+      "status": "unitarily_realized",
+      "tensor_sha256": "0e9b85072acea8dbee8095f365279fbe6b4c2db116e6979d1583ae402244fdfc",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_2_40",
+      "status": "excluded",
+      "tensor_sha256": "2ce4b13aa4e0279a7b6c977502ba4be217fa97c10374380dd400164bea06410d",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_41",
+      "status": "unresolved",
+      "tensor_sha256": "704bdd026a18cf4583498e33f786cacf4f63786ad5d403a71d958d9bfd49ea9e",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_2_42",
+      "status": "excluded",
+      "tensor_sha256": "331ae8e5c48ae6baecb031abc9cf1e0f23dc0569791718dafb8e1f9e830e9b26",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_43",
+      "status": "excluded",
+      "tensor_sha256": "eba6c21640f4c92e2fe43240fe189d61dd28bcb7a840e4d546021e91c3efbae2",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_44",
+      "status": "excluded",
+      "tensor_sha256": "bc66132ca84e48e54a9dec5b426cd99f723101f09976d4c0a63bdfe7018b763a",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_45",
+      "status": "excluded",
+      "tensor_sha256": "07d99efb9826a82e82de741260d8c0817ac21c8f1eb8b8b0503f91182087ddde",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_46",
+      "status": "excluded",
+      "tensor_sha256": "0df2958bdae2b7497a92835d73d5fb553f500e6f846d60804816168a68680ef7",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_47",
+      "status": "excluded",
+      "tensor_sha256": "cb5970ac0ab26d601970b484ba2ed6bb3a9c7a6b00a43402596b6ccc69f65d09",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_48",
+      "status": "excluded",
+      "tensor_sha256": "df465b34ae545f748e42ebc62b7a35cef0a8f978c273123fdba7d646510d896b",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_49",
+      "status": "excluded",
+      "tensor_sha256": "47de4d8598a983dc1782b4535fa2708ad6bd8c199bcec7fc092975bc8f6fd3d9",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_50",
+      "status": "excluded",
+      "tensor_sha256": "f7a60da4bf4f9bafbbef2da6e3cd0578a2e0e64db05564820842f73ecd573c44",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_51",
+      "status": "excluded",
+      "tensor_sha256": "f01f7392c4b662caec91eed46188b53a21f7e92cbc2c6018cf9d0a8cebd6c876",
+      "certificate_kind": "oriented_signed_sphericalization"
+    },
+    {
+      "id": "R8_2_52",
+      "status": "excluded",
+      "tensor_sha256": "4d636985e13a349c5ff895156054f9421f675daaf7fc65e0f61d8feadad66200",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_53",
+      "status": "unresolved",
+      "tensor_sha256": "c854d300bf56c852309548b10f2ce8f493da94334b5a2599ae333973b08e9714",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_2_54",
+      "status": "excluded",
+      "tensor_sha256": "8f6592855eaf3034b5e4e387ed95f4803339b00df6e1f2a97f7cb8219ff41214",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_55",
+      "status": "excluded",
+      "tensor_sha256": "f95e3125f7c2995b1c75f22899d824c1a47b0b545bfac0fc3e36b91a1cd01956",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_56",
+      "status": "excluded",
+      "tensor_sha256": "cc22a010d2860c065f12b1decdf23fe83b77e6bd62d7afe268751f9b882e4602",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_57",
+      "status": "excluded",
+      "tensor_sha256": "02e3d3b091cf866c2036f48c46fc3923730e067e3aa965c0350b09f6b5d1c3e6",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_58",
+      "status": "excluded",
+      "tensor_sha256": "2b01bf13e2773be0c5f7c9803f4b7686188212c49b61ed92009ca184c50d5d35",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_59",
+      "status": "excluded",
+      "tensor_sha256": "2a6604c6c3fe783f8c9fb1f38a961345d53df01b6fcd6575dd9b6f967c9fb1dd",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_60",
+      "status": "excluded",
+      "tensor_sha256": "a95ca6d95f40e7c7c135d79200a9abf250de7c1040323bcecc69eaa65d8cf5e6",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_61",
+      "status": "excluded",
+      "tensor_sha256": "6fc91f09295dc51d05fe6fc923d252ed81f251d265c379dd9fedbbb7c7fdb5eb",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_62",
+      "status": "excluded",
+      "tensor_sha256": "2baa35112430c492c744519548763f9ec54b1ef0df69ac9b90f2b6af68199cce",
+      "certificate_kind": "oriented_signed_sphericalization"
+    },
+    {
+      "id": "R8_2_63",
+      "status": "excluded",
+      "tensor_sha256": "ba03a0cfcf9bf70ce5309af1fbd931be23b19882bb846e1378fad69ca1acc66a",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_64",
+      "status": "excluded",
+      "tensor_sha256": "dd4da1b5e6f3eb021e857fc50c99eed624a5df3ac58cf40fd91bae9ece5e4632",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_65",
+      "status": "excluded",
+      "tensor_sha256": "e73e83320b4e84a067ec63995727a6bcc68b071ba86550cbe0f55bc25b4176e1",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_66",
+      "status": "excluded",
+      "tensor_sha256": "2023efeb4ec75733930f974b03cbad732c78c0448b82088241afbb29e43d4e9c",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_67",
+      "status": "excluded",
+      "tensor_sha256": "6ef67ce681f86375e782b528416f86ddee5c98db836302bd928d6102776c4bfa",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_68",
+      "status": "unresolved",
+      "tensor_sha256": "cb50c3a33fcb9e9c9e578be70876be4a02ee219e458aad6138ebd8a62a56af1f",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_2_69",
+      "status": "excluded",
+      "tensor_sha256": "0b957c0f1b20fe724cefb3c61bf8052ba710fe48a4a774f2c4db912e721b6ed0",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_70",
+      "status": "excluded",
+      "tensor_sha256": "69907c37206054637cae5953e6b0e6770ad1af65927f895dfcdb8ff45378ba01",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_71",
+      "status": "excluded",
+      "tensor_sha256": "ba5206b501897c7a08bbdbbc8afb07b1e90fc792b5ecfe872e0642281504b688",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_72",
+      "status": "excluded",
+      "tensor_sha256": "049301beb0ccb0abac7a166a198487138e176310bccdb7dd365c0654ce17a4cf",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_73",
+      "status": "excluded",
+      "tensor_sha256": "b4b92acdd085845652be0edb365bb04e831b2d15fe4aa1569a711f2dd04f6057",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_74",
+      "status": "excluded",
+      "tensor_sha256": "ec5a27758d0621afc52c79814362dcfceb5aad450b7bf5e958daf40756f68e85",
+      "certificate_kind": "oriented_signed_sphericalization"
+    },
+    {
+      "id": "R8_2_75",
+      "status": "excluded",
+      "tensor_sha256": "56e3d87284859abdd85f1b36c550e3bc674c1d6dc801435444f034dafde19258",
+      "certificate_kind": "oriented_signed_sphericalization"
+    },
+    {
+      "id": "R8_2_76",
+      "status": "unresolved",
+      "tensor_sha256": "e633ff711a4d5bb15555d0b0ca78d810e9aa0e2e2a1b9336020d15e494303c5b",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_2_77",
+      "status": "excluded",
+      "tensor_sha256": "ac18c251a261e636daaf4d2cec0efb5bb1d8c90ee6129bc33e8a342a3ca686bf",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_78",
+      "status": "excluded",
+      "tensor_sha256": "57cc7c0c281f0ba6b2ca92417f11e2fa73df6a188e64459a1e50d49b780c36b3",
+      "certificate_kind": "graded_fiber_functor"
+    },
+    {
+      "id": "R8_2_79",
+      "status": "excluded",
+      "tensor_sha256": "a368d62faf2cc8bafa27b79eeaf90114cfb2a066a527b3784eec771d9dd29cc2",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_80",
+      "status": "excluded",
+      "tensor_sha256": "1b32edffe849694b958d3f8d59073b6e74cc9179efa054c809b4ca25865e4da2",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_81",
+      "status": "excluded",
+      "tensor_sha256": "a2fefc073a0afff3b707d111976cc9ceead0f21d05b7945b06337ab6ea9c0354",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_82",
+      "status": "excluded",
+      "tensor_sha256": "42d2b71c5a458a9f032f8b2dd7f4d27f1a0a1a9614545cd1c55bfbf7eccf7496",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_83",
+      "status": "excluded",
+      "tensor_sha256": "9472394fdbfa27694486a53c0ca6e9d8969a02391e35923777c901b54dbf74cb",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_84",
+      "status": "excluded",
+      "tensor_sha256": "7564142223b9c93989b138b564eeba793ad9ec3d79bb16f14ea77cd571dccb89",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_85",
+      "status": "excluded",
+      "tensor_sha256": "b35fb31b7ec218642466b1a890422adb849b39277ff612538e4f465348d5ef58",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_86",
+      "status": "unresolved",
+      "tensor_sha256": "5bbd75fabb5ea9fd89c5f51e4e8cef3b5387a3a93113b49692615fa81b7eb0d0",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_2_87",
+      "status": "excluded",
+      "tensor_sha256": "91a1bbcd61565f87907b7a8649fcf0ded91b90a554a71d6a4a493a1a5412dafe",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_88",
+      "status": "excluded",
+      "tensor_sha256": "e7c233f5b9b02c2bc21061f123b81296f399db65a7c4fa9160e3461ccd85942b",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_89",
+      "status": "excluded",
+      "tensor_sha256": "0a919cad2960262d49debcf80b85014fa99377f8f33d8e74eb2656368c1a34ba",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_90",
+      "status": "excluded",
+      "tensor_sha256": "9bf4727fffbb4ae1380caa8ac9e70198bb865f86a2b16da9024aedc666804368",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_91",
+      "status": "excluded",
+      "tensor_sha256": "b8099d76f1700edb0d1bd06a15565fd9eb66968cee502525c62027dc80c0994a",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_92",
+      "status": "excluded",
+      "tensor_sha256": "d1d29e016d3f50ec98c456665bcd37a6e634dd6815fea2ce7791f6e1e9718d2c",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_93",
+      "status": "unresolved",
+      "tensor_sha256": "849670cc001125d962cd485001911a882613de081ec742af3c30f9420be8e400",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_2_94",
+      "status": "excluded",
+      "tensor_sha256": "ce1790b9f606a4b99d36a4a38c2f5370438891806a8e06f5c3a175d44655b92e",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_95",
+      "status": "excluded",
+      "tensor_sha256": "de6251551c520433a3a3fb702d09c5ac53b3d2882ad2bf5e604adcdab5d2986b",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_96",
+      "status": "excluded",
+      "tensor_sha256": "1e0ae679a8921390ed3a1fed5fb503b7b2accddd691aab15f5165092aed3fb9a",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_97",
+      "status": "excluded",
+      "tensor_sha256": "01c9c1c6a1ffa881c21ca33495cf0199c9740ff0ef018b2fc5ba4f580b229828",
+      "certificate_kind": "oriented_signed_sphericalization"
+    },
+    {
+      "id": "R8_2_98",
+      "status": "excluded",
+      "tensor_sha256": "5941488ee2babccaddd8a391890eb2d9c5ec51f469a403669df0f6e11686bfc0",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_99",
+      "status": "excluded",
+      "tensor_sha256": "a689bb001b3c1e9f7a186ec639f0777f539ed3b1dc7e0026466f769ad8c3c9db",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_100",
+      "status": "excluded",
+      "tensor_sha256": "bdf76cb88547bf86f9118f8e6983ed9bf0d691b9b94c7ee77a08196379d2f049",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_101",
+      "status": "excluded",
+      "tensor_sha256": "57f1cd6fdf70d8daaebf8b03b563756c9661ddd62fb6a432f42261c3029be307",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_102",
+      "status": "excluded",
+      "tensor_sha256": "a9232cd37615d6009fe6073dcb628a352597453d21fdddc9b3b3ba5555dbfc08",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_103",
+      "status": "excluded",
+      "tensor_sha256": "538de5f7b36fe2a2067e0eb1ed5050898fd571706b7a15543aa58039a8f8c0ac",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_104",
+      "status": "excluded",
+      "tensor_sha256": "3c131a612540faf512d89515174b3a106d07b0c5e7aba2dc33ae284c559dda0c",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_105",
+      "status": "excluded",
+      "tensor_sha256": "e897720fe4872ae136ab167930706a6077e0a473927b64c63f8a28bb1e44ec0b",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_106",
+      "status": "excluded",
+      "tensor_sha256": "a7fdda331fccf39b84ab464e36c60bb0982b51def50756b272a538da0720c91f",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_107",
+      "status": "excluded",
+      "tensor_sha256": "f13b89b1c7f44c309e8972ace10307bc6509b30cd287509ecce4be393c3eb4de",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_108",
+      "status": "excluded",
+      "tensor_sha256": "4dd26293cc4538614d79dbb2cb6a4977503e1d31b7fd7b71b5101f53ca5612cf",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_109",
+      "status": "excluded",
+      "tensor_sha256": "23773825b3eb41f4f090562e44900f6d7c77dae72bba84b53884355d8685ea0f",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_110",
+      "status": "excluded",
+      "tensor_sha256": "7d0897bc1413863512b4bd0eb0f466d9bbd35772f20554ee9adfb9fdaece5be7",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_111",
+      "status": "excluded",
+      "tensor_sha256": "2e9edede60b23434992fd803946b786336dc4fd73ff7b0cbdbac6de80ffaf91c",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_112",
+      "status": "excluded",
+      "tensor_sha256": "fd3b1a387a6b8586466385c28a6cc6d957cce06433912aae4cb802386e311d99",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_113",
+      "status": "excluded",
+      "tensor_sha256": "e9d962571adc73cbc6a22dae113ffd5c64732c85d0a0da358c10cb40004f48a6",
+      "certificate_kind": "rank7_certified_subring"
+    },
+    {
+      "id": "R8_2_114",
+      "status": "excluded",
+      "tensor_sha256": "7bc0aa09c05e40396d2e0753681657176ef329a7fe4571029d601982c692c5c5",
+      "certificate_kind": "rank7_certified_subring"
+    },
+    {
+      "id": "R8_2_115",
+      "status": "excluded",
+      "tensor_sha256": "63df9d06dec5c836fc6633cd8ac470a66716a57558b4d27a733302bc64e97a63",
+      "certificate_kind": "rank7_certified_subring"
+    },
+    {
+      "id": "R8_2_116",
+      "status": "excluded",
+      "tensor_sha256": "280a1c5dd0a3eed8cd7afd41245514305313daa58f5b2ae8d36a935a3c12c673",
+      "certificate_kind": "graded_brauer_picard"
+    },
+    {
+      "id": "R8_2_117",
+      "status": "excluded",
+      "tensor_sha256": "99c25491406964699c8916a4abf4be1ddacb8f97304c810c4716162f6a247ee8",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_118",
+      "status": "excluded",
+      "tensor_sha256": "412797a211d6b5d5654eaab7a9bf9ec859d3ea2e3b9b31157d7c03634221c952",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_119",
+      "status": "excluded",
+      "tensor_sha256": "ad9dd0e456bae1ab1b2739d356adaa74e42c2f0b560fd11a605bab1a9b18d526",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_120",
+      "status": "excluded",
+      "tensor_sha256": "1a5215c74d5294809d40c44cb7cf973043755145efae405ee838554696c0a15e",
+      "certificate_kind": "oriented_signed_sphericalization"
+    },
+    {
+      "id": "R8_2_121",
+      "status": "excluded",
+      "tensor_sha256": "2929b7a3500501f14fcb5ea20b8760a9dac3f35171376c04b7ba9557091a6577",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_122",
+      "status": "excluded",
+      "tensor_sha256": "72eead3b90a192e7f0c029cecd85cd58b8860f1a9ea684fa87fe335ecff1ee6c",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_123",
+      "status": "excluded",
+      "tensor_sha256": "85b0e2d8c847d5f07cca7fd100b9eacbc2f54171bd6890575a6453464886dcbb",
+      "certificate_kind": "rank7_certified_subring"
+    },
+    {
+      "id": "R8_2_124",
+      "status": "excluded",
+      "tensor_sha256": "14ff6c22b38719d3a7ceb7046e07af9818ea469be5b2f606ae5e543e4648fdfc",
+      "certificate_kind": "rank7_certified_subring"
+    },
+    {
+      "id": "R8_2_125",
+      "status": "excluded",
+      "tensor_sha256": "c93bc6f037c7148c32917c6366f7d6efe1337fe60996c94d5c26ed40e0244183",
+      "certificate_kind": "rank7_certified_subring"
+    },
+    {
+      "id": "R8_2_126",
+      "status": "excluded",
+      "tensor_sha256": "b9b5f4226b2f05d7499d436cf26331d35e6a4ac1d0f6bdc0034392718dc76ee6",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_127",
+      "status": "excluded",
+      "tensor_sha256": "56d1d59514b97a90b4419e016e96c4b1205bcf2dfbb13f11424ec913a5bdd0c0",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_128",
+      "status": "excluded",
+      "tensor_sha256": "6c19a1ee876569ab341a4fa9e7430f08bac5d50162b2ecb4b2d8ebb9c4a2c053",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_129",
+      "status": "excluded",
+      "tensor_sha256": "07615ace155c10e5e0cb3c46dee3f4fd2b4c133065391626e9bd147798c7526e",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_130",
+      "status": "excluded",
+      "tensor_sha256": "1e79d0231ff801587cb27ae00790bc953a183522cab3de4e2d4f9719229f49cc",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_131",
+      "status": "excluded",
+      "tensor_sha256": "d2a666cc6c2e827d3be40cfa3488f214855b960c0938c0be06bd131fa60e9504",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_132",
+      "status": "excluded",
+      "tensor_sha256": "73f0e118b1f1c610778c7a252819f31ac07085914956c526995c2847ab43c0a1",
+      "certificate_kind": "oriented_signed_sphericalization"
+    },
+    {
+      "id": "R8_2_133",
+      "status": "excluded",
+      "tensor_sha256": "d277c32bc9df6e5ab445d6fa91c2bf9f337b9af4ab9e7bb318948c602757f08c",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_134",
+      "status": "excluded",
+      "tensor_sha256": "2e0442db12f40b644f651847dcdd44ce1526860d1761ffcf0586c0dec503d7c3",
+      "certificate_kind": "oriented_signed_sphericalization"
+    },
+    {
+      "id": "R8_2_135",
+      "status": "excluded",
+      "tensor_sha256": "98c4a2cdf09ad10756b0daee0edefe4d1beb505e88415dd80bc98e009defa680",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_136",
+      "status": "excluded",
+      "tensor_sha256": "941f55d38d135f39febbcdd752fcb27e73667ca121e13dd6132041fc9a37c265",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_137",
+      "status": "excluded",
+      "tensor_sha256": "1d829fcd2804fd83109a2763af8ad6e4cf2f6577463cb1e333d23829aaee08a5",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_138",
+      "status": "excluded",
+      "tensor_sha256": "b8acd148e37bac2dcc9f023cb24114e620f701e55eaca9f8eea140534dff52ab",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_139",
+      "status": "excluded",
+      "tensor_sha256": "ea1f01990f84205b75b84878cc935ab7de5c7f608572d508ffd5ba8f50de6188",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_140",
+      "status": "unresolved",
+      "tensor_sha256": "8f15ac0fb6fbea1e5bd290a7fec8e88123a2510685307cf8aea1469405b6b3c8",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_2_141",
+      "status": "excluded",
+      "tensor_sha256": "591cfce0f6f529488ba093f48f5973ce2a57b801a996b637f03dfd8d9c66cfec",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_142",
+      "status": "excluded",
+      "tensor_sha256": "fa07f84ca5e5a7822d2ee46bfe346fe5df8c6c42f8d9374cf1fc094b7eb9a42a",
+      "certificate_kind": "oriented_signed_sphericalization"
+    },
+    {
+      "id": "R8_2_143",
+      "status": "unresolved",
+      "tensor_sha256": "156359d8e7e0b8c8bfde3072f1617352f1f2c72b29298a1ad7cbfaa77bb866f1",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_2_144",
+      "status": "excluded",
+      "tensor_sha256": "5078bb3187abacda21acea33e050620a8b2282f5f1c3ab31ba59684ab3a7e60d",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_145",
+      "status": "excluded",
+      "tensor_sha256": "89074356a91b49c7af535e6ca6795a54fae6bfae3192265930a01e5b01f0caf9",
+      "certificate_kind": "rank7_certified_subring"
+    },
+    {
+      "id": "R8_2_146",
+      "status": "excluded",
+      "tensor_sha256": "1c7c896609e3a7997a8e5f449809b79a279476014b09a631790fe13afb4f54ee",
+      "certificate_kind": "rank7_certified_subring"
+    },
+    {
+      "id": "R8_2_147",
+      "status": "excluded",
+      "tensor_sha256": "99b79200ec86c1157f9882fabc0f6f93bbd83f1486a6defe37a16b1c52f9f386",
+      "certificate_kind": "rank7_certified_subring"
+    },
+    {
+      "id": "R8_2_148",
+      "status": "excluded",
+      "tensor_sha256": "dac29a7a7f5609b9d2b1e5b474b0669fbf9d340934c61ae2f2e3a69cc08d78ba",
+      "certificate_kind": "near_group"
+    },
+    {
+      "id": "R8_2_149",
+      "status": "excluded",
+      "tensor_sha256": "d017e0ed99f7929a43057d7192d12dc55eb16d67b7519b0f4a5d851c3b7373cc",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_150",
+      "status": "excluded",
+      "tensor_sha256": "5408a8480aaaa8ae8054994b7983e286598430ed885d181c212307d09c6de145",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_151",
+      "status": "excluded",
+      "tensor_sha256": "4bc88436a160662880352472d5e1d58465d537d6e814cd34430fd011ec361200",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_152",
+      "status": "unresolved",
+      "tensor_sha256": "0523e0c3e5986b3d8fe8b15ed4ef0590d2fa89dded0211546a6baab77dd46e9b",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_2_153",
+      "status": "unresolved",
+      "tensor_sha256": "bf4adfa05928a50f367117be3a10f1435514254eefd8b55b4d2030c0930c179f",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_2_154",
+      "status": "unitarily_realized",
+      "tensor_sha256": "e982329bc6d0a84609764690b6f9c49f641cebe49537ea20dc4253579f329745",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_2_155",
+      "status": "excluded",
+      "tensor_sha256": "87777eaa17f54a66888d2e08bfc09c638a39873fc77595b63088f66d6aa76d0b",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_156",
+      "status": "excluded",
+      "tensor_sha256": "7b711d927790175a2ba42ec8723ecd5744b6e9a44a66de378358dc7271b85666",
+      "certificate_kind": "oriented_signed_sphericalization"
+    },
+    {
+      "id": "R8_2_157",
+      "status": "excluded",
+      "tensor_sha256": "f9aa0471f2af45bada44afb31ae22665656639f65e7143e587cd0a400be81483",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_158",
+      "status": "unresolved",
+      "tensor_sha256": "e40b4f771788adea8d5657f12ced0f46cdbb910b58563e32bbd6b7746995d134",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_2_159",
+      "status": "excluded",
+      "tensor_sha256": "a7601b133b04a87935a037ecda9e6c719e9bfd02c87dd245a4a29d12e24bf9ed",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_160",
+      "status": "excluded",
+      "tensor_sha256": "a956be5fe482d4a9c1d3d42d30183c066667ebc6098de9c373e7480d4606efed",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_161",
+      "status": "excluded",
+      "tensor_sha256": "c94a36bea3c058124bb41f30b4d895d1eddf19ed2761c678d343fd3de64f4cab",
+      "certificate_kind": "zero_spectrum"
+    },
+    {
+      "id": "R8_2_162",
+      "status": "unresolved",
+      "tensor_sha256": "7bb0e3c5f37aa9e158efa0e327cc2962c88e0c47f211f9014d4f502e786f71e1",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_2_163",
+      "status": "excluded",
+      "tensor_sha256": "2b7fddd7702252532f09f886d635757ee0311ac07eaeb85e42c46f105f4fa002",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_164",
+      "status": "excluded",
+      "tensor_sha256": "cb2e61989b363789848cff34552b25465492d3271584902376d566cae95927ad",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_165",
+      "status": "excluded",
+      "tensor_sha256": "1623754389a816da864a2b949bb48003ddf1a14f5a54000432b9f3fc530ee955",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_166",
+      "status": "unresolved",
+      "tensor_sha256": "733921bea67078b3e389e30ff084194bef79995cdfd1698c7249ef087891e197",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_2_167",
+      "status": "excluded",
+      "tensor_sha256": "d7c80bb0da68c7f6c071f2300fc46b838cc8572b9c27943d351b3dac64f06374",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_168",
+      "status": "excluded",
+      "tensor_sha256": "39014e9a825d42c9eb0fdf92158702b1a5e19f4bafd8d12b989e9fc52f56f7ba",
+      "certificate_kind": "graded_fiber_functor"
+    },
+    {
+      "id": "R8_2_169",
+      "status": "excluded",
+      "tensor_sha256": "5c1875246f4d06de9ce931813c26265aaa3ce90382c926b69a0eb42b8cab701f",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_170",
+      "status": "unresolved",
+      "tensor_sha256": "78c260875e85e75fa8689dba58a9c5225942228315e25da354ad3da8b4bbf06d",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_2_171",
+      "status": "excluded",
+      "tensor_sha256": "2fbcc06ee44e832e03e30f5a2dd923996d3124b3e3d08e45e715b60164d655a1",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_172",
+      "status": "excluded",
+      "tensor_sha256": "eecada24a126331038c5c4beee065f7191087b3fa6f45255cde83f5256630c7b",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_173",
+      "status": "excluded",
+      "tensor_sha256": "39fe0168d5a4687e120aa4775c978e32a8b35048a566ace40277c211f70c06ac",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_174",
+      "status": "unitarily_realized",
+      "tensor_sha256": "86154f393a7e968abeecb2f6d91a5af9c92c6abaa0f90adfd3e2518a710b3b16",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_2_175",
+      "status": "excluded",
+      "tensor_sha256": "ba54a319dcd12fb48decd4e075993497cbf52d345b20f56afbaa6f5d3a968d1f",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_176",
+      "status": "excluded",
+      "tensor_sha256": "439b43ee72f5ad2731157a9fa358426ba89f61097abac3e381fd501ecf99464b",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_177",
+      "status": "excluded",
+      "tensor_sha256": "2ac786fc1332437ac621444bcc4e14c13960ef9da396fe430b9aaaf90200ebe5",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_178",
+      "status": "excluded",
+      "tensor_sha256": "38e38f5cffc913b11aca77babfb2ce18a3b909709cc3e07cf43c5b36d58388e8",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_179",
+      "status": "unresolved",
+      "tensor_sha256": "6e93639cc5cc09525e70058ef330a234aa53d4eafc1af64b744cdec9f509a065",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_2_180",
+      "status": "excluded",
+      "tensor_sha256": "8613a466a986d9e9cbecf403b96acbfe09d71928862531553c9eb8c3dad3a490",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_181",
+      "status": "unresolved",
+      "tensor_sha256": "25a8efc49fb00de158dc514c89e25419c7c88882bcf71084c64c0f63a03e3fda",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_2_182",
+      "status": "excluded",
+      "tensor_sha256": "a3c10021dde3bee1f7d60d9c4726fd8b93851e4749e59401db9cd1e7dab6667c",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_183",
+      "status": "excluded",
+      "tensor_sha256": "372bcc0e265c4e4b298f809515aa117164b8c731e4f36c6ac9b8557d84d602ef",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_184",
+      "status": "excluded",
+      "tensor_sha256": "3cdb12721db457beda5a5ae6a9af434930b22a7d377e11fc0815b716b74b7ce2",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_185",
+      "status": "excluded",
+      "tensor_sha256": "1460b1d46188bef3aeef675ae941d18af4cd168e651baf58200f6b747d8e20a3",
+      "certificate_kind": "oriented_signed_sphericalization"
+    },
+    {
+      "id": "R8_2_186",
+      "status": "unresolved",
+      "tensor_sha256": "cb841391f1200cc9b22d5d265e35e986449b053fea3878344b1d084097c2d7e3",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_2_187",
+      "status": "excluded",
+      "tensor_sha256": "d86c53440fd6a0fe5d3cc41ec15e2369f277a7477c2d2a6941bc4a29b1efc614",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_188",
+      "status": "excluded",
+      "tensor_sha256": "3b2fb954875b1eb4750940805574ca4540f54834ec7ee3e80c1b0a820be6a7da",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_189",
+      "status": "excluded",
+      "tensor_sha256": "60aed12e5e87e56ed0a2cb3983450f3d1c7241fb032ce25d1c7586bda4689933",
+      "certificate_kind": "graded_brauer_picard"
+    },
+    {
+      "id": "R8_2_190",
+      "status": "unresolved",
+      "tensor_sha256": "ef368ba29ddc183f215145eb6a50ead0655e91afff2d3e844f918c6d2a91d867",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_2_191",
+      "status": "unresolved",
+      "tensor_sha256": "6b53b02a4e317a69bd7cabdb8808d15b42570bbca9f1be026d1a116a4dc7a643",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_2_192",
+      "status": "excluded",
+      "tensor_sha256": "ec3ed667f44d2d4066fc6fb7c0c35cf6dd2f436dc5e6435b9dc1f3ba974283b3",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_193",
+      "status": "excluded",
+      "tensor_sha256": "54c87c0ec7dcf8913bd310b374c881af43275da52ba6c85746b14c370bd65ce0",
+      "certificate_kind": "oriented_signed_sphericalization"
+    },
+    {
+      "id": "R8_2_194",
+      "status": "excluded",
+      "tensor_sha256": "7311e9436cd58955b5e85c7a2e6a6e87edd9980cadbe616aaff685254b35d995",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_195",
+      "status": "excluded",
+      "tensor_sha256": "ea129b14492d21726ec20e9f071748caa2458d6318d0e23f1b63f8aa49ebc35a",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_196",
+      "status": "excluded",
+      "tensor_sha256": "b7202d44afb398c8699d907e45720b21596ad6721835ada2a2d966ca8304eccb",
+      "certificate_kind": "zero_spectrum"
+    },
+    {
+      "id": "R8_2_197",
+      "status": "excluded",
+      "tensor_sha256": "acfea9ce3c21cf5f8962dcca0b0ccdc2e9dcff7850dedba271792083f3670503",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_198",
+      "status": "excluded",
+      "tensor_sha256": "d1133d0a3e15541f0105ef2837ea2d635b6c3bf394b3569a01c31b145bddd3b2",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_199",
+      "status": "excluded",
+      "tensor_sha256": "aa8a220e85e4f901a023788c0a33be595d258bac6cfcf5bf9a35624be8d0ce27",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_200",
+      "status": "excluded",
+      "tensor_sha256": "8e64790a858e31ca4ed544fb3a24992010bc7a740df4d65fe0e74ca252fcb29d",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_201",
+      "status": "excluded",
+      "tensor_sha256": "c10ae50a62e5b5d4ffd19720eb0edcbe33e9f86514e42bd7cc66eea6a43e8441",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_202",
+      "status": "unitarily_realized",
+      "tensor_sha256": "a18f3462b805591e9e071ca8d52a3d2e79117fe869f3299cb53e348566dcb23b",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_2_203",
+      "status": "excluded",
+      "tensor_sha256": "76e6af9b420cfdaadfe746f4b0ccab447677dc7a904486157b731ce55e88e2c7",
+      "certificate_kind": "rank8_noncomm_dnumber"
+    },
+    {
+      "id": "R8_2_204",
+      "status": "excluded",
+      "tensor_sha256": "3d19656fff4bf8166f43229d8b7e31244256e8971f8d7bf3ca6d28d66f7cb77d",
+      "certificate_kind": "rank8_noncomm_dnumber"
+    },
+    {
+      "id": "R8_2_205",
+      "status": "excluded",
+      "tensor_sha256": "018b554a77826014710e0d328b2e51d48d06ca41c0b0a0d13169ae6cb28119da",
+      "certificate_kind": "rank8_noncomm_dnumber"
+    },
+    {
+      "id": "R8_2_206",
+      "status": "excluded",
+      "tensor_sha256": "fb07c99b6c34e8d2f4b5133240f31e903c74727c74e24779e574bccec08210fd",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_207",
+      "status": "excluded",
+      "tensor_sha256": "7707784cc151cbeb09f5c1a887fbdbbb15319d7024bf0cc6e82b799a30ebf6aa",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_208",
+      "status": "excluded",
+      "tensor_sha256": "d8fbd450ef90c920b9dfbec9965479febb5139e585676a1172677678e678772e",
+      "certificate_kind": "rank8_noncomm_dnumber"
+    },
+    {
+      "id": "R8_2_209",
+      "status": "unresolved",
+      "tensor_sha256": "96529d853dc86a04505ac6d39dbb3284e11e4b3ee741b097bc97f65ca92c962a",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_2_210",
+      "status": "excluded",
+      "tensor_sha256": "e056e1a3fcdf86c7f4109c11d5340af15f78dbc0a12ff3df8505339c54df12a5",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_211",
+      "status": "excluded",
+      "tensor_sha256": "cab22a6918ff040a7fc24a1816fb7a1a4425a0ac85f314fe5e30e32d2fe3bdf6",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_212",
+      "status": "unitarily_realized",
+      "tensor_sha256": "cefd6a6167a84057876baa31fbb4064e19f41015a63f661fcc16a9678b7a0888",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_2_213",
+      "status": "excluded",
+      "tensor_sha256": "716b8268eb9efb9eabdea472dc4c6ee89de0d3147b3482aae93e319a032e694d",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_214",
+      "status": "excluded",
+      "tensor_sha256": "d6b29d6e16d3b957bc1f7a65ae13abaceddeead7ef29cfada6027b81af5cde8f",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_215",
+      "status": "excluded",
+      "tensor_sha256": "b305cb5d8f5d0506e6a64cfe6365e54832d2b71d9879569a2f248a44a0283969",
+      "certificate_kind": "rank_two"
+    },
+    {
+      "id": "R8_2_216",
+      "status": "excluded",
+      "tensor_sha256": "a596353613366d3f6088877c5c17f3db58cd614f65cc56fa0c5a14edb6062728",
+      "certificate_kind": "rank_two"
+    },
+    {
+      "id": "R8_2_217",
+      "status": "excluded",
+      "tensor_sha256": "bbb504a4baa60f2ad517343221719c0437bf6502ce2ffc0df242f9778df40a64",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_218",
+      "status": "excluded",
+      "tensor_sha256": "aa54bc6c9ab881ec817d4c5b0f8ad080eda25eddea41ebe86a01018646ae8212",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_219",
+      "status": "excluded",
+      "tensor_sha256": "6157454d395be0e541b60325e6784881d053514af14941872b9b7ac44d0efae5",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_220",
+      "status": "excluded",
+      "tensor_sha256": "24ec631cc4ab20d4cdbe2793f48a022b68fcdb8e50dbb1bdd87fc7c77acedf56",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_221",
+      "status": "excluded",
+      "tensor_sha256": "b82869991e6d7f7d273adeadcc47b17a361e083ad9fc42f617c55b0642290936",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_222",
+      "status": "excluded",
+      "tensor_sha256": "4dca3a956039354efd4a83e80f77b345a8e3c9ffe75a6be8dab7d652e5d5a4fe",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_223",
+      "status": "excluded",
+      "tensor_sha256": "70ee4e8a843ab52c8520e739715a8d8780e3fab2803868b39ec63ba140fa170b",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_224",
+      "status": "excluded",
+      "tensor_sha256": "57cb1fcde7149f424dcb46bf1b2ffbab6510275c5a8292516696aee229851d79",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_225",
+      "status": "excluded",
+      "tensor_sha256": "b56de00511860bb4ecd99a3ad5eb6ad7711e85e7b5fe8ef7e2dac60581a9ad67",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_226",
+      "status": "excluded",
+      "tensor_sha256": "c1fffc37dbbc0f17517602f81d2af726028b01c3bfa518139a1793e5b32850eb",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_227",
+      "status": "excluded",
+      "tensor_sha256": "b2280d2eebd7c2b01c3f2c1c9bd17c12a2485c48acbf27df232c407d8b9816b1",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_228",
+      "status": "excluded",
+      "tensor_sha256": "7b9ebfee854515b5ed3c7a981754f85b6c5be34d3cfa59b14ecceda84419c365",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_229",
+      "status": "excluded",
+      "tensor_sha256": "8fc86ea3be71471ec7b6cdad350fa473b84290aaf9687ff6443f099061971a82",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_230",
+      "status": "excluded",
+      "tensor_sha256": "aba1b01533f7bda4c073764a7ede6533f737c71c5a2d9c8a98fa86f8110864b3",
+      "certificate_kind": "subring_dimension"
+    },
+    {
+      "id": "R8_2_231",
+      "status": "excluded",
+      "tensor_sha256": "e6c19cc63d67438c7bdd749f008999741d8f92e1ce11cba7d73ca1931ad0f541",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_232",
+      "status": "excluded",
+      "tensor_sha256": "1dc4f240cad5bfa1a98f9319d5c867fc131538e0859fb66dbe44eed8c683ffaf",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_233",
+      "status": "excluded",
+      "tensor_sha256": "5ed6e13df97f82758f776985e64a2c9dce27e707c79d2d2103ca1704aed50d91",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_234",
+      "status": "excluded",
+      "tensor_sha256": "fcee1722239d87db7e8923a185cc9c36d8921cae612a44b38068bddef30b11c4",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_235",
+      "status": "excluded",
+      "tensor_sha256": "e52b27885295a531f5769762aa5f87071986f41e6f16608b130db296fbf8c437",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_236",
+      "status": "excluded",
+      "tensor_sha256": "a13b7473296dd487a212167c7fe6f4202767c1304f3bc7c1ef7bb37f1d60286b",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_237",
+      "status": "unresolved",
+      "tensor_sha256": "36631b71ed3b69a043cd0346aa758a8216209efa86573794e5437f55fb0fc0bc",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_2_238",
+      "status": "excluded",
+      "tensor_sha256": "6aa0cfcb40cd6a9b5641240d74413ff0f028ffdba5ea2a4b3bd7f76a2836b9ee",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_239",
+      "status": "unresolved",
+      "tensor_sha256": "8dc6135df5c6170e137b135d4eb6187e5045960dfa713b6eff87ba4e5d9a2c75",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_2_240",
+      "status": "excluded",
+      "tensor_sha256": "83210a05e5faa65b5006400ca0d938f8e66f88731fb2e4c929cc7ed03d2b9da6",
+      "certificate_kind": "rank8_noncomm_dnumber"
+    },
+    {
+      "id": "R8_2_241",
+      "status": "unitarily_realized",
+      "tensor_sha256": "d276c754960e4be02d30850638be9d6abebef0ef3b42eb921f3c3f8b9cf5c4c9",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_2_242",
+      "status": "excluded",
+      "tensor_sha256": "7d64578f0d067a5c67eb59904136b159cbb0cd45aa227348251e984bd691f4a2",
+      "certificate_kind": "rank8_noncomm_dnumber"
+    },
+    {
+      "id": "R8_2_243",
+      "status": "excluded",
+      "tensor_sha256": "ba5cdee0512043184c3ec938fcb60d32ebe22318ac3c8074b4079451ff836d66",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_244",
+      "status": "unresolved",
+      "tensor_sha256": "306ec1bf6a40efe28799fa5d4888d612fd0b15034be0d548dcb2ebdb987ce394",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_2_245",
+      "status": "excluded",
+      "tensor_sha256": "82053152ab084e9dad7207481e8bd71fcdb83e16e16a8030a806db54b69508d2",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_246",
+      "status": "excluded",
+      "tensor_sha256": "96e213ddd1a89fc10435bd159e9f19f3c7c0b795f19678574520e8a4bc3a610d",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_247",
+      "status": "excluded",
+      "tensor_sha256": "13e3856bd7c63fb748ad20bc7fe44c0e3dac6d84fe44123b7e75277e6fbce6b2",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_248",
+      "status": "excluded",
+      "tensor_sha256": "ee41a23dce2b2c5da33eb00e67b8d268c9087d70c7f5bd861a2240c7c87c28b9",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_249",
+      "status": "excluded",
+      "tensor_sha256": "e8cd8901ec392ace124897cec006bfb145c958b40d4d7273fe012261d538d99a",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_250",
+      "status": "excluded",
+      "tensor_sha256": "af665d80c8c9d34bfa47a1b45d7673768206e77681823b322784960a38f996ae",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_251",
+      "status": "excluded",
+      "tensor_sha256": "b710ec40837665a7e411da6fe62d1e1055aef4af22210f34e0a0c2cc4c26dcca",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_252",
+      "status": "excluded",
+      "tensor_sha256": "5534fdbec2769caac803edc5af1e58cbca96638e4130050b790b9cd1fb53e1ef",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_253",
+      "status": "excluded",
+      "tensor_sha256": "0bb27b148227163c0c29edd46c8cc5bedffa6c0daf35a0c85f8657c682784476",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_254",
+      "status": "excluded",
+      "tensor_sha256": "46cda7f864298a6f1061f28b83b97d883ef1072968b67daeb686289078f95502",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_255",
+      "status": "excluded",
+      "tensor_sha256": "301dff8ab3240b9364e2b04b8030b3f1310bf68060429059b330ededd0235adc",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_256",
+      "status": "excluded",
+      "tensor_sha256": "5bf01ebd4fb91642aa5121481718672318f5382ad1e5e08dc010de9b609412a5",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_257",
+      "status": "excluded",
+      "tensor_sha256": "f217ca52bc56a3d8ca10304f87e2ee37284092d92efdfcbea3b4eb2e888e516d",
+      "certificate_kind": "rank8_noncomm_dnumber"
+    },
+    {
+      "id": "R8_2_258",
+      "status": "excluded",
+      "tensor_sha256": "d477e86e0459cd9f159dad9a0bb071d4393400893600a1bbd3076eca93c8d5f1",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_259",
+      "status": "excluded",
+      "tensor_sha256": "11f2a31a38e7da436e3ab5b26ba682ae726b7066b539005de08fc07794f127bf",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_260",
+      "status": "unresolved",
+      "tensor_sha256": "bb2b60d57bef35a56cfa0e14dd5282f8ce05e5b91540cdb1c4b643396a1e7af7",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_2_261",
+      "status": "excluded",
+      "tensor_sha256": "d8823980e8fd3e0570a560701e6040ea240bbbcc28cc20f6369afce76c4b596c",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_262",
+      "status": "excluded",
+      "tensor_sha256": "a1ea3b349e70f189ec04c60898d479af8772277ec711f8276e84c6bd7640fa4d",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_263",
+      "status": "excluded",
+      "tensor_sha256": "3284dca464de84373f34500d3893559a85f95846fe1ef48cd563229d3823e5d8",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_264",
+      "status": "excluded",
+      "tensor_sha256": "d156aa2bfa712c44dd7f7f3b5c111f8ef58cc08ef9a1012aa53a084a5ce70b80",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_265",
+      "status": "excluded",
+      "tensor_sha256": "afd667a9d01a8d325ec68e976364f0fd555e4e0cae08f317de97e2352351b5dc",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_266",
+      "status": "excluded",
+      "tensor_sha256": "c50bd13effd81718c011d3ca3a8f5db6793985c384d44dae518da84bdef01ae7",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_267",
+      "status": "excluded",
+      "tensor_sha256": "f2112fc46c0a07b30bb1ba5f0aec6551bf49d8ebf2e6bb520b5a319c7ce7aad1",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_268",
+      "status": "excluded",
+      "tensor_sha256": "0626acc338f8186f85b53dde70eeac8aceabb24231874213d2d9b6f7435d4bc5",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_269",
+      "status": "excluded",
+      "tensor_sha256": "358fb2ef555ff0b9ae88a9603dc3ea57687e3fdaa43ec76c40f8a279a83cfac5",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_270",
+      "status": "excluded",
+      "tensor_sha256": "a3cba27622c21d149bb31b17f0adfcdf2e13ef73226e9bed81abc7472ad29a80",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_271",
+      "status": "excluded",
+      "tensor_sha256": "df4b53f8d419641419f5ae7c6532fce416ceafec8adc83d731c6378207a9a4df",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_272",
+      "status": "excluded",
+      "tensor_sha256": "1f9a4250530849400cc8818876939c7756dcaa3ce9dd96bf7d12516e15c1f4bf",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_273",
+      "status": "excluded",
+      "tensor_sha256": "e18881d6567b1e6274c94a6c96d0c71e30ad1339352e86b9cd2c0851c9f83846",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_274",
+      "status": "excluded",
+      "tensor_sha256": "64b2bca12f3cc8b068fc17e372697183be487539fb795cd29cd6b24bdf50b08f",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_275",
+      "status": "excluded",
+      "tensor_sha256": "48c5a0dcee8f1db62660dbc7f24101d0b133ca3d0b1d8d9b92254986a3e8e031",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_276",
+      "status": "excluded",
+      "tensor_sha256": "36d11db7c74cb26b0b2d8578124b2993c447bb3b9719c06047fca526b71b56f8",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_277",
+      "status": "excluded",
+      "tensor_sha256": "9ce215ada9a725abe9b82007e671b02bbc6358ccaeaff170331ad84c4c6a5b1b",
+      "certificate_kind": "oriented_signed_sphericalization"
+    },
+    {
+      "id": "R8_2_278",
+      "status": "excluded",
+      "tensor_sha256": "b37c563f27b91ccd7fc160c4086037f81d4a0777a0f8ec45e72628d05e490b87",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_279",
+      "status": "excluded",
+      "tensor_sha256": "f012d7c0e66f947d16643a0ebf3d355bf4321be9f1b00e24fb09b95b256eff80",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_280",
+      "status": "excluded",
+      "tensor_sha256": "130e1e8f667a52f2c3ce512f211e635a86001a63331b2ad7b7c8b023e44bdea3",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_281",
+      "status": "excluded",
+      "tensor_sha256": "4f4c56aa91752d6ef5914e309fc27294a9f979a215f7aa34b577fc57415cf849",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_282",
+      "status": "excluded",
+      "tensor_sha256": "7e67123d9b312f0bd74a8d44a9e28cab4ef4cfbeaadf8ebb055406af5fa39128",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_283",
+      "status": "excluded",
+      "tensor_sha256": "a8bf8cb6446255c76e2e474fbffe12bfbe440667028c4cad5c6ce79c8fe872f1",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_284",
+      "status": "excluded",
+      "tensor_sha256": "076b881bb2b643ca12f51b50be6763e20dbe1d2455140de4cdb6afd0b02857d1",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_285",
+      "status": "excluded",
+      "tensor_sha256": "f3c42875312e0b0c51fb97d9f67b6311b9859d2a152a164891ec19160ea07958",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_286",
+      "status": "excluded",
+      "tensor_sha256": "e3d66464d8134225f23811462cffeb0feafdcbbb9b3a9a873c94e348d40590ac",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_287",
+      "status": "excluded",
+      "tensor_sha256": "3c8d25be3a608ae364267502b4a2dfdaa8fc6fc36e17f1b9f0aa6e6dadc081c4",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_288",
+      "status": "excluded",
+      "tensor_sha256": "edf2ca7b6b17bdb98ce1ebda45c5544464acf919c65938892eda2c9ab2cd046e",
+      "certificate_kind": "integral_drinfeld"
+    },
+    {
+      "id": "R8_2_289",
+      "status": "unresolved",
+      "tensor_sha256": "77e7f30daccd9cbff0dc3ae86ea226555997d5d3d5b96b5fb2bf0c60c8c045dc",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_2_290",
+      "status": "unresolved",
+      "tensor_sha256": "9e793f985c4d50d1fe6b3d4b8b624694b334cd6dcf2c1e0458df4333db2a67ed",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_2_291",
+      "status": "excluded",
+      "tensor_sha256": "4347aab734783359220235355fdd0cdda16ad5ab0cad91da5f19efa8cd50bbf4",
+      "certificate_kind": "zero_spectrum"
+    },
+    {
+      "id": "R8_2_292",
+      "status": "excluded",
+      "tensor_sha256": "17e31e461d052d1e2e971fa9e930a3704b1294b6e923dc0d365ea1a62b935ad8",
+      "certificate_kind": "zero_spectrum"
+    },
+    {
+      "id": "R8_2_293",
+      "status": "excluded",
+      "tensor_sha256": "793d7107ba61b4b8b6a2aaef83d1bad000becda867d7b4a1facc006f62f6ebaa",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_294",
+      "status": "excluded",
+      "tensor_sha256": "b38d472214d003473f25ed36d9bbf6894df80fe28af81716c4d796dd6d792e22",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_295",
+      "status": "excluded",
+      "tensor_sha256": "08b4a0fe2bcc4664fd6d87a0d395cd4e9510b5c60a4d4ec2713882684b1d0f49",
+      "certificate_kind": "oriented_signed_sphericalization"
+    },
+    {
+      "id": "R8_2_296",
+      "status": "excluded",
+      "tensor_sha256": "ea6e6d5a1fea37ef72b31935f891502477452f293ea4f2e3840b69ef4166381f",
+      "certificate_kind": "oriented_signed_sphericalization"
+    },
+    {
+      "id": "R8_2_297",
+      "status": "excluded",
+      "tensor_sha256": "430af588d5445f144ec8b609b1cd5212b7eff2dad11d091fbbe051167a0e955e",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_298",
+      "status": "excluded",
+      "tensor_sha256": "fab68b86c8c05f1193c12bc8869e088e872e2eb4161739099115e4b061aac00c",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_299",
+      "status": "unresolved",
+      "tensor_sha256": "5d3fcb0a039664ddcc9d5fa9f4e3e93a198a4486ed3e71f054306411a550e017",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_2_300",
+      "status": "excluded",
+      "tensor_sha256": "5581827af27b92fdf2fec289c68a640e0c206ca487b8c6d7eaa444657c3ec85e",
+      "certificate_kind": "integral_drinfeld"
+    },
+    {
+      "id": "R8_2_301",
+      "status": "excluded",
+      "tensor_sha256": "3aa81b395253ffc94b4f3b66de90960aabc759f78d0cfee06170ec0cd94fbd2c",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_302",
+      "status": "excluded",
+      "tensor_sha256": "5f4d4b7d3b77c3cd8b51ceddd98e52f0cfff9b01fb1fe58060951a7398472216",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_303",
+      "status": "excluded",
+      "tensor_sha256": "839bed71bdf76f41447f8bb8e62f3d241a5e162a9e59ce558d5df815b40c60ac",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_304",
+      "status": "excluded",
+      "tensor_sha256": "edf38a012b4ba590ec17993b79ed0b12ba014af2a31650906dc0515d6b36da9b",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_305",
+      "status": "excluded",
+      "tensor_sha256": "c01344b85959b173cd77471b3753b3a532858cac381afc0e7b017a0bd24f2c0d",
+      "certificate_kind": "zero_spectrum"
+    },
+    {
+      "id": "R8_2_306",
+      "status": "excluded",
+      "tensor_sha256": "2f358de504edf26fdd54c93520776031237452a09f3f11c79e7ba9bdde26ea9f",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_307",
+      "status": "excluded",
+      "tensor_sha256": "4feb7849fe66e1f99101649e7208106bc28020bf1c29710a3ea8662077d7ab36",
+      "certificate_kind": "zero_spectrum"
+    },
+    {
+      "id": "R8_2_308",
+      "status": "excluded",
+      "tensor_sha256": "f348a84f8e11108a3b309ec19477972f5bc7a37c1ed9223f925d18d9790fb5f4",
+      "certificate_kind": "zero_spectrum"
+    },
+    {
+      "id": "R8_2_309",
+      "status": "excluded",
+      "tensor_sha256": "202ff2cad28363dc10afb6f192a14853828fa91f5104e5ed6659e9fb16241dfd",
+      "certificate_kind": "zero_spectrum"
+    },
+    {
+      "id": "R8_2_310",
+      "status": "excluded",
+      "tensor_sha256": "ae53246919a755de575a6807cab54b92d2581ffcc35b5ff0e09b3e3cb35bf47c",
+      "certificate_kind": "zero_spectrum"
+    },
+    {
+      "id": "R8_2_311",
+      "status": "excluded",
+      "tensor_sha256": "83b4176c06b8f323a30efe90c5d654a425c984051ad774abe3b5d8c41df1bd95",
+      "certificate_kind": "zero_spectrum"
+    },
+    {
+      "id": "R8_2_312",
+      "status": "unresolved",
+      "tensor_sha256": "64491289582c79f4db76d92fcbf67f74d5af7e4e7e00e6983662f38de8bb593f",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_2_313",
+      "status": "unresolved",
+      "tensor_sha256": "c37c46c7b237641a8c65129ee89bde625f0cccda87812aafee3aa7578f22f9fc",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_2_314",
+      "status": "unresolved",
+      "tensor_sha256": "8cf291cb9760439f6bf64d131efe0052d3b48ef9bc2b9af1e5e8fe70c2aa6867",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_2_315",
+      "status": "unresolved",
+      "tensor_sha256": "efe1580d597b2667f62906a21f0bd29fcd0d6febbee5c03f6441fa3a38a6cf27",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_2_316",
+      "status": "excluded",
+      "tensor_sha256": "25e1e39f92ee5e2fe8df3b4d665834080c0ac67eb8141c356719bce8795f9937",
+      "certificate_kind": "rank_two"
+    },
+    {
+      "id": "R8_2_317",
+      "status": "unresolved",
+      "tensor_sha256": "897e1df5b96662c43b99346cfef80f51d0f4ff6a242b6793acb843dcb581317f",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_2_318",
+      "status": "unresolved",
+      "tensor_sha256": "db78e9fe3fb5d6a6f96396f6ecdfdb301a90b9ecaa2f19e14338b7011f546180",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_2_319",
+      "status": "unresolved",
+      "tensor_sha256": "39da593e8ea73660b6c6646bdf1619f8eebdc32cd8379292cc2330ad2729abb5",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_2_320",
+      "status": "unresolved",
+      "tensor_sha256": "7a5fb6f31001f98563a02c869f91e4cf403308a5c4c82061c9740d6a0503c704",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_2_321",
+      "status": "excluded",
+      "tensor_sha256": "68f89e9235e3268833781ff476d2b44a65c90fa5d24355ede4bd9a4a35d97303",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_322",
+      "status": "excluded",
+      "tensor_sha256": "624817ce31fa49da035350376efd6d997e360ee8fd9913df02d1795fe1199ff1",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_323",
+      "status": "excluded",
+      "tensor_sha256": "2b2af7490de84351b6312fbc5cdffc9d77f925e4df3c7c0e0e45f3dec2c5dbc1",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_324",
+      "status": "excluded",
+      "tensor_sha256": "c8025e2c73404384eaac8de95c7bc9dbb2e2f926061b82bb19543fdc5b8b1a16",
+      "certificate_kind": "zero_spectrum"
+    },
+    {
+      "id": "R8_2_325",
+      "status": "excluded",
+      "tensor_sha256": "d6012648447047ca14cc8168b18b5c5c13316206f93479e12caa414093e99529",
+      "certificate_kind": "oriented_signed_sphericalization"
+    },
+    {
+      "id": "R8_2_326",
+      "status": "excluded",
+      "tensor_sha256": "244f3327c2b92c4f0c837ffb65bd70c2b2269029ae62e360b44d8719d3a6ef2c",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_327",
+      "status": "excluded",
+      "tensor_sha256": "b51a78a51f40558c8376a4c90868be0fe5b4cc422204916304a46aaf23e4106e",
+      "certificate_kind": "oriented_signed_sphericalization"
+    },
+    {
+      "id": "R8_2_328",
+      "status": "excluded",
+      "tensor_sha256": "e5943e55d35c7963eedd35d0ac477057ee8acbc00303d96a089584370ad18c0d",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_329",
+      "status": "excluded",
+      "tensor_sha256": "a3b256237f40e22439dda9f1f99867436edf3de79e9a743f09edd98e52fd1926",
+      "certificate_kind": "zero_spectrum"
+    },
+    {
+      "id": "R8_2_330",
+      "status": "excluded",
+      "tensor_sha256": "83a638de4ced25b60feeae61a253951e1852dcc2938a3f18b70323b73abf1158",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_331",
+      "status": "excluded",
+      "tensor_sha256": "e52dd9744d2dd07b3f8493ba6576f3ca2449bd2effdf93e88c5a86bfa016ac7f",
+      "certificate_kind": "zero_spectrum"
+    },
+    {
+      "id": "R8_2_332",
+      "status": "excluded",
+      "tensor_sha256": "a0aec0feb864fc047be5df6e7f54f5bb50cb1151eb0b639c6b13012ef3d7368a",
+      "certificate_kind": "zero_spectrum"
+    },
+    {
+      "id": "R8_2_333",
+      "status": "excluded",
+      "tensor_sha256": "0ce50004bcfe140b6dab2333197f202d841013679cfcf6e2dcbf680d1070ff7b",
+      "certificate_kind": "zero_spectrum"
+    },
+    {
+      "id": "R8_2_334",
+      "status": "excluded",
+      "tensor_sha256": "299cbd2a826a0f7634c16e44a7ebda25540354db2bf73cf0b3800c27c5ccbf36",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_335",
+      "status": "excluded",
+      "tensor_sha256": "7cd0d4b0d636fc6779bdc901a905e4b63314b1a1dbd311ccfaab21d628b67cd6",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_336",
+      "status": "excluded",
+      "tensor_sha256": "1d34060a33049db1025d5452ae2ca103bdea800fbce6d744d8f7eebbd65aeeef",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_337",
+      "status": "excluded",
+      "tensor_sha256": "cedd0ea21d116576142baf902c8a547a0ec86fd5b64a9dd224b281ffb89038f6",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_338",
+      "status": "excluded",
+      "tensor_sha256": "a84dd838c0b5b4159f7f7bd54b101dd4669dcc4e3ef52639126beb6eae0d2903",
+      "certificate_kind": "oriented_signed_sphericalization"
+    },
+    {
+      "id": "R8_2_339",
+      "status": "excluded",
+      "tensor_sha256": "03d3a7061cbb95a34f98636793a809428a172e2ed9e444d407ec796aa641b5fd",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_340",
+      "status": "excluded",
+      "tensor_sha256": "cc24d98467c3d97a9d32ee26c9a5aaafe41d0fde80e9839862baebefae83d4e0",
+      "certificate_kind": "rank8_noncomm_dnumber"
+    },
+    {
+      "id": "R8_2_341",
+      "status": "excluded",
+      "tensor_sha256": "9aa1294a7dd6ebc0d964acf93d3f44e70ce0b46f569a221599979ddd6746e403",
+      "certificate_kind": "rank8_noncomm_dnumber"
+    },
+    {
+      "id": "R8_2_342",
+      "status": "unresolved",
+      "tensor_sha256": "6d9246ba099d4676e98ae3cc60bba5a176db651fa740b5f8c4c5906ff652ae5d",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_2_343",
+      "status": "excluded",
+      "tensor_sha256": "cc90076141daf78ae06c90d04fb3d1dbd53f070ef9cb216c52fcb734da47b6e4",
+      "certificate_kind": "zero_spectrum"
+    },
+    {
+      "id": "R8_2_344",
+      "status": "excluded",
+      "tensor_sha256": "e1effa256130eb5d774998516f28d1c0d1dc140b69594ca0d256b76de558bbb7",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_345",
+      "status": "excluded",
+      "tensor_sha256": "a8e05f4a9cd1e30fb942699a46b6adbefce6b0844af892dbe683e4426162c66e",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_346",
+      "status": "unresolved",
+      "tensor_sha256": "3948ca735e1c982cee3a46289b7120d8be7395b771577983747e02d6d058860e",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_2_347",
+      "status": "excluded",
+      "tensor_sha256": "6e723741c004459aef056960f074a0dab1851523e294ca8c88aeb4d720e40378",
+      "certificate_kind": "oriented_signed_sphericalization"
+    },
+    {
+      "id": "R8_2_348",
+      "status": "excluded",
+      "tensor_sha256": "a09d06cf73a075fbb64a895f08bcb263a242a5a6c54ba4a3dc3963a771feaa40",
+      "certificate_kind": "oriented_signed_sphericalization"
+    },
+    {
+      "id": "R8_2_349",
+      "status": "excluded",
+      "tensor_sha256": "a5c35bde169f4954e9d9be6257dc969944ebf230d01185f6e7a94fde0ed8f6fb",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_350",
+      "status": "excluded",
+      "tensor_sha256": "cf6667a527722fc673d366bd6ec061a7683bc53575f899bea9fd0039df83086f",
+      "certificate_kind": "zero_spectrum"
+    },
+    {
+      "id": "R8_2_351",
+      "status": "excluded",
+      "tensor_sha256": "d844be08c524b859580c3bb102beed9a08ae790596a37224b7c6f3e82048e7eb",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_352",
+      "status": "excluded",
+      "tensor_sha256": "5c4ea7b52591ae2ede7ea0ac92a9ebfbba006c93000c3d850569a3aa0a5bbe5d",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_353",
+      "status": "excluded",
+      "tensor_sha256": "9aedcd20e0a9fe228b4aadd82fd866478b50671a3751737ba92dba586e3a378f",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_354",
+      "status": "excluded",
+      "tensor_sha256": "430210f3012bfcc89390d5cef198a345180c26ac70b1f02c8fbe8bc411cb9dde",
+      "certificate_kind": "rank8_noncomm_dnumber"
+    },
+    {
+      "id": "R8_2_355",
+      "status": "excluded",
+      "tensor_sha256": "2718f6f7db64d65079c74cd14244330a16fb0a1a0abd18694bb4b018561532ba",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_356",
+      "status": "excluded",
+      "tensor_sha256": "a365370d7cdc40f64221520ee3101c642fb9e201c3e59288b3aa8236058af171",
+      "certificate_kind": "oriented_signed_sphericalization"
+    },
+    {
+      "id": "R8_2_357",
+      "status": "excluded",
+      "tensor_sha256": "b848a1d95849aa8a55e8e6f5e2e215f82665080e6eb8b89fb4b31d970414e8bb",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_358",
+      "status": "excluded",
+      "tensor_sha256": "75ae04bd0daecce7a19ca12cac2820b4a991b90066cf1d2aaa8c534d3138cc4b",
+      "certificate_kind": "rank8_noncomm_dnumber"
+    },
+    {
+      "id": "R8_2_359",
+      "status": "excluded",
+      "tensor_sha256": "b3f3e2c1e0c8797565aa67972c05df788ce7ec05985964ad5b25769c6b02b75f",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_360",
+      "status": "excluded",
+      "tensor_sha256": "637b077104630cbcf1adff9011018b11c6358f60ecf0a449e006ed9d794ee486",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_361",
+      "status": "excluded",
+      "tensor_sha256": "f1f47d64dea08a3ba0fc63e0b1bb0109e02af97330b57783d46aa09cfa68d14b",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_362",
+      "status": "excluded",
+      "tensor_sha256": "1940353b695711bdddea65189c18d3d32f0afa1b0b5a573d05f27b22fa72cde6",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_363",
+      "status": "excluded",
+      "tensor_sha256": "a14d08659b41585909a156cec3d70eb915a4ffb3e08c9c3c333ec9f580a7d423",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_364",
+      "status": "excluded",
+      "tensor_sha256": "7b8d02b2c4e6561fd73cb119bb5bd833265f13cff56555bcc9a7bc36e3f29a39",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_365",
+      "status": "excluded",
+      "tensor_sha256": "072529f6c17f6de4d07a7ce727ed17a6efe764a926839a5ad05f888158df9fbb",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_366",
+      "status": "excluded",
+      "tensor_sha256": "ef7d82c1b7abdf5ed7cc5a135e65653fc7afdb985ca04b49895ac1b8fb73d9fc",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_367",
+      "status": "excluded",
+      "tensor_sha256": "5d2beb5d6343005337afb9a381aabe5348a6445946d4c2d8decaccd4ed274dc2",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_368",
+      "status": "unresolved",
+      "tensor_sha256": "0fcca294ad8cea3e77d9c3523e4592b479eee8f180310ae238a65b980d59b960",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_2_369",
+      "status": "excluded",
+      "tensor_sha256": "a40d8bf02b7bb79e4c32158e245db278a1fc5283de47f015569db17fc59a0cd3",
+      "certificate_kind": "oriented_signed_sphericalization"
+    },
+    {
+      "id": "R8_2_370",
+      "status": "unresolved",
+      "tensor_sha256": "ccb6cfb7ba070dd437df76fd88b0486dfa9d598ee565e1827bc92e3c119dbb0e",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_2_371",
+      "status": "excluded",
+      "tensor_sha256": "107847aa6b57e58ee9dca47fce5f0b78e7c1c8561da3f18a1c44545e53ac9608",
+      "certificate_kind": "oriented_signed_sphericalization"
+    },
+    {
+      "id": "R8_2_372",
+      "status": "excluded",
+      "tensor_sha256": "91b65ae7ce8394412366ed259fda15408f6e1192781f98b29a3aba4ed03831a0",
+      "certificate_kind": "oriented_signed_sphericalization"
+    },
+    {
+      "id": "R8_2_373",
+      "status": "excluded",
+      "tensor_sha256": "6a62698e9f212d5ec9e2f5e34a0287518896c4e55e64ac21f690d2f92ed0ea76",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_374",
+      "status": "excluded",
+      "tensor_sha256": "5659ce4dbcb2327a150bb80a01ed8aa0d3dd6dd6be8ddb4f4f8abb70f1e63d5b",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_375",
+      "status": "excluded",
+      "tensor_sha256": "b230f679dabddb3ac4f47c620acf6ed2d8465f32782935e98e57b38176ddab2b",
+      "certificate_kind": "rank8_noncomm_dnumber"
+    },
+    {
+      "id": "R8_2_376",
+      "status": "excluded",
+      "tensor_sha256": "660afbfe6ddf83a9ad5a3172c8fbb44d8e95c4ed1a6901bf43c23476cb8c23b3",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_377",
+      "status": "excluded",
+      "tensor_sha256": "2b1e6429bbc6a204cca6c375df418eb2076c9238b62c7662a6a75df9c57b3388",
+      "certificate_kind": "oriented_signed_sphericalization"
+    },
+    {
+      "id": "R8_2_378",
+      "status": "excluded",
+      "tensor_sha256": "57a388ee87b208b02dc073096f0cd28480ffc8e66c2db81cf556d629b01d12b3",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_379",
+      "status": "excluded",
+      "tensor_sha256": "7a9a8cd49ea5a8d7bcc895a5b5e9cc8ed74139b8f7918a5f07dc0a97dd966e4c",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_380",
+      "status": "unresolved",
+      "tensor_sha256": "1929b8d62a4b2cd0e643eb4fe40f75497689da47e7dac6008f8ef8ba2ebfe7b3",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_2_381",
+      "status": "excluded",
+      "tensor_sha256": "f8f3ee9f86544a91ff0e0eede4755046b15c68f3f47d2e827f3d60597dbdf4d3",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_382",
+      "status": "excluded",
+      "tensor_sha256": "8f043a93bed997d47c685b54924f423c476caeb58d08b81eac70c618b7a9519b",
+      "certificate_kind": "zero_spectrum"
+    },
+    {
+      "id": "R8_2_383",
+      "status": "excluded",
+      "tensor_sha256": "c015b16917450de8ca7f0b9fd5cacba03db47440a9c18f791a85b68f7c66c80b",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_384",
+      "status": "excluded",
+      "tensor_sha256": "65df8b70803a273b57e573f73e722336a28be1e961709800465c3b0c5237f412",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_385",
+      "status": "excluded",
+      "tensor_sha256": "2afa70cf868b818b65a6552e74518c26633c80c467c4278619d537704ab1c438",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_386",
+      "status": "excluded",
+      "tensor_sha256": "fe8fc3110362e80140d6b516b0a377fad93b91ea2eea625dd6dbe456a6b92c0d",
+      "certificate_kind": "oriented_signed_sphericalization"
+    },
+    {
+      "id": "R8_2_387",
+      "status": "excluded",
+      "tensor_sha256": "d18e288907a93893c12119b37158e6cee812165a12dc4abe0c1f1786fb47ebc8",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_388",
+      "status": "excluded",
+      "tensor_sha256": "96a83a042c8ad4fc4c54cca086247572ff10d7d6554b114a3bfa6971aceaed98",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_389",
+      "status": "excluded",
+      "tensor_sha256": "575a8ed8bb238d368fdf13d6d6b086cfa00bd891234ca2c9c17bf64fb5ed189a",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_390",
+      "status": "excluded",
+      "tensor_sha256": "c98aaac7d2da902933020bebcc8692992e57caa669900afb57640cb8c7199cdc",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_391",
+      "status": "excluded",
+      "tensor_sha256": "29a5dfc99fd50cd3f42379474d98d889f4b42aa2276830e93efa4adbf0dfa453",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_392",
+      "status": "excluded",
+      "tensor_sha256": "7e9cedaea67d90bdfe460f8b73b55dca18f8c1dd16cf187deb4c0082e3f0d46d",
+      "certificate_kind": "integral_drinfeld"
+    },
+    {
+      "id": "R8_2_393",
+      "status": "excluded",
+      "tensor_sha256": "85f2de80d45c24f7a2ac0a1d260186f48f1893dd9de8b9cad473be2c32d9f83c",
+      "certificate_kind": "rank8_noncomm_dnumber"
+    },
+    {
+      "id": "R8_2_394",
+      "status": "excluded",
+      "tensor_sha256": "e263083a16a78148f58d039c5e031ee84b9f3c6e6a9a2b45dc7e4349c6e0d7a1",
+      "certificate_kind": "oriented_signed_sphericalization"
+    },
+    {
+      "id": "R8_2_395",
+      "status": "excluded",
+      "tensor_sha256": "5d0fcd4d485f8b5b1732e0d21e418aa0a594451cf6dfa5990bf2e4bc384e24db",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_396",
+      "status": "excluded",
+      "tensor_sha256": "0628dbbab47816be6cfd2859abfe6b2a68fa6e4698f306cef52f03290a308e33",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_397",
+      "status": "excluded",
+      "tensor_sha256": "63c15c17bd8da2c04ada736a27d354e061e5cb75f3d304be16e647a7ddb61228",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_398",
+      "status": "excluded",
+      "tensor_sha256": "391a03f842f507480339a795e1898e5b57006f5f0a59a1e6fa24f0bcf5e44b49",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_399",
+      "status": "excluded",
+      "tensor_sha256": "24e9a96417ee458b32b0340571bd10ad393d91b7cbedb0274724d1d26ce7efa7",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_400",
+      "status": "excluded",
+      "tensor_sha256": "a309b8187e14091419084a81a57d18d8cc830f3bbcb6d70a8c760f823b27a690",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_401",
+      "status": "excluded",
+      "tensor_sha256": "7457643f0f03c80d1292ff2c5bad12bfaca0e66b3a9fc745dccb22fbb8eee326",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_402",
+      "status": "excluded",
+      "tensor_sha256": "d2a85d7e6c1ea799b9c088254af7645e74450271cba67f91cd6a36455f33b8ec",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_403",
+      "status": "excluded",
+      "tensor_sha256": "b8b198f8778cd6bf3f076d20603d79b5c8d3a934c7bd0f80347a84b3bc5844a1",
+      "certificate_kind": "rank8_noncomm_dnumber"
+    },
+    {
+      "id": "R8_2_404",
+      "status": "unresolved",
+      "tensor_sha256": "2249a077453cbc8cb0253dcd55f88ac5bf01035bd4c4a301c1f1eee7169d8c2a",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_2_405",
+      "status": "excluded",
+      "tensor_sha256": "d3adb39cdb14e282fa61695c2a929f88bd02084611cd563223c082993a746705",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_406",
+      "status": "unresolved",
+      "tensor_sha256": "fbd2f625f4e0bf21895e4da72c99eb06517e41e69c04d422ec6a796ccf88bbfd",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_2_407",
+      "status": "excluded",
+      "tensor_sha256": "3a89ed9d5a3d7d89847a8a65563cc90d6b5bfae1536fefc3e89257e3e9c1bee2",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_408",
+      "status": "excluded",
+      "tensor_sha256": "52225828829689dfda76189a7e94042ce30eca90e53c88e65837c58f8bb074da",
+      "certificate_kind": "rank8_noncomm_dnumber"
+    },
+    {
+      "id": "R8_2_409",
+      "status": "excluded",
+      "tensor_sha256": "edcb07dd6948756be7c6b0892f0f9c1e8b9bce2417b94318fc7ec572bbc40efa",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_410",
+      "status": "excluded",
+      "tensor_sha256": "dc3cc2b75cd5c252de58ae3eef5578632ec34cfcd87a3b5a024eff71f2dfc1da",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_411",
+      "status": "excluded",
+      "tensor_sha256": "ff3063f89b28e218f042e0228c5f4b7f9560d81bfad459123c55268b8365531a",
+      "certificate_kind": "zero_spectrum"
+    },
+    {
+      "id": "R8_2_412",
+      "status": "unresolved",
+      "tensor_sha256": "b4936146f9270530f3c5e5db5bddb1fb20b7353d859b60517e1446d749ed4e3c",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_2_413",
+      "status": "excluded",
+      "tensor_sha256": "3265979211e2968dd9835fe5f8b51d38da5e58d101ab15d7dc3cb53a85373dd2",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_414",
+      "status": "excluded",
+      "tensor_sha256": "11e284fdbd0a6a757dc7373553d32dcd6fbcd466e263cae261f27d93ed88a764",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_415",
+      "status": "excluded",
+      "tensor_sha256": "e8d9775bd97d37cbbfbc81be11fb316bd2e43e66e5701a32fd1d53f558f19422",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_416",
+      "status": "excluded",
+      "tensor_sha256": "e1c7d0e13f581c75be198a2b07ce430e81cec10a428071b05e63d32157941375",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_417",
+      "status": "excluded",
+      "tensor_sha256": "9573dd2776a36fde7a0a5e80b8c1597bfa0d11daf142ddf5e48214c4122f9275",
+      "certificate_kind": "zero_spectrum"
+    },
+    {
+      "id": "R8_2_418",
+      "status": "unresolved",
+      "tensor_sha256": "76492b43563b47ab7981d9d354f9c872a8a6524e511051ecbcfe2850e28a0935",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_2_419",
+      "status": "excluded",
+      "tensor_sha256": "831d60608537ad1f780bdaf3a88fd222d5a8ddd6cb0f4ec5916f41642c1c0820",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_420",
+      "status": "excluded",
+      "tensor_sha256": "85687ea6477e3fd0ee365516c4d80c55be743c0699b2ef8294d5f17b1827f7b2",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_421",
+      "status": "excluded",
+      "tensor_sha256": "2e11bcb8256473212627f9d2dda5ee63e0c2ab4cb6eccf15e5f54dc467b6a15c",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_422",
+      "status": "excluded",
+      "tensor_sha256": "a8c40d98de5e3abfc6c091fa020e93c39178f647605ffa1def4d352cabcfce50",
+      "certificate_kind": "rank8_noncomm_dnumber"
+    },
+    {
+      "id": "R8_2_423",
+      "status": "excluded",
+      "tensor_sha256": "9b2e4237b05c1faeac4201dfd021dee8f2af59f73e581583a1e82c48375be566",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_424",
+      "status": "excluded",
+      "tensor_sha256": "e46e783922b3628446161b6a46217ea0262105e9f242518453ecadaca6daee31",
+      "certificate_kind": "rank8_noncomm_dnumber"
+    },
+    {
+      "id": "R8_2_425",
+      "status": "excluded",
+      "tensor_sha256": "53e5aa9bbfc188d9c1136d63087666265c1a4740ab6918e6acd3b9e56bbda8db",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_426",
+      "status": "excluded",
+      "tensor_sha256": "42f8757eae0cb4c4f0f2cc43ad53267e10c39c8f01391c6a49cce31fcf4441d0",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_427",
+      "status": "excluded",
+      "tensor_sha256": "6f252a94320ecf1bbb1f2aa2d5168fec1dc0fabd3d1145cfb6de74150726de57",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_428",
+      "status": "excluded",
+      "tensor_sha256": "2a954e03271314b461fac7313aee239e204e6e5a22008e52656ae70fc1069b81",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_429",
+      "status": "excluded",
+      "tensor_sha256": "e34409110e9ec7249ef5c80daa6b99f826a903b91995c7d65e91c6bcb151ae8e",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_430",
+      "status": "excluded",
+      "tensor_sha256": "187b9b9d621db35bb48b437d221141cba275ea17c5670a613d065718b93a2c5b",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_431",
+      "status": "excluded",
+      "tensor_sha256": "6aa1cd88c87efd0fdc600eb2892be64119b7484e52181cf943ee01b0c5964b4b",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_432",
+      "status": "unresolved",
+      "tensor_sha256": "8fdcee799f7fc07a294221c5b2f37f45d1edb12874df13dc09ee0748f5f7b60e",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_2_433",
+      "status": "excluded",
+      "tensor_sha256": "2cf0fa6a735546d0f41de53dee3fb2975e44d212e3e4cf8e259e4cf320a9855d",
+      "certificate_kind": "oriented_signed_sphericalization"
+    },
+    {
+      "id": "R8_2_434",
+      "status": "excluded",
+      "tensor_sha256": "1d55ce92bcac0dd35af3d95f03c6bb9ff720d41a051a36f7727f8637eeac05f3",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_435",
+      "status": "excluded",
+      "tensor_sha256": "2f20bdba2fafcf56646da8496c0e6e2a61ffa08a5aaf9d40dd2c511dcd109510",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_436",
+      "status": "excluded",
+      "tensor_sha256": "d0f8fbd19387b702c60fbd7371f7344008f137cb273c883d73b9cad17f1d22a9",
+      "certificate_kind": "oriented_signed_sphericalization"
+    },
+    {
+      "id": "R8_2_437",
+      "status": "excluded",
+      "tensor_sha256": "b0105ce3f3b017bd0a1edc3e94e80b230f96dbf53c83d2edb538d5979527ce64",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_438",
+      "status": "excluded",
+      "tensor_sha256": "43ea419c11330903eac50aa73c5bd72d1f68abd37563938320d3f51f6865caab",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_439",
+      "status": "excluded",
+      "tensor_sha256": "ed7dc17ca518bf8788174d590f33c43f28144ec094d48c2fdbd40d8a7125da1c",
+      "certificate_kind": "zero_spectrum"
+    },
+    {
+      "id": "R8_2_440",
+      "status": "excluded",
+      "tensor_sha256": "3c63b8c5149bc763124a21a66c9786573ce34316c55b2a993ef6fc407fd31ef2",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_441",
+      "status": "excluded",
+      "tensor_sha256": "dd3ee46beff7929213a918f0f7d7023dc9678329d56bc76656648c49864dccb8",
+      "certificate_kind": "zero_spectrum"
+    },
+    {
+      "id": "R8_2_442",
+      "status": "excluded",
+      "tensor_sha256": "33df49a440845e8fa3ebb921f04866575ad340ff74c5db1d237f42c5c1fea408",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_443",
+      "status": "excluded",
+      "tensor_sha256": "ae8ad9d05ce86a961a473dca3ca96eecf99427f27ff4eba60ef963ca7d001e94",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_444",
+      "status": "excluded",
+      "tensor_sha256": "ecf12bc2805de1348bc3ce62f4b42a290c249252f93d7fc7fac70be65cbd50a4",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_445",
+      "status": "excluded",
+      "tensor_sha256": "d19fa1ee4181948a579afdaf535b30f55e13a3005b1df752f32bede9dcc256a8",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_446",
+      "status": "unresolved",
+      "tensor_sha256": "79f08fcc6679f4480daeb6c14c68b422b7cceac4a8ed7616f3c27395723b0d3d",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_2_447",
+      "status": "excluded",
+      "tensor_sha256": "d1a0ae149b24118d2e63564d9247138212838b7517b0f77bd023f17ea5a51253",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_448",
+      "status": "excluded",
+      "tensor_sha256": "7024c282a6afbb92e6e26d4bc5c514cf55a6108812a0c826b4803ab4d104af2b",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_449",
+      "status": "excluded",
+      "tensor_sha256": "88dac8eee2389bb25678395eb0ff023f0099319b28e16ac1d7821ac6500de735",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_450",
+      "status": "excluded",
+      "tensor_sha256": "4cf529ab25f8c74908f5d775c78baa9813fb310439c56c1ee37635b742125be5",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_451",
+      "status": "excluded",
+      "tensor_sha256": "b319cdbbbc2384955c5f47392e621df202698986622ddddb04bce022b7b1799c",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_452",
+      "status": "excluded",
+      "tensor_sha256": "4ed325d64137e0d4b887f71058a39b17d3304c4ea5b21c091b76f3e70d2e980c",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_453",
+      "status": "excluded",
+      "tensor_sha256": "f44094761957f7afca077d70c6308733b4ebb679c81813a6a0f27699c753826c",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_454",
+      "status": "excluded",
+      "tensor_sha256": "88faec261fcf89399cdce97bc5937115e357242ac937d670a571bf99ef8d8dcb",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_455",
+      "status": "excluded",
+      "tensor_sha256": "c7535f874b09f090f2fe314089571c74ec3fe16ffe72e9b62907951be42f9467",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_456",
+      "status": "excluded",
+      "tensor_sha256": "465fff19e2f5dcd460ea140e0e68bb3d2479fb2b9f32b273ed500d9a3e524980",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_457",
+      "status": "excluded",
+      "tensor_sha256": "f36063c02f47dd44d71607c7f8905542d00ecd3b3fd454b8a8f9983291a7189f",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_458",
+      "status": "excluded",
+      "tensor_sha256": "ac8c8e4b384f9ca398115489e655b0b188d22a134d6c92eb8705d0d9ce0269e7",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_459",
+      "status": "excluded",
+      "tensor_sha256": "9f552e4ea4049cbbba43a57d6b6a2b0b2f13fb56895a00b6646617feb28409fc",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_460",
+      "status": "excluded",
+      "tensor_sha256": "25c067251ce39def9d8ea37626173a9dd619578e38cdfa5622af922a128bd574",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_461",
+      "status": "excluded",
+      "tensor_sha256": "5f32488ef30d4a785a28724d09296ac0f013880bd6d7542d1de6b63771f180bd",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_462",
+      "status": "excluded",
+      "tensor_sha256": "34ff9bde42593cfdcd0f1739b62babf48eac027a1e395f0afb47045a6fe41b92",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_463",
+      "status": "excluded",
+      "tensor_sha256": "f81507020392b96f507b1aa7b65f28d7f11c20b5ba30c02a560696ca070b2bcb",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_464",
+      "status": "excluded",
+      "tensor_sha256": "d5d18ed1e91aaf3ee4e1382be0811e7d98569a2fcaa061fbeae2b7ab756af554",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_465",
+      "status": "excluded",
+      "tensor_sha256": "81ab004dec43882f9245c6abd51c63c4bce8f21bcb55e114606044951d52e3df",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_466",
+      "status": "excluded",
+      "tensor_sha256": "7255cc618c0ea18b11eacc283b53117ce369ce227eb6b5dc3377709a8aaaecc4",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_467",
+      "status": "excluded",
+      "tensor_sha256": "d22684e57713ae9dab8b1cae08f69265c82d7ada4c32bf6e8b90c27c82fbff51",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_468",
+      "status": "excluded",
+      "tensor_sha256": "5cefe96feec31b739205cbe2a48da7fdcc07d41e9f344062864be390ef2740e5",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_469",
+      "status": "excluded",
+      "tensor_sha256": "a76f1e4fd618722c58fd18e8098ebac4211026f4bccac3e2ccd9eb53f883b6a5",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_470",
+      "status": "excluded",
+      "tensor_sha256": "e99d6640b652ed1119b11491d0176a2a908e871be595f11262a0554b98f49f8f",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_471",
+      "status": "excluded",
+      "tensor_sha256": "2aa1ba20888fa9a63698fd50dbe74a369a8cc6c002dff87936ed34ff4bcd7014",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_472",
+      "status": "excluded",
+      "tensor_sha256": "f42acba6930d16ece41e03c8cc1ef8bf838c9821d376e85c65bf04589522e260",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_473",
+      "status": "excluded",
+      "tensor_sha256": "7ce51d0ad1913388f66fd2e4bc79e17a4f6f06de104aced13dd619dc8b4a722a",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_474",
+      "status": "excluded",
+      "tensor_sha256": "8c2cef2f3d1e3ba5f8ebbe105f83b378d62f7fc1ae33da27b05423ecedf54d75",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_475",
+      "status": "excluded",
+      "tensor_sha256": "42d645a01f7ff95b24fa07d41a1b068b6155e5b01fc0b0b08536a2c82d87947f",
+      "certificate_kind": "rank_two"
+    },
+    {
+      "id": "R8_2_476",
+      "status": "excluded",
+      "tensor_sha256": "bff6c8dfbb71498f01dfb8a8ff374c2951a2e21d0de0aafd19bb43acb6ff5289",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_477",
+      "status": "unitarily_realized",
+      "tensor_sha256": "41c51e358fad76e3fd80b9b6f81e7389b51be904adff0f43fff98618dd31e09f",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_2_478",
+      "status": "excluded",
+      "tensor_sha256": "d3e8682cbd037fc3db501ebc91cf6b96d37707e722b2d49f6ff2b6e14f0a5ff3",
+      "certificate_kind": "oriented_signed_sphericalization"
+    },
+    {
+      "id": "R8_2_479",
+      "status": "excluded",
+      "tensor_sha256": "a92772beed3bb884b9bf22f76fa9dc98a71898da7063d2a501633b6c832df21f",
+      "certificate_kind": "oriented_signed_sphericalization"
+    },
+    {
+      "id": "R8_2_480",
+      "status": "excluded",
+      "tensor_sha256": "dd54618340171df4058e3bdedf3a4cfb4e088625b08ddfdc4ddad86dc71858d3",
+      "certificate_kind": "oriented_signed_sphericalization"
+    },
+    {
+      "id": "R8_2_481",
+      "status": "excluded",
+      "tensor_sha256": "8e128ed78e8ec73595b870b3f4bfc49f56dc5c2400e8b601a91bb816e5cea9ed",
+      "certificate_kind": "oriented_signed_sphericalization"
+    },
+    {
+      "id": "R8_2_482",
+      "status": "excluded",
+      "tensor_sha256": "b9d9050a449ef2c1cbf666e60876ae0f2df7f76e30527be6736bad08c78ebc06",
+      "certificate_kind": "oriented_signed_sphericalization"
+    },
+    {
+      "id": "R8_2_483",
+      "status": "excluded",
+      "tensor_sha256": "b5f88a7eb3d012384835d5e20a4027d89c51874b1ce3854321839232e780c4f9",
+      "certificate_kind": "oriented_signed_sphericalization"
+    },
+    {
+      "id": "R8_2_484",
+      "status": "unitarily_realized",
+      "tensor_sha256": "aea7240194ac39f3660a7576d3afeb69a7db9d51789aeea4ba50409965fd547b",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_2_485",
+      "status": "excluded",
+      "tensor_sha256": "6c5baaa0e893dae863ced928dbdea9e67c0f97c129028dc48f9cbdbf15d33dda",
+      "certificate_kind": "rank_two"
+    },
+    {
+      "id": "R8_2_486",
+      "status": "excluded",
+      "tensor_sha256": "f85907d7c84fb3003fd1338d3c4e5a8e7ba0e1f2fc21c3874b3a297f0c032ed7",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_487",
+      "status": "excluded",
+      "tensor_sha256": "a845b97702d410cfa58a1a926e0d096b73b7fefc6f3a09a53f718486631fd7cf",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_488",
+      "status": "excluded",
+      "tensor_sha256": "44b2cab2bfa30e5b0dc876ea0246b0915373a572c8c7f0ad52fcdc55f2ead640",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_489",
+      "status": "unresolved",
+      "tensor_sha256": "23cae0639e4ce7e54428705a66098747319e26d5f29ad8dff05914a6d43caef1",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_2_490",
+      "status": "excluded",
+      "tensor_sha256": "1e448c8b95b63b5a10df832543b3914b0eaf83beaa6440962f86a13eeaf6bef7",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_491",
+      "status": "unitarily_realized",
+      "tensor_sha256": "c44245f5add89db3dab6dade53b435b2287024307a71a78cf115f3730845a036",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_2_492",
+      "status": "excluded",
+      "tensor_sha256": "4979d97f23cd8530acd6769e68ea26279aab789ec630065e4e54d25c9f922149",
+      "certificate_kind": "rank_two"
+    },
+    {
+      "id": "R8_2_493",
+      "status": "unitarily_realized",
+      "tensor_sha256": "cb4057435fe189e7c3b93dd0bd5e69fabacc3c9563399544144ec6e88a22fe97",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_2_494",
+      "status": "excluded",
+      "tensor_sha256": "f5b0d80b8ec730b8e6116f7f6a4f53be37cc81ef77ad1411e3a6f57781b1ce96",
+      "certificate_kind": "zero_spectrum"
+    },
+    {
+      "id": "R8_2_495",
+      "status": "unresolved",
+      "tensor_sha256": "585aab580e46c28c084e57f81ba28b70835fc15ee0ca657d790b86253c74c6b5",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_2_496",
+      "status": "excluded",
+      "tensor_sha256": "74867954958112ddb6ab62d76fe1bb9708079ce5cf9a99a6d4a1000233479a63",
+      "certificate_kind": "zero_spectrum"
+    },
+    {
+      "id": "R8_2_497",
+      "status": "excluded",
+      "tensor_sha256": "0c63d7c5c16a4aa047268685d4eba7dbdb0636da74e23360823aa8458d84a574",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_498",
+      "status": "excluded",
+      "tensor_sha256": "75f63d11f61b467344414a32e5084e313c0a87d7c2a7fc7140f3a09ede4d10d3",
+      "certificate_kind": "zero_spectrum"
+    },
+    {
+      "id": "R8_2_499",
+      "status": "excluded",
+      "tensor_sha256": "867419b12c2b574bec72e077301b2f57d5b3267aceb626c5ec5efe41f0a9083b",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_500",
+      "status": "excluded",
+      "tensor_sha256": "69e0d15caf30dc22ac1254fdd251ff0f011969f2f6a82508efb3cebeb31ca290",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_501",
+      "status": "excluded",
+      "tensor_sha256": "8c65b77813d5976898d6128df871af760c5050360a70f2d31183157ff6114f4f",
+      "certificate_kind": "zero_spectrum"
+    },
+    {
+      "id": "R8_2_502",
+      "status": "excluded",
+      "tensor_sha256": "26907efad84d7a95f1c31f45163cc10429a9e549b9d33c177f87172b5c6fd4ee",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_503",
+      "status": "excluded",
+      "tensor_sha256": "31e1fcfdf79dfee28c50b65bea35a0230dd5b9d41d7a0c0535282ce6ceee2a42",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_504",
+      "status": "excluded",
+      "tensor_sha256": "986d96d100e80a5e537bff2fb2a69a12b0c5905b1a3e43984907eb91c1d4c5d1",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_505",
+      "status": "excluded",
+      "tensor_sha256": "5ea54d707bf45d0fa36a9fa989f2dd0ed2ce4b64b8716889605029ea68c16c5c",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_506",
+      "status": "excluded",
+      "tensor_sha256": "9126f9fc2db3fdce0cebe8f7844ceda683a13c2c5fa883d3e47b6382d77c1c17",
+      "certificate_kind": "zero_spectrum"
+    },
+    {
+      "id": "R8_2_507",
+      "status": "excluded",
+      "tensor_sha256": "b4411d520a54dc9ff7d88b26ef9f8b4c05ccd8e078f7a3aeef9fe8fe946494ed",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_508",
+      "status": "excluded",
+      "tensor_sha256": "3f83c0906e12da0285053f72acc7705b24f6f3557b533d53caea86f97913d4af",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_509",
+      "status": "excluded",
+      "tensor_sha256": "7f93c15aca10b769cab27113049eff89acbb63156c582d345f904c4970247f3e",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_510",
+      "status": "excluded",
+      "tensor_sha256": "19bb924e87fdbfd9e732c4f13eb157c4916411bae9abac49c3823420bae27ddc",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_511",
+      "status": "excluded",
+      "tensor_sha256": "c28a2d1d7b75ebc2f34921c6e325cfd9a0667a58d212b7d1e5661abf367e7e33",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_512",
+      "status": "excluded",
+      "tensor_sha256": "09ae4458a9dd346cf051a9aa5f63a0f4820bf9d9615c4ce677f7414cfa4735a3",
+      "certificate_kind": "zero_spectrum"
+    },
+    {
+      "id": "R8_2_513",
+      "status": "excluded",
+      "tensor_sha256": "7c6396ea6612d3810e7de66d85c1a5f7d8a2f41c0deee23947903128f70b8425",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_514",
+      "status": "excluded",
+      "tensor_sha256": "d8430c943e9ec287f903a085b6a80841ddefcac7f41ca4750f49c4ea57abc589",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_515",
+      "status": "excluded",
+      "tensor_sha256": "79aa9e7b9351e2c59168c2fd14b3ecb1df9969d21186a4c21a55566e407412c1",
+      "certificate_kind": "zero_spectrum"
+    },
+    {
+      "id": "R8_2_516",
+      "status": "excluded",
+      "tensor_sha256": "2b8447d7540fc7a454316ad6480317364e20962d154195bce6f060563e811f5c",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_517",
+      "status": "excluded",
+      "tensor_sha256": "1098f3f33460ff0c70a3aeecf95a652fb3b934bc0f3ede61e29c31710ca9c720",
+      "certificate_kind": "zero_spectrum"
+    },
+    {
+      "id": "R8_2_518",
+      "status": "excluded",
+      "tensor_sha256": "25ebb6bf6207d0bdea9e1d73f89a93cb07cc8db862a5f77baf91d16e561b18b3",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_519",
+      "status": "excluded",
+      "tensor_sha256": "761171339710a2a9c27680f332c95da6fa47af098988f035e21ae2c23594fd5c",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_520",
+      "status": "excluded",
+      "tensor_sha256": "7e44f8fa3dd356d4a57385b1a4944a0ca688e33dedd18b098b443482d84af717",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_521",
+      "status": "excluded",
+      "tensor_sha256": "752f1e3ac4723058ba32731cf75c943b064dd99bf74c92a88e761b1360ff3b66",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_522",
+      "status": "excluded",
+      "tensor_sha256": "9b2519bd15d2449b17a717f7223bfd81bf9a6070ed3d9cb5191f858d3cbe9608",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_523",
+      "status": "excluded",
+      "tensor_sha256": "82ea9166acc6a41e0e8c979cc1ae3d747f33c84509773efc12954b9dbf850729",
+      "certificate_kind": "zero_spectrum"
+    },
+    {
+      "id": "R8_2_524",
+      "status": "excluded",
+      "tensor_sha256": "ddf7ccd630e1fb268ce7d9bbd2bd8458140569a84c8deb7ca5fb920a5ccc336e",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_525",
+      "status": "excluded",
+      "tensor_sha256": "928c7aa963cfad4b837989fd35d8399b8bbe037c2aed5a0d0372dd2e5c4cfb73",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_526",
+      "status": "excluded",
+      "tensor_sha256": "5ad8aafe37357bf0cc6c468514fda3f2b9beb5fbb92dc854025479c97acf0014",
+      "certificate_kind": "oriented_signed_sphericalization"
+    },
+    {
+      "id": "R8_2_527",
+      "status": "excluded",
+      "tensor_sha256": "8cc4481281343449c9f700ff8d46fac6515d490e81f171721590f51396bae8fa",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_528",
+      "status": "excluded",
+      "tensor_sha256": "2fe493e71e874a2f74905e12a56218ee9f3c53e76ce28a2afd407556d75eb02e",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_529",
+      "status": "excluded",
+      "tensor_sha256": "59c5d1cfa64ebf9dd48b1c1afd94cc1b53da001398dc1f967268f8fc69f5fe28",
+      "certificate_kind": "zero_spectrum"
+    },
+    {
+      "id": "R8_2_530",
+      "status": "excluded",
+      "tensor_sha256": "4f926f1785cadc6a6235d4df0f4b1b5203faf2c0bbfa534182213c214d8ba650",
+      "certificate_kind": "zero_spectrum"
+    },
+    {
+      "id": "R8_2_531",
+      "status": "excluded",
+      "tensor_sha256": "975e86d148c6881067561fd17bdf16a580edd179be784a0bc3bc67b97a67b710",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_532",
+      "status": "excluded",
+      "tensor_sha256": "452fa723e684dd6c27c3ba4ff59a9cdde1b9886e10d8f6afc05dbd28b9f69e4b",
+      "certificate_kind": "oriented_signed_sphericalization"
+    },
+    {
+      "id": "R8_2_533",
+      "status": "excluded",
+      "tensor_sha256": "1cd315d5a30513b47de6f93d98f14fe06434365f62c121b006eda05a189e317f",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_534",
+      "status": "excluded",
+      "tensor_sha256": "ac069b3e33c466b51617bc332da8cf387a956ba6b7474af5b34648259233c1ef",
+      "certificate_kind": "oriented_signed_sphericalization"
+    },
+    {
+      "id": "R8_2_535",
+      "status": "unresolved",
+      "tensor_sha256": "bbec9e7a6c9699ef6dde3d09c0387b1ee426ea230c8bd0f94c7c48a4ec501edd",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_2_536",
+      "status": "excluded",
+      "tensor_sha256": "6c7d00012217e2e41105c163d94141a71f2212e068eded87bec7ec69995afeac",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_537",
+      "status": "excluded",
+      "tensor_sha256": "1ce21a0a787d3e296f12d6276659d323fcecbc9db5aff5186ac0a4f16a9c647b",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_538",
+      "status": "excluded",
+      "tensor_sha256": "4075e892f56b0a5600f00598b56490a5acdbcbce6b705de9d6308178b4efcb54",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_539",
+      "status": "excluded",
+      "tensor_sha256": "68ce59dd95f0ff96c17461fd906c828e3c0e76641adfef772a32f774688d4d85",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_540",
+      "status": "excluded",
+      "tensor_sha256": "11f98b876b9df2d6f8a4802bc9c60605aec58b656ba5600b30bc4cab07b08e12",
+      "certificate_kind": "oriented_signed_sphericalization"
+    },
+    {
+      "id": "R8_2_541",
+      "status": "excluded",
+      "tensor_sha256": "9c6c48d638d99532d2294632a1b3bf1172850b8aeb6437ebc24829ea06724aee",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_542",
+      "status": "excluded",
+      "tensor_sha256": "a3cc6131b0727fe040fef31e351c1bdc14d4675fe14565909e31e67170622396",
+      "certificate_kind": "zero_spectrum"
+    },
+    {
+      "id": "R8_2_543",
+      "status": "excluded",
+      "tensor_sha256": "e1c8df4248b280abd9ab8d77a4e764c7aafc0cb34777fdb222e9286363d0b685",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_544",
+      "status": "excluded",
+      "tensor_sha256": "527a873f5174dc15f3f75ebdd47102a9e9c8b826ffa7187fcd051363d36fdf6c",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_545",
+      "status": "excluded",
+      "tensor_sha256": "4c96acba4062a344a273b707dda717b7ddb47df66e28bd68a1d86e30ed80d8cf",
+      "certificate_kind": "zero_spectrum"
+    },
+    {
+      "id": "R8_2_546",
+      "status": "excluded",
+      "tensor_sha256": "796617ef4260946760c11206392b4332c7969d62e6f96a8ffda1850977e9a300",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_547",
+      "status": "excluded",
+      "tensor_sha256": "c9549161b10b673e868478d88544399791f6f4f72e4988dc6e4fab4916a02867",
+      "certificate_kind": "oriented_signed_sphericalization"
+    },
+    {
+      "id": "R8_2_548",
+      "status": "excluded",
+      "tensor_sha256": "aa300f6cb508cb5ce71b4a0fc8f3dc962d77712dd7810370be247445e582b51d",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_549",
+      "status": "excluded",
+      "tensor_sha256": "8d2c4f5461fe4b583cc14230abbd772b35e2ca2e7821f74c997e532f54f2d6f9",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_550",
+      "status": "excluded",
+      "tensor_sha256": "89e47b3c4e0511b9d3bebf07a605178a420749dff66d351837f35668815b7fab",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_551",
+      "status": "excluded",
+      "tensor_sha256": "b8ef7da03aa9c0ff098176231d66f3ea20aa2d8fad15d54d16910a3b79157c05",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_552",
+      "status": "excluded",
+      "tensor_sha256": "edebe92046f355b2a9ab314f0c9e0a02376ba0997f08d1670755aae0f66435ed",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_553",
+      "status": "excluded",
+      "tensor_sha256": "fe41f6eced7949365a0d55cef4f191bb2fcd6ee203e8842849fa0479139d5729",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_554",
+      "status": "excluded",
+      "tensor_sha256": "ccd9d8e51be688cdae3d6ed5db32c68fcdd05db6e89b3fd6c8909f87256269e3",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_555",
+      "status": "excluded",
+      "tensor_sha256": "c906d902637aed2597a12df4e8f8ef46bfdb1ce2cb37658c96cda17c918fdf10",
+      "certificate_kind": "oriented_signed_sphericalization"
+    },
+    {
+      "id": "R8_2_556",
+      "status": "excluded",
+      "tensor_sha256": "85c17cb5ffd131c735d6018226895ec610ed47faac2e9af5238f55050f67ef15",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_557",
+      "status": "unresolved",
+      "tensor_sha256": "65c218e2403f9b7da97ee86debb5991cd446f475aea61baf3d0eb7f97307d79b",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_2_558",
+      "status": "excluded",
+      "tensor_sha256": "de90ba4426dc2e16120abdf73bb47528a0146595eb6bb22e3c968c74f3fc06d9",
+      "certificate_kind": "zero_spectrum"
+    },
+    {
+      "id": "R8_2_559",
+      "status": "excluded",
+      "tensor_sha256": "a9f5ca85bef9f8db2ce72c43c19e3ae31d4df411cde1107dd85d649020c028b2",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_560",
+      "status": "excluded",
+      "tensor_sha256": "a5efd1f7a2580ff42088c164734c6382630650f095bd35113f6a25eed3fc5f79",
+      "certificate_kind": "zero_spectrum"
+    },
+    {
+      "id": "R8_2_561",
+      "status": "excluded",
+      "tensor_sha256": "7c4f8bd4b1e53b5ba697681155c6ea48624cefbab833aa71ecc4c9deea242e2f",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_562",
+      "status": "excluded",
+      "tensor_sha256": "b473a3d45c9e877d574d8ba9b15ecb91ae0b4e1b1a9660decbe588bc3fd9d9a8",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_563",
+      "status": "excluded",
+      "tensor_sha256": "eb9f9fb3a306f3bbae0620c055b0eafa1ee2ec23372f0d55662f9238b14f4e86",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_564",
+      "status": "excluded",
+      "tensor_sha256": "405ae327f2257f9ffbb3f29d1191940123661307a581683fcb60d4a9c69fde42",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_565",
+      "status": "excluded",
+      "tensor_sha256": "24e3abece9fa95723b7962ef0d361beb642bc9e47d6e334207a36459d040b983",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_566",
+      "status": "excluded",
+      "tensor_sha256": "384b4dbca506bc4b6c84c049bef39af98bf22ec7d61f735585c31a90b6beb3de",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_567",
+      "status": "excluded",
+      "tensor_sha256": "81385ff1d6c316a99bf05f2a27dc6b49203b62b24bb3727edfbe2f14dd7cf072",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_568",
+      "status": "excluded",
+      "tensor_sha256": "5a536425f3d75eea81b654cb61cad995b7029a21ecd56f18ef85a68645149fd3",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_569",
+      "status": "excluded",
+      "tensor_sha256": "7ece2f3d775e171a293253bc8bc7efcc4b442f09447ee0fd2f3cac42824a526b",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_570",
+      "status": "excluded",
+      "tensor_sha256": "6f6e483e2b711a6f8ce70c53b96f16f4e08795456ed7a599bc5e6819ecde5403",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_571",
+      "status": "excluded",
+      "tensor_sha256": "c29d900ad059cc599a00e9150c1bbdeb99a06d445b8fabc4f4557cbb3068243d",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_572",
+      "status": "excluded",
+      "tensor_sha256": "c62307a4c19e38727d15c3e7cc7ce20148a30491e416a6a6592300ee91e11e76",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_573",
+      "status": "excluded",
+      "tensor_sha256": "7e927476089b97db9269ab4f6d6bfba925c7fe5bc5811ebae4ce1bc56c353861",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_574",
+      "status": "excluded",
+      "tensor_sha256": "b0099b79b709bcec408199637663a4c0cc22c82f739795f8b84ca51b360f2b77",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_575",
+      "status": "unresolved",
+      "tensor_sha256": "b69b81c82fee86626ed0d7c132227bee7a67fbf8f4c54a84f31d62a3a51858cf",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_2_576",
+      "status": "excluded",
+      "tensor_sha256": "a79e91677b42ce7de36c21549749170f6d2670576500ccfb2b30fcbfc6c53216",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_577",
+      "status": "excluded",
+      "tensor_sha256": "e3547d27669e99a7908e7f1676958cb1ddc5696e8f6a5c446959ae996535306d",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_578",
+      "status": "excluded",
+      "tensor_sha256": "04f31bafdad26dda1c063536d9a932bb100f43a9e39d113c8cfa517a662dd6a5",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_579",
+      "status": "unresolved",
+      "tensor_sha256": "fe88acac1fca45aeb3050b4bd02adad44046674ba7ab2ebe248cda748d62eb72",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_2_580",
+      "status": "excluded",
+      "tensor_sha256": "2b6ead7263729d38fa4f58a1197f794f7981f4fc82bc9a6155dd65826e9a3e91",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_581",
+      "status": "excluded",
+      "tensor_sha256": "fbea7551b5ce02c1d73b929d1bd36293f1948249d74501bec9d3a6a5fd34e88c",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_582",
+      "status": "excluded",
+      "tensor_sha256": "a15b03a1e21785068eff53a8155a53d86575e4c9a7a82bd3a841b196bbdeed3c",
+      "certificate_kind": "integral_drinfeld"
+    },
+    {
+      "id": "R8_2_583",
+      "status": "excluded",
+      "tensor_sha256": "17fa736fc421ee7cb11b23729cea7174a7ad17279e079be22779226f39af2aac",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_584",
+      "status": "excluded",
+      "tensor_sha256": "f6c85b5b3eef319b160ae0ebf7fc7217b2544adc9aaf6239e6669fa2daa7a35b",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_585",
+      "status": "excluded",
+      "tensor_sha256": "260f75d1018dc5bd804d3395bbde55eb1a2b46c685069adece6024467bb3b275",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_586",
+      "status": "excluded",
+      "tensor_sha256": "39ec34cf4afa196dfa1d6710ab8df560eb54cbb94dbf1acb181f7e97f0fdf40b",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_587",
+      "status": "excluded",
+      "tensor_sha256": "5c8d35b82bdec0c85d3ac367f68bbc9d281b0b1e1062a4058047ce2da0c753b1",
+      "certificate_kind": "oriented_signed_sphericalization"
+    },
+    {
+      "id": "R8_2_588",
+      "status": "excluded",
+      "tensor_sha256": "58b3b10a98dca17fa5c5befe27413f6d4f3abade6e57b9d2d43c19eea6580667",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_589",
+      "status": "excluded",
+      "tensor_sha256": "32e31353823d342db3b4c46b7b63f54bf450598d912dc57e41052ded30c46e97",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_590",
+      "status": "excluded",
+      "tensor_sha256": "8d545d0a2a716914f5d5d1a998034bdab10d24bc1bcaec0079de0a1c0e5acc8f",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_591",
+      "status": "excluded",
+      "tensor_sha256": "cde39c453a4dcf644d23cf040bd42f2ab6bf9f852fc17cc97d44a4a3bd5a4b68",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_592",
+      "status": "excluded",
+      "tensor_sha256": "d926b68aaaa80aecef6ca87452c0ea8165472b993401c290c300516f506e0291",
+      "certificate_kind": "oriented_signed_sphericalization"
+    },
+    {
+      "id": "R8_2_593",
+      "status": "excluded",
+      "tensor_sha256": "83f9571f27598a8ef2fc627aabb6e54321adb105140a0542705b14528d6cd33b",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_594",
+      "status": "excluded",
+      "tensor_sha256": "8c2144fe2267c05e7042503c27bafa6c8d2d0f0ba381807e0233a962bae2a7d4",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_595",
+      "status": "excluded",
+      "tensor_sha256": "a68c3a623f154418ff7a3a38f38f4346965c1a41d6ed13affebacd574f20439e",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_596",
+      "status": "excluded",
+      "tensor_sha256": "ecc635ecf11f21c3ed9428c66f48299b9fc4977c1a5d0811bd6bfa7ccc83d9d8",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_597",
+      "status": "excluded",
+      "tensor_sha256": "d71637c9f192dcbb07ebe79db892b912fe4e11ab07bd77785f56e1a0e5b81fee",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_598",
+      "status": "excluded",
+      "tensor_sha256": "bddf5b091542972f068ac8828234c6640b9170c16c3a9b6501072e1b6c452614",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_599",
+      "status": "excluded",
+      "tensor_sha256": "7475f279aaac4fc4eff23236caf54708e238c2cb0cf630aeb49cfddf5790491d",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_600",
+      "status": "excluded",
+      "tensor_sha256": "7f3b8cb2a5e4d599ecd4c374c7934744ee3deab33376013c3135ec65e750ae09",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_601",
+      "status": "excluded",
+      "tensor_sha256": "a148aae3ad9ed8b8ea21f808cfc8c66241779d8f6122a0e0902e1d2b45ab3cdd",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_602",
+      "status": "excluded",
+      "tensor_sha256": "9a7b39ec02d11d12795abd3f909534f7bb0ad32da2404f2c323f0bb7582d4aff",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_603",
+      "status": "excluded",
+      "tensor_sha256": "4fdcdafe49bcb1907f646ce545ab5e2cea07beff659b4f206c706d44594ee4d5",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_604",
+      "status": "unresolved",
+      "tensor_sha256": "61b222786b50b98edc1c6a1fad1233e7f4d4db037ff9c441d1140bf0ac077cfa",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_2_605",
+      "status": "excluded",
+      "tensor_sha256": "14ba030e3515acb028a48381b9b692b0edc4b8d8562af288efea3dbc1b2dc58f",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_606",
+      "status": "excluded",
+      "tensor_sha256": "0d4d92e9661a215fa9c4c7cb3ea03541f29d47b04409f9c8bd0789b7bcf07245",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_607",
+      "status": "excluded",
+      "tensor_sha256": "f5e5d06a822649395fe78d82122793ce2640e69764d587534c309e61a15c06b5",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_608",
+      "status": "excluded",
+      "tensor_sha256": "ce19be2552d72504726ee158a9c9453656a7e979ab3d1da685a8f722f9325c61",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_609",
+      "status": "excluded",
+      "tensor_sha256": "b4338aaacb37659169d8fd6fd0627792900cf215e04cbd1dbde2df6f55ad532d",
+      "certificate_kind": "zero_spectrum"
+    },
+    {
+      "id": "R8_2_610",
+      "status": "excluded",
+      "tensor_sha256": "cdba87b562412655d7e53e7ec82fb016d988f3ce0158657d65e4db335585e37b",
+      "certificate_kind": "zero_spectrum"
+    },
+    {
+      "id": "R8_2_611",
+      "status": "unitarily_realized",
+      "tensor_sha256": "1ade84491bb76a80a2e79d91a095656d42556a2d3690cdf3cad4dac1c9d0a5ea",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_2_612",
+      "status": "excluded",
+      "tensor_sha256": "80234eb610e4aa6a96784680ebeda76567142b5da55766737c9525a1e6a3fed6",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_613",
+      "status": "excluded",
+      "tensor_sha256": "8aacd2c362456f1032269ddffcac9f7aa00cb8bdb1ac2c92d303d75bb8e0cf36",
+      "certificate_kind": "oriented_signed_sphericalization"
+    },
+    {
+      "id": "R8_2_614",
+      "status": "excluded",
+      "tensor_sha256": "28d2ce4856311afe795e4c545d2cd951fcc7ba4b9e948302fa464041daa6ad87",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_615",
+      "status": "excluded",
+      "tensor_sha256": "fb62a20f28ffe22f35cb6a7f2f6e7dcf75799d661752f994755ba16d847ccbeb",
+      "certificate_kind": "zero_spectrum"
+    },
+    {
+      "id": "R8_2_616",
+      "status": "excluded",
+      "tensor_sha256": "1c0338431b81bb81478c2a5a2d51c4cef57ba232352562c863374a75128f286f",
+      "certificate_kind": "zero_spectrum"
+    },
+    {
+      "id": "R8_2_617",
+      "status": "excluded",
+      "tensor_sha256": "da34ecff54b8fc3d2c4ec05dc8a0b710eeb98590bbabbcba378234bf39d14951",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_618",
+      "status": "excluded",
+      "tensor_sha256": "76e6d922e07f419ee14d5a76c32326cc8689468afab1127e4f09aa078097a9a0",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_619",
+      "status": "excluded",
+      "tensor_sha256": "c5abeb9d2c7018084b9f4e9094bb1d5a3961eb14666281b85a59f44acae3033b",
+      "certificate_kind": "zero_spectrum"
+    },
+    {
+      "id": "R8_2_620",
+      "status": "excluded",
+      "tensor_sha256": "b00112691b1be7445fbf707d198b4fbe2db1f6846197c7032b94b7d05ab4cff2",
+      "certificate_kind": "zero_spectrum"
+    },
+    {
+      "id": "R8_2_621",
+      "status": "excluded",
+      "tensor_sha256": "e98f471fc127345a1301c52c32799d24dbafba55606d040fe9df6baf7be9dc8d",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_622",
+      "status": "excluded",
+      "tensor_sha256": "8b68932cfbee3fb6e794a1f67f53dde872bd9a41bc503e64c3aae1c88fb0f9bc",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_623",
+      "status": "excluded",
+      "tensor_sha256": "6515b63709c00eccd8d35f72267979a00a12311719ae236a59ab77236b413853",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_624",
+      "status": "excluded",
+      "tensor_sha256": "bad6bf41f8349238012f1c869a0095e1969d6c60bd3bfa6eb2171059bd1ac30a",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_625",
+      "status": "excluded",
+      "tensor_sha256": "d7e844b0f61bbdeb75af215728636ecdd03d682f128d9ef1395b5877199c29df",
+      "certificate_kind": "zero_spectrum"
+    },
+    {
+      "id": "R8_2_626",
+      "status": "excluded",
+      "tensor_sha256": "b586bb8a28727c013e60886f1732fd99f0a0c5c2e62365791c893467663f0c60",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_627",
+      "status": "excluded",
+      "tensor_sha256": "3cf0db1a32ee484838ef3cbb12d8055e3f6a6ef37c5c5352676221a1dfd77b22",
+      "certificate_kind": "involution_module"
+    },
+    {
+      "id": "R8_2_628",
+      "status": "excluded",
+      "tensor_sha256": "df748f248262060d60af49fdd1fe02c200a2e6fe6db86a20f358616152d7cced",
+      "certificate_kind": "zero_spectrum"
+    },
+    {
+      "id": "R8_2_629",
+      "status": "excluded",
+      "tensor_sha256": "def45ffa2d06e5ce8c0afaf47b48fcbe39f64ff36b195fa3f18526cdbf4e64ec",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_630",
+      "status": "unresolved",
+      "tensor_sha256": "4bf43a0204695223442fef2735e46289cded33126a6598118091a280cada93cb",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_2_631",
+      "status": "excluded",
+      "tensor_sha256": "adbde093558060916d69e58c2f12b084f24a1a8cc064a9244a8c7502ad8c9c98",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_632",
+      "status": "excluded",
+      "tensor_sha256": "548e6151d3026a0bd64c3f4f33dabcce9ceb674af7e80aa0023715fb7a5f851d",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_633",
+      "status": "excluded",
+      "tensor_sha256": "ea0028b81fda8d22770e24fc3397533ec7b1c14df42c6275461d4fe69c1e64fe",
+      "certificate_kind": "oriented_signed_sphericalization"
+    },
+    {
+      "id": "R8_2_634",
+      "status": "excluded",
+      "tensor_sha256": "4ab182edbc866f3064327c86b095576c1e51feceac688bf1c728d0063bb0a744",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_635",
+      "status": "excluded",
+      "tensor_sha256": "f26fe5cf737ecb36dec4f2f3b34918083d37238ed6fff513ad0ced16d5b427ec",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_636",
+      "status": "excluded",
+      "tensor_sha256": "009281005bbed5681fbc07d2c86275e85db3f6238278020e86491835d7bb13cb",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_637",
+      "status": "excluded",
+      "tensor_sha256": "169a729b1b429b0405e59ad4790b1a69abc48ee1d03bece00e955f99000f8002",
+      "certificate_kind": "oriented_signed_sphericalization"
+    },
+    {
+      "id": "R8_2_638",
+      "status": "excluded",
+      "tensor_sha256": "255b10149d3f724364c0bade81f4895b3b345840686647a1056d665ef6c3f670",
+      "certificate_kind": "zero_spectrum"
+    },
+    {
+      "id": "R8_2_639",
+      "status": "excluded",
+      "tensor_sha256": "b56631ed9894237d21cb18796d9d78ae5048cd9cdc6b4baefd1946b69bdfc4a6",
+      "certificate_kind": "zero_spectrum"
+    },
+    {
+      "id": "R8_2_640",
+      "status": "excluded",
+      "tensor_sha256": "2c0955ab3d0f16cc113d57c7477a9c4f69f1b737fd953351330e21451f227a52",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_641",
+      "status": "excluded",
+      "tensor_sha256": "88a68c2e2318a390d7fce9d36cf41c870bb7f62e990791d60959f9dda1b76909",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_642",
+      "status": "excluded",
+      "tensor_sha256": "9d76a12f2e4378265e75b51ff1d2ac8f1b3fbd0593cd95986f4c68bd2b2a5140",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_643",
+      "status": "excluded",
+      "tensor_sha256": "bccf71f38a08da22e634039c17ded3c99d15055b81b6a3b15970a2aaf7b2ca2f",
+      "certificate_kind": "zero_spectrum"
+    },
+    {
+      "id": "R8_2_644",
+      "status": "excluded",
+      "tensor_sha256": "2c6f82064aff2d72a29571f898f733dd2b58a6d209b9f2713977d4b9e48a0a56",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_645",
+      "status": "excluded",
+      "tensor_sha256": "b56347e0e883105b3530f0d0683fb7346ade82818a7251e0f6aa3071ca465519",
+      "certificate_kind": "involution_module"
+    },
+    {
+      "id": "R8_2_646",
+      "status": "excluded",
+      "tensor_sha256": "ac3937bfba6879e56c220d1a2054d455914fe8a6b7694d413e393f491bd53131",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_647",
+      "status": "excluded",
+      "tensor_sha256": "40cd5267eabed9a2374bb389a1ef18d6ca1790224d08c777793db88ac2711e68",
+      "certificate_kind": "zero_spectrum"
+    },
+    {
+      "id": "R8_2_648",
+      "status": "excluded",
+      "tensor_sha256": "b7ffd6c1cecd88a5289c2aeba0360b8243f5b284ad0c37a68edf5ec50bd55c33",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_649",
+      "status": "excluded",
+      "tensor_sha256": "1b682a36c46f47e1062982de07ec1fb7e6b6b9cec796a3cb9b4dc7433bb2f34d",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_650",
+      "status": "excluded",
+      "tensor_sha256": "e7903c7eb95bc8b4b04b3898fb13b7e5fe4fbe95b0e77a240070aaf15644a025",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_651",
+      "status": "excluded",
+      "tensor_sha256": "a40e1df641751c13ff0409dffaba6c301e389aa744c77a197e9fa52784fd579d",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_652",
+      "status": "excluded",
+      "tensor_sha256": "27f38d26b61b8888bb1ba79442900aa3a67545a9bb97cd6652a4ba1390e44bf4",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_653",
+      "status": "excluded",
+      "tensor_sha256": "2329ba5c931d66bf6e2fa3dc3ebbe10274fcac31cfd46785d71b2399ef757a03",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_654",
+      "status": "excluded",
+      "tensor_sha256": "2acfd11c498fcfb8ba8b7426796c74acf51ce213f32c58136ef4b3de5088b9e0",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_655",
+      "status": "excluded",
+      "tensor_sha256": "ba2a0a56e8b609fe0b19e3071f089ccca76706b80379c4284fcf13a3cf72c6aa",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_656",
+      "status": "excluded",
+      "tensor_sha256": "82412134cc1f09a3fef2806f565a0c4a510ad67f32e3d90fb9bca1eee2dc70bf",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_657",
+      "status": "excluded",
+      "tensor_sha256": "96f3eabf70ac686dfe913891a1ac7fa43522a221d6e0f7c8ef35520e42b730a7",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_658",
+      "status": "excluded",
+      "tensor_sha256": "a82e42d196b800400e188eb578b36afe331434ec4b8b7341417e9899741540c0",
+      "certificate_kind": "oriented_signed_sphericalization"
+    },
+    {
+      "id": "R8_2_659",
+      "status": "excluded",
+      "tensor_sha256": "c6c47594ccfa74066b306aed345b773e72af5dd3fb71febf6fb390bea6293540",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_660",
+      "status": "excluded",
+      "tensor_sha256": "58f04ed395243138a504b5eba5c28bae669850aeb7e63be61fa7c49cf326d4d8",
+      "certificate_kind": "oriented_signed_sphericalization"
+    },
+    {
+      "id": "R8_2_661",
+      "status": "excluded",
+      "tensor_sha256": "6835b0cdcd9ecf45ce01168e789e06f99ad4f1c478da93609ab2ebb53a130be5",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_662",
+      "status": "excluded",
+      "tensor_sha256": "0a2919058af08dd8ae677e833454ded634660e2240453bfbbaaa3c68b79a1375",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_663",
+      "status": "excluded",
+      "tensor_sha256": "3c0255511d5de837c9bbd941fd85af4e72797b0ff6982dc8e6a30c6cdb339d30",
+      "certificate_kind": "zero_spectrum"
+    },
+    {
+      "id": "R8_2_664",
+      "status": "excluded",
+      "tensor_sha256": "1862b28dd5bd3b289c4d385b86c301a6acf7cf9b9a1a6224206b86c8e419ac28",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_665",
+      "status": "excluded",
+      "tensor_sha256": "b0eefdf7b6e3df8268db0b64efc2350de64df50e9f21695fa52608bc35fd4ea0",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_666",
+      "status": "unresolved",
+      "tensor_sha256": "cfbe81aa760b11ab636b164d65c6985bafe05d675eeae0404a42b0ebc4c0d35b",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_2_667",
+      "status": "excluded",
+      "tensor_sha256": "e6fead64bb11dba1a5d5491961044ad93ba1a5b290f8f86e49f82caad887c215",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_668",
+      "status": "excluded",
+      "tensor_sha256": "3f902cf82f7245694a689435f7ee9f9fffecebf09051d0e7ca174057a1736456",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_669",
+      "status": "excluded",
+      "tensor_sha256": "4aaed71106bc5e19be2f42b8e2b91b3d1a62814de4ca8de9924fb3aeae6e536f",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_670",
+      "status": "excluded",
+      "tensor_sha256": "6e765b111467ade9e2a5608487cfc4d2ac54e80478ababa5e0799c6d532f0503",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_671",
+      "status": "unresolved",
+      "tensor_sha256": "299ed4d94e5e3e54de5c4699704f5a335012b06efa9cc259c1f732b40f5c595d",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_2_672",
+      "status": "excluded",
+      "tensor_sha256": "c7dcae7eb97593fd03aa6385caeb28df5a5251d0e26affed7cbf0580e1a40898",
+      "certificate_kind": "oriented_signed_sphericalization"
+    },
+    {
+      "id": "R8_2_673",
+      "status": "unresolved",
+      "tensor_sha256": "7a085fad52536ddb42e003e3929cd35fb63661adc81c460a4d194546caf275cb",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_2_674",
+      "status": "excluded",
+      "tensor_sha256": "b8c7b0c06ee70b353bc55d3a534d934ceea5b5666cfbafda8006d542ee914ec8",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_675",
+      "status": "excluded",
+      "tensor_sha256": "81925a2a0fb2956006b33f5167a13a4f691acb67ce1cf8c61fd1fe2941b6c303",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_676",
+      "status": "excluded",
+      "tensor_sha256": "d5b207e8036aebb7c9539934c98942a89844203568d8ba21e02a3c069c756a2c",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_677",
+      "status": "excluded",
+      "tensor_sha256": "7820a28696794c77f7c5a2926b649b59c7fe0d738b0a3bb2ff5778d65c2d3da7",
+      "certificate_kind": "rank7_certified_subring"
+    },
+    {
+      "id": "R8_2_678",
+      "status": "excluded",
+      "tensor_sha256": "afec2dea04190bd8a2f130ef61550559e0029e7b0ffdc40081003980351ddeb7",
+      "certificate_kind": "rank7_certified_subring"
+    },
+    {
+      "id": "R8_2_679",
+      "status": "excluded",
+      "tensor_sha256": "adc88fb91ad6fa49323622ea95f58a1c66b4997ae3bcf08701c6ea6ed56fe8b1",
+      "certificate_kind": "rank7_certified_subring"
+    },
+    {
+      "id": "R8_2_680",
+      "status": "excluded",
+      "tensor_sha256": "e5607e10b8b0de22e41fce38632757a357b1aeed7383fb68c251e46c49629fef",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_681",
+      "status": "excluded",
+      "tensor_sha256": "a570ac9d4d1f6d2e14bcc8e076924361090dfe9a84f7706dabc1e4e779954b07",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_682",
+      "status": "unresolved",
+      "tensor_sha256": "9038701f00ee4e565be9950dc0c0f6048325c183f0af47e9aa41cf5798b59f8d",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_2_683",
+      "status": "excluded",
+      "tensor_sha256": "2bd190c35e070c030c6ecf64abff66f67fcb3289922916bb8f0df726ab756eda",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_684",
+      "status": "excluded",
+      "tensor_sha256": "97385415b22d7f00898037f1666deeed44a8de1ac9854cd2dae90db8bb55fdf0",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_685",
+      "status": "excluded",
+      "tensor_sha256": "b74fb1500c95bd387e04478b44cd56537d5f08b230b88582dbc7844f96bdf40a",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_686",
+      "status": "excluded",
+      "tensor_sha256": "1b5e1ba2902a9a4447964f064fa80ac30cbfe6328e7b9f9b19e061334e77d6f7",
+      "certificate_kind": "oriented_signed_sphericalization"
+    },
+    {
+      "id": "R8_2_687",
+      "status": "excluded",
+      "tensor_sha256": "a8f36175f162f3d7849e7f084a72b0181c7f1fdf571f3625271f4c9f841f6054",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_688",
+      "status": "excluded",
+      "tensor_sha256": "91e682213a48b57544d38a5ee178198940f6a2ea98047d81acb1135f19c8a038",
+      "certificate_kind": "oriented_signed_sphericalization"
+    },
+    {
+      "id": "R8_2_689",
+      "status": "excluded",
+      "tensor_sha256": "fae1d8139672846c13391e9aabbceaf2c69162ebb1622a22ca2ac26766188d84",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_690",
+      "status": "excluded",
+      "tensor_sha256": "ed00fdda5f1b5a6896a78e787c50fc26e8918695590fb0857531ba375d371198",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_691",
+      "status": "excluded",
+      "tensor_sha256": "b59d5535868180831a59b899a2bb053c7dedde6a745af3636f6e77cba1435aa5",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_692",
+      "status": "unresolved",
+      "tensor_sha256": "ed37ca13ff272016100726ceb860a27c6d2c9e9301e0c886ec1961012e320bc5",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_2_693",
+      "status": "excluded",
+      "tensor_sha256": "200ac949a599160cb95133c24d2191f2ba5468df2cf311ea5b36628489e55446",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_694",
+      "status": "unresolved",
+      "tensor_sha256": "cad504d4abf1b34f332a7184d3cbf725d4e04d1fcb955fde654aa1516ec86831",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_2_695",
+      "status": "excluded",
+      "tensor_sha256": "db60b658d478c8912a1407007b7d1c76934d26ac0402526f01d69358ce9a6a2e",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_696",
+      "status": "excluded",
+      "tensor_sha256": "59357b0219b37925a14dee965c244276054ce14f498ac2f23f8f2a5456af9f8a",
+      "certificate_kind": "oriented_signed_sphericalization"
+    },
+    {
+      "id": "R8_2_697",
+      "status": "unresolved",
+      "tensor_sha256": "4c98a2e55bc023988e091c0ec3f817027683af116c60f19f4be52f1f95a5cff9",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_2_698",
+      "status": "excluded",
+      "tensor_sha256": "df83ba0b9cc9205255a2dbc31a3da9b4a65e4af852b20b08a20118b512a6b0f7",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_699",
+      "status": "excluded",
+      "tensor_sha256": "41c0bcf28ef8caf4c1877eac4ca00e7072b7f8005a37a4fe45e315a73ef92ce7",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_700",
+      "status": "excluded",
+      "tensor_sha256": "e20c66e4828ef05173061a77ae529f2db1d988b3b4bf4db794a4da0b2155fd70",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_701",
+      "status": "excluded",
+      "tensor_sha256": "8a3eb0bc62d695f1febd6ddf95e5b76d206fbc440f7ed5dc37ec2d8dc4e56eec",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_702",
+      "status": "excluded",
+      "tensor_sha256": "901aea25575c015cc7dfcc091bc57227c5c05bd41c66a4808b1553140cd8cad4",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_703",
+      "status": "excluded",
+      "tensor_sha256": "8c869d210d2231ec809beb6eff9ae6cd8e8dcc22cae96e643592862b6b208394",
+      "certificate_kind": "zero_spectrum"
+    },
+    {
+      "id": "R8_2_704",
+      "status": "excluded",
+      "tensor_sha256": "6e25a9fee4cdaeb32b594217fc6bde4ca9c4ca2221a16fd8b10d0fd6c115c4fd",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_705",
+      "status": "excluded",
+      "tensor_sha256": "2e0f3681994d24b986d2c84710672fbaf5457bfc0c9edb852824fc0928aa29b2",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_706",
+      "status": "excluded",
+      "tensor_sha256": "5a1e03d6cb18305a2c91d418674cfc7e009652ffa1b015cbf58c15bb75be74a7",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_707",
+      "status": "excluded",
+      "tensor_sha256": "8e692c71da60552acfa9b3e980264608e48999d5d992ea5c1e8203eb8a2d82e5",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_708",
+      "status": "excluded",
+      "tensor_sha256": "7d9ddcf876c78cd84682659a1f612f5f400bea173fa75bb1c34b9086f854cba6",
+      "certificate_kind": "zero_spectrum"
+    },
+    {
+      "id": "R8_2_709",
+      "status": "excluded",
+      "tensor_sha256": "f098eb6fe1e6df5369c47b5c538e2e7e6035699ca5425df18bc0daff75f84068",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_710",
+      "status": "excluded",
+      "tensor_sha256": "9da06ce9c3c10e3d60c94c5dc9e3bb72954e8ae535ca4a9b26c76a7d515b233b",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_711",
+      "status": "excluded",
+      "tensor_sha256": "8f5e7bb69d2a0f74afdf95647ceb6ea7b8ee99a6d6ecd407d78bb590faeafc90",
+      "certificate_kind": "zero_spectrum"
+    },
+    {
+      "id": "R8_2_712",
+      "status": "excluded",
+      "tensor_sha256": "d36ddca9f0cadac508560a0a6b5d7e1c141ca50eaa63499a87679f9cf92a5d31",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_713",
+      "status": "excluded",
+      "tensor_sha256": "d5e70d9dfb7b7cbddf12c3a30dfdc7d08224e8c611b818069ea55ce2969af709",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_714",
+      "status": "excluded",
+      "tensor_sha256": "e443fd71f582d5dc85555cc5e16cd420923293f32ee8b5cb43e2d21e15634187",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_715",
+      "status": "excluded",
+      "tensor_sha256": "615503a29bf3aeef40c0b6c9adda0498cf3d4a0f6f5e92eeba2c030a679b0474",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_716",
+      "status": "excluded",
+      "tensor_sha256": "bdb59f20622b7b44d99edefe1cde1ef9bf04852529687253c4c7ec379ab050f5",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_717",
+      "status": "excluded",
+      "tensor_sha256": "c16f40300e9e4487c1866ebcb3575f1cfdf957e6537d54a034f91270f2e8490f",
+      "certificate_kind": "zero_spectrum"
+    },
+    {
+      "id": "R8_2_718",
+      "status": "excluded",
+      "tensor_sha256": "9964026278f8f194c7ce416d38b1c0ad1211e3d72c7c0dc9e45dbe85919ad254",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_719",
+      "status": "excluded",
+      "tensor_sha256": "c80193b350b64650c356663c4cd9ebbb2bd16e003a64a55d933b20bf37da0659",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_720",
+      "status": "excluded",
+      "tensor_sha256": "53e880e52ed5f827388b106ba409484db92bb80dbbff70464fe199deceab3414",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_721",
+      "status": "excluded",
+      "tensor_sha256": "268659b93340355fa07caf7ed65377bf07e6ae4a43e17d7823a6c0624e909e31",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_722",
+      "status": "excluded",
+      "tensor_sha256": "a2a78153f6598c1116f933dec01daf287eb304777717ed81bfcf32d4c0ced9af",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_723",
+      "status": "excluded",
+      "tensor_sha256": "02960e67eb101ff13b28c03bbb8f5f3acc880558005eefc0e554953169c86895",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_724",
+      "status": "excluded",
+      "tensor_sha256": "dcb330663c7354a7a3ac57049a1da3600bd54a9045a3759aa4d3ae9068dcc7a1",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_725",
+      "status": "excluded",
+      "tensor_sha256": "939e34ff66392b98a50691b645f8ccf4e9e7e8ebdf12a5b99f2a750ddb77cf49",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_726",
+      "status": "excluded",
+      "tensor_sha256": "23efd9accbf5e740738fa89a68d2e7e4909635d3398328a43d8eb9cbd188e030",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_727",
+      "status": "excluded",
+      "tensor_sha256": "70f6bea45316721e2ddabfe86f3c78ab31d1c089f56f0f6e63801ccb7ae31858",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_728",
+      "status": "excluded",
+      "tensor_sha256": "3f63ccc2fa608fbdf2978e2f8fe8b39eb7a513baf11cc150005cdb44da3301a3",
+      "certificate_kind": "zero_spectrum"
+    },
+    {
+      "id": "R8_2_729",
+      "status": "excluded",
+      "tensor_sha256": "88434428499f27996729f0c78c63aa10867f7f6b36f9e6bdef327e7b624f8c93",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_730",
+      "status": "excluded",
+      "tensor_sha256": "6c00645f13c1067905478fa577079d6972b80d762d93ace6b636cd4403e9ecdf",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_731",
+      "status": "excluded",
+      "tensor_sha256": "290f334ba4265e86f8bb634b041dc830b7ca07482bf57a8ca7d711b203569a5d",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_732",
+      "status": "excluded",
+      "tensor_sha256": "0846e73aac5ef8425ab2db17e7a31c3d559e671e877afd5c223fb39441b5ebac",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_733",
+      "status": "excluded",
+      "tensor_sha256": "697353b1eb6adcd5688ef42ee68b7a5d864e0e40c8d5cc9f6ecc4f9cfac2032e",
+      "certificate_kind": "oriented_signed_sphericalization"
+    },
+    {
+      "id": "R8_2_734",
+      "status": "excluded",
+      "tensor_sha256": "250e572a4e882c4f50114dba59f3ec4df0f4d172fecb6b778cb8a53608fc6174",
+      "certificate_kind": "oriented_signed_sphericalization"
+    },
+    {
+      "id": "R8_2_735",
+      "status": "unresolved",
+      "tensor_sha256": "223ac5854812251279f2e28154786cb7d4829b9f0474661477e2865037945512",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_2_736",
+      "status": "excluded",
+      "tensor_sha256": "9d3697104b1dbd38a533c8b2fa0a59ee8e4c87e0a9b6464fee9bd8d6a3abdf2d",
+      "certificate_kind": "oriented_signed_sphericalization"
+    },
+    {
+      "id": "R8_2_737",
+      "status": "excluded",
+      "tensor_sha256": "443f5b9a662cb0189ed87df3957db7a254147a8bf10a52486326d74febe1ef3b",
+      "certificate_kind": "oriented_signed_sphericalization"
+    },
+    {
+      "id": "R8_2_738",
+      "status": "excluded",
+      "tensor_sha256": "d531e4a9003718d2a7c109a071d9a8f4395c1c146d35e24c17ec28768382862b",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_739",
+      "status": "excluded",
+      "tensor_sha256": "a3c09b453ad249177cc63c46790bcb12d4b7e4777be27a492bb39c3424cd0481",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_740",
+      "status": "excluded",
+      "tensor_sha256": "80339a668735336c2024864e13ca1efa7a38a255c97fe431b34d77caf33673f9",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_741",
+      "status": "excluded",
+      "tensor_sha256": "9626899dc48cfa1441d68ade859c3d4f64fb2a2fa5b5ab616249589c70b5edca",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_742",
+      "status": "excluded",
+      "tensor_sha256": "3904e50448c3fd3f22fece12e8dc6dcd1527f6ba3a3fd6d47f1758911e01d418",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_743",
+      "status": "excluded",
+      "tensor_sha256": "8a65bf41d4615ddf31e48c33fb264008afeda61b821993dede46f3aba47ceb0e",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_744",
+      "status": "excluded",
+      "tensor_sha256": "f97a92d610c95d1d3ab06a8961bc36cd21c56c3ceabca034c5d574ccb8cf3101",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_745",
+      "status": "unresolved",
+      "tensor_sha256": "c582e10cdb1898c636b0bac72085deaf653e939ba254fb74e22f842aba5980ed",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_2_746",
+      "status": "excluded",
+      "tensor_sha256": "b68cb69dba145f57d7b47337daa09964f7a83c4ae648b3ae37027361eb267cf4",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_747",
+      "status": "excluded",
+      "tensor_sha256": "e0771f302c7c2ef56a7070153a221078dc9cb6466c1b0d1d92f2e3a3a701fabf",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_748",
+      "status": "excluded",
+      "tensor_sha256": "7b8f635f705683c14f2b0c1f9af3f96b1b6463f1be06c958d78119d1a89d5134",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_749",
+      "status": "excluded",
+      "tensor_sha256": "0ed447feec5039618ec0dc4a62e3cff22f2cbba9facb226036bd7e21ca9311cd",
+      "certificate_kind": "zero_spectrum"
+    },
+    {
+      "id": "R8_2_750",
+      "status": "excluded",
+      "tensor_sha256": "b547852736f4427bb8a3664d4390594d49275bfe66766bf665f125b5de5a885e",
+      "certificate_kind": "oriented_signed_sphericalization"
+    },
+    {
+      "id": "R8_2_751",
+      "status": "excluded",
+      "tensor_sha256": "1be386c2159c1364d303ba6b2fc605677194b2e9985b231d5378851260df60d2",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_752",
+      "status": "excluded",
+      "tensor_sha256": "12760c3bbd99d1a3f649b7e953d013b3a646e2108cb6c9dcfe32a5ea5cc8665b",
+      "certificate_kind": "oriented_signed_sphericalization"
+    },
+    {
+      "id": "R8_2_753",
+      "status": "excluded",
+      "tensor_sha256": "b37792f8019593c7f30b7c47390b7ac90f15a79bfd31c9a03abc703b744e4367",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_754",
+      "status": "excluded",
+      "tensor_sha256": "cf9b3e0ec62513717fcd558169ef3cecf96b8b9b1cc77452bdd1cb5e4312054b",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_755",
+      "status": "excluded",
+      "tensor_sha256": "542332871709ef6439d97e936ea9a8636f165879c313ee5f4908b16ee3e50e69",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_756",
+      "status": "excluded",
+      "tensor_sha256": "417de32dc5d79ae445d3307fc4e426563a3726f0b937a901a2ea360206d1e41f",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_757",
+      "status": "excluded",
+      "tensor_sha256": "8f40c10b84d404dbb9a1f96abdecf883566516bc3d70b45e8c06f58de223985c",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_758",
+      "status": "unresolved",
+      "tensor_sha256": "204497eea4d44ca757c6a1edf9a5eb5324a4a458667a1df21f94aeaf61b03220",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_2_759",
+      "status": "excluded",
+      "tensor_sha256": "f76010436ceee7cf441e794d74778c2752e360c49794e07824b511c107431d62",
+      "certificate_kind": "oriented_signed_sphericalization"
+    },
+    {
+      "id": "R8_2_760",
+      "status": "unresolved",
+      "tensor_sha256": "0b062a68813cebe95606803e7b2b32c99aefc3dc15718638c1745d256636a008",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_2_761",
+      "status": "excluded",
+      "tensor_sha256": "0928d20557493080a54d5ac50e8e521ed1a5257b0e358eda219de13f3f8cf642",
+      "certificate_kind": "oriented_signed_sphericalization"
+    },
+    {
+      "id": "R8_2_762",
+      "status": "excluded",
+      "tensor_sha256": "f96ba61ba66f6b3011d72bdb85b9ab0d2b654a346c5838669db97c4a9d9396fe",
+      "certificate_kind": "oriented_signed_sphericalization"
+    },
+    {
+      "id": "R8_2_763",
+      "status": "excluded",
+      "tensor_sha256": "c97881b0fef42a687144d0e795ecec41e36120dc42f8486b1a2fea94ad31ac75",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_764",
+      "status": "excluded",
+      "tensor_sha256": "77eb2e73f51f266ccd961b0f56b4509ea911f321fe23e3f8a7f8874a1dc0d053",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_765",
+      "status": "excluded",
+      "tensor_sha256": "0aa97323a988bc55d0187069d8b1a32e4f2c623d37a7a3bed4a12fbf05848e65",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_766",
+      "status": "excluded",
+      "tensor_sha256": "be1b9156159f4a60d5a9104964f122aa7653cf831bab46b6b40c7a1de8c04262",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_767",
+      "status": "excluded",
+      "tensor_sha256": "35734a61cf52698db977ca1bb44b9bf89f0e85849779ab04a416cf046d929f24",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_768",
+      "status": "excluded",
+      "tensor_sha256": "01e0c18534a752b3f6562fb26f4e0da64708f29b127aa399c8b729855dedf3ae",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_769",
+      "status": "excluded",
+      "tensor_sha256": "9bcc4715cf98471771b333a6eb232b941bca8fa335e2cd9eb0827b1eb6a02903",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_770",
+      "status": "excluded",
+      "tensor_sha256": "894f0d1918acea689fcc8e33142d5e67e1353b9d2d479190065ad2033543fb29",
+      "certificate_kind": "oriented_signed_sphericalization"
+    },
+    {
+      "id": "R8_2_771",
+      "status": "excluded",
+      "tensor_sha256": "b5b0a63cc975de8cfd80b7a67a9cb6654c6fc49b36bd647e10ff976dc993e862",
+      "certificate_kind": "oriented_signed_sphericalization"
+    },
+    {
+      "id": "R8_2_772",
+      "status": "excluded",
+      "tensor_sha256": "3c9528ec64060627af1ee482277d88a4933e7ae3d8c573c46cc68295ed6c0679",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_773",
+      "status": "excluded",
+      "tensor_sha256": "d32a6df7acbc5375ed80e999e3064f62b39344921c23e6e5fd57fefe79f05ecf",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_774",
+      "status": "excluded",
+      "tensor_sha256": "bb37cfe14ba2412c9c855cd029a57868319063e562e827a04c4b5e3e14fc680a",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_775",
+      "status": "excluded",
+      "tensor_sha256": "91f86248b06202d1b37b7e57d9d8d3a42cb722d259e29e0790f28b0d7221b076",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_776",
+      "status": "excluded",
+      "tensor_sha256": "ec35c598aefa8ce25817be21898157b94799cce8c4da06f6ed82e13418e698b4",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_777",
+      "status": "excluded",
+      "tensor_sha256": "6402a1d1bddcd4cdefdbd446fd21fd5bb6855d6589b94dd6f238cc50c58280c2",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_778",
+      "status": "excluded",
+      "tensor_sha256": "38f3b662366dbdde179ee46cea6770a2e71527c6c91d2ef96136734f09f6cedb",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_779",
+      "status": "excluded",
+      "tensor_sha256": "da3840aaa9751a54b880b512483b30cf27185888461427a4db7cf681135c8652",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_780",
+      "status": "excluded",
+      "tensor_sha256": "9869bb9f3a6ce3e38067e258e7f8f5c1667119b373c6fb044cd2fbf7b6cd1119",
+      "certificate_kind": "oriented_signed_sphericalization"
+    },
+    {
+      "id": "R8_2_781",
+      "status": "excluded",
+      "tensor_sha256": "d5463f2f238e1d287c1b6790d951341929e1bf0d0a4c8df375f964bd378e27f9",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_782",
+      "status": "excluded",
+      "tensor_sha256": "f560c8a822534ba4d2f5e5232ce187e49b755ea57119be9a4e05648517575276",
+      "certificate_kind": "zero_spectrum"
+    },
+    {
+      "id": "R8_2_783",
+      "status": "excluded",
+      "tensor_sha256": "2d1399ed608f32f8864072b6ef49e71a3ad435497c98f8da96244bc28ead062b",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_784",
+      "status": "unresolved",
+      "tensor_sha256": "4a00d46bc7232a1001ea7c7a917deda6c5f94cd83ad1cbf6bd9321593e4bb488",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_2_785",
+      "status": "excluded",
+      "tensor_sha256": "ee20b39753f2569e2f6a06e9b46b9d833d22b0105980287d6c360c4c47eaf87f",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_786",
+      "status": "excluded",
+      "tensor_sha256": "e18d6dcbf6991094e262adf2ed98633b1d440c5a938de3887ad5e73fcf47465d",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_787",
+      "status": "excluded",
+      "tensor_sha256": "f1b5cc9563bc95e9b8981f15a2ba6af5e78669ebee35f819d0bebd491ff67aad",
+      "certificate_kind": "zero_spectrum"
+    },
+    {
+      "id": "R8_2_788",
+      "status": "excluded",
+      "tensor_sha256": "be5a6fc54c0627649a3ab6267131374875242e690720947dfbdde65ce7d5bab2",
+      "certificate_kind": "zero_spectrum"
+    },
+    {
+      "id": "R8_2_789",
+      "status": "excluded",
+      "tensor_sha256": "6672bfc1f0dbe67da949294bc986d73bea81868a04df5cedca0a5bb784132429",
+      "certificate_kind": "zero_spectrum"
+    },
+    {
+      "id": "R8_2_790",
+      "status": "excluded",
+      "tensor_sha256": "aff6887e90f048c2cf76cdc6cdb101f07ff8dfced67bb6133268adfda9a71045",
+      "certificate_kind": "zero_spectrum"
+    },
+    {
+      "id": "R8_2_791",
+      "status": "excluded",
+      "tensor_sha256": "e1cce485c2d1c873d7b1ff0fc4dc8c7a1911195a79012220d3dbf52267b8aa06",
+      "certificate_kind": "zero_spectrum"
+    },
+    {
+      "id": "R8_2_792",
+      "status": "excluded",
+      "tensor_sha256": "fdbd4850fc3fd5d784c422c74eb10963bae0d5be6b41d995761e301987ae14fa",
+      "certificate_kind": "zero_spectrum"
+    },
+    {
+      "id": "R8_2_793",
+      "status": "excluded",
+      "tensor_sha256": "575b81498793cb21ee26f47c005baa2b336d98f98baf3391cfdcec9cac49f4e0",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_794",
+      "status": "excluded",
+      "tensor_sha256": "3c3389627602a2c7a2aed6affdd46104cdf40197dcc4de282941a1d86b9d9268",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_795",
+      "status": "excluded",
+      "tensor_sha256": "bf00c314867a39cd66bcd2ea8190b6e1bbb0a0b23f1212e482e0953f0cfd2108",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_796",
+      "status": "excluded",
+      "tensor_sha256": "35f7ee365735f218070a101410e5b6569908323ae5179195f0211629f19827fd",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_797",
+      "status": "excluded",
+      "tensor_sha256": "f15fecd88138e715ec967f3ac42e8bd9ad33f78424b35b9b7cfccabd8c086754",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_798",
+      "status": "excluded",
+      "tensor_sha256": "c426407171753aa2245ec43a40f75cfea01cc24cace77c0b07168738f867d8d7",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_799",
+      "status": "excluded",
+      "tensor_sha256": "8f731d06e027b25733e3fadbf30a6cb879416cedef56a80a9ba0ea98f10999d7",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_800",
+      "status": "excluded",
+      "tensor_sha256": "0abb5ba3a243cc815eacaf8efad931a40608a89c62172ec67e4c0644aeec616c",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_801",
+      "status": "excluded",
+      "tensor_sha256": "b301cabf665c79698d41dc8af93554a5286563eff9dc2a46ea99043680f94a7e",
+      "certificate_kind": "zero_spectrum"
+    },
+    {
+      "id": "R8_2_802",
+      "status": "excluded",
+      "tensor_sha256": "c8d9e22bf2badbaf8c627690ab814d6bcd4ba338c3aa9eaa941da99bdfc85750",
+      "certificate_kind": "zero_spectrum"
+    },
+    {
+      "id": "R8_2_803",
+      "status": "excluded",
+      "tensor_sha256": "ee9c84e5105e42959bd60a3af9582c547e208f0c7155530105f5ef1a73b1b3f1",
+      "certificate_kind": "zero_spectrum"
+    },
+    {
+      "id": "R8_2_804",
+      "status": "excluded",
+      "tensor_sha256": "9be259ecaae4ec40a658c0c93e6bb2f72719d1f6e37b020ceb9217d69b309fc0",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_805",
+      "status": "excluded",
+      "tensor_sha256": "e2c5cadfcd8b37c9dcb993f6d381fb45084800bb9f22eebacc628bc627d7c438",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_806",
+      "status": "excluded",
+      "tensor_sha256": "f3503fb24cb85cfd9dfcc20e47155ed45ef0339eed17f44243295b5a2c172b86",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_807",
+      "status": "excluded",
+      "tensor_sha256": "31414aad21dfa39d5b5511cf8e9296c49bb70cf5498ce0872ad7cbc07153515a",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_808",
+      "status": "unresolved",
+      "tensor_sha256": "66cb6eab1f365c3471c8664c547c0610231258c0d624b17bb61ea3e9de3f9d24",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_2_809",
+      "status": "excluded",
+      "tensor_sha256": "9fd266b4f6d682bcf7c374b9fe9cb24987e88b4d69ac2fe6d2666781b7b388b2",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_810",
+      "status": "excluded",
+      "tensor_sha256": "d61cc41764c9092e6d5e49098d1a401e25966aec704e4a8760dfd6b8c5eaf003",
+      "certificate_kind": "zero_spectrum"
+    },
+    {
+      "id": "R8_2_811",
+      "status": "excluded",
+      "tensor_sha256": "19d068d67cfc7ed0721744b43f82eca06ffdd6e11a6b3814196bcec2a16acba5",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_812",
+      "status": "excluded",
+      "tensor_sha256": "b89981871199334c192654ec976e6ebb219a428055bfc58c3bc38bd74340f937",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_813",
+      "status": "excluded",
+      "tensor_sha256": "1c7466281bbf43e645430ab62281af9ce68cc147f5364c70ccdee6da7bac458f",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_814",
+      "status": "excluded",
+      "tensor_sha256": "cf3956d31b9011c97f42d14284b5f6693ed5b5e8b6904cf7fc23bacca490a45d",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_815",
+      "status": "excluded",
+      "tensor_sha256": "e3fc06f081201323ff1a6d430d4f2ede7e0394c5c59e7b771e70026101478612",
+      "certificate_kind": "zero_spectrum"
+    },
+    {
+      "id": "R8_2_816",
+      "status": "excluded",
+      "tensor_sha256": "c8083ee446a8aeaf0905b402e69c59093028cb9e76d4ef4d4ead35a4f48ffb70",
+      "certificate_kind": "zero_spectrum"
+    },
+    {
+      "id": "R8_2_817",
+      "status": "excluded",
+      "tensor_sha256": "f038ed6e22308f5e9891f6bedc8cd73c3049e7a555a73bcda7d1f2c8c631fb29",
+      "certificate_kind": "zero_spectrum"
+    },
+    {
+      "id": "R8_2_818",
+      "status": "excluded",
+      "tensor_sha256": "8081dbf109748b7af3a9abfb360d27579ae25bc4326232010d87e498c945c1bc",
+      "certificate_kind": "zero_spectrum"
+    },
+    {
+      "id": "R8_2_819",
+      "status": "excluded",
+      "tensor_sha256": "d8e2ba282af7e96cba3be72bd2c0747af35ab2fa997df23bcf299870eff363a7",
+      "certificate_kind": "zero_spectrum"
+    },
+    {
+      "id": "R8_2_820",
+      "status": "unresolved",
+      "tensor_sha256": "88d4e0d03d1f45b727bb5d973ee4c47ef114ff4870f397d9f08342d5db1d0373",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_2_821",
+      "status": "excluded",
+      "tensor_sha256": "9fc48a4308c87cabbd3f60f2a22dba0996f1f719dabc7f5b32132e1e866e6ed1",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_822",
+      "status": "excluded",
+      "tensor_sha256": "590d22f7ddb1148d61aa7f60f97765cfb1c8c8390961394163235045bc84fb3a",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_823",
+      "status": "excluded",
+      "tensor_sha256": "9c5fdf2079b74bc6460be34e18fa9c20ce64a965c9dfcb3ebc0ca21e9800a580",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_824",
+      "status": "excluded",
+      "tensor_sha256": "151dc82449a886a94769fb0c6ec485bde748ea2bd2f9542e87a3eea94e8534e4",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_825",
+      "status": "excluded",
+      "tensor_sha256": "59e0a010d04cb44dc7acfef3a0e68bc781abf7f0e03931af9453c888e30a7e0f",
+      "certificate_kind": "zero_spectrum"
+    },
+    {
+      "id": "R8_2_826",
+      "status": "excluded",
+      "tensor_sha256": "df3b1cddd7ca651aa1a23dd5abf1c8995e356d5ad00c75ee06f8c42188507ce5",
+      "certificate_kind": "zero_spectrum"
+    },
+    {
+      "id": "R8_2_827",
+      "status": "excluded",
+      "tensor_sha256": "442013010cbce5b70130ec404ec290933094dfefa86005b6760da216b7a84a14",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_828",
+      "status": "excluded",
+      "tensor_sha256": "e4e60d2cfa4c59e2b79519a5afb8bc4af2a59aa22e638a9bdc627e9b26e2d812",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_829",
+      "status": "excluded",
+      "tensor_sha256": "644b2dfadb77fc54874acf1de1e781d7ffd0f77960959c38a3c8e3cb75cba36c",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_830",
+      "status": "excluded",
+      "tensor_sha256": "84f796e2c7b3cbc59e882218cf7e78f3dbd1682cecedbb5bfeca8f732afcc303",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_831",
+      "status": "excluded",
+      "tensor_sha256": "47f4a2749261fcb775fd5a0e6d7246fcfafe2981e262a728cc7edefbcd99035b",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_832",
+      "status": "excluded",
+      "tensor_sha256": "48ed816f8d88f3203ba611266156572da5aa406c8b77d81a61a669e159867dc9",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_833",
+      "status": "excluded",
+      "tensor_sha256": "00a80daaf1b6e87779c776980482b136f98b03894bc3e9cbc75034ca47434c85",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_834",
+      "status": "excluded",
+      "tensor_sha256": "c929d4e635c35f79547dbe25640c28b6354d20674f3ba4271a51cb8fd7937238",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_835",
+      "status": "excluded",
+      "tensor_sha256": "2cd29dd005d445f99a472facad630150e3accc258bd22c2db2235ae989ae86fb",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_836",
+      "status": "excluded",
+      "tensor_sha256": "223f130b9f794d6d60c516bff42e1b021ac86242b06c03e2c2d0e1650c5f352f",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_837",
+      "status": "excluded",
+      "tensor_sha256": "1348dde2162f63770b35704e3919ed36d12eb2157afe550b893d019348d95645",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_838",
+      "status": "excluded",
+      "tensor_sha256": "0e3755f47a8054a060df443d28c867719bfa6d8c767ccb2e86834e9f8d0fc05a",
+      "certificate_kind": "zero_spectrum"
+    },
+    {
+      "id": "R8_2_839",
+      "status": "unitarily_realized",
+      "tensor_sha256": "af65229ca5082858e20ec88896351f6cae7ffb8460e9d626a9177b9ef89e729e",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_2_840",
+      "status": "excluded",
+      "tensor_sha256": "dc4ccb1f6c97646adbffdd5a71e9a4e3f80dfc48af26d751b35a918eafb8e772",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_841",
+      "status": "excluded",
+      "tensor_sha256": "a4bd5158adab7e8d0e2ba1d8b537781b76b7fcc8987b55e1fad550018b5d49cf",
+      "certificate_kind": "rank_two"
+    },
+    {
+      "id": "R8_2_842",
+      "status": "excluded",
+      "tensor_sha256": "fc5367d40937237fe3c4e53375870d2aa3880e0d39d3d2737f7ab1a234c60612",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_843",
+      "status": "excluded",
+      "tensor_sha256": "1c9485bf039b54ee123dd23d26fd5f4ffef31a68eccf237fb77d5ac3e313bcff",
+      "certificate_kind": "zero_spectrum"
+    },
+    {
+      "id": "R8_2_844",
+      "status": "excluded",
+      "tensor_sha256": "c8f2c2fb1c2501a8086ff46f2574d6e30d8135ba9c13c62af39d91fb0e242c3b",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_845",
+      "status": "excluded",
+      "tensor_sha256": "6ccd0aa58de3670ac95d2ec1e0c68d4f83bec0d272573cb0c0323f8d29e9cbe4",
+      "certificate_kind": "lower_rank_subring"
+    },
+    {
+      "id": "R8_2_846",
+      "status": "excluded",
+      "tensor_sha256": "b6e638f1f463a5a90f73eb05922535e554a7654b4eaa5c47a66e01bff1edc02d",
+      "certificate_kind": "integral_drinfeld"
+    },
+    {
+      "id": "R8_2_847",
+      "status": "excluded",
+      "tensor_sha256": "a233d8c4396a900e6565539e82ac10611c22eb93ec9fe01c5a9c9a6be8b27808",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_848",
+      "status": "excluded",
+      "tensor_sha256": "1189ff500c9f04d5e3f516b7bf100dd62a89075ecf46252093c6dfc5c7a5e3cc",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_849",
+      "status": "excluded",
+      "tensor_sha256": "d23f2fb58cbed047deb08736d7ef5b07b3a617112c837ca037b4674a12d6d9bd",
+      "certificate_kind": "integral_drinfeld"
+    },
+    {
+      "id": "R8_2_850",
+      "status": "excluded",
+      "tensor_sha256": "411d3fb07c29189af081d0ce751c92f0f9b41047692d44e7cc0f238a87b9c6b1",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_851",
+      "status": "excluded",
+      "tensor_sha256": "f8e6fd876d6145e42dfceca5624f61f81788f884907bc2dfff3e5759f066aad6",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_852",
+      "status": "excluded",
+      "tensor_sha256": "6afd5e7d29da9e18e90d07827bc104e24cff11a423c1a5304d762798d8595650",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_853",
+      "status": "excluded",
+      "tensor_sha256": "460d7e528682269c41d64d344de76b0b8d16984d1fbbfea92fd09594da7288be",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_854",
+      "status": "excluded",
+      "tensor_sha256": "1a824435ebcfaa6bb1e39f720892acb011224d711c0a13072ea847af08813e8c",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_855",
+      "status": "unresolved",
+      "tensor_sha256": "c02ff92d7a4c765ad745ceee85ac93742f85bd89fdf2c04b8360e75d2ac7500b",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_2_856",
+      "status": "excluded",
+      "tensor_sha256": "13ec5b8ff77b72b810ac42e16300252a8561fb2617f943e3a426f1a469018d63",
+      "certificate_kind": "zero_spectrum"
+    },
+    {
+      "id": "R8_2_857",
+      "status": "unresolved",
+      "tensor_sha256": "cfd21669455748b2e8b1d9628c1e1cde5d22f442edbac56ed946e9b8eb4333dc",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_2_858",
+      "status": "excluded",
+      "tensor_sha256": "5f3dae78f09f411e40fb8d3f1925a71eb81f3aae2e8a91c802a135105d5964aa",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_859",
+      "status": "excluded",
+      "tensor_sha256": "52bd89cb25fece3120fa2aa4005c104353dd24e72437973eb3a6d9c18f5e85c2",
+      "certificate_kind": "zero_spectrum"
+    },
+    {
+      "id": "R8_2_860",
+      "status": "excluded",
+      "tensor_sha256": "f3a8da57683ed17bc6f062f7dda3d252120204f363af14d446c864dd0e1e42b0",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_861",
+      "status": "excluded",
+      "tensor_sha256": "69528ab873e1d1c9a853021ba968989d244a052df2ecdfe33b4f123fe6e30fde",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_862",
+      "status": "excluded",
+      "tensor_sha256": "ffe760f7d6c2fb3ce43ab1c53bce7082977ad3d7b0fcc6eab2e2e46bbb1d5969",
+      "certificate_kind": "zero_spectrum"
+    },
+    {
+      "id": "R8_2_863",
+      "status": "excluded",
+      "tensor_sha256": "7d68193859c1eb19e9d5bb12487486b8e579b0dc7240fcb407d09ec4b15bd7d0",
+      "certificate_kind": "zero_spectrum"
+    },
+    {
+      "id": "R8_2_864",
+      "status": "excluded",
+      "tensor_sha256": "d31f0e2a93f00b245fc91529111d67fa3c17b1305deb7398cb8301ac1a7eb397",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_865",
+      "status": "excluded",
+      "tensor_sha256": "43d699c27fa4a75354f12d9a73679fa2567440b5a621b9ea9c7bfe0e31c6d7d3",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_866",
+      "status": "excluded",
+      "tensor_sha256": "42636274935a27775b3c7842aed7469899bce4645d6a70e97d1b5e3c636d3fbf",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_867",
+      "status": "excluded",
+      "tensor_sha256": "d05b06fa7f59f152253c91ded1ae064fcf3f595277835ebf387f04a9c7fcc7dc",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_868",
+      "status": "unresolved",
+      "tensor_sha256": "1cfda199ea64692ba0d9bd267cb99212d408bc60fdc740757192771fcf0229bd",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_2_869",
+      "status": "unresolved",
+      "tensor_sha256": "6fd67687c6a4590e43cf539442042092ebc28973b626127f40d6f27fb66de112",
+      "certificate_kind": null
+    },
+    {
+      "id": "R8_2_870",
+      "status": "excluded",
+      "tensor_sha256": "50558d6ee90f55ee1d607989b5800e67293a8193db9987660d0676ad2e906666",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_871",
+      "status": "excluded",
+      "tensor_sha256": "1a4e53e23754a3e70a37ae06d46fef34fdd328f3225e11eebf98afe518834ecb",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_872",
+      "status": "excluded",
+      "tensor_sha256": "3e1c4da6978123e36be62c2cbaeb1df4123b331fb9fd29a4b49b139eda0464e5",
+      "certificate_kind": "rank_two"
+    },
+    {
+      "id": "R8_2_873",
+      "status": "excluded",
+      "tensor_sha256": "f1052d915ab3a544b125e1aab6137af2f483ab7b6c5fa3a01f6e8b15568483cd",
+      "certificate_kind": "rank_two"
+    },
+    {
+      "id": "R8_2_874",
+      "status": "excluded",
+      "tensor_sha256": "9a375388864b3016f9770cbd432c9a5b18bbb41b42e5b5bea0a0a529281d91be",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_875",
+      "status": "excluded",
+      "tensor_sha256": "47555844ee27cec9d5ba6cb6a3c23dbf7fcb103b231720a4ce054f334d4d035f",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_876",
+      "status": "excluded",
+      "tensor_sha256": "f0e516bed49771cb91775470aeefa3aa81d0eafe2ad2f9d808b8b866ae3f8522",
+      "certificate_kind": "dnumber"
+    },
+    {
+      "id": "R8_2_877",
+      "status": "excluded",
+      "tensor_sha256": "363e6b9b84e2135bfa7cb61f7b81c43374e373ce023ff07c574b048bdc0d4cb4",
+      "certificate_kind": "dnumber"
+    }
+  ],
+  "scope": "Fresh full finite replay of all 973 historical source records. Later changed records require their separate stage replays. This is not independent proof of cited categorical theorems or census exhaustiveness."
+}

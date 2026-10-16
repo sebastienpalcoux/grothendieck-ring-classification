@@ -5,6 +5,8 @@ on:
 jobs:
   validate:
     runs-on: ubuntu-latest
+    env:
+      SYMPY_GROUND_TYPES: python
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -14,10 +16,10 @@ jobs:
       - run: python -m pip install sympy==1.14.0 numpy==2.3.5
       - run: python supplements/rank6/check_manifest.py
       - run: python tools/validate_release.py
-      - name: Replay unified theoretical continuation and frozen history
-        run: python tools/verify_unified_20261016.py --historical
-      - name: Replay unified theoretical continuation and frozen history with assertions disabled
-        run: python -O tools/verify_unified_20261016.py --historical
+      - name: Replay corrected current record and frozen history
+        run: python tools/verify_review_20261017.py --historical
+      - name: Replay corrected current record and frozen history with assertions disabled
+        run: python -O tools/verify_review_20261017.py --historical
       - run: python evidence/residual_20261002/rank6/verify_braid3.py
       - run: python evidence/residual_20261002/rank6/verify_tensor_quotient_obstruction.py
       - run: python evidence/residual_20261002/rank6/verify_packet_gram.py
