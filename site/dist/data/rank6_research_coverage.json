@@ -1,9 +1,9 @@
 {
-  "schema": "rank6-frontier-research-progress/v2",
+  "schema": "rank6-frontier-research-progress/v5",
   "date": "2026-10-16",
-  "scope": "Theoretical center-support refinement and exact necessary braid-spectrum, based-module and finite modular representation checks; both categorification questions remain unresolved.",
+  "scope": "Fermion Azumaya compatibility, forced higher indicators, and a scoped Verlinde obstruction to one historical modular witness; both categorification questions remain unresolved.",
   "historical_summary": "data/frontier_summary.json",
-  "research_directory": "evidence/theoretical_20261016/rank6",
+  "research_directory": "evidence/unified_20261016/rank6",
   "classification_counts": {
     "total": 25421,
     "excluded": 25362,
@@ -14,12 +14,13 @@
     {
       "id": "R6_4_155",
       "categorical_status": "unresolved",
-      "public_summary": "The rank-26 centralizer candidate passes the expanded six-fixed-label test: an explicit anti-invariant representation reconstructs a rank-22 integer based module. All 226 larger local braid blocks also pass necessary reflection-partition tests. These witnesses construct neither a module category nor a categorification. No original involution was omitted by the earlier fixed-label guard; the case remains unresolved.",
-      "current_status": "evidence/theoretical_20261016/README.md",
+      "public_summary": "The inherited rank-22 based module passes all 234,256 linking identities forced by the fermion Clifford algebra and its Azumaya Morita self-duality. This strengthens the necessary compatibility check but constructs no coherent module category or categorification. The case remains unresolved.",
+      "current_status": "evidence/unified_20261016/rank6/RESEARCH.md",
       "proof_chapters": [
         "manuscripts/rank6/papers/chapters/frontier_refined.tex",
         "manuscripts/rank6/papers/chapters/frontier_tensor_functors.tex",
-        "manuscripts/rank6/papers/chapters/dimension_block_20261016.tex"
+        "manuscripts/rank6/papers/chapters/dimension_block_20261016.tex",
+        "manuscripts/rank6/papers/chapters/fermion_azumaya_20261016.tex"
       ],
       "structural_obstructions": [
         "No nontrivial Tannakian fusion subcategory in the center.",
@@ -50,18 +51,26 @@
         "module_witness": "evidence/theoretical_20261016/rank6/r155_center_module/anti_module_witness.json",
         "module_replay": "evidence/theoretical_20261016/rank6/r155_center_module/verify_anti_module.py",
         "module_receipt": "evidence/theoretical_20261016/rank6/r155_center_module/receipt.json",
-        "involution_coverage": "evidence/theoretical_20261016/rank6/involution_coverage.json"
+        "involution_coverage": "evidence/theoretical_20261016/rank6/involution_coverage.json",
+        "azumaya_linking_identities_checked": 234256,
+        "azumaya_linking_verdict": "PASS_NECESSARY",
+        "azumaya_linking_replay": "evidence/unified_20261016/rank6/verify_fermion_crossing.py",
+        "azumaya_linking_receipt": "evidence/unified_20261016/rank6/fermion_crossing_receipt.json",
+        "azumaya_linking_optimized_receipt": "evidence/unified_20261016/rank6/fermion_crossing_receipt_optimized.json",
+        "categorification_claimed": false
       }
     },
     {
       "id": "R6_8_1660",
       "categorical_status": "unresolved",
-      "public_summary": "In the positive Galois representative, the twist-one center simples are exactly the six constituents of I(1), giving a shorter tensor-functor-rigidity proof. A rank-37 integer witness satisfies all 1,536 equations of the strengthened finite modular representation system, including torus and compressed-S constraints. These are necessary conditions; no categorification or general exclusion is established.",
-      "current_status": "evidence/theoretical_20261016/README.md",
+      "public_summary": "Saturated modular character traces force nu_3(T)=2 and two conjugate options for nu_3(X). A separate exact Verlinde calculation now excludes the historical rank-37 witness by forcing a fusion coefficient 1/2. Other profiles remain open; no general exclusion or categorification is claimed.",
+      "current_status": "evidence/unified_20261016/rank6/RESEARCH.md",
       "proof_chapters": [
         "manuscripts/rank6/papers/chapters/frontier_refined.tex",
         "manuscripts/rank6/papers/chapters/frontier_tensor_functors.tex",
-        "manuscripts/rank6/papers/chapters/dimension_block_20261016.tex"
+        "manuscripts/rank6/papers/chapters/dimension_block_20261016.tex",
+        "manuscripts/rank6/papers/chapters/higher_indicators_20261016.tex",
+        "manuscripts/rank6/papers/chapters/witness_verlinde_20261016.tex"
       ],
       "structural_obstructions": [
         "No nontrivial Tannakian fusion subcategory in the center.",
@@ -93,11 +102,52 @@
         "forced_Ising_subrepresentation_rank": 9,
         "mathematical_verdict": "PASS_NECESSARY",
         "evidence_directory": "evidence/theoretical_20261016/rank6/r1660_modular_witness",
-        "categorification_claimed": false
+        "categorification_claimed": false,
+        "higher_indicator_refinement": {
+          "verdict": "REFINED_NECESSARY_CONDITION",
+          "scope": "canonical positive spherical structure on the positive Galois representative",
+          "finite_group_irreducible_pairs_exhausted": 532,
+          "initial_saturated_pairings": 4,
+          "surviving_saturated_pairings": 2,
+          "third_indicator_T": 2,
+          "third_indicator_X_options": [
+            "2+omega",
+            "2+omega^2"
+          ],
+          "fifth_indicators_X_T": [
+            2,
+            2
+          ],
+          "seventh_indicators_X_T": [
+            3,
+            4
+          ],
+          "proof": "evidence/unified_20261016/rank6/higher_indicators/R1660_HIGHER_INDICATOR_PROOF.md",
+          "independent_audit": "evidence/unified_20261016/rank6/higher_indicators/R1660_HIGHER_INDICATOR_INDEPENDENT_AUDIT.md",
+          "replay": "evidence/unified_20261016/rank6/higher_indicators/verify_r1660_higher_indicators.py",
+          "normal_receipt": "evidence/unified_20261016/rank6/higher_indicators/r1660_higher_indicators_normal.json",
+          "optimized_receipt": "evidence/unified_20261016/rank6/higher_indicators/r1660_higher_indicators_optimized.json",
+          "categorification_claimed": false,
+          "rank_37_witness_survives_this_indicator_test": true
+        },
+        "witness_verlinde_obstruction": {
+          "verdict": "FIXED_WITNESS_EXCLUDED",
+          "scope": "Only the historical rank-37 restriction/twist/representation witness; other profiles remain unresolved.",
+          "forced_fusion_coefficient": "1/2",
+          "historical_necessary_system": "PASS, all 1536 equations and 1447 bounds",
+          "proof": "evidence/unified_20261016/rank6/verlinde_obstruction/R1660_WITNESS_VERLINDE_OBSTRUCTION.md",
+          "independent_audit": "evidence/unified_20261016/rank6/verlinde_obstruction/R1660_WITNESS_VERLINDE_INDEPENDENT_AUDIT.md",
+          "replay": "evidence/unified_20261016/rank6/verlinde_obstruction/verify_r1660_witness_verlinde.py",
+          "normal_receipt": "evidence/unified_20261016/rank6/verlinde_obstruction/replay_normal.json",
+          "optimized_receipt": "evidence/unified_20261016/rank6/verlinde_obstruction/replay_optimized.json",
+          "independent_optimized_receipt": "evidence/unified_20261016/rank6/verlinde_obstruction/replay_independent_O.json",
+          "source_ring_excluded": false,
+          "categorification_claimed": false
+        }
       }
     }
   ],
-  "previous_coverage_sha256": "40b1d7ad855e0dfd7a1e9a40ae4bfac4a75c799b5d40a70413e132e929a73a47",
-  "previous_coverage": "evidence/rank6_theoretical_20261011/research_progress.json",
-  "research_summary": "Both rank-six cases remain unresolved. For R6_8_1660, the twist-one center simples are exactly the six constituents of I(1), giving a shorter tensor-functor-rigidity proof. An exact rank-37 integer witness passes all 1,536 equations of the strengthened finite modular representation system, including torus and compressed-S constraints. For R6_4_155, all 226 larger local braid blocks pass the strengthened reflection-partition conditions. Its rank-26 centralizer also admits a six-dimensional anti-invariant representation reconstructing a rank-22 integer based module. These are passing necessary tests, not modular-data, module-category or categorification constructions. No original rank-six involution was missed by the earlier two-fixed-label guard."
+  "previous_coverage_sha256": "6e3623c52934b1781bda9ed630b61f8dd11c168d4134dfac9b5411417ce29a13",
+  "previous_coverage": "evidence/theoretical_20261016/rank6/research_progress.json",
+  "research_summary": "Both rank-six cases remain unresolved. The R6_4_155 rank-22 based module passes all 234,256 fermion Azumaya linking identities. For R6_8_1660, saturated modular traces force nu_3(T)=2 and two conjugate third-indicator profiles. A further exact Verlinde obstruction rejects the historical rank-37 witness by forcing the coefficient 1/2, while its original weaker system still passes. Other profiles remain open; no category construction or general exclusion is asserted."
 }

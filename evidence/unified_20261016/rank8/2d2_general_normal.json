@@ -1,0 +1,309 @@
+{
+  "status": "PASS",
+  "criterion": "algebraic_2D2_planar_algebra",
+  "cases": [
+    {
+      "id": "R8_2_152",
+      "tensor_sha256": "0523e0c3e5986b3d8fe8b15ed4ef0590d2fa89dded0211546a6baab77dd46e9b",
+      "graph_vertices_to_census_zero_based": [
+        0,
+        1,
+        5,
+        3,
+        4,
+        7,
+        2,
+        6
+      ],
+      "neutral_basis_1_g_r_gr": [
+        0,
+        6,
+        5,
+        7
+      ],
+      "odd_generator": 1,
+      "odd_generator_dual": 2,
+      "faithful_C2_grading_checked": true,
+      "left_and_right_graph": "2D2",
+      "both_even_parts_generated": true,
+      "both_even_ranks": 4
+    },
+    {
+      "id": "R8_2_153",
+      "tensor_sha256": "bf4adfa05928a50f367117be3a10f1435514254eefd8b55b4d2030c0930c179f",
+      "graph_vertices_to_census_zero_based": [
+        0,
+        1,
+        5,
+        3,
+        4,
+        7,
+        2,
+        6
+      ],
+      "neutral_basis_1_g_r_gr": [
+        0,
+        6,
+        5,
+        7
+      ],
+      "odd_generator": 1,
+      "odd_generator_dual": 2,
+      "faithful_C2_grading_checked": true,
+      "left_and_right_graph": "2D2",
+      "both_even_parts_generated": true,
+      "both_even_ranks": 4
+    },
+    {
+      "id": "R8_2_166",
+      "tensor_sha256": "733921bea67078b3e389e30ff084194bef79995cdfd1698c7249ef087891e197",
+      "graph_vertices_to_census_zero_based": [
+        0,
+        3,
+        7,
+        1,
+        2,
+        6,
+        4,
+        5
+      ],
+      "neutral_basis_1_g_r_gr": [
+        0,
+        5,
+        7,
+        6
+      ],
+      "odd_generator": 3,
+      "odd_generator_dual": 3,
+      "faithful_C2_grading_checked": true,
+      "left_and_right_graph": "2D2",
+      "both_even_parts_generated": true,
+      "both_even_ranks": 4
+    },
+    {
+      "id": "R8_2_495",
+      "tensor_sha256": "585aab580e46c28c084e57f81ba28b70835fc15ee0ca657d790b86253c74c6b5",
+      "graph_vertices_to_census_zero_based": [
+        0,
+        2,
+        6,
+        4,
+        5,
+        3,
+        7,
+        1
+      ],
+      "neutral_basis_1_g_r_gr": [
+        0,
+        1,
+        6,
+        3
+      ],
+      "odd_generator": 2,
+      "odd_generator_dual": 2,
+      "faithful_C2_grading_checked": true,
+      "left_and_right_graph": "2D2",
+      "both_even_parts_generated": true,
+      "both_even_ranks": 4
+    }
+  ],
+  "components": {
+    "source_graphs": {
+      "status": "PASS",
+      "graph_edges": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          6,
+          7
+        ]
+      ],
+      "rooted_depths": [
+        0,
+        1,
+        2,
+        3,
+        3,
+        4,
+        5,
+        6
+      ],
+      "graph_modulus_squared": "3+sqrt(5)",
+      "PF_weights_verified_exactly": true,
+      "cases": [
+        {
+          "id": "R8_2_152",
+          "tensor_sha256": "0523e0c3e5986b3d8fe8b15ed4ef0590d2fa89dded0211546a6baab77dd46e9b",
+          "graph_vertices_to_census_zero_based": [
+            0,
+            1,
+            5,
+            3,
+            4,
+            7,
+            2,
+            6
+          ],
+          "neutral_basis_1_g_r_gr": [
+            0,
+            6,
+            5,
+            7
+          ],
+          "odd_generator": 1,
+          "odd_generator_dual": 2,
+          "faithful_C2_grading_checked": true,
+          "left_and_right_graph": "2D2",
+          "both_even_parts_generated": true,
+          "both_even_ranks": 4
+        },
+        {
+          "id": "R8_2_153",
+          "tensor_sha256": "bf4adfa05928a50f367117be3a10f1435514254eefd8b55b4d2030c0930c179f",
+          "graph_vertices_to_census_zero_based": [
+            0,
+            1,
+            5,
+            3,
+            4,
+            7,
+            2,
+            6
+          ],
+          "neutral_basis_1_g_r_gr": [
+            0,
+            6,
+            5,
+            7
+          ],
+          "odd_generator": 1,
+          "odd_generator_dual": 2,
+          "faithful_C2_grading_checked": true,
+          "left_and_right_graph": "2D2",
+          "both_even_parts_generated": true,
+          "both_even_ranks": 4
+        },
+        {
+          "id": "R8_2_166",
+          "tensor_sha256": "733921bea67078b3e389e30ff084194bef79995cdfd1698c7249ef087891e197",
+          "graph_vertices_to_census_zero_based": [
+            0,
+            3,
+            7,
+            1,
+            2,
+            6,
+            4,
+            5
+          ],
+          "neutral_basis_1_g_r_gr": [
+            0,
+            5,
+            7,
+            6
+          ],
+          "odd_generator": 3,
+          "odd_generator_dual": 3,
+          "faithful_C2_grading_checked": true,
+          "left_and_right_graph": "2D2",
+          "both_even_parts_generated": true,
+          "both_even_ranks": 4
+        },
+        {
+          "id": "R8_2_495",
+          "tensor_sha256": "585aab580e46c28c084e57f81ba28b70835fc15ee0ca657d790b86253c74c6b5",
+          "graph_vertices_to_census_zero_based": [
+            0,
+            2,
+            6,
+            4,
+            5,
+            3,
+            7,
+            1
+          ],
+          "neutral_basis_1_g_r_gr": [
+            0,
+            1,
+            6,
+            3
+          ],
+          "odd_generator": 2,
+          "odd_generator_dual": 2,
+          "faithful_C2_grading_checked": true,
+          "left_and_right_graph": "2D2",
+          "both_even_parts_generated": true,
+          "both_even_ranks": 4
+        }
+      ],
+      "scope": "exact tensor hypotheses only; algebraic planar-algebra rigidity is a separate proof"
+    },
+    "rotation_one": {
+      "status": "PASS",
+      "field": "Q(sqrt(5))",
+      "loop_coordinates": 152,
+      "linear_constraint_rank": 144,
+      "dimension": 8,
+      "path_matrix_blocks": 14,
+      "square_entries_checked": 152,
+      "distinct_square_equations": 82,
+      "normal_form_generators": 7,
+      "all_complex_ideal_equality": true,
+      "self_adjointness_imposed": false,
+      "self_adjoint_base_verified": true,
+      "complex_edge_gauge_verified": true,
+      "two_full_Laurent_families_verified": true,
+      "primitive_opposite_free_gauge_weights_verified": true,
+      "certificate_sha256": "45b91fc3e9e9b0afa0ac7d55b094a75ef4c53a9f7d3a7794121d0a01e6ea75ea",
+      "scope": "rotation-1 uncappable complex T with T^2=f3; categorical bridge and other rotations are separate"
+    },
+    "primitive_rotations": {
+      "status": "PASS",
+      "field": "Q(sqrt(5),omega), omega^2+omega+1=0",
+      "loop_coordinates": 152,
+      "linear_constraint_rank": 144,
+      "dimension": 8,
+      "square_equations": 90,
+      "constant_contradiction_terms": 5,
+      "identity": "sum coefficient_i*(T^2-f3 equation_i)=1",
+      "both_primitive_cube_roots_excluded": true,
+      "self_adjointness_imposed": false,
+      "certificate_sha256": "2c02ca9edb518cf3ffa6960791defa7486ce7178b7f446b7ed3dc1ca38e9cd23"
+    }
+  },
+  "artifact_sha256": {
+    "verify_2d2_source_graphs.py": "9cee8996178fdc43949e82c5cc620ce063df4ef36c6b8f8a133f86ee54f53c09",
+    "verify_gpa_certificate.py": "23e0e4b32a50c0932f6ce84ca27e6d838012ee54b32485dd5255e66d53ac0045",
+    "verify_gpa_omega_certificate.py": "067ae81fda49327adb513c455cc37d4f98efc1ddf9a0c7ae2cc3f3658ffd6326",
+    "gpa_certificate.json": "45b91fc3e9e9b0afa0ac7d55b094a75ef4c53a9f7d3a7794121d0a01e6ea75ea",
+    "gpa_omega_certificate.json": "2c02ca9edb518cf3ffa6960791defa7486ce7178b7f446b7ed3dc1ca38e9cd23",
+    "FOUR_2D2_GENERAL_PROOF.md": "87ce3f0c9ec975a5c8cd98056fb5b4cb40ea2366f164c778278a38dd07e471a5"
+  },
+  "scope": "exact source and algebraic certificates; categorical argument is in FOUR_2D2_GENERAL_PROOF.md"
+}

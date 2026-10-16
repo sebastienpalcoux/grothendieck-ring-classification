@@ -151,10 +151,12 @@ print("Upper-rank manuscripts and portable supplements match their publication h
 
 update = payload.get("theoretical_update")
 if update:
-    assert update["date"] == "2026-10-16" and update["source"] == "evidence/theoretical_20261016"
+    assert update["date"] == "2026-10-16" and update["source"] in ("evidence/theoretical_20261016", "evidence/unified_20261016")
     decisions = update["decisions"]
-    assert update["new_general_exclusions"] == len(decisions) == len({record["id"] for record in decisions})
-    assert all(record["status"] == "excluded" and record["scope"] == "general_complex" and record["rank"] in (7,8)
+    assert len(decisions) == len({record["id"] for record in decisions})
+    assert update["new_general_exclusions"] == sum(d["status"] == "excluded" for d in decisions)
+    assert update.get("new_unitary_models", 0) == sum(d["status"] == "unitarily_realized" for d in decisions)
+    assert all(record["status"] in ("excluded", "unitarily_realized") and record["scope"] == "general_complex" and record["rank"] in (7,8)
                for record in decisions), "A scoped obstruction entered the general-exclusion notice"
     for key, entry in update["files"].items():
         assert hashlib.sha256((root / entry["path"]).read_bytes()).hexdigest() == entry["sha256"]
@@ -174,10 +176,10 @@ if update:
     import zipfile
     with zipfile.ZipFile(archive) as bundle:
         matches = [name for name in bundle.namelist()
-                   if name == "decisions.json" or name.endswith("theoretical_20261016/decisions.json")]
+                   if name == "decisions.json" or name.endswith(update["source"].split("/")[-1] + "/decisions.json")]
         assert len(matches) == 1 and json.loads(bundle.read(matches[0])) == decisions, "Stale update bundle"
     assert set(remaining["6"]) == {record["id"] for record in frontier}
-    print(f"Theoretical update checked: {len(decisions)} general exclusions; counts, proof records, residual inventory and download hashes agree.")
+    print(f"Theoretical update checked: {len(decisions)} proved decisions; counts, proof records, residual inventory and download hashes agree.")
 
 from html.parser import HTMLParser
 class LocalLinkCheck(HTMLParser):

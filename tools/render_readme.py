@@ -39,7 +39,8 @@ upper={rank:status['inputs'][f'rank{rank}']['status_totals'] for rank in (7,8)}
 stage=load_stages(ROOT,status)
 def upper_summary(rank):
     t=upper[rank];bound=status['inputs'][f'rank{rank}']['classified_through']
-    scope='**Complete at multiplicity 1**' if rank==7 else 'Partial at both bands'
+    complete=next((m-1 for m in range(1,bound+1) if state[(rank,m)]['unresolved_general'] or state[(rank,m)]['unassessed']),bound)
+    scope=f'**Complete through {complete}**' if complete else 'Partial at both bands'
     return (f'| {rank} | Through {bound} | {scope} | Through {bound}: '
             f"{t['excluded']:,} excluded, {t['unitarily_realized']} realized, {t['unresolved']} unresolved. |")
 identity=json.loads(args.identity.read_text())
@@ -143,8 +144,8 @@ row checks and scope appear in [the provenance record](docs/PROVENANCE.md).
 | 4 | Multiplicity 18 | The same criterion families suffice for the allocated exclusions at 19–128. |
 | 5 | Multiplicity 18 | Inert-prime quadratic parity first closes two cases at 18; no new criterion family is needed at 19–20. |
 | 6 | See the allocation ledger | The current criteria include stabilizer, cyclotomic-trace and signed arithmetic obstructions. All 8,809 exact-multiplicity-nine rings have general exclusion certificates; __RANK6_OPEN__ earlier cases remain unresolved through multiplicity __RANK6_BOUND__. |
-| 7 | Multiplicity 4 | The dimension-310 group-theoretical criterion first contributes at 4. There are __RANK7_OPEN__ generally open rings through 4, so no stabilization conclusion follows. |
-| 8 | Multiplicity 2 | Graded Brauer-Picard obstructions contribute at 1 and 2; the rank-one fiber-functor obstruction contributes at 2. There are __RANK8_OPEN__ generally open rings through 2, so no stabilization conclusion follows. |
+| 7 | Multiplicity 4 | Group-theoretical, Morita and center arguments contribute through 4. There are __RANK7_OPEN__ generally open rings in the analyzed range; higher multiplicities are not classified here. |
+| 8 | Multiplicity 2 | Graded Brauer-Picard, fiber-functor and projective inner-square obstructions contribute through 2. There are __RANK8_OPEN__ generally open rings in the analyzed range; higher multiplicities are not classified here. |
 
 This records **first use in the chosen certificate allocation**, not an
 optimal ordering theorem or a claim that the criteria settle higher

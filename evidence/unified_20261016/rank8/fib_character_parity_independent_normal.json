@@ -1,0 +1,68 @@
+{
+  "status": "PASS",
+  "classification_changes": 2,
+  "method": "theoretical character reciprocity and odd multiplicity",
+  "source_sha256": "35a8d69e9af8c873b3003890218a35b38b792abb89c19066f6705bf9c1c1d1ed",
+  "categorical_source": "Ostrik, arXiv:1309.4822, Example 2.9 and Theorem 2.13 with its preceding character-level definition",
+  "general_scope_dependency": "FIB_PAIR_THEORETICAL_GALOIS_PU.md",
+  "dimension_basis": [
+    "1",
+    "phi",
+    "d",
+    "phi*d"
+  ],
+  "paired_central_dimension": [
+    1,
+    0,
+    0,
+    1
+  ],
+  "third_central_dimension": [
+    1,
+    1,
+    2,
+    3
+  ],
+  "cases": [
+    {
+      "id": "R8_2_190",
+      "epsilon": 1,
+      "model_to_census": [
+        0,
+        1,
+        5,
+        3,
+        7,
+        2,
+        6,
+        4
+      ],
+      "tensor_sha256": "ef368ba29ddc183f215145eb6a50ead0655e91afff2d3e844f918c6d2a91d867",
+      "tensor_entries_matched": 512,
+      "character_homomorphisms_checked": 3,
+      "dimension_compatible_third_restrictions": 24,
+      "reciprocity_compatible_third_restrictions": 0,
+      "result": "no complex fusion-category categorification"
+    },
+    {
+      "id": "R8_2_489",
+      "epsilon": 0,
+      "model_to_census": [
+        0,
+        3,
+        7,
+        4,
+        1,
+        6,
+        2,
+        5
+      ],
+      "tensor_sha256": "23cae0639e4ce7e54428705a66098747319e26d5f29ad8dff05914a6d43caef1",
+      "tensor_entries_matched": 512,
+      "character_homomorphisms_checked": 3,
+      "dimension_compatible_third_restrictions": 24,
+      "reciprocity_compatible_third_restrictions": 0,
+      "result": "no complex fusion-category categorification"
+    }
+  ]
+}

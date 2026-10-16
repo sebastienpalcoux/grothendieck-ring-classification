@@ -2,7 +2,7 @@
 \input{preamble}\input{generated_statistics}
 \hypersetup{pdftitle={Verification guide: rank-six categorification through multiplicity nine},pdfauthor={}}
 \title{Verification guide\\\large Rank-six categorification through multiplicity nine}
-\author{}\date{11 October 2026}
+\author{}\date{16 October 2026}
 \begin{document}\maketitle
 
 \section{Scope and authoritative records}
@@ -258,4 +258,32 @@ All counts must agree with the decision ledger. The supplement retains
 accepted proofs, needed dependencies and current residual evidence;
 obsolete searches for the three conformally realized rings are omitted.
 \end{samepage}
+
+\section{Unified theoretical continuation}
+The current repository manuscript adds the fermion Azumaya linking
+identity and checks all $22^4=234256$ instances on the retained
+$R6\_4\_155$ based module. This is a necessary compatibility result,
+not a construction of module associators. Both rank-six categorification
+questions remain unresolved. For $R6\_8\_1660$, an exact character-trace
+refinement forces $\nu_3(T)=2$ and leaves two conjugate third-indicator
+profiles. A separate exact Verlinde calculation excludes the historical
+rank-$37$ witness by forcing a fusion coefficient $1/2$; other profiles
+remain open. The source-bound
+standard-library replay and proof audit are in
+\filename{evidence/unified_20261016/rank6/higher_indicators/}; run its
+\filename{verify_r1660_higher_indicators.py} with \verb|--repo .| from the repository
+root, also with \filename{-O}. The scoped witness obstruction has its own
+standard-library checker
+\filename{verlinde_obstruction/verify_r1660_witness_verlinde.py}
+under the same evidence directory. It also replays the historical weaker
+system, which still passes. For the complete continuation, run
+\begin{quote}\small
+\verb|python3 tools/verify_unified_20261016.py --historical|
+\end{quote}
+and repeat with \filename{-O}. The dated continuation preserves the
+preceding manuscript files and restores the prior ledgers before
+replaying their certificates. The frozen rank-six release itself is
+unchanged; current manuscript hashes are recorded separately in
+\filename{evidence/unified_20261016/rank6/document_revision.json}.
+
 \end{document}

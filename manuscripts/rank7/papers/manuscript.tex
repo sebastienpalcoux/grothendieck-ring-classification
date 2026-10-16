@@ -3,15 +3,16 @@
 \usepackage{needspace}
 \usepackage{lmodern,amsmath,amssymb,amsthm,booktabs,geometry,longtable,array,float,microtype,xcolor,hyperref}
 \geometry{margin=1.05in}
-\hypersetup{colorlinks=true,urlcolor=blue!60!black,linkcolor=blue!50!black,citecolor=blue!50!black,pdftitle={Rank-seven Grothendieck rings: a certified partial classification through multiplicity four},pdfauthor={}}
+\hypersetup{colorlinks=true,urlcolor=blue!60!black,linkcolor=blue!50!black,citecolor=blue!50!black,pdftitle={Rank-seven Grothendieck rings: a complete classification through multiplicity four},pdfauthor={}}
 \newtheorem{theorem}{Theorem}
 \newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
 \newtheorem{corollary}[theorem]{Corollary}
 \newtheorem{remark}[theorem]{Remark}
 \newcommand{\C}{\mathbb C}
 \newcommand{\Z}{\mathbb Z}
 \newcommand{\FPdim}{\operatorname{FPdim}}
-\title{Rank-seven Grothendieck rings: certified exclusions and models through multiplicity four}
+\title{Rank-seven Grothendieck rings: a complete classification through multiplicity four}
 \author{}
 \date{}
 \begin{document}
@@ -19,8 +20,8 @@
 \begin{abstract}
 We study complex categorification of the complete rank-seven fusion-ring
 census through multiplicity four. Exact necessary conditions exclude
-$4164$ rings, and complete tensor comparisons identify unitary models
-for $27$ more; $10$ remain unresolved. The theoretical arguments combine
+$4172$ rings, and complete tensor comparisons identify unitary models
+for the remaining $29$; the classification is complete. The theoretical arguments combine
 prime equivariantization, pointed-module and orbit obstructions, with
 complete signed-sphericalization certificates and a relative-trace
 obstruction that needs no signed enumeration. A cyclic-stabilizer divisibility
@@ -32,8 +33,24 @@ bound yields a further general exclusion by a parity contradiction.
 Anti-invariant module spectra and Morita-dual Gram identities supply
 eighteen further general exclusions, twelve by elementary theoretical
 arguments and six by exact finite certificates. Two Morita transformations
-and a formal-codegree field obstruction give three more general exclusions.
-Multiplicities one and two are complete, with twenty-three realized rings. Every counted general exclusion applies
+and a formal-codegree field obstruction give three more general exclusions;
+inverse Klein-four Morita duality resolves the fourth case of that family.
+A common four-dimensional signed quotient shows that three residual rings
+are Galois conjugate to pseudo-unitary categories. Five further rings have
+Morita duals with only two simple Frobenius--Perron dimensions, four through
+a common dihedral reduction and one through a twisted Klein-four algebra.
+An inversion symmetry descended from two order-sixteen near-group categories
+constructs two of these rings; Frobenius--Schur exponents distinguish
+their pointed groups. Simplicity of the Drinfeld center and exact induction
+lattice congruences exclude the last integral candidate. Full Galois transport
+and two twist moments exclude all three quadratic boundary cases through
+four universal integer inequalities. Factoring an inverse Klein-four algebra
+through an order-two subalgebra excludes a further ring by forced dihedral
+support permutations. A further full-character reciprocity argument and
+a two-moment inequality exclude another ring without conductor saturation.
+The final dihedral case reduces to a rank-eight fusion subcategory,
+excluded by cyclic induction and the modular $STS$ identity.
+Thus all $4201$ source rings through multiplicity four are classified. Every counted general exclusion applies
 without a pivotality assumption, and every positive row has an actual
 categorical construction.
 \end{abstract}
@@ -47,8 +64,8 @@ Its multiplicity is $\max_{i,j,k}N_{ij}^k$. The upstream
 \emph{Fusion Ring Census} \cite{Census} provides the complete rank-seven
 fusion-ring list through multiplicity four. We pin its source bytes,
 source commit, row ordering, and their digest in the companion package.
-This is a categorification study of that census; the list of undecided
-tensors is not counted as a list of Grothendieck rings.
+This is a complete categorification study of that census; every surviving
+ring has an explicit unitary model.
 Multiplicities at least five lie outside the pinned source and the
 claims of this manuscript.
 
@@ -57,14 +74,15 @@ claims of this manuscript.
 The numbers of excluded, explicitly unitarily realized, and undecided
 rank-seven fusion rings are given by Table~\ref{tab:status}.
 The negative conclusions hold for \emph{every} complex fusion category.
-The twenty-seven positive rows have the models in Table~\ref{tab:models},
-matched against their complete fusion tensors. No categorifiability conclusion is drawn for the undecided rows.
+The twenty-nine positive rows have the models in Table~\ref{tab:models},
+matched against their complete fusion tensors. There are no undecided rows within the pinned census.
 \end{theorem}
 \input{generated_tables.tex}
 
 Multiplicity one is complete: its former residuals $R7\_1\_19$,
 $R7\_1\_28$, and $R7\_1\_36$ have the AnyonWiki models described below.
-The first undecided multiplicity is two.
+Multiplicities two, three and four are also complete. The final
+case $R7\_4\_2053$ is excluded in Theorem~\ref{thm:r2053-final}.
 The exhaustive source-position convention is $R7\_m\_j$, where $j$
 is the position \emph{among rows of exact multiplicity $m$} in the
 pinned census file. This convention makes the positive-model
@@ -79,9 +97,9 @@ exact Casimir factoring and subcategory-dimension arithmetic follow.
 The complete oriented search ends this initial sequence; the further
 theoretical exclusions are appended as a dated update. This order records precisely when
 a criterion first contributes rather than hiding it in an unordered
-union of tests. Multiplicity two is still undecided, so these stages
-do \emph{not} establish a multiplicity threshold beyond which no new
-criteria would be needed.
+union of tests. Although the pinned census through multiplicity four is complete,
+these stages do \emph{not} establish a multiplicity threshold beyond
+which no new criteria would be needed.
 The oriented criterion first contributes at multiplicity one, so it
 cannot be deferred to a higher multiplicity without losing a proof.
 
@@ -451,6 +469,13 @@ provides an independent finite corroboration of this theoretical lemma.
 \input{module_dual_gram.tex}
 \input{psd_gram_refinement.tex}
 \input{c3_a4_morita.tex}
+\input{three_case_galois_pu.tex}
+\input{quadratic_center_trace.tex}
+\input{five_case_morita_reduction.tex}
+\input{r2591_staged_morita.tex}
+\input{r2603_center_moments.tex}
+\input{r2053_r18_reduction.tex}
+\input{r601_center_lattice.tex}
 
 \section{Exact constructions and replay}
 The three formerly undecided multiplicity-one rings match AnyonWiki
@@ -673,9 +698,10 @@ cocycle phases. The noncentral fibres each have size four. Hence
 In this order the model-to-census permutation is $(0,6,5,1,2,3,4)$.
 The supplement checks the representation relations, action,
 characteristic-class restriction, projective lift, and all $343$
-coefficients. The remaining $10$ tensors are undecided.
+coefficients.
 
 \input{d12_model.tex}
+\input{inversion_orbifold_model.tex}
 
 The complete package contains the pinned source, negative certificates,
 independent model tensors, stage summary and verification reports.
@@ -710,7 +736,32 @@ Each accepts
 by itself. The Gram verifiers use the frozen exact helpers in
 \texttt{gram\_support/}; their replay does not invoke an optimizer.
 Run each normally and with \texttt{-O}.
- The archive dispatcher supplies both stages.
+The new verifiers are in
+\begin{quote}\small
+\path{evidence/unified_20261016/rank7/}.
+\end{quote}
+They are
+\begin{quote}\small
+\texttt{verify\_R1022\_inverse\_morita.py},\\
+\texttt{verify\_three\_case\_galois\_pu.py},\\
+\texttt{verify\_four\_case\_dihedral.py},\\
+\texttt{verify\_R2591\_twisted\_v4.py},\\
+\texttt{verify\_R2665\_inversion\_model.py},\\
+\texttt{verify\_R35\_inversion\_model.py},\\
+\texttt{verify\_r601\_center\_lattice.py}.
+\end{quote}
+The first checks the inverse Morita exclusion. The next three check
+Proposition~\ref{prop:three-case-galois-pu} and
+Propositions~\ref{prop:four-dihedral}--\ref{prop:twisted-v4} without
+changing a classification status. The next two check the complete model
+tensors and induction identities of
+Theorems~\ref{thm:inversion-orbifold}--\ref{thm:inversion-v4}.
+The last regenerates all $336$ induced-unit blocks and checks the exact
+finite-field certificates in Theorem~\ref{thm:r601-center-lattice}.
+All accept the same \texttt{--repo}
+argument. The conductor-equality proof and its independent audit are in
+\path{evidence/unified_20261016/compression/}.
+The archive dispatcher supplies the successive stages.
 Earlier full-certificate reports retain their own scopes and dates;
 preservation checks do not claim a fresh execution of all prior
 searches. Original discovery programs are retained separately and
@@ -750,6 +801,13 @@ arXiv:2203.06522v5 (2025).
 \bibitem{GHR} C.~Galindo, S.-M.~Hong and E.~C.~Rowell,
 \emph{Generalized and quasi-localizations of braid group representations},
 \emph{Int. Math. Res. Not.} (2013), 693--731; arXiv:1105.5048.
+\bibitem{LPRSimple} Z.~Liu, S.~Palcoux and Y.~Ren,
+\emph{Interpolated family of non-group-like simple integral fusion rings
+of Lie type}, arXiv:2102.01663v4, Section~5.
+\bibitem{NikshychMorita} D.~Nikshych,
+\emph{Morita equivalence methods in classification of fusion categories},
+\emph{Contemp. Math.} \textbf{585} (2013), 289--325;
+arXiv:1208.0840, Corollary~6.16.
 \bibitem{Lim} J.~Lim, \emph{Noncommutative Minkowski integral inequality and a unitary categorification criterion for fusion rings}, arXiv:2601.13490v2 (2026), Corollary~3.4.
 \bibitem{Wenzl} H.~Wenzl, \emph{$C^*$ tensor categories from quantum groups},
 \emph{J. Amer. Math. Soc.} \textbf{11} (1998), 261--282.
@@ -770,6 +828,7 @@ commit \texttt{b86eb6dc6eeeafe5fc5f6906d7b074e0322e9726}.
 \bibitem{Rank4} \emph{Rank-four Grothendieck rings through multiplicity 128}, manuscript and exact-certificate supplement (2026).
 \bibitem{Rank5} \emph{Rank-five Grothendieck rings through multiplicity twenty}, manuscript and exact-certificate supplement (2026).
 \bibitem{Rank6} \emph{Rank-six fusion rings: categorification criteria and models through multiplicity nine}, manuscript and exact-certificate supplement (2026).
+\bibitem{Rank8} \emph{Rank-eight Grothendieck rings through multiplicity two}, manuscript and exact-certificate supplement (2026), the $R8\_1\_18$ cyclic-induction $STS$ obstruction.
 \bibitem{Integral} M. A. Alekseyev, W. Bruns, J. Dong and S. Palcoux,
 \emph{Classifying integral Grothendieck rings up to rank 5 and beyond},
 accepted in \emph{Letters in Mathematical Physics}; arXiv:2507.07023.
@@ -802,7 +861,11 @@ arXiv:2609.35287v1 (2026).
 \emph{Categorification of integral group rings extended by one dimension},
 \emph{J. Lond. Math. Soc.} \textbf{108} (2023), 1617--1641;
 DOI:10.1112/jlms.12789. We use the published Lemma~3.1 and
-Propositions~3.2--3.3.
+Propositions~3.2--3.3 and Theorem~1.1.
+\bibitem{Izumi3n} M.~Izumi,
+\emph{The classification of $3^n$ subfactors and related fusion categories},
+\emph{Quantum Topol.} \textbf{9} (2018), 473--562,
+especially Proposition~9.6.
 \bibitem{TY} D. Tambara and S. Yamagami,
 \emph{Tensor categories with fusion rules of self-duality for finite abelian groups},
 \emph{J. Algebra} \textbf{209} (1998), 692--707.
@@ -821,5 +884,26 @@ J. Pure Appl. Algebra \textbf{214} (2010), 117--139; arXiv:0808.0764.
 \bibitem{MPSknots} S.~Morrison, E.~Peters and N.~Snyder,
 \emph{Knot polynomial identities and quantum group coincidences},
 Quantum Topol. \textbf{2} (2011), 101--156; arXiv:1003.0022.
+\bibitem{Budinski} A.~Budinski,
+\emph{Exotic Fusion Categories and Their Modular Data},
+University of Alberta thesis (2021), Theorem~3.1.1 and Section~3.3.2.
+\bibitem{IzumiNear} M.~Izumi,
+\emph{The classification of near-group categories},
+arXiv:1512.04288v2, Theorems~11.3, 12.5, 13.4 and Corollary~13.5.
+\bibitem{GJSCyclic} P.~Grossman, D.~Jordan and N.~Snyder,
+\emph{Cyclic extensions of fusion categories via the Brauer--Picard groupoid},
+arXiv:1211.6414v2, Lemma~4.7 and Remark~4.8.
+\bibitem{NgSchauenburgExponent} S.-H.~Ng and P.~Schauenburg,
+\emph{Frobenius--Schur indicators and exponents of spherical categories},
+Adv. Math. \textbf{211} (2007), 34--71; arXiv:math/0601012v3.
+\bibitem{LiuNgTotal} G.~Liu and S.-H.~Ng,
+\emph{On total Frobenius--Schur indicators},
+Contemp. Math. \textbf{623} (2014), 193--213; arXiv:1212.1435.
+\bibitem{YuZhang} Z.~Yu and Q.~Zhang,
+\emph{Realizing modular data from centers of near-group categories},
+arXiv:2412.20763v2, Proposition~3.1.
+\bibitem{ShimizuTY} K.~Shimizu,
+\emph{Frobenius--Schur indicators in Tambara--Yamagami categories},
+J. Algebra \textbf{332} (2011), 543--564; arXiv:1005.4500.
 \end{thebibliography}
 \end{document}

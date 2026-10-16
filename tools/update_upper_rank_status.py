@@ -15,6 +15,7 @@ def main():
              8:('supplements/rank8/data/decisions.json','supplements/rank8/rank8-verified-supplement.zip')}
     for rank,(ledger,archive) in sources.items():
         raw=(ROOT/ledger).read_bytes();rows=json.loads(raw);counts=collections.Counter(r['status'] for r in rows)
+        counts.setdefault('unresolved',0)
         x['inputs'][f'rank{rank}'].update(file=ledger,sha256=hashlib.sha256(raw).hexdigest(),status_totals=dict(counts),
             residual_update='evidence/'+latest+'/README.md')
         for row in x['rows']:

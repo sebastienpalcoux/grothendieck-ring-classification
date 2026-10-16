@@ -1,0 +1,509 @@
+{
+  "status": "PASS",
+  "scope": "general_complex_to_Galois_pseudo_unitary",
+  "classification_changes": 0,
+  "cases": [
+    {
+      "id": "R7_4_106",
+      "tensor_sha256": "bb2c9203bd767a0cc9665b5a32cf532226d79d48d1a9ab3c00733e470de7b1aa",
+      "g_a_b_f": [
+        1,
+        2,
+        3,
+        6
+      ],
+      "radicand": 3,
+      "FP_dimensions": [
+        "1",
+        "1",
+        "2*sqrt(3) + 4",
+        "4*sqrt(3) + 7",
+        "4*sqrt(3) + 7",
+        "2*sqrt(3) + 4",
+        "6 + 4*sqrt(3)"
+      ],
+      "source_Casimir": "(x - 12)*(x - 8)**3*(x - 4)*(x**2 - 672*x + 2304)",
+      "D_over_48_unit": "4*sqrt(3) + 7",
+      "conclusion": "every categorification is Galois conjugate to a pseudo-unitary category",
+      "classification_status": "unresolved"
+    },
+    {
+      "id": "R7_4_2155",
+      "tensor_sha256": "221cd17606540aa298594ad057adeb294447409679625811588adac87f27676b",
+      "g_a_b_f": [
+        3,
+        1,
+        5,
+        4
+      ],
+      "radicand": 3,
+      "FP_dimensions": [
+        "1",
+        "2*sqrt(3) + 4",
+        "2*sqrt(3) + 4",
+        "1",
+        "6 + 4*sqrt(3)",
+        "4*sqrt(3) + 7",
+        "4*sqrt(3) + 7"
+      ],
+      "source_Casimir": "(x - 12)*(x - 8)**3*(x - 4)*(x**2 - 672*x + 2304)",
+      "D_over_48_unit": "4*sqrt(3) + 7",
+      "conclusion": "every categorification is Galois conjugate to a pseudo-unitary category",
+      "classification_status": "unresolved"
+    },
+    {
+      "id": "R7_3_146",
+      "tensor_sha256": "853cd9cae2095b8ecb37ada145045562cbaaeb0fb622b127e63f70997b67479b",
+      "g_a_b_f": [
+        1,
+        2,
+        3,
+        6
+      ],
+      "radicand": 6,
+      "FP_dimensions": [
+        "1",
+        "1",
+        "4 + 2*sqrt(6)",
+        "2*sqrt(6) + 5",
+        "2*sqrt(6) + 5",
+        "4 + 2*sqrt(6)",
+        "2*sqrt(6) + 6"
+      ],
+      "source_Casimir": "(x - 12)*(x - 8)*(x - 6)**2*(x - 4)*(x**2 - 480*x + 2304)",
+      "D_over_48_unit": "2*sqrt(6) + 5",
+      "conclusion": "every categorification is Galois conjugate to a pseudo-unitary category",
+      "classification_status": "unresolved"
+    }
+  ],
+  "families": {
+    "3": {
+      "bounds": [
+        0,
+        3,
+        4,
+        8,
+        1,
+        2,
+        4,
+        2,
+        3,
+        4
+      ],
+      "normalized_solutions": [
+        {
+          "coefficients": [
+            0,
+            1,
+            0,
+            -8,
+            1,
+            0,
+            4,
+            0,
+            -3,
+            4
+          ],
+          "signed_plus_Casimir": "(x - 16)**2*(x**2 - 396*x + 1056)",
+          "admissible_delta_factors": []
+        },
+        {
+          "coefficients": [
+            0,
+            1,
+            0,
+            -4,
+            1,
+            0,
+            2,
+            0,
+            -1,
+            2
+          ],
+          "signed_plus_Casimir": "(x - 16)**2*(x**2 - 96*x + 256)",
+          "admissible_delta_factors": []
+        },
+        {
+          "coefficients": [
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            -2,
+            1,
+            4
+          ],
+          "signed_plus_Casimir": "(x - 4)*(x**3 - 80*x**2 + 1184*x - 4736)",
+          "admissible_delta_factors": []
+        },
+        {
+          "coefficients": [
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            1,
+            0
+          ],
+          "signed_plus_Casimir": "(x - 16)**2*(x - 8)*(x - 4)",
+          "admissible_delta_factors": []
+        },
+        {
+          "coefficients": [
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            2,
+            1,
+            4
+          ],
+          "signed_plus_Casimir": "(x - 4)*(x**3 - 80*x**2 + 1184*x - 4736)",
+          "admissible_delta_factors": []
+        },
+        {
+          "coefficients": [
+            0,
+            1,
+            0,
+            4,
+            1,
+            0,
+            -2,
+            0,
+            3,
+            -2
+          ],
+          "signed_plus_Casimir": "(x - 16)**2*(x**2 - 144*x + 384)",
+          "admissible_delta_factors": []
+        },
+        {
+          "coefficients": [
+            0,
+            3,
+            -4,
+            8,
+            1,
+            -2,
+            4,
+            -2,
+            3,
+            4
+          ],
+          "signed_plus_Casimir": "(x - 12)*(x - 8)*(x**2 - 672*x + 2304)",
+          "admissible_delta_factors": [
+            {
+              "factor": "x**2 - 672*x + 2304",
+              "multiplicity": 1,
+              "delta_over_48_minpoly": "x**2 - 14*x + 1"
+            }
+          ]
+        },
+        {
+          "coefficients": [
+            0,
+            3,
+            4,
+            8,
+            1,
+            2,
+            4,
+            2,
+            3,
+            4
+          ],
+          "signed_plus_Casimir": "(x - 12)*(x - 8)*(x**2 - 672*x + 2304)",
+          "admissible_delta_factors": [
+            {
+              "factor": "x**2 - 672*x + 2304",
+              "multiplicity": 1,
+              "delta_over_48_minpoly": "x**2 - 14*x + 1"
+            }
+          ]
+        }
+      ],
+      "survivors": [
+        {
+          "coefficients": [
+            0,
+            3,
+            -4,
+            8,
+            1,
+            -2,
+            4,
+            -2,
+            3,
+            4
+          ],
+          "signed_plus_Casimir": "(x - 12)*(x - 8)*(x**2 - 672*x + 2304)",
+          "admissible_delta_factors": [
+            {
+              "factor": "x**2 - 672*x + 2304",
+              "multiplicity": 1,
+              "delta_over_48_minpoly": "x**2 - 14*x + 1"
+            }
+          ]
+        },
+        {
+          "coefficients": [
+            0,
+            3,
+            4,
+            8,
+            1,
+            2,
+            4,
+            2,
+            3,
+            4
+          ],
+          "signed_plus_Casimir": "(x - 12)*(x - 8)*(x**2 - 672*x + 2304)",
+          "admissible_delta_factors": [
+            {
+              "factor": "x**2 - 672*x + 2304",
+              "multiplicity": 1,
+              "delta_over_48_minpoly": "x**2 - 14*x + 1"
+            }
+          ]
+        }
+      ],
+      "conclusion": "global dimension is FPdim or quadratic conjugate"
+    },
+    "6": {
+      "bounds": [
+        3,
+        3,
+        4,
+        4,
+        2,
+        2,
+        2,
+        2,
+        3,
+        2
+      ],
+      "normalized_solutions": [
+        {
+          "coefficients": [
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            -1,
+            -2
+          ],
+          "signed_plus_Casimir": "(x - 12)*(x - 6)*(x**2 - 20*x + 80)",
+          "admissible_delta_factors": []
+        },
+        {
+          "coefficients": [
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            -1,
+            0
+          ],
+          "signed_plus_Casimir": "(x - 12)*(x - 8)**2*(x - 6)",
+          "admissible_delta_factors": []
+        },
+        {
+          "coefficients": [
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            -1,
+            2
+          ],
+          "signed_plus_Casimir": "(x - 12)*(x - 6)*(x**2 - 20*x + 80)",
+          "admissible_delta_factors": []
+        },
+        {
+          "coefficients": [
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            2,
+            1,
+            -2
+          ],
+          "signed_plus_Casimir": "(x - 6)*(x - 4)*(x**2 - 52*x + 624)",
+          "admissible_delta_factors": []
+        },
+        {
+          "coefficients": [
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            2,
+            1,
+            0
+          ],
+          "signed_plus_Casimir": "(x - 24)**2*(x - 6)*(x - 4)",
+          "admissible_delta_factors": []
+        },
+        {
+          "coefficients": [
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            2,
+            1,
+            2
+          ],
+          "signed_plus_Casimir": "(x - 6)*(x - 4)*(x**2 - 52*x + 624)",
+          "admissible_delta_factors": []
+        },
+        {
+          "coefficients": [
+            3,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            -1,
+            -2
+          ],
+          "signed_plus_Casimir": "(x**2 - 34*x + 136)*(x**2 - 20*x + 80)",
+          "admissible_delta_factors": []
+        },
+        {
+          "coefficients": [
+            3,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            -1,
+            0
+          ],
+          "signed_plus_Casimir": "(x - 8)**2*(x**2 - 34*x + 136)",
+          "admissible_delta_factors": []
+        },
+        {
+          "coefficients": [
+            3,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            -1,
+            2
+          ],
+          "signed_plus_Casimir": "(x**2 - 34*x + 136)*(x**2 - 20*x + 80)",
+          "admissible_delta_factors": []
+        },
+        {
+          "coefficients": [
+            3,
+            1,
+            0,
+            0,
+            2,
+            0,
+            0,
+            2,
+            1,
+            2
+          ],
+          "signed_plus_Casimir": "(x - 4)*(x**3 - 122*x**2 + 1832*x - 7328)",
+          "admissible_delta_factors": []
+        },
+        {
+          "coefficients": [
+            3,
+            3,
+            4,
+            4,
+            2,
+            2,
+            2,
+            2,
+            3,
+            2
+          ],
+          "signed_plus_Casimir": "(x - 8)*(x - 6)*(x**2 - 480*x + 2304)",
+          "admissible_delta_factors": [
+            {
+              "factor": "x**2 - 480*x + 2304",
+              "multiplicity": 1,
+              "delta_over_48_minpoly": "x**2 - 10*x + 1"
+            }
+          ]
+        }
+      ],
+      "survivors": [
+        {
+          "coefficients": [
+            3,
+            3,
+            4,
+            4,
+            2,
+            2,
+            2,
+            2,
+            3,
+            2
+          ],
+          "signed_plus_Casimir": "(x - 8)*(x - 6)*(x**2 - 480*x + 2304)",
+          "admissible_delta_factors": [
+            {
+              "factor": "x**2 - 480*x + 2304",
+              "multiplicity": 1,
+              "delta_over_48_minpoly": "x**2 - 10*x + 1"
+            }
+          ]
+        }
+      ],
+      "conclusion": "global dimension is FPdim or quadratic conjugate"
+    }
+  },
+  "optimizer_used": false,
+  "proof": "THREE_CASE_GALOIS_PU.md"
+}

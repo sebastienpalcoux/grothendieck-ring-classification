@@ -104,7 +104,14 @@
     "index": 9,
     "tensor_sha256": "1718ab13b6969ed751b621f7303b9e2bb29bb8280f692315499b130a420538f6",
     "commutative": true,
-    "status": "unresolved"
+    "status": "excluded",
+    "criterion": "cyclic_induction_phase_multiplicity",
+    "certificate": {
+      "scope": "general_complex",
+      "proof": "evidence/unified_20261016/rank8/R9_CENTER_TRACE_PROOF.md",
+      "verifier": "evidence/unified_20261016/rank8/verify_r9_center_trace.py",
+      "date": "2026-10-16"
+    }
   },
   {
     "id": "R8_1_10",
@@ -203,7 +210,14 @@
     "index": 18,
     "tensor_sha256": "cdd3aa4477861e8521c75ac63cb0f9e4e5d0a021073d1619aae358a0850704f2",
     "commutative": true,
-    "status": "unresolved"
+    "status": "excluded",
+    "criterion": "cyclic_induction_STS_fourth_moment",
+    "certificate": {
+      "scope": "general_complex",
+      "proof": "evidence/unified_20261016/rank8/R18_STS_MOMENT_PROOF.md",
+      "verifier": "evidence/unified_20261016/rank8/verify_r18_sts_moments.py",
+      "date": "2026-10-16"
+    }
   },
   {
     "id": "R8_1_19",
@@ -727,7 +741,14 @@
     "index": 49,
     "tensor_sha256": "a5cefbf544001818e1e5c6e5bde951601eaf35f3d71034a252df1b7de751ea85",
     "commutative": false,
-    "status": "unresolved"
+    "status": "excluded",
+    "criterion": "pivotal_parity_inverse_morita",
+    "certificate": {
+      "scope": "general_complex",
+      "proof": "evidence/unified_20261016/rank8/R49_FS_MORITA_PROOF.md",
+      "verifier": "evidence/unified_20261016/rank8/verify_r49_fs_morita.py",
+      "date": "2026-10-16"
+    }
   },
   {
     "id": "R8_1_50",
@@ -1905,7 +1926,14 @@
     "index": 24,
     "tensor_sha256": "2b4780441d9590e8e7269cd82b7675aa75cec11c39bd3e94bb372cca1ada6738",
     "commutative": true,
-    "status": "unresolved"
+    "status": "excluded",
+    "criterion": "projective_inner_square_obstruction",
+    "certificate": {
+      "scope": "general_complex",
+      "proof": "evidence/unified_20261016/rank8/R24_PROJECTIVE_INNER_SQUARE_PROOF.md",
+      "verifier": "evidence/unified_20261016/rank8/verify_r24_projective_inner_square.py",
+      "date": "2026-10-16"
+    }
   },
   {
     "id": "R8_2_25",
@@ -2032,7 +2060,14 @@
     "index": 33,
     "tensor_sha256": "7a97e02134591a480adaa70aa8c938366c7406db000ac258a9502822480365b9",
     "commutative": true,
-    "status": "unresolved"
+    "status": "excluded",
+    "criterion": "quadratic_prime_indicator_balance",
+    "certificate": {
+      "scope": "general_complex",
+      "proof": "evidence/unified_20261016/rank8/Q17_INDICATOR_BALANCE_PROOF.md",
+      "verifier": "evidence/unified_20261016/rank8/verify_q17_indicator_balance.py",
+      "date": "2026-10-16"
+    }
   },
   {
     "id": "R8_2_34",
@@ -2076,7 +2111,14 @@
     "index": 36,
     "tensor_sha256": "0f3439764ab3cf628490ff0427eee015eede38b83165a1413c93349b97240249",
     "commutative": false,
-    "status": "unresolved"
+    "status": "excluded",
+    "criterion": "quadratic_prime_indicator_balance",
+    "certificate": {
+      "scope": "general_complex",
+      "proof": "evidence/unified_20261016/rank8/Q17_INDICATOR_BALANCE_PROOF.md",
+      "verifier": "evidence/unified_20261016/rank8/verify_q17_indicator_balance.py",
+      "date": "2026-10-16"
+    }
   },
   {
     "id": "R8_2_37",
@@ -2084,7 +2126,17 @@
     "index": 37,
     "tensor_sha256": "1cfa463b5ec59daa44cc51752a6a58ea5378684a46ab7ee72147ab69153d5f6a",
     "commutative": false,
-    "status": "unresolved"
+    "status": "unitarily_realized",
+    "criterion": "nonsplit_2D2_extension",
+    "certificate": {
+      "scope": "general_complex",
+      "proof": "evidence/unified_20261016/rank8/R37_CONSTRUCTION.md",
+      "verifier": "evidence/unified_20261016/rank8/verify_r37_model.py",
+      "date": "2026-10-16"
+    },
+    "models": [
+      "Nonsplit C2 extension of the unitary 2D2 category"
+    ]
   },
   {
     "id": "R8_2_38",
@@ -2795,7 +2847,14 @@
     "index": 76,
     "tensor_sha256": "e633ff711a4d5bb15555d0b0ca78d810e9aa0e2e2a1b9336020d15e494303c5b",
     "commutative": true,
-    "status": "unresolved"
+    "status": "excluded",
+    "criterion": "quadratic_prime_indicator_balance",
+    "certificate": {
+      "scope": "general_complex",
+      "proof": "evidence/unified_20261016/rank8/Q17_INDICATOR_BALANCE_PROOF.md",
+      "verifier": "evidence/unified_20261016/rank8/verify_q17_indicator_balance.py",
+      "date": "2026-10-16"
+    }
   },
   {
     "id": "R8_2_77",
@@ -4396,7 +4455,14 @@
     "index": 152,
     "tensor_sha256": "0523e0c3e5986b3d8fe8b15ed4ef0590d2fa89dded0211546a6baab77dd46e9b",
     "commutative": true,
-    "status": "unresolved"
+    "status": "excluded",
+    "criterion": "algebraic_2D2_planar_algebra",
+    "certificate": {
+      "scope": "general_complex",
+      "proof": "evidence/unified_20261016/rank8/FOUR_2D2_GENERAL_PROOF.md",
+      "verifier": "evidence/unified_20261016/rank8/verify_2d2_general.py",
+      "date": "2026-10-16"
+    }
   },
   {
     "id": "R8_2_153",
@@ -4404,7 +4470,14 @@
     "index": 153,
     "tensor_sha256": "bf4adfa05928a50f367117be3a10f1435514254eefd8b55b4d2030c0930c179f",
     "commutative": true,
-    "status": "unresolved"
+    "status": "excluded",
+    "criterion": "algebraic_2D2_planar_algebra",
+    "certificate": {
+      "scope": "general_complex",
+      "proof": "evidence/unified_20261016/rank8/FOUR_2D2_GENERAL_PROOF.md",
+      "verifier": "evidence/unified_20261016/rank8/verify_2d2_general.py",
+      "date": "2026-10-16"
+    }
   },
   {
     "id": "R8_2_154",
@@ -4621,7 +4694,14 @@
     "index": 166,
     "tensor_sha256": "733921bea67078b3e389e30ff084194bef79995cdfd1698c7249ef087891e197",
     "commutative": true,
-    "status": "unresolved"
+    "status": "excluded",
+    "criterion": "algebraic_2D2_planar_algebra",
+    "certificate": {
+      "scope": "general_complex",
+      "proof": "evidence/unified_20261016/rank8/FOUR_2D2_GENERAL_PROOF.md",
+      "verifier": "evidence/unified_20261016/rank8/verify_2d2_general.py",
+      "date": "2026-10-16"
+    }
   },
   {
     "id": "R8_2_167",
@@ -4730,7 +4810,14 @@
     "index": 170,
     "tensor_sha256": "78c260875e85e75fa8689dba58a9c5225942228315e25da354ad3da8b4bbf06d",
     "commutative": false,
-    "status": "unresolved"
+    "status": "excluded",
+    "criterion": "odd_involution_morita_near_group",
+    "certificate": {
+      "scope": "general_complex",
+      "proof": "evidence/unified_20261016/rank8/R170_INVERSE_MORITA_PROOF.md",
+      "verifier": "evidence/unified_20261016/rank8/verify_r170_morita.py",
+      "date": "2026-10-16"
+    }
   },
   {
     "id": "R8_2_171",
@@ -5146,7 +5233,14 @@
     "index": 190,
     "tensor_sha256": "ef368ba29ddc183f215145eb6a50ead0655e91afff2d3e844f918c6d2a91d867",
     "commutative": true,
-    "status": "unresolved"
+    "status": "excluded",
+    "criterion": "Fibonacci_character_parity",
+    "certificate": {
+      "scope": "general_complex",
+      "proof": "evidence/unified_20261016/rank8/FIB_CHARACTER_PARITY_EXCLUSION.md",
+      "verifier": "evidence/unified_20261016/rank8/verify_fib_character_parity.py",
+      "date": "2026-10-16"
+    }
   },
   {
     "id": "R8_2_191",
@@ -7496,7 +7590,14 @@
     "index": 314,
     "tensor_sha256": "8cf291cb9760439f6bf64d131efe0052d3b48ef9bc2b9af1e5e8fe70c2aa6867",
     "commutative": false,
-    "status": "unresolved"
+    "status": "excluded",
+    "criterion": "twisted_half_braiding_support",
+    "certificate": {
+      "scope": "general_complex",
+      "proof": "evidence/unified_20261016/rank8/TWISTED_HALF_BRAIDING_OBSTRUCTION.md",
+      "verifier": "evidence/unified_20261016/rank8/verify_twisted_half_braiding.py",
+      "date": "2026-10-16"
+    }
   },
   {
     "id": "R8_2_315",
@@ -7998,7 +8099,14 @@
     "index": 342,
     "tensor_sha256": "6d9246ba099d4676e98ae3cc60bba5a176db651fa740b5f8c4c5906ff652ae5d",
     "commutative": true,
-    "status": "unresolved"
+    "status": "excluded",
+    "criterion": "PSU3_inverse_Morita_rigidity",
+    "certificate": {
+      "scope": "general_complex",
+      "proof": "evidence/unified_20261016/rank8/R342_INVERSE_MORITA_PROOF.md",
+      "verifier": "evidence/unified_20261016/rank8/verify_r342_inverse_morita.py",
+      "date": "2026-10-16"
+    }
   },
   {
     "id": "R8_2_343",
@@ -9275,7 +9383,14 @@
     "index": 412,
     "tensor_sha256": "b4936146f9270530f3c5e5db5bddb1fb20b7353d859b60517e1446d749ed4e3c",
     "commutative": false,
-    "status": "unresolved"
+    "status": "excluded",
+    "criterion": "quadratic_prime_indicator_balance",
+    "certificate": {
+      "scope": "general_complex",
+      "proof": "evidence/unified_20261016/rank8/Q17_INDICATOR_BALANCE_PROOF.md",
+      "verifier": "evidence/unified_20261016/rank8/verify_q17_indicator_balance.py",
+      "date": "2026-10-16"
+    }
   },
   {
     "id": "R8_2_413",
@@ -9639,7 +9754,14 @@
     "index": 432,
     "tensor_sha256": "8fdcee799f7fc07a294221c5b2f37f45d1edb12874df13dc09ee0748f5f7b60e",
     "commutative": false,
-    "status": "unresolved"
+    "status": "excluded",
+    "criterion": "twisted_half_braiding_support",
+    "certificate": {
+      "scope": "general_complex",
+      "proof": "evidence/unified_20261016/rank8/TWISTED_HALF_BRAIDING_OBSTRUCTION.md",
+      "verifier": "evidence/unified_20261016/rank8/verify_twisted_half_braiding.py",
+      "date": "2026-10-16"
+    }
   },
   {
     "id": "R8_2_433",
@@ -9894,7 +10016,14 @@
     "index": 446,
     "tensor_sha256": "79f08fcc6679f4480daeb6c14c68b422b7cceac4a8ed7616f3c27395723b0d3d",
     "commutative": true,
-    "status": "unresolved"
+    "status": "excluded",
+    "criterion": "quadratic_prime_indicator_balance",
+    "certificate": {
+      "scope": "general_complex",
+      "proof": "evidence/unified_20261016/rank8/Q17_INDICATOR_BALANCE_PROOF.md",
+      "verifier": "evidence/unified_20261016/rank8/verify_q17_indicator_balance.py",
+      "date": "2026-10-16"
+    }
   },
   {
     "id": "R8_2_447",
@@ -10642,7 +10771,14 @@
     "index": 489,
     "tensor_sha256": "23cae0639e4ce7e54428705a66098747319e26d5f29ad8dff05914a6d43caef1",
     "commutative": true,
-    "status": "unresolved"
+    "status": "excluded",
+    "criterion": "Fibonacci_character_parity",
+    "certificate": {
+      "scope": "general_complex",
+      "proof": "evidence/unified_20261016/rank8/FIB_CHARACTER_PARITY_EXCLUSION.md",
+      "verifier": "evidence/unified_20261016/rank8/verify_fib_character_parity.py",
+      "date": "2026-10-16"
+    }
   },
   {
     "id": "R8_2_490",
@@ -10729,7 +10865,14 @@
     "index": 495,
     "tensor_sha256": "585aab580e46c28c084e57f81ba28b70835fc15ee0ca657d790b86253c74c6b5",
     "commutative": true,
-    "status": "unresolved"
+    "status": "excluded",
+    "criterion": "algebraic_2D2_planar_algebra",
+    "certificate": {
+      "scope": "general_complex",
+      "proof": "evidence/unified_20261016/rank8/FOUR_2D2_GENERAL_PROOF.md",
+      "verifier": "evidence/unified_20261016/rank8/verify_2d2_general.py",
+      "date": "2026-10-16"
+    }
   },
   {
     "id": "R8_2_496",
@@ -11502,7 +11645,17 @@
     "index": 535,
     "tensor_sha256": "bbec9e7a6c9699ef6dde3d09c0387b1ee426ea230c8bd0f94c7c48a4ec501edd",
     "commutative": true,
-    "status": "unresolved"
+    "status": "unitarily_realized",
+    "criterion": "HI_C6_Q_system_dual",
+    "certificate": {
+      "scope": "general_complex",
+      "proof": "evidence/unified_20261016/rank8/HI6_DUAL_PROOF.md",
+      "verifier": "evidence/unified_20261016/rank8/verify_hi6_dual.py",
+      "date": "2026-10-16"
+    },
+    "models": [
+      "Dual of the Q-system 1+rho in a unitary HI(C6) category"
+    ]
   },
   {
     "id": "R8_2_536",
@@ -13326,7 +13479,14 @@
     "index": 630,
     "tensor_sha256": "4bf43a0204695223442fef2735e46289cded33126a6598118091a280cada93cb",
     "commutative": true,
-    "status": "unresolved"
+    "status": "excluded",
+    "criterion": "quadratic_conductor_Galois_indicator",
+    "certificate": {
+      "scope": "general_complex",
+      "proof": "evidence/unified_20261016/rank8/R630_WEIGHTED_GALOIS_INDICATOR_PROOF.md",
+      "verifier": "evidence/unified_20261016/rank8/verify_r630_weighted_indicator.py",
+      "date": "2026-10-16"
+    }
   },
   {
     "id": "R8_2_631",
@@ -14015,7 +14175,17 @@
     "index": 666,
     "tensor_sha256": "cfbe81aa760b11ab636b164d65c6985bafe05d675eeae0404a42b0ebc4c0d35b",
     "commutative": true,
-    "status": "unresolved"
+    "status": "unitarily_realized",
+    "criterion": "C4_near_group_pointed_centralizer",
+    "certificate": {
+      "scope": "general_complex",
+      "proof": "evidence/unified_20261016/rank8/C4_CENTRALIZER_PROOF.md",
+      "verifier": "evidence/unified_20261016/rank8/verify_c4_centralizer.py",
+      "date": "2026-10-16"
+    },
+    "models": [
+      "Pointed centralizer in the center of a unitary NG(C4,4) category"
+    ]
   },
   {
     "id": "R8_2_667",
@@ -14098,7 +14268,14 @@
     "index": 671,
     "tensor_sha256": "299ed4d94e5e3e54de5c4699704f5a335012b06efa9cc259c1f732b40f5c595d",
     "commutative": true,
-    "status": "unresolved"
+    "status": "excluded",
+    "criterion": "quadratic_conductor40_center_trace",
+    "certificate": {
+      "scope": "general_complex",
+      "proof": "evidence/unified_20261016/rank8/R671_CENTER_TRACE_PROOF.md",
+      "verifier": "evidence/unified_20261016/rank8/verify_r671_center_trace.py",
+      "date": "2026-10-16"
+    }
   },
   {
     "id": "R8_2_672",
@@ -16911,7 +17088,17 @@
     "index": 820,
     "tensor_sha256": "88d4e0d03d1f45b727bb5d973ee4c47ef114ff4870f397d9f08342d5db1d0373",
     "commutative": true,
-    "status": "unresolved"
+    "status": "unitarily_realized",
+    "criterion": "C5_near_group_center_factor",
+    "certificate": {
+      "scope": "general_complex",
+      "proof": "evidence/unified_20261016/rank8/NEARGROUP_CENTRALIZER_PROOF.md",
+      "verifier": "evidence/unified_20261016/rank8/verify_neargroup_centralizer.py",
+      "date": "2026-10-16"
+    },
+    "models": [
+      "Nonpointed factor of the center of NG(C5,5), auxiliary group C3 x C3"
+    ]
   },
   {
     "id": "R8_2_821",
@@ -17858,7 +18045,17 @@
     "index": 869,
     "tensor_sha256": "6fd67687c6a4590e43cf539442042092ebc28973b626127f40d6f27fb66de112",
     "commutative": true,
-    "status": "unresolved"
+    "status": "unitarily_realized",
+    "criterion": "C5_near_group_center_factor",
+    "certificate": {
+      "scope": "general_complex",
+      "proof": "evidence/unified_20261016/rank8/NEARGROUP_CENTRALIZER_PROOF.md",
+      "verifier": "evidence/unified_20261016/rank8/verify_neargroup_centralizer.py",
+      "date": "2026-10-16"
+    },
+    "models": [
+      "Nonpointed factor of the center of NG(C5,5), auxiliary group C9"
+    ]
   },
   {
     "id": "R8_2_870",

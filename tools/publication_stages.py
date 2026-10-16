@@ -16,6 +16,7 @@ STAGE_C_TOTALS = {
     "8": {"excluded": 857, "unitarily_realized": 72, "unresolved": 44},
 }
 THEORETICAL = "theoretical_20261016"
+UNIFIED = "unified_20261016"
 
 def require(ok, message):
     if not ok:
@@ -74,14 +75,36 @@ def load_stages(repo, status=None):
         for d in advance:
             current[str(d["rank"])]["excluded"] += 1
             current[str(d["rank"])]["unresolved"] -= 1
-        if status is not None:
+        if status is not None and not (repo / "evidence" / UNIFIED / "decisions.json").is_file():
             require(all(status["inputs"]["rank" + r]["status_totals"] == v
                         for r, v in current.items()), "Refresh theoretical-update status before rendering")
         decisions += advance
         totals = collections.Counter(d["status"] for d in decisions)
         latest = THEORETICAL
+    unified_path = repo / "evidence" / UNIFIED / "decisions.json"
+    unified = []
+    if unified_path.is_file():
+        unified = json.loads(unified_path.read_text())
+        require(unified and len(unified) == len({d['id'] for d in unified}),
+                'Unified update decision inventory')
+        require(all(d['status'] in ('excluded', 'unitarily_realized') and
+                    d['scope'] == 'general_complex' and d['rank'] in (7, 8)
+                    for d in unified), 'Unified update general scope')
+        require(not {d['id'] for d in unified}.intersection(d['id'] for d in decisions),
+                'Unified update overlaps historical stages')
+        expected = json.loads((unified_path.parent / 'expected_totals.json').read_text())
+        if status is not None:
+            require(all(status['inputs']['rank' + r]['status_totals'] == v
+                        for r, v in expected.items() if r in ('7', '8')),
+                    'Refresh unified-update status before rendering')
+        decisions += unified
+        totals = collections.Counter(d['status'] for d in decisions)
+        latest = UNIFIED
     return {"latest": latest, "decisions": decisions, "continuation": bool(extra),
             "theoretical": bool(advance), "theoretical_count": len(advance),
+            "unified": bool(unified), "unified_count": len(unified),
+            "unified_exclusions": sum(d['status'] == 'excluded' for d in unified),
+            "unified_models": sum(d['status'] == 'unitarily_realized' for d in unified),
             "count": len(decisions), "exclusions": totals["excluded"],
             "models": totals["unitarily_realized"],
             "continuation_ids": list(CONTINUATION_IDS) if extra else [],
@@ -89,6 +112,15 @@ def load_stages(repo, status=None):
 
 def overview(stage, prefix=""):
     base_link = prefix + "evidence/" + BASE + "/README.md"
+    if stage.get('unified'):
+        return (f"The [unified theoretical continuation]({prefix}evidence/{UNIFIED}/README.md) "
+                f"adds {stage['unified_exclusions']} general exclusions and "
+                f"{stage['unified_models']} unitary constructions. "
+                f"Together with the earlier residual stages, these updates resolve "
+                f"{stage['count']} rings: {stage['exclusions']} general exclusions "
+                f"and {stage['models']} unitary models. "
+                "The remaining general questions and scoped results are identified explicitly. "
+                "Earlier proofs, decision records and manuscript versions retain historical replay.")
     if stage.get("theoretical"):
         return (f"The [16 October theoretical update]({prefix}evidence/{THEORETICAL}/README.md) "
                 f"adds {stage['theoretical_count']} general exclusions, with no new realization. "

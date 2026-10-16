@@ -277,10 +277,14 @@ function renderTheoreticalUpdate() {
   notice.hidden = details.hidden = !update;
   if (!update) return;
   const date = new Date(update.date + "T12:00:00Z").toLocaleDateString("en-GB", {day:"numeric", month:"long", year:"numeric", timeZone:"UTC"});
-  $("#research-update-title").textContent = `${date} · ${update.new_general_exclusions} new general exclusions`;
-  $("#research-update-summary").textContent = `${update.by_rank["7"]} rank-seven and ${update.by_rank["8"]} rank-eight cases are now excluded over the complex numbers. General existence remains open for ${update.remaining["6"]} rank-six, ${update.remaining["7"]} rank-seven, and ${update.remaining["8"]} rank-eight rings.`;
-  $("#theoretical-update-heading").textContent = `${date} · proofs for ${update.new_general_exclusions} new general exclusions`;
-  $("#theoretical-update-scope").textContent = "The new arguments use module-category constraints, dimension-block compression, and Morita theory. The bundle contains the proofs, exact replay programs, decision records, and the updated unresolved inventory. Further results with pivotal or unitary hypotheses retain their stated scope.";
+  $("#research-update-title").textContent = `${date} · ${update.new_general_exclusions} exclusions · ${update.new_unitary_models || 0} unitary models`;
+  const rankNames = {"6": "rank-six", "7": "rank-seven", "8": "rank-eight"};
+  const openParts = Object.entries(update.remaining).filter(([, count]) => count > 0).map(([rank, count]) => `${count} ${rankNames[rank]}`);
+  const openText = openParts.length ? ` General existence remains open for ${openParts.join(", ")} rings.` : " Every case in this continuation is resolved.";
+  const completion = (update.remaining["7"] === 0 ? " Rank seven is complete through multiplicity four." : "") + (update.remaining["8"] === 0 ? " Rank eight is complete through multiplicity two." : "");
+  $("#research-update-summary").textContent = `The continuation resolves ${update.by_rank["7"]} rank-seven and ${update.by_rank["8"]} rank-eight cases.${completion}${openText}`;
+  $("#theoretical-update-heading").textContent = `${date} · proofs for ${update.new_general_exclusions} exclusions · ${update.new_unitary_models || 0} unitary models`;
+  $("#theoretical-update-scope").textContent = "The new arguments combine Morita theory, Frobenius–Schur parity, center constraints, algebraic planar algebras, and tensor coherence. The bundle contains the proofs, exact replay programs, decision records, and the updated unresolved inventory. Further results with pivotal or unitary hypotheses retain their stated scope.";
   const base = `${state.data.classification_repository}/tree/${state.data.classification_commit || "main"}/${update.source}`;
   $("#latest-research-source").href = base;
   const actions = $("#theoretical-update-actions");
@@ -294,6 +298,12 @@ function renderTheoreticalUpdate() {
   const source = element("a", "", "Research source ↗");
   source.href = base; source.target = "_blank"; source.rel = "noopener";
   actions.append(archive, decisions, remaining, source);
+  if (update.source === "evidence/unified_20261016") {
+    const coverage = element("a", "", "All 38 original cases and remaining gaps ↗");
+    coverage.href = `${state.data.classification_repository}/blob/${state.data.classification_commit || "main"}/${update.source}/ALL38_COVERAGE.md`;
+    coverage.target = "_blank"; coverage.rel = "noopener";
+    actions.append(coverage);
+  }
   const labels = {
     anti_invariant_involution_module: "Involution module and character obstruction",
     involution_anti_module_spectral: "Involution module and spectral obstruction",
@@ -307,13 +317,37 @@ function renderTheoreticalUpdate() {
     Morita_adjoint_normality: "Morita dual and stabilizer obstruction",
     conductor32_signed_Jacobi: "Conductor-32 signed Jacobi obstruction",
     C3_A4_Morita_formal_codegree: "Morita reduction and formal-codegree arithmetic",
+    inverse_V4_Morita_near_group: "Inverse Morita and near-group exclusion",
+    nonsplit_2D2_extension: "Unitary nonsplit 2D2 extension",
+    HI_C6_Q_system_dual: "Unitary Haagerup–Izumi dual construction",
+    algebraic_2D2_planar_algebra: "Algebraic 2D2 planar-algebra exclusion",
+    odd_involution_morita_near_group: "Odd-involution Morita exclusion",
+    twisted_half_braiding_support: "Twisted half-braiding obstruction",
+    C5_near_group_center_factor: "Unitary near-group center factor",
+    simple_center_prime_power_lattice: "Simple-center induction lattice",
+    pivotal_parity_inverse_morita: "Pivotal parity and inverse Morita",
+    Fibonacci_character_parity: "Fibonacci character parity",
+    quadratic_center_Galois_two_moment: "Quadratic center and two twist moments",
+    twisted_v4_staged_morita_obstruction: "Staged twisted-V4 Morita obstruction",
+    quadratic_prime_indicator_balance: "Conductor-seventeen indicator balance",
+    quadratic_center_reciprocity_two_moment: "Character reciprocity and two center moments",
+    quadratic_conductor_Galois_indicator: "Weighted Galois third-indicator obstruction",
+    quadratic_conductor40_center_trace: "Conductor-forty center trace",
+    cyclic_induction_phase_multiplicity: "Cyclic induction phase multiplicity",
+    cyclic_induction_STS_fourth_moment: "Full center STS and fourth indicator",
+    projective_inner_square_obstruction: "Projective inner-square obstruction",
+    dihedral_Morita_R18_obstruction: "Dihedral Morita and center STS",
+    PSU3_inverse_Morita_rigidity: "Quantum-group inverse Morita rigidity",
+    C16_orbifold_inversion_Morita: "Unitary orbifold and reflection dual",
+    C4_squared_orbifold_inversion_Morita: "Unitary orbifold and reflection dual",
+    C4_near_group_pointed_centralizer: "Unitary near-group pointed centralizer",
   };
   const rows = $("#theoretical-update-rows");
   rows.replaceChildren();
   for (const record of update.decisions) {
     const row = element("tr");
     const name = element("th", "", record.id); name.scope = "row";
-    const proof = element("a", "", `${labels[record.criterion] || "Theoretical exclusion proof"} ↗`);
+    const proof = element("a", "", `${labels[record.criterion] || "Theoretical proof"} ↗`);
     proof.href = `${state.data.classification_repository}/blob/${state.data.classification_commit || "main"}/${update.source}/${record.proof}`;
     proof.target = "_blank"; proof.rel = "noopener";
     const cell = element("td"); cell.append(proof); row.append(name, cell); rows.append(row);
@@ -371,11 +405,11 @@ function renderPapers() {
   const r7=state.data.scope.find((x)=>x.rank===7);
   const r8=state.data.scope.find((x)=>x.rank===8);
   if (r7)
-    entries.push({rank:7,title:"Rank-seven Grothendieck rings: certified exclusions and models through multiplicity four",
-      subtitle:`${fmt.format(r7.rings)} analyzed; ${r7.positive} models and ${r7.unresolved} general open cases`,type:"CLASSIFICATION",slug:"rank7"});
+    entries.push({rank:7,title:r7.unresolved ? "Rank-seven Grothendieck rings: certified exclusions and models through multiplicity four" : "Rank-seven Grothendieck rings: complete classification through multiplicity four",
+      subtitle:`${fmt.format(r7.rings)} analyzed; ${r7.positive} models${r7.unresolved ? ` and ${r7.unresolved} general open cases` : "; complete classification"}`,type:"CLASSIFICATION",slug:"rank7"});
   if (r8)
-    entries.push({rank:8,title:"Rank-eight Grothendieck rings through multiplicity two: criteria, models, and the unresolved frontier",
-      subtitle:`${fmt.format(r8.rings)} analyzed; ${r8.positive} models and ${r8.unresolved} general open cases`,type:"CLASSIFICATION",slug:"rank8"});
+    entries.push({rank:8,title:r8.unresolved ? "Rank-eight Grothendieck rings through multiplicity two: criteria, models, and the unresolved frontier" : "Rank-eight Grothendieck rings: complete classification through multiplicity two",
+      subtitle:`${fmt.format(r8.rings)} analyzed; ${r8.positive} models${r8.unresolved ? ` and ${r8.unresolved} general open cases` : "; complete classification"}`,type:"CLASSIFICATION",slug:"rank8"});
   for (const paper of entries) {
     const card=element("article","paper-card");
     const content=element("div");

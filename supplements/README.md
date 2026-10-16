@@ -14,8 +14,8 @@ does not create a self-contained verification run.
 | 4 | [`rank4/software/`](rank4/software/) and [`verify.py`](rank4/verify.py) | Rank-four source release, including 75.8 MB compressed classification ledger |
 | 5 | [`rank5/software/`](rank5/software/) and [`verify.py`](rank5/verify.py) | Rank-five source release, including its decisions and exclusion certificates |
 | 6 | [`rank6/software/`](rank6/software/) and [`verify.py`](rank6/verify.py) | Complete release; 25,362 excluded, 57 realized, 2 unresolved; complete through 3 and exact bands 1, 2, 3, 5, 6, 7, 9 |
-| 7 | [`rank7/`](rank7/) | Complete census through 4; 4,164 generally excluded, 27 realized, 10 generally unresolved |
-| 8 | [`rank8/`](rank8/) | Complete census through 2; 875 generally excluded, 72 realized, 26 generally unresolved |
+| 7 | [`rank7/`](rank7/) | Complete census through 4; 4,172 generally excluded, 29 realized, 0 generally unresolved |
+| 8 | [`rank8/`](rank8/) | Complete census through 2; 896 generally excluded, 77 realized, 0 generally unresolved |
 
 The public [fusion-ring-census](https://github.com/sebastienpalcoux/fusion-ring-census)
 continues to own the raw tensor census and enumeration code. See the
@@ -29,4 +29,4 @@ For the rank-six update, start with its [README](rank6/README.md),
 The authoritative ledger is `rank6/data/decisions.json`. The archive is
 `Rank6_Categorification_M9_Frontier_2026-10-01.zip`. Source-bound certificates retain their internal paths.
 
-The [16 October theoretical update](../evidence/theoretical_20261016/README.md) adds 47 general exclusions, with no new realization. Together with the frozen October 2 stages, these updates resolve 104 rings: 91 general exclusions and 13 unitary models. Scope-specific obstructions remain separate from general categorification decisions. The earlier proofs and ledgers retain their historical replay. From the repository root, run `python3 tools/verify_theoretical_20261016.py` and its optimized-Python counterpart.
+The [unified theoretical continuation](../evidence/unified_20261016/README.md) adds 29 general exclusions and 7 unitary constructions. Together with the earlier residual stages, these updates resolve 140 rings: 120 general exclusions and 20 unitary models. The remaining general questions and scoped results are identified explicitly. Earlier proofs, decision records and manuscript versions retain historical replay. From the repository root, run `python3 tools/verify_unified_20261016.py` and its optimized-Python counterpart.

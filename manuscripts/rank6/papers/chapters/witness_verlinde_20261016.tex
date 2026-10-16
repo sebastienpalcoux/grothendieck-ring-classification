@@ -1,0 +1,96 @@
+\section{A Verlinde obstruction to the rank-37 witness}
+\label{sec:1660-witness-verlinde}
+
+The preceding necessary conditions do not suffice for modular data. We now
+exclude the particular rank-$37$ restriction, twist, and representation
+witness recorded in the theoretical continuation. This does not exclude
+$\RR{8}{1660}$ or every refinement of its retained profiles.
+
+\begin{proposition}\label{prop:1660-witness-verlinde}
+The historical rank-$37$ witness cannot be the modular data of a center:
+it forces a fusion coefficient to equal $1/2$.
+\end{proposition}
+\begin{proof}
+Use the source order $(1,g,X,gX,\sigma,T)$, where $T=\sigma X$.
+The witness has a low simple $A$ and exactly two simples $B_+,B_-$ of
+twist $\zeta_{48}^{4}$, with
+\[
+ F(A)=1+X+gX+2T,\qquad F(B_\pm)=X+gX+2T.
+\]
+Among its active modular irreducibles, precisely $W=(61,5)$ and
+$H=(0,1)$ contain that twist, each with multiplicity one. Here $W$ has
+dimension $12$, simple twist spectrum, and a one-dimensional twist-one
+space; $H$ is one-dimensional. These assertions follow directly from
+the frozen local character tables.
+
+Let $e_W=w_6/2$ be the normalized twist-one vector of $W$, as in
+\S\ref{sec:1660-forced-third-indicator}. Reciprocity gives equal nonzero
+coordinates of $se_W$ at the two repeated restriction rows. Hence
+\[
+ b=\frac{e_{B_+}+e_{B_-}}{\sqrt2}\in W,\qquad
+ h=\frac{e_{B_+}-e_{B_-}}{\sqrt2}\in H.
+\]
+For a center simple $E$ with restriction row $v_E$, put
+\[
+ a_E=|\langle e_E,se_W\rangle|^2
+     =\frac{L_6(v_E)^2}{96},\qquad
+ L_6=(-1,-1,-1,-1,-2,2).
+\]
+The last equality follows from $sw_6=4\sqrt6\,\ell_6$ and
+$48\ell_6(F(E))=L_6(v_E)$. Write
+\[
+ r_E=\frac{s_{A,E}}{s_{0,E}},\qquad
+ q_t=\frac{\sum_{\theta_E=\zeta_{48}^t}r_Ea_E}
+              {\sum_{\theta_E=\zeta_{48}^t}a_E}.
+\]
+Since every twist eigenspace of $W$ is one-dimensional, $q_t$ is the
+expectation of the Verlinde spectral diagonal on that line. The exact
+transition probabilities are
+\[
+ p_t=\operatorname{Tr}_W(P_4sP_ts^{-1}).
+\]
+Expanding the two projectors gives character averages. For a local
+factor of modulus $m$, with local target phase $c$, the average is
+\[
+ \frac1{m^2}\sum_{j,k\bmod m}
+ \zeta_m^{-cj-tk}\operatorname{char}_W(T^jST^kS^{-1}).
+\]
+The local phases of $4$ are $(12,1)$; CRT reconstructs a global phase
+as $3a+16b\pmod {48}$. Exact evaluation gives
+\[
+\begin{array}{c|rrrrrr}
+ t&0&16&6&22&12&28\\\hline
+ p_t&1/12&1/24&1/6&1/12&1/12&1/24\\
+ q_t&15&3&-1&-1&-1&-1
+\end{array}
+\qquad
+\begin{array}{c|rrrrrr}
+ t&18&34&24&40&36&4\\\hline
+ p_t&1/6&1/12&1/12&1/24&1/12&1/24\\
+ q_t&-1&-1&15&3&-1&-1
+\end{array}
+\]
+and therefore $\langle b,N_A b\rangle=\sum_t p_tq_t=2$.
+Here $N_A=s\operatorname{diag}(r_E)s^*$ by Verlinde.
+
+On the one-dimensional summand $H$, the matrix $s$ acts by a scalar.
+Moreover $r_{B_+}=r_{B_-}=-1$. Thus $N_Ah=-h$, and its mixed matrix
+coefficients with $b$ vanish. Consequently
+\[
+ N_{A,B_+}^{B_+}=\langle e_{B_+},N_Ae_{B_+}\rangle
+                =\frac{2-1}{2}=\frac12,
+\]
+contradicting integral fusion multiplicities.
+\end{proof}
+
+\paragraph{Scope and replay.}
+The proof uses no numerical modular completion. The standard-library
+checker in
+\filename{evidence/unified_20261016/rank6/verlinde\_obstruction/}
+binds the source tensor, the two certified local character tables, and
+the exact historical witness. It first rechecks all $1536$ equations
+and $1447$ variable bounds of the earlier necessary system, which still
+pass, and then obtains the coefficient $1/2$ exactly. Its normal and
+optimized receipts and an independent categorical audit are included.
+Other representation and twist refinements are not covered by this
+proposition; both rank-six categorification questions remain unresolved.

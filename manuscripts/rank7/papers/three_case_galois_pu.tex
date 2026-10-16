@@ -1,0 +1,150 @@
+\section{A common reduction at the compression boundary}
+\label{sec:three-case-galois-pu}
+The next proposition removes a pivotality gap for three quadratic rings.
+It supplies the general-complex scope for the common exclusion in
+Theorem~\ref{thm:quadratic-center-trace}.
+
+\begin{proposition}\label{prop:three-case-galois-pu}
+Every complex fusion categorification of $R7\_4\_106$,
+$R7\_4\_2155$, or $R7\_3\_146$ is Galois conjugate to a
+pseudo-unitary category.
+\end{proposition}
+\begin{proof}
+Write $g$ for the nontrivial invertible, $a,ga$ and $b,gb$ for its
+two free pairs, and $f$ for its fixed noninvertible. The source labels
+$(g,a,b,f)$ are $(1,2,3,6)$, $(3,1,5,4)$, and $(1,2,3,6)$,
+respectively. Duality is trivial except that $a^*=ga$ in the second ring.
+Pass to the signed algebra $T$ of the canonical sphericalization,
+at $\varepsilon=-1$. Choose the lift of $g$ with dimension $1$.
+Then $g^2=1$, since the other lift of the unit has dimension $-1$.
+The same nonzero-dimension argument makes $g$ central and gives
+$gf=f$. Choose the free-pair lifts compatibly with multiplication
+by $g$. The quotient $T/(g-1)$ has basis $1,a,b,f$ and trivial
+duality, including in the second case. It is therefore commutative.
+Frobenius reciprocity gives
+\begin{align*}
+ a^2&=1+Aa+Bb+rf,&ab&=Ba+Cb+wf,\\
+ b^2&=1+Ca+Db+zf,&af&=2ra+2wb+lf,\\
+ bf&=2wa+2zb+mf,&f^2&=2+2la+2mb+nf.
+\end{align*}
+The coefficient pairing has weights $1,1,1,2$; the factors two
+come from the free pairs. Each coefficient is an integer of the
+same parity as its source bound and of absolute value at most that
+bound. In order $(A,B,C,D,r,w,z,l,m,n)$ the bounds are
+\[
+ (0,3,4,8,1,2,4,2,3,4),\qquad
+ (3,3,4,4,2,2,2,2,3,2),
+\]
+for the $\sqrt3$ pair and the $\sqrt6$ case, respectively. Independent
+sign changes of $a,b,f$ allow $A>0$ whenever $A$ is odd, $B>0$,
+and $r\geq0$. In the first family $A=0$ and $r=1$.
+
+Associativity is equivalent to these six equations:
+\begin{align*}
+ AC-B^2+BD-C^2+2rz-2w^2+1&=0,\\
+ Al+Bm-l^2+nr-2r^2-2w^2+1&=0,\\
+ Aw-Br+Bz-Cw-lw+mr&=0,\\
+ Bl+Cm-lm+nw-2rw-2wz&=0,\\
+ Bw-Cr+Cz-Dw-lz+mw&=0,\\
+ Cl+Dm-m^2+nz-2w^2-2z^2+1&=0.
+\end{align*}
+They have eight and eleven solutions in the respective normalized
+domains. To obtain the complete lists, $B\in\{1,3\}$ makes the
+first equation determine $D$; if $r\ne0$, the third and second
+determine $m,n$. If $r=0$, only their original small domains remain.
+The source-bound verifier records all nineteen rows and checks every
+multiplication-matrix identity.
+
+Let $\delta$ be the global dimension of the original category.
+Its signed dimension character factors through this quotient. If
+its values on $a,b,f$ are $u,v,w_0$, then
+$\delta=2+2u^2+2v^2+w_0^2$, also in the non-self-dual case because
+$a^*=ga$. Thus $\delta$ is an eigenvalue of
+\[
+                  Q=2I+2M_a^2+2M_b^2+M_f^2.
+\]
+The induced-unit theorem for the sphericalization gives
+$2\delta/(2f_E)=\delta/f_E$ algebraically integral for every
+source formal codegree $f_E$ \cite[Theorem~2.13]{OstrikRank3}.
+One is $48(7+4\sqrt3)$ in the first family and $48(5+2\sqrt6)$
+in the second. Each parenthesized factor is an algebraic unit of
+norm one, so multiplication by it proves that $\delta/48$ is
+integral. The rational source codegrees alone have least common
+multiple $24$ and would not give this stronger divisibility.
+
+For an irreducible factor $p(x)$ of $\det(xI-Q)$, a root divided by
+$48$ is integral exactly when the monic polynomial proportional to
+$p(48x)$ has integer coefficients. Only the following rows survive:
+\[
+\begin{array}{c|c|c}
+ \text{family}&(A,B,C,D,r,w,z,l,m,n)&p(x)\\ \hline
+ \sqrt3&(0,3,-4,8,1,-2,4,-2,3,4)&x^2-672x+2304\\
+ \sqrt3&(0,3,4,8,1,2,4,2,3,4)&x^2-672x+2304\\
+ \sqrt6&(3,3,4,4,2,2,2,2,3,2)&x^2-480x+2304
+\end{array}
+\]
+Consequently $\delta=336\pm192\sqrt3$ or
+$\delta=240\pm96\sqrt6$, respectively. These are the source
+Frobenius--Perron dimensions and their quadratic conjugates.
+Global dimension is Galois-equivariant, and the based ring does
+not change under Galois conjugation \cite{ENO}. Choosing the
+conjugation that sends $\delta$ to the Frobenius--Perron value
+gives a pseudo-unitary category.
+\end{proof}
+
+Their full induced-unit compression quantity equals one, satisfying the
+necessary bound. Saturation concerns the projection of the modular
+$S$-image onto the twist-one space; it does not put the full image there.
+The stronger equality constraint below, combined with two induction
+trace moments, will exclude all three rings in the next section.
+
+\subsection{A stronger consequence of compression equality}
+
+There is nevertheless a useful restriction at equality. Let
+$\mathsf S,\mathsf T$ be a unitary representation of
+$SL_2(\Z/N\Z)$ and let $P$ project onto the $\mathsf T$-fixed space.
+Suppose $w$ is fixed by $\mathsf T$ and has diagonal-torus character
+$\chi$ of conductor $q$. Then
+\[
+ \|P\mathsf S w\|^2=\|w\|^2/q
+ \quad\Longrightarrow\quad
+ \mathsf T^q\mathsf S w=\mathsf S w.
+\]
+In fact the cyclic subrepresentation generated by $w$ factors through
+level $q$. To see this, refine the local proof of
+\cite[Lemma~4.1]{SchopierayDimensionBlock}. At a prime power $\ell^a$,
+each irreducible with a unipotent-fixed vector embeds in the permutation
+representation on primitive vectors. For a nontrivial character of
+conductor $\ell^c$, the maximal singular subspace of the compressed
+Weyl operator is spanned by the two functions denoted $F_\alpha$ and
+$G_{\overline\alpha}$ there. Both depend only on the coordinates
+modulo $\ell^c$. Every irreducible containing an equality vector thus
+inflates from that level. For a trivial local character, equality says
+that both $w$ and $\mathsf S w$ are unipotent-fixed; upper and lower
+unipotents then fix $w$, so its local representation is trivial.
+Orthogonal irreducible decomposition and the tensor-product description
+over prime powers give the assertion. The complete local argument and
+an independent audit are retained in the compression supplement.
+
+For the three rings above, use their pseudo-unitary Galois conjugates,
+put $q=12,12,24$, respectively, and let
+$w=e_{\mathbf1}-e_{A_\sigma}$ be the difference of the two
+dimension-character constituents of $I(\mathbf1)$. Their dimension
+field is quadratic of conductor $q$, and their other formal codegrees
+are rational. On the known induced-unit coordinates,
+\[
+ \operatorname{proj}_{I(\mathbf1)}(\mathsf S w)
+ =\left(D^{-1}-\overline D^{-1}\right)w
+ =-\frac{1}{\sqrt q}w.
+\]
+This already attains the compression bound, so the preceding argument
+applies to the full twist-one projection. The coordinate at a simple
+central object $V$ is
+$\dim(V)/D-\sigma(\dim(V)/D)$. Consequently
+\[
+ \dim(V)/D\notin\mathbb Q
+ \quad\Longrightarrow\quad \theta_V^q=1.
+\]
+This constrains twists of specific central objects; it does not assert
+that every central twist has order dividing $q$. The next section keeps
+that distinction when applying the two-moment obstruction.

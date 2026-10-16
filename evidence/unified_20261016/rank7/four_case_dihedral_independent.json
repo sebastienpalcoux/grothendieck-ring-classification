@@ -1,0 +1,228 @@
+{
+  "status": "PASS",
+  "scope": "general complex structural reduction only",
+  "classification_changes": 0,
+  "sources": [
+    {
+      "id": "R7_4_35",
+      "tensor_sha256": "2dcb208b98e9eb1652e0331bb072429e04fdd1bd886ef7e13a0554442f078b18",
+      "G": [
+        0,
+        1,
+        2,
+        5
+      ],
+      "X": 6,
+      "Y": 3,
+      "Z": 4,
+      "h": 5,
+      "invertible_group": "V4",
+      "irrational_selfdual": true,
+      "fusion_checks": "all associativity, duality, Frobenius reciprocity and FP dimensions"
+    },
+    {
+      "id": "R7_4_2053",
+      "tensor_sha256": "17b7a12f7ae481ec749633f470cf33ca50e4b09c3ea168be5392cc5dfe0f1534",
+      "G": [
+        0,
+        1,
+        2,
+        6
+      ],
+      "X": 4,
+      "Y": 3,
+      "Z": 5,
+      "h": 6,
+      "invertible_group": "C4",
+      "irrational_selfdual": true,
+      "fusion_checks": "all associativity, duality, Frobenius reciprocity and FP dimensions"
+    },
+    {
+      "id": "R7_4_2603",
+      "tensor_sha256": "c54217eea35774c032df716ad15fdda9c4a93a4e2ebebd5893bd57a4aa63a5a2",
+      "G": [
+        0,
+        3,
+        4,
+        5
+      ],
+      "X": 6,
+      "Y": 1,
+      "Z": 2,
+      "h": 3,
+      "invertible_group": "V4",
+      "irrational_selfdual": false,
+      "fusion_checks": "all associativity, duality, Frobenius reciprocity and FP dimensions"
+    },
+    {
+      "id": "R7_4_2665",
+      "tensor_sha256": "f31a91ba54c68c0c838751380c7edff80e81e76a3f78d2fb56c15e53ee376a72",
+      "G": [
+        0,
+        1,
+        2,
+        6
+      ],
+      "X": 5,
+      "Y": 3,
+      "Z": 4,
+      "h": 6,
+      "invertible_group": "C4",
+      "irrational_selfdual": false,
+      "fusion_checks": "all associativity, duality, Frobenius reciprocity and FP dimensions"
+    }
+  ],
+  "raw_systems": 24,
+  "normal_forms": [
+    {
+      "a": [
+        0,
+        0
+      ],
+      "N_support": "rotations",
+      "N": [
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0
+      ],
+      "tensor_sha256": "07ce82cfcbe4544a8c1e92d783e90da5180c23d985a5bdf7bee6105ac70e88b9",
+      "Casimir": "(z - 16)**12*(z**2 - 160*z + 1280)**2",
+      "excluded_by_codegree_field": false,
+      "neutral_id": "R8_1_15",
+      "neutral_tensor_sha256": "6bd0009cd809b1a0f6d6c65861e7bb46ace9985d56b388a490e4611f8bc2f2f0",
+      "neutral_to_census": [
+        0,
+        1,
+        7,
+        2,
+        3,
+        6,
+        4,
+        5
+      ]
+    },
+    {
+      "a": [
+        0,
+        0
+      ],
+      "N_support": "reflections",
+      "N": [
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1
+      ],
+      "tensor_sha256": "d41323a9c6287b632739d4e814e862dccb7e43afb698be84b050dbe66f68e146",
+      "Casimir": "(z - 16)**12*(z**2 - 160*z + 1280)**2",
+      "excluded_by_codegree_field": false,
+      "neutral_id": "R8_1_18",
+      "neutral_tensor_sha256": "cdd3aa4477861e8521c75ac63cb0f9e4e5d0a021073d1619aae358a0850704f2",
+      "neutral_to_census": [
+        0,
+        1,
+        7,
+        2,
+        4,
+        3,
+        6,
+        5
+      ]
+    },
+    {
+      "a": [
+        2,
+        0
+      ],
+      "N_support": "rotations",
+      "N": [
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0
+      ],
+      "tensor_sha256": "e5d95ed083aadf55a557177a84627640797896cac222c9991859036ea1e68fe0",
+      "Casimir": "(z - 16)**12*(z**2 - 160*z + 1280)**2",
+      "excluded_by_codegree_field": false,
+      "neutral_id": "R8_1_12",
+      "neutral_tensor_sha256": "b74a819f2b9b9ac19046c7ae33e4a62405b873e3c36f4621d8efd93a4d12bf20",
+      "neutral_to_census": [
+        0,
+        1,
+        7,
+        2,
+        3,
+        6,
+        4,
+        5
+      ]
+    },
+    {
+      "a": [
+        2,
+        0
+      ],
+      "N_support": "reflections",
+      "N": [
+        0,
+        1,
+        0,
+        1,
+        0,
+        1,
+        0,
+        1
+      ],
+      "tensor_sha256": "7269dc5a534b4566e7e6e24feb6be411faa4cc06895a43bb9e53095ead3edd67",
+      "Casimir": "(z - 16)**12*(z**2 - 160*z + 1280)**2",
+      "excluded_by_codegree_field": false,
+      "neutral_id": "R8_1_18",
+      "neutral_tensor_sha256": "cdd3aa4477861e8521c75ac63cb0f9e4e5d0a021073d1619aae358a0850704f2",
+      "neutral_to_census": [
+        0,
+        1,
+        7,
+        2,
+        3,
+        6,
+        5,
+        4
+      ]
+    },
+    {
+      "a": [
+        0,
+        0
+      ],
+      "N_support": "exceptional",
+      "N": [
+        0,
+        2,
+        0,
+        2,
+        0,
+        0,
+        0,
+        0
+      ],
+      "tensor_sha256": "b6c47232b546cf1d1e18cac10bd87603bdac83c68ab84aacf388be8abc24ffe8",
+      "Casimir": "(z - 16)**4*(z**2 - 160*z + 1280)**2*(z**2 - 96*z + 768)**4",
+      "excluded_by_codegree_field": true
+    }
+  ],
+  "remaining_extension_families": 4,
+  "optimizer_used": false
+}

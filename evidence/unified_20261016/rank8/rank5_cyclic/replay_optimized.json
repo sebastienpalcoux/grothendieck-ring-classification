@@ -1,0 +1,151 @@
+{
+  "result": "PASS",
+  "scope": "K(C4,8) has no complex fusion categorification",
+  "tensor_sha256": "200f68cbc260cb74439c319df1cfb634e87a3dd3927d2c4d504e43e5d3aa6b95",
+  "standard_to_source_basis_maps": [
+    [
+      0,
+      3,
+      1,
+      4,
+      2
+    ],
+    [
+      0,
+      4,
+      1,
+      3,
+      2
+    ]
+  ],
+  "source_archive": {
+    "filename": "Rank5_Unified_Frontier.zip",
+    "sha256": "057aff6c4f910136a4486eeb65b0fa69020560d40d2ab9a6a1257de8a4cb54cb",
+    "bytes": 10886800,
+    "scope": "Earlier Rank5 Unified Frontier archive; not the later complete-through-20 archive"
+  },
+  "branches": [
+    {
+      "u": [
+        0,
+        0,
+        0
+      ],
+      "h": 4,
+      "epsilon": -1,
+      "kind": "central_trace",
+      "meta": {
+        "q": 5,
+        "height": 6,
+        "order_bound": 200,
+        "trace_types": 17,
+        "mass": [
+          12,
+          20
+        ],
+        "rows": 15,
+        "columns": 33
+      },
+      "minimum_ATy": 0,
+      "bTy": -800
+    },
+    {
+      "u": [
+        0,
+        0,
+        0
+      ],
+      "h": 4,
+      "epsilon": 1,
+      "kind": "central_trace",
+      "meta": {
+        "q": 5,
+        "height": 6,
+        "order_bound": 200,
+        "trace_types": 17,
+        "mass": [
+          12,
+          20
+        ],
+        "rows": 15,
+        "columns": 33
+      },
+      "minimum_ATy": 0,
+      "bTy": -220
+    },
+    {
+      "u": [
+        1,
+        0,
+        1
+      ],
+      "h": 2,
+      "epsilon": -1,
+      "kind": "central_trace",
+      "meta": {
+        "q": 5,
+        "height": 6,
+        "order_bound": 200,
+        "trace_types": 17,
+        "mass": [
+          16,
+          20
+        ],
+        "rows": 15,
+        "columns": 33
+      },
+      "minimum_ATy": 0,
+      "bTy": -320
+    },
+    {
+      "u": [
+        1,
+        0,
+        1
+      ],
+      "h": 2,
+      "epsilon": 1,
+      "kind": "central_trace",
+      "meta": {
+        "q": 5,
+        "height": 6,
+        "order_bound": 200,
+        "trace_types": 17,
+        "mass": [
+          16,
+          20
+        ],
+        "rows": 15,
+        "columns": 33
+      },
+      "minimum_ATy": 0,
+      "bTy": -80
+    },
+    {
+      "u": [
+        1,
+        1,
+        1
+      ],
+      "h": 1,
+      "epsilon": -1,
+      "kind": "galois_fusion_integrality",
+      "forced_fusion_coefficient": "1/2",
+      "integral": false
+    },
+    {
+      "u": [
+        1,
+        1,
+        1
+      ],
+      "h": 1,
+      "epsilon": 1,
+      "kind": "galois_fusion_integrality",
+      "forced_fusion_coefficient": "1/2",
+      "integral": false
+    }
+  ],
+  "optimizer_called": false,
+  "archived_sources_hash_checked": 9
+}

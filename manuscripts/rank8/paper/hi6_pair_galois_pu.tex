@@ -1,0 +1,47 @@
+\subsection{A spherical reduction for the two $\sqrt{10}$ cases}
+\begin{proposition}\label{prop:hi6-pair-galois-pu}
+Every complex categorification of $R8\_2\_630$ or $R8\_2\_671$
+admits a spherical structure and has a pseudo-unitary Galois conjugate.
+\end{proposition}
+\begin{proof}
+Both tensors are self-dual. Choose the positive-second-indicator
+lifts in the canonical sphericalization. These lifts are self-dual,
+because their duals have the same nonzero spherical dimensions,
+whereas the other lifts have the opposite dimensions. Their signed
+quotient tensor $T$ is fully symmetric and associative, with
+$|T_{ij}^k|\leq N_{ij}^k$ and $T_{ij}^k\equiv N_{ij}^k\pmod2$.
+The odd-channel parity theorem \cite[Theorem~3.9]{TPEParity} further gives
+$N_{jj}^i-T_{jj}^i\equiv0\pmod4$.
+
+Thus repeated coefficients one are positive, repeated coefficients
+two have signs $\pm2$, and all-distinct coefficients one have signs
+$\pm1$. There are $27$ Boolean signs for each tensor. Only
+$R8\_2\_671$ has an all-distinct coefficient two, with possible values
+$-2,0,2$. The source-bound exact checker regenerates every ordered
+associativity equation. For $R8\_2\_630$, exhaustive branching on the
+$157$ distinct equations visits $195$ nodes and leaves only $T=N$.
+For the three values of the extra coefficient of $R8\_2\_671$, it
+visits $57,5,103$ nodes; the only solution is again $T=N$, in the
+last branch. Every rejection evaluates an integer associativity
+equation exactly. Consequently the chosen actual lifts are tensor
+closed, and restriction of the forgetful functor identifies their
+spherical fusion category with the original category.
+
+The same checker verifies the complete tables of eight distinct
+characters over $\mathbb Q(\sqrt3,\sqrt{10})$. The formal codegrees are
+\[
+120\pm36\sqrt{10},\quad 4,6,6,12,12,12.
+\]
+All six characters outside the FP conjugate pair vanish on a simple
+basis object. Since spherical dimensions of simple objects are
+nonzero, the spherical dimension character belongs to that pair.
+A Galois automorphism therefore takes it to the positive FP
+character and produces a pseudo-unitary category.
+\end{proof}
+
+The complete character tables, signed domains, source-bound replay,
+and independent audit are retained in
+\texttt{evidence/unified\_20261016/rank8/HI6\_PAIR\_GALOIS\_PU.md}.
+This proposition is a structural reduction; by itself it makes no
+existence decision and does not identify either center with a known
+Haagerup--Izumi center.

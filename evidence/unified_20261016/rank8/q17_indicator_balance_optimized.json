@@ -1,0 +1,161 @@
+{
+  "status": "PASS",
+  "criterion": "quadratic_prime_indicator_balance",
+  "scope": "general_complex_via_two_dimension_Galois_pseudo_unitarity",
+  "proof": "Q17_INDICATOR_BALANCE_PROOF.md",
+  "optimizer_used": false,
+  "finite_search_used": false,
+  "cases": [
+    {
+      "id": "R8_2_33",
+      "tensor_sha256": "7a97e02134591a480adaa70aa8c938366c7406db000ac258a9502822480365b9",
+      "commutative": true,
+      "pointed_labels": [
+        0,
+        1,
+        2,
+        7
+      ],
+      "pointed_group": "C4",
+      "pointed_orders": {
+        "0": 1,
+        "1": 4,
+        "2": 4,
+        "7": 2
+      },
+      "nonpointed_labels": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "selfdual_nonpointed_labels": [
+        5,
+        6
+      ],
+      "Casimir_polynomial": "(x-8)^6*(x^2-272*x+1088)",
+      "indicator_left_absolute_bound": 2,
+      "indicator_right_absolute_lower_bound": 4,
+      "status": "PASS"
+    },
+    {
+      "id": "R8_2_36",
+      "tensor_sha256": "0f3439764ab3cf628490ff0427eee015eede38b83165a1413c93349b97240249",
+      "commutative": false,
+      "pointed_labels": [
+        0,
+        1,
+        2,
+        7
+      ],
+      "pointed_group": "C4",
+      "pointed_orders": {
+        "0": 1,
+        "1": 4,
+        "2": 4,
+        "7": 2
+      },
+      "nonpointed_labels": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "selfdual_nonpointed_labels": [],
+      "Casimir_polynomial": "(x-8)^6*(x^2-272*x+1088)",
+      "indicator_left_absolute_bound": 0,
+      "indicator_right_absolute_lower_bound": 4,
+      "status": "PASS"
+    },
+    {
+      "id": "R8_2_76",
+      "tensor_sha256": "e633ff711a4d5bb15555d0b0ca78d810e9aa0e2e2a1b9336020d15e494303c5b",
+      "commutative": true,
+      "pointed_labels": [
+        0,
+        1,
+        2,
+        7
+      ],
+      "pointed_group": "C4",
+      "pointed_orders": {
+        "0": 1,
+        "1": 4,
+        "2": 4,
+        "7": 2
+      },
+      "nonpointed_labels": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "selfdual_nonpointed_labels": [],
+      "Casimir_polynomial": "(x-8)^6*(x^2-272*x+1088)",
+      "indicator_left_absolute_bound": 0,
+      "indicator_right_absolute_lower_bound": 4,
+      "status": "PASS"
+    },
+    {
+      "id": "R8_2_412",
+      "tensor_sha256": "b4936146f9270530f3c5e5db5bddb1fb20b7353d859b60517e1446d749ed4e3c",
+      "commutative": false,
+      "pointed_labels": [
+        0,
+        3,
+        4,
+        5
+      ],
+      "pointed_group": "V4",
+      "pointed_orders": {
+        "0": 1,
+        "3": 2,
+        "4": 2,
+        "5": 2
+      },
+      "nonpointed_labels": [
+        1,
+        2,
+        6,
+        7
+      ],
+      "selfdual_nonpointed_labels": [
+        6,
+        7
+      ],
+      "Casimir_polynomial": "(x-8)^6*(x^2-272*x+1088)",
+      "indicator_left_absolute_bound": 2,
+      "indicator_right_absolute_lower_bound": 4,
+      "status": "PASS"
+    },
+    {
+      "id": "R8_2_446",
+      "tensor_sha256": "79f08fcc6679f4480daeb6c14c68b422b7cceac4a8ed7616f3c27395723b0d3d",
+      "commutative": true,
+      "pointed_labels": [
+        0,
+        5,
+        6,
+        7
+      ],
+      "pointed_group": "V4",
+      "pointed_orders": {
+        "0": 1,
+        "5": 2,
+        "6": 2,
+        "7": 2
+      },
+      "nonpointed_labels": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "selfdual_nonpointed_labels": [],
+      "Casimir_polynomial": "(x-8)^6*(x^2-272*x+1088)",
+      "indicator_left_absolute_bound": 0,
+      "indicator_right_absolute_lower_bound": 4,
+      "status": "PASS"
+    }
+  ]
+}

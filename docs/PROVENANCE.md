@@ -39,28 +39,31 @@ replay of every earlier proof. See [verification instructions](VERIFY.md).
 
 | Unresolved ring | Necessary reduction |
 |---|---|
-| `R6_4_155` | The rank-26 centralizer candidate passes the expanded six-fixed-label test: an explicit anti-invariant representation reconstructs a rank-22 integer based module. All 226 larger local braid blocks also pass necessary reflection-partition tests. These witnesses construct neither a module category nor a categorification. No original involution was omitted by the earlier fixed-label guard; the case remains unresolved. |
-| `R6_8_1660` | In the positive Galois representative, the twist-one center simples are exactly the six constituents of I(1), giving a shorter tensor-functor-rigidity proof. A rank-37 integer witness satisfies all 1,536 equations of the strengthened finite modular representation system, including torus and compressed-S constraints. These are necessary conditions; no categorification or general exclusion is established. |
+| `R6_4_155` | The inherited rank-22 based module passes all 234,256 linking identities forced by the fermion Clifford algebra and its Azumaya Morita self-duality. This strengthens the necessary compatibility check but constructs no coherent module category or categorification. The case remains unresolved. |
+| `R6_8_1660` | Saturated modular character traces force nu_3(T)=2 and two conjugate options for nu_3(X). A separate exact Verlinde calculation now excludes the historical rank-37 witness by forcing a fusion coefficient 1/2. Other profiles remain open; no general exclusion or categorification is claimed. |
 
-The October 16 theoretical revision identifies the complete twist-one support
-for R6_8_1660 and retains tensor-functor rigidity for both rank-six residuals.
-Both categorification questions remain unresolved. The current manuscript
-sources and PDFs are bound by the [document revision](../evidence/theoretical_20261016/rank6/document_revision.json),
-whose [research record](../evidence/theoretical_20261016/rank6/research_progress.json)
+The unified October 16 revision adds the fermion Azumaya linking identity
+and checks it against the rank-22 R6_4_155 witness. It also derives the forced
+third indicator nu_3(T)=2 for R6_8_1660 from its two saturated modular summands.
+An exact half-integral Verlinde coefficient rejects its historical rank-37 witness,
+while leaving other profiles open. Both categorification questions remain unresolved. The current manuscript
+sources and PDFs are bound by the [document revision](../evidence/unified_20261016/rank6/document_revision.json),
+whose [research record](../evidence/unified_20261016/rank6/research_progress.json)
 retains the hash-checked chain to earlier records. The frozen supplement,
 archive identity and classification counts are unchanged.
 
 
 The verified rank-seven release through
 multiplicity four has SHA-256 `91daee065eefaabdeded30bc4e8973e08a605156088655e7301b6357f1440765`.
-Multiplicity one is complete with thirteen realized rings. The rank-eight
+The current rank-seven classification is complete through multiplicity 4,
+with thirteen realized rings at multiplicity one. The rank-eight
 release through multiplicity two has SHA-256
 `e9b9f1cb1a3d6d62ec14add190f1c26bc9724ed812c2e03f474ad68a45e7d4f8`.
-The [16 October theoretical update](../evidence/theoretical_20261016/README.md) adds 47 general exclusions, with no new realization. Together with the frozen October 2 stages, these updates resolve 104 rings: 91 general exclusions and 13 unitary models. Scope-specific obstructions remain separate from general categorification decisions. The earlier proofs and ledgers retain their historical replay.
+The [unified theoretical continuation](../evidence/unified_20261016/README.md) adds 29 general exclusions and 7 unitary constructions. Together with the earlier residual stages, these updates resolve 140 rings: 120 general exclusions and 20 unitary models. The remaining general questions and scoped results are identified explicitly. Earlier proofs, decision records and manuscript versions retain historical replay.
 These proofs supplement the earlier
 [46-decision stage](../evidence/residual_20261002/README.md).
-The current general frontier has 10
-rank-seven and 26 rank-eight rings.
+The current general frontier has 0
+rank-seven and 0 rank-eight rings.
 All positive tensors and negative source hypotheses are independently checked;
 earlier unaffected records retain their exact preservation evidence.
 Scope-specific obstructions do not change the general partition.
@@ -74,8 +77,8 @@ associator and full-tensor checks supporting earlier positive constructions.
 | 4 | `results/rank4/tables.txt.gz` | 128 | `certificates/classification.jsonl.gz` | Complete through 128 |
 | 5 | `results/rank5/tables.txt.gz` | 20 | Revised `data/decisions_all.json` | Complete general classification through 20 |
 | 6 | `results/rank6/tables.txt.gz` | 9 | `supplements/rank6/data/decisions.json` | Complete through 3; exact bands 1, 2, 3, 5, 6, 7, 9; 2 unresolved through 9 |
-| 7 | `results/rank7/tables.txt.gz` | 4 | `supplements/rank7/output/rank7_ledger.json` | Complete at multiplicity one; higher bands partial; 10 unresolved |
-| 8 | `results/rank8/tables.txt.gz` | 2 | `supplements/rank8/data/decisions.json` | Partial at both bands; 26 unresolved |
+| 7 | `results/rank7/tables.txt.gz` | 4 | `supplements/rank7/output/rank7_ledger.json` | Complete through multiplicity 4; 0 unresolved |
+| 8 | `results/rank8/tables.txt.gz` | 2 | `supplements/rank8/data/decisions.json` | Complete through multiplicity 2; 0 unresolved |
 
 The original source manifest is `results/census.json`. Its count rows are
 imported by `tools/generate_counts.py`, with exact bounds and cumulative sums
@@ -95,8 +98,8 @@ with its [arithmetic checker](../supplements/rank3/audit_rank3.py).
 | 4 | `969a2a5a84b794a3da1d9cd3978f92324d631760f503f5d208011923a723920f` | 889,530 | 889,515 excluded; 15 realized |
 | 5 | `9261917451d469ece9929a1756f505924cf84adf34e79a0d2e6f68fed43f55cf` | 40,999 | 40,982 excluded; 17 realized; 0 unresolved |
 | 6 | `abb36cb0e7f9196e0a231cb85a601c82a1c8fd398996f77a8961487a7ca692e5` | 25,421 | 25,362 excluded; 56 unitary; 1 spherical non-pseudo-unitary; 2 unresolved |
-| 7 | `45f3836f3eed2ab4bd2afb86d2461fa22c4276cb1e2c28c543f16600db89f3e8` | 4,201 | 4,164 excluded; 27 unitary models; 10 unresolved |
-| 8 | `556941a7f758eef610cd6bdc301c1085f2256dcc0bdd0e3b8c0b7a3e44c262d5` | 973 | 875 excluded; 72 unitary models; 26 unresolved |
+| 7 | `00edf884caa59384a1f7b9a91d7273539306443035db5144c02f9bda5bda3d2b` | 4,201 | 4,172 excluded; 29 unitary models; 0 unresolved |
+| 8 | `eab22773b2d1345bc6cb0bde2effbc42b5a893293164d0334175e94df9c8cdb4` | 973 | 896 excluded; 77 unitary models; 0 unresolved |
 
 The rank-four list in the attachment contains a header record and 889,530
 individual records. Each ledger partition matches its census total at each

@@ -9,8 +9,9 @@ RESEARCH_UPDATES=(
     'evidence/residual_20261002/rank6/research_progress.json',
     'evidence/rank6_theoretical_20261011/research_progress.json',
     'evidence/theoretical_20261016/rank6/research_progress.json',
+    'evidence/unified_20261016/rank6/research_progress.json',
 )
-DOCUMENT_REVISION='evidence/theoretical_20261016/rank6/document_revision.json'
+DOCUMENT_REVISION='evidence/unified_20261016/rank6/document_revision.json'
 COMPLETION_ROOT='research/exclusions/m9_completion'
 COMPLETION_BUNDLES=('free_involution','involution_pair','gauss8200','pivotal_gap','psu25','case8785','triangle')
 COMPLETION_FILES=(

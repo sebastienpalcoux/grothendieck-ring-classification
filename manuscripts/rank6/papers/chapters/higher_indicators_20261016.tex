@@ -1,0 +1,113 @@
+\section{A forced third indicator at multiplicity eight}
+\label{sec:1660-forced-third-indicator}
+
+The exact twist-one support yields a further necessary condition for
+$\RR{8}{1660}$. It removes two incompatible choices of saturated
+irreducible modular representations. The rank-$37$ witness passes this
+test; \S\ref{sec:1660-witness-verlinde} gives a further obstruction to it.
+All indicators below refer to the canonical positive spherical structure
+on the positive Galois representative.
+
+\begin{proposition}\label{prop:1660-forced-third-indicator}
+Let $T=\sigma X$ and $\omega=e^{2\pi i/3}$. Every pseudo-unitary
+categorification of $\RR{8}{1660}$ satisfies
+\[
+ \nu_3(T)=2,\qquad
+ \nu_3(X)=\nu_3(gX)\in\{2+\omega,2+\omega^2\}.
+\]
+It also satisfies
+\[
+ \nu_5(X)=\nu_5(gX)=\nu_5(T)=2,\qquad
+ \nu_7(X)=\nu_7(gX)=3,\quad\nu_7(T)=4.
+\]
+\end{proposition}
+\begin{proof}
+Use the normalized modular matrices $s,t$ of the center and the four
+vectors $e_{L_\gamma}$ from
+Proposition~\ref{prop:1660-twist-one-support}. For $r=3,6$ set
+$w_r=\sum_\gamma\chi_r(\gamma)e_{L_\gamma}$, where $\chi_r$
+corresponds to $\sqrt r$. Then $\|w_r\|^2=4$ and
+$\langle e_1,w_r\rangle=1$. The twist-one torus multiplicities
+$(3,1,1,1)$ make $\mathbb Cw_r$ the entire $\chi_r$ eigenspace.
+The compressed $s$ eigenvalues there are $-\sqrt3/6$ and
+$-\sqrt6/12$.
+
+The exact character tables of
+$\mathrm{SL}_2(\mathbb Z/48)\cong
+\mathrm{SL}_2(\mathbb Z/16)\times\mathrm{SL}_2(\mathbb Z/3)$
+now give only the following irreducible possibilities, in the frozen
+local table order:
+\[
+ W_3:\ (33,4),(36,5),\qquad
+ W_6:\ (54,4),(61,5).
+\]
+The replay exhausts all $532$ pairs, checking the torus multiplicities,
+central sign and the compression polynomials from the preceding section.
+Every eligible summand carrying $\chi_r$ has one-dimensional $t$-fixed
+space. Thus $w_r$ belongs to one multiplicity-one irreducible $W_r$,
+and the orthogonal projection of $e_1$ onto $W_r$ is $w_r/4$.
+Writing $P_r$ for projection onto $W_r^t$, put
+\[
+ m_r(n)=\operatorname{Tr}_{W_r}(P_rs^{-1}t^ns).
+\]
+The preceding projection identity gives
+$\langle sw_r,t^nse_1\rangle=m_r(n)$.
+
+For a central dimension $z$, let $\ell_r(z)$ be the rational
+$\sqrt r$ coordinate of $z/D$. The low-character formula gives
+$(sw_r)_A=4\sqrt r\,\ell_r(\dim A)$. The center indicator formula
+therefore yields
+\[
+ \sum_i\ell_r(\dim X_i)\nu_n(X_i)
+ =\frac{m_r(n)}{4\sqrt r}.
+\]
+In source order $(1,g,X,gX,\sigma,T)$, the scaled weights are
+\[
+ 24\ell_3=(-1,-1,1,1,-1,-1),\qquad
+ 48\ell_6=(-1,-1,-1,-1,-2,2).
+\]
+Put $a_n=2\sqrt3\,m_3(n)$ and $b_n=2\sqrt6\,m_6(n)$.
+For odd $n$, Proposition~\ref{prop:1660-tensor-involution} and the
+vanishing odd indicators of $g,\sigma$ give
+\[
+ \nu_n(X)=\frac{3+2a_n+b_n}{2},\qquad
+ \nu_n(T)=2+a_n+b_n.
+\]
+These coefficients are exact character averages. At local modulus
+$m=16,3$, use
+\[
+ \frac1m\sum_{j=0}^{m-1}
+ \operatorname{char}_{W}\!\left(
+ \begin{pmatrix}1-jn&j\\-n&1\end{pmatrix}\right),
+\]
+the trace of $P_Ws^{-1}t^ns$; multiply the local values.
+At $n=3$, the four choices give
+\[
+\begin{array}{c|c|c|c}
+ W_3&W_6&\nu_3(X)&\nu_3(T)\\\hline
+ (33,4)&(54,4)&2+\omega&2\\
+ (33,4)&(61,5)&-3\omega^2&-4\omega^2\\
+ (36,5)&(54,4)&-3\omega&-4\omega\\
+ (36,5)&(61,5)&2+\omega^2&2
+\end{array}
+\]
+But $\dim\operatorname{Hom}(1,X^3)=3$, so third rotation has trace
+$a+b\omega+c\omega^2$ with $a,b,c\geq0$ and $a+b+c=3$.
+A real part of $3/2$ forces $a=2$ and $b+c=1$, excluding the two
+mixed rows, whose imaginary parts have magnitude $3\sqrt3/2$.
+The averages at $n=5,7$ give the other stated values.
+\end{proof}
+
+\paragraph{Scope and replay.}
+The two surviving pairs are complex conjugates; no reality assertion
+for third indicators of self-dual objects is used. The previously
+recorded rank-$37$ necessary-system witness uses
+$(36,5),(61,5)$ and passes these indicator constraints. It is excluded
+by the separate Verlinde argument in \S\ref{sec:1660-witness-verlinde}.
+The fifth and seventh invariant-space
+dimensions for $(X,T)$ are $(402,2272)$ and $(55401,626784)$;
+the displayed indicators satisfy the elementary cyclic-spectrum bounds.
+The source-bound standard-library replay and independent proof audit are
+in \filename{evidence/unified_20261016/rank6/higher\_indicators/}.
+Neither a categorification nor a general exclusion follows, and both
+rank-six cases remain unresolved.

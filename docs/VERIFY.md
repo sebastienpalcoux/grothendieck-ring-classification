@@ -75,8 +75,8 @@ complete through multiplicity 20. Rank six is complete through multiplicity
 three, with exact completed bands 1, 2, 3, 5, 6, 7, 9 and 2 cases through
 multiplicity 9 generally unresolved. Isolated completed bands do not
 complete intervening unresolved bands.
-Rank seven has 10 open cases through
-multiplicity four, and rank eight has 26 through multiplicity two.
+Rank seven has 0 open cases through
+multiplicity four, and rank eight has 0 through multiplicity two.
 These are general categorification questions. Separate unitary-only obstructions
 never change the general partition.
 
@@ -157,11 +157,13 @@ The [frontier](../supplements/rank6/research/frontier/README.md) identifies the
 October 1 necessary reductions; the October 2 addendum and its portable
 verifiers record subsequent progress. The model catalogue lists all realizations.
 
-The October 16 theoretical revision identifies the complete twist-one support
-for R6_8_1660 and retains tensor-functor rigidity for both rank-six residuals.
-Both categorification questions remain unresolved. The current manuscript
-sources and PDFs are bound by the [document revision](../evidence/theoretical_20261016/rank6/document_revision.json),
-whose [research record](../evidence/theoretical_20261016/rank6/research_progress.json)
+The unified October 16 revision adds the fermion Azumaya linking identity
+and checks it against the rank-22 R6_4_155 witness. It also derives the forced
+third indicator nu_3(T)=2 for R6_8_1660 from its two saturated modular summands.
+An exact half-integral Verlinde coefficient rejects its historical rank-37 witness,
+while leaving other profiles open. Both categorification questions remain unresolved. The current manuscript
+sources and PDFs are bound by the [document revision](../evidence/unified_20261016/rank6/document_revision.json),
+whose [research record](../evidence/unified_20261016/rank6/research_progress.json)
 retains the hash-checked chain to earlier records. The frozen supplement,
 archive identity and classification counts are unchanged.
 
@@ -220,20 +222,20 @@ all 139 multiplicity-one tensor matches, the added model permutations, and three
 published associators over exact cyclotomic fields. Its historical preservation
 checks account explicitly for the separately certified October 2 changes.
 Multiplicity one at rank seven is complete; rank eight currently has
-3 generally open multiplicity-one cases.
+0 generally open multiplicity-one cases.
 See [the original evidence](../evidence/anyonwiki/README.md).
 
 ## October 2 residual update
 
-The [16 October theoretical update](../evidence/theoretical_20261016/README.md) adds 47 general exclusions, with no new realization. Together with the frozen October 2 stages, these updates resolve 104 rings: 91 general exclusions and 13 unitary models. Scope-specific obstructions remain separate from general categorification decisions. The earlier proofs and ledgers retain their historical replay.
+The [unified theoretical continuation](../evidence/unified_20261016/README.md) adds 29 general exclusions and 7 unitary constructions. Together with the earlier residual stages, these updates resolve 140 rings: 120 general exclusions and 20 unitary models. The remaining general questions and scoped results are identified explicitly. Earlier proofs, decision records and manuscript versions retain historical replay.
 The [earlier residual stage](../evidence/residual_20261002/README.md)
 retains its own proofs and reports. Pivotal, pseudo-unitary, unitary and braided
 obstructions are distinguished from general nonexistence. Replay the latest
 source-bound stage in both normal and optimized Python:
 
 ```bash
-python3 tools/verify_theoretical_20261016.py
-python3 -O tools/verify_theoretical_20261016.py
+python3 tools/verify_unified_20261016.py
+python3 -O tools/verify_unified_20261016.py
 ```
 
 The verifier checks all latest source identities, model tensors and certificates,

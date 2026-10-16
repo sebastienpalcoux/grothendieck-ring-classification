@@ -1,0 +1,156 @@
+{
+  "status": "PASS",
+  "graph_edges": [
+    [
+      0,
+      1
+    ],
+    [
+      1,
+      2
+    ],
+    [
+      2,
+      3
+    ],
+    [
+      2,
+      4
+    ],
+    [
+      3,
+      5
+    ],
+    [
+      4,
+      5
+    ],
+    [
+      5,
+      6
+    ],
+    [
+      6,
+      7
+    ]
+  ],
+  "rooted_depths": [
+    0,
+    1,
+    2,
+    3,
+    3,
+    4,
+    5,
+    6
+  ],
+  "graph_modulus_squared": "3+sqrt(5)",
+  "PF_weights_verified_exactly": true,
+  "cases": [
+    {
+      "id": "R8_2_152",
+      "tensor_sha256": "0523e0c3e5986b3d8fe8b15ed4ef0590d2fa89dded0211546a6baab77dd46e9b",
+      "graph_vertices_to_census_zero_based": [
+        0,
+        1,
+        5,
+        3,
+        4,
+        7,
+        2,
+        6
+      ],
+      "neutral_basis_1_g_r_gr": [
+        0,
+        6,
+        5,
+        7
+      ],
+      "odd_generator": 1,
+      "odd_generator_dual": 2,
+      "faithful_C2_grading_checked": true,
+      "left_and_right_graph": "2D2",
+      "both_even_parts_generated": true,
+      "both_even_ranks": 4
+    },
+    {
+      "id": "R8_2_153",
+      "tensor_sha256": "bf4adfa05928a50f367117be3a10f1435514254eefd8b55b4d2030c0930c179f",
+      "graph_vertices_to_census_zero_based": [
+        0,
+        1,
+        5,
+        3,
+        4,
+        7,
+        2,
+        6
+      ],
+      "neutral_basis_1_g_r_gr": [
+        0,
+        6,
+        5,
+        7
+      ],
+      "odd_generator": 1,
+      "odd_generator_dual": 2,
+      "faithful_C2_grading_checked": true,
+      "left_and_right_graph": "2D2",
+      "both_even_parts_generated": true,
+      "both_even_ranks": 4
+    },
+    {
+      "id": "R8_2_166",
+      "tensor_sha256": "733921bea67078b3e389e30ff084194bef79995cdfd1698c7249ef087891e197",
+      "graph_vertices_to_census_zero_based": [
+        0,
+        3,
+        7,
+        1,
+        2,
+        6,
+        4,
+        5
+      ],
+      "neutral_basis_1_g_r_gr": [
+        0,
+        5,
+        7,
+        6
+      ],
+      "odd_generator": 3,
+      "odd_generator_dual": 3,
+      "faithful_C2_grading_checked": true,
+      "left_and_right_graph": "2D2",
+      "both_even_parts_generated": true,
+      "both_even_ranks": 4
+    },
+    {
+      "id": "R8_2_495",
+      "tensor_sha256": "585aab580e46c28c084e57f81ba28b70835fc15ee0ca657d790b86253c74c6b5",
+      "graph_vertices_to_census_zero_based": [
+        0,
+        2,
+        6,
+        4,
+        5,
+        3,
+        7,
+        1
+      ],
+      "neutral_basis_1_g_r_gr": [
+        0,
+        1,
+        6,
+        3
+      ],
+      "odd_generator": 2,
+      "odd_generator_dual": 2,
+      "faithful_C2_grading_checked": true,
+      "left_and_right_graph": "2D2",
+      "both_even_parts_generated": true,
+      "both_even_ranks": 4
+    }
+  ],
+  "scope": "exact tensor hypotheses only; algebraic planar-algebra rigidity is a separate proof"
+}

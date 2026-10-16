@@ -36,13 +36,13 @@ models, exact fusion tensors and references come from the model catalogue.
 The residual summary starts with the dated rank-six release and applies the
 October 2, October 11 and October 16 research overlays in order, checking each exact
 previous-source path and checksum and unchanged classification totals. The
-latest overlay is `evidence/theoretical_20261016/rank6/research_progress.json`.
+latest overlay is `evidence/unified_20261016/rank6/research_progress.json`.
 It identifies the complete twist-one support for R6_8_1660 and retains tensor-functor
 rigidity for both hypothetical categories. Both categorification cases remain unresolved.
 
 The frozen October 1 archive, release identity, ledger and per-band counts are
 validated independently of the current manuscript. The current
-`evidence/theoretical_20261016/rank6/document_revision.json` binds the latest
+`evidence/unified_20261016/rank6/document_revision.json` binds the latest
 research overlay to every rank-six paper TEX/PDF by checksum and byte size.
 The site publishes this manifest as `dist/data/rank6_document_revision.json`,
 along with the current manuscript and verification-guide PDFs. It retains the
@@ -51,30 +51,28 @@ Validation compares displayed counts with the classification ledger and model
 catalogue, checks the exact frozen archive, and checks current PDFs against
 their document revision rather than the historical archive's document hashes.
 
-## 16 October theoretical update
+## 16 October unified theoretical continuation
 
-The dated notice and proof table are generated from
-`evidence/theoretical_20261016/decisions.json`; the number of new general
-exclusions is derived from those records. The snapshot builder checks each
-changed case against its current ledger, checks remaining-case IDs and totals,
-and rejects a stale classification-status export. Scoped pivotal and unitary
-results do not enter the general-exclusion count.
+The current notice and proof table come from
+`evidence/unified_20261016/decisions.json`. The continuation resolves 36 of the
+38 cases open at the preceding release: 29 general exclusions and 7 unitary
+constructions. Rank seven is complete through multiplicity four, and rank eight
+through multiplicity two. The two rank-six questions remain open.
 
-The proof bundle is `dist/downloads/theoretical-update-2026-10-16.zip`. Its
-byte size and SHA-256 are displayed beside links to the decision records,
-remaining-case inventory, and each theoretical proof. The frozen rank-six,
-rank-seven and rank-eight supplements retain their existing names and hashes.
-After freezing the proof manifest and current manuscripts, create the archive
-from the classification repository with
-`python3 tools/build_theoretical_20261016_archive.py`. That command checks the
-frozen inputs and replays the default verifier from a clean extraction before
-replacing the download. The extracted bundle documents which optional modes
-need the full repository.
-Run the snapshot builder only after the update archive and current status export
-are ready. Supply the final immutable classification commit before publication
-so all new proof and source links point to the verified release.
+The snapshot builder checks every changed case against its current ledger,
+remaining IDs and totals, the proof bundle, and the current manuscript hashes.
+Scoped results and necessary-condition witnesses do not enter general decision
+counts. `ALL38_COVERAGE.md` accounts for every original case.
+
+Build the current bundle in the classification repository with
+`python3 tools/build_unified_20261016_archive.py`. It replays its verifier from
+a clean extraction before replacing `unified-update-2026-10-16.zip`. The dated
+earlier archives remain historical snapshots with unchanged names and hashes.
+Regenerate the snapshot after the archive and status export are ready, then
+supply the immutable classification commit so proof links identify this release.
 
 The Site audience remains owner-only. Local revisions do not deploy or change
 access. On managed Linux, run browser preview only when the supported
 `control-browser` skill is available; otherwise run the static and data checks
 and report the visual-QA limitation.
+

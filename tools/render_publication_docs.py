@@ -11,9 +11,12 @@ def section(text,start,end,replacement):
 def render(repo,i):
     validate_identity(i);out={};a=i['archive'];s=i['summary'];bands=completed_bands(i);bound=len(i['counts']);total=sum(r[0] for r in i['counts']);read=lambda n:(repo/n).read_text()
     revision=validate_document_revision(i,repo)
-    revision_note=('The October 16 theoretical revision identifies the complete twist-one support\nfor R6_8_1660 and retains tensor-functor rigidity for both rank-six residuals.\nBoth categorification questions remain unresolved. The current manuscript\nsources and PDFs are bound by the [document revision](../evidence/theoretical_20261016/rank6/document_revision.json),\nwhose [research record](../evidence/theoretical_20261016/rank6/research_progress.json)\nretains the hash-checked chain to earlier records. The frozen supplement,\narchive identity and classification counts are unchanged.\n' if revision is not None else '')
+    revision_note=('The unified October 16 revision adds the fermion Azumaya linking identity\nand checks it against the rank-22 R6_4_155 witness. It also derives the forced\nthird indicator nu_3(T)=2 for R6_8_1660 from its two saturated modular summands.\nAn exact half-integral Verlinde coefficient rejects its historical rank-37 witness,\nwhile leaving other profiles open. Both categorification questions remain unresolved. The current manuscript\nsources and PDFs are bound by the [document revision](../evidence/unified_20261016/rank6/document_revision.json),\nwhose [research record](../evidence/unified_20261016/rank6/research_progress.json)\nretains the hash-checked chain to earlier records. The frozen supplement,\narchive identity and classification counts are unchanged.\n' if revision is not None else '')
     status=json.loads(read('data/classification_status.json'))
     upper={r:status['inputs'][f'rank{r}']for r in (7,8)}
+    rows_by_band={(r['rank'],r['multiplicity']):r for r in status['rows']}
+    complete7=next((m-1 for m in range(1,5) if rows_by_band[(7,m)]['unresolved_general'] or rows_by_band[(7,m)]['unassessed']),4)
+    complete8=next((m-1 for m in range(1,3) if rows_by_band[(8,m)]['unresolved_general'] or rows_by_band[(8,m)]['unassessed']),2)
     stage=load_stages(repo,status)
     latest=stage['decisions'];latest_models=stage['models'];latest_exclusions=stage['exclusions']
     bundles={b['name']:b['sha256']for b in status['bundles']}
@@ -51,7 +54,8 @@ replay of every earlier proof. See [verification instructions](VERIFY.md).
     text='\n'.join(lines)+'\n'
     text=section(text,'The verified rank-seven release through','\n| Rank | Census source',f'''The verified rank-seven release through
 multiplicity four has SHA-256 `{bundles['rank7-certified-through-m4.zip']}`.
-Multiplicity one is complete with thirteen realized rings. The rank-eight
+The current rank-seven classification is complete through multiplicity {complete7},
+with thirteen realized rings at multiplicity one. The rank-eight
 release through multiplicity two has SHA-256
 `{bundles['rank8-verified-supplement.zip']}`.
 {overview(stage,'../')}
@@ -70,7 +74,9 @@ associator and full-tensor checks supporting earlier positive constructions.
         for rank in (7,8):
             totals=upper[rank]['status_totals']
             if line.startswith(f'| {rank} | `results/rank{rank}/'):
-                scope='Complete at multiplicity one; higher bands partial'if rank==7 else'Partial at both bands'
+                completed=complete7 if rank==7 else complete8
+                scope=f'Complete through multiplicity {completed}'
+                if completed < upper[rank]['classified_through']:scope+='; higher analyzed bands partial'
                 ledger=upper[rank]['file']
                 lines[n]=f'| {rank} | `results/rank{rank}/tables.txt.gz` | {upper[rank]["classified_through"]} | `{ledger}` | {scope}; {totals["unresolved"]} unresolved |'
             elif line.startswith(f'| {rank} | `'):
@@ -229,8 +235,8 @@ Archive checksums must be refreshed only after the corresponding bundle is rebui
     for n,line in enumerate(lines):
         if line.startswith('| Rank six |'):lines[n]=f'| Rank six | [TeX](rank6/papers/manuscript.tex) | [PDF](rank6/papers/manuscript.pdf) | Complete through 3; exact bands {bands}; {s["positive"]} realized and {s["unresolved"]} unresolved through {bound} |'
         elif line.startswith('| Rank six, verification guide |'):lines[n]='| Rank six, verification guide | [TeX](rank6/papers/verification_guide.tex) | [PDF](rank6/papers/verification_guide.pdf) | Exact models, exclusion certificates and unresolved rings |'
-        elif line.startswith('| Rank seven |'):lines[n]=f'| Rank seven | [TeX](rank7/papers/manuscript.tex) | [PDF](rank7/papers/manuscript.pdf) | Complete at multiplicity 1; {upper[7]["status_totals"]["unitarily_realized"]} realized and {upper[7]["status_totals"]["unresolved"]} unresolved through multiplicity 4 |'
-        elif line.startswith('| Rank eight |'):lines[n]=f'| Rank eight | [TeX](rank8/paper/rank8.tex) | [PDF](rank8/paper/rank8.pdf) | Partial through multiplicity 2; {upper[8]["status_totals"]["unitarily_realized"]} realized and {upper[8]["status_totals"]["unresolved"]} generally unresolved |'
+        elif line.startswith('| Rank seven |'):lines[n]=f'| Rank seven | [TeX](rank7/papers/manuscript.tex) | [PDF](rank7/papers/manuscript.pdf) | Complete through multiplicity {complete7}; {upper[7]["status_totals"]["unitarily_realized"]} realized and {upper[7]["status_totals"]["unresolved"]} unresolved through multiplicity 4 |'
+        elif line.startswith('| Rank eight |'):lines[n]=f'| Rank eight | [TeX](rank8/paper/rank8.tex) | [PDF](rank8/paper/rank8.pdf) | Complete through multiplicity {complete8}; {upper[8]["status_totals"]["unitarily_realized"]} realized and {upper[8]["status_totals"]["unresolved"]} generally unresolved |'
     text='\n'.join(lines)+'\n';text=text[:text.index('The current rank-six paper')]+f'''The current rank-six paper contains {s['excluded']:,} general exclusions, {s['positive']} realizations
 and {s['unresolved']} unresolved rings through multiplicity {bound}. All 8,809 exact-multiplicity-nine
 rings are excluded, including the final eleven cases proved in the completion chapter.
@@ -272,9 +278,11 @@ rank-five drafts listed above; no incomplete band is an exact sequence term.
     open7=[rows[(7,m)]['unresolved_general'] for m in (2,3,4)]
     bounds8=[rows[(8,m)]['realized_unitary'] for m in (1,2)]
     open8=[rows[(8,m)]['unresolved_general'] for m in (1,2)]
+    counts7='; '.join(f"multiplicity {m}: {'at least ' if rows[(7,m)]['unresolved_general'] else 'exactly '}{rows[(7,m)]['realized_unitary']} ({rows[(7,m)]['unresolved_general']} unresolved)" for m in (1,2,3,4))
+    counts8='; '.join(f"multiplicity {m}: {'at least ' if rows[(8,m)]['unresolved_general'] else 'exactly '}{rows[(8,m)]['realized_unitary']} ({rows[(8,m)]['unresolved_general']} unresolved)" for m in (1,2))
     out['oeis/update_2026-10-02.txt']=f"""Suggested comment update (16 October 2026):
 
-Counts refer to based-isomorphism classes of fusion rings admitting a fusion-category realization over the complex numbers, at exact multiplicity m. At rank seven, the multiplicity-one count is exactly 13. The confirmed lower bounds at multiplicities 2, 3 and 4 are {bounds7[0]}, {bounds7[1]} and {bounds7[2]}; respectively {open7[0]}, {open7[1]} and {open7[2]} general categorification questions remain unresolved. At rank eight, the confirmed lower bounds at multiplicities 1 and 2 are {bounds8[0]} and {bounds8[1]}; respectively {open8[0]} and {open8[1]} cases remain generally unresolved. These lower bounds are not exact sequence terms.
+Counts refer to based-isomorphism classes of fusion rings admitting a fusion-category realization over the complex numbers, at exact multiplicity m. Rank seven is complete through multiplicity {complete7}, with the following counts: {counts7}. At rank eight, the corresponding counts are {counts8}. Bands with remaining questions supply lower bounds rather than exact sequence terms.
 
 The successive upper-rank residual updates resolve {len(latest)} further cases: {latest_exclusions} general exclusions and {latest_models} unitary models.{(f' Its {len(stage["continuation_ids"])}-decision continuation generally excludes '+', '.join(stage['continuation_ids'])+'.') if stage['continuation'] else ''} Across ranks seven and eight, the current partitions are respectively {upper[7]['status_totals']['excluded']} excluded, {upper[7]['status_totals']['unitarily_realized']} realized, {upper[7]['status_totals']['unresolved']} unresolved, and {upper[8]['status_totals']['excluded']} excluded, {upper[8]['status_totals']['unitarily_realized']} realized, {upper[8]['status_totals']['unresolved']} unresolved. General exclusion means no fusion-category categorification over the complex field, without an initial pivotality, sphericality or unitarity assumption. Scoped pivotal, pseudo-unitary, unitary or braided obstructions are not counted as general exclusions.
 

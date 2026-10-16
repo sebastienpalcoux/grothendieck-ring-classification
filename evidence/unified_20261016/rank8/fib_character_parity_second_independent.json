@@ -1,0 +1,51 @@
+{
+  "status": "PASS",
+  "independent_method": "SymPy Groebner exact reduction of source characters; no author arithmetic imported",
+  "cases": [
+    {
+      "id": "R8_2_190",
+      "source_sha256": "ef368ba29ddc183f215145eb6a50ead0655e91afff2d3e844f918c6d2a91d867",
+      "basis_order_1_g_tau_gtau_x_gx_y_gy": [
+        0,
+        7,
+        5,
+        6,
+        1,
+        2,
+        3,
+        4
+      ],
+      "formal_codegrees": [
+        "4*p + 8",
+        "4*p + 8",
+        "16*d*p - 28*d - 8*p + 24"
+      ],
+      "global_dimension": "12*d*p + 4*d + 4*p + 8",
+      "dimension_compatible_large_restrictions": 24,
+      "zero_character_differences": 0
+    },
+    {
+      "id": "R8_2_489",
+      "source_sha256": "23cae0639e4ce7e54428705a66098747319e26d5f29ad8dff05914a6d43caef1",
+      "basis_order_1_g_tau_gtau_x_gx_y_gy": [
+        0,
+        1,
+        7,
+        2,
+        3,
+        6,
+        4,
+        5
+      ],
+      "formal_codegrees": [
+        "4*p + 8",
+        "4*p + 8",
+        "16*d*p - 28*d - 8*p + 24"
+      ],
+      "global_dimension": "12*d*p + 4*d + 4*p + 8",
+      "dimension_compatible_large_restrictions": 24,
+      "zero_character_differences": 0
+    }
+  ],
+  "independence_argument": "Norm_Q(sqrt5)/Q(phi+2)=5 is not a square in Q, hence d has degree2 over Q(phi)."
+}
