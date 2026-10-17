@@ -1,0 +1,405 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm}
+\usepackage[margin=23mm]{geometry}
+\usepackage{booktabs,tabularx,array,xcolor,enumitem,microtype}
+\usepackage[colorlinks=true,linkcolor=teal!60!black,urlcolor=teal!60!black,citecolor=teal!60!black]{hyperref}
+\usepackage{fancyhdr,titlesec,needspace}
+\titlespacing*{\section}{0pt}{2.0ex plus .6ex minus .2ex}{.9ex plus .2ex}
+\titlespacing*{\subsection}{0pt}{1.5ex plus .4ex minus .2ex}{.7ex plus .2ex}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small Low-rank Grothendieck rings}
+\fancyhead[R]{\small Research announcement}
+\fancyfoot[C]{\small\thepage}
+\setlength{\headheight}{14pt}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{3pt}
+\setlist{nosep,leftmargin=*}
+\newcommand{\FPdim}{\operatorname{FPdim}}
+\newcommand{\Rep}{\operatorname{Rep}}
+\newcommand{\Vect}{\operatorname{Vec}}
+\newcommand{\Fib}{\operatorname{Fib}}
+\newcommand{\NearGroup}{\operatorname{NG}}
+\newcommand{\Ad}{\operatorname{Ad}}
+\newcommand{\PSU}{\operatorname{PSU}}
+\newcommand{\TT}{\mathcal{TT}}
+\newcommand{\caseid}[1]{\texttt{\detokenize{#1}}}
+\newcommand{\repo}{https://github.com/sebastienpalcoux/grothendieck-ring-classification}
+\newcommand{\snap}{https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/e34396cd95aff1090c10974dd934fe6054ca45eb}
+\newcommand{\prooflink}[2]{\href{\snap/#1}{#2}}
+\newcommand{\caution}{\textbf{AI-generated research \textperiodcentered\ independent verification pending.}}
+\newtheorem{problem}{Problem}
+\title{\vspace{-12mm}\textbf{Low-rank Grothendieck rings:}\\[3pt]
+an AI-assisted classification project,\\ constructions, and open problems}
+\author{S\'ebastien Palcoux\thanks{Contributor and project coordinator. Beijing Institute of Mathematical Sciences and Applications (BIMSA), Beijing, China. AI provenance and verification status are stated in Section~\ref{sec:resources}.}}
+\date{17 October 2026}
+\hypersetup{pdftitle={Low-rank Grothendieck rings: an AI-assisted classification project, constructions, and open problems},pdfauthor={Sebastien Palcoux},pdfsubject={Research announcement and invitation to independent mathematical review}}
+\begin{document}
+\maketitle
+\vspace{-5mm}
+\begin{abstract}
+We present a public research project on the Grothendieck rings of complex
+fusion categories of rank at most eight. The project reports unrestricted
+classification theorems in ranks two, three, and four, and classifications
+within specified fusion-multiplicity bounds in ranks five through eight,
+with two rank-six categorification questions unresolved. Its resources
+include research manuscripts, an exact fusion-ring census, verification
+code, and an interactive atlas. We describe seven constructions that are
+promising candidates for new tensor categories, subject to a separate
+assessment of their novelty up to tensor equivalence. We also state the
+two open problems explicitly. This announcement records the project's
+claims and their verification status; it invites independent mathematical
+review and does not provide a new proof of the complete classification.
+\end{abstract}
+
+\begingroup\small
+\caution\ The research manuscripts, arguments, code, and data have not yet
+been independently human-verified or Lean-formalized. Please treat the
+reported results with caution. Exact computations establish only the
+mathematical and computational statements within their documented scope.
+\endgroup
+
+\section{The classification question and its scope}
+Let $\mathcal C$ be a fusion category over $\mathbb C$, with simple-object
+classes $b_0=1,b_1,\ldots,b_{r-1}$. Its Grothendieck ring has multiplication
+\[
+ b_i b_j=\sum_{k=0}^{r-1}N_{ij}^{k}b_k,
+ \qquad N_{ij}^{k}\in\mathbb Z_{\geq0}.
+\]
+Here $r$ is the \emph{rank}, and throughout this announcement
+\[
+ M(R)=\max_{i,j,k}N_{ij}^{k}
+\]
+is the \emph{fusion multiplicity}. Thus every bound in Table~\ref{tab:scope}
+is a bound on fusion multiplicity, unless explicitly stated otherwise.
+A fusion ring is counted up to based-ring isomorphism, preserving the unit
+and distinguished basis. To be \emph{realized} means to admit at least one
+complex fusion category with that Grothendieck ring. This is a ring-level
+classification problem; it does not classify all associators or all tensor
+equivalence classes realizing a given ring.
+
+The rank-one case is the ring of $\Vect$. In rank two the familiar family is
+$X^2=1+nX$ with $n\geq0$, and only $n=0,1$ admit complex
+categorifications~\cite{Ostrik2}. Both have $M=1$, because the unit
+coefficients are included in the maximum. The higher-rank account below is
+taken from the fixed project snapshot specified in Section~\ref{sec:resources}.
+
+\begin{table}[ht]
+\centering\small
+\setlength{\tabcolsep}{5pt}
+\begin{tabularx}{\textwidth}{c r X r r}
+\toprule
+Rank & Census through $M$ & Reported general classification & Realized & Open\\
+\midrule
+2 & all & \textbf{Unrestricted theorem} & 2 & 0\\
+3 & $1{,}000$ & \textbf{Unrestricted theorem} & 5 & 0\\
+4 & $128$ & \textbf{Unrestricted theorem} & 15 & 0\\
+5 & $20$ & Complete through $20$ & 17 & 0\\
+6 & $9$ & Complete through $3$; two open through $9$ & 57 & 2\\
+7 & $4$ & Complete through $4$ & 29 & 0\\
+8 & $2$ & Complete through $2$ & 77 & 0\\
+\bottomrule
+\end{tabularx}
+\caption{Reported status at the pinned snapshot. For ranks five through
+eight, realized and open counts refer only to the displayed census range.
+The census bounds in ranks three and four describe retained enumeration
+data; the reported classification theorems are unrestricted in multiplicity.}
+\label{tab:scope}
+\end{table}
+
+\section{Reported results and the role of exact computation}
+The \prooflink{manuscripts/rank4/papers/companion.pdf}{unrestricted rank-four manuscript}
+reports fifteen possible Grothendieck rings, without assuming pivotality or
+a multiplicity bound, and states that every categorification admits a
+spherical structure. The stated sharp bounds are
+\[
+ \FPdim(\mathcal C)\leq24+12\sqrt3,\qquad M(K_0(\mathcal C))\leq6.
+\]
+The dimension bound is attained by the near-group ring $\NearGroup(C_3,6)$.
+The proof presented there combines a theoretical reduction to
+$\FPdim(\mathcal C)<1000$ and $M\leq31$ with exact finite verification of
+$1{,}692$ remaining rings, partitioned into $1{,}677$ exclusions and
+$15$ models. The separate census through $M=128$ has $889{,}530$
+rings. Related work of Dong, Palcoux, and Plessis treats the pivotal
+rank-four case~\cite{DPP}; its hypothesis should be distinguished from
+the unrestricted claim of this project.
+
+For ranks five through eight, the complete census totals and recorded
+decisions are respectively
+\[
+\begin{array}{c|r|r|r|r}
+ r & \text{census total} & \text{excluded} & \text{realized} & \text{open}\\\hline
+5&40{,}999&40{,}982&17&0\\
+6&25{,}421&25{,}362&57&2\\
+7&4{,}201&4{,}172&29&0\\
+8&973&896&77&0
+\end{array}
+\]
+All four partitions concern their stated multiplicity ranges. At rank six,
+the only unresolved multiplicities are $4$ and $8$; all $8{,}809$ rings
+of exact multiplicity $9$ are recorded as excluded. The $57$ realizations
+comprise $56$ unitary models and one spherical model whose ring has no
+pseudo-unitary categorification. Thus the target problem is not restricted
+to unitary or pseudo-unitary fusion categories.
+
+The approach combines structural constraints on fusion categories with
+exact applications to enumerated rings. Its criteria include arithmetic
+and cyclotomic restrictions, formal codegrees, induction to the Drinfeld
+center, Frobenius--Schur indicators, fusion subcategory and module-category
+constraints, and associator or tensor-functor obstructions. Positive
+decisions require a categorical model and a comparison of its entire
+fusion tensor with the census representative.
+
+These are several distinct verification tasks. A tensor check can establish
+associativity of a based ring, a full comparison of structure constants can
+identify two based rings, and a finite certificate can establish a specified
+obstruction. None of these alone constructs compatible categorical
+associators or proves that the census is exhaustive. The manuscripts and
+the \prooflink{docs/VERIFY.md}{verification guide} state the relevant
+hypotheses, source identifications, and replay domains. The overall project
+therefore combines theoretical arguments and exact finite verification.
+
+\Needspace{7\baselineskip}
+\section{Seven constructions to examine for novelty}
+\textbf{To the best of our current knowledge, these seven constructions
+are promising candidates for new tensor categories. Their novelty up to
+tensor equivalence remains subject to independent verification.}
+They are a selected shortlist of reported constructions from known input
+categories, rather than a count of established new tensor equivalence
+classes. In particular, identifying a census ring with an already known
+category is not itself a discovery of a new category.
+
+In the notation $\caseid{Rr_m_i}$, the first two indices record the rank
+and exact maximum fusion multiplicity, and the last is a census identifier.
+Write $C_n$ for the cyclic group of order $n$, and $\NearGroup(G,k)$ for a
+near-group category with invertible group $G$ and noninvertible simple
+$\rho$ satisfying $\rho^2=\sum_{g\in G}g+k\rho$.
+
+\begin{enumerate}[label=\arabic*.,itemsep=5pt]
+\item \textbf{\caseid{R6_4_249}: sign-swap equivariantization.}
+The reported construction takes the diagonal-fermion quotient of two
+identical half-$E_6$ categories and then equivariantizes a factor-swap
+action with a sign on the condensed algebra. The known fermionic inputs
+are discussed in~\cite{ALW}. See the
+\prooflink{manuscripts/rank6/papers/chapters/06.tex}{rank-six construction chapter},
+theorem labelled \texttt{thm:sign-swap}.
+
+\item \textbf{\caseid{R6_4_322}: mixed diagonal-fermion quotient.}
+Let $\mathcal E$ denote the half-$E_6$ category. The construction uses
+the diagonal central boson in $\mathcal E\boxtimes\PSU(2)_6$ and the
+corresponding module category. Both factors are known inputs~\cite{ALW}.
+See the same chapter,
+proposition labelled \texttt{prop:mixed-fermion}.
+
+\item \textbf{\caseid{R6_6_1712}: a relative Fibonacci center.}
+The proposed identification is $Z_{\Fib}(\TT_3)$, where the known category
+$\TT_3$ is the dual even part of the $2D2$ subfactor~\cite{EM}.
+The relative-center framework is standard~\cite{GNN}.
+See the same chapter, corollary labelled \texttt{cor:tt3-relative}.
+
+\item \textbf{\caseid{R7_4_35}: an inversion and Morita construction.}
+Starting from the $\NearGroup(C_4\times C_4,16)$ input of Yu--Zhang~\cite{YZ},
+the project constructs an orbifold, descends a coherent inversion action,
+and takes the Morita dual associated to the reflection algebra.
+Its four invertibles form $C_2\times C_2$, and all simples are self-dual.
+See the \prooflink{evidence/unified_20261016/rank7/R35_INVERSION_CONSTRUCTION.md}{construction note}.
+
+\item \textbf{\caseid{R7_4_2665}: the cyclic near-group analogue.}
+The analogous construction starts from Budinski's
+$\NearGroup(C_{16},16)$ input~\cite{Budinski}, using the near-group orbifold
+and Morita machinery of~\cite{Izumi}. The invertibles form $C_4$;
+the two large noninvertibles are mutually dual. Both rank-seven cases have
+simple dimensions $(1,1,1,1,2,4+2\sqrt5,4+2\sqrt5)$.
+See the \prooflink{evidence/unified_20261016/rank7/R2665_INVERSION_CONSTRUCTION.md}{construction note}.
+
+\item \textbf{\caseid{R8_2_37}: a nonsplit $C_2$-extension of $2D2$.}
+Using the constructions in~\cite{Grossman,GIS}, the project transports an
+odd automorphism through a crossed product. The odd invertible $a$
+satisfies $a^2=g$, where $g$ is the nontrivial invertible in the neutral
+$2D2$ category. The simple dimensions are four copies of $1$ and four
+copies of $2+\sqrt5$. See the
+\prooflink{evidence/unified_20261016/rank8/R37_CONSTRUCTION.md}{construction note}.
+
+\item \textbf{\caseid{R8_2_575}: a self-dual Hopf extension.}
+An explicit symmetric Hopf pairing on Kashina's $16$-dimensional
+self-dual Hopf algebra~\cite{Kashina} is used to apply the
+Davydov--Runkel extension construction~\cite{DR}.
+The simple dimensions are $(1,1,1,1,2,2,2,4)$, and the global
+Frobenius--Perron dimension is $32$. See the
+\prooflink{evidence/upper_residual_20261002b/r8_integral/r575/PROOF.md}{construction note}.
+\end{enumerate}
+
+The most useful checks here concern both the existence of the stated
+coherence data and comparison with the prior literature. Known input
+categories and general extension theorems do not by themselves settle
+whether the resulting examples have appeared before.
+
+\section{The two unresolved categorification problems}
+The following two based rings remain open in the stated project range.
+They have resisted repeated attempts at both categorical construction
+and exclusion. The displayed presentations specify concrete targets;
+the existence of their fusion tensors does not imply categorifiability.
+
+\subsection*{\caseid{R6_4_155}: a generalized near-group ring}
+The commutative based ring has basis $1,h,g,hg,X,Y$, with
+\begin{align*}
+ g^2=h^2&=1, & gh&=hg, & hX&=X, & gX&=Y=X^*,\\
+ XY&=1+h+4X+4Y, & X^2&=g+hg+4X+4Y.
+\end{align*}
+The remaining products follow from these relations. Its four invertibles
+form $C_2\times C_2$, the two noninvertibles are mutually dual, and
+\[
+ \FPdim(X)=\FPdim(Y)=4+3\sqrt2,
+ \qquad \FPdim(R)=72+48\sqrt2.
+\]
+Its maximum fusion multiplicity is $4$. The ring is already the explicit
+candidate $R'(4)$ in Meng--Yu~\cite[Theorem 1.1]{MY}; it is not claimed
+here as a newly discovered based ring.
+
+\begin{problem}
+Does $\caseid{R6_4_155}$ admit a fusion-category realization over
+$\mathbb C$? Construct compatible categorical data or prove that no such
+category exists.
+\end{problem}
+
+The \prooflink{supplements/rank6/research/frontier/R6_4_155/README.md}{current frontier account}
+records a necessary rank-$52$ center profile with a semion factor and
+a rank-$26$ centralizer candidate. It also records a rank-$22$ based
+module satisfying the stated fermion Azumaya linking identities.
+These are necessary-condition calculations: they supply neither a
+coherent module category nor associators for a categorification.
+
+\subsection*{\caseid{R6_8_1660}: an Ising-based ring}
+The commutative based ring has basis $1,g,X,gX,\sigma,T$, where
+$T=\sigma X$, and relations
+\[
+ g^2=1,\qquad g\sigma=\sigma,\qquad \sigma^2=1+g,
+ \qquad X^2=1+\bigl(3(1+g)+4\sigma\bigr)X.
+\]
+All basis elements are self-dual, and $\{1,g,\sigma\}$ is an Ising
+fusion subring. Writing
+\[
+ d=3+2\sqrt2+2\sqrt3+\sqrt6,
+\]
+the simple dimensions, in the displayed basis, are
+$(1,1,d,d,\sqrt2,\sqrt2d)$ and $\FPdim(R)=4(1+d^2)$.
+Its maximum fusion multiplicity is $8$, attained in $T^2$.
+
+\begin{problem}
+Does $\caseid{R6_8_1660}$ admit a fusion-category realization over
+$\mathbb C$? Determine whether the necessary center and module-category
+data can be completed to an actual category.
+\end{problem}
+
+The \prooflink{supplements/rank6/research/frontier/R6_8_1660/README.md}{current frontier account}
+records relative-center, Morita, and indicator restrictions. For the
+positive spherical representative, a bounded necessary-condition domain
+contains $640$ labelled restriction profiles;
+this is not a list of categories or associators. A particular rank-$37$
+candidate fails Verlinde integrality, while other profiles remain open.
+Neither this rejection nor the survival of other profiles decides the
+general categorification question.
+
+\section{Resources, provenance, and independent review}\label{sec:resources}
+The project has three complementary public entry points:
+\begin{itemize}[itemsep=3pt]
+\item \textbf{Classification manuscripts, models, and decision records:}\\
+\url{https://github.com/sebastienpalcoux/grothendieck-ring-classification}.
+\item \textbf{Fusion-ring census and enumeration sources:}\\
+\url{https://github.com/sebastienpalcoux/fusion-ring-census}.
+\item \textbf{Interactive atlas:}\\
+\url{https://sebastienpalcoux.github.io/grothendieck-ring-classification/}.
+\end{itemize}
+The \prooflink{docs/New_category_candidates_and_open_cases.pdf}{one-page construction shortlist}
+provides a quick entry into Section~3. The
+\prooflink{data/remaining_cases.py}{two exact open fusion tensors}
+are available as Python lists with convention $N[i][j][k]=N_{ij}^{k}$,
+zero-based unit index $0$, explicit duality maps, and tensor checksums.
+The symbolic basis orders in Section~4 need not coincide with the
+canonical file order; the first case is obtained from canonical indices
+$(0,3,4,5,1,2)$, and the second already has the displayed order.
+
+\textbf{Fixed research snapshot.}
+This announcement describes classification commit
+\href{https://github.com/sebastienpalcoux/grothendieck-ring-classification/tree/e34396cd95aff1090c10974dd934fe6054ca45eb}{\texttt{e34396cd95af}}
+and census-repository commit
+\href{https://github.com/sebastienpalcoux/fusion-ring-census/tree/d4c36cc2ee5eb5f0e5291de18d2bb433ffb7ce8b}{\texttt{d4c36cc2ee5e}}.
+Rank-specific source manifests retain the exact census inputs used for
+individual certificates; the displayed census-repository snapshot does not
+replace those source bindings. Live pages may evolve, whereas these
+commit links identify the resources summarized here.
+
+The research collection at this snapshot comprises eight classification
+manuscripts and six census manuscripts: $14$ research manuscripts and
+$485$ pages in total, including references and appendices. Verification
+guides and this announcement are separate documents. The
+\prooflink{manuscripts/README.md}{classification reading guide} identifies
+the unrestricted rank-four paper as the primary rank-four account.
+
+\textbf{AI provenance.} The project was developed through AI-assisted
+research under the contributor's direction; its research text, proposed
+arguments, code, and data are primarily AI-generated. This announcement
+was also prepared with ChatGPT. Automated rechecking and AI-assisted
+revision have been used, but do not constitute independent human
+verification. No Lean formalization of the full project is claimed.
+Historical novelty of the shortlisted categorical constructions is a
+separate question from their mathematical validity. \caution
+
+Readers can select a focused task: verify a stated categorical construction
+and its coherence data; compare a model with known tensor equivalence
+classes; inspect a classification reduction and its finite certificate
+scope; or construct or exclude one of the two open rings. For code and
+data, the \prooflink{docs/VERIFY.md}{replay guide} and
+\prooflink{docs/PROVENANCE.md}{source-provenance record} identify the
+relevant inputs and exact checks. We welcome comparisons with previously
+known tensor categories, independent scrutiny of the proposed
+constructions and classification arguments, and progress on the two
+remaining categorification problems.
+
+\begin{thebibliography}{99}\small
+\setlength{\itemsep}{1pt}\setlength{\parskip}{0pt}
+\bibitem{Ostrik2} V. Ostrik, \emph{Fusion categories of rank 2},
+Math. Res. Lett. \textbf{10} (2003), 177--183.
+\href{https://arxiv.org/abs/math/0203255}{arXiv:math/0203255}.
+\bibitem{DPP} J. Dong, S. Palcoux, and A. Plessis,
+\emph{Classifying Grothendieck rings of pivotal fusion categories of rank four},
+\href{https://arxiv.org/abs/2609.33272}{arXiv:2609.33272} (2026).
+\bibitem{ALW} D. Aasen, E. Lake, and K. Walker,
+\emph{Fermion condensation and super pivotal categories},
+\href{https://arxiv.org/abs/1709.01941}{arXiv:1709.01941} (2017; revised 2018).
+\bibitem{EM} C. Edie-Michell,
+\emph{A complete classification of unitary fusion categories tensor generated
+by an object of dimension $(1+\sqrt5)/2$},
+\href{https://arxiv.org/abs/1904.08909}{arXiv:1904.08909} (2019; revised 2020).
+\bibitem{GNN} S. Gelaki, D. Naidu, and D. Nikshych,
+\emph{Centers of graded fusion categories},
+\href{https://arxiv.org/abs/0905.3117}{arXiv:0905.3117} (2009).
+\bibitem{YZ} Z. Yu and Q. Zhang,
+\emph{Realizing modular data from centers of near-group categories},
+\href{https://arxiv.org/abs/2412.20763}{arXiv:2412.20763} (2024; revised 2025).
+\bibitem{Budinski} P. G. Budinski,
+\emph{Exotic Fusion Categories and Their Modular Data},
+master's thesis, University of Alberta, 2021.
+\href{https://doi.org/10.7939/r3-7p7k-fg18}{doi:10.7939/r3-7p7k-fg18}.
+\bibitem{Izumi} M. Izumi, \emph{A Cuntz algebra approach to the
+classification of near-group categories},
+\href{https://arxiv.org/abs/1512.04288}{arXiv:1512.04288} (2015).
+\bibitem{Grossman} P. Grossman,
+\emph{Fusion categories associated to subfactors with index $3+\sqrt5$},
+\href{https://arxiv.org/abs/1612.07185}{arXiv:1612.07185} (2016).
+\bibitem{GIS} P. Grossman, M. Izumi, and N. Snyder,
+\emph{Graded extensions of generalized Haagerup categories},
+\href{https://arxiv.org/abs/2201.11901}{arXiv:2201.11901} (2022).
+\bibitem{Kashina} Y. Kashina,
+\emph{Classification of semisimple Hopf algebras of dimension 16},
+\href{https://arxiv.org/abs/math/0004114}{arXiv:math/0004114} (2000).
+\bibitem{DR} A. Davydov and I. Runkel,
+\emph{$\mathbb Z/2\mathbb Z$-extensions of Hopf algebra module categories by their base categories},
+\href{https://arxiv.org/abs/1207.3611}{arXiv:1207.3611} (2012; revised 2013).
+\bibitem{MY} Y. Meng and Z. Yu,
+\emph{Classification of some $\mathbb Z/2\mathbb Z\times\mathbb Z/2\mathbb Z$-quadratic
+fusion categories of rank 6},
+\href{https://arxiv.org/abs/2608.06064}{arXiv:2608.06064} (2026).
+\end{thebibliography}
+\end{document}

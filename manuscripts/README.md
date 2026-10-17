@@ -9,6 +9,8 @@ Each paper is a current TeX/PDF pair with its classification scope stated in
 its own text. Ranks two, three and four are unrestricted in multiplicity.
 Ranks five to eight use pinned finite censuses and explicit criteria.
 
+**Project overview:** [Five-page research announcement](../announcements/hexagon-2026-10/Low_rank_Grothendieck_rings_announcement.pdf), with the classification scope, seven construction candidates, and both open cases. This announcement is separate from the research-manuscript page count.
+
 ## Unrestricted rank-four classification · 88 pages
 
 **[Read the main PDF](rank4/papers/companion.pdf)** ·
