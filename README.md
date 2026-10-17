@@ -6,6 +6,10 @@ Explore realized Grothendieck rings, proposed categorification arguments and
 the exact data behind them. The public atlas connects interactive tables,
 individual ring profiles, manuscripts and reproducible computation records.
 
+**Companion repository:** [Fusion Ring Census](https://github.com/sebastienpalcoux/fusion-ring-census)
+enumerates all based fusion rings; this repository classifies which admit
+categorifications over ℂ.
+
 ### [Open the interactive atlas →](https://sebastienpalcoux.github.io/grothendieck-ring-classification/)
 
 > [!IMPORTANT]
@@ -67,13 +71,14 @@ classification cross-check. Rank-two realized counts follow directly from
 
 These are the recorded outcomes of the current research program, subject to
 the verification notice and [verification scope](docs/PREPUBLICATION_REVIEW.md).
+Census bounds describe enumeration coverage; classification scope is stated separately.
 
 | Rank | Full census | General classification | Current conclusion |
 |---:|---:|---:|---|
-| 2 | Symbolic, all multiplicities | All multiplicities over ℂ | Exactly the rings `n = 0, 1` are realized. |
-| 3 | Through 1,000 | Unrestricted theorem | Five realized rings: four at multiplicity 1 and one at 2; see the standalone sphericality and ring-classification proof. |
-| 4 | Independent finite censuses | **Unrestricted theorem** | Exactly 15 realized rings; every categorification is spherical; multiplicity at most 6. |
-| 5 | Through 20 | **Complete through 20** | 17 realized rings and 40,982 generally excluded. Inert-prime parity and exact induction cover multiplicity 18. |
+| 2 | Symbolic, all multiplicities | **Unrestricted theorem** | Exactly the rings `n = 0, 1` are realized. |
+| 3 | Through 1,000 | **Unrestricted theorem** | Five realized rings: four at multiplicity 1 and one at 2; see the standalone sphericality and ring-classification proof. |
+| 4 | Through 128 | **Unrestricted theorem** | Exactly 15 realized rings; every categorification is spherical; multiplicity at most 6. |
+| 5 | Through 20 | **Complete through 20** | Through 20: 40,982 excluded, 17 realized, 0 unresolved. |
 | 6 | Through 9 | **Complete through 3** | Through 9: 25,362 excluded, 57 realized, 2 unresolved. |
 | 7 | Through 4 | **Complete through 4** | Through 4: 4,172 excluded, 29 realized, 0 unresolved. |
 | 8 | Through 2 | **Complete through 2** | Through 2: 896 excluded, 77 realized, 0 unresolved. |
@@ -86,7 +91,8 @@ Rank-six realization counts through multiplicity 9 split into **56 unitary
 models** and **one spherical model whose ring has no pseudo-unitary
 categorification**. “Realized” means that at least one categorification is
 constructed; it does not assert that every categorification of that ring is
-unitary. Rank five has no unresolved ring through multiplicity 20.
+unitary. Rank five has no unresolved ring through multiplicity 20;
+inert-prime parity and exact induction cover multiplicity 18.
 
 The rank-six classification covers **25,421 fusion rings through multiplicity 9**:
 **25,362 excluded, 57 realized and two unresolved**. All **8,809 rings of
