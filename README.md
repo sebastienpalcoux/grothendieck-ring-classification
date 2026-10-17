@@ -26,6 +26,7 @@ categorifications over ℂ.
 > **[Research announcement · 5 pages](announcements/hexagon-2026-10/Low_rank_Grothendieck_rings_announcement.pdf)**
 > Classification scope, seven construction candidates, and the two open categorification problems.
 > [TeX source and Hexagon submission package](announcements/hexagon-2026-10/).
+> **Hexagon:** `hexagon:2610.00300v1` — submitted; moderation pending.
 
 > [!TIP]
 > **[Potentially new tensor categories and open cases (one-page PDF)](docs/New_category_candidates_and_open_cases.pdf)**

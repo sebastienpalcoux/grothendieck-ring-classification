@@ -11,16 +11,13 @@ A five-page overview of the classification scope, seven construction candidates 
 - [Submission text and provenance](submission_metadata.txt)
 - [Pinned snapshot and file checksums](snapshot_manifest.json)
 
-## Submit to Hexagon
+## Hexagon submission
 
-1. Open https://hexagonmath.org/submit and authenticate with your ORCID account.
-2. Use the title and abstract in `submission_metadata.txt`.
-3. Upload `Hexagon_Source.zip`. It contains only `main.tex`, including the bibliography. Code and data remain in the linked GitHub repositories.
-4. Inspect Hexagon's compiled PDF and confirm that all five pages, formulas, references, and links are present.
-5. Select the license and the truthful human-understanding / AI-provenance options in the live form. Review any required attestations personally.
-6. Submit after reviewing the complete preview. Once a public identifier exists, add it to this directory and the repository's main README.
+**Submitted on 17 October 2026; moderation pending.** Hexagon assigned **`hexagon:2610.00300v1`**. Automated screening has completed; the PDF compiled successfully. There is no public record yet, and the identifier does not imply acceptance or publication.
 
-This is a submission-ready package, not a claim of publication or acceptance by Hexagon. The public deposit will have its own permanent identifier only after submission.
+The contributor approved **CC BY 4.0**, declared that **some** of the announcement had been checked and understood by a human, and accepted the required intellectual declarations and deposit agreement. The work was disclosed as primarily AI-generated.
+
+This package records the submitted source and prepared reference PDF. `Hexagon_Source.zip` contains only `main.tex`, including the bibliography; code and data remain in the linked GitHub repositories. No further submission is required while moderation is pending.
 
 ## Rebuild
 
