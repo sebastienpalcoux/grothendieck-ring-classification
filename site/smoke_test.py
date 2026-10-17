@@ -304,11 +304,12 @@ if update:
     print(f"Current update checked: {len(decisions)} accepted decision records; counts, source records, residual inventory and download hashes agree.")
 
 from html.parser import HTMLParser
+from urllib.parse import urlsplit
 class LocalLinkCheck(HTMLParser):
     def handle_starttag(self, tag, attrs):
         for name, value in attrs:
             if name in ("href", "src") and value and value.startswith("./"):
-                relative = value[2:].split("#",1)[0]
+                relative = urlsplit(value).path[2:]
                 assert not relative or (root / relative).is_file(), "Missing local page asset: " + value
 for filename in ("index.html", "review.html"):
     LocalLinkCheck().feed((root / filename).read_text())
