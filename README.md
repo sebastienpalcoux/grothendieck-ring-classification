@@ -22,6 +22,11 @@ categorifications over ℂ.
 > [Research-status notice](docs/RESEARCH_STATUS.md) ·
 > [Verification scope and review](docs/PREPUBLICATION_REVIEW.md).
 
+> [!TIP]
+> **[Potentially new tensor categories and open cases (one-page PDF)](docs/New_category_candidates_and_open_cases.pdf)**
+> Seven promising construction candidates, with the two unresolved rank-six cases highlighted.
+> Novelty up to tensor equivalence remains subject to independent verification.
+
 | Start here | What you will find |
 |---|---|
 | [Explore the atlas](https://sebastienpalcoux.github.io/grothendieck-ring-classification/) | Filter counts, inspect fusion rules and character data, and follow source links. |
