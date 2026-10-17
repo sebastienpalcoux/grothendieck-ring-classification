@@ -25,6 +25,7 @@ categorifications over ℂ.
 | Start here | What you will find |
 |---|---|
 | [Explore the atlas](https://sebastienpalcoux.github.io/grothendieck-ring-classification/) | Filter counts, inspect fusion rules and character data, and follow source links. |
+| **[Unrestricted rank-four classification](manuscripts/rank4/README.md)** | **[Main paper · 88 pages](manuscripts/rank4/papers/companion.pdf)** · [LaTeX](manuscripts/rank4/papers/companion.tex). No multiplicity bound or initial pivotality assumption. |
 | [Read the manuscripts](manuscripts/README.md) | TeX sources and PDFs, organized by rank. |
 | [Inspect the data](data/classification_status.csv) | Classification outcomes, [realized counts](data/grothendieck_counts.csv) and the separate [fusion-ring census](https://github.com/sebastienpalcoux/fusion-ring-census#readme). |
 | [Reproduce the checks](docs/VERIFY.md) | Replay instructions, [provenance](docs/PROVENANCE.md) and the limits of each check. |

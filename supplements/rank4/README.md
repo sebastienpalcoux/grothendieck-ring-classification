@@ -1,6 +1,12 @@
-# Rank-four Grothendieck ring classification
+# Unrestricted rank-four Grothendieck ring classification
 
-> **AI-generated research — independent verification pending.** Treat these results, proofs, code and data with caution. They have not yet been independently verified by human experts or formalized in Lean. See the [verification scope](../../docs/PREPUBLICATION_REVIEW.md).
+**[Read the main manuscript · 88 pages](papers/companion.pdf)** ·
+[LaTeX source](papers/companion.tex) ·
+[Rank-four reading guide](../../manuscripts/rank4/README.md)
+
+**No multiplicity bound; no initial pivotality assumption.**
+
+> **AI-generated research · independent verification pending.** Treat these results, proofs, code and data with caution. They have not yet been independently verified by human experts or formalized in Lean. See the [verification scope](../../docs/PREPUBLICATION_REVIEW.md).
 
 The unrestricted classification contains **exactly 15 complex Grothendieck rings**. Every categorification admits a spherical structure, and every ring has a unitary model. The sharp bounds are **FPdim ≤ 24+12√3** and **multiplicity ≤ 6**, with equality precisely for `NG(C₃,6)`.
 
@@ -10,12 +16,19 @@ Related work on the pivotal case: Jingcheng Dong, Sébastien Palcoux and Arnaud 
 
 ## Read the research
 
-- [Finite census classification](../../site/dist/papers/rank4_finite.pdf)
-- [Complete unrestricted classification](../../site/dist/papers/rank4_companion.pdf)
-- [Mathematical verification guide](../../site/dist/papers/rank4_guide.pdf)
-- [LaTeX sources](../../manuscripts/rank4/papers)
+- **[Unrestricted classification — main paper · 88 pages](papers/companion.pdf)**
+- [Finite-range classification companion · 29 pages](papers/finite.pdf)
+- [Mathematical verification guide · 9 pages](papers/verification_guide.pdf)
+- [Paper sources and reading order](papers/README.md)
 
-## Reproduce the computation
+## Reproduce the unrestricted classification
+
+The [unrestricted replay package](unrestricted/README.md) supplies the exact
+1,692-ring census, exclusion ledger, models and deep verification commands
+used by the general classification. Start there to reproduce the finite
+verification following the theoretical reduction.
+
+## Reproduce the finite census through multiplicity 128
 
 The complete compressed certificate is publicly included as thirteen binary parts. **No private attachment is needed.** Follow the [public restoration and replay guide](PUBLIC_REPLAY.md), which explains the dependencies, checksums, full verifier, regression tests and separate unsigned census recount.
 

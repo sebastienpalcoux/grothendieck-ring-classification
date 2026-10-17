@@ -6,20 +6,34 @@
 > checks establish only their stated computational scope.
 
 Each paper is a current TeX/PDF pair with its classification scope stated in
-its own text. Ranks two, three and four are unrestricted. The rank-four
-companion proves the complete fifteen-ring classification and sphericality
-without a multiplicity or pivotality hypothesis. The finite article supplies
-the separate classification through multiplicity 128.
+its own text. Ranks two, three and four are unrestricted in multiplicity.
 Ranks five to eight use pinned finite censuses and explicit criteria.
 
+## Unrestricted rank-four classification · 88 pages
+
+**[Read the main PDF](rank4/papers/companion.pdf)** ·
+[LaTeX source](rank4/papers/companion.tex) ·
+[Rank-four reading guide](rank4/README.md)
+
+**No multiplicity bound; no initial pivotality assumption.** The main
+rank-four manuscript gives the fifteen-ring classification over ℂ and proves
+that every categorification admits a spherical structure. Its proof combines
+a theoretical reduction with exact finite verification.
+
+The 29-page finite-range classification companion treats the separate census
+through multiplicity 128. The unrestricted manuscript is the primary account
+of the general rank-four result.
+
 Related work on the pivotal case: Jingcheng Dong, Sébastien Palcoux and Arnaud Plessis, [Classifying Grothendieck rings of pivotal fusion categories of rank four](https://arxiv.org/abs/2609.33272), arXiv:2609.33272. Its hypothesis is pivotality.
+
+## All manuscripts
 
 | Manuscript | Source | PDF | Pages | Scope |
 |---|---|---|---:|---|
 | Rank two | [TeX](rank2.tex) | [PDF](rank2.pdf) | 3 | Unrestricted over ℂ; two realized rings |
 | Rank three | [TeX](rank3.tex) | [PDF](rank3.pdf) | 12 | Unrestricted sphericality and five-ring classification |
-| Rank four, finite range | [TeX](rank4/papers/finite.tex) | [PDF](rank4/papers/finite.pdf) | 29 | Complete through multiplicity 128 |
-| Rank four, unrestricted classification | [TeX](rank4/papers/companion.tex) | [PDF](rank4/papers/companion.pdf) | 88 | Unrestricted over ℂ; 15 rings and automatic sphericality |
+| **Rank four, unrestricted classification** | [TeX](rank4/papers/companion.tex) | [PDF](rank4/papers/companion.pdf) | 88 | **No multiplicity bound or initial pivotality assumption**; 15 rings and automatic sphericality |
+| Rank four, finite-range companion | [TeX](rank4/papers/finite.tex) | [PDF](rank4/papers/finite.pdf) | 29 | Complete through multiplicity 128 |
 | Rank four, verification guide | [TeX](rank4/papers/verification_guide.tex) | [PDF](rank4/papers/verification_guide.pdf) | 9 | Exact certificate checks |
 | Rank five | [TeX](rank5/papers/manuscript.tex) | [PDF](rank5/papers/manuscript.pdf) | 19 | Complete through multiplicity 20 |
 | Rank five, verification guide | [TeX](rank5/papers/verification_guide.tex) | [PDF](rank5/papers/verification_guide.pdf) | 4 | Exact certificates, models and replay scope |
