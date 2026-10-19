@@ -479,6 +479,8 @@ function renderCatalogue() {
                                          : chosen && r.rank===chosen.rank && r.multiplicity===chosen.multiplicity);
   const query=$("#catalogue-search").value.trim().toLowerCase();
   if (query) records=records.filter((r)=>`${r.id} ${r.name} ${r.model_reference}`.toLowerCase().includes(query));
+  $("#extended-haagerup-note").hidden=all || chosen?.rank!==6 || chosen?.multiplicity!==7
+    || !records.some((r)=>r.id==="R6_7_2274");
   $("#catalogue-context").textContent=all
     ? `${records.length} realized rings ${state.rank==="all"?"across the analyzed ranks":`at rank ${state.rank}`}`
     : chosen?`Rank ${chosen.rank} · exact multiplicity ${chosen.multiplicity} · ${records.length} explicit models`:"Choose a cell above";
