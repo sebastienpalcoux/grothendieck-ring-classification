@@ -140,9 +140,13 @@ def load_stages(repo, status=None):
                 'Combined residual program inventory')
         expected = json.loads((rigidity_path.parent / 'expected_totals.json').read_text())
         if status is not None:
-            require(all(status['inputs']['rank' + r]['status_totals'] == v
-                        for r, v in expected.items() if r in ('7', '8')),
-                    'Refresh rigidity-stage status before rendering')
+            for rank in (7, 8):
+                selected = [x for x in status['rows'] if x['rank'] == rank
+                            and x['multiplicity'] <= (4 if rank == 7 else 2)]
+                actual = {key: sum(x[col] for x in selected) for key, col in
+                          [('excluded','excluded_general'), ('unitarily_realized','realized_unitary'),
+                           ('unresolved','unresolved_general')]}
+                require(actual == expected[str(rank)], 'Historical rigidity-stage status changed')
         latest = RIGIDITY
         rigidity = True
     return {"latest": latest, "decisions": decisions, "continuation": bool(extra),
@@ -160,13 +164,13 @@ def load_stages(repo, status=None):
 def overview(stage, prefix=""):
     """Summarize the current accepted inventory without a revision narrative."""
     if stage.get('review'):
-        return (f"The [current research account]({prefix}docs/RESEARCH_STATUS.md) "
+        return (f"The [historical 38-case continuation]({prefix}docs/RESEARCH_STATUS.md) "
                 f"records **{stage['unified_count']} decisions among 38 cases**: "
                 f"{stage['unified_exclusions']} proposed general exclusions and "
                 f"{stage['unified_models']} unitary constructions. " +
-                ("Two general questions remain open: `R6_4_155` and `R6_8_1660`. "
+                ("Within that historical 38-case study, two questions remain open: `R6_4_155` and `R6_8_1660`. "
                  if stage.get('rigidity') else
-                 "Three general questions remain open: `R6_4_155`, `R6_8_1660` and `R8_2_24`. ") +
+                 "Within that historical study, three general questions remain open: `R6_4_155`, `R6_8_1660` and `R8_2_24`. ") +
                 f"The combined residual program records {stage['count']} decisions "
                 f"({stage['exclusions']} exclusions and {stage['models']} constructions), "
                 "all subject to independent mathematical verification.")

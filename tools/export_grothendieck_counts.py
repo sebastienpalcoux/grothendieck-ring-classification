@@ -31,7 +31,7 @@ payload = dict(schema='grothendieck-ring-classification/realized-counts/v1',
 (ROOT / 'data/grothendieck_counts.json').write_text(
     json.dumps(payload, separators=(',', ':'), ensure_ascii=False) + '\n')
 with (ROOT / 'data/grothendieck_counts.csv').open('w', newline='') as f:
-    writer = csv.DictWriter(f, fieldnames=list(rows[0]))
+    writer = csv.DictWriter(f, fieldnames=list(rows[0]),lineterminator='\n')
     writer.writeheader()
     writer.writerows(rows)
 print(f'Exported {len(rows)} Grothendieck-ring count bands.')

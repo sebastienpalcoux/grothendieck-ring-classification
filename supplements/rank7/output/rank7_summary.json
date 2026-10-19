@@ -1,12 +1,13 @@
 {
-  "source_sha256": "6ddea4c66de7fbe077e9552e71e8cf95ec3fec5bbd30a615e68e2d8fcb9ae9c9",
-  "source_commit": "b86eb6dc6eeeafe5fc5f6906d7b074e0322e9726",
-  "max_multiplicity": 4,
+  "source_sha256": "3a47d36a621a9aad6d0dae9248548b3119efe7a9d5509443fedee2d5b174279a",
+  "source_commit": "4e81914a6772ccd5aa2a2b5fe1b6e2cd06e2d700",
+  "max_multiplicity": 5,
   "ring_counts": {
     "1": 43,
     "2": 319,
     "3": 1059,
-    "4": 2780
+    "4": 2780,
+    "5": 5805
   },
   "stage_order": [
     "near_group",
@@ -43,7 +44,16 @@
     "quadratic_center_Galois_two_moment",
     "twisted_v4_staged_morita_obstruction",
     "quadratic_center_reciprocity_two_moment",
-    "dihedral_Morita_R18_obstruction"
+    "dihedral_Morita_R18_obstruction",
+    "cyclotomic",
+    "character",
+    "certified_rank6_subring",
+    "integral_formal_codegree",
+    "spectral_involution_module",
+    "general_induction",
+    "cyclic_isotypic_integrality",
+    "noncyclic_maximal_near_group",
+    "cyclic3_spectral_module"
   ],
   "stage_counts": {
     "near_group": {
@@ -59,29 +69,34 @@
       "1": 8,
       "2": 30,
       "3": 51,
-      "4": 63
+      "4": 63,
+      "5": 71
     },
     "lower_rank_subring": {
       "3": 125,
       "4": 235,
-      "2": 25
+      "2": 25,
+      "5": 315
     },
     "dnumber": {
       "1": 15,
       "4": 2314,
       "2": 179,
-      "3": 788
+      "3": 788,
+      "5": 5219
     },
     "subcategory_divisibility": {
       "2": 5,
       "3": 9,
-      "4": 8
+      "4": 8,
+      "5": 19
     },
     "oriented_dimension_order": {
       "2": 51,
       "4": 130,
       "1": 4,
-      "3": 61
+      "3": 61,
+      "5": 93
     },
     "localized_TPE_F210": {
       "3": 1,
@@ -147,7 +162,8 @@
       "1": 0,
       "2": 0,
       "3": 0,
-      "4": 5
+      "4": 5,
+      "5": 47
     },
     "anti_invariant_involution_module": {
       "1": 0,
@@ -208,6 +224,33 @@
       "2": 0,
       "3": 0,
       "4": 1
+    },
+    "cyclotomic": {
+      "5": 3
+    },
+    "character": {
+      "5": 2
+    },
+    "certified_rank6_subring": {
+      "5": 5
+    },
+    "integral_formal_codegree": {
+      "5": 6
+    },
+    "spectral_involution_module": {
+      "5": 2
+    },
+    "general_induction": {
+      "5": 4
+    },
+    "cyclic_isotypic_integrality": {
+      "5": 1
+    },
+    "noncyclic_maximal_near_group": {
+      "5": 1
+    },
+    "cyclic3_spectral_module": {
+      "5": 1
     }
   },
   "status_counts": {
@@ -226,12 +269,31 @@
     "4": {
       "excluded": 2776,
       "unitarily_realized": 4
+    },
+    "5": {
+      "excluded": 5789,
+      "unresolved": 15,
+      "unitarily_realized": 1
     }
   },
-  "model_count": 29,
-  "notes": "Every exclusion follows from a cited categorical theorem with exact checked tensor hypotheses or an existing complete certificate; unchanged earlier proof records are preserved.",
+  "model_count": 30,
+  "notes": "All earlier 4201 decision records are preserved exactly. New-band exclusions have checked exact certificates with stated categorical scope; unresolved records remain open. Source completeness is producer-reported, not independently re-enumerated in this continuation.",
   "anyonwiki_import": "evidence/anyonwiki/README.md",
   "upper_residual_update": "evidence/upper_residual_20261002c/README.md",
   "theoretical_update": "evidence/theoretical_20261016/README.md",
-  "unified_update": "evidence/unified_20261016/README.md"
+  "unified_update": "evidence/unified_20261016/README.md",
+  "historical_source": {
+    "source_sha256": "6ddea4c66de7fbe077e9552e71e8cf95ec3fec5bbd30a615e68e2d8fcb9ae9c9",
+    "source_commit": "b86eb6dc6eeeafe5fc5f6906d7b074e0322e9726",
+    "path": "data/rank7_tables_through_m4.txt.gz"
+  },
+  "new_source": {
+    "path": "provenance/rank7_M5_verified/FusionRingMultiplicationTables.txt.gz",
+    "sha256": "9018f6f195339fb153ea326ec308c955bb1adf9afe1ffc9423be1bef6818e073",
+    "source_commit": "4e81914a6772ccd5aa2a2b5fe1b6e2cd06e2d700",
+    "uploaded_complete_census_claim": true,
+    "independent_full_enumeration_recomputed": false,
+    "coverage": "All 5805 supplied exact-multiplicity-five representatives classified to the recorded scope."
+  },
+  "multiplicity5_update": "evidence/rank7_m5_20261019/README.md"
 }

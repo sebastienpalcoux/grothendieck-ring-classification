@@ -19,7 +19,7 @@ def main():
     for item in manifest['files']:
         raw = (ROOT / item['path']).read_bytes()
         current = digest(raw)
-        if current == item.get('sha256') and all((ROOT / part['path']).is_file() for part in item.get('parts', [])):
+        if current == item.get('sha256') and item.get('parts') and all((ROOT / part['path']).is_file() for part in item.get('parts', [])):
             continue
         previous = list(item.get('previous_sha256', []))
         if item.get('sha256') and item['sha256'] != current and item['sha256'] not in previous:

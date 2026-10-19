@@ -118,6 +118,7 @@ def main():
         "classification_commit": args.classification_commit,
         "source_repository": counts.get("census_repository", "https://github.com/sebastienpalcoux/fusion-ring-census"),
         "census_commit": counts.get("census_commit", ""),
+        "census_extensions": counts.get("census_extensions", {}),
         "classification_repository": "https://github.com/sebastienpalcoux/grothendieck-ring-classification",
         "rows": rows,
         "grothendieck_rows":positive_rows,
@@ -303,7 +304,7 @@ def main():
     data["upper_rank_releases"] = {}
     bundles = {entry["name"]: entry["sha256"] for entry in status["bundles"]}
     for rank, pdf_path, archive_path in (
-        (7, "manuscripts/rank7/papers/manuscript.pdf", "supplements/rank7/release/rank7-certified-through-m4.zip"),
+        (7, "manuscripts/rank7/papers/manuscript.pdf", "supplements/rank7/release/rank7-certified-through-m5.zip"),
         (8, "manuscripts/rank8/paper/rank8.pdf", "supplements/rank8/rank8-verified-supplement.zip"),
     ):
         pdf_source, archive_source = repo / pdf_path, repo / archive_path
@@ -355,14 +356,16 @@ def main():
                     raise ValueError("Theoretical-update decision missing from ledger: " + decision["id"])
                 if not (repo / decision.get("proof_source", proofs_source) / decision["proof"]).is_file():
                     raise ValueError("Missing theoretical proof: " + decision["proof"])
-            actual = {key: sum(record["status"] == key for record in ledger)
+            historical_ledger = [record for record in ledger if rank != 7 or record["multiplicity"] <= 4]
+            actual = {key: sum(record["status"] == key for record in historical_ledger)
                       for key in ("excluded", "unitarily_realized", "unresolved")}
             if actual != expected_totals[str(rank)]:
                 raise ValueError(f"Rank-{rank} update totals differ from the current ledger")
             scope_row = next(record for record in scope if record["rank"] == rank)
-            if (scope_row["positive"], scope_row["unresolved"]) != (actual["unitarily_realized"], actual["unresolved"]):
+            aggregate = {key: sum(record["status"] == key for record in ledger) for key in ("excluded", "unitarily_realized", "unresolved")}
+            if (scope_row["positive"], scope_row["unresolved"]) != (aggregate["unitarily_realized"], aggregate["unresolved"]):
                 raise ValueError(f"Refresh classification_status.json for rank {rank} before building the site")
-            if remaining[str(rank)] != [record["id"] for record in ledger if record["status"] == "unresolved"]:
+            if remaining[str(rank)] != [record["id"] for record in historical_ledger if record["status"] == "unresolved"]:
                 raise ValueError(f"Rank-{rank} remaining cases differ from the current ledger")
         if remaining["6"] != release["unresolved_ids"]:
             raise ValueError("Theoretical update changes the rank-six unresolved inventory")
@@ -408,17 +411,30 @@ def main():
         if is_current:
             data["theoretical_update"]["original_case_count"] = 38
         data["snapshot"] = max(data["snapshot"], data["theoretical_update"]["date"])
+    from rank7_publication import extension, remaining_ids
+    rank7_extension = extension(repo)
+    if rank7_extension:
+        data["rank7_m5_update"] = rank7_extension
+        data["remaining_ids"] = remaining_ids(repo)
+        remaining_path = HERE / "dist/data/current_remaining_ids.json"
+        remaining_path.write_text(json.dumps(data["remaining_ids"], indent=2) + "\n")
+        data["remaining_ids_file"] = {"path": "data/current_remaining_ids.json", "sha256": hashlib.sha256(remaining_path.read_bytes()).hexdigest()}
+        data["snapshot"] = max(data["snapshot"], rank7_extension["date"])
+        extension_path = HERE / "dist/data/rank7_m5_update.json"
+        extension_path.write_text(json.dumps(rank7_extension, indent=2) + "\n")
+        rank7_extension["metadata_path"] = "data/rank7_m5_update.json"
+        rank7_extension["metadata_sha256"] = hashlib.sha256(extension_path.read_bytes()).hexdigest()
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(json.dumps(data, ensure_ascii=False, separators=(",", ":")) + "\n")
     status["rows"] = classifications
     status["site_filter"] = "Ranks 2–8 with complete or partial categorification analysis; unassessed census-only bands omitted."
     (output.parent / "classification_status.json").write_text(json.dumps(status,ensure_ascii=False,indent=2)+"\n")
     with (output.parent / "counts.csv").open("w", newline="") as stream:
-        writer = csv.DictWriter(stream, fieldnames=("rank", "multiplicity", "rings", "source", "verification"))
+        writer = csv.DictWriter(stream, fieldnames=("rank", "multiplicity", "rings", "source", "verification"),lineterminator="\n")
         writer.writeheader()
         writer.writerows(rows)
     with (output.parent / "grothendieck_counts.csv").open("w", newline="") as stream:
-        writer=csv.DictWriter(stream,fieldnames=("rank","multiplicity","rings","is_lower_bound"))
+        writer=csv.DictWriter(stream,fieldnames=("rank","multiplicity","rings","is_lower_bound"),lineterminator="\n")
         writer.writeheader();writer.writerows(positive_rows)
     # Keep the repository's reader-facing aliases on the same exact snapshot.
     aliases = {"data/atlas.json", "data/rank6_research_coverage.json",

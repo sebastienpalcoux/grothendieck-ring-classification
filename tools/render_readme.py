@@ -4,6 +4,7 @@ import json
 import argparse
 from pathlib import Path
 from publication_stages import load_stages, overview
+from rank7_publication import summary as rank7_extension_summary
 
 ROOT=Path(__file__).resolve().parents[1]
 PUBLIC_ATLAS='https://sebastienpalcoux.github.io/grothendieck-ring-classification/'
@@ -83,13 +84,13 @@ categorifications over ℂ.
 
 > [!NOTE]
 > **[Research announcement · 5 pages](announcements/hexagon-2026-10/Low_rank_Grothendieck_rings_announcement.pdf)**
-> Classification scope, seven construction candidates, and the two open categorification problems.
+> Historical October announcement: classification scope, seven construction candidates, and the two rank-six open problems.
 > [TeX source and Hexagon submission package](announcements/hexagon-2026-10/).
 > **[Read the announcement on Hexagon · 2610.00300v1](https://hexagonmath.org/2610.00300?version=1)**.
 
 > [!TIP]
 > **[Potentially new tensor categories and open cases (one-page PDF)](docs/New_category_candidates_and_open_cases.pdf)**
-> Seven promising construction candidates, with the two unresolved rank-six cases highlighted.
+> Seven provisional construction candidates, the known `Rep(AGL(1,7))` model, and all 17 current open cases.
 > Novelty up to tensor equivalence remains subject to independent verification.
 
 | Start here | What you will find |
@@ -102,10 +103,12 @@ categorifications over ℂ.
 
 **Current research account.** The 38-case continuation records **36 decisions**:
 29 proposed general exclusions and 7 unitary constructions. **Two general
-cases remain open:** `R6_4_155` and `R6_8_1660`. Rank eight is complete
+cases from that historical study remain open:** `R6_4_155` and `R6_8_1660`. Rank eight is complete
 through multiplicity two, with 896 exclusions and 77 unitary models.
 The exclusion of `R8_2_24` follows from an inner-square obstruction using
 pivotal duality, short associator weights and tensor-functor rigidity.
+__RANK7_EXTENSION__
+
 The tables below report the project's classification claims; “complete” and
 “certified” do not imply independent human verification or Lean formalization.
 
@@ -200,7 +203,7 @@ row checks and scope appear in [the provenance record](docs/PROVENANCE.md).
 | 4 | Multiplicity 18 | The same criterion families suffice for the allocated exclusions at 19–128. |
 | 5 | Multiplicity 18 | Inert-prime quadratic parity first closes two cases at 18; no new criterion family is needed at 19–20. |
 | 6 | See the allocation ledger | The current criteria include stabilizer, cyclotomic-trace and signed arithmetic obstructions. All 8,809 exact-multiplicity-nine rings have general exclusion certificates; __RANK6_OPEN__ earlier cases remain unresolved through multiplicity __RANK6_BOUND__. |
-| 7 | Multiplicity 4 | Group-theoretical, Morita and center arguments contribute through 4. __RANK7_OPEN_PHRASE__ in the analyzed range; higher multiplicities are not classified here. |
+| 7 | See the allocation ledger | The multiplicity-five extension combines existing criteria with new cyclic-isotypic integrality and cubic-Fourier module arguments; surviving cases are explicit. __RANK7_OPEN_PHRASE__ in the analyzed range; higher multiplicities are not classified here. |
 | 8 | Multiplicity 2 | Graded Brauer-Picard, fiber-functor and inner-square rigidity obstructions give the complete classification through 2. __RANK8_OPEN_PHRASE__ in the analyzed range; higher multiplicities are not classified here. |
 
 This records **first use in the chosen certificate allocation**, not an
@@ -251,7 +254,8 @@ to a source census cell are imported only from a named commit and rechecked
 against classification ledgers.
 ''')
 args.output.parent.mkdir(parents=True,exist_ok=True)
-rendered=('\n'.join(lines).replace('__RANK6_SUMMARY__',rank6_summary)
+rendered=('\n'.join(lines).replace('__RANK7_EXTENSION__',rank7_extension_summary(ROOT))
+                              .replace('__RANK6_SUMMARY__',rank6_summary)
                               .replace('__RANK7_SUMMARY__',upper_summary(7))
                               .replace('__RANK8_SUMMARY__',upper_summary(8))
                               .replace('__RANK7_OPEN_PHRASE__',upper_open_phrase(7))

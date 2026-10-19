@@ -194,7 +194,7 @@ def _receipts(repo, replay):
             'scope': 'Source, arithmetic, and finite F-slot consistency only; no categorical proof is machine-certified.'}
 
 
-def verify_current(repo, replay=True):
+def verify_current(repo, replay=True, historical_rank7=None):
     repo = Path(repo).resolve()
     sources = verify_sources(repo)
     stage = repo / STAGE
@@ -248,7 +248,10 @@ def verify_current(repo, replay=True):
     expected = read(stage / 'expected_totals.json')
     need(remaining == REMAINING, 'Exactly two remaining rank-six cases')
     for rank, name in LEDGERS.items():
-        rows = read(repo / name)
+        rows = historical_rank7 if rank == '7' and historical_rank7 is not None else read(repo / name)
+        if rank == '7' and any(row['multiplicity'] > 4 for row in rows):
+            from rank7_publication import historical_rank7_bytes
+            rows = json.loads(historical_rank7_bytes(repo))
         totals = collections.Counter(x['status'] for x in rows)
         totals.setdefault('unresolved', 0)
         need(dict(totals) == expected[rank], 'Complete current rank partition: ' + rank)

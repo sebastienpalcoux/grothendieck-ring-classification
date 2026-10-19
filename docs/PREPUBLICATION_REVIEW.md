@@ -1,5 +1,7 @@
 # Mathematical review and verification scope
 
+The 19 October rank-seven extension addresses all 5,805 exact-multiplicity-five rings: 5,789 general exclusions, 1 realization and 15 unresolved cases. The classification is complete through multiplicity 4. The new realization R7_5_5678 is Rep(AGL(1,7)). The unresolved records remain open for general complex categorification.
+
 > **AI-generated research · independent verification pending.** Treat these
 > results, proofs, code and data with caution. They have not yet been
 > independently verified by human experts or formalized in Lean. Automated
@@ -11,7 +13,9 @@ establish, and where mathematical verification is still needed.
 
 ## Mathematical scope
 
-The [current research account](../docs/RESEARCH_STATUS.md) records **36 decisions among 38 cases**: 29 proposed general exclusions and 7 unitary constructions. Two general questions remain open: `R6_4_155` and `R6_8_1660`. The combined residual program records 140 decisions (120 exclusions and 20 constructions), all subject to independent mathematical verification.
+The [historical 38-case continuation](../docs/RESEARCH_STATUS.md) records **36 decisions among 38 cases**: 29 proposed general exclusions and 7 unitary constructions. Within that historical 38-case study, two questions remain open: `R6_4_155` and `R6_8_1660`. The combined residual program records 140 decisions (120 exclusions and 20 constructions), all subject to independent mathematical verification.
+
+### Rank-six open rings
 
 | Open ring | Established necessary restrictions | Remaining question |
 |---|---|---|
@@ -40,7 +44,8 @@ cannot certify that every mathematical step is correct.
 | Rank four | Two complete 889,530-ring replays, each regenerating 6,470,006 signed orbits; separate unsigned recount | Passed: 15 models and 889,515 exclusions. |
 | Rank five | All 40,999 classes, 17 models and 40,982 exclusion certificates in normal and optimized Python | Passed; complete reconstructed ledgers are byte-identical. |
 | Rank six | Model/import pipeline and all 25,362 exclusion certificates, followed by the two post-loop checks | Combined coverage passed; the initial full process failed on seven certificates, each of which passed a separate complete Python-backend replay. |
-| Rank seven base certificates | 4,201 records: 4,116 exclusions, 26 models and 59 cases deferred to continuation proofs | Passed in normal Python. |
+| Rank seven base certificates through multiplicity four | 4,201 records: 4,116 exclusions, 26 models and 59 cases deferred to continuation proofs | Passed in normal Python. |
+| Rank seven multiplicity-five extension | All 5,805 new records: 5,789 general-exclusion certificates, one `Rep(AGL(1,7))` model and 15 open cases | Exact normal and optimized replays passed; [normal receipt](../supplements/rank7/output/m5/replay_normal.json), [optimized receipt](../supplements/rank7/output/m5/replay_optimized.json). Enumeration completeness remains producer-reported. |
 | Rank eight base certificates | 973 records: 832 exclusions, 60 models and 81 cases deferred to continuation proofs | Passed in normal Python, including signed proof trees. |
 | Continuation chain and current inventory | Source identities, accepted decisions and dependency replays in normal and optimized Python | Passed within each program's stated scope; does not prove categorical coherence. |
 

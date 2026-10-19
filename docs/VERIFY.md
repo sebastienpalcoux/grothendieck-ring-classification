@@ -1,5 +1,7 @@
 # Reproduce the data and mathematical checks
 
+The 19 October rank-seven extension addresses all 5,805 exact-multiplicity-five rings: 5,789 general exclusions, 1 realization and 15 unresolved cases. The classification is complete through multiplicity 4. The new realization R7_5_5678 is Rep(AGL(1,7)). The unresolved records remain open for general complex categorification.
+
 > **AI-generated research · independent verification pending.** Treat these
 > results, proofs, code and data with caution. They have not yet been
 > independently verified by human experts or formalized in Lean. Automated
@@ -97,7 +99,7 @@ the original full base-certificate loops described in the
 [full replay guide](../evidence/prepublication_20261017/FULL_REPLAY.md).
 Use normal Python for any checker whose proof checks use `assert`.
 
-The [current research account](../docs/RESEARCH_STATUS.md) records **36 decisions among 38 cases**: 29 proposed general exclusions and 7 unitary constructions. Two general questions remain open: `R6_4_155` and `R6_8_1660`. The combined residual program records 140 decisions (120 exclusions and 20 constructions), all subject to independent mathematical verification.
+The [historical 38-case continuation](../docs/RESEARCH_STATUS.md) records **36 decisions among 38 cases**: 29 proposed general exclusions and 7 unitary constructions. Within that historical 38-case study, two questions remain open: `R6_4_155` and `R6_8_1660`. The combined residual program records 140 decisions (120 exclusions and 20 constructions), all subject to independent mathematical verification.
 
 The [inner-square rigidity package](../evidence/rigidity_20261017/README.md)
 records the general `R8_2_24` obstruction and its source-bound finite checks.
@@ -151,7 +153,7 @@ These are necessary-condition checks. Both rank-six cases remain unresolved.
 No timeout constitutes an exclusion. Component checks do not replace complete
 base-certificate coverage.
 
-## Census crosswalk and publication exports
+## Historical base census import and publication exports
 
 ```bash
 git clone https://github.com/sebastienpalcoux/fusion-ring-census.git
@@ -178,3 +180,13 @@ Preserve the distinction between census, partial classification and complete
 classification. Do not enter incomplete-band lower bounds as exact OEIS terms.
 Archive identities must be updated only after rebuilding the corresponding
 bundle. Source and document integrity checks do not replace mathematical review.
+
+The rank-seven M5 extension is pinned separately to census commit `4e81914a6772ccd5aa2a2b5fe1b6e2cd06e2d700`. Its 5,805 new exact-multiplicity-five tensors and agreement with the earlier 4,201 tensors passed independent computational checks; exhaustive enumeration completeness relies on the supplied producer completion record. The optimized enumeration itself was not independently rerun.
+
+To reproduce the new rank-seven import, check out that census commit and run:
+
+```bash
+git -C fusion-ring-census checkout 4e81914a6772ccd5aa2a2b5fe1b6e2cd06e2d700
+python3 tools/import_rank7_m5_counts.py fusion-ring-census/results/census.json --commit 4e81914a6772ccd5aa2a2b5fe1b6e2cd06e2d700
+python3 supplements/rank7/software/verify_m5.py
+```

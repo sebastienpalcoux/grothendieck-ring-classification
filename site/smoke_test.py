@@ -205,12 +205,12 @@ assert '<span id="manuscript-page-summary">' + page_summary + '</span>' in (root
 tree = ast.parse((root / reader["files"]["remaining_cases.py"]["path"]).read_text())
 constants = {node.targets[0].id: ast.literal_eval(node.value) for node in tree.body
              if isinstance(node, ast.Assign) and node.targets[0].id != "TENSORS"}
-assert set(constants["METADATA"]) == set(constants["DUALS"]) == {"R6_4_155", "R6_8_1660"}
+assert set(constants["METADATA"]) == set(constants["DUALS"]) == set(payload.get("remaining_ids", ["R6_4_155", "R6_8_1660"]))
 for name, metadata in constants["METADATA"].items():
     assert isinstance(constants[name], list) and len(constants[name]) == metadata["rank"]
     assert metadata["status"] == "unresolved" and metadata["unit_index"] == 0
     assert hashlib.sha256(json.dumps(constants[name], separators=(",", ":")).encode()).hexdigest() == metadata["tensor_sha256"]
-print("Reader downloads checked: two exact tensor constants and twelve distinct PDF page counts.")
+print(f"Reader downloads checked: {len(constants['METADATA'])} exact tensor constants and twelve distinct PDF page counts.")
 
 update = payload.get("theoretical_update")
 if update:
@@ -261,9 +261,11 @@ if update:
     for rank in (7,8):
         assert update["by_rank"][str(rank)] == sum(record["rank"] == rank for record in decisions)
         scope = next(record for record in payload["scope"] if record["rank"] == rank)
-        assert scope["unresolved"] == len(remaining[str(rank)]) == totals[str(rank)]["unresolved"]
-        assert scope["positive"] == totals[str(rank)]["unitarily_realized"]
-        assert scope["rings"] - scope["positive"] - scope["unresolved"] == totals[str(rank)]["excluded"]
+        historical = [r for r in status_payload["rows"] if r["rank"] == rank
+                      and r["multiplicity"] <= (4 if rank == 7 else 2)]
+        assert sum(r["unresolved_general"] for r in historical) == len(remaining[str(rank)]) == totals[str(rank)]["unresolved"]
+        assert sum(r["realized_unitary"] for r in historical) == totals[str(rank)]["unitarily_realized"]
+        assert sum(r["excluded_general"] for r in historical) == totals[str(rank)]["excluded"]
     archive_metadata = update["archive"]
     external_url = archive_metadata.get("url")
     if external_url:
@@ -325,3 +327,18 @@ assert "tree/main/evidence/review_20261017" not in reader_sources, "Reader route
 
 if proof_temporary_directory is not None:
     proof_temporary_directory.cleanup()
+
+# The current M5 extension is separate from the frozen 38-case continuation.
+if payload.get("rank7_m5_update"):
+    extension = payload["rank7_m5_update"]
+    path = root / extension["metadata_path"]
+    assert hashlib.sha256(path.read_bytes()).hexdigest() == extension["metadata_sha256"]
+    band = next(r for r in status_payload["rows"] if (r["rank"],r["multiplicity"]) == (7,5))
+    assert (extension["rings"], extension["excluded"], extension["realized"], extension["unresolved"]) == tuple(band[k] for k in ("rings","excluded_general","realized_unitary","unresolved_general"))
+    assert set(payload["remaining_ids"]) == {"R6_4_155", "R6_8_1660"} | set(extension["remaining_ids"])
+    assert set(current_manifest["remaining_ids"]) == set(payload["remaining_ids"])
+    info = payload["remaining_ids_file"]
+    raw = (root / info["path"]).read_bytes()
+    assert hashlib.sha256(raw).hexdigest() == info["sha256"]
+    assert json.loads(raw) == payload["remaining_ids"]
+    print("Rank-seven multiplicity-five scope and current unresolved inventory checked.")

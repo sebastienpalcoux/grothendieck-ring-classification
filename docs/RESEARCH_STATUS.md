@@ -1,5 +1,7 @@
 # Research status and verification
 
+The 19 October rank-seven extension addresses all 5,805 exact-multiplicity-five rings: 5,789 general exclusions, 1 realization and 15 unresolved cases. The classification is complete through multiplicity 4. The new realization R7_5_5678 is Rep(AGL(1,7)). The unresolved records remain open for general complex categorification.
+
 > **AI-generated research · independent verification pending.** Treat these
 > results, proofs, code and data with caution. They have not yet been
 > independently verified by human experts or formalized in Lean. Automated
@@ -12,24 +14,30 @@ confer mathematical validation.
 
 ## Current classification
 
-The [current research account](../docs/RESEARCH_STATUS.md) records **36 decisions among 38 cases**: 29 proposed general exclusions and 7 unitary constructions. Two general questions remain open: `R6_4_155` and `R6_8_1660`. The combined residual program records 140 decisions (120 exclusions and 20 constructions), all subject to independent mathematical verification.
+The [historical 38-case continuation](../docs/RESEARCH_STATUS.md) records **36 decisions among 38 cases**: 29 proposed general exclusions and 7 unitary constructions. Within that historical 38-case study, two questions remain open: `R6_4_155` and `R6_8_1660`. The combined residual program records 140 decisions (120 exclusions and 20 constructions), all subject to independent mathematical verification.
 
 [All 38 cases and current proof references](CASE_INVENTORY.md).
 
 Rank six records **25,362 exclusions, 57 realizations and
 2 open cases** through multiplicity nine. Its complete contiguous
 range ends at three; exact bands 1, 2, 3, 5, 6, 7, 9 are complete. Rank seven records
-**4,172 exclusions and 29 realizations**,
-with no open case through multiplicity four. Rank eight records
+**9,961 exclusions and 30 realizations**,
+with **15 open cases through multiplicity 5**; complete through multiplicity 4. Rank eight records
 **896 exclusions and 77 realizations**,
 with no open case through multiplicity two. The general exclusion of
 `R8_2_24` uses an inner-square obstruction from short gauge weights and
 tensor-functor rigidity.
 
+### Rank-six open rings
+
 | Open ring | Established necessary restrictions | Remaining question |
 |---|---|---|
 | `R6_4_155` | A unique rank-26 modular candidate and a rank-22 based module; odd cyclic Clifford constraints pass on all 1,144 tested blocks, and the all-order path divisibility condition holds. | Coherent associators and module-category structures, or a general obstruction. |
 | `R6_8_1660` | In the positive spherical representative, all indicator sequences and central phase masses are determined; eight spin objects form four dual pairs, and 640 labelled restriction-data profiles remain in branches 68, 286, 286. | A categorification or an obstruction covering every possible profile. |
+
+### Rank-seven open rings
+
+All 15 open rank-seven cases lie in exact multiplicity five. Their identifiers, tensors and recorded criterion results are in the [M5 frontier](../supplements/rank7/output/m5/survivors.json) and [extension evidence](../evidence/rank7_m5_20261019/README.md). [Download all 17 current open tensors](../data/remaining_cases.py), including the two rank-six cases.
 
 A necessary-condition witness is neither a categorification nor a general
 nonexistence proof. Scoped unitary, pseudo-unitary, pivotal or braided

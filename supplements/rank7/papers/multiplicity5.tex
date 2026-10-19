@@ -1,0 +1,231 @@
+\section{Extension to exact multiplicity five}
+\label{sec:m5-extension}
+\subsection{Source, identifiers, and verification scope}
+The extension uses the supplied archive
+\path{rank7_multiplicity5_verified.zip}. Its expanded multiplication-table
+file has SHA-256
+\begin{quote}\small\ttfamily
+\nolinkurl{a3fdcb75fbeb090913b1e4650e5124b9e0b1d016f1a71e0368a3f38e6e520c03}.
+\end{quote}
+It contains $10006$ rank-seven tensors through multiplicity five,
+including $5805$ of exact multiplicity five. Fresh verification checks
+unit, duality, Frobenius reciprocity, associativity, nonnegative integral
+coefficients, and based-isomorphism uniqueness. All $7!=5040$
+permutations are unnecessary: the unit must be fixed, so $6!=720$
+permutations per tensor suffice. The exhaustive audit thus examines
+$7204320$ unit-fixing permutations and finds no duplicates.
+
+The $4201$ previously published tensors occur exactly in the new input.
+The input does not put them in an initial contiguous block. We therefore
+retain every old identifier and decision and record an explicit transport
+between the previous and new physical line numbers. For the added band,
+$R7\_5\_j$ denotes the $j$th row of exact multiplicity five in the supplied
+file, with $1\leq j\leq5805$.
+The new duality strata contain $4654$, $1012$, $138$, and $1$ rings with
+respectively zero, one, two, and three nonself-dual pairs; nine of the new
+rings are noncommutative.
+
+The producer's run metadata reports complete enumeration of every
+rank-seven duality stratum with no time limit. Its optimized enumeration
+sources are identified by checksums but are not bundled in this input.
+The present update independently verifies the output tensors, uniqueness,
+and preservation of the earlier census; it does not rerun that enumeration
+or independently establish its exhaustive coverage. All classification
+counts for the extension are therefore statements about the supplied
+$5805$ new classes, with completeness relative to all rings in the band
+conditional on the producer's enumeration claim.
+
+\subsection{A Frobenius-group realization}
+\begin{proposition}\label{prop:m5-frobenius42}
+The new ring $R7\_5\_5678$ has a unitary categorification
+$\operatorname{Rep}(C_7\rtimes C_6)$, where a generator of $C_6$
+acts on $C_7$ by multiplication by $3$.
+\end{proposition}
+\begin{proof}
+Write the group as
+$G=\langle a,b\mid a^7=b^6=1,\ bab^{-1}=a^3\rangle$.
+Its six linear characters are
+$\chi_j(a^xb^y)=\zeta_6^{jy}$, $0\leq j<6$.
+The action of $C_6$ is transitive on the six nontrivial characters of
+$\langle a\rangle$. Inducing any such character gives an irreducible
+character $\rho$ of degree six, with values $6$ at the identity,
+$-1$ at nonidentity elements of $\langle a\rangle$, and $0$ elsewhere.
+These characters are orthonormal, and their squared degrees sum to
+$6+36=42=|G|$, so they are the complete irreducible character list.
+Pointwise multiplication gives
+\[
+ \chi_i\chi_j=\chi_{i+j\bmod6},\qquad
+ \chi_i\rho=\rho,\qquad
+ \rho^2=\sum_{j=0}^{5}\chi_j+5\rho.
+\]
+In the model order $(\chi_0,\ldots,\chi_5,\rho)$, the permutation
+$(0,1,4,6,3,2,5)$ gives the corresponding census labels.
+The accompanying checker verifies equality of all $343$ structure
+constants under this map. Finite-group representation categories admit
+a unitary structure, proving the claim. This is a known construction;
+its occurrence in the extended census is not a claim of a new tensor
+category.
+\end{proof}
+
+\subsection{The noncyclic maximal near-group obstruction}
+The only noncommutative ring remaining after the first arithmetic
+passes is $R7\_5\_4812$. Its invertible labels are
+$G=\{0,1,2,3,5,6\}$ and its remaining simple is $X=b_4$, with
+\[
+ X^2=\sum_{g\in G}g+5X.
+\]
+Every invertible fixes $X$ on both sides. The group $G$ is nonabelian:
+$b_1b_3=b_6$ whereas $b_3b_1=b_5$.
+Nikshych--Ostrik's maximal near-group theorem
+\cite[Appendix A, Theorem A.14(ii)]{OstrikRank3} states that a
+near-group category with parameter $n=|G|-1$ must have cyclic $G$.
+It therefore excludes this tensor for arbitrary complex fusion categories.
+The appendix supplies the general near-group reduction; pivotality is
+not an extra hypothesis here. The exact verifier checks the invertible
+group, the entire near-group rule, and the displayed noncommuting products.
+
+\subsection{Integral formal-codegree refinement}
+\begin{proposition}\label{prop:m5-integral-codegree}
+Let $R$ be a commutative fusion ring with a positive integral dimension
+character $(d_i)$, and put $D=\sum_i d_i^2$.
+If $R$ admits a complex categorification, then $D/f$ is a positive
+integer for every formal codegree $f$ of $R$.
+In particular, every formal codegree is an integer dividing $D$.
+\end{proposition}
+\begin{proof}
+The positive character is the Frobenius--Perron character. A hypothetical
+category has integral Frobenius--Perron dimension $D$ and hence is
+pseudo-unitary by \cite[Proposition 8.24]{ENO}. Give it its canonical
+spherical structure. Each one-dimensional character of $R$ corresponds,
+by central induction, to a simple summand of the induced unit having
+dimension $D/f$; see \cite[Theorem 2.13]{OstrikRank3}.
+The forgetful functor preserves these dimensions, and its image is a
+nonnegative integral sum of the simples of the original category. Since
+all $d_i$ are integers, $D/f$ is a positive integer. Thus $f$ is rational;
+as a formal codegree it is an algebraic integer, so $f$ is an integer
+dividing $D$.
+\end{proof}
+
+The checker first verifies the positive dimension character against every
+product and then factors the exact Casimir characteristic polynomial.
+It yields the following six obstructions; only one failed factor per
+ring is needed.
+\begin{center}\small
+\begin{tabular}{@{}l r l@{}}
+\toprule
+Census ID & $D$ & Obstructing codegree or factor\\
+\midrule
+$R7\_5\_1390$ & $112$ & $t^2-40t+80$\\
+$R7\_5\_1404$ & $240$ & $t^2-40t+80$\\
+$R7\_5\_2454$ & $1428$ & $t^2-48t+144$\\
+$R7\_5\_4695$ & $220$ & $12$\\
+$R7\_5\_5187$ & $96$ & $64$\\
+$R7\_5\_5759$ & $96$ & $64$\\
+\bottomrule
+\end{tabular}
+\end{center}
+The quadratic factors are irreducible over $\mathbb Q$, whereas the
+listed integer codegrees do not divide $D$. These tests strengthen the
+basic $d$-number test for this integral subfamily; they do not assert
+that arbitrary fusion categories have integral dimensions.
+
+\subsection{A cyclic-stabilizer refinement}
+The prime-order criterion in Proposition~\ref{prop:cyclic-module-divisibility}
+admits the following extension to arbitrary cyclic order.
+\begin{proposition}\label{prop:m5-cyclic-gcd}
+Let $H\cong C_n$ be a subgroup of invertible objects in a complex fusion
+category. Suppose that a simple $X$ is fixed on the left by $H$, a
+simple $Y$ is fixed on the right, and a simple $Z$ is fixed on both
+sides. If $N=N_{XY}^Z>0$, then
+\[
+ \frac{\gcd(n,N)}{n}\FPdim(Z)
+ \quad\text{is an algebraic integer.}
+\]
+\end{proposition}
+\begin{proof}
+As in Proposition~\ref{prop:cyclic-module-divisibility}, the fixed
+simple trivializes the associator class on $H$, and
+$H^2(C_n,\C^\times)=0$ supplies module structures. Thus
+$A=\bigoplus_{h\in H}h$ is a connected separable algebra and
+$X\otimes Y$ is an $A$-bimodule.
+The $Z$-isotypic summand is stable under both actions, because $H$
+fixes $Z$ on both sides. It is therefore an $A$-bimodule with underlying
+object $NZ$. Its Frobenius--Perron dimension in the Morita dual is
+$N\FPdim(Z)/n$, which is an algebraic integer.
+Write $g=\gcd(n,N)=uN+vn$ with $u,v\in\Z$. Then
+\[
+ \frac{g}{n}\FPdim(Z)
+ =u\frac{N}{n}\FPdim(Z)+v\FPdim(Z)
+\]
+is also an algebraic integer.
+\end{proof}
+This extends the prime-order argument without a pivotality assumption.
+An application records a cyclic subgroup, its left and right actions,
+the coefficient $N$, and an exact nonintegrality witness for the
+scaled Frobenius--Perron dimension. The proof is independent of any
+finite search or numerical approximation.
+The extended checker finds $54$ witnesses among the $178$ tensors
+surviving the basic passes. Of these, $49$ already satisfy the
+prime-order test. The five additional order-four applications are:
+\begin{center}\small
+\begin{tabular}{@{}l r l r l@{}}
+\toprule
+Census ID & $g$ & $X=Y=Z$ & $N$ & Minimal polynomial of $\FPdim(Z)$\\
+\midrule
+$R7\_5\_4702$ & $b_1$ & $b_4$ & $1$ & $t^2-6t-4$\\
+$R7\_5\_4704$ & $b_1$ & $b_4$ & $3$ & $t^2-8t-4$\\
+$R7\_5\_4706$ & $b_1$ & $b_4$ & $5$ & $t^2-10t-4$\\
+$R7\_5\_4757$ & $b_1$ & $b_4$ & $3$ & $t-10$\\
+$R7\_5\_5676$ & $b_1$ & $b_3$ & $5$ & $t^2-10t-4$\\
+\bottomrule
+\end{tabular}
+\end{center}
+Each $N$ is odd, so the necessary quantity is $\FPdim(Z)/4$.
+For a quadratic $t^2-at-4$, its minimal polynomial after division
+by four is $t^2-(a/4)t-1/4$, which is not integral.
+In the linear case the quotient is $5/2$.
+The exact replay also verifies the subgroup actions and the minimal
+polynomial of the Perron eigenvalue, using exact root isolation.
+The application counts in this subsection may overlap earlier tests;
+Table~\ref{tab:stages} charges each excluded ring only once.
+
+\input{cubic_fourier_module.tex}
+
+\subsection{Subring descent and involution modules}
+A full fusion-closed, dual-stable subset of the basis generates a
+fusion subcategory in any categorification. Thus the general rank-six
+certificates from \cite{Rank6} give the following five ambient exclusions.
+Each replay checks the restricted tensor and its nested exclusion
+certificate, rather than relying on an ID or a recorded status alone.
+\begin{center}\small
+\begin{tabular}{@{}l l l@{}}
+\toprule
+Rank-seven ring & Rank-six subring & Ambient labels\\
+\midrule
+$R7\_5\_1033$ & $R6\_4\_304$ & $0,1,2,3,5,6$\\
+$R7\_5\_1283$ & $R6\_3\_194$ & $0,1,2,3,5,6$\\
+$R7\_5\_2019$ & $R6\_3\_244$ & $0,1,2,3,5,6$\\
+$R7\_5\_5232$ & $R6\_2\_51$ & $0,1,2,4,5,6$\\
+$R7\_5\_5681$ & $R6\_4\_19$ & $0,1,2,3,4,6$\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The anti-invariant representation of
+Proposition~\ref{prop:anti-module} also applies to the extension.
+Exact spectral, parity, and matrix bounds exclude
+\[
+ R7\_5\_1396,\ R7\_5\_1781,\ R7\_5\_2181,\
+ R7\_5\_2247,\ R7\_5\_2454,\ R7\_5\_3078,\ R7\_5\_3102.
+\]
+The checker allows more than two fixed simples; the initial cheaper
+involution pass was limited to smaller blocks. These are further
+applications of the same general module-category argument.
+
+The one-spectrum criterion of \cite[Theorem 6.8]{TPE} was also checked
+on the full new band. It supplies $66$ exact witnesses, all on tensors
+already excluded by the basic passes, so it contributes no additional
+first-stage exclusions. The supplementary evidence includes its
+independent replay and positive-model controls.
+
+\input{generated_m5_status.tex}

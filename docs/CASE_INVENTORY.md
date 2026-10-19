@@ -1,4 +1,6 @@
-# Current inventory of 38 cases
+# Historical 38-case study and current proof references
+
+The 19 October rank-seven extension addresses all 5,805 exact-multiplicity-five rings: 5,789 general exclusions, 1 realization and 15 unresolved cases. The classification is complete through multiplicity 4. The new realization R7_5_5678 is Rep(AGL(1,7)). The unresolved records remain open for general complex categorification.
 
 > **AI-generated research · independent verification pending.** Treat these
 > results, proofs, code and data with caution. They have not yet been
@@ -21,7 +23,7 @@ Read the [rank-six manuscript](../manuscripts/rank6/papers/manuscript.pdf),
 The source links below identify the current integrated proof or open-case
 section; the stable LaTeX label locates the exact statement in that source.
 
-## Two open cases
+## Two open cases within the historical study
 
 | Case | Current status and remaining task | Current manuscript section |
 |---|---|---|
@@ -74,8 +76,9 @@ section; the stable LaTeX label locates the exact statement in that source.
 | `R8_2_820` | Unitary construction | Nonpointed center factor of NG(C5,5); auxiliary group C3 × C3 | [Source](../manuscripts/rank8/paper/unified_20261016.tex) (`prop:near-group-centralizers`) |
 | `R8_2_869` | Unitary construction | Nonpointed center factor of NG(C5,5); auxiliary group C9 | [Source](../manuscripts/rank8/paper/unified_20261016.tex) (`prop:near-group-centralizers`) |
 
-## Classification boundary and checks
+## Classification boundary of the historical study
 
+The following boundary describes the 17 October study; the current M5 extension is stated above.
 Through multiplicity nine, rank six has 25,362 exclusions, 57 realizations and
 two open cases. Rank seven is complete through multiplicity four with 4,172
 exclusions and 29 models. Rank eight is complete through multiplicity two:

@@ -14,6 +14,7 @@ import sys
 import tempfile
 from current_publication import validate_documents, replay_sources, restore_replay_sources, need
 from reader_resources import validate_reader_resources
+from rank7_publication import extension, historical_rank7_bytes, LEDGER
 from verify_rigidity_20261017 import verify_current as verify_rigidity, restore_parent_files as restore_rigidity_parent
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -29,7 +30,19 @@ def main():
     has_website = (repo / 'site/dist/papers').is_dir()
     documents = validate_documents(repo, check_web=has_website)
     reader_resources = validate_reader_resources(repo, check_web=has_website)
-    rigidity = verify_rigidity(repo, replay=not args.metadata_only)
+    rank7_update = extension(repo)
+    historical = historical_rank7_bytes(repo) if rank7_update else None
+    rank7_metadata = None
+    if rank7_update:
+        with tempfile.TemporaryDirectory(prefix='rank7-m5-metadata-') as directory:
+            command = [sys.executable] + (['-O'] if sys.flags.optimize else [])
+            command += [str(repo/'supplements/rank7/software/verify_m5.py'), '--metadata-only',
+                        '--output', str(Path(directory)/'receipt.json')]
+            check = subprocess.run(command, cwd=repo, text=True, capture_output=True)
+            need(check.returncode == 0, 'Rank-seven M5 metadata check failed:\n' + check.stdout + check.stderr)
+            rank7_metadata = json.loads(check.stdout)
+    rigidity = verify_rigidity(repo, replay=not args.metadata_only,
+                              historical_rank7=json.loads(historical) if historical else None)
     rank6_command = [sys.executable] + (['-O'] if sys.flags.optimize else [])
     rank6_command += [str(repo / 'evidence/rigidity_20261017/rank6/run_checks.py'),
                       '--repo', str(repo)]
@@ -71,6 +84,8 @@ def main():
                             ignore=shutil.ignore_patterns('.git', 'node_modules', '__pycache__',
                                                          'work', 'site', '*.bin', '*.aux',
                                                          '*.out', '*.toc', '*.fls', '*.fdb_latexmk'))
+        if historical:
+            (target / LEDGER).write_bytes(historical)
         restored = restore_replay_sources(repo, target, sources)
         restored += restore_rigidity_parent(repo, target)
         if not args.metadata_only:
@@ -92,8 +107,12 @@ def main():
         report = {'status': 'PASS', 'current_documents': len(documents['documents']),
                   'website_pdf_copies_checked': len(documents['web_copies']) if has_website else 0,
                   'declared_website_pdf_copies': len(documents['web_copies']),
-                  'accepted_decisions': 36, 'remaining_ids': documents['remaining_ids'],
-                  'rigidity_stage': rigidity,
+                  'historical_accepted_decisions': 36,
+                  'historical_decision_scope': 'The earlier 38-case continuation; M5 decisions are separate',
+                  'remaining_ids': documents['remaining_ids'],
+                  'historical_rigidity_stage': rigidity,
+                  'rank7_m5_update': rank7_update,
+                  'rank7_m5_metadata_check': rank7_metadata,
                   'rank6_necessary_conditions': rank6_progress,
                   'reader_resources': reader_resources,
                   'rank4_unrestricted_package': 'PASS: source/data identities and generated manuscript tables; exact replay is a separate check',

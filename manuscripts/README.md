@@ -1,5 +1,7 @@
 # Manuscripts
 
+The 19 October rank-seven extension addresses all 5,805 exact-multiplicity-five rings: 5,789 general exclusions, 1 realization and 15 unresolved cases. The classification is complete through multiplicity 4. The new realization R7_5_5678 is Rep(AGL(1,7)). The unresolved records remain open for general complex categorification.
+
 > **AI-generated research · independent verification pending.** Treat these
 > results, proofs, code and data with caution. They have not yet been
 > independently verified by human experts or formalized in Lean. Automated
@@ -9,7 +11,7 @@ Each paper is a current TeX/PDF pair with its classification scope stated in
 its own text. Ranks two, three and four are unrestricted in multiplicity.
 Ranks five to eight use pinned finite censuses and explicit criteria.
 
-**Project overview:** [Five-page research announcement](../announcements/hexagon-2026-10/Low_rank_Grothendieck_rings_announcement.pdf), with the classification scope, seven construction candidates, and both open cases. This announcement is separate from the research-manuscript page count.
+**Project overview:** [Five-page research announcement](../announcements/hexagon-2026-10/Low_rank_Grothendieck_rings_announcement.pdf), with the historical classification scope, seven construction candidates, and both rank-six open cases. This announcement is separate from the research-manuscript page count.
 
 ## Unrestricted rank-four classification · 88 pages
 
@@ -41,18 +43,18 @@ Related work on the pivotal case: Jingcheng Dong, Sébastien Palcoux and Arnaud 
 | Rank five, verification guide | [TeX](rank5/papers/verification_guide.tex) | [PDF](rank5/papers/verification_guide.pdf) | 4 | Exact certificates, models and replay scope |
 | Rank six | [TeX](rank6/papers/manuscript.tex) | [PDF](rank6/papers/manuscript.pdf) | 170 | 25,362 exclusions, 57 realizations, two open through 9; complete through 3 and exact bands 1, 2, 3, 5, 6, 7, 9 |
 | Rank six, verification guide | [TeX](rank6/papers/verification_guide.tex) | [PDF](rank6/papers/verification_guide.pdf) | 6 | Models, certificates and open-case reductions |
-| Rank seven | [TeX](rank7/papers/manuscript.tex) | [PDF](rank7/papers/manuscript.pdf) | 56 | Complete through multiplicity 4: 4,172 exclusions and 29 models |
+| Rank seven | [TeX](rank7/papers/manuscript.tex) | [PDF](rank7/papers/manuscript.pdf) | 61 | Through multiplicity 5: 9,961 exclusions, 30 models and 15 unresolved; complete through 4 |
 | Rank eight | [TeX](rank8/paper/rank8.tex) | [PDF](rank8/paper/rank8.pdf) | 61 | Complete through multiplicity 2: 896 exclusions and 77 models |
 
-The eight mathematical manuscripts contain **438 pages**.
-Including the three verification guides gives **457 pages**;
-including the 4-page [research-status report](prepublication-review-2026-10-17.pdf)
-gives **461 pages** across twelve distinct documents.
+The eight mathematical manuscripts contain **443 pages**.
+Including the three verification guides gives **462 pages**;
+including the 4-page [research-status report](prepublication-review-2026-10-19.pdf)
+gives **466 pages** across twelve distinct documents.
 These counts include references and appendices and count duplicate download
 copies only once. The [page inventory](../data/manuscript_page_counts.json)
-records every path, count and PDF checksum.
+records every path, count and PDF checksum. The [17 October status report](prepublication-review-2026-10-17.pdf) is retained as a historical snapshot and is not counted as a current document.
 
-Download the [two open fusion tensors as Python lists](../data/remaining_cases.py).
+Download the [open fusion tensors as Python lists](../data/remaining_cases.py).
 The file names each case and states the zero-based convention `N[i][j][k]`,
 unit index, duality map and canonical source checksums.
 
@@ -61,7 +63,7 @@ The sources use sections and generated tables in their sibling directories.
 The [document manifest](../data/current_document_revision.json) binds all
 current papers and their website copies.
 
-The [current research account](../docs/RESEARCH_STATUS.md) records **36 decisions among 38 cases**: 29 proposed general exclusions and 7 unitary constructions. Two general questions remain open: `R6_4_155` and `R6_8_1660`. The combined residual program records 140 decisions (120 exclusions and 20 constructions), all subject to independent mathematical verification.
+The [historical 38-case continuation](../docs/RESEARCH_STATUS.md) records **36 decisions among 38 cases**: 29 proposed general exclusions and 7 unitary constructions. Within that historical 38-case study, two questions remain open: `R6_4_155` and `R6_8_1660`. The combined residual program records 140 decisions (120 exclusions and 20 constructions), all subject to independent mathematical verification.
 
 The rank-six treatment includes conformal-embedding constructions, fermion
 Azumaya compatibility, odd cyclic Clifford constraints and fully-faithful

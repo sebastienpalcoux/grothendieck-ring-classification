@@ -23,7 +23,7 @@ PAPERS = (
     ('Rank-four verification guide', 'rank4/papers/verification_guide.pdf', 'verification_guide'),
     ('Rank-five verification guide', 'rank5/papers/verification_guide.pdf', 'verification_guide'),
     ('Rank-six verification guide', 'rank6/papers/verification_guide.pdf', 'verification_guide'),
-    ('Research status and verification', 'prepublication-review-2026-10-17.pdf', 'research_status_report'),
+    ('Research status and verification', 'prepublication-review-2026-10-19.pdf', 'research_status_report'),
 )
 
 
@@ -58,7 +58,7 @@ def validate_tensor(tensor):
         need(dual[dual[i]] == i and tensor[i][j][0] == int(dual[i] == j), 'Duality')
         for k in range(n):
             need(tensor[0][i][k] == tensor[i][0][k] == int(i == k), 'Unit is basis index zero')
-            need(tensor[i][j][k] == tensor[j][i][k] == tensor[dual[i]][k][j], 'Commutativity and reciprocity')
+            need(tensor[i][j][k] == tensor[dual[i]][k][j] == tensor[k][dual[j]][i], 'Frobenius reciprocity')
     for i, j, k, l in itertools.product(range(n), repeat=4):
         need(sum(tensor[i][j][a] * tensor[a][k][l] for a in range(n)) ==
              sum(tensor[j][k][a] * tensor[i][a][l] for a in range(n)), 'Associativity')
@@ -69,12 +69,15 @@ def source_cases(repo):
     path6 = 'supplements/rank6/data/unresolved_tensors.json'
     records6 = {r['id']: r for r in json.loads((repo / path6).read_text())}
     tensors = {name: records6[name]['N'] for name in IDS}
+    path7 = 'supplements/rank7/output/rank7_ledger.json'
+    records7 = {r['id']: r for r in json.loads((repo / path7).read_text()) if r['status']=='unresolved'}
+    tensors.update({name: row['tensor'] for name, row in records7.items()})
     duals, metadata = {}, {}
     for name, tensor in tensors.items():
         duals[name] = validate_tensor(tensor)
         rank, multiplicity, index = map(int, name[1:].split('_'))
         need(len(tensor) == rank and max(flat(tensor)) == multiplicity, 'Rank and exact multiplicity')
-        source = path6
+        source = path6 if rank == 6 else path7
         metadata[name] = {
             'rank': rank, 'multiplicity': multiplicity, 'index': index,
             'status': 'unresolved', 'unit_index': 0,
@@ -84,7 +87,7 @@ def source_cases(repo):
         }
         if rank == 6:
             need(duals[name] == records6[name]['dual'], 'Recorded rank-six duality')
-        ledger_path = 'supplements/rank6/data/decisions.json' if rank == 6 else 'supplements/rank8/data/decisions.json'
+        ledger_path = 'supplements/rank6/data/decisions.json' if rank == 6 else path7
         record = next(r for r in json.loads((repo / ledger_path).read_text()) if r['id'] == name)
         need(record['status'] == 'unresolved', 'Current unresolved ledger status')
         if 'tensor_sha256' in record:
@@ -94,7 +97,7 @@ def source_cases(repo):
 
 def render_tensors(repo):
     tensors, duals, metadata = source_cases(repo)
-    text = '''"""Exact fusion tensors of the two open general-complex cases.
+    text = '''"""Exact fusion tensors of the current open general-complex cases.
 
 N[i][j][k] is the coefficient of basis object k in the product i * j.
 Basis indices are zero-based; index 0 is the unit. Each named tensor is a
@@ -115,7 +118,7 @@ Tensor hashes use UTF-8 JSON with separators=(',', ':') and no trailing newline.
         text += ']\n\n'
     text += 'DUALS = ' + repr(duals) + '\n\n'
     text += 'METADATA = ' + json.dumps(metadata, indent=4) + '\n\n'
-    text += 'TENSORS = {' + ', '.join(repr(name) + ': ' + name for name in IDS) + '}\n'
+    text += 'TENSORS = {' + ', '.join(repr(name) + ': ' + name for name in tensors) + '}\n'
     return text
 
 
@@ -134,7 +137,7 @@ def build_pages(repo):
         records.append({'title': title, 'kind': kind, 'path': path.relative_to(repo).as_posix(),
                         'pages': len(PdfReader(path).pages), 'bytes': path.stat().st_size,
                         'sha256': sha(path.read_bytes())})
-    return {'schema': 'manuscript-page-counts/v1', 'date': '2026-10-17',
+    return {'schema': 'manuscript-page-counts/v1', 'date': '2026-10-19',
             'counting_rule': 'Count each distinct current document once, including its references and appendices; exclude website/supplement copies and compatibility aliases.',
             'document_counts': {'mathematical_manuscripts': 8, 'verification_guides': 3, 'research_status_reports': 1},
             'documents': records, 'totals': page_totals(records),
@@ -168,7 +171,7 @@ def validate_reader_resources(repo, check_web=False):
         for name in RESOURCE_NAMES:
             need((repo / 'data' / name).read_bytes() == (repo / 'site/dist/downloads' / name).read_bytes(),
                  'Reader download differs from source: ' + name)
-    return {'status': 'PASS', 'case_ids': list(IDS), 'page_totals': pages['totals'],
+    return {'status': 'PASS', 'case_ids': list(source_cases(repo)[0]), 'page_totals': pages['totals'],
             'resource_sha256': {name: sha((repo / 'data' / name).read_bytes()) for name in RESOURCE_NAMES}}
 
 

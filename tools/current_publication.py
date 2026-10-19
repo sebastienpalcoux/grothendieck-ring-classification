@@ -11,7 +11,8 @@ REPLAY_ARCHIVE_SHA256 = 'b5c98ca8317bdee7c439f2198d6f32807dd302dc440f2f458443642
 CITATION_REPLAY_DIRECTORY = 'evidence/citation_20261019'
 CITATION_REPLAY_MANIFEST_SHA256 = 'f66e3f910da6bce16b33c8fd8eabb2ab999959895a211b0c46f71a036cc65bd1'
 CITATION_REPLAY_ARCHIVE_SHA256 = 'e42c63857d52450f1e90db2a4474476148cbce70ea58edfe7acad6aad96bd06e'
-EXCLUDED_DOCUMENTS = set()
+EXCLUDED_DOCUMENTS = {'manuscripts/prepublication-review-2026-10-17.pdf'}
+# Retained as a dated historical report; the current report is the 19 October edition.
 
 def need(condition, message):
     if not condition:
@@ -31,15 +32,17 @@ def document_paths(repo):
     return {path.relative_to(repo).as_posix()
             for root in roots for path in root.rglob('*')
             if path.is_file() and path.suffix in ('.tex', '.pdf')
-            and path.relative_to(repo).as_posix() not in EXCLUDED_DOCUMENTS}
+            and path.relative_to(repo).as_posix() not in EXCLUDED_DOCUMENTS} | {'docs/New_category_candidates_and_open_cases.pdf'}
 
 def validate_documents(repo, check_web=False):
     repo = Path(repo)
     revision = json.loads((repo / DOCUMENT_REVISION).read_text())
-    need(revision['schema'] == 'current-document-revision/v1' and revision['date'] == '2026-10-17',
+    need(revision['schema'] == 'current-document-revision/v1' and revision['date'] in ('2026-10-17', '2026-10-19'),
          'Current document revision identity')
-    need(revision['remaining_ids'] == ['R6_4_155', 'R6_8_1660']
+    from rank7_publication import remaining_ids, extension
+    need(revision['remaining_ids'] == remaining_ids(repo)
          and revision['accepted_decisions'] == 36, 'Current document mathematical scope')
+    need(revision.get('rank7_m5_update') == extension(repo), 'Current rank-seven extension scope')
     progress = 'evidence/rigidity_20261017/rank6/research_progress.json'
     need(revision['research_progress'] == progress and
          revision['research_progress_sha256'] == sha((repo / progress).read_bytes()),
@@ -109,6 +112,11 @@ def replay_sources(repo):
     citations = citation_replay_sources(repo)
     need(not set(result).intersection(citations), 'Citation replay must be additive')
     result.update(citations)
+    from rank7_publication import extension, historical_sources
+    if extension(repo):
+        previous = historical_sources(repo)
+        need(not set(result).intersection(previous), 'Rank-seven extension replay must be additive')
+        result.update(previous)
     return result
 
 def restore_replay_sources(repo, destination, sources=None):

@@ -24,13 +24,13 @@ categorifications over ℂ.
 
 > [!NOTE]
 > **[Research announcement · 5 pages](announcements/hexagon-2026-10/Low_rank_Grothendieck_rings_announcement.pdf)**
-> Classification scope, seven construction candidates, and the two open categorification problems.
+> Historical October announcement: classification scope, seven construction candidates, and the two rank-six open problems.
 > [TeX source and Hexagon submission package](announcements/hexagon-2026-10/).
 > **[Read the announcement on Hexagon · 2610.00300v1](https://hexagonmath.org/2610.00300?version=1)**.
 
 > [!TIP]
 > **[Potentially new tensor categories and open cases (one-page PDF)](docs/New_category_candidates_and_open_cases.pdf)**
-> Seven promising construction candidates, with the two unresolved rank-six cases highlighted.
+> Seven provisional construction candidates, the known `Rep(AGL(1,7))` model, and all 17 current open cases.
 > Novelty up to tensor equivalence remains subject to independent verification.
 
 | Start here | What you will find |
@@ -43,10 +43,12 @@ categorifications over ℂ.
 
 **Current research account.** The 38-case continuation records **36 decisions**:
 29 proposed general exclusions and 7 unitary constructions. **Two general
-cases remain open:** `R6_4_155` and `R6_8_1660`. Rank eight is complete
+cases from that historical study remain open:** `R6_4_155` and `R6_8_1660`. Rank eight is complete
 through multiplicity two, with 896 exclusions and 77 unitary models.
 The exclusion of `R8_2_24` follows from an inner-square obstruction using
 pivotal duality, short associator weights and tensor-functor rigidity.
+The 19 October rank-seven extension addresses all 5,805 exact-multiplicity-five rings: 5,789 general exclusions, 1 realization and 15 unresolved cases. The classification is complete through multiplicity 4. The new realization R7_5_5678 is Rep(AGL(1,7)). The unresolved records remain open for general complex categorification.
+
 The tables below report the project's classification claims; “complete” and
 “certified” do not imply independent human verification or Lean formalization.
 
@@ -67,7 +69,7 @@ The tables below report the project's classification claims; “complete” and
 | 2 | 0 | 1 | 3 | 3 | 22 | 10 | 29 |
 | 3 | 0 | 0 | 2 | 2 | 3 | 2 | — |
 | 4 | 0 | 0 | 0 | 2 | ≥5 | 4 | — |
-| 5 | 0 | 0 | 0 | 0 | 1 | — | — |
+| 5 | 0 | 0 | 0 | 0 | 1 | ≥1 | — |
 | 6 | 0 | 0 | 1 | 0 | 3 | — | — |
 | 7 | 0 | 0 | 0 | 0 | 2 | — | — |
 
@@ -92,7 +94,7 @@ Census bounds describe enumeration coverage; classification scope is stated sepa
 | 4 | Through 128 | **Unrestricted theorem** | Exactly 15 realized rings; every categorification is spherical; multiplicity at most 6. |
 | 5 | Through 20 | **Complete through 20** | Through 20: 40,982 excluded, 17 realized, 0 unresolved. |
 | 6 | Through 9 | **Complete through 3** | Through 9: 25,362 excluded, 57 realized, 2 unresolved. |
-| 7 | Through 4 | **Complete through 4** | Through 4: 4,172 excluded, 29 realized, 0 unresolved. |
+| 7 | Through 5 | **Complete through 4**; multiplicity 5 partial | Through 5: 9,961 excluded, 30 realized, 15 unresolved. |
 | 8 | Through 2 | **Complete through 2** | Through 2: 896 excluded, 77 realized, 0 unresolved. |
 
 The [rank-four unrestricted proof](manuscripts/rank4/papers/companion.pdf) gives the sharp bound FPdim ≤ 24+12√3, attained only by the near-group ring `NG(C₃,6)`. Its theoretical reduction gives FPdim < 1000 and multiplicity at most 31; an independent exact census then checks 1,692 rings, with 1,677 exclusions and 15 models. The separate multiplicity-128 census contains 889,530 rings and 889,515 exclusions.
@@ -139,7 +141,7 @@ arguments. These necessary restrictions do not decide categorifiability.
 [Replay guide](docs/VERIFY.md)
 
 
-The [current research account](docs/RESEARCH_STATUS.md) records **36 decisions among 38 cases**: 29 proposed general exclusions and 7 unitary constructions. Two general questions remain open: `R6_4_155` and `R6_8_1660`. The combined residual program records 140 decisions (120 exclusions and 20 constructions), all subject to independent mathematical verification.
+The [historical 38-case continuation](docs/RESEARCH_STATUS.md) records **36 decisions among 38 cases**: 29 proposed general exclusions and 7 unitary constructions. Within that historical 38-case study, two questions remain open: `R6_4_155` and `R6_8_1660`. The combined residual program records 140 decisions (120 exclusions and 20 constructions), all subject to independent mathematical verification.
 The [proof inventory](docs/VERIFY.md) gives the replay paths.
 Scope-specific obstructions retain their stated assumptions and do not change
 a ring's general unresolved status.
@@ -152,7 +154,7 @@ a ring's general unresolved status.
 | 2 | 14 excluded · 3 realized | 34 excluded · 3 realized | 132 excluded · 22 realized | 309 excluded · 10 realized | 848 excluded · 29 realized |
 | 3 | 22 excluded · 2 realized | 80 excluded · 2 realized | 381 excluded · 3 realized | 1,057 excluded · 2 realized | — |
 | 4 | 45 excluded · 0 realized | 132 excluded · 2 realized | 866 excluded · 5 realized · **1 open** | 2,776 excluded · 4 realized | — |
-| 5 | 55 excluded · 0 realized | 209 excluded · 0 realized | 1,581 excluded · 1 realized | — | — |
+| 5 | 55 excluded · 0 realized | 209 excluded · 0 realized | 1,581 excluded · 1 realized | 5,789 excluded · 1 realized · **15 open** | — |
 | 6 | 80 excluded · 1 realized | 336 excluded · 0 realized | 2,765 excluded · 3 realized | — | — |
 | 7 | 92 excluded · 0 realized | 477 excluded · 0 realized | 3,812 excluded · 2 realized | — | — |
 | 8 | 137 excluded · 0 realized | 733 excluded · 0 realized | 6,998 excluded · 0 realized · **1 open** | — | — |
@@ -181,7 +183,7 @@ row checks and scope appear in [the provenance record](docs/PROVENANCE.md).
 | 4 | Multiplicity 18 | The same criterion families suffice for the allocated exclusions at 19–128. |
 | 5 | Multiplicity 18 | Inert-prime quadratic parity first closes two cases at 18; no new criterion family is needed at 19–20. |
 | 6 | See the allocation ledger | The current criteria include stabilizer, cyclotomic-trace and signed arithmetic obstructions. All 8,809 exact-multiplicity-nine rings have general exclusion certificates; 2 earlier cases remain unresolved through multiplicity 9. |
-| 7 | Multiplicity 4 | Group-theoretical, Morita and center arguments contribute through 4. There are 0 generally open rings in the analyzed range; higher multiplicities are not classified here. |
+| 7 | See the allocation ledger | The multiplicity-five extension combines existing criteria with new cyclic-isotypic integrality and cubic-Fourier module arguments; surviving cases are explicit. There are 15 generally open rings in the analyzed range; higher multiplicities are not classified here. |
 | 8 | Multiplicity 2 | Graded Brauer-Picard, fiber-functor and inner-square rigidity obstructions give the complete classification through 2. There are 0 generally open rings in the analyzed range; higher multiplicities are not classified here. |
 
 This records **first use in the chosen certificate allocation**, not an

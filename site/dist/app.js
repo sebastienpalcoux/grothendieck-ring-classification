@@ -277,15 +277,19 @@ function renderTheoreticalUpdate() {
   const details = $("#theoretical-update");
   notice.hidden = details.hidden = !update;
   if (!update) return;
-  const date = new Date(update.date + "T12:00:00Z").toLocaleDateString("en-GB", {day:"numeric", month:"long", year:"numeric", timeZone:"UTC"});
-  $("#research-update-title").textContent = `${date} · ${update.new_general_exclusions} exclusions · ${update.new_unitary_models || 0} unitary models`;
+  const date = new Date((state.data.rank7_m5_update?.date || update.date) + "T12:00:00Z").toLocaleDateString("en-GB", {day:"numeric", month:"long", year:"numeric", timeZone:"UTC"});
+  const latest = state.data.rank7_m5_update;
+  $("#research-update-title").textContent = latest ? `${date} · rank seven through multiplicity five · ${latest.unresolved} new open cases` : `${date} · ${update.new_general_exclusions} exclusions · ${update.new_unitary_models || 0} unitary models`;
   const rankNames = {"6": "rank-six", "7": "rank-seven", "8": "rank-eight"};
-  const openParts = Object.entries(update.remaining).filter(([, count]) => count > 0).map(([rank, count]) => `${count} ${rankNames[rank]}`);
+  const currentRemaining = Object.fromEntries(state.data.scope.filter(r=>r.rank>=6).map(r=>[String(r.rank),r.unresolved]));
+  const openParts = Object.entries(currentRemaining).filter(([, count]) => count > 0).map(([rank, count]) => `${count} ${rankNames[rank]}`);
   const openText = openParts.length ? ` General existence remains open for ${openParts.join(", ")} rings.` : " Every case in this continuation is resolved.";
-  const completion = (update.remaining["7"] === 0 ? " Rank seven is complete through multiplicity four." : "") + (update.remaining["8"] === 0 ? " Rank eight is complete through multiplicity two." : " Rank eight is complete through multiplicity one; multiplicity two is partial.");
-  $("#research-update-summary").textContent = `The continuation records ${update.decisions.length} decisions among ${update.original_case_count || 38} cases: ${update.by_rank["7"]} at rank seven and ${update.by_rank["8"]} at rank eight.${completion}${openText}`;
-  $("#theoretical-update-heading").textContent = `${date} · ${update.decisions.length} decisions · ${Object.values(update.remaining).reduce((a,b)=>a+b,0)} open cases`;
-  $("#theoretical-update-scope").textContent = "The continuation gives 29 proposed general exclusions and 7 unitary constructions. R6_4_155 and R6_8_1660 remain open. The methods combine Morita theory, Frobenius–Schur indicators, center constraints, algebraic planar algebras and tensor-functor rigidity. The inner-square obstruction settles R8_2_24 over the complex numbers. The bundle includes current manuscripts, proofs, exact replay programs and the unresolved inventory. Independent human verification and Lean formalization remain pending.";
+  const completion = state.data.scope.filter(r=>r.rank>=7).map(r=>` Rank ${r.rank} is complete through multiplicity ${r.through}; analyzed through ${r.analyzed_through}.`).join("");
+  const m5 = state.data.rank7_m5_update;
+  const extensionText = m5 ? ` The 19 October extension addresses ${fmt.format(m5.rings)} rank-seven multiplicity-five rings: ${fmt.format(m5.excluded)} exclusions, ${m5.realized} models and ${m5.unresolved} open cases.` : "";
+  $("#research-update-summary").textContent = `The continuation records ${update.decisions.length} decisions among ${update.original_case_count || 38} cases: ${update.by_rank["7"]} at rank seven and ${update.by_rank["8"]} at rank eight.${completion}${extensionText}${openText}`;
+  $("#theoretical-update-heading").textContent = `Current research · ${Object.values(currentRemaining).reduce((a,b)=>a+b,0)} open cases`;
+  $("#theoretical-update-scope").textContent = extensionText + " The historical 38-case continuation gives 29 proposed general exclusions and 7 unitary constructions. R6_4_155 and R6_8_1660 remain open. The methods combine Morita theory, Frobenius–Schur indicators, center constraints, algebraic planar algebras and tensor-functor rigidity. The inner-square obstruction settles R8_2_24 over the complex numbers. The bundle includes current manuscripts, proofs, exact replay programs and the unresolved inventory. Independent human verification and Lean formalization remain pending.";
   const base = `${state.data.classification_repository}/blob/${state.data.classification_commit || "main"}/docs/RESEARCH_STATUS.md`;
   $("#latest-research-source").href = base;
   $("#latest-research-source").textContent = `${date} proofs and remaining cases ↗`;
@@ -293,16 +297,16 @@ function renderTheoreticalUpdate() {
   actions.replaceChildren();
   const archive = element("a", "", `Download proofs & verification · ${(update.archive.bytes / 1048576).toFixed(1)} MB ↓`);
   archive.href = update.archive.url || `./${update.archive.path}`; archive.download = "";
-  const decisions = element("a", "", "Decision records JSON ↓");
+  const decisions = element("a", "", "Historical continuation decisions JSON ↓");
   decisions.href = `./${update.files.decisions.path}`; decisions.download = "";
   const remaining = element("a", "", "Remaining cases JSON ↓");
-  remaining.href = `./${update.files.remaining_ids.path}`; remaining.download = "";
+  remaining.href = `./${state.data.remaining_ids_file?.path || update.files.remaining_ids.path}`; remaining.download = "";
   const source = element("a", "", "Research source ↗");
   source.href = base; source.target = "_blank"; source.rel = "noopener";
   const review = element("a", "", "Research status & verification ↗");
   review.href = "./review.html";
   actions.append(archive, decisions, remaining, source, review);
-  const coverage = element("a", "", "All 38 cases and remaining questions ↗");
+  const coverage = element("a", "", "Historical 38-case study and proof references ↗");
   coverage.href = `${state.data.classification_repository}/blob/${state.data.classification_commit || "main"}/docs/CASE_INVENTORY.md`;
   coverage.target = "_blank"; coverage.rel = "noopener";
   actions.append(coverage);
@@ -404,7 +408,7 @@ function renderPapers() {
   const r7=state.data.scope.find((x)=>x.rank===7);
   const r8=state.data.scope.find((x)=>x.rank===8);
   if (r7)
-    entries.push({rank:7,title:r7.unresolved ? "Rank-seven Grothendieck rings: certified exclusions and models through multiplicity four" : "Rank-seven Grothendieck rings: complete classification through multiplicity four",
+    entries.push({rank:7,title:r7.unresolved ? `Rank-seven Grothendieck rings: exclusions and models through multiplicity ${r7.analyzed_through}` : `Rank-seven Grothendieck rings: complete classification through multiplicity ${r7.analyzed_through}`,
       subtitle:`${fmt.format(r7.rings)} analyzed; ${r7.positive} models${r7.unresolved ? ` and ${r7.unresolved} general open ${r7.unresolved===1?"case":"cases"}` : "; complete classification"}`,type:"CLASSIFICATION",slug:"rank7"});
   if (r8)
     entries.push({rank:8,title:r8.unresolved ? "Rank-eight Grothendieck rings through multiplicity two: criteria, models, and the unresolved frontier" : "Rank-eight Grothendieck rings: complete classification through multiplicity two",

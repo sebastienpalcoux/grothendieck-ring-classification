@@ -11,13 +11,18 @@ def main():
     target=ROOT/'data/classification_status.json';x=json.loads(target.read_text())
     latest=load_stages(ROOT)['latest']
     old_lower=[r.copy() for r in x['rows'] if r['rank']<7]
-    sources={7:('supplements/rank7/output/rank7_ledger.json','supplements/rank7/release/rank7-certified-through-m4.zip'),
+    sources={7:('supplements/rank7/output/rank7_ledger.json','supplements/rank7/release/rank7-certified-through-m5.zip'),
              8:('supplements/rank8/data/decisions.json','supplements/rank8/rank8-verified-supplement.zip')}
     for rank,(ledger,archive) in sources.items():
         raw=(ROOT/ledger).read_bytes();rows=json.loads(raw);counts=collections.Counter(r['status'] for r in rows)
         counts.setdefault('unresolved',0)
         x['inputs'][f'rank{rank}'].update(file=ledger,sha256=hashlib.sha256(raw).hexdigest(),status_totals=dict(counts),
             residual_update='evidence/'+latest+'/README.md')
+        census=json.loads((ROOT/'data/counts.json').read_text())
+        x['rows']=[row for row in x['rows'] if row['rank'] != rank] + [
+            dict(rank=rank, multiplicity=row['multiplicity'], rings=row['rings'])
+            for row in census['rows'] if row['rank']==rank]
+        x['inputs'][f'rank{rank}']['classified_through']=max(r['multiplicity'] for r in rows)
         for row in x['rows']:
             if row['rank']!=rank:continue
             band=[d for d in rows if d['multiplicity']==row['multiplicity']]
@@ -34,10 +39,19 @@ def main():
             complete+=1
         x['inputs'][f'rank{rank}']['general_complete_through']=complete
         a=ROOT/archive
-        b=next(z for z in x['bundles'] if z['name']==a.name);b['sha256']=hashlib.sha256(a.read_bytes()).hexdigest()
+        x['inputs'][f'rank{rank}']['current_bundle']=a.name
+        if rank == 7:
+            x['inputs']['rank7']['extension'] = {
+                'date': '2026-10-19', 'multiplicity': 5,
+                'source': 'supplements/rank7/output/m5/source.json',
+                'normal_replay': 'supplements/rank7/output/m5/replay_normal.json',
+                'optimized_replay': 'supplements/rank7/output/m5/replay_optimized.json'}
+        x['bundles']=[z for z in x['bundles'] if not z['name'].startswith(f'rank{rank}-')]
+        x['bundles'].append({'name':a.name,'sha256':hashlib.sha256(a.read_bytes()).hexdigest()})
     if old_lower!=[r for r in x['rows'] if r['rank']<7]:raise ValueError('Lower-rank status changed')
+    x['rows'].sort(key=lambda row:(row['rank'],row['multiplicity']))
     target.write_text(json.dumps(x,indent=2)+'\n')
     with (ROOT/'data/classification_status.csv').open('w',newline='') as f:
-        w=csv.DictWriter(f,fieldnames=list(x['rows'][0]));w.writeheader();w.writerows(x['rows'])
+        w=csv.DictWriter(f,fieldnames=list(x['rows'][0]),lineterminator='\n');w.writeheader();w.writerows(x['rows'])
     print({r:x['inputs'][f'rank{r}']['status_totals'] for r in (7,8)})
 if __name__=='__main__':main()

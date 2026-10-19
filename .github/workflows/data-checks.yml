@@ -19,6 +19,10 @@ jobs:
         run: python supplements/rank4/unrestricted/supplementary/check.py --deep
       - name: Verify independent rank-four algebra and source bindings
         run: python evidence/rank4_unrestricted_20261017/run_checks.py
+      - name: Verify rank-seven multiplicity-five extension
+        run: python supplements/rank7/software/verify_m5.py
+      - name: Verify rank-seven extension with assertions disabled
+        run: python -O supplements/rank7/software/verify_m5.py
       - name: Verify current publication and complete proof history
         run: python tools/verify_current_publication.py --historical
       - name: Verify publication and proof history with assertions disabled

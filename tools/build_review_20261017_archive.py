@@ -101,12 +101,22 @@ def collect(root):
     for folder in ('evidence/unified_20261016', 'evidence/theoretical_20261016',
                    'evidence/review_20261017', 'evidence/prepublication_20261017',
                    'evidence/publication_20261017', 'evidence/rank4_unrestricted_20261017',
-                   'evidence/rigidity_20261017', 'evidence/citation_20261019'):
+                   'evidence/rigidity_20261017', 'evidence/citation_20261019',
+                   'evidence/rank7_m5_20261019', 'supplements/rank7/output/m5',
+                   'supplements/rank7/provenance', 'supplements/rank7/output'):
         paths.update(path.relative_to(root).as_posix() for path in (root / folder).rglob('*')
                      if path.is_file() and not {'__pycache__', '.pytest_cache'}.intersection(path.parts)
                      and path.suffix not in ('.pyc', '.pyo', '.tmp', '.writing', '.swp')
                      and path.name != '.DS_Store')
     paths.update(revision['documents'])
+    for folder in ('supplements/rank7/software','supplements/rank7/data'):
+        paths.update(path.relative_to(root).as_posix() for path in (root/folder).rglob('*')
+                     if path.is_file() and path.suffix in ('.py','.cpp','.h','.hpp','.json','.gz','.txt','.csv','.md'))
+    paths.update(path.relative_to(root).as_posix() for path in (root/'supplements/rank7').glob('*')
+                 if path.is_file() and path.suffix in ('.py','.cpp','.md'))
+    paths.update(('tools/sync_rank7_m5_publication.py', 'tools/import_rank7_m5_counts.py',
+                  'tools/build_novelty_frontier_brief.py',
+                  'data/counts.json', 'data/classification_status.json'))
     paths.update(json.loads((root / 'evidence/rigidity_20261017/source_files.json').read_text()))
     necessary = json.loads((root / 'evidence/rigidity_20261017/rank6/MANIFEST.json').read_text())
     paths.update(item['path'] for item in necessary['external_inputs'])
@@ -119,7 +129,7 @@ def collect(root):
     paths.update(path.relative_to(root).as_posix() for path in (root / 'supplements').glob('rank*/README.md'))
     # Include the current reader indexes and the clean status-PDF source, so the
     # downloaded edition has the same navigation and rebuild inputs as GitHub.
-    paths.update(('manuscripts/README.md', 'supplements/README.md',
+    paths.update(('manuscripts/README.md', 'manuscripts/prepublication-review-2026-10-17.pdf', 'supplements/README.md',
                   'tools/build_prepublication_review.py', 'docs/prepublication_review_content.json'))
     paths.update(path.relative_to(root).as_posix() for path in (root / 'supplements/rank6').rglob('*.md')
                  if path.name in ('README.md', 'CURRENT_STATUS.md'))
@@ -129,6 +139,10 @@ def collect(root):
                   'tools/build_review_20261017_archive.py', 'tools/build_current_document_revision.py',
                   'tools/reader_resources.py', 'data/remaining_cases.py', 'data/manuscript_page_counts.json',
                   'docs/PREPUBLICATION_REVIEW.md', 'docs/RESEARCH_STATUS.md', 'docs/VERIFY.md'))
+    paths.update(('tools/rank7_publication.py',
+                  'supplements/rank7/output/rank7_ledger.json',
+                  'supplements/rank7/output/rank7_ledger_through_m4.json',
+                  'supplements/rank7/data/rank7_tables_through_m4.txt.gz'))
     payload = {name: (root / name).read_bytes() for name in sorted(paths)}
     # The immutable proof manifest keeps its exact original hashes. Revised
     # documents are verified separately; their original replay bytes are in the
@@ -173,7 +187,7 @@ verification and Lean formalization have not been completed.
 
 Start with docs/RESEARCH_STATUS.md and the manuscripts directory.
 The verification procedures and their precise limits are in docs/VERIFY.md.
-The exact tensors of the two open cases are plain Python nested lists in
+The exact tensors of the current open cases are plain Python nested lists in
 data/remaining_cases.py, with unit, duality, convention and source hashes.
 data/manuscript_page_counts.json counts each distinct current PDF once.
 
@@ -190,6 +204,8 @@ certifies the stated checks, not the mathematical correctness of every argument.
 ARCHIVE_MANIFEST.json records each included source's SHA-256 and byte size.
 Fixed timestamps and sorted paths make identical inputs produce identical ZIP bytes.
 """).encode()
+    from rank7_publication import summary
+    payload['README.md'] += ('\n' + summary(root) + '\n').encode()
     payload['ARCHIVE_MANIFEST.json'] = (json.dumps({name: {'bytes': len(raw), 'sha256': digest(raw)}
                                                    for name, raw in sorted(payload.items())}, indent=2) + '\n').encode()
     output = (args.output or root / 'site/dist/downloads' / f'{PREFIX}.zip').resolve()
@@ -222,7 +238,7 @@ Fixed timestamps and sorted paths make identical inputs produce identical ZIP by
         if run.returncode:
             raise ValueError('Standalone publication check failed:\n' + run.stdout + run.stderr)
         receipt = json.loads(run.stdout)
-        if receipt['status'] != 'PASS' or receipt['accepted_decisions'] != 36:
+        if receipt['status'] != 'PASS' or receipt['historical_accepted_decisions'] != 36:
             raise ValueError('Inconsistent receipt')
         for name, expected in inputs.items():
             if digest((root / name).read_bytes()) != expected:

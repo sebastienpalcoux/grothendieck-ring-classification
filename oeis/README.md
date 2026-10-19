@@ -1,5 +1,7 @@
 # Proposed OEIS exports
 
+The 19 October rank-seven extension addresses all 5,805 exact-multiplicity-five rings: 5,789 general exclusions, 1 realization and 15 unresolved cases. The classification is complete through multiplicity 4. The new realization R7_5_5678 is Rep(AGL(1,7)). The unresolved records remain open for general complex categorification.
+
 These are local **draft data files**, not OEIS submissions or assigned
 sequence numbers. A term counts the rank-`r` based fusion rings of **exact**
 multiplicity `m` with at least one fusion-category realization over ℂ.

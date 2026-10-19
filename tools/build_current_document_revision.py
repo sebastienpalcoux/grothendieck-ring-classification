@@ -4,6 +4,7 @@ from pathlib import Path
 import argparse
 import json
 from current_publication import DOCUMENT_REVISION, document_paths, sha, need
+from rank7_publication import extension, remaining_ids
 
 ROOT = Path(__file__).resolve().parents[1]
 WEB_COPIES = {
@@ -21,7 +22,7 @@ WEB_COPIES = {
     'papers/rank8.pdf': 'manuscripts/rank8/paper/rank8.pdf',
     'papers/rank8-reviewed.pdf': 'manuscripts/rank8/paper/rank8.pdf',
     'papers/rank6_addendum_20261002.pdf': 'manuscripts/rank6/papers/manuscript.pdf',
-    'papers/prepublication-review-2026-10-17.pdf': 'manuscripts/prepublication-review-2026-10-17.pdf',
+    'papers/prepublication-review-2026-10-19.pdf': 'manuscripts/prepublication-review-2026-10-19.pdf',
 }
 
 def main():
@@ -35,9 +36,11 @@ def main():
         raw = (repo / name).read_bytes()
         documents[name] = {'sha256': sha(raw), 'bytes': len(raw)}
     need(set(WEB_COPIES.values()) <= set(documents), 'Compile every current manuscript and guide before binding the revision')
-    revision = {'schema': 'current-document-revision/v1', 'date': '2026-10-17',
+    revision = {'schema': 'current-document-revision/v1', 'date': '2026-10-19' if extension(repo) else '2026-10-17',
                 'accepted_decisions': 36,
-                'remaining_ids': ['R6_4_155', 'R6_8_1660'],
+                'remaining_ids': remaining_ids(repo),
+                'accepted_decisions_scope': 'Historical 38-case continuation through rank-seven multiplicity four',
+                'rank7_m5_update': extension(repo),
                 'research_progress': 'evidence/rigidity_20261017/rank6/research_progress.json',
                 'research_progress_sha256': sha((repo / 'evidence/rigidity_20261017/rank6/research_progress.json').read_bytes()),
                 'documents': documents, 'web_copies': WEB_COPIES}

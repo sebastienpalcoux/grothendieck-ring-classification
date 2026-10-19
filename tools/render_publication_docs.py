@@ -5,6 +5,7 @@ import json
 from pathlib import Path
 from rank6_publication import validate_identity, completed_bands, validate_document_revision
 from publication_stages import load_stages, overview
+from rank7_publication import summary as rank7_extension_summary, extension
 
 ROOT = Path(__file__).resolve().parents[1]
 CAUTION = '''> **AI-generated research · independent verification pending.** Treat these
@@ -12,7 +13,9 @@ CAUTION = '''> **AI-generated research · independent verification pending.** Tr
 > independently verified by human experts or formalized in Lean. Automated
 > checks establish only their stated computational scope.
 '''
-FRONTIER = '''| Open ring | Established necessary restrictions | Remaining question |
+FRONTIER = '''### Rank-six open rings
+
+| Open ring | Established necessary restrictions | Remaining question |
 |---|---|---|
 | `R6_4_155` | A unique rank-26 modular candidate and a rank-22 based module; odd cyclic Clifford constraints pass on all 1,144 tested blocks, and the all-order path divisibility condition holds. | Coherent associators and module-category structures, or a general obstruction. |
 | `R6_8_1660` | In the positive spherical representative, all indicator sequences and central phase masses are determined; eight spin objects form four dual pairs, and 640 labelled restriction-data profiles remain in branches 68, 286, 286. | A categorification or an obstruction covering every possible profile. |
@@ -68,7 +71,7 @@ def case_inventory(repo):
         if not source.is_file() or ('\\label{'+label+'}') not in source.read_text():
             raise ValueError('Missing current manuscript reference: '+path+' '+label)
         return f'[Source](../manuscripts/{path}) (`{label}`)'
-    text='# Current inventory of 38 cases\n\n'+CAUTION+'''
+    text='# Historical 38-case study and current proof references\n\n'+CAUTION+'''
 **36 accepted decisions: 29 proposed general exclusions and seven unitary
 constructions. Two general questions remain open.** This inventory covers
 these 38 cases; it is not a count of every ring in the full census.
@@ -85,7 +88,7 @@ Read the [rank-six manuscript](../manuscripts/rank6/papers/manuscript.pdf),
 The source links below identify the current integrated proof or open-case
 section; the stable LaTeX label locates the exact statement in that source.
 
-## Two open cases
+## Two open cases within the historical study
 
 | Case | Current status and remaining task | Current manuscript section |
 |---|---|---|
@@ -104,8 +107,9 @@ section; the stable LaTeX label locates the exact statement in that source.
             status='General exclusion' if d['status']=='excluded' else 'Unitary construction'
             text+=f"| `{d['id']}` | {status} | {method} | {proof_link(path,label)} |\n"
     text+='''
-## Classification boundary and checks
+## Classification boundary of the historical study
 
+The following boundary describes the 17 October study; the current M5 extension is stated above.
 Through multiplicity nine, rank six has 25,362 exclusions, 57 realizations and
 two open cases. Rank seven is complete through multiplicity four with 4,172
 exclusions and 29 models. Rank eight is complete through multiplicity two:
@@ -142,6 +146,13 @@ def render(repo, identity):
     def totals(r):return upper[r]['status_totals']
     def bound(r):return upper[r]['classified_through']
     def complete(r):return next((m-1 for m in range(1,bound(r)+1) if rows[r,m]['unresolved_general'] or rows[r,m]['unassessed']),bound(r))
+    extension_text=rank7_extension_summary(repo)
+    census_extension=json.loads((repo/'data/counts.json').read_text()).get('census_extensions',{}).get('rank7_m5')
+    census_note=(f"The rank-seven M5 extension is pinned separately to census commit `{census_extension['census_commit']}`. "
+                 "Its 5,805 new exact-multiplicity-five tensors and agreement with the earlier 4,201 tensors passed independent computational checks; exhaustive enumeration completeness relies on the supplied producer completion record. The optimized enumeration itself was not independently rerun." if census_extension else '')
+    rank7_scope=(f"Through multiplicity {bound(7)}: {totals(7)['excluded']:,} exclusions, "
+                 f"{totals(7)['unitarily_realized']} models and {totals(7)['unresolved']} unresolved; "
+                 f"complete through {complete(7)}")
     out={"docs/CASE_INVENTORY.md":case_inventory(repo)}
     out['docs/RESEARCH_STATUS.md']='# Research status and verification\n\n'+CAUTION+'''
 The [public atlas](https://sebastienpalcoux.github.io/grothendieck-ring-classification/)
@@ -159,13 +170,17 @@ Rank six records **{s['excluded']:,} exclusions, {s['positive']} realizations an
 {s['unresolved']} open cases** through multiplicity nine. Its complete contiguous
 range ends at three; exact bands {bands} are complete. Rank seven records
 **{totals(7)['excluded']:,} exclusions and {totals(7)['unitarily_realized']} realizations**,
-with no open case through multiplicity four. Rank eight records
+with **{totals(7)['unresolved']} open cases through multiplicity {bound(7)}**; complete through multiplicity {complete(7)}. Rank eight records
 **{totals(8)['excluded']} exclusions and {totals(8)['unitarily_realized']} realizations**,
 with no open case through multiplicity two. The general exclusion of
 `R8_2_24` uses an inner-square obstruction from short gauge weights and
 tensor-functor rigidity.
 
 '''+FRONTIER+'''
+### Rank-seven open rings
+
+All 15 open rank-seven cases lie in exact multiplicity five. Their identifiers, tensors and recorded criterion results are in the [M5 frontier](../supplements/rank7/output/m5/survivors.json) and [extension evidence](../evidence/rank7_m5_20261019/README.md). [Download all 17 current open tensors](../data/remaining_cases.py), including the two rank-six cases.
+
 A necessary-condition witness is neither a categorification nor a general
 nonexistence proof. Scoped unitary, pseudo-unitary, pivotal or braided
 obstructions retain their assumptions and do not change a general open status.
@@ -221,7 +236,8 @@ cannot certify that every mathematical step is correct.
 | Rank four | Two complete 889,530-ring replays, each regenerating 6,470,006 signed orbits; separate unsigned recount | Passed: 15 models and 889,515 exclusions. |
 | Rank five | All 40,999 classes, 17 models and 40,982 exclusion certificates in normal and optimized Python | Passed; complete reconstructed ledgers are byte-identical. |
 | Rank six | Model/import pipeline and all 25,362 exclusion certificates, followed by the two post-loop checks | Combined coverage passed; the initial full process failed on seven certificates, each of which passed a separate complete Python-backend replay. |
-| Rank seven base certificates | 4,201 records: 4,116 exclusions, 26 models and 59 cases deferred to continuation proofs | Passed in normal Python. |
+| Rank seven base certificates through multiplicity four | 4,201 records: 4,116 exclusions, 26 models and 59 cases deferred to continuation proofs | Passed in normal Python. |
+| Rank seven multiplicity-five extension | All 5,805 new records: 5,789 general-exclusion certificates, one `Rep(AGL(1,7))` model and 15 open cases | Exact normal and optimized replays passed; [normal receipt](../supplements/rank7/output/m5/replay_normal.json), [optimized receipt](../supplements/rank7/output/m5/replay_optimized.json). Enumeration completeness remains producer-reported. |
 | Rank eight base certificates | 973 records: 832 exclusions, 60 models and 81 cases deferred to continuation proofs | Passed in normal Python, including signed proof trees. |
 | Continuation chain and current inventory | Source identities, accepted decisions and dependency replays in normal and optimized Python | Passed within each program's stated scope; does not prove categorical coherence. |
 
@@ -270,7 +286,7 @@ No private attachment is required for either public replay.
     ledger_rows += [(str(r),upper[r]['sha256'],f"{sum(totals(r).values()):,}",f"{totals(r)['excluded']:,} excluded; {totals(r)['unitarily_realized']} realized; {totals(r)['unresolved']} open") for r in (7,8)]
     out['docs/PROVENANCE.md']='# Provenance and boundaries\n\n'+CAUTION+f'''
 The [fusion-ring-census repository](https://github.com/sebastienpalcoux/fusion-ring-census)
-owns the based-ring enumeration and tensors. The classification import is pinned
+owns the based-ring enumeration and tensors. The original classification import is pinned
 to [`{identity['census_commit']}`](https://github.com/sebastienpalcoux/fusion-ring-census/tree/{identity['census_commit']}).
 Rank-specific source manifests identify the exact census revision used by each
 certificate. Classification decisions are separate from census completeness.
@@ -284,7 +300,7 @@ certificate. Classification decisions are separate from census completeness.
 | 4 | Unrestricted | Exactly 15 models; every categorification is spherical; multiplicity at most 6. |
 | 5 | Through 20 | Complete: 17 models and 40,982 exclusions. |
 | 6 | Through 9 | Complete through 3 and exact bands {bands}; two open cases. |
-| 7 | Through 4 | Complete: 29 models and 4,172 exclusions. |
+| 7 | Through {bound(7)} | {rank7_scope}. |
 | 8 | Through 2 | Complete: 77 models and 896 exclusions. |
 
 '''+overview(stage,'../')+'''
@@ -491,7 +507,7 @@ These are necessary-condition checks. Both rank-six cases remain unresolved.
 No timeout constitutes an exclusion. Component checks do not replace complete
 base-certificate coverage.
 
-## Census crosswalk and publication exports
+## Historical base census import and publication exports
 
 '''+f'''```bash
 git clone https://github.com/sebastienpalcoux/fusion-ring-census.git
@@ -519,7 +535,7 @@ classification. Do not enter incomplete-band lower bounds as exact OEIS terms.
 Archive identities must be updated only after rebuilding the corresponding
 bundle. Source and document integrity checks do not replace mathematical review.
 '''
-    manuscript_rows=[('Rank two','rank2.tex','rank2.pdf','Unrestricted over ℂ; two realized rings'),('Rank three','rank3.tex','rank3.pdf','Unrestricted sphericality and five-ring classification'),('**Rank four, unrestricted classification**','rank4/papers/companion.tex','rank4/papers/companion.pdf','**No multiplicity bound or initial pivotality assumption**; 15 rings and automatic sphericality'),('Rank four, finite-range companion','rank4/papers/finite.tex','rank4/papers/finite.pdf','Complete through multiplicity 128'),('Rank four, verification guide','rank4/papers/verification_guide.tex','rank4/papers/verification_guide.pdf','Exact certificate checks'),('Rank five','rank5/papers/manuscript.tex','rank5/papers/manuscript.pdf','Complete through multiplicity 20'),('Rank five, verification guide','rank5/papers/verification_guide.tex','rank5/papers/verification_guide.pdf','Exact certificates, models and replay scope'),('Rank six','rank6/papers/manuscript.tex','rank6/papers/manuscript.pdf',f'25,362 exclusions, 57 realizations, two open through 9; complete through 3 and exact bands {bands}'),('Rank six, verification guide','rank6/papers/verification_guide.tex','rank6/papers/verification_guide.pdf','Models, certificates and open-case reductions'),('Rank seven','rank7/papers/manuscript.tex','rank7/papers/manuscript.pdf','Complete through multiplicity 4: 4,172 exclusions and 29 models'),('Rank eight','rank8/paper/rank8.tex','rank8/paper/rank8.pdf','Complete through multiplicity 2: 896 exclusions and 77 models')]
+    manuscript_rows=[('Rank two','rank2.tex','rank2.pdf','Unrestricted over ℂ; two realized rings'),('Rank three','rank3.tex','rank3.pdf','Unrestricted sphericality and five-ring classification'),('**Rank four, unrestricted classification**','rank4/papers/companion.tex','rank4/papers/companion.pdf','**No multiplicity bound or initial pivotality assumption**; 15 rings and automatic sphericality'),('Rank four, finite-range companion','rank4/papers/finite.tex','rank4/papers/finite.pdf','Complete through multiplicity 128'),('Rank four, verification guide','rank4/papers/verification_guide.tex','rank4/papers/verification_guide.pdf','Exact certificate checks'),('Rank five','rank5/papers/manuscript.tex','rank5/papers/manuscript.pdf','Complete through multiplicity 20'),('Rank five, verification guide','rank5/papers/verification_guide.tex','rank5/papers/verification_guide.pdf','Exact certificates, models and replay scope'),('Rank six','rank6/papers/manuscript.tex','rank6/papers/manuscript.pdf',f'25,362 exclusions, 57 realizations, two open through 9; complete through 3 and exact bands {bands}'),('Rank six, verification guide','rank6/papers/verification_guide.tex','rank6/papers/verification_guide.pdf','Models, certificates and open-case reductions'),('Rank seven','rank7/papers/manuscript.tex','rank7/papers/manuscript.pdf',rank7_scope),('Rank eight','rank8/paper/rank8.tex','rank8/paper/rank8.pdf','Complete through multiplicity 2: 896 exclusions and 77 models')]
     page_inventory=json.loads((repo/'data/manuscript_page_counts.json').read_text())
     page_counts={record['path'].removeprefix('manuscripts/'):record['pages'] for record in page_inventory['documents']}
     page_sums=page_inventory['totals']
@@ -528,7 +544,7 @@ Each paper is a current TeX/PDF pair with its classification scope stated in
 its own text. Ranks two, three and four are unrestricted in multiplicity.
 Ranks five to eight use pinned finite censuses and explicit criteria.
 
-**Project overview:** [Five-page research announcement](../announcements/hexagon-2026-10/Low_rank_Grothendieck_rings_announcement.pdf), with the classification scope, seven construction candidates, and both open cases. This announcement is separate from the research-manuscript page count.
+**Project overview:** [Five-page research announcement](../announcements/hexagon-2026-10/Low_rank_Grothendieck_rings_announcement.pdf), with the historical classification scope, seven construction candidates, and both rank-six open cases. This announcement is separate from the research-manuscript page count.
 
 ## Unrestricted rank-four classification · 88 pages
 
@@ -554,13 +570,13 @@ Related work on the pivotal case: Jingcheng Dong, Sébastien Palcoux and Arnaud 
 '''+''.join(f'| {name} | [TeX]({tex}) | [PDF]({pdf}) | {page_counts[pdf]} | {scope} |\n' for name,tex,pdf,scope in manuscript_rows)+f'''
 The eight mathematical manuscripts contain **{page_sums['mathematical_manuscript']} pages**.
 Including the three verification guides gives **{page_sums['mathematical_manuscripts_and_guides']} pages**;
-including the {page_sums['research_status_report']}-page [research-status report](prepublication-review-2026-10-17.pdf)
+including the {page_sums['research_status_report']}-page [research-status report](prepublication-review-2026-10-19.pdf)
 gives **{page_sums['all_distinct_documents']} pages** across twelve distinct documents.
 These counts include references and appendices and count duplicate download
 copies only once. The [page inventory](../data/manuscript_page_counts.json)
-records every path, count and PDF checksum.
+records every path, count and PDF checksum. The [17 October status report](prepublication-review-2026-10-17.pdf) is retained as a historical snapshot and is not counted as a current document.
 
-Download the [two open fusion tensors as Python lists](../data/remaining_cases.py).
+Download the [open fusion tensors as Python lists](../data/remaining_cases.py).
 The file names each case and states the zero-based convention `N[i][j][k]`,
 unit index, duality map and canonical source checksums.
 
@@ -595,7 +611,7 @@ package.
 | 4 | [Guide](rank4/README.md) · [unrestricted replay](rank4/unrestricted/README.md) · [finite replay](rank4/PUBLIC_REPLAY.md) | Unrestricted: 15 models; theoretical bound and 1,692-input exact classification. Separate 889,530-input census through 128. |
 | 5 | [Guide](rank5/README.md) · [complete public replay](../docs/VERIFY.md#complete-rank-four-and-rank-five-checks) | 40,999 inputs; 40,982 exclusions and 17 models through 20. |
 | 6 | [Guide](rank6/README.md) · [combined full replay](../docs/VERIFY.md#complete-rank-six-route) | 25,421 inputs; 25,362 exclusions, 57 models and two open cases through 9. |
-| 7 | [Guide](rank7/README.md) | Complete through 4: 4,172 exclusions and 29 models. |
+| 7 | [Guide](rank7/README.md) | __RANK7_SCOPE__. |
 | 8 | [Guide](rank8/README.md) | Complete through 2: 896 exclusions and 77 models. |
 
 '''+overview(stage,'../')+'''
@@ -634,8 +650,11 @@ Use normal Python for assertion-based checkers. Positive counts in an incomplete
 band are lower bounds; a timeout or surviving necessary system proves no exclusion.
 See [verification scope](../../docs/PREPUBLICATION_REVIEW.md).
 '''
+        if r == 7:
+            content += '''\n## Multiplicity-five continuation\n\nThe current continuation is replayed with:\n\n```bash\npython3 supplements/rank7/software/verify_m5.py\npython3 -O supplements/rank7/software/verify_m5.py\n```\n\nUse `--metadata-only` only for source and partition checks; it does not replay mathematical certificates.\nThe older top-level `analyze.py` and `verify.py` retain their M4 source commitments; run them in the preserved M4 archive, not against the extended source file.\nThe M5 release archive uses repository-relative directories and includes the frozen M4 archive.\n'''
         out[f'supplements/rank{r}/README.md']=content
     oeis=(repo/'oeis/README.md').read_text().replace('rank-five multiplicities 18–20 are now included after general exclusion certificates closed the former residuals.','rank-five multiplicities 18–20 are included with general exclusion certificates.')
+    oeis='\n\n'.join(block for block in oeis.split('\n\n') if not block.startswith('The 19 October rank-seven extension addresses'))
     out['oeis/README.md']=section(oeis,'Rank-six general classification','The unrestricted rank-four theorem',f'''Rank-six general classification is complete at exact multiplicities
 **{bands}**, contiguously through **3**. Two rings remain unresolved through 9.
 The rank-six census value a(9)=8809 counts all based rings regardless of
@@ -644,14 +663,27 @@ drafts above; no incomplete band is an exact sequence term.
 ''')
     out['oeis/update_2026-10-02.txt']=f'''Draft comment, not an OEIS submission:
 
-Counts concern based-isomorphism classes of fusion rings admitting a fusion category over the complex numbers, at exact multiplicity m. Rank seven is complete through multiplicity 4 with 29 realized classes in total. Rank eight is complete through multiplicity 2: 896 exclusions and 77 models, comprising 48 models at exact multiplicity one and 29 at exact multiplicity two. Rank six has 25,362 exclusions, 57 models and two open cases through multiplicity 9; all 8,809 exact-multiplicity-nine fusion rings have general exclusion certificates.
+Counts concern based-isomorphism classes of fusion rings admitting a fusion category over the complex numbers, at exact multiplicity m. __RANK7_SCOPE__. Rank eight is complete through multiplicity 2: 896 exclusions and 77 models, comprising 48 models at exact multiplicity one and 29 at exact multiplicity two. Rank six has 25,362 exclusions, 57 models and two open cases through multiplicity 9; all 8,809 exact-multiplicity-nine fusion rings have general exclusion certificates.
 
-The remaining questions are R6_4_155 and R6_8_1660. The 38-case study records 36 decisions: 29 proposed general exclusions and 7 unitary constructions. The general R8_2_24 exclusion follows from inner-square tensor-functor rigidity. Necessary-condition evidence and obstructions with extra assumptions do not change general unresolved status.
+The remaining rank-six questions are R6_4_155 and R6_8_1660. __RANK7_EXTENSION__ The 38-case study records 36 decisions: 29 proposed general exclusions and 7 unitary constructions. The general R8_2_24 exclusion follows from inner-square tensor-functor rigidity. Necessary-condition evidence and obstructions with extra assumptions do not change general unresolved status.
 
 Reference: https://github.com/sebastienpalcoux/grothendieck-ring-classification
 
 All results and data are AI-generated, not independently human-verified and not Lean-formalized. Use with caution. Preserve the target entry's indexing and definition; never enter an incomplete-band lower bound as an exact sequence term.
 '''
+    for name, content in out.items():
+        content = content.replace('__RANK7_SCOPE__', rank7_scope).replace('__RANK7_EXTENSION__', extension_text)
+        if name in ('docs/PROVENANCE.md','docs/VERIFY.md') and census_note:
+            content += '\n' + census_note + '\n'
+        if name == 'docs/VERIFY.md' and census_extension:
+            content += ('\nTo reproduce the new rank-seven import, check out that census commit and run:\n\n```bash\n'
+                        + f"git -C fusion-ring-census checkout {census_extension['census_commit']}\n"
+                        + f"python3 tools/import_rank7_m5_counts.py fusion-ring-census/results/census.json --commit {census_extension['census_commit']}\n"
+                        + 'python3 supplements/rank7/software/verify_m5.py\n```\n')
+        if extension_text and name.endswith('.md'):
+            title_end = content.find('\n\n')
+            content = content[:title_end+2] + extension_text + '\n\n' + content[title_end+2:]
+        out[name] = content
     return out
 
 def main():

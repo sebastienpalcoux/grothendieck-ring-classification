@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Build the standalone current research-status PDF.
 
-The existing public filename remains stable. No manuscript is concatenated,
+The prior dated report remains available. No manuscript is concatenated,
 read, rewritten or presented as an alternative edition by this builder.
 Content is maintained in docs/prepublication_review_content.json.
 Requires reportlab; run from any working directory.
@@ -22,7 +22,7 @@ from reportlab.platypus import (
 
 ROOT = Path(__file__).resolve().parents[1]
 CONTENT = json.loads((ROOT / 'docs/prepublication_review_content.json').read_text())
-NAME = 'prepublication-review-2026-10-17.pdf'
+NAME = 'prepublication-review-2026-10-19.pdf'
 OUT = ROOT / 'manuscripts' / NAME
 OUT.parent.mkdir(parents=True, exist_ok=True)
 REPO = 'https://github.com/sebastienpalcoux/grothendieck-ring-classification'
@@ -46,12 +46,12 @@ W, H = A4
 WIDTH = W - 100
 styles = {
     'kicker': ParagraphStyle('kicker', fontName='SansBold', fontSize=8.2, leading=11.8, textColor=TEAL, spaceAfter=10),
-    'title': ParagraphStyle('title', fontName='SansBold', fontSize=29, leading=34, textColor=INK, spaceAfter=12),
+    'title': ParagraphStyle('title', fontName='SansBold', fontSize=27, leading=32, textColor=INK, spaceAfter=12),
     'subtitle': ParagraphStyle('subtitle', fontName='Sans', fontSize=11, leading=16, textColor=MUTED, spaceAfter=16),
     'h1': ParagraphStyle('h1', fontName='SansBold', fontSize=20, leading=26, textColor=INK, spaceAfter=13),
     'h2': ParagraphStyle('h2', fontName='SansBold', fontSize=12, leading=17, textColor=TEAL, spaceBefore=13, spaceAfter=7),
     'body': ParagraphStyle('body', fontName='Sans', fontSize=9.1, leading=14.2, textColor=INK, spaceAfter=9),
-    'small': ParagraphStyle('small', fontName='Sans', fontSize=8.0, leading=12.2, textColor=MUTED, spaceAfter=7),
+    'small': ParagraphStyle('small', fontName='Sans', fontSize=8.0, leading=11.3, textColor=MUTED, spaceAfter=7),
     'code': ParagraphStyle('code', fontName='Mono', fontSize=7.3, leading=11.4, textColor=INK),
     'notice': ParagraphStyle('notice', fontName='Sans', fontSize=9.0, leading=14.1, textColor=INK),
     'tablehead': ParagraphStyle('tablehead', fontName='SansBold', fontSize=8, leading=11.5, textColor=TEAL),
@@ -107,8 +107,8 @@ def counts_table():
         ('LINEBELOW', (0, 0), (-1, 0), .8, TEAL),
         ('LINEBELOW', (0, -1), (-1, -1), .8, TEAL),
         ('ROWBACKGROUNDS', (0, 1), (-1, -1), [colors.white, PAPER]),
-        ('TOPPADDING', (0, 0), (-1, -1), 8),
-        ('BOTTOMPADDING', (0, 0), (-1, -1), 8),
+        ('TOPPADDING', (0, 0), (-1, -1), 5),
+        ('BOTTOMPADDING', (0, 0), (-1, -1), 5),
         ('VALIGN', (0, 0), (-1, -1), 'TOP'),
     ]))
     return table
@@ -122,7 +122,7 @@ story = [p('GROTHENDIECK RING CLASSIFICATION  /  RESEARCH NOTE', 'kicker'),
 story += [p(safe(x), 'small') for x in CONTENT['coverage_notes']]
 story += [p(f'<a href="{WEB}/" color="#126d6b">Public atlas</a>  |  <a href="{REPO}" color="#126d6b">GitHub repository</a>', 'small'), PageBreak()]
 
-open_count = len(CONTENT['open_cases'])
+open_count = CONTENT.get('open_case_count',len(CONTENT['open_cases']))
 open_heading = {1: 'One open case', 2: 'Two open cases'}.get(open_count, f'{open_count} open cases')
 story += [p('MATHEMATICAL FRONTIER', 'kicker'), p(open_heading, 'h1'),
           p('Each question concerns general complex fusion categorification. The reductions below are necessary conditions with explicit limits.')]
@@ -157,7 +157,7 @@ story += [p('Replay from the repository root', 'h2'),
 
 doc = SimpleDocTemplate(str(OUT), pagesize=A4, rightMargin=50, leftMargin=50,
                         topMargin=48, bottomMargin=64,
-                        title='Research status and verification - 17 October 2026',
+                        title='Research status and verification - 19 October 2026',
                         author='Grothendieck Ring Classification project (AI-generated research)',
                         subject=f'Current classification, {open_count} open cases, computational scope and limitations')
 doc.build(story, onFirstPage=footer, onLaterPages=footer)

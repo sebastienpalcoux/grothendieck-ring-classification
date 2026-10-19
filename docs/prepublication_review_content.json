@@ -1,9 +1,9 @@
 {
-  "date": "17 October 2026",
-  "version": "Current classification and verification scope",
+  "date": "19 October 2026",
+  "version": "Rank-seven multiplicity-five extension and current verification scope",
   "title": "Research status and verification",
   "caution": "AI-generated research · independent verification pending. The results, proofs, code and data have not yet been independently verified by human experts or formalized in Lean. Use them with caution; exact checks establish only their stated computational scope.",
-  "summary": "The targeted study records 36 decisions among 38 cases: 29 exclusions and seven unitary constructions. Two general categorification questions remain open: R6_4_155 and R6_8_1660. Rank eight is complete through multiplicity two. A feasible set of necessary conditions is not a categorical construction.",
+  "summary": "The 19 October rank-seven extension addresses all 5,805 exact-multiplicity-five rings: 5,789 general exclusions, 1 realization and 15 unresolved cases. The classification is complete through multiplicity 4. The new realization R7_5_5678 is Rep(AGL(1,7)). The unresolved records remain open for general complex categorification. The two earlier rank-six categorification problems also remain open. The historical 38-case continuation has 36 decisions; its inventory is separate from this extension.",
   "rank_counts": [
     {
       "rank": 4,
@@ -31,11 +31,11 @@
     },
     {
       "rank": 7,
-      "bound": 4,
-      "rings": 4201,
-      "excluded": 4172,
-      "models": 29,
-      "open": 0
+      "bound": 5,
+      "rings": 10006,
+      "excluded": 9961,
+      "models": 30,
+      "open": 15
     },
     {
       "rank": 8,
@@ -50,7 +50,8 @@
     "Ranks two, three and four are classified without a multiplicity restriction. Exactly fifteen rank-four Grothendieck rings occur, and every rank-four categorification admits a spherical structure. The table records the separate finite censuses.",
     "The bound is the largest multiplicity included in the displayed census, not necessarily a complete classification range. Rank six is complete through multiplicity three; its exact bands 5, 6, 7 and 9 are also complete, while bands 4 and 8 each contain one open case.",
     "Rank eight is complete through multiplicity two: 48 Grothendieck rings at exact multiplicity one and 29 at exact multiplicity two. The latter band contains 848 exclusions and 29 unitary models.",
-    "Rank-six models comprise 56 unitary constructions and one spherical construction that is not pseudo-unitary. Completeness means coverage of the stated census by the project's recorded arguments; it does not assert independent human or formal verification."
+    "Rank-six models comprise 56 unitary constructions and one spherical construction that is not pseudo-unitary. Completeness means coverage of the stated census by the project's recorded arguments; it does not assert independent human or formal verification.",
+    "The rank-seven M5 tensor identities, fusion axioms and preservation of the earlier tensor set passed independent computational checks. Completeness of the exhaustive enumeration relies on the supplied producer completion record; the optimized enumerator was not independently rerun."
   ],
   "open_cases": [
     {
@@ -68,9 +69,24 @@
         "In the positive spherical representative, saturated modular representations determine all indicator sequences and every central phase mass. The eight spin objects form four dual pairs, all with restriction 2X+2gX+sigma+3T.",
         "Exact phase Gram constraints leave 640 labelled restriction-data profiles in three branches of 68, 286 and 286. These profiles are neither categories nor complete modular fusion data. They do not construct compatible associators or exclude all categorifications."
       ]
+    },
+    {
+      "id": "Rank seven: 15 rings",
+      "heading": "Exact multiplicity five",
+      "paragraphs": [
+        "The supplied new band has 5,805 records. Recorded general criteria exclude 5,789; the ledger records 1 unitary model. The remaining 15 records retain unresolved status in the general complex scope; any obstruction requiring pivotality or another additional hypothesis is recorded separately.",
+        "The complete identifiers and exact tensors are in data/remaining_cases.py and supplements/rank7/output/m5/survivors.json. The rank-seven manuscript records the criterion allocation and residual analysis. Passing necessary conditions does not give coherent associators; unsuccessful model searches are not exclusions."
+      ]
     }
   ],
   "replay_sections": [
+    {
+      "heading": "Rank seven: multiplicity-five extension",
+      "paragraphs": [
+        "The extension is kept separate from all frozen earlier proof stages. The preserved M4 ledger is restored for historical replay; current status partitions and reader downloads include the M5 records.",
+        "Run supplements/rank7/software/verify_m5.py for the extension and consult its normal and optimized receipts under supplements/rank7/output/m5/. These checks certify the implemented input identities, criterion certificates and preserved historical decisions; they do not independently prove categorical coherence or exhaustive-enumeration completeness."
+      ]
+    },
     {
       "heading": "Ranks four and five",
       "paragraphs": [
@@ -130,5 +146,6 @@
         "A simultaneous pivotal chart and the short weights of associator coefficients show that such a square root would yield infinitely many inequivalent tensor functors between fixed fusion categories. Tensor-functor rigidity excludes this, giving a general complex obstruction. The source and finite-weight checks support the argument within their stated scope; its categorical reasoning remains subject to independent mathematical verification."
       ]
     }
-  ]
+  ],
+  "open_case_count": 17
 }

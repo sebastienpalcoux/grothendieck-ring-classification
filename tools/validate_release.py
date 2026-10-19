@@ -15,6 +15,15 @@ status=json.loads((ROOT/'data/classification_status.json').read_text())
 rank6_identity=json.loads((ROOT/'data/rank6_release_identity.json').read_text())
 validate_identity(rank6_identity)
 assert counts['census_commit']==rank6_identity['census_commit']
+if counts.get('census_extensions',{}).get('rank7_m5'):
+    extension=counts['census_extensions']['rank7_m5']
+    rank7_summary=json.loads((ROOT/'supplements/rank7/output/rank7_summary.json').read_text())
+    require(extension['census_commit']==rank7_summary['source_commit'], 'Rank-seven separate census pin')
+    supplied=ROOT/'supplements/rank7/provenance/rank7_M5_verified/FusionRingMultiplicationTables.txt.gz'
+    require(hashlib.sha256(supplied.read_bytes()).hexdigest()==extension['tables_gz_sha256'],
+            'Rank-seven imported census identity')
+    from rank7_publication import historical_rank7_bytes
+    historical_rank7_bytes(ROOT)
 rows=counts['rows']
 cells={(x['rank'],x['multiplicity']):x['rings'] for x in rows}
 assert len(cells)==len(rows)==sum(x['recorded_through'] for x in counts['rank_summary'])
@@ -121,7 +130,7 @@ assert next(x for x in statusrows if x['rank']==5 and x['multiplicity']==18)['ex
 assert all(next(x for x in statusrows if x['rank']==5 and x['multiplicity']==m)['excluded_general']==cells[(5,m)] for m in (19,20))
 assert all(x['unassessed']==0 for x in statusrows)
 assert status['inputs']['rank5']['sha256']=='9261917451d469ece9929a1756f505924cf84adf34e79a0d2e6f68fed43f55cf'
-for rank, expected, ledger in ((7,4201,'supplements/rank7/output/rank7_ledger.json'),
+for rank, expected, ledger in ((7,sum(r['rings'] for r in statusrows if r['rank']==7),'supplements/rank7/output/rank7_ledger.json'),
                                (8,973,'supplements/rank8/data/decisions.json')):
     raw=(ROOT/ledger).read_bytes()
     assert status['inputs'][f'rank{rank}']['sha256']==hashlib.sha256(raw).hexdigest()

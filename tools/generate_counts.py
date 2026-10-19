@@ -14,6 +14,8 @@ SOURCE = 'https://github.com/sebastienpalcoux/fusion-ring-census'
 
 def export(path, output_dir=None):
     manifest = json.loads(path.read_text())
+    if manifest['ranks']['7']['bound'] > 4:
+        raise ValueError('This exporter reproduces the pinned baseline. Import the M5 extension with tools/import_rank7_m5_counts.py --commit FULL_SHA to preserve its separate source identity.')
     output_dir = Path(output_dir) if output_dir else ROOT/'data'
     output_dir.mkdir(parents=True, exist_ok=True)
     rows = [dict(rank=2, multiplicity=m, rings=2 if m == 1 else 1,
@@ -43,7 +45,7 @@ def export(path, output_dir=None):
                   rank_summary=summary, rows=rows)
     (output_dir/'counts.json').write_text(json.dumps(result,indent=2,ensure_ascii=False)+'\n')
     with (output_dir/'counts.csv').open('w',newline='') as out:
-        writer=csv.DictWriter(out,fieldnames=['rank','multiplicity','rings','source','verification'])
+        writer=csv.DictWriter(out,fieldnames=['rank','multiplicity','rings','source','verification'],lineterminator='\n')
         writer.writeheader();writer.writerows(rows)
     print(f'Wrote {len(rows)} exact-multiplicity cells; repository bounds: '+', '.join(f'r{a["rank"]}: {a["census_through"]}' for a in summary))
 

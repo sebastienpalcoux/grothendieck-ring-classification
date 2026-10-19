@@ -30,8 +30,8 @@ data distinguish exact primitive-root formulas from numerical approximations.
 
 The continuation records **36 decisions among 38 cases**: 29 proposed general
 exclusions and 7 unitary constructions. General complex categorifiability
-remains open for **R6_4_155 and R6_8_1660**. Rank seven is complete
-through multiplicity four. Rank eight is complete through multiplicity two: **896 exclusions and 77
+remains open for **R6_4_155 and R6_8_1660** within that historical 38-case study. Rank seven is complete
+through multiplicity four; the extension through multiplicity five is summarized in the current classification data and research-status page. Rank eight is complete through multiplicity two: **896 exclusions and 77
 unitary models**. Its inner-square obstruction uses pivotal duality, short
 associator weights and tensor-functor rigidity.
 
@@ -76,7 +76,7 @@ profiles link those current PDFs directly.
 `build_realized.py` checks each catalogued tensor's rank, unit, duality and
 associativity. It derives exact dual and invertibility data, approximate
 Perron dimensions, and character information with its precision stated.
-`smoke_test.py` checks count/model consistency, the two open cases,
+`smoke_test.py` checks count/model consistency, the complete current open-case inventory,
 canonical PDF copies, bundle identity and local page links.
 
 ## Publication
