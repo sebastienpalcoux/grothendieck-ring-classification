@@ -81,6 +81,17 @@ categorifications over ℂ.
 > [Research-status notice](docs/RESEARCH_STATUS.md) ·
 > [Verification scope and review](docs/PREPUBLICATION_REVIEW.md).
 
+> [!NOTE]
+> **[Research announcement · 5 pages](announcements/hexagon-2026-10/Low_rank_Grothendieck_rings_announcement.pdf)**
+> Classification scope, seven construction candidates, and the two open categorification problems.
+> [TeX source and Hexagon submission package](announcements/hexagon-2026-10/).
+> **[Read the announcement on Hexagon · 2610.00300v1](https://hexagonmath.org/2610.00300?version=1)**.
+
+> [!TIP]
+> **[Potentially new tensor categories and open cases (one-page PDF)](docs/New_category_candidates_and_open_cases.pdf)**
+> Seven promising construction candidates, with the two unresolved rank-six cases highlighted.
+> Novelty up to tensor equivalence remains subject to independent verification.
+
 | Start here | What you will find |
 |---|---|
 | [Explore the atlas](https://sebastienpalcoux.github.io/grothendieck-ring-classification/) | Filter counts, inspect fusion rules and character data, and follow source links. |

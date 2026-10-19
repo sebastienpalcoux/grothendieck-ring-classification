@@ -19,6 +19,9 @@ def extended_haagerup():
     """Burciu--Palcoux, arXiv:2210.13936v3, Section 5.1 (p.10).
 
     The unitary category is the principal even part constructed by BMPS.
+    Grossman--Morrison--Penneys--Peters--Snyder, Ann. Sci. ENS (4) 56
+    (2023), no. 2, 589--664, Section 2.1, p.597, gives the EH1 fusion rules;
+    doi:10.24033/asens.2541; arXiv:1810.06076.
     Coefficients are transcribed from the published six fusion matrices.
     """
     matrices=[
@@ -61,7 +64,11 @@ def half_e6_psu2_6():
 def examples():
     yield ('Extended Haagerup EH1',extended_haagerup(),
            'Bigelow--Morrison--Peters--Snyder, Acta Math. 209 (2012), 29--82, '
-           'arXiv:0909.4099; fusion matrices: Burciu--Palcoux, arXiv:2210.13936v3, '
+           'arXiv:0909.4099; Grossman--Morrison--Penneys--Peters--Snyder, '
+           'The Extended Haagerup fusion categories, Ann. Sci. Ec. Norm. Super. (4) '
+           '56 (2023), no. 2, 589--664, Section 2.1, p.597, '
+           'doi:10.24033/asens.2541, arXiv:1810.06076; '
+           'fusion matrices: Burciu--Palcoux, arXiv:2210.13936v3, '
            'Section 5.1, p.10',all_values('yes'))
     yield ('Izumi C5+5 near-group category',cyclic_near_group(5,5),
            'Izumi, arXiv:1512.04288v2, Example 13.8 and Theorem 9.1; '

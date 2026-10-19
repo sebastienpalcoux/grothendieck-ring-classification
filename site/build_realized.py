@@ -319,6 +319,10 @@ def sha_tensor(tensor):
 
 
 def model_link(reference):
+    # Prefer a published DOI when the catalogue supplies one.
+    doi = re.search(r"(?:https://doi\.org/|doi:\s*)(10\.\d{4,9}/[^\s;,]+)", reference, re.I)
+    if doi:
+        return "https://doi.org/" + doi.group(1).rstrip(".")
     match=re.search(r"arXiv:(\d{4}\.\d{4,5}|[a-z-]+(?:\.[A-Z]{2})?/\d{7})(?:v\d+)?",reference,re.I)
     if match:
         return f"https://arxiv.org/abs/{match.group(1)}"

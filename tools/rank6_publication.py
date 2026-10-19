@@ -130,6 +130,16 @@ The positive catalogue includes neutral module categories from
 `(B2)_7 ⊂ (D7)_1`, `(C3)_4 ⊂ (B10)_1`, and `(B2)_12 ⊂ (E8)_1`,
 with full tensor identifications.
 
+The rank-six, multiplicity-seven ring `R6_7_2274` is realized by the known
+Extended Haagerup category **EH1**. Its fusion rules are given in
+P. Grossman, S. Morrison, D. Penneys, E. Peters and N. Snyder,
+[*The Extended Haagerup fusion categories*](https://doi.org/10.24033/asens.2541),
+*Ann. Sci. Éc. Norm. Supér.* (4) **56** (2023), no. 2, 589–664,
+§2.1, p. 597 ([arXiv:1810.06076](https://arxiv.org/abs/1810.06076)).
+The original construction is S. Bigelow, S. Morrison, E. Peters and N. Snyder,
+[*Constructing the extended Haagerup planar algebra*](https://arxiv.org/abs/0909.4099),
+*Acta Math.* **209** (2012), 29–82.
+
 | Open ring | Necessary restrictions |
 |---|---|
 | `R6_4_155` | A unique rank-26 semion-centralizer modular candidate; a rank-22 based module passes all 234,256 fermion Azumaya linking identities. No coherent module category or categorification is constructed. |

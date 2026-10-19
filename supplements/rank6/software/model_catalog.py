@@ -14,7 +14,7 @@ LABELS={
 'R6_4_249':(r'Sign-swap equivariantization of the equal half-$E_6$ quotient','ALW'),
 'R6_4_322':(r'Diagonal-fermion quotient of half-$E_6\boxtimes PSU(2)_6$','ALW'),
 'R6_5_17':(r"Izumi's $C_5+5$ near-group category",'Izumi'),
-'R6_7_2274':(r'Extended Haagerup category $\mathcal{EH}_1$','BMPS,BPEH'),
+'R6_7_2274':(r'Extended Haagerup category $\mathcal{EH}_1$','BMPS,GMPPS,BPEH'),
 'R6_1_1':(r'$\mathcal I(C_4,1)$: cyclic, non-self-dual Ising zest','LPR'),
 'R6_1_3':(r'$\mathcal I(C_4,0)$: cyclic, self-dual Ising zest','LPR'),
 'R6_1_4':(r'$\Rep(C_3\rtimes C_4)$','LPR'),

@@ -8,6 +8,9 @@ DOCUMENT_REVISION = 'data/current_document_revision.json'
 REPLAY_DIRECTORY = 'evidence/publication_20261017'
 REPLAY_MANIFEST_SHA256 = 'c2c969efd3f29172eec3a8187331470d8669021eaec4f703f8bc0b17e06630b5'
 REPLAY_ARCHIVE_SHA256 = 'b5c98ca8317bdee7c439f2198d6f32807dd302dc440f2f458443642f2f179f2d'
+CITATION_REPLAY_DIRECTORY = 'evidence/citation_20261019'
+CITATION_REPLAY_MANIFEST_SHA256 = 'f66e3f910da6bce16b33c8fd8eabb2ab999959895a211b0c46f71a036cc65bd1'
+CITATION_REPLAY_ARCHIVE_SHA256 = 'e42c63857d52450f1e90db2a4474476148cbce70ea58edfe7acad6aad96bd06e'
 EXCLUDED_DOCUMENTS = set()
 
 def need(condition, message):
@@ -61,6 +64,30 @@ def validate_documents(repo, check_web=False):
             need(sha(raw) == documents[source]['sha256'], 'Website PDF differs from current manuscript: ' + web)
     return revision
 
+def citation_replay_sources(repo):
+    """Read pinned catalog/source bytes required by historical commitments."""
+    folder = Path(repo) / CITATION_REPLAY_DIRECTORY
+    raw = (folder / 'replay_files.json').read_bytes()
+    need(sha(raw) == CITATION_REPLAY_MANIFEST_SHA256, 'Immutable citation replay manifest identity')
+    manifest = json.loads(raw)
+    need(manifest['schema'] == 'citation-replay-sources/v1' and
+         manifest['baseline_commit'] == '4487d2bfd643ebe80a1199b31f3d2bdd1bc64983',
+         'Citation replay baseline identity')
+    archive = folder / 'replay_files.zip'
+    need(sha(archive.read_bytes()) == CITATION_REPLAY_ARCHIVE_SHA256,
+         'Immutable citation replay archive identity')
+    result = {}
+    with zipfile.ZipFile(archive) as bundle:
+        need(len(bundle.namelist()) == len(set(bundle.namelist())) and
+             set(bundle.namelist()) == set(manifest['files']), 'Exact citation replay archive inventory')
+        for name, item in manifest['files'].items():
+            need(safe_relative(name), 'Unsafe citation replay path')
+            content = bundle.read(name)
+            need(len(content) == item['bytes'] and sha(content) == item['sha256'],
+                 'Citation replay byte identity: ' + name)
+            result[name] = content
+    return result
+
 def replay_sources(repo):
     repo = Path(repo)
     folder = repo / REPLAY_DIRECTORY
@@ -79,6 +106,9 @@ def replay_sources(repo):
             content = bundle.read(name)
             need(len(content) == item['bytes'] and sha(content) == item['sha256'], 'Replay byte identity: ' + name)
             result[name] = content
+    citations = citation_replay_sources(repo)
+    need(not set(result).intersection(citations), 'Citation replay must be additive')
+    result.update(citations)
     return result
 
 def restore_replay_sources(repo, destination, sources=None):

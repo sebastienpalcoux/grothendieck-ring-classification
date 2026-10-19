@@ -101,7 +101,7 @@ def collect(root):
     for folder in ('evidence/unified_20261016', 'evidence/theoretical_20261016',
                    'evidence/review_20261017', 'evidence/prepublication_20261017',
                    'evidence/publication_20261017', 'evidence/rank4_unrestricted_20261017',
-                   'evidence/rigidity_20261017'):
+                   'evidence/rigidity_20261017', 'evidence/citation_20261019'):
         paths.update(path.relative_to(root).as_posix() for path in (root / folder).rglob('*')
                      if path.is_file() and not {'__pycache__', '.pytest_cache'}.intersection(path.parts)
                      and path.suffix not in ('.pyc', '.pyo', '.tmp', '.writing', '.swp')
