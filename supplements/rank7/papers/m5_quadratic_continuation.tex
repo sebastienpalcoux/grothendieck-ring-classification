@@ -1,0 +1,327 @@
+\subsection{A unified quadratic and sphericalization continuation}
+\label{sec:m5-quadratic-continuation}
+The continuation of 20 October applies three related mechanisms: the
+full induced-unit compression bound, exhaustive sphericalization followed
+by dimension-field reduction, and simultaneous first and second central
+twist moments.  Their roles are different.  Compression can exclude an
+arbitrary categorification directly; a spherical obstruction requires a
+separate argument covering every signed quotient; and a pseudo-unitary
+center obstruction additionally requires the spherical dimension
+character to belong to the Frobenius--Perron Galois orbit.
+
+\begin{proposition}\label{prop:m5-direct-compression}
+The rings $R7\_5\_4653$, $R7\_5\_5029$ and $R7\_5\_5040$
+admit no complex fusion categorification.
+\end{proposition}
+\begin{proof}
+For a real quadratic field $L$ of fundamental discriminant $q$, collect
+the irreducible factors $(x^2-t_jx+n_j)^{m_j}$ of the regular Casimir
+characteristic polynomial whose roots generate $L$.  Define
+\[
+ Q_L(R)=q\sum_j m_j\frac{t_j^2-4n_j}{n_j^2}.
+\]
+Corollary~\ref{cor:compression-boundary} gives the necessary condition
+$Q_L(R)\leq4$ for arbitrary complex categorification.  In particular, it
+does not require the original category to admit a pivotal structure.
+The exact factors and rational values are
+\begin{center}\small
+\begin{tabular}{@{}l l r r@{}}
+\toprule
+Ring & Quadratic Casimir factor & $q$ & $Q_L(R)$\\
+\midrule
+$R7\_5\_4653$ & $x^2-3960x+7260$ & $165$ & $49$\\
+$R7\_5\_5029$ & $x^2-1584x+6336$ & $88$ & $49/9$\\
+$R7\_5\_5040$ & $x^2-1584x+6336$ & $88$ & $49/9$\\
+\bottomrule
+\end{tabular}
+\end{center}
+Each exceeds four.  Recall why the general bound differs from the
+spherical bound $[K:L]Q_L(R)\leq1$: in sphericalization the unsigned
+sector has Casimir $2B$, so its contribution is $Q_L(R)/4$.  The other
+sector contributes a nonnegative squared norm.  The obstruction therefore
+holds independently of any proposed choice of signed quotient.
+\end{proof}
+
+\begin{proposition}\label{prop:m5-signed-compression}
+The ring $R7\_5\_4569$ admits no complex fusion categorification.
+\end{proposition}
+\begin{proof}
+Its Casimir characteristic polynomial is
+\[
+ (x-14)(x-3)(x-7)^3(x^2-2940x+17640).
+\]
+For $L=\mathbb Q(\sqrt{15})$, of fundamental discriminant $60$, this
+gives $Q_L(R)=81/49>1$.  Corollary~\ref{cor:quadratic-Casimir} excludes
+a spherical categorification, but this inequality alone would not
+exclude an arbitrary fusion category.
+
+Apply the complete oriented sphericalization enumeration to the original
+tensor.  All its simples are self-dual.  Choose the lift with positive
+second indicator for each simple, with the actual tensor unit as unit.
+The difference tensor $T$ has the same parity as $N$, satisfies
+$-N_{ij}^k\leq T_{ij}^k\leq N_{ij}^k$, and obeys the oriented cyclic
+identities.  The odd-square-channel condition from
+\cite[Theorem~3.9]{TPE} imposes $T\equiv N\pmod4$ on the relevant
+channels.  These constraints apply in sphericalization and do not
+assume a pivotal structure on the source category.
+
+Exhausting associativity on these finite domains gives exactly one
+solution, namely $T=N$.  The replay visits $2285932869$ search nodes;
+completion is regenerated, rather than inferred from a candidate list.
+The multiplicity of an opposite lift is $(N-T)/2$, hence is zero in every
+product.  The selected lifts form a spherical tensor subcategory, and
+forgetting is a tensor equivalence to the original category.  This
+contradicts its spherical obstruction.
+\end{proof}
+
+\begin{proposition}\label{prop:m5-quadratic-galois-pu}
+Every complex fusion categorification of any of
+\[
+ R7\_5\_443,\quad R7\_5\_1214,\quad
+ R7\_5\_3895,\quad R7\_5\_5039
+\]
+admits a spherical structure and has a pseudo-unitary Galois conjugate.
+This is a structural reduction, not an existence assertion.
+\end{proposition}
+\begin{proof}
+Complete oriented enumeration gives respectively $1,1,2,4$ signed
+quotients.  For the first two rings the sole quotient is the original
+tensor.  Both quotients of $R7\_5\_3895$, and two quotients of
+$R7\_5\_5039$, are gauge equivalent to the original tensor.  Switching
+the lift choices by that gauge gives a tensor section of sphericalization,
+as in Proposition~\ref{prop:m5-signed-compression}.
+
+For either remaining quotient of $R7\_5\_5039$, the unsigned and signed
+Casimirs contain respectively
+\[
+ x^2-1440x+6400,\qquad x^2-616x+1760.
+\]
+Their roots generate $\mathbb Q(\sqrt5)$ and $\mathbb Q(\sqrt{11})$.
+The two sectors of the sphericalization have twice these Casimir roots.
+The algebras are commutative, so these are twice the corresponding formal
+codegrees.  Every formal codegree of a spherical category belongs to its
+dimension field: a constituent of the induced unit has dimension $D/f$,
+and forgetting expresses this dimension as an integer combination of
+source simple dimensions.  Thus the sphericalization's dimension field
+must contain the degree-four compositum of these two quadratic fields.
+But every character component of either signed quotient has degree at
+most two.  Its spherical dimension character belongs to that signed
+sector, giving a contradiction.  This excludes the nongauge quotients.
+
+Finally the exact character decomposition of each original ring shows
+that every character outside the Frobenius--Perron orbit either vanishes
+on a simple object or takes unequal values on dual objects.  Neither is
+a spherical dimension character.  Galois conjugation therefore makes
+all simple dimensions equal to their Frobenius--Perron values, proving
+the assertion.
+\end{proof}
+
+\subsection{The conductor-sixty two-moment obstruction}
+\label{sec:m5-conductor-sixty}
+\begin{theorem}\label{thm:m5-q60}
+The rings $R7\_5\_443$ and $R7\_5\_1214$ admit no complex fusion
+categorification.
+\end{theorem}
+By Proposition~\ref{prop:m5-quadratic-galois-pu}, it suffices to exclude
+a pseudo-unitary categorification with its canonical spherical structure.
+The following argument extends Section~\ref{sec:quadratic-center-trace}
+to conductor sixty.  A relative-trace refinement avoids any assumption
+that paired individual twists coincide.
+
+Put $s=\sqrt{15}$ and $\eta=4+s$.  The source dimension vectors are
+\[
+\begin{array}{c|l}
+443&(1,1,4+s,5+s,5+s,4+s,6+2s)\\
+1214&(1,1,4+s,4+s,5+s,5+s,6+2s).
+\end{array}
+\]
+Both global dimensions are $D=60\eta$, with $\eta\bar\eta=1$.
+The quadratic Casimir factor is $x^2-480x+3600$, so $Q_{60}=1$.
+The remaining formal codegrees are respectively
+$(12,5,4,6,6)$ and $(5,12,12,4,4)$.
+
+There is a cyclotomic automorphism that flips $s$ and fixes every other
+source character.  To check the latter assertion, use the separating
+matrix $\sum_i w_iN_i$, where $w=(1,3,11,37,101,307,997)$.
+Its characteristic polynomials are
+\begin{align*}
+443:\quad &(x-683)(x-422)(x-230)(x-184)(x+298)\\[-2pt]
+&\hspace{6mm}\cdot(x^2-15896x-26866796),\\
+1214:\quad &(x-953)(x-24)(x+28)\\[-2pt]
+&\hspace{6mm}\cdot(x^2-16436x-22501976)(x^2+712x-572).
+\end{align*}
+All roots are distinct.  The only other nonrational character field is
+$\mathbb Q(\sqrt3)$ in the second ring, which is disjoint from
+$\mathbb Q(\sqrt{15})$.  Formal-codegree rationality alone would not
+suffice for this choice of automorphism.
+
+Write $d_i=a_i+b_is$, $a(v)=\sum_i a_iv_i$ and $b(v)=\sum_i b_iv_i$.
+The full character transport formula
+\eqref{eq:quadratic-row-galois} gives the integral involution
+\[
+                  T(v)=v+(b_i)_i\bigl(a(v)-4b(v)\bigr).
+\]
+Every central restriction row has partner $T(v)$ or $-T(v)$, with one
+common sign making all entries nonnegative.  A mixed-sign image is
+impossible.  The Galois image $J$ of the central unit has restriction row
+$(1,0,1,1,1,1,2)$ and dimension $\eta^2=31+8s$.
+
+For $w=e_{\mathbf1}-e_J$, the known induced-unit coordinates give
+\[
+ \operatorname{proj}_{I(1)}Sw
+ =(D^{-1}-\bar D^{-1})w=-\frac{w}{\sqrt{60}}.
+\]
+This saturates the compression bound.  The equality and primitive-mode
+argument of Section~\ref{sec:quadratic-center-trace} implies
+\[
+ z/D\notin\mathbb Q\ \Longrightarrow\ \theta^{60}=1,
+ \qquad \chi_{60}(k)=-1
+ \text{ for primitive }\theta=e^{2\pi ik/60}.
+\]
+The units modulo sixty do not all square to one.  Consequently we do
+\emph{not} conclude that individual paired twists are equal.  Instead let
+$t$ be normalized relative trace to $\mathbb Q(\sqrt{15})$.  Modular
+Galois symmetry replaces $\theta$ by $\theta^{u^2}$, while every square
+automorphism fixes this quadratic field.  Hence
+$t(\theta^{u^2})=t(\theta)$ and
+$t(\theta^{2u^2})=t(\theta^2)$.  Paired row types have equal
+multiplicities at each pair of relative-trace values, which is exactly
+the equality used below.
+
+\begin{lemma}\label{lem:m5-q60-hull}
+For every root of unity, $(t(\theta),t(\theta^2))$ lies in the convex
+hull of the following nine vectors, where $(a,b,c,d)$ denotes
+$(a+bs,c+ds)$:
+\begin{gather*}
+ (1,0,1,0),\ (-1,0,1,0),\
+ (1/2,0,-1/2,0),\ (-1/2,0,-1/2,0),\ (0,0,-1,0),\\
+ (0,1/8,-1/8,0),\ (0,-1/8,-1/8,0),\
+ (0,0,0,1/8),\ (0,0,0,-1/8).
+\end{gather*}
+For the nonrational normalized-dimension rows, the first five vertices
+and $(0,-1/8,-1/8,0)$ suffice.
+\end{lemma}
+\begin{proof}
+If the order $n$ is not divisible by sixty, the first trace is the
+Ramanujan value $\mu(n)/\varphi(n)$.  For $60\mid n$, its rational
+part vanishes; its irrational part is nonzero precisely when $n=60m$,
+where $m$ is squarefree and coprime to thirty.  The corresponding pair is
+\[
+ \left(\frac{\pm s\mu(m)\chi_{60}(m)}{8\varphi(m)},
+             -\frac{\mu(m)}{8\varphi(m)}\right).
+\]
+For $m=1$ these are the primitive-sixty vertices.  Otherwise
+$w=1/\varphi(m)\leq1/6$; place weight $w$ on the matching primitive
+vertex and absorb the rational second-coordinate correction in the
+vertical segment $(0,[-1,1])$ contained in the rational five-vertex hull.
+If only the second moment has an irrational part, $n=120m$ with the
+same restrictions, and the pair lies between the two primitive-120
+vertices.  All remaining pairs are rational.  Odd squarefree orders
+give $(u,u)$, twice odd squarefree orders give $(-u,u)$ with
+$-1/2\leq u\leq1$, and orders divisible by four give $(0,u)$ with
+$-1\leq u\leq1$.  These lie in the same five-vertex hull.  The
+saturated twist constraint leaves only the negative-character primitive
+vertex in addition to the rational hull.  This covers all root orders;
+no finite cutoff on possible twists is imposed.
+\end{proof}
+
+Let $B$ be the central induction Gram matrix in
+\eqref{eq:quadratic-center-gram}.  The exact necessary integrality of
+$D/z$ for a central simple of dimension $z=a+bs$ gives
+\[
+                  a^2-15b^2\mid60a,\qquad
+                  a^2-15b^2\mid60b.
+\]
+The six nonunit rows in $I(1)$ have dimensions $D/f$, include the forced
+row for $J$, sum to $B_{0,*}-e_0$, and leave a positive semidefinite
+residual Gram matrix.  Exhaustive bounded enumeration gives $110$ frames
+for $R7\_5\_443$ and $157$ for $R7\_5\_1214$.  Every bound comes
+from $B$.  Before frame-specific constraints there are respectively
+$3670$ and $3741$ possible residual rows.  The exact test
+$vv^{\mathsf T}\leq R$ includes singular residual matrices and is also
+applied to each Galois partner.
+
+The odd-isotypic pivotal forms on $XYX^*$ and $X^3$ force all seven
+second indicators to $+1$.  Combine the $21$ Gram equations with the
+$12$ rational-coordinate equations for each of
+\[
+ \operatorname{Tr}(\theta\mid I(X_i))=0,\qquad
+ \operatorname{Tr}(\theta^2\mid I(X_i))=D\nu_2(X_i),\qquad i\ne0.
+\]
+Multiply all columns by eight and pair Galois rows at a common hull
+vertex.  The resulting system has integer columns.  A necessary integral
+Gram-span condition modulo a small prime rejects respectively $13$ and
+$20$ frames.  The remaining $97$ and $137$ frames are separated by
+respectively $9$ and $13$ integer covectors $y$ satisfying
+\[
+            y\cdot c\geq0\quad\text{for every allowed column }c,
+            \qquad y\cdot b<0.
+\]
+These inequalities rule out nonnegative real solutions, and therefore
+every possible center.  The exact replay regenerates all domains and
+checks the inequalities without invoking an optimizer.  Together with
+Proposition~\ref{prop:m5-quadratic-galois-pu}, this proves
+Theorem~\ref{thm:m5-q60}.
+
+\subsection{Further complete signed and induction proof trees}
+\label{sec:m5-complete-trees}
+The same distinction between spherical obstructions and general
+categorification is essential in six additional decisions.
+For $R7\_5\_4530$ and $R7\_5\_4531$, every candidate spherical
+dimension character either vanishes on a simple or lies in one cubic
+orbit.  In that orbit a constituent of the induced unit has dimension
+$D/f$.  An exact linear functional, integer-valued on the integer span
+of the simple dimensions, takes the value $4/3$ on $D/f$.
+Forgetting the constituent would express $D/f$ in that integer span,
+a contradiction.  This dimension-order argument uses spherical
+dimensions without a positivity assumption.
+
+Complete oriented enumeration gives respectively four and one signed
+quotients.  The sole quotient for $R7\_5\_4531$ is its original
+tensor.  For the three nongauge quotients of $R7\_5\_4530$, the
+character covers consist of a zero simple dimension or a quartic orbit
+failing formal-codegree divisibility at the source codegree nine.
+The gauge branches transfer sphericality by a tensor section.  Thus
+both conclusions have general complex scope.
+
+The four rings $R7\_5\_1964$, $R7\_5\_5343$, $R7\_5\_5623$
+and $R7\_5\_5778$ share one induction mechanism.  Each original
+spherical character cover leaves only the Frobenius--Perron Galois
+orbit after zero-dimension, unequal-dual-dimension and norm obstructions.
+That orbit reduces to a pseudo-unitary induction problem.  In each
+ring its complete $5025$ low induction frames all fail the ordinary
+induction moment inequality.  Although the certificate is handled by
+the character-aware verifier, these subproofs need no character
+labelling, Galois-pruning or rotation refinement.
+
+The complete signed quotient covers are summarized below.  The last
+four columns count character-component obstructions across nongauge
+quotients: $Z$ is a zero simple dimension, $D$ is unequal dual
+dimensions, $N$ is a norm obstruction and $F$ is a dimension-field
+degree obstruction.  They are proof-tree branch counts, not numbers
+of distinct fusion rings.
+\begin{center}\small
+\begin{tabular}{@{}l r r r r r r@{}}
+\toprule
+Ring & Signed quotients & Gauges & $Z$ & $D$ & $N$ & $F$\\
+\midrule
+$R7\_5\_1964$ & $52$ & $4$ & $160$ & $0$ & $72$ & $0$\\
+$R7\_5\_5343$ & $12$ & $2$ & $22$ & $10$ & $10$ & $2$\\
+$R7\_5\_5623$ & $40$ & $8$ & $96$ & $0$ & $48$ & $0$\\
+$R7\_5\_5778$ & $16$ & $4$ & $24$ & $12$ & $12$ & $4$\\
+\bottomrule
+\end{tabular}
+\end{center}
+The gauge branches transfer sphericality by a tensor section and
+invoke the original spherical proof.  Every remaining quotient is
+covered by the displayed character obstructions.  This exhausts the
+sphericalizations of a hypothetical category and proves a general
+complex exclusion for each of the four rings.
+
+The source tensors, complete proof trees, exact normal and optimized
+replay receipts, and separate scope audits for this continuation are
+stored under \path{evidence/rank7_m5_20261020/}.  The aggregate M5 replay
+binds accepted certificates to the canonical source tensors.  Successful
+finite verification establishes the stated arithmetic and enumeration;
+the categorical arguments remain subject to independent mathematical
+verification.

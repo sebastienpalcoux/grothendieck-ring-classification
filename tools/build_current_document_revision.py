@@ -4,7 +4,7 @@ from pathlib import Path
 import argparse
 import json
 from current_publication import DOCUMENT_REVISION, document_paths, sha, need
-from rank7_publication import extension, remaining_ids
+from rank7_publication import extension, remaining_ids, PUBLICATION_DATE, STATUS_REPORT
 
 ROOT = Path(__file__).resolve().parents[1]
 WEB_COPIES = {
@@ -22,7 +22,7 @@ WEB_COPIES = {
     'papers/rank8.pdf': 'manuscripts/rank8/paper/rank8.pdf',
     'papers/rank8-reviewed.pdf': 'manuscripts/rank8/paper/rank8.pdf',
     'papers/rank6_addendum_20261002.pdf': 'manuscripts/rank6/papers/manuscript.pdf',
-    'papers/prepublication-review-2026-10-19.pdf': 'manuscripts/prepublication-review-2026-10-19.pdf',
+    'papers/' + STATUS_REPORT: 'manuscripts/' + STATUS_REPORT,
 }
 
 def main():
@@ -36,7 +36,7 @@ def main():
         raw = (repo / name).read_bytes()
         documents[name] = {'sha256': sha(raw), 'bytes': len(raw)}
     need(set(WEB_COPIES.values()) <= set(documents), 'Compile every current manuscript and guide before binding the revision')
-    revision = {'schema': 'current-document-revision/v1', 'date': '2026-10-19' if extension(repo) else '2026-10-17',
+    revision = {'schema': 'current-document-revision/v1', 'date': PUBLICATION_DATE if extension(repo) else '2026-10-17',
                 'accepted_decisions': 36,
                 'remaining_ids': remaining_ids(repo),
                 'accepted_decisions_scope': 'Historical 38-case continuation through rank-seven multiplicity four',

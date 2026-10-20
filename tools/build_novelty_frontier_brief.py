@@ -15,6 +15,8 @@ from pathlib import Path
 import hashlib
 import json
 from xml.sax.saxutils import escape
+from collections import Counter
+from rank7_publication import PUBLICATION_DATE_LONG
 
 from reportlab.lib import colors
 from reportlab.lib.enums import TA_LEFT
@@ -26,16 +28,11 @@ from reportlab.pdfgen import canvas
 from reportlab.platypus import Paragraph
 
 
-DATE = "19 October 2026"
+DATE = PUBLICATION_DATE_LONG
 REPO = Path(__file__).resolve().parents[1]
 GITHUB = "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/"
 OLD = GITHUB + "36cdec23cd351f2e1a6446f4325174bf80c6637e/"
 CURRENT = GITHUB + "main/"
-EXPECTED_RANK7 = [
-    "R7_5_443", "R7_5_1214", "R7_5_1964", "R7_5_3895", "R7_5_4530",
-    "R7_5_4531", "R7_5_4569", "R7_5_4653", "R7_5_4982", "R7_5_5029",
-    "R7_5_5039", "R7_5_5040", "R7_5_5343", "R7_5_5623", "R7_5_5778",
-]
 INK = colors.HexColor("#17334A")
 TEAL = colors.HexColor("#087580")
 MUTED = colors.HexColor("#52677C")
@@ -57,18 +54,19 @@ def link(label, url, color="#087580"):
 def verify_frontier(repo):
     summary = json.loads((repo / "supplements/rank7/output/m5/summary.json").read_text())
     require(summary["new_rings"] == 5805, "Unexpected M5 census size")
-    require(summary["new_status_counts"] == {
-        "excluded": 5789, "unresolved": 15, "unitarily_realized": 1,
-    }, "Update the brief for changed M5 status counts")
-    require(summary["unresolved_ids"] == EXPECTED_RANK7, "Update the dated rank-seven frontier")
     rank7 = json.loads((repo / "supplements/rank7/output/rank7_ledger.json").read_text())
-    require([r["id"] for r in rank7 if r["status"] == "unresolved"] == EXPECTED_RANK7,
+    counts = Counter(r['status'] for r in rank7 if r['multiplicity'] == 5)
+    require(all(summary['new_status_counts'].get(key, 0) == counts.get(key, 0)
+                for key in set(summary['new_status_counts']) | set(counts)),
+            'Summary and rank-seven status counts differ')
+    require([r["id"] for r in rank7 if r["status"] == "unresolved"] == summary['unresolved_ids'],
             "Summary and rank-seven ledger differ")
     realized = [r["id"] for r in rank7 if r["multiplicity"] == 5 and r["status"] == "unitarily_realized"]
     require(realized == ["R7_5_5678"], "Update the known-model description")
     rank6 = json.loads((repo / "supplements/rank6/data/decisions.json").read_text())
     require([r["id"] for r in rank6 if r["status"] == "unresolved"] == ["R6_4_155", "R6_8_1660"],
             "Update the dated rank-six frontier")
+    return summary
 
 
 def main():
@@ -78,7 +76,9 @@ def main():
     parser.add_argument("--font-dir", type=Path, default=Path("/usr/share/fonts/truetype/dejavu"))
     args = parser.parse_args()
     repo = args.repo.resolve()
-    verify_frontier(repo)
+    summary = verify_frontier(repo)
+    rank7_ids = summary['unresolved_ids']
+    frontier = 2 + len(rank7_ids)
     output = args.output or repo / "docs/New_category_candidates_and_open_cases.pdf"
     output.parent.mkdir(parents=True, exist_ok=True)
     for name, filename in (("Brief", "DejaVuSans.ttf"), ("Brief-Bold", "DejaVuSans-Bold.ttf")):
@@ -90,9 +90,9 @@ def main():
     margin = 38
     width = W - 2 * margin
     c = canvas.Canvas(str(output), pagesize=A4, invariant=1, pageCompression=1)
-    c.setTitle("Potentially new constructions and unresolved cases - 19 October 2026")
+    c.setTitle("Potentially new constructions and unresolved cases - " + DATE)
     c.setAuthor("AI-assisted research project of Sebastien Palcoux")
-    c.setSubject("Seven provisional novelty candidates; 17 open fusion rings; known AGL(1,7) model")
+    c.setSubject(f"Seven provisional novelty candidates; {frontier} open fusion rings; known AGL(1,7) model")
     body = ParagraphStyle("body", fontName="Brief", fontSize=9.05, leading=12.0,
                           textColor=INK, alignment=TA_LEFT)
     small = ParagraphStyle("small", parent=body, fontSize=8.1, leading=10.6, textColor=MUTED)
@@ -172,7 +172,7 @@ def main():
              " · Rank 7 · m = 5.</b> Rep(AGL(1,7)) = Rep(C<sub>7</sub> ⋊ C<sub>6</sub>), of global dimension 42. "
              "The full fusion tensor is verified. This is a known representation category, not an additional novelty candidate.",
              margin, y, width, compact) - 17
-    y = heading("OPEN: 17 fusion rings with no established categorification", y)
+    y = heading(f"OPEN: {frontier} fusion rings with no established categorification", y)
     y = panel("<b>" + link("R6_4_155", OLD + "supplements/rank6/research/frontier/R6_4_155/README.md", "#966008") +
               " · Rank 6 · multiplicity 4.</b> Generalized near-group ring R′(4): four invertibles forming C<sub>2</sub> × C<sub>2</sub>, "
               "and two mutually dual noninvertibles of dimension 4 + 3√2. The ring already appears in " +
@@ -182,14 +182,17 @@ def main():
               " · Rank 6 · multiplicity 8.</b> Self-dual ring containing an Ising fusion subring. A further simple X "
               "has dimension 3 + 2√2 + 2√3 + √6 and satisfies X² = 1 + [3(1 + g) + 4σ]X, where σ² = 1 + g.",
               y, OPEN_BG, AMBER, compact) - 9
-    y = para("<b>Rank 7 · multiplicity 5: 15 unresolved rings.</b> Of all 5,805 new rings, 5,789 are excluded and one is realized. "
-             "The remaining census IDs are:", margin, y, width, compact) - 5
+    y = para(f"<b>Rank 7 · multiplicity 5: {len(rank7_ids)} unresolved rings.</b> "
+             f"Of all 5,805 new rings, {summary['new_status_counts']['excluded']:,} are excluded and one is realized. "
+             + ("The remaining census IDs are:" if rank7_ids else "Every supplied ring in this band has a recorded decision."),
+             margin, y, width, compact) - 5
     lines = []
-    for start in range(0, len(EXPECTED_RANK7), 5):
+    for start in range(0, len(rank7_ids), 5):
         lines.append(" · ".join(link(rid, CURRENT + "supplements/rank7/output/rank7_ledger.json")
-                                for rid in EXPECTED_RANK7[start:start + 5]))
-    y = para("<br/>".join(lines), margin + 8, y, width - 16, ids_style) - 7
-    y = para("All 17 remain open for general complex categorification; no positive model or complete exclusion is established. " +
+                                for rid in rank7_ids[start:start + 5]))
+    if lines:
+        y = para("<br/>".join(lines), margin + 8, y, width - 16, ids_style) - 7
+    y = para(f"All {frontier} remaining cases are open for general complex categorification; no positive model or complete exclusion is established. " +
              link("Exact fusion data", CURRENT + "data/remaining_cases.py") + ".", margin, y, width, small)
     require(y >= 77, f"Brief content overlaps footer: lowest text y={y:.1f}")
 
@@ -202,7 +205,7 @@ def main():
     c.showPage()
     c.save()
     raw = output.read_bytes()
-    print(json.dumps({"output": str(output), "pages": 1, "frontier": 17,
+    print(json.dumps({"output": str(output), "pages": 1, "frontier": frontier,
                       "novelty_candidates": 7, "known_new_models": 1,
                       "bytes": len(raw), "sha256": hashlib.sha256(raw).hexdigest()}))
 

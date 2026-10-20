@@ -4,7 +4,7 @@ import json
 import argparse
 from pathlib import Path
 from publication_stages import load_stages, overview
-from rank7_publication import summary as rank7_extension_summary
+from rank7_publication import summary as rank7_extension_summary, remaining_ids
 
 ROOT=Path(__file__).resolve().parents[1]
 PUBLIC_ATLAS='https://sebastienpalcoux.github.io/grothendieck-ring-classification/'
@@ -90,7 +90,7 @@ categorifications over ℂ.
 
 > [!TIP]
 > **[Potentially new tensor categories and open cases (one-page PDF)](docs/New_category_candidates_and_open_cases.pdf)**
-> Seven provisional construction candidates, the known `Rep(AGL(1,7))` model, and all 17 current open cases.
+> Seven provisional construction candidates, the known `Rep(AGL(1,7))` model, and all __OPEN_CASE_COUNT__ current open cases.
 > Novelty up to tensor equivalence remains subject to independent verification.
 
 | Start here | What you will find |
@@ -203,7 +203,7 @@ row checks and scope appear in [the provenance record](docs/PROVENANCE.md).
 | 4 | Multiplicity 18 | The same criterion families suffice for the allocated exclusions at 19–128. |
 | 5 | Multiplicity 18 | Inert-prime quadratic parity first closes two cases at 18; no new criterion family is needed at 19–20. |
 | 6 | See the allocation ledger | The current criteria include stabilizer, cyclotomic-trace and signed arithmetic obstructions. All 8,809 exact-multiplicity-nine rings have general exclusion certificates; __RANK6_OPEN__ earlier cases remain unresolved through multiplicity __RANK6_BOUND__. |
-| 7 | See the allocation ledger | The multiplicity-five extension combines existing criteria with new cyclic-isotypic integrality and cubic-Fourier module arguments; surviving cases are explicit. __RANK7_OPEN_PHRASE__ in the analyzed range; higher multiplicities are not classified here. |
+| 7 | See the allocation ledger | The multiplicity-five extension adds cyclic-module, quadratic compression, signed sphericalization, center-trace and Morita-descent arguments. __RANK7_OPEN_PHRASE__ in the analyzed range; both have braided-only exclusions. Higher multiplicities are not classified here. |
 | 8 | Multiplicity 2 | Graded Brauer-Picard, fiber-functor and inner-square rigidity obstructions give the complete classification through 2. __RANK8_OPEN_PHRASE__ in the analyzed range; higher multiplicities are not classified here. |
 
 This records **first use in the chosen certificate allocation**, not an
@@ -255,6 +255,7 @@ against classification ledgers.
 ''')
 args.output.parent.mkdir(parents=True,exist_ok=True)
 rendered=('\n'.join(lines).replace('__RANK7_EXTENSION__',rank7_extension_summary(ROOT))
+                              .replace('__OPEN_CASE_COUNT__',str(len(remaining_ids(ROOT))))
                               .replace('__RANK6_SUMMARY__',rank6_summary)
                               .replace('__RANK7_SUMMARY__',upper_summary(7))
                               .replace('__RANK8_SUMMARY__',upper_summary(8))

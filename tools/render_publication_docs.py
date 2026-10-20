@@ -5,7 +5,7 @@ import json
 from pathlib import Path
 from rank6_publication import validate_identity, completed_bands, validate_document_revision
 from publication_stages import load_stages, overview
-from rank7_publication import summary as rank7_extension_summary, extension
+from rank7_publication import summary as rank7_extension_summary, extension, remaining_ids, replay_status, STATUS_REPORT
 
 ROOT = Path(__file__).resolve().parents[1]
 CAUTION = '''> **AI-generated research · independent verification pending.** Treat these
@@ -176,10 +176,10 @@ with no open case through multiplicity two. The general exclusion of
 `R8_2_24` uses an inner-square obstruction from short gauge weights and
 tensor-functor rigidity.
 
-'''+FRONTIER+'''
+'''+FRONTIER+f'''
 ### Rank-seven open rings
 
-All 15 open rank-seven cases lie in exact multiplicity five. Their identifiers, tensors and recorded criterion results are in the [M5 frontier](../supplements/rank7/output/m5/survivors.json) and [extension evidence](../evidence/rank7_m5_20261019/README.md). [Download all 17 current open tensors](../data/remaining_cases.py), including the two rank-six cases.
+The rank-seven frontier contains {totals(7)['unresolved']} cases, all in exact multiplicity five. Their identifiers, tensors and recorded criterion results are in the [M5 frontier](../supplements/rank7/output/m5/survivors.json) and [continuation evidence](../evidence/rank7_m5_20261020/README.md). [Download all {len(remaining_ids(repo))} current open tensors](../data/remaining_cases.py), including the two rank-six cases.
 
 A necessary-condition witness is neither a categorification nor a general
 nonexistence proof. Scoped unitary, pseudo-unitary, pivotal or braided
@@ -237,7 +237,7 @@ cannot certify that every mathematical step is correct.
 | Rank five | All 40,999 classes, 17 models and 40,982 exclusion certificates in normal and optimized Python | Passed; complete reconstructed ledgers are byte-identical. |
 | Rank six | Model/import pipeline and all 25,362 exclusion certificates, followed by the two post-loop checks | Combined coverage passed; the initial full process failed on seven certificates, each of which passed a separate complete Python-backend replay. |
 | Rank seven base certificates through multiplicity four | 4,201 records: 4,116 exclusions, 26 models and 59 cases deferred to continuation proofs | Passed in normal Python. |
-| Rank seven multiplicity-five extension | All 5,805 new records: 5,789 general-exclusion certificates, one `Rep(AGL(1,7))` model and 15 open cases | Exact normal and optimized replays passed; [normal receipt](../supplements/rank7/output/m5/replay_normal.json), [optimized receipt](../supplements/rank7/output/m5/replay_optimized.json). Enumeration completeness remains producer-reported. |
+| Rank seven multiplicity-five extension | __M5_COVERAGE__ | __M5_REPLAY__ [Normal receipt](../supplements/rank7/output/m5/replay_normal.json), [optimized receipt](../supplements/rank7/output/m5/replay_optimized.json). Enumeration completeness remains producer-reported. |
 | Rank eight base certificates | 973 records: 832 exclusions, 60 models and 81 cases deferred to continuation proofs | Passed in normal Python, including signed proof trees. |
 | Continuation chain and current inventory | Source identities, accepted decisions and dependency replays in normal and optimized Python | Passed within each program's stated scope; does not prove categorical coherence. |
 
@@ -570,7 +570,7 @@ Related work on the pivotal case: Jingcheng Dong, Sébastien Palcoux and Arnaud 
 '''+''.join(f'| {name} | [TeX]({tex}) | [PDF]({pdf}) | {page_counts[pdf]} | {scope} |\n' for name,tex,pdf,scope in manuscript_rows)+f'''
 The eight mathematical manuscripts contain **{page_sums['mathematical_manuscript']} pages**.
 Including the three verification guides gives **{page_sums['mathematical_manuscripts_and_guides']} pages**;
-including the {page_sums['research_status_report']}-page [research-status report](prepublication-review-2026-10-19.pdf)
+including the {page_sums['research_status_report']}-page [research-status report]({STATUS_REPORT})
 gives **{page_sums['all_distinct_documents']} pages** across twelve distinct documents.
 These counts include references and appendices and count duplicate download
 copies only once. The [page inventory](../data/manuscript_page_counts.json)
@@ -651,10 +651,10 @@ band are lower bounds; a timeout or surviving necessary system proves no exclusi
 See [verification scope](../../docs/PREPUBLICATION_REVIEW.md).
 '''
         if r == 7:
-            content += '''\n## Multiplicity-five continuation\n\nThe current continuation is replayed with:\n\n```bash\npython3 supplements/rank7/software/verify_m5.py\npython3 -O supplements/rank7/software/verify_m5.py\n```\n\nUse `--metadata-only` only for source and partition checks; it does not replay mathematical certificates.\nThe older top-level `analyze.py` and `verify.py` retain their M4 source commitments; run them in the preserved M4 archive, not against the extended source file.\nThe M5 release archive uses repository-relative directories and includes the frozen M4 archive.\n'''
+            content += '''\n## Multiplicity-five continuation\n\nThe current continuation is replayed with Python 3.12 and a C++17 compiler:\n\n```bash\npython3 -m pip install -r supplements/rank7/requirements-m5.txt\npython3 supplements/rank7/software/verify_m5.py\npython3 -O supplements/rank7/software/verify_m5.py\n```\n\nUse `--metadata-only` only for source and partition checks; it does not replay mathematical certificates.\nThe older top-level `analyze.py` and `verify.py` retain their M4 source commitments; run them in the preserved M4 archive, not against the extended source file.\nThe M5 release archive uses repository-relative directories and includes the frozen M4 archive. NetworkX is required by the complete Morita-dual enumeration; SciPy is optional for discovery. The assertion-based R4982 components run in an isolated unoptimized child in both aggregate modes, preserving all their checks.\n'''
         out[f'supplements/rank{r}/README.md']=content
     oeis=(repo/'oeis/README.md').read_text().replace('rank-five multiplicities 18–20 are now included after general exclusion certificates closed the former residuals.','rank-five multiplicities 18–20 are included with general exclusion certificates.')
-    oeis='\n\n'.join(block for block in oeis.split('\n\n') if not block.startswith('The 19 October rank-seven extension addresses'))
+    oeis='\n\n'.join(block for block in oeis.split('\n\n') if not block.startswith(('The 19 October rank-seven extension addresses', 'The rank-seven multiplicity-five continuation addresses')))
     out['oeis/README.md']=section(oeis,'Rank-six general classification','The unrestricted rank-four theorem',f'''Rank-six general classification is complete at exact multiplicities
 **{bands}**, contiguously through **3**. Two rings remain unresolved through 9.
 The rank-six census value a(9)=8809 counts all based rings regardless of
@@ -673,6 +673,11 @@ All results and data are AI-generated, not independently human-verified and not 
 '''
     for name, content in out.items():
         content = content.replace('__RANK7_SCOPE__', rank7_scope).replace('__RANK7_EXTENSION__', extension_text)
+        m5 = extension(repo)
+        content = content.replace('__M5_COVERAGE__',
+            f"All {m5['rings']:,} new records: {m5['excluded']:,} general-exclusion certificates, "
+            f"{m5['realized']} `Rep(AGL(1,7))` model and {m5['unresolved']} open cases")
+        content = content.replace('__M5_REPLAY__', replay_status(repo))
         if name in ('docs/PROVENANCE.md','docs/VERIFY.md') and census_note:
             content += '\n' + census_note + '\n'
         if name == 'docs/VERIFY.md' and census_extension:

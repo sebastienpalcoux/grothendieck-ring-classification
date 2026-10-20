@@ -1,5 +1,7 @@
 # Rank-seven multiplicity-five continuation
 
+> **Historical 19 October stage.** The counts and frontier below describe that stage. See the [20 October continuation](../rank7_m5_20261020/README.md) for current decisions; links to current ledgers and replay receipts follow the revised edition.
+
 AI-generated research; independent human verification and Lean formalization
 remain pending. The status below records the frozen computational continuation
 of 19 October 2026.

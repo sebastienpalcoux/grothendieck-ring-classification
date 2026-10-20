@@ -1,68 +1,161 @@
 {
   "schema": "current-document-revision/v1",
-  "date": "2026-10-19",
+  "date": "2026-10-20",
   "accepted_decisions": 36,
   "remaining_ids": [
     "R6_4_155",
     "R6_8_1660",
-    "R7_5_443",
-    "R7_5_1214",
-    "R7_5_1964",
     "R7_5_3895",
-    "R7_5_4530",
-    "R7_5_4531",
-    "R7_5_4569",
-    "R7_5_4653",
-    "R7_5_4982",
-    "R7_5_5029",
-    "R7_5_5039",
-    "R7_5_5040",
-    "R7_5_5343",
-    "R7_5_5623",
-    "R7_5_5778"
+    "R7_5_5039"
   ],
   "accepted_decisions_scope": "Historical 38-case continuation through rank-seven multiplicity four",
   "rank7_m5_update": {
-    "date": "2026-10-19",
+    "date": "2026-10-20",
     "rank": 7,
     "multiplicity": 5,
     "rings": 5805,
-    "excluded": 5789,
+    "excluded": 5802,
     "realized": 1,
-    "unresolved": 15,
+    "unresolved": 2,
     "remaining_ids": [
-      "R7_5_443",
-      "R7_5_1214",
-      "R7_5_1964",
       "R7_5_3895",
-      "R7_5_4530",
-      "R7_5_4531",
-      "R7_5_4569",
-      "R7_5_4653",
-      "R7_5_4982",
-      "R7_5_5029",
-      "R7_5_5039",
-      "R7_5_5040",
-      "R7_5_5343",
-      "R7_5_5623",
-      "R7_5_5778"
+      "R7_5_5039"
     ],
     "realized_ids": [
       "R7_5_5678"
     ],
     "ledger": "supplements/rank7/output/rank7_ledger.json",
-    "ledger_sha256": "508164c3f342f27988401e7c64e6efc83a844e5013a1d68f9b35c5124088c741"
+    "ledger_sha256": "99ec4e8085e0f2397e3fe51227b7dc1c938c38d3c8953eb5c04ba17b43e7b1f8",
+    "continuation_decisions": [
+      {
+        "id": "R7_5_443",
+        "rank": 7,
+        "status": "excluded",
+        "scope": "general_complex",
+        "criterion": "quadratic_center_Galois_two_moment_q60",
+        "proof_source": "evidence/rank7_m5_20261020",
+        "proof": "criteria/Q60_CENTER_TRACE_PROOF.md"
+      },
+      {
+        "id": "R7_5_1214",
+        "rank": 7,
+        "status": "excluded",
+        "scope": "general_complex",
+        "criterion": "quadratic_center_Galois_two_moment_q60",
+        "proof_source": "evidence/rank7_m5_20261020",
+        "proof": "criteria/Q60_CENTER_TRACE_PROOF.md"
+      },
+      {
+        "id": "R7_5_1964",
+        "rank": 7,
+        "status": "excluded",
+        "scope": "general_complex",
+        "criterion": "character",
+        "proof_source": "evidence/rank7_m5_20261020",
+        "proof": "computation/README.md"
+      },
+      {
+        "id": "R7_5_4530",
+        "rank": 7,
+        "status": "excluded",
+        "scope": "general_complex",
+        "criterion": "oriented_dimension_order",
+        "proof_source": "evidence/rank7_m5_20261020",
+        "proof": "criteria/INDEPENDENT_SCOPE_AUDIT.md"
+      },
+      {
+        "id": "R7_5_4531",
+        "rank": 7,
+        "status": "excluded",
+        "scope": "general_complex",
+        "criterion": "oriented_dimension_order",
+        "proof_source": "evidence/rank7_m5_20261020",
+        "proof": "criteria/INDEPENDENT_SCOPE_AUDIT.md"
+      },
+      {
+        "id": "R7_5_4569",
+        "rank": 7,
+        "status": "excluded",
+        "scope": "general_complex",
+        "criterion": "oriented_signed_compression",
+        "proof_source": "evidence/rank7_m5_20261020",
+        "proof": "criteria/R4569_GENERAL_PROOF.md"
+      },
+      {
+        "id": "R7_5_4653",
+        "rank": 7,
+        "status": "excluded",
+        "scope": "general_complex",
+        "criterion": "quadratic_casimir_compression",
+        "proof_source": "evidence/rank7_m5_20261020",
+        "proof": "criteria/QUADRATIC_COMPRESSION_PROOF.md"
+      },
+      {
+        "id": "R7_5_4982",
+        "rank": 7,
+        "status": "excluded",
+        "scope": "general_complex",
+        "criterion": "cyclic3_full_morita_rank13_descent",
+        "proof_source": "evidence/rank7_m5_20261020",
+        "proof": "modules/README.md"
+      },
+      {
+        "id": "R7_5_5029",
+        "rank": 7,
+        "status": "excluded",
+        "scope": "general_complex",
+        "criterion": "quadratic_casimir_compression",
+        "proof_source": "evidence/rank7_m5_20261020",
+        "proof": "criteria/QUADRATIC_COMPRESSION_PROOF.md"
+      },
+      {
+        "id": "R7_5_5040",
+        "rank": 7,
+        "status": "excluded",
+        "scope": "general_complex",
+        "criterion": "quadratic_casimir_compression",
+        "proof_source": "evidence/rank7_m5_20261020",
+        "proof": "criteria/QUADRATIC_COMPRESSION_PROOF.md"
+      },
+      {
+        "id": "R7_5_5343",
+        "rank": 7,
+        "status": "excluded",
+        "scope": "general_complex",
+        "criterion": "character",
+        "proof_source": "evidence/rank7_m5_20261020",
+        "proof": "computation/README.md"
+      },
+      {
+        "id": "R7_5_5623",
+        "rank": 7,
+        "status": "excluded",
+        "scope": "general_complex",
+        "criterion": "character",
+        "proof_source": "evidence/rank7_m5_20261020",
+        "proof": "computation/README.md"
+      },
+      {
+        "id": "R7_5_5778",
+        "rank": 7,
+        "status": "excluded",
+        "scope": "general_complex",
+        "criterion": "character",
+        "proof_source": "evidence/rank7_m5_20261020",
+        "proof": "computation/README.md"
+      }
+    ]
   },
   "research_progress": "evidence/rigidity_20261017/rank6/research_progress.json",
   "research_progress_sha256": "de9be218c3099e68f00f5867b77d9ff7cbf9ef6ca34207823f2598b710886497",
   "documents": {
     "docs/New_category_candidates_and_open_cases.pdf": {
-      "sha256": "3f393c20e3d40bc6ac59d66087409c28144639b8d838e2ab77821d38597f8ca7",
-      "bytes": 57072
+      "sha256": "f7957e6ce15ccc93f7457fd1c22ad1265d1341f7cc50a6bfb97ba8853661780d",
+      "bytes": 52784
     },
-    "manuscripts/prepublication-review-2026-10-19.pdf": {
-      "sha256": "53adb883d05090daa60e47bb6eee164f4f6115cc588aa2a21ce38a260ac97242",
-      "bytes": 74397
+    "manuscripts/prepublication-review-2026-10-20.pdf": {
+      "sha256": "7e55716bdf74460c9752a9b79a71c4daf80ad2eae3f88710517fd3f6f1abf868",
+      "bytes": 77086
     },
     "manuscripts/rank2.pdf": {
       "sha256": "3488327cdd434217b29fe48a6a32eb604ee5f0ceb7870bd33af3b1bc17ab9a36",
@@ -629,12 +722,12 @@
       "bytes": 5058
     },
     "manuscripts/rank7/papers/generated_m5_status.tex": {
-      "sha256": "7cd63a97349161119d6d76b318786b972ce0894b9f74b646ecfbcbe38c7d9d6e",
-      "bytes": 1015
+      "sha256": "83ae402e32a5bbc3fea89ac91dcb3799bcda7841952c7e34f3a02f0288f67806",
+      "bytes": 719
     },
     "manuscripts/rank7/papers/generated_tables.tex": {
-      "sha256": "1222d0ccdab4f7f9f8cf28d6895f3e4d1afb353b0bc444b71b3316da2a772dab",
-      "bytes": 5343
+      "sha256": "4972489c7551e2f58d4cdca4951adc209f7101c3136cb7dc8d61be9281152ec0",
+      "bytes": 5577
     },
     "manuscripts/rank7/papers/inverse_v4_morita.tex": {
       "sha256": "318e9ab954f6206307f1c0e134857eb647d721102ea8364b319478ad00a755f6",
@@ -644,21 +737,33 @@
       "sha256": "691de521cce8de8ff3279cf414eee51c7806a85a5e4d7a189246b84d5e0b3368",
       "bytes": 13554
     },
+    "manuscripts/rank7/papers/m5_morita_descent.tex": {
+      "sha256": "5e9b7b4023a121d30a7a2a3b75a26effdeb4b8429acfc04bf7b8b84c2b974c76",
+      "bytes": 13031
+    },
+    "manuscripts/rank7/papers/m5_quadratic_continuation.tex": {
+      "sha256": "f3eb4b39fa07dfb31787ed9446f1f0c365923b3c5738f64028c2645ec5bbb786",
+      "bytes": 15461
+    },
+    "manuscripts/rank7/papers/m5_remaining_structure.tex": {
+      "sha256": "69c4731ddd81c4db4b38cc4f53f50ecc1b8b51d0f159dd3e4900e46c79459dab",
+      "bytes": 27087
+    },
     "manuscripts/rank7/papers/manuscript.pdf": {
-      "sha256": "4ccafc3dd91e42e0cc84e8699642975f4094ae2b31de1b0d03a3c2b640285a9c",
-      "bytes": 776366
+      "sha256": "9438117e37f5a200a38789daf57e064c8416ffd5fa4b610b862cf47728432d60",
+      "bytes": 866345
     },
     "manuscripts/rank7/papers/manuscript.tex": {
-      "sha256": "2a4083d3c025b160bc3d2ccb305a61cad843c2e36988e84a88ee99a1d9a516f1",
-      "bytes": 49508
+      "sha256": "ec76197626c5e20b2deccc3bbf83919142d946ae29a5b465baa597e96081106c",
+      "bytes": 50746
     },
     "manuscripts/rank7/papers/module_dual_gram.tex": {
       "sha256": "542f11ee73bf59478d6d198224675327306aba757ab72c8c632650b838159aef",
       "bytes": 6754
     },
     "manuscripts/rank7/papers/multiplicity5.tex": {
-      "sha256": "b8bf0bb67f2fd7328a1ee5349909f40d15b364dc143e35279a850636027450e2",
-      "bytes": 10611
+      "sha256": "33af4d4da6f3002f9ddaa96ca91ca42bdfc841a26c90add74b4e4e985b0d8f14",
+      "bytes": 10714
     },
     "manuscripts/rank7/papers/prime_descent_proofs.tex": {
       "sha256": "84f8c5f18e21a73ad4551620da32039b96d1b735f0ec8ed0e2b6d4d3bb86b04d",
@@ -1369,12 +1474,12 @@
       "bytes": 5058
     },
     "supplements/rank7/papers/generated_m5_status.tex": {
-      "sha256": "7cd63a97349161119d6d76b318786b972ce0894b9f74b646ecfbcbe38c7d9d6e",
-      "bytes": 1015
+      "sha256": "83ae402e32a5bbc3fea89ac91dcb3799bcda7841952c7e34f3a02f0288f67806",
+      "bytes": 719
     },
     "supplements/rank7/papers/generated_tables.tex": {
-      "sha256": "1222d0ccdab4f7f9f8cf28d6895f3e4d1afb353b0bc444b71b3316da2a772dab",
-      "bytes": 5343
+      "sha256": "4972489c7551e2f58d4cdca4951adc209f7101c3136cb7dc8d61be9281152ec0",
+      "bytes": 5577
     },
     "supplements/rank7/papers/inverse_v4_morita.tex": {
       "sha256": "318e9ab954f6206307f1c0e134857eb647d721102ea8364b319478ad00a755f6",
@@ -1384,21 +1489,33 @@
       "sha256": "691de521cce8de8ff3279cf414eee51c7806a85a5e4d7a189246b84d5e0b3368",
       "bytes": 13554
     },
+    "supplements/rank7/papers/m5_morita_descent.tex": {
+      "sha256": "5e9b7b4023a121d30a7a2a3b75a26effdeb4b8429acfc04bf7b8b84c2b974c76",
+      "bytes": 13031
+    },
+    "supplements/rank7/papers/m5_quadratic_continuation.tex": {
+      "sha256": "f3eb4b39fa07dfb31787ed9446f1f0c365923b3c5738f64028c2645ec5bbb786",
+      "bytes": 15461
+    },
+    "supplements/rank7/papers/m5_remaining_structure.tex": {
+      "sha256": "69c4731ddd81c4db4b38cc4f53f50ecc1b8b51d0f159dd3e4900e46c79459dab",
+      "bytes": 27087
+    },
     "supplements/rank7/papers/manuscript.pdf": {
-      "sha256": "4ccafc3dd91e42e0cc84e8699642975f4094ae2b31de1b0d03a3c2b640285a9c",
-      "bytes": 776366
+      "sha256": "9438117e37f5a200a38789daf57e064c8416ffd5fa4b610b862cf47728432d60",
+      "bytes": 866345
     },
     "supplements/rank7/papers/manuscript.tex": {
-      "sha256": "2a4083d3c025b160bc3d2ccb305a61cad843c2e36988e84a88ee99a1d9a516f1",
-      "bytes": 49508
+      "sha256": "ec76197626c5e20b2deccc3bbf83919142d946ae29a5b465baa597e96081106c",
+      "bytes": 50746
     },
     "supplements/rank7/papers/module_dual_gram.tex": {
       "sha256": "542f11ee73bf59478d6d198224675327306aba757ab72c8c632650b838159aef",
       "bytes": 6754
     },
     "supplements/rank7/papers/multiplicity5.tex": {
-      "sha256": "b8bf0bb67f2fd7328a1ee5349909f40d15b364dc143e35279a850636027450e2",
-      "bytes": 10611
+      "sha256": "33af4d4da6f3002f9ddaa96ca91ca42bdfc841a26c90add74b4e4e985b0d8f14",
+      "bytes": 10714
     },
     "supplements/rank7/papers/prime_descent_proofs.tex": {
       "sha256": "84f8c5f18e21a73ad4551620da32039b96d1b735f0ec8ed0e2b6d4d3bb86b04d",
@@ -1576,6 +1693,6 @@
     "papers/rank8.pdf": "manuscripts/rank8/paper/rank8.pdf",
     "papers/rank8-reviewed.pdf": "manuscripts/rank8/paper/rank8.pdf",
     "papers/rank6_addendum_20261002.pdf": "manuscripts/rank6/papers/manuscript.pdf",
-    "papers/prepublication-review-2026-10-19.pdf": "manuscripts/prepublication-review-2026-10-19.pdf"
+    "papers/prepublication-review-2026-10-20.pdf": "manuscripts/prepublication-review-2026-10-20.pdf"
   }
 }

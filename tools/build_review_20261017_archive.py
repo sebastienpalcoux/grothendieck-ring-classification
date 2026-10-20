@@ -102,20 +102,23 @@ def collect(root):
                    'evidence/review_20261017', 'evidence/prepublication_20261017',
                    'evidence/publication_20261017', 'evidence/rank4_unrestricted_20261017',
                    'evidence/rigidity_20261017', 'evidence/citation_20261019',
-                   'evidence/rank7_m5_20261019', 'supplements/rank7/output/m5',
+                   'evidence/rank7_m5_20261019', 'evidence/rank7_m5_20261020', 'supplements/rank7/output/m5',
                    'supplements/rank7/provenance', 'supplements/rank7/output'):
         paths.update(path.relative_to(root).as_posix() for path in (root / folder).rglob('*')
                      if path.is_file() and not {'__pycache__', '.pytest_cache'}.intersection(path.parts)
-                     and path.suffix not in ('.pyc', '.pyo', '.tmp', '.writing', '.swp')
+                     and not any(part.startswith('.') for part in path.relative_to(root).parts)
+                     and path.suffix not in ('.pyc', '.pyo', '.tmp', '.writing', '.swp', '.log')
+                     and not (folder == 'evidence/rank7_m5_20261020' and not path.suffix)
                      and path.name != '.DS_Store')
     paths.update(revision['documents'])
-    for folder in ('supplements/rank7/software','supplements/rank7/data'):
+    for folder in ('supplements/rank6/software','supplements/rank7/software','supplements/rank7/data'):
         paths.update(path.relative_to(root).as_posix() for path in (root/folder).rglob('*')
                      if path.is_file() and path.suffix in ('.py','.cpp','.h','.hpp','.json','.gz','.txt','.csv','.md'))
     paths.update(path.relative_to(root).as_posix() for path in (root/'supplements/rank7').glob('*')
-                 if path.is_file() and path.suffix in ('.py','.cpp','.md'))
+                 if path.is_file() and path.suffix in ('.py','.cpp','.md','.txt'))
     paths.update(('tools/sync_rank7_m5_publication.py', 'tools/import_rank7_m5_counts.py',
-                  'tools/build_novelty_frontier_brief.py',
+                  'tools/build_novelty_frontier_brief.py', 'tools/build_rank7_m5_continuation_overview.py',
+                  'tools/audit_rank7_manuscript.py',
                   'data/counts.json', 'data/classification_status.json'))
     paths.update(json.loads((root / 'evidence/rigidity_20261017/source_files.json').read_text()))
     necessary = json.loads((root / 'evidence/rigidity_20261017/rank6/MANIFEST.json').read_text())

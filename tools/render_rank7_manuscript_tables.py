@@ -89,6 +89,10 @@ names.update({
  'twisted_v4_staged_morita_obstruction':'Twisted $V_4$ staged Morita obstruction',
  'quadratic_center_reciprocity_two_moment':'Character reciprocity and two center moments',
  'dihedral_Morita_R18_obstruction':'Dihedral Morita and full center STS',
+ 'quadratic_casimir_compression':'Quadratic Casimir compression',
+ 'oriented_signed_compression':'Complete signed quotient and compression',
+ 'quadratic_center_Galois_two_moment_q60':'Conductor-sixty center moments',
+ 'cyclic3_full_morita_rank13_descent':'Full cyclic Morita and rank-thirteen descent',
 })
 pretty_models={
     'D12_even_local_modules':r'$D_{12}$ even category (\S\ref{sec:d12})',
@@ -147,16 +151,20 @@ if max_m >= 5:
     fragment=[r'\subsection{Recorded outcome and open frontier}',
         f"Among the $5805$ new tensors, ${counts.get('excluded',0)}$ are excluded, "
         f"${counts.get('unitarily_realized',0)}$ has a verified unitary model, and "
-        f"${counts.get('unresolved',0)}$ remain undecided.",
-        r'The unresolved identifiers are', r'\begin{center}\small',
-        r'\begin{tabular}{@{}l l l@{}}']
+        f"${counts.get('unresolved',0)}$ remain undecided."]
     ids=current['unresolved_ids']
-    for start in range(0,len(ids),3):
-        cells=[r'\texttt{'+esc(i)+'}' for i in ids[start:start+3]]
-        cells+=['']*(3-len(cells))
-        fragment.append(' & '.join(cells)+r'\\')
-    fragment.extend([r'\end{tabular}',r'\end{center}',
-        r'Each has its complete tensor and attempted checks in the companion data.',
+    if ids:
+        fragment.extend([r'The unresolved identifiers are', r'\begin{center}\small',
+                         r'\begin{tabular}{@{}l l l@{}}'])
+        for start in range(0,len(ids),3):
+            cells=[r'\texttt{'+esc(i)+'}' for i in ids[start:start+3]]
+            cells+=['']*(3-len(cells))
+            fragment.append(' & '.join(cells)+r'\\')
+        fragment.extend([r'\end{tabular}',r'\end{center}',
+                         r'Each has its complete tensor and attempted checks in the companion data.'])
+    else:
+        fragment.append(r'Every supplied tensor in the band has a recorded general exclusion or unitary model.')
+    fragment.extend([
         r'A feasible necessary system is not a categorical construction, and a',
         r'time-limited or incomplete search is not a nonexistence certificate.',
         r'No new tensor category is established for this frontier. The model in',

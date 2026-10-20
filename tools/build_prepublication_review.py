@@ -10,6 +10,7 @@ from pathlib import Path
 import json
 import shutil
 from xml.sax.saxutils import escape
+from rank7_publication import STATUS_REPORT
 
 from reportlab.lib import colors
 from reportlab.lib.pagesizes import A4
@@ -22,7 +23,7 @@ from reportlab.platypus import (
 
 ROOT = Path(__file__).resolve().parents[1]
 CONTENT = json.loads((ROOT / 'docs/prepublication_review_content.json').read_text())
-NAME = 'prepublication-review-2026-10-19.pdf'
+NAME = STATUS_REPORT
 OUT = ROOT / 'manuscripts' / NAME
 OUT.parent.mkdir(parents=True, exist_ok=True)
 REPO = 'https://github.com/sebastienpalcoux/grothendieck-ring-classification'
@@ -50,8 +51,8 @@ styles = {
     'subtitle': ParagraphStyle('subtitle', fontName='Sans', fontSize=11, leading=16, textColor=MUTED, spaceAfter=16),
     'h1': ParagraphStyle('h1', fontName='SansBold', fontSize=20, leading=26, textColor=INK, spaceAfter=13),
     'h2': ParagraphStyle('h2', fontName='SansBold', fontSize=12, leading=17, textColor=TEAL, spaceBefore=13, spaceAfter=7),
-    'body': ParagraphStyle('body', fontName='Sans', fontSize=9.1, leading=14.2, textColor=INK, spaceAfter=9),
-    'small': ParagraphStyle('small', fontName='Sans', fontSize=8.0, leading=11.3, textColor=MUTED, spaceAfter=7),
+    'body': ParagraphStyle('body', fontName='Sans', fontSize=9.1, leading=14.2, textColor=INK, spaceAfter=9, allowWidows=0, allowOrphans=0),
+    'small': ParagraphStyle('small', fontName='Sans', fontSize=8.0, leading=10.9, textColor=MUTED, spaceAfter=6, allowWidows=0, allowOrphans=0),
     'code': ParagraphStyle('code', fontName='Mono', fontSize=7.3, leading=11.4, textColor=INK),
     'notice': ParagraphStyle('notice', fontName='Sans', fontSize=9.0, leading=14.1, textColor=INK),
     'tablehead': ParagraphStyle('tablehead', fontName='SansBold', fontSize=8, leading=11.5, textColor=TEAL),
@@ -129,6 +130,8 @@ story += [p('MATHEMATICAL FRONTIER', 'kicker'), p(open_heading, 'h1'),
 for case in CONTENT['open_cases']:
     story += [p(safe(case['id']) + '  /  ' + safe(case['heading']), 'h2')]
     story += [p(safe(x)) for x in case['paragraphs']]
+if CONTENT.get('theoretical_results'):
+    story += [PageBreak(), p('CATEGORICAL ARGUMENTS', 'kicker'), p('New structural criteria', 'h1')]
 for result in CONTENT.get('theoretical_results', []):
     story += [p(safe(result['heading']), 'h2')]
     story += [p(safe(x)) for x in result['paragraphs']]
@@ -157,7 +160,7 @@ story += [p('Replay from the repository root', 'h2'),
 
 doc = SimpleDocTemplate(str(OUT), pagesize=A4, rightMargin=50, leftMargin=50,
                         topMargin=48, bottomMargin=64,
-                        title='Research status and verification - 19 October 2026',
+                        title='Research status and verification - ' + CONTENT['date'],
                         author='Grothendieck Ring Classification project (AI-generated research)',
                         subject=f'Current classification, {open_count} open cases, computational scope and limitations')
 doc.build(story, onFirstPage=footer, onLaterPages=footer)

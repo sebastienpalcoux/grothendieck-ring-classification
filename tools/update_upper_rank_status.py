@@ -6,6 +6,7 @@ The existing lower-rank status rows and input identities are preserved exactly.
 import collections,csv,hashlib,json
 from pathlib import Path
 from publication_stages import load_stages
+from rank7_publication import PUBLICATION_DATE
 ROOT=Path(__file__).resolve().parents[1]
 def main():
     target=ROOT/'data/classification_status.json';x=json.loads(target.read_text())
@@ -42,7 +43,7 @@ def main():
         x['inputs'][f'rank{rank}']['current_bundle']=a.name
         if rank == 7:
             x['inputs']['rank7']['extension'] = {
-                'date': '2026-10-19', 'multiplicity': 5,
+                'date': PUBLICATION_DATE, 'multiplicity': 5,
                 'source': 'supplements/rank7/output/m5/source.json',
                 'normal_replay': 'supplements/rank7/output/m5/replay_normal.json',
                 'optimized_replay': 'supplements/rank7/output/m5/replay_optimized.json'}

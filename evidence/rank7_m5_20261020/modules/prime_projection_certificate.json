@@ -1,0 +1,195 @@
+{
+  "status": "PASS",
+  "local_checks": [
+    {
+      "modulus": 5,
+      "primitive_vectors": 24,
+      "domain_dimension": 2,
+      "maximal_squared_singular_value": "1/5",
+      "maximal_singular_space_dimension": 2,
+      "exact_squared_norm_ratio": 5
+    },
+    {
+      "modulus": 25,
+      "primitive_vectors": 600,
+      "domain_dimension": 6,
+      "maximal_squared_singular_value": "1/5",
+      "maximal_singular_space_dimension": 2,
+      "exact_squared_norm_ratio": 5
+    },
+    {
+      "modulus": 125,
+      "primitive_vectors": 15000,
+      "domain_dimension": 10,
+      "maximal_squared_singular_value": "1/5",
+      "maximal_singular_space_dimension": 2,
+      "exact_squared_norm_ratio": 5
+    }
+  ],
+  "sources": {
+    "R7_5_3895": {
+      "source_sha256": "590b613093643a1c3047e866213050ba7fd87c211a42906de823d0c613d11ad0",
+      "dimensions": [
+        [
+          1,
+          0
+        ],
+        [
+          5,
+          2
+        ],
+        [
+          5,
+          2
+        ],
+        [
+          10,
+          4
+        ],
+        [
+          8,
+          4
+        ],
+        [
+          8,
+          4
+        ],
+        [
+          9,
+          4
+        ]
+      ],
+      "global_dimension": [
+        720,
+        320
+      ],
+      "u_coefficients": [
+        2,
+        1,
+        1,
+        2,
+        -2,
+        -2,
+        0
+      ],
+      "S_difference": "-u/(4*sqrt(5))",
+      "total_squared_u_weight": 160,
+      "known_induced_unit_weight": 8,
+      "five_primary_order_one_weight_bounds": [
+        8,
+        32
+      ],
+      "five_primary_order_five_weight": "4*c",
+      "frames": [
+        {
+          "frame_index": 6,
+          "u_values": [
+            2,
+            0,
+            0,
+            0,
+            0,
+            -2,
+            0
+          ],
+          "squared_weight": 8
+        },
+        {
+          "frame_index": 8,
+          "u_values": [
+            2,
+            0,
+            0,
+            0,
+            0,
+            -2,
+            0
+          ],
+          "squared_weight": 8
+        }
+      ]
+    },
+    "R7_5_5039": {
+      "source_sha256": "8606c63a2f02ea028185db755a4b055382073b94736d5040ee92f3eec07f450c",
+      "dimensions": [
+        [
+          1,
+          0
+        ],
+        [
+          5,
+          2
+        ],
+        [
+          5,
+          2
+        ],
+        [
+          8,
+          4
+        ],
+        [
+          8,
+          4
+        ],
+        [
+          10,
+          4
+        ],
+        [
+          9,
+          4
+        ]
+      ],
+      "global_dimension": [
+        720,
+        320
+      ],
+      "u_coefficients": [
+        2,
+        1,
+        1,
+        -2,
+        -2,
+        2,
+        0
+      ],
+      "S_difference": "-u/(4*sqrt(5))",
+      "total_squared_u_weight": 160,
+      "known_induced_unit_weight": 8,
+      "five_primary_order_one_weight_bounds": [
+        8,
+        32
+      ],
+      "five_primary_order_five_weight": "4*c",
+      "frames": [
+        {
+          "frame_index": 1,
+          "u_values": [
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            -2
+          ],
+          "squared_weight": 8
+        },
+        {
+          "frame_index": 3,
+          "u_values": [
+            2,
+            0,
+            0,
+            0,
+            0,
+            0,
+            -2
+          ],
+          "squared_weight": 8
+        }
+      ]
+    }
+  }
+}

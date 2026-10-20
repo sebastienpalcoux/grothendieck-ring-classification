@@ -1,0 +1,2463 @@
+{
+  "status": "PASS",
+  "tested": 15,
+  "general_exclusions": 3,
+  "certificates": [
+    {
+      "id": "R7_5_4653",
+      "certificate": {
+        "kind": "quadratic_casimir_compression",
+        "scope": "general_complex",
+        "tensor_sha256": "9fea71d2f424cbfadfbe32704c171fcade0f84b3de4e6349a97ca5226dc9aa08",
+        "casimir_characteristic_polynomial": [
+          1,
+          -4015,
+          226270,
+          -5204210,
+          61565405,
+          -386683451,
+          1169230260,
+          -1169230260
+        ],
+        "casimir_factors": [
+          {
+            "coefficients": [
+              1,
+              -11
+            ],
+            "multiplicity": 5
+          },
+          {
+            "coefficients": [
+              1,
+              -3960,
+              7260
+            ],
+            "multiplicity": 1
+          }
+        ],
+        "quadratic_checks": [
+          {
+            "field_discriminant": 165,
+            "factors": [
+              {
+                "coefficients": [
+                  1,
+                  -3960,
+                  7260
+                ],
+                "multiplicity": 1,
+                "discriminant": 15652560,
+                "contribution": "49"
+              }
+            ],
+            "Q": "49",
+            "general_bound": 4,
+            "general_violation": true,
+            "spherical_bound": 1,
+            "spherical_violation": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "R7_5_5029",
+      "certificate": {
+        "kind": "quadratic_casimir_compression",
+        "scope": "general_complex",
+        "tensor_sha256": "2cd2933e08720d969e7cde1737f44e4d99c58461e5ec7f9797afb5d1e1710b7a",
+        "casimir_characteristic_polynomial": [
+          1,
+          -1647,
+          107496,
+          -2578284,
+          28045440,
+          -151289856,
+          394149888,
+          -394149888
+        ],
+        "casimir_factors": [
+          {
+            "coefficients": [
+              1,
+              -3
+            ],
+            "multiplicity": 1
+          },
+          {
+            "coefficients": [
+              1,
+              -24
+            ],
+            "multiplicity": 2
+          },
+          {
+            "coefficients": [
+              1,
+              -6
+            ],
+            "multiplicity": 2
+          },
+          {
+            "coefficients": [
+              1,
+              -1584,
+              6336
+            ],
+            "multiplicity": 1
+          }
+        ],
+        "quadratic_checks": [
+          {
+            "field_discriminant": 88,
+            "factors": [
+              {
+                "coefficients": [
+                  1,
+                  -1584,
+                  6336
+                ],
+                "multiplicity": 1,
+                "discriminant": 2483712,
+                "contribution": "49/9"
+              }
+            ],
+            "Q": "49/9",
+            "general_bound": 4,
+            "general_violation": true,
+            "spherical_bound": 1,
+            "spherical_violation": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "R7_5_5040",
+      "certificate": {
+        "kind": "quadratic_casimir_compression",
+        "scope": "general_complex",
+        "tensor_sha256": "c663ad37d16eed0171f00cf4bde30217a88fa8f6212933d7638e930728e036d2",
+        "casimir_characteristic_polynomial": [
+          1,
+          -1627,
+          75160,
+          -1405872,
+          13427712,
+          -68456448,
+          175177728,
+          -175177728
+        ],
+        "casimir_factors": [
+          {
+            "coefficients": [
+              1,
+              -3
+            ],
+            "multiplicity": 1
+          },
+          {
+            "coefficients": [
+              1,
+              -12
+            ],
+            "multiplicity": 2
+          },
+          {
+            "coefficients": [
+              1,
+              -8
+            ],
+            "multiplicity": 2
+          },
+          {
+            "coefficients": [
+              1,
+              -1584,
+              6336
+            ],
+            "multiplicity": 1
+          }
+        ],
+        "quadratic_checks": [
+          {
+            "field_discriminant": 88,
+            "factors": [
+              {
+                "coefficients": [
+                  1,
+                  -1584,
+                  6336
+                ],
+                "multiplicity": 1,
+                "discriminant": 2483712,
+                "contribution": "49/9"
+              }
+            ],
+            "Q": "49/9",
+            "general_bound": 4,
+            "general_violation": true,
+            "spherical_bound": 1,
+            "spherical_violation": true
+          }
+        ]
+      }
+    }
+  ],
+  "receipts": [
+    {
+      "id": "R7_5_443",
+      "tensor_sha256": "2fac7e9b2ba6ee55e35443af3ac36221f20b56b60a6224e0137813bc2365fa8c",
+      "casimir_characteristic_polynomial": [
+        1,
+        -513,
+        19856,
+        -321012,
+        2720448,
+        -12718080,
+        31104000,
+        -31104000
+      ],
+      "casimir_factors": [
+        {
+          "coefficients": [
+            1,
+            -12
+          ],
+          "multiplicity": 1
+        },
+        {
+          "coefficients": [
+            1,
+            -5
+          ],
+          "multiplicity": 1
+        },
+        {
+          "coefficients": [
+            1,
+            -4
+          ],
+          "multiplicity": 1
+        },
+        {
+          "coefficients": [
+            1,
+            -6
+          ],
+          "multiplicity": 2
+        },
+        {
+          "coefficients": [
+            1,
+            -480,
+            3600
+          ],
+          "multiplicity": 1
+        }
+      ],
+      "quadratic_checks": [
+        {
+          "field_discriminant": 60,
+          "factors": [
+            {
+              "coefficients": [
+                1,
+                -480,
+                3600
+              ],
+              "multiplicity": 1,
+              "discriminant": 216000,
+              "contribution": "1"
+            }
+          ],
+          "Q": "1",
+          "general_bound": 4,
+          "general_violation": false,
+          "spherical_bound": 1,
+          "spherical_violation": false
+        }
+      ]
+    },
+    {
+      "id": "R7_5_1214",
+      "tensor_sha256": "7c9770f1310f0b4b2ebee29fb3cba18d3a312269ea6ceebfa9375d83a32029b1",
+      "casimir_characteristic_polynomial": [
+        1,
+        -517,
+        21872,
+        -382256,
+        3435264,
+        -16669440,
+        41472000,
+        -41472000
+      ],
+      "casimir_factors": [
+        {
+          "coefficients": [
+            1,
+            -5
+          ],
+          "multiplicity": 1
+        },
+        {
+          "coefficients": [
+            1,
+            -12
+          ],
+          "multiplicity": 2
+        },
+        {
+          "coefficients": [
+            1,
+            -4
+          ],
+          "multiplicity": 2
+        },
+        {
+          "coefficients": [
+            1,
+            -480,
+            3600
+          ],
+          "multiplicity": 1
+        }
+      ],
+      "quadratic_checks": [
+        {
+          "field_discriminant": 60,
+          "factors": [
+            {
+              "coefficients": [
+                1,
+                -480,
+                3600
+              ],
+              "multiplicity": 1,
+              "discriminant": 216000,
+              "contribution": "1"
+            }
+          ],
+          "Q": "1",
+          "general_bound": 4,
+          "general_violation": false,
+          "spherical_bound": 1,
+          "spherical_violation": false
+        }
+      ]
+    },
+    {
+      "id": "R7_5_1964",
+      "tensor_sha256": "2de3d69f8b168836840d4d48c523ba2ff494b8d788774e7911ecd7aa413293ff",
+      "casimir_characteristic_polynomial": [
+        1,
+        -1011,
+        64240,
+        -1585248,
+        18496000,
+        -104313600,
+        276480000,
+        -276480000
+      ],
+      "casimir_factors": [
+        {
+          "coefficients": [
+            1,
+            -3
+          ],
+          "multiplicity": 1
+        },
+        {
+          "coefficients": [
+            1,
+            -20
+          ],
+          "multiplicity": 2
+        },
+        {
+          "coefficients": [
+            1,
+            -4
+          ],
+          "multiplicity": 2
+        },
+        {
+          "coefficients": [
+            1,
+            -960,
+            14400
+          ],
+          "multiplicity": 1
+        }
+      ],
+      "quadratic_checks": [
+        {
+          "field_discriminant": 60,
+          "factors": [
+            {
+              "coefficients": [
+                1,
+                -960,
+                14400
+              ],
+              "multiplicity": 1,
+              "discriminant": 864000,
+              "contribution": "1/4"
+            }
+          ],
+          "Q": "1/4",
+          "general_bound": 4,
+          "general_violation": false,
+          "spherical_bound": 1,
+          "spherical_violation": false
+        }
+      ]
+    },
+    {
+      "id": "R7_5_3895",
+      "tensor_sha256": "590b613093643a1c3047e866213050ba7fd87c211a42906de823d0c613d11ad0",
+      "casimir_characteristic_polynomial": [
+        1,
+        -1486,
+        73409,
+        -1407524,
+        13241600,
+        -65484800,
+        163840000,
+        -163840000
+      ],
+      "casimir_factors": [
+        {
+          "coefficients": [
+            1,
+            -4
+          ],
+          "multiplicity": 1
+        },
+        {
+          "coefficients": [
+            1,
+            -16
+          ],
+          "multiplicity": 2
+        },
+        {
+          "coefficients": [
+            1,
+            -5
+          ],
+          "multiplicity": 2
+        },
+        {
+          "coefficients": [
+            1,
+            -1440,
+            6400
+          ],
+          "multiplicity": 1
+        }
+      ],
+      "quadratic_checks": [
+        {
+          "field_discriminant": 5,
+          "factors": [
+            {
+              "coefficients": [
+                1,
+                -1440,
+                6400
+              ],
+              "multiplicity": 1,
+              "discriminant": 2048000,
+              "contribution": "1/4"
+            }
+          ],
+          "Q": "1/4",
+          "general_bound": 4,
+          "general_violation": false,
+          "spherical_bound": 1,
+          "spherical_violation": false
+        }
+      ]
+    },
+    {
+      "id": "R7_5_4530",
+      "tensor_sha256": "f2691e26decdcd238199cc4950a8dba0b24146d7bf1ce0c92d18a39bd0507231",
+      "casimir_characteristic_polynomial": [
+        1,
+        -3114,
+        144099,
+        -2738853,
+        27051003,
+        -144551952,
+        387420489,
+        -387420489
+      ],
+      "casimir_factors": [
+        {
+          "coefficients": [
+            1,
+            -9
+          ],
+          "multiplicity": 4
+        },
+        {
+          "coefficients": [
+            1,
+            -3078,
+            32805,
+            -59049
+          ],
+          "multiplicity": 1
+        }
+      ],
+      "quadratic_checks": []
+    },
+    {
+      "id": "R7_5_4531",
+      "tensor_sha256": "e96122547fc2d1183c15faa0f695004cde4ca5df308161b3c40adde41d5818ba",
+      "casimir_characteristic_polynomial": [
+        1,
+        -3114,
+        144099,
+        -2738853,
+        27051003,
+        -144551952,
+        387420489,
+        -387420489
+      ],
+      "casimir_factors": [
+        {
+          "coefficients": [
+            1,
+            -9
+          ],
+          "multiplicity": 4
+        },
+        {
+          "coefficients": [
+            1,
+            -3078,
+            32805,
+            -59049
+          ],
+          "multiplicity": 1
+        }
+      ],
+      "quadratic_checks": []
+    },
+    {
+      "id": "R7_5_4569",
+      "tensor_sha256": "a041edae2990918c6b15b2401fb484443e4e4e868ac2df140d35c7c5912a8cda",
+      "casimir_characteristic_polynomial": [
+        1,
+        -2978,
+        129906,
+        -2279284,
+        20592005,
+        -101000466,
+        254121840,
+        -254121840
+      ],
+      "casimir_factors": [
+        {
+          "coefficients": [
+            1,
+            -14
+          ],
+          "multiplicity": 1
+        },
+        {
+          "coefficients": [
+            1,
+            -3
+          ],
+          "multiplicity": 1
+        },
+        {
+          "coefficients": [
+            1,
+            -7
+          ],
+          "multiplicity": 3
+        },
+        {
+          "coefficients": [
+            1,
+            -2940,
+            17640
+          ],
+          "multiplicity": 1
+        }
+      ],
+      "quadratic_checks": [
+        {
+          "field_discriminant": 60,
+          "factors": [
+            {
+              "coefficients": [
+                1,
+                -2940,
+                17640
+              ],
+              "multiplicity": 1,
+              "discriminant": 8573040,
+              "contribution": "81/49"
+            }
+          ],
+          "Q": "81/49",
+          "general_bound": 4,
+          "general_violation": false,
+          "spherical_bound": 1,
+          "spherical_violation": true
+        }
+      ]
+    },
+    {
+      "id": "R7_5_4653",
+      "tensor_sha256": "9fea71d2f424cbfadfbe32704c171fcade0f84b3de4e6349a97ca5226dc9aa08",
+      "casimir_characteristic_polynomial": [
+        1,
+        -4015,
+        226270,
+        -5204210,
+        61565405,
+        -386683451,
+        1169230260,
+        -1169230260
+      ],
+      "casimir_factors": [
+        {
+          "coefficients": [
+            1,
+            -11
+          ],
+          "multiplicity": 5
+        },
+        {
+          "coefficients": [
+            1,
+            -3960,
+            7260
+          ],
+          "multiplicity": 1
+        }
+      ],
+      "quadratic_checks": [
+        {
+          "field_discriminant": 165,
+          "factors": [
+            {
+              "coefficients": [
+                1,
+                -3960,
+                7260
+              ],
+              "multiplicity": 1,
+              "discriminant": 15652560,
+              "contribution": "49"
+            }
+          ],
+          "Q": "49",
+          "general_bound": 4,
+          "general_violation": true,
+          "spherical_bound": 1,
+          "spherical_violation": true
+        }
+      ]
+    },
+    {
+      "id": "R7_5_4982",
+      "tensor_sha256": "a8ad3ef8a683ff601507ec3324200375dc2a25e083b16912b76eafa82a6bb1bb",
+      "casimir_characteristic_polynomial": [
+        1,
+        -565,
+        58974,
+        -2426422,
+        43013425,
+        -288668709,
+        809637552,
+        -809637552
+      ],
+      "casimir_factors": [
+        {
+          "coefficients": [
+            1,
+            -444
+          ],
+          "multiplicity": 1
+        },
+        {
+          "coefficients": [
+            1,
+            -4
+          ],
+          "multiplicity": 1
+        },
+        {
+          "coefficients": [
+            1,
+            -3
+          ],
+          "multiplicity": 2
+        },
+        {
+          "coefficients": [
+            1,
+            -37
+          ],
+          "multiplicity": 3
+        }
+      ],
+      "quadratic_checks": []
+    },
+    {
+      "id": "R7_5_5029",
+      "tensor_sha256": "2cd2933e08720d969e7cde1737f44e4d99c58461e5ec7f9797afb5d1e1710b7a",
+      "casimir_characteristic_polynomial": [
+        1,
+        -1647,
+        107496,
+        -2578284,
+        28045440,
+        -151289856,
+        394149888,
+        -394149888
+      ],
+      "casimir_factors": [
+        {
+          "coefficients": [
+            1,
+            -3
+          ],
+          "multiplicity": 1
+        },
+        {
+          "coefficients": [
+            1,
+            -24
+          ],
+          "multiplicity": 2
+        },
+        {
+          "coefficients": [
+            1,
+            -6
+          ],
+          "multiplicity": 2
+        },
+        {
+          "coefficients": [
+            1,
+            -1584,
+            6336
+          ],
+          "multiplicity": 1
+        }
+      ],
+      "quadratic_checks": [
+        {
+          "field_discriminant": 88,
+          "factors": [
+            {
+              "coefficients": [
+                1,
+                -1584,
+                6336
+              ],
+              "multiplicity": 1,
+              "discriminant": 2483712,
+              "contribution": "49/9"
+            }
+          ],
+          "Q": "49/9",
+          "general_bound": 4,
+          "general_violation": true,
+          "spherical_bound": 1,
+          "spherical_violation": true
+        }
+      ]
+    },
+    {
+      "id": "R7_5_5039",
+      "tensor_sha256": "8606c63a2f02ea028185db755a4b055382073b94736d5040ee92f3eec07f450c",
+      "casimir_characteristic_polynomial": [
+        1,
+        -1474,
+        55817,
+        -878712,
+        7300800,
+        -33702400,
+        81920000,
+        -81920000
+      ],
+      "casimir_factors": [
+        {
+          "coefficients": [
+            1,
+            -5
+          ],
+          "multiplicity": 2
+        },
+        {
+          "coefficients": [
+            1,
+            -8
+          ],
+          "multiplicity": 3
+        },
+        {
+          "coefficients": [
+            1,
+            -1440,
+            6400
+          ],
+          "multiplicity": 1
+        }
+      ],
+      "quadratic_checks": [
+        {
+          "field_discriminant": 5,
+          "factors": [
+            {
+              "coefficients": [
+                1,
+                -1440,
+                6400
+              ],
+              "multiplicity": 1,
+              "discriminant": 2048000,
+              "contribution": "1/4"
+            }
+          ],
+          "Q": "1/4",
+          "general_bound": 4,
+          "general_violation": false,
+          "spherical_bound": 1,
+          "spherical_violation": false
+        }
+      ]
+    },
+    {
+      "id": "R7_5_5040",
+      "tensor_sha256": "c663ad37d16eed0171f00cf4bde30217a88fa8f6212933d7638e930728e036d2",
+      "casimir_characteristic_polynomial": [
+        1,
+        -1627,
+        75160,
+        -1405872,
+        13427712,
+        -68456448,
+        175177728,
+        -175177728
+      ],
+      "casimir_factors": [
+        {
+          "coefficients": [
+            1,
+            -3
+          ],
+          "multiplicity": 1
+        },
+        {
+          "coefficients": [
+            1,
+            -12
+          ],
+          "multiplicity": 2
+        },
+        {
+          "coefficients": [
+            1,
+            -8
+          ],
+          "multiplicity": 2
+        },
+        {
+          "coefficients": [
+            1,
+            -1584,
+            6336
+          ],
+          "multiplicity": 1
+        }
+      ],
+      "quadratic_checks": [
+        {
+          "field_discriminant": 88,
+          "factors": [
+            {
+              "coefficients": [
+                1,
+                -1584,
+                6336
+              ],
+              "multiplicity": 1,
+              "discriminant": 2483712,
+              "contribution": "49/9"
+            }
+          ],
+          "Q": "49/9",
+          "general_bound": 4,
+          "general_violation": true,
+          "spherical_bound": 1,
+          "spherical_violation": true
+        }
+      ]
+    },
+    {
+      "id": "R7_5_5343",
+      "tensor_sha256": "2bd9024a8afad7f4a4460d20a6fce629216f8d85e8792fd15ad7adfb203edf93",
+      "casimir_characteristic_polynomial": [
+        1,
+        -1011,
+        64240,
+        -1585248,
+        18496000,
+        -104313600,
+        276480000,
+        -276480000
+      ],
+      "casimir_factors": [
+        {
+          "coefficients": [
+            1,
+            -3
+          ],
+          "multiplicity": 1
+        },
+        {
+          "coefficients": [
+            1,
+            -20
+          ],
+          "multiplicity": 2
+        },
+        {
+          "coefficients": [
+            1,
+            -4
+          ],
+          "multiplicity": 2
+        },
+        {
+          "coefficients": [
+            1,
+            -960,
+            14400
+          ],
+          "multiplicity": 1
+        }
+      ],
+      "quadratic_checks": [
+        {
+          "field_discriminant": 60,
+          "factors": [
+            {
+              "coefficients": [
+                1,
+                -960,
+                14400
+              ],
+              "multiplicity": 1,
+              "discriminant": 864000,
+              "contribution": "1/4"
+            }
+          ],
+          "Q": "1/4",
+          "general_bound": 4,
+          "general_violation": false,
+          "spherical_bound": 1,
+          "spherical_violation": false
+        }
+      ]
+    },
+    {
+      "id": "R7_5_5623",
+      "tensor_sha256": "130e8fdd6b60144b09d5ae921a9cffe346ba4a977ed4979b3f6737a4c242178d",
+      "casimir_characteristic_polynomial": [
+        1,
+        -1011,
+        64240,
+        -1585248,
+        18496000,
+        -104313600,
+        276480000,
+        -276480000
+      ],
+      "casimir_factors": [
+        {
+          "coefficients": [
+            1,
+            -3
+          ],
+          "multiplicity": 1
+        },
+        {
+          "coefficients": [
+            1,
+            -20
+          ],
+          "multiplicity": 2
+        },
+        {
+          "coefficients": [
+            1,
+            -4
+          ],
+          "multiplicity": 2
+        },
+        {
+          "coefficients": [
+            1,
+            -960,
+            14400
+          ],
+          "multiplicity": 1
+        }
+      ],
+      "quadratic_checks": [
+        {
+          "field_discriminant": 60,
+          "factors": [
+            {
+              "coefficients": [
+                1,
+                -960,
+                14400
+              ],
+              "multiplicity": 1,
+              "discriminant": 864000,
+              "contribution": "1/4"
+            }
+          ],
+          "Q": "1/4",
+          "general_bound": 4,
+          "general_violation": false,
+          "spherical_bound": 1,
+          "spherical_violation": false
+        }
+      ]
+    },
+    {
+      "id": "R7_5_5778",
+      "tensor_sha256": "296e2c00f0d6a2761c073f906bc902cae3759042373f3a18db15f876bbf4c086",
+      "casimir_characteristic_polynomial": [
+        1,
+        -1011,
+        64240,
+        -1585248,
+        18496000,
+        -104313600,
+        276480000,
+        -276480000
+      ],
+      "casimir_factors": [
+        {
+          "coefficients": [
+            1,
+            -3
+          ],
+          "multiplicity": 1
+        },
+        {
+          "coefficients": [
+            1,
+            -20
+          ],
+          "multiplicity": 2
+        },
+        {
+          "coefficients": [
+            1,
+            -4
+          ],
+          "multiplicity": 2
+        },
+        {
+          "coefficients": [
+            1,
+            -960,
+            14400
+          ],
+          "multiplicity": 1
+        }
+      ],
+      "quadratic_checks": [
+        {
+          "field_discriminant": 60,
+          "factors": [
+            {
+              "coefficients": [
+                1,
+                -960,
+                14400
+              ],
+              "multiplicity": 1,
+              "discriminant": 864000,
+              "contribution": "1/4"
+            }
+          ],
+          "Q": "1/4",
+          "general_bound": 4,
+          "general_violation": false,
+          "spherical_bound": 1,
+          "spherical_violation": false
+        }
+      ]
+    }
+  ],
+  "controls": {
+    "positive_models": 30,
+    "spherical_false_positives": 0,
+    "corrupted_certificates_rejected": 3,
+    "spherical_only_R4569_not_promoted": true,
+    "positive_receipts": [
+      {
+        "id": "R7_1_1",
+        "tensor_sha256": "f1fb787adc9629c588e0727ba6a545e319e8f0c9123fd10a81dbd81bc196d628",
+        "casimir_characteristic_polynomial": [
+          1,
+          -64,
+          1680,
+          -23424,
+          187392,
+          -860160,
+          2097152,
+          -2097152
+        ],
+        "casimir_factors": [
+          {
+            "coefficients": [
+              1,
+              -16
+            ],
+            "multiplicity": 2
+          },
+          {
+            "coefficients": [
+              1,
+              -4
+            ],
+            "multiplicity": 2
+          },
+          {
+            "coefficients": [
+              1,
+              -8
+            ],
+            "multiplicity": 3
+          }
+        ],
+        "quadratic_checks": []
+      },
+      {
+        "id": "R7_1_6",
+        "tensor_sha256": "01203661d2904c7965e0080fac30377858131b599ba6238cc286fe980b0d7077",
+        "casimir_characteristic_polynomial": [
+          1,
+          -84,
+          2688,
+          -42240,
+          360448,
+          -1703936,
+          4194304,
+          -4194304
+        ],
+        "casimir_factors": [
+          {
+            "coefficients": [
+              1,
+              -4
+            ],
+            "multiplicity": 1
+          },
+          {
+            "coefficients": [
+              1,
+              -8
+            ],
+            "multiplicity": 2
+          },
+          {
+            "coefficients": [
+              1,
+              -32,
+              128
+            ],
+            "multiplicity": 2
+          }
+        ],
+        "quadratic_checks": [
+          {
+            "field_discriminant": 8,
+            "factors": [
+              {
+                "coefficients": [
+                  1,
+                  -32,
+                  128
+                ],
+                "multiplicity": 2,
+                "discriminant": 512,
+                "contribution": "1/2"
+              }
+            ],
+            "Q": "1/2",
+            "general_bound": 4,
+            "general_violation": false,
+            "spherical_bound": 1,
+            "spherical_violation": false
+          }
+        ]
+      },
+      {
+        "id": "R7_1_9",
+        "tensor_sha256": "c92632eea17a4b38eacfecbd5d127ffa95b036673538e177a49a94aae245ce9d",
+        "casimir_characteristic_polynomial": [
+          1,
+          -119,
+          4312,
+          -71736,
+          631120,
+          -3034864,
+          7529536,
+          -7529536
+        ],
+        "casimir_factors": [
+          {
+            "coefficients": [
+              1,
+              -7
+            ],
+            "multiplicity": 1
+          },
+          {
+            "coefficients": [
+              1,
+              -84,
+              980,
+              -2744
+            ],
+            "multiplicity": 1
+          },
+          {
+            "coefficients": [
+              1,
+              -28,
+              196,
+              -392
+            ],
+            "multiplicity": 1
+          }
+        ],
+        "quadratic_checks": []
+      },
+      {
+        "id": "R7_1_12",
+        "tensor_sha256": "264a832c81bd0ae47fa4d0cb0cf2cda7f935ecd20f9b2ecc65730ba140b48188",
+        "casimir_characteristic_polynomial": [
+          1,
+          -85,
+          2739,
+          -43127,
+          368480,
+          -1745184,
+          4302592,
+          -4302592
+        ],
+        "casimir_factors": [
+          {
+            "coefficients": [
+              1,
+              -28
+            ],
+            "multiplicity": 2
+          },
+          {
+            "coefficients": [
+              1,
+              -4
+            ],
+            "multiplicity": 2
+          },
+          {
+            "coefficients": [
+              1,
+              -7
+            ],
+            "multiplicity": 3
+          }
+        ],
+        "quadratic_checks": []
+      },
+      {
+        "id": "R7_1_16",
+        "tensor_sha256": "1e143f7567b4627272569edb618730216ec015f9ec5f5dac397c6ae4689720d3",
+        "casimir_characteristic_polynomial": [
+          1,
+          -79,
+          2574,
+          -44770,
+          445885,
+          -2503611,
+          7086244,
+          -7086244
+        ],
+        "casimir_factors": [
+          {
+            "coefficients": [
+              1,
+              -22
+            ],
+            "multiplicity": 1
+          },
+          {
+            "coefficients": [
+              1,
+              -2
+            ],
+            "multiplicity": 1
+          },
+          {
+            "coefficients": [
+              1,
+              -11
+            ],
+            "multiplicity": 5
+          }
+        ],
+        "quadratic_checks": []
+      },
+      {
+        "id": "R7_1_17",
+        "tensor_sha256": "9af4add9759763d11e9b07c033f7bebb8693165848d8642c0202aadf2d975968",
+        "casimir_characteristic_polynomial": [
+          1,
+          -140,
+          5670,
+          -101250,
+          928125,
+          -4556250,
+          11390625,
+          -11390625
+        ],
+        "casimir_factors": [
+          {
+            "coefficients": [
+              1,
+              -5
+            ],
+            "multiplicity": 1
+          },
+          {
+            "coefficients": [
+              1,
+              -15,
+              45
+            ],
+            "multiplicity": 1
+          },
+          {
+            "coefficients": [
+              1,
+              -120,
+              3150,
+              -23625,
+              50625
+            ],
+            "multiplicity": 1
+          }
+        ],
+        "quadratic_checks": [
+          {
+            "field_discriminant": 5,
+            "factors": [
+              {
+                "coefficients": [
+                  1,
+                  -15,
+                  45
+                ],
+                "multiplicity": 1,
+                "discriminant": 45,
+                "contribution": "1/9"
+              }
+            ],
+            "Q": "1/9",
+            "general_bound": 4,
+            "general_violation": false,
+            "spherical_bound": 1,
+            "spherical_violation": false
+          }
+        ]
+      },
+      {
+        "id": "R7_1_19",
+        "tensor_sha256": "832c83845393b2524f298b8ba41da4f4bfc3afeeb06c2e1bf04681537b826674",
+        "casimir_characteristic_polynomial": [
+          1,
+          -64,
+          1680,
+          -23424,
+          187392,
+          -860160,
+          2097152,
+          -2097152
+        ],
+        "casimir_factors": [
+          {
+            "coefficients": [
+              1,
+              -16
+            ],
+            "multiplicity": 2
+          },
+          {
+            "coefficients": [
+              1,
+              -4
+            ],
+            "multiplicity": 2
+          },
+          {
+            "coefficients": [
+              1,
+              -8
+            ],
+            "multiplicity": 3
+          }
+        ],
+        "quadratic_checks": []
+      },
+      {
+        "id": "R7_1_24",
+        "tensor_sha256": "5385dca802a0b68a425fd784c6fe2315a626003bb76dc6d4a1c9a32df75a6a77",
+        "casimir_characteristic_polynomial": [
+          1,
+          -84,
+          2688,
+          -42240,
+          360448,
+          -1703936,
+          4194304,
+          -4194304
+        ],
+        "casimir_factors": [
+          {
+            "coefficients": [
+              1,
+              -4
+            ],
+            "multiplicity": 1
+          },
+          {
+            "coefficients": [
+              1,
+              -8
+            ],
+            "multiplicity": 2
+          },
+          {
+            "coefficients": [
+              1,
+              -32,
+              128
+            ],
+            "multiplicity": 2
+          }
+        ],
+        "quadratic_checks": [
+          {
+            "field_discriminant": 8,
+            "factors": [
+              {
+                "coefficients": [
+                  1,
+                  -32,
+                  128
+                ],
+                "multiplicity": 2,
+                "discriminant": 512,
+                "contribution": "1/2"
+              }
+            ],
+            "Q": "1/2",
+            "general_bound": 4,
+            "general_violation": false,
+            "spherical_bound": 1,
+            "spherical_violation": false
+          }
+        ]
+      },
+      {
+        "id": "R7_1_25",
+        "tensor_sha256": "b773b993c4445b06ac827f2d9495befb1d5c8cfd7e1f6218889a51afec49324a",
+        "casimir_characteristic_polynomial": [
+          1,
+          -64,
+          1680,
+          -23424,
+          187392,
+          -860160,
+          2097152,
+          -2097152
+        ],
+        "casimir_factors": [
+          {
+            "coefficients": [
+              1,
+              -16
+            ],
+            "multiplicity": 2
+          },
+          {
+            "coefficients": [
+              1,
+              -4
+            ],
+            "multiplicity": 2
+          },
+          {
+            "coefficients": [
+              1,
+              -8
+            ],
+            "multiplicity": 3
+          }
+        ],
+        "quadratic_checks": []
+      },
+      {
+        "id": "R7_1_28",
+        "tensor_sha256": "5a8aee35466610b40ae273b1179d10e23f9c727fed8c0580c9d1f962f5643767",
+        "casimir_characteristic_polynomial": [
+          1,
+          -85,
+          2739,
+          -43127,
+          368480,
+          -1745184,
+          4302592,
+          -4302592
+        ],
+        "casimir_factors": [
+          {
+            "coefficients": [
+              1,
+              -28
+            ],
+            "multiplicity": 2
+          },
+          {
+            "coefficients": [
+              1,
+              -4
+            ],
+            "multiplicity": 2
+          },
+          {
+            "coefficients": [
+              1,
+              -7
+            ],
+            "multiplicity": 3
+          }
+        ],
+        "quadratic_checks": []
+      },
+      {
+        "id": "R7_1_36",
+        "tensor_sha256": "8e1e5c46e0bd27bfcc315417498f23bba9bdc28407cad57fbc09c626d861503d",
+        "casimir_characteristic_polynomial": [
+          1,
+          -64,
+          1680,
+          -23424,
+          187392,
+          -860160,
+          2097152,
+          -2097152
+        ],
+        "casimir_factors": [
+          {
+            "coefficients": [
+              1,
+              -16
+            ],
+            "multiplicity": 2
+          },
+          {
+            "coefficients": [
+              1,
+              -4
+            ],
+            "multiplicity": 2
+          },
+          {
+            "coefficients": [
+              1,
+              -8
+            ],
+            "multiplicity": 3
+          }
+        ],
+        "quadratic_checks": []
+      },
+      {
+        "id": "R7_1_39",
+        "tensor_sha256": "fd67a74df977b0a87170fc121ca609bf4e7fd28d2d0c7584f6bdea6f1dee875e",
+        "casimir_characteristic_polynomial": [
+          1,
+          -54,
+          1224,
+          -15120,
+          110160,
+          -474336,
+          1119744,
+          -1119744
+        ],
+        "casimir_factors": [
+          {
+            "coefficients": [
+              1,
+              -12
+            ],
+            "multiplicity": 2
+          },
+          {
+            "coefficients": [
+              1,
+              -6
+            ],
+            "multiplicity": 5
+          }
+        ],
+        "quadratic_checks": []
+      },
+      {
+        "id": "R7_1_43",
+        "tensor_sha256": "c1db33c04c7d99b815f79b2ba8f8759045b5a61e38c410e50a43959bee824512",
+        "casimir_characteristic_polynomial": [
+          1,
+          -49,
+          1029,
+          -12005,
+          84035,
+          -352947,
+          823543,
+          -823543
+        ],
+        "casimir_factors": [
+          {
+            "coefficients": [
+              1,
+              -7
+            ],
+            "multiplicity": 7
+          }
+        ],
+        "quadratic_checks": []
+      },
+      {
+        "id": "R7_2_1",
+        "tensor_sha256": "bb405c73678267340ddd95a9d44e735e5272c3f080997a6bd0974b90e54e639f",
+        "casimir_characteristic_polynomial": [
+          1,
+          -80,
+          2500,
+          -39312,
+          338112,
+          -1610496,
+          3981312,
+          -3981312
+        ],
+        "casimir_factors": [
+          {
+            "coefficients": [
+              1,
+              -12
+            ],
+            "multiplicity": 1
+          },
+          {
+            "coefficients": [
+              1,
+              -24
+            ],
+            "multiplicity": 2
+          },
+          {
+            "coefficients": [
+              1,
+              -6
+            ],
+            "multiplicity": 2
+          },
+          {
+            "coefficients": [
+              1,
+              -4
+            ],
+            "multiplicity": 2
+          }
+        ],
+        "quadratic_checks": []
+      },
+      {
+        "id": "R7_2_24",
+        "tensor_sha256": "d7f9bb803744a1491fcac9644528e9ebb90f69fa2cbf2bfe0e8e028b99312e8a",
+        "casimir_characteristic_polynomial": [
+          1,
+          -161,
+          5600,
+          -87460,
+          730944,
+          -3397824,
+          8294400,
+          -8294400
+        ],
+        "casimir_factors": [
+          {
+            "coefficients": [
+              1,
+              -120
+            ],
+            "multiplicity": 1
+          },
+          {
+            "coefficients": [
+              1,
+              -12
+            ],
+            "multiplicity": 1
+          },
+          {
+            "coefficients": [
+              1,
+              -8
+            ],
+            "multiplicity": 1
+          },
+          {
+            "coefficients": [
+              1,
+              -5
+            ],
+            "multiplicity": 1
+          },
+          {
+            "coefficients": [
+              1,
+              -4
+            ],
+            "multiplicity": 1
+          },
+          {
+            "coefficients": [
+              1,
+              -6
+            ],
+            "multiplicity": 2
+          }
+        ],
+        "quadratic_checks": []
+      },
+      {
+        "id": "R7_2_195",
+        "tensor_sha256": "d9ba378c7d570f70991119f50d2bd41d552df4bb81955714b71b0ed3963a3f5f",
+        "casimir_characteristic_polynomial": [
+          1,
+          -80,
+          2500,
+          -39312,
+          338112,
+          -1610496,
+          3981312,
+          -3981312
+        ],
+        "casimir_factors": [
+          {
+            "coefficients": [
+              1,
+              -12
+            ],
+            "multiplicity": 1
+          },
+          {
+            "coefficients": [
+              1,
+              -24
+            ],
+            "multiplicity": 2
+          },
+          {
+            "coefficients": [
+              1,
+              -6
+            ],
+            "multiplicity": 2
+          },
+          {
+            "coefficients": [
+              1,
+              -4
+            ],
+            "multiplicity": 2
+          }
+        ],
+        "quadratic_checks": []
+      },
+      {
+        "id": "R7_2_218",
+        "tensor_sha256": "9d1e3661df855b64662b61e9e449f4b53e1bfe6c8b7a447f24fdac12c44bc5da",
+        "casimir_characteristic_polynomial": [
+          1,
+          -103,
+          3675,
+          -63413,
+          584480,
+          -2904096,
+          7311616,
+          -7311616
+        ],
+        "casimir_factors": [
+          {
+            "coefficients": [
+              1,
+              -52
+            ],
+            "multiplicity": 1
+          },
+          {
+            "coefficients": [
+              1,
+              -13
+            ],
+            "multiplicity": 3
+          },
+          {
+            "coefficients": [
+              1,
+              -4
+            ],
+            "multiplicity": 3
+          }
+        ],
+        "quadratic_checks": []
+      },
+      {
+        "id": "R7_2_233",
+        "tensor_sha256": "fd581e0897ae4a1e5b46cdf207f5c08efdcbf5cd19bcd4395f1cb8d6dd1ca7fb",
+        "casimir_characteristic_polynomial": [
+          1,
+          -76,
+          2232,
+          -32832,
+          267408,
+          -1228608,
+          2985984,
+          -2985984
+        ],
+        "casimir_factors": [
+          {
+            "coefficients": [
+              1,
+              -4
+            ],
+            "multiplicity": 1
+          },
+          {
+            "coefficients": [
+              1,
+              -24
+            ],
+            "multiplicity": 2
+          },
+          {
+            "coefficients": [
+              1,
+              -6
+            ],
+            "multiplicity": 4
+          }
+        ],
+        "quadratic_checks": []
+      },
+      {
+        "id": "R7_2_234",
+        "tensor_sha256": "23c5e89f25ed62b649e372939e3504d8262f4074c98d63887ef24d800f489a15",
+        "casimir_characteristic_polynomial": [
+          1,
+          -103,
+          3312,
+          -50328,
+          415152,
+          -1916784,
+          4665600,
+          -4665600
+        ],
+        "casimir_factors": [
+          {
+            "coefficients": [
+              1,
+              -60
+            ],
+            "multiplicity": 1
+          },
+          {
+            "coefficients": [
+              1,
+              -15
+            ],
+            "multiplicity": 1
+          },
+          {
+            "coefficients": [
+              1,
+              -4
+            ],
+            "multiplicity": 1
+          },
+          {
+            "coefficients": [
+              1,
+              -6
+            ],
+            "multiplicity": 4
+          }
+        ],
+        "quadratic_checks": []
+      },
+      {
+        "id": "R7_2_240",
+        "tensor_sha256": "40dfbace27e1ef951e644367f8e85f82461e47c3c1b2cf729b6386e37cc63534",
+        "casimir_characteristic_polynomial": [
+          1,
+          -187,
+          7986,
+          -150403,
+          1464100,
+          -7569397,
+          19487171,
+          -19487171
+        ],
+        "casimir_factors": [
+          {
+            "coefficients": [
+              1,
+              -11
+            ],
+            "multiplicity": 2
+          },
+          {
+            "coefficients": [
+              1,
+              -165,
+              4235,
+              -37268,
+              131769,
+              -161051
+            ],
+            "multiplicity": 1
+          }
+        ],
+        "quadratic_checks": []
+      },
+      {
+        "id": "R7_2_297",
+        "tensor_sha256": "2c0c93d68cbf30f3dd43e527896ade5fea102cf7a8bfb23fa118df7dee9d0f87",
+        "casimir_characteristic_polynomial": [
+          1,
+          -76,
+          2232,
+          -32832,
+          267408,
+          -1228608,
+          2985984,
+          -2985984
+        ],
+        "casimir_factors": [
+          {
+            "coefficients": [
+              1,
+              -4
+            ],
+            "multiplicity": 1
+          },
+          {
+            "coefficients": [
+              1,
+              -24
+            ],
+            "multiplicity": 2
+          },
+          {
+            "coefficients": [
+              1,
+              -6
+            ],
+            "multiplicity": 4
+          }
+        ],
+        "quadratic_checks": []
+      },
+      {
+        "id": "R7_2_313",
+        "tensor_sha256": "86ad414bcaeef419a4d0e19ee1c5be723a959ddc62f30999bdab8dbdb95e388b",
+        "casimir_characteristic_polynomial": [
+          1,
+          -148,
+          6272,
+          -121088,
+          1212416,
+          -6422528,
+          16777216,
+          -16777216
+        ],
+        "casimir_factors": [
+          {
+            "coefficients": [
+              1,
+              -4
+            ],
+            "multiplicity": 1
+          },
+          {
+            "coefficients": [
+              1,
+              -16
+            ],
+            "multiplicity": 2
+          },
+          {
+            "coefficients": [
+              1,
+              -8
+            ],
+            "multiplicity": 2
+          },
+          {
+            "coefficients": [
+              1,
+              -96,
+              256
+            ],
+            "multiplicity": 1
+          }
+        ],
+        "quadratic_checks": [
+          {
+            "field_discriminant": 8,
+            "factors": [
+              {
+                "coefficients": [
+                  1,
+                  -96,
+                  256
+                ],
+                "multiplicity": 1,
+                "discriminant": 8192,
+                "contribution": "1"
+              }
+            ],
+            "Q": "1",
+            "general_bound": 4,
+            "general_violation": false,
+            "spherical_bound": 1,
+            "spherical_violation": false
+          }
+        ]
+      },
+      {
+        "id": "R7_2_319",
+        "tensor_sha256": "0ee576941b65f024543b9475a495b23e221e5cccbc16485271a90f749fb1dd01",
+        "casimir_characteristic_polynomial": [
+          1,
+          -97,
+          3597,
+          -67405,
+          688675,
+          -3776643,
+          10024911,
+          -10024911
+        ],
+        "casimir_factors": [
+          {
+            "coefficients": [
+              1,
+              -39
+            ],
+            "multiplicity": 1
+          },
+          {
+            "coefficients": [
+              1,
+              -3
+            ],
+            "multiplicity": 2
+          },
+          {
+            "coefficients": [
+              1,
+              -13
+            ],
+            "multiplicity": 4
+          }
+        ],
+        "quadratic_checks": []
+      },
+      {
+        "id": "R7_3_602",
+        "tensor_sha256": "1c3dcee2d9c949c8527164aa20119e333b71c940695d91ec65006e11854ec8ca",
+        "casimir_characteristic_polynomial": [
+          1,
+          -400,
+          15054,
+          -241028,
+          2037977,
+          -9531540,
+          23328000,
+          -23328000
+        ],
+        "casimir_factors": [
+          {
+            "coefficients": [
+              1,
+              -360
+            ],
+            "multiplicity": 1
+          },
+          {
+            "coefficients": [
+              1,
+              -8
+            ],
+            "multiplicity": 1
+          },
+          {
+            "coefficients": [
+              1,
+              -4
+            ],
+            "multiplicity": 1
+          },
+          {
+            "coefficients": [
+              1,
+              -9
+            ],
+            "multiplicity": 2
+          },
+          {
+            "coefficients": [
+              1,
+              -5
+            ],
+            "multiplicity": 2
+          }
+        ],
+        "quadratic_checks": []
+      },
+      {
+        "id": "R7_3_1059",
+        "tensor_sha256": "263d6976442db1b4408212141510b162637374d89a70c4740ea834292f7539c2",
+        "casimir_characteristic_polynomial": [
+          1,
+          -97,
+          3021,
+          -45325,
+          371875,
+          -1711875,
+          4159375,
+          -4159375
+        ],
+        "casimir_factors": [
+          {
+            "coefficients": [
+              1,
+              -55
+            ],
+            "multiplicity": 1
+          },
+          {
+            "coefficients": [
+              1,
+              -11
+            ],
+            "multiplicity": 2
+          },
+          {
+            "coefficients": [
+              1,
+              -5
+            ],
+            "multiplicity": 4
+          }
+        ],
+        "quadratic_checks": []
+      },
+      {
+        "id": "R7_4_2",
+        "tensor_sha256": "90ad3405faf59d5ea8556f95c4cf881d8b7d04d4fb59038505e9ec117c211bbb",
+        "casimir_characteristic_polynomial": [
+          1,
+          -96,
+          3204,
+          -51664,
+          448704,
+          -2145024,
+          5308416,
+          -5308416
+        ],
+        "casimir_factors": [
+          {
+            "coefficients": [
+              1,
+              -48
+            ],
+            "multiplicity": 1
+          },
+          {
+            "coefficients": [
+              1,
+              -16
+            ],
+            "multiplicity": 1
+          },
+          {
+            "coefficients": [
+              1,
+              -12
+            ],
+            "multiplicity": 1
+          },
+          {
+            "coefficients": [
+              1,
+              -6
+            ],
+            "multiplicity": 2
+          },
+          {
+            "coefficients": [
+              1,
+              -4
+            ],
+            "multiplicity": 2
+          }
+        ],
+        "quadratic_checks": []
+      },
+      {
+        "id": "R7_4_2019",
+        "tensor_sha256": "e53b4a423763328d160bf33d459e1e205a57e9d0af120da0b654177d5bc9f73f",
+        "casimir_characteristic_polynomial": [
+          1,
+          -96,
+          3204,
+          -51664,
+          448704,
+          -2145024,
+          5308416,
+          -5308416
+        ],
+        "casimir_factors": [
+          {
+            "coefficients": [
+              1,
+              -48
+            ],
+            "multiplicity": 1
+          },
+          {
+            "coefficients": [
+              1,
+              -16
+            ],
+            "multiplicity": 1
+          },
+          {
+            "coefficients": [
+              1,
+              -12
+            ],
+            "multiplicity": 1
+          },
+          {
+            "coefficients": [
+              1,
+              -6
+            ],
+            "multiplicity": 2
+          },
+          {
+            "coefficients": [
+              1,
+              -4
+            ],
+            "multiplicity": 2
+          }
+        ],
+        "quadratic_checks": []
+      },
+      {
+        "id": "R7_4_35",
+        "tensor_sha256": "d82d3bf3173e9f1f128d7ed6254db3dc4aa1d3767fb6b5cc06fcabe500e04846",
+        "casimir_characteristic_polynomial": [
+          1,
+          -192,
+          6800,
+          -107392,
+          908288,
+          -4268032,
+          10485760,
+          -10485760
+        ],
+        "casimir_factors": [
+          {
+            "coefficients": [
+              1,
+              -4
+            ],
+            "multiplicity": 2
+          },
+          {
+            "coefficients": [
+              1,
+              -8
+            ],
+            "multiplicity": 3
+          },
+          {
+            "coefficients": [
+              1,
+              -160,
+              1280
+            ],
+            "multiplicity": 1
+          }
+        ],
+        "quadratic_checks": [
+          {
+            "field_discriminant": 5,
+            "factors": [
+              {
+                "coefficients": [
+                  1,
+                  -160,
+                  1280
+                ],
+                "multiplicity": 1,
+                "discriminant": 20480,
+                "contribution": "1/16"
+              }
+            ],
+            "Q": "1/16",
+            "general_bound": 4,
+            "general_violation": false,
+            "spherical_bound": 1,
+            "spherical_violation": false
+          }
+        ]
+      },
+      {
+        "id": "R7_4_2665",
+        "tensor_sha256": "974ba9644a7d0991c504b58a3c9868b54a3966f6d77c0936872e7fd9c596af82",
+        "casimir_characteristic_polynomial": [
+          1,
+          -192,
+          6800,
+          -107392,
+          908288,
+          -4268032,
+          10485760,
+          -10485760
+        ],
+        "casimir_factors": [
+          {
+            "coefficients": [
+              1,
+              -4
+            ],
+            "multiplicity": 2
+          },
+          {
+            "coefficients": [
+              1,
+              -8
+            ],
+            "multiplicity": 3
+          },
+          {
+            "coefficients": [
+              1,
+              -160,
+              1280
+            ],
+            "multiplicity": 1
+          }
+        ],
+        "quadratic_checks": [
+          {
+            "field_discriminant": 5,
+            "factors": [
+              {
+                "coefficients": [
+                  1,
+                  -160,
+                  1280
+                ],
+                "multiplicity": 1,
+                "discriminant": 20480,
+                "contribution": "1/16"
+              }
+            ],
+            "Q": "1/16",
+            "general_bound": 4,
+            "general_violation": false,
+            "spherical_bound": 1,
+            "spherical_violation": false
+          }
+        ]
+      },
+      {
+        "id": "R7_5_5678",
+        "tensor_sha256": "d3532d39831699330a745c7ae5b6b9bf5371b8b751adff656348d64857d8fad7",
+        "casimir_characteristic_polynomial": [
+          1,
+          -79,
+          2124,
+          -28620,
+          218160,
+          -960336,
+          2286144,
+          -2286144
+        ],
+        "casimir_factors": [
+          {
+            "coefficients": [
+              1,
+              -42
+            ],
+            "multiplicity": 1
+          },
+          {
+            "coefficients": [
+              1,
+              -7
+            ],
+            "multiplicity": 1
+          },
+          {
+            "coefficients": [
+              1,
+              -6
+            ],
+            "multiplicity": 5
+          }
+        ],
+        "quadratic_checks": []
+      }
+    ]
+  }
+}

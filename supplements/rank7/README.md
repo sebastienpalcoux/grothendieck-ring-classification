@@ -1,6 +1,6 @@
 # Rank-7 Grothendieck rings through multiplicity 5
 
-The 19 October rank-seven extension addresses all 5,805 exact-multiplicity-five rings: 5,789 general exclusions, 1 realization and 15 unresolved cases. The classification is complete through multiplicity 4. The new realization R7_5_5678 is Rep(AGL(1,7)). The unresolved records remain open for general complex categorification.
+The rank-seven multiplicity-five continuation addresses all 5,805 exact-multiplicity-five rings: 5,802 general exclusions, 1 realization and 2 unresolved cases. The classification is complete through multiplicity 4. The new realization R7_5_5678 is Rep(AGL(1,7)). The unresolved records remain open for general complex categorification.
 
 > **AI-generated research · independent verification pending.** Treat these
 > results, proofs, code and data with caution. They have not yet been
@@ -15,8 +15,8 @@ The authoritative decision ledger is [`output/rank7_ledger.json`](output/rank7_l
 | 2 | 319 | 309 | 10 | 0 |
 | 3 | 1,059 | 1,057 | 2 | 0 |
 | 4 | 2,780 | 2,776 | 4 | 0 |
-| 5 | 5,805 | 5,789 | 1 | 15 |
-| **Total** | **10,006** | **9,961** | **30** | **15** |
+| 5 | 5,805 | 5,802 | 1 | 2 |
+| **Total** | **10,006** | **9,974** | **30** | **2** |
 
 [Manuscript source](../../manuscripts/rank7/papers/manuscript.tex) · [PDF](../../manuscripts/rank7/papers/manuscript.pdf) · [Research status](../../docs/RESEARCH_STATUS.md)
 
@@ -37,13 +37,14 @@ See [verification scope](../../docs/PREPUBLICATION_REVIEW.md).
 
 ## Multiplicity-five continuation
 
-The current continuation is replayed with:
+The current continuation is replayed with Python 3.12 and a C++17 compiler:
 
 ```bash
+python3 -m pip install -r supplements/rank7/requirements-m5.txt
 python3 supplements/rank7/software/verify_m5.py
 python3 -O supplements/rank7/software/verify_m5.py
 ```
 
 Use `--metadata-only` only for source and partition checks; it does not replay mathematical certificates.
 The older top-level `analyze.py` and `verify.py` retain their M4 source commitments; run them in the preserved M4 archive, not against the extended source file.
-The M5 release archive uses repository-relative directories and includes the frozen M4 archive.
+The M5 release archive uses repository-relative directories and includes the frozen M4 archive. NetworkX is required by the complete Morita-dual enumeration; SciPy is optional for discovery. The assertion-based R4982 components run in an isolated unoptimized child in both aggregate modes, preserving all their checks.

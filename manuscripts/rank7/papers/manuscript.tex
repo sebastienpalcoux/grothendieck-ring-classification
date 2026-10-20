@@ -30,8 +30,8 @@ We study complex categorification of rank-seven fusion rings through
 multiplicity five. The earlier classification through multiplicity four
 excludes $4172$ of $4201$ rings and identifies unitary models for the
 remaining $29$. The extension addresses all $5805$ newly supplied rings
-of exact multiplicity five: $5789$ are excluded, one has the unitary
-model $\operatorname{Rep}(C_7\rtimes C_6)$, and $15$ remain open.
+of exact multiplicity five: $5802$ are excluded, one has the unitary
+model $\operatorname{Rep}(C_7\rtimes C_6)$, and $2$ remain open.
 The full status is recorded in Table~\ref{tab:status}.
 Every general exclusion applies without assuming pivotality.
 The arguments combine signed sphericalization, formal codegrees,
@@ -773,7 +773,7 @@ All accept the same \texttt{--repo}
 argument. The conductor-equality proof and its independent audit are in
 \path{evidence/unified_20261016/compression/}.
 The earlier complete base-release rank-seven loop was executed successfully over
-all $4201$ source records. The component replay chain and current
+all $4201$ source records. Its historical component replay chain and
 classification checks also passed in normal and optimized Python.
 The full-loop and component receipts document their exact inputs and
 scope in the repository verification record. These calculations verify
@@ -781,6 +781,15 @@ finite identities, source integrity and certificate applications; the
 categorical reductions and cited theorems remain mathematical inputs.
 A checksum or a successful computation does not replace a proof of those
 inputs. Discovery programs are not needed for certificate replay.
+For the multiplicity-five extension, install
+\path{supplements/rank7/requirements-m5.txt} and run
+\path{supplements/rank7/software/verify_m5.py}, normally and with
+\texttt{-O}.  Python~3.12 and a C++17 compiler are used; the complete
+Morita calculation additionally requires NetworkX.  Its assertion-based
+components execute in an isolated unoptimized child in either aggregate
+mode.  The receipts in \path{supplements/rank7/output/m5/} state the
+ledger hash and complete coverage of each run; a receipt for an earlier
+ledger does not certify the current revision.
 
 \medskip\noindent\textbf{AI disclosure.}
 This manuscript and its supporting proofs, code and data were generated
@@ -856,6 +865,18 @@ accepted in \emph{Letters in Mathematical Physics}; arXiv:2507.07023.
 \bibitem{EGpq} P.~Etingof and S.~Gelaki,
 \emph{Semisimple Hopf algebras of dimension $pq$ are trivial},
 arXiv:math/9801129.
+\bibitem{JordanLarson} D.~Jordan and E.~Larson,
+\emph{On the classification of certain fusion categories},
+\emph{J. Noncommut. Geom.} \textbf{3} (2009), 481--499; arXiv:0812.1603v2.
+\bibitem{BNRW} P.~Bruillard, S.-H.~Ng, E.~C.~Rowell and Z.~Wang,
+\emph{Rank-finiteness for modular categories}, arXiv:1310.7050v3.
+\bibitem{DongLinNg} C.~Dong, X.~Lin and S.-H.~Ng,
+\emph{Congruence property in conformal field theory},
+\emph{Algebra Number Theory} \textbf{9} (2015), 2121--2166;
+arXiv:1201.6644v7.
+\bibitem{EGNO} P.~Etingof, S.~Gelaki, D.~Nikshych and V.~Ostrik,
+\emph{Tensor Categories}, Mathematical Surveys and Monographs,
+vol.~205, American Mathematical Society, 2015.
 \bibitem{ENO} P. Etingof, D. Nikshych and V. Ostrik,
 \emph{On fusion categories}, \emph{Ann. of Math.} \textbf{162} (2005), 581--642; arXiv:math/0203060.
 \bibitem{KO} A. Kirillov Jr. and V. Ostrik,

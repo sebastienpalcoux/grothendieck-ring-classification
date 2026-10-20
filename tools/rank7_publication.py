@@ -10,6 +10,9 @@ TABLES = "supplements/rank7/data/rank7_tables.txt.gz"
 HISTORICAL_TABLES = "supplements/rank7/data/rank7_tables_through_m4.txt.gz"
 HISTORICAL_TABLES_SHA256 = "6ddea4c66de7fbe077e9552e71e8cf95ec3fec5bbd30a615e68e2d8fcb9ae9c9"
 HISTORICAL_SHA256 = "00edf884caa59384a1f7b9a91d7273539306443035db5144c02f9bda5bda3d2b"
+PUBLICATION_DATE = "2026-10-20"
+PUBLICATION_DATE_LONG = "20 October 2026"
+STATUS_REPORT = "prepublication-review-2026-10-20.pdf"
 
 def extension(repo):
     path = Path(repo) / LEDGER
@@ -20,12 +23,52 @@ def extension(repo):
     counts = Counter(x["status"] for x in rows)
     if set(counts) - {"excluded", "unitarily_realized", "unresolved"}:
         raise ValueError("Unknown rank-seven extension status")
-    return {"date": "2026-10-19", "rank": 7, "multiplicity": 5,
+    result = {"date": PUBLICATION_DATE, "rank": 7, "multiplicity": 5,
             "rings": len(rows), "excluded": counts["excluded"],
             "realized": counts["unitarily_realized"], "unresolved": counts["unresolved"],
             "remaining_ids": [x["id"] for x in rows if x["status"] == "unresolved"],
             "realized_ids": [x["id"] for x in rows if x["status"] == "unitarily_realized"],
             "ledger": LEDGER, "ledger_sha256": hashlib.sha256(path.read_bytes()).hexdigest()}
+    continuation = Path(repo) / 'evidence/rank7_m5_20261020/accepted/decisions.json'
+    if continuation.is_file():
+        accepted = json.loads(continuation.read_text())
+        by_id = {row['id']: row for row in rows}
+        if all(by_id[item['id']]['status'] == 'excluded' for item in accepted):
+            proofs = {
+                'quadratic_casimir_compression': 'criteria/QUADRATIC_COMPRESSION_PROOF.md',
+                'oriented_signed_compression': 'criteria/R4569_GENERAL_PROOF.md',
+                'quadratic_center_Galois_two_moment_q60': 'criteria/Q60_CENTER_TRACE_PROOF.md',
+                'cyclic3_full_morita_rank13_descent': 'modules/README.md',
+                'character': 'computation/README.md',
+                'oriented_dimension_order': 'criteria/INDEPENDENT_SCOPE_AUDIT.md',
+            }
+            result['continuation_decisions'] = [
+                {'id': item['id'], 'rank': 7, 'status': 'excluded', 'scope': 'general_complex',
+                 'criterion': item['criterion'], 'proof_source': 'evidence/rank7_m5_20261020',
+                 'proof': proofs.get(item['criterion'], 'README.md')}
+                for item in accepted]
+    return result
+
+def replay_status(repo):
+    """Report only full receipts bound to the current ledger, never old passes."""
+    current = extension(repo)
+    matched = []
+    for mode in ('normal', 'optimized'):
+        path = Path(repo) / f'supplements/rank7/output/m5/replay_{mode}.json'
+        if not path.is_file():
+            continue
+        receipt = json.loads(path.read_text())
+        if (receipt.get('status') == 'PASS' and receipt.get('mode') == 'full_exact_replay'
+                and receipt.get('ledger_sha256') == current['ledger_sha256']
+                and receipt.get('new_exclusions_replayed') == current['excluded']):
+            matched.append(mode)
+    if matched == ['normal', 'optimized']:
+        return 'Exact normal and optimized aggregate replays passed for the current ledger.'
+    if matched:
+        return ('The exact ' + ' and '.join(matched) + ' aggregate replay passed for the current ledger; '
+                + ' and '.join(m for m in ('normal', 'optimized') if m not in matched)
+                + ' aggregate replay is pending for this revision.')
+    return 'Full aggregate replays are pending for this ledger revision.'
 
 def remaining_ids(repo):
     paths = ("supplements/rank6/data/decisions.json", LEDGER,
@@ -46,7 +89,7 @@ def summary(repo):
     item = extension(repo)
     if item is None:
         return ""
-    return (f"The 19 October rank-seven extension addresses all {item['rings']:,} "
+    return (f"The rank-seven multiplicity-five continuation addresses all {item['rings']:,} "
             f"exact-multiplicity-five rings: {item['excluded']:,} general exclusions, "
             f"{item['realized']} {'realization' if item['realized']==1 else 'realizations'} and {item['unresolved']} unresolved cases. "
             f"The classification is complete through multiplicity {4 if item['unresolved'] else 5}. "

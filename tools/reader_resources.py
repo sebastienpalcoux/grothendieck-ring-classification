@@ -7,6 +7,7 @@ import gzip
 import hashlib
 import itertools
 import json
+from rank7_publication import PUBLICATION_DATE, STATUS_REPORT
 
 ROOT = Path(__file__).resolve().parents[1]
 IDS = ('R6_4_155', 'R6_8_1660')
@@ -23,7 +24,7 @@ PAPERS = (
     ('Rank-four verification guide', 'rank4/papers/verification_guide.pdf', 'verification_guide'),
     ('Rank-five verification guide', 'rank5/papers/verification_guide.pdf', 'verification_guide'),
     ('Rank-six verification guide', 'rank6/papers/verification_guide.pdf', 'verification_guide'),
-    ('Research status and verification', 'prepublication-review-2026-10-19.pdf', 'research_status_report'),
+    ('Research status and verification', STATUS_REPORT, 'research_status_report'),
 )
 
 
@@ -137,7 +138,7 @@ def build_pages(repo):
         records.append({'title': title, 'kind': kind, 'path': path.relative_to(repo).as_posix(),
                         'pages': len(PdfReader(path).pages), 'bytes': path.stat().st_size,
                         'sha256': sha(path.read_bytes())})
-    return {'schema': 'manuscript-page-counts/v1', 'date': '2026-10-19',
+    return {'schema': 'manuscript-page-counts/v1', 'date': PUBLICATION_DATE,
             'counting_rule': 'Count each distinct current document once, including its references and appendices; exclude website/supplement copies and compatibility aliases.',
             'document_counts': {'mathematical_manuscripts': 8, 'verification_guides': 3, 'research_status_reports': 1},
             'documents': records, 'totals': page_totals(records),

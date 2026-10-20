@@ -1,0 +1,278 @@
+\subsection{An integral Morita descent at multiplicity five}
+\label{sec:m5-4982-morita-descent}
+
+The next argument couples the complete right action of a Morita dual,
+then descends to a fusion subcategory of dimension $148$. It applies to
+arbitrary fusion categories over $\mathbb C$.
+
+\begin{lemma}\label{lem:four-p-cyclic-invertibles}
+Let $p>3$ be prime. If an integral fusion category has dimension type
+$(1^4,4^{(p-1)/4})$, its group of invertible objects is cyclic of order
+four. In particular this dimension type with invertible group
+$C_2\times C_2$ cannot occur.
+\end{lemma}
+\begin{proof}
+Its dimension is $4p$. Jordan--Larson's classification
+\cite[Theorem~1.1]{JordanLarson} implies that it is group-theoretical: in that theorem
+put $q=2$, and note that neither $p=2$ nor $p\mid q+1$ is possible.
+Write it as $\mathcal C(G,\omega,H,\psi)$, where $|G|=4p$.
+The simples supported on a double coset $HgH$ have dimensions
+\[
+ [H:H\cap gHg^{-1}]\dim(\pi),
+\]
+where $\pi$ runs through irreducible projective representations of
+$H\cap gHg^{-1}$ for the prescribed cocycle. The simples supported
+on $H$ form a fusion subcategory equivalent to $\operatorname{Rep}(H)$;
+this statement incorporates the cochain $\psi$ and is independent of
+its choice. We use the standard double-coset description
+\cite[Theorem~5.1]{GelakiNaidu}.
+
+The Sylow $p$-subgroup $P$ is normal, since its number divides four
+and is one modulo $p$. By Schur--Zassenhaus,
+$G=P\rtimes K$ with $P\cong C_p$ and $|K|=4$.
+If $|H|=p$, the identity double coset already supplies $p>4$
+invertibles. If $|H|=2p$, then $H$ is cyclic or dihedral: the former
+supplies $2p$ invertibles and the latter supplies dimension-two
+simples. Both contradict the given dimension type.
+If $H=G$, the category is equivalent to $\operatorname{Rep}(G)$.
+Since $K$ is abelian and $P$ is cyclic, the ordinary irreducible
+dimensions are the orbit sizes of $K$ on $\widehat P$.
+For completeness, each character of $P$ extends to its stabilizer
+$P\rtimes K_\chi$ by taking value one on $K_\chi$, so no projective
+representation factor changes these sizes. A dimension-four simple
+therefore requires a faithful action of $C_4$ on $P$.
+Then $[G,G]=P$, and the invertible group
+$\widehat{G/[G,G]}$ is $C_4$.
+
+It remains to consider $H$ of order at most four; conjugating $H$
+places it in $K$. For $|H|\leq2$, the double-coset formula cannot
+produce dimension four. Suppose $|H|=4$.
+If $H\cong C_2\times C_2$, its action on $P$ has a kernel $Z$ of
+order at least two, because $\operatorname{Aut}(P)$ is cyclic.
+This kernel is central in $G$, hence is contained in every
+$H\cap gHg^{-1}$. Thus the index is at most two. An intersection of
+order two has only one-dimensional projective irreducibles; an
+intersection of order four has projective irreducibles of dimension
+at most two. Again no simple has dimension four.
+If $H\cong C_4$ but its action on $P$ is not faithful, the same kernel
+argument applies, and every intersection is cyclic, so all projective
+irreducibles are one-dimensional. Finally suppose that $H=C_4$ acts
+faithfully. It acts freely on $P\setminus\{1\}$, so
+$N_G(H)=H$. A dimension-one simple must have double-coset index one;
+hence every invertible lies in the identity-double-coset subcategory
+$\operatorname{Rep}(H)$. Its four invertibles form $\widehat H=C_4$,
+as required. This argument allows arbitrary $\omega$ and $\psi$.
+\end{proof}
+
+\begin{proposition}\label{prop:m5-4982-exclusion}
+The fusion ring $R7\_5\_4982$ has no categorification over $\mathbb C$.
+\end{proposition}
+\begin{proof}
+Write its basis as $1,g,g^2,X,Y,Z,W$, where $g^3=1$ and $g$ fixes
+the four noninvertibles. These are self-dual, have dimensions
+$3,12,12,12$, and, with $S=1+g+g^2$, satisfy
+\[
+\begin{gathered}
+ X^2=S+2X,\qquad XV=3V\quad(V=Y,Z,W),\\
+ Y^2=S+3X+2Y+4Z+5W,\quad
+ Z^2=S+3X+5Y+2Z+4W,\\
+ W^2=S+3X+4Y+5Z+2W,\\
+ YZ=4Y+5Z+3W,\quad YW=5Y+3Z+4W,\quad
+ ZW=3Y+4Z+5W.
+\end{gathered}
+\]
+Suppose that a categorification $\mathcal C$ exists.
+The action of the pointed subcategory on the single simple $X$
+trivializes its associator class, so
+$A=1\oplus g\oplus g^2$ is a connected separable algebra.
+There are thirteen simple right $A$-modules: $A$ itself, and three
+lifts of each of $X,Y,Z,W$. Their normalized dimension vector is
+\[
+ d=(1,1,1,1,4,4,4,4,4,4,4,4,4).
+\]
+The algebra automorphism twisting by a primitive cube root
+$\zeta$ cyclically permutes each set of three lifts and fixes $A$.
+Use labels $0$ for $A$, $1,2,3$ for the $X$ lifts, and consecutive
+triples starting at $4,7,10$ for the other lifts.
+
+\emph{Exhausting the module actions.}
+On a nontrivial Fourier sector of the twisting action, a source
+simple has a $4\times4$ matrix over $\mathbb Z[\zeta]$.
+If the total multiplicity between two underlying fixed simples is
+$n$, each entry is of the form
+\begin{equation}
+ a+b\zeta+c\zeta^2,\qquad a,b,c\in\mathbb Z_{\geq0},\quad a+b+c=n.
+ \label{eq:4982-Fourier-domain}
+\end{equation}
+Duality makes the four noninvertible matrices Hermitian. The matrix
+of $g$ is diagonal with cube-root entries. If a diagonal entry were
+not one, the relation $gV=V$ would force the corresponding row of
+every noninvertible matrix to vanish. This is impossible: for the
+$X$ coordinate use $N_{XX}^X=2$, and for the other three coordinates
+use the diagonal entries $2,5,4$ of multiplication by $Y$. None is
+divisible by three, whereas a zero entry in \eqref{eq:4982-Fourier-domain} requires that
+$n$ be divisible by three. Thus $T_g=I$.
+The fixed-simple block of multiplication by $X$ is
+$\operatorname{diag}(2,3,3,3)$. Its off-diagonal entries vanish, and
+$T_X^2=3I+2T_X$. The real domains in \eqref{eq:4982-Fourier-domain} therefore force
+\[
+ T_X=\operatorname{diag}(-1,3,3,3).
+\]
+Commutation splits $T_Y=0\oplus T$, where $T$ is Hermitian of size
+three and its entries satisfy \eqref{eq:4982-Fourier-domain} with majorant
+\[
+ B=\begin{pmatrix}2&4&5\\4&5&3\\5&3&4\end{pmatrix}.
+\]
+The raw fusion tensor gives the annihilator
+\[
+ T(T-12I)(T^3+T^2-12T+11I)=0.
+\]
+The leading principal minors of $12I-B$ are $10,54,47$, so $B$
+has spectral radius less than twelve. The entrywise bound
+$|T_{ab}|\leq B_{ab}$ excludes eigenvalue twelve.
+The characteristic polynomial of $T$ has rational integral
+coefficients: it is real, has coefficients in $\mathbb Q(\zeta)$,
+and all its eigenvalues are algebraic integers. The cubic
+$t^3+t^2-12t+11$ is irreducible. Consequently either the entire
+three-dimensional spectrum is zero, or its characteristic polynomial
+is this cubic. The zero case contradicts
+$\operatorname{tr}(T)\equiv\operatorname{tr}(B)=11\pmod3$.
+The necessary moments are therefore
+\[
+ \operatorname{tr}(T)=-1,\qquad
+ \operatorname{tr}(T^2)=25,\qquad
+ \operatorname{tr}(T^3)=-70.
+\]
+Exact enumeration of the finite entry domains \eqref{eq:4982-Fourier-domain} gives $639$
+matrices for the first two moments and eighteen for all three.
+On this sector the remaining action matrices are forced by
+\[
+ T_Z=7I-3T-T^2,\qquad T_W=-8I+2T+T^2;
+\]
+the identities are verified in the cubic spectral summand of the
+original regular representation. Each of the eighteen choices
+reconstructs nonnegative integral $13\times13$ module matrices
+$M_i$ satisfying every source fusion relation. Explicit basis
+permutations fixing label zero identify all eighteen module actions.
+In particular it suffices to use the first one. It satisfies
+\[
+ M_g=M_{g^2}=I_{13},\qquad
+ M_X=(J_4-I_4)\oplus3I_9.
+\]
+
+\emph{Exhausting the complete Morita right action.}
+Let $\mathcal D={}_A\mathcal C_A$, and let $B_U$ denote the right
+module action of a simple $U$ of $\mathcal D$.
+Associativity in the Morita bicategory gives the integral Gram
+identity
+\begin{equation}
+ G_{(a,b),(c,e)}=\sum_i(M_i)_{c,a}(M_i)_{e,b}
+   =\sum_U(B_U)_{a,b}(B_U)_{c,e}.
+ \label{eq:4982-full-Gram}
+\end{equation}
+Indeed both sides compute the same multiplicity by associating
+$m_a(m_c^*m_e)$ in the two possible ways. Equivalently, $G$ is the
+Gram matrix of the vectorized right actions. They lie in
+$\operatorname{im}_{\mathbb Q}G$, commute with the $M_i$, are
+permuted by transposition, and satisfy the entrywise bounds
+\begin{equation}
+ 0\leq (B_U)_{a,b}\leq
+ \left\lfloor\sqrt{G_{(a,b),(a,b)}}\right\rfloor,
+ \qquad \operatorname{vec}(B_U)\operatorname{vec}(B_U)^t\leq G.
+ \label{eq:4982-action-bounds}
+\end{equation}
+Here $\operatorname{rank}(G)=37$.
+The restriction of $G$ to pairs $(a,0)$ is $3I_{13}$.
+Every first column of $B_U$ is therefore a unit vector, and each
+unit vector occurs three times. No first column is zero: label
+zero generates the indecomposable module category and a commuting
+nonzero right action cannot annihilate it. If the column is $e_a$,
+then $\operatorname{FPdim}(U)=d_a$. Hence $\mathcal D$ has dimension
+type $(1^{12},4^{27})$. Transposition gives the same statement for
+first rows.
+
+For a noninvertible action, write its first column and row as
+$e_a$ and $e_b^t$, with $a,b\geq4$. Since
+$B_U M_X e_0=M_X B_U e_0=3e_a$, its first four by four block is
+zero, by nonnegativity. The cross-Gram block
+\begin{equation}
+ \bigl(G_{(a,0),(0,b)}\bigr)_{a,b=4}^{12}
+      =\operatorname{diag}(J_3,J_3,J_3)
+ \label{eq:4982-cross-Gram}
+\end{equation}
+forces $a,b$ to lie in the same triple and forces exactly one
+noninvertible simple for every such ordered pair.
+The permutation centralizer of the $M_i$ has order $72$; its
+stabilizer of label zero has order $18$ and is transitive on each
+of these three triples. Independently multiplying an action on the
+left and right by elements of this stabilizer preserves \eqref{eq:4982-full-Gram}--\eqref{eq:4982-action-bounds},
+and moves its first column and row to a common anchor $4$, $7$, or
+$10$. These multiplications are used only to enumerate necessary
+matrices, without asserting that the permutations are tensor functors.
+
+For each anchor, the affine subspace in
+$\operatorname{im}_{\mathbb Q}G$ with that first row, first column,
+and zero small block has dimension twelve. Selecting twelve actual
+matrix entries as coordinates gives a common denominator $31$.
+Integrality imposes two independent congruences modulo $31$; their
+solved coordinates have bounds at most four, so each residue has
+at most one representative. Each of the three remaining integer
+boxes has exactly $2{,}048{,}000$ points. Checking \eqref{eq:4982-action-bounds} retains
+exactly one matrix per anchor. Stabilizer translates give exactly
+$27$ distinct matrices, one per allowed ordered pair in \eqref{eq:4982-cross-Gram}, so all
+occur once.
+
+Subtract their outer products from $G$. Every invertible right
+action is a permutation commuting with the $M_i$, hence lies in
+the above group of order $72$. Its image is a subgroup $H$ of order
+dividing twelve; a possible kernel would make every element of $H$
+occur with the same multiplicity $12/|H|$. Exhaustive subgroup
+closure gives respectively $1,9,13,7,13,10$ subgroups of orders
+$1,2,3,4,6,12$. Exactly two satisfy the remaining Gram identity,
+and both have order twelve. Thus the invertible right actions are
+faithful in either case. This step does not assume that all $39$
+action matrices are linearly independent; their span has dimension
+only $37$.
+
+\emph{Recovering the forced fusion subcategory.}
+For each of the two complete frames, products involving an
+invertible are read directly from matrix multiplication. For two
+noninvertibles $U,V$, the invertible coefficient of $h$ is forced
+by Frobenius reciprocity:
+\[
+ [UV:h]=[U^*h:V].
+\]
+Subtract these twelve coefficients from $B_UB_V$. Its first
+column gives, for each of the nine large module coordinates, the
+sum of the remaining three coefficients with that first column.
+Their total is at most four, by the dimension equation
+$16=\sum_h[UV:h]+4\sum_W[UV:W]$.
+Enumerating these nonnegative compositions and checking all matrix
+entries gives exactly one solution for each of the $27^2=729$
+products, in both frames. The resulting two rank-$39$ tensors
+satisfy the based-ring axioms, including associativity and both
+Frobenius reciprocity identities.
+
+In the recorded ordering of each frame, the simple with index $14$
+generates the same closed subset
+\[
+ \{0,1,4,9,14,15,18,23,25,27,30,33,38\}.
+\]
+Its dimension type is $(1^4,4^9)$ and its dimension is $148$.
+The four invertibles have indices $0,1,4,9$, and all are
+self-inverse, so their group is $C_2\times C_2$.
+A based subset closed under products and duals gives a fusion
+subcategory of a hypothetical categorification. Applying
+Lemma~\ref{lem:four-p-cyclic-invertibles} with $p=37$ gives the
+contradiction.
+
+Every finite enumeration in this proof is regenerated from the
+original seven-dimensional tensor by
+\path{evidence/rank7_m5_20261020/modules/verify_r4982.py}.
+The exhaustive Fourier data, normalized bounded domains, two
+right-action frames, fusion tensors, and closed-subring tensors
+are retained with the final certificate
+\texttt{r4982\_exclusion\_certificate.json}. The verifier uses exact
+integer or rational arithmetic throughout; it invokes neither a
+numerical feasibility test nor a pivotality assumption.
+\end{proof}

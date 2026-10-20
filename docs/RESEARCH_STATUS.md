@@ -1,6 +1,6 @@
 # Research status and verification
 
-The 19 October rank-seven extension addresses all 5,805 exact-multiplicity-five rings: 5,789 general exclusions, 1 realization and 15 unresolved cases. The classification is complete through multiplicity 4. The new realization R7_5_5678 is Rep(AGL(1,7)). The unresolved records remain open for general complex categorification.
+The rank-seven multiplicity-five continuation addresses all 5,805 exact-multiplicity-five rings: 5,802 general exclusions, 1 realization and 2 unresolved cases. The classification is complete through multiplicity 4. The new realization R7_5_5678 is Rep(AGL(1,7)). The unresolved records remain open for general complex categorification.
 
 > **AI-generated research · independent verification pending.** Treat these
 > results, proofs, code and data with caution. They have not yet been
@@ -21,8 +21,8 @@ The [historical 38-case continuation](../docs/RESEARCH_STATUS.md) records **36 d
 Rank six records **25,362 exclusions, 57 realizations and
 2 open cases** through multiplicity nine. Its complete contiguous
 range ends at three; exact bands 1, 2, 3, 5, 6, 7, 9 are complete. Rank seven records
-**9,961 exclusions and 30 realizations**,
-with **15 open cases through multiplicity 5**; complete through multiplicity 4. Rank eight records
+**9,974 exclusions and 30 realizations**,
+with **2 open cases through multiplicity 5**; complete through multiplicity 4. Rank eight records
 **896 exclusions and 77 realizations**,
 with no open case through multiplicity two. The general exclusion of
 `R8_2_24` uses an inner-square obstruction from short gauge weights and
@@ -37,7 +37,7 @@ tensor-functor rigidity.
 
 ### Rank-seven open rings
 
-All 15 open rank-seven cases lie in exact multiplicity five. Their identifiers, tensors and recorded criterion results are in the [M5 frontier](../supplements/rank7/output/m5/survivors.json) and [extension evidence](../evidence/rank7_m5_20261019/README.md). [Download all 17 current open tensors](../data/remaining_cases.py), including the two rank-six cases.
+The rank-seven frontier contains 2 cases, all in exact multiplicity five. Their identifiers, tensors and recorded criterion results are in the [M5 frontier](../supplements/rank7/output/m5/survivors.json) and [continuation evidence](../evidence/rank7_m5_20261020/README.md). [Download all 4 current open tensors](../data/remaining_cases.py), including the two rank-six cases.
 
 A necessary-condition witness is neither a categorification nor a general
 nonexistence proof. Scoped unitary, pseudo-unitary, pivotal or braided

@@ -1,0 +1,184 @@
+{
+  "status": "PASS",
+  "scope": "structural reduction only; no categorification or exclusion asserted",
+  "results": [
+    {
+      "id": "R7_5_3895",
+      "tensor_sha256": "590b613093643a1c3047e866213050ba7fd87c211a42906de823d0c613d11ad0",
+      "enumeration": "nodes 257703 solutions 2",
+      "branches": [
+        {
+          "gauge_original": [
+            1,
+            1,
+            1,
+            -1,
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "gauge_original": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ]
+        }
+      ],
+      "original_character_reduction": [
+        {
+          "factor": [
+            "1",
+            "-240"
+          ],
+          "fp_orbit": false,
+          "zero_object": 3,
+          "unequal_dual": null
+        },
+        {
+          "factor": [
+            "1",
+            "-234"
+          ],
+          "fp_orbit": false,
+          "zero_object": 4,
+          "unequal_dual": null
+        },
+        {
+          "factor": [
+            "1",
+            "-226"
+          ],
+          "fp_orbit": false,
+          "zero_object": 4,
+          "unequal_dual": null
+        },
+        {
+          "factor": [
+            "1",
+            "-6324",
+            "-485276"
+          ],
+          "fp_orbit": true,
+          "zero_object": null,
+          "unequal_dual": null
+        },
+        {
+          "factor": [
+            "1",
+            "376",
+            "31699"
+          ],
+          "fp_orbit": false,
+          "zero_object": 1,
+          "unequal_dual": null
+        }
+      ],
+      "conclusion": "Every categorification is spherical and Galois-pseudounitary."
+    },
+    {
+      "id": "R7_5_5039",
+      "tensor_sha256": "8606c63a2f02ea028185db755a4b055382073b94736d5040ee92f3eec07f450c",
+      "enumeration": "nodes 317451 solutions 4",
+      "branches": [
+        {
+          "obstruction": "dimension_field_degree",
+          "required_quadratic_fields": [
+            5,
+            11
+          ],
+          "required_degree": 4,
+          "character_degrees": [
+            1,
+            2,
+            2,
+            2
+          ]
+        },
+        {
+          "gauge_original": [
+            1,
+            -1,
+            -1,
+            1,
+            1,
+            1,
+            1
+          ]
+        },
+        {
+          "obstruction": "dimension_field_degree",
+          "required_quadratic_fields": [
+            5,
+            11
+          ],
+          "required_degree": 4,
+          "character_degrees": [
+            1,
+            2,
+            2,
+            2
+          ]
+        },
+        {
+          "gauge_original": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ]
+        }
+      ],
+      "original_character_reduction": [
+        {
+          "factor": [
+            "1",
+            "-4"
+          ],
+          "fp_orbit": false,
+          "zero_object": 3,
+          "unequal_dual": null
+        },
+        {
+          "factor": [
+            "1",
+            "-1120",
+            "11020"
+          ],
+          "fp_orbit": true,
+          "zero_object": null,
+          "unequal_dual": null
+        },
+        {
+          "factor": [
+            "1",
+            "-60",
+            "902"
+          ],
+          "fp_orbit": false,
+          "zero_object": 3,
+          "unequal_dual": 1
+        },
+        {
+          "factor": [
+            "1",
+            "50",
+            "605"
+          ],
+          "fp_orbit": false,
+          "zero_object": 1,
+          "unequal_dual": null
+        }
+      ],
+      "conclusion": "Every categorification is spherical and Galois-pseudounitary."
+    }
+  ]
+}

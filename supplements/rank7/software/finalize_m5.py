@@ -8,8 +8,17 @@ def main():
     old=json.loads((P/'output/rank7_ledger_through_m4.json').read_text())
     new=json.loads((OUT/'ledger.json').read_text())
     byid={r['id']:r for r in new}
-    for a in json.loads((OUT/'additions.json').read_text()):
-        if byid[a['id']]['status']=='unresolved':byid[a['id']].update(a)
+    additions=json.loads((OUT/'additions.json').read_text())
+    continuation=ROOT/'evidence/rank7_m5_20261020/accepted/decisions.json'
+    continued=json.loads(continuation.read_text()) if continuation.exists() else []
+    additions+=continued
+    for a in additions:
+        if byid[a['id']]['status']=='unresolved':
+            byid[a['id']].update(a)
+            byid[a['id']].pop('diagnostic',None)
+    for a in continued:
+        if any(byid[a['id']].get(k)!=v for k,v in a.items()):
+            raise ValueError('accepted continuation conflicts with existing decision: '+a['id'])
     for r in new:
         if r['status']=='excluded':r['existence']={k:'no' for k in ('general','pivotal','spherical','pseudo_unitary','unitary')}
         elif r['status']=='unresolved':
@@ -36,6 +45,9 @@ def main():
     summary['model_count']=sum(r['status']=='unitarily_realized' for r in allrows)
     summary['notes']='All earlier 4201 decision records are preserved exactly. New-band exclusions have checked exact certificates with stated categorical scope; unresolved records remain open. Source completeness is producer-reported, not independently re-enumerated in this continuation.'
     summary['multiplicity5_update']='evidence/rank7_m5_20261019/README.md';dump(P/'output/rank7_summary.json',summary,2)
+    if continuation.exists():
+        summary['multiplicity5_continuation']='evidence/rank7_m5_20261020/accepted/decisions.json'
+        dump(P/'output/rank7_summary.json',summary,2)
     catalogpath=P/'output/rank7_model_catalog.json';catalog=json.loads((P/'data/model_catalog.json').read_text());catalog=[r for r in catalog if r['id']!='R7_5_5678']
     receipt=json.loads((ROOT/'evidence/rank7_m5_20261019/models/frobenius42_match.json').read_text());model=byid['R7_5_5678']
     catalog.append({'id':model['id'],'rank':7,'multiplicity':5,'name':receipt['model'],'source_construction':receipt['presentation'],'source_reference':receipt['primary_reference'],'source_url':receipt['primary_url'],'basis_permutation_model_to_census':receipt['match']['basis_permutation_model_to_census'],'tensor':model['tensor'],'existence':model['existence'],'verification':'evidence/rank7_m5_20261019/models/verify_frobenius42.py'})

@@ -279,17 +279,20 @@ function renderTheoreticalUpdate() {
   if (!update) return;
   const date = new Date((state.data.rank7_m5_update?.date || update.date) + "T12:00:00Z").toLocaleDateString("en-GB", {day:"numeric", month:"long", year:"numeric", timeZone:"UTC"});
   const latest = state.data.rank7_m5_update;
-  $("#research-update-title").textContent = latest ? `${date} · rank seven through multiplicity five · ${latest.unresolved} new open cases` : `${date} · ${update.new_general_exclusions} exclusions · ${update.new_unitary_models || 0} unitary models`;
+  $("#research-update-title").textContent = latest ? `${date} · rank seven through multiplicity five · ${latest.unresolved} open cases` : `${date} · ${update.new_general_exclusions} exclusions · ${update.new_unitary_models || 0} unitary models`;
   const rankNames = {"6": "rank-six", "7": "rank-seven", "8": "rank-eight"};
   const currentRemaining = Object.fromEntries(state.data.scope.filter(r=>r.rank>=6).map(r=>[String(r.rank),r.unresolved]));
   const openParts = Object.entries(currentRemaining).filter(([, count]) => count > 0).map(([rank, count]) => `${count} ${rankNames[rank]}`);
   const openText = openParts.length ? ` General existence remains open for ${openParts.join(", ")} rings.` : " Every case in this continuation is resolved.";
   const completion = state.data.scope.filter(r=>r.rank>=7).map(r=>` Rank ${r.rank} is complete through multiplicity ${r.through}; analyzed through ${r.analyzed_through}.`).join("");
   const m5 = state.data.rank7_m5_update;
-  const extensionText = m5 ? ` The 19 October extension addresses ${fmt.format(m5.rings)} rank-seven multiplicity-five rings: ${fmt.format(m5.excluded)} exclusions, ${m5.realized} models and ${m5.unresolved} open cases.` : "";
-  $("#research-update-summary").textContent = `The continuation records ${update.decisions.length} decisions among ${update.original_case_count || 38} cases: ${update.by_rank["7"]} at rank seven and ${update.by_rank["8"]} at rank eight.${completion}${extensionText}${openText}`;
+  const extensionText = m5 ? ` The rank-seven multiplicity-five continuation addresses ${fmt.format(m5.rings)} rings: ${fmt.format(m5.excluded)} exclusions, ${m5.realized} models and ${m5.unresolved} open cases.` : "";
+  const continuationText = m5?.continuation_decisions?.length ? ` The latest continuation resolves ${m5.continuation_decisions.length} of the 15 cases left open on 19 October.` : "";
+  const braidedText = m5?.remaining_ids?.length===2 && ["R7_5_3895","R7_5_5039"].every(id=>m5.remaining_ids.includes(id))
+    ? " Both remaining rank-seven rings admit no braided categorification; their general categorification remains open." : "";
+  $("#research-update-summary").textContent = `${extensionText.trim()}${continuationText}${braidedText}${completion}${openText}`;
   $("#theoretical-update-heading").textContent = `Current research · ${Object.values(currentRemaining).reduce((a,b)=>a+b,0)} open cases`;
-  $("#theoretical-update-scope").textContent = extensionText + " The historical 38-case continuation gives 29 proposed general exclusions and 7 unitary constructions. R6_4_155 and R6_8_1660 remain open. The methods combine Morita theory, Frobenius–Schur indicators, center constraints, algebraic planar algebras and tensor-functor rigidity. The inner-square obstruction settles R8_2_24 over the complex numbers. The bundle includes current manuscripts, proofs, exact replay programs and the unresolved inventory. Independent human verification and Lean formalization remain pending.";
+  $("#theoretical-update-scope").textContent = extensionText + continuationText + braidedText + " The new arguments combine quadratic compression, complete sphericalization, center-twist moments and full Morita-dual descent. The historical 38-case continuation records 29 proposed general exclusions and 7 unitary constructions. R6_4_155 and R6_8_1660 remain open. The bundle includes current manuscripts, proofs, exact replay programs and the unresolved inventory. Independent human verification and Lean formalization remain pending.";
   const base = `${state.data.classification_repository}/blob/${state.data.classification_commit || "main"}/docs/RESEARCH_STATUS.md`;
   $("#latest-research-source").href = base;
   $("#latest-research-source").textContent = `${date} proofs and remaining cases ↗`;
@@ -348,10 +351,17 @@ function renderTheoreticalUpdate() {
     C16_orbifold_inversion_Morita: "Unitary orbifold and reflection dual",
     C4_squared_orbifold_inversion_Morita: "Unitary orbifold and reflection dual",
     C4_near_group_pointed_centralizer: "Unitary near-group pointed centralizer",
+    quadratic_casimir_compression: "Quadratic Casimir compression",
+    oriented_signed_compression: "Complete sphericalization and compression",
+    quadratic_center_Galois_two_moment_q60: "Conductor-sixty center moments and Galois reduction",
+    cyclic3_full_morita_rank13_descent: "Full cyclic Morita dual and dimension-148 descent",
+    oriented_dimension_order: "Complete sphericalization and dimension order",
+    character: "Complete character cover and induction obstruction",
+    general_induction: "Complete signed reduction and induction obstruction",
   };
   const rows = $("#theoretical-update-rows");
   rows.replaceChildren();
-  for (const record of update.decisions) {
+  for (const record of [...(m5?.continuation_decisions || []), ...update.decisions]) {
     const row = element("tr");
     const name = element("th", "", record.id); name.scope = "row";
     const proof = element("a", "", `${labels[record.criterion] || "Theoretical proof"} ↗`);

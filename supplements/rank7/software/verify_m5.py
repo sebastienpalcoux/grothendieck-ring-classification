@@ -45,6 +45,19 @@ def verify_new(record):
     elif kind=='spectral_involution_module':
         import new_module_spectral
         new_module_spectral.verify(R,c)
+    elif kind=='quadratic_casimir_compression':
+        load_module('quadratic_compression','evidence/rank7_m5_20261020/criteria/quadratic_compression.py').verify(R,c)
+    elif kind=='oriented_signed_compression':
+        load_module('signed_compression','evidence/rank7_m5_20261020/criteria/signed_compression.py').verify(R,c,timeout=1200)
+    elif kind=='q60_center_trace_general':
+        from continuation_20261020 import verify_q60
+        verify_q60(R,c)
+    elif kind=='cyclic3_full_morita_rank13_descent':
+        from continuation_20261020 import verify_r4982
+        verify_r4982(R,c)
+    elif kind=='oriented_signed' and record.get('continuation_source')=='evidence/rank7_m5_20261020':
+        from continuation_20261020 import verify_oriented
+        verify_oriented(R,c)
     else:verify_own(R,c)
     return record['id']
 def verify_model(record):
@@ -98,5 +111,7 @@ def main():
             if record['status']=='unitarily_realized':verify_model(record)
     require(sha(P/'output/rank7_ledger.json')==ledger_digest,'ledger changed during replay')
     report={'status':'PASS','mode':'metadata_only' if args.metadata_only else 'full_exact_replay','optimized_python':not __debug__,'new_band':5,'new_rings':5805,'new_status_counts':counts,'old_records_preserved':4201,'total_rings':10006,'input_sha256':INPUT_SHA,'ledger_sha256':sha(P/'output/rank7_ledger.json'),'new_exclusions_replayed':0 if args.metadata_only else counts.get('excluded',0),'old_certificates_replayed':0,'scope':'New-band proof certificates and positive character tensor replayed; old records preserved, with historical proof replays separately archived.' if not args.metadata_only else 'Source coverage, identifiers, statuses, and file bindings only; no mathematical certificate replay.','seconds':time.monotonic()-start}
+    if any(r['id']=='R7_5_4982' and r['status']=='excluded' for r in new):
+        report['component_execution_modes']={'R7_5_4982':'Full replay runs assertion-based Morita components in an isolated subprocess with Python optimization disabled, including when the outer verifier uses -O. Metadata-only mode does not execute this component.'}
     target=args.output or OUT/('metadata.json' if args.metadata_only else 'replay_optimized.json' if not __debug__ else 'replay_normal.json');target.write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report,indent=2))
 if __name__=='__main__':main()

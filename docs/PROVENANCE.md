@@ -1,6 +1,6 @@
 # Provenance and boundaries
 
-The 19 October rank-seven extension addresses all 5,805 exact-multiplicity-five rings: 5,789 general exclusions, 1 realization and 15 unresolved cases. The classification is complete through multiplicity 4. The new realization R7_5_5678 is Rep(AGL(1,7)). The unresolved records remain open for general complex categorification.
+The rank-seven multiplicity-five continuation addresses all 5,805 exact-multiplicity-five rings: 5,802 general exclusions, 1 realization and 2 unresolved cases. The classification is complete through multiplicity 4. The new realization R7_5_5678 is Rep(AGL(1,7)). The unresolved records remain open for general complex categorification.
 
 > **AI-generated research · independent verification pending.** Treat these
 > results, proofs, code and data with caution. They have not yet been
@@ -22,7 +22,7 @@ certificate. Classification decisions are separate from census completeness.
 | 4 | Unrestricted | Exactly 15 models; every categorification is spherical; multiplicity at most 6. |
 | 5 | Through 20 | Complete: 17 models and 40,982 exclusions. |
 | 6 | Through 9 | Complete through 3 and exact bands 1, 2, 3, 5, 6, 7, 9; two open cases. |
-| 7 | Through 5 | Through multiplicity 5: 9,961 exclusions, 30 models and 15 unresolved; complete through 4. |
+| 7 | Through 5 | Through multiplicity 5: 9,974 exclusions, 30 models and 2 unresolved; complete through 4. |
 | 8 | Through 2 | Complete: 77 models and 896 exclusions. |
 
 The [historical 38-case continuation](../docs/RESEARCH_STATUS.md) records **36 decisions among 38 cases**: 29 proposed general exclusions and 7 unitary constructions. Within that historical 38-case study, two questions remain open: `R6_4_155` and `R6_8_1660`. The combined residual program records 140 decisions (120 exclusions and 20 constructions), all subject to independent mathematical verification.
@@ -39,7 +39,7 @@ ledgers and records every exact-multiplicity partition.
 | 4 | `969a2a5a84b794a3da1d9cd3978f92324d631760f503f5d208011923a723920f` | 889,530 | 889,515 excluded; 15 realized |
 | 5 | `12886636134e0500a403ae1b635f5b901612d64b203dad1e1fdf94b0da2c31f1` | 40,999 | 40,982 excluded; 17 realized |
 | 6 | `abb36cb0e7f9196e0a231cb85a601c82a1c8fd398996f77a8961487a7ca692e5` | 25,421 | 25,362 excluded; 57 realized; 2 open |
-| 7 | `508164c3f342f27988401e7c64e6efc83a844e5013a1d68f9b35c5124088c741` | 10,006 | 9,961 excluded; 30 realized; 15 open |
+| 7 | `99ec4e8085e0f2397e3fe51227b7dc1c938c38d3c8953eb5c04ba17b43e7b1f8` | 10,006 | 9,974 excluded; 30 realized; 2 open |
 | 8 | `7f50213174f1020bb9d90d5981892c332448cf909a56bf60b29e1143228f3f24` | 973 | 896 excluded; 77 realized; 0 open |
 
 Rank-six realizations comprise 56 unitary models and one spherical model whose

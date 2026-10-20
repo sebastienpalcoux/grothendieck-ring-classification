@@ -1,0 +1,147 @@
+{
+  "coefficient_convention": "[r,s] means r+s*sqrt(5)",
+  "source": "Grossman-Izumi arXiv:1501.07679v2, Section 6, Figure 6 and Example 6.9",
+  "two_d_two_global_dimension": [
+    20,
+    8
+  ],
+  "two_d_two_center_profile": [
+    [
+      1,
+      0
+    ],
+    [
+      9,
+      4
+    ],
+    [
+      5,
+      2
+    ],
+    [
+      5,
+      2
+    ],
+    [
+      5,
+      2
+    ],
+    [
+      5,
+      2
+    ],
+    [
+      5,
+      2
+    ],
+    [
+      5,
+      2
+    ],
+    [
+      8,
+      4
+    ],
+    [
+      8,
+      4
+    ]
+  ],
+  "proposed_center_product_profile": [
+    {
+      "dimension": [
+        1,
+        0
+      ],
+      "multiplicity": 1
+    },
+    {
+      "dimension": [
+        5,
+        2
+      ],
+      "multiplicity": 12
+    },
+    {
+      "dimension": [
+        8,
+        4
+      ],
+      "multiplicity": 4
+    },
+    {
+      "dimension": [
+        9,
+        4
+      ],
+      "multiplicity": 2
+    },
+    {
+      "dimension": [
+        45,
+        20
+      ],
+      "multiplicity": 36
+    },
+    {
+      "dimension": [
+        80,
+        36
+      ],
+      "multiplicity": 24
+    },
+    {
+      "dimension": [
+        85,
+        38
+      ],
+      "multiplicity": 12
+    },
+    {
+      "dimension": [
+        144,
+        64
+      ],
+      "multiplicity": 4
+    },
+    {
+      "dimension": [
+        152,
+        68
+      ],
+      "multiplicity": 4
+    },
+    {
+      "dimension": [
+        161,
+        72
+      ],
+      "multiplicity": 1
+    }
+  ],
+  "cases": [
+    {
+      "ring_id": "R7_5_3895",
+      "tensor_sha256": "590b613093643a1c3047e866213050ba7fd87c211a42906de823d0c613d11ad0",
+      "obstructing_formal_codegree": 4,
+      "required_induced_unit_simple_dimension": [
+        180,
+        80
+      ],
+      "present_in_proposed_center": false
+    },
+    {
+      "ring_id": "R7_5_5039",
+      "tensor_sha256": "8606c63a2f02ea028185db755a4b055382073b94736d5040ee92f3eec07f450c",
+      "obstructing_formal_codegree": 8,
+      "required_induced_unit_simple_dimension": [
+        90,
+        40
+      ],
+      "present_in_proposed_center": false
+    }
+  ],
+  "excluded_model_route": "Morita equivalence to 2D2 boxtimes 2D2^op or to Z(2D2)",
+  "general_categorification_excluded": false,
+  "arithmetic_verification": "PASS"
+}

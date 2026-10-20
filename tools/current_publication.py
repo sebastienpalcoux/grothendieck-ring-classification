@@ -11,8 +11,9 @@ REPLAY_ARCHIVE_SHA256 = 'b5c98ca8317bdee7c439f2198d6f32807dd302dc440f2f458443642
 CITATION_REPLAY_DIRECTORY = 'evidence/citation_20261019'
 CITATION_REPLAY_MANIFEST_SHA256 = 'f66e3f910da6bce16b33c8fd8eabb2ab999959895a211b0c46f71a036cc65bd1'
 CITATION_REPLAY_ARCHIVE_SHA256 = 'e42c63857d52450f1e90db2a4474476148cbce70ea58edfe7acad6aad96bd06e'
-EXCLUDED_DOCUMENTS = {'manuscripts/prepublication-review-2026-10-17.pdf'}
-# Retained as a dated historical report; the current report is the 19 October edition.
+EXCLUDED_DOCUMENTS = {'manuscripts/prepublication-review-2026-10-17.pdf',
+                      'manuscripts/prepublication-review-2026-10-19.pdf'}
+# Retained dated historical reports; the current report is the 20 October edition.
 
 def need(condition, message):
     if not condition:
@@ -37,7 +38,7 @@ def document_paths(repo):
 def validate_documents(repo, check_web=False):
     repo = Path(repo)
     revision = json.loads((repo / DOCUMENT_REVISION).read_text())
-    need(revision['schema'] == 'current-document-revision/v1' and revision['date'] in ('2026-10-17', '2026-10-19'),
+    need(revision['schema'] == 'current-document-revision/v1' and revision['date'] in ('2026-10-17', '2026-10-19', '2026-10-20'),
          'Current document revision identity')
     from rank7_publication import remaining_ids, extension
     need(revision['remaining_ids'] == remaining_ids(repo)
