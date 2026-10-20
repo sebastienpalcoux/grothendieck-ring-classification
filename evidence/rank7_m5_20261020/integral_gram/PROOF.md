@@ -147,7 +147,7 @@ accepts source- and domain-bound exact coefficient vectors from
 powers of the first formal-codegree-16 character eliminate several older
 `R7_5_3895` witnesses, but they do not eliminate its remaining frame.
 
-The current stronger examples are
+Historical stronger examples are
 `R7_5_3895_full_field_verlinde_branch0_fp5_words.json` and
 `R7_5_5039_full_field_verlinde_chi8_{0,2}_fp5.json`. Their proposed center
 ranks are 44, 39, and 55 respectively. The first has fourth/fifth unit
@@ -157,3 +157,147 @@ Gram/moment/STS and primary-order equations, and all 56 low Verlinde
 coefficients. It recomputes the optional word coefficients directly from
 the character table. It invokes no optimizer and labels every success
 `PASS_necessary_data_only`.
+
+Subsequent coupled phase transport strengthens the fixed/dual-row order-80
+unit to four and the hidden fifth-primary zero unit to ten, while retaining
+the genuine-zero unit four. This rejects the historical conductor-eight-zero
+witness's phase assignment. A new assignment with order-16 phases is in
+`R7_5_5039_full_field_verlinde_chi8_0_fp5_norm_allwords.json`.
+That replacement is historical necessary data: the cyclic fourth-indicator
+test below subsequently rejects it.
+
+## Finite all-word integrality and integer norm cuts
+
+`modules/ALL_WORD_UNIT_FUNCTIONAL.md` proves that all low-word unit
+multiplicities can be checked by a finite family of linear congruences.
+The exact generated spectral order stabilizes modulo the trace denominator.
+The present domains give 75 congruences for `R7_5_3895` and 31 for
+`R7_5_5039`. The optional `--all-words` interface checks source/domain
+hashes and imposes every congruence. Its coefficients and constant are
+reduced to nonnegative residues; thus the modular quotient can safely be
+represented by a nonnegative integer slack. This differs from imposing
+nonnegativity on arbitrary signed order-basis traces, which is invalid.
+
+`integer_norm_cuts.py` gives another family of exact linear constraints.
+For a positive low product `P=A_E A_F`, let `n_Y` be its nonnegative
+integer coefficient at each center simple. Then
+`q=tau(PP*)=sum_Y n_Y^2`. For any rational source vector `x`, put
+
+`g*(t)=max_{k>=0 integer}(t*k-k^2)`.
+
+The monoidal forgetful functor gives `sum n_Y v_Y=F(P)`. For arbitrary
+fixed integers `a_l` at the seven known low simples, integer squares give
+
+`q >= x.F(P) + sum_low (2a_l+1-x.v_l)n_l`
+`     - sum_low a_l(a_l+1) - sum_high g*(x.v_Y)`.
+
+Every term is linear in the unknown row multiplicities: `q` is a quartic
+word coefficient and the known low `n_l` are triple coefficients.
+The cut generator reconstructs these coefficients from the canonical
+character table and records its rational multiplier and chord centers.
+No assumed packet equality is used. The independently derived cut
+`models/sqrt5/R5039_c2_fp5_integral_norm_cut.json` rejects the historical
+rank-55 witness by an exact gap four. A new rank-53 necessary-data witness
+survives the cut; this is not a ring-level exclusion.
+
+## Cyclic fourth and eighth rotation constraints
+
+The grouping identity for pivotal rotation identifies the square of the
+rotation on `Hom(1,X^4)` with the order-two rotation for `X^2`.
+Consequently, if `m=dim Hom(1,X^4)` and
+`t=nu_2(X^2)=sum_i N_XX^i nu_2(X_i)`, its four character multiplicities are
+
+`(m+t+2 Re nu_4(X))/4`, `(m+t-2 Re nu_4(X))/4`,
+`(m-t+2 Im nu_4(X))/4`, `(m-t-2 Im nu_4(X))/4`.
+
+Every value must be a nonnegative integer. This uses the full cyclic
+character, and does not assume that the indicator of a self-dual object
+is real. `fourth_cyclic_constraints` implements the equivalent four
+nonnegative integer variables and the complete eight field coordinates.
+`fourth_indicator_audit.py` independently rejects the earlier visible-phase
+ghosts: the R3895 first nonunit object gives multiplicities
+`(13/2,5/2,1,1)`, and the R5039 conductor-eight-zero ghost gives
+`(2,2,-1/2,1/2)`.
+
+The complete all-order moment domain is finite after taking relative field
+traces: 49 records retain the first, second and fourth moments; 61 retain
+the eighth moment as well. Genuine zero records retain their separate
+source-fixed packet divisibilities. In particular, a vanishing first pair
+of moments is not treated as a vanishing fourth or eighth moment.
+The proofs and independent controls are in `modules/` and
+`models/sqrt5/full_source_phases.py`.
+
+For C8, the square and fourth power of rotation have traces
+`nu_4(X^2)` and `nu_2(X^4)`. The former is computed from the existing C4
+variables by additivity. `modules/cyclic_eight_constraints.py` appends
+eight nonnegative integer eigenvalue multiplicities per source object.
+`criteria/q5_cyclic_eight_search.py` exports all six inequivalent surviving
+label/primary-branch systems. A numerical infeasibility report by that
+search remains only a discovery result until an exact certificate is
+replayed against the source-bound system.
+
+An auxiliary finite branching for R5039 is implemented by
+`enumerate_chi8_active.py`. The total squared difference of the first two
+nonunit restriction coordinates is 16. With the valid packet
+divisibilities, residual Gram positivity leaves seven aggregate row
+allocations in primary branch zero and eighteen in primary branch two.
+The enumeration uses actual positive signed transport and does not use
+the retracted claim that every active orbit has size at least four.
+`chi8_branch_system.py` fixes these aggregate counts while retaining all
+phase choices. Its partial covector replay checks only recorded leaves;
+it does not claim a full exclusion when any allocation remains open.
+
+## Exact final conductor-eight branches for R7_5_5039
+
+The C8 continuation closes both sign-safe primary branches for the
+remaining equal-row low frame. In primary branch two, the independent
+computation supplies the same sparse congruence functional for both
+inequivalent character labellings: every column has value zero modulo
+256, while the target has value 128. The source-bound domain replay is
+`modules/verify_r5039_c2_domain.py`.
+
+For primary branch zero, the exact seven aggregate allocations expand
+to 615 complete active phase assignments in each labelling. A containing
+integer lattice for the inactive columns eliminates 611 assignments.
+The four survivors each consist of a single order-64 packet of eight
+objects at each row of orbit 24. `chi8_phase_lattice.py` checks every
+inactive generator against the recorded lattice and regenerates the
+complete finite packet enumeration. It does not trust the normal-form
+algorithm used to discover that lattice.
+
+After source Gram pruning, the source-object-one C4 character is forced
+to have multiplicities `(3,1,0,0)`. The independent exact fourth-character
+splits and Farkas covectors are in `criteria/`. The phi-difference budget
+has 1004 raw allocations, of which exactly 50 fit the residual Gram.
+Exact Farkas tests retain phi indices `2,14,46,49` for labelling zero,
+and `46,49` for labelling one.
+
+The irrational part of the eighth indicator gives an additional finite
+reduction. Among the remaining rows only orbits 45 and 50 can contribute
+to the two sqrt(10) coordinates. Their exact PSD capacities are 17 and
+34 actual row copies. The order-320 packet at orbit 45 has size 16 and
+cannot cancel its independent restriction vector, so its count is zero.
+Cancellation at orbit 50 forces exactly one size-16 order-320 packet,
+with two possible phases for each of the four active order-64 phases.
+Other phases on orbit 50 remain available. This reduction is proved and
+independently replayed in
+`models/sqrt5/verify_c0_forced_eighth_packet.py`.
+
+The remaining 48 branches are all excluded by finite integer-split
+trees, with exactly two rational Farkas leaves per branch. Each tree
+splits the same original variable: the multiplicity of eigenvalue
+`-i` in the C4 rotation character of source object five, at the integer
+threshold 18. The proofs retain all possibilities on both sides of that
+threshold. No numerical infeasibility result is used as a certificate.
+
+`verify_c0_conditional_trees.py` independently reconstructs the canonical
+source induction Gram, every packet deletion, and all integral orbit
+capacities. Its capacity computation exhausts the possible integer
+counts, independently of the discovery binary search. It checks each
+leaf inequality directly against the original columns and path bounds,
+without calling the discovery augmented-matrix routine. Optimizer
+imports are blocked. Both ordinary Python and `python -O` replay all
+48 branches and all 96 leaves; receipts are
+`c0_conditional_trees_normal.json` and
+`c0_conditional_trees_optimized.json`. The low-frame, label and phase
+completeness proofs must accompany these final conditional certificates.

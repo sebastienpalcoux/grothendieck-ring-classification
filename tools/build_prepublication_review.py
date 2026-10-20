@@ -52,6 +52,7 @@ styles = {
     'h1': ParagraphStyle('h1', fontName='SansBold', fontSize=20, leading=26, textColor=INK, spaceAfter=13),
     'h2': ParagraphStyle('h2', fontName='SansBold', fontSize=12, leading=17, textColor=TEAL, spaceBefore=13, spaceAfter=7),
     'body': ParagraphStyle('body', fontName='Sans', fontSize=9.1, leading=14.2, textColor=INK, spaceAfter=9, allowWidows=0, allowOrphans=0),
+    'theory': ParagraphStyle('theory', fontName='Sans', fontSize=9.1, leading=12.0, textColor=INK, spaceAfter=6, allowWidows=0, allowOrphans=0),
     'small': ParagraphStyle('small', fontName='Sans', fontSize=8.0, leading=10.9, textColor=MUTED, spaceAfter=6, allowWidows=0, allowOrphans=0),
     'code': ParagraphStyle('code', fontName='Mono', fontSize=7.3, leading=11.4, textColor=INK),
     'notice': ParagraphStyle('notice', fontName='Sans', fontSize=9.0, leading=14.1, textColor=INK),
@@ -134,8 +135,8 @@ if CONTENT.get('theoretical_results'):
     story += [PageBreak(), p('CATEGORICAL ARGUMENTS', 'kicker'), p('New structural criteria', 'h1')]
 for result in CONTENT.get('theoretical_results', []):
     story += [p(safe(result['heading']), 'h2')]
-    story += [p(safe(x)) for x in result['paragraphs']]
-story += [box(p('<b>Status discipline.</b> A restricted nonexistence result applies only under its stated assumptions. An exact computation of conditional equations does not discharge the missing categorical hypothesis.', 'notice')), PageBreak()]
+    story += [p(safe(x), 'theory') for x in result['paragraphs']]
+story += [box(p('<b>Status discipline.</b> A restricted nonexistence result applies only under its stated assumptions. An exact computation of conditional equations does not discharge the missing categorical hypothesis.', 'notice'), padding=8), PageBreak()]
 
 story += [p('EXACT COMPUTATIONAL EVIDENCE', 'kicker'), p('What was checked', 'h1')]
 for section in CONTENT['replay_sections']:

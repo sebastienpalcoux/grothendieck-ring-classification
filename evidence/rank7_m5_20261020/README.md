@@ -3,12 +3,12 @@
 AI-generated research; independent human verification and Lean formalization
 remain pending. This page reports source-bound, exactly replayed decisions.
 
-This continuation resolves 14 of the 15 cases left open on 19 October.
+This continuation resolves 15 of the 15 cases left open on 19 October.
 
 | Scope | Supplied rings | General exclusions | Unitary models | Open |
 |---|---:|---:|---:|---:|
-| Exact multiplicity five | 5,805 | 5,803 | 1 | 1 |
-| Rank seven through multiplicity five | 10,006 | 9,975 | 30 | 1 |
+| Exact multiplicity five | 5,805 | 5,804 | 1 | 0 |
+| Rank seven through multiplicity five | 10,006 | 9,976 | 30 | 0 |
 
 The accepted decisions in `accepted/decisions.json` are integrated into
 `supplements/rank7/output/rank7_ledger.json`. These large files are restored by
@@ -25,11 +25,11 @@ still producer-reported; the optimized enumeration was not independently rerun.
 |---|---|
 | Galois pseudo-unitary reduction and conductor-60 center moments | `R7_5_443`, `R7_5_1214` |
 | Complete signed character cover and exact induction obstruction | `R7_5_1964`, `R7_5_5343`, `R7_5_5623`, `R7_5_5778` |
+| Coupled cyclic rotations, all-order phase packets, and integral fusion norms | `R7_5_3895`, `R7_5_5039` |
 | Complete signed quotient and dimension-order obstruction | `R7_5_4530`, `R7_5_4531` |
 | Complete signed quotient followed by spherical compression | `R7_5_4569` |
 | Quadratic Casimir compression for arbitrary categorifications | `R7_5_4653`, `R7_5_5029`, `R7_5_5040` |
 | Complete cyclic Morita dual and dimension-148 subcategory descent | `R7_5_4982` |
-| Coupled cyclic rotations, all-order phase packets, and integral fusion norms | `R7_5_5039` |
 
 The current [rank-seven manuscript](../../manuscripts/rank7/papers/manuscript.pdf)
 contains the full categorical reductions and finite-domain descriptions.
@@ -42,6 +42,7 @@ The main new combined arguments and their exact evidence are:
 - [Scope review of inherited proof trees](criteria/INDEPENDENT_SCOPE_AUDIT.md) and [independent structural audit](structure/INDEPENDENT_AUDIT.md).
 - [Complete induction proof trees](computation/README.md): R1964, R5343, R5623 and R5778 each have 5,025 Frobenius--Perron frames, all closed by ordinary moment obstructions. The [machine-counted summary](computation/proof_tree_summary.json) records the additional exhaustive signed-character covers.
 - [Coupled cyclic rotations](models/sqrt5/CYCLIC_ROTATION_OBSTRUCTION.md) and the [complete R5039 chain](models/sqrt5/R5039_CYCLIC_CHAIN.md): the all-order 61-phase inventory and conductor-eight alternatives are exhausted; C8 forces finite phase packets, and C4 with the integral fusion-norm inequality excludes all 48 final branches by 96 exact leaves. See the [independent chain audit](criteria/R5039_CHAIN_INDEPENDENT_AUDIT.md).
+- [Complete R3895 chain](models/sqrt5/R3895_CYCLIC_CHAIN.md): all signed, Galois, frame, indicator and phase alternatives are exhausted. Of 240 fourth-rotation choices, 225 have exact rational contradictions; fifteen complete integer chains close the rest with 2,126 exact leaves. The [all-word integral order](modules/ALL_WORD_UNIT_FUNCTIONAL.md) and [norm-slack parity proof](criteria/R3895_NORM_SLACK_PARITY.md) are essential to the integer-system encoding. See the [independent whole-chain audit](modules/R3895_CHAIN_INDEPENDENT_AUDIT.md) and [independent final-chain verifier](criteria/R3895_PROBING_INDEPENDENT_AUDIT.md).
 
 No additional categorical model is established by this continuation.
 The known `Rep(AGL(1,7))` realization of `R7_5_5678` remains the single
@@ -66,8 +67,21 @@ The aggregate verifier binds every accepted certificate to its actual source
 tensor. It rebuilds finite domains and verifies exact arithmetic rather than
 trusting discovery diagnostics. The R4982 assertion-based components run in
 an isolated unoptimized child in both aggregate modes, so their assertions
-remain active. NetworkX is required for that finite permutation computation.
+remain active. NetworkX is required for that finite permutation computation;
+python-flint is required for the exact all-word integer-order checks.
 SciPy is optional for discovery and is not needed by exact replay.
+
+The optional discovery helpers `computation/r3895_exact_probing.py`,
+`r3895_sparse_terminal.py` and `r3895_c8_tree.py` explain how the final
+R3895 certificates were found. They use SciPy and are not proof premises.
+The [sparse-terminal audit](models/sqrt5/SPARSE_TERMINAL_AUDIT.md) separates
+numerical support selection from exact rational separation. To exercise
+the optional helper import closure on one completed chain, run:
+
+```sh
+python evidence/rank7_m5_20261020/computation/r3895_exact_probing.py --case 0 --branch 160 --r 5 --s 1 --replay
+```
+
 
 See the [normal receipt](../../supplements/rank7/output/m5/replay_normal.json),
 [optimized receipt](../../supplements/rank7/output/m5/replay_optimized.json),
@@ -79,7 +93,7 @@ partitions; it does not replay mathematical certificates.
 
 ## Current outcome and quadratic structure
 
-`R7_5_3895`.
+Every supplied rank-seven ring through multiplicity five has a recorded decision.
 
 [Exact remaining tensors](../../supplements/rank7/output/m5/survivors.json)
 and [all ranks' open tensors](../../data/remaining_cases.py) follow the current
@@ -117,5 +131,5 @@ exclude every candidate. Both [normal](criteria/braided_frontier_normal.json)
 and [optimized](criteria/braided_frontier_optimized.json) replays pass. These
 are braided-only exclusions. General decisions require the separately recorded
 arguments and receipts in the accepted ledger.
-Exploratory higher-word and Gram searches are diagnostic; earlier truncated witnesses
-do not assert compatibility with subsequent constraints or provide models.
+Unselected exploratory searches are diagnostic; earlier truncated witnesses
+do not assert compatibility with the final accepted constraints or provide models.

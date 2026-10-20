@@ -18,6 +18,12 @@ def main():
                 f'current complete {mode} replay required')
         receipts[mode]=hashlib.sha256((P/f'output/m5/replay_{mode}.json').read_bytes()).hexdigest()
     files={}
+    for certificate_path in (ROOT/'evidence/rank7_m5_20261020/accepted').glob('*_cyclic_rotation_certificate.json'):
+        certificate=json.loads(certificate_path.read_text())
+        for name, expected in certificate['proof_inputs'].items():
+            source=ROOT/name
+            require(source.is_file() and hashlib.sha256(source.read_bytes()).hexdigest()==expected,
+                    'Frozen accepted proof input differs: '+name)
     for relative in ['supplements/rank6/software','supplements/rank7/software','supplements/rank7/data','supplements/rank7/output','supplements/rank7/provenance','evidence/rank7_m5_20261019','evidence/rank7_m5_20261020','manuscripts/rank7/papers']:
         for p in (ROOT/relative).rglob('*'):
             if (p.is_file() and not any(part.startswith('.') for part in p.relative_to(ROOT).parts)
@@ -35,7 +41,8 @@ def main():
 AI-generated research; independent human verification and Lean formalization pending.
 
 This archive preserves the earlier 4201 records and supplies all 5805 new records,
-exact negative certificates, the Rep(AGL(1,7)) character model, and the open frontier.
+exact negative certificates, the Rep(AGL(1,7)) character model, and the status
+of every supplied tensor.
 The supplied census completeness claim is producer-reported; this continuation
 checks source coverage and certificates, not a fresh full census enumeration.
 
@@ -55,14 +62,15 @@ all domains, arithmetic, output checks and timeout failures remain intact.
 Metadata-only checks use `--metadata-only` and do not replay proofs.
 SciPy is optional for discovery routines and is not required for exact replay.
 NetworkX is required by the full Morita-dual enumeration for R7_5_4982.
-That assertion-based subcertificate runs in an isolated unoptimized child
+python-flint is required by the exact all-word integer-order checks.
+The R7_5_4982 assertion-based subcertificate runs in an isolated unoptimized child
 even when the aggregate dispatcher is invoked with `-O`; its checks remain active.
 The immutable earlier full replay package is retained at
 `supplements/rank7/release/rank7-certified-through-m4.zip`.
 The current manuscript is `manuscripts/rank7/papers/manuscript.pdf`.
 ''').encode()
     manifest={name:hashlib.sha256(raw).hexdigest() for name,raw in sorted(files.items())}
-    current={'title':'Rank-seven Grothendieck rings: certified exclusions, model, and open frontier through multiplicity five','date':'2026-10-20','new_status_counts':report['new_status_counts'],'ledger_sha256':digest,'normal_replay_sha256':receipts['normal'],'optimized_replay_sha256':receipts['optimized'],'files_sha256':manifest}
+    current={'title':'Rank-seven Grothendieck rings: classification through multiplicity five','date':'2026-10-20','new_status_counts':report['new_status_counts'],'ledger_sha256':digest,'normal_replay_sha256':receipts['normal'],'optimized_replay_sha256':receipts['optimized'],'files_sha256':manifest}
     manifest_bytes=(json.dumps(current,indent=2)+'\n').encode();(P/'MANIFEST.json').write_bytes(manifest_bytes);files['supplements/rank7/MANIFEST.json']=manifest_bytes
     manifest['supplements/rank7/MANIFEST.json']=hashlib.sha256(manifest_bytes).hexdigest();files['SHA256SUMS.json']=(json.dumps(manifest,indent=2)+'\n').encode()
     OUT.parent.mkdir(exist_ok=True);prefix='rank7-certified-through-m5/'

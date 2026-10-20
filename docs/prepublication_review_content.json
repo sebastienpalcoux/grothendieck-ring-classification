@@ -3,7 +3,7 @@
   "version": "Rank-seven multiplicity-five continuation and current verification scope",
   "title": "Research status and verification",
   "caution": "AI-generated research · independent verification pending. The results, proofs, code and data have not yet been independently verified by human experts or formalized in Lean. Use them with caution; exact checks establish only their stated computational scope.",
-  "summary": "The rank-seven multiplicity-five continuation addresses all 5,805 exact-multiplicity-five rings: 5,803 general exclusions, 1 realization and 1 unresolved case. The classification is complete through multiplicity 4. The new realization R7_5_5678 is Rep(AGL(1,7)). The unresolved record remains open for general complex categorification. The two earlier rank-six categorification problems also remain open. The historical 38-case continuation has 36 decisions; its inventory is separate from this extension.",
+  "summary": "The rank-seven multiplicity-five continuation addresses all 5,805 supplied exact-multiplicity-five rings: 5,804 general exclusions, 1 realization and 0 unresolved cases. The classification of the supplied census is complete through multiplicity 5. The new realization R7_5_5678 is Rep(AGL(1,7)). The two earlier rank-six categorification problems also remain open. The historical 38-case continuation has 36 decisions; its inventory is separate from this extension.",
   "rank_counts": [
     {
       "rank": 4,
@@ -33,9 +33,9 @@
       "rank": 7,
       "bound": 5,
       "rings": 10006,
-      "excluded": 9975,
+      "excluded": 9976,
       "models": 30,
-      "open": 1
+      "open": 0
     },
     {
       "rank": 8,
@@ -68,15 +68,6 @@
       "paragraphs": [
         "In the positive spherical representative, saturated modular representations determine all indicator sequences and every central phase mass. The eight spin objects form four dual pairs, all with restriction 2X+2gX+sigma+3T.",
         "Exact phase Gram constraints leave 640 labelled restriction-data profiles in three branches of 68, 286 and 286. These profiles are neither categories nor complete modular fusion data. They do not construct compatible associators or exclude all categorifications."
-      ]
-    },
-    {
-      "id": "Rank seven: 1 ring",
-      "heading": "Exact multiplicity five",
-      "paragraphs": [
-        "The supplied new band has 5,805 records. Recorded general criteria exclude 5,803; the ledger records 1 unitary model. The remaining 1 record retains unresolved status in the general complex scope; any obstruction requiring pivotality or another additional hypothesis is recorded separately.",
-        "The complete identifiers and exact tensors are in data/remaining_cases.py and supplements/rank7/output/m5/survivors.json. The rank-seven manuscript records the criterion allocation and residual analysis. Passing necessary conditions does not give coherent associators; unsuccessful model searches are not exclusions.",
-        "The remaining tensor is R7_5_3895. Its braided categorification is excluded, while general categorification remains open. The manuscript and proof inventory distinguish its necessary-condition reductions from accepted general exclusions."
       ]
     }
   ],
@@ -148,7 +139,8 @@
         "The center-trace certificates impose no arbitrary cutoff on root orders. The conductor-sixty extension pairs relative-trace values under modular Galois symmetry; it does not assume equality of individual paired twists. Structural reductions and unsuccessful model searches alone do not change a case to excluded.",
         "A general equality criterion applies at any prime p congruent to one modulo four: a twist-fixed quadratic-torus vector with saturated compression eigenvalue plus or minus 1/sqrt(p) generates a representation of level p, and its nontrivial twist support lies in the corresponding Legendre class of primitive pth roots. The manuscript proves this at every prime-power level and applies p=5 to the quadratic pair.",
         "A second uniform criterion treats the odd conductor-eight character. Its partial projections give exact mass ratios for two-primary twist orders one, two, four and eight. Duality and Galois actions fixing the complete source field then yield two finite alternatives for active twist orders. Both criteria are proved at all congruence levels and supply necessary conditions for the complete finite-certificate arguments.",
-        "R7_5_5039 is now excluded in the general complex scope by coupled fourth and eighth rotations and an integral fusion-norm inequality. An all-order relative-phase inventory covers arbitrary twist orders. Two conductor-eight branches have exact modular contradictions; the complementary branches reduce exhaustively to 48 integer trees with 96 exact separating leaves. The eighth indicators force the finite packet domain, while the final separators use fourth-rotation and fusion-integrality constraints. This is a complete source-bound argument, distinct from rejecting an individual necessary-data witness."
+        "R7_5_5039 is now excluded in the general complex scope by coupled fourth and eighth rotations and an integral fusion-norm inequality. An all-order relative-phase inventory covers arbitrary twist orders. Two conductor-eight branches have exact modular contradictions; the complementary branches reduce exhaustively to 48 integer trees with 96 exact separating leaves. The eighth indicators force the finite packet domain, while the final separators use fourth-rotation and fusion-integrality constraints. This is a complete source-bound argument, distinct from rejecting an individual necessary-data witness.",
+        "R7_5_3895 is also excluded in the general complex scope. Complete signed and Galois reductions, both low induction frames, every second-indicator alternative and both character labellings are covered. The final coupled-rotation systems have 240 fourth-rotation choices: 225 have exact rational contradictions, and the remaining fifteen have complete integer chains with 2,126 exact leaves. A finite integral-order calculation checks all low words without a degree cutoff and proves the necessary norm-slack parity. The complete source-bound verifier passes in normal and optimized Python with SciPy unavailable, including a repeated run in one process."
       ]
     },
     {
@@ -159,5 +151,5 @@
       ]
     }
   ],
-  "open_case_count": 3
+  "open_case_count": 2
 }

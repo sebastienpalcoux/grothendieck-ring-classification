@@ -1,13 +1,13 @@
 # Rank-7 Grothendieck rings through multiplicity 5
 
-The rank-seven multiplicity-five continuation addresses all 5,805 exact-multiplicity-five rings: 5,803 general exclusions, 1 realization and 1 unresolved case. The classification is complete through multiplicity 4. The new realization R7_5_5678 is Rep(AGL(1,7)). The unresolved record remains open for general complex categorification.
+The rank-seven multiplicity-five continuation addresses all 5,805 supplied exact-multiplicity-five rings: 5,804 general exclusions, 1 realization and 0 unresolved cases. The classification of the supplied census is complete through multiplicity 5. The new realization R7_5_5678 is Rep(AGL(1,7)).
 
 > **AI-generated research · independent verification pending.** Treat these
 > results, proofs, code and data with caution. They have not yet been
 > independently verified by human experts or formalized in Lean. Automated
 > checks establish only their stated computational scope.
 
-The authoritative decision ledger is `output/rank7_ledger.json`, restored by `python3 tools/restore_data.py`. Classification is complete through multiplicity 4. Multiplicity 5 has unresolved classification records.
+The authoritative decision ledger is `output/rank7_ledger.json`, restored by `python3 tools/restore_data.py`. Classification is complete through multiplicity 5.
 
 | Exact multiplicity | Rings | General exclusions | Unitary models | Open |
 |---:|---:|---:|---:|---:|
@@ -15,8 +15,8 @@ The authoritative decision ledger is `output/rank7_ledger.json`, restored by `py
 | 2 | 319 | 309 | 10 | 0 |
 | 3 | 1,059 | 1,057 | 2 | 0 |
 | 4 | 2,780 | 2,776 | 4 | 0 |
-| 5 | 5,805 | 5,803 | 1 | 1 |
-| **Total** | **10,006** | **9,975** | **30** | **1** |
+| 5 | 5,805 | 5,804 | 1 | 0 |
+| **Total** | **10,006** | **9,976** | **30** | **0** |
 
 [Manuscript source](../../manuscripts/rank7/papers/manuscript.tex) · [PDF](../../manuscripts/rank7/papers/manuscript.pdf) · [Research status](../../docs/RESEARCH_STATUS.md)
 
@@ -47,4 +47,4 @@ python3 -O supplements/rank7/software/verify_m5.py
 
 Use `--metadata-only` only for source and partition checks; it does not replay mathematical certificates.
 The older top-level `analyze.py` and `verify.py` retain their M4 source commitments; run them in the preserved M4 archive, not against the extended source file.
-The M5 release archive uses repository-relative directories and includes the frozen M4 archive. NetworkX is required by the complete Morita-dual enumeration; SciPy is optional for discovery. The assertion-based R4982 components run in an isolated unoptimized child in both aggregate modes, preserving all their checks.
+The M5 release archive uses repository-relative directories and includes the frozen M4 archive. NetworkX is required by the complete Morita-dual enumeration, and python-flint by the exact all-word integer-order checks; SciPy is optional for discovery. The assertion-based R4982 components run in an isolated unoptimized child in both aggregate modes, preserving all their checks.

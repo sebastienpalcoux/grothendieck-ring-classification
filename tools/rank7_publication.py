@@ -48,7 +48,9 @@ def extension(repo):
             result['continuation_decisions'] = [
                 {'id': item['id'], 'rank': 7, 'status': 'excluded', 'scope': 'general_complex',
                  'criterion': item['criterion'], 'proof_source': 'evidence/rank7_m5_20261020',
-                 'proof': proofs.get(item['criterion'], 'README.md')}
+                 'proof': ({'R7_5_3895': 'models/sqrt5/R3895_CYCLIC_CHAIN.md',
+                            'R7_5_5039': 'models/sqrt5/R5039_CYCLIC_CHAIN.md'}.get(
+                                item['id'], proofs.get(item['criterion'], 'README.md')))}
                 for item in accepted]
     return result
 
@@ -93,11 +95,11 @@ def summary(repo):
     if item is None:
         return ""
     return (f"The rank-seven multiplicity-five continuation addresses all {item['rings']:,} "
-            f"exact-multiplicity-five rings: {item['excluded']:,} general exclusions, "
+            f"supplied exact-multiplicity-five rings: {item['excluded']:,} general exclusions, "
             f"{item['realized']} {'realization' if item['realized']==1 else 'realizations'} and {item['unresolved']} unresolved {'case' if item['unresolved']==1 else 'cases'}. "
-            f"The classification is complete through multiplicity {4 if item['unresolved'] else 5}. "
+            f"The classification of the supplied census is complete through multiplicity {4 if item['unresolved'] else 5}. "
             + ("The new realization R7_5_5678 is Rep(AGL(1,7)). " if item['realized_ids']==['R7_5_5678'] else "")
-            + (("The unresolved record remains open for general complex categorification." if item['unresolved']==1 else "The unresolved records remain open for general complex categorification.") if item['unresolved'] else ""))
+            + (("The unresolved record remains open for general complex categorification." if item['unresolved']==1 else "The unresolved records remain open for general complex categorification.") if item['unresolved'] else "")).rstrip()
 
 
 def historical_sources(repo):

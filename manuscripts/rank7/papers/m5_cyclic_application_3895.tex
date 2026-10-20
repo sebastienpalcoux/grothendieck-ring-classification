@@ -1,0 +1,216 @@
+\subsection{The complete obstruction for \texttt{R7\_5\_3895}}
+\label{sec:m5-3895-cyclic}
+
+The second quadratic ring uses the same all-order phase inventory and
+coupled rotations, together with an additional integrality check on the
+fusion-norm slack.  Its Frobenius--Perron dimensions, in source order, are
+\[
+ (1,5+2\sqrt5,5+2\sqrt5,10+4\sqrt5,
+   8+4\sqrt5,8+4\sqrt5,9+4\sqrt5),
+ \qquad D=720+320\sqrt5.
+\]
+The formal-codegree polynomial is
+\[
+ (t-4)(t-16)^2(t-5)^2(t^2-1440t+6400).
+\]
+
+\begin{proposition}[Finite all-word integrality]
+\label{prop:m5-all-word-integrality}
+Fix commuting simple classes $A_1,\ldots,A_t$ in a pseudo-unitary
+modular category, and a finite spectral domain of $s$ candidate points
+containing their complete possible simultaneous eigenvalue tuples.
+Suppose each point lies in $\mathcal O_K^t$ for a number field $K$;
+write $\lambda_i=(\lambda_i(Y))_Y\in\mathcal O_K^s$ for the
+evaluation vector of the $i$th generator.  Then the unit-coefficient functional
+is integral on every integer polynomial in the $A_i$ if and only if it
+is integral on an additive basis of
+\[
+ B=\mathbb Z[1,\lambda_1,\ldots,\lambda_t]
+       \subseteq\mathcal O_K^s.
+\]
+Such a basis is obtained by exact additive-lattice closure under the
+generators, with a certified stabilization test.  There is no assumed
+maximum word degree.
+\end{proposition}
+\begin{proof}
+For a pseudo-unitary modular category $\mathcal M$, the unit weights
+in simultaneous modular diagonalization are
+$d_Y^2/\operatorname{FPdim}(\mathcal M)$.  If $\mathcal M=Z(\mathcal C)$ and
+$D=\operatorname{FPdim}(\mathcal C)$, simultaneous modular
+diagonalization gives
+\[
+ \tau(P)=[\mathbf1:P(A_1,\ldots,A_t)]
+      =\sum_Y\frac{z_Y^2}{D^2}P(\lambda_1(Y),\ldots,\lambda_t(Y)).
+\]
+This is an integer for every integer polynomial $P$, and a nonnegative
+integer for each monomial.  An arbitrary integer combination of
+monomials need not have nonnegative unit coefficient.
+The additive group $\mathcal O_K^s$ is finitely generated, hence
+Noetherian.  Starting with $1$ and the eigenvalue tuples, repeatedly
+adjoin products of an additive lattice basis with each generator.
+This increasing chain stabilizes; equality of successive exact lattice
+bases certifies closure.  The stable lattice is exactly $B$.
+Additivity of $\tau$ proves the stated equivalence.  Extra candidate
+points are permitted by assigning them multiplicity zero, but omitting
+an actual spectral point would invalidate the implication.
+\end{proof}
+
+For the present source, $K=\mathbb Q(\sqrt5)$,
+$\mathcal O_K=\mathbb Z[\varphi]$ with
+$\varphi=(1+\sqrt5)/2$, and
+$D=80(5+8\varphi)$, where $5+8\varphi$ is a unit.  Thus
+$W_Y=6400z_Y^2/D^2\in\mathcal O_K$.  Weighted Galois invariance of
+the complete actual row orbits is checked explicitly.  Consequently
+\[
+ \tau(P)=\frac1{12800}\sum_Y
+       \operatorname{Tr}_{K/\mathbb Q}(W_YP(\lambda(Y))).
+\]
+For arbitrary $h\in\mathcal O_K^s$, define
+$\rho(h)=\sum_Y\operatorname{Tr}_{K/\mathbb Q}(W_Yh_Y)/12800$.
+Then $\rho(12800h)$ is integral, so checking integrality on $B$ is
+equivalent to checking $B+12800\mathcal O_K^s$.
+It suffices to compute this latter lattice modulo
+$12800\mathcal O_K^s$.  Closure now takes place in a finite abelian
+group, and exact row Hermite forms certify stabilization.  The resulting
+congruences are linear in the orbit multiplicities and use signed
+integer slacks.  They do not incorrectly impose nonnegativity on an
+arbitrary lattice-basis polynomial.
+
+\begin{lemma}[Integral norm slack for the two remaining systems]
+\label{lem:m5-3895-norm-slack}
+In each of the two remaining character labellings for
+$R7\_5\_3895$, the fixed instance of
+Proposition~\ref{prop:m5-integral-fusion-norm} has a nonnegative
+\emph{integer} slack in every categorification.
+\end{lemma}
+\begin{proof}
+The multiplier is $x=(0,\tfrac12,\tfrac12,0,1,1,0)$.
+All low chord weights and the constant term are integral.  The low
+product coefficients and the quartic squared norm are integers because
+they are fusion multiplicities and a sum of their squares.
+For a high restriction row $v$, put
+$n=v_1+v_2+2v_4+2v_5$.  The integer maximum defining $g^*$ gives
+\[
+ 2g^*(x\cdot v)=2g^*(n/2)=\lfloor n^2/8\rfloor.
+\]
+There are half-integral orbit costs, so their integrality cannot be
+asserted separately.  Instead, the mod-two sum of the eight all-word
+congruences with stored zero-based row indices
+\[
+ 346,347,359,362,373,382,385,390
+\]
+has, on every phase column, coefficient twice its high-orbit cost.
+It is zero on auxiliary columns and has even right-hand side.  These
+congruences follow from Proposition~\ref{prop:m5-all-word-integrality};
+their moduli are respectively
+$6400,320,80,80,8,8,8,8$.  Thus the total high-row contribution is
+integral.  These coefficient identities are independently reconstructed
+on all $3925$ columns from the canonical tensor; the norm row, indexed
+$345$, is not used.  The entire gap in the norm inequality is therefore
+a nonnegative integer, as required for its unscaled integer slack.
+\end{proof}
+
+\begin{proposition}[General exclusion of $R7\_5\_3895$]
+\label{prop:m5-3895-cyclic-exclusion}
+No complex fusion category has Grothendieck ring $R7\_5\_3895$.
+\end{proposition}
+\begin{proof}
+The complete signed reduction in
+Section~\ref{sec:m5-remaining-quadratic} has two oriented signed
+quotients, both gauge equivalent to the unsigned ring.  The corresponding
+chosen lifts form a tensor subcategory of the sphericalization equivalent
+to the original category, so sphericality descends.  Every possible
+spherical dimension character belongs to the Frobenius--Perron Galois
+orbit: the other characters either vanish on a simple object or disagree
+on duals.  After Galois conjugation, it is enough to exclude a
+pseudo-unitary categorification.  All subsequent modular constraints
+belong to the center of this rank-seven category.
+
+Complete source enumeration gives $15$ low induction frames and $163766$
+candidate high rows.  Character reciprocity leaves precisely frames $6$
+and $8$.  The row transport uses the actual nonnegative row obtained by
+correcting the sign of the linear Galois transport.  All eight
+negative-second-indicator cases, four in each frame, have exact
+covector contradictions.  For the four positive labellings of frame $6$,
+the conductor-five budget has $20508$ raw allocations, $126$ after Gram
+compatibility, and $32$ per labelling after the inactive lattice check.
+Of these $128$ branches, $112$ have rational Farkas certificates and the
+remaining $16$ have complete integer trees with $775$ leaves.
+
+In frame $8$, the same raw budget gives $166$ Gram-compatible allocations
+and $32$ for each positive labelling after the lattice check.  Another
+$112$ exact Farkas certificates reduce these alternatives to allocation
+indices $\{0,19,160,165\}$.  Equality of the character attached to every
+restriction row gives two labelling classes, $\{0,4\}$ and $\{2,6\}$.
+Both representatives $0$ and $2$ are retained; their opposite
+conductor-five residue choices are not identified.  The saturated
+quadratic-character criterion
+(Proposition~\ref{prop:prime-quadratic-saturation}) applies at every
+congruence level and gives the active budget
+$\sum_{Y\ \mathrm{high}}(v_{Y4}-v_{Y5})^2=8$.
+
+For each label representative, the complete $61$-record phase inventory
+of Proposition~\ref{prop:m5-power-phase-inventory} and the coupled
+rotations of Proposition~\ref{prop:m5-cyclic-multiplicities} produce a
+system with $3925$ nonnegative integer variables and $665$ equations.
+Its necessary conditions include the restriction Gram matrix, center
+traces, low modular relations, simultaneous fusion-eigenvalue
+integrality, conductor-five restrictions, all $56$ nonunit low Verlinde
+triples, and the all-word unit-coefficient congruences.  The latter close
+an integral order on the complete candidate spectral domain; no maximum
+word-degree assumption is imposed.  The fixed fusion-norm inequality
+has an integer slack by Lemma~\ref{lem:m5-3895-norm-slack}.
+The final verifier recomputes every low-Verlinde triple on the filtered
+domain of $145$ high orbits with caching disabled and compares the entire
+payload before rebuilding these systems.
+
+After fixing a conductor-five allocation, exact entrywise positivity
+and positive semidefiniteness of the residual Gram matrix remove
+impossible packets and bound every retained orbit multiplicity.  A
+single packet already violating either condition has multiplicity zero;
+all capacities are computed by rational arithmetic.  For the first
+nonunit source object, the fourth-rotation multiplicities in eigenvalue
+order $(1,-1,i,-i)$ have the form
+\[
+ (r,9-r,s,2-s),\qquad 0\le r\le9,\quad0\le s\le2.
+\]
+There are $30$ choices for each of the eight label/allocation pairs.
+Exact Farkas covectors exclude $225$ of these $240$ choices.  The
+remaining fifteen have $s=1$; their complete integer-chain leaf counts
+are as follows.  A dash denotes a choice already excluded in the
+preceding $225$-case cover.
+\begin{center}
+\begin{tabular}{@{}rrrr@{}}\toprule
+Label case & Allocation & Leaves for $r=5$ & Leaves for $r=6$\\\midrule
+0&0&114&179\\
+0&19&111&211\\
+0&160&39&232\\
+0&165&39&146\\
+2&0&---&145\\
+2&19&108&121\\
+2&160&90&236\\
+2&165&147&208\\\bottomrule
+\end{tabular}
+\end{center}
+Together these chains have $2111$ forced integer splits and fifteen
+terminal contradictions, hence $2126$ exact leaves.
+
+Each split is the exhaustive alternative $x_j\le k$ or $x_j\ge k+1$.
+After retained bounds are represented by nonnegative integer slacks,
+an exact covector is nonnegative on every matrix column and strictly
+negative on the target.  It excludes one side; the final covector
+excludes the last retained side.  The independent chain verifier
+reconstructs the source Gram matrix, row identities, fixed packets,
+fourth-rotation coordinates, packet removals and capacities, then checks
+every leaf.  Numerical solver outcomes are not premises.
+All remaining positive-dimension cases are covered, so no general
+categorification exists.
+\end{proof}
+
+The strict read-only entry point is
+\path{evidence/rank7_m5_20261020/models/sqrt5/verify_r3895_cyclic_chain.py}.
+It binds the original tensor and every proof input, reconstructs the
+complete finite domains and checks all branches.  Partial probe logs,
+missing terminal covectors and unfrozen dependencies do not pass this
+whole-chain gate.  The accompanying
+\texttt{R3895\_CYCLIC\_CHAIN.md} records the complete proof inventory.

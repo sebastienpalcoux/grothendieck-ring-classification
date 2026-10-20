@@ -3,17 +3,15 @@
   "rank": 7,
   "multiplicity": 5,
   "rings": 5805,
-  "excluded": 5803,
+  "excluded": 5804,
   "realized": 1,
-  "unresolved": 1,
-  "remaining_ids": [
-    "R7_5_3895"
-  ],
+  "unresolved": 0,
+  "remaining_ids": [],
   "realized_ids": [
     "R7_5_5678"
   ],
   "ledger": "supplements/rank7/output/rank7_ledger.json",
-  "ledger_sha256": "f11bada58f9540a3e8287bd8c3762869e7982d50b3cfeb6880978bf7a1824b1a",
+  "ledger_sha256": "577d5796f92966900def5aaa934f95a4508461967937c4c6d7f7aaab4826e279",
   "continuation_decisions": [
     {
       "id": "R7_5_443",
@@ -41,6 +39,15 @@
       "criterion": "character",
       "proof_source": "evidence/rank7_m5_20261020",
       "proof": "computation/README.md"
+    },
+    {
+      "id": "R7_5_3895",
+      "rank": 7,
+      "status": "excluded",
+      "scope": "general_complex",
+      "criterion": "quadratic_center_coupled_cyclic_rotation",
+      "proof_source": "evidence/rank7_m5_20261020",
+      "proof": "models/sqrt5/R3895_CYCLIC_CHAIN.md"
     },
     {
       "id": "R7_5_4530",
@@ -103,7 +110,7 @@
       "scope": "general_complex",
       "criterion": "quadratic_center_coupled_cyclic_rotation",
       "proof_source": "evidence/rank7_m5_20261020",
-      "proof": "models/sqrt5/CYCLIC_ROTATION_OBSTRUCTION.md"
+      "proof": "models/sqrt5/R5039_CYCLIC_CHAIN.md"
     },
     {
       "id": "R7_5_5040",

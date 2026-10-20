@@ -75,6 +75,7 @@ The main new combined arguments and their exact evidence are:
 - [Scope review of inherited proof trees](criteria/INDEPENDENT_SCOPE_AUDIT.md) and [independent structural audit](structure/INDEPENDENT_AUDIT.md).
 - [Complete induction proof trees](computation/README.md): R1964, R5343, R5623 and R5778 each have 5,025 Frobenius--Perron frames, all closed by ordinary moment obstructions. The [machine-counted summary](computation/proof_tree_summary.json) records the additional exhaustive signed-character covers.
 - [Coupled cyclic rotations](models/sqrt5/CYCLIC_ROTATION_OBSTRUCTION.md) and the [complete R5039 chain](models/sqrt5/R5039_CYCLIC_CHAIN.md): the all-order 61-phase inventory and conductor-eight alternatives are exhausted; C8 forces finite phase packets, and C4 with the integral fusion-norm inequality excludes all 48 final branches by 96 exact leaves. See the [independent chain audit](criteria/R5039_CHAIN_INDEPENDENT_AUDIT.md).
+__R3895_CHAIN__
 
 No additional categorical model is established by this continuation.
 The known `Rep(AGL(1,7))` realization of `R7_5_5678` remains the single
@@ -99,8 +100,10 @@ The aggregate verifier binds every accepted certificate to its actual source
 tensor. It rebuilds finite domains and verifies exact arithmetic rather than
 trusting discovery diagnostics. The R4982 assertion-based components run in
 an isolated unoptimized child in both aggregate modes, so their assertions
-remain active. NetworkX is required for that finite permutation computation.
+remain active. NetworkX is required for that finite permutation computation;
+python-flint is required for the exact all-word integer-order checks.
 SciPy is optional for discovery and is not needed by exact replay.
+__R3895_DISCOVERY__
 
 See the [normal receipt](../../supplements/rank7/output/m5/replay_normal.json),
 [optimized receipt](../../supplements/rank7/output/m5/replay_optimized.json),
@@ -150,9 +153,23 @@ exclude every candidate. Both [normal](criteria/braided_frontier_normal.json)
 and [optimized](criteria/braided_frontier_optimized.json) replays pass. These
 are braided-only exclusions. General decisions require the separately recorded
 arguments and receipts in the accepted ledger.
-Exploratory higher-word and Gram searches are diagnostic; earlier truncated witnesses
-do not assert compatibility with subsequent constraints or provide models.
+Unselected exploratory searches are diagnostic; earlier truncated witnesses
+do not assert compatibility with the final accepted constraints or provide models.
 '''
+    has_3895 = any(item['id'] == 'R7_5_3895' for item in accepted)
+    text = text.replace('__R3895_CHAIN__', ('- [Complete R3895 chain](models/sqrt5/R3895_CYCLIC_CHAIN.md): all signed, Galois, frame, indicator and phase alternatives are exhausted. Of 240 fourth-rotation choices, 225 have exact rational contradictions; fifteen complete integer chains close the rest with 2,126 exact leaves. The [all-word integral order](modules/ALL_WORD_UNIT_FUNCTIONAL.md) and [norm-slack parity proof](criteria/R3895_NORM_SLACK_PARITY.md) are essential to the integer-system encoding. See the [independent whole-chain audit](modules/R3895_CHAIN_INDEPENDENT_AUDIT.md) and [independent final-chain verifier](criteria/R3895_PROBING_INDEPENDENT_AUDIT.md).') if has_3895 else '')
+    text = text.replace('__R3895_DISCOVERY__', ('''
+The optional discovery helpers `computation/r3895_exact_probing.py`,
+`r3895_sparse_terminal.py` and `r3895_c8_tree.py` explain how the final
+R3895 certificates were found. They use SciPy and are not proof premises.
+The [sparse-terminal audit](models/sqrt5/SPARSE_TERMINAL_AUDIT.md) separates
+numerical support selection from exact rational separation. To exercise
+the optional helper import closure on one completed chain, run:
+
+```sh
+python evidence/rank7_m5_20261020/computation/r3895_exact_probing.py --case 0 --branch 160 --r 5 --s 1 --replay
+```
+''') if has_3895 else '')
     text = text.replace('__CURRENT_REPLAY__', replay_status(ROOT))
     (EVIDENCE / 'README.md').write_text(text)
     prior = ROOT / 'evidence/rank7_m5_20261019/README.md'
