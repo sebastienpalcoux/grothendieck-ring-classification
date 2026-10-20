@@ -14,6 +14,7 @@ LABELS = {
     'quadratic_center_Galois_two_moment_q60': 'Galois pseudo-unitary reduction and conductor-60 center moments',
     'cyclic3_full_morita_rank13_descent': 'Complete cyclic Morita dual and dimension-148 subcategory descent',
     'oriented_dimension_order': 'Complete signed quotient and dimension-order obstruction',
+    'quadratic_center_coupled_cyclic_rotation': 'Coupled cyclic rotations, all-order phase packets, and integral fusion norms',
     'character': 'Complete signed character cover and exact induction obstruction',
     'general_induction': 'Complete signed reduction and exact induction obstruction',
 }
@@ -46,8 +47,10 @@ remain pending. This page reports source-bound, exactly replayed decisions.
     text += '| Scope | Supplied rings | General exclusions | Unitary models | Open |\n|---|---:|---:|---:|---:|\n'
     text += f"| Exact multiplicity five | 5,805 | {counts['excluded']:,} | {counts['unitarily_realized']} | {counts['unresolved']} |\n"
     text += f"| Rank seven through multiplicity five | 10,006 | {total['excluded']:,} | {total['unitarily_realized']} | {total['unresolved']} |\n\n"
-    text += '''The [accepted decisions](accepted/decisions.json) are integrated into the
-[current ledger](../../supplements/rank7/output/rank7_ledger.json). All 4,201
+    text += '''The accepted decisions in `accepted/decisions.json` are integrated into
+`supplements/rank7/output/rank7_ledger.json`. These large files are restored by
+`python tools/restore_data.py` and included in the
+[standalone download](https://sebastienpalcoux.github.io/grothendieck-ring-classification/downloads/rank7-certified-through-m5.zip). All 4,201
 earlier records through multiplicity four remain unchanged. The input tensor
 identities, fusion axioms, uniqueness and old-ID transport were checked
 independently in the earlier extension. Exhaustive census completeness is
@@ -71,6 +74,7 @@ The main new combined arguments and their exact evidence are:
 - [Integral Morita descent](modules/README.md): all necessary module actions and complete dual fusion frames are exhausted, forcing a dimension-148 subcategory with forbidden Klein-four invertibles. The proof also gives a general cyclic-invertible restriction in dimension `4p`.
 - [Scope review of inherited proof trees](criteria/INDEPENDENT_SCOPE_AUDIT.md) and [independent structural audit](structure/INDEPENDENT_AUDIT.md).
 - [Complete induction proof trees](computation/README.md): R1964, R5343, R5623 and R5778 each have 5,025 Frobenius--Perron frames, all closed by ordinary moment obstructions. The [machine-counted summary](computation/proof_tree_summary.json) records the additional exhaustive signed-character covers.
+- [Coupled cyclic rotations](models/sqrt5/CYCLIC_ROTATION_OBSTRUCTION.md) and the [complete R5039 chain](models/sqrt5/R5039_CYCLIC_CHAIN.md): the all-order 61-phase inventory and conductor-eight alternatives are exhausted; C8 forces finite phase packets, and C4 with the integral fusion-norm inequality excludes all 48 final branches by 96 exact leaves. See the [independent chain audit](criteria/R5039_CHAIN_INDEPENDENT_AUDIT.md).
 
 No additional categorical model is established by this continuation.
 The known `Rep(AGL(1,7))` realization of `R7_5_5678` remains the single
@@ -100,13 +104,13 @@ SciPy is optional for discovery and is not needed by exact replay.
 
 See the [normal receipt](../../supplements/rank7/output/m5/replay_normal.json),
 [optimized receipt](../../supplements/rank7/output/m5/replay_optimized.json),
-and [standalone archive](../../supplements/rank7/release/rank7-certified-through-m5.zip).
+and [standalone archive](https://sebastienpalcoux.github.io/grothendieck-ring-classification/downloads/rank7-certified-through-m5.zip).
 The archive contains the complete imported helper-source closure, current
 manuscript and preserved earlier archive. Compiled scratch executables and
 partial logs are excluded. `--metadata-only` checks source bindings and
 partitions; it does not replay mathematical certificates.
 
-## Remaining frontier
+## Current outcome and quadratic structure
 
 '''
     text += (', '.join('`' + rid + '`' for rid in remaining) + '.\n\n' if remaining else 'Every supplied rank-seven ring through multiplicity five has a recorded decision.\n\n')
@@ -133,8 +137,9 @@ distinct-codegree-sixteen frame, leaving the repeated-row frame. Both
 [normal](integral_gram/frame6_replay_normal.json) and
 [optimized](integral_gram/frame6_replay_optimized.json) replays pass. The
 certificate exhausts 20,508 active allocations and closes the final sixteen
-integer branches with 775 exact leaves. This changes the necessary low frame,
-not the whole ring's unresolved classification status.
+integer branches with 775 exact leaves. Its scope is the elimination of one
+necessary low frame; the whole-ring status follows the separate accepted
+decisions in the current ledger.
 
 Both rings have [no braided categorification](criteria/BRAIDED_FRONTIER_EXCLUSION.md).
 The [canonical-source verifier](criteria/verify_braided_frontier.py) replays the
@@ -143,8 +148,9 @@ fails the modular formal-codegree condition. For R3895, Galois symmetry bounds
 all twists by order forty; exhaustive balancing and exact second indicators
 exclude every candidate. Both [normal](criteria/braided_frontier_normal.json)
 and [optimized](criteria/braided_frontier_optimized.json) replays pass. These
-are braided-only exclusions and do not alter the general survivor ledger.
-Higher-word and Gram searches are diagnostic; earlier truncated witnesses
+are braided-only exclusions. General decisions require the separately recorded
+arguments and receipts in the accepted ledger.
+Exploratory higher-word and Gram searches are diagnostic; earlier truncated witnesses
 do not assert compatibility with subsequent constraints or provide models.
 '''
     text = text.replace('__CURRENT_REPLAY__', replay_status(ROOT))

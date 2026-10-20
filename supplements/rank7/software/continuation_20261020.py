@@ -116,3 +116,44 @@ def verify_oriented(R, certificate):
     finally:
         oriented_extension.enumerate_all = original
     return True
+
+
+def verify_q5_cyclic(R, certificate):
+    """Replay the complete source-bound cyclic-rotation exclusion chain."""
+    rid = certificate['id']
+    require(rid == 'R7_5_5039', 'unsupported cyclic-rotation input')
+    require(certificate['kind'] == 'q5_cyclic_rotation_general' and
+            certificate['scope'] == 'general_complex', 'cyclic-rotation scope')
+    require(tensor_hash(R) == certificate['tensor_sha256'],
+            'cyclic-rotation canonical tensor binding')
+    relative = f'evidence/rank7_m5_20261020/accepted/{rid}_cyclic_rotation_certificate.json'
+    path = check_file(certificate['proof_manifest'], relative)
+    record = json.loads(path.read_text())
+    require(record['kind'] == certificate['kind'] and record['id'] == rid and
+            record['scope'] == certificate['scope'] and
+            record['tensor_sha256'] == certificate['tensor_sha256'],
+            'cyclic-rotation proof manifest identity')
+    entrypoint = 'evidence/rank7_m5_20261020/models/sqrt5/verify_r5039_cyclic_chain.py'
+    inputs = record['proof_inputs']
+    require(entrypoint in inputs and isinstance(inputs, dict),
+            'cyclic-rotation verifier must be bound')
+    for relative, digest in inputs.items():
+        require(not Path(relative).is_absolute() and '..' not in Path(relative).parts,
+                'repository-relative proof dependency')
+        require(hashlib.sha256((ROOT / relative).read_bytes()).hexdigest() == digest,
+                'changed cyclic-rotation proof input ' + relative)
+    verifier = load('m5_r5039_cyclic_chain', ROOT / entrypoint)
+    result = verifier.verify(rid, R)
+    require(result['status'] == 'PASS' and result['id'] == rid and
+            result['kind'] == certificate['kind'] and
+            result['scope'] == certificate['scope'] and
+            result['tensor_sha256'] == certificate['tensor_sha256'] and
+            result['read_only'] is True,
+            'complete general cyclic-rotation replay failed')
+    require(result['proof_manifest'] == inputs,
+            'cyclic-rotation dependency closure changed')
+    for key, value in record['coverage'].items():
+        require(result[key] == value, 'incomplete cyclic-rotation coverage: ' + key)
+    require([row['stage'] for row in result['stages']] == record['stage_names'],
+            'incomplete cyclic-rotation stage coverage')
+    return True

@@ -109,6 +109,9 @@ def collect(root):
                      and not any(part.startswith('.') for part in path.relative_to(root).parts)
                      and path.suffix not in ('.pyc', '.pyo', '.tmp', '.writing', '.swp', '.log')
                      and not (folder == 'evidence/rank7_m5_20261020' and not path.suffix)
+                     and not (folder == 'evidence/rank7_m5_20261020' and
+                              (path.name.endswith(('.progress.json', '_checkpoint.json', '.checkpoint.json'))
+                               or path.suffix not in {'.py','.cpp','.json','.jsonl','.gz','.txt','.md','.tex','.pdf','.csv'}))
                      and path.name != '.DS_Store')
     paths.update(revision['documents'])
     for folder in ('supplements/rank6/software','supplements/rank7/software','supplements/rank7/data'):
@@ -118,7 +121,7 @@ def collect(root):
                  if path.is_file() and path.suffix in ('.py','.cpp','.md','.txt'))
     paths.update(('tools/sync_rank7_m5_publication.py', 'tools/import_rank7_m5_counts.py',
                   'tools/build_novelty_frontier_brief.py', 'tools/build_rank7_m5_continuation_overview.py',
-                  'tools/audit_rank7_manuscript.py',
+                  'tools/audit_rank7_manuscript.py', 'tools/replay_m5_ci.py',
                   'data/counts.json', 'data/classification_status.json'))
     paths.update(json.loads((root / 'evidence/rigidity_20261017/source_files.json').read_text()))
     necessary = json.loads((root / 'evidence/rigidity_20261017/rank6/MANIFEST.json').read_text())

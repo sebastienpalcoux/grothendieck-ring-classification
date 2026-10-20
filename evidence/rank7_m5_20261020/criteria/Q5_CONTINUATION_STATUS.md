@@ -1,3 +1,5 @@
+> Historical diagnostic stage. The [current accepted inventory](../README.md) includes the later general exclusion of R7_5_5039; R7_5_3895 remains open. The necessary-data searches recorded below do not override that inventory.
+
 # Exact necessary data for the two remaining quadratic rings
 
 This directory does **not** contain a general categorification exclusion or a

@@ -1,0 +1,70 @@
+\subsection{Excluding the conductor-eight quadratic case}
+\label{sec:m5-cyclic-application}
+\begin{proposition}
+\label{prop:m5-5039-cyclic-exclusion}
+The based ring $R7\_5\_5039$ has no categorification over $\mathbb C$.
+\end{proposition}
+\begin{proof}
+The source-bound signed reduction covers all four oriented signed
+quotients. The reduction establishes sphericality and a dimension
+character in the Frobenius--Perron Galois orbit. After Galois
+conjugation, any categorification would therefore give one of the
+pseudo-unitary center systems considered below. The incompatible
+signed branches are excluded by their quadratic character fields.
+The independent domain enumeration reconstructs all four induced-unit
+frames and all $142\,510$ possible high restriction rows. Character
+reciprocity leaves two eligible frames. One has twist-one
+conductor-eight difference-square weight $8$, exceeding its upper
+bound $2$. The other has twelve label assignments, comprising two
+classes of identical character-to-row assignments. Its second-indicator
+vector is uniquely $(1,0,0,1,1,1,1)$.
+
+The sign-safe conductor-eight argument gives $c\in\{0,2\}$ and
+exact difference-square masses $c,c,2c,4c$ at two-primary twist
+orders $1,2,4,8$. Use the complete $61$-record inventory of
+Proposition~\ref{prop:m5-power-phase-inventory} and its source-fixed
+packet divisibilities, together with the fourth and eighth rotation
+equations. For either label class with $c=2$, an integral row
+functional modulo $256$ annihilates every one of the $1700$ columns
+but takes value $128$ on the right-hand side. This excludes both
+complete $c=2$ systems.
+
+For $c=0$, complete aggregate and inactive-lattice enumeration reduces
+$615$ phase allocations to four. The five integral possibilities for
+the fourth rotation of source object $1$ reduce to the unique
+multiplicity vector $(3,1,0,0)$. The conductor-five allocation has
+$1004$ raw possibilities, exactly $50$ of which satisfy the residual
+source Gram constraints. Exact rational separators exclude $184$ of
+the resulting $200$ combinations in label class~$0$, and $192$ of
+$200$ in label class~$1$.
+
+For the remaining $24$ combinations, the $\sqrt{10}$ and
+$i\sqrt{10}$ eighth-indicator equations and exact Gram capacities
+force one order-$320$ packet of multiplicity $16$ in the designated
+restriction orbit (orbit~$50$ in the certificate). There are two
+packet choices for each active phase, giving $48$ final branches.
+Other phase contributions in that orbit remain allowed. The verifier
+reconstructs the complete packet domains and all capacity inequalities
+from the original induction Gram matrix; it checks each capacity by
+an integer scan and rounds only by the gcd of the packet units.
+
+Every final branch has two exact separating leaves. If $u$ is the
+multiplicity of $-i$ in the fourth rotation for source object $5$,
+the leaves respectively exclude $u\leq18$ and $u\geq19$.
+They cover every integer $u$, giving $96$ exact leaves in total.
+These separators use the Gram, first/second moment, modular $STS$,
+prime-budget, integral fusion-norm, fourth-rotation and capacity
+constraints. Their eighth-rotation coefficients are zero: the
+eighth indicators enter earlier through the forced packet domain.
+No numerical infeasibility result is used as a certificate.
+All possible categorical branches therefore give a contradiction.
+\end{proof}
+
+The read-only verifier \path{verify_r5039_cyclic_chain.py} in
+\path{evidence/rank7_m5_20261020/models/sqrt5/}
+binds the original tensor, reconstructs every domain and system, and
+checks all conditional branches. Normal and optimized replays passed;
+an independent optimized replay also passed with every SciPy import
+disabled. The proof uses the integer inequality in
+Proposition~\ref{prop:m5-integral-fusion-norm}, rather than treating
+failure of a trial necessary-data witness as a categorical exclusion.

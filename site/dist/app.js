@@ -288,8 +288,10 @@ function renderTheoreticalUpdate() {
   const m5 = state.data.rank7_m5_update;
   const extensionText = m5 ? ` The rank-seven multiplicity-five continuation addresses ${fmt.format(m5.rings)} rings: ${fmt.format(m5.excluded)} exclusions, ${m5.realized} model${m5.realized===1?"":"s"} and ${m5.unresolved} open cases.` : "";
   const continuationText = m5?.continuation_decisions?.length ? ` The latest continuation resolves ${m5.continuation_decisions.length} of the 15 cases left open on 19 October.` : "";
-  const braidedText = m5?.remaining_ids?.length===2 && ["R7_5_3895","R7_5_5039"].every(id=>m5.remaining_ids.includes(id))
-    ? " Both remaining rank-seven rings admit no braided categorification; their general categorification remains open." : "";
+  const braidedText = m5?.remaining_ids?.length && m5.remaining_ids.every(id=>["R7_5_3895","R7_5_5039"].includes(id))
+    ? (m5.remaining_ids.length===1
+      ? " The remaining rank-seven ring admits no braided categorification; its general categorification remains open."
+      : " Both remaining rank-seven rings admit no braided categorification; their general categorification remains open.") : "";
   $("#research-update-summary").textContent = `${extensionText.trim()}${continuationText}${braidedText}${completion}${openText}`;
   $("#theoretical-update-heading").textContent = `Current research · ${Object.values(currentRemaining).reduce((a,b)=>a+b,0)} open cases`;
   $("#theoretical-update-scope").textContent = extensionText + continuationText + braidedText + " The new arguments combine quadratic compression, complete sphericalization, center-twist moments and full Morita-dual descent. The historical 38-case continuation records 29 proposed general exclusions and 7 unitary constructions. R6_4_155 and R6_8_1660 remain open. The bundle includes current manuscripts, proofs, exact replay programs and the unresolved inventory. Independent human verification and Lean formalization remain pending.";

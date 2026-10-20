@@ -182,13 +182,13 @@ def main():
               " · Rank 6 · multiplicity 8.</b> Self-dual ring containing an Ising fusion subring. A further simple X "
               "has dimension 3 + 2√2 + 2√3 + √6 and satisfies X² = 1 + [3(1 + g) + 4σ]X, where σ² = 1 + g.",
               y, OPEN_BG, AMBER, compact) - 9
-    y = para(f"<b>Rank 7 · multiplicity 5: {len(rank7_ids)} unresolved rings.</b> "
+    y = para(f"<b>Rank 7 · multiplicity 5: {len(rank7_ids)} unresolved {'ring' if len(rank7_ids)==1 else 'rings'}.</b> "
              f"Of all 5,805 new rings, {summary['new_status_counts']['excluded']:,} are excluded and one is realized. "
-             + ("The remaining census IDs are:" if rank7_ids else "Every supplied ring in this band has a recorded decision."),
+             + (("The remaining census ID is:" if len(rank7_ids)==1 else "The remaining census IDs are:") if rank7_ids else "Every supplied ring in this band has a recorded decision."),
              margin, y, width, compact) - 5
     lines = []
     for start in range(0, len(rank7_ids), 5):
-        lines.append(" · ".join(link(rid, CURRENT + "supplements/rank7/output/rank7_ledger.json")
+        lines.append(" · ".join(link(rid, CURRENT + "supplements/rank7/output/m5/survivors.json")
                                 for rid in rank7_ids[start:start + 5]))
     if lines:
         y = para("<br/>".join(lines), margin + 8, y, width - 16, ids_style) - 7

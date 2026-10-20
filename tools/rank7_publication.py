@@ -10,6 +10,8 @@ TABLES = "supplements/rank7/data/rank7_tables.txt.gz"
 HISTORICAL_TABLES = "supplements/rank7/data/rank7_tables_through_m4.txt.gz"
 HISTORICAL_TABLES_SHA256 = "6ddea4c66de7fbe077e9552e71e8cf95ec3fec5bbd30a615e68e2d8fcb9ae9c9"
 HISTORICAL_SHA256 = "00edf884caa59384a1f7b9a91d7273539306443035db5144c02f9bda5bda3d2b"
+HISTORICAL_MODELS_CANONICAL_SHA256 = "05b8f324fe634b7653dab141784e9a36c395f21d26006dfd0be8b99a91ccea06"
+HISTORICAL_OUTPUT_MODELS_CANONICAL_SHA256 = "794a2c85fd871baa8484493ecce613630c140c45b2deb0c8cf6e718546f4d2e2"
 PUBLICATION_DATE = "2026-10-20"
 PUBLICATION_DATE_LONG = "20 October 2026"
 STATUS_REPORT = "prepublication-review-2026-10-20.pdf"
@@ -41,6 +43,7 @@ def extension(repo):
                 'cyclic3_full_morita_rank13_descent': 'modules/README.md',
                 'character': 'computation/README.md',
                 'oriented_dimension_order': 'criteria/INDEPENDENT_SCOPE_AUDIT.md',
+                'quadratic_center_coupled_cyclic_rotation': 'models/sqrt5/CYCLIC_ROTATION_OBSTRUCTION.md',
             }
             result['continuation_decisions'] = [
                 {'id': item['id'], 'rank': 7, 'status': 'excluded', 'scope': 'general_complex',
@@ -91,14 +94,33 @@ def summary(repo):
         return ""
     return (f"The rank-seven multiplicity-five continuation addresses all {item['rings']:,} "
             f"exact-multiplicity-five rings: {item['excluded']:,} general exclusions, "
-            f"{item['realized']} {'realization' if item['realized']==1 else 'realizations'} and {item['unresolved']} unresolved cases. "
+            f"{item['realized']} {'realization' if item['realized']==1 else 'realizations'} and {item['unresolved']} unresolved {'case' if item['unresolved']==1 else 'cases'}. "
             f"The classification is complete through multiplicity {4 if item['unresolved'] else 5}. "
             + ("The new realization R7_5_5678 is Rep(AGL(1,7)). " if item['realized_ids']==['R7_5_5678'] else "")
-            + ("The unresolved records remain open for general complex categorification." if item['unresolved'] else ""))
+            + (("The unresolved record remains open for general complex categorification." if item['unresolved']==1 else "The unresolved records remain open for general complex categorification.") if item['unresolved'] else ""))
 
 
 def historical_sources(repo):
     raw = (Path(repo)/HISTORICAL_TABLES).read_bytes()
     if hashlib.sha256(raw).hexdigest() != HISTORICAL_TABLES_SHA256:
         raise ValueError("Historical rank-seven compressed tensor source changed")
-    return {LEDGER: historical_rank7_bytes(repo), TABLES: raw}
+    ledger = historical_rank7_bytes(repo)
+    model_ids = {row['id'] for row in json.loads(ledger)
+                 if row['status'] == 'unitarily_realized'}
+    models = json.loads((Path(repo)/'supplements/rank7/data/model_catalog.json').read_text())
+    previous = [row for row in models if row['id'] in model_ids]
+    canonical = json.dumps(previous, sort_keys=True, separators=(',', ':')).encode()
+    if (len(previous) != len(model_ids)
+            or hashlib.sha256(canonical).hexdigest() != HISTORICAL_MODELS_CANONICAL_SHA256):
+        raise ValueError('Historical rank-seven model catalog changed')
+    model_bytes = (json.dumps(previous, indent=2)+'\n').encode()
+    # The old output alias predates the two unified-stage constructions.
+    # Restore both historical views, each bound to its own immutable identity.
+    old_output = [row for row in previous if row['id'] not in {'R7_4_35', 'R7_4_2665'}]
+    canonical_output = json.dumps(old_output, sort_keys=True, separators=(',', ':')).encode()
+    if hashlib.sha256(canonical_output).hexdigest() != HISTORICAL_OUTPUT_MODELS_CANONICAL_SHA256:
+        raise ValueError('Historical rank-seven output model catalog changed')
+    return {LEDGER: ledger, TABLES: raw,
+            'supplements/rank7/data/model_catalog.json': model_bytes,
+            'supplements/rank7/output/rank7_model_catalog.json':
+                (json.dumps(old_output, separators=(',', ':'))+'\n').encode()}

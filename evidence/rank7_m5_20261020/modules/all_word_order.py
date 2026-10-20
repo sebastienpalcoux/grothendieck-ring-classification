@@ -183,7 +183,6 @@ def generate(data,max_rounds=40):
     start=time.monotonic()
     degree,source_hash,points,gens,rowdata,low,orbits=domain(data)
     modulus=6400*degree;n=degree*len(points)
-    diag=[[modulus*int(i==j) for j in range(n)] for i in range(n)]
     unit=[int(j%degree==0) for j in range(n)]
     print(json.dumps({"event":"starting_domain","ambient_dimension":n}),flush=True)
     H=hnf([unit]+gens,n,modulus)
@@ -214,7 +213,6 @@ def generate(data,max_rounds=40):
         if not any(x%modulus for x in h):continue
         raw.append([coefficient(h,low)]+[coefficient(h,orbit) for orbit in orbits])
     variables=1+len(orbits)
-    dualdiag=[[modulus*int(i==j) for j in range(variables)] for i in range(variables)]
     reduced=hnf(raw,variables,modulus)
     constraints=[]
     for vector in reduced:
@@ -231,7 +229,7 @@ def generate(data,max_rounds=40):
     return {'id':data['id'],'status':'STABILIZED' if complete else 'PARTIAL',
             'scope':'Necessary all-word unit-multiplicity integrality; no positivity or categorification claim.',
             'source_sha256':source_hash,'domain_sha256':digest({'low':data['low'],'orbits':data['orbits']}),
-            'degree':degree,'ambient_modulus':modulus,'spectral_points':len(points),
+            'degree':degree,'weighted_galois_orbits_verified':True,'ambient_modulus':modulus,'spectral_points':len(points),
             'ambient_dimension':n,'orbits':len(orbits),'steps':steps,'constraints':constraints,
             'seconds':time.monotonic()-start}
 

@@ -1,0 +1,183 @@
+\subsection{Coupled cyclic rotations and fusion integrality}
+\label{sec:m5-cyclic-rotation}
+The rotation constraints below couple indicators of a simple object with
+indicators of its tensor powers.  They are uniform necessary conditions;
+the subsequent finite-domain argument must separately justify its source
+dimensions, phase inventory and exhaustive coverage.
+
+\begin{proposition}[Coupled cyclic multiplicities]
+\label{prop:m5-cyclic-multiplicities}
+Let $X$ be an object of a pivotal fusion category over $\mathbb C$, and
+put $h_n(X)=\dim\operatorname{Hom}(\mathbf1,X^{\otimes n})$.
+There exist nonnegative integers $u_0,\ldots,u_3$ and
+$v_0,\ldots,v_7$ satisfying
+\begin{align*}
+ \sum_{j=0}^3u_j&=h_4(X),&
+ \sum_{j=0}^3i^ju_j&=\nu_4(X),&
+ \sum_{j=0}^3(-1)^ju_j&=\nu_2(X^{\otimes2}),\\
+ \sum_{j=0}^7v_j&=h_8(X),&
+ \sum_{j=0}^7\zeta_8^jv_j&=\nu_8(X),\\
+ \sum_{j=0}^7i^jv_j&=\nu_4(X^{\otimes2}),&
+ \sum_{j=0}^7(-1)^jv_j&=\nu_2(X^{\otimes4}).
+\end{align*}
+For a simple $X_i$, the same indicators occurring in these equations
+satisfy
+\[
+ \nu_4(X_i^{\otimes2})=\sum_kN_{ii}^k\nu_4(X_k),\qquad
+ \nu_2(X_i^{\otimes r})=\sum_k[X_i^{\otimes r}:X_k]\nu_2(X_k)
+ \quad(r=2,4).
+\]
+\end{proposition}
+\begin{proof}
+Let $E_n$ be pivotal rotation on
+$\operatorname{Hom}(\mathbf1,X^{\otimes n})$.
+The block-composition identity
+\cite[equation~(5.4)]{NgSchauenburgPivotal} identifies $E_n^r$,
+for $r\mid n$, with rotation of the $r$-fold blocks.
+Moreover $E_n^n=1$ by \cite[Theorem~5.1]{NgSchauenburgPivotal}.
+Thus $u_j$ and $v_j$ can be taken as the eigenspace dimensions for
+eigenvalues $i^j$ and $\zeta_8^j$. Taking traces of the indicated powers
+gives the first identities. Additivity of indicators gives the last two.
+\end{proof}
+
+For explicit use, write $\nu_4(X)=a+ib$, $m=h_4(X)$ and
+$r=\nu_2(X^{\otimes2})$.  The four required multiplicities are
+\[
+ \frac14(m+r+2a,\ m-r+2b,\ m+r-2a,\ m-r-2b).
+\]
+For the eighth rotation put $m=h_8(X)$, $q=\nu_2(X^{\otimes4})$,
+$\nu_4(X^{\otimes2})=s+it$, and write
+$\nu_8(X)=\sum_{j=0}^3\eta_j\zeta_8^j$.  Set
+\[
+ A_0=\frac{m+q+2s}{4},\quad A_2=\frac{m+q-2s}{4},\quad
+ A_1=\frac{m-q+2t}{4},\quad A_3=\frac{m-q-2t}{4}.
+\]
+Then $v_j=(A_j+\eta_j)/2$ and $v_{j+4}=(A_j-\eta_j)/2$.
+Requiring these eight values to be nonnegative integers gives the exact
+cyclic constraint. In the basis $1,\sqrt2,i,i\sqrt2$, coefficients
+of $\sqrt2$ and $i\sqrt2$ can be half-integral; imposing integral
+coordinates in that basis would add an invalid restriction.
+
+\begin{proposition}[Extraction from center restrictions]
+\label{prop:m5-cyclic-center-trace}
+Assume now that the category is spherical. Let $F$ be the forgetful
+functor from its center, let $D$ be its global dimension, and write
+$d_i=\dim(X_i)$, $v_{Yi}=[F(Y):X_i]$ and
+$z_Y=\sum_i v_{Yi}d_i$ for a central simple $Y$.
+Choose the center twist convention of
+\cite[Theorem~4.1]{NgSchauenburgExponent}.  Then
+\[
+ D\nu_n(X_i)=\sum_Yv_{Yi}z_Y\theta_Y^n.
+\]
+If $K$ contains the source dimensions and $\zeta_8$, normalized relative
+trace to $K$ therefore gives the complete fourth and eighth indicators:
+\[
+ D\nu_n(X_i)=\sum_Yv_{Yi}z_Y\,t_K(\theta_Y^n),\qquad n=4,8.
+\]
+\end{proposition}
+\begin{proof}
+The first identity is the center-indicator formula. Its relative trace
+commutes with the coefficients $v_{Yi}z_Y\in K$.
+Proposition~\ref{prop:m5-cyclic-multiplicities} places $\nu_n(X_i)$
+in $\mathbb Q(\zeta_n)\subset K$ for $n=4,8$, so the left side is
+fixed by that trace. The opposite center convention replaces every twist
+by its inverse, as in \cite[Remark~4.3]{NgSchauenburgExponent}; changing
+conventions uniformly permutes the cyclic eigenvalue labels.
+\end{proof}
+
+The restriction Gram identity, fusion tensor and complete relative-phase
+inventory now give rational linear equations in nonnegative integral
+restriction and cyclic multiplicities. Clearing denominators produces an
+integer system. A modular row functional, an exact rational separator,
+or an exhaustive finite branch certificate may prove its infeasibility.
+This conclusion requires verification of the whole finite domain and every
+dimension/indicator branch. A general complex exclusion additionally uses
+the independently established reduction from arbitrary categorifications
+to the spherical branches under consideration.
+
+\begin{proposition}[Integral fusion-norm inequality]
+\label{prop:m5-integral-fusion-norm}
+Let $A,B$ be central simple objects and put $n_Y=[A\otimes B:Y]$,
+$a=[F(A)\otimes F(B)]$ and $q=\dim\operatorname{End}(A\otimes B)$.
+Partition the central simples into a specified low set $\mathcal L$
+and its complement $\mathcal H$. For a rational source-coordinate
+vector $x$ define
+\[
+ g^*(t)=\max_{k\in\mathbb Z_{\geq0}}(tk-k^2).
+\]
+For arbitrary integers $b_G\geq0$, $G\in\mathcal L$, one has
+\begin{align*}
+ q\ \geq\ x\cdot a
+ &+\sum_{G\in\mathcal L}(2b_G+1-x\cdot v_G)n_G
+   -\sum_{G\in\mathcal L}b_G(b_G+1)\\
+ &-\sum_{Y\in\mathcal H}g^*(x\cdot v_Y).
+\end{align*}
+\end{proposition}
+\begin{proof}
+Semisimplicity and restriction give $q=\sum_Yn_Y^2$ and
+$a=\sum_Yn_Yv_Y$. For $Y\in\mathcal H$, the definition of $g^*$ gives
+$n_Y^2\geq(x\cdot v_Y)n_Y-g^*(x\cdot v_Y)$.
+For $G\in\mathcal L$, the product of the consecutive integers
+$n_G-b_G$ and $n_G-b_G-1$ is nonnegative, so
+$n_G^2\geq(2b_G+1)n_G-b_G(b_G+1)$. Summing proves the inequality.
+The maximum defining $g^*$ is computed exactly by checking
+$\max(0,\lfloor t/2\rfloor)$ and the next integer.
+\end{proof}
+
+For $A,B$ in a fixed labelled low frame, $a$ and the low restriction
+rows are fixed. The low coefficients $n_G$ and $q$ are respectively triple and
+quartic Verlinde moments; the final sum is linear in high-row
+multiplicities. Thus fixed rational choices of $x$ and integral choices
+of $b_G$ produce valid linear inequalities for the complete necessary
+system. A failed trial witness may suggest those choices, but the proof
+of the inequality does not depend on that witness or on an optimizer.
+
+\begin{proposition}[All-order power-of-two phase inventory]
+\label{prop:m5-power-phase-inventory}
+Put $K=\mathbb Q(\sqrt5,\zeta_8)$ and let $k\geq1$.
+For roots of unity $\theta$ whose orders have no prime factors other than
+$2$ and $5$, the vectors
+\[
+ \bigl(t_K(\theta),t_K(\theta^2),\ldots,
+             t_K(\theta^{2^k})\bigr)
+\]
+take exactly $25+12k$ values. All nonzero values are realized at orders
+dividing $40\cdot2^k$. The zero vector corresponds precisely to exact
+orders $2^a5^b$ with $a\geq k+4$ or $b\geq2$.
+\end{proposition}
+\begin{proof}
+The two-primary trace vanishes when $a>j+3$ at the $2^j$-th power;
+otherwise the powered root lies in $\mathbb Q(\zeta_8)$ and is unchanged
+by the trace. For $b\geq2$ every indicated five-primary trace vanishes.
+For $b=0$ the five-primary factor is $1$, whereas for $b=1$ its successive
+traces alternate between
+$(-1+\delta\sqrt5)/4$ and $(-1-\delta\sqrt5)/4$, with $\delta=\pm1$.
+The cyclotomic Chinese remainder decomposition makes the two factors
+independent. If the first nonzero coordinate has index $h=0$, there are
+eight eighth-root phases and three five-primary choices, giving $24$
+vectors. If $1\leq h\leq k$, the first nonzero eighth-root phase is
+primitive, giving four choices and hence $12$ vectors for each $h$.
+These vectors are distinct, and adjoining zero proves the count.
+\end{proof}
+
+For $k=3$ this gives $61$ records for moments $1,2,4,8$: $60$ visible
+records represented at orders dividing $320$, and one genuine zero record
+covering arbitrarily large orders. Thus $320$ is a modulus for the visible
+trace values, rather than an asserted bound on all twists.
+The prime restriction used in this application comes from the separately
+proved categorical Cauchy argument, not from cyclic rotation alone.
+
+Packet divisibility uses a field containing both source-character fields,
+$L=\mathbb Q(\sqrt5,\sqrt{-2})$, which is smaller than the trace field $K$.
+It equals the source-character field for $R7\_5\_5039$; that of
+$R7\_5\_3895$ is $\mathbb Q(\sqrt5)$. Thus the $L$-fixing subgroup
+is a valid, possibly smaller subgroup for either ring.
+The square action of automorphisms fixing $L$ has a primitive-root orbit
+of size $2^{\max(a-3,0)}5^{\max(b-1,0)}$ at order $2^a5^b$:
+its two-primary image is the principal subgroup congruent to $1$ modulo
+$8$, and its five-primary image is congruent to $1$ modulo $5$.
+Consequently the zero record has per-row multiplicity in
+$16\mathbb Z_{\geq0}+5\mathbb Z_{\geq0}$ for $k=3$.
+As in the earlier transport argument, restriction rows are fixed only
+after the actual positive source-field Galois action and its signs have
+been justified. No unsigned raw transport assertion is used here.

@@ -29,6 +29,8 @@ def main():
     parser.add_argument('--include-4982', action='store_true')
     parser.add_argument('--include-character-triple', action='store_true',
                         help='Include reviewed R5343/R5623/R5778 after both exact replays pass.')
+    parser.add_argument('--include-cyclic-5039', action='store_true',
+                        help='Include the complete R5039 cyclic-rotation chain after both exact replays pass.')
     args = parser.parse_args()
     initial = {r['id']: r for r in read('computation/source_frontier.json')}
     decisions = []
@@ -71,6 +73,24 @@ def main():
     if args.include_4982:
         add('R7_5_4982', 'cyclic3_full_morita_rank13_descent',
             read('modules/r4982_exclusion_certificate.json'))
+    if args.include_cyclic_5039:
+        rid = 'R7_5_5039'
+        proof = read(f'accepted/{rid}_cyclic_rotation_certificate.json')
+        for mode in ('normal', 'optimized'):
+            receipt = read(f'models/sqrt5/r5039_cyclic_chain_{mode}.json')
+            require(receipt['status'] == 'PASS' and receipt['id'] == rid and
+                    receipt['scope'] == 'general_complex' and receipt['read_only'] is True,
+                    'missing complete cyclic-rotation replay')
+            require(receipt['proof_manifest'] == proof['proof_inputs'],
+                    'cyclic-rotation replay does not bind the accepted proof')
+            require(all(receipt[k] == v for k, v in proof['coverage'].items()),
+                    'cyclic-rotation branch coverage differs')
+            require([row['stage'] for row in receipt['stages']] == proof['stage_names'],
+                    'cyclic-rotation stage coverage differs')
+        add(rid, 'quadratic_center_coupled_cyclic_rotation', {
+            'kind': 'q5_cyclic_rotation_general', 'id': rid, 'scope': 'general_complex',
+            'tensor_sha256': proof['tensor_sha256'],
+            'proof_manifest': binding(f'accepted/{rid}_cyclic_rotation_certificate.json')})
     decisions.sort(key=lambda r: int(r['id'].rsplit('_', 1)[1]))
     require(len({r['id'] for r in decisions}) == len(decisions), 'duplicate decision')
     (HERE / 'decisions.json').write_text(json.dumps(decisions, indent=2) + '\n')

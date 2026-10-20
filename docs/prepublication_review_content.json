@@ -3,7 +3,7 @@
   "version": "Rank-seven multiplicity-five continuation and current verification scope",
   "title": "Research status and verification",
   "caution": "AI-generated research · independent verification pending. The results, proofs, code and data have not yet been independently verified by human experts or formalized in Lean. Use them with caution; exact checks establish only their stated computational scope.",
-  "summary": "The rank-seven multiplicity-five continuation addresses all 5,805 exact-multiplicity-five rings: 5,802 general exclusions, 1 realization and 2 unresolved cases. The classification is complete through multiplicity 4. The new realization R7_5_5678 is Rep(AGL(1,7)). The unresolved records remain open for general complex categorification. The two earlier rank-six categorification problems also remain open. The historical 38-case continuation has 36 decisions; its inventory is separate from this extension.",
+  "summary": "The rank-seven multiplicity-five continuation addresses all 5,805 exact-multiplicity-five rings: 5,803 general exclusions, 1 realization and 1 unresolved case. The classification is complete through multiplicity 4. The new realization R7_5_5678 is Rep(AGL(1,7)). The unresolved record remains open for general complex categorification. The two earlier rank-six categorification problems also remain open. The historical 38-case continuation has 36 decisions; its inventory is separate from this extension.",
   "rank_counts": [
     {
       "rank": 4,
@@ -33,9 +33,9 @@
       "rank": 7,
       "bound": 5,
       "rings": 10006,
-      "excluded": 9974,
+      "excluded": 9975,
       "models": 30,
-      "open": 2
+      "open": 1
     },
     {
       "rank": 8,
@@ -71,13 +71,12 @@
       ]
     },
     {
-      "id": "Rank seven: 2 rings",
+      "id": "Rank seven: 1 ring",
       "heading": "Exact multiplicity five",
       "paragraphs": [
-        "The supplied new band has 5,805 records. Recorded general criteria exclude 5,802; the ledger records 1 unitary model. The remaining 2 records retain unresolved status in the general complex scope; any obstruction requiring pivotality or another additional hypothesis is recorded separately.",
+        "The supplied new band has 5,805 records. Recorded general criteria exclude 5,803; the ledger records 1 unitary model. The remaining 1 record retains unresolved status in the general complex scope; any obstruction requiring pivotality or another additional hypothesis is recorded separately.",
         "The complete identifiers and exact tensors are in data/remaining_cases.py and supplements/rank7/output/m5/survivors.json. The rank-seven manuscript records the criterion allocation and residual analysis. Passing necessary conditions does not give coherent associators; unsuccessful model searches are not exclusions.",
-        "The remaining tensors are R7_5_3895 and R7_5_5039. Each now has one surviving low induction frame. For R3895, a complete canonical-source integer certificate excludes the frame with distinct codegree-sixteen rows, leaving the repeated-row frame. For R5039, the conductor-eight ladder through order eight gives two sign-safe alternatives: active twist orders divide forty, or belong to {16,32,64,80,160,320}. Full-source phase multiplicities impose additional parity and divisibility conditions. Necessary-data witnesses are not coherent models, and neither whole ring has a general exclusion.",
-        "Both remaining rings admit no braided categorification. R5039 lacks a formal codegree required by modularity. For R3895, an all-order Galois argument bounds twists by order forty; every exact balancing candidate then violates the second Frobenius–Schur indicator. These independently replayed obstructions require a braiding and leave both general problems open. Higher-word and Gram searches remain diagnostic until a complete general certificate is accepted."
+        "The remaining tensor is R7_5_3895. Its braided categorification is excluded, while general categorification remains open. The manuscript and proof inventory distinguish its necessary-condition reductions from accepted general exclusions."
       ]
     }
   ],
@@ -147,8 +146,9 @@
       "paragraphs": [
         "The new continuation combines quadratic Casimir compression, complete signed sphericalization, Galois reduction to positive dimensions, and exact simultaneous first and second center-twist moments. A separate integral case is excluded by a complete cyclic-module Morita-dual calculation and descent to dimension 148. The current manuscript gives the categorical reductions and the finite domains checked by the programs.",
         "The center-trace certificates impose no arbitrary cutoff on root orders. The conductor-sixty extension pairs relative-trace values under modular Galois symmetry; it does not assume equality of individual paired twists. Structural reductions and unsuccessful model searches alone do not change a case to excluded.",
-        "A general equality criterion applies at any prime p congruent to one modulo four: a twist-fixed quadratic-torus vector with saturated compression eigenvalue plus or minus 1/sqrt(p) generates a representation of level p, and its nontrivial twist support lies in the corresponding Legendre class of primitive pth roots. The manuscript proves this at every prime-power level and uses p=5 for the remaining pair.",
-        "A second uniform criterion treats the odd conductor-eight character. Its partial projections give exact mass ratios for two-primary twist orders one, two, four and eight. Duality and Galois actions fixing the complete source field then yield two finite alternatives for active twist orders. Both criteria are proved at all congruence levels; their application to the unresolved pair remains necessary-condition evidence."
+        "A general equality criterion applies at any prime p congruent to one modulo four: a twist-fixed quadratic-torus vector with saturated compression eigenvalue plus or minus 1/sqrt(p) generates a representation of level p, and its nontrivial twist support lies in the corresponding Legendre class of primitive pth roots. The manuscript proves this at every prime-power level and applies p=5 to the quadratic pair.",
+        "A second uniform criterion treats the odd conductor-eight character. Its partial projections give exact mass ratios for two-primary twist orders one, two, four and eight. Duality and Galois actions fixing the complete source field then yield two finite alternatives for active twist orders. Both criteria are proved at all congruence levels and supply necessary conditions for the complete finite-certificate arguments.",
+        "R7_5_5039 is now excluded in the general complex scope by coupled fourth and eighth rotations and an integral fusion-norm inequality. An all-order relative-phase inventory covers arbitrary twist orders. Two conductor-eight branches have exact modular contradictions; the complementary branches reduce exhaustively to 48 integer trees with 96 exact separating leaves. The eighth indicators force the finite packet domain, while the final separators use fourth-rotation and fusion-integrality constraints. This is a complete source-bound argument, distinct from rejecting an individual necessary-data witness."
       ]
     },
     {
@@ -159,5 +159,5 @@
       ]
     }
   ],
-  "open_case_count": 4
+  "open_case_count": 3
 }

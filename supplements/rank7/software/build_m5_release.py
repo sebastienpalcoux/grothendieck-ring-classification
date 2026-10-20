@@ -20,10 +20,15 @@ def main():
     files={}
     for relative in ['supplements/rank6/software','supplements/rank7/software','supplements/rank7/data','supplements/rank7/output','supplements/rank7/provenance','evidence/rank7_m5_20261019','evidence/rank7_m5_20261020','manuscripts/rank7/papers']:
         for p in (ROOT/relative).rglob('*'):
-            if p.is_file() and not any(part.startswith('.') for part in p.relative_to(ROOT).parts) and '__pycache__' not in p.parts and p.suffix in {'.py','.cpp','.json','.jsonl','.gz','.txt','.md','.tex','.pdf','.csv'}:
+            if (p.is_file() and not any(part.startswith('.') for part in p.relative_to(ROOT).parts)
+                    and '__pycache__' not in p.parts
+                    and not (relative == 'evidence/rank7_m5_20261020'
+                             and p.name.endswith(('.progress.json', '_checkpoint.json', '.checkpoint.json')))
+                    and p.suffix in {'.py','.cpp','.json','.jsonl','.gz','.txt','.md','.tex','.pdf','.csv'}):
                 files[p.relative_to(ROOT).as_posix()]=p.read_bytes()
     for relative in ['supplements/rank7/analyze.py','supplements/rank7/MANIFEST_through_m4.json','supplements/rank7/README.md','supplements/rank7/requirements-m5.txt','supplements/rank7/zero_spectrum7.cpp','supplements/rank7/release/rank7-certified-through-m4.zip',
-                     'evidence/unified_20261016/rank7/verify_quadratic_center_trace.py']:
+                     'evidence/unified_20261016/rank7/verify_quadratic_center_trace.py',
+                     'tools/replay_m5_ci.py']:
         files[relative]=(ROOT/relative).read_bytes()
     files['README.md']=('''# Rank-seven continuation through multiplicity five
 
@@ -41,6 +46,11 @@ python -m pip install -r supplements/rank7/requirements-m5.txt
 python supplements/rank7/software/verify_m5.py --jobs 4
 python -O supplements/rank7/software/verify_m5.py --jobs 4
 ```
+
+On a slower or shared machine, use `python tools/replay_m5_ci.py --jobs 2`
+(and the same command with `python -O`). This runs the complete checker with
+the native low-frame enumeration deadline extended from 60 to 1200 seconds;
+all domains, arithmetic, output checks and timeout failures remain intact.
 
 Metadata-only checks use `--metadata-only` and do not replay proofs.
 SciPy is optional for discovery routines and is not required for exact replay.

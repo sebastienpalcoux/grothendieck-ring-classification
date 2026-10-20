@@ -93,6 +93,7 @@ names.update({
  'oriented_signed_compression':'Complete signed quotient and compression',
  'quadratic_center_Galois_two_moment_q60':'Conductor-sixty center moments',
  'cyclic3_full_morita_rank13_descent':'Full cyclic Morita and rank-thirteen descent',
+ 'quadratic_center_coupled_cyclic_rotation':'Coupled cyclic rotations and fusion integrality',
 })
 pretty_models={
     'D12_even_local_modules':r'$D_{12}$ even category (\S\ref{sec:d12})',
@@ -148,13 +149,13 @@ lines.extend([r'\bottomrule',r'\end{tabular}',r'\end{table}', ''])
 if max_m >= 5:
     current=json.loads((ROOT/'output/m5/summary.json').read_text())
     counts=current['new_status_counts']
-    fragment=[r'\subsection{Recorded outcome and open frontier}',
+    fragment=[r'\subsection{Recorded outcome'+(' and open frontier' if counts.get('unresolved',0) else '')+'}',
         f"Among the $5805$ new tensors, ${counts.get('excluded',0)}$ are excluded, "
         f"${counts.get('unitarily_realized',0)}$ has a verified unitary model, and "
-        f"${counts.get('unresolved',0)}$ remain undecided."]
+        f"${counts.get('unresolved',0)}$ {'remains' if counts.get('unresolved',0)==1 else 'remain'} undecided."]
     ids=current['unresolved_ids']
     if ids:
-        fragment.extend([r'The unresolved identifiers are', r'\begin{center}\small',
+        fragment.extend([r'The unresolved identifier is' if len(ids)==1 else r'The unresolved identifiers are', r'\begin{center}\small',
                          r'\begin{tabular}{@{}l l l@{}}'])
         for start in range(0,len(ids),3):
             cells=[r'\texttt{'+esc(i)+'}' for i in ids[start:start+3]]
@@ -167,7 +168,7 @@ if max_m >= 5:
     fragment.extend([
         r'A feasible necessary system is not a categorical construction, and a',
         r'time-limited or incomplete search is not a nonexistence certificate.',
-        r'No new tensor category is established for this frontier. The model in',
+        r'No new tensor category is established by this continuation. The model in',
         r'Proposition~\ref{prop:m5-frobenius42} is the only new realized based-ring',
         r'type added to the catalog in this continuation.', ''])
     (PAPERS/'generated_m5_status.tex').write_text('\n'.join(fragment))

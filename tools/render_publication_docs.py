@@ -143,7 +143,7 @@ def render(repo, identity):
     rows={(r['rank'],r['multiplicity']):r for r in status['rows']}
     upper={r:status['inputs'][f'rank{r}'] for r in (7,8)}
     rank5=json.loads((repo/'evidence/prepublication_20261017/rank5/package.json').read_text())
-    def totals(r):return upper[r]['status_totals']
+    def totals(r):return {'unresolved':0,**upper[r]['status_totals']}
     def bound(r):return upper[r]['classified_through']
     def complete(r):return next((m-1 for m in range(1,bound(r)+1) if rows[r,m]['unresolved_general'] or rows[r,m]['unassessed']),bound(r))
     extension_text=rank7_extension_summary(repo)
@@ -153,6 +153,8 @@ def render(repo, identity):
     rank7_scope=(f"Through multiplicity {bound(7)}: {totals(7)['excluded']:,} exclusions, "
                  f"{totals(7)['unitarily_realized']} models and {totals(7)['unresolved']} unresolved; "
                  f"complete through {complete(7)}")
+    rank7_frontier=(f"The rank-seven frontier contains {totals(7)['unresolved']} {'case' if totals(7)['unresolved']==1 else 'cases'} in exact multiplicity five. The exact tensors and recorded criterion results are in the [M5 frontier](../supplements/rank7/output/m5/survivors.json) and [continuation evidence](../evidence/rank7_m5_20261020/README.md). "
+                    if totals(7)['unresolved'] else "Every supplied rank-seven fusion ring through multiplicity five has a recorded general exclusion or unitary model. The [continuation evidence](../evidence/rank7_m5_20261020/README.md) gives the accepted arguments and replay receipts. ")
     out={"docs/CASE_INVENTORY.md":case_inventory(repo)}
     out['docs/RESEARCH_STATUS.md']='# Research status and verification\n\n'+CAUTION+'''
 The [public atlas](https://sebastienpalcoux.github.io/grothendieck-ring-classification/)
@@ -177,9 +179,9 @@ with no open case through multiplicity two. The general exclusion of
 tensor-functor rigidity.
 
 '''+FRONTIER+f'''
-### Rank-seven open rings
+### Rank-seven classification frontier
 
-The rank-seven frontier contains {totals(7)['unresolved']} cases, all in exact multiplicity five. Their identifiers, tensors and recorded criterion results are in the [M5 frontier](../supplements/rank7/output/m5/survivors.json) and [continuation evidence](../evidence/rank7_m5_20261020/README.md). [Download all {len(remaining_ids(repo))} current open tensors](../data/remaining_cases.py), including the two rank-six cases.
+{rank7_frontier}[Download all {len(remaining_ids(repo))} current open tensors](../data/remaining_cases.py), including the two rank-six cases.
 
 A necessary-condition witness is neither a categorification nor a general
 nonexistence proof. Scoped unitary, pseudo-unitary, pivotal or braided
@@ -626,6 +628,8 @@ ledgers are identified in [provenance](../docs/PROVENANCE.md).
         mdir='rank7/papers/manuscript' if r==7 else 'rank8/paper/rank8'
         ledger='output/rank7_ledger.json' if r==7 else 'data/decisions.json'
         content=f'# Rank-{r} Grothendieck rings through multiplicity {bound(r)}\n\n'+CAUTION+f'\nThe authoritative decision ledger is [`{ledger}`]({ledger}). '
+        if r == 7:
+            content=content.replace(f'[`{ledger}`]({ledger})', f'`{ledger}`, restored by `python3 tools/restore_data.py`')
         content+=f'Classification is complete through multiplicity {complete(r)}.'
         if complete(r)<bound(r):content+=f' Multiplicity {bound(r)} has unresolved classification records.'
         content+='\n\n| Exact multiplicity | Rings | General exclusions | Unitary models | Open |\n|---:|---:|---:|---:|---:|\n'

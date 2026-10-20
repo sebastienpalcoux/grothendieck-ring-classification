@@ -30,7 +30,13 @@ def coefficient_cut(table,dom,label,N,dual,V,record):
     low=[(1,0,0,0,0,0,0)]+[tuple(v) for v in dom['low']]
     assigned=dict(zip(label,low));K=table.K
     conjugates={i:table.rows.index(tuple(row[dual[j]] for j in range(7))) for i,row in enumerate(table.rows)}
-    E,F0=record['characters'];x=list(map(F,record['x']));base=record['low_coefficients_at_witness']
+    if 'characters' in record:
+        E,F0=record['characters'];base=record['low_coefficients_at_witness']
+    else:
+        q.require(len(record['combinations'])==1 and record['combinations'][0]['coefficient']==1,'single positive low product cut')
+        E,F0=[record['low_labels'][i] for i in record['combinations'][0]['objects']]
+        base=record['low_tangent']
+    x=list(map(F,record['x']))
     q.require(len(x)==len(base)==7 and all(type(a)==int for a in base),'rational multiplier and integral low chord centers')
     product=[sum(assigned[E][i]*assigned[F0][j]*N[i][j][k] for i in range(7) for j in range(7)) for k in range(7)]
     alpha=[2*a+1-sum(t*z for t,z in zip(x,v)) for a,v in zip(base,low)]

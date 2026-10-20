@@ -55,6 +55,9 @@ def verify_new(record):
     elif kind=='cyclic3_full_morita_rank13_descent':
         from continuation_20261020 import verify_r4982
         verify_r4982(R,c)
+    elif kind=='q5_cyclic_rotation_general':
+        from continuation_20261020 import verify_q5_cyclic
+        verify_q5_cyclic(R,c)
     elif kind=='oriented_signed' and record.get('continuation_source')=='evidence/rank7_m5_20261020':
         from continuation_20261020 import verify_oriented
         verify_oriented(R,c)

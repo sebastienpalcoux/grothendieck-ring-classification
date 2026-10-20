@@ -27,6 +27,10 @@ def build_system(table,low,label,orbits,bound,D,zs,sign,transport,records,rid='R
     delta,allowed=m.saturated_phase_map(table,low,label,orbits,rid)
     width=len(records[0]['scaled8'])//2
     q.require(width in (4,8) and all(len(rec['scaled8'])==2*width for rec in records),'uniform multiquadratic phase width')
+    fourth=all('fourth_scaled8' in rec for rec in records)
+    q.require(not fourth or (width==8 and all(len(rec['fourth_scaled8'])==8 for rec in records)),'uniform fourth-moment phase metadata')
+    eighth=all('eighth_scaled8' in rec for rec in records)
+    q.require(not eighth or (fourth and all(len(rec['eighth_scaled8'])==8 for rec in records)),'uniform eighth-moment phase metadata')
     padding=[0]*(width-2)
     known=[tuple(sum(v[i+1]*z[k] for v,z in zip(low,zs)) for k in range(2)) for i in range(6)]
     rhs=[8*x for x in bound]
@@ -73,17 +77,26 @@ def build_system(table,low,label,orbits,bound,D,zs,sign,transport,records,rid='R
             projection=(phase[0],phase[1],phase[width],phase[width+1])
             orders=record['orders']
             if weight and chi8_branch==2 and (not orders or 40%orders[0]):continue
-            if weight and chi8_branch==0 and orders and orders[0] not in (16,80):continue
+            if weight and chi8_branch==0:
+                active_orders=(16,80,32,160,64,320) if eighth else (16,80,32,160) if fourth else (16,80)
+                if orders and orders[0] not in active_orders:continue
+                if eighth and not orders:continue
             extra_indices=list(range(2,width))+list(range(width+2,2*width))
             if len(allowed[oi])==1 and (projection!=allowed[oi][0] or any(phase[j] for j in extra_indices)):continue
-            factors=([4] if weight and chi8_branch==0 and not orders else
+            factors=([8 if fourth else 4] if weight and chi8_branch==0 and not orders else
                      record.get('zero_semigroup') or [record.get('fixed_row_multiple') or 1])
             for factor in factors:
-                # This lcm is a conservative common divisibility constraint;
-                # no independence of the two possible even-cycle actions is
-                # assumed here.
-                if fixes and any(phase[j] for j in range(1,2*width,2)):
-                    factor=math.lcm(factor,2)
+                # The source-fixed packet and the fifth-part inversion are
+                # disjoint: a fixed/dual actual row needs both conjugate
+                # Q(zeta_40) phase packets, not just their common lcm.
+                # The positive +/-T transport, rather than raw T, is essential.
+                if fixes and orders and orders[0]%5==0:
+                    factor*=2
+                # A hidden fifth-primary packet has a source-fixed 5-cycle;
+                # inversion exchanges its two nonzero residues modulo five.
+                # Pure high-two-primary packets retain their four-unit bound.
+                if fixes and not orders and factor==5:
+                    factor=10
                 column=[8*x for x in gram]
                 column += [x for value in weighted for x in multiply_real(value,phase[:width])]
                 column += [x for value in weighted for x in multiply_real(value,phase[width:])]

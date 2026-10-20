@@ -3,18 +3,17 @@
   "rank": 7,
   "multiplicity": 5,
   "rings": 5805,
-  "excluded": 5802,
+  "excluded": 5803,
   "realized": 1,
-  "unresolved": 2,
+  "unresolved": 1,
   "remaining_ids": [
-    "R7_5_3895",
-    "R7_5_5039"
+    "R7_5_3895"
   ],
   "realized_ids": [
     "R7_5_5678"
   ],
   "ledger": "supplements/rank7/output/rank7_ledger.json",
-  "ledger_sha256": "99ec4e8085e0f2397e3fe51227b7dc1c938c38d3c8953eb5c04ba17b43e7b1f8",
+  "ledger_sha256": "f11bada58f9540a3e8287bd8c3762869e7982d50b3cfeb6880978bf7a1824b1a",
   "continuation_decisions": [
     {
       "id": "R7_5_443",
@@ -96,6 +95,15 @@
       "criterion": "quadratic_casimir_compression",
       "proof_source": "evidence/rank7_m5_20261020",
       "proof": "criteria/QUADRATIC_COMPRESSION_PROOF.md"
+    },
+    {
+      "id": "R7_5_5039",
+      "rank": 7,
+      "status": "excluded",
+      "scope": "general_complex",
+      "criterion": "quadratic_center_coupled_cyclic_rotation",
+      "proof_source": "evidence/rank7_m5_20261020",
+      "proof": "models/sqrt5/CYCLIC_ROTATION_OBSTRUCTION.md"
     },
     {
       "id": "R7_5_5040",
