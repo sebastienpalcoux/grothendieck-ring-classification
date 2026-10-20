@@ -286,7 +286,7 @@ function renderTheoreticalUpdate() {
   const openText = openParts.length ? ` General existence remains open for ${openParts.join(", ")} rings.` : " Every case in this continuation is resolved.";
   const completion = state.data.scope.filter(r=>r.rank>=7).map(r=>` Rank ${r.rank} is complete through multiplicity ${r.through}; analyzed through ${r.analyzed_through}.`).join("");
   const m5 = state.data.rank7_m5_update;
-  const extensionText = m5 ? ` The rank-seven multiplicity-five continuation addresses ${fmt.format(m5.rings)} rings: ${fmt.format(m5.excluded)} exclusions, ${m5.realized} models and ${m5.unresolved} open cases.` : "";
+  const extensionText = m5 ? ` The rank-seven multiplicity-five continuation addresses ${fmt.format(m5.rings)} rings: ${fmt.format(m5.excluded)} exclusions, ${m5.realized} model${m5.realized===1?"":"s"} and ${m5.unresolved} open cases.` : "";
   const continuationText = m5?.continuation_decisions?.length ? ` The latest continuation resolves ${m5.continuation_decisions.length} of the 15 cases left open on 19 October.` : "";
   const braidedText = m5?.remaining_ids?.length===2 && ["R7_5_3895","R7_5_5039"].every(id=>m5.remaining_ids.includes(id))
     ? " Both remaining rank-seven rings admit no braided categorification; their general categorification remains open." : "";
@@ -493,7 +493,7 @@ function renderCatalogue() {
     || !records.some((r)=>r.id==="R6_7_2274");
   $("#catalogue-context").textContent=all
     ? `${records.length} realized rings ${state.rank==="all"?"across the analyzed ranks":`at rank ${state.rank}`}`
-    : chosen?`Rank ${chosen.rank} · exact multiplicity ${chosen.multiplicity} · ${records.length} explicit models`:"Choose a cell above";
+    : chosen?`Rank ${chosen.rank} · exact multiplicity ${chosen.multiplicity} · ${records.length} explicit model${records.length===1?"":"s"}`:"Choose a cell above";
   if (!records.length) {
     grid.append(element("p","catalogue-empty",query?"No model matches that search.":"No realized Grothendieck rings in this band. The classification panel still records its excluded or unresolved fusion rings."));
     return;
