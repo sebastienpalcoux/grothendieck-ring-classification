@@ -1,0 +1,39 @@
+\begin{theorem}[A dimension-90 solvability obstruction]\label{thm:m3-dimension90}
+A fusion ring of type $(1,2;2,4;6,2)$ is not categorifiable if its adjoint
+subring is the whole ring and its nonidentity invertible fixes every
+noninvertible basis element. In particular, $R8\_3\_2904$ and
+$R8\_3\_3082$ admit no complex fusion categorification.
+\end{theorem}
+\begin{proof}
+Every category of dimension $90$ is solvable
+\cite[Corollary~4.16]{DongWeak}. Its final cyclic-prime step
+\cite[Proposition~4.4]{ENOSolvable} cannot be an extension, since the
+universal grading is trivial. Two invertibles force this step to be a
+$C_2$ equivariantization, say $\mathcal C=\mathcal D^{C_2}$.
+The two lifts of a fixed simple of $\mathcal D$ are exchanged by the
+sign character. Thus each of the six sign-fixed noninvertibles of
+$\mathcal C$ comes from a free orbit. Halving their dimensions gives
+$\mathcal D$ of type $(1,9;3,4)$ and dimension $45$.
+
+By \cite[Theorem~1.1]{JordanLarson}, an integral category of dimension
+$45=5\cdot3^2$ is group-theoretical: neither exceptional alternative
+applies. In fact such a category is pointed. All groups of order $45$
+have normal Sylow subgroups, so are $C_{45}$ or $C_3^2\times C_5$.
+In the presentation $\mathcal C(G,\omega,H,\psi)$, every stabilizer
+is $H$ because $G$ is abelian. A cyclic $H$ has trivial Schur multiplier.
+A noncyclic $H$ contains $C_3^2$ and has index $1$ or $5$. Restriction is then
+injective on the $3$-primary component of $H^3(G,\mathbb C^\times)$,
+by restriction--corestriction. Since $[\omega]|_H=0$, the remaining
+class is $5$-primary, whereas $H^2(H,\mathbb C^\times)$ is $3$-primary.
+The stabilizer-cocycle construction is multiplicative in $\omega$,
+and the two $\psi$ contributions cancel in cohomology because
+conjugation is trivial; see \cite[Section~5.1]{GelakiNaidu}.
+Consequently every stabilizer multiplier is trivial. Its irreducible
+projective representations are therefore one-dimensional, and the
+double-coset index is one. The category is pointed, contradicting
+the four dimension-three simples forced above.
+
+The exact receipt checks both source tensors, all dimension-character
+identities, the complete adjoint closure and sign actions. It is
+independent of the dimension-order linear-programming certificates.
+\end{proof}

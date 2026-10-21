@@ -87,5 +87,10 @@ def main():
     if n!=1:raise ValueError('Unique M5 abstract status required')
     manuscript.write_text(text)
     print('Refreshed current research-report source and static research-status page.')
+    # A later accepted continuation remains the current reader-facing account.
+    from rank8_publication import active as rank8_active
+    if rank8_active(ROOT):
+        from sync_rank8_m3_publication import main as refresh_rank8
+        refresh_rank8()
 
 if __name__=='__main__':main()

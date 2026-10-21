@@ -1,6 +1,6 @@
 """Isolated coprime-biquadratic adapter for the global induction relaxation."""
 from pathlib import Path
-import argparse,json,sys,time,traceback
+import argparse,json,sys,time,traceback,os
 HERE=Path(__file__).resolve().parent
 sys.path.insert(0,str(HERE.parent/'criteria'))
 import global_induction as engine
@@ -50,6 +50,7 @@ def main():
                 out.update(status='excluded',scope='general',certificate=c)
             else:engine.verify_pseudo(row['tensor'],pseudo);out['status']='pseudo_unitary_only'
         else:out['status']='no_conclusion'
+    except MemoryError as exc:out.update(status='resource_bound',memory_limit_mb=int(os.environ.get('RANK8_GLOBAL_MEMORY_MB','0')),error=repr(exc))
     except Exception as exc:out.update(status='error',error=repr(exc),traceback=traceback.format_exc())
     save();print(args.ring,out['status'],out['seconds'],flush=True)
 if __name__=='__main__':main()

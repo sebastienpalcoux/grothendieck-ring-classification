@@ -14,6 +14,7 @@ STRUCTURAL={
  'solvable_dimension80_rigidity':('models/psl2_11/r275/certificate.json','models/psl2_11/r275/verify_dimension80.py','models/psl2_11/r275/proof.md'),
  'solvable_dimension216_obstruction':('models/psl2_11/r216/certificate.json','models/psl2_11/r216/verify_dimension216.py','models/psl2_11/r216/proof.md'),
  'split_module_dimension280_obstruction':('models/psl2_11/r280/certificate.json','models/psl2_11/r280/verify_split_module.py','models/psl2_11/r280/proof.md'),
+ 'solvable_dimension90_pointed_base_obstruction':('models/d90_structural.json','models/d90_structural.py','models/D90_STRUCTURAL_PROOF.md'),
 }
 MODULES={
  'certified_negative_subring_transfer':('criteria/negative_subring.py','verify'),

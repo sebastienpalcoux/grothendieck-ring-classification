@@ -9,6 +9,14 @@ def save(path,value):
     path.parent.mkdir(parents=True,exist_ok=True);temp=path.with_suffix('.tmp');temp.write_text(json.dumps(value,separators=(',',':'))+'\n');temp.replace(path)
 
 def worker(row,mode,height,signed_timeout,dest):
+    memory_limit=int(os.environ.get('RANK8_ATTEMPT_MEMORY_MB','0'))
+    if memory_limit:
+        import resource
+        resource.setrlimit(resource.RLIMIT_AS,(memory_limit*1024**2,memory_limit*1024**2))
+    accepted=HERE/'accepted_exclusions.json'
+    if not dest.exists() and accepted.exists() and any(r['id']==row['id'] for r in json.loads(accepted.read_text())):
+        out={'id':row['id'],'tensor_sha256':row['tensor_sha256'],'mode':mode,'height':height,'status':'covered_by_verified_certificate'}
+        save(dest,out);print(row['id'],out['status'],flush=True);return
     import advanced_criteria as advanced,rank8_signed_bridge
     rank8_signed_bridge.install();start=time.monotonic()
     out={'id':row['id'],'tensor_sha256':row['tensor_sha256'],'mode':mode,'height':height,'status':'no_conclusion','scope':'general_complex_fusion_category'}
@@ -19,6 +27,7 @@ def worker(row,mode,height,signed_timeout,dest):
             if c:
                 c=json.loads(json.dumps(c));advanced.verify(row['tensor'],c);out.update(status='excluded',certificate=c,exact_checked=True)
         else:out['status']='ineligible'
+    except MemoryError as exc:out.update(status='resource_bound',memory_limit_mb=memory_limit,error=repr(exc))
     except Exception as exc:out.update(status='error',error=repr(exc),traceback=traceback.format_exc())
     out['seconds']=round(time.monotonic()-start,3);save(dest,out);print(row['id'],out['status'],out['seconds'],flush=True)
 
@@ -29,11 +38,15 @@ def task(row,args):
     if accepted.exists() and not args.overwrite and any(r['id']==row['id'] for r in json.loads(accepted.read_text())):
         return {'id':row['id'],'status':'covered_by_verified_certificate'}
     start=time.monotonic();cmd=[sys.executable,str(Path(__file__).resolve()),'--worker',row['id'],'--mode',args.mode,'--height',str(args.height),'--signed-timeout',str(args.signed_timeout),'--tag',args.tag]
-    process=subprocess.Popen(cmd,stdout=subprocess.PIPE,stderr=subprocess.STDOUT,text=True,start_new_session=True)
+    environment=dict(os.environ)
+    if getattr(args,'memory_mb',0):environment['RANK8_ATTEMPT_MEMORY_MB']=str(args.memory_mb)
+    process=subprocess.Popen(cmd,stdout=subprocess.PIPE,stderr=subprocess.STDOUT,text=True,start_new_session=True,env=environment)
     try:
         output,_=process.communicate(timeout=args.budget)
         if process.returncode==0 and dest.exists():return json.loads(dest.read_text())
-        out={'id':row['id'],'tensor_sha256':row['tensor_sha256'],'mode':args.mode,'status':'error','returncode':process.returncode,'stdout':output[-12000:]}
+        limited=getattr(args,'memory_mb',0) and any(x in output for x in ('MemoryError','bad_alloc','Cannot allocate memory','memory allocation'))
+        out={'id':row['id'],'tensor_sha256':row['tensor_sha256'],'mode':args.mode,'status':'resource_bound' if limited else 'error','returncode':process.returncode,'stdout':output[-12000:]}
+        if getattr(args,'memory_mb',0):out['memory_limit_mb']=args.memory_mb
     except subprocess.TimeoutExpired:
         os.killpg(process.pid,signal.SIGKILL);output,_=process.communicate()
         out={'id':row['id'],'tensor_sha256':row['tensor_sha256'],'mode':args.mode,'status':'timeout','budget_seconds':args.budget,'stdout':output[-12000:]}

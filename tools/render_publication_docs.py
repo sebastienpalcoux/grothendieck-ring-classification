@@ -687,6 +687,8 @@ All results and data are AI-generated, not independently human-verified and not 
         if m3:
             content = content.replace('Complete through multiplicity 2: 896 exclusions and 77 models', rank8_scope)
             content = content.replace('Complete through 2: 896 exclusions and 77 models.', rank8_scope+'.')
+            content = content.replace('Rank eight is complete through multiplicity 2: 896 exclusions and 77 models, comprising 48 models at exact multiplicity one and 29 at exact multiplicity two.',
+                rank8_scope+'. Exact multiplicities one and two retain 48 and 29 models. The multiplicity-three positive count is a lower bound whenever unresolved cases remain, and must not be submitted as an exact sequence term.')
             content = content.replace('The following boundary describes the 17 October study; the current M5 extension is stated above.', 'The following boundary describes the 17 October study; current M5 and M3 extensions are stated above.')
         content = content.replace('__RANK7_SCOPE__', rank7_scope).replace('__RANK7_EXTENSION__', extension_text)
         m5 = extension(repo)

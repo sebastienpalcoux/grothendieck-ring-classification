@@ -14,11 +14,13 @@
         3
       ],
       "order_bound": 288,
-      "cyclotomic_degree": 96,
-      "fixed_subgroup_size": 24,
+      "ambient_cyclotomic_order": 1440,
+      "cyclotomic_degree": 384,
+      "fixed_subgroup_size": 96,
       "joint_types": 38,
       "checks": [
         {
+          "kind": "central",
           "order": 1,
           "powers": [
             1,
@@ -31,6 +33,7 @@
           "types": 1
         },
         {
+          "kind": "central",
           "order": 2,
           "powers": [
             1,
@@ -43,6 +46,7 @@
           "types": 1
         },
         {
+          "kind": "central",
           "order": 3,
           "powers": [
             1,
@@ -55,13 +59,7 @@
           "types": 1
         },
         {
-          "order": 3,
-          "powers": [
-            1
-          ],
-          "types": 1
-        },
-        {
+          "kind": "central",
           "order": 4,
           "powers": [
             1,
@@ -74,14 +72,7 @@
           "types": 1
         },
         {
-          "order": 4,
-          "powers": [
-            1,
-            2
-          ],
-          "types": 1
-        },
-        {
+          "kind": "central",
           "order": 6,
           "powers": [
             1,
@@ -94,15 +85,7 @@
           "types": 1
         },
         {
-          "order": 6,
-          "powers": [
-            1,
-            2,
-            3
-          ],
-          "types": 1
-        },
-        {
+          "kind": "central",
           "order": 8,
           "powers": [
             1,
@@ -115,6 +98,7 @@
           "types": 2
         },
         {
+          "kind": "central",
           "order": 9,
           "powers": [
             1,
@@ -127,6 +111,7 @@
           "types": 1
         },
         {
+          "kind": "central",
           "order": 12,
           "powers": [
             1,
@@ -139,6 +124,7 @@
           "types": 2
         },
         {
+          "kind": "central",
           "order": 16,
           "powers": [
             1,
@@ -151,6 +137,7 @@
           "types": 2
         },
         {
+          "kind": "central",
           "order": 18,
           "powers": [
             1,
@@ -163,6 +150,7 @@
           "types": 1
         },
         {
+          "kind": "central",
           "order": 24,
           "powers": [
             1,
@@ -175,6 +163,7 @@
           "types": 4
         },
         {
+          "kind": "central",
           "order": 32,
           "powers": [
             1,
@@ -187,6 +176,7 @@
           "types": 2
         },
         {
+          "kind": "central",
           "order": 36,
           "powers": [
             1,
@@ -199,6 +189,7 @@
           "types": 2
         },
         {
+          "kind": "central",
           "order": 48,
           "powers": [
             1,
@@ -211,6 +202,7 @@
           "types": 4
         },
         {
+          "kind": "central",
           "order": 72,
           "powers": [
             1,
@@ -223,6 +215,7 @@
           "types": 4
         },
         {
+          "kind": "central",
           "order": 96,
           "powers": [
             1,
@@ -235,6 +228,7 @@
           "types": 4
         },
         {
+          "kind": "central",
           "order": 144,
           "powers": [
             1,
@@ -247,6 +241,7 @@
           "types": 4
         },
         {
+          "kind": "central",
           "order": 288,
           "powers": [
             1,
@@ -255,6 +250,105 @@
             4,
             5,
             6
+          ],
+          "types": 1
+        },
+        {
+          "kind": "rotation_3",
+          "order": 1,
+          "powers": [
+            1
+          ],
+          "types": 1
+        },
+        {
+          "kind": "rotation_3",
+          "order": 3,
+          "powers": [
+            1
+          ],
+          "types": 1
+        },
+        {
+          "kind": "rotation_4",
+          "order": 1,
+          "powers": [
+            1,
+            2
+          ],
+          "types": 1
+        },
+        {
+          "kind": "rotation_4",
+          "order": 2,
+          "powers": [
+            1,
+            2
+          ],
+          "types": 1
+        },
+        {
+          "kind": "rotation_4",
+          "order": 4,
+          "powers": [
+            1,
+            2
+          ],
+          "types": 1
+        },
+        {
+          "kind": "rotation_5",
+          "order": 1,
+          "powers": [
+            1
+          ],
+          "types": 1
+        },
+        {
+          "kind": "rotation_5",
+          "order": 5,
+          "powers": [
+            1
+          ],
+          "types": 1
+        },
+        {
+          "kind": "rotation_6",
+          "order": 1,
+          "powers": [
+            1,
+            2,
+            3
+          ],
+          "types": 1
+        },
+        {
+          "kind": "rotation_6",
+          "order": 2,
+          "powers": [
+            1,
+            2,
+            3
+          ],
+          "types": 1
+        },
+        {
+          "kind": "rotation_6",
+          "order": 3,
+          "powers": [
+            1,
+            2,
+            3
+          ],
+          "types": 1
+        },
+        {
+          "kind": "rotation_6",
+          "order": 6,
+          "powers": [
+            1,
+            2,
+            3
           ],
           "types": 1
         }
@@ -272,11 +366,13 @@
         7
       ],
       "order_bound": 1008,
+      "ambient_cyclotomic_order": 1008,
       "cyclotomic_degree": 288,
       "fixed_subgroup_size": 72,
       "joint_types": 49,
       "checks": [
         {
+          "kind": "central",
           "order": 1,
           "powers": [
             1,
@@ -287,6 +383,7 @@
           "types": 1
         },
         {
+          "kind": "central",
           "order": 2,
           "powers": [
             1,
@@ -297,6 +394,7 @@
           "types": 1
         },
         {
+          "kind": "central",
           "order": 3,
           "powers": [
             1,
@@ -307,13 +405,7 @@
           "types": 1
         },
         {
-          "order": 3,
-          "powers": [
-            1
-          ],
-          "types": 1
-        },
-        {
+          "kind": "central",
           "order": 4,
           "powers": [
             1,
@@ -324,14 +416,7 @@
           "types": 1
         },
         {
-          "order": 4,
-          "powers": [
-            1,
-            2
-          ],
-          "types": 1
-        },
-        {
+          "kind": "central",
           "order": 6,
           "powers": [
             1,
@@ -342,6 +427,7 @@
           "types": 1
         },
         {
+          "kind": "central",
           "order": 7,
           "powers": [
             1,
@@ -352,6 +438,7 @@
           "types": 1
         },
         {
+          "kind": "central",
           "order": 8,
           "powers": [
             1,
@@ -362,6 +449,7 @@
           "types": 1
         },
         {
+          "kind": "central",
           "order": 9,
           "powers": [
             1,
@@ -372,6 +460,7 @@
           "types": 1
         },
         {
+          "kind": "central",
           "order": 12,
           "powers": [
             1,
@@ -382,6 +471,7 @@
           "types": 2
         },
         {
+          "kind": "central",
           "order": 14,
           "powers": [
             1,
@@ -392,6 +482,7 @@
           "types": 1
         },
         {
+          "kind": "central",
           "order": 16,
           "powers": [
             1,
@@ -402,6 +493,7 @@
           "types": 1
         },
         {
+          "kind": "central",
           "order": 18,
           "powers": [
             1,
@@ -412,6 +504,7 @@
           "types": 1
         },
         {
+          "kind": "central",
           "order": 21,
           "powers": [
             1,
@@ -422,6 +515,7 @@
           "types": 2
         },
         {
+          "kind": "central",
           "order": 24,
           "powers": [
             1,
@@ -432,6 +526,7 @@
           "types": 2
         },
         {
+          "kind": "central",
           "order": 28,
           "powers": [
             1,
@@ -442,6 +537,7 @@
           "types": 2
         },
         {
+          "kind": "central",
           "order": 36,
           "powers": [
             1,
@@ -452,6 +548,7 @@
           "types": 2
         },
         {
+          "kind": "central",
           "order": 42,
           "powers": [
             1,
@@ -462,6 +559,7 @@
           "types": 2
         },
         {
+          "kind": "central",
           "order": 48,
           "powers": [
             1,
@@ -472,6 +570,7 @@
           "types": 2
         },
         {
+          "kind": "central",
           "order": 56,
           "powers": [
             1,
@@ -482,6 +581,7 @@
           "types": 2
         },
         {
+          "kind": "central",
           "order": 63,
           "powers": [
             1,
@@ -492,6 +592,7 @@
           "types": 2
         },
         {
+          "kind": "central",
           "order": 72,
           "powers": [
             1,
@@ -502,6 +603,7 @@
           "types": 1
         },
         {
+          "kind": "central",
           "order": 84,
           "powers": [
             1,
@@ -512,6 +614,7 @@
           "types": 4
         },
         {
+          "kind": "central",
           "order": 112,
           "powers": [
             1,
@@ -522,6 +625,7 @@
           "types": 2
         },
         {
+          "kind": "central",
           "order": 126,
           "powers": [
             1,
@@ -532,6 +636,7 @@
           "types": 2
         },
         {
+          "kind": "central",
           "order": 144,
           "powers": [
             1,
@@ -542,6 +647,7 @@
           "types": 1
         },
         {
+          "kind": "central",
           "order": 168,
           "powers": [
             1,
@@ -552,6 +658,7 @@
           "types": 4
         },
         {
+          "kind": "central",
           "order": 252,
           "powers": [
             1,
@@ -562,6 +669,7 @@
           "types": 4
         },
         {
+          "kind": "central",
           "order": 336,
           "powers": [
             1,
@@ -572,6 +680,7 @@
           "types": 4
         },
         {
+          "kind": "central",
           "order": 504,
           "powers": [
             1,
@@ -582,12 +691,56 @@
           "types": 1
         },
         {
+          "kind": "central",
           "order": 1008,
           "powers": [
             1,
             2,
             3,
             4
+          ],
+          "types": 1
+        },
+        {
+          "kind": "rotation_3",
+          "order": 1,
+          "powers": [
+            1
+          ],
+          "types": 1
+        },
+        {
+          "kind": "rotation_3",
+          "order": 3,
+          "powers": [
+            1
+          ],
+          "types": 1
+        },
+        {
+          "kind": "rotation_4",
+          "order": 1,
+          "powers": [
+            1,
+            2
+          ],
+          "types": 1
+        },
+        {
+          "kind": "rotation_4",
+          "order": 2,
+          "powers": [
+            1,
+            2
+          ],
+          "types": 1
+        },
+        {
+          "kind": "rotation_4",
+          "order": 4,
+          "powers": [
+            1,
+            2
           ],
           "types": 1
         }
@@ -605,11 +758,13 @@
         5
       ],
       "order_bound": 720,
+      "ambient_cyclotomic_order": 720,
       "cyclotomic_degree": 192,
       "fixed_subgroup_size": 48,
       "joint_types": 49,
       "checks": [
         {
+          "kind": "central",
           "order": 1,
           "powers": [
             1,
@@ -620,6 +775,7 @@
           "types": 1
         },
         {
+          "kind": "central",
           "order": 2,
           "powers": [
             1,
@@ -630,6 +786,7 @@
           "types": 1
         },
         {
+          "kind": "central",
           "order": 3,
           "powers": [
             1,
@@ -640,13 +797,7 @@
           "types": 1
         },
         {
-          "order": 3,
-          "powers": [
-            1
-          ],
-          "types": 1
-        },
-        {
+          "kind": "central",
           "order": 4,
           "powers": [
             1,
@@ -657,14 +808,7 @@
           "types": 1
         },
         {
-          "order": 4,
-          "powers": [
-            1,
-            2
-          ],
-          "types": 1
-        },
-        {
+          "kind": "central",
           "order": 5,
           "powers": [
             1,
@@ -675,6 +819,7 @@
           "types": 2
         },
         {
+          "kind": "central",
           "order": 6,
           "powers": [
             1,
@@ -685,6 +830,7 @@
           "types": 1
         },
         {
+          "kind": "central",
           "order": 8,
           "powers": [
             1,
@@ -695,6 +841,7 @@
           "types": 1
         },
         {
+          "kind": "central",
           "order": 9,
           "powers": [
             1,
@@ -705,6 +852,7 @@
           "types": 1
         },
         {
+          "kind": "central",
           "order": 10,
           "powers": [
             1,
@@ -715,6 +863,7 @@
           "types": 2
         },
         {
+          "kind": "central",
           "order": 12,
           "powers": [
             1,
@@ -725,6 +874,7 @@
           "types": 2
         },
         {
+          "kind": "central",
           "order": 15,
           "powers": [
             1,
@@ -735,6 +885,7 @@
           "types": 2
         },
         {
+          "kind": "central",
           "order": 16,
           "powers": [
             1,
@@ -745,6 +896,7 @@
           "types": 1
         },
         {
+          "kind": "central",
           "order": 18,
           "powers": [
             1,
@@ -755,6 +907,7 @@
           "types": 1
         },
         {
+          "kind": "central",
           "order": 20,
           "powers": [
             1,
@@ -765,6 +918,7 @@
           "types": 2
         },
         {
+          "kind": "central",
           "order": 24,
           "powers": [
             1,
@@ -775,6 +929,7 @@
           "types": 2
         },
         {
+          "kind": "central",
           "order": 30,
           "powers": [
             1,
@@ -785,6 +940,7 @@
           "types": 2
         },
         {
+          "kind": "central",
           "order": 36,
           "powers": [
             1,
@@ -795,6 +951,7 @@
           "types": 2
         },
         {
+          "kind": "central",
           "order": 40,
           "powers": [
             1,
@@ -805,6 +962,7 @@
           "types": 2
         },
         {
+          "kind": "central",
           "order": 45,
           "powers": [
             1,
@@ -815,6 +973,7 @@
           "types": 2
         },
         {
+          "kind": "central",
           "order": 48,
           "powers": [
             1,
@@ -825,6 +984,7 @@
           "types": 2
         },
         {
+          "kind": "central",
           "order": 60,
           "powers": [
             1,
@@ -835,6 +995,7 @@
           "types": 4
         },
         {
+          "kind": "central",
           "order": 72,
           "powers": [
             1,
@@ -845,6 +1006,7 @@
           "types": 1
         },
         {
+          "kind": "central",
           "order": 80,
           "powers": [
             1,
@@ -855,6 +1017,7 @@
           "types": 1
         },
         {
+          "kind": "central",
           "order": 90,
           "powers": [
             1,
@@ -865,6 +1028,7 @@
           "types": 2
         },
         {
+          "kind": "central",
           "order": 120,
           "powers": [
             1,
@@ -875,6 +1039,7 @@
           "types": 4
         },
         {
+          "kind": "central",
           "order": 144,
           "powers": [
             1,
@@ -885,6 +1050,7 @@
           "types": 1
         },
         {
+          "kind": "central",
           "order": 180,
           "powers": [
             1,
@@ -895,6 +1061,7 @@
           "types": 4
         },
         {
+          "kind": "central",
           "order": 240,
           "powers": [
             1,
@@ -905,6 +1072,7 @@
           "types": 4
         },
         {
+          "kind": "central",
           "order": 360,
           "powers": [
             1,
@@ -915,12 +1083,56 @@
           "types": 1
         },
         {
+          "kind": "central",
           "order": 720,
           "powers": [
             1,
             2,
             3,
             4
+          ],
+          "types": 1
+        },
+        {
+          "kind": "rotation_3",
+          "order": 1,
+          "powers": [
+            1
+          ],
+          "types": 1
+        },
+        {
+          "kind": "rotation_3",
+          "order": 3,
+          "powers": [
+            1
+          ],
+          "types": 1
+        },
+        {
+          "kind": "rotation_4",
+          "order": 1,
+          "powers": [
+            1,
+            2
+          ],
+          "types": 1
+        },
+        {
+          "kind": "rotation_4",
+          "order": 2,
+          "powers": [
+            1,
+            2
+          ],
+          "types": 1
+        },
+        {
+          "kind": "rotation_4",
+          "order": 4,
+          "powers": [
+            1,
+            2
           ],
           "types": 1
         }
@@ -938,11 +1150,13 @@
         13
       ],
       "order_bound": 1872,
+      "ambient_cyclotomic_order": 1872,
       "cyclotomic_degree": 576,
       "fixed_subgroup_size": 144,
       "joint_types": 49,
       "checks": [
         {
+          "kind": "central",
           "order": 1,
           "powers": [
             1,
@@ -953,6 +1167,7 @@
           "types": 1
         },
         {
+          "kind": "central",
           "order": 2,
           "powers": [
             1,
@@ -963,6 +1178,7 @@
           "types": 1
         },
         {
+          "kind": "central",
           "order": 3,
           "powers": [
             1,
@@ -973,13 +1189,7 @@
           "types": 1
         },
         {
-          "order": 3,
-          "powers": [
-            1
-          ],
-          "types": 1
-        },
-        {
+          "kind": "central",
           "order": 4,
           "powers": [
             1,
@@ -990,14 +1200,7 @@
           "types": 1
         },
         {
-          "order": 4,
-          "powers": [
-            1,
-            2
-          ],
-          "types": 1
-        },
-        {
+          "kind": "central",
           "order": 6,
           "powers": [
             1,
@@ -1008,6 +1211,7 @@
           "types": 1
         },
         {
+          "kind": "central",
           "order": 8,
           "powers": [
             1,
@@ -1018,6 +1222,7 @@
           "types": 1
         },
         {
+          "kind": "central",
           "order": 9,
           "powers": [
             1,
@@ -1028,6 +1233,7 @@
           "types": 1
         },
         {
+          "kind": "central",
           "order": 12,
           "powers": [
             1,
@@ -1038,6 +1244,7 @@
           "types": 2
         },
         {
+          "kind": "central",
           "order": 13,
           "powers": [
             1,
@@ -1048,6 +1255,7 @@
           "types": 2
         },
         {
+          "kind": "central",
           "order": 16,
           "powers": [
             1,
@@ -1058,6 +1266,7 @@
           "types": 1
         },
         {
+          "kind": "central",
           "order": 18,
           "powers": [
             1,
@@ -1068,6 +1277,7 @@
           "types": 1
         },
         {
+          "kind": "central",
           "order": 24,
           "powers": [
             1,
@@ -1078,6 +1288,7 @@
           "types": 2
         },
         {
+          "kind": "central",
           "order": 26,
           "powers": [
             1,
@@ -1088,6 +1299,7 @@
           "types": 2
         },
         {
+          "kind": "central",
           "order": 36,
           "powers": [
             1,
@@ -1098,6 +1310,7 @@
           "types": 2
         },
         {
+          "kind": "central",
           "order": 39,
           "powers": [
             1,
@@ -1108,6 +1321,7 @@
           "types": 2
         },
         {
+          "kind": "central",
           "order": 48,
           "powers": [
             1,
@@ -1118,6 +1332,7 @@
           "types": 2
         },
         {
+          "kind": "central",
           "order": 52,
           "powers": [
             1,
@@ -1128,6 +1343,7 @@
           "types": 2
         },
         {
+          "kind": "central",
           "order": 72,
           "powers": [
             1,
@@ -1138,6 +1354,7 @@
           "types": 1
         },
         {
+          "kind": "central",
           "order": 78,
           "powers": [
             1,
@@ -1148,6 +1365,7 @@
           "types": 2
         },
         {
+          "kind": "central",
           "order": 104,
           "powers": [
             1,
@@ -1158,6 +1376,7 @@
           "types": 2
         },
         {
+          "kind": "central",
           "order": 117,
           "powers": [
             1,
@@ -1168,6 +1387,7 @@
           "types": 2
         },
         {
+          "kind": "central",
           "order": 144,
           "powers": [
             1,
@@ -1178,6 +1398,7 @@
           "types": 1
         },
         {
+          "kind": "central",
           "order": 156,
           "powers": [
             1,
@@ -1188,6 +1409,7 @@
           "types": 4
         },
         {
+          "kind": "central",
           "order": 208,
           "powers": [
             1,
@@ -1198,6 +1420,7 @@
           "types": 1
         },
         {
+          "kind": "central",
           "order": 234,
           "powers": [
             1,
@@ -1208,6 +1431,7 @@
           "types": 2
         },
         {
+          "kind": "central",
           "order": 312,
           "powers": [
             1,
@@ -1218,6 +1442,7 @@
           "types": 4
         },
         {
+          "kind": "central",
           "order": 468,
           "powers": [
             1,
@@ -1228,6 +1453,7 @@
           "types": 4
         },
         {
+          "kind": "central",
           "order": 624,
           "powers": [
             1,
@@ -1238,6 +1464,7 @@
           "types": 4
         },
         {
+          "kind": "central",
           "order": 936,
           "powers": [
             1,
@@ -1248,6 +1475,7 @@
           "types": 1
         },
         {
+          "kind": "central",
           "order": 1872,
           "powers": [
             1,
@@ -1256,12 +1484,55 @@
             4
           ],
           "types": 1
+        },
+        {
+          "kind": "rotation_3",
+          "order": 1,
+          "powers": [
+            1
+          ],
+          "types": 1
+        },
+        {
+          "kind": "rotation_3",
+          "order": 3,
+          "powers": [
+            1
+          ],
+          "types": 1
+        },
+        {
+          "kind": "rotation_4",
+          "order": 1,
+          "powers": [
+            1,
+            2
+          ],
+          "types": 1
+        },
+        {
+          "kind": "rotation_4",
+          "order": 2,
+          "powers": [
+            1,
+            2
+          ],
+          "types": 1
+        },
+        {
+          "kind": "rotation_4",
+          "order": 4,
+          "powers": [
+            1,
+            2
+          ],
+          "types": 1
         }
       ]
     }
   ],
   "source_sha256": {
-    "verify_general_biquadratic_traces.py": "29237faa6f963a511ad77b78f95120d00f5ef7f8c12987e895f3e13a94c3e011",
+    "verify_general_biquadratic_traces.py": "cd809a68b4f950d98d302b1579699e81532b90d448aeb443f77802ec86b03282",
     "general_biquadratic.py": "8abb06a2909cbdb565376fef6d4a3af9b5c44b2ef864e2a4f577066830bb0510",
     "biquadratic_traces.py": "138bf41495215365edbfac3d800c9d238bd8f3cf9d3eae108de87d50173f2673"
   }

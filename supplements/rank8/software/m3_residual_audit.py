@@ -6,7 +6,7 @@ automatic novelty claims. The mathematical classification remains unresolved.
 import collections,json
 from pathlib import Path
 from m3_campaign import REPO,OUT,require
-BASELINE={'near_group','rank_two','zero_spectrum','lower_rank_subring','rank7_certified_subring','dnumber','noncomm_dnumber','integral_drinfeld','cyclotomic','involution_module','field_automorphisms','subring_dimension','primitive_codegree'}
+BASELINE={'near_group','rank_two','zero_spectrum','lower_rank_subring','rank7_certified_subring','dnumber','noncomm_dnumber','integral_drinfeld','cyclotomic','involution_module','field_automorphisms','subring_dimension','primitive_codegree','one_spectrum','one_spectrum_m3'}
 
 def bucket(a):
  outcome=str(a.get('outcome',a.get('status','unspecified'))).lower();scope=str(a.get('scope','')).lower();kind=a.get('attempt_kind','exclusion');stage=a.get('stage','')
@@ -15,7 +15,7 @@ def bucket(a):
  if any(x in outcome for x in ('memory','resource_limit','out_of_memory')) or a.get('exit_code') in (137,-9):return 'resource_limit'
  if outcome in ('error','failed','exception'):return 'error'
  if 'ineligible' in outcome:return 'implementation_ineligible'
- if outcome in ('scope_inapplicable','inapplicable','not_applicable'):return 'scope_inapplicable'
+ if 'inapplicable' in outcome or outcome=='not_applicable':return 'scope_inapplicable'
  if 'eligib' in stage or outcome=='eligible':return 'eligibility_only'
  if kind!='construction' and ('unitary_primary3' in stage or scope in ('unitary','unitary_only')):
   if outcome in ('excluded','unitary_excluded'):return 'unitary_only_proved_obstruction'

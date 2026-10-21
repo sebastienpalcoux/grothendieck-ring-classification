@@ -90,12 +90,12 @@ def _outcome(row):
  value=row.get('outcome',row.get('status','unspecified'))
  return {'survives':'no_conclusion','budget_exhausted':'timeout','not_eligible':'ineligible','not_applicable':'inapplicable'}.get(value,value)
 def attempts(pending):
- ids={r['id'] if isinstance(r,dict) else r for r in pending};census={r['id']:r for r in load(OUT/'census_m3.json')};byid={rid:[] for rid in ids}
+ ids={r['id'] if isinstance(r,dict) else r for r in pending};census={r['id']:r for r in load(OUT/'census_m3.json')};profiles={r['id']:r for r in load(OUT/'survivor_profiles.json')};byid={rid:[] for rid in ids}
  def add(path,rows,stage=None,kind='exclusion'):
   for r in rows:
    rid=r.get('id')
    if rid not in ids:continue
-   z={k:copy.deepcopy(v) for k,v in r.items() if k not in ('tensor','certificate','witness','branches','proof')};z.update(stage=stage or r.get('stage',r.get('method',r.get('family',Path(path).stem))),outcome=_outcome(r),attempt_kind=kind,source=relative(path));byid[rid].append(z)
+   z={k:copy.deepcopy(v) for k,v in r.items() if k not in ('tensor','certificate','witness','branches','proof')};z.update(stage=stage or r.get('stage',r.get('mode',r.get('method',r.get('family',('noncommutative_scalar_sphericalization' if Path(path).name=='results.json' and Path(path).parent.name=='noncommutative' else Path(path).stem))))),outcome=_outcome(r),attempt_kind=kind,source=relative(path));byid[rid].append(z)
  baseline=OUT/'attempts.jsonl'
  if baseline.exists():
   rows=[json.loads(line) for line in baseline.read_text().splitlines() if line.strip()]
@@ -108,6 +108,17 @@ def attempts(pending):
     from analyze import dual
     du=dual(R)
     if sum(sum(R[i][du[i]])==1 for i in range(8))!=7:r=dict(r,status='scope_inapplicable',reason='Not a rank-eight near-group ring.')
+   profile=profiles[r['id']]
+   if stage=='integral_drinfeld' and not profile.get('integral'):r=dict(r,status='scope_inapplicable',reason='No integral positive FP character; integral Drinfeld branch only.')
+   if stage=='subring_dimension' and not profile['proper_subrings']:r=dict(r,status='scope_inapplicable',reason='No nontrivial proper closed based subring.')
+   if stage=='rank7_certified_subring' and not any(x['rank']==7 for x in profile['proper_subrings']):r=dict(r,status='scope_inapplicable',reason='No rank-seven closed based subring.')
+   if stage=='lower_rank_subring' and not any(2<=x['rank']<=6 for x in profile['proper_subrings']):r=dict(r,status='scope_inapplicable',reason='No closed based subring in the implemented lower-rank range.')
+   if stage=='involution_module':
+    gates=[g for g in profile['invertibles'] if g and R[g][g]==[1]+[0]*7 and 0<sum(bool(R[g][i][i]) for i in range(8))<=2]
+    if not gates:r=dict(r,status='scope_inapplicable',reason='The inherited module implementation requires an invertible involution with one or two fixed simples.')
+    else:r=dict(r,scope_detail='Implemented module search only for at most two fixed simples and at most two algebra generators.')
+   if stage=='field_automorphisms':r=dict(r,scope_detail='Search restricted to fusion-matrix irreducible factors of degrees3through6; no conclusion is not a proof of cyclotomicity.')
+   if stage=='cyclotomic':r=dict(r,scope_detail='Bounded exact obstruction search; no conclusion is not a proof that all character fields are cyclotomic.')
    add(baseline,[r])
  for path in sorted((EVIDENCE/'criteria').glob('advanced*/*/*.json')):add(path,records(load(path)))
  for path in sorted((EVIDENCE/'criteria').glob('advanced/*/*.json')):add(path,records(load(path)))
@@ -118,9 +129,9 @@ def attempts(pending):
   if 'validation' in path.name or path.name=='general_global_polynomial_validation.json':continue
   add(path,records(load(path)))
  for path in sorted((EVIDENCE/'performance').glob('*.json')):
-  if any(x in path.name for x in ('progress','validation')):continue
+  if any(x in path.name for x in ('progress','validation','fixtures','benchmarks')):continue
   add(path,records(load(path)))
- for name in ('one_spectrum_m3.json','frobenius_results.json','graded_extensions_attempt.json'):
+ for name in ('one_spectrum_m3.json','frobenius_results.json','graded_extensions_attempt.json','unified_scope_attempts.json'):
   path=OUT/name
   if path.exists():add(path,records(load(path)),kind='construction' if name=='frobenius_results.json' else 'exclusion')
  modelpath=EVIDENCE/'models/model_search_attempts.json'
@@ -167,6 +178,8 @@ def validate_receipts(ledger):
    p=Path(section['log']);require(not p.is_absolute() and '..' not in p.parts,'noncanonical replay log path');require(sha(REPO/p)==section['log_sha256'],'changed replay log '+str(p))
  require(normal['source_manifests_sha256']==optimized['source_manifests_sha256'] and normal['proof_source_sha256']==optimized['proof_source_sha256'],'normal/optimized proof inputs differ')
  require(optimized.get('requested_optimization',optimized.get('invocation')) in ('-O','optimized','optimized_invocation'),'optimized replay marker absent')
+ require(normal.get('requested_optimization')=='normal','normal replay marker absent')
+ require(all(r.get('proof_interpreter_assertions_enabled') is True for r in (normal,optimized)),'proof interpreter checks were not enabled')
  return normal,optimized
 
 def main():
@@ -175,6 +188,12 @@ def main():
  from m3_residual_audit import audit
  write('residual_audit.json',audit(pending,attemptrows))
  if args.publish:
-  validate_receipts(ledger);path=P/'output/m3/ledger.json';path.parent.mkdir(parents=True,exist_ok=True);temp=path.with_suffix('.json.tmp');temp.write_text(json.dumps(ledger,separators=(',',':'))+'\n');temp.replace(path);summary['preview']=False;write('continuation_summary.json',summary)
+  normal,optimized=validate_receipts(ledger)
+  import verify_m3_continuation as continuation
+  require(normal['source_manifests_sha256']==continuation.source_inventory(),'publication source inventory differs')
+  require(normal['proof_source_sha256']==continuation.code_inventory(),'publication proof inventory differs')
+  expected={name for name,_ in continuation.commands()}
+  require(all({part['section'] for part in report['sections']}==expected and all(part['status']=='PASS' for part in report['sections']) for report in (normal,optimized)),'publication replay section coverage differs')
+  path=P/'output/m3/ledger.json';path.parent.mkdir(parents=True,exist_ok=True);temp=path.with_suffix('.json.tmp');temp.write_text(json.dumps(ledger,separators=(',',':'))+'\n');temp.replace(path);summary['preview']=False;write('continuation_summary.json',summary)
  print(json.dumps(summary,sort_keys=True))
 if __name__=='__main__':main()

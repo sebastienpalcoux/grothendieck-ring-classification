@@ -5,7 +5,11 @@ Restored after workspace loss; all result certificates must be regenerated.
 """
 from pathlib import Path
 from fractions import Fraction as Q
-import argparse,itertools,json,math,sys,time,traceback
+import argparse,itertools,json,math,sys,time,traceback,os
+if os.environ.get('RANK8_GLOBAL_MEMORY_MB'):
+    import resource
+    _memory=int(os.environ['RANK8_GLOBAL_MEMORY_MB'])*1024**2
+    resource.setrlimit(resource.RLIMIT_AS,(_memory,_memory))
 HERE=Path(__file__).resolve().parent
 ROOT=HERE.parents[2]
 sys.path[:0]=[str(ROOT/'supplements/rank8/experimental_signed'),str(ROOT/'supplements/rank8/software'),str(HERE.parent/'noncommutative')]
@@ -269,6 +273,7 @@ def main():
                 out.update(status='excluded',scope='general',certificate=c)
             else:verify_pseudo(row['tensor'],pseudo);out['status']='pseudo_unitary_only'
         else:out['status']='no_conclusion'
+    except MemoryError as exc:out.update(status='resource_bound',memory_limit_mb=int(os.environ.get('RANK8_GLOBAL_MEMORY_MB','0')),error=repr(exc))
     except Exception as exc:out.update(status='error',error=repr(exc),traceback=traceback.format_exc())
     save();print(args.ring,out['status'],out['seconds'],flush=True)
 if __name__=='__main__':main()

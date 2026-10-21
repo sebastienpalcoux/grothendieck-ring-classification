@@ -11,7 +11,7 @@ from finalize_m3 import reconcile,digest,validate_receipts
 EVIDENCE=OUT.parent
 
 def source_inventory():
-    paths={OUT/name for name in ('census_m3.json','decisions_m3.json','survivors_m3.json','survivor_profiles.json','source_manifest.json','input_manifest.json','residual_attempts.json','residual_audit.json','one_spectrum_m3.json','frobenius_results.json','graded_extensions_attempt.json','dimension42_group_types.json','dimension84_obstruction.json','source_transport.json') if (OUT/name).exists()}
+    paths={OUT/name for name in ('census_m3.json','decisions_m3.json','survivors_m3.json','survivor_profiles.json','source_manifest.json','input_manifest.json','residual_attempts.json','residual_audit.json','one_spectrum_m3.json','frobenius_results.json','graded_extensions_attempt.json','dimension42_group_types.json','dimension84_obstruction.json','source_transport.json','unified_scope_attempts.json') if (OUT/name).exists()}
     paths.update(P/'data'/name for name in ('decisions.json','rank8_tables.txt.gz','rank8_m3_tables.txt.gz','lower_rank_positive_models.json','rank6_positive_models.json','rank7_certified_negative_subrings.json') if (P/'data'/name).exists())
     paths.update(REPO/name for name in ('supplements/rank6/data/census.json','supplements/rank6/data/decisions.json','supplements/rank7/output/rank7_ledger.json'))
     for folder in ('criteria','models','noncommutative','performance','publication'):
@@ -53,7 +53,7 @@ def commands():
         ('group_scan_transcript_audit','performance/group_scan/summarize_scan.py',['--check'])]:
         script=EVIDENCE/relative
         required.append((name,[normal,str(script),*arguments]))
-    for name,script,args in [('one_spectrum_attempts','one_spectrum_m3.py',['--verify']),('strong_frobenius_attempts','m3_frobenius.py',['--verify']),('residual_effort_audit','m3_residual_audit.py',[])]:
+    for name,script,args in [('one_spectrum_attempts','one_spectrum_m3.py',['--verify']),('strong_frobenius_attempts','m3_frobenius.py',['--verify']),('unified_scoped_attempts','m3_unified_scope_audit.py',[]),('residual_effort_audit','m3_residual_audit.py',[])]:
         path=P/'software'/script
         required.append((name,[normal,str(path),*args]))
     return required

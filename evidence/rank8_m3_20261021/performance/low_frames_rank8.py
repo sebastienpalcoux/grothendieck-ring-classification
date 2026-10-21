@@ -12,7 +12,7 @@ def require(p,msg):
  if not p:raise ValueError(msg)
 def executable():
  source=HERE/'low_frames_rank8.cpp';exe=source.with_suffix('')
- if not exe.exists() or exe.stat().st_mtime_ns<source.stat().st_mtime_ns:
+ if not exe.exists() or not os.access(exe,os.X_OK) or exe.stat().st_mtime_ns<source.stat().st_mtime_ns:
   tmp=exe.with_name(exe.name+'_'+str(os.getpid()))
   subprocess.run(['g++','-O3','-std=c++17',str(source),'-o',str(tmp)],check=True,capture_output=True);os.replace(tmp,exe)
  return exe

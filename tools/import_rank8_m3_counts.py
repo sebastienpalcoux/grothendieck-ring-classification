@@ -26,12 +26,15 @@ def models():
 def main():
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('census',nargs='?',type=Path);p.add_argument('--commit');p.add_argument('--models-only',action='store_true')
-    a=p.parse_args();new_models=models()
+    a=p.parse_args()
     if a.models_only:
+        new_models=models()
         print(f'Preserved 77 old models; imported {new_models} new exact-M3 models.');return
     if not (ROOT/LEDGER).is_file():raise ValueError('Accepted M3 publication ledger required')
     if not a.census or not re.fullmatch('[0-9a-f]{40}',a.commit or ''):raise ValueError('Producer manifest and full census commit required')
     manifest=json.loads(a.census.read_text());entry=manifest['ranks']['8']
+    if entry.get('complete') is not True or entry.get('verified') is not True:
+        raise ValueError('Completed producer census and tensor verification required')
     if (entry['bound'],entry['classes'],entry['counts'])!=(3,4500,{'1':96,'2':877,'3':3527}):raise ValueError('Unexpected census partition')
     raw=(ROOT/TABLES).read_bytes()
     if hashlib.sha256(raw).hexdigest()!=entry['tables_gz_sha256'] or hashlib.sha256(gzip.decompress(raw)).hexdigest()!=entry['tables_uncompressed_sha256']:
@@ -39,6 +42,7 @@ def main():
     target=ROOT/'data/counts.json';result=json.loads(target.read_text())
     old={r['multiplicity']:r['rings'] for r in result['rows'] if r['rank']==8}
     if any(old[m]!=entry['counts'][str(m)] for m in (1,2)):raise ValueError('Earlier bands changed')
+    new_models=models()
     newrow=dict(rank=8,multiplicity=3,rings=3527,source=f'{SOURCE}/blob/{a.commit}/results/rank8/counts.csv',verification=f'{SOURCE}/blob/{a.commit}/verification/rank8/audit.json')
     result['rows']=sorted([r for r in result['rows'] if (r['rank'],r['multiplicity'])!=(8,3)]+[newrow],key=lambda r:(r['multiplicity'],r['rank']))
     next(r for r in result['rank_summary'] if r['rank']==8).update(census_through=3,recorded_through=3,classes_at_recorded_bound=4500,method='pinned_repository',census_commit=a.commit)

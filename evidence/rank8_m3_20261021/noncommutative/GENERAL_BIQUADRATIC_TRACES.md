@@ -91,9 +91,11 @@ both original and signed formal codegrees. Only this full certificate receives
 general complex fusion-category scope. No pivotality conjecture is assumed.
 
 `verify_general_biquadratic_traces.py` independently constructs the cyclotomic
-quotient Q[x]/Phi_B, constructs the quadratic Gauss sums there, checks their
+quotient Q[x]/Phi_L with L=lcm(B,1,2,...,h), constructs the quadratic Gauss
+sums there, checks their
 squares and correlated product, enumerates the exact fixed subgroup, and
-compares all coefficients of every bounded-order joint trace with the formula.
+compares all coefficients of every bounded-order joint trace with the formula,
+including the rotation orders dividing each m<=h.
 It covers the three generalized fields above and Q(sqrt2,sqrt3) at height6.
 Its receipt is deterministic and normal replay is read-only. This is an
 independent check of the trace formulas; the analytic argument above supplies

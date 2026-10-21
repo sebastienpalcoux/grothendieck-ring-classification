@@ -615,6 +615,10 @@ function renderRingProfile() {
     panel.append(link("Inspect this exact model record ↗",`${state.data.classification_repository}/blob/${state.data.classification_commit || "main"}/${ring.source_file}`));
     if (ring.model_reference_url)
       panel.append(link("Open the model's cited source ↗",ring.model_reference_url));
+    for (const note of ring.construction_notes||[])
+      panel.append(element("p","profile-note",note));
+    if (ring.construction_proof_file)
+      panel.append(link("Read the construction and its proof scope ↗",`${state.data.classification_repository}/blob/${state.data.classification_commit || "main"}/${ring.construction_proof_file}`));
     panel.append(element("p","profile-note",`Source entry: ${ring.source_location}. Catalogue tensors were checked for unit, duality and associativity; existence is cited from the model source, not inferred from ring axioms.`));
     if (ring.basis_permutation_model_to_census)
       panel.append(profileFact("Model basis → census basis",ring.basis_permutation_model_to_census.join(", ")));

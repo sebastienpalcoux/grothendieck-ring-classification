@@ -15,13 +15,15 @@ def require(ok,msg):
 def validate(q,r,height,primes):
     gb.configure(q,r);gb.PRIMES=primes
     all_types,bound=gb.trace_types(height)
-    L=int(bound);x=s.Symbol('x');phi=s.Poly(s.cyclotomic_poly(L,x),x)
+    L=math.lcm(int(bound),math.lcm(*range(1,height+1)));x=s.Symbol('x');phi=s.Poly(s.cyclotomic_poly(L,x),x)
     degree=phi.degree();co=np.array(list(reversed(list(map(int,phi.all_coeffs())))),dtype=np.int64)
     powers=np.zeros((L,degree),dtype=np.int64);powers[0,0]=1
     for j in range(1,L):
-        old=powers[j-1];powers[j,1:]=old[:-1];powers[j]-=int(old[-1])*co[:-1]
+        old=powers[j-1]
+        require(max(map(abs,map(int,old)))*(1+max(map(abs,map(int,co))))<2**60,'cyclotomic recurrence overflow bound')
+        powers[j,1:]=old[:-1];powers[j]-=int(old[-1])*co[:-1]
     max_power=max(map(abs,map(int,powers.flat)))
-    require(max_power*L<2**50,'cyclotomic summation overflow bound')
+    require(max_power*L<2**50 and L**3*height<2**60,'cyclotomic summation/index overflow bound')
     modulus=fmpz_poly(list(map(int,co)))
     def gauss(d):
         D=gb.conductor(d);scale=math.isqrt(D//d);out=np.zeros(degree,dtype=np.int64)
@@ -51,18 +53,19 @@ def validate(q,r,height,primes):
         require(all(predicted[i]*len(H)==int(sums[i])*denominator for i in range(degree)),'full relative-trace polynomial identity')
         return coords
     records=[];joint=set()
-    for n in map(int,s.divisors(L)):
-        for ps in [list(range(1,height+1))]+[[int(k) for k in s.divisors(m) if k<m] for m in range(3,height+1) if L%m==0 and n==m]:
-            actual={tuple(exact_trace(n,k,u) for k in ps) for u in representatives.values()}
-            formula,_=gb.trace_types(height,[n],ps)
-            require(actual==set(formula),'joint trace formula '+str((q,r,n,ps)))
-            records.append(dict(order=n,powers=ps,types=len(actual)))
-            if ps==list(range(1,height+1)):joint|=actual
+    requests=[(int(n),list(range(1,height+1)),'central') for n in s.divisors(bound)]
+    requests += [(int(n),[int(k) for k in s.divisors(m) if k<m],'rotation_'+str(m)) for m in range(3,height+1) for n in s.divisors(m)]
+    for n,ps,kind in requests:
+        actual={tuple(exact_trace(n,k,u) for k in ps) for u in representatives.values()}
+        formula,_=gb.trace_types(height,[n],ps)
+        require(actual==set(formula),'joint trace formula '+str((q,r,n,ps)))
+        records.append(dict(kind=kind,order=n,powers=ps,types=len(actual)))
+        if kind=='central':joint|=actual
     # The analytic prime-power bound proves that all orders outside the box
     # give the joint zero type; direct enumeration checks every in-box order.
     joint.add(tuple((F(0),)*4 for _ in range(height)))
     require(joint==set(all_types),'complete bounded joint types')
-    return dict(radicands=[q,r],height=height,primes=primes,order_bound=L,cyclotomic_degree=degree,fixed_subgroup_size=len(H),joint_types=len(joint),checks=records)
+    return dict(radicands=[q,r],height=height,primes=primes,order_bound=int(bound),ambient_cyclotomic_order=L,cyclotomic_degree=degree,fixed_subgroup_size=len(H),joint_types=len(joint),checks=records)
 
 def main():
     ap=argparse.ArgumentParser();ap.add_argument('--write',action='store_true');args=ap.parse_args()
