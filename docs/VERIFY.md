@@ -88,10 +88,22 @@ execution, so no uniform measured runtime is claimed.
 
 ## Upper-rank and continuation checks
 
+In a GitHub clone, use the isolated-context launcher:
+
 ```bash
-python3 tools/verify_current_publication.py --historical
-python3 -O tools/verify_current_publication.py --historical
+python3 tools/replay_current_publication_ci.py --historical
+python3 -O tools/replay_current_publication_ci.py --historical
 ```
+
+The launcher checks the pinned scientific archive and all accepted inputs,
+then runs the unchanged publication verifier in a temporary copy. Three
+SHA-pinned discovery files retained in the clone are outside the frozen
+proof inventory; their original paths and bytes are preserved. Unknown
+additions or changed accepted inputs still fail. Use `--metadata-only` for
+source, receipt, ledger and document checks, or `--historical --plan` to
+validate the context and inspect the full command without running proofs.
+The frozen portable rank-eight archives retain their direct verifier
+commands; they already contain the exact accepted input context.
 
 The `--historical` option replays the complete dependency chain with each
 source-bound program run in its isolated compatible input snapshot. Omitting
