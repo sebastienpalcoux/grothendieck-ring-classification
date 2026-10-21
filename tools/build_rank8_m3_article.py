@@ -29,6 +29,7 @@ def tex(value):
     return ''.join({'&':r'\&','_':r'\_','%':r'\%','#':r'\#'}.get(c,c) for c in text)
 def normalize(text):
     text=re.sub(r'\$R8\\_([0-9]+)\\_([0-9]+)\$',lambda m:r'$\sha{R8_'+m[1]+'_'+m[2]+'}$',text)
+    text=re.sub(r'\\\(R8\\_([0-9]+)\\_([0-9]+)\\\)',lambda m:r'\sha{R8_'+m[1]+'_'+m[2]+'}',text)
     text=re.sub(r'R_\{8,3,([0-9]+)\}',lambda m:r'\sha{R8_3_'+m[1]+'}',text)
     return re.sub(r'\\texttt\{([^}]+)\}',lambda m:r'\path{'+m[1].replace(r'\_','_')+'}',text)
 BIB={
@@ -44,13 +45,14 @@ BIB={
 'CartanEilenberg':r'''H.~Cartan and S.~Eilenberg, \emph{Homological Algebra}, Princeton University Press (1956), Chapter~XII, Section~10.''',
 'GSAsaedaMorita':r'''P.~Grossman and N.~Snyder, \emph{The Brauer--Picard group of the Asaeda--Haagerup fusion categories}, Trans. Amer. Math. Soc. \textbf{368} (2016), 2289--2331; arXiv:1202.4396v2.''',
 'HuangOddHI2026':r'''T.-C.~Huang, \emph{Cyclic Haagerup--Izumi fusion categories at every odd order}, arXiv:2609.15986v1 (2026).''',
-'GSYOddHI2026':r'''T.~Gannon, A.~Schopieray and H.~Yadav, \emph{On Haagerup--Izumi fusion categories}, arXiv:2609.25185v1 (2026).'''}
+'GSYOddHI2026':r'''T.~Gannon, A.~Schopieray and H.~Yadav, \emph{On Haagerup--Izumi fusion categories}, arXiv:2609.25185v1 (2026).''',
+'GSHaagerup':r'''P.~Grossman and N.~Snyder, \emph{Quantum subgroups of the Haagerup fusion categories}, Comm. Math. Phys. \textbf{311} (2012), 617--643; arXiv:1102.2631v2, Theorem~1.5.'''}
 def main():
     ext=extension(ROOT)
     if ext is None:raise ValueError('Accepted M3 publication ledger required')
     rows=json.loads((ROOT/LEDGER).read_text());new=[r for r in rows if r['multiplicity']==3]
     by_id={r['id']:r for r in new};models=[r for r in json.loads((ROOT/MODELS).read_text()) if r['multiplicity']==3]
-    stated=[275,276,344,345,810,812,2492,2494,2620,2622,1051,2415,307,2132,347,916,1348,76,735,738,1422,1805,920,1453,1019,1057,1067,1197,2392,2836,2904,3082]
+    stated=[275,276,344,345,810,812,2492,2494,2620,2622,1051,2415,307,2132,347,916,1348,76,735,738,1422,1805,920,986,1453,1019,1057,1067,1197,2392,2836,2904,3082]
     if any(by_id[f'R8_3_{i}']['status']!='excluded' for i in stated):raise ValueError('A stated theorem is absent from the accepted ledger')
     text=r'''\section{The multiplicity-three continuation}
 \label{sec:m3-continuation}
@@ -157,6 +159,8 @@ identities and reconciliation without replaying the mathematics.
     structural='\n'.join((ROOT/EVIDENCE/p).read_text() for p in ('models/psl2_11/structural_m3.tex','pipeline/structural_m3.tex','models/d90_structural.tex'))
     if 'R8_3_436' in ext['unitary_excluded_ids']:
         structural+='\n'+(ROOT/EVIDENCE/'models/r436_unitary_scope.tex').read_text()
+    if 'R8_3_455' in ext['unitary_excluded_ids']:
+        structural+='\n'+(ROOT/EVIDENCE/'models/r455_unitary_scope.tex').read_text()
     (PAPER/'m3_structural.tex').write_text(normalize(structural))
     constructions=(ROOT/'tools/templates/rank8_m3_known_models.tex').read_text()+'\n'+(ROOT/EVIDENCE/'models/new_constructions.tex').read_text().replace('{CMS}','{CMSIzumiXu}').replace('{Izumi}','{IzumiNear}')
     if 'R8_3_3342' in {r['id'] for r in models}:constructions+='\n\\subsection{A twisted group-theoretical construction}\n'+(ROOT/EVIDENCE/'models/psl2_11/r360/manuscript.tex').read_text()

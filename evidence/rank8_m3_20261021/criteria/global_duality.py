@@ -95,7 +95,7 @@ def run(row,height,dest,radicands=None):
                 if radicands is not None:c['radicands']=list(radicands)
                 verify(row['tensor'],c);out.update(status='excluded',scope='general_complex_fusion_category',certificate=c)
             else:engine.verify_pseudo(row['tensor'],pseudo);out['status']='pseudo_unitary_only'
-        else:out['status']='no_conclusion'
+        else:out['status']=engine.attempt_status(report)
     except MemoryError as exc:out.update(status='resource_bound',error=repr(exc),memory_limit_mb=int(os.environ.get('RANK8_GLOBAL_MEMORY_MB','0')))
     except Exception as exc:out.update(status='error',error=repr(exc),traceback=traceback.format_exc())
     save();print(row['id'],out['status'],out['seconds'],flush=True)

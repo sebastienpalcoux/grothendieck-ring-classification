@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Rebuild the dated, one-page novelty/frontier brief using ReportLab.
+"""Rebuild the dated novelty/frontier brief using ReportLab.
 
 Run from any directory with Python 3 and reportlab installed. The default
 output is docs/New_category_candidates_and_open_cases.pdf. DejaVu Sans fonts
@@ -95,7 +95,8 @@ def main():
     c = canvas.Canvas(str(output), pagesize=A4, invariant=1, pageCompression=1)
     c.setTitle("Potentially new constructions and unresolved cases - " + date)
     c.setAuthor("AI-assisted research project of Sebastien Palcoux")
-    c.setSubject(f"Seven provisional novelty candidates; {frontier} open fusion rings; known AGL(1,7) model")
+    c.setSubject(f"Seven provisional novelty candidates; {frontier} open fusion rings; "
+                 f"one rank-seven M5 model and {m3['realized'] if m3 else 0} rank-eight M3 models")
     body = ParagraphStyle("body", fontName="Brief", fontSize=9.05, leading=12.0,
                           textColor=INK, alignment=TA_LEFT)
     small = ParagraphStyle("small", parent=body, fontSize=8.1, leading=10.6, textColor=MUTED)
@@ -249,7 +250,8 @@ def main():
     c.save()
     raw = output.read_bytes()
     print(json.dumps({"output": str(output), "pages": pages, "frontier": frontier,
-                      "novelty_candidates": 7, "known_new_models": 1,
+                      "novelty_candidates": 7, "rank7_m5_models": 1,
+                      "rank8_m3_models": m3['realized'] if m3 else 0,
                       "bytes": len(raw), "sha256": hashlib.sha256(raw).hexdigest()}))
 
 

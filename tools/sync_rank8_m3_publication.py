@@ -73,6 +73,19 @@ def main():
     path = ROOT/'site/dist/index.html'
     html = re.sub(r'>\d+ OCT 2026<','>21 OCT 2026<',path.read_text())
     path.write_text(re.sub(r'prepublication-review-2026-10-(?:19|20)\.pdf',STATUS_REPORT,html))
+    path = ROOT/'site/README.md'
+    readme = path.read_text()
+    current = ('The historical 38-case continuation records 36 decisions: 29 proposed general '
+        'exclusions and seven unitary constructions. Its two rank-six questions, '
+        '`R6_4_155` and `R6_8_1660`, remain open.\n\n'+rank7_summary(ROOT)+'\n\n'+summary(ROOT)+'\n\n'
+        'The rank-eight candidate audit distinguishes completed necessary-condition tests, '
+        'unsuccessful model searches, ineligible tests and time limits. Scoped unitary '
+        'obstructions preserve the general complex question; these candidates are not '
+        'asserted fusion categories or established exotic examples.\n\n')
+    readme, count = re.subn(r'The (?:historical 38-case continuation records|continuation records).*?(?=Ranks two, three and four)',
+                            lambda _: current, readme, count=1, flags=re.S)
+    if count != 1: raise ValueError('Unique website README classification block required')
+    path.write_text(readme)
     print('Refreshed current M3 report source and static research-status page.')
 
 if __name__ == '__main__': main()

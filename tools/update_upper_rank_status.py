@@ -7,7 +7,7 @@ import collections,csv,hashlib,json
 from pathlib import Path
 from publication_stages import load_stages
 from rank7_publication import PUBLICATION_DATE
-from rank8_publication import ledger_path as rank8_ledger, archive_path as rank8_archive, extension as rank8_extension
+from rank8_publication import ledger_path as rank8_ledger, archive_path as rank8_archive, extension as rank8_extension, EVIDENCE as RANK8_EVIDENCE
 ROOT=Path(__file__).resolve().parents[1]
 def main():
     target=ROOT/'data/classification_status.json';x=json.loads(target.read_text())
@@ -50,6 +50,7 @@ def main():
                 'optimized_replay': 'supplements/rank7/output/m5/replay_optimized.json'}
         if rank == 8 and rank8_extension(ROOT):
             x['inputs']['rank8']['extension'] = rank8_extension(ROOT)
+            x['inputs']['rank8']['residual_update'] = RANK8_EVIDENCE+'/pipeline/residual_audit.json'
         x['bundles']=[z for z in x['bundles'] if not z['name'].startswith(f'rank{rank}-')]
         x['bundles'].append({'name':a.name,'sha256':hashlib.sha256(a.read_bytes()).hexdigest()})
     if old_lower!=[r for r in x['rows'] if r['rank']<7]:raise ValueError('Lower-rank status changed')

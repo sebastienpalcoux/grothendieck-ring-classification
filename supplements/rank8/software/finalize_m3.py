@@ -75,7 +75,7 @@ def reconcile():
   require(model.get('constructors'),'model constructors missing '+rid)
   r.update(status=model['status'],models=[c.get('model',model['model']) for c in model['constructors']],model_source=relative(EVIDENCE/'models/consolidated_models.json'))
  # Unitary-only obstructions annotate rather than exclude general existence.
- unitary_paths=[EVIDENCE/'noncommutative/unitary_primary3_results.json',EVIDENCE/'models/r436_inversion_attempt.json'];unitary_ids=set()
+ unitary_paths=[EVIDENCE/'noncommutative/unitary_primary3_results.json',EVIDENCE/'models/r436_inversion_attempt.json',EVIDENCE/'models/r455_haagerup_extension.json'];unitary_ids=set()
  for unitary_path in unitary_paths:
   obj=load(unitary_path,[]);items=[obj['certificate']] if isinstance(obj,dict) and 'certificate' in obj else records(obj)
   for item in items:
@@ -134,6 +134,7 @@ def attempts(pending):
  for name in ('subring_transfer.json','quadratic_compression.json','native_eligibility.json'):
   path=EVIDENCE/'criteria'/name
   if path.exists():add(path,records(load(path)))
+ for path in sorted((EVIDENCE/'criteria').glob('*attempts.json')):add(path,records(load(path)))
  for path in sorted((EVIDENCE/'noncommutative').glob('*.json')):
   if 'validation' in path.name or path.name=='general_global_polynomial_validation.json':continue
   add(path,records(load(path)))
@@ -147,6 +148,10 @@ def attempts(pending):
  if inversionpath.exists():
   inversion=load(inversionpath)['certificate'];add(inversionpath,[inversion],stage='izumi_xu_inversion_unitary_obstruction')
   add(inversionpath,[dict(inversion,outcome='family_excluded',scope='Extensions of either known unitary Izumi-Xu near-group category by the required inversion action only; unknown nonunitary neutral categories remain open.')],stage='known_izumi_xu_inversion_lift',kind='construction')
+ haagerup_extension_path=EVIDENCE/'models/r455_haagerup_extension.json'
+ if haagerup_extension_path.exists():
+  extension=load(haagerup_extension_path)['certificate'];add(haagerup_extension_path,[extension],stage='haagerup_extension_unitary_obstruction')
+  add(haagerup_extension_path,[dict(extension,outcome='family_excluded',scope='The required rank-six-plus-two C2 extension of either known unitary Haagerup-Izumi(C3) category only; unknown nonunitary neutral categories remain open.')],stage='known_Haagerup_C2_extension',kind='construction')
  modelpath=EVIDENCE/'models/model_search_attempts.json'
  if modelpath.exists():
   obj=load(modelpath)
@@ -176,10 +181,13 @@ def attempts(pending):
  if ahpath.exists():add(ahpath,[dict(row,outcome='family_excluded') for row in records(load(ahpath))],stage='known_Asaeda_Haagerup_Morita_family_filter',kind='construction')
  out=[]
  for rid in sorted(ids,key=lambda s:int(s.rsplit('_',1)[1])):
-  unique=[];seen=set()
+  unique=[];seen={}
   for a in byid[rid]:
-   key=digest(a)
-   if key not in seen:seen.add(key);unique.append(a)
+   key=digest({k:v for k,v in a.items() if k!='source'})
+   if key not in seen:seen[key]=a;unique.append(a)
+   elif a['source']!=seen[key]['source']:
+    refs=seen[key].setdefault('source_references',[seen[key]['source']])
+    if a['source'] not in refs:refs.append(a['source'])
   out.append({'id':rid,'tensor_sha256':census[rid]['tensor_sha256'],'attempts':unique})
  return out
 

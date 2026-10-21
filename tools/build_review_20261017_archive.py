@@ -191,7 +191,7 @@ or a multiplicity restriction, then classifies its complete 1,692-ring
 finite census into 1,677 exclusions and 15 models. Its replay package is
 supplements/rank4/unrestricted; the sharp multiplicity bound is six.
 
-The 38-case continuation has 36 accepted decisions (29 proposed exclusions and
+The historical 38-case continuation has 36 accepted decisions (29 proposed exclusions and
 7 constructions). R6_4_155 and R6_8_1660 remain unresolved. Rank eight is complete
 through multiplicity two: 896 exclusions and 77 unitary models. The inner-square
 obstruction for R8_2_24 uses pivotal duality, short gauge weights and tensor-functor rigidity.

@@ -42,3 +42,25 @@ survive. The existing exact rays for R1453 still separate the contracted
 system and are rechecked; this is a validation control, not a new exclusion.
 No timeout, memory limit, or failed numerical reconstruction is an
 obstruction.
+
+The completed application R8_3_986 has 197 equations and 52,718 variables,
+down from 97,768 variables before contraction. Its 2,863 high columns form
+1,538 duality orbits, each paired with all 34 relative trace types. Both
+second-indicator branches have exact separators, and the complete
+oriented-sphericalization certificate closes all 16 signed branches. The
+saved result is `advanced/global_family/R8_3_986.json`. A separate isolated
+targeted replay under `python -O` checked the full general certificate.
+The related R8_3_65 completed its bounded contracted attempt with no
+conclusion; no model is inferred from that outcome.
+
+For numerical discovery, the phase-I formulation
+`A x + s_plus - s_minus = b`, with all variables nonnegative and objective
+`sum(s_plus+s_minus)`, uses the small number of equality rows. A positive
+optimum has dual multipliers satisfying `A^T y <= 0`, `b^T y > 0`;
+negating them gives the convention used by the exact checker. Rational
+reconstruction may use the proposed tight face, including rational choices
+for its free parameters. Every resulting coefficient and the strict
+negative right side are checked as integers. The solver is used only to
+propose certificates. `verify_global_phase_one.py` replays the saved exact
+negative control and binds the positive control to its verified model
+without importing SciPy; `--rediscover` optionally reruns numerical search.

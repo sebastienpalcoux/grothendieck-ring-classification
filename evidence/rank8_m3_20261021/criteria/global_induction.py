@@ -168,7 +168,7 @@ def check(A,b,y,nvars,raise_error=True):
     if raise_error:require(okay,'global induction integer Farkas certificate fails')
     return okay
 
-def farkas(A,b,nvars):
+def farkas(A,b,nvars,box_normalization=False):
     import numpy as np
     from scipy.optimize import linprog
     from scipy.sparse import coo_matrix,csr_matrix,csc_matrix,eye,hstack,vstack
@@ -181,20 +181,45 @@ def farkas(A,b,nvars):
     # Free dual variables plus an infinity-norm epigraph avoid explicitly
     # duplicating every nonzero as separate positive/negative coordinates.
     # Feasibility is exactly the same Farkas system; this is discovery only.
-    zero=csc_matrix((nvars,1));one=-np.ones((m,1));identity=eye(m,format='csc')
-    constraints=vstack([hstack([-M.T,zero],format='csc'),csc_matrix(np.r_[rhs,0.][None,:]),hstack([identity,one],format='csc'),hstack([-identity,one],format='csc')],format='csc')
     start=time.monotonic()
-    objective=np.r_[np.zeros(m),1.]
-    sol=linprog(objective,A_ub=constraints,b_ub=np.r_[np.zeros(nvars),-1.,np.zeros(2*m)],bounds=[(None,None)]*m+[(0,None)],method='highs',options={'time_limit':90})
-    farkas.last_status={'solver_status':int(sol.status),'solver_message':sol.message,'solver_seconds':round(time.monotonic()-start,3),'solver_limit_seconds':90}
-    if not sol.success:return None
-    ray=sol.x[:m]/scale;ray/=max(abs(ray))
+    zero=one=identity=None
+    if box_normalization:
+        # Solve the primal phase-I formulation with only m equality rows.
+        # Its dual multipliers have the opposite sign to our Farkas convention.
+        identity=eye(m,format='csc');constraints=hstack([M,identity,-identity],format='csc')
+        sol=linprog(np.r_[np.zeros(nvars),np.ones(2*m)],A_eq=constraints,b_eq=rhs,bounds=(0,None),method='highs',options={'time_limit':90})
+    else:
+        zero=csc_matrix((nvars,1));one=-np.ones((m,1));identity=eye(m,format='csc')
+        constraints=vstack([hstack([-M.T,zero],format='csc'),csc_matrix(np.r_[rhs,0.][None,:]),hstack([identity,one],format='csc'),hstack([-identity,one],format='csc')],format='csc')
+        objective=np.r_[np.zeros(m),1.]
+        failed_memory=None
+        try:sol=linprog(objective,A_ub=constraints,b_ub=np.r_[np.zeros(nvars),-1.,np.zeros(2*m)],bounds=[(None,None)]*m+[(0,None)],method='highs',options={'time_limit':90})
+        except MemoryError as exc:failed_memory=repr(exc)
+        if failed_memory is not None:
+            del constraints,identity,zero,one,M
+            answer=farkas(A,b,nvars,True)
+            farkas.last_status['previous_normalization']={'normalization':'minimax','status':'resource_bound','error':failed_memory}
+            return answer
+    farkas.last_status={'normalization':'primal_phase_one' if box_normalization else 'minimax','solver_status':int(sol.status),'solver_message':sol.message,'solver_objective':float(sol.fun) if sol.fun is not None else None,'solver_seconds':round(time.monotonic()-start,3),'solver_limit_seconds':90}
+    if not sol.success:
+        if not box_normalization and 'memory limit' in sol.message.lower():
+            previous=dict(farkas.last_status);del constraints,identity,zero,one,M
+            answer=farkas(A,b,nvars,True);farkas.last_status['previous_normalization']=previous;return answer
+        return None
+    if box_normalization and sol.fun<=1e-8:return None
+    ray=(-np.asarray(sol.eqlin.marginals) if box_normalization else sol.x[:m])/scale;ray/=max(abs(ray))
+    farkas.last_status.update(numeric_row_functional=list(map(float,ray)),numeric_bTy=float(np.dot(np.asarray(b,dtype=float),ray)),numeric_min_Aty=float(np.min(M.T@(ray*scale))),reconstruction_attempts=[])
     del constraints,identity,zero,one
     for maximum in (100,1000,10000,100000,1000000,10000000):
         zz=[Q(float(x)).limit_denominator(maximum) for x in ray];den=math.lcm(*(z.denominator for z in zz));out=[int(z*den) for z in zz]
         divisor=math.gcd(*out) or 1;out=[z//divisor for z in out]
         if check(A,b,out,nvars,False):return out
-    support=np.flatnonzero(abs(ray)>1e-9).tolist();active=np.flatnonzero(abs(M.T@(ray*scale))<1e-6).tolist()
+        values=[0]*nvars
+        for row,yi in zip(A,out):
+            if yi:
+                for j,x in row.items():values[j]+=yi*x
+        farkas.last_status['reconstruction_attempts'].append({'maximum_denominator':maximum,'minimum_Aty':min(values),'negative_columns':sum(x<0 for x in values),'bTy':sum(x*z for x,z in zip(b,out))})
+    support=np.flatnonzero(abs(ray)>1e-12).tolist();active=np.flatnonzero(abs(M.T@(ray*scale))<1e-10).tolist()
     columns={j:[] for j in active}
     for i in support:
         for j,x in A[i].items():
@@ -212,13 +237,35 @@ def farkas(A,b,nvars):
             c=reduced[pivot];basis[pivot]=[x/c for x in reduced];equations.append(row)
         if len(equations)>=len(support)-1:break
     equations.append([b[i] for i in support]);C=s.Matrix(equations);target=s.zeros(C.rows,1);target[-1]=-1
-    try:solution,parameters=C.gauss_jordan_solve(target)
-    except ValueError:return None
-    if parameters.rows:return None
+    def unresolved():
+        # A different bounded normalization can expose a simpler rational face.
+        # It remains only a numerical proposal, checked by the same exact test.
+        if box_normalization:return None
+        previous=dict(farkas.last_status);answer=farkas(A,b,nvars,True)
+        farkas.last_status['previous_normalization']=previous
+        return answer
+    farkas.last_status.update(exact_face_support=len(support),exact_face_columns=len(active),exact_face_equations=C.rows)
+    try:solution,parameters,free=C.gauss_jordan_solve(target,freevar=True)
+    except ValueError:return unresolved()
+    farkas.last_status['exact_face_parameters']=parameters.rows
+    if parameters.rows:
+        numerical=ray/(-float(np.dot(np.asarray(b,dtype=float),ray)))
+        for maximum in (1000,1000000,1000000000):
+            substitutions={parameters[k,0]:s.Rational(Q(float(numerical[support[j]])).limit_denominator(maximum)) for k,j in enumerate(free)}
+            candidate=solution.subs(substitutions);den=math.lcm(*(int(x.q) for x in candidate));out=[0]*m
+            for i,x in zip(support,candidate):out[i]=int(x*den)
+            if check(A,b,out,nvars,False):return out
+        return unresolved()
     den=math.lcm(*(int(x.q) for x in solution));out=[0]*m
     for i,x in zip(support,solution):out[i]=int(x*den)
-    return out if check(A,b,out,nvars,False) else None
+    return out if check(A,b,out,nvars,False) else unresolved()
 farkas.last_status={}
+
+def attempt_status(report):
+    message=report.get('search_status',{}).get('solver_message','').lower()
+    if 'memory limit' in message or 'out of memory' in message:return 'resource_bound'
+    if 'time limit' in message:return 'timeout'
+    return 'no_conclusion'
 
 def certificate(R,height=4,progress=None,seeds=()):
     a=setup(R);rows,rhs,ir,metadata=build(R,a,height);print(metadata,flush=True);cases=[];rays=[]
@@ -292,7 +339,7 @@ def main():
                 c={'kind':'global_convex_induction_lift','general':general};verify(row['tensor'],c)
                 out.update(status='excluded',scope='general',certificate=c)
             else:verify_pseudo(row['tensor'],pseudo);out['status']='pseudo_unitary_only'
-        else:out['status']='no_conclusion'
+        else:out['status']=attempt_status(report)
     except MemoryError as exc:out.update(status='resource_bound',memory_limit_mb=int(os.environ.get('RANK8_GLOBAL_MEMORY_MB','0')),error=repr(exc))
     except Exception as exc:out.update(status='error',error=repr(exc),traceback=traceback.format_exc())
     save();print(args.ring,out['status'],out['seconds'],flush=True)
