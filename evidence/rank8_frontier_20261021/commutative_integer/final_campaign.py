@@ -27,7 +27,6 @@ CONTROLS = (
 )
 REPLAYS = (
     'quadratic/phase_integer_65.py',
-    'quadratic/phase_65.py',
     'commutative_integer/r982.py',
     'commutative_integer/r982_joint_probe.py',
     'commutative_integer/r982_unit_pair_probe.py',
@@ -92,7 +91,7 @@ def build():
     require(d65.get('rounds') and 'final_metadata' in d65, 'R65 final cut campaign lacks closure')
     records.append({'id': 'R8_3_65', 'status': d65['status'],
         'evidence': [q65, 'quadratic/joint_atomic_integer_65_results.json', 'quadratic/phase_65_results.json'],
-        'exact_replay': [['quadratic/phase_integer_65.py'], ['quadratic/phase_65.py']],
+        'exact_replay': [['quadratic/phase_integer_65.py']],
         'completed_scope': 'Complete support/Gram/S/cubic/joint-spectrum domain, finite exact bounds, selected integer-pattern phase tests and globally valid phase-fiber cuts.',
         'limitation': 'The bounded proposal/cut campaign is not exhaustive integer-center enumeration. A necessary-system witness is not a category; a pseudo-unitary obstruction requires a separate general lift.'})
 

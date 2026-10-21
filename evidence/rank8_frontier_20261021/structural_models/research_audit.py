@@ -19,7 +19,7 @@ SCREENING_FOCUS = {
 982:'Complete connected-algebra underlying-object filters and all four labeled central-induction frames tested; all four pass signed lattice membership, two selected integer witnesses fail every allowed fixed-mass phase branch, and the other two frames have exact bounded rational witnesses; specified unbounded model families excluded, while other integer patterns remain unresolved.',
 1154:'General Galois-PU reduction; all 14,211 integer central Gram patterns filtered to 1,238 cubic/spectral survivors and 1,230 exact joint rotation/STS survivors; complete connected-algebra underlying-object necessary filters and specified unbounded model families tested.',
 1768:'Complete rank-two based-module and connected-algebra underlying-object necessary filters; every proper subring, grading and nontrivial group-equivariantization tested; joint integer Gram/S/cubic/Galois and source-unit constraints pass signed lattice membership without a bounded nonnegative integer witness; specified unbounded construction families tested.',
-1795:'Complete rank-two based-module necessary data and connected-algebra underlying-object necessary filters; every proper subring, grading and nontrivial finite-group equivariantization tested; exact global central constraints and specified unbounded construction families tested.',
+1795:'Complete rank-two based-module and connected-algebra underlying-object filters; all proper subrings, gradings and group-equivariantization routes tested; strengthened integer central equations pass exact box and mod2/mod3 checks, while capped Hermite work determines no integer-lattice status and bounded search yields no exact integer witness; specified unbounded model families tested.',
 3472:'Complete rank-two based-module and connected-algebra underlying-object filters; all proper subrings, gradings and group-equivariantization routes tested; full-character spectral support, joint Galois balance and strengthened integer equations pass the recorded exact box/modular screens, with bounded integer search inconclusive and no claim of exhausting larger-field STS.'}
 SCREENING_DEFINITION = ('Extensively investigated exotic candidate means that the ring survived the documented, case-specific campaign of known and newly developed exclusion tests and explicit model searches, including complete finite domains and specified unbounded construction families. It proves neither existence of a fusion category nor novelty of a future realization. Each case lists exactly what was exhausted, what survived and the remaining hypotheses.')
 ACTIVE_STATES={'running','queued','discovery_in_progress','constructing_complete_domain',
@@ -757,6 +757,8 @@ def main():
     require(not args.mark_screening_complete or args.write,'screening completion requires explicit --write')
     actual=record(use_screening=not args.mark_screening_complete)
     if args.mark_screening_complete:
+        require(actual['research_status']=='completed_scoped_campaign',
+                'the accepted ledger has not declared the scoped campaign complete')
         queue_path,_=completed_queue()
         final_paths=completed_final_domains()
         running=[(row['id'],attempt['domain'])for row in actual['rows']for attempt in row['new_attempts']

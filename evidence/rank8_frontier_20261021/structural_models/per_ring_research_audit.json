@@ -1,9 +1,9 @@
 {
   "schema": "rank8-frontier-per-ring-research-audit/v1",
   "scope": "research coverage and source binding; linked proof verifiers provide mathematical replay",
-  "research_status": "ongoing",
+  "research_status": "completed_scoped_campaign",
   "baseline_ring_count": 34,
-  "accepted_general_exclusions": 17,
+  "accepted_general_exclusions": 25,
   "candidate_terminology": "After completed extensive known/new exclusion and construction screening, a remaining ring may be called an extensively investigated exotic candidate in the user-defined sense; categorifiability and novelty remain unproved.",
   "rows": [
     {
@@ -11,7 +11,7 @@
       "tensor_sha256": "fb2d70fa36311b2092190eb1ecd5e3e82fd4ab7ff646b11aa7c7e518d261a1c4",
       "general_status": "unresolved",
       "categorification_or_novelty_proved": false,
-      "screening_stage": "active_structural_and_construction_research",
+      "screening_stage": "extensively_investigated_exotic_candidate",
       "prior_unitary_status": "not_separately_decided",
       "prior_unitary_obstruction_source": null,
       "prior_published_attempts": [
@@ -1590,6 +1590,7 @@
           "proof": "evidence/rank8_frontier_20261021/global_induction/ATOMIC_SPECTRUM.md",
           "details": {
             "height": 4,
+            "variant": null,
             "frame_index": null,
             "rows": 211,
             "variables": 6521,
@@ -1597,13 +1598,63 @@
             "high_columns": 772,
             "complete_exact_certificate": true
           }
+        },
+        {
+          "domain": "packed_complete_sparse_phase_one",
+          "outcome": "exact_feasible_relaxation",
+          "scope": "pseudo_unitary_induction_relaxation",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/global_induction/complete_results/R8_3_65_cm_real_sts_h4.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/global_induction/complete_phase_one.py"
+          ],
+          "limitation": "A running/partial computation is incomplete; a feasible relaxation does not construct integer center data or an associator.",
+          "proof": "evidence/rank8_frontier_20261021/quadratic/CM_REAL_STS.md",
+          "details": {
+            "height": 4,
+            "variant": "cm_real_sts",
+            "frame_index": null,
+            "rows": 283,
+            "variables": 6521,
+            "low_frames": null,
+            "high_columns": 772,
+            "complete_exact_certificate": true
+          }
+        },
+        {
+          "domain": "final_joint_integer_Gram_full_S_cubic_Galois_bounds_unit_product_and_scoped_phase_screen",
+          "outcome": "integer_search_inconclusive_after_exact_global_cuts",
+          "scope": "necessary_center_data_scoped_by_each_source_receipt",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/commutative_integer/final_campaign.json",
+            "evidence/rank8_frontier_20261021/quadratic/phase_integer_65_results.json",
+            "evidence/rank8_frontier_20261021/quadratic/joint_atomic_integer_65_results.json",
+            "evidence/rank8_frontier_20261021/quadratic/phase_65_results.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/commutative_integer/verify_research.py",
+            "evidence/rank8_frontier_20261021/quadratic/phase_integer_65.py"
+          ],
+          "limitation": "The bounded proposal/cut campaign is not exhaustive integer-center enumeration. A necessary-system witness is not a category; a pseudo-unitary obstruction requires a separate general lift.",
+          "proof": "evidence/rank8_frontier_20261021/commutative_integer/PROOF.md",
+          "details": {
+            "completed_scope": "Complete support/Gram/S/cubic/joint-spectrum domain, finite exact bounds, selected integer-pattern phase tests and globally valid phase-fiber cuts.",
+            "exact_replay": [
+              [
+                "quadratic/phase_integer_65.py"
+              ]
+            ]
+          }
         }
       ],
       "limitations": [
         "No completed search here exhausts all complex associators or all constructions.",
         "A feasible necessary-condition system is not a categorification.",
         "Extensively investigated exotic candidate is a research-screening description, not a proof of categorifiability or novelty."
-      ]
+      ],
+      "screening_case_specific_focus": "Free C4 generalized-near-group structure; complete rank-two based-module and connected-algebra underlying-object necessary filters; all nontrivial group-equivariantizations and the specified integer-scaling/Morita routes from standard Haagerup-Izumi sources excluded; full character-field, CM-real STS, joint integer central constraints and exact global phase cuts tested, with subsequent bounded integer search inconclusive.",
+      "screening_definition": "Extensively investigated exotic candidate means that the ring survived the documented, case-specific campaign of known and newly developed exclusion tests and explicit model searches, including complete finite domains and specified unbounded construction families. It proves neither existence of a fusion category nor novelty of a future realization. Each case lists exactly what was exhausted, what survived and the remaining hypotheses."
     },
     {
       "id": "R8_3_436",
@@ -4307,9 +4358,9 @@
     {
       "id": "R8_3_439",
       "tensor_sha256": "dd40ef78c0af51291aedd91134123f7177c18cc9de9c9d3b039a6308bb340791",
-      "general_status": "unresolved",
+      "general_status": "excluded",
       "categorification_or_novelty_proved": false,
-      "screening_stage": "active_structural_and_construction_research",
+      "screening_stage": "general_exclusion_accepted_after_review",
       "prior_unitary_status": "not_separately_decided",
       "prior_unitary_obstruction_source": null,
       "prior_published_attempts": [
@@ -5627,7 +5678,7 @@
         },
         {
           "domain": "complete_C3_Fourier_difference_representations",
-          "outcome": "two conjugate necessary Fourier representations; no exclusion or construction",
+          "outcome": "accepted_general_exclusion",
           "scope": "general_complex_necessary_module_constraints",
           "evidence": [
             "evidence/rank8_frontier_20261021/quadratic/cubic_split_module_results.json"
@@ -5799,20 +5850,314 @@
               ]
             ]
           }
+        },
+        {
+          "domain": "complete_integral_center_subcategory_divisibility_and_solvability",
+          "outcome": "all_nonunit_integral_dimensional_center_simples_excluded",
+          "scope": "general_complex_necessary_center_structure",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/review/integral_center_subcategory.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/review/integral_center_subcategory.py"
+          ],
+          "limitation": "This structural theorem is not alone a categorification exclusion; it also applies to the specified R439 Morita dual, not to every category with its positive rank-five based ring.",
+          "proof": "evidence/rank8_frontier_20261021/review/INTEGRAL_CENTER_SUBCATEGORY.md",
+          "details": {
+            "id": "R8_3_439",
+            "tensor_sha256": "dd40ef78c0af51291aedd91134123f7177c18cc9de9c9d3b039a6308bb340791",
+            "FP_dimensions": [
+              [
+                1,
+                0
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                3,
+                2
+              ],
+              [
+                3,
+                2
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            "integral_source_labels": [
+              0,
+              1,
+              2,
+              3,
+              6,
+              7
+            ],
+            "global_FP_dimension": [
+              48,
+              24
+            ],
+            "center_FP_dimension": [
+              4032,
+              2304
+            ],
+            "center_FP_dimension_norm": 331776,
+            "integral_center_subcategory_dimension_divides": 576,
+            "integral_center_subcategory_dimension_prime_support": [
+              2,
+              3
+            ],
+            "source_invertibles": [
+              0,
+              1,
+              2,
+              3,
+              6,
+              7
+            ],
+            "central_source_invertibles": [
+              0
+            ],
+            "adjoint_closure": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "center_invertibles": "trivial"
+          }
+        },
+        {
+          "domain": "all_eight_indicator_branches_height6_rotation_without_integral_center_simples",
+          "outcome": "one_exact_necessary_indicator_branch_survives",
+          "scope": "general_complex_necessary_after_proved_Galois_PU_reduction",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/integral_center_filter/R8_3_439_h6.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/integral_center_filter/verify_original.py"
+          ],
+          "limitation": "The exact surviving primal is a necessary relaxation; the subsequent integer Gram and cubic tests strengthen it.",
+          "proof": "evidence/rank8_frontier_20261021/integral_center_filter/README.md",
+          "details": {
+            "high_column_count": 45,
+            "forbidden_integral_indices": [
+              13,
+              34
+            ],
+            "branch_count": 8,
+            "exact_negative_count": 7,
+            "exact_primal_count": 1
+          }
+        },
+        {
+          "domain": "complete_integer_central_Gram_domain_of_forced_rank5_Morita_dual",
+          "outcome": "58_exact_integer_Gram_patterns_survive",
+          "scope": "general_complex_necessary_after_Galois_and_Morita_reductions",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/rank5_integer_gram/results.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/rank5_integer_gram/verify.py"
+          ],
+          "limitation": "The two complete integer enumerations certify necessary multiplicities; all58 are tested by the subsequent cubic exclusion.",
+          "proof": "evidence/rank8_frontier_20261021/rank5_integer_gram/PROOF.md",
+          "details": {
+            "rank5_tensor_sha256": "84487a759f44be4a988082680fa8c3b28bcd0d159d639f38409825e19c5761e6",
+            "low_frame_index": 12,
+            "high_vector_count": 38,
+            "forbidden_integral_indices": [
+              9,
+              17,
+              19,
+              27
+            ],
+            "spectral_forbidden_indices": [
+              37
+            ],
+            "enumeration": {
+              "first_row_complete_multiset_domain": 1260,
+              "first_row_survivors": 22,
+              "second_row_survivors": 114,
+              "distinct_tail_Gram_targets": 83
+            },
+            "complete_integer_Gram_pattern_count": 58
+          }
+        },
+        {
+          "domain": "integral_columns_restored_rank5_Gram_and_all_twenty_low_cubic_control",
+          "outcome": "exact_necessary_data_control_passes",
+          "scope": "arithmetic_positive_control_for_essential_integral_center_filter",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/rank5_integer_gram/positive_control.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/rank5_integer_gram/positive_control.py"
+          ],
+          "limitation": "exact Gram and all twenty distinguished low cubic coefficients; not asserted to be an actual categorical center",
+          "proof": "evidence/rank8_frontier_20261021/rank5_integer_gram/PROOF.md",
+          "details": {
+            "complete_integer_control_domain_count": 402,
+            "selected_pattern_index": 245,
+            "nonunit_integral_high_indices": [
+              9,
+              19
+            ],
+            "cubic_values": [
+              [
+                "2"
+              ],
+              [],
+              [],
+              [],
+              [
+                "5"
+              ],
+              [],
+              [],
+              [
+                "2"
+              ],
+              [
+                "2"
+              ],
+              [
+                "2"
+              ],
+              [
+                "5"
+              ],
+              [],
+              [],
+              [
+                "4"
+              ],
+              [
+                "4"
+              ],
+              [
+                "4"
+              ],
+              [],
+              [],
+              [],
+              []
+            ]
+          }
+        },
+        {
+          "domain": "all_58_forced_rank5_integer_Gram_patterns_distinguished_cubic_Verlinde_coefficient",
+          "outcome": "accepted_general_exclusion",
+          "scope": "general_complex_fusion_categories: first use independently certified Galois-pseudo-unitary and full-S3 Morita reductions; then a single distinguished cubic Verlinde coefficient excludes every remaining integer Gram completion",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/r439_centerless_rank5/verlinde_exclusion.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/r439_centerless_rank5/verlinde_exclusion.py"
+          ],
+          "limitation": "General status is supplied only by the reviewed accepted ledger; the cubic normalization has a known Fibonacci-center control as well as the separate restored-integral-column control.",
+          "proof": "evidence/rank8_frontier_20261021/r439_centerless_rank5/PROOF.md",
+          "details": {
+            "integer_Gram_pattern_count": 58,
+            "coefficient_histogram": [
+              {
+                "descending_power_basis": [
+                  "-1/144",
+                  "35/24"
+                ],
+                "pattern_count": 16
+              },
+              {
+                "descending_power_basis": [
+                  "-1/72",
+                  "31/12"
+                ],
+                "pattern_count": 6
+              },
+              {
+                "descending_power_basis": [
+                  "-5/288",
+                  "37/16"
+                ],
+                "pattern_count": 16
+              },
+              {
+                "descending_power_basis": [
+                  "1/3"
+                ],
+                "pattern_count": 16
+              },
+              {
+                "descending_power_basis": [
+                  "1/36",
+                  "-5/6"
+                ],
+                "pattern_count": 4
+              }
+            ],
+            "known_model_control": {
+              "source": "Fibonacci fusion category",
+              "distinguished_restrictions": [
+                [
+                  1,
+                  0
+                ],
+                [
+                  1,
+                  1
+                ]
+              ],
+              "high_restriction": [
+                0,
+                1
+              ],
+              "high_multiplicity": 2,
+              "cubic_fusion_coefficient": 1
+            }
+          }
         }
       ],
       "limitations": [
         "No completed search here exhausts all complex associators or all constructions.",
         "A feasible necessary-condition system is not a categorification.",
         "Extensively investigated exotic candidate is a research-screening description, not a proof of categorifiability or novelty."
-      ]
+      ],
+      "accepted_certificate": {
+        "kind": "forced_Morita_dual_integral_center_Gram_cubic_Verlinde",
+        "scope": "general_complex_fusion_category",
+        "evidence": "evidence/rank8_frontier_20261021/r439_centerless_rank5/verlinde_exclusion.json",
+        "proof": "evidence/rank8_frontier_20261021/r439_centerless_rank5/PROOF.md",
+        "verifiers": [
+          "evidence/rank8_frontier_20261021/r439_centerless_rank5/verlinde_exclusion.py",
+          "evidence/rank8_frontier_20261021/review/verify_r439_verlinde.py"
+        ]
+      }
     },
     {
       "id": "R8_3_455",
       "tensor_sha256": "358b5323c54c66e80684b34dbe39d7bff44c5fe227bb8fb188794a0a9a722d88",
-      "general_status": "unresolved",
+      "general_status": "excluded",
       "categorification_or_novelty_proved": false,
-      "screening_stage": "active_structural_and_construction_research",
+      "screening_stage": "general_exclusion_accepted_after_review",
       "prior_unitary_status": "excluded",
       "prior_unitary_obstruction_source": "evidence/rank8_m3_20261021/models/r455_haagerup_extension.json",
       "prior_published_attempts": [
@@ -9590,20 +9935,114 @@
             "full_S_surviving_count": 1,
             "splitting_field_extension_by_i_used": false
           }
+        },
+        {
+          "domain": "complete_integer_Gram_twenty_low_cubic_and_Galois_center_domain",
+          "outcome": "12_necessary_integer_patterns_survive_before_joint_rotations",
+          "scope": "general_complex_necessary_after_proved_Galois_PU_reduction",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/r455_center_integer/results.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/r455_center_integer/verify.py"
+          ],
+          "limitation": "These twelve necessary patterns are all excluded by the subsequent complete joint rotation domain.",
+          "proof": "evidence/rank8_frontier_20261021/r455_center_integer/PROOF.md",
+          "details": {
+            "complete_integer_Gram_count": 812,
+            "enumeration": {
+              "reduced_Gram": [
+                [
+                  4,
+                  4,
+                  0,
+                  0
+                ],
+                [
+                  4,
+                  16,
+                  0,
+                  0
+                ],
+                [
+                  0,
+                  0,
+                  12,
+                  18
+                ],
+                [
+                  0,
+                  0,
+                  18,
+                  66
+                ]
+              ],
+              "block_solution_counts": [
+                14,
+                58
+              ]
+            },
+            "cubic_survivor_count": 24,
+            "all_filter_survivor_count": 12
+          }
+        },
+        {
+          "domain": "all_48_integer_pattern_and_indicator_branches_joint_height6_rotation_STS",
+          "outcome": "accepted_general_exclusion",
+          "scope": "general_complex_necessary_after_proved_Galois_PU_reduction",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/r455_center_integer/joint_rotation.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/r455_center_integer/verify_all.py"
+          ],
+          "limitation": "General status follows the separately reviewed accepted ledger and exact full trace-domain completeness.",
+          "proof": "evidence/rank8_frontier_20261021/r455_center_integer/PROOF.md",
+          "details": {
+            "complete_branch_count": 48,
+            "all_patterns_excluded": true,
+            "actual_known_center_and_trace_controls": {
+              "old_biquadratic_height": 6,
+              "old_biquadratic_order_bound": 288,
+              "old_biquadratic_trace_types": 38,
+              "direct_cyclotomic_orders": [
+                12,
+                13,
+                24,
+                26,
+                52,
+                156
+              ],
+              "direct_root_orbits_checked": 108,
+              "actual_known_center_control": "Z(Vec(C2)): full STS and all joint tensor rotations through height6"
+            }
+          }
         }
       ],
       "limitations": [
         "No completed search here exhausts all complex associators or all constructions.",
         "A feasible necessary-condition system is not a categorification.",
         "Extensively investigated exotic candidate is a research-screening description, not a proof of categorifiability or novelty."
-      ]
+      ],
+      "accepted_certificate": {
+        "kind": "complete_integer_central_cubic_monodromy_correlated_rotation_STS_obstruction",
+        "scope": "general_complex_fusion_category",
+        "evidence": "evidence/rank8_frontier_20261021/r455_center_integer/results.json",
+        "proof": "evidence/rank8_frontier_20261021/r455_center_integer/PROOF.md",
+        "verifiers": [
+          "evidence/rank8_frontier_20261021/noncommutative_followup/additional_scope_gates.py",
+          "evidence/rank8_frontier_20261021/r455_center_integer/verify_all.py",
+          "evidence/rank8_frontier_20261021/r455_review/verify_direct.py",
+          "evidence/rank8_frontier_20261021/review/verify_r455_trace_sts.py"
+        ]
+      }
     },
     {
       "id": "R8_3_567",
       "tensor_sha256": "0efab5b3d7571872f46dd6ccc95c4b228123b252062d758318ee51834288ef4d",
-      "general_status": "unresolved",
+      "general_status": "excluded",
       "categorification_or_novelty_proved": false,
-      "screening_stage": "active_structural_and_construction_research",
+      "screening_stage": "general_exclusion_accepted_after_review",
       "prior_unitary_status": "not_separately_decided",
       "prior_unitary_obstruction_source": null,
       "prior_published_attempts": [
@@ -10865,7 +11304,7 @@
         },
         {
           "domain": "complete_C3_Fourier_difference_representations",
-          "outcome": "two conjugate necessary Fourier representations; no exclusion or construction",
+          "outcome": "accepted_general_exclusion",
           "scope": "general_complex_necessary_module_constraints",
           "evidence": [
             "evidence/rank8_frontier_20261021/quadratic/cubic_split_module_results.json"
@@ -11037,20 +11476,242 @@
               ]
             ]
           }
+        },
+        {
+          "domain": "complete_integral_center_subcategory_divisibility_and_solvability",
+          "outcome": "all_nonunit_integral_dimensional_center_simples_excluded",
+          "scope": "general_complex_necessary_center_structure",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/review/integral_center_subcategory.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/review/integral_center_subcategory.py"
+          ],
+          "limitation": "This structural theorem is not alone a categorification exclusion; it also applies to the specified R439 Morita dual, not to every category with its positive rank-five based ring.",
+          "proof": "evidence/rank8_frontier_20261021/review/INTEGRAL_CENTER_SUBCATEGORY.md",
+          "details": {
+            "id": "R8_3_567",
+            "tensor_sha256": "0efab5b3d7571872f46dd6ccc95c4b228123b252062d758318ee51834288ef4d",
+            "FP_dimensions": [
+              [
+                1,
+                0
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                3,
+                2
+              ],
+              [
+                3,
+                2
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                1,
+                0
+              ],
+              [
+                1,
+                0
+              ]
+            ],
+            "integral_source_labels": [
+              0,
+              1,
+              2,
+              5,
+              6,
+              7
+            ],
+            "global_FP_dimension": [
+              48,
+              24
+            ],
+            "center_FP_dimension": [
+              4032,
+              2304
+            ],
+            "center_FP_dimension_norm": 331776,
+            "integral_center_subcategory_dimension_divides": 576,
+            "integral_center_subcategory_dimension_prime_support": [
+              2,
+              3
+            ],
+            "source_invertibles": [
+              0,
+              1,
+              2,
+              5,
+              6,
+              7
+            ],
+            "central_source_invertibles": [
+              0
+            ],
+            "adjoint_closure": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "center_invertibles": "trivial"
+          }
+        },
+        {
+          "domain": "all_eight_indicator_branches_height6_rotation_without_integral_center_simples",
+          "outcome": "one_exact_necessary_indicator_branch_survives",
+          "scope": "general_complex_necessary_after_proved_Galois_PU_reduction",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/integral_center_filter/R8_3_567_h6.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/integral_center_filter/verify_original.py"
+          ],
+          "limitation": "The exact surviving primal is a necessary relaxation; the subsequent integer Gram and cubic tests strengthen it.",
+          "proof": "evidence/rank8_frontier_20261021/integral_center_filter/README.md",
+          "details": {
+            "high_column_count": 45,
+            "forbidden_integral_indices": [
+              0,
+              34
+            ],
+            "branch_count": 8,
+            "exact_negative_count": 7,
+            "exact_primal_count": 1
+          }
+        },
+        {
+          "domain": "joint_height6_rotation_with_full_complex_partial_S_integrality_and_no_integral_center",
+          "outcome": "exact_feasible_relaxation; exact_infeasible_relaxation",
+          "scope": "general_complex_necessary_after_proved_Galois_PU_reduction",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/r567_centerless_integer/rotation_spectral.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/r567_centerless_integer/rotation_spectral.py",
+            "evidence/rank8_frontier_20261021/r567_centerless_integer/source.py"
+          ],
+          "limitation": "This rational relaxation remains feasible; the subsequent complete integer Gram and cubic tests are stronger.",
+          "proof": "evidence/rank8_frontier_20261021/r567_centerless_integer/GRAM_PROOF.md",
+          "details": {
+            "complete_high_vector_count": 45,
+            "integral_forbidden_indices": [
+              0,
+              34
+            ],
+            "spectral_forbidden_indices": [
+              9,
+              13,
+              16,
+              24,
+              27,
+              30,
+              32,
+              33,
+              42
+            ],
+            "branch_statuses": [
+              "exact_feasible_relaxation",
+              "exact_infeasible_relaxation",
+              "exact_infeasible_relaxation",
+              "exact_infeasible_relaxation",
+              "exact_infeasible_relaxation",
+              "exact_infeasible_relaxation",
+              "exact_infeasible_relaxation",
+              "exact_infeasible_relaxation"
+            ]
+          }
+        },
+        {
+          "domain": "complete_original_R567_integer_central_Gram_and_duality_domain",
+          "outcome": "155_duality_compatible_necessary_patterns_survive",
+          "scope": "general_complex_necessary_after_proved_Galois_PU_reduction",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/r567_centerless_integer/gram.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/r567_centerless_integer/source.py",
+            "evidence/rank8_frontier_20261021/r567_centerless_integer/gram.py"
+          ],
+          "limitation": "Two complete integer enumerations agree on1071 Grams before duality;155 remain for subsequent cubic tests, without a center construction.",
+          "proof": "evidence/rank8_frontier_20261021/r567_centerless_integer/GRAM_PROOF.md",
+          "details": {
+            "low_index": 2,
+            "integer_Gram_count": 1071,
+            "duality_compatible_count": 155,
+            "enumeration": {
+              "u_multiset_domain": 331,
+              "u_row_survivors": 4,
+              "w_multiset_domain_per_u": 1821,
+              "u_w_row_survivors": 56,
+              "distinct_tail_Gram_targets": 34
+            }
+          }
+        },
+        {
+          "domain": "all_155_duality_compatible_integer_Gram_patterns_distinguished_cubic_Verlinde_coefficient",
+          "outcome": "accepted_general_exclusion",
+          "scope": "general_complex_after_reviewed_Galois_PU_reduction_and_integral_center_theorem",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/r567_centerless_integer/verlinde_exclusion.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/r567_centerless_integer/verlinde_exclusion.py"
+          ],
+          "limitation": "The accepted ledger alone controls the general status; complete integer domains and exact cubic values are separately replayed.",
+          "proof": "evidence/rank8_frontier_20261021/r567_centerless_integer/PROOF.md",
+          "details": {
+            "complete_integer_Gram_count": 1071,
+            "complete_duality_compatible_count": 155,
+            "coefficient_histogram": {
+              "1/3": 84,
+              "4/3": 71
+            },
+            "actual_known_model_control": {
+              "source": "Fibonacci center Fib x Fib^rev",
+              "distinguished_simple": "(X,X)",
+              "cubic_fusion_coefficient": 1
+            }
+          }
         }
       ],
       "limitations": [
         "No completed search here exhausts all complex associators or all constructions.",
         "A feasible necessary-condition system is not a categorification.",
         "Extensively investigated exotic candidate is a research-screening description, not a proof of categorifiability or novelty."
-      ]
+      ],
+      "accepted_certificate": {
+        "kind": "integral_center_Gram_cubic_Verlinde",
+        "scope": "general_complex_fusion_category",
+        "evidence": "evidence/rank8_frontier_20261021/r567_centerless_integer/verlinde_exclusion.json",
+        "proof": "evidence/rank8_frontier_20261021/r567_centerless_integer/PROOF.md",
+        "verifiers": [
+          "evidence/rank8_frontier_20261021/r567_centerless_integer/verlinde_exclusion.py",
+          "evidence/rank8_frontier_20261021/review/verify_r567_verlinde.py"
+        ]
+      }
     },
     {
       "id": "R8_3_721",
       "tensor_sha256": "76e26a815651476dfda5c2aa654f0d1327bdc890e08086cb6dbfe39ef9a1cdc5",
       "general_status": "unresolved",
       "categorification_or_novelty_proved": false,
-      "screening_stage": "active_structural_and_construction_research",
+      "screening_stage": "extensively_investigated_exotic_candidate",
       "prior_unitary_status": "not_separately_decided",
       "prior_unitary_obstruction_source": null,
       "prior_published_attempts": [
@@ -12362,6 +13023,30 @@
           }
         },
         {
+          "domain": "latest_complete_joint_Galois_spectra_and_correlated_semion_integer_attempts",
+          "outcome": "documented_finite_domains_finished",
+          "scope": "general_complex_necessary_after_proved_Galois_PU_reduction",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/r928_semion_rotation/final_campaign.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/r928_semion_rotation/verify_all.py",
+            "evidence/rank8_frontier_20261021/r928_semion_rotation/charged_joint_spectrum.py",
+            "evidence/rank8_frontier_20261021/noncommutative_joint_spectrum/verify.py",
+            "evidence/rank8_frontier_20261021/r928_semion_rotation/final_campaign.py"
+          ],
+          "limitation": "Six bounded R928 integer searches remain unresolved integer-feasibility problems; numerical negative solver outcomes are not exclusions. Exact positive integer witnesses are necessary data only.",
+          "proof": "evidence/rank8_frontier_20261021/review/QUARTIC_CENTRAL_ORBITS.md",
+          "details": {
+            "id": "R8_3_721",
+            "joint_spectrum": {
+              "status": "exact_complete",
+              "input_patterns": 4,
+              "surviving_patterns": 4
+            }
+          }
+        },
+        {
           "domain": "complete_central_image_low_induction_and_Gram_moment_constraints",
           "outcome": "necessary_data_survives",
           "scope": "general_complex_necessary_after_proved_Galois_PU_reduction",
@@ -12613,7 +13298,9 @@
         "No completed search here exhausts all complex associators or all constructions.",
         "A feasible necessary-condition system is not a categorification.",
         "Extensively investigated exotic candidate is a research-screening description, not a proof of categorifiability or novelty."
-      ]
+      ],
+      "screening_case_specific_focus": "All six known Asaeda-Haagerup Morita categories compared; all integer-scaled near-group sources and all-level SU(2)/adjoint families excluded; complete integer central Gram domain, rotation/STS/cubic/forgetful constraints and connected-algebra underlying-object necessary filters tested.",
+      "screening_definition": "Extensively investigated exotic candidate means that the ring survived the documented, case-specific campaign of known and newly developed exclusion tests and explicit model searches, including complete finite domains and specified unbounded construction families. It proves neither existence of a fusion category nor novelty of a future realization. Each case lists exactly what was exhausted, what survived and the remaining hypotheses."
     },
     {
       "id": "R8_3_731",
@@ -14701,6 +15388,7 @@
           "proof": "evidence/rank8_frontier_20261021/global_induction/LOW_S_SYMMETRY.md",
           "details": {
             "height": 4,
+            "variant": null,
             "frame_index": null,
             "rows": 197,
             "variables": 25775,
@@ -14730,9 +15418,9 @@
     {
       "id": "R8_3_903",
       "tensor_sha256": "1eebe018caedb2e1a4564301214ed1c5943f348378e98eb3828ae4e798f4f958",
-      "general_status": "unresolved",
+      "general_status": "excluded",
       "categorification_or_novelty_proved": false,
-      "screening_stage": "active_structural_and_construction_research",
+      "screening_stage": "general_exclusion_accepted_after_review",
       "prior_unitary_status": "not_separately_decided",
       "prior_unitary_obstruction_source": null,
       "prior_published_attempts": [
@@ -15614,11 +16302,35 @@
           "proof": "evidence/rank8_frontier_20261021/global_induction/PROOF.md",
           "details": {
             "height": 4,
+            "variant": null,
             "frame_index": null,
             "rows": 197,
             "variables": 139149,
             "low_frames": 58398,
             "high_columns": 4472,
+            "complete_exact_certificate": true
+          }
+        },
+        {
+          "domain": "packed_complete_sparse_phase_one",
+          "outcome": "excluded",
+          "scope": "general_complex_fusion_category",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/global_induction/complete_results/R8_3_903_sts_frame_h4.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/global_induction/complete_phase_one.py"
+          ],
+          "limitation": "A running/partial computation is incomplete; a feasible relaxation does not construct integer center data or an associator.",
+          "proof": "evidence/rank8_frontier_20261021/global_induction/PROOF.md",
+          "details": {
+            "height": 4,
+            "variant": "sts_frame",
+            "frame_index": null,
+            "rows": 341,
+            "variables": 52127,
+            "low_frames": 4,
+            "high_columns": 2919,
             "complete_exact_certificate": true
           }
         }
@@ -15627,7 +16339,17 @@
         "No completed search here exhausts all complex associators or all constructions.",
         "A feasible necessary-condition system is not a categorification.",
         "Extensively investigated exotic candidate is a research-screening description, not a proof of categorifiability or novelty."
-      ]
+      ],
+      "accepted_certificate": {
+        "kind": "complete_character_labeled_modular_STS_signed_induction",
+        "scope": "general_complex_fusion_category",
+        "evidence": "evidence/rank8_frontier_20261021/global_induction/complete_results/R8_3_903_sts_frame_h4.json",
+        "proof": "evidence/rank8_frontier_20261021/quadratic/STS_903_REVIEW.md",
+        "verifiers": [
+          "evidence/rank8_frontier_20261021/global_induction/verify_accepted_complete.py",
+          "evidence/rank8_frontier_20261021/quadratic/review_sts_903.py"
+        ]
+      }
     },
     {
       "id": "R8_3_921",
@@ -20405,6 +21127,7 @@
           "proof": "evidence/rank8_frontier_20261021/global_induction/PROOF.md",
           "details": {
             "height": 4,
+            "variant": null,
             "frame_index": null,
             "rows": 197,
             "variables": 161339,
@@ -21789,6 +22512,7 @@
           "proof": "evidence/rank8_frontier_20261021/global_induction/PARTIAL_S_AND_STS.md",
           "details": {
             "height": 4,
+            "variant": null,
             "frame_index": null,
             "rows": 197,
             "variables": 49618,
@@ -21819,7 +22543,7 @@
       "tensor_sha256": "94dfb90235dbb3ba95864a1be23437943ea3b1316ec82ca44baf419262890614",
       "general_status": "unresolved",
       "categorification_or_novelty_proved": false,
-      "screening_stage": "active_structural_and_construction_research",
+      "screening_stage": "extensively_investigated_exotic_candidate",
       "prior_unitary_status": "not_separately_decided",
       "prior_unitary_obstruction_source": null,
       "prior_published_attempts": [
@@ -22885,6 +23609,156 @@
           }
         },
         {
+          "domain": "complete_integer_Gram_and_all_twenty_distinguished_cubic_coefficients",
+          "outcome": "343_exact_necessary_integer_patterns_survive",
+          "scope": "general_complex_necessary_after_proved_Galois_PU_reduction",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/quartic_integer_center/gram_cubic.json",
+            "evidence/rank8_frontier_20261021/quartic_integer_center/source.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/quartic_integer_center/source.py",
+            "evidence/rank8_frontier_20261021/quartic_integer_center/gram_cubic.py"
+          ],
+          "limitation": "All343 patterns are necessary center data; their existence does not construct a modular category.",
+          "proof": "evidence/rank8_frontier_20261021/quartic_integer_center/PROOF.md",
+          "details": {
+            "complete_joint_pattern_count": 343,
+            "native_search_nodes": 1665,
+            "independent_Python_nodes": 561
+          }
+        },
+        {
+          "domain": "forced_order_two_central_lift_and_complete_tensor_orbit_graph",
+          "outcome": "central_invertible_forced_in_all_integer_patterns",
+          "scope": "general_complex_necessary_after_proved_Galois_PU_reduction",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/review/quartic_central_orbits.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/review/verify_quartic_central_orbits.py"
+          ],
+          "limitation": "A central lift does not imply a tensor-factor decomposition of the nonbraided source category.",
+          "proof": "evidence/rank8_frontier_20261021/review/QUARTIC_CENTRAL_ORBITS.md",
+          "details": {
+            "source_invertible_index": 7,
+            "forced_low_translate_high_indices": [
+              40,
+              41,
+              42,
+              43,
+              57
+            ]
+          }
+        },
+        {
+          "domain": "all_semion_parity_patterns_with_fixed_even_twist_moments",
+          "outcome": "exact_feasible_relaxation; exact_infeasible_relaxation",
+          "scope": "general_complex_necessary_after_proved_Galois_PU_reduction",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/r928_semion_rotation/results.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/r928_semion_rotation/verify.py"
+          ],
+          "limitation": "These are finite necessary moment systems; exact primal survival is not a semionic construction.",
+          "proof": "evidence/rank8_frontier_20261021/review/QUARTIC_CENTRAL_ORBITS.md",
+          "details": {
+            "complete_case_count": 15,
+            "exact_infeasible_count": 5,
+            "exact_feasible_count": 10
+          }
+        },
+        {
+          "domain": "complete_correlated_semion_pair_twist_cones",
+          "outcome": "exact_feasible_relaxation",
+          "scope": "general_complex_necessary_after_proved_Galois_PU_reduction",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/r928_semion_rotation/pair_rotation.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/r928_semion_rotation/pair_rotation.py"
+          ],
+          "limitation": "These are finite necessary moment systems; exact primal survival is not a semionic construction.",
+          "proof": "evidence/rank8_frontier_20261021/review/QUARTIC_CENTRAL_ORBITS.md",
+          "details": {
+            "complete_case_count": 10,
+            "exact_infeasible_count": 0,
+            "exact_feasible_count": 10
+          }
+        },
+        {
+          "domain": "latest_complete_joint_Galois_spectra_and_correlated_semion_integer_attempts",
+          "outcome": "documented_finite_domains_finished",
+          "scope": "general_complex_necessary_after_proved_Galois_PU_reduction",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/r928_semion_rotation/final_campaign.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/r928_semion_rotation/verify_all.py",
+            "evidence/rank8_frontier_20261021/r928_semion_rotation/charged_joint_spectrum.py",
+            "evidence/rank8_frontier_20261021/noncommutative_joint_spectrum/verify.py",
+            "evidence/rank8_frontier_20261021/r928_semion_rotation/final_campaign.py"
+          ],
+          "limitation": "Six bounded R928 integer searches remain unresolved integer-feasibility problems; numerical negative solver outcomes are not exclusions. Exact positive integer witnesses are necessary data only.",
+          "proof": "evidence/rank8_frontier_20261021/review/QUARTIC_CENTRAL_ORBITS.md",
+          "details": {
+            "id": "R8_3_928",
+            "joint_spectrum": {
+              "status": "exact_complete",
+              "input_patterns": 343,
+              "surviving_patterns": 255
+            },
+            "semion_fixed_moments": {
+              "status": "exact_complete",
+              "outcomes": {
+                "exact_feasible_relaxation": 10,
+                "exact_infeasible_relaxation": 5
+              }
+            },
+            "correlated_semion_pairs": {
+              "status": "exact_complete",
+              "outcomes": {
+                "exact_feasible_relaxation": 10
+              }
+            },
+            "bounded_integer_search": {
+              "status": "bounded_attempt_finished",
+              "outcomes": {
+                "exact_nonnegative_integer_witness": 4,
+                "integer_feasibility_unresolved": 6
+              },
+              "exact_integer_witness_indices": [
+                40,
+                49,
+                186,
+                191
+              ],
+              "uncertified_integer_indices": [
+                44,
+                58,
+                196,
+                243,
+                245,
+                248
+              ],
+              "numeric_negative_is_exclusion": false
+            },
+            "supported_modular_lattices": {
+              "status": "exact_finite_tests_complete",
+              "tested_primes": [
+                2,
+                3,
+                5,
+                7,
+                11,
+                13
+              ],
+              "new_exclusions": 0
+            }
+          }
+        },
+        {
           "domain": "complete_central_image_low_induction_and_Gram_moment_constraints",
           "outcome": "necessary_data_survives",
           "scope": "general_complex_necessary_after_proved_Galois_PU_reduction",
@@ -23253,14 +24127,16 @@
         "No completed search here exhausts all complex associators or all constructions.",
         "A feasible necessary-condition system is not a categorification.",
         "Extensively investigated exotic candidate is a research-screening description, not a proof of categorifiability or novelty."
-      ]
+      ],
+      "screening_case_specific_focus": "General Galois-PU reduction and quaternionic rational block; complete joint integer Gram/cubic domain forces a central semion, leaving 15 parity patterns and ten exact correlated height-six moment witnesses; four exact integer witnesses and six explicitly unresolved bounded integer attempts; connected-algebra underlying-object filters and specified unbounded model families tested.",
+      "screening_definition": "Extensively investigated exotic candidate means that the ring survived the documented, case-specific campaign of known and newly developed exclusion tests and explicit model searches, including complete finite domains and specified unbounded construction families. It proves neither existence of a fusion category nor novelty of a future realization. Each case lists exactly what was exhausted, what survived and the remaining hypotheses."
     },
     {
       "id": "R8_3_941",
       "tensor_sha256": "8ae4007492dee167ab8b3f4f16310ee368482da03696e20ed7cceea34bec64e6",
       "general_status": "unresolved",
       "categorification_or_novelty_proved": false,
-      "screening_stage": "active_structural_and_construction_research",
+      "screening_stage": "extensively_investigated_exotic_candidate",
       "prior_unitary_status": "not_separately_decided",
       "prior_unitary_obstruction_source": null,
       "prior_published_attempts": [
@@ -24474,6 +25350,572 @@
           }
         },
         {
+          "domain": "complete_integer_Gram_and_all_twenty_distinguished_cubic_coefficients",
+          "outcome": "343_exact_necessary_integer_patterns_survive",
+          "scope": "general_complex_necessary_after_proved_Galois_PU_reduction",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/quartic_integer_center/gram_cubic.json",
+            "evidence/rank8_frontier_20261021/quartic_integer_center/source.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/quartic_integer_center/source.py",
+            "evidence/rank8_frontier_20261021/quartic_integer_center/gram_cubic.py"
+          ],
+          "limitation": "All343 patterns are necessary center data; their existence does not construct a modular category.",
+          "proof": "evidence/rank8_frontier_20261021/quartic_integer_center/PROOF.md",
+          "details": {
+            "complete_joint_pattern_count": 343,
+            "native_search_nodes": 1665,
+            "independent_Python_nodes": 561
+          }
+        },
+        {
+          "domain": "forced_order_two_central_lift_and_complete_tensor_orbit_graph",
+          "outcome": "central_invertible_forced_in_all_integer_patterns",
+          "scope": "general_complex_necessary_after_proved_Galois_PU_reduction",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/review/quartic_central_orbits.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/review/verify_quartic_central_orbits.py"
+          ],
+          "limitation": "A central lift does not imply a tensor-factor decomposition of the nonbraided source category.",
+          "proof": "evidence/rank8_frontier_20261021/review/QUARTIC_CENTRAL_ORBITS.md",
+          "details": {
+            "source_invertible_index": 3,
+            "forced_low_translate_high_indices": [
+              40,
+              41,
+              42,
+              43,
+              57
+            ]
+          }
+        },
+        {
+          "domain": "complete_bosonic_central_lift_quotient_and_fermionic_alternative",
+          "outcome": "bosonic_branch_excluded_fermionic_lift_forced",
+          "scope": "general_complex_necessary_after_proved_Galois_PU_reduction",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/quartic_integer_center/r941_fermionic.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/quartic_integer_center/r941_fermionic.py"
+          ],
+          "limitation": "The ordinary rank-four bound applies only to the Tannakian branch; no ordinary rank-four classification is imposed on a fermionic quotient.",
+          "proof": "evidence/rank8_frontier_20261021/quartic_integer_center/R941_FERMION.md",
+          "details": {
+            "id": "R8_3_941",
+            "tensor_sha256": "8ae4007492dee167ab8b3f4f16310ee368482da03696e20ed7cceea34bec64e6",
+            "order_two_object": 3,
+            "free_source_permutation": [
+              3,
+              2,
+              1,
+              0,
+              5,
+              4,
+              7,
+              6
+            ],
+            "bosonic_branch": {
+              "outcome": "excluded_by_unrestricted_rank_four_bound",
+              "orbits": [
+                [
+                  0,
+                  3
+                ],
+                [
+                  1,
+                  2
+                ],
+                [
+                  4,
+                  5
+                ],
+                [
+                  6,
+                  7
+                ]
+              ],
+              "quotient_tensor": [
+                [
+                  [
+                    1,
+                    0,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    1,
+                    0,
+                    0
+                  ],
+                  [
+                    0,
+                    0,
+                    1,
+                    0
+                  ],
+                  [
+                    0,
+                    0,
+                    0,
+                    1
+                  ]
+                ],
+                [
+                  [
+                    0,
+                    1,
+                    0,
+                    0
+                  ],
+                  [
+                    1,
+                    2,
+                    2,
+                    4
+                  ],
+                  [
+                    0,
+                    2,
+                    2,
+                    3
+                  ],
+                  [
+                    0,
+                    4,
+                    3,
+                    4
+                  ]
+                ],
+                [
+                  [
+                    0,
+                    0,
+                    1,
+                    0
+                  ],
+                  [
+                    0,
+                    2,
+                    2,
+                    3
+                  ],
+                  [
+                    1,
+                    2,
+                    2,
+                    2
+                  ],
+                  [
+                    0,
+                    3,
+                    2,
+                    4
+                  ]
+                ],
+                [
+                  [
+                    0,
+                    0,
+                    0,
+                    1
+                  ],
+                  [
+                    0,
+                    4,
+                    3,
+                    4
+                  ],
+                  [
+                    0,
+                    3,
+                    2,
+                    4
+                  ],
+                  [
+                    1,
+                    4,
+                    4,
+                    6
+                  ]
+                ]
+              ],
+              "quotient_global_dimension": "72+48sqrt(2)+40sqrt(3)+28sqrt(6)",
+              "historical_label": "F_{6,19}",
+              "historical_source_to_quotient_basis_map": [
+                0,
+                3,
+                1,
+                2
+              ],
+              "dependencies": [
+                {
+                  "path": "manuscripts/rank4/papers/companion_sections/14_finite_certification.tex",
+                  "sha256": "0ec47c3c3da2c46bfee20b06214b9f7704edea841955cb2c86b7b0522f199e8b"
+                },
+                {
+                  "path": "supplements/rank4/data/historical_32.json.gz",
+                  "sha256": "61a5c638e7d20d4e7fa33c9bcb8bb787c3735ebfebb59e024d761c2139be9c51"
+                },
+                {
+                  "path": "supplements/rank4/data/through32_mapping.json.gz",
+                  "sha256": "d88e7333de292167d5fce39d5c311efc9614d0f47a89adbf0eda1819a2c4c632"
+                }
+              ]
+            },
+            "fermionic_branch": {
+              "outcome": "necessary_central_lift_has_twist_minus_one",
+              "translated_low_twists": [
+                {
+                  "low_index": 0,
+                  "high_index": 40,
+                  "monodromy": 1,
+                  "forced_twist": -1,
+                  "moments_1_through_6": [
+                    -1,
+                    1,
+                    -1,
+                    1,
+                    -1,
+                    1
+                  ]
+                },
+                {
+                  "low_index": 1,
+                  "high_index": 41,
+                  "monodromy": 1,
+                  "forced_twist": -1,
+                  "moments_1_through_6": [
+                    -1,
+                    1,
+                    -1,
+                    1,
+                    -1,
+                    1
+                  ]
+                },
+                {
+                  "low_index": 2,
+                  "high_index": 42,
+                  "monodromy": 1,
+                  "forced_twist": -1,
+                  "moments_1_through_6": [
+                    -1,
+                    1,
+                    -1,
+                    1,
+                    -1,
+                    1
+                  ]
+                },
+                {
+                  "low_index": 3,
+                  "high_index": 43,
+                  "monodromy": 1,
+                  "forced_twist": -1,
+                  "moments_1_through_6": [
+                    -1,
+                    1,
+                    -1,
+                    1,
+                    -1,
+                    1
+                  ]
+                },
+                {
+                  "low_index": 4,
+                  "high_index": 57,
+                  "monodromy": -1,
+                  "forced_twist": 1,
+                  "moments_1_through_6": [
+                    1,
+                    1,
+                    1,
+                    1,
+                    1,
+                    1
+                  ]
+                }
+              ]
+            },
+            "source_receipt_sha256": "83edb031f16d7aa1f1c7c4f3578e11f4da3b86adeae6fd3fc88f8f54ad1f92d4",
+            "gram_receipt_sha256": "484c887ee83f0584436deba2ab85e1c24cf58c98bae384c254acd4a76779c65a",
+            "scope": "under the independently verified Galois-PU reduction, unique central lift and positive source indicator; no rank-four bound is applied to a fermionic quotient"
+          }
+        },
+        {
+          "domain": "complete_integer_fermion_monodromy_charge_allocations",
+          "outcome": "exact_charge_allocations_survive",
+          "scope": "general_complex_necessary_after_proved_Galois_PU_reduction",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/quartic_integer_center/r941_charges.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/quartic_integer_center/r941_charges.py"
+          ],
+          "limitation": "A surviving charge allocation fixes necessary eigenvalue multiplicities only; it is not a center or associator.",
+          "proof": "evidence/rank8_frontier_20261021/quartic_integer_center/R941_FERMION.md",
+          "details": {
+            "input_Gram_cubic_patterns": 343,
+            "surviving_pattern_count": 68,
+            "complete_charge_allocation_count": 93,
+            "rref_assignments_tested": 446,
+            "independent_full_box_assignments_tested": 41664
+          }
+        },
+        {
+          "domain": "all_direct_rank_two_super_products_and_specified_published_near_group_center_routes",
+          "outcome": "specified_super_construction_families_excluded",
+          "scope": "general_complex_scoped_construction_obstructions",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/quartic_integer_center/r941_super_constructions.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/quartic_integer_center/r941_super_constructions.py"
+          ],
+          "limitation": "No classification of general rank-four superfusion categories, arbitrary superalgebra condensations, or mixed construction chains is asserted.",
+          "proof": "evidence/rank8_frontier_20261021/quartic_integer_center/R941_FERMION.md",
+          "details": {
+            "id": "R8_3_941",
+            "tensor_sha256": "8ae4007492dee167ab8b3f4f16310ee368482da03696e20ed7cceea34bec64e6",
+            "quotient_receipt_sha256": "eef4760f4887b137da99e9cde6950ae662694e7684516899c474bcd7c9cbc015",
+            "quotient_rank": 4,
+            "quotient_simple_types": [
+              "m",
+              "m",
+              "m",
+              "m"
+            ],
+            "all_unit_containing_subsets_tested": 8,
+            "all_quotient_fusion_subrings": [
+              [
+                0
+              ],
+              [
+                0,
+                1,
+                2,
+                3
+              ]
+            ],
+            "direct_tensor_products_of_two_rank_two_supercategories": "excluded_by_all_m_type_and_absence_of_rank_two_subring",
+            "quotient_global_dimension_polynomial": [
+              1,
+              -288,
+              2880,
+              -9216,
+              9216
+            ],
+            "specified_near_group_center_families": [
+              {
+                "type": "near_group_order_6_multiplicity_6",
+                "source_global_dimension": "6*sqrt(15) + 30",
+                "center_global_dimension": "360*sqrt(15) + 1440",
+                "dimension_field": "Q(sqrt(15))",
+                "outcome": "every_rational_rescaling_of_these_center_dimensions_differs_from_quartic_target"
+              },
+              {
+                "type": "near_group_order_8_multiplicity_8",
+                "source_global_dimension": "16*sqrt(6) + 48",
+                "center_global_dimension": "1536*sqrt(6) + 3840",
+                "dimension_field": "Q(sqrt(6))",
+                "outcome": "every_rational_rescaling_of_these_center_dimensions_differs_from_quartic_target"
+              }
+            ],
+            "primary_sources": [
+              {
+                "url": "https://arxiv.org/abs/1709.01941",
+                "locator": "Section4.1.3, with free fermion action giving m-type orbit simples"
+              },
+              {
+                "url": "https://arxiv.org/abs/2208.02757",
+                "locator": "Section3 and AppendixE; rank-two computations cover stated low multiplicities, completeness beyond them is conjectural"
+              },
+              {
+                "url": "https://arxiv.org/abs/2305.09108",
+                "locator": "Introduction theorem(a),(b): centers of types C6+6 and C2xC4+8, pointed-factor removal and bosonic condensation"
+              }
+            ],
+            "scope": "specified direct super tensor-product and published near-group-center constructions only",
+            "limitation": "No classification of general rank-four superfusion categories, arbitrary superalgebra condensations, or mixed construction chains is asserted."
+          }
+        },
+        {
+          "domain": "all_fermion_charge_allocations_correlated_height6_rotation_STS_and_fermion_S_row",
+          "outcome": "exact_feasible_relaxation; exact_infeasible_relaxation",
+          "scope": "general_complex_necessary_after_proved_Galois_PU_reduction",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/quartic_integer_center/r941_paired_rotation.json",
+            "evidence/rank8_frontier_20261021/review/r941_fermion_operator_review.json",
+            "evidence/rank8_frontier_20261021/review/r941_fermion_campaign_review.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/quartic_integer_center/r941_paired_rotation.py",
+            "evidence/rank8_frontier_20261021/review/verify_r941_fermion_operator.py",
+            "evidence/rank8_frontier_20261021/review/verify_r941_fermion_campaign.py"
+          ],
+          "limitation": "The complete finite correlated cone is necessary data and does not classify superfusion associators.",
+          "proof": "evidence/rank8_frontier_20261021/quartic_integer_center/R941_FERMION.md",
+          "details": {
+            "complete_charge_allocation_count": 93,
+            "input_integer_pattern_count": 343,
+            "charge_surviving_pattern_count": 68,
+            "exact_excluded_count": 77,
+            "exact_feasible_count": 16
+          }
+        },
+        {
+          "domain": "all_sixteen_surviving_correlated_fermion_cones_supported_modular_and_bounded_integer_attempts",
+          "outcome": "finite_attempts_finished_with_exact_witnesses_or_explicit_unresolved_integer_feasibility",
+          "scope": "general_complex_necessary_after_proved_Galois_PU_reduction",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/quartic_integer_center/r941_integer_counts.json",
+            "evidence/rank8_frontier_20261021/review/r941_integer_witness_review.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/quartic_integer_center/r941_integer_counts.py",
+            "evidence/rank8_frontier_20261021/review/verify_r941_integer_witnesses.py"
+          ],
+          "limitation": "complete supported modular tests at primes2,3,5,7,11,13 and one30-second/20000-node bounded MIP attempt per surviving cone; numerical infeasibility is not an exact exclusion",
+          "proof": "evidence/rank8_frontier_20261021/quartic_integer_center/R941_FERMION.md",
+          "details": {
+            "status": "all_planned_integer_count_attempts_finished",
+            "planned_allocation_indices": [
+              4,
+              8,
+              19,
+              21,
+              31,
+              34,
+              43,
+              45,
+              56,
+              60,
+              72,
+              73,
+              77,
+              79,
+              85,
+              86
+            ],
+            "exact_integer_witness_count": 12,
+            "exact_modular_exclusion_count": 0,
+            "unresolved_integer_feasibility_count": 4
+          }
+        },
+        {
+          "domain": "complete_involutive_permutation_fixed_point_bounds_and_420_mixed_fusion_traces_per_charge_allocation",
+          "outcome": "fourteen_correlated_survivors_eleven_integer_witnesses_three_unresolved_integer_cases",
+          "scope": "general_complex_necessary_after_proved_Galois_PU_reduction",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/review/r941_fusion_traces.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/review/verify_r941_fusion_traces.py"
+          ],
+          "limitation": "This final finite necessary-condition gate removes two earlier witnesses; fourteen moment systems remain, with no categorical construction implied.",
+          "proof": "evidence/rank8_frontier_20261021/review/R941_FUSION_TRACE_REVIEW.md",
+          "details": {
+            "status": "exact_complete",
+            "complete_charge_allocation_count": 93,
+            "mixed_traces_per_allocation": 420,
+            "actual_center_control": {
+              "model": "Z(Ising)",
+              "center_rank": 9,
+              "actual_fixed_fermion_objects": 3,
+              "mixed_integer_matrix_trace_identities": 56
+            },
+            "paired_surviving_allocations": [
+              8,
+              19,
+              21,
+              31,
+              34,
+              43,
+              45,
+              56,
+              60,
+              72,
+              73,
+              77,
+              79,
+              85
+            ],
+            "paired_allocations_removed": [
+              4,
+              86
+            ],
+            "retained_exact_integer_witness_allocations": [
+              8,
+              19,
+              21,
+              31,
+              34,
+              43,
+              45,
+              56,
+              60,
+              72,
+              73
+            ],
+            "retained_integer_feasibility_unresolved": [
+              77,
+              79,
+              85
+            ]
+          }
+        },
+        {
+          "domain": "proposed_negative_scalar_character_obstruction_for_a_central_fermion",
+          "outcome": "universal_implication_refuted_by_an_actual_unitary_pointed_counterexample",
+          "scope": "scoped_obstruction_validation",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/review/fermion_no_negative_character.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/review/fermion_no_negative_character.py"
+          ],
+          "limitation": "This counterexample rejects an invalid universal implication; it neither constructs nor excludes R941.",
+          "proof": "evidence/rank8_frontier_20261021/review/FERMION_DIMENSION_CHARACTER_COUNTEREXAMPLE.md",
+          "details": {
+            "counterexample": "explicit unitary Vec^omega(Q8) with a freely acting central fermion but every scalar character positive on its source label"
+          }
+        },
+        {
+          "domain": "latest_complete_joint_Galois_spectra_and_correlated_semion_integer_attempts",
+          "outcome": "documented_finite_domains_finished",
+          "scope": "general_complex_necessary_after_proved_Galois_PU_reduction",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/r928_semion_rotation/final_campaign.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/r928_semion_rotation/verify_all.py",
+            "evidence/rank8_frontier_20261021/r928_semion_rotation/charged_joint_spectrum.py",
+            "evidence/rank8_frontier_20261021/noncommutative_joint_spectrum/verify.py",
+            "evidence/rank8_frontier_20261021/r928_semion_rotation/final_campaign.py"
+          ],
+          "limitation": "Six bounded R928 integer searches remain unresolved integer-feasibility problems; numerical negative solver outcomes are not exclusions. Exact positive integer witnesses are necessary data only.",
+          "proof": "evidence/rank8_frontier_20261021/review/QUARTIC_CENTRAL_ORBITS.md",
+          "details": {
+            "id": "R8_3_941",
+            "joint_spectrum": {
+              "status": "exact_complete",
+              "input_patterns": 343,
+              "surviving_patterns": 255
+            },
+            "charged_joint_spectrum": {
+              "status": "exact_complete",
+              "input_allocations": 93,
+              "surviving_allocations": 93,
+              "surviving_patterns": 68
+            }
+          }
+        },
+        {
           "domain": "complete_central_image_low_induction_and_Gram_moment_constraints",
           "outcome": "necessary_data_survives",
           "scope": "general_complex_necessary_after_proved_Galois_PU_reduction",
@@ -24842,14 +26284,16 @@
         "No completed search here exhausts all complex associators or all constructions.",
         "A feasible necessary-condition system is not a categorification.",
         "Extensively investigated exotic candidate is a research-screening description, not a proof of categorifiability or novelty."
-      ]
+      ],
+      "screening_case_specific_focus": "General Galois-PU reduction; complete joint integer Gram/cubic domain forces a central fermion after the ordinary rank-four quotient excludes the bosonic branch; 93 complete charge allocations give 77 exact correlated-cone exclusions; the final permutation and mixed-fusion-trace filter retains fourteen moment witnesses, eleven with exact integer counts and three unresolved bounded integer attempts; superproduct and specified unbounded model routes tested.",
+      "screening_definition": "Extensively investigated exotic candidate means that the ring survived the documented, case-specific campaign of known and newly developed exclusion tests and explicit model searches, including complete finite domains and specified unbounded construction families. It proves neither existence of a fusion category nor novelty of a future realization. Each case lists exactly what was exhausted, what survived and the remaining hypotheses."
     },
     {
       "id": "R8_3_982",
       "tensor_sha256": "f4a9fb77b3a78e9dcd8370ca9fa822ea331f1b71e3fad7990efdd386445fcd1c",
       "general_status": "unresolved",
       "categorification_or_novelty_proved": false,
-      "screening_stage": "active_structural_and_construction_research",
+      "screening_stage": "extensively_investigated_exotic_candidate",
       "prior_unitary_status": "not_separately_decided",
       "prior_unitary_obstruction_source": null,
       "prior_published_attempts": [
@@ -25732,6 +27176,7 @@
           "proof": "evidence/rank8_frontier_20261021/global_induction/PARTIAL_S_AND_STS.md",
           "details": {
             "height": 4,
+            "variant": null,
             "frame_index": null,
             "rows": 341,
             "variables": 67291,
@@ -25754,6 +27199,7 @@
           "proof": "evidence/rank8_frontier_20261021/global_induction/PROOF.md",
           "details": {
             "height": 4,
+            "variant": "sts_frame",
             "frame_index": null,
             "rows": 341,
             "variables": 67291,
@@ -25761,13 +27207,63 @@
             "high_columns": 3791,
             "complete_exact_certificate": true
           }
+        },
+        {
+          "domain": "final_joint_integer_Gram_full_S_cubic_Galois_bounds_unit_product_and_scoped_phase_screen",
+          "outcome": "completed_four_frame_scoped_integer_and_phase_screen",
+          "scope": "necessary_center_data_scoped_by_each_source_receipt",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/commutative_integer/final_campaign.json",
+            "evidence/rank8_frontier_20261021/commutative_integer/R8_3_982_frame0.json",
+            "evidence/rank8_frontier_20261021/commutative_integer/R8_3_982_frame1.json",
+            "evidence/rank8_frontier_20261021/commutative_integer/R8_3_982_frame2.json",
+            "evidence/rank8_frontier_20261021/commutative_integer/R8_3_982_frame3.json",
+            "evidence/rank8_frontier_20261021/commutative_integer/R8_3_982_frame2_phases_h4.json",
+            "evidence/rank8_frontier_20261021/commutative_integer/R8_3_982_frame3_phases_h4.json",
+            "evidence/rank8_frontier_20261021/commutative_integer/R8_3_982_joint_probe.json",
+            "evidence/rank8_frontier_20261021/commutative_integer/R8_3_982_unit_pair_probe.json",
+            "evidence/rank8_frontier_20261021/commutative_integer/R8_3_982_remaining_linear.json",
+            "evidence/rank8_frontier_20261021/commutative_integer/R8_3_982_rational.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/commutative_integer/verify_research.py",
+            "evidence/rank8_frontier_20261021/commutative_integer/r982.py",
+            "evidence/rank8_frontier_20261021/commutative_integer/r982_joint_probe.py",
+            "evidence/rank8_frontier_20261021/commutative_integer/r982_phases.py",
+            "evidence/rank8_frontier_20261021/commutative_integer/r982_rational.py",
+            "evidence/rank8_frontier_20261021/commutative_integer/r982_unit_pair_probe.py"
+          ],
+          "limitation": "The two selected-pattern phase obstructions do not reject all integer patterns. Numerical MILP infeasibility proposals for the other frames are not proofs. The ring remains unresolved.",
+          "proof": "evidence/rank8_frontier_20261021/commutative_integer/PROOF.md",
+          "details": {
+            "completed_scope": "Four complete labeled low frames: exact signed lattice membership for all; exact bounded rational primals for frames0/1; integer/cubic/joint-Galois/unit-product witnesses for frames2/3, each rejected by all8 fixed-mass phase indicator cases.",
+            "exact_replay": [
+              [
+                "commutative_integer/r982.py"
+              ],
+              [
+                "commutative_integer/r982_joint_probe.py"
+              ],
+              [
+                "commutative_integer/r982_unit_pair_probe.py"
+              ],
+              [
+                "commutative_integer/r982_phases.py"
+              ],
+              [
+                "commutative_integer/r982_rational.py"
+              ]
+            ]
+          }
         }
       ],
       "limitations": [
         "No completed search here exhausts all complex associators or all constructions.",
         "A feasible necessary-condition system is not a categorification.",
         "Extensively investigated exotic candidate is a research-screening description, not a proof of categorifiability or novelty."
-      ]
+      ],
+      "screening_case_specific_focus": "Complete connected-algebra underlying-object filters and all four labeled central-induction frames tested; all four pass signed lattice membership, two selected integer witnesses fail every allowed fixed-mass phase branch, and the other two frames have exact bounded rational witnesses; specified unbounded model families excluded, while other integer patterns remain unresolved.",
+      "screening_definition": "Extensively investigated exotic candidate means that the ring survived the documented, case-specific campaign of known and newly developed exclusion tests and explicit model searches, including complete finite domains and specified unbounded construction families. It proves neither existence of a fusion category nor novelty of a future realization. Each case lists exactly what was exhausted, what survived and the remaining hypotheses."
     },
     {
       "id": "R8_3_985",
@@ -26657,6 +28153,7 @@
           "proof": "evidence/rank8_frontier_20261021/global_induction/PARTIAL_S_AND_STS.md",
           "details": {
             "height": 4,
+            "variant": null,
             "frame_index": null,
             "rows": 341,
             "variables": 54609,
@@ -29553,6 +31050,7 @@
           "proof": "evidence/rank8_frontier_20261021/global_induction/ATOMIC_SPECTRUM.md",
           "details": {
             "height": 4,
+            "variant": null,
             "frame_index": null,
             "rows": 211,
             "variables": 16695,
@@ -29583,7 +31081,7 @@
       "tensor_sha256": "c399505be76a64c8aba65feaf2cd55125dc7132f5894b74e58b64473d1387e25",
       "general_status": "unresolved",
       "categorification_or_novelty_proved": false,
-      "screening_stage": "active_structural_and_construction_research",
+      "screening_stage": "extensively_investigated_exotic_candidate",
       "prior_unitary_status": "not_separately_decided",
       "prior_unitary_obstruction_source": null,
       "prior_published_attempts": [
@@ -30718,6 +32216,30 @@
           }
         },
         {
+          "domain": "latest_complete_joint_Galois_spectra_and_correlated_semion_integer_attempts",
+          "outcome": "documented_finite_domains_finished",
+          "scope": "general_complex_necessary_after_proved_Galois_PU_reduction",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/r928_semion_rotation/final_campaign.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/r928_semion_rotation/verify_all.py",
+            "evidence/rank8_frontier_20261021/r928_semion_rotation/charged_joint_spectrum.py",
+            "evidence/rank8_frontier_20261021/noncommutative_joint_spectrum/verify.py",
+            "evidence/rank8_frontier_20261021/r928_semion_rotation/final_campaign.py"
+          ],
+          "limitation": "Six bounded R928 integer searches remain unresolved integer-feasibility problems; numerical negative solver outcomes are not exclusions. Exact positive integer witnesses are necessary data only.",
+          "proof": "evidence/rank8_frontier_20261021/review/QUARTIC_CENTRAL_ORBITS.md",
+          "details": {
+            "id": "R8_3_1154",
+            "joint_spectrum": {
+              "status": "exact_complete",
+              "input_patterns": 1238,
+              "surviving_patterns": 1238
+            }
+          }
+        },
+        {
           "domain": "complete_central_image_low_induction_and_Gram_moment_constraints",
           "outcome": "necessary_data_survives",
           "scope": "general_complex_necessary_after_proved_Galois_PU_reduction",
@@ -31028,7 +32550,9 @@
         "No completed search here exhausts all complex associators or all constructions.",
         "A feasible necessary-condition system is not a categorification.",
         "Extensively investigated exotic candidate is a research-screening description, not a proof of categorifiability or novelty."
-      ]
+      ],
+      "screening_case_specific_focus": "General Galois-PU reduction; all 14,211 integer central Gram patterns filtered to 1,238 cubic/spectral survivors and 1,230 exact joint rotation/STS survivors; complete connected-algebra underlying-object necessary filters and specified unbounded model families tested.",
+      "screening_definition": "Extensively investigated exotic candidate means that the ring survived the documented, case-specific campaign of known and newly developed exclusion tests and explicit model searches, including complete finite domains and specified unbounded construction families. It proves neither existence of a fusion category nor novelty of a future realization. Each case lists exactly what was exhausted, what survived and the remaining hypotheses."
     },
     {
       "id": "R8_3_1203",
@@ -41458,6 +42982,7 @@
           "proof": "evidence/rank8_frontier_20261021/global_induction/LOW_S_SYMMETRY.md",
           "details": {
             "height": null,
+            "variant": null,
             "frame_index": null,
             "rows": null,
             "variables": null,
@@ -41480,6 +43005,7 @@
           "proof": "evidence/rank8_frontier_20261021/global_induction/LOW_S_SYMMETRY.md",
           "details": {
             "height": 4,
+            "variant": null,
             "frame_index": null,
             "rows": 341,
             "variables": 38304,
@@ -41509,9 +43035,9 @@
     {
       "id": "R8_3_1615",
       "tensor_sha256": "8e091371d21d930ddbdb557e1b6a8fcee49d5ccbc923b6464904a2848c3e1389",
-      "general_status": "unresolved",
+      "general_status": "excluded",
       "categorification_or_novelty_proved": false,
-      "screening_stage": "active_structural_and_construction_research",
+      "screening_stage": "general_exclusion_accepted_after_review",
       "prior_unitary_status": "not_separately_decided",
       "prior_unitary_obstruction_source": null,
       "prior_published_attempts": [
@@ -42380,6 +43906,7 @@
           "proof": "evidence/rank8_frontier_20261021/global_induction/PARTIAL_S_AND_STS.md",
           "details": {
             "height": 4,
+            "variant": null,
             "frame_index": null,
             "rows": 341,
             "variables": 102141,
@@ -42387,20 +43914,53 @@
             "high_columns": 3003,
             "complete_exact_certificate": false
           }
+        },
+        {
+          "domain": "packed_complete_sparse_phase_one",
+          "outcome": "excluded",
+          "scope": "general_complex_fusion_category",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/global_induction/complete_results/R8_3_1615_sts_frame_h4.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/global_induction/complete_phase_one.py"
+          ],
+          "limitation": "A running/partial computation is incomplete; a feasible relaxation does not construct integer center data or an associator.",
+          "proof": "evidence/rank8_frontier_20261021/global_induction/PROOF.md",
+          "details": {
+            "height": 4,
+            "variant": "sts_frame",
+            "frame_index": null,
+            "rows": 341,
+            "variables": 102141,
+            "low_frames": 4,
+            "high_columns": 3003,
+            "complete_exact_certificate": true
+          }
         }
       ],
       "limitations": [
         "No completed search here exhausts all complex associators or all constructions.",
         "A feasible necessary-condition system is not a categorification.",
         "Extensively investigated exotic candidate is a research-screening description, not a proof of categorifiability or novelty."
-      ]
+      ],
+      "accepted_certificate": {
+        "kind": "complete_character_labeled_modular_STS_signed_induction",
+        "scope": "general_complex_fusion_category",
+        "evidence": "evidence/rank8_frontier_20261021/global_induction/complete_results/R8_3_1615_sts_frame_h4.json",
+        "proof": "evidence/rank8_frontier_20261021/r1615_review/REVIEW.md",
+        "verifiers": [
+          "evidence/rank8_frontier_20261021/global_induction/verify_accepted_complete.py",
+          "evidence/rank8_frontier_20261021/r1615_review/verify_direct.py"
+        ]
+      }
     },
     {
       "id": "R8_3_1617",
       "tensor_sha256": "1b6d7494a459fc18c64a5b94a3768d8cd35b86598091ef3c25656bfd4e3445f0",
-      "general_status": "unresolved",
+      "general_status": "excluded",
       "categorification_or_novelty_proved": false,
-      "screening_stage": "active_structural_and_construction_research",
+      "screening_stage": "general_exclusion_accepted_after_review",
       "prior_unitary_status": "not_separately_decided",
       "prior_unitary_obstruction_source": null,
       "prior_published_attempts": [
@@ -43283,6 +44843,7 @@
           "proof": "evidence/rank8_frontier_20261021/global_induction/PARTIAL_S_AND_STS.md",
           "details": {
             "height": 4,
+            "variant": null,
             "frame_index": null,
             "rows": 341,
             "variables": 130431,
@@ -43290,20 +44851,53 @@
             "high_columns": 3835,
             "complete_exact_certificate": false
           }
+        },
+        {
+          "domain": "packed_complete_sparse_phase_one",
+          "outcome": "excluded",
+          "scope": "general_complex_fusion_category",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/global_induction/complete_results/R8_3_1617_sts_frame_h4.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/global_induction/complete_phase_one.py"
+          ],
+          "limitation": "A running/partial computation is incomplete; a feasible relaxation does not construct integer center data or an associator.",
+          "proof": "evidence/rank8_frontier_20261021/global_induction/PROOF.md",
+          "details": {
+            "height": 4,
+            "variant": "sts_frame",
+            "frame_index": null,
+            "rows": 341,
+            "variables": 130431,
+            "low_frames": 6,
+            "high_columns": 3835,
+            "complete_exact_certificate": true
+          }
         }
       ],
       "limitations": [
         "No completed search here exhausts all complex associators or all constructions.",
         "A feasible necessary-condition system is not a categorification.",
         "Extensively investigated exotic candidate is a research-screening description, not a proof of categorifiability or novelty."
-      ]
+      ],
+      "accepted_certificate": {
+        "kind": "complete_character_labeled_modular_STS_signed_induction",
+        "scope": "general_complex_fusion_category",
+        "evidence": "evidence/rank8_frontier_20261021/global_induction/complete_results/R8_3_1617_sts_frame_h4.json",
+        "proof": "evidence/rank8_frontier_20261021/quadratic/STS_1617_REVIEW.md",
+        "verifiers": [
+          "evidence/rank8_frontier_20261021/global_induction/verify_accepted_complete.py",
+          "evidence/rank8_frontier_20261021/quadratic/review_sts_1617.py"
+        ]
+      }
     },
     {
       "id": "R8_3_1660",
       "tensor_sha256": "5c9961f765e74b9a9008a7d14953ece3f2168e381aee4a69b3acb6693ff77c21",
-      "general_status": "unresolved",
+      "general_status": "excluded",
       "categorification_or_novelty_proved": false,
-      "screening_stage": "active_structural_and_construction_research",
+      "screening_stage": "general_exclusion_accepted_after_review",
       "prior_unitary_status": "not_separately_decided",
       "prior_unitary_obstruction_source": null,
       "prior_published_attempts": [
@@ -44171,6 +45765,7 @@
           "proof": "evidence/rank8_frontier_20261021/global_induction/PARTIAL_S_AND_STS.md",
           "details": {
             "height": 4,
+            "variant": null,
             "frame_index": null,
             "rows": 341,
             "variables": 99897,
@@ -44178,20 +45773,53 @@
             "high_columns": 2937,
             "complete_exact_certificate": false
           }
+        },
+        {
+          "domain": "packed_complete_sparse_phase_one",
+          "outcome": "excluded",
+          "scope": "general_complex_fusion_category",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/global_induction/complete_results/R8_3_1660_sts_frame_h4.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/global_induction/complete_phase_one.py"
+          ],
+          "limitation": "A running/partial computation is incomplete; a feasible relaxation does not construct integer center data or an associator.",
+          "proof": "evidence/rank8_frontier_20261021/global_induction/PROOF.md",
+          "details": {
+            "height": 4,
+            "variant": "sts_frame",
+            "frame_index": null,
+            "rows": 341,
+            "variables": 99897,
+            "low_frames": 4,
+            "high_columns": 2937,
+            "complete_exact_certificate": true
+          }
         }
       ],
       "limitations": [
         "No completed search here exhausts all complex associators or all constructions.",
         "A feasible necessary-condition system is not a categorification.",
         "Extensively investigated exotic candidate is a research-screening description, not a proof of categorifiability or novelty."
-      ]
+      ],
+      "accepted_certificate": {
+        "kind": "complete_character_labeled_modular_STS_signed_induction",
+        "scope": "general_complex_fusion_category",
+        "evidence": "evidence/rank8_frontier_20261021/global_induction/complete_results/R8_3_1660_sts_frame_h4.json",
+        "proof": "evidence/rank8_frontier_20261021/r1660_review/REVIEW.md",
+        "verifiers": [
+          "evidence/rank8_frontier_20261021/global_induction/verify_accepted_complete.py",
+          "evidence/rank8_frontier_20261021/r1660_review/verify_direct.py"
+        ]
+      }
     },
     {
       "id": "R8_3_1661",
       "tensor_sha256": "12bfacef6c409a6ce65c969410c72b5d8b51b425acc4407a241ecdbffa24ed8e",
-      "general_status": "unresolved",
+      "general_status": "excluded",
       "categorification_or_novelty_proved": false,
-      "screening_stage": "active_structural_and_construction_research",
+      "screening_stage": "general_exclusion_accepted_after_review",
       "prior_unitary_status": "excluded",
       "prior_unitary_obstruction_source": "evidence/rank8_m3_20261021/noncommutative/unitary_primary3_results.json",
       "prior_published_attempts": [
@@ -45076,6 +46704,7 @@
           "proof": "evidence/rank8_frontier_20261021/global_induction/PARTIAL_S_AND_STS.md",
           "details": {
             "height": 4,
+            "variant": null,
             "frame_index": null,
             "rows": 341,
             "variables": 103773,
@@ -45083,13 +46712,46 @@
             "high_columns": 3051,
             "complete_exact_certificate": false
           }
+        },
+        {
+          "domain": "packed_complete_sparse_phase_one",
+          "outcome": "excluded",
+          "scope": "general_complex_fusion_category",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/global_induction/complete_results/R8_3_1661_sts_frame_h4.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/global_induction/complete_phase_one.py"
+          ],
+          "limitation": "A running/partial computation is incomplete; a feasible relaxation does not construct integer center data or an associator.",
+          "proof": "evidence/rank8_frontier_20261021/global_induction/PROOF.md",
+          "details": {
+            "height": 4,
+            "variant": "sts_frame",
+            "frame_index": null,
+            "rows": 341,
+            "variables": 103773,
+            "low_frames": 4,
+            "high_columns": 3051,
+            "complete_exact_certificate": true
+          }
         }
       ],
       "limitations": [
         "No completed search here exhausts all complex associators or all constructions.",
         "A feasible necessary-condition system is not a categorification.",
         "Extensively investigated exotic candidate is a research-screening description, not a proof of categorifiability or novelty."
-      ]
+      ],
+      "accepted_certificate": {
+        "kind": "complete_character_labeled_modular_STS_signed_induction",
+        "scope": "general_complex_fusion_category",
+        "evidence": "evidence/rank8_frontier_20261021/global_induction/complete_results/R8_3_1661_sts_frame_h4.json",
+        "proof": "evidence/rank8_frontier_20261021/quadratic/STS_1661_REVIEW.md",
+        "verifiers": [
+          "evidence/rank8_frontier_20261021/global_induction/verify_accepted_complete.py",
+          "evidence/rank8_frontier_20261021/quadratic/review_sts_1661.py"
+        ]
+      }
     },
     {
       "id": "R8_3_1739",
@@ -45933,6 +47595,7 @@
           "proof": "evidence/rank8_frontier_20261021/global_induction/PROOF.md",
           "details": {
             "height": 4,
+            "variant": null,
             "frame_index": null,
             "rows": 197,
             "variables": 97768,
@@ -45955,6 +47618,7 @@
           "proof": "evidence/rank8_frontier_20261021/global_induction/PROOF.md",
           "details": {
             "height": 4,
+            "variant": null,
             "frame_index": null,
             "rows": 197,
             "variables": 104268,
@@ -45977,6 +47641,7 @@
           "proof": "evidence/rank8_frontier_20261021/global_induction/PROOF.md",
           "details": {
             "height": 6,
+            "variant": null,
             "frame_index": null,
             "rows": 323,
             "variables": 115762,
@@ -45999,6 +47664,7 @@
           "proof": "evidence/rank8_frontier_20261021/global_induction/PROOF.md",
           "details": {
             "height": 4,
+            "variant": null,
             "frame_index": 3445,
             "rows": 197,
             "variables": 32642,
@@ -46021,6 +47687,7 @@
           "proof": "evidence/rank8_frontier_20261021/global_induction/PROOF.md",
           "details": {
             "height": 6,
+            "variant": null,
             "frame_index": 3445,
             "rows": 323,
             "variables": 36520,
@@ -46043,6 +47710,7 @@
           "proof": "evidence/rank8_frontier_20261021/global_induction/PARTIAL_S_AND_STS.md",
           "details": {
             "height": 4,
+            "variant": null,
             "frame_index": null,
             "rows": 341,
             "variables": 93269,
@@ -46073,7 +47741,7 @@
       "tensor_sha256": "240509807c67da437c86f2a51efeb831364734feb93ed18a1d2f32087ebc1af0",
       "general_status": "unresolved",
       "categorification_or_novelty_proved": false,
-      "screening_stage": "active_structural_and_construction_research",
+      "screening_stage": "extensively_investigated_exotic_candidate",
       "prior_unitary_status": "not_separately_decided",
       "prior_unitary_obstruction_source": null,
       "prior_published_attempts": [
@@ -47269,6 +48937,7 @@
           "proof": "evidence/rank8_frontier_20261021/global_induction/ATOMIC_MODULAR.md",
           "details": {
             "height": 4,
+            "variant": null,
             "frame_index": null,
             "rows": 241,
             "variables": 18130,
@@ -47291,6 +48960,7 @@
           "proof": "evidence/rank8_frontier_20261021/global_induction/PROOF.md",
           "details": {
             "height": 4,
+            "variant": "atomic_real_sts",
             "frame_index": null,
             "rows": 241,
             "variables": 18130,
@@ -47298,20 +48968,47 @@
             "high_columns": 497,
             "complete_exact_certificate": true
           }
+        },
+        {
+          "domain": "final_joint_integer_Gram_full_S_cubic_Galois_bounds_unit_product_and_scoped_phase_screen",
+          "outcome": "integer_lattice_member_no_bounded_witness",
+          "scope": "necessary_center_data_scoped_by_each_source_receipt",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/commutative_integer/final_campaign.json",
+            "evidence/rank8_frontier_20261021/quadratic_atomic_integer/R8_3_1768_final.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/commutative_integer/verify_research.py",
+            "evidence/rank8_frontier_20261021/quadratic_atomic_integer/final_verify.py"
+          ],
+          "limitation": "A capped Hermite attempt asserts neither lattice membership nor nonmembership; its resource limits are retained in the final receipt. When proved, signed lattice membership alone is weaker than bounded nonnegative integer feasibility. Numerical proposal failures are not exclusions; categorical general scope requires an independent lift.",
+          "proof": "evidence/rank8_frontier_20261021/commutative_integer/PROOF.md",
+          "details": {
+            "completed_scope": "Integral-center and complete spectral-support reductions, integer Gram/S/cubic, joint Galois balance, FP bounds and source-unit product constraints, with exact recorded box/lattice/witness checks.",
+            "exact_replay": [
+              [
+                "quadratic_atomic_integer/final_verify.py",
+                "--ring",
+                "1768"
+              ]
+            ]
+          }
         }
       ],
       "limitations": [
         "No completed search here exhausts all complex associators or all constructions.",
         "A feasible necessary-condition system is not a categorification.",
         "Extensively investigated exotic candidate is a research-screening description, not a proof of categorifiability or novelty."
-      ]
+      ],
+      "screening_case_specific_focus": "Complete rank-two based-module and connected-algebra underlying-object necessary filters; every proper subring, grading and nontrivial group-equivariantization tested; joint integer Gram/S/cubic/Galois and source-unit constraints pass signed lattice membership without a bounded nonnegative integer witness; specified unbounded construction families tested.",
+      "screening_definition": "Extensively investigated exotic candidate means that the ring survived the documented, case-specific campaign of known and newly developed exclusion tests and explicit model searches, including complete finite domains and specified unbounded construction families. It proves neither existence of a fusion category nor novelty of a future realization. Each case lists exactly what was exhausted, what survived and the remaining hypotheses."
     },
     {
       "id": "R8_3_1795",
       "tensor_sha256": "feddd2934d44be4872c82ed6c5650bf9d8aac2bc87b72778d88b375726f4cd1f",
       "general_status": "unresolved",
       "categorification_or_novelty_proved": false,
-      "screening_stage": "active_structural_and_construction_research",
+      "screening_stage": "extensively_investigated_exotic_candidate",
       "prior_unitary_status": "not_separately_decided",
       "prior_unitary_obstruction_source": null,
       "prior_published_attempts": [
@@ -48416,6 +50113,7 @@
           "proof": "evidence/rank8_frontier_20261021/global_induction/ATOMIC_MODULAR.md",
           "details": {
             "height": 4,
+            "variant": null,
             "frame_index": null,
             "rows": 241,
             "variables": 102643,
@@ -48426,8 +50124,8 @@
         },
         {
           "domain": "packed_complete_sparse_phase_one",
-          "outcome": "solving_complete_sparse_cone",
-          "scope": "incomplete_no_mathematical_conclusion",
+          "outcome": "exact_feasible_relaxation",
+          "scope": "pseudo_unitary_induction_relaxation",
           "evidence": [
             "evidence/rank8_frontier_20261021/global_induction/complete_results/R8_3_1795_atomic_real_sts_h4.json"
           ],
@@ -48438,12 +50136,38 @@
           "proof": "evidence/rank8_frontier_20261021/global_induction/PROOF.md",
           "details": {
             "height": 4,
+            "variant": "atomic_real_sts",
             "frame_index": null,
             "rows": 241,
             "variables": 102643,
             "low_frames": null,
             "high_columns": 3011,
-            "complete_exact_certificate": false
+            "complete_exact_certificate": true
+          }
+        },
+        {
+          "domain": "final_joint_integer_Gram_full_S_cubic_Galois_bounds_unit_product_and_scoped_phase_screen",
+          "outcome": "no_exact_integer_conclusion_within_cap",
+          "scope": "necessary_center_data_scoped_by_each_source_receipt",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/commutative_integer/final_campaign.json",
+            "evidence/rank8_frontier_20261021/quadratic_atomic_integer/R8_3_1795_final.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/commutative_integer/verify_research.py",
+            "evidence/rank8_frontier_20261021/quadratic_atomic_integer/final_verify.py"
+          ],
+          "limitation": "A capped Hermite attempt asserts neither lattice membership nor nonmembership; its resource limits are retained in the final receipt. When proved, signed lattice membership alone is weaker than bounded nonnegative integer feasibility. Numerical proposal failures are not exclusions; categorical general scope requires an independent lift.",
+          "proof": "evidence/rank8_frontier_20261021/commutative_integer/PROOF.md",
+          "details": {
+            "completed_scope": "Integral-center and complete spectral-support reductions, integer Gram/S/cubic, joint Galois balance, FP bounds and source-unit product constraints, with exact recorded box/lattice/witness checks.",
+            "exact_replay": [
+              [
+                "quadratic_atomic_integer/final_verify.py",
+                "--ring",
+                "1795"
+              ]
+            ]
           }
         }
       ],
@@ -48451,7 +50175,9 @@
         "No completed search here exhausts all complex associators or all constructions.",
         "A feasible necessary-condition system is not a categorification.",
         "Extensively investigated exotic candidate is a research-screening description, not a proof of categorifiability or novelty."
-      ]
+      ],
+      "screening_case_specific_focus": "Complete rank-two based-module and connected-algebra underlying-object filters; all proper subrings, gradings and group-equivariantization routes tested; strengthened integer central equations pass exact box and mod2/mod3 checks, while capped Hermite work determines no integer-lattice status and bounded search yields no exact integer witness; specified unbounded model families tested.",
+      "screening_definition": "Extensively investigated exotic candidate means that the ring survived the documented, case-specific campaign of known and newly developed exclusion tests and explicit model searches, including complete finite domains and specified unbounded construction families. It proves neither existence of a fusion category nor novelty of a future realization. Each case lists exactly what was exhausted, what survived and the remaining hypotheses."
     },
     {
       "id": "R8_3_2842",
@@ -61254,6 +62980,7 @@
           "proof": "evidence/rank8_frontier_20261021/global_induction/ATOMIC_MODULAR.md",
           "details": {
             "height": 4,
+            "variant": null,
             "frame_index": null,
             "rows": 241,
             "variables": 17619,
@@ -63478,6 +65205,7 @@
           "proof": "evidence/rank8_frontier_20261021/global_induction/ATOMIC_SPECTRUM.md",
           "details": {
             "height": 4,
+            "variant": null,
             "frame_index": null,
             "rows": 253,
             "variables": 4485,
@@ -63508,7 +65236,7 @@
       "tensor_sha256": "33984d45e69ff778e70847def8349abda79ed6c0eaea242a73b533649f9b153a",
       "general_status": "unresolved",
       "categorification_or_novelty_proved": false,
-      "screening_stage": "active_structural_and_construction_research",
+      "screening_stage": "extensively_investigated_exotic_candidate",
       "prior_unitary_status": "not_separately_decided",
       "prior_unitary_obstruction_source": null,
       "prior_published_attempts": [
@@ -64542,6 +66270,7 @@
           "proof": "evidence/rank8_frontier_20261021/global_induction/ATOMIC_SPECTRUM.md",
           "details": {
             "height": 4,
+            "variant": null,
             "frame_index": null,
             "rows": 253,
             "variables": 57441,
@@ -64549,17 +66278,42 @@
             "high_columns": 1126,
             "complete_exact_certificate": true
           }
+        },
+        {
+          "domain": "final_joint_integer_Gram_full_S_cubic_Galois_bounds_unit_product_and_scoped_phase_screen",
+          "outcome": "completed_exact_screens_integer_search_inconclusive",
+          "scope": "necessary_center_data_scoped_by_each_source_receipt",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/commutative_integer/final_campaign.json",
+            "evidence/rank8_frontier_20261021/quadratic/strong_integer_3472_results.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/commutative_integer/verify_research.py",
+            "evidence/rank8_frontier_20261021/quadratic/strong_integer_3472.py"
+          ],
+          "limitation": "No complete Hermite membership or bounded integer enumeration is claimed. Explicitly inconclusive numerical searches remain inconclusive.",
+          "proof": "evidence/rank8_frontier_20261021/commutative_integer/PROOF.md",
+          "details": {
+            "completed_scope": "Complete full-character spectral support and joint balance, integer cubic equations, FP/pure-pointed/source-unit bounds, exact finite-box propagation and saved modular or bounded certificates.",
+            "exact_replay": [
+              [
+                "quadratic/strong_integer_3472.py"
+              ]
+            ]
+          }
         }
       ],
       "limitations": [
         "No completed search here exhausts all complex associators or all constructions.",
         "A feasible necessary-condition system is not a categorification.",
         "Extensively investigated exotic candidate is a research-screening description, not a proof of categorifiability or novelty."
-      ]
+      ],
+      "screening_case_specific_focus": "Complete rank-two based-module and connected-algebra underlying-object filters; all proper subrings, gradings and group-equivariantization routes tested; full-character spectral support, joint Galois balance and strengthened integer equations pass the recorded exact box/modular screens, with bounded integer search inconclusive and no claim of exhausting larger-field STS.",
+      "screening_definition": "Extensively investigated exotic candidate means that the ring survived the documented, case-specific campaign of known and newly developed exclusion tests and explicit model searches, including complete finite domains and specified unbounded construction families. It proves neither existence of a fusion category nor novelty of a future realization. Each case lists exactly what was exhausted, what survived and the remaining hypotheses."
     }
   ],
   "artifact_sha256": {
-    "evidence/rank8_frontier_20261021/accepted.json": "ba31b494deb46b68e68d57201df794cb7dc2bd9f01cff5c11c50fbb1d45fa17b",
+    "evidence/rank8_frontier_20261021/accepted.json": "9b84ae814cd92c70b25d02a0b645b776415c480b72a990dbe30d55bb718c4081",
     "evidence/rank8_frontier_20261021/central_integrality/GENERAL_GALOIS_PU.md": "642fdcaf1a4d30c9239181f912412c12e1465393a5a86f0cc8dbfc5d7d98c960",
     "evidence/rank8_frontier_20261021/central_integrality/RESEARCH_RECORD.md": "7564d52513ed1e6348799fdb5ca33b12e1f107c68371cd13ae8923bed8b3bd24",
     "evidence/rank8_frontier_20261021/central_integrality/fixed_gram_rotation_1154.py": "79b31dd094a2ccd0f985546cc1a972ebf5e2c539f6b06b9675ead4c53e260882",
@@ -64568,6 +66322,44 @@
     "evidence/rank8_frontier_20261021/central_integrality/general_galois_pu_gate.py": "47b409688601d7c770453c3d83fc7afdd4b2c22b15fc92dfb19028acc20ada7d",
     "evidence/rank8_frontier_20261021/central_integrality/review_r3258_atomic.py": "e9d972547cd56a10337a171e4d397e3f5e574021c217d8056d26ee3e44d0739e",
     "evidence/rank8_frontier_20261021/central_integrality/review_r926_partial_s.py": "775bc3c4cfa4cf9fce659afedebb2b477a1a01029ae22fda309cf3d286f1ed17",
+    "evidence/rank8_frontier_20261021/commutative_integer/PHASE_COMPATIBILITY.md": "4a6927c72e1c91cda4ef97620e8c57c58f985cc2e3ceb35a4da9cb7a06a30abd",
+    "evidence/rank8_frontier_20261021/commutative_integer/PROOF.md": "399480afc2745a1360a412f24c20982e24ed459958dd9db3f47c9d491eaa8d23",
+    "evidence/rank8_frontier_20261021/commutative_integer/R8_3_982_frame0.json": "2dc5d7ddd513d8ad8dd3bb58715b20d7dfa2c17cafff66e54dbec1f54add41f8",
+    "evidence/rank8_frontier_20261021/commutative_integer/R8_3_982_frame1.json": "5a554d56675e265094d6989afb402a37d1c28e66748d969253d1b6bba3936604",
+    "evidence/rank8_frontier_20261021/commutative_integer/R8_3_982_frame2.json": "e70226cf685dad57c965df6f7b7aa00a018b499f2077c99efb47523a82284332",
+    "evidence/rank8_frontier_20261021/commutative_integer/R8_3_982_frame2_phases_h4.json": "94c47830846d1b84673bc370fbf1fe9f4e0afe30951858cbb518b36cfad734ff",
+    "evidence/rank8_frontier_20261021/commutative_integer/R8_3_982_frame3.json": "1609938ac25d3eb338e5a9a6e724d9b8a1f0e043f1c4eee4c693ad9d0e845a7f",
+    "evidence/rank8_frontier_20261021/commutative_integer/R8_3_982_frame3_phases_h4.json": "a865dc599b987e23c453dd4f9470fe59f75ca8759dbd5630a2068a64dacbd37f",
+    "evidence/rank8_frontier_20261021/commutative_integer/R8_3_982_joint_probe.json": "8b88055cd4512a0142b6d541051fa6dae12bc2726a6a53f3ec766e4c9f885674",
+    "evidence/rank8_frontier_20261021/commutative_integer/R8_3_982_rational.json": "7f43a7285281ab52d1b19c988bd9c65768e36eeafaff45c8e6118045b53c44c1",
+    "evidence/rank8_frontier_20261021/commutative_integer/R8_3_982_remaining_linear.json": "5f2296ebb2f23914d0219c1b7e5849c4d38813a9fbb7b31fb0b2c08b951527af",
+    "evidence/rank8_frontier_20261021/commutative_integer/R8_3_982_unit_pair_probe.json": "86a8f9f227b958e64278c4c1651054a1d844355513d583bb3ca88327c8359597",
+    "evidence/rank8_frontier_20261021/commutative_integer/R982_SCREEN.md": "36f649428e17264f1e4cec8394ae76c5fa501a2295dc4e9889197b93d96636ee",
+    "evidence/rank8_frontier_20261021/commutative_integer/bounds.py": "ec5a6c1eb6329787d0128a52d5329460a503cfdd150d9c5e4e29af585b714a28",
+    "evidence/rank8_frontier_20261021/commutative_integer/control.json": "14e61275b3b47c21b0d88d876327f4ccdb8018f767fb764781a8cb97b14b5349",
+    "evidence/rank8_frontier_20261021/commutative_integer/equations.py": "345aa6b8d897a7dea1159a3a4509f005c652b1fb246874535aaae94fc681b1b9",
+    "evidence/rank8_frontier_20261021/commutative_integer/features.py": "cef086b287e513a17a12eec599cf35f379daa83d93c4273230e7a27c48659598",
+    "evidence/rank8_frontier_20261021/commutative_integer/final_campaign.json": "65883c2e7ff96af8d96c670dffd30bbbb74bdc21c6983826a01233e64e830b46",
+    "evidence/rank8_frontier_20261021/commutative_integer/final_campaign.py": "dee9e9adcb9acfb733680a3d509b296c8e87975ee5a0fe522035b05900fb97cd",
+    "evidence/rank8_frontier_20261021/commutative_integer/integer_central_cubic.tex": "fbf475a6fdcad14e81729916cf4c1e44f346b841b7f030a75204b660ac105398",
+    "evidence/rank8_frontier_20261021/commutative_integer/lattice.py": "75b41751eb720feb8c9144910e82ae18e81bf65444d73873ac3f188da4072037",
+    "evidence/rank8_frontier_20261021/commutative_integer/lattice_validation.json": "5b41c72a65f1be3b79ef5785a9df23c5240423ce55a158086e88ca2a3c5b9f14",
+    "evidence/rank8_frontier_20261021/commutative_integer/linear.py": "d3340f424ba4f5388f55e4fa2851b131e156a0b4f3722930f7c4febcd5247b39",
+    "evidence/rank8_frontier_20261021/commutative_integer/linear_validation.json": "ed166bf24965a1cff696070a450a0147612561da1c7f6d44e4291f924e9d698e",
+    "evidence/rank8_frontier_20261021/commutative_integer/phase_compatibility.tex": "a9491e1e618393ea941863b95ff89ce8a6c22e664368852faad76b208913fab6",
+    "evidence/rank8_frontier_20261021/commutative_integer/phase_mass.py": "e2b2c9b8426b5e0889b1aaa92154d92bf15f35db18718f81edfebae4d55722ea",
+    "evidence/rank8_frontier_20261021/commutative_integer/profile.py": "97572bc7f4ad8efa1e637318a65487aa50877c26ab7ea263d4890c29f7e80430",
+    "evidence/rank8_frontier_20261021/commutative_integer/r982.py": "70bbd669e771df25515ee8f240277f8ac35a700389d55ff12024b456c309fcc5",
+    "evidence/rank8_frontier_20261021/commutative_integer/r982_integer_section.tex": "b5b3ccd1a0c000e0ef46eedbbcdf4857079a6542753864981bd262455f6c49ae",
+    "evidence/rank8_frontier_20261021/commutative_integer/r982_joint_probe.py": "7abe531f9055937c6e4fcb42be5714b0c48bdcc989516e027017420725be65c5",
+    "evidence/rank8_frontier_20261021/commutative_integer/r982_phases.py": "79e2e13aa0ab1d7d6293fb17e84828bc434c7a59860b03b72ecf0f905f592e61",
+    "evidence/rank8_frontier_20261021/commutative_integer/r982_rational.py": "622cb256892a4da151e1dfc7898c1aaa65dd38f3f1367a98701fb03f4bdcff13",
+    "evidence/rank8_frontier_20261021/commutative_integer/r982_remaining_linear.py": "586be8d23e3ec71cdefe6e0cfc51229fc9a6088ce9db0751281bc64a405e11c9",
+    "evidence/rank8_frontier_20261021/commutative_integer/r982_unit_pair_probe.py": "b99fe0b26335641904d991e693cdb4a0f5a0932144616cf9bf729f456769e07d",
+    "evidence/rank8_frontier_20261021/commutative_integer/verify_control.py": "6178fd78b415abfd234fa334d1ac4b0e1c3cb9914a128e8b14f71dbb7cbaf673",
+    "evidence/rank8_frontier_20261021/commutative_integer/verify_lattice.py": "f327f82f66fed77cfa3a40f71ae587865b95db64756a1f071f291aed0dfa7fb0",
+    "evidence/rank8_frontier_20261021/commutative_integer/verify_linear.py": "387a271dc7910bd871018f8374bd49c6fc9ed770a2024479dd900f927e60f2a3",
+    "evidence/rank8_frontier_20261021/commutative_integer/verify_research.py": "df465eec125c2d63685097dbe5b0762e1d10cc0b40766b6198b0365e15f125ae",
     "evidence/rank8_frontier_20261021/global_induction/ATOMIC_1055_APPLICATION.md": "b96269d31e4cc10562c48b05f3f8c0620c8a930234416f04bf861541caf73a54",
     "evidence/rank8_frontier_20261021/global_induction/ATOMIC_MODULAR.md": "79efa96da25998702985a8d95a5016ad5646a0954b2f713d0b9a0ea017d2020c",
     "evidence/rank8_frontier_20261021/global_induction/ATOMIC_SPECTRUM.md": "e4b61cc8b3d8c5840cecf94bd35f90e881b212ba1cbdd4c8d6594986f019f23d",
@@ -64576,20 +66368,29 @@
     "evidence/rank8_frontier_20261021/global_induction/PARTIAL_S_AND_STS.md": "eddeb5d92442fdc7ac6e605297f513e122a295310f44de1f7dc4ca094a6f2f32",
     "evidence/rank8_frontier_20261021/global_induction/PROOF.md": "6826d77f4b794aa18eb08667021b1c4ee00afb096eb1c31be6dfafd6b1d26324",
     "evidence/rank8_frontier_20261021/global_induction/atomic_generation.py": "7237e1fceb30ddbe18fc8692e5d70048012300d7154907b3bed56393a8b300e0",
+    "evidence/rank8_frontier_20261021/global_induction/atomic_real_sts.py": "3b9a9d9ebafbbdd1e47411cacc64d75d719fbf194fa2c17f461baded50cd19ff",
     "evidence/rank8_frontier_20261021/global_induction/atomic_results/R8_3_1768_h4.json": "0343e5ff465a1f6d0d9a7f6e9b55c2dd779727388da0b24241899994d64dbe8f",
     "evidence/rank8_frontier_20261021/global_induction/atomic_results/R8_3_1795_h4.json": "c104b1d7790e017ead5ba66fe056e087942ecd313ad80b5830a18dd64fef833e",
     "evidence/rank8_frontier_20261021/global_induction/atomic_results/R8_3_3258_h4.json": "e7ee3ec15d85544b554ee48fd5a5473248efcef697bed9c813155f236ea1db1f",
     "evidence/rank8_frontier_20261021/global_induction/atomic_results/R8_3_334_h4.json": "0ee4fa384e822df8c1d1e687802a52a8ac0b15e994bf1a79cecd4cb466ff6e68",
+    "evidence/rank8_frontier_20261021/global_induction/atomic_spectrum.py": "77a13429b151aa4478cc8e685c3a5bf9073776b4056cb6569c6f6ad97143bf90",
     "evidence/rank8_frontier_20261021/global_induction/atomic_spectrum_generation.py": "00f36f8bb16fd40d5792dcc816b0261421a0bf295e8ac14f239a3874485e4171",
     "evidence/rank8_frontier_20261021/global_induction/atomic_spectrum_results/R8_3_1055_h4.json": "999ec95491a9638f01b6b12471b04bc962475c2739329809048c70040144af9c",
     "evidence/rank8_frontier_20261021/global_induction/atomic_spectrum_results/R8_3_3413_h4.json": "126e35851193d1b6ef29dc07458b33ede075c38c815edc64f86f5b40e8eb49ba",
     "evidence/rank8_frontier_20261021/global_induction/atomic_spectrum_results/R8_3_3472_h4.json": "5202401998f4029018fcf8d40f500f2dc8e399ab85ee2a08b03661592b4bce16",
     "evidence/rank8_frontier_20261021/global_induction/atomic_spectrum_results/R8_3_65_h4.json": "840db130f1ac6f3ced6a8d2a80c9e092d5f17480c495736198125e11ffeae95e",
     "evidence/rank8_frontier_20261021/global_induction/column_generation.py": "7c347465adef1dfcc3d4a598cf147328a5fbf44362163d5ca2baee20b53aa7f8",
-    "evidence/rank8_frontier_20261021/global_induction/complete_phase_one.py": "13c54ceb6ecb28b2d8a9d1d98ac194adf7c0b5d8afc11dba1e04dca9f720d27a",
+    "evidence/rank8_frontier_20261021/global_induction/complete_phase_one.py": "ba33ac54c9780f86ab09240e04a16e69f2078d54f2823641cf0b4a42b67e4716",
+    "evidence/rank8_frontier_20261021/global_induction/complete_queue.json": "0ff32b9296990697bf1236d9b5ed1b8b001b797463a1bde264fea3bf2e07aa0f",
+    "evidence/rank8_frontier_20261021/global_induction/complete_results/R8_3_1615_sts_frame_h4.json": "8801c442b96847940c07fbf58335a16194bb51c242446ac2b35af86c798c2322",
+    "evidence/rank8_frontier_20261021/global_induction/complete_results/R8_3_1617_sts_frame_h4.json": "6d501a34c3d1aff9b057fd16ca58052a411162566123807c3f2681aa7bc29679",
+    "evidence/rank8_frontier_20261021/global_induction/complete_results/R8_3_1660_sts_frame_h4.json": "942ea4a47250382712293087e64438f8b4292b94d17620db93367e43f8687fa8",
+    "evidence/rank8_frontier_20261021/global_induction/complete_results/R8_3_1661_sts_frame_h4.json": "8761016b7b049bf3a8f52a4f2d9dd8998bb47a9315e62ea4c1b949036091b672",
     "evidence/rank8_frontier_20261021/global_induction/complete_results/R8_3_1768_atomic_real_sts_h4.json": "2dc7e70f0f9b0d4dd4d0b8618421e212068d0e33771569d2eebb4bd72e82d876",
-    "evidence/rank8_frontier_20261021/global_induction/complete_results/R8_3_1795_atomic_real_sts_h4.json": "60d68387ac70bdfb8f5a8acec9f7286b8abfadb9c4fffadc230410fa5a9763fd",
+    "evidence/rank8_frontier_20261021/global_induction/complete_results/R8_3_1795_atomic_real_sts_h4.json": "f7b4defac423618ab1f3317f3efe7309ba116280bdfda717d49a10127f4618aa",
     "evidence/rank8_frontier_20261021/global_induction/complete_results/R8_3_334_sts_frame_h4.json": "ebe9364f0f828386395e676d00a1538c12052e57bb6cde4af3ade0efa032d0be",
+    "evidence/rank8_frontier_20261021/global_induction/complete_results/R8_3_65_cm_real_sts_h4.json": "f14b43a18d8dd72bf1b79cac69b7cb93e7c61f17c6ef6a77cab42ad1f43b7cc9",
+    "evidence/rank8_frontier_20261021/global_induction/complete_results/R8_3_903_sts_frame_h4.json": "c360175d4b80535f32de6500b010c511f6b2eff7a853a75ae3855cb2b2f14a3e",
     "evidence/rank8_frontier_20261021/global_induction/complete_results/R8_3_982_sts_frame_h4.json": "97acfc22dfa72ba26ab8043f5453495829836a07d826ef150c164692b95153a4",
     "evidence/rank8_frontier_20261021/global_induction/fixed_frame.py": "45c1a167121e2543a3e09a6ccafb4499e6d307966573d7cd4ca61cc97fc4e887",
     "evidence/rank8_frontier_20261021/global_induction/fixed_results/R8_3_1739_frame3445_h4.json": "248c9579e143e10c76aa15f58fac13411628a588d4e321be1da18ac4c929dd4a",
@@ -64605,12 +66406,14 @@
     "evidence/rank8_frontier_20261021/global_induction/generic_results/R8_3_1463_low_s.json": "7bcb6cfc7f188d7fe4a18083568756f6c17ffc3b18ee7972db9863b783b06c1c",
     "evidence/rank8_frontier_20261021/global_induction/generic_results/R8_3_1463_sts_frame_h4.json": "9dbf808ad8eb5bd0e33338aa03320777190cdd8795e861f8432a15ffdbd453ae",
     "evidence/rank8_frontier_20261021/global_induction/generic_results/R8_3_901_frame_h4.json": "573150ad3f0cc6dfd0f433cfc880fcb3f3f86b4e65189b224c0780226d38718c",
+    "evidence/rank8_frontier_20261021/global_induction/partial_s.py": "8a7af7b418edf01be939862a61748250de6d688a5d15f635fe4a79fe91ec46ac",
     "evidence/rank8_frontier_20261021/global_induction/results/R8_3_1453_h4.json": "26c953a99d77dd55e141e9b541a90dbc351c45e1a105a7ad9a5ed6d1b26cf1fc",
     "evidence/rank8_frontier_20261021/global_induction/results/R8_3_1739_h4.json": "954cbf02864fe5374d0124f0b973900b8f4f4ca2d894af89049d7d77fafea0a9",
     "evidence/rank8_frontier_20261021/global_induction/results/R8_3_334_h4.json": "62b918101d2d23bd2e45e9d7401dff6f007700c603cbef5aa4f76c6238b454fa",
     "evidence/rank8_frontier_20261021/global_induction/spectral_generation.py": "7d83fa95538c2d428a24f724954c8f896db3759dc37db55d69820ef90348b613",
     "evidence/rank8_frontier_20261021/global_induction/spectral_results/R8_3_334_h4.json": "5da40787bb1ab3405ea316308fc448f407a4181ceff8f13b352c960ad3a9f2cd",
     "evidence/rank8_frontier_20261021/global_induction/spectral_results/R8_3_926_h4.json": "a6bfc32713ef56ccce4d3c5f9b60e50049d923880156aedfe2bec175ff3f9052",
+    "evidence/rank8_frontier_20261021/global_induction/streaming.py": "20a02793d319ed3acee20f0441b2063820a3374810c29d557a367f70bcae7ff1",
     "evidence/rank8_frontier_20261021/global_induction/sts_generation.py": "35b1471fbf86708da466c2f84c76a38f94db775c436caf1b3a66ecaa2bf76cc8",
     "evidence/rank8_frontier_20261021/global_induction/sts_results/R8_3_1615_h4.json": "60b373350a4c11263630ed90625b4145fc356cb69559b3f606c6e3f0e434cc67",
     "evidence/rank8_frontier_20261021/global_induction/sts_results/R8_3_1617_h4.json": "936b096a37d93b44f3e117104ddfe5f7714aee34fb2d815bc367ba83a6f4d8f1",
@@ -64622,6 +66425,7 @@
     "evidence/rank8_frontier_20261021/global_induction/sts_results/R8_3_985_h4.json": "e86ffd40600fcd54f8ba9d04ee955b7c7a3f53394a4b038079deff029a4b57ec",
     "evidence/rank8_frontier_20261021/global_induction/verify_accepted_atomic.py": "6850f55d55fb24ff83ac768f10ed4a767d567ae79462c1c3077f4c807a4f7dfa",
     "evidence/rank8_frontier_20261021/global_induction/verify_accepted_atomic_sts.py": "e9f6d6fbcf838d868194ca3a01f35d99baa9fbda777f2a918084a7851da806c9",
+    "evidence/rank8_frontier_20261021/global_induction/verify_accepted_complete.py": "6b33feefef1988bf5bb7960973ee680275de57a10e6627086514bd2a81d041aa",
     "evidence/rank8_frontier_20261021/global_induction/verify_accepted_frames.py": "7c7e50c9292215d57af61ed025e3ed8ed2a733d356c6900f5f878b292a8175a5",
     "evidence/rank8_frontier_20261021/global_induction/verify_accepted_generic.py": "4c004b1c4e310abadf4f4299f15a263dcde4364174e2924e478b8a6ce8762b39",
     "evidence/rank8_frontier_20261021/global_induction/verify_accepted_spectral.py": "547767a30f27a151f476ee4f68adb8105ac2c7117b31ead48fc61a170a9f8c48",
@@ -64636,6 +66440,10 @@
     "evidence/rank8_frontier_20261021/integral/structural_certificate.json": "9aa03817885343e24fb0f987d5a5144e2f2f5fabd7142cc83f1b2071bb21298e",
     "evidence/rank8_frontier_20261021/integral/structural_certificate.py": "0e603648e3bb85a601d9d9db63f3c30685089ab07b94268a8018bb0efa24dc49",
     "evidence/rank8_frontier_20261021/integral/verify_central_731.py": "5fd7641543f732b6d5307c85248a9b2d9efef58703696ca2c899ea1186f8118a",
+    "evidence/rank8_frontier_20261021/integral_center_filter/R8_3_439_h6.json": "ded5813be987bdfe8b99d1b4d69b27fe0349a49fc71e33cfc5e1e343dd28d89f",
+    "evidence/rank8_frontier_20261021/integral_center_filter/R8_3_567_h6.json": "1a5f1596b07f055eb57a7fdad55854c2391baf35c0fa0f2a97eeea9d71b2c82a",
+    "evidence/rank8_frontier_20261021/integral_center_filter/README.md": "6135ce2986556828d1b5c15542ee9ccbb7229108f474a368732b95570175595e",
+    "evidence/rank8_frontier_20261021/integral_center_filter/verify_original.py": "1190d1c477836155755f72b981aa3a9222ebdc00c1b654113d24b58d6ab35f8e",
     "evidence/rank8_frontier_20261021/noncommutative/README.md": "644a8737392b23d45b961a559ce6f00f605a4a4f2db0627e0cdc9fd295257f3a",
     "evidence/rank8_frontier_20261021/noncommutative/central_fusion_721.json": "5dda96388ad2517e26bb13aa5b93e60a4c9673897ac3b0f5630856fd056ba9ac",
     "evidence/rank8_frontier_20261021/noncommutative/central_integral_filters_1154.json": "efe7e91ce64cceac9822b73419c343f0079c0ba588bc1810fe781487b05c2ed3",
@@ -64682,6 +66490,9 @@
     "evidence/rank8_frontier_20261021/noncommutative_followup/su2_all_frontier.py": "35f042ea71299a5d1ef7dd5498169b14d4801cf11f0ce389d8c71ab4298ce755",
     "evidence/rank8_frontier_20261021/noncommutative_followup/su2_product_family.py": "c6335c651cd46305756c7d7c8997b9872dd6093b70dbe4ace4cc06ad3d8e3986",
     "evidence/rank8_frontier_20261021/noncommutative_followup/verify_scope_gates.py": "eedc0ef9a2f729d00d130bcda82022ab4494ce6a38fa1bbbcd2d78e8fa653c06",
+    "evidence/rank8_frontier_20261021/noncommutative_joint_spectrum/results.json": "179ed63bc78fc02edceb676d125ea9ca2ba4ca0be9add0471c88c87a56c17ca7",
+    "evidence/rank8_frontier_20261021/noncommutative_joint_spectrum/verify.py": "9b92fac9fea4208b6507e6ee769353dc683bcd50bc48e3b8d3e81633e634579d",
+    "evidence/rank8_frontier_20261021/quadratic/CM_REAL_STS.md": "eba734652928f09cb6a2982707eeff1f99330cfeb8aebc3b25a4cf703c5c8f03",
     "evidence/rank8_frontier_20261021/quadratic/CONNECTED_ALGEBRA_CANDIDATES.md": "c3540b1b8d7c6f98a631fdc49e90fb1be8050681f8cce67e3c53f90d48536652",
     "evidence/rank8_frontier_20261021/quadratic/CUBIC_SPLIT_MODULE.md": "fd42b42bb99ad91509f873e76b491752bf9c2273324802e2bc8fb89c979b65a3",
     "evidence/rank8_frontier_20261021/quadratic/NORMAL_SPLIT_SPECTRAL.md": "ae2dc8b514bb4783768f8a76d37f3bac4d6a9e3264bf48b373e8414fd9b16cdf",
@@ -64689,32 +66500,150 @@
     "evidence/rank8_frontier_20261021/quadratic/RESIDUAL_QUADRATIC_SEARCH.md": "b8507cf6e5e02c37f3068e908d5645f64aaf6d2e9a2380fd13cf9fca8b9aa1bf",
     "evidence/rank8_frontier_20261021/quadratic/SIMULTANEOUS_SPLIT_MODULE.md": "b60ae94e4a244cc672dceaa67b580696673bd52dedbbc99c3612becc3b7012c3",
     "evidence/rank8_frontier_20261021/quadratic/STRUCTURAL_CONSTRUCTIONS.md": "94728c4f40b72707529c1da44a70362740a2c91cadfbd63a925a1b7d5f2ee44f",
+    "evidence/rank8_frontier_20261021/quadratic/STS_1617_REVIEW.md": "54784dd6686371a5274e9b9d2b015170dd76f4d6508e8b03c8984df6b0ff3fd0",
+    "evidence/rank8_frontier_20261021/quadratic/STS_1661_REVIEW.md": "21a9c1ae3b753580dddf11e51959a48341d7df2b1c14238c40cd5aef4f55e05e",
+    "evidence/rank8_frontier_20261021/quadratic/STS_903_REVIEW.md": "0c3715857c57af7afc93eccd1ee8fd6701b87a369cd2655b88c2be854e01fead",
+    "evidence/rank8_frontier_20261021/quadratic/atomic_cm_real_sts.py": "e5d99ba4fe605157929bf1a96ba40da2893796355aaa0d239bbb40ad2b0d2a93",
+    "evidence/rank8_frontier_20261021/quadratic/atomic_galois_balance.py": "08c01215167afa41502ecb807250fc7e8535dafa8353e80d937452bea62567f5",
+    "evidence/rank8_frontier_20261021/quadratic/atomic_galois_balance_results.json": "495ac9a54b03abb05b026731a0efbc3d73d369bb600b6eee083338f362521506",
     "evidence/rank8_frontier_20261021/quadratic/connected_algebra_candidates.py": "9ce0245cb884f9f2538ee9f23d572a43ad96d42931d45942df30e71a70419b40",
     "evidence/rank8_frontier_20261021/quadratic/connected_algebra_candidates_results.json": "de4382d22ff0071c4b68327dcb18d96e7ca5541a96603f814f7182ce6b1fffdd",
     "evidence/rank8_frontier_20261021/quadratic/cubic_split_module.py": "0a9413e65a2147d7637e9793b3ba70ff3f4f0c88d8ea37d0853f456444e733ba",
     "evidence/rank8_frontier_20261021/quadratic/cubic_split_module_results.json": "60a0cff128fe7f6a134389689e0b8378cdfa2e9315ea6fbcba41c6f9a529278a",
+    "evidence/rank8_frontier_20261021/quadratic/fp_fusion_bounds.py": "14719b7d4dffaa1873caa10f6daf288032b4b8fd70c8bd64964899c263c09aca",
+    "evidence/rank8_frontier_20261021/quadratic/fp_fusion_bounds_results.json": "67cc570d175332ec91ebe25cb1385dce3e901d1f147bcd59de8be42e21088e93",
+    "evidence/rank8_frontier_20261021/quadratic/galois_support_control_results.json": "982c74b64e6de453156d7f73a2adaf53241702737ba96d5847f4db7f5a5dfe23",
+    "evidence/rank8_frontier_20261021/quadratic/galois_support_filter.py": "410825692ddfe1df7b22d62aafc72d8f946cebc208d925fe659289c2f81f9f60",
+    "evidence/rank8_frontier_20261021/quadratic/integer_phase_cuts.py": "b28226cd6bc605d4dc0470bed90d3a8e33fdfe7e8c5ac6123d1fa178765b9fec",
+    "evidence/rank8_frontier_20261021/quadratic/integer_phase_cuts_results.json": "e4b79cf120889426c6daa396f2e789d51b03006f1f877eaad6e4ce82a022cb42",
+    "evidence/rank8_frontier_20261021/quadratic/joint_atomic_integer.py": "1f90bd1b205d6886299295ae151628fdb0bae012549d1d61d510fd01ec4b6a85",
+    "evidence/rank8_frontier_20261021/quadratic/joint_atomic_integer_65_results.json": "f90d09d8dd128062f0556dba4fdd3fb6974b13520d9ad5c43f755d99be3fe10a",
+    "evidence/rank8_frontier_20261021/quadratic/joint_galois_balance.py": "613e1b3664a29c90142b5a0757a80cc3bbe8852b0cd6f339e7468240fe24534d",
+    "evidence/rank8_frontier_20261021/quadratic/joint_galois_balance_results.json": "0b579cd15335d318ff64703b7985ad41e550b68a76a9e558c46e3e551fe69b99",
     "evidence/rank8_frontier_20261021/quadratic/normal_split_spectral.py": "936cc613c42734ec3142d763764c40741a229e81797759eeee7b2fd13129c555",
     "evidence/rank8_frontier_20261021/quadratic/normal_split_spectral_results.json": "45b01303101ac6de3aa347e60f25a83e94e1878cd479fb5488c81cfbe55116ab",
     "evidence/rank8_frontier_20261021/quadratic/octic_low_s_general.py": "e301cc50365b40bd9df6d463067ebef36fe9e470ce3bef9d415a3e1dfb23dad2",
     "evidence/rank8_frontier_20261021/quadratic/octic_low_s_general_results.json": "e9bc6d43f6328a2b9b298080c9440be707c3a4a40a0d19948a7e2fd942158b97",
     "evidence/rank8_frontier_20261021/quadratic/octic_low_s_symmetry.py": "5d03d09a8f9850cb6578cfc74f2660fc0178bccc65648ec8f1c39ca78ac82593",
+    "evidence/rank8_frontier_20261021/quadratic/phase_65_results.json": "89eb1f3c3cc752af4a5a97f434168f1cc5b0a585114ed63191a8431e57eec00e",
+    "evidence/rank8_frontier_20261021/quadratic/phase_integer_65.py": "9a217ed83dbc3a4977fc8a35dee67d5354281f1fe1bae52ecb180fa95846d9eb",
+    "evidence/rank8_frontier_20261021/quadratic/phase_integer_65_results.json": "8d0965aba61cd78038e4e72422003263b688fc5f3b351157d6fc86e77ce71d99",
+    "evidence/rank8_frontier_20261021/quadratic/pure_pointed_bounds.py": "da6063a1ad82fdba00267b627848c305481bac4012f0eceb2b7f9bcfe259a21a",
+    "evidence/rank8_frontier_20261021/quadratic/pure_pointed_bounds_results.json": "ce28e93ce358d35de5be4cf3261c5ac0fad89244d4495f517be322067b836185",
+    "evidence/rank8_frontier_20261021/quadratic/quartic_complex_character_table.py": "d6ab3aa7178314d6edb9c582ce87e491fa4ed420e5d406c44b3210548322832e",
     "evidence/rank8_frontier_20261021/quadratic/rank_two_and_models.py": "222b60497fd0560570c7fd3f88619b0834af60d480dd209d1074fc5d78a121b9",
     "evidence/rank8_frontier_20261021/quadratic/rank_two_and_models_results.json": "3ede0a69095db118e2d03f005118d9a16bdb0fbf33f3fc67f95effe3fe561664",
     "evidence/rank8_frontier_20261021/quadratic/residual_split_1055.py": "270f2c85dd9664939ed3129da16714d11feac98c7fb6a75877b7c796241a254a",
     "evidence/rank8_frontier_20261021/quadratic/residual_split_1055_results.json": "23444052ef7ad8a5a9ac78e008bdb7f3e1958000fbf292731f48748d19dfacae",
     "evidence/rank8_frontier_20261021/quadratic/review_atomic_complex_1055.py": "533bf94439ca837802d29d144889d609e962990d713f0f100966bda529aa1c80",
     "evidence/rank8_frontier_20261021/quadratic/review_atomic_spectrum.py": "8196f64afe17d1bad578e9d08e5f59897d9a5ecd452345fc8586d078a78fafb7",
+    "evidence/rank8_frontier_20261021/quadratic/review_cm_real_sts.py": "ab6cc6070a1e7eb54106a6a71783315fbc8a78e57e59c7ecc76a609e631996ca",
+    "evidence/rank8_frontier_20261021/quadratic/review_cm_real_sts_results.json": "b6375318397c385fac96e92e2269ee8662ef863a22d8c1cccb15399b55c451f5",
     "evidence/rank8_frontier_20261021/quadratic/review_octic_low_s.py": "3e54399eabb1202f3a10f53a83ef6c05081f4e17dfd194af93cf4805e1ecfa7d",
+    "evidence/rank8_frontier_20261021/quadratic/review_sts_1617.py": "b3f53c91fcd1b8fe1f32d9310adf4c4da4068f1cb9c2c2d8e8fe4056d92a422d",
+    "evidence/rank8_frontier_20261021/quadratic/review_sts_1661.py": "b5bf36e003ee0e9ee6b184149d89919d12de03e22e57dea5e47a0ffab1ff5554",
+    "evidence/rank8_frontier_20261021/quadratic/review_sts_903.py": "59515379d037aee199c5cc1db9f3743b9e92adf15d58e51624e4a25cde08e77d",
+    "evidence/rank8_frontier_20261021/quadratic/sextic_character_table.py": "3e646f09b375410760d287251dcdd1444473923b939d869814074ef1fca5bd2d",
     "evidence/rank8_frontier_20261021/quadratic/simultaneous_split.py": "d0fcb12d966aa6cd73b57b6e9bb0bc534abe25c3ebb6d74f0d99599058fd41d0",
     "evidence/rank8_frontier_20261021/quadratic/simultaneous_split_results.json": "4335fa42b279a4737bb04552ce20f8c0c24a24aee83a35ecbe6725f88221f8b0",
+    "evidence/rank8_frontier_20261021/quadratic/strong_integer_3472.py": "ef7d8460fbabe0934049a3824044f6b9128cc0b36f809c96cd02c5b2e6cc2ecc",
+    "evidence/rank8_frontier_20261021/quadratic/strong_integer_3472_results.json": "665c03e5530d4ef0b3e543020399858ad77075dc851d637dded5be73ef606c2a",
     "evidence/rank8_frontier_20261021/quadratic/structural_constructions.py": "f3cb58fd546c964ef0b60157fff3c35ecceb3ef23cf39f086a7ddb6dc405993a",
     "evidence/rank8_frontier_20261021/quadratic/structural_constructions_results.json": "5bed61aec63b8081f672bd85aa89b0ec825c5d191881b89808501bc6c24be07f",
     "evidence/rank8_frontier_20261021/quadratic/verify_simultaneous_independent.py": "492a61da8011e4d7585469f4599b3cb073e6d851d71ebc0fbc88a242563808de",
+    "evidence/rank8_frontier_20261021/quadratic_atomic_integer/R8_3_1768_final.json": "d91a8ea7ac3e4d0d5ea8a666ef9355133fd9ab19e5b1bc15dbc168f3761db461",
+    "evidence/rank8_frontier_20261021/quadratic_atomic_integer/R8_3_1795_final.json": "2d72367ee62941fe5890d52cf9224e50901cd9b3075ec806f105e9a9122af219",
+    "evidence/rank8_frontier_20261021/quadratic_atomic_integer/final_verify.py": "e05c768a4b0173aa75a83e2b1cbe351f251ea07b55e02a04a5c6a6187a2a23eb",
+    "evidence/rank8_frontier_20261021/quadratic_atomic_integer/hermite_strategy.py": "9ae7420ec3da953a87998ff75c781151af277bd915e1c26f2e6d87cb5982f4d8",
+    "evidence/rank8_frontier_20261021/quadratic_atomic_integer/integral_center.py": "e2698540663af5154c73b2956e2c6c219a0e8f977b219751f8c252191924a770",
+    "evidence/rank8_frontier_20261021/quadratic_atomic_integer/proposal.py": "75e9006a0d67385f034f862baa51501928d202d4a57cea661a9dc38493895db6",
+    "evidence/rank8_frontier_20261021/quadratic_atomic_integer/unit_pair_constraints.py": "3520c04dfcd3e4cb221aa1fd56f05e77952041aa9a79f075ec42e06996282721",
+    "evidence/rank8_frontier_20261021/quadratic_atomic_integer/unit_pair_control.json": "0b6d16280fffaa2584e2a922fdce90ed89787b68ce2a298ff87612080f575056",
+    "evidence/rank8_frontier_20261021/quartic_integer_center/PROOF.md": "82cf26b16fdf8289c0ac4e2def31f10c3d2f8bb00928d16e8b1e595d3004364a",
+    "evidence/rank8_frontier_20261021/quartic_integer_center/R941_FERMION.md": "0465dd58cc3e066fd98a5743330d9bd383dd6f0250c0cc1a6711cc50042ca409",
+    "evidence/rank8_frontier_20261021/quartic_integer_center/gram_cubic.json": "484c887ee83f0584436deba2ab85e1c24cf58c98bae384c254acd4a76779c65a",
+    "evidence/rank8_frontier_20261021/quartic_integer_center/gram_cubic.py": "c6f0c9cdb5f6795df4e4f825d5f17e8c8fc671c98cdff7859476e17b051b5c99",
+    "evidence/rank8_frontier_20261021/quartic_integer_center/r941_charges.json": "9aa0838e31995f46931ce97ddb101612d63c6da7294522ff0d427d14ebc39624",
+    "evidence/rank8_frontier_20261021/quartic_integer_center/r941_charges.py": "6e6371500d8dd9f40a3596e87a27bdb343600f81660c7238cc91282d67b8b804",
+    "evidence/rank8_frontier_20261021/quartic_integer_center/r941_fermionic.json": "eef4760f4887b137da99e9cde6950ae662694e7684516899c474bcd7c9cbc015",
+    "evidence/rank8_frontier_20261021/quartic_integer_center/r941_fermionic.py": "887e02b7b417e069f3e41267012d0a9ff3abbb8dd9afbd6a9e70536f77d1616b",
+    "evidence/rank8_frontier_20261021/quartic_integer_center/r941_integer_counts.json": "4b3bb823a3738890fbf73c1b6b6f33e64a540a104ac37232fd2ef0a1ef05cb6c",
+    "evidence/rank8_frontier_20261021/quartic_integer_center/r941_integer_counts.py": "e50d2472e62f2b97eb3e40a3467c090ee8dc9cbc18ccbafb8cddf962b271ac4e",
+    "evidence/rank8_frontier_20261021/quartic_integer_center/r941_paired_rotation.json": "d441d7b80920a37df199522c97388829888a452c1b47d8526d1d75d3aba91877",
+    "evidence/rank8_frontier_20261021/quartic_integer_center/r941_paired_rotation.py": "be9f6fda44911cc1c3ac533e0e3c5e8a998532538922a9da39457790413f2a46",
+    "evidence/rank8_frontier_20261021/quartic_integer_center/r941_super_constructions.json": "35e584bb88d7af95f4a44ecc0b6d428628d4b278e49e976d9fca8a670ca0e29c",
+    "evidence/rank8_frontier_20261021/quartic_integer_center/r941_super_constructions.py": "71d7f5c934aae3abefa3085ce32dd32e4a5d79885684b30633aadd51748ee9e1",
+    "evidence/rank8_frontier_20261021/quartic_integer_center/source.json": "83edb031f16d7aa1f1c7c4f3578e11f4da3b86adeae6fd3fc88f8f54ad1f92d4",
+    "evidence/rank8_frontier_20261021/quartic_integer_center/source.py": "475737e98d98b4b4e9c630dcbeefe72288ec730100aa47bb0c1d5ff382885ac1",
+    "evidence/rank8_frontier_20261021/r1615_review/REVIEW.md": "e67240976bd3546f621703148c1a5c4636e720b5594c6a33a783e59dfd77600f",
+    "evidence/rank8_frontier_20261021/r1615_review/verify_direct.py": "92ba728e7d90666885c098a9da526c0d8bccac26150cc53e778a9a37e8015afb",
+    "evidence/rank8_frontier_20261021/r1660_review/REVIEW.md": "3da8585cbcd993da13316b77fb4a352d85e969139537369a035b1e1b9f31025d",
+    "evidence/rank8_frontier_20261021/r1660_review/verify_direct.py": "edfaf091a8ff0e01352260fb917a46e93aef33f166b4114e97edc4e2fc8a580d",
+    "evidence/rank8_frontier_20261021/r439_centerless_rank5/PROOF.md": "c09013c7f424c24ca15d0adc35c9138b2021356cecc1bc0d0670c7f6da83307d",
+    "evidence/rank8_frontier_20261021/r439_centerless_rank5/verlinde_exclusion.json": "003ab22b500d4209575ea13bb0fe75ca78abe1e346e59a4f8cce48c57222076d",
+    "evidence/rank8_frontier_20261021/r439_centerless_rank5/verlinde_exclusion.py": "8f9ee7095e16f3ba0849698a51d8d0c26b89944de49a25e924e411581c4a1dfc",
+    "evidence/rank8_frontier_20261021/r455_center_integer/PROOF.md": "a5e4b03574f530d5df1c15d7751dad616ffe2150c389d7acc0eebf8c19bc0313",
+    "evidence/rank8_frontier_20261021/r455_center_integer/joint_rotation.json": "598f4e1ebfaf5f7b1f0393ca2679158c8ecee405223eb445cb883383cad7aae4",
+    "evidence/rank8_frontier_20261021/r455_center_integer/results.json": "3d31246aff5f985c0cb3c9e1f09db7c118767aabdad8f5fb674cb59ffbdf0c85",
+    "evidence/rank8_frontier_20261021/r455_center_integer/verify.py": "8b06425ddbba771e91872958f5efb450ce7bf0bf5371d8cc465653c4ff1404f9",
+    "evidence/rank8_frontier_20261021/r455_center_integer/verify_all.py": "2fd737e25bb24ee740a6084fcee958305958f83aeba7e155d5cdc91324cc993d",
+    "evidence/rank8_frontier_20261021/r455_review/verify_direct.py": "c53b394ef599f14560b1f734bcd3b53ecd6e462288884e53fb2d401de1757ec8",
+    "evidence/rank8_frontier_20261021/r567_centerless_integer/GRAM_PROOF.md": "22a939bfbed137dd87d911389d70048d995825b26910e6db0d168f2fe27cdfde",
+    "evidence/rank8_frontier_20261021/r567_centerless_integer/PROOF.md": "5a31879382d43a97c4928592fd4eb98080faf4a1307402a7cb2a436a9379fe67",
+    "evidence/rank8_frontier_20261021/r567_centerless_integer/gram.json": "1b2f14363b80066484b278e33595866d05f27bbca490dd0e62752d6c9cab8461",
+    "evidence/rank8_frontier_20261021/r567_centerless_integer/gram.py": "c0ad532ac2b84de3e9c3a0854069603b33487a7227b15d3df3381163342236b2",
+    "evidence/rank8_frontier_20261021/r567_centerless_integer/rotation_spectral.json": "12cb22710e154b1ce6272b489a9899fb90306ecaa6e48c2d9445a11025dba62b",
+    "evidence/rank8_frontier_20261021/r567_centerless_integer/rotation_spectral.py": "b9ca7047b25a3ce139529588348bbe4d331f267a3a3e3787bed8a048431c2e5f",
+    "evidence/rank8_frontier_20261021/r567_centerless_integer/source.json": "032c6b7cc9e9c9d253087b139085ad939026b24459f637f8e7ae7af5faacaf12",
+    "evidence/rank8_frontier_20261021/r567_centerless_integer/source.py": "aaffd5c3d30eae7f418586251b1efaa7bd92446ab0f504b1333722f2d642ea45",
+    "evidence/rank8_frontier_20261021/r567_centerless_integer/verlinde_exclusion.json": "faf5a4c03d4fc869404c088cf8887770b9ede583d28c2ca8cacdb015a70e09af",
+    "evidence/rank8_frontier_20261021/r567_centerless_integer/verlinde_exclusion.py": "02b2db3d2d925853fcbffa1a5127bb0ff2a9d3d030aae60d724c4b835ab277c0",
+    "evidence/rank8_frontier_20261021/r928_semion_rotation/charged_joint_spectrum.json": "341a833dd4a85684a13bdb583cdd495caff6d1c52f81efef372be9a259ed6650",
+    "evidence/rank8_frontier_20261021/r928_semion_rotation/charged_joint_spectrum.py": "45d507f95f901cbedd26045ec869a085eec762afe609e937a1fe522dfcfb5fbb",
+    "evidence/rank8_frontier_20261021/r928_semion_rotation/final_campaign.json": "db45a5dc3f450b5b61a9b1fbee334a68cc7b5cabb9d587ec9f8a4bbb34e5c344",
+    "evidence/rank8_frontier_20261021/r928_semion_rotation/final_campaign.py": "309f3bb9cb011f32e6e43357f95aeb0dda7567806ceee5799cf44a9a6d30ab01",
+    "evidence/rank8_frontier_20261021/r928_semion_rotation/integer_counts.json": "9bcb1114af4eed204123c3f984c6031d23c530b6cf7e23540f5fb54d24ee606a",
+    "evidence/rank8_frontier_20261021/r928_semion_rotation/integer_counts.py": "62eb3120e664f31ba572cf931e7519fc7537d7154bbed6ddb7ea355fc4eb3c84",
+    "evidence/rank8_frontier_20261021/r928_semion_rotation/integer_support_lattice.json": "74c8faf358fd14f6cc85cdaa257701854c9531a8c05879f08d1d08854eb514e1",
+    "evidence/rank8_frontier_20261021/r928_semion_rotation/integer_support_lattice.py": "78c7b155f19c031114bddc95bef9bd0ee4b982f6a87a64dfce6ea30a61147388",
+    "evidence/rank8_frontier_20261021/r928_semion_rotation/joint_spectrum.json": "2a9d22c6ab61d1d2881e821c00505d41762e181ee78d48496e2f5ceb404fd2d7",
+    "evidence/rank8_frontier_20261021/r928_semion_rotation/joint_spectrum.py": "cc7cb09d205911da9b6af7c56a8326b5189bd6ce5c401b11b646b56d9aac1a27",
+    "evidence/rank8_frontier_20261021/r928_semion_rotation/pair_rotation.json": "481e010adcda7c47dc24ec63a3a7a51a2a63e4fc719795af8a9431d4a3122952",
+    "evidence/rank8_frontier_20261021/r928_semion_rotation/pair_rotation.py": "e05c0cfe94682f9ef1afcd5b2bb900db79498989d97a0847aa5d2ea951063181",
+    "evidence/rank8_frontier_20261021/r928_semion_rotation/results.json": "36ac370eafb016c40cb8608a6250fa2b68c50a0dbdd2ef05632dfaa382da59f4",
+    "evidence/rank8_frontier_20261021/r928_semion_rotation/verify.py": "ae79205e23fb1097dbf487e929ec04acd026d25b9715f004777b76390ae7d35a",
+    "evidence/rank8_frontier_20261021/r928_semion_rotation/verify_all.py": "d35130635137f767e965df207769dcac4426d14e569272a5cfcab8a45b1f7a78",
+    "evidence/rank8_frontier_20261021/rank5_integer_gram/PROOF.md": "7a3e137fe559a4be7252c2983334b0d5502f8662d23cefcc4f25ab0ea6330d3f",
+    "evidence/rank8_frontier_20261021/rank5_integer_gram/positive_control.json": "3c23ffe9983870eb0420b0b2612b175761e888fc7a9d5f78d87e70ee28c7f046",
+    "evidence/rank8_frontier_20261021/rank5_integer_gram/positive_control.py": "7e7ed90d3e5ad0cbdb8c69155aeb5fcde6de85ca85bd6f4925811cd6869dc4db",
+    "evidence/rank8_frontier_20261021/rank5_integer_gram/results.json": "52219c5beec48147d359cfe9106522889782b9db5200a1bfa9c2181ace1605f4",
+    "evidence/rank8_frontier_20261021/rank5_integer_gram/verify.py": "e6c27f7fe6a0685dfe8b8b958a26d9e9dc06ee1ff2e72031f49cab6fc57da6ac",
+    "evidence/rank8_frontier_20261021/review/FERMION_DIMENSION_CHARACTER_COUNTEREXAMPLE.md": "47eef14e5d870911936a07c59c4d61a3395ddf83a25d981cdb732abac3db00da",
+    "evidence/rank8_frontier_20261021/review/INTEGRAL_CENTER_SUBCATEGORY.md": "ca7c2e90c9f065b074892e9623e50f9eac9b4b22a799012ed0e23fc6abdd3ee2",
+    "evidence/rank8_frontier_20261021/review/QUARTIC_CENTRAL_ORBITS.md": "48ecc06f1e319c67b85128e20339c2678c9303e22cece29d687eac1b0f8b8f6f",
+    "evidence/rank8_frontier_20261021/review/R941_FUSION_TRACE_REVIEW.md": "e6ed238b579d6ffaee1e2d2dccadda50bd4262d94a0c83aee907d444eb336b47",
+    "evidence/rank8_frontier_20261021/review/fermion_no_negative_character.json": "b18456db0b24906c0f2ae97d02e8625f3c1a693e602f4df78ad92020bd80ee35",
+    "evidence/rank8_frontier_20261021/review/fermion_no_negative_character.py": "5322f99227abe4f7365be9f4b268f8086704fea2792c03cfc91668595e5e4428",
+    "evidence/rank8_frontier_20261021/review/integral_center_subcategory.json": "5bdaa9cd39ff7c93bd0695a5c81e0f4f0b5a6b08d60fc09f4901db5fb4404b91",
+    "evidence/rank8_frontier_20261021/review/integral_center_subcategory.py": "309d64bbaf0336477abda3b102f748dee0b4ebe9cb2b43f43fd94f2f2cca947f",
+    "evidence/rank8_frontier_20261021/review/quartic_central_orbits.json": "37f4ec1a926f5540fe289e18917696522176bcd2441fc0f62edae3aa104b2fd4",
+    "evidence/rank8_frontier_20261021/review/r941_fermion_campaign_review.json": "bd2472fc7717d43d6b30cdb03777acbabe6d12a0cde36df71758b260c1fba858",
+    "evidence/rank8_frontier_20261021/review/r941_fermion_operator_review.json": "044e36e6790cf78b295d4f525cb361d66df223f22f6a18d1267c0eddaaf91f2c",
+    "evidence/rank8_frontier_20261021/review/r941_fusion_traces.json": "187d73e0ddc57c16de5873509ecce2c25a1ff0d1f3d8764c0f0df6f95bd3fb32",
+    "evidence/rank8_frontier_20261021/review/r941_integer_witness_review.json": "c5c4237a6479d86ad56ec4e18934b4712d11bf8f9bbe2112c55b5b05d550dac3",
+    "evidence/rank8_frontier_20261021/review/verify_quartic_central_orbits.py": "16cea53fc69cd8885187a23a2ba42f60ad0a472df56ecbff649fe1e91b81c5d2",
     "evidence/rank8_frontier_20261021/review/verify_r1463_low_symmetry.py": "1d32ef046563148a0f0ead61b6c383ef034067d2b74111431b21d3e28defd851",
     "evidence/rank8_frontier_20261021/review/verify_r1463_signed_unrestricted.py": "4270bdc89754abca7d0ca9d7863d1b78c7587691675321415a7257948e75a3ce",
     "evidence/rank8_frontier_20261021/review/verify_r1739_independent.py": "5c02c8f9b1862a637b43cb6982dd0d90566fd7cc4ac0ee042fa81eeba44f13c8",
+    "evidence/rank8_frontier_20261021/review/verify_r439_verlinde.py": "7c91ebf7a5498033d6a3c2adf149507c1d12ecb1b3113c864096e60ae5ce4e25",
+    "evidence/rank8_frontier_20261021/review/verify_r455_trace_sts.py": "140d5d0fa1a0f66a4d6a84a4b69287fd7f0778479c576e6907c1f940ef860a37",
+    "evidence/rank8_frontier_20261021/review/verify_r567_verlinde.py": "111c60280c49a447a65250bc7e5d2f765b70a3642538714ed3928844e403c341",
     "evidence/rank8_frontier_20261021/review/verify_r731_independent.py": "e6ff7da85dbfaaf86e0e84b4f5019ddc6ed2ffba2dfb00589be4777f3fa80390",
     "evidence/rank8_frontier_20261021/review/verify_r925_independent.py": "b1c9bee922541b025c9692bd44c99493ca9f5878d2cca197dd50543e145ac561",
+    "evidence/rank8_frontier_20261021/review/verify_r941_fermion_campaign.py": "2e4ba6df1c7088b98320a117af2b7b2a7b138b11cd0b4cffd73782b5c3d82d9c",
+    "evidence/rank8_frontier_20261021/review/verify_r941_fermion_operator.py": "01b3c7e809da6039a10a22d7d16a3a63e4ae9fbda5a3c64125afff88ffdfd0ab",
+    "evidence/rank8_frontier_20261021/review/verify_r941_fusion_traces.py": "fa35d8ee7ff5226a673e3ea8d2c7fcc071e6acc6fe24f7df09b87d79e73cb680",
+    "evidence/rank8_frontier_20261021/review/verify_r941_integer_witnesses.py": "57e73cb1e99b4e77fdd37a714b19f4c3ac4df943f748dbf119fc63d069ea14dc",
     "evidence/rank8_frontier_20261021/review/verify_r985_direct.py": "ad077d8d0b74413dcc8662add89d3336e61f5a02a5987cbf15dfefa5f524bb3e",
     "evidence/rank8_frontier_20261021/structural_models/ALGEBRA_CANDIDATES.md": "059c3ff98438c06b6be3af5a6122ee2c6ac2aefc088d6925ca46fcacbfc0af8f",
     "evidence/rank8_frontier_20261021/structural_models/C3_MORITA_DUAL.md": "46200c800147013df0bf256d60e34230a090f5e0b271e97e41b4516ac96f714a",
@@ -64746,6 +66675,7 @@
     "evidence/rank8_frontier_20261021/structural_models/rank5_route_bindings.py": "516781dcbc637b806c36d9f5351d2c950bc8898d96aa70f6bd9d2f319ef7a9ed",
     "evidence/rank8_frontier_20261021/structural_models/s3_full_condensation.json": "47c248455bc625413a013bdc2c842b2b769234ecbba4a83b7758dde42c1eb231",
     "evidence/rank8_frontier_20261021/structural_models/s3_full_condensation.py": "d1a04cadac207c0008ff658845ebecdb616a34087a7cf94b472c41d0ff09ccb6",
+    "evidence/rank8_frontier_20261021/structural_models/screening_completion.json": "5f378a20803af4d547e6ebbdab0f377472b9bbd1309ff549356dde6e89d406d3",
     "evidence/rank8_frontier_20261021/structural_models/structural_scope.json": "ab4697dd69ad53a756ebbb77fb68943a5f1e783c05ecab9aa053a1d6d8e43582",
     "evidence/rank8_frontier_20261021/structural_models/verify_structural_scope.py": "9492d20ec8811612734b893b4f184bf60f7bf2a7d3975336759615319e381175",
     "evidence/rank8_m3_20261021/pipeline/census_m3.json": "e79ca3c2a7de9c74c677f768284842a42a2eaa52d77d82a4680c208b41fd7836",
