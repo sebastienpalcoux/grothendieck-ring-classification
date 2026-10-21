@@ -78,3 +78,32 @@ does not exclude the ring; it is never a categorification or model.
 
 All discovery, validation, and certificates in this directory are new.
 Published rank-8 M3 proof files remain immutable.
+
+## Partial modular spectrum and exhaustive character labeling
+
+In the pseudo-unitary center, the distinguished simple A_E has dimension
+beta_E=D/f_E. Deshpande's induction-restriction character formula
+(arXiv:1611.04486, equation(39)) gives
+S(A_E,Z)=beta_E chi_E(FZ) for the commutative source ring. Symmetry of
+the unnormalized modular S matrix implies that
+beta_E chi_E(FZ)/dim(Z) is a character value of the center fusion ring,
+and hence an algebraic integer. `partial_s.py` applies this condition
+to every low and high candidate. The exact character table in
+Q(zeta24) is checked against all tensor products, orthogonality and
+duality; integrality means integral coordinates in its full integer
+ring Z[zeta24].
+
+A complete low frame is retained only if an exhaustive bijection of
+its columns with the characters respects dimensions beta_E and all
+equalities beta_E chi_E(v_F)=beta_F chi_F(v_E). The recursion omits
+only reused labels, wrong dimensions, or a violated equality. Every
+actual low frame therefore survives with a labeling. The remaining
+frame hull, all high columns passing the integral-closure test, and
+all auxiliary rotation columns form another necessary cone.
+
+For R926 both admissible indicator assignments have exact full-domain
+separators. Its certificate includes the complete16 oriented signed
+branches and is replayed by `verify_accepted_spectral.py`; this is a
+general-complex exclusion. The more detailed proof, primary-source
+normalization and separate real-STS strengthening are in
+`PARTIAL_S_AND_STS.md`. The manuscript fragment is `spectral_frame.tex`.

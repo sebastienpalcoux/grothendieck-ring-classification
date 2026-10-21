@@ -9,7 +9,7 @@ minimal-polynomial heuristic.
 import argparse,json,time
 import sympy as s
 import streaming as st
-from exact import require,discover_roots,check_roots,key
+from exact import require,discover_roots,check_roots,key,evaluate,vector
 from rings import Characters
 
 class Table:
@@ -21,6 +21,7 @@ class Table:
         if a['width']==4:
             require(a['field']['radicands']==[2,3],'unsupported biquadratic field');basis=[K.one,r2,r3,r2*r3]
         else:basis=[K.one,{1:K.one,2:r2,3:r3,6:r2*r3}[a['q']]]
+        self.basis=basis;self.zeta=z;self.degree=8;self.conjugate=lambda value:evaluate(value.to_list(),z**(-1),K)
         self.ds=[sum((K(s.Rational(v.numerator,v.denominator))*b for v,b in zip(d,basis)),K.zero) for d in a['dimensions']]
         self.D=sum((d*d for d in self.ds),K.zero)
         roots=discover_roots(ch.p,K);require(roots is not None,'character field does not embed in Q(zeta24)');check_roots(ch.p,K,roots)
@@ -28,6 +29,7 @@ class Table:
         require(len(set(self.characters))==8 and tuple(self.ds) in self.characters,'incomplete character table or missing FP embedding')
         for row in self.characters:
             require(row[0]==K.one and all(row[i]*row[j]==sum((K(R[i][j][k])*row[k] for k in range(8)),K.zero) for i in range(8) for j in range(8)),'character multiplication fails')
+            require(all(row[ch.du[i]]==evaluate(row[i].to_list(),z**(-1),K) for i in range(8)),'character does not respect duality and complex conjugation')
         self.codegrees=[sum((row[i]*row[ch.du[i]] for i in range(8)),K.zero) for row in self.characters]
         for i,row in enumerate(self.characters):
             for j,other in enumerate(self.characters):require(sum((row[k]*other[ch.du[k]] for k in range(8)),K.zero)==(self.codegrees[i] if i==j else K.zero),'character orthogonality fails')
@@ -64,8 +66,53 @@ class Table:
                 recurse(chosen+[E])
         recurse([]);return out
 
-def filtered(R,a):
-    T=Table(R,a);columns=[];low_failures=[]
+class RealTable(Table):
+    """Full splitting inside the real FP field, with exact integral closure."""
+    def __init__(self,R,a):
+        self.R=R;self.a=a;ch=Characters(R);self.K=K=a['K'];self.degree=d=a['factor'].degree()
+        require(d in (2,4) and a['factor'].count_roots()==d,'real splitting adapter requires a totally real quadratic/biquadratic FP field')
+        roots=discover_roots(ch.p,K);require(roots is not None,'not every character splits in the FP field');check_roots(ch.p,K,roots)
+        self.characters=[tuple(sum((K(co)*root**j for j,co in enumerate(cf)),K.zero) for cf in ch.coeff) for root in roots]
+        self.ds=list(a['ds']);self.D=a['D'];self.conjugate=lambda value:value
+        require(len(set(self.characters))==8 and tuple(self.ds) in self.characters,'incomplete real character table')
+        for row in self.characters:
+            require(row[0]==K.one and all(row[i]*row[j]==sum((K(R[i][j][k])*row[k] for k in range(8)),K.zero) for i in range(8) for j in range(8)),'real character multiplication fails')
+            require(all(row[ch.du[i]]==row[i] for i in range(8)),'real character duality fails')
+        self.codegrees=[sum((row[i]*row[ch.du[i]] for i in range(8)),K.zero) for row in self.characters]
+        for i,row in enumerate(self.characters):
+            for j,other in enumerate(self.characters):require(sum((row[k]*other[ch.du[k]] for k in range(8)),K.zero)==(self.codegrees[i] if i==j else K.zero),'real character orthogonality fails')
+        radicands=a['field'].get('radicands',[a.get('q')]);rs=[]
+        for q in radicands:
+            rr=discover_roots(s.Poly(st.old.s.Symbol('t')**2-q,st.old.s.Symbol('t')),K);require(rr is not None,'real basis radical missing');rs.append(next(x for x in rr if a['embedding'].sign(x)>0))
+        self.basis=[K.one,rs[0]] if d==2 else [K.one,rs[0],rs[1],rs[0]*rs[1]]
+        V=s.Matrix.hstack(*(vector(x,d) for x in self.basis));W=V.inv()
+        self.coordinates=lambda value:tuple(st.Q(str(x)) for x in W*vector(value,d))
+        self.beta=[self.D/f for f in self.codegrees];self.cache={};self._values={};self._allowed={};self._integral={}
+        self.metadata={'field':'real_FP_splitting_field','degree':d,'radicands':radicands,'character_generator':ch.k,'field_polynomial':list(map(str,a['factor'].all_coeffs())),'characters':[[list(map(str,key(v))) for v in row] for row in self.characters],'codegrees':[list(map(str,key(v))) for v in self.codegrees]}
+
+    def failure(self,v):
+        v=tuple(v)
+        if v in self.cache:return self.cache[v]
+        K=self.K;dim=sum((K(n)*d for n,d in zip(v,self.ds)),K.zero);require(dim!=K.zero,'zero central dimension')
+        for E,(row,beta) in enumerate(zip(self.characters,self.beta)):
+            value=beta*sum((K(n)*ch for n,ch in zip(v,row)),K.zero)/dim;vk=tuple(key(value))
+            if vk not in self._integral:
+                co=self.coordinates(value)
+                if self.degree==2:poly=(st.Q(1),-2*co[0],co[0]*co[0]-self.a['q']*co[1]*co[1])
+                else:poly=st.old.biquadratic_polynomial(co,self.a['mul'])
+                self._integral[vk]=(all(x.denominator==1 for x in poly),list(map(str,poly)))
+            okay,poly=self._integral[vk]
+            if not okay:
+                result={'character':E,'multiplication_characteristic_polynomial':poly};self.cache[v]=result;return result
+        self.cache[v]=None;return None
+
+def character_table(R,a):
+    if a['field'].get('radicands') not in (None,[2,3]) or (a['width']==2 and a['q'] not in (1,2,3,6)):
+        return RealTable(R,a)
+    return Table(R,a)
+
+def filtered(R,a,table=None):
+    T=character_table(R,a) if table is None else table;columns=[];low_failures=[]
     for g,cs in enumerate(a['columns']):
         keep=[]
         for c in cs:

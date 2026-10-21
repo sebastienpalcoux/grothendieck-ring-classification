@@ -133,6 +133,58 @@ Each of the four patterns has an exact rational witness for the full joint
 rotation relaxation through height12. This is stronger evidence than a
 single feasible convex combination of different integral Gram patterns,
 but it still does not construct fusion rules or associators for the center.
+Each of the four patterns also has an exact rational witness for the joint
+height6 rotation system with the full-character STS equations and its high
+multiplicities fixed, in `integral_modular_721_h6.json`.
+
+`central_fusion.py` adds a separate tensor-product test for every one of
+these four complete Gram patterns. For all ten unordered pairs of the
+four nonunit distinguished central objects, it requires the forgetful
+tensor equation and a common nonnegative set of low fusion coefficients.
+Exact duality-invariance of all five characters makes these distinguished
+objects selfdual; Frobenius reciprocity therefore makes the coefficients
+of three nonunit low objects symmetric in all three labels. The unit
+coefficient is the Kronecker delta. All four patterns pass this combined
+rational feasibility test, with exact witnesses in
+`central_fusion_721.json`. High objects with the same restriction column
+are aggregated. Neither integrality of the center fusion coefficients nor
+their full associativity has been imposed, so this is a necessary
+relaxation and not a constructed center fusion ring.
+
+`verlinde_low.py` strengthens this test by calculating all twenty low
+fusion coefficients from the known complete S rows:
+
+    N_(A_E,A_F)^(A_G) = D^(-2) sum_Z S_(A_E,Z) S_(A_F,Z) S_(A_G,Z)/dim(Z).
+
+The distinguished objects are selfdual, so no dual label is needed on the
+third factor. All four R721 Gram patterns, under both symmetric character
+assignments, give nonnegative integer coefficients. Their tensor-product
+systems remain exactly feasible when those coefficients are fixed, as
+recorded in `verlinde_low_721.json`. This uses the ordinary Verlinde
+formula, equivalently Deshpande, *On twisted Verlinde formulae for modular
+categories*, Theorem1.1 with M=C, https://arxiv.org/abs/1811.08447.
+
+## Complete integral Gram and cubic filters for R1154
+
+The independent exact enumeration in
+`../central_integrality/integer_gram_1154.py` exhausts all integral Gram
+patterns for the unique surviving low frame31. Affine bounds reduce the
+2,634,508,800-point naive box to 40,583 visited search nodes, yielding
+exactly 14,211 solutions of all original Gram equations.
+`central_integral_filters.py` checks every solution. Nonnegative integrality
+of all twenty cubic Verlinde coefficients leaves 1,238 patterns. As a
+separate test, the known eigenvalues S_(A_E,Z)/dim(Z) of the integral center
+fusion matrices must have Galois-invariant multiplicities. This leaves
+7,274 patterns, including all 1,238 cubic survivors.
+
+For every cubic survivor, `cubic_tensor.py` tests the forgetful tensor
+equations for all ten distinguished pairs with those exact integer low
+coefficients fixed. It exhausts the rational cones using all nonsingular
+bases of the active high-column space. All 1,238 patterns pass, with 12,380
+exact nonnegative rational witnesses in `cubic_tensor_1154.json`. These
+receipts completely cover their stated finite domains. They do not impose
+integral high fusion coefficients, full associativity, or associators, and
+therefore do not establish categorification.
 
 ## Matrix blocks and pointed bimodules
 

@@ -20,6 +20,21 @@
       }
     },
     {
+      "id": "R8_3_731",
+      "tensor_sha256": "ee54e287f01aec4e2079b7f66309d89a659742e38164a3e47de1fea650eec48b",
+      "status": "excluded",
+      "certificate": {
+        "kind": "simple_center_prime_power_filtered_joint_induction",
+        "scope": "general_complex_fusion_category",
+        "evidence": "evidence/rank8_frontier_20261021/integral/central_731_sieve.json",
+        "proof": "evidence/rank8_frontier_20261021/integral/PROOF.md",
+        "verifiers": [
+          "evidence/rank8_frontier_20261021/integral/verify_central_731.py",
+          "evidence/rank8_frontier_20261021/review/verify_r731_independent.py"
+        ]
+      }
+    },
+    {
       "id": "R8_3_921",
       "tensor_sha256": "9c48f2d962db6a02c9db115e0b7ce38d4f2304792e9aba66d2a1419c9eec4eb6",
       "status": "excluded",
@@ -30,6 +45,34 @@
         "proof": "evidence/rank8_frontier_20261021/quadratic/NORMAL_SPLIT_SPECTRAL.md",
         "verifiers": [
           "evidence/rank8_frontier_20261021/quadratic/normal_split_spectral.py"
+        ]
+      }
+    },
+    {
+      "id": "R8_3_925",
+      "tensor_sha256": "ffa883fbe4df0e81dba8c02dcb2592a821177941c3d4e646be08957e7c26d585",
+      "status": "excluded",
+      "certificate": {
+        "kind": "complete_low_frame_hull_signed_induction",
+        "scope": "general_complex_fusion_category",
+        "evidence": "evidence/rank8_frontier_20261021/global_induction/frame_results/R8_3_925_h4.json",
+        "proof": "evidence/rank8_frontier_20261021/global_induction/PROOF.md",
+        "verifiers": [
+          "evidence/rank8_frontier_20261021/global_induction/verify_accepted_frames.py"
+        ]
+      }
+    },
+    {
+      "id": "R8_3_926",
+      "tensor_sha256": "e5c741ab7fae8840a4245a790c562473af2bfae33f166786ddef955bede38584",
+      "status": "excluded",
+      "certificate": {
+        "kind": "partial_modular_spectrum_symmetric_frame_signed_induction",
+        "scope": "general_complex_fusion_category",
+        "evidence": "evidence/rank8_frontier_20261021/global_induction/spectral_results/R8_3_926_h4.json",
+        "proof": "evidence/rank8_frontier_20261021/global_induction/PARTIAL_S_AND_STS.md",
+        "verifiers": [
+          "evidence/rank8_frontier_20261021/global_induction/verify_accepted_spectral.py"
         ]
       }
     },

@@ -1,0 +1,147 @@
+{
+  "id": "R8_3_65",
+  "tensor_sha256": "fb2d70fa36311b2092190eb1ecd5e3e82fd4ab7ff646b11aa7c7e518d261a1c4",
+  "scope": "all connected rank-two based modules up to vertex permutation",
+  "complete_diagonal_domain": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+  ],
+  "nontrivial_C4_permutation_action": "excluded_by_integral_Perron_eigenvalue",
+  "classes": [
+    {
+      "rho_matrix": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          11
+        ]
+      ],
+      "all_invertible_matrices": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "all_four_noninvertible_matrices": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          11
+        ]
+      ],
+      "internal_end_candidates": [
+        [
+          1,
+          1,
+          1,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          1,
+          11,
+          11,
+          11,
+          11,
+          1
+        ]
+      ]
+    },
+    {
+      "rho_matrix": [
+        [
+          3,
+          5
+        ],
+        [
+          5,
+          8
+        ]
+      ],
+      "all_invertible_matrices": [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      "all_four_noninvertible_matrices": [
+        [
+          3,
+          5
+        ],
+        [
+          5,
+          8
+        ]
+      ],
+      "internal_end_candidates": [
+        [
+          1,
+          1,
+          1,
+          3,
+          3,
+          3,
+          3,
+          1
+        ],
+        [
+          1,
+          1,
+          1,
+          8,
+          8,
+          8,
+          8,
+          1
+        ]
+      ]
+    }
+  ],
+  "class_count": 2,
+  "outcome": "exact_necessary_modules_survive; no_general_exclusion_or_new_model",
+  "coherence_restriction": "Every actual rank-two module trivializes the pointed H3(C4,C*) class.",
+  "trivial_cocycle_branch": "If that class is trivial, the subgroup algebra sum(C4) exists and realizes the first based module.",
+  "canonical_dual_rank_if_pointed_class_trivial": 8,
+  "canonical_dual_simple_dimensions_if_pointed_class_trivial": [
+    "1",
+    "1",
+    "1",
+    "1",
+    "d",
+    "d",
+    "d",
+    "d"
+  ],
+  "canonical_dual_invertible_group_if_pointed_class_trivial": "C4",
+  "limitation": "Neither the pointed cocycle vanishing nor a module associator for the second based module is proved; the canonical dual fusion tensor is not identified."
+}

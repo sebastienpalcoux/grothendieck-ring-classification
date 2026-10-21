@@ -8,16 +8,22 @@ import sympy as s
 
 _cones={}
 def kinds(variant):
-    require(variant in ('streaming','frame'),'unknown induction variant')
+    require(variant in ('streaming','frame','spectral_frame','sts_frame'),'unknown induction variant')
     return (f'frontier_{variant}_induction',f'frontier_{variant}_cone_feasible',f'frontier_{variant}_induction_lift')
 def variant_for(kind):
-    for variant in ('streaming','frame'):
+    for variant in ('streaming','frame','spectral_frame','sts_frame'):
         if kind in kinds(variant):return variant
     raise ValueError('unknown frontier induction certificate kind')
 def cone(R,height,variant='streaming'):
     key=(st.digest(R),height,variant)
     if key not in _cones:
-        if variant=='frame':
+        if variant=='sts_frame':
+            from sts_frame import STSFrameCone
+            cls=STSFrameCone
+        elif variant=='spectral_frame':
+            from spectral_frame import SpectralFrameCone
+            cls=SpectralFrameCone
+        elif variant=='frame':
             from frame_cone import FrameCone
             cls=FrameCone
         else:cls=st.Cone
@@ -118,7 +124,7 @@ def install():
     st.old.install();import oriented_extension as oe
     if getattr(oe,'_frontier_streaming_installed',False):return
     original=oe.pseudo_check
-    def check(R,c):return verify_pseudo(R,c) if c['kind'] in [kinds(v)[0] for v in ('streaming','frame')] else original(R,c)
+    def check(R,c):return verify_pseudo(R,c) if c['kind'] in [kinds(v)[0] for v in ('streaming','frame','spectral_frame','sts_frame')] else original(R,c)
     oe.pseudo_check=check;oe._frontier_streaming_installed=True
 
 def verify(R,c):

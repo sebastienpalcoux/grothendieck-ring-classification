@@ -1,8 +1,8 @@
-# Independent review of the R436 and R3344 general obstructions
+# Independent review of frontier exclusions
 
-The two new arguments support **general complex noncategorifiability**,
-subject to their explicitly cited mathematical inputs. Neither argument
-assumes that an arbitrary integral or pseudo-unitary category is unitary.
+The accepted arguments below support **general complex noncategorifiability**,
+subject to their explicitly cited mathematical inputs. None assumes that
+an arbitrary integral or pseudo-unitary category is unitary.
 This is a separate computational and mathematical review by another AI
 agent; it is not independent human review or a formal proof-assistant check.
 
@@ -124,3 +124,101 @@ its fixed-point diagonal has odd parity. This contradiction uses neither
 The optimized producer replay confirmed 2,096 normal matrices and 16
 source-annihilator survivors, all killed by the forced quadratic. The
 finite replay is supplementary to the complete trace/norm argument.
+
+
+## R8_3_731
+
+Accepted as a general-complex exclusion. Integrality supplies a canonical
+pseudo-unitary spherical structure, without assuming unitarity. The source
+ring is simple and nonpointed. A hypothetical braided category is either
+nondegenerate or symmetric: ENO Corollary 7.2 rules out the former because
+there is a simple of dimension five, while the complete 40-group order-660
+scan and full tensor comparison rule out the latter. LPR Theorem 5.1 thus
+makes its center simple. The center is integral and nondegenerate, so the
+same ENO corollary forbids every nontrivial prime-power simple dimension.
+The prime-power induction strategy is already described in LPR Remark
+5.15; the new result here is the complete case-specific certificate.
+
+The reviewer script `verify_r731_independent.py` imports no producer code.
+It reconstructs the source Gram matrix, all formal codegrees and low
+restriction sets, then uses a fixed 3+4 meet-in-the-middle enumeration with
+no producer Cauchy or partial-PSD pruning. It examines all 3,659,712 row-sum
+matching frames and independently recovers exactly the saved 450 PSD
+frames. The complete count is 434 duality failures, 13 Gram separators and
+three joint tensor-rotation separators. For all sixteen duality-compatible
+frames it separately reconstructs every high restriction vector. It checks
+the Gram rays directly, and reconstructs the three height-six rotation
+systems using the divisor-sum Ramanujan formula, rather than the producer's
+reduced-order formula. Every column pairing is nonnegative and every
+right-side pairing negative, in unbounded exact integer arithmetic. Both
+optimized reviewer runs passed; the report is `r731_independent.json`.
+
+The height-six trace list is exhaustive for the tested powers, not a claim
+that the categorical exponent divides 19,800. Spherical Cauchy restricts
+its prime support to 2, 3, 5 and 11; exponents beyond the finite thresholds
+produce the all-zero normalized trace vector for these powers. The joint
+rotation equations follow from the finite-order pivotal rotation operator
+and its grouped powers. Rational averaging is legitimate because all
+simple dimensions here are integers. The fresh optimized producer replay
+and frozen complete group-scan receipt decoder also passed.
+
+Primary sources consulted:
+
+- https://arxiv.org/pdf/2102.01663, Theorem 5.1 and Remark 5.15.
+- https://arxiv.org/pdf/0809.3031, Corollary 7.2 and Section 2.3.
+- https://arxiv.org/pdf/1310.7050, Theorem 3.9.
+- https://arxiv.org/pdf/math/0601012, Theorems 4.1 and 5.5.
+- https://arxiv.org/pdf/math/0503167, Theorem 5.1 and its grouped-rotation proof.
+
+
+## R8_3_925
+
+Accepted as a general-complex exclusion after review of the complete frame
+hull, full-domain exact separation and exhaustive signed lift. The frame
+construction is a necessary condition: every genuine category supplies
+one enumerated joint low frame, hence a one-hot feasible choice of the
+frame variable. The seven existing simplex equations each become the
+same frame-weight sum equal to one. Ordering is imposed only on identical
+full allowed column sets, so only interchangeable low constituents are
+identified. Residual entrywise positivity and PSD are necessary Gram
+conditions. The high domain remains the full, frame-independent domain;
+it is not narrowed to a sampled set or an individual low frame.
+
+Dual contraction is valid because dual central simples have the same
+ribbon twist, dimension and multiplicity, with dualized restriction
+vectors. The finite relative-trace table represents all possible orders
+at height four, not only orders dividing its displayed bound. Numerical
+solvers contribute no accepted proof step: both rays are checked against
+every complete frame, every high duality orbit and trace type, and every
+rotation auxiliary variable.
+
+The fresh optimized producer replay passed. In addition,
+`verify_r925_independent.py` does not import the frontier streaming cone or
+its oracle. It constructs the frozen published unstreamed matrix with
+159,786 columns and 12,852,154 nonzero coefficients, independently
+recovers the positive row-normalization changes from raw formulas, and
+transfers both recorded rays to that matrix. It applies the exact frozen
+duality map, sums atomic scores for all 76,984 complete low frames, and
+checks every remaining column. Both indicator branches have nonnegative
+column pairings and strictly negative right-side pairings. This separate
+optimized calculation passed; `r925_independent.json` records the exact
+values. Its native frame enumerator and high-domain builder are explicit
+shared dependencies with the already frozen publication, not claimed as
+independently rewritten algorithms.
+
+The general certificate retains the complete inherited sphericalization
+lift. The ordinary tensor has two irreducible character factors: the FP
+Galois class transfers the new pseudo-unitary contradiction, and the other
+class violates duality. The full oriented enumeration regenerates all 24
+signed branches, with no imposed commutativity; eight are gauge-equivalent
+to the original tensor and sixteen are exhausted by exact character
+obstructions (24 norm and 16 duality obstructions). Every branch and every
+character factor is checked. Thus the cone obstruction has genuinely
+general complex scope after this additional lift; pseudo-unitarity is not
+assumed for the original hypothetical category.
+
+The categorical induction, relative-trace, tensor-rotation and oriented
+sphericalization theorems are inherited mathematical dependencies of the
+frozen M3 proof. The new argument is the complete joint-frame convex hull
+and its exact all-column certificate, described in
+`global_induction/PROOF.md`.

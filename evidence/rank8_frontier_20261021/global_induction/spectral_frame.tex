@@ -1,0 +1,36 @@
+\begin{proposition}[Partial modular spectrum and complete character labeling]
+Let $R$ be the commutative Grothendieck ring of a pseudo-unitary fusion
+category, with global dimension $D$, irreducible characters $\chi_E$,
+and formal codegrees $f_E$. If $v$ is the restriction of a simple object
+of its center, then
+\[
+ \frac{D\chi_E(v)}{f_E\dim(v)}
+\]
+is an algebraic integer for every $E$. Moreover, the distinguished low
+restriction columns admit a bijective labeling $v_E$ satisfying
+$\dim(v_E)=D/f_E$ and
+\[
+ (D/f_E)\chi_E(v_F)=(D/f_F)\chi_F(v_E).
+\]
+\end{proposition}
+\begin{proof}
+In the unnormalized modular matrix of the center, Deshpande's
+induction--restriction character formula, equation~(39) of
+\emph{On centers of bimodule categories and induction-restriction
+functors} (arXiv:1611.04486), gives
+$S_{A_E,Z}=(D/f_E)\chi_E(v_Z)$. Symmetry and the modular character
+formula imply that $S_{A_E,Z}/\dim(Z)$ is a fusion-ring character
+value, hence integral. Symmetry restricted to the distinguished
+objects gives the second assertion.
+\end{proof}
+
+The implementation reconstructs and verifies the complete character
+table in $\mathbb Q(\zeta_{24})$, whose integer ring is
+$\mathbb Z[\zeta_{24}]$, and exhausts all dimension-compatible
+bijective low-column labelings. Thus neither filter loses a possible
+categorification. For $R8\_3\_926$, the first filter retains $2723$ of
+$2863$ high restriction candidates, and symmetric labeling retains
+$11$ of $6891$ complete low frames. Exact complete-domain separation
+of both indicator cases, followed by all $16$ oriented signed
+branches, excludes this ring over $\mathbb C$. The source-bound
+certificate is \texttt{global\_induction/spectral\_results/R8\_3\_926\_h4.json}.

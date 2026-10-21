@@ -138,6 +138,19 @@ class Cone:
     def low_scores(self,y):
         return ((index,sum(y[row]*value for row,value in col.items())) for index,col in enumerate(self.low_columns))
 
+    def high_scores(self,y):
+        for orbit,(v,gram,z) in enumerate(self.high):
+            constant=sum(y[self.gram[i,j]]*value for (i,j),value in zip(self.gram_pairs,gram))
+            coefficients=[[0]*self.width for _ in range(self.height)]
+            for (power,i,k),row in self.moment_rows.items():coefficients[power-1][k]+=v[i-1]*y[row]
+            for obj,order,rs,rr in self.rotation_specs:
+                for at,r in enumerate(rs):
+                    count=sum(self.powers[obj][r][i]*v[i-1] for i in range(1,8))
+                    for k in range(self.width):coefficients[order//r-1][k]-=count*y[rr[at,k]]
+            for ti,mom in enumerate(self.moments[z]):
+                value=constant+sum(c*x for cc,xx in zip(coefficients,mom) for c,x in zip(cc,xx))
+                yield self.offset+orbit*self.nt+ti,value
+
     def oracle(self,y,limit=256):
         require(len(y)==self.nrows and all(type(x) is int for x in y),'Farkas vector must be integral and complete')
         worst=[];minimum=0;negative=0
@@ -149,17 +162,7 @@ class Cone:
                 if len(worst)<limit:heapq.heappush(worst,(-value,index))
                 elif -value>worst[0][0]:heapq.heapreplace(worst,(-value,index))
         for index,value in self.low_scores(y):include(index,value)
-        for orbit,(v,gram,z) in enumerate(self.high):
-            constant=sum(y[self.gram[i,j]]*value for (i,j),value in zip(self.gram_pairs,gram))
-            coefficients=[[0]*self.width for _ in range(self.height)]
-            for (power,i,k),row in self.moment_rows.items():coefficients[power-1][k]+=v[i-1]*y[row]
-            for obj,order,rs,rr in self.rotation_specs:
-                for at,r in enumerate(rs):
-                    count=sum(self.powers[obj][r][i]*v[i-1] for i in range(1,8))
-                    for k in range(self.width):coefficients[order//r-1][k]-=count*y[rr[at,k]]
-            for ti,mom in enumerate(self.moments[z]):
-                value=constant+sum(c*x for cc,xx in zip(coefficients,mom) for c,x in zip(cc,xx))
-                include(self.offset+orbit*self.nt+ti,value)
+        for index,value in self.high_scores(y):include(index,value)
         for at,col in enumerate(self.rotation_columns):include(self.high_end+at,sum(y[row]*value for row,value in col.items()))
         return {'minimum':minimum,'negative_columns':negative,'violating_columns':[j for _,j in sorted(worst,reverse=True)]}
 
