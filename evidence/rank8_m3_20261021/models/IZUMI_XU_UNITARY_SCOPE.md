@@ -36,3 +36,4 @@ identification, not only the principal graph or Frobenius–Perron dimensions.
 This argument also explains why the commutative tensor R8_3_347 is not
 obtained by choosing the other associator: an H3 twist does not alter
 integer fusion coefficients.
+

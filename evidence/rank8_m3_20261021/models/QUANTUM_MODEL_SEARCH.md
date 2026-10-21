@@ -55,3 +55,4 @@ forces every unitary Morita dual of P to have rank12.
 
 This is a model-family obstruction. It does not rule out categorification
 of R8_3_65 or R8_3_1453 by another construction.
+

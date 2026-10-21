@@ -13,3 +13,4 @@ Every integral fusion category of dimension 45 is group-theoretical by Jordan–
 The standard simple-object formula used here is FPdim(g,π)=[H:H∩gHg⁻¹]dimπ, with π a projective representation for the stabilizer multiplier. See Gelaki–Naidu, *Some properties of group-theoretical categories*, [arXiv:0709.4326](https://arxiv.org/pdf/0709.4326), §5.1, for the multiplier and simple-object description.
 
 This proof concerns all complex fusion categories. It does not assume a braiding, unitarity, or a chosen pivotal structure.
+

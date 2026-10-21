@@ -43,3 +43,4 @@ The construction is standard finite-group equivariantization applied
 to a canonical permutation action; its exact census identification is
 derived here. No classification of categories with matching dimensions
 is used.
+

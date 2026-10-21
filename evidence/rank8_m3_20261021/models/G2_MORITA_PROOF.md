@@ -99,3 +99,4 @@ Reproduce with `python -O evidence/rank8_m3_20261021/models/g2_morita.py`.
 No assertion is used as an essential check; optimized Python retains all
 verification gates. The construction identifies a known conformal-algebra
 Morita dual in the new census; no claim that the category itself is new is made.
+
