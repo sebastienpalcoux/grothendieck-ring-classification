@@ -444,9 +444,15 @@ def main():
         remaining_path.write_text(json.dumps(data["remaining_ids"], indent=2) + "\n")
         data["remaining_ids_file"] = {"path": "data/current_remaining_ids.json", "sha256": hashlib.sha256(remaining_path.read_bytes()).hexdigest()}
         data["snapshot"] = max(data["snapshot"], rank8_extension["date"])
-        attempts_source = repo / rank8_extension["evidence"] / "pipeline/residual_attempts.json"
+        attempts_source = repo / rank8_extension["attempts_source"]
         attempts = json.loads(attempts_source.read_text())
-        attempt_rows = attempts.get("cases", attempts.get("records", [])) if isinstance(attempts, dict) else attempts
+        attempt_rows = attempts.get("rows", attempts.get("cases", attempts.get("records", []))) if isinstance(attempts, dict) else attempts
+        if rank8_extension.get("frontier"):
+            expected = set(rank8_extension["remaining_ids"])
+            if {row["id"] for row in attempt_rows if row["general_status"] == "unresolved"} != expected:
+                raise ValueError("Research audit status differs from accepted frontier")
+            attempt_rows = [row for row in attempt_rows if row["id"] in expected]
+            attempts = {**attempts, "rows": attempt_rows, "display_scope": "Current unresolved cases; complete baseline-34 research audit is retained in the proof package"}
         if [row["id"] for row in attempt_rows] != rank8_extension["remaining_ids"]:
             raise ValueError("Residual attempt inventory differs from the accepted M3 frontier")
         attempts_path = HERE / "dist/data/rank8_m3_attempts.json"

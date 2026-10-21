@@ -50,7 +50,8 @@ def main():
                 'optimized_replay': 'supplements/rank7/output/m5/replay_optimized.json'}
         if rank == 8 and rank8_extension(ROOT):
             x['inputs']['rank8']['extension'] = rank8_extension(ROOT)
-            x['inputs']['rank8']['residual_update'] = RANK8_EVIDENCE+'/pipeline/residual_audit.json'
+            current8=rank8_extension(ROOT)
+            x['inputs']['rank8']['residual_update'] = current8['attempts_source']
         x['bundles']=[z for z in x['bundles'] if not z['name'].startswith(f'rank{rank}-')]
         x['bundles'].append({'name':a.name,'sha256':hashlib.sha256(a.read_bytes()).hexdigest()})
     if old_lower!=[r for r in x['rows'] if r['rank']<7]:raise ValueError('Lower-rank status changed')

@@ -2,10 +2,12 @@
 """Refresh current report and website prose from the accepted M3 ledger."""
 import json
 import re
+import subprocess
+import sys
 from html import escape
 from pathlib import Path
 from rank7_publication import summary as rank7_summary, remaining_ids
-from rank8_publication import extension, summary, PUBLICATION_DATE_LONG, STATUS_REPORT, EVIDENCE
+from rank8_publication import extension, summary, PUBLICATION_DATE_LONG, STATUS_REPORT, EVIDENCE, archive_path
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -17,6 +19,9 @@ def main():
                 ('continuation_replay.json', 'continuation_replay_optimized_invocation.json')]
     if any(r.get('status') != 'PASS' for r in receipts) or receipts[0]['ledger_digest'] != receipts[1]['ledger_digest']:
         raise ValueError('Matching complete normal and optimized replays required')
+    if ext.get('frontier'):
+        check=subprocess.run([sys.executable,str(ROOT/'tools/verify_rank8_frontier.py'),'--metadata-only'],cwd=ROOT,text=True,capture_output=True)
+        if check.returncode:raise ValueError('Matching frontier replays required:\n'+check.stdout+check.stderr)
     status = json.loads((ROOT/'data/classification_status.json').read_text())
     totals = status['inputs']['rank8']['status_totals']
     path = ROOT/'docs/prepublication_review_content.json'
@@ -38,11 +43,15 @@ def main():
         if 'R8_3_731' in ext['remaining_ids']:
             content['open_cases'][-1]['paragraphs'].append('Any categorification of R8_3_731 would be nonunitary and not weakly group-theoretical: its exact simple based ring and negative primary-three witness combine with the simple weakly group-theoretical classification. This conditional restriction supplies no categorification or general exclusion.')
     content['open_case_count'] = len(remaining_ids(ROOT))
+    if ext.get('frontier') and ext['unresolved']:
+        case=content['open_cases'][-1]
+        case['paragraphs'].append('These remaining rings are extensively investigated exotic candidates in the operational sense: each survived the documented case-specific campaign of known and newly developed exclusions and model searches, including complete finite domains and specified unbounded construction families. This designation does not assert existence or novelty of a future realization.')
+        case['paragraphs']=[p.replace('evidence/rank8_m3_20261021/pipeline/residual_attempts.json',ext['attempts_source']) for p in case['paragraphs']]
     heading = 'Rank eight: multiplicity-three extension'
     content['replay_sections'] = [x for x in content['replay_sections'] if x['heading']!=heading]
     content['replay_sections'].insert(0, {'heading':heading,'paragraphs':[
         'Fresh full normal and optimized aggregate replays passed for the accepted source-bound ledger. Their receipts bind the exact source tensors, historical decisions, accepted certificates, model constructors and proof-source files. Each referenced replay log is separately checksummed.',
-        'Run supplements/rank8/software/verify_m3_continuation.py in normal and optimized Python. Assertion-based inherited checks run with assertions enabled. Metadata-only mode checks file identities and reconciliation with the full receipts; it does not repeat the mathematical computations. The release includes the repository-relative dependency tree.',
+        'Run supplements/rank8/software/verify_m3_continuation.py in normal and optimized Python with --output pointing to separate validation receipts, preserving the frozen baseline receipts. Assertion-based inherited checks run with assertions enabled. Metadata-only mode checks file identities and reconciliation with the full receipts; it does not repeat the mathematical computations. The release includes the repository-relative dependency tree.',
         'Exact replay checks the stated finite identities and certificates. Categorical reductions, complete enumeration and claims of mathematical novelty have separate proof obligations. Independent human verification and Lean formalization remain pending.']})
     heading = 'Rank-eight multiplicity-three continuation'
     content['theoretical_results'] = [x for x in content['theoretical_results'] if x['heading']!=heading]
@@ -50,6 +59,16 @@ def main():
         'Unified exclusions combine negative-subring transfer, quadratic-compositum compression, weak-integral and biquadratic relative twist traces, complete signed lifting and convex central induction. Exact separation of an enlarged necessary-condition system gives a valid contradiction only after the hypotheses and complete lifting are established.',
         'Structural arguments use module-category ranks, split-module polynomial constraints, solvability, equivariantization and Morita transport. A unitary-only positivity obstruction becomes a general exclusion only when a separate theorem proves the relevant category must admit a unitary realization.',
         'The explicit models include near-group equivariantizations, a cyclic permutation equivariantization of three Fibonacci factors, exceptional subfactor constructions, a conformal-embedding Morita dual, ordinary groups and a twisted A6/A5 group-theoretical construction. All model identifications compare the full 512 multiplication coefficients. Existence does not imply uniqueness or categorical novelty.']})
+    frontier_heading='Further rank-eight frontier investigation'
+    content['replay_sections']=[x for x in content['replay_sections'] if x['heading']!=frontier_heading]
+    content['theoretical_results']=[x for x in content['theoretical_results'] if x['heading']!=frontier_heading]
+    if ext.get('frontier'):
+        content['replay_sections'].insert(0,{'heading':frontier_heading,'paragraphs':[
+            'The original M3 ledger and replay receipts are preserved. New decisions use a separate continuation ledger and source manifest. Run tools/verify_rank8_frontier.py in normal and optimized Python after the original M3 replay. Both matching full continuation receipts are required.',
+            'The per-ring audit records completed finite exclusion tests, exact feasible necessary-condition witnesses and excluded construction families. Each result keeps its precise hypotheses and search domain.']})
+        content['theoretical_results'].insert(0,{'heading':frontier_heading,'paragraphs':[
+            f"The original 34 unresolved M3 tensors now have {ext['frontier']['new_decisions']} additional general-complex exclusions. Their identifiers are "+', '.join(ext['frontier']['resolved_ids'])+'.',
+            'The new arguments include simultaneous split-module representations, normal-matrix spectral support, a complete near-group TPE reduction, complete central-induction frame constraints, full character-labeled modular S and STS equations, a two-prime norm criterion for integral center objects, complete integer center decompositions and cubic Verlinde integrality, and integral Morita and relative-cohomology obstructions. Exact all-parameter filters exclude specified near-group construction routes for every original frontier tensor. General Galois-pseudo-unitarity reductions extend the scope of all seven noncommutative searches. Complete connected-algebra underlying-object filters and exact feasible center constraints describe the remaining construction possibilities; their survivors are not asserted algebras or categories.']})
     path.write_text(json.dumps(content, indent=2, ensure_ascii=False)+'\n')
     path = ROOT/'site/dist/review.html'; html = path.read_text()
     html = re.sub(r'Research status · \d+ October 2026', 'Research status · '+PUBLICATION_DATE_LONG, html)
@@ -59,7 +78,7 @@ def main():
     html, n = re.subn(r'<div class="review-panel" id="review-outcome">.*?</div>', panel, html, flags=re.S)
     if n != 1: raise ValueError('Unique current outcome panel required')
     block = ('<section id="rank-eight-m3"><h3>Rank eight · multiplicity three</h3><p>'+escape(summary(ROOT))+'</p>'
-        '<p><a href="./papers/rank8.pdf">Updated manuscript</a> · <a href="./downloads/rank8-certified-through-m3.zip">Proofs and exact verification</a> · <a href="./downloads/remaining_cases.py" download>Open fusion tensors</a> · <a href="./data/rank8_m3_attempts.json" download>Individual attempt records</a></p>'
+        '<p><a href="./papers/rank8.pdf">Updated manuscript</a> · <a href="./downloads/'+Path(archive_path(ROOT)).name+'">Proofs and exact verification</a> · <a href="./downloads/remaining_cases.py" download>Open fusion tensors</a> · <a href="./data/rank8_m3_attempts.json" download>Individual attempt records</a></p>'
         '<p>The census enumeration is complete according to producer records, with independent tensor and isomorphism audits. The categorification inventory separates proven exclusions, explicit constructions and individually investigated candidates. A candidate is not a proof of categorifiability or exotic existence. New arguments remain subject to independent human review.</p>'
         '<details><summary>Unresolved rank-eight identifiers</summary><p>'+', '.join('<code>'+escape(rid)+'</code>' for rid in ext['remaining_ids'])+'</p></details></section>')
     if ext['unitary_excluded_ids']:

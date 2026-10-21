@@ -354,7 +354,7 @@ if payload.get("rank8_m3_update"):
     raw = (root / info["path"]).read_bytes()
     assert hashlib.sha256(raw).hexdigest() == info["sha256"]
     audit = json.loads(raw)
-    records = audit.get("cases", audit.get("records", [])) if isinstance(audit, dict) else audit
+    records = audit.get("rows", audit.get("cases", audit.get("records", []))) if isinstance(audit, dict) else audit
     assert [r["id"] for r in records] == extension["remaining_ids"]
     assert len(records) == info["cases"]
     print("Rank-eight multiplicity-three ledger scope and individual attempt inventory checked.")

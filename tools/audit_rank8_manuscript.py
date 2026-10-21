@@ -7,7 +7,7 @@ import hashlib
 import json
 import re
 from pypdf import PdfReader
-from rank8_publication import LEDGER, extension
+from rank8_publication import ledger_path, extension
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -51,7 +51,7 @@ def main():
         require((folder/name).read_bytes() == (mirror/name).read_bytes(), 'TeX mirror differs: '+name)
     for path in (folder/'rank8-reviewed.pdf', mirror/'rank8.pdf', mirror/'rank8-reviewed.pdf'):
         require(path.read_bytes() == pdf, 'PDF alias differs: '+str(path))
-    counts = Counter(r['status'] for r in json.loads((ROOT/LEDGER).read_text()))
+    counts = Counter(r['status'] for r in json.loads((ROOT/ledger_path(ROOT)).read_text()))
     sha = lambda raw: hashlib.sha256(raw).hexdigest()
     result = {
         'status': 'PASS', 'date': '2026-10-21',

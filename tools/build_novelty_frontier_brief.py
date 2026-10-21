@@ -237,8 +237,8 @@ def main():
             y = para('<b>Unitary categorification excluded:</b> '+', '.join(m3['unitary_excluded_ids'])+
                      '. Their general complex categorification remains open.', margin,y,width,small)-5
         y = para('The per-case audit distinguishes exact necessary-condition survivors, unsuccessful construction searches, '
-                 'ineligible tests and time limits. These are not asserted fusion categories or established exotic examples. '+
-                 link('Individual attempt records', CURRENT+'evidence/rank8_m3_20261021/pipeline/residual_attempts.json')+' · '+
+                 'ineligible tests and time limits. Remaining rings are extensively investigated exotic candidates in the documented screening sense; existence and novelty of a future realization remain unproved. '+
+                 link('Individual attempt records', CURRENT+m3['attempts_source'])+' · '+
                  link('Exact unresolved tensors', CURRENT+'data/remaining_cases.py')+'.',
                  margin, y, width, small)
         require(y >= 77, f'M3 brief overlaps footer: y={y:.1f}')

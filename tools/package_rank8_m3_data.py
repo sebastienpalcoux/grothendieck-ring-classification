@@ -5,6 +5,7 @@ import hashlib
 import json
 from pathlib import Path
 from rank8_publication import EVIDENCE, extension
+import rank8_frontier as frontier
 ROOT=Path(__file__).resolve().parents[1]
 THRESHOLD=4*1024*1024
 PART_BYTES=6*1024*1024
@@ -17,7 +18,11 @@ def main():
         raise ValueError('Matching full receipts required')
     for name,sha in receipt['source_manifests_sha256'].items():
         if digest((ROOT/name).read_bytes())!=sha:raise ValueError('Frozen source changed: '+name)
-    candidates=sorted({p for folder in (ROOT/EVIDENCE,ROOT/'supplements/rank8/output/m3') for p in folder.rglob('*.json') if p.stat().st_size>=THRESHOLD})
+    folders=[ROOT/EVIDENCE,ROOT/'supplements/rank8/output/m3']
+    if frontier.active(ROOT):
+        frontier.validate_ledger(ROOT)
+        folders.extend((ROOT/frontier.EVIDENCE,(ROOT/frontier.LEDGER).parent))
+    candidates=sorted({p for folder in folders for p in folder.rglob('*.json') if p.stat().st_size>=THRESHOLD})
     path=ROOT/'data/large_files_manifest.json';manifest=json.loads(path.read_text());by_path={r['path']:r for r in manifest['files']}
     ignored=(ROOT/'.gitignore').read_text().splitlines();registered=[]
     for source in candidates:

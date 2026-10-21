@@ -8,7 +8,7 @@ import hashlib
 import itertools
 import json
 from rank7_publication import STATUS_REPORT
-from rank8_publication import current_date, current_report, active as rank8_active, LEDGER as RANK8_LEDGER
+from rank8_publication import current_date, current_report, active as rank8_active, ledger_path as rank8_ledger_path
 
 ROOT = Path(__file__).resolve().parents[1]
 IDS = ('R6_4_155', 'R6_8_1660')
@@ -79,7 +79,7 @@ def source_cases(repo):
     tensors.update({name: row['tensor'] for name, row in records7.items()})
     ledger_records = {6: {r['id']: r for r in json.loads((repo / 'supplements/rank6/data/decisions.json').read_text())},
                       7: records7}
-    path8 = RANK8_LEDGER
+    path8 = rank8_ledger_path(repo)
     source8 = 'evidence/rank8_m3_20261021/pipeline/census_m3.json'
     if rank8_active(repo):
         rows8 = json.loads((repo/path8).read_text())

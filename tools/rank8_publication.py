@@ -7,6 +7,7 @@ from collections import Counter
 from pathlib import Path
 import hashlib
 import json
+import rank8_frontier as frontier
 
 HISTORICAL_LEDGER = 'supplements/rank8/data/decisions.json'
 HISTORICAL_TABLES = 'supplements/rank8/data/rank8_tables.txt.gz'
@@ -31,12 +32,14 @@ def active(repo):
     return (Path(repo) / LEDGER).is_file()
 
 def ledger_path(repo):
+    if frontier.active(repo): return frontier.LEDGER
     return LEDGER if active(repo) else HISTORICAL_LEDGER
 
 def model_path(repo):
     return MODELS if active(repo) else HISTORICAL_MODELS
 
 def archive_path(repo):
+    if frontier.active(repo): return frontier.ARCHIVE
     return ARCHIVE if active(repo) else HISTORICAL_ARCHIVE
 
 def current_date(repo):
@@ -55,7 +58,7 @@ def historical_sources(repo):
             raise ValueError('Historical rank-eight input changed: ' + relative)
         result[relative] = raw
     if active(repo):
-        current = json.loads((Path(repo) / LEDGER).read_text())
+        current = json.loads((Path(repo) / ledger_path(repo)).read_text())
         if [r for r in current if r['multiplicity'] <= 2] != json.loads(result[HISTORICAL_LEDGER]):
             raise ValueError('M3 extension changes a historical rank-eight decision')
         models = json.loads((Path(repo) / MODELS).read_text())
@@ -74,7 +77,8 @@ def historical_sources(repo):
 def extension(repo):
     if not active(repo): return None
     historical_sources(repo)
-    path = Path(repo) / LEDGER
+    continuation = frontier.validate_ledger(repo) if frontier.active(repo) else None
+    path = Path(repo) / ledger_path(repo)
     records = json.loads(path.read_text())
     rows = [r for r in records if r['multiplicity'] == 3]
     if len(records) != 4500 or [r['id'] for r in rows] != [f'R8_3_{i}' for i in range(1,3528)]:
@@ -89,10 +93,13 @@ def extension(repo):
             'remaining_ids':[r['id'] for r in rows if r['status']=='unresolved'],
             'unitary_excluded_ids':[r['id'] for r in rows if r['status']=='unresolved' and r.get('unitary_status')=='excluded'],
             'realized_ids':[r['id'] for r in rows if r['status'] in REALIZED_STATUSES],
-            'ledger':LEDGER,'ledger_sha256':hashlib.sha256(path.read_bytes()).hexdigest(),
+            'ledger':ledger_path(repo),'ledger_sha256':hashlib.sha256(path.read_bytes()).hexdigest(),
             'historical_ledger':HISTORICAL_LEDGER,'historical_ledger_sha256':HISTORICAL_HASHES[HISTORICAL_LEDGER],
             'source':TABLES,'source_sha256':hashlib.sha256((Path(repo)/TABLES).read_bytes()).hexdigest(),
-            'evidence':EVIDENCE}
+            'evidence':frontier.EVIDENCE if continuation else EVIDENCE,
+            'baseline_evidence':EVIDENCE, 'frontier':continuation,
+            'attempts_source':(frontier.EVIDENCE+'/structural_models/per_ring_research_audit.json'
+                               if continuation else EVIDENCE+'/pipeline/residual_attempts.json')}
 
 def summary(repo):
     item=extension(repo)
