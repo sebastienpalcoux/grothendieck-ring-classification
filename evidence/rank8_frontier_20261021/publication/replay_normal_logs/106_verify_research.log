@@ -1,0 +1,72 @@
+PASS final integer campaign ledger: five completed scoped endpoints
+EXACT INTEGER REPLAY commutative_integer/verify_control.py
+PASS actual Fibonacci tensor Vec(C4) integer center 913 223
+EXACT INTEGER REPLAY commutative_integer/verify_lattice.py
+PASS 600 modular +80 direct HNF +300 finite-box +100 compression controls
+EXACT INTEGER REPLAY commutative_integer/verify_linear.py
+PASS exact-only bounded phase-I controls
+EXACT INTEGER REPLAY quadratic/atomic_galois_balance.py
+PASS exact Galois automorphisms and actual complex-character positive center control
+EXACT INTEGER REPLAY quadratic/galois_support_filter.py
+PASS Galois support control necessary_support_survives 7 16
+EXACT INTEGER REPLAY quadratic/joint_galois_balance.py
+PASS joint Galois tuples and actual 64-simple center control
+EXACT INTEGER REPLAY quadratic/fp_fusion_bounds.py
+PASS exact FP fusion upper bounds retain the actual complex-character center
+EXACT INTEGER REPLAY quadratic/pure_pointed_bounds.py
+PASS conditional pure-pointed bounds retain the actual nontrivial-kernel center
+EXACT INTEGER REPLAY quadratic/integer_phase_cuts.py
+PASS complete-fiber global phase cuts retain the actual integer center
+EXACT INTEGER REPLAY quadratic_atomic_integer/unit_pair_constraints.py
+PASS source-unit norm and AMGM constraints on actual64-simple center
+EXACT INTEGER REPLAY quadratic/phase_integer_65.py
+65 support necessary_support_survives 154 206 11.831
+65 joint support joint_support_survives 115 189
+65 cubic 963 500 17.329
+65 Galois+FP 1445 500 19.022
+PASS R65 global integer-phase cuts integer_search_inconclusive_after_exact_global_cuts 1
+EXACT INTEGER REPLAY commutative_integer/r982.py
+global high candidates 26825
+filtered 0 {'frame_index': 0, 'residual_Gram_rank': 7, 'high_vectors': 1690, 'high_orbits': 894, 'frame_sha256': '0069fc06caf97fa05084ff1a30076deed5889c9ea7136c1d9a254aea6a6273d2', 'retained_norms_sha256': 'a34d0db67e63271ff98a76e00efd4dd8a9140f1b17ec56310eebe70f451be4a4'}
+built 0 1604 1068 58.63
+Galois+FP bounds 0 8186 72.863
+PASS R8_3_982 frame 0 ['consistent_mod_prime', 'consistent_mod_prime'] 132.159
+filtered 1 {'frame_index': 1, 'residual_Gram_rank': 7, 'high_vectors': 1690, 'high_orbits': 894, 'frame_sha256': 'e1c91a7ffb09695e7db4ed4e60f89634950f0a0f1856cab773bf811be168fb8f', 'retained_norms_sha256': 'a34d0db67e63271ff98a76e00efd4dd8a9140f1b17ec56310eebe70f451be4a4'}
+built 1 1604 1068 57.08
+Galois+FP bounds 1 8186 69.797
+PASS R8_3_982 frame 1 ['consistent_mod_prime', 'consistent_mod_prime'] 125.884
+filtered 2 {'frame_index': 2, 'residual_Gram_rank': 7, 'high_vectors': 2636, 'high_orbits': 1385, 'frame_sha256': '9ce9b899baab5c2ca5ec494f8987bdcda800dd52a52f098f91c93e44cea72db6', 'retained_norms_sha256': 'ad28f681e50fe3e438d1d3374873b3c00d4be0a095abec1d85fefbcdf2d65080'}
+built 2 1604 1544 99.343
+Galois+FP bounds 2 12378 120.19
+PASS R8_3_982 frame 2 ['consistent_mod_prime', 'consistent_mod_prime'] 179.771
+filtered 3 {'frame_index': 3, 'residual_Gram_rank': 7, 'high_vectors': 2636, 'high_orbits': 1385, 'frame_sha256': 'ccd736f23a23cd379155800892cf8e0e02930aca7857cfe143d8199a5624be3e', 'retained_norms_sha256': 'ad28f681e50fe3e438d1d3374873b3c00d4be0a095abec1d85fefbcdf2d65080'}
+built 3 1604 1544 93.568
+Galois+FP bounds 3 12378 114.366
+PASS R8_3_982 frame 3 ['consistent_mod_prime', 'consistent_mod_prime'] 173.967
+EXACT INTEGER REPLAY commutative_integer/r982_joint_probe.py
+PASS R982 joint witness check [(2, 'exact_integer_witness_satisfies_joint_Galois', 0), (3, 'exact_integer_witness_satisfies_joint_Galois', 0)]
+EXACT INTEGER REPLAY commutative_integer/r982_unit_pair_probe.py
+PASS R982 exact source-unit products: 28 per integer pattern
+EXACT INTEGER REPLAY commutative_integer/r982_phases.py
+global high candidates 26825
+PASS R982 fixed integer phase compatibility 2 4 selected_integer_pattern_phase_incompatible
+PASS R982 fixed integer phase compatibility 3 4 selected_integer_pattern_phase_incompatible
+EXACT INTEGER REPLAY commutative_integer/r982_rational.py
+global high candidates 26825
+PASS R982 exact bounded rational primal 0 361
+PASS R982 exact bounded rational primal 1 361
+EXACT INTEGER REPLAY quadratic_atomic_integer/final_verify.py
+joint support 1768 joint_support_survives 2157 236
+joint integer system 1768 521 2610
+PASS joint campaign R8_3_1768 integer_lattice_member_no_bounded_witness 150.307
+joint support 1795 joint_support_survives 979 971
+joint integer system 1795 1325 2167
+PASS joint campaign R8_3_1795 no_exact_integer_conclusion_within_cap 288.078
+EXACT INTEGER REPLAY quadratic/strong_integer_3472.py
+3472 support necessary_support_survives 12853 172 239.524
+3472 joint support joint_support_survives 12853 172
+3472 cubic 1345 13221 359.687
+3472 Galois+FP 3319 13221 390.536
+PASS strongest R3472 integer screen completed_exact_screens_integer_search_inconclusive
+PASS final integer campaign ledger: five completed scoped endpoints
+PASS complete final commutative integer research replay
