@@ -18,33 +18,46 @@ The $3527$ supplied rings of exact multiplicity three have the following
 recorded categorification status:
 \begin{center}\begin{tabular}{@{}lr@{}}\toprule
 Status & Rings\\\midrule
-General complex exclusion & $3479$\\
+General complex exclusion & $3504$\\
 Unitary construction & $14$\\
-Unresolved general categorification & $34$\\
+Unresolved general categorification & $9$\\
 \bottomrule\end{tabular}\end{center}
 Every positive identification compares the entire ordered multiplication
 tensor under a unit-preserving bijection. A recorded construction proves
 existence, without claiming uniqueness up to tensor equivalence.
 \end{theorem}
 The source-bound combined ledger is
-\path{supplements/rank8/output/m3/ledger.json}. Its exact-M3 first-exclusion
+\path{supplements/rank8/output/frontier_20261021/ledger.json}. Its exact-M3 first-exclusion
 allocation follows. Overlapping obstructions are retained in the evidence
 rather than counted twice.
 \begin{center}\small\begin{longtable}{@{}p{.75\textwidth}r@{}}\toprule
 First accepted criterion & Rings\\\midrule\endhead
+RepA5 complement Morita relative cohomology & $1$\\
 certified negative subring transfer & $14$\\
+character labeled atomic modular STS signed induction & $1$\\
+complete character labeled modular STS signed induction & $5$\\
+complete distinguished modular S symmetric low frame obstruction & $2$\\
+complete integer central cubic monodromy correlated rotation STS obstruction & $1$\\
+complete labeled frame modular STS signed induction & $1$\\
+complete low frame hull signed induction & $2$\\
 cyclotomic & $7$\\
 dimension84 adjoint rigidity & $5$\\
 dnumber & $2575$\\
+forced Morita dual integral center Gram cubic Verlinde & $1$\\
+full character field labeled modular S symmetry signed induction & $2$\\
 global convex induction lift & $2$\\
 global duality induction lift & $1$\\
+integral center Gram cubic Verlinde & $1$\\
 integral drinfeld & $34$\\
 involution module & $19$\\
 lower rank subring & $378$\\
 near group & $1$\\
+near group C3 TPE Galois unitarity & $1$\\
 nonsolvable dimension60 extension & $1$\\
+normal split spectral support and annihilator transport & $1$\\
 one spectrum & $1$\\
 oriented signed & $67$\\
+partial modular spectrum symmetric frame signed induction & $1$\\
 quadratic casimir compression & $64$\\
 rank7 certified subring & $4$\\
 rank8 biquadratic lift & $2$\\
@@ -55,6 +68,8 @@ rank8 spherical reduction & $11$\\
 rank8 split module polynomial & $44$\\
 rank two & $10$\\
 rep a5 module rank & $1$\\
+simple center prime power filtered joint induction & $1$\\
+simultaneous C2 split module quotient & $4$\\
 solvable dimension216 obstruction & $4$\\
 solvable dimension80 rigidity & $1$\\
 solvable dimension90 pointed base obstruction & $2$\\
@@ -95,64 +110,52 @@ Every model in this inventory admits a unitary realization. For
 $\sha{R8_3_448}$, the original pseudo-unitary existence result is
 supplemented by the unitary $2221$ planar-algebra construction above.
 \subsection{The remaining general questions and replay scope}
-There remain $34$ unresolved exact-M3 tensors. The source tensors and per-case attempted criteria are recorded in
-\path{data/remaining_cases.py} and
-\path{evidence/rank8_m3_20261021/pipeline/residual_attempts.json}.
+There remain $9$ unresolved exact-M3 tensors. The source tensors and per-case attempted criteria are recorded in
+\path{data/remaining_cases.py} and the per-case audit\par\noindent
+{\small\path{evidence/rank8_frontier_20261021/structural_models/per_ring_research_audit.json}}.
 The inventory distinguishes an exact contradiction, a necessary-condition
 survivor, a time limit, and an inapplicable test. Passing these conditions
 supplies no coherent associator; an unsuccessful construction search
 supplies no exclusion. Any claim of categorical novelty requires a separate
 comparison up to tensor equivalence.
 \subsubsection{Individually investigated candidates}
-These are unresolved categorification candidates, not asserted categories
-or established exotic examples. A unitary exclusion does not settle the
+We call the remaining rings extensively investigated exotic candidates in the operational sense: each survived the documented case-specific campaign of known and newly developed exclusion tests and model searches, including complete finite domains and specified unbounded construction families. This term asserts neither categorifiability nor novelty of a future realization. A unitary exclusion does not settle the
 general complex question. The last column gives ranks of nontrivial
 proper fusion subrings, as checked on the exact source tensors.
 \begin{center}\small\begin{longtable}{@{}lcccc@{}}\toprule
 Census ID & Commutative & Invertibles & Unitary status & Proper subring ranks\\\midrule\endhead
 \sha{R8_3_65} & yes & 4 & unresolved & 2, 4\\
-\sha{R8_3_436} & no & 6 & excluded & 2, 3, 4, 6\\
-\sha{R8_3_439} & no & 6 & unresolved & 2, 3, 6\\
-\sha{R8_3_455} & no & 3 & excluded & 3, 4, 6\\
-\sha{R8_3_567} & no & 6 & unresolved & 2, 3, 6\\
 \sha{R8_3_721} & no & 1 & unresolved & --\\
-\sha{R8_3_731} & yes & 1 & excluded & --\\
-\sha{R8_3_901} & yes & 2 & unresolved & 2, 4\\
-\sha{R8_3_903} & yes & 2 & unresolved & 2\\
-\sha{R8_3_921} & yes & 2 & unresolved & 2\\
-\sha{R8_3_925} & yes & 2 & excluded & 2\\
-\sha{R8_3_926} & yes & 2 & unresolved & 2\\
 \sha{R8_3_928} & no & 2 & unresolved & 2\\
 \sha{R8_3_941} & no & 2 & unresolved & 2\\
 \sha{R8_3_982} & yes & 2 & unresolved & 2\\
-\sha{R8_3_985} & yes & 2 & unresolved & 2\\
-\sha{R8_3_1055} & yes & 2 & unresolved & 2\\
 \sha{R8_3_1154} & no & 2 & unresolved & 2\\
-\sha{R8_3_1203} & yes & 2 & unresolved & 2\\
-\sha{R8_3_1350} & yes & 2 & excluded & 2\\
-\sha{R8_3_1463} & yes & 2 & unresolved & 2, 4\\
-\sha{R8_3_1615} & yes & 2 & unresolved & 2\\
-\sha{R8_3_1617} & yes & 2 & unresolved & 2\\
-\sha{R8_3_1660} & yes & 2 & unresolved & 2\\
-\sha{R8_3_1661} & yes & 2 & excluded & 2\\
-\sha{R8_3_1739} & yes & 2 & unresolved & 2\\
 \sha{R8_3_1768} & yes & 2 & unresolved & 2\\
 \sha{R8_3_1795} & yes & 2 & unresolved & 2\\
-\sha{R8_3_2842} & yes & 2 & unresolved & 2\\
-\sha{R8_3_2885} & yes & 2 & excluded & 2\\
-\sha{R8_3_3258} & yes & 1 & excluded & --\\
-\sha{R8_3_3344} & yes & 1 & unresolved & 5\\
-\sha{R8_3_3413} & yes & 1 & excluded & --\\
 \sha{R8_3_3472} & yes & 1 & unresolved & --\\
 \bottomrule\end{longtable}\end{center}
 \input{m3_model_search}
 The aggregate command is
 \begin{quote}\small
-\texttt{python }\path{supplements/rank8/software/verify_m3_continuation.py}.
+\texttt{python }\path{supplements/rank8/software/verify_m3_continuation.py}\\
+\texttt{--output }\path{frontier-validation/baseline_normal.json}.
 \end{quote}
-It checks the accepted ledger against the source, baseline criteria,
+It checks the original M3 ledger against the source, baseline criteria,
 continuation certificates and explicit model tensors. Its full receipt
 binds the exact ledger digest, manifests and proof-source hashes. Under
 Python optimization, inherited assertion-based checkers run in an isolated
 interpreter with assertions enabled. Metadata-only mode checks these
 identities and reconciliation without replaying the mathematics.
+\input{m3_frontier}
+\subsection{Continuation evidence and reproducibility}
+The new proofs and construction-family audits are in
+\path{evidence/rank8_frontier_20261021/}. The original M3 command above
+replays the original ledger. The separate continuation command is
+\begin{quote}\small
+\texttt{python }\path{tools/verify_rank8_frontier.py}.
+\end{quote}
+Run each command with normal Python and with \texttt{-O}. The continuation
+receipt binds the unchanged original ledger, every accepted new decision,
+the proof sources and the exact replay logs. Scoped failed construction
+searches and feasible necessary-condition witnesses retain their stated
+domains; they are not proofs of nonexistence or categorifiability.
