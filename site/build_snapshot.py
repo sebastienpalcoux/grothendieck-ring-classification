@@ -17,6 +17,17 @@ from pathlib import Path
 HERE = Path(__file__).resolve().parent
 
 
+def version_app_script():
+    """Keep cached JavaScript in sync with each published HTML snapshot."""
+    version = hashlib.sha256((HERE / "dist/app.js").read_bytes()).hexdigest()[:12]
+    path = HERE / "dist/index.html"
+    html, count = re.subn(r'(<script src="\./app\.js)(?:\?v=[^"]*)?(" defer></script>)',
+                          lambda match: f'{match[1]}?v={version}{match[2]}', path.read_text())
+    if count != 1:
+        raise ValueError("Expected one atlas application script")
+    path.write_text(html)
+
+
 def read_counts(path: Path):
     payload = json.loads(path.read_text())
     if isinstance(payload, list):
@@ -467,6 +478,7 @@ def main():
         target = repo / relative
         if source.resolve() != target.resolve():
             shutil.copy2(source, target)
+    version_app_script()
     print(f"Wrote {len(rows)} count rows to {output}")
 
 
