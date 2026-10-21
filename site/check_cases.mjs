@@ -69,7 +69,7 @@ assert.equal(caseSource.split(caseEnd).length,2,"Expected one case application e
 function casesFor(search) {
   const sandbox=context(search);vm.createContext(sandbox);
   vm.runInContext(caseSource.replace(caseEnd,
-    "  globalThis.testCases={parseFilters,scopeText,matchesFilters,caseURL,downloadLink,safeURL};\n})();"),sandbox);
+    "  globalThis.testCases={parseFilters,scopeText,matchesFilters,caseURL,downloadLink,safeURL,categoryClosure,categoryExclusionText,categoryDiagram,renderCategorification};\n})();"),sandbox);
   sandbox.testCases.parseFilters();return sandbox.testCases;
 }
 const selections=[
@@ -94,6 +94,49 @@ for(const ring of unresolved.concat(realized)) {
   const link=caseAPI.downloadLink(ring),url=new URL(link.href,origin);
   assert.equal(decodeURIComponent(url.pathname),`/grothendieck-ring-classification/downloads/fusion-tensors/${ring.id}.txt`);
   assert.equal(link.download,`${ring.id}.txt`);
+}
+
+// A Galois existence reduction must never become a structural assertion about
+// the original category. Use separate graph inputs and inspect both rendered
+// diagrams, including their accessible text.
+const spherical={from:"general",to:"spherical",explanation:"Every category admits a spherical structure.",sources:[{label:"Sphericality proof",url:origin+"review.html"}]};
+const galois={from:"general",to:"pseudo_unitary",mechanism:"Galois conjugation",explanation:"A pseudo-unitary Galois conjugate exists conditionally on a categorification.",sources:[{label:"Galois reduction",url:origin+"review.html"}]};
+const baseReach=caseAPI.categoryClosure([]);
+assert.equal(baseReach[4][0],true,"A unitary category is a general fusion category");
+assert.equal(baseReach[0][1],false,"General pivotality is not asserted by the standard hierarchy");
+const structureReach=caseAPI.categoryClosure([spherical]);
+assert.equal(structureReach[0][1],true);
+assert.equal(structureReach[0][2],true);
+assert.equal(structureReach[1][2],true);
+assert.equal(structureReach[0][3],false,"Automatic sphericality must not imply pseudo-unitarity");
+const existenceReach=caseAPI.categoryClosure([spherical,galois]);
+assert.equal(existenceReach[0][3],true);
+assert.equal(existenceReach[0][4],false,"A pseudo-unitary Galois representative does not imply unitarity");
+assert.equal(structureReach[0][3],false,"Computing existence closure must not change the same-category closure");
+assert.equal(caseAPI.categoryExclusionText(undefined),"Scope not yet audited");
+assert.equal(caseAPI.categoryExclusionText({strongest_excluded:null},true),"Unitary categorification also open");
+assert.equal(caseAPI.categoryExclusionText({strongest_excluded:"pseudo_unitary"}),"No pseudo-unitary categorification");
+assert.equal(caseAPI.categoryExclusionText({strongest_excluded:"pivotal"}),"No pivotal categorification");
+const scopeFixture={strongest_excluded:null,same_category_implications:[spherical],existence_implications:[galois],notes:[],audit_sources:[]};
+const scopeView=caseAPI.renderCategorification({categorification_scope:scopeFixture});
+const diagrams=descendants(scopeView).filter(node=>node.getAttribute("role")==="img");
+assert.equal(diagrams.length,2,"Distinct structural and Galois-existence implications need distinct diagrams");
+assert.match(diagrams[0].getAttribute("aria-label"),/Pseudo-unitary implies Spherical/);
+assert.doesNotMatch(diagrams[0].getAttribute("aria-label"),/Spherical is equivalent to Pseudo-unitary/);
+assert.match(diagrams[1].getAttribute("aria-label"),/Existence after possible Galois conjugation/);
+assert.match(diagrams[1].getAttribute("aria-label"),/Spherical is equivalent to Pseudo-unitary/);
+assert.match(scopeView.textContent,/does not make the original category pseudo-unitary or unitary/);
+const noExtraView=caseAPI.renderCategorification({categorification_scope:{...scopeFixture,existence_implications:[]}});
+assert.equal(descendants(noExtraView).filter(node=>node.getAttribute("role")==="img").length,1);
+const missingAudit=caseAPI.renderCategorification({});
+assert.equal(descendants(missingAudit).filter(node=>node.getAttribute("role")==="img").length,0);
+assert.match(missingAudit.textContent,/Scope not yet audited/);
+assert.doesNotMatch(missingAudit.textContent,/No exclusion established/);
+for(const ring of unresolved) {
+  assert.ok(ring.categorification_scope,`Missing published categorification scope: ${ring.id}`);
+  const view=caseAPI.renderCategorification(ring);
+  assert.match(view.textContent,/General categorifiability remains unresolved/);
+  assert.ok(descendants(view).some(node=>node.getAttribute("role")==="img"),`Missing implication diagram: ${ring.id}`);
 }
 
 const appSource=read("app.js"),appEnd="\nstart();";
@@ -139,4 +182,4 @@ for(const ring of realized) {
   assert.equal(decodeURIComponent(url.pathname),`/grothendieck-ring-classification/downloads/fusion-tensors/${ring.id}.txt`);
   assert.equal(link.download,`${ring.id}.txt`);
 }
-console.log("Case navigation checked: exact/cumulative/empty/invalid filters, scoped count links and 228 tensor download routes.");
+console.log("Case navigation checked: filters, count links, 228 tensor routes, and distinct structural/Galois-existence implications.");

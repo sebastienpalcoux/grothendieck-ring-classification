@@ -236,6 +236,9 @@ def build(repo):
     folder = dist / "downloads/fusion-tensors"
     folder.mkdir(parents=True, exist_ok=True)
     remaining = runpy.run_path(str(repo / "data/remaining_cases.py"))
+    scopes = read_json(repo, "site/categorification_scope.json")["cases"]
+    if set(scopes) != set(remaining["TENSORS"]):
+        raise ValueError("Categorification-scope audit differs from current remaining cases")
     realized = read_json(repo, "site/dist/data/realized_rings.json")["records"]
     all_ids = [r["id"] for r in realized] + list(remaining["TENSORS"])
     if len(set(all_ids)) != len(all_ids):
@@ -258,8 +261,9 @@ def build(repo):
             raise ValueError(f"Duality mismatch: {ring_id}")
         inv.update(additional_invariants(tensor, inv))
         research = rank6_research(repo, ring_id) if rank == 6 else rank8_research(repo, ring_id, audit_rows[ring_id])
-        evidence_paths = {"data/remaining_cases.py", metadata["source"]}
+        evidence_paths = {"data/remaining_cases.py", metadata["source"], "site/categorification_scope.json"}
         collect_source_paths(repo, research, evidence_paths)
+        collect_source_paths(repo, scopes[ring_id], evidence_paths)
         if rank == 6:
             evidence_paths.add("supplements/rank6/verification/classification/attempts.jsonl")
             summary = research[0]["data"]["public_summary"]
@@ -278,6 +282,7 @@ def build(repo):
         cases.append({
             "id": ring_id, "rank": rank, "multiplicity": metadata["multiplicity"],
             "status": "unresolved", "summary": summary,
+            "categorification_scope": scopes[ring_id],
             "existence": rank6_rows[ring_id]["existence"] if rank == 6 else {"general": "unknown", "unitary": "unknown"},
             "fusion_tensor": tensor, "tensor_sha256": metadata["tensor_sha256"],
             "basis": [f"X{i}" for i in range(rank)], "unit_index": 0,

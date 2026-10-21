@@ -16,6 +16,7 @@ from urllib.parse import unquote, urlsplit
 
 
 HERE = Path(__file__).resolve().parent
+STRUCTURE_LEVELS = ("general", "pivotal", "spherical", "pseudo_unitary", "unitary")
 
 
 def require(condition, message):
@@ -37,6 +38,74 @@ def check_browser_integers(value, location="unresolved_cases"):
     elif isinstance(value, list):
         for index, item in enumerate(value):
             check_browser_integers(item, f"{location}[{index}]")
+
+
+def implication_closure(implications):
+    """Closure on existence implications; this does not establish their proofs."""
+    reach = {(level, level) for level in STRUCTURE_LEVELS}
+    reach.update(zip(STRUCTURE_LEVELS[1:], STRUCTURE_LEVELS[:-1]))
+    reach.update((entry["from"], entry["to"]) for entry in implications)
+    while True:
+        enlarged = reach | {(a, d) for a, b in reach for c, d in reach if b == c}
+        if enlarged == reach:
+            return reach
+        reach = enlarged
+
+
+def check_scope(record, expected, repository):
+    identifier = record["id"]
+    scope = record.get("categorification_scope")
+    require(isinstance(scope, dict) and scope == expected,
+            f"Website categorification scope differs from its audited source: {identifier}")
+    require(scope.get("general_status") == "unresolved", f"Wrong general scope: {identifier}")
+    statuses = scope.get("level_status", {})
+    require(set(statuses) == set(STRUCTURE_LEVELS) and
+            all(status in {"unresolved", "excluded"} for status in statuses.values()),
+            f"Incomplete or unsupported categorification status: {identifier}")
+    require(statuses["general"] == "unresolved", f"An excluded ring remains in the case directory: {identifier}")
+    excluded = [level for level in STRUCTURE_LEVELS if statuses[level] == "excluded"]
+    require(scope.get("strongest_excluded") == (excluded[0] if excluded else None),
+            f"The highlighted exclusion is not the strongest established one: {identifier}")
+    require(bool(scope.get("record_scope_note")) and bool(scope.get("audit_sources")),
+            f"Missing categorification scope or audit provenance: {identifier}")
+    same = scope.get("same_category_implications")
+    existence = scope.get("existence_implications")
+    require(isinstance(same, list) and isinstance(existence, list),
+            f"Missing distinction between category structures and existence reductions: {identifier}")
+    sources = list(scope["audit_sources"])
+    for kind, entries in (("same_category", same), ("existence", existence)):
+        for entry in entries:
+            require(entry.get("from") in STRUCTURE_LEVELS and entry.get("to") in STRUCTURE_LEVELS
+                    and entry["from"] != entry["to"],
+                    f"Invalid categorification implication: {identifier}: {entry}")
+            require(bool(entry.get("explanation")) and bool(entry.get("sources")),
+                    f"Unexplained or unsourced implication: {identifier}")
+            if kind == "existence":
+                require(bool(entry.get("mechanism")), f"Existence reduction lacks its mechanism: {identifier}")
+            else:
+                require("galois" not in entry.get("mechanism", "").lower(),
+                        f"Galois transport is incorrectly labelled a structure on the same category: {identifier}")
+            sources.extend(entry["sources"])
+    # Both kinds imply existence. An exclusion must propagate against every
+    # certified implication, including a reduction through a Galois conjugate.
+    for source, target in implication_closure(same + existence):
+        require(statuses[target] != "excluded" or statuses[source] == "excluded",
+                f"Exclusion does not respect the recorded implication {source} => {target}: {identifier}")
+    for source in sources:
+        require(bool(source.get("label")) and bool(source.get("url")),
+                f"Unlabelled categorification evidence: {identifier}")
+        url = urlsplit(source["url"])
+        require(url.scheme == "https" and bool(url.netloc), f"Invalid categorification evidence URL: {identifier}")
+        path = source.get("path")
+        if path:
+            require(not Path(path).is_absolute() and ".." not in Path(path).parts,
+                    f"Unsafe categorification evidence path: {identifier}: {path}")
+            local = repository / path
+            require(local.is_file() and bool(source.get("sha256")) and
+                    hashlib.sha256(local.read_bytes()).hexdigest() == source["sha256"],
+                    f"Categorification evidence hash mismatch: {identifier}: {path}")
+            require(unquote(url.path).endswith("/" + path),
+                    f"Categorification evidence link disagrees with its bound source: {identifier}: {path}")
 
 
 def check_tensor(record, root):
@@ -162,6 +231,11 @@ def check_site(root=None, repository=None):
             "Case pages differ from the current unresolved inventory")
     require(not set(ids) & {r["id"] for r in realized},
             "A ring appears as both unresolved and realized")
+    scope_source = read_json(repository / "site/categorification_scope.json")
+    require(scope_source.get("levels") == list(STRUCTURE_LEVELS), "Categorification hierarchy is not ordered from general to unitary")
+    require(set(scope_source.get("cases", {})) == set(ids), "Categorification audit does not cover precisely the current cases")
+    for record in unresolved:
+        check_scope(record, scope_source["cases"][record["id"]], repository)
     canonical_module = ast.parse((repository / "data/remaining_cases.py").read_text(encoding="utf-8"))
     canonical_tensors = {node.targets[0].id: ast.literal_eval(node.value)
                          for node in canonical_module.body
@@ -213,4 +287,4 @@ def check_site(root=None, repository=None):
 if __name__ == "__main__":
     result = check_site()
     print("Case pages checked: {unresolved} unresolved profiles, {realized} realized rings, "
-          "{tensor_downloads} exact Python tensor downloads.".format(**result))
+          "{tensor_downloads} exact Python tensor downloads; categorification audits and implication scopes agree.".format(**result))

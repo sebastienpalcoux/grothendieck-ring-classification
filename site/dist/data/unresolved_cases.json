@@ -12,6 +12,67 @@
       "multiplicity": 4,
       "status": "unresolved",
       "summary": "Every odd generalized pivotal rotation must factor through a cyclic spin character. All 1,144 tested blocks pass. The all-order path-Clifford divisibility condition for R′(m) holds exactly when m is even, including m=4. No compatible associators or categorification are constructed.",
+      "categorification_scope": {
+        "general_status": "unresolved",
+        "level_status": {
+          "general": "unresolved",
+          "pivotal": "unresolved",
+          "spherical": "unresolved",
+          "pseudo_unitary": "unresolved",
+          "unitary": "unresolved"
+        },
+        "strongest_excluded": null,
+        "same_category_implications": [
+          {
+            "from": "general",
+            "to": "spherical",
+            "explanation": "The uniform argument for the generalized near-group family R′(m), applied at m=4, proves that every categorification admits a spherical structure. No pivotality assumption is needed.",
+            "sources": [
+              {
+                "label": "Uniform sphericality and Galois proof",
+                "path": "manuscripts/rank6/papers/chapters/frontier_155.tex",
+                "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/manuscripts/rank6/papers/chapters/frontier_155.tex",
+                "sha256": "2d238415996eadf9ae70bdca0bda6d9e039ae06657f3b7549751f43f2721a6b1",
+                "locator": "Proposition prop:nonselfdual-neargroup-spherical, with m=4"
+              }
+            ]
+          }
+        ],
+        "existence_implications": [
+          {
+            "from": "general",
+            "to": "pseudo_unitary",
+            "explanation": "Every categorification has a pseudo-unitary Galois conjugate with the same fusion ring. Thus general and pseudo-unitary categorifiability are equivalent as existence questions. This does not assert pseudo-unitarity of every original categorification or imply unitarity.",
+            "sources": [
+              {
+                "label": "Uniform sphericality and Galois proof",
+                "path": "manuscripts/rank6/papers/chapters/frontier_155.tex",
+                "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/manuscripts/rank6/papers/chapters/frontier_155.tex",
+                "sha256": "2d238415996eadf9ae70bdca0bda6d9e039ae06657f3b7549751f43f2721a6b1",
+                "locator": "Proposition prop:nonselfdual-neargroup-spherical, with m=4"
+              }
+            ],
+            "mechanism": "Galois conjugation"
+          }
+        ],
+        "audit_sources": [
+          {
+            "label": "Rank-six status records",
+            "path": "site/dist/data/rank6_unresolved_tensors.json",
+            "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/site/dist/data/rank6_unresolved_tensors.json",
+            "sha256": "cf1f3ac0d2b05062861f036932bdb140a5a5f0055dd054689b6e1fa67924d203",
+            "locator": "Each case: existence"
+          },
+          {
+            "label": "Latest rank-six research results",
+            "path": "evidence/rigidity_20261017/rank6/research_progress.json",
+            "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/evidence/rigidity_20261017/rank6/research_progress.json",
+            "sha256": "de9be218c3099e68f00f5867b77d9ff7cbf9ef6ca34207823f2598b710886497"
+          }
+        ],
+        "notes": [],
+        "record_scope_note": "These statements report established results in the linked research record. Excluding a construction family, an associator choice or an induction frame does not exclude all categorifications with a given structure. The site’s independent-review caution applies to the recorded research proofs."
+      },
       "existence": {
         "general": "unknown",
         "pivotal": "unknown",
@@ -986,6 +1047,12 @@
           "sha256": "a12a3c3ac655fb7a3f41cb288e9b8ae730d136ad108ebf9fc73befeec8f379d0"
         },
         {
+          "label": "manuscripts/rank6/papers/chapters/frontier_155.tex",
+          "path": "manuscripts/rank6/papers/chapters/frontier_155.tex",
+          "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/manuscripts/rank6/papers/chapters/frontier_155.tex",
+          "sha256": "2d238415996eadf9ae70bdca0bda6d9e039ae06657f3b7549751f43f2721a6b1"
+        },
+        {
           "label": "manuscripts/rank6/papers/chapters/frontier_155_odd_clifford.tex",
           "path": "manuscripts/rank6/papers/chapters/frontier_155_odd_clifford.tex",
           "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/manuscripts/rank6/papers/chapters/frontier_155_odd_clifford.tex",
@@ -1002,6 +1069,18 @@
           "path": "manuscripts/rank6/papers/chapters/frontier_tensor_functors.tex",
           "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/manuscripts/rank6/papers/chapters/frontier_tensor_functors.tex",
           "sha256": "309cd351408d33b1b0946a07e20a52af8392970efa8d19ebf7333997764305db"
+        },
+        {
+          "label": "site/categorification_scope.json",
+          "path": "site/categorification_scope.json",
+          "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/site/categorification_scope.json",
+          "sha256": "ae57ce448d289e17c193cb779a0f7f75dfc487802482d44c118fc8cd3fff9c99"
+        },
+        {
+          "label": "site/dist/data/rank6_unresolved_tensors.json",
+          "path": "site/dist/data/rank6_unresolved_tensors.json",
+          "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/site/dist/data/rank6_unresolved_tensors.json",
+          "sha256": "cf1f3ac0d2b05062861f036932bdb140a5a5f0055dd054689b6e1fa67924d203"
         },
         {
           "label": "supplements/rank6/data/frontier_research_progress.json",
@@ -1030,6 +1109,81 @@
       "multiplicity": 8,
       "status": "unresolved",
       "summary": "Saturated modular representations determine all indicator sequences and every central phase mass. The eight spin objects form four dual pairs, all restricting to 2X+2gX+sigma+3T. Exact phase Gram constraints leave 640 labelled restriction-data profiles in three branches of 68,286,286. These data neither construct nor exclude a categorification.",
+      "categorification_scope": {
+        "general_status": "unresolved",
+        "level_status": {
+          "general": "unresolved",
+          "pivotal": "unresolved",
+          "spherical": "unresolved",
+          "pseudo_unitary": "unresolved",
+          "unitary": "unresolved"
+        },
+        "strongest_excluded": null,
+        "same_category_implications": [
+          {
+            "from": "general",
+            "to": "spherical",
+            "explanation": "The recorded unrestricted sphericalization reduction applies without a pivotality assumption. Every categorification admits a spherical structure.",
+            "sources": [
+              {
+                "label": "Rank-six structural conclusion",
+                "path": "manuscripts/rank6/papers/chapters/07.tex",
+                "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/manuscripts/rank6/papers/chapters/07.tex",
+                "sha256": "ec3f2f80fe5b3b012903709d5f1df2eb0c5e7860da0290bcb90fe2007e1dfe60",
+                "locator": "Subsection: The remaining frontier"
+              },
+              {
+                "label": "Unrestricted sphericalization reduction",
+                "path": "manuscripts/rank6/papers/chapters/frontier_1660.tex",
+                "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/manuscripts/rank6/papers/chapters/frontier_1660.tex",
+                "sha256": "fb3d1aea19e8705d4887a255008aa57d2d5ab40ee040a110bf6abc39e386e7b9",
+                "locator": "Opening of subsection subsec:frontier-1660"
+              }
+            ]
+          }
+        ],
+        "existence_implications": [
+          {
+            "from": "general",
+            "to": "pseudo_unitary",
+            "explanation": "Every categorification has a pseudo-unitary Galois conjugate with the same fusion ring. Thus general and pseudo-unitary categorifiability are equivalent as existence questions. This does not assert pseudo-unitarity of every original categorification or imply unitarity.",
+            "sources": [
+              {
+                "label": "Rank-six structural conclusion",
+                "path": "manuscripts/rank6/papers/chapters/07.tex",
+                "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/manuscripts/rank6/papers/chapters/07.tex",
+                "sha256": "ec3f2f80fe5b3b012903709d5f1df2eb0c5e7860da0290bcb90fe2007e1dfe60",
+                "locator": "Subsection: The remaining frontier"
+              },
+              {
+                "label": "Unrestricted sphericalization reduction",
+                "path": "manuscripts/rank6/papers/chapters/frontier_1660.tex",
+                "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/manuscripts/rank6/papers/chapters/frontier_1660.tex",
+                "sha256": "fb3d1aea19e8705d4887a255008aa57d2d5ab40ee040a110bf6abc39e386e7b9",
+                "locator": "Opening of subsection subsec:frontier-1660"
+              }
+            ],
+            "mechanism": "Galois conjugation"
+          }
+        ],
+        "audit_sources": [
+          {
+            "label": "Rank-six status records",
+            "path": "site/dist/data/rank6_unresolved_tensors.json",
+            "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/site/dist/data/rank6_unresolved_tensors.json",
+            "sha256": "cf1f3ac0d2b05062861f036932bdb140a5a5f0055dd054689b6e1fa67924d203",
+            "locator": "Each case: existence"
+          },
+          {
+            "label": "Latest rank-six research results",
+            "path": "evidence/rigidity_20261017/rank6/research_progress.json",
+            "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/evidence/rigidity_20261017/rank6/research_progress.json",
+            "sha256": "de9be218c3099e68f00f5867b77d9ff7cbf9ef6ca34207823f2598b710886497"
+          }
+        ],
+        "notes": [],
+        "record_scope_note": "These statements report established results in the linked research record. Excluding a construction family, an associator choice or an induction frame does not exclude all categorifications with a given structure. The site’s independent-review caution applies to the recorded research proofs."
+      },
       "existence": {
         "general": "unknown",
         "pivotal": "unknown",
@@ -8519,10 +8673,22 @@
           "sha256": "a05b927f2592ab4f2503bfd177d91df85bd8fa38bc8cac498ca298bf7109b9bd"
         },
         {
+          "label": "manuscripts/rank6/papers/chapters/07.tex",
+          "path": "manuscripts/rank6/papers/chapters/07.tex",
+          "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/manuscripts/rank6/papers/chapters/07.tex",
+          "sha256": "ec3f2f80fe5b3b012903709d5f1df2eb0c5e7860da0290bcb90fe2007e1dfe60"
+        },
+        {
           "label": "manuscripts/rank6/papers/chapters/dimension_block_20261016.tex",
           "path": "manuscripts/rank6/papers/chapters/dimension_block_20261016.tex",
           "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/manuscripts/rank6/papers/chapters/dimension_block_20261016.tex",
           "sha256": "89a80bd108f2bc6691d5e8b7bdd3b478025373713d3769f8ceae22fec688d03f"
+        },
+        {
+          "label": "manuscripts/rank6/papers/chapters/frontier_1660.tex",
+          "path": "manuscripts/rank6/papers/chapters/frontier_1660.tex",
+          "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/manuscripts/rank6/papers/chapters/frontier_1660.tex",
+          "sha256": "fb3d1aea19e8705d4887a255008aa57d2d5ab40ee040a110bf6abc39e386e7b9"
         },
         {
           "label": "manuscripts/rank6/papers/chapters/frontier_1660_phase_masses.tex",
@@ -8553,6 +8719,18 @@
           "path": "manuscripts/rank6/papers/chapters/witness_verlinde_20261016.tex",
           "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/manuscripts/rank6/papers/chapters/witness_verlinde_20261016.tex",
           "sha256": "62aba256a8d15d1014b91f0f30a47073557e79e0227195a717f9d4b8f73445dc"
+        },
+        {
+          "label": "site/categorification_scope.json",
+          "path": "site/categorification_scope.json",
+          "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/site/categorification_scope.json",
+          "sha256": "ae57ce448d289e17c193cb779a0f7f75dfc487802482d44c118fc8cd3fff9c99"
+        },
+        {
+          "label": "site/dist/data/rank6_unresolved_tensors.json",
+          "path": "site/dist/data/rank6_unresolved_tensors.json",
+          "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/site/dist/data/rank6_unresolved_tensors.json",
+          "sha256": "cf1f3ac0d2b05062861f036932bdb140a5a5f0055dd054689b6e1fa67924d203"
         },
         {
           "label": "supplements/rank6/data/frontier_research_progress.json",
@@ -8593,6 +8771,83 @@
       "multiplicity": 3,
       "status": "unresolved",
       "summary": "Complete based-module action constraints and a pointed-subgroup Morita obstruction exclude the trivial C4 associator and both rank-two categorical module possibilities. Categorification with a permitted nontrivial associator remains unresolved.",
+      "categorification_scope": {
+        "general_status": "unresolved",
+        "level_status": {
+          "general": "unresolved",
+          "pivotal": "unresolved",
+          "spherical": "unresolved",
+          "pseudo_unitary": "unresolved",
+          "unitary": "unresolved"
+        },
+        "strongest_excluded": null,
+        "same_category_implications": [
+          {
+            "from": "general",
+            "to": "spherical",
+            "explanation": "The only FP dimensions are 1 and d=(11+5√5)/2. Published Lemma 3.1 gives a pseudo-unitary Galois conjugate; transporting its spherical structure back proves that the original category admits a spherical structure.",
+            "sources": [
+              {
+                "label": "Schopieray · published Lemma 3.1",
+                "url": "https://doi.org/10.1112/jlms.12789",
+                "locator": "Lemma 3.1: two FP dimensions imply a pseudo-unitary Galois conjugate"
+              },
+              {
+                "label": "Exact fusion tensors and dual permutations",
+                "path": "data/remaining_cases.py",
+                "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/data/remaining_cases.py",
+                "sha256": "7345971809e59e51db494cb40d860c362c8e2ae128d5d146c565d7420b85f383"
+              },
+              {
+                "label": "Implication conventions and elementary consequences",
+                "path": "site/CATEGORIFICATION_SCOPE.md",
+                "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/site/CATEGORIFICATION_SCOPE.md",
+                "sha256": "a8667fba962bbfe1d9586d14cd6aed34d3f15b21663a1fe70523ffc478b75ef9"
+              }
+            ]
+          }
+        ],
+        "existence_implications": [
+          {
+            "from": "general",
+            "to": "pseudo_unitary",
+            "explanation": "Every categorification has a pseudo-unitary Galois conjugate with the same fusion ring. Thus general and pseudo-unitary categorifiability are equivalent as existence questions. This does not assert pseudo-unitarity of every original categorification or imply unitarity.",
+            "sources": [
+              {
+                "label": "Schopieray · published Lemma 3.1",
+                "url": "https://doi.org/10.1112/jlms.12789",
+                "locator": "Lemma 3.1: two FP dimensions imply a pseudo-unitary Galois conjugate"
+              },
+              {
+                "label": "Exact fusion tensors and dual permutations",
+                "path": "data/remaining_cases.py",
+                "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/data/remaining_cases.py",
+                "sha256": "7345971809e59e51db494cb40d860c362c8e2ae128d5d146c565d7420b85f383"
+              },
+              {
+                "label": "Implication conventions and elementary consequences",
+                "path": "site/CATEGORIFICATION_SCOPE.md",
+                "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/site/CATEGORIFICATION_SCOPE.md",
+                "sha256": "a8667fba962bbfe1d9586d14cd6aed34d3f15b21663a1fe70523ffc478b75ef9"
+              }
+            ],
+            "mechanism": "Galois conjugation"
+          }
+        ],
+        "audit_sources": [
+          {
+            "label": "Per-case research audit",
+            "path": "site/dist/data/rank8_m3_attempts.json",
+            "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/site/dist/data/rank8_m3_attempts.json",
+            "sha256": "6b40015a73eca6b05e5c1c56b28f457f5967f2eee315c52d6e88dc456088b76d",
+            "locator": "Current unresolved rows and their scoped results"
+          }
+        ],
+        "notes": [
+          "The pointed-subgroup arguments rule out particular associator and module possibilities. The permitted nontrivial-associator possibilities remain open, including for unitary categorification."
+        ],
+        "record_scope_note": "These statements report established results in the linked research record. Excluding a construction family, an associator choice or an induction frame does not exclude all categorifications with a given structure. The site’s independent-review caution applies to the recorded research proofs."
+      },
       "existence": {
         "general": "unknown",
         "unitary": "unknown"
@@ -19981,6 +20236,18 @@
           "sha256": "0ec47c3c3da2c46bfee20b06214b9f7704edea841955cb2c86b7b0522f199e8b"
         },
         {
+          "label": "site/CATEGORIFICATION_SCOPE.md",
+          "path": "site/CATEGORIFICATION_SCOPE.md",
+          "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/site/CATEGORIFICATION_SCOPE.md",
+          "sha256": "a8667fba962bbfe1d9586d14cd6aed34d3f15b21663a1fe70523ffc478b75ef9"
+        },
+        {
+          "label": "site/categorification_scope.json",
+          "path": "site/categorification_scope.json",
+          "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/site/categorification_scope.json",
+          "sha256": "ae57ce448d289e17c193cb779a0f7f75dfc487802482d44c118fc8cd3fff9c99"
+        },
+        {
           "label": "site/dist/data/rank8_m3_attempts.json",
           "path": "site/dist/data/rank8_m3_attempts.json",
           "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/site/dist/data/rank8_m3_attempts.json",
@@ -19995,6 +20262,71 @@
       "multiplicity": 3,
       "status": "unresolved",
       "summary": "The recorded Galois pseudo-unitary reduction and central-semion constraints leave ten allocations. All ten have exact charged fourth-moment and pair-product completions. These necessary data do not construct a center or category.",
+      "categorification_scope": {
+        "general_status": "unresolved",
+        "level_status": {
+          "general": "unresolved",
+          "pivotal": "unresolved",
+          "spherical": "unresolved",
+          "pseudo_unitary": "unresolved",
+          "unitary": "unresolved"
+        },
+        "strongest_excluded": null,
+        "same_category_implications": [
+          {
+            "from": "general",
+            "to": "spherical",
+            "explanation": "The complete unrestricted signed-tensor argument leaves only sign gauges of the original tensor. The selected lifts form a spherical subcategory equivalent to the original category, proving that every categorification admits a spherical structure.",
+            "sources": [
+              {
+                "label": "Sphericality and Galois proof",
+                "path": "evidence/rank8_frontier_20261021/noncommutative_followup/README.md",
+                "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/evidence/rank8_frontier_20261021/noncommutative_followup/README.md",
+                "sha256": "10d42b739fd442652985afca1c72f4066cc8999143d3e96837cedf184437ff47"
+              },
+              {
+                "label": "Exact unrestricted certificate",
+                "path": "evidence/rank8_frontier_20261021/noncommutative_followup/scope_gates.json",
+                "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/evidence/rank8_frontier_20261021/noncommutative_followup/scope_gates.json",
+                "sha256": "65984157be726eb5db0c4cd35c5cae1f52e569bdd4031415c3eea0195a6cb15b"
+              }
+            ]
+          }
+        ],
+        "existence_implications": [
+          {
+            "from": "general",
+            "to": "pseudo_unitary",
+            "explanation": "Every categorification has a pseudo-unitary Galois conjugate with the same fusion ring. Thus general and pseudo-unitary categorifiability are equivalent as existence questions. This does not assert pseudo-unitarity of every original categorification or imply unitarity.",
+            "sources": [
+              {
+                "label": "Sphericality and Galois proof",
+                "path": "evidence/rank8_frontier_20261021/noncommutative_followup/README.md",
+                "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/evidence/rank8_frontier_20261021/noncommutative_followup/README.md",
+                "sha256": "10d42b739fd442652985afca1c72f4066cc8999143d3e96837cedf184437ff47"
+              },
+              {
+                "label": "Exact unrestricted certificate",
+                "path": "evidence/rank8_frontier_20261021/noncommutative_followup/scope_gates.json",
+                "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/evidence/rank8_frontier_20261021/noncommutative_followup/scope_gates.json",
+                "sha256": "65984157be726eb5db0c4cd35c5cae1f52e569bdd4031415c3eea0195a6cb15b"
+              }
+            ],
+            "mechanism": "Galois conjugation"
+          }
+        ],
+        "audit_sources": [
+          {
+            "label": "Per-case research audit",
+            "path": "site/dist/data/rank8_m3_attempts.json",
+            "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/site/dist/data/rank8_m3_attempts.json",
+            "sha256": "6b40015a73eca6b05e5c1c56b28f457f5967f2eee315c52d6e88dc456088b76d",
+            "locator": "Current unresolved rows and their scoped results"
+          }
+        ],
+        "notes": [],
+        "record_scope_note": "These statements report established results in the linked research record. Excluding a construction family, an associator choice or an induction frame does not exclude all categorifications with a given structure. The site’s independent-review caution applies to the recorded research proofs."
+      },
       "existence": {
         "general": "unknown",
         "unitary": "unknown"
@@ -28951,6 +29283,12 @@
           "sha256": "fbf05fdd7e0535fb3e340fea72e7edd2582e78a664916e4551029786e4cbca6c"
         },
         {
+          "label": "site/categorification_scope.json",
+          "path": "site/categorification_scope.json",
+          "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/site/categorification_scope.json",
+          "sha256": "ae57ce448d289e17c193cb779a0f7f75dfc487802482d44c118fc8cd3fff9c99"
+        },
+        {
           "label": "site/dist/data/rank8_m3_attempts.json",
           "path": "site/dist/data/rank8_m3_attempts.json",
           "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/site/dist/data/rank8_m3_attempts.json",
@@ -28965,6 +29303,71 @@
       "multiplicity": 3,
       "status": "unresolved",
       "summary": "The recorded Galois pseudo-unitary reduction and central-fermion constraints leave fourteen allocations. All fourteen admit the exact pair-product sector completion; full center and associator coherence remain unresolved.",
+      "categorification_scope": {
+        "general_status": "unresolved",
+        "level_status": {
+          "general": "unresolved",
+          "pivotal": "unresolved",
+          "spherical": "unresolved",
+          "pseudo_unitary": "unresolved",
+          "unitary": "unresolved"
+        },
+        "strongest_excluded": null,
+        "same_category_implications": [
+          {
+            "from": "general",
+            "to": "spherical",
+            "explanation": "The complete unrestricted signed-tensor argument leaves only sign gauges of the original tensor. The selected lifts form a spherical subcategory equivalent to the original category, proving that every categorification admits a spherical structure.",
+            "sources": [
+              {
+                "label": "Sphericality and Galois proof",
+                "path": "evidence/rank8_frontier_20261021/noncommutative_followup/README.md",
+                "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/evidence/rank8_frontier_20261021/noncommutative_followup/README.md",
+                "sha256": "10d42b739fd442652985afca1c72f4066cc8999143d3e96837cedf184437ff47"
+              },
+              {
+                "label": "Exact unrestricted certificate",
+                "path": "evidence/rank8_frontier_20261021/noncommutative_followup/scope_gates.json",
+                "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/evidence/rank8_frontier_20261021/noncommutative_followup/scope_gates.json",
+                "sha256": "65984157be726eb5db0c4cd35c5cae1f52e569bdd4031415c3eea0195a6cb15b"
+              }
+            ]
+          }
+        ],
+        "existence_implications": [
+          {
+            "from": "general",
+            "to": "pseudo_unitary",
+            "explanation": "Every categorification has a pseudo-unitary Galois conjugate with the same fusion ring. Thus general and pseudo-unitary categorifiability are equivalent as existence questions. This does not assert pseudo-unitarity of every original categorification or imply unitarity.",
+            "sources": [
+              {
+                "label": "Sphericality and Galois proof",
+                "path": "evidence/rank8_frontier_20261021/noncommutative_followup/README.md",
+                "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/evidence/rank8_frontier_20261021/noncommutative_followup/README.md",
+                "sha256": "10d42b739fd442652985afca1c72f4066cc8999143d3e96837cedf184437ff47"
+              },
+              {
+                "label": "Exact unrestricted certificate",
+                "path": "evidence/rank8_frontier_20261021/noncommutative_followup/scope_gates.json",
+                "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/evidence/rank8_frontier_20261021/noncommutative_followup/scope_gates.json",
+                "sha256": "65984157be726eb5db0c4cd35c5cae1f52e569bdd4031415c3eea0195a6cb15b"
+              }
+            ],
+            "mechanism": "Galois conjugation"
+          }
+        ],
+        "audit_sources": [
+          {
+            "label": "Per-case research audit",
+            "path": "site/dist/data/rank8_m3_attempts.json",
+            "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/site/dist/data/rank8_m3_attempts.json",
+            "sha256": "6b40015a73eca6b05e5c1c56b28f457f5967f2eee315c52d6e88dc456088b76d",
+            "locator": "Current unresolved rows and their scoped results"
+          }
+        ],
+        "notes": [],
+        "record_scope_note": "These statements report established results in the linked research record. Excluding a construction family, an associator choice or an induction frame does not exclude all categorifications with a given structure. The site’s independent-review caution applies to the recorded research proofs."
+      },
       "existence": {
         "general": "unknown",
         "unitary": "unknown"
@@ -34714,6 +35117,12 @@
           "sha256": "0ec47c3c3da2c46bfee20b06214b9f7704edea841955cb2c86b7b0522f199e8b"
         },
         {
+          "label": "site/categorification_scope.json",
+          "path": "site/categorification_scope.json",
+          "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/site/categorification_scope.json",
+          "sha256": "ae57ce448d289e17c193cb779a0f7f75dfc487802482d44c118fc8cd3fff9c99"
+        },
+        {
           "label": "site/dist/data/rank8_m3_attempts.json",
           "path": "site/dist/data/rank8_m3_attempts.json",
           "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/site/dist/data/rank8_m3_attempts.json",
@@ -34740,6 +35149,104 @@
       "multiplicity": 3,
       "status": "unresolved",
       "summary": "Two of four induction frames are excluded exactly. The remaining semionic branch has a surviving integral core and rational full-phase witness, including joint Galois constraints. These are pseudo-unitary necessary conditions; a general-to-pseudo-unitary reduction is not claimed.",
+      "categorification_scope": {
+        "general_status": "unresolved",
+        "level_status": {
+          "general": "unresolved",
+          "pivotal": "unresolved",
+          "spherical": "unresolved",
+          "pseudo_unitary": "unresolved",
+          "unitary": "unresolved"
+        },
+        "strongest_excluded": null,
+        "same_category_implications": [
+          {
+            "from": "pivotal",
+            "to": "spherical",
+            "explanation": "The slope operator of a pivotal fusion category is monoidal. The two displayed fusion products X1·X2 and X1² force slope 1 on all eight simples, so every pivotal structure is spherical. This does not supply a pivotal structure for a general categorification.",
+            "sources": [
+              {
+                "label": "Bruguières–Virelizier · slope operator",
+                "url": "https://arxiv.org/html/1203.4180v2#S4.SS3",
+                "locator": "Section 4.3: monoidal slope operator and sphericality"
+              },
+              {
+                "label": "Exact fusion tensors and dual permutations",
+                "path": "data/remaining_cases.py",
+                "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/data/remaining_cases.py",
+                "sha256": "7345971809e59e51db494cb40d860c362c8e2ae128d5d146c565d7420b85f383"
+              },
+              {
+                "label": "Exact verification of the structural consequences",
+                "path": "site/verify_scope_consequences.py",
+                "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/site/verify_scope_consequences.py",
+                "sha256": "85be890091ca281c2f6d2a05c51e3d7ae4653626e91ea6dfdc3d4c9c7ddb87a1"
+              },
+              {
+                "label": "Implication conventions and elementary consequences",
+                "path": "site/CATEGORIFICATION_SCOPE.md",
+                "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/site/CATEGORIFICATION_SCOPE.md",
+                "sha256": "a8667fba962bbfe1d9586d14cd6aed34d3f15b21663a1fe70523ffc478b75ef9"
+              }
+            ]
+          }
+        ],
+        "existence_implications": [
+          {
+            "from": "spherical",
+            "to": "pseudo_unitary",
+            "explanation": "Exactly four of the eight exact characters agree on dual objects, and these form the FP Galois orbit. Every spherical categorification therefore has a pseudo-unitary Galois conjugate. Combined with automatic sphericality of pivotal structures, pivotal, spherical and pseudo-unitary categorifiability are equivalent as existence questions. General-to-pivotal remains unproved.",
+            "sources": [
+              {
+                "label": "Exact cyclotomic character table",
+                "path": "evidence/rank8_frontier_20261021/global_induction/complete_results/R8_3_982_sts_frame_h4.json",
+                "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/evidence/rank8_frontier_20261021/global_induction/complete_results/R8_3_982_sts_frame_h4.json",
+                "sha256": "97acfc22dfa72ba26ab8043f5453495829836a07d826ef150c164692b95153a4",
+                "locator": "metadata.character_table"
+              },
+              {
+                "label": "Exact fusion tensors and dual permutations",
+                "path": "data/remaining_cases.py",
+                "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/data/remaining_cases.py",
+                "sha256": "7345971809e59e51db494cb40d860c362c8e2ae128d5d146c565d7420b85f383"
+              },
+              {
+                "label": "Exact verification of the structural consequences",
+                "path": "site/verify_scope_consequences.py",
+                "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/site/verify_scope_consequences.py",
+                "sha256": "85be890091ca281c2f6d2a05c51e3d7ae4653626e91ea6dfdc3d4c9c7ddb87a1"
+              },
+              {
+                "label": "Implication conventions and elementary consequences",
+                "path": "site/CATEGORIFICATION_SCOPE.md",
+                "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/site/CATEGORIFICATION_SCOPE.md",
+                "sha256": "a8667fba962bbfe1d9586d14cd6aed34d3f15b21663a1fe70523ffc478b75ef9"
+              }
+            ],
+            "mechanism": "Galois conjugation"
+          }
+        ],
+        "audit_sources": [
+          {
+            "label": "Per-case research audit",
+            "path": "site/dist/data/rank8_m3_attempts.json",
+            "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/site/dist/data/rank8_m3_attempts.json",
+            "sha256": "6b40015a73eca6b05e5c1c56b28f457f5967f2eee315c52d6e88dc456088b76d",
+            "locator": "Current unresolved rows and their scoped results"
+          },
+          {
+            "label": "Scope of the surviving R982 branch",
+            "path": "evidence/rank8_next_20261021/r982/FINAL_SUMMARY.json",
+            "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/evidence/rank8_next_20261021/r982/FINAL_SUMMARY.json",
+            "sha256": "4b8f870ebb9e36931a0c270dbd4dd4661844a951a7648e8552cba7cc3bf8a5b5",
+            "locator": "scope and nonclaims"
+          }
+        ],
+        "notes": [
+          "The remaining semionic branch survives the recorded pseudo-unitary necessary conditions. The frame exclusions do not exclude pseudo-unitary categorification, and no general-to-pseudo-unitary reduction is claimed."
+        ],
+        "record_scope_note": "These statements report established results in the linked research record. Excluding a construction family, an associator choice or an induction frame does not exclude all categorifications with a given structure. The site’s independent-review caution applies to the recorded research proofs."
+      },
       "existence": {
         "general": "unknown",
         "unitary": "unknown"
@@ -37380,10 +37887,28 @@
           "sha256": "e938b7a976efc24c5c8f168e3bc0f5df58d44a3a372a8266694154c338109807"
         },
         {
+          "label": "site/CATEGORIFICATION_SCOPE.md",
+          "path": "site/CATEGORIFICATION_SCOPE.md",
+          "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/site/CATEGORIFICATION_SCOPE.md",
+          "sha256": "a8667fba962bbfe1d9586d14cd6aed34d3f15b21663a1fe70523ffc478b75ef9"
+        },
+        {
+          "label": "site/categorification_scope.json",
+          "path": "site/categorification_scope.json",
+          "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/site/categorification_scope.json",
+          "sha256": "ae57ce448d289e17c193cb779a0f7f75dfc487802482d44c118fc8cd3fff9c99"
+        },
+        {
           "label": "site/dist/data/rank8_m3_attempts.json",
           "path": "site/dist/data/rank8_m3_attempts.json",
           "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/site/dist/data/rank8_m3_attempts.json",
           "sha256": "6b40015a73eca6b05e5c1c56b28f457f5967f2eee315c52d6e88dc456088b76d"
+        },
+        {
+          "label": "site/verify_scope_consequences.py",
+          "path": "site/verify_scope_consequences.py",
+          "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/site/verify_scope_consequences.py",
+          "sha256": "85be890091ca281c2f6d2a05c51e3d7ae4653626e91ea6dfdc3d4c9c7ddb87a1"
         }
       ],
       "download_url": "./downloads/fusion-tensors/R8_3_982.txt"
@@ -37394,6 +37919,71 @@
       "multiplicity": 3,
       "status": "unresolved",
       "summary": "Moment, fusion-action and trace constraints reduce 292 center patterns to three. The subsequent Galois low-column test reduces 36 pair histograms to 25 across those three patterns. A separate Morita argument forces a nontrivial pointed C2 associator. Categorification remains unresolved.",
+      "categorification_scope": {
+        "general_status": "unresolved",
+        "level_status": {
+          "general": "unresolved",
+          "pivotal": "unresolved",
+          "spherical": "unresolved",
+          "pseudo_unitary": "unresolved",
+          "unitary": "unresolved"
+        },
+        "strongest_excluded": null,
+        "same_category_implications": [
+          {
+            "from": "general",
+            "to": "spherical",
+            "explanation": "The unrestricted sphericalization argument excludes every nongauge signed tensor. The surviving lifts give a spherical structure on every hypothetical categorification, without assuming pivotality.",
+            "sources": [
+              {
+                "label": "General sphericality and Galois proof",
+                "path": "evidence/rank8_frontier_20261021/central_integrality/GENERAL_GALOIS_PU.md",
+                "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/evidence/rank8_frontier_20261021/central_integrality/GENERAL_GALOIS_PU.md",
+                "sha256": "642fdcaf1a4d30c9239181f912412c12e1465393a5a86f0cc8dbfc5d7d98c960"
+              },
+              {
+                "label": "Exact unrestricted certificate",
+                "path": "evidence/rank8_frontier_20261021/central_integrality/general_galois_pu_gate.json",
+                "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/evidence/rank8_frontier_20261021/central_integrality/general_galois_pu_gate.json",
+                "sha256": "429b75f20fd92abd70140fdff1726e9f3a015de77ff4fa5c3f9548552c86350f"
+              }
+            ]
+          }
+        ],
+        "existence_implications": [
+          {
+            "from": "general",
+            "to": "pseudo_unitary",
+            "explanation": "Every categorification has a pseudo-unitary Galois conjugate with the same fusion ring. Thus general and pseudo-unitary categorifiability are equivalent as existence questions. This does not assert pseudo-unitarity of every original categorification or imply unitarity.",
+            "sources": [
+              {
+                "label": "General sphericality and Galois proof",
+                "path": "evidence/rank8_frontier_20261021/central_integrality/GENERAL_GALOIS_PU.md",
+                "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/evidence/rank8_frontier_20261021/central_integrality/GENERAL_GALOIS_PU.md",
+                "sha256": "642fdcaf1a4d30c9239181f912412c12e1465393a5a86f0cc8dbfc5d7d98c960"
+              },
+              {
+                "label": "Exact unrestricted certificate",
+                "path": "evidence/rank8_frontier_20261021/central_integrality/general_galois_pu_gate.json",
+                "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/evidence/rank8_frontier_20261021/central_integrality/general_galois_pu_gate.json",
+                "sha256": "429b75f20fd92abd70140fdff1726e9f3a015de77ff4fa5c3f9548552c86350f"
+              }
+            ],
+            "mechanism": "Galois conjugation"
+          }
+        ],
+        "audit_sources": [
+          {
+            "label": "Per-case research audit",
+            "path": "site/dist/data/rank8_m3_attempts.json",
+            "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/site/dist/data/rank8_m3_attempts.json",
+            "sha256": "6b40015a73eca6b05e5c1c56b28f457f5967f2eee315c52d6e88dc456088b76d",
+            "locator": "Current unresolved rows and their scoped results"
+          }
+        ],
+        "notes": [],
+        "record_scope_note": "These statements report established results in the linked research record. Excluding a construction family, an associator choice or an induction frame does not exclude all categorifications with a given structure. The site’s independent-review caution applies to the recorded research proofs."
+      },
       "existence": {
         "general": "unknown",
         "unitary": "unknown"
@@ -55453,6 +56043,12 @@
           "sha256": "71b1beba3a46a920a41875901fe1e3273a41f4b471cd646dc789642e832bf196"
         },
         {
+          "label": "site/categorification_scope.json",
+          "path": "site/categorification_scope.json",
+          "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/site/categorification_scope.json",
+          "sha256": "ae57ce448d289e17c193cb779a0f7f75dfc487802482d44c118fc8cd3fff9c99"
+        },
+        {
           "label": "site/dist/data/rank8_m3_attempts.json",
           "path": "site/dist/data/rank8_m3_attempts.json",
           "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/site/dist/data/rank8_m3_attempts.json",
@@ -55467,6 +56063,85 @@
       "multiplicity": 3,
       "status": "unresolved",
       "summary": "Complete connected-algebra object, internal-end, and Morita-profile filters reduce possible module data. The specified affine Lie construction families are excluded uniformly. Actual algebra/module coherence and categorification remain unresolved.",
+      "categorification_scope": {
+        "general_status": "unresolved",
+        "level_status": {
+          "general": "unresolved",
+          "pivotal": "unresolved",
+          "spherical": "unresolved",
+          "pseudo_unitary": "unresolved",
+          "unitary": "unresolved"
+        },
+        "strongest_excluded": null,
+        "same_category_implications": [
+          {
+            "from": "pivotal",
+            "to": "spherical",
+            "explanation": "All eight simple objects are self-dual. For any pivotal structure their dimensions therefore agree with the dimensions of their duals, which is the sphericality criterion. In this case every pivotal structure is spherical; the argument does not prove that a pivotal structure exists.",
+            "sources": [
+              {
+                "label": "Exact fusion tensors and dual permutations",
+                "path": "data/remaining_cases.py",
+                "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/data/remaining_cases.py",
+                "sha256": "7345971809e59e51db494cb40d860c362c8e2ae128d5d146c565d7420b85f383"
+              },
+              {
+                "label": "EGNO · sphericality criterion",
+                "url": "https://math.mit.edu/~etingof/egnobookfinal.pdf",
+                "locator": "Definition 4.7.14, p. 75"
+              },
+              {
+                "label": "Implication conventions and elementary consequences",
+                "path": "site/CATEGORIFICATION_SCOPE.md",
+                "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/site/CATEGORIFICATION_SCOPE.md",
+                "sha256": "a8667fba962bbfe1d9586d14cd6aed34d3f15b21663a1fe70523ffc478b75ef9"
+              }
+            ]
+          }
+        ],
+        "existence_implications": [
+          {
+            "from": "spherical",
+            "to": "pseudo_unitary",
+            "explanation": "Characters outside the FP Galois orbit have a zero simple dimension, which is impossible for a pivotal dimension function. Hence every spherical categorification has a pseudo-unitary Galois conjugate. Pivotal, spherical and pseudo-unitary categorifiability are equivalent as existence questions; the original category need not be pseudo-unitary.",
+            "sources": [
+              {
+                "label": "Complete exact character table",
+                "path": "evidence/rank8_frontier_20261021/global_induction/complete_results/R8_3_1768_atomic_real_sts_h4.json",
+                "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/evidence/rank8_frontier_20261021/global_induction/complete_results/R8_3_1768_atomic_real_sts_h4.json",
+                "sha256": "2dc7e70f0f9b0d4dd4d0b8618421e212068d0e33771569d2eebb4bd72e82d876",
+                "locator": "metadata.character_table"
+              },
+              {
+                "label": "Exact verification of the structural consequences",
+                "path": "site/verify_scope_consequences.py",
+                "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/site/verify_scope_consequences.py",
+                "sha256": "85be890091ca281c2f6d2a05c51e3d7ae4653626e91ea6dfdc3d4c9c7ddb87a1"
+              },
+              {
+                "label": "Implication conventions and elementary consequences",
+                "path": "site/CATEGORIFICATION_SCOPE.md",
+                "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/site/CATEGORIFICATION_SCOPE.md",
+                "sha256": "a8667fba962bbfe1d9586d14cd6aed34d3f15b21663a1fe70523ffc478b75ef9"
+              }
+            ],
+            "mechanism": "Galois conjugation"
+          }
+        ],
+        "audit_sources": [
+          {
+            "label": "Per-case research audit",
+            "path": "site/dist/data/rank8_m3_attempts.json",
+            "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/site/dist/data/rank8_m3_attempts.json",
+            "sha256": "6b40015a73eca6b05e5c1c56b28f457f5967f2eee315c52d6e88dc456088b76d",
+            "locator": "Current unresolved rows and their scoped results"
+          }
+        ],
+        "notes": [
+          "General-to-pivotal remains unproved. The conditional Galois reduction neither constructs a category nor establishes unitarity."
+        ],
+        "record_scope_note": "These statements report established results in the linked research record. Excluding a construction family, an associator choice or an induction frame does not exclude all categorifications with a given structure. The site’s independent-review caution applies to the recorded research proofs."
+      },
       "existence": {
         "general": "unknown",
         "unitary": "unknown"
@@ -73704,10 +74379,28 @@
           "sha256": "0c553c25568ef7bc0f6ccb87c6f1b658ddab2fb9cc7bbbc2b8690fd38239f24d"
         },
         {
+          "label": "site/CATEGORIFICATION_SCOPE.md",
+          "path": "site/CATEGORIFICATION_SCOPE.md",
+          "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/site/CATEGORIFICATION_SCOPE.md",
+          "sha256": "a8667fba962bbfe1d9586d14cd6aed34d3f15b21663a1fe70523ffc478b75ef9"
+        },
+        {
+          "label": "site/categorification_scope.json",
+          "path": "site/categorification_scope.json",
+          "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/site/categorification_scope.json",
+          "sha256": "ae57ce448d289e17c193cb779a0f7f75dfc487802482d44c118fc8cd3fff9c99"
+        },
+        {
           "label": "site/dist/data/rank8_m3_attempts.json",
           "path": "site/dist/data/rank8_m3_attempts.json",
           "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/site/dist/data/rank8_m3_attempts.json",
           "sha256": "6b40015a73eca6b05e5c1c56b28f457f5967f2eee315c52d6e88dc456088b76d"
+        },
+        {
+          "label": "site/verify_scope_consequences.py",
+          "path": "site/verify_scope_consequences.py",
+          "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/site/verify_scope_consequences.py",
+          "sha256": "85be890091ca281c2f6d2a05c51e3d7ae4653626e91ea6dfdc3d4c9c7ddb87a1"
         }
       ],
       "download_url": "./downloads/fusion-tensors/R8_3_1768.txt"
@@ -73718,6 +74411,90 @@
       "multiplicity": 3,
       "status": "unresolved",
       "summary": "Complete connected-algebra and Morita-profile filters reduce possible module data. A possible Morita comparison with R8_3_1154 is a search direction, not a constructed equivalence. Categorification remains unresolved.",
+      "categorification_scope": {
+        "general_status": "unresolved",
+        "level_status": {
+          "general": "unresolved",
+          "pivotal": "unresolved",
+          "spherical": "unresolved",
+          "pseudo_unitary": "unresolved",
+          "unitary": "unresolved"
+        },
+        "strongest_excluded": null,
+        "same_category_implications": [
+          {
+            "from": "pivotal",
+            "to": "spherical",
+            "explanation": "All eight simple objects are self-dual. For any pivotal structure their dimensions therefore agree with the dimensions of their duals, which is the sphericality criterion. In this case every pivotal structure is spherical; the argument does not prove that a pivotal structure exists.",
+            "sources": [
+              {
+                "label": "Exact fusion tensors and dual permutations",
+                "path": "data/remaining_cases.py",
+                "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/data/remaining_cases.py",
+                "sha256": "7345971809e59e51db494cb40d860c362c8e2ae128d5d146c565d7420b85f383"
+              },
+              {
+                "label": "EGNO · sphericality criterion",
+                "url": "https://math.mit.edu/~etingof/egnobookfinal.pdf",
+                "locator": "Definition 4.7.14, p. 75"
+              },
+              {
+                "label": "Implication conventions and elementary consequences",
+                "path": "site/CATEGORIFICATION_SCOPE.md",
+                "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/site/CATEGORIFICATION_SCOPE.md",
+                "sha256": "a8667fba962bbfe1d9586d14cd6aed34d3f15b21663a1fe70523ffc478b75ef9"
+              }
+            ]
+          }
+        ],
+        "existence_implications": [
+          {
+            "from": "spherical",
+            "to": "pseudo_unitary",
+            "explanation": "The non-FP characters either have zero simple dimensions or global dimension 20 or 10. The latter give nonintegral norms 1/9 and 1/36 for the dimension divided by the FP formal codegree, contradicting central-induction integrality. Hence every spherical categorification has a pseudo-unitary Galois conjugate. Pivotal, spherical and pseudo-unitary categorifiability are equivalent as existence questions; the original category need not be pseudo-unitary.",
+            "sources": [
+              {
+                "label": "Complete exact character table",
+                "path": "evidence/rank8_frontier_20261021/global_induction/complete_results/R8_3_1795_atomic_real_sts_h4.json",
+                "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/evidence/rank8_frontier_20261021/global_induction/complete_results/R8_3_1795_atomic_real_sts_h4.json",
+                "sha256": "f7b4defac423618ab1f3317f3efe7309ba116280bdfda717d49a10127f4618aa",
+                "locator": "metadata.character_table"
+              },
+              {
+                "label": "Exact verification of the structural consequences",
+                "path": "site/verify_scope_consequences.py",
+                "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/site/verify_scope_consequences.py",
+                "sha256": "85be890091ca281c2f6d2a05c51e3d7ae4653626e91ea6dfdc3d4c9c7ddb87a1"
+              },
+              {
+                "label": "Implication conventions and elementary consequences",
+                "path": "site/CATEGORIFICATION_SCOPE.md",
+                "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/site/CATEGORIFICATION_SCOPE.md",
+                "sha256": "a8667fba962bbfe1d9586d14cd6aed34d3f15b21663a1fe70523ffc478b75ef9"
+              },
+              {
+                "label": "Ostrik · formal-codegree divisibility",
+                "url": "https://arxiv.org/abs/1309.4822",
+                "locator": "Theorem 2.13 and Corollary 2.14"
+              }
+            ],
+            "mechanism": "Galois conjugation"
+          }
+        ],
+        "audit_sources": [
+          {
+            "label": "Per-case research audit",
+            "path": "site/dist/data/rank8_m3_attempts.json",
+            "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/site/dist/data/rank8_m3_attempts.json",
+            "sha256": "6b40015a73eca6b05e5c1c56b28f457f5967f2eee315c52d6e88dc456088b76d",
+            "locator": "Current unresolved rows and their scoped results"
+          }
+        ],
+        "notes": [
+          "General-to-pivotal remains unproved. The conditional Galois reduction neither constructs a category nor establishes unitarity."
+        ],
+        "record_scope_note": "These statements report established results in the linked research record. Excluding a construction family, an associator choice or an induction frame does not exclude all categorifications with a given structure. The site’s independent-review caution applies to the recorded research proofs."
+      },
       "existence": {
         "general": "unknown",
         "unitary": "unknown"
@@ -99431,10 +100208,28 @@
           "sha256": "0c553c25568ef7bc0f6ccb87c6f1b658ddab2fb9cc7bbbc2b8690fd38239f24d"
         },
         {
+          "label": "site/CATEGORIFICATION_SCOPE.md",
+          "path": "site/CATEGORIFICATION_SCOPE.md",
+          "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/site/CATEGORIFICATION_SCOPE.md",
+          "sha256": "a8667fba962bbfe1d9586d14cd6aed34d3f15b21663a1fe70523ffc478b75ef9"
+        },
+        {
+          "label": "site/categorification_scope.json",
+          "path": "site/categorification_scope.json",
+          "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/site/categorification_scope.json",
+          "sha256": "ae57ce448d289e17c193cb779a0f7f75dfc487802482d44c118fc8cd3fff9c99"
+        },
+        {
           "label": "site/dist/data/rank8_m3_attempts.json",
           "path": "site/dist/data/rank8_m3_attempts.json",
           "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/site/dist/data/rank8_m3_attempts.json",
           "sha256": "6b40015a73eca6b05e5c1c56b28f457f5967f2eee315c52d6e88dc456088b76d"
+        },
+        {
+          "label": "site/verify_scope_consequences.py",
+          "path": "site/verify_scope_consequences.py",
+          "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/site/verify_scope_consequences.py",
+          "sha256": "85be890091ca281c2f6d2a05c51e3d7ae4653626e91ea6dfdc3d4c9c7ddb87a1"
         }
       ],
       "download_url": "./downloads/fusion-tensors/R8_3_1795.txt"
@@ -99445,6 +100240,85 @@
       "multiplicity": 3,
       "status": "unresolved",
       "summary": "Complete Gram, internal-end, Morita-profile and forced-action constraints reduce possible module data. The surviving necessary systems do not establish a categorical model; categorification remains unresolved.",
+      "categorification_scope": {
+        "general_status": "unresolved",
+        "level_status": {
+          "general": "unresolved",
+          "pivotal": "unresolved",
+          "spherical": "unresolved",
+          "pseudo_unitary": "unresolved",
+          "unitary": "unresolved"
+        },
+        "strongest_excluded": null,
+        "same_category_implications": [
+          {
+            "from": "pivotal",
+            "to": "spherical",
+            "explanation": "All eight simple objects are self-dual. For any pivotal structure their dimensions therefore agree with the dimensions of their duals, which is the sphericality criterion. In this case every pivotal structure is spherical; the argument does not prove that a pivotal structure exists.",
+            "sources": [
+              {
+                "label": "Exact fusion tensors and dual permutations",
+                "path": "data/remaining_cases.py",
+                "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/data/remaining_cases.py",
+                "sha256": "7345971809e59e51db494cb40d860c362c8e2ae128d5d146c565d7420b85f383"
+              },
+              {
+                "label": "EGNO · sphericality criterion",
+                "url": "https://math.mit.edu/~etingof/egnobookfinal.pdf",
+                "locator": "Definition 4.7.14, p. 75"
+              },
+              {
+                "label": "Implication conventions and elementary consequences",
+                "path": "site/CATEGORIFICATION_SCOPE.md",
+                "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/site/CATEGORIFICATION_SCOPE.md",
+                "sha256": "a8667fba962bbfe1d9586d14cd6aed34d3f15b21663a1fe70523ffc478b75ef9"
+              }
+            ]
+          }
+        ],
+        "existence_implications": [
+          {
+            "from": "spherical",
+            "to": "pseudo_unitary",
+            "explanation": "Characters outside the FP Galois orbit have a zero simple dimension, which is impossible for a pivotal dimension function. Hence every spherical categorification has a pseudo-unitary Galois conjugate. Pivotal, spherical and pseudo-unitary categorifiability are equivalent as existence questions; the original category need not be pseudo-unitary.",
+            "sources": [
+              {
+                "label": "Complete exact character table",
+                "path": "evidence/rank8_frontier_20261021/global_induction/atomic_spectrum_results/R8_3_3472_h4.json",
+                "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/evidence/rank8_frontier_20261021/global_induction/atomic_spectrum_results/R8_3_3472_h4.json",
+                "sha256": "5202401998f4029018fcf8d40f500f2dc8e399ab85ee2a08b03661592b4bce16",
+                "locator": "metadata.character_table"
+              },
+              {
+                "label": "Exact verification of the structural consequences",
+                "path": "site/verify_scope_consequences.py",
+                "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/site/verify_scope_consequences.py",
+                "sha256": "85be890091ca281c2f6d2a05c51e3d7ae4653626e91ea6dfdc3d4c9c7ddb87a1"
+              },
+              {
+                "label": "Implication conventions and elementary consequences",
+                "path": "site/CATEGORIFICATION_SCOPE.md",
+                "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/site/CATEGORIFICATION_SCOPE.md",
+                "sha256": "a8667fba962bbfe1d9586d14cd6aed34d3f15b21663a1fe70523ffc478b75ef9"
+              }
+            ],
+            "mechanism": "Galois conjugation"
+          }
+        ],
+        "audit_sources": [
+          {
+            "label": "Per-case research audit",
+            "path": "site/dist/data/rank8_m3_attempts.json",
+            "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/site/dist/data/rank8_m3_attempts.json",
+            "sha256": "6b40015a73eca6b05e5c1c56b28f457f5967f2eee315c52d6e88dc456088b76d",
+            "locator": "Current unresolved rows and their scoped results"
+          }
+        ],
+        "notes": [
+          "General-to-pivotal remains unproved. The conditional Galois reduction neither constructs a category nor establishes unitarity."
+        ],
+        "record_scope_note": "These statements report established results in the linked research record. Excluding a construction family, an associator choice or an induction frame does not exclude all categorifications with a given structure. The site’s independent-review caution applies to the recorded research proofs."
+      },
       "existence": {
         "general": "unknown",
         "unitary": "unknown"
@@ -121642,10 +122516,28 @@
           "sha256": "0c553c25568ef7bc0f6ccb87c6f1b658ddab2fb9cc7bbbc2b8690fd38239f24d"
         },
         {
+          "label": "site/CATEGORIFICATION_SCOPE.md",
+          "path": "site/CATEGORIFICATION_SCOPE.md",
+          "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/site/CATEGORIFICATION_SCOPE.md",
+          "sha256": "a8667fba962bbfe1d9586d14cd6aed34d3f15b21663a1fe70523ffc478b75ef9"
+        },
+        {
+          "label": "site/categorification_scope.json",
+          "path": "site/categorification_scope.json",
+          "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/site/categorification_scope.json",
+          "sha256": "ae57ce448d289e17c193cb779a0f7f75dfc487802482d44c118fc8cd3fff9c99"
+        },
+        {
           "label": "site/dist/data/rank8_m3_attempts.json",
           "path": "site/dist/data/rank8_m3_attempts.json",
           "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/site/dist/data/rank8_m3_attempts.json",
           "sha256": "6b40015a73eca6b05e5c1c56b28f457f5967f2eee315c52d6e88dc456088b76d"
+        },
+        {
+          "label": "site/verify_scope_consequences.py",
+          "path": "site/verify_scope_consequences.py",
+          "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/site/verify_scope_consequences.py",
+          "sha256": "85be890091ca281c2f6d2a05c51e3d7ae4653626e91ea6dfdc3d4c9c7ddb87a1"
         }
       ],
       "download_url": "./downloads/fusion-tensors/R8_3_3472.txt"

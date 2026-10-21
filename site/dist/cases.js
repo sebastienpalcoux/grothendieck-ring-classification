@@ -152,6 +152,86 @@
     const query = new URLSearchParams(filters); query.set("id", ring.id);
     return `./case.html?${query}`;
   }
+  const categoryLevels = ["general", "pivotal", "spherical", "pseudo_unitary", "unitary"];
+  const categoryLabels = {general:"General", pivotal:"Pivotal", spherical:"Spherical", pseudo_unitary:"Pseudo-unitary", unitary:"Unitary"};
+  function categoryExclusionText(scope, short = false) {
+    if (!scope) return "Scope not yet audited";
+    if (scope.strongest_excluded) return `No ${categoryLabels[scope.strongest_excluded].toLowerCase()} categorification`;
+    return short ? "Unitary categorification also open" : "No exclusion established, even for unitary categorification.";
+  }
+  function categoryClosure(implications) {
+    const reachable = categoryLevels.map((_, i) => categoryLevels.map((_, j) => j <= i));
+    for (const implication of implications) {
+      const from = categoryLevels.indexOf(implication.from), to = categoryLevels.indexOf(implication.to);
+      if (from < 0 || to < 0) throw new Error("Unrecognized categorification level in the recorded implications.");
+      reachable[from][to] = true;
+    }
+    for (let k = 0; k < categoryLevels.length; k++)
+      for (let i = 0; i < categoryLevels.length; i++)
+        for (let j = 0; j < categoryLevels.length; j++)
+          reachable[i][j] ||= reachable[i][k] && reachable[k][j];
+    return reachable;
+  }
+  function categoryDiagram(implications, kind) {
+    const reachable = categoryClosure(implications);
+    const node = el("div", "category-chain"); node.setAttribute("role", "img");
+    const description = [];
+    categoryLevels.forEach((level, i) => {
+      if (i) {
+        const both = reachable[i - 1][i];
+        const arrow = el("span", `category-arrow${both ? " category-equivalence" : ""}`, both ? "⇔" : "⇐");
+        arrow.setAttribute("aria-hidden", "true"); node.append(arrow);
+        description.push(both ? `${categoryLabels[categoryLevels[i - 1]]} is equivalent to ${categoryLabels[level]}` : `${categoryLabels[level]} implies ${categoryLabels[categoryLevels[i - 1]]}`);
+      }
+      const box = el("span", "category-level", categoryLabels[level]); box.setAttribute("aria-hidden", "true"); node.append(box);
+    });
+    node.setAttribute("aria-label", `${kind}. ${description.join(". ")}.`);
+    return node;
+  }
+  function categorySources(sources) {
+    const links = el("div", "category-source-links");
+    for (const source of sources || []) {
+      const href = source.url || (source.path ? repoURL(source.path) : null);
+      if (!href) continue;
+      const item = link(source.label || "Supporting argument ↗", href);
+      if (source.locator) item.title = source.locator;
+      links.append(item);
+    }
+    return links;
+  }
+  function renderCategorification(ring) {
+    const scope = ring.categorification_scope;
+    const node = section("categorification", "Categorification status", "STRUCTURE / OBSTRUCTIONS & IMPLICATIONS");
+    node.append(el("p", `category-status${scope?.strongest_excluded ? " category-status-excluded" : ""}`, categoryExclusionText(scope)));
+    if (!scope) return node;
+    const same = scope.same_category_implications || [], existence = scope.existence_implications || [];
+    node.append(el("p", "case-prose", "General categorifiability remains unresolved. The diagram records which additional structures a hypothetical categorification must admit."));
+    node.append(el("h3", "", "Structures on the same category"), categoryDiagram(same, "Structures admitted by the same category"));
+    node.append(el("p", "case-small-note", "Read arrows as implications. A double arrow includes a reverse implication established for this ring. Pivotal and spherical mean that a structure can be chosen; this does not assert that every chosen pivotal structure is spherical. An absent reverse arrow means no such implication is established here."));
+    const sameClosure = categoryClosure(same), existenceClosure = categoryClosure([...same, ...existence]);
+    const addsExistence = categoryLevels.some((_, i) => categoryLevels.some((_, j) => existenceClosure[i][j] && !sameClosure[i][j]));
+    if (addsExistence) {
+      const title = existence.every((item) => /galois/i.test(item.mechanism || "")) ? "Existence after possible Galois conjugation" : "Existence of a categorification";
+      node.append(el("h3", "", title), categoryDiagram([...same, ...existence], title));
+      node.append(el("p", "case-small-note", "This row compares existence for the same fusion ring, allowing the stated change of category. A pseudo-unitary Galois conjugate does not make the original category pseudo-unitary or unitary."));
+    }
+    const argumentsList = el("div", "category-arguments");
+    for (const [items, kind] of [[same, "Same category"], [existence, "Existence reduction"]]) {
+      for (const implication of items) {
+        const argument = el("article", "category-argument");
+        argument.append(el("p", "category-argument-kind", kind), el("h4", "", implication.label || `${categoryLabels[implication.from]} ⇒ ${categoryLabels[implication.to]}`));
+        if (implication.mechanism) argument.append(el("p", "case-small-note", implication.mechanism));
+        if (implication.explanation) argument.append(el("p", "case-prose", implication.explanation));
+        argument.append(categorySources(implication.sources)); argumentsList.append(argument);
+      }
+    }
+    if (argumentsList.children.length) node.append(argumentsList);
+    else node.append(el("p", "case-prose", "No additional reverse implication is established in the current case audit."));
+    for (const note of scope.notes || []) node.append(el("p", "case-small-note", note));
+    if (scope.record_scope_note) node.append(el("p", "case-small-note", scope.record_scope_note));
+    if (scope.audit_sources?.length) node.append(lazyDetails("Sources for the categorification-status audit", () => categorySources(scope.audit_sources)));
+    return node;
+  }
   function renderList(payload) {
     const all = [...payload.cases].sort((a, b) => a.rank - b.rank || a.multiplicity - b.multiplicity || a.id.localeCompare(b.id, "en", {numeric:true}));
     const scoped = all.filter(matchesFilters);
@@ -181,7 +261,7 @@
       }
       const rows = found.map((ring) => {
         const title = el("div", "case-row-title");
-        title.append(link(ring.id, caseURL(ring), "case-id-link"), el("span", "case-row-status", "General categorifiability unresolved"));
+        title.append(link(ring.id, caseURL(ring), "case-id-link"), el("span", "case-row-status", "General categorifiability unresolved"), el("span", "case-row-category-status", categoryExclusionText(ring.categorification_scope, true)));
         const download = link("Python .txt ↓", ring.download_url || `./downloads/fusion-tensors/${encodeURIComponent(ring.id)}.txt`);
         download.download = `${ring.id}.txt`; download.setAttribute("aria-label", `Download fusion tensor for ${ring.id} as a Python list`);
         return [title, ring.rank, ring.multiplicity, ring.invariants.commutative ? "Commutative" : "Noncommutative", number(ring.invariants.global_fp_dimension_approx), download];
@@ -297,7 +377,7 @@
   function renderSources(ring) {
     const node = section("sources", "Sources & provenance", "05 / COMPLETE RECORDED EVIDENCE");
     if (ring.source) node.append(lazyDetails("Census source, basis and tensor provenance", () => structured(ring.source), "record-details", true));
-    const other = Object.fromEntries(Object.entries(ring).filter(([key]) => !["id", "rank", "multiplicity", "status", "fusion_tensor", "tensor", "tensor_sha256", "basis", "unit_index", "source", "invariants", "research", "evidence", "download_url"].includes(key)));
+    const other = Object.fromEntries(Object.entries(ring).filter(([key]) => !["id", "rank", "multiplicity", "status", "fusion_tensor", "tensor", "tensor_sha256", "basis", "unit_index", "source", "invariants", "research", "evidence", "download_url", "categorification_scope"].includes(key)));
     if (Object.keys(other).length) node.append(lazyDetails("Additional catalogue fields and basis maps", () => structured(other), "record-details", true));
     const evidence = ring.evidence || [];
     if (evidence.length) {
@@ -329,8 +409,11 @@
     const notice = el("div", "case-notice");
     notice.append(el("p", "", "These records belong to the project’s current research claims. Independent human verification and Lean formalization are pending."), link("Research status and verification ↗", "./review.html")); root.append(notice);
     const nav = el("nav", "case-section-nav"); nav.setAttribute("aria-label", "Case sections");
+    if (unresolved) nav.append(link("Categorification status", "#categorification", ""));
     [["invariants", "Invariants"], ["characters", "Characters"], ["fusion-data", "Fusion data"], ["research", unresolved ? "Research record" : "Models"], ["sources", "Sources"]].forEach(([id, title]) => nav.append(link(title, `#${id}`, "")));
-    root.append(nav, renderDimensions(ring), renderCharacters(ring), renderTensor(ring), renderResearch(ring, unresolved), renderSources(ring));
+    root.append(nav);
+    if (unresolved) root.append(renderCategorification(ring));
+    root.append(renderDimensions(ring), renderCharacters(ring), renderTensor(ring), renderResearch(ring, unresolved), renderSources(ring));
   }
   function renderError(message) {
     const target = $("#case-list") || $("#case-detail");

@@ -35,6 +35,14 @@ with its fusion matrices, exact and approximate invariants, recorded research
 results, and evidence sources. Use `unresolved.html?rank=8&m=3` for an exact
 band or `unresolved.html?rank=8&max_m=3` for a cumulative bound.
 
+Each unresolved profile highlights the strongest recorded obstruction among
+pivotal, spherical, pseudo-unitary and unitary categorification. Its implication
+diagram distinguishes structures admitted by the same category from existence
+after Galois conjugation. Double arrows include proved reverse implications for
+that ring, with supporting arguments linked below. The audited source is
+[`categorification_scope.json`](categorification_scope.json); see
+[`CATEGORIFICATION_SCOPE.md`](CATEGORIFICATION_SCOPE.md) for the conventions.
+
 Every unresolved profile and realized model offers a `.txt` download containing
 only a Python list of lists of lists of integers. In the displayed basis,
 `N[i][j][k]` is the coefficient of `X_k` in `X_i * X_j`, and `X_0` is the unit.
