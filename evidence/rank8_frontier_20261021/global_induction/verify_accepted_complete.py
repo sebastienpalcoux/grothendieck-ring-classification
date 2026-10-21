@@ -3,7 +3,7 @@ import json
 import column_generation as cg
 from exact import require
 
-TARGETS=(('R8_3_903','sts_frame',4),('R8_3_1615','sts_frame',4),('R8_3_1661','sts_frame',4))
+TARGETS=(('R8_3_903','sts_frame',4),('R8_3_1615','sts_frame',4),('R8_3_1617','sts_frame',4),('R8_3_1660','sts_frame',4),('R8_3_1661','sts_frame',4))
 
 def main():
     for rid,variant,height in TARGETS:

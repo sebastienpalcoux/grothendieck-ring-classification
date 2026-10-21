@@ -37,5 +37,6 @@ def main():
     for script in VALIDATIONS:run(script)
     for script,result in RESULTS:run(script,'--verify',HERE/result)
     for rid in ('R8_3_1739','R8_3_1768'):run('partial_s.py','--ring',rid)
+    run('final_campaign.py')
     print('PASS all named completed global-induction research certificates',flush=True)
 if __name__=='__main__':main()

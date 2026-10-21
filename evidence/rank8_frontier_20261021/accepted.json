@@ -35,6 +35,21 @@
       }
     },
     {
+      "id": "R8_3_567",
+      "tensor_sha256": "0efab5b3d7571872f46dd6ccc95c4b228123b252062d758318ee51834288ef4d",
+      "status": "excluded",
+      "certificate": {
+        "kind": "integral_center_Gram_cubic_Verlinde",
+        "scope": "general_complex_fusion_category",
+        "evidence": "evidence/rank8_frontier_20261021/r567_centerless_integer/verlinde_exclusion.json",
+        "proof": "evidence/rank8_frontier_20261021/r567_centerless_integer/PROOF.md",
+        "verifiers": [
+          "evidence/rank8_frontier_20261021/r567_centerless_integer/verlinde_exclusion.py",
+          "evidence/rank8_frontier_20261021/review/verify_r567_verlinde.py"
+        ]
+      }
+    },
+    {
       "id": "R8_3_731",
       "tensor_sha256": "ee54e287f01aec4e2079b7f66309d89a659742e38164a3e47de1fea650eec48b",
       "status": "excluded",
@@ -197,6 +212,51 @@
           "evidence/rank8_frontier_20261021/global_induction/verify_accepted_generic.py",
           "evidence/rank8_frontier_20261021/review/verify_r1463_low_symmetry.py",
           "evidence/rank8_frontier_20261021/review/verify_r1463_signed_unrestricted.py"
+        ]
+      }
+    },
+    {
+      "id": "R8_3_1615",
+      "tensor_sha256": "8e091371d21d930ddbdb557e1b6a8fcee49d5ccbc923b6464904a2848c3e1389",
+      "status": "excluded",
+      "certificate": {
+        "kind": "complete_character_labeled_modular_STS_signed_induction",
+        "scope": "general_complex_fusion_category",
+        "evidence": "evidence/rank8_frontier_20261021/global_induction/complete_results/R8_3_1615_sts_frame_h4.json",
+        "proof": "evidence/rank8_frontier_20261021/r1615_review/REVIEW.md",
+        "verifiers": [
+          "evidence/rank8_frontier_20261021/global_induction/verify_accepted_complete.py",
+          "evidence/rank8_frontier_20261021/r1615_review/verify_direct.py"
+        ]
+      }
+    },
+    {
+      "id": "R8_3_1660",
+      "tensor_sha256": "5c9961f765e74b9a9008a7d14953ece3f2168e381aee4a69b3acb6693ff77c21",
+      "status": "excluded",
+      "certificate": {
+        "kind": "complete_character_labeled_modular_STS_signed_induction",
+        "scope": "general_complex_fusion_category",
+        "evidence": "evidence/rank8_frontier_20261021/global_induction/complete_results/R8_3_1660_sts_frame_h4.json",
+        "proof": "evidence/rank8_frontier_20261021/r1660_review/REVIEW.md",
+        "verifiers": [
+          "evidence/rank8_frontier_20261021/global_induction/verify_accepted_complete.py",
+          "evidence/rank8_frontier_20261021/r1660_review/verify_direct.py"
+        ]
+      }
+    },
+    {
+      "id": "R8_3_1661",
+      "tensor_sha256": "12bfacef6c409a6ce65c969410c72b5d8b51b425acc4407a241ecdbffa24ed8e",
+      "status": "excluded",
+      "certificate": {
+        "kind": "complete_character_labeled_modular_STS_signed_induction",
+        "scope": "general_complex_fusion_category",
+        "evidence": "evidence/rank8_frontier_20261021/global_induction/complete_results/R8_3_1661_sts_frame_h4.json",
+        "proof": "evidence/rank8_frontier_20261021/quadratic/STS_1661_REVIEW.md",
+        "verifiers": [
+          "evidence/rank8_frontier_20261021/global_induction/verify_accepted_complete.py",
+          "evidence/rank8_frontier_20261021/quadratic/review_sts_1661.py"
         ]
       }
     },

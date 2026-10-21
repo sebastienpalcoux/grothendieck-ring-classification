@@ -37,3 +37,36 @@ def evaluate(K,coefficient_data,counts):
 if __name__=='__main__':
     d=source.data();co,dual=linear_data(d)
     print('PASS:40 exact distinguished cubic formulas, complex dual indices',dual)
+
+
+def galois_balance_data(data):
+    """Each fixed distinguished fusion matrix has a rational spectrum."""
+    R,a,b,characters,cols,Q,high,meta=data
+    K=b['K'];K0=a['K'];z=K.from_sympy(K0.to_sympy(K0.unit));ii=K.from_sympy(source.s.I)
+    need(K.unit==z+ii,'explicit compositum primitive element')
+    trace=K(-K0.mod.to_list()[1]);images=[z+ii,z-ii,trace-z+ii,trace-z-ii]
+    need(len(set(images))==4,'four distinct field automorphisms')
+    for image in images:
+        need(sum((K(c)*image**j for j,c in enumerate(reversed(K.mod.to_list()))),K.zero)==K.zero,'field embedding polynomial')
+    def conjugates(x):
+        return {sum((K(c)*image**j for j,c in enumerate(reversed(x.to_list()))),K.zero)for image in images}
+    def key(x):return tuple(str(c)for c in x.to_list())
+    allcols=list(cols)+[(0,)+tuple(v)for v,z in high];out=[]
+    for E,ch in enumerate(characters):
+        ratios=[]
+        for col in allcols:
+            dim=sum((K(x)*d for x,d in zip(col,b['ds'])),K.zero)
+            ratios.append(b['D']/b['codegrees'][E]/K(b['multiplicities'][E])*source.modular.value(ch,col,K)/dim)
+        seen=set()
+        for value in ratios:
+            if value in seen:continue
+            orbit=conjugates(value);seen.update(orbit)
+            if len(orbit)==1:continue
+            ordered=sorted(orbit,key=key);reference=ordered[0]
+            for partner in ordered[1:]:
+                low=ratios[:5].count(reference)-ratios[:5].count(partner)
+                high_coeff=[int(x==reference)-int(x==partner)for x in ratios[5:]]
+                out.append({'character':E,'eigenvalue':list(key(reference)),
+                    'conjugate_eigenvalue':list(key(partner)),'low_difference':low,
+                    'high_difference_coefficients':high_coeff})
+    return out

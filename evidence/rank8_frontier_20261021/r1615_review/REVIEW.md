@@ -61,6 +61,9 @@ python evidence/rank8_frontier_20261021/r1615_review/verify_direct.py
 python -O evidence/rank8_frontier_20261021/r1615_review/verify_direct.py
 ```
 
+Both stable-source commands passed on 2026-10-21. The general-complex
+exclusion is accepted by this review.
+
 The producer certificate is
 `../global_induction/complete_results/R8_3_1615_sts_frame_h4.json`.
 The release-wide canonical producer replay is

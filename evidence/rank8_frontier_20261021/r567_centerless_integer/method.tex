@@ -1,0 +1,54 @@
+\subsection{A direct cubic central obstruction for \texorpdfstring{$R_{8,3,567}$}{R8,3,567}}
+\label{subsec:r567-centerless-verlinde}
+
+For $R_{8,3,567}$, the general Galois-pseudo-unitary gate and the
+integral-center criterion permit the same integer central test directly
+on the rank-eight ring.  Its global dimension is $D=48+24\sqrt3$;
+its formal codegrees with representation dimensions are
+$(D,1)$, $(48-24\sqrt3,1)$, $(12,1)$, $(12,1)$, $(3,2)$.
+The full character table is computed in $\mathbb Q(\sqrt3,i)$.
+Complete distinguished $S$ symmetry leaves one low frame:
+\[
+\begin{gathered}
+(1,0,0,0,0,0,0,0),\quad(1,0,0,1,1,0,0,0),\\
+(1,0,0,0,1,0,0,0),\quad(1,0,0,1,0,0,0,0),\quad
+(2,1,1,2,2,0,0,0).
+\end{gathered}
+\]
+The last simple occurs twice in $I(1)$, but once in sums over central
+simples. The distinguished row has the normalization
+\[
+ S_{A_E,Z}=\frac{D}{f_E\dim E}\,\chi_E(FZ)
+\]
+from \cite[equation~(39)]{DeshpandeCenter} and character orthogonality.
+
+The exact Gram bound, central dimension $d$-number condition
+\cite[Theorem~1.8]{OstrikCode}, and algebraic integrality of $D/d_Z$
+\cite[Proposition~3.3]{ENO} give $45$ high restriction vectors.
+Two have integral dimension and are forbidden.  Nine further vectors
+violate algebraic integrality of $S_{A_E,Z}/d_Z$; the complex character
+rows are retained in this test.  The remaining $34$ vectors have the
+form $(u,u,p,q,w,w,w)$, and their complete Gram equation reduces to
+\[
+\sum_Z m_Z
+\begin{pmatrix}u_Z\\w_Z\\p_Z\\q_Z\end{pmatrix}
+\begin{pmatrix}u_Z&w_Z&p_Z&q_Z\end{pmatrix}
+=
+\begin{pmatrix}
+4&0&4&4\\0&4&6&6\\4&6&42&31\\4&6&31&42
+\end{pmatrix}.
+\]
+Two independent complete integer searches agree on $1{,}071$ solutions;
+duality of restrictions leaves exactly $155$.
+
+For the self-dual distinguished simple $A$ corresponding to
+$D'=48-24\sqrt3$, the cubic coefficient is again
+\[
+ N_{A,A}^{A}=\frac{D}{(D')^3}\sum_Z\frac{\chi(FZ)^3}{d_Z}.
+\]
+Its complete list consists of $84$ values $1/3$ and $71$ values $4/3$.
+Every integer Gram completion therefore contradicts the Verlinde
+formula.  Thus $R_{8,3,567}$ has no complex fusion-category realization.
+The read-only exact replay, including both enumerations and a known
+Fibonacci-center normalization control, is
+\begin{quote}\small\path{evidence/rank8_frontier_20261021/r567_centerless_integer/verlinde_exclusion.py}\end{quote}

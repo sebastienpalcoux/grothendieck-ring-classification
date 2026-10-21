@@ -12,17 +12,14 @@ IDS = [65,436,439,455,567,721,731,901,903,921,925,926,928,941,982,985,
        1055,1154,1203,1350,1463,1615,1617,1660,1661,1739,1768,1795,
        2842,2885,3258,3344,3413,3472]
 SCREENING_FOCUS = {
-65:'Free C4 generalized-near-group structure; complete rank-two based-module necessary data and connected-algebra underlying-object necessary filters; all nontrivial group-equivariantizations excluded; full character-field central constraints and specified unbounded model families tested.',
-439:'Complete C3 Fourier necessary representations and Morita fusion tensor; forced untwisted S3 associator and rank-five Morita dual with an associator inequivalent to the known model; complete connected-algebra underlying-object necessary filters and central constraints; actual crossed and all-level SU(2)/adjoint construction families excluded.',
+65:'Free C4 generalized-near-group structure; complete rank-two based-module necessary data and connected-algebra underlying-object necessary filters; all nontrivial group-equivariantizations excluded; full character-field and CM-real STS central constraints and specified unbounded model families tested.',
 455:'Haagerup neutral and TY bridge; complete strict Evans-Gannon Fourier obstruction with explicit abstract-to-strict gap; connected-algebra underlying-object necessary filters, general Galois-PU reduction, central data and specified unbounded model-family filters tested.',
 567:'Complete C3 Fourier necessary representations and Morita fusion tensor; forced nontrivial S3 pointed C2 restriction obstructs full-S3 algebra; complete connected-algebra underlying-object necessary filters and central constraints; actual crossed and all-level SU(2)/adjoint construction families excluded.',
 721:'All six known Asaeda-Haagerup Morita categories compared; all integer-scaled near-group sources and all-level SU(2)/adjoint families excluded; complete integer central Gram domain, rotation/STS/cubic/forgetful constraints and connected-algebra underlying-object necessary filters tested.',
-903:'Complete connected-algebra underlying-object necessary filters, labeled central-induction frame constraints, all-level SU(2)/adjoint quantum-group products and unbounded generalized-near-group parameter families tested.',
 928:'General Galois-PU reduction, quaternionic rational block, pointed cocycle constraints, full central induction/rotation/STS data, complete connected-algebra underlying-object necessary filters, all-level SU(2)/adjoint products and specified unbounded near-group families tested.',
 941:'General Galois-PU reduction, split rational block and pointed algebra route, central induction/rotation/STS data, complete connected-algebra underlying-object necessary filters, all-level SU(2)/adjoint products and specified unbounded near-group families tested; Morita coherence remains open.',
 982:'Complete connected-algebra underlying-object necessary filters and labeled central-induction/STS constraints, together with all-level SU(2)/adjoint quantum-group products and unbounded generalized-near-group parameter families tested.',
 1154:'General Galois-PU reduction; all 14,211 integer central Gram patterns filtered to 1,238 cubic/spectral survivors and 1,230 exact joint rotation/STS survivors; complete connected-algebra underlying-object necessary filters and specified unbounded model families tested.',
-1615:'Complete connected-algebra underlying-object necessary filters, full labeled central-induction constraints and repeated exact known/new exclusions, plus all-level SU(2)/adjoint quantum-group products and unbounded generalized-near-group family tests.',
 1617:'Complete connected-algebra underlying-object necessary filters, full labeled central-induction constraints and repeated exact known/new exclusions, plus all-level SU(2)/adjoint quantum-group products and unbounded generalized-near-group family tests.',
 1660:'Complete connected-algebra underlying-object necessary filters, full labeled central-induction constraints and repeated exact known/new exclusions, plus all-level SU(2)/adjoint quantum-group products and unbounded generalized-near-group family tests.',
 1661:'Complete connected-algebra underlying-object necessary filters, full labeled central-induction constraints and repeated exact known/new exclusions, plus all-level SU(2)/adjoint quantum-group products and unbounded generalized-near-group family tests.',
@@ -310,6 +307,81 @@ def record(use_screening=True):
              'surviving_indicators':[case['indicators']for case in r['cases']if case['decision']['status']=='exact_feasible_relaxation']},
             'This determines necessary pointed-cocycle signs through the separate structural bridge; the surviving exact primal is not a model.')
 
+    directory=FRONTIER/'review';path=directory/'integral_center_subcategory.json'
+    for r in read(path)['records']:
+        if r['id']not in rows:continue
+        require(r['tensor_sha256']==rows[r['id']]['tensor_sha256'],'integral center source binding')
+        add(r['id'],'complete_integral_center_subcategory_divisibility_and_solvability',
+            'all_nonunit_integral_dimensional_center_simples_excluded',
+            'general_complex_necessary_center_structure',path,directory/'INTEGRAL_CENTER_SUBCATEGORY.md',
+            [directory/'integral_center_subcategory.py'],r,
+            'This structural theorem is not alone a categorification exclusion; it also applies to the specified R439 Morita dual, not to every category with its positive rank-five based ring.')
+    directory=FRONTIER/'integral_center_filter'
+    for number in (439,567):
+        path=directory/f'R8_3_{number}_h6.json';r=read(path);meta=r['metadata'];ident=meta['id']
+        require(meta['tensor_sha256']==rows[ident]['tensor_sha256'],'integral center rotation source binding')
+        decisions=[case['decision']['status']for case in r['cases']]
+        add(ident,'all_eight_indicator_branches_height6_rotation_without_integral_center_simples',
+            'one_exact_necessary_indicator_branch_survives',nc_scope(ident),path,directory/'README.md',
+            [directory/'verify_original.py'],
+            {'high_column_count':len(meta['high_columns']),
+             'forbidden_integral_indices':meta['forbidden_integral_indices'],
+             'branch_count':len(decisions),'exact_negative_count':decisions.count('exact_infeasible_relaxation'),
+             'exact_primal_count':decisions.count('exact_feasible_relaxation')},
+            'The exact surviving primal is a necessary relaxation; the subsequent integer Gram and cubic tests strengthen it.')
+    directory=FRONTIER/'rank5_integer_gram';path=directory/'results.json';r=read(path)
+    add('R8_3_439','complete_integer_central_Gram_domain_of_forced_rank5_Morita_dual',
+        '58_exact_integer_Gram_patterns_survive','general_complex_necessary_after_Galois_and_Morita_reductions',
+        path,directory/'PROOF.md',[directory/'verify.py'],
+        {'rank5_tensor_sha256':r['rank5_tensor_sha256'],'low_frame_index':r['low_frame_index'],
+         'high_vector_count':len(r['high_vectors']),'forbidden_integral_indices':r['rational_dimension_forbidden_indices'],
+         'spectral_forbidden_indices':r['spectral_forbidden_indices'],'enumeration':r['enumeration'],
+         'complete_integer_Gram_pattern_count':r['solution_count']},
+        'The two complete integer enumerations certify necessary multiplicities; all58 are tested by the subsequent cubic exclusion.')
+    path=directory/'positive_control.json';r=read(path)
+    add('R8_3_439','integral_columns_restored_rank5_Gram_and_all_twenty_low_cubic_control',
+        'exact_necessary_data_control_passes','arithmetic_positive_control_for_essential_integral_center_filter',
+        path,directory/'PROOF.md',[directory/'positive_control.py'],
+        {key:r[key]for key in ('complete_integer_control_domain_count','selected_pattern_index',
+                             'nonunit_integral_high_indices','cubic_values')},r['scope'])
+    directory=FRONTIER/'r439_centerless_rank5';path=directory/'verlinde_exclusion.json';r=read(path)
+    add('R8_3_439','all_58_forced_rank5_integer_Gram_patterns_distinguished_cubic_Verlinde_coefficient',
+        'accepted_general_exclusion'if'R8_3_439'in accepted_ids else'proposed_general_exclusion_pending_review',
+        r['scope'],path,directory/'PROOF.md',[directory/'verlinde_exclusion.py'],
+        {key:r[key]for key in ('integer_Gram_pattern_count','coefficient_histogram','known_model_control')},
+        'General status is supplied only by the reviewed accepted ledger; the cubic normalization has a known Fibonacci-center control as well as the separate restored-integral-column control.')
+    directory=FRONTIER/'r567_centerless_integer';source_domain=read(directory/'source.json')
+    require(source_domain['tensor_sha256']==rows['R8_3_567']['tensor_sha256'],'R567 full character source binding')
+    path=directory/'rotation_spectral.json'
+    if path.exists():
+        r=read(path);statuses=[case['decision']['status']for case in r['cases']]
+        add('R8_3_567','joint_height6_rotation_with_full_complex_partial_S_integrality_and_no_integral_center',
+            '; '.join(sorted(set(statuses))),nc_scope('R8_3_567'),path,directory/'GRAM_PROOF.md',
+            [directory/'rotation_spectral.py',directory/'source.py'],
+            {'complete_high_vector_count':len(source_domain['high_vectors']),
+             'integral_forbidden_indices':source_domain['integral_forbidden_indices'],
+             'spectral_forbidden_indices':[r['index']for r in source_domain['spectral_exclusions']],
+             'branch_statuses':statuses},
+            'This rational relaxation remains feasible; the subsequent complete integer Gram and cubic tests are stronger.')
+    path=directory/'gram.json';r=read(path)
+    require(r['tensor_sha256']==rows[r['id']]['tensor_sha256'],'R567 integer-Gram source binding')
+    add(r['id'],'complete_original_R567_integer_central_Gram_and_duality_domain',
+        '155_duality_compatible_necessary_patterns_survive',nc_scope(r['id']),path,directory/'GRAM_PROOF.md',
+        [directory/'source.py',directory/'gram.py'],
+        {key:r[key]for key in ('low_index','integer_Gram_count','duality_compatible_count','enumeration')},
+        'Two complete integer enumerations agree on1071 Grams before duality;155 remain for subsequent cubic tests, without a center construction.')
+    path=directory/'verlinde_exclusion.json'
+    if path.exists():
+        r=read(path)
+        require(r['tensor_sha256']==rows['R8_3_567']['tensor_sha256'],'R567 cubic source binding')
+        add('R8_3_567','all_155_duality_compatible_integer_Gram_patterns_distinguished_cubic_Verlinde_coefficient',
+            'accepted_general_exclusion'if'R8_3_567'in accepted_ids else'proposed_general_exclusion_pending_review',
+            'general_complex_after_reviewed_Galois_PU_reduction_and_integral_center_theorem',
+            path,directory/'PROOF.md',[directory/'verlinde_exclusion.py'],
+            {key:r[key]for key in ('complete_integer_Gram_count','complete_duality_compatible_count',
+                                 'coefficient_histogram','actual_known_model_control')if key in r},
+            'The accepted ledger alone controls the general status; complete integer domains and exact cubic values are separately replayed.')
+
     n = FRONTIER/'noncommutative'
     data = read(n/'central_support_results.json')
     for r in data:
@@ -401,10 +473,16 @@ def record(use_screening=True):
             require(r['tensor_sha256'] == rows[r['id']]['tensor_sha256'], 'global induction source binding')
             meta = r.get('metadata',{})
             specific_verifier='verify_accepted_generic.py'if path.name.endswith('_low_s.json')else verifier
+            specific_proof=g/proof
+            if r.get('variant')=='cm_real_sts':
+                specific_proof=q/'CM_REAL_STS.md'
+                reference(q/'atomic_cm_real_sts.py')
+                reference(q/'review_cm_real_sts.py')
+                reference(q/'review_cm_real_sts_results.json')
             add(r['id'],r.get('method','fixed_integral_low_frame_global_induction'),r.get('status','see_receipt'),
-                r.get('scope')or'incomplete_no_mathematical_conclusion',path,g/proof,
+                r.get('scope')or'incomplete_no_mathematical_conclusion',path,specific_proof,
                 [g/specific_verifier],
-                {'height':r.get('height'),'frame_index':r.get('frame_index'),
+                {'height':r.get('height'),'variant':r.get('variant'),'frame_index':r.get('frame_index'),
                  'rows':meta.get('rows'),'variables':meta.get('variables'),
                  'low_frames':meta.get('low_frames'),'high_columns':meta.get('high_columns'),
                  'complete_exact_certificate':r.get('status')in('excluded','exact_feasible_relaxation','this_frame_indicator_excluded')and'certificate'in r},
