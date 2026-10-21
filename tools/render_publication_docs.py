@@ -7,6 +7,7 @@ from rank6_publication import validate_identity, completed_bands, validate_docum
 from publication_stages import load_stages, overview
 from rank7_publication import summary as rank7_extension_summary, extension, remaining_ids, replay_status, STATUS_REPORT
 from rank8_publication import summary as rank8_summary, extension as rank8_extension, current_report, ledger_path as rank8_ledger, EVIDENCE as M3_EVIDENCE
+from sync_rank8_m3_publication import center_scope, center_replay_scope, frontier_replay_scope
 
 ROOT = Path(__file__).resolve().parents[1]
 CAUTION = '''> **AI-generated research · independent verification pending.** Treat these
@@ -150,6 +151,8 @@ def render(repo, identity):
     def complete(r):return next((m-1 for m in range(1,bound(r)+1) if rows[r,m]['unresolved_general'] or rows[r,m]['unassessed']),bound(r))
     extension_text=rank7_extension_summary(repo)
     m3 = rank8_extension(repo)
+    center_note = center_scope(repo)
+    frontier_note = frontier_replay_scope(repo) if (repo/'evidence/rank8_frontier_20261021/publication').is_dir() else ''
     rank8_scope=(f"Through multiplicity {bound(8)}: {totals(8)['excluded']:,} exclusions, "
                  f"{totals(8)['unitarily_realized']} unitary models and {totals(8)['unresolved']} unresolved; "
                  f"complete through {complete(8)}")
@@ -664,7 +667,7 @@ See [verification scope](../../docs/PREPUBLICATION_REVIEW.md).
             content += '''\n## Multiplicity-five continuation\n\nThe current continuation is replayed with Python 3.12 and a C++17 compiler:\n\n```bash\npython3 -m pip install -r supplements/rank7/requirements-m5.txt\npython3 supplements/rank7/software/verify_m5.py\npython3 -O supplements/rank7/software/verify_m5.py\n```\n\nUse `--metadata-only` only for source and partition checks; it does not replay mathematical certificates.\nThe older top-level `analyze.py` and `verify.py` retain their M4 source commitments; run them in the preserved M4 archive, not against the extended source file.\nThe M5 release archive uses repository-relative directories and includes the frozen M4 archive. NetworkX is required by the complete Morita-dual enumeration, and python-flint by the exact all-word integer-order checks; SciPy is optional for discovery. The assertion-based R4982 components run in an isolated unoptimized child in both aggregate modes, preserving all their checks.\n'''
         out[f'supplements/rank{r}/README.md']=content
         if r == 8 and m3:
-            out[f'supplements/rank{r}/README.md'] += '''\n## Multiplicity-three continuation\n\nRun the complete current source-bound replay with Python 3.12 and a C++17 compiler:\n\n```bash\npython3 -m pip install -r supplements/rank7/requirements-m5.txt\npython3 supplements/rank8/software/verify_m3_continuation.py --output frontier-validation/baseline_normal.json\npython3 -O supplements/rank8/software/verify_m3_continuation.py --output frontier-validation/baseline_optimized.json\n```\n\nBoth full receipts bind all accepted decisions and explicit models to the preserved source files and proof implementation. `--metadata-only` checks those bindings without replaying mathematics. The M3 archive preserves the repository-relative dependency tree. Historical rank-eight data and decisions remain immutable; they are separate inputs to this continuation. Scoped unitary obstructions and unsuccessful searches do not establish general nonexistence.\n'''
+            out[f'supplements/rank{r}/README.md'] += '''\n## Multiplicity-three continuation\n\nRun the original M3 source-bound replay with Python 3.12 and a C++17 compiler:\n\n```bash\npython3 -m pip install -r supplements/rank7/requirements-m5.txt\npython3 supplements/rank8/software/verify_m3_continuation.py --output frontier-validation/baseline_normal.json\npython3 -O supplements/rank8/software/verify_m3_continuation.py --output frontier-validation/baseline_optimized.json\n```\n\nBoth full receipts bind the baseline decisions and explicit models to the preserved source files and proof implementation. `--metadata-only` checks those bindings without replaying mathematics. The M3 archive preserves the repository-relative dependency tree. Historical rank-eight data and decisions remain immutable; they are separate inputs to this continuation. Scoped unitary obstructions and unsuccessful searches do not establish general nonexistence.\n'''
     oeis=(repo/'oeis/README.md').read_text().replace('rank-five multiplicities 18–20 are now included after general exclusion certificates closed the former residuals.','rank-five multiplicities 18–20 are included with general exclusion certificates.')
     oeis='\n\n'.join(block for block in oeis.split('\n\n') if not block.startswith(('The 19 October rank-seven extension addresses', 'The rank-seven multiplicity-five continuation addresses', 'The rank-eight multiplicity-three continuation addresses')))
     out['oeis/README.md']=section(oeis,'Rank-six general classification','The unrestricted rank-four theorem',f'''Rank-six general classification is complete at exact multiplicities
@@ -718,9 +721,22 @@ All results and data are AI-generated, not independently human-verified and not 
         if m3 and m3.get('frontier') and name in ('docs/VERIFY.md', 'docs/PROVENANCE.md', 'docs/PREPUBLICATION_REVIEW.md', 'supplements/rank8/README.md'):
             content += ('\n## Further rank-eight frontier investigation\n\n'
                 f"The original 34 unresolved M3 cases now have {m3['frontier']['new_decisions']} further general exclusions and {m3['unresolved']} remaining questions. The original M3 ledger, proof inputs and full receipts are unchanged. The current ledger is `"+m3['ledger']+'`.\n\n'
+                +frontier_note+'\n\n'
                 'Replay the original M3 package using the isolated outputs above, preserving its frozen receipts, then replay the continuation separately:\n\n'
                 '```bash\npython3 tools/verify_rank8_frontier.py\npython3 -O tools/verify_rank8_frontier.py\n```\n\n'
                 'The new receipts bind accepted decisions and exact computations. The source-bound per-ring research inventory is `'+m3['attempts_source']+'`. Construction-family exclusions and feasible necessary-condition witnesses have explicit scopes; neither establishes an exotic category.\n')
+        if frontier_note and name=='docs/RESEARCH_STATUS.md':
+            content += '\n## Current rank-eight replay status\n\n'+frontier_note+'\n'
+        if center_note and name in ('docs/RESEARCH_STATUS.md','docs/VERIFY.md','docs/PROVENANCE.md',
+                                    'docs/PREPUBLICATION_REVIEW.md','manuscripts/README.md',
+                                    'supplements/README.md','supplements/rank8/README.md'):
+            content += ('\n## Further center-pattern constraints\n\n'+center_note+'\n\n'
+                        'The integrated rank-eight article includes this separately verified addendum. '
+                        'Its proofs, complete pattern indices, necessary action matrices and independent reconstructions are in '
+                        '`evidence/rank8_center_followup_20261021/`. The original frontier ledger and audit remain unchanged.\n\n'
+                        +center_replay_scope()+'\n\n'
+                        '```bash\npython3 evidence/rank8_center_followup_20261021/verify.py --root .\n'
+                        'python3 -O evidence/rank8_center_followup_20261021/verify.py --root .\n```\n')
         out[name] = content
     return out
 

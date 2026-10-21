@@ -1,6 +1,6 @@
 # Classification software and evidence
 
-The rank-eight multiplicity-three continuation addresses all 3,527 supplied exact-multiplicity-three rings: 3,479 general exclusions, 14 models and 34 unresolved cases. Every recorded model admits a unitary realization. The remaining rings retain unresolved status for general complex categorification.
+The rank-eight multiplicity-three continuation addresses all 3,527 supplied exact-multiplicity-three rings: 3,504 general exclusions, 14 models and 9 unresolved cases. Every recorded model admits a unitary realization. The remaining rings retain unresolved status for general complex categorification.
 
 The rank-seven multiplicity-five continuation addresses all 5,805 supplied exact-multiplicity-five rings: 5,804 general exclusions, 1 realization and 0 unresolved cases. The classification of the supplied census is complete through multiplicity 5. The new realization R7_5_5678 is Rep(AGL(1,7)).
 
@@ -20,7 +20,7 @@ package.
 | 5 | [Guide](rank5/README.md) · [complete public replay](../docs/VERIFY.md#complete-rank-four-and-rank-five-checks) | 40,999 inputs; 40,982 exclusions and 17 models through 20. |
 | 6 | [Guide](rank6/README.md) · [combined full replay](../docs/VERIFY.md#complete-rank-six-route) | 25,421 inputs; 25,362 exclusions, 57 models and two open cases through 9. |
 | 7 | [Guide](rank7/README.md) | Through multiplicity 5: 9,976 exclusions, 30 models and 0 unresolved; complete through 5. |
-| 8 | [Guide](rank8/README.md) | Through multiplicity 3: 4,375 exclusions, 91 unitary models and 34 unresolved; complete through 2. |
+| 8 | [Guide](rank8/README.md) | Through multiplicity 3: 4,400 exclusions, 91 unitary models and 9 unresolved; complete through 2. |
 
 The [historical 38-case continuation](../docs/RESEARCH_STATUS.md) records **36 decisions among 38 cases**: 29 proposed general exclusions and 7 unitary constructions. Within that historical 38-case study, two questions remain open: `R6_4_155` and `R6_8_1660`. The combined residual program records 140 decisions (120 exclusions and 20 constructions), all subject to independent mathematical verification.
 
@@ -29,3 +29,16 @@ continuation chain. Their scopes are separate. The census and enumeration code
 remain in [fusion-ring-census](https://github.com/sebastienpalcoux/fusion-ring-census).
 Copied census code retains its license and notices. Authoritative classification
 ledgers are identified in [provenance](../docs/PROVENANCE.md).
+
+## Further center-pattern constraints
+
+A separately verified fourth-moment and center-action refinement excludes 2 of the four necessary center patterns for R8_3_721, leaving 2. For R8_3_1154, exact coordinate norm and interval bounds exclude 946 of 1,238 patterns, leaving 292. The surviving action matrices and patterns are necessary data only; no complete center fusion ring, associator or categorical model is constructed. Both source rings remain unresolved.
+
+The integrated rank-eight article includes this separately verified addendum. Its proofs, complete pattern indices, necessary action matrices and independent reconstructions are in `evidence/rank8_center_followup_20261021/`. The original frontier ledger and audit remain unchanged.
+
+The separate center-pattern addendum passed all eight checks in canonical normal and optimized Python, including independent arithmetic reconstructions and positive controls. Fresh replay after extraction from the publication archive is deferred.
+
+```bash
+python3 evidence/rank8_center_followup_20261021/verify.py --root .
+python3 -O evidence/rank8_center_followup_20261021/verify.py --root .
+```

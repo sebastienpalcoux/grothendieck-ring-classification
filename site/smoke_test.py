@@ -294,12 +294,11 @@ if update:
         assert len(matches) == 1 and json.loads(bundle.read(matches[0])) == decisions, "Stale update bundle"
         if is_review:
             for relative in set(revision["web_copies"].values()) | {"data/current_document_revision.json"}:
-                documents = [name for name in bundle.namelist()
-                             if name == relative or name.endswith("/" + relative)]
+                document = Path(archive_metadata["path"]).stem + "/" + relative
                 canonical = root.parent.parent / relative
-                assert len(documents) == 1, "Missing current document in archive: " + relative
+                assert bundle.namelist().count(document) == 1, "Missing current document in archive: " + relative
                 if canonical.is_file():
-                    assert bundle.read(documents[0]) == canonical.read_bytes(), "Stale current document in archive: " + relative
+                    assert bundle.read(document) == canonical.read_bytes(), "Stale current document in archive: " + relative
             for decision in decisions:
                 proof_path = update["proofs_source"] + "/" + decision["proof"]
                 assert any(name == proof_path or name.endswith("/" + proof_path) for name in bundle.namelist()), "Missing inherited proof: " + proof_path

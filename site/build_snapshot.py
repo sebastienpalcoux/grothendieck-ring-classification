@@ -393,9 +393,8 @@ def main():
             if is_current:
                 for relative in set(revision["web_copies"].values()) | {"data/current_document_revision.json"}:
                     source = repo / relative
-                    documents = [name for name in bundle.namelist()
-                                 if name == relative or name.endswith("/" + relative)]
-                    if len(documents) != 1 or bundle.read(documents[0]) != source.read_bytes():
+                    document = archive_source.stem + "/" + relative
+                    if bundle.namelist().count(document) != 1 or bundle.read(document) != source.read_bytes():
                         raise ValueError("Proof bundle contains a stale or missing current document: " + relative)
         archive_target = downloads / archive_name
         if archive_source.resolve() != archive_target.resolve():

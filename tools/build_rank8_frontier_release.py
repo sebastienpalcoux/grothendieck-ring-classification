@@ -25,6 +25,7 @@ BASELINE_ARCHIVE = 'supplements/rank8/release/rank8-certified-through-m3.zip'
 BASELINE_ARCHIVE_SHA256 = '7bbc31e24113a2f41315d74d45fa499638b7d5b7185f659d5e3ed468ad7e8341'
 BASELINE_PREFIX = 'rank8-certified-through-m3/'
 ARCHIVE_PREFIX = 'rank8-certified-frontier-20261021/'
+CENTER_FOLLOWUP = 'evidence/rank8_center_followup_20261021'
 OLD_RECEIPTS = (
     'evidence/rank8_m3_20261021/pipeline/continuation_replay.json',
     'evidence/rank8_m3_20261021/pipeline/continuation_replay_optimized_invocation.json',
@@ -68,7 +69,7 @@ def read_baseline(repo):
     return files, protected
 
 
-def frontier_inputs(repo):
+def frontier_inputs(repo, source_publication_only=False):
     summary = validate_ledger(repo)
     manifest_name = PUBLICATION + '/source_manifest.json'
     manifest_raw = (repo / manifest_name).read_bytes()
@@ -78,6 +79,8 @@ def frontier_inputs(repo):
     reports = []
     for filename, optimized in (('replay_normal.json', False), ('replay_optimized.json', True)):
         name = PUBLICATION + '/' + filename
+        if source_publication_only and optimized and not (repo / name).exists():
+            continue
         raw = (repo / name).read_bytes()
         report = json.loads(raw)
         need(report['status'] == 'PASS' and report['mathematical_replay_performed'] is True,
@@ -85,6 +88,8 @@ def frontier_inputs(repo):
         need(report['optimized_python'] is optimized, 'Incorrect frontier replay lane: ' + name)
         need(report['source_manifest_sha256'] == sha(manifest_raw), 'Frontier replay source mismatch')
         need(report['ledger_sha256'] == summary['ledger_sha256'], 'Frontier replay ledger mismatch')
+        need([item['script'] for item in report['sections']] == commands(repo),
+             'Incomplete canonical frontier command coverage: ' + name)
         paths.add(name)
         for section in report['sections']:
             log = section['log']
@@ -103,14 +108,26 @@ def frontier_inputs(repo):
                     path.name != 'release_manifest.json' and
                     not any(part.startswith('.') for part in path.relative_to(repo).parts)):
                 paths.add(name)
+    followup = repo / CENTER_FOLLOWUP
+    if followup.is_dir():
+        verifier = followup / 'verify.py'
+        need(verifier.is_file(), 'The center follow-up needs its separate verifier')
+        check = subprocess.run([sys.executable, str(verifier), '--root', str(repo),
+                                '--metadata-only'], cwd=repo, text=True, capture_output=True)
+        need(check.returncode == 0, 'Center follow-up receipts failed:\n' + check.stdout + check.stderr)
+        need(json.loads(check.stdout)['status'] == 'METADATA_PASS',
+             'Both source-bound center follow-up replay receipts are required')
+        for path in followup.rglob('*'):
+            if path.is_file() and path.suffix in SUFFIXES and '__pycache__' not in path.parts:
+                paths.add(path.relative_to(repo).as_posix())
     for name in paths:
         need(safe_path(name) and (repo / name).is_file(), 'Missing or unsafe package input: ' + name)
     return paths, summary, reports, sha(manifest_raw)
 
 
-def collect(repo):
+def collect(repo, source_publication_only=False):
     baseline, protected = read_baseline(repo)
-    paths, summary, reports, manifest_sha = frontier_inputs(repo)
+    paths, summary, reports, manifest_sha = frontier_inputs(repo, source_publication_only)
     files = dict(baseline)
     replacements = {}
     for name in sorted(paths):
@@ -168,15 +185,82 @@ def collect(repo):
         'frontier_source_manifest_sha256': manifest_sha,
         'baseline_replays': {name: sha(files[name]) for name in OLD_RECEIPTS},
     }
+    if source_publication_only:
+        package.update(publication_mode='source_publication',
+                       extracted_mathematical_replay_performed=False,
+                       canonical_replay_lanes={
+                           lane: ('PASS' if any(item['optimized_python'] is optimized for item in reports)
+                                  else 'not_completed_at_packaging')
+                           for lane, optimized in (('normal', False), ('optimized', True))})
+        text = files['README.md'].decode()
+        start = text.index('This archive was checked after extraction')
+        end = text.index('Superseded publication tools and papers', start)
+        text = text[:start] + (
+            'This is an immediate source publication, not a fresh extracted mathematical replay. '
+            'It preserves the completed canonical normal replay and includes the optimized '
+            'canonical replay only if completed at packaging. Exact lane status is recorded '
+            'in package_manifest.json. Source hashes, the ledger and existing receipts are '
+            'checked after extraction; no new mathematical replay is claimed. '
+        ) + text[end:]
+        files['README.md'] = text.encode()
+    followup_files = {name: sha(files[name]) for name in sorted(paths)
+                      if name.startswith(CENTER_FOLLOWUP + '/')}
+    if followup_files:
+        package['center_followup'] = {
+            'scope': 'Separately checked necessary center-pattern refinements; no new ring decision or model',
+            'source_manifest': CENTER_FOLLOWUP + '/source_manifest.json',
+            'input_files_sha256': followup_files,
+            'canonical_replays': [
+                {'path': CENTER_FOLLOWUP + '/publication/replay_' + lane + '.json',
+                 'sha256': sha(files[CENTER_FOLLOWUP + '/publication/replay_' + lane + '.json']),
+                 'optimized_python': optimized}
+                for lane, optimized in (('normal', False), ('optimized', True))],
+        }
+        files['README.md'] += (
+            '\nA separately source-bound fourth-moment and center-action addendum is included at '
+            f'`{CENTER_FOLLOWUP}/`. It refines necessary patterns for R8_3_721 and R8_3_1154 '
+            'without changing the frozen 25-decision continuation or its nine unresolved rings. '
+            'Replay it in normal and optimized Python with '
+            f'`python {CENTER_FOLLOWUP}/verify.py --root .`. '
+            + ('Both completed installed normal/optimized eight-check receipts are included; '
+               'they are not represented as new extracted mathematical replays.\n'
+               if source_publication_only else
+               'Both modes are also freshly replayed from the extracted package.\n')
+        ).encode()
     files[PUBLICATION + '/package_manifest.json'] = (json.dumps(package, indent=2) + '\n').encode()
     files['SHA256SUMS.json'] = (json.dumps({p: sha(raw) for p, raw in sorted(files.items())
                                          if p != 'SHA256SUMS.json'}, indent=2) + '\n').encode()
     return files, package
 
 
+def source_publication_checks(files):
+    """Check the extracted source package without rerunning mathematics."""
+    with tempfile.TemporaryDirectory(prefix='rank8-frontier-source-package-') as directory:
+        repo = Path(directory)
+        for name, raw in files.items():
+            need(safe_path(name), 'Unsafe extracted source-package path')
+            path = repo / name
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_bytes(raw)
+        manifest_name = PUBLICATION + '/source_manifest.json'
+        need(source_inventory(repo) == json.loads(files[manifest_name]),
+             'Extracted source inventory differs')
+        summary = validate_ledger(repo)
+        # This validates every completed canonical command and log, requiring
+        # the normal lane; an unfinished optimized lane is explicitly pending.
+        _, _, reports, manifest_sha = frontier_inputs(repo, True)
+        return {'status': 'SOURCE_METADATA_PASS', 'mathematical_replay_performed': False,
+                'scope': 'Extracted sources, ledger and completed canonical receipt identities only',
+                'source_manifest_sha256': manifest_sha,
+                'ledger_sha256': summary['ledger_sha256'],
+                'canonical_replays': reports,
+                'center_installed_receipts_checked': CENTER_FOLLOWUP + '/verify.py' in files}
+
+
 def standalone_checks(files):
     results = []
     full_results = []
+    followup_results = []
     with tempfile.TemporaryDirectory(prefix='rank8-frontier-package-') as directory, \
             tempfile.TemporaryDirectory(prefix='rank8-frontier-extracted-replay-') as replay_directory:
         repo = Path(directory)
@@ -185,6 +269,23 @@ def standalone_checks(files):
             target = repo / name
             target.parent.mkdir(parents=True, exist_ok=True)
             target.write_bytes(raw)
+        probe_env = dict(os.environ)
+        probe_env.pop('PYTHONOPTIMIZE', None)
+        probe_env.pop('PYTHONPATH', None)
+        probe_env.update(OPENBLAS_NUM_THREADS='1', OMP_NUM_THREADS='1', MKL_NUM_THREADS='1')
+        probe = subprocess.run([
+            sys.executable, '-c',
+            "import json,os,sys,sympy,flint;from sympy.external.gmpy import GROUND_TYPES;"
+            "print(json.dumps({'python':sys.version.split()[0],'sympy':sympy.__version__,"
+            "'python_flint':flint.__version__,'sympy_ground_types':GROUND_TYPES,"
+            "'requested_sympy_ground_types':os.environ.get('SYMPY_GROUND_TYPES')}))"
+        ], cwd=repo, env=probe_env, text=True, capture_output=True)
+        need(probe.returncode == 0, 'Extracted algebra runtime probe failed: ' + probe.stderr)
+        runtime = json.loads(probe.stdout)
+        requested = runtime['requested_sympy_ground_types']
+        if requested in ('python', 'flint'):
+            need(runtime['sympy_ground_types'] == requested,
+                 'Extracted replay did not load the explicitly requested algebra backend')
         for script in ('supplements/rank8/software/verify_m3_continuation.py',
                        'tools/verify_rank8_frontier.py'):
             for optimized in (False, True):
@@ -198,6 +299,30 @@ def standalone_checks(files):
                 need(report['status'] == 'METADATA_PASS', 'Standalone metadata receipt missing')
                 results.append({'script': script, 'optimized_python': optimized,
                                 'status': 'METADATA_PASS', 'report_sha256': sha(run.stdout.encode())})
+        followup_script = CENTER_FOLLOWUP + '/verify.py'
+        if followup_script in files:
+            for optimized in (False, True):
+                lane = 'optimized' if optimized else 'normal'
+                output = Path(replay_directory) / ('center_' + lane + '.json')
+                command = [sys.executable] + (['-O'] if optimized else []) + [
+                    str(repo / followup_script), '--root', str(repo), '--output', str(output)]
+                env = dict(os.environ)
+                env.pop('PYTHONOPTIMIZE', None)
+                env.pop('PYTHONPATH', None)
+                env.update(OPENBLAS_NUM_THREADS='1', OMP_NUM_THREADS='1', MKL_NUM_THREADS='1')
+                run = subprocess.run(command, cwd=repo, env=env, text=True, capture_output=True)
+                need(run.returncode == 0, 'Extracted center follow-up failed:\n' + run.stdout + run.stderr)
+                raw = output.read_bytes()
+                report = json.loads(raw)
+                need(report['status'] == 'PASS' and report['mathematical_replay_performed'] is True
+                     and report['optimized_python'] is optimized,
+                     'Extracted center follow-up did not complete its mathematical replay')
+                name = CENTER_FOLLOWUP + '/publication/standalone_replay_' + lane + '.json'
+                files[name] = raw
+                followup_results.append({'script': followup_script, 'optimized_python': optimized,
+                                         'status': 'PASS', 'mathematical_replay_performed': True,
+                                         'runtime': runtime,
+                                         'packaged_report': name, 'report_sha256': sha(raw)})
         # Run from only the extracted package. Output and logs live outside it,
         # so neither frozen publication replay lane can be overwritten.
         before = source_inventory(repo)
@@ -238,6 +363,7 @@ def standalone_checks(files):
         files[report_name] = report_raw
         full_results.append({'script': script, 'optimized_python': False,
                              'status': 'PASS', 'mathematical_replay_performed': True,
+                             'runtime': runtime,
                              'source_inventory_unchanged': True,
                              'source_manifest_sha256': report['source_manifest_sha256'],
                              'ledger_sha256': report['ledger_sha256'],
@@ -246,22 +372,33 @@ def standalone_checks(files):
                              'original_report_sha256': sha(raw),
                              'packaged_report': report_name,
                              'packaged_report_sha256': sha(report_raw)})
-    return results, full_results
+    return results, full_results, followup_results
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--repo', type=Path, default=ROOT)
     parser.add_argument('--output', type=Path)
+    parser.add_argument('--source-publication-only', action='store_true',
+                        help='Publish completed source-bound results now; no new extracted mathematical replay')
     args = parser.parse_args()
     repo = args.repo.resolve()
     output = (args.output or repo / ARCHIVE).resolve()
     need(output != (repo / BASELINE_ARCHIVE).resolve(), 'Cannot overwrite the immutable M3 archive')
     need(not output.is_relative_to(repo / 'evidence/rank8_m3_20261021'), 'Cannot write into baseline evidence')
-    files, package = collect(repo)
-    checks, full_checks = standalone_checks(files)
-    package.update(standalone_metadata_checks=checks,
-                   standalone_full_replay_checks=full_checks)
+    files, package = collect(repo, args.source_publication_only)
+    if args.source_publication_only:
+        checks, full_checks, followup_checks = [], [], []
+        package.update(source_publication_metadata_check=source_publication_checks(files),
+                       standalone_metadata_checks=checks,
+                       standalone_full_replay_checks=full_checks,
+                       standalone_center_followup_checks=followup_checks)
+    else:
+        checks, full_checks, followup_checks = standalone_checks(files)
+        package.update(standalone_metadata_checks=checks,
+                       standalone_full_replay_checks=full_checks,
+                       standalone_center_followup_checks=followup_checks,
+                       standalone_algebra_runtime=full_checks[0]['runtime'])
     files[PUBLICATION + '/package_manifest.json'] = (json.dumps(package, indent=2) + '\n').encode()
     files['SHA256SUMS.json'] = (json.dumps({p: sha(raw) for p, raw in sorted(files.items())
                                          if p != 'SHA256SUMS.json'}, indent=2) + '\n').encode()
@@ -270,6 +407,9 @@ def main():
          'Baseline archive changed during packaging')
     need(source_inventory(repo) == json.loads(files[PUBLICATION + '/source_manifest.json']),
          'Frontier sources changed during packaging')
+    for name, digest in package.get('center_followup', {}).get('input_files_sha256', {}).items():
+        need((repo / name).is_file() and sha((repo / name).read_bytes()) == digest,
+             'Center follow-up input changed during packaging: ' + name)
     output.parent.mkdir(parents=True, exist_ok=True)
     with tempfile.NamedTemporaryFile(prefix=output.name + '.', suffix='.tmp', dir=output.parent, delete=False) as handle:
         temporary = Path(handle.name)
@@ -289,10 +429,14 @@ def main():
     target.parent.mkdir(parents=True, exist_ok=True)
     target.write_text(json.dumps(manifest, indent=2) + '\n')
     print(json.dumps({'output': str(output), 'files': len(files), 'bytes': output.stat().st_size,
+                      'publication_mode': package.get('publication_mode', 'extracted_full_replay'),
+                      'extracted_mathematical_replay_performed': not args.source_publication_only,
+                      'source_publication_metadata_check': package.get('source_publication_metadata_check'),
                       'sha256': manifest['archive_sha256'], 'standalone_metadata_checks': checks,
                       'standalone_full_replay_checks': [
                           {key: value for key, value in check.items() if key != 'sections'}
                           for check in full_checks],
+                      'standalone_center_followup_checks': followup_checks,
                       'baseline_proof_members_preserved': package['baseline_proof_members_preserved']}, indent=2))
 
 

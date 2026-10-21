@@ -3,7 +3,7 @@
   "version": "Rank-eight multiplicity-three continuation and current verification scope",
   "title": "Research status and verification",
   "caution": "AI-generated research · independent verification pending. The results, proofs, code and data have not yet been independently verified by human experts or formalized in Lean. Use them with caution; exact checks establish only their stated computational scope.",
-  "summary": "The rank-eight multiplicity-three continuation addresses all 3,527 supplied exact-multiplicity-three rings: 3,479 general exclusions, 14 models and 34 unresolved cases. Every recorded model admits a unitary realization. The remaining rings retain unresolved status for general complex categorification. The rank-seven multiplicity-five continuation addresses all 5,805 supplied exact-multiplicity-five rings: 5,804 general exclusions, 1 realization and 0 unresolved cases. The classification of the supplied census is complete through multiplicity 5. The new realization R7_5_5678 is Rep(AGL(1,7)). The two earlier rank-six questions remain open. The historical 38-case inventory keeps its original scope.",
+  "summary": "The rank-eight multiplicity-three continuation addresses all 3,527 supplied exact-multiplicity-three rings: 3,504 general exclusions, 14 models and 9 unresolved cases. Every recorded model admits a unitary realization. The remaining rings retain unresolved status for general complex categorification. The rank-seven multiplicity-five continuation addresses all 5,805 supplied exact-multiplicity-five rings: 5,804 general exclusions, 1 realization and 0 unresolved cases. The classification of the supplied census is complete through multiplicity 5. The new realization R7_5_5678 is Rep(AGL(1,7)). The two earlier rank-six questions remain open. The historical 38-case inventory keeps its original scope.",
   "rank_counts": [
     {
       "rank": 4,
@@ -41,9 +41,9 @@
       "rank": 8,
       "bound": 3,
       "rings": 4500,
-      "excluded": 4375,
+      "excluded": 4400,
       "models": 91,
-      "open": 34
+      "open": 9
     }
   ],
   "coverage_notes": [
@@ -71,22 +71,38 @@
       ]
     },
     {
-      "id": "Rank eight: 34 rings",
+      "id": "Rank eight: 9 rings",
       "heading": "Exact multiplicity three",
       "paragraphs": [
-        "The new band contains 3,479 recorded general exclusions, 14 unitary models and 34 unresolved tensors. Each remaining tensor has an individual attempt record, distinguishing completed necessary-condition tests, unsuccessful model searches, ineligible tests and time limits.",
-        "These are investigated categorification candidates, not asserted fusion categories or established exotic examples. Passing necessary conditions supplies no associator. Failing to find a model does not prove nonexistence. Exact tensors are in data/remaining_cases.py; the per-case record is evidence/rank8_m3_20261021/pipeline/residual_attempts.json.",
-        "Unitary categorification is excluded for R8_3_436, R8_3_455, R8_3_731, R8_3_925, R8_3_1350, R8_3_1661, R8_3_2885, R8_3_3258, R8_3_3413. These scoped obstructions leave general complex categorification unresolved.",
-        "Any categorification of R8_3_731 would be nonunitary and not weakly group-theoretical: its exact simple based ring and negative primary-three witness combine with the simple weakly group-theoretical classification. This conditional restriction supplies no categorification or general exclusion."
+        "The new band contains 3,504 recorded general exclusions, 14 unitary models and 9 unresolved tensors. Each remaining tensor has an individual attempt record, distinguishing completed necessary-condition tests, unsuccessful model searches, ineligible tests and time limits.",
+        "These are investigated categorification candidates, not asserted fusion categories or established exotic examples. Passing necessary conditions supplies no associator. Failing to find a model does not prove nonexistence. Exact tensors are in data/remaining_cases.py; the per-case record is evidence/rank8_frontier_20261021/structural_models/per_ring_research_audit.json.",
+        "These remaining rings are extensively investigated exotic candidates in the operational sense: each survived the documented case-specific campaign of known and newly developed exclusions and model searches, including complete finite domains and specified unbounded construction families. This designation does not assert existence or novelty of a future realization.",
+        "In the final finite center-constraint systems, R8_3_928 has 4 exact integer witnesses and 6 patterns with unresolved integer feasibility; R8_3_941 retains 14 patterns, with 11 exact integer witnesses and 3 unresolved integer-feasibility questions. These witnesses are necessary data, not categorical models; uncertified numerical failures are not exclusions.",
+        "A separately verified fourth-moment and center-action refinement excludes 2 of the four necessary center patterns for R8_3_721, leaving 2. For R8_3_1154, exact coordinate norm and interval bounds exclude 946 of 1,238 patterns, leaving 292. The surviving action matrices and patterns are necessary data only; no complete center fusion ring, associator or categorical model is constructed. Both source rings remain unresolved."
       ]
     }
   ],
   "replay_sections": [
     {
+      "heading": "Additional center-pattern refinement",
+      "paragraphs": [
+        "The separate center-pattern addendum passed all eight checks in canonical normal and optimized Python, including independent arithmetic reconstructions and positive controls. Fresh replay after extraction from the publication archive is deferred. Run evidence/rank8_center_followup_20261021/verify.py --root . in both modes.",
+        "This refinement preserves the frozen frontier decision ledger and its original audit. Its precise pattern reductions and remaining domains are recorded separately; no new ring exclusion or categorical realization is asserted."
+      ]
+    },
+    {
+      "heading": "Further rank-eight frontier investigation",
+      "paragraphs": [
+        "Canonical normal and optimized frontier replays each passed all 108 checks. Fresh replay after extraction from the publication archive is deferred.",
+        "The original M3 ledger and replay receipts are preserved. New decisions use a separate continuation ledger and source manifest. Run tools/verify_rank8_frontier.py in normal and optimized Python after the original M3 replay. Its strict metadata-only verification still requires both matching full continuation receipts.",
+        "The per-ring audit records completed finite exclusion tests, exact feasible necessary-condition witnesses and excluded construction families. Each result keeps its precise hypotheses and search domain."
+      ]
+    },
+    {
       "heading": "Rank eight: multiplicity-three extension",
       "paragraphs": [
         "Fresh full normal and optimized aggregate replays passed for the accepted source-bound ledger. Their receipts bind the exact source tensors, historical decisions, accepted certificates, model constructors and proof-source files. Each referenced replay log is separately checksummed.",
-        "Run supplements/rank8/software/verify_m3_continuation.py in normal and optimized Python. Assertion-based inherited checks run with assertions enabled. Metadata-only mode checks file identities and reconciliation with the full receipts; it does not repeat the mathematical computations. The release includes the repository-relative dependency tree.",
+        "Run supplements/rank8/software/verify_m3_continuation.py in normal and optimized Python with --output pointing to separate validation receipts, preserving the frozen baseline receipts. Assertion-based inherited checks run with assertions enabled. Metadata-only mode checks file identities and reconciliation with the full receipts; it does not repeat the mathematical computations. The release includes the repository-relative dependency tree.",
         "Exact replay checks the stated finite identities and certificates. Categorical reductions, complete enumeration and claims of mathematical novelty have separate proof obligations. Independent human verification and Lean formalization remain pending."
       ]
     },
@@ -151,6 +167,20 @@
   ],
   "theoretical_results": [
     {
+      "heading": "Additional center-pattern refinement",
+      "paragraphs": [
+        "Fourth Verlinde moments couple all distinguished tensor-product decompositions to the same nonnegative integer restriction matrix. Exact minimum-norm projection and rank-one residual Grams yield coordinate obstructions. A complete cyclic-space and orthogonal-projector argument classifies the remaining distinguished center-action tuples for R8_3_721.",
+        "A separately verified fourth-moment and center-action refinement excludes 2 of the four necessary center patterns for R8_3_721, leaving 2. For R8_3_1154, exact coordinate norm and interval bounds exclude 946 of 1,238 patterns, leaving 292. The surviving action matrices and patterns are necessary data only; no complete center fusion ring, associator or categorical model is constructed. Both source rings remain unresolved."
+      ]
+    },
+    {
+      "heading": "Further rank-eight frontier investigation",
+      "paragraphs": [
+        "The original 34 unresolved M3 tensors now have 25 additional general-complex exclusions. Their identifiers are R8_3_436, R8_3_439, R8_3_455, R8_3_567, R8_3_731, R8_3_901, R8_3_903, R8_3_921, R8_3_925, R8_3_926, R8_3_985, R8_3_1055, R8_3_1203, R8_3_1350, R8_3_1463, R8_3_1615, R8_3_1617, R8_3_1660, R8_3_1661, R8_3_1739, R8_3_2842, R8_3_2885, R8_3_3258, R8_3_3344, R8_3_3413.",
+        "The new arguments include simultaneous split-module representations, normal-matrix spectral support, a complete near-group TPE reduction, complete central-induction frame constraints, full character-labeled modular S and STS equations, a two-prime norm criterion for integral center objects, complete integer center decompositions and cubic Verlinde integrality, and integral Morita and relative-cohomology obstructions. Exact all-parameter filters exclude specified near-group construction routes for every original frontier tensor. General Galois-pseudo-unitarity reductions extend the scope of all seven noncommutative searches. Complete connected-algebra underlying-object filters and exact feasible center constraints describe the remaining construction possibilities; their survivors are not asserted algebras or categories."
+      ]
+    },
+    {
       "heading": "Rank-eight multiplicity-three continuation",
       "paragraphs": [
         "Unified exclusions combine negative-subring transfer, quadratic-compositum compression, weak-integral and biquadratic relative twist traces, complete signed lifting and convex central induction. Exact separation of an enlarged necessary-condition system gives a valid contradiction only after the hypotheses and complete lifting are established.",
@@ -177,5 +207,5 @@
       ]
     }
   ],
-  "open_case_count": 36
+  "open_case_count": 11
 }

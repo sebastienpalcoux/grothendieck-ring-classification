@@ -90,7 +90,7 @@ categorifications over ℂ.
 > **[Read the announcement on Hexagon · 2610.00300v1](https://hexagonmath.org/2610.00300?version=1)**.
 
 > [!TIP]
-> **[Potentially new tensor categories and open cases (one-page PDF)](docs/New_category_candidates_and_open_cases.pdf)**
+> **[Potentially new tensor categories and open cases (PDF)](docs/New_category_candidates_and_open_cases.pdf)**
 > Seven provisional construction candidates, the known `Rep(AGL(1,7))` model, and all __OPEN_CASE_COUNT__ current open cases.
 > Novelty up to tensor equivalence remains subject to independent verification.
 
@@ -256,8 +256,16 @@ to a source census cell are imported only from a named commit and rechecked
 against classification ledgers.
 ''')
 args.output.parent.mkdir(parents=True,exist_ok=True)
+from sync_rank8_m3_publication import center_scope, center_replay_scope, frontier_replay_scope
+center_note = center_scope(ROOT)
+rank8_extension_text = rank8_extension_summary(ROOT) if rank8_active(ROOT) else ''
+if rank8_active(ROOT) and (ROOT/'evidence/rank8_frontier_20261021/publication').is_dir():
+    rank8_extension_text += '\n\n'+frontier_replay_scope(ROOT)
+if center_note:
+    rank8_extension_text += ('\n\n'+center_note+'\n\n'
+        '[Separately verified center-pattern addendum](evidence/rank8_center_followup_20261021/README.md).\n\n'+center_replay_scope())
 rendered=('\n'.join(lines).replace('__RANK7_EXTENSION__',rank7_extension_summary(ROOT))
-                              .replace('__RANK8_EXTENSION__',rank8_extension_summary(ROOT) if rank8_active(ROOT) else '')
+                              .replace('__RANK8_EXTENSION__',rank8_extension_text)
                               .replace('__OPEN_CASE_COUNT__',str(len(remaining_ids(ROOT))))
                               .replace('__RANK6_SUMMARY__',rank6_summary)
                               .replace('__RANK7_SUMMARY__',upper_summary(7))

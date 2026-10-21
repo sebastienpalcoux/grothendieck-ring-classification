@@ -37,6 +37,255 @@ def merge_payload(payload, additions):
         payload[name] = raw
 
 
+def preserve_rank8_standalone_replays(root, fresh_files, fresh_package, source_publication_only=False):
+    """Carry validated archive-only evidence into the fresh common payload.
+
+    Publication files come from collect_rank8(), not from an older ZIP. The
+    imported replays certify the identical mathematical manifests and ledger;
+    they do not claim that subsequently edited publication prose was replayed.
+    """
+    from build_rank8_frontier_release import ARCHIVE_PREFIX, CENTER_FOLLOWUP
+    from rank8_frontier import ARCHIVE, PUBLICATION, LEDGER, commands, safe_path
+
+    def need(ok, message):
+        if not ok:
+            raise ValueError(message)
+
+    def stream_digest(handle):
+        value = hashlib.sha256()
+        for block in iter(lambda: handle.read(1024 * 1024), b''):
+            value.update(block)
+        return value.hexdigest()
+
+    release_name = PUBLICATION + '/release_manifest.json'
+    release_path = root / release_name
+    archive_path = root / ARCHIVE
+    need(release_path.is_file() and archive_path.is_file(),
+         'Build the validated dedicated rank-eight frontier release before the common archive')
+    release_raw = release_path.read_bytes()
+    release = json.loads(release_raw)
+    source_mode = release.get('publication_mode') == 'source_publication'
+    need(not source_mode or source_publication_only,
+         'Dedicated archive is a source publication; explicitly select --source-publication-only')
+    with archive_path.open('rb') as handle:
+        need(stream_digest(handle) == release.get('archive_sha256'),
+             'Dedicated rank-eight archive SHA-256 differs from its release manifest')
+    expected = release.get('files_sha256')
+    need(isinstance(expected, dict) and expected, 'Missing dedicated archive member hashes')
+    manifest_name = PUBLICATION + '/source_manifest.json'
+    package_name = PUBLICATION + '/package_manifest.json'
+    manifest_sha = digest(fresh_files[manifest_name])
+    ledger_sha = digest(fresh_files[LEDGER])
+    need(release.get('frontier_source_manifest_sha256') == manifest_sha
+         == fresh_package['frontier_source_manifest_sha256'],
+         'Dedicated extracted replay has a stale frontier source manifest')
+    need(release.get('frontier_summary', {}).get('ledger_sha256') == ledger_sha
+         == fresh_package['frontier_summary']['ledger_sha256'],
+         'Dedicated extracted replay has a stale frontier ledger')
+    need(release.get('baseline_archive_sha256') == fresh_package['baseline_archive_sha256']
+         and release.get('baseline_replays') == fresh_package['baseline_replays'],
+         'Dedicated release has different immutable baseline inputs')
+    source_manifest = json.loads(fresh_files[manifest_name])
+    for name, value in source_manifest.items():
+        need(expected.get(name) == value and digest(fresh_files[name]) == value,
+             'Dedicated/current mathematical source mismatch: ' + name)
+    need(expected.get(manifest_name) == manifest_sha and expected.get(LEDGER) == ledger_sha,
+         'Dedicated mathematical manifest or ledger member differs')
+
+    metadata = release.get('standalone_metadata_checks', [])
+    required_metadata = {(script, optimized) for script in
+                         ('supplements/rank8/software/verify_m3_continuation.py',
+                          'tools/verify_rank8_frontier.py') for optimized in (False, True)}
+    if source_mode:
+        check = release.get('source_publication_metadata_check', {})
+        need(check.get('status') == 'SOURCE_METADATA_PASS'
+             and check.get('mathematical_replay_performed') is False
+             and check.get('source_manifest_sha256') == manifest_sha
+             and check.get('ledger_sha256') == ledger_sha
+             and release.get('extracted_mathematical_replay_performed') is False
+             and not metadata and not release.get('standalone_full_replay_checks')
+             and not release.get('standalone_center_followup_checks'),
+             'Invalid source-publication scope or metadata receipt')
+    else:
+        need(len(metadata) == 4 and
+             {(x.get('script'), x.get('optimized_python')) for x in metadata} == required_metadata
+             and all(x.get('status') == 'METADATA_PASS' for x in metadata),
+             'Dedicated normal/optimized baseline and frontier metadata gates are incomplete')
+    additions = {}
+    preserved = {}
+    with zipfile.ZipFile(archive_path) as archive:
+        members = {}
+        for item in archive.infolist():
+            need(not item.is_dir() and item.filename.startswith(ARCHIVE_PREFIX),
+                 'Unexpected dedicated archive member root')
+            name = item.filename[len(ARCHIVE_PREFIX):]
+            need(safe_path(name) and name not in members,
+                 'Unsafe or duplicate dedicated archive member: ' + name)
+            need((item.external_attr >> 16) & 0o170000 != 0o120000,
+                 'Symlink in dedicated archive: ' + name)
+            members[name] = item
+        need(set(members) == set(expected), 'Dedicated archive member inventory differs')
+        for name, item in members.items():
+            with archive.open(item) as handle:
+                need(stream_digest(handle) == expected[name],
+                     'Dedicated archive member checksum differs: ' + name)
+
+        def raw(name):
+            need(safe_path(name) and name in members,
+                 'Missing or unsafe dedicated replay member: ' + name)
+            return archive.read(members[name])
+
+        checksums = json.loads(raw('SHA256SUMS.json'))
+        need(checksums == {name: value for name, value in expected.items()
+                           if name != 'SHA256SUMS.json'},
+             'Dedicated inner checksum manifest differs')
+        archived_package = json.loads(raw(package_name))
+        need(archived_package == {name: value for name, value in release.items()
+                                  if name not in ('files_sha256', 'archive_sha256')},
+             'Dedicated package and root release manifests disagree')
+
+        def retain(name, expected_sha):
+            content = raw(name)
+            need(digest(content) == expected_sha == expected[name],
+                 'Dedicated replay receipt/log binding differs: ' + name)
+            if name in fresh_files:
+                need(fresh_files[name] == content,
+                     'Fresh and dedicated replay bytes conflict: ' + name)
+            additions[name] = content
+            preserved[name] = expected_sha
+            return json.loads(content) if name.endswith('.json') else None
+
+        if source_mode:
+            lanes = release.get('frontier_replays', [])
+            need(lanes and lanes[0].get('optimized_python') is False
+                 and len({x.get('optimized_python') for x in lanes}) == len(lanes),
+                 'Source publication requires a complete normal canonical replay')
+            need(release['source_publication_metadata_check'].get('canonical_replays') == lanes,
+                 'Source publication canonical receipt inventory differs')
+            for lane in lanes:
+                optimized = lane['optimized_python']
+                name = PUBLICATION + '/replay_' + ('optimized' if optimized else 'normal') + '.json'
+                need(lane.get('path') == name, 'Unexpected canonical source-publication receipt')
+                report = retain(name, lane['sha256'])
+                need(report.get('status') == 'PASS' and report.get('mathematical_replay_performed') is True
+                     and report.get('optimized_python') is optimized
+                     and report.get('source_manifest_sha256') == manifest_sha
+                     and report.get('ledger_sha256') == ledger_sha,
+                     'Incomplete source-publication canonical receipt')
+                sections = report.get('sections', [])
+                need([x.get('script') for x in sections] == commands(root)
+                     and all(x.get('returncode') == 0 for x in sections),
+                     'Source-publication canonical command coverage differs')
+                for section in sections:
+                    retain(section['log'], section['log_sha256'])
+        else:
+            full = release.get('standalone_full_replay_checks', [])
+            need(len(full) == 1, 'A complete extracted normal frontier replay is required')
+            check = full[0]
+            need(check.get('script') == 'tools/verify_rank8_frontier.py'
+                 and check.get('optimized_python') is False and check.get('status') == 'PASS'
+                 and check.get('mathematical_replay_performed') is True
+                 and check.get('source_inventory_unchanged') is True,
+                 'Dedicated extracted frontier replay did not complete')
+            report_name = PUBLICATION + '/standalone_full_replay_normal.json'
+            need(check.get('packaged_report') == report_name, 'Unexpected extracted frontier receipt path')
+            report = retain(report_name, check['packaged_report_sha256'])
+            for value in (check, report):
+                need(value.get('source_manifest_sha256') == manifest_sha
+                     and value.get('ledger_sha256') == ledger_sha,
+                     'Extracted frontier receipt source or ledger mismatch')
+            need(report.get('status') == 'PASS' and report.get('optimized_python') is False
+                 and report.get('mathematical_replay_performed') is True
+                 and report.get('log_paths_relocated_for_package') is True
+                 and report.get('extracted_replay_original_report_sha256') == check['original_report_sha256'],
+                 'Incomplete or unrelocated extracted frontier receipt')
+            sections = report.get('sections', [])
+            need(sections == check.get('sections') and len(sections) == check.get('section_count')
+                 and [x.get('script') for x in sections] == commands(root)
+                 and all(x.get('returncode') == 0 for x in sections),
+                 'Extracted frontier replay command coverage differs')
+            log_names = []
+            for section in sections:
+                name = section['log']
+                need(name.startswith(PUBLICATION + '/standalone_full_replay_normal_logs/'),
+                     'Extracted frontier log is not package-relative')
+                retain(name, section['log_sha256'])
+                log_names.append(name)
+            need(len(log_names) == len(set(log_names)), 'Duplicate extracted frontier replay logs')
+
+        center_checks = release.get('standalone_center_followup_checks', [])
+        if source_mode:
+            center_checks = [dict(item, script=CENTER_FOLLOWUP + '/verify.py', status='PASS',
+                                  mathematical_replay_performed=True, packaged_report=item['path'],
+                                  report_sha256=item['sha256'])
+                             for item in release.get('center_followup', {}).get('canonical_replays', [])]
+        center_manifest_name = CENTER_FOLLOWUP + '/source_manifest.json'
+        if CENTER_FOLLOWUP + '/verify.py' in fresh_files:
+            center_sha = digest(fresh_files[center_manifest_name])
+            center_manifest = json.loads(fresh_files[center_manifest_name])
+            need(expected.get(center_manifest_name) == center_sha and
+                 release.get('center_followup', {}).get('input_files_sha256', {}).get(center_manifest_name) == center_sha,
+                 'Extracted center replay has a stale mathematical manifest')
+            for name, value in center_manifest['package_files'].items():
+                path = CENTER_FOLLOWUP + '/' + name
+                need(expected.get(path) == value and digest(fresh_files[path]) == value,
+                     'Dedicated/current center source mismatch: ' + path)
+            need(len(center_checks) == 2 and
+                 {x.get('optimized_python') for x in center_checks} == {False, True},
+                 'Both extracted center mathematical replay lanes are required')
+            for check in center_checks:
+                optimized = check['optimized_python']
+                lane = 'optimized' if optimized else 'normal'
+                name = CENTER_FOLLOWUP + '/publication/' + ('' if source_mode else 'standalone_') + 'replay_' + lane + '.json'
+                need(check.get('script') == CENTER_FOLLOWUP + '/verify.py'
+                     and check.get('status') == 'PASS'
+                     and check.get('mathematical_replay_performed') is True
+                     and check.get('packaged_report') == name,
+                     'Incomplete extracted center replay')
+                report = retain(name, check['report_sha256'])
+                need(report.get('status') == 'PASS' and report.get('completed') is True
+                     and report.get('mathematical_replay_performed') is True
+                     and report.get('optimized_python') is optimized
+                     and report.get('source_manifest_sha256') == center_sha
+                     and report.get('baseline_source_manifest') == manifest_name
+                     and report.get('baseline_source_manifest_sha256') == manifest_sha,
+                     'Extracted center receipt source binding differs')
+                need([x.get('script') for x in report.get('checks', [])] ==
+                     [x['script'] for x in center_manifest['checks']]
+                     and all(x.get('status') == 'PASS' for x in report['checks']),
+                     'Extracted center replay command coverage differs')
+                for actual, wanted in zip(report['checks'], center_manifest['checks']):
+                    need(actual.get('kind') == wanted['kind'],
+                         'Extracted center replay kind differs')
+                    if 'receipt' in wanted:
+                        path = CENTER_FOLLOWUP + '/' + wanted['receipt']
+                        need(actual.get('stored_receipt') == wanted['receipt']
+                             and actual.get('stored_receipt_sha256') == digest(fresh_files[path]),
+                             'Extracted center primary receipt binding differs')
+        else:
+            need(not center_checks and not release.get('center_followup'),
+                 'Dedicated center addendum is missing from the fresh common payload')
+
+    additions[release_name] = release_raw
+    provenance = {
+        'schema': 'rank8-dedicated-replay-provenance/v1',
+        'scope': ('Completed installed canonical replay receipts preserved from a source-publication archive; no extracted mathematical replay is claimed.'
+                  if source_mode else
+                  'Extracted mathematical replays preserved from the validated dedicated archive; publication files are freshly collected.'),
+        'publication_mode': 'source_publication' if source_mode else 'extracted_full_replay',
+        'extracted_mathematical_replay_performed': not source_mode,
+        'dedicated_archive': ARCHIVE, 'dedicated_archive_sha256': release['archive_sha256'],
+        'release_manifest': release_name, 'release_manifest_sha256': digest(release_raw),
+        'dedicated_package_manifest_sha256': expected[package_name],
+        'fresh_package_manifest_sha256': digest(fresh_files[package_name]),
+        'frontier_source_manifest_sha256': manifest_sha, 'ledger_sha256': ledger_sha,
+        'preserved_archive_members_sha256': dict(sorted(preserved.items())),
+    }
+    additions[PUBLICATION + '/dedicated_replay_provenance.json'] = (
+        json.dumps(provenance, indent=2) + '\n').encode()
+    return additions
+
+
 def package_publication_archive(root, output):
     """Register only this generated ZIP; preserve every other restoration entry."""
     try:
@@ -98,7 +347,7 @@ def package_publication_archive(root, output):
             'omit_from_git': relative}
 
 
-def collect(root):
+def collect(root, source_publication_only=False):
     from current_publication import DOCUMENT_REVISION, validate_documents, replay_sources
     from reader_resources import validate_reader_resources
     revision = validate_documents(root)
@@ -167,7 +416,11 @@ def collect(root):
             from build_rank8_frontier_release import collect as collect_rank8
         else:
             from build_rank8_m3_release import collect as collect_rank8
-        extension_files, _ = collect_rank8(root)
+        extension_files, extension_package = (collect_rank8(root, source_publication_only)
+                                               if frontier_active(root) else collect_rank8(root))
+        if frontier_active(root):
+            merge_payload(extension_files, preserve_rank8_standalone_replays(
+                root, extension_files, extension_package, source_publication_only))
         paths.update(path.relative_to(root).as_posix() for path in (root/'tools').glob('*rank8_m3*.py'))
         paths.update(path.relative_to(root).as_posix() for path in (root/'tools/templates').glob('rank8_m3_*.tex'))
     payload = {name: (root / name).read_bytes() for name in sorted(paths)}
@@ -186,13 +439,37 @@ def collect(root):
     return payload
 
 
+def source_publication_metadata(root):
+    """Check current publication identities without asserting a fresh proof replay."""
+    from current_publication import validate_documents, replay_sources
+    from reader_resources import validate_reader_resources
+    from build_rank8_frontier_release import frontier_inputs
+    root = Path(root)
+    documents = validate_documents(root, check_web=(root / 'site/dist/papers').is_dir())
+    readers = validate_reader_resources(root, check_web=(root / 'site/dist/papers').is_dir())
+    preserved = replay_sources(root)
+    _, summary, reports, manifest_sha = frontier_inputs(root, True)
+    return {'status': 'SOURCE_PUBLICATION_METADATA_PASS',
+            'mathematical_replay_performed': False,
+            'scope': 'Current document and reader identities, immutable source identities, frontier ledger and completed canonical receipts; no fresh historical or extracted mathematical replay',
+            'current_documents': len(documents['documents']),
+            'historical_accepted_decisions': documents['accepted_decisions'],
+            'historical_replay_source_files': len(preserved),
+            'reader_resources': readers,
+            'source_manifest_sha256': manifest_sha,
+            'ledger_sha256': summary['ledger_sha256'],
+            'canonical_frontier_replays': reports}
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--repo', type=Path, default=ROOT)
     parser.add_argument('--output', type=Path)
+    parser.add_argument('--source-publication-only', action='store_true',
+                        help='Preserve completed source-publication receipts without claiming extracted mathematical replay')
     args = parser.parse_args()
     root = args.repo.resolve()
-    payload = collect(root)
+    payload = collect(root, args.source_publication_only)
     inputs = {name: digest(raw) for name, raw in payload.items()}
     payload['README.md'] = ("""# Grothendieck-ring classification · manuscripts and verification
 
@@ -232,10 +509,27 @@ certifies the stated checks, not the mathematical correctness of every argument.
 ARCHIVE_MANIFEST.json records each included source's SHA-256 and byte size.
 Fixed timestamps and sorted paths make identical inputs produce identical ZIP bytes.
 """).encode()
+    if args.source_publication_only:
+        payload['README.md'] = payload['README.md'].replace(
+            b'Standalone publication, source-identity and decision check:\n    python3 tools/verify_current_publication.py --metadata-only',
+            b'Source-publication identity check (no mathematical replay):\n'
+            b'    python3 -c "import json,sys;from pathlib import Path;sys.path.insert(0,\'tools\');from build_review_20261017_archive import source_publication_metadata;print(json.dumps(source_publication_metadata(Path.cwd())))"\n\n'
+            b'The strict current-publication verifier remains available and requires both completed canonical frontier lanes. An unfinished lane is not represented as a PASS.')
     from rank7_publication import summary
     payload['README.md'] += ('\n' + summary(root) + '\n').encode()
     from rank8_publication import summary as rank8_summary
     payload['README.md'] += ('\n' + rank8_summary(root) + '\n').encode()
+    from rank8_frontier import active as frontier_active, PUBLICATION
+    if frontier_active(root):
+        payload['README.md'] += (
+            ('\nThe dedicated rank-eight source archive preserves completed canonical replay receipts '
+             'and logs. No new extracted mathematical replay is claimed. '
+             if args.source_publication_only else
+             '\nThe dedicated rank-eight archive\'s extracted mathematical replay receipts and logs are preserved here. ')
+            + 'Their validated archive identity and unchanged '
+            'mathematical inputs are recorded in `'+PUBLICATION+'/dedicated_replay_provenance.json`; '
+            'the dedicated root release manifest is included alongside it. Publication '
+            'documents in this common archive are freshly collected.\n').encode()
     payload['ARCHIVE_MANIFEST.json'] = (json.dumps({name: {'bytes': len(raw), 'sha256': digest(raw)}
                                                    for name, raw in sorted(payload.items())}, indent=2) + '\n').encode()
     output = (args.output or root / 'site/dist/downloads' / f'{PREFIX}.zip').resolve()
@@ -263,17 +557,24 @@ Fixed timestamps and sorted paths make identical inputs produce identical ZIP by
             raw = (isolated / name).read_bytes()
             if len(raw) != expected['bytes'] or digest(raw) != expected['sha256']:
                 raise ValueError('Extracted archive source identity: ' + name)
-        run = subprocess.run([sys.executable, str(isolated / 'tools/verify_current_publication.py'), '--metadata-only'],
-                             cwd=isolated, text=True, capture_output=True)
+        if args.source_publication_only:
+            command = [sys.executable, '-c',
+                       "import json,sys;from pathlib import Path;sys.path.insert(0,'tools');"
+                       "from build_review_20261017_archive import source_publication_metadata;"
+                       "print(json.dumps(source_publication_metadata(Path.cwd())))"]
+        else:
+            command = [sys.executable, str(isolated / 'tools/verify_current_publication.py'), '--metadata-only']
+        run = subprocess.run(command, cwd=isolated, text=True, capture_output=True)
         if run.returncode:
             raise ValueError('Standalone publication check failed:\n' + run.stdout + run.stderr)
         receipt = json.loads(run.stdout)
-        if receipt['status'] != 'PASS' or receipt['historical_accepted_decisions'] != 36:
+        expected_status = 'SOURCE_PUBLICATION_METADATA_PASS' if args.source_publication_only else 'PASS'
+        if receipt['status'] != expected_status or receipt['historical_accepted_decisions'] != 36:
             raise ValueError('Inconsistent receipt')
         # Some extension members are generated byte streams (in particular
         # preserved baseline_members), not files in the checkout. Recollect
         # the complete payload to bind those origins as well as disk inputs.
-        fresh_inputs = {name: digest(raw) for name, raw in collect(root).items()}
+        fresh_inputs = {name: digest(raw) for name, raw in collect(root, args.source_publication_only).items()}
         if fresh_inputs != inputs:
             changed = sorted(name for name in set(inputs) | set(fresh_inputs)
                              if inputs.get(name) != fresh_inputs.get(name))
@@ -283,6 +584,7 @@ Fixed timestamps and sorted paths make identical inputs produce identical ZIP by
         temporary.replace(output)
     storage = package_publication_archive(root, output)
     print(json.dumps({'status': 'PASS', 'files': len(payload), 'archive': str(output),
+                      'publication_mode': 'source_publication' if args.source_publication_only else 'extracted_full_replay_preserved',
                       'sha256': digest(output.read_bytes()), 'bytes': output.stat().st_size,
                       'publication_storage': storage, 'standalone_metadata_check': receipt}, indent=2))
 

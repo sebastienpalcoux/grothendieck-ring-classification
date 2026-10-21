@@ -1,6 +1,6 @@
 # Research status and verification
 
-The rank-eight multiplicity-three continuation addresses all 3,527 supplied exact-multiplicity-three rings: 3,479 general exclusions, 14 models and 34 unresolved cases. Every recorded model admits a unitary realization. The remaining rings retain unresolved status for general complex categorification.
+The rank-eight multiplicity-three continuation addresses all 3,527 supplied exact-multiplicity-three rings: 3,504 general exclusions, 14 models and 9 unresolved cases. Every recorded model admits a unitary realization. The remaining rings retain unresolved status for general complex categorification.
 
 The rank-seven multiplicity-five continuation addresses all 5,805 supplied exact-multiplicity-five rings: 5,804 general exclusions, 1 realization and 0 unresolved cases. The classification of the supplied census is complete through multiplicity 5. The new realization R7_5_5678 is Rep(AGL(1,7)).
 
@@ -25,8 +25,8 @@ Rank six records **25,362 exclusions, 57 realizations and
 range ends at three; exact bands 1, 2, 3, 5, 6, 7, 9 are complete. Rank seven records
 **9,976 exclusions and 30 realizations**,
 with **0 open cases through multiplicity 5**; complete through multiplicity 5. Rank eight records
-**4375 exclusions and 91 realizations**,
-with **34 open cases through multiplicity 3**; complete through multiplicity 2. The historical general exclusion of
+**4400 exclusions and 91 realizations**,
+with **9 open cases through multiplicity 3**; complete through multiplicity 2. The historical general exclusion of
 `R8_2_24` uses an inner-square obstruction from short gauge weights and
 tensor-functor rigidity.
 
@@ -39,7 +39,7 @@ tensor-functor rigidity.
 
 ### Rank-seven classification frontier
 
-Every supplied rank-seven fusion ring through multiplicity five has a recorded general exclusion or unitary model. The [continuation evidence](../evidence/rank7_m5_20261020/README.md) gives the accepted arguments and replay receipts. [Download all 36 current open tensors](../data/remaining_cases.py), including the two rank-six cases.
+Every supplied rank-seven fusion ring through multiplicity five has a recorded general exclusion or unitary model. The [continuation evidence](../evidence/rank7_m5_20261020/README.md) gives the accepted arguments and replay receipts. [Download all 11 current open tensors](../data/remaining_cases.py), including the two rank-six cases.
 
 A necessary-condition witness is neither a categorification nor a general
 nonexistence proof. Scoped unitary, pseudo-unitary, pivotal or braided
@@ -65,3 +65,20 @@ Read the [verification scope](PREPUBLICATION_REVIEW.md), [replay guide](VERIFY.m
 and [provenance](PROVENANCE.md) together with the
 [manuscripts](../manuscripts/README.md). A [repository issue](https://github.com/sebastienpalcoux/grothendieck-ring-classification/issues)
 identifying the ring, theorem and exact failing step makes a reported gap actionable.
+
+## Current rank-eight replay status
+
+Canonical normal and optimized frontier replays each passed all 108 checks. Fresh replay after extraction from the publication archive is deferred.
+
+## Further center-pattern constraints
+
+A separately verified fourth-moment and center-action refinement excludes 2 of the four necessary center patterns for R8_3_721, leaving 2. For R8_3_1154, exact coordinate norm and interval bounds exclude 946 of 1,238 patterns, leaving 292. The surviving action matrices and patterns are necessary data only; no complete center fusion ring, associator or categorical model is constructed. Both source rings remain unresolved.
+
+The integrated rank-eight article includes this separately verified addendum. Its proofs, complete pattern indices, necessary action matrices and independent reconstructions are in `evidence/rank8_center_followup_20261021/`. The original frontier ledger and audit remain unchanged.
+
+The separate center-pattern addendum passed all eight checks in canonical normal and optimized Python, including independent arithmetic reconstructions and positive controls. Fresh replay after extraction from the publication archive is deferred.
+
+```bash
+python3 evidence/rank8_center_followup_20261021/verify.py --root .
+python3 -O evidence/rank8_center_followup_20261021/verify.py --root .
+```

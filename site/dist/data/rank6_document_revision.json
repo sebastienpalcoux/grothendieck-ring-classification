@@ -6,38 +6,13 @@
     "R6_4_155",
     "R6_8_1660",
     "R8_3_65",
-    "R8_3_436",
-    "R8_3_439",
-    "R8_3_455",
-    "R8_3_567",
     "R8_3_721",
-    "R8_3_731",
-    "R8_3_901",
-    "R8_3_903",
-    "R8_3_921",
-    "R8_3_925",
-    "R8_3_926",
     "R8_3_928",
     "R8_3_941",
     "R8_3_982",
-    "R8_3_985",
-    "R8_3_1055",
     "R8_3_1154",
-    "R8_3_1203",
-    "R8_3_1350",
-    "R8_3_1463",
-    "R8_3_1615",
-    "R8_3_1617",
-    "R8_3_1660",
-    "R8_3_1661",
-    "R8_3_1739",
     "R8_3_1768",
     "R8_3_1795",
-    "R8_3_2842",
-    "R8_3_2885",
-    "R8_3_3258",
-    "R8_3_3344",
-    "R8_3_3413",
     "R8_3_3472"
   ],
   "accepted_decisions_scope": "Historical 38-case continuation through rank-seven multiplicity four",
@@ -198,58 +173,23 @@
     "rank": 8,
     "multiplicity": 3,
     "rings": 3527,
-    "excluded": 3479,
+    "excluded": 3504,
     "realized": 14,
     "unitarily_realized": 14,
     "pseudo_unitarily_realized": 0,
-    "unresolved": 34,
+    "unresolved": 9,
     "remaining_ids": [
       "R8_3_65",
-      "R8_3_436",
-      "R8_3_439",
-      "R8_3_455",
-      "R8_3_567",
       "R8_3_721",
-      "R8_3_731",
-      "R8_3_901",
-      "R8_3_903",
-      "R8_3_921",
-      "R8_3_925",
-      "R8_3_926",
       "R8_3_928",
       "R8_3_941",
       "R8_3_982",
-      "R8_3_985",
-      "R8_3_1055",
       "R8_3_1154",
-      "R8_3_1203",
-      "R8_3_1350",
-      "R8_3_1463",
-      "R8_3_1615",
-      "R8_3_1617",
-      "R8_3_1660",
-      "R8_3_1661",
-      "R8_3_1739",
       "R8_3_1768",
       "R8_3_1795",
-      "R8_3_2842",
-      "R8_3_2885",
-      "R8_3_3258",
-      "R8_3_3344",
-      "R8_3_3413",
       "R8_3_3472"
     ],
-    "unitary_excluded_ids": [
-      "R8_3_436",
-      "R8_3_455",
-      "R8_3_731",
-      "R8_3_925",
-      "R8_3_1350",
-      "R8_3_1661",
-      "R8_3_2885",
-      "R8_3_3258",
-      "R8_3_3413"
-    ],
+    "unitary_excluded_ids": [],
     "realized_ids": [
       "R8_3_274",
       "R8_3_331",
@@ -266,24 +206,69 @@
       "R8_3_3314",
       "R8_3_3342"
     ],
-    "ledger": "supplements/rank8/output/m3/ledger.json",
-    "ledger_sha256": "5a68ab083eecbbd2522bf89015cf73d5efcc3ad654a40976f4c4649fe1106fe2",
+    "ledger": "supplements/rank8/output/frontier_20261021/ledger.json",
+    "ledger_sha256": "bc63a1083e72b8ebf2a1a33b53b6046c0a2920a79b9f11c783b230c7cf5d7d83",
     "historical_ledger": "supplements/rank8/data/decisions.json",
     "historical_ledger_sha256": "7f50213174f1020bb9d90d5981892c332448cf909a56bf60b29e1143228f3f24",
     "source": "supplements/rank8/data/rank8_m3_tables.txt.gz",
     "source_sha256": "1003a7684ec62797e63885eeb5af42fd094adc9ff3fec6caf049620b3afd0952",
-    "evidence": "evidence/rank8_m3_20261021"
+    "evidence": "evidence/rank8_frontier_20261021",
+    "baseline_evidence": "evidence/rank8_m3_20261021",
+    "frontier": {
+      "new_decisions": 25,
+      "resolved_ids": [
+        "R8_3_436",
+        "R8_3_439",
+        "R8_3_455",
+        "R8_3_567",
+        "R8_3_731",
+        "R8_3_901",
+        "R8_3_903",
+        "R8_3_921",
+        "R8_3_925",
+        "R8_3_926",
+        "R8_3_985",
+        "R8_3_1055",
+        "R8_3_1203",
+        "R8_3_1350",
+        "R8_3_1463",
+        "R8_3_1615",
+        "R8_3_1617",
+        "R8_3_1660",
+        "R8_3_1661",
+        "R8_3_1739",
+        "R8_3_2842",
+        "R8_3_2885",
+        "R8_3_3258",
+        "R8_3_3344",
+        "R8_3_3413"
+      ],
+      "counts": {
+        "excluded": 3504,
+        "unresolved": 9,
+        "unitarily_realized": 14
+      },
+      "baseline_records_preserved": 4475,
+      "ledger": "supplements/rank8/output/frontier_20261021/ledger.json",
+      "ledger_sha256": "bc63a1083e72b8ebf2a1a33b53b6046c0a2920a79b9f11c783b230c7cf5d7d83",
+      "accepted": "evidence/rank8_frontier_20261021/accepted.json",
+      "accepted_sha256": "9b84ae814cd92c70b25d02a0b645b776415c480b72a990dbe30d55bb718c4081",
+      "baseline_ledger": "supplements/rank8/output/m3/ledger.json",
+      "baseline_ledger_sha256": "5a68ab083eecbbd2522bf89015cf73d5efcc3ad654a40976f4c4649fe1106fe2",
+      "evidence": "evidence/rank8_frontier_20261021"
+    },
+    "attempts_source": "evidence/rank8_frontier_20261021/structural_models/per_ring_research_audit.json"
   },
   "research_progress": "evidence/rigidity_20261017/rank6/research_progress.json",
   "research_progress_sha256": "de9be218c3099e68f00f5867b77d9ff7cbf9ef6ca34207823f2598b710886497",
   "documents": {
     "docs/New_category_candidates_and_open_cases.pdf": {
-      "sha256": "50fa4c61bec389ceb12239025c0d2cadd4389cbe55206f44f50c929d45405742",
-      "bytes": 59843
+      "sha256": "b8e900b2ddfa72a082b3069c33ba8d19a3ccc23e567aa3c1d6a1b795917383d8",
+      "bytes": 59411
     },
     "manuscripts/prepublication-review-2026-10-21.pdf": {
-      "sha256": "2d6da809fe081f248815a49987d36402a9f531f4ea9a60f39791d8ad84c276ae",
-      "bytes": 79048
+      "sha256": "996ba9d6f22de5be040c0fb8bc88ded34257fd5cbee793bced607fd520d13ce3",
+      "bytes": 82336
     },
     "manuscripts/rank2.pdf": {
       "sha256": "3488327cdd434217b29fe48a6a32eb604ee5f0ceb7870bd33af3b1bc17ab9a36",
@@ -993,9 +978,13 @@
       "sha256": "2e042d4886ab350dd0422bb5d308a984d60fcecee51adc2192954507e4790412",
       "bytes": 4493
     },
+    "manuscripts/rank8/paper/m3_center_followup.tex": {
+      "sha256": "ae58767baa25b74be6f747acb0e1dbab93bbf8a9b35f788814191a2603172ec2",
+      "bytes": 14995
+    },
     "manuscripts/rank8/paper/m3_continuation.tex": {
-      "sha256": "362678ce43e5061b8f3cb62d38d47ba8e0ce1845443db005bca876e8c6761b95",
-      "bytes": 8008
+      "sha256": "6896e8f7709a7a7e82ac48f11440bc8623d6f2ba2d4a49991d2fbc5899581a67",
+      "bytes": 8929
     },
     "manuscripts/rank8/paper/m3_convex.tex": {
       "sha256": "864115f2093467c538268f3ebe53eafb8207e2ccf1e47b1bdf103e876995ba4e",
@@ -1004,6 +993,10 @@
     "manuscripts/rank8/paper/m3_criteria.tex": {
       "sha256": "919647f5f34e2a1e1403a700e338f565251c7a98dfbb368e99955d0ee763c361",
       "bytes": 4145
+    },
+    "manuscripts/rank8/paper/m3_frontier.tex": {
+      "sha256": "5529cb7ef48d21bc5b19cda1cdd7d43906538ac1d6e094ed2641d8f95b05d21b",
+      "bytes": 112737
     },
     "manuscripts/rank8/paper/m3_model_search.tex": {
       "sha256": "f9cddb45d5da75c01f51a900eddfaf978d56c61a75f204a4db1aa9e7a7b9e8ad",
@@ -1022,8 +1015,8 @@
       "bytes": 1187
     },
     "manuscripts/rank8/paper/m3_structural.tex": {
-      "sha256": "c5e2fc7955cd1391a81d500e5c9a1a209a1c64b5d2f21cc9c917b6f8fb85d8d9",
-      "bytes": 20038
+      "sha256": "804149715bb96bc316ebc4255f07e207e9bbdd7c42995d4f7ee351e58416ba39",
+      "bytes": 15424
     },
     "manuscripts/rank8/paper/model_table.tex": {
       "sha256": "94b4a74bcf7c99b3ca582d6ff8b41033fdfbd7fc67b8f68c1cf2ac46d9f8bf98",
@@ -1070,16 +1063,16 @@
       "bytes": 4207
     },
     "manuscripts/rank8/paper/rank8-reviewed.pdf": {
-      "sha256": "d969c0a1b0d56a86a557565b377aec6346bdee54290498627cc302c98f4a0c6d",
-      "bytes": 989726
+      "sha256": "9a5b1e23c3eb18cbfbb32a3490605f29fa58059cd8c599dce1539b170374a1cb",
+      "bytes": 1226209
     },
     "manuscripts/rank8/paper/rank8.pdf": {
-      "sha256": "d969c0a1b0d56a86a557565b377aec6346bdee54290498627cc302c98f4a0c6d",
-      "bytes": 989726
+      "sha256": "9a5b1e23c3eb18cbfbb32a3490605f29fa58059cd8c599dce1539b170374a1cb",
+      "bytes": 1226209
     },
     "manuscripts/rank8/paper/rank8.tex": {
-      "sha256": "cc89c5ba5b1dafb8ab8a90554775cfdb6f449ffd3c735597b88e23f3269c9afc",
-      "bytes": 60483
+      "sha256": "859e2b7d2d3d93a36e1b3b4aeea624958b87ad48591f2ea1c7f8058ef113b8b8",
+      "bytes": 62678
     },
     "manuscripts/rank8/paper/scoped_obstructions.tex": {
       "sha256": "5e4ab1415e3da479880c32710d557a24b09632ab85a8e7e49a71a7e425e0e067",
@@ -1793,9 +1786,13 @@
       "sha256": "2e042d4886ab350dd0422bb5d308a984d60fcecee51adc2192954507e4790412",
       "bytes": 4493
     },
+    "supplements/rank8/paper/m3_center_followup.tex": {
+      "sha256": "ae58767baa25b74be6f747acb0e1dbab93bbf8a9b35f788814191a2603172ec2",
+      "bytes": 14995
+    },
     "supplements/rank8/paper/m3_continuation.tex": {
-      "sha256": "362678ce43e5061b8f3cb62d38d47ba8e0ce1845443db005bca876e8c6761b95",
-      "bytes": 8008
+      "sha256": "6896e8f7709a7a7e82ac48f11440bc8623d6f2ba2d4a49991d2fbc5899581a67",
+      "bytes": 8929
     },
     "supplements/rank8/paper/m3_convex.tex": {
       "sha256": "864115f2093467c538268f3ebe53eafb8207e2ccf1e47b1bdf103e876995ba4e",
@@ -1804,6 +1801,10 @@
     "supplements/rank8/paper/m3_criteria.tex": {
       "sha256": "919647f5f34e2a1e1403a700e338f565251c7a98dfbb368e99955d0ee763c361",
       "bytes": 4145
+    },
+    "supplements/rank8/paper/m3_frontier.tex": {
+      "sha256": "5529cb7ef48d21bc5b19cda1cdd7d43906538ac1d6e094ed2641d8f95b05d21b",
+      "bytes": 112737
     },
     "supplements/rank8/paper/m3_model_search.tex": {
       "sha256": "f9cddb45d5da75c01f51a900eddfaf978d56c61a75f204a4db1aa9e7a7b9e8ad",
@@ -1822,8 +1823,8 @@
       "bytes": 1187
     },
     "supplements/rank8/paper/m3_structural.tex": {
-      "sha256": "c5e2fc7955cd1391a81d500e5c9a1a209a1c64b5d2f21cc9c917b6f8fb85d8d9",
-      "bytes": 20038
+      "sha256": "804149715bb96bc316ebc4255f07e207e9bbdd7c42995d4f7ee351e58416ba39",
+      "bytes": 15424
     },
     "supplements/rank8/paper/model_table.tex": {
       "sha256": "94b4a74bcf7c99b3ca582d6ff8b41033fdfbd7fc67b8f68c1cf2ac46d9f8bf98",
@@ -1870,16 +1871,16 @@
       "bytes": 4207
     },
     "supplements/rank8/paper/rank8-reviewed.pdf": {
-      "sha256": "d969c0a1b0d56a86a557565b377aec6346bdee54290498627cc302c98f4a0c6d",
-      "bytes": 989726
+      "sha256": "9a5b1e23c3eb18cbfbb32a3490605f29fa58059cd8c599dce1539b170374a1cb",
+      "bytes": 1226209
     },
     "supplements/rank8/paper/rank8.pdf": {
-      "sha256": "d969c0a1b0d56a86a557565b377aec6346bdee54290498627cc302c98f4a0c6d",
-      "bytes": 989726
+      "sha256": "9a5b1e23c3eb18cbfbb32a3490605f29fa58059cd8c599dce1539b170374a1cb",
+      "bytes": 1226209
     },
     "supplements/rank8/paper/rank8.tex": {
-      "sha256": "cc89c5ba5b1dafb8ab8a90554775cfdb6f449ffd3c735597b88e23f3269c9afc",
-      "bytes": 60483
+      "sha256": "859e2b7d2d3d93a36e1b3b4aeea624958b87ad48591f2ea1c7f8058ef113b8b8",
+      "bytes": 62678
     },
     "supplements/rank8/paper/scoped_obstructions.tex": {
       "sha256": "5e4ab1415e3da479880c32710d557a24b09632ab85a8e7e49a71a7e425e0e067",

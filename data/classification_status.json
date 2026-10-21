@@ -19,8 +19,8 @@
       "sha256": "fe0685cf7e57135be88d08552b98ef5d50d9baacfe816382f7277f0257a20595"
     },
     {
-      "name": "rank8-certified-through-m3.zip",
-      "sha256": "7bbc31e24113a2f41315d74d45fa499638b7d5b7185f659d5e3ed468ad7e8341"
+      "name": "rank8-certified-frontier-20261021.zip",
+      "sha256": "9ceca7868f88e9b2394c56d72c15e4b06afaa8a2c9a60bcf27133487d674f59a"
     }
   ],
   "inputs": {
@@ -100,75 +100,40 @@
       }
     },
     "rank8": {
-      "file": "supplements/rank8/output/m3/ledger.json",
-      "sha256": "5a68ab083eecbbd2522bf89015cf73d5efcc3ad654a40976f4c4649fe1106fe2",
+      "file": "supplements/rank8/output/frontier_20261021/ledger.json",
+      "sha256": "bc63a1083e72b8ebf2a1a33b53b6046c0a2920a79b9f11c783b230c7cf5d7d83",
       "classified_through": 3,
       "status_totals": {
         "unitarily_realized": 91,
-        "excluded": 4375,
-        "unresolved": 34
+        "excluded": 4400,
+        "unresolved": 9
       },
       "anyonwiki_positive_import": "evidence/anyonwiki/positive_import.json",
       "general_complete_through": 2,
-      "residual_update": "evidence/rank8_m3_20261021/pipeline/residual_audit.json",
-      "current_bundle": "rank8-certified-through-m3.zip",
+      "residual_update": "evidence/rank8_frontier_20261021/structural_models/per_ring_research_audit.json",
+      "current_bundle": "rank8-certified-frontier-20261021.zip",
       "extension": {
         "date": "2026-10-21",
         "rank": 8,
         "multiplicity": 3,
         "rings": 3527,
-        "excluded": 3479,
+        "excluded": 3504,
         "realized": 14,
         "unitarily_realized": 14,
         "pseudo_unitarily_realized": 0,
-        "unresolved": 34,
+        "unresolved": 9,
         "remaining_ids": [
           "R8_3_65",
-          "R8_3_436",
-          "R8_3_439",
-          "R8_3_455",
-          "R8_3_567",
           "R8_3_721",
-          "R8_3_731",
-          "R8_3_901",
-          "R8_3_903",
-          "R8_3_921",
-          "R8_3_925",
-          "R8_3_926",
           "R8_3_928",
           "R8_3_941",
           "R8_3_982",
-          "R8_3_985",
-          "R8_3_1055",
           "R8_3_1154",
-          "R8_3_1203",
-          "R8_3_1350",
-          "R8_3_1463",
-          "R8_3_1615",
-          "R8_3_1617",
-          "R8_3_1660",
-          "R8_3_1661",
-          "R8_3_1739",
           "R8_3_1768",
           "R8_3_1795",
-          "R8_3_2842",
-          "R8_3_2885",
-          "R8_3_3258",
-          "R8_3_3344",
-          "R8_3_3413",
           "R8_3_3472"
         ],
-        "unitary_excluded_ids": [
-          "R8_3_436",
-          "R8_3_455",
-          "R8_3_731",
-          "R8_3_925",
-          "R8_3_1350",
-          "R8_3_1661",
-          "R8_3_2885",
-          "R8_3_3258",
-          "R8_3_3413"
-        ],
+        "unitary_excluded_ids": [],
         "realized_ids": [
           "R8_3_274",
           "R8_3_331",
@@ -185,13 +150,58 @@
           "R8_3_3314",
           "R8_3_3342"
         ],
-        "ledger": "supplements/rank8/output/m3/ledger.json",
-        "ledger_sha256": "5a68ab083eecbbd2522bf89015cf73d5efcc3ad654a40976f4c4649fe1106fe2",
+        "ledger": "supplements/rank8/output/frontier_20261021/ledger.json",
+        "ledger_sha256": "bc63a1083e72b8ebf2a1a33b53b6046c0a2920a79b9f11c783b230c7cf5d7d83",
         "historical_ledger": "supplements/rank8/data/decisions.json",
         "historical_ledger_sha256": "7f50213174f1020bb9d90d5981892c332448cf909a56bf60b29e1143228f3f24",
         "source": "supplements/rank8/data/rank8_m3_tables.txt.gz",
         "source_sha256": "1003a7684ec62797e63885eeb5af42fd094adc9ff3fec6caf049620b3afd0952",
-        "evidence": "evidence/rank8_m3_20261021"
+        "evidence": "evidence/rank8_frontier_20261021",
+        "baseline_evidence": "evidence/rank8_m3_20261021",
+        "frontier": {
+          "new_decisions": 25,
+          "resolved_ids": [
+            "R8_3_436",
+            "R8_3_439",
+            "R8_3_455",
+            "R8_3_567",
+            "R8_3_731",
+            "R8_3_901",
+            "R8_3_903",
+            "R8_3_921",
+            "R8_3_925",
+            "R8_3_926",
+            "R8_3_985",
+            "R8_3_1055",
+            "R8_3_1203",
+            "R8_3_1350",
+            "R8_3_1463",
+            "R8_3_1615",
+            "R8_3_1617",
+            "R8_3_1660",
+            "R8_3_1661",
+            "R8_3_1739",
+            "R8_3_2842",
+            "R8_3_2885",
+            "R8_3_3258",
+            "R8_3_3344",
+            "R8_3_3413"
+          ],
+          "counts": {
+            "excluded": 3504,
+            "unresolved": 9,
+            "unitarily_realized": 14
+          },
+          "baseline_records_preserved": 4475,
+          "ledger": "supplements/rank8/output/frontier_20261021/ledger.json",
+          "ledger_sha256": "bc63a1083e72b8ebf2a1a33b53b6046c0a2920a79b9f11c783b230c7cf5d7d83",
+          "accepted": "evidence/rank8_frontier_20261021/accepted.json",
+          "accepted_sha256": "9b84ae814cd92c70b25d02a0b645b776415c480b72a990dbe30d55bb718c4081",
+          "baseline_ledger": "supplements/rank8/output/m3/ledger.json",
+          "baseline_ledger_sha256": "5a68ab083eecbbd2522bf89015cf73d5efcc3ad654a40976f4c4649fe1106fe2",
+          "evidence": "evidence/rank8_frontier_20261021"
+        },
+        "attempts_source": "evidence/rank8_frontier_20261021/structural_models/per_ring_research_audit.json"
       }
     }
   },
@@ -26168,11 +26178,11 @@
       "rank": 8,
       "multiplicity": 3,
       "rings": 3527,
-      "excluded_general": 3479,
+      "excluded_general": 3504,
       "realized_unitary": 14,
       "realized_other_or_unspecified": 0,
       "realized_spherical_nonpseudounitary": 0,
-      "unresolved_general": 34,
+      "unresolved_general": 9,
       "unassessed": 0,
       "classification_coverage": "partial_classification"
     }
