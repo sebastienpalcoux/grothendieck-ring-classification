@@ -122,5 +122,18 @@ def main():
     if args.verify:
         import atomic_generation,atomic_spectrum_generation
         row=json.loads(st.Path(args.verify).read_text());source=st.load_ring(row['id']);require(row['tensor_sha256']==source['tensor_sha256'],'source binding mismatch');cg.verify(source['tensor'],row['certificate']);print('PASS',row['id']);return
-    source=st.load_ring(args.ring);out=run(source,args.variant,args.height,args.lp_seconds,st.HERE/'complete_results'/f'{args.ring}_{args.variant}_h{args.height}.json');print(source['id'],out['status'],out['seconds'],flush=True)
+    source=st.load_ring(args.ring);dest=st.HERE/'complete_results'/f'{args.ring}_{args.variant}_h{args.height}.json'
+    # A separate worker may finish a queued target first. The process lock
+    # serializes discovery for that exact target; completed exact evidence
+    # is replayed and retained instead of being overwritten.
+    import fcntl
+    dest.parent.mkdir(parents=True,exist_ok=True)
+    with dest.with_suffix('.lock').open('w') as lock:
+        fcntl.flock(lock,fcntl.LOCK_EX)
+        previous=json.loads(dest.read_text()) if dest.exists() else None
+        if previous and previous.get('status') in ('excluded','exact_feasible_relaxation'):
+            require(previous['id']==source['id'] and previous['tensor_sha256']==source['tensor_sha256'],'existing completed source binding differs')
+            cg.verify(source['tensor'],previous['certificate']);out=previous;print('REUSED exact completed target',source['id'],flush=True)
+        else:out=run(source,args.variant,args.height,args.lp_seconds,dest)
+    print(source['id'],out['status'],out['seconds'],flush=True)
 if __name__=='__main__':main()

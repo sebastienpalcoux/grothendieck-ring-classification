@@ -1,0 +1,227 @@
+{
+  "kind": "integral_center_subcategory_two_prime_solvability",
+  "source_sha256": {
+    "evidence/rank8_m3_20261021/pipeline/census_m3.json": "e79ca3c2a7de9c74c677f768284842a42a2eaa52d77d82a4680c208b41fd7836",
+    "evidence/rank8_frontier_20261021/structural_models/rank5_route_bindings.json": "ea2cc67ee41f24a838ffa6e82191dcec122c2e347f829cba35bca73d43a35980",
+    "evidence/rank8_frontier_20261021/structural_models/KNOWN_MODEL_ROUTES.md": "d468e371127516a86543da97d218f266124e7fdf014a399b87c76acaada24794",
+    "evidence/rank8_frontier_20261021/structural_models/POINTED_S3_SCOPE.md": "8a400e793bf35dcf2cc621ac81d8d7e48e9b42f8d39bcffb636b61ffa21404ff",
+    "evidence/rank8_frontier_20261021/review/INTEGRAL_CENTER_SUBCATEGORY.md": "ca7c2e90c9f065b074892e9623e50f9eac9b4b22a799012ed0e23fc6abdd3ee2"
+  },
+  "records": [
+    {
+      "id": "R8_3_439",
+      "tensor_sha256": "dd40ef78c0af51291aedd91134123f7177c18cc9de9c9d3b039a6308bb340791",
+      "FP_dimensions": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "integral_source_labels": [
+        0,
+        1,
+        2,
+        3,
+        6,
+        7
+      ],
+      "global_FP_dimension": [
+        48,
+        24
+      ],
+      "center_FP_dimension": [
+        4032,
+        2304
+      ],
+      "center_FP_dimension_norm": 331776,
+      "integral_center_subcategory_dimension_divides": 576,
+      "integral_center_subcategory_dimension_prime_support": [
+        2,
+        3
+      ],
+      "source_invertibles": [
+        0,
+        1,
+        2,
+        3,
+        6,
+        7
+      ],
+      "central_source_invertibles": [
+        0
+      ],
+      "adjoint_closure": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "center_invertibles": "trivial"
+    },
+    {
+      "id": "R8_3_567",
+      "tensor_sha256": "0efab5b3d7571872f46dd6ccc95c4b228123b252062d758318ee51834288ef4d",
+      "FP_dimensions": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ]
+      ],
+      "integral_source_labels": [
+        0,
+        1,
+        2,
+        5,
+        6,
+        7
+      ],
+      "global_FP_dimension": [
+        48,
+        24
+      ],
+      "center_FP_dimension": [
+        4032,
+        2304
+      ],
+      "center_FP_dimension_norm": 331776,
+      "integral_center_subcategory_dimension_divides": 576,
+      "integral_center_subcategory_dimension_prime_support": [
+        2,
+        3
+      ],
+      "source_invertibles": [
+        0,
+        1,
+        2,
+        5,
+        6,
+        7
+      ],
+      "central_source_invertibles": [
+        0
+      ],
+      "adjoint_closure": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "center_invertibles": "trivial"
+    },
+    {
+      "id": "R5_3_40 as the R439 Morita dual",
+      "tensor_sha256": "84487a759f44be4a988082680fa8c3b28bcd0d159d639f38409825e19c5761e6",
+      "FP_dimensions": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          3,
+          2
+        ]
+      ],
+      "integral_source_labels": [
+        0,
+        1,
+        2
+      ],
+      "global_FP_dimension": [
+        48,
+        24
+      ],
+      "center_FP_dimension": [
+        4032,
+        2304
+      ],
+      "center_FP_dimension_norm": 331776,
+      "integral_center_subcategory_dimension_divides": 576,
+      "integral_center_subcategory_dimension_prime_support": [
+        2,
+        3
+      ],
+      "center_invertibles": "trivial only for the specified R439 Morita dual"
+    }
+  ],
+  "categorical_inputs": [
+    "ENO math/0203060 Propositions 8.12,8.15; Corollary 8.14",
+    "ENO 0809.3031 Theorem 1.6 and Proposition 4.5(iv)"
+  ],
+  "conclusion": "The tensor unit is the only integral-dimensional central simple; no general exclusion by this check alone."
+}

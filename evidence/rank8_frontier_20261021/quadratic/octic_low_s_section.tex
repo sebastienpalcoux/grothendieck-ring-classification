@@ -1,0 +1,39 @@
+\subsection{A complete octic low-$S$ obstruction for $R_{8,3,901}$}
+\label{sec:rank8-octic-low-S}
+All eight characters of $R_{8,3,901}$ lie in
+$L=\mathbb Q(\sqrt3,\sqrt5,i)$. The primitive element
+$u=\sqrt3+\sqrt5+i$ satisfies
+\[
+ u^8-28u^6+238u^4+372u^2+441=0.
+\]
+The exact character adapter checks all multiplication, duality and
+orthogonality identities in this field. For the distinguished central
+simples, impose
+$\beta_E\chi_E(v_F)=\beta_F\chi_F(v_E)$ in all eight rational coordinates,
+with no conjugation in this symmetric identity.
+
+The seven raw restriction-column domains have sizes
+$6,9,4,4,12,12,20$. The complete induction Gram enumeration leaves
+$2024$ low frames. Each has exactly four dimension-compatible character
+bijections, and none of the $8096$ bijections satisfies the symmetry
+identities. This uses neither high restriction columns nor a
+partial-$S$ integrality filter nor linear programming. A separate
+checker enumerates full bijections before testing symmetry, independently
+of the primary recursive pruning. Its known
+$\mathrm{Fib}\boxtimes\mathrm{Vec}_{C_4}$ low-frame control has $576$
+permitted bijections, all of which satisfy the identities.
+
+The complete general lift has two ordinary quartic character factors:
+the Frobenius--Perron Galois orbit and an orbit with unequal dimensions
+on a dual pair. Of the $32$ oriented signed branches, $16$ are gauge
+equivalent to the original ring. Each remaining branch has one character
+orbit violating duality and one excluded by the norm condition at the
+prime $3$, with global-dimension polynomial
+\[
+ t^4-240t^3+4560t^2-28800t+57600.
+\]
+Consequently $R_{8,3,901}$ admits no complex fusion-category
+categorification, without a pivotality or unitarity assumption.
+The source-bound replays are
+\texttt{quadratic/octic\_low\_s\_general.py} and
+\texttt{quadratic/review\_octic\_low\_s.py}.

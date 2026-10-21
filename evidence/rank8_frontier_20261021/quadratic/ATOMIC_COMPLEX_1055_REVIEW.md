@@ -7,11 +7,11 @@ The necessary full-character-field atomic S system is derived in
 S symmetry uses all four rational coordinates and no complex
 conjugation. High twist moments remain in the real FP field.
 
-The complete height-four system has211 rows and16695 columns:
-5748 character-labeled low choices,352 complete duality orbits of566
-high restriction vectors times31 trace types, and35 rotation columns.
-The partial-S algebraic-integrality filter removes4949 low choices
-(counting original domain occurrences) and553 high restriction vectors.
+The complete height-four system has 211 rows and 16695 columns:
+5748 character-labeled low choices, 352 complete duality orbits of 566
+high restriction vectors times 31 trace types, and 35 rotation columns.
+The partial-S algebraic-integrality filter removes 4949 low choices
+(counting original domain occurrences) and 553 high restriction vectors.
 The two complete second-indicator assignments are
 `[0,0,1,1,1,-1,1]` and `[0,0,1,1,1,1,1]`. Both have a saved integer
 separating functional.
@@ -19,7 +19,7 @@ separating functional.
 `review_atomic_complex_1055.py` independently checks every added
 full-field S coefficient and every omitted FP equation, and compares
 three factored-oracle score vectors against direct dot products of every
-column. For each of the two separators it independently checks all16695
+column. For each of the two separators it independently checks all 16695
 inequalities and the strictly negative pairing with the right-hand side.
 It also replays the complete general signed lift. There are six spherical
 character factors: four linear factors and a nonreal quadratic factor
@@ -31,8 +31,8 @@ or unitarity assumption.
 
 A genuinely complex-character positive control is included, rather than
 relying only on a real field embedded into a complex field. The ring
-`Fib tensor Vec(C4)` has nonreal characters and all12 known center
-restriction types pass. An exact32-column rational feasible certificate
+`Fib tensor Vec(C4)` has nonreal characters and all 12 known center
+restriction types pass. An exact 32-column rational feasible certificate
 satisfies the complete atomic cone, with second indicators
 `[0,1,0,1,0,1,0]`. Numerical discovery of that control is optional and
 explicit (`--rediscover-control --write`); the ordinary replay uses

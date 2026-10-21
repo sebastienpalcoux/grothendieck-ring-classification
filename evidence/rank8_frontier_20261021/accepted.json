@@ -20,6 +20,21 @@
       }
     },
     {
+      "id": "R8_3_439",
+      "tensor_sha256": "dd40ef78c0af51291aedd91134123f7177c18cc9de9c9d3b039a6308bb340791",
+      "status": "excluded",
+      "certificate": {
+        "kind": "forced_Morita_dual_integral_center_Gram_cubic_Verlinde",
+        "scope": "general_complex_fusion_category",
+        "evidence": "evidence/rank8_frontier_20261021/r439_centerless_rank5/verlinde_exclusion.json",
+        "proof": "evidence/rank8_frontier_20261021/r439_centerless_rank5/PROOF.md",
+        "verifiers": [
+          "evidence/rank8_frontier_20261021/r439_centerless_rank5/verlinde_exclusion.py",
+          "evidence/rank8_frontier_20261021/review/verify_r439_verlinde.py"
+        ]
+      }
+    },
+    {
       "id": "R8_3_731",
       "tensor_sha256": "ee54e287f01aec4e2079b7f66309d89a659742e38164a3e47de1fea650eec48b",
       "status": "excluded",
@@ -31,6 +46,37 @@
         "verifiers": [
           "evidence/rank8_frontier_20261021/integral/verify_central_731.py",
           "evidence/rank8_frontier_20261021/review/verify_r731_independent.py"
+        ]
+      }
+    },
+    {
+      "id": "R8_3_901",
+      "tensor_sha256": "db5e92bdf7d58c0fcdb4517e6f2201db1937ec33ea6a2f371a8e257dd2fa6472",
+      "status": "excluded",
+      "certificate": {
+        "kind": "complete_distinguished_modular_S_symmetric_low_frame_obstruction",
+        "scope": "general_complex_fusion_category",
+        "evidence": "evidence/rank8_frontier_20261021/quadratic/octic_low_s_general_results.json",
+        "proof": "evidence/rank8_frontier_20261021/quadratic/OCTIC_LOW_S_OBSTRUCTION.md",
+        "verifiers": [
+          "evidence/rank8_frontier_20261021/quadratic/octic_low_s_symmetry.py",
+          "evidence/rank8_frontier_20261021/quadratic/octic_low_s_general.py",
+          "evidence/rank8_frontier_20261021/quadratic/review_octic_low_s.py"
+        ]
+      }
+    },
+    {
+      "id": "R8_3_903",
+      "tensor_sha256": "1eebe018caedb2e1a4564301214ed1c5943f348378e98eb3828ae4e798f4f958",
+      "status": "excluded",
+      "certificate": {
+        "kind": "complete_character_labeled_modular_STS_signed_induction",
+        "scope": "general_complex_fusion_category",
+        "evidence": "evidence/rank8_frontier_20261021/global_induction/complete_results/R8_3_903_sts_frame_h4.json",
+        "proof": "evidence/rank8_frontier_20261021/quadratic/STS_903_REVIEW.md",
+        "verifiers": [
+          "evidence/rank8_frontier_20261021/global_induction/verify_accepted_complete.py",
+          "evidence/rank8_frontier_20261021/quadratic/review_sts_903.py"
         ]
       }
     },

@@ -17,13 +17,13 @@ adapters: `K`, `degree`, `characters`, `ds`, `D`, `beta`, `codegrees`,
 
 The three radicals are explicitly recovered in the rational power basis.
 The executable verifies their squares and sum, irreducibility, the full
-complex conjugation involution, all eight source characters, all512
+complex conjugation involution, all eight source characters, all 512
 multiplication identities, duality, orthogonality, and the positive FP
 embedding. Algebraic integrality is checked by the degree-eight rational
 multiplication characteristic polynomial. A separate direct construction
-of the operator verifies74 samples; all64 source character values are
-integral. The negative control1/2 is rejected. The genuinely nonreal
-known model `Fib tensor Vec(C4)` retains all12 actual center-restriction
+of the operator verifies 74 samples; all 64 source character values are
+integral. The negative control 1/2 is rejected. The genuinely nonreal
+known model `Fib tensor Vec(C4)` retains all 12 actual center-restriction
 types in this same degree-eight field.
 
 The read-only source-bound replay is

@@ -1,0 +1,3280 @@
+{
+  "target": "R439 via its forced rank-five Morita partner R5_3_40",
+  "scope": "pseudo_unitary_rank5_center_constraints; applicability to general R439 via independently proved Galois and full-S3 Morita reductions",
+  "source_archive_sha256": "264fd1b7f1851cbce142ea248a19bc2d0196ba44f350b2f5852e1e77a647a92d",
+  "rank5_tensor_sha256": "84487a759f44be4a988082680fa8c3b28bcd0d159d639f38409825e19c5761e6",
+  "rank5_tensor": [
+    [
+      [
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        1
+      ]
+    ],
+    [
+      [
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      [
+        0,
+        0,
+        0,
+        1,
+        0
+      ]
+    ],
+    [
+      [
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      [
+        1,
+        1,
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      [
+        0,
+        0,
+        0,
+        1,
+        1
+      ]
+    ],
+    [
+      [
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      [
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      [
+        1,
+        0,
+        1,
+        3,
+        3
+      ],
+      [
+        0,
+        1,
+        1,
+        3,
+        3
+      ]
+    ],
+    [
+      [
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      [
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      [
+        0,
+        1,
+        1,
+        3,
+        3
+      ],
+      [
+        1,
+        0,
+        1,
+        3,
+        3
+      ]
+    ]
+  ],
+  "global_dimension_minimal_polynomial": [
+    "1",
+    "-96",
+    "576"
+  ],
+  "column_counts": [
+    3,
+    5,
+    4,
+    4
+  ],
+  "all_low_frames": [
+    {
+      "index": 0,
+      "columns": [
+        [
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          0,
+          2
+        ],
+        [
+          1,
+          1,
+          1,
+          0,
+          4
+        ],
+        [
+          1,
+          0,
+          1,
+          3,
+          0
+        ],
+        [
+          1,
+          0,
+          1,
+          3,
+          0
+        ]
+      ],
+      "ordinary_obstruction": {
+        "kind": "gram_minor",
+        "coordinates": [
+          3,
+          4
+        ]
+      },
+      "full_S_assignments": []
+    },
+    {
+      "index": 1,
+      "columns": [
+        [
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          0,
+          2
+        ],
+        [
+          1,
+          1,
+          1,
+          1,
+          3
+        ],
+        [
+          1,
+          0,
+          1,
+          2,
+          1
+        ],
+        [
+          1,
+          0,
+          1,
+          3,
+          0
+        ]
+      ],
+      "ordinary_obstruction": {
+        "kind": "gram_minor",
+        "coordinates": [
+          3,
+          4
+        ]
+      },
+      "full_S_assignments": []
+    },
+    {
+      "index": 2,
+      "columns": [
+        [
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          0,
+          2
+        ],
+        [
+          1,
+          1,
+          1,
+          2,
+          2
+        ],
+        [
+          1,
+          0,
+          1,
+          1,
+          2
+        ],
+        [
+          1,
+          0,
+          1,
+          3,
+          0
+        ]
+      ],
+      "ordinary_obstruction": {
+        "kind": "gram_minor",
+        "coordinates": [
+          3,
+          4
+        ]
+      },
+      "full_S_assignments": []
+    },
+    {
+      "index": 3,
+      "columns": [
+        [
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          0,
+          2
+        ],
+        [
+          1,
+          1,
+          1,
+          2,
+          2
+        ],
+        [
+          1,
+          0,
+          1,
+          2,
+          1
+        ],
+        [
+          1,
+          0,
+          1,
+          2,
+          1
+        ]
+      ],
+      "ordinary_obstruction": null,
+      "full_S_assignments": []
+    },
+    {
+      "index": 4,
+      "columns": [
+        [
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          0,
+          2
+        ],
+        [
+          1,
+          1,
+          1,
+          3,
+          1
+        ],
+        [
+          1,
+          0,
+          1,
+          0,
+          3
+        ],
+        [
+          1,
+          0,
+          1,
+          3,
+          0
+        ]
+      ],
+      "ordinary_obstruction": {
+        "kind": "gram_minor",
+        "coordinates": [
+          3,
+          4
+        ]
+      },
+      "full_S_assignments": []
+    },
+    {
+      "index": 5,
+      "columns": [
+        [
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          0,
+          2
+        ],
+        [
+          1,
+          1,
+          1,
+          3,
+          1
+        ],
+        [
+          1,
+          0,
+          1,
+          1,
+          2
+        ],
+        [
+          1,
+          0,
+          1,
+          2,
+          1
+        ]
+      ],
+      "ordinary_obstruction": {
+        "kind": "gram_minor",
+        "coordinates": [
+          3,
+          4
+        ]
+      },
+      "full_S_assignments": []
+    },
+    {
+      "index": 6,
+      "columns": [
+        [
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          0,
+          2
+        ],
+        [
+          1,
+          1,
+          1,
+          4,
+          0
+        ],
+        [
+          1,
+          0,
+          1,
+          0,
+          3
+        ],
+        [
+          1,
+          0,
+          1,
+          2,
+          1
+        ]
+      ],
+      "ordinary_obstruction": {
+        "kind": "gram_minor",
+        "coordinates": [
+          3,
+          4
+        ]
+      },
+      "full_S_assignments": []
+    },
+    {
+      "index": 7,
+      "columns": [
+        [
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          0,
+          2
+        ],
+        [
+          1,
+          1,
+          1,
+          4,
+          0
+        ],
+        [
+          1,
+          0,
+          1,
+          1,
+          2
+        ],
+        [
+          1,
+          0,
+          1,
+          1,
+          2
+        ]
+      ],
+      "ordinary_obstruction": {
+        "kind": "gram_minor",
+        "coordinates": [
+          3,
+          4
+        ]
+      },
+      "full_S_assignments": []
+    },
+    {
+      "index": 8,
+      "columns": [
+        [
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1,
+          0,
+          4
+        ],
+        [
+          1,
+          0,
+          1,
+          2,
+          1
+        ],
+        [
+          1,
+          0,
+          1,
+          3,
+          0
+        ]
+      ],
+      "ordinary_obstruction": {
+        "kind": "gram_minor",
+        "coordinates": [
+          3,
+          4
+        ]
+      },
+      "full_S_assignments": []
+    },
+    {
+      "index": 9,
+      "columns": [
+        [
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1,
+          1,
+          3
+        ],
+        [
+          1,
+          0,
+          1,
+          1,
+          2
+        ],
+        [
+          1,
+          0,
+          1,
+          3,
+          0
+        ]
+      ],
+      "ordinary_obstruction": {
+        "kind": "gram_minor",
+        "coordinates": [
+          3,
+          4
+        ]
+      },
+      "full_S_assignments": []
+    },
+    {
+      "index": 10,
+      "columns": [
+        [
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1,
+          1,
+          3
+        ],
+        [
+          1,
+          0,
+          1,
+          2,
+          1
+        ],
+        [
+          1,
+          0,
+          1,
+          2,
+          1
+        ]
+      ],
+      "ordinary_obstruction": null,
+      "full_S_assignments": []
+    },
+    {
+      "index": 11,
+      "columns": [
+        [
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1,
+          2,
+          2
+        ],
+        [
+          1,
+          0,
+          1,
+          0,
+          3
+        ],
+        [
+          1,
+          0,
+          1,
+          3,
+          0
+        ]
+      ],
+      "ordinary_obstruction": {
+        "kind": "gram_minor",
+        "coordinates": [
+          3,
+          4
+        ]
+      },
+      "full_S_assignments": []
+    },
+    {
+      "index": 12,
+      "columns": [
+        [
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1,
+          2,
+          2
+        ],
+        [
+          1,
+          0,
+          1,
+          1,
+          2
+        ],
+        [
+          1,
+          0,
+          1,
+          2,
+          1
+        ]
+      ],
+      "ordinary_obstruction": null,
+      "full_S_assignments": [
+        [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        [
+          0,
+          1,
+          2,
+          4,
+          3
+        ]
+      ]
+    },
+    {
+      "index": 13,
+      "columns": [
+        [
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1,
+          3,
+          1
+        ],
+        [
+          1,
+          0,
+          1,
+          0,
+          3
+        ],
+        [
+          1,
+          0,
+          1,
+          2,
+          1
+        ]
+      ],
+      "ordinary_obstruction": {
+        "kind": "gram_minor",
+        "coordinates": [
+          3,
+          4
+        ]
+      },
+      "full_S_assignments": []
+    },
+    {
+      "index": 14,
+      "columns": [
+        [
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1,
+          3,
+          1
+        ],
+        [
+          1,
+          0,
+          1,
+          1,
+          2
+        ],
+        [
+          1,
+          0,
+          1,
+          1,
+          2
+        ]
+      ],
+      "ordinary_obstruction": null,
+      "full_S_assignments": []
+    },
+    {
+      "index": 15,
+      "columns": [
+        [
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1,
+          4,
+          0
+        ],
+        [
+          1,
+          0,
+          1,
+          0,
+          3
+        ],
+        [
+          1,
+          0,
+          1,
+          1,
+          2
+        ]
+      ],
+      "ordinary_obstruction": {
+        "kind": "gram_minor",
+        "coordinates": [
+          3,
+          4
+        ]
+      },
+      "full_S_assignments": []
+    },
+    {
+      "index": 16,
+      "columns": [
+        [
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          2,
+          0
+        ],
+        [
+          1,
+          1,
+          1,
+          0,
+          4
+        ],
+        [
+          1,
+          0,
+          1,
+          1,
+          2
+        ],
+        [
+          1,
+          0,
+          1,
+          3,
+          0
+        ]
+      ],
+      "ordinary_obstruction": {
+        "kind": "gram_minor",
+        "coordinates": [
+          3,
+          4
+        ]
+      },
+      "full_S_assignments": []
+    },
+    {
+      "index": 17,
+      "columns": [
+        [
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          2,
+          0
+        ],
+        [
+          1,
+          1,
+          1,
+          0,
+          4
+        ],
+        [
+          1,
+          0,
+          1,
+          2,
+          1
+        ],
+        [
+          1,
+          0,
+          1,
+          2,
+          1
+        ]
+      ],
+      "ordinary_obstruction": {
+        "kind": "gram_minor",
+        "coordinates": [
+          3,
+          4
+        ]
+      },
+      "full_S_assignments": []
+    },
+    {
+      "index": 18,
+      "columns": [
+        [
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          2,
+          0
+        ],
+        [
+          1,
+          1,
+          1,
+          1,
+          3
+        ],
+        [
+          1,
+          0,
+          1,
+          0,
+          3
+        ],
+        [
+          1,
+          0,
+          1,
+          3,
+          0
+        ]
+      ],
+      "ordinary_obstruction": {
+        "kind": "gram_minor",
+        "coordinates": [
+          3,
+          4
+        ]
+      },
+      "full_S_assignments": []
+    },
+    {
+      "index": 19,
+      "columns": [
+        [
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          2,
+          0
+        ],
+        [
+          1,
+          1,
+          1,
+          1,
+          3
+        ],
+        [
+          1,
+          0,
+          1,
+          1,
+          2
+        ],
+        [
+          1,
+          0,
+          1,
+          2,
+          1
+        ]
+      ],
+      "ordinary_obstruction": {
+        "kind": "gram_minor",
+        "coordinates": [
+          3,
+          4
+        ]
+      },
+      "full_S_assignments": []
+    },
+    {
+      "index": 20,
+      "columns": [
+        [
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          2,
+          0
+        ],
+        [
+          1,
+          1,
+          1,
+          2,
+          2
+        ],
+        [
+          1,
+          0,
+          1,
+          0,
+          3
+        ],
+        [
+          1,
+          0,
+          1,
+          2,
+          1
+        ]
+      ],
+      "ordinary_obstruction": {
+        "kind": "gram_minor",
+        "coordinates": [
+          3,
+          4
+        ]
+      },
+      "full_S_assignments": []
+    },
+    {
+      "index": 21,
+      "columns": [
+        [
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          2,
+          0
+        ],
+        [
+          1,
+          1,
+          1,
+          2,
+          2
+        ],
+        [
+          1,
+          0,
+          1,
+          1,
+          2
+        ],
+        [
+          1,
+          0,
+          1,
+          1,
+          2
+        ]
+      ],
+      "ordinary_obstruction": null,
+      "full_S_assignments": []
+    },
+    {
+      "index": 22,
+      "columns": [
+        [
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          2,
+          0
+        ],
+        [
+          1,
+          1,
+          1,
+          3,
+          1
+        ],
+        [
+          1,
+          0,
+          1,
+          0,
+          3
+        ],
+        [
+          1,
+          0,
+          1,
+          1,
+          2
+        ]
+      ],
+      "ordinary_obstruction": {
+        "kind": "gram_minor",
+        "coordinates": [
+          3,
+          4
+        ]
+      },
+      "full_S_assignments": []
+    },
+    {
+      "index": 23,
+      "columns": [
+        [
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          2,
+          0
+        ],
+        [
+          1,
+          1,
+          1,
+          4,
+          0
+        ],
+        [
+          1,
+          0,
+          1,
+          0,
+          3
+        ],
+        [
+          1,
+          0,
+          1,
+          0,
+          3
+        ]
+      ],
+      "ordinary_obstruction": {
+        "kind": "gram_minor",
+        "coordinates": [
+          3,
+          4
+        ]
+      },
+      "full_S_assignments": []
+    }
+  ],
+  "formal_codegrees": [
+    [
+      "1",
+      "6"
+    ],
+    [
+      "-1",
+      "90"
+    ],
+    [
+      "3"
+    ],
+    [
+      "4"
+    ],
+    [
+      "4"
+    ]
+  ],
+  "complete_characters": [
+    [
+      [
+        "1"
+      ],
+      [
+        "1"
+      ],
+      [
+        "2"
+      ],
+      [
+        "1/12",
+        "-1/2"
+      ],
+      [
+        "1/12",
+        "-1/2"
+      ]
+    ],
+    [
+      [
+        "1"
+      ],
+      [
+        "1"
+      ],
+      [
+        "2"
+      ],
+      [
+        "-1/12",
+        "13/2"
+      ],
+      [
+        "-1/12",
+        "13/2"
+      ]
+    ],
+    [
+      [
+        "1"
+      ],
+      [
+        "1"
+      ],
+      [
+        "-1"
+      ],
+      [],
+      []
+    ],
+    [
+      [
+        "1"
+      ],
+      [
+        "-1"
+      ],
+      [],
+      [
+        "-1"
+      ],
+      [
+        "1"
+      ]
+    ],
+    [
+      [
+        "1"
+      ],
+      [
+        "-1"
+      ],
+      [],
+      [
+        "1"
+      ],
+      [
+        "-1"
+      ]
+    ]
+  ],
+  "cases": [
+    {
+      "low_index": 12,
+      "metadata": {
+        "height": 6,
+        "high_columns": 38,
+        "trace_types": 19,
+        "order_bound": 144,
+        "rows": 155,
+        "variables": 766,
+        "forbid_nonunit_center_invertibles": false,
+        "forbid_nonunit_integral_center_simples": false,
+        "spectral_exclusions": [
+          {
+            "index": 37,
+            "column": [
+              2,
+              1,
+              2,
+              2
+            ],
+            "character": 3,
+            "eigenvalue": [
+              "-3/2"
+            ],
+            "characteristic_polynomial": [
+              "1",
+              "3",
+              "9/4"
+            ]
+          }
+        ],
+        "dimension_one_high_indices": [
+          19
+        ],
+        "integral_dimension_high_indices": [
+          9,
+          17,
+          19,
+          27
+        ],
+        "galois_spectral_balance": [
+          {
+            "character": 1,
+            "positive_radical_eigenvalue": [
+              "-7",
+              "4"
+            ],
+            "low_multiplicity_difference": 0
+          },
+          {
+            "character": 1,
+            "positive_radical_eigenvalue": [
+              "-2",
+              "1"
+            ],
+            "low_multiplicity_difference": 0
+          },
+          {
+            "character": 1,
+            "positive_radical_eigenvalue": [
+              "2",
+              "1"
+            ],
+            "low_multiplicity_difference": 0
+          },
+          {
+            "character": 1,
+            "positive_radical_eigenvalue": [
+              "7",
+              "4"
+            ],
+            "low_multiplicity_difference": 0
+          },
+          {
+            "character": 2,
+            "positive_radical_eigenvalue": [
+              "-8",
+              "4"
+            ],
+            "low_multiplicity_difference": 0
+          },
+          {
+            "character": 2,
+            "positive_radical_eigenvalue": [
+              "-2",
+              "2"
+            ],
+            "low_multiplicity_difference": 0
+          },
+          {
+            "character": 2,
+            "positive_radical_eigenvalue": [
+              "1",
+              "1"
+            ],
+            "low_multiplicity_difference": 0
+          },
+          {
+            "character": 2,
+            "positive_radical_eigenvalue": [
+              "16",
+              "8"
+            ],
+            "low_multiplicity_difference": 0
+          },
+          {
+            "character": 3,
+            "positive_radical_eigenvalue": [
+              "-36",
+              "18"
+            ],
+            "low_multiplicity_difference": 0
+          },
+          {
+            "character": 3,
+            "positive_radical_eigenvalue": [
+              "-12",
+              "6"
+            ],
+            "low_multiplicity_difference": 0
+          },
+          {
+            "character": 3,
+            "positive_radical_eigenvalue": [
+              "-4",
+              "2"
+            ],
+            "low_multiplicity_difference": 0
+          },
+          {
+            "character": 3,
+            "positive_radical_eigenvalue": [
+              "-3",
+              "1"
+            ],
+            "low_multiplicity_difference": 0
+          },
+          {
+            "character": 3,
+            "positive_radical_eigenvalue": [
+              "0",
+              "1"
+            ],
+            "low_multiplicity_difference": 0
+          },
+          {
+            "character": 3,
+            "positive_radical_eigenvalue": [
+              "0",
+              "2"
+            ],
+            "low_multiplicity_difference": 0
+          },
+          {
+            "character": 3,
+            "positive_radical_eigenvalue": [
+              "3",
+              "3"
+            ],
+            "low_multiplicity_difference": 0
+          },
+          {
+            "character": 3,
+            "positive_radical_eigenvalue": [
+              "6",
+              "4"
+            ],
+            "low_multiplicity_difference": 0
+          },
+          {
+            "character": 3,
+            "positive_radical_eigenvalue": [
+              "12",
+              "6"
+            ],
+            "low_multiplicity_difference": 0
+          },
+          {
+            "character": 4,
+            "positive_radical_eigenvalue": [
+              "-36",
+              "18"
+            ],
+            "low_multiplicity_difference": 0
+          },
+          {
+            "character": 4,
+            "positive_radical_eigenvalue": [
+              "-12",
+              "6"
+            ],
+            "low_multiplicity_difference": 0
+          },
+          {
+            "character": 4,
+            "positive_radical_eigenvalue": [
+              "-4",
+              "2"
+            ],
+            "low_multiplicity_difference": 0
+          },
+          {
+            "character": 4,
+            "positive_radical_eigenvalue": [
+              "-3",
+              "1"
+            ],
+            "low_multiplicity_difference": 0
+          },
+          {
+            "character": 4,
+            "positive_radical_eigenvalue": [
+              "0",
+              "1"
+            ],
+            "low_multiplicity_difference": 0
+          },
+          {
+            "character": 4,
+            "positive_radical_eigenvalue": [
+              "0",
+              "2"
+            ],
+            "low_multiplicity_difference": 0
+          },
+          {
+            "character": 4,
+            "positive_radical_eigenvalue": [
+              "3",
+              "3"
+            ],
+            "low_multiplicity_difference": 0
+          },
+          {
+            "character": 4,
+            "positive_radical_eigenvalue": [
+              "6",
+              "4"
+            ],
+            "low_multiplicity_difference": 0
+          },
+          {
+            "character": 4,
+            "positive_radical_eigenvalue": [
+              "12",
+              "6"
+            ],
+            "low_multiplicity_difference": 0
+          }
+        ],
+        "forbidden_high_indices": [
+          37
+        ],
+        "character_assignment": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "system_sha256": "9f5af8e8e61037702c73fc4dbe9fe486ca7b896181b4f459277683a6f90c103c"
+      },
+      "decision": {
+        "numeric_status": 0,
+        "numeric_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "status": "exact_feasible_relaxation",
+        "primal": [
+          [
+            18,
+            "5/6"
+          ],
+          [
+            56,
+            "5/6"
+          ],
+          [
+            59,
+            "4"
+          ],
+          [
+            60,
+            "1/2"
+          ],
+          [
+            61,
+            "8"
+          ],
+          [
+            62,
+            "4"
+          ],
+          [
+            64,
+            "1"
+          ],
+          [
+            74,
+            "14/9"
+          ],
+          [
+            93,
+            "1/18"
+          ],
+          [
+            150,
+            "1/18"
+          ],
+          [
+            172,
+            "5/3"
+          ],
+          [
+            210,
+            "2/3"
+          ],
+          [
+            267,
+            "5/3"
+          ],
+          [
+            398,
+            "1"
+          ],
+          [
+            436,
+            "1"
+          ],
+          [
+            513,
+            "1/18"
+          ],
+          [
+            570,
+            "17/18"
+          ],
+          [
+            589,
+            "17/18"
+          ],
+          [
+            646,
+            "1/18"
+          ],
+          [
+            726,
+            "1"
+          ],
+          [
+            732,
+            "1"
+          ],
+          [
+            734,
+            "1"
+          ],
+          [
+            735,
+            "1"
+          ],
+          [
+            737,
+            "2"
+          ],
+          [
+            738,
+            "4"
+          ],
+          [
+            739,
+            "1"
+          ],
+          [
+            740,
+            "1"
+          ],
+          [
+            741,
+            "4"
+          ],
+          [
+            742,
+            "2"
+          ],
+          [
+            743,
+            "4"
+          ],
+          [
+            744,
+            "1"
+          ],
+          [
+            745,
+            "2"
+          ],
+          [
+            746,
+            "6"
+          ],
+          [
+            747,
+            "6"
+          ],
+          [
+            748,
+            "8"
+          ],
+          [
+            749,
+            "100"
+          ],
+          [
+            750,
+            "26"
+          ],
+          [
+            751,
+            "130"
+          ],
+          [
+            752,
+            "284"
+          ],
+          [
+            753,
+            "252"
+          ],
+          [
+            754,
+            "149"
+          ],
+          [
+            755,
+            "1"
+          ],
+          [
+            756,
+            "2"
+          ],
+          [
+            757,
+            "6"
+          ],
+          [
+            758,
+            "6"
+          ],
+          [
+            759,
+            "8"
+          ],
+          [
+            760,
+            "100"
+          ],
+          [
+            761,
+            "26"
+          ],
+          [
+            762,
+            "130"
+          ],
+          [
+            763,
+            "284"
+          ],
+          [
+            764,
+            "252"
+          ],
+          [
+            765,
+            "149"
+          ]
+        ]
+      }
+    },
+    {
+      "low_index": 12,
+      "metadata": {
+        "height": 6,
+        "high_columns": 38,
+        "trace_types": 19,
+        "order_bound": 144,
+        "rows": 159,
+        "variables": 766,
+        "forbid_nonunit_center_invertibles": true,
+        "forbid_nonunit_integral_center_simples": true,
+        "spectral_exclusions": [
+          {
+            "index": 37,
+            "column": [
+              2,
+              1,
+              2,
+              2
+            ],
+            "character": 3,
+            "eigenvalue": [
+              "-3/2"
+            ],
+            "characteristic_polynomial": [
+              "1",
+              "3",
+              "9/4"
+            ]
+          }
+        ],
+        "dimension_one_high_indices": [
+          19
+        ],
+        "integral_dimension_high_indices": [
+          9,
+          17,
+          19,
+          27
+        ],
+        "galois_spectral_balance": [
+          {
+            "character": 1,
+            "positive_radical_eigenvalue": [
+              "-7",
+              "4"
+            ],
+            "low_multiplicity_difference": 0
+          },
+          {
+            "character": 1,
+            "positive_radical_eigenvalue": [
+              "-2",
+              "1"
+            ],
+            "low_multiplicity_difference": 0
+          },
+          {
+            "character": 1,
+            "positive_radical_eigenvalue": [
+              "2",
+              "1"
+            ],
+            "low_multiplicity_difference": 0
+          },
+          {
+            "character": 1,
+            "positive_radical_eigenvalue": [
+              "7",
+              "4"
+            ],
+            "low_multiplicity_difference": 0
+          },
+          {
+            "character": 2,
+            "positive_radical_eigenvalue": [
+              "-8",
+              "4"
+            ],
+            "low_multiplicity_difference": 0
+          },
+          {
+            "character": 2,
+            "positive_radical_eigenvalue": [
+              "-2",
+              "2"
+            ],
+            "low_multiplicity_difference": 0
+          },
+          {
+            "character": 2,
+            "positive_radical_eigenvalue": [
+              "1",
+              "1"
+            ],
+            "low_multiplicity_difference": 0
+          },
+          {
+            "character": 2,
+            "positive_radical_eigenvalue": [
+              "16",
+              "8"
+            ],
+            "low_multiplicity_difference": 0
+          },
+          {
+            "character": 3,
+            "positive_radical_eigenvalue": [
+              "-36",
+              "18"
+            ],
+            "low_multiplicity_difference": 0
+          },
+          {
+            "character": 3,
+            "positive_radical_eigenvalue": [
+              "-12",
+              "6"
+            ],
+            "low_multiplicity_difference": 0
+          },
+          {
+            "character": 3,
+            "positive_radical_eigenvalue": [
+              "-4",
+              "2"
+            ],
+            "low_multiplicity_difference": 0
+          },
+          {
+            "character": 3,
+            "positive_radical_eigenvalue": [
+              "-3",
+              "1"
+            ],
+            "low_multiplicity_difference": 0
+          },
+          {
+            "character": 3,
+            "positive_radical_eigenvalue": [
+              "0",
+              "1"
+            ],
+            "low_multiplicity_difference": 0
+          },
+          {
+            "character": 3,
+            "positive_radical_eigenvalue": [
+              "0",
+              "2"
+            ],
+            "low_multiplicity_difference": 0
+          },
+          {
+            "character": 3,
+            "positive_radical_eigenvalue": [
+              "3",
+              "3"
+            ],
+            "low_multiplicity_difference": 0
+          },
+          {
+            "character": 3,
+            "positive_radical_eigenvalue": [
+              "6",
+              "4"
+            ],
+            "low_multiplicity_difference": 0
+          },
+          {
+            "character": 3,
+            "positive_radical_eigenvalue": [
+              "12",
+              "6"
+            ],
+            "low_multiplicity_difference": 0
+          },
+          {
+            "character": 4,
+            "positive_radical_eigenvalue": [
+              "-36",
+              "18"
+            ],
+            "low_multiplicity_difference": 0
+          },
+          {
+            "character": 4,
+            "positive_radical_eigenvalue": [
+              "-12",
+              "6"
+            ],
+            "low_multiplicity_difference": 0
+          },
+          {
+            "character": 4,
+            "positive_radical_eigenvalue": [
+              "-4",
+              "2"
+            ],
+            "low_multiplicity_difference": 0
+          },
+          {
+            "character": 4,
+            "positive_radical_eigenvalue": [
+              "-3",
+              "1"
+            ],
+            "low_multiplicity_difference": 0
+          },
+          {
+            "character": 4,
+            "positive_radical_eigenvalue": [
+              "0",
+              "1"
+            ],
+            "low_multiplicity_difference": 0
+          },
+          {
+            "character": 4,
+            "positive_radical_eigenvalue": [
+              "0",
+              "2"
+            ],
+            "low_multiplicity_difference": 0
+          },
+          {
+            "character": 4,
+            "positive_radical_eigenvalue": [
+              "3",
+              "3"
+            ],
+            "low_multiplicity_difference": 0
+          },
+          {
+            "character": 4,
+            "positive_radical_eigenvalue": [
+              "6",
+              "4"
+            ],
+            "low_multiplicity_difference": 0
+          },
+          {
+            "character": 4,
+            "positive_radical_eigenvalue": [
+              "12",
+              "6"
+            ],
+            "low_multiplicity_difference": 0
+          }
+        ],
+        "forbidden_high_indices": [
+          9,
+          17,
+          19,
+          27,
+          37
+        ],
+        "character_assignment": [
+          0,
+          1,
+          2,
+          3,
+          4
+        ],
+        "system_sha256": "e9b076ebee2eaaa9cd6abd34e22096d43117d85d0c2d4f2aea52e38e493c4162"
+      },
+      "decision": {
+        "numeric_status": 0,
+        "numeric_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "status": "exact_feasible_relaxation",
+        "primal": [
+          [
+            37,
+            "1/4"
+          ],
+          [
+            58,
+            "2"
+          ],
+          [
+            59,
+            "4"
+          ],
+          [
+            60,
+            "2"
+          ],
+          [
+            61,
+            "8"
+          ],
+          [
+            64,
+            "4"
+          ],
+          [
+            74,
+            "2"
+          ],
+          [
+            113,
+            "1/4"
+          ],
+          [
+            210,
+            "4"
+          ],
+          [
+            398,
+            "1"
+          ],
+          [
+            436,
+            "1"
+          ],
+          [
+            551,
+            "1/2"
+          ],
+          [
+            570,
+            "1"
+          ],
+          [
+            627,
+            "1/2"
+          ],
+          [
+            726,
+            "1"
+          ],
+          [
+            732,
+            "1"
+          ],
+          [
+            734,
+            "1"
+          ],
+          [
+            735,
+            "1"
+          ],
+          [
+            737,
+            "2"
+          ],
+          [
+            738,
+            "4"
+          ],
+          [
+            739,
+            "1"
+          ],
+          [
+            740,
+            "1"
+          ],
+          [
+            741,
+            "4"
+          ],
+          [
+            742,
+            "2"
+          ],
+          [
+            743,
+            "4"
+          ],
+          [
+            744,
+            "1"
+          ],
+          [
+            745,
+            "2"
+          ],
+          [
+            746,
+            "6"
+          ],
+          [
+            747,
+            "6"
+          ],
+          [
+            748,
+            "8"
+          ],
+          [
+            749,
+            "100"
+          ],
+          [
+            750,
+            "26"
+          ],
+          [
+            751,
+            "130"
+          ],
+          [
+            752,
+            "284"
+          ],
+          [
+            753,
+            "252"
+          ],
+          [
+            754,
+            "149"
+          ],
+          [
+            755,
+            "1"
+          ],
+          [
+            756,
+            "2"
+          ],
+          [
+            757,
+            "6"
+          ],
+          [
+            758,
+            "6"
+          ],
+          [
+            759,
+            "8"
+          ],
+          [
+            760,
+            "100"
+          ],
+          [
+            761,
+            "26"
+          ],
+          [
+            762,
+            "130"
+          ],
+          [
+            763,
+            "284"
+          ],
+          [
+            764,
+            "252"
+          ],
+          [
+            765,
+            "149"
+          ]
+        ]
+      }
+    },
+    {
+      "low_index": 12,
+      "metadata": {
+        "height": 6,
+        "high_columns": 38,
+        "trace_types": 19,
+        "order_bound": 144,
+        "rows": 155,
+        "variables": 766,
+        "forbid_nonunit_center_invertibles": false,
+        "forbid_nonunit_integral_center_simples": false,
+        "spectral_exclusions": [
+          {
+            "index": 37,
+            "column": [
+              2,
+              1,
+              2,
+              2
+            ],
+            "character": 3,
+            "eigenvalue": [
+              "-3/2"
+            ],
+            "characteristic_polynomial": [
+              "1",
+              "3",
+              "9/4"
+            ]
+          }
+        ],
+        "dimension_one_high_indices": [
+          19
+        ],
+        "integral_dimension_high_indices": [
+          9,
+          17,
+          19,
+          27
+        ],
+        "galois_spectral_balance": [
+          {
+            "character": 1,
+            "positive_radical_eigenvalue": [
+              "-7",
+              "4"
+            ],
+            "low_multiplicity_difference": 0
+          },
+          {
+            "character": 1,
+            "positive_radical_eigenvalue": [
+              "-2",
+              "1"
+            ],
+            "low_multiplicity_difference": 0
+          },
+          {
+            "character": 1,
+            "positive_radical_eigenvalue": [
+              "2",
+              "1"
+            ],
+            "low_multiplicity_difference": 0
+          },
+          {
+            "character": 1,
+            "positive_radical_eigenvalue": [
+              "7",
+              "4"
+            ],
+            "low_multiplicity_difference": 0
+          },
+          {
+            "character": 2,
+            "positive_radical_eigenvalue": [
+              "-8",
+              "4"
+            ],
+            "low_multiplicity_difference": 0
+          },
+          {
+            "character": 2,
+            "positive_radical_eigenvalue": [
+              "-2",
+              "2"
+            ],
+            "low_multiplicity_difference": 0
+          },
+          {
+            "character": 2,
+            "positive_radical_eigenvalue": [
+              "1",
+              "1"
+            ],
+            "low_multiplicity_difference": 0
+          },
+          {
+            "character": 2,
+            "positive_radical_eigenvalue": [
+              "16",
+              "8"
+            ],
+            "low_multiplicity_difference": 0
+          },
+          {
+            "character": 3,
+            "positive_radical_eigenvalue": [
+              "-36",
+              "18"
+            ],
+            "low_multiplicity_difference": 0
+          },
+          {
+            "character": 3,
+            "positive_radical_eigenvalue": [
+              "-12",
+              "6"
+            ],
+            "low_multiplicity_difference": 0
+          },
+          {
+            "character": 3,
+            "positive_radical_eigenvalue": [
+              "-4",
+              "2"
+            ],
+            "low_multiplicity_difference": 0
+          },
+          {
+            "character": 3,
+            "positive_radical_eigenvalue": [
+              "-3",
+              "1"
+            ],
+            "low_multiplicity_difference": 0
+          },
+          {
+            "character": 3,
+            "positive_radical_eigenvalue": [
+              "0",
+              "1"
+            ],
+            "low_multiplicity_difference": 0
+          },
+          {
+            "character": 3,
+            "positive_radical_eigenvalue": [
+              "0",
+              "2"
+            ],
+            "low_multiplicity_difference": 0
+          },
+          {
+            "character": 3,
+            "positive_radical_eigenvalue": [
+              "3",
+              "3"
+            ],
+            "low_multiplicity_difference": 0
+          },
+          {
+            "character": 3,
+            "positive_radical_eigenvalue": [
+              "6",
+              "4"
+            ],
+            "low_multiplicity_difference": 0
+          },
+          {
+            "character": 3,
+            "positive_radical_eigenvalue": [
+              "12",
+              "6"
+            ],
+            "low_multiplicity_difference": 0
+          },
+          {
+            "character": 4,
+            "positive_radical_eigenvalue": [
+              "-36",
+              "18"
+            ],
+            "low_multiplicity_difference": 0
+          },
+          {
+            "character": 4,
+            "positive_radical_eigenvalue": [
+              "-12",
+              "6"
+            ],
+            "low_multiplicity_difference": 0
+          },
+          {
+            "character": 4,
+            "positive_radical_eigenvalue": [
+              "-4",
+              "2"
+            ],
+            "low_multiplicity_difference": 0
+          },
+          {
+            "character": 4,
+            "positive_radical_eigenvalue": [
+              "-3",
+              "1"
+            ],
+            "low_multiplicity_difference": 0
+          },
+          {
+            "character": 4,
+            "positive_radical_eigenvalue": [
+              "0",
+              "1"
+            ],
+            "low_multiplicity_difference": 0
+          },
+          {
+            "character": 4,
+            "positive_radical_eigenvalue": [
+              "0",
+              "2"
+            ],
+            "low_multiplicity_difference": 0
+          },
+          {
+            "character": 4,
+            "positive_radical_eigenvalue": [
+              "3",
+              "3"
+            ],
+            "low_multiplicity_difference": 0
+          },
+          {
+            "character": 4,
+            "positive_radical_eigenvalue": [
+              "6",
+              "4"
+            ],
+            "low_multiplicity_difference": 0
+          },
+          {
+            "character": 4,
+            "positive_radical_eigenvalue": [
+              "12",
+              "6"
+            ],
+            "low_multiplicity_difference": 0
+          }
+        ],
+        "forbidden_high_indices": [
+          37
+        ],
+        "character_assignment": [
+          0,
+          1,
+          2,
+          4,
+          3
+        ],
+        "system_sha256": "7364e506f7680b0caea508737d65269135bd413ff27bd8fc0e849d5621210060"
+      },
+      "decision": {
+        "numeric_status": 0,
+        "numeric_message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "status": "exact_feasible_relaxation",
+        "primal": [
+          [
+            19,
+            "1/2"
+          ],
+          [
+            59,
+            "4"
+          ],
+          [
+            60,
+            "2"
+          ],
+          [
+            61,
+            "8"
+          ],
+          [
+            64,
+            "4"
+          ],
+          [
+            74,
+            "2"
+          ],
+          [
+            95,
+            "1/2"
+          ],
+          [
+            172,
+            "1"
+          ],
+          [
+            210,
+            "2"
+          ],
+          [
+            267,
+            "1"
+          ],
+          [
+            379,
+            "1"
+          ],
+          [
+            455,
+            "1"
+          ],
+          [
+            570,
+            "1"
+          ],
+          [
+            589,
+            "1"
+          ],
+          [
+            726,
+            "1"
+          ],
+          [
+            732,
+            "1"
+          ],
+          [
+            734,
+            "1"
+          ],
+          [
+            735,
+            "1"
+          ],
+          [
+            737,
+            "2"
+          ],
+          [
+            738,
+            "4"
+          ],
+          [
+            739,
+            "1"
+          ],
+          [
+            740,
+            "1"
+          ],
+          [
+            741,
+            "4"
+          ],
+          [
+            742,
+            "2"
+          ],
+          [
+            743,
+            "4"
+          ],
+          [
+            744,
+            "1"
+          ],
+          [
+            745,
+            "2"
+          ],
+          [
+            746,
+            "6"
+          ],
+          [
+            747,
+            "6"
+          ],
+          [
+            748,
+            "8"
+          ],
+          [
+            749,
+            "100"
+          ],
+          [
+            750,
+            "26"
+          ],
+          [
+            751,
+            "130"
+          ],
+          [
+            752,
+            "284"
+          ],
+          [
+            753,
+            "252"
+          ],
+          [
+            754,
+            "149"
+          ],
+          [
+            755,
+            "1"
+          ],
+          [
+            756,
+            "2"
+          ],
+          [
+            757,
+            "6"
+          ],
+          [
+            758,
+            "6"
+          ],
+          [
+            759,
+            "8"
+          ],
+          [
+            760,
+            "100"
+          ],
+          [
+            761,
+            "26"
+          ],
+          [
+            762,
+            "130"
+          ],
+          [
+            763,
+            "284"
+          ],
+          [
+            764,
+            "252"
+          ],
+          [
+            765,
+            "149"
+          ]
+        ]
+      }
+    },
+    {
+      "low_index": 12,
+      "metadata": {
+        "height": 6,
+        "high_columns": 38,
+        "trace_types": 19,
+        "order_bound": 144,
+        "rows": 159,
+        "variables": 766,
+        "forbid_nonunit_center_invertibles": true,
+        "forbid_nonunit_integral_center_simples": true,
+        "spectral_exclusions": [
+          {
+            "index": 37,
+            "column": [
+              2,
+              1,
+              2,
+              2
+            ],
+            "character": 3,
+            "eigenvalue": [
+              "-3/2"
+            ],
+            "characteristic_polynomial": [
+              "1",
+              "3",
+              "9/4"
+            ]
+          }
+        ],
+        "dimension_one_high_indices": [
+          19
+        ],
+        "integral_dimension_high_indices": [
+          9,
+          17,
+          19,
+          27
+        ],
+        "galois_spectral_balance": [
+          {
+            "character": 1,
+            "positive_radical_eigenvalue": [
+              "-7",
+              "4"
+            ],
+            "low_multiplicity_difference": 0
+          },
+          {
+            "character": 1,
+            "positive_radical_eigenvalue": [
+              "-2",
+              "1"
+            ],
+            "low_multiplicity_difference": 0
+          },
+          {
+            "character": 1,
+            "positive_radical_eigenvalue": [
+              "2",
+              "1"
+            ],
+            "low_multiplicity_difference": 0
+          },
+          {
+            "character": 1,
+            "positive_radical_eigenvalue": [
+              "7",
+              "4"
+            ],
+            "low_multiplicity_difference": 0
+          },
+          {
+            "character": 2,
+            "positive_radical_eigenvalue": [
+              "-8",
+              "4"
+            ],
+            "low_multiplicity_difference": 0
+          },
+          {
+            "character": 2,
+            "positive_radical_eigenvalue": [
+              "-2",
+              "2"
+            ],
+            "low_multiplicity_difference": 0
+          },
+          {
+            "character": 2,
+            "positive_radical_eigenvalue": [
+              "1",
+              "1"
+            ],
+            "low_multiplicity_difference": 0
+          },
+          {
+            "character": 2,
+            "positive_radical_eigenvalue": [
+              "16",
+              "8"
+            ],
+            "low_multiplicity_difference": 0
+          },
+          {
+            "character": 3,
+            "positive_radical_eigenvalue": [
+              "-36",
+              "18"
+            ],
+            "low_multiplicity_difference": 0
+          },
+          {
+            "character": 3,
+            "positive_radical_eigenvalue": [
+              "-12",
+              "6"
+            ],
+            "low_multiplicity_difference": 0
+          },
+          {
+            "character": 3,
+            "positive_radical_eigenvalue": [
+              "-4",
+              "2"
+            ],
+            "low_multiplicity_difference": 0
+          },
+          {
+            "character": 3,
+            "positive_radical_eigenvalue": [
+              "-3",
+              "1"
+            ],
+            "low_multiplicity_difference": 0
+          },
+          {
+            "character": 3,
+            "positive_radical_eigenvalue": [
+              "0",
+              "1"
+            ],
+            "low_multiplicity_difference": 0
+          },
+          {
+            "character": 3,
+            "positive_radical_eigenvalue": [
+              "0",
+              "2"
+            ],
+            "low_multiplicity_difference": 0
+          },
+          {
+            "character": 3,
+            "positive_radical_eigenvalue": [
+              "3",
+              "3"
+            ],
+            "low_multiplicity_difference": 0
+          },
+          {
+            "character": 3,
+            "positive_radical_eigenvalue": [
+              "6",
+              "4"
+            ],
+            "low_multiplicity_difference": 0
+          },
+          {
+            "character": 3,
+            "positive_radical_eigenvalue": [
+              "12",
+              "6"
+            ],
+            "low_multiplicity_difference": 0
+          },
+          {
+            "character": 4,
+            "positive_radical_eigenvalue": [
+              "-36",
+              "18"
+            ],
+            "low_multiplicity_difference": 0
+          },
+          {
+            "character": 4,
+            "positive_radical_eigenvalue": [
+              "-12",
+              "6"
+            ],
+            "low_multiplicity_difference": 0
+          },
+          {
+            "character": 4,
+            "positive_radical_eigenvalue": [
+              "-4",
+              "2"
+            ],
+            "low_multiplicity_difference": 0
+          },
+          {
+            "character": 4,
+            "positive_radical_eigenvalue": [
+              "-3",
+              "1"
+            ],
+            "low_multiplicity_difference": 0
+          },
+          {
+            "character": 4,
+            "positive_radical_eigenvalue": [
+              "0",
+              "1"
+            ],
+            "low_multiplicity_difference": 0
+          },
+          {
+            "character": 4,
+            "positive_radical_eigenvalue": [
+              "0",
+              "2"
+            ],
+            "low_multiplicity_difference": 0
+          },
+          {
+            "character": 4,
+            "positive_radical_eigenvalue": [
+              "3",
+              "3"
+            ],
+            "low_multiplicity_difference": 0
+          },
+          {
+            "character": 4,
+            "positive_radical_eigenvalue": [
+              "6",
+              "4"
+            ],
+            "low_multiplicity_difference": 0
+          },
+          {
+            "character": 4,
+            "positive_radical_eigenvalue": [
+              "12",
+              "6"
+            ],
+            "low_multiplicity_difference": 0
+          }
+        ],
+        "forbidden_high_indices": [
+          9,
+          17,
+          19,
+          27,
+          37
+        ],
+        "character_assignment": [
+          0,
+          1,
+          2,
+          4,
+          3
+        ],
+        "system_sha256": "05dbb8a56e502fe5e7d9ec2643fa33c314315e01a7dfb46af9546ca80e6b2d34"
+      },
+      "decision": {
+        "numeric_status": 2,
+        "numeric_message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+        "status": "exact_infeasible_relaxation",
+        "ray": [
+          -959800458874176,
+          0,
+          6700678973217888,
+          177635119577568,
+          0,
+          16859682513158400,
+          6026119468784640,
+          4279005765475200,
+          -11442900990971520,
+          10433295508631040,
+          0,
+          0,
+          0,
+          -1828319781708240,
+          0,
+          0,
+          0,
+          0,
+          -837208097533692,
+          0,
+          1226025106175520,
+          0,
+          181290385790640,
+          0,
+          -363934496612196,
+          1182638292426792,
+          354729930720117120,
+          0,
+          -471009950464536,
+          25896732944532480,
+          -539515269677760,
+          0,
+          25896732944532480,
+          0,
+          354729930720117120,
+          0,
+          0,
+          3186029177839104,
+          -66375607871648,
+          0,
+          3186029177839104,
+          0,
+          0,
+          -66375607871648,
+          0,
+          0,
+          0,
+          0,
+          102428000037168,
+          -204856000074336,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          -899545796522112,
+          1799091593044224,
+          0,
+          0,
+          -486787168317784,
+          973574336635568,
+          0,
+          0,
+          0,
+          0,
+          78136832403360,
+          -156273664806720,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          272450023594560,
+          -544900047189120,
+          0,
+          0,
+          -11669080369644,
+          23338160739288,
+          0,
+          0,
+          0,
+          0,
+          739213238380320,
+          -1478426476760640,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          -181633349063040,
+          363266698126080,
+          0,
+          0,
+          0,
+          40168809839787,
+          894306057092400,
+          -639405564028602,
+          0,
+          0,
+          0,
+          0,
+          0,
+          -1343230354780560,
+          0,
+          -92591029901793,
+          -357634572513408,
+          0,
+          0,
+          291469786786800,
+          0,
+          0,
+          -5275722977674944,
+          0,
+          3653911106248320,
+          2343988391490096,
+          0,
+          0,
+          315554187258972,
+          1014868338284736,
+          -8786408312869416,
+          -3547786831915968,
+          -2563161933858948,
+          -1052671050952704,
+          354729930720117120,
+          354729930720117120,
+          0,
+          0,
+          0,
+          354729930720117120,
+          -354729930720117120,
+          0,
+          354729930720117120,
+          0,
+          -276565582863360,
+          553131165726720,
+          0,
+          0,
+          -354729930720117120,
+          -354729930720117120,
+          -354729930720117120,
+          354729930720117120,
+          0,
+          0,
+          0,
+          0,
+          0,
+          -354729930720117120,
+          -354729930720117120,
+          -354729930720117120,
+          354729930720117120,
+          354729930720117120,
+          354729930720117120,
+          354729930720117120,
+          354729930720117120
+        ]
+      }
+    }
+  ],
+  "centerless_excluded": false,
+  "positive_control_exists": true
+}

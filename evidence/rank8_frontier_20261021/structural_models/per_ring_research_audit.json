@@ -3,7 +3,7 @@
   "scope": "research coverage and source binding; linked proof verifiers provide mathematical replay",
   "research_status": "ongoing",
   "baseline_ring_count": 34,
-  "accepted_general_exclusions": 15,
+  "accepted_general_exclusions": 17,
   "candidate_terminology": "After completed extensive known/new exclusion and construction screening, a remaining ring may be called an extensively investigated exotic candidate in the user-defined sense; categorifiability and novelty remain unproved.",
   "rows": [
     {
@@ -1503,6 +1503,77 @@
             "exponent_box_size": 10,
             "dimension_bounded_product_count": 8,
             "positive_integer_scaling_matches": []
+          }
+        },
+        {
+          "domain": "all_generalized_near_group_dimension_parameters_with_integer_scalings",
+          "outcome": "finite_family_dimension_matches_only",
+          "scope": "specific_model_family_only",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/generalized_near_group_all_frontier.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/generalized_near_group_all_frontier.py"
+          ],
+          "limitation": "This is a necessary dimension-family test; retained parameter triples are not categories, and integral targets lie outside its irrational quadratic parameter theorem.",
+          "proof": "evidence/rank8_frontier_20261021/noncommutative_followup/GENERALIZED_NEAR_GROUP_TABLE.md",
+          "details": {
+            "id": "R8_3_65",
+            "tensor_sha256": "fb2d70fa36311b2092190eb1ecd5e3e82fd4ab7ff646b11aa7c7e518d261a1c4",
+            "global_dimension_minimal_polynomial": [
+              "1",
+              "-500",
+              "2000"
+            ],
+            "positive_root_interval": [
+              "45629/92",
+              "61004/123"
+            ],
+            "scope": "specific_model_family_only",
+            "outcome": "finite_family_dimension_matches_only",
+            "forced_group_order_before_integer_multiplier": "4",
+            "families": [
+              {
+                "integer_dimension_multiplier": 1,
+                "invertible_group_order": 4,
+                "stabilizer_order": 1,
+                "noninvertible_orbit_size": 4,
+                "total_noninvertible_multiplicity": 11,
+                "base_rank": 8,
+                "base_rank_two_classification_excludes": false,
+                "status": "dimension_match_only_no_model_or_Morita_equivalence"
+              },
+              {
+                "integer_dimension_multiplier": 1,
+                "invertible_group_order": 4,
+                "stabilizer_order": 4,
+                "noninvertible_orbit_size": 1,
+                "total_noninvertible_multiplicity": 22,
+                "base_rank": 5,
+                "base_rank_two_classification_excludes": false,
+                "status": "dimension_match_only_no_model_or_Morita_equivalence"
+              },
+              {
+                "integer_dimension_multiplier": 2,
+                "invertible_group_order": 2,
+                "stabilizer_order": 1,
+                "noninvertible_orbit_size": 2,
+                "total_noninvertible_multiplicity": 11,
+                "base_rank": 4,
+                "base_rank_two_classification_excludes": false,
+                "status": "dimension_match_only_no_model_or_Morita_equivalence"
+              },
+              {
+                "integer_dimension_multiplier": 4,
+                "invertible_group_order": 1,
+                "stabilizer_order": 1,
+                "noninvertible_orbit_size": 1,
+                "total_noninvertible_multiplicity": 11,
+                "base_rank": 2,
+                "base_rank_two_classification_excludes": true,
+                "status": "impossible_rank_two_base"
+              }
+            ]
           }
         },
         {
@@ -4165,6 +4236,57 @@
             "dimension_bounded_product_count": 1,
             "positive_integer_scaling_matches": []
           }
+        },
+        {
+          "domain": "all_generalized_near_group_dimension_parameters_with_integer_scalings",
+          "outcome": "finite_family_dimension_matches_only",
+          "scope": "specific_model_family_only",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/generalized_near_group_all_frontier.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/generalized_near_group_all_frontier.py"
+          ],
+          "limitation": "This is a necessary dimension-family test; retained parameter triples are not categories, and integral targets lie outside its irrational quadratic parameter theorem.",
+          "proof": "evidence/rank8_frontier_20261021/noncommutative_followup/GENERALIZED_NEAR_GROUP_TABLE.md",
+          "details": {
+            "id": "R8_3_436",
+            "tensor_sha256": "0f6d68de67a7287db7dd32a786237f7af9f35ec7c26b3ada2ba50012ff5455c7",
+            "global_dimension_minimal_polynomial": [
+              "1",
+              "-42",
+              "252"
+            ],
+            "positive_root_interval": [
+              "3718/107",
+              "3857/111"
+            ],
+            "scope": "specific_model_family_only",
+            "outcome": "finite_family_dimension_matches_only",
+            "forced_group_order_before_integer_multiplier": "6",
+            "families": [
+              {
+                "integer_dimension_multiplier": 1,
+                "invertible_group_order": 6,
+                "stabilizer_order": 3,
+                "noninvertible_orbit_size": 2,
+                "total_noninvertible_multiplicity": 3,
+                "base_rank": 8,
+                "base_rank_two_classification_excludes": false,
+                "status": "dimension_match_only_no_model_or_Morita_equivalence"
+              },
+              {
+                "integer_dimension_multiplier": 2,
+                "invertible_group_order": 3,
+                "stabilizer_order": 3,
+                "noninvertible_orbit_size": 1,
+                "total_noninvertible_multiplicity": 3,
+                "base_rank": 4,
+                "base_rank_two_classification_excludes": false,
+                "status": "dimension_match_only_no_model_or_Morita_equivalence"
+              }
+            ]
+          }
         }
       ],
       "limitations": [
@@ -5428,6 +5550,57 @@
           }
         },
         {
+          "domain": "complete_pointed_S3_cocycle_and_subgroup_Morita_branch_after_forced_indicators",
+          "outcome": "every_categorification_has_rank5_R5_3_40_Morita_dual_with_nonstandard_associator",
+          "scope": "general_complex_after_proved_Galois_PU_reduction",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/structural_models/pointed_s3_scope.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/structural_models/pointed_s3_scope.py"
+          ],
+          "limitation": "These are necessary categorical structure constraints; no existence, novelty or general exclusion is proved.",
+          "proof": "evidence/rank8_frontier_20261021/structural_models/POINTED_S3_SCOPE.md",
+          "details": {
+            "id": "R8_3_439",
+            "tensor_sha256": "dd40ef78c0af51291aedd91134123f7177c18cc9de9c9d3b039a6308bb340791",
+            "scope": "general_complex_after_proved_Galois_PU_reduction",
+            "forced_PU_indicators": [
+              0,
+              0,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "pointed_C3_indices": [
+              0,
+              1,
+              2
+            ],
+            "pointed_order_two_indices": [
+              3,
+              6,
+              7
+            ],
+            "C3_fixed_noninvertible_indices": [
+              4,
+              5
+            ],
+            "restriction_to_C3": "trivial_by_rank_one_module_pentagon",
+            "restriction_to_C2": "trivial",
+            "restriction_corestriction_indices": [
+              2,
+              3
+            ],
+            "full_S3_subgroup_algebra_exists_in_every_categorification": true,
+            "outcome": "every_categorification_has_rank5_R5_3_40_Morita_dual_with_nonstandard_associator",
+            "no_known_rank5_equivariantization_model": true,
+            "limitation": "These are necessary categorical structure constraints; no existence, novelty or general exclusion is proved."
+          }
+        },
+        {
           "domain": "all_connected_separable_algebra_underlying_objects_entrywise_and_PSD_Gram",
           "outcome": "complete_necessary_object_filter_survives",
           "scope": "general_complex_algebra_construction_constraints",
@@ -5524,6 +5697,106 @@
                 ],
                 "positive_integer": true
               }
+            ]
+          }
+        },
+        {
+          "domain": "all_generalized_near_group_dimension_parameters_with_integer_scalings",
+          "outcome": "finite_family_dimension_matches_only",
+          "scope": "specific_model_family_only",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/generalized_near_group_all_frontier.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/generalized_near_group_all_frontier.py"
+          ],
+          "limitation": "This is a necessary dimension-family test; retained parameter triples are not categories, and integral targets lie outside its irrational quadratic parameter theorem.",
+          "proof": "evidence/rank8_frontier_20261021/noncommutative_followup/GENERALIZED_NEAR_GROUP_TABLE.md",
+          "details": {
+            "id": "R8_3_439",
+            "tensor_sha256": "dd40ef78c0af51291aedd91134123f7177c18cc9de9c9d3b039a6308bb340791",
+            "global_dimension_minimal_polynomial": [
+              "1",
+              "-96",
+              "576"
+            ],
+            "positive_root_interval": [
+              "40127/448",
+              "5822/65"
+            ],
+            "scope": "specific_model_family_only",
+            "outcome": "finite_family_dimension_matches_only",
+            "forced_group_order_before_integer_multiplier": "6",
+            "families": [
+              {
+                "integer_dimension_multiplier": 1,
+                "invertible_group_order": 6,
+                "stabilizer_order": 3,
+                "noninvertible_orbit_size": 2,
+                "total_noninvertible_multiplicity": 6,
+                "base_rank": 8,
+                "base_rank_two_classification_excludes": false,
+                "status": "dimension_match_only_no_model_or_Morita_equivalence"
+              },
+              {
+                "integer_dimension_multiplier": 2,
+                "invertible_group_order": 3,
+                "stabilizer_order": 3,
+                "noninvertible_orbit_size": 1,
+                "total_noninvertible_multiplicity": 6,
+                "base_rank": 4,
+                "base_rank_two_classification_excludes": false,
+                "status": "dimension_match_only_no_model_or_Morita_equivalence"
+              }
+            ]
+          }
+        },
+        {
+          "domain": "complete_central_image_and_full_character_S_assignments",
+          "outcome": "necessary_frames_survive_not_models",
+          "scope": "general_complex_necessary_after_proved_Galois_PU_reduction",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/additional_central_constraints.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/additional_central_constraints.py"
+          ],
+          "limitation": "The retained full-S assignments and necessary induction frames are not modular categories or categorifications.",
+          "proof": "evidence/rank8_frontier_20261021/noncommutative_followup/ADDITIONAL_SCOPE_GATES.md",
+          "details": {
+            "low_count": 5,
+            "ordinary_surviving_count": 5,
+            "full_S_surviving_count": 1,
+            "splitting_field_extension_by_i_used": false
+          }
+        },
+        {
+          "domain": "all_indicator_branches_joint_height6_rotations_on_unique_full_S_frame",
+          "outcome": "one_exact_necessary_indicator_branch_survives",
+          "scope": "general_complex_necessary_after_proved_Galois_PU_reduction",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/additional_joint_rotation_h6.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/additional_joint_rotation.py"
+          ],
+          "limitation": "This determines necessary pointed-cocycle signs through the separate structural bridge; the surviving exact primal is not a model.",
+          "proof": "evidence/rank8_frontier_20261021/noncommutative_followup/ADDITIONAL_SCOPE_GATES.md",
+          "details": {
+            "height": 6,
+            "complete_branch_count": 8,
+            "exact_negative_count": 7,
+            "exact_primal_count": 1,
+            "surviving_indicators": [
+              [
+                0,
+                0,
+                1,
+                1,
+                1,
+                1,
+                1
+              ]
             ]
           }
         }
@@ -9227,6 +9500,96 @@
             "dimension_bounded_product_count": 2,
             "positive_integer_scaling_matches": []
           }
+        },
+        {
+          "domain": "all_generalized_near_group_dimension_parameters_with_integer_scalings",
+          "outcome": "finite_family_dimension_matches_only",
+          "scope": "specific_model_family_only",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/generalized_near_group_all_frontier.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/generalized_near_group_all_frontier.py"
+          ],
+          "limitation": "This is a necessary dimension-family test; retained parameter triples are not categories, and integral targets lie outside its irrational quadratic parameter theorem.",
+          "proof": "evidence/rank8_frontier_20261021/noncommutative_followup/GENERALIZED_NEAR_GROUP_TABLE.md",
+          "details": {
+            "id": "R8_3_455",
+            "tensor_sha256": "358b5323c54c66e80684b34dbe39d7bff44c5fe227bb8fb188794a0a9a722d88",
+            "global_dimension_minimal_polynomial": [
+              "1",
+              "-78",
+              "468"
+            ],
+            "positive_root_interval": [
+              "40655/569",
+              "1429/20"
+            ],
+            "scope": "specific_model_family_only",
+            "outcome": "finite_family_dimension_matches_only",
+            "forced_group_order_before_integer_multiplier": "6",
+            "families": [
+              {
+                "integer_dimension_multiplier": 1,
+                "invertible_group_order": 6,
+                "stabilizer_order": 1,
+                "noninvertible_orbit_size": 6,
+                "total_noninvertible_multiplicity": 3,
+                "base_rank": 12,
+                "base_rank_two_classification_excludes": false,
+                "status": "dimension_match_only_no_model_or_Morita_equivalence"
+              },
+              {
+                "integer_dimension_multiplier": 2,
+                "invertible_group_order": 3,
+                "stabilizer_order": 1,
+                "noninvertible_orbit_size": 3,
+                "total_noninvertible_multiplicity": 3,
+                "base_rank": 6,
+                "base_rank_two_classification_excludes": false,
+                "status": "dimension_match_only_no_model_or_Morita_equivalence"
+              },
+              {
+                "integer_dimension_multiplier": 3,
+                "invertible_group_order": 2,
+                "stabilizer_order": 1,
+                "noninvertible_orbit_size": 2,
+                "total_noninvertible_multiplicity": 3,
+                "base_rank": 4,
+                "base_rank_two_classification_excludes": false,
+                "status": "dimension_match_only_no_model_or_Morita_equivalence"
+              },
+              {
+                "integer_dimension_multiplier": 6,
+                "invertible_group_order": 1,
+                "stabilizer_order": 1,
+                "noninvertible_orbit_size": 1,
+                "total_noninvertible_multiplicity": 3,
+                "base_rank": 2,
+                "base_rank_two_classification_excludes": true,
+                "status": "impossible_rank_two_base"
+              }
+            ]
+          }
+        },
+        {
+          "domain": "complete_central_image_and_full_character_S_assignments",
+          "outcome": "necessary_frames_survive_not_models",
+          "scope": "general_complex_necessary_after_proved_Galois_PU_reduction",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/additional_central_constraints.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/additional_central_constraints.py"
+          ],
+          "limitation": "The retained full-S assignments and necessary induction frames are not modular categories or categorifications.",
+          "proof": "evidence/rank8_frontier_20261021/noncommutative_followup/ADDITIONAL_SCOPE_GATES.md",
+          "details": {
+            "low_count": 1,
+            "ordinary_surviving_count": 1,
+            "full_S_surviving_count": 1,
+            "splitting_field_extension_by_i_used": false
+          }
         }
       ],
       "limitations": [
@@ -10425,6 +10788,57 @@
           }
         },
         {
+          "domain": "complete_pointed_S3_cocycle_and_subgroup_Morita_branch_after_forced_indicators",
+          "outcome": "pointed_S3_associator_has_nontrivial_C2_restriction_full_S3_algebra_impossible",
+          "scope": "general_complex_after_proved_Galois_PU_reduction",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/structural_models/pointed_s3_scope.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/structural_models/pointed_s3_scope.py"
+          ],
+          "limitation": "These are necessary categorical structure constraints; no existence, novelty or general exclusion is proved.",
+          "proof": "evidence/rank8_frontier_20261021/structural_models/POINTED_S3_SCOPE.md",
+          "details": {
+            "id": "R8_3_567",
+            "tensor_sha256": "0efab5b3d7571872f46dd6ccc95c4b228123b252062d758318ee51834288ef4d",
+            "scope": "general_complex_after_proved_Galois_PU_reduction",
+            "forced_PU_indicators": [
+              0,
+              0,
+              0,
+              0,
+              -1,
+              -1,
+              -1
+            ],
+            "pointed_C3_indices": [
+              0,
+              1,
+              2
+            ],
+            "pointed_order_two_indices": [
+              5,
+              6,
+              7
+            ],
+            "C3_fixed_noninvertible_indices": [
+              3,
+              4
+            ],
+            "restriction_to_C3": "trivial_by_rank_one_module_pentagon",
+            "restriction_to_C2": "nontrivial",
+            "restriction_corestriction_indices": [
+              2,
+              3
+            ],
+            "full_S3_subgroup_algebra_exists_in_every_categorification": false,
+            "outcome": "pointed_S3_associator_has_nontrivial_C2_restriction_full_S3_algebra_impossible",
+            "no_known_rank5_equivariantization_model": true,
+            "limitation": "These are necessary categorical structure constraints; no existence, novelty or general exclusion is proved."
+          }
+        },
+        {
           "domain": "all_connected_separable_algebra_underlying_objects_entrywise_and_PSD_Gram",
           "outcome": "complete_necessary_object_filter_survives",
           "scope": "general_complex_algebra_construction_constraints",
@@ -10521,6 +10935,106 @@
                 ],
                 "positive_integer": true
               }
+            ]
+          }
+        },
+        {
+          "domain": "all_generalized_near_group_dimension_parameters_with_integer_scalings",
+          "outcome": "finite_family_dimension_matches_only",
+          "scope": "specific_model_family_only",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/generalized_near_group_all_frontier.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/generalized_near_group_all_frontier.py"
+          ],
+          "limitation": "This is a necessary dimension-family test; retained parameter triples are not categories, and integral targets lie outside its irrational quadratic parameter theorem.",
+          "proof": "evidence/rank8_frontier_20261021/noncommutative_followup/GENERALIZED_NEAR_GROUP_TABLE.md",
+          "details": {
+            "id": "R8_3_567",
+            "tensor_sha256": "0efab5b3d7571872f46dd6ccc95c4b228123b252062d758318ee51834288ef4d",
+            "global_dimension_minimal_polynomial": [
+              "1",
+              "-96",
+              "576"
+            ],
+            "positive_root_interval": [
+              "40127/448",
+              "5822/65"
+            ],
+            "scope": "specific_model_family_only",
+            "outcome": "finite_family_dimension_matches_only",
+            "forced_group_order_before_integer_multiplier": "6",
+            "families": [
+              {
+                "integer_dimension_multiplier": 1,
+                "invertible_group_order": 6,
+                "stabilizer_order": 3,
+                "noninvertible_orbit_size": 2,
+                "total_noninvertible_multiplicity": 6,
+                "base_rank": 8,
+                "base_rank_two_classification_excludes": false,
+                "status": "dimension_match_only_no_model_or_Morita_equivalence"
+              },
+              {
+                "integer_dimension_multiplier": 2,
+                "invertible_group_order": 3,
+                "stabilizer_order": 3,
+                "noninvertible_orbit_size": 1,
+                "total_noninvertible_multiplicity": 6,
+                "base_rank": 4,
+                "base_rank_two_classification_excludes": false,
+                "status": "dimension_match_only_no_model_or_Morita_equivalence"
+              }
+            ]
+          }
+        },
+        {
+          "domain": "complete_central_image_and_full_character_S_assignments",
+          "outcome": "necessary_frames_survive_not_models",
+          "scope": "general_complex_necessary_after_proved_Galois_PU_reduction",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/additional_central_constraints.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/additional_central_constraints.py"
+          ],
+          "limitation": "The retained full-S assignments and necessary induction frames are not modular categories or categorifications.",
+          "proof": "evidence/rank8_frontier_20261021/noncommutative_followup/ADDITIONAL_SCOPE_GATES.md",
+          "details": {
+            "low_count": 5,
+            "ordinary_surviving_count": 5,
+            "full_S_surviving_count": 1,
+            "splitting_field_extension_by_i_used": true
+          }
+        },
+        {
+          "domain": "all_indicator_branches_joint_height6_rotations_on_unique_full_S_frame",
+          "outcome": "one_exact_necessary_indicator_branch_survives",
+          "scope": "general_complex_necessary_after_proved_Galois_PU_reduction",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/additional_joint_rotation_h6.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/additional_joint_rotation.py"
+          ],
+          "limitation": "This determines necessary pointed-cocycle signs through the separate structural bridge; the surviving exact primal is not a model.",
+          "proof": "evidence/rank8_frontier_20261021/noncommutative_followup/ADDITIONAL_SCOPE_GATES.md",
+          "details": {
+            "height": 6,
+            "complete_branch_count": 8,
+            "exact_negative_count": 7,
+            "exact_primal_count": 1,
+            "surviving_indicators": [
+              [
+                0,
+                0,
+                0,
+                0,
+                -1,
+                -1,
+                -1
+              ]
             ]
           }
         }
@@ -11774,6 +12288,77 @@
             "exponent_box_size": 1,
             "dimension_bounded_product_count": 1,
             "positive_integer_scaling_matches": []
+          }
+        },
+        {
+          "domain": "all_generalized_near_group_dimension_parameters_with_integer_scalings",
+          "outcome": "finite_family_dimension_matches_only",
+          "scope": "specific_model_family_only",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/generalized_near_group_all_frontier.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/generalized_near_group_all_frontier.py"
+          ],
+          "limitation": "This is a necessary dimension-family test; retained parameter triples are not categories, and integral targets lie outside its irrational quadratic parameter theorem.",
+          "proof": "evidence/rank8_frontier_20261021/noncommutative_followup/GENERALIZED_NEAR_GROUP_TABLE.md",
+          "details": {
+            "id": "R8_3_721",
+            "tensor_sha256": "76e26a815651476dfda5c2aa654f0d1327bdc890e08086cb6dbfe39ef9a1cdc5",
+            "global_dimension_minimal_polynomial": [
+              "1",
+              "-272",
+              "1088"
+            ],
+            "positive_root_interval": [
+              "92707/346",
+              "8842/33"
+            ],
+            "scope": "specific_model_family_only",
+            "outcome": "finite_family_dimension_matches_only",
+            "forced_group_order_before_integer_multiplier": "4",
+            "families": [
+              {
+                "integer_dimension_multiplier": 1,
+                "invertible_group_order": 4,
+                "stabilizer_order": 1,
+                "noninvertible_orbit_size": 4,
+                "total_noninvertible_multiplicity": 8,
+                "base_rank": 8,
+                "base_rank_two_classification_excludes": false,
+                "status": "dimension_match_only_no_model_or_Morita_equivalence"
+              },
+              {
+                "integer_dimension_multiplier": 1,
+                "invertible_group_order": 4,
+                "stabilizer_order": 4,
+                "noninvertible_orbit_size": 1,
+                "total_noninvertible_multiplicity": 16,
+                "base_rank": 5,
+                "base_rank_two_classification_excludes": false,
+                "status": "dimension_match_only_no_model_or_Morita_equivalence"
+              },
+              {
+                "integer_dimension_multiplier": 2,
+                "invertible_group_order": 2,
+                "stabilizer_order": 1,
+                "noninvertible_orbit_size": 2,
+                "total_noninvertible_multiplicity": 8,
+                "base_rank": 4,
+                "base_rank_two_classification_excludes": false,
+                "status": "dimension_match_only_no_model_or_Morita_equivalence"
+              },
+              {
+                "integer_dimension_multiplier": 4,
+                "invertible_group_order": 1,
+                "stabilizer_order": 1,
+                "noninvertible_orbit_size": 1,
+                "total_noninvertible_multiplicity": 8,
+                "base_rank": 2,
+                "base_rank_two_classification_excludes": true,
+                "status": "impossible_rank_two_base"
+              }
+            ]
           }
         },
         {
@@ -13118,6 +13703,34 @@
           }
         },
         {
+          "domain": "all_generalized_near_group_dimension_parameters_with_integer_scalings",
+          "outcome": "integral_target_outside_quadratic_parameter_exhaustion",
+          "scope": "specific_model_family_only",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/generalized_near_group_all_frontier.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/generalized_near_group_all_frontier.py"
+          ],
+          "limitation": "This is a necessary dimension-family test; retained parameter triples are not categories, and integral targets lie outside its irrational quadratic parameter theorem.",
+          "proof": "evidence/rank8_frontier_20261021/noncommutative_followup/GENERALIZED_NEAR_GROUP_TABLE.md",
+          "details": {
+            "id": "R8_3_731",
+            "tensor_sha256": "ee54e287f01aec4e2079b7f66309d89a659742e38164a3e47de1fea650eec48b",
+            "global_dimension_minimal_polynomial": [
+              "1",
+              "-660"
+            ],
+            "positive_root_interval": [
+              "660",
+              "660"
+            ],
+            "scope": "specific_model_family_only",
+            "outcome": "integral_target_outside_quadratic_parameter_exhaustion",
+            "families": []
+          }
+        },
+        {
           "domain": "simple_center_prime_power_filtered_joint_induction",
           "outcome": "accepted_general_exclusion",
           "scope": "general_complex_fusion_category",
@@ -13152,9 +13765,9 @@
     {
       "id": "R8_3_901",
       "tensor_sha256": "db5e92bdf7d58c0fcdb4517e6f2201db1937ec33ea6a2f371a8e257dd2fa6472",
-      "general_status": "unresolved",
+      "general_status": "excluded",
       "categorification_or_novelty_proved": false,
-      "screening_stage": "active_structural_and_construction_research",
+      "screening_stage": "general_exclusion_accepted_after_review",
       "prior_unitary_status": "not_separately_decided",
       "prior_unitary_obstruction_source": null,
       "prior_published_attempts": [
@@ -14044,6 +14657,37 @@
           }
         },
         {
+          "domain": "all_generalized_near_group_dimension_parameters_with_integer_scalings",
+          "outcome": "family_dimension_excluded_by_degree",
+          "scope": "specific_model_family_only",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/generalized_near_group_all_frontier.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/generalized_near_group_all_frontier.py"
+          ],
+          "limitation": "This is a necessary dimension-family test; retained parameter triples are not categories, and integral targets lie outside its irrational quadratic parameter theorem.",
+          "proof": "evidence/rank8_frontier_20261021/noncommutative_followup/GENERALIZED_NEAR_GROUP_TABLE.md",
+          "details": {
+            "id": "R8_3_901",
+            "tensor_sha256": "db5e92bdf7d58c0fcdb4517e6f2201db1937ec33ea6a2f371a8e257dd2fa6472",
+            "global_dimension_minimal_polynomial": [
+              "1",
+              "-240",
+              "4560",
+              "-28800",
+              "57600"
+            ],
+            "positive_root_interval": [
+              "30559/139",
+              "42211/192"
+            ],
+            "scope": "specific_model_family_only",
+            "outcome": "family_dimension_excluded_by_degree",
+            "families": []
+          }
+        },
+        {
           "domain": "q35_frame_global_column_generation",
           "outcome": "exact_feasible_relaxation",
           "scope": "pseudo_unitary_induction_relaxation",
@@ -14070,7 +14714,18 @@
         "No completed search here exhausts all complex associators or all constructions.",
         "A feasible necessary-condition system is not a categorification.",
         "Extensively investigated exotic candidate is a research-screening description, not a proof of categorifiability or novelty."
-      ]
+      ],
+      "accepted_certificate": {
+        "kind": "complete_distinguished_modular_S_symmetric_low_frame_obstruction",
+        "scope": "general_complex_fusion_category",
+        "evidence": "evidence/rank8_frontier_20261021/quadratic/octic_low_s_general_results.json",
+        "proof": "evidence/rank8_frontier_20261021/quadratic/OCTIC_LOW_S_OBSTRUCTION.md",
+        "verifiers": [
+          "evidence/rank8_frontier_20261021/quadratic/octic_low_s_symmetry.py",
+          "evidence/rank8_frontier_20261021/quadratic/octic_low_s_general.py",
+          "evidence/rank8_frontier_20261021/quadratic/review_octic_low_s.py"
+        ]
+      }
     },
     {
       "id": "R8_3_903",
@@ -14912,6 +15567,37 @@
             "exponent_box_size": 12,
             "dimension_bounded_product_count": 5,
             "positive_integer_scaling_matches": []
+          }
+        },
+        {
+          "domain": "all_generalized_near_group_dimension_parameters_with_integer_scalings",
+          "outcome": "family_dimension_excluded_by_degree",
+          "scope": "specific_model_family_only",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/generalized_near_group_all_frontier.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/generalized_near_group_all_frontier.py"
+          ],
+          "limitation": "This is a necessary dimension-family test; retained parameter triples are not categories, and integral targets lie outside its irrational quadratic parameter theorem.",
+          "proof": "evidence/rank8_frontier_20261021/noncommutative_followup/GENERALIZED_NEAR_GROUP_TABLE.md",
+          "details": {
+            "id": "R8_3_903",
+            "tensor_sha256": "1eebe018caedb2e1a4564301214ed1c5943f348378e98eb3828ae4e798f4f958",
+            "global_dimension_minimal_polynomial": [
+              "1",
+              "-576",
+              "11520",
+              "-73728",
+              "147456"
+            ],
+            "positive_root_interval": [
+              "9104089/16389",
+              "1111/2"
+            ],
+            "scope": "specific_model_family_only",
+            "outcome": "family_dimension_excluded_by_degree",
+            "families": []
           }
         },
         {
@@ -18767,6 +19453,77 @@
             "dimension_bounded_product_count": 1,
             "positive_integer_scaling_matches": []
           }
+        },
+        {
+          "domain": "all_generalized_near_group_dimension_parameters_with_integer_scalings",
+          "outcome": "finite_family_dimension_matches_only",
+          "scope": "specific_model_family_only",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/generalized_near_group_all_frontier.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/generalized_near_group_all_frontier.py"
+          ],
+          "limitation": "This is a necessary dimension-family test; retained parameter triples are not categories, and integral targets lie outside its irrational quadratic parameter theorem.",
+          "proof": "evidence/rank8_frontier_20261021/noncommutative_followup/GENERALIZED_NEAR_GROUP_TABLE.md",
+          "details": {
+            "id": "R8_3_921",
+            "tensor_sha256": "9c48f2d962db6a02c9db115e0b7ce38d4f2304792e9aba66d2a1419c9eec4eb6",
+            "global_dimension_minimal_polynomial": [
+              "1",
+              "-240",
+              "1440"
+            ],
+            "positive_root_interval": [
+              "108035/462",
+              "112478/481"
+            ],
+            "scope": "specific_model_family_only",
+            "outcome": "finite_family_dimension_matches_only",
+            "forced_group_order_before_integer_multiplier": "6",
+            "families": [
+              {
+                "integer_dimension_multiplier": 1,
+                "invertible_group_order": 6,
+                "stabilizer_order": 1,
+                "noninvertible_orbit_size": 6,
+                "total_noninvertible_multiplicity": 6,
+                "base_rank": 12,
+                "base_rank_two_classification_excludes": false,
+                "status": "dimension_match_only_no_model_or_Morita_equivalence"
+              },
+              {
+                "integer_dimension_multiplier": 2,
+                "invertible_group_order": 3,
+                "stabilizer_order": 1,
+                "noninvertible_orbit_size": 3,
+                "total_noninvertible_multiplicity": 6,
+                "base_rank": 6,
+                "base_rank_two_classification_excludes": false,
+                "status": "dimension_match_only_no_model_or_Morita_equivalence"
+              },
+              {
+                "integer_dimension_multiplier": 3,
+                "invertible_group_order": 2,
+                "stabilizer_order": 1,
+                "noninvertible_orbit_size": 2,
+                "total_noninvertible_multiplicity": 6,
+                "base_rank": 4,
+                "base_rank_two_classification_excludes": false,
+                "status": "dimension_match_only_no_model_or_Morita_equivalence"
+              },
+              {
+                "integer_dimension_multiplier": 6,
+                "invertible_group_order": 1,
+                "stabilizer_order": 1,
+                "noninvertible_orbit_size": 1,
+                "total_noninvertible_multiplicity": 6,
+                "base_rank": 2,
+                "base_rank_two_classification_excludes": true,
+                "status": "impossible_rank_two_base"
+              }
+            ]
+          }
         }
       ],
       "limitations": [
@@ -19601,6 +20358,37 @@
             "exponent_box_size": 12,
             "dimension_bounded_product_count": 5,
             "positive_integer_scaling_matches": []
+          }
+        },
+        {
+          "domain": "all_generalized_near_group_dimension_parameters_with_integer_scalings",
+          "outcome": "family_dimension_excluded_by_degree",
+          "scope": "specific_model_family_only",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/generalized_near_group_all_frontier.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/generalized_near_group_all_frontier.py"
+          ],
+          "limitation": "This is a necessary dimension-family test; retained parameter triples are not categories, and integral targets lie outside its irrational quadratic parameter theorem.",
+          "proof": "evidence/rank8_frontier_20261021/noncommutative_followup/GENERALIZED_NEAR_GROUP_TABLE.md",
+          "details": {
+            "id": "R8_3_925",
+            "tensor_sha256": "ffa883fbe4df0e81dba8c02dcb2592a821177941c3d4e646be08957e7c26d585",
+            "global_dimension_minimal_polynomial": [
+              "1",
+              "-576",
+              "11520",
+              "-73728",
+              "147456"
+            ],
+            "positive_root_interval": [
+              "9104089/16389",
+              "1111/2"
+            ],
+            "scope": "specific_model_family_only",
+            "outcome": "family_dimension_excluded_by_degree",
+            "families": []
           }
         },
         {
@@ -20957,6 +21745,37 @@
           }
         },
         {
+          "domain": "all_generalized_near_group_dimension_parameters_with_integer_scalings",
+          "outcome": "family_dimension_excluded_by_degree",
+          "scope": "specific_model_family_only",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/generalized_near_group_all_frontier.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/generalized_near_group_all_frontier.py"
+          ],
+          "limitation": "This is a necessary dimension-family test; retained parameter triples are not categories, and integral targets lie outside its irrational quadratic parameter theorem.",
+          "proof": "evidence/rank8_frontier_20261021/noncommutative_followup/GENERALIZED_NEAR_GROUP_TABLE.md",
+          "details": {
+            "id": "R8_3_926",
+            "tensor_sha256": "e5c741ab7fae8840a4245a790c562473af2bfae33f166786ddef955bede38584",
+            "global_dimension_minimal_polynomial": [
+              "1",
+              "-576",
+              "11520",
+              "-73728",
+              "147456"
+            ],
+            "positive_root_interval": [
+              "9104089/16389",
+              "1111/2"
+            ],
+            "scope": "specific_model_family_only",
+            "outcome": "family_dimension_excluded_by_degree",
+            "families": []
+          }
+        },
+        {
           "domain": "spectral_frame_global_column_generation",
           "outcome": "excluded",
           "scope": "general_complex_fusion_category",
@@ -22032,6 +22851,37 @@
             "exponent_box_size": 12,
             "dimension_bounded_product_count": 5,
             "positive_integer_scaling_matches": []
+          }
+        },
+        {
+          "domain": "all_generalized_near_group_dimension_parameters_with_integer_scalings",
+          "outcome": "family_dimension_excluded_by_degree",
+          "scope": "specific_model_family_only",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/generalized_near_group_all_frontier.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/generalized_near_group_all_frontier.py"
+          ],
+          "limitation": "This is a necessary dimension-family test; retained parameter triples are not categories, and integral targets lie outside its irrational quadratic parameter theorem.",
+          "proof": "evidence/rank8_frontier_20261021/noncommutative_followup/GENERALIZED_NEAR_GROUP_TABLE.md",
+          "details": {
+            "id": "R8_3_928",
+            "tensor_sha256": "94dfb90235dbb3ba95864a1be23437943ea3b1316ec82ca44baf419262890614",
+            "global_dimension_minimal_polynomial": [
+              "1",
+              "-576",
+              "11520",
+              "-73728",
+              "147456"
+            ],
+            "positive_root_interval": [
+              "9104089/16389",
+              "1111/2"
+            ],
+            "scope": "specific_model_family_only",
+            "outcome": "family_dimension_excluded_by_degree",
+            "families": []
           }
         },
         {
@@ -23593,6 +24443,37 @@
           }
         },
         {
+          "domain": "all_generalized_near_group_dimension_parameters_with_integer_scalings",
+          "outcome": "family_dimension_excluded_by_degree",
+          "scope": "specific_model_family_only",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/generalized_near_group_all_frontier.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/generalized_near_group_all_frontier.py"
+          ],
+          "limitation": "This is a necessary dimension-family test; retained parameter triples are not categories, and integral targets lie outside its irrational quadratic parameter theorem.",
+          "proof": "evidence/rank8_frontier_20261021/noncommutative_followup/GENERALIZED_NEAR_GROUP_TABLE.md",
+          "details": {
+            "id": "R8_3_941",
+            "tensor_sha256": "8ae4007492dee167ab8b3f4f16310ee368482da03696e20ed7cceea34bec64e6",
+            "global_dimension_minimal_polynomial": [
+              "1",
+              "-576",
+              "11520",
+              "-73728",
+              "147456"
+            ],
+            "positive_root_interval": [
+              "9104089/16389",
+              "1111/2"
+            ],
+            "scope": "specific_model_family_only",
+            "outcome": "family_dimension_excluded_by_degree",
+            "families": []
+          }
+        },
+        {
           "domain": "complete_central_image_low_induction_and_Gram_moment_constraints",
           "outcome": "necessary_data_survives",
           "scope": "general_complex_necessary_after_proved_Galois_PU_reduction",
@@ -24807,6 +25688,37 @@
           }
         },
         {
+          "domain": "all_generalized_near_group_dimension_parameters_with_integer_scalings",
+          "outcome": "family_dimension_excluded_by_degree",
+          "scope": "specific_model_family_only",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/generalized_near_group_all_frontier.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/generalized_near_group_all_frontier.py"
+          ],
+          "limitation": "This is a necessary dimension-family test; retained parameter triples are not categories, and integral targets lie outside its irrational quadratic parameter theorem.",
+          "proof": "evidence/rank8_frontier_20261021/noncommutative_followup/GENERALIZED_NEAR_GROUP_TABLE.md",
+          "details": {
+            "id": "R8_3_982",
+            "tensor_sha256": "f4a9fb77b3a78e9dcd8370ca9fa822ea331f1b71e3fad7990efdd386445fcd1c",
+            "global_dimension_minimal_polynomial": [
+              "1",
+              "-576",
+              "11520",
+              "-73728",
+              "147456"
+            ],
+            "positive_root_interval": [
+              "9104089/16389",
+              "1111/2"
+            ],
+            "scope": "specific_model_family_only",
+            "outcome": "family_dimension_excluded_by_degree",
+            "families": []
+          }
+        },
+        {
           "domain": "sts_frame_global_column_generation",
           "outcome": "replaced_by_complete_sparse_phase_one",
           "scope": "incomplete_no_mathematical_conclusion",
@@ -25701,6 +26613,37 @@
           }
         },
         {
+          "domain": "all_generalized_near_group_dimension_parameters_with_integer_scalings",
+          "outcome": "family_dimension_excluded_by_degree",
+          "scope": "specific_model_family_only",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/generalized_near_group_all_frontier.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/generalized_near_group_all_frontier.py"
+          ],
+          "limitation": "This is a necessary dimension-family test; retained parameter triples are not categories, and integral targets lie outside its irrational quadratic parameter theorem.",
+          "proof": "evidence/rank8_frontier_20261021/noncommutative_followup/GENERALIZED_NEAR_GROUP_TABLE.md",
+          "details": {
+            "id": "R8_3_985",
+            "tensor_sha256": "92422429008a63e58e935a812442a9970c30b033ae536b0e894db0835efa0f2f",
+            "global_dimension_minimal_polynomial": [
+              "1",
+              "-576",
+              "11520",
+              "-73728",
+              "147456"
+            ],
+            "positive_root_interval": [
+              "9104089/16389",
+              "1111/2"
+            ],
+            "scope": "specific_model_family_only",
+            "outcome": "family_dimension_excluded_by_degree",
+            "families": []
+          }
+        },
+        {
           "domain": "sts_frame_global_column_generation",
           "outcome": "excluded",
           "scope": "general_complex_fusion_category",
@@ -25742,9 +26685,9 @@
     {
       "id": "R8_3_1055",
       "tensor_sha256": "6dcd56e5c4cd631dbc76e52070f523b47f64afc97facaadf39c4b2f321bb9d76",
-      "general_status": "unresolved",
+      "general_status": "excluded",
       "categorification_or_novelty_proved": false,
-      "screening_stage": "active_structural_and_construction_research",
+      "screening_stage": "general_exclusion_accepted_after_review",
       "prior_unitary_status": "not_separately_decided",
       "prior_unitary_obstruction_source": null,
       "prior_published_attempts": [
@@ -28204,7 +29147,7 @@
         },
         {
           "domain": "complete_C2_difference_representations",
-          "outcome": "no_exclusion; four exact necessary representations; no associator/model constructed",
+          "outcome": "accepted_general_exclusion",
           "scope": "general_complex_necessary_module_constraints",
           "evidence": [
             "evidence/rank8_frontier_20261021/quadratic/residual_split_1055_results.json"
@@ -28526,6 +29469,77 @@
           }
         },
         {
+          "domain": "all_generalized_near_group_dimension_parameters_with_integer_scalings",
+          "outcome": "finite_family_dimension_matches_only",
+          "scope": "specific_model_family_only",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/generalized_near_group_all_frontier.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/generalized_near_group_all_frontier.py"
+          ],
+          "limitation": "This is a necessary dimension-family test; retained parameter triples are not categories, and integral targets lie outside its irrational quadratic parameter theorem.",
+          "proof": "evidence/rank8_frontier_20261021/noncommutative_followup/GENERALIZED_NEAR_GROUP_TABLE.md",
+          "details": {
+            "id": "R8_3_1055",
+            "tensor_sha256": "6dcd56e5c4cd631dbc76e52070f523b47f64afc97facaadf39c4b2f321bb9d76",
+            "global_dimension_minimal_polynomial": [
+              "1",
+              "-888",
+              "5328"
+            ],
+            "positive_root_interval": [
+              "1180061/1338",
+              "64383/73"
+            ],
+            "scope": "specific_model_family_only",
+            "outcome": "finite_family_dimension_matches_only",
+            "forced_group_order_before_integer_multiplier": "6",
+            "families": [
+              {
+                "integer_dimension_multiplier": 1,
+                "invertible_group_order": 6,
+                "stabilizer_order": 1,
+                "noninvertible_orbit_size": 6,
+                "total_noninvertible_multiplicity": 12,
+                "base_rank": 12,
+                "base_rank_two_classification_excludes": false,
+                "status": "dimension_match_only_no_model_or_Morita_equivalence"
+              },
+              {
+                "integer_dimension_multiplier": 2,
+                "invertible_group_order": 3,
+                "stabilizer_order": 1,
+                "noninvertible_orbit_size": 3,
+                "total_noninvertible_multiplicity": 12,
+                "base_rank": 6,
+                "base_rank_two_classification_excludes": false,
+                "status": "dimension_match_only_no_model_or_Morita_equivalence"
+              },
+              {
+                "integer_dimension_multiplier": 3,
+                "invertible_group_order": 2,
+                "stabilizer_order": 1,
+                "noninvertible_orbit_size": 2,
+                "total_noninvertible_multiplicity": 12,
+                "base_rank": 4,
+                "base_rank_two_classification_excludes": false,
+                "status": "dimension_match_only_no_model_or_Morita_equivalence"
+              },
+              {
+                "integer_dimension_multiplier": 6,
+                "invertible_group_order": 1,
+                "stabilizer_order": 1,
+                "noninvertible_orbit_size": 1,
+                "total_noninvertible_multiplicity": 12,
+                "base_rank": 2,
+                "base_rank_two_classification_excludes": true,
+                "status": "impossible_rank_two_base"
+              }
+            ]
+          }
+        },
+        {
           "domain": "atomic_spectrum_global_column_generation",
           "outcome": "excluded",
           "scope": "general_complex_fusion_category",
@@ -28552,7 +29566,17 @@
         "No completed search here exhausts all complex associators or all constructions.",
         "A feasible necessary-condition system is not a categorification.",
         "Extensively investigated exotic candidate is a research-screening description, not a proof of categorifiability or novelty."
-      ]
+      ],
+      "accepted_certificate": {
+        "kind": "full_character_field_labeled_modular_S_symmetry_signed_induction",
+        "scope": "general_complex_fusion_category",
+        "evidence": "evidence/rank8_frontier_20261021/global_induction/atomic_spectrum_results/R8_3_1055_h4.json",
+        "proof": "evidence/rank8_frontier_20261021/global_induction/ATOMIC_1055_APPLICATION.md",
+        "verifiers": [
+          "evidence/rank8_frontier_20261021/global_induction/verify_accepted_atomic.py",
+          "evidence/rank8_frontier_20261021/quadratic/review_atomic_complex_1055.py"
+        ]
+      }
     },
     {
       "id": "R8_3_1154",
@@ -29661,6 +30685,36 @@
             "exponent_box_size": 18,
             "dimension_bounded_product_count": 10,
             "positive_integer_scaling_matches": []
+          }
+        },
+        {
+          "domain": "all_generalized_near_group_dimension_parameters_with_integer_scalings",
+          "outcome": "family_dimension_excluded",
+          "scope": "specific_model_family_only",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/generalized_near_group_all_frontier.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/generalized_near_group_all_frontier.py"
+          ],
+          "limitation": "This is a necessary dimension-family test; retained parameter triples are not categories, and integral targets lie outside its irrational quadratic parameter theorem.",
+          "proof": "evidence/rank8_frontier_20261021/noncommutative_followup/GENERALIZED_NEAR_GROUP_TABLE.md",
+          "details": {
+            "id": "R8_3_1154",
+            "tensor_sha256": "c399505be76a64c8aba65feaf2cd55125dc7132f5894b74e58b64473d1387e25",
+            "global_dimension_minimal_polynomial": [
+              "1",
+              "-1080",
+              "3600"
+            ],
+            "positive_root_interval": [
+              "34453/32",
+              "347760/323"
+            ],
+            "scope": "specific_model_family_only",
+            "outcome": "family_dimension_excluded",
+            "forced_group_order_before_integer_multiplier": "10/3",
+            "families": []
           }
         },
         {
@@ -34647,6 +35701,36 @@
             "dimension_bounded_product_count": 10,
             "positive_integer_scaling_matches": []
           }
+        },
+        {
+          "domain": "all_generalized_near_group_dimension_parameters_with_integer_scalings",
+          "outcome": "family_dimension_excluded",
+          "scope": "specific_model_family_only",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/generalized_near_group_all_frontier.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/generalized_near_group_all_frontier.py"
+          ],
+          "limitation": "This is a necessary dimension-family test; retained parameter triples are not categories, and integral targets lie outside its irrational quadratic parameter theorem.",
+          "proof": "evidence/rank8_frontier_20261021/noncommutative_followup/GENERALIZED_NEAR_GROUP_TABLE.md",
+          "details": {
+            "id": "R8_3_1203",
+            "tensor_sha256": "de0a9103c44f321c4ee73ee5d9a6739fb42af4a25ed82ecd237f3545413816b1",
+            "global_dimension_minimal_polynomial": [
+              "1",
+              "-1080",
+              "3600"
+            ],
+            "positive_root_interval": [
+              "34453/32",
+              "347760/323"
+            ],
+            "scope": "specific_model_family_only",
+            "outcome": "family_dimension_excluded",
+            "forced_group_order_before_integer_multiplier": "10/3",
+            "families": []
+          }
         }
       ],
       "limitations": [
@@ -39344,6 +40428,77 @@
             "dimension_bounded_product_count": 3,
             "positive_integer_scaling_matches": []
           }
+        },
+        {
+          "domain": "all_generalized_near_group_dimension_parameters_with_integer_scalings",
+          "outcome": "finite_family_dimension_matches_only",
+          "scope": "specific_model_family_only",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/generalized_near_group_all_frontier.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/generalized_near_group_all_frontier.py"
+          ],
+          "limitation": "This is a necessary dimension-family test; retained parameter triples are not categories, and integral targets lie outside its irrational quadratic parameter theorem.",
+          "proof": "evidence/rank8_frontier_20261021/noncommutative_followup/GENERALIZED_NEAR_GROUP_TABLE.md",
+          "details": {
+            "id": "R8_3_1350",
+            "tensor_sha256": "cc1cae14a337ef33c52513625979f5c10de565fdee517ef639736423ef483997",
+            "global_dimension_minimal_polynomial": [
+              "1",
+              "-1200",
+              "7200"
+            ],
+            "positive_root_interval": [
+              "10203665/8546",
+              "39401/33"
+            ],
+            "scope": "specific_model_family_only",
+            "outcome": "finite_family_dimension_matches_only",
+            "forced_group_order_before_integer_multiplier": "6",
+            "families": [
+              {
+                "integer_dimension_multiplier": 1,
+                "invertible_group_order": 6,
+                "stabilizer_order": 1,
+                "noninvertible_orbit_size": 6,
+                "total_noninvertible_multiplicity": 14,
+                "base_rank": 12,
+                "base_rank_two_classification_excludes": false,
+                "status": "dimension_match_only_no_model_or_Morita_equivalence"
+              },
+              {
+                "integer_dimension_multiplier": 2,
+                "invertible_group_order": 3,
+                "stabilizer_order": 1,
+                "noninvertible_orbit_size": 3,
+                "total_noninvertible_multiplicity": 14,
+                "base_rank": 6,
+                "base_rank_two_classification_excludes": false,
+                "status": "dimension_match_only_no_model_or_Morita_equivalence"
+              },
+              {
+                "integer_dimension_multiplier": 3,
+                "invertible_group_order": 2,
+                "stabilizer_order": 1,
+                "noninvertible_orbit_size": 2,
+                "total_noninvertible_multiplicity": 14,
+                "base_rank": 4,
+                "base_rank_two_classification_excludes": false,
+                "status": "dimension_match_only_no_model_or_Morita_equivalence"
+              },
+              {
+                "integer_dimension_multiplier": 6,
+                "invertible_group_order": 1,
+                "stabilizer_order": 1,
+                "noninvertible_orbit_size": 1,
+                "total_noninvertible_multiplicity": 14,
+                "base_rank": 2,
+                "base_rank_two_classification_excludes": true,
+                "status": "impossible_rank_two_base"
+              }
+            ]
+          }
         }
       ],
       "limitations": [
@@ -40259,6 +41414,37 @@
           }
         },
         {
+          "domain": "all_generalized_near_group_dimension_parameters_with_integer_scalings",
+          "outcome": "family_dimension_excluded_by_degree",
+          "scope": "specific_model_family_only",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/generalized_near_group_all_frontier.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/generalized_near_group_all_frontier.py"
+          ],
+          "limitation": "This is a necessary dimension-family test; retained parameter triples are not categories, and integral targets lie outside its irrational quadratic parameter theorem.",
+          "proof": "evidence/rank8_frontier_20261021/noncommutative_followup/GENERALIZED_NEAR_GROUP_TABLE.md",
+          "details": {
+            "id": "R8_3_1463",
+            "tensor_sha256": "47d803231764fd5ec1f470d927188f71904f5b80938aa3aef8e53b6d08202844",
+            "global_dimension_minimal_polynomial": [
+              "1",
+              "-240",
+              "4560",
+              "-28800",
+              "57600"
+            ],
+            "positive_root_interval": [
+              "30559/139",
+              "42211/192"
+            ],
+            "scope": "specific_model_family_only",
+            "outcome": "family_dimension_excluded_by_degree",
+            "families": []
+          }
+        },
+        {
           "domain": "complete_distinguished_S_symmetric_low_frame_obstruction",
           "outcome": "excluded",
           "scope": "general_complex_fusion_category",
@@ -41150,8 +42336,39 @@
           }
         },
         {
+          "domain": "all_generalized_near_group_dimension_parameters_with_integer_scalings",
+          "outcome": "family_dimension_excluded_by_degree",
+          "scope": "specific_model_family_only",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/generalized_near_group_all_frontier.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/generalized_near_group_all_frontier.py"
+          ],
+          "limitation": "This is a necessary dimension-family test; retained parameter triples are not categories, and integral targets lie outside its irrational quadratic parameter theorem.",
+          "proof": "evidence/rank8_frontier_20261021/noncommutative_followup/GENERALIZED_NEAR_GROUP_TABLE.md",
+          "details": {
+            "id": "R8_3_1615",
+            "tensor_sha256": "8e091371d21d930ddbdb557e1b6a8fcee49d5ccbc923b6464904a2848c3e1389",
+            "global_dimension_minimal_polynomial": [
+              "1",
+              "-576",
+              "11520",
+              "-73728",
+              "147456"
+            ],
+            "positive_root_interval": [
+              "9104089/16389",
+              "1111/2"
+            ],
+            "scope": "specific_model_family_only",
+            "outcome": "family_dimension_excluded_by_degree",
+            "families": []
+          }
+        },
+        {
           "domain": "sts_frame_global_column_generation",
-          "outcome": "running",
+          "outcome": "replaced_by_complete_sparse_phase_one",
           "scope": "incomplete_no_mathematical_conclusion",
           "evidence": [
             "evidence/rank8_frontier_20261021/global_induction/sts_results/R8_3_1615_h4.json"
@@ -42022,8 +43239,39 @@
           }
         },
         {
+          "domain": "all_generalized_near_group_dimension_parameters_with_integer_scalings",
+          "outcome": "family_dimension_excluded_by_degree",
+          "scope": "specific_model_family_only",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/generalized_near_group_all_frontier.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/generalized_near_group_all_frontier.py"
+          ],
+          "limitation": "This is a necessary dimension-family test; retained parameter triples are not categories, and integral targets lie outside its irrational quadratic parameter theorem.",
+          "proof": "evidence/rank8_frontier_20261021/noncommutative_followup/GENERALIZED_NEAR_GROUP_TABLE.md",
+          "details": {
+            "id": "R8_3_1617",
+            "tensor_sha256": "1b6d7494a459fc18c64a5b94a3768d8cd35b86598091ef3c25656bfd4e3445f0",
+            "global_dimension_minimal_polynomial": [
+              "1",
+              "-576",
+              "11520",
+              "-73728",
+              "147456"
+            ],
+            "positive_root_interval": [
+              "9104089/16389",
+              "1111/2"
+            ],
+            "scope": "specific_model_family_only",
+            "outcome": "family_dimension_excluded_by_degree",
+            "families": []
+          }
+        },
+        {
           "domain": "sts_frame_global_column_generation",
-          "outcome": "running",
+          "outcome": "replaced_by_complete_sparse_phase_one",
           "scope": "incomplete_no_mathematical_conclusion",
           "evidence": [
             "evidence/rank8_frontier_20261021/global_induction/sts_results/R8_3_1617_h4.json"
@@ -42879,8 +44127,39 @@
           }
         },
         {
+          "domain": "all_generalized_near_group_dimension_parameters_with_integer_scalings",
+          "outcome": "family_dimension_excluded_by_degree",
+          "scope": "specific_model_family_only",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/generalized_near_group_all_frontier.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/generalized_near_group_all_frontier.py"
+          ],
+          "limitation": "This is a necessary dimension-family test; retained parameter triples are not categories, and integral targets lie outside its irrational quadratic parameter theorem.",
+          "proof": "evidence/rank8_frontier_20261021/noncommutative_followup/GENERALIZED_NEAR_GROUP_TABLE.md",
+          "details": {
+            "id": "R8_3_1660",
+            "tensor_sha256": "5c9961f765e74b9a9008a7d14953ece3f2168e381aee4a69b3acb6693ff77c21",
+            "global_dimension_minimal_polynomial": [
+              "1",
+              "-576",
+              "11520",
+              "-73728",
+              "147456"
+            ],
+            "positive_root_interval": [
+              "9104089/16389",
+              "1111/2"
+            ],
+            "scope": "specific_model_family_only",
+            "outcome": "family_dimension_excluded_by_degree",
+            "families": []
+          }
+        },
+        {
           "domain": "sts_frame_global_column_generation",
-          "outcome": "running",
+          "outcome": "replaced_by_complete_sparse_phase_one",
           "scope": "incomplete_no_mathematical_conclusion",
           "evidence": [
             "evidence/rank8_frontier_20261021/global_induction/sts_results/R8_3_1660_h4.json"
@@ -43753,8 +45032,39 @@
           }
         },
         {
+          "domain": "all_generalized_near_group_dimension_parameters_with_integer_scalings",
+          "outcome": "family_dimension_excluded_by_degree",
+          "scope": "specific_model_family_only",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/generalized_near_group_all_frontier.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/generalized_near_group_all_frontier.py"
+          ],
+          "limitation": "This is a necessary dimension-family test; retained parameter triples are not categories, and integral targets lie outside its irrational quadratic parameter theorem.",
+          "proof": "evidence/rank8_frontier_20261021/noncommutative_followup/GENERALIZED_NEAR_GROUP_TABLE.md",
+          "details": {
+            "id": "R8_3_1661",
+            "tensor_sha256": "12bfacef6c409a6ce65c969410c72b5d8b51b425acc4407a241ecdbffa24ed8e",
+            "global_dimension_minimal_polynomial": [
+              "1",
+              "-576",
+              "11520",
+              "-73728",
+              "147456"
+            ],
+            "positive_root_interval": [
+              "9104089/16389",
+              "1111/2"
+            ],
+            "scope": "specific_model_family_only",
+            "outcome": "family_dimension_excluded_by_degree",
+            "families": []
+          }
+        },
+        {
           "domain": "sts_frame_global_column_generation",
-          "outcome": "running",
+          "outcome": "replaced_by_complete_sparse_phase_one",
           "scope": "incomplete_no_mathematical_conclusion",
           "evidence": [
             "evidence/rank8_frontier_20261021/global_induction/sts_results/R8_3_1661_h4.json"
@@ -44576,6 +45886,37 @@
             "exponent_box_size": 12,
             "dimension_bounded_product_count": 5,
             "positive_integer_scaling_matches": []
+          }
+        },
+        {
+          "domain": "all_generalized_near_group_dimension_parameters_with_integer_scalings",
+          "outcome": "family_dimension_excluded_by_degree",
+          "scope": "specific_model_family_only",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/generalized_near_group_all_frontier.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/generalized_near_group_all_frontier.py"
+          ],
+          "limitation": "This is a necessary dimension-family test; retained parameter triples are not categories, and integral targets lie outside its irrational quadratic parameter theorem.",
+          "proof": "evidence/rank8_frontier_20261021/noncommutative_followup/GENERALIZED_NEAR_GROUP_TABLE.md",
+          "details": {
+            "id": "R8_3_1739",
+            "tensor_sha256": "f85e8c77ce5610c79599e02340d7a2de86028df89b415485c3370f77fe88bee8",
+            "global_dimension_minimal_polynomial": [
+              "1",
+              "-576",
+              "11520",
+              "-73728",
+              "147456"
+            ],
+            "positive_root_interval": [
+              "9104089/16389",
+              "1111/2"
+            ],
+            "scope": "specific_model_family_only",
+            "outcome": "family_dimension_excluded_by_degree",
+            "families": []
           }
         },
         {
@@ -45844,8 +47185,79 @@
           }
         },
         {
+          "domain": "all_generalized_near_group_dimension_parameters_with_integer_scalings",
+          "outcome": "finite_family_dimension_matches_only",
+          "scope": "specific_model_family_only",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/generalized_near_group_all_frontier.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/generalized_near_group_all_frontier.py"
+          ],
+          "limitation": "This is a necessary dimension-family test; retained parameter triples are not categories, and integral targets lie outside its irrational quadratic parameter theorem.",
+          "proof": "evidence/rank8_frontier_20261021/noncommutative_followup/GENERALIZED_NEAR_GROUP_TABLE.md",
+          "details": {
+            "id": "R8_3_1768",
+            "tensor_sha256": "240509807c67da437c86f2a51efeb831364734feb93ed18a1d2f32087ebc1af0",
+            "global_dimension_minimal_polynomial": [
+              "1",
+              "-888",
+              "5328"
+            ],
+            "positive_root_interval": [
+              "1180061/1338",
+              "64383/73"
+            ],
+            "scope": "specific_model_family_only",
+            "outcome": "finite_family_dimension_matches_only",
+            "forced_group_order_before_integer_multiplier": "6",
+            "families": [
+              {
+                "integer_dimension_multiplier": 1,
+                "invertible_group_order": 6,
+                "stabilizer_order": 1,
+                "noninvertible_orbit_size": 6,
+                "total_noninvertible_multiplicity": 12,
+                "base_rank": 12,
+                "base_rank_two_classification_excludes": false,
+                "status": "dimension_match_only_no_model_or_Morita_equivalence"
+              },
+              {
+                "integer_dimension_multiplier": 2,
+                "invertible_group_order": 3,
+                "stabilizer_order": 1,
+                "noninvertible_orbit_size": 3,
+                "total_noninvertible_multiplicity": 12,
+                "base_rank": 6,
+                "base_rank_two_classification_excludes": false,
+                "status": "dimension_match_only_no_model_or_Morita_equivalence"
+              },
+              {
+                "integer_dimension_multiplier": 3,
+                "invertible_group_order": 2,
+                "stabilizer_order": 1,
+                "noninvertible_orbit_size": 2,
+                "total_noninvertible_multiplicity": 12,
+                "base_rank": 4,
+                "base_rank_two_classification_excludes": false,
+                "status": "dimension_match_only_no_model_or_Morita_equivalence"
+              },
+              {
+                "integer_dimension_multiplier": 6,
+                "invertible_group_order": 1,
+                "stabilizer_order": 1,
+                "noninvertible_orbit_size": 1,
+                "total_noninvertible_multiplicity": 12,
+                "base_rank": 2,
+                "base_rank_two_classification_excludes": true,
+                "status": "impossible_rank_two_base"
+              }
+            ]
+          }
+        },
+        {
           "domain": "atomic_real_sts_global_column_generation",
-          "outcome": "running",
+          "outcome": "replaced_by_complete_sparse_phase_one",
           "scope": "incomplete_no_mathematical_conclusion",
           "evidence": [
             "evidence/rank8_frontier_20261021/global_induction/atomic_results/R8_3_1768_h4.json"
@@ -45863,6 +47275,28 @@
             "low_frames": null,
             "high_columns": 497,
             "complete_exact_certificate": false
+          }
+        },
+        {
+          "domain": "packed_complete_sparse_phase_one",
+          "outcome": "exact_feasible_relaxation",
+          "scope": "pseudo_unitary_induction_relaxation",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/global_induction/complete_results/R8_3_1768_atomic_real_sts_h4.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/global_induction/complete_phase_one.py"
+          ],
+          "limitation": "A running/partial computation is incomplete; a feasible relaxation does not construct integer center data or an associator.",
+          "proof": "evidence/rank8_frontier_20261021/global_induction/PROOF.md",
+          "details": {
+            "height": 4,
+            "frame_index": null,
+            "rows": 241,
+            "variables": 18130,
+            "low_frames": null,
+            "high_columns": 497,
+            "complete_exact_certificate": true
           }
         }
       ],
@@ -46939,8 +48373,38 @@
           }
         },
         {
+          "domain": "all_generalized_near_group_dimension_parameters_with_integer_scalings",
+          "outcome": "family_dimension_excluded",
+          "scope": "specific_model_family_only",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/generalized_near_group_all_frontier.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/generalized_near_group_all_frontier.py"
+          ],
+          "limitation": "This is a necessary dimension-family test; retained parameter triples are not categories, and integral targets lie outside its irrational quadratic parameter theorem.",
+          "proof": "evidence/rank8_frontier_20261021/noncommutative_followup/GENERALIZED_NEAR_GROUP_TABLE.md",
+          "details": {
+            "id": "R8_3_1795",
+            "tensor_sha256": "feddd2934d44be4872c82ed6c5650bf9d8aac2bc87b72778d88b375726f4cd1f",
+            "global_dimension_minimal_polynomial": [
+              "1",
+              "-1080",
+              "3600"
+            ],
+            "positive_root_interval": [
+              "34453/32",
+              "347760/323"
+            ],
+            "scope": "specific_model_family_only",
+            "outcome": "family_dimension_excluded",
+            "forced_group_order_before_integer_multiplier": "10/3",
+            "families": []
+          }
+        },
+        {
           "domain": "atomic_real_sts_global_column_generation",
-          "outcome": "running",
+          "outcome": "replaced_by_complete_sparse_phase_one",
           "scope": "incomplete_no_mathematical_conclusion",
           "evidence": [
             "evidence/rank8_frontier_20261021/global_induction/atomic_results/R8_3_1795_h4.json"
@@ -46950,6 +48414,28 @@
           ],
           "limitation": "A running/partial computation is incomplete; a feasible relaxation does not construct integer center data or an associator.",
           "proof": "evidence/rank8_frontier_20261021/global_induction/ATOMIC_MODULAR.md",
+          "details": {
+            "height": 4,
+            "frame_index": null,
+            "rows": 241,
+            "variables": 102643,
+            "low_frames": null,
+            "high_columns": 3011,
+            "complete_exact_certificate": false
+          }
+        },
+        {
+          "domain": "packed_complete_sparse_phase_one",
+          "outcome": "solving_complete_sparse_cone",
+          "scope": "incomplete_no_mathematical_conclusion",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/global_induction/complete_results/R8_3_1795_atomic_real_sts_h4.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/global_induction/complete_phase_one.py"
+          ],
+          "limitation": "A running/partial computation is incomplete; a feasible relaxation does not construct integer center data or an associator.",
+          "proof": "evidence/rank8_frontier_20261021/global_induction/PROOF.md",
           "details": {
             "height": 4,
             "frame_index": null,
@@ -52795,6 +54281,36 @@
             "exponent_box_size": 18,
             "dimension_bounded_product_count": 10,
             "positive_integer_scaling_matches": []
+          }
+        },
+        {
+          "domain": "all_generalized_near_group_dimension_parameters_with_integer_scalings",
+          "outcome": "family_dimension_excluded",
+          "scope": "specific_model_family_only",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/generalized_near_group_all_frontier.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/generalized_near_group_all_frontier.py"
+          ],
+          "limitation": "This is a necessary dimension-family test; retained parameter triples are not categories, and integral targets lie outside its irrational quadratic parameter theorem.",
+          "proof": "evidence/rank8_frontier_20261021/noncommutative_followup/GENERALIZED_NEAR_GROUP_TABLE.md",
+          "details": {
+            "id": "R8_3_2842",
+            "tensor_sha256": "8b66f91f53bce529d44ba16cb78647d3e27bf7190c04615f88ac0cc8fe41837f",
+            "global_dimension_minimal_polynomial": [
+              "1",
+              "-1080",
+              "3600"
+            ],
+            "positive_root_interval": [
+              "34453/32",
+              "347760/323"
+            ],
+            "scope": "specific_model_family_only",
+            "outcome": "family_dimension_excluded",
+            "forced_group_order_before_integer_multiplier": "10/3",
+            "families": []
           }
         }
       ],
@@ -58692,6 +60208,77 @@
             "dimension_bounded_product_count": 3,
             "positive_integer_scaling_matches": []
           }
+        },
+        {
+          "domain": "all_generalized_near_group_dimension_parameters_with_integer_scalings",
+          "outcome": "finite_family_dimension_matches_only",
+          "scope": "specific_model_family_only",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/generalized_near_group_all_frontier.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/generalized_near_group_all_frontier.py"
+          ],
+          "limitation": "This is a necessary dimension-family test; retained parameter triples are not categories, and integral targets lie outside its irrational quadratic parameter theorem.",
+          "proof": "evidence/rank8_frontier_20261021/noncommutative_followup/GENERALIZED_NEAR_GROUP_TABLE.md",
+          "details": {
+            "id": "R8_3_2885",
+            "tensor_sha256": "6c472329561cba39498b2f6b41794b007cad84349c5238b13ce06cab967361ad",
+            "global_dimension_minimal_polynomial": [
+              "1",
+              "-1200",
+              "7200"
+            ],
+            "positive_root_interval": [
+              "10203665/8546",
+              "39401/33"
+            ],
+            "scope": "specific_model_family_only",
+            "outcome": "finite_family_dimension_matches_only",
+            "forced_group_order_before_integer_multiplier": "6",
+            "families": [
+              {
+                "integer_dimension_multiplier": 1,
+                "invertible_group_order": 6,
+                "stabilizer_order": 1,
+                "noninvertible_orbit_size": 6,
+                "total_noninvertible_multiplicity": 14,
+                "base_rank": 12,
+                "base_rank_two_classification_excludes": false,
+                "status": "dimension_match_only_no_model_or_Morita_equivalence"
+              },
+              {
+                "integer_dimension_multiplier": 2,
+                "invertible_group_order": 3,
+                "stabilizer_order": 1,
+                "noninvertible_orbit_size": 3,
+                "total_noninvertible_multiplicity": 14,
+                "base_rank": 6,
+                "base_rank_two_classification_excludes": false,
+                "status": "dimension_match_only_no_model_or_Morita_equivalence"
+              },
+              {
+                "integer_dimension_multiplier": 3,
+                "invertible_group_order": 2,
+                "stabilizer_order": 1,
+                "noninvertible_orbit_size": 2,
+                "total_noninvertible_multiplicity": 14,
+                "base_rank": 4,
+                "base_rank_two_classification_excludes": false,
+                "status": "dimension_match_only_no_model_or_Morita_equivalence"
+              },
+              {
+                "integer_dimension_multiplier": 6,
+                "invertible_group_order": 1,
+                "stabilizer_order": 1,
+                "noninvertible_orbit_size": 1,
+                "total_noninvertible_multiplicity": 14,
+                "base_rank": 2,
+                "base_rank_two_classification_excludes": true,
+                "status": "impossible_rank_two_base"
+              }
+            ]
+          }
         }
       ],
       "limitations": [
@@ -59621,6 +61208,36 @@
             "exponent_box_size": 10,
             "dimension_bounded_product_count": 7,
             "positive_integer_scaling_matches": []
+          }
+        },
+        {
+          "domain": "all_generalized_near_group_dimension_parameters_with_integer_scalings",
+          "outcome": "family_dimension_excluded",
+          "scope": "specific_model_family_only",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/generalized_near_group_all_frontier.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/generalized_near_group_all_frontier.py"
+          ],
+          "limitation": "This is a necessary dimension-family test; retained parameter triples are not categories, and integral targets lie outside its irrational quadratic parameter theorem.",
+          "proof": "evidence/rank8_frontier_20261021/noncommutative_followup/GENERALIZED_NEAR_GROUP_TABLE.md",
+          "details": {
+            "id": "R8_3_3258",
+            "tensor_sha256": "255587f4f78045f7af39bba5aacb1685be5cfdf2a8024a316e42b3f3e3030152",
+            "global_dimension_minimal_polynomial": [
+              "1",
+              "-315",
+              "2025"
+            ],
+            "positive_root_interval": [
+              "66005/214",
+              "73099/237"
+            ],
+            "scope": "specific_model_family_only",
+            "outcome": "family_dimension_excluded",
+            "forced_group_order_before_integer_multiplier": "45/7",
+            "families": []
           }
         },
         {
@@ -60844,6 +62461,34 @@
           }
         },
         {
+          "domain": "all_generalized_near_group_dimension_parameters_with_integer_scalings",
+          "outcome": "integral_target_outside_quadratic_parameter_exhaustion",
+          "scope": "specific_model_family_only",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/generalized_near_group_all_frontier.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/generalized_near_group_all_frontier.py"
+          ],
+          "limitation": "This is a necessary dimension-family test; retained parameter triples are not categories, and integral targets lie outside its irrational quadratic parameter theorem.",
+          "proof": "evidence/rank8_frontier_20261021/noncommutative_followup/GENERALIZED_NEAR_GROUP_TABLE.md",
+          "details": {
+            "id": "R8_3_3344",
+            "tensor_sha256": "af42e7282350264c21616caff6aeebd8d323b04b6c727b3c6230aad9933a7cf8",
+            "global_dimension_minimal_polynomial": [
+              "1",
+              "-360"
+            ],
+            "positive_root_interval": [
+              "360",
+              "360"
+            ],
+            "scope": "specific_model_family_only",
+            "outcome": "integral_target_outside_quadratic_parameter_exhaustion",
+            "families": []
+          }
+        },
+        {
           "domain": "rep_A5_complement_and_exhaustive_relative_A6_twists",
           "outcome": "accepted_general_exclusion",
           "scope": "general_complex_fusion_category",
@@ -61787,6 +63432,36 @@
             "exponent_box_size": 10,
             "dimension_bounded_product_count": 7,
             "positive_integer_scaling_matches": []
+          }
+        },
+        {
+          "domain": "all_generalized_near_group_dimension_parameters_with_integer_scalings",
+          "outcome": "family_dimension_excluded",
+          "scope": "specific_model_family_only",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/generalized_near_group_all_frontier.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/generalized_near_group_all_frontier.py"
+          ],
+          "limitation": "This is a necessary dimension-family test; retained parameter triples are not categories, and integral targets lie outside its irrational quadratic parameter theorem.",
+          "proof": "evidence/rank8_frontier_20261021/noncommutative_followup/GENERALIZED_NEAR_GROUP_TABLE.md",
+          "details": {
+            "id": "R8_3_3413",
+            "tensor_sha256": "a8861068d0c45533eaa786ba7f874362a200efd96b7026d5edfa8d7f8fcf6a2c",
+            "global_dimension_minimal_polynomial": [
+              "1",
+              "-315",
+              "2025"
+            ],
+            "positive_root_interval": [
+              "66005/214",
+              "73099/237"
+            ],
+            "scope": "specific_model_family_only",
+            "outcome": "family_dimension_excluded",
+            "forced_group_order_before_integer_multiplier": "45/7",
+            "families": []
           }
         },
         {
@@ -62803,6 +64478,57 @@
           }
         },
         {
+          "domain": "all_generalized_near_group_dimension_parameters_with_integer_scalings",
+          "outcome": "finite_family_dimension_matches_only",
+          "scope": "specific_model_family_only",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/generalized_near_group_all_frontier.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/generalized_near_group_all_frontier.py"
+          ],
+          "limitation": "This is a necessary dimension-family test; retained parameter triples are not categories, and integral targets lie outside its irrational quadratic parameter theorem.",
+          "proof": "evidence/rank8_frontier_20261021/noncommutative_followup/GENERALIZED_NEAR_GROUP_TABLE.md",
+          "details": {
+            "id": "R8_3_3472",
+            "tensor_sha256": "33984d45e69ff778e70847def8349abda79ed6c0eaea242a73b533649f9b153a",
+            "global_dimension_minimal_polynomial": [
+              "1",
+              "-1400",
+              "9800"
+            ],
+            "positive_root_interval": [
+              "157405/113",
+              "275807/198"
+            ],
+            "scope": "specific_model_family_only",
+            "outcome": "finite_family_dimension_matches_only",
+            "forced_group_order_before_integer_multiplier": "7",
+            "families": [
+              {
+                "integer_dimension_multiplier": 1,
+                "invertible_group_order": 7,
+                "stabilizer_order": 1,
+                "noninvertible_orbit_size": 7,
+                "total_noninvertible_multiplicity": 14,
+                "base_rank": 14,
+                "base_rank_two_classification_excludes": false,
+                "status": "dimension_match_only_no_model_or_Morita_equivalence"
+              },
+              {
+                "integer_dimension_multiplier": 7,
+                "invertible_group_order": 1,
+                "stabilizer_order": 1,
+                "noninvertible_orbit_size": 1,
+                "total_noninvertible_multiplicity": 14,
+                "base_rank": 2,
+                "base_rank_two_classification_excludes": true,
+                "status": "impossible_rank_two_base"
+              }
+            ]
+          }
+        },
+        {
           "domain": "atomic_spectrum_global_column_generation",
           "outcome": "exact_feasible_relaxation",
           "scope": "pseudo_unitary_induction_relaxation",
@@ -62833,7 +64559,7 @@
     }
   ],
   "artifact_sha256": {
-    "evidence/rank8_frontier_20261021/accepted.json": "d7fe1b5e2a964d7bef18543dc7825a5caea002c4e7dddee991b259363bc5b0a8",
+    "evidence/rank8_frontier_20261021/accepted.json": "ba31b494deb46b68e68d57201df794cb7dc2bd9f01cff5c11c50fbb1d45fa17b",
     "evidence/rank8_frontier_20261021/central_integrality/GENERAL_GALOIS_PU.md": "642fdcaf1a4d30c9239181f912412c12e1465393a5a86f0cc8dbfc5d7d98c960",
     "evidence/rank8_frontier_20261021/central_integrality/RESEARCH_RECORD.md": "7564d52513ed1e6348799fdb5ca33b12e1f107c68371cd13ae8923bed8b3bd24",
     "evidence/rank8_frontier_20261021/central_integrality/fixed_gram_rotation_1154.py": "79b31dd094a2ccd0f985546cc1a972ebf5e2c539f6b06b9675ead4c53e260882",
@@ -62842,6 +64568,7 @@
     "evidence/rank8_frontier_20261021/central_integrality/general_galois_pu_gate.py": "47b409688601d7c770453c3d83fc7afdd4b2c22b15fc92dfb19028acc20ada7d",
     "evidence/rank8_frontier_20261021/central_integrality/review_r3258_atomic.py": "e9d972547cd56a10337a171e4d397e3f5e574021c217d8056d26ee3e44d0739e",
     "evidence/rank8_frontier_20261021/central_integrality/review_r926_partial_s.py": "775bc3c4cfa4cf9fce659afedebb2b477a1a01029ae22fda309cf3d286f1ed17",
+    "evidence/rank8_frontier_20261021/global_induction/ATOMIC_1055_APPLICATION.md": "b96269d31e4cc10562c48b05f3f8c0620c8a930234416f04bf861541caf73a54",
     "evidence/rank8_frontier_20261021/global_induction/ATOMIC_MODULAR.md": "79efa96da25998702985a8d95a5016ad5646a0954b2f713d0b9a0ea017d2020c",
     "evidence/rank8_frontier_20261021/global_induction/ATOMIC_SPECTRUM.md": "e4b61cc8b3d8c5840cecf94bd35f90e881b212ba1cbdd4c8d6594986f019f23d",
     "evidence/rank8_frontier_20261021/global_induction/ATOMIC_STS_APPLICATIONS.md": "913c0897b3a6d1425f4a310ffe7fa92df885c8b5174649f919f2d2f31b4162a4",
@@ -62849,8 +64576,8 @@
     "evidence/rank8_frontier_20261021/global_induction/PARTIAL_S_AND_STS.md": "eddeb5d92442fdc7ac6e605297f513e122a295310f44de1f7dc4ca094a6f2f32",
     "evidence/rank8_frontier_20261021/global_induction/PROOF.md": "6826d77f4b794aa18eb08667021b1c4ee00afb096eb1c31be6dfafd6b1d26324",
     "evidence/rank8_frontier_20261021/global_induction/atomic_generation.py": "7237e1fceb30ddbe18fc8692e5d70048012300d7154907b3bed56393a8b300e0",
-    "evidence/rank8_frontier_20261021/global_induction/atomic_results/R8_3_1768_h4.json": "6bbb26dfb92995e141ffd5783a30ddcb601586e5eadc36365957a2851fc10698",
-    "evidence/rank8_frontier_20261021/global_induction/atomic_results/R8_3_1795_h4.json": "753e76f41a97f4b80aa0799d21e5f30de18b8744776e2211dae24af7cad371f8",
+    "evidence/rank8_frontier_20261021/global_induction/atomic_results/R8_3_1768_h4.json": "0343e5ff465a1f6d0d9a7f6e9b55c2dd779727388da0b24241899994d64dbe8f",
+    "evidence/rank8_frontier_20261021/global_induction/atomic_results/R8_3_1795_h4.json": "c104b1d7790e017ead5ba66fe056e087942ecd313ad80b5830a18dd64fef833e",
     "evidence/rank8_frontier_20261021/global_induction/atomic_results/R8_3_3258_h4.json": "e7ee3ec15d85544b554ee48fd5a5473248efcef697bed9c813155f236ea1db1f",
     "evidence/rank8_frontier_20261021/global_induction/atomic_results/R8_3_334_h4.json": "0ee4fa384e822df8c1d1e687802a52a8ac0b15e994bf1a79cecd4cb466ff6e68",
     "evidence/rank8_frontier_20261021/global_induction/atomic_spectrum_generation.py": "00f36f8bb16fd40d5792dcc816b0261421a0bf295e8ac14f239a3874485e4171",
@@ -62860,6 +64587,8 @@
     "evidence/rank8_frontier_20261021/global_induction/atomic_spectrum_results/R8_3_65_h4.json": "840db130f1ac6f3ced6a8d2a80c9e092d5f17480c495736198125e11ffeae95e",
     "evidence/rank8_frontier_20261021/global_induction/column_generation.py": "7c347465adef1dfcc3d4a598cf147328a5fbf44362163d5ca2baee20b53aa7f8",
     "evidence/rank8_frontier_20261021/global_induction/complete_phase_one.py": "13c54ceb6ecb28b2d8a9d1d98ac194adf7c0b5d8afc11dba1e04dca9f720d27a",
+    "evidence/rank8_frontier_20261021/global_induction/complete_results/R8_3_1768_atomic_real_sts_h4.json": "2dc7e70f0f9b0d4dd4d0b8618421e212068d0e33771569d2eebb4bd72e82d876",
+    "evidence/rank8_frontier_20261021/global_induction/complete_results/R8_3_1795_atomic_real_sts_h4.json": "60d68387ac70bdfb8f5a8acec9f7286b8abfadb9c4fffadc230410fa5a9763fd",
     "evidence/rank8_frontier_20261021/global_induction/complete_results/R8_3_334_sts_frame_h4.json": "ebe9364f0f828386395e676d00a1538c12052e57bb6cde4af3ade0efa032d0be",
     "evidence/rank8_frontier_20261021/global_induction/complete_results/R8_3_982_sts_frame_h4.json": "97acfc22dfa72ba26ab8043f5453495829836a07d826ef150c164692b95153a4",
     "evidence/rank8_frontier_20261021/global_induction/fixed_frame.py": "45c1a167121e2543a3e09a6ccafb4499e6d307966573d7cd4ca61cc97fc4e887",
@@ -62883,15 +64612,15 @@
     "evidence/rank8_frontier_20261021/global_induction/spectral_results/R8_3_334_h4.json": "5da40787bb1ab3405ea316308fc448f407a4181ceff8f13b352c960ad3a9f2cd",
     "evidence/rank8_frontier_20261021/global_induction/spectral_results/R8_3_926_h4.json": "a6bfc32713ef56ccce4d3c5f9b60e50049d923880156aedfe2bec175ff3f9052",
     "evidence/rank8_frontier_20261021/global_induction/sts_generation.py": "35b1471fbf86708da466c2f84c76a38f94db775c436caf1b3a66ecaa2bf76cc8",
-    "evidence/rank8_frontier_20261021/global_induction/sts_results/R8_3_1615_h4.json": "16c04fa48def8ccb4a11af66093cd6e63fd6e66a6a657e51f4fcc721603c4149",
-    "evidence/rank8_frontier_20261021/global_induction/sts_results/R8_3_1617_h4.json": "001fdc93bd781ddd85a1461aa9db24af4f5099da3b57090ff2fa7e8dec813e32",
-    "evidence/rank8_frontier_20261021/global_induction/sts_results/R8_3_1660_h4.json": "b5d89abbe9d830acff4db70840b63e61e68b7fb4c2d845edb8b2ca798ca54ffd",
-    "evidence/rank8_frontier_20261021/global_induction/sts_results/R8_3_1661_h4.json": "4303ec73cf44f8b1689a36d835b64f0b59981055d4c6da1521e393ee8d3390ff",
+    "evidence/rank8_frontier_20261021/global_induction/sts_results/R8_3_1615_h4.json": "60b373350a4c11263630ed90625b4145fc356cb69559b3f606c6e3f0e434cc67",
+    "evidence/rank8_frontier_20261021/global_induction/sts_results/R8_3_1617_h4.json": "936b096a37d93b44f3e117104ddfe5f7714aee34fb2d815bc367ba83a6f4d8f1",
+    "evidence/rank8_frontier_20261021/global_induction/sts_results/R8_3_1660_h4.json": "634e37042b7f1fbacf9c6ab3b05a13626ee4521ce4bdba98faff86f3e97eb652",
+    "evidence/rank8_frontier_20261021/global_induction/sts_results/R8_3_1661_h4.json": "5b52a7240247d535e93e2f695c7bd8a7120688afe9ac6a9df2199c771849aeed",
     "evidence/rank8_frontier_20261021/global_induction/sts_results/R8_3_1739_h4.json": "c009f1e37faf6f256718f3edc2658e5ecaf34fd2e5d1a5ca128f60b2b04774f2",
     "evidence/rank8_frontier_20261021/global_induction/sts_results/R8_3_334_h4.json": "7f0e73ff5177f2b1893509b214eb17fe90369f3385ec75229825ea69be59662f",
     "evidence/rank8_frontier_20261021/global_induction/sts_results/R8_3_982_h4.json": "d4f9b5883b100088a31360cbcd6671bfd5f8387723491432216cf5e6f7618253",
     "evidence/rank8_frontier_20261021/global_induction/sts_results/R8_3_985_h4.json": "e86ffd40600fcd54f8ba9d04ee955b7c7a3f53394a4b038079deff029a4b57ec",
-    "evidence/rank8_frontier_20261021/global_induction/verify_accepted_atomic.py": "e7383cc024c82473985265ce00adb88740f4ea928d11957dc28458530d3ed34d",
+    "evidence/rank8_frontier_20261021/global_induction/verify_accepted_atomic.py": "6850f55d55fb24ff83ac768f10ed4a767d567ae79462c1c3077f4c807a4f7dfa",
     "evidence/rank8_frontier_20261021/global_induction/verify_accepted_atomic_sts.py": "e9f6d6fbcf838d868194ca3a01f35d99baa9fbda777f2a918084a7851da806c9",
     "evidence/rank8_frontier_20261021/global_induction/verify_accepted_frames.py": "7c7e50c9292215d57af61ed025e3ed8ed2a733d356c6900f5f878b292a8175a5",
     "evidence/rank8_frontier_20261021/global_induction/verify_accepted_generic.py": "4c004b1c4e310abadf4f4299f15a263dcde4364174e2924e478b8a6ce8762b39",
@@ -62937,10 +64666,17 @@
     "evidence/rank8_frontier_20261021/noncommutative/verify_independent.py": "ad586fa52385d97c15bb6827791f0c33ba5e97025f8b2e5204e57ec8ae9a69ed",
     "evidence/rank8_frontier_20261021/noncommutative/verlinde_low_721.json": "84f0c77432cfea25f9f0c99fa2d349d84ff9f7605950b1fab61772ade5447518",
     "evidence/rank8_frontier_20261021/noncommutative_followup/ADDITIONAL_SCOPE_GATES.md": "006c988b137378b36a6e609e2d411add960fe4fd7a7665b765a35cf8b2f9a37b",
+    "evidence/rank8_frontier_20261021/noncommutative_followup/GENERALIZED_NEAR_GROUP_TABLE.md": "a86e8a06d5d5dda8b3f617a76ac2c52ab988283552f8b1d9c4093dbd761e8753",
     "evidence/rank8_frontier_20261021/noncommutative_followup/README.md": "10d42b739fd442652985afca1c72f4066cc8999143d3e96837cedf184437ff47",
     "evidence/rank8_frontier_20261021/noncommutative_followup/SU2_FAMILY.md": "f6c2d101752278557f8ebedaae5367c0de5456668216e4d14c94478c71103b1b",
+    "evidence/rank8_frontier_20261021/noncommutative_followup/additional_central_constraints.json": "ef7fe6724a9839f072c58f2134427e312ccba5d406f40e6b859a5ca97dc885ac",
+    "evidence/rank8_frontier_20261021/noncommutative_followup/additional_central_constraints.py": "946f6d66e8d3873a5b95e6ad63b1438c328108df5da905adce6cf0f99bdffe1f",
+    "evidence/rank8_frontier_20261021/noncommutative_followup/additional_joint_rotation.py": "06276930e897fbe49db6fc76894a21332a549205fca429495416c6b1dc4d39b8",
+    "evidence/rank8_frontier_20261021/noncommutative_followup/additional_joint_rotation_h6.json": "59f2074d56d0aada6581d6601558fe4b834e5fa41298e02ec1ac8a6634e01436",
     "evidence/rank8_frontier_20261021/noncommutative_followup/additional_scope_gates.json": "f000d36af92b8659cae9705d3dd36054fce06722a9b7f853418c535c8d701042",
     "evidence/rank8_frontier_20261021/noncommutative_followup/additional_scope_gates.py": "2c193d373fba3e6ef272fdaf672a597c2352e9f9b2285e2b3e8f86359772d186",
+    "evidence/rank8_frontier_20261021/noncommutative_followup/generalized_near_group_all_frontier.json": "7a2680036931be10db3bd4ad5051e3bdb909e6b3de58011a63c33085a5ed1d92",
+    "evidence/rank8_frontier_20261021/noncommutative_followup/generalized_near_group_all_frontier.py": "8eba74ebe692c1d96347bf8766bb8454d56d8c42b3818ac628b371692d80400f",
     "evidence/rank8_frontier_20261021/noncommutative_followup/scope_gates.json": "65984157be726eb5db0c4cd35c5cae1f52e569bdd4031415c3eea0195a6cb15b",
     "evidence/rank8_frontier_20261021/noncommutative_followup/su2_all_frontier.json": "92129a550ff1ef3349f85f125187ef2247ec1f40bcd6733cc07cd27741ec51be",
     "evidence/rank8_frontier_20261021/noncommutative_followup/su2_all_frontier.py": "35f042ea71299a5d1ef7dd5498169b14d4801cf11f0ce389d8c71ab4298ce755",
@@ -62949,6 +64685,7 @@
     "evidence/rank8_frontier_20261021/quadratic/CONNECTED_ALGEBRA_CANDIDATES.md": "c3540b1b8d7c6f98a631fdc49e90fb1be8050681f8cce67e3c53f90d48536652",
     "evidence/rank8_frontier_20261021/quadratic/CUBIC_SPLIT_MODULE.md": "fd42b42bb99ad91509f873e76b491752bf9c2273324802e2bc8fb89c979b65a3",
     "evidence/rank8_frontier_20261021/quadratic/NORMAL_SPLIT_SPECTRAL.md": "ae2dc8b514bb4783768f8a76d37f3bac4d6a9e3264bf48b373e8414fd9b16cdf",
+    "evidence/rank8_frontier_20261021/quadratic/OCTIC_LOW_S_OBSTRUCTION.md": "702e095d9fbf0902fb9ac6c828a9e4caeac1b7a17b4eda90a4aed775e587b00b",
     "evidence/rank8_frontier_20261021/quadratic/RESIDUAL_QUADRATIC_SEARCH.md": "b8507cf6e5e02c37f3068e908d5645f64aaf6d2e9a2380fd13cf9fca8b9aa1bf",
     "evidence/rank8_frontier_20261021/quadratic/SIMULTANEOUS_SPLIT_MODULE.md": "b60ae94e4a244cc672dceaa67b580696673bd52dedbbc99c3612becc3b7012c3",
     "evidence/rank8_frontier_20261021/quadratic/STRUCTURAL_CONSTRUCTIONS.md": "94728c4f40b72707529c1da44a70362740a2c91cadfbd63a925a1b7d5f2ee44f",
@@ -62958,11 +64695,16 @@
     "evidence/rank8_frontier_20261021/quadratic/cubic_split_module_results.json": "60a0cff128fe7f6a134389689e0b8378cdfa2e9315ea6fbcba41c6f9a529278a",
     "evidence/rank8_frontier_20261021/quadratic/normal_split_spectral.py": "936cc613c42734ec3142d763764c40741a229e81797759eeee7b2fd13129c555",
     "evidence/rank8_frontier_20261021/quadratic/normal_split_spectral_results.json": "45b01303101ac6de3aa347e60f25a83e94e1878cd479fb5488c81cfbe55116ab",
+    "evidence/rank8_frontier_20261021/quadratic/octic_low_s_general.py": "e301cc50365b40bd9df6d463067ebef36fe9e470ce3bef9d415a3e1dfb23dad2",
+    "evidence/rank8_frontier_20261021/quadratic/octic_low_s_general_results.json": "e9bc6d43f6328a2b9b298080c9440be707c3a4a40a0d19948a7e2fd942158b97",
+    "evidence/rank8_frontier_20261021/quadratic/octic_low_s_symmetry.py": "5d03d09a8f9850cb6578cfc74f2660fc0178bccc65648ec8f1c39ca78ac82593",
     "evidence/rank8_frontier_20261021/quadratic/rank_two_and_models.py": "222b60497fd0560570c7fd3f88619b0834af60d480dd209d1074fc5d78a121b9",
     "evidence/rank8_frontier_20261021/quadratic/rank_two_and_models_results.json": "3ede0a69095db118e2d03f005118d9a16bdb0fbf33f3fc67f95effe3fe561664",
     "evidence/rank8_frontier_20261021/quadratic/residual_split_1055.py": "270f2c85dd9664939ed3129da16714d11feac98c7fb6a75877b7c796241a254a",
     "evidence/rank8_frontier_20261021/quadratic/residual_split_1055_results.json": "23444052ef7ad8a5a9ac78e008bdb7f3e1958000fbf292731f48748d19dfacae",
+    "evidence/rank8_frontier_20261021/quadratic/review_atomic_complex_1055.py": "533bf94439ca837802d29d144889d609e962990d713f0f100966bda529aa1c80",
     "evidence/rank8_frontier_20261021/quadratic/review_atomic_spectrum.py": "8196f64afe17d1bad578e9d08e5f59897d9a5ecd452345fc8586d078a78fafb7",
+    "evidence/rank8_frontier_20261021/quadratic/review_octic_low_s.py": "3e54399eabb1202f3a10f53a83ef6c05081f4e17dfd194af93cf4805e1ecfa7d",
     "evidence/rank8_frontier_20261021/quadratic/simultaneous_split.py": "d0fcb12d966aa6cd73b57b6e9bb0bc534abe25c3ebb6d74f0d99599058fd41d0",
     "evidence/rank8_frontier_20261021/quadratic/simultaneous_split_results.json": "4335fa42b279a4737bb04552ce20f8c0c24a24aee83a35ecbe6725f88221f8b0",
     "evidence/rank8_frontier_20261021/quadratic/structural_constructions.py": "f3cb58fd546c964ef0b60157fff3c35ecceb3ef23cf39f086a7ddb6dc405993a",
@@ -62978,6 +64720,7 @@
     "evidence/rank8_frontier_20261021/structural_models/C3_MORITA_DUAL.md": "46200c800147013df0bf256d60e34230a090f5e0b271e97e41b4516ac96f714a",
     "evidence/rank8_frontier_20261021/structural_models/KNOWN_MODEL_ROUTES.md": "d468e371127516a86543da97d218f266124e7fdf014a399b87c76acaada24794",
     "evidence/rank8_frontier_20261021/structural_models/NEAR_GROUP_SCALING.md": "11e943b296808b136256a5f8cfd2bb483cba3962e1c2bc6b26f144ffdc1a3717",
+    "evidence/rank8_frontier_20261021/structural_models/POINTED_S3_SCOPE.md": "8a400e793bf35dcf2cc621ac81d8d7e48e9b42f8d39bcffb636b61ffa21404ff",
     "evidence/rank8_frontier_20261021/structural_models/R436_GENERAL_TPE.md": "7289e0e69d99f70075a28b13632b74e918e6efd8ee6d6261bb749b433bec3022",
     "evidence/rank8_frontier_20261021/structural_models/R65_MODULES.md": "1555cb1fb83ff9c603cefd5fddcca40c61e5928fa770e8b936c60b2e70b21cdb",
     "evidence/rank8_frontier_20261021/structural_models/S3_FULL_CONDENSATION.md": "91d438b3f17240d89f05f80027dd77655a3e3b709c68b2290696afce72fb59b8",
@@ -62990,6 +64733,8 @@
     "evidence/rank8_frontier_20261021/structural_models/known_model_routes.py": "0e48b819ec2ffcb3068270d6e9a522ac2efec69f7ec2700442ef06679ff81c83",
     "evidence/rank8_frontier_20261021/structural_models/near_group_scaling.json": "75d28837ba8f434bab3dc3baeaf9d23d5e348041e34f37305d505bd4058ced55",
     "evidence/rank8_frontier_20261021/structural_models/near_group_scaling.py": "15eca8ec4832cf6ea334da1b7abc23e08322ae008919e0ce88a69ae56f6bc367",
+    "evidence/rank8_frontier_20261021/structural_models/pointed_s3_scope.json": "d595adcca31739b8ee0cf12cb9ac3754f6e439f01ac32fb71574d4c8244291ea",
+    "evidence/rank8_frontier_20261021/structural_models/pointed_s3_scope.py": "efc2741fa6ddd0cdb1c7d5a16cfedc0088f3001224acd50ba67d66f3e7234d4d",
     "evidence/rank8_frontier_20261021/structural_models/r436_general_tpe.json": "c6bba66896d160617311ccb6175bfdbc2ffd984762304f76d397cc819a45a219",
     "evidence/rank8_frontier_20261021/structural_models/r436_general_tpe.py": "2618f17eb030a3875c1f667b3784bce7c31e2d8ce637fabe34ce4bba011ca966",
     "evidence/rank8_frontier_20261021/structural_models/r455/README.md": "0a544c26359c1c5cc8efd03fbafbcbd1107761672951c67c9fd538f5a209beed",

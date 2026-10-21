@@ -11,6 +11,47 @@ REPO = HERE.parents[2]
 IDS = [65,436,439,455,567,721,731,901,903,921,925,926,928,941,982,985,
        1055,1154,1203,1350,1463,1615,1617,1660,1661,1739,1768,1795,
        2842,2885,3258,3344,3413,3472]
+SCREENING_FOCUS = {
+65:'Free C4 generalized-near-group structure; complete rank-two based-module necessary data and connected-algebra underlying-object necessary filters; all nontrivial group-equivariantizations excluded; full character-field central constraints and specified unbounded model families tested.',
+439:'Complete C3 Fourier necessary representations and Morita fusion tensor; forced untwisted S3 associator and rank-five Morita dual with an associator inequivalent to the known model; complete connected-algebra underlying-object necessary filters and central constraints; actual crossed and all-level SU(2)/adjoint construction families excluded.',
+455:'Haagerup neutral and TY bridge; complete strict Evans-Gannon Fourier obstruction with explicit abstract-to-strict gap; connected-algebra underlying-object necessary filters, general Galois-PU reduction, central data and specified unbounded model-family filters tested.',
+567:'Complete C3 Fourier necessary representations and Morita fusion tensor; forced nontrivial S3 pointed C2 restriction obstructs full-S3 algebra; complete connected-algebra underlying-object necessary filters and central constraints; actual crossed and all-level SU(2)/adjoint construction families excluded.',
+721:'All six known Asaeda-Haagerup Morita categories compared; all integer-scaled near-group sources and all-level SU(2)/adjoint families excluded; complete integer central Gram domain, rotation/STS/cubic/forgetful constraints and connected-algebra underlying-object necessary filters tested.',
+903:'Complete connected-algebra underlying-object necessary filters, labeled central-induction frame constraints, all-level SU(2)/adjoint quantum-group products and unbounded generalized-near-group parameter families tested.',
+928:'General Galois-PU reduction, quaternionic rational block, pointed cocycle constraints, full central induction/rotation/STS data, complete connected-algebra underlying-object necessary filters, all-level SU(2)/adjoint products and specified unbounded near-group families tested.',
+941:'General Galois-PU reduction, split rational block and pointed algebra route, central induction/rotation/STS data, complete connected-algebra underlying-object necessary filters, all-level SU(2)/adjoint products and specified unbounded near-group families tested; Morita coherence remains open.',
+982:'Complete connected-algebra underlying-object necessary filters and labeled central-induction/STS constraints, together with all-level SU(2)/adjoint quantum-group products and unbounded generalized-near-group parameter families tested.',
+1154:'General Galois-PU reduction; all 14,211 integer central Gram patterns filtered to 1,238 cubic/spectral survivors and 1,230 exact joint rotation/STS survivors; complete connected-algebra underlying-object necessary filters and specified unbounded model families tested.',
+1615:'Complete connected-algebra underlying-object necessary filters, full labeled central-induction constraints and repeated exact known/new exclusions, plus all-level SU(2)/adjoint quantum-group products and unbounded generalized-near-group family tests.',
+1617:'Complete connected-algebra underlying-object necessary filters, full labeled central-induction constraints and repeated exact known/new exclusions, plus all-level SU(2)/adjoint quantum-group products and unbounded generalized-near-group family tests.',
+1660:'Complete connected-algebra underlying-object necessary filters, full labeled central-induction constraints and repeated exact known/new exclusions, plus all-level SU(2)/adjoint quantum-group products and unbounded generalized-near-group family tests.',
+1661:'Complete connected-algebra underlying-object necessary filters, full labeled central-induction constraints and repeated exact known/new exclusions, plus all-level SU(2)/adjoint quantum-group products and unbounded generalized-near-group family tests.',
+1768:'Complete rank-two based-module necessary data and connected-algebra underlying-object necessary filters; every proper subring, grading and nontrivial finite-group equivariantization tested; exact global central constraints and specified unbounded construction families tested.',
+1795:'Complete rank-two based-module necessary data and connected-algebra underlying-object necessary filters; every proper subring, grading and nontrivial finite-group equivariantization tested; exact global central constraints and specified unbounded construction families tested.',
+3472:'Complete rank-two based-module necessary data and connected-algebra underlying-object necessary filters; every proper subring, grading and nontrivial finite-group equivariantization tested; full character-field central constraints and specified unbounded construction families tested.'}
+SCREENING_DEFINITION = ('Extensively investigated exotic candidate means that the ring survived the documented, case-specific campaign of known and newly developed exclusion tests and explicit model searches, including complete finite domains and specified unbounded construction families. It proves neither existence of a fusion category nor novelty of a future realization. Each case lists exactly what was exhausted, what survived and the remaining hypotheses.')
+ACTIVE_STATES={'running','queued','discovery_in_progress','constructing_complete_domain',
+               'solving_complete_sparse_cone','pseudo_certificate_verified'}
+
+
+def completed_queue():
+    path=FRONTIER/'global_induction/complete_queue.json'
+    require(path.is_file(),'final completion queue receipt is missing')
+    queue=json.loads(path.read_text())
+    require(queue.get('status')=='all_serial_attempts_finished',
+            'the planned serial exact queue has not finished')
+    targets=[tuple(x)for x in queue['targets']]
+    records=queue['records']
+    require(len(records)==len(targets)and
+            [(r['id'],r['variant'])for r in records]==targets,
+            'completion queue does not account for every planned target')
+    require(all(r.get('status')not in ACTIVE_STATES for r in records),
+            'a completion queue record is still active')
+    for r in records:
+        if r.get('status')in('excluded','exact_feasible_relaxation'):
+            require(r.get('optimized_exact_replay')=='PASS'and r.get('replay_exit_code')==0,
+                    'completed exact queue result lacks successful optimized replay')
+    return path,queue
 
 
 def require(test, message):
@@ -22,7 +63,7 @@ def digest(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
-def record():
+def record(use_screening=True):
     manifest = {}
 
     def reference(path):
@@ -139,6 +180,12 @@ def record():
         add(r['id'],domain,'specified_families_excluded','general_complex_construction_families',
             [path,HERE/'rank5_route_bindings.json'],HERE/'KNOWN_MODEL_ROUTES.md',
             [HERE/'known_model_routes.py',HERE/'rank5_route_bindings.py'],r,r['limitation'])
+    path=HERE/'pointed_s3_scope.json'
+    for r in read(path)['records']:
+        require(r['tensor_sha256']==rows[r['id']]['tensor_sha256'],'pointed S3 scope source binding')
+        add(r['id'],'complete_pointed_S3_cocycle_and_subgroup_Morita_branch_after_forced_indicators',
+            r['outcome'],r['scope'],path,HERE/'POINTED_S3_SCOPE.md',
+            [HERE/'pointed_s3_scope.py'],r,r['limitation'])
     path = HERE/'r65_rank_two_modules.json'
     r = read(path)
     require(r['tensor_sha256'] == rows[r['id']]['tensor_sha256'], 'R65 rank2 source binding')
@@ -235,6 +282,33 @@ def record():
             [directory/'su2_all_frontier.py',directory/'su2_product_family.py'],
             {key:r[key]for key in ('complete_order_candidates','allowed_order_sequence','exponent_box_size',
                 'dimension_bounded_product_count','positive_integer_scaling_matches')},r['not_covered'])
+    path=directory/'generalized_near_group_all_frontier.json'
+    for r in read(path)['records']:
+        require(r['tensor_sha256']==rows[r['id']]['tensor_sha256'],'generalized NG source binding')
+        add(r['id'],'all_generalized_near_group_dimension_parameters_with_integer_scalings',r['outcome'],
+            r['scope'],path,directory/'GENERALIZED_NEAR_GROUP_TABLE.md',
+            [directory/'generalized_near_group_all_frontier.py'],r,
+            'This is a necessary dimension-family test; retained parameter triples are not categories, and integral targets lie outside its irrational quadratic parameter theorem.')
+    path=directory/'additional_central_constraints.json'
+    for r in read(path):
+        require(r['tensor_sha256']==rows[r['id']]['tensor_sha256'],'additional central source binding')
+        add(r['id'],'complete_central_image_and_full_character_S_assignments',r['outcome'],
+            nc_scope(r['id']),path,directory/'ADDITIONAL_SCOPE_GATES.md',
+            [directory/'additional_central_constraints.py'],
+            {key:r[key]for key in ('low_count','ordinary_surviving_count','full_S_surviving_count','splitting_field_extension_by_i_used')},
+            'The retained full-S assignments and necessary induction frames are not modular categories or categorifications.')
+    path=directory/'additional_joint_rotation_h6.json'
+    for r in read(path):
+        require(r['tensor_sha256']==rows[r['id']]['tensor_sha256'],'additional joint rotation binding')
+        decisions=[case['decision']['status']for case in r['cases']]
+        add(r['id'],'all_indicator_branches_joint_height6_rotations_on_unique_full_S_frame',
+            'one_exact_necessary_indicator_branch_survives',nc_scope(r['id']),path,
+            directory/'ADDITIONAL_SCOPE_GATES.md',[directory/'additional_joint_rotation.py'],
+            {'height':r['height'],'complete_branch_count':len(r['cases']),
+             'exact_negative_count':decisions.count('exact_infeasible_relaxation'),
+             'exact_primal_count':decisions.count('exact_feasible_relaxation'),
+             'surviving_indicators':[case['indicators']for case in r['cases']if case['decision']['status']=='exact_feasible_relaxation']},
+            'This determines necessary pointed-cocycle signs through the separate structural bridge; the surviving exact primal is not a model.')
 
     n = FRONTIER/'noncommutative'
     data = read(n/'central_support_results.json')
@@ -347,7 +421,25 @@ def record():
             integral/'PROOF.md',[integral/verifier],
             limitation='General exclusion is used only after independent review and entry in accepted.json.')
 
-    # Status is controlled exclusively by the parent's accepted ledger.
+    # Mathematical status is controlled exclusively by the parent's accepted
+    # ledger. Screening completion is an explicit reviewed campaign decision,
+    # never inferred from an attempt counter or a feasible cone.
+    completion=HERE/'screening_completion.json'
+    if use_screening and completion.exists():
+        assessment=read(completion)
+        queue_path,_=completed_queue();reference(queue_path)
+        require(assessment['completion_queue_sha256']==digest(queue_path),
+                'completion queue differs from the explicit screening assessment')
+        remaining={ident for ident,row in rows.items()if row['general_status']=='unresolved'}
+        require({r['id']for r in assessment['records']}==remaining,'screening decision predates the current accepted ledger; explicitly refresh it')
+        require(assessment['definition']==SCREENING_DEFINITION,'screening definition changed')
+        for item in assessment['records']:
+            row=rows[item['id']];number=int(item['id'].rsplit('_',1)[1])
+            require(item['tensor_sha256']==row['tensor_sha256']and item['case_specific_focus']==SCREENING_FOCUS[number],
+                    'screening assessment source or case focus changed')
+            row['screening_stage']='extensively_investigated_exotic_candidate'
+            row['screening_case_specific_focus']=item['case_specific_focus']
+            row['screening_definition']=SCREENING_DEFINITION
     ordered = [rows[f'R8_3_{i}'] for i in IDS]
     return {'schema':'rank8-frontier-per-ring-research-audit/v1',
             'scope':'research coverage and source binding; linked proof verifiers provide mathematical replay',
@@ -366,12 +458,14 @@ def markdown(data):
            'the user-defined label exotic candidate describes that research status. The JSON retains',
            'the prior published attempts and the exact domain, scope, evidence, verifier and',
            'limitation of every new attempt. Numerical undecided results are not proofs.','',
-           '| Ring | Current general status | New domains and outcomes |',
-           '|---|---|---|']
+           '| Ring | Current general status | Screening stage | New domains and outcomes |',
+           '|---|---|---|---|']
     for row in data['rows']:
         summary='; '.join(a['domain'].replace('_',' ')+': '+a['outcome'].replace('_',' ')
                          for a in row['new_attempts'])
-        lines.append('| '+row['id']+' | '+row['general_status']+' | '+summary.replace('|','/')+' |')
+        lines.append('| '+row['id']+' | '+row['general_status']+' | '+row['screening_stage'].replace('_',' ')+' | '+summary.replace('|','/')+' |')
+    if any(r['screening_stage']=='extensively_investigated_exotic_candidate'for r in data['rows']):
+        lines+=['',SCREENING_DEFINITION,'']
     lines += ['', 'The universal cyclic near-group filter covers all positive orders, but only the',
               'listed direct/Morita and single-operation routes. The remaining untested domains',
               'include arbitrary associators, noncentral algebra condensations, and unrestricted',
@@ -386,8 +480,28 @@ def markdown(data):
 def main():
     parser=argparse.ArgumentParser()
     parser.add_argument('--write',action='store_true')
+    parser.add_argument('--mark-screening-complete',action='store_true',
+        help='Explicit final campaign assessment after all planned exact queues finish; requires --write. Never changes a categorification status.')
     args=parser.parse_args()
-    actual=record()
+    require(not args.mark_screening_complete or args.write,'screening completion requires explicit --write')
+    actual=record(use_screening=not args.mark_screening_complete)
+    if args.mark_screening_complete:
+        queue_path,_=completed_queue()
+        running=[(row['id'],attempt['domain'])for row in actual['rows']for attempt in row['new_attempts']
+                 if attempt['outcome']in ACTIVE_STATES]
+        require(not running,'planned exact research is still running; finish or explicitly close its receipt before final screening')
+        items=[]
+        for row in actual['rows']:
+            if row['general_status']!='unresolved':continue
+            number=int(row['id'].rsplit('_',1)[1]);require(number in SCREENING_FOCUS,'remaining ring lacks case-specific assessment')
+            items.append({'id':row['id'],'tensor_sha256':row['tensor_sha256'],
+                          'case_specific_focus':SCREENING_FOCUS[number],
+                          'categorification_or_novelty_proved':False})
+        (HERE/'screening_completion.json').write_text(json.dumps({'kind':'explicit_final_extensive_screening_assessment',
+            'definition':SCREENING_DEFINITION,
+            'completion_queue_path':str(queue_path.relative_to(REPO)),
+            'completion_queue_sha256':digest(queue_path),'records':items},indent=2)+'\n')
+        actual=record()
     jp=HERE/'per_ring_research_audit.json'
     mp=HERE/'per_ring_research_audit.md'
     rendered=markdown(actual)
