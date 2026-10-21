@@ -33,6 +33,10 @@ def main():
         content['open_cases'].append({'id':f"Rank eight: {ext['unresolved']} rings",'heading':'Exact multiplicity three',
             'paragraphs':[f"The new band contains {ext['excluded']:,} recorded general exclusions, {ext['unitarily_realized']} unitary models and {ext['unresolved']} unresolved tensors. Each remaining tensor has an individual attempt record, distinguishing completed necessary-condition tests, unsuccessful model searches, ineligible tests and time limits.",
             'These are investigated categorification candidates, not asserted fusion categories or established exotic examples. Passing necessary conditions supplies no associator. Failing to find a model does not prove nonexistence. Exact tensors are in data/remaining_cases.py; the per-case record is evidence/rank8_m3_20261021/pipeline/residual_attempts.json.']})
+        if ext['unitary_excluded_ids']:
+            content['open_cases'][-1]['paragraphs'].append('Unitary categorification is excluded for '+', '.join(ext['unitary_excluded_ids'])+'. These scoped obstructions leave general complex categorification unresolved.')
+        if 'R8_3_731' in ext['remaining_ids']:
+            content['open_cases'][-1]['paragraphs'].append('Any categorification of R8_3_731 would be nonunitary and not weakly group-theoretical: its exact simple based ring and negative primary-three witness combine with the simple weakly group-theoretical classification. This conditional restriction supplies no categorification or general exclusion.')
     content['open_case_count'] = len(remaining_ids(ROOT))
     heading = 'Rank eight: multiplicity-three extension'
     content['replay_sections'] = [x for x in content['replay_sections'] if x['heading']!=heading]
@@ -58,6 +62,11 @@ def main():
         '<p><a href="./papers/rank8.pdf">Updated manuscript</a> · <a href="./downloads/rank8-certified-through-m3.zip">Proofs and exact verification</a> · <a href="./downloads/remaining_cases.py" download>Open fusion tensors</a> · <a href="./data/rank8_m3_attempts.json" download>Individual attempt records</a></p>'
         '<p>The census enumeration is complete according to producer records, with independent tensor and isomorphism audits. The categorification inventory separates proven exclusions, explicit constructions and individually investigated candidates. A candidate is not a proof of categorifiability or exotic existence. New arguments remain subject to independent human review.</p>'
         '<details><summary>Unresolved rank-eight identifiers</summary><p>'+', '.join('<code>'+escape(rid)+'</code>' for rid in ext['remaining_ids'])+'</p></details></section>')
+    if ext['unitary_excluded_ids']:
+        scoped='<p>Unitary categorification is excluded for '+', '.join('<code>'+escape(rid)+'</code>' for rid in ext['unitary_excluded_ids'])+'. General complex categorification remains unresolved.</p>'
+        if 'R8_3_731' in ext['remaining_ids']:
+            scoped+='<p>Any categorification of <code>R8_3_731</code> would also fail to be weakly group-theoretical. This is a conditional restriction, not an existence claim.</p>'
+        block=block.replace('</section>',scoped+'</section>')
     html = re.sub(r'<section id="rank-eight-m3">.*?</section>\s*','',html,flags=re.S)
     html = html.replace('    <h2 id="rank-eight">','    '+block+'\n    <h2 id="rank-eight">')
     path.write_text(html)

@@ -41,13 +41,16 @@ BIB={
 'GuiQSystems':r'''B.~Gui, \emph{Q-systems and extensions of completely unitary vertex operator algebras}, arXiv:1908.03484v3, Theorems~2.21 and~2.28, Corollary~3.32.''',
 'MorrisonPenneysSpokes':r'''S.~Morrison and D.~Penneys, \emph{Constructing spoke subfactors using the jellyfish algorithm}, arXiv:1208.3637v2, Section~5.1 and Theorem~5.5.''',
 'GJSCyclic':r'''P.~Grossman, D.~Jordan and N.~Snyder, \emph{Cyclic extensions of fusion categories via the Brauer--Picard groupoid}, arXiv:1211.6414v2, Theorem~4.9 and Remarks~4.10--4.11.''',
-'CartanEilenberg':r'''H.~Cartan and S.~Eilenberg, \emph{Homological Algebra}, Princeton University Press (1956), Chapter~XII, Section~10.'''}
+'CartanEilenberg':r'''H.~Cartan and S.~Eilenberg, \emph{Homological Algebra}, Princeton University Press (1956), Chapter~XII, Section~10.''',
+'GSAsaedaMorita':r'''P.~Grossman and N.~Snyder, \emph{The Brauer--Picard group of the Asaeda--Haagerup fusion categories}, Trans. Amer. Math. Soc. \textbf{368} (2016), 2289--2331; arXiv:1202.4396v2.''',
+'HuangOddHI2026':r'''T.-C.~Huang, \emph{Cyclic Haagerup--Izumi fusion categories at every odd order}, arXiv:2609.15986v1 (2026).''',
+'GSYOddHI2026':r'''T.~Gannon, A.~Schopieray and H.~Yadav, \emph{On Haagerup--Izumi fusion categories}, arXiv:2609.25185v1 (2026).'''}
 def main():
     ext=extension(ROOT)
     if ext is None:raise ValueError('Accepted M3 publication ledger required')
     rows=json.loads((ROOT/LEDGER).read_text());new=[r for r in rows if r['multiplicity']==3]
     by_id={r['id']:r for r in new};models=[r for r in json.loads((ROOT/MODELS).read_text()) if r['multiplicity']==3]
-    stated=[275,276,344,345,810,812,2492,2494,2620,2622,1051,2415,307,2132,347,916,1348,76,735,738,1422,1805,1453,1019,1057,1067,1197,2392,2836,2904,3082]
+    stated=[275,276,344,345,810,812,2492,2494,2620,2622,1051,2415,307,2132,347,916,1348,76,735,738,1422,1805,920,1453,1019,1057,1067,1197,2392,2836,2904,3082]
     if any(by_id[f'R8_3_{i}']['status']!='excluded' for i in stated):raise ValueError('A stated theorem is absent from the accepted ledger')
     text=r'''\section{The multiplicity-three continuation}
 \label{sec:m3-continuation}
@@ -119,17 +122,20 @@ comparison up to tensor equivalence.
         profiles={r['id']:r for r in json.loads((ROOT/EVIDENCE/'pipeline/survivor_profiles.json').read_text())}
         text+=r'''\subsubsection{Individually investigated candidates}
 These are unresolved categorification candidates, not asserted categories
-or established exotic examples. The last column gives ranks of nontrivial
+or established exotic examples. A unitary exclusion does not settle the
+general complex question. The last column gives ranks of nontrivial
 proper fusion subrings, as checked on the exact source tensors.
-\begin{center}\small\begin{longtable}{@{}lccc@{}}\toprule
-Census ID & Commutative & Invertibles & Proper subring ranks\\\midrule\endhead
+\begin{center}\small\begin{longtable}{@{}lcccc@{}}\toprule
+Census ID & Commutative & Invertibles & Unitary status & Proper subring ranks\\\midrule\endhead
 '''
         for row in new:
             if row['status']!='unresolved':continue
             q=profiles[row['id']];ranks=sorted({x['rank'] for x in q['proper_subrings'] if x['rank']>1})
-            text+=r'\sha{'+row['id']+'} & '+('yes' if q['commutative'] else 'no')+' & '+str(len(q['invertibles']))+' & '+(', '.join(map(str,ranks)) if ranks else '--')+r'\\'+'\n'
+            unitary='excluded' if row.get('unitary_status')=='excluded' else 'unresolved'
+            text+=r'\sha{'+row['id']+'} & '+('yes' if q['commutative'] else 'no')+' & '+str(len(q['invertibles']))+' & '+unitary+' & '+(', '.join(map(str,ranks)) if ranks else '--')+r'\\'+'\n'
         text+=r'\bottomrule\end{longtable}\end{center}'+'\n'
-    text+=r'''The aggregate command is
+    text+=r'''\input{m3_model_search}
+The aggregate command is
 \begin{quote}\small
 \texttt{python }\path{supplements/rank8/software/verify_m3_continuation.py}.
 \end{quote}
@@ -149,10 +155,13 @@ identities and reconciliation without replaying the mathematics.
     (PAPER/'m3_convex.tex').write_text(normalize((ROOT/EVIDENCE/'criteria/global_convex_m3.tex').read_text()))
     for name in ('module','positivity','biquadratic'):shutil.copy2(ROOT/f'tools/templates/rank8_m3_{name}.tex',PAPER/f'm3_{name}.tex')
     structural='\n'.join((ROOT/EVIDENCE/p).read_text() for p in ('models/psl2_11/structural_m3.tex','pipeline/structural_m3.tex','models/d90_structural.tex'))
+    if 'R8_3_436' in ext['unitary_excluded_ids']:
+        structural+='\n'+(ROOT/EVIDENCE/'models/r436_unitary_scope.tex').read_text()
     (PAPER/'m3_structural.tex').write_text(normalize(structural))
     constructions=(ROOT/'tools/templates/rank8_m3_known_models.tex').read_text()+'\n'+(ROOT/EVIDENCE/'models/new_constructions.tex').read_text().replace('{CMS}','{CMSIzumiXu}').replace('{Izumi}','{IzumiNear}')
     if 'R8_3_3342' in {r['id'] for r in models}:constructions+='\n\\subsection{A twisted group-theoretical construction}\n'+(ROOT/EVIDENCE/'models/psl2_11/r360/manuscript.tex').read_text()
     (PAPER/'m3_models.tex').write_text(normalize(constructions))
+    (PAPER/'m3_model_search.tex').write_text(normalize((ROOT/EVIDENCE/'models/model_search_scope.tex').read_text()))
     path=PAPER/'rank8.tex';s=path.read_text()
     s=re.sub(r'pdftitle=\{Rank-eight Grothendieck rings: [^}]+\}','pdftitle={Rank-eight Grothendieck rings: categorification through multiplicity three}',s)
     s=s.replace('complete classification through multiplicity two}','categorification through multiplicity three}')
@@ -171,7 +180,10 @@ identities and reconciliation without replaying the mathematics.
     for old,newtext in replacements.items():s=s.replace(old,newtext)
     if r'\input{m3_continuation}' not in s:s=s.replace(r'\section{Necessary criteria and their exact application}',r'\input{m3_continuation}'+'\n\n'+r'\section{Historical multiplicity-two criteria and their exact application}')
     for key,entry in BIB.items():
-        if r'\bibitem{'+key+'}' not in s:s=s.replace(r'\end{thebibliography}',r'\bibitem{'+key+'} '+entry+'\n'+r'\end{thebibliography}')
+        item=r'\bibitem{'+key+'} '+entry+'\n'
+        pattern=r'\\bibitem\{'+re.escape(key)+r'\}.*?(?=\\bibitem|\\end\{thebibliography\})'
+        s,count=re.subn(pattern,lambda _:item,s,flags=re.S)
+        if not count:s=s.replace(r'\end{thebibliography}',item+r'\end{thebibliography}')
     path.write_text(s);mirror=ROOT/'supplements/rank8/paper';mirror.mkdir(parents=True,exist_ok=True)
     for p in PAPER.glob('*.tex'):shutil.copy2(p,mirror/p.name)
     print(json.dumps({'status':'PASS','new_models':len(models),'new_exclusions':ext['excluded'],'unresolved':ext['unresolved']},indent=2))

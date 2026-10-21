@@ -131,6 +131,14 @@ assert all(next(x for x in statusrows if x['rank']==5 and x['multiplicity']==m)[
 assert all(x['unassessed']==0 for x in statusrows)
 assert status['inputs']['rank5']['sha256']=='9261917451d469ece9929a1756f505924cf84adf34e79a0d2e6f68fed43f55cf'
 from rank8_publication import ledger_path as rank8_ledger, model_path as rank8_models
+from rank8_publication import extension as rank8_extension
+rank8_update=rank8_extension(ROOT)
+if rank8_update:
+    provenance=counts.get('census_extensions',{}).get('rank8_m3')
+    require(provenance is not None, 'Missing rank-eight separate census provenance')
+    require(len(provenance['census_commit'])==40 and all(c in '0123456789abcdef' for c in provenance['census_commit']), 'Rank-eight census commit pin')
+    require(provenance['tables_gz_sha256']==rank8_update['source_sha256'], 'Rank-eight census tensor source pin')
+    require(provenance['enumeration_source_available'] is True and provenance['independent_enumeration_rerun'] is False, 'Rank-eight enumeration source and replay qualification')
 for rank, expected, ledger in ((7,sum(r['rings'] for r in statusrows if r['rank']==7),'supplements/rank7/output/rank7_ledger.json'),
                                (8,sum(r['rings'] for r in statusrows if r['rank']==8),rank8_ledger(ROOT))):
     raw=(ROOT/ledger).read_bytes()

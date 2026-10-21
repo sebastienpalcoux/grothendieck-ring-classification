@@ -87,6 +87,7 @@ def extension(repo):
             'unitarily_realized':counts['unitarily_realized'],'pseudo_unitarily_realized':counts['pseudo_unitarily_realized'],
             'unresolved':counts['unresolved'],
             'remaining_ids':[r['id'] for r in rows if r['status']=='unresolved'],
+            'unitary_excluded_ids':[r['id'] for r in rows if r['status']=='unresolved' and r.get('unitary_status')=='excluded'],
             'realized_ids':[r['id'] for r in rows if r['status'] in REALIZED_STATUSES],
             'ledger':LEDGER,'ledger_sha256':hashlib.sha256(path.read_bytes()).hexdigest(),
             'historical_ledger':HISTORICAL_LEDGER,'historical_ledger_sha256':HISTORICAL_HASHES[HISTORICAL_LEDGER],

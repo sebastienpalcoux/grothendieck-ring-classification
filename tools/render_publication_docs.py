@@ -634,7 +634,7 @@ ledgers are identified in [provenance](../docs/PROVENANCE.md).
         mdir='rank7/papers/manuscript' if r==7 else 'rank8/paper/rank8'
         ledger='output/rank7_ledger.json' if r==7 else rank8_ledger(repo).removeprefix('supplements/rank8/')
         content=f'# Rank-{r} Grothendieck rings through multiplicity {bound(r)}\n\n'+CAUTION+f'\nThe authoritative decision ledger is [`{ledger}`]({ledger}). '
-        if r == 7:
+        if r == 7 or (r == 8 and m3):
             content=content.replace(f'[`{ledger}`]({ledger})', f'`{ledger}`, restored by `python3 tools/restore_data.py`')
         content+=f'Classification is complete through multiplicity {complete(r)}.'
         if complete(r)<bound(r):content+=f' Multiplicity {bound(r)} has unresolved classification records.'

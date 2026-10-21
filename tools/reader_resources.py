@@ -101,6 +101,9 @@ def source_cases(repo):
         ledger_path = 'supplements/rank6/data/decisions.json' if rank == 6 else path7 if rank == 7 else path8
         record = next(r for r in json.loads((repo / ledger_path).read_text()) if r['id'] == name)
         need(record['status'] == 'unresolved', 'Current unresolved ledger status')
+        for scope_key in ('unitary_status', 'pseudo_unitary_status'):
+            if scope_key in record:
+                metadata[name][scope_key] = record[scope_key]
         if 'tensor_sha256' in record:
             need(record['tensor_sha256'] == tensor_hash(tensor), 'Tensor/ledger source identity')
     return tensors, duals, metadata

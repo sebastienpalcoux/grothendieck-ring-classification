@@ -75,15 +75,20 @@ def reconcile():
   require(model.get('constructors'),'model constructors missing '+rid)
   r.update(status=model['status'],models=[c.get('model',model['model']) for c in model['constructors']],model_source=relative(EVIDENCE/'models/consolidated_models.json'))
  # Unitary-only obstructions annotate rather than exclude general existence.
- unitary_path=EVIDENCE/'noncommutative/unitary_primary3_results.json'
- for item in records(load(unitary_path,[])):
-  if item.get('status',item.get('outcome')) not in ('unitary_excluded','excluded'):continue
-  rid=item['id'];require(rid in byid and item.get('tensor_sha256')==byid[rid]['tensor_sha256'],'unitary diagnostic source identity');require(rid not in seen,'unitary model/obstruction collision '+rid)
-  r=bydecision[rid]
-  if r['status']=='unresolved':r.update(unitary_status='excluded',unitary_obstruction_source=relative(unitary_path))
+ unitary_paths=[EVIDENCE/'noncommutative/unitary_primary3_results.json',EVIDENCE/'models/r436_inversion_attempt.json'];unitary_ids=set()
+ for unitary_path in unitary_paths:
+  obj=load(unitary_path,[]);items=[obj['certificate']] if isinstance(obj,dict) and 'certificate' in obj else records(obj)
+  for item in items:
+   if item.get('status',item.get('outcome')) not in ('unitary_excluded','excluded'):continue
+   rid=item['id'];require(rid in byid and item.get('tensor_sha256')==byid[rid]['tensor_sha256'],'unitary diagnostic source identity');require(rid not in seen,'unitary model/obstruction collision '+rid)
+   require(item.get('scope',item.get('certificate',{}).get('scope'))=='unitary_only','unitary diagnostic scope '+rid)
+   unitary_ids.add(rid);r=bydecision[rid]
+   if r['status']=='unresolved':r.update(unitary_status='excluded',unitary_obstruction_source=relative(unitary_path),unitary_obstruction_source_sha256=sha(unitary_path))
  ledger=old+rows;require(ledger[:973]==old,'historical records altered')
  counts=dict(collections.Counter(r['status'] for r in rows));summary={'rank':8,'multiplicity':3,'rings':3527,'counts':counts,'excluded':counts.get('excluded',0),'realized':sum(counts.get(s,0) for s in POSITIVE),'unitarily_realized':counts.get('unitarily_realized',0),'pseudo_unitarily_realized':counts.get('pseudo_unitarily_realized',0),'unresolved':counts.get('unresolved',0),'remaining_ids':[r['id'] for r in rows if r['status']=='unresolved'],'realized_ids':[r['id'] for r in rows if r['status'] in POSITIVE],'cumulative_counts':dict(collections.Counter(r['status'] for r in ledger)),'old_records_preserved':973,'preview':True,'ledger_digest':digest(ledger)}
  summary['unresolved_ids']=summary['remaining_ids']
+ summary['unitary_excluded_ids']=[r['id'] for r in rows if r.get('unitary_status')=='excluded']
+ summary['unitary_only_witness_count']=len(unitary_ids)
  return ledger,summary
 
 def _outcome(row):
@@ -95,7 +100,11 @@ def attempts(pending):
   for r in rows:
    rid=r.get('id')
    if rid not in ids:continue
-   z={k:copy.deepcopy(v) for k,v in r.items() if k not in ('tensor','certificate','witness','branches','proof')};z.update(stage=stage or r.get('stage',r.get('mode',r.get('method',r.get('family',('noncommutative_scalar_sphericalization' if Path(path).name=='results.json' and Path(path).parent.name=='noncommutative' else Path(path).stem))))),outcome=_outcome(r),attempt_kind=kind,source=relative(path));byid[rid].append(z)
+   z={k:copy.deepcopy(v) for k,v in r.items() if k not in ('tensor','certificate','witness','branches','proof')};z.update(stage=stage or r.get('stage',r.get('mode',r.get('method',r.get('family',('noncommutative_scalar_sphericalization' if Path(path).name=='results.json' and Path(path).parent.name=='noncommutative' else Path(path).stem))))),outcome=_outcome(r),attempt_kind=kind,source=relative(path))
+   if z['stage']=='central_twist_moments' and z.get('scope')=='pseudo_unitary_only' and profiles[rid].get('integral'):
+    ds=profiles[rid]['fp_dimensions'];R=census[rid]['tensor'];require(ds[0]==1 and all(isinstance(d,int) and d>0 for d in ds) and all(ds[i]*ds[j]==sum(R[i][j][k]*ds[k] for k in range(8)) for i in range(8) for j in range(8)),'central weak-integral reduction lacks exact positive FP character '+rid)
+    z['effective_scope']='general_complex_via_weak_integrality';z['general_scope_reduction']={'theorem':'ENO05 Proposition8.24: weakly integral fusion categories are pseudo-unitary','positive_integer_fp_dimensions':ds,'global_dimension':sum(d*d for d in ds)}
+   byid[rid].append(z)
  baseline=OUT/'attempts.jsonl'
  if baseline.exists():
   rows=[json.loads(line) for line in baseline.read_text().splitlines() if line.strip()]
@@ -134,6 +143,10 @@ def attempts(pending):
  for name in ('one_spectrum_m3.json','frobenius_results.json','graded_extensions_attempt.json','unified_scope_attempts.json'):
   path=OUT/name
   if path.exists():add(path,records(load(path)),kind='construction' if name=='frobenius_results.json' else 'exclusion')
+ inversionpath=EVIDENCE/'models/r436_inversion_attempt.json'
+ if inversionpath.exists():
+  inversion=load(inversionpath)['certificate'];add(inversionpath,[inversion],stage='izumi_xu_inversion_unitary_obstruction')
+  add(inversionpath,[dict(inversion,outcome='family_excluded',scope='Extensions of either known unitary Izumi-Xu near-group category by the required inversion action only; unknown nonunitary neutral categories remain open.')],stage='known_izumi_xu_inversion_lift',kind='construction')
  modelpath=EVIDENCE/'models/model_search_attempts.json'
  if modelpath.exists():
   obj=load(modelpath)
@@ -157,6 +170,10 @@ def attempts(pending):
  if grouppath.exists():
   for row in records(load(grouppath)):
    for a in row.get('construction_attempts',row.get('attempts',[row])):add(grouppath,[dict(a,id=row['id'])],kind='construction')
+ paperpath=EVIDENCE/'models/fresh_202609/odd_hi_dimension_filter.json'
+ if paperpath.exists():add(paperpath,records(load(paperpath)),stage='odd_hi_and_specified_near_group_Morita_dimension_filter',kind='construction')
+ ahpath=EVIDENCE/'models/asaeda_haagerup_attempt.json'
+ if ahpath.exists():add(ahpath,[dict(row,outcome='family_excluded') for row in records(load(ahpath))],stage='known_Asaeda_Haagerup_Morita_family_filter',kind='construction')
  out=[]
  for rid in sorted(ids,key=lambda s:int(s.rsplit('_',1)[1])):
   unique=[];seen=set()

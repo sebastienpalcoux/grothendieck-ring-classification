@@ -55,3 +55,11 @@ a general exclusion. It records exact field coordinates of every minor and
 its sign, source tensor hashes, and the complete column-set cardinalities.
 All fourteen known models are positive controls. The replay is read-only by
 default, and uses explicit checks that remain active under Python -O.
+
+For the additional integral frontier controls R8_3_731 and R8_3_3344,
+the separately verified integer FP dimensions660 and360 imply that any
+complex categorification is pseudo-unitary (Etingof–Nikshych–Ostrik,
+*On fusion categories*, Proposition8.24). Thus this scoped test also gives a
+necessary condition for their general complex categorification. Both pass
+the relaxation; neither general existence nor feasibility of stronger
+induction/rotation constraints follows.

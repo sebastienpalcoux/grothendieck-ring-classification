@@ -48,8 +48,13 @@ def verify_case(R,ring,indices=None):
     return {'id':ring,'low_frames':len(lows),'checks':checks}
 
 def main():
-    ap=argparse.ArgumentParser();ap.add_argument('--ring',default='R8_3_1453');args=ap.parse_args()
+    ap=argparse.ArgumentParser();ap.add_argument('--ring',default='R8_3_1453');ap.add_argument('--write',action='store_true');args=ap.parse_args()
     row=next(r for r in json.loads((g.HERE.parent/'pipeline/census_m3.json').read_text()) if r['id']==args.ring);start=time.monotonic();report=verify_case(row['tensor'],args.ring)
     out={'result':'PASS','tensor_sha256':row['tensor_sha256'],'report':report,'seconds':round(time.monotonic()-start,3)}
-    path=g.HERE/f'global_specialization_{args.ring}.json';path.write_text(json.dumps(out,separators=(',',':'))+'\n');print(json.dumps(out))
+    path=g.HERE/f'global_specialization_{args.ring}.json'
+    if args.write:path.write_text(json.dumps(out,separators=(',',':'))+'\n')
+    else:
+        saved=json.loads(path.read_text())
+        require(all(saved[key]==out[key] for key in ('result','tensor_sha256','report')),'specialization receipt differs')
+    print(json.dumps(out))
 if __name__=='__main__':main()

@@ -105,7 +105,15 @@ def _build(R,a,height):
         if i and j:
             row.update({offset+k:Q(v[i-1]*v[j-1]) for k,(v,z,ti) in enumerate(labels) if v[i-1]*v[j-1]})
         rows.append(row);rhs.append(Q(int(a['B'][i,j])-int(i==j==0)))
-    moments=[[mul(z,tt) for tt in types[ti]] for v,z,ti in labels]
+    # Restriction vectors with the same dimension and trace type have the
+    # identical complete moment tuple. Interning these immutable values avoids
+    # retaining one large Fraction array for every repeated restriction type.
+    moment_cache={}
+    def moment_tuple(z,ti):
+        key=(tuple(z),ti)
+        if key not in moment_cache:moment_cache[key]=tuple(tuple(mul(z,tt)) for tt in types[ti])
+        return moment_cache[key]
+    moments=[moment_tuple(z,ti) for v,z,ti in labels]
     for power in (1,2):
         for i in range(1,8):
             for coord in range(width):
@@ -163,19 +171,25 @@ def check(A,b,y,nvars,raise_error=True):
 def farkas(A,b,nvars):
     import numpy as np
     from scipy.optimize import linprog
-    from scipy.sparse import coo_matrix,csr_matrix,hstack,vstack
+    from scipy.sparse import coo_matrix,csr_matrix,csc_matrix,eye,hstack,vstack
     m=len(b);scale=np.array([max(1,abs(bb),max(map(abs,row.values()),default=0)) for row,bb in zip(A,b)],dtype=float)
     rr=[];cc=[];vv=[]
     for i,row in enumerate(A):
         for j,x in row.items():rr.append(i);cc.append(j);vv.append(float(x)/scale[i])
     M=coo_matrix((vv,(rr,cc)),shape=(m,nvars)).tocsr();del rr,cc,vv
     rhs=np.array(b,dtype=float)/scale
-    constraints=vstack([hstack([-M.T,M.T]),csr_matrix(np.r_[rhs,-rhs][None,:])],format='csr')
+    # Free dual variables plus an infinity-norm epigraph avoid explicitly
+    # duplicating every nonzero as separate positive/negative coordinates.
+    # Feasibility is exactly the same Farkas system; this is discovery only.
+    zero=csc_matrix((nvars,1));one=-np.ones((m,1));identity=eye(m,format='csc')
+    constraints=vstack([hstack([-M.T,zero],format='csc'),csc_matrix(np.r_[rhs,0.][None,:]),hstack([identity,one],format='csc'),hstack([-identity,one],format='csc')],format='csc')
     start=time.monotonic()
-    sol=linprog(np.ones(2*m),A_ub=constraints,b_ub=np.r_[np.zeros(nvars),-1.],bounds=(0,None),method='highs',options={'time_limit':90})
+    objective=np.r_[np.zeros(m),1.]
+    sol=linprog(objective,A_ub=constraints,b_ub=np.r_[np.zeros(nvars),-1.,np.zeros(2*m)],bounds=[(None,None)]*m+[(0,None)],method='highs',options={'time_limit':90})
     farkas.last_status={'solver_status':int(sol.status),'solver_message':sol.message,'solver_seconds':round(time.monotonic()-start,3),'solver_limit_seconds':90}
     if not sol.success:return None
-    ray=(sol.x[:m]-sol.x[m:])/scale;ray/=max(abs(ray))
+    ray=sol.x[:m]/scale;ray/=max(abs(ray))
+    del constraints,identity,zero,one
     for maximum in (100,1000,10000,100000,1000000,10000000):
         zz=[Q(float(x)).limit_denominator(maximum) for x in ray];den=math.lcm(*(z.denominator for z in zz));out=[int(z*den) for z in zz]
         divisor=math.gcd(*out) or 1;out=[z//divisor for z in out]
@@ -252,6 +266,12 @@ def verify(R,c):
 def main():
     ap=argparse.ArgumentParser();ap.add_argument('--ring',required=True);ap.add_argument('--height',type=int,default=4);ap.add_argument('--tag',default='global_convex');args=ap.parse_args()
     row=next(r for r in json.loads((HERE.parent/'pipeline/census_m3.json').read_text()) if r['id']==args.ring)
+    if args.tag=='global_family':
+        # The final bounded family campaign uses the separately replayed
+        # duality refinement. Historical/default global certificates retain
+        # their uncontracted construction and certificate kind.
+        import global_duality
+        return global_duality.run(row,args.height,HERE/'advanced'/args.tag/(args.ring+'.json'))
     dest=HERE/'advanced'/args.tag/(args.ring+'.json');dest.parent.mkdir(parents=True,exist_ok=True);start=time.monotonic()
     out={'id':row['id'],'tensor_sha256':row['tensor_sha256'],'mode':'global_convex','status':'no_conclusion'}
     def save():

@@ -62,10 +62,10 @@ def verify(R,c):
     if kind=='one_spectrum':
         import one_spectrum_m3
         return one_spectrum_m3.verify(R,c)
-    if kind in ('rank8_general_biquadratic_lift','general_global_convex_induction_lift'):
+    if kind in ('rank8_general_biquadratic_lift','general_global_convex_induction_lift','global_duality_induction_lift'):
         # Parameterized field adapters mutate their local base module, so every
         # exact replay is isolated rather than leaking into another field.
-        name='general_biquadratic' if kind=='rank8_general_biquadratic_lift' else 'general_global_convex'
+        name={'rank8_general_biquadratic_lift':'general_biquadratic','general_global_convex_induction_lift':'general_global_convex','global_duality_induction_lift':'global_duality'}[kind]
         code="import json,sys;sys.path[:0]=json.loads(sys.argv[1]);import "+name+" as m;r,c=json.load(sys.stdin);m.verify(r,c)"
         paths=[str(BASE/'noncommutative'),str(HERE),str(ROOT/'supplements/rank8/experimental_signed'),str(ROOT/'supplements/rank8/software')]
         result=subprocess.run([sys.executable,'-c',code,json.dumps(paths)],input=json.dumps([R,c]),text=True,capture_output=True,cwd=ROOT)

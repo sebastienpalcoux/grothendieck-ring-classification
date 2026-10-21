@@ -232,6 +232,9 @@ def main():
         groups = [m3['remaining_ids'][i:i+6] for i in range(0,len(m3['remaining_ids']),6)]
         y = para('<br/>'.join(' · '.join(escape(rid) for rid in group) for group in groups) or 'No unresolved M3 tensors.',
                  margin, y, width, ids_style)-9
+        if m3['unitary_excluded_ids']:
+            y = para('<b>Unitary categorification excluded:</b> '+', '.join(m3['unitary_excluded_ids'])+
+                     '. Their general complex categorification remains open.', margin,y,width,small)-5
         y = para('The per-case audit distinguishes exact necessary-condition survivors, unsuccessful construction searches, '
                  'ineligible tests and time limits. These are not asserted fusion categories or established exotic examples. '+
                  link('Individual attempt records', CURRENT+'evidence/rank8_m3_20261021/pipeline/residual_attempts.json')+' · '+

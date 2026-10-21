@@ -62,6 +62,19 @@ The biquadratic dimension filters are additionally checked on $324$
 exact fixtures against independent rational multiplication-matrix
 characteristic polynomials, including the coprime-radicand fields used
 in the generalized trace adapter.
+One further necessary condition pairs high labels under duality.  In the
+ribbon center the dual of a simple has the same dimension and twist, and
+its restriction vector is obtained by the source duality permutation.
+Thus labels $(v,\tau)$ and $(v^*,\tau)$ have equal multiplicity. Replacing
+their two columns by their sum gives a stronger nonnegative relaxation;
+all low and auxiliary rotation variables may remain unchanged. The
+complete high set and its involution are checked exactly. This refinement
+has a separate certificate kind and isolated replay, preserving the earlier
+uncontracted certificates. Complete coefficient checks and known positive
+controls are recorded in
+\texttt{criteria/global\_duality\_validation.json}; the proof is
+\texttt{criteria/GLOBAL\_DUALITY.md}. Resource limits or an unsuccessful
+exact reconstruction of a numerical separator provide no obstruction.
 \subsection{A uniform split-module polynomial test}
 \label{subsec:m3-split-polynomial}
 \begin{proposition}[Fixed-point difference-space obstruction]

@@ -74,7 +74,7 @@ def main():
     models=json.loads((HERE.parent/'models/consolidated_models.json').read_text())
     if isinstance(models,dict):models=models.get('models',models.get('records',[]))
     model_ids={r['id'] for r in models}
-    targets={r['id'] for r in survivors if any(r['tensor'][i][j]!=r['tensor'][j][i] for i in range(8) for j in range(8))}|model_ids
+    targets={'R8_3_731','R8_3_3344'}|{r['id'] for r in survivors if any(r['tensor'][i][j]!=r['tensor'][j][i] for i in range(8) for j in range(8))}|model_ids
     rows=[]
     for rid in sorted(targets,key=lambda x:int(x.split('_')[-1])):
         r=census[rid];out=dict(id=rid,tensor_sha256=r['tensor_sha256'],stage='central_twist_moments',scope='pseudo_unitary_only',completed=True)
