@@ -157,7 +157,19 @@
   function categoryExclusionText(scope, short = false) {
     if (!scope) return "Scope not yet audited";
     if (scope.strongest_excluded) return `No ${categoryLabels[scope.strongest_excluded].toLowerCase()} categorification`;
-    return short ? "Unitary categorification also open" : "No exclusion established, even for unitary categorification.";
+    return short ? "Unitary categorification also open" : "Without requiring a braiding, even unitary categorification remains open.";
+  }
+  function braidedStatusText(braided, short = false) {
+    if (braided?.status === "excluded") return "No braided categorification";
+    if (braided?.status === "unresolved") {
+      if (short && braided.conditional_exclusions?.length) {
+        const strongest = categoryLevels.find((level) => braided.conditional_exclusions.some((item) => item.assumption === level));
+        const condition = strongest ? categoryLabels[strongest].toLowerCase() : String(braided.conditional_exclusions[0].assumption);
+        return `Braided open · ${condition} braided excluded`;
+      }
+      return "Braided categorification unresolved";
+    }
+    return "Braided scope not yet audited";
   }
   function categoryClosure(implications) {
     const reachable = categoryLevels.map((_, i) => categoryLevels.map((_, j) => j <= i));
@@ -199,10 +211,29 @@
     }
     return links;
   }
+  function renderBraidedStatus(braided) {
+    const panel = el("div", `category-braided${braided?.status === "excluded" ? " category-braided-excluded" : ""}`);
+    panel.append(el("h3", "", "Braided categorification"), el("p", "category-braided-status", braidedStatusText(braided)));
+    if (braided?.explanation) panel.append(el("p", "case-prose", braided.explanation));
+    if (braided?.sources?.length) panel.append(categorySources(braided.sources));
+    if (braided?.status === "unresolved") {
+      for (const restriction of braided.conditional_exclusions || []) {
+        const condition = categoryLabels[restriction.assumption]?.toLowerCase() || String(restriction.assumption);
+        const item = el("div", "category-braided-condition");
+        item.append(el("h4", "", `No ${condition} braided categorification`));
+        if (restriction.explanation) item.append(el("p", "case-prose", restriction.explanation));
+        if (restriction.sources?.length) item.append(categorySources(restriction.sources));
+        panel.append(item);
+      }
+    }
+    panel.append(el("p", "case-small-note", "Braiding is an additional structure, separate from the hierarchy below. A braided obstruction does not exclude general categorification."));
+    return panel;
+  }
   function renderCategorification(ring) {
     const scope = ring.categorification_scope;
     const node = section("categorification", "Categorification status", "STRUCTURE / OBSTRUCTIONS & IMPLICATIONS");
     node.append(el("p", `category-status${scope?.strongest_excluded ? " category-status-excluded" : ""}`, categoryExclusionText(scope)));
+    node.append(renderBraidedStatus(scope?.braided));
     if (!scope) return node;
     const same = scope.same_category_implications || [], existence = scope.existence_implications || [];
     node.append(el("p", "case-prose", "General categorifiability remains unresolved. The diagram records which additional structures a hypothetical categorification must admit."));
@@ -261,7 +292,7 @@
       }
       const rows = found.map((ring) => {
         const title = el("div", "case-row-title");
-        title.append(link(ring.id, caseURL(ring), "case-id-link"), el("span", "case-row-status", "General categorifiability unresolved"), el("span", "case-row-category-status", categoryExclusionText(ring.categorification_scope, true)));
+        title.append(link(ring.id, caseURL(ring), "case-id-link"), el("span", "case-row-status", "General categorifiability unresolved"), el("span", "case-row-category-status", categoryExclusionText(ring.categorification_scope, true)), el("span", "case-row-braided-status", braidedStatusText(ring.categorification_scope?.braided, true)));
         const download = link("Python .txt ↓", ring.download_url || `./downloads/fusion-tensors/${encodeURIComponent(ring.id)}.txt`);
         download.download = `${ring.id}.txt`; download.setAttribute("aria-label", `Download fusion tensor for ${ring.id} as a Python list`);
         return [title, ring.rank, ring.multiplicity, ring.invariants.commutative ? "Commutative" : "Noncommutative", number(ring.invariants.global_fp_dimension_approx), download];

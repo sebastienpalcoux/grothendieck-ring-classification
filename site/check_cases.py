@@ -52,6 +52,56 @@ def implication_closure(implications):
         reach = enlarged
 
 
+def check_braided_scope(record, braided):
+    """Validate a separate braiding audit, without changing structure statuses."""
+    identifier = record["id"]
+    require(isinstance(braided, dict) and braided.get("status") in {"excluded", "unresolved"},
+            f"Missing or unsupported braided categorification audit: {identifier}")
+    require(bool(braided.get("explanation")), f"Unexplained braided categorification status: {identifier}")
+    sources = braided.get("sources")
+    require(isinstance(sources, list) and bool(sources) and
+            any(source.get("path") and source.get("sha256") for source in sources),
+            f"Braided categorification status lacks a hash-bound audit: {identifier}")
+    sources = list(sources)
+    conditional = braided.get("conditional_exclusions", [])
+    require(isinstance(conditional, list) and (not conditional or braided["status"] == "unresolved"),
+            f"Conditional braided restrictions require an unresolved general braided status: {identifier}")
+    for entry in conditional:
+        require(entry.get("assumption") in STRUCTURE_LEVELS[1:] and bool(entry.get("explanation")),
+                f"Missing or invalid assumption for a conditional braided obstruction: {identifier}")
+        references = entry.get("sources")
+        require(isinstance(references, list) and bool(references) and
+                any(source.get("path") and source.get("sha256") for source in references),
+                f"Conditional braided obstruction lacks a hash-bound audit: {identifier}")
+        sources.extend(references)
+    evidence = {source["path"]: source for source in record["evidence"]}
+    for source in sources:
+        if source.get("path"):
+            require(source["path"] in evidence and
+                    source.get("sha256") == evidence[source["path"]].get("sha256"),
+                    f"Braided audit is not bound to the published case evidence: {identifier}: {source['path']}")
+    obstruction = braided.get("obstruction")
+    witness = braided.get("noncommutativity_witness")
+    require(obstruction in {None, "noncommutative"}, f"Unsupported braided obstruction: {identifier}")
+    if obstruction == "noncommutative":
+        require(braided["status"] == "excluded" and record["invariants"]["commutative"] is False,
+                f"Noncommutativity does not support the recorded braided status: {identifier}")
+        keys = {"i", "j", "k", "N_ij_k", "N_ji_k"}
+        require(isinstance(witness, dict) and set(witness) == keys and
+                all(type(witness[key]) is int for key in keys) and
+                all(0 <= witness[key] < record["rank"] for key in ("i", "j", "k")),
+                f"Malformed noncommutativity witness: {identifier}")
+        i, j, k = (witness[key] for key in ("i", "j", "k"))
+        tensor = record["fusion_tensor"]
+        require(witness["N_ij_k"] == tensor[i][j][k] and
+                witness["N_ji_k"] == tensor[j][i][k] and
+                witness["N_ij_k"] != witness["N_ji_k"],
+                f"Noncommutativity witness disagrees with the fusion tensor: {identifier}")
+    else:
+        require(witness is None, f"Noncommutativity witness has no matching obstruction: {identifier}")
+    return sources
+
+
 def check_scope(record, expected, repository):
     identifier = record["id"]
     scope = record.get("categorification_scope")
@@ -73,6 +123,7 @@ def check_scope(record, expected, repository):
     require(isinstance(same, list) and isinstance(existence, list),
             f"Missing distinction between category structures and existence reductions: {identifier}")
     sources = list(scope["audit_sources"])
+    sources.extend(check_braided_scope(record, scope.get("braided")))
     for kind, entries in (("same_category", same), ("existence", existence)):
         for entry in entries:
             require(entry.get("from") in STRUCTURE_LEVELS and entry.get("to") in STRUCTURE_LEVELS

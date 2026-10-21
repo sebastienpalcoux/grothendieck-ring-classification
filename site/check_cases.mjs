@@ -69,7 +69,7 @@ assert.equal(caseSource.split(caseEnd).length,2,"Expected one case application e
 function casesFor(search) {
   const sandbox=context(search);vm.createContext(sandbox);
   vm.runInContext(caseSource.replace(caseEnd,
-    "  globalThis.testCases={parseFilters,scopeText,matchesFilters,caseURL,downloadLink,safeURL,categoryClosure,categoryExclusionText,categoryDiagram,renderCategorification};\n})();"),sandbox);
+    "  globalThis.testCases={parseFilters,scopeText,matchesFilters,caseURL,downloadLink,safeURL,categoryClosure,categoryExclusionText,categoryDiagram,braidedStatusText,renderBraidedStatus,renderCategorification};\n})();"),sandbox);
   sandbox.testCases.parseFilters();return sandbox.testCases;
 }
 const selections=[
@@ -115,9 +115,11 @@ assert.equal(existenceReach[0][4],false,"A pseudo-unitary Galois representative 
 assert.equal(structureReach[0][3],false,"Computing existence closure must not change the same-category closure");
 assert.equal(caseAPI.categoryExclusionText(undefined),"Scope not yet audited");
 assert.equal(caseAPI.categoryExclusionText({strongest_excluded:null},true),"Unitary categorification also open");
+assert.equal(caseAPI.categoryExclusionText({strongest_excluded:null}),"Without requiring a braiding, even unitary categorification remains open.");
 assert.equal(caseAPI.categoryExclusionText({strongest_excluded:"pseudo_unitary"}),"No pseudo-unitary categorification");
 assert.equal(caseAPI.categoryExclusionText({strongest_excluded:"pivotal"}),"No pivotal categorification");
-const scopeFixture={strongest_excluded:null,same_category_implications:[spherical],existence_implications:[galois],notes:[],audit_sources:[]};
+const levelStatus={general:"unresolved",pivotal:"unresolved",spherical:"unresolved",pseudo_unitary:"unresolved",unitary:"unresolved"};
+const scopeFixture={general_status:"unresolved",level_status:levelStatus,strongest_excluded:null,same_category_implications:[spherical],existence_implications:[galois],notes:[],audit_sources:[]};
 const scopeView=caseAPI.renderCategorification({categorification_scope:scopeFixture});
 const diagrams=descendants(scopeView).filter(node=>node.getAttribute("role")==="img");
 assert.equal(diagrams.length,2,"Distinct structural and Galois-existence implications need distinct diagrams");
@@ -132,11 +134,54 @@ const missingAudit=caseAPI.renderCategorification({});
 assert.equal(descendants(missingAudit).filter(node=>node.getAttribute("role")==="img").length,0);
 assert.match(missingAudit.textContent,/Scope not yet audited/);
 assert.doesNotMatch(missingAudit.textContent,/No exclusion established/);
+
+// Braiding is orthogonal to the five-level chain. Its exclusion must not change
+// the general problem, structural statuses, or either implication diagram.
+assert.equal(caseAPI.braidedStatusText(undefined),"Braided scope not yet audited");
+assert.equal(caseAPI.braidedStatusText({status:"excluded"}),"No braided categorification");
+assert.equal(caseAPI.braidedStatusText({status:"unresolved"}),"Braided categorification unresolved");
+const braidedExcluded={status:"excluded",explanation:"The fusion product is noncommutative.",sources:[{label:"Braiding audit",url:origin+"review.html"}]};
+const excludedFixture={categorification_scope:{...scopeFixture,braided:braidedExcluded}};
+const beforeExclusion=JSON.stringify(excludedFixture);
+const excludedView=caseAPI.renderCategorification(excludedFixture);
+assert.equal(JSON.stringify(excludedFixture),beforeExclusion,"Rendering a braided exclusion must not alter any recorded statuses");
+assert.equal(caseAPI.categoryExclusionText(excludedFixture.categorification_scope),caseAPI.categoryExclusionText(scopeFixture));
+assert.match(excludedView.textContent,/No braided categorification/);
+assert.match(excludedView.textContent,/General categorifiability remains unresolved/);
+assert.match(excludedView.textContent,/A braided obstruction does not exclude general categorification/);
+const excludedDiagrams=descendants(excludedView).filter(node=>node.getAttribute("role")==="img");
+assert.deepEqual(excludedDiagrams.map(node=>node.getAttribute("aria-label")),diagrams.map(node=>node.getAttribute("aria-label")));
+assert.equal(baseReach.length,5,"Braiding is not a sixth structure level");
+for(const diagram of excludedDiagrams) assert.doesNotMatch(diagram.textContent,/braid/i);
+assert.throws(()=>caseAPI.categoryClosure([{from:"general",to:"braided"}]),/Unrecognized categorification level/);
+
+const braidedUnresolved={status:"unresolved",explanation:"Commutativity alone does not construct a braiding.",sources:[],conditional_exclusions:[{assumption:"spherical",explanation:"Only spherical braided categorification is excluded by this argument.",sources:[{label:"Conditional obstruction",url:origin+"review.html"}]}]};
+assert.equal(caseAPI.braidedStatusText(braidedUnresolved,true),"Braided open · spherical braided excluded");
+const multipleConditions={...braidedUnresolved,conditional_exclusions:[{assumption:"unitary"},{assumption:"spherical"},{assumption:"pivotal"}]};
+assert.equal(caseAPI.braidedStatusText(multipleConditions,true),"Braided open · pivotal braided excluded",
+  "The list summary highlights the strongest conditional exclusion, independent of input order");
+assert.equal(caseAPI.braidedStatusText(multipleConditions),"Braided categorification unresolved",
+  "The case heading must not turn a conditional exclusion into an unconditional one");
+assert.equal(caseAPI.braidedStatusText({...multipleConditions,status:"excluded"},true),"No braided categorification");
+const commutativeView=caseAPI.renderCategorification({invariants:{commutative:true},categorification_scope:{...scopeFixture,braided:braidedUnresolved}});
+assert.match(commutativeView.textContent,/Braided categorification unresolved/);
+assert.match(commutativeView.textContent,/No spherical braided categorification/);
+assert.doesNotMatch(commutativeView.textContent,/No braided categorification/);
+assert.doesNotMatch(commutativeView.textContent,/Braided categorification (exists|realized|established)/);
+const unconditionallyExcluded=caseAPI.renderBraidedStatus({...braidedUnresolved,status:"excluded"});
+assert.doesNotMatch(unconditionallyExcluded.textContent,/No spherical braided categorification/,
+  "Conditional restrictions are only displayed for unresolved braiding");
 for(const ring of unresolved) {
   assert.ok(ring.categorification_scope,`Missing published categorification scope: ${ring.id}`);
+  assert.ok(ring.categorification_scope.braided,`Missing published braided audit: ${ring.id}`);
+  const before=JSON.stringify(ring.categorification_scope);
   const view=caseAPI.renderCategorification(ring);
+  assert.equal(JSON.stringify(ring.categorification_scope),before,`Rendering altered recorded statuses: ${ring.id}`);
   assert.match(view.textContent,/General categorifiability remains unresolved/);
-  assert.ok(descendants(view).some(node=>node.getAttribute("role")==="img"),`Missing implication diagram: ${ring.id}`);
+  assert.ok(view.textContent.includes(caseAPI.braidedStatusText(ring.categorification_scope.braided)),`Missing braided status: ${ring.id}`);
+  const ringDiagrams=descendants(view).filter(node=>node.getAttribute("role")==="img");
+  assert.ok(ringDiagrams.length,`Missing implication diagram: ${ring.id}`);
+  for(const diagram of ringDiagrams)assert.doesNotMatch(diagram.textContent,/braid/i,`Braiding entered the structure hierarchy: ${ring.id}`);
 }
 
 const appSource=read("app.js"),appEnd="\nstart();";
@@ -182,4 +227,4 @@ for(const ring of realized) {
   assert.equal(decodeURIComponent(url.pathname),`/grothendieck-ring-classification/downloads/fusion-tensors/${ring.id}.txt`);
   assert.equal(link.download,`${ring.id}.txt`);
 }
-console.log("Case navigation checked: filters, count links, 228 tensor routes, and distinct structural/Galois-existence implications.");
+console.log("Case navigation checked: filters, count links, 228 tensor routes, distinct structural/Galois-existence implications, and separate braided status.");

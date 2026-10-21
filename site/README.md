@@ -43,6 +43,14 @@ that ring, with supporting arguments linked below. The audited source is
 [`categorification_scope.json`](categorification_scope.json); see
 [`CATEGORIFICATION_SCOPE.md`](CATEGORIFICATION_SCOPE.md) for the conventions.
 
+A separate braided-categorification panel records exclusions that apply
+without a pivotality assumption, or the weakest additional assumption needed
+for a conditional obstruction. Six current cases exclude all braidings; four
+exclude pivotal braidings and leave general braided categorification open.
+See [`BRAIDED_CATEGORIFICATION.md`](BRAIDED_CATEGORIFICATION.md) for the proofs
+and exact replay. These restrictions do not resolve general categorification
+without requiring a braiding.
+
 Every unresolved profile and realized model offers a `.txt` download containing
 only a Python list of lists of lists of integers. In the displayed basis,
 `N[i][j][k]` is the coefficient of `X_k` in `X_i * X_j`, and `X_0` is the unit.

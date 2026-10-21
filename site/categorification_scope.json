@@ -7,7 +7,7 @@
     "pseudo_unitary",
     "unitary"
   ],
-  "scope": "Established categorification obstructions and implications for the current unresolved cases. Same-category structure and Galois existence reductions are recorded separately.",
+  "scope": "Established categorification obstructions and implications for the current unresolved cases. Same-category structure, Galois existence reductions, and the separate braided question are recorded with their precise assumptions.",
   "cases": {
     "R6_4_155": {
       "general_status": "unresolved",
@@ -68,7 +68,26 @@
         }
       ],
       "notes": [],
-      "record_scope_note": "These statements report established results in the linked research record. Excluding a construction family, an associator choice or an induction frame does not exclude all categorifications with a given structure. The site’s independent-review caution applies to the recorded research proofs."
+      "record_scope_note": "These statements report established results in the linked research record. Excluding a construction family, an associator choice or an induction frame does not exclude all categorifications with a given structure. The site’s independent-review caution applies to the recorded research proofs.",
+      "braided": {
+        "status": "excluded",
+        "explanation": "The recorded obstruction is stronger: no categorification of this ring is Morita equivalent to any braided fusion category. The established Galois reduction and central-semion argument do not require a pivotality assumption.",
+        "sources": [
+          {
+            "label": "No braided Morita representative",
+            "path": "manuscripts/rank6/papers/chapters/frontier_155.tex",
+            "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/manuscripts/rank6/papers/chapters/frontier_155.tex",
+            "sha256": "2d238415996eadf9ae70bdca0bda6d9e039ae06657f3b7549751f43f2721a6b1",
+            "locator": "Proposition prop:155-no-braided-morita"
+          },
+          {
+            "label": "Braided scope audit and proofs",
+            "path": "site/BRAIDED_CATEGORIFICATION.md",
+            "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/site/BRAIDED_CATEGORIFICATION.md",
+            "sha256": "01dc83bb27babda065d7ea91b4e5b5016912ae7a45b6a41263e5317101a2e5b1"
+          }
+        ]
+      }
     },
     "R6_8_1660": {
       "general_status": "unresolved",
@@ -143,7 +162,26 @@
         }
       ],
       "notes": [],
-      "record_scope_note": "These statements report established results in the linked research record. Excluding a construction family, an associator choice or an induction frame does not exclude all categorifications with a given structure. The site’s independent-review caution applies to the recorded research proofs."
+      "record_scope_note": "These statements report established results in the linked research record. Excluding a construction family, an associator choice or an induction frame does not exclude all categorifications with a given structure. The site’s independent-review caution applies to the recorded research proofs.",
+      "braided": {
+        "status": "excluded",
+        "explanation": "A braiding would make the Ising subcategory nondegenerate and force a Deligne product with a rank-two category, contradicting the fusion coefficient N[X,X,sigma X]=4. This exclusion needs no pivotality assumption.",
+        "sources": [
+          {
+            "label": "Ising splitting obstruction",
+            "path": "manuscripts/rank6/papers/chapters/frontier_1660.tex",
+            "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/manuscripts/rank6/papers/chapters/frontier_1660.tex",
+            "sha256": "fb3d1aea19e8705d4887a255008aa57d2d5ab40ee040a110bf6abc39e386e7b9",
+            "locator": "Corollary cor:1660-no-braiding"
+          },
+          {
+            "label": "Braided scope audit and proofs",
+            "path": "site/BRAIDED_CATEGORIFICATION.md",
+            "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/site/BRAIDED_CATEGORIFICATION.md",
+            "sha256": "01dc83bb27babda065d7ea91b4e5b5016912ae7a45b6a41263e5317101a2e5b1"
+          }
+        ]
+      }
     },
     "R8_3_65": {
       "general_status": "unresolved",
@@ -220,7 +258,31 @@
       "notes": [
         "The pointed-subgroup arguments rule out particular associator and module possibilities. The permitted nontrivial-associator possibilities remain open, including for unitary categorification."
       ],
-      "record_scope_note": "These statements report established results in the linked research record. Excluding a construction family, an associator choice or an induction frame does not exclude all categorifications with a given structure. The site’s independent-review caution applies to the recorded research proofs."
+      "record_scope_note": "These statements report established results in the linked research record. Excluding a construction family, an associator choice or an induction frame does not exclude all categorifications with a given structure. The site’s independent-review caution applies to the recorded research proofs.",
+      "braided": {
+        "status": "excluded",
+        "explanation": "This is an irrational generalized near-group ring with four invertibles and noninvertible dimension (11+5 sqrt(5))/2. Schopieray’s classification of braided generalized near-groups excludes this dimension without a pivotality or pseudo-unitarity assumption.",
+        "sources": [
+          {
+            "label": "Exact generalized near-group calculation",
+            "path": "evidence/rank8_frontier_20261021/structural_models/STRUCTURAL_SCOPE.md",
+            "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/evidence/rank8_frontier_20261021/structural_models/STRUCTURAL_SCOPE.md",
+            "sha256": "9ceae61103708119f9be11853fa934279b4a4214a58bf3cbe800a1ebf33071de",
+            "locator": "Generalized near-group ring R8_3_65"
+          },
+          {
+            "label": "Schopieray: braided generalized near-groups",
+            "url": "https://arxiv.org/abs/2212.14009",
+            "locator": "Theorem 1"
+          },
+          {
+            "label": "Braided scope audit and proofs",
+            "path": "site/BRAIDED_CATEGORIFICATION.md",
+            "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/site/BRAIDED_CATEGORIFICATION.md",
+            "sha256": "01dc83bb27babda065d7ea91b4e5b5016912ae7a45b6a41263e5317101a2e5b1"
+          }
+        ]
+      }
     },
     "R8_3_928": {
       "general_status": "unresolved",
@@ -285,7 +347,34 @@
         }
       ],
       "notes": [],
-      "record_scope_note": "These statements report established results in the linked research record. Excluding a construction family, an associator choice or an induction frame does not exclude all categorifications with a given structure. The site’s independent-review caution applies to the recorded research proofs."
+      "record_scope_note": "These statements report established results in the linked research record. Excluding a construction family, an associator choice or an induction frame does not exclude all categorifications with a given structure. The site’s independent-review caution applies to the recorded research proofs.",
+      "braided": {
+        "status": "excluded",
+        "obstruction": "noncommutative",
+        "noncommutativity_witness": {
+          "i": 1,
+          "j": 3,
+          "k": 5,
+          "N_ij_k": 1,
+          "N_ji_k": 2
+        },
+        "explanation": "The fusion ring is noncommutative: N[1,3,5]=1, whereas N[3,1,5]=2. A braiding would identify the two tensor products and force equal multiplicities. No pivotality assumption is needed.",
+        "sources": [
+          {
+            "label": "Braided scope audit and proofs",
+            "path": "site/BRAIDED_CATEGORIFICATION.md",
+            "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/site/BRAIDED_CATEGORIFICATION.md",
+            "sha256": "01dc83bb27babda065d7ea91b4e5b5016912ae7a45b6a41263e5317101a2e5b1"
+          },
+          {
+            "label": "Canonical unresolved tensors",
+            "path": "data/remaining_cases.py",
+            "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/data/remaining_cases.py",
+            "sha256": "7345971809e59e51db494cb40d860c362c8e2ae128d5d146c565d7420b85f383",
+            "locator": "R8_3_928"
+          }
+        ]
+      }
     },
     "R8_3_941": {
       "general_status": "unresolved",
@@ -350,7 +439,34 @@
         }
       ],
       "notes": [],
-      "record_scope_note": "These statements report established results in the linked research record. Excluding a construction family, an associator choice or an induction frame does not exclude all categorifications with a given structure. The site’s independent-review caution applies to the recorded research proofs."
+      "record_scope_note": "These statements report established results in the linked research record. Excluding a construction family, an associator choice or an induction frame does not exclude all categorifications with a given structure. The site’s independent-review caution applies to the recorded research proofs.",
+      "braided": {
+        "status": "excluded",
+        "obstruction": "noncommutative",
+        "noncommutativity_witness": {
+          "i": 1,
+          "j": 4,
+          "k": 6,
+          "N_ij_k": 1,
+          "N_ji_k": 2
+        },
+        "explanation": "The fusion ring is noncommutative: N[1,4,6]=1, whereas N[4,1,6]=2. A braiding would identify the two tensor products and force equal multiplicities. No pivotality assumption is needed.",
+        "sources": [
+          {
+            "label": "Braided scope audit and proofs",
+            "path": "site/BRAIDED_CATEGORIFICATION.md",
+            "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/site/BRAIDED_CATEGORIFICATION.md",
+            "sha256": "01dc83bb27babda065d7ea91b4e5b5016912ae7a45b6a41263e5317101a2e5b1"
+          },
+          {
+            "label": "Canonical unresolved tensors",
+            "path": "data/remaining_cases.py",
+            "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/data/remaining_cases.py",
+            "sha256": "7345971809e59e51db494cb40d860c362c8e2ae128d5d146c565d7420b85f383",
+            "locator": "R8_3_941"
+          }
+        ]
+      }
     },
     "R8_3_982": {
       "general_status": "unresolved",
@@ -448,7 +564,57 @@
       "notes": [
         "The remaining semionic branch survives the recorded pseudo-unitary necessary conditions. The frame exclusions do not exclude pseudo-unitary categorification, and no general-to-pseudo-unitary reduction is claimed."
       ],
-      "record_scope_note": "These statements report established results in the linked research record. Excluding a construction family, an associator choice or an induction frame does not exclude all categorifications with a given structure. The site’s independent-review caution applies to the recorded research proofs."
+      "record_scope_note": "These statements report established results in the linked research record. Excluding a construction family, an associator choice or an induction frame does not exclude all categorifications with a given structure. The site’s independent-review caution applies to the recorded research proofs.",
+      "braided": {
+        "status": "unresolved",
+        "explanation": "No exclusion of general braided categorification is established here. The obstruction below requires pivotality; a pivotal structure has not been proved to exist on every hypothetical braided categorification of this ring.",
+        "sources": [
+          {
+            "label": "Braided scope audit and proofs",
+            "path": "site/BRAIDED_CATEGORIFICATION.md",
+            "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/site/BRAIDED_CATEGORIFICATION.md",
+            "sha256": "01dc83bb27babda065d7ea91b4e5b5016912ae7a45b6a41263e5317101a2e5b1"
+          }
+        ],
+        "conditional_exclusions": [
+          {
+            "assumption": "pivotal",
+            "explanation": "The complete pseudo-unitary center audit forces a unique semionic central lift of the source invertible. A source braiding would produce a nondegenerate semion factor, contradicting the full adjoint subring. The recorded pivotal-to-spherical and Galois reductions preserve braiding, so this also excludes pivotal braided categorification. Thus spherical, pseudo-unitary and unitary braided categorification are excluded as well.",
+            "sources": [
+              {
+                "label": "Braided scope audit and proofs",
+                "path": "site/BRAIDED_CATEGORIFICATION.md",
+                "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/site/BRAIDED_CATEGORIFICATION.md",
+                "sha256": "01dc83bb27babda065d7ea91b4e5b5016912ae7a45b6a41263e5317101a2e5b1"
+              },
+              {
+                "label": "Exact arithmetic replay",
+                "path": "site/verify_braided_scope.py",
+                "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/site/verify_braided_scope.py",
+                "sha256": "32555fbb264a73e190ed5d99feb0aad19b2933399cfbcaf74ef7ccb38746b85f"
+              },
+              {
+                "label": "Pivotal, spherical and Galois reductions",
+                "path": "site/CATEGORIFICATION_SCOPE.md",
+                "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/site/CATEGORIFICATION_SCOPE.md",
+                "sha256": "a8667fba962bbfe1d9586d14cd6aed34d3f15b21663a1fe70523ffc478b75ef9"
+              },
+              {
+                "label": "Complete frame and indicator-branch summary",
+                "path": "evidence/rank8_next_20261021/r982/FINAL_SUMMARY.json",
+                "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/evidence/rank8_next_20261021/r982/FINAL_SUMMARY.json",
+                "sha256": "4b8f870ebb9e36931a0c270dbd4dd4661844a951a7648e8552cba7cc3bf8a5b5"
+              },
+              {
+                "label": "Forced central semion argument",
+                "path": "evidence/rank8_next_20261021/r982/SEMION_ACTION.md",
+                "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/evidence/rank8_next_20261021/r982/SEMION_ACTION.md",
+                "sha256": "cd304cc671ac27919d5ccbccf7da4c0237a23f4000240cf18658ca75e7737645"
+              }
+            ]
+          }
+        ]
+      }
     },
     "R8_3_1154": {
       "general_status": "unresolved",
@@ -513,7 +679,34 @@
         }
       ],
       "notes": [],
-      "record_scope_note": "These statements report established results in the linked research record. Excluding a construction family, an associator choice or an induction frame does not exclude all categorifications with a given structure. The site’s independent-review caution applies to the recorded research proofs."
+      "record_scope_note": "These statements report established results in the linked research record. Excluding a construction family, an associator choice or an induction frame does not exclude all categorifications with a given structure. The site’s independent-review caution applies to the recorded research proofs.",
+      "braided": {
+        "status": "excluded",
+        "obstruction": "noncommutative",
+        "noncommutativity_witness": {
+          "i": 1,
+          "j": 2,
+          "k": 6,
+          "N_ij_k": 2,
+          "N_ji_k": 3
+        },
+        "explanation": "The fusion ring is noncommutative: N[1,2,6]=2, whereas N[2,1,6]=3. A braiding would identify the two tensor products and force equal multiplicities. No pivotality assumption is needed.",
+        "sources": [
+          {
+            "label": "Braided scope audit and proofs",
+            "path": "site/BRAIDED_CATEGORIFICATION.md",
+            "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/site/BRAIDED_CATEGORIFICATION.md",
+            "sha256": "01dc83bb27babda065d7ea91b4e5b5016912ae7a45b6a41263e5317101a2e5b1"
+          },
+          {
+            "label": "Canonical unresolved tensors",
+            "path": "data/remaining_cases.py",
+            "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/data/remaining_cases.py",
+            "sha256": "7345971809e59e51db494cb40d860c362c8e2ae128d5d146c565d7420b85f383",
+            "locator": "R8_3_1154"
+          }
+        ]
+      }
     },
     "R8_3_1768": {
       "general_status": "unresolved",
@@ -592,7 +785,50 @@
       "notes": [
         "General-to-pivotal remains unproved. The conditional Galois reduction neither constructs a category nor establishes unitarity."
       ],
-      "record_scope_note": "These statements report established results in the linked research record. Excluding a construction family, an associator choice or an induction frame does not exclude all categorifications with a given structure. The site’s independent-review caution applies to the recorded research proofs."
+      "record_scope_note": "These statements report established results in the linked research record. Excluding a construction family, an associator choice or an induction frame does not exclude all categorifications with a given structure. The site’s independent-review caution applies to the recorded research proofs.",
+      "braided": {
+        "status": "unresolved",
+        "explanation": "No exclusion of general braided categorification is established here. The obstruction below requires pivotality; a pivotal structure has not been proved to exist on every hypothetical braided categorification of this ring.",
+        "sources": [
+          {
+            "label": "Braided scope audit and proofs",
+            "path": "site/BRAIDED_CATEGORIFICATION.md",
+            "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/site/BRAIDED_CATEGORIFICATION.md",
+            "sha256": "01dc83bb27babda065d7ea91b4e5b5016912ae7a45b6a41263e5317101a2e5b1"
+          }
+        ],
+        "conditional_exclusions": [
+          {
+            "assumption": "pivotal",
+            "explanation": "The simple FP dimension 5+sqrt(37) is not a d-number: its polynomial is x^2-10x-12 and 12 does not divide 100. Ostrik’s squared-norm theorem excludes a pseudo-unitary braided category. The recorded pivotal-to-spherical and Galois reductions preserve braiding and extend the exclusion to pivotal braided categorification. Thus spherical, pseudo-unitary and unitary braided categorification are excluded as well.",
+            "sources": [
+              {
+                "label": "Braided scope audit and proofs",
+                "path": "site/BRAIDED_CATEGORIFICATION.md",
+                "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/site/BRAIDED_CATEGORIFICATION.md",
+                "sha256": "01dc83bb27babda065d7ea91b4e5b5016912ae7a45b6a41263e5317101a2e5b1"
+              },
+              {
+                "label": "Exact arithmetic replay",
+                "path": "site/verify_braided_scope.py",
+                "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/site/verify_braided_scope.py",
+                "sha256": "32555fbb264a73e190ed5d99feb0aad19b2933399cfbcaf74ef7ccb38746b85f"
+              },
+              {
+                "label": "Pivotal, spherical and Galois reductions",
+                "path": "site/CATEGORIFICATION_SCOPE.md",
+                "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/site/CATEGORIFICATION_SCOPE.md",
+                "sha256": "a8667fba962bbfe1d9586d14cd6aed34d3f15b21663a1fe70523ffc478b75ef9"
+              },
+              {
+                "label": "Ostrik: squared norms of braided simples",
+                "url": "https://arxiv.org/abs/0810.3242",
+                "locator": "Theorem 1.8, Lemma 2.7 and Corollary 2.9"
+              }
+            ]
+          }
+        ]
+      }
     },
     "R8_3_1795": {
       "general_status": "unresolved",
@@ -676,7 +912,55 @@
       "notes": [
         "General-to-pivotal remains unproved. The conditional Galois reduction neither constructs a category nor establishes unitarity."
       ],
-      "record_scope_note": "These statements report established results in the linked research record. Excluding a construction family, an associator choice or an induction frame does not exclude all categorifications with a given structure. The site’s independent-review caution applies to the recorded research proofs."
+      "record_scope_note": "These statements report established results in the linked research record. Excluding a construction family, an associator choice or an induction frame does not exclude all categorifications with a given structure. The site’s independent-review caution applies to the recorded research proofs.",
+      "braided": {
+        "status": "unresolved",
+        "explanation": "No exclusion of general braided categorification is established here. The obstruction below requires pivotality; a pivotal structure has not been proved to exist on every hypothetical braided categorification of this ring.",
+        "sources": [
+          {
+            "label": "Braided scope audit and proofs",
+            "path": "site/BRAIDED_CATEGORIFICATION.md",
+            "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/site/BRAIDED_CATEGORIFICATION.md",
+            "sha256": "01dc83bb27babda065d7ea91b4e5b5016912ae7a45b6a41263e5317101a2e5b1"
+          }
+        ],
+        "conditional_exclusions": [
+          {
+            "assumption": "pivotal",
+            "explanation": "A pseudo-unitary braiding would have symmetric center Rep(C2) or sVec. In either case the reduced-codegree identity forces a simple dimension squared equal to 54+24 sqrt(5), absent from this ring. The recorded pivotal-to-spherical and Galois reductions preserve braiding and extend this exclusion to pivotal braided categorification. Thus spherical, pseudo-unitary and unitary braided categorification are excluded as well.",
+            "sources": [
+              {
+                "label": "Braided scope audit and proofs",
+                "path": "site/BRAIDED_CATEGORIFICATION.md",
+                "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/site/BRAIDED_CATEGORIFICATION.md",
+                "sha256": "01dc83bb27babda065d7ea91b4e5b5016912ae7a45b6a41263e5317101a2e5b1"
+              },
+              {
+                "label": "Exact arithmetic replay",
+                "path": "site/verify_braided_scope.py",
+                "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/site/verify_braided_scope.py",
+                "sha256": "32555fbb264a73e190ed5d99feb0aad19b2933399cfbcaf74ef7ccb38746b85f"
+              },
+              {
+                "label": "Pivotal, spherical and Galois reductions",
+                "path": "site/CATEGORIFICATION_SCOPE.md",
+                "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/site/CATEGORIFICATION_SCOPE.md",
+                "sha256": "a8667fba962bbfe1d9586d14cd6aed34d3f15b21663a1fe70523ffc478b75ef9"
+              },
+              {
+                "label": "Lacabanne: reduced S-matrix and characters",
+                "url": "https://arxiv.org/abs/1807.00766",
+                "locator": "Lemma 3.1 and Proposition 3.3"
+              },
+              {
+                "label": "DGNO: Tannakian modularization",
+                "url": "https://arxiv.org/abs/0906.0620",
+                "locator": "Proposition 4.56(iii) and Section 6.3"
+              }
+            ]
+          }
+        ]
+      }
     },
     "R8_3_3472": {
       "general_status": "unresolved",
@@ -755,7 +1039,50 @@
       "notes": [
         "General-to-pivotal remains unproved. The conditional Galois reduction neither constructs a category nor establishes unitarity."
       ],
-      "record_scope_note": "These statements report established results in the linked research record. Excluding a construction family, an associator choice or an induction frame does not exclude all categorifications with a given structure. The site’s independent-review caution applies to the recorded research proofs."
+      "record_scope_note": "These statements report established results in the linked research record. Excluding a construction family, an associator choice or an induction frame does not exclude all categorifications with a given structure. The site’s independent-review caution applies to the recorded research proofs.",
+      "braided": {
+        "status": "unresolved",
+        "explanation": "No exclusion of general braided categorification is established here. The obstruction below requires pivotality; a pivotal structure has not been proved to exist on every hypothetical braided categorification of this ring.",
+        "sources": [
+          {
+            "label": "Braided scope audit and proofs",
+            "path": "site/BRAIDED_CATEGORIFICATION.md",
+            "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/site/BRAIDED_CATEGORIFICATION.md",
+            "sha256": "01dc83bb27babda065d7ea91b4e5b5016912ae7a45b6a41263e5317101a2e5b1"
+          }
+        ],
+        "conditional_exclusions": [
+          {
+            "assumption": "pivotal",
+            "explanation": "The simple FP dimension 6+5 sqrt(2) is not a d-number: its polynomial is x^2-12x-14 and 14 does not divide 144. Ostrik’s squared-norm theorem excludes a pseudo-unitary braided category. The recorded pivotal-to-spherical and Galois reductions preserve braiding and extend the exclusion to pivotal braided categorification. Thus spherical, pseudo-unitary and unitary braided categorification are excluded as well.",
+            "sources": [
+              {
+                "label": "Braided scope audit and proofs",
+                "path": "site/BRAIDED_CATEGORIFICATION.md",
+                "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/site/BRAIDED_CATEGORIFICATION.md",
+                "sha256": "01dc83bb27babda065d7ea91b4e5b5016912ae7a45b6a41263e5317101a2e5b1"
+              },
+              {
+                "label": "Exact arithmetic replay",
+                "path": "site/verify_braided_scope.py",
+                "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/site/verify_braided_scope.py",
+                "sha256": "32555fbb264a73e190ed5d99feb0aad19b2933399cfbcaf74ef7ccb38746b85f"
+              },
+              {
+                "label": "Pivotal, spherical and Galois reductions",
+                "path": "site/CATEGORIFICATION_SCOPE.md",
+                "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/site/CATEGORIFICATION_SCOPE.md",
+                "sha256": "a8667fba962bbfe1d9586d14cd6aed34d3f15b21663a1fe70523ffc478b75ef9"
+              },
+              {
+                "label": "Ostrik: squared norms of braided simples",
+                "url": "https://arxiv.org/abs/0810.3242",
+                "locator": "Theorem 1.8, Lemma 2.7 and Corollary 2.9"
+              }
+            ]
+          }
+        ]
+      }
     }
   }
 }
