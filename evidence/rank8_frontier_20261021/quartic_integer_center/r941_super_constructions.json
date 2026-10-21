@@ -1,0 +1,64 @@
+{
+  "id": "R8_3_941",
+  "tensor_sha256": "8ae4007492dee167ab8b3f4f16310ee368482da03696e20ed7cceea34bec64e6",
+  "quotient_receipt_sha256": "eef4760f4887b137da99e9cde6950ae662694e7684516899c474bcd7c9cbc015",
+  "quotient_rank": 4,
+  "quotient_simple_types": [
+    "m",
+    "m",
+    "m",
+    "m"
+  ],
+  "all_unit_containing_subsets_tested": 8,
+  "all_quotient_fusion_subrings": [
+    [
+      0
+    ],
+    [
+      0,
+      1,
+      2,
+      3
+    ]
+  ],
+  "direct_tensor_products_of_two_rank_two_supercategories": "excluded_by_all_m_type_and_absence_of_rank_two_subring",
+  "quotient_global_dimension_polynomial": [
+    1,
+    -288,
+    2880,
+    -9216,
+    9216
+  ],
+  "specified_near_group_center_families": [
+    {
+      "type": "near_group_order_6_multiplicity_6",
+      "source_global_dimension": "6*sqrt(15) + 30",
+      "center_global_dimension": "360*sqrt(15) + 1440",
+      "dimension_field": "Q(sqrt(15))",
+      "outcome": "every_rational_rescaling_of_these_center_dimensions_differs_from_quartic_target"
+    },
+    {
+      "type": "near_group_order_8_multiplicity_8",
+      "source_global_dimension": "16*sqrt(6) + 48",
+      "center_global_dimension": "1536*sqrt(6) + 3840",
+      "dimension_field": "Q(sqrt(6))",
+      "outcome": "every_rational_rescaling_of_these_center_dimensions_differs_from_quartic_target"
+    }
+  ],
+  "primary_sources": [
+    {
+      "url": "https://arxiv.org/abs/1709.01941",
+      "locator": "Section4.1.3, with free fermion action giving m-type orbit simples"
+    },
+    {
+      "url": "https://arxiv.org/abs/2208.02757",
+      "locator": "Section3 and AppendixE; rank-two computations cover stated low multiplicities, completeness beyond them is conjectural"
+    },
+    {
+      "url": "https://arxiv.org/abs/2305.09108",
+      "locator": "Introduction theorem(a),(b): centers of types C6+6 and C2xC4+8, pointed-factor removal and bosonic condensation"
+    }
+  ],
+  "scope": "specified direct super tensor-product and published near-group-center constructions only",
+  "limitation": "No classification of general rank-four superfusion categories, arbitrary superalgebra condensations, or mixed construction chains is asserted."
+}

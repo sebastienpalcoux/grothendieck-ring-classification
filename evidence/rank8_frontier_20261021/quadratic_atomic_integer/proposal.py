@@ -64,3 +64,61 @@ def propose(system, seconds, exact_check):
     result.update(conclusion='exact_integer_feasible_relaxation',
                   integer_values=integer)
     return result
+
+
+def propose_bounded(system, seconds, exact_check, grace=30):
+    """Add a wall-clock cap to a proposal, without any negative inference.
+
+    Some HiGHS presolve paths exceed their requested internal time limit.
+    The child process is only a search worker; the parent checks any returned
+    integer solution once more against the supplied exact callback.
+    """
+    import multiprocessing as mp
+    import time
+    context = mp.get_context('fork')
+    receiver, sender = context.Pipe(duplex=False)
+
+    def worker():
+        receiver.close()
+        try:
+            sender.send(propose(system, seconds, exact_check))
+        except Exception as error:
+            sender.send({'method': 'scipy_highs_bounded_integer_proposal',
+                         'seconds_limit': seconds,
+                         'numerical_infeasibility_is_not_a_certificate': True,
+                         'conclusion': 'no_exact_integer_witness_found',
+                         'numerical_exception': repr(error)})
+        finally:
+            sender.close()
+
+    process = context.Process(target=worker)
+    process.start()
+    sender.close()
+    deadline = time.monotonic() + seconds + grace
+    result = None
+    while time.monotonic() < deadline:
+        if receiver.poll(min(0.5, max(0, deadline - time.monotonic()))):
+            try:
+                result = receiver.recv()
+            except EOFError:
+                pass
+            break
+        if not process.is_alive():
+            break
+    if result is None:
+        result = {'method': 'scipy_highs_bounded_integer_proposal',
+                  'seconds_limit': seconds, 'wall_clock_limit': seconds + grace,
+                  'numerical_infeasibility_is_not_a_certificate': True,
+                  'conclusion': 'no_exact_integer_witness_found',
+                  'search_interrupted': True,
+                  'reason': 'wall-clock cap or search worker ended without a proposal'}
+    if process.is_alive():
+        process.terminate()
+    process.join(timeout=5)
+    if process.is_alive():
+        process.kill()
+        process.join(timeout=5)
+    receiver.close()
+    if result['conclusion'] == 'exact_integer_feasible_relaxation':
+        exact_check(system, result['integer_values'])
+    return result

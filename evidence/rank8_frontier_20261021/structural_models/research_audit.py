@@ -13,10 +13,9 @@ IDS = [65,436,439,455,567,721,731,901,903,921,925,926,928,941,982,985,
        2842,2885,3258,3344,3413,3472]
 SCREENING_FOCUS = {
 65:'Free C4 generalized-near-group structure; complete rank-two based-module necessary data and connected-algebra underlying-object necessary filters; all nontrivial group-equivariantizations excluded; full character-field and CM-real STS central constraints and specified unbounded model families tested.',
-455:'Haagerup neutral and TY bridge; complete strict Evans-Gannon Fourier obstruction with explicit abstract-to-strict gap; connected-algebra underlying-object necessary filters, general Galois-PU reduction, central data and specified unbounded model-family filters tested.',
 721:'All six known Asaeda-Haagerup Morita categories compared; all integer-scaled near-group sources and all-level SU(2)/adjoint families excluded; complete integer central Gram domain, rotation/STS/cubic/forgetful constraints and connected-algebra underlying-object necessary filters tested.',
-928:'General Galois-PU reduction, quaternionic rational block, pointed cocycle constraints, full central induction/rotation/STS data, complete connected-algebra underlying-object necessary filters, all-level SU(2)/adjoint products and specified unbounded near-group families tested.',
-941:'General Galois-PU reduction, split rational block and pointed algebra route, central induction/rotation/STS data, complete connected-algebra underlying-object necessary filters, all-level SU(2)/adjoint products and specified unbounded near-group families tested; Morita coherence remains open.',
+928:'General Galois-PU reduction and quaternionic rational block; complete joint integer Gram/cubic domain forces a central semion, leaving 15 parity patterns and ten exact correlated height-six moment witnesses; four exact integer witnesses and six explicitly unresolved bounded integer attempts; connected-algebra underlying-object filters and specified unbounded model families tested.',
+941:'General Galois-PU reduction; complete joint integer Gram/cubic domain forces a central fermion after the ordinary rank-four quotient excludes the bosonic branch; 93 complete charge allocations give 77 exact correlated-cone exclusions and 16 rational survivors, then twelve exact integer witnesses and four unresolved bounded integer attempts; superproduct and specified unbounded model routes tested.',
 982:'Complete connected-algebra underlying-object necessary filters and labeled central-induction/STS constraints, together with all-level SU(2)/adjoint quantum-group products and unbounded generalized-near-group parameter families tested.',
 1154:'General Galois-PU reduction; all 14,211 integer central Gram patterns filtered to 1,238 cubic/spectral survivors and 1,230 exact joint rotation/STS survivors; complete connected-algebra underlying-object necessary filters and specified unbounded model families tested.',
 1768:'Complete rank-two based-module necessary data and connected-algebra underlying-object necessary filters; every proper subring, grading and nontrivial finite-group equivariantization tested; exact global central constraints and specified unbounded construction families tested.',
@@ -62,8 +61,27 @@ def completed_final_domains():
             'the late integer campaign does not cover its five planned cases')
     require(all(r.get('status')and r['status']not in ACTIVE_STATES for r in ledger['records']),
             'a late integer attempt is still active')
-    for relative,count in [('quartic_integer_center/r941_rotation.json',343),
+    path=FRONTIER/'r928_semion_rotation/final_campaign.json'
+    require(path.is_file(),'the late noncommutative moment and joint-spectrum ledger is missing')
+    nc=json.loads(path.read_text());paths.append(path)
+    require(nc.get('status')=='all_planned_semion_attempts_finished'and nc.get('pending_attempts')==[],
+            'a planned noncommutative moment or joint-spectrum attempt remains active')
+    require(set(nc.get('planned_ids',[]))=={f'R8_3_{i}'for i in(721,928,941,1154)},
+            'the late noncommutative ledger omits a planned joint-spectrum target')
+    for relative,sha in nc.get('dependencies_sha256',{}).items():
+        dependency=FRONTIER/relative
+        require(dependency.is_file()and digest(dependency)==sha,'late noncommutative campaign dependency changed')
+    path=FRONTIER/'quartic_integer_center/r941_integer_counts.json'
+    require(path.is_file(),'the planned sixteen-case fermionic integer stage is unfinished')
+    integer=json.loads(path.read_text());paths.append(path)
+    require(integer.get('status')=='all_planned_integer_count_attempts_finished'and len(integer.get('cases',[]))==16,
+            'the fermionic integer stage does not account for all sixteen surviving cones')
+    require(all(case.get('result',{}).get('status')in('exact_nonnegative_integer_witness',
+            'exact_supported_integer_lattice_obstruction','integer_feasibility_unresolved')for case in integer['cases']),
+            'a planned fermionic integer attempt is still active')
+    for relative,count in [('quartic_integer_center/r941_paired_rotation.json',93),
                            ('r928_semion_rotation/results.json',15),
+                           ('r928_semion_rotation/pair_rotation.json',10),
                            ('r455_center_integer/joint_rotation.json',48)]:
         path=FRONTIER/relative;require(path.is_file(),f'planned finite center test missing: {relative}')
         data=json.loads(path.read_text());paths.append(path)
@@ -404,6 +422,98 @@ def record(use_screening=True):
             {key:r[key]for key in ('complete_integer_Gram_count','complete_duality_compatible_count',
                                  'coefficient_histogram','actual_known_model_control')if key in r},
             'The accepted ledger alone controls the general status; complete integer domains and exact cubic values are separately replayed.')
+
+    directory=FRONTIER/'r455_center_integer';path=directory/'results.json';r=read(path)
+    require(r['source']['tensor_sha256']==rows['R8_3_455']['tensor_sha256'],'R455 integer-center source binding')
+    add('R8_3_455','complete_integer_Gram_twenty_low_cubic_and_Galois_center_domain',
+        '12_necessary_integer_patterns_survive_before_joint_rotations',nc_scope('R8_3_455'),path,
+        directory/'PROOF.md',[directory/'verify.py'],
+        {'complete_integer_Gram_count':r['integer_Gram_count'],'enumeration':r['enumeration'],
+         'cubic_survivor_count':len(r['cubic_survivors']),'all_filter_survivor_count':len(r['all_tests_survivors'])},
+        'These twelve necessary patterns are all excluded by the subsequent complete joint rotation domain.')
+    path=directory/'joint_rotation.json';r=read(path)
+    add('R8_3_455','all_48_integer_pattern_and_indicator_branches_joint_height6_rotation_STS',
+        'accepted_general_exclusion'if'R8_3_455'in accepted_ids else'proposed_general_exclusion_pending_review',
+        nc_scope('R8_3_455'),path,directory/'PROOF.md',[directory/'verify_all.py'],
+        {'complete_branch_count':len(r['cases']),'all_patterns_excluded':r['all_patterns_excluded'],
+         'actual_known_center_and_trace_controls':r['controls']},
+        'General status follows the separately reviewed accepted ledger and exact full trace-domain completeness.')
+
+    directory=FRONTIER/'quartic_integer_center';path=directory/'gram_cubic.json';r=read(path)
+    for binding in r['source_bindings']:
+        ident=binding['id'];require(binding['tensor_sha256']==rows[ident]['tensor_sha256'],'quartic integer source binding')
+        add(ident,'complete_integer_Gram_and_all_twenty_distinguished_cubic_coefficients',
+            '343_exact_necessary_integer_patterns_survive',nc_scope(ident),[path,directory/'source.json'],
+            directory/'PROOF.md',[directory/'source.py',directory/'gram_cubic.py'],
+            {'complete_joint_pattern_count':r['complete_joint_pattern_count'],
+             'native_search_nodes':r['search_nodes'],'independent_Python_nodes':r['independent_Python_nodes']},
+            'All343 patterns are necessary center data; their existence does not construct a modular category.')
+        add(ident,'forced_order_two_central_lift_and_complete_tensor_orbit_graph',
+            'central_invertible_forced_in_all_integer_patterns',nc_scope(ident),
+            FRONTIER/'review/quartic_central_orbits.json',FRONTIER/'review/QUARTIC_CENTRAL_ORBITS.md',
+            [FRONTIER/'review/verify_quartic_central_orbits.py'],
+            {'source_invertible_index':7 if ident.endswith('_928')else 3,
+             'forced_low_translate_high_indices':[40,41,42,43,57]},
+            'A central lift does not imply a tensor-factor decomposition of the nonbraided source category.')
+    path=directory/'r941_fermionic.json';r=read(path)
+    add('R8_3_941','complete_bosonic_central_lift_quotient_and_fermionic_alternative',
+        'bosonic_branch_excluded_fermionic_lift_forced',nc_scope('R8_3_941'),path,
+        directory/'R941_FERMION.md',[directory/'r941_fermionic.py'],r,
+        'The ordinary rank-four bound applies only to the Tannakian branch; no ordinary rank-four classification is imposed on a fermionic quotient.')
+    path=directory/'r941_charges.json'
+    if path.exists():
+        r=read(path)
+        add('R8_3_941','complete_integer_fermion_monodromy_charge_allocations',
+            'exact_charge_allocations_survive',nc_scope('R8_3_941'),path,directory/'R941_FERMION.md',
+            [directory/'r941_charges.py'],
+            {key:r[key]for key in('input_Gram_cubic_patterns','surviving_pattern_count','complete_charge_allocation_count',
+                                 'rref_assignments_tested','independent_full_box_assignments_tested')},
+            'A surviving charge allocation fixes necessary eigenvalue multiplicities only; it is not a center or associator.')
+    path=directory/'r941_super_constructions.json'
+    if path.exists():
+        r=read(path)
+        add('R8_3_941','all_direct_rank_two_super_products_and_specified_published_near_group_center_routes',
+            'specified_super_construction_families_excluded','general_complex_scoped_construction_obstructions',path,
+            directory/'R941_FERMION.md',[directory/'r941_super_constructions.py'],r,r['limitation'])
+    path=directory/'r941_paired_rotation.json'
+    if path.exists():
+        r=read(path);statuses=[v['decision']['status']for v in r['cases']]
+        add('R8_3_941','all_fermion_charge_allocations_correlated_height6_rotation_STS_and_fermion_S_row',
+            '; '.join(sorted(set(statuses))),nc_scope('R8_3_941'),path,directory/'R941_FERMION.md',
+            [directory/'r941_paired_rotation.py'],
+            {key:r[key]for key in('complete_charge_allocation_count','input_integer_pattern_count',
+                                 'charge_surviving_pattern_count','exact_excluded_count','exact_feasible_count')},
+            'The complete finite correlated cone is necessary data and does not classify superfusion associators.')
+    path=directory/'r941_integer_counts.json'
+    if path.exists():
+        r=read(path)
+        add('R8_3_941','all_sixteen_surviving_correlated_fermion_cones_supported_modular_and_bounded_integer_attempts',
+            'finite_attempts_finished_with_exact_witnesses_or_explicit_unresolved_integer_feasibility',
+            nc_scope('R8_3_941'),path,directory/'R941_FERMION.md',[directory/'r941_integer_counts.py'],
+            {key:r[key]for key in('status','planned_allocation_indices','exact_integer_witness_count',
+                                 'exact_modular_exclusion_count','unresolved_integer_feasibility_count')},r['scope'])
+    directory=FRONTIER/'r928_semion_rotation'
+    for filename,domain,verifier in [('results.json','all_semion_parity_patterns_with_fixed_even_twist_moments','verify.py'),
+                                   ('pair_rotation.json','complete_correlated_semion_pair_twist_cones','pair_rotation.py')]:
+        path=directory/filename
+        if not path.exists():continue
+        r=read(path);statuses=[v['decision']['status']for v in r['cases']]
+        add('R8_3_928',domain,'; '.join(sorted(set(statuses))),nc_scope('R8_3_928'),path,
+            FRONTIER/'review/QUARTIC_CENTRAL_ORBITS.md',[directory/verifier],
+            {'complete_case_count':len(r['cases']),'exact_infeasible_count':statuses.count('exact_infeasible_relaxation'),
+             'exact_feasible_count':statuses.count('exact_feasible_relaxation')},
+            'These are finite necessary moment systems; exact primal survival is not a semionic construction.')
+    path=directory/'final_campaign.json'
+    if path.exists():
+        r=read(path)
+        for relative in r['dependencies_sha256']:reference(FRONTIER/relative)
+        for item in r['records']:
+            ident=item['id']
+            add(ident,'latest_complete_joint_Galois_spectra_and_correlated_semion_integer_attempts',
+                'documented_finite_domains_finished',nc_scope(ident),path,
+                FRONTIER/'review/QUARTIC_CENTRAL_ORBITS.md',
+                [FRONTIER/v for v in r['canonical_no_argument_verifiers']],item,
+                'Six bounded R928 integer searches remain unresolved integer-feasibility problems; numerical negative solver outcomes are not exclusions. Exact positive integer witnesses are necessary data only.')
 
     n = FRONTIER/'noncommutative'
     data = read(n/'central_support_results.json')

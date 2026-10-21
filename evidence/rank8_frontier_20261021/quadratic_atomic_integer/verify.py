@@ -17,9 +17,11 @@ from partial_s import RealTable
 import features as f
 import bounds as box
 import lattice
+import equations
 from atomic_galois_balance import append_galois_balance
 from galois_support_filter import filter_support
-from proposal import propose
+from fp_fusion_bounds import tighten_fusion_bounds
+from proposal import propose_bounded
 
 
 def digest_file(path):
@@ -29,9 +31,10 @@ def digest_file(path):
 def sources(number):
     paths = [HERE / 'verify.py', HERE / 'proposal.py']
     paths += [FRONTIER / 'commutative_integer' / name
-              for name in ('features.py', 'bounds.py', 'lattice.py')]
+              for name in ('features.py', 'bounds.py', 'lattice.py', 'equations.py')]
     paths += [FRONTIER / 'quadratic' / 'atomic_galois_balance.py',
               FRONTIER / 'quadratic' / 'galois_support_filter.py',
+              FRONTIER / 'quadratic' / 'fp_fusion_bounds.py',
               FRONTIER / 'global_induction' / 'atomic_real_sts.py',
               FRONTIER / 'global_induction' / 'partial_s.py',
               FRONTIER / 'global_induction' / 'streaming.py',
@@ -60,29 +63,55 @@ def construct(number):
     print('integer features', number, len(S.rhs), len(S.columns), flush=True)
     S = append_galois_balance(S, C, T)
     print('Galois features', number, len(S.rhs), len(S.columns), flush=True)
-    return source, S, support
+    initial = S
+    S = tighten_fusion_bounds(S, C, T)
+    print('FP fusion bounds', number, S.metadata['FP_fusion_bounds']['tightened_variables'], flush=True)
+    return source, S, support, initial
+
+
+def replay_initial(number, initial):
+    path = HERE / f'R8_3_{number}_initial.json'
+    if not path.exists():
+        return None
+    result = json.loads(path.read_text())
+    f.require(result['metadata'] == initial.metadata, 'initial exact system changed')
+    box.verify(initial, result['box'])
+    reduced = box.reduced(initial, result['box'])
+    for test in result['modular']:
+        lattice.verify_result(reduced, test)
+    lattice.verify_hermite(reduced, result['Hermite'])
+    f.require(result['proposal']['conclusion'] == 'no_exact_integer_witness_found' and
+              result['proposal']['numerical_infeasibility_is_not_a_certificate'] is True,
+              'initial interrupted numerical search is not a proof')
+    return {'path': path.name, 'sha256': digest_file(path),
+            'modular_outcomes': [x['outcome'] for x in result['modular']],
+            'Hermite_outcome': result['Hermite']['outcome'],
+            'proposal_conclusion': result['proposal']['conclusion']}
 
 
 def run(number, write=False, seconds=180):
     started = time.monotonic()
     path = HERE / f'R8_3_{number}.json'
-    source, S, support = construct(number)
+    source, S, support, initial = construct(number)
+    initial_replay = replay_initial(number, initial)
     if write:
         result = {'id': source['id'], 'tensor_sha256': source['tensor_sha256'],
                   'kind': 'atomic_integer_Gram_S_cubic_Galois_screen',
                   'scope': 'pseudo_unitary_necessary_system',
                   'source_sha256': sources(number), 'metadata': S.metadata,
-                  'support': support}
+                  'support': support, 'initial_stage': initial_replay}
         result['box'] = box.propagate(S)
         print('bounds', number, result['box']['outcome'],
               result['box']['fixed_variables'], result['box']['tightenings'], flush=True)
         path.write_text(json.dumps(result, separators=(',', ':')) + '\n')
         if result['box']['outcome'] == 'integer_box_consistent':
             reduced = box.reduced(S, result['box'])
-            print('reduced', number, len(reduced.rhs), len(reduced.columns), flush=True)
+            compact = equations.compact(reduced)
+            result['compression'] = compact.metadata
+            print('reduced and compressed', number, len(compact.rhs), len(compact.columns), flush=True)
             result['modular'] = []
             for prime in (2, 3):
-                test = lattice.modular(reduced, prime)
+                test = lattice.modular(compact, prime)
                 result['modular'].append(test)
                 print('modular', number, prime, test['outcome'], test['rank'], flush=True)
                 path.write_text(json.dumps(result, separators=(',', ':')) + '\n')
@@ -90,12 +119,13 @@ def run(number, write=False, seconds=180):
                     break
             if all(test['outcome'] == 'consistent_mod_prime' for test in result['modular']):
                 result['Hermite'] = lattice.hermite(
-                    reduced, progress=lambda done, rank: print('HNF', number, done, rank, flush=True)
-                    if done % 512 == 0 or done == len(reduced.columns) else None)
+                    compact, progress=lambda done, rank: print('HNF', number, done, rank, flush=True)
+                    if done % 512 == 0 or done == len(compact.columns) else None)
                 print('HNF outcome', number, result['Hermite']['outcome'], flush=True)
                 path.write_text(json.dumps(result, separators=(',', ':')) + '\n')
                 if result['Hermite']['outcome'] == 'integer_lattice_member' and seconds > 0:
-                    result['proposal'] = propose(reduced, seconds, f.check_integer)
+                    result['proposal'] = propose_bounded(compact, seconds,
+                                                          lambda _, values: f.check_integer(reduced, values))
                     if result['proposal']['conclusion'] == 'exact_integer_feasible_relaxation':
                         original = box.lift(S, result['box'], result['proposal']['integer_values'])
                         f.check_integer(S, original)
@@ -108,15 +138,18 @@ def run(number, write=False, seconds=180):
                   'source binding changed')
         f.require(result['source_sha256'] == sources(number), 'screen source inventory changed')
         f.require(result.get('support') == support, 'complete support filtering changed')
+        f.require(result.get('initial_stage') == initial_replay, 'initial exact stage replay changed')
         f.require(result['metadata'] == S.metadata, 'complete integer system changed')
         box.verify(S, result['box'])
         if result['box']['outcome'] == 'integer_box_consistent':
             reduced = box.reduced(S, result['box'])
+            compact = equations.compact(reduced)
+            f.require(result['compression'] == compact.metadata, 'exact equation compression differs')
             f.require(len(result.get('modular', [])) > 0, 'modular campaign incomplete')
             for test in result['modular']:
-                lattice.verify_result(reduced, test)
+                lattice.verify_result(compact, test)
             if 'Hermite' in result:
-                lattice.verify_hermite(reduced, result['Hermite'])
+                lattice.verify_hermite(compact, result['Hermite'])
             if 'integer_witness' in result:
                 f.check_integer(reduced, result['proposal']['integer_values'])
                 f.require(box.lift(S, result['box'], result['proposal']['integer_values']) ==

@@ -34,6 +34,7 @@ def normalize(text):
     text=re.sub(r'R_\{8,3,([0-9]+)\}',lambda m:r'\sha{R8_3_'+m[1]+'}',text)
     return re.sub(r'\\texttt\{([^}]+)\}',lambda m:r'\path{'+m[1].replace(r'\_','_')+'}',text)
 BIB={
+'UsherFermionic':r'''R.~Usher, \emph{Fermionic $6j$-symbols in superfusion categories}, arXiv:1606.03466 (2016), Theorem~5.4 and Corollary~5.8.''',
 'BrownTransferFrontier':r'''K.~S.~Brown, \emph{Lectures on the Cohomology of Groups}, lecture notes, Section~3.3, equation~(3.12); \url{https://pi.math.cornell.edu/~kbrown/papers/cohomology_hangzhou.pdf}.''',
 'SchauenburgPointedFrontier':r'''P.~Schauenburg, \emph{A Higher Frobenius--Schur Indicator Formula for Group-Theoretical Fusion Categories}, arXiv:1502.02906 (2015), Definition~2.2 and Proposition~4.1.''',
 'CoquereauxQuantumMcKay':r'''R.~Coquereaux, \emph{Quantum McKay correspondence and global dimensions for fusion and module-categories associated with Lie groups}, J. Algebra \textbf{398} (2014), 258--283; arXiv:1209.6621v2.''',
@@ -167,6 +168,7 @@ identities and reconciliation without replaying the mathematics.
     if ext.get('frontier'):
         text=text.replace(r'\path{evidence/rank8_m3_20261021/pipeline/residual_attempts.json}',
                           r'\path{'+ext['attempts_source']+'}')
+        text=text.replace(r'\path{data/remaining_cases.py} and'+'\n'+r'\path{'+ext['attempts_source']+'}.', r'\path{data/remaining_cases.py} and the per-case audit\par\noindent'+'\n'+r'{\small\path{'+ext['attempts_source']+'}}.')
         text=text.replace('These are unresolved categorification candidates, not asserted categories\nor established exotic examples.',
             'We call the remaining rings extensively investigated exotic candidates in the operational sense: each survived the documented case-specific campaign of known and newly developed exclusion tests and model searches, including complete finite domains and specified unbounded construction families. This term asserts neither categorifiability nor novelty of a future realization.')
         text=text.replace(r'\texttt{python }\path{supplements/rank8/software/verify_m3_continuation.py}.',
@@ -187,7 +189,14 @@ identities and reconciliation without replaying the mathematics.
             'central_integrality/galois_pu_method.tex',
             'noncommutative_followup/noncommutative_method.tex',
             'review/integral_center_subcategory.tex',
-            'central_integrality/fixed_gram_method.tex']
+            'central_integrality/fixed_gram_method.tex',
+            'commutative_integer/integer_central_cubic.tex',
+            'quadratic/joint_galois_section.tex',
+            'quadratic_atomic_integer/integral_center_filter.tex',
+            'quadratic_atomic_integer/unit_pair_method.tex',
+            'quartic_integer_center/method.tex',
+            'r928_semion_rotation/method.tex',
+            'review/fermion_dimension_counterexample.tex']
         if 'R8_3_925' in accepted_ids:proof_files.append('global_induction/frame_hull.tex')
         if 'R8_3_926' in accepted_ids:proof_files.append('global_induction/spectral_frame.tex')
         if 'R8_3_1463' in accepted_ids:proof_files.append('global_induction/low_s_symmetry.tex')
@@ -207,6 +216,7 @@ identities and reconciliation without replaying the mathematics.
         if 'R8_3_1055' in accepted_ids:proof_files.append('global_induction/atomic_1055_application.tex')
         if 'R8_3_3258' in accepted_ids:proof_files.append('global_induction/atomic_sts_application.tex')
         proofs='\n'.join((ROOT/frontier.EVIDENCE/name).read_text() for name in proof_files)
+        proofs=proofs.replace(r'\begin{quote}\small\path{evidence/rank8_frontier_20261021/r567_centerless_integer/verlinde_exclusion.py}',r'\begin{quote}\footnotesize\path{evidence/rank8_frontier_20261021/r567_centerless_integer/verlinde_exclusion.py}')
         proofs=proofs.replace('For an arbitrary categorification take its canonical sphericalization',r'For an arbitrary categorification take its canonical sphericalization~\cite[Section~5.1]{OstrikPiv3}')
         proofs=proofs.replace(r'requires $\delta/f$ to be integral.',r'requires $\delta/f$ to be integral~\cite[Theorem~2.13 and Corollary~2.14]{OstrikPiv3}.')
         proofs=proofs.replace('A number-field model and Galois conjugation',r'A number-field model~\cite[Theorem~2.30 and the following remark]{ENO} and Galois conjugation')
@@ -240,11 +250,13 @@ domains; they are not proofs of nonexistence or categorifiability.
     (PAPER/'m3_models.tex').write_text(normalize(constructions))
     (PAPER/'m3_model_search.tex').write_text(normalize((ROOT/EVIDENCE/'models/model_search_scope.tex').read_text()))
     path=PAPER/'rank8.tex';s=path.read_text()
+    if r'\newtheorem{example}' not in s:
+        s=s.replace(r'\newtheorem{remark}[theorem]{Remark}',r'\newtheorem{remark}[theorem]{Remark}'+'\n'+r'\newtheorem{example}[theorem]{Example}')
     s=re.sub(r'pdftitle=\{Rank-eight Grothendieck rings: [^}]+\}','pdftitle={Rank-eight Grothendieck rings: categorification through multiplicity three}',s)
     s=s.replace('complete classification through multiplicity two}','categorification through multiplicity three}')
     s=re.sub(r'\\date\{[^}]+\}',lambda _:r'\date{21 October 2026}',s)
     abstract=(f'We investigate complex categorification of the supplied $4500$ rank-eight fusion rings of multiplicity at most three. The exact-multiplicity-three continuation treats $3527$ new tensors: ${ext["excluded"]}$ general exclusions, ${ext["unitarily_realized"]}$ unitary models, and ${ext["unresolved"]}$ unresolved cases. '
-      'The complete classification through multiplicity two is preserved: $896$ exclusions and $77$ unitary models. New unified obstructions use quadratic-compositum compression, weak-integral and biquadratic rotation constraints, convex central induction, module-category ranks and Morita transport. Positive constructions include group representations, near-group equivariantizations, exceptional subfactor categories, a twisted group-theoretical category and Morita duals. All accepted models are compared with full source tensors. Exact replay certificates and individual candidate attempt inventories accompany the article.')
+      'The complete classification through multiplicity two is preserved: $896$ exclusions and $77$ unitary models. Unified obstructions combine signed sphericalization, full character-labeled central induction, modular symmetry and rotations, integer central restriction and cubic fusion constraints, and module-category and Morita arguments. Positive constructions include group representations, near-group equivariantizations, exceptional subfactor categories, a twisted group-theoretical category and Morita duals. All accepted models are compared with full source tensors. Exact replay certificates and individual candidate attempt inventories accompany the article.')
     s=re.sub(r'\\begin\{abstract\}.*?\\end\{abstract\}',lambda _:r'\begin{abstract}'+'\n'+abstract+'\n'+r'\end{abstract}',s,flags=re.S)
     replacements={
       'all $877$ of exact multiplicity two.':'all $877$ of exact multiplicity two, and the supplied extension adds $3527$ of exact multiplicity three.',

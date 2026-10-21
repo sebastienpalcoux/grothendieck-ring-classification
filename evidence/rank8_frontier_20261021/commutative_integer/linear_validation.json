@@ -1,0 +1,81 @@
+{
+  "kind": "exact_bounded_phase_I_validation",
+  "result": "PASS",
+  "records": [
+    {
+      "column": [
+        1
+      ],
+      "rhs": 2,
+      "upper_bound": 1,
+      "negative": true,
+      "certificate": {
+        "kind": "exact_bounded_linear_separator",
+        "covector": [
+          1
+        ],
+        "rhs_value": 2,
+        "box_upper": 1
+      }
+    },
+    {
+      "column": [
+        -1
+      ],
+      "rhs": -2,
+      "upper_bound": 1,
+      "negative": true,
+      "certificate": {
+        "kind": "exact_bounded_linear_separator",
+        "covector": [
+          -1
+        ],
+        "rhs_value": 2,
+        "box_upper": 1
+      }
+    },
+    {
+      "column": [
+        2
+      ],
+      "rhs": 1,
+      "upper_bound": 1,
+      "negative": false,
+      "certificate": {
+        "rational_primal": [
+          "1/2"
+        ]
+      }
+    },
+    {
+      "column": [
+        1
+      ],
+      "rhs": 1,
+      "upper_bound": 1,
+      "negative": false,
+      "certificate": {
+        "rational_primal": [
+          "1"
+        ]
+      }
+    },
+    {
+      "column": [
+        0
+      ],
+      "rhs": 1,
+      "upper_bound": 1,
+      "negative": true,
+      "certificate": {
+        "kind": "exact_bounded_linear_separator",
+        "covector": [
+          1
+        ],
+        "rhs_value": 1,
+        "box_upper": 0
+      }
+    }
+  ],
+  "scope": "three exact bounded separators, one integral feasible control, and one integer-infeasible but rationally feasible control"
+}

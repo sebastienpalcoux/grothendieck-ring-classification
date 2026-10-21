@@ -5,7 +5,7 @@ The existing M3 archive is input only. Its proof sources, evidence, data and
 replay logs remain byte-identical in the new archive. Current publication tools
 and manuscript files may supersede old copies; every superseded byte stream is
 retained under publication/baseline_members. Both extracted metadata verifiers
-must pass before the new archive is written.
+and a fresh full frontier replay must pass before the new archive is written.
 """
 from pathlib import Path
 import argparse
@@ -17,7 +17,7 @@ import tempfile
 import zipfile
 
 from rank8_frontier import (ROOT, ARCHIVE, EVIDENCE, PUBLICATION, LEDGER,
-                            need, safe_path, sha, source_inventory,
+                            commands, need, safe_path, sha, source_inventory,
                             validate_ledger)
 
 
@@ -149,9 +149,11 @@ def collect(repo):
         'replays the frontier verifiers under `-O`. For a source/receipt check without redoing the '
         'mathematics, append `--metadata-only` to either verifier. Optional fresh group enumeration '
         'uses GAP with SmallGrp; the exact stored group transcript is included.\n\n'
-        'This archive was checked after extraction with both old and new metadata verifiers. '
-        'Those packaging checks bind existing full mathematical replays; they do not themselves '
-        'redo the mathematics. Superseded publication tools and papers are retained under '
+        'This archive was checked after extraction with both old and new metadata verifiers '
+        'in normal and optimized Python, followed by a fresh full normal-Python replay of '
+        'every frontier command. The fresh extracted replay and its logs are included; '
+        'the immutable baseline mathematics is protected by its existing full replay hashes. '
+        'Superseded publication tools and papers are retained under '
         f'`{PUBLICATION}/baseline_members/`. AI-assisted research remains subject to '
         'independent mathematical scrutiny; no Lean formalization is asserted.\n'
     ).encode()
@@ -174,7 +176,9 @@ def collect(repo):
 
 def standalone_checks(files):
     results = []
-    with tempfile.TemporaryDirectory(prefix='rank8-frontier-package-') as directory:
+    full_results = []
+    with tempfile.TemporaryDirectory(prefix='rank8-frontier-package-') as directory, \
+            tempfile.TemporaryDirectory(prefix='rank8-frontier-extracted-replay-') as replay_directory:
         repo = Path(directory)
         for name, raw in files.items():
             need(safe_path(name), 'Unsafe extracted package path')
@@ -187,13 +191,62 @@ def standalone_checks(files):
                 command = [sys.executable] + (['-O'] if optimized else []) + [str(repo / script), '--metadata-only']
                 env = dict(os.environ)
                 env.pop('PYTHONOPTIMIZE', None)
+                env.pop('PYTHONPATH', None)
                 run = subprocess.run(command, cwd=repo, env=env, text=True, capture_output=True)
                 need(run.returncode == 0, 'Standalone metadata failed: ' + script + '\n' + run.stdout + run.stderr)
                 report = json.loads(run.stdout)
                 need(report['status'] == 'METADATA_PASS', 'Standalone metadata receipt missing')
                 results.append({'script': script, 'optimized_python': optimized,
                                 'status': 'METADATA_PASS', 'report_sha256': sha(run.stdout.encode())})
-    return results
+        # Run from only the extracted package. Output and logs live outside it,
+        # so neither frozen publication replay lane can be overwritten.
+        before = source_inventory(repo)
+        expected_scripts = commands(repo)
+        output = Path(replay_directory) / 'frontier_normal.json'
+        script = 'tools/verify_rank8_frontier.py'
+        command = [sys.executable, str(repo / script), '--output', str(output)]
+        env = dict(os.environ)
+        env.pop('PYTHONOPTIMIZE', None)
+        env.pop('PYTHONPATH', None)
+        env.update(OPENBLAS_NUM_THREADS='1', OMP_NUM_THREADS='1', MKL_NUM_THREADS='1')
+        run = subprocess.run(command, cwd=repo, env=env, text=True, capture_output=True)
+        need(run.returncode == 0, 'Extracted full frontier replay failed:\n' + run.stdout + run.stderr)
+        raw = output.read_bytes()
+        report = json.loads(raw)
+        need(report['status'] == 'PASS' and report['mathematical_replay_performed'] is True and
+             report['optimized_python'] is False, 'Extracted full replay did not verify the normal lane')
+        need([item['script'] for item in report['sections']] == expected_scripts and
+             all(item['returncode'] == 0 for item in report['sections']),
+             'Extracted full replay command coverage differs')
+        need(source_inventory(repo) == before, 'Extracted full replay changed a source input')
+        # Preserve the actual logs, relocating only their paths in the package
+        # copy of the new receipt. The original raw report digest is retained.
+        for item in report['sections']:
+            log = Path(item['log'])
+            need(log.is_absolute() and log.is_relative_to(Path(replay_directory)),
+                 'Extracted full replay log escaped its temporary output folder')
+            content = log.read_bytes()
+            need(sha(content) == item['log_sha256'], 'Extracted full replay log hash differs')
+            name = PUBLICATION + '/standalone_full_replay_normal_logs/' + log.name
+            need(name not in files, 'Duplicate extracted full replay log')
+            files[name] = content
+            item['log'] = name
+        report['extracted_replay_original_report_sha256'] = sha(raw)
+        report['log_paths_relocated_for_package'] = True
+        report_name = PUBLICATION + '/standalone_full_replay_normal.json'
+        report_raw = (json.dumps(report, indent=2) + '\n').encode()
+        files[report_name] = report_raw
+        full_results.append({'script': script, 'optimized_python': False,
+                             'status': 'PASS', 'mathematical_replay_performed': True,
+                             'source_inventory_unchanged': True,
+                             'source_manifest_sha256': report['source_manifest_sha256'],
+                             'ledger_sha256': report['ledger_sha256'],
+                             'section_count': len(report['sections']),
+                             'sections': report['sections'],
+                             'original_report_sha256': sha(raw),
+                             'packaged_report': report_name,
+                             'packaged_report_sha256': sha(report_raw)})
+    return results, full_results
 
 
 def main():
@@ -206,7 +259,12 @@ def main():
     need(output != (repo / BASELINE_ARCHIVE).resolve(), 'Cannot overwrite the immutable M3 archive')
     need(not output.is_relative_to(repo / 'evidence/rank8_m3_20261021'), 'Cannot write into baseline evidence')
     files, package = collect(repo)
-    checks = standalone_checks(files)
+    checks, full_checks = standalone_checks(files)
+    package.update(standalone_metadata_checks=checks,
+                   standalone_full_replay_checks=full_checks)
+    files[PUBLICATION + '/package_manifest.json'] = (json.dumps(package, indent=2) + '\n').encode()
+    files['SHA256SUMS.json'] = (json.dumps({p: sha(raw) for p, raw in sorted(files.items())
+                                         if p != 'SHA256SUMS.json'}, indent=2) + '\n').encode()
     # Check source stability once more after extracted validation and before publication.
     need(sha((repo / BASELINE_ARCHIVE).read_bytes()) == BASELINE_ARCHIVE_SHA256,
          'Baseline archive changed during packaging')
@@ -226,12 +284,15 @@ def main():
     finally:
         temporary.unlink(missing_ok=True)
     manifest = dict(package, files_sha256={p: sha(raw) for p, raw in sorted(files.items())},
-                    standalone_metadata_checks=checks, archive_sha256=sha(output.read_bytes()))
+                    archive_sha256=sha(output.read_bytes()))
     target = repo / PUBLICATION / 'release_manifest.json'
     target.parent.mkdir(parents=True, exist_ok=True)
     target.write_text(json.dumps(manifest, indent=2) + '\n')
     print(json.dumps({'output': str(output), 'files': len(files), 'bytes': output.stat().st_size,
                       'sha256': manifest['archive_sha256'], 'standalone_metadata_checks': checks,
+                      'standalone_full_replay_checks': [
+                          {key: value for key, value in check.items() if key != 'sections'}
+                          for check in full_checks],
                       'baseline_proof_members_preserved': package['baseline_proof_members_preserved']}, indent=2))
 
 

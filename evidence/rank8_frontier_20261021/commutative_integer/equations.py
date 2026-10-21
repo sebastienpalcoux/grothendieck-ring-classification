@@ -26,7 +26,7 @@ def compact(system):
     for col in columns:h.update((repr(col)+'\n').encode())
     metadata={'kind':'exact_proportional_equation_compression','source_metadata':system.metadata,
               'original_rows':m,'rows':len(rhs),'variables':n,'columns_sha256':h.hexdigest(),'rhs_sha256':st.digest(rhs),
-              'row_mapping_sha256':st.digest(mapping),'representatives':representatives}
+              'row_mapping_sha256':st.digest(mapping),'representatives':[list(v)for v in representatives]}
     return replace(system,columns=columns,rhs=tuple(rhs),row_labels=tuple(('scaled_original_row',i,d)for i,d in representatives),metadata=metadata)
 
 
