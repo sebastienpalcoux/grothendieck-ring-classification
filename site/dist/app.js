@@ -288,7 +288,7 @@ function renderTheoreticalUpdate() {
   const m5 = state.data.rank7_m5_update;
   const m3 = state.data.rank8_m3_update;
   const extensionText = (m3 ? ` The rank-eight multiplicity-three continuation addresses ${fmt.format(m3.rings)} rings: ${fmt.format(m3.excluded)} general exclusions, ${m3.unitarily_realized} unitary models and ${m3.unresolved} individually investigated unresolved candidates.` : "") + (m5 ? ` The rank-seven multiplicity-five continuation addresses ${fmt.format(m5.rings)} rings: ${fmt.format(m5.excluded)} exclusions, ${m5.realized} model${m5.realized===1?"":"s"} and ${m5.unresolved} open cases.` : "");
-  const continuationText = m5?.continuation_decisions?.length ? ` The latest continuation resolves ${m5.continuation_decisions.length} of the 15 cases left open on 19 October.` : "";
+  const continuationText = m5?.continuation_decisions?.length ? ` The rank-seven continuation resolves ${m5.continuation_decisions.length} of the 15 rank-seven cases left open on 19 October.` : "";
   const braidedText = m5?.remaining_ids?.length && m5.remaining_ids.every(id=>["R7_5_3895","R7_5_5039"].includes(id))
     ? (m5.remaining_ids.length===1
       ? " The remaining rank-seven ring admits no braided categorification; its general categorification remains open."
@@ -743,7 +743,19 @@ async function start() {
     state.censusMap=new Map(state.data.rows.map((r)=>[`${r.rank}:${r.multiplicity}`,r]));
     state.positiveMap=new Map(state.data.grothendieck_rows.map((r)=>[`${r.rank}:${r.multiplicity}`,r]));
     state.statusMap=new Map((state.data.classification_rows||[]).map((r)=>[`${r.rank}:${r.multiplicity}`,r]));
-    if (state.data.census_commit) $("#source-commit").textContent=`Pinned at commit ${state.data.census_commit.slice(0,12)}.`;
+    const censusPins = [
+      ["Historical census base", state.data.census_commit],
+      ["Rank-seven M5 extension", state.data.census_extensions?.rank7_m5?.census_commit],
+      ["Rank-eight M3 extension", state.data.census_extensions?.rank8_m3?.census_commit],
+    ];
+    const sourceCommit = $("#source-commit");
+    sourceCommit.replaceChildren();
+    for (const [label, commit] of censusPins.filter(([, commit]) => commit)) {
+      const link = element("a", "", commit.slice(0, 12));
+      link.href = `${state.data.source_repository}/tree/${commit}`;
+      link.target = "_blank"; link.rel = "noopener";
+      sourceCommit.append(`${label}: `, link, ". ");
+    }
     const params=new URLSearchParams(window.location.search);
     const requestedRing=params.get("ring");
     const linkedModel=requestedRing?state.models.find((r)=>r.id===requestedRing):null;
