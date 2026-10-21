@@ -1,0 +1,161 @@
+\subsection{A uniform $\operatorname{Rep}(A_5)$ complement obstruction}
+\label{sec:rank8-a5-complement}
+
+The integral ring $\mathtt{R8\_3\_3344}$ is excluded over $\mathbb C$.
+The argument separates a structural reduction from a complete relative
+cocycle calculation; neither step assumes unitarity.
+
+\paragraph{Structural reduction.}
+Suppose a fusion category $\mathcal C$ of dimension $360$ contains
+$\mathcal D\simeq\operatorname{Rep}(A_5)$, with three complementary
+simples of dimension $10$, on which the left and right action matrices
+of the simples of dimensions $1,3,3,4,5$ are
+\[
+ I,\quad J,\quad J,\quad I+J,\quad 2J-I,
+\]
+where $J$ is the $3\times3$ all-ones matrix. Then $\mathcal C$ is
+group-theoretical.
+Indeed, the complement $\mathcal M$ is an indecomposable
+$\operatorname{Rep}(A_5\times A_5)$-module category. By Ostrik's
+classification it is $\operatorname{Rep}_{\alpha}(K)$ for a subgroup
+$K\leq A_5\times A_5$. The displayed action forces all three projective
+irreducible degrees to equal an integer $q$, hence $|K|=3q^2$.
+Neither projection of $K$ can be $A_5$: Goursat's lemma reduces this
+case to a graph or a direct product, and every projective sector of
+$A_5$ has rank at least four. The spectrum $\{3,0,0\}$ of the degree-three
+action forces each projection to contain a $3$-cycle. Thus its proper
+projections have orders $3,6,12$, leaving $|K|=3,12,48$.
+
+Set $A=\operatorname{Fun}(A_5)$ and
+$\mathcal E={}_A\mathcal C_A$. Its diagonal subcategory is
+$\operatorname{Vec}_{A_5}$. The complementary $A$-bimodules are
+projectively $K$-equivariant vector bundles on the free $K$-set
+$A_5\times A_5$. They number $3600/|K|$ and form a transitive
+$A_5\times A_5$-set. Their common Frobenius--Perron dimension is therefore
+$q/2$, since their squared dimensions sum to $300$.
+The possibilities are
+\[
+ (|K|,q,\operatorname{rank},\operatorname{FPdim})
+ =(3,1,1200,\tfrac12),\quad(12,2,300,1),\quad(48,4,75,2).
+\]
+The first is impossible and the second makes $\mathcal E$ pointed.
+In the third, Goursat's lemma gives
+$K=A_4\times_{C_3}A_4$. Each complementary simple has left stabilizer
+$V_4$, so $XX^*$ is the sum of its four stabilizing invertibles.
+Consequently $\mathcal E_{\rm ad}=\operatorname{Vec}_{A_5}$, since the
+conjugates of $V_4$ generate $A_5$.
+Each universal-grading component is an invertible
+$\operatorname{Vec}_{A_5}$-bimodule. But a component with left stabilizer
+$V_4$ has dual $\mathcal C(A_5,1,V_4,\psi)$, which is not pointed:
+distinct Sylow $2$-subgroups of $A_5$ intersect trivially, giving a
+simple of dimension $[V_4:1]=4$ by the double-coset formula.
+This contradicts invertibility and proves the reduction.
+
+The unique proper subring of $\mathtt{R8\_3\_3344}$ has basis
+$[0,1,2,6,7]$ and the $\operatorname{Rep}(A_5)$ tensor.
+Every categorification of this simple dimension-$60$ subring is
+$\operatorname{Rep}(A_5)$ by Etingof--Nikshych--Ostrik,
+\emph{Weakly group-theoretical and solvable fusion categories},
+Theorem~9.12. The full tensor verifies the hypotheses above.
+
+\paragraph{All group-theoretical possibilities.}
+The ring has no nontrivial invertible and trivial universal grading,
+so its center has no nontrivial invertible. In a presentation
+$\mathcal C(L,\omega,H,\psi)$, this forces $L$ to be perfect.
+An exhaustive check of the $162$ groups of order $360$ leaves only
+$L=A_6$. The identity double-coset sector $\operatorname{Rep}(H)$
+forces $H$ perfect as well. The perfect-group catalogue on the divisors
+of $360$, together with the index-three action excluding order $120$,
+leaves $H=1,A_5,A_6$. The endpoints have the wrong ranks. The index-six
+coset action identifies every $A_5$ embedding with the usual point
+stabilizer up to an automorphism of $A_6$.
+
+The restriction $H^2(A_6,\mathbb C^\times)\to
+H^2(A_5,\mathbb C^\times)$ is surjective, and
+\[
+ \ker\bigl(H^3(A_6,\mathbb C^\times)\longrightarrow
+ H^3(A_5,\mathbb C^\times)\bigr)\simeq C_2.
+\]
+Here is a reproducible calculation rather than an assumed cohomology
+table. Normalized mod-$2$ bar cohomology on a Sylow $D_8$, with all
+$360$ stable-element conjugation conditions, gives $2$ stable classes
+in degree $2$ and $4$ in degree $3$. The restriction kernels on the
+point-fixing $V_4$ have orders $1$ and $2$, respectively.
+The degree-two result and the coefficient exact sequence prove the
+surjectivity above and bound the relative $2$-part by $C_2$.
+Transfer annihilates the relative kernel by the index $6$.
+For its $3$-part, restriction to the Sylow $C_3^2$ embeds it in
+$H^4(C_3^2,\mathbb Z)=\langle x^2,xy,y^2\rangle_{\mathbb F_3}$.
+An explicit normalizer rotation leaves only the line
+$\langle x^2+y^2\rangle$, which restricts injectively to the coordinate
+$C_3$ in $A_5$. Thus the relative $3$-part vanishes.
+The previously certified relative $\mu_2$ cocycle has a nontrivial
+$A_4$ stabilizer multiplier and supplies the nonzero relative class.
+
+There are consequently only two relative gauge classes of
+$(\omega,\psi)$. The trivial one gives rank $9$.
+The nontrivial one is the already verified model
+$\mathtt{R8\_3\_3342}$. Its three dimension-ten simples satisfy
+$N_{X_iX_i}^{X_i}=2$, whereas all three corresponding coefficients
+of $\mathtt{R8\_3\_3344}$ equal $3$. Hence no group-theoretical model
+exists for the latter ring. The structural reduction proves its
+noncategorifiability over $\mathbb C$.
+
+\paragraph{A general obstruction for the dimension-$660$ ring.}
+The ring $\mathtt{R8\_3\_731}$ is also excluded over $\mathbb C$.
+Its source dimensions are $1,5,5,10,10,11,12,12$ and its based ring is
+simple. Any categorification is integral, hence pseudo-unitary and
+spherical. It cannot be braided: simplicity and the prime-dimensional
+simple of dimension $5$ exclude the nondegenerate case by
+Etingof--Nikshych--Ostrik Corollary~7.2, while the symmetric case would
+be a group representation category. The exhaustive ordinary-group
+scan treats all $40$ groups of order $660$ and finds no matching tensor.
+Liu--Palcoux--Ren, \emph{Interpolated family of non group-like simple
+integral fusion rings of Lie type}, Theorem~5.1, therefore forces its
+hypothetical Drinfeld center to be simple. Its dimensions are integral,
+so Corollary~7.2 excludes every nontrivial central simple of prime-power
+dimension. This strategy is already proposed in their Remark~5.15;
+the new result is the complete finite induction and rotation certificate
+below.
+
+The formal codegrees are $660,4,5,5,11,11,12,12$, so the distinguished
+central simple dimensions are $1,165,132,132,60,60,55,55$.
+The exact Gram ellipsoid gives $38058$ vectors, whose seven required
+unit-multiplicity dimension slices have sizes
+$65,61,61,31,31,37,37$. Complete exact row-sum and positive-semidefinite
+completion leaves precisely $450$ low induction frames. The required
+duality invariance of the restriction-column multiset excludes $434$.
+For each remaining frame, all admissible high restriction columns are
+enumerated exactly, with central dimension dividing $660$ and not a
+prime power. Exact Gram-completion Farkas certificates exclude another
+$13$ frames.
+
+The last three frames, with indices $293,301,303$, have respectively
+$280,210,324$ admissible high columns. Their second indicators are all
+forced, namely $(0,0,0,0,1,1,1)$ in nonunit source order.
+Joint Gram, twist-moment, and tensor-rotation equations through order
+six use $53$ complete normalized rational trace patterns. Divisors of
+$19800$ together with the zero pattern exhaust these patterns; this is
+a trace enumeration bound, not a claimed exponent bound. The three
+integer systems have $182$ equations each and respectively
+$14917,11207,17249$ variables. Each has a saved integer Farkas vector
+$y$ satisfying $A^{\mathsf t}y\geq0$ and $b^{\mathsf t}y<0$.
+The read-only verifier reconstructs all $450$ frames and all three
+integer systems and checks every certificate exactly, without calling
+an LP solver. Thus $434+13+3=450$ branches are excluded, proving general
+noncategorifiability. The previous unitary-only obstruction is now
+supplemented by this independent general obstruction. The printed
+$F_{660}$ in the triangular-prism paper remains
+$\mathtt{R8\_3\_722}$, a different tensor.
+
+\paragraph{Evidence.}
+The full proof, exact source hashes, all subgroup and cohomology
+receipts, and normal/optimized Python replays are in
+\texttt{evidence/rank8\_frontier\_20261021/integral/}.
+The independent review recomputes the mod-$2$ calculation without
+importing the discovery verifier. The categorical inputs are Ostrik's
+module-category classification (\S3.4, Theorem~2),
+Etingof--Nikshych--Ostrik's invertibility of graded components
+(\emph{Fusion categories and homotopy theory}, Theorem~6.1),
+Gelaki--Naidu's double-coset simple-object formula (Theorem~5.1),
+and Cartan--Eilenberg stable elements and restriction/transfer.

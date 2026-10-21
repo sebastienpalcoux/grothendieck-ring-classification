@@ -1,0 +1,208 @@
+{
+  "schema": "rank8-frontier-c3-tpe-general-v1",
+  "kind": "c3_near_group_galois_unitarization_inversion_obstruction",
+  "scope": "general_complex",
+  "outcome": "excluded",
+  "source": {
+    "id": "R8_3_436",
+    "tensor_sha256": "0f6d68de67a7287db7dd32a786237f7af9f35ec7c26b3ada2ba50012ff5455c7",
+    "neutral_basis": [
+      0,
+      1,
+      2,
+      5
+    ],
+    "near_group_tensor": [
+      [
+        [
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      [
+        [
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      [
+        [
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      [
+        [
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          1,
+          3
+        ]
+      ]
+    ],
+    "odd_invertible": 3,
+    "conjugation_on_neutral_basis": [
+      0,
+      2,
+      1,
+      5
+    ],
+    "basis_map_crossed_model_to_source": [
+      0,
+      3,
+      1,
+      7,
+      2,
+      6,
+      5,
+      4
+    ],
+    "coefficients_checked": 512,
+    "frobenius_schur_odd_multiplicity": 3
+  },
+  "algebra": {
+    "variables": [
+      "x",
+      "y",
+      "d",
+      "w"
+    ],
+    "dimension_polynomial": "d**2 - 3*d - 3",
+    "bicharacter_polynomial": "w**2 + w + 1",
+    "beta0": "1 - d/3",
+    "quadratic_refinement": [
+      "1",
+      "w",
+      "w"
+    ],
+    "cubic_equations_checked": 9,
+    "reduced_groebner_basis": [
+      "d*w/3 + d/3 - w + x + y - 1",
+      "d*w*y/3 + d*y/3 - w*y + w/3 + y**2 - y",
+      "d**2 - 3*d - 3",
+      "w**2 + w + 1"
+    ],
+    "equivalent_scalar_relations": [
+      "x+y=(1+w)*(3-d)/3",
+      "x*y=w/3"
+    ],
+    "rotation_scalar": "1/3 - w/3",
+    "equal_root_contradiction": "3=0",
+    "real_normalization": "u=x/(1+w), v=y/(1+w)",
+    "real_quadratic": "z^2-((3-d)/3)*z+1/3",
+    "real_quadratic_discriminant": "-d/3",
+    "positive_dimension_branch": "(3+sqrt(21))/2",
+    "positive_branch_hermitian_relation": "conjugate(beta(g))=beta(-g)/a(g)",
+    "full_tpe_checked_after_reduction": true,
+    "all_primitive_bicharacters_included": true,
+    "both_dimension_roots_included": true,
+    "number_of_scalar_solutions_before_gauge": 8
+  },
+  "proof": "evidence/rank8_frontier_20261021/structural_models/R436_GENERAL_TPE.md",
+  "literature_hypotheses": [
+    {
+      "url": "https://arxiv.org/pdf/1102.4640",
+      "locator": "Theorem1.3",
+      "input": "Every complex near-group category is spherical and Galois-pseudounitary."
+    },
+    {
+      "url": "https://arxiv.org/pdf/2203.06522",
+      "locator": "Theorem3.9, printedp11",
+      "input": "Odd multiplicity in X* tensor X forces the second indicator to be +1."
+    },
+    {
+      "url": "https://arxiv.org/pdf/2610.11652",
+      "locator": "Theorem2.3; Proposition2.7; Theorem4.12; Corollary5.5",
+      "input": "Full spherical C3+3 tetrahedral parametrization with indicator+1, and unitary reconstruction from Hermitian scalar data."
+    },
+    {
+      "url": "https://arxiv.org/pdf/1512.04288",
+      "locator": "Theorem9.1; Example9.4",
+      "input": "Unitary C3+3 categories are the known Izumi-Xu categories up to complex conjugation."
+    },
+    {
+      "url": "https://arxiv.org/pdf/1211.6414",
+      "locator": "Section4.2, printedp10 afterRemark4.10",
+      "input": "Either known Izumi-Xu category has no outer tensor autoequivalences."
+    }
+  ],
+  "review_qualification": "New proof using the October2026 TPE preprint; independent human mathematical review remains appropriate."
+}

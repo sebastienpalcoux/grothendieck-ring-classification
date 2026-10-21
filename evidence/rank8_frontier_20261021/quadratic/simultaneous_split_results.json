@@ -1,0 +1,1691 @@
+{
+  "criterion": "simultaneous_C2_split_module_quotient",
+  "version": 1,
+  "records": [
+    {
+      "id": "R8_3_1203",
+      "tensor_sha256": "de0a9103c44f321c4ee73ee5d9a6739fb42af4a25ed82ecd237f3545413816b1",
+      "scope": "general_complex_fusion_category",
+      "search": {
+        "setup": {
+          "involution": 3,
+          "generator": 4,
+          "fixed": [
+            4,
+            5,
+            6,
+            7
+          ],
+          "odd_diagonal_witnesses": [
+            [
+              4,
+              5,
+              1
+            ],
+            [
+              5,
+              4,
+              3
+            ],
+            [
+              6,
+              5,
+              3
+            ],
+            [
+              7,
+              4,
+              1
+            ]
+          ],
+          "quotient_orbits": [
+            [
+              0,
+              3
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              4
+            ],
+            [
+              5
+            ],
+            [
+              6
+            ],
+            [
+              7
+            ]
+          ],
+          "quotient_polynomial": [
+            1,
+            -12,
+            -30,
+            80,
+            140,
+            8,
+            -16
+          ],
+          "interpolation": [
+            {
+              "denominator": 1,
+              "ascending_numerators": [
+                1,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "denominator": 15580,
+              "ascending_numerators": [
+                1908,
+                -40020,
+                -17520,
+                8330,
+                2920,
+                -249
+              ]
+            },
+            {
+              "denominator": 15580,
+              "ascending_numerators": [
+                1908,
+                -40020,
+                -17520,
+                8330,
+                2920,
+                -249
+              ]
+            },
+            {
+              "denominator": 1,
+              "ascending_numerators": [
+                1,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "denominator": 1,
+              "ascending_numerators": [
+                0,
+                1,
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "denominator": 7790,
+              "ascending_numerators": [
+                13232,
+                -29190,
+                -31010,
+                6905,
+                3870,
+                -306
+              ]
+            },
+            {
+              "denominator": 7790,
+              "ascending_numerators": [
+                -13872,
+                41830,
+                50360,
+                -12010,
+                -7095,
+                561
+              ]
+            },
+            {
+              "denominator": 7790,
+              "ascending_numerators": [
+                -2264,
+                16670,
+                -3120,
+                -2625,
+                520,
+                -23
+              ]
+            }
+          ],
+          "bounds": [
+            [
+              2,
+              1,
+              2,
+              3
+            ],
+            [
+              1,
+              3,
+              3,
+              3
+            ],
+            [
+              2,
+              3,
+              2,
+              3
+            ],
+            [
+              3,
+              3,
+              3,
+              1
+            ]
+          ],
+          "entries": [
+            [
+              0,
+              0,
+              [
+                -2,
+                0,
+                2
+              ],
+              false
+            ],
+            [
+              0,
+              1,
+              [
+                1
+              ],
+              true
+            ],
+            [
+              0,
+              2,
+              [
+                -2,
+                0,
+                2
+              ],
+              false
+            ],
+            [
+              0,
+              3,
+              [
+                1,
+                3
+              ],
+              true
+            ],
+            [
+              1,
+              1,
+              [
+                -3,
+                -1,
+                1,
+                3
+              ],
+              false
+            ],
+            [
+              1,
+              2,
+              [
+                1,
+                3
+              ],
+              true
+            ],
+            [
+              1,
+              3,
+              [
+                -3,
+                -1,
+                1,
+                3
+              ],
+              false
+            ],
+            [
+              2,
+              2,
+              [
+                -2,
+                0,
+                2
+              ],
+              false
+            ],
+            [
+              2,
+              3,
+              [
+                -3,
+                -1,
+                1,
+                3
+              ],
+              false
+            ],
+            [
+              3,
+              3,
+              [
+                -1,
+                1
+              ],
+              false
+            ]
+          ],
+          "finite_cases": 13824
+        },
+        "tested": 13824,
+        "polynomial_survivors": [
+          {
+            "matrix": [
+              [
+                -2,
+                1,
+                0,
+                1
+              ],
+              [
+                1,
+                -1,
+                1,
+                1
+              ],
+              [
+                0,
+                1,
+                0,
+                1
+              ],
+              [
+                1,
+                1,
+                1,
+                1
+              ]
+            ],
+            "reconstruction": {
+              "basis_index": 5,
+              "row": 0,
+              "column": 1,
+              "reason": "bound_or_parity",
+              "entry": 0,
+              "bound": 3
+            }
+          },
+          {
+            "matrix": [
+              [
+                -2,
+                1,
+                0,
+                1
+              ],
+              [
+                1,
+                1,
+                1,
+                1
+              ],
+              [
+                0,
+                1,
+                0,
+                1
+              ],
+              [
+                1,
+                1,
+                1,
+                -1
+              ]
+            ],
+            "reconstruction": {
+              "basis_index": 5,
+              "row": 0,
+              "column": 1,
+              "reason": "bound_or_parity",
+              "entry": 0,
+              "bound": 3
+            }
+          },
+          {
+            "matrix": [
+              [
+                0,
+                1,
+                0,
+                1
+              ],
+              [
+                1,
+                -1,
+                1,
+                1
+              ],
+              [
+                0,
+                1,
+                -2,
+                1
+              ],
+              [
+                1,
+                1,
+                1,
+                1
+              ]
+            ],
+            "reconstruction": {
+              "basis_index": 5,
+              "row": 0,
+              "column": 1,
+              "reason": "bound_or_parity",
+              "entry": 0,
+              "bound": 3
+            }
+          },
+          {
+            "matrix": [
+              [
+                0,
+                1,
+                0,
+                1
+              ],
+              [
+                1,
+                1,
+                1,
+                1
+              ],
+              [
+                0,
+                1,
+                -2,
+                1
+              ],
+              [
+                1,
+                1,
+                1,
+                -1
+              ]
+            ],
+            "reconstruction": {
+              "basis_index": 5,
+              "row": 0,
+              "column": 1,
+              "reason": "bound_or_parity",
+              "entry": -2,
+              "bound": 3
+            }
+          }
+        ],
+        "outcome": "excluded"
+      }
+    },
+    {
+      "id": "R8_3_1350",
+      "tensor_sha256": "cc1cae14a337ef33c52513625979f5c10de565fdee517ef639736423ef483997",
+      "scope": "general_complex_fusion_category",
+      "search": {
+        "setup": {
+          "involution": 3,
+          "generator": 4,
+          "fixed": [
+            4,
+            5,
+            6,
+            7
+          ],
+          "odd_diagonal_witnesses": [
+            [
+              4,
+              4,
+              1
+            ],
+            [
+              5,
+              5,
+              1
+            ],
+            [
+              6,
+              4,
+              3
+            ],
+            [
+              7,
+              5,
+              3
+            ]
+          ],
+          "quotient_orbits": [
+            [
+              0,
+              3
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              4
+            ],
+            [
+              5
+            ],
+            [
+              6
+            ],
+            [
+              7
+            ]
+          ],
+          "quotient_polynomial": [
+            1,
+            -12,
+            -24,
+            132,
+            -6,
+            -144,
+            28
+          ],
+          "interpolation": [
+            {
+              "denominator": 1,
+              "ascending_numerators": [
+                1,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "denominator": 191990,
+              "ascending_numerators": [
+                -60542,
+                -95278,
+                -9002,
+                49628,
+                11072,
+                -1123
+              ]
+            },
+            {
+              "denominator": 191990,
+              "ascending_numerators": [
+                -60542,
+                -95278,
+                -9002,
+                49628,
+                11072,
+                -1123
+              ]
+            },
+            {
+              "denominator": 1,
+              "ascending_numerators": [
+                1,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "denominator": 1,
+              "ascending_numerators": [
+                0,
+                1,
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "denominator": 95995,
+              "ascending_numerators": [
+                103446,
+                90289,
+                -119949,
+                -16189,
+                5874,
+                -301
+              ]
+            },
+            {
+              "denominator": 95995,
+              "ascending_numerators": [
+                -171282,
+                81657,
+                250438,
+                -84017,
+                -29553,
+                2642
+              ]
+            },
+            {
+              "denominator": 95995,
+              "ascending_numerators": [
+                125308,
+                -154053,
+                -137977,
+                51528,
+                14142,
+                -1313
+              ]
+            }
+          ],
+          "bounds": [
+            [
+              1,
+              2,
+              2,
+              1
+            ],
+            [
+              2,
+              2,
+              3,
+              3
+            ],
+            [
+              2,
+              3,
+              3,
+              2
+            ],
+            [
+              1,
+              3,
+              2,
+              2
+            ]
+          ],
+          "entries": [
+            [
+              0,
+              0,
+              [
+                -1,
+                1
+              ],
+              false
+            ],
+            [
+              0,
+              1,
+              [
+                -2,
+                0,
+                2
+              ],
+              false
+            ],
+            [
+              0,
+              2,
+              [
+                -2,
+                0,
+                2
+              ],
+              false
+            ],
+            [
+              0,
+              3,
+              [
+                1
+              ],
+              true
+            ],
+            [
+              1,
+              1,
+              [
+                -2,
+                0,
+                2
+              ],
+              false
+            ],
+            [
+              1,
+              2,
+              [
+                1,
+                3
+              ],
+              true
+            ],
+            [
+              1,
+              3,
+              [
+                1,
+                3
+              ],
+              true
+            ],
+            [
+              2,
+              2,
+              [
+                -3,
+                -1,
+                1,
+                3
+              ],
+              false
+            ],
+            [
+              2,
+              3,
+              [
+                -2,
+                0,
+                2
+              ],
+              false
+            ],
+            [
+              3,
+              3,
+              [
+                -2,
+                0,
+                2
+              ],
+              false
+            ]
+          ],
+          "finite_cases": 7776
+        },
+        "tested": 7776,
+        "polynomial_survivors": [
+          {
+            "matrix": [
+              [
+                1,
+                -2,
+                0,
+                1
+              ],
+              [
+                -2,
+                -2,
+                1,
+                1
+              ],
+              [
+                0,
+                1,
+                1,
+                0
+              ],
+              [
+                1,
+                1,
+                0,
+                0
+              ]
+            ],
+            "reconstruction": {
+              "basis_index": 1,
+              "row": 0,
+              "column": 0,
+              "reason": "bound_or_parity",
+              "entry": 2,
+              "bound": 3
+            }
+          },
+          {
+            "matrix": [
+              [
+                1,
+                0,
+                0,
+                1
+              ],
+              [
+                0,
+                0,
+                1,
+                1
+              ],
+              [
+                0,
+                1,
+                1,
+                -2
+              ],
+              [
+                1,
+                1,
+                -2,
+                -2
+              ]
+            ],
+            "reconstruction": {
+              "basis_index": 1,
+              "row": 0,
+              "column": 0,
+              "reason": "bound_or_parity",
+              "entry": 0,
+              "bound": 3
+            }
+          }
+        ],
+        "outcome": "excluded"
+      }
+    },
+    {
+      "id": "R8_3_2842",
+      "tensor_sha256": "8b66f91f53bce529d44ba16cb78647d3e27bf7190c04615f88ac0cc8fe41837f",
+      "scope": "general_complex_fusion_category",
+      "search": {
+        "setup": {
+          "involution": 1,
+          "generator": 4,
+          "fixed": [
+            4,
+            5,
+            6,
+            7
+          ],
+          "odd_diagonal_witnesses": [
+            [
+              4,
+              5,
+              1
+            ],
+            [
+              5,
+              4,
+              3
+            ],
+            [
+              6,
+              5,
+              3
+            ],
+            [
+              7,
+              4,
+              1
+            ]
+          ],
+          "quotient_orbits": [
+            [
+              0,
+              1
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              4
+            ],
+            [
+              5
+            ],
+            [
+              6
+            ],
+            [
+              7
+            ]
+          ],
+          "quotient_polynomial": [
+            1,
+            -12,
+            -30,
+            80,
+            140,
+            8,
+            -16
+          ],
+          "interpolation": [
+            {
+              "denominator": 1,
+              "ascending_numerators": [
+                1,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "denominator": 1,
+              "ascending_numerators": [
+                1,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "denominator": 15580,
+              "ascending_numerators": [
+                1908,
+                -40020,
+                -17520,
+                8330,
+                2920,
+                -249
+              ]
+            },
+            {
+              "denominator": 15580,
+              "ascending_numerators": [
+                1908,
+                -40020,
+                -17520,
+                8330,
+                2920,
+                -249
+              ]
+            },
+            {
+              "denominator": 1,
+              "ascending_numerators": [
+                0,
+                1,
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "denominator": 7790,
+              "ascending_numerators": [
+                13232,
+                -29190,
+                -31010,
+                6905,
+                3870,
+                -306
+              ]
+            },
+            {
+              "denominator": 7790,
+              "ascending_numerators": [
+                -13872,
+                41830,
+                50360,
+                -12010,
+                -7095,
+                561
+              ]
+            },
+            {
+              "denominator": 7790,
+              "ascending_numerators": [
+                -2264,
+                16670,
+                -3120,
+                -2625,
+                520,
+                -23
+              ]
+            }
+          ],
+          "bounds": [
+            [
+              2,
+              1,
+              2,
+              3
+            ],
+            [
+              1,
+              3,
+              3,
+              3
+            ],
+            [
+              2,
+              3,
+              2,
+              3
+            ],
+            [
+              3,
+              3,
+              3,
+              1
+            ]
+          ],
+          "entries": [
+            [
+              0,
+              0,
+              [
+                -2,
+                0,
+                2
+              ],
+              false
+            ],
+            [
+              0,
+              1,
+              [
+                1
+              ],
+              true
+            ],
+            [
+              0,
+              2,
+              [
+                -2,
+                0,
+                2
+              ],
+              false
+            ],
+            [
+              0,
+              3,
+              [
+                1,
+                3
+              ],
+              true
+            ],
+            [
+              1,
+              1,
+              [
+                -3,
+                -1,
+                1,
+                3
+              ],
+              false
+            ],
+            [
+              1,
+              2,
+              [
+                1,
+                3
+              ],
+              true
+            ],
+            [
+              1,
+              3,
+              [
+                -3,
+                -1,
+                1,
+                3
+              ],
+              false
+            ],
+            [
+              2,
+              2,
+              [
+                -2,
+                0,
+                2
+              ],
+              false
+            ],
+            [
+              2,
+              3,
+              [
+                -3,
+                -1,
+                1,
+                3
+              ],
+              false
+            ],
+            [
+              3,
+              3,
+              [
+                -1,
+                1
+              ],
+              false
+            ]
+          ],
+          "finite_cases": 13824
+        },
+        "tested": 13824,
+        "polynomial_survivors": [
+          {
+            "matrix": [
+              [
+                -2,
+                1,
+                0,
+                1
+              ],
+              [
+                1,
+                -1,
+                1,
+                1
+              ],
+              [
+                0,
+                1,
+                0,
+                1
+              ],
+              [
+                1,
+                1,
+                1,
+                1
+              ]
+            ],
+            "reconstruction": {
+              "basis_index": 5,
+              "row": 0,
+              "column": 1,
+              "reason": "bound_or_parity",
+              "entry": 0,
+              "bound": 3
+            }
+          },
+          {
+            "matrix": [
+              [
+                -2,
+                1,
+                0,
+                1
+              ],
+              [
+                1,
+                1,
+                1,
+                1
+              ],
+              [
+                0,
+                1,
+                0,
+                1
+              ],
+              [
+                1,
+                1,
+                1,
+                -1
+              ]
+            ],
+            "reconstruction": {
+              "basis_index": 5,
+              "row": 0,
+              "column": 1,
+              "reason": "bound_or_parity",
+              "entry": 0,
+              "bound": 3
+            }
+          },
+          {
+            "matrix": [
+              [
+                0,
+                1,
+                0,
+                1
+              ],
+              [
+                1,
+                -1,
+                1,
+                1
+              ],
+              [
+                0,
+                1,
+                -2,
+                1
+              ],
+              [
+                1,
+                1,
+                1,
+                1
+              ]
+            ],
+            "reconstruction": {
+              "basis_index": 5,
+              "row": 0,
+              "column": 1,
+              "reason": "bound_or_parity",
+              "entry": 0,
+              "bound": 3
+            }
+          },
+          {
+            "matrix": [
+              [
+                0,
+                1,
+                0,
+                1
+              ],
+              [
+                1,
+                1,
+                1,
+                1
+              ],
+              [
+                0,
+                1,
+                -2,
+                1
+              ],
+              [
+                1,
+                1,
+                1,
+                -1
+              ]
+            ],
+            "reconstruction": {
+              "basis_index": 5,
+              "row": 0,
+              "column": 1,
+              "reason": "bound_or_parity",
+              "entry": -2,
+              "bound": 3
+            }
+          }
+        ],
+        "outcome": "excluded"
+      }
+    },
+    {
+      "id": "R8_3_2885",
+      "tensor_sha256": "6c472329561cba39498b2f6b41794b007cad84349c5238b13ce06cab967361ad",
+      "scope": "general_complex_fusion_category",
+      "search": {
+        "setup": {
+          "involution": 1,
+          "generator": 4,
+          "fixed": [
+            4,
+            5,
+            6,
+            7
+          ],
+          "odd_diagonal_witnesses": [
+            [
+              4,
+              4,
+              1
+            ],
+            [
+              5,
+              5,
+              1
+            ],
+            [
+              6,
+              4,
+              3
+            ],
+            [
+              7,
+              5,
+              3
+            ]
+          ],
+          "quotient_orbits": [
+            [
+              0,
+              1
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              4
+            ],
+            [
+              5
+            ],
+            [
+              6
+            ],
+            [
+              7
+            ]
+          ],
+          "quotient_polynomial": [
+            1,
+            -12,
+            -24,
+            132,
+            -6,
+            -144,
+            28
+          ],
+          "interpolation": [
+            {
+              "denominator": 1,
+              "ascending_numerators": [
+                1,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "denominator": 1,
+              "ascending_numerators": [
+                1,
+                0,
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "denominator": 191990,
+              "ascending_numerators": [
+                -60542,
+                -95278,
+                -9002,
+                49628,
+                11072,
+                -1123
+              ]
+            },
+            {
+              "denominator": 191990,
+              "ascending_numerators": [
+                -60542,
+                -95278,
+                -9002,
+                49628,
+                11072,
+                -1123
+              ]
+            },
+            {
+              "denominator": 1,
+              "ascending_numerators": [
+                0,
+                1,
+                0,
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "denominator": 95995,
+              "ascending_numerators": [
+                103446,
+                90289,
+                -119949,
+                -16189,
+                5874,
+                -301
+              ]
+            },
+            {
+              "denominator": 95995,
+              "ascending_numerators": [
+                -171282,
+                81657,
+                250438,
+                -84017,
+                -29553,
+                2642
+              ]
+            },
+            {
+              "denominator": 95995,
+              "ascending_numerators": [
+                125308,
+                -154053,
+                -137977,
+                51528,
+                14142,
+                -1313
+              ]
+            }
+          ],
+          "bounds": [
+            [
+              1,
+              2,
+              2,
+              1
+            ],
+            [
+              2,
+              2,
+              3,
+              3
+            ],
+            [
+              2,
+              3,
+              3,
+              2
+            ],
+            [
+              1,
+              3,
+              2,
+              2
+            ]
+          ],
+          "entries": [
+            [
+              0,
+              0,
+              [
+                -1,
+                1
+              ],
+              false
+            ],
+            [
+              0,
+              1,
+              [
+                -2,
+                0,
+                2
+              ],
+              false
+            ],
+            [
+              0,
+              2,
+              [
+                -2,
+                0,
+                2
+              ],
+              false
+            ],
+            [
+              0,
+              3,
+              [
+                1
+              ],
+              true
+            ],
+            [
+              1,
+              1,
+              [
+                -2,
+                0,
+                2
+              ],
+              false
+            ],
+            [
+              1,
+              2,
+              [
+                1,
+                3
+              ],
+              true
+            ],
+            [
+              1,
+              3,
+              [
+                1,
+                3
+              ],
+              true
+            ],
+            [
+              2,
+              2,
+              [
+                -3,
+                -1,
+                1,
+                3
+              ],
+              false
+            ],
+            [
+              2,
+              3,
+              [
+                -2,
+                0,
+                2
+              ],
+              false
+            ],
+            [
+              3,
+              3,
+              [
+                -2,
+                0,
+                2
+              ],
+              false
+            ]
+          ],
+          "finite_cases": 7776
+        },
+        "tested": 7776,
+        "polynomial_survivors": [
+          {
+            "matrix": [
+              [
+                1,
+                -2,
+                0,
+                1
+              ],
+              [
+                -2,
+                -2,
+                1,
+                1
+              ],
+              [
+                0,
+                1,
+                1,
+                0
+              ],
+              [
+                1,
+                1,
+                0,
+                0
+              ]
+            ],
+            "reconstruction": {
+              "basis_index": 2,
+              "row": 0,
+              "column": 0,
+              "reason": "bound_or_parity",
+              "entry": 2,
+              "bound": 3
+            }
+          },
+          {
+            "matrix": [
+              [
+                1,
+                0,
+                0,
+                1
+              ],
+              [
+                0,
+                0,
+                1,
+                1
+              ],
+              [
+                0,
+                1,
+                1,
+                -2
+              ],
+              [
+                1,
+                1,
+                -2,
+                -2
+              ]
+            ],
+            "reconstruction": {
+              "basis_index": 2,
+              "row": 0,
+              "column": 0,
+              "reason": "bound_or_parity",
+              "entry": 0,
+              "bound": 3
+            }
+          }
+        ],
+        "outcome": "excluded"
+      }
+    }
+  ],
+  "positive_control": {
+    "id": "R8_3_342",
+    "tensor_sha256": "68dccbc1bf5cec5ddd9f76ef75e1d785f4834bac464cf77383c553b93400be12",
+    "known_model": "Rep(C13 semidirect C6)",
+    "involution": 7,
+    "fixed": [
+      5,
+      6
+    ],
+    "exact_bounded_representation": [
+      [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ],
+      [
+        [
+          -2,
+          -1
+        ],
+        [
+          -1,
+          1
+        ]
+      ],
+      [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          -2
+        ]
+      ],
+      [
+        [
+          1,
+          0
+        ],
+        [
+          0,
+          1
+        ]
+      ]
+    ],
+    "scope_note": "Checks every simultaneous relation; the cyclic-self-dual quotient specialization is inapplicable to this control."
+  }
+}
