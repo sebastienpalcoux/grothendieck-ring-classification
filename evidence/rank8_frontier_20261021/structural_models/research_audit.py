@@ -48,7 +48,8 @@ def record():
         sha = hashlib.sha256(json.dumps(tensor,separators=(',',':')).encode()).hexdigest()
         require(sha == old['tensor_sha256'] == sources[ident]['tensor_sha256'], 'baseline source binding')
         rows[ident] = {'id': ident, 'tensor_sha256': sha,
-                       'general_status': 'unresolved', 'true_exotic_certified': False,
+                       'general_status': 'unresolved', 'categorification_or_novelty_proved': False,
+                       'screening_stage':'active_structural_and_construction_research',
                        'prior_unitary_status': ledger[ident].get('unitary_status','not_separately_decided'),
                        'prior_unitary_obstruction_source': ledger[ident].get('unitary_obstruction_source'),
                        'prior_published_attempts': [{k:v for k,v in a.items() if k != 'seconds'}
@@ -56,7 +57,7 @@ def record():
                        'new_attempts': [],
                        'limitations': ['No completed search here exhausts all complex associators or all constructions.',
                                        'A feasible necessary-condition system is not a categorification.',
-                                       'Numbers of attempts are not a definition or certificate of true exoticness.']}
+                                       'Extensively investigated exotic candidate is a research-screening description, not a proof of categorifiability or novelty.']}
 
     accepted = read(FRONTIER/'accepted.json')
     accepted_ids = {r['id'] for r in accepted['decisions']}
@@ -64,6 +65,7 @@ def record():
         ident = decision['id']
         require(ident in rows and decision['tensor_sha256'] == rows[ident]['tensor_sha256'], 'accepted source binding')
         rows[ident]['general_status'] = decision['status']
+        rows[ident]['screening_stage']='general_exclusion_accepted_after_review'
         rows[ident]['accepted_certificate'] = decision['certificate']
         for key in ('evidence','proof'):
             reference(REPO/decision['certificate'][key])
@@ -124,6 +126,19 @@ def record():
     add(r['id'],'all_connected_rank_two_based_modules_and_pointed_cocycle_branch',r['outcome'],
         'general_complex_necessary_module_constraints',path,HERE/'R65_MODULES.md',
         [HERE/'r65_rank_two_modules.py'],r,r['limitation'])
+    add(r['id'],'all_nontrivial_finite_group_equivariantizations',
+        'family_excluded','general_complex_construction_family',path,HERE/'R65_MODULES.md',
+        [HERE/'r65_rank_two_modules.py'],r['nontrivial_finite_group_equivariantizations'],
+        'The pinned rank-four theorem excludes central Tannakian condensation, not general noncentral Morita constructions.')
+    path=HERE/'algebra_candidates.json'
+    for r in read(path)['records']:
+        require(r['tensor_sha256']==rows[r['id']]['tensor_sha256'],'structural algebra source binding')
+        add(r['id'],'all_connected_separable_algebra_underlying_objects_entrywise_and_PSD_Gram',
+            'complete_necessary_object_filter_survives','general_complex_algebra_construction_constraints',path,
+            HERE/'ALGEBRA_CANDIDATES.md',[HERE/'algebra_candidates.py'],
+            {key:r[key]for key in ('bounded_selfdual_vectors_tested','invertible_stabilizer_survivors',
+                'entrywise_Gram_survivors','PSD_Gram_survivors','independent_complete_Python_domain',
+                'one_plus_simple_surviving_indices')},r['limitation'])
 
     q = FRONTIER/'quadratic'
     for fn, domain, proof, verifier in [
@@ -167,6 +182,31 @@ def record():
             'specified_construction_routes_excluded','general_complex_construction_families',path,
             q/'STRUCTURAL_CONSTRUCTIONS.md',[q/'structural_constructions.py'],r,
             'These construction negatives do not exclude all complex categorifications; rank-four dependence is explicitly pinned in the receipt.')
+    path=q/'connected_algebra_candidates_results.json'
+    for r in read(path)['records']:
+        if r['id']not in rows:continue
+        require(r['tensor_sha256']==rows[r['id']]['tensor_sha256'],'quadratic algebra source binding')
+        add(r['id'],'all_connected_separable_algebra_underlying_objects_entrywise_and_PSD_Gram',
+            'complete_necessary_object_filter_survives','general_complex_algebra_construction_constraints',path,
+            q/'CONNECTED_ALGEBRA_CANDIDATES.md',[q/'connected_algebra_candidates.py'],
+            {key:r[key]for key in ('bounded_selfdual_vectors_tested','invertible_stabilizer_survivors',
+                'entrywise_Gram_survivors','PSD_Gram_survivors','one_plus_simple_surviving_indices')},
+            'Every actual connected separable algebra passes this filter; surviving objects have no associative multiplication or module structure certified.')
+
+    general_nc=set()
+    for folder,filename,proof,verifier in [
+        ('central_integrality','general_galois_pu_gate.json','GENERAL_GALOIS_PU.md','general_galois_pu_gate.py'),
+        ('noncommutative_followup','scope_gates.json','README.md','verify_scope_gates.py')]:
+        directory=FRONTIER/folder;path=directory/filename
+        for r in read(path):
+            require(r['tensor_sha256']==rows[r['id']]['tensor_sha256'],'NC Galois reduction binding')
+            general_nc.add(r['id'])
+            add(r['id'],'complete_signed_sphericalization_and_general_Galois_PU_reduction',r['outcome'],
+                r['scope'],path,directory/proof,[directory/verifier],
+                {k:r[k]for k in ('complete_signed_count','normalized_indicator_domains_used','conclusion')if k in r},
+                'This proves a scope reduction, not categorifiability or unitarity. Necessary PU constraints apply after Galois conjugation.')
+    def nc_scope(ident):
+        return 'general_complex_necessary_after_proved_Galois_PU_reduction'if ident in general_nc else'pseudo_unitary_only'
 
     n = FRONTIER/'noncommutative'
     data = read(n/'central_support_results.json')
@@ -174,10 +214,10 @@ def record():
         ident = r['id']
         require(r['tensor_sha256'] == rows[ident]['tensor_sha256'], 'NC source binding')
         add(ident,'complete_central_image_low_induction_and_Gram_moment_constraints','necessary_data_survives',
-            'pseudo_unitary_only',n/'central_support_results.json',n/'README.md',
+            nc_scope(ident),n/'central_support_results.json',n/'README.md',
             [n/'verify_all.py',n/'verify_independent.py'],
             {'low_count':r['low_count'],'passing_low_count':r['passing_low_count']},
-            'This is a pseudo-unitary necessary-condition test; surviving data need not lift to a center.')
+            'This PU necessary-condition test applies after the separately proved Galois reduction; surviving data need not lift to a center.')
     for r in read(n/'matricial_structure.json'):
         if r['id'] in rows:
             add(r['id'],'exact_matrix_block_involution_and_pointed_bimodule_cocycle_constraints',
@@ -209,7 +249,7 @@ def record():
                 require(r['tensor_sha256'] == rows[r['id']]['tensor_sha256'], 'NC LP source binding')
             statuses = decision_statuses(r)
             add(r['id'],domain,'; '.join(sorted(set(statuses))) or r.get('status','see_linked_exact_receipt'),
-                'pseudo_unitary_only',path,n/'README.md',[n/'verify_all.py'],
+                nc_scope(r['id']),path,n/'README.md',[n/'verify_all.py'],
                 {'height':r.get('height'),'low_index':r.get('low_index'),
                  'exact_or_numeric_branch_statuses':statuses},
                 'Individual infeasible branches do not exclude the ring; numeric undecided is not an exact result.')
@@ -224,9 +264,20 @@ def record():
         if 'cases'in r:details['case_count']=len(r['cases'])
         for key in ('cubic_survivor_indices','spectral_survivor_indices','combined_survivor_indices'):
             if key in r:details[key.replace('indices','count')]=len(r[key])
-        add(r['id'],domain,'exact_necessary_data_survives','pseudo_unitary_only',path,
+        add(r['id'],domain,'exact_necessary_data_survives',nc_scope(r['id']),path,
             n/'README.md',[n/'verify_all.py'],details,
             r.get('conclusion','Necessary central data survives; full integer fusion and associator coherence are not constructed.'))
+
+    directory=FRONTIER/'central_integrality';path=directory/'fixed_gram_rotation_1154_h6.json'
+    fixed=read(path);meta=fixed['metadata'];ident=meta['id']
+    require(meta['tensor_sha256']==rows[ident]['tensor_sha256'],'fixed Gram1154 source binding')
+    add(ident,'all_1238_cubic_surviving_integer_Gram_patterns_joint_height6_rotation_and_STS',
+        'complete_exact_necessary_data_survives',nc_scope(ident),path,directory/'RESEARCH_RECORD.md',
+        [directory/'fixed_gram_rotation_1154.py'],
+        {'height':meta['height'],'complete':fixed['complete'],
+         'pattern_count':len(meta['pattern_indices']),'certificate_family_count':len(fixed['cases']),
+         'unresolved_indices':fixed['unresolved_indices']},
+        'This finite-height exact system leaves feasible patterns; neither full center fusion nor associators are constructed.')
 
     g = FRONTIER/'global_induction'
     for pattern in ('results/*.json','frame_results/*.json','fixed_results/*.json'):
@@ -262,7 +313,7 @@ def record():
             'research_status':accepted.get('research_status','ongoing'),
             'baseline_ring_count':34,
             'accepted_general_exclusions':sum(r['general_status']=='excluded' for r in ordered),
-            'true_exoticness_claim':'No ring is certified truly exotic by attempt counts or necessary-condition survival.',
+            'candidate_terminology':'After completed extensive known/new exclusion and construction screening, a remaining ring may be called an extensively investigated exotic candidate in the user-defined sense; categorifiability and novelty remain unproved.',
             'rows':ordered,'artifact_sha256':dict(sorted(manifest.items()))}
 
 
@@ -270,7 +321,8 @@ def markdown(data):
     lines=['# Frontier research coverage for the original 34 rings','',
            'This index separates accepted general exclusions, restricted construction obstructions,',
            'exact survival of necessary conditions, and unfinished computations. No remaining ring',
-           'is certified truly exotic merely because several attempts failed. The JSON retains',
+           'is asserted categorifiable or novel from survival. After extensive completed screening,',
+           'the user-defined label exotic candidate describes that research status. The JSON retains',
            'the prior published attempts and the exact domain, scope, evidence, verifier and',
            'limitation of every new attempt. Numerical undecided results are not proofs.','',
            '| Ring | Current general status | New domains and outcomes |',
@@ -304,7 +356,7 @@ def main():
     else:
         require(actual == json.loads(jp.read_text()),'research evidence snapshot changed; explicitly refresh after review')
         require(rendered == mp.read_text(),'research Markdown differs')
-    print(f"PASS:34 source-bound research rows; {actual['accepted_general_exclusions']} accepted general exclusions; no automatic exoticness label.")
+    print(f"PASS:34 source-bound research rows; {actual['accepted_general_exclusions']} accepted general exclusions; candidate screening distinguished from existence or novelty.")
 
 
 if __name__=='__main__':

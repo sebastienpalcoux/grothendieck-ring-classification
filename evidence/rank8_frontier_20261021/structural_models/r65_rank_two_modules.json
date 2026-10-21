@@ -128,6 +128,181 @@
     }
   ],
   "class_count": 2,
+  "global_dimension": "110*sqrt(5) + 250",
+  "all_unit_containing_subsets_tested": 128,
+  "fusion_subrings": [
+    [
+      0
+    ],
+    [
+      0,
+      7
+    ],
+    [
+      0,
+      1,
+      2,
+      7
+    ],
+    [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ]
+  ],
+  "nontrivial_finite_group_equivariantizations": {
+    "outcome": "excluded_for_all_nontrivial_finite_groups",
+    "only_possible_groups": [
+      "C2",
+      "C4"
+    ],
+    "reason": "Every possible central Rep(G) contains central Rep(C2); its free character action forces an impossible rank-four quotient.",
+    "order_two_character": 7,
+    "orbits": [
+      [
+        0,
+        7
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        5,
+        6
+      ]
+    ],
+    "forced_quotient_tensor": [
+      [
+        [
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      [
+        [
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          1,
+          0
+        ]
+      ],
+      [
+        [
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          1,
+          0,
+          6,
+          5
+        ],
+        [
+          0,
+          1,
+          5,
+          6
+        ]
+      ],
+      [
+        [
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          5,
+          6
+        ],
+        [
+          1,
+          0,
+          6,
+          5
+        ]
+      ]
+    ],
+    "forced_quotient_rank": 4,
+    "forced_quotient_fp_dimensions": [
+      "1",
+      "1",
+      "11/2 + 5*sqrt(5)/2",
+      "11/2 + 5*sqrt(5)/2"
+    ],
+    "forced_quotient_global_dimension": "55*sqrt(5) + 125",
+    "rank_four_dependency": {
+      "path": "manuscripts/rank4/papers/companion_sections/14_finite_certification.tex",
+      "sha256": "0ec47c3c3da2c46bfee20b06214b9f7704edea841955cb2c86b7b0522f199e8b",
+      "label": "finite:cor:sharp-bounds",
+      "statement": "Every rank-four complex fusion category has FPdim <= 24+12sqrt(3)",
+      "scope": "repository theorem dependency, not independently re-proved by this verifier"
+    }
+  },
   "outcome": "exact_necessary_modules_survive; no_general_exclusion_or_new_model",
   "coherence_restriction": "Every actual rank-two module trivializes the pointed H3(C4,C*) class.",
   "trivial_cocycle_branch": "If that class is trivial, the subgroup algebra sum(C4) exists and realizes the first based module.",

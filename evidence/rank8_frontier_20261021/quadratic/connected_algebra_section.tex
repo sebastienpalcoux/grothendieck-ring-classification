@@ -1,0 +1,49 @@
+\subsection{A complete underlying-object filter for connected algebras}
+
+The following necessary conditions require neither pivotality nor unitarity.
+Let $A$ be a connected separable algebra, $m=A$ its simple regular right
+module, and $a_i=[A:X_i]$. Free-module adjunction and rigidity identify
+$a_i$ with $\dim\operatorname{Hom}(X_i\otimes m,m)$ and then with
+$\dim\operatorname{Hom}(m,X_i^*\otimes m)$. Semisimplicity permits reversing
+the two arguments without changing this dimension. Hence $a_i=a_{i^*}$.
+The positive Frobenius--Perron eigenvector of the module action gives
+$a_i\leq\operatorname{FPdim}(X_i)$. If an invertible $g$ occurs in $A$,
+the nonzero map $g\otimes m\longrightarrow m$ is an isomorphism, so
+$gA=A$ at the level of underlying objects.
+
+Write $B$ for the integral multiplicity matrix of free induction.
+Adjunction gives $B^{\mathsf T}B=N_A$, where $N_A$ denotes right
+multiplication by $A$ (the source rings below are commutative).
+The row corresponding to $m$ is $a$, so
+\[
+ N_A-aa^{\mathsf T}\quad\text{is entrywise nonnegative and positive semidefinite.}
+\]
+Thus all underlying objects of connected separable algebras occur in the
+finite domain $a_0=1$, $a_i=a_{i^*}$,
+$0\leq a_i\leq\lfloor\operatorname{FPdim}(X_i)\rfloor$.
+Exhausting this entire domain, imposing invertible stabilization, and
+applying the two Gram conditions gives the following complete filter.
+
+\begin{center}
+\begin{tabular}{r|r|r|r}
+Source index & Bounded self-dual vectors & Entrywise survivors & PSD survivors\\\hline
+1055 & 794976 & 35913 & 85\\
+1768 & 9539712 & 249139 & 115\\
+1795 & 12984608 & 416274 & 87\\
+3258 & 580608 & 32098 & 99\\
+3413 & 580608 & 35404 & 60\\
+3472 & 168591360 & 4841427 & 70
+\end{tabular}
+\end{center}
+
+The evidence stores every surviving coefficient vector. Integer
+fraction-free elimination has a proved arithmetic bound; independent
+rational elimination checks every survivor. A complete independent
+392-vector control domain for
+$\operatorname{Rep}(C_{13}\rtimes C_6)$ reproduces all 30 survivors,
+including the regular function algebra with zero residual Gram matrix.
+For source index 3472, only $1+X_3$ among all $1+X_i$, $i>0$, survives.
+The unit algebra and all internal-end candidates from the rank-two
+based-module search survive. A surviving object need not admit an algebra
+structure: integral Gram factorization and the module/algebra
+associativity equations remain further requirements.

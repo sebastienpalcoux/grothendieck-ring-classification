@@ -13,9 +13,9 @@ twist one. If Z has restriction v, then
 
 This follows from the character orthogonality and Deshpande, *On centers
 of bimodule categories and induction-restriction functors*,
-[arXiv:1611.04486](https://arxiv.org/abs/1611.04486), Corollary2.18,
-equation(39), specialized to the commutative case. Equivalently use the
-central character in Corollary4.5 and the dimension of A_E. The modular
+[arXiv:1611.04486](https://arxiv.org/abs/1611.04486), equation(39), Lemma4.3 and Corollary4.5, specialized to the
+commutative case. In particular Lemma4.3 fixes the character orientation
+and Corollary4.5 fixes the normalization by the dimension of A_E. The modular
 matrix here is unnormalized: its first row consists of object dimensions.
 
 By symmetry, S(A_E,Z)/dim(Z) is a character value of the integral fusion
@@ -28,7 +28,7 @@ The implemented field is Q(zeta_24), with exact cyclotomic polynomial
 x^8-x^4+1. Its ring of integers is Z[zeta_24]. Consequently membership
 is exactly the integrality of all eight rational power-basis
 coordinates. This is the standard cyclotomic integer-ring theorem,
-e.g. Milne, *Algebraic Number Theory*, section on cyclotomic extensions:
+e.g. Milne, *Algebraic Number Theory*, Theorem6.4(b):
 https://www.jmilne.org/math/CourseNotes/ant.html . The implementation
 does not infer integrality from an approximate root or a numerical
 minimal polynomial.
@@ -66,7 +66,11 @@ optimized read-only replay both pass; independent review is separate.
 This further refinement uses an explicit variable for each surviving
 (frame,character-labeling), rather than identifying all labelings of a
 frame. The center has Gauss sum D and its distinguished objects have
-twist one, so STS = D T^-1 S T^-1 gives
+twist one. For the center Gauss-sum identity see Müger,
+[math/0111205](https://arxiv.org/abs/math/0111205), Theorem1.2;
+for the unnormalized modular relation see Bruillard–Ng–Rowell–Wang,
+[arXiv:1310.7050](https://arxiv.org/abs/1310.7050), equation(2.6).
+Thus STS = D T^-1 S T^-1 gives
 
     sum_Z theta_Z chi_E(v_Z) chi_F(v_Z) = f_F chi_E(v_F).
 
@@ -102,3 +106,9 @@ uses the exact bilinearity of multiplication in the real field to
 evaluate the full finite domain without a dense matrix. The known
 unitary R8_3_334 has an exact nonnegative rational feasible certificate
 for this stronger system.
+
+## Real splitting fields and isolated generic data
+
+When all eight characters split in the totally real quadratic or biquadratic FP field, `RealTable` uses that field directly. For a field element alpha, the characteristic polynomial of multiplication by alpha has integer coefficients if and only if alpha is an algebraic integer: one direction follows from preservation of the integer lattice, and the converse from the monic annihilating polynomial. Repeated rational/subfield eigenvalues do not change this equivalence. The quadratic implementation uses (t-a)^2-q b^2; the biquadratic implementation uses the exact four conjugates or the smaller exact subfield polynomial. Every character is independently checked against the full tensor, duality, and orthogonality.
+
+`generic_data.py` binds radicands and prime support to an immutable field object. The formulas are precisely the previously proved coprime-biquadratic relative-trace formulas, including all-order compression and proper-divisor rotation tuples. `verify_generic.py` compares the complete domains at heights4 and6 in all four previously validated fields, compares every proper-divisor rotation domain through6, tests independence from external global configuration, and compares every low/high column and dimension for R901 against the frozen generalized adapter. Generic3,5 certificate kinds choose this adapter deterministically; replay does not depend on command-line field configuration.

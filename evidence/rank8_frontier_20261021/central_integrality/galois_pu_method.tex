@@ -1,0 +1,55 @@
+\subsection{A complete noncommutative Galois--pseudo-unitary reduction}
+\label{subsec:frontier-nc-galois-pu}
+
+\begin{proposition}
+Every complex fusion categorification of $R8\_3\_721$ or $R8\_3\_1154$
+admits a spherical structure and has a pseudo-unitary Galois conjugate.
+\end{proposition}
+\begin{proof}
+For each ring, the complexified fusion algebra is
+$\mathbb C^4\oplus M_2(\mathbb C)$. The common kernel of all commutators
+in the regular representation consists exactly of the scalar blocks.
+The four characters obtained there exhaust all possible dimension
+characters; a matrix block has no one-dimensional representation.
+Its formal codegree is nevertheless included: if its regular Casimir
+eigenvalue is $\lambda$, with multiplicity four, its formal codegree is
+$\lambda/2$. Exact multiplication identities and the complete Casimir
+factorization verify this accounting. For each original ring, every scalar-character orbit
+except the FP orbit is excluded by a zero dimension or formal-codegree
+norm divisibility.
+
+For an arbitrary categorification take its canonical sphericalization
+and choose dual-compatible lifts. The signed quotient by the sign object
+$\varepsilon=-1$ satisfies the full parity intervals
+$|T_{ij}^k|\leq N_{ij}^k$ and $T_{ij}^k\equiv N_{ij}^k\pmod2$,
+cyclic trace symmetry, dual reversal, and every ordered associativity
+equation. We impose neither commutativity nor a modulo-four indicator
+normalization. Complete enumeration gives $64$ signed tensors for
+$R8\_3\_721$, all gauge-equivalent to the original tensor, and $288$
+for $R8\_3\_1154$. The latter comprise one $64$-member original gauge
+class and five other classes of sizes $64,64,32,32,32$.
+All scalar-character factors of the five other classes are excluded by
+zero dimensions or exact norm divisibility. Both sign sectors' formal
+codegrees, including matrix blocks, are used: sphericalization has
+dimension $2\delta$ and formal codegrees $2f$, so central induction
+requires $\delta/f$ to be integral.
+
+Thus every possible signed quotient is gauge-original. Switching the
+lifts by its dual-compatible gauge makes the signed tensor equal to
+$N$. The negative lift multiplicities are then zero, so the chosen
+lifts form a spherical fusion subcategory whose forgetful functor to
+the original category is a tensor equivalence. Its dimension character
+lies in the FP Galois orbit. A number-field model and Galois conjugation
+therefore give a spherical category with positive FP dimensions, hence
+a pseudo-unitary category with the same fusion rules.
+\end{proof}
+
+The source-bound replay is
+\texttt{central\_integrality/general\_galois\_pu\_gate.py} in the frontier
+evidence directory; its primary calculation incorporates the independent
+unrestricted signed enumeration. The earlier normalized enumeration is
+retained only as a cross-check. Consequently the central-support, partial
+modular, integral Gram, joint-rotation, and low Verlinde constraints for
+these two rings are necessary for general complex existence after Galois
+transport. Passing these constraints supplies neither a model nor
+unitarity; both rings remain unresolved by this proposition.

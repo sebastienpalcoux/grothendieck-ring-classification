@@ -1,0 +1,105 @@
+\subsection{Complete quadratic module and construction domains}
+
+For the six residual indices $1055,1768,1795,3258,3413,3472$, connected
+rank-two based modules admit a complete finite classification. The
+positive Frobenius--Perron character and its quadratic conjugate exhaust
+their two-dimensional rational representation. If a self-dual generator
+has dimension polynomial $t^2-Tt+U$, its action is
+\[
+ \begin{pmatrix}a&b\\b&T-a\end{pmatrix},\qquad
+ 0\leq a\leq T,\qquad b^2=a(T-a)-U>0.
+\]
+Vertex interchange allows $a\geq T-a$. All other action matrices follow
+from rational affine expressions in the generator dimension. Exact
+nonnegative integrality, duality, and all fusion products leave respectively
+$1,1,2,1,1,2$ based-module classes. Their full actions and candidate
+internal-end objects are recorded. These data do not solve module
+associativity and are not constructions of categories.
+
+For index 1055 the forced $1+g$-module difference representation has rank
+two. Normality and the source annihilator reduce the first generator to
+zero; all 1296 remaining bounded simultaneous possibilities give exactly
+four representations, each with $S_g=-I$. In a central Tannakian
+condensation the tensor quotient sends $g$ to the unit, which would instead
+force $S_g=I$. Thus this condensation route is impossible.
+
+An exact search through all 128 unit-containing subsets shows that the
+only proper nontrivial fusion subring of indices 1055,1768,1795 is the
+pointed $C_2$ subring. Indices 3258,3413,3472 have no proper nontrivial
+fusion subring. The irrational total dimensions therefore rule out every
+nontrivial faithful finite-group grading: its neutral component would
+have integral dimension one or two. A nontrivial equivariantization
+contains $\operatorname{Rep}(G)$; the same subring audit excludes it for
+the latter three rings and leaves only $G=C_2$ for the former three.
+
+For 1768 and 1795 the sign invertible acts freely on all eight simples.
+The orbit/projective-stabilizer description of equivariantization simples
+then forces a hypothetical $C_2$-de-equivariantization to have rank four:
+a free base orbit would give a sign-fixed simple, while a fixed base simple
+gives two equivariant lifts. Its dimension would be respectively
+$222+36\sqrt{37}$ or $270+120\sqrt5$, both greater than $45$.
+The unrestricted rank-four companion theorem bounds that dimension by
+$24+12\sqrt3<45$. This explicitly cited theorem dependency rules out both
+routes; its source digest and the exact quotient tensors are pinned in
+the evidence. Together with the $S_g$ argument above, all six residuals
+are excluded from nontrivial finite-group equivariantization constructions.
+No central lift is inferred from commutativity of the fusion ring alone.
+
+There is also an unbounded arithmetic sieve for generalized-near-group
+construction towers. If a base has $G$ invertibles, stabilizer order $s$,
+noninvertible orbit size $\ell=G/s$, common irrational dimension $d$, and
+total noninvertible multiplicity $K$, then
+\[
+ d^2=s+Kd,\qquad D_0=\ell(2s+Kd),\qquad
+ \frac{\operatorname{N}(D_0)}{\operatorname{Tr}(D_0)}=G.
+\]
+Pointed products, finite-group extensions, and equivariantizations multiply
+dimension by a positive integer $k$, while Morita equivalence preserves it.
+Consequently $G_D=\operatorname{N}(D)/\operatorname{Tr}(D)$ must be integral,
+$k\mid G_D$, $s\mid G_D/k$, and
+$K^2=\operatorname{Tr}(D)/(k\ell)-4s$. These divisor and square tests
+exhaust the stated family without a parameter cutoff. Division by
+de-equivariantization is outside its scope.
+
+For 1795,3258,3413, the values $G_D=10/3,45/7,45/7$ exclude the whole
+stated family. For 1055 and 1768, $G_D=6$ and all matches have $s=1,K=12$;
+the tuples $(k,G,\ell)$ are
+$(1,6,6),(2,3,3),(3,2,2),(6,1,1)$.
+The last is excluded by the rank-two classification and the third by the
+rank-four bound, its base dimension being $148+24\sqrt{37}>45$.
+For 3472, $G_D=7$, $s=1,K=14$, and the matches are $(1,7,7),(7,1,1)$;
+the latter is again rank-two impossible. The remaining matches are
+dimension constraints only, without an asserted base category or Morita
+equivalence.
+
+\subsection{Exact character-field coverage}
+
+For the seven indices below, the source element
+$H=\sum_{j=0}^7(j+1)^2X_j$ has squarefree degree-eight characteristic
+polynomial and generates the rational algebra. Exact interpolation writes
+every basis element as a rational polynomial in $H$. Factoring its
+polynomial over the quadratic FP field therefore proves the following
+full-character coverage, independently of numerical root approximations.
+
+\begin{center}
+\begin{tabular}{r|r|r|l}
+Index & FP radicand & Characters in FP field & Other factor degrees\\\hline
+65 & 5 & 4 & $2,2$\\
+1055 & 37 & 6 & $2$\\
+1768 & 37 & 8 & none\\
+1795 & 5 & 8 & none\\
+3258 & 5 & 8 & none\\
+3413 & 5 & 5 & $3$\\
+3472 & 2 & 2 & $3,3$
+\end{tabular}
+\end{center}
+
+Thus a modular-eigenvalue calculation confined to the real FP field has
+complete character coverage for 1768,1795,3258. The other four need larger
+splitting fields. This is a precise arithmetic applicability statement,
+not a categorification obstruction by itself. All characteristic
+polynomials, factors, and full matrix interpolation identities are
+source-bound in the replay evidence.
+
+% Follow this fragment by connected_algebra_section.tex, which contains
+% the general connected-algebra proof and the complete enumeration table.

@@ -54,6 +54,45 @@ categories over subgroup algebras and their duals); Burciu--Natale,
 [Fusion rules of equivariantizations](https://arxiv.org/pdf/1206.6625),
 Corollary2.13 for the orbit and projective-stabilizer description.
 
+## All nontrivial finite-group equivariantizations are impossible
+
+This is a construction-family exclusion, independent of the unresolved
+pointed-cocycle question above. Suppose C is a nontrivial finite-group
+equivariantization B^G. The canonical Rep(G) embeds into C and lifts to its
+center. Its simple dimensions are integers, whereas the four noninvertible
+source dimensions are irrational. Thus Rep(G) is pointed, and its character
+group embeds into C4. Necessarily G is C2 or C4. In either case Rep(G)
+contains a central Rep(C2), whose nontrivial character is source index7.
+Equivariantization/de-equivariantization for this central Rep(C2) presents
+C as an equivariantization of a fusion category of dimension D/2.
+
+Index7 acts freely on all eight source simples. In the orbit-stabilizer
+description of a C2-equivariantization, a free orbit of base simples gives
+one induced simple fixed by the nontrivial character. That is impossible
+here. Therefore every base simple is fixed, and each has two simple
+equivariant lifts (H²(C2,C*)=0). The base has rank four. Its positive FP
+dimensions are 1,1,d,d, and its global dimension is
+
+`D/2 = 125+55 sqrt(5) > 125 > 45 > 24+12 sqrt(3)`.
+
+The last strict inequality follows from 21²>12²·3. This contradicts the
+repository's unrestricted rank-four theorem, Corollary
+`finite:cor:sharp-bounds` in
+`manuscripts/rank4/papers/companion_sections/14_finite_certification.tex`.
+The verifier pins the exact theorem source by SHA256; it does not purport
+to re-prove that theorem. This rules out every nontrivial finite-group
+equivariantization, and every central Tannakian condensation route, for
+any complex categorification of R65. It does not rule out noncentral
+subgroup-algebra module constructions, a nontrivial pointed associator,
+or categorifications without this construction structure.
+
+The executable also checks all128 unit-containing source subsets (the
+proper fusion subrings are exactly Vec, C2 and C4), the free index7
+permutation, and the complete quotient tensor obtained by summing each
+source output over character orbits. Its quotient coefficients are
+independent of lift representatives, and its unit, associativity and
+positive dimension equations hold exactly.
+
 ```
 python evidence/rank8_frontier_20261021/structural_models/r65_rank_two_modules.py
 python -O evidence/rank8_frontier_20261021/structural_models/r65_rank_two_modules.py

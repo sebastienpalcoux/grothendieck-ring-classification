@@ -72,18 +72,30 @@ def main():
     parser.add_argument('--write', action='store_true')
     args = parser.parse_args()
     census = json.loads((OLD / 'pipeline/census_m3.json').read_text())
-    output = [compute(next(row for row in census if row['id'] == rid))
-              for rid in ('R8_3_721', 'R8_3_1154')]
+    sys.path.insert(0, str(HERE.parent / 'review'))
+    import verify_nc_gate_unrestricted as unrestricted
+    output = []
+    for rid in ('R8_3_721', 'R8_3_1154'):
+        source = next(row for row in census if row['id'] == rid)
+        normalized = compute(source)
+        complete = unrestricted.compute(source)
+        need(not complete['normalized_indicator_domains_used'] and not complete['commutativity_assumed'],
+             'Primary gate must use all parity domains and ordered multiplication')
+        output.append({'id': rid, 'tensor_sha256': source['tensor_sha256'],
+                       'scope': 'general_complex_fusion_category',
+                       'outcome': 'Galois_pseudo_unitary_reduction',
+                       'primary_unrestricted_proof': complete,
+                       'normalized_comparison': normalized,
+                       'conclusion': normalized['conclusion']})
     path = HERE / 'general_galois_pu_gate.json'
     if args.write:
         path.write_text(json.dumps(output, indent=2) + '\n')
     else:
         need(output == json.loads(path.read_text()), 'Complete scope-gate replay differs')
     for row in output:
-        kinds = [b['kind'] for b in row['signed_branches']]
-        print('PASS', row['id'], row['ordered_signed_enumeration']['count'], 'complete signed branches;',
-              kinds.count('spherical_section'), 'gauge sections;',
-              kinds.count('signed_character_exclusion'), 'excluded nongauge branches; Galois pseudo-unitary gate')
+        proof = row['primary_unrestricted_proof']
+        print('PASS', row['id'], proof['complete_signed_count'], 'complete unrestricted signed branches;',
+              len(proof['gauge_classes']), 'gauge classes; Galois pseudo-unitary gate')
 
 
 if __name__ == '__main__':

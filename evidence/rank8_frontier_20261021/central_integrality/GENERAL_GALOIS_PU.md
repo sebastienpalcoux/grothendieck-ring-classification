@@ -7,9 +7,11 @@ either fusion ring excludes every complex categorification of that ring.
 The proposition neither constructs a category nor asserts unitarity.
 
 The source-bound finite certificate is `general_galois_pu_gate.json`, replayed
-by `general_galois_pu_gate.py`. It uses the existing canonical
-sphericalization framework, with a new complete calculation for these two
-noncommutative tensors. No commutativity is imposed during signed enumeration.
+by `general_galois_pu_gate.py`. Its primary path incorporates the independent
+unrestricted enumerator `../review/verify_nc_gate_unrestricted.py`. It uses
+the existing canonical sphericalization framework, with a new complete
+calculation for these two noncommutative tensors. Neither commutativity nor
+positive-second-indicator normalization is imposed in the primary proof.
 
 ## Complete character and codegree accounting
 
@@ -39,29 +41,31 @@ orbit, as checked against the unique everywhere positive character.
 
 Let C be an arbitrary hypothetical categorification. Its canonical
 sphericalization has the sign object epsilon of dimension -1 and two lifts
-of each simple. Choose dual-compatible lifts, and the positive-second-
-indicator lift for each self-dual simple. Such a self-dual lift stays
+of each simple. Choose dual-compatible lifts. A lift of a self-dual simple stays
 self-dual: its dual has the same nonzero spherical dimension, whereas its
 opposite lift has the negative dimension. Passing to epsilon=-1 gives a
 signed tensor T on the eight original labels.
 
 Its coefficients satisfy |T_ij^k| <= N_ij^k and T_ij^k congruent to N_ij^k
 modulo 2. Cyclic trace symmetry and dual reversal hold; ordered associativity
-holds without requiring T_ij^k=T_ji^k. Positive-indicator normalization imposes
-T_{j,j*}^i congruent to N_{j,j*}^i modulo 4 for self-dual i, because a
-negative-indicator simple occurs with even multiplicity in X* tensor X.
-The latter is the pivotal Fuchs-Runkel-Schweigert theorem, restated as
-Liu-Palcoux-Ren-Vercleyen, arXiv:2203.06522v5, Theorem 3.9.
+holds without requiring T_ij^k=T_ji^k. The primary calculation uses every
+integer in the full parity interval; it does not use any modulo-four
+restriction or Frobenius-Schur indicator normalization.
 
 The exact ordered enumeration gives:
 
 | Ring | Variables | Search nodes | Complete signed tensors | Gauge-original tensors | Other tensors |
 |---|---:|---:|---:|---:|---:|
-| R8_3_721 | 51 | 411 | 4 | 4 | 0 |
-| R8_3_1154 | 53 | 121599 | 16 | 8 | 8 |
+| R8_3_721 | 51 | 6871 | 64 | 64 | 0 |
+| R8_3_1154 | 53 | 7340655 | 288 | 64 | 224 |
 
-Every nongauge tensor for 1154 has exactly four scalar characters and one
-two-dimensional block. Each of its scalar-character factors is excluded by
+The 224 nongauge tensors for 1154 form five sign-gauge orbits, of sizes
+64,64,32,32,32. Changing dual-compatible basis signs is a trace-preserving
+star-algebra isomorphism; it preserves formal codegrees, squared-dimension
+sums and zero/duality obstructions. Thus it is enough to check one
+representative of each fully enumerated orbit. Every such representative
+has exactly four scalar characters and one two-dimensional block. Each of
+its scalar-character factors is excluded by
 a zero dimension or a formal-codegree norm obstruction. The codegrees of
 both R and T are tested, including their matrix blocks. This is necessary:
 the sphericalization has dimension 2 delta, and its two sign sectors have
@@ -94,9 +98,14 @@ python evidence/rank8_frontier_20261021/central_integrality/general_galois_pu_ga
 python -O evidence/rank8_frontier_20261021/central_integrality/general_galois_pu_gate.py
 ```
 
-The checker exhausts the signed domain anew, with all ordered associativity
+The checker exhausts the unrestricted signed domain anew, with all ordered associativity
 equations and explicit overflow checks in the generated finite enumerator.
 It does not infer general scope from a failed bounded search, an unproved
 pivotality assumption, or a putative equality of integral and unitary
 categorification. At present this is a conditional scope reduction for the
 remaining necessary-condition searches, not an exclusion of either ring.
+
+For comparison, the separate positive-indicator normalization yields four
+signed tensors for 721 and sixteen for 1154, with the same conclusion. This
+smaller calculation is replayed as a cross-check but is not needed for the
+unrestricted proof.

@@ -1,0 +1,16 @@
+{
+  "kind": "structural_models_canonical_read_only_verifiers",
+  "invocation": "Run every mathematical verifier with python and python -O, using the repository root as working directory. Default commands never rewrite receipts. Temporary native compilation is used by algebra_candidates.py.",
+  "mathematical_verifiers": [
+    {"path": "evidence/rank8_frontier_20261021/structural_models/r436_general_tpe.py", "scope": "accepted general-complex exclusion of R436", "receipts": ["r436_general_tpe.json"]},
+    {"path": "evidence/rank8_frontier_20261021/structural_models/near_group_scaling.py", "scope": "all positive cyclic near-group orders and five specified single-operation construction routes for all34 baseline tensors", "receipts": ["near_group_scaling.json"]},
+    {"path": "evidence/rank8_frontier_20261021/structural_models/verify_structural_scope.py", "scope": "exact adjoint closure, braided and specified factorization construction restrictions", "receipts": ["structural_scope.json"]},
+    {"path": "evidence/rank8_frontier_20261021/structural_models/r455/verify_conditional_fourier.py", "scope": "conditional strict Evans-Gannon presentation family obstruction; general status stays open", "receipts": ["r455/conditional_fourier.json"]},
+    {"path": "evidence/rank8_frontier_20261021/structural_models/c3_morita_dual.py", "scope": "complete conditional C3 Morita-dual based-ring identification for439 and567; no associator equivalence", "receipts": ["c3_morita_dual.json"], "required_external_replay": "evidence/rank8_frontier_20261021/quadratic/cubic_split_module.py"},
+    {"path": "evidence/rank8_frontier_20261021/structural_models/r65_rank_two_modules.py", "scope": "two complete rank-two based modules and all nontrivial group-equivariantization negatives for65", "receipts": ["r65_rank_two_modules.json"]},
+    {"path": "evidence/rank8_frontier_20261021/structural_models/algebra_candidates.py", "scope": "complete underlying-object necessary filter for all connected separable algebras in65,439,455,567,901,1463, with second complete independent Python enumeration", "receipts": ["algebra_candidates.json"]}
+  ],
+  "aggregation_verifiers": [
+    {"path": "evidence/rank8_frontier_20261021/structural_models/research_audit.py", "scope": "source-bound aggregation, not mathematical proof replay", "receipts": ["per_ring_research_audit.json", "per_ring_research_audit.md"], "refresh": "Run --write only after all linked evidence and the parent accepted ledger are stable, then replay both normal and optimized default invocations."}
+  ]
+}

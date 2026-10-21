@@ -7,27 +7,31 @@ from exact import require
 import sympy as s
 
 _cones={}
+VARIANTS=('streaming','frame','spectral_frame','sts_frame','q35_frame','q35_sts_frame')
 def kinds(variant):
-    require(variant in ('streaming','frame','spectral_frame','sts_frame'),'unknown induction variant')
+    require(variant in VARIANTS,'unknown induction variant')
     return (f'frontier_{variant}_induction',f'frontier_{variant}_cone_feasible',f'frontier_{variant}_induction_lift')
 def variant_for(kind):
-    for variant in ('streaming','frame','spectral_frame','sts_frame'):
+    for variant in VARIANTS:
         if kind in kinds(variant):return variant
     raise ValueError('unknown frontier induction certificate kind')
 def cone(R,height,variant='streaming'):
     key=(st.digest(R),height,variant)
     if key not in _cones:
-        if variant=='sts_frame':
+        if variant in ('sts_frame','q35_sts_frame'):
             from sts_frame import STSFrameCone
             cls=STSFrameCone
         elif variant=='spectral_frame':
             from spectral_frame import SpectralFrameCone
             cls=SpectralFrameCone
-        elif variant=='frame':
+        elif variant in ('frame','q35_frame'):
             from frame_cone import FrameCone
             cls=FrameCone
         else:cls=st.Cone
-        _cones[key]=cls(R,height)
+        if variant.startswith('q35_'):
+            import generic_data
+            _cones[key]=cls(R,height,data=generic_data.setup(R,3,5))
+        else:_cones[key]=cls(R,height)
     return _cones[key]
 
 def active_rows(C,active):
@@ -124,7 +128,7 @@ def install():
     st.old.install();import oriented_extension as oe
     if getattr(oe,'_frontier_streaming_installed',False):return
     original=oe.pseudo_check
-    def check(R,c):return verify_pseudo(R,c) if c['kind'] in [kinds(v)[0] for v in ('streaming','frame','spectral_frame','sts_frame')] else original(R,c)
+    def check(R,c):return verify_pseudo(R,c) if c['kind'] in [kinds(v)[0] for v in VARIANTS] else original(R,c)
     oe.pseudo_check=check;oe._frontier_streaming_installed=True
 
 def verify(R,c):

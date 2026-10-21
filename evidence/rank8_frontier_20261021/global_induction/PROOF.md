@@ -107,3 +107,7 @@ branches and is replayed by `verify_accepted_spectral.py`; this is a
 general-complex exclusion. The more detailed proof, primary-source
 normalization and separate real-STS strengthening are in
 `PARTIAL_S_AND_STS.md`. The manuscript fragment is `spectral_frame.tex`.
+
+## Height-six complete-frame application R1739
+
+The height-six cone has6891 low frames,2863 high restriction columns,38 joint trace types,323rows and115762variables. Both indicator assignments have integer full-domain separating rays. The saved general certificate verifies all six oriented signed branches; ordinary discovery and optimized exact-only replay pass. `verify_accepted_frames.py` includes this named source-bound result.

@@ -58,7 +58,8 @@
         "evidence": "evidence/rank8_frontier_20261021/global_induction/frame_results/R8_3_925_h4.json",
         "proof": "evidence/rank8_frontier_20261021/global_induction/PROOF.md",
         "verifiers": [
-          "evidence/rank8_frontier_20261021/global_induction/verify_accepted_frames.py"
+          "evidence/rank8_frontier_20261021/global_induction/verify_accepted_frames.py",
+          "evidence/rank8_frontier_20261021/review/verify_r925_independent.py"
         ]
       }
     },
@@ -72,7 +73,8 @@
         "evidence": "evidence/rank8_frontier_20261021/global_induction/spectral_results/R8_3_926_h4.json",
         "proof": "evidence/rank8_frontier_20261021/global_induction/PARTIAL_S_AND_STS.md",
         "verifiers": [
-          "evidence/rank8_frontier_20261021/global_induction/verify_accepted_spectral.py"
+          "evidence/rank8_frontier_20261021/global_induction/verify_accepted_spectral.py",
+          "evidence/rank8_frontier_20261021/central_integrality/review_r926_partial_s.py"
         ]
       }
     },
@@ -103,6 +105,21 @@
         "verifiers": [
           "evidence/rank8_frontier_20261021/quadratic/simultaneous_split.py",
           "evidence/rank8_frontier_20261021/quadratic/verify_simultaneous_independent.py"
+        ]
+      }
+    },
+    {
+      "id": "R8_3_1739",
+      "tensor_sha256": "f85e8c77ce5610c79599e02340d7a2de86028df89b415485c3370f77fe88bee8",
+      "status": "excluded",
+      "certificate": {
+        "kind": "complete_low_frame_hull_signed_induction",
+        "scope": "general_complex_fusion_category",
+        "evidence": "evidence/rank8_frontier_20261021/global_induction/frame_results/R8_3_1739_h6.json",
+        "proof": "evidence/rank8_frontier_20261021/global_induction/PROOF.md",
+        "verifiers": [
+          "evidence/rank8_frontier_20261021/global_induction/verify_accepted_frames.py",
+          "evidence/rank8_frontier_20261021/review/verify_r1739_independent.py"
         ]
       }
     },

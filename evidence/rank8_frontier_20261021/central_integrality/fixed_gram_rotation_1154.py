@@ -45,7 +45,10 @@ def setup(height):
     need(indicators in list(map(tuple, modular.full.h.indicator_choices(R))), 'Allowed full indicator assignment')
     permutation = (0, 1, 2, 3, 4)
     need(modular.assignments(a, modular.characters(R, a), cols) == [permutation], 'Complete character assignment')
-    A, b, meta = modular.full.system(R, a, s.Matrix.hstack(*map(s.Matrix, cols)), indicators, height)
+    L = s.Matrix.hstack(*map(s.Matrix, cols))
+    high = modular.full.base.grams.high_columns(a, L)[1]
+    need([list(v) for v, dimension in high] == domain['high_columns'], 'Ordered high restriction domain identity')
+    A, b, meta = modular.full.system(R, a, L, indicators, height)
     A, b, meta = modular.append_sts(R, a, cols, permutation, A, b, meta, height)
     count_rows = len(domain['high_columns'])
     A, unused = integral_gram.append_multiplicities(A, b, [0] * count_rows, meta['trace_types'])
@@ -91,9 +94,10 @@ def verify_case(A, b, counts, coordinates, B, case):
         need(len(support) == len(set(support)) and all(0 <= j < len(A[0]) for j in support), 'Valid support')
         matrix = s.Matrix([[s.Rational(v) for v in row] for row in case['affine_weights']])
         C = s.Matrix([[row[j] for j in support] for row in A])
-        need(C * matrix == B, 'Exact affine primal equations')
+        residual = C * matrix - B
         for i in ids:
             need(all(v >= 0 for v in family_weights(matrix, coordinates[i])), 'Nonnegative family primal')
+            need(not any(family_weights(residual, coordinates[i])), 'Exact affine primal equations for each pattern')
     elif case['kind'] == 'individual_primal':
         need(len(ids) == 1, 'Individual primal domain')
         certified_lp.verify(A, b + counts[ids[0]], case['decision'])
@@ -124,6 +128,14 @@ def main():
     remaining = set(meta['pattern_indices'])
     out = {'metadata': meta, 'cases': [], 'complete': False,
            'unresolved_indices': sorted(remaining), 'conclusion': 'Necessary constraints only; no model or exclusion asserted.'}
+    if path.exists():
+        old = json.loads(path.read_text())
+        need(old['metadata'] == meta, 'Resume domain unchanged')
+        for case in old['cases']:
+            verify_case(A, b, counts, coordinates, B, case)
+            need(set(case['pattern_indices']) <= remaining, 'Disjoint resumed cases')
+            remaining.difference_update(case['pattern_indices'])
+        out = old
     def save():
         out['unresolved_indices'] = sorted(remaining)
         out['complete'] = not remaining
@@ -140,13 +152,13 @@ def main():
             support = [j for j, value in decision['primal']]
             C = s.Matrix([[row[j] for j in support] for row in A])
             family = None
-            try:
-                family, parameters = C.gauss_jordan_solve(B)
-                if parameters.rows:
-                    family = None
-            except ValueError:
-                pass
-            covered = sorted(j for j in remaining if all(v >= 0 for v in family_weights(family, coordinates[j]))) if family is not None else []
+            independent_rows = list(C.T.rref()[1])
+            if len(independent_rows) == len(support):
+                family = C[independent_rows, :].inv() * B[independent_rows, :]
+            residual = C * family - B if family is not None else None
+            covered = sorted(j for j in remaining
+                             if not any(family_weights(residual, coordinates[j]))
+                             and all(v >= 0 for v in family_weights(family, coordinates[j]))) if family is not None else []
             if covered:
                 case = {'kind': 'primal_affine_family', 'pattern_indices': covered,
                         'support': support, 'affine_weights': [[str(x) for x in row] for row in family.tolist()]}

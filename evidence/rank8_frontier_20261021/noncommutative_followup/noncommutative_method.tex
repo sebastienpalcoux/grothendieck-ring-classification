@@ -1,0 +1,100 @@
+\subsection{The quartic gates and the four noncommutative frontiers}
+\label{subsec:frontier-nc-quartic-and-tests}
+
+\begin{proposition}
+Every complex fusion categorification of any of
+$R8\_3\_721$, $R8\_3\_928$, $R8\_3\_941$, and $R8\_3\_1154$
+admits a spherical structure and has a pseudo-unitary Galois conjugate.
+\end{proposition}
+\begin{proof}
+The quadratic cases are proved in
+Section~\ref{subsec:frontier-nc-galois-pu}.
+The same unrestricted signed construction gives the following complete
+domains in the two quartic cases:
+\[
+\begin{array}{c|r|r|r}
+\text{ring}&\text{ordered signed tensors}&\text{gauge-original}&
+ \text{nongauge excluded}\\\hline
+R8\_3\_928&32&16&16\\
+R8\_3\_941&128&64&64
+\end{array}
+\]
+No commutativity or modulo-four indicator restriction is imposed.
+Each nongauge part is one dual-compatible sign-gauge class. Its
+spherical dimension has polynomial
+$t^4-320t^3+18688t^2-139264t+278528$, whereas the ordinary scalar
+formal codegrees have polynomial
+$t^4-576t^3+11520t^2-73728t+147456$.
+Induction in the sphericalization requires their quotient to be an
+algebraic integer. In a common number field its norm is a positive
+integer power of $278528/147456=17/9$, a contradiction.
+
+The scalar algebra of each ordinary ring is the irreducible quartic
+FP orbit, and the full complex algebra is
+$\mathbb C^4\oplus M_2(\mathbb C)$.
+An independent check constructs all five central idempotents and verifies
+regular ranks $(1,1,1,1,4)$. For the nongauge signed tensors, rational
+regular projectors verify a separable quartic scalar algebra and a
+four-dimensional matrix algebra with one-dimensional center.
+Its Casimir eigenvalue is $8$, hence its formal codegree is $4$.
+Thus no dimension character or matrix formal codegree is omitted.
+All surviving signed tensors are gauge-original; the spherical-section
+and Galois-transport argument of the preceding proposition applies.
+\end{proof}
+
+The canonical quartic replay is
+\texttt{noncommutative\_followup/verify\_scope\_gates.py}.
+Together the four gates make the following pseudo-unitary calculations
+necessary for general complex existence after Galois transport; they
+make no assertion of unitarity or existence.
+
+Write $B=MM^{\mathsf T}$ for the induction Gram matrix and the central
+restriction matrix. Every restriction column is orthogonal to
+$\ker B$. Imposing this exact central-image condition before enumeration
+leaves respectively $13,1,1,59$ weighted distinguished frames for
+$721,928,941,1154$; ordinary Gram and moment bounds leave $1,1,1,4$.
+The two-dimensional representation contributes one distinguished column
+with unit entry $2$, whose outer square is counted once.
+
+For an irreducible trace character $\chi_E$, put $m_E=\dim E$.
+The distinguished central simple $A_E$ has twist $1$, and its complete
+unnormalized $S$ row is
+\[
+ S_{A_E,Z}=\frac{D}{f_E m_E}\chi_E(FZ),\qquad D=\operatorname{FPdim}(\mathcal C).
+\]
+The matrix-block character is included. Symmetry and
+$STS=DT^{-1}ST^{-1}$ impose
+\[
+ \sum_Z\chi_E(FZ)\chi_F(FZ)\theta_Z
+ =f_Fm_F\chi_E(FA_F).
+\]
+These supplement the linear indicator equations and the joint
+divisor-power rotation constraints. They remove one of two symmetric
+assignments for $721$ and one of the last two frames for $1154$.
+The surviving $928$ and $941$ branches have exact rational witnesses.
+The central eigenvalues $S_{A_E,Z}/\dim Z$ are also tested for algebraic
+integrality.
+
+For $721$, complete integral Gram enumeration has four patterns.
+Each survives joint rotation through height $12$ and the combined
+height-$6$ rotation and $STS$ system with its multiplicities fixed.
+For selfdual distinguished simples, the ordinary Verlinde formula gives
+\[
+ N_{A_E,A_F}^{A_G}
+ =D^{-2}\sum_Z
+ \frac{S_{A_E,Z}S_{A_F,Z}S_{A_G,Z}}{\dim Z}.
+\]
+All twenty coefficients are nonnegative integers for every pattern;
+the corresponding forgetful tensor equations remain exactly feasible.
+For $1154$, the complete integral Gram domain has $14211$ patterns.
+Cubic Verlinde integrality leaves $1238$; all pass the ten exact rational
+forgetful tensor cones. The subsequent fixed-pattern rotation calculation
+is given separately below.
+
+The exact pointed-bimodule stabilizer test also admits both $C_2$
+associator classes wherever applicable. The forced pseudo-unitary
+invertible indicators are $-1,+1,-1$ for $928,941,1154$, respectively.
+These checks do not construct the required module coherences or
+associators. Four higher-height numerical attempts remain explicitly
+undecided and are not counted as completed obstructions. Exact feasible
+relaxations, including those above, are not categorical models.
