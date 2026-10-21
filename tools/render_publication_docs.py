@@ -6,6 +6,7 @@ from pathlib import Path
 from rank6_publication import validate_identity, completed_bands, validate_document_revision
 from publication_stages import load_stages, overview
 from rank7_publication import summary as rank7_extension_summary, extension, remaining_ids, replay_status, STATUS_REPORT
+from rank8_publication import summary as rank8_summary, extension as rank8_extension, current_report, ledger_path as rank8_ledger, EVIDENCE as M3_EVIDENCE
 
 ROOT = Path(__file__).resolve().parents[1]
 CAUTION = '''> **AI-generated research · independent verification pending.** Treat these
@@ -135,6 +136,7 @@ def section(text,start,end,replacement):
     return text[:a]+replacement+text[b:]
 
 def render(repo, identity):
+    STATUS_REPORT = current_report(repo)
     validate_identity(identity)
     validate_document_revision(identity, repo)
     status=json.loads((repo/'data/classification_status.json').read_text())
@@ -147,6 +149,10 @@ def render(repo, identity):
     def bound(r):return upper[r]['classified_through']
     def complete(r):return next((m-1 for m in range(1,bound(r)+1) if rows[r,m]['unresolved_general'] or rows[r,m]['unassessed']),bound(r))
     extension_text=rank7_extension_summary(repo)
+    m3 = rank8_extension(repo)
+    rank8_scope=(f"Through multiplicity {bound(8)}: {totals(8)['excluded']:,} exclusions, "
+                 f"{totals(8)['unitarily_realized']} unitary models and {totals(8)['unresolved']} unresolved; "
+                 f"complete through {complete(8)}")
     census_extension=json.loads((repo/'data/counts.json').read_text()).get('census_extensions',{}).get('rank7_m5')
     census_note=(f"The rank-seven M5 extension is pinned separately to census commit `{census_extension['census_commit']}`. "
                  "Its 5,805 new exact-multiplicity-five tensors and agreement with the earlier 4,201 tensors passed independent computational checks; exhaustive enumeration completeness relies on the supplied producer completion record. The optimized enumeration itself was not independently rerun." if census_extension else '')
@@ -174,7 +180,7 @@ range ends at three; exact bands {bands} are complete. Rank seven records
 **{totals(7)['excluded']:,} exclusions and {totals(7)['unitarily_realized']} realizations**,
 with **{totals(7)['unresolved']} open cases through multiplicity {bound(7)}**; complete through multiplicity {complete(7)}. Rank eight records
 **{totals(8)['excluded']} exclusions and {totals(8)['unitarily_realized']} realizations**,
-with no open case through multiplicity two. The general exclusion of
+with **{totals(8)['unresolved']} open cases through multiplicity {bound(8)}**; complete through multiplicity {complete(8)}. The historical general exclusion of
 `R8_2_24` uses an inner-square obstruction from short gauge weights and
 tensor-functor rigidity.
 
@@ -626,7 +632,7 @@ ledgers are identified in [provenance](../docs/PROVENANCE.md).
 '''
     for r in (7,8):
         mdir='rank7/papers/manuscript' if r==7 else 'rank8/paper/rank8'
-        ledger='output/rank7_ledger.json' if r==7 else 'data/decisions.json'
+        ledger='output/rank7_ledger.json' if r==7 else rank8_ledger(repo).removeprefix('supplements/rank8/')
         content=f'# Rank-{r} Grothendieck rings through multiplicity {bound(r)}\n\n'+CAUTION+f'\nThe authoritative decision ledger is [`{ledger}`]({ledger}). '
         if r == 7:
             content=content.replace(f'[`{ledger}`]({ledger})', f'`{ledger}`, restored by `python3 tools/restore_data.py`')
@@ -657,6 +663,8 @@ See [verification scope](../../docs/PREPUBLICATION_REVIEW.md).
         if r == 7:
             content += '''\n## Multiplicity-five continuation\n\nThe current continuation is replayed with Python 3.12 and a C++17 compiler:\n\n```bash\npython3 -m pip install -r supplements/rank7/requirements-m5.txt\npython3 supplements/rank7/software/verify_m5.py\npython3 -O supplements/rank7/software/verify_m5.py\n```\n\nUse `--metadata-only` only for source and partition checks; it does not replay mathematical certificates.\nThe older top-level `analyze.py` and `verify.py` retain their M4 source commitments; run them in the preserved M4 archive, not against the extended source file.\nThe M5 release archive uses repository-relative directories and includes the frozen M4 archive. NetworkX is required by the complete Morita-dual enumeration, and python-flint by the exact all-word integer-order checks; SciPy is optional for discovery. The assertion-based R4982 components run in an isolated unoptimized child in both aggregate modes, preserving all their checks.\n'''
         out[f'supplements/rank{r}/README.md']=content
+        if r == 8 and m3:
+            out[f'supplements/rank{r}/README.md'] += '''\n## Multiplicity-three continuation\n\nRun the complete current source-bound replay with Python 3.12 and a C++17 compiler:\n\n```bash\npython3 -m pip install -r supplements/rank7/requirements-m5.txt\npython3 supplements/rank8/software/verify_m3_continuation.py\npython3 -O supplements/rank8/software/verify_m3_continuation.py\n```\n\nBoth full receipts bind all accepted decisions and explicit models to the preserved source files and proof implementation. `--metadata-only` checks those bindings without replaying mathematics. The M3 archive preserves the repository-relative dependency tree. Historical rank-eight data and decisions remain immutable; they are separate inputs to this continuation. Scoped unitary obstructions and unsuccessful searches do not establish general nonexistence.\n'''
     oeis=(repo/'oeis/README.md').read_text().replace('rank-five multiplicities 18–20 are now included after general exclusion certificates closed the former residuals.','rank-five multiplicities 18–20 are included with general exclusion certificates.')
     oeis='\n\n'.join(block for block in oeis.split('\n\n') if not block.startswith(('The 19 October rank-seven extension addresses', 'The rank-seven multiplicity-five continuation addresses')))
     out['oeis/README.md']=section(oeis,'Rank-six general classification','The unrestricted rank-four theorem',f'''Rank-six general classification is complete at exact multiplicities
@@ -676,6 +684,10 @@ Reference: https://github.com/sebastienpalcoux/grothendieck-ring-classification
 All results and data are AI-generated, not independently human-verified and not Lean-formalized. Use with caution. Preserve the target entry's indexing and definition; never enter an incomplete-band lower bound as an exact sequence term.
 '''
     for name, content in out.items():
+        if m3:
+            content = content.replace('Complete through multiplicity 2: 896 exclusions and 77 models', rank8_scope)
+            content = content.replace('Complete through 2: 896 exclusions and 77 models.', rank8_scope+'.')
+            content = content.replace('The following boundary describes the 17 October study; the current M5 extension is stated above.', 'The following boundary describes the 17 October study; current M5 and M3 extensions are stated above.')
         content = content.replace('__RANK7_SCOPE__', rank7_scope).replace('__RANK7_EXTENSION__', extension_text)
         m5 = extension(repo)
         content = content.replace('__M5_COVERAGE__',
@@ -692,6 +704,15 @@ All results and data are AI-generated, not independently human-verified and not 
         if extension_text and name.endswith('.md'):
             title_end = content.find('\n\n')
             content = content[:title_end+2] + extension_text + '\n\n' + content[title_end+2:]
+        if m3 and name.endswith('.md'):
+            title_end = content.find('\n\n')
+            content = content[:title_end+2] + rank8_summary(repo) + '\n\n' + content[title_end+2:]
+        if m3 and name in ('docs/VERIFY.md', 'docs/PROVENANCE.md', 'docs/PREPUBLICATION_REVIEW.md'):
+            content += ('\n## Rank-eight multiplicity-three continuation\n\n'+rank8_summary(repo)+'\n\n'
+                'The complete census is producer-reported, with independent tensor and isomorphism audits. The supplied optimized source matches both producer run receipts; full enumeration was not independently rerun. The normal and optimized mathematical replay receipts, individually investigated residuals and proof dependencies are in [`'+M3_EVIDENCE+'`](../'+M3_EVIDENCE+'). '
+                'A candidate has neither a general exclusion nor a constructed associator; it is not an established exotic category. New arguments remain subject to independent human review.\n\n'
+                '```bash\npython3 supplements/rank8/software/verify_m3_continuation.py\npython3 -O supplements/rank8/software/verify_m3_continuation.py\n```\n\n'
+                'Metadata-only mode checks source identity and reconciliation with both full receipts, without repeating their finite mathematical checks.\n')
         out[name] = content
     return out
 

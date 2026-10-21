@@ -7,13 +7,14 @@ import collections,csv,hashlib,json
 from pathlib import Path
 from publication_stages import load_stages
 from rank7_publication import PUBLICATION_DATE
+from rank8_publication import ledger_path as rank8_ledger, archive_path as rank8_archive, extension as rank8_extension
 ROOT=Path(__file__).resolve().parents[1]
 def main():
     target=ROOT/'data/classification_status.json';x=json.loads(target.read_text())
     latest=load_stages(ROOT)['latest']
     old_lower=[r.copy() for r in x['rows'] if r['rank']<7]
     sources={7:('supplements/rank7/output/rank7_ledger.json','supplements/rank7/release/rank7-certified-through-m5.zip'),
-             8:('supplements/rank8/data/decisions.json','supplements/rank8/rank8-verified-supplement.zip')}
+             8:(rank8_ledger(ROOT),rank8_archive(ROOT))}
     for rank,(ledger,archive) in sources.items():
         raw=(ROOT/ledger).read_bytes();rows=json.loads(raw);counts=collections.Counter(r['status'] for r in rows)
         counts.setdefault('unresolved',0)
@@ -29,9 +30,9 @@ def main():
             band=[d for d in rows if d['multiplicity']==row['multiplicity']]
             if not band:raise ValueError('Missing census band')
             co=collections.Counter(d['status'] for d in band)
-            if co.keys()-{'excluded','unitarily_realized','unresolved'}:raise ValueError('Unknown status')
+            if co.keys()-{'excluded','unitarily_realized','pseudo_unitarily_realized','unresolved'}:raise ValueError('Unknown status')
             row.update(rings=len(band),excluded_general=co['excluded'],realized_unitary=co['unitarily_realized'],
-                realized_other_or_unspecified=0,realized_spherical_nonpseudounitary=0,unresolved_general=co['unresolved'],
+                realized_other_or_unspecified=co['pseudo_unitarily_realized'],realized_spherical_nonpseudounitary=0,unresolved_general=co['unresolved'],
                 unassessed=0,classification_coverage='partial_classification' if co['unresolved'] else 'complete_classification')
         ordered=sorted((r for r in x['rows'] if r['rank']==rank),key=lambda r:r['multiplicity'])
         complete=0
@@ -47,6 +48,8 @@ def main():
                 'source': 'supplements/rank7/output/m5/source.json',
                 'normal_replay': 'supplements/rank7/output/m5/replay_normal.json',
                 'optimized_replay': 'supplements/rank7/output/m5/replay_optimized.json'}
+        if rank == 8 and rank8_extension(ROOT):
+            x['inputs']['rank8']['extension'] = rank8_extension(ROOT)
         x['bundles']=[z for z in x['bundles'] if not z['name'].startswith(f'rank{rank}-')]
         x['bundles'].append({'name':a.name,'sha256':hashlib.sha256(a.read_bytes()).hexdigest()})
     if old_lower!=[r for r in x['rows'] if r['rank']<7]:raise ValueError('Lower-rank status changed')

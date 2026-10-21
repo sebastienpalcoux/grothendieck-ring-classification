@@ -460,7 +460,10 @@ def from_catalogues(repo):
                 raise ValueError(f"Rank-seven model band mismatch: {model['id']}")
             rec["basis_permutation_model_to_census"] = model.get("basis_permutation_model_to_census")
             records.append(rec)
-    p8 = "supplements/rank8/data/model_catalog.json"
+    import sys
+    sys.path.insert(0, str(repo / "tools"))
+    from rank8_publication import model_path
+    p8 = model_path(repo)
     if (repo/p8).exists():
         for model in json.loads((repo/p8).read_text()):
             first=model["constructors"][0]
@@ -472,7 +475,7 @@ def from_catalogues(repo):
                 name="Vec(dihedral group of order 8)" if group=="D8" else f"Vec({group})"
                 ref+="; group identified from the exact multiplication table by element orders and commutativity"
             rec=make_record(8,model["id"],name,source_tensor,ref+".",
-                            p8,model["id"],"unitary",reference_url=first.get("source_url"))
+                            p8,model["id"],model.get("model_scope", "unitary"),reference_url=first.get("source_url"))
             if rec["multiplicity"]!=model["multiplicity"]:
                 raise ValueError(f"Rank-eight model band mismatch: {model['id']}")
             rec["basis_permutation_census_to_model"] = first["basis_map_source_to_model"]

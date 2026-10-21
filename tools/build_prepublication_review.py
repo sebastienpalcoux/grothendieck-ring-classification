@@ -10,7 +10,7 @@ from pathlib import Path
 import json
 import shutil
 from xml.sax.saxutils import escape
-from rank7_publication import STATUS_REPORT
+from rank8_publication import current_report
 
 from reportlab.lib import colors
 from reportlab.lib.pagesizes import A4
@@ -23,7 +23,7 @@ from reportlab.platypus import (
 
 ROOT = Path(__file__).resolve().parents[1]
 CONTENT = json.loads((ROOT / 'docs/prepublication_review_content.json').read_text())
-NAME = STATUS_REPORT
+NAME = current_report(ROOT)
 OUT = ROOT / 'manuscripts' / NAME
 OUT.parent.mkdir(parents=True, exist_ok=True)
 REPO = 'https://github.com/sebastienpalcoux/grothendieck-ring-classification'

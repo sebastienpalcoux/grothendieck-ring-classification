@@ -4,7 +4,8 @@ from pathlib import Path
 import argparse
 import json
 from current_publication import DOCUMENT_REVISION, document_paths, sha, need
-from rank7_publication import extension, remaining_ids, PUBLICATION_DATE, STATUS_REPORT
+from rank7_publication import extension, remaining_ids, STATUS_REPORT
+from rank8_publication import current_date, current_report, extension as rank8_extension
 
 ROOT = Path(__file__).resolve().parents[1]
 WEB_COPIES = {
@@ -31,26 +32,30 @@ def main():
     parser.add_argument('--check', action='store_true')
     args = parser.parse_args()
     repo = args.repo.resolve()
+    web_copies = {k:v for k,v in WEB_COPIES.items() if not k.startswith('papers/prepublication-review-')}
+    report = current_report(repo)
+    web_copies['papers/'+report] = 'manuscripts/'+report
     documents = {}
     for name in sorted(document_paths(repo)):
         raw = (repo / name).read_bytes()
         documents[name] = {'sha256': sha(raw), 'bytes': len(raw)}
-    need(set(WEB_COPIES.values()) <= set(documents), 'Compile every current manuscript and guide before binding the revision')
-    revision = {'schema': 'current-document-revision/v1', 'date': PUBLICATION_DATE if extension(repo) else '2026-10-17',
+    need(set(web_copies.values()) <= set(documents), 'Compile every current manuscript and guide before binding the revision')
+    revision = {'schema': 'current-document-revision/v1', 'date': current_date(repo) if extension(repo) else '2026-10-17',
                 'accepted_decisions': 36,
                 'remaining_ids': remaining_ids(repo),
                 'accepted_decisions_scope': 'Historical 38-case continuation through rank-seven multiplicity four',
                 'rank7_m5_update': extension(repo),
+                'rank8_m3_update': rank8_extension(repo),
                 'research_progress': 'evidence/rigidity_20261017/rank6/research_progress.json',
                 'research_progress_sha256': sha((repo / 'evidence/rigidity_20261017/rank6/research_progress.json').read_bytes()),
-                'documents': documents, 'web_copies': WEB_COPIES}
+                'documents': documents, 'web_copies': web_copies}
     text = json.dumps(revision, indent=2) + '\n'
     target = repo / DOCUMENT_REVISION
     if args.check:
         need(target.is_file() and target.read_text() == text, 'Current document manifest is stale')
     else:
         target.write_text(text)
-    print(json.dumps({'status': 'PASS', 'documents': len(documents), 'website_copies': len(WEB_COPIES),
+    print(json.dumps({'status': 'PASS', 'documents': len(documents), 'website_copies': len(web_copies),
                       'manifest': DOCUMENT_REVISION, 'sha256': sha(text.encode())}, indent=2))
 
 if __name__ == '__main__':

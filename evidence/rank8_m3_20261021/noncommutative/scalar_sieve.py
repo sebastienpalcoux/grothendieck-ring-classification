@@ -118,7 +118,7 @@ def main():
         rid=row['id'];row=census[rid];R=row['tensor']
         if a.ring and rid!=a.ring:continue
         if all(R[i][j]==R[j][i] for i in range(8) for j in range(8)):continue
-        start=time.monotonic();record={'id':rid,'tensor_sha256':row['tensor_sha256']}
+        start=time.monotonic();record={'id':rid,'tensor_sha256':row['tensor_sha256'],'scope':'general_complex_fusion_category'}
         try:
             cert,report=discover(R);record.update(outcome='excluded' if cert else 'no_conclusion',certificate=cert,report=report)
         except Exception as e:record.update(outcome='error',error=type(e).__name__+': '+str(e))

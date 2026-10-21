@@ -130,13 +130,15 @@ assert next(x for x in statusrows if x['rank']==5 and x['multiplicity']==18)['ex
 assert all(next(x for x in statusrows if x['rank']==5 and x['multiplicity']==m)['excluded_general']==cells[(5,m)] for m in (19,20))
 assert all(x['unassessed']==0 for x in statusrows)
 assert status['inputs']['rank5']['sha256']=='9261917451d469ece9929a1756f505924cf84adf34e79a0d2e6f68fed43f55cf'
+from rank8_publication import ledger_path as rank8_ledger, model_path as rank8_models
 for rank, expected, ledger in ((7,sum(r['rings'] for r in statusrows if r['rank']==7),'supplements/rank7/output/rank7_ledger.json'),
-                               (8,973,'supplements/rank8/data/decisions.json')):
+                               (8,sum(r['rings'] for r in statusrows if r['rank']==8),rank8_ledger(ROOT))):
     raw=(ROOT/ledger).read_bytes()
     assert status['inputs'][f'rank{rank}']['sha256']==hashlib.sha256(raw).hexdigest()
     records=json.loads(raw)
     assert len(records)==expected
-    assert sum(x['status']=='unitarily_realized' for x in records)==len(json.loads((ROOT/f'supplements/rank{rank}/data/model_catalog.json').read_text()))
+    model_source = rank8_models(ROOT) if rank==8 else f'supplements/rank{rank}/data/model_catalog.json'
+    assert sum(x['status'] in ('unitarily_realized','pseudo_unitarily_realized') for x in records)==len(json.loads((ROOT/model_source).read_text()))
     assert all(next(x for x in statusrows if x['rank']==rank and x['multiplicity']==m)['rings']==sum(x['multiplicity']==m for x in records)
                for m in set(x['multiplicity'] for x in records))
     for m in set(x['multiplicity']for x in records):

@@ -27,23 +27,27 @@ def safe_relative(name):
     return bool(name) and not path.is_absolute() and '..' not in path.parts and path.as_posix() == name
 
 def document_paths(repo):
+    from rank8_publication import active
+    excluded = EXCLUDED_DOCUMENTS | ({'manuscripts/prepublication-review-2026-10-20.pdf'} if active(repo) else set())
     roots = [repo / 'manuscripts']
     roots += [repo / 'supplements' / ('rank' + str(rank)) / folder
               for rank in range(2, 9) for folder in ('papers', 'paper')]
     return {path.relative_to(repo).as_posix()
             for root in roots for path in root.rglob('*')
             if path.is_file() and path.suffix in ('.tex', '.pdf')
-            and path.relative_to(repo).as_posix() not in EXCLUDED_DOCUMENTS} | {'docs/New_category_candidates_and_open_cases.pdf'}
+            and path.relative_to(repo).as_posix() not in excluded} | {'docs/New_category_candidates_and_open_cases.pdf'}
 
 def validate_documents(repo, check_web=False):
     repo = Path(repo)
     revision = json.loads((repo / DOCUMENT_REVISION).read_text())
-    need(revision['schema'] == 'current-document-revision/v1' and revision['date'] in ('2026-10-17', '2026-10-19', '2026-10-20'),
+    need(revision['schema'] == 'current-document-revision/v1' and revision['date'] in ('2026-10-17', '2026-10-19', '2026-10-20', '2026-10-21'),
          'Current document revision identity')
     from rank7_publication import remaining_ids, extension
     need(revision['remaining_ids'] == remaining_ids(repo)
          and revision['accepted_decisions'] == 36, 'Current document mathematical scope')
     need(revision.get('rank7_m5_update') == extension(repo), 'Current rank-seven extension scope')
+    from rank8_publication import extension as rank8_extension
+    need(revision.get('rank8_m3_update') == rank8_extension(repo), 'Current rank-eight extension scope')
     progress = 'evidence/rigidity_20261017/rank6/research_progress.json'
     need(revision['research_progress'] == progress and
          revision['research_progress_sha256'] == sha((repo / progress).read_bytes()),

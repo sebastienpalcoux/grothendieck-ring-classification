@@ -1,0 +1,82 @@
+{
+  "status": "PASS",
+  "recovery": "Fresh execution after workspace loss; no old receipt recreated.",
+  "synthetic_psd_comparisons": 88,
+  "synthetic_full_obstruction_comparisons": 88,
+  "synthetic_outcomes": {
+    "gram_entry": 57,
+    "none": 15,
+    "moment": 14,
+    "gram_minor": 2
+  },
+  "real_frames": [
+    {
+      "id": "R8_3_65",
+      "frames_compared": 11,
+      "exact_obstruction_objects_equal": true,
+      "frozen_seconds": 0.48147383000468835,
+      "accelerated_seconds": 0.011178757004017825,
+      "outcomes": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "id": "R8_3_1453",
+      "frames_compared": 11,
+      "exact_obstruction_objects_equal": true,
+      "frozen_seconds": 0.42675624299954507,
+      "accelerated_seconds": 0.011761631998524535,
+      "outcomes": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    },
+    {
+      "id": "R8_3_903",
+      "frames_compared": 11,
+      "exact_obstruction_objects_equal": true,
+      "frozen_seconds": 0.47057544400195184,
+      "accelerated_seconds": 0.013485147999745095,
+      "outcomes": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  ],
+  "alias_installation": "PASS",
+  "sources_sha256": {
+    "evidence/rank8_m3_20261021/performance/low_failure_exact.py": "35dd29e9c113a6a5263cb19836efb160e0f416189ed7859a341ad6e99ce0f7ed",
+    "supplements/rank8/experimental_signed/induction.py": "be2fbd3637c5ce3669e9705b8e7cddeac1683dd8dd8615e57e1f2f33a651309a",
+    "evidence/rank8_m3_20261021/performance/verify_low_failure.py": "a7c44c14db2c9c4c2816c192efe7469d8db9b2aa3f7aa2c41d09573e977ef7bf"
+  },
+  "elapsed_seconds": 2.2816947649989743,
+  "real_fixture_sha256": "1fb61c281bbe7a71e4715cd18b0712963084f748a1c09927330e9641acb9dda6"
+}

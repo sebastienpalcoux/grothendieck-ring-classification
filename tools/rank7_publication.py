@@ -76,8 +76,8 @@ def replay_status(repo):
     return 'Full aggregate replays are pending for this ledger revision.'
 
 def remaining_ids(repo):
-    paths = ("supplements/rank6/data/decisions.json", LEDGER,
-             "supplements/rank8/data/decisions.json")
+    from rank8_publication import ledger_path
+    paths = ("supplements/rank6/data/decisions.json", LEDGER, ledger_path(repo))
     return [row["id"] for name in paths for row in json.loads((Path(repo)/name).read_text())
             if row["status"] == "unresolved"]
 

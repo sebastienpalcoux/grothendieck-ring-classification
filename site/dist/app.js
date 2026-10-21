@@ -277,16 +277,17 @@ function renderTheoreticalUpdate() {
   const details = $("#theoretical-update");
   notice.hidden = details.hidden = !update;
   if (!update) return;
-  const date = new Date((state.data.rank7_m5_update?.date || update.date) + "T12:00:00Z").toLocaleDateString("en-GB", {day:"numeric", month:"long", year:"numeric", timeZone:"UTC"});
-  const latest = state.data.rank7_m5_update;
-  $("#research-update-title").textContent = latest ? `${date} · rank seven through multiplicity five · ${latest.unresolved} open cases` : `${date} · ${update.new_general_exclusions} exclusions · ${update.new_unitary_models || 0} unitary models`;
+  const latest = state.data.rank8_m3_update || state.data.rank7_m5_update;
+  const date = new Date((latest?.date || update.date) + "T12:00:00Z").toLocaleDateString("en-GB", {day:"numeric", month:"long", year:"numeric", timeZone:"UTC"});
+  $("#research-update-title").textContent = latest ? `${date} · rank ${latest.rank===8 ? "eight through multiplicity three" : "seven through multiplicity five"} · ${latest.unresolved} open cases` : `${date} · ${update.new_general_exclusions} exclusions · ${update.new_unitary_models || 0} unitary models`;
   const rankNames = {"6": "rank-six", "7": "rank-seven", "8": "rank-eight"};
   const currentRemaining = Object.fromEntries(state.data.scope.filter(r=>r.rank>=6).map(r=>[String(r.rank),r.unresolved]));
   const openParts = Object.entries(currentRemaining).filter(([, count]) => count > 0).map(([rank, count]) => `${count} ${rankNames[rank]}`);
   const openText = openParts.length ? ` General existence remains open for ${openParts.join(", ")} rings.` : " Every case in this continuation is resolved.";
   const completion = state.data.scope.filter(r=>r.rank>=7).map(r=>` Rank ${r.rank} is complete through multiplicity ${r.through}; analyzed through ${r.analyzed_through}.`).join("");
   const m5 = state.data.rank7_m5_update;
-  const extensionText = m5 ? ` The rank-seven multiplicity-five continuation addresses ${fmt.format(m5.rings)} rings: ${fmt.format(m5.excluded)} exclusions, ${m5.realized} model${m5.realized===1?"":"s"} and ${m5.unresolved} open cases.` : "";
+  const m3 = state.data.rank8_m3_update;
+  const extensionText = (m3 ? ` The rank-eight multiplicity-three continuation addresses ${fmt.format(m3.rings)} rings: ${fmt.format(m3.excluded)} general exclusions, ${m3.unitarily_realized} unitary models and ${m3.unresolved} individually investigated unresolved candidates.` : "") + (m5 ? ` The rank-seven multiplicity-five continuation addresses ${fmt.format(m5.rings)} rings: ${fmt.format(m5.excluded)} exclusions, ${m5.realized} model${m5.realized===1?"":"s"} and ${m5.unresolved} open cases.` : "");
   const continuationText = m5?.continuation_decisions?.length ? ` The latest continuation resolves ${m5.continuation_decisions.length} of the 15 cases left open on 19 October.` : "";
   const braidedText = m5?.remaining_ids?.length && m5.remaining_ids.every(id=>["R7_5_3895","R7_5_5039"].includes(id))
     ? (m5.remaining_ids.length===1
@@ -294,7 +295,7 @@ function renderTheoreticalUpdate() {
       : " Both remaining rank-seven rings admit no braided categorification; their general categorification remains open.") : "";
   $("#research-update-summary").textContent = `${extensionText.trim()}${continuationText}${braidedText}${completion}${openText}`;
   $("#theoretical-update-heading").textContent = `Current research · ${Object.values(currentRemaining).reduce((a,b)=>a+b,0)} open cases`;
-  $("#theoretical-update-scope").textContent = extensionText + continuationText + braidedText + " The new arguments combine quadratic compression, complete sphericalization, center-twist moments and full Morita-dual descent. The historical 38-case continuation records 29 proposed general exclusions and 7 unitary constructions. R6_4_155 and R6_8_1660 remain open. The bundle includes current manuscripts, proofs, exact replay programs and the unresolved inventory. Independent human verification and Lean formalization remain pending.";
+  $("#theoretical-update-scope").textContent = extensionText + continuationText + braidedText + " The new arguments combine quadratic-compositum compression, biquadratic and weak-integral rotation constraints, convex central induction, split-module polynomials, Morita transport and justified unitary reductions. Constructions include near-group equivariantizations, exceptional subfactor models, cyclic Fibonacci equivariantization and a twisted A6/A5 group-theoretical category. Candidates have neither a general exclusion nor a constructed associator; they are not established exotic categories. Census completeness relies on producer-run records with independent tensor and isomorphism audits. The bundle contains current manuscripts, proofs and exact replay programs. Independent human verification and Lean formalization remain pending.";
   const base = `${state.data.classification_repository}/blob/${state.data.classification_commit || "main"}/docs/RESEARCH_STATUS.md`;
   $("#latest-research-source").href = base;
   $("#latest-research-source").textContent = `${date} proofs and remaining cases ↗`;
@@ -306,6 +307,11 @@ function renderTheoreticalUpdate() {
   decisions.href = `./${update.files.decisions.path}`; decisions.download = "";
   const remaining = element("a", "", "Remaining cases JSON ↓");
   remaining.href = `./${state.data.remaining_ids_file?.path || update.files.remaining_ids.path}`; remaining.download = "";
+  if (m3?.attempts) {
+    const attempts = element("a", "", "Per-candidate attempts JSON ↓");
+    attempts.href = `./${m3.attempts.path}`; attempts.download = "";
+    actions.append(attempts);
+  }
   const source = element("a", "", "Research source ↗");
   source.href = base; source.target = "_blank"; source.rel = "noopener";
   const review = element("a", "", "Research status & verification ↗");
@@ -423,7 +429,7 @@ function renderPapers() {
     entries.push({rank:7,title:r7.unresolved ? `Rank-seven Grothendieck rings: exclusions and models through multiplicity ${r7.analyzed_through}` : `Rank-seven Grothendieck rings: complete classification through multiplicity ${r7.analyzed_through}`,
       subtitle:`${fmt.format(r7.rings)} analyzed; ${r7.positive} models${r7.unresolved ? ` and ${r7.unresolved} general open ${r7.unresolved===1?"case":"cases"}` : "; complete classification"}`,type:"CLASSIFICATION",slug:"rank7"});
   if (r8)
-    entries.push({rank:8,title:r8.unresolved ? "Rank-eight Grothendieck rings through multiplicity two: criteria, models, and the unresolved frontier" : "Rank-eight Grothendieck rings: complete classification through multiplicity two",
+    entries.push({rank:8,title:r8.unresolved ? `Rank-eight Grothendieck rings through multiplicity ${r8.analyzed_through}: criteria, models, and unresolved candidates` : `Rank-eight Grothendieck rings: complete classification through multiplicity ${r8.analyzed_through}`,
       subtitle:`${fmt.format(r8.rings)} analyzed; ${r8.positive} models${r8.unresolved ? ` and ${r8.unresolved} general open ${r8.unresolved===1?"case":"cases"}` : "; complete classification"}`,type:"CLASSIFICATION",slug:"rank8"});
   for (const paper of entries) {
     const card=element("article","paper-card");

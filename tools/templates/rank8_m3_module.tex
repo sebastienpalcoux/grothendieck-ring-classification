@@ -1,0 +1,82 @@
+\subsection{Module ranks and dimension-sixty Morita transport}
+\begin{proposition}\label{prop:m3-a5-module-rank}
+The ring $\sha{R8_3_307}$ admits no complex categorification.
+\end{proposition}
+\begin{proof}
+Its positive dimensions, in source order, are
+$(1,\sqrt {10},\sqrt {10},2\sqrt {10},5,3,3,4)$.
+The integral basis $\{0,4,5,6,7\}$ is the neutral part of a faithful
+$C_2$-grading and has dimension $60$. It has no nontrivial proper fusion
+subring. Any neutral category $\mathcal D$ is therefore simple and integral,
+so \cite[Theorem~9.12]{ENOSolvable} gives
+$\mathcal D\simeq\operatorname{Rep}(A_5)$.
+
+The odd component is an invertible $\mathcal D$-bimodule of rank three.
+By the subgroup/projective-representation classification of
+$\operatorname{Rep}(A_5)$-module categories
+\cite[Theorem~2 and Remark~12]{OstrikModules}, its objects have projective
+degrees $a(1,1,2)$: the exact action matrices have a one-dimensional
+simultaneous dimension eigenspace with primitive vector $(1,1,2)$.
+The certificate checks both its eigenvector equations and rank two of the
+combined coefficient matrix. For the defining subgroup $H\leq A_5$,
+$|H|=6a^2\mid60$, whence $a=1$ and $H\cong S_3$. A one-dimensional
+projective representation trivializes the multiplier.
+
+The dual category has one family of simples for each $H$-double coset,
+parametrized by irreducible representations of its stabilizer.
+The three double cosets have sizes $6,18,36$ and stabilizers $S_3,C_2,1$.
+Its rank is consequently $3+2+1=6$. Invertibility requires its dual to be
+$\mathcal D$, of rank five, a contradiction. The finite certificate checks
+every order-six embedding through Sylow-three normalizers and the complete
+double-coset calculation.
+\end{proof}
+
+\begin{proposition}[Pointed transport from dimension sixty]
+\label{prop:m3-sixty-transport}
+Let $\mathcal C$ be faithfully graded by a finite group, with a nonsolvable
+neutral category of dimension $60$. Then $\mathcal C$ is group-theoretical
+and integral. In particular $\sha{R8_3_2132}$ has no complex categorification.
+\end{proposition}
+\begin{proof}
+By \cite[Theorem~9.16]{ENOSolvable}, the neutral category is weakly
+group-theoretical. Choose a nilpotent Morita representative. The orders of
+its extension groups multiply to $60$. If all these groups were solvable,
+Morita invariance and \cite[Proposition~4.5]{ENOSolvable} would imply
+solvability of the neutral category. Every group whose order is a proper
+divisor of $60$ is solvable, while the only nonsolvable group of order $60$
+is $A_5$. The representative must therefore be
+$\operatorname{Vec}_{A_5}^{\omega}$, with arbitrary admissible associator
+$\omega$.
+
+Transport the entire grading under this neutral Morita equivalence, using
+\cite[Lemma~3.4]{ENOSolvable}. Each component becomes an invertible
+bimodule over $\operatorname{Vec}_{A_5}^{\omega}$, whose one-sided dual is
+pointed. The pointed-dual criterion \cite[Theorem~3.4]{NaiduMorita}
+requires the subgroup defining the module category to be abelian and
+normal in $A_5$, hence trivial. Each component therefore has $60$ simples
+and dimension $60$, so all its simples are invertible. The transported
+category is pointed; the original category is group-theoretical and thus
+integral. No assumption $\omega=1$ has been made.
+
+For $\sha{R8_3_2132}$ the dimensions are
+$(1,1,\sqrt {30},5,5,\sqrt {30},2,2)$.
+Its integral neutral category $\mathcal D$ has dimension $60$, equals its
+adjoint subcategory, and has two invertibles. If it were solvable, its last
+cyclic-prime construction step could not be an extension, since
+$\mathcal D_{\mathrm{ad}}=\mathcal D$. It would be a $C_2$-equivariantization,
+by \cite[Proposition~4.4]{ENOSolvable}. Multiplication by the nontrivial
+character has neutral orbits $\{0,1\},\{3,4\},\{6\},\{7\}$.
+A fixed underlying simple yields two equivariant simples interchanged by
+that character; a free underlying orbit yields one character-fixed simple
+of twice its dimension. De-equivariantization would have dimensions
+$1,1,1,1,1,5$, the near-group ring $\operatorname{NG}(C_5,4)$.
+Its whole tensor matches the already excluded $\sha{R6_4_19}$; the
+dimension-thirty Morita certificate permits only simple dimensions one
+and two. Thus $\mathcal D$ is nonsolvable. The transport result makes the
+whole category integral, contradicting its odd dimension $\sqrt {30}$.
+\end{proof}
+The source-bound replay checks all dimension and grading equations,
+adjoint closure, character orbits, the complete lower-rank tensor match
+and the finite normal-subgroup premise. This is a new application and
+unification of the dimension-sixty dichotomy and integrality reductions;
+it does not identify an arbitrary categorification from its ring alone.

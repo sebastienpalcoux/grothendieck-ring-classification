@@ -149,6 +149,13 @@ def collect(root):
                   'supplements/rank7/output/rank7_ledger.json',
                   'supplements/rank7/output/rank7_ledger_through_m4.json',
                   'supplements/rank7/data/rank7_tables_through_m4.txt.gz'))
+    from rank8_publication import active
+    if active(root):
+        from build_rank8_m3_release import collect as collect_rank8
+        extension_files, _ = collect_rank8(root)
+        paths.update(name for name in extension_files if name not in ('README.md', 'SHA256SUMS.json'))
+        paths.update(path.relative_to(root).as_posix() for path in (root/'tools').glob('*rank8_m3*.py'))
+        paths.update(path.relative_to(root).as_posix() for path in (root/'tools/templates').glob('rank8_m3_*.tex'))
     payload = {name: (root / name).read_bytes() for name in sorted(paths)}
     # The immutable proof manifest keeps its exact original hashes. Revised
     # documents are verified separately; their original replay bytes are in the
@@ -212,6 +219,8 @@ Fixed timestamps and sorted paths make identical inputs produce identical ZIP by
 """).encode()
     from rank7_publication import summary
     payload['README.md'] += ('\n' + summary(root) + '\n').encode()
+    from rank8_publication import summary as rank8_summary
+    payload['README.md'] += ('\n' + rank8_summary(root) + '\n').encode()
     payload['ARCHIVE_MANIFEST.json'] = (json.dumps({name: {'bytes': len(raw), 'sha256': digest(raw)}
                                                    for name, raw in sorted(payload.items())}, indent=2) + '\n').encode()
     output = (args.output or root / 'site/dist/downloads' / f'{PREFIX}.zip').resolve()

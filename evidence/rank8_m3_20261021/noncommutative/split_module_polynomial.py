@@ -73,25 +73,36 @@ def discover():
     base=HERE.parent;rows=json.loads((base/'pipeline/census_m3.json').read_text())
     sys.path.insert(0,str(HERE.parents[2]/'supplements/rank8/software'))
     import finalize_m3
-    _,summary=finalize_m3.reconcile();pending=set(summary['unresolved_ids'])
+    try:
+        _,summary=finalize_m3.reconcile();pending=set(summary['unresolved_ids'])
+    except ValueError as error:
+        # During concurrent recovery a source-bound manifest may be stale.
+        # Testing every baseline residual is a safe superset of the frontier.
+        pending={r['id'] for r in json.loads((base/'pipeline/survivors_m3.json').read_text())}
+        print('Using all baseline residuals while manifest refresh is pending:',str(error),flush=True)
+    pending.update(f'R8_3_{i}' for i in (76,735,738,1019,1051,1057,1067,1197,1805,2392,2415,2836))
     pending.update(['R8_3_1051','R8_3_2415','R8_3_331','R8_3_471','R8_3_1456',
                     'R8_3_3314','R8_3_342','R8_3_724','R8_3_3278','R8_3_448',
-                    'R8_3_334','R8_3_274','R8_3_715','R8_3_475','R8_3_458'])
+                    'R8_3_334','R8_3_274','R8_3_715','R8_3_475','R8_3_458','R8_3_3342'])
     output=[]
     for row in rows:
         if row['id'] not in pending or not row['commutative']:continue
         R=row['tensor'];start=time.monotonic();records=[];cert=None
-        for g in row['invertibles']:
+        dual=[]
+        for i in range(8):
+            hits=[j for j in range(8) if R[i][j][0]];require(len(hits)==1,'unique dual required');dual.append(hits[0])
+        invertibles=[i for i in range(8) if R[i][dual[i]]==[1]+[0]*7]
+        for g in invertibles:
             if g==0 or R[g][g][0]!=1 or not any(R[g][i][i] for i in range(8)):continue
             for x in range(1,8):
-                if row['dual'][x]!=x:continue
+                if dual[x]!=x:continue
                 report=search(R,g,x);records.append({'involution':g,'generator':x,'search':report})
                 if report['outcome']=='excluded':
                     cert=dict(kind='rank8_split_module_polynomial',involution=g,generator=x,search=report)
                     verify(R,cert);break
             if cert:break
-        item={'id':row['id'],'tensor_sha256':row['tensor_sha256'],'outcome':'excluded' if cert else ('no_conclusion' if records else 'inapplicable_no_fixed_involution'),'certificate':cert,'attempts':records,'seconds':round(time.monotonic()-start,3)}
-        output.append(item);(HERE/'split_module_polynomial_results.json').write_text(json.dumps(output,indent=2)+'\n')
+        item={'id':row['id'],'tensor_sha256':row['tensor_sha256'],'scope':'general_complex_fusion_category','outcome':'excluded' if cert else ('no_conclusion' if records else 'inapplicable_no_fixed_involution'),'certificate':cert,'attempts':records,'seconds':round(time.monotonic()-start,3)}
+        output.append(item);target=HERE/'split_module_polynomial_results.json';temporary=target.with_suffix('.json.tmp');temporary.write_text(json.dumps(output,separators=(',',':'))+'\n');temporary.replace(target)
         print(row['id'],item['outcome'],item['seconds'],flush=True)
 def replay():
     rows={r['id']:r for r in json.loads((HERE.parent/'pipeline/census_m3.json').read_text())}

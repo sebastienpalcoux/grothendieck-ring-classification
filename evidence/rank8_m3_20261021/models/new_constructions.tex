@@ -1,0 +1,29 @@
+\subsection{Unitary scope of the Izumi--Xu extension}
+The fusion rules of $R8\_3\_448$ are those of \cite[Appendix~A.6.1]{CMS}; in particular $Vg=g^2V$ is essential. The unitary construction is supplied by the symmetrically self-dual $2221$ planar algebra of \cite[Section~5.1, Theorem~5.5]{MorrisonPenneysSpokes}. The extension classification in \cite[Theorem~4.9, Remarks~4.10--4.11]{GJSCyclic} identifies the resulting graded extension with the displayed fusion rules: the two associator choices have the same tensor. Thus the earlier conservative pseudo-unitary label is upgraded to unitary existence.
+
+\subsection{Two equivariantizations of a near-group category}
+Use the normalized unitary $C_3+6$ solution of \cite[Example~13.10]{IzumiNear}, with $(x,y)=(\sqrt{\sqrt3/24},0)$. Lemma~13.1 describes actual automorphisms $\gamma_{\omega,\theta,u}$, with $(\omega,\theta,u)$ and $(-\omega,\theta,-u)$ identical. The paragraph before Lemma~13.2 gives the strict conjugation tensor functor. Take $\theta=\mathrm{id}$ and either $(\omega,u)=(1,\mathrm{diag}(1,-1))$ or $(i,R_{\pi/2})$. Both have order two; the latter squares to $\gamma_{-1,\mathrm{id},-I}=1$. Their actions on the six-dimensional self-fusion space have three eigenvalues of each sign. Their actions on the maps $S_g$ have signs $+1$ and $-1$, respectively. Hence the complete rules are
+\[
+ (g,e)(h,f)=(g+h,e+f),\quad (g,e)X_f=X_f(g,e)=X_{e+f},
+ \qquad X_eX_f=\sum_{g\in C_3}(g,e+f+\epsilon)+3X_0+3X_1.
+\]
+The cases $\epsilon=0,1$ identify $R8\_3\_334,R8\_3\_274$ by all512 coefficients. These are coherent unitary actions, not abstract based-ring automorphisms.
+
+\subsection{Cyclic permutation of three Fibonacci factors}
+The canonical $C_3$ action on $\mathrm{Fib}^{\boxtimes3}$ has two fixed simple triples, each splitting into three equivariant simples, and two free orbits. For a fixed output, the multiplicity is the character average on its fusion space; a free input orbit has zero nonidentity trace. For a free output the coefficient is the ordinary multiplicity at a representative. These formulas reconstruct all512 coefficients of $R8\_3\_475$ and give its unitary realization.
+
+\subsection{A Morita dual of the nonsplit $2D2$ extension}
+In the known nonsplit extension $R8\_2\_37$, take the Q-system $A=1+r$ from \cite[Lemma~4.1]{Grossman}. The neutral component of ${}_A\mathcal E_A$ is $TT_3$, with basis $1,p,q,pq,qp,pqp$ and relations $p^2=1+p$, $q^2=1+q$, $pqp=qpq$; see \cite[Definition~2.5]{EdieGolden}. The odd free-bimodule Gram matrix, in the order $(a,a^3,ar,a^3r)$, is
+\[
+ \begin{pmatrix}1&1&3&3\\1&1&3&3\\3&3&13&13\\3&3&13&13\end{pmatrix}.
+\]
+Its nonnegative integral factorizations have the column $(1,1,3,3)^T$ and either $(0,0,2,2)^T$ or four copies of $(0,0,1,1)^T$. After dividing underlying dimensions by $\operatorname{FPdim}(A)$, the latter would give four odd simples of dimension $\varphi$, but multiplication by $p$ requires the unavailable dimension $\varphi^2$. The two remaining odd dimensions are therefore $2\varphi,2\varphi^2$. Left and right multiplication by either $p$ or $q$ is forced to be $\left(\begin{smallmatrix}0&1\\1&1\end{smallmatrix}\right)$. Reciprocity determines odd--odd products and yields precisely $R8\_3\_715$.
+
+\subsection{The conformal $G_2$ algebra Morita dual}
+Let $\mathcal C=\mathcal C(G_2,3)$ and let $A$ be the conformal algebra for $G_{2,3}\subset E_{6,1}$. The category ${}_A\mathcal C_A$ is unitary by \cite[Theorems~2.21,2.28, Corollary~3.32]{GuiQSystems}. Write $d=(3+\sqrt{21})/2$. The two chiral Izumi--Xu subcategories have pointed local intersection $C_3$, by \cite[Appendix~A.4]{CMS} and \cite[Section~3.3, equation~(16), Definition~3.12, Remark~3.13]{DMNO}. Their noninvertibles $X,Y$ satisfy $X^2=1+g+g^2+3X$ and $Y^2=1+g+g^2+3Y$. Rigidity gives $(XY,XY)=3$; dimension equality forces three further simples $Z_i$, each of dimension $d+1$.
+
+The $g$-action on this triple is nontrivial: otherwise the symmetric integral multiplicity block $B$ has row sums three and satisfies $B^2+J=3I+3B$. Its trace is six, so its off-diagonal sum would be three, a parity contradiction. Write $Z_i=g^iZ_0$ with $Z_0$ self-dual. Associativity gives $XY=YX=\sum_i Z_i$, $XZ_i=Z_iX=Y+\sum_j Z_j$, and $YZ_i=Z_iY=X+\sum_j Z_j$. The commutative orientation is impossible: the modular center has only self-dual simples, and \cite[Lemma~8.49]{ENO} would force all simples of the commutative based ring to be self-dual, contrary to $g^*=g^2$. Hence $Z_ig=g^{-1}Z_i$. Reciprocity reduces the remaining products to ten nonnegative triples with sum three; exact associativity leaves only $(1,1,1)$, so
+\[
+ Z_iZ_j=g^{i-j}+X+Y+\sum_k Z_k.
+\]
+The reconstructed full tensor is $R8\_3\_458$.

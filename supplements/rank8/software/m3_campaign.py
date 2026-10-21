@@ -8,13 +8,19 @@ for _k in ('OPENBLAS_NUM_THREADS','OMP_NUM_THREADS','MKL_NUM_THREADS'):os.enviro
 import argparse,collections,concurrent.futures,gzip,hashlib,json,shutil,signal,sys,time,traceback
 from pathlib import Path
 REPO=Path(__file__).resolve().parents[3];P=REPO/'supplements/rank8';OUT=REPO/'evidence/rank8_m3_20261021/pipeline'
-sys.path.insert(0,str(P/'software'))
+HERE=P/'software'
+sys.path.insert(0,str(HERE))
 from analyze import fp,commutes,mult
 from prepare import flatten
 STAGES=('near_group','rank_two','zero_spectrum','lower_rank_subring','rank7_certified_subring','dnumber','noncomm_dnumber','integral_drinfeld','cyclotomic','involution_module','field_automorphisms','subring_dimension','primitive_codegree')
 RAW_SHA='7baaa0a2018e11a0464c3f19da9030195421f04a73806c22363cf9d5eeb92a84'
 GZ_SHA='1003a7684ec62797e63885eeb5af42fd094adc9ff3fec6caf049620b3afd0952'
 OLD_SHA='7f50213174f1020bb9d90d5981892c332448cf909a56bf60b29e1143228f3f24'
+INPUT_SHA=RAW_SHA
+def digest(path):return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+def read_tables(path):
+ raw=gzip.open(path,'rt') if str(path).endswith('.gz') else open(path)
+ with raw:return [json.loads(line.replace('{','[').replace('}',']')) for line in raw if line.strip()]
 def require(ok,message):
  if not ok:raise ValueError(message)
 def sha(p):return hashlib.sha256(Path(p).read_bytes()).hexdigest()
@@ -110,6 +116,6 @@ def main():
     f.write(json.dumps(result,separators=(',',':'))+'\n')
     if result['status']=='excluded':records[result['id']].update(status='excluded',criterion=stage,certificate=result['certificate'])
   counts=collections.Counter(r['status'] for r in results);stages.append({'stage':stage,'entered':len(active),'outcomes':dict(counts),'seconds':time.monotonic()-start});write('stages.json',stages)
-  write('decisions_m3.json',list(records.values()));write('survivors_baseline.json',[byid[r['id']] for r in records.values() if r['status']=='unresolved']);print('DONE',stage,dict(counts),flush=True)
+  write('decisions_m3.json',list(records.values()));write('survivors_baseline.json',[byid[r['id']] for r in records.values() if r['status']=='unresolved']);write('survivors_m3.json',[byid[r['id']] for r in records.values() if r['status']=='unresolved']);print('DONE',stage,dict(counts),flush=True)
  summary={'records':len(records),'counts':dict(collections.Counter(r['status'] for r in records.values())),'stages':stages};write('baseline_summary.json',summary);print(json.dumps(summary['counts']))
 if __name__=='__main__':main()

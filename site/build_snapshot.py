@@ -38,6 +38,7 @@ def main():
     repo = args.classification.resolve()
     sys.path.insert(0, str(repo / "tools"))
     from rank6_publication import RESEARCH_UPDATES
+    from rank8_publication import extension as rank8_extension_info, archive_path as rank8_archive, ledger_path as rank8_ledger
     counts = read_counts(repo / "data" / "counts.json")
     rows = []
     for row in counts["rows"]:
@@ -305,7 +306,7 @@ def main():
     bundles = {entry["name"]: entry["sha256"] for entry in status["bundles"]}
     for rank, pdf_path, archive_path in (
         (7, "manuscripts/rank7/papers/manuscript.pdf", "supplements/rank7/release/rank7-certified-through-m5.zip"),
-        (8, "manuscripts/rank8/paper/rank8.pdf", "supplements/rank8/rank8-verified-supplement.zip"),
+        (8, "manuscripts/rank8/paper/rank8.pdf", rank8_archive(repo)),
     ):
         pdf_source, archive_source = repo / pdf_path, repo / archive_path
         archive_hash = hashlib.sha256(archive_source.read_bytes()).hexdigest()
@@ -348,7 +349,7 @@ def main():
             raise ValueError("Only proved general exclusions or unitary constructions may enter the update")
         by_rank = {str(rank): sum(record["rank"] == rank for record in decisions) for rank in (7, 8)}
         for rank, ledger_path in ((7, "supplements/rank7/output/rank7_ledger.json"),
-                                  (8, "supplements/rank8/data/decisions.json")):
+                                  (8, rank8_ledger(repo))):
             ledger = json.loads((repo / ledger_path).read_text())
             current = {record["id"]: record for record in ledger}
             for decision in (record for record in decisions if record["rank"] == rank):
@@ -356,7 +357,7 @@ def main():
                     raise ValueError("Theoretical-update decision missing from ledger: " + decision["id"])
                 if not (repo / decision.get("proof_source", proofs_source) / decision["proof"]).is_file():
                     raise ValueError("Missing theoretical proof: " + decision["proof"])
-            historical_ledger = [record for record in ledger if rank != 7 or record["multiplicity"] <= 4]
+            historical_ledger = [record for record in ledger if record["multiplicity"] <= (4 if rank == 7 else 2)]
             actual = {key: sum(record["status"] == key for record in historical_ledger)
                       for key in ("excluded", "unitarily_realized", "unresolved")}
             if actual != expected_totals[str(rank)]:
@@ -424,6 +425,26 @@ def main():
         extension_path.write_text(json.dumps(rank7_extension, indent=2) + "\n")
         rank7_extension["metadata_path"] = "data/rank7_m5_update.json"
         rank7_extension["metadata_sha256"] = hashlib.sha256(extension_path.read_bytes()).hexdigest()
+    rank8_extension = rank8_extension_info(repo)
+    if rank8_extension:
+        data["rank8_m3_update"] = rank8_extension
+        data["remaining_ids"] = remaining_ids(repo)
+        remaining_path = HERE / "dist/data/current_remaining_ids.json"
+        remaining_path.write_text(json.dumps(data["remaining_ids"], indent=2) + "\n")
+        data["remaining_ids_file"] = {"path": "data/current_remaining_ids.json", "sha256": hashlib.sha256(remaining_path.read_bytes()).hexdigest()}
+        data["snapshot"] = max(data["snapshot"], rank8_extension["date"])
+        attempts_source = repo / rank8_extension["evidence"] / "pipeline/residual_attempts.json"
+        attempts = json.loads(attempts_source.read_text())
+        attempt_rows = attempts.get("cases", attempts.get("records", [])) if isinstance(attempts, dict) else attempts
+        if [row["id"] for row in attempt_rows] != rank8_extension["remaining_ids"]:
+            raise ValueError("Residual attempt inventory differs from the accepted M3 frontier")
+        attempts_path = HERE / "dist/data/rank8_m3_attempts.json"
+        attempts_path.write_text(json.dumps(attempts, ensure_ascii=False, separators=(",", ":")) + "\n")
+        rank8_extension["attempts"] = {"path": "data/rank8_m3_attempts.json", "sha256": hashlib.sha256(attempts_path.read_bytes()).hexdigest(), "cases": len(attempt_rows)}
+        extension_path = HERE / "dist/data/rank8_m3_update.json"
+        extension_path.write_text(json.dumps(rank8_extension, indent=2) + "\n")
+        rank8_extension["metadata_path"] = "data/rank8_m3_update.json"
+        rank8_extension["metadata_sha256"] = hashlib.sha256(extension_path.read_bytes()).hexdigest()
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(json.dumps(data, ensure_ascii=False, separators=(",", ":")) + "\n")
     status["rows"] = classifications

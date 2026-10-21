@@ -7,7 +7,8 @@ import gzip
 import hashlib
 import itertools
 import json
-from rank7_publication import PUBLICATION_DATE, STATUS_REPORT
+from rank7_publication import STATUS_REPORT
+from rank8_publication import current_date, current_report, active as rank8_active, LEDGER as RANK8_LEDGER
 
 ROOT = Path(__file__).resolve().parents[1]
 IDS = ('R6_4_155', 'R6_8_1660')
@@ -27,6 +28,9 @@ PAPERS = (
     ('Research status and verification', STATUS_REPORT, 'research_status_report'),
 )
 
+
+def current_papers(repo):
+    return tuple((title,current_report(repo) if kind=='research_status_report' else path,kind) for title,path,kind in PAPERS)
 
 def need(ok, message):
     if not ok:
@@ -73,12 +77,18 @@ def source_cases(repo):
     path7 = 'supplements/rank7/output/rank7_ledger.json'
     records7 = {r['id']: r for r in json.loads((repo / path7).read_text()) if r['status']=='unresolved'}
     tensors.update({name: row['tensor'] for name, row in records7.items()})
+    path8 = RANK8_LEDGER
+    source8 = 'evidence/rank8_m3_20261021/pipeline/census_m3.json'
+    if rank8_active(repo):
+        rows8 = json.loads((repo/path8).read_text())
+        census8 = {r['id']:r['tensor'] for r in json.loads((repo/source8).read_text())}
+        tensors.update({r['id']:census8[r['id']] for r in rows8 if r['status']=='unresolved'})
     duals, metadata = {}, {}
     for name, tensor in tensors.items():
         duals[name] = validate_tensor(tensor)
         rank, multiplicity, index = map(int, name[1:].split('_'))
         need(len(tensor) == rank and max(flat(tensor)) == multiplicity, 'Rank and exact multiplicity')
-        source = path6 if rank == 6 else path7
+        source = path6 if rank == 6 else path7 if rank == 7 else source8
         metadata[name] = {
             'rank': rank, 'multiplicity': multiplicity, 'index': index,
             'status': 'unresolved', 'unit_index': 0,
@@ -88,7 +98,7 @@ def source_cases(repo):
         }
         if rank == 6:
             need(duals[name] == records6[name]['dual'], 'Recorded rank-six duality')
-        ledger_path = 'supplements/rank6/data/decisions.json' if rank == 6 else path7
+        ledger_path = 'supplements/rank6/data/decisions.json' if rank == 6 else path7 if rank == 7 else path8
         record = next(r for r in json.loads((repo / ledger_path).read_text()) if r['id'] == name)
         need(record['status'] == 'unresolved', 'Current unresolved ledger status')
         if 'tensor_sha256' in record:
@@ -133,12 +143,12 @@ def page_totals(records):
 def build_pages(repo):
     from pypdf import PdfReader
     records = []
-    for title, relative, kind in PAPERS:
+    for title, relative, kind in current_papers(repo):
         path = repo / 'manuscripts' / relative
         records.append({'title': title, 'kind': kind, 'path': path.relative_to(repo).as_posix(),
                         'pages': len(PdfReader(path).pages), 'bytes': path.stat().st_size,
                         'sha256': sha(path.read_bytes())})
-    return {'schema': 'manuscript-page-counts/v1', 'date': PUBLICATION_DATE,
+    return {'schema': 'manuscript-page-counts/v1', 'date': current_date(repo),
             'counting_rule': 'Count each distinct current document once, including its references and appendices; exclude website/supplement copies and compatibility aliases.',
             'document_counts': {'mathematical_manuscripts': 8, 'verification_guides': 3, 'research_status_reports': 1},
             'documents': records, 'totals': page_totals(records),
@@ -162,7 +172,7 @@ def validate_reader_resources(repo, check_web=False):
                                      'research_status_reports': 1}, 'Distinct document counts')
     records = pages['documents']
     need([(r['title'], r['path'], r['kind']) for r in records] ==
-         [(title, 'manuscripts/' + path, kind) for title, path, kind in PAPERS], 'Distinct current paper inventory')
+         [(title, 'manuscripts/' + path, kind) for title, path, kind in current_papers(repo)], 'Distinct current paper inventory')
     for record in records:
         raw = (repo / record['path']).read_bytes()
         need(type(record['pages']) is int and record['pages'] > 0, 'Positive integer page count')

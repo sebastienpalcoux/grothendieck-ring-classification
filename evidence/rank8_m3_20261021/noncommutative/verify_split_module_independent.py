@@ -1,6 +1,6 @@
 """Scalar-integer independent replay, with a different sign-gauge forest."""
 from pathlib import Path
-import hashlib,itertools,json,math,time
+import argparse,hashlib,itertools,json,math,time
 HERE=Path(__file__).resolve().parent
 def require(v,m):
  if not v:raise ValueError(m)
@@ -13,7 +13,7 @@ def polynomial(A,coefficients):
  return V
 def zero(A):return not any(v for row in A for v in row)
 def run(R,c):
- g,x=c['involution'],c['generator'];n=len(R);require(R[g][g]==[1]+[0]*(n-1) and g!=0,'bad involution');require(R[x][x][0]==1,'non-self-dual generator')
+ require(c['kind']=='rank8_split_module_polynomial','certificate kind');g,x=c['involution'],c['generator'];n=len(R);require(all(R[i][j]==R[j][i] for i in range(n) for j in range(n)),'commutativity premise');require(R[g][g]==[1]+[0]*(n-1) and g!=0,'bad involution');require(R[x][x][0]==1,'non-self-dual generator')
  fixed=[a for a in range(n) if R[g][a][a]];f=len(fixed);coefficients=c['search']['polynomial'];require(zero(polynomial(R[x],coefficients)),'source relation failed')
  A=[[R[x][a][b] for b in fixed] for a in fixed];require(A==list(map(list,zip(*A))),'nonsymmetric block');seen=set();forest=set()
  for start in range(f):
@@ -36,10 +36,16 @@ def run(R,c):
  require(count==c['search']['cases'],'gauge-reduced count differs')
  return {'cases':count,'fixed_objects':fixed,'arithmetic':'unbounded Python integers','gauge':'breadth-first odd-entry forest'}
 def main():
+ parser=argparse.ArgumentParser();parser.add_argument('--write',action='store_true');args=parser.parse_args()
  start=time.monotonic();rows={r['id']:r for r in json.loads((HERE.parent/'pipeline/census_m3.json').read_text())};records=[];source=HERE/'split_module_polynomial_results.json'
  for item in json.loads(source.read_text()):
   if item['outcome']!='excluded':continue
   row=rows[item['id']];require(row['tensor_sha256']==item['tensor_sha256'],'source hash mismatch');result=run(row['tensor'],item['certificate']);records.append(dict(id=item['id'],**result));print(item['id'],result['cases'],'PASS',flush=True)
  out={'status':'PASS','records':records,'seconds':round(time.monotonic()-start,4),'source_sha256':hashlib.sha256(source.read_bytes()).hexdigest(),'reference_source_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest()}
- (HERE/'split_module_independent_validation.json').write_text(json.dumps(out,indent=2)+'\n');print('PASS',out['seconds'],flush=True)
+ path=HERE/'split_module_independent_validation.json'
+ if args.write:
+  temporary=path.with_suffix('.json.tmp');temporary.write_text(json.dumps(out,indent=2)+'\n');temporary.replace(path)
+ else:
+  saved=json.loads(path.read_text());require({k:v for k,v in saved.items() if k!='seconds'}=={k:v for k,v in out.items() if k!='seconds'},'independent split-module receipt differs')
+ print('PASS',out['seconds'],'seconds; receipt written' if args.write else 'seconds; read-only replay',flush=True)
 if __name__=='__main__':main()

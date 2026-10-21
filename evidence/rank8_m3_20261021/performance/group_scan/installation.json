@@ -1,0 +1,96 @@
+{
+  "status": "installed_and_executed",
+  "date": "2026-10-21",
+  "packages": [
+    {
+      "package": "gap-autpgrp",
+      "file": "gap-autpgrp_1.11-1_all.deb",
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/g/gap-autpgrp/gap-autpgrp_1.11-1_all.deb",
+      "sha256": "b4c7797d3bcb7344e262951534f9de55fd37193baed598e53429d3f2fc5268a0",
+      "bytes": 169882
+    },
+    {
+      "package": "gap-polycyclic",
+      "file": "gap-polycyclic_2.16-2_all.deb",
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/g/gap-polycyclic/gap-polycyclic_2.16-2_all.deb",
+      "sha256": "a9760e03c657ab4c245c76567eb0b0f082691370e370e43bb3daf3b16072fd8e",
+      "bytes": 515206
+    },
+    {
+      "package": "pari-gp",
+      "file": "pari-gp_2.15.4-2.1build1_amd64.deb",
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/p/pari/pari-gp_2.15.4-2.1build1_amd64.deb",
+      "sha256": "55a95d51afe87688fe0fcfe1bca74bf8c5474533e2a42d3af45c87c1ae0d86fa",
+      "bytes": 3989060
+    },
+    {
+      "package": "gap-alnuth",
+      "file": "gap-alnuth_3.2.1-1_all.deb",
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/g/gap-alnuth/gap-alnuth_3.2.1-1_all.deb",
+      "sha256": "92ee28c4d0fdc6ef772078d970ab9407eb67f55ec6dfe75bdfaa05c4b2f6e84c",
+      "bytes": 207954
+    },
+    {
+      "package": "gap-utils",
+      "file": "gap-utils_0.85-1_all.deb",
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/g/gap-utils/gap-utils_0.85-1_all.deb",
+      "sha256": "f60930614f0172da0ad8a916e5a2fd51a70873b01b726e0f04602e40f3282c66",
+      "bytes": 339572
+    },
+    {
+      "package": "gap-atlasrep",
+      "file": "gap-atlasrep_2.1.8-1_all.deb",
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/g/gap-atlasrep/gap-atlasrep_2.1.8-1_all.deb",
+      "sha256": "bff733f02caf4c3e54dd2056012c4a389603464791da33c99e412cca9c5271d8",
+      "bytes": 1551960
+    },
+    {
+      "package": "gap-character-tables",
+      "file": "gap-character-tables_1.3.7-1_all.deb",
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/g/gap-ctbllib/gap-character-tables_1.3.7-1_all.deb",
+      "sha256": "38286c706cbe0d3b6e2512297691f826f26a0713addca1f252f9530c9226d070",
+      "bytes": 13457656
+    },
+    {
+      "package": "gap-gapdoc",
+      "file": "gap-gapdoc_1.6.6-1_all.deb",
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/g/gap-gapdoc/gap-gapdoc_1.6.6-1_all.deb",
+      "sha256": "cb14c58ad6caf05a7fb1bada753156d3ad3df20eee4f8fd2e334be6444f05964",
+      "bytes": 967488
+    },
+    {
+      "package": "gap-libs",
+      "file": "gap-libs_4.12.1-2build2_all.deb",
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/g/gap/gap-libs_4.12.1-2build2_all.deb",
+      "sha256": "a8cfbb0a62eed29cdef6d983ab1cbfbfcf4de45850ddb9c58e585064e8583c8c",
+      "bytes": 9531776
+    },
+    {
+      "package": "gap-core",
+      "file": "gap-core_4.12.1-2build2_amd64.deb",
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/g/gap/gap-core_4.12.1-2build2_amd64.deb",
+      "sha256": "f56581f1e4ea01e4a66e6db6f1fcb997d654d7bd6a7daa66c0e5efff934c1f78",
+      "bytes": 746308
+    },
+    {
+      "package": "gap-smallgrp",
+      "file": "gap-smallgrp_1.5.3-1_all.deb",
+      "url": "https://archive.ubuntu.com/ubuntu/pool/universe/g/gap-smallgrp/gap-smallgrp_1.5.3-1_all.deb",
+      "sha256": "911f5d6aca3c8b9ac18e8edb632fb17da78aaed25ad1237b4868a355db041978",
+      "bytes": 3844480
+    }
+  ],
+  "installed_versions": "gap-character-tables\t1.3.7-1\ngap-core\t4.12.1-2build2\ngap-smallgrp\t1.5.3-1\n",
+  "package_hash_source": "Signed Ubuntu apt index; SHA256 checked for every downloaded .deb before offline apt installation.",
+  "notes": [
+    "APT::Sandbox::User=root used for container user namespace.",
+    "Canonical archive.ubuntu.com package URLs used in place of snapshot URLs.",
+    "Nonfatal man-db setpriv and apt-log ownership warnings; GAP scan completed with empty stderr."
+  ],
+  "gap_environment": {
+    "kind": "environment",
+    "gap_version": "4.12.1",
+    "smallgrp_version": "1.5.3"
+  },
+  "fresh_scan_transcript_sha256": "e9f3812aea71f5562638358c957b91cc802be627d15e8bd440b02c68326bf3f6"
+}

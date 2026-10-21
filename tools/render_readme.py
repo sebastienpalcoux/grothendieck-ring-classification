@@ -5,6 +5,7 @@ import argparse
 from pathlib import Path
 from publication_stages import load_stages, overview
 from rank7_publication import summary as rank7_extension_summary, remaining_ids
+from rank8_publication import summary as rank8_extension_summary, active as rank8_active
 
 ROOT=Path(__file__).resolve().parents[1]
 PUBLIC_ATLAS='https://sebastienpalcoux.github.io/grothendieck-ring-classification/'
@@ -108,6 +109,7 @@ through multiplicity two, with 896 exclusions and 77 unitary models.
 The exclusion of `R8_2_24` follows from an inner-square obstruction using
 pivotal duality, short associator weights and tensor-functor rigidity.
 __RANK7_EXTENSION__
+__RANK8_EXTENSION__
 
 The tables below report the project's classification claims; “complete” and
 “certified” do not imply independent human verification or Lean formalization.
@@ -255,6 +257,7 @@ against classification ledgers.
 ''')
 args.output.parent.mkdir(parents=True,exist_ok=True)
 rendered=('\n'.join(lines).replace('__RANK7_EXTENSION__',rank7_extension_summary(ROOT))
+                              .replace('__RANK8_EXTENSION__',rank8_extension_summary(ROOT) if rank8_active(ROOT) else '')
                               .replace('__OPEN_CASE_COUNT__',str(len(remaining_ids(ROOT))))
                               .replace('__RANK6_SUMMARY__',rank6_summary)
                               .replace('__RANK7_SUMMARY__',upper_summary(7))
@@ -266,6 +269,10 @@ rendered=('\n'.join(lines).replace('__RANK7_EXTENSION__',rank7_extension_summary
                               .replace('__RANK6_CONTINUATION__',rank6_continuation)
                               .replace('__UPPER_RESIDUAL_OVERVIEW__',overview(stage))
                               .replace('__RANK8_READING__','manuscripts/rank8/paper/rank8-reviewed.pdf' if (ROOT/'manuscripts/rank8/paper/rank8-reviewed.pdf').is_file() else 'docs/PREPUBLICATION_REVIEW.md'))
+if rank8_active(ROOT):
+    rendered=rendered.replace('| 8 | Multiplicity 2 | Graded Brauer-Picard, fiber-functor and inner-square rigidity obstructions give the complete classification through 2.', '| 8 | Multiplicity 3 | Quadratic-compositum compression, convex central induction, split-module polynomials and Morita transport extend the classification through multiplicity three.')
+    rendered=rendered.replace('proves the complete classification through multiplicity two.', 'records exclusions, explicit unitary models and individually investigated unresolved candidates through multiplicity three.')
+    rendered=rendered.replace('in the analyzed range; both have braided-only exclusions.', 'in the analyzed range.')
 if args.check:
     if not args.output.is_file() or args.output.read_text()!=rendered:
         raise ValueError('Regenerate '+str(args.output))
