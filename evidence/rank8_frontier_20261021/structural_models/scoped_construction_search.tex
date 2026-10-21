@@ -50,13 +50,24 @@ route at the level of based rings; it asserts neither equivalence of
 associators nor existence of a categorification.
 
 We also enumerate every possible underlying object of a connected
-separable algebra in $R8\_3\_65$, $439$, $455$, $567$, $901$ and $1463$.
+separable algebra in seventeen source rings, supplementing the six
+quadratic cases treated separately.
 The coefficient bounds $a_0=1$, $a_i=a_{i^*}$ and
 $0\leq a_i\leq\lfloor\operatorname{FPdim}(X_i)\rfloor$, invertible
 stabilization, and the entrywise nonnegative positive-semidefinite
-induction residual Gram condition leave respectively
-$30,28,21,22,18,26$ objects. Each entire finite domain is independently
-re-enumerated with rational arithmetic; for the noncommutative tensors
+induction residual Gram condition leave the following numbers of objects:
+\[
+\begin{array}{c|rrrrrrrrr}
+\text{source index}&65&439&455&567&721&901&903&928&941\\
+\text{survivors}&30&28&21&22&45&18&27&24&38\\[2pt]
+\text{source index}&982&985&1154&1463&1615&1617&1660&1661&\\
+\text{survivors}&31&31&81&26&49&39&45&49&
+\end{array}
+\]
+Every retained object is independently checked with rational arithmetic,
+and ten complete finite domains are independently re-enumerated in
+Python; the remaining domains use the same exactly bounded native
+enumerator. For the noncommutative tensors
 the induction matrix uses right multiplication by the candidate algebra.
 No surviving object is asserted to carry an associative multiplication.
 For $R8\_3\_65$, every object $1+X$ with $X$ noninvertible fails this
@@ -106,3 +117,62 @@ Galois companions. We retain the gap between an arbitrary abstract complex
 neutral category with vanishing pointed cocycle obstructions and that
 strict presentation. This conditional calculation does not change the
 general status of $R8\_3\_455$.
+
+\subsection{Closing the remaining near-group and quantum-group model branches}
+\label{subsec:frontier-known-family-closure}
+There is a useful Morita-invariant construction obstruction.
+If a category has no nontrivial invertible basis object commuting with
+all simples and has full adjoint subcategory, its center has no
+nontrivial invertibles. Indeed a central invertible must forget to the
+unit; its half-braiding is a tensor automorphism of the identity and is
+trivial on every constituent of $X\otimes X^*$, hence on the full
+adjoint closure. Both $R8\_3\_439$ and $R8\_3\_567$ satisfy these
+hypotheses exactly. Morita equivalence preserves the braided center
+\cite[Introduction]{ENOExt}.
+
+The complete $SU(2)$ product-dimension sieve retains just the branch
+$2A_{12}$ for these two rings: one adjoint $SU(2)_{10}$ factor and total
+integer multiplier two. Full $SU(2)_{10}$ has a faithful $C_2$ grading;
+each other allowed realization of this dimension branch uses precisely
+one dimension-two extension, equivariantization or Deligne factor.
+Each supplies a nontrivial central invertible, preserved under any
+Morita changes. Thus the whole retained branch is excluded, including
+all ADE module-category Morita duals of $SU(2)_{10}$. Together with the
+thirty dimension obstructions this gives thirty-two $SU(2)$ family
+exclusions among the original thirty-four rings. The remaining two
+dimension matches are integral rings already excluded independently.
+No assertion about arbitrary algebra condensation or other Lie types
+is made.
+
+The actual inversion action of $C_2$ on the known
+$\mathrm{NG}(C_3,6)$ also deserves an explicit check. At the normalized
+solution, \cite[Lemma~13.1 and Example~13.10]{IzumiNear} gives the
+involution $(-\mathrm{id},R_{\pi/4}L)$, with $L=\operatorname{diag}(1,-1)$
+and $(R_{\pi/4}L)^2=I$. Its crossed product is coherent, but its tensor
+has multiplicity six and a nontrivial $C_2$ grading, so it cannot be
+either source tensor. Under the additional hypothesis that the full
+pointed $S_3$ associator class is trivial, condensation of
+$\bigoplus_{g\in S_3}g$ instead forces a rank-five dual with dimensions
+$1,1,2,3+2\sqrt3,3+2\sqrt3$. Complete associativity and rigidity leave
+five based tensors. Full coefficient matching and fresh replay of four
+frozen rank-five exclusion certificates leave only $R5\_3\_40$.
+The known equivariantization realizing that based ring has a central
+$\operatorname{Rep}(C_2)$ and so cannot be this dual. Other associators
+on the same based ring, and the nontrivial pointed-cocycle branch, remain
+open; no model is inferred.
+
+Finally let $D_0$ be the irrational global FP dimension of an arbitrary
+near-group category with group order $n$ and multiplicity $m$. Then
+$\operatorname{Tr}(D_0)=4n+m^2$ and
+$\operatorname{Nm}(D_0)=n(4n+m^2)$. For $R8\_3\_721$,
+$D=136+32\sqrt{17}$ has trace $272$ and norm $1088$.
+An equality $D=tD_0$ with positive integer $t$ therefore forces
+$n=4/t$ and $m^2=256/t$. The complete possibilities are
+$(n,m,t)=(4,16,1)$ and $(1,8,4)$; $t=2$ gives a nonsquare.
+Both groups of order four are excluded by full tensor matches to
+$R5\_16\_1909$ and $R5\_16\_1653$ and fresh frozen
+certificate replay. The rank-two case is excluded by
+\cite[Main Theorem]{Ostrik2}.
+This exhausts all near-group orders and multiplicities with integer
+dimension multipliers and Morita changes for this target, but not
+dimension-decreasing operations or arbitrary nonintegral products.

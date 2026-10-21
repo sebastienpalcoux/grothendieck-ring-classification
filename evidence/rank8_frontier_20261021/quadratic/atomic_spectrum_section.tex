@@ -1,0 +1,60 @@
+\subsection{Distinguished $S$ symmetry over the full character field}
+\label{sec:rank8-full-character-S}
+For a commutative pseudo-unitary fusion ring, let $\chi_E$ run through its
+irreducible characters, $f_E$ be the formal codegree, and
+$\beta_E=D/f_E$. The distinguished central simple $A_E$ in the induction
+of the tensor unit has dimension $\beta_E$ and multiplicity one. If
+$v_E=[F(A_E)]$, the induction--character formula and symmetry of $S$ give
+\begin{equation}\label{eq:rank8-full-character-S}
+ \beta_E\chi_E(v_F)=\beta_F\chi_F(v_E).
+\end{equation}
+Here the formula is symmetric, without complex conjugation. It follows
+from Deshpande, \emph{On centers of bimodule categories and
+induction-restriction functors}, arXiv:1611.04486, Lemma~4.3 and
+Corollary~4.5, specialized to the identity bimodule and one-dimensional
+characters. The equations involving the Frobenius--Perron character
+hold automatically because its distinguished simple is the tensor unit.
+
+We extend the atomic induction relaxation by taking one simplex for
+each non-Frobenius--Perron character, over all allowed integral
+restriction columns of dimension $\beta_E$, and imposing
+\eqref{eq:rank8-full-character-S} in every rational coordinate of the
+full character splitting field $L$. We first apply the necessary
+algebraic-integrality test to
+\[
+ \frac{\beta_E\chi_E(v)}{\operatorname{FPdim}(v)}.
+\]
+Integral closure is tested by the characteristic polynomial of the
+rational multiplication operator on $L$. These symmetry equations
+involve only distinguished columns: high columns and rotation columns
+have zero coefficients in the added rows. Thus the twist-moment
+computations remain in the original Frobenius--Perron field and no
+extension of their relative-trace field is required. No $STS$ equation
+is used in this variant. Independent simplex mixtures give a necessary
+relaxation, weaker than the complete joint-frame hull; feasibility has
+no realization implication.
+
+For $R_{8,3,3413}$ the full field is
+$\mathbb Q(\sqrt5,\theta)$, where $\theta^3-3\theta+1=0$.
+Using $u=\sqrt5+\theta$ gives
+\[
+ u^6-21u^4+2u^3+84u^2+24u-19=0.
+\]
+The exact height-four cone has $253$ equations and $4485$ columns:
+$780$ distinguished choices, $367$ high restriction vectors paired with
+$10$ joint trace types, and $35$ rotation columns. The sole permitted
+second-indicator assignment is $(1,1,1,1,1,1,1)$. The saved integral
+functional is nonnegative on every column and strictly negative on
+the right-hand side. Every inequality is also checked by direct column
+dot products independently of the factored oracle.
+
+The general lift has five spherical-character factors, of degrees
+$1,1,1,2,3$. Four factors force a zero simple-object dimension; the
+quadratic factor is the Frobenius--Perron Galois orbit, excluded by the
+preceding cone. The complete oriented signed enumeration has one
+branch, gauge equivalent to the original ring. Therefore
+$R_{8,3,3413}$ admits no complex fusion-category categorification,
+without a pivotality or unitarity assumption. The independent replay
+is \texttt{quadratic/review\_atomic\_spectrum.py}; its source-bound
+receipt also includes a known $\mathrm{Fib}\boxtimes\mathrm{Vec}_{C_2\times C_2}$
+exact feasible control and complete oracle comparisons.

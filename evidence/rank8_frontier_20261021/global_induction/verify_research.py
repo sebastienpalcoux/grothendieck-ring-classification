@@ -7,7 +7,7 @@ their explicitly limited scopes.
 from pathlib import Path
 import subprocess,sys
 HERE=Path(__file__).resolve().parent
-VALIDATIONS=('verify_streaming.py','verify_frames.py','verify_sts.py','verify_generic.py')
+VALIDATIONS=('verify_streaming.py','verify_frames.py','verify_sts.py','verify_generic.py','verify_atomic.py')
 RESULTS=(
  ('column_generation.py','results/R8_3_334_h4.json'),
  ('column_generation.py','results/R8_3_1453_h4.json'),
@@ -17,6 +17,10 @@ RESULTS=(
  ('frame_generation.py','frame_results/R8_3_1739_h4.json'),
  ('spectral_generation.py','spectral_results/R8_3_334_h4.json'),
  ('sts_generation.py','sts_results/R8_3_334_h4.json'),
+ ('generic_generation.py','generic_results/R8_3_901_frame_h4.json'),
+ ('atomic_spectrum_generation.py','atomic_spectrum_results/R8_3_65_h4.json'),
+ ('atomic_spectrum_generation.py','atomic_spectrum_results/R8_3_3472_h4.json'),
+ ('generic_generation.py','generic_results/R8_3_1463_sts_frame_h4.json'),
  ('fixed_frame.py','fixed_results/R8_3_334_frame39_h4.json'),
  ('fixed_frame.py','fixed_results/R8_3_1739_frame3445_h4.json'),
  ('fixed_frame.py','fixed_results/R8_3_1739_frame3445_h6.json'),

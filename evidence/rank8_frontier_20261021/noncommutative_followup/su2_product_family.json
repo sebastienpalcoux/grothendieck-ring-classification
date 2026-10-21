@@ -1,0 +1,1027 @@
+[
+  {
+    "id": "R8_3_721",
+    "tensor_sha256": "76e26a815651476dfda5c2aa654f0d1327bdc890e08086cb6dbfe39ef9a1cdc5",
+    "scope": "specific_model_family_only",
+    "outcome": "family_excluded_by_exact_global_dimension",
+    "target_field_degree": 2,
+    "target_global_dimension": [
+      "32/5",
+      "8/5"
+    ],
+    "complete_order_candidates": [
+      3,
+      4,
+      5,
+      6,
+      8,
+      10,
+      12
+    ],
+    "order_tests": [
+      {
+        "n": 3,
+        "level": 1,
+        "outcome": "integer_factor_absorbed",
+        "dimension": [
+          "1"
+        ]
+      },
+      {
+        "n": 4,
+        "level": 2,
+        "outcome": "integer_factor_absorbed",
+        "dimension": [
+          "2"
+        ]
+      },
+      {
+        "n": 5,
+        "level": 3,
+        "polynomial": [
+          "1",
+          "-5",
+          "5"
+        ],
+        "outcome": "field_not_contained",
+        "factor_degrees_over_target": [
+          [
+            2,
+            1
+          ]
+        ]
+      },
+      {
+        "n": 6,
+        "level": 4,
+        "outcome": "integer_factor_absorbed",
+        "dimension": [
+          "6"
+        ]
+      },
+      {
+        "n": 8,
+        "level": 6,
+        "polynomial": [
+          "1",
+          "-16",
+          "32"
+        ],
+        "outcome": "field_not_contained",
+        "factor_degrees_over_target": [
+          [
+            2,
+            1
+          ]
+        ]
+      },
+      {
+        "n": 10,
+        "level": 8,
+        "polynomial": [
+          "1",
+          "-30",
+          "100"
+        ],
+        "outcome": "field_not_contained",
+        "factor_degrees_over_target": [
+          [
+            2,
+            1
+          ]
+        ]
+      },
+      {
+        "n": 12,
+        "level": 10,
+        "polynomial": [
+          "1",
+          "-48",
+          "144"
+        ],
+        "outcome": "field_not_contained",
+        "factor_degrees_over_target": [
+          [
+            2,
+            1
+          ]
+        ]
+      }
+    ],
+    "allowed_order_sequence": [],
+    "exponent_box_size": 1,
+    "dimension_bounded_product_count": 1,
+    "products": [
+      {
+        "exponents": [],
+        "quotient": [
+          "32/5",
+          "8/5"
+        ],
+        "positive_integer": false
+      }
+    ],
+    "positive_integer_scaling_matches": [],
+    "family": "All finite Deligne products of SU(2)_k and adjoint SU(2)_k, all k>=1; arbitrary positive integer dimension multipliers; all Morita duals.",
+    "not_covered": "Other Lie types, arbitrary algebra condensation, dimension-decreasing de-equivariantization, or general categorifications."
+  },
+  {
+    "id": "R8_3_928",
+    "tensor_sha256": "94dfb90235dbb3ba95864a1be23437943ea3b1316ec82ca44baf419262890614",
+    "scope": "specific_model_family_only",
+    "outcome": "family_excluded_by_exact_global_dimension",
+    "target_field_degree": 4,
+    "target_global_dimension": [
+      "-1/8",
+      "8",
+      "-30",
+      "32"
+    ],
+    "complete_order_candidates": [
+      3,
+      4,
+      5,
+      6,
+      8,
+      10,
+      12,
+      15,
+      16,
+      20,
+      24,
+      30
+    ],
+    "order_tests": [
+      {
+        "n": 3,
+        "level": 1,
+        "outcome": "integer_factor_absorbed",
+        "dimension": [
+          "1"
+        ]
+      },
+      {
+        "n": 4,
+        "level": 2,
+        "outcome": "integer_factor_absorbed",
+        "dimension": [
+          "2"
+        ]
+      },
+      {
+        "n": 5,
+        "level": 3,
+        "polynomial": [
+          "1",
+          "-5",
+          "5"
+        ],
+        "outcome": "field_not_contained",
+        "factor_degrees_over_target": [
+          [
+            2,
+            1
+          ]
+        ]
+      },
+      {
+        "n": 6,
+        "level": 4,
+        "outcome": "integer_factor_absorbed",
+        "dimension": [
+          "6"
+        ]
+      },
+      {
+        "n": 8,
+        "level": 6,
+        "polynomial": [
+          "1",
+          "-16",
+          "32"
+        ],
+        "outcome": "allowed_factor",
+        "dimension": [
+          "5/16",
+          "-39/2",
+          "69",
+          "-48"
+        ],
+        "maximum_exponent": 2,
+        "last_power": [
+          "5",
+          "-312",
+          "1104",
+          "-800"
+        ],
+        "first_excluded_power": [
+          "70",
+          "-4368",
+          "15456",
+          "-11264"
+        ]
+      },
+      {
+        "n": 10,
+        "level": 8,
+        "polynomial": [
+          "1",
+          "-30",
+          "100"
+        ],
+        "outcome": "field_not_contained",
+        "factor_degrees_over_target": [
+          [
+            2,
+            1
+          ]
+        ]
+      },
+      {
+        "n": 12,
+        "level": 10,
+        "polynomial": [
+          "1",
+          "-48",
+          "144"
+        ],
+        "outcome": "allowed_factor",
+        "dimension": [
+          "-3/4",
+          "189/4",
+          "-192",
+          "192"
+        ],
+        "maximum_exponent": 1,
+        "last_power": [
+          "-3/4",
+          "189/4",
+          "-192",
+          "192"
+        ],
+        "first_excluded_power": [
+          "-36",
+          "2268",
+          "-9216",
+          "9072"
+        ]
+      },
+      {
+        "n": 15,
+        "level": 13,
+        "polynomial": [
+          "1",
+          "-120",
+          "3150",
+          "-23625",
+          "50625"
+        ],
+        "outcome": "field_not_contained",
+        "factor_degrees_over_target": [
+          [
+            4,
+            1
+          ]
+        ]
+      },
+      {
+        "n": 16,
+        "level": 14,
+        "polynomial": [
+          "1",
+          "-128",
+          "2560",
+          "-16384",
+          "32768"
+        ],
+        "outcome": "field_not_contained",
+        "factor_degrees_over_target": [
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            1
+          ]
+        ]
+      },
+      {
+        "n": 20,
+        "level": 18,
+        "polynomial": [
+          "1",
+          "-240",
+          "7600",
+          "-64000",
+          "160000"
+        ],
+        "outcome": "field_not_contained",
+        "factor_degrees_over_target": [
+          [
+            4,
+            1
+          ]
+        ]
+      },
+      {
+        "n": 24,
+        "level": 22,
+        "polynomial": [
+          "1",
+          "-384",
+          "11520",
+          "-110592",
+          "331776"
+        ],
+        "outcome": "allowed_factor",
+        "dimension": [
+          "6",
+          "0"
+        ],
+        "maximum_exponent": 1,
+        "last_power": [
+          "6",
+          "0"
+        ],
+        "first_excluded_power": [
+          "36",
+          "0",
+          "0"
+        ]
+      },
+      {
+        "n": 30,
+        "level": 28,
+        "polynomial": [
+          "1",
+          "-720",
+          "23400",
+          "-243000",
+          "810000"
+        ],
+        "outcome": "field_not_contained",
+        "factor_degrees_over_target": [
+          [
+            4,
+            1
+          ]
+        ]
+      }
+    ],
+    "allowed_order_sequence": [
+      8,
+      12,
+      24
+    ],
+    "exponent_box_size": 12,
+    "dimension_bounded_product_count": 5,
+    "products": [
+      {
+        "exponents": [
+          0,
+          0,
+          0
+        ],
+        "quotient": [
+          "-1/8",
+          "8",
+          "-30",
+          "32"
+        ],
+        "positive_integer": false
+      },
+      {
+        "exponents": [
+          0,
+          0,
+          1
+        ],
+        "quotient": [
+          "-1/48",
+          "21/16",
+          "-16/3",
+          "17/3"
+        ],
+        "positive_integer": false
+      },
+      {
+        "exponents": [
+          0,
+          1,
+          0
+        ],
+        "quotient": [
+          "1/96",
+          "-2/3",
+          "7/2",
+          "-8/3"
+        ],
+        "positive_integer": false
+      },
+      {
+        "exponents": [
+          1,
+          0,
+          0
+        ],
+        "quotient": [
+          "-3/32",
+          "47/8",
+          "-43/2",
+          "20"
+        ],
+        "positive_integer": false
+      },
+      {
+        "exponents": [
+          2,
+          0,
+          0
+        ],
+        "quotient": [
+          "-11/256",
+          "43/16",
+          "-157/16",
+          "9"
+        ],
+        "positive_integer": false
+      }
+    ],
+    "positive_integer_scaling_matches": [],
+    "family": "All finite Deligne products of SU(2)_k and adjoint SU(2)_k, all k>=1; arbitrary positive integer dimension multipliers; all Morita duals.",
+    "not_covered": "Other Lie types, arbitrary algebra condensation, dimension-decreasing de-equivariantization, or general categorifications."
+  },
+  {
+    "id": "R8_3_941",
+    "tensor_sha256": "8ae4007492dee167ab8b3f4f16310ee368482da03696e20ed7cceea34bec64e6",
+    "scope": "specific_model_family_only",
+    "outcome": "family_excluded_by_exact_global_dimension",
+    "target_field_degree": 4,
+    "target_global_dimension": [
+      "-1/8",
+      "8",
+      "-30",
+      "32"
+    ],
+    "complete_order_candidates": [
+      3,
+      4,
+      5,
+      6,
+      8,
+      10,
+      12,
+      15,
+      16,
+      20,
+      24,
+      30
+    ],
+    "order_tests": [
+      {
+        "n": 3,
+        "level": 1,
+        "outcome": "integer_factor_absorbed",
+        "dimension": [
+          "1"
+        ]
+      },
+      {
+        "n": 4,
+        "level": 2,
+        "outcome": "integer_factor_absorbed",
+        "dimension": [
+          "2"
+        ]
+      },
+      {
+        "n": 5,
+        "level": 3,
+        "polynomial": [
+          "1",
+          "-5",
+          "5"
+        ],
+        "outcome": "field_not_contained",
+        "factor_degrees_over_target": [
+          [
+            2,
+            1
+          ]
+        ]
+      },
+      {
+        "n": 6,
+        "level": 4,
+        "outcome": "integer_factor_absorbed",
+        "dimension": [
+          "6"
+        ]
+      },
+      {
+        "n": 8,
+        "level": 6,
+        "polynomial": [
+          "1",
+          "-16",
+          "32"
+        ],
+        "outcome": "allowed_factor",
+        "dimension": [
+          "5/16",
+          "-39/2",
+          "69",
+          "-48"
+        ],
+        "maximum_exponent": 2,
+        "last_power": [
+          "5",
+          "-312",
+          "1104",
+          "-800"
+        ],
+        "first_excluded_power": [
+          "70",
+          "-4368",
+          "15456",
+          "-11264"
+        ]
+      },
+      {
+        "n": 10,
+        "level": 8,
+        "polynomial": [
+          "1",
+          "-30",
+          "100"
+        ],
+        "outcome": "field_not_contained",
+        "factor_degrees_over_target": [
+          [
+            2,
+            1
+          ]
+        ]
+      },
+      {
+        "n": 12,
+        "level": 10,
+        "polynomial": [
+          "1",
+          "-48",
+          "144"
+        ],
+        "outcome": "allowed_factor",
+        "dimension": [
+          "-3/4",
+          "189/4",
+          "-192",
+          "192"
+        ],
+        "maximum_exponent": 1,
+        "last_power": [
+          "-3/4",
+          "189/4",
+          "-192",
+          "192"
+        ],
+        "first_excluded_power": [
+          "-36",
+          "2268",
+          "-9216",
+          "9072"
+        ]
+      },
+      {
+        "n": 15,
+        "level": 13,
+        "polynomial": [
+          "1",
+          "-120",
+          "3150",
+          "-23625",
+          "50625"
+        ],
+        "outcome": "field_not_contained",
+        "factor_degrees_over_target": [
+          [
+            4,
+            1
+          ]
+        ]
+      },
+      {
+        "n": 16,
+        "level": 14,
+        "polynomial": [
+          "1",
+          "-128",
+          "2560",
+          "-16384",
+          "32768"
+        ],
+        "outcome": "field_not_contained",
+        "factor_degrees_over_target": [
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            1
+          ]
+        ]
+      },
+      {
+        "n": 20,
+        "level": 18,
+        "polynomial": [
+          "1",
+          "-240",
+          "7600",
+          "-64000",
+          "160000"
+        ],
+        "outcome": "field_not_contained",
+        "factor_degrees_over_target": [
+          [
+            4,
+            1
+          ]
+        ]
+      },
+      {
+        "n": 24,
+        "level": 22,
+        "polynomial": [
+          "1",
+          "-384",
+          "11520",
+          "-110592",
+          "331776"
+        ],
+        "outcome": "allowed_factor",
+        "dimension": [
+          "6",
+          "0"
+        ],
+        "maximum_exponent": 1,
+        "last_power": [
+          "6",
+          "0"
+        ],
+        "first_excluded_power": [
+          "36",
+          "0",
+          "0"
+        ]
+      },
+      {
+        "n": 30,
+        "level": 28,
+        "polynomial": [
+          "1",
+          "-720",
+          "23400",
+          "-243000",
+          "810000"
+        ],
+        "outcome": "field_not_contained",
+        "factor_degrees_over_target": [
+          [
+            4,
+            1
+          ]
+        ]
+      }
+    ],
+    "allowed_order_sequence": [
+      8,
+      12,
+      24
+    ],
+    "exponent_box_size": 12,
+    "dimension_bounded_product_count": 5,
+    "products": [
+      {
+        "exponents": [
+          0,
+          0,
+          0
+        ],
+        "quotient": [
+          "-1/8",
+          "8",
+          "-30",
+          "32"
+        ],
+        "positive_integer": false
+      },
+      {
+        "exponents": [
+          0,
+          0,
+          1
+        ],
+        "quotient": [
+          "-1/48",
+          "21/16",
+          "-16/3",
+          "17/3"
+        ],
+        "positive_integer": false
+      },
+      {
+        "exponents": [
+          0,
+          1,
+          0
+        ],
+        "quotient": [
+          "1/96",
+          "-2/3",
+          "7/2",
+          "-8/3"
+        ],
+        "positive_integer": false
+      },
+      {
+        "exponents": [
+          1,
+          0,
+          0
+        ],
+        "quotient": [
+          "-3/32",
+          "47/8",
+          "-43/2",
+          "20"
+        ],
+        "positive_integer": false
+      },
+      {
+        "exponents": [
+          2,
+          0,
+          0
+        ],
+        "quotient": [
+          "-11/256",
+          "43/16",
+          "-157/16",
+          "9"
+        ],
+        "positive_integer": false
+      }
+    ],
+    "positive_integer_scaling_matches": [],
+    "family": "All finite Deligne products of SU(2)_k and adjoint SU(2)_k, all k>=1; arbitrary positive integer dimension multipliers; all Morita duals.",
+    "not_covered": "Other Lie types, arbitrary algebra condensation, dimension-decreasing de-equivariantization, or general categorifications."
+  },
+  {
+    "id": "R8_3_1154",
+    "tensor_sha256": "c399505be76a64c8aba65feaf2cd55125dc7132f5894b74e58b64473d1387e25",
+    "scope": "specific_model_family_only",
+    "outcome": "family_excluded_by_exact_global_dimension",
+    "target_field_degree": 2,
+    "target_global_dimension": [
+      "80/123",
+      "-940/123"
+    ],
+    "complete_order_candidates": [
+      3,
+      4,
+      5,
+      6,
+      8,
+      10,
+      12
+    ],
+    "order_tests": [
+      {
+        "n": 3,
+        "level": 1,
+        "outcome": "integer_factor_absorbed",
+        "dimension": [
+          "1"
+        ]
+      },
+      {
+        "n": 4,
+        "level": 2,
+        "outcome": "integer_factor_absorbed",
+        "dimension": [
+          "2"
+        ]
+      },
+      {
+        "n": 5,
+        "level": 3,
+        "polynomial": [
+          "1",
+          "-5",
+          "5"
+        ],
+        "outcome": "allowed_factor",
+        "dimension": [
+          "1/738",
+          "1003/738"
+        ],
+        "maximum_exponent": 5,
+        "last_power": [
+          "275/738",
+          "-925/738"
+        ],
+        "first_excluded_power": [
+          "500/369",
+          "-5875/369"
+        ]
+      },
+      {
+        "n": 6,
+        "level": 4,
+        "outcome": "integer_factor_absorbed",
+        "dimension": [
+          "6"
+        ]
+      },
+      {
+        "n": 8,
+        "level": 6,
+        "polynomial": [
+          "1",
+          "-16",
+          "32"
+        ],
+        "outcome": "field_not_contained",
+        "factor_degrees_over_target": [
+          [
+            2,
+            1
+          ]
+        ]
+      },
+      {
+        "n": 10,
+        "level": 8,
+        "polynomial": [
+          "1",
+          "-30",
+          "100"
+        ],
+        "outcome": "allowed_factor",
+        "dimension": [
+          "5/369",
+          "1325/369"
+        ],
+        "maximum_exponent": 2,
+        "last_power": [
+          "50/123",
+          "950/123"
+        ],
+        "first_excluded_power": [
+          "4000/369",
+          "-47000/369"
+        ]
+      },
+      {
+        "n": 12,
+        "level": 10,
+        "polynomial": [
+          "1",
+          "-48",
+          "144"
+        ],
+        "outcome": "field_not_contained",
+        "factor_degrees_over_target": [
+          [
+            2,
+            1
+          ]
+        ]
+      }
+    ],
+    "allowed_order_sequence": [
+      5,
+      10
+    ],
+    "exponent_box_size": 18,
+    "dimension_bounded_product_count": 10,
+    "products": [
+      {
+        "exponents": [
+          0,
+          0
+        ],
+        "quotient": [
+          "80/123",
+          "-940/123"
+        ],
+        "positive_integer": false
+      },
+      {
+        "exponents": [
+          0,
+          1
+        ],
+        "quotient": [
+          "1/41",
+          "19/41"
+        ],
+        "positive_integer": false
+      },
+      {
+        "exponents": [
+          0,
+          2
+        ],
+        "quotient": [
+          "1/1230",
+          "53/246"
+        ],
+        "positive_integer": false
+      },
+      {
+        "exponents": [
+          1,
+          0
+        ],
+        "quotient": [
+          "22/123",
+          "-74/123"
+        ],
+        "positive_integer": false
+      },
+      {
+        "exponents": [
+          1,
+          1
+        ],
+        "quotient": [
+          "4/615",
+          "322/615"
+        ],
+        "positive_integer": false
+      },
+      {
+        "exponents": [
+          2,
+          0
+        ],
+        "quotient": [
+          "2/41",
+          "38/41"
+        ],
+        "positive_integer": false
+      },
+      {
+        "exponents": [
+          2,
+          1
+        ],
+        "quotient": [
+          "1/615",
+          "53/123"
+        ],
+        "positive_integer": false
+      },
+      {
+        "exponents": [
+          3,
+          0
+        ],
+        "quotient": [
+          "8/615",
+          "644/615"
+        ],
+        "positive_integer": false
+      },
+      {
+        "exponents": [
+          4,
+          0
+        ],
+        "quotient": [
+          "2/615",
+          "106/123"
+        ],
+        "positive_integer": false
+      },
+      {
+        "exponents": [
+          5,
+          0
+        ],
+        "quotient": [
+          "2/3075",
+          "2006/3075"
+        ],
+        "positive_integer": false
+      }
+    ],
+    "positive_integer_scaling_matches": [],
+    "family": "All finite Deligne products of SU(2)_k and adjoint SU(2)_k, all k>=1; arbitrary positive integer dimension multipliers; all Morita duals.",
+    "not_covered": "Other Lie types, arbitrary algebra condensation, dimension-decreasing de-equivariantization, or general categorifications."
+  }
+]

@@ -64,7 +64,9 @@ de-equivariantization is outside its scope.
 For 1795,3258,3413, the values $G_D=10/3,45/7,45/7$ exclude the whole
 stated family. For 1055 and 1768, $G_D=6$ and all matches have $s=1,K=12$;
 the tuples $(k,G,\ell)$ are
-$(1,6,6),(2,3,3),(3,2,2),(6,1,1)$.
+\[
+ (1,6,6),\quad (2,3,3),\quad (3,2,2),\quad (6,1,1).
+\]
 The last is excluded by the rank-two classification and the third by the
 rank-four bound, its base dimension being $148+24\sqrt{37}>45$.
 For 3472, $G_D=7$, $s=1,K=14$, and the matches are $(1,7,7),(7,1,1)$;
@@ -96,10 +98,37 @@ Index & FP radicand & Characters in FP field & Other factor degrees\\\hline
 
 Thus a modular-eigenvalue calculation confined to the real FP field has
 complete character coverage for 1768,1795,3258. The other four need larger
-splitting fields. This is a precise arithmetic applicability statement,
-not a categorification obstruction by itself. All characteristic
-polynomials, factors, and full matrix interpolation identities are
-source-bound in the replay evidence.
+splitting fields. The following exact adapters now supply all four of
+them, with every source character polynomial checked to split completely:
+\[
+\begin{array}{c|c|l}
+\text{index}&[L:\mathbb Q]&\text{defining polynomial of }u\\\hline
+65&4&u^4-8u^2+36\\
+1055&4&u^4-68u^2+1600\\
+3413&6&u^6-21u^4+2u^3+84u^2+24u-19\\
+3472&6&u^6+2u^5-9u^4-14u^3+10u^2+8u+1
+\end{array}
+\]
+For 65 and 1055, the fields are respectively
+$\mathbb Q(\sqrt5,i)$ and $\mathbb Q(\sqrt{37},\sqrt{-3})$, with
+$u$ the sum of the displayed radicals. Complex conjugation fixes the
+real radical and negates the imaginary one; its multiplicativity and
+involution identities are checked exactly. For 3413 and 3472, take
+$u=\sqrt q+\theta$, with respectively
+$(q,p_\theta)=(5,t^3-3t+1)$ and $(2,t^3+t^2-2t-1)$.
+
+For $\lambda\in L$, algebraic integrality is equivalent to the rational
+matrix of multiplication by $\lambda$ having monic integral characteristic
+polynomial: necessity follows from the minimal polynomial, and sufficiency
+because that characteristic polynomial annihilates $\lambda$.
+This tests the full ring of integers without assuming that the primitive
+power basis is integral. The adapters check all eight character rows,
+their products, dualities, orthogonality, the FP embedding, and direct
+multiplication-operator controls. All twelve distinct restriction columns
+of the known center of Fibonacci $\boxtimes\operatorname{Vec}(C_2\times C_2)$
+are retained in both overfield adapters. These are complete arithmetic
+applicability results; categorical obstruction claims retain the
+hypotheses of the associated center theorem.
 
 % Follow this fragment by connected_algebra_section.tex, which contains
 % the general connected-algebra proof and the complete enumeration table.

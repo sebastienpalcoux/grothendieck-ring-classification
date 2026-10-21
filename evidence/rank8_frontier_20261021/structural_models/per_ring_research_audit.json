@@ -3,7 +3,7 @@
   "scope": "research coverage and source binding; linked proof verifiers provide mathematical replay",
   "research_status": "ongoing",
   "baseline_ring_count": 34,
-  "accepted_general_exclusions": 11,
+  "accepted_general_exclusions": 15,
   "candidate_terminology": "After completed extensive known/new exclusion and construction screening, a remaining ring may be called an extensively investigated exotic candidate in the user-defined sense; categorifiability and novelty remain unproved.",
   "rows": [
     {
@@ -1471,6 +1471,60 @@
             "one_plus_simple_surviving_indices": [
               7
             ]
+          }
+        },
+        {
+          "domain": "all_levels_SU2_adjoint_finite_products_integer_multiplier_chains_and_Morita_duals",
+          "outcome": "family_excluded_by_exact_global_dimension",
+          "scope": "general_complex_construction_family_dimension_obstruction",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/su2_all_frontier.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/su2_all_frontier.py",
+            "evidence/rank8_frontier_20261021/noncommutative_followup/su2_product_family.py"
+          ],
+          "limitation": "Other Lie types, arbitrary algebra condensation, dimension-decreasing de-equivariantization, or general categorifications.",
+          "proof": "evidence/rank8_frontier_20261021/noncommutative_followup/SU2_FAMILY.md",
+          "details": {
+            "complete_order_candidates": [
+              3,
+              4,
+              5,
+              6,
+              8,
+              10,
+              12
+            ],
+            "allowed_order_sequence": [
+              5,
+              10
+            ],
+            "exponent_box_size": 10,
+            "dimension_bounded_product_count": 8,
+            "positive_integer_scaling_matches": []
+          }
+        },
+        {
+          "domain": "atomic_spectrum_global_column_generation",
+          "outcome": "exact_feasible_relaxation",
+          "scope": "pseudo_unitary_induction_relaxation",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/global_induction/atomic_spectrum_results/R8_3_65_h4.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/global_induction/atomic_spectrum_generation.py"
+          ],
+          "limitation": "A running/partial computation is incomplete; a feasible relaxation does not construct integer center data or an associator.",
+          "proof": "evidence/rank8_frontier_20261021/global_induction/ATOMIC_SPECTRUM.md",
+          "details": {
+            "height": 4,
+            "frame_index": null,
+            "rows": 211,
+            "variables": 6521,
+            "low_frames": null,
+            "high_columns": 772,
+            "complete_exact_certificate": true
           }
         }
       ],
@@ -4082,6 +4136,35 @@
             ],
             "independent_proof": "r436_general_tpe.json"
           }
+        },
+        {
+          "domain": "all_levels_SU2_adjoint_finite_products_integer_multiplier_chains_and_Morita_duals",
+          "outcome": "family_excluded_by_exact_global_dimension",
+          "scope": "general_complex_construction_family_dimension_obstruction",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/su2_all_frontier.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/su2_all_frontier.py",
+            "evidence/rank8_frontier_20261021/noncommutative_followup/su2_product_family.py"
+          ],
+          "limitation": "Other Lie types, arbitrary algebra condensation, dimension-decreasing de-equivariantization, or general categorifications.",
+          "proof": "evidence/rank8_frontier_20261021/noncommutative_followup/SU2_FAMILY.md",
+          "details": {
+            "complete_order_candidates": [
+              3,
+              4,
+              5,
+              6,
+              8,
+              10,
+              12
+            ],
+            "allowed_order_sequence": [],
+            "exponent_box_size": 1,
+            "dimension_bounded_product_count": 1,
+            "positive_integer_scaling_matches": []
+          }
         }
       ],
       "limitations": [
@@ -5268,6 +5351,83 @@
           }
         },
         {
+          "domain": "full_S3_condensation_with_trivial_pointed_cocycle_and_all_dual_rank5_tensors",
+          "outcome": "conditional_rank_five_Morita_branch_survives; no_model_or_exclusion",
+          "scope": "conditional_general_complex_Morita_construction_branch",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/structural_models/s3_full_condensation.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/structural_models/s3_full_condensation.py"
+          ],
+          "limitation": "The pointed C2 part of H3(S3,C*) is not trivialized by a C3-fixed simple. Same rank/dimensions or a possible same based ring do not identify associators or imply centrality.",
+          "proof": "evidence/rank8_frontier_20261021/structural_models/S3_FULL_CONDENSATION.md",
+          "details": {
+            "hypothesis": "pointed S3 associator class is trivial; not proved or assumed for general classification",
+            "module_rank": 4,
+            "dual_rank": 5,
+            "complete_based_tensor_count": 5
+          }
+        },
+        {
+          "domain": "complete_retained_SU2_Morita_family_and_actual_near_group_inversion_crossed_product",
+          "outcome": "specified_families_excluded",
+          "scope": "general_complex_construction_families",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/structural_models/known_model_routes.json",
+            "evidence/rank8_frontier_20261021/structural_models/rank5_route_bindings.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/structural_models/known_model_routes.py",
+            "evidence/rank8_frontier_20261021/structural_models/rank5_route_bindings.py"
+          ],
+          "limitation": "A different associator on the same rank-five based ring, a nontrivial pointed S3 cocycle, arbitrary algebra condensation and unrelated construction families remain open.",
+          "proof": "evidence/rank8_frontier_20261021/structural_models/KNOWN_MODEL_ROUTES.md",
+          "details": {
+            "id": "R8_3_439",
+            "tensor_sha256": "dd40ef78c0af51291aedd91134123f7177c18cc9de9c9d3b039a6308bb340791",
+            "invertibles": [
+              0,
+              1,
+              2,
+              3,
+              6,
+              7
+            ],
+            "central_invertible_source_labels": [
+              0
+            ],
+            "adjoint_seed": [
+              0,
+              1,
+              2,
+              4,
+              5
+            ],
+            "adjoint_closure": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "all_complex_categorifications_center_invertible_count": 1,
+            "complete_SU2_retained_dimension_branch": {
+              "adjoint_level": 10,
+              "nonrational_exponent": 1,
+              "total_integer_multiplier": 2
+            },
+            "SU2_family_outcome": "family_excluded_by_trivial_center_invertibles",
+            "inversion_crossed_product_outcome": "full512_based_tensor_excluded_by_exact_multiplicity_and_grading_invariants",
+            "conditional_full_S3_dual_remaining_based_ring": "R5_3_40",
+            "conditional_full_S3_dual_cannot_be_known_equivariantization_category": true,
+            "limitation": "A different associator on the same rank-five based ring, a nontrivial pointed S3 cocycle, arbitrary algebra condensation and unrelated construction families remain open."
+          }
+        },
+        {
           "domain": "all_connected_separable_algebra_underlying_objects_entrywise_and_PSD_Gram",
           "outcome": "complete_necessary_object_filter_survives",
           "scope": "general_complex_algebra_construction_constraints",
@@ -5307,6 +5467,64 @@
           "details": {
             "finite_cases_after_proved_phase_gauge": 30000,
             "exact_necessary_solution_count": 2
+          }
+        },
+        {
+          "domain": "complete_signed_sphericalization_and_general_Galois_PU_reduction",
+          "outcome": "Galois_pseudo_unitary_reduction",
+          "scope": "general_complex_fusion_category; no existence or nonexistence conclusion",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/additional_scope_gates.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/additional_scope_gates.py"
+          ],
+          "limitation": "This proves a scope reduction, not categorifiability or unitarity. Necessary PU constraints apply after Galois conjugation.",
+          "proof": "evidence/rank8_frontier_20261021/noncommutative_followup/ADDITIONAL_SCOPE_GATES.md",
+          "details": {
+            "complete_signed_count": 256,
+            "normalized_indicator_domains_used": false
+          }
+        },
+        {
+          "domain": "all_levels_SU2_adjoint_finite_products_integer_multiplier_chains_and_Morita_duals",
+          "outcome": "dimension_compatible_not_model",
+          "scope": "general_complex_construction_family_dimension_obstruction",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/su2_all_frontier.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/su2_all_frontier.py",
+            "evidence/rank8_frontier_20261021/noncommutative_followup/su2_product_family.py"
+          ],
+          "limitation": "Other Lie types, arbitrary algebra condensation, dimension-decreasing de-equivariantization, or general categorifications.",
+          "proof": "evidence/rank8_frontier_20261021/noncommutative_followup/SU2_FAMILY.md",
+          "details": {
+            "complete_order_candidates": [
+              3,
+              4,
+              5,
+              6,
+              8,
+              10,
+              12
+            ],
+            "allowed_order_sequence": [
+              12
+            ],
+            "exponent_box_size": 2,
+            "dimension_bounded_product_count": 2,
+            "positive_integer_scaling_matches": [
+              {
+                "exponents": [
+                  1
+                ],
+                "quotient": [
+                  "2"
+                ],
+                "positive_integer": true
+              }
+            ]
           }
         }
       ],
@@ -8956,6 +9174,59 @@
               7
             ]
           }
+        },
+        {
+          "domain": "complete_signed_sphericalization_and_general_Galois_PU_reduction",
+          "outcome": "Galois_pseudo_unitary_reduction",
+          "scope": "general_complex_fusion_category; no existence or nonexistence conclusion",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/additional_scope_gates.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/additional_scope_gates.py"
+          ],
+          "limitation": "This proves a scope reduction, not categorifiability or unitarity. Necessary PU constraints apply after Galois conjugation.",
+          "proof": "evidence/rank8_frontier_20261021/noncommutative_followup/ADDITIONAL_SCOPE_GATES.md",
+          "details": {
+            "complete_signed_count": 32,
+            "normalized_indicator_domains_used": false
+          }
+        },
+        {
+          "domain": "all_levels_SU2_adjoint_finite_products_integer_multiplier_chains_and_Morita_duals",
+          "outcome": "family_excluded_by_exact_global_dimension",
+          "scope": "general_complex_construction_family_dimension_obstruction",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/su2_all_frontier.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/su2_all_frontier.py",
+            "evidence/rank8_frontier_20261021/noncommutative_followup/su2_product_family.py"
+          ],
+          "limitation": "Other Lie types, arbitrary algebra condensation, dimension-decreasing de-equivariantization, or general categorifications.",
+          "proof": "evidence/rank8_frontier_20261021/noncommutative_followup/SU2_FAMILY.md",
+          "details": {
+            "complete_order_candidates": [
+              3,
+              4,
+              5,
+              6,
+              8,
+              10,
+              12,
+              15,
+              16,
+              20,
+              24,
+              30
+            ],
+            "allowed_order_sequence": [
+              12
+            ],
+            "exponent_box_size": 2,
+            "dimension_bounded_product_count": 2,
+            "positive_integer_scaling_matches": []
+          }
         }
       ],
       "limitations": [
@@ -10077,6 +10348,83 @@
           }
         },
         {
+          "domain": "full_S3_condensation_with_trivial_pointed_cocycle_and_all_dual_rank5_tensors",
+          "outcome": "conditional_rank_five_Morita_branch_survives; no_model_or_exclusion",
+          "scope": "conditional_general_complex_Morita_construction_branch",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/structural_models/s3_full_condensation.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/structural_models/s3_full_condensation.py"
+          ],
+          "limitation": "The pointed C2 part of H3(S3,C*) is not trivialized by a C3-fixed simple. Same rank/dimensions or a possible same based ring do not identify associators or imply centrality.",
+          "proof": "evidence/rank8_frontier_20261021/structural_models/S3_FULL_CONDENSATION.md",
+          "details": {
+            "hypothesis": "pointed S3 associator class is trivial; not proved or assumed for general classification",
+            "module_rank": 4,
+            "dual_rank": 5,
+            "complete_based_tensor_count": 5
+          }
+        },
+        {
+          "domain": "complete_retained_SU2_Morita_family_and_actual_near_group_inversion_crossed_product",
+          "outcome": "specified_families_excluded",
+          "scope": "general_complex_construction_families",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/structural_models/known_model_routes.json",
+            "evidence/rank8_frontier_20261021/structural_models/rank5_route_bindings.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/structural_models/known_model_routes.py",
+            "evidence/rank8_frontier_20261021/structural_models/rank5_route_bindings.py"
+          ],
+          "limitation": "A different associator on the same rank-five based ring, a nontrivial pointed S3 cocycle, arbitrary algebra condensation and unrelated construction families remain open.",
+          "proof": "evidence/rank8_frontier_20261021/structural_models/KNOWN_MODEL_ROUTES.md",
+          "details": {
+            "id": "R8_3_567",
+            "tensor_sha256": "0efab5b3d7571872f46dd6ccc95c4b228123b252062d758318ee51834288ef4d",
+            "invertibles": [
+              0,
+              1,
+              2,
+              5,
+              6,
+              7
+            ],
+            "central_invertible_source_labels": [
+              0
+            ],
+            "adjoint_seed": [
+              0,
+              1,
+              2,
+              3,
+              4
+            ],
+            "adjoint_closure": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "all_complex_categorifications_center_invertible_count": 1,
+            "complete_SU2_retained_dimension_branch": {
+              "adjoint_level": 10,
+              "nonrational_exponent": 1,
+              "total_integer_multiplier": 2
+            },
+            "SU2_family_outcome": "family_excluded_by_trivial_center_invertibles",
+            "inversion_crossed_product_outcome": "full512_based_tensor_excluded_by_exact_multiplicity_and_grading_invariants",
+            "conditional_full_S3_dual_remaining_based_ring": "R5_3_40",
+            "conditional_full_S3_dual_cannot_be_known_equivariantization_category": true,
+            "limitation": "A different associator on the same rank-five based ring, a nontrivial pointed S3 cocycle, arbitrary algebra condensation and unrelated construction families remain open."
+          }
+        },
+        {
           "domain": "all_connected_separable_algebra_underlying_objects_entrywise_and_PSD_Gram",
           "outcome": "complete_necessary_object_filter_survives",
           "scope": "general_complex_algebra_construction_constraints",
@@ -10116,6 +10464,64 @@
           "details": {
             "finite_cases_after_proved_phase_gauge": 30000,
             "exact_necessary_solution_count": 2
+          }
+        },
+        {
+          "domain": "complete_signed_sphericalization_and_general_Galois_PU_reduction",
+          "outcome": "Galois_pseudo_unitary_reduction",
+          "scope": "general_complex_fusion_category; no existence or nonexistence conclusion",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/additional_scope_gates.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/additional_scope_gates.py"
+          ],
+          "limitation": "This proves a scope reduction, not categorifiability or unitarity. Necessary PU constraints apply after Galois conjugation.",
+          "proof": "evidence/rank8_frontier_20261021/noncommutative_followup/ADDITIONAL_SCOPE_GATES.md",
+          "details": {
+            "complete_signed_count": 64,
+            "normalized_indicator_domains_used": false
+          }
+        },
+        {
+          "domain": "all_levels_SU2_adjoint_finite_products_integer_multiplier_chains_and_Morita_duals",
+          "outcome": "dimension_compatible_not_model",
+          "scope": "general_complex_construction_family_dimension_obstruction",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/su2_all_frontier.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/su2_all_frontier.py",
+            "evidence/rank8_frontier_20261021/noncommutative_followup/su2_product_family.py"
+          ],
+          "limitation": "Other Lie types, arbitrary algebra condensation, dimension-decreasing de-equivariantization, or general categorifications.",
+          "proof": "evidence/rank8_frontier_20261021/noncommutative_followup/SU2_FAMILY.md",
+          "details": {
+            "complete_order_candidates": [
+              3,
+              4,
+              5,
+              6,
+              8,
+              10,
+              12
+            ],
+            "allowed_order_sequence": [
+              12
+            ],
+            "exponent_box_size": 2,
+            "dimension_bounded_product_count": 2,
+            "positive_integer_scaling_matches": [
+              {
+                "exponents": [
+                  1
+                ],
+                "quotient": [
+                  "2"
+                ],
+                "positive_integer": true
+              }
+            ]
           }
         }
       ],
@@ -11244,6 +11650,88 @@
           }
         },
         {
+          "domain": "all_near_group_orders_and_multiplicities_with_integer_scalings_and_Morita_duals",
+          "outcome": "specified_families_excluded",
+          "scope": "general_complex_construction_families",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/structural_models/known_model_routes.json",
+            "evidence/rank8_frontier_20261021/structural_models/rank5_route_bindings.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/structural_models/known_model_routes.py",
+            "evidence/rank8_frontier_20261021/structural_models/rank5_route_bindings.py"
+          ],
+          "limitation": "No dimension-decreasing de-equivariantization, arbitrary product of two nonintegral source categories, or unrelated algebra condensation is covered.",
+          "proof": "evidence/rank8_frontier_20261021/structural_models/KNOWN_MODEL_ROUTES.md",
+          "details": {
+            "id": "R8_3_721",
+            "tensor_sha256": "76e26a815651476dfda5c2aa654f0d1327bdc890e08086cb6dbfe39ef9a1cdc5",
+            "global_FP_dimension": "32*sqrt(17) + 136",
+            "trace": 272,
+            "norm": 1088,
+            "all_possible_positive_integer_multipliers": [
+              1,
+              2,
+              4
+            ],
+            "complete_near_group_branches": [
+              {
+                "integer_multiplier": 1,
+                "group_order": 4,
+                "multiplicity": 16,
+                "all_groups": [
+                  "C4",
+                  "V4"
+                ],
+                "rank5_source_ids": [
+                  "R5_16_1909",
+                  "R5_16_1653"
+                ],
+                "outcome": "both_groups_excluded_by_fresh_frozen_rank5_proof_replay"
+              },
+              {
+                "integer_multiplier": 2,
+                "group_order": 2,
+                "multiplicity_square": 128,
+                "outcome": "not_an_integer_multiplicity"
+              },
+              {
+                "integer_multiplier": 4,
+                "group_order": 1,
+                "multiplicity": 8,
+                "outcome": "excluded_by_Ostrik_unrestricted_rank_two_classification"
+              }
+            ],
+            "outcome": "all_near_group_sources_with_positive_integer_scaling_and_Morita_duals_excluded",
+            "limitation": "No dimension-decreasing de-equivariantization, arbitrary product of two nonintegral source categories, or unrelated algebra condensation is covered."
+          }
+        },
+        {
+          "domain": "all_connected_separable_algebra_underlying_objects_entrywise_and_PSD_Gram",
+          "outcome": "complete_necessary_object_filter_survives",
+          "scope": "general_complex_algebra_construction_constraints",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/structural_models/algebra_candidates.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/structural_models/algebra_candidates.py"
+          ],
+          "limitation": "Surviving objects are not algebra structures; no multiplication, associator, model or general exclusion is claimed.",
+          "proof": "evidence/rank8_frontier_20261021/structural_models/ALGEBRA_CANDIDATES.md",
+          "details": {
+            "bounded_selfdual_vectors_tested": 72000,
+            "invertible_stabilizer_survivors": 72000,
+            "entrywise_Gram_survivors": 5069,
+            "PSD_Gram_survivors": 45,
+            "independent_complete_Python_domain": null,
+            "one_plus_simple_surviving_indices": [
+              3,
+              4,
+              6
+            ]
+          }
+        },
+        {
           "domain": "complete_signed_sphericalization_and_general_Galois_PU_reduction",
           "outcome": "Galois_pseudo_unitary_reduction",
           "scope": "general_complex_fusion_category",
@@ -11257,6 +11745,35 @@
           "proof": "evidence/rank8_frontier_20261021/central_integrality/GENERAL_GALOIS_PU.md",
           "details": {
             "conclusion": "Every categorification has a spherical structure and a pseudo-unitary Galois conjugate. No unitarity or existence claim."
+          }
+        },
+        {
+          "domain": "all_levels_SU2_adjoint_finite_products_integer_multiplier_chains_and_Morita_duals",
+          "outcome": "family_excluded_by_exact_global_dimension",
+          "scope": "general_complex_construction_family_dimension_obstruction",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/su2_all_frontier.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/su2_all_frontier.py",
+            "evidence/rank8_frontier_20261021/noncommutative_followup/su2_product_family.py"
+          ],
+          "limitation": "Other Lie types, arbitrary algebra condensation, dimension-decreasing de-equivariantization, or general categorifications.",
+          "proof": "evidence/rank8_frontier_20261021/noncommutative_followup/SU2_FAMILY.md",
+          "details": {
+            "complete_order_candidates": [
+              3,
+              4,
+              5,
+              6,
+              8,
+              10,
+              12
+            ],
+            "allowed_order_sequence": [],
+            "exponent_box_size": 1,
+            "dimension_bounded_product_count": 1,
+            "positive_integer_scaling_matches": []
           }
         },
         {
@@ -12568,6 +13085,39 @@
           }
         },
         {
+          "domain": "all_levels_SU2_adjoint_finite_products_integer_multiplier_chains_and_Morita_duals",
+          "outcome": "dimension_compatible_not_model",
+          "scope": "general_complex_construction_family_dimension_obstruction",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/su2_all_frontier.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/su2_all_frontier.py",
+            "evidence/rank8_frontier_20261021/noncommutative_followup/su2_product_family.py"
+          ],
+          "limitation": "Other Lie types, arbitrary algebra condensation, dimension-decreasing de-equivariantization, or general categorifications.",
+          "proof": "evidence/rank8_frontier_20261021/noncommutative_followup/SU2_FAMILY.md",
+          "details": {
+            "complete_order_candidates": [
+              3,
+              4,
+              6
+            ],
+            "allowed_order_sequence": [],
+            "exponent_box_size": 1,
+            "dimension_bounded_product_count": 1,
+            "positive_integer_scaling_matches": [
+              {
+                "exponents": [],
+                "quotient": [
+                  "660"
+                ],
+                "positive_integer": true
+              }
+            ]
+          }
+        },
+        {
           "domain": "simple_center_prime_power_filtered_joint_induction",
           "outcome": "accepted_general_exclusion",
           "scope": "general_complex_fusion_category",
@@ -13454,6 +14004,66 @@
               7
             ]
           }
+        },
+        {
+          "domain": "all_levels_SU2_adjoint_finite_products_integer_multiplier_chains_and_Morita_duals",
+          "outcome": "family_excluded_by_exact_global_dimension",
+          "scope": "general_complex_construction_family_dimension_obstruction",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/su2_all_frontier.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/su2_all_frontier.py",
+            "evidence/rank8_frontier_20261021/noncommutative_followup/su2_product_family.py"
+          ],
+          "limitation": "Other Lie types, arbitrary algebra condensation, dimension-decreasing de-equivariantization, or general categorifications.",
+          "proof": "evidence/rank8_frontier_20261021/noncommutative_followup/SU2_FAMILY.md",
+          "details": {
+            "complete_order_candidates": [
+              3,
+              4,
+              5,
+              6,
+              8,
+              10,
+              12,
+              15,
+              16,
+              20,
+              24,
+              30
+            ],
+            "allowed_order_sequence": [
+              5,
+              10,
+              12
+            ],
+            "exponent_box_size": 20,
+            "dimension_bounded_product_count": 9,
+            "positive_integer_scaling_matches": []
+          }
+        },
+        {
+          "domain": "q35_frame_global_column_generation",
+          "outcome": "exact_feasible_relaxation",
+          "scope": "pseudo_unitary_induction_relaxation",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/global_induction/generic_results/R8_3_901_frame_h4.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/global_induction/generic_generation.py"
+          ],
+          "limitation": "A running/partial computation is incomplete; a feasible relaxation does not construct integer center data or an associator.",
+          "proof": "evidence/rank8_frontier_20261021/global_induction/LOW_S_SYMMETRY.md",
+          "details": {
+            "height": 4,
+            "frame_index": null,
+            "rows": 197,
+            "variables": 25775,
+            "low_frames": 2024,
+            "high_columns": 902,
+            "complete_exact_certificate": true
+          }
         }
       ],
       "limitations": [
@@ -14244,6 +14854,67 @@
           }
         },
         {
+          "domain": "all_connected_separable_algebra_underlying_objects_entrywise_and_PSD_Gram",
+          "outcome": "complete_necessary_object_filter_survives",
+          "scope": "general_complex_algebra_construction_constraints",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/structural_models/algebra_candidates.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/structural_models/algebra_candidates.py"
+          ],
+          "limitation": "Surviving objects are not algebra structures; no multiplication, associator, model or general exclusion is claimed.",
+          "proof": "evidence/rank8_frontier_20261021/structural_models/ALGEBRA_CANDIDATES.md",
+          "details": {
+            "bounded_selfdual_vectors_tested": 19200,
+            "invertible_stabilizer_survivors": 10560,
+            "entrywise_Gram_survivors": 2193,
+            "PSD_Gram_survivors": 27,
+            "independent_complete_Python_domain": 19200,
+            "one_plus_simple_surviving_indices": [
+              6
+            ]
+          }
+        },
+        {
+          "domain": "all_levels_SU2_adjoint_finite_products_integer_multiplier_chains_and_Morita_duals",
+          "outcome": "family_excluded_by_exact_global_dimension",
+          "scope": "general_complex_construction_family_dimension_obstruction",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/su2_all_frontier.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/su2_all_frontier.py",
+            "evidence/rank8_frontier_20261021/noncommutative_followup/su2_product_family.py"
+          ],
+          "limitation": "Other Lie types, arbitrary algebra condensation, dimension-decreasing de-equivariantization, or general categorifications.",
+          "proof": "evidence/rank8_frontier_20261021/noncommutative_followup/SU2_FAMILY.md",
+          "details": {
+            "complete_order_candidates": [
+              3,
+              4,
+              5,
+              6,
+              8,
+              10,
+              12,
+              15,
+              16,
+              20,
+              24,
+              30
+            ],
+            "allowed_order_sequence": [
+              8,
+              12,
+              24
+            ],
+            "exponent_box_size": 12,
+            "dimension_bounded_product_count": 5,
+            "positive_integer_scaling_matches": []
+          }
+        },
+        {
           "domain": "streaming_global_column_generation",
           "outcome": "exact_feasible_relaxation",
           "scope": "pseudo_unitary_induction_relaxation",
@@ -14251,8 +14922,7 @@
             "evidence/rank8_frontier_20261021/global_induction/frame_results/R8_3_903_h4.json"
           ],
           "verifiers": [
-            "evidence/rank8_frontier_20261021/global_induction/verify_streaming.py",
-            "evidence/rank8_frontier_20261021/global_induction/verify_frames.py"
+            "evidence/rank8_frontier_20261021/global_induction/frame_generation.py"
           ],
           "limitation": "A running/partial computation is incomplete; a feasible relaxation does not construct integer center data or an associator.",
           "proof": "evidence/rank8_frontier_20261021/global_induction/PROOF.md",
@@ -14262,7 +14932,8 @@
             "rows": 197,
             "variables": 139149,
             "low_frames": 58398,
-            "high_columns": 4472
+            "high_columns": 4472,
+            "complete_exact_certificate": true
           }
         }
       ],
@@ -18067,6 +18738,35 @@
               ]
             }
           }
+        },
+        {
+          "domain": "all_levels_SU2_adjoint_finite_products_integer_multiplier_chains_and_Morita_duals",
+          "outcome": "family_excluded_by_exact_global_dimension",
+          "scope": "general_complex_construction_family_dimension_obstruction",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/su2_all_frontier.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/su2_all_frontier.py",
+            "evidence/rank8_frontier_20261021/noncommutative_followup/su2_product_family.py"
+          ],
+          "limitation": "Other Lie types, arbitrary algebra condensation, dimension-decreasing de-equivariantization, or general categorifications.",
+          "proof": "evidence/rank8_frontier_20261021/noncommutative_followup/SU2_FAMILY.md",
+          "details": {
+            "complete_order_candidates": [
+              3,
+              4,
+              5,
+              6,
+              8,
+              10,
+              12
+            ],
+            "allowed_order_sequence": [],
+            "exponent_box_size": 1,
+            "dimension_bounded_product_count": 1,
+            "positive_integer_scaling_matches": []
+          }
         }
       ],
       "limitations": [
@@ -18866,6 +19566,44 @@
           }
         },
         {
+          "domain": "all_levels_SU2_adjoint_finite_products_integer_multiplier_chains_and_Morita_duals",
+          "outcome": "family_excluded_by_exact_global_dimension",
+          "scope": "general_complex_construction_family_dimension_obstruction",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/su2_all_frontier.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/su2_all_frontier.py",
+            "evidence/rank8_frontier_20261021/noncommutative_followup/su2_product_family.py"
+          ],
+          "limitation": "Other Lie types, arbitrary algebra condensation, dimension-decreasing de-equivariantization, or general categorifications.",
+          "proof": "evidence/rank8_frontier_20261021/noncommutative_followup/SU2_FAMILY.md",
+          "details": {
+            "complete_order_candidates": [
+              3,
+              4,
+              5,
+              6,
+              8,
+              10,
+              12,
+              15,
+              16,
+              20,
+              24,
+              30
+            ],
+            "allowed_order_sequence": [
+              8,
+              12,
+              24
+            ],
+            "exponent_box_size": 12,
+            "dimension_bounded_product_count": 5,
+            "positive_integer_scaling_matches": []
+          }
+        },
+        {
           "domain": "frame_global_column_generation",
           "outcome": "excluded",
           "scope": "general_complex_fusion_category",
@@ -18873,8 +19611,7 @@
             "evidence/rank8_frontier_20261021/global_induction/frame_results/R8_3_925_h4.json"
           ],
           "verifiers": [
-            "evidence/rank8_frontier_20261021/global_induction/verify_streaming.py",
-            "evidence/rank8_frontier_20261021/global_induction/verify_frames.py"
+            "evidence/rank8_frontier_20261021/global_induction/frame_generation.py"
           ],
           "limitation": "A running/partial computation is incomplete; a feasible relaxation does not construct integer center data or an associator.",
           "proof": "evidence/rank8_frontier_20261021/global_induction/PROOF.md",
@@ -18884,7 +19621,8 @@
             "rows": 197,
             "variables": 161339,
             "low_frames": 76984,
-            "high_columns": 4684
+            "high_columns": 4684,
+            "complete_exact_certificate": true
           }
         }
       ],
@@ -20179,6 +20917,66 @@
             },
             "rational_scaling_outcome": "impossible_by_minimal_polynomial_degree"
           }
+        },
+        {
+          "domain": "all_levels_SU2_adjoint_finite_products_integer_multiplier_chains_and_Morita_duals",
+          "outcome": "family_excluded_by_exact_global_dimension",
+          "scope": "general_complex_construction_family_dimension_obstruction",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/su2_all_frontier.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/su2_all_frontier.py",
+            "evidence/rank8_frontier_20261021/noncommutative_followup/su2_product_family.py"
+          ],
+          "limitation": "Other Lie types, arbitrary algebra condensation, dimension-decreasing de-equivariantization, or general categorifications.",
+          "proof": "evidence/rank8_frontier_20261021/noncommutative_followup/SU2_FAMILY.md",
+          "details": {
+            "complete_order_candidates": [
+              3,
+              4,
+              5,
+              6,
+              8,
+              10,
+              12,
+              15,
+              16,
+              20,
+              24,
+              30
+            ],
+            "allowed_order_sequence": [
+              8,
+              12,
+              24
+            ],
+            "exponent_box_size": 12,
+            "dimension_bounded_product_count": 5,
+            "positive_integer_scaling_matches": []
+          }
+        },
+        {
+          "domain": "spectral_frame_global_column_generation",
+          "outcome": "excluded",
+          "scope": "general_complex_fusion_category",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/global_induction/spectral_results/R8_3_926_h4.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/global_induction/spectral_generation.py"
+          ],
+          "limitation": "A running/partial computation is incomplete; a feasible relaxation does not construct integer center data or an associator.",
+          "proof": "evidence/rank8_frontier_20261021/global_induction/PARTIAL_S_AND_STS.md",
+          "details": {
+            "height": 4,
+            "frame_index": null,
+            "rows": 197,
+            "variables": 49618,
+            "low_frames": 11,
+            "high_columns": 2723,
+            "complete_exact_certificate": true
+          }
         }
       ],
       "limitations": [
@@ -21158,6 +21956,29 @@
           }
         },
         {
+          "domain": "all_connected_separable_algebra_underlying_objects_entrywise_and_PSD_Gram",
+          "outcome": "complete_necessary_object_filter_survives",
+          "scope": "general_complex_algebra_construction_constraints",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/structural_models/algebra_candidates.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/structural_models/algebra_candidates.py"
+          ],
+          "limitation": "Surviving objects are not algebra structures; no multiplication, associator, model or general exclusion is claimed.",
+          "proof": "evidence/rank8_frontier_20261021/structural_models/ALGEBRA_CANDIDATES.md",
+          "details": {
+            "bounded_selfdual_vectors_tested": 1920,
+            "invertible_stabilizer_survivors": 1920,
+            "entrywise_Gram_survivors": 664,
+            "PSD_Gram_survivors": 24,
+            "independent_complete_Python_domain": 1920,
+            "one_plus_simple_surviving_indices": [
+              7
+            ]
+          }
+        },
+        {
           "domain": "complete_signed_sphericalization_and_general_Galois_PU_reduction",
           "outcome": "Galois_pseudo_unitary_reduction",
           "scope": "general_complex_fusion_category",
@@ -21173,6 +21994,44 @@
             "complete_signed_count": 32,
             "normalized_indicator_domains_used": false,
             "conclusion": "every categorification is spherical and has a pseudo-unitary Galois conjugate; no existence or exclusion conclusion"
+          }
+        },
+        {
+          "domain": "all_levels_SU2_adjoint_finite_products_integer_multiplier_chains_and_Morita_duals",
+          "outcome": "family_excluded_by_exact_global_dimension",
+          "scope": "general_complex_construction_family_dimension_obstruction",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/su2_all_frontier.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/su2_all_frontier.py",
+            "evidence/rank8_frontier_20261021/noncommutative_followup/su2_product_family.py"
+          ],
+          "limitation": "Other Lie types, arbitrary algebra condensation, dimension-decreasing de-equivariantization, or general categorifications.",
+          "proof": "evidence/rank8_frontier_20261021/noncommutative_followup/SU2_FAMILY.md",
+          "details": {
+            "complete_order_candidates": [
+              3,
+              4,
+              5,
+              6,
+              8,
+              10,
+              12,
+              15,
+              16,
+              20,
+              24,
+              30
+            ],
+            "allowed_order_sequence": [
+              8,
+              12,
+              24
+            ],
+            "exponent_box_size": 12,
+            "dimension_bounded_product_count": 5,
+            "positive_integer_scaling_matches": []
           }
         },
         {
@@ -22651,6 +23510,33 @@
           }
         },
         {
+          "domain": "all_connected_separable_algebra_underlying_objects_entrywise_and_PSD_Gram",
+          "outcome": "complete_necessary_object_filter_survives",
+          "scope": "general_complex_algebra_construction_constraints",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/structural_models/algebra_candidates.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/structural_models/algebra_candidates.py"
+          ],
+          "limitation": "Surviving objects are not algebra structures; no multiplication, associator, model or general exclusion is claimed.",
+          "proof": "evidence/rank8_frontier_20261021/structural_models/ALGEBRA_CANDIDATES.md",
+          "details": {
+            "bounded_selfdual_vectors_tested": 184320,
+            "invertible_stabilizer_survivors": 93120,
+            "entrywise_Gram_survivors": 11314,
+            "PSD_Gram_survivors": 38,
+            "independent_complete_Python_domain": null,
+            "one_plus_simple_surviving_indices": [
+              3,
+              4,
+              5,
+              6,
+              7
+            ]
+          }
+        },
+        {
           "domain": "complete_signed_sphericalization_and_general_Galois_PU_reduction",
           "outcome": "Galois_pseudo_unitary_reduction",
           "scope": "general_complex_fusion_category",
@@ -22666,6 +23552,44 @@
             "complete_signed_count": 128,
             "normalized_indicator_domains_used": false,
             "conclusion": "every categorification is spherical and has a pseudo-unitary Galois conjugate; no existence or exclusion conclusion"
+          }
+        },
+        {
+          "domain": "all_levels_SU2_adjoint_finite_products_integer_multiplier_chains_and_Morita_duals",
+          "outcome": "family_excluded_by_exact_global_dimension",
+          "scope": "general_complex_construction_family_dimension_obstruction",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/su2_all_frontier.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/su2_all_frontier.py",
+            "evidence/rank8_frontier_20261021/noncommutative_followup/su2_product_family.py"
+          ],
+          "limitation": "Other Lie types, arbitrary algebra condensation, dimension-decreasing de-equivariantization, or general categorifications.",
+          "proof": "evidence/rank8_frontier_20261021/noncommutative_followup/SU2_FAMILY.md",
+          "details": {
+            "complete_order_candidates": [
+              3,
+              4,
+              5,
+              6,
+              8,
+              10,
+              12,
+              15,
+              16,
+              20,
+              24,
+              30
+            ],
+            "allowed_order_sequence": [
+              8,
+              12,
+              24
+            ],
+            "exponent_box_size": 12,
+            "dimension_bounded_product_count": 5,
+            "positive_integer_scaling_matches": []
           }
         },
         {
@@ -23819,6 +24743,112 @@
             },
             "rational_scaling_outcome": "impossible_by_minimal_polynomial_degree"
           }
+        },
+        {
+          "domain": "all_connected_separable_algebra_underlying_objects_entrywise_and_PSD_Gram",
+          "outcome": "complete_necessary_object_filter_survives",
+          "scope": "general_complex_algebra_construction_constraints",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/structural_models/algebra_candidates.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/structural_models/algebra_candidates.py"
+          ],
+          "limitation": "Surviving objects are not algebra structures; no multiplication, associator, model or general exclusion is claimed.",
+          "proof": "evidence/rank8_frontier_20261021/structural_models/ALGEBRA_CANDIDATES.md",
+          "details": {
+            "bounded_selfdual_vectors_tested": 15360,
+            "invertible_stabilizer_survivors": 8640,
+            "entrywise_Gram_survivors": 1973,
+            "PSD_Gram_survivors": 31,
+            "independent_complete_Python_domain": 15360,
+            "one_plus_simple_surviving_indices": [
+              5,
+              6
+            ]
+          }
+        },
+        {
+          "domain": "all_levels_SU2_adjoint_finite_products_integer_multiplier_chains_and_Morita_duals",
+          "outcome": "family_excluded_by_exact_global_dimension",
+          "scope": "general_complex_construction_family_dimension_obstruction",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/su2_all_frontier.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/su2_all_frontier.py",
+            "evidence/rank8_frontier_20261021/noncommutative_followup/su2_product_family.py"
+          ],
+          "limitation": "Other Lie types, arbitrary algebra condensation, dimension-decreasing de-equivariantization, or general categorifications.",
+          "proof": "evidence/rank8_frontier_20261021/noncommutative_followup/SU2_FAMILY.md",
+          "details": {
+            "complete_order_candidates": [
+              3,
+              4,
+              5,
+              6,
+              8,
+              10,
+              12,
+              15,
+              16,
+              20,
+              24,
+              30
+            ],
+            "allowed_order_sequence": [
+              8,
+              12,
+              24
+            ],
+            "exponent_box_size": 12,
+            "dimension_bounded_product_count": 5,
+            "positive_integer_scaling_matches": []
+          }
+        },
+        {
+          "domain": "sts_frame_global_column_generation",
+          "outcome": "replaced_by_complete_sparse_phase_one",
+          "scope": "incomplete_no_mathematical_conclusion",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/global_induction/sts_results/R8_3_982_h4.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/global_induction/sts_generation.py"
+          ],
+          "limitation": "A running/partial computation is incomplete; a feasible relaxation does not construct integer center data or an associator.",
+          "proof": "evidence/rank8_frontier_20261021/global_induction/PARTIAL_S_AND_STS.md",
+          "details": {
+            "height": 4,
+            "frame_index": null,
+            "rows": 341,
+            "variables": 67291,
+            "low_frames": 4,
+            "high_columns": 3791,
+            "complete_exact_certificate": false
+          }
+        },
+        {
+          "domain": "packed_complete_sparse_phase_one",
+          "outcome": "exact_feasible_relaxation",
+          "scope": "pseudo_unitary_induction_relaxation",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/global_induction/complete_results/R8_3_982_sts_frame_h4.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/global_induction/complete_phase_one.py"
+          ],
+          "limitation": "A running/partial computation is incomplete; a feasible relaxation does not construct integer center data or an associator.",
+          "proof": "evidence/rank8_frontier_20261021/global_induction/PROOF.md",
+          "details": {
+            "height": 4,
+            "frame_index": null,
+            "rows": 341,
+            "variables": 67291,
+            "low_frames": 4,
+            "high_columns": 3791,
+            "complete_exact_certificate": true
+          }
         }
       ],
       "limitations": [
@@ -23830,9 +24860,9 @@
     {
       "id": "R8_3_985",
       "tensor_sha256": "92422429008a63e58e935a812442a9970c30b033ae536b0e894db0835efa0f2f",
-      "general_status": "unresolved",
+      "general_status": "excluded",
       "categorification_or_novelty_proved": false,
-      "screening_stage": "active_structural_and_construction_research",
+      "screening_stage": "general_exclusion_accepted_after_review",
       "prior_unitary_status": "not_separately_decided",
       "prior_unitary_obstruction_source": null,
       "prior_published_attempts": [
@@ -24607,13 +25637,107 @@
             },
             "rational_scaling_outcome": "impossible_by_minimal_polynomial_degree"
           }
+        },
+        {
+          "domain": "all_connected_separable_algebra_underlying_objects_entrywise_and_PSD_Gram",
+          "outcome": "complete_necessary_object_filter_survives",
+          "scope": "general_complex_algebra_construction_constraints",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/structural_models/algebra_candidates.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/structural_models/algebra_candidates.py"
+          ],
+          "limitation": "Surviving objects are not algebra structures; no multiplication, associator, model or general exclusion is claimed.",
+          "proof": "evidence/rank8_frontier_20261021/structural_models/ALGEBRA_CANDIDATES.md",
+          "details": {
+            "bounded_selfdual_vectors_tested": 15360,
+            "invertible_stabilizer_survivors": 8640,
+            "entrywise_Gram_survivors": 1980,
+            "PSD_Gram_survivors": 31,
+            "independent_complete_Python_domain": 15360,
+            "one_plus_simple_surviving_indices": [
+              5,
+              6
+            ]
+          }
+        },
+        {
+          "domain": "all_levels_SU2_adjoint_finite_products_integer_multiplier_chains_and_Morita_duals",
+          "outcome": "family_excluded_by_exact_global_dimension",
+          "scope": "general_complex_construction_family_dimension_obstruction",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/su2_all_frontier.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/su2_all_frontier.py",
+            "evidence/rank8_frontier_20261021/noncommutative_followup/su2_product_family.py"
+          ],
+          "limitation": "Other Lie types, arbitrary algebra condensation, dimension-decreasing de-equivariantization, or general categorifications.",
+          "proof": "evidence/rank8_frontier_20261021/noncommutative_followup/SU2_FAMILY.md",
+          "details": {
+            "complete_order_candidates": [
+              3,
+              4,
+              5,
+              6,
+              8,
+              10,
+              12,
+              15,
+              16,
+              20,
+              24,
+              30
+            ],
+            "allowed_order_sequence": [
+              8,
+              12,
+              24
+            ],
+            "exponent_box_size": 12,
+            "dimension_bounded_product_count": 5,
+            "positive_integer_scaling_matches": []
+          }
+        },
+        {
+          "domain": "sts_frame_global_column_generation",
+          "outcome": "excluded",
+          "scope": "general_complex_fusion_category",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/global_induction/sts_results/R8_3_985_h4.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/global_induction/sts_generation.py"
+          ],
+          "limitation": "A running/partial computation is incomplete; a feasible relaxation does not construct integer center data or an associator.",
+          "proof": "evidence/rank8_frontier_20261021/global_induction/PARTIAL_S_AND_STS.md",
+          "details": {
+            "height": 4,
+            "frame_index": null,
+            "rows": 341,
+            "variables": 54609,
+            "low_frames": 4,
+            "high_columns": 3045,
+            "complete_exact_certificate": true
+          }
         }
       ],
       "limitations": [
         "No completed search here exhausts all complex associators or all constructions.",
         "A feasible necessary-condition system is not a categorification.",
         "Extensively investigated exotic candidate is a research-screening description, not a proof of categorifiability or novelty."
-      ]
+      ],
+      "accepted_certificate": {
+        "kind": "complete_labeled_frame_modular_STS_signed_induction",
+        "scope": "general_complex_fusion_category",
+        "evidence": "evidence/rank8_frontier_20261021/global_induction/sts_results/R8_3_985_h4.json",
+        "proof": "evidence/rank8_frontier_20261021/global_induction/PARTIAL_S_AND_STS.md",
+        "verifiers": [
+          "evidence/rank8_frontier_20261021/global_induction/verify_accepted_sts.py",
+          "evidence/rank8_frontier_20261021/review/verify_r985_direct.py"
+        ]
+      }
     },
     {
       "id": "R8_3_1055",
@@ -27371,6 +28495,57 @@
               7
             ]
           }
+        },
+        {
+          "domain": "all_levels_SU2_adjoint_finite_products_integer_multiplier_chains_and_Morita_duals",
+          "outcome": "family_excluded_by_exact_global_dimension",
+          "scope": "general_complex_construction_family_dimension_obstruction",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/su2_all_frontier.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/su2_all_frontier.py",
+            "evidence/rank8_frontier_20261021/noncommutative_followup/su2_product_family.py"
+          ],
+          "limitation": "Other Lie types, arbitrary algebra condensation, dimension-decreasing de-equivariantization, or general categorifications.",
+          "proof": "evidence/rank8_frontier_20261021/noncommutative_followup/SU2_FAMILY.md",
+          "details": {
+            "complete_order_candidates": [
+              3,
+              4,
+              5,
+              6,
+              8,
+              10,
+              12
+            ],
+            "allowed_order_sequence": [],
+            "exponent_box_size": 1,
+            "dimension_bounded_product_count": 1,
+            "positive_integer_scaling_matches": []
+          }
+        },
+        {
+          "domain": "atomic_spectrum_global_column_generation",
+          "outcome": "excluded",
+          "scope": "general_complex_fusion_category",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/global_induction/atomic_spectrum_results/R8_3_1055_h4.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/global_induction/atomic_spectrum_generation.py"
+          ],
+          "limitation": "A running/partial computation is incomplete; a feasible relaxation does not construct integer center data or an associator.",
+          "proof": "evidence/rank8_frontier_20261021/global_induction/ATOMIC_SPECTRUM.md",
+          "details": {
+            "height": 4,
+            "frame_index": null,
+            "rows": 211,
+            "variables": 16695,
+            "low_frames": null,
+            "high_columns": 566,
+            "complete_exact_certificate": true
+          }
         }
       ],
       "limitations": [
@@ -28416,6 +29591,31 @@
           }
         },
         {
+          "domain": "all_connected_separable_algebra_underlying_objects_entrywise_and_PSD_Gram",
+          "outcome": "complete_necessary_object_filter_survives",
+          "scope": "general_complex_algebra_construction_constraints",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/structural_models/algebra_candidates.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/structural_models/algebra_candidates.py"
+          ],
+          "limitation": "Surviving objects are not algebra structures; no multiplication, associator, model or general exclusion is claimed.",
+          "proof": "evidence/rank8_frontier_20261021/structural_models/ALGEBRA_CANDIDATES.md",
+          "details": {
+            "bounded_selfdual_vectors_tested": 927472,
+            "invertible_stabilizer_survivors": 463918,
+            "entrywise_Gram_survivors": 52056,
+            "PSD_Gram_survivors": 81,
+            "independent_complete_Python_domain": null,
+            "one_plus_simple_surviving_indices": [
+              3,
+              4,
+              5
+            ]
+          }
+        },
+        {
           "domain": "complete_signed_sphericalization_and_general_Galois_PU_reduction",
           "outcome": "Galois_pseudo_unitary_reduction",
           "scope": "general_complex_fusion_category",
@@ -28429,6 +29629,38 @@
           "proof": "evidence/rank8_frontier_20261021/central_integrality/GENERAL_GALOIS_PU.md",
           "details": {
             "conclusion": "Every categorification has a spherical structure and a pseudo-unitary Galois conjugate. No unitarity or existence claim."
+          }
+        },
+        {
+          "domain": "all_levels_SU2_adjoint_finite_products_integer_multiplier_chains_and_Morita_duals",
+          "outcome": "family_excluded_by_exact_global_dimension",
+          "scope": "general_complex_construction_family_dimension_obstruction",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/su2_all_frontier.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/su2_all_frontier.py",
+            "evidence/rank8_frontier_20261021/noncommutative_followup/su2_product_family.py"
+          ],
+          "limitation": "Other Lie types, arbitrary algebra condensation, dimension-decreasing de-equivariantization, or general categorifications.",
+          "proof": "evidence/rank8_frontier_20261021/noncommutative_followup/SU2_FAMILY.md",
+          "details": {
+            "complete_order_candidates": [
+              3,
+              4,
+              5,
+              6,
+              8,
+              10,
+              12
+            ],
+            "allowed_order_sequence": [
+              5,
+              10
+            ],
+            "exponent_box_size": 18,
+            "dimension_bounded_product_count": 10,
+            "positive_integer_scaling_matches": []
           }
         },
         {
@@ -33383,6 +34615,38 @@
           "details": {
             "complete_search_outcome": "excluded"
           }
+        },
+        {
+          "domain": "all_levels_SU2_adjoint_finite_products_integer_multiplier_chains_and_Morita_duals",
+          "outcome": "family_excluded_by_exact_global_dimension",
+          "scope": "general_complex_construction_family_dimension_obstruction",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/su2_all_frontier.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/su2_all_frontier.py",
+            "evidence/rank8_frontier_20261021/noncommutative_followup/su2_product_family.py"
+          ],
+          "limitation": "Other Lie types, arbitrary algebra condensation, dimension-decreasing de-equivariantization, or general categorifications.",
+          "proof": "evidence/rank8_frontier_20261021/noncommutative_followup/SU2_FAMILY.md",
+          "details": {
+            "complete_order_candidates": [
+              3,
+              4,
+              5,
+              6,
+              8,
+              10,
+              12
+            ],
+            "allowed_order_sequence": [
+              5,
+              10
+            ],
+            "exponent_box_size": 18,
+            "dimension_bounded_product_count": 10,
+            "positive_integer_scaling_matches": []
+          }
         }
       ],
       "limitations": [
@@ -38049,6 +39313,37 @@
           "details": {
             "complete_search_outcome": "excluded"
           }
+        },
+        {
+          "domain": "all_levels_SU2_adjoint_finite_products_integer_multiplier_chains_and_Morita_duals",
+          "outcome": "family_excluded_by_exact_global_dimension",
+          "scope": "general_complex_construction_family_dimension_obstruction",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/su2_all_frontier.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/su2_all_frontier.py",
+            "evidence/rank8_frontier_20261021/noncommutative_followup/su2_product_family.py"
+          ],
+          "limitation": "Other Lie types, arbitrary algebra condensation, dimension-decreasing de-equivariantization, or general categorifications.",
+          "proof": "evidence/rank8_frontier_20261021/noncommutative_followup/SU2_FAMILY.md",
+          "details": {
+            "complete_order_candidates": [
+              3,
+              4,
+              5,
+              6,
+              8,
+              10,
+              12
+            ],
+            "allowed_order_sequence": [
+              8
+            ],
+            "exponent_box_size": 3,
+            "dimension_bounded_product_count": 3,
+            "positive_integer_scaling_matches": []
+          }
         }
       ],
       "limitations": [
@@ -38070,9 +39365,9 @@
     {
       "id": "R8_3_1463",
       "tensor_sha256": "47d803231764fd5ec1f470d927188f71904f5b80938aa3aef8e53b6d08202844",
-      "general_status": "unresolved",
+      "general_status": "excluded",
       "categorification_or_novelty_proved": false,
-      "screening_stage": "active_structural_and_construction_research",
+      "screening_stage": "general_exclusion_accepted_after_review",
       "prior_unitary_status": "not_separately_decided",
       "prior_unitary_obstruction_source": null,
       "prior_published_attempts": [
@@ -38924,13 +40219,106 @@
               7
             ]
           }
+        },
+        {
+          "domain": "all_levels_SU2_adjoint_finite_products_integer_multiplier_chains_and_Morita_duals",
+          "outcome": "family_excluded_by_exact_global_dimension",
+          "scope": "general_complex_construction_family_dimension_obstruction",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/su2_all_frontier.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/su2_all_frontier.py",
+            "evidence/rank8_frontier_20261021/noncommutative_followup/su2_product_family.py"
+          ],
+          "limitation": "Other Lie types, arbitrary algebra condensation, dimension-decreasing de-equivariantization, or general categorifications.",
+          "proof": "evidence/rank8_frontier_20261021/noncommutative_followup/SU2_FAMILY.md",
+          "details": {
+            "complete_order_candidates": [
+              3,
+              4,
+              5,
+              6,
+              8,
+              10,
+              12,
+              15,
+              16,
+              20,
+              24,
+              30
+            ],
+            "allowed_order_sequence": [
+              5,
+              10,
+              12
+            ],
+            "exponent_box_size": 20,
+            "dimension_bounded_product_count": 9,
+            "positive_integer_scaling_matches": []
+          }
+        },
+        {
+          "domain": "complete_distinguished_S_symmetric_low_frame_obstruction",
+          "outcome": "excluded",
+          "scope": "general_complex_fusion_category",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/global_induction/generic_results/R8_3_1463_low_s.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/global_induction/verify_accepted_generic.py"
+          ],
+          "limitation": "A running/partial computation is incomplete; a feasible relaxation does not construct integer center data or an associator.",
+          "proof": "evidence/rank8_frontier_20261021/global_induction/LOW_S_SYMMETRY.md",
+          "details": {
+            "height": null,
+            "frame_index": null,
+            "rows": null,
+            "variables": null,
+            "low_frames": null,
+            "high_columns": null,
+            "complete_exact_certificate": true
+          }
+        },
+        {
+          "domain": "q35_sts_frame_global_column_generation",
+          "outcome": "excluded",
+          "scope": "general_complex_fusion_category",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/global_induction/generic_results/R8_3_1463_sts_frame_h4.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/global_induction/generic_generation.py"
+          ],
+          "limitation": "A running/partial computation is incomplete; a feasible relaxation does not construct integer center data or an associator.",
+          "proof": "evidence/rank8_frontier_20261021/global_induction/LOW_S_SYMMETRY.md",
+          "details": {
+            "height": 4,
+            "frame_index": null,
+            "rows": 341,
+            "variables": 38304,
+            "low_frames": 0,
+            "high_columns": 781,
+            "complete_exact_certificate": true
+          }
         }
       ],
       "limitations": [
         "No completed search here exhausts all complex associators or all constructions.",
         "A feasible necessary-condition system is not a categorification.",
         "Extensively investigated exotic candidate is a research-screening description, not a proof of categorifiability or novelty."
-      ]
+      ],
+      "accepted_certificate": {
+        "kind": "complete_distinguished_modular_S_symmetric_low_frame_obstruction",
+        "scope": "general_complex_fusion_category",
+        "evidence": "evidence/rank8_frontier_20261021/global_induction/generic_results/R8_3_1463_low_s.json",
+        "proof": "evidence/rank8_frontier_20261021/global_induction/LOW_S_SYMMETRY.md",
+        "verifiers": [
+          "evidence/rank8_frontier_20261021/global_induction/verify_accepted_generic.py",
+          "evidence/rank8_frontier_20261021/review/verify_r1463_low_symmetry.py",
+          "evidence/rank8_frontier_20261021/review/verify_r1463_signed_unrestricted.py"
+        ]
+      }
     },
     {
       "id": "R8_3_1615",
@@ -39695,6 +41083,92 @@
               "deequivariantization_of_NG": "excluded"
             },
             "rational_scaling_outcome": "impossible_by_minimal_polynomial_degree"
+          }
+        },
+        {
+          "domain": "all_connected_separable_algebra_underlying_objects_entrywise_and_PSD_Gram",
+          "outcome": "complete_necessary_object_filter_survives",
+          "scope": "general_complex_algebra_construction_constraints",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/structural_models/algebra_candidates.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/structural_models/algebra_candidates.py"
+          ],
+          "limitation": "Surviving objects are not algebra structures; no multiplication, associator, model or general exclusion is claimed.",
+          "proof": "evidence/rank8_frontier_20261021/structural_models/ALGEBRA_CANDIDATES.md",
+          "details": {
+            "bounded_selfdual_vectors_tested": 1843200,
+            "invertible_stabilizer_survivors": 922560,
+            "entrywise_Gram_survivors": 62519,
+            "PSD_Gram_survivors": 49,
+            "independent_complete_Python_domain": null,
+            "one_plus_simple_surviving_indices": [
+              1,
+              4,
+              5,
+              7
+            ]
+          }
+        },
+        {
+          "domain": "all_levels_SU2_adjoint_finite_products_integer_multiplier_chains_and_Morita_duals",
+          "outcome": "family_excluded_by_exact_global_dimension",
+          "scope": "general_complex_construction_family_dimension_obstruction",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/su2_all_frontier.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/su2_all_frontier.py",
+            "evidence/rank8_frontier_20261021/noncommutative_followup/su2_product_family.py"
+          ],
+          "limitation": "Other Lie types, arbitrary algebra condensation, dimension-decreasing de-equivariantization, or general categorifications.",
+          "proof": "evidence/rank8_frontier_20261021/noncommutative_followup/SU2_FAMILY.md",
+          "details": {
+            "complete_order_candidates": [
+              3,
+              4,
+              5,
+              6,
+              8,
+              10,
+              12,
+              15,
+              16,
+              20,
+              24,
+              30
+            ],
+            "allowed_order_sequence": [
+              8,
+              12,
+              24
+            ],
+            "exponent_box_size": 12,
+            "dimension_bounded_product_count": 5,
+            "positive_integer_scaling_matches": []
+          }
+        },
+        {
+          "domain": "sts_frame_global_column_generation",
+          "outcome": "running",
+          "scope": "incomplete_no_mathematical_conclusion",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/global_induction/sts_results/R8_3_1615_h4.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/global_induction/sts_generation.py"
+          ],
+          "limitation": "A running/partial computation is incomplete; a feasible relaxation does not construct integer center data or an associator.",
+          "proof": "evidence/rank8_frontier_20261021/global_induction/PARTIAL_S_AND_STS.md",
+          "details": {
+            "height": 4,
+            "frame_index": null,
+            "rows": 341,
+            "variables": 102141,
+            "low_frames": 4,
+            "high_columns": 3003,
+            "complete_exact_certificate": false
           }
         }
       ],
@@ -40484,6 +41958,90 @@
             },
             "rational_scaling_outcome": "impossible_by_minimal_polynomial_degree"
           }
+        },
+        {
+          "domain": "all_connected_separable_algebra_underlying_objects_entrywise_and_PSD_Gram",
+          "outcome": "complete_necessary_object_filter_survives",
+          "scope": "general_complex_algebra_construction_constraints",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/structural_models/algebra_candidates.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/structural_models/algebra_candidates.py"
+          ],
+          "limitation": "Surviving objects are not algebra structures; no multiplication, associator, model or general exclusion is claimed.",
+          "proof": "evidence/rank8_frontier_20261021/structural_models/ALGEBRA_CANDIDATES.md",
+          "details": {
+            "bounded_selfdual_vectors_tested": 1843200,
+            "invertible_stabilizer_survivors": 922560,
+            "entrywise_Gram_survivors": 62684,
+            "PSD_Gram_survivors": 39,
+            "independent_complete_Python_domain": null,
+            "one_plus_simple_surviving_indices": [
+              1,
+              7
+            ]
+          }
+        },
+        {
+          "domain": "all_levels_SU2_adjoint_finite_products_integer_multiplier_chains_and_Morita_duals",
+          "outcome": "family_excluded_by_exact_global_dimension",
+          "scope": "general_complex_construction_family_dimension_obstruction",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/su2_all_frontier.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/su2_all_frontier.py",
+            "evidence/rank8_frontier_20261021/noncommutative_followup/su2_product_family.py"
+          ],
+          "limitation": "Other Lie types, arbitrary algebra condensation, dimension-decreasing de-equivariantization, or general categorifications.",
+          "proof": "evidence/rank8_frontier_20261021/noncommutative_followup/SU2_FAMILY.md",
+          "details": {
+            "complete_order_candidates": [
+              3,
+              4,
+              5,
+              6,
+              8,
+              10,
+              12,
+              15,
+              16,
+              20,
+              24,
+              30
+            ],
+            "allowed_order_sequence": [
+              8,
+              12,
+              24
+            ],
+            "exponent_box_size": 12,
+            "dimension_bounded_product_count": 5,
+            "positive_integer_scaling_matches": []
+          }
+        },
+        {
+          "domain": "sts_frame_global_column_generation",
+          "outcome": "running",
+          "scope": "incomplete_no_mathematical_conclusion",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/global_induction/sts_results/R8_3_1617_h4.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/global_induction/sts_generation.py"
+          ],
+          "limitation": "A running/partial computation is incomplete; a feasible relaxation does not construct integer center data or an associator.",
+          "proof": "evidence/rank8_frontier_20261021/global_induction/PARTIAL_S_AND_STS.md",
+          "details": {
+            "height": 4,
+            "frame_index": null,
+            "rows": 341,
+            "variables": 130431,
+            "low_frames": 6,
+            "high_columns": 3835,
+            "complete_exact_certificate": false
+          }
         }
       ],
       "limitations": [
@@ -41255,6 +42813,91 @@
               "deequivariantization_of_NG": "excluded"
             },
             "rational_scaling_outcome": "impossible_by_minimal_polynomial_degree"
+          }
+        },
+        {
+          "domain": "all_connected_separable_algebra_underlying_objects_entrywise_and_PSD_Gram",
+          "outcome": "complete_necessary_object_filter_survives",
+          "scope": "general_complex_algebra_construction_constraints",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/structural_models/algebra_candidates.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/structural_models/algebra_candidates.py"
+          ],
+          "limitation": "Surviving objects are not algebra structures; no multiplication, associator, model or general exclusion is claimed.",
+          "proof": "evidence/rank8_frontier_20261021/structural_models/ALGEBRA_CANDIDATES.md",
+          "details": {
+            "bounded_selfdual_vectors_tested": 1843200,
+            "invertible_stabilizer_survivors": 922560,
+            "entrywise_Gram_survivors": 62255,
+            "PSD_Gram_survivors": 45,
+            "independent_complete_Python_domain": null,
+            "one_plus_simple_surviving_indices": [
+              1,
+              4,
+              5
+            ]
+          }
+        },
+        {
+          "domain": "all_levels_SU2_adjoint_finite_products_integer_multiplier_chains_and_Morita_duals",
+          "outcome": "family_excluded_by_exact_global_dimension",
+          "scope": "general_complex_construction_family_dimension_obstruction",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/su2_all_frontier.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/su2_all_frontier.py",
+            "evidence/rank8_frontier_20261021/noncommutative_followup/su2_product_family.py"
+          ],
+          "limitation": "Other Lie types, arbitrary algebra condensation, dimension-decreasing de-equivariantization, or general categorifications.",
+          "proof": "evidence/rank8_frontier_20261021/noncommutative_followup/SU2_FAMILY.md",
+          "details": {
+            "complete_order_candidates": [
+              3,
+              4,
+              5,
+              6,
+              8,
+              10,
+              12,
+              15,
+              16,
+              20,
+              24,
+              30
+            ],
+            "allowed_order_sequence": [
+              8,
+              12,
+              24
+            ],
+            "exponent_box_size": 12,
+            "dimension_bounded_product_count": 5,
+            "positive_integer_scaling_matches": []
+          }
+        },
+        {
+          "domain": "sts_frame_global_column_generation",
+          "outcome": "running",
+          "scope": "incomplete_no_mathematical_conclusion",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/global_induction/sts_results/R8_3_1660_h4.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/global_induction/sts_generation.py"
+          ],
+          "limitation": "A running/partial computation is incomplete; a feasible relaxation does not construct integer center data or an associator.",
+          "proof": "evidence/rank8_frontier_20261021/global_induction/PARTIAL_S_AND_STS.md",
+          "details": {
+            "height": 4,
+            "frame_index": null,
+            "rows": 341,
+            "variables": 99897,
+            "low_frames": 4,
+            "high_columns": 2937,
+            "complete_exact_certificate": false
           }
         }
       ],
@@ -42045,6 +43688,91 @@
             },
             "rational_scaling_outcome": "impossible_by_minimal_polynomial_degree"
           }
+        },
+        {
+          "domain": "all_connected_separable_algebra_underlying_objects_entrywise_and_PSD_Gram",
+          "outcome": "complete_necessary_object_filter_survives",
+          "scope": "general_complex_algebra_construction_constraints",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/structural_models/algebra_candidates.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/structural_models/algebra_candidates.py"
+          ],
+          "limitation": "Surviving objects are not algebra structures; no multiplication, associator, model or general exclusion is claimed.",
+          "proof": "evidence/rank8_frontier_20261021/structural_models/ALGEBRA_CANDIDATES.md",
+          "details": {
+            "bounded_selfdual_vectors_tested": 1843200,
+            "invertible_stabilizer_survivors": 922560,
+            "entrywise_Gram_survivors": 63066,
+            "PSD_Gram_survivors": 49,
+            "independent_complete_Python_domain": null,
+            "one_plus_simple_surviving_indices": [
+              1,
+              3,
+              6
+            ]
+          }
+        },
+        {
+          "domain": "all_levels_SU2_adjoint_finite_products_integer_multiplier_chains_and_Morita_duals",
+          "outcome": "family_excluded_by_exact_global_dimension",
+          "scope": "general_complex_construction_family_dimension_obstruction",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/su2_all_frontier.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/su2_all_frontier.py",
+            "evidence/rank8_frontier_20261021/noncommutative_followup/su2_product_family.py"
+          ],
+          "limitation": "Other Lie types, arbitrary algebra condensation, dimension-decreasing de-equivariantization, or general categorifications.",
+          "proof": "evidence/rank8_frontier_20261021/noncommutative_followup/SU2_FAMILY.md",
+          "details": {
+            "complete_order_candidates": [
+              3,
+              4,
+              5,
+              6,
+              8,
+              10,
+              12,
+              15,
+              16,
+              20,
+              24,
+              30
+            ],
+            "allowed_order_sequence": [
+              8,
+              12,
+              24
+            ],
+            "exponent_box_size": 12,
+            "dimension_bounded_product_count": 5,
+            "positive_integer_scaling_matches": []
+          }
+        },
+        {
+          "domain": "sts_frame_global_column_generation",
+          "outcome": "running",
+          "scope": "incomplete_no_mathematical_conclusion",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/global_induction/sts_results/R8_3_1661_h4.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/global_induction/sts_generation.py"
+          ],
+          "limitation": "A running/partial computation is incomplete; a feasible relaxation does not construct integer center data or an associator.",
+          "proof": "evidence/rank8_frontier_20261021/global_induction/PARTIAL_S_AND_STS.md",
+          "details": {
+            "height": 4,
+            "frame_index": null,
+            "rows": 341,
+            "variables": 103773,
+            "low_frames": 4,
+            "high_columns": 3051,
+            "complete_exact_certificate": false
+          }
         }
       ],
       "limitations": [
@@ -42813,6 +44541,44 @@
           }
         },
         {
+          "domain": "all_levels_SU2_adjoint_finite_products_integer_multiplier_chains_and_Morita_duals",
+          "outcome": "family_excluded_by_exact_global_dimension",
+          "scope": "general_complex_construction_family_dimension_obstruction",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/su2_all_frontier.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/su2_all_frontier.py",
+            "evidence/rank8_frontier_20261021/noncommutative_followup/su2_product_family.py"
+          ],
+          "limitation": "Other Lie types, arbitrary algebra condensation, dimension-decreasing de-equivariantization, or general categorifications.",
+          "proof": "evidence/rank8_frontier_20261021/noncommutative_followup/SU2_FAMILY.md",
+          "details": {
+            "complete_order_candidates": [
+              3,
+              4,
+              5,
+              6,
+              8,
+              10,
+              12,
+              15,
+              16,
+              20,
+              24,
+              30
+            ],
+            "allowed_order_sequence": [
+              8,
+              12,
+              24
+            ],
+            "exponent_box_size": 12,
+            "dimension_bounded_product_count": 5,
+            "positive_integer_scaling_matches": []
+          }
+        },
+        {
           "domain": "streaming_global_column_generation",
           "outcome": "exact_feasible_relaxation",
           "scope": "pseudo_unitary_induction_relaxation",
@@ -42820,8 +44586,7 @@
             "evidence/rank8_frontier_20261021/global_induction/results/R8_3_1739_h4.json"
           ],
           "verifiers": [
-            "evidence/rank8_frontier_20261021/global_induction/verify_streaming.py",
-            "evidence/rank8_frontier_20261021/global_induction/verify_frames.py"
+            "evidence/rank8_frontier_20261021/global_induction/column_generation.py"
           ],
           "limitation": "A running/partial computation is incomplete; a feasible relaxation does not construct integer center data or an associator.",
           "proof": "evidence/rank8_frontier_20261021/global_induction/PROOF.md",
@@ -42831,7 +44596,8 @@
             "rows": 197,
             "variables": 97768,
             "low_frames": null,
-            "high_columns": 2863
+            "high_columns": 2863,
+            "complete_exact_certificate": true
           }
         },
         {
@@ -42842,8 +44608,7 @@
             "evidence/rank8_frontier_20261021/global_induction/frame_results/R8_3_1739_h4.json"
           ],
           "verifiers": [
-            "evidence/rank8_frontier_20261021/global_induction/verify_streaming.py",
-            "evidence/rank8_frontier_20261021/global_induction/verify_frames.py"
+            "evidence/rank8_frontier_20261021/global_induction/frame_generation.py"
           ],
           "limitation": "A running/partial computation is incomplete; a feasible relaxation does not construct integer center data or an associator.",
           "proof": "evidence/rank8_frontier_20261021/global_induction/PROOF.md",
@@ -42853,7 +44618,8 @@
             "rows": 197,
             "variables": 104268,
             "low_frames": 6891,
-            "high_columns": 2863
+            "high_columns": 2863,
+            "complete_exact_certificate": true
           }
         },
         {
@@ -42864,8 +44630,7 @@
             "evidence/rank8_frontier_20261021/global_induction/frame_results/R8_3_1739_h6.json"
           ],
           "verifiers": [
-            "evidence/rank8_frontier_20261021/global_induction/verify_streaming.py",
-            "evidence/rank8_frontier_20261021/global_induction/verify_frames.py"
+            "evidence/rank8_frontier_20261021/global_induction/frame_generation.py"
           ],
           "limitation": "A running/partial computation is incomplete; a feasible relaxation does not construct integer center data or an associator.",
           "proof": "evidence/rank8_frontier_20261021/global_induction/PROOF.md",
@@ -42875,7 +44640,8 @@
             "rows": 323,
             "variables": 115762,
             "low_frames": 6891,
-            "high_columns": 2863
+            "high_columns": 2863,
+            "complete_exact_certificate": true
           }
         },
         {
@@ -42886,8 +44652,7 @@
             "evidence/rank8_frontier_20261021/global_induction/fixed_results/R8_3_1739_frame3445_h4.json"
           ],
           "verifiers": [
-            "evidence/rank8_frontier_20261021/global_induction/verify_streaming.py",
-            "evidence/rank8_frontier_20261021/global_induction/verify_frames.py"
+            "evidence/rank8_frontier_20261021/global_induction/fixed_frame.py"
           ],
           "limitation": "A running/partial computation is incomplete; a feasible relaxation does not construct integer center data or an associator.",
           "proof": "evidence/rank8_frontier_20261021/global_induction/PROOF.md",
@@ -42897,7 +44662,8 @@
             "rows": 197,
             "variables": 32642,
             "low_frames": 1,
-            "high_columns": 2863
+            "high_columns": 2863,
+            "complete_exact_certificate": true
           }
         },
         {
@@ -42908,8 +44674,7 @@
             "evidence/rank8_frontier_20261021/global_induction/fixed_results/R8_3_1739_frame3445_h6.json"
           ],
           "verifiers": [
-            "evidence/rank8_frontier_20261021/global_induction/verify_streaming.py",
-            "evidence/rank8_frontier_20261021/global_induction/verify_frames.py"
+            "evidence/rank8_frontier_20261021/global_induction/fixed_frame.py"
           ],
           "limitation": "A running/partial computation is incomplete; a feasible relaxation does not construct integer center data or an associator.",
           "proof": "evidence/rank8_frontier_20261021/global_induction/PROOF.md",
@@ -42919,7 +44684,30 @@
             "rows": 323,
             "variables": 36520,
             "low_frames": 1,
-            "high_columns": 2863
+            "high_columns": 2863,
+            "complete_exact_certificate": true
+          }
+        },
+        {
+          "domain": "sts_frame_global_column_generation",
+          "outcome": "cancelled_redundant_after_exact_general_exclusion",
+          "scope": "incomplete_no_mathematical_conclusion",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/global_induction/sts_results/R8_3_1739_h4.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/global_induction/sts_generation.py"
+          ],
+          "limitation": "A running/partial computation is incomplete; a feasible relaxation does not construct integer center data or an associator.",
+          "proof": "evidence/rank8_frontier_20261021/global_induction/PARTIAL_S_AND_STS.md",
+          "details": {
+            "height": 4,
+            "frame_index": null,
+            "rows": 341,
+            "variables": 93269,
+            "low_frames": 108,
+            "high_columns": 2739,
+            "complete_exact_certificate": false
           }
         }
       ],
@@ -44025,6 +45813,57 @@
               6
             ]
           }
+        },
+        {
+          "domain": "all_levels_SU2_adjoint_finite_products_integer_multiplier_chains_and_Morita_duals",
+          "outcome": "family_excluded_by_exact_global_dimension",
+          "scope": "general_complex_construction_family_dimension_obstruction",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/su2_all_frontier.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/su2_all_frontier.py",
+            "evidence/rank8_frontier_20261021/noncommutative_followup/su2_product_family.py"
+          ],
+          "limitation": "Other Lie types, arbitrary algebra condensation, dimension-decreasing de-equivariantization, or general categorifications.",
+          "proof": "evidence/rank8_frontier_20261021/noncommutative_followup/SU2_FAMILY.md",
+          "details": {
+            "complete_order_candidates": [
+              3,
+              4,
+              5,
+              6,
+              8,
+              10,
+              12
+            ],
+            "allowed_order_sequence": [],
+            "exponent_box_size": 1,
+            "dimension_bounded_product_count": 1,
+            "positive_integer_scaling_matches": []
+          }
+        },
+        {
+          "domain": "atomic_real_sts_global_column_generation",
+          "outcome": "running",
+          "scope": "incomplete_no_mathematical_conclusion",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/global_induction/atomic_results/R8_3_1768_h4.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/global_induction/atomic_generation.py"
+          ],
+          "limitation": "A running/partial computation is incomplete; a feasible relaxation does not construct integer center data or an associator.",
+          "proof": "evidence/rank8_frontier_20261021/global_induction/ATOMIC_MODULAR.md",
+          "details": {
+            "height": 4,
+            "frame_index": null,
+            "rows": 241,
+            "variables": 18130,
+            "low_frames": null,
+            "high_columns": 497,
+            "complete_exact_certificate": false
+          }
         }
       ],
       "limitations": [
@@ -45065,6 +46904,60 @@
               2,
               7
             ]
+          }
+        },
+        {
+          "domain": "all_levels_SU2_adjoint_finite_products_integer_multiplier_chains_and_Morita_duals",
+          "outcome": "family_excluded_by_exact_global_dimension",
+          "scope": "general_complex_construction_family_dimension_obstruction",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/su2_all_frontier.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/su2_all_frontier.py",
+            "evidence/rank8_frontier_20261021/noncommutative_followup/su2_product_family.py"
+          ],
+          "limitation": "Other Lie types, arbitrary algebra condensation, dimension-decreasing de-equivariantization, or general categorifications.",
+          "proof": "evidence/rank8_frontier_20261021/noncommutative_followup/SU2_FAMILY.md",
+          "details": {
+            "complete_order_candidates": [
+              3,
+              4,
+              5,
+              6,
+              8,
+              10,
+              12
+            ],
+            "allowed_order_sequence": [
+              5,
+              10
+            ],
+            "exponent_box_size": 18,
+            "dimension_bounded_product_count": 10,
+            "positive_integer_scaling_matches": []
+          }
+        },
+        {
+          "domain": "atomic_real_sts_global_column_generation",
+          "outcome": "running",
+          "scope": "incomplete_no_mathematical_conclusion",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/global_induction/atomic_results/R8_3_1795_h4.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/global_induction/atomic_generation.py"
+          ],
+          "limitation": "A running/partial computation is incomplete; a feasible relaxation does not construct integer center data or an associator.",
+          "proof": "evidence/rank8_frontier_20261021/global_induction/ATOMIC_MODULAR.md",
+          "details": {
+            "height": 4,
+            "frame_index": null,
+            "rows": 241,
+            "variables": 102643,
+            "low_frames": null,
+            "high_columns": 3011,
+            "complete_exact_certificate": false
           }
         }
       ],
@@ -50870,6 +52763,38 @@
           "proof": "evidence/rank8_frontier_20261021/quadratic/SIMULTANEOUS_SPLIT_MODULE.md",
           "details": {
             "complete_search_outcome": "excluded"
+          }
+        },
+        {
+          "domain": "all_levels_SU2_adjoint_finite_products_integer_multiplier_chains_and_Morita_duals",
+          "outcome": "family_excluded_by_exact_global_dimension",
+          "scope": "general_complex_construction_family_dimension_obstruction",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/su2_all_frontier.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/su2_all_frontier.py",
+            "evidence/rank8_frontier_20261021/noncommutative_followup/su2_product_family.py"
+          ],
+          "limitation": "Other Lie types, arbitrary algebra condensation, dimension-decreasing de-equivariantization, or general categorifications.",
+          "proof": "evidence/rank8_frontier_20261021/noncommutative_followup/SU2_FAMILY.md",
+          "details": {
+            "complete_order_candidates": [
+              3,
+              4,
+              5,
+              6,
+              8,
+              10,
+              12
+            ],
+            "allowed_order_sequence": [
+              5,
+              10
+            ],
+            "exponent_box_size": 18,
+            "dimension_bounded_product_count": 10,
+            "positive_integer_scaling_matches": []
           }
         }
       ],
@@ -56736,6 +58661,37 @@
           "details": {
             "complete_search_outcome": "excluded"
           }
+        },
+        {
+          "domain": "all_levels_SU2_adjoint_finite_products_integer_multiplier_chains_and_Morita_duals",
+          "outcome": "family_excluded_by_exact_global_dimension",
+          "scope": "general_complex_construction_family_dimension_obstruction",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/su2_all_frontier.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/su2_all_frontier.py",
+            "evidence/rank8_frontier_20261021/noncommutative_followup/su2_product_family.py"
+          ],
+          "limitation": "Other Lie types, arbitrary algebra condensation, dimension-decreasing de-equivariantization, or general categorifications.",
+          "proof": "evidence/rank8_frontier_20261021/noncommutative_followup/SU2_FAMILY.md",
+          "details": {
+            "complete_order_candidates": [
+              3,
+              4,
+              5,
+              6,
+              8,
+              10,
+              12
+            ],
+            "allowed_order_sequence": [
+              8
+            ],
+            "exponent_box_size": 3,
+            "dimension_bounded_product_count": 3,
+            "positive_integer_scaling_matches": []
+          }
         }
       ],
       "limitations": [
@@ -56757,9 +58713,9 @@
     {
       "id": "R8_3_3258",
       "tensor_sha256": "255587f4f78045f7af39bba5aacb1685be5cfdf2a8024a316e42b3f3e3030152",
-      "general_status": "unresolved",
+      "general_status": "excluded",
       "categorification_or_novelty_proved": false,
-      "screening_stage": "active_structural_and_construction_research",
+      "screening_stage": "general_exclusion_accepted_after_review",
       "prior_unitary_status": "excluded",
       "prior_unitary_obstruction_source": "evidence/rank8_m3_20261021/noncommutative/unitary_primary3_results.json",
       "prior_published_attempts": [
@@ -57634,13 +59590,77 @@
               7
             ]
           }
+        },
+        {
+          "domain": "all_levels_SU2_adjoint_finite_products_integer_multiplier_chains_and_Morita_duals",
+          "outcome": "family_excluded_by_exact_global_dimension",
+          "scope": "general_complex_construction_family_dimension_obstruction",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/su2_all_frontier.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/su2_all_frontier.py",
+            "evidence/rank8_frontier_20261021/noncommutative_followup/su2_product_family.py"
+          ],
+          "limitation": "Other Lie types, arbitrary algebra condensation, dimension-decreasing de-equivariantization, or general categorifications.",
+          "proof": "evidence/rank8_frontier_20261021/noncommutative_followup/SU2_FAMILY.md",
+          "details": {
+            "complete_order_candidates": [
+              3,
+              4,
+              5,
+              6,
+              8,
+              10,
+              12
+            ],
+            "allowed_order_sequence": [
+              5,
+              10
+            ],
+            "exponent_box_size": 10,
+            "dimension_bounded_product_count": 7,
+            "positive_integer_scaling_matches": []
+          }
+        },
+        {
+          "domain": "atomic_real_sts_global_column_generation",
+          "outcome": "excluded",
+          "scope": "general_complex_fusion_category",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/global_induction/atomic_results/R8_3_3258_h4.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/global_induction/atomic_generation.py"
+          ],
+          "limitation": "A running/partial computation is incomplete; a feasible relaxation does not construct integer center data or an associator.",
+          "proof": "evidence/rank8_frontier_20261021/global_induction/ATOMIC_MODULAR.md",
+          "details": {
+            "height": 4,
+            "frame_index": null,
+            "rows": 241,
+            "variables": 17619,
+            "low_frames": null,
+            "high_columns": 1471,
+            "complete_exact_certificate": true
+          }
         }
       ],
       "limitations": [
         "No completed search here exhausts all complex associators or all constructions.",
         "A feasible necessary-condition system is not a categorification.",
         "Extensively investigated exotic candidate is a research-screening description, not a proof of categorifiability or novelty."
-      ]
+      ],
+      "accepted_certificate": {
+        "kind": "character_labeled_atomic_modular_STS_signed_induction",
+        "scope": "general_complex_fusion_category",
+        "evidence": "evidence/rank8_frontier_20261021/global_induction/atomic_results/R8_3_3258_h4.json",
+        "proof": "evidence/rank8_frontier_20261021/global_induction/ATOMIC_STS_APPLICATIONS.md",
+        "verifiers": [
+          "evidence/rank8_frontier_20261021/global_induction/verify_accepted_atomic_sts.py",
+          "evidence/rank8_frontier_20261021/central_integrality/review_r3258_atomic.py"
+        ]
+      }
     },
     {
       "id": "R8_3_3344",
@@ -58791,6 +60811,39 @@
           }
         },
         {
+          "domain": "all_levels_SU2_adjoint_finite_products_integer_multiplier_chains_and_Morita_duals",
+          "outcome": "dimension_compatible_not_model",
+          "scope": "general_complex_construction_family_dimension_obstruction",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/su2_all_frontier.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/su2_all_frontier.py",
+            "evidence/rank8_frontier_20261021/noncommutative_followup/su2_product_family.py"
+          ],
+          "limitation": "Other Lie types, arbitrary algebra condensation, dimension-decreasing de-equivariantization, or general categorifications.",
+          "proof": "evidence/rank8_frontier_20261021/noncommutative_followup/SU2_FAMILY.md",
+          "details": {
+            "complete_order_candidates": [
+              3,
+              4,
+              6
+            ],
+            "allowed_order_sequence": [],
+            "exponent_box_size": 1,
+            "dimension_bounded_product_count": 1,
+            "positive_integer_scaling_matches": [
+              {
+                "exponents": [],
+                "quotient": [
+                  "360"
+                ],
+                "positive_integer": true
+              }
+            ]
+          }
+        },
+        {
           "domain": "rep_A5_complement_and_exhaustive_relative_A6_twists",
           "outcome": "accepted_general_exclusion",
           "scope": "general_complex_fusion_category",
@@ -58826,9 +60879,9 @@
     {
       "id": "R8_3_3413",
       "tensor_sha256": "a8861068d0c45533eaa786ba7f874362a200efd96b7026d5edfa8d7f8fcf6a2c",
-      "general_status": "unresolved",
+      "general_status": "excluded",
       "categorification_or_novelty_proved": false,
-      "screening_stage": "active_structural_and_construction_research",
+      "screening_stage": "general_exclusion_accepted_after_review",
       "prior_unitary_status": "excluded",
       "prior_unitary_obstruction_source": "evidence/rank8_m3_20261021/noncommutative/unitary_primary3_results.json",
       "prior_published_attempts": [
@@ -59703,13 +61756,77 @@
               7
             ]
           }
+        },
+        {
+          "domain": "all_levels_SU2_adjoint_finite_products_integer_multiplier_chains_and_Morita_duals",
+          "outcome": "family_excluded_by_exact_global_dimension",
+          "scope": "general_complex_construction_family_dimension_obstruction",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/su2_all_frontier.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/su2_all_frontier.py",
+            "evidence/rank8_frontier_20261021/noncommutative_followup/su2_product_family.py"
+          ],
+          "limitation": "Other Lie types, arbitrary algebra condensation, dimension-decreasing de-equivariantization, or general categorifications.",
+          "proof": "evidence/rank8_frontier_20261021/noncommutative_followup/SU2_FAMILY.md",
+          "details": {
+            "complete_order_candidates": [
+              3,
+              4,
+              5,
+              6,
+              8,
+              10,
+              12
+            ],
+            "allowed_order_sequence": [
+              5,
+              10
+            ],
+            "exponent_box_size": 10,
+            "dimension_bounded_product_count": 7,
+            "positive_integer_scaling_matches": []
+          }
+        },
+        {
+          "domain": "atomic_spectrum_global_column_generation",
+          "outcome": "excluded",
+          "scope": "general_complex_fusion_category",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/global_induction/atomic_spectrum_results/R8_3_3413_h4.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/global_induction/atomic_spectrum_generation.py"
+          ],
+          "limitation": "A running/partial computation is incomplete; a feasible relaxation does not construct integer center data or an associator.",
+          "proof": "evidence/rank8_frontier_20261021/global_induction/ATOMIC_SPECTRUM.md",
+          "details": {
+            "height": 4,
+            "frame_index": null,
+            "rows": 253,
+            "variables": 4485,
+            "low_frames": null,
+            "high_columns": 367,
+            "complete_exact_certificate": true
+          }
         }
       ],
       "limitations": [
         "No completed search here exhausts all complex associators or all constructions.",
         "A feasible necessary-condition system is not a categorification.",
         "Extensively investigated exotic candidate is a research-screening description, not a proof of categorifiability or novelty."
-      ]
+      ],
+      "accepted_certificate": {
+        "kind": "full_character_field_labeled_modular_S_symmetry_signed_induction",
+        "scope": "general_complex_fusion_category",
+        "evidence": "evidence/rank8_frontier_20261021/global_induction/atomic_spectrum_results/R8_3_3413_h4.json",
+        "proof": "evidence/rank8_frontier_20261021/global_induction/ATOMIC_SPECTRUM.md",
+        "verifiers": [
+          "evidence/rank8_frontier_20261021/global_induction/verify_accepted_atomic.py",
+          "evidence/rank8_frontier_20261021/quadratic/review_atomic_spectrum.py"
+        ]
+      }
     },
     {
       "id": "R8_3_3472",
@@ -60653,6 +62770,59 @@
               3
             ]
           }
+        },
+        {
+          "domain": "all_levels_SU2_adjoint_finite_products_integer_multiplier_chains_and_Morita_duals",
+          "outcome": "family_excluded_by_exact_global_dimension",
+          "scope": "general_complex_construction_family_dimension_obstruction",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/su2_all_frontier.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/noncommutative_followup/su2_all_frontier.py",
+            "evidence/rank8_frontier_20261021/noncommutative_followup/su2_product_family.py"
+          ],
+          "limitation": "Other Lie types, arbitrary algebra condensation, dimension-decreasing de-equivariantization, or general categorifications.",
+          "proof": "evidence/rank8_frontier_20261021/noncommutative_followup/SU2_FAMILY.md",
+          "details": {
+            "complete_order_candidates": [
+              3,
+              4,
+              5,
+              6,
+              8,
+              10,
+              12
+            ],
+            "allowed_order_sequence": [
+              8
+            ],
+            "exponent_box_size": 3,
+            "dimension_bounded_product_count": 3,
+            "positive_integer_scaling_matches": []
+          }
+        },
+        {
+          "domain": "atomic_spectrum_global_column_generation",
+          "outcome": "exact_feasible_relaxation",
+          "scope": "pseudo_unitary_induction_relaxation",
+          "evidence": [
+            "evidence/rank8_frontier_20261021/global_induction/atomic_spectrum_results/R8_3_3472_h4.json"
+          ],
+          "verifiers": [
+            "evidence/rank8_frontier_20261021/global_induction/atomic_spectrum_generation.py"
+          ],
+          "limitation": "A running/partial computation is incomplete; a feasible relaxation does not construct integer center data or an associator.",
+          "proof": "evidence/rank8_frontier_20261021/global_induction/ATOMIC_SPECTRUM.md",
+          "details": {
+            "height": 4,
+            "frame_index": null,
+            "rows": 253,
+            "variables": 57441,
+            "low_frames": null,
+            "high_columns": 1126,
+            "complete_exact_certificate": true
+          }
         }
       ],
       "limitations": [
@@ -60663,32 +62833,70 @@
     }
   ],
   "artifact_sha256": {
-    "evidence/rank8_frontier_20261021/accepted.json": "5799aae66c603e4aaacf59dd833a18a591c100ff6a25f01dca0d7b3f835b652b",
+    "evidence/rank8_frontier_20261021/accepted.json": "d7fe1b5e2a964d7bef18543dc7825a5caea002c4e7dddee991b259363bc5b0a8",
     "evidence/rank8_frontier_20261021/central_integrality/GENERAL_GALOIS_PU.md": "642fdcaf1a4d30c9239181f912412c12e1465393a5a86f0cc8dbfc5d7d98c960",
     "evidence/rank8_frontier_20261021/central_integrality/RESEARCH_RECORD.md": "7564d52513ed1e6348799fdb5ca33b12e1f107c68371cd13ae8923bed8b3bd24",
-    "evidence/rank8_frontier_20261021/central_integrality/fixed_gram_rotation_1154.py": "4c9c91a184c698f2c2f00faefe0e8ef21a98f2a145e05e385f3cb57597502893",
+    "evidence/rank8_frontier_20261021/central_integrality/fixed_gram_rotation_1154.py": "79b31dd094a2ccd0f985546cc1a972ebf5e2c539f6b06b9675ead4c53e260882",
     "evidence/rank8_frontier_20261021/central_integrality/fixed_gram_rotation_1154_h6.json": "065385849e5abce1bd0828e560ff01539d2bc487c3111a9b6f70b28057286425",
     "evidence/rank8_frontier_20261021/central_integrality/general_galois_pu_gate.json": "429b75f20fd92abd70140fdff1726e9f3a015de77ff4fa5c3f9548552c86350f",
     "evidence/rank8_frontier_20261021/central_integrality/general_galois_pu_gate.py": "47b409688601d7c770453c3d83fc7afdd4b2c22b15fc92dfb19028acc20ada7d",
+    "evidence/rank8_frontier_20261021/central_integrality/review_r3258_atomic.py": "e9d972547cd56a10337a171e4d397e3f5e574021c217d8056d26ee3e44d0739e",
     "evidence/rank8_frontier_20261021/central_integrality/review_r926_partial_s.py": "775bc3c4cfa4cf9fce659afedebb2b477a1a01029ae22fda309cf3d286f1ed17",
+    "evidence/rank8_frontier_20261021/global_induction/ATOMIC_MODULAR.md": "79efa96da25998702985a8d95a5016ad5646a0954b2f713d0b9a0ea017d2020c",
+    "evidence/rank8_frontier_20261021/global_induction/ATOMIC_SPECTRUM.md": "e4b61cc8b3d8c5840cecf94bd35f90e881b212ba1cbdd4c8d6594986f019f23d",
+    "evidence/rank8_frontier_20261021/global_induction/ATOMIC_STS_APPLICATIONS.md": "913c0897b3a6d1425f4a310ffe7fa92df885c8b5174649f919f2d2f31b4162a4",
+    "evidence/rank8_frontier_20261021/global_induction/LOW_S_SYMMETRY.md": "254537e39a23829ece9ba3a677fcea57c97004d6fb5e654e9afc84eb833aad87",
     "evidence/rank8_frontier_20261021/global_induction/PARTIAL_S_AND_STS.md": "eddeb5d92442fdc7ac6e605297f513e122a295310f44de1f7dc4ca094a6f2f32",
     "evidence/rank8_frontier_20261021/global_induction/PROOF.md": "6826d77f4b794aa18eb08667021b1c4ee00afb096eb1c31be6dfafd6b1d26324",
+    "evidence/rank8_frontier_20261021/global_induction/atomic_generation.py": "7237e1fceb30ddbe18fc8692e5d70048012300d7154907b3bed56393a8b300e0",
+    "evidence/rank8_frontier_20261021/global_induction/atomic_results/R8_3_1768_h4.json": "6bbb26dfb92995e141ffd5783a30ddcb601586e5eadc36365957a2851fc10698",
+    "evidence/rank8_frontier_20261021/global_induction/atomic_results/R8_3_1795_h4.json": "753e76f41a97f4b80aa0799d21e5f30de18b8744776e2211dae24af7cad371f8",
+    "evidence/rank8_frontier_20261021/global_induction/atomic_results/R8_3_3258_h4.json": "e7ee3ec15d85544b554ee48fd5a5473248efcef697bed9c813155f236ea1db1f",
+    "evidence/rank8_frontier_20261021/global_induction/atomic_results/R8_3_334_h4.json": "0ee4fa384e822df8c1d1e687802a52a8ac0b15e994bf1a79cecd4cb466ff6e68",
+    "evidence/rank8_frontier_20261021/global_induction/atomic_spectrum_generation.py": "00f36f8bb16fd40d5792dcc816b0261421a0bf295e8ac14f239a3874485e4171",
+    "evidence/rank8_frontier_20261021/global_induction/atomic_spectrum_results/R8_3_1055_h4.json": "999ec95491a9638f01b6b12471b04bc962475c2739329809048c70040144af9c",
+    "evidence/rank8_frontier_20261021/global_induction/atomic_spectrum_results/R8_3_3413_h4.json": "126e35851193d1b6ef29dc07458b33ede075c38c815edc64f86f5b40e8eb49ba",
+    "evidence/rank8_frontier_20261021/global_induction/atomic_spectrum_results/R8_3_3472_h4.json": "5202401998f4029018fcf8d40f500f2dc8e399ab85ee2a08b03661592b4bce16",
+    "evidence/rank8_frontier_20261021/global_induction/atomic_spectrum_results/R8_3_65_h4.json": "840db130f1ac6f3ced6a8d2a80c9e092d5f17480c495736198125e11ffeae95e",
+    "evidence/rank8_frontier_20261021/global_induction/column_generation.py": "7c347465adef1dfcc3d4a598cf147328a5fbf44362163d5ca2baee20b53aa7f8",
+    "evidence/rank8_frontier_20261021/global_induction/complete_phase_one.py": "13c54ceb6ecb28b2d8a9d1d98ac194adf7c0b5d8afc11dba1e04dca9f720d27a",
+    "evidence/rank8_frontier_20261021/global_induction/complete_results/R8_3_334_sts_frame_h4.json": "ebe9364f0f828386395e676d00a1538c12052e57bb6cde4af3ade0efa032d0be",
+    "evidence/rank8_frontier_20261021/global_induction/complete_results/R8_3_982_sts_frame_h4.json": "97acfc22dfa72ba26ab8043f5453495829836a07d826ef150c164692b95153a4",
+    "evidence/rank8_frontier_20261021/global_induction/fixed_frame.py": "45c1a167121e2543a3e09a6ccafb4499e6d307966573d7cd4ca61cc97fc4e887",
     "evidence/rank8_frontier_20261021/global_induction/fixed_results/R8_3_1739_frame3445_h4.json": "248c9579e143e10c76aa15f58fac13411628a588d4e321be1da18ac4c929dd4a",
     "evidence/rank8_frontier_20261021/global_induction/fixed_results/R8_3_1739_frame3445_h6.json": "096f19cf2fd1f944ea9e1c034bf4c1ed9f40ba6f0c4fa15b78e59b7e193d90d8",
     "evidence/rank8_frontier_20261021/global_induction/fixed_results/R8_3_334_frame39_h4.json": "47cb3daa7d389f34174bb61500459f059e42842b6913e8ac535ac2392507e7b4",
+    "evidence/rank8_frontier_20261021/global_induction/frame_generation.py": "888e37fb0271df5df57d6d66d07ac2f40c1bcf6d2701e5069d6cf69edb620285",
     "evidence/rank8_frontier_20261021/global_induction/frame_results/R8_3_1739_h4.json": "31f0c82913f68fbe8a0e79208f64a1482feba713aee37883bfb26ef593717aeb",
     "evidence/rank8_frontier_20261021/global_induction/frame_results/R8_3_1739_h6.json": "f98c7e332bc785dbcb6bb746765b663e61ff144a6c5bf9654072579999bf4b40",
     "evidence/rank8_frontier_20261021/global_induction/frame_results/R8_3_334_h4.json": "3185e9713cb19f3f9bca823ca5348f940cf80c765cd6a421125802fc4a6d56bd",
     "evidence/rank8_frontier_20261021/global_induction/frame_results/R8_3_903_h4.json": "69d490361d68c73e8063eba68660fa798e06dfeff819083ca6a3a86690106344",
     "evidence/rank8_frontier_20261021/global_induction/frame_results/R8_3_925_h4.json": "103def17870c50203ce690d39a287ecb959409352ac1250377355e6523bedbb1",
+    "evidence/rank8_frontier_20261021/global_induction/generic_generation.py": "075a06fbaedcf485fdd8f2d97d9ff612cefba9c5b96baf87eae15d2136f8fb2c",
+    "evidence/rank8_frontier_20261021/global_induction/generic_results/R8_3_1463_low_s.json": "7bcb6cfc7f188d7fe4a18083568756f6c17ffc3b18ee7972db9863b783b06c1c",
+    "evidence/rank8_frontier_20261021/global_induction/generic_results/R8_3_1463_sts_frame_h4.json": "9dbf808ad8eb5bd0e33338aa03320777190cdd8795e861f8432a15ffdbd453ae",
+    "evidence/rank8_frontier_20261021/global_induction/generic_results/R8_3_901_frame_h4.json": "573150ad3f0cc6dfd0f433cfc880fcb3f3f86b4e65189b224c0780226d38718c",
     "evidence/rank8_frontier_20261021/global_induction/results/R8_3_1453_h4.json": "26c953a99d77dd55e141e9b541a90dbc351c45e1a105a7ad9a5ed6d1b26cf1fc",
     "evidence/rank8_frontier_20261021/global_induction/results/R8_3_1739_h4.json": "954cbf02864fe5374d0124f0b973900b8f4f4ca2d894af89049d7d77fafea0a9",
     "evidence/rank8_frontier_20261021/global_induction/results/R8_3_334_h4.json": "62b918101d2d23bd2e45e9d7401dff6f007700c603cbef5aa4f76c6238b454fa",
+    "evidence/rank8_frontier_20261021/global_induction/spectral_generation.py": "7d83fa95538c2d428a24f724954c8f896db3759dc37db55d69820ef90348b613",
+    "evidence/rank8_frontier_20261021/global_induction/spectral_results/R8_3_334_h4.json": "5da40787bb1ab3405ea316308fc448f407a4181ceff8f13b352c960ad3a9f2cd",
     "evidence/rank8_frontier_20261021/global_induction/spectral_results/R8_3_926_h4.json": "a6bfc32713ef56ccce4d3c5f9b60e50049d923880156aedfe2bec175ff3f9052",
+    "evidence/rank8_frontier_20261021/global_induction/sts_generation.py": "35b1471fbf86708da466c2f84c76a38f94db775c436caf1b3a66ecaa2bf76cc8",
+    "evidence/rank8_frontier_20261021/global_induction/sts_results/R8_3_1615_h4.json": "16c04fa48def8ccb4a11af66093cd6e63fd6e66a6a657e51f4fcc721603c4149",
+    "evidence/rank8_frontier_20261021/global_induction/sts_results/R8_3_1617_h4.json": "001fdc93bd781ddd85a1461aa9db24af4f5099da3b57090ff2fa7e8dec813e32",
+    "evidence/rank8_frontier_20261021/global_induction/sts_results/R8_3_1660_h4.json": "b5d89abbe9d830acff4db70840b63e61e68b7fb4c2d845edb8b2ca798ca54ffd",
+    "evidence/rank8_frontier_20261021/global_induction/sts_results/R8_3_1661_h4.json": "4303ec73cf44f8b1689a36d835b64f0b59981055d4c6da1521e393ee8d3390ff",
+    "evidence/rank8_frontier_20261021/global_induction/sts_results/R8_3_1739_h4.json": "c009f1e37faf6f256718f3edc2658e5ecaf34fd2e5d1a5ca128f60b2b04774f2",
+    "evidence/rank8_frontier_20261021/global_induction/sts_results/R8_3_334_h4.json": "7f0e73ff5177f2b1893509b214eb17fe90369f3385ec75229825ea69be59662f",
+    "evidence/rank8_frontier_20261021/global_induction/sts_results/R8_3_982_h4.json": "d4f9b5883b100088a31360cbcd6671bfd5f8387723491432216cf5e6f7618253",
+    "evidence/rank8_frontier_20261021/global_induction/sts_results/R8_3_985_h4.json": "e86ffd40600fcd54f8ba9d04ee955b7c7a3f53394a4b038079deff029a4b57ec",
+    "evidence/rank8_frontier_20261021/global_induction/verify_accepted_atomic.py": "e7383cc024c82473985265ce00adb88740f4ea928d11957dc28458530d3ed34d",
+    "evidence/rank8_frontier_20261021/global_induction/verify_accepted_atomic_sts.py": "e9f6d6fbcf838d868194ca3a01f35d99baa9fbda777f2a918084a7851da806c9",
     "evidence/rank8_frontier_20261021/global_induction/verify_accepted_frames.py": "7c7e50c9292215d57af61ed025e3ed8ed2a733d356c6900f5f878b292a8175a5",
+    "evidence/rank8_frontier_20261021/global_induction/verify_accepted_generic.py": "4c004b1c4e310abadf4f4299f15a263dcde4364174e2924e478b8a6ce8762b39",
     "evidence/rank8_frontier_20261021/global_induction/verify_accepted_spectral.py": "547767a30f27a151f476ee4f68adb8105ac2c7117b31ead48fc61a170a9f8c48",
-    "evidence/rank8_frontier_20261021/global_induction/verify_frames.py": "5dd506ce533f86293d6d37a603776f2da2ed3bf876122c7353c675d914bff42f",
-    "evidence/rank8_frontier_20261021/global_induction/verify_streaming.py": "c32652ffa4dad28c186eb7688a60fca8409bdb7bcd60ec17fa442f5c2c30a6cd",
+    "evidence/rank8_frontier_20261021/global_induction/verify_accepted_sts.py": "812ac897fcd79e1f62c2a12405f2baacc1721f490effe7c66aec14c82b2c1b73",
     "evidence/rank8_frontier_20261021/integral/PROOF.md": "92eb4749643b7c5972df0679daeea69554993fb92b25be86cf6cf3326beb3a48",
     "evidence/rank8_frontier_20261021/integral/a6_relative_cohomology.json": "ee554d3841953b507517d7021b42abc5f6e7ce9a89f8bd6f320eefa7b99b228c",
     "evidence/rank8_frontier_20261021/integral/a6_relative_cohomology.py": "b6a0f02b27d3c125f9377bf630e6c3852f1679849fa1abf7aa60d288b52d3c56",
@@ -60728,8 +62936,15 @@
     "evidence/rank8_frontier_20261021/noncommutative/verify_all.py": "e625cc6636c652c436797775cb56c2ee34f3df82eb07efae14d978c74562597d",
     "evidence/rank8_frontier_20261021/noncommutative/verify_independent.py": "ad586fa52385d97c15bb6827791f0c33ba5e97025f8b2e5204e57ec8ae9a69ed",
     "evidence/rank8_frontier_20261021/noncommutative/verlinde_low_721.json": "84f0c77432cfea25f9f0c99fa2d349d84ff9f7605950b1fab61772ade5447518",
+    "evidence/rank8_frontier_20261021/noncommutative_followup/ADDITIONAL_SCOPE_GATES.md": "006c988b137378b36a6e609e2d411add960fe4fd7a7665b765a35cf8b2f9a37b",
     "evidence/rank8_frontier_20261021/noncommutative_followup/README.md": "10d42b739fd442652985afca1c72f4066cc8999143d3e96837cedf184437ff47",
+    "evidence/rank8_frontier_20261021/noncommutative_followup/SU2_FAMILY.md": "f6c2d101752278557f8ebedaae5367c0de5456668216e4d14c94478c71103b1b",
+    "evidence/rank8_frontier_20261021/noncommutative_followup/additional_scope_gates.json": "f000d36af92b8659cae9705d3dd36054fce06722a9b7f853418c535c8d701042",
+    "evidence/rank8_frontier_20261021/noncommutative_followup/additional_scope_gates.py": "2c193d373fba3e6ef272fdaf672a597c2352e9f9b2285e2b3e8f86359772d186",
     "evidence/rank8_frontier_20261021/noncommutative_followup/scope_gates.json": "65984157be726eb5db0c4cd35c5cae1f52e569bdd4031415c3eea0195a6cb15b",
+    "evidence/rank8_frontier_20261021/noncommutative_followup/su2_all_frontier.json": "92129a550ff1ef3349f85f125187ef2247ec1f40bcd6733cc07cd27741ec51be",
+    "evidence/rank8_frontier_20261021/noncommutative_followup/su2_all_frontier.py": "35f042ea71299a5d1ef7dd5498169b14d4801cf11f0ce389d8c71ab4298ce755",
+    "evidence/rank8_frontier_20261021/noncommutative_followup/su2_product_family.py": "c6335c651cd46305756c7d7c8997b9872dd6093b70dbe4ace4cc06ad3d8e3986",
     "evidence/rank8_frontier_20261021/noncommutative_followup/verify_scope_gates.py": "eedc0ef9a2f729d00d130bcda82022ab4494ce6a38fa1bbbcd2d78e8fa653c06",
     "evidence/rank8_frontier_20261021/quadratic/CONNECTED_ALGEBRA_CANDIDATES.md": "c3540b1b8d7c6f98a631fdc49e90fb1be8050681f8cce67e3c53f90d48536652",
     "evidence/rank8_frontier_20261021/quadratic/CUBIC_SPLIT_MODULE.md": "fd42b42bb99ad91509f873e76b491752bf9c2273324802e2bc8fb89c979b65a3",
@@ -60747,24 +62962,32 @@
     "evidence/rank8_frontier_20261021/quadratic/rank_two_and_models_results.json": "3ede0a69095db118e2d03f005118d9a16bdb0fbf33f3fc67f95effe3fe561664",
     "evidence/rank8_frontier_20261021/quadratic/residual_split_1055.py": "270f2c85dd9664939ed3129da16714d11feac98c7fb6a75877b7c796241a254a",
     "evidence/rank8_frontier_20261021/quadratic/residual_split_1055_results.json": "23444052ef7ad8a5a9ac78e008bdb7f3e1958000fbf292731f48748d19dfacae",
+    "evidence/rank8_frontier_20261021/quadratic/review_atomic_spectrum.py": "8196f64afe17d1bad578e9d08e5f59897d9a5ecd452345fc8586d078a78fafb7",
     "evidence/rank8_frontier_20261021/quadratic/simultaneous_split.py": "d0fcb12d966aa6cd73b57b6e9bb0bc534abe25c3ebb6d74f0d99599058fd41d0",
     "evidence/rank8_frontier_20261021/quadratic/simultaneous_split_results.json": "4335fa42b279a4737bb04552ce20f8c0c24a24aee83a35ecbe6725f88221f8b0",
     "evidence/rank8_frontier_20261021/quadratic/structural_constructions.py": "f3cb58fd546c964ef0b60157fff3c35ecceb3ef23cf39f086a7ddb6dc405993a",
     "evidence/rank8_frontier_20261021/quadratic/structural_constructions_results.json": "5bed61aec63b8081f672bd85aa89b0ec825c5d191881b89808501bc6c24be07f",
     "evidence/rank8_frontier_20261021/quadratic/verify_simultaneous_independent.py": "492a61da8011e4d7585469f4599b3cb073e6d851d71ebc0fbc88a242563808de",
+    "evidence/rank8_frontier_20261021/review/verify_r1463_low_symmetry.py": "1d32ef046563148a0f0ead61b6c383ef034067d2b74111431b21d3e28defd851",
+    "evidence/rank8_frontier_20261021/review/verify_r1463_signed_unrestricted.py": "4270bdc89754abca7d0ca9d7863d1b78c7587691675321415a7257948e75a3ce",
     "evidence/rank8_frontier_20261021/review/verify_r1739_independent.py": "5c02c8f9b1862a637b43cb6982dd0d90566fd7cc4ac0ee042fa81eeba44f13c8",
     "evidence/rank8_frontier_20261021/review/verify_r731_independent.py": "e6ff7da85dbfaaf86e0e84b4f5019ddc6ed2ffba2dfb00589be4777f3fa80390",
     "evidence/rank8_frontier_20261021/review/verify_r925_independent.py": "b1c9bee922541b025c9692bd44c99493ca9f5878d2cca197dd50543e145ac561",
-    "evidence/rank8_frontier_20261021/structural_models/ALGEBRA_CANDIDATES.md": "852afb639f52e9cad71753b00c61cba62d3da4596eadb479f5c8db92cc23f184",
+    "evidence/rank8_frontier_20261021/review/verify_r985_direct.py": "ad077d8d0b74413dcc8662add89d3336e61f5a02a5987cbf15dfefa5f524bb3e",
+    "evidence/rank8_frontier_20261021/structural_models/ALGEBRA_CANDIDATES.md": "059c3ff98438c06b6be3af5a6122ee2c6ac2aefc088d6925ca46fcacbfc0af8f",
     "evidence/rank8_frontier_20261021/structural_models/C3_MORITA_DUAL.md": "46200c800147013df0bf256d60e34230a090f5e0b271e97e41b4516ac96f714a",
+    "evidence/rank8_frontier_20261021/structural_models/KNOWN_MODEL_ROUTES.md": "d468e371127516a86543da97d218f266124e7fdf014a399b87c76acaada24794",
     "evidence/rank8_frontier_20261021/structural_models/NEAR_GROUP_SCALING.md": "11e943b296808b136256a5f8cfd2bb483cba3962e1c2bc6b26f144ffdc1a3717",
     "evidence/rank8_frontier_20261021/structural_models/R436_GENERAL_TPE.md": "7289e0e69d99f70075a28b13632b74e918e6efd8ee6d6261bb749b433bec3022",
     "evidence/rank8_frontier_20261021/structural_models/R65_MODULES.md": "1555cb1fb83ff9c603cefd5fddcca40c61e5928fa770e8b936c60b2e70b21cdb",
+    "evidence/rank8_frontier_20261021/structural_models/S3_FULL_CONDENSATION.md": "91d438b3f17240d89f05f80027dd77655a3e3b709c68b2290696afce72fb59b8",
     "evidence/rank8_frontier_20261021/structural_models/STRUCTURAL_SCOPE.md": "9ceae61103708119f9be11853fa934279b4a4214a58bf3cbe800a1ebf33071de",
-    "evidence/rank8_frontier_20261021/structural_models/algebra_candidates.json": "c44b47ddff5c3794ce7424148d96343859a5792d609300d8d42e202e15bec613",
-    "evidence/rank8_frontier_20261021/structural_models/algebra_candidates.py": "6973ed92fb39936987cef6ec137d76a8523bcb80adddd1e8894c10ad5e8cbc8d",
+    "evidence/rank8_frontier_20261021/structural_models/algebra_candidates.json": "eecc23bde04d34be4038841c7d5d180d2ca4c3433770fcf8aa3d25fea62a9dde",
+    "evidence/rank8_frontier_20261021/structural_models/algebra_candidates.py": "0eedb13fbc1cdc747f8caae9465cdebf0edc3c867e4b7237208eab7c69b84da3",
     "evidence/rank8_frontier_20261021/structural_models/c3_morita_dual.json": "e284ab3ab71ef61a727a313b2a73624f6ebd84ed2f01be537242b6e952dfaa4d",
     "evidence/rank8_frontier_20261021/structural_models/c3_morita_dual.py": "d190787e8743d6922929926715b07627a6eb6d54535b25ea4e8d10b2d16bf795",
+    "evidence/rank8_frontier_20261021/structural_models/known_model_routes.json": "5c6b64e1d626af1904ca6a2353c6d633ec850bcdb35114567a6771ccfb44d796",
+    "evidence/rank8_frontier_20261021/structural_models/known_model_routes.py": "0e48b819ec2ffcb3068270d6e9a522ac2efec69f7ec2700442ef06679ff81c83",
     "evidence/rank8_frontier_20261021/structural_models/near_group_scaling.json": "75d28837ba8f434bab3dc3baeaf9d23d5e348041e34f37305d505bd4058ced55",
     "evidence/rank8_frontier_20261021/structural_models/near_group_scaling.py": "15eca8ec4832cf6ea334da1b7abc23e08322ae008919e0ce88a69ae56f6bc367",
     "evidence/rank8_frontier_20261021/structural_models/r436_general_tpe.json": "c6bba66896d160617311ccb6175bfdbc2ffd984762304f76d397cc819a45a219",
@@ -60774,6 +62997,10 @@
     "evidence/rank8_frontier_20261021/structural_models/r455/verify_conditional_fourier.py": "4edcd398d4e00772ae152353e02a2720800ecb54812c6819ad9395e06c1149ed",
     "evidence/rank8_frontier_20261021/structural_models/r65_rank_two_modules.json": "da5a3d4e91158d4a7e610854ac41487dcd64b17acf35cd153c25e171367c0725",
     "evidence/rank8_frontier_20261021/structural_models/r65_rank_two_modules.py": "4b92cbc56592af01da685175cd3df3f45bd85f42fdb035dc8f3894018ccec3e4",
+    "evidence/rank8_frontier_20261021/structural_models/rank5_route_bindings.json": "ea2cc67ee41f24a838ffa6e82191dcec122c2e347f829cba35bca73d43a35980",
+    "evidence/rank8_frontier_20261021/structural_models/rank5_route_bindings.py": "516781dcbc637b806c36d9f5351d2c950bc8898d96aa70f6bd9d2f319ef7a9ed",
+    "evidence/rank8_frontier_20261021/structural_models/s3_full_condensation.json": "47c248455bc625413a013bdc2c842b2b769234ecbba4a83b7758dde42c1eb231",
+    "evidence/rank8_frontier_20261021/structural_models/s3_full_condensation.py": "d1a04cadac207c0008ff658845ebecdb616a34087a7cf94b472c41d0ff09ccb6",
     "evidence/rank8_frontier_20261021/structural_models/structural_scope.json": "ab4697dd69ad53a756ebbb77fb68943a5f1e783c05ecab9aa053a1d6d8e43582",
     "evidence/rank8_frontier_20261021/structural_models/verify_structural_scope.py": "9492d20ec8811612734b893b4f184bf60f7bf2a7d3975336759615319e381175",
     "evidence/rank8_m3_20261021/pipeline/census_m3.json": "e79ca3c2a7de9c74c677f768284842a42a2eaa52d77d82a4680c208b41fd7836",

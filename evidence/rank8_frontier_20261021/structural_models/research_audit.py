@@ -120,6 +120,25 @@ def record():
             {k:r[k] for k in ('dual_simple_count','dual_invertible_group',
                              'dual_noninvertible_uniqueness_constraint_rank','fusion_coefficients_checked')},
             'Same based ring does not mean tensor equivalence; other algebra objects and Morita chains remain open.')
+    path=HERE/'s3_full_condensation.json'
+    data=read(path)
+    for r in data['records']:
+        require(r['tensor_sha256']==rows[r['id']]['tensor_sha256'],'full S3 source binding')
+        add(r['id'],'full_S3_condensation_with_trivial_pointed_cocycle_and_all_dual_rank5_tensors',r['outcome'],
+            'conditional_general_complex_Morita_construction_branch',path,HERE/'S3_FULL_CONDENSATION.md',
+            [HERE/'s3_full_condensation.py'],
+            {'hypothesis':r['hypothesis'],'module_rank':r['right_S3_module_rank'],
+             'dual_rank':r['conditional_dual_rank'],'complete_based_tensor_count':data['based_tensor_isomorphism_representatives']},
+            r['limitation'])
+    path=HERE/'known_model_routes.json'
+    for r in read(path)['records']:
+        require(r['tensor_sha256']==rows[r['id']]['tensor_sha256'],'known model route source binding')
+        domain=('complete_retained_SU2_Morita_family_and_actual_near_group_inversion_crossed_product'
+                if r['id']in('R8_3_439','R8_3_567')else
+                'all_near_group_orders_and_multiplicities_with_integer_scalings_and_Morita_duals')
+        add(r['id'],domain,'specified_families_excluded','general_complex_construction_families',
+            [path,HERE/'rank5_route_bindings.json'],HERE/'KNOWN_MODEL_ROUTES.md',
+            [HERE/'known_model_routes.py',HERE/'rank5_route_bindings.py'],r,r['limitation'])
     path = HERE/'r65_rank_two_modules.json'
     r = read(path)
     require(r['tensor_sha256'] == rows[r['id']]['tensor_sha256'], 'R65 rank2 source binding')
@@ -196,7 +215,8 @@ def record():
     general_nc=set()
     for folder,filename,proof,verifier in [
         ('central_integrality','general_galois_pu_gate.json','GENERAL_GALOIS_PU.md','general_galois_pu_gate.py'),
-        ('noncommutative_followup','scope_gates.json','README.md','verify_scope_gates.py')]:
+        ('noncommutative_followup','scope_gates.json','README.md','verify_scope_gates.py'),
+        ('noncommutative_followup','additional_scope_gates.json','ADDITIONAL_SCOPE_GATES.md','additional_scope_gates.py')]:
         directory=FRONTIER/folder;path=directory/filename
         for r in read(path):
             require(r['tensor_sha256']==rows[r['id']]['tensor_sha256'],'NC Galois reduction binding')
@@ -207,6 +227,14 @@ def record():
                 'This proves a scope reduction, not categorifiability or unitarity. Necessary PU constraints apply after Galois conjugation.')
     def nc_scope(ident):
         return 'general_complex_necessary_after_proved_Galois_PU_reduction'if ident in general_nc else'pseudo_unitary_only'
+    directory=FRONTIER/'noncommutative_followup';path=directory/'su2_all_frontier.json'
+    for r in read(path)['records']:
+        require(r['tensor_sha256']==rows[r['id']]['tensor_sha256'],'SU2 family source binding')
+        add(r['id'],'all_levels_SU2_adjoint_finite_products_integer_multiplier_chains_and_Morita_duals',r['outcome'],
+            'general_complex_construction_family_dimension_obstruction',path,directory/'SU2_FAMILY.md',
+            [directory/'su2_all_frontier.py',directory/'su2_product_family.py'],
+            {key:r[key]for key in ('complete_order_candidates','allowed_order_sequence','exponent_box_size',
+                'dimension_bounded_product_count','positive_integer_scaling_matches')},r['not_covered'])
 
     n = FRONTIER/'noncommutative'
     data = read(n/'central_support_results.json')
@@ -280,19 +308,32 @@ def record():
         'This finite-height exact system leaves feasible patterns; neither full center fusion nor associators are constructed.')
 
     g = FRONTIER/'global_induction'
-    for pattern in ('results/*.json','frame_results/*.json','fixed_results/*.json'):
+    global_domains={
+        'results':('PROOF.md','column_generation.py'),
+        'frame_results':('PROOF.md','frame_generation.py'),
+        'fixed_results':('PROOF.md','fixed_frame.py'),
+        'spectral_results':('PARTIAL_S_AND_STS.md','spectral_generation.py'),
+        'sts_results':('PARTIAL_S_AND_STS.md','sts_generation.py'),
+        'generic_results':('LOW_S_SYMMETRY.md','generic_generation.py'),
+        'atomic_results':('ATOMIC_MODULAR.md','atomic_generation.py'),
+        'atomic_spectrum_results':('ATOMIC_SPECTRUM.md','atomic_spectrum_generation.py'),
+        'complete_results':('PROOF.md','complete_phase_one.py')}
+    for folder,(proof,verifier)in global_domains.items():
+        pattern=folder+'/*.json'
         for path in sorted(g.glob(pattern)):
             r = read(path)
             if r.get('id') not in rows:
                 continue
             require(r['tensor_sha256'] == rows[r['id']]['tensor_sha256'], 'global induction source binding')
             meta = r.get('metadata',{})
+            specific_verifier='verify_accepted_generic.py'if path.name.endswith('_low_s.json')else verifier
             add(r['id'],r.get('method','fixed_integral_low_frame_global_induction'),r.get('status','see_receipt'),
-                r.get('scope','pseudo_unitary_induction_relaxation'),path,g/'PROOF.md',
-                [g/'verify_streaming.py',g/'verify_frames.py'],
+                r.get('scope')or'incomplete_no_mathematical_conclusion',path,g/proof,
+                [g/specific_verifier],
                 {'height':r.get('height'),'frame_index':r.get('frame_index'),
                  'rows':meta.get('rows'),'variables':meta.get('variables'),
-                 'low_frames':meta.get('low_frames'),'high_columns':meta.get('high_columns')},
+                 'low_frames':meta.get('low_frames'),'high_columns':meta.get('high_columns'),
+                 'complete_exact_certificate':r.get('status')in('excluded','exact_feasible_relaxation','this_frame_indicator_excluded')and'certificate'in r},
                 'A running/partial computation is incomplete; a feasible relaxation does not construct integer center data or an associator.')
 
     integral = FRONTIER/'integral'
