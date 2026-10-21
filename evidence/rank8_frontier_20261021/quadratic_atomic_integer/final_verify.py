@@ -27,10 +27,11 @@ from fp_fusion_bounds import tighten_fusion_bounds
 from integral_center import filter_integral
 from unit_pair_constraints import append_unit_pair_constraints
 from proposal import propose_bounded
+import hermite_strategy
 
 
 def sources(number):
-    paths = [HERE / name for name in ('final_verify.py', 'integral_center.py', 'proposal.py', 'unit_pair_constraints.py')]
+    paths = [HERE / name for name in ('final_verify.py', 'integral_center.py', 'proposal.py', 'unit_pair_constraints.py', 'hermite_strategy.py')]
     paths += [FRONTIER / 'commutative_integer' / name for name in
               ('features.py', 'bounds.py', 'equations.py', 'lattice.py', 'linear.py')]
     paths += [FRONTIER / 'quadratic' / name for name in
@@ -125,13 +126,21 @@ def run(number, write=False, seconds=180):
                     save()
                     if out['status'] == 'in_progress':
                         out['Hermite_batch_size'] = 512 if number == 1795 else 64
-                        out['Hermite'] = lattice.hermite(compact, batch=out['Hermite_batch_size'], progress=lambda done, rank:
-                            print('joint HNF', number, done, rank, flush=True)
-                            if done % 512 == 0 or done == len(compact.columns) else None)
+                        if number == 1795:
+                            out['Hermite'] = hermite_strategy.capped(compact, seconds=120, batch=512)
+                        else:
+                            out['Hermite'] = lattice.hermite(compact, batch=64, progress=lambda done, rank:
+                                print('joint HNF', number, done, rank, flush=True)
+                                if done % 512 == 0 or done == len(compact.columns) else None)
                         if out['Hermite']['outcome'] == 'integer_lattice_obstruction':
                             out['status'] = 'exact_integer_lattice_obstruction'
                         else:
-                            out['status'] = 'integer_lattice_member_no_bounded_witness'
+                            f.require(out['Hermite']['outcome'] in
+                                      ('integer_lattice_member', 'no_exact_lattice_conclusion'),
+                                      'unknown Hermite outcome')
+                            out['status'] = ('integer_lattice_member_no_bounded_witness'
+                                if out['Hermite']['outcome'] == 'integer_lattice_member'
+                                else 'no_exact_integer_conclusion_within_cap')
                             save()
                             if seconds > 0:
                                 out['proposal'] = propose_bounded(compact, seconds,
@@ -175,12 +184,22 @@ def run(number, write=False, seconds=180):
                                   'planned modular tests incomplete')
                         if out['Hermite']['outcome'] == 'integer_lattice_obstruction':
                             lattice.verify_separator(compact, out['Hermite']['certificate'])
-                        else:
+                        elif out['Hermite']['outcome'] == 'integer_lattice_member':
                             batch = 512 if number == 1795 else 64
                             f.require(out.get('Hermite_batch_size', 64) == batch,
                                       'Hermite batch policy differs')
-                            f.require(lattice.hermite(compact, batch=batch) == out['Hermite'],
+                            reconstructed = (hermite_strategy.auxiliary_first(compact, batch=batch)
+                                if number == 1795 else lattice.hermite(compact, batch=batch))
+                            f.require(reconstructed == out['Hermite'],
                                       'exact final Hermite reconstruction differs')
+                        else:
+                            f.require(number == 1795 and
+                                      out['Hermite']['outcome'] == 'no_exact_lattice_conclusion' and
+                                      out['Hermite']['wall_clock_limit'] == 120 and
+                                      out['Hermite']['additional_virtual_memory_limit_mib'] == 256 and
+                                      out['Hermite']['scope'] ==
+                                      'no integer-lattice membership or obstruction is asserted',
+                                      'unrecognized capped Hermite outcome')
                         if out['Hermite']['outcome'] == 'integer_lattice_obstruction':
                             f.require(out['status'] == 'exact_integer_lattice_obstruction', 'lattice conclusion differs')
                         elif 'integer_witness' in out:
@@ -190,7 +209,10 @@ def run(number, write=False, seconds=180):
                             f.check_integer(S, out['integer_witness'])
                             f.require(out['status'] == 'exact_bounded_integer_feasible_relaxation', 'witness status differs')
                         else:
-                            f.require(out['status'] == 'integer_lattice_member_no_bounded_witness',
+                            expected = ('integer_lattice_member_no_bounded_witness'
+                                if out['Hermite']['outcome'] == 'integer_lattice_member'
+                                else 'no_exact_integer_conclusion_within_cap')
+                            f.require(out['status'] == expected,
                                       'lattice membership is not a bounded solution')
                         if 'proposal' in out:
                             f.require(out['proposal']['numerical_infeasibility_is_not_a_certificate'] is True,

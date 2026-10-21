@@ -34,6 +34,21 @@ no lattice claim; only the final route is registered as the campaign replay.
 R1768's earlier individual and joint signed-lattice memberships are recorded
 separately and are not categorical existence claims.
 
+The final R1795 HNF proposal orders sparse auxiliary generators first and
+has a 120-second wall-clock limit and a 256-MiB additional virtual-allocation
+limit. A stopped worker records `no_exact_lattice_conclusion`; this is an
+explicit limitation, not lattice membership or nonmembership. The bounded
+integer proposal has a 180-second solver limit and a 210-second wall-clock
+limit. Default exact replay reconstructs all completed mathematical tests
+and checks any positive witness; it does not repeat unsuccessful searches.
+
+| Ring | Final exact results | Remaining limitation |
+| --- | --- | --- |
+| R8_3_1768 | Box and mod-2/mod-3 consistency; signed integer lattice membership of rank 268 | No bounded nonnegative integer witness was found within the stated search cap. |
+| R8_3_1795 | Box and mod-2/mod-3 consistency, of modular ranks 629 and 616 | The capped HNF search made no exact lattice determination; the capped bounded search found no exact witness. |
+
+Neither terminal result excludes a categorification or supplies a model.
+
 Independent and positive controls:
 
 * `review_joint_control.py`: a directly enumerated 64-simple center, full

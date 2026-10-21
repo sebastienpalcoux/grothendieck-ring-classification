@@ -32,6 +32,7 @@ def normalize(text):
     text=re.sub(r'\$R8\\_([0-9]+)\\_([0-9]+)\$',lambda m:r'$\sha{R8_'+m[1]+'_'+m[2]+'}$',text)
     text=re.sub(r'\\\(R8\\_([0-9]+)\\_([0-9]+)\\\)',lambda m:r'\sha{R8_'+m[1]+'_'+m[2]+'}',text)
     text=re.sub(r'R_\{8,3,([0-9]+)\}',lambda m:r'\sha{R8_3_'+m[1]+'}',text)
+    text=re.sub(r'\\texttt\{R8\\_([0-9]+)\\_([0-9]+)\}',lambda m:r'\sha{R8_'+m[1]+'_'+m[2]+'}',text)
     return re.sub(r'\\texttt\{([^}]+)\}',lambda m:r'\path{'+m[1].replace(r'\_','_')+'}',text)
 BIB={
 'UsherFermionic':r'''R.~Usher, \emph{Fermionic $6j$-symbols in superfusion categories}, arXiv:1606.03466 (2016), Theorem~5.4 and Corollary~5.8.''',
@@ -194,7 +195,11 @@ identities and reconciliation without replaying the mathematics.
             'quadratic/joint_galois_section.tex',
             'quadratic_atomic_integer/integral_center_filter.tex',
             'quadratic_atomic_integer/unit_pair_method.tex',
+            'commutative_integer/phase_compatibility.tex',
+            'commutative_integer/r982_integer_section.tex',
+            'quadratic/integer_phase_cut_section.tex',
             'quartic_integer_center/method.tex',
+            'review/r941_fusion_traces.tex',
             'r928_semion_rotation/method.tex',
             'review/fermion_dimension_counterexample.tex']
         if 'R8_3_925' in accepted_ids:proof_files.append('global_induction/frame_hull.tex')
@@ -216,6 +221,13 @@ identities and reconciliation without replaying the mathematics.
         if 'R8_3_1055' in accepted_ids:proof_files.append('global_induction/atomic_1055_application.tex')
         if 'R8_3_3258' in accepted_ids:proof_files.append('global_induction/atomic_sts_application.tex')
         proofs='\n'.join((ROOT/frontier.EVIDENCE/name).read_text() for name in proof_files)
+        if 'R8_3_439' in accepted_ids:
+            proofs=proofs.replace('Other associators\n'+
+                'on the same based ring remain open; no model is inferred.',
+                r'This structural filter alone does not decide other associators; the centerless Morita obstruction in Section~\ref{subsec:r439-centerless-morita} excludes the required dual.')
+        if {'R8_3_439','R8_3_455','R8_3_567'} <= accepted_ids:
+            proofs=proofs.replace('The remaining three noncommutative central tests',
+                'Earlier central tests for three further noncommutative rings')
         proofs=proofs.replace(r'\begin{quote}\small\path{evidence/rank8_frontier_20261021/r567_centerless_integer/verlinde_exclusion.py}',r'\begin{quote}\footnotesize\path{evidence/rank8_frontier_20261021/r567_centerless_integer/verlinde_exclusion.py}')
         proofs=proofs.replace('For an arbitrary categorification take its canonical sphericalization',r'For an arbitrary categorification take its canonical sphericalization~\cite[Section~5.1]{OstrikPiv3}')
         proofs=proofs.replace(r'requires $\delta/f$ to be integral.',r'requires $\delta/f$ to be integral~\cite[Theorem~2.13 and Corollary~2.14]{OstrikPiv3}.')
@@ -240,6 +252,11 @@ domains; they are not proofs of nonexistence or categorifiability.
     (PAPER/'m3_convex.tex').write_text(normalize((ROOT/EVIDENCE/'criteria/global_convex_m3.tex').read_text()))
     for name in ('module','positivity','biquadratic'):shutil.copy2(ROOT/f'tools/templates/rank8_m3_{name}.tex',PAPER/f'm3_{name}.tex')
     structural='\n'.join((ROOT/EVIDENCE/p).read_text() for p in ('models/psl2_11/structural_m3.tex','pipeline/structural_m3.tex','models/d90_structural.tex'))
+    if ext.get('frontier') and 'R8_3_731' in set(ext['frontier']['resolved_ids']):
+        structural=structural.replace('A restricted dimension-660 candidate', 'Earlier dimension-660 screening')
+        structural=structural.replace('The residual ring $R8\\_3\\_731$', 'The ring $R8\\_3\\_731$')
+        structural=structural.replace('General complex categorification remains unresolved.',
+            r'These were the original restricted tests. The present continuation excludes general complex categorification as well; see Section~\ref{sec:rank8-a5-complement}.')
     if 'R8_3_436' in ext['unitary_excluded_ids']:
         structural+='\n'+(ROOT/EVIDENCE/'models/r436_unitary_scope.tex').read_text()
     if 'R8_3_455' in ext['unitary_excluded_ids']:

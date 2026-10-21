@@ -32,10 +32,22 @@ The inequality becomes an integer equation by adding a nonnegative slack.
 Its finite upper bound is the right-hand side minus the minimum of the
 left side over the existing finite variable box.
 
+To keep the numerical proposal well conditioned, an integer cut may be
+weakened exactly: for a positive integer d, replace each coefficient a_j
+by floor(a_j/d) and the right side b by floor(b/d). Nonnegativity and
+integrality of x imply this new inequality, including for negative a_j.
+The receipt retains the raw full-domain cut, d, every exact floor, and
+the strict rejection of the originating pattern. This is integer
+arithmetic, not a floating-point tolerance.
+
 The exact adapter retains an actual Fib tensor Vec(C4) integer center
 under two signed STS row projections. Each new slack and all original
 equations are checked; normal and assertion-disabled controls pass.
-R65 has one indicator branch. Its finite campaign adds at most ten global
+R65 has four indicator branches. A common covector gives a uniform cut
+by using the maximum of y·b over all four branches. Each such cut is
+checked to reject its originating pattern even at that maximum; when no
+uniform rejecting covector is found, the campaign stops with that explicit
+limitation. Its finite campaign adds at most ten global
 cuts, exactly verifies each proposed integer pattern and each complete
 phase test, and distinguishes a checked obstruction or compatible witness
 from an inconclusive numerical search. A rejected integer pattern alone
