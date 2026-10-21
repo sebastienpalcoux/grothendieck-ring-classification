@@ -1,0 +1,796 @@
+\section{Sphericalization, braided Morita obstructions, and module restrictions}
+\label{sec:m3-research-20261022}
+
+This section removes the pivotality hypothesis from four previously unresolved
+rank-eight reductions and develops restrictions on possible Morita
+constructions.  A spherical structure on the original category is
+distinguished throughout from a pseudo-unitary structure obtained after
+Galois conjugation.  None of the necessary module actions below supplies
+module associators or a new categorification.
+
+\subsection{A signed-quotient criterion for spherical structures}
+\label{subsec:research-signed-section}
+
+\begin{lemma}[Spherical section]
+\label{lem:research-spherical-section}
+Let $\mathcal C$ be a complex fusion category with fusion tensor $N$.
+Choose dual-compatible lifts $X_i^+$ of its simple objects in the canonical
+sphericalization $\widetilde{\mathcal C}$, and let $T$ be the signed
+quotient by the central sign object $\varepsilon=-1$.  If $T$ is
+dual-compatible sign-gauge equivalent to $N$, then $\mathcal C$ admits a
+spherical structure.
+\end{lemma}
+\begin{proof}
+The sphericalization has two lifts $X_i^\pm$, with
+$X_i^-=\varepsilon X_i^+$ and $\dim(\varepsilon)=-1$; see
+\cite[Section~5.1]{OstrikPiv3}.  Dual-compatible lifts always exist.
+For a nonselfdual pair choose one lift and its dual.  For a selfdual
+simple, the dual of a lift lies over the same source object and cannot
+be the opposite lift: sphericality gives $\dim(Y^*)=\dim(Y)$, whereas
+$\dim(\varepsilon Y)=-\dim(Y)$, and a simple spherical dimension is
+nonzero.  This also proves the assertion in
+\cite[Section~5.1(a)]{OstrikPiv3} that both lifts are selfdual.
+
+Write $a_{ij}^k$ and $b_{ij}^k$ for the multiplicities of $X_k^+$ and
+$X_k^-$ in $X_i^+X_j^+$.  Then
+\[
+ a_{ij}^k+b_{ij}^k=N_{ij}^k,\qquad
+ T_{ij}^k=a_{ij}^k-b_{ij}^k.
+\]
+Changing lifts by signs $g_i$, with $g_0=1$ and $g_i=g_{i^*}$,
+changes $T_{ij}^k$ to $g_i g_j g_kT_{ij}^k$.
+After the stated gauge change, $T=N$ and every $b_{ij}^k$ vanishes.
+The chosen lifts therefore form a spherical fusion subcategory.  The
+forgetful functor restricts to a tensor equivalence from this subcategory
+to $\mathcal C$, proving the claim; compare
+\cite[Section~5.1(c)]{OstrikPiv3}.
+\end{proof}
+
+For use in a complete finite search, the signed tensor necessarily
+satisfies
+\begin{equation}\label{eq:research-full-parity}
+ |T_{ij}^k|\leq N_{ij}^k,\qquad
+ T_{ij}^k\equiv N_{ij}^k\pmod2,
+\end{equation}
+together with unit, duality, cyclic trace symmetry, dual reversal and
+all ordered associativity identities.  Commutativity of $T$ must not be
+assumed from commutativity of $N$.
+
+\begin{lemma}[Two valid normalizations]
+\label{lem:research-two-normalizations}
+The following reductions preserve every categorically possible signed
+quotient.
+\begin{enumerate}
+\item In the full domain~\eqref{eq:research-full-parity}, select signed
+variables with odd original coefficient whose sign characters are
+linearly independent on the group of dual-compatible basis signs.
+One may require all selected variables to be positive, retaining at
+least one representative of every sign-gauge class.
+\item For a selfdual source simple one may choose its lift to have
+second Frobenius--Schur indicator $+1$.  With this choice for every
+selfdual simple, one has
+\begin{equation}\label{eq:research-fs-mod-four}
+ T_{j,j^*}^{i}\equiv N_{j,j^*}^{i}\pmod4
+ \quad\text{whenever }i=i^*.
+\end{equation}
+\end{enumerate}
+The first normalization is not asserted to preserve the second one.
+\end{lemma}
+\begin{proof}
+For the first assertion, an odd signed variable cannot vanish.
+Its sign transforms by a character of the elementary abelian group
+of dual-compatible signs.  Independence of the selected characters
+makes their joint evaluation map surjective onto all sign patterns.
+An appropriate basis-sign change thus makes the selected variables
+positive simultaneously.
+
+For the second assertion, both lifts of a selfdual object are selfdual
+by Lemma~\ref{lem:research-spherical-section}.  Their pivotal
+isomorphisms differ by a sign.  The defining second-indicator rotation
+uses the inverse pivotal isomorphism once, so changing this sign
+changes the indicator's sign; see \cite[Definition~2.14 and
+Lemma~2.16]{LPRV}.  A selfdual simple has indicator $\pm1$, so precisely
+one lift has indicator $+1$.  Its opposite has indicator $-1$.
+The Fuchs--Runkel--Schweigert parity theorem,
+\cite[Theorem~3.9]{LPRV}, says that a selfdual simple of indicator $-1$
+occurs with even multiplicity in $Y^*Y$ in a pivotal fusion category.
+Applying this inside $\widetilde{\mathcal C}$ gives
+\[
+ b_{j,j^*}^{i}
+ =\frac{N_{j,j^*}^{i}-T_{j,j^*}^{i}}2\in2\Z.
+\]
+Replacing $j$ by $j^*$ reconciles the two ordered products without a
+commutativity assumption.  This proves~\eqref{eq:research-fs-mod-four}.
+An arbitrary subsequent change of lift can reverse the indicator,
+which explains the final qualification.
+\end{proof}
+
+\begin{theorem}[Four general sphericalization reductions]
+\label{thm:research-four-general-spherical}
+Every complex fusion categorification of any of
+\[
+ \sha{R8_3_982},\quad \sha{R8_3_1768},\quad
+ \sha{R8_3_1795},\quad \sha{R8_3_3472}
+\]
+admits a spherical structure and has a pseudo-unitary Galois conjugate.
+\end{theorem}
+\begin{proof}
+We enumerate all signed variables modulo cyclic trace symmetry and
+dual reversal, imposing every ordered associativity equation.
+For the first three rings we use the full parity domain and only
+part~(1) of Lemma~\ref{lem:research-two-normalizations}.  The resulting
+complete counts are
+\[
+\begin{array}{c|r|r|r|r|r}
+\text{ring}&\text{variables}&\text{sign fixes}&\text{normalized}
+ &\text{unrestricted}&\text{gauge classes}\\\hline
+R8\_3\_982&42&5&3&96&3\\
+R8\_3\_1768&59&6&49&3136&28\\
+R8\_3\_1795&59&6&73&4672&42
+\end{array}
+\]
+Surjectivity of the sign normalization is checked against the full
+dual-compatible sign group.  Applying that entire group to the
+normalized solutions constructs the unrestricted sets explicitly;
+the displayed counts do not assume a free group action.
+Each row has exactly one gauge class of the original tensor.
+
+To exclude every other class, consider its complete dimension
+characters.  A possible sphericalization character $d$ must satisfy
+$d_i\ne0$ and $d_i=d_{i^*}$.  Set
+$\delta=\sum_i d_i d_{i^*}$.  The two central sign sectors of
+$K_0(\widetilde{\mathcal C})\otimes\C$ are the original algebra and
+the signed algebra.  A formal codegree $f$ from either sector becomes
+$2f$ in the sphericalization, whose dimension is $2\delta$.
+Thus central induction requires $\delta/f$ to be an algebraic integer
+for every formal codegree of both sectors, by
+\cite[Theorem~2.13 and Corollary~2.14]{OstrikPiv3}.
+
+For completeness, the exact norm test used here is the following.
+If $p,q$ are the monic minimal polynomials of $\delta,f$, of degrees
+$a,b$, integrality requires
+\begin{equation}\label{eq:research-codegree-norm}
+ b\,v_\ell(|p(0)|)\geq a\,v_\ell(|q(0)|)
+ \quad\text{for every rational prime }\ell.
+\end{equation}
+Indeed, take norms in a common number field and cancel its degree.
+Every nongauge signed tensor in these three searches has a commutative
+semisimple algebra, verified after enumeration.  A separating regular
+matrix with squarefree characteristic polynomial produces every
+character orbit, and all character multiplication identities are
+checked exactly.  The regular Casimir factors provide all formal
+codegrees.  Every character is excluded either by a zero simple
+dimension, by unequal dimensions on a dual pair, or by a prime violating
+\eqref{eq:research-codegree-norm}.  The receipt records all character
+coordinates, global-dimension polynomials and norm witnesses.
+
+For $\sha{R8_3_3472}$ all simples are selfdual.  Here we use precisely
+the indicator normalization in part~(2) of
+Lemma~\ref{lem:research-two-normalizations}, with no further
+positive-variable sign gauge.  The complete search has $84$ signed
+variables, visits $298\,865\,973$ native nodes, and returns exactly
+one tensor, namely $N$.  In particular no character exclusion is
+needed for this signed search.  The independent check reconstructs
+the modulo-four domains and verifies the full ordered tensor identities.
+An earlier unrestricted search timed out; that search supplies no
+conclusion and is not used here.
+
+In all four cases Lemma~\ref{lem:research-spherical-section} gives a
+spherical structure on the original category.  The complete ordinary
+character test leaves exactly the FP Galois orbit.  More explicitly,
+for $\sha{R8_3_982}$ the four characters agreeing on duals form that
+orbit; for $\sha{R8_3_1768}$ and $\sha{R8_3_3472}$ every other
+character has a zero simple dimension.  For $\sha{R8_3_1795}$ the
+other possible dimensions are $20,10,4$: the dimension-$4$ characters
+have zero entries, and for the others the quotient by the FP codegree
+has norm respectively $1/9$ or $1/36$.  These statements are checked
+independently in the full exact character calculation.
+The spherical dimension character is therefore a Galois conjugate
+of the FP character.  A number-field model and Galois conjugation
+\cite[Theorem~2.30 and the following remark]{ENO} give a spherical
+category with positive FP dimensions, hence a pseudo-unitary category.
+\end{proof}
+
+The source-bound complete replay is
+\path{verify_general_spherical_gates.py} in
+\path{evidence/rank8_research_20261022/pivotality/};
+its receipt is \path{general_spherical_gates.json} and its detailed
+proof is \path{PROOF.md} in the same directory.
+The native generator substitutes no singleton-domain variables and
+uses no domain-dependent sign simplifications.  Domains affect only
+the variable order, the enumeration loops, and an absolute-value
+overflow bound; the verifier replaces every loop and checks that
+the bound does not increase.  Independent tensor reconstruction,
+sign-gauge expansion and an optimized full replay are recorded in
+\path{evidence/rank8_research_20261022/r928_r941/PIVOTALITY_REVIEW.md}.
+
+\subsection{General braided exclusions and braided Morita representatives}
+\label{subsec:research-braided-morita}
+
+\begin{proposition}[Minimal tensor image]
+\label{prop:research-minimal-tensor-image}
+Let $\mathcal C$ be a fusion category whose global FP dimension is
+nonintegral, and suppose every proper fusion subcategory of $\mathcal C$
+is integral.  If $\mathcal C$ is categorically Morita equivalent to a
+braided fusion category, then $\mathcal C$ itself admits a braiding.
+\end{proposition}
+\begin{proof}
+Let $\mathcal B$ be a braided Morita representative.  Its braiding
+defines a fully faithful tensor functor $\mathcal B\to Z(\mathcal B)$.
+Compose with $Z(\mathcal B)\simeq Z(\mathcal C)$ and the forgetful
+functor to obtain a tensor functor $F:\mathcal B\to\mathcal C$.
+Let $\mathcal E$ be its tensor image, closed under direct summands.
+If $\mathcal E$ were proper, its integrality and preservation of FP
+dimension by tensor functors would give integer FP dimension for
+every simple of $\mathcal B$.  Thus $\FPdim(\mathcal B)$ would be
+an integer, contradicting Morita invariance
+$\FPdim(\mathcal B)=\FPdim(\mathcal C)$.
+Hence $F$ is dominant.  A dominant tensor functor between fusion
+categories of equal FP dimension is an equivalence.  Transport its
+braiding to $\mathcal C$.  The cited standard facts are
+\cite[Proposition~6.3.4, Corollary~7.16.7 and
+Theorem~8.12.3]{EGNO}.
+\end{proof}
+
+\begin{theorem}[No braided Morita representatives]
+\label{thm:research-no-braided-morita}
+No complex categorification of any of
+\[
+\begin{gathered}
+\sha{R8_3_65},\ \sha{R8_3_928},\ \sha{R8_3_941},\ \sha{R8_3_982},\\
+\sha{R8_3_1154},\ \sha{R8_3_1768},\ \sha{R8_3_1795},\ \sha{R8_3_3472}
+\end{gathered}
+\]
+is Morita equivalent to a braided fusion category.
+\end{theorem}
+\begin{proof}
+First exclude a braiding on the source itself.
+The rings $\sha{R8_3_928}$, $\sha{R8_3_941}$ and
+$\sha{R8_3_1154}$ are noncommutative, immediately excluding braidings.
+The ring $\sha{R8_3_65}$ is an irrational generalized near-group
+ring: its invertibles form $C_4$ and act transitively on four
+noninvertibles of dimension $(11+5\sqrt5)/2$.  Neither possibility
+in \cite[Theorem~1]{SchopierayBraidedGNG}, whose noninvertible
+dimensions are $(1+\sqrt5)/2$ and $1+\sqrt2$, has this dimension.
+That theorem does not assume pivotality.
+
+For the other four rings, Theorem~\ref{thm:research-four-general-spherical}
+allows reduction to a pseudo-unitary Galois conjugate.  A braiding
+transports under the same field automorphism because its naturality
+and hexagon identities are algebraic.  It suffices to exclude
+pseudo-unitary braided categorifications.
+
+For $\sha{R8_3_1768}$ the simple dimension $5+\sqrt{37}$ has
+minimal polynomial $x^2-10x-12$, and for $\sha{R8_3_3472}$ the
+simple dimension $6+5\sqrt2$ has polynomial $x^2-12x-14$.
+Squared norms of simples in a braided fusion category are d-numbers
+\cite[Theorem~1.8]{OstrikCode}.  In the pseudo-unitary setting they
+are squared FP dimensions; an algebraic integer is a d-number if and
+only if its square is, by \cite[Corollary~2.9]{OstrikCode}.
+For a quadratic polynomial $x^2-tx+n$, the d-number criterion
+\cite[Lemma~2.7(v)]{OstrikCode} requires $n\mid t^2$.
+Here $12\nmid100$ and $14\nmid144$, respectively.
+
+For $\sha{R8_3_982}$, the complete earlier induction-frame and
+indicator analysis forces a unique central invertible $G$ forgetting
+to the source invertible $g=X_6$, with $G^2=\one$ and twist $\pm i$.
+The completeness is essential: the two excluded frames have exact
+finite-domain certificates, while both surviving frames force the
+same central lift and the indicator $\nu_2(g)=-1$.
+A braiding on the source supplies a central lift of $g$, necessarily
+$G$.  Its pointed $C_2$ subcategory is therefore semionic and
+nondegenerate.  The nondegenerate-subcategory decomposition
+\cite[Theorem~3.13]{DGNO} would give
+$\mathcal C\simeq\mathrm{Semion}\boxtimes\mathcal D$.
+Its adjoint subcategory is proper, being contained in
+$\Vec\boxtimes\mathcal D$.  In the canonical ring, closure of the
+supports of every $XX^*$ instead gives the full ring.  This is a
+contradiction.  The complete frame and lift certificates are
+\path{evidence/rank8_next_20261021/r982/FRAME01_RESULT.md} and
+\path{SEMION_ACTION.md} in that directory.
+
+It remains to treat $\sha{R8_3_1795}$.  Its adjoint subring is the
+whole ring, and its only proper nontrivial based subring is
+$\{\one,g\}$, where $g=X_1$ has order two.  In a braided category
+invertibles centralize the adjoint category, so $g$ is transparent.
+The whole category is not symmetric, since its FP dimensions are
+nonintegral.  Thus its M\"uger center is precisely $\Rep(C_2)$ or
+$\mathrm{sVec}$.
+Set $D=540+240\sqrt5$.  Multiplication by $g$ pairs the simples as
+$(0,1),(2,7),(3,6),(4,5)$.  The four characters with $\chi(g)=1$
+have formal codegrees $D,\overline D,10,10$.  The pair quotient
+halves those codegrees.
+
+If the center is Tannakian, de-equivariantization is nondegenerate.
+Each pair gives one simple because the free module on $X$ has
+endomorphism space
+$\operatorname{Hom}(X,(\one\oplus g)X)$ of dimension one.
+The modularization has rank four, dimension $D/2$, and simple
+dimensions $d_i$ for one representative of each pair.  The positive
+spherical structure descends; see \cite[Proposition~4.56(iii)
+and Section~6.3]{DGNO}.  The modular codegree identity is therefore
+$(D/2)/d_i^2$.
+If the center is $\mathrm{sVec}$, the reduced S-matrix on one
+representative per pair has square $(D/2)I$ in this positive,
+selfdual situation.  Its normalized rows give all quotient
+characters, and the same row-norm argument gives the same codegrees;
+see \cite[Lemma~3.1 and Proposition~3.3]{LacabanneSlightly}.
+Thus in either case a full-ring codegree $10$ forces
+$d_i^2=D/10=54+24\sqrt5$.  The actual squared dimensions are
+$1,81+36\sqrt5,94+42\sqrt5$, none of which has that value.
+This excludes the final braided case.
+
+For all eight rings, complete enumeration of unit-containing
+dual-closed subsets shows that every proper based subring is pointed.
+The global FP dimension is irrational, as checked by isolating the
+largest regular Casimir eigenvalue in an irreducible factor of degree
+greater than one.  Proposition~\ref{prop:research-minimal-tensor-image}
+now excludes every braided Morita representative.
+\end{proof}
+
+The braided numerical and character calculations are replayed by
+\path{site/verify_braided_scope.py}.  The last subring and dimension
+checks have the independent source-bound replay
+\path{evidence/rank8_research_20261022/braided_morita/verify.py}.
+The theorem concerns braided Morita representatives; it does not
+exclude a Morita representative which is itself unbraided.
+
+\subsection{The two equal-dimension rings have different centers}
+\label{subsec:research-1154-1795-morita}
+
+\begin{proposition}
+\label{prop:research-1154-1795-no-morita}
+No complex categorifications of $\sha{R8_3_1154}$ and
+$\sha{R8_3_1795}$ are categorically Morita equivalent.
+\end{proposition}
+\begin{proof}
+Both have FP dimension $D=540+240\sqrt5$.  In the pseudo-unitary
+case, the eight scalar characters of $\sha{R8_3_1795}$ have formal
+codegrees
+\[
+ 4,\ 20,\ 10,10,10,10,\ D,\overline D.
+\]
+The injective assignment in the induced-unit theorem
+\cite[Theorem~2.13]{OstrikPiv3} gives four \emph{distinct} central
+simples of dimension $D/10=54+24\sqrt5$.
+For $\sha{R8_3_1154}$, the exhaustive restrictions of
+Section~\ref{sec:r1154-three-center-patterns} leave the following
+complete patterns:
+\[
+\begin{array}{c|r|r}
+\text{pattern}&\text{center rank}&
+ \#\{Z:\FPdim(Z)=54+24\sqrt5\}\\\hline
+6971&23&0\\8766&21&0\\8772&29&0.
+\end{array}
+\]
+The unique allowed dimension type of this size is high-column
+type $2$, whose multiplicity vanishes in all three patterns.
+Equivalent centers preserve FP dimensions, so these inventories
+cannot be equivalent.
+
+For general complex categorifications, apply the established
+Galois/pseudo-unitary reduction for $\sha{R8_3_1154}$ to the entire
+putative Morita context.  It preserves both fusion rings and Morita
+equivalence.  Global dimension and FP dimension are Morita invariants
+\cite[Theorem~2.15 and Corollary~8.14]{ENO}; the transformed partner
+is consequently pseudo-unitary as well.  The preceding contradiction
+applies.  This proof does not require the new separate sphericalization
+result for $\sha{R8_3_1795}$.
+\end{proof}
+
+The direct exact comparison is
+\path{evidence/rank8_research_20261022/r1154_r1795/morita_obstruction.py}.
+It verifies every character identity against the source tensor and
+every displayed dimension multiplicity, while retaining the earlier
+complete center enumerations as explicit dependencies.  This
+proposition rules out a shared Morita construction for the pair,
+without excluding either ring individually.
+
+\subsection{All module ranks and based module types for
+\texorpdfstring{$\sha{R8_3_982}$}{R8-3-982}}
+\label{subsec:research-r982-module-types}
+
+\begin{theorem}
+\label{thm:research-r982-modules}
+For any complex categorification $\mathcal C$ of $\sha{R8_3_982}$,
+every indecomposable semisimple module category has rank eight.
+Its based module is the regular one or one of two explicitly recorded,
+mutually dual, nonregular types.  The complete necessary list of
+underlying connected separable algebra objects contains eight
+objects.  Every nonregular module type has a simple object with
+internal end $\one\oplus X_5$, of FP dimension
+$3+\sqrt2+\sqrt3+\sqrt6$.
+\end{theorem}
+\begin{proof}
+The preceding central semion analysis gives a nontrivial pointed
+associator on $\langle g\rangle$, where $g=X_6$.  This applies first
+in the pseudo-unitary Galois conjugate supplied by
+Theorem~\ref{thm:research-four-general-spherical}.  The two classes
+in $H^3(C_2,\C^\times)$ have representatives valued in $\{\pm1\}$,
+so nontriviality is Galois invariant and applies to $\mathcal C$.
+The element $g$ acts freely on the simple objects of every module
+category.  Indeed a fixed module simple would be a rank-one module
+for the pointed $C_2$ category, and its scalar module pentagon would
+trivialize that associator.  Equivalently, use the pointed-module
+classification in \cite[Example~2.1]{OstrikDouble}.
+
+For a simple module object $m$, let $A=\underline{\operatorname{End}}(m)$.
+Its coefficient at $g$ is $\dim\operatorname{Hom}(gm,m)=0$.
+The earlier complete $31$-object algebra filter therefore leaves
+exactly eleven objects.  The source permutation of $g$ is
+$(0\ 6)(1\ 2)(3\ 4)(5\ 7)$.
+Fix one of these candidates $A=\sum_i a_iX_i$, and define the
+induction matrix
+\[
+ B_{i,n}=\dim\operatorname{Hom}(X_i m,n).
+\]
+Adjunction gives
+\begin{equation}\label{eq:research-r982-gram}
+ (BB^{\mathsf T})_{ij}=\sum_k a_kN_{j,k}^{i}.
+\end{equation}
+Every module simple occurs in some $X_i m$, so every column is
+nonzero.  The columns at $m,gm$ are $a$ and its $g$-translate.
+All others have zero coordinates at rows $0,6$ and occur in pairs
+$(v,gv)$.
+
+Remove the distinguished pair and order the six remaining rows as
+$(1,2;3,4;5,7)$.  For one representative of each residual column
+pair, let $u$ and $w$ be its three within-pair sums and differences.
+If $H$ is the residual matrix in~\eqref{eq:research-r982-gram}, set
+\[
+ P_{ab}=H_{2a,2b}+H_{2a,2b+1}=\sum u_a u_b,
+ \qquad
+ M_{ab}=H_{2a,2b}-H_{2a,2b+1}=\sum w_a w_b.
+\]
+The column conditions are exactly
+$u\geq0$, $|w_a|\leq u_a$, and $u_a\equiv w_a\pmod2$;
+they reconstruct the nonnegative columns $(u+w)/2,(u-w)/2$.
+Each $u$ is nonzero.
+
+Seven candidates have $\det P=1$.  By Cauchy--Binet the sum of
+squares of all $3\times3$ minors of an integral factor $U$ is one.
+Precisely one minor is nonzero.  Its three columns form an integral
+basis.  Replacing any of them by another column has determinant zero,
+so that additional column must be zero.  Hence there are precisely
+three residual column pairs, and the module rank is eight.
+
+The other four candidates have $\det P=4$ and checked unimodular
+isometries to $\operatorname{diag}(1,2,2)$.  Any integral embedding
+of this lattice, up to signed coordinate permutation, has a norm-one
+row on one coordinate and two orthogonal norm-two rows outside it.
+The latter each have two entries $\pm1$; their supports either
+coincide or are disjoint.  These are the only possibilities, giving
+three or five nonzero columns.  Transforming back gives complete
+factors $U$.  In every five-column case its second row has five odd
+entries, whereas $M_{11}=1$ in zero-based indexing.  The parity
+condition would force five nonzero entries in the corresponding row
+of $w$, contradicting its squared norm one.  Only three-column
+factors remain, again giving module rank eight.
+
+In each case $\det M=\det P\in\{1,4\}$, so the residual Gram
+matrix has rank six.  The distinguished columns have independent
+coordinates at rows $0,6$, giving full Gram rank eight.
+Thus $B$ is square and invertible.  Each source action is forced by
+$B^{-1}N_iB$.  Exhaust all integral three-column factors of $P$ and
+$M$ within their exact squared-norm bounds, and require these actions
+to be nonnegative integral.  The complete results, indexed by the
+prior algebra list, are
+\[
+\begin{array}{c|l|l}
+\text{index}&(a_0,\ldots,a_7)&\text{outcome}\\\hline
+0 &(1,0,0,0,0,0,0,0)&\text{regular}\\
+2 &(1,0,0,0,0,1,0,0)&\text{two nonregular types}\\
+5 &(1,0,0,1,1,1,0,0)&\text{two nonregular types}\\
+9 &(1,1,1,1,1,1,0,0)&\text{two nonregular types}\\
+10&(1,1,1,1,1,1,0,1)&\text{forced action entry }-1\\
+12&(1,1,1,1,1,2,0,0)&\text{regular}\\
+14&(1,1,1,2,2,1,0,1)&\text{forced action entry }-1\\
+16&(1,1,1,2,2,2,0,0)&\text{regular}\\
+19&(1,2,2,3,3,2,0,2)&\text{regular}\\
+21&(1,2,2,3,3,3,0,1)&\text{no compatible factor}\\
+23&(1,3,3,4,4,3,0,2)&\text{two nonregular types}.
+\end{array}
+\]
+All surviving actions satisfy every source multiplication, dual
+transpose, connectivity and free-$g$ identity.  Exact simultaneous
+permutation checks give exactly three types, the two nonregular
+ones interchanged by source duality.  Their internal-end vectors
+are exactly the four at indices $2,5,9,23$, each twice.  Thus both
+contain $\one\oplus X_5$.  A module category of regular type has
+a simple with internal end $\one$, and is equivalent to the regular
+module category.  This proves all assertions.
+\end{proof}
+
+The complete small-lattice factors, forced negative entries, full
+actions and intertwining permutations are recorded and replayed by
+\path{evidence/rank8_research_20261022/r982/module_types.py}.
+The proof depends on the previous exhaustive algebra filter through
+its source-bound receipt, and on no chosen bound for module rank.
+Whether $\one\oplus X_5$ admits the required multiplication and
+associativity remains open; the theorem reduces every nonregular
+Morita route to this concrete algebra problem.
+
+\subsection{Rank-two Morita-dual spectra for
+\texorpdfstring{$\sha{R8_3_3472}$}{R8-3-3472}}
+\label{subsec:research-r3472-dual-spectra}
+
+\begin{proposition}
+\label{prop:research-r3472-ten-spectra}
+If the recorded rank-two based module of $\sha{R8_3_3472}$ whose
+$X_1$ action is $\left(\begin{smallmatrix}5&7\\7&7\end{smallmatrix}\right)$
+is realized by a module category, its Morita dual
+has one of the ten FP dimension spectra in the table below.
+This is a necessary condition, without an existence assertion for
+either module category or any spectrum.
+\end{proposition}
+\begin{proof}
+Put $r=\sqrt2$, $d=7+5r$ and $D=700+490r$.
+After reversing the two module simples, the source action of $X_1$
+is
+\[
+ \begin{pmatrix}7&7\\7&5\end{pmatrix}.
+\]
+An action matrix of a simple $Y$ in the dual category commutes with
+this matrix.  Solving the commutator equations over $\Z$ gives
+\[
+ \begin{pmatrix}s+t&7t\\7t&s-t\end{pmatrix},
+\]
+where $t\geq0$ and $s\geq t$.
+The common positive eigenline is the module FP-dimension line,
+and hence $\FPdim(Y)=s+5tr$.
+
+Morita invariance gives $\FPdim(\mathcal B)=D$ for the dual.
+The regular FP-dimension virtual object acts with rank one on an
+indecomposable module; see \cite[Exercise~7.16.8]{EGNO}.
+Thus its eigenvalue on the other line vanishes, giving
+\[
+ \sum_Y(s_Y+5t_Yr)^2=700+490r,
+ \qquad \sum_Y(s_Y+5t_Yr)(s_Y-5t_Yr)=0.
+\]
+Equivalently,
+\[
+ \sum s_Y^2=350,\qquad\sum t_Y^2=7,
+ \qquad\sum s_Yt_Y=49.
+\]
+Writing $k_Y=s_Y-7t_Y$ reduces these to
+$\sum k_Y^2=7$ and $\sum t_Yk_Y=0$.
+
+The integral-dimensional simples, exactly those with $t=0$, form
+a fusion subcategory because all radical coefficients are
+nonnegative.  If its dimension is $h$, the last square sum gives
+$1\leq h\leq7$.  Algebraic-integrality of $D/h$
+\cite[Theorem~7.17.6]{EGNO} requires integer trace $1400/h$
+and norm $9800/h^2$, leaving $h\in\{1,2,5,7\}$.
+This subcategory is pointed.  Only the cases $h=5,7$ need comment:
+a nonpointed dimension-five category would have dimensions $1,2$,
+contradicting $4=1+2n$ for the square of its noninvertible.
+For dimension seven the only nonpointed possibility is $1,1,1,2$.
+Its three invertibles fix the dimension-two simple, whose product
+with its dual would require $4=3+2n$, again impossible.
+
+Let $g=h$ be the number of invertibles.  The nonintegral dimensions
+are $td+k$, and their multiplicities $n_{t,k}$ satisfy the complete
+finite conditions
+\[
+ t\in\{1,2\},\quad k\in\{-2,-1,0,1,2\},\quad
+ \sum n_{t,k}t^2=7,\quad
+ \sum n_{t,k}k^2=7-g,\quad
+ \sum n_{t,k}tk=0.
+\]
+Exact enumeration gives eleven spectra, all with nonnegative
+matrices in this commutant cone.  For $g=7$ the two are
+$1^7,d^7$ and $1^7,d^3,(2d)^1$.  Since $d^2=1+14d$, the product
+$XX^*$ for a $d$-dimensional simple contains exactly one invertible:
+comparison of the constant terms in $\Q(d)$ proves this assertion.
+Its stabilizer in the order-seven invertible group is therefore
+trivial.  The number of $d$-dimensional simples is divisible by
+seven, excluding the second spectrum.
+\end{proof}
+
+In the following table exponents denote multiplicities, and the
+nonintegral part is written using $d=7+5\sqrt2$.
+\[
+\begin{array}{c|r|l}
+\text{invertibles}&\text{rank}&\text{nonintegral dimensions}\\\hline
+1&5&(d-1)^2,\ d+2,\ 2d\\
+1&8&(d-1)^2,\ d^4,\ d+2\\
+1&8&(d-1)^3,\ d,\ (d+1)^3\\
+1&5&d-2,\ (d+1)^2,\ 2d\\
+1&8&d-2,\ d^4,\ (d+1)^2\\
+2&6&d^2,\ d+2,\ 2d-1\\
+2&6&d-2,\ d^2,\ 2d+1\\
+5&9&d-1,\ d,\ d+1,\ 2d\\
+5&12&d-1,\ d^5,\ d+1\\
+7&14&d^7
+\end{array}
+\]
+The notation in this table refers to lists, not powers of algebraic
+numbers.  The replay
+\path{evidence/rank8_research_20261022/r1768_r3472/r3472_rank_two_dual_spectra.py}
+checks the stated source action matrix, the complete square-sum
+enumeration, matrix nonnegativity and the orbit exclusion.
+Repeated simple objects with identical action matrices are allowed;
+no commutativity or faithfulness assumption on the dual fusion ring
+is used.  The other recorded rank-two action has a larger integral
+commutant and is outside the scope of this proposition.
+
+\subsection{Pointed induction and an exclusion of
+\texorpdfstring{$\sha{R8_3_65}$}{R8-3-65}}
+\label{subsec:research-r65-exclusion}
+
+The next argument covers every pointed associator class directly.
+In particular it does not use the earlier class-zero subgroup-dual
+argument or its lower-rank and $\sha{R8_3_1453}$ dependencies.
+
+\begin{lemma}[Pointed induction and integral Fourier fibers]
+\label{lem:research-pointed-fourier}
+Let $\mathcal C$ be pseudo-unitary with its positive spherical
+structure, let $D=\FPdim(\mathcal C)$, and let $g$ be an invertible
+simple of order $n$.  Write
+\[
+ I(g)=\bigoplus_Z m_Z Z,\qquad z_Z=\FPdim(Z)>0,
+\]
+where $I$ is adjoint to the central forgetful functor.  Then every
+constituent satisfies $\theta_Z^n=\nu_n(g)$.  For any choice
+$\alpha^n=\nu_n(g)$, each twist fiber has weight
+\begin{equation}\label{eq:research-fourier-weight}
+ \sum_{\theta_Z=\alpha e^{2\pi ia/n}}m_Zz_Z=D/n
+ \qquad(a\in\Z/n).
+\end{equation}
+Suppose further that all noninvertible source simples have the same
+irrational FP dimension $d$, and inductions of distinct invertibles
+have disjoint simple supports.  Write $D/n=A+Bd$ with $A,B\in\Q$.
+If $F(Z)=m_Zg+\sum_X b_{Z,X}X$ and $b_Z=\sum_Xb_{Z,X}$,
+then in each fiber
+\begin{equation}\label{eq:research-integral-fibers}
+ \sum m_Z^2=A,\qquad \sum m_Zb_Z=B.
+\end{equation}
+\end{lemma}
+\begin{proof}
+The pointed restriction gives $|\nu_n(g)|=1$ and
+$\nu_j(g)=0$ for $1\leq j<n$.  Central induction gives
+\[
+ \sum_Zm_Zz_Z\theta_Z^j=D\nu_j(g),\qquad
+ \sum_Zm_Zz_Z=D;
+\]
+see \cite[Theorem~4.1 and the calculation preceding Lemma~9.3]{NgIndicators}.
+At $j=n$, equality in the triangle inequality, with every nonzero
+weight positive, forces $\theta_Z^n=\nu_n(g)$ for each constituent.
+The $n$ possible twists are therefore $\alpha e^{2\pi ia/n}$.
+The first $n-1$ indicator identities and the dimension identity form
+the discrete Fourier transform of their fiber weights.  Its inverse
+gives~\eqref{eq:research-fourier-weight}.
+
+By adjunction, a constituent of $I(g)$ contains $g$ in its forgotten
+image with multiplicity $m_Z$.  Disjointness of the invertible
+inductions excludes every other invertible from that image.  Thus
+$z_Z=m_Z+b_Zd$ with $b_Z\in\NN$.
+Comparing coefficients of $1,d$ in
+\eqref{eq:research-fourier-weight} proves
+\eqref{eq:research-integral-fibers}.  No bound on twist orders or
+unitarity assumption is used.
+\end{proof}
+
+\begin{theorem}
+\label{thm:research-r65-excluded}
+The fusion ring $\sha{R8_3_65}$ has no categorification by a complex
+fusion category.
+\end{theorem}
+\begin{proof}
+Its source invertibles form $C_4$, generated by $g=X_1$ with
+$g^2=X_7$ and $g^3=X_2$.  The other four simples, $X_3,X_4,X_5,X_6$,
+have dimension
+\[
+ d=(11+5\sqrt5)/2,\qquad d^2=1+11d,\qquad D=8+44d.
+\]
+The published two-dimension reduction
+\cite[Lemma~3.1]{SchNear} implies that every hypothetical complex
+categorification has a pseudo-unitary Galois conjugate.  We work in
+that conjugate.
+
+The exact induction Gram matrix has diagonal $8$ at the four
+pointed positions and zero between distinct pointed positions.
+Thus their inductions have disjoint supports.  For either generator
+$g$ or $g^3$, Lemma~\ref{lem:research-pointed-fourier} gives, in
+each of its four twist fibers,
+\[
+ \sum m_Z^2=2,\qquad \sum m_Zb_Z=11.
+\]
+There are exactly two constituents per fiber, each with $m_Z=1$,
+and each satisfies $b_Z\leq11$.  In particular $I(g)$ and $I(g^3)$
+are multiplicity free with eight constituents each.  The certificate
+below uses only the weaker necessary column restrictions $m_Z=1$
+and $b_Z\leq11$.
+
+Let $k\in\Z/4$ be the pointed associator class, with cyclic
+representative
+\[
+ \omega_k(a,b,c)=\exp\left(\frac{2\pi i k a}{4}
+                 \left\lfloor\frac{b+c}{4}\right\rfloor\right).
+\]
+The pointed indicators are
+$\nu_4(g)=\nu_4(g^3)=i^k$ and $\nu_2(g^2)=(-1)^k$.
+The phase assertion of Lemma~\ref{lem:research-pointed-fourier}
+therefore imposes the following exact normalized relative traces
+of $(\theta,\theta^2,\theta^3,\theta^4)$ over $K=\Q(\sqrt5)$:
+\[
+\begin{array}{c|l|l}
+k&\text{constituent over }g\text{ or }g^3
+ &\text{constituent over }g^2\\\hline
+0&(1,1,1,1),\ (-1,1,-1,1),\ (0,-1,0,1)
+ &(1,1,1,1),\ (-1,1,-1,1)\\
+1,3&(0,0,0,0)&(0,-1,0,1)\\
+2&(0,0,0,-1)&(1,1,1,1),\ (-1,1,-1,1).
+\end{array}
+\]
+For example, odd $k$ forces primitive order-$16$ generator twists,
+and $k=2$ forces primitive order-$8$ generator twists.
+These trace evaluations use the linear disjointness of
+$\Q(\sqrt5)$ and $\Q(\zeta_{16})$.  They respect duality, since
+central duals have equal twists and $g,g^3$ have equal fourth
+indicator.
+
+We impose these necessary restrictions on the established exact
+central-induction cone with full-character-field S-symmetry and
+the real part of the CM-field STS identities.  It has $283$ rational
+equality rows.  Only forbidden pointed columns are removed; all
+other center columns and all auxiliary rotation columns remain.
+For $k=0,1,3$ we also use the proved Fourier restrictions
+$m_Z=1,b_Z\leq11$.  The complete second-indicator possibilities,
+in source order $1,\ldots,7$, are
+$(0,0,0,0,1,e,f)$ with $e,f\in\{\pm1\}$, and the pointed class
+fixes $f=(-1)^k$.  Thus the following six branches are exhaustive:
+\[
+\begin{array}{c|r|r|l}
+k&e&\text{allowed columns}&\text{certificate}\\\hline
+0&-1&2413&\texttt{pointed\_phase\_k0\_fourier.json},\ 0\\
+0&+1&2413&\texttt{pointed\_phase\_k0\_fourier.json},\ 1\\
+1,3&-1&1992&\texttt{pointed\_phase\_k1\_fourier.json},\ 0\\
+1,3&+1&1992&\texttt{pointed\_phase\_k1\_fourier.json},\ 1\\
+2&-1&2222&\texttt{pointed\_phase\_k2.json},\ 0\\
+2&+1&2222&\texttt{pointed\_phase\_k2.json},\ 1.
+\end{array}
+\]
+In every row an exact rational covector $y$ satisfies
+$y\cdot c\geq0$ for \emph{every} allowed column $c$, but
+$y\cdot b<0$ for that branch's right-hand side.  Hence the
+necessary system $\sum_c x_cc=b$, $x_c\geq0$, has no solution.
+The certificates check these inequalities both by the factorized
+exact oracle and by explicit sparse-column arithmetic.  A numerical
+linear program proposes the covectors but contributes no proof
+step.  Changed tensors, missing branches or changed domain metadata
+fail verification.
+
+We justify the finiteness of the twist-trace domain to distinguish
+this argument from a bounded-order search.  The Cauchy theorem for
+spherical fusion categories~\cite{BNRWCauchy}, with
+$\operatorname{Norm}(D)=2000$, restricts the prime divisors of the
+central twist order to $2,5$.  For order $2^a5^b$, the normalized
+relative traces at powers $1,2,3,4$ all vanish if $a\geq4$ or
+$b\geq2$.  This follows respectively from the remaining primitive
+$2$-power trace, or the trace down the $5$-power tower.  The finite
+box $a\leq3,b\leq1$ is represented by divisors of $40$.
+These traces, together with the zero tuple for all higher supported
+orders, give exactly the thirteen trace types used in the cone.
+The metadata value $40$ is therefore a compression bound, not a
+bound on actual twists.  The order-three rotation eigenvalues on
+$\operatorname{Hom}(\one,X^3)$ belong to a different auxiliary
+domain; their columns are retained and are not subjected to this
+prime-support restriction.
+
+Every $k\in\Z/4$ is excluded.  This contradicts the existence of
+the pseudo-unitary Galois conjugate and proves the general complex
+exclusion.
+\end{proof}
+
+The exact implementation and theoretical dependency record are
+\path{evidence/rank8_research_20261022/r65/pointed_phase_cone.py}
+and \path{PROOF.md} in the same directory.  The inherited cone is
+specified by \path{PROOF.md} and \path{ATOMIC_MODULAR.md} in
+\path{evidence/rank8_frontier_20261021/global_induction/},
+and by \path{GLOBAL_CONVEX_INDUCTION.md} in
+\path{evidence/rank8_m3_20261021/criteria/}.
+The earlier feasible witness for the weaker odd-class relaxation
+is retained only to show that the Fourier-integrality step is
+essential; it is not a categorification or a survivor of the
+strengthened conditions.

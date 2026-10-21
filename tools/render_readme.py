@@ -256,7 +256,7 @@ to a source census cell are imported only from a named commit and rechecked
 against classification ledgers.
 ''')
 args.output.parent.mkdir(parents=True,exist_ok=True)
-from sync_rank8_m3_publication import center_scope, center_replay_scope, frontier_replay_scope
+from sync_rank8_m3_publication import center_scope, center_replay_scope, frontier_replay_scope, research_scope
 center_note = center_scope(ROOT)
 rank8_extension_text = rank8_extension_summary(ROOT) if rank8_active(ROOT) else ''
 if rank8_active(ROOT) and (ROOT/'evidence/rank8_frontier_20261021/publication').is_dir():
@@ -268,6 +268,13 @@ from rank8_next import active as next_active
 if next_active(ROOT):
     rank8_extension_text += ('\n\n[New GH(C8) Morita model and further unified restrictions]'
                             '(evidence/rank8_next_20261021/README.md).')
+research_note = research_scope(ROOT)
+if research_note:
+    rank8_extension_text += ('\n\n**22 October research.** '+research_note+'\n\n'
+                            '[Proofs and exact verifier inventory](evidence/rank8_research_20261022/README.md). '
+                            'Run this stage separately from the preserved baseline and frontier replays:\n\n'
+                            '```bash\npython3 tools/verify_rank8_research_20261022.py\n'
+                            'python3 -O tools/verify_rank8_research_20261022.py\n```')
 rendered=('\n'.join(lines).replace('__RANK7_EXTENSION__',rank7_extension_summary(ROOT))
                               .replace('__RANK8_EXTENSION__',rank8_extension_text)
                               .replace('__OPEN_CASE_COUNT__',str(len(remaining_ids(ROOT))))

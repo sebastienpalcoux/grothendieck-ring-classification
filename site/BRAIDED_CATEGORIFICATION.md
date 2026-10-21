@@ -1,18 +1,23 @@
 # Braided scope of the unresolved cases
 
 Braiding is a separate requirement from pivotality, sphericality,
-pseudo-unitarity and unitarity. The ten cases below remain unresolved for
-general complex categorification **without requiring a braiding**. Six have
-an obstruction to any braiding. The other four have an obstruction to a
-braiding together with a pivotal structure; their general braided status
-remains unresolved. All conclusions retain the project's independent-review
-caution. This audit does not assert that all possible braided tests have been
-exhausted.
+pseudo-unitarity and unitarity. Every current unresolved case is excluded
+from braided categorification without a pivotality assumption. The four
+previously conditional rank-eight exclusions become unconditional by the
+complete sphericalization gates of 22 October 2026. All conclusions retain
+the project's independent-review caution.
 
 | Cases | Strongest braided exclusion recorded here |
 | --- | --- |
-| `R6_4_155`, `R6_8_1660`, `R8_3_65`, `R8_3_928`, `R8_3_941`, `R8_3_1154` | No braided categorification, without a pivotality assumption |
-| `R8_3_982`, `R8_3_1768`, `R8_3_1795`, `R8_3_3472` | No pivotal braided categorification; hence no spherical, pseudo-unitary or unitary braided categorification |
+| `R6_4_155`, `R6_8_1660` | No general braided categorification |
+| `R8_3_928`, `R8_3_941`, `R8_3_982`, `R8_3_1154`, `R8_3_1768`, `R8_3_3472` | No general braided categorification, and no braided Morita representative |
+
+`R8_3_65` is now excluded from general categorification by the independent
+[pointed-induction Fourier obstruction](../evidence/rank8_research_20261022/r65/PROOF.md).
+Its earlier braided obstruction is retained below as a historical argument.
+`R8_3_1795` is likewise excluded from general categorification by the
+[complete order-two Fourier-packing argument](../evidence/rank8_research_20261022/pointed_followup/PROOF.md).
+Its braided obstruction below records an earlier, weaker result.
 
 ## General braided exclusions
 
@@ -50,17 +55,16 @@ noncommutative. A braiding gives `X_i tensor X_j` isomorphic to
 scope record contains an explicit unequal coefficient pair, checked against
 the canonical tensor by `check_cases.py`.
 
-## Conditional reduction preserving a braiding
+## General reduction preserving a braiding
 
-For each of the other four rings, the previous
-[`scope audit`](CATEGORIFICATION_SCOPE.md) proves that every pivotal
-categorification is spherical and that every spherical categorification has
-a pseudo-unitary Galois conjugate. Apply the same field automorphism also
-to the braiding matrices. Naturality and the hexagon identities are
-algebraic identities, so the transported category remains braided. Thus
-excluding pseudo-unitary braided categorification excludes **pivotal
-braided** categorification for these rings. It does not exclude an arbitrary
-braided category without a proved pivotal structure.
+For `R8_3_982`, `R8_3_1768`, `R8_3_1795`, and `R8_3_3472`, the new
+[complete signed-sphericalization proof](../evidence/rank8_research_20261022/pivotality/PROOF.md)
+shows that every general categorification admits a spherical structure and
+has a pseudo-unitary Galois conjugate. Apply the same field automorphism to
+the braiding matrices. Naturality and the hexagon identities remain true.
+Consequently each pseudo-unitary braided obstruction below excludes
+**general braided categorification**. This deduction uses the proved
+four-case sphericalization result; it makes no general pivotality conjecture.
 
 ### R8_3_982: forced semion versus the adjoint category
 
@@ -82,7 +86,7 @@ the source category would be `Semion tensor D`. Its adjoint subcategory is
 contained in `Vec tensor D` and is proper. Direct closure of all `X X*`
 supports in the canonical tensor instead gives the whole ring. This
 contradiction excludes pseudo-unitary braided categorification, and the
-preceding reduction excludes pivotal braided categorification.
+preceding reduction excludes general braided categorification.
 
 ### R8_3_1768 and R8_3_3472: a simple-dimension d-number obstruction
 
@@ -98,7 +102,7 @@ requires `n` to divide `t^2`.
 * `R8_3_3472` has the simple dimension `6+5sqrt(2)`, with polynomial
   `x^2-12x-14`. But `14` does not divide `144`.
 
-This proves the pseudo-unitary braided obstructions, hence the pivotal
+This proves the pseudo-unitary braided obstructions, hence the general
 braided obstructions by the preceding reduction. One must not replace
 squared norm by FP dimension for a general non-pivotal braided category;
 Ostrik's Remark 1.9(i) explicitly distinguishes the two questions.
@@ -139,15 +143,25 @@ Consequently a full-ring codegree `10` forces some `d_i^2=D/10`, namely
 `54+24sqrt(5)`. The actual squared simple dimensions are only
 `1`, `81+36sqrt(5)` and `94+42sqrt(5)`. None equals that value.
 Both possible centers are excluded. This proves no pseudo-unitary braided
-categorification, hence no pivotal braided categorification.
+categorification, hence no general braided categorification.
+
+## Morita representatives
+
+Every proper fusion subcategory of each of the eight incoming rank-eight
+rings is pointed, and each global FP dimension is irrational. The
+[minimal-image Morita criterion](../evidence/rank8_research_20261022/braided_morita/PROOF.md)
+therefore shows that a braided Morita representative would give a braiding
+on the source category itself. The preceding exclusions rule this out.
+This is a restriction on constructions through Morita equivalence; it does
+not exclude the seven remaining rings from general unbraided categorification.
 
 ## Replay and maintenance
 
 `python3 site/verify_braided_scope.py` rechecks the finite tensor, dimension
-and character calculations used by these conditional corollaries. It does
+and character calculations used by these braided corollaries. It does
 not rerun the much larger previously published center-certificate campaign.
 `python3 site/verify_scope_consequences.py` checks the earlier conditional
-Galois reductions. The linked center receipts retain their original scope.
+Galois reductions. The new general gates replay with `python3 evidence/rank8_research_20261022/pivotality/verify_general_spherical_gates.py`. The linked historical center receipts retain their original scope.
 
 The curated `categorification_scope.json` records general braided status
 separately from any conditional exclusion, with SHA-256-bound proof sources.

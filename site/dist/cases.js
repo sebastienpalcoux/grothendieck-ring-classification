@@ -38,10 +38,34 @@
     return String(value);
   };
   const isPrimitive = (value) => value === null || typeof value !== "object" || ("re" in value && "im" in value);
-  const repoURL = (path) => `${repository}/blob/main/${path.split("/").map(encodeURIComponent).join("/")}`;
+  let evidenceSources = new Map();
+  const sourcePath = (value) => typeof value === "string" && /^(evidence|data|supplements|verification|tools|manuscripts|site)\/[\w./+-]+$/.test(value);
+  const repoURL = (path) => evidenceSources.get(path)?.url || `${repository}/blob/main/${path.split("/").map(encodeURIComponent).join("/")}`;
+  function sourceLink(text, path, fallback) {
+    const source = evidenceSources.get(path);
+    const node = link(text, source?.packaged ? source.url : fallback || repoURL(path));
+    if (source?.packaged) node.title = `${path}\n${source.restoration_note}\nRestored source SHA-256: ${source.sha256 || source.source_sha256}`;
+    return node;
+  }
+  function restorationNote(source) {
+    const note = el("p", "case-small-note", "Packaged source. After cloning the repository, run ");
+    note.append(el("code", "", source.restoration_command || "python3 tools/restore_data.py"), document.createTextNode(" to restore the original path and verify its SHA-256. "));
+    if (source.restoration_url) note.append(link("Restoration script ↗", source.restoration_url), document.createTextNode(" · "));
+    if (source.manifest_url) note.append(link("Payload manifest ↗", source.manifest_url));
+    return note;
+  }
   function scalar(value) {
-    if (typeof value === "string" && /^https?:\/\/\S+$/.test(value)) return link(value, value);
-    if (typeof value === "string" && /^(evidence|data|supplements|verification|tools|manuscripts)\/[\w./+-]+$/.test(value)) return link(value, repoURL(value));
+    if (typeof value === "string" && /^https?:\/\/\S+$/.test(value)) {
+      const prefix = `${repository}/blob/main/`;
+      if (value.startsWith(prefix)) {
+        try {
+          const path = decodeURIComponent(new URL(value).pathname.slice(new URL(prefix).pathname.length));
+          if (evidenceSources.get(path)?.packaged) return sourceLink(value, path, value);
+        } catch (_) { /* Preserve unrecognized source URLs verbatim. */ }
+      }
+      return link(value, value);
+    }
+    if (sourcePath(value)) return sourceLink(value, value);
     return el("span", "record-value", compact(value));
   }
   function lazyDetails(title, builder, className = "record-details", open = false) {
@@ -60,7 +84,7 @@
     if (Array.isArray(value)) {
       if (!value.length) return el("p", "record-empty", "No entries recorded.");
       if (value.every(isPrimitive)) {
-        if (value.every((v) => typeof v !== "string" || v.length < 60)) return el("p", "record-array", `[${value.map(compact).join(", ")}]`);
+        if (value.every((v) => !sourcePath(v) && (typeof v !== "string" || v.length < 60))) return el("p", "record-array", `[${value.map(compact).join(", ")}]`);
         const list = el("ul", "record-list");
         value.forEach((item) => { const li = el("li"); li.append(scalar(item)); list.append(li); });
         return list;
@@ -75,7 +99,9 @@
     const list = el("dl", "record-fields");
     for (const [key, item] of Object.entries(value)) {
       const row = el("div", "record-field");
-      row.append(el("dt", "", label(key)));
+      const term = el("dt");
+      term.append(sourcePath(key) ? sourceLink(key, key) : document.createTextNode(label(key)));
+      row.append(term);
       const dd = el("dd");
       if (isPrimitive(item) || (Array.isArray(item) && item.every(isPrimitive) && item.length <= 20)) dd.append(structured(item));
       else dd.append(lazyDetails(Array.isArray(item) ? `${item.length} entries` : "View recorded values", () => structured(item)));
@@ -205,8 +231,8 @@
     for (const source of sources || []) {
       const href = source.url || (source.path ? repoURL(source.path) : null);
       if (!href) continue;
-      const item = link(source.label || "Supporting argument ↗", href);
-      if (source.locator) item.title = source.locator;
+      const item = sourceLink(source.label || "Supporting argument ↗", source.path, href);
+      if (source.locator) item.title = [item.title, source.locator].filter(Boolean).join("\n");
       links.append(item);
     }
     return links;
@@ -216,6 +242,9 @@
     panel.append(el("h3", "", "Braided categorification"), el("p", "category-braided-status", braidedStatusText(braided)));
     if (braided?.explanation) panel.append(el("p", "case-prose", braided.explanation));
     if (braided?.sources?.length) panel.append(categorySources(braided.sources));
+    if (braided?.morita?.status === "excluded") {
+      panel.append(el("h4", "", "No braided Morita representative"), el("p", "case-prose", braided.morita.explanation), categorySources(braided.morita.sources));
+    }
     if (braided?.status === "unresolved") {
       for (const restriction of braided.conditional_exclusions || []) {
         const condition = categoryLabels[restriction.assumption]?.toLowerCase() || String(restriction.assumption);
@@ -235,6 +264,12 @@
     node.append(el("p", `category-status${scope?.strongest_excluded ? " category-status-excluded" : ""}`, categoryExclusionText(scope)));
     node.append(renderBraidedStatus(scope?.braided));
     if (!scope) return node;
+    if (scope.general_status === "excluded") {
+      node.append(el("p", "case-prose", "General complex categorification is excluded. This also excludes pivotal, spherical, pseudo-unitary and unitary categorification."));
+      for (const note of scope.notes || []) node.append(el("p", "case-prose", note));
+      node.append(categorySources(scope.audit_sources));
+      return node;
+    }
     const same = scope.same_category_implications || [], existence = scope.existence_implications || [];
     node.append(el("p", "case-prose", "General categorifiability remains unresolved. The diagram records which additional structures a hypothetical categorification must admit."));
     node.append(el("h3", "", "Structures on the same category"), categoryDiagram(same, "Structures admitted by the same category"));
@@ -383,12 +418,13 @@
     const node = section("research", unresolved ? "Research record" : "Models & constructions", "04 / RECORDED RESULTS & THEIR SCOPE");
     if (unresolved) {
       if (ring.summary) node.append(el("h3", "", "Latest case summary"), el("p", "case-prose", ring.summary));
-      node.append(el("p", "case-prose", "General existence remains unresolved. The records below distinguish applicable criteria, searches with no conclusion, scoped obstructions and surviving necessary data. Historical stages retain their original dates and outcomes; the latest completed results take precedence where a later stage refines them."));
+      node.append(el("p", "case-prose", ring.status === "excluded" ? "This case is now excluded from general categorification. Earlier research records retain their historical scope; the accepted exclusion above supersedes their former unresolved status." : "General existence remains unresolved. The records below distinguish applicable criteria, searches with no conclusion, scoped obstructions and surviving necessary data. Historical stages retain their original dates and outcomes; the latest completed results take precedence where a later stage refines them."));
       node.append(el("p", "case-small-note", "The fusion tensor and derived invariants use this page’s supplied case basis. Research reports retain their cited source basis, which can differ. Consult the recorded source conventions and basis maps when comparing entries."));
       for (const report of ring.research || []) {
         const details = lazyDetails(report.title || label(report.source || "Research report"), () => {
           const content = el("div", "case-report-content");
-          if (report.url || report.source) content.append(link("Read the source record ↗", report.url || repoURL(report.source)));
+          if (report.url || report.source) content.append(sourceLink(report.packaged ? "Open packaged source files ↗" : "Read the source record ↗", report.source, report.url));
+          if (report.packaged) content.append(el("p", "case-source-path", report.source), restorationNote(report));
           if (report.source_sha256) content.append(el("p", "case-small-note", `Source SHA-256: ${report.source_sha256}`));
           content.append(structured(report.data)); return content;
         }, "case-report");
@@ -413,10 +449,13 @@
     const evidence = ring.evidence || [];
     if (evidence.length) {
       node.append(el("h3", "", `${evidence.length} evidence links`));
+      const packaged = evidence.find((item) => item.packaged);
+      if (packaged) node.append(restorationNote(packaged));
       const list = el("ul", "case-evidence-list");
       for (const item of evidence) {
-        const li = el("li"); li.append(link(item.label || item.path || item.url, item.url || repoURL(item.path)));
+        const li = el("li"); li.append(sourceLink(item.label || item.path || item.url, item.path, item.url));
         if (item.path && item.label !== item.path) li.append(el("span", "case-source-path", item.path));
+        if (item.packaged) li.append(el("p", "case-small-note", `Packaged source · original file SHA-256: ${item.sha256}`));
         list.append(li);
       }
       node.append(list);
@@ -426,10 +465,13 @@
     return node;
   }
   function renderCase(ring, unresolved) {
-    document.title = `${ring.id} · ${unresolved ? "Unresolved case" : ring.name} · Ring Atlas`;
+    evidenceSources = new Map((ring.research || []).filter((item) => item.source).map((item) => [item.source, item]));
+    for (const item of ring.evidence || []) if (item.path) evidenceSources.set(item.path, item);
+    const excluded = ring.status === "excluded";
+    document.title = `${ring.id} · ${excluded ? "Excluded case" : unresolved ? "Unresolved case" : ring.name} · Ring Atlas`;
     $("#case-title").textContent = ring.id;
-    $("#case-kicker").textContent = `RANK ${ring.rank} · EXACT MULTIPLICITY ${ring.multiplicity} · ${unresolved ? "UNRESOLVED CASE" : "REALIZED RING"}`;
-    $("#case-subtitle").textContent = unresolved ? "General categorifiability remains unresolved. Inspect the ring data, exact and numerical invariants, and the full recorded research history." : `${ring.name} · ${ring.existence} model reported in the catalogue.`;
+    $("#case-kicker").textContent = `RANK ${ring.rank} · EXACT MULTIPLICITY ${ring.multiplicity} · ${excluded ? "GENERAL CATEGORIFICATION EXCLUDED" : unresolved ? "UNRESOLVED CASE" : "REALIZED RING"}`;
+    $("#case-subtitle").textContent = excluded ? "Resolved by a general exclusion. The fusion data, invariants and proof remain available at this permanent case address." : unresolved ? "General categorifiability remains unresolved. Inspect the ring data, exact and numerical invariants, and the full recorded research history." : `${ring.name} · ${ring.existence} model reported in the catalogue.`;
     const back = $("#case-back");
     if (unresolved) {
       back.href = `./unresolved.html${filters.size ? "?" + filters : ""}`;
@@ -463,9 +505,12 @@
       const unresolved = await fetchJSON("./data/unresolved_cases.json");
       if (document.body.dataset.casePage === "list") { renderList(unresolved); return; }
       const id = params.get("id");
-      if (!id || !/^(R\d+_\d+_\d+|F_\{\d+,\d+\})$/.test(id)) { renderError("Choose a valid case identifier from the directory, such as R8_3_65."); return; }
+      if (!id || !/^(R\d+_\d+_\d+|F_\{\d+,\d+\})$/.test(id)) { renderError("Choose a valid case identifier from the directory, such as R8_3_982."); return; }
       const found = unresolved.cases.find((ring) => ring.id === id);
       if (found) { renderCase(found, true); return; }
+      const resolved = await fetchJSON("./data/resolved_cases.json");
+      const closed = resolved.cases.find((ring) => ring.id === id);
+      if (closed) { renderCase(closed, true); return; }
       const realized = await fetchJSON("./data/realized_rings.json");
       const model = realized.records.find((ring) => ring.id === id);
       if (model) { renderCase(model, false); return; }

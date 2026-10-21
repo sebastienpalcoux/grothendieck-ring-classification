@@ -7,7 +7,7 @@ from rank6_publication import validate_identity, completed_bands, validate_docum
 from publication_stages import load_stages, overview
 from rank7_publication import summary as rank7_extension_summary, extension, remaining_ids, replay_status, STATUS_REPORT
 from rank8_publication import summary as rank8_summary, extension as rank8_extension, current_report, ledger_path as rank8_ledger, EVIDENCE as M3_EVIDENCE
-from sync_rank8_m3_publication import center_scope, center_replay_scope, frontier_replay_scope
+from sync_rank8_m3_publication import center_scope, center_replay_scope, frontier_replay_scope, research_scope
 
 ROOT = Path(__file__).resolve().parents[1]
 CAUTION = '''> **AI-generated research · independent verification pending.** Treat these
@@ -151,7 +151,11 @@ def render(repo, identity):
     def complete(r):return next((m-1 for m in range(1,bound(r)+1) if rows[r,m]['unresolved_general'] or rows[r,m]['unassessed']),bound(r))
     extension_text=rank7_extension_summary(repo)
     m3 = rank8_extension(repo)
+    m3_summary = rank8_summary(repo) if m3 else ''
+    m5 = extension(repo)
+    m5_replay = replay_status(repo)
     center_note = center_scope(repo)
+    research_note = research_scope(repo)
     frontier_note = frontier_replay_scope(repo) if (repo/'evidence/rank8_frontier_20261021/publication').is_dir() else ''
     rank8_scope=(f"Through multiplicity {bound(8)}: {totals(8)['excluded']:,} exclusions, "
                  f"{totals(8)['unitarily_realized']} unitary models and {totals(8)['unresolved']} unresolved; "
@@ -694,11 +698,10 @@ All results and data are AI-generated, not independently human-verified and not 
                 rank8_scope+'. Exact multiplicities one and two retain 48 and 29 models. The multiplicity-three positive count is a lower bound whenever unresolved cases remain, and must not be submitted as an exact sequence term.')
             content = content.replace('The following boundary describes the 17 October study; the current M5 extension is stated above.', 'The following boundary describes the 17 October study; current M5 and M3 extensions are stated above.')
         content = content.replace('__RANK7_SCOPE__', rank7_scope).replace('__RANK7_EXTENSION__', extension_text)
-        m5 = extension(repo)
         content = content.replace('__M5_COVERAGE__',
             f"All {m5['rings']:,} new records: {m5['excluded']:,} general-exclusion certificates, "
             f"{m5['realized']} `Rep(AGL(1,7))` model and {m5['unresolved']} open cases")
-        content = content.replace('__M5_REPLAY__', replay_status(repo))
+        content = content.replace('__M5_REPLAY__', m5_replay)
         if name in ('docs/PROVENANCE.md','docs/VERIFY.md') and census_note:
             content += '\n' + census_note + '\n'
         if name == 'docs/VERIFY.md' and census_extension:
@@ -711,16 +714,16 @@ All results and data are AI-generated, not independently human-verified and not 
             content = content[:title_end+2] + extension_text + '\n\n' + content[title_end+2:]
         if m3 and name.endswith('.md'):
             title_end = content.find('\n\n')
-            content = content[:title_end+2] + rank8_summary(repo) + '\n\n' + content[title_end+2:]
+            content = content[:title_end+2] + m3_summary + '\n\n' + content[title_end+2:]
         if m3 and name in ('docs/VERIFY.md', 'docs/PROVENANCE.md', 'docs/PREPUBLICATION_REVIEW.md'):
-            content += ('\n## Rank-eight multiplicity-three continuation\n\n'+rank8_summary(repo)+'\n\n'
+            content += ('\n## Rank-eight multiplicity-three continuation\n\n'+m3_summary+'\n\n'
                 'The complete census is producer-reported, with independent tensor and isomorphism audits. The supplied optimized source matches both producer run receipts; full enumeration was not independently rerun. The normal and optimized mathematical replay receipts, individually investigated residuals and proof dependencies are in [`'+M3_EVIDENCE+'`](../'+M3_EVIDENCE+'). '
                 'A candidate has neither a general exclusion nor a constructed associator; it is not an established exotic category. New arguments remain subject to independent human review.\n\n'
                 '```bash\npython3 supplements/rank8/software/verify_m3_continuation.py --output frontier-validation/baseline_normal.json\npython3 -O supplements/rank8/software/verify_m3_continuation.py --output frontier-validation/baseline_optimized.json\n```\n\n'
                 'Metadata-only mode checks source identity and reconciliation with both full receipts, without repeating their finite mathematical checks.\n')
         if m3 and m3.get('frontier') and name in ('docs/VERIFY.md', 'docs/PROVENANCE.md', 'docs/PREPUBLICATION_REVIEW.md', 'supplements/rank8/README.md'):
             content += ('\n## Further rank-eight frontier investigation\n\n'
-                f"The original 34 unresolved M3 cases now have {m3['frontier']['new_decisions']} further general exclusions and {m3['unresolved']} remaining questions. The original M3 ledger, proof inputs and full receipts are unchanged. The current ledger is `"+m3['ledger']+'`.\n\n'
+                f"The historical frontier stage recorded {m3['frontier']['new_decisions']} further general exclusions among the original 34 unresolved M3 cases. Subsequent construction and research stages leave {m3['unresolved']} current questions. The original M3 ledger, proof inputs and full receipts are unchanged. The current ledger is `"+m3['ledger']+'`.\n\n'
                 +frontier_note+'\n\n'
                 'Replay the original M3 package using the isolated outputs above, preserving its frozen receipts, then replay the continuation separately:\n\n'
                 '```bash\npython3 tools/verify_rank8_frontier.py\npython3 -O tools/verify_rank8_frontier.py\n```\n\n'
@@ -749,6 +752,26 @@ All results and data are AI-generated, not independently human-verified and not 
                         +center_replay_scope()+'\n\n'
                         '```bash\npython3 evidence/rank8_center_followup_20261021/verify.py --root .\n'
                         'python3 -O evidence/rank8_center_followup_20261021/verify.py --root .\n```\n')
+        if research_note and name in ('docs/RESEARCH_STATUS.md','docs/VERIFY.md','docs/PROVENANCE.md',
+                                      'docs/PREPUBLICATION_REVIEW.md','manuscripts/README.md',
+                                      'supplements/README.md','supplements/rank8/README.md'):
+            content += ('\n## 22 October rank-eight research\n\n'+research_note+'\n\n'
+                        'The proof and exact verifier inventory is '
+                        '`evidence/rank8_research_20261022/README.md`. The current research stage '
+                        'has its own accepted ledger and source manifest; its exact replay is:\n\n'
+                        '```bash\npython3 tools/verify_rank8_research_20261022.py\n'
+                        'python3 -O tools/verify_rank8_research_20261022.py\n```\n\n'
+                        'Run `python3 tools/rank8_research_20261022.py --check` for metadata reconciliation only. '
+                        'The original M3 replay and 108-check frontier receipts retain their historical scope. '
+                        'They do not replace the new targeted mathematical checks.\n')
+        if research_note and name == 'oeis/update_2026-10-02.txt':
+            resolved = ', '.join(m3['research']['resolved_ids'])
+            content += ('\nThe 22 October research stage generally excludes '+resolved+' by pointed-induction Fourier integrality '
+                        'and exact certificates covering every pointed associator class. '
+                        f"The exact-multiplicity-three band now has {m3['excluded']:,} exclusions, "
+                        f"{m3['unitarily_realized']} models and {m3['unresolved']} unresolved cases. "
+                        'The model count remains a lower bound, not an exact OEIS term. '
+                        'See evidence/rank8_research_20261022/README.md for proofs and exact replay.\n')
         out[name] = content
     return out
 

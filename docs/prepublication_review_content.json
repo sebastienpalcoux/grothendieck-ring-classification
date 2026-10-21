@@ -1,9 +1,9 @@
 {
-  "date": "21 October 2026",
+  "date": "22 October 2026",
   "version": "Rank-eight multiplicity-three continuation and current verification scope",
   "title": "Research status and verification",
   "caution": "AI-generated research · independent verification pending. The results, proofs, code and data have not yet been independently verified by human experts or formalized in Lean. Use them with caution; exact checks establish only their stated computational scope.",
-  "summary": "The rank-eight multiplicity-three continuation addresses all 3,527 supplied exact-multiplicity-three rings: 3,504 general exclusions, 15 models and 8 unresolved cases. Every recorded model admits a unitary realization. The remaining rings retain unresolved status for general complex categorification. The rank-seven multiplicity-five continuation addresses all 5,805 supplied exact-multiplicity-five rings: 5,804 general exclusions, 1 realization and 0 unresolved cases. The classification of the supplied census is complete through multiplicity 5. The new realization R7_5_5678 is Rep(AGL(1,7)). The two earlier rank-six questions remain open. The historical 38-case inventory keeps its original scope.",
+  "summary": "The rank-eight multiplicity-three continuation addresses all 3,527 supplied exact-multiplicity-three rings: 3,506 general exclusions, 15 models and 6 unresolved cases. Every recorded model admits a unitary realization. The remaining rings retain unresolved status for general complex categorification. The rank-seven multiplicity-five continuation addresses all 5,805 supplied exact-multiplicity-five rings: 5,804 general exclusions, 1 realization and 0 unresolved cases. The classification of the supplied census is complete through multiplicity 5. The new realization R7_5_5678 is Rep(AGL(1,7)). The two earlier rank-six questions remain open. The historical 38-case inventory keeps its original scope.",
   "rank_counts": [
     {
       "rank": 4,
@@ -41,9 +41,9 @@
       "rank": 8,
       "bound": 3,
       "rings": 4500,
-      "excluded": 4400,
+      "excluded": 4402,
       "models": 92,
-      "open": 8
+      "open": 6
     }
   ],
   "coverage_notes": [
@@ -71,18 +71,25 @@
       ]
     },
     {
-      "id": "Rank eight: 8 rings",
+      "id": "Rank eight: 6 rings",
       "heading": "Exact multiplicity three",
       "paragraphs": [
-        "The new band contains 3,504 recorded general exclusions, 15 unitary models and 8 unresolved tensors. Each remaining tensor has an individual attempt record, distinguishing completed necessary-condition tests, unsuccessful model searches, ineligible tests and time limits.",
-        "These are investigated categorification candidates, not asserted fusion categories or established exotic examples. Passing necessary conditions supplies no associator. Failing to find a model does not prove nonexistence. Exact tensors are in data/remaining_cases.py; the per-case record is evidence/rank8_next_20261021/per_ring_research_audit.json.",
+        "The new band contains 3,506 recorded general exclusions, 15 unitary models and 6 unresolved tensors. Each remaining tensor has an individual attempt record, distinguishing completed necessary-condition tests, unsuccessful model searches, ineligible tests and time limits.",
+        "These are investigated categorification candidates, not asserted fusion categories or established exotic examples. Passing necessary conditions supplies no associator. Failing to find a model does not prove nonexistence. Exact tensors are in data/remaining_cases.py; the per-case record is evidence/rank8_research_20261022/per_ring_research_audit.json.",
         "These remaining rings are extensively investigated exotic candidates in the operational sense: each survived the documented case-specific campaign of known and newly developed exclusions and model searches, including complete finite domains and specified unbounded construction families. This designation does not assert existence or novelty of a future realization.",
         "In the final finite center-constraint systems, R8_3_928 has 4 exact integer witnesses and 6 patterns with unresolved integer feasibility; R8_3_941 retains 14 patterns, with 11 exact integer witnesses and 3 unresolved integer-feasibility questions. These witnesses are necessary data, not categorical models; uncertified numerical failures are not exclusions.",
-        "R8_3_721 is realized by the inherited 1+rho Q-system Morita dual of the C2 de-equivariantization of the known GH(C8) category. Its rank and coefficient bound are proved exactly; identification uses its unique dimension type in the supplied complete rank-eight multiplicity-at-most-three census. Further center-action constraints reduce R8_3_1154 to three necessary center patterns. For R8_3_65, a unified pointed-subgroup Morita obstruction forces a nontrivial pointed associator. The latter two rings remain unresolved. Proofs and separate exact checks are in evidence/rank8_next_20261021/."
+        "R8_3_721 is realized by the inherited 1+rho Q-system Morita dual of the C2 de-equivariantization of the known GH(C8) category. Its rank and coefficient bound are proved exactly; identification uses its unique dimension type in the supplied complete rank-eight multiplicity-at-most-three census. The earlier center-action analysis reduces R8_3_1154 to three necessary center patterns. These model and pattern results are preserved in evidence/rank8_next_20261021/; the later R8_3_65 general exclusion is recorded separately in evidence/rank8_research_20261022/."
       ]
     }
   ],
   "replay_sections": [
+    {
+      "heading": "Pointed Fourier exclusion and remaining rank-eight restrictions",
+      "paragraphs": [
+        "The 22 October stage has a separate exact replay and accepted source manifest. Run python3 tools/verify_rank8_research_20261022.py and python3 -O tools/verify_rank8_research_20261022.py. Its proof and verifier inventory is evidence/rank8_research_20261022/README.md.",
+        "These targeted checks supplement the original M3 and 108-check frontier replays; those historical receipts do not certify the later stage. Metadata-only checks reconcile source identities without repeating mathematics."
+      ]
+    },
     {
       "heading": "A generalized Haagerup Morita construction and further restrictions",
       "paragraphs": [
@@ -100,7 +107,7 @@
     {
       "heading": "Further rank-eight frontier investigation",
       "paragraphs": [
-        "Canonical normal and optimized frontier replays each passed all 108 checks. Fresh replay after extraction from the publication archive is deferred.",
+        "Canonical normal and optimized frontier replays each passed all 108 checks. These receipts cover the historical frontier stage. Fresh replay after extraction from the publication archive is deferred.",
         "The original M3 ledger and replay receipts are preserved. New decisions use a separate continuation ledger and source manifest. Run tools/verify_rank8_frontier.py in normal and optimized Python after the original M3 replay. Its strict metadata-only verification still requires both matching full continuation receipts.",
         "The per-ring audit records completed finite exclusion tests, exact feasible necessary-condition witnesses and excluded construction families. Each result keeps its precise hypotheses and search domain."
       ]
@@ -174,9 +181,15 @@
   ],
   "theoretical_results": [
     {
+      "heading": "Pointed Fourier exclusion and remaining rank-eight restrictions",
+      "paragraphs": [
+        "R8_3_65 and R8_3_1795 have general-complex exclusions from pointed-induction Fourier integrality. Six exact separating certificates cover all four pointed associator classes for R8_3_65; sixteen cover both pointed classes and every admissible second-indicator assignment for R8_3_1795. The verified Galois reductions remove the pseudo-unitarity hypotheses. Every hypothetical categorification of each of the 6 remaining rank-eight rings admits a spherical structure and is Galois conjugate to a pseudo-unitary category. None is categorically Morita equivalent to a braided fusion category. For R8_3_1768 the pointed C2 associator must be nontrivial, forcing its nonidentity invertible to act freely on the simple objects of every indecomposable module category. R8_3_982 has a complete necessary based-module analysis; its remaining module data do not establish coherent module categories. A separate dimension-spectrum restriction for R8_3_3472 covers one specified rank-two module action only. These restrictions leave 6 general categorification questions unresolved."
+      ]
+    },
+    {
       "heading": "A generalized Haagerup Morita construction and further restrictions",
       "paragraphs": [
-        "R8_3_721 is realized by the inherited 1+rho Q-system Morita dual of the C2 de-equivariantization of the known GH(C8) category. Its rank and coefficient bound are proved exactly; identification uses its unique dimension type in the supplied complete rank-eight multiplicity-at-most-three census. Further center-action constraints reduce R8_3_1154 to three necessary center patterns. For R8_3_65, a unified pointed-subgroup Morita obstruction forces a nontrivial pointed associator. The latter two rings remain unresolved. Proofs and separate exact checks are in evidence/rank8_next_20261021/.",
+        "R8_3_721 is realized by the inherited 1+rho Q-system Morita dual of the C2 de-equivariantization of the known GH(C8) category. Its rank and coefficient bound are proved exactly; identification uses its unique dimension type in the supplied complete rank-eight multiplicity-at-most-three census. The earlier center-action analysis reduces R8_3_1154 to three necessary center patterns. These model and pattern results are preserved in evidence/rank8_next_20261021/; the later R8_3_65 general exclusion is recorded separately in evidence/rank8_research_20261022/.",
         "A uniform vertex-line obstruction proves that these inherited cyclic generalized Haagerup Q-system duals have trivial invertible group. Complete free-bimodule Gram factorization, the known center and rational coefficient inequalities then identify the C8 example. This is an existing algebra in an existing category; modular data alone are not used to assume a categorification.",
         "The new restrictions and exact feasible witnesses for the remaining rings retain their individual scopes. R8_3_982 has two excluded induction frames and a surviving semionic branch. The charged fourth-moment systems for R8_3_928 and R8_3_941 have exact feasible completions. None of these surviving necessary data proves existence."
       ]
@@ -185,7 +198,7 @@
       "heading": "Additional center-pattern refinement",
       "paragraphs": [
         "Fourth Verlinde moments couple all distinguished tensor-product decompositions to the same nonnegative integer restriction matrix. Exact minimum-norm projection and rank-one residual Grams yield coordinate obstructions. A complete cyclic-space and orthogonal-projector argument classifies the remaining distinguished center-action tuples for R8_3_721.",
-        "R8_3_721 is realized by the inherited 1+rho Q-system Morita dual of the C2 de-equivariantization of the known GH(C8) category. Its rank and coefficient bound are proved exactly; identification uses its unique dimension type in the supplied complete rank-eight multiplicity-at-most-three census. Further center-action constraints reduce R8_3_1154 to three necessary center patterns. For R8_3_65, a unified pointed-subgroup Morita obstruction forces a nontrivial pointed associator. The latter two rings remain unresolved. Proofs and separate exact checks are in evidence/rank8_next_20261021/."
+        "R8_3_721 is realized by the inherited 1+rho Q-system Morita dual of the C2 de-equivariantization of the known GH(C8) category. Its rank and coefficient bound are proved exactly; identification uses its unique dimension type in the supplied complete rank-eight multiplicity-at-most-three census. The earlier center-action analysis reduces R8_3_1154 to three necessary center patterns. These model and pattern results are preserved in evidence/rank8_next_20261021/; the later R8_3_65 general exclusion is recorded separately in evidence/rank8_research_20261022/."
       ]
     },
     {
@@ -222,5 +235,5 @@
       ]
     }
   ],
-  "open_case_count": 10
+  "open_case_count": 8
 }

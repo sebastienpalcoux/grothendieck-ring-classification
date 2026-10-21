@@ -1,21 +1,19 @@
 {
-  "date": "2026-10-21",
+  "date": "2026-10-22",
   "rank": 8,
   "multiplicity": 3,
   "rings": 3527,
-  "excluded": 3504,
+  "excluded": 3506,
   "realized": 15,
   "unitarily_realized": 15,
   "pseudo_unitarily_realized": 0,
-  "unresolved": 8,
+  "unresolved": 6,
   "remaining_ids": [
-    "R8_3_65",
     "R8_3_928",
     "R8_3_941",
     "R8_3_982",
     "R8_3_1154",
     "R8_3_1768",
-    "R8_3_1795",
     "R8_3_3472"
   ],
   "unitary_excluded_ids": [],
@@ -36,13 +34,13 @@
     "R8_3_3314",
     "R8_3_3342"
   ],
-  "ledger": "supplements/rank8/output/next_20261021/ledger.json",
-  "ledger_sha256": "fccfbdb7e454511cd0d0908f321f3e22b971164f58a853d26880ecb03b28e33b",
+  "ledger": "supplements/rank8/output/research_20261022/ledger.json",
+  "ledger_sha256": "521b9b9fb16a86c7c4ba491b8c2c0ebad05de1e41aafb5bc225d6342c9477e4e",
   "historical_ledger": "supplements/rank8/data/decisions.json",
   "historical_ledger_sha256": "7f50213174f1020bb9d90d5981892c332448cf909a56bf60b29e1143228f3f24",
   "source": "supplements/rank8/data/rank8_m3_tables.txt.gz",
   "source_sha256": "1003a7684ec62797e63885eeb5af42fd094adc9ff3fec6caf049620b3afd0952",
-  "evidence": "evidence/rank8_next_20261021",
+  "evidence": "evidence/rank8_research_20261022",
   "baseline_evidence": "evidence/rank8_m3_20261021",
   "frontier": {
     "new_decisions": 25,
@@ -110,10 +108,44 @@
     "attempts_source": "evidence/rank8_next_20261021/per_ring_research_audit.json",
     "evidence": "evidence/rank8_next_20261021"
   },
-  "attempts_source": "evidence/rank8_next_20261021/per_ring_research_audit.json",
+  "research": {
+    "new_decisions": 2,
+    "resolved_ids": [
+      "R8_3_65",
+      "R8_3_1795"
+    ],
+    "counts": {
+      "excluded": 3506,
+      "unitarily_realized": 15,
+      "unresolved": 6
+    },
+    "baseline_records_preserved": 4498,
+    "inherited_models_preserved": 92,
+    "new_models": 0,
+    "remaining_ids": [
+      "R8_3_928",
+      "R8_3_941",
+      "R8_3_982",
+      "R8_3_1154",
+      "R8_3_1768",
+      "R8_3_3472"
+    ],
+    "date": "2026-10-22",
+    "ledger": "supplements/rank8/output/research_20261022/ledger.json",
+    "ledger_sha256": "521b9b9fb16a86c7c4ba491b8c2c0ebad05de1e41aafb5bc225d6342c9477e4e",
+    "models": "supplements/rank8/output/next_20261021/model_catalog.json",
+    "models_sha256": "f26206578e9be9a151eed7694aae05e010b6e7254b188b367a13e270a737b141",
+    "accepted": "evidence/rank8_research_20261022/accepted.json",
+    "accepted_sha256": "a408ec7f8d37f809065b8ce1436b3ba5937366408898ca7bd9df8c7163d473d9",
+    "baseline_ledger": "supplements/rank8/output/next_20261021/ledger.json",
+    "baseline_ledger_sha256": "fccfbdb7e454511cd0d0908f321f3e22b971164f58a853d26880ecb03b28e33b",
+    "attempts_source": "evidence/rank8_research_20261022/per_ring_research_audit.json",
+    "evidence": "evidence/rank8_research_20261022"
+  },
+  "attempts_source": "evidence/rank8_research_20261022/per_ring_research_audit.json",
   "attempts": {
     "path": "data/rank8_m3_attempts.json",
-    "sha256": "6b40015a73eca6b05e5c1c56b28f457f5967f2eee315c52d6e88dc456088b76d",
-    "cases": 8
+    "sha256": "b337fb76a71783aa838cc6cabf5ac3e4679fec6751063b133a1256e3bcc9e155",
+    "cases": 6
   }
 }

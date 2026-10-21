@@ -1,6 +1,6 @@
 # Categorification status and implication diagrams
 
-The scope audit concerns complex fusion categorifications of the ten current
+The scope audit concerns complex fusion categorifications of the eight current
 unresolved rings. It reports established results in the linked research record;
 it is not a claim that every possible obstruction has been exhausted.
 
@@ -30,18 +30,42 @@ algebraic identities, and remain identities under the inverse automorphism.
 
 ## Current implications
 
+Every current unresolved ring has the following two consequences:
+
 | Cases | Same-category consequence | Additional existence reduction |
 | --- | --- | --- |
 | `R6_4_155`, `R6_8_1660` | General ⇒ spherical | Every categorification has a pseudo-unitary Galois conjugate |
-| `R8_3_65`, `R8_3_928`, `R8_3_941`, `R8_3_1154` | General ⇒ spherical | Every categorification has a pseudo-unitary Galois conjugate |
-| `R8_3_1768`, `R8_3_1795`, `R8_3_3472` | Pivotal ⇒ spherical | Every spherical categorification has a pseudo-unitary Galois conjugate |
-| `R8_3_982` | Pivotal ⇒ spherical | Every spherical categorification has a pseudo-unitary Galois conjugate |
+| `R8_3_928`, `R8_3_941`, `R8_3_982`, `R8_3_1154`, `R8_3_1768`, `R8_3_3472` | General ⇒ spherical | Every categorification has a pseudo-unitary Galois conjugate |
 
-All ten remain unresolved at every level in the displayed hierarchy. The JSON
-audit binds each repository source by SHA-256 and records its theorem locator;
-external literature is identified separately. The rank-six and rank-eight
-sphericalization arguments are the existing repository research results, with
-the site's existing independent-review caution retained.
+All eight remain unresolved at every level in the unbraided hierarchy.
+Every one is excluded from general braided categorification. Each of the
+six rank-eight cases is also excluded from having a braided Morita
+representative. See [the separate braided audit](BRAIDED_CATEGORIFICATION.md).
+
+The new four-case result is proved in
+[`pivotality/PROOF.md`](../evidence/rank8_research_20261022/pivotality/PROOF.md).
+For `R8_3_982`, `R8_3_1768`, and `R8_3_1795`, the full parity enumeration
+modulo a justified basis-sign gauge gives respectively 3, 28 and 42 sign
+classes. All classes except the original tensor are excluded by exact
+spherical-dimension character obstructions. For `R8_3_3472`, choosing the
+positive second-indicator lifts in sphericalization gives modulo-four
+constraints; the complete oriented associativity search returns only the
+original tensor. The spherical-section criterion then supplies a spherical
+structure in all four cases. Complete character calculations place its
+dimension character in the FP Galois orbit. These are computer-assisted
+proofs, with an independently replayed enumeration and arithmetic audit.
+
+`R8_3_65` has left the unresolved inventory: the
+[new pointed-induction Fourier criterion](../evidence/rank8_research_20261022/r65/PROOF.md)
+excludes every pointed associator class, and hence every general
+categorification. Its earlier implication argument is retained here as
+part of the proof history.
+
+`R8_3_1795` is also excluded from general categorification: the
+[order-two Fourier-packing criterion](../evidence/rank8_research_20261022/pointed_followup/PROOF.md)
+excludes all sixteen indicator branches, covering both pointed associators.
+The general-to-Galois-pseudo-unitary gate below is an essential part of that
+exclusion. Both closed case pages and their tensor downloads are retained.
 
 For `R8_3_65`, the two distinct FP dimensions are 1 and
 `d = (11 + 5 sqrt(5))/2`. Apply Schopieray's **published** Lemma 3.1,
@@ -56,8 +80,7 @@ For any pivotal structure, a simple object is isomorphic to its dual, so their
 pivotal dimensions agree. By additivity this holds for every object and is the
 sphericality criterion in Etingof–Gelaki–Nikshych–Ostrik,
 [*Tensor Categories*, Definition 4.7.14](https://math.mit.edu/~etingof/egnobookfinal.pdf).
-Here, in fact, **every** pivotal structure is spherical. This argument does not
-supply a pivotal structure for an arbitrary categorification.
+Here, in fact, **every** pivotal structure is spherical. The new sphericalization argument above now supplies such a structure; this elementary observation alone did not do so.
 
 For `R8_3_982`, the same implication follows even though some simples are not
 self-dual. In a pivotal fusion category the slope (left dimension divided by
@@ -77,11 +100,9 @@ over `Q(zeta_24)`. Precisely four agree on dual basis elements: the rows numbere
 A spherical dimension character must agree on duals, so Galois transport takes
 it to FP dimensions and makes the transported category pseudo-unitary.
 The finite calculations are replayed by `verify_scope_consequences.py`.
-This proves an equivalence of **pivotal, spherical and pseudo-unitary existence**
-for this ring. It does not prove a pivotal structure exists on an arbitrary
-categorification and does not give a general-to-pseudo-unitary reduction.
+Combined with the new sphericalization gate, this proves an equivalence of **general, pivotal, spherical and pseudo-unitary existence** for this ring. The pseudo-unitary category may be a Galois conjugate of the original one.
 
-The other three cases have the same **conditional** Galois conclusion. For
+The other three cases have the same Galois conclusion, now preceded by a general sphericalization gate. For
 `R8_3_1768` and `R8_3_3472`, every character outside the FP Galois orbit vanishes
 on a simple basis object. Such a character cannot be a pivotal dimension
 function, since pivotal dimensions of simple objects in a fusion category are
@@ -93,8 +114,7 @@ norms of algebraic integers, contradicting
 [Ostrik, *Pivotal fusion categories of rank 3*, Theorem 2.13 and Corollary 2.14](https://arxiv.org/abs/1309.4822).
 Thus a spherical dimension character must lie in the FP Galois orbit in each
 case. The verifier checks the complete exact character tables, their identities,
-the FP orbit and these exclusions. Again, this does not establish pivotality
-for an arbitrary categorification or unitarity for a pseudo-unitary one.
+the FP orbit and these exclusions. Together with the new gates this establishes the general-to-pseudo-unitary existence reduction. It does not establish unitarity for a pseudo-unitary category.
 
 ## Maintenance
 

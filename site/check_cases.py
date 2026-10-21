@@ -107,12 +107,12 @@ def check_scope(record, expected, repository):
     scope = record.get("categorification_scope")
     require(isinstance(scope, dict) and scope == expected,
             f"Website categorification scope differs from its audited source: {identifier}")
-    require(scope.get("general_status") == "unresolved", f"Wrong general scope: {identifier}")
+    require(scope.get("general_status") == record["status"], f"Wrong general scope: {identifier}")
     statuses = scope.get("level_status", {})
     require(set(statuses) == set(STRUCTURE_LEVELS) and
             all(status in {"unresolved", "excluded"} for status in statuses.values()),
             f"Incomplete or unsupported categorification status: {identifier}")
-    require(statuses["general"] == "unresolved", f"An excluded ring remains in the case directory: {identifier}")
+    require(statuses["general"] == record["status"], f"General status differs from case status: {identifier}")
     excluded = [level for level in STRUCTURE_LEVELS if statuses[level] == "excluded"]
     require(scope.get("strongest_excluded") == (excluded[0] if excluded else None),
             f"The highlighted exclusion is not the strongest established one: {identifier}")
@@ -124,6 +124,10 @@ def check_scope(record, expected, repository):
             f"Missing distinction between category structures and existence reductions: {identifier}")
     sources = list(scope["audit_sources"])
     sources.extend(check_braided_scope(record, scope.get("braided")))
+    morita = scope.get('braided', {}).get('morita')
+    if morita:
+        require(morita.get('status')=='excluded' and scope['braided']['status']=='excluded' and bool(morita.get('explanation')) and bool(morita.get('sources')), 'Invalid braided Morita restriction: '+identifier)
+        sources.extend(morita['sources'])
     for kind, entries in (("same_category", same), ("existence", existence)):
         for entry in entries:
             require(entry.get("from") in STRUCTURE_LEVELS and entry.get("to") in STRUCTURE_LEVELS
@@ -272,6 +276,9 @@ def check_site(root=None, repository=None):
     unresolved_payload = read_json(root / "data/unresolved_cases.json")
     check_browser_integers(unresolved_payload)
     unresolved = unresolved_payload["cases"]
+    resolved_payload = read_json(root / "data/resolved_cases.json")
+    check_browser_integers(resolved_payload)
+    resolved = resolved_payload["cases"]
     realized = read_json(root / "data/realized_rings.json")["records"]
     require(bool(unresolved_payload.get("tensor_convention")), "Missing fusion tensor convention")
     require(bool(unresolved_payload.get("hash_convention")), "Missing tensor hash convention")
@@ -287,6 +294,13 @@ def check_site(root=None, repository=None):
     require(set(scope_source.get("cases", {})) == set(ids), "Categorification audit does not cover precisely the current cases")
     for record in unresolved:
         check_scope(record, scope_source["cases"][record["id"]], repository)
+    require(set(scope_source.get("closed_cases", {})) == {r['id'] for r in resolved}, "Resolved-case audit inventory mismatch")
+    ledger_path = read_json(repository / "data/classification_status.json")["inputs"]["rank8"]["file"]
+    ledger = {r['id']:r for r in read_json(repository / ledger_path)}
+    for record in resolved:
+        require(record['status']=='excluded' and ledger[record['id']]['status']=='excluded' and record['tensor_sha256']==ledger[record['id']]['tensor_sha256'], 'Resolved dossier differs from accepted ledger')
+        require(record['id'] not in set(ids) | {r['id'] for r in realized}, 'Resolved case is still listed as open or realized')
+        check_scope(record, scope_source['closed_cases'][record['id']], repository)
     canonical_module = ast.parse((repository / "data/remaining_cases.py").read_text(encoding="utf-8"))
     canonical_tensors = {node.targets[0].id: ast.literal_eval(node.value)
                          for node in canonical_module.body
@@ -305,12 +319,13 @@ def check_site(root=None, repository=None):
                     for r in unresolved) == scope.get("unresolved", 0),
                 f"Unresolved cumulative count differs at rank {scope['rank']}")
     paths = set()
-    for record in unresolved + realized:
+    for record in unresolved + realized + resolved:
         paths.add(check_tensor(record, root))
     require(paths == {p.relative_to(root).as_posix() for p in (root / "downloads/fusion-tensors").glob("*.txt")},
             "Tensor download directory contains a missing or unlisted record")
     for record in unresolved:
         require(record["status"] == "unresolved", f"Wrong candidate status: {record['id']}")
+    for record in unresolved + resolved:
         require(bool(record.get("research")) and bool(record.get("evidence")),
                 f"Missing recorded research or sources: {record['id']}")
         for evidence in record["evidence"]:
@@ -332,10 +347,10 @@ def check_site(root=None, repository=None):
         parser.feed(document)
         require(set(parser.fragments) <= parser.ids, f"Broken internal section link: {filename}")
         require("./cases.js" in parser.scripts, f"Case page is missing its application script: {filename}")
-    return {"unresolved": len(unresolved), "realized": len(realized), "tensor_downloads": len(paths)}
+    return {"unresolved": len(unresolved), "resolved": len(resolved), "realized": len(realized), "tensor_downloads": len(paths)}
 
 
 if __name__ == "__main__":
     result = check_site()
-    print("Case pages checked: {unresolved} unresolved profiles, {realized} realized rings, "
+    print("Case pages checked: {unresolved} unresolved profiles, {resolved} retained excluded profiles, {realized} realized rings, "
           "{tensor_downloads} exact Python tensor downloads; categorification audits and implication scopes agree.".format(**result))

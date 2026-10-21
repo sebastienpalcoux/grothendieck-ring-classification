@@ -7,6 +7,7 @@ no search result is promoted to a categorical construction or exclusion.
 """
 import argparse
 import ast
+from functools import lru_cache
 import hashlib
 import json
 from pathlib import Path
@@ -24,16 +25,17 @@ HASH_CONVENTION = "SHA-256 of UTF-8 JSON with separators=(',', ':') and no trail
 NUMERIC_ENCODING_NOTE = "Exact integers outside the JavaScript safe-integer range (absolute value greater than 9007199254740991) are encoded as decimal strings to preserve every digit in browser display and JSON downloads. Fusion-tensor coefficients remain integers."
 NEXT = "evidence/rank8_next_20261021"
 POST = "evidence/rank8_postpublication_20261021/r1154_galois_review"
+RESEARCH = "evidence/rank8_research_20261022"
 
 SUMMARIES = {
-    "R8_3_65": "Complete based-module action constraints and a pointed-subgroup Morita obstruction exclude the trivial C4 associator and both rank-two categorical module possibilities. Categorification with a permitted nontrivial associator remains unresolved.",
+    "R8_3_65": "General complex categorification is excluded. The new pointed-induction Fourier criterion gives six exact separators covering all four pointed C4 associator classes; the two-dimension Galois reduction makes the exclusion general. This case left the unresolved inventory on 22 October 2026.",
     "R8_3_928": "The recorded Galois pseudo-unitary reduction and central-semion constraints leave ten allocations. All ten have exact charged fourth-moment and pair-product completions. These necessary data do not construct a center or category.",
     "R8_3_941": "The recorded Galois pseudo-unitary reduction and central-fermion constraints leave fourteen allocations. All fourteen admit the exact pair-product sector completion; full center and associator coherence remain unresolved.",
-    "R8_3_982": "Two of four induction frames are excluded exactly. The remaining semionic branch has a surviving integral core and rational full-phase witness, including joint Galois constraints. These are pseudo-unitary necessary conditions; a general-to-pseudo-unitary reduction is not claimed.",
-    "R8_3_1154": "Moment, fusion-action and trace constraints reduce 292 center patterns to three. The subsequent Galois low-column test reduces 36 pair histograms to 25 across those three patterns. A separate Morita argument forces a nontrivial pointed C2 associator. Categorification remains unresolved.",
-    "R8_3_1768": "Complete connected-algebra object, internal-end, and Morita-profile filters reduce possible module data. The specified affine Lie construction families are excluded uniformly. Actual algebra/module coherence and categorification remain unresolved.",
-    "R8_3_1795": "Complete connected-algebra and Morita-profile filters reduce possible module data. A possible Morita comparison with R8_3_1154 is a search direction, not a constructed equivalence. Categorification remains unresolved.",
-    "R8_3_3472": "Complete Gram, internal-end, Morita-profile and forced-action constraints reduce possible module data. The surviving necessary systems do not establish a categorical model; categorification remains unresolved.",
+    "R8_3_982": "Every general categorification is spherical and has a pseudo-unitary Galois conjugate. The forced semionic branch restricts every indecomposable module category to rank eight and three necessary based-module types. The 31 algebra-object candidates reduce to eight; every nonregular Morita route requires an algebra on 1+X5. No such algebra or categorification is constructed.",
+    "R8_3_1154": "Three necessary center patterns and 25 pair histograms remain. All pass the new simultaneous Galois covariance constraints. The final center dimensions rule out Morita equivalence with R8_3_1795. A nontrivial pointed C2 associator is forced; general categorification remains unresolved.",
+    "R8_3_1768": "A complete signed-sphericalization analysis proves that every categorification admits a spherical structure and has a pseudo-unitary Galois conjugate. The d-number obstruction now excludes every braiding, and the tensor-image criterion excludes every braided Morita representative. The pointed C2 associator must be nontrivial, so the subgroup algebra 1+g is impossible. General unbraided categorification remains unresolved.",
+    "R8_3_1795": "General complex categorification is excluded. The C2 Fourier-packing criterion gives exact separators for all sixteen indicator branches, covering both pointed associators. The signed-sphericalization and Galois reduction makes the exclusion general. This case left the unresolved inventory on 22 October 2026.",
+    "R8_3_3472": "Positive second-indicator normalization in sphericalization leaves only the original signed tensor. Every general categorification is therefore spherical and has a pseudo-unitary Galois conjugate. All braided Morita representatives are excluded. General unbraided categorification remains unresolved.",
 }
 
 
@@ -56,6 +58,37 @@ def source_url(path, is_dir=False):
     return f"{GITHUB}/{'tree' if is_dir else 'blob'}/main/{path}"
 
 
+@lru_cache(maxsize=None)
+def packaged_sources(repo):
+    manifest = repo / "data/large_files_manifest.json"
+    if not manifest.exists():
+        return {}
+    return {entry["path"]: entry for entry in json.loads(manifest.read_text())["files"]}
+
+
+def source_location(repo, path, is_dir=False):
+    """Link restored sources to their checked-in payload, preserving provenance."""
+    package = packaged_sources(repo).get(path)
+    if package is None:
+        return {"url": source_url(path, is_dir)}
+    parts = package["parts"]
+    directories = {str(Path(part["path"]).parent) for part in parts}
+    if len(directories) != 1 or any(not (repo / part["path"]).is_file() for part in parts):
+        raise ValueError(f"Missing or inconsistent packaged source: {path}")
+    if digest(repo / path) != package["sha256"]:
+        raise ValueError(f"Packaged source hash differs from restored file: {path}")
+    payload_directory = directories.pop()
+    return {
+        "url": source_url(payload_directory, is_dir=True),
+        "packaged": True,
+        "payload_directory": payload_directory,
+        "restoration_note": "This source is stored in packaged payloads. After cloning the repository, run python3 tools/restore_data.py to restore the original path and verify its SHA-256.",
+        "restoration_command": "python3 tools/restore_data.py",
+        "restoration_url": source_url("tools/restore_data.py"),
+        "manifest_url": source_url("data/large_files_manifest.json"),
+    }
+
+
 def digest(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
@@ -76,7 +109,7 @@ def select_record(payload, ring_id):
 
 
 def research_record(repo, title, path, data=None):
-    return {"title": title, "source": path, "url": source_url(path),
+    return {"title": title, "source": path, **source_location(repo, path),
             "source_sha256": digest(repo / path),
             "data": read_json(repo, path) if data is None else data}
 
@@ -90,7 +123,7 @@ def collect_source_paths(repo, value, found):
     elif isinstance(value, list):
         for v in value:
             collect_source_paths(repo, v, found)
-    elif isinstance(value, str) and value.startswith(("evidence/", "manuscripts/", "supplements/", "data/", "verification/", "site/")):
+    elif isinstance(value, str) and value.startswith(("evidence/", "manuscripts/", "supplements/", "data/", "verification/", "site/", "tools/")):
         if "\n" not in value and len(value) < 350 and (repo / value).exists():
             found.add(value)
 
@@ -184,8 +217,28 @@ def rank6_research(repo, ring_id):
 def rank8_research(repo, ring_id, audit):
     # Newest stage first, with older source fields retained and explicitly labelled.
     research = [research_record(repo, "Published per-ring research audit (including latest completed work)",
-                                "site/dist/data/rank8_m3_attempts.json", audit)]
+                                f"{RESEARCH}/per_ring_research_audit.json", audit)]
     specs = []
+    if ring_id == "R8_3_65":
+        specs.append(("General exclusion: all pointed associator classes", f"{RESEARCH}/r65/verification.json", False))
+    if ring_id in ("R8_3_982", "R8_3_1768", "R8_3_1795", "R8_3_3472"):
+        gates = read_json(repo, f"{RESEARCH}/pivotality/general_spherical_gates.json")
+        research.insert(0, research_record(repo, "General sphericality and pseudo-unitary Galois reduction", f"{RESEARCH}/pivotality/general_spherical_gates.json", next(r for r in gates if r['id']==ring_id)))
+    morita = read_json(repo, f"{RESEARCH}/braided_morita/verification.json")
+    research.insert(0, research_record(repo, "Uniform obstruction to braided Morita representatives", f"{RESEARCH}/braided_morita/verification.json", next(r for r in morita if r['id']==ring_id)))
+    if ring_id in ("R8_3_1154", "R8_3_1795"):
+        specs.append(("R1154 and R1795 cannot be Morita equivalent", f"{RESEARCH}/r1154_r1795/morita_obstruction.json", False))
+    if ring_id == "R8_3_982":
+        specs.append(("Complete module-rank and based-module restrictions", f"{RESEARCH}/r982/module_types.json", False))
+    if ring_id in ("R8_3_1768", "R8_3_1795"):
+        specs.append(("Complete C2 Fourier-packing branch audit", f"{RESEARCH}/pointed_followup/verification_{ring_id}.json", False))
+    if ring_id == "R8_3_1795":
+        specs.append(("Completed intermediate subgroup-algebra Morita analysis", f"{RESEARCH}/pointed_followup/r1795_morita/covers.json", False))
+    if ring_id == "R8_3_1768":
+        specs.append(("Free pointed action and partial module-factor refinement", f"{RESEARCH}/pointed_followup/r1768_modules/verification.json", False))
+    if ring_id != "R8_3_65":
+        block = read_json(repo, f"{RESEARCH}/pointed_followup/dimension_block/verification.json")
+        research.append(research_record(repo, "Dimension-block bounds and twist-one restrictions", f"{RESEARCH}/pointed_followup/dimension_block/verification.json", next(row for row in block['records'] if row['id']==ring_id)))
     if ring_id in ("R8_3_65", "R8_3_1768", "R8_3_1795", "R8_3_3472"):
         specs += [("Connected-algebra and Morita profile closure", f"{NEXT}/quadratic/profile_closure.json", True),
                   ("Complete forced based-module actions", f"{NEXT}/quadratic/action_classes.json", True)]
@@ -232,24 +285,34 @@ def write_literal(folder, ring_id, tensor, rank, expected_sha):
 
 
 def build(repo):
+    packaged_sources.cache_clear()
     dist = repo / "site/dist"
     folder = dist / "downloads/fusion-tensors"
     folder.mkdir(parents=True, exist_ok=True)
     remaining = runpy.run_path(str(repo / "data/remaining_cases.py"))
-    scopes = read_json(repo, "site/categorification_scope.json")["cases"]
+    scope_payload = read_json(repo, "site/categorification_scope.json")
+    scopes = scope_payload["cases"]
     if set(scopes) != set(remaining["TENSORS"]):
         raise ValueError("Categorification-scope audit differs from current remaining cases")
     realized = read_json(repo, "site/dist/data/realized_rings.json")["records"]
-    all_ids = [r["id"] for r in realized] + list(remaining["TENSORS"])
+    closed_scopes = scope_payload.get("closed_cases", {})
+    census = {r['id']: r for r in read_json(repo, 'evidence/rank8_m3_20261021/pipeline/census_m3.json')}
+    closed = {rid: census[rid]['tensor'] for rid in closed_scopes}
+    all_ids = [r["id"] for r in realized] + list(remaining["TENSORS"]) + list(closed)
     if len(set(all_ids)) != len(all_ids):
         raise ValueError("Duplicate realized/unresolved case identifiers")
     for record in realized:
         write_literal(folder, record["id"], record["fusion_tensor"], record["rank"], record["tensor_sha256"])
-    audit_rows = {r["id"]: r for r in read_json(repo, "site/dist/data/rank8_m3_attempts.json")["rows"]}
+    audit_rows = {r["id"]: r for r in read_json(repo, f"{RESEARCH}/per_ring_research_audit.json")["rows"]}
     rank6_rows = {r["id"]: r for r in read_json(repo, "site/dist/data/rank6_unresolved_tensors.json")}
     cases = []
-    for ring_id, tensor in remaining["TENSORS"].items():
-        metadata = remaining["METADATA"][ring_id]
+    for ring_id, tensor in {**remaining["TENSORS"], **closed}.items():
+        is_closed = ring_id in closed
+        metadata = remaining["METADATA"].get(ring_id)
+        if is_closed:
+            source = 'evidence/rank8_m3_20261021/pipeline/census_m3.json'
+            metadata = {k:v for k,v in census[ring_id].items() if k!='tensor'}
+            metadata.update(source=source, source_sha256=digest(repo/source))
         rank = metadata["rank"]
         if digest(repo / metadata["source"]) != metadata["source_sha256"]:
             raise ValueError(f"Source file hash mismatch: {ring_id}")
@@ -257,13 +320,14 @@ def build(repo):
         if max(x for matrix in tensor for row in matrix for x in row) != metadata["multiplicity"]:
             raise ValueError(f"Multiplicity mismatch: {ring_id}")
         inv = invariants(tensor)
-        if inv["dual_indices"] != remaining["DUALS"][ring_id]:
+        if not is_closed and inv["dual_indices"] != remaining["DUALS"][ring_id]:
             raise ValueError(f"Duality mismatch: {ring_id}")
         inv.update(additional_invariants(tensor, inv))
         research = rank6_research(repo, ring_id) if rank == 6 else rank8_research(repo, ring_id, audit_rows[ring_id])
         evidence_paths = {"data/remaining_cases.py", metadata["source"], "site/categorification_scope.json"}
         collect_source_paths(repo, research, evidence_paths)
-        collect_source_paths(repo, scopes[ring_id], evidence_paths)
+        scope = closed_scopes[ring_id] if is_closed else scopes[ring_id]
+        collect_source_paths(repo, scope, evidence_paths)
         if rank == 6:
             evidence_paths.add("supplements/rank6/verification/classification/attempts.jsonl")
             summary = research[0]["data"]["public_summary"]
@@ -277,13 +341,13 @@ def build(repo):
             local = repo / path
             if not local.exists():
                 raise ValueError(f"Missing evidence: {path}")
-            evidence.append({"label": path, "path": path, "url": source_url(path, local.is_dir()),
+            evidence.append({"label": path, "path": path, **source_location(repo, path, local.is_dir()),
                              **({"sha256": digest(local)} if local.is_file() else {})})
         cases.append({
             "id": ring_id, "rank": rank, "multiplicity": metadata["multiplicity"],
-            "status": "unresolved", "summary": summary,
-            "categorification_scope": scopes[ring_id],
-            "existence": rank6_rows[ring_id]["existence"] if rank == 6 else {"general": "unknown", "unitary": "unknown"},
+            "status": "excluded" if is_closed else "unresolved", "summary": summary,
+            "categorification_scope": scope,
+            "existence": {"general":"excluded", "unitary":"excluded"} if is_closed else rank6_rows[ring_id]["existence"] if rank == 6 else {"general": "unknown", "unitary": "unknown"},
             "fusion_tensor": tensor, "tensor_sha256": metadata["tensor_sha256"],
             "basis": [f"X{i}" for i in range(rank)], "unit_index": 0,
             "source": metadata, "tensor_convention": CONVENTION,
@@ -298,6 +362,8 @@ def build(repo):
     ids = current if isinstance(current, list) else current.get("ids", current.get("remaining_ids", current.get("current_remaining_ids")))
     if ids is None:
         raise ValueError("Unrecognized current remaining-ID schema")
+    closed_records = [r for r in cases if r['status']=='excluded']
+    cases = [r for r in cases if r['status']=='unresolved']
     if sorted(ids) != sorted(r["id"] for r in cases):
         raise ValueError("Dossier inventory differs from current remaining cases")
     payload = {"schema_version": "ring-atlas/unresolved-cases/v1", "tensor_convention": CONVENTION,
@@ -307,10 +373,11 @@ def build(repo):
                "source_basis_note": "Research records retain the basis conventions of their source files; the displayed fusion tensor and derived invariants use the exact zero-based source basis identified in each case's metadata.",
                "cases": cases}
     (dist / "data/unresolved_cases.json").write_text(json.dumps(exact_json_integers(payload), indent=2, ensure_ascii=False) + "\n")
+    (dist / "data/resolved_cases.json").write_text(json.dumps(exact_json_integers({"schema_version":"ring-atlas/resolved-cases/v1", "scope":"Formerly unresolved case pages retained with their accepted exclusion and fusion data.", "cases":closed_records}), indent=2, ensure_ascii=False)+"\n")
     for old in folder.glob("*.txt"):
         if old.stem not in all_ids:
             old.unlink()
-    print(f"Published {len(cases)} unresolved dossiers and {len(all_ids)} checked Python tensor literals.")
+    print(f"Published {len(cases)} unresolved dossiers, {len(closed_records)} resolved dossiers and {len(all_ids)} checked Python tensor literals.")
 
 
 def main():

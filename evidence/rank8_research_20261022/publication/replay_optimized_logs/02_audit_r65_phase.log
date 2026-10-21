@@ -1,0 +1,158 @@
+{
+  "schema": "independent-r65-pointed-phase-arithmetic-audit/v1",
+  "status": "PASS",
+  "scope": "Independent new-domain construction, cyclotomic all-order trace inventory and exact separator replay; imports the accepted parent cone and relies on its previously proved categorical necessity.",
+  "tensor_sha256": "fb2d70fa36311b2092190eb1ecd5e3e82fd4ab7ff646b11aa7c7e518d261a1c4",
+  "parent_rows": 283,
+  "parent_columns": 6521,
+  "trace_type_count": 13,
+  "finite_representative_order_divisor_bound": 40,
+  "finite_order_trace_type_counts": {
+    "1": 1,
+    "2": 1,
+    "4": 1,
+    "5": 2,
+    "8": 1,
+    "10": 2,
+    "20": 2,
+    "40": 2
+  },
+  "outside_box_trace_controls": {
+    "16": "zero tuple only",
+    "25": "zero tuple only",
+    "80": "zero tuple only",
+    "200": "zero tuple only"
+  },
+  "all_order_completeness": "Cauchy prime support is {2,5}. At powers 1..4, orders 2^a*5^b with a>=4 or b>=2 have vanishing rational and quadratic relative trace components; the zero tuple is included.",
+  "receipts": [
+    {
+      "certificate": "evidence/rank8_research_20261022/r65/pointed_phase_k0_fourier.json",
+      "allowed_columns": 2413,
+      "domain_sha256": "566743e9e0907091b64ef424f790ac92fbf1d70cdb951ddb1fe935b42b69ff9a",
+      "branches": [
+        {
+          "indicators": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            -1,
+            1
+          ],
+          "columns_checked": 2413,
+          "minimum_column_pairing": 0,
+          "zero_column_pairings": 541,
+          "right_hand_side_pairing": -3109224297718139238095148507574677969184776301321947378590720969364496620081201977882328924071482236942897722929800065408337740097538619159084974675864672747030833186373415218208291383746236764363906428723616064829216060875198000960541886996800000,
+          "separator_sha256": "621cf3eeb50b363ae29647d4ba6b172f57070ab61cbd22274039b381e31a1f22"
+        },
+        {
+          "indicators": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1
+          ],
+          "columns_checked": 2413,
+          "minimum_column_pairing": 0,
+          "zero_column_pairings": 106,
+          "right_hand_side_pairing": -34542320399689073052632978001710356839425195408843150276178304282888902565562322004987656785875348642480181205061908391337496457237852604467954633845779801141912358040483343689696887867322653109926677269688179976488900902252333153232138838033257221289122102487631650363440000,
+          "separator_sha256": "39415476d7c6cda802c055b8c1f3c90f2804a2066c00c24c4844c4b2a30f5334"
+        }
+      ]
+    },
+    {
+      "certificate": "evidence/rank8_research_20261022/r65/pointed_phase_k1_fourier.json",
+      "allowed_columns": 1992,
+      "domain_sha256": "16d8a4f1e4794d6c78cd51c0247b9478788d08dd0d78886277f5cf7e340e19f7",
+      "branches": [
+        {
+          "indicators": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            -1,
+            -1
+          ],
+          "columns_checked": 1992,
+          "minimum_column_pairing": 0,
+          "zero_column_pairings": 238,
+          "right_hand_side_pairing": -3385041452144557863529782659164416000,
+          "separator_sha256": "fa1a8b2ea6d5682d40857deabb6b88311b5e920d9a773781ecc4e6709de8d72d"
+        },
+        {
+          "indicators": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            -1
+          ],
+          "columns_checked": 1992,
+          "minimum_column_pairing": 0,
+          "zero_column_pairings": 207,
+          "right_hand_side_pairing": -1850819087121211642629610865968233503588845984891147021331367770448263159889631515896422069634276950772271600000,
+          "separator_sha256": "1b31f4049430328930ddf523644a550c525b78ed22a9947b04503887fcba6965"
+        }
+      ]
+    },
+    {
+      "certificate": "evidence/rank8_research_20261022/r65/pointed_phase_k2.json",
+      "allowed_columns": 2222,
+      "domain_sha256": "35c08e7caa1cc13c4b3f6a06a2f723d9b5a6a16f06106056b63bc8ac596d7a85",
+      "branches": [
+        {
+          "indicators": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            -1,
+            1
+          ],
+          "columns_checked": 2222,
+          "minimum_column_pairing": 0,
+          "zero_column_pairings": 116,
+          "right_hand_side_pairing": -3081090175460198761490095762741424210385593263116767225367457565565945579395385493890985493713380192278207932514400536740693016300378146096149709922432498329687063744200059834797897473920566667727723955420648184050104429404156351486189382571165249908954180160109586455389838760000000,
+          "separator_sha256": "eb971240ce7ed6640a34937b4a1ada12a26f3a125bc7f96b1b92b03bc58ec066"
+        },
+        {
+          "indicators": [
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1
+          ],
+          "columns_checked": 2222,
+          "minimum_column_pairing": 0,
+          "zero_column_pairings": 104,
+          "right_hand_side_pairing": -3652029270639918596009431370322906544528120684052241689768843731583363817470095473297720519640429165976650012917344090408548698113319474931130715184275511679684956156194995924076758114829940026156676215380519286085325167305884658220419905117904935234966722282237578240000,
+          "separator_sha256": "1be852c902f90fe4afbce951954768b11a3141609c28c97a36b1137a2c1e7741"
+        }
+      ]
+    }
+  ],
+  "source_sha256": {
+    "evidence/rank8_research_20261022/r65/pointed_phase_k0_fourier.json": "fb1e573017465ae1295b77ff831a5fb87db7d54fa9fadc34cbc3aa640de04254",
+    "evidence/rank8_research_20261022/r65/pointed_phase_k1_fourier.json": "f102532016be4c2d13dd4587f371e9ad179e479ebb0b19f914c3e94232fc0e30",
+    "evidence/rank8_research_20261022/r65/pointed_phase_k2.json": "885e6fdc739699a36144aaeb0100185a5a80e8c6db491d31263081050f5f55c0",
+    "evidence/rank8_research_20261022/r65/pointed_phase_cone.py": "c6ef59f1b076e59a68fef75d57e120e7e9f52f7a8fc4a6ea23124e7cb4f1962f",
+    "evidence/rank8_research_20261022/r65/PROOF.md": "5ec975e6a3a8ba17aa6044be81d9e8343e00b1e5b2c1a9f1f97fe8fa434f675d",
+    "evidence/rank8_frontier_20261021/quadratic/atomic_cm_real_sts.py": "e5d99ba4fe605157929bf1a96ba40da2893796355aaa0d239bbb40ad2b0d2a93",
+    "evidence/rank8_frontier_20261021/global_induction/atomic_spectrum.py": "77a13429b151aa4478cc8e685c3a5bf9073776b4056cb6569c6f6ad97143bf90",
+    "evidence/rank8_frontier_20261021/global_induction/streaming.py": "20a02793d319ed3acee20f0441b2063820a3374810c29d557a367f70bcae7ff1",
+    "supplements/rank8/experimental_signed/higher_traces.py": "e97206ffabda63481318c5a2cc924963a283a859179d6a2fdfda7710f460a048"
+  },
+  "verifier_sha256": "502689c926cf87957a1eb00581e27b737a6d7dbe213c0dec306a6394b25d259a"
+}

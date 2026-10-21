@@ -1,0 +1,73 @@
+{
+  "kind": "independent_integer_tensor_and_gauge_audit",
+  "cases": [
+    {
+      "id": "R8_3_982",
+      "normalized_tensors_directly_checked": 3,
+      "ordered_associativity_identities_checked": 12288,
+      "all_returned_tensors_commutative": true,
+      "unrestricted_tensor_count": 96,
+      "gauge_rank": 5,
+      "class_counts": {
+        "spherical_section": 1,
+        "nongauge_excluded": 2
+      },
+      "nongauge_character_obstruction_counts": {
+        "duality": 2,
+        "norm": 2
+      }
+    },
+    {
+      "id": "R8_3_1768",
+      "normalized_tensors_directly_checked": 49,
+      "ordered_associativity_identities_checked": 200704,
+      "all_returned_tensors_commutative": true,
+      "unrestricted_tensor_count": 3136,
+      "gauge_rank": 6,
+      "class_counts": {
+        "spherical_section": 1,
+        "nongauge_excluded": 27
+      },
+      "nongauge_character_obstruction_counts": {
+        "norm": 58,
+        "zero": 118
+      }
+    },
+    {
+      "id": "R8_3_1795",
+      "normalized_tensors_directly_checked": 73,
+      "ordered_associativity_identities_checked": 299008,
+      "all_returned_tensors_commutative": true,
+      "unrestricted_tensor_count": 4672,
+      "gauge_rank": 6,
+      "class_counts": {
+        "spherical_section": 1,
+        "nongauge_excluded": 41
+      },
+      "nongauge_character_obstruction_counts": {
+        "norm": 136,
+        "zero": 43
+      }
+    },
+    {
+      "id": "R8_3_3472",
+      "normalized_tensors_directly_checked": 1,
+      "ordered_associativity_identities_checked": 4096,
+      "all_returned_tensors_commutative": true,
+      "unrestricted_tensor_count": null,
+      "gauge_rank": 0,
+      "class_counts": {
+        "spherical_section": 1,
+        "nongauge_excluded": 0
+      },
+      "nongauge_character_obstruction_counts": {}
+    }
+  ],
+  "scope": "exact finite-output verification; exhaustive search and scalar arithmetic independently rerun using producer",
+  "dependencies_sha256": {
+    "evidence/rank8_m3_20261021/pipeline/census_m3.json": "e79ca3c2a7de9c74c677f768284842a42a2eaa52d77d82a4680c208b41fd7836",
+    "evidence/rank8_research_20261022/pivotality/general_spherical_gates.json": "89ad25baeb05b69c95519670eb4cdd894a29d3b7f4d920535b1f404f46ba13d4",
+    "evidence/rank8_research_20261022/pivotality/verify_general_spherical_gates.py": "fc253362c41fa09c7f51387308166e47c19040bd70e9092fd2927735a252d5d3",
+    "evidence/rank8_research_20261022/r928_r941/review_pivotality.py": "241239badc794cf4103ea1c1f6459a3635ba6773ebc40b6b30b38da07251ce19"
+  }
+}

@@ -1,0 +1,266 @@
+{
+  "accepted": "evidence/rank8_research_20261022/accepted.json",
+  "accepted_sha256": "a408ec7f8d37f809065b8ce1436b3ba5937366408898ca7bd9df8c7163d473d9",
+  "all_mathematical_children_assertions_enabled": true,
+  "attempts_source": "evidence/rank8_research_20261022/per_ring_research_audit.json",
+  "baseline_ledger": "supplements/rank8/output/next_20261021/ledger.json",
+  "baseline_ledger_sha256": "fccfbdb7e454511cd0d0908f321f3e22b971164f58a853d26880ecb03b28e33b",
+  "baseline_records_preserved": 4498,
+  "child_policy": "All mathematical children run unoptimized, protecting direct and transitive inherited assertions.",
+  "counts": {
+    "excluded": 3506,
+    "unitarily_realized": 15,
+    "unresolved": 6
+  },
+  "date": "2026-10-22",
+  "evidence": "evidence/rank8_research_20261022",
+  "full_historical_mathematical_replay_performed": false,
+  "inherited_models_preserved": 92,
+  "ledger": "supplements/rank8/output/research_20261022/ledger.json",
+  "ledger_sha256": "521b9b9fb16a86c7c4ba491b8c2c0ebad05de1e41aafb5bc225d6342c9477e4e",
+  "mathematical_replay_performed": true,
+  "models": "supplements/rank8/output/next_20261021/model_catalog.json",
+  "models_sha256": "f26206578e9be9a151eed7694aae05e010b6e7254b188b367a13e270a737b141",
+  "new_decisions": 2,
+  "new_models": 0,
+  "optimized_python_requested": false,
+  "remaining_ids": [
+    "R8_3_928",
+    "R8_3_941",
+    "R8_3_982",
+    "R8_3_1154",
+    "R8_3_1768",
+    "R8_3_3472"
+  ],
+  "resolved_ids": [
+    "R8_3_65",
+    "R8_3_1795"
+  ],
+  "scope": "All accepted targeted mathematical checks. Scoped necessary conditions are not models; historical evidence remains separately certified.",
+  "seconds": 391.89665,
+  "sections": [
+    {
+      "assertions_enabled": true,
+      "direct_assert_statements": 0,
+      "log": "evidence/rank8_research_20261022/publication/replay_normal_logs/01_verify_all.log",
+      "log_sha256": "688730bfbbd3ee1b5fb1d36cb0f8a7de7990d96930724e33a59fe6c8d38ee498",
+      "python_optimization": 0,
+      "returncode": 0,
+      "script": "evidence/rank8_research_20261022/r65/verify_all.py",
+      "seconds": 33.526869
+    },
+    {
+      "assertions_enabled": true,
+      "direct_assert_statements": 0,
+      "log": "evidence/rank8_research_20261022/publication/replay_normal_logs/02_audit_r65_phase.log",
+      "log_sha256": "bd009928a62f57ca3afa658aa934eb85f81f9e82df047ea5013ecf5725ff009b",
+      "python_optimization": 0,
+      "returncode": 0,
+      "script": "evidence/rank8_research_20261022/r1154_r1795/audit_r65_phase.py",
+      "seconds": 18.92946
+    },
+    {
+      "assertions_enabled": true,
+      "direct_assert_statements": 0,
+      "log": "evidence/rank8_research_20261022/publication/replay_normal_logs/03_r65_independent_audit.log",
+      "log_sha256": "944ef4071fa1bb0604178bf896a7e33f363f169afe0fa5a52a2459dc8649c4c4",
+      "python_optimization": 0,
+      "returncode": 0,
+      "script": "evidence/rank8_research_20261022/r1768_r3472/r65_independent_audit.py",
+      "seconds": 30.879031
+    },
+    {
+      "assertions_enabled": true,
+      "direct_assert_statements": 6,
+      "log": "evidence/rank8_research_20261022/publication/replay_normal_logs/04_verify.log",
+      "log_sha256": "10cb93352331b8460c4cd00a7ebbe0eb8bd067ed6ddfb86857dde0af57e57754",
+      "python_optimization": 0,
+      "returncode": 0,
+      "script": "evidence/rank8_research_20261022/braided_morita/verify.py",
+      "seconds": 0.940947
+    },
+    {
+      "assertions_enabled": true,
+      "direct_assert_statements": 0,
+      "log": "evidence/rank8_research_20261022/publication/replay_normal_logs/05_verify_braided_scope.log",
+      "log_sha256": "9e348ffab488a6f7f5d7111991f2d186790ea2703729a5b098a968fc49b1f902",
+      "python_optimization": 0,
+      "returncode": 0,
+      "script": "site/verify_braided_scope.py",
+      "seconds": 0.312096
+    },
+    {
+      "assertions_enabled": true,
+      "direct_assert_statements": 0,
+      "log": "evidence/rank8_research_20261022/publication/replay_normal_logs/06_verify.log",
+      "log_sha256": "0f50622242d7c45c9e037134d09366cd7ebaffbe1829b375917a96cab5e97eef",
+      "python_optimization": 0,
+      "returncode": 0,
+      "script": "evidence/rank8_research_20261022/r928_r941/verify.py",
+      "seconds": 0.314373
+    },
+    {
+      "assertions_enabled": true,
+      "direct_assert_statements": 0,
+      "log": "evidence/rank8_research_20261022/publication/replay_normal_logs/07_verify_general_spherical_gates.log",
+      "log_sha256": "9c6ab1487175f3e6ed1644df351979dc49a47250b173824faecc64cefb258da1",
+      "python_optimization": 0,
+      "returncode": 0,
+      "script": "evidence/rank8_research_20261022/pivotality/verify_general_spherical_gates.py",
+      "seconds": 128.136841
+    },
+    {
+      "assertions_enabled": true,
+      "direct_assert_statements": 0,
+      "log": "evidence/rank8_research_20261022/publication/replay_normal_logs/08_review_pivotality.log",
+      "log_sha256": "6ab34848c491c3428ea0d6ad9d62d7dc384b29a073c5df65febb1f6583ff9c6f",
+      "python_optimization": 0,
+      "returncode": 0,
+      "script": "evidence/rank8_research_20261022/r928_r941/review_pivotality.py",
+      "seconds": 1.409679
+    },
+    {
+      "assertions_enabled": true,
+      "direct_assert_statements": 0,
+      "log": "evidence/rank8_research_20261022/publication/replay_normal_logs/09_module_types.log",
+      "log_sha256": "d928a126f85f8b29288000bdc7155d6ddf2425fa1a2d2c5a9921cf3d65c054a6",
+      "python_optimization": 0,
+      "returncode": 0,
+      "script": "evidence/rank8_research_20261022/r982/module_types.py",
+      "seconds": 0.826021
+    },
+    {
+      "assertions_enabled": true,
+      "direct_assert_statements": 0,
+      "log": "evidence/rank8_research_20261022/publication/replay_normal_logs/10_review_r982_modules.log",
+      "log_sha256": "1d060e93d481b62ec9ca63033b6e1e01991731ad565f6e6058d3aefb71a3c300",
+      "python_optimization": 0,
+      "returncode": 0,
+      "script": "evidence/rank8_research_20261022/r928_r941/review_r982_modules.py",
+      "seconds": 0.329451
+    },
+    {
+      "assertions_enabled": true,
+      "direct_assert_statements": 0,
+      "log": "evidence/rank8_research_20261022/publication/replay_normal_logs/11_morita_obstruction.log",
+      "log_sha256": "cb120bea123d917e016321d64bbe24ad9bb8f9bfa4e535e39b5460c19d6fe224",
+      "python_optimization": 0,
+      "returncode": 0,
+      "script": "evidence/rank8_research_20261022/r1154_r1795/morita_obstruction.py",
+      "seconds": 1.046276
+    },
+    {
+      "assertions_enabled": true,
+      "direct_assert_statements": 0,
+      "log": "evidence/rank8_research_20261022/publication/replay_normal_logs/12_galois_fixed_review.log",
+      "log_sha256": "66e1e08c92fa8858a111df9cae5211ee441165bfb8fb9d492d83bdff03a26d48",
+      "python_optimization": 0,
+      "returncode": 0,
+      "script": "evidence/rank8_research_20261022/r1154_r1795/galois_fixed_review.py",
+      "seconds": 3.685335
+    },
+    {
+      "assertions_enabled": true,
+      "direct_assert_statements": 0,
+      "log": "evidence/rank8_research_20261022/publication/replay_normal_logs/13_forced_galois_probe.log",
+      "log_sha256": "c0d4dc82847f5a93691d732eae6ca2e70bfad9835a7de6141c49dfbd8819ce67",
+      "python_optimization": 0,
+      "returncode": 0,
+      "script": "evidence/rank8_research_20261022/r1154_r1795/forced_galois_probe.py",
+      "seconds": 8.355722
+    },
+    {
+      "assertions_enabled": true,
+      "direct_assert_statements": 0,
+      "log": "evidence/rank8_research_20261022/publication/replay_normal_logs/14_r3472_rank_two_dual_spectra.log",
+      "log_sha256": "b5a8e30ee8d7950795ed4cf2b10f2fa1a0a8553a97329a3ef545e3b00b76c19b",
+      "python_optimization": 0,
+      "returncode": 0,
+      "script": "evidence/rank8_research_20261022/r1768_r3472/r3472_rank_two_dual_spectra.py",
+      "seconds": 0.033978
+    },
+    {
+      "assertions_enabled": true,
+      "direct_assert_statements": 0,
+      "log": "evidence/rank8_research_20261022/publication/replay_normal_logs/15_r3472_independent_review.log",
+      "log_sha256": "a30e757aafe371f5a99c280d50131ca7a5cd9a43b66fb040fce45f5ca8e66322",
+      "python_optimization": 0,
+      "returncode": 0,
+      "script": "evidence/rank8_research_20261022/r1768_r3472/r3472_independent_review.py",
+      "seconds": 0.127474
+    },
+    {
+      "assertions_enabled": true,
+      "direct_assert_statements": 0,
+      "log": "evidence/rank8_research_20261022/publication/replay_normal_logs/16_verify.log",
+      "log_sha256": "63e9a6392dd56e98e06cd7d51aea3dc7ef93d00d1ed79f2911963a86fbfc087d",
+      "python_optimization": 0,
+      "returncode": 0,
+      "script": "evidence/rank8_research_20261022/pointed_followup/verify.py",
+      "seconds": 152.436791
+    },
+    {
+      "assertions_enabled": true,
+      "direct_assert_statements": 0,
+      "log": "evidence/rank8_research_20261022/publication/replay_normal_logs/17_r1795_pointed_independent_audit.log",
+      "log_sha256": "0476514becc34bab8800b97f8f7927616ca46da3dca4aff1d9b1d5e11bde2739",
+      "python_optimization": 0,
+      "returncode": 0,
+      "script": "evidence/rank8_research_20261022/r1768_r3472/r1795_pointed_independent_audit.py",
+      "seconds": 182.091806
+    },
+    {
+      "assertions_enabled": true,
+      "direct_assert_statements": 0,
+      "log": "evidence/rank8_research_20261022/publication/replay_normal_logs/18_r1795_even_independent_audit.log",
+      "log_sha256": "1c1cd9d2499dce6ce002e80be54356a3b4bab766b2f373dc1af1f8cdce3d21d0",
+      "python_optimization": 0,
+      "returncode": 0,
+      "script": "evidence/rank8_research_20261022/r1768_r3472/r1795_even_independent_audit.py",
+      "seconds": 125.200088
+    },
+    {
+      "assertions_enabled": true,
+      "direct_assert_statements": 0,
+      "log": "evidence/rank8_research_20261022/publication/replay_normal_logs/19_r1768_pointed_independent_audit.log",
+      "log_sha256": "438bf9c5597e18dfc2ef12df71ff08601c4da72371cf4e5f95dda481e5e9e2f3",
+      "python_optimization": 0,
+      "returncode": 0,
+      "script": "evidence/rank8_research_20261022/r1768_r3472/r1768_pointed_independent_audit.py",
+      "seconds": 41.57766
+    },
+    {
+      "assertions_enabled": true,
+      "direct_assert_statements": 0,
+      "log": "evidence/rank8_research_20261022/publication/replay_normal_logs/20_independent_review.log",
+      "log_sha256": "2b56183b5ee1a182342e4cb825a4e144622cbf54c71a5c51bdfad895cae2dd27",
+      "python_optimization": 0,
+      "returncode": 0,
+      "script": "evidence/rank8_research_20261022/pointed_followup/r1795_morita/independent_review.py",
+      "seconds": 1.874271
+    },
+    {
+      "assertions_enabled": true,
+      "direct_assert_statements": 0,
+      "log": "evidence/rank8_research_20261022/publication/replay_normal_logs/21_verify.log",
+      "log_sha256": "c669be47f87a39bac2eef2e4bbaf8aa43e65348f14de685dbb6325844602fcd0",
+      "python_optimization": 0,
+      "returncode": 0,
+      "script": "evidence/rank8_research_20261022/pointed_followup/dimension_block/verify.py",
+      "seconds": 1.00978
+    },
+    {
+      "assertions_enabled": true,
+      "direct_assert_statements": 0,
+      "log": "evidence/rank8_research_20261022/publication/replay_normal_logs/22_verify.log",
+      "log_sha256": "8ade759956dc22a0a7c5303e3fcd9b03f9e65a20d2bf1cb5c055b78cf9d0a8ad",
+      "python_optimization": 0,
+      "returncode": 0,
+      "script": "evidence/rank8_research_20261022/pointed_followup/r1768_modules/verify.py",
+      "seconds": 0.174527
+    }
+  ],
+  "source_manifest_sha256": "67f00e4b4ba0ddbd3586ea308f7cc56e04589f7851338f015a009992ac1c2b09",
+  "status": "PASS",
+  "targeted_scripts": 22
+}

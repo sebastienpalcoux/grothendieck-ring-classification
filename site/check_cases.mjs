@@ -11,6 +11,7 @@ const read=(name)=>fs.readFileSync(path.join(dist,name),"utf8");
 const json=(name)=>JSON.parse(read(name));
 const unresolved=json("data/unresolved_cases.json").cases;
 const realized=json("data/realized_rings.json").records;
+const resolved=json("data/resolved_cases.json").cases;
 const atlas=json("data/atlas.json");
 const statuses=json("data/classification_status.json").rows;
 const origin="https://sebastienpalcoux.github.io/grothendieck-ring-classification/";
@@ -73,7 +74,7 @@ function casesFor(search) {
   sandbox.testCases.parseFilters();return sandbox.testCases;
 }
 const selections=[
-  ["",10],["?rank=8&m=3",8],["?rank=8&max_m=3",8],["?rank=6",2],
+  ["",8],["?rank=8&m=3",6],["?rank=8&max_m=3",6],["?rank=6",2],
   ["?rank=6&m=4",1],["?rank=6&m=8",1],["?rank=6&max_m=7",1],
   ["?rank=6&max_m=9",2],["?rank=7&m=5",0],["?rank=8&m=2",0],
 ];
@@ -90,7 +91,7 @@ for(const query of ["?rank=-1","?rank=0","?m=1.5","?max_m=NaN","?rank=9007199254
   assert.throws(()=>casesFor(query),undefined,`Invalid filter accepted: ${query}`);
 const caseAPI=casesFor("");
 for(const bad of ["javascript:alert(1)","data:text/html,test","file:///tmp/test"])assert.equal(caseAPI.safeURL(bad),null);
-for(const ring of unresolved.concat(realized)) {
+for(const ring of unresolved.concat(realized,resolved)) {
   const link=caseAPI.downloadLink(ring),url=new URL(link.href,origin);
   assert.equal(decodeURIComponent(url.pathname),`/grothendieck-ring-classification/downloads/fusion-tensors/${ring.id}.txt`);
   assert.equal(link.download,`${ring.id}.txt`);
@@ -184,6 +185,13 @@ for(const ring of unresolved) {
   for(const diagram of ringDiagrams)assert.doesNotMatch(diagram.textContent,/braid/i,`Braiding entered the structure hierarchy: ${ring.id}`);
 }
 
+for(const ring of resolved) {
+  const view=caseAPI.renderCategorification(ring);
+  assert.match(view.textContent,/No general categorification/);
+  assert.doesNotMatch(view.textContent,/General categorifiability remains unresolved/);
+  assert.equal(descendants(view).filter(node=>node.getAttribute("role")==="img").length,0,"Excluded cases do not need hypothetical-structure diagrams");
+}
+
 const appSource=read("app.js"),appEnd="\nstart();";
 assert.equal(appSource.split(appEnd).length,2,"Expected one atlas application entry point");
 const sandbox=context();vm.createContext(sandbox);
@@ -216,12 +224,12 @@ for(const record of atlas.scope.filter(r=>r.unresolved))
   assertLink(doc.querySelector("#scope-cards"),`${record.unresolved} unresolved`,`?rank=${record.rank}&max_m=${record.analyzed_through}`);
 doc.querySelector("#research-update").append(new TestNode("a"));
 app.renderTheoreticalUpdate();
-assertLink(doc.querySelector("#research-update-title"),"8 open cases","?rank=8&max_m=3");
-assertLink(doc.querySelector("#theoretical-update-heading"),"10 open cases","");
+assertLink(doc.querySelector("#research-update-title"),"6 open cases","?rank=8&max_m=3");
+assertLink(doc.querySelector("#theoretical-update-heading"),"8 open cases","");
 for(const selector of ["#research-update-summary","#theoretical-update-scope"])
-  assertLink(doc.querySelector(selector),"8 extensively investigated exotic candidates","?rank=8&m=3");
+  assertLink(doc.querySelector(selector),"6 extensively investigated exotic candidates","?rank=8&m=3");
 assertLink(doc.querySelector("#research-update-summary"),"2 rank-six","?rank=6");
-assertLink(doc.querySelector("#research-update-summary"),"8 rank-eight","?rank=8");
+assertLink(doc.querySelector("#research-update-summary"),"6 rank-eight","?rank=8");
 for(const ring of realized) {
   const link=app.tensorDownload(ring),url=new URL(link.href,origin);
   assert.equal(decodeURIComponent(url.pathname),`/grothendieck-ring-classification/downloads/fusion-tensors/${ring.id}.txt`);

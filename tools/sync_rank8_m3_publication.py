@@ -7,8 +7,9 @@ import subprocess
 import sys
 from html import escape
 from pathlib import Path
+from datetime import date
 from rank7_publication import summary as rank7_summary, remaining_ids
-from rank8_publication import extension, summary, PUBLICATION_DATE_LONG, STATUS_REPORT, EVIDENCE, archive_path
+from rank8_publication import extension, summary, EVIDENCE, archive_path
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -42,7 +43,7 @@ def frontier_replay_scope(repo):
         status=f'Canonical normal and optimized frontier replays each passed all {len(required)} checks.'
     else:
         status=f'The canonical normal frontier replay passed all {len(required)} checks. Its optimized replay is still pending.'
-    return status+' Fresh replay after extraction from the publication archive is deferred.'
+    return status+' These receipts cover the historical frontier stage. Fresh replay after extraction from the publication archive is deferred.'
 
 
 def center_replay_scope():
@@ -51,10 +52,44 @@ def center_replay_scope():
             'Fresh replay after extraction from the publication archive is deferred.')
 
 
+def research_scope(repo):
+    """Current accepted research, distinct from the frozen 108-check stage."""
+    from rank8_research_20261022 import active, validate
+    if not active(repo):
+        return ''
+    report = validate(repo)
+    remaining = report['counts']['unresolved']
+    complete_c2 = 'R8_3_1795' in report['resolved_ids']
+    opening = ('R8_3_65 and R8_3_1795 have general-complex exclusions from pointed-induction Fourier integrality. '
+               'Six exact separating certificates cover all four pointed associator classes for R8_3_65; '
+               'sixteen cover both pointed classes and every admissible second-indicator assignment for R8_3_1795. '
+               'The verified Galois reductions remove the pseudo-unitarity hypotheses. ' if complete_c2 else
+               'R8_3_65 has a general-complex exclusion: pointed-induction Fourier integrality and '
+            'six exact separating certificates cover all four pointed associator classes; '
+            'the two-dimension Galois reduction removes the pseudo-unitarity hypothesis. ')
+    pointed = ('For R8_3_1768 the pointed C2 associator must be nontrivial, forcing its nonidentity '
+               'invertible to act freely on the simple objects of every indecomposable module category. '
+               if complete_c2 else '')
+    return (opening+
+            f'Every hypothetical categorification of each of the {remaining} remaining rank-eight rings '
+            'admits a spherical structure and is Galois conjugate to a pseudo-unitary category. '
+            'None is categorically Morita equivalent to a braided fusion category. '+pointed+
+            'R8_3_982 has a complete necessary based-module analysis; its remaining module data '
+            'do not establish coherent module categories. A separate dimension-spectrum restriction for '
+            'R8_3_3472 covers one specified rank-two module action only. '
+            f'These restrictions leave {remaining} general categorification questions unresolved.')
+
+
 def center_scope(repo):
     from rank8_next import active as next_active, validate as validate_next
     if next_active(repo):
         validate_next(repo)
+        from rank8_research_20261022 import active as research_active
+        if research_active(repo):
+            return ('R8_3_721 is realized by the inherited 1+rho Q-system Morita dual of the C2 de-equivariantization of the known GH(C8) category. '
+                    'Its rank and coefficient bound are proved exactly; identification uses its unique dimension type in the supplied complete rank-eight multiplicity-at-most-three census. '
+                    'The earlier center-action analysis reduces R8_3_1154 to three necessary center patterns. '
+                    'These model and pattern results are preserved in evidence/rank8_next_20261021/; the later R8_3_65 general exclusion is recorded separately in evidence/rank8_research_20261022/.')
         return ('R8_3_721 is realized by the inherited 1+rho Q-system Morita dual of the C2 de-equivariantization of the known GH(C8) category. '
                 'Its rank and coefficient bound are proved exactly; identification uses its unique dimension type in the supplied complete rank-eight multiplicity-at-most-three census. '
                 'Further center-action constraints reduce R8_3_1154 to three necessary center patterns. '
@@ -102,6 +137,10 @@ def integer_scope(repo, extension):
             '. These witnesses are necessary data, not categorical models; uncertified numerical failures are not exclusions.') if parts else ''
 
 def main():
+    from rank8_publication import current_date, current_report
+    publication_date = current_date(ROOT)
+    publication_date_long = date.fromisoformat(publication_date).strftime('%-d %B %Y')
+    report = current_report(ROOT)
     ext = extension(ROOT)
     if ext is None:
         raise ValueError('Accepted M3 ledger required')
@@ -112,11 +151,12 @@ def main():
     frontier_note = frontier_replay_scope(ROOT) if ext.get('frontier') else ''
     integer_note = integer_scope(ROOT, ext)
     center_note = center_scope(ROOT)
+    research_note = research_scope(ROOT)
     status = json.loads((ROOT/'data/classification_status.json').read_text())
     totals = status['inputs']['rank8']['status_totals']
     path = ROOT/'docs/prepublication_review_content.json'
     content = json.loads(path.read_text())
-    content['date'] = PUBLICATION_DATE_LONG
+    content['date'] = publication_date_long
     content['version'] = 'Rank-eight multiplicity-three continuation and current verification scope'
     content['summary'] = summary(ROOT)+' '+rank7_summary(ROOT)+' The two earlier rank-six questions remain open. The historical 38-case inventory keeps its original scope.'
     next(r for r in content['rank_counts'] if r['rank']==8).update(bound=3, rings=4500,
@@ -186,10 +226,18 @@ def main():
         content['replay_sections'].insert(0,{'heading':next_heading,'paragraphs':[
             'The new construction has separate normal and optimized checks, including independent reconstruction of the coefficient inequalities and an exhaustive scan of all 4,500 supplied census entries. Its reviewed categorical proof and bound source files are retained in evidence/rank8_next_20261021/. The original evidence and 108-check replay receipts remain unchanged.',
             'Run tools/rank8_next.py --check for the accepted overlay identities. The model proof lists its targeted arithmetic verifiers. Census completeness remains the supplied producer result; the full enumeration has not been independently rerun.']})
+    research_heading = 'Pointed Fourier exclusion and remaining rank-eight restrictions'
+    for key in ('theoretical_results', 'replay_sections'):
+        content[key] = [x for x in content[key] if x['heading'] != research_heading]
+    if research_note:
+        content['theoretical_results'].insert(0, {'heading': research_heading, 'paragraphs': [research_note]})
+        content['replay_sections'].insert(0, {'heading': research_heading, 'paragraphs': [
+            'The 22 October stage has a separate exact replay and accepted source manifest. Run python3 tools/verify_rank8_research_20261022.py and python3 -O tools/verify_rank8_research_20261022.py. Its proof and verifier inventory is evidence/rank8_research_20261022/README.md.',
+            'These targeted checks supplement the original M3 and 108-check frontier replays; those historical receipts do not certify the later stage. Metadata-only checks reconcile source identities without repeating mathematics.']})
     path.write_text(json.dumps(content, indent=2, ensure_ascii=False)+'\n')
     path = ROOT/'site/dist/review.html'; html = path.read_text()
-    html = re.sub(r'Research status · \d+ October 2026', 'Research status · '+PUBLICATION_DATE_LONG, html)
-    html = re.sub(r'prepublication-review-2026-10-(?:19|20)\.pdf', STATUS_REPORT, html)
+    html = re.sub(r'Research status · \d+ October 2026', 'Research status · '+publication_date_long, html)
+    html = re.sub(r'prepublication-review-2026-10-(?:19|2\d|3[01])\.pdf', report, html)
     html = re.sub(r'(?:19|20) October research-status report','21 October research-status report',html)
     panel = f'<div class="review-panel" id="review-outcome"><h2>Current classification · {len(remaining_ids(ROOT))} open questions</h2><p>{escape(summary(ROOT))}</p><p>{escape(rank7_summary(ROOT))}</p><p>The two rank-six cases <code>R6_4_155</code> and <code>R6_8_1660</code> remain open. The historical 38-case continuation has 36 decisions and retains its original scope.</p></div>'
     html, n = re.subn(r'<div class="review-panel" id="review-outcome">.*?</div>', panel, html, flags=re.S)
@@ -208,6 +256,8 @@ def main():
         block=block.replace('</section>','<p>'+escape(frontier_note)+'</p></section>')
     if center_note:
         block=block.replace('</section>','<p>'+escape(center_replay_scope())+'</p></section>')
+    if research_note:
+        block=block.replace('</section>','<p>'+escape(research_note)+'</p></section>')
     if ext['unitary_excluded_ids']:
         scoped='<p>Unitary categorification is excluded for '+', '.join('<code>'+escape(rid)+'</code>' for rid in ext['unitary_excluded_ids'])+'. General complex categorification remains unresolved.</p>'
         if 'R8_3_731' in ext['remaining_ids']:
@@ -217,8 +267,8 @@ def main():
     html = html.replace('    <h2 id="rank-eight">','    '+block+'\n    <h2 id="rank-eight">')
     path.write_text(html)
     path = ROOT/'site/dist/index.html'
-    html = re.sub(r'>\d+ OCT 2026<','>21 OCT 2026<',path.read_text())
-    path.write_text(re.sub(r'prepublication-review-2026-10-(?:19|20)\.pdf',STATUS_REPORT,html))
+    html = re.sub(r'>\d+ OCT 2026<','>'+date.fromisoformat(publication_date).strftime('%-d %b %Y').upper()+'<',path.read_text())
+    path.write_text(re.sub(r'prepublication-review-2026-10-(?:19|2\d|3[01])\.pdf',report,html))
     path = ROOT/'site/README.md'
     readme = path.read_text()
     current = ('The historical 38-case continuation records 36 decisions: 29 proposed general '
@@ -232,6 +282,8 @@ def main():
         current += frontier_note+'\n\n'
     if center_note:
         current += center_replay_scope()+'\n\n'
+    if research_note:
+        current += research_note+'\n\n'
     readme, count = re.subn(r'The (?:historical 38-case continuation records|continuation records).*?(?=Ranks two, three and four)',
                             lambda _: current, readme, count=1, flags=re.S)
     if count != 1: raise ValueError('Unique website README classification block required')

@@ -1,6 +1,6 @@
 # Manuscripts
 
-The rank-eight multiplicity-three continuation addresses all 3,527 supplied exact-multiplicity-three rings: 3,504 general exclusions, 15 models and 8 unresolved cases. Every recorded model admits a unitary realization. The remaining rings retain unresolved status for general complex categorification.
+The rank-eight multiplicity-three continuation addresses all 3,527 supplied exact-multiplicity-three rings: 3,506 general exclusions, 15 models and 6 unresolved cases. Every recorded model admits a unitary realization. The remaining rings retain unresolved status for general complex categorification.
 
 The rank-seven multiplicity-five continuation addresses all 5,805 supplied exact-multiplicity-five rings: 5,804 general exclusions, 1 realization and 0 unresolved cases. The classification of the supplied census is complete through multiplicity 5. The new realization R7_5_5678 is Rep(AGL(1,7)).
 
@@ -46,12 +46,12 @@ Related work on the pivotal case: Jingcheng Dong, Sébastien Palcoux and Arnaud 
 | Rank six | [TeX](rank6/papers/manuscript.tex) | [PDF](rank6/papers/manuscript.pdf) | 170 | 25,362 exclusions, 57 realizations, two open through 9; complete through 3 and exact bands 1, 2, 3, 5, 6, 7, 9 |
 | Rank six, verification guide | [TeX](rank6/papers/verification_guide.tex) | [PDF](rank6/papers/verification_guide.pdf) | 6 | Models, certificates and open-case reductions |
 | Rank seven | [TeX](rank7/papers/manuscript.tex) | [PDF](rank7/papers/manuscript.pdf) | 83 | Through multiplicity 5: 9,976 exclusions, 30 models and 0 unresolved; complete through 5 |
-| Rank eight | [TeX](rank8/paper/rank8.tex) | [PDF](rank8/paper/rank8.pdf) | 112 | Through multiplicity 3: 4,400 exclusions, 92 unitary models and 8 unresolved; complete through 2 |
+| Rank eight | [TeX](rank8/paper/rank8.tex) | [PDF](rank8/paper/rank8.pdf) | 127 | Through multiplicity 3: 4,402 exclusions, 92 unitary models and 6 unresolved; complete through 2 |
 
-The eight mathematical manuscripts contain **516 pages**.
-Including the three verification guides gives **535 pages**;
-including the 7-page [research-status report](prepublication-review-2026-10-21.pdf)
-gives **542 pages** across twelve distinct documents.
+The eight mathematical manuscripts contain **531 pages**.
+Including the three verification guides gives **550 pages**;
+including the 8-page [research-status report](prepublication-review-2026-10-22.pdf)
+gives **558 pages** across twelve distinct documents.
 These counts include references and appendices and count duplicate download
 copies only once. The [page inventory](../data/manuscript_page_counts.json)
 records every path, count and PDF checksum. The [17 October status report](prepublication-review-2026-10-17.pdf) is retained as a historical snapshot and is not counted as a current document.
@@ -82,7 +82,7 @@ Read the [research status](../docs/RESEARCH_STATUS.md),
 
 ## Generalized Haagerup construction and further restrictions
 
-R8_3_721 is realized by the inherited 1+rho Q-system Morita dual of the C2 de-equivariantization of the known GH(C8) category. Its rank and coefficient bound are proved exactly; identification uses its unique dimension type in the supplied complete rank-eight multiplicity-at-most-three census. Further center-action constraints reduce R8_3_1154 to three necessary center patterns. For R8_3_65, a unified pointed-subgroup Morita obstruction forces a nontrivial pointed associator. The latter two rings remain unresolved. Proofs and separate exact checks are in evidence/rank8_next_20261021/.
+R8_3_721 is realized by the inherited 1+rho Q-system Morita dual of the C2 de-equivariantization of the known GH(C8) category. Its rank and coefficient bound are proved exactly; identification uses its unique dimension type in the supplied complete rank-eight multiplicity-at-most-three census. The earlier center-action analysis reduces R8_3_1154 to three necessary center patterns. These model and pattern results are preserved in evidence/rank8_next_20261021/; the later R8_3_65 general exclusion is recorded separately in evidence/rank8_research_20261022/.
 
 The integrated rank-eight article includes the new construction and restrictions. Categorical arguments, targeted mathematical replay receipts and independent reconstructions are in `evidence/rank8_next_20261021/`. The original frontier ledger, audit and completed replay receipts remain unchanged.
 
@@ -94,3 +94,16 @@ python3 -O tools/rank8_next.py --check
 ```
 
 A separately reviewed Galois follow-up reduces the 36 retained R8_3_1154 pair histograms to 25 across the same three center patterns. Its proof and exact replay are in `evidence/rank8_postpublication_20261021/r1154_galois_review/`; the ring remains unresolved.
+
+## 22 October rank-eight research
+
+R8_3_65 and R8_3_1795 have general-complex exclusions from pointed-induction Fourier integrality. Six exact separating certificates cover all four pointed associator classes for R8_3_65; sixteen cover both pointed classes and every admissible second-indicator assignment for R8_3_1795. The verified Galois reductions remove the pseudo-unitarity hypotheses. Every hypothetical categorification of each of the 6 remaining rank-eight rings admits a spherical structure and is Galois conjugate to a pseudo-unitary category. None is categorically Morita equivalent to a braided fusion category. For R8_3_1768 the pointed C2 associator must be nontrivial, forcing its nonidentity invertible to act freely on the simple objects of every indecomposable module category. R8_3_982 has a complete necessary based-module analysis; its remaining module data do not establish coherent module categories. A separate dimension-spectrum restriction for R8_3_3472 covers one specified rank-two module action only. These restrictions leave 6 general categorification questions unresolved.
+
+The proof and exact verifier inventory is `evidence/rank8_research_20261022/README.md`. The current research stage has its own accepted ledger and source manifest; its exact replay is:
+
+```bash
+python3 tools/verify_rank8_research_20261022.py
+python3 -O tools/verify_rank8_research_20261022.py
+```
+
+Run `python3 tools/rank8_research_20261022.py --check` for metadata reconciliation only. The original M3 replay and 108-check frontier receipts retain their historical scope. They do not replace the new targeted mathematical checks.

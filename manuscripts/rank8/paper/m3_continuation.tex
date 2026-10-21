@@ -18,9 +18,9 @@ The $3527$ supplied rings of exact multiplicity three have the following
 recorded categorification status:
 \begin{center}\begin{tabular}{@{}lr@{}}\toprule
 Status & Rings\\\midrule
-General complex exclusion & $3504$\\
+General complex exclusion & $3506$\\
 Unitary construction & $15$\\
-Unresolved general categorification & $8$\\
+Unresolved general categorification & $6$\\
 \bottomrule\end{tabular}\end{center}
 Positive identifications use full ordered tensor comparisons or, for
 $\sha{R8_3_721}$, the exact coefficient bound and complete-census uniqueness
@@ -28,7 +28,7 @@ proved in Theorem~\ref{thm:r721-qsystem-model}. A recorded construction proves
 existence, without claiming uniqueness up to tensor equivalence.
 \end{theorem}
 The source-bound combined ledger is
-\path{supplements/rank8/output/next_20261021/ledger.json}. Its exact-M3 first-exclusion
+\path{supplements/rank8/output/research_20261022/ledger.json}. Its exact-M3 first-exclusion
 allocation follows. Overlapping obstructions are retained in the evidence
 rather than counted twice.
 \begin{center}\small\begin{longtable}{@{}p{.75\textwidth}r@{}}\toprule
@@ -58,6 +58,8 @@ nonsolvable dimension60 extension & $1$\\
 normal split spectral support and annihilator transport & $1$\\
 one spectrum & $1$\\
 oriented signed & $67$\\
+pointed induction Fourier phase, all associator classes & $1$\\
+pointed induction Fourier fibre packing, all associator classes & $1$\\
 partial modular spectrum symmetric frame signed induction & $1$\\
 quadratic casimir compression & $64$\\
 rank7 certified subring & $4$\\
@@ -112,9 +114,9 @@ Every model in this inventory admits a unitary realization. For
 $\sha{R8_3_448}$, the original pseudo-unitary existence result is
 supplemented by the unitary $2221$ planar-algebra construction above.
 \subsection{The remaining general questions and replay scope}
-There remain $8$ unresolved exact-M3 tensors. The source tensors and per-case attempted criteria are recorded in
+There remain $6$ unresolved exact-M3 tensors. The source tensors and per-case attempted criteria are recorded in
 \path{data/remaining_cases.py} and the per-case audit\par\noindent
-{\small\path{evidence/rank8_next_20261021/per_ring_research_audit.json}}.
+{\small\path{evidence/rank8_research_20261022/per_ring_research_audit.json}}.
 The inventory distinguishes an exact contradiction, a necessary-condition
 survivor, a time limit, and an inapplicable test. Passing these conditions
 supplies no coherent associator; an unsuccessful construction search
@@ -126,13 +128,11 @@ general complex question. The last column gives ranks of nontrivial
 proper fusion subrings, as checked on the exact source tensors.
 \begin{center}\small\begin{longtable}{@{}lcccc@{}}\toprule
 Census ID & Commutative & Invertibles & Unitary status & Proper subring ranks\\\midrule\endhead
-\sha{R8_3_65} & yes & 4 & unresolved & 2, 4\\
 \sha{R8_3_928} & no & 2 & unresolved & 2\\
 \sha{R8_3_941} & no & 2 & unresolved & 2\\
 \sha{R8_3_982} & yes & 2 & unresolved & 2\\
 \sha{R8_3_1154} & no & 2 & unresolved & 2\\
 \sha{R8_3_1768} & yes & 2 & unresolved & 2\\
-\sha{R8_3_1795} & yes & 2 & unresolved & 2\\
 \sha{R8_3_3472} & yes & 1 & unresolved & --\\
 \bottomrule\end{longtable}\end{center}
 \input{m3_model_search}
@@ -150,6 +150,8 @@ identities and reconciliation without replaying the mathematics.
 \input{m3_frontier}
 \input{m3_center_followup}
 \input{m3_next_refinements}
+\input{m3_research_20261022}
+\input{m3_pointed_followup}
 
 \subsection{Continuation evidence and reproducibility}
 The new proofs and construction-family audits are in
@@ -163,3 +165,7 @@ receipt binds the unchanged original ledger, every accepted new decision,
 the proof sources and the exact replay logs. Scoped failed construction
 searches and feasible necessary-condition witnesses retain their stated
 domains; they are not proofs of nonexistence or categorifiability.
+
+The 22 October overlay and new mathematical checks replay separately with
+\begin{quote}\small\verb|python3 tools/verify_rank8_research_20261022.py|\end{quote}
+This command preserves the earlier ledgers and accepts the two new general exclusions of $\sha{R8_3_65}$ and $\sha{R8_3_1795}$.

@@ -50,6 +50,7 @@ def main():
     rank8_check_receipt = None
     rank8_frontier_receipt = None
     rank8_center_followup_receipt = None
+    rank8_research_receipt = None
     if rank8_update:
         with tempfile.TemporaryDirectory(prefix='rank8-m3-check-') as directory:
             command = [sys.executable] + (['-O'] if sys.flags.optimize else [])
@@ -78,6 +79,18 @@ def main():
                 check = subprocess.run(command, cwd=repo, text=True, capture_output=True)
                 need(check.returncode == 0, 'Rank-eight center follow-up failed:\n' + check.stdout + check.stderr)
                 rank8_center_followup_receipt = json.loads(output.read_text())
+        if rank8_update.get('research'):
+            with tempfile.TemporaryDirectory(prefix='rank8-research-check-') as directory:
+                output = Path(directory) / 'receipt.json'
+                command = [sys.executable] + (['-O'] if sys.flags.optimize else [])
+                command += [str(repo / 'tools/verify_rank8_research_20261022.py'),
+                            '--repo', str(repo), '--output', str(output)]
+                if args.metadata_only:
+                    command.append('--metadata-only')
+                check = subprocess.run(command, cwd=repo, text=True, capture_output=True)
+                need(check.returncode == 0, 'Rank-eight 22 October research check failed:\n'
+                     + check.stdout + check.stderr)
+                rank8_research_receipt = json.loads(output.read_text())
     rigidity = verify_rigidity(repo, replay=not args.metadata_only,
                               historical_rank7=json.loads(historical) if historical else None)
     rank6_command = [sys.executable] + (['-O'] if sys.flags.optimize else [])
@@ -153,6 +166,7 @@ def main():
                   'rank8_frontier_check': rank8_frontier_receipt,
                   'rank8_center_followup_check': rank8_center_followup_receipt,
                   'rank8_next_check': rank8_next_receipt,
+                  'rank8_research_check': rank8_research_receipt,
                   'rank7_m5_metadata_check': rank7_metadata,
                   'rank6_necessary_conditions': rank6_progress,
                   'reader_resources': reader_resources,

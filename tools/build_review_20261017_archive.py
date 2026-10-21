@@ -285,7 +285,8 @@ def preserve_rank8_standalone_replays(root, fresh_files, fresh_package, source_p
         'preserved_archive_members_sha256': dict(sorted(preserved.items())),
     }
     if continuation_package is not None:
-        need(continuation_package.get('schema') == 'rank8-next-package/v1',
+        need(continuation_package.get('schema') in
+             ('rank8-next-package/v1', 'rank8-research-20261022-package/v1'),
              'Unexpected successor package for historical replay provenance')
         need(fresh_package == archived_package,
              'Successor must preserve the original frontier package manifest')
@@ -390,6 +391,149 @@ def preserve_rank8_next_release(root, fresh_files, fresh_package, inventory):
         'packaging_mathematical_replay_performed': False,
     }
     return {release_name: release_raw,
+            PUBLICATION + '/dedicated_release_provenance.json':
+                (json.dumps(provenance, indent=2) + '\n').encode()}
+
+
+def preserve_rank8_research_release(root, fresh_files, fresh_package, inventory):
+    """Check the finalized research ZIP and preserve its proof-replay scope.
+
+    This validates the expanded current files and the byte-preservation map;
+    it neither recollects an old release nor edits a historical replay receipt.
+    """
+    from build_rank8_research_20261022_release import (
+        ARCHIVE, ARCHIVE_PREFIX, BASELINE_ARCHIVE, BASELINE_SHA256,
+        PUBLICATION, safe_path,
+    )
+    from rank8_next import PUBLICATION as NEXT_PUBLICATION
+
+    def need(ok, message):
+        if not ok:
+            raise ValueError(message)
+
+    release_name = PUBLICATION + '/release_manifest.json'
+    package_name = PUBLICATION + '/package_manifest.json'
+    manifest_name = PUBLICATION + '/source_manifest.json'
+    archive_path = root / ARCHIVE
+    need(archive_path.is_file() and (root / release_name).is_file(),
+         'Build the finalized dedicated rank-eight research release before the common archive')
+    release_raw = (root / release_name).read_bytes()
+    release = json.loads(release_raw)
+    need(digest(archive_path.read_bytes()) == release.get('archive_sha256'),
+         'Dedicated research archive differs from its release manifest')
+    archived_package = {name: value for name, value in release.items()
+                        if name not in ('files_sha256', 'archive_sha256')}
+    need(archived_package.get('schema') == 'rank8-research-20261022-package/v1'
+         and archived_package.get('status') == 'PASS'
+         and archived_package.get('publication_mode') == 'targeted_proof_receipts_and_extracted_metadata',
+         'A completed research release is required; provisional snapshots are not accepted')
+    need({name: value for name, value in archived_package.items()
+          if name != 'extracted_metadata_checks'} == fresh_package,
+         'Dedicated research package is stale; rebuild it before the common archive')
+    need(json.loads(fresh_files[manifest_name]) == inventory,
+         'Current research source inventory differs from its packaged manifest')
+    need(archived_package.get('baseline_archive') == BASELINE_ARCHIVE
+         and archived_package.get('baseline_archive_sha256') == BASELINE_SHA256,
+         'Research release does not preserve the frozen next-stage archive')
+    checks = archived_package.get('extracted_metadata_checks', [])
+    required = {(script, optimized) for script in
+                ('supplements/rank8/software/verify_m3_continuation.py',
+                 'tools/verify_rank8_frontier.py', 'tools/rank8_next.py',
+                 'tools/rank8_research_20261022.py',
+                 'tools/verify_rank8_research_20261022.py')
+                for optimized in (False, True)}
+    need(len(checks) == 10 and
+         {(x.get('script'), x.get('optimized_python')) for x in checks} == required
+         and all(x.get('status') in ('METADATA_PASS', 'SOURCE_METADATA_PASS')
+                 and x.get('mathematical_replay_performed') is False for x in checks)
+         and all(x.get('status') == 'METADATA_PASS' for x in checks
+                 if x.get('script') == 'tools/verify_rank8_research_20261022.py')
+         and archived_package.get('full_historical_mathematical_replay_performed') is False
+         and archived_package.get('packaging_mathematical_replay_performed') is False,
+         'Dedicated research metadata gates or proof-replay scope differ')
+    expected = release.get('files_sha256')
+    need(isinstance(expected, dict) and set(expected) == set(fresh_files),
+         'Dedicated research member inventory differs from the current collection')
+    with zipfile.ZipFile(archive_path) as archive:
+        members = {}
+        for item in archive.infolist():
+            need(not item.is_dir() and item.filename.startswith(ARCHIVE_PREFIX),
+                 'Unexpected dedicated research archive member root')
+            name = item.filename[len(ARCHIVE_PREFIX):]
+            need(safe_path(name) and name not in members
+                 and (item.external_attr >> 16) & 0o170000 != 0o120000,
+                 'Unsafe, duplicate or symlinked dedicated research member: ' + name)
+            members[name] = item
+        need(set(members) == set(expected), 'Dedicated research ZIP inventory differs')
+        for name, item in members.items():
+            raw = archive.read(item)
+            need(digest(raw) == expected[name], 'Dedicated research member checksum differs: ' + name)
+            if name not in (package_name, 'SHA256SUMS.json'):
+                need(raw == fresh_files[name], 'Dedicated/current research source differs: ' + name)
+        package_raw = archive.read(members[package_name])
+        need(json.loads(package_raw) == archived_package,
+             'Dedicated research package and root release manifests disagree')
+        need(json.loads(archive.read(members['SHA256SUMS.json'])) ==
+             {name: value for name, value in expected.items() if name != 'SHA256SUMS.json'},
+             'Dedicated research inner checksums differ')
+
+    preservation = archived_package.get('baseline_byte_preservation', {})
+    need(isinstance(preservation, dict)
+         and len(preservation) == archived_package.get('baseline_members')
+         and preservation, 'Missing complete next-stage byte-preservation map')
+    for name, item in preservation.items():
+        path = item.get('path', '')
+        need(safe_path(name) and safe_path(path) and path in fresh_files
+             and digest(fresh_files[path]) == item.get('sha256'),
+             'Historical next-stage bytes differ: ' + name)
+
+    # The next-stage external release manifest is not inside its ZIP. Bind it
+    # to the pinned old ZIP and its preserved package without regenerating it.
+    next_release_name = NEXT_PUBLICATION + '/release_manifest.json'
+    next_release_raw = (root / next_release_name).read_bytes()
+    next_release = json.loads(next_release_raw)
+    need(next_release.get('archive_sha256') == BASELINE_SHA256
+         and next_release.get('files_sha256') ==
+             {name: item['sha256'] for name, item in preservation.items()},
+         'Historical next release manifest differs from the preserved archive')
+    next_package_path = preservation[NEXT_PUBLICATION + '/package_manifest.json']['path']
+    need(json.loads(fresh_files[next_package_path]) ==
+         {name: value for name, value in next_release.items()
+          if name not in ('files_sha256', 'archive_sha256')},
+         'Historical next package and release manifests disagree')
+    fresh_files[package_name] = package_raw
+    replays = {lane: {'path': PUBLICATION + '/replay_' + lane + '.json',
+                      'sha256': digest(fresh_files[PUBLICATION + '/replay_' + lane + '.json'])}
+               for lane in ('normal', 'optimized')}
+    targeted_counts = {len(json.loads(fresh_files[item['path']])['sections'])
+                       for item in replays.values()}
+    need(len(targeted_counts) == 1 and next(iter(targeted_counts)) > 0,
+         'Current targeted replay lanes have different command coverage')
+    provenance = {
+        'schema': 'rank8-research-dedicated-release-provenance/v1',
+        'scope': ('Expanded sources match the finalized research archive. Both completed '
+                  'targeted mathematical replay receipts are included. Its extracted '
+                  'packaging checks verify metadata; historical receipts retain their '
+                  'original sources and proof scope.'),
+        'dedicated_archive': ARCHIVE,
+        'dedicated_archive_sha256': release['archive_sha256'],
+        'dedicated_archive_included': False,
+        'release_manifest': release_name,
+        'release_manifest_sha256': digest(release_raw),
+        'package_manifest': package_name,
+        'package_manifest_sha256': digest(package_raw),
+        'source_manifest_sha256': digest(fresh_files[manifest_name]),
+        'ledger_sha256': fresh_package['current_summary']['ledger_sha256'],
+        'canonical_targeted_replays': replays,
+        'targeted_scripts_per_lane': next(iter(targeted_counts)),
+        'preserved_next_members': len(preservation),
+        'historical_next_release_manifest': next_release_name,
+        'historical_next_release_manifest_sha256': digest(next_release_raw),
+        'validated_archive_members': len(expected),
+        'packaging_mathematical_replay_performed': False,
+        'full_historical_mathematical_replay_performed': False,
+    }
+    return {release_name: release_raw, next_release_name: next_release_raw,
             PUBLICATION + '/dedicated_release_provenance.json':
                 (json.dumps(provenance, indent=2) + '\n').encode()}
 
@@ -521,7 +665,19 @@ def collect(root, source_publication_only=False):
     if active(root):
         from rank8_frontier import active as frontier_active, PUBLICATION as FRONTIER_PUBLICATION
         from rank8_next import active as next_active
-        if next_active(root):
+        from rank8_research_20261022 import active as research_active
+        if research_active(root):
+            from build_rank8_research_20261022_release import collect as collect_research
+            extension_files, extension_package, inventory = collect_research(root)
+            research_additions = preserve_rank8_research_release(
+                root, extension_files, extension_package, inventory)
+            frontier_package = json.loads(extension_files[
+                FRONTIER_PUBLICATION + '/package_manifest.json'])
+            merge_payload(extension_files, preserve_rank8_standalone_replays(
+                root, extension_files, frontier_package, source_publication_only,
+                continuation_package=extension_package))
+            merge_payload(extension_files, research_additions)
+        elif next_active(root):
             from build_rank8_next_release import collect as collect_next
             extension_files, extension_package, inventory = collect_next(root)
             next_additions = preserve_rank8_next_release(
@@ -581,8 +737,24 @@ def source_publication_metadata(root):
             'source_manifest_sha256': manifest_sha,
             'ledger_sha256': summary['ledger_sha256'],
             'canonical_frontier_replays': reports}
-    from rank8_next import active as next_active, validate_ledger, source_inventory, PUBLICATION
-    if next_active(root):
+    from rank8_research_20261022 import active as research_active
+    from rank8_next import active as next_active
+    if research_active(root):
+        from rank8_research_20261022 import validate_ledger, source_inventory, PUBLICATION
+        from verify_rank8_research_20261022 import check_reports
+        current = validate_ledger(root)
+        inventory = source_inventory(root)
+        current_sha, receipt_shas = check_reports(root, current, inventory)
+        result['current_rank8'] = current
+        result['current_rank8_source_manifest_sha256'] = current_sha
+        result['canonical_current_rank8_replays'] = [
+            {'path': PUBLICATION + '/replay_' + lane + '.json', 'sha256': value}
+            for lane, value in zip(('normal', 'optimized'), receipt_shas)]
+        result['scope'] += ('; current rank-eight accepted decisions and research bindings, '
+                            'plus both completed accepted targeted replay receipts and '
+                            'logs, are checked separately from the historical receipts')
+    elif next_active(root):
+        from rank8_next import validate_ledger, source_inventory, PUBLICATION
         current = validate_ledger(root)
         manifest_raw = (root / PUBLICATION / 'source_manifest.json').read_bytes()
         if json.loads(manifest_raw) != source_inventory(root):
@@ -664,7 +836,20 @@ Fixed timestamps and sorted paths make identical inputs produce identical ZIP by
             'the dedicated root release manifest is included alongside it. Publication '
             'documents in this common archive are freshly collected.\n').encode()
     from rank8_next import active as next_active, PUBLICATION as NEXT_PUBLICATION
-    if next_active(root):
+    from rank8_research_20261022 import active as research_active, PUBLICATION as RESEARCH_PUBLICATION
+    if research_active(root):
+        payload['README.md'] += (
+            '\nThe current rank-eight research stage is included as expanded sources. '
+            'The accepted decisions and current case counts are recorded in its ledger. '
+            'Both completed targeted replay receipts '
+            '(all accepted mathematical checks, with child assertions enabled) and '
+            'their logs are included. The finalized dedicated release is bound by `'
+            + RESEARCH_PUBLICATION + '/dedicated_release_provenance.json`. Its ZIP is '
+            'published separately. Every member of the previous next-stage archive '
+            'is preserved byte-for-byte at the path recorded in the current package '
+            'manifest. Extracted packaging checks verify metadata; the earlier '
+            'mathematical receipts retain their original proof scope.\n').encode()
+    elif next_active(root):
         payload['README.md'] += (
             '\nThe current rank-eight continuation is included as expanded sources, with its '
             'accepted decisions, model catalogue, research audit, exact evidence and source '

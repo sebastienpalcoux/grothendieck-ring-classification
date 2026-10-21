@@ -9,6 +9,7 @@ import hashlib
 import json
 import rank8_frontier as frontier
 import rank8_next as next_stage
+import rank8_research_20261022 as research_stage
 
 HISTORICAL_LEDGER = 'supplements/rank8/data/decisions.json'
 HISTORICAL_TABLES = 'supplements/rank8/data/rank8_tables.txt.gz'
@@ -33,6 +34,7 @@ def active(repo):
     return (Path(repo) / LEDGER).is_file()
 
 def ledger_path(repo):
+    if research_stage.active(repo): return research_stage.LEDGER
     if next_stage.active(repo): return next_stage.LEDGER
     if frontier.active(repo): return frontier.LEDGER
     return LEDGER if active(repo) else HISTORICAL_LEDGER
@@ -42,16 +44,19 @@ def model_path(repo):
     return MODELS if active(repo) else HISTORICAL_MODELS
 
 def archive_path(repo):
+    if research_stage.active(repo): return research_stage.ARCHIVE
     if next_stage.active(repo): return next_stage.ARCHIVE
     if frontier.active(repo): return frontier.ARCHIVE
     return ARCHIVE if active(repo) else HISTORICAL_ARCHIVE
 
 def current_date(repo):
     from rank7_publication import PUBLICATION_DATE as previous
+    if research_stage.active(repo): return research_stage.PUBLICATION_DATE
     return PUBLICATION_DATE if active(repo) else previous
 
 def current_report(repo):
     from rank7_publication import STATUS_REPORT as previous
+    if research_stage.active(repo): return research_stage.STATUS_REPORT
     return STATUS_REPORT if active(repo) else previous
 
 def historical_sources(repo):
@@ -86,6 +91,7 @@ def extension(repo):
     historical_sources(repo)
     continuation = frontier.validate_ledger(repo) if frontier.active(repo) else None
     latest = next_stage.validate_ledger(repo) if next_stage.active(repo) else None
+    research = research_stage.validate_ledger(repo) if research_stage.active(repo) else None
     path = Path(repo) / ledger_path(repo)
     records = json.loads(path.read_text())
     rows = [r for r in records if r['multiplicity'] == 3]
@@ -94,7 +100,7 @@ def extension(repo):
     counts = Counter(r['status'] for r in rows)
     if set(counts)-({'excluded','unresolved'}|REALIZED_STATUSES):
         raise ValueError('Unknown rank-eight extension status')
-    return {'date':PUBLICATION_DATE,'rank':8,'multiplicity':3,'rings':len(rows),
+    return {'date':current_date(repo),'rank':8,'multiplicity':3,'rings':len(rows),
             'excluded':counts['excluded'],'realized':sum(counts[s] for s in REALIZED_STATUSES),
             'unitarily_realized':counts['unitarily_realized'],'pseudo_unitarily_realized':counts['pseudo_unitarily_realized'],
             'unresolved':counts['unresolved'],
@@ -104,10 +110,11 @@ def extension(repo):
             'ledger':ledger_path(repo),'ledger_sha256':hashlib.sha256(path.read_bytes()).hexdigest(),
             'historical_ledger':HISTORICAL_LEDGER,'historical_ledger_sha256':HISTORICAL_HASHES[HISTORICAL_LEDGER],
             'source':TABLES,'source_sha256':hashlib.sha256((Path(repo)/TABLES).read_bytes()).hexdigest(),
-            'evidence':next_stage.EVIDENCE if latest else frontier.EVIDENCE if continuation else EVIDENCE,
+            'evidence':research_stage.EVIDENCE if research else next_stage.EVIDENCE if latest else frontier.EVIDENCE if continuation else EVIDENCE,
             'baseline_evidence':EVIDENCE, 'frontier':continuation,
             'next':latest,
-            'attempts_source':next_stage.AUDIT if latest else (frontier.EVIDENCE+'/structural_models/per_ring_research_audit.json'
+            'research':research,
+            'attempts_source':research_stage.AUDIT if research else next_stage.AUDIT if latest else (frontier.EVIDENCE+'/structural_models/per_ring_research_audit.json'
                                if continuation else EVIDENCE+'/pipeline/residual_attempts.json')}
 
 def summary(repo):

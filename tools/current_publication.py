@@ -40,7 +40,7 @@ def document_paths(repo):
 def validate_documents(repo, check_web=False):
     repo = Path(repo)
     revision = json.loads((repo / DOCUMENT_REVISION).read_text())
-    need(revision['schema'] == 'current-document-revision/v1' and revision['date'] in ('2026-10-17', '2026-10-19', '2026-10-20', '2026-10-21'),
+    need(revision['schema'] == 'current-document-revision/v1' and revision['date'] in ('2026-10-17', '2026-10-19', '2026-10-20', '2026-10-21', '2026-10-22'),
          'Current document revision identity')
     from rank7_publication import remaining_ids, extension
     need(revision['remaining_ids'] == remaining_ids(repo)
