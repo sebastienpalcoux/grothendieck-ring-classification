@@ -1,0 +1,56 @@
+\subsection{Integer central restriction and cubic constraints}
+\begin{proposition}[Integer central necessary system]
+Let $\mathcal C$ be pseudo-unitary with commutative Grothendieck ring,
+$D=\operatorname{FPdim}(\mathcal C)$, characters $\chi_E$, and formal
+codegrees $f_E$. Put $\beta_E=D/f_E$, and let $A_E$ denote the distinguished
+simple of $Z(\mathcal C)$ belonging to $E$. A complete finite restriction
+column domain gives a finite system of integer equations with bounded
+nonnegative integer variables that includes restriction Gram identities,
+distinguished $S$-symmetry, duality, and
+\[
+ N_{A_E,A_F}^{A_G}
+ =\sum_Z\frac{\beta_E\beta_F\beta_{G^*}
+ \chi_E(FZ)\chi_F(FZ)\chi_{G^*}(FZ)}{D^2\operatorname{FPdim}(Z)}.
+\]
+Every categorification supplies an integer solution of this system.
+\end{proposition}
+\begin{proof}
+By \cite[Lemma~4.3 and Corollary~4.5]{DeshpandeCenter},
+$S_{A_E,Z}=\beta_E\chi_E(FZ)$ in the unnormalized modular convention.
+The displayed identity is the Verlinde formula for the center of dimension
+$D^2$. Introduce a nonnegative integer selection variable for each allowed
+restriction of each distinguished simple, with sum one for each character.
+The tensor unit is fixed separately; its character is located by equality
+with the positive dimension character. High variables count actual central
+simples per complete restriction-duality orbit. Gram, modular symmetry and
+low-duality equations are linear in these variables. Expanding the displayed
+formula in the full character field makes every nonconstant coordinate zero
+and its constant coordinate a nonnegative integer auxiliary variable.
+Diagonal Gram bounds and the sum of positive constant contributions give
+finite upper bounds. Clearing denominators produces the stated system.
+No integrality is imposed on relative twist-trace weights.
+\end{proof}
+The eigenvalues $\beta_E\chi_E(FZ)/\operatorname{FPdim}(Z)$ of the integer
+fusion matrix of $A_E$ also have equal multiplicities throughout each full
+Galois orbit. These yield further exact linear equations. Integer interval
+and gcd propagation are necessary tests. A covector annihilating all columns
+modulo an integer $m>1$, but not the right-hand side, certifies nonmembership
+in the column lattice; rational annihilators are checked in the same manner.
+Signed integer lattice membership alone is weaker than a nonnegative
+bounded solution. Numerical optimization only proposes vectors, which are
+checked against every exact original equation and bound. Any negative
+pseudo-unitary result still requires a complete signed and dimension-character
+argument before it is promoted to a general-complex exclusion.
+The actual center of $\mathrm{Fib}\boxtimes\mathrm{Vec}_{C_4}$ provides a
+64-simple positive integer control with complex character values.
+The dimension identity further gives the exact bound
+\[
+ N_{A_E,A_F}^{A_G}\leq
+ \left\lfloor\frac{\beta_E\beta_F}{\beta_G}\right\rfloor.
+\]
+If a candidate eigenvalue has a Galois conjugate absent from the complete
+remaining domain, its nonnegative multiplicity is zero; this rule may be
+iterated, retaining the fixed constituents. Row content division, exact
+proportional-row identification, and zero-row deletion preserve the integer
+solution set. Their signed row scales also lift any compact-system
+annihilator back to a covector checked on every original column.

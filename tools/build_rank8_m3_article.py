@@ -196,6 +196,7 @@ identities and reconciliation without replaying the mathematics.
             proof_files.append('global_induction/labeled_modular_theorem.tex')
         if 'R8_3_439' in accepted_ids:proof_files.append('r439_centerless_rank5/method.tex')
         if 'R8_3_567' in accepted_ids:proof_files.append('r567_centerless_integer/method.tex')
+        if 'R8_3_455' in accepted_ids:proof_files.append('r455_center_integer/method.tex')
         if 'R8_3_903' in accepted_ids:proof_files.append('global_induction/sts_903_application.tex')
         if 'R8_3_1615' in accepted_ids:proof_files.append('global_induction/sts_1615_application.tex')
         if 'R8_3_1617' in accepted_ids:proof_files.append('global_induction/sts_1617_application.tex')

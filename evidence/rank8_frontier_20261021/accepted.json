@@ -35,6 +35,23 @@
       }
     },
     {
+      "id": "R8_3_455",
+      "tensor_sha256": "358b5323c54c66e80684b34dbe39d7bff44c5fe227bb8fb188794a0a9a722d88",
+      "status": "excluded",
+      "certificate": {
+        "kind": "complete_integer_central_cubic_monodromy_correlated_rotation_STS_obstruction",
+        "scope": "general_complex_fusion_category",
+        "evidence": "evidence/rank8_frontier_20261021/r455_center_integer/results.json",
+        "proof": "evidence/rank8_frontier_20261021/r455_center_integer/PROOF.md",
+        "verifiers": [
+          "evidence/rank8_frontier_20261021/noncommutative_followup/additional_scope_gates.py",
+          "evidence/rank8_frontier_20261021/r455_center_integer/verify_all.py",
+          "evidence/rank8_frontier_20261021/r455_review/verify_direct.py",
+          "evidence/rank8_frontier_20261021/review/verify_r455_trace_sts.py"
+        ]
+      }
+    },
+    {
       "id": "R8_3_567",
       "tensor_sha256": "0efab5b3d7571872f46dd6ccc95c4b228123b252062d758318ee51834288ef4d",
       "status": "excluded",
@@ -227,6 +244,21 @@
         "verifiers": [
           "evidence/rank8_frontier_20261021/global_induction/verify_accepted_complete.py",
           "evidence/rank8_frontier_20261021/r1615_review/verify_direct.py"
+        ]
+      }
+    },
+    {
+      "id": "R8_3_1617",
+      "tensor_sha256": "1b6d7494a459fc18c64a5b94a3768d8cd35b86598091ef3c25656bfd4e3445f0",
+      "status": "excluded",
+      "certificate": {
+        "kind": "complete_character_labeled_modular_STS_signed_induction",
+        "scope": "general_complex_fusion_category",
+        "evidence": "evidence/rank8_frontier_20261021/global_induction/complete_results/R8_3_1617_sts_frame_h4.json",
+        "proof": "evidence/rank8_frontier_20261021/quadratic/STS_1617_REVIEW.md",
+        "verifiers": [
+          "evidence/rank8_frontier_20261021/global_induction/verify_accepted_complete.py",
+          "evidence/rank8_frontier_20261021/quadratic/review_sts_1617.py"
         ]
       }
     },

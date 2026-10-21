@@ -14,21 +14,18 @@ IDS = [65,436,439,455,567,721,731,901,903,921,925,926,928,941,982,985,
 SCREENING_FOCUS = {
 65:'Free C4 generalized-near-group structure; complete rank-two based-module necessary data and connected-algebra underlying-object necessary filters; all nontrivial group-equivariantizations excluded; full character-field and CM-real STS central constraints and specified unbounded model families tested.',
 455:'Haagerup neutral and TY bridge; complete strict Evans-Gannon Fourier obstruction with explicit abstract-to-strict gap; connected-algebra underlying-object necessary filters, general Galois-PU reduction, central data and specified unbounded model-family filters tested.',
-567:'Complete C3 Fourier necessary representations and Morita fusion tensor; forced nontrivial S3 pointed C2 restriction obstructs full-S3 algebra; complete connected-algebra underlying-object necessary filters and central constraints; actual crossed and all-level SU(2)/adjoint construction families excluded.',
 721:'All six known Asaeda-Haagerup Morita categories compared; all integer-scaled near-group sources and all-level SU(2)/adjoint families excluded; complete integer central Gram domain, rotation/STS/cubic/forgetful constraints and connected-algebra underlying-object necessary filters tested.',
 928:'General Galois-PU reduction, quaternionic rational block, pointed cocycle constraints, full central induction/rotation/STS data, complete connected-algebra underlying-object necessary filters, all-level SU(2)/adjoint products and specified unbounded near-group families tested.',
 941:'General Galois-PU reduction, split rational block and pointed algebra route, central induction/rotation/STS data, complete connected-algebra underlying-object necessary filters, all-level SU(2)/adjoint products and specified unbounded near-group families tested; Morita coherence remains open.',
 982:'Complete connected-algebra underlying-object necessary filters and labeled central-induction/STS constraints, together with all-level SU(2)/adjoint quantum-group products and unbounded generalized-near-group parameter families tested.',
 1154:'General Galois-PU reduction; all 14,211 integer central Gram patterns filtered to 1,238 cubic/spectral survivors and 1,230 exact joint rotation/STS survivors; complete connected-algebra underlying-object necessary filters and specified unbounded model families tested.',
-1617:'Complete connected-algebra underlying-object necessary filters, full labeled central-induction constraints and repeated exact known/new exclusions, plus all-level SU(2)/adjoint quantum-group products and unbounded generalized-near-group family tests.',
-1660:'Complete connected-algebra underlying-object necessary filters, full labeled central-induction constraints and repeated exact known/new exclusions, plus all-level SU(2)/adjoint quantum-group products and unbounded generalized-near-group family tests.',
-1661:'Complete connected-algebra underlying-object necessary filters, full labeled central-induction constraints and repeated exact known/new exclusions, plus all-level SU(2)/adjoint quantum-group products and unbounded generalized-near-group family tests.',
 1768:'Complete rank-two based-module necessary data and connected-algebra underlying-object necessary filters; every proper subring, grading and nontrivial finite-group equivariantization tested; exact global central constraints and specified unbounded construction families tested.',
 1795:'Complete rank-two based-module necessary data and connected-algebra underlying-object necessary filters; every proper subring, grading and nontrivial finite-group equivariantization tested; exact global central constraints and specified unbounded construction families tested.',
 3472:'Complete rank-two based-module necessary data and connected-algebra underlying-object necessary filters; every proper subring, grading and nontrivial finite-group equivariantization tested; full character-field central constraints and specified unbounded construction families tested.'}
 SCREENING_DEFINITION = ('Extensively investigated exotic candidate means that the ring survived the documented, case-specific campaign of known and newly developed exclusion tests and explicit model searches, including complete finite domains and specified unbounded construction families. It proves neither existence of a fusion category nor novelty of a future realization. Each case lists exactly what was exhausted, what survived and the remaining hypotheses.')
 ACTIVE_STATES={'running','queued','discovery_in_progress','constructing_complete_domain',
-               'solving_complete_sparse_cone','pseudo_certificate_verified'}
+               'solving_complete_sparse_cone','pseudo_certificate_verified','pending',
+               'hermite_running','integer_domain_building','awaiting_independent_review'}
 
 
 def completed_queue():
@@ -49,6 +46,32 @@ def completed_queue():
             require(r.get('optimized_exact_replay')=='PASS'and r.get('replay_exit_code')==0,
                     'completed exact queue result lacks successful optimized replay')
     return path,queue
+
+
+def completed_final_domains():
+    """Require every explicitly planned late finite campaign to be closed."""
+    paths=[]
+    path=FRONTIER/'commutative_integer/final_campaign.json'
+    require(path.is_file(),'the late five-case integer campaign ledger is missing')
+    ledger=json.loads(path.read_text());paths.append(path)
+    require(ledger.get('status')=='all_planned_integer_attempts_finished',
+            'the late five-case integer campaign remains active')
+    expected={f'R8_3_{i}'for i in(65,982,1768,1795,3472)}
+    require(set(ledger.get('planned_ids',[]))==expected and
+            {r['id']for r in ledger.get('records',[])}==expected,
+            'the late integer campaign does not cover its five planned cases')
+    require(all(r.get('status')and r['status']not in ACTIVE_STATES for r in ledger['records']),
+            'a late integer attempt is still active')
+    for relative,count in [('quartic_integer_center/r941_rotation.json',343),
+                           ('r928_semion_rotation/results.json',15),
+                           ('r455_center_integer/joint_rotation.json',48)]:
+        path=FRONTIER/relative;require(path.is_file(),f'planned finite center test missing: {relative}')
+        data=json.loads(path.read_text());paths.append(path)
+        require(len(data.get('cases',[]))==count,'planned late finite center domain incomplete')
+        require(all(case.get('decision',{}).get('status')in
+                    ('exact_feasible_relaxation','exact_infeasible_relaxation')for case in data['cases']),
+                'a planned late finite center case lacks an exact terminal decision')
+    return paths
 
 
 def require(test, message):
@@ -508,6 +531,10 @@ def record(use_screening=True):
         queue_path,_=completed_queue();reference(queue_path)
         require(assessment['completion_queue_sha256']==digest(queue_path),
                 'completion queue differs from the explicit screening assessment')
+        final_paths=completed_final_domains()
+        final_bindings={reference(p):digest(p)for p in final_paths}
+        require(assessment.get('late_campaign_dependencies')==final_bindings,
+                'a planned late finite campaign is unfinished or changed after screening')
         remaining={ident for ident,row in rows.items()if row['general_status']=='unresolved'}
         require({r['id']for r in assessment['records']}==remaining,'screening decision predates the current accepted ledger; explicitly refresh it')
         require(assessment['definition']==SCREENING_DEFINITION,'screening definition changed')
@@ -565,8 +592,9 @@ def main():
     actual=record(use_screening=not args.mark_screening_complete)
     if args.mark_screening_complete:
         queue_path,_=completed_queue()
+        final_paths=completed_final_domains()
         running=[(row['id'],attempt['domain'])for row in actual['rows']for attempt in row['new_attempts']
-                 if attempt['outcome']in ACTIVE_STATES]
+                 if attempt['outcome']in ACTIVE_STATES or attempt['outcome']=='proposed_general_exclusion_pending_review']
         require(not running,'planned exact research is still running; finish or explicitly close its receipt before final screening')
         items=[]
         for row in actual['rows']:
@@ -578,7 +606,9 @@ def main():
         (HERE/'screening_completion.json').write_text(json.dumps({'kind':'explicit_final_extensive_screening_assessment',
             'definition':SCREENING_DEFINITION,
             'completion_queue_path':str(queue_path.relative_to(REPO)),
-            'completion_queue_sha256':digest(queue_path),'records':items},indent=2)+'\n')
+            'completion_queue_sha256':digest(queue_path),
+            'late_campaign_dependencies':{str(p.relative_to(REPO)):digest(p)for p in final_paths},
+            'records':items},indent=2)+'\n')
         actual=record()
     jp=HERE/'per_ring_research_audit.json'
     mp=HERE/'per_ring_research_audit.md'

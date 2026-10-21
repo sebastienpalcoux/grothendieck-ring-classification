@@ -1,0 +1,2277 @@
+{
+  "kind": "exact_FP_fusion_bound_control",
+  "model": "Fibonacci tensor Vec(C4)",
+  "tensor_sha256": "156ba9f00aee5b9b9242821960bb2f5b5faeac17d8480f88064ec905dfff3d06",
+  "actual_integer_center_witness_retained": true,
+  "metadata": {
+    "kind": "commutative_integer_with_exact_FP_fusion_bounds",
+    "tensor_sha256": "156ba9f00aee5b9b9242821960bb2f5b5faeac17d8480f88064ec905dfff3d06",
+    "FP_character": 0,
+    "dual_characters": [
+      0,
+      4,
+      2,
+      6,
+      1,
+      5,
+      3,
+      7
+    ],
+    "frame_index": null,
+    "field_degree": 4,
+    "field_polynomial": [
+      "1",
+      "0",
+      "-8",
+      "0",
+      "36"
+    ],
+    "rows": 913,
+    "variables": 223,
+    "low_variables": 7,
+    "high_variables": 20,
+    "fusion_variables": 196,
+    "columns_sha256": "9218cbb3d6715b2c0a310dbcf46991acf509f81035d38d08c330a166710541e0",
+    "rhs_sha256": "a324bd62f5eacd8f668a3e83426fa26e673afddccca228d52d4a36a16700f1ed",
+    "bounds_sha256": "4a581c087bad305ee50725c4264fabfcd1194c21696b631d0411434f823781be",
+    "row_labels_sha256": "7b89b0b6a582777ce6dfe20212ebe0fc017d73ccb6f3efccab80f5fff9742aba",
+    "column_labels_sha256": "1ebf848e27a1cc171a9dff749b098da09c02ce8d46454a46cb053d1c51fef1db",
+    "source_metadata": {
+      "kind": "commutative_integer_Gram_S_cubic",
+      "tensor_sha256": "156ba9f00aee5b9b9242821960bb2f5b5faeac17d8480f88064ec905dfff3d06",
+      "FP_character": 0,
+      "dual_characters": [
+        0,
+        4,
+        2,
+        6,
+        1,
+        5,
+        3,
+        7
+      ],
+      "frame_index": null,
+      "field_degree": 4,
+      "field_polynomial": [
+        "1",
+        "0",
+        "-8",
+        "0",
+        "36"
+      ],
+      "rows": 913,
+      "variables": 223,
+      "low_variables": 7,
+      "high_variables": 20,
+      "fusion_variables": 196,
+      "columns_sha256": "9218cbb3d6715b2c0a310dbcf46991acf509f81035d38d08c330a166710541e0",
+      "rhs_sha256": "a324bd62f5eacd8f668a3e83426fa26e673afddccca228d52d4a36a16700f1ed",
+      "bounds_sha256": "79ea0b241ff3e6d5ebea68d3d0a28abb2530daafc6737cd4af0014b53716d74c",
+      "row_labels_sha256": "7b89b0b6a582777ce6dfe20212ebe0fc017d73ccb6f3efccab80f5fff9742aba",
+      "column_labels_sha256": "1ebf848e27a1cc171a9dff749b098da09c02ce8d46454a46cb053d1c51fef1db"
+    },
+    "FP_fusion_bounds": {
+      "kind": "exact_distinguished_FP_fusion_upper_bounds",
+      "FP_character": 0,
+      "FP_field_polynomial": [
+        "1",
+        "-136",
+        "-13376"
+      ],
+      "distinguished_dimensions": [
+        [
+          "1",
+          "0"
+        ],
+        [
+          "14/15",
+          "1/120"
+        ],
+        [
+          "14/15",
+          "1/120"
+        ],
+        [
+          "1",
+          "0"
+        ],
+        [
+          "14/15",
+          "1/120"
+        ],
+        [
+          "1",
+          "0"
+        ],
+        [
+          "1",
+          "0"
+        ],
+        [
+          "14/15",
+          "1/120"
+        ]
+      ],
+      "tightened_variables": 48,
+      "records": [
+        {
+          "column": 27,
+          "triple": [
+            1,
+            1,
+            1
+          ],
+          "old_upper": 1,
+          "exact_FP_upper": 2,
+          "new_upper": 1
+        },
+        {
+          "column": 28,
+          "triple": [
+            1,
+            1,
+            2
+          ],
+          "old_upper": 4,
+          "exact_FP_upper": 2,
+          "new_upper": 2
+        },
+        {
+          "column": 29,
+          "triple": [
+            1,
+            1,
+            3
+          ],
+          "old_upper": 0,
+          "exact_FP_upper": 6,
+          "new_upper": 0
+        },
+        {
+          "column": 30,
+          "triple": [
+            1,
+            1,
+            4
+          ],
+          "old_upper": 1,
+          "exact_FP_upper": 2,
+          "new_upper": 1
+        },
+        {
+          "column": 31,
+          "triple": [
+            1,
+            1,
+            5
+          ],
+          "old_upper": 4,
+          "exact_FP_upper": 6,
+          "new_upper": 4
+        },
+        {
+          "column": 32,
+          "triple": [
+            1,
+            1,
+            6
+          ],
+          "old_upper": 0,
+          "exact_FP_upper": 6,
+          "new_upper": 0
+        },
+        {
+          "column": 33,
+          "triple": [
+            1,
+            1,
+            7
+          ],
+          "old_upper": 4,
+          "exact_FP_upper": 2,
+          "new_upper": 2
+        },
+        {
+          "column": 34,
+          "triple": [
+            1,
+            2,
+            1
+          ],
+          "old_upper": 4,
+          "exact_FP_upper": 2,
+          "new_upper": 2
+        },
+        {
+          "column": 35,
+          "triple": [
+            1,
+            2,
+            2
+          ],
+          "old_upper": 1,
+          "exact_FP_upper": 2,
+          "new_upper": 1
+        },
+        {
+          "column": 36,
+          "triple": [
+            1,
+            2,
+            3
+          ],
+          "old_upper": 1,
+          "exact_FP_upper": 6,
+          "new_upper": 1
+        },
+        {
+          "column": 37,
+          "triple": [
+            1,
+            2,
+            4
+          ],
+          "old_upper": 4,
+          "exact_FP_upper": 2,
+          "new_upper": 2
+        },
+        {
+          "column": 38,
+          "triple": [
+            1,
+            2,
+            5
+          ],
+          "old_upper": 0,
+          "exact_FP_upper": 6,
+          "new_upper": 0
+        },
+        {
+          "column": 39,
+          "triple": [
+            1,
+            2,
+            6
+          ],
+          "old_upper": 4,
+          "exact_FP_upper": 6,
+          "new_upper": 4
+        },
+        {
+          "column": 40,
+          "triple": [
+            1,
+            2,
+            7
+          ],
+          "old_upper": 1,
+          "exact_FP_upper": 2,
+          "new_upper": 1
+        },
+        {
+          "column": 41,
+          "triple": [
+            1,
+            3,
+            1
+          ],
+          "old_upper": 0,
+          "exact_FP_upper": 1,
+          "new_upper": 0
+        },
+        {
+          "column": 42,
+          "triple": [
+            1,
+            3,
+            2
+          ],
+          "old_upper": 4,
+          "exact_FP_upper": 1,
+          "new_upper": 1
+        },
+        {
+          "column": 43,
+          "triple": [
+            1,
+            3,
+            3
+          ],
+          "old_upper": 0,
+          "exact_FP_upper": 2,
+          "new_upper": 0
+        },
+        {
+          "column": 44,
+          "triple": [
+            1,
+            3,
+            4
+          ],
+          "old_upper": 0,
+          "exact_FP_upper": 1,
+          "new_upper": 0
+        },
+        {
+          "column": 45,
+          "triple": [
+            1,
+            3,
+            5
+          ],
+          "old_upper": 1,
+          "exact_FP_upper": 2,
+          "new_upper": 1
+        },
+        {
+          "column": 46,
+          "triple": [
+            1,
+            3,
+            6
+          ],
+          "old_upper": 0,
+          "exact_FP_upper": 2,
+          "new_upper": 0
+        },
+        {
+          "column": 47,
+          "triple": [
+            1,
+            3,
+            7
+          ],
+          "old_upper": 1,
+          "exact_FP_upper": 1,
+          "new_upper": 1
+        },
+        {
+          "column": 48,
+          "triple": [
+            1,
+            4,
+            1
+          ],
+          "old_upper": 1,
+          "exact_FP_upper": 2,
+          "new_upper": 1
+        },
+        {
+          "column": 49,
+          "triple": [
+            1,
+            4,
+            2
+          ],
+          "old_upper": 4,
+          "exact_FP_upper": 2,
+          "new_upper": 2
+        },
+        {
+          "column": 50,
+          "triple": [
+            1,
+            4,
+            3
+          ],
+          "old_upper": 0,
+          "exact_FP_upper": 6,
+          "new_upper": 0
+        },
+        {
+          "column": 51,
+          "triple": [
+            1,
+            4,
+            4
+          ],
+          "old_upper": 1,
+          "exact_FP_upper": 2,
+          "new_upper": 1
+        },
+        {
+          "column": 52,
+          "triple": [
+            1,
+            4,
+            5
+          ],
+          "old_upper": 1,
+          "exact_FP_upper": 6,
+          "new_upper": 1
+        },
+        {
+          "column": 53,
+          "triple": [
+            1,
+            4,
+            6
+          ],
+          "old_upper": 0,
+          "exact_FP_upper": 6,
+          "new_upper": 0
+        },
+        {
+          "column": 54,
+          "triple": [
+            1,
+            4,
+            7
+          ],
+          "old_upper": 4,
+          "exact_FP_upper": 2,
+          "new_upper": 2
+        },
+        {
+          "column": 55,
+          "triple": [
+            1,
+            5,
+            1
+          ],
+          "old_upper": 1,
+          "exact_FP_upper": 1,
+          "new_upper": 1
+        },
+        {
+          "column": 56,
+          "triple": [
+            1,
+            5,
+            2
+          ],
+          "old_upper": 0,
+          "exact_FP_upper": 1,
+          "new_upper": 0
+        },
+        {
+          "column": 57,
+          "triple": [
+            1,
+            5,
+            3
+          ],
+          "old_upper": 1,
+          "exact_FP_upper": 2,
+          "new_upper": 1
+        },
+        {
+          "column": 58,
+          "triple": [
+            1,
+            5,
+            4
+          ],
+          "old_upper": 4,
+          "exact_FP_upper": 1,
+          "new_upper": 1
+        },
+        {
+          "column": 59,
+          "triple": [
+            1,
+            5,
+            5
+          ],
+          "old_upper": 0,
+          "exact_FP_upper": 2,
+          "new_upper": 0
+        },
+        {
+          "column": 60,
+          "triple": [
+            1,
+            5,
+            6
+          ],
+          "old_upper": 1,
+          "exact_FP_upper": 2,
+          "new_upper": 1
+        },
+        {
+          "column": 61,
+          "triple": [
+            1,
+            5,
+            7
+          ],
+          "old_upper": 0,
+          "exact_FP_upper": 1,
+          "new_upper": 0
+        },
+        {
+          "column": 62,
+          "triple": [
+            1,
+            6,
+            1
+          ],
+          "old_upper": 0,
+          "exact_FP_upper": 1,
+          "new_upper": 0
+        },
+        {
+          "column": 63,
+          "triple": [
+            1,
+            6,
+            2
+          ],
+          "old_upper": 1,
+          "exact_FP_upper": 1,
+          "new_upper": 1
+        },
+        {
+          "column": 64,
+          "triple": [
+            1,
+            6,
+            3
+          ],
+          "old_upper": 0,
+          "exact_FP_upper": 2,
+          "new_upper": 0
+        },
+        {
+          "column": 65,
+          "triple": [
+            1,
+            6,
+            4
+          ],
+          "old_upper": 0,
+          "exact_FP_upper": 1,
+          "new_upper": 0
+        },
+        {
+          "column": 66,
+          "triple": [
+            1,
+            6,
+            5
+          ],
+          "old_upper": 1,
+          "exact_FP_upper": 2,
+          "new_upper": 1
+        },
+        {
+          "column": 67,
+          "triple": [
+            1,
+            6,
+            6
+          ],
+          "old_upper": 0,
+          "exact_FP_upper": 2,
+          "new_upper": 0
+        },
+        {
+          "column": 68,
+          "triple": [
+            1,
+            6,
+            7
+          ],
+          "old_upper": 4,
+          "exact_FP_upper": 1,
+          "new_upper": 1
+        },
+        {
+          "column": 69,
+          "triple": [
+            1,
+            7,
+            1
+          ],
+          "old_upper": 4,
+          "exact_FP_upper": 2,
+          "new_upper": 2
+        },
+        {
+          "column": 70,
+          "triple": [
+            1,
+            7,
+            2
+          ],
+          "old_upper": 1,
+          "exact_FP_upper": 2,
+          "new_upper": 1
+        },
+        {
+          "column": 71,
+          "triple": [
+            1,
+            7,
+            3
+          ],
+          "old_upper": 4,
+          "exact_FP_upper": 6,
+          "new_upper": 4
+        },
+        {
+          "column": 72,
+          "triple": [
+            1,
+            7,
+            4
+          ],
+          "old_upper": 4,
+          "exact_FP_upper": 2,
+          "new_upper": 2
+        },
+        {
+          "column": 73,
+          "triple": [
+            1,
+            7,
+            5
+          ],
+          "old_upper": 0,
+          "exact_FP_upper": 6,
+          "new_upper": 0
+        },
+        {
+          "column": 74,
+          "triple": [
+            1,
+            7,
+            6
+          ],
+          "old_upper": 1,
+          "exact_FP_upper": 6,
+          "new_upper": 1
+        },
+        {
+          "column": 75,
+          "triple": [
+            1,
+            7,
+            7
+          ],
+          "old_upper": 1,
+          "exact_FP_upper": 2,
+          "new_upper": 1
+        },
+        {
+          "column": 76,
+          "triple": [
+            2,
+            2,
+            1
+          ],
+          "old_upper": 1,
+          "exact_FP_upper": 2,
+          "new_upper": 1
+        },
+        {
+          "column": 77,
+          "triple": [
+            2,
+            2,
+            2
+          ],
+          "old_upper": 4,
+          "exact_FP_upper": 2,
+          "new_upper": 2
+        },
+        {
+          "column": 78,
+          "triple": [
+            2,
+            2,
+            3
+          ],
+          "old_upper": 0,
+          "exact_FP_upper": 6,
+          "new_upper": 0
+        },
+        {
+          "column": 79,
+          "triple": [
+            2,
+            2,
+            4
+          ],
+          "old_upper": 1,
+          "exact_FP_upper": 2,
+          "new_upper": 1
+        },
+        {
+          "column": 80,
+          "triple": [
+            2,
+            2,
+            5
+          ],
+          "old_upper": 1,
+          "exact_FP_upper": 6,
+          "new_upper": 1
+        },
+        {
+          "column": 81,
+          "triple": [
+            2,
+            2,
+            6
+          ],
+          "old_upper": 0,
+          "exact_FP_upper": 6,
+          "new_upper": 0
+        },
+        {
+          "column": 82,
+          "triple": [
+            2,
+            2,
+            7
+          ],
+          "old_upper": 4,
+          "exact_FP_upper": 2,
+          "new_upper": 2
+        },
+        {
+          "column": 83,
+          "triple": [
+            2,
+            3,
+            1
+          ],
+          "old_upper": 1,
+          "exact_FP_upper": 1,
+          "new_upper": 1
+        },
+        {
+          "column": 84,
+          "triple": [
+            2,
+            3,
+            2
+          ],
+          "old_upper": 0,
+          "exact_FP_upper": 1,
+          "new_upper": 0
+        },
+        {
+          "column": 85,
+          "triple": [
+            2,
+            3,
+            3
+          ],
+          "old_upper": 1,
+          "exact_FP_upper": 2,
+          "new_upper": 1
+        },
+        {
+          "column": 86,
+          "triple": [
+            2,
+            3,
+            4
+          ],
+          "old_upper": 4,
+          "exact_FP_upper": 1,
+          "new_upper": 1
+        },
+        {
+          "column": 87,
+          "triple": [
+            2,
+            3,
+            5
+          ],
+          "old_upper": 0,
+          "exact_FP_upper": 2,
+          "new_upper": 0
+        },
+        {
+          "column": 88,
+          "triple": [
+            2,
+            3,
+            6
+          ],
+          "old_upper": 1,
+          "exact_FP_upper": 2,
+          "new_upper": 1
+        },
+        {
+          "column": 89,
+          "triple": [
+            2,
+            3,
+            7
+          ],
+          "old_upper": 0,
+          "exact_FP_upper": 1,
+          "new_upper": 0
+        },
+        {
+          "column": 90,
+          "triple": [
+            2,
+            4,
+            1
+          ],
+          "old_upper": 4,
+          "exact_FP_upper": 2,
+          "new_upper": 2
+        },
+        {
+          "column": 91,
+          "triple": [
+            2,
+            4,
+            2
+          ],
+          "old_upper": 1,
+          "exact_FP_upper": 2,
+          "new_upper": 1
+        },
+        {
+          "column": 92,
+          "triple": [
+            2,
+            4,
+            3
+          ],
+          "old_upper": 4,
+          "exact_FP_upper": 6,
+          "new_upper": 4
+        },
+        {
+          "column": 93,
+          "triple": [
+            2,
+            4,
+            4
+          ],
+          "old_upper": 4,
+          "exact_FP_upper": 2,
+          "new_upper": 2
+        },
+        {
+          "column": 94,
+          "triple": [
+            2,
+            4,
+            5
+          ],
+          "old_upper": 0,
+          "exact_FP_upper": 6,
+          "new_upper": 0
+        },
+        {
+          "column": 95,
+          "triple": [
+            2,
+            4,
+            6
+          ],
+          "old_upper": 1,
+          "exact_FP_upper": 6,
+          "new_upper": 1
+        },
+        {
+          "column": 96,
+          "triple": [
+            2,
+            4,
+            7
+          ],
+          "old_upper": 1,
+          "exact_FP_upper": 2,
+          "new_upper": 1
+        },
+        {
+          "column": 97,
+          "triple": [
+            2,
+            5,
+            1
+          ],
+          "old_upper": 0,
+          "exact_FP_upper": 1,
+          "new_upper": 0
+        },
+        {
+          "column": 98,
+          "triple": [
+            2,
+            5,
+            2
+          ],
+          "old_upper": 1,
+          "exact_FP_upper": 1,
+          "new_upper": 1
+        },
+        {
+          "column": 99,
+          "triple": [
+            2,
+            5,
+            3
+          ],
+          "old_upper": 0,
+          "exact_FP_upper": 2,
+          "new_upper": 0
+        },
+        {
+          "column": 100,
+          "triple": [
+            2,
+            5,
+            4
+          ],
+          "old_upper": 0,
+          "exact_FP_upper": 1,
+          "new_upper": 0
+        },
+        {
+          "column": 101,
+          "triple": [
+            2,
+            5,
+            5
+          ],
+          "old_upper": 1,
+          "exact_FP_upper": 2,
+          "new_upper": 1
+        },
+        {
+          "column": 102,
+          "triple": [
+            2,
+            5,
+            6
+          ],
+          "old_upper": 0,
+          "exact_FP_upper": 2,
+          "new_upper": 0
+        },
+        {
+          "column": 103,
+          "triple": [
+            2,
+            5,
+            7
+          ],
+          "old_upper": 4,
+          "exact_FP_upper": 1,
+          "new_upper": 1
+        },
+        {
+          "column": 104,
+          "triple": [
+            2,
+            6,
+            1
+          ],
+          "old_upper": 4,
+          "exact_FP_upper": 1,
+          "new_upper": 1
+        },
+        {
+          "column": 105,
+          "triple": [
+            2,
+            6,
+            2
+          ],
+          "old_upper": 0,
+          "exact_FP_upper": 1,
+          "new_upper": 0
+        },
+        {
+          "column": 106,
+          "triple": [
+            2,
+            6,
+            3
+          ],
+          "old_upper": 1,
+          "exact_FP_upper": 2,
+          "new_upper": 1
+        },
+        {
+          "column": 107,
+          "triple": [
+            2,
+            6,
+            4
+          ],
+          "old_upper": 1,
+          "exact_FP_upper": 1,
+          "new_upper": 1
+        },
+        {
+          "column": 108,
+          "triple": [
+            2,
+            6,
+            5
+          ],
+          "old_upper": 0,
+          "exact_FP_upper": 2,
+          "new_upper": 0
+        },
+        {
+          "column": 109,
+          "triple": [
+            2,
+            6,
+            6
+          ],
+          "old_upper": 1,
+          "exact_FP_upper": 2,
+          "new_upper": 1
+        },
+        {
+          "column": 110,
+          "triple": [
+            2,
+            6,
+            7
+          ],
+          "old_upper": 0,
+          "exact_FP_upper": 1,
+          "new_upper": 0
+        },
+        {
+          "column": 111,
+          "triple": [
+            2,
+            7,
+            1
+          ],
+          "old_upper": 1,
+          "exact_FP_upper": 2,
+          "new_upper": 1
+        },
+        {
+          "column": 112,
+          "triple": [
+            2,
+            7,
+            2
+          ],
+          "old_upper": 4,
+          "exact_FP_upper": 2,
+          "new_upper": 2
+        },
+        {
+          "column": 113,
+          "triple": [
+            2,
+            7,
+            3
+          ],
+          "old_upper": 0,
+          "exact_FP_upper": 6,
+          "new_upper": 0
+        },
+        {
+          "column": 114,
+          "triple": [
+            2,
+            7,
+            4
+          ],
+          "old_upper": 1,
+          "exact_FP_upper": 2,
+          "new_upper": 1
+        },
+        {
+          "column": 115,
+          "triple": [
+            2,
+            7,
+            5
+          ],
+          "old_upper": 4,
+          "exact_FP_upper": 6,
+          "new_upper": 4
+        },
+        {
+          "column": 116,
+          "triple": [
+            2,
+            7,
+            6
+          ],
+          "old_upper": 0,
+          "exact_FP_upper": 6,
+          "new_upper": 0
+        },
+        {
+          "column": 117,
+          "triple": [
+            2,
+            7,
+            7
+          ],
+          "old_upper": 4,
+          "exact_FP_upper": 2,
+          "new_upper": 2
+        },
+        {
+          "column": 118,
+          "triple": [
+            3,
+            3,
+            1
+          ],
+          "old_upper": 0,
+          "exact_FP_upper": 0,
+          "new_upper": 0
+        },
+        {
+          "column": 119,
+          "triple": [
+            3,
+            3,
+            2
+          ],
+          "old_upper": 1,
+          "exact_FP_upper": 0,
+          "new_upper": 0
+        },
+        {
+          "column": 120,
+          "triple": [
+            3,
+            3,
+            3
+          ],
+          "old_upper": 0,
+          "exact_FP_upper": 1,
+          "new_upper": 0
+        },
+        {
+          "column": 121,
+          "triple": [
+            3,
+            3,
+            4
+          ],
+          "old_upper": 0,
+          "exact_FP_upper": 0,
+          "new_upper": 0
+        },
+        {
+          "column": 122,
+          "triple": [
+            3,
+            3,
+            5
+          ],
+          "old_upper": 4,
+          "exact_FP_upper": 1,
+          "new_upper": 1
+        },
+        {
+          "column": 123,
+          "triple": [
+            3,
+            3,
+            6
+          ],
+          "old_upper": 0,
+          "exact_FP_upper": 1,
+          "new_upper": 0
+        },
+        {
+          "column": 124,
+          "triple": [
+            3,
+            3,
+            7
+          ],
+          "old_upper": 1,
+          "exact_FP_upper": 0,
+          "new_upper": 0
+        },
+        {
+          "column": 125,
+          "triple": [
+            3,
+            4,
+            1
+          ],
+          "old_upper": 0,
+          "exact_FP_upper": 1,
+          "new_upper": 0
+        },
+        {
+          "column": 126,
+          "triple": [
+            3,
+            4,
+            2
+          ],
+          "old_upper": 1,
+          "exact_FP_upper": 1,
+          "new_upper": 1
+        },
+        {
+          "column": 127,
+          "triple": [
+            3,
+            4,
+            3
+          ],
+          "old_upper": 0,
+          "exact_FP_upper": 2,
+          "new_upper": 0
+        },
+        {
+          "column": 128,
+          "triple": [
+            3,
+            4,
+            4
+          ],
+          "old_upper": 0,
+          "exact_FP_upper": 1,
+          "new_upper": 0
+        },
+        {
+          "column": 129,
+          "triple": [
+            3,
+            4,
+            5
+          ],
+          "old_upper": 1,
+          "exact_FP_upper": 2,
+          "new_upper": 1
+        },
+        {
+          "column": 130,
+          "triple": [
+            3,
+            4,
+            6
+          ],
+          "old_upper": 0,
+          "exact_FP_upper": 2,
+          "new_upper": 0
+        },
+        {
+          "column": 131,
+          "triple": [
+            3,
+            4,
+            7
+          ],
+          "old_upper": 4,
+          "exact_FP_upper": 1,
+          "new_upper": 1
+        },
+        {
+          "column": 132,
+          "triple": [
+            3,
+            5,
+            1
+          ],
+          "old_upper": 1,
+          "exact_FP_upper": 0,
+          "new_upper": 0
+        },
+        {
+          "column": 133,
+          "triple": [
+            3,
+            5,
+            2
+          ],
+          "old_upper": 0,
+          "exact_FP_upper": 0,
+          "new_upper": 0
+        },
+        {
+          "column": 134,
+          "triple": [
+            3,
+            5,
+            3
+          ],
+          "old_upper": 1,
+          "exact_FP_upper": 1,
+          "new_upper": 1
+        },
+        {
+          "column": 135,
+          "triple": [
+            3,
+            5,
+            4
+          ],
+          "old_upper": 1,
+          "exact_FP_upper": 0,
+          "new_upper": 0
+        },
+        {
+          "column": 136,
+          "triple": [
+            3,
+            5,
+            5
+          ],
+          "old_upper": 0,
+          "exact_FP_upper": 1,
+          "new_upper": 0
+        },
+        {
+          "column": 137,
+          "triple": [
+            3,
+            5,
+            6
+          ],
+          "old_upper": 4,
+          "exact_FP_upper": 1,
+          "new_upper": 1
+        },
+        {
+          "column": 138,
+          "triple": [
+            3,
+            5,
+            7
+          ],
+          "old_upper": 0,
+          "exact_FP_upper": 0,
+          "new_upper": 0
+        },
+        {
+          "column": 139,
+          "triple": [
+            3,
+            6,
+            1
+          ],
+          "old_upper": 0,
+          "exact_FP_upper": 0,
+          "new_upper": 0
+        },
+        {
+          "column": 140,
+          "triple": [
+            3,
+            6,
+            2
+          ],
+          "old_upper": 1,
+          "exact_FP_upper": 0,
+          "new_upper": 0
+        },
+        {
+          "column": 141,
+          "triple": [
+            3,
+            6,
+            3
+          ],
+          "old_upper": 0,
+          "exact_FP_upper": 1,
+          "new_upper": 0
+        },
+        {
+          "column": 142,
+          "triple": [
+            3,
+            6,
+            4
+          ],
+          "old_upper": 0,
+          "exact_FP_upper": 0,
+          "new_upper": 0
+        },
+        {
+          "column": 143,
+          "triple": [
+            3,
+            6,
+            5
+          ],
+          "old_upper": 1,
+          "exact_FP_upper": 1,
+          "new_upper": 1
+        },
+        {
+          "column": 144,
+          "triple": [
+            3,
+            6,
+            6
+          ],
+          "old_upper": 0,
+          "exact_FP_upper": 1,
+          "new_upper": 0
+        },
+        {
+          "column": 145,
+          "triple": [
+            3,
+            6,
+            7
+          ],
+          "old_upper": 1,
+          "exact_FP_upper": 0,
+          "new_upper": 0
+        },
+        {
+          "column": 146,
+          "triple": [
+            3,
+            7,
+            1
+          ],
+          "old_upper": 4,
+          "exact_FP_upper": 1,
+          "new_upper": 1
+        },
+        {
+          "column": 147,
+          "triple": [
+            3,
+            7,
+            2
+          ],
+          "old_upper": 0,
+          "exact_FP_upper": 1,
+          "new_upper": 0
+        },
+        {
+          "column": 148,
+          "triple": [
+            3,
+            7,
+            3
+          ],
+          "old_upper": 1,
+          "exact_FP_upper": 2,
+          "new_upper": 1
+        },
+        {
+          "column": 149,
+          "triple": [
+            3,
+            7,
+            4
+          ],
+          "old_upper": 1,
+          "exact_FP_upper": 1,
+          "new_upper": 1
+        },
+        {
+          "column": 150,
+          "triple": [
+            3,
+            7,
+            5
+          ],
+          "old_upper": 0,
+          "exact_FP_upper": 2,
+          "new_upper": 0
+        },
+        {
+          "column": 151,
+          "triple": [
+            3,
+            7,
+            6
+          ],
+          "old_upper": 1,
+          "exact_FP_upper": 2,
+          "new_upper": 1
+        },
+        {
+          "column": 152,
+          "triple": [
+            3,
+            7,
+            7
+          ],
+          "old_upper": 0,
+          "exact_FP_upper": 1,
+          "new_upper": 0
+        },
+        {
+          "column": 153,
+          "triple": [
+            4,
+            4,
+            1
+          ],
+          "old_upper": 1,
+          "exact_FP_upper": 2,
+          "new_upper": 1
+        },
+        {
+          "column": 154,
+          "triple": [
+            4,
+            4,
+            2
+          ],
+          "old_upper": 4,
+          "exact_FP_upper": 2,
+          "new_upper": 2
+        },
+        {
+          "column": 155,
+          "triple": [
+            4,
+            4,
+            3
+          ],
+          "old_upper": 0,
+          "exact_FP_upper": 6,
+          "new_upper": 0
+        },
+        {
+          "column": 156,
+          "triple": [
+            4,
+            4,
+            4
+          ],
+          "old_upper": 1,
+          "exact_FP_upper": 2,
+          "new_upper": 1
+        },
+        {
+          "column": 157,
+          "triple": [
+            4,
+            4,
+            5
+          ],
+          "old_upper": 4,
+          "exact_FP_upper": 6,
+          "new_upper": 4
+        },
+        {
+          "column": 158,
+          "triple": [
+            4,
+            4,
+            6
+          ],
+          "old_upper": 0,
+          "exact_FP_upper": 6,
+          "new_upper": 0
+        },
+        {
+          "column": 159,
+          "triple": [
+            4,
+            4,
+            7
+          ],
+          "old_upper": 4,
+          "exact_FP_upper": 2,
+          "new_upper": 2
+        },
+        {
+          "column": 160,
+          "triple": [
+            4,
+            5,
+            1
+          ],
+          "old_upper": 4,
+          "exact_FP_upper": 1,
+          "new_upper": 1
+        },
+        {
+          "column": 161,
+          "triple": [
+            4,
+            5,
+            2
+          ],
+          "old_upper": 0,
+          "exact_FP_upper": 1,
+          "new_upper": 0
+        },
+        {
+          "column": 162,
+          "triple": [
+            4,
+            5,
+            3
+          ],
+          "old_upper": 1,
+          "exact_FP_upper": 2,
+          "new_upper": 1
+        },
+        {
+          "column": 163,
+          "triple": [
+            4,
+            5,
+            4
+          ],
+          "old_upper": 1,
+          "exact_FP_upper": 1,
+          "new_upper": 1
+        },
+        {
+          "column": 164,
+          "triple": [
+            4,
+            5,
+            5
+          ],
+          "old_upper": 0,
+          "exact_FP_upper": 2,
+          "new_upper": 0
+        },
+        {
+          "column": 165,
+          "triple": [
+            4,
+            5,
+            6
+          ],
+          "old_upper": 1,
+          "exact_FP_upper": 2,
+          "new_upper": 1
+        },
+        {
+          "column": 166,
+          "triple": [
+            4,
+            5,
+            7
+          ],
+          "old_upper": 0,
+          "exact_FP_upper": 1,
+          "new_upper": 0
+        },
+        {
+          "column": 167,
+          "triple": [
+            4,
+            6,
+            1
+          ],
+          "old_upper": 0,
+          "exact_FP_upper": 1,
+          "new_upper": 0
+        },
+        {
+          "column": 168,
+          "triple": [
+            4,
+            6,
+            2
+          ],
+          "old_upper": 4,
+          "exact_FP_upper": 1,
+          "new_upper": 1
+        },
+        {
+          "column": 169,
+          "triple": [
+            4,
+            6,
+            3
+          ],
+          "old_upper": 0,
+          "exact_FP_upper": 2,
+          "new_upper": 0
+        },
+        {
+          "column": 170,
+          "triple": [
+            4,
+            6,
+            4
+          ],
+          "old_upper": 0,
+          "exact_FP_upper": 1,
+          "new_upper": 0
+        },
+        {
+          "column": 171,
+          "triple": [
+            4,
+            6,
+            5
+          ],
+          "old_upper": 1,
+          "exact_FP_upper": 2,
+          "new_upper": 1
+        },
+        {
+          "column": 172,
+          "triple": [
+            4,
+            6,
+            6
+          ],
+          "old_upper": 0,
+          "exact_FP_upper": 2,
+          "new_upper": 0
+        },
+        {
+          "column": 173,
+          "triple": [
+            4,
+            6,
+            7
+          ],
+          "old_upper": 1,
+          "exact_FP_upper": 1,
+          "new_upper": 1
+        },
+        {
+          "column": 174,
+          "triple": [
+            4,
+            7,
+            1
+          ],
+          "old_upper": 4,
+          "exact_FP_upper": 2,
+          "new_upper": 2
+        },
+        {
+          "column": 175,
+          "triple": [
+            4,
+            7,
+            2
+          ],
+          "old_upper": 1,
+          "exact_FP_upper": 2,
+          "new_upper": 1
+        },
+        {
+          "column": 176,
+          "triple": [
+            4,
+            7,
+            3
+          ],
+          "old_upper": 1,
+          "exact_FP_upper": 6,
+          "new_upper": 1
+        },
+        {
+          "column": 177,
+          "triple": [
+            4,
+            7,
+            4
+          ],
+          "old_upper": 4,
+          "exact_FP_upper": 2,
+          "new_upper": 2
+        },
+        {
+          "column": 178,
+          "triple": [
+            4,
+            7,
+            5
+          ],
+          "old_upper": 0,
+          "exact_FP_upper": 6,
+          "new_upper": 0
+        },
+        {
+          "column": 179,
+          "triple": [
+            4,
+            7,
+            6
+          ],
+          "old_upper": 4,
+          "exact_FP_upper": 6,
+          "new_upper": 4
+        },
+        {
+          "column": 180,
+          "triple": [
+            4,
+            7,
+            7
+          ],
+          "old_upper": 1,
+          "exact_FP_upper": 2,
+          "new_upper": 1
+        },
+        {
+          "column": 181,
+          "triple": [
+            5,
+            5,
+            1
+          ],
+          "old_upper": 0,
+          "exact_FP_upper": 0,
+          "new_upper": 0
+        },
+        {
+          "column": 182,
+          "triple": [
+            5,
+            5,
+            2
+          ],
+          "old_upper": 1,
+          "exact_FP_upper": 0,
+          "new_upper": 0
+        },
+        {
+          "column": 183,
+          "triple": [
+            5,
+            5,
+            3
+          ],
+          "old_upper": 0,
+          "exact_FP_upper": 1,
+          "new_upper": 0
+        },
+        {
+          "column": 184,
+          "triple": [
+            5,
+            5,
+            4
+          ],
+          "old_upper": 0,
+          "exact_FP_upper": 0,
+          "new_upper": 0
+        },
+        {
+          "column": 185,
+          "triple": [
+            5,
+            5,
+            5
+          ],
+          "old_upper": 1,
+          "exact_FP_upper": 1,
+          "new_upper": 1
+        },
+        {
+          "column": 186,
+          "triple": [
+            5,
+            5,
+            6
+          ],
+          "old_upper": 0,
+          "exact_FP_upper": 1,
+          "new_upper": 0
+        },
+        {
+          "column": 187,
+          "triple": [
+            5,
+            5,
+            7
+          ],
+          "old_upper": 1,
+          "exact_FP_upper": 0,
+          "new_upper": 0
+        },
+        {
+          "column": 188,
+          "triple": [
+            5,
+            6,
+            1
+          ],
+          "old_upper": 1,
+          "exact_FP_upper": 0,
+          "new_upper": 0
+        },
+        {
+          "column": 189,
+          "triple": [
+            5,
+            6,
+            2
+          ],
+          "old_upper": 0,
+          "exact_FP_upper": 0,
+          "new_upper": 0
+        },
+        {
+          "column": 190,
+          "triple": [
+            5,
+            6,
+            3
+          ],
+          "old_upper": 4,
+          "exact_FP_upper": 1,
+          "new_upper": 1
+        },
+        {
+          "column": 191,
+          "triple": [
+            5,
+            6,
+            4
+          ],
+          "old_upper": 1,
+          "exact_FP_upper": 0,
+          "new_upper": 0
+        },
+        {
+          "column": 192,
+          "triple": [
+            5,
+            6,
+            5
+          ],
+          "old_upper": 0,
+          "exact_FP_upper": 1,
+          "new_upper": 0
+        },
+        {
+          "column": 193,
+          "triple": [
+            5,
+            6,
+            6
+          ],
+          "old_upper": 1,
+          "exact_FP_upper": 1,
+          "new_upper": 1
+        },
+        {
+          "column": 194,
+          "triple": [
+            5,
+            6,
+            7
+          ],
+          "old_upper": 0,
+          "exact_FP_upper": 0,
+          "new_upper": 0
+        },
+        {
+          "column": 195,
+          "triple": [
+            5,
+            7,
+            1
+          ],
+          "old_upper": 0,
+          "exact_FP_upper": 1,
+          "new_upper": 0
+        },
+        {
+          "column": 196,
+          "triple": [
+            5,
+            7,
+            2
+          ],
+          "old_upper": 4,
+          "exact_FP_upper": 1,
+          "new_upper": 1
+        },
+        {
+          "column": 197,
+          "triple": [
+            5,
+            7,
+            3
+          ],
+          "old_upper": 0,
+          "exact_FP_upper": 2,
+          "new_upper": 0
+        },
+        {
+          "column": 198,
+          "triple": [
+            5,
+            7,
+            4
+          ],
+          "old_upper": 0,
+          "exact_FP_upper": 1,
+          "new_upper": 0
+        },
+        {
+          "column": 199,
+          "triple": [
+            5,
+            7,
+            5
+          ],
+          "old_upper": 1,
+          "exact_FP_upper": 2,
+          "new_upper": 1
+        },
+        {
+          "column": 200,
+          "triple": [
+            5,
+            7,
+            6
+          ],
+          "old_upper": 0,
+          "exact_FP_upper": 2,
+          "new_upper": 0
+        },
+        {
+          "column": 201,
+          "triple": [
+            5,
+            7,
+            7
+          ],
+          "old_upper": 1,
+          "exact_FP_upper": 1,
+          "new_upper": 1
+        },
+        {
+          "column": 202,
+          "triple": [
+            6,
+            6,
+            1
+          ],
+          "old_upper": 0,
+          "exact_FP_upper": 0,
+          "new_upper": 0
+        },
+        {
+          "column": 203,
+          "triple": [
+            6,
+            6,
+            2
+          ],
+          "old_upper": 1,
+          "exact_FP_upper": 0,
+          "new_upper": 0
+        },
+        {
+          "column": 204,
+          "triple": [
+            6,
+            6,
+            3
+          ],
+          "old_upper": 0,
+          "exact_FP_upper": 1,
+          "new_upper": 0
+        },
+        {
+          "column": 205,
+          "triple": [
+            6,
+            6,
+            4
+          ],
+          "old_upper": 0,
+          "exact_FP_upper": 0,
+          "new_upper": 0
+        },
+        {
+          "column": 206,
+          "triple": [
+            6,
+            6,
+            5
+          ],
+          "old_upper": 4,
+          "exact_FP_upper": 1,
+          "new_upper": 1
+        },
+        {
+          "column": 207,
+          "triple": [
+            6,
+            6,
+            6
+          ],
+          "old_upper": 0,
+          "exact_FP_upper": 1,
+          "new_upper": 0
+        },
+        {
+          "column": 208,
+          "triple": [
+            6,
+            6,
+            7
+          ],
+          "old_upper": 1,
+          "exact_FP_upper": 0,
+          "new_upper": 0
+        },
+        {
+          "column": 209,
+          "triple": [
+            6,
+            7,
+            1
+          ],
+          "old_upper": 1,
+          "exact_FP_upper": 1,
+          "new_upper": 1
+        },
+        {
+          "column": 210,
+          "triple": [
+            6,
+            7,
+            2
+          ],
+          "old_upper": 0,
+          "exact_FP_upper": 1,
+          "new_upper": 0
+        },
+        {
+          "column": 211,
+          "triple": [
+            6,
+            7,
+            3
+          ],
+          "old_upper": 1,
+          "exact_FP_upper": 2,
+          "new_upper": 1
+        },
+        {
+          "column": 212,
+          "triple": [
+            6,
+            7,
+            4
+          ],
+          "old_upper": 4,
+          "exact_FP_upper": 1,
+          "new_upper": 1
+        },
+        {
+          "column": 213,
+          "triple": [
+            6,
+            7,
+            5
+          ],
+          "old_upper": 0,
+          "exact_FP_upper": 2,
+          "new_upper": 0
+        },
+        {
+          "column": 214,
+          "triple": [
+            6,
+            7,
+            6
+          ],
+          "old_upper": 1,
+          "exact_FP_upper": 2,
+          "new_upper": 1
+        },
+        {
+          "column": 215,
+          "triple": [
+            6,
+            7,
+            7
+          ],
+          "old_upper": 0,
+          "exact_FP_upper": 1,
+          "new_upper": 0
+        },
+        {
+          "column": 216,
+          "triple": [
+            7,
+            7,
+            1
+          ],
+          "old_upper": 1,
+          "exact_FP_upper": 2,
+          "new_upper": 1
+        },
+        {
+          "column": 217,
+          "triple": [
+            7,
+            7,
+            2
+          ],
+          "old_upper": 4,
+          "exact_FP_upper": 2,
+          "new_upper": 2
+        },
+        {
+          "column": 218,
+          "triple": [
+            7,
+            7,
+            3
+          ],
+          "old_upper": 0,
+          "exact_FP_upper": 6,
+          "new_upper": 0
+        },
+        {
+          "column": 219,
+          "triple": [
+            7,
+            7,
+            4
+          ],
+          "old_upper": 1,
+          "exact_FP_upper": 2,
+          "new_upper": 1
+        },
+        {
+          "column": 220,
+          "triple": [
+            7,
+            7,
+            5
+          ],
+          "old_upper": 1,
+          "exact_FP_upper": 6,
+          "new_upper": 1
+        },
+        {
+          "column": 221,
+          "triple": [
+            7,
+            7,
+            6
+          ],
+          "old_upper": 0,
+          "exact_FP_upper": 6,
+          "new_upper": 0
+        },
+        {
+          "column": 222,
+          "triple": [
+            7,
+            7,
+            7
+          ],
+          "old_upper": 4,
+          "exact_FP_upper": 2,
+          "new_upper": 2
+        }
+      ]
+    }
+  },
+  "feature_source_sha256": "cef086b287e513a17a12eec599cf35f379daa83d93c4273230e7a27c48659598"
+}

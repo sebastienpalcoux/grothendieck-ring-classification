@@ -1,0 +1,48 @@
+\subsection{Integer central data and correlated rotations exclude \texorpdfstring{$R_{8,3,455}$}{R8,3,455}}
+\label{subsec:r455-integer-rotation}
+
+The general Galois-pseudo-unitary gate also applies to $R_{8,3,455}$.
+Its dimension field is $\mathbb Q(\sqrt3,\sqrt{13})$, with
+$D=39+9\sqrt{13}$.  The complete low/$S$ search has one frame and
+$13$ high restriction vectors.  Two independent complete integer Gram
+searches give $812$ patterns.  Twenty low cubic Verlinde coefficients
+leave $24$; all pass the required field-Galois eigenvalue multiplicity
+balance.  When two scalar characters share the FP codegree, the FP
+character is explicitly identified as the tensor-unit row.
+
+Two distinguished central simples forget to $\mathbf1$.  Besides the
+unit, the other is an invertible $G$ with $G^2=\mathbf1$ and
+$\theta_G=1$.  If $S_{G,Z}/d_Z=-1$, balancing gives
+$\theta_{GZ}=-\theta_Z$, so $GZ\not\cong Z$.  Since $F(GZ)=F(Z)$,
+each such restriction column has even multiplicity.  This leaves
+$12$ patterns.  All $120$ low-pair products admit nonnegative integer
+aggregate forgetful decompositions; the obstruction requires further
+coupling to the twists.
+
+The quadratic conductors are $12,13,156$, and the Cauchy theorem
+\cite{BNRWCauchy} supplies twist-order prime support $\{2,3,13\}$.
+Proposition~\ref{prop:m3-biquadratic-traces} at height six gives
+\[
+ B_6=2^4\cdot3^2\cdot13=1872,
+\]
+and exactly $55$ joint relative-trace types in basis
+$(1,\sqrt3,\sqrt{13},\sqrt{39})$.
+This bounds the retained trace domain, not the categorical exponent.
+The four sign choices in the quadratic Gauss projections are linked
+across all retained powers.
+
+For every remaining integer pattern, all four second-indicator choices
+are tested against the full divisor-power tensor rotations through
+height six, the full distinguished $STS$ equations, and the fixed
+integer high multiplicities.  The two equal-codegree assignments give
+identical equations because their restriction columns coincide.
+Each of the $48$ systems has $381$ equations and $792$ nonnegative
+variables.  One common exact integer Farkas vector verifies
+$A^{\mathsf T}y\geq0$ and $b^{\mathsf T}y<0$ in every case.
+Thus $R_{8,3,455}$ has no complex fusion-category realization.
+
+The field adapter is checked against the complete earlier
+$\mathbb Q(\sqrt2,\sqrt3)$ trace domain, independent cyclotomic relative
+traces, and the actual center $Z(\operatorname{Vec}_{C_2})$ through
+height six.  The canonical read-only replay is
+\begin{quote}\small\path{evidence/rank8_frontier_20261021/r455_center_integer/verify_all.py}\end{quote}

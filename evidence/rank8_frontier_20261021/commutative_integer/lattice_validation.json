@@ -1,0 +1,30 @@
+{
+  "result": "PASS",
+  "kind": "exhaustive_integer_lattice_and_bound_validation",
+  "proportional_compression_comparisons": 100,
+  "modular_records": [
+    {
+      "prime": 2,
+      "systems": 300,
+      "outcomes": {
+        "modular_obstruction": 122,
+        "consistent_mod_prime": 178
+      }
+    },
+    {
+      "prime": 3,
+      "systems": 300,
+      "outcomes": {
+        "modular_obstruction": 140,
+        "consistent_mod_prime": 160
+      }
+    }
+  ],
+  "HNF_direct_comparisons": 80,
+  "complete_finite_box_comparisons": 300,
+  "independent_methods": [
+    "complete finite-field vector enumeration",
+    "one-shot exact HNF of A and [A|b]",
+    "complete bounded integer vector enumeration"
+  ]
+}
