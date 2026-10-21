@@ -1,0 +1,236 @@
+\section{A further simultaneous center-product test}
+\label{sec:center-product-followup}
+
+The following small exact continuation changes no general exclusion or
+realization count.  It strengthens the necessary center data for
+\texttt{R8\_3\_721} and \texttt{R8\_3\_1154}.  A surviving tuple below
+is not a center fusion ring or a categorical model.  The previously
+verified signed-sphericalization and Galois-pseudo-unitarity gates for
+these two rings make the pseudo-unitary tests necessary for general
+complex categorification.
+
+\begin{lemma}[Simultaneous pair-product Gram condition]
+\label{lem:followup-pair-gram}
+Let $\mathcal C$ be pseudo-unitary, put $D=\operatorname{FPdim}(\mathcal C)$,
+and let $A_0=\mathbf1,A_1,\ldots,A_s$ be self-dual simple objects of its
+center whose complete unnormalized $S$ rows are known.  If $d_Z$ is the
+dimension of a central simple $Z$, then
+\[
+ K_{ij,kl}=\frac1{D^2}\sum_Z
+ \frac{S_{A_i,Z}S_{A_j,Z}S_{A_k,Z}S_{A_l,Z}}{d_Z^2}
+ =\sum_Y N_{A_i,A_j}^{Y}N_{A_k,A_l}^{Y}.
+\]
+Subtract the summands for $Y=A_0,\ldots,A_s$ to obtain $G$.
+Let $M$ have the restriction vectors of all individual remaining central
+simples as columns, and let $T$ have the residual forgetful pair products
+as columns.  Then their unknown pair multiplicities form a matrix
+\[
+             X\in\mathbb Z_{\ge0}^{r\times\binom{s+1}{2}},
+             \qquad MX=T,\qquad X^{\mathsf t}X=G.
+\]
+Repeated restriction vectors are repeated columns of $M$; they are not
+identified as central simples.
+\end{lemma}
+
+\begin{proof}
+Apply the ordinary Verlinde formula twice and use
+$S^2=D^2C$, where $C$ is charge conjugation.  Self-duality of the four
+displayed objects gives the stated bilinear pairing.  No assumption
+of a $C^*$ structure is used.  Subtracting the known simple coefficients
+gives the Gram identity, and applying the tensor forgetful functor to
+each pair gives $MX=T$.
+\end{proof}
+
+The normalization uses the center dimension $D^2$.  In the
+noncommutative source case the complete distinguished row is
+$S_{A_E,Z}=D\chi_E(FZ)/(f_E\dim E)$; the matrix-block constituent is
+counted once as a central simple.  As an independent control, the
+electric objects of $Z(\operatorname{Vec}(S_3))$ reproduce all $27$
+ordered cubic coefficients and all $81$ ordered fourth moments of
+$\operatorname{Rep}(S_3)$.  In particular the source block with
+$\dim E=2$ and $f_E=3$ has normalization $6/(3\cdot2)=1$.
+The categorical input is ordinary Verlinde, equivalently the regular
+module specialization of Deshpande, \emph{On twisted Verlinde formulae
+for modular categories}, Theorem~1.1, arXiv:1811.08447.
+
+\subsection{Forced pair products for \texttt{R8\_3\_721}}
+
+All five distinguished objects are self-dual: their complete source
+trace characters satisfy $\chi_E(x^*)=\chi_E(x)$, so the corresponding
+central $S$ rows are invariant under duality, and nondegeneracy identifies
+each object with its dual.  Start with the four complete integral Gram
+patterns already obtained in the frozen calculation, and retain both
+symmetric character assignments.  All $35$ fourth moments for the four
+nonunit low objects are nonnegative integers in each of these eight cases.
+
+Order pairs as $11,12,13,14,22,23,24,33,34,44$.  In every case
+the residual $G$ has rank four and $M$ has rank three.  If $X_0$ is the
+exact minimum-norm solution of $MX=T$, then
+\[
+ G-X_0^{\mathsf t}X_0=\frac23h^{\mathsf t}h,
+ \qquad h=(0,0,0,0,1,1,-1,1,-1,1).
+\]
+Thus every solution is $X=X_0+t h$, where $Mt=0$ and
+$\sum t_i^2=2/3$.  Each $t_i$ lies in $(-1,1)$; integrality of one
+coordinate fixes it modulo $\mathbb Z$.  Enforcing integrality and
+nonnegativity in all ten coordinates gives a unique minimum-square
+choice in each row.  The sum of those minima is already $2/3$.
+Consequently the entire integral matrix $X$ is unique.  Direct exact
+substitution checks both original identities.
+
+Here are its row types, with the high-column indices of the frozen
+Gram enumeration:
+\[
+\begin{array}{c|rrrrrrrrrr}
+\text{type}&11&12&13&14&22&23&24&33&34&44\\\hline
+0&2&2&2&1&2&3&1&2&1&1\\
+1&4&4&4&2&4&6&2&4&2&2\\
+3&2&2&2&1&3&2&0&3&0&0\\
+4&4&4&4&2&4&4&2&4&2&0\\
+5&4&4&4&2&4&4&2&4&2&1\\
+8&8&8&8&4&8&8&4&8&4&0
+\end{array}
+\]
+Denote the type-$0$-or-$1$ group by $\mathsf A$, the type-$3$
+singleton by $\mathsf B$, the type-$4$-or-$8$ group by $\mathsf C$,
+and the eight type-$5$ simples by $\mathsf D$.  The sizes
+$m_A,m_C$ are independently one or four: a singleton $\mathsf A$
+uses type~1 and four copies use type~0; a singleton $\mathsf C$ uses
+type~8 and four copies use type~4.  The resulting center ranks are
+$16,19,19,22$.
+
+\subsection{Complete low-action extension of these patterns}
+
+Write $N_i$ for fusion by $A_i$.  The known vectors
+$e_0,\ldots,e_4$ and $N_iN_je_0$, $1\le i\le j\le4$, span a
+nine-dimensional space.  Put $u=33+8\sqrt{17}$ and
+$u'=33-8\sqrt{17}$.  The complete simultaneous eigenvalue tuples of
+$(N_1,N_2,N_3,N_4)$ are
+\[
+\begin{array}{c|c}
+\text{tuple}&\text{multiplicity}\\\hline
+(u,u+1,u+1,(u+1)/2)&1\\
+(u',u'+1,u'+1,(u'+1)/2)&1\\
+(1,-2,2,1),\ (1,2,-2,1),\ (1,2,2,5)&1\text{ each}\\
+(1,-2,-2,1)&m_A\\
+(1,2,2,-3)&1\\
+(1,0,0,-1)&m_C\\
+(-1,0,0,0)&8
+\end{array}
+\]
+Every tuple has positive vacuum weight $\sum d_Z^2/D^2$.
+The vacuum cyclic space therefore has dimension nine, so it is exactly
+the already known span.  Select its basis columns $V$, remembering
+the corresponding words $p_\alpha$ of degree at most two.  With
+$G_0=V^{\mathsf t}V$, its forced action, extended by zero on the
+orthogonal complement, is
+\[
+ F_i=VG_0^{-1}B_iG_0^{-1}V^{\mathsf t},\qquad
+ (B_i)_{\alpha\beta}=D^{-2}\sum_Zd_Z^2
+ p_\alpha(\lambda_Z)\lambda_{i,Z}p_\beta(\lambda_Z).
+\]
+These degree-at-most-five moments give exact rational matrices.
+Let $Q=I-VG_0^{-1}V^{\mathsf t}$.  Its range is the sum of the
+within-group difference spaces of $\mathsf A,\mathsf C,\mathsf D$.
+The remaining simultaneous spectral projectors $P_A,P_C,P_D$ have
+ranks $m_A-1,m_C-1,7$, are mutually orthogonal, and sum to $Q$.
+Every possible extension is consequently
+\begin{equation}\label{eq:followup-hidden-actions}
+\begin{split}
+N_1&=F_1-Q+2(P_A+P_C),&N_2&=F_2-2P_A,\\
+N_3&=F_3-2P_A,&N_4&=F_4+P_A-P_C.
+\end{split}
+\end{equation}
+This describes the entire remaining spectral domain, not a choice of
+canonical projectors.
+
+\begin{proposition}\label{prop:r721-action-extension}
+The patterns $(m_A,m_C)=(1,4)$ and $(4,1)$ are impossible.
+The pattern $(1,1)$ has a unique nonnegative integral tuple of the four
+necessary low fusion actions.  The pattern $(4,4)$ has exactly $46$
+labelled such tuples, forming three classes under independent
+permutations within the equal-restriction groups.
+All surviving tuples satisfy the exact forgetful intertwining relations.
+These assertions do not construct a full center fusion ring or a category.
+\end{proposition}
+
+\begin{proof}
+For $(1,4)$, $P_A=0$, and the $\mathsf C$ block of the forced matrix
+$N_2=F_2$ is $(9/2)J_4$, contradicting integrality.
+For $(4,1)$, $P_C=0$, and the fixed $\mathsf A$ block of
+$N_1+N_2=F_1+F_2-Q$ is $(5/2)J_4-I_4$, again contradicting
+integrality.  Both statements hold for both symmetric character
+assignments.  For $(1,1)$ both projectors vanish; exact substitution
+in \eqref{eq:followup-hidden-actions} gives the asserted unique tuple.
+
+It remains to give a complete finite analysis when both sizes are four.
+The fixed within-group blocks of $F_1,F_2,F_3,F_4$ are respectively
+\[
+ \mathsf A:\quad (5/4)J_4,\ J_4,\ J_4,\ (3/4)J_4;
+ \qquad
+ \mathsf C:\quad (17/4)J_4,\ (9/2)J_4,\ (9/2)J_4,\ (9/4)J_4.
+\]
+Use the elementary identity $E_{ii}=\sum_jE_{ij}^2$ for an
+orthogonal projector $E$.  Since $0\le P_A,P_C,P\le Q$ as
+orthogonal subprojectors, their diagonal entries on $\mathsf A$ and
+$\mathsf C$ are at most $Q_{ii}=3/4$.
+All hidden projectors annihilate the
+constant vector of each high group.
+
+Set $P=P_A+P_C$.  Integrality of $N_1$ forces its diagonal entries
+in either group to be $1/4$ or $3/4$, and its within-group
+off-diagonal entries to be odd multiples of $1/4$.  In either case
+the square of the diagonal plus three times $(1/4)^2$ already equals
+the diagonal.  Hence every within-group off-diagonal absolute value
+is $1/4$, and all entries outside that group vanish.
+
+Nonnegative integrality of $N_2$ gives $(P_A)_{ii}\in\{0,1/2\}$
+on $\mathsf A$, with half-integral within-group entries.  A zero
+diagonal gives a zero row.  A diagonal $1/2$ and zero group row sum
+force an off-diagonal entry at most $-1/2$; its norm identity is then
+exhausted.  Thus $P_A$ on $\mathsf A$ is a sum $Q_A$ of disjoint
+matching projectors $(e_j-e_k)(e_j-e_k)^{\mathsf t}/2$, with no
+cross entries.  On $\mathsf C$, integrality gives diagonal $1/4$
+or $3/4$ and odd-quarter off-diagonal entries.  The same norm argument
+gives off-diagonal absolute values $1/4$ and no cross entries.
+
+The diagonal integrality of $N_4=F_4+2P_A-P$ now forces every
+diagonal of $P$ in both groups to be $3/4$.  Zero row sums force
+all off-diagonals to be $-1/4$.  Therefore $P=E_A+E_C$, the two
+canonical difference projectors; their ranks exhaust its rank six,
+so it vanishes on $\mathsf D$.  On $\mathsf C$ the complement
+$E_C-P_A$ has diagonal zero or $1/2$ and off-diagonal zero or
+$-1/2$, so it too is a matching projector, say $Q_C$.
+The rank-three condition on $P_A$ says the two matchings have equal
+size.  Exhaustively,
+\[
+ P_A=Q_A+E_C-Q_C,\qquad
+ P_C=E_A-Q_A+Q_C,\qquad P_D=E_D.
+\]
+There are $1,6,3$ matchings on four labelled vertices of sizes
+$0,1,2$, giving $1+6^2+3^2=46$ choices and three permutation classes.
+All these matrices pass direct exact substitution in
+\eqref{eq:followup-hidden-actions}.
+
+For every surviving tuple the verifier checks symmetry, nonnegative
+integrality, the unit column, all forced pair columns, pairwise
+commutation, projector ranks and orthogonality, spectral trace and
+square trace, and
+$M_{\mathrm{full}}N_i=L_{F(A_i)}M_{\mathrm{full}}$.
+This proves the stated necessary-action result.
+\end{proof}
+
+The high-block traces and squared Frobenius norms provide compact checks:
+\[
+\begin{array}{c|c|c}
+\text{center rank}&(\operatorname{tr}H_i)_{i=1}^4&
+ (\operatorname{tr}H_i^2)_{i=1}^4\\\hline
+16&(48,56,56,28)&(2798,2880,2880,746)\\
+22&(54,50,50,28)&(2804,2892,2892,752)
+\end{array}
+\]
+The full matrices, source bindings, matching domains and exact replays are
+retained with \texttt{quartic\_center\_challenge.py} and
+\texttt{r721\_center\_extension.py}.  Checks remain active under Python
+optimization.  The two surviving Gram patterns still require products
+of arbitrary high objects, a full based ring and categorical coherence.

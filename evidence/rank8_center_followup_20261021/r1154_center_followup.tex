@@ -1,0 +1,78 @@
+\subsection{A bounded refinement for \texorpdfstring{$R_{1154}$}{R1154}}
+\label{subsec:followup-r1154}
+
+We apply Lemma~\ref{lem:followup-pair-gram} to the complete domain of
+$1,238$ cubic-surviving integral Gram patterns at low index $31$.
+These patterns are indexed in the frozen $14,211$-pattern integral Gram file;
+there are $16$ ordered high restriction types. The exact verifier rebuilds the
+cubic coefficient rows and the complete survivor list, checks all $35$ scalar
+fourth moments, and verifies the ordered high restriction domain.
+All patterns have the same matrix $Q=MM^{\mathsf T}$ of rank $3$.
+The simultaneous pair-product Gram matrix $G$ also has rank $3$.
+
+Let $X_0$ be the minimum-norm solution of $MX=T$. In the pair order
+$(11,12,13,14,22,23,24,33,34,44)$, put
+\[
+ h=(1,0,1,-1,0,0,0,1,-1,1).
+\]
+For every pattern the exact residual is
+\[
+ G-X_0^{\mathsf T}X_0=\alpha h^{\mathsf T}h,
+ \qquad
+ \alpha\in\{92/205,262/205,672/205,1082/205\}.
+\]
+In particular, all $1,238$ patterns pass positivity and the residual rank
+bound. Every required nonnegative integral factorization must therefore have
+\[
+ X=X_0+t h,\qquad Mt=0,\qquad \sum_z t_z^2=\alpha.
+\]
+Indeed, the minimum-norm solution is orthogonal to $\ker M$, so subtracting
+its Gram leaves the Gram of $X-X_0$; the displayed rank-one form forces each
+row of this difference to be a scalar multiple of $h$.
+
+For an individual high row, set $q=(X_0)_{z,11}$. Since $h_{11}=1$,
+integrality forces $t_z=n-q$ with $n\in\mathbb Z$. The other entries give
+integer congruences and nonnegativity bounds $L\leq n\leq U$, all checked
+exactly. The minimum of $(n-q)^2$ on this integer interval occurs at the
+clipped floor or ceiling of $q$. Summing these minima with the exact high
+multiplicities gives a necessary lower bound for $\alpha$.
+This excludes $892$ patterns.
+
+A second screen retains the finite individual domains satisfying
+$(n-q)^2\leq\alpha$. It uses lower and upper bounds for the sum of squares
+and coordinatewise interval bounds for $Mt=0$. A candidate value is removed
+when fixing that one row makes a lower norm bound or a linear interval
+inconsistent; the same removal is valid for all interchangeable rows of that
+restriction type. Iterating these necessary tests requires at most three
+passes, with at most four candidate values per coordinate. No coupled
+integer assignment is enumerated. A further $54$ patterns are excluded:
+$34$ by an upper norm bound, $16$ by a linear interval bound, and $4$ by a
+lower norm bound.
+\[
+\begin{array}{c|r|r|r|r}
+\alpha&\text{patterns}&\text{minimum-square exclusions}&
+\text{further exclusions}&\text{remaining}\\\hline
+92/205&8&8&0&0\\
+262/205&864&852&6&6\\
+672/205&300&32&48&220\\
+1082/205&66&0&0&66\\\hline
+\text{total}&1238&892&54&292
+\end{array}
+\]
+
+The eight exclusions in the frozen height-six campaign have indices
+$207,208,376,377,898,899,1407,1408$ and are exactly the first row of the table.
+Thus the combined exclusion set has size $946$, including $938$ additional
+patterns beyond that campaign; all $292$ surviving domains also survived
+height six. This is a refinement of necessary central data, not a fusion-ring
+exclusion or a construction of a center. Joint integral solvability of
+$Mt=0$ and the exact norm equation remains untested on those $292$ domains.
+The general-complex scope uses only the previously accepted
+Galois-to-pseudo-unitary reduction.
+
+The portable replay scripts \texttt{r1154\_quartic\_necessary\_filters.py},
+\texttt{r1154\_quartic\_coordinate\_propagation.py}, and
+\texttt{r1154\_quartic\_reconcile.py} bind their inputs by SHA-256 and give
+byte-identical normal and optimized-Python receipts. The last script only
+reconciles the already verified height-six certificate indices; it does not
+rerun that campaign.

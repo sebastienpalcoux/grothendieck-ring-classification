@@ -147,12 +147,14 @@ Python optimization, inherited assertion-based checkers run in an isolated
 interpreter with assertions enabled. Metadata-only mode checks these
 identities and reconciliation without replaying the mathematics.
 \input{m3_frontier}
+\input{m3_center_followup}
+
 \subsection{Continuation evidence and reproducibility}
 The new proofs and construction-family audits are in
 \path{evidence/rank8_frontier_20261021/}. The original M3 command above
 replays the original ledger. The separate continuation command is
 \begin{quote}\small
-\texttt{python }\path{tools/verify_rank8_frontier.py}.
+\verb|python tools/verify_rank8_frontier.py|
 \end{quote}
 Run each command with normal Python and with \texttt{-O}. The continuation
 receipt binds the unchanged original ledger, every accepted new decision,

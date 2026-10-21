@@ -5,6 +5,8 @@ from collections import Counter
 import json
 import re
 import shutil
+import subprocess
+import sys
 from rank8_publication import extension, LEDGER, MODELS, EVIDENCE, ledger_path
 import rank8_frontier as frontier
 ROOT=Path(__file__).resolve().parents[1]
@@ -35,6 +37,8 @@ def normalize(text):
     text=re.sub(r'\\texttt\{R8\\_([0-9]+)\\_([0-9]+)\}',lambda m:r'\sha{R8_'+m[1]+'_'+m[2]+'}',text)
     return re.sub(r'\\texttt\{([^}]+)\}',lambda m:r'\path{'+m[1].replace(r'\_','_')+'}',text)
 BIB={
+'DeshpandeVerlindeFollowup':r'''T.~Deshpande, \emph{On twisted Verlinde formulae for modular categories}, arXiv:1811.08447v1 (2018), Theorem~1.1.''',
+'CosteGannonRuelleFollowup':r'''A.~Coste, T.~Gannon and P.~Ruelle, \emph{Finite Group Modular Data}, Nucl. Phys. B \textbf{581} (2000), 679--717; arXiv:hep-th/0001158v2, Section~2.2.''',
 'UsherFermionic':r'''R.~Usher, \emph{Fermionic $6j$-symbols in superfusion categories}, arXiv:1606.03466 (2016), Theorem~5.4 and Corollary~5.8.''',
 'BrownTransferFrontier':r'''K.~S.~Brown, \emph{Lectures on the Cohomology of Groups}, lecture notes, Section~3.3, equation~(3.12); \url{https://pi.math.cornell.edu/~kbrown/papers/cohomology_hangzhou.pdf}.''',
 'SchauenburgPointedFrontier':r'''P.~Schauenburg, \emph{A Higher Frobenius--Schur Indicator Formula for Group-Theoretical Fusion Categories}, arXiv:1502.02906 (2015), Definition~2.2 and Proposition~4.1.''',
@@ -234,12 +238,56 @@ identities and reconciliation without replaying the mathematics.
         proofs=proofs.replace('A number-field model and Galois conjugation',r'A number-field model~\cite[Theorem~2.30 and the following remark]{ENO} and Galois conjugation')
         (PAPER/'m3_frontier.tex').write_text(heading+normalize(proofs))
         text += r'''\input{m3_frontier}
+'''
+        followup=ROOT/'evidence/rank8_center_followup_20261021'
+        if followup.is_dir():
+            check=subprocess.run([sys.executable,str(followup/'verify.py'),'--root',str(ROOT),
+                                  '--metadata-only'],cwd=ROOT,text=True,capture_output=True)
+            if check.returncode or json.loads(check.stdout).get('status')!='METADATA_PASS':
+                raise ValueError('Separate center follow-up replay required:\n'+check.stdout+check.stderr)
+            extra=(followup/'center_followup.tex').read_text()+'\n'+(followup/'r1154_center_followup.tex').read_text()
+            # The paired action equations need two alignment pairs.
+            extra=extra.replace(r'\begin{split}',r'\begin{aligned}').replace(r'\end{split}',r'\end{aligned}')
+            extra=extra.replace('In the pair order\n$(11,12,13,14,22,23,24,33,34,44)$, put',
+                'Use the pair order\n\\[ (11,12,13,14,22,23,24,33,34,44). \\]\nPut')
+            extra=extra.replace('$207,208,376,377,898,899,1407,1408$ and are exactly the first row of the table.',
+                '\\[207,208,376,377,898,899,1407,1408,\\]\nand are exactly the first row of the table.')
+            extra=extra.replace(r'''The portable replay scripts \texttt{r1154\_quartic\_necessary\_filters.py},
+\texttt{r1154\_quartic\_coordinate\_propagation.py}, and
+\texttt{r1154\_quartic\_reconcile.py} bind their inputs by SHA-256 and give''',
+                r'''The portable replay scripts are
+\begin{quote}\small
+\path{r1154_quartic_necessary_filters.py}\\
+\path{r1154_quartic_coordinate_propagation.py}\\
+\path{r1154_quartic_reconcile.py}.
+\end{quote}
+They bind their inputs by SHA-256 and give''')
+            extra=extra.replace('module specialization of Deshpande, \\emph{On twisted Verlinde formulae\nfor modular categories}, Theorem~1.1, arXiv:1811.08447.',
+                                r'module specialization of the twisted Verlinde formula~\cite[Theorem~1.1]{DeshpandeVerlindeFollowup}.')
+            extra=extra.replace(r'$\operatorname{Rep}(S_3)$.  In particular',
+                                r'$\operatorname{Rep}(S_3)$~\cite[Section~2.2]{CosteGannonRuelleFollowup}.  In particular')
+            extra+=r'''
+\subsection{Separate replay of the center-product refinement}
+The source-bound proofs, complete surviving matrix tuples, rejected pattern
+indices and independent arithmetic reconstructions are in
+\path{evidence/rank8_center_followup_20261021/}. Run
+\begin{quote}\small
+\verb|python evidence/rank8_center_followup_20261021/verify.py --root .|
+\end{quote}
+in normal Python and with \texttt{-O}. This separately checked refinement
+preserves the original continuation ledger and its $25$ additional ring
+exclusions. The two candidate rings remain unresolved; the surviving
+necessary data do not constitute fusion categories.
+'''
+            (PAPER/'m3_center_followup.tex').write_text(normalize(extra))
+            text+=r'\input{m3_center_followup}'+'\n'
+        text += r'''
 \subsection{Continuation evidence and reproducibility}
 The new proofs and construction-family audits are in
 \path{evidence/rank8_frontier_20261021/}. The original M3 command above
 replays the original ledger. The separate continuation command is
 \begin{quote}\small
-\texttt{python }\path{tools/verify_rank8_frontier.py}.
+\verb|python tools/verify_rank8_frontier.py|
 \end{quote}
 Run each command with normal Python and with \texttt{-O}. The continuation
 receipt binds the unchanged original ledger, every accepted new decision,

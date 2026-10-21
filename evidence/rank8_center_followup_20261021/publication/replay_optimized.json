@@ -1,0 +1,107 @@
+{
+  "schema": 1,
+  "optimized_python": true,
+  "mathematical_replay_performed": true,
+  "scope": "Exact necessary center-data follow-up only; no categorical decision changes.",
+  "source_manifest_sha256": "074e2c5b9037f37f031e98535044f6b791400bbabb9c205ebf95fa71852a2c6c",
+  "baseline_source_manifest": "evidence/rank8_frontier_20261021/publication/source_manifest.json",
+  "baseline_source_manifest_sha256": "af80f1de878472bf6d789061c9c64c591f21eb4cbc61eaca5eead94d529a57a3",
+  "status": "PASS",
+  "completed": true,
+  "checks": [
+    {
+      "script": "quartic_center_challenge.py",
+      "kind": "quartic_summary",
+      "status": "PASS",
+      "stdout_sha256": "31bdab448fcc4cabbc8346438ab3203acd267dbc938925d6b376c4cc69e753d8",
+      "summary": {}
+    },
+    {
+      "script": "r721_center_extension.py",
+      "kind": "json_receipt",
+      "status": "PASS",
+      "stdout_sha256": "307537a40492a2593d10baf5f74284e8a2e375f180bbfce57af5785c7b23627e",
+      "summary": {
+        "pattern_exclusions": 2,
+        "remaining_Gram_patterns": 2
+      },
+      "stored_receipt": "r721_center_extension_receipt.json",
+      "stored_receipt_sha256": "307537a40492a2593d10baf5f74284e8a2e375f180bbfce57af5785c7b23627e"
+    },
+    {
+      "script": "r1154_quartic_necessary_filters.py",
+      "kind": "json_receipt",
+      "status": "PASS",
+      "stdout_sha256": "ac83451fd2150f6215edb99f97b053ece8e0b9dfb84c605e712e3f1ac7a668fd",
+      "summary": {
+        "coordinate_exclusions": 892,
+        "remaining_patterns": 346
+      },
+      "stored_receipt": "r1154_quartic_necessary_filters.json",
+      "stored_receipt_sha256": "ac83451fd2150f6215edb99f97b053ece8e0b9dfb84c605e712e3f1ac7a668fd"
+    },
+    {
+      "script": "r1154_quartic_coordinate_propagation.py",
+      "kind": "json_receipt",
+      "status": "PASS",
+      "stdout_sha256": "76bf9d1a7af04a706373f1baab18cca3cf1bd55cefa6a585b64e25dd239e3bf9",
+      "summary": {
+        "remaining_patterns": 292
+      },
+      "stored_receipt": "r1154_quartic_coordinate_propagation.json",
+      "stored_receipt_sha256": "76bf9d1a7af04a706373f1baab18cca3cf1bd55cefa6a585b64e25dd239e3bf9"
+    },
+    {
+      "script": "r1154_quartic_reconcile.py",
+      "kind": "json_receipt",
+      "status": "PASS",
+      "stdout_sha256": "be0236f622d0dea4cbe97831324b3e5dfa9ec574b51187e3e04123d2a4e9ce79",
+      "summary": {
+        "quartic_total_excluded": 946,
+        "new_exclusions_beyond_height6": 938,
+        "combined_remaining_patterns": 292
+      },
+      "stored_receipt": "r1154_quartic_reconciliation.json",
+      "stored_receipt_sha256": "be0236f622d0dea4cbe97831324b3e5dfa9ec574b51187e3e04123d2a4e9ce79"
+    },
+    {
+      "script": "quartic_center_independent_review.py",
+      "kind": "internal_replay",
+      "status": "PASS",
+      "stdout_sha256": "d71f72130ca6b04b0d4565ca2e283c69553060a5687f65311adb1b464e5d3834",
+      "summary": {
+        "status": "PASS",
+        "cases": 8
+      },
+      "stored_receipt": "quartic_center_independent_review.json",
+      "stored_receipt_sha256": "a6c6ebce360f651376708a29990b8c4d7a7fd1bc8aaa0ea232ddc4c1e138358c"
+    },
+    {
+      "script": "r721_extension_independent_review.py",
+      "kind": "internal_replay",
+      "status": "PASS",
+      "stdout_sha256": "49058499307e69f83e9fb611c2a78a509f51cc5f3b4b5c8d6e7e4e3264ec2fcf",
+      "summary": {
+        "status": "PASS",
+        "cases": 8,
+        "pattern_exclusions": 2,
+        "remaining_Gram_patterns": 2
+      },
+      "stored_receipt": "r721_extension_independent_review.json",
+      "stored_receipt_sha256": "63c8bed4248a01577e2c9fe57609abebd28b99b03c031fe30864164ab30db0a1"
+    },
+    {
+      "script": "r1154_quartic_independent_review.py",
+      "kind": "internal_replay",
+      "status": "PASS",
+      "stdout_sha256": "0e1875757dcb8a2cc3155f9291a45b50ca38cee286e6c084f6843ef14938abf7",
+      "summary": {
+        "status": "PASS",
+        "excluded": 946,
+        "survived": 292
+      },
+      "stored_receipt": "r1154_quartic_independent_review.json",
+      "stored_receipt_sha256": "281fc52f69ab0956450b0c8fead952a3fa798ccfb6e8f15914baa6f2ef166328"
+    }
+  ]
+}
