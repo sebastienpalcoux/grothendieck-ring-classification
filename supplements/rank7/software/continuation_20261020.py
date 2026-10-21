@@ -121,7 +121,7 @@ def verify_oriented(R, certificate):
 def verify_q5_cyclic(R, certificate):
     """Replay the complete source-bound cyclic-rotation exclusion chain."""
     rid = certificate['id']
-    require(rid == 'R7_5_5039', 'unsupported cyclic-rotation input')
+    require(rid in ('R7_5_3895','R7_5_5039'), 'unsupported cyclic-rotation input')
     require(certificate['kind'] == 'q5_cyclic_rotation_general' and
             certificate['scope'] == 'general_complex', 'cyclic-rotation scope')
     require(tensor_hash(R) == certificate['tensor_sha256'],
@@ -133,7 +133,7 @@ def verify_q5_cyclic(R, certificate):
             record['scope'] == certificate['scope'] and
             record['tensor_sha256'] == certificate['tensor_sha256'],
             'cyclic-rotation proof manifest identity')
-    entrypoint = 'evidence/rank7_m5_20261020/models/sqrt5/verify_r5039_cyclic_chain.py'
+    entrypoint = 'evidence/rank7_m5_20261020/models/sqrt5/verify_r'+rid.split('_')[-1]+'_cyclic_chain.py'
     inputs = record['proof_inputs']
     require(entrypoint in inputs and isinstance(inputs, dict),
             'cyclic-rotation verifier must be bound')
@@ -142,7 +142,7 @@ def verify_q5_cyclic(R, certificate):
                 'repository-relative proof dependency')
         require(hashlib.sha256((ROOT / relative).read_bytes()).hexdigest() == digest,
                 'changed cyclic-rotation proof input ' + relative)
-    verifier = load('m5_r5039_cyclic_chain', ROOT / entrypoint)
+    verifier = load('m5_'+rid+'_cyclic_chain', ROOT / entrypoint)
     result = verifier.verify(rid, R)
     require(result['status'] == 'PASS' and result['id'] == rid and
             result['kind'] == certificate['kind'] and

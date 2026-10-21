@@ -28,12 +28,13 @@ range, subject to the research caution. Individual ring profiles show one
 fusion matrix at a time and offer the full tensor for download. Character
 data distinguish exact primitive-root formulas from numerical approximations.
 
-The continuation records **36 decisions among 38 cases**: 29 proposed general
-exclusions and 7 unitary constructions. General complex categorifiability
-remains open for **R6_4_155 and R6_8_1660** within that historical 38-case study. Rank seven is complete
-through multiplicity four; the extension through multiplicity five is summarized in the current classification data and research-status page. Rank eight is complete through multiplicity two: **896 exclusions and 77
-unitary models**. Its inner-square obstruction uses pivotal duality, short
-associator weights and tensor-functor rigidity.
+The historical 38-case continuation records 36 decisions: 29 proposed general exclusions and seven unitary constructions. Its two rank-six questions, `R6_4_155` and `R6_8_1660`, remain open.
+
+The rank-seven multiplicity-five continuation addresses all 5,805 supplied exact-multiplicity-five rings: 5,804 general exclusions, 1 realization and 0 unresolved cases. The classification of the supplied census is complete through multiplicity 5. The new realization R7_5_5678 is Rep(AGL(1,7)).
+
+The rank-eight multiplicity-three continuation addresses all 3,527 supplied exact-multiplicity-three rings: 3,479 general exclusions, 14 models and 34 unresolved cases. Every recorded model admits a unitary realization. The remaining rings retain unresolved status for general complex categorification.
+
+The rank-eight candidate audit distinguishes completed necessary-condition tests, unsuccessful model searches, ineligible tests and time limits. Scoped unitary obstructions preserve the general complex question; these candidates are not asserted fusion categories or established exotic examples.
 
 Ranks two, three and four have unrestricted complex classifications. The
 rank-four manuscript proves that exactly 15 rings occur and every

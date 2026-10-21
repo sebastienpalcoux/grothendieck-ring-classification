@@ -1,0 +1,186 @@
+\subsection{Source-bound identifications with known constructions}
+The new positive inventory includes tensor products of previously
+constructed unitary categories and representation categories of finite
+groups. Each entry is checked by a unit-preserving basis bijection against
+all $8^3=512$ source coefficients, including noncommutative products.
+The certificate specifies the direction of the basis map. Equality of
+dimension vectors alone is never used as a model identification.
+
+For the Frobenius-group entry $\sha{R8_3_342}$, the finite orbit-convolution
+calculation constructs $\operatorname{Rep}(C_{13}\rtimes C_6)$ with its
+faithful action. The $\operatorname{PSL}_2(11)$ entry
+$\sha{R8_3_724}$ is reconstructed from its exact finite-group class algebra.
+The $E_8$ module-category entry $\sha{R8_3_3278}$ uses the standard unitary
+$E_8$ algebra and its module fusion rules \cite{KO}. The remaining existing
+near-group, Fibonacci and $E_8$ product entries use the unitary
+$\operatorname{NG}(C_3,3)$ construction
+\cite[Proposition~A.4.1]{CMSIzumiXu} or the adjoint of the unitary
+$E_8$ construction \cite{KO}, followed by the indicated Deligne product.
+Their complete tensor comparisons are in the model catalogue.
+These comparisons establish the based-ring identification;
+categorical existence uses the cited construction and its stated scope.
+
+\subsection{Unitary scope of the Izumi--Xu extension}
+The fusion rules of $\sha{R8_3_448}$ are those of \cite[Appendix~A.6.1]{CMSIzumiXu}; in particular $Vg=g^2V$ is essential. The unitary construction is supplied by the symmetrically self-dual $2221$ planar algebra of \cite[Section~5.1, Theorem~5.5]{MorrisonPenneysSpokes}. The extension classification in \cite[Theorem~4.9, Remarks~4.10--4.11]{GJSCyclic} identifies the resulting graded extension with the displayed fusion rules: the two associator choices have the same tensor. Thus the earlier conservative pseudo-unitary label is upgraded to unitary existence.
+
+\subsection{Two equivariantizations of a near-group category}
+Use the normalized unitary $C_3+6$ solution of \cite[Example~13.10]{IzumiNear}, with $(x,y)=(\sqrt{\sqrt3/24},0)$. Lemma~13.1 describes actual automorphisms $\gamma_{\omega,\theta,u}$, with $(\omega,\theta,u)$ and $(-\omega,\theta,-u)$ identical. The paragraph before Lemma~13.2 gives the strict conjugation tensor functor. Take $\theta=\mathrm{id}$ and either $(\omega,u)=(1,\mathrm{diag}(1,-1))$ or $(i,R_{\pi/2})$. Both have order two; the latter squares to $\gamma_{-1,\mathrm{id},-I}=1$. Their actions on the six-dimensional self-fusion space have three eigenvalues of each sign. Their actions on the maps $S_g$ have signs $+1$ and $-1$, respectively. Hence the complete rules are
+\[
+ (g,e)(h,f)=(g+h,e+f),\quad (g,e)X_f=X_f(g,e)=X_{e+f},
+ \qquad X_eX_f=\sum_{g\in C_3}(g,e+f+\epsilon)+3X_0+3X_1.
+\]
+The cases $\epsilon=0,1$ identify $R8\_3\_334,R8\_3\_274$ by all512 coefficients. These are coherent unitary actions, not abstract based-ring automorphisms.
+
+\subsection{Cyclic permutation of three Fibonacci factors}
+The canonical $C_3$ action on $\mathrm{Fib}^{\boxtimes3}$ has two fixed simple triples, each splitting into three equivariant simples, and two free orbits. For a fixed output, the multiplicity is the character average on its fusion space; a free input orbit has zero nonidentity trace. For a free output the coefficient is the ordinary multiplicity at a representative. These formulas reconstruct all512 coefficients of $\sha{R8_3_475}$ and give its unitary realization.
+
+\subsection{A Morita dual of the nonsplit $2D2$ extension}
+In the known nonsplit extension $\sha{R8_2_37}$, take the Q-system $A=1+r$ from \cite[Lemma~4.1]{Grossman}. The neutral component of ${}_A\mathcal E_A$ is $TT_3$, with basis $1,p,q,pq,qp,pqp$ and relations $p^2=1+p$, $q^2=1+q$, $pqp=qpq$; see \cite[Definition~2.5]{EdieGolden}. The odd free-bimodule Gram matrix, in the order $(a,a^3,ar,a^3r)$, is
+\[
+ \begin{pmatrix}1&1&3&3\\1&1&3&3\\3&3&13&13\\3&3&13&13\end{pmatrix}.
+\]
+Its nonnegative integral factorizations have the column $(1,1,3,3)^T$ and either $(0,0,2,2)^T$ or four copies of $(0,0,1,1)^T$. After dividing underlying dimensions by $\operatorname{FPdim}(A)$, the latter would give four odd simples of dimension $\varphi$, but multiplication by $p$ requires the unavailable dimension $\varphi^2$. The two remaining odd dimensions are therefore $2\varphi,2\varphi^2$. Left and right multiplication by either $p$ or $q$ is forced to be $\left(\begin{smallmatrix}0&1\\1&1\end{smallmatrix}\right)$. Reciprocity determines odd--odd products and yields precisely $\sha{R8_3_715}$.
+
+\subsection{The conformal $G_2$ algebra Morita dual}
+Let $\mathcal C=\mathcal C(G_2,3)$ and let $A$ be the conformal algebra for $G_{2,3}\subset E_{6,1}$. The category ${}_A\mathcal C_A$ is unitary by \cite[Theorems~2.21,2.28, Corollary~3.32]{GuiQSystems}. Write $d=(3+\sqrt{21})/2$. The two chiral Izumi--Xu subcategories have pointed local intersection $C_3$, by \cite[Appendix~A.4]{CMSIzumiXu} and \cite[Section~3.3, equation~(16), Definition~3.12, Remark~3.13]{DMNO}. Their noninvertibles $X,Y$ satisfy $X^2=1+g+g^2+3X$ and $Y^2=1+g+g^2+3Y$. Rigidity gives $(XY,XY)=3$; dimension equality forces three further simples $Z_i$, each of dimension $d+1$.
+
+The $g$-action on this triple is nontrivial: otherwise the symmetric integral multiplicity block $B$ has row sums three and satisfies $B^2+J=3I+3B$. Its trace is six, so its off-diagonal sum would be three, a parity contradiction. Write $Z_i=g^iZ_0$ with $Z_0$ self-dual. Associativity gives $XY=YX=\sum_i Z_i$, $XZ_i=Z_iX=Y+\sum_j Z_j$, and $YZ_i=Z_iY=X+\sum_j Z_j$. The commutative orientation is impossible: the modular center has only self-dual simples, and \cite[Lemma~8.49]{ENO} would force all simples of the commutative based ring to be self-dual, contrary to $g^*=g^2$. Hence $Z_ig=g^{-1}Z_i$. Reciprocity reduces the remaining products to ten nonnegative triples with sum three; exact associativity leaves only $(1,1,1)$, so
+\[
+ Z_iZ_j=g^{i-j}+X+Y+\sum_k Z_k.
+\]
+The reconstructed full tensor is $\sha{R8_3_458}$.
+
+\subsection{A twisted group-theoretical construction}
+% Add bibliography key CartanEilenberg: H. Cartan and S. Eilenberg,
+% Homological Algebra, Princeton University Press (1956), Chapter XII, Section 10.
+% GelakiNaidu is already present in the rank-eight bibliography.
+\begin{theorem}[A twisted $A_6/A_5$ model]\label{thm:m3-twisted-a6}
+There are $\mu_2$-valued cochains $\omega\in Z^3(A_6,\mu_2)$ and
+$\psi\in C^2(A_5,\mu_2)$ with $d\psi=\omega|_{A_5}$ such that the
+unitary group-theoretical category
+$\mathcal C(A_6,\omega,A_5,\psi)$ realizes $\sha{R8_3_3342}$.
+Its simple dimensions are $1,3,3,4,5,10,10,10$.
+\end{theorem}
+\begin{proof}
+We give an exact finite certificate for the relative cocycle and then
+derive the fusion rules. Let $P=\langle r,s\rangle\cong D_8$ in $A_6$,
+on letters $0,\ldots,5$, with
+\[
+ r=(0123)(45),\qquad s=(02)(45).
+\]
+Write $r^is^j=(i,j)$, and set
+$E=\{(i,j):i\equiv j\pmod2\}$,
+$K=\{(i,j):i\equiv0\pmod2\}$, and $t=s$.
+Then $E$ fixes both $4$ and $5$, while $K$ is the other Klein four
+subgroup. On $K$, put $x(i,j)=i/2$, $y(i,j)=j$, with values in
+$\mathbb F_2$. The normalized bar equations
+\[
+ dw=0,\qquad w|_E=0,\qquad w|_K=x^2y+xy^2+dv
+\]
+have an explicitly saved solution: there are $352$ variables,
+$2455$ equations, and rank $312$.
+
+For each of the $360$ elements $g\in A_6$, the certificate supplies a
+normalized $2$-cochain witnessing equality, modulo coboundaries, of
+$w$ and its $g$-conjugate on $P\cap gPg^{-1}$. The intersection orders
+$1,2,4,8$ occur $256,64,32,8$ times, respectively. Thus the
+Cartan--Eilenberg stable-elements theorem
+\cite[Chapter XII, Section 10]{CartanEilenberg} supplies a class
+$c\in H^3(A_6,\mathbb F_2)$ restricting to $[w]$.
+For $H=A_5$ fixing $5$, $E$ is a Sylow $2$-subgroup of odd index $15$;
+restriction and transfer give injectivity of $H^3(H,\mathbb F_2)$
+into $H^3(E,\mathbb F_2)$. Hence $c|_H=0$.
+Choose a normalized trivializing $2$-cochain on $H$, extend it to
+$A_6$, and gauge the global cocycle to vanish identically on $H$.
+Exponentiation by $a\mapsto(-1)^a$ gives $\omega|_H=1$, so we may
+take $\psi=1$.
+
+The off-diagonal stabilizer is $L=H\cap tHt^{-1}=A_4$.
+The multiplier convention of \cite[Section 5.1]{GelakiNaidu}, restricted
+to the involutions $a,b\in E$, has additive form
+\[
+ \alpha(a,b)=w(a,b,t)+w(a,bt,t^{-1}bt)
+                   +w(abt,t^{-1}bt,t^{-1}at).
+\]
+For $u=r^2$ and $v=rs$, the exact affine certificate proves
+$\alpha(u,v)+\alpha(v,u)=1$: it gives a sum of original equations
+equal to this functional plus $1$. The identity therefore holds for
+every solution of the displayed affine system, including the
+restriction of the globally gauged cocycle. This last restriction
+need only be cohomologous to the saved local representative.
+Consequently the multiplier has commutator $-1$ on a commuting pair,
+so its class in $H^2(A_4,\mathbb C^\times)$ is nontrivial.
+This relative computation is essential: the nonzero Dickson cubic
+itself maps to zero in $H^3(K,\mathbb C^\times)$.
+
+There are two double cosets. The diagonal sector is
+$\operatorname{Rep}(A_5)$. The other sector has the three spin
+representations of the binary tetrahedral group $2T$:
+\[
+ \rho_i=\rho_0\otimes\chi^i,\qquad i\in\mathbb Z/3,
+ \qquad\det\rho_i=\chi^{2i},
+\]
+where $\rho_0$ is the defining $SU(2)$ representation and $\chi$
+generates the character group of $A_4$. The nontrivial $\mu_2$
+extension is unique: $H^2(A_4,\mathbb F_2)$ is the one-dimensional
+$C_3$-invariant part of $H^2(V_4,\mathbb F_2)$.
+The three spin representations have squared dimensions summing to
+$12$, so they exhaust the projective simples. Their corresponding
+objects $X_i$ have dimension $[A_5:A_4]\dim\rho_i=10$.
+
+Every $X_i$ is self-dual. Reversing the endpoints conjugates $A_4$
+by an odd permutation and therefore inverts its character group.
+Representation duality also inverts determinants, so the two
+inversions cancel. All remaining transport scalars lie in $\mu_2$
+and hence do not change two-dimensional determinants. The three
+distinct determinants distinguish the $X_i$. The five diagonal
+simples are also self-dual; hence all fusion coefficients are
+symmetric in their three indices.
+
+At distinct endpoints, composing two off-diagonal kernels sums over
+four intermediate points, a transitive $A_4$-set with stabilizer
+$C_3$. Thus the off-sector product is governed by induction from
+this $C_3$. There is a unique $\mu_2$ trivialization of a multiplier
+on $C_3$, since $H^1(C_3,\mu_2)=H^2(C_3,\mu_2)=0$.
+The order-three lift in $2T$ has eigenvalues $\zeta,\zeta^2$ on
+$\rho_0$, so $\rho_0|_{C_3}=\chi+\chi^2$. This is preserved by
+either automorphism of $C_3$; a residual $\mu_2$ transport character
+is necessarily trivial. Equivalently, transport preserves the
+trivial determinant, whereas a nontrivial $C_3$ character twist
+would change it. Therefore
+\[
+ N_{X_0X_0}^{X_0}
+ =\langle\chi+\chi^2,(\chi+\chi^2)^2\rangle_{C_3}=2.
+\]
+For any pair $i,j$, the tensor of their two-character restrictions
+has multiplicities $(2,1,1)$ in some order. Pairing with the three
+spin restrictions gives off-sector multiplicities $(2,3,3)$ in some
+order. Symmetry and the anchor $N_{X_0X_0}^{X_0}=2$ have a unique
+completion (enumerated among the $3^6$ choices for unordered pairs):
+\[
+ N_{X_iX_j}^{X_k}=3-\delta_{i+j+k,0\pmod3}.
+\]
+
+The restrictions of the five diagonal simples to $A_4$ are
+$1,3,3,1+3,\chi+\chi^2+3$. As
+$3\otimes\rho_i=\rho_0+\rho_1+\rho_2$, their actions on the
+three off-sector objects are $I,J,J,I+J,2J-I$, where $J$ is the
+all-ones matrix. Reciprocity supplies the diagonal coefficients
+of off/off products. The remaining tensor is the ordinary $A_5$
+character tensor. This determines every coefficient.
+
+The verifier constructs that tensor independently, checks the
+dimension and associativity equations, and matches all $512$
+coefficients to the authoritative source under the basis map
+$[0,1,2,6,7,3,4,5]$ from model to source, whose source-to-model inverse
+is $[0,1,2,5,6,7,3,4]$. All source hashes are recomputed. Finally,
+unit-modulus cocycles make the pointed category and its subgroup
+bimodule construction unitary.
+\end{proof}
+
+\begin{remark}
+The comparison tensor $\sha{R8_3_3344}$ has
+$N_{XX}^{X}=3$ for each dimension-ten simple. Thus it is not the
+ring of this particular construction. This comparison is not a
+general obstruction to other constructions of that tensor.
+\end{remark}

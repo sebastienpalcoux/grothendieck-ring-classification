@@ -50,10 +50,11 @@
     },
     {
       "rank": 8,
-      "census_through": 2,
-      "recorded_through": 2,
-      "classes_at_recorded_bound": 973,
-      "method": "pinned_repository"
+      "census_through": 3,
+      "recorded_through": 3,
+      "classes_at_recorded_bound": 4500,
+      "method": "pinned_repository",
+      "census_commit": "30046938fe2bd5cf4013c19eb0341d662f0d5dad"
     }
   ],
   "rows": [
@@ -196,6 +197,13 @@
       "rings": 1059,
       "source": "https://github.com/sebastienpalcoux/fusion-ring-census/blob/4e81914a6772ccd5aa2a2b5fe1b6e2cd06e2d700/results/rank7/counts.csv",
       "verification": "https://github.com/sebastienpalcoux/fusion-ring-census/blob/4e81914a6772ccd5aa2a2b5fe1b6e2cd06e2d700/verification/rank7/audit.json"
+    },
+    {
+      "rank": 8,
+      "multiplicity": 3,
+      "rings": 3527,
+      "source": "https://github.com/sebastienpalcoux/fusion-ring-census/blob/30046938fe2bd5cf4013c19eb0341d662f0d5dad/results/rank8/counts.csv",
+      "verification": "https://github.com/sebastienpalcoux/fusion-ring-census/blob/30046938fe2bd5cf4013c19eb0341d662f0d5dad/verification/rank8/audit.json"
     },
     {
       "rank": 2,
@@ -15212,9 +15220,22 @@
       "census_commit": "4e81914a6772ccd5aa2a2b5fe1b6e2cd06e2d700",
       "manifest_sha256": "5f99aa1ad86dc7f955e3ea61c6be9f57411346a0d99d85e54e481a925740d4bb",
       "tables_gz_sha256": "9018f6f195339fb153ea326ec308c955bb1adf9afe1ffc9423be1bef6818e073",
-      "completeness_basis": "Producer-reported completed exhaustive enumeration; optimized enumeration source not bundled in supplied archive.",
+      "completeness_basis": "Producer-reported completed exhaustive enumeration; complete optimized enumeration source supplied and audited, but full search not independently rerun.",
       "independent_enumeration_rerun": false,
-      "independent_verification_scope": "Tensor axioms, all unit-fixing relabellings, parameter export, exact old tensor-set prefix, hashes and counts."
+      "independent_verification_scope": "Tensor axioms, all unit-fixing relabellings, parameter export, exact old tensor-set prefix, hashes and counts.",
+      "optimized_source_verified_in_commit": "30046938fe2bd5cf4013c19eb0341d662f0d5dad",
+      "enumeration_source_available": true
+    },
+    "rank8_m3": {
+      "date": "2026-10-21",
+      "census_commit": "30046938fe2bd5cf4013c19eb0341d662f0d5dad",
+      "manifest_sha256": "adc8fa395d883d51b15cedbba2a243a1fd765b1e686517c5b5a5e44d71d1f389",
+      "tables_gz_sha256": "1003a7684ec62797e63885eeb5af42fd094adc9ff3fec6caf049620b3afd0952",
+      "tables_uncompressed_sha256": "7baaa0a2018e11a0464c3f19da9030195421f04a73806c22363cf9d5eeb92a84",
+      "enumeration_source_available": true,
+      "completeness_basis": "Producer-reported completed exhaustive enumeration; complete optimized enumeration source supplied and audited, but full search not independently rerun.",
+      "independent_enumeration_rerun": false,
+      "independent_verification_scope": "Tensor axioms, all unit-fixing relabellings, parameter export, exact previous tensor and parameter sequence, hashes and counts."
     }
   }
 }

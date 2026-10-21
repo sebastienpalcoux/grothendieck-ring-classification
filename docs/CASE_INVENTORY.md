@@ -1,5 +1,7 @@
 # Historical 38-case study and current proof references
 
+The rank-eight multiplicity-three continuation addresses all 3,527 supplied exact-multiplicity-three rings: 3,479 general exclusions, 14 models and 34 unresolved cases. Every recorded model admits a unitary realization. The remaining rings retain unresolved status for general complex categorification.
+
 The rank-seven multiplicity-five continuation addresses all 5,805 supplied exact-multiplicity-five rings: 5,804 general exclusions, 1 realization and 0 unresolved cases. The classification of the supplied census is complete through multiplicity 5. The new realization R7_5_5678 is Rep(AGL(1,7)).
 
 > **AI-generated research · independent verification pending.** Treat these
@@ -78,7 +80,7 @@ section; the stable LaTeX label locates the exact statement in that source.
 
 ## Classification boundary of the historical study
 
-The following boundary describes the 17 October study; the current M5 extension is stated above.
+The following boundary describes the 17 October study; current M5 and M3 extensions are stated above.
 Through multiplicity nine, rank six has 25,362 exclusions, 57 realizations and
 two open cases. Rank seven is complete through multiplicity four with 4,172
 exclusions and 29 models. Rank eight is complete through multiplicity two:

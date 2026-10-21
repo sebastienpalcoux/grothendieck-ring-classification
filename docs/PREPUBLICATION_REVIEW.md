@@ -1,5 +1,7 @@
 # Mathematical review and verification scope
 
+The rank-eight multiplicity-three continuation addresses all 3,527 supplied exact-multiplicity-three rings: 3,479 general exclusions, 14 models and 34 unresolved cases. Every recorded model admits a unitary realization. The remaining rings retain unresolved status for general complex categorification.
+
 The rank-seven multiplicity-five continuation addresses all 5,805 supplied exact-multiplicity-five rings: 5,804 general exclusions, 1 realization and 0 unresolved cases. The classification of the supplied census is complete through multiplicity 5. The new realization R7_5_5678 is Rep(AGL(1,7)).
 
 > **AI-generated research · independent verification pending.** Treat these
@@ -89,3 +91,16 @@ No private attachment is required for either public replay.
 
 [Verification instructions](VERIFY.md) give executable commands.
 [Provenance](PROVENANCE.md) records the exact ledger and archive identities.
+
+## Rank-eight multiplicity-three continuation
+
+The rank-eight multiplicity-three continuation addresses all 3,527 supplied exact-multiplicity-three rings: 3,479 general exclusions, 14 models and 34 unresolved cases. Every recorded model admits a unitary realization. The remaining rings retain unresolved status for general complex categorification.
+
+The complete census is producer-reported, with independent tensor and isomorphism audits. The supplied optimized source matches both producer run receipts; full enumeration was not independently rerun. The normal and optimized mathematical replay receipts, individually investigated residuals and proof dependencies are in [`evidence/rank8_m3_20261021`](../evidence/rank8_m3_20261021). A candidate has neither a general exclusion nor a constructed associator; it is not an established exotic category. New arguments remain subject to independent human review.
+
+```bash
+python3 supplements/rank8/software/verify_m3_continuation.py
+python3 -O supplements/rank8/software/verify_m3_continuation.py
+```
+
+Metadata-only mode checks source identity and reconciliation with both full receipts, without repeating their finite mathematical checks.

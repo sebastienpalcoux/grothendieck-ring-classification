@@ -1,9 +1,9 @@
 {
-  "date": "20 October 2026",
-  "version": "Rank-seven multiplicity-five continuation and current verification scope",
+  "date": "21 October 2026",
+  "version": "Rank-eight multiplicity-three continuation and current verification scope",
   "title": "Research status and verification",
   "caution": "AI-generated research · independent verification pending. The results, proofs, code and data have not yet been independently verified by human experts or formalized in Lean. Use them with caution; exact checks establish only their stated computational scope.",
-  "summary": "The rank-seven multiplicity-five continuation addresses all 5,805 supplied exact-multiplicity-five rings: 5,804 general exclusions, 1 realization and 0 unresolved cases. The classification of the supplied census is complete through multiplicity 5. The new realization R7_5_5678 is Rep(AGL(1,7)). The two earlier rank-six categorification problems also remain open. The historical 38-case continuation has 36 decisions; its inventory is separate from this extension.",
+  "summary": "The rank-eight multiplicity-three continuation addresses all 3,527 supplied exact-multiplicity-three rings: 3,479 general exclusions, 14 models and 34 unresolved cases. Every recorded model admits a unitary realization. The remaining rings retain unresolved status for general complex categorification. The rank-seven multiplicity-five continuation addresses all 5,805 supplied exact-multiplicity-five rings: 5,804 general exclusions, 1 realization and 0 unresolved cases. The classification of the supplied census is complete through multiplicity 5. The new realization R7_5_5678 is Rep(AGL(1,7)). The two earlier rank-six questions remain open. The historical 38-case inventory keeps its original scope.",
   "rank_counts": [
     {
       "rank": 4,
@@ -39,19 +39,19 @@
     },
     {
       "rank": 8,
-      "bound": 2,
-      "rings": 973,
-      "excluded": 896,
-      "models": 77,
-      "open": 0
+      "bound": 3,
+      "rings": 4500,
+      "excluded": 4375,
+      "models": 91,
+      "open": 34
     }
   ],
   "coverage_notes": [
     "Ranks two, three and four are classified without a multiplicity restriction. Exactly fifteen rank-four Grothendieck rings occur, and every rank-four categorification admits a spherical structure. The table records the separate finite censuses.",
     "The bound is the largest multiplicity included in the displayed census, not necessarily a complete classification range. Rank six is complete through multiplicity three; its exact bands 5, 6, 7 and 9 are also complete, while bands 4 and 8 each contain one open case.",
-    "Rank eight is complete through multiplicity two: 48 Grothendieck rings at exact multiplicity one and 29 at exact multiplicity two. The latter band contains 848 exclusions and 29 unitary models.",
     "Rank-six models comprise 56 unitary constructions and one spherical construction that is not pseudo-unitary. Completeness means coverage of the stated census by the project's recorded arguments; it does not assert independent human or formal verification.",
-    "The rank-seven M5 tensor identities, fusion axioms and preservation of the earlier tensor set passed independent computational checks. Completeness of the exhaustive enumeration relies on the supplied producer completion record; the optimized enumerator was not independently rerun."
+    "The rank-seven M5 tensor identities, fusion axioms and preservation of the earlier tensor set passed independent computational checks. Completeness of the exhaustive enumeration relies on the supplied producer completion record; the optimized enumerator was not independently rerun.",
+    "The rank-eight M3 extension preserves all 973 earlier records and adds 3,527 exact-multiplicity-three tensors. Source identities, tensor axioms and based-isomorphism audits are independently checked. Enumeration completeness relies on producer completion records. The supplied optimized source matches the producer source hashes for both the rank-seven M5 and rank-eight M3 runs; the exhaustive enumerations were not independently rerun."
   ],
   "open_cases": [
     {
@@ -69,9 +69,27 @@
         "In the positive spherical representative, saturated modular representations determine all indicator sequences and every central phase mass. The eight spin objects form four dual pairs, all with restriction 2X+2gX+sigma+3T.",
         "Exact phase Gram constraints leave 640 labelled restriction-data profiles in three branches of 68, 286 and 286. These profiles are neither categories nor complete modular fusion data. They do not construct compatible associators or exclude all categorifications."
       ]
+    },
+    {
+      "id": "Rank eight: 34 rings",
+      "heading": "Exact multiplicity three",
+      "paragraphs": [
+        "The new band contains 3,479 recorded general exclusions, 14 unitary models and 34 unresolved tensors. Each remaining tensor has an individual attempt record, distinguishing completed necessary-condition tests, unsuccessful model searches, ineligible tests and time limits.",
+        "These are investigated categorification candidates, not asserted fusion categories or established exotic examples. Passing necessary conditions supplies no associator. Failing to find a model does not prove nonexistence. Exact tensors are in data/remaining_cases.py; the per-case record is evidence/rank8_m3_20261021/pipeline/residual_attempts.json.",
+        "Unitary categorification is excluded for R8_3_436, R8_3_455, R8_3_731, R8_3_925, R8_3_1350, R8_3_1661, R8_3_2885, R8_3_3258, R8_3_3413. These scoped obstructions leave general complex categorification unresolved.",
+        "Any categorification of R8_3_731 would be nonunitary and not weakly group-theoretical: its exact simple based ring and negative primary-three witness combine with the simple weakly group-theoretical classification. This conditional restriction supplies no categorification or general exclusion."
+      ]
     }
   ],
   "replay_sections": [
+    {
+      "heading": "Rank eight: multiplicity-three extension",
+      "paragraphs": [
+        "Fresh full normal and optimized aggregate replays passed for the accepted source-bound ledger. Their receipts bind the exact source tensors, historical decisions, accepted certificates, model constructors and proof-source files. Each referenced replay log is separately checksummed.",
+        "Run supplements/rank8/software/verify_m3_continuation.py in normal and optimized Python. Assertion-based inherited checks run with assertions enabled. Metadata-only mode checks file identities and reconciliation with the full receipts; it does not repeat the mathematical computations. The release includes the repository-relative dependency tree.",
+        "Exact replay checks the stated finite identities and certificates. Categorical reductions, complete enumeration and claims of mathematical novelty have separate proof obligations. Independent human verification and Lean formalization remain pending."
+      ]
+    },
     {
       "heading": "Rank seven: multiplicity-five extension",
       "paragraphs": [
@@ -133,6 +151,14 @@
   ],
   "theoretical_results": [
     {
+      "heading": "Rank-eight multiplicity-three continuation",
+      "paragraphs": [
+        "Unified exclusions combine negative-subring transfer, quadratic-compositum compression, weak-integral and biquadratic relative twist traces, complete signed lifting and convex central induction. Exact separation of an enlarged necessary-condition system gives a valid contradiction only after the hypotheses and complete lifting are established.",
+        "Structural arguments use module-category ranks, split-module polynomial constraints, solvability, equivariantization and Morita transport. A unitary-only positivity obstruction becomes a general exclusion only when a separate theorem proves the relevant category must admit a unitary realization.",
+        "The explicit models include near-group equivariantizations, a cyclic permutation equivariantization of three Fibonacci factors, exceptional subfactor constructions, a conformal-embedding Morita dual, ordinary groups and a twisted A6/A5 group-theoretical construction. All model identifications compare the full 512 multiplication coefficients. Existence does not imply uniqueness or categorical novelty."
+      ]
+    },
+    {
       "heading": "Rank-seven multiplicity-five continuation",
       "paragraphs": [
         "The new continuation combines quadratic Casimir compression, complete signed sphericalization, Galois reduction to positive dimensions, and exact simultaneous first and second center-twist moments. A separate integral case is excluded by a complete cyclic-module Morita-dual calculation and descent to dimension 148. The current manuscript gives the categorical reductions and the finite domains checked by the programs.",
@@ -151,5 +177,5 @@
       ]
     }
   ],
-  "open_case_count": 2
+  "open_case_count": 36
 }

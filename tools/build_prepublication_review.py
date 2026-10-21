@@ -10,7 +10,7 @@ from pathlib import Path
 import json
 import shutil
 from xml.sax.saxutils import escape
-from rank7_publication import STATUS_REPORT
+from rank8_publication import current_report
 
 from reportlab.lib import colors
 from reportlab.lib.pagesizes import A4
@@ -18,12 +18,12 @@ from reportlab.lib.styles import ParagraphStyle
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.platypus import (
-    SimpleDocTemplate, Paragraph, Spacer, PageBreak, Table, TableStyle,
+    SimpleDocTemplate, Paragraph, Spacer, PageBreak, CondPageBreak, Table, TableStyle,
 )
 
 ROOT = Path(__file__).resolve().parents[1]
 CONTENT = json.loads((ROOT / 'docs/prepublication_review_content.json').read_text())
-NAME = STATUS_REPORT
+NAME = current_report(ROOT)
 OUT = ROOT / 'manuscripts' / NAME
 OUT.parent.mkdir(parents=True, exist_ok=True)
 REPO = 'https://github.com/sebastienpalcoux/grothendieck-ring-classification'
@@ -46,11 +46,11 @@ PALE = colors.HexColor('#edf4f1')
 W, H = A4
 WIDTH = W - 100
 styles = {
-    'kicker': ParagraphStyle('kicker', fontName='SansBold', fontSize=8.2, leading=11.8, textColor=TEAL, spaceAfter=10),
+    'kicker': ParagraphStyle('kicker', fontName='SansBold', fontSize=8.2, leading=11.8, textColor=TEAL, spaceAfter=10, keepWithNext=True),
     'title': ParagraphStyle('title', fontName='SansBold', fontSize=27, leading=32, textColor=INK, spaceAfter=12),
     'subtitle': ParagraphStyle('subtitle', fontName='Sans', fontSize=11, leading=16, textColor=MUTED, spaceAfter=16),
-    'h1': ParagraphStyle('h1', fontName='SansBold', fontSize=20, leading=26, textColor=INK, spaceAfter=13),
-    'h2': ParagraphStyle('h2', fontName='SansBold', fontSize=12, leading=17, textColor=TEAL, spaceBefore=13, spaceAfter=7),
+    'h1': ParagraphStyle('h1', fontName='SansBold', fontSize=20, leading=26, textColor=INK, spaceAfter=13, keepWithNext=True),
+    'h2': ParagraphStyle('h2', fontName='SansBold', fontSize=12, leading=17, textColor=TEAL, spaceBefore=13, spaceAfter=7, keepWithNext=True),
     'body': ParagraphStyle('body', fontName='Sans', fontSize=9.1, leading=14.2, textColor=INK, spaceAfter=9, allowWidows=0, allowOrphans=0),
     'theory': ParagraphStyle('theory', fontName='Sans', fontSize=9.1, leading=12.0, textColor=INK, spaceAfter=6, allowWidows=0, allowOrphans=0),
     'small': ParagraphStyle('small', fontName='Sans', fontSize=8.0, leading=10.9, textColor=MUTED, spaceAfter=6, allowWidows=0, allowOrphans=0),
@@ -122,7 +122,7 @@ story = [p('GROTHENDIECK RING CLASSIFICATION  /  RESEARCH NOTE', 'kicker'),
          Spacer(1, 10), p('The current classification record', 'h2'),
          p(safe(CONTENT['summary'])), counts_table(), Spacer(1, 9)]
 story += [p(safe(x), 'small') for x in CONTENT['coverage_notes']]
-story += [p(f'<a href="{WEB}/" color="#126d6b">Public atlas</a>  |  <a href="{REPO}" color="#126d6b">GitHub repository</a>', 'small'), PageBreak()]
+story += [PageBreak()]
 
 open_count = CONTENT.get('open_case_count',len(CONTENT['open_cases']))
 open_heading = {1: 'One open case', 2: 'Two open cases'}.get(open_count, f'{open_count} open cases')
@@ -136,7 +136,7 @@ if CONTENT.get('theoretical_results'):
 for result in CONTENT.get('theoretical_results', []):
     story += [p(safe(result['heading']), 'h2')]
     story += [p(safe(x), 'theory') for x in result['paragraphs']]
-story += [box(p('<b>Status discipline.</b> A restricted nonexistence result applies only under its stated assumptions. An exact computation of conditional equations does not discharge the missing categorical hypothesis.', 'notice'), padding=8), PageBreak()]
+story += [box(p('<b>Status discipline.</b> A restricted nonexistence result applies only under its stated assumptions. An exact computation of conditional equations does not discharge the missing categorical hypothesis.', 'notice'), padding=8), Spacer(1, 18), CondPageBreak(180)]
 
 story += [p('EXACT COMPUTATIONAL EVIDENCE', 'kicker'), p('What was checked', 'h1')]
 for section in CONTENT['replay_sections']:

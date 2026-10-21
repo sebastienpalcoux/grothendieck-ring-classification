@@ -1,5 +1,7 @@
 # Research status and verification
 
+The rank-eight multiplicity-three continuation addresses all 3,527 supplied exact-multiplicity-three rings: 3,479 general exclusions, 14 models and 34 unresolved cases. Every recorded model admits a unitary realization. The remaining rings retain unresolved status for general complex categorification.
+
 The rank-seven multiplicity-five continuation addresses all 5,805 supplied exact-multiplicity-five rings: 5,804 general exclusions, 1 realization and 0 unresolved cases. The classification of the supplied census is complete through multiplicity 5. The new realization R7_5_5678 is Rep(AGL(1,7)).
 
 > **AI-generated research · independent verification pending.** Treat these
@@ -23,8 +25,8 @@ Rank six records **25,362 exclusions, 57 realizations and
 range ends at three; exact bands 1, 2, 3, 5, 6, 7, 9 are complete. Rank seven records
 **9,976 exclusions and 30 realizations**,
 with **0 open cases through multiplicity 5**; complete through multiplicity 5. Rank eight records
-**896 exclusions and 77 realizations**,
-with no open case through multiplicity two. The general exclusion of
+**4375 exclusions and 91 realizations**,
+with **34 open cases through multiplicity 3**; complete through multiplicity 2. The historical general exclusion of
 `R8_2_24` uses an inner-square obstruction from short gauge weights and
 tensor-functor rigidity.
 
@@ -37,7 +39,7 @@ tensor-functor rigidity.
 
 ### Rank-seven classification frontier
 
-Every supplied rank-seven fusion ring through multiplicity five has a recorded general exclusion or unitary model. The [continuation evidence](../evidence/rank7_m5_20261020/README.md) gives the accepted arguments and replay receipts. [Download all 2 current open tensors](../data/remaining_cases.py), including the two rank-six cases.
+Every supplied rank-seven fusion ring through multiplicity five has a recorded general exclusion or unitary model. The [continuation evidence](../evidence/rank7_m5_20261020/README.md) gives the accepted arguments and replay receipts. [Download all 36 current open tensors](../data/remaining_cases.py), including the two rank-six cases.
 
 A necessary-condition witness is neither a categorification nor a general
 nonexistence proof. Scoped unitary, pseudo-unitary, pivotal or braided

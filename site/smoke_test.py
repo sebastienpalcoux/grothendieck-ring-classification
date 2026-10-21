@@ -254,7 +254,8 @@ if update:
         r24 = next(record for record in decisions if record["id"] == "R8_2_24")
         assert r24["status"] == "excluded" and r24["proof_source"] == update["source"]
         scope8 = next(record for record in payload["scope"] if record["rank"] == 8)
-        assert (scope8["through"], scope8["analyzed_through"], scope8["kind"]) == (2, 2, "complete")
+        if not payload.get("rank8_m3_update"):
+            assert (scope8["through"], scope8["analyzed_through"], scope8["kind"]) == (2, 2, "complete")
         assert not positive_flags[(8, 2)] and positive[(8, 2)] == 29
         band8 = next(record for record in status_payload["rows"] if (record["rank"], record["multiplicity"]) == (8, 2))
         assert (band8["rings"], band8["excluded_general"], band8["unresolved_general"], band8["classification_coverage"]) == (877, 848, 0, "complete_classification")
@@ -335,10 +336,25 @@ if payload.get("rank7_m5_update"):
     assert hashlib.sha256(path.read_bytes()).hexdigest() == extension["metadata_sha256"]
     band = next(r for r in status_payload["rows"] if (r["rank"],r["multiplicity"]) == (7,5))
     assert (extension["rings"], extension["excluded"], extension["realized"], extension["unresolved"]) == tuple(band[k] for k in ("rings","excluded_general","realized_unitary","unresolved_general"))
-    assert set(payload["remaining_ids"]) == {"R6_4_155", "R6_8_1660"} | set(extension["remaining_ids"])
+    assert set(payload["remaining_ids"]) == {"R6_4_155", "R6_8_1660"} | set(extension["remaining_ids"]) | set(payload.get("rank8_m3_update", {}).get("remaining_ids", []))
     assert set(current_manifest["remaining_ids"]) == set(payload["remaining_ids"])
     info = payload["remaining_ids_file"]
     raw = (root / info["path"]).read_bytes()
     assert hashlib.sha256(raw).hexdigest() == info["sha256"]
     assert json.loads(raw) == payload["remaining_ids"]
     print("Rank-seven multiplicity-five scope and current unresolved inventory checked.")
+
+if payload.get("rank8_m3_update"):
+    extension = payload["rank8_m3_update"]
+    raw = (root / extension["metadata_path"]).read_bytes()
+    assert hashlib.sha256(raw).hexdigest() == extension["metadata_sha256"]
+    band = next(r for r in status_payload["rows"] if (r["rank"], r["multiplicity"]) == (8, 3))
+    assert (extension["rings"], extension["excluded"], extension["unitarily_realized"], extension["unresolved"]) == tuple(band[k] for k in ("rings", "excluded_general", "realized_unitary", "unresolved_general"))
+    info = extension["attempts"]
+    raw = (root / info["path"]).read_bytes()
+    assert hashlib.sha256(raw).hexdigest() == info["sha256"]
+    audit = json.loads(raw)
+    records = audit.get("cases", audit.get("records", [])) if isinstance(audit, dict) else audit
+    assert [r["id"] for r in records] == extension["remaining_ids"]
+    assert len(records) == info["cases"]
+    print("Rank-eight multiplicity-three ledger scope and individual attempt inventory checked.")

@@ -460,19 +460,39 @@ def from_catalogues(repo):
                 raise ValueError(f"Rank-seven model band mismatch: {model['id']}")
             rec["basis_permutation_model_to_census"] = model.get("basis_permutation_model_to_census")
             records.append(rec)
-    p8 = "supplements/rank8/data/model_catalog.json"
+    import sys
+    sys.path.insert(0, str(repo / "tools"))
+    from rank8_publication import model_path
+    p8 = model_path(repo)
     if (repo/p8).exists():
         for model in json.loads((repo/p8).read_text()):
             first=model["constructors"][0]
             source_tensor=rank8_source_tensor(model)
             name=first["model"]
             ref=f"Rank-eight manuscript, positive model catalogue, {model['id']}; {first['reference']}"
+            reference_url=first.get("source_url")
+            if model['id'] in ('R8_3_331','R8_3_471'):
+                ref += '; Calegari–Morrison–Snyder, arXiv:1004.0665, Appendix A by Ostrik, Proposition A.4.1 (C3+3), followed by the stated Deligne product'
+                reference_url='https://arxiv.org/abs/1004.0665'
+            if model['id'] in ('R8_3_1456','R8_3_3314'):
+                ref += '; Kirillov–Ostrik, arXiv:math/0101219, E8 construction and its adjoint category, followed by the stated Deligne product'
+                reference_url='https://arxiv.org/abs/math/0101219'
             if name=="Vec(G), |G|=8":
                 group=identify_pointed_order_eight(source_tensor)
                 name="Vec(dihedral group of order 8)" if group=="D8" else f"Vec({group})"
                 ref+="; group identified from the exact multiplication table by element orders and commutativity"
             rec=make_record(8,model["id"],name,source_tensor,ref+".",
-                            p8,model["id"],"unitary",reference_url=first.get("source_url"))
+                            p8,model["id"],model.get("model_scope", "unitary"),reference_url=reference_url)
+            construction=first.get('construction',{})
+            rec['construction_notes']=[construction[key] for key in ('kind','cocycle','human_review')
+                                       if isinstance(construction.get(key),str)]
+            if isinstance(construction.get('proof'),str):
+                proof=construction['proof']
+                if not proof.startswith('evidence/'):
+                    proof='evidence/rank8_m3_20261021/models/'+proof
+                if not (repo/proof).is_file():
+                    raise ValueError('Missing construction proof: '+proof)
+                rec['construction_proof_file']=proof
             if rec["multiplicity"]!=model["multiplicity"]:
                 raise ValueError(f"Rank-eight model band mismatch: {model['id']}")
             rec["basis_permutation_census_to_model"] = first["basis_map_source_to_model"]

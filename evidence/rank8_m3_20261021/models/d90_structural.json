@@ -1,0 +1,444 @@
+{
+  "schema": "rank8-dimension90-structural-v1",
+  "proof": "evidence/rank8_m3_20261021/models/D90_STRUCTURAL_PROOF.md",
+  "references": [
+    {
+      "author": "Jingcheng Dong",
+      "title": "Classification of certain weakly integral fusion categories",
+      "url": "https://arxiv.org/pdf/2103.04553v3",
+      "locator": "Corollary4.16, printed p17",
+      "input": "Every complex fusion category of FP dimension90 is solvable."
+    },
+    {
+      "author": "Etingof-Nikshych-Ostrik",
+      "title": "Weakly group-theoretical and solvable fusion categories",
+      "url": "https://arxiv.org/pdf/0809.3031v2",
+      "locator": "Proposition4.4, printed p13",
+      "input": "A solvable category has a final cyclic-prime extension or equivariantization step."
+    },
+    {
+      "author": "Jordan-Larson",
+      "title": "On the classification of certain fusion categories",
+      "url": "https://arxiv.org/pdf/0812.1603v2",
+      "locator": "Theorem1.1, printed p2",
+      "input": "An integral category of dimension p*q^2 is group-theoretical unless p=2 or odd p divides q+1."
+    },
+    {
+      "author": "Gelaki-Naidu",
+      "title": "Some properties of group-theoretical categories",
+      "url": "https://arxiv.org/pdf/0709.4326v1",
+      "locator": "Section5.1 and Theorem5.1, printed pp7-8",
+      "input": "Simple objects are double-coset/projective-stabilizer pairs, with the displayed stabilizer cocycle."
+    }
+  ],
+  "records": [
+    {
+      "id": "R8_3_2904",
+      "tensor_sha256": "434123cd5121362e0a7212aa72fe514bd615791d61f4f0e808a5bbd4bdc71439",
+      "excluded": true,
+      "scope": "general_complex_fusion_category",
+      "certificate": {
+        "kind": "dimension90_solvable_rigidity",
+        "scope": "general_complex_fusion_category",
+        "tensor_sha256": "434123cd5121362e0a7212aa72fe514bd615791d61f4f0e808a5bbd4bdc71439",
+        "dimension_character": [
+          1,
+          1,
+          2,
+          2,
+          6,
+          6,
+          2,
+          2
+        ],
+        "dimension_character_products_checked": 64,
+        "global_dimension": 90,
+        "duality": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "invertibles": [
+          0,
+          1
+        ],
+        "sign_involution": 1,
+        "left_sign_action": [
+          1,
+          0,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "right_sign_action": [
+          1,
+          0,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "adjoint_seed": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "adjoint_closure_steps": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        ],
+        "adjoint_basis": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "all_closed_subrings": [
+          {
+            "basis": [
+              0
+            ],
+            "dimension": 1
+          },
+          {
+            "basis": [
+              0,
+              1
+            ],
+            "dimension": 2
+          },
+          {
+            "basis": [
+              0,
+              1,
+              3
+            ],
+            "dimension": 6
+          },
+          {
+            "basis": [
+              0,
+              1,
+              2,
+              3,
+              6,
+              7
+            ],
+            "dimension": 18
+          },
+          {
+            "basis": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "dimension": 90
+          }
+        ],
+        "forced_deequivariantization_dimensions": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          3,
+          3,
+          3,
+          3
+        ],
+        "forced_deequivariantization_global_dimension": 45,
+        "dimension45_group_arithmetic": {
+          "sylow_counts": {
+            "3": [
+              1
+            ],
+            "5": [
+              1
+            ]
+          },
+          "abelian_group_invariant_factors": [
+            [
+              45
+            ],
+            [
+              3,
+              15
+            ]
+          ],
+          "noncyclic_stabilizers": [
+            {
+              "order": 9,
+              "index": 5,
+              "schur_multiplier_exponent": 3,
+              "restriction_coprime_to3": true
+            },
+            {
+              "order": 45,
+              "index": 1,
+              "schur_multiplier_exponent": 3,
+              "restriction_coprime_to3": true
+            }
+          ],
+          "Jordan_Larson_parameters": {
+            "p": 5,
+            "q": 3,
+            "p_divides_q_plus_one": false
+          }
+        },
+        "contradiction": "The forced dimension45 category has four3-dimensional simples, whereas all integral categories of dimension45 are pointed by the cited group-theoretical/cohomology argument."
+      }
+    },
+    {
+      "id": "R8_3_3082",
+      "tensor_sha256": "6ff863fd7b4c87a77cafc105712ab02956c4deeead1cd1d471d001dab4aeaf36",
+      "excluded": true,
+      "scope": "general_complex_fusion_category",
+      "certificate": {
+        "kind": "dimension90_solvable_rigidity",
+        "scope": "general_complex_fusion_category",
+        "tensor_sha256": "6ff863fd7b4c87a77cafc105712ab02956c4deeead1cd1d471d001dab4aeaf36",
+        "dimension_character": [
+          1,
+          1,
+          6,
+          2,
+          2,
+          2,
+          2,
+          6
+        ],
+        "dimension_character_products_checked": 64,
+        "global_dimension": 90,
+        "duality": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "invertibles": [
+          0,
+          1
+        ],
+        "sign_involution": 1,
+        "left_sign_action": [
+          1,
+          0,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "right_sign_action": [
+          1,
+          0,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "adjoint_seed": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "adjoint_closure_steps": [
+          [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        ],
+        "adjoint_basis": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "all_closed_subrings": [
+          {
+            "basis": [
+              0
+            ],
+            "dimension": 1
+          },
+          {
+            "basis": [
+              0,
+              1
+            ],
+            "dimension": 2
+          },
+          {
+            "basis": [
+              0,
+              1,
+              3
+            ],
+            "dimension": 6
+          },
+          {
+            "basis": [
+              0,
+              1,
+              4
+            ],
+            "dimension": 6
+          },
+          {
+            "basis": [
+              0,
+              1,
+              5
+            ],
+            "dimension": 6
+          },
+          {
+            "basis": [
+              0,
+              1,
+              6
+            ],
+            "dimension": 6
+          },
+          {
+            "basis": [
+              0,
+              1,
+              3,
+              4,
+              5,
+              6
+            ],
+            "dimension": 18
+          },
+          {
+            "basis": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7
+            ],
+            "dimension": 90
+          }
+        ],
+        "forced_deequivariantization_dimensions": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          3,
+          3,
+          3,
+          3
+        ],
+        "forced_deequivariantization_global_dimension": 45,
+        "dimension45_group_arithmetic": {
+          "sylow_counts": {
+            "3": [
+              1
+            ],
+            "5": [
+              1
+            ]
+          },
+          "abelian_group_invariant_factors": [
+            [
+              45
+            ],
+            [
+              3,
+              15
+            ]
+          ],
+          "noncyclic_stabilizers": [
+            {
+              "order": 9,
+              "index": 5,
+              "schur_multiplier_exponent": 3,
+              "restriction_coprime_to3": true
+            },
+            {
+              "order": 45,
+              "index": 1,
+              "schur_multiplier_exponent": 3,
+              "restriction_coprime_to3": true
+            }
+          ],
+          "Jordan_Larson_parameters": {
+            "p": 5,
+            "q": 3,
+            "p_divides_q_plus_one": false
+          }
+        },
+        "contradiction": "The forced dimension45 category has four3-dimensional simples, whereas all integral categories of dimension45 are pointed by the cited group-theoretical/cohomology argument."
+      }
+    }
+  ]
+}

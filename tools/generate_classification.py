@@ -14,6 +14,7 @@ from collections import Counter, defaultdict
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+from rank8_publication import ledger_path as rank8_ledger
 
 
 def digest(path):
@@ -192,7 +193,7 @@ if __name__ == '__main__':
     p.add_argument('--census', type=Path)
     for r in (4,5,6):p.add_argument(f'--rank{r}', type=Path)
     p.add_argument('--rank7',type=Path,default=ROOT/'supplements/rank7/output/rank7_ledger.json')
-    p.add_argument('--rank8',type=Path,default=ROOT/'supplements/rank8/data/decisions.json')
+    p.add_argument('--rank8',type=Path,default=ROOT/rank8_ledger(ROOT))
     args=p.parse_args()
     required=('rank6','rank6_bundle') if args.refresh_rank6 else ('bundle','census','rank4','rank5','rank6')
     for name in required:

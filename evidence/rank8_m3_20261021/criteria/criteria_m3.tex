@@ -1,0 +1,74 @@
+\subsection{Negative subring transfer and simultaneous quadratic fields}
+\label{subsec:m3-transfer-compression}
+The new census is first compared with the current, general-scope negative
+rank-six and rank-seven catalogues.  Each transfer certificate gives a
+dual-closed proper basis subset, verifies product closure, and supplies a
+unit-preserving permutation identifying every multiplication coefficient
+with the cited negative tensor.  The tensor and its full published decision
+are hash bound.  Any categorification would contain this full fusion
+subcategory, so the transfer excludes a general complex categorification.
+The recovered scan reproduces fourteen such transfers from catalogues of
+531 rank-six and 1396 rank-seven negatives of multiplicity at most three.
+
+\begin{proposition}[Simultaneous quadratic compression]
+Let $R$ be a fusion ring and $B=\sum_iN_iN_i^t$ its regular Casimir matrix.
+For each real quadratic field $L=\mathbb Q(\sqrt d)$ appearing among its
+irreducible quadratic characteristic-polynomial factors, write
+\[
+ Q_d=f_d\sum_j m_j\frac{t_j^2-4n_j}{n_j^2},
+ \qquad (x^2-t_jx+n_j)^{m_j}\mid\det(xI-B),
+\]
+where the sum includes exactly the factors generating $L$ and $f_d$ is
+the fundamental discriminant of $L$.  Let $r$ be the rank over
+$\mathbb F_2$ of all these quadratic squareclasses.  A complex fusion
+categorification requires
+\[
+                 2^{r-1}Q_d\leq4
+\]
+for every displayed field.  If a categorification would admit a
+Galois-conjugate pseudo-unitary form, the stronger bound is
+$2^{r-1}Q_d\leq1$.
+\end{proposition}
+\begin{proof}
+The full-$I(\mathbf1)$ compression theorem gives
+$[K:L]Q_d\leq1$ for a spherical categorification with dimension field $K$.
+On a simple representation $E$, the Casimir eigenvalue is
+$(\dim E)f_E$ and its regular multiplicity is $(\dim E)^2$; hence the
+displayed spectral multiplicities already give the correct contribution,
+also for a noncommutative ring.  Each formal codegree, and therefore each
+Casimir eigenvalue, lies in $K$.  The compositum of the displayed quadratic
+fields has degree $2^r$, so $[K:L]\geq2^{r-1}$.
+For an arbitrary category, pass to its sphericalization.  Its original
+fusion-algebra sector has Casimir $2B$, dividing the known reciprocal-square
+compression contribution by four.  This proves the first bound without
+assuming pivotality.  A Galois-conjugate pseudo-unitary realization is
+spherical and yields the stronger bound directly.
+\end{proof}
+The implementation checks the stronger hypothesis by the existing
+weak-integrality or two-distinct-Frobenius--Perron-dimensions reduction.
+It computes every polynomial factor, rational ratio, squareclass rank, and
+gate from the source tensor.  In particular a scoped spherical obstruction
+alone is never promoted to general nonexistence.  The proof source and
+replay are \texttt{criteria/COMPRESSION\_AND\_TRANSFER.md} and
+\texttt{criteria/quadratic\_compression.py}.
+
+\subsection{Weakly integral quadratic trace fields}
+\label{subsec:m3-weak-quadratic}
+The relative-trace and tensor-rotation engines are extended to the case
+where the object dimensions generate a real quadratic field but the total
+Frobenius--Perron dimension $D$ is rational.  Weak integrality supplies
+pseudo-unitarity.  The prime support of the Frobenius--Schur exponent is
+the prime support of $D$; the quadratic conductor must be supported there.
+Write every dimension in the basis $1,\sqrt d$, retaining both coordinates
+even though $D=(D,0)$.  The central first- and second-moment and cyclic
+rotation equations remain identities in this field, with the same
+complete conductor-bounded relative-trace tables.  The extension uses no
+division by the irrational coordinate of $D$.
+
+All restriction-column choices and second-indicator assignments are
+retained.  Numerical optimization only proposes a separator; exact integer
+replay verifies every inequality and the negative right-side pairing.
+The complete signed lifting remains required outside the independently
+checked general-to-positive gates.  The additive adapter is
+\texttt{criteria/weak\_integral\_quadratic.py}; the existing frozen engines
+are left unchanged.

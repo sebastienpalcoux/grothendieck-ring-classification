@@ -1,0 +1,375 @@
+% Reconstructed after the workspace reset; proofs and freshly regenerated
+% exact certificates are in r275/, r216/, and r280/.
+\begin{theorem}[Dimension-80 ring rigidity]\label{thm:m3-dimension80}
+Every complex fusion category of type $(1,5;5,3)$ has the based ring of
+$\operatorname{Rep}((C_2)^4\rtimes C_5)$ for the fixed-point-free action.
+Its maximum fusion multiplicity is two. Hence $\sha{R8_3_275}$,
+$\sha{R8_3_276}$, $\sha{R8_3_344}$, and $\sha{R8_3_345}$ are not categorifiable.
+\end{theorem}
+\begin{proof}
+The category is solvable by \cite[Theorem 1.6]{ENOSolvable}. Use its
+cyclic-prime extension/equivariantization sequence
+\cite[Definition 1.2(ii), Proposition 4.4]{ENOSolvable}. A final
+extension would have neutral dimension $40$ or $16$, neither of the
+form $a+25b$ with $a\in\{1,5\}$ and $0\le b\le3$.
+Thus $\mathcal C=\mathcal D^{C_5}$, since its invertibles force the
+equivariantization prime to be five, and $\operatorname{FPdim}\mathcal D=16$.
+
+A fixed base simple of dimension $d$ contributes five simples of
+dimension $d$, and a free orbit contributes one of dimension $5d$;
+cyclic stabilizers have trivial projective multipliers. Base dimensions
+are rational algebraic integers, hence integral. A fixed dimension-five
+simple is impossible since $25>16$, and all free-orbit simples must be
+invertible. Thus $\mathcal D=\mathrm{Vec}_H^\omega$, $|H|=16$, with
+only the unit fixed by $C_5$.
+Every invariant subset containing the identity has size one modulo five.
+The nontrivial characteristic center of the $2$-group $H$ therefore has
+order sixteen; then its characteristic subgroup $H[2]$ also has order
+sixteen. Hence $H=(C_2)^4$. The order-five action has irreducible minimal
+polynomial $\Phi_5(t)=t^4+t^3+t^2+t+1$ over $\mathbb F_2$, so it is
+unique up to conjugacy.
+
+The five unit characters act trivially on the three free-orbit simples
+$X_O$, and $X_O^*=X_O$. Reciprocity gives
+$[X_OX_P:\chi]=\delta_{O,P}$ for every unit character $\chi$.
+For a nonzero orbit $Q$, the coefficient at $X_Q$ is the number of
+pairs $(x,y)\in O\times P$ with $x+y=z$, for any fixed $z\in Q$.
+This follows by forgetting equivariance and is independent of the
+associator and action coherence. The exact three-orbit convolution
+certificate has maximum two, whereas the four source tensors have
+maximum three.
+\end{proof}
+
+\begin{theorem}[A dimension-216 solvability obstruction]\label{thm:m3-dimension216}
+No complex fusion category has type $(1,2;2,1;3,2;8,3)$.
+In particular, $\sha{R8_3_810}$, $\sha{R8_3_812}$, $\sha{R8_3_2492}$,
+$\sha{R8_3_2494}$, $\sha{R8_3_2620}$, and $\sha{R8_3_2622}$ are not categorifiable.
+\end{theorem}
+\begin{proof}
+Use the same solvability sequence. A final extension would have neutral
+dimension $108$ or $72$, neither expressible as $a+4b+9c+64d$ with
+$a\in\{1,2\}$, $b\le1$, $c\le2$, $d\le3$. Thus
+$\mathcal C=\mathcal D^{C_2}$, with base dimension $108$.
+The cyclic orbit rule forces precisely the base types
+\[
+ A=(1,3;3,1;4,6),\qquad B=(1,3;3,1;4,2;8,1).
+\]
+Integrality descends by the orbit dimension formula and rational
+algebraic integrality. Neither base type permits subcategory dimension
+$54$ or $36$: enumerate $a+9b+16c+64d$, $a\in\{1,3\}$, within the
+displayed bounds. Hence $\mathcal D=\mathcal E^{C_3}$, with base
+dimension $36$. Type $B$ is impossible because its two dimension-four
+simples would have to arise from fixed objects in multiples of three.
+Type $A$ forces $\mathcal E$ of type $(1,4;4,2)$, and the actual
+$C_3$ action cycles its three nonidentity invertibles. Their group is
+therefore $V_4$.
+
+For a dimension-four simple $X$, reciprocity gives
+$16=|\operatorname{Stab}(X)|+4m$. The stabilizer order divides four,
+so it is four. Thus all invertibles and a noninvertible belong to
+$\mathcal E_{\rm ad}$, whose dimension is $20$ or $36$.
+The ratio $\operatorname{FPdim}(\mathcal E)/
+\operatorname{FPdim}(\mathcal E_{\rm ad})=|U(\mathcal E)|$ is integral;
+therefore $U(\mathcal E)=1$.
+The final solvability step is consequently a $C_2$ equivariantization,
+giving a central Tannakian lift of one nontrivial invertible. Transport
+it under the actual $C_3$ action to obtain bosonic central lifts of all
+three nontrivial invertibles.
+
+The kernel of $\operatorname{Inv}Z(\mathcal E)\to
+\operatorname{Inv}\mathcal E$ is
+$\operatorname{Aut}_{\otimes}(\operatorname{Id}_{\mathcal E})
+=\operatorname{Hom}(U(\mathcal E),\mathbb C^\times)=1$.
+Hence these lifts form a closed $V_4$, and its quadratic self-braiding
+form is identically one. This pointed braided subcategory is Tannakian.
+De-equivariantization gives $\mathcal E=\mathcal F^{V_4}$, where
+$\operatorname{FPdim}\mathcal F=9$ and integrality again descends.
+The integral prime-square theorem \cite{ENO,EGNO} makes
+$\mathcal F=\mathrm{Vec}_H^\omega$, with $H=C_9$ or $C_3^2$.
+
+An orbit of length two has cyclic stabilizer and produces forbidden
+dimension-two simples. A nonidentity fixed point has stabilizer $V_4$;
+its projective degrees are either $1,1,1,1$ or $2$. These would produce
+four extra invertibles, beyond the four from the unit, or a forbidden
+dimension-two simple. Thus all nonidentity elements of $H$ have free
+$V_4$ orbits. Each nontrivial involution therefore acts fixed-point-freely.
+An odd abelian group has only one fixed-point-free involution, namely
+inversion: $(f-1)(f+1)=0$ and $\ker(f-1)=0$ imply $f=-1$.
+Three nonidentity elements of $V_4$ cannot all act by inversion.
+This contradiction proves the theorem.
+\end{proof}
+
+\begin{theorem}[A split-module obstruction in dimension 280]\label{thm:m3-dimension280}
+The based rings $\sha{R8_3_1051}$ and $\sha{R8_3_2415}$ are not categorifiable
+over $\mathbb C$.
+\end{theorem}
+\begin{proof}
+The exact source certificate puts both rings in dimensions
+$[1,1,5,5,6,8,8,8]$, with the nontrivial invertible $g$ swapping the
+unit pair and the dimension-five pair and fixing the remaining four
+objects $U_i$. For a self-dual dimension-five object $X$, its coefficient
+block among the $U_i$ is
+\[
+ R=\begin{pmatrix}1&1&1&1\\1&0&2&1\\1&2&0&1\\1&1&1&1\end{pmatrix},
+\]
+and the source has the exact based-ring identity
+$p(X)=0$, where $p(t)=t(t-5)(t-1)(t+1)(t+2)$.
+
+The fixed dimension-six simple supplies a rank-one module category for
+$\mathrm{Vec}_{C_2}^{\omega}$, so $\omega$ is a coboundary and the
+regular algebra $A=1+g$ exists. In the category of right $A$-modules,
+the two free $g$-orbits give two simples, and each fixed $U_i$ splits
+into $U_{i,+},U_{i,-}$; the stabilizer multiplier vanishes since
+$H^2(C_2,\mathbb C^\times)=0$.
+
+The action of self-dual $X$ is symmetric. Induction is a module functor,
+so its block between two split pairs has equal row and column sums
+$R_{ij}$. That block is
+$\left(\begin{smallmatrix}u&R_{ij}-u\\R_{ij}-u&u\end{smallmatrix}\right)$,
+with $0\le u\le R_{ij}$. Coefficients connecting a free simple to the
+two members of a split pair agree, since the free simple is induced
+and induction sends a fixed object to the sum of its two summands.
+Thus the four pair differences form an invariant subspace.
+
+After independently interchanging the two summands of each pair, the
+matrix on that subspace must be
+\[
+ S=\begin{pmatrix}a&1&1&1\\1&0&b&c\\1&b&0&d\\1&c&d&e\end{pmatrix},
+ \qquad a,c,d,e\in\{-1,1\},\quad b\in\{-2,0,2\}.
+\]
+Every module action must satisfy the same based-ring identity, hence
+$p(S)=0$. The certificate evaluates the full polynomial over the
+integers for all $48$ possibilities and records a nonzero entry in
+each case. It also verifies $p(N_X)=0$ in each source regular
+representation, which is faithful. This gives the required contradiction
+without a unitarity assumption.
+\end{proof}
+
+% The full proof is dimension84_obstruction.md; exact replay is adjacent.
+\begin{theorem}[Dimension-84 adjoint rigidity]\label{thm:m3-dimension84}
+No complex fusion category has dimension type $(1,4;2,2;6,2)$ and
+$\mathcal C_{\rm ad}=\mathcal C$. Consequently the five tensors
+$\sha{R8_3_76}$, $\sha{R8_3_735}$, $\sha{R8_3_738}$, $\sha{R8_3_1422}$, and
+$\sha{R8_3_1805}$ are not categorifiable.
+\end{theorem}
+\begin{proof}
+By \cite[Theorem~1.2]{DongWeak}, a category of dimension $84$ is
+solvable or group-theoretical. Every group of order $84$ is solvable:
+its Sylow $7$ subgroup is normal and its quotient has order $12$.
+Solvability is Morita invariant, so either alternative makes
+$\mathcal C$ solvable. Its last cyclic-prime construction step
+\cite[Definition~1.2, Proposition~4.4]{ENOSolvable} cannot be an
+extension because $\mathcal C_{\rm ad}=\mathcal C$. It is therefore
+an equivariantization $\mathcal C=\mathcal D^{C_2}$: the prime divides
+the number four of invertibles. The base has dimension $42$ and is
+group-theoretical by \cite[Theorem~9.2]{ENOSolvable}. It is integral,
+since the orbit dimension formula makes its simple dimensions rational
+algebraic integers. Exactly two base invertibles are fixed by $C_2$.
+Let $g$ be the sign object of the equivariantization. If $n_2,n_6$
+count its fixed simples of dimensions two and six, respectively, then
+$n_2,n_6\in\{0,2\}$ and the base type is
+\[
+ (1,2+2n_2;\ 2,(2-n_2)/2;\ 3,2n_6;\ 6,(2-n_6)/2).
+\]
+Thus the four possible multisets of base dimensions are
+$\{1,1,2,6\}$, $\{1^6,6\}$, $\{1,1,2,3^4\}$, and $\{1^6,3^4\}$.
+For completeness, all groups of order $42$ are $C_7\rtimes C_6$
+with action image of order $1,2,3,6$, and $C_7\rtimes S_3$ with
+action image of order $1,2$. Exhausting their subgroups and double
+cosets gives the following complete list of group-theoretical bases
+of the four types. The first and third types never occur. Write
+$F_{21}=C_7\rtimes C_3$ and $F_{42}=C_7\rtimes C_6$ for the
+faithful semidirect products. Type $\{1^6,6\}$ occurs only for
+$(G,H)=(F_{42},C_6)$ or $(F_{42},F_{42})$. Type $\{1^6,3^4\}$
+occurs only for $G=F_{21}\times C_2$, with $|H|=3,6,21,42$,
+or $G=F_{42}$, with $|H|=3,21$, up to conjugacy.
+This finite audit includes arbitrary associators: every double-coset
+stabilizer has squarefree order and trivial Schur multiplier, by
+restriction/corestriction to its cyclic Sylow subgroups. Its projective
+character degrees are therefore ordinary character degrees. The exact
+subgroup and double-coset enumeration is part of the certificate.
+In the second type the category is $\operatorname{Rep}(F_{42})$.
+For $H=C_6$, the restriction $H^3(F_{42},\mathbb C^\times)\to
+H^3(C_6,\mathbb C^\times)$ is an isomorphism: the remaining summand
+$H^3(C_7,\mathbb C^\times)^{C_6}$ vanishes because the faithful
+multiplier acts by its square. Thus the required trivial restriction
+kills the associator, and the split exact-factorization construction
+is $\operatorname{Rep}(F_{42})$; compare
+\cite[Corollary~7.4]{EGODimPQ}.
+In the fourth type the canonical adjoint subcategory is
+$\operatorname{Rep}(F_{21})$. For $H=C_3$ or $F_{21}$, support in
+the normal index-two subgroup $F_{21}$ gives a faithful $C_2$ grading
+whose neutral category has type $(1,3;3,2)$. It is
+$\operatorname{Rep}(F_{21})$ by \cite[Theorem~6.3]{EGODimPQ}.
+Since $F_{21}$ is centerless, this neutral category equals its own
+adjoint, forcing equality with the adjoint of the whole category.
+For $G=F_{21}\times C_2$ and $H=C_6$ or $G$, coprime cohomology
+decomposition instead gives
+$\operatorname{Rep}(F_{21})\boxtimes\operatorname{Rep}(C_2)$,
+with the same adjoint. These reductions do not assume a trivial
+ambient associator.
+A representation category of a squarefree-order group has a unique
+fiber functor: the subgroup supporting a nondegenerate projective
+representation must have square order
+\cite[Section~3.4, Theorem~2 and Example~(i)]{OstrikModules}.
+Hence every tensor autoequivalence of $\operatorname{Rep}(F_{21})$
+or $\operatorname{Rep}(F_{42})$ comes from a group automorphism.
+In the presentation $a^7=b^m=1$, $bab^{-1}=a^\lambda$, with
+$m=3$ or $6$ and $\lambda$ of order $m$, an automorphism
+$a\mapsto a^u$, $b\mapsto a^v b^w$ forces $\lambda^w=\lambda$.
+It therefore fixes the abelianization and every linear character.
+The second base type consequently has six fixed invertibles; in the
+fourth type the canonical adjoint supplies at least three fixed
+invertibles. Both contradict the required number two.
+For each displayed source tensor, the certificate verifies all
+dimension equations, full adjoint closure, and every possible sign
+permutation directly in the given basis.
+\end{proof}
+\begin{remark}[A restricted dimension-660 candidate]\label{rem:m3-r731}
+The residual ring $\sha{R8_3_731}$ is integral of dimension $660$ and
+has no nontrivial proper closed based subring. Its exact primary-three
+witness excludes unitary categorification. By
+\cite[Proposition~9.11]{ENOSolvable}, a hypothetical weakly
+group-theoretical categorification would be a representation category
+of a nonabelian finite simple group, hence unitary, a contradiction.
+Thus any categorification of this ring would be nonunitary and not
+weakly group-theoretical. Independently, the ordinary representation
+ring scan finds no matching tensor among the $40$ groups of order
+$660$. General complex categorification remains unresolved.
+\end{remark}
+
+\begin{theorem}[A dimension-90 solvability obstruction]\label{thm:m3-dimension90}
+A fusion ring of type $(1,2;2,4;6,2)$ is not categorifiable if its adjoint
+subring is the whole ring and its nonidentity invertible fixes every
+noninvertible basis element. In particular, $\sha{R8_3_2904}$ and
+$\sha{R8_3_3082}$ admit no complex fusion categorification.
+\end{theorem}
+\begin{proof}
+Every category of dimension $90$ is solvable
+\cite[Corollary~4.16]{DongWeak}. Its final cyclic-prime step
+\cite[Proposition~4.4]{ENOSolvable} cannot be an extension, since the
+universal grading is trivial. Two invertibles force this step to be a
+$C_2$ equivariantization, say $\mathcal C=\mathcal D^{C_2}$.
+The two lifts of a fixed simple of $\mathcal D$ are exchanged by the
+sign character. Thus each of the six sign-fixed noninvertibles of
+$\mathcal C$ comes from a free orbit. Halving their dimensions gives
+$\mathcal D$ of type $(1,9;3,4)$ and dimension $45$.
+
+By \cite[Theorem~1.1]{JordanLarson}, an integral category of dimension
+$45=5\cdot3^2$ is group-theoretical: neither exceptional alternative
+applies. In fact such a category is pointed. All groups of order $45$
+have normal Sylow subgroups, so are $C_{45}$ or $C_3^2\times C_5$.
+In the presentation $\mathcal C(G,\omega,H,\psi)$, every stabilizer
+is $H$ because $G$ is abelian. A cyclic $H$ has trivial Schur multiplier.
+A noncyclic $H$ contains $C_3^2$ and has index $1$ or $5$. Restriction is then
+injective on the $3$-primary component of $H^3(G,\mathbb C^\times)$,
+by restriction--corestriction. Since $[\omega]|_H=0$, the remaining
+class is $5$-primary, whereas $H^2(H,\mathbb C^\times)$ is $3$-primary.
+The stabilizer-cocycle construction is multiplicative in $\omega$,
+and the two $\psi$ contributions cancel in cohomology because
+conjugation is trivial; see \cite[Section~5.1]{GelakiNaidu}.
+Consequently every stabilizer multiplier is trivial. Its irreducible
+projective representations are therefore one-dimensional, and the
+double-coset index is one. The category is pointed, contradicting
+the four dimension-three simples forced above.
+
+The exact receipt checks both source tensors, all dimension-character
+identities, the complete adjoint closure and sign actions. It is
+independent of the dimension-order linear-programming certificates.
+\end{proof}
+
+\begin{proposition}[The Izumi--Xu inversion obstruction]
+\label{prop:m3-r436-unitary}
+The based ring \sha{R8_3_436} has no unitary categorification.
+This statement does not exclude a general complex categorification.
+\end{proposition}
+\begin{proof}
+The source indices \(\{0,1,2,5\}\) form the near-group ring
+\(\operatorname{NG}(C_3,3)\), with \(g,g^2,X\) represented by source
+indices \(1,2,5\), respectively, and
+\[
+ g^3=1,\qquad gX=Xg=X,\qquad X^2=1+g+g^2+3X.
+\]
+The invertible object with source index \(3\), denoted \(t\), satisfies
+\(t^2=1\) and \(tgt^*=g^2\).  The independent crossed-ring construction
+has model-to-source basis map \([0,3,1,7,2,6,5,4]\); the certificate checks
+all \(512\) coefficients, as well as the displayed neutral subring and
+conjugation action.
+
+A unitary categorification would therefore contain a unitary
+\(\operatorname{NG}(C_3,3)\) subcategory with a tensor autoequivalence
+interchanging its nontrivial invertibles.  Izumi's C*-classification
+\cite[Theorem~9.1 and Example~9.4]{IzumiNear}, together with
+\cite[Example~13.7]{IzumiNear}, implies that every such unitary
+near-group category has trivial tensor automorphism group.  This
+contradicts conjugation by \(t\).
+
+For the known Izumi--Xu categories, the same failure of the proposed
+construction also follows from the triviality of their outer tensor
+automorphism groups \cite[Section~4.2, following Remark~4.10, and
+Remark~4.11]{GJSCyclic}: inner conjugation acts trivially on their
+commutative based ring, whereas the required inversion does not.
+The C*-classification does not classify all complex near-group
+categories; the proposed nonunitary extension of its equations remains
+conjectural in \cite[Remark~9.2]{IzumiNear}.  Thus the present argument
+leaves the general complex categorification problem for this ring open.
+\end{proof}
+
+\begin{lemma}[Graded ranks and fixed simples]
+\label{lem:m3-graded-rank-untwisting}
+In a faithful finite-group graded complex fusion category with neutral
+component \(\mathcal D\) and \(\operatorname{BrPic}(\mathcal D)=1\),
+every homogeneous component has rank \(\operatorname{rank}(\mathcal D)\).
+If a pointed subcategory \(\operatorname{Vec}_G^\omega\) fixes a simple
+object, then \([\omega]=0\).  Both statements hold without unitarity.
+\end{lemma}
+\begin{proof}
+Each homogeneous component is an invertible \(\mathcal D\)-bimodule
+\cite[Theorem~6.1(i)]{ENOExt}, hence belongs to the regular class;
+equivalence preserves rank.  For the second assertion, the fixed
+simple spans a rank-one module category.  Choosing isomorphisms for
+the group action gives scalar composition factors, and the module
+pentagon writes \(\omega\) as their coboundary.
+\end{proof}
+
+\begin{proposition}[The Haagerup graded-component obstruction]
+\label{prop:m3-r455-unitary}
+The ring \sha{R8_3_455} has no unitary categorification.  The argument
+does not exclude general complex categorification.
+\end{proposition}
+\begin{proof}
+The source basis splits into neutral indices \(\{0,1,2,3,6,7\}\) and
+odd indices \(\{4,5\}\), giving a faithful \(C_2\)-grading.  The neutral
+ring has Haagerup rules
+\[
+ g^3=1,\qquad \rho g=g^{-1}\rho,\qquad
+ \rho^2=1+\rho+g\rho+g^2\rho.
+\]
+The simple \(Y\) at source index \(4\) satisfies \(gY=Yg=Y\) and
+\(Y^2=1+g+g^2\).  The certificate independently reconstructs the full
+tensor and checks all \(512\) coefficients and the grading.
+
+Let \(\mathcal D\) be the neutral category in a hypothetical unitary
+categorification.  The additive category generated by \(Y\) is a
+rank-one module over its pointed subcategory
+\(\operatorname{Vec}_{C_3}^{\omega}\).  Choosing isomorphisms
+\(g\otimes Y\cong Y\), the module pentagon expresses \(\omega\) as
+the coboundary of their composition scalars.  Hence
+\(c^{0,3}(\mathcal D)=0\).  Also
+\(H^2(C_3,\mathbb C^\times)=0\), so Izumi's second obstruction
+\(c^{1,2}(\mathcal D)\in H^1(C_2,H^2(C_3,\mathbb C^\times))\)
+vanishes.  These steps establish the hypotheses of
+\cite[Definition~2.7]{Izumi3n}; omitting the first step would leave the
+twisted alternatives mentioned immediately after that definition.
+
+By \cite[Theorems~5.9 and 9.1]{Izumi3n}, the unitary category
+\(\mathcal D\) is one of the two known categories \(H_2,H_3\).
+Their Brauer--Picard groups are trivial
+\cite[Theorem~1.5]{GSHaagerup}.  Every homogeneous component of a
+faithful extension is an invertible bimodule over its neutral category
+\cite[Theorem~6.1(i)]{ENOExt}.  The odd component must consequently be
+equivalent to the regular \(\mathcal D\)-bimodule, whose rank is six.
+Its rank is two, a contradiction.  The classification invoked here is
+a C*-classification and supplies no such conclusion for hypothetical
+nonunitary neutral categories.
+\end{proof}

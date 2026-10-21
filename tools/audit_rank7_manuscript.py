@@ -20,6 +20,7 @@ def need(condition, message):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--reviewed-pages', nargs='*', type=int, default=[])
+    parser.add_argument('--date', default='2026-10-20', help='ISO date of this source and PDF audit')
     args = parser.parse_args()
     folder = ROOT / 'manuscripts/rank7/papers'
     sources = {}
@@ -58,7 +59,7 @@ def main():
     counts = Counter(row['status'] for row in ledger)
     sha = lambda raw: hashlib.sha256(raw).hexdigest()
     result = {
-        'status': 'PASS', 'date': '2026-10-20', 'citations': len(citations),
+        'status': 'PASS', 'date': args.date, 'citations': len(citations),
         'bibliography_entries': len(bibliography), 'labels': len(labels),
         'canonical_supplement_tex_identical': True, 'all_inputs_present': True,
         'source_hashes': {(folder / name).relative_to(ROOT).as_posix(): sha((folder / name).read_bytes())

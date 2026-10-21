@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Rebuild the dated, one-page novelty/frontier brief using ReportLab.
+"""Rebuild the dated novelty/frontier brief using ReportLab.
 
 Run from any directory with Python 3 and reportlab installed. The default
 output is docs/New_category_candidates_and_open_cases.pdf. DejaVu Sans fonts
@@ -17,6 +17,7 @@ import json
 from xml.sax.saxutils import escape
 from collections import Counter
 from rank7_publication import PUBLICATION_DATE_LONG
+from rank8_publication import extension as rank8_extension, MODELS as RANK8_MODELS, PUBLICATION_DATE_LONG as M3_DATE
 
 from reportlab.lib import colors
 from reportlab.lib.enums import TA_LEFT
@@ -78,7 +79,9 @@ def main():
     repo = args.repo.resolve()
     summary = verify_frontier(repo)
     rank7_ids = summary['unresolved_ids']
-    frontier = 2 + len(rank7_ids)
+    m3 = rank8_extension(repo)
+    frontier = 2 + len(rank7_ids) + (m3['unresolved'] if m3 else 0)
+    date = M3_DATE if m3 else DATE
     output = args.output or repo / "docs/New_category_candidates_and_open_cases.pdf"
     output.parent.mkdir(parents=True, exist_ok=True)
     for name, filename in (("Brief", "DejaVuSans.ttf"), ("Brief-Bold", "DejaVuSans-Bold.ttf")):
@@ -90,9 +93,10 @@ def main():
     margin = 38
     width = W - 2 * margin
     c = canvas.Canvas(str(output), pagesize=A4, invariant=1, pageCompression=1)
-    c.setTitle("Potentially new constructions and unresolved cases - " + DATE)
+    c.setTitle("Potentially new constructions and unresolved cases - " + date)
     c.setAuthor("AI-assisted research project of Sebastien Palcoux")
-    c.setSubject(f"Seven provisional novelty candidates; {frontier} open fusion rings; known AGL(1,7) model")
+    c.setSubject(f"Seven provisional novelty candidates; {frontier} open fusion rings; "
+                 f"one rank-seven M5 model and {m3['realized'] if m3 else 0} rank-eight M3 models")
     body = ParagraphStyle("body", fontName="Brief", fontSize=9.05, leading=12.0,
                           textColor=INK, alignment=TA_LEFT)
     small = ParagraphStyle("small", parent=body, fontSize=8.1, leading=10.6, textColor=MUTED)
@@ -127,7 +131,7 @@ def main():
     c.setFillColor(INK)
     c.setFont("Brief-Bold", 20)
     c.drawString(margin, y, "Potentially new constructions")
-    y = para("Low rank Grothendieck rings · Novelty shortlist and unresolved cases · " + DATE,
+    y = para("Low rank Grothendieck rings · Novelty shortlist and unresolved cases · " + date,
              margin, y - 10, width, small) - 14
     y = panel("<b>To the best of our current knowledge, these seven constructions are promising candidates "
               "for new tensor categories.</b> Their novelty up to tensor equivalence remains subject to independent verification.", y) - 17
@@ -192,7 +196,8 @@ def main():
                                 for rid in rank7_ids[start:start + 5]))
     if lines:
         y = para("<br/>".join(lines), margin + 8, y, width - 16, ids_style) - 7
-    y = para(f"All {frontier} remaining cases are open for general complex categorification; no positive model or complete exclusion is established. " +
+    y = para(f"These {2 + len(rank7_ids)} earlier remaining cases are open for general complex categorification. " +
+             ("The rank-eight extension appears on the next page. " if m3 else "") +
              link("Exact fusion data", CURRENT + "data/remaining_cases.py") + ".", margin, y, width, small)
     require(y >= 77, f"Brief content overlaps footer: lowest text y={y:.1f}")
 
@@ -203,10 +208,50 @@ def main():
          "Independent human verification and Lean formalization remain pending. Please treat the claims with caution.",
          margin, 48, width, small)
     c.showPage()
+    pages = 1
+    if m3:
+        pages += 1
+        y = H - 39
+        c.setFillColor(INK); c.setFont('Brief-Bold', 20)
+        c.drawString(margin, y, 'Rank eight · multiplicity three')
+        y = para('Accepted constructions and individually investigated candidates · '+date,
+                 margin, y-18, width, small)-18
+        y = panel(f"<b>{m3['rings']:,} new fusion rings.</b> {m3['excluded']:,} general exclusions, "
+                  f"{m3['unitarily_realized']} unitary constructions and {m3['unresolved']} unresolved tensors. "
+                  'The earlier 973 records and their identifiers are preserved.', y)-15
+        y = heading('Explicit constructions', y)
+        models = [r for r in json.loads((repo/RANK8_MODELS).read_text()) if r['multiplicity']==3]
+        require(len(models)==m3['realized'], 'Model catalogue and ledger differ')
+        for model in models:
+            title = escape(model['constructors'][0]['model'])
+            y = para('<b>'+link(model['id'], CURRENT+RANK8_MODELS)+'</b> · '+title,
+                     margin, y, width, compact)-4
+        y = para('Each identification compares all 512 ordered fusion coefficients. Categorical existence uses the cited construction. '
+                 'The new applications do not by themselves prove that the resulting category is new up to tensor equivalence.',
+                 margin, y-3, width, small)-14
+        y = heading('Remaining categorification candidates', y)
+        groups = [m3['remaining_ids'][i:i+6] for i in range(0,len(m3['remaining_ids']),6)]
+        y = para('<br/>'.join(' · '.join(escape(rid) for rid in group) for group in groups) or 'No unresolved M3 tensors.',
+                 margin, y, width, ids_style)-9
+        if m3['unitary_excluded_ids']:
+            y = para('<b>Unitary categorification excluded:</b> '+', '.join(m3['unitary_excluded_ids'])+
+                     '. Their general complex categorification remains open.', margin,y,width,small)-5
+        y = para('The per-case audit distinguishes exact necessary-condition survivors, unsuccessful construction searches, '
+                 'ineligible tests and time limits. These are not asserted fusion categories or established exotic examples. '+
+                 link('Individual attempt records', CURRENT+'evidence/rank8_m3_20261021/pipeline/residual_attempts.json')+' · '+
+                 link('Exact unresolved tensors', CURRENT+'data/remaining_cases.py')+'.',
+                 margin, y, width, small)
+        require(y >= 77, f'M3 brief overlaps footer: y={y:.1f}')
+        c.setStrokeColor(RULE); c.line(margin,56,W-margin,56)
+        para('<b>AI-generated research · independent verification pending.</b><br/>'
+             'Exact replay checks stated finite certificates; new mathematical arguments still require human review.',
+             margin,48,width,small)
+        c.showPage()
     c.save()
     raw = output.read_bytes()
-    print(json.dumps({"output": str(output), "pages": 1, "frontier": frontier,
-                      "novelty_candidates": 7, "known_new_models": 1,
+    print(json.dumps({"output": str(output), "pages": pages, "frontier": frontier,
+                      "novelty_candidates": 7, "rank7_m5_models": 1,
+                      "rank8_m3_models": m3['realized'] if m3 else 0,
                       "bytes": len(raw), "sha256": hashlib.sha256(raw).hexdigest()}))
 
 

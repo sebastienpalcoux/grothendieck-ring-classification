@@ -15,6 +15,7 @@ import tempfile
 from current_publication import validate_documents, replay_sources, restore_replay_sources, need
 from reader_resources import validate_reader_resources
 from rank7_publication import extension, historical_rank7_bytes, LEDGER
+from rank8_publication import extension as rank8_extension
 from verify_rigidity_20261017 import verify_current as verify_rigidity, restore_parent_files as restore_rigidity_parent
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -41,6 +42,16 @@ def main():
             check = subprocess.run(command, cwd=repo, text=True, capture_output=True)
             need(check.returncode == 0, 'Rank-seven M5 metadata check failed:\n' + check.stdout + check.stderr)
             rank7_metadata = json.loads(check.stdout)
+    rank8_update = rank8_extension(repo)
+    rank8_check_receipt = None
+    if rank8_update:
+        with tempfile.TemporaryDirectory(prefix='rank8-m3-check-') as directory:
+            command = [sys.executable] + (['-O'] if sys.flags.optimize else [])
+            command += [str(repo/'supplements/rank8/software/verify_m3_continuation.py'), '--output', str(Path(directory)/'receipt.json')]
+            if args.metadata_only: command.append('--metadata-only')
+            check = subprocess.run(command,cwd=repo,text=True,capture_output=True)
+            need(check.returncode==0,'Rank-eight M3 check failed:\n'+check.stdout+check.stderr)
+            rank8_check_receipt=json.loads((Path(directory)/'receipt.json').read_text())
     rigidity = verify_rigidity(repo, replay=not args.metadata_only,
                               historical_rank7=json.loads(historical) if historical else None)
     rank6_command = [sys.executable] + (['-O'] if sys.flags.optimize else [])
@@ -112,6 +123,7 @@ def main():
                   'remaining_ids': documents['remaining_ids'],
                   'historical_rigidity_stage': rigidity,
                   'rank7_m5_update': rank7_update,
+                  'rank8_m3_update': rank8_update, 'rank8_m3_check': rank8_check_receipt,
                   'rank7_m5_metadata_check': rank7_metadata,
                   'rank6_necessary_conditions': rank6_progress,
                   'reader_resources': reader_resources,
