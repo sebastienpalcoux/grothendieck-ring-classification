@@ -85,6 +85,14 @@ main>section{padding-inline:clamp(22px,4.5vw,86px)}.intro{background:var(--navy)
 .profile-citation{font:16px/1.6 var(--serif);color:#283347;background:#f3f0e9;padding:18px;border-left:3px solid #bd8750;margin:17px 0;overflow-wrap:anywhere}
 .download-tensor{font:13px var(--mono);border:1px solid #916f4f;background:#eee4d5;color:#513d2b;padding:10px 14px;cursor:pointer}
 .download-tensor:hover{background:#dfcfb7}
+.unresolved-count-link{color:inherit;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
+.unresolved-count-link:hover{text-decoration-thickness:2px}
+.unresolved-count-link:focus-visible,.ring-tensor-download:focus-visible{outline:2px solid currentColor;outline-offset:4px}
+.detail-row.open .unresolved-count-link{color:#eac589;font-weight:700}
+.ring-card-actions,.tensor-download-actions{display:flex;align-items:center;flex-wrap:wrap;gap:12px;margin-top:14px}
+.ring-card-actions .open-ring{margin-top:0}
+.ring-tensor-download{font:12px/1.5 var(--mono);color:#805631;text-decoration:underline;text-underline-offset:3px}
+.tensor-download-actions .download-tensor{display:inline-block;text-decoration:none}
 .scope-cards{grid-template-columns:repeat(auto-fit,minmax(190px,1fr))}
 .scope-card .scope-description{font-size:14px}
 .scope-card .scope-extra{font-size:12px}

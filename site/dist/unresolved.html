@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0d1325">
+  <meta name="description" content="Unresolved fusion rings in the research atlas, with individual case records, invariants, research evidence and Python fusion-tensor downloads.">
+  <title>Unresolved cases · Fusion &amp; Grothendieck Ring Atlas</title>
+  <link rel="stylesheet" href="./styles.css?v=4f3845111e60">
+  <link rel="stylesheet" href="./cases.css?v=71129ed818d1">
+  <script src="./cases.js?v=4eb6327a5410" defer></script>
+</head>
+<body data-case-page="list">
+  <a class="skip-link" href="#case-main">Skip to unresolved cases</a>
+  <header class="site-header">
+    <a class="brand" href="./index.html" aria-label="Fusion and Grothendieck Ring Atlas home"><span class="brand-symbol" aria-hidden="true"><span>FG</span></span><span class="brand-name">FUSION &amp; GROTHENDIECK<span class="brand-sub">RING ATLAS</span></span></a>
+    <nav class="top-nav" aria-label="Main navigation"><a href="./index.html#atlas">Explore</a><a href="./unresolved.html" class="nav-active" aria-current="page">Unresolved cases</a><a href="./index.html#rings">Realizations</a><a href="./index.html#papers">Papers</a></nav>
+  </header>
+  <main id="case-main">
+    <section class="case-hero">
+      <a class="case-back" href="./index.html#atlas">← Back to the atlas</a>
+      <p class="eyebrow">OPEN CLASSIFICATION / CASE DIRECTORY</p>
+      <h1>Unresolved <em>cases</em></h1>
+      <p class="case-hero-description">Explore the remaining rings, their invariants and the recorded attempts at exclusions and constructions. Each case includes its complete fusion tensor as a Python list.</p>
+      <p id="case-scope" class="case-scope" aria-live="polite">Loading the current case list…</p>
+    </section>
+    <section class="case-list-section" aria-label="Unresolved case list">
+      <div class="case-notice"><p><strong>Unresolved</strong> means that general categorifiability is undecided. A surviving necessary condition or unsuccessful search is not a construction.</p><a href="./review.html">Research status and verification ↗</a></div>
+      <form id="case-filters" class="case-filters" action="./unresolved.html" method="get">
+        <div><label for="case-rank">Rank</label><select id="case-rank" name="rank"><option value="">All ranks</option></select></div>
+        <div><label for="case-m-mode">Multiplicity</label><select id="case-m-mode"><option value="m">Exact m =</option><option value="max_m">Up to m ≤</option></select></div>
+        <div><label for="case-m">Value (optional)</label><input id="case-m" type="number" min="1" step="1" name="m" placeholder="Any"></div>
+        <button class="case-button" type="submit">Apply filters</button>
+        <a class="case-reset" href="./unresolved.html">All unresolved cases</a>
+      </form>
+      <div class="case-list-toolbar"><h2 id="case-results-title">Current cases</h2><label for="case-search"><span class="sr-only">Search case identifiers or research summaries</span><input type="search" id="case-search" placeholder="Find a case or invariant…"></label></div>
+      <div id="case-list" aria-live="polite"><p class="case-loading">Loading case records…</p></div>
+      <noscript><p class="static-note">This directory uses JavaScript. Download the <a href="./data/unresolved_cases.json">complete unresolved case records</a> or <a href="./downloads/remaining_cases.py">all remaining fusion tensors</a>.</p></noscript>
+    </section>
+  </main>
+  <footer class="site-footer"><div class="footer-main"><span class="footer-brand">FUSION &amp; GROTHENDIECK RING ATLAS</span><a href="./index.html">Research atlas ↑</a><a href="https://github.com/sebastienpalcoux/grothendieck-ring-classification">GitHub source ↗</a></div><p class="footer-caution">AI-generated research · Independent human verification and Lean formalization pending. <a href="./review.html">Research status &amp; verification</a></p></footer>
+</body>
+</html>

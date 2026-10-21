@@ -28,6 +28,18 @@ range, subject to the research caution. Individual ring profiles show one
 fusion matrix at a time and offer the full tensor for download. Character
 data distinguish exact primitive-root formulas from numerical approximations.
 
+Unresolved counts link to a dedicated case list, scoped to the selected rank
+and exact multiplicity or cumulative bound. The [unresolved directory](https://sebastienpalcoux.github.io/grothendieck-ring-classification/unresolved.html)
+also lists every current open case. Each identifier opens a separate profile
+with its fusion matrices, exact and approximate invariants, recorded research
+results, and evidence sources. Use `unresolved.html?rank=8&m=3` for an exact
+band or `unresolved.html?rank=8&max_m=3` for a cumulative bound.
+
+Every unresolved profile and realized model offers a `.txt` download containing
+only a Python list of lists of lists of integers. In the displayed basis,
+`N[i][j][k]` is the coefficient of `X_k` in `X_i * X_j`, and `X_0` is the unit.
+Load the file with `ast.literal_eval`; no executable Python is needed.
+
 The historical 38-case continuation records 36 decisions: 29 proposed general exclusions and seven unitary constructions. Its two rank-six questions, `R6_4_155` and `R6_8_1660`, remain open.
 
 The rank-seven multiplicity-five continuation addresses all 5,805 supplied exact-multiplicity-five rings: 5,804 general exclusions, 1 realization and 0 unresolved cases. The classification of the supplied census is complete through multiplicity 5. The new realization R7_5_5678 is Rep(AGL(1,7)).
@@ -65,6 +77,7 @@ classification export and proof bundle are ready:
 ```bash
 python3 build_snapshot.py --classification ..
 python3 build_realized.py --classification ..
+python3 build_cases.py --classification ..
 npm run check
 ```
 
@@ -81,8 +94,14 @@ profiles link those current PDFs directly.
 `build_realized.py` checks each catalogued tensor's rank, unit, duality and
 associativity. It derives exact dual and invertibility data, approximate
 Perron dimensions, and character information with its precision stated.
+`build_cases.py` assembles current unresolved profiles from the canonical
+tensors and case-specific research records and writes individual Python-list
+text downloads for both unresolved and realized rings. Regenerate it after
+the snapshot and realized catalogue whenever the classification changes.
 `smoke_test.py` checks count/model consistency, the complete current open-case inventory,
-canonical PDF copies, bundle identity and local page links.
+canonical PDF copies, bundle identity and local page links. Its case checks
+also parse every tensor download and compare its entries and digest with
+the published records.
 
 ## Publication
 

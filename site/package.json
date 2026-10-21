@@ -5,6 +5,6 @@
   "type": "module",
   "scripts": {
     "dev": "node dev-preview.mjs",
-    "check": "node --check dist/app.js && python3 smoke_test.py"
+    "check": "node --check dist/app.js && node --check dist/cases.js && node check_cases.mjs && python3 smoke_test.py"
   }
 }

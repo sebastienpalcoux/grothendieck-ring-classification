@@ -27,6 +27,37 @@ function element(tag, classes, content) {
   if (content !== undefined) el.textContent = content;
   return el;
 }
+function unresolvedUrl(filters={}) {
+  const query=new URLSearchParams(Object.entries(filters).filter(([,value])=>value!==undefined));
+  return `./unresolved.html${query.size?`?${query}`:""}`;
+}
+function linkUnresolvedText(container,text,filters={}) {
+  // Link the recorded count without changing the surrounding research wording.
+  const walker=document.createTreeWalker(container,NodeFilter.SHOW_TEXT);
+  const matches=[];
+  while (walker.nextNode()) {
+    const node=walker.currentNode;
+    if (!node.parentElement.closest("a") && node.textContent.includes(text)) matches.push(node);
+  }
+  for (const node of matches) {
+    const parts=node.textContent.split(text), fragment=document.createDocumentFragment();
+    parts.forEach((part,index)=>{
+      if (index) {
+        const anchor=element("a","unresolved-count-link",text);
+        anchor.href=unresolvedUrl(filters);fragment.append(anchor);
+      }
+      fragment.append(document.createTextNode(part));
+    });
+    node.replaceWith(fragment);
+  }
+}
+function tensorDownload(ring,classes="download-tensor") {
+  const anchor=element("a",classes,"Download fusion tensor (.txt) ↓");
+  anchor.href=`./downloads/fusion-tensors/${encodeURIComponent(ring.id)}.txt`;
+  anchor.download=`${ring.id}.txt`;
+  anchor.setAttribute("aria-label",`Download ${ring.id} fusion tensor as a Python list (.txt)`);
+  return anchor;
+}
 function rankRows(data) {
   const map = new Map();
   for (const row of state.mode==="grothendieck"?data.grothendieck_rows:data.rows)
@@ -221,7 +252,13 @@ function renderDetail() {
     if (status.classification_coverage!=="census_only") {
       appendDetailRow(panel,"Realized",fmt.format(realized));
       appendDetailRow(panel,"Excluded",fmt.format(status.excluded_general));
-      if (status.unresolved_general) appendDetailRow(panel,"Unresolved",fmt.format(status.unresolved_general));
+      if (status.unresolved_general) {
+        const openRow=element("div","detail-row open");
+        const openLink=element("a","unresolved-count-link",fmt.format(status.unresolved_general));
+        openLink.href=unresolvedUrl({rank:row.rank,m:row.multiplicity});
+        openLink.setAttribute("aria-label",`Browse ${status.unresolved_general} unresolved cases at rank ${row.rank}, multiplicity ${row.multiplicity}`);
+        openRow.append(element("span","","Unresolved"),openLink);panel.append(openRow);
+      }
       if (status.realized_spherical_nonpseudounitary)
         appendDetailRow(panel,"Spherical, not pseudo-unitary",fmt.format(status.realized_spherical_nonpseudounitary));
     } else appendDetailRow(panel,"Unassessed",fmt.format(status.unassessed));
@@ -266,7 +303,9 @@ function renderScope() {
     if (record.rings!==null && record.positive!==null)
       summary=`${record.unresolved?"≥ ":""}${fmt.format(record.positive)} realized among ${fmt.format(record.rings)} analyzed fusion rings through m ≤ ${record.analyzed_through}. ${record.unresolved?`${fmt.format(record.unresolved)} unresolved.`:""}`;
     else summary=`${fmt.format(record.positive)} realized Grothendieck rings. ${record.note||"Unrestricted classification."}`;
-    card.append(element("p","scope-description",summary));
+    const description=element("p","scope-description",summary);
+    if (record.unresolved) linkUnresolvedText(description,`${fmt.format(record.unresolved)} unresolved`,{rank:record.rank,max_m:record.analyzed_through});
+    card.append(description);
     if (record.rings!==null && record.note) card.append(element("p","scope-extra",record.note));
     grid.append(card);
   }
@@ -280,6 +319,7 @@ function renderTheoreticalUpdate() {
   const latest = state.data.rank8_m3_update || state.data.rank7_m5_update;
   const date = new Date((latest?.date || update.date) + "T12:00:00Z").toLocaleDateString("en-GB", {day:"numeric", month:"long", year:"numeric", timeZone:"UTC"});
   $("#research-update-title").textContent = latest ? `${date} · rank ${latest.rank===8 ? "eight through multiplicity three" : "seven through multiplicity five"} · ${latest.unresolved} open cases` : `${date} · ${update.new_general_exclusions} exclusions · ${update.new_unitary_models || 0} unitary models`;
+  if (latest?.unresolved) linkUnresolvedText($("#research-update-title"),`${latest.unresolved} open cases`,{rank:latest.rank,max_m:state.data.scope.find(r=>r.rank===latest.rank)?.analyzed_through});
   const rankNames = {"6": "rank-six", "7": "rank-seven", "8": "rank-eight"};
   const currentRemaining = Object.fromEntries(state.data.scope.filter(r=>r.rank>=6).map(r=>[String(r.rank),r.unresolved]));
   const openParts = Object.entries(currentRemaining).filter(([, count]) => count > 0).map(([rank, count]) => `${count} ${rankNames[rank]}`);
@@ -296,6 +336,14 @@ function renderTheoreticalUpdate() {
   $("#research-update-summary").textContent = `${extensionText.trim()}${continuationText}${braidedText}${completion}${openText}`;
   $("#theoretical-update-heading").textContent = `Current research · ${Object.values(currentRemaining).reduce((a,b)=>a+b,0)} open cases`;
   $("#theoretical-update-scope").textContent = extensionText + continuationText + braidedText + " The new arguments combine quadratic-compositum compression, biquadratic and weak-integral rotation constraints, complete central-induction frames, character-labeled modular S and STS constraints, integer center decompositions, cubic Verlinde integrality, split-module polynomials and Morita transport. A two-prime norm criterion restricts integral center objects. Constructions include near-group equivariantizations, exceptional subfactor models, cyclic Fibonacci equivariantization a twisted A6/A5 group-theoretical category and the inherited GH(C8)/C2 Q-system Morita dual. Each remaining candidate survived the documented case-specific exclusion and construction campaign. This operational designation asserts neither categorifiability nor novelty of a future realization. Census completeness relies on producer-run records with independent tensor and isomorphism audits. The bundle contains current manuscripts, proofs and exact replay programs. Independent human verification and Lean formalization remain pending.";
+  linkUnresolvedText($("#theoretical-update-heading"),`${Object.values(currentRemaining).reduce((a,b)=>a+b,0)} open cases`);
+  for (const container of [$("#research-update-summary"),$("#theoretical-update-scope")]) {
+    if (m3?.unresolved) linkUnresolvedText(container,`${m3.unresolved} ${m3.frontier?"extensively investigated exotic candidates":"individually investigated unresolved candidates"}`,{rank:8,m:3});
+    if (m5?.unresolved) linkUnresolvedText(container,`${m5.unresolved} open cases`,{rank:7,m:5});
+    for (const [rank,count] of Object.entries(currentRemaining)) {
+      if (count) linkUnresolvedText(container,`${count} ${rankNames[rank]}`,{rank});
+    }
+  }
   const base = `${state.data.classification_repository}/blob/${state.data.classification_commit || "main"}/docs/RESEARCH_STATUS.md`;
   $("#latest-research-source").href = base;
   $("#latest-research-source").textContent = `${date} proofs and remaining cases ↗`;
@@ -393,7 +441,9 @@ function renderPapers() {
     frontierRows.replaceChildren();
     for (const record of release.research_cases || []) {
       const row = element("tr");
-      const name = element("th", "", record.id);
+      const name = element("th");
+      const caseLink=element("a","unresolved-count-link",record.id);
+      caseLink.href=`./case.html?id=${encodeURIComponent(record.id)}`;name.append(caseLink);
       name.scope = "row";
       row.append(name, element("td", "", record.public_summary));
       frontierRows.append(row);
@@ -402,6 +452,7 @@ function renderPapers() {
     const summary = $("#rank6-release");
     summary.replaceChildren(element("strong", "", `Rank six, multiplicity at most ${release.analyzed_through}. `));
     summary.append(document.createTextNode(`${fmt.format(release.excluded)} excluded, ${release.realized} realized, ${release.unresolved} unresolved. ${release.research_summary || ""} `));
+    if (release.unresolved) linkUnresolvedText(summary,`${release.unresolved} unresolved`,{rank:6,max_m:release.analyzed_through});
     if (state.data.theoretical_update) {
       const archive=element("a", "", "Proofs and verification bundle");
       archive.href=state.data.theoretical_update.archive.url || `./${state.data.theoretical_update.archive.path}`;archive.download="";summary.append(archive);
@@ -437,6 +488,8 @@ function renderPapers() {
     const meta=element("div","paper-meta");
     meta.append(element("span","",`0${paper.rank-1} / RANK ${paper.rank}`),element("span","",paper.type));
     content.append(meta,element("h3",paper.title.length>55?"long-title":"",paper.title),element("p","",paper.subtitle));
+    const paperScope=state.data.scope.find(r=>r.rank===paper.rank);
+    if (paperScope?.unresolved) linkUnresolvedText(content,paper.rank===6?`${paperScope.unresolved} cases remain`:`${paperScope.unresolved} general open ${paperScope.unresolved===1?"case":"cases"}`,{rank:paper.rank,max_m:paperScope.analyzed_through});
     card.append(content);
     const actions=element("div","paper-actions");
     const manuscript=element("a","","Read manuscript ↗");
@@ -516,7 +569,9 @@ function renderCatalogue() {
     card.append(facts);
     const open=element("button","open-ring","Explore ring ↗");
     open.type="button";open.addEventListener("click",()=>openRing(ring));
-    card.append(open);grid.append(card);
+    const actions=element("div","ring-card-actions");
+    actions.append(open,tensorDownload(ring,"ring-tensor-download"));
+    card.append(actions);grid.append(card);
   }
 }
 function profileFact(label,value) {
@@ -569,7 +624,9 @@ function renderRingProfile() {
       const blob=new Blob([JSON.stringify(ring,null,2)],{type:"application/json"});
       const url=URL.createObjectURL(blob);const anchor=element("a");anchor.href=url;anchor.download=`${ring.id}.json`;anchor.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
     });
-    panel.append(dl,element("p","profile-note",`SHA-256 of canonical JSON tensor: ${ring.tensor_sha256}`));
+    const downloads=element("div","tensor-download-actions");
+    downloads.append(tensorDownload(ring),dl);
+    panel.append(downloads,element("p","profile-note","The .txt file is a Python list of lists of lists of integers: N[i][j][k] is the coefficient of Xₖ in Xᵢ · Xⱼ. Indices follow the displayed basis, with unit X₀."),element("p","profile-note",`SHA-256 of canonical JSON tensor: ${ring.tensor_sha256}`));
   } else if (state.profileTab==="characters") {
     const overview=element("div","invariant-grid");
     overview.append(profileFact("Dual indices",inv.dual_indices.map((i)=>`X${i}`).join(", ")),

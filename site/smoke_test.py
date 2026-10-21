@@ -313,7 +313,7 @@ class LocalLinkCheck(HTMLParser):
             if name in ("href", "src") and value and value.startswith("./"):
                 relative = urlsplit(value).path[2:]
                 assert not relative or (root / relative).is_file(), "Missing local page asset: " + value
-for filename in ("index.html", "review.html"):
+for filename in ("index.html", "review.html", "unresolved.html", "case.html"):
     LocalLinkCheck().feed((root / filename).read_text())
 reader_sources = "\n".join((root / filename).read_text() for filename in ("index.html", "review.html", "app.js"))
 for stale in ("rank8-reviewed.pdf", "Historical PDF", "Read reviewed edition", "Printable manuscript errata", "has been reopened", "Read with dated corrections"):
@@ -357,3 +357,7 @@ if payload.get("rank8_m3_update"):
     assert [r["id"] for r in records] == extension["remaining_ids"]
     assert len(records) == info["cases"]
     print("Rank-eight multiplicity-three ledger scope and individual attempt inventory checked.")
+
+# Dedicated case pages must agree with the current ledger and source tensors.
+import runpy
+runpy.run_path(str(Path(__file__).with_name("check_cases.py")), run_name="__main__")
