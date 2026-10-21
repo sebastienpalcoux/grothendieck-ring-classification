@@ -52,6 +52,14 @@ def center_replay_scope():
 
 
 def center_scope(repo):
+    from rank8_next import active as next_active, validate as validate_next
+    if next_active(repo):
+        validate_next(repo)
+        return ('R8_3_721 is realized by the inherited 1+rho Q-system Morita dual of the C2 de-equivariantization of the known GH(C8) category. '
+                'Its rank and coefficient bound are proved exactly; identification uses its unique dimension type in the supplied complete rank-eight multiplicity-at-most-three census. '
+                'Further center-action constraints reduce R8_3_1154 to three necessary center patterns. '
+                'For R8_3_65, a unified pointed-subgroup Morita obstruction forces a nontrivial pointed associator. '
+                'The latter two rings remain unresolved. Proofs and separate exact checks are in evidence/rank8_next_20261021/.')
     folder = repo/'evidence/rank8_center_followup_20261021'
     if not folder.is_dir():
         return ''
@@ -144,7 +152,7 @@ def main():
     content['theoretical_results'].insert(0, {'heading':heading,'paragraphs':[
         'Unified exclusions combine negative-subring transfer, quadratic-compositum compression, weak-integral and biquadratic relative twist traces, complete signed lifting and convex central induction. Exact separation of an enlarged necessary-condition system gives a valid contradiction only after the hypotheses and complete lifting are established.',
         'Structural arguments use module-category ranks, split-module polynomial constraints, solvability, equivariantization and Morita transport. A unitary-only positivity obstruction becomes a general exclusion only when a separate theorem proves the relevant category must admit a unitary realization.',
-        'The explicit models include near-group equivariantizations, a cyclic permutation equivariantization of three Fibonacci factors, exceptional subfactor constructions, a conformal-embedding Morita dual, ordinary groups and a twisted A6/A5 group-theoretical construction. All model identifications compare the full 512 multiplication coefficients. Existence does not imply uniqueness or categorical novelty.']})
+        'The explicit models include near-group equivariantizations, a cyclic permutation equivariantization of three Fibonacci factors, exceptional subfactor constructions, a conformal-embedding Morita dual, ordinary groups and a twisted A6/A5 group-theoretical construction. Direct model comparisons check all 512 coefficients; the new GH(C8) Morita dual is identified by an exact coefficient bound and uniqueness in the supplied complete census. Existence does not imply uniqueness or categorical novelty.']})
     frontier_heading='Further rank-eight frontier investigation'
     content['replay_sections']=[x for x in content['replay_sections'] if x['heading']!=frontier_heading]
     content['theoretical_results']=[x for x in content['theoretical_results'] if x['heading']!=frontier_heading]
@@ -165,7 +173,19 @@ def main():
             center_note]})
         content['replay_sections'].insert(0,{'heading':center_heading,'paragraphs':[
             center_replay_scope()+' Run evidence/rank8_center_followup_20261021/verify.py --root . in both modes.',
-            'This refinement preserves the frozen frontier decision ledger and its original audit. Its precise pattern reductions and remaining domains are recorded separately; no new ring exclusion or categorical realization is asserted.']})
+            'This earlier refinement preserves the frozen frontier decision ledger and its original audit. It established necessary pattern reductions only; the subsequent GH(C8) construction is recorded separately.']})
+    from rank8_next import active as next_active
+    if next_active(ROOT):
+        next_heading='A generalized Haagerup Morita construction and further restrictions'
+        for key in ('theoretical_results','replay_sections'):
+            content[key]=[x for x in content[key] if x['heading']!=next_heading]
+        content['theoretical_results'].insert(0,{'heading':next_heading,'paragraphs':[
+            center_note,
+            'A uniform vertex-line obstruction proves that these inherited cyclic generalized Haagerup Q-system duals have trivial invertible group. Complete free-bimodule Gram factorization, the known center and rational coefficient inequalities then identify the C8 example. This is an existing algebra in an existing category; modular data alone are not used to assume a categorification.',
+            'The new restrictions and exact feasible witnesses for the remaining rings retain their individual scopes. R8_3_982 has two excluded induction frames and a surviving semionic branch. The charged fourth-moment systems for R8_3_928 and R8_3_941 have exact feasible completions. None of these surviving necessary data proves existence.']})
+        content['replay_sections'].insert(0,{'heading':next_heading,'paragraphs':[
+            'The new construction has separate normal and optimized checks, including independent reconstruction of the coefficient inequalities and an exhaustive scan of all 4,500 supplied census entries. Its reviewed categorical proof and bound source files are retained in evidence/rank8_next_20261021/. The original evidence and 108-check replay receipts remain unchanged.',
+            'Run tools/rank8_next.py --check for the accepted overlay identities. The model proof lists its targeted arithmetic verifiers. Census completeness remains the supplied producer result; the full enumeration has not been independently rerun.']})
     path.write_text(json.dumps(content, indent=2, ensure_ascii=False)+'\n')
     path = ROOT/'site/dist/review.html'; html = path.read_text()
     html = re.sub(r'Research status · \d+ October 2026', 'Research status · '+PUBLICATION_DATE_LONG, html)
@@ -182,6 +202,8 @@ def main():
         block=block.replace('</section>','<p>'+escape(integer_note)+'</p></section>')
     if center_note:
         block=block.replace('</section>','<p>'+escape(center_note)+'</p><p><a href="https://github.com/sebastienpalcoux/grothendieck-ring-classification/tree/main/evidence/rank8_center_followup_20261021">Center-pattern addendum and separate exact replays</a></p></section>')
+    if next_active(ROOT):
+        block=block.replace('</section>','<p><a href="https://github.com/sebastienpalcoux/grothendieck-ring-classification/tree/main/evidence/rank8_next_20261021">New model, theoretical restrictions and exact evidence</a></p></section>')
     if frontier_note:
         block=block.replace('</section>','<p>'+escape(frontier_note)+'</p></section>')
     if center_note:

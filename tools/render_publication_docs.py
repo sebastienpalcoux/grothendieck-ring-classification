@@ -730,7 +730,19 @@ All results and data are AI-generated, not independently human-verified and not 
         if center_note and name in ('docs/RESEARCH_STATUS.md','docs/VERIFY.md','docs/PROVENANCE.md',
                                     'docs/PREPUBLICATION_REVIEW.md','manuscripts/README.md',
                                     'supplements/README.md','supplements/rank8/README.md'):
-            content += ('\n## Further center-pattern constraints\n\n'+center_note+'\n\n'
+            if m3 and m3.get('next'):
+                content += ('\n## Generalized Haagerup construction and further restrictions\n\n'+center_note+'\n\n'
+                            'The integrated rank-eight article includes the new construction and restrictions. '
+                            'Categorical arguments, targeted mathematical replay receipts and independent reconstructions are in '
+                            '`evidence/rank8_next_20261021/`. The original frontier ledger, audit and completed replay receipts remain unchanged.\n\n'
+                            'The following commands validate the accepted overlay metadata; they do not repeat the targeted mathematical checks:\n\n'
+                            '```bash\npython3 tools/rank8_next.py --check\n'
+                            'python3 -O tools/rank8_next.py --check\n```\n\n'
+                            'A separately reviewed Galois follow-up reduces the 36 retained R8_3_1154 pair histograms to 25 '
+                            'across the same three center patterns. Its proof and exact replay are in '
+                            '`evidence/rank8_postpublication_20261021/r1154_galois_review/`; the ring remains unresolved.\n')
+            else:
+                content += ('\n## Further center-pattern constraints\n\n'+center_note+'\n\n'
                         'The integrated rank-eight article includes this separately verified addendum. '
                         'Its proofs, complete pattern indices, necessary action matrices and independent reconstructions are in '
                         '`evidence/rank8_center_followup_20261021/`. The original frontier ledger and audit remain unchanged.\n\n'

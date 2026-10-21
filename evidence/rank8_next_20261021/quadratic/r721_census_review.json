@@ -1,0 +1,89 @@
+{
+  "kind": "independent_complete_R721_census_dimension_review",
+  "imports_producer_modules": false,
+  "cumulative_tensors": 4500,
+  "previous_tensors": 973,
+  "complete_bijective_ID_coverage": true,
+  "multiplicity_shards": {
+    "2": 877,
+    "3": 3527,
+    "1": 96
+  },
+  "duality_shards": {
+    "0": 2621,
+    "1": 1278,
+    "2": 516,
+    "3": 85
+  },
+  "modular_primes_and_sqrt17_roots": [
+    [
+      1019,
+      400
+    ],
+    [
+      1021,
+      494
+    ]
+  ],
+  "modular_screen_sha256": "e1d711ca37bbfe729640b186106c74632545962abdf6ac43123bf41c9b191c18",
+  "modular_filter_survivors": [
+    "R8_3_2906",
+    "R8_3_721"
+  ],
+  "exact_spectral_survivors": [
+    "R8_3_2906",
+    "R8_3_721"
+  ],
+  "matches": [
+    {
+      "id": "R8_3_721",
+      "source_line": 3222,
+      "tensor_sha256": "76e26a815651476dfda5c2aa654f0d1327bdc890e08086cb6dbfe39ef9a1cdc5",
+      "dimensions": [
+        [
+          "1",
+          "0"
+        ],
+        [
+          "3/2",
+          "1/2"
+        ],
+        [
+          "3/2",
+          "1/2"
+        ],
+        [
+          "4",
+          "1"
+        ],
+        [
+          "5/2",
+          "1/2"
+        ],
+        [
+          "3",
+          "1"
+        ],
+        [
+          "5/2",
+          "1/2"
+        ],
+        [
+          "5",
+          "1"
+        ]
+      ]
+    }
+  ],
+  "scope": "Complete accepted4500-ring multiplicity-at-most3 census crosswalk; classification source completeness is the existing census theorem/input. Modular tests are exact necessary filters, never floating-point exclusions.",
+  "source_sha256": {
+    "supplements/rank8/data/rank8_m3_tables.txt.gz": "1003a7684ec62797e63885eeb5af42fd094adc9ff3fec6caf049620b3afd0952",
+    "supplements/rank8/data/rank8_tables.txt.gz": "35a8d69e9af8c873b3003890218a35b38b792abb89c19066f6705bf9c1c1d1ed",
+    "evidence/rank8_m3_20261021/pipeline/census_m3.json": "e79ca3c2a7de9c74c677f768284842a42a2eaa52d77d82a4680c208b41fd7836",
+    "supplements/rank8/data/decisions.json": "7f50213174f1020bb9d90d5981892c332448cf909a56bf60b29e1143228f3f24",
+    "evidence/rank8_m3_20261021/pipeline/source_manifest.json": "2876c90284e52244e59f4ce578f87a05cc636fedf0e21ac82504d5898e9c6c98",
+    "evidence/rank8_next_20261021/r721/census_dimension_crosswalk.json": "9aa25481fb5ffcd5fc638af7c3f3ffb39d5d36f51cb6b677db209f78a175ca1a",
+    "evidence/rank8_next_20261021/r721/census_dimension_crosswalk.py": "90ce18cdd261495bcb3226efc80afd761b1d52cde9f7ff24c5ce047914afbdf6"
+  },
+  "verifier_sha256": "1acc96a00a535ef4ade949ed4b9f6d2fd7fee74f45b1e2eb5bac3da3e29f9bea"
+}

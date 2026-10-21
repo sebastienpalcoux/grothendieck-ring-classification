@@ -6,6 +6,7 @@ import json
 from pathlib import Path
 from rank8_publication import EVIDENCE, extension
 import rank8_frontier as frontier
+import rank8_next as next_stage
 ROOT=Path(__file__).resolve().parents[1]
 THRESHOLD=4*1024*1024
 PART_BYTES=6*1024*1024
@@ -22,6 +23,9 @@ def main():
     if frontier.active(ROOT):
         frontier.validate_ledger(ROOT)
         folders.extend((ROOT/frontier.EVIDENCE,(ROOT/frontier.LEDGER).parent))
+    if next_stage.active(ROOT):
+        next_stage.validate(ROOT)
+        folders.extend((ROOT/next_stage.EVIDENCE,(ROOT/next_stage.LEDGER).parent))
     candidates=sorted({p for folder in folders for p in folder.rglob('*.json') if p.stat().st_size>=THRESHOLD})
     path=ROOT/'data/large_files_manifest.json';manifest=json.loads(path.read_text());by_path={r['path']:r for r in manifest['files']}
     ignored=(ROOT/'.gitignore').read_text().splitlines();registered=[]

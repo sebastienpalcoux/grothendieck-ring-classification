@@ -43,6 +43,10 @@ def main():
             need(check.returncode == 0, 'Rank-seven M5 metadata check failed:\n' + check.stdout + check.stderr)
             rank7_metadata = json.loads(check.stdout)
     rank8_update = rank8_extension(repo)
+    rank8_next_receipt = None
+    if rank8_update and rank8_update.get('next'):
+        from rank8_next import validate as validate_next
+        rank8_next_receipt = validate_next(repo)
     rank8_check_receipt = None
     rank8_frontier_receipt = None
     rank8_center_followup_receipt = None
@@ -148,6 +152,7 @@ def main():
                   'rank8_m3_update': rank8_update, 'rank8_m3_check': rank8_check_receipt,
                   'rank8_frontier_check': rank8_frontier_receipt,
                   'rank8_center_followup_check': rank8_center_followup_receipt,
+                  'rank8_next_check': rank8_next_receipt,
                   'rank7_m5_metadata_check': rank7_metadata,
                   'rank6_necessary_conditions': rank6_progress,
                   'reader_resources': reader_resources,

@@ -1,0 +1,145 @@
+\section{Three remaining center patterns for \texorpdfstring{$R8\_3\_1154$}{R8-3-1154}}
+\label{sec:r1154-three-center-patterns}
+
+The following arguments concern necessary induction and fusion data in the
+pseudo-unitary Drinfeld center.  They do not construct a center, a fusion
+category, or a categorification of the source ring.  In particular,
+$R8\_3\_1154$ remains unresolved.  The previously established reductions to
+this pseudo-unitary center problem are used with their original scope.
+
+Write $A_0=\mathbf1,A_1,\ldots,A_4$ for the five distinguished central
+simples, in the fixed character order of the retained induction frame, and
+write $M$ for the forgetful multiplicity matrix.  All five distinguished
+objects are self-dual.  Consequently their fusion matrices are real
+symmetric, and scalar products of their fusion-word vectors are the exact
+vacuum Verlinde moments.  Number the ten pair words by
+$11,12,13,14,22,23,24,33,34,44$.
+
+\begin{proposition}[Joint fourth-moment fibers]
+Of the $292$ restriction patterns left by the earlier coordinate bounds,
+exactly $224$ admit the required joint pair-product fiber.  Up to permutation
+of identical restriction columns, these patterns have exactly $2\,904$
+nonnegative integral pair-product completions.
+\end{proposition}
+\begin{proof}
+The previously computed minimum-norm solution $X_0$ to the forgetful
+pair-product equations has rank-one residual Gram matrix
+\[
+ G-X_0^{\mathsf T}X_0=\alpha h^{\mathsf T}h,
+ \qquad h=(1,0,1,-1,0,0,0,1,-1,1).
+\]
+Every completion therefore has the form $X=X_0+t h$, with
+$Mt=0$ and $t^{\mathsf T}t=\alpha$.  The allowed integral first coordinate
+of each row gives a finite interval.  The common rational denominator is
+$205$.  For each restriction type, enumerate all histograms in this
+interval with the prescribed number of copies; then impose the linear
+restriction equations and the exact squared norm jointly.  Nonnegative
+excess costs relative to the nearest allowed coordinate give a finite,
+exhaustive transfer computation.  Every retained histogram is checked
+against all seven non-unit restriction coordinates and all ten
+pair-product integrality and positivity conditions.  An independent
+all-seven-coordinate transfer count reproduces the $68$ empty fibers,
+$224$ nonempty fibers, and $2\,904$ histograms.
+\end{proof}
+
+\begin{proposition}[A forced distinguished action]
+The action of $A_2$ excludes $216$ of these $224$ patterns, and $2\,830$
+of the $2\,904$ pair-product completions.  The eight remaining patterns
+are
+\[
+ 3993,3994,6970,6971,8765,8766,8771,8772,
+\]
+with $74$ pair-product completions in total.
+\end{proposition}
+\begin{proof}
+Adjoin the eight rows of $M$ to the vacuum, the four distinguished
+simple vectors, and the ten pair-word vectors.  Their span $V$ has rank
+nine.  It is invariant under $N_{A_2}$.  On pair words this follows either
+from the exact fifth/sixth-moment Schur complement or from the vanishing
+of the triple residual coefficient on every word containing $2$; on the
+forgetful rows it is the induction projection formula.  This invariance
+was independently checked using the full $23$-generator Schur identity.
+
+The characteristic polynomial on $V$ is
+\[
+ x^4(x+1)(x-3)(x+5)(x^2-270x+225).
+\]
+The complete modular eigenvalue multiset shows that the complementary
+action is either zero or minus an orthogonal projector of rank three.
+In the first case the full matrix is forced, so any nonintegral entry
+excludes the completion.  Equivalently, its remaining trace of the square
+is zero, which forces the symmetric complementary action to vanish.
+
+In the second case write $N_{A_2}=F-E$, where $F$ is its fixed action
+on $V$.  There are four copies of high restriction type $10$, and
+$F_{ii}=67/4$ on each.  Integrality and $0\leq E_{ii}\leq1$ force
+$E_{ii}=3/4$ at these four entries.  They exhaust $\operatorname{Tr}(E)=3$,
+so every other row and column of $E$ vanishes.  Orthogonality to the
+nonzero constant restriction row on this block gives
+\[
+ E=I_4-\tfrac14 J_4
+\]
+there.  Thus this case also has a uniquely forced full $A_2$ matrix.
+Checking its entries gives the stated counts.  This reasoning and the
+complete $2\,904$-histogram domain were independently reproduced.
+\end{proof}
+
+\begin{proposition}[Single-support induction]
+The four patterns $3993,6970,8765,8771$ are impossible.  The remaining
+four patterns have $37$ pair-product completions.
+\end{proposition}
+\begin{proof}
+Let $g=X_3$ be the nontrivial invertible source simple.  All five low
+restriction columns have zero $g$ coordinate.  In each of the four named
+patterns, the only occupied high type with a nonzero $g$ coordinate is
+one copy of type $15$, whose $g$ coordinate is two.  Hence $I(g)=2Z$
+for a single central simple $Z$.  But
+\[
+ \operatorname{Tr}(\theta_{I(g)})
+ =\operatorname{Dim}(\mathcal C)\nu_1(g)=0,
+\]
+whereas the left side equals $2\theta_Z\operatorname{FPdim}(Z)\ne0$.
+This uses no twist-order guess or numerical feasibility test.
+\end{proof}
+
+\begin{proposition}[The last pattern in the first moment group]
+Pattern $3994$ is impossible.  Exactly three necessary restriction
+patterns remain: $6971,8766,8772$, with $36$ pair-product completions.
+\end{proposition}
+\begin{proof}
+Pattern $3994$ has one pair-product completion.  Adjoining the forgetful
+rows to the known words leaves a rank-one triple residual.  The four
+copies of type $10$ have the same complete distinguished joint spectral
+tuple $(1,-1,-1,0)$, so every vacuum fusion word is constant on their
+forced difference subspace.  Exhausting the resulting finite integral
+triple fiber gives exactly one histogram.
+
+The vacuum-word span now has rank ten.  Exact moments through degree eight
+verify that it is invariant under all four distinguished actions; it is
+the full cyclic span, because there are exactly ten distinct joint
+spectral tuples and every vacuum modular weight is positive.  On the
+unique high-type-$0$ simple, the fixed cyclic part of $N_{A_4}$ has
+\emph{diagonal entry $-2$}.  Its complementary spectrum consists of six
+zeros and one eigenvalue $-2$.  The complementary operator is therefore
+negative semidefinite, so the actual diagonal entry is at most $-2$.
+This contradicts nonnegativity of a fusion matrix.  The unique triple
+fiber, degree-eight identities, complete complementary spectrum, and
+negative diagonal were independently checked.
+\end{proof}
+
+\begin{center}
+\begin{tabular}{lrr}
+Necessary center constraint & Patterns left & Pair completions left\\
+\hline
+Earlier coordinate bounds & $292$ & ---\\
+Joint pair-product fiber & $224$ & $2\,904$\\
+Forced $A_2$ action & $8$ & $74$\\
+Single-support induction trace & $4$ & $37$\\
+Full cyclic negative diagonal & $3$ & $36$
+\end{tabular}
+\end{center}
+
+The three survivors are necessary center-data patterns, not three
+categorifications.  Further finite triple-fiber and bounded-action tests
+are recorded separately as ongoing necessary-condition work.  They do
+not alter the unresolved status of the source ring.

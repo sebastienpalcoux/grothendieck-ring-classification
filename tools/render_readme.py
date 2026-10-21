@@ -264,6 +264,10 @@ if rank8_active(ROOT) and (ROOT/'evidence/rank8_frontier_20261021/publication').
 if center_note:
     rank8_extension_text += ('\n\n'+center_note+'\n\n'
         '[Separately verified center-pattern addendum](evidence/rank8_center_followup_20261021/README.md).\n\n'+center_replay_scope())
+from rank8_next import active as next_active
+if next_active(ROOT):
+    rank8_extension_text += ('\n\n[New GH(C8) Morita model and further unified restrictions]'
+                            '(evidence/rank8_next_20261021/README.md).')
 rendered=('\n'.join(lines).replace('__RANK7_EXTENSION__',rank7_extension_summary(ROOT))
                               .replace('__RANK8_EXTENSION__',rank8_extension_text)
                               .replace('__OPEN_CASE_COUNT__',str(len(remaining_ids(ROOT))))

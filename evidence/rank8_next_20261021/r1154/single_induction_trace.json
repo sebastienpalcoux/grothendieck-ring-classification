@@ -1,0 +1,110 @@
+{
+  "schema": "r1154-single-induction-trace/v1",
+  "id": "R8_3_1154",
+  "tensor_sha256": "c399505be76a64c8aba65feaf2cd55125dc7132f5894b74e58b64473d1387e25",
+  "scope": "Necessary induction twist trace obstruction in the pseudo-unitary center; no remaining pattern is asserted categorifiable",
+  "incoming_patterns": 8,
+  "remaining_patterns": 4,
+  "surviving_pattern_indices": [
+    3994,
+    6971,
+    8766,
+    8772
+  ],
+  "remaining_pair_histograms": 37,
+  "results": [
+    {
+      "index": 3993,
+      "status": "excluded_single_induction_support",
+      "obstructions": [
+        {
+          "source_simple": 3,
+          "single_central_simple": {
+            "kind": "high",
+            "type": 15,
+            "copy": 0,
+            "induction_multiplicity": 2
+          },
+          "required_twist_trace": 0,
+          "actual_twist_trace": "nonzero integer multiplicity times nonzero twist times positive FP dimension"
+        }
+      ]
+    },
+    {
+      "index": 3994,
+      "status": "passes_single_induction_support",
+      "obstructions": []
+    },
+    {
+      "index": 6970,
+      "status": "excluded_single_induction_support",
+      "obstructions": [
+        {
+          "source_simple": 3,
+          "single_central_simple": {
+            "kind": "high",
+            "type": 15,
+            "copy": 0,
+            "induction_multiplicity": 2
+          },
+          "required_twist_trace": 0,
+          "actual_twist_trace": "nonzero integer multiplicity times nonzero twist times positive FP dimension"
+        }
+      ]
+    },
+    {
+      "index": 6971,
+      "status": "passes_single_induction_support",
+      "obstructions": []
+    },
+    {
+      "index": 8765,
+      "status": "excluded_single_induction_support",
+      "obstructions": [
+        {
+          "source_simple": 3,
+          "single_central_simple": {
+            "kind": "high",
+            "type": 15,
+            "copy": 0,
+            "induction_multiplicity": 2
+          },
+          "required_twist_trace": 0,
+          "actual_twist_trace": "nonzero integer multiplicity times nonzero twist times positive FP dimension"
+        }
+      ]
+    },
+    {
+      "index": 8766,
+      "status": "passes_single_induction_support",
+      "obstructions": []
+    },
+    {
+      "index": 8771,
+      "status": "excluded_single_induction_support",
+      "obstructions": [
+        {
+          "source_simple": 3,
+          "single_central_simple": {
+            "kind": "high",
+            "type": 15,
+            "copy": 0,
+            "induction_multiplicity": 2
+          },
+          "required_twist_trace": 0,
+          "actual_twist_trace": "nonzero integer multiplicity times nonzero twist times positive FP dimension"
+        }
+      ]
+    },
+    {
+      "index": 8772,
+      "status": "passes_single_induction_support",
+      "obstructions": []
+    }
+  ],
+  "source_sha256": {
+    "evidence/rank8_next_20261021/r1154/a2_action_probe.json": "05411ca391c55cba0f20c8ef08448d905a37e8719a015c576cce16c0069464b3",
+    "evidence/rank8_frontier_20261021/central_integrality/integer_gram_1154.json": "e933bff239507a663213a25a5db8cbd94d50e6bfc83073fe966f962b3be97684"
+  },
+  "verifier_sha256": "6ec7e87ea64c8f5aabf2ac2119245fbebaf3d32a802e9a5e9022dff05a7d4f0b"
+}

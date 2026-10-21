@@ -19,15 +19,16 @@ recorded categorification status:
 \begin{center}\begin{tabular}{@{}lr@{}}\toprule
 Status & Rings\\\midrule
 General complex exclusion & $3504$\\
-Unitary construction & $14$\\
-Unresolved general categorification & $9$\\
+Unitary construction & $15$\\
+Unresolved general categorification & $8$\\
 \bottomrule\end{tabular}\end{center}
-Every positive identification compares the entire ordered multiplication
-tensor under a unit-preserving bijection. A recorded construction proves
+Positive identifications use full ordered tensor comparisons or, for
+$\sha{R8_3_721}$, the exact coefficient bound and complete-census uniqueness
+proved in Theorem~\ref{thm:r721-qsystem-model}. A recorded construction proves
 existence, without claiming uniqueness up to tensor equivalence.
 \end{theorem}
 The source-bound combined ledger is
-\path{supplements/rank8/output/frontier_20261021/ledger.json}. Its exact-M3 first-exclusion
+\path{supplements/rank8/output/next_20261021/ledger.json}. Its exact-M3 first-exclusion
 allocation follows. Overlapping obstructions are retained in the evidence
 rather than counted twice.
 \begin{center}\small\begin{longtable}{@{}p{.75\textwidth}r@{}}\toprule
@@ -105,14 +106,15 @@ Census ID & Construction & Scope\\\midrule\endhead
 \sha{R8_3_3278} & Unitary $E_8$ fusion category & unitary\\
 \sha{R8_3_3314} & $\operatorname{Ad}(E_8)\boxtimes\operatorname{Fib}$ & unitary\\
 \sha{R8_3_3342} & Twisted $\mathcal C(A_6,\omega,A_5,\psi)$ from a stable relative $\mu_2$ class & unitary\\
+\sha{R8_3_721} & Inherited Q-system Morita dual in the $C_2$ de-equivariantization of $\operatorname{GH}(C_8)$ & unitary\\
 \bottomrule\end{longtable}\end{center}
 Every model in this inventory admits a unitary realization. For
 $\sha{R8_3_448}$, the original pseudo-unitary existence result is
 supplemented by the unitary $2221$ planar-algebra construction above.
 \subsection{The remaining general questions and replay scope}
-There remain $9$ unresolved exact-M3 tensors. The source tensors and per-case attempted criteria are recorded in
+There remain $8$ unresolved exact-M3 tensors. The source tensors and per-case attempted criteria are recorded in
 \path{data/remaining_cases.py} and the per-case audit\par\noindent
-{\small\path{evidence/rank8_frontier_20261021/structural_models/per_ring_research_audit.json}}.
+{\small\path{evidence/rank8_next_20261021/per_ring_research_audit.json}}.
 The inventory distinguishes an exact contradiction, a necessary-condition
 survivor, a time limit, and an inapplicable test. Passing these conditions
 supplies no coherent associator; an unsuccessful construction search
@@ -125,7 +127,6 @@ proper fusion subrings, as checked on the exact source tensors.
 \begin{center}\small\begin{longtable}{@{}lcccc@{}}\toprule
 Census ID & Commutative & Invertibles & Unitary status & Proper subring ranks\\\midrule\endhead
 \sha{R8_3_65} & yes & 4 & unresolved & 2, 4\\
-\sha{R8_3_721} & no & 1 & unresolved & --\\
 \sha{R8_3_928} & no & 2 & unresolved & 2\\
 \sha{R8_3_941} & no & 2 & unresolved & 2\\
 \sha{R8_3_982} & yes & 2 & unresolved & 2\\
@@ -148,6 +149,7 @@ interpreter with assertions enabled. Metadata-only mode checks these
 identities and reconciliation without replaying the mathematics.
 \input{m3_frontier}
 \input{m3_center_followup}
+\input{m3_next_refinements}
 
 \subsection{Continuation evidence and reproducibility}
 The new proofs and construction-family audits are in

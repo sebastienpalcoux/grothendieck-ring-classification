@@ -37,12 +37,15 @@ def merge_payload(payload, additions):
         payload[name] = raw
 
 
-def preserve_rank8_standalone_replays(root, fresh_files, fresh_package, source_publication_only=False):
+def preserve_rank8_standalone_replays(root, fresh_files, fresh_package, source_publication_only=False,
+                                       continuation_package=None):
     """Carry validated archive-only evidence into the fresh common payload.
 
-    Publication files come from collect_rank8(), not from an older ZIP. The
-    imported replays certify the identical mathematical manifests and ledger;
-    they do not claim that subsequently edited publication prose was replayed.
+    The selected current collector supplies publication files. For a successor
+    release, fresh_package is the frozen frontier package retained by that
+    collector, not a newly generated frontier package. Imported replays certify
+    only their identical mathematical manifests and ledger; they do not certify
+    subsequent decisions, research, or edited publication prose.
     """
     from build_rank8_frontier_release import ARCHIVE_PREFIX, CENTER_FOLLOWUP
     from rank8_frontier import ARCHIVE, PUBLICATION, LEDGER, commands, safe_path
@@ -281,9 +284,114 @@ def preserve_rank8_standalone_replays(root, fresh_files, fresh_package, source_p
         'frontier_source_manifest_sha256': manifest_sha, 'ledger_sha256': ledger_sha,
         'preserved_archive_members_sha256': dict(sorted(preserved.items())),
     }
+    if continuation_package is not None:
+        need(continuation_package.get('schema') == 'rank8-next-package/v1',
+             'Unexpected successor package for historical replay provenance')
+        need(fresh_package == archived_package,
+             'Successor must preserve the original frontier package manifest')
+        provenance['current_publication'] = {
+            'schema': continuation_package['schema'],
+            'new_source_manifest_sha256': continuation_package['new_source_manifest_sha256'],
+            'ledger_sha256': continuation_package['current_summary']['ledger_sha256'],
+            'historical_replays_certify_current_overlay': False,
+        }
+        provenance['scope'] += (' These historical receipts do not certify the successor '
+                                'release\'s new decisions or necessary-condition research.')
     additions[PUBLICATION + '/dedicated_replay_provenance.json'] = (
         json.dumps(provenance, indent=2) + '\n').encode()
     return additions
+
+
+def preserve_rank8_next_release(root, fresh_files, fresh_package, inventory):
+    """Bind the current expanded payload to the completed dedicated release.
+
+    Only its release manifest, package metadata and provenance are carried into
+    the common archive. The separately published ZIP is checked, not nested.
+    No mathematical verification command is run here.
+    """
+    from build_rank8_next_release import ARCHIVE, ARCHIVE_PREFIX, PUBLICATION, safe_path
+
+    def need(ok, message):
+        if not ok:
+            raise ValueError(message)
+
+    release_name = PUBLICATION + '/release_manifest.json'
+    package_name = PUBLICATION + '/package_manifest.json'
+    manifest_name = PUBLICATION + '/source_manifest.json'
+    archive_path = root / ARCHIVE
+    need(archive_path.is_file() and (root / release_name).is_file(),
+         'Build the finalized dedicated rank-eight next release before the common archive')
+    release_raw = (root / release_name).read_bytes()
+    release = json.loads(release_raw)
+    need(digest(archive_path.read_bytes()) == release.get('archive_sha256'),
+         'Dedicated next archive differs from its release manifest')
+    archived_package = {name: value for name, value in release.items()
+                        if name not in ('files_sha256', 'archive_sha256')}
+    need({name: value for name, value in archived_package.items()
+          if name != 'extracted_metadata_checks'} == fresh_package,
+         'Dedicated next package is stale; rebuild it before the common archive')
+    need(json.loads(fresh_files[manifest_name]) == inventory,
+         'Current next source inventory differs from its packaged manifest')
+    checks = archived_package.get('extracted_metadata_checks', [])
+    required = {(script, optimized) for script in
+                ('supplements/rank8/software/verify_m3_continuation.py',
+                 'tools/verify_rank8_frontier.py', 'tools/rank8_next.py')
+                for optimized in (False, True)}
+    need(len(checks) == 6 and
+         {(x.get('script'), x.get('optimized_python')) for x in checks} == required
+         and all(x.get('status') == 'METADATA_PASS'
+                 and x.get('mathematical_replay_performed') is False for x in checks)
+         and archived_package.get('full_historical_mathematical_replay_performed') is False
+         and archived_package.get('packaging_mathematical_replay_performed') is False,
+         'Dedicated next metadata gates or proof-replay scope differ')
+    expected = release.get('files_sha256')
+    need(isinstance(expected, dict) and set(expected) == set(fresh_files),
+         'Dedicated next member inventory differs from the current collection')
+    with zipfile.ZipFile(archive_path) as archive:
+        members = {}
+        for item in archive.infolist():
+            need(not item.is_dir() and item.filename.startswith(ARCHIVE_PREFIX),
+                 'Unexpected dedicated next archive member root')
+            name = item.filename[len(ARCHIVE_PREFIX):]
+            need(safe_path(name) and name not in members
+                 and (item.external_attr >> 16) & 0o170000 != 0o120000,
+                 'Unsafe, duplicate or symlinked dedicated next member: ' + name)
+            members[name] = item
+        need(set(members) == set(expected), 'Dedicated next ZIP inventory differs')
+        for name, item in members.items():
+            raw = archive.read(item)
+            need(digest(raw) == expected[name], 'Dedicated next member checksum differs: ' + name)
+            if name not in (package_name, 'SHA256SUMS.json'):
+                need(raw == fresh_files[name], 'Dedicated/current next source differs: ' + name)
+        package_raw = archive.read(members[package_name])
+        need(json.loads(package_raw) == archived_package,
+             'Dedicated next package and root release manifests disagree')
+        need(json.loads(archive.read(members['SHA256SUMS.json'])) ==
+             {name: value for name, value in expected.items() if name != 'SHA256SUMS.json'},
+             'Dedicated next inner checksums differ')
+    # The only package difference is its completed extracted metadata receipts.
+    # Preserve those exact bytes after checking every source and virtual member.
+    fresh_files[package_name] = package_raw
+    provenance = {
+        'schema': 'rank8-next-dedicated-release-provenance/v1',
+        'scope': ('Expanded sources match the finalized dedicated next archive. '
+                  'Its extracted checks are metadata checks; no full historical '
+                  'mathematical replay is claimed for this continuation.'),
+        'dedicated_archive': ARCHIVE,
+        'dedicated_archive_sha256': release['archive_sha256'],
+        'dedicated_archive_included': False,
+        'release_manifest': release_name,
+        'release_manifest_sha256': digest(release_raw),
+        'package_manifest': package_name,
+        'package_manifest_sha256': digest(package_raw),
+        'source_manifest_sha256': digest(fresh_files[manifest_name]),
+        'ledger_sha256': fresh_package['current_summary']['ledger_sha256'],
+        'validated_archive_members': len(expected),
+        'packaging_mathematical_replay_performed': False,
+    }
+    return {release_name: release_raw,
+            PUBLICATION + '/dedicated_release_provenance.json':
+                (json.dumps(provenance, indent=2) + '\n').encode()}
 
 
 def package_publication_archive(root, output):
@@ -411,16 +519,30 @@ def collect(root, source_publication_only=False):
     from rank8_publication import active
     extension_files = {}
     if active(root):
-        from rank8_frontier import active as frontier_active
-        if frontier_active(root):
+        from rank8_frontier import active as frontier_active, PUBLICATION as FRONTIER_PUBLICATION
+        from rank8_next import active as next_active
+        if next_active(root):
+            from build_rank8_next_release import collect as collect_next
+            extension_files, extension_package, inventory = collect_next(root)
+            next_additions = preserve_rank8_next_release(
+                root, extension_files, extension_package, inventory)
+            # The successor already contains the entire immutable frontier
+            # archive. Regenerating that old package would conflict with its
+            # preserved manifest and superseded publication byte streams.
+            frontier_package = json.loads(extension_files[
+                FRONTIER_PUBLICATION + '/package_manifest.json'])
+            merge_payload(extension_files, preserve_rank8_standalone_replays(
+                root, extension_files, frontier_package, source_publication_only,
+                continuation_package=extension_package))
+            merge_payload(extension_files, next_additions)
+        elif frontier_active(root):
             from build_rank8_frontier_release import collect as collect_rank8
-        else:
-            from build_rank8_m3_release import collect as collect_rank8
-        extension_files, extension_package = (collect_rank8(root, source_publication_only)
-                                               if frontier_active(root) else collect_rank8(root))
-        if frontier_active(root):
+            extension_files, extension_package = collect_rank8(root, source_publication_only)
             merge_payload(extension_files, preserve_rank8_standalone_replays(
                 root, extension_files, extension_package, source_publication_only))
+        else:
+            from build_rank8_m3_release import collect as collect_rank8
+            extension_files, extension_package = collect_rank8(root)
         paths.update(path.relative_to(root).as_posix() for path in (root/'tools').glob('*rank8_m3*.py'))
         paths.update(path.relative_to(root).as_posix() for path in (root/'tools/templates').glob('rank8_m3_*.tex'))
     payload = {name: (root / name).read_bytes() for name in sorted(paths)}
@@ -449,7 +571,7 @@ def source_publication_metadata(root):
     readers = validate_reader_resources(root, check_web=(root / 'site/dist/papers').is_dir())
     preserved = replay_sources(root)
     _, summary, reports, manifest_sha = frontier_inputs(root, True)
-    return {'status': 'SOURCE_PUBLICATION_METADATA_PASS',
+    result = {'status': 'SOURCE_PUBLICATION_METADATA_PASS',
             'mathematical_replay_performed': False,
             'scope': 'Current document and reader identities, immutable source identities, frontier ledger and completed canonical receipts; no fresh historical or extracted mathematical replay',
             'current_documents': len(documents['documents']),
@@ -459,6 +581,17 @@ def source_publication_metadata(root):
             'source_manifest_sha256': manifest_sha,
             'ledger_sha256': summary['ledger_sha256'],
             'canonical_frontier_replays': reports}
+    from rank8_next import active as next_active, validate_ledger, source_inventory, PUBLICATION
+    if next_active(root):
+        current = validate_ledger(root)
+        manifest_raw = (root / PUBLICATION / 'source_manifest.json').read_bytes()
+        if json.loads(manifest_raw) != source_inventory(root):
+            raise ValueError('Current next source manifest differs from its validated inventory')
+        result['current_rank8'] = current
+        result['current_rank8_source_manifest_sha256'] = digest(manifest_raw)
+        result['scope'] += ('; current rank-eight accepted decisions, model and research '
+                            'bindings are checked separately from the historical receipts')
+    return result
 
 
 def main():
@@ -530,6 +663,17 @@ Fixed timestamps and sorted paths make identical inputs produce identical ZIP by
             'mathematical inputs are recorded in `'+PUBLICATION+'/dedicated_replay_provenance.json`; '
             'the dedicated root release manifest is included alongside it. Publication '
             'documents in this common archive are freshly collected.\n').encode()
+    from rank8_next import active as next_active, PUBLICATION as NEXT_PUBLICATION
+    if next_active(root):
+        payload['README.md'] += (
+            '\nThe current rank-eight continuation is included as expanded sources, with its '
+            'accepted decisions, model catalogue, research audit, exact evidence and source '
+            'manifest. The finalized dedicated release is bound by `'
+            + NEXT_PUBLICATION + '/dedicated_release_provenance.json`. Its ZIP is published '
+            'separately, without duplication inside this archive. Every prior frontier member '
+            'is preserved at its original path or at the historical path recorded in the '
+            'current package manifest. Dedicated next extraction checks verify metadata; '
+            'older mathematical replay receipts retain their original proof scope.\n').encode()
     payload['ARCHIVE_MANIFEST.json'] = (json.dumps({name: {'bytes': len(raw), 'sha256': digest(raw)}
                                                    for name, raw in sorted(payload.items())}, indent=2) + '\n').encode()
     output = (args.output or root / 'site/dist/downloads' / f'{PREFIX}.zip').resolve()

@@ -484,12 +484,14 @@ def from_catalogues(repo):
             rec=make_record(8,model["id"],name,source_tensor,ref+".",
                             p8,model["id"],model.get("model_scope", "unitary"),reference_url=reference_url)
             construction=first.get('construction',{})
-            rec['construction_notes']=[construction[key] for key in ('kind','cocycle','human_review')
+            rec['construction_notes']=[construction[key] for key in ('kind','cocycle','identification','basis_map_scope','human_review')
                                        if isinstance(construction.get(key),str)]
             if isinstance(construction.get('proof'),str):
                 proof=construction['proof']
                 if not proof.startswith('evidence/'):
-                    proof='evidence/rank8_m3_20261021/models/'+proof
+                    certificate=model.get('source_certificate')
+                    candidate=(Path(certificate).parent/proof).as_posix() if isinstance(certificate,str) else None
+                    proof=candidate if candidate and (repo/candidate).is_file() else 'evidence/rank8_m3_20261021/models/'+proof
                 if not (repo/proof).is_file():
                     raise ValueError('Missing construction proof: '+proof)
                 rec['construction_proof_file']=proof

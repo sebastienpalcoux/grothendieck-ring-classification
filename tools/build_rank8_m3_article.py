@@ -7,7 +7,7 @@ import re
 import shutil
 import subprocess
 import sys
-from rank8_publication import extension, LEDGER, MODELS, EVIDENCE, ledger_path
+from rank8_publication import extension, EVIDENCE, ledger_path, model_path
 import rank8_frontier as frontier
 ROOT=Path(__file__).resolve().parents[1]
 PAPER=ROOT/'manuscripts/rank8/paper'
@@ -21,6 +21,7 @@ MODEL_LABELS={
 471:r'$\operatorname{NG}(C_3,3)\boxtimes\operatorname{Fib}$',
 475:r'$(\operatorname{Fib}^{\boxtimes3})^{C_3}$ by cyclic permutation',
 715:r'Morita dual of the nonsplit unitary $2D2$ extension',
+721:r'Inherited Q-system Morita dual in the $C_2$ de-equivariantization of $\operatorname{GH}(C_8)$',
 724:r'$\operatorname{Rep}(\operatorname{PSL}_2(11))$',
 1456:r'$\operatorname{Ad}(E_8)\boxtimes\operatorname{Vec}(C_2)$',
 3278:r'Unitary $E_8$ fusion category',
@@ -37,6 +38,8 @@ def normalize(text):
     text=re.sub(r'\\texttt\{R8\\_([0-9]+)\\_([0-9]+)\}',lambda m:r'\sha{R8_'+m[1]+'_'+m[2]+'}',text)
     return re.sub(r'\\texttt\{([^}]+)\}',lambda m:r'\path{'+m[1].replace(r'\_','_')+'}',text)
 BIB={
+'GrossmanIzumiCentersNext':r'''P.~Grossman and M.~Izumi, \emph{Drinfeld centers of fusion categories arising from generalized Haagerup subfactors}, arXiv:1501.07679v2 (2019), equations~(2.21)--(2.22), Example~4.4 and Section~6.''',
+'GrossmanIzumiMetricNext':r'''P.~Grossman and M.~Izumi, \emph{Infinite families of potential modular data related to quadratic categories}, arXiv:1906.07397v2 (2019), Definition~6.1 and Section~6.1.6.''',
 'DeshpandeVerlindeFollowup':r'''T.~Deshpande, \emph{On twisted Verlinde formulae for modular categories}, arXiv:1811.08447v1 (2018), Theorem~1.1.''',
 'CosteGannonRuelleFollowup':r'''A.~Coste, T.~Gannon and P.~Ruelle, \emph{Finite Group Modular Data}, Nucl. Phys. B \textbf{581} (2000), 679--717; arXiv:hep-th/0001158v2, Section~2.2.''',
 'UsherFermionic':r'''R.~Usher, \emph{Fermionic $6j$-symbols in superfusion categories}, arXiv:1606.03466 (2016), Theorem~5.4 and Corollary~5.8.''',
@@ -68,7 +71,8 @@ def main():
     ext=extension(ROOT)
     if ext is None:raise ValueError('Accepted M3 publication ledger required')
     rows=json.loads((ROOT/ledger_path(ROOT)).read_text());new=[r for r in rows if r['multiplicity']==3]
-    by_id={r['id']:r for r in new};models=[r for r in json.loads((ROOT/MODELS).read_text()) if r['multiplicity']==3]
+    by_id={r['id']:r for r in new};models=[r for r in json.loads((ROOT/model_path(ROOT)).read_text()) if r['multiplicity']==3]
+    model_ids={r['id'] for r in models}
     stated=[275,276,344,345,810,812,2492,2494,2620,2622,1051,2415,307,2132,347,916,1348,76,735,738,1422,1805,920,986,1453,1019,1057,1067,1197,2392,2836,2904,3082]
     if any(by_id[f'R8_3_{i}']['status']!='excluded' for i in stated):raise ValueError('A stated theorem is absent from the accepted ledger')
     text=r'''\section{The multiplicity-three continuation}
@@ -92,8 +96,9 @@ Status & Rings\\\midrule
     if ext['pseudo_unitarily_realized']:text+=f"Further pseudo-unitary construction & ${ext['pseudo_unitarily_realized']}$\\\\\n"
     text+=f"Unresolved general categorification & ${ext['unresolved']}$\\\\\n"
     text+=r'''\bottomrule\end{tabular}\end{center}
-Every positive identification compares the entire ordered multiplication
-tensor under a unit-preserving bijection. A recorded construction proves
+Positive identifications use full ordered tensor comparisons or, for
+$\sha{R8_3_721}$, the exact coefficient bound and complete-census uniqueness
+proved in Theorem~\ref{thm:r721-qsystem-model}. A recorded construction proves
 existence, without claiming uniqueness up to tensor equivalence.
 \end{theorem}
 The source-bound combined ledger is
@@ -119,7 +124,8 @@ proof inputs. Its historical allocation is separate from this table.
 Census ID & Construction & Scope\\\midrule\endhead
 '''
     for model in models:
-        label=MODEL_LABELS.get(int(model['id'].split('_')[-1]),tex(model.get('model',model['constructors'][0]['model'])))
+        label=MODEL_LABELS.get(int(model['id'].split('_')[-1]))
+        if label is None:label=tex(model.get('model') or model['constructors'][0]['model'])
         text+=r'\sha{'+model['id']+'} & '+label+' & '+tex(model.get('model_scope','unitary'))+r'\\'+'\n'
     text+=r'''\bottomrule\end{longtable}\end{center}
 Every model in this inventory admits a unitary realization. For
@@ -184,7 +190,7 @@ identities and reconciliation without replaying the mathematics.
         if not {'R8_3_731','R8_3_3344'} <= accepted_ids:
             raise ValueError('Both integral proofs must be accepted before publishing their combined section')
         heading=(r'\subsection{Further investigation of the original frontier}'+'\n'
-                 +f"The previous release left $34$ exact-M3 rings unresolved. This continuation supplies ${ext['frontier']['new_decisions']}$ further general complex exclusions, leaving ${ext['unresolved']}$ questions. "
+                 +f"The previous release left $34$ exact-M3 rings unresolved. The original frontier continuation supplies ${ext['frontier']['new_decisions']}$ further general complex exclusions. The current totals also include the later accepted constructions above, leaving ${ext['unresolved']}$ questions. "
                  +'The earlier ledger and replay receipts are retained byte for byte; accepted changes are recorded in a separate overlay ledger.\n')
         proof_files=[
             'quadratic/simultaneous_split_section.tex','structural_models/r436_general_tpe.tex','integral/manuscript.tex',
@@ -236,6 +242,9 @@ identities and reconciliation without replaying the mathematics.
         proofs=proofs.replace('For an arbitrary categorification take its canonical sphericalization',r'For an arbitrary categorification take its canonical sphericalization~\cite[Section~5.1]{OstrikPiv3}')
         proofs=proofs.replace(r'requires $\delta/f$ to be integral.',r'requires $\delta/f$ to be integral~\cite[Theorem~2.13 and Corollary~2.14]{OstrikPiv3}.')
         proofs=proofs.replace('A number-field model and Galois conjugation',r'A number-field model~\cite[Theorem~2.30 and the following remark]{ENO} and Galois conjugation')
+        if 'R8_3_721' in model_ids:
+            proofs=proofs.replace('unitarity; both rings remain unresolved by this proposition.',
+                r'unitarity. This proposition alone decides neither ring; $\sha{R8_3_721}$ is realized separately in Theorem~\ref{thm:r721-qsystem-model}.')
         (PAPER/'m3_frontier.tex').write_text(heading+normalize(proofs))
         text += r'''\input{m3_frontier}
 '''
@@ -266,6 +275,11 @@ They bind their inputs by SHA-256 and give''')
                                 r'module specialization of the twisted Verlinde formula~\cite[Theorem~1.1]{DeshpandeVerlindeFollowup}.')
             extra=extra.replace(r'$\operatorname{Rep}(S_3)$.  In particular',
                                 r'$\operatorname{Rep}(S_3)$~\cite[Section~2.2]{CosteGannonRuelleFollowup}.  In particular')
+            if 'R8_3_721' in model_ids:
+                extra=extra.replace('The following small exact continuation changes no general exclusion or\nrealization count.  It strengthens the necessary center data for',
+                    'This earlier exact continuation changed no general exclusion or\nrealization count. It strengthened the necessary center data for')
+                extra=extra.replace('is not a center fusion ring or a categorical model.  The previously',
+                    r'is not a center fusion ring or a categorical model. The later Q-system construction of $\sha{R8_3_721}$ appears in Theorem~\ref{thm:r721-qsystem-model}. The previously')
             extra+=r'''
 \subsection{Separate replay of the center-product refinement}
 The source-bound proofs, complete surviving matrix tuples, rejected pattern
@@ -276,11 +290,28 @@ indices and independent arithmetic reconstructions are in
 \end{quote}
 in normal Python and with \texttt{-O}. This separately checked refinement
 preserves the original continuation ledger and its $25$ additional ring
-exclusions. The two candidate rings remain unresolved; the surviving
-necessary data do not constitute fusion categories.
+exclusions. At this stage both rings were unresolved. These necessary
+data alone do not constitute fusion categories; the later construction of
+$\sha{R8_3_721}$ is Theorem~\ref{thm:r721-qsystem-model}. The remaining
+center patterns for $\sha{R8_3_1154}$ are refined below.
 '''
             (PAPER/'m3_center_followup.tex').write_text(normalize(extra))
             text+=r'\input{m3_center_followup}'+'\n'
+        if ext.get('next'):
+            next_root=ROOT/'evidence/rank8_next_20261021'
+            additions=(next_root/'r721/r65_scoped_addendum.tex').read_text()+'\n'
+            additions+=(next_root/'r1154/R1154_ADVANCED_CENTER_ADDENDUM.tex').read_text().replace(
+                r'\section{Three remaining center patterns',r'\subsection{Three remaining center patterns')
+            additions+=r'''
+\paragraph{Separate exact evidence.}
+The accepted construction and scoped refinements, with normal and
+optimized-Python receipts and independent reviews, are recorded in
+\begin{quote}\small\path{evidence/rank8_next_20261021/}.\end{quote}
+Their publication overlay preserves
+the earlier ledgers and source-bound proof files.
+'''
+            (PAPER/'m3_next_refinements.tex').write_text(normalize(additions))
+            text+=r'\input{m3_next_refinements}'+'\n'
         text += r'''
 \subsection{Continuation evidence and reproducibility}
 The new proofs and construction-family audits are in
@@ -312,6 +343,11 @@ domains; they are not proofs of nonexistence or categorifiability.
     (PAPER/'m3_structural.tex').write_text(normalize(structural))
     constructions=(ROOT/'tools/templates/rank8_m3_known_models.tex').read_text()+'\n'+(ROOT/EVIDENCE/'models/new_constructions.tex').read_text().replace('{CMS}','{CMSIzumiXu}').replace('{Izumi}','{IzumiNear}')
     if 'R8_3_3342' in {r['id'] for r in models}:constructions+='\n\\subsection{A twisted group-theoretical construction}\n'+(ROOT/EVIDENCE/'models/psl2_11/r360/manuscript.tex').read_text()
+    if 'R8_3_721' in model_ids:
+        constructions+='\n'+(ROOT/'evidence/rank8_next_20261021/r721/r721_qsystem_model.tex').read_text()
+        constructions=constructions.replace('The exhaustive crosswalk is\n'+
+            r'\path{evidence/rank8_next_20261021/r721/census_dimension_crosswalk.py}.',
+            'The exhaustive crosswalk is\n'+r'\begin{quote}\small\path{evidence/rank8_next_20261021/r721/census_dimension_crosswalk.py}.\end{quote}')
     (PAPER/'m3_models.tex').write_text(normalize(constructions))
     (PAPER/'m3_model_search.tex').write_text(normalize((ROOT/EVIDENCE/'models/model_search_scope.tex').read_text()))
     path=PAPER/'rank8.tex';s=path.read_text()
@@ -321,7 +357,7 @@ domains; they are not proofs of nonexistence or categorifiability.
     s=s.replace('complete classification through multiplicity two}','categorification through multiplicity three}')
     s=re.sub(r'\\date\{[^}]+\}',lambda _:r'\date{21 October 2026}',s)
     abstract=(f'We investigate complex categorification of the supplied $4500$ rank-eight fusion rings of multiplicity at most three. The exact-multiplicity-three continuation treats $3527$ new tensors: ${ext["excluded"]}$ general exclusions, ${ext["unitarily_realized"]}$ unitary models, and ${ext["unresolved"]}$ unresolved cases. '
-      'The complete classification through multiplicity two is preserved: $896$ exclusions and $77$ unitary models. Unified obstructions combine signed sphericalization, full character-labeled central induction, modular symmetry and rotations, integer central restriction and cubic fusion constraints, and module-category and Morita arguments. Positive constructions include group representations, near-group equivariantizations, exceptional subfactor categories, a twisted group-theoretical category and Morita duals. All accepted models are compared with full source tensors. Exact replay certificates and individual candidate attempt inventories accompany the article.')
+      'The complete classification through multiplicity two is preserved: $896$ exclusions and $77$ unitary models. Unified obstructions combine signed sphericalization, full character-labeled central induction, modular symmetry and rotations, integer central restriction and cubic fusion constraints, and module-category and Morita arguments. Positive constructions include group representations, near-group equivariantizations, exceptional subfactor categories, a twisted group-theoretical category and Morita duals. An inherited generalized-Haagerup Q-system realizes $\\sha{R8_3_721}$, using a categorical vertex obstruction, exact coefficient bounds and uniqueness in the supplied complete census. Tensor comparisons and exact replay certificates accompany the constructions; individual attempt inventories record the unresolved cases.')
     s=re.sub(r'\\begin\{abstract\}.*?\\end\{abstract\}',lambda _:r'\begin{abstract}'+'\n'+abstract+'\n'+r'\end{abstract}',s,flags=re.S)
     replacements={
       'all $877$ of exact multiplicity two.':'all $877$ of exact multiplicity two, and the supplied extension adds $3527$ of exact multiplicity three.',

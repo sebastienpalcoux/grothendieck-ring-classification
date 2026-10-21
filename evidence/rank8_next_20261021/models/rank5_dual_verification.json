@@ -1,0 +1,56 @@
+{
+  "kind": "complete_tensor_bound_rank5_dual_exclusion_replay",
+  "records": [
+    {
+      "m": 0,
+      "nonselfdual": false,
+      "tensor_sha256": "147c776e4cf8eaa6cabfdff122e58a1f3ca755cd4b78ff8518b3080eb2c01c6e",
+      "all_125_coefficients_checked": true,
+      "exact_certificate_verified": true,
+      "criterion": "signed_extension_positive"
+    },
+    {
+      "m": 1,
+      "nonselfdual": false,
+      "tensor_sha256": "3624afec01769650adea1af2e1c690213f678d40e1d5b948388b92df71a94be2",
+      "all_125_coefficients_checked": true,
+      "exact_certificate_verified": true,
+      "criterion": "signed_extension_positive"
+    },
+    {
+      "m": 2,
+      "nonselfdual": false,
+      "tensor_sha256": "2d6e2cd784bb049d646783fc6a724a4050e317e41417ece62b6f339fc673c44f",
+      "all_125_coefficients_checked": true,
+      "exact_certificate_verified": true,
+      "criterion": "signed_extension_positive"
+    },
+    {
+      "m": 2,
+      "nonselfdual": true,
+      "tensor_sha256": "5d2507112ecda9b1de7a97733b65102131c9c5cdd62136137e0de5f6a9112dee",
+      "all_125_coefficients_checked": true,
+      "exact_certificate_verified": true,
+      "criterion": "signed_extension_positive"
+    }
+  ],
+  "hypothesis_for_R1154": "trivial pointed C2 associator, so the algebra 1+g exists",
+  "consequence": "the untwisted pointed-associator branch of R1154 is excluded by the exact rank5 dual certificates",
+  "limitation": "R1154 itself remains unresolved; its nontrivial pointed-associator branch is not covered",
+  "inputs_sha256": {
+    "evidence/rank8_next_20261021/models/construction_reductions.py": "25b7638b02fe1b7b5e4c6aa7780c880b8f25a2dcb98e06a056a15fffe574919b",
+    "evidence/rank8_next_20261021/models/rank5_dual_exclusions.json": "1e7f00096f63c60f8534fec177ef35e9773ea38c836bf7c2d779cc99675ffae6",
+    "evidence/rank8_next_20261021/models/verify_rank5_duals.py": "59cf16fa212dd8599ec84bb32e2bc6843c2b5f7952fc743c9fa56f1ded7172ea",
+    "supplements/rank5/software/cyclic_four.py": "68c8e38326956c3e4f1b6caaca38bdba6759260274be811fbd2891fc7324c3c3",
+    "supplements/rank5/software/exact.py": "7a7525840192647312de0c2206d1e83a5b1fd2f592a3fa4830c730aea3a225c7",
+    "supplements/rank5/software/extension.py": "b16bdcd845780139b854b019cad340914f11cd17487b13815d0f4289dc3698ce",
+    "supplements/rank5/software/gram_vectors.py": "7ab9a268083b88495dde020a0a74c97453ee5e0dacf3e7234a378f15a4b2a642",
+    "supplements/rank5/software/higher_traces.py": "d5b78d4b1cc191c3db669c68aed754b0247a5da4223d82427cf2d848ab737108",
+    "supplements/rank5/software/induction.py": "0454dca2d46c20d8df759adbc166ff4ac230eb5e88756ae27d88da8598201510",
+    "supplements/rank5/software/proofs.py": "d4982297fe00a9f061356f029e345259d4c8d950a68bcb909b10bbfa3aef96e2",
+    "supplements/rank5/software/quadratic_parity.py": "773a53b19acfd3c3b3dd0ee590714956d3726b173c0c4af4c5763425832c6ff8",
+    "supplements/rank5/software/rings.py": "427ae6b26fc28cfbc6ef0c0d4edc0ed95eea9a8ef2a095b45b959e88f2393c8c",
+    "supplements/rank5/software/signed.py": "729f269631168a30ee3cfe00172af056d024461e8ce12a53371feb6478654736",
+    "supplements/rank5/software/unified.py": "33ec5b49dfb6a130cdc4e99984fce1250666898cb71bd2bf2b478d9bfa14fcc6"
+  }
+}
