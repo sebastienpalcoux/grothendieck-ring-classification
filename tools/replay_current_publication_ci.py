@@ -129,22 +129,27 @@ def main():
     args = parser.parse_args()
     need(not (args.metadata_only and args.historical), 'Choose metadata-only or full historical replay')
     repo = args.repo.resolve()
-    # The E21 continuation has its own current router/source manifest. Its
-    # verifier replays the entire older rank-eight chain from the pinned
-    # scientific archive, preserving the three unbound discovery files and
-    # the older router bytes without applying historical checks to new code.
-    from rank8_creative_20261022 import active as creative_active, validate_ledger as validate_creative
-    if creative_active(repo):
-        from rank8_creative_history import baseline
+    # Accepted overlays have separate current source bindings. Their historical
+    # dispatchers preserve the archived routers; the exclusion stage records
+    # its reconstructed missing-helper checkpoint explicitly.
+    from current_publication import current_rank8_overlay
+    overlay = current_rank8_overlay(repo)
+    if overlay is not None:
+        if overlay.__name__ == 'rank8_exclusion_20261022':
+            baseline = overlay.historical_identity
+            context = 'CURRENT_EXCLUSION_CONTEXT'
+        else:
+            from rank8_creative_history import baseline
+            context = 'CURRENT_CREATIVE_CONTEXT'
         identity = baseline(repo)
-        validate_creative(repo)
+        overlay.validate_ledger(repo)
         command = [sys.executable] + (['-O'] if sys.flags.optimize else [])
         command += [str(repo / 'tools/verify_current_publication.py'), '--repo', str(repo)]
         if args.metadata_only:
             command.append('--metadata-only')
         if args.historical:
             command.append('--historical')
-        print(json.dumps({'status':'CURRENT_CREATIVE_CONTEXT', 'historical_archive':identity,
+        print(json.dumps({'status':context, 'historical_archive':identity,
                           'command':command, 'plan_only':args.plan},indent=2),flush=True)
         if not args.plan:
             env = dict(os.environ)
@@ -152,7 +157,7 @@ def main():
             env.pop('PYTHONPATH',None)
             env['PYTHONDONTWRITEBYTECODE'] = '1'
             result = subprocess.run(command,cwd=repo,env=env)
-            need(result.returncode == 0,'Current E21 publication verification failed')
+            need(result.returncode == 0,'Current rank-eight publication verification failed')
             need(baseline(repo) == identity,'Historical inputs changed during current replay')
         return
     manifests, discovery = frozen_inputs(repo)

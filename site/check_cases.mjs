@@ -74,7 +74,7 @@ function casesFor(search) {
   sandbox.testCases.parseFilters();return sandbox.testCases;
 }
 const selections=[
-  ["",7],["?rank=8&m=3",5],["?rank=8&max_m=3",5],["?rank=6",2],
+  ["",6],["?rank=8&m=3",4],["?rank=8&max_m=3",4],["?rank=6",2],
   ["?rank=6&m=4",1],["?rank=6&m=8",1],["?rank=6&max_m=7",1],
   ["?rank=6&max_m=9",2],["?rank=7&m=5",0],["?rank=8&m=2",0],
 ];
@@ -233,12 +233,13 @@ for(const record of atlas.scope.filter(r=>r.unresolved))
   assertLink(doc.querySelector("#scope-cards"),`${record.unresolved} unresolved`,`?rank=${record.rank}&max_m=${record.analyzed_through}`);
 doc.querySelector("#research-update").append(new TestNode("a"));
 app.renderTheoreticalUpdate();
-assertLink(doc.querySelector("#research-update-title"),"5 open cases","?rank=8&max_m=3");
-assertLink(doc.querySelector("#theoretical-update-heading"),"7 open cases","");
+const rank8Open=unresolved.filter(r=>r.rank===8).length;
+assertLink(doc.querySelector("#research-update-title"),`${rank8Open} open cases`,"?rank=8&max_m=3");
+assertLink(doc.querySelector("#theoretical-update-heading"),`${unresolved.length} open cases`,"");
 for(const selector of ["#research-update-summary","#theoretical-update-scope"])
-  assertLink(doc.querySelector(selector),"5 extensively investigated exotic candidates","?rank=8&m=3");
+  assertLink(doc.querySelector(selector),`${rank8Open} extensively investigated exotic candidates`,"?rank=8&m=3");
 assertLink(doc.querySelector("#research-update-summary"),"2 rank-six","?rank=6");
-assertLink(doc.querySelector("#research-update-summary"),"5 rank-eight","?rank=8");
+assertLink(doc.querySelector("#research-update-summary"),`${rank8Open} rank-eight`,"?rank=8");
 for(const ring of realized) {
   const link=app.tensorDownload(ring),url=new URL(link.href,origin);
   assert.equal(decodeURIComponent(url.pathname),`/grothendieck-ring-classification/downloads/fusion-tensors/${ring.id}.txt`);

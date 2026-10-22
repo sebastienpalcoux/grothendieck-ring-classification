@@ -137,9 +137,9 @@
       },
       {
         "domain": "Galois_Gram_bound_and_complete_rank_two_dual_arithmetic",
-        "outcome": "The new general bound h <= 1/Tr(1/D) gives h <= 7. Exact nonnegative integer product equations exclude three further first-action spectra, leaving seven; the second complete action has 400477 necessary arithmetic spectra after its pointed-orbit obstruction.",
+        "outcome": "At the earlier creative stage, the general bound h <= 1/Tr(1/D) gives h <= 7. Exact nonnegative integer product equations exclude three further first-action spectra, leaving seven; the second complete action has 400477 necessary arithmetic spectra after its pointed-orbit obstruction. These historical counts precede the focused all-Morita refinement recorded below.",
         "scope": "All fusion-ring dimension characters for the bound; dual spectra conditional on existence of one of the two rank-two module categories.",
-        "limitation": "Neither rank-two module is forced or constructed. The 400477 count is arithmetic spectra, not completed fusion rings; R3472 remains unresolved.",
+        "limitation": "Neither rank-two module is forced or constructed. The historical 400477 count is arithmetic spectra, not completed fusion rings; the later all-Morita restrictions reduce this domain, while R3472 remains unresolved.",
         "proof": "evidence/rank8_creative_20261022/r3472/PROOF.md",
         "evidence": [
           "evidence/rank8_creative_20261022/r3472/verification.json"
@@ -159,6 +159,108 @@
         ],
         "verifiers": [
           "evidence/rank8_creative_20261022/r3472/verify_construction_routes.py"
+        ]
+      },
+      {
+        "domain": "all_Morita_quadratic_dimension_descent_and_pointed_order_one_or_seven",
+        "outcome": "Every categorical Morita partner has FP-dimension field Q(sqrt(2)), nonnegative integral coordinates a+b*sqrt(2), and a pointed integral-dimensional subcategory of order one or seven. Order seven forces dimensions 1^7,(7+5*sqrt(2))^7. The conditional first rank-two branch retains four spectra (saved indices 1,2,4,10); the second retains 272349 arithmetic dimension multisets under these filters.",
+        "scope": "All complex categorifications of R8_3_3472 and all categorical Morita partners, without a rank bound, pivotality assumption, or assumption that a rank-two module exists. The two branch counts apply only if their specified based modules lift.",
+        "limitation": "The surviving branch counts are necessary dimension multisets, not completed fusion rings or coherent module categories. Neither a categorification nor a general exclusion is proved.",
+        "proof": "evidence/r3472_focus_20261022/morita/manuscript.tex",
+        "evidence": [
+          "evidence/r3472_focus_20261022/morita/verification.json",
+          "evidence/r3472_focus_20261022/review/independent_morita_verification.json"
+        ],
+        "verifiers": [
+          "evidence/r3472_focus_20261022/morita/verify.py",
+          "evidence/r3472_focus_20261022/review/verify_morita_independent.py"
+        ]
+      },
+      {
+        "domain": "two_seven_invertible_based_rings_and_stabilized_Radchenko_Wheeler_parent_obstruction",
+        "outcome": "The seven-invertible Morita profile forces exactly two rank-fourteen based fusion rings, with uniform noninvertible coefficient two and identity or inversion right action. Full tensors satisfy the based-ring axioms. Direct ordinary de-equivariantization from every Radchenko-Wheeler parent of the required dimension is impossible, including noncyclic parents and arbitrary pointed tensor factors; rational dimension scaling forces parent group order 196.",
+        "scope": "Necessary fusion rules under the established Morita-class hypotheses, and the specified direct ordinary quotient route from the Radchenko-Wheeler construction. The quotient obstruction uses algebraic half-braidings without assuming unitarity.",
+        "limitation": "No associator or Morita equivalence to R3472 is constructed. Other near-group categories, prior nontrivial Morita changes of the parent, generalized-Haagerup parents, and arbitrary construction chains remain outside the obstruction.",
+        "proof": "evidence/r3472_focus_20261022/constructions/CONSTRUCTIONS.md",
+        "evidence": [
+          "evidence/r3472_focus_20261022/constructions/verification.json",
+          "evidence/r3472_focus_20261022/constructions/C7_m2_identity_tensor.json",
+          "evidence/r3472_focus_20261022/constructions/C7_m2_inversion_tensor.json"
+        ],
+        "verifiers": [
+          "evidence/r3472_focus_20261022/constructions/verify_constructions.py"
+        ]
+      },
+      {
+        "domain": "simple_Drinfeld_center_and_exact_structural_inputs",
+        "outcome": "The source fusion ring is simple and nonpointed, all categorifications are nonbraided, and the categorical center is simple. Exact tensor computations recover the eight formal codegrees and distinguished central dimensions, while dimension-field descent places all central FP dimensions in Q(sqrt(2)).",
+        "scope": "Structural necessary statements for every hypothetical complex categorification, using the cited simple-center theorem with its full hypotheses. Tensor arithmetic is checked independently of that categorical input.",
+        "limitation": "These structural restrictions do not supply a center fusion ring, braiding, associator, or categorification.",
+        "proof": "evidence/r3472_focus_20261022/center/center.tex",
+        "evidence": [
+          "evidence/r3472_focus_20261022/center/structure.json"
+        ],
+        "verifiers": [
+          "evidence/r3472_focus_20261022/center/verify_structure.py"
+        ]
+      },
+      {
+        "domain": "exact_integer_feasibility_of_strengthened_center_relaxation",
+        "outcome": "The complete published 3347-equation,13242-variable Gram/S/cubic/Galois/FP/unit-product necessary relaxation has an explicit nonnegative integer witness. Every equation and propagated variable bound is checked exactly. The original rational witness is preserved; an exact proportional-column substitution gives the integer witness.",
+        "scope": "The stated strengthened necessary center relaxation, reconstructed from its published generator and bounds, with seventeen selected restriction vectors bound for the separate moment-extension certificate.",
+        "limitation": "This system has no twist-phase variables. An integer point does not complete center fusion coefficients, modular data, complex STS equations, or a fusion category; the ring remains unresolved.",
+        "proof": "evidence/r3472_focus_20261022/center/README.md",
+        "evidence": [
+          "evidence/r3472_focus_20261022/center/integer_witness.json",
+          "evidence/r3472_focus_20261022/center/rational_witness.json"
+        ],
+        "verifiers": [
+          "evidence/r3472_focus_20261022/center/rational_witness.py"
+        ]
+      },
+      {
+        "domain": "forced_third_indicators_and_cubic_rotation_identity",
+        "outcome": "In the pseudo-unitary spherical form, all seven nonunit third Frobenius-Schur indicators equal two. Each cubic rotation on Hom(1,X_i^3) is the identity. The earlier 253-row phase witness already has these third-rotation coordinates.",
+        "scope": "The canonical pseudo-unitary spherical structure; the rational indicator values transport to its Galois conjugates with the transported spherical structure. Only the stated third-rotation coordinates of the earlier phase witness are checked here.",
+        "limitation": "The theorem supplies a necessary condition and leaves the earlier witness feasible for these coordinates. It neither proves categorical existence nor independently replays the entire earlier phase system.",
+        "proof": "evidence/r3472_focus_20261022/independent/THIRD_INDICATORS.md",
+        "evidence": [
+          "evidence/r3472_focus_20261022/independent/third_indicators_receipt.json",
+          "evidence/r3472_focus_20261022/independent/third_indicators_receipt_optimized.json"
+        ],
+        "verifiers": [
+          "evidence/r3472_focus_20261022/independent/verify_third_indicators.py"
+        ]
+      },
+      {
+        "domain": "linked_height_four_indicator_rotation_extension_of_integer_center_point",
+        "outcome": "The exact integer center witness admits a rational extension satisfying eighty indicator and rotation moment equations through height four, with 391 variables and forty positive entries. The source restriction vectors and center coordinates are explicitly bound, and normal and optimized verification agree.",
+        "scope": "The documented indicator/rotation moment subsystem through height four, linked to the preserved 3347-row integer center point. This is a rational phase-and-rotation extension of that fixed point.",
+        "limitation": "Phase multiplicities are not claimed integral. Complete complex STS, full modular data, categorical coherence, and categorification are not established.",
+        "proof": "evidence/r3472_focus_20261022/independent/PHASE_EXTENSION.md",
+        "evidence": [
+          "evidence/r3472_focus_20261022/independent/phase_certificate.json",
+          "evidence/r3472_focus_20261022/independent/phase_receipt.json",
+          "evidence/r3472_focus_20261022/independent/phase_receipt_optimized.json"
+        ],
+        "verifiers": [
+          "evidence/r3472_focus_20261022/independent/verify_phase_extension.py"
+        ]
+      },
+      {
+        "domain": "historical_second_branch_dependency_repair_and_independent_replay",
+        "outcome": "The omitted second_branch_count.py dependency is restored with exact finite dynamic programming. It reproduces all historical mathematical counts; only four implementation-dependent cache-state diagnostics in the saved receipt change. The unchanged original verifier passes in normal and optimized Python, and a separate coefficient-table calculation independently recovers the counts.",
+        "scope": "Reproducibility repair of the earlier conditional second-branch arithmetic enumeration, with byte-for-byte archived original receipt, acceptance manifest, and source manifest.",
+        "limitation": "This repair changes no classification decision, mathematical count, or verification condition. The reconstructed helper is not presented as recovered historical code.",
+        "proof": "evidence/r3472_focus_20261022/reproducibility/README.md",
+        "evidence": [
+          "evidence/r3472_focus_20261022/reproducibility/repair_verification.json",
+          "evidence/r3472_focus_20261022/reproducibility/original_verification.json",
+          "evidence/r3472_focus_20261022/reproducibility/original_accepted.json",
+          "evidence/r3472_focus_20261022/reproducibility/original_source_manifest.json"
+        ],
+        "verifiers": [
+          "evidence/r3472_focus_20261022/reproducibility/verify_repair.py"
         ]
       }
     ],
@@ -317,7 +419,15 @@
     "evidence/rank8_creative_20261022/r3472/verify.py",
     "evidence/rank8_creative_20261022/r3472/verify_construction_routes.py",
     "evidence/rank8_creative_20261022/r928_r941/verify.py",
-    "evidence/rank8_creative_20261022/r928_r941/integer_followup/verify.py"
+    "evidence/rank8_creative_20261022/r928_r941/integer_followup/verify.py",
+    "evidence/r3472_focus_20261022/center/verify_structure.py",
+    "evidence/r3472_focus_20261022/center/rational_witness.py",
+    "evidence/r3472_focus_20261022/morita/verify.py",
+    "evidence/r3472_focus_20261022/constructions/verify_constructions.py",
+    "evidence/r3472_focus_20261022/independent/verify_third_indicators.py",
+    "evidence/r3472_focus_20261022/review/verify_morita_independent.py",
+    "evidence/r3472_focus_20261022/reproducibility/verify_repair.py",
+    "evidence/r3472_focus_20261022/independent/verify_phase_extension.py"
   ],
   "source_sha256": {
     "evidence/prepublication_20261017/rank5/rank5_current_replay.zip": "264fd1b7f1851cbce142ea248a19bc2d0196ba44f350b2f5852e1e77a647a92d",
@@ -355,7 +465,7 @@
     "evidence/rank8_creative_20261022/r3472/exact_integer.py": "6b9d2329e49b9b4b18f480fa4ef890842c1f15a931f3833407564788ad50d190",
     "evidence/rank8_creative_20261022/r3472/integrated_manuscript.tex": "3bbebe56b8707ee237b31b31fb37094aa9be42901082129f0e26b4d5e41416f1",
     "evidence/rank8_creative_20261022/r3472/product_equations.py": "356a1289b9d6c634a4656484f2515eb4a6b2940b1ed395bd2292022ff5fda9d1",
-    "evidence/rank8_creative_20261022/r3472/verification.json": "6211b407e6bbce2227c64e5eba7f3e714cbbe7e242e69db6a6066aa76c499f46",
+    "evidence/rank8_creative_20261022/r3472/verification.json": "fcc2afa5269effe3b093dc57e1d552ec70d157a73cf6559f657460226de5ab72",
     "evidence/rank8_creative_20261022/r3472/verify.py": "ae55689e4c1c97130b03883ba3fde57ce8f824cc7989f231c7f4719d26f90d6f",
     "evidence/rank8_creative_20261022/r3472/verify_construction_routes.py": "b49c6346a5caebafff6e49e65510a94b93d62f30faf49879b50e6e525d65c1b5",
     "evidence/rank8_creative_20261022/r928_r941/E21_CATEGORICAL_BRIDGE.md": "a24acf372ecffd5cd8bdce3823f6509a7aea4ed064cf0fbc2e28dd1de1ba1721",
@@ -2206,7 +2316,53 @@
     "tools/rank8_next.py": "44de29bc6d8687d97ac01f90d81e54625e15df1c2ad1ebe44b46ddee849455d9",
     "tools/rank8_research_20261022.py": "be34ccfd929ec7444dd7dfec4c1af47732e83959cc02ea95cf14611936bdd0cd",
     "tools/verify_rank8_frontier.py": "12d38e17690dabc744b9b1631689ada01114c683cd429e6771547050e23d1179",
-    "tools/verify_rank8_research_20261022.py": "607e4590af2f2dc0c374080dc082da6a444c914728386981621ff77e514dbd45"
+    "tools/verify_rank8_research_20261022.py": "607e4590af2f2dc0c374080dc082da6a444c914728386981621ff77e514dbd45",
+    "evidence/rank8_creative_20261022/r3472/second_branch_count.py": "c776db07defc9b53097b78b1540371a867e50d19f198df8c94199ee37712f455",
+    "evidence/r3472_focus_20261022/README.md": "eab03578df6cb13de8ab9cf0ba28f81f2754d1eb9426a7d3ca53454369f80200",
+    "evidence/r3472_focus_20261022/center/README.md": "c61dbd6ac17e6928296806b12d22b04729ae13f0aead25a73746fd99eabdf970",
+    "evidence/r3472_focus_20261022/center/center.tex": "d769206a7672a74c37aeee4df12ee7510eff96dac801435501d3fb5a5bb814bd",
+    "evidence/r3472_focus_20261022/center/integer_witness.json": "ed78c37a952080972e3c14c0b4975c5aaeb6ddf33ec578d62065ccbf85904fcd",
+    "evidence/r3472_focus_20261022/center/rational_witness.json": "68836c5ca54974265341d6318280b1074f538f4effc0e438649329b31b4d24e5",
+    "evidence/r3472_focus_20261022/center/rational_witness.py": "7754345f4310210a956231e597d962d86e60e6e54037ebcfd94efbb08a6414d5",
+    "evidence/r3472_focus_20261022/center/structure.json": "8c17005a4a0443bfb6fb36b2533d5fd056898fd1e6d84f41d75f1dceae44d25f",
+    "evidence/r3472_focus_20261022/center/verify_structure.py": "ae82bb7cadc832ec11d5fb9c8f02c1722704233355369354df07455461eeedd9",
+    "evidence/r3472_focus_20261022/constructions/C7_m2_identity_tensor.json": "14346cd01df0a4dd617c343658417f7741c3b7349f5252310ae55c739e07863a",
+    "evidence/r3472_focus_20261022/constructions/C7_m2_inversion_tensor.json": "0d6ff24dd71f2165c7a92248095c75316448547d9fe1f85b9fdda1d53a242d99",
+    "evidence/r3472_focus_20261022/constructions/CONSTRUCTIONS.md": "0460b9b6f895c253f005192be59ff2f3a74985017e5b68b8b1ce6a2b01ade971",
+    "evidence/r3472_focus_20261022/constructions/constructions.tex": "2138a93e16c29520a5e8c0d7c76cfb29d15526a3fbee1331d7454f981e3ce8cd",
+    "evidence/r3472_focus_20261022/constructions/verification.json": "17bb5ec248f3a434c42fd80ce470721f57b95b3482633f58a8dcfda0475c3b6a",
+    "evidence/r3472_focus_20261022/constructions/verify_constructions.py": "80969f58131f056f3f2d62dfc0516a752f972e1f0704effb75cc1d313ee282b5",
+    "evidence/r3472_focus_20261022/independent/PHASE_EXTENSION.md": "d8117a18716274ad048d0fc76e7071c450baf2c1676f4b55ce60e7549b4c5b20",
+    "evidence/r3472_focus_20261022/independent/THIRD_INDICATORS.md": "31cac2310d31e72573a7394974ba4f5d5c1b5b3f26df7b7e3abbd420b9ac9df2",
+    "evidence/r3472_focus_20261022/independent/phase_certificate.json": "520a658edc047251e9c4a4eba7c1a06881436049710d8236d8d0ddf72d173ae0",
+    "evidence/r3472_focus_20261022/independent/phase_extension.tex": "55725d08a61deab99ed42458e4473ef1eb512b24687a2ea88534aa4768ffc04f",
+    "evidence/r3472_focus_20261022/independent/phase_receipt.json": "6e1671728c6697b5958e1bf0a7cdeb12fb988af4634f36d926872a4fb656f7ec",
+    "evidence/r3472_focus_20261022/independent/phase_receipt_optimized.json": "6e1671728c6697b5958e1bf0a7cdeb12fb988af4634f36d926872a4fb656f7ec",
+    "evidence/r3472_focus_20261022/independent/third_indicators.tex": "217c0b527bbe822d82baa090574e329ea402c9ce081d472cc88a3863eb55b489",
+    "evidence/r3472_focus_20261022/independent/third_indicators_receipt.json": "c8cd5e4bf90077aa528845ef0f402e3b00f35bfa4b86e2396c347f2ef0306b16",
+    "evidence/r3472_focus_20261022/independent/third_indicators_receipt_optimized.json": "c8cd5e4bf90077aa528845ef0f402e3b00f35bfa4b86e2396c347f2ef0306b16",
+    "evidence/r3472_focus_20261022/independent/verify_phase_extension.py": "cf239bd880c2e085098e2f03353930bf87f7f9a71fa5e648cecdd899498f7e24",
+    "evidence/r3472_focus_20261022/independent/verify_third_indicators.py": "d282cf28ccd895f948d8350a0ee42d266d24c265f3a5b621d279097f9ee34402",
+    "evidence/r3472_focus_20261022/manuscript.tex": "81ebfc0a588a734001895893527917e45e40d638ab901f4963249869d45c1c9e",
+    "evidence/r3472_focus_20261022/morita/README.md": "90a358f997408eb43ed2a9662d39d80e8012399f7f5ecda0cc02d872a336cb8a",
+    "evidence/r3472_focus_20261022/morita/manuscript.tex": "955e8dabc843aeff619bedf660f1c1c7b6e5177dd7add34deb984d9febbba9be",
+    "evidence/r3472_focus_20261022/morita/verification.json": "2b8aa2882389d336eae8a0a99e4aae6dc09e126dbabbfe31e4f6362b1e24ecbe",
+    "evidence/r3472_focus_20261022/morita/verify.py": "e32d5089677b8e1a4f1c5eb0a253068e9958eda068da6789f5093de649e47167",
+    "evidence/r3472_focus_20261022/reproducibility/README.md": "a43dc04d69016b3a980d62e243a7cd50ceb7b77d4201cb078a4ba37f9b19d411",
+    "evidence/r3472_focus_20261022/reproducibility/original_accepted.json": "752da9e42e39b92c4c4a675419ad4569a1f85f2228090463d728cb8501e22fef",
+    "evidence/r3472_focus_20261022/reproducibility/original_source_manifest.json": "b3b9a63be7d39e33e6b4b62d67e09d3674bdc502b56e147a296be0d17fa5dd1a",
+    "evidence/r3472_focus_20261022/reproducibility/original_verification.json": "6211b407e6bbce2227c64e5eba7f3e714cbbe7e242e69db6a6066aa76c499f46",
+    "evidence/r3472_focus_20261022/reproducibility/repair_verification.json": "9b8f8e0419ddb9b32aada1c0d6c70aa5ef301d42ac3a866fb6418a5097ff4e50",
+    "evidence/r3472_focus_20261022/reproducibility/replay_normal.log": "fcc2afa5269effe3b093dc57e1d552ec70d157a73cf6559f657460226de5ab72",
+    "evidence/r3472_focus_20261022/reproducibility/replay_optimized.log": "fcc2afa5269effe3b093dc57e1d552ec70d157a73cf6559f657460226de5ab72",
+    "evidence/r3472_focus_20261022/reproducibility/verify_repair.py": "46355702408e94364fb06c5b59252c29ed822d4f6021c9d1fbfad488e2194d1b",
+    "evidence/r3472_focus_20261022/review/ALL_MORITA_AUDIT.md": "dbba8d2e76bbe9170bfa96dc75a538ebf16c115d0eedcfe9828fd76f96d728b0",
+    "evidence/r3472_focus_20261022/review/PHASE_EXTENSION_AUDIT.md": "c669518c9d36601ed3ba125c65fcc71b72e7b0cd27b3c468c2bf92f4c76ba9a4",
+    "evidence/r3472_focus_20261022/review/THIRD_INDICATOR_AUDIT.md": "da22c0bf1c9d30881e8b2e06030e66ee9dc8c69a1a6709d3cdc0a016e2444f96",
+    "evidence/r3472_focus_20261022/review/constructions_review.md": "8cf8c2dbc93af706901436b74c214fc12ae90c1ed9be38f55696bcdf48b86508",
+    "evidence/r3472_focus_20261022/review/independent_morita_verification.json": "ae20b52bc7c7d25842211f3b5e72f8580c84e9a42bc70cd0b7cc6fa8ed99dccb",
+    "evidence/r3472_focus_20261022/review/verify_morita_independent.py": "a41394721c4996afbb14bdb1991e2a31c52b421809d448719a2ed0a27f945a1c",
+    "site/dist/downloads/fusion-tensors/R8_3_3472.txt": "09c2962989aea6f160da62648d2905e3aed5f173a72ba62f5103593223c01b0b"
   },
   "baseline_ledger": "supplements/rank8/output/research_20261022/ledger.json",
   "baseline_ledger_sha256": "521b9b9fb16a86c7c4ba491b8c2c0ebad05de1e41aafb5bc225d6342c9477e4e",

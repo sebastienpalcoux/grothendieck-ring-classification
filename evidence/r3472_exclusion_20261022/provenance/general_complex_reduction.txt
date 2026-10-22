@@ -1,0 +1,58 @@
+R8_3_3472: independent audit of general complex categorification -> pseudo-unitary Galois conjugate
+Audit date: 2026-10-22. Auditor: known_models agent. Repository was read only.
+
+RESULT
+The reduction is logically complete and applies to an arbitrary complex fusion categorification, with no assumed pivotal, spherical, braided, unitary, or pseudo-unitary structure. Every such category admits a spherical structure and has a pseudo-unitary Galois conjugate with the same fusion rules. Consequently, nonexistence in the pseudo-unitary case implies nonexistence of any complex fusion categorification. The original category need not itself be pseudo-unitary.
+
+1. SPHERICALIZATION AND INDICATOR NORMALIZATION
+Ostrik, Pivotal fusion categories of rank 3, arXiv:1309.4822, section 5.1, constructs the sphericalization of an arbitrary fusion category. Each source simple has two lifts, differing by the central sign object of dimension -1. All eight source simples here are selfdual, and both lifts of each are selfdual (section 5.1(a)). Their second indicators are opposite signs: changing the pivotal isomorphism alpha to -alpha changes the defining second-indicator rotation by -1. Choose the lift with indicator +1 for every simple; the unit choice is forced.
+
+Liu--Palcoux--Ren--Vercleyen, Triangular prism equations and categorification, arXiv:2203.06522v5, Definition 2.14, Lemma 2.16 and Theorem 3.9 supply the needed indicator facts. Theorem 3.9 applies in an arbitrary pivotal fusion category: a selfdual simple occurring with odd multiplicity in X* tensor X has indicator +1. Applied to the negative lift (indicator -1), this makes its multiplicity in every positive-lift square even. Thus the signed quotient tensor satisfies T_jj^i = N_jj^i modulo 4, in addition to |T_ij^k| <= N_ij^k and T_ij^k = N_ij^k modulo 2. No braiding or positivity is used here.
+
+2. COMPLETE FINITE SPHERICAL-SECTION GATE
+The signed quotient retains the unit, duality, cyclic trace symmetry, dual reversal, and every ordered associativity identity. The reviewed generator imposes precisely these necessary conditions and the modulo-four square domains. It does not impose an additional sign gauge after the indicator normalization. Nor does it assume a commutative signed quotient as an extra enumeration restriction.
+
+The complete native search has 84 signed variables, visits 298,865,973 nodes, and returns one tensor, exactly N. The verifier independently reconstructs the modulo-four domains and checks every full ordered associativity identity on the returned tensor. I reviewed the enumeration generator: polynomial equations are not simplified using variable domains; each equation is checked once all its support variables are assigned; all ordered equations are present; integer-expression bounds and counter guards are checked. Thus no signed-quotient possibility needed for this argument is discarded. The exploratory unrestricted search that timed out is not used.
+
+T=N means the negative-lift multiplicities (N-T)/2 all vanish. The positive lifts are therefore closed under tensor product and duality and form a spherical fusion subcategory tensor-equivalent to the original category, by Ostrik section 5.1(c). This proves sphericality of the original category.
+
+3. SPHERICAL DIMENSIONS AND GALOIS TRANSPORT
+The exact ordinary character calculation has eight characters. Two are the FP character and its sqrt(2)-conjugate. The other six are the roots of two cubic factors; one triple vanishes on objects 5,6,7 and the other on objects 1,2,4. A simple spherical dimension cannot vanish, so only the FP pair can be the spherical dimension character. In the canonical ordering, FP dimensions are
+ (1, 6+5sqrt(2), 6+5sqrt(2), 7+5sqrt(2), 6+5sqrt(2), 8+5sqrt(2), 8+5sqrt(2), 8+5sqrt(2)).
+Their global dimension is 700+490sqrt(2).
+
+The manuscript cites Etingof--Nikshych--Ostrik, On fusion categories, arXiv:math/0203060, Theorem 2.30 and the following remark, for a number-field model. A direct argument avoids any question about separately descending a chosen pivotal structure: extend the identity or the sqrt(2)-flip to an automorphism of C, and apply it simultaneously to the finite skeletal associator, unit, rigidity, and spherical/pivotal structure matrices. All coherence and trace axioms are algebraic identities, so the transported data define a spherical fusion category with the same fusion rules and positive FP dimensions. Its categorical global dimension equals its FP dimension, hence it is pseudo-unitary. No unproved pivotal-existence theorem or unitarity assumption enters.
+
+PRIMARY REFERENCES CHECKED
+https://arxiv.org/pdf/1309.4822 : section 5.1(a),(c).
+https://arxiv.org/pdf/2203.06522v5 : Definition 2.14, Lemma 2.16, Theorem 3.9.
+https://arxiv.org/pdf/math/0203060 : Theorem 2.30 and following number-field remark (optional for the direct Aut(C) transport above).
+
+EXISTING REPOSITORY PROOF AND CODE
+site/dist/downloads/fusion-tensors/R8_3_3472.txt
+  sha256 09c2962989aea6f160da62648d2905e3aed5f173a72ba62f5103593223c01b0b
+evidence/rank8_research_20261022/pivotality/PROOF.md
+  sha256 444497f0f9321a12bd39a63010d41feaa2a9422b5b572e3675eeb2ecd1f6bb52
+evidence/rank8_research_20261022/pivotality/verify_general_spherical_gates.py
+  sha256 fc253362c41fa09c7f51387308166e47c19040bd70e9092fd2927735a252d5d3
+supplements/rank8/experimental_signed/oriented_signed.py
+  sha256 8cef3b556327bd20cb186dad7992d3ceca523e2cd0d80c0fe035fa7dac48ad24
+evidence/rank8_research_20261022/pivotality/general_spherical_gates.json
+  sha256 89ad25baeb05b69c95519670eb4cdd894a29d3b7f4d920535b1f404f46ba13d4
+evidence/rank8_research_20261022/pivotality/R8_3_3472_parity_gate.json
+  sha256 e453a70425c87de6576af8a26c693108819da4b61b2d2b1a69a4844a521d2697
+evidence/rank8_research_20261022/pivotality/r3472_problem.json
+  sha256 ff29e2b0715976cbe9a536ace54d26913c6bd39507342670516514e90bf9416f
+
+Manuscript statement reviewed: manuscripts/rank8/paper/m3_research_20261022.tex
+
+Receipt entry: general_spherical_gates.json, object with id R8_3_3472.
+Recorded source tensor hash: 33984d45e69ff778e70847def8349abda79ed6c0eaea242a73b533649f9b153a
+Recorded native statistics: nodes 298865973 solutions 1
+
+REPLAY
+From the repository root:
+python evidence/rank8_research_20261022/pivotality/verify_general_spherical_gates.py --ring R8_3_3472
+The full R3472 replay was independently run during this audit and passed. A fresh replay for the final proof bundle is saved at:
+historical-research/r3472_research_remaining/general_complex_reduction_replay.log
+No --write option was used; no repository proof, manuscript, website, or saved receipt was changed.

@@ -400,6 +400,7 @@ function renderTheoreticalUpdate() {
     quadratic_conductor40_center_trace: "Conductor-forty center trace",
     cyclic_induction_phase_multiplicity: "Cyclic induction phase multiplicity",
     cyclic_induction_STS_fourth_moment: "Full center STS and fourth indicator",
+    exact_center_indicator_certificate: "Complete center and rotation-indicator certificate",
     projective_inner_square_obstruction: "Projective inner-square obstruction",
     inner_square_torus_rigidity: "Inner-square obstruction by short gauge weights and rigidity",
     dihedral_Morita_R18_obstruction: "Dihedral Morita and center STS",

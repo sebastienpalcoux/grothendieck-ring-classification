@@ -5,6 +5,7 @@ import hashlib
 import json
 from pathlib import Path
 from rank8_publication import EVIDENCE, extension
+from current_publication import current_rank8_overlay
 import rank8_frontier as frontier
 import rank8_next as next_stage
 import rank8_research_20261022 as research_stage
@@ -13,7 +14,8 @@ THRESHOLD=4*1024*1024
 PART_BYTES=6*1024*1024
 def digest(data):return hashlib.sha256(data).hexdigest()
 def main():
-    if extension(ROOT) is None:raise ValueError('Accepted publication ledger required')
+    current=extension(ROOT)
+    if current is None:raise ValueError('Accepted publication ledger required')
     receipt=json.loads((ROOT/EVIDENCE/'pipeline/continuation_replay.json').read_text())
     optimized=json.loads((ROOT/EVIDENCE/'pipeline/continuation_replay_optimized_invocation.json').read_text())
     if receipt['status']!='PASS' or optimized['status']!='PASS' or receipt['ledger_digest']!=optimized['ledger_digest']:
@@ -29,13 +31,25 @@ def main():
         next_stage.validate(ROOT)
         folders.extend((ROOT/next_stage.EVIDENCE,(ROOT/next_stage.LEDGER).parent))
     if research_stage.active(ROOT):
-        research_stage.validate(ROOT)
+        # Later overlays validate this stage in its pinned historical context;
+        # its old recursive inventory must not be applied to newer routers.
+        if not current.get('creative') and not current.get('exclusion'):
+            research_stage.validate(ROOT)
         folders.extend((ROOT/research_stage.EVIDENCE,(ROOT/research_stage.LEDGER).parent))
-        accepted_pointed_sources=set(research_stage.accepted(ROOT)['source_sha256'])
-    candidates=sorted({p for folder in folders for p in folder.rglob('*.json')
+        accepted_pointed_sources=set(json.loads((ROOT/research_stage.ACCEPTED).read_text())['source_sha256'])
+    candidates={p for folder in folders for p in folder.rglob('*.json')
                        if p.stat().st_size>=THRESHOLD and
                        ('pointed_followup' not in p.parts or
-                        p.relative_to(ROOT).as_posix() in accepted_pointed_sources)})
+                        p.relative_to(ROOT).as_posix() in accepted_pointed_sources)}
+    overlay=current_rank8_overlay(ROOT)
+    if overlay is not None:
+        # Include every large accepted proof input, including the exact VIPR
+        # certificate, rather than limiting the current overlay to JSON.
+        inventory=overlay.source_inventory(ROOT)
+        candidates.update(ROOT/name for name in inventory
+                          if (name.startswith(overlay.EVIDENCE+'/') or name == overlay.LEDGER)
+                          and (ROOT/name).stat().st_size>=THRESHOLD)
+    candidates=sorted(candidates)
     path=ROOT/'data/large_files_manifest.json';manifest=json.loads(path.read_text());by_path={r['path']:r for r in manifest['files']}
     ignored=(ROOT/'.gitignore').read_text().splitlines();registered=[]
     for source in candidates:

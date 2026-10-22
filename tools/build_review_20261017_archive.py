@@ -539,17 +539,27 @@ def preserve_rank8_research_release(root, fresh_files, fresh_package, inventory)
 
 
 def collect_rank8_creative_release(root):
-    """Expand the validated creative release without recollecting old stages.
-
-    The complete prior scientific archive remains nested byte-for-byte. Its
-    original routers certify the earlier mathematics; current routers and the
-    new accepted evidence have separate source and receipt bindings.
-    """
     import rank8_creative_20261022 as stage
     import rank8_creative_history as history
-    from build_rank8_creative_20261022_release import PREFIX as archive_prefix
+    from build_rank8_creative_20261022_release import PREFIX
     from verify_rank8_creative_20261022 import check_reports
+    return collect_rank8_overlay_release(root, stage, PREFIX, check_reports,
+                                        history.baseline(root), history.ARCHIVE,
+                                        history.ARCHIVE_SHA256, 'creative')
 
+
+def collect_rank8_exclusion_release(root):
+    import rank8_exclusion_20261022 as stage
+    from build_rank8_exclusion_20261022_release import PREFIX
+    from verify_rank8_exclusion_20261022 import check_reports
+    return collect_rank8_overlay_release(root, stage, PREFIX, check_reports,
+                                        stage.historical_identity(root), stage.HISTORICAL_ARCHIVE,
+                                        stage.HISTORICAL_ARCHIVE_SHA256, 'exclusion')
+
+
+def collect_rank8_overlay_release(root, stage, archive_prefix, check_reports,
+                                 historical, history_archive, history_sha, label):
+    """Expand a validated current release, retaining its immutable predecessor."""
     def need(ok, message):
         if not ok:
             raise ValueError(message)
@@ -557,72 +567,122 @@ def collect_rank8_creative_release(root):
     summary = stage.validate_ledger(root)
     inventory = stage.source_inventory(root)
     manifest_sha, receipt_shas = check_reports(root, summary, inventory)
-    historical = history.baseline(root)
     package_name = stage.EVIDENCE + '/package.json'
     package_raw = (root / package_name).read_bytes()
     package = json.loads(package_raw)
     archive_path = root / stage.ARCHIVE
-    need(package.get('schema') == 'rank8-creative-20261022-package/v1'
+    need(package.get('schema') == 'rank8-' + label + '-20261022-package/v1'
          and package.get('status') == 'PASS',
-         'A completed dedicated creative release is required')
+         'A completed dedicated current rank-eight release is required')
     need(package.get('archive') == stage.ARCHIVE
          and package.get('archive_sha256') == digest(archive_path.read_bytes())
          and package.get('archive_bytes') == archive_path.stat().st_size,
-         'Dedicated creative archive identity differs from its package receipt')
+         'Dedicated current rank-eight archive identity differs from its package receipt')
     need(package.get('classification') == summary
          and package.get('source_manifest_sha256') == manifest_sha
          and package.get('targeted_replay_receipt_sha256') == receipt_shas
-         and package.get('historical_archive_sha256') == history.ARCHIVE_SHA256,
-         'Dedicated creative package is stale or has different accepted inputs')
+         and package.get('historical_archive_sha256') == history_sha,
+         'Dedicated current rank-eight package is stale or has different accepted inputs')
     files = {}
     with zipfile.ZipFile(archive_path) as archive:
         for item in archive.infolist():
             need(not item.is_dir() and item.filename.startswith(archive_prefix),
-                 'Unexpected dedicated creative archive member root')
+                 'Unexpected dedicated current rank-eight archive member root')
             name = item.filename[len(archive_prefix):]
             need(stage.safe_path(name) and name not in files
                  and (item.external_attr >> 16) & 0o170000 != 0o120000,
-                 'Unsafe, duplicate or symlinked creative member: ' + name)
+                 'Unsafe, duplicate or symlinked current rank-eight member: ' + name)
             files[name] = archive.read(item)
-    need(len(files) == package.get('members'), 'Dedicated creative member count differs')
+    need(len(files) == package.get('members'), 'Dedicated current rank-eight member count differs')
     checks = json.loads(files['SHA256SUMS.json'])
     need(set(checks) == set(files) - {'SHA256SUMS.json'},
-         'Dedicated creative inner checksum coverage differs')
+         'Dedicated current rank-eight inner checksum coverage differs')
     for name, value in checks.items():
-        need(digest(files[name]) == value, 'Dedicated creative member checksum differs: ' + name)
+        need(digest(files[name]) == value, 'Dedicated current rank-eight member checksum differs: ' + name)
+    historical_in_dedicated = history_archive in files
+    companions = package.get('external_companions', [])
+    need(not companions or (label == 'exclusion' and len(companions) == 1
+                            and companions[0].get('path') == history_archive
+                            and not historical_in_dedicated),
+         'Unexpected or redundant dedicated-release external companion')
+    for companion in companions:
+        raw = (root / companion['path']).read_bytes()
+        need(companion.get('sha256') == history_sha == digest(raw)
+             and companion.get('bytes') == len(raw),
+             'Pinned historical companion differs from the dedicated package')
+        files[companion['path']] = raw
     manifest_name = stage.PUBLICATION + '/source_manifest.json'
     need(digest(files[manifest_name]) == manifest_sha
          and json.loads(files[manifest_name]) == inventory,
-         'Dedicated creative source manifest differs from current accepted inputs')
+         'Dedicated current rank-eight source manifest differs from current accepted inputs')
     for name, value in inventory.items():
         need(name in files and digest(files[name]) == value,
-             'Dedicated creative scientific source differs: ' + name)
-    need(history.ARCHIVE in files
-         and digest(files[history.ARCHIVE]) == history.ARCHIVE_SHA256,
-         'Dedicated creative archive does not preserve the complete historical ZIP')
+             'Dedicated current rank-eight scientific source differs: ' + name)
+    need(history_archive in files
+         and digest(files[history_archive]) == history_sha,
+         'Dedicated current rank-eight archive does not preserve the complete historical ZIP')
     replays = []
     for lane, value in zip(('normal', 'optimized'), receipt_shas):
         name = stage.PUBLICATION + '/replay_' + lane + '.json'
         need(name in files and digest(files[name]) == value,
-             'Dedicated creative canonical replay differs: ' + lane)
+             'Dedicated current rank-eight canonical replay differs: ' + lane)
         for section in json.loads(files[name])['sections']:
             log_name = section['log']
             need(log_name in files and digest(files[log_name]) == section['log_sha256'],
-                 'Dedicated creative replay log missing or changed: ' + log_name)
+                 'Dedicated current rank-eight replay log missing or changed: ' + log_name)
         replays.append({'path': name, 'sha256': value})
     # check_reports has validated the canonical log identities on disk. Bind
     # every archived current publication receipt and log to those same bytes.
     for name, raw in files.items():
         if name.startswith(stage.PUBLICATION + '/'):
             need((root / name).is_file() and (root / name).read_bytes() == raw,
-                 'Dedicated/current creative receipt or log differs: ' + name)
+                 'Dedicated/current rank-eight receipt or log differs: ' + name)
     need(package_name not in files or files[package_name] == package_raw,
-         'Conflicting creative package receipt in dedicated archive')
+         'Conflicting current rank-eight package receipt in dedicated archive')
     files[package_name] = package_raw
+    historical_layer = None
+    if label == 'exclusion':
+        # Current publication routing still validates the earlier M3/frontier/
+        # next ledgers and tables at their repository-relative paths. The
+        # compact successor intentionally distributes those bytes in its
+        # pinned companion, so expand that companion for the common download.
+        # Keep the original ZIP and bind every successor overlay explicitly.
+        inherited = {}
+        with zipfile.ZipFile(root / history_archive) as archive:
+            for item in archive.infolist():
+                need(not item.is_dir() and item.filename.startswith(stage.HISTORICAL_PREFIX),
+                     'Unexpected historical companion member root')
+                name = item.filename[len(stage.HISTORICAL_PREFIX):]
+                need(stage.safe_path(name) and name not in inherited
+                     and (item.external_attr >> 16) & 0o170000 != 0o120000,
+                     'Unsafe historical companion member: ' + name)
+                inherited[name] = archive.read(item)
+        inherited_checks = json.loads(inherited['SHA256SUMS.json'])
+        need(set(inherited_checks) == set(inherited) - {'SHA256SUMS.json'},
+             'Historical companion checksum coverage differs')
+        for name, expected in inherited_checks.items():
+            need(digest(inherited[name]) == expected,
+                 'Historical companion member checksum differs: ' + name)
+        overlays = {name: {'historical_member_sha256': digest(inherited[name]),
+                           'current_member_sha256': digest(raw)}
+                    for name, raw in files.items()
+                    if name in inherited and inherited[name] != raw
+                    and name not in ('README.md', 'SHA256SUMS.json')}
+        historical_layer = {
+            'archive': history_archive, 'archive_sha256': history_sha,
+            'validated_members': len(inherited),
+            'added_members': len(set(inherited) - set(files)),
+            'successor_overlays': overlays,
+            'scope': ('The common download expands the frozen predecessor for current '
+                      'metadata dependencies. Listed successor bytes override expanded '
+                      'members; historical identity checks and the separately documented '
+                      'repaired replay use the retained ZIP as their original context.')}
+        inherited.update(files)
+        files = inherited
     provenance = {
-        'schema': 'rank8-creative-dedicated-release-provenance/v1',
+        'schema': 'rank8-' + label + '-dedicated-release-provenance/v1',
         'scope': ('Expanded current sources and both completed canonical targeted replay '
-                  'lanes are bound to the dedicated creative release. The complete earlier '
+                  'lanes are bound to the dedicated current rank-eight release. The complete earlier '
                   'scientific ZIP remains byte-exact, including its original routers and '
                   'proof sources. Common-archive extraction checks metadata and does not '
                   'claim a fresh mathematical replay.'),
@@ -638,6 +698,9 @@ def collect_rank8_creative_release(root):
         'validated_archive_members': len(checks) + 1,
         'historical_archive': historical,
         'historical_archive_included': True,
+        'historical_archive_in_dedicated_release': historical_in_dedicated,
+        'external_companions_added_to_common_payload': companions,
+        'expanded_historical_source_layer': historical_layer,
         'current_publication_overlays': {},
         'packaging_mathematical_replay_performed': False,
     }
@@ -768,15 +831,21 @@ def collect(root, source_publication_only=False):
                   'supplements/rank7/data/rank7_tables_through_m4.txt.gz'))
     from rank8_publication import active
     extension_files = {}
-    creative_provenance = None
-    creative_inventory = None
+    overlay_provenance = None
+    overlay_inventory = None
+    overlay_publication = None
     if active(root):
         from rank8_frontier import active as frontier_active, PUBLICATION as FRONTIER_PUBLICATION
         from rank8_next import active as next_active
         from rank8_research_20261022 import active as research_active
-        from rank8_creative_20261022 import active as creative_active
-        if creative_active(root):
-            extension_files, creative_provenance, creative_inventory = collect_rank8_creative_release(root)
+        import rank8_exclusion_20261022 as exclusion_stage
+        import rank8_creative_20261022 as creative_stage
+        if exclusion_stage.active(root):
+            extension_files, overlay_provenance, overlay_inventory = collect_rank8_exclusion_release(root)
+            overlay_publication = exclusion_stage.PUBLICATION
+        elif creative_stage.active(root):
+            extension_files, overlay_provenance, overlay_inventory = collect_rank8_creative_release(root)
+            overlay_publication = creative_stage.PUBLICATION
         elif research_active(root):
             from build_rank8_research_20261022_release import collect as collect_research
             extension_files, extension_package, inventory = collect_research(root)
@@ -813,23 +882,22 @@ def collect(root, source_publication_only=False):
         paths.update(path.relative_to(root).as_posix() for path in (root/'tools').glob('*rank8_m3*.py'))
         paths.update(path.relative_to(root).as_posix() for path in (root/'tools/templates').glob('rank8_m3_*.tex'))
     payload = {name: (root / name).read_bytes() for name in sorted(paths)}
-    if creative_provenance is not None:
+    if overlay_provenance is not None:
         # The dedicated release freezes the mathematical evidence. Current
         # publication documents may have been rebuilt after that release; bind
         # those overlays explicitly without changing any accepted source.
         for name in sorted(set(payload) & set(extension_files)):
             if payload[name] == extension_files[name]:
                 continue
-            if name in creative_inventory:
-                raise ValueError('Changed creative scientific input in common package: ' + name)
-            creative_provenance['current_publication_overlays'][name] = {
+            if name in overlay_inventory:
+                raise ValueError('Changed current rank-eight scientific input in common package: ' + name)
+            overlay_provenance['current_publication_overlays'][name] = {
                 'dedicated_member_sha256': digest(extension_files[name]),
                 'current_publication_sha256': digest(payload[name]),
                 'changes_bound_scientific_input': False}
             extension_files[name] = payload[name]
-        from rank8_creative_20261022 import PUBLICATION as CREATIVE_PUBLICATION
-        extension_files[CREATIVE_PUBLICATION + '/dedicated_release_provenance.json'] = (
-            json.dumps(creative_provenance, indent=2, sort_keys=True) + '\n').encode()
+        extension_files[overlay_publication + '/dedicated_release_provenance.json'] = (
+            json.dumps(overlay_provenance, indent=2, sort_keys=True) + '\n').encode()
     merge_payload(payload, extension_files)
     # The immutable proof manifest keeps its exact original hashes. Revised
     # documents are verified separately; their original replay bytes are in the
@@ -853,18 +921,22 @@ def source_publication_metadata(root):
     documents = validate_documents(root, check_web=(root / 'site/dist/papers').is_dir())
     readers = validate_reader_resources(root, check_web=(root / 'site/dist/papers').is_dir())
     preserved = replay_sources(root)
-    from rank8_creative_20261022 import active as creative_active
-    if creative_active(root):
-        import rank8_creative_20261022 as stage
-        import rank8_creative_history as history
-        from verify_rank8_creative_20261022 import check_reports
-        historical = history.baseline(root)
+    from current_publication import current_rank8_overlay
+    from importlib import import_module
+    stage = current_rank8_overlay(root)
+    if stage is not None:
+        check_reports = import_module('verify_' + stage.__name__).check_reports
+        if stage.__name__ == 'rank8_exclusion_20261022':
+            historical = stage.historical_identity(root)
+        else:
+            from rank8_creative_history import baseline
+            historical = baseline(root)
         summary = stage.validate_ledger(root)
         inventory = stage.source_inventory(root)
         manifest_sha, receipt_shas = check_reports(root, summary, inventory)
         return {'status': 'SOURCE_PUBLICATION_METADATA_PASS',
                 'mathematical_replay_performed': False,
-                'scope': ('Current document and reader identities, current creative-stage source '
+                'scope': ('Current document and reader identities, current rank-eight overlay source '
                           'and ledger bindings, both completed canonical targeted replay receipts '
                           'and logs, and the pinned historical archive; no fresh mathematical replay'),
                 'current_documents': len(documents['documents']),

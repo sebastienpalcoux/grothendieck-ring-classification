@@ -1,6 +1,6 @@
 # Provenance and boundaries
 
-The rank-eight multiplicity-three continuation addresses all 3,527 supplied exact-multiplicity-three rings: 3,506 general exclusions, 16 models and 5 unresolved cases. Every recorded model admits a unitary realization. The remaining rings retain unresolved status for general complex categorification.
+The rank-eight multiplicity-three continuation addresses all 3,527 supplied exact-multiplicity-three rings: 3,507 general exclusions, 16 models and 4 unresolved cases. Every recorded model admits a unitary realization. The remaining rings retain unresolved status for general complex categorification.
 
 The rank-seven multiplicity-five continuation addresses all 5,805 supplied exact-multiplicity-five rings: 5,804 general exclusions, 1 realization and 0 unresolved cases. The classification of the supplied census is complete through multiplicity 5. The new realization R7_5_5678 is Rep(AGL(1,7)).
 
@@ -27,7 +27,7 @@ certificate. Classification decisions are separate from census completeness.
 | 7 | Through 5 | Through multiplicity 5: 9,976 exclusions, 30 models and 0 unresolved; complete through 5. |
 | 8 | Through 2 | Complete: 77 models and 896 exclusions. |
 
-The [historical 38-case continuation](../docs/RESEARCH_STATUS.md) records **36 decisions among 38 cases**: 29 proposed general exclusions and 7 unitary constructions. Within that historical 38-case study, two questions remain open: `R6_4_155` and `R6_8_1660`. The combined residual program records 140 decisions (120 exclusions and 20 constructions), all subject to independent mathematical verification.
+The [historical 38-case continuation](../docs/RESEARCH_STATUS.md) records **36 decisions among 38 cases**: 29 proposed general exclusions and 7 unitary constructions. Within that historical 38-case study, two questions remain open: `R6_4_155` and `R6_8_1660`. The historical residual program before the rank-eight M3 extensions records 140 decisions (120 exclusions and 20 constructions), all subject to independent mathematical verification.
 
 The [current document manifest](../data/current_document_revision.json) binds
 the manuscript sources, PDFs and web copies. The
@@ -42,7 +42,7 @@ ledgers and records every exact-multiplicity partition.
 | 5 | `12886636134e0500a403ae1b635f5b901612d64b203dad1e1fdf94b0da2c31f1` | 40,999 | 40,982 excluded; 17 realized |
 | 6 | `abb36cb0e7f9196e0a231cb85a601c82a1c8fd398996f77a8961487a7ca692e5` | 25,421 | 25,362 excluded; 57 realized; 2 open |
 | 7 | `577d5796f92966900def5aaa934f95a4508461967937c4c6d7f7aaab4826e279` | 10,006 | 9,976 excluded; 30 realized; 0 open |
-| 8 | `edac9d5685ed86acfff16d620598d76324430559cab58d9bf24d59074927d067` | 4,500 | 4,402 excluded; 93 realized; 5 open |
+| 8 | `85c61eb2ebf7e6f82600a0e19dc274f1da068aefc807395b2fd46873b64f1c01` | 4,500 | 4,403 excluded; 93 realized; 4 open |
 
 Rank-six realizations comprise 56 unitary models and one spherical model whose
 ring has no pseudo-unitary categorification. The rank-four certificate contains
@@ -93,7 +93,7 @@ The rank-seven M5 extension is pinned separately to census commit `4e81914a6772c
 
 ## Rank-eight multiplicity-three continuation
 
-The rank-eight multiplicity-three continuation addresses all 3,527 supplied exact-multiplicity-three rings: 3,506 general exclusions, 16 models and 5 unresolved cases. Every recorded model admits a unitary realization. The remaining rings retain unresolved status for general complex categorification.
+The rank-eight multiplicity-three continuation addresses all 3,527 supplied exact-multiplicity-three rings: 3,507 general exclusions, 16 models and 4 unresolved cases. Every recorded model admits a unitary realization. The remaining rings retain unresolved status for general complex categorification.
 
 The complete census is producer-reported, with independent tensor and isomorphism audits. The supplied optimized source matches both producer run receipts; full enumeration was not independently rerun. The normal and optimized mathematical replay receipts, individually investigated residuals and proof dependencies are in [`evidence/rank8_m3_20261021`](../evidence/rank8_m3_20261021). A candidate has neither a general exclusion nor a constructed associator; it is not an established exotic category. New arguments remain subject to independent human review.
 
@@ -106,7 +106,7 @@ Metadata-only mode checks source identity and reconciliation with both full rece
 
 ## Further rank-eight frontier investigation
 
-The historical frontier stage recorded 25 further general exclusions among the original 34 unresolved M3 cases. Subsequent construction and research stages leave 5 current questions. The original M3 ledger, proof inputs and full receipts are unchanged. The current ledger is `supplements/rank8/output/creative_20261022/ledger.json`.
+The historical frontier stage recorded 25 further general exclusions among the original 34 unresolved M3 cases. Subsequent construction and research stages leave 4 current questions. The original M3 ledger, proof inputs and full receipts are unchanged. The current ledger is `supplements/rank8/output/exclusion_20261022/ledger.json`.
 
 Canonical normal and optimized frontier replays each passed all 108 checks. These receipts cover the historical frontier stage. Fresh replay after extraction from the publication archive is deferred.
 
@@ -117,7 +117,7 @@ python3 tools/verify_rank8_frontier.py
 python3 -O tools/verify_rank8_frontier.py
 ```
 
-The new receipts bind accepted decisions and exact computations. The source-bound per-ring research inventory is `evidence/rank8_creative_20261022/per_ring_research_audit.json`. Construction-family exclusions and feasible necessary-condition witnesses have explicit scopes; neither establishes an exotic category.
+The new receipts bind accepted decisions and exact computations. The source-bound per-ring research inventory is `evidence/r3472_exclusion_20261022/per_ring_research_audit.json`. Construction-family exclusions and feasible necessary-condition witnesses have explicit scopes; neither establishes an exotic category.
 
 ## Generalized Haagerup construction and further restrictions
 
@@ -134,15 +134,15 @@ python3 -O tools/rank8_next.py --check
 
 A separately reviewed Galois follow-up reduces the 36 retained R8_3_1154 pair histograms to 25 across the same three center patterns. Its proof and exact replay are in `evidence/rank8_postpublication_20261021/r1154_galois_review/`; the ring remains unresolved.
 
-## E21 realization and further rank-eight research
+## General exclusion of R8_3_3472
 
-R8_3_982 is unitarily realized by the neutral triality component of the exceptional E21 chiral fusion category from SU(3)_21 into E7_1. All 512 canonical fusion coefficients are identified exactly; the construction realizes both nonregular based-module types and the algebra 1+X5. Every Morita partner of any R982 categorification has the same based fusion ring. Five rank-eight general categorification questions remain: R8_3_928, R8_3_941, R8_3_1154, R8_3_1768 and R8_3_3472. Every hypothetical categorification admits a spherical structure and has a pseudo-unitary Galois conjugate; none has a braided Morita representative. New saturated-conductor and signed spectral-capacity theorems constrain all twist orders. R1768 has 39 of 40 necessary Gram/indicator branches excluded; its irrational dimension-ratio sector outside the two dimension-orbit objects has 18 or 72 simples. The final cone survives, and the 18-object option has a forced 19-dimensional Weil block with integral nonnegative distinguished products. R1154 has four forced semionic S columns and fusion matrices in all 25 histograms, which remain necessary data. R3472 has seven remaining first-action dual spectra and 400477 second-action arithmetic spectra, conditional on the specified rank-two modules. Exact integer phase counts eliminate six of the ten R928 center patterns, leaving four with exact necessary witnesses; all fourteen R941 allocations survive the stated phase refinements. Scoped construction obstructions and such witnesses neither exclude these five rings nor construct exotic categories.
+R8_3_3472 admits no fusion categorification over the complex numbers. The sphericalization and Galois reduction covers general complex categories; complete center-frame and twist-orbit domains reduce the remaining case to 628 exact equations in 572 integer variables. A certificate of 1648 rational bound deductions and a final strictly positive separating gap proves infeasibility, with two independent exact checkers. The proof and reproducible certificate are in evidence/r3472_exclusion_20261022/. This complete obstruction supersedes the earlier feasible necessary systems and conditional Morita restrictions for R3472. R8_3_982 remains unitarily realized by the neutral triality component of the exceptional E21 chiral fusion category, with all 512 canonical fusion coefficients identified exactly. Four rank-eight general categorification questions remain: R8_3_928, R8_3_941, R8_3_1154 and R8_3_1768. Every hypothetical categorification of these four rings admits a spherical structure and has a pseudo-unitary Galois conjugate; none has a braided Morita representative. The R928 phase refinement leaves four of ten necessary center patterns, all fourteen R941 allocations survive the stated refinements, and R1154 retains its forced semionic data. R1768 has 39 of 40 necessary Gram/indicator branches excluded, while its final cone survives. These necessary data do not construct categories or settle the four remaining questions.
 
-Proofs, independent reconstructions and exact replay are indexed in `evidence/rank8_creative_20261022/README.md`. The new classification decision is the unitary E21 model for R8_3_982. The five other cases retain their explicit unresolved scope.
+The complete center-domain reduction and exact infeasibility certificates are in `evidence/r3472_exclusion_20261022/README.md`. This accepted decision removes R8_3_3472 from the unresolved ledger. The earlier E21 construction and its research receipts retain their historical scope.
 
 ```bash
-python3 tools/verify_rank8_creative_20261022.py
-python3 -O tools/verify_rank8_creative_20261022.py
+python3 tools/verify_rank8_exclusion_20261022.py
+python3 -O tools/verify_rank8_exclusion_20261022.py
 ```
 
-Use `--metadata-only` to validate published source bindings and replay receipts. Use `--historical` to replay the earlier rank-eight mathematical chain from its pinned immutable archive. The original publication documents and routers are retained there; current versions have new source bindings.
+Use `--metadata-only` to check source identities and completed replay receipts. Use `--historical` to replay the preceding rank-eight stages in their preserved contexts. That replay explicitly records the reconstructed helper missing from the creative archive and its four revised cache-state diagnostics in a separate checkpoint; it also restores the omitted canonical tensor with its original receipt hash. The current ledger and proof have separate bindings from those historical releases.

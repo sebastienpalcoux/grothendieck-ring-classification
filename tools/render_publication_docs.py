@@ -727,6 +727,8 @@ All results and data are AI-generated, not independently human-verified and not 
         if m3 and name.endswith('.md'):
             title_end = content.find('\n\n')
             content = content[:title_end+2] + m3_summary + '\n\n' + content[title_end+2:]
+            content = content.replace('The combined residual program records',
+                                      'The historical residual program before the rank-eight M3 extensions records')
         if m3 and name in ('docs/VERIFY.md', 'docs/PROVENANCE.md', 'docs/PREPUBLICATION_REVIEW.md'):
             content += ('\n## Rank-eight multiplicity-three continuation\n\n'+m3_summary+'\n\n'
                 'The complete census is producer-reported, with independent tensor and isomorphism audits. The supplied optimized source matches both producer run receipts; full enumeration was not independently rerun. The normal and optimized mathematical replay receipts, individually investigated residuals and proof dependencies are in [`'+M3_EVIDENCE+'`](../'+M3_EVIDENCE+'). '
@@ -767,7 +769,21 @@ All results and data are AI-generated, not independently human-verified and not 
         if research_note and name in ('docs/RESEARCH_STATUS.md','docs/VERIFY.md','docs/PROVENANCE.md',
                                       'docs/PREPUBLICATION_REVIEW.md','manuscripts/README.md',
                                       'supplements/README.md','supplements/rank8/README.md'):
-            if m3.get('creative'):
+            if m3.get('exclusion'):
+                content += ('\n## General exclusion of R8_3_3472\n\n'+research_note+'\n\n'
+                            'The complete center-domain reduction and exact infeasibility certificates are in '
+                            '`evidence/r3472_exclusion_20261022/README.md`. This accepted decision removes R8_3_3472 '
+                            'from the unresolved ledger. The earlier E21 construction and its research receipts '
+                            'retain their historical scope.\n\n'
+                            '```bash\npython3 tools/verify_rank8_exclusion_20261022.py\n'
+                            'python3 -O tools/verify_rank8_exclusion_20261022.py\n```\n\n'
+                            'Use `--metadata-only` to check source identities and completed replay receipts. '
+                            'Use `--historical` to replay the preceding rank-eight stages in their preserved contexts. '
+                            'That replay explicitly records the reconstructed helper missing from the creative archive '
+                            'and its four revised cache-state diagnostics in a separate checkpoint; '
+                            'it also restores the omitted canonical tensor with its original receipt hash. '
+                            'The current ledger and proof have separate bindings from those historical releases.\n')
+            elif m3.get('creative'):
                 content += ('\n## E21 realization and further rank-eight research\n\n'+research_note+'\n\n'
                             'Proofs, independent reconstructions and exact replay are indexed in '
                             '`evidence/rank8_creative_20261022/README.md`. The new classification decision is the unitary E21 model for R8_3_982. '
@@ -797,12 +813,19 @@ All results and data are AI-generated, not independently human-verified and not 
                         'See evidence/rank8_research_20261022/README.md for proofs and exact replay.\n')
             if m3.get('creative'):
                 content += ('\nThe subsequent creative stage identifies R8_3_982 with the neutral triality component of the known unitary E21 chiral category. '
-                            'This supplies the sixteenth exact-multiplicity-three model; five cases remain open. '
+                            'This supplied the sixteenth exact-multiplicity-three model and left five cases open at that stage. '
                             'See evidence/rank8_creative_20261022/README.md.\n')
-        if m3 and m3.get('creative') and name in ('docs/VERIFY.md', 'supplements/rank8/README.md'):
+            if m3.get('exclusion'):
+                content += ('\nThe certified exclusion of R8_3_3472 now leaves four rank-eight questions. '
+                            'Exact multiplicity three has 3,507 general exclusions and 16 models; '
+                            'the cumulative totals through multiplicity three are 4,403 exclusions and 93 models. '
+                            'See evidence/r3472_exclusion_20261022/README.md.\n')
+        if m3 and (m3.get('exclusion') or m3.get('creative')) and name in ('docs/VERIFY.md', 'supplements/rank8/README.md'):
             at = content.find('\n\n')
+            verifier = ('verify_rank8_exclusion_20261022.py' if m3.get('exclusion')
+                        else 'verify_rank8_creative_20261022.py')
             content = content[:at+2] + (
-                'For the current checkout, replay `python3 tools/verify_rank8_creative_20261022.py`; '
+                'For the current checkout, replay `python3 tools/' + verifier + '`; '
                 'add `--historical` to replay earlier rank-eight stages in their preserved contexts. '
                 'Earlier-stage commands below apply inside their corresponding immutable archives.\n\n'
             ) + content[at+2:]

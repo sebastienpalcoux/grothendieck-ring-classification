@@ -270,11 +270,15 @@ if next_active(ROOT):
                             '(evidence/rank8_next_20261021/README.md).')
 research_note = research_scope(ROOT)
 if research_note:
+    from rank8_exclusion_20261022 import active as exclusion_active
+    from rank8_creative_20261022 import active as creative_active
+    evidence = 'evidence/r3472_exclusion_20261022' if exclusion_active(ROOT) else 'evidence/rank8_creative_20261022' if creative_active(ROOT) else 'evidence/rank8_research_20261022'
+    verifier = 'verify_rank8_exclusion_20261022.py' if exclusion_active(ROOT) else 'verify_rank8_creative_20261022.py' if creative_active(ROOT) else 'verify_rank8_research_20261022.py'
     rank8_extension_text += ('\n\n**22 October research.** '+research_note+'\n\n'
-                            '[Proofs and exact verifier inventory](evidence/rank8_research_20261022/README.md). '
+                            '[Proofs and exact verifier inventory]('+evidence+'/README.md). '
                             'Run this stage separately from the preserved baseline and frontier replays:\n\n'
-                            '```bash\npython3 tools/verify_rank8_research_20261022.py\n'
-                            'python3 -O tools/verify_rank8_research_20261022.py\n```')
+                            '```bash\npython3 tools/'+verifier+'\n'
+                            'python3 -O tools/'+verifier+'\n```')
 rendered=('\n'.join(lines).replace('__RANK7_EXTENSION__',rank7_extension_summary(ROOT))
                               .replace('__RANK8_EXTENSION__',rank8_extension_text)
                               .replace('__OPEN_CASE_COUNT__',str(len(remaining_ids(ROOT))))

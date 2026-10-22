@@ -1,0 +1,83 @@
+{
+  "baseline_commit": "ebaeb62",
+  "cache_state_diagnostics": [
+    {
+      "h": 1,
+      "historical_cache_states": 158885,
+      "reconstructed_cache_states": 1078029
+    },
+    {
+      "h": 2,
+      "historical_cache_states": 121756,
+      "reconstructed_cache_states": 840138
+    },
+    {
+      "h": 5,
+      "historical_cache_states": 37967,
+      "reconstructed_cache_states": 232981
+    },
+    {
+      "h": 7,
+      "historical_cache_states": 832,
+      "reconstructed_cache_states": 681
+    }
+  ],
+  "changed_receipt_fields": [
+    "second_branch_arithmetic_counts.0.states",
+    "second_branch_arithmetic_counts.1.states",
+    "second_branch_arithmetic_counts.2.states",
+    "second_branch_arithmetic_counts.3.states"
+  ],
+  "defect": "Missing imported second_branch_count.py, also absent from accepted source inventories",
+  "general_categorification_status": "unresolved",
+  "historical_mathematical_receipt_preserved": true,
+  "independent_count_total": 400478,
+  "independent_exact_counts": [
+    {
+      "count": 272348,
+      "h": 1
+    },
+    {
+      "count": 124228,
+      "h": 2
+    },
+    {
+      "count": 3900,
+      "h": 5
+    },
+    {
+      "count": 2,
+      "h": 7
+    }
+  ],
+  "legacy_verifier_replays": [
+    {
+      "lane": "normal",
+      "log": "evidence/r3472_focus_20261022/reproducibility/replay_normal.log",
+      "log_sha256": "fcc2afa5269effe3b093dc57e1d552ec70d157a73cf6559f657460226de5ab72",
+      "original_verifier_unchanged": true,
+      "returncode": 0
+    },
+    {
+      "lane": "optimized",
+      "log": "evidence/r3472_focus_20261022/reproducibility/replay_optimized.log",
+      "log_sha256": "fcc2afa5269effe3b093dc57e1d552ec70d157a73cf6559f657460226de5ab72",
+      "original_verifier_unchanged": true,
+      "returncode": 0
+    }
+  ],
+  "new_model_constructed": false,
+  "repair": "Reconstructed exact counter; unchanged original verifier; regenerated honest execution diagnostics",
+  "schema": "r3472-reproducibility-repair/v1",
+  "source_sha256": {
+    "evidence/r3472_focus_20261022/reproducibility/original_accepted.json": "752da9e42e39b92c4c4a675419ad4569a1f85f2228090463d728cb8501e22fef",
+    "evidence/r3472_focus_20261022/reproducibility/original_source_manifest.json": "b3b9a63be7d39e33e6b4b62d67e09d3674bdc502b56e147a296be0d17fa5dd1a",
+    "evidence/r3472_focus_20261022/reproducibility/original_verification.json": "6211b407e6bbce2227c64e5eba7f3e714cbbe7e242e69db6a6066aa76c499f46",
+    "evidence/rank8_creative_20261022/r3472/exact_integer.py": "6b9d2329e49b9b4b18f480fa4ef890842c1f15a931f3833407564788ad50d190",
+    "evidence/rank8_creative_20261022/r3472/product_equations.py": "356a1289b9d6c634a4656484f2515eb4a6b2940b1ed395bd2292022ff5fda9d1",
+    "evidence/rank8_creative_20261022/r3472/second_branch_count.py": "c776db07defc9b53097b78b1540371a867e50d19f198df8c94199ee37712f455",
+    "evidence/rank8_creative_20261022/r3472/verification.json": "fcc2afa5269effe3b093dc57e1d552ec70d157a73cf6559f657460226de5ab72",
+    "evidence/rank8_creative_20261022/r3472/verify.py": "ae55689e4c1c97130b03883ba3fde57ce8f824cc7989f231c7f4719d26f90d6f"
+  },
+  "status": "PASS"
+}

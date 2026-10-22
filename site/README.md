@@ -45,8 +45,8 @@ that ring, with supporting arguments linked below. The audited source is
 
 A separate braided-categorification panel records exclusions that apply
 without a pivotality assumption, or the weakest additional assumption needed
-for a conditional obstruction. All seven current unresolved cases exclude
-general braided categorification; the five rank-eight cases also exclude every
+for a conditional obstruction. All six current unresolved cases exclude
+general braided categorification; the four rank-eight cases also exclude every
 braided Morita representative. These exclusions also remain valid for the
 newly realized R8_3_982.
 See [`BRAIDED_CATEGORIFICATION.md`](BRAIDED_CATEGORIFICATION.md) for the proofs
@@ -62,7 +62,7 @@ The historical 38-case continuation records 36 decisions: 29 proposed general ex
 
 The rank-seven multiplicity-five continuation addresses all 5,805 supplied exact-multiplicity-five rings: 5,804 general exclusions, 1 realization and 0 unresolved cases. The classification of the supplied census is complete through multiplicity 5. The new realization R7_5_5678 is Rep(AGL(1,7)).
 
-The rank-eight multiplicity-three continuation addresses all 3,527 supplied exact-multiplicity-three rings: 3,506 general exclusions, 16 models and 5 unresolved cases. Every recorded model admits a unitary realization. The remaining rings retain unresolved status for general complex categorification.
+The rank-eight multiplicity-three continuation addresses all 3,527 supplied exact-multiplicity-three rings: 3,507 general exclusions, 16 models and 4 unresolved cases. Every recorded model admits a unitary realization. The remaining rings retain unresolved status for general complex categorification.
 
 The rank-eight candidate audit distinguishes completed necessary-condition tests, unsuccessful model searches, ineligible tests and time limits. Scoped unitary obstructions preserve the general complex question; these candidates are not asserted fusion categories or established exotic examples.
 
@@ -70,7 +70,7 @@ Canonical normal and optimized frontier replays each passed all 108 checks. Thes
 
 The separate center-pattern addendum passed all eight checks in canonical normal and optimized Python, including independent arithmetic reconstructions and positive controls. Fresh replay after extraction from the publication archive is deferred.
 
-R8_3_982 is unitarily realized by the neutral triality component of the exceptional E21 chiral fusion category from SU(3)_21 into E7_1. All 512 canonical fusion coefficients are identified exactly; the construction realizes both nonregular based-module types and the algebra 1+X5. Every Morita partner of any R982 categorification has the same based fusion ring. Five rank-eight general categorification questions remain: R8_3_928, R8_3_941, R8_3_1154, R8_3_1768 and R8_3_3472. Every hypothetical categorification admits a spherical structure and has a pseudo-unitary Galois conjugate; none has a braided Morita representative. New saturated-conductor and signed spectral-capacity theorems constrain all twist orders. R1768 has 39 of 40 necessary Gram/indicator branches excluded; its irrational dimension-ratio sector outside the two dimension-orbit objects has 18 or 72 simples. The final cone survives, and the 18-object option has a forced 19-dimensional Weil block with integral nonnegative distinguished products. R1154 has four forced semionic S columns and fusion matrices in all 25 histograms, which remain necessary data. R3472 has seven remaining first-action dual spectra and 400477 second-action arithmetic spectra, conditional on the specified rank-two modules. Exact integer phase counts eliminate six of the ten R928 center patterns, leaving four with exact necessary witnesses; all fourteen R941 allocations survive the stated phase refinements. Scoped construction obstructions and such witnesses neither exclude these five rings nor construct exotic categories.
+R8_3_3472 admits no fusion categorification over the complex numbers. The sphericalization and Galois reduction covers general complex categories; complete center-frame and twist-orbit domains reduce the remaining case to 628 exact equations in 572 integer variables. A certificate of 1648 rational bound deductions and a final strictly positive separating gap proves infeasibility, with two independent exact checkers. The proof and reproducible certificate are in evidence/r3472_exclusion_20261022/. This complete obstruction supersedes the earlier feasible necessary systems and conditional Morita restrictions for R3472. R8_3_982 remains unitarily realized by the neutral triality component of the exceptional E21 chiral fusion category, with all 512 canonical fusion coefficients identified exactly. Four rank-eight general categorification questions remain: R8_3_928, R8_3_941, R8_3_1154 and R8_3_1768. Every hypothetical categorification of these four rings admits a spherical structure and has a pseudo-unitary Galois conjugate; none has a braided Morita representative. The R928 phase refinement leaves four of ten necessary center patterns, all fourteen R941 allocations survive the stated refinements, and R1154 retains its forced semionic data. R1768 has 39 of 40 necessary Gram/indicator branches excluded, while its final cone survives. These necessary data do not construct categories or settle the four remaining questions.
 
 Ranks two, three and four have unrestricted complex classifications. The
 rank-four manuscript proves that exactly 15 rings occur and every

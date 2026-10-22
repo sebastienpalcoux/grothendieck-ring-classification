@@ -8,8 +8,7 @@
     "R8_3_928",
     "R8_3_941",
     "R8_3_1154",
-    "R8_3_1768",
-    "R8_3_3472"
+    "R8_3_1768"
   ],
   "accepted_decisions_scope": "Historical 38-case continuation through rank-seven multiplicity four",
   "rank7_m5_update": {
@@ -169,17 +168,16 @@
     "rank": 8,
     "multiplicity": 3,
     "rings": 3527,
-    "excluded": 3506,
+    "excluded": 3507,
     "realized": 16,
     "unitarily_realized": 16,
     "pseudo_unitarily_realized": 0,
-    "unresolved": 5,
+    "unresolved": 4,
     "remaining_ids": [
       "R8_3_928",
       "R8_3_941",
       "R8_3_1154",
-      "R8_3_1768",
-      "R8_3_3472"
+      "R8_3_1768"
     ],
     "unitary_excluded_ids": [],
     "realized_ids": [
@@ -200,13 +198,13 @@
       "R8_3_3314",
       "R8_3_3342"
     ],
-    "ledger": "supplements/rank8/output/creative_20261022/ledger.json",
-    "ledger_sha256": "edac9d5685ed86acfff16d620598d76324430559cab58d9bf24d59074927d067",
+    "ledger": "supplements/rank8/output/exclusion_20261022/ledger.json",
+    "ledger_sha256": "85c61eb2ebf7e6f82600a0e19dc274f1da068aefc807395b2fd46873b64f1c01",
     "historical_ledger": "supplements/rank8/data/decisions.json",
     "historical_ledger_sha256": "7f50213174f1020bb9d90d5981892c332448cf909a56bf60b29e1143228f3f24",
     "source": "supplements/rank8/data/rank8_m3_tables.txt.gz",
     "source_sha256": "1003a7684ec62797e63885eeb5af42fd094adc9ff3fec6caf049620b3afd0952",
-    "evidence": "evidence/rank8_creative_20261022",
+    "evidence": "evidence/r3472_exclusion_20261022",
     "baseline_evidence": "evidence/rank8_m3_20261021",
     "frontier": {
       "new_decisions": 25,
@@ -319,8 +317,8 @@
         "unresolved": 5
       },
       "cumulative_counts": {
-        "unitarily_realized": 93,
         "excluded": 4402,
+        "unitarily_realized": 93,
         "unresolved": 5
       },
       "baseline_records_preserved": 4499,
@@ -343,9 +341,49 @@
       "baseline_ledger": "supplements/rank8/output/research_20261022/ledger.json",
       "baseline_ledger_sha256": "521b9b9fb16a86c7c4ba491b8c2c0ebad05de1e41aafb5bc225d6342c9477e4e",
       "attempts_source": "evidence/rank8_creative_20261022/per_ring_research_audit.json",
-      "evidence": "evidence/rank8_creative_20261022"
+      "evidence": "evidence/rank8_creative_20261022",
+      "historical_scope": "Published creative checkpoint, preserved in the frozen archive."
     },
-    "attempts_source": "evidence/rank8_creative_20261022/per_ring_research_audit.json"
+    "exclusion": {
+      "new_decisions": 1,
+      "resolved_ids": [
+        "R8_3_3472"
+      ],
+      "counts": {
+        "excluded": 3507,
+        "unitarily_realized": 16,
+        "unresolved": 4
+      },
+      "cumulative_counts": {
+        "unitarily_realized": 93,
+        "excluded": 4403,
+        "unresolved": 4
+      },
+      "baseline_records_preserved": 4499,
+      "inherited_models_preserved": 93,
+      "new_models": 0,
+      "remaining_ids": [
+        "R8_3_928",
+        "R8_3_941",
+        "R8_3_1154",
+        "R8_3_1768"
+      ],
+      "criterion": "exact_center_indicator_certificate",
+      "scope": "general_complex",
+      "complete_general_categorification_exclusion": true,
+      "date": "2026-10-22",
+      "ledger": "supplements/rank8/output/exclusion_20261022/ledger.json",
+      "ledger_sha256": "85c61eb2ebf7e6f82600a0e19dc274f1da068aefc807395b2fd46873b64f1c01",
+      "models": "supplements/rank8/output/creative_20261022/model_catalog.json",
+      "models_sha256": "7b84c11792c15c9cc07a723fe3d03cf8c56f049907bb9de7be35fb9cefbbf382",
+      "accepted": "evidence/r3472_exclusion_20261022/accepted.json",
+      "accepted_sha256": "0946d4fa515088199c85d73f551ce66c8dac8e7bb56047b758ec9c46ef8a2a24",
+      "baseline_ledger": "supplements/rank8/output/creative_20261022/ledger.json",
+      "baseline_ledger_sha256": "edac9d5685ed86acfff16d620598d76324430559cab58d9bf24d59074927d067",
+      "attempts_source": "evidence/r3472_exclusion_20261022/per_ring_research_audit.json",
+      "evidence": "evidence/r3472_exclusion_20261022"
+    },
+    "attempts_source": "evidence/r3472_exclusion_20261022/per_ring_research_audit.json"
   },
   "research_progress": "evidence/rigidity_20261017/rank6/research_progress.json",
   "research_progress_sha256": "de9be218c3099e68f00f5867b77d9ff7cbf9ef6ca34207823f2598b710886497",
@@ -359,8 +397,8 @@
       "bytes": 83374
     },
     "manuscripts/prepublication-review-2026-10-22.pdf": {
-      "sha256": "d5ba1e2c97d8fc1acf129e9fee268d1da672aac7558d4d747a4baa12b5dbaa0e",
-      "bytes": 85386
+      "sha256": "a9047d7684887da76409f68cdb2e56b0f8de53f837c8a02286905f6798bda308",
+      "bytes": 85227
     },
     "manuscripts/rank2.pdf": {
       "sha256": "3488327cdd434217b29fe48a6a32eb604ee5f0ceb7870bd33af3b1bc17ab9a36",
@@ -1075,23 +1113,23 @@
       "bytes": 15240
     },
     "manuscripts/rank8/paper/m3_continuation.tex": {
-      "sha256": "53d7ad9bf1d69fcc34a4d175bb7492504c45f261b286b36dff043aee3c19b247",
-      "bytes": 10446
+      "sha256": "8f50fda9f648c054e4f3f14d50fd299843e2cf6bd6b007ef8561b1d26262c881",
+      "bytes": 11116
     },
     "manuscripts/rank8/paper/m3_convex.tex": {
       "sha256": "864115f2093467c538268f3ebe53eafb8207e2ccf1e47b1bdf103e876995ba4e",
       "bytes": 7590
     },
     "manuscripts/rank8/paper/m3_creative_20261022.tex": {
-      "sha256": "3bbebe56b8707ee237b31b31fb37094aa9be42901082129f0e26b4d5e41416f1",
-      "bytes": 37405
+      "sha256": "f602dce67a3fb656e7ee6e5a03d0cefe7c0cf06ad78cf1c817b62544e9409644",
+      "bytes": 37684
     },
     "manuscripts/rank8/paper/m3_criteria.tex": {
       "sha256": "919647f5f34e2a1e1403a700e338f565251c7a98dfbb368e99955d0ee763c361",
       "bytes": 4145
     },
     "manuscripts/rank8/paper/m3_frontier.tex": {
-      "sha256": "85255d9c4d6570ceca251b65882ea13cfa427b810d86d6390aeab9256975392d",
+      "sha256": "b514a0234a19e35b721c452a3970cdba18f4ebecb62c709e7dc14f52afddc3f6",
       "bytes": 112983
     },
     "manuscripts/rank8/paper/m3_model_search.tex": {
@@ -1117,6 +1155,10 @@
     "manuscripts/rank8/paper/m3_positivity.tex": {
       "sha256": "76abf22c14604cd134649f1854272f30ad55f1aa8846aeee2d32a87872389c57",
       "bytes": 1187
+    },
+    "manuscripts/rank8/paper/m3_r3472_focus.tex": {
+      "sha256": "301593786e8799a313b0c1a42a95fbf8625330cb79de633513363188aff32757",
+      "bytes": 46862
     },
     "manuscripts/rank8/paper/m3_research_20261022.tex": {
       "sha256": "0a756aee2cdf35244916eb0cf2bc2c9121f50693b416d981aa96396b914dcf25",
@@ -1171,16 +1213,16 @@
       "bytes": 4207
     },
     "manuscripts/rank8/paper/rank8-reviewed.pdf": {
-      "sha256": "b0e3d3d304e11dea0ff3b7e22e851723db3f77a42fe61017c56cca9d8caaac31",
-      "bytes": 1426704
+      "sha256": "faa17b0c18d54307e029b7299a307bc0275e732bae54d8e0ece3936ce04d6b54",
+      "bytes": 1503740
     },
     "manuscripts/rank8/paper/rank8.pdf": {
-      "sha256": "b0e3d3d304e11dea0ff3b7e22e851723db3f77a42fe61017c56cca9d8caaac31",
-      "bytes": 1426704
+      "sha256": "faa17b0c18d54307e029b7299a307bc0275e732bae54d8e0ece3936ce04d6b54",
+      "bytes": 1503740
     },
     "manuscripts/rank8/paper/rank8.tex": {
-      "sha256": "a4a91a7c89f71060d73348c1293dc5e84935bfb2fa58aa9f6ed2ed292adec312",
-      "bytes": 64044
+      "sha256": "bb03270c224a511b32242742d1af4403712dad5282b72d474c0e58df93a6495b",
+      "bytes": 65344
     },
     "manuscripts/rank8/paper/scoped_obstructions.tex": {
       "sha256": "5e4ab1415e3da479880c32710d557a24b09632ab85a8e7e49a71a7e425e0e067",
@@ -1899,23 +1941,23 @@
       "bytes": 15240
     },
     "supplements/rank8/paper/m3_continuation.tex": {
-      "sha256": "53d7ad9bf1d69fcc34a4d175bb7492504c45f261b286b36dff043aee3c19b247",
-      "bytes": 10446
+      "sha256": "8f50fda9f648c054e4f3f14d50fd299843e2cf6bd6b007ef8561b1d26262c881",
+      "bytes": 11116
     },
     "supplements/rank8/paper/m3_convex.tex": {
       "sha256": "864115f2093467c538268f3ebe53eafb8207e2ccf1e47b1bdf103e876995ba4e",
       "bytes": 7590
     },
     "supplements/rank8/paper/m3_creative_20261022.tex": {
-      "sha256": "3bbebe56b8707ee237b31b31fb37094aa9be42901082129f0e26b4d5e41416f1",
-      "bytes": 37405
+      "sha256": "f602dce67a3fb656e7ee6e5a03d0cefe7c0cf06ad78cf1c817b62544e9409644",
+      "bytes": 37684
     },
     "supplements/rank8/paper/m3_criteria.tex": {
       "sha256": "919647f5f34e2a1e1403a700e338f565251c7a98dfbb368e99955d0ee763c361",
       "bytes": 4145
     },
     "supplements/rank8/paper/m3_frontier.tex": {
-      "sha256": "85255d9c4d6570ceca251b65882ea13cfa427b810d86d6390aeab9256975392d",
+      "sha256": "b514a0234a19e35b721c452a3970cdba18f4ebecb62c709e7dc14f52afddc3f6",
       "bytes": 112983
     },
     "supplements/rank8/paper/m3_model_search.tex": {
@@ -1941,6 +1983,10 @@
     "supplements/rank8/paper/m3_positivity.tex": {
       "sha256": "76abf22c14604cd134649f1854272f30ad55f1aa8846aeee2d32a87872389c57",
       "bytes": 1187
+    },
+    "supplements/rank8/paper/m3_r3472_focus.tex": {
+      "sha256": "301593786e8799a313b0c1a42a95fbf8625330cb79de633513363188aff32757",
+      "bytes": 46862
     },
     "supplements/rank8/paper/m3_research_20261022.tex": {
       "sha256": "0a756aee2cdf35244916eb0cf2bc2c9121f50693b416d981aa96396b914dcf25",
@@ -1995,16 +2041,16 @@
       "bytes": 4207
     },
     "supplements/rank8/paper/rank8-reviewed.pdf": {
-      "sha256": "b0e3d3d304e11dea0ff3b7e22e851723db3f77a42fe61017c56cca9d8caaac31",
-      "bytes": 1426704
+      "sha256": "faa17b0c18d54307e029b7299a307bc0275e732bae54d8e0ece3936ce04d6b54",
+      "bytes": 1503740
     },
     "supplements/rank8/paper/rank8.pdf": {
-      "sha256": "b0e3d3d304e11dea0ff3b7e22e851723db3f77a42fe61017c56cca9d8caaac31",
-      "bytes": 1426704
+      "sha256": "faa17b0c18d54307e029b7299a307bc0275e732bae54d8e0ece3936ce04d6b54",
+      "bytes": 1503740
     },
     "supplements/rank8/paper/rank8.tex": {
-      "sha256": "a4a91a7c89f71060d73348c1293dc5e84935bfb2fa58aa9f6ed2ed292adec312",
-      "bytes": 64044
+      "sha256": "bb03270c224a511b32242742d1af4403712dad5282b72d474c0e58df93a6495b",
+      "bytes": 65344
     },
     "supplements/rank8/paper/scoped_obstructions.tex": {
       "sha256": "5e4ab1415e3da479880c32710d557a24b09632ab85a8e7e49a71a7e425e0e067",

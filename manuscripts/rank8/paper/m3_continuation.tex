@@ -18,9 +18,9 @@ The $3527$ supplied rings of exact multiplicity three have the following
 recorded categorification status:
 \begin{center}\begin{tabular}{@{}lr@{}}\toprule
 Status & Rings\\\midrule
-General complex exclusion & $3506$\\
+General complex exclusion & $3507$\\
 Unitary construction & $16$\\
-Unresolved general categorification & $5$\\
+Unresolved general categorification & $4$\\
 \bottomrule\end{tabular}\end{center}
 Positive identifications use full ordered tensor comparisons or, for
 $\sha{R8_3_721}$, the exact coefficient bound and complete-census uniqueness
@@ -28,7 +28,8 @@ proved in Theorem~\ref{thm:r721-qsystem-model}. A recorded construction proves
 existence, without claiming uniqueness up to tensor equivalence.
 \end{theorem}
 The source-bound combined ledger is
-\path{supplements/rank8/output/creative_20261022/ledger.json}. Its exact-M3 first-exclusion
+\par\noindent{\small\path{supplements/rank8/output/exclusion_20261022/ledger.json}}.
+Its exact-M3 first-exclusion
 allocation follows. Overlapping obstructions are retained in the evidence
 rather than counted twice.
 \begin{center}\small\begin{longtable}{@{}p{.75\textwidth}r@{}}\toprule
@@ -44,6 +45,7 @@ complete low frame hull signed induction & $2$\\
 cyclotomic & $7$\\
 dimension84 adjoint rigidity & $5$\\
 dnumber & $2575$\\
+exact center indicator certificate & $1$\\
 forced Morita dual integral center Gram cubic Verlinde & $1$\\
 full character field labeled modular S symmetry signed induction & $2$\\
 global convex induction lift & $2$\\
@@ -115,9 +117,9 @@ Every model in this inventory admits a unitary realization. For
 $\sha{R8_3_448}$, the original pseudo-unitary existence result is
 supplemented by the unitary $2221$ planar-algebra construction above.
 \subsection{The remaining general questions and replay scope}
-There remain $5$ unresolved exact-M3 tensors. The source tensors and per-case attempted criteria are recorded in
+There remain $4$ unresolved exact-M3 tensors. The source tensors and per-case attempted criteria are recorded in
 \path{data/remaining_cases.py} and the per-case audit\par\noindent
-{\small\path{evidence/rank8_creative_20261022/per_ring_research_audit.json}}.
+{\small\path{evidence/r3472_exclusion_20261022/per_ring_research_audit.json}}.
 The inventory distinguishes an exact contradiction, a necessary-condition
 survivor, a time limit, and an inapplicable test. Passing these conditions
 supplies no coherent associator; an unsuccessful construction search
@@ -133,7 +135,6 @@ Census ID & Commutative & Invertibles & Unitary status & Proper subring ranks\\\
 \sha{R8_3_941} & no & 2 & unresolved & 2\\
 \sha{R8_3_1154} & no & 2 & unresolved & 2\\
 \sha{R8_3_1768} & yes & 2 & unresolved & 2\\
-\sha{R8_3_3472} & yes & 1 & unresolved & --\\
 \bottomrule\end{longtable}\end{center}
 \paragraph{Historical search stages.}
 The following earlier campaigns retain their original proof domains and
@@ -159,6 +160,7 @@ identities and reconciliation without replaying the mathematics.
 \input{m3_research_20261022}
 \input{m3_pointed_followup}
 \input{m3_creative_20261022}
+\input{m3_r3472_focus}
 
 \subsection{Continuation evidence and reproducibility}
 The new proofs and construction-family audits are in
@@ -183,5 +185,19 @@ Run also with \texttt{-O}. The flag \texttt{--metadata-only} validates
 recorded receipts; \texttt{--historical} additionally replays earlier
 mathematics from the pinned historical archive. The separate archive is
 \begin{quote}\small\path{supplements/rank8/release/rank8-certified-creative-20261022.zip}.\end{quote}
-Only $\sha{R8_3_982}$ changes status in this overlay. The other five cases
-retain their stated unresolved status.
+Only $\sha{R8_3_982}$ changed status in that historical overlay, leaving
+five unresolved cases at that checkpoint.
+
+The subsequent exact center-indicator certificate excludes
+$\sha{R8_3_3472}$ over $\mathbb C$ by
+Theorem~\ref{thm:r3472-general-exclusion}. Its full source-derived replay is
+\begin{quote}\small
+\texttt{python3 }\path{evidence/r3472_exclusion_20261022/replay.py}.
+\end{quote}
+The self-contained terminal checker is
+\begin{quote}\small
+\texttt{python3 }\path{evidence/r3472_exclusion_20261022/terminal/check.py}.
+\end{quote}
+It verifies $1648$ exact integer bound deductions and the final rational
+separator; the complete package also checks the categorical reduction,
+domain coverage and construction of the necessary system.

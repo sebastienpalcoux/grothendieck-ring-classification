@@ -1,7 +1,7 @@
 # Braided scope of the unresolved and retained cases
 
 Braiding is a separate requirement from pivotality, sphericality,
-pseudo-unitarity and unitarity. Every one of the seven current unresolved cases is excluded
+pseudo-unitarity and unitarity. Every one of the six current unresolved cases is excluded
 from braided categorification without a pivotality assumption. The four
 previously conditional rank-eight exclusions become unconditional by the
 complete sphericalization gates of 22 October 2026. All conclusions retain
@@ -10,7 +10,7 @@ the project's independent-review caution.
 | Cases | Strongest braided exclusion recorded here |
 | --- | --- |
 | `R6_4_155`, `R6_8_1660` | No general braided categorification |
-| `R8_3_928`, `R8_3_941`, `R8_3_1154`, `R8_3_1768`, `R8_3_3472` | No general braided categorification, and no braided Morita representative |
+| `R8_3_928`, `R8_3_941`, `R8_3_1154`, `R8_3_1768` | No general braided categorification, and no braided Morita representative |
 | `R8_3_982` (unitarily realized) | No general braided categorification, and no braided Morita representative |
 
 `R8_3_982` is now realized by the triality-zero component of the unitary
@@ -27,6 +27,9 @@ Its earlier braided obstruction is retained below as a historical argument.
 `R8_3_1795` is likewise excluded from general categorification by the
 [complete order-two Fourier-packing argument](../evidence/rank8_research_20261022/pointed_followup/PROOF.md).
 Its braided obstruction below records an earlier, weaker result.
+`R8_3_3472` is now also excluded from general categorification by the
+[complete center and rotation-indicator argument](../evidence/r3472_exclusion_20261022/README.md).
+Its d-number obstruction below is retained as an earlier braided-only result.
 
 ## General braided exclusions
 
@@ -162,7 +165,7 @@ rings is pointed, and each global FP dimension is irrational. The
 therefore shows that a braided Morita representative would give a braiding
 on the source category itself. The preceding exclusions rule this out.
 This is a restriction on constructions through Morita equivalence; it does
-not exclude the five remaining rank-eight rings from general unbraided
+not exclude the four remaining rank-eight rings from general unbraided
 categorification, and it is consistent with the unitary realization of
 R8_3_982.
 

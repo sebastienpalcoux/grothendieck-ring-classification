@@ -22,7 +22,10 @@ def frontier_replay_scope(repo):
     manifest=folder/'source_manifest.json'
     digest=lambda path: hashlib.sha256(path.read_bytes()).hexdigest()
     from rank8_creative_20261022 import active as creative_active
-    if creative_active(repo):
+    from rank8_exclusion_20261022 import active as exclusion_active, historical_identity
+    if exclusion_active(repo):
+        historical_identity(repo)
+    elif creative_active(repo):
         from rank8_creative_history import baseline
         baseline(repo)
     elif source_inventory(repo)!=json.loads(manifest.read_text()):
@@ -58,8 +61,21 @@ def center_replay_scope():
 
 def research_scope(repo):
     """Current accepted research, distinct from the frozen 108-check stage."""
+    from rank8_exclusion_20261022 import active as exclusion_active, validate_ledger as exclusion_validate
     from rank8_research_20261022 import active, validate
     from rank8_creative_20261022 import active as creative_active, validate as creative_validate
+    if exclusion_active(repo):
+        exclusion_validate(repo)
+        return ('R8_3_3472 admits no fusion categorification over the complex numbers. '
+                'The sphericalization and Galois reduction covers general complex categories; complete center-frame and twist-orbit domains reduce the remaining case to 628 exact equations in 572 integer variables. '
+                'A certificate of 1648 rational bound deductions and a final strictly positive separating gap proves infeasibility, with two independent exact checkers. '
+                'The proof and reproducible certificate are in evidence/r3472_exclusion_20261022/. '
+                'This complete obstruction supersedes the earlier feasible necessary systems and conditional Morita restrictions for R3472. '
+                'R8_3_982 remains unitarily realized by the neutral triality component of the exceptional E21 chiral fusion category, with all 512 canonical fusion coefficients identified exactly. '
+                'Four rank-eight general categorification questions remain: R8_3_928, R8_3_941, R8_3_1154 and R8_3_1768. '
+                'Every hypothetical categorification of these four rings admits a spherical structure and has a pseudo-unitary Galois conjugate; none has a braided Morita representative. '
+                'The R928 phase refinement leaves four of ten necessary center patterns, all fourteen R941 allocations survive the stated refinements, and R1154 retains its forced semionic data. '
+                'R1768 has 39 of 40 necessary Gram/indicator branches excluded, while its final cone survives. These necessary data do not construct categories or settle the four remaining questions.')
     if creative_active(repo):
         creative_validate(repo)
         return ('R8_3_982 is unitarily realized by the neutral triality component of the exceptional E21 chiral fusion category from SU(3)_21 into E7_1. '
@@ -70,7 +86,9 @@ def research_scope(repo):
                 'New saturated-conductor and signed spectral-capacity theorems constrain all twist orders. '
                 'R1768 has 39 of 40 necessary Gram/indicator branches excluded; its irrational dimension-ratio sector outside the two dimension-orbit objects has 18 or 72 simples. The final cone survives, and the 18-object option has a forced 19-dimensional Weil block with integral nonnegative distinguished products. '
                 'R1154 has four forced semionic S columns and fusion matrices in all 25 histograms, which remain necessary data. '
-                'R3472 has seven remaining first-action dual spectra and 400477 second-action arithmetic spectra, conditional on the specified rank-two modules. '
+                'Every Morita partner of an R3472 categorification has a pointed integral-dimensional subcategory of order one or seven; the order-seven case forces one of two explicit rank-fourteen based rings. '
+                'Its conditional rank-two module branches retain four first-branch spectra and 272349 second-branch arithmetic dimension multisets under these filters. Its simple center has a stronger 3347-equation necessary system with an exact nonnegative integer witness and a linked rational fourth-order indicator/rotation extension, without complete complex STS equations or categorical feasibility; the pseudo-unitary third indicators are all two on nonunit simples, and the earlier phase witness satisfies these values. '
+                'Direct Radchenko–Wheeler de-equivariantizations are excluded even after arbitrary pointed tensor factors; these scoped obstructions do not settle general existence. '
                 'Exact integer phase counts eliminate six of the ten R928 center patterns, leaving four with exact necessary witnesses; all fourteen R941 allocations survive the stated phase refinements. '
                 'Scoped construction obstructions and such witnesses neither exclude these five rings nor construct exotic categories.')
     if not active(repo):
@@ -252,13 +270,16 @@ def main():
             'The new construction has separate normal and optimized checks, including independent reconstruction of the coefficient inequalities and an exhaustive scan of all 4,500 supplied census entries. Its reviewed categorical proof and bound source files are retained in evidence/rank8_next_20261021/. The original evidence and 108-check replay receipts remain unchanged.',
             'Run tools/rank8_next.py --check for the accepted overlay identities. The model proof lists its targeted arithmetic verifiers. Census completeness remains the supplied producer result; the full enumeration has not been independently rerun.']})
     old_research_heading = 'Pointed Fourier exclusion and remaining rank-eight restrictions'
-    research_heading = 'E21 unitary realization and creative rank-eight restrictions' if ext.get('creative') else old_research_heading
+    creative_heading = 'E21 unitary realization and creative rank-eight restrictions'
+    exclusion_heading = 'General-complex exclusion of R8_3_3472'
+    research_heading = exclusion_heading if ext.get('exclusion') else creative_heading if ext.get('creative') else old_research_heading
     for key in ('theoretical_results', 'replay_sections'):
-        content[key] = [x for x in content[key] if x['heading'] not in (research_heading, old_research_heading)]
+        content[key] = [x for x in content[key] if x['heading'] not in (exclusion_heading, creative_heading, old_research_heading)]
     if research_note:
         content['theoretical_results'].insert(0, {'heading': research_heading, 'paragraphs': [research_note]})
         content['replay_sections'].insert(0, {'heading': research_heading, 'paragraphs': [
-            ('The E21 and creative stage has a separate exact replay and accepted source manifest. Run python3 tools/verify_rank8_creative_20261022.py and python3 -O tools/verify_rank8_creative_20261022.py. Its proof and verifier inventory is evidence/rank8_creative_20261022/README.md. The --historical option replays prior rank-eight mathematics from its immutable archive.' if ext.get('creative') else
+            ('The R3472 exclusion has a separate accepted source manifest and exact replay. Run python3 tools/verify_rank8_exclusion_20261022.py and python3 -O tools/verify_rank8_exclusion_20261022.py. Mathematical children retain assertions in both invocations. The proof and verifier inventory is evidence/r3472_exclusion_20261022/README.md. Earlier stage receipts retain their original scope.' if ext.get('exclusion') else
+             'The E21 and creative stage has a separate exact replay and accepted source manifest. Run python3 tools/verify_rank8_creative_20261022.py and python3 -O tools/verify_rank8_creative_20261022.py. Its proof and verifier inventory is evidence/rank8_creative_20261022/README.md. The --historical option replays prior rank-eight mathematics from its immutable archive.' if ext.get('creative') else
              'The 22 October stage has a separate exact replay and accepted source manifest. Run python3 tools/verify_rank8_research_20261022.py and python3 -O tools/verify_rank8_research_20261022.py. Its proof and verifier inventory is evidence/rank8_research_20261022/README.md.'),
             'These targeted checks supplement the original M3 and 108-check frontier replays; those historical receipts do not certify the later stage. Metadata-only checks reconcile source identities without repeating mathematics.']})
     path.write_text(json.dumps(content, indent=2, ensure_ascii=False)+'\n')

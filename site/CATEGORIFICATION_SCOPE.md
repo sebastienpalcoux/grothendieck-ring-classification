@@ -1,7 +1,7 @@
 # Categorification status and implication diagrams
 
-The scope audit concerns complex fusion categorifications of the seven current
-unresolved rings, together with retained dossiers for two excluded rings and
+The scope audit concerns complex fusion categorifications of the six current
+unresolved rings, together with retained dossiers for three excluded rings and
 the realized ring R8_3_982. It reports established results in the linked research
 record; it is not a claim that every possible obstruction has been exhausted.
 
@@ -37,11 +37,11 @@ Every current unresolved ring has the following two consequences:
 | Cases | Same-category consequence | Additional existence reduction |
 | --- | --- | --- |
 | `R6_4_155`, `R6_8_1660` | General ⇒ spherical | Every categorification has a pseudo-unitary Galois conjugate |
-| `R8_3_928`, `R8_3_941`, `R8_3_1154`, `R8_3_1768`, `R8_3_3472` | General ⇒ spherical | Every categorification has a pseudo-unitary Galois conjugate |
+| `R8_3_928`, `R8_3_941`, `R8_3_1154`, `R8_3_1768` | General ⇒ spherical | Every categorification has a pseudo-unitary Galois conjugate |
 
-All seven remain unresolved at every level in the unbraided hierarchy.
+All six remain unresolved at every level in the unbraided hierarchy.
 Every one is excluded from general braided categorification. Each of the
-five rank-eight cases is also excluded from having a braided Morita
+four rank-eight cases is also excluded from having a braided Morita
 representative. See [the separate braided audit](BRAIDED_CATEGORIFICATION.md).
 
 `R8_3_982` is now **unitarily realized** by the eight-object triality-zero
@@ -78,7 +78,16 @@ part of the proof history.
 [order-two Fourier-packing criterion](../evidence/rank8_research_20261022/pointed_followup/PROOF.md)
 excludes all sixteen indicator branches, covering both pointed associators.
 The general-to-Galois-pseudo-unitary gate below is an essential part of that
-exclusion. Both closed case pages and their tensor downloads are retained.
+exclusion. Their closed case pages and tensor downloads are retained.
+
+`R8_3_3472` is now excluded from general categorification by the
+[complete center and rotation-indicator proof](../evidence/r3472_exclusion_20261022/README.md).
+The complete 372-assignment domain is excluded by exact STS constraints and
+a final twist-orbit contradiction. The terminal arithmetic certificate contains
+1,648 integer-bound deductions and an exact rational separating inequality.
+The sphericalization and Galois gate above makes this a general exclusion.
+Its earlier necessary-condition witnesses remain in the retained research
+history; its case address and fusion-tensor download are unchanged.
 
 For `R8_3_65`, the two distinct FP dimensions are 1 and
 `d = (11 + 5 sqrt(5))/2`. Apply Schopieray's **published** Lemma 3.1,

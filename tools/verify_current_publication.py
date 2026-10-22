@@ -12,7 +12,7 @@ import shutil
 import subprocess
 import sys
 import tempfile
-from current_publication import validate_documents, replay_sources, restore_replay_sources, need
+from current_publication import validate_documents, replay_sources, restore_replay_sources, need, current_rank8_overlay
 from reader_resources import validate_reader_resources
 from rank7_publication import extension, historical_rank7_bytes, LEDGER
 from rank8_publication import extension as rank8_extension
@@ -52,20 +52,26 @@ def main():
     rank8_center_followup_receipt = None
     rank8_research_receipt = None
     rank8_creative_receipt = None
-    if rank8_update and rank8_update.get('creative'):
-        with tempfile.TemporaryDirectory(prefix='rank8-creative-check-') as directory:
+    rank8_exclusion_receipt = None
+    overlay = current_rank8_overlay(repo) if rank8_update else None
+    if overlay is not None:
+        stage_name = 'exclusion' if rank8_update.get('exclusion') else 'creative'
+        with tempfile.TemporaryDirectory(prefix='rank8-' + stage_name + '-check-') as directory:
             output = Path(directory) / 'receipt.json'
             command = [sys.executable] + (['-O'] if sys.flags.optimize else [])
-            command += [str(repo / 'tools/verify_rank8_creative_20261022.py'),
+            command += [str(repo / 'tools' / ('verify_' + overlay.__name__ + '.py')),
                         '--repo', str(repo), '--output', str(output)]
             if args.metadata_only:
                 command.append('--metadata-only')
             if args.historical:
                 command.append('--historical')
             check = subprocess.run(command, cwd=repo, text=True, capture_output=True)
-            need(check.returncode == 0, 'Rank-eight E21/creative research check failed:\n'
+            need(check.returncode == 0, 'Rank-eight ' + stage_name + ' check failed:\n'
                  + check.stdout + check.stderr)
-            rank8_creative_receipt = json.loads(output.read_text())
+            if stage_name == 'exclusion':
+                rank8_exclusion_receipt = json.loads(output.read_text())
+            else:
+                rank8_creative_receipt = json.loads(output.read_text())
     elif rank8_update:
         with tempfile.TemporaryDirectory(prefix='rank8-m3-check-') as directory:
             command = [sys.executable] + (['-O'] if sys.flags.optimize else [])
@@ -183,6 +189,7 @@ def main():
                   'rank8_next_check': rank8_next_receipt,
                   'rank8_research_check': rank8_research_receipt,
                   'rank8_creative_check': rank8_creative_receipt,
+                  'rank8_exclusion_check': rank8_exclusion_receipt,
                   'rank7_m5_metadata_check': rank7_metadata,
                   'rank6_necessary_conditions': rank6_progress,
                   'reader_resources': reader_resources,

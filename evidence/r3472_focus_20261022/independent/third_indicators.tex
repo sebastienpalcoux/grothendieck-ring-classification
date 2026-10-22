@@ -1,0 +1,44 @@
+\begin{proposition}\label{prop:r3472-maximal-third-indicator}
+In the canonical positive spherical structure of every pseudo-unitary
+categorification of $\sha{R8_3_3472}$,
+the third Frobenius--Schur indicator of every nonunit simple is $2$.
+Equivalently, rotation acts identically on each two-dimensional space
+$\operatorname{Hom}(1,X_i^{\otimes3})$, $i>0$.
+\end{proposition}
+\begin{proof}
+Put $\delta=7+5\sqrt2$, $D=700+490\sqrt2$, and $D'=700-490\sqrt2$.
+The source dimensions are
+$(1,\delta-1,\delta-1,\delta,\delta-1,\delta+1,\delta+1,\delta+1)$,
+and $\dim\operatorname{Hom}(1,X_i^{\otimes3})=2$ for all $i>0$.
+The spherical Cauchy theorem~\cite[Theorem~3.9]{BNRWCauchy} and
+$DD'=9800$ imply that $3$ is coprime to
+$N=\operatorname{FSexp}(\mathcal C)$.
+The dimensions lie in $\mathbb Q(\zeta_N)$, so $8\mid N$.
+For $3\widetilde3\equiv1\pmod N$, the automorphism
+$\sigma(\zeta_N)=\zeta_N^{\widetilde3}$ therefore flips $\sqrt2$.
+The higher Gauss-sum formula~\cite[Theorem~4.4, (4.17)]{NSWHigherGauss}
+gives
+\[
+ \sum_i d_i\nu_3(X_i)=\frac D{\sigma(D)}
+ =\frac D{D'}=\delta^2=1+2\sum_{i>0}d_i.
+\]
+We have $\nu_3(1)=1$. For $i>0$, $\nu_3(X_i)$ is the trace of an
+order-three operator on a two-dimensional space, so
+$\operatorname{Re}\nu_3(X_i)\le2$.
+All $d_i$ are positive, so the displayed equality forces equality
+for every summand. Every rotation eigenvalue is consequently $1$;
+the operator is diagonalizable because its cube is the identity.
+\end{proof}
+
+The existing height-four full-character-field phase witness already
+has third-rotation weights $(0,2)$, for trace types $(-1/2,1)$,
+at every nonunit simple. Thus this restriction does not exclude that
+relaxation. Exact source arithmetic and the cached-coordinate audit are
+recorded in
+\path{evidence/r3472_focus_20261022/independent/verify_third_indicators.py}.
+
+% Bibliography addition needed if this fragment is integrated:
+% \bibitem{NSWHigherGauss} S.-H.~Ng, A.~Schopieray and Y.~Wang,
+% \emph{Higher Gauss sums of modular categories},
+% Selecta Math. (N.S.) \textbf{25} (2019), Paper 53;
+% arXiv:1812.11234v2, Theorem~4.4.

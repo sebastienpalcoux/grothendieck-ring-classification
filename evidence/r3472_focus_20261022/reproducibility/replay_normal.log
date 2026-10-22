@@ -1,0 +1,303 @@
+{
+  "case_id": "R8_3_3472",
+  "status": "PASS",
+  "scope": "conditional necessary restrictions if the specified based module lifts to an indecomposable module category",
+  "first_branch_generator": [
+    [
+      5,
+      7
+    ],
+    [
+      7,
+      7
+    ]
+  ],
+  "second_branch_generator": [
+    [
+      1,
+      5
+    ],
+    [
+      5,
+      11
+    ]
+  ],
+  "first_branch_previous_spectra": 10,
+  "first_branch_product_excluded_spectra": 3,
+  "first_branch_retained_indices": [
+    1,
+    2,
+    4,
+    6,
+    7,
+    8,
+    10
+  ],
+  "first_branch_exact_product_checks": [
+    {
+      "spectrum_index": 0,
+      "duality": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "dimensions": [
+        [
+          1,
+          0
+        ],
+        [
+          6,
+          5
+        ],
+        [
+          6,
+          5
+        ],
+        [
+          9,
+          5
+        ],
+        [
+          14,
+          10
+        ]
+      ],
+      "variables": 20,
+      "equations": 32,
+      "complete_search_nodes": 72,
+      "outcome": "no nonnegative integer solution"
+    },
+    {
+      "spectrum_index": 0,
+      "duality": [
+        0,
+        2,
+        1,
+        3,
+        4
+      ],
+      "dimensions": [
+        [
+          1,
+          0
+        ],
+        [
+          6,
+          5
+        ],
+        [
+          6,
+          5
+        ],
+        [
+          9,
+          5
+        ],
+        [
+          14,
+          10
+        ]
+      ],
+      "variables": 16,
+      "equations": 32,
+      "complete_search_nodes": 22,
+      "outcome": "no nonnegative integer solution"
+    },
+    {
+      "spectrum_index": 3,
+      "duality": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "dimensions": [
+        [
+          1,
+          0
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          8,
+          5
+        ],
+        [
+          8,
+          5
+        ],
+        [
+          14,
+          10
+        ]
+      ],
+      "variables": 20,
+      "equations": 32,
+      "complete_search_nodes": 39,
+      "outcome": "no nonnegative integer solution"
+    },
+    {
+      "spectrum_index": 3,
+      "duality": [
+        0,
+        1,
+        3,
+        2,
+        4
+      ],
+      "dimensions": [
+        [
+          1,
+          0
+        ],
+        [
+          5,
+          5
+        ],
+        [
+          8,
+          5
+        ],
+        [
+          8,
+          5
+        ],
+        [
+          14,
+          10
+        ]
+      ],
+      "variables": 16,
+      "equations": 32,
+      "complete_search_nodes": 11,
+      "outcome": "no nonnegative integer solution"
+    },
+    {
+      "spectrum_index": 5,
+      "duality": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "dimensions": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          7,
+          5
+        ],
+        [
+          7,
+          5
+        ],
+        [
+          9,
+          5
+        ],
+        [
+          13,
+          10
+        ]
+      ],
+      "variables": 35,
+      "equations": 55,
+      "complete_search_nodes": 380,
+      "outcome": "no nonnegative integer solution"
+    },
+    {
+      "spectrum_index": 5,
+      "duality": [
+        0,
+        1,
+        3,
+        2,
+        4,
+        5
+      ],
+      "dimensions": [
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          7,
+          5
+        ],
+        [
+          7,
+          5
+        ],
+        [
+          9,
+          5
+        ],
+        [
+          13,
+          10
+        ]
+      ],
+      "variables": 30,
+      "equations": 55,
+      "complete_search_nodes": 79,
+      "outcome": "no nonnegative integer solution"
+    }
+  ],
+  "second_branch_integral_subcategory_dimensions": [
+    1,
+    2,
+    5,
+    7
+  ],
+  "second_branch_arithmetic_counts": [
+    {
+      "integral_global_dimension": 1,
+      "nonintegral_multisets": 272348,
+      "states": 1078029
+    },
+    {
+      "integral_global_dimension": 2,
+      "nonintegral_multisets": 124228,
+      "states": 840138
+    },
+    {
+      "integral_global_dimension": 5,
+      "nonintegral_multisets": 3900,
+      "states": 232981
+    },
+    {
+      "integral_global_dimension": 7,
+      "nonintegral_multisets": 2,
+      "states": 681
+    }
+  ],
+  "second_branch_arithmetic_total": 400478,
+  "second_branch_orbit_excluded": 1,
+  "second_branch_arithmetic_after_orbit": 400477,
+  "positive_control": "Original R3472 fusion tensor satisfies all constructed Frobenius/unit/dimension equations",
+  "general_categorification_status": "unresolved",
+  "new_model_constructed": false,
+  "inputs": {
+    "evidence/rank8_research_20261022/r1768_r3472/r3472_rank_two_dual_spectra.json": "3a9184e3248ca861edbdbf9137b220dea71856e1b2ff5abdd937f86625de5f4c",
+    "evidence/rank8_next_20261021/quadratic/action_classes.json": "3c610085cf25cea6a7ea0e7b2841928ac63bbbac49805646ddb385ad57f89b18",
+    "site/dist/downloads/fusion-tensors/R8_3_3472.txt": "09c2962989aea6f160da62648d2905e3aed5f173a72ba62f5103593223c01b0b"
+  }
+}

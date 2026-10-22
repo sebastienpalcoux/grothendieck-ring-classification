@@ -39,6 +39,11 @@ def normalize(text):
     text=re.sub(r'\\texttt\{R8\\_([0-9]+)\\_([0-9]+)\}',lambda m:r'\sha{R8_'+m[1]+'_'+m[2]+'}',text)
     return re.sub(r'\\texttt\{([^}]+)\}',lambda m:r'\path{'+m[1].replace(r'\_','_')+'}',text)
 BIB={
+'NgHigherPivotal':r'''S.-H.~Ng and P.~Schauenburg, \emph{Higher Frobenius--Schur indicators for pivotal categories}, Contemp. Math. \textbf{441} (2007), 63--90; arXiv:math/0503167v2, Theorem~5.1 and its proof.''',
+'IntegralPublished':r'''M.~A.~Alekseyev, W.~Bruns, J.~Dong and S.~Palcoux, \emph{Classifying integral Grothendieck rings up to rank 5 and beyond}, Lett. Math. Phys. \textbf{116} (2026), Paper 141, Proposition~5.7; doi:10.1007/s11005-026-02164-7.''',
+'NSWHigherGauss':r'''S.-H.~Ng, A.~Schopieray and Y.~Wang, \emph{Higher Gauss sums of modular categories}, Selecta Math. (N.S.) \textbf{25} (2019), Paper 53; arXiv:1812.11234v2, Theorem~4.4.''',
+'RWQuadraticFocus':r'''D.~Radchenko and C.~Wheeler, \emph{Real quadratic fields and finite quantum dilogarithms I}, arXiv:2609.21892v2 (2026), Sections~4.3 and~5.4.''',
+'LPRSimpleFocus':r'''Z.~Liu, S.~Palcoux and Y.~Ren, \emph{Interpolated family of non-group-like simple integral fusion rings of Lie type}, Internat. J. Math. \textbf{34} (2023), no.~6, 2350030; arXiv:2102.01663v4, Theorem~5.1.''',
 'GrossmanIzumiCentersNext':r'''P.~Grossman and M.~Izumi, \emph{Drinfeld centers of fusion categories arising from generalized Haagerup subfactors}, arXiv:1501.07679v2 (2019), equations~(2.21)--(2.22), Example~4.4 and Section~6.''',
 'GrossmanIzumiMetricNext':r'''P.~Grossman and M.~Izumi, \emph{Infinite families of potential modular data related to quadratic categories}, arXiv:1906.07397v2 (2019), Definition~6.1 and Section~6.1.6.''',
 'DeshpandeVerlindeFollowup':r'''T.~Deshpande, \emph{On twisted Verlinde formulae for modular categories}, arXiv:1811.08447v1 (2018), Theorem~1.1.''',
@@ -103,13 +108,14 @@ proved in Theorem~\ref{thm:r721-qsystem-model}. A recorded construction proves
 existence, without claiming uniqueness up to tensor equivalence.
 \end{theorem}
 The source-bound combined ledger is
-\path{supplements/rank8/output/m3/ledger.json}. Its exact-M3 first-exclusion
+\par\noindent{\small\path{supplements/rank8/output/m3/ledger.json}}.
+Its exact-M3 first-exclusion
 allocation follows. Overlapping obstructions are retained in the evidence
 rather than counted twice.
 \begin{center}\small\begin{longtable}{@{}p{.75\textwidth}r@{}}\toprule
 First accepted criterion & Rings\\\midrule\endhead
 '''
-    for kind,n in sorted(Counter(r['certificate']['kind'] for r in new if r['status']=='excluded').items()):text+=tex(kind.replace('_',' '))+f' & ${n}$\\\\\n'
+    for kind,n in sorted(Counter((r.get('certificate') or {}).get('kind') or r['criterion'] for r in new if r['status']=='excluded').items()):text+=tex(kind.replace('_',' '))+f' & ${n}$\\\\\n'
     text+=r'''\bottomrule\end{longtable}\end{center}
 The lower-multiplicity classification below retains its original scope and
 proof inputs. Its historical allocation is separate from this table.
@@ -352,10 +358,27 @@ The 22 October research overlay replays separately with
 It accepts the general exclusions of $\sha{R8_3_65}$ and $\sha{R8_3_1795}$.
 '''
     if ext.get('creative'):
-        shutil.copy2(ROOT/'evidence/rank8_creative_20261022/r3472/integrated_manuscript.tex',
-                     PAPER/'m3_creative_20261022.tex')
+        creative=(ROOT/'evidence/rank8_creative_20261022/r3472/integrated_manuscript.tex').read_text()
+        creative=creative.replace('It therefore leaves the unresolved list. The exact-multiplicity-three\ncounts become',
+            'It therefore left the unresolved list at this historical checkpoint.\nThe exact-multiplicity-three counts at that checkpoint were')
+        creative=creative.replace('$5$ unresolved cases; cumulatively through multiplicity three they are',
+            '$5$ unresolved cases; cumulatively through multiplicity three they were')
+        if by_id['R8_3_3472']['status']=='excluded':
+            creative=creative.replace('conditional Morita restrictions; R3472 remains unresolved.',
+                r'conditional Morita restrictions. R3472 was unresolved at this checkpoint; its later general exclusion is Theorem~\ref{thm:r3472-general-exclusion}.')
+            creative=creative.replace('$4402$, $93$ and $5$, respectively.',
+                r'$4402$, $93$ and $5$, respectively. The later exclusion of $\sha{R8_3_3472}$ in Theorem~\ref{thm:r3472-general-exclusion} gives the current totals in Theorem~\ref{thm:m3-current}.')
+        (PAPER/'m3_creative_20261022.tex').write_text(creative)
         text=text.replace(r'\input{m3_pointed_followup}',
                           r'\input{m3_pointed_followup}'+'\n'+r'\input{m3_creative_20261022}')
+        focus=ROOT/'evidence/r3472_focus_20261022/manuscript.tex'
+        if by_id['R8_3_3472']['status']=='excluded':
+            focus=ROOT/'evidence/r3472_exclusion_20261022/manuscript.tex'
+            if not focus.is_file():raise ValueError('Missing accepted R3472 exclusion manuscript')
+        if focus.is_file():
+            shutil.copy2(focus,PAPER/'m3_r3472_focus.tex')
+            text=text.replace(r'\input{m3_creative_20261022}',
+                              r'\input{m3_creative_20261022}'+'\n'+r'\input{m3_r3472_focus}')
         text=text.replace(r'\input{m3_model_search}',r'''\paragraph{Historical search stages.}
 The following earlier campaigns retain their original proof domains and
 checkpoint results. Their historical unresolved lists are superseded by
@@ -369,8 +392,24 @@ Run also with \texttt{-O}. The flag \texttt{--metadata-only} validates
 recorded receipts; \texttt{--historical} additionally replays earlier
 mathematics from the pinned historical archive. The separate archive is
 \begin{quote}\small\path{supplements/rank8/release/rank8-certified-creative-20261022.zip}.\end{quote}
-Only $\sha{R8_3_982}$ changes status in this overlay. The other five cases
-retain their stated unresolved status.
+Only $\sha{R8_3_982}$ changed status in that historical overlay, leaving
+five unresolved cases at that checkpoint.
+'''
+        if by_id['R8_3_3472']['status']=='excluded':
+            text+=r'''
+The subsequent exact center-indicator certificate excludes
+$\sha{R8_3_3472}$ over $\mathbb C$ by
+Theorem~\ref{thm:r3472-general-exclusion}. Its full source-derived replay is
+\begin{quote}\small
+\texttt{python3 }\path{evidence/r3472_exclusion_20261022/replay.py}.
+\end{quote}
+The self-contained terminal checker is
+\begin{quote}\small
+\texttt{python3 }\path{evidence/r3472_exclusion_20261022/terminal/check.py}.
+\end{quote}
+It verifies $1648$ exact integer bound deductions and the final rational
+separator; the complete package also checks the categorical reduction,
+domain coverage and construction of the necessary system.
 '''
     (PAPER/'m3_continuation.tex').write_text(text)
     (PAPER/'m3_criteria.tex').write_text((ROOT/EVIDENCE/'criteria/criteria_m3.tex').read_text().replace('Certified subrings and a compositum compression criterion','Certified subrings and compositum compression'))
@@ -410,6 +449,12 @@ retain their stated unresolved status.
     if ext.get('creative'):
         abstract=abstract.replace('Pointed-induction Fourier criteria',
           'The triality-zero component of the known unitary $E_{21}$ category for $SU(3)_{21}\\subset(E_7)_1$ realizes $\\sha{R8_3_982}$ by an exact comparison of all $512$ fusion coefficients. Pointed-induction Fourier criteria')
+        if by_id['R8_3_3472']['status']=='excluded':
+            abstract=abstract.replace('Tensor comparisons and exact replay certificates accompany these results.',
+              'A complete center-frame and Galois twist-orbit reduction, followed by an exact integer rotation certificate, excludes $\\sha{R8_3_3472}$ over $\\mathbb C$. The terminal contradiction replays with rational arithmetic and no optimization solver. Tensor comparisons and exact replay certificates accompany these results.')
+        elif (ROOT/'evidence/r3472_focus_20261022/manuscript.tex').is_file():
+            abstract=abstract.replace('Tensor comparisons and exact replay certificates accompany these results.',
+              'For $\\sha{R8_3_3472}$, every Morita partner has one or seven invertible simples, with precisely two possible based rings in the seven-invertible case. Direct Radchenko--Wheeler parent quotients remain impossible after arbitrary pointed stabilization. These restrictions and maximal third indicators leave the ring unresolved. Tensor comparisons and exact replay certificates accompany these results.')
     s=re.sub(r'\\begin\{abstract\}.*?\\end\{abstract\}',lambda _:r'\begin{abstract}'+'\n'+abstract+'\n'+r'\end{abstract}',s,flags=re.S)
     replacements={
       'all $877$ of exact multiplicity two.':'all $877$ of exact multiplicity two, and the supplied extension adds $3527$ of exact multiplicity three.',
