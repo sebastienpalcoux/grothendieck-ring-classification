@@ -74,7 +74,7 @@ function casesFor(search) {
   sandbox.testCases.parseFilters();return sandbox.testCases;
 }
 const selections=[
-  ["",8],["?rank=8&m=3",6],["?rank=8&max_m=3",6],["?rank=6",2],
+  ["",7],["?rank=8&m=3",5],["?rank=8&max_m=3",5],["?rank=6",2],
   ["?rank=6&m=4",1],["?rank=6&m=8",1],["?rank=6&max_m=7",1],
   ["?rank=6&max_m=9",2],["?rank=7&m=5",0],["?rank=8&m=2",0],
 ];
@@ -187,9 +187,18 @@ for(const ring of unresolved) {
 
 for(const ring of resolved) {
   const view=caseAPI.renderCategorification(ring);
-  assert.match(view.textContent,/No general categorification/);
   assert.doesNotMatch(view.textContent,/General categorifiability remains unresolved/);
-  assert.equal(descendants(view).filter(node=>node.getAttribute("role")==="img").length,0,"Excluded cases do not need hypothetical-structure diagrams");
+  if(ring.status==="excluded") {
+    assert.match(view.textContent,/No general categorification/);
+    assert.equal(descendants(view).filter(node=>node.getAttribute("role")==="img").length,0,"Excluded cases do not need hypothetical-structure diagrams");
+  } else {
+    assert.equal(ring.id,"R8_3_982");
+    assert.equal(ring.status,"unitarily_realized");
+    assert.match(view.textContent,/Unitary categorification realized/);
+    assert.match(view.textContent,/do not assert that every categorification is unitary/);
+    assert.doesNotMatch(view.textContent,/No general categorification/);
+    assert.ok(descendants(view).some(node=>node.getAttribute("role")==="img"),"The realized case retains its proved universal implications");
+  }
 }
 
 const appSource=read("app.js"),appEnd="\nstart();";
@@ -224,12 +233,12 @@ for(const record of atlas.scope.filter(r=>r.unresolved))
   assertLink(doc.querySelector("#scope-cards"),`${record.unresolved} unresolved`,`?rank=${record.rank}&max_m=${record.analyzed_through}`);
 doc.querySelector("#research-update").append(new TestNode("a"));
 app.renderTheoreticalUpdate();
-assertLink(doc.querySelector("#research-update-title"),"6 open cases","?rank=8&max_m=3");
-assertLink(doc.querySelector("#theoretical-update-heading"),"8 open cases","");
+assertLink(doc.querySelector("#research-update-title"),"5 open cases","?rank=8&max_m=3");
+assertLink(doc.querySelector("#theoretical-update-heading"),"7 open cases","");
 for(const selector of ["#research-update-summary","#theoretical-update-scope"])
-  assertLink(doc.querySelector(selector),"6 extensively investigated exotic candidates","?rank=8&m=3");
+  assertLink(doc.querySelector(selector),"5 extensively investigated exotic candidates","?rank=8&m=3");
 assertLink(doc.querySelector("#research-update-summary"),"2 rank-six","?rank=6");
-assertLink(doc.querySelector("#research-update-summary"),"6 rank-eight","?rank=8");
+assertLink(doc.querySelector("#research-update-summary"),"5 rank-eight","?rank=8");
 for(const ring of realized) {
   const link=app.tensorDownload(ring),url=new URL(link.href,origin);
   assert.equal(decodeURIComponent(url.pathname),`/grothendieck-ring-classification/downloads/fusion-tensors/${ring.id}.txt`);
