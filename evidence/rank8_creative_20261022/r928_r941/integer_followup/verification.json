@@ -1,0 +1,68 @@
+{
+  "status": "PASS",
+  "bindings": {
+    "README.md": "6a955beb806ce79ec85a6556bfcfffb6c67782c1682a311cc9cbc7b7d75a0077",
+    "PROOF.md": "5d7c38e13855c406ec06c20110b7120fa752af74c066ebf935a5bc64b61b1111",
+    "verify.py": "2909dad85110de0bc3acfb8a47c8caa349e7e8a3b523fe0c962406a854926773",
+    "search.py": "3992f0c81e49c76410cbfd9d8e4f6ec791d414d30fb85505602f2fa271461c66",
+    "search.json": "b1197ea38365b1be38426cf0e7581e5decba9f8ba707185634b3d8b581fb5918",
+    "branch_search.py": "9927b6826a12385ccf82692c9f3e56cc9fcc4090e891ad2ac2dc2c224767cf14",
+    "branches.json": "2263d45c38d75769fd92befa91fb569e7846d21708d4d304f5f879b50119eb6a",
+    "../verification.json": "491bbebe3c63a8fc28a8907b956376c50b4b552026e6b766a1861e2e8cefacfc"
+  },
+  "records": [
+    {
+      "pattern": 40,
+      "outcome": "exact_integer_phase_feasible"
+    },
+    {
+      "pattern": 44,
+      "outcome": "exact_integer_phase_impossible",
+      "nodes": 13,
+      "farkas_leaves": 7
+    },
+    {
+      "pattern": 49,
+      "outcome": "exact_integer_phase_feasible"
+    },
+    {
+      "pattern": 58,
+      "outcome": "exact_integer_phase_impossible",
+      "nodes": 13,
+      "farkas_leaves": 7
+    },
+    {
+      "pattern": 186,
+      "outcome": "exact_integer_phase_feasible"
+    },
+    {
+      "pattern": 191,
+      "outcome": "exact_integer_phase_feasible"
+    },
+    {
+      "pattern": 196,
+      "outcome": "exact_integer_phase_impossible",
+      "nodes": 11,
+      "farkas_leaves": 6
+    },
+    {
+      "pattern": 243,
+      "outcome": "exact_integer_phase_impossible",
+      "nodes": 13,
+      "farkas_leaves": 7
+    },
+    {
+      "pattern": 245,
+      "outcome": "exact_integer_phase_impossible",
+      "nodes": 31,
+      "farkas_leaves": 16
+    },
+    {
+      "pattern": 248,
+      "outcome": "exact_integer_phase_impossible",
+      "nodes": 11,
+      "farkas_leaves": 6
+    }
+  ],
+  "scope": "Exact integer-phase pattern cuts and exact surviving phase witnesses; R928 remains unresolved."
+}

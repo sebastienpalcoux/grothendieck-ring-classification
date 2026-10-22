@@ -1,0 +1,256 @@
+{
+  "accepted": "evidence/rank8_creative_20261022/accepted.json",
+  "accepted_sha256": "752da9e42e39b92c4c4a675419ad4569a1f85f2228090463d728cb8501e22fef",
+  "all_mathematical_children_assertions_enabled": true,
+  "attempts_source": "evidence/rank8_creative_20261022/per_ring_research_audit.json",
+  "baseline_ledger": "supplements/rank8/output/research_20261022/ledger.json",
+  "baseline_ledger_sha256": "521b9b9fb16a86c7c4ba491b8c2c0ebad05de1e41aafb5bc225d6342c9477e4e",
+  "baseline_records_preserved": 4499,
+  "child_policy": "All mathematical children run unoptimized, protecting direct and transitive inherited assertions.",
+  "counts": {
+    "excluded": 3506,
+    "unitarily_realized": 16,
+    "unresolved": 5
+  },
+  "cumulative_counts": {
+    "excluded": 4402,
+    "unitarily_realized": 93,
+    "unresolved": 5
+  },
+  "date": "2026-10-22",
+  "evidence": "evidence/rank8_creative_20261022",
+  "full_historical_mathematical_replay_performed": false,
+  "historical_archive": {
+    "archive": "supplements/rank8/release/rank8-certified-research-20261022.zip",
+    "archive_sha256": "7c3b35b94e683db34a2247edf9e4247e1424be71c72ad8379e4d503c2267319a",
+    "current_publication_documents_replaced": [
+      "site/BRAIDED_CATEGORIFICATION.md",
+      "site/CATEGORIFICATION_SCOPE.md"
+    ],
+    "current_routers_replaced": [
+      "tools/rank8_publication.py",
+      "tools/verify_current_publication.py"
+    ],
+    "historical_publication_document_bytes_preserved_in_archive": true,
+    "historical_router_bytes_preserved_in_archive": true,
+    "source_files": 1785,
+    "source_manifest": "evidence/rank8_research_20261022/publication/source_manifest.json",
+    "source_manifest_sha256": "67f00e4b4ba0ddbd3586ea308f7cc56e04589f7851338f015a009992ac1c2b09"
+  },
+  "inherited_models_preserved": 92,
+  "ledger": "supplements/rank8/output/creative_20261022/ledger.json",
+  "ledger_sha256": "edac9d5685ed86acfff16d620598d76324430559cab58d9bf24d59074927d067",
+  "mathematical_replay_performed": true,
+  "models": "supplements/rank8/output/creative_20261022/model_catalog.json",
+  "models_sha256": "7b84c11792c15c9cc07a723fe3d03cf8c56f049907bb9de7be35fb9cefbbf382",
+  "new_decisions": 1,
+  "new_models": 1,
+  "optimized_python_requested": true,
+  "remaining_ids": [
+    "R8_3_928",
+    "R8_3_941",
+    "R8_3_1154",
+    "R8_3_1768",
+    "R8_3_3472"
+  ],
+  "resolved_ids": [
+    "R8_3_982"
+  ],
+  "scope": "All accepted targeted mathematical checks. Scoped necessary conditions are not models; historical evidence remains separately certified.",
+  "seconds": 324.261524,
+  "sections": [
+    {
+      "assertions_enabled": true,
+      "direct_assert_statements": 0,
+      "log": "evidence/rank8_creative_20261022/publication/replay_optimized_logs/01_verify_saturated_conductor.log",
+      "log_sha256": "efc57b052c3b5865e6bb078c108440dcdc3432592b68acf3a3f6003e825a4c32",
+      "python_optimization": 0,
+      "returncode": 0,
+      "script": "evidence/rank8_creative_20261022/unified/verify_saturated_conductor.py",
+      "seconds": 1.396098
+    },
+    {
+      "assertions_enabled": true,
+      "direct_assert_statements": 0,
+      "log": "evidence/rank8_creative_20261022/publication/replay_optimized_logs/02_verify_composite_support.log",
+      "log_sha256": "450d4147614c8e89fba76e7aa450a07b2f8c18e64a739c1aa7b703da1dfad165",
+      "python_optimization": 0,
+      "returncode": 0,
+      "script": "evidence/rank8_creative_20261022/unified/verify_composite_support.py",
+      "seconds": 0.766126
+    },
+    {
+      "assertions_enabled": true,
+      "direct_assert_statements": 0,
+      "log": "evidence/rank8_creative_20261022/publication/replay_optimized_logs/03_prime_gauss_audit.log",
+      "log_sha256": "f3286da4db658edb096cc4cd19e89b3c996414853a81ce4c8bf3b07cddb58754",
+      "python_optimization": 0,
+      "returncode": 0,
+      "script": "evidence/rank8_creative_20261022/unified/prime_gauss_audit.py",
+      "seconds": 0.048642
+    },
+    {
+      "assertions_enabled": true,
+      "direct_assert_statements": 0,
+      "log": "evidence/rank8_creative_20261022/publication/replay_optimized_logs/04_conductor_local_audit.log",
+      "log_sha256": "76f8f7c57bfe48047adf4857484780508b0aa29ddec43109e2e04dd8955596ff",
+      "python_optimization": 0,
+      "returncode": 0,
+      "script": "evidence/rank8_creative_20261022/r982/conductor_local_audit.py",
+      "seconds": 4.530864
+    },
+    {
+      "assertions_enabled": true,
+      "direct_assert_statements": 0,
+      "log": "evidence/rank8_creative_20261022/publication/replay_optimized_logs/05_morita_object.log",
+      "log_sha256": "83f3108f8ba5941ea90df546b0c5ac8ca443ee02e5b703c6371bd8275906b6c5",
+      "python_optimization": 0,
+      "returncode": 0,
+      "script": "evidence/rank8_creative_20261022/r982/morita_object.py",
+      "seconds": 0.669475
+    },
+    {
+      "assertions_enabled": true,
+      "direct_assert_statements": 0,
+      "log": "evidence/rank8_creative_20261022/publication/replay_optimized_logs/06_morita_ring.log",
+      "log_sha256": "5db4061c128a306f1e8be942024ad5726750b75d82d6f84c7c2fc909e4de7901",
+      "python_optimization": 0,
+      "returncode": 0,
+      "script": "evidence/rank8_creative_20261022/r982/morita_ring.py",
+      "seconds": 1.751643
+    },
+    {
+      "assertions_enabled": true,
+      "direct_assert_statements": 0,
+      "log": "evidence/rank8_creative_20261022/publication/replay_optimized_logs/07_verify_r982_morita.log",
+      "log_sha256": "1c0bf7501c05d19f7319cf4ef213d02544f251608fc442623f14c9aab34909d0",
+      "python_optimization": 0,
+      "returncode": 0,
+      "script": "evidence/rank8_creative_20261022/unified/audits/verify_r982_morita.py",
+      "seconds": 0.448199
+    },
+    {
+      "assertions_enabled": true,
+      "direct_assert_statements": 0,
+      "log": "evidence/rank8_creative_20261022/publication/replay_optimized_logs/08_e21_model.log",
+      "log_sha256": "f2914f193fd88fc0d8e2a48b7850af1616aca497a43abfee9b0c6beb634322e5",
+      "python_optimization": 0,
+      "returncode": 0,
+      "script": "evidence/rank8_creative_20261022/r982/e21_model.py",
+      "seconds": 1.644275
+    },
+    {
+      "assertions_enabled": true,
+      "direct_assert_statements": 0,
+      "log": "evidence/rank8_creative_20261022/publication/replay_optimized_logs/09_build_model_catalog_entry.log",
+      "log_sha256": "2a05b1fd9e8b720cbfe8797ad085c53fd085ace91bd0d314fe8cd90ffbed0a92",
+      "python_optimization": 0,
+      "returncode": 0,
+      "script": "evidence/rank8_creative_20261022/r982/build_model_catalog_entry.py",
+      "seconds": 1.453642
+    },
+    {
+      "assertions_enabled": true,
+      "direct_assert_statements": 0,
+      "log": "evidence/rank8_creative_20261022/publication/replay_optimized_logs/10_verify_e21_independent.log",
+      "log_sha256": "47604f30f141c806ac9c916fc0c3e84d608ba3909a8db2ea23914f08c5c3390e",
+      "python_optimization": 0,
+      "returncode": 0,
+      "script": "evidence/rank8_creative_20261022/unified/audits/verify_e21_independent.py",
+      "seconds": 2.818123
+    },
+    {
+      "assertions_enabled": true,
+      "direct_assert_statements": 0,
+      "log": "evidence/rank8_creative_20261022/publication/replay_optimized_logs/11_verify_e21_model.log",
+      "log_sha256": "2a70ac72d7f7e6e5cef064139eacef08102c5b04d9682ce9eb233e68bbc45143",
+      "python_optimization": 0,
+      "returncode": 0,
+      "script": "evidence/rank8_creative_20261022/unified/verify_e21_model.py",
+      "seconds": 1.900148
+    },
+    {
+      "assertions_enabled": true,
+      "direct_assert_statements": 0,
+      "log": "evidence/rank8_creative_20261022/publication/replay_optimized_logs/12_verify.log",
+      "log_sha256": "8d05009efee4abc078b7a6d3f78c57167b1e0d4d573e82c0a63148734ecf6f09",
+      "python_optimization": 0,
+      "returncode": 0,
+      "script": "evidence/rank8_creative_20261022/r1154/verify.py",
+      "seconds": 39.49167
+    },
+    {
+      "assertions_enabled": true,
+      "direct_assert_statements": 0,
+      "log": "evidence/rank8_creative_20261022/publication/replay_optimized_logs/13_verify_r1154_packet.log",
+      "log_sha256": "a18abab87f72c8ec5921c56cc57e40327123dca449ac668040c36087cf9f73b9",
+      "python_optimization": 0,
+      "returncode": 0,
+      "script": "evidence/rank8_creative_20261022/unified/audits/verify_r1154_packet.py",
+      "seconds": 10.93766
+    },
+    {
+      "assertions_enabled": true,
+      "direct_assert_statements": 0,
+      "log": "evidence/rank8_creative_20261022/publication/replay_optimized_logs/14_verify.log",
+      "log_sha256": "cb154e86f3efe88df9ae241978821c85a9171f5b6cd48cffe6b47d832bbe87cb",
+      "python_optimization": 0,
+      "returncode": 0,
+      "script": "evidence/rank8_creative_20261022/r1768/verify.py",
+      "seconds": 44.028843
+    },
+    {
+      "assertions_enabled": true,
+      "direct_assert_statements": 0,
+      "log": "evidence/rank8_creative_20261022/publication/replay_optimized_logs/15_verify_r1768_weil.log",
+      "log_sha256": "83a31174254d37e58fd3cc241901a07f68ec93314221551e73b16a6f93c21825",
+      "python_optimization": 0,
+      "returncode": 0,
+      "script": "evidence/rank8_creative_20261022/unified/verify_r1768_weil.py",
+      "seconds": 1.211825
+    },
+    {
+      "assertions_enabled": true,
+      "direct_assert_statements": 0,
+      "log": "evidence/rank8_creative_20261022/publication/replay_optimized_logs/16_verify.log",
+      "log_sha256": "6211b407e6bbce2227c64e5eba7f3e714cbbe7e242e69db6a6066aa76c499f46",
+      "python_optimization": 0,
+      "returncode": 0,
+      "script": "evidence/rank8_creative_20261022/r3472/verify.py",
+      "seconds": 2.009491
+    },
+    {
+      "assertions_enabled": true,
+      "direct_assert_statements": 0,
+      "log": "evidence/rank8_creative_20261022/publication/replay_optimized_logs/17_verify_construction_routes.log",
+      "log_sha256": "7225cfd79419ae2f7076a427537fe80f2ac5ab7e015e338fe7403c7cf318d987",
+      "python_optimization": 0,
+      "returncode": 0,
+      "script": "evidence/rank8_creative_20261022/r3472/verify_construction_routes.py",
+      "seconds": 0.110282
+    },
+    {
+      "assertions_enabled": true,
+      "direct_assert_statements": 0,
+      "log": "evidence/rank8_creative_20261022/publication/replay_optimized_logs/18_verify.log",
+      "log_sha256": "a73ec2294d6d0c269e5acaa358ef2d28f9723e7e0f8960947263aa1b88d31a89",
+      "python_optimization": 0,
+      "returncode": 0,
+      "script": "evidence/rank8_creative_20261022/r928_r941/verify.py",
+      "seconds": 282.879139
+    },
+    {
+      "assertions_enabled": true,
+      "direct_assert_statements": 0,
+      "log": "evidence/rank8_creative_20261022/publication/replay_optimized_logs/19_verify.log",
+      "log_sha256": "46e2ee461c8eb8fa764e03153dbdb5c7f403c3088fe4b5544b4df0a77d73bd06",
+      "python_optimization": 0,
+      "returncode": 0,
+      "script": "evidence/rank8_creative_20261022/r928_r941/integer_followup/verify.py",
+      "seconds": 104.09587
+    }
+  ],
+  "source_manifest_sha256": "b3b9a63be7d39e33e6b4b62d67e09d3674bdc502b56e147a296be0d17fa5dd1a",
+  "status": "PASS",
+  "targeted_scripts": 19
+}

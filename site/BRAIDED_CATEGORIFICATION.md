@@ -1,7 +1,7 @@
-# Braided scope of the unresolved cases
+# Braided scope of the unresolved and retained cases
 
 Braiding is a separate requirement from pivotality, sphericality,
-pseudo-unitarity and unitarity. Every current unresolved case is excluded
+pseudo-unitarity and unitarity. Every one of the seven current unresolved cases is excluded
 from braided categorification without a pivotality assumption. The four
 previously conditional rank-eight exclusions become unconditional by the
 complete sphericalization gates of 22 October 2026. All conclusions retain
@@ -10,7 +10,16 @@ the project's independent-review caution.
 | Cases | Strongest braided exclusion recorded here |
 | --- | --- |
 | `R6_4_155`, `R6_8_1660` | No general braided categorification |
-| `R8_3_928`, `R8_3_941`, `R8_3_982`, `R8_3_1154`, `R8_3_1768`, `R8_3_3472` | No general braided categorification, and no braided Morita representative |
+| `R8_3_928`, `R8_3_941`, `R8_3_1154`, `R8_3_1768`, `R8_3_3472` | No general braided categorification, and no braided Morita representative |
+| `R8_3_982` (unitarily realized) | No general braided categorification, and no braided Morita representative |
+
+`R8_3_982` is now realized by the triality-zero component of the unitary
+E21 category from SU(3)_21 into E7_1; see the
+[source construction and exact fusion-tensor identification](../evidence/rank8_creative_20261022/r982/E21_MODEL.md).
+This unbraided unitary model is consistent with the braiding obstruction
+below. Its former case page retains both results and the complete research
+history. Realization does not weaken or remove the universal braiding
+and braided-Morita exclusions.
 
 `R8_3_65` is now excluded from general categorification by the independent
 [pointed-induction Fourier obstruction](../evidence/rank8_research_20261022/r65/PROOF.md).
@@ -153,7 +162,9 @@ rings is pointed, and each global FP dimension is irrational. The
 therefore shows that a braided Morita representative would give a braiding
 on the source category itself. The preceding exclusions rule this out.
 This is a restriction on constructions through Morita equivalence; it does
-not exclude the seven remaining rings from general unbraided categorification.
+not exclude the five remaining rank-eight rings from general unbraided
+categorification, and it is consistent with the unitary realization of
+R8_3_982.
 
 ## Replay and maintenance
 
@@ -167,4 +178,5 @@ The curated `categorification_scope.json` records general braided status
 separately from any conditional exclusion, with SHA-256-bound proof sources.
 Rebuild with `python3 site/build_cases.py --classification .`, then run
 `npm run check` from `site/`. A braided-only exclusion never changes the
-unresolved general status or the five-level implication diagrams.
+general existence status or the five-level implication diagrams. In particular,
+R8_3_982 has all five unbraided levels realized and still has braiding excluded.

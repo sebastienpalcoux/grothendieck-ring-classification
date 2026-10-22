@@ -1,0 +1,798 @@
+\section{A known exceptional realization and further center restrictions}
+\label{sec:m3-creative-20261022}
+
+This continuation combines a realization from a known exceptional
+$SU(3)$ module category with necessary restrictions on the remaining
+centers and Morita constructions. A finite witness for selected center
+equations is distinguished from a categorical construction throughout.
+The exact source identities, proofs and replay programs are collected in
+\path{evidence/rank8_creative_20261022/}.
+
+\subsection{R982 is the neutral component of the known $E_{21}$ category}
+\label{subsec:creative-e21-model}
+
+\begin{theorem}[Exceptional $SU(3)$ realization]
+\label{thm:creative-e21-model}
+The ring $\sha{R8_3_982}$ is categorified by the triality-zero component
+of the known unitary $E_{21}=\mathcal E^{(24)}$ chiral fusion category
+associated to the conformal embedding $SU(3)_{21}\subset(E_7)_1$.
+It therefore leaves the unresolved list. The exact-multiplicity-three
+counts become $3506$ general exclusions, $16$ unitary models and
+$5$ unresolved cases; cumulatively through multiplicity three they are
+$4402$, $93$ and $5$, respectively.
+\end{theorem}
+\begin{proof}
+Let $\mathcal C=\operatorname{Rep}(SU(3)_{21})$ and let $A$ be the
+connected commutative algebra supplied by the local conformal embedding.
+Its vacuum branching object is
+\[
+\begin{split}
+ A={}&(0,0)+(4,4)+(6,6)+(10,10)+(21,0)+(0,21)\\
+    &+(13,4)+(4,13)+(10,1)+(1,10)+(9,6)+(6,9).
+\end{split}
+\]
+The category $\mathcal E=\mathcal C_A$ of all right modules, with
+relative tensor product, is a unitary fusion category. This categorical
+existence is classical: B\"ockenhauer--Evans,
+\emph{Modular Invariants, Graphs and $\alpha$-Induction for Nets of
+Subfactors III}, Section~6.4
+(\href{https://arxiv.org/abs/hep-th/9812110}{hep-th/9812110}),
+construct the twenty-four irreducible chiral sectors inside a unitary
+endomorphism category and give their fundamental fusion graph in
+Figure~13. This is the $E_{21}$ graph, not merely an abstract
+nonnegative matrix representation. The algebra/module description is
+also covered by Davydov--M\"uger--Nikshych--Ostrik,
+\emph{The Witt group of non-degenerate braided fusion categories},
+Sections~3.3 and~6.1
+(\href{https://arxiv.org/abs/1009.2117}{arXiv:1009.2117}).
+The local-module category has rank two; here we use all modules.
+
+Every summand of $A$ has triality $a-b=0\pmod3$. Decomposing the
+underlying object of an $A$-module by triality decomposes its module
+structure, so each simple module is homogeneous. Relative tensor
+products add degrees and duals negate them. Free induction is nonzero
+on each of the three source degrees, so this grading is faithful.
+Its degree-zero part $\mathcal D=\mathcal E_0$ is therefore a full
+unitary fusion subcategory.
+
+For exact identification, use the twenty-four vertices and directed
+fundamental adjacency matrix $G$ of Figure~43 in Coquereaux--Isasi--Schieber,
+\emph{Notes on TQFT wire models and coherence equations for $SU(3)$
+triangular cells}
+(\href{https://arxiv.org/abs/1007.0721}{arXiv:1007.0721}).
+The matrices $G,G^{\mathsf T}$ commute. Evaluation of polynomials in
+these matrices at the specified unit has successive ranks
+$1,3,6,10,15,21,24$ through total degree six. Thus the unit is cyclic,
+and the graph determines the full fusion algebra uniquely: a polynomial
+representing any basis vector at the unit is its multiplication matrix.
+The exact reconstruction verifies all twenty-four integral nonnegative
+fusion matrices and their associativity. Categorical existence is supplied
+by the preceding construction, independently of these ring tests.
+
+The three graph colors agree with the categorical triality, since the
+unit has color zero and the fundamental graph advances color by one.
+The neutral component has eight vertices. In the vertex labels of
+Figure~43, the unit-preserving identification from the canonical source
+basis is
+\[
+ (X_0,X_1,\ldots,X_7)\longmapsto
+ (1_1,6_1,6_2,7_1,7_2,3_1,1_2,3_2).
+\]
+Every one of the $512$ neutral structure constants agrees under this
+map with the exact canonical tensor of $\sha{R8_3_982}$.
+The neutral multiplicity is three. This proves the required based-ring
+identity, not just agreement of dimensions or spectra.
+\end{proof}
+
+As an independent scalar check, the faithful grading and the local-module
+category $\operatorname{Rep}((E_7)_1)$ of dimension two give
+\[
+ \FPdim(\mathcal D)
+ =\frac{\sqrt{2\FPdim(\mathcal C)}}3
+ =\frac{\sqrt6}{\sin^2(\pi/24)\sin(\pi/12)}
+ =144+96\sqrt2+80\sqrt3+56\sqrt6.
+\]
+The source graph and every canonical tensor entry are bound in
+\path{r982/e21_model.json}; the categorical audit is
+\path{unified/E21_MODEL_AUDIT.md}. Neither braiding of $\mathcal E$
+nor braiding of its neutral component is asserted. The chiral systems
+have a relative braiding, while their local intersection is a different
+subcategory.
+
+The construction also realizes a previously necessary algebra object.
+For the simple fundamental object $V\in\mathcal E_1$, the exact tensor
+identity is $V\otimes V^*=1+X_5$. Its canonical endomorphism algebra
+is connected and separable, and its multiplication stays in
+$\mathcal D$. Thus the earlier surviving object $1+X_5$ does carry an
+algebra structure in this model. The degree-one and degree-two components give invertible
+$\mathcal D$-bimodule categories with dual equivalent to $\mathcal D$.
+Their exact action tensors match the two nonregular based-module types
+from the earlier complete classification; thus all three necessary
+based-module types are realized. Their nonregularity distinguishes both
+from the identity bimodule, and the faithful $C_3$ grading supplies an
+order-three subgroup of $\operatorname{BrPic}(\mathcal D)$. The graded-component module identifications and tensor-product equivalences follow from Etingof--Nikshych--Ostrik, \emph{Fusion categories and homotopy theory}, Theorem~6.1 (\href{https://arxiv.org/abs/0909.3140}{arXiv:0909.3140}). Neither
+uniqueness of module associators nor the whole Brauer--Picard group is
+claimed.
+
+
+\subsection{Saturated dimension characters control every twist fibre}
+\label{subsec:creative-saturated-conductor}
+
+Let $\rho$ be the canonical normalized linear modular representation of
+the Drinfeld center of a spherical fusion category. Its congruence
+property makes it a representation of $\mathrm{SL}_2(\Z/N\Z)$ for a
+suitable $N$. Write $s,t$ for the standard modular generators, and let
+$P$ project onto the $t$-fixed space.
+
+\begin{lemma}[Equality in the local conductor bound]
+\label{lem:creative-local-conductor}
+Let $\pi$ be a unitary representation of
+$\mathrm{SL}_2(\Z/p^a\Z)$, and let $v$ be fixed by the upper
+unipotent subgroup and transform by the character $\alpha$ under the
+diagonal torus. If
+\[
+ \|P\pi(s)v\|=\operatorname{cond}(\alpha)^{-1/2}\|v\|,
+\]
+then the subrepresentation generated by $v$ factors through
+$\mathrm{SL}_2(\Z/\operatorname{cond}(\alpha)\Z)$.
+For trivial $\alpha$, this means that the generated representation is
+trivial.
+\end{lemma}
+\begin{proof}
+Apply the local norm bound of
+\cite[Lemma~4.1]{SchopierayDimensionBlock} to each irreducible
+summand supporting $v$. Equality holds on every such summand.
+An irreducible with a nonzero unipotent-fixed vector embeds into the
+permutation representation on primitive columns $(x,y)$ modulo $p^a$.
+For a nontrivial character of conductor $p^c$, the full maximal
+singular space of the compression $P\pi(s)P$ is spanned by
+\[
+ F_\alpha(x,y)=\alpha(y)[y\text{ is a unit}],\qquad
+ H_\alpha(x,y)=\overline{\alpha}(x)[y\equiv0\pmod{p^c}].
+\]
+Indeed the large-cell line and the small-cell space are interchanged
+by the compression; the small-to-large map has rank one, norm
+$p^{-c/2}$, and adjoint image the displayed $H_\alpha$ line.
+The two image spaces are orthogonal. Thus there are no additional
+maximal singular vectors. Both displayed functions inflate from
+primitive columns modulo $p^c$. That inflation subspace is invariant,
+so irreducibility forces every supporting summand into it.
+
+For trivial $\alpha$, equality of norms says that $\pi(s)v$ is
+unipotent-fixed. Thus $v$ is fixed both by the upper and lower
+elementary unipotent subgroups, which generate the local special
+linear group.
+\end{proof}
+
+The Chinese remainder decomposition and the tensor-product
+decomposition of irreducible representations imply the corresponding
+global result: equality for a torus character $\chi$ forces the cyclic
+representation generated by its vector to have level dividing
+$f=\operatorname{cond}(\chi)$. This removes both excess prime powers
+and primes not dividing $f$; no twist-order cutoff is imposed.
+
+\begin{theorem}[Saturated conductor support]
+\label{thm:creative-conductor-support}
+Use the dimension-block notation
+$K=\Q(\dim X:X\text{ simple})$, $D=\dim\mathcal C$, and
+\[
+ w_\chi=\sum_{\sigma\in\operatorname{Gal}(K/\Q)}
+          \chi(\sigma)e_{A_\sigma},\qquad
+ h_\chi=\sum_\sigma\frac{\chi(\sigma)}{\sigma(D)}.
+\]
+If the individual bound $f|h_\chi|^2=1$ is saturated, every central
+simple $Z$ satisfies
+\[
+ \theta_Z^f\ne1\quad\Longrightarrow\quad
+ c_\chi(Z):=\sum_\sigma\chi(\sigma)
+                \sigma\!\left(\frac{\dim Z}{D}\right)=0.
+\]
+\end{theorem}
+\begin{proof}
+The dimension-block identities
+\cite[Lemma~3.1]{SchopierayDimensionBlock} give
+$\|w_\chi\|^2=|\operatorname{Gal}(K/\Q)|$ and the matrix
+coefficient $|\operatorname{Gal}(K/\Q)|h_\chi$.
+Saturation forces equality both in Cauchy--Schwarz and in the sharp
+compression bound. Lemma~\ref{lem:creative-local-conductor} and its
+Chinese remainder consequence therefore give
+$\rho(t)^f\rho(s)w_\chi=\rho(s)w_\chi$.
+The $Z$ coordinate of $\rho(s)w_\chi$ is $c_\chi(Z)$, whereas
+$\rho(t)$ is diagonal with entry $\theta_Z$.
+\end{proof}
+
+There are useful signed refinements. For a real quadratic character
+modulo a prime $p\equiv1\pmod4$, write
+$h_\chi=\epsilon/\sqrt p$ with $\epsilon\in\{1,-1\}$.
+Only twist $1$ and primitive twists $\exp(2\pi ik/p)$ with
+$\left(\frac{k}{p}\right)=\epsilon$ can have $c_\chi(Z)\ne0$.
+The exact squared masses in these fibres are
+\begin{equation}\label{eq:creative-prime-masses}
+ \sum_{\theta_Z=1}|c_\chi(Z)|^2=\frac{\|w_\chi\|^2}{p},
+ \qquad
+ \sum_{\theta_Z=e^{2\pi ik/p}}|c_\chi(Z)|^2
+       =\frac{2\|w_\chi\|^2}{p}.
+\end{equation}
+To prove both assertions, in the primitive-column model use the
+compression eigenvector $F+\epsilon\sqrt pH$.
+On each large-cell unipotent orbit its $s$-image is
+$\chi(y)(\chi(t)+\epsilon\sqrt p[t=0])$.
+The nonzero-frequency Fourier coefficients are
+$\sqrt p(\chi(k)+\epsilon)$. The total squared norm is
+$2p(p-1)$, the zero-frequency squared norm is $2(p-1)$, and
+each allowed nonzero-frequency squared norm is $4(p-1)$.
+Equivariant isometric embeddings and orthogonal decomposition transfer
+these ratios to the center representation.
+
+For the quartic field $\Q(\sqrt2,\sqrt3)$ shared by R928, R941 and
+R982, put
+\[
+ D=144+96\sqrt2+80\sqrt3+56\sqrt6,
+ \quad \dim Z=a+b\sqrt2+c\sqrt3+d\sqrt6,
+\]
+and define
+\[
+ L_{12}=3c-a-b,\qquad L_{24}=6d-a-2b.
+\]
+The two saturated coordinates are $L_{12}/\sqrt{12}$ and
+$L_{24}/\sqrt{24}$. Their full signed spectral supports are obtained
+by tensoring the local equality vectors at conductors $4,3$ and
+$8,3$. At conductor $12$, the allowed exponents are
+\[
+ \{0,2,3,4,5,6,7,8,9,10\}\pmod{12};
+\]
+at conductor $24$, they are all exponents except
+$1,5,19,23\pmod{24}$. These restrictions apply only when the
+corresponding mask is nonzero. The common fibre capacities are
+\begin{equation}\label{eq:creative-quartic-masses}
+ \sum_{\theta_Z=1}L_{12}^2=\sum_{\theta_Z=-1}L_{12}^2=4,
+ \qquad
+ \sum_{\theta_Z=\eta}L_{24}^2=4
+       \quad(\eta\in\{1,-1,i,-i\}),
+\end{equation}
+and each simple satisfies $|L_{12}|,|L_{24}|\leq4$.
+The local spectral distributions and their zero mixed projector
+pairings are checked in the exact cyclotomic fields at orders $3,4,8$.
+The two global endpoint spectra then determine every possible
+distribution by a convex combination. This proves the capacities and
+bounds without assuming that the two endpoint lines generate distinct
+irreducible representations.
+
+Combining these masks with the previously complete phase domains
+preserves all ten R928 and all fourteen R941 pattern allocations; each
+has an exact rational feasible witness. For R928 the stronger oriented
+$\Q(\zeta_{24})$ cone includes imaginary distinguished $STS$ rows,
+both complex components of the central-$g$ $STS$ equations against
+the distinguished objects, and every individual spectral fibre, with the
+two endpoint-mixture parameters. All ten allocations still pass over
+nonnegative rational variables.
+
+An integer refinement reduces this R928 domain to four patterns. Each
+orbit of the central semion $G$ has exactly one positive-charge
+representative, since $G$ has charge $-1$. Associate to that orbit the
+six normalized relative twist traces over $\Q(\zeta_{24})$. Relative
+Galois averaging changes the trace atom but leaves its coefficient one;
+therefore each of the $670$ phase-atom coefficients counts actual orbits
+and must be a nonnegative integer. This applies also to the two
+unrestricted restriction types, whose complete all-order trace domain
+includes the zero tail. Rotation auxiliaries and both endpoint-mixture
+parameters remain arbitrary nonnegative real variables.
+
+After one-signed zero-equation deductions, complete binary branching on
+$x\leq k$ or $x\geq k+1$ for an integer phase variable gives exact
+infeasibility certificates for patterns $44,58,196,243,245,248$.
+The respective trees have $13,13,11,13,31,11$ nodes and $49$ rational
+Farkas leaves in total. Each leaf contradicts only necessary equations,
+so the complete branch trees exclude these six patterns without relying
+on a numerical solver's status. Patterns $40,49,186,191$ have explicit
+nonnegative integer phase counts and exact rational auxiliary witnesses
+satisfying every equation of this relaxation. The replay is
+\path{r928_r941/integer_followup/verify.py} in the new evidence directory.
+These four witnesses do not supply the missing modular rows, full center
+fusion rules or associators; R928 itself remains unresolved.
+
+For R941 an independent degree-two fusion-algebra check has span rank
+fifteen and verifies $900$ physical/spectral Gram identities per
+allocation. Of its $75$ generator-times-basis products, $55$ have
+zero projection residual with forced nonnegative integral coordinates;
+the remaining $20$ have nonzero residual, leaving closure open in all
+fourteen allocations. These tests provide restrictions and witnesses,
+not a new exclusion or a model for R928 or R941.
+
+\subsection{The irrational dimension-ratio sector of R1768}
+\label{subsec:creative-r1768}
+
+Work in the pseudo-unitary Galois form supplied by the earlier general
+sphericalization theorem. Put $q=\sqrt{37}$, $u=6+q$ and
+$D=444+72q$. The source dimensions in canonical order are
+\[
+ (1,1,5+q,6+q,7+q,7+q,6+q,5+q).
+\]
+The saturated quadratic character has $h=-1/\sqrt{37}$, and
+\[
+ c_\chi(Z)=\frac{\sqrt{37}}{222}(37b_Z-6a_Z)
+       \quad\text{for }\dim Z=a_Z+b_Z\sqrt{37}.
+\]
+Equation~\eqref{eq:creative-prime-masses} gives capacity $72$ at twist
+one and capacity $144$ at each of the eighteen nonresidue primitive
+37th twists, measured by the sum of $(37b_Z-6a_Z)^2$.
+The unit and its Galois partner of dimension $\alpha=73+12q$ already
+exhaust the twist-one capacity. Every other simple with irrational
+$\dim Z/D$ therefore has one of those eighteen primitive twists.
+
+\begin{proposition}[Complete irrational-sector restriction]
+\label{prop:creative-r1768-sector}
+Every pseudo-unitary Galois form of a categorification of R1768 has all
+six noninvertible second indicators equal to $+1$.
+Put $z=(0,0,1,1,1,1,1,1)$. Its center simples with irrational $\dim Z/D$, other than the unit
+and its distinguished Galois partner, have exactly one of the following
+forms:
+\begin{enumerate}
+\item $72$ simples of dimension $6u$, each with restriction $z$,
+      four at every allowed twist;
+\item $18$ simples of dimension $12u$, each with restriction $2z$,
+      one at every allowed twist.
+\end{enumerate}
+The distinguished dimension-$\alpha$ object has the unique restriction
+$(1,0,2,2,2,2,2,2)$.
+\end{proposition}
+\begin{proof}
+In the previously complete high-column domain, the nonrational-ratio
+dimensions avoiding the pointed object $g$ are $ku$ or $k\alpha$.
+The latter cannot have primitive-37 twists: modular Galois symmetry
+sends its dimension to $k$, and an integer-dimensional central object
+forgets entirely to $1,g$. Such an object has twist $1$ or $\pm i$,
+respectively, by induction and the already forced nontrivial pointed
+associator. Galois square action preserves twist order.
+
+For dimension $ku$, the Galois sign is negative. All six rational
+source-character rows of the normalized $S$-matrix therefore negate
+their values on the restriction vector, while both FP-character values
+are unchanged. Character orthogonality gives the exact complement
+\[
+ v\longmapsto\widehat v=(0,0,k/3-v_2,\ldots,k/3-v_7).
+\]
+Applying integrality and nonnegativity of this complement to the
+complete dimension domain leaves just
+\[
+ v=(0,0,0,0,1,0,1,1),\quad
+ w=(0,0,1,1,0,1,0,0),\quad 2v,\quad2w,\quad z,\quad2z.
+\]
+The dimensions of $v,w$ are $3u$, those of $2v,2w,z$ are $6u$,
+and that of $2z$ is $12u$.
+
+Galois covariance across all eighteen twists forces aggregate
+multiplicities $9a,9a,9b,9b,18c,18d$, respectively. The fibre
+capacities imply $a+4b+4c+16d=16$. Thus their entire Gram contribution
+is one of the five matrices
+\[
+ G_{37}=9U(vv^{\mathsf T}+ww^{\mathsf T})+18Vzz^{\mathsf T},
+ \qquad U+4V=16,\quad V=0,1,2,3,4.
+\]
+This aggregate statement also covers Galois orbits larger than
+eighteen. The common primitive trace ray fixes all retained indicator,
+rotation and atomic modular rows as well. Subtract each of these five
+contributions from the exact previously complete cone and retain its
+full all-order trace domain for the rational-ratio columns.
+
+There are eight remaining second-indicator assignments, hence forty
+branches. The exact certificates reject thirty-nine. The only surviving
+branch has $V=4,U=0$ and indicators
+$(-1,1,1,1,1,1,1)$ on $(g,X_2,\ldots,X_7)$.
+The nonnegative integer capacity equation then has just
+$(a,b,c,d)=(0,0,4,0),(0,0,0,1)$, proving the two stated possibilities.
+
+Finally the Galois image of the unit has positive sign. All rational
+character values of its restriction are one, and its two FP values are
+$\alpha,\alpha'$. Orthogonality gives uniquely
+\[
+ e_0+\frac{\alpha-1}{D}\mathbf d
+       +\frac{\alpha'-1}{D'}\mathbf d'
+   =e_0+\frac{\mathbf d-\mathbf d'}{\sqrt{37}}
+   =(1,0,2,2,2,2,2,2).
+\]
+\end{proof}
+
+Even after this unique restriction is imposed, the surviving cone has an
+exact rational witness. This is not an integral center construction.
+Its remaining rational sector has dimensions $tD/12$ with positive
+integral $t$ and $\sum t^2=70$; removing its known $I(1)$ constituents
+leaves $\sum t^2=52$ for the high rational sector.
+The complete forty-branch certificate and both rational witnesses are
+replayed by \path{r1768/verify.py} in the new evidence directory.
+Rational-ratio simples may also have primitive 37th twists; the
+preceding counts do not count those objects, and their all-order domain
+is retained. R1768 remains unresolved.
+
+\subsection{A forced four-object packet in the R1154 center}
+\label{subsec:creative-r1154-packet}
+
+For R1154 put $D=540+240\sqrt5$ and use the positive spherical
+normalization. In all three remaining center patterns, the four simple
+constituents of $I(g)$ have dimension $D/4$. Label them so that their
+twists are $(i,i,-i,-i)$, as forced by
+$\sum\theta_j=0$ and $\sum\theta_j^2=-4$.
+
+\begin{proposition}[Semionic packet reconstruction]
+\label{prop:creative-r1154-packet}
+The constituents satisfy $Z_0^*=Z_1$, $Z_2^*=Z_3$, and their normalized
+$S$ block is
+\[
+ B=\begin{pmatrix}
+ -\frac14+\frac i2&-\frac14-\frac i2&\frac14&\frac14\\
+ -\frac14-\frac i2&-\frac14+\frac i2&\frac14&\frac14\\
+ \frac14&\frac14&-\frac14-\frac i2&-\frac14+\frac i2\\
+ \frac14&\frac14&-\frac14+\frac i2&-\frac14-\frac i2
+ \end{pmatrix}.
+\]
+Their four full normalized $S$ columns and all four fusion matrices are uniquely
+determined by the previously retained restriction data. Every one of
+the twenty-five pair histograms passes the resulting exact integrality
+and nonnegativity tests.
+\end{proposition}
+\begin{proof}
+Write $s=S/D$, let $Q$ project onto the four packet coordinates, and
+put
+\[
+\begin{aligned}
+ u&=\tfrac12(e_{Z_0}+e_{Z_1}+e_{Z_2}+e_{Z_3}),\\
+ v&=\tfrac12(e_{Z_0}+e_{Z_1}-e_{Z_2}-e_{Z_3}),\\
+ w&=\tfrac12(e_{A_0}+e_{A_1}-e_{A_2}-e_{A_3}).
+\end{aligned}
+\]
+Here $A_0=1,A_1,\ldots,A_4$ are the distinguished twist-one objects.
+For each retained histogram the spectral projector of the forced
+$A_2$ matrix onto eigenvalue $-1$ is exactly
+\[
+ P=\frac{N_2(N_2-3)(N_2+5)(N_2^2-270N_2+225)}{7936}
+   =ww^{\mathsf T}+Q-uu^{\mathsf T}.
+\]
+Verlinde diagonalization gives $P=sQs^*$, whence $su=w$ and
+$s(\operatorname{im}Q\cap u^\perp)=\operatorname{im}Q\cap u^\perp$.
+Since $s^2$ is duality, $sw=u$; applying $sTs=T^{-1}sT^{-1}$ to
+$w$, using $Tu=iv$, gives $sv=-v$.
+
+On the remaining two-dimensional space with orthonormal basis
+$(e_{Z_0}-e_{Z_1})/\sqrt2,(e_{Z_2}-e_{Z_3})/\sqrt2$, the complete
+symmetric-unitary solutions of the modular relation compatible with
+charge conjugation are
+\[
+ A=\operatorname{diag}(i,-i),\qquad
+ A=\frac i2\begin{pmatrix}-1&\pm\sqrt3\\\pm\sqrt3&1\end{pmatrix}.
+\]
+Each has $A^2=-I$, forcing the two dual pairs. In either mixed
+solution the $(Z_2,Z_3)$ entry of $N_{Z_0}-N_{Z_1}$ is
+$\pm\sqrt3$, contradicting integrality. The diagonal solution gives
+the displayed block. Outside the packet every one of these four
+normalized $s$ columns equals $w/2$, so the full columns are known.
+
+Let $M$ be the restriction matrix and $V$ the matrix of these four
+full normalized $S$ columns. The projection formula gives
+$J=N_{I(g)}=M^{\mathsf T}N_gM$. Set
+\[
+\begin{aligned}
+ D_+&=V\operatorname{diag}(4(B_{0j}-B_{1j}))V^*,\\
+ D_-&=V\operatorname{diag}(4(B_{2j}-B_{3j}))V^*,\\
+ H&=V\operatorname{diag}(-4,-4,4,4)V^*.
+\end{aligned}
+\]
+Then
+\[
+ N_{Z_0},N_{Z_1}=\frac{J+H\pm2D_+}{4},\qquad
+ N_{Z_2},N_{Z_3}=\frac{J-H\pm2D_-}{4}.
+\]
+The exact replay checks all entries, vacuum rows, duality transpose,
+commutation with each other and $N_2$, and the sum identity in all
+twenty-five histograms.
+\end{proof}
+
+This packet is not asserted to be a fusion subcategory. The remainder
+of the center and the source associators are still unknown.
+A separate necessary-data witness for pattern $6971$, pair $1$,
+triple $0$ extends all seventy words of degree at most four and passes
+$4900$ Gram and $560$ restriction checks. It is one verified witness,
+not an exhaustive quartic enumeration or a categorification.
+
+All twenty-five packet branches also have full tensor support: for each
+packet object $Z$, the vacuum row of
+$1+N_Z+N_Z^{\mathsf T}+(N_Z+N_Z^{\mathsf T})^2$ is strictly positive.
+Thus $Z$ and $Z^*$ generate every center label in at most two steps.
+Nevertheless the known forced fusion operators leave a common
+$(n-9)$-dimensional scalar eigenspace, and their joint complex
+commutant has dimension $9+(n-9)^2$. This identifies remaining spectral
+freedom without constructing the missing fusion matrices.
+
+A different construction test eliminates a tempting dimension match.
+There is an exact identity
+\[
+ \FPdim(SU(3)_7\boxtimes\mathrm{Fib})=5(540+240\sqrt5).
+\]
+In the full seventy-two-object product, every simple dimension has
+nonnegative $\sqrt5$ coefficient, and this coefficient vanishes
+precisely for the three invertibles. Hence a rational-dimensional
+connected separable algebra is supported on those invertibles.
+Each invertible occurs with multiplicity at most one: the regular
+right algebra-module $A$ is simple because
+$\operatorname{End}_A(A)=\operatorname{Hom}(1,A)=\C$; for invertible
+$g$, the module $gA$ is also simple, so free-module adjunction and
+Schur's lemma give $\dim\operatorname{Hom}(g,A)\leq1$.
+Therefore no connected separable algebra has dimension five, excluding
+this direct connected-\'{e}tale module-category route to R1154.
+The argument generalizes whenever a rational-linear field functional
+vanishes on $1$, is nonnegative on all simple FP dimensions, and is
+strictly positive on every noninvertible. It does not exclude longer
+constructions or R1154 itself. The exact dimension calculation is
+recorded in \path{r1154/quantum_subgroup_route.json}.
+
+\subsection{The complete based-ring restriction on the R982 Morita class}
+\label{subsec:creative-r982-morita}
+
+\begin{proposition}[Morita partners preserve the R982 fusion ring]
+\label{prop:creative-r982-morita}
+Every fusion category in the Morita class of a complex categorification
+of R982 has based fusion ring R982. This has no bound on the rank or
+multiplicity of a possible Morita partner and does not assert equivalence
+of its tensor categories.
+\end{proposition}
+\begin{proof}
+Work first in a pseudo-unitary Galois form and conjugate any module
+associators along with the category. The previous complete calculation
+gives three necessary indecomposable based-module types. Each is
+isomorphic over $\Q$ to the regular representation, although two are
+not regular as based modules.
+
+Here is the relevant general full-center argument. Put
+$A_C=I_C(1)$ and transport $A_M=I_{C_M^*}(1)$ into $Z(C)$ using the
+module-induced center equivalence. The module trace exists in the
+pseudo-unitary case. The full-center and character identifications of
+Shimizu, \emph{Further Results on the Structure of (Co)Ends in Finite
+Tensor Categories}, Theorems~5.4, 5.11 and Corollary~5.13
+(\href{https://arxiv.org/pdf/1801.02493}{arXiv:1801.02493}), identify
+the module representation with $\operatorname{Hom}(A_M,A_C)$ over
+$\operatorname{End}(A_C)$.
+If a central simple has multiplicity $e_j$ in $A_C$, regularity forces
+its multiplicity in $A_M$ also to be $e_j$. Thus $A_C$ is a summand
+of $A_M$. Their common FP dimension $\FPdim(C)$ eliminates a
+complement. Therefore $A_M\simeq A_C$ as objects. Since the source
+Grothendieck algebra is commutative of dimension eight, the dual also
+has exactly eight simples and is commutative. Equality of algebra
+structures on the Lagrangian objects is not assumed.
+
+Write $M_i,P_j$ for the left and right action matrices of the Morita
+bimodule, in row-action convention. Internal-Hom associativity gives
+\[
+ \sum_i(M_i)_{ab}(M_i)_{cd}
+       =\sum_j(P_j)_{ac}(P_j)_{bd}.
+\]
+Let $U,V$ have columns the flattened $M_i,P_j$. For every one of
+the three left module types, the exact Gram identity is
+$VV^{\mathsf T}=UU^{\mathsf T}$, with $U$ of rank eight.
+Hence $V=UQ$ for an orthogonal eight-by-eight matrix $Q$.
+The row lattice of $U$ is $\Z^8$ for the regular type and
+$D_8=\{x\in\Z^8:\sum_i x_i\equiv0\pmod2\}$ for each other
+type. Explicit row minors of determinant one or two certify these
+equalities.
+
+In the regular case integrality of $V$ makes $Q$ an integral
+orthogonal matrix. In the $D_8$ cases, it makes
+$\Z^8Q^{\mathsf T}$ an odd integral unimodular index-two
+overlattice of $D_8$. The three possible nonzero discriminant cosets
+are represented by $e_1$, $h=(1/2,\ldots,1/2)$ and $h-e_1$.
+The latter two give even lattices, so only the $\Z^8$ overlattice
+is possible. Thus $Q$ is a signed permutation in every case.
+Nonnegativity of $V$ removes negative signs. After relabelling, the
+right actions are exactly the left actions. Their linear independence
+recovers every source multiplication coefficient from matrix products,
+proving the based-ring identity. Galois conjugation leaves all these
+integers unchanged.
+\end{proof}
+
+The matrix replay verifies all $4096$ bimodule Gram identities for
+each type and the integral row-lattice certificates. The lattice argument itself does not construct module associators.
+The exceptional realization in Theorem~\ref{thm:creative-e21-model}
+separately supplies an algebra structure on $1+X_5$ and both
+nonregular based-module types; uniqueness of their algebra or module
+structures is not claimed.
+
+\subsection{A Galois Gram bound and the two R3472 module branches}
+\label{subsec:creative-r3472-gram}
+
+\begin{lemma}[Integral-dimension Galois Gram bound]
+\label{lem:creative-galois-gram}
+Let $R$ be a fusion ring with Frobenius--Perron dimensions $d_i$, put
+$K=\Q(d_i:i)$ and $D=\sum_i d_i^2$, and let
+$h=\sum_{d_i\in\Z}d_i^2$. Then
+\[
+ h\leq \frac1{\operatorname{Tr}_{K/\Q}(D^{-1})}.
+\]
+If equality holds, every nonintegral $d_i$ satisfies
+$\operatorname{Tr}_{K/\Q}(d_i/D)=0$.
+Neither categorification nor closure of the integer-dimensional basis
+elements is required.
+\end{lemma}
+\begin{proof}
+Every conjugate of $d_i^2$ is an eigenvalue of the positive semidefinite
+integer matrix $N_iN_{i^*}=N_iN_i^{\mathsf T}$, so $K$ is totally real.
+For distinct embeddings $\sigma,\tau:K\longrightarrow\mathbb R$, the
+dimension characters $\sigma(d_i)$ and $\tau(d_i)$ are distinct.
+Evaluating the $\tau$-dimension character on the regular element
+$\sum_i\sigma(d_i)X_i$, which satisfies
+$X_j\sum_i\sigma(d_i)X_i=\sigma(d_j)\sum_i\sigma(d_i)X_i$, gives
+\[
+ \sum_i\sigma(d_i)\tau(d_i)=0.
+\]
+The Gram matrix of the conjugate dimension rows is therefore
+$\operatorname{diag}(\sigma(D))$. Its integer-dimensional columns
+contribute $h\mathbf1\mathbf1^{\mathsf T}$. The residual Gram matrix
+is positive semidefinite. Evaluate its quadratic form at
+$v_\sigma=1/\sigma(D)$ and put
+$S=\operatorname{Tr}_{K/\Q}(D^{-1})>0$ to obtain $S-hS^2\geq0$.
+If equality holds, the same quadratic form is a sum of squares, one
+for each nonintegral dimension; each square is
+$\operatorname{Tr}_{K/\Q}(d_i/D)^2$ and hence vanishes.
+\end{proof}
+
+The next assertions are conditional on the indicated based module lifting
+to an indecomposable module category. No existence of either lift is
+asserted. Put $r=\sqrt2$ and $D=700+490r$. Up to interchanging the two
+module simples, the two source action matrices are
+\[
+ \begin{pmatrix}7&7\\7&5\end{pmatrix},\qquad
+ \begin{pmatrix}11&5\\5&1\end{pmatrix}.
+\]
+Their full integral commutants and positive dimension eigenvalues are
+\[
+ \begin{array}{c|c}
+ \text{matrix}&\text{dimension}\\\hline
+ \begin{pmatrix}s+t&7t\\7t&s-t\end{pmatrix}&s+5tr\\[3pt]
+ \begin{pmatrix}s+t&t\\t&s-t\end{pmatrix}&s+tr
+ \end{array}
+ \qquad t\geq0,\quad s\geq t,\quad s,t\in\Z.
+\]
+Morita invariance gives global dimension $D$ for either dual category
+\cite[Corollary~7.16.7]{EGNO}. The regular dimension element acts with
+rank one on the module, as in \cite[Exercise~7.16.8]{EGNO}.
+
+Lemma~\ref{lem:creative-galois-gram} gives $h\leq7$. Here the integral
+simples form a fusion subcategory, since all radical coefficients are
+nonnegative. By categorical Lagrange integrality
+\cite[Theorem~7.17.6]{EGNO}, $D/h$ is integral, hence
+$1400/h,9800/h^2\in\Z$ and $h\in\{1,2,5,7\}$.
+The subcategory is pointed: the only nonpointed integral profiles to
+consider are $1,2$ for $h=5$ and $1,1,1,2$ for $h=7$; the square of the
+unique dimension-two simple would give $4=1+2a$ or $4=3+2a$,
+respectively. Thus write $g=h$ for its cyclic group order.
+
+\begin{proposition}[Three further first-branch exclusions]
+\label{prop:creative-r3472-three}
+For the first branch, the ten previously retained dual dimension spectra
+reduce to seven. The following three spectra cannot be fusion rings:
+\[
+\begin{array}{c|l}
+g&\text{nonintegral dimensions with multiplicity}\\\hline
+1&(6+5r)^2,\ (9+5r)^1,\ (14+10r)^1\\
+1&(5+5r)^1,\ (8+5r)^2,\ (14+10r)^1\\
+2&(7+5r)^2,\ (9+5r)^1,\ (13+10r)^1.
+\end{array}
+\]
+Superscripts in this table denote multiplicities, not powers.
+\end{proposition}
+\begin{proof}
+In each row the repeated pair is either self-dual or exchanged by
+duality; all other nonintegral dimensions occur once. For each of these
+six possibilities introduce nonnegative integers
+$m_{ijk}=[\one:X_iX_jX_k]$, identifying cyclic rotations and the
+reverse-dual triple $(k^*,j^*,i^*)$. Unit triples and cyclic-group
+products are fixed. Equating rational and radical coefficients in
+every product dimension yields a finite nonnegative integer linear
+system. No commutativity or associativity assumption is used.
+
+The exact verifier exhausts all six systems using interval bounds,
+row gcd congruences and complete finite branching. Their search-tree
+sizes are $72,22,39,11,380,79$, and every tree is empty. Every variable
+has a finite upper bound from a positive coefficient in a dimension
+equation; there is no node or time cutoff. The original R3472 tensor
+is checked as a positive control for the equation builder. Thus the
+six systems supply exact incompatibility certificates for the three
+spectra. The receipt retains the seven other spectra only as necessary
+possibilities, without claiming fusion multiplications.
+\end{proof}
+
+For the second branch the regular-element identities give
+\[
+ \sum s_i^2=350,\qquad\sum t_i^2=175,\qquad\sum s_it_i=245.
+\]
+After removing the $g$ invertibles and putting $u_i=s_i-t_i$, the
+complete arithmetic domain is
+\[
+ \sum u_i^2=35-g,\qquad\sum u_it_i=70,\qquad\sum t_i^2=175,
+ \qquad u_i\geq0,\ t_i\geq1.
+\]
+In particular $u_i\leq5$ and $t_i\leq13$. A finite multiplicity
+recursion over these types, completed by square partitions for $u=0$,
+counts each dimension multiset once. The exact counts are
+\[
+ \begin{array}{c|rrrr|r}
+ g&1&2&5&7&\text{total}\\\hline
+ \text{spectra}&272348&124228&3900&2&400478.
+ \end{array}
+\]
+When $g=7$, equality in Lemma~\ref{lem:creative-galois-gram} gives
+$5s_i=7t_i$. Writing $\delta=7+5\sqrt2$, the two possibilities are
+$1^7,\delta^7$ and $1^7,\delta^3,(2\delta)^1$.
+Since $\delta^2=1+14\delta$, the stabilizer of a $\delta$-dimensional
+simple is trivial and its orbit under $C_7$ has size seven. The second
+possibility is impossible. Thus $400477$ arithmetic spectra survive;
+full multiplication tests for this entire domain are not supplied.
+
+The exact programs, source identities and receipts are in
+\path{evidence/rank8_creative_20261022/r3472/}. Normal and optimized
+Python replay produce identical results. These refinements are
+conditional Morita restrictions; R3472 remains unresolved.
+
+\subsection{A common cyclic-parent obstruction for R1768 and R3472}
+\label{subsec:creative-cyclic-parent}
+
+\begin{lemma}[Cyclic stabilizer divisibility]
+\label{lem:creative-cyclic-stabilizer}
+Let $H$ be a cyclic subgroup of invertibles in a complex fusion category
+$\mathcal C$, and let $X$ be a simple object with $Xh\simeq X$ for all
+$h\in H$. Suppose $H$ lifts to a Tannakian pointed subcategory of
+$Z(\mathcal C)$ whose forgetful image in $\mathcal C$ is fully faithful.
+Then $\FPdim(X)/|H|$ is an algebraic integer.
+\end{lemma}
+\begin{proof}
+Let $A=\bigoplus_{h\in H}h$ be the regular algebra and
+$\mathcal D=\mathcal C_A$ the ordinary de-equivariantization
+\cite[Theorem~8.23.3]{EGNO}. Module structures supported on copies
+of $X$ are the representations of a twisted group algebra of $H$.
+Every scalar two-cocycle on a cyclic group over $\C$ is a coboundary:
+rescale a projective generator with $T^{|H|}=\lambda$ by a root of
+$\lambda$. Hence there are $|H|$ simple $A$-modules with underlying
+object $X$. Their dimensions in $\mathcal D$ are
+$\FPdim_{\mathcal C}(X)/\FPdim_{\mathcal C}(A)$.
+For completeness, this normalization follows because the positive
+dimension vectors before and after forgetting satisfy the same
+indecomposable $\mathcal C$-module eigenvector equations; evaluating
+at the unit $A$ of $\mathcal D$ fixes the constant to $|H|$.
+Dimensions of fusion-category simples are algebraic integers.
+\end{proof}
+
+\begin{corollary}[Cyclic quotient square divisibility]
+\label{cor:creative-ng-square}
+An ordinary de-equivariantization of a category with near-group rules
+$\mathrm{NG}(C_n,n)$ by a group of order $h$ necessarily has $h^2\mid n$.
+\end{corollary}
+\begin{proof}
+Every simple in the fully faithful image of the de-equivariantizing
+representation category has integral dimension, hence is invertible.
+Its group of simple objects is therefore cyclic. The unique
+noninvertible of the near-group category is fixed by this subgroup.
+Its dimension $d$ satisfies $d^2=n+nd$ and has quadratic norm $-n$.
+Lemma~\ref{lem:creative-cyclic-stabilizer} makes $d/h$ integral, so its
+norm $-n/h^2$ belongs to $\Z$. The discriminant $n^2+4n$ lies strictly
+between $(n+1)^2$ and $(n+2)^2$, so this is a genuine quadratic norm.
+\end{proof}
+
+Set $\delta=g+\sqrt{g^2+1}$ and $D_g=g(1+\delta^2)$.
+The hypothetical cyclic near-group parent $\mathrm{NG}(C_{4g^2},4g^2)$
+has noninvertible dimension $2g\delta$ and global dimension $4gD_g$.
+Dividing its global dimension by $4g$ would give the desired
+multiplicity-two generalized-near-group scalar profile, but
+$(4g)^2\nmid4g^2$. Equivalently, the quotient would contain a simple
+of dimension $\delta/2$, whose norm is $-1/4$.
+For $g=6$ and $g=7$ this excludes, respectively, the direct ordinary
+quotient routes
+\[
+ \mathrm{NG}(C_{144},144)\longrightarrow D=444+72\sqrt{37},
+ \qquad
+ \mathrm{NG}(C_{196},196)\longrightarrow D=700+490\sqrt2.
+\]
+No assertion that these parents exist is required. The obstruction
+does not exclude noncyclic parents, other Morita representatives or
+generalized-Haagerup parents. In particular the scalar possibilities
+of a $C_{12}$ or $C_{14}$ generalized-Haagerup parent followed by a
+$C_2$ quotient are not settled here. These are restrictions on
+construction routes for R1768 and R3472, not general exclusions of
+those rings or constructions of their associators.
+

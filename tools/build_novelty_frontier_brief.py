@@ -17,7 +17,8 @@ import json
 from xml.sax.saxutils import escape
 from collections import Counter
 from rank7_publication import PUBLICATION_DATE_LONG
-from rank8_publication import extension as rank8_extension, MODELS as RANK8_MODELS, PUBLICATION_DATE_LONG as M3_DATE
+from rank8_publication import extension as rank8_extension, model_path as rank8_model_path
+from datetime import date as calendar_date
 
 from reportlab.lib import colors
 from reportlab.lib.enums import TA_LEFT
@@ -81,7 +82,8 @@ def main():
     rank7_ids = summary['unresolved_ids']
     m3 = rank8_extension(repo)
     frontier = 2 + len(rank7_ids) + (m3['unresolved'] if m3 else 0)
-    date = M3_DATE if m3 else DATE
+    date = calendar_date.fromisoformat(m3['date']).strftime('%-d %B %Y') if m3 else DATE
+    RANK8_MODELS = rank8_model_path(repo)
     output = args.output or repo / "docs/New_category_candidates_and_open_cases.pdf"
     output.parent.mkdir(parents=True, exist_ok=True)
     for name, filename in (("Brief", "DejaVuSans.ttf"), ("Brief-Bold", "DejaVuSans-Bold.ttf")):

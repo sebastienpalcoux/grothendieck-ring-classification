@@ -19,8 +19,8 @@ recorded categorification status:
 \begin{center}\begin{tabular}{@{}lr@{}}\toprule
 Status & Rings\\\midrule
 General complex exclusion & $3506$\\
-Unitary construction & $15$\\
-Unresolved general categorification & $6$\\
+Unitary construction & $16$\\
+Unresolved general categorification & $5$\\
 \bottomrule\end{tabular}\end{center}
 Positive identifications use full ordered tensor comparisons or, for
 $\sha{R8_3_721}$, the exact coefficient bound and complete-census uniqueness
@@ -28,7 +28,7 @@ proved in Theorem~\ref{thm:r721-qsystem-model}. A recorded construction proves
 existence, without claiming uniqueness up to tensor equivalence.
 \end{theorem}
 The source-bound combined ledger is
-\path{supplements/rank8/output/research_20261022/ledger.json}. Its exact-M3 first-exclusion
+\path{supplements/rank8/output/creative_20261022/ledger.json}. Its exact-M3 first-exclusion
 allocation follows. Overlapping obstructions are retained in the evidence
 rather than counted twice.
 \begin{center}\small\begin{longtable}{@{}p{.75\textwidth}r@{}}\toprule
@@ -58,9 +58,9 @@ nonsolvable dimension60 extension & $1$\\
 normal split spectral support and annihilator transport & $1$\\
 one spectrum & $1$\\
 oriented signed & $67$\\
-pointed induction Fourier phase, all associator classes & $1$\\
-pointed induction Fourier fibre packing, all associator classes & $1$\\
 partial modular spectrum symmetric frame signed induction & $1$\\
+pointed induction fourier fibre packing all indicators & $1$\\
+pointed induction fourier phase all classes & $1$\\
 quadratic casimir compression & $64$\\
 rank7 certified subring & $4$\\
 rank8 biquadratic lift & $2$\\
@@ -109,14 +109,15 @@ Census ID & Construction & Scope\\\midrule\endhead
 \sha{R8_3_3314} & $\operatorname{Ad}(E_8)\boxtimes\operatorname{Fib}$ & unitary\\
 \sha{R8_3_3342} & Twisted $\mathcal C(A_6,\omega,A_5,\psi)$ from a stable relative $\mu_2$ class & unitary\\
 \sha{R8_3_721} & Inherited Q-system Morita dual in the $C_2$ de-equivariantization of $\operatorname{GH}(C_8)$ & unitary\\
+\sha{R8_3_982} & Triality-zero component of the known $E_{21}$ category for $SU(3)_{21}\subset(E_7)_1$ (Theorem~\ref{thm:creative-e21-model}) & unitary\\
 \bottomrule\end{longtable}\end{center}
 Every model in this inventory admits a unitary realization. For
 $\sha{R8_3_448}$, the original pseudo-unitary existence result is
 supplemented by the unitary $2221$ planar-algebra construction above.
 \subsection{The remaining general questions and replay scope}
-There remain $6$ unresolved exact-M3 tensors. The source tensors and per-case attempted criteria are recorded in
+There remain $5$ unresolved exact-M3 tensors. The source tensors and per-case attempted criteria are recorded in
 \path{data/remaining_cases.py} and the per-case audit\par\noindent
-{\small\path{evidence/rank8_research_20261022/per_ring_research_audit.json}}.
+{\small\path{evidence/rank8_creative_20261022/per_ring_research_audit.json}}.
 The inventory distinguishes an exact contradiction, a necessary-condition
 survivor, a time limit, and an inapplicable test. Passing these conditions
 supplies no coherent associator; an unsuccessful construction search
@@ -130,11 +131,15 @@ proper fusion subrings, as checked on the exact source tensors.
 Census ID & Commutative & Invertibles & Unitary status & Proper subring ranks\\\midrule\endhead
 \sha{R8_3_928} & no & 2 & unresolved & 2\\
 \sha{R8_3_941} & no & 2 & unresolved & 2\\
-\sha{R8_3_982} & yes & 2 & unresolved & 2\\
 \sha{R8_3_1154} & no & 2 & unresolved & 2\\
 \sha{R8_3_1768} & yes & 2 & unresolved & 2\\
 \sha{R8_3_3472} & yes & 1 & unresolved & --\\
 \bottomrule\end{longtable}\end{center}
+\paragraph{Historical search stages.}
+The following earlier campaigns retain their original proof domains and
+checkpoint results. Their historical unresolved lists are superseded by
+Theorem~\ref{thm:m3-current}; in particular the known model of
+$\sha{R8_3_982}$ is established in Theorem~\ref{thm:creative-e21-model}.
 \input{m3_model_search}
 The aggregate command is
 \begin{quote}\small
@@ -150,8 +155,10 @@ identities and reconciliation without replaying the mathematics.
 \input{m3_frontier}
 \input{m3_center_followup}
 \input{m3_next_refinements}
+
 \input{m3_research_20261022}
 \input{m3_pointed_followup}
+\input{m3_creative_20261022}
 
 \subsection{Continuation evidence and reproducibility}
 The new proofs and construction-family audits are in
@@ -166,6 +173,15 @@ the proof sources and the exact replay logs. Scoped failed construction
 searches and feasible necessary-condition witnesses retain their stated
 domains; they are not proofs of nonexistence or categorifiability.
 
-The 22 October overlay and new mathematical checks replay separately with
+The 22 October research overlay replays separately with
 \begin{quote}\small\verb|python3 tools/verify_rank8_research_20261022.py|\end{quote}
-This command preserves the earlier ledgers and accepts the two new general exclusions of $\sha{R8_3_65}$ and $\sha{R8_3_1795}$.
+It accepts the general exclusions of $\sha{R8_3_65}$ and $\sha{R8_3_1795}$.
+
+The exceptional-model overlay and new necessary-condition checks replay with
+\begin{quote}\small\verb|python3 tools/verify_rank8_creative_20261022.py|\end{quote}
+Run also with \texttt{-O}. The flag \texttt{--metadata-only} validates
+recorded receipts; \texttt{--historical} additionally replays earlier
+mathematics from the pinned historical archive. The separate archive is
+\begin{quote}\small\path{supplements/rank8/release/rank8-certified-creative-20261022.zip}.\end{quote}
+Only $\sha{R8_3_982}$ changes status in this overlay. The other five cases
+retain their stated unresolved status.

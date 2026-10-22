@@ -767,7 +767,18 @@ All results and data are AI-generated, not independently human-verified and not 
         if research_note and name in ('docs/RESEARCH_STATUS.md','docs/VERIFY.md','docs/PROVENANCE.md',
                                       'docs/PREPUBLICATION_REVIEW.md','manuscripts/README.md',
                                       'supplements/README.md','supplements/rank8/README.md'):
-            content += ('\n## 22 October rank-eight research\n\n'+research_note+'\n\n'
+            if m3.get('creative'):
+                content += ('\n## E21 realization and further rank-eight research\n\n'+research_note+'\n\n'
+                            'Proofs, independent reconstructions and exact replay are indexed in '
+                            '`evidence/rank8_creative_20261022/README.md`. The new classification decision is the unitary E21 model for R8_3_982. '
+                            'The five other cases retain their explicit unresolved scope.\n\n'
+                            '```bash\npython3 tools/verify_rank8_creative_20261022.py\n'
+                            'python3 -O tools/verify_rank8_creative_20261022.py\n```\n\n'
+                            'Use `--metadata-only` to validate published source bindings and replay receipts. '
+                            'Use `--historical` to replay the earlier rank-eight mathematical chain from its pinned immutable archive. '
+                            'The original publication documents and routers are retained there; current versions have new source bindings.\n')
+            else:
+                content += ('\n## 22 October rank-eight research\n\n'+research_note+'\n\n'
                         'The proof and exact verifier inventory is '
                         '`evidence/rank8_research_20261022/README.md`. The current research stage '
                         'has its own accepted ledger and source manifest; its exact replay is:\n\n'
@@ -784,6 +795,17 @@ All results and data are AI-generated, not independently human-verified and not 
                         f"{m3['unitarily_realized']} models and {m3['unresolved']} unresolved cases. "
                         'The model count remains a lower bound, not an exact OEIS term. '
                         'See evidence/rank8_research_20261022/README.md for proofs and exact replay.\n')
+            if m3.get('creative'):
+                content += ('\nThe subsequent creative stage identifies R8_3_982 with the neutral triality component of the known unitary E21 chiral category. '
+                            'This supplies the sixteenth exact-multiplicity-three model; five cases remain open. '
+                            'See evidence/rank8_creative_20261022/README.md.\n')
+        if m3 and m3.get('creative') and name in ('docs/VERIFY.md', 'supplements/rank8/README.md'):
+            at = content.find('\n\n')
+            content = content[:at+2] + (
+                'For the current checkout, replay `python3 tools/verify_rank8_creative_20261022.py`; '
+                'add `--historical` to replay earlier rank-eight stages in their preserved contexts. '
+                'Earlier-stage commands below apply inside their corresponding immutable archives.\n\n'
+            ) + content[at+2:]
         out[name] = content
     return out
 

@@ -538,6 +538,112 @@ def preserve_rank8_research_release(root, fresh_files, fresh_package, inventory)
                 (json.dumps(provenance, indent=2) + '\n').encode()}
 
 
+def collect_rank8_creative_release(root):
+    """Expand the validated creative release without recollecting old stages.
+
+    The complete prior scientific archive remains nested byte-for-byte. Its
+    original routers certify the earlier mathematics; current routers and the
+    new accepted evidence have separate source and receipt bindings.
+    """
+    import rank8_creative_20261022 as stage
+    import rank8_creative_history as history
+    from build_rank8_creative_20261022_release import PREFIX as archive_prefix
+    from verify_rank8_creative_20261022 import check_reports
+
+    def need(ok, message):
+        if not ok:
+            raise ValueError(message)
+
+    summary = stage.validate_ledger(root)
+    inventory = stage.source_inventory(root)
+    manifest_sha, receipt_shas = check_reports(root, summary, inventory)
+    historical = history.baseline(root)
+    package_name = stage.EVIDENCE + '/package.json'
+    package_raw = (root / package_name).read_bytes()
+    package = json.loads(package_raw)
+    archive_path = root / stage.ARCHIVE
+    need(package.get('schema') == 'rank8-creative-20261022-package/v1'
+         and package.get('status') == 'PASS',
+         'A completed dedicated creative release is required')
+    need(package.get('archive') == stage.ARCHIVE
+         and package.get('archive_sha256') == digest(archive_path.read_bytes())
+         and package.get('archive_bytes') == archive_path.stat().st_size,
+         'Dedicated creative archive identity differs from its package receipt')
+    need(package.get('classification') == summary
+         and package.get('source_manifest_sha256') == manifest_sha
+         and package.get('targeted_replay_receipt_sha256') == receipt_shas
+         and package.get('historical_archive_sha256') == history.ARCHIVE_SHA256,
+         'Dedicated creative package is stale or has different accepted inputs')
+    files = {}
+    with zipfile.ZipFile(archive_path) as archive:
+        for item in archive.infolist():
+            need(not item.is_dir() and item.filename.startswith(archive_prefix),
+                 'Unexpected dedicated creative archive member root')
+            name = item.filename[len(archive_prefix):]
+            need(stage.safe_path(name) and name not in files
+                 and (item.external_attr >> 16) & 0o170000 != 0o120000,
+                 'Unsafe, duplicate or symlinked creative member: ' + name)
+            files[name] = archive.read(item)
+    need(len(files) == package.get('members'), 'Dedicated creative member count differs')
+    checks = json.loads(files['SHA256SUMS.json'])
+    need(set(checks) == set(files) - {'SHA256SUMS.json'},
+         'Dedicated creative inner checksum coverage differs')
+    for name, value in checks.items():
+        need(digest(files[name]) == value, 'Dedicated creative member checksum differs: ' + name)
+    manifest_name = stage.PUBLICATION + '/source_manifest.json'
+    need(digest(files[manifest_name]) == manifest_sha
+         and json.loads(files[manifest_name]) == inventory,
+         'Dedicated creative source manifest differs from current accepted inputs')
+    for name, value in inventory.items():
+        need(name in files and digest(files[name]) == value,
+             'Dedicated creative scientific source differs: ' + name)
+    need(history.ARCHIVE in files
+         and digest(files[history.ARCHIVE]) == history.ARCHIVE_SHA256,
+         'Dedicated creative archive does not preserve the complete historical ZIP')
+    replays = []
+    for lane, value in zip(('normal', 'optimized'), receipt_shas):
+        name = stage.PUBLICATION + '/replay_' + lane + '.json'
+        need(name in files and digest(files[name]) == value,
+             'Dedicated creative canonical replay differs: ' + lane)
+        for section in json.loads(files[name])['sections']:
+            log_name = section['log']
+            need(log_name in files and digest(files[log_name]) == section['log_sha256'],
+                 'Dedicated creative replay log missing or changed: ' + log_name)
+        replays.append({'path': name, 'sha256': value})
+    # check_reports has validated the canonical log identities on disk. Bind
+    # every archived current publication receipt and log to those same bytes.
+    for name, raw in files.items():
+        if name.startswith(stage.PUBLICATION + '/'):
+            need((root / name).is_file() and (root / name).read_bytes() == raw,
+                 'Dedicated/current creative receipt or log differs: ' + name)
+    need(package_name not in files or files[package_name] == package_raw,
+         'Conflicting creative package receipt in dedicated archive')
+    files[package_name] = package_raw
+    provenance = {
+        'schema': 'rank8-creative-dedicated-release-provenance/v1',
+        'scope': ('Expanded current sources and both completed canonical targeted replay '
+                  'lanes are bound to the dedicated creative release. The complete earlier '
+                  'scientific ZIP remains byte-exact, including its original routers and '
+                  'proof sources. Common-archive extraction checks metadata and does not '
+                  'claim a fresh mathematical replay.'),
+        'dedicated_archive': stage.ARCHIVE,
+        'dedicated_archive_sha256': package['archive_sha256'],
+        'dedicated_archive_included': False,
+        'package_receipt': package_name,
+        'package_receipt_sha256': digest(package_raw),
+        'source_manifest_sha256': manifest_sha,
+        'ledger_sha256': summary['ledger_sha256'],
+        'models_sha256': summary['models_sha256'],
+        'canonical_targeted_replays': replays,
+        'validated_archive_members': len(checks) + 1,
+        'historical_archive': historical,
+        'historical_archive_included': True,
+        'current_publication_overlays': {},
+        'packaging_mathematical_replay_performed': False,
+    }
+    return files, provenance, inventory
+
+
 def package_publication_archive(root, output):
     """Register only this generated ZIP; preserve every other restoration entry."""
     try:
@@ -662,11 +768,16 @@ def collect(root, source_publication_only=False):
                   'supplements/rank7/data/rank7_tables_through_m4.txt.gz'))
     from rank8_publication import active
     extension_files = {}
+    creative_provenance = None
+    creative_inventory = None
     if active(root):
         from rank8_frontier import active as frontier_active, PUBLICATION as FRONTIER_PUBLICATION
         from rank8_next import active as next_active
         from rank8_research_20261022 import active as research_active
-        if research_active(root):
+        from rank8_creative_20261022 import active as creative_active
+        if creative_active(root):
+            extension_files, creative_provenance, creative_inventory = collect_rank8_creative_release(root)
+        elif research_active(root):
             from build_rank8_research_20261022_release import collect as collect_research
             extension_files, extension_package, inventory = collect_research(root)
             research_additions = preserve_rank8_research_release(
@@ -702,6 +813,23 @@ def collect(root, source_publication_only=False):
         paths.update(path.relative_to(root).as_posix() for path in (root/'tools').glob('*rank8_m3*.py'))
         paths.update(path.relative_to(root).as_posix() for path in (root/'tools/templates').glob('rank8_m3_*.tex'))
     payload = {name: (root / name).read_bytes() for name in sorted(paths)}
+    if creative_provenance is not None:
+        # The dedicated release freezes the mathematical evidence. Current
+        # publication documents may have been rebuilt after that release; bind
+        # those overlays explicitly without changing any accepted source.
+        for name in sorted(set(payload) & set(extension_files)):
+            if payload[name] == extension_files[name]:
+                continue
+            if name in creative_inventory:
+                raise ValueError('Changed creative scientific input in common package: ' + name)
+            creative_provenance['current_publication_overlays'][name] = {
+                'dedicated_member_sha256': digest(extension_files[name]),
+                'current_publication_sha256': digest(payload[name]),
+                'changes_bound_scientific_input': False}
+            extension_files[name] = payload[name]
+        from rank8_creative_20261022 import PUBLICATION as CREATIVE_PUBLICATION
+        extension_files[CREATIVE_PUBLICATION + '/dedicated_release_provenance.json'] = (
+            json.dumps(creative_provenance, indent=2, sort_keys=True) + '\n').encode()
     merge_payload(payload, extension_files)
     # The immutable proof manifest keeps its exact original hashes. Revised
     # documents are verified separately; their original replay bytes are in the
@@ -721,11 +849,37 @@ def source_publication_metadata(root):
     """Check current publication identities without asserting a fresh proof replay."""
     from current_publication import validate_documents, replay_sources
     from reader_resources import validate_reader_resources
-    from build_rank8_frontier_release import frontier_inputs
     root = Path(root)
     documents = validate_documents(root, check_web=(root / 'site/dist/papers').is_dir())
     readers = validate_reader_resources(root, check_web=(root / 'site/dist/papers').is_dir())
     preserved = replay_sources(root)
+    from rank8_creative_20261022 import active as creative_active
+    if creative_active(root):
+        import rank8_creative_20261022 as stage
+        import rank8_creative_history as history
+        from verify_rank8_creative_20261022 import check_reports
+        historical = history.baseline(root)
+        summary = stage.validate_ledger(root)
+        inventory = stage.source_inventory(root)
+        manifest_sha, receipt_shas = check_reports(root, summary, inventory)
+        return {'status': 'SOURCE_PUBLICATION_METADATA_PASS',
+                'mathematical_replay_performed': False,
+                'scope': ('Current document and reader identities, current creative-stage source '
+                          'and ledger bindings, both completed canonical targeted replay receipts '
+                          'and logs, and the pinned historical archive; no fresh mathematical replay'),
+                'current_documents': len(documents['documents']),
+                'historical_accepted_decisions': documents['accepted_decisions'],
+                'historical_replay_source_files': len(preserved),
+                'reader_resources': readers,
+                'source_manifest_sha256': manifest_sha,
+                'ledger_sha256': summary['ledger_sha256'],
+                'historical_rank8_archive': historical,
+                'current_rank8': summary,
+                'current_rank8_source_manifest_sha256': manifest_sha,
+                'canonical_current_rank8_replays': [
+                    {'path': stage.PUBLICATION + '/replay_' + lane + '.json', 'sha256': value}
+                    for lane, value in zip(('normal', 'optimized'), receipt_shas)]}
+    from build_rank8_frontier_release import frontier_inputs
     _, summary, reports, manifest_sha = frontier_inputs(root, True)
     result = {'status': 'SOURCE_PUBLICATION_METADATA_PASS',
             'mathematical_replay_performed': False,
@@ -824,8 +978,14 @@ Fixed timestamps and sorted paths make identical inputs produce identical ZIP by
     payload['README.md'] += ('\n' + summary(root) + '\n').encode()
     from rank8_publication import summary as rank8_summary
     payload['README.md'] += ('\n' + rank8_summary(root) + '\n').encode()
+    from rank8_creative_20261022 import active as creative_active, PUBLICATION as CREATIVE_PUBLICATION
+    creative_current = creative_active(root)
+    if creative_current and args.source_publication_only:
+        payload['README.md'] = payload['README.md'].replace(
+            b'both completed canonical frontier lanes',
+            b'both completed canonical creative-stage targeted lanes and their logs')
     from rank8_frontier import active as frontier_active, PUBLICATION
-    if frontier_active(root):
+    if frontier_active(root) and not creative_current:
         payload['README.md'] += (
             ('\nThe dedicated rank-eight source archive preserves completed canonical replay receipts '
              'and logs. No new extracted mathematical replay is claimed. '
@@ -837,7 +997,27 @@ Fixed timestamps and sorted paths make identical inputs produce identical ZIP by
             'documents in this common archive are freshly collected.\n').encode()
     from rank8_next import active as next_active, PUBLICATION as NEXT_PUBLICATION
     from rank8_research_20261022 import active as research_active, PUBLICATION as RESEARCH_PUBLICATION
-    if research_active(root):
+    if creative_current:
+        payload['README.md'] += (
+            '\nThe current rank-eight creative stage realizes R8_3_982 as the triality-zero '
+            'component of the known unitary E21 fusion category. Its source graph, full '
+            '24-object fusion tensor and exact 512-coefficient neutral-component identity '
+            'are included. Both completed canonical targeted replay receipts (normal and '
+            'optimized Python), their logs, and all current scientific inputs are bound '
+            'by the creative source manifest. The dedicated release identity and current '
+            'publication-document overlays are recorded in `'
+            + CREATIVE_PUBLICATION + '/dedicated_release_provenance.json`. The dedicated '
+            'creative ZIP is published separately. The entire immutable historical ZIP '
+            '`supplements/rank8/release/rank8-certified-research-20261022.zip` is included '
+            'byte-for-byte, preserving the old routers and proof sources.\n\n'
+            'Replay the current creative mathematics with:\n'
+            '    python3 tools/verify_rank8_creative_20261022.py\n'
+            '    python3 -O tools/verify_rank8_creative_20261022.py\n\n'
+            'Adding --historical replays the earlier rank-eight mathematical chain from '
+            'the pinned nested archive with assertions enabled. Common-archive extraction '
+            'checks publication metadata and does not claim a fresh historical mathematical '
+            'replay. Five rank-eight cases remain unresolved.\n').encode()
+    elif research_active(root):
         payload['README.md'] += (
             '\nThe current rank-eight research stage is included as expanded sources. '
             'The accepted decisions and current case counts are recorded in its ledger. '
@@ -913,7 +1093,9 @@ Fixed timestamps and sorted paths make identical inputs produce identical ZIP by
         temporary.replace(output)
     storage = package_publication_archive(root, output)
     print(json.dumps({'status': 'PASS', 'files': len(payload), 'archive': str(output),
-                      'publication_mode': 'source_publication' if args.source_publication_only else 'extracted_full_replay_preserved',
+                      'publication_mode': ('source_publication' if args.source_publication_only else
+                                           'creative_targeted_receipts_and_extracted_metadata' if creative_current else
+                                           'extracted_full_replay_preserved'),
                       'sha256': digest(output.read_bytes()), 'bytes': output.stat().st_size,
                       'publication_storage': storage, 'standalone_metadata_check': receipt}, indent=2))
 

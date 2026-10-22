@@ -1,0 +1,334 @@
+{
+  "status": "PASS",
+  "scope": "Exact finite-group controls plus application arithmetic; the general arbitrary-order theorem is proved in SATURATED_CONDUCTOR.md.",
+  "local_controls": [
+    {
+      "modulus": 3,
+      "conductor": 3,
+      "primitive_columns": 8,
+      "unipotent_orbits": 4,
+      "torus_eigenspace_dimension": 2,
+      "squared_singular_values": {
+        "1/3": 2
+      },
+      "maximal_subspace_dimension": 2,
+      "maximal_vectors_inflate_from_conductor": true
+    },
+    {
+      "modulus": 9,
+      "conductor": 3,
+      "primitive_columns": 72,
+      "unipotent_orbits": 16,
+      "torus_eigenspace_dimension": 4,
+      "squared_singular_values": {
+        "1/3": 2,
+        "0": 2
+      },
+      "maximal_subspace_dimension": 2,
+      "maximal_vectors_inflate_from_conductor": true
+    },
+    {
+      "modulus": 5,
+      "conductor": 5,
+      "primitive_columns": 24,
+      "unipotent_orbits": 8,
+      "torus_eigenspace_dimension": 2,
+      "squared_singular_values": {
+        "1/5": 2
+      },
+      "maximal_subspace_dimension": 2,
+      "maximal_vectors_inflate_from_conductor": true
+    },
+    {
+      "modulus": 25,
+      "conductor": 5,
+      "primitive_columns": 600,
+      "unipotent_orbits": 56,
+      "torus_eigenspace_dimension": 6,
+      "squared_singular_values": {
+        "1/5": 2,
+        "0": 4
+      },
+      "maximal_subspace_dimension": 2,
+      "maximal_vectors_inflate_from_conductor": true
+    },
+    {
+      "modulus": 37,
+      "conductor": 37,
+      "primitive_columns": 1368,
+      "unipotent_orbits": 72,
+      "torus_eigenspace_dimension": 2,
+      "squared_singular_values": {
+        "1/37": 2
+      },
+      "maximal_subspace_dimension": 2,
+      "maximal_vectors_inflate_from_conductor": true
+    },
+    {
+      "modulus": 4,
+      "conductor": 4,
+      "primitive_columns": 12,
+      "unipotent_orbits": 5,
+      "torus_eigenspace_dimension": 2,
+      "squared_singular_values": {
+        "1/4": 2
+      },
+      "maximal_subspace_dimension": 2,
+      "maximal_vectors_inflate_from_conductor": true
+    },
+    {
+      "modulus": 8,
+      "conductor": 4,
+      "primitive_columns": 48,
+      "unipotent_orbits": 12,
+      "torus_eigenspace_dimension": 4,
+      "squared_singular_values": {
+        "1/4": 2,
+        "0": 2
+      },
+      "maximal_subspace_dimension": 2,
+      "maximal_vectors_inflate_from_conductor": true
+    },
+    {
+      "modulus": 16,
+      "conductor": 4,
+      "primitive_columns": 192,
+      "unipotent_orbits": 28,
+      "torus_eigenspace_dimension": 6,
+      "squared_singular_values": {
+        "1/4": 2,
+        "0": 4
+      },
+      "maximal_subspace_dimension": 2,
+      "maximal_vectors_inflate_from_conductor": true
+    },
+    {
+      "modulus": 8,
+      "conductor": 8,
+      "primitive_columns": 48,
+      "unipotent_orbits": 12,
+      "torus_eigenspace_dimension": 2,
+      "squared_singular_values": {
+        "1/8": 2
+      },
+      "maximal_subspace_dimension": 2,
+      "maximal_vectors_inflate_from_conductor": true
+    },
+    {
+      "modulus": 16,
+      "conductor": 8,
+      "primitive_columns": 192,
+      "unipotent_orbits": 28,
+      "torus_eigenspace_dimension": 4,
+      "squared_singular_values": {
+        "1/8": 2,
+        "0": 2
+      },
+      "maximal_subspace_dimension": 2,
+      "maximal_vectors_inflate_from_conductor": true
+    },
+    {
+      "modulus": 3,
+      "conductor": 1,
+      "primitive_columns": 8,
+      "unipotent_orbits": 4,
+      "torus_eigenspace_dimension": 2,
+      "squared_singular_values": {
+        "1": 1,
+        "1/9": 1
+      },
+      "maximal_subspace_dimension": 1,
+      "maximal_vectors_inflate_from_conductor": true
+    },
+    {
+      "modulus": 4,
+      "conductor": 1,
+      "primitive_columns": 12,
+      "unipotent_orbits": 5,
+      "torus_eigenspace_dimension": 3,
+      "squared_singular_values": {
+        "1": 1,
+        "1/4": 1,
+        "0": 1
+      },
+      "maximal_subspace_dimension": 1,
+      "maximal_vectors_inflate_from_conductor": true
+    },
+    {
+      "modulus": 8,
+      "conductor": 1,
+      "primitive_columns": 48,
+      "unipotent_orbits": 12,
+      "torus_eigenspace_dimension": 4,
+      "squared_singular_values": {
+        "1": 1,
+        "1/4": 1,
+        "0": 2
+      },
+      "maximal_subspace_dimension": 1,
+      "maximal_vectors_inflate_from_conductor": true
+    },
+    {
+      "modulus": 9,
+      "conductor": 1,
+      "primitive_columns": 72,
+      "unipotent_orbits": 16,
+      "torus_eigenspace_dimension": 4,
+      "squared_singular_values": {
+        "1": 1,
+        "1/9": 1,
+        "0": 2
+      },
+      "maximal_subspace_dimension": 1,
+      "maximal_vectors_inflate_from_conductor": true
+    }
+  ],
+  "application_arithmetic": {
+    "quartic": {
+      "conductors": [
+        12,
+        24
+      ],
+      "nonzero_masks": [
+        "3c-a-b",
+        "6d-a-2b"
+      ],
+      "forced_twist_orders_divide": [
+        12,
+        24
+      ]
+    },
+    "R8_3_1768": {
+      "conductor": 37,
+      "nonzero_mask": "37b-6a",
+      "forced_twist_order_divides": 37,
+      "I_g_twist_orders": [
+        4
+      ],
+      "I_g_required_equation": "37b=6a"
+    }
+  },
+  "signed_prime_controls": [
+    {
+      "prime": 5,
+      "epsilon": -1,
+      "allowed_nonzero_exponents": [
+        2,
+        3
+      ],
+      "zero_projection_ratio": "1/5",
+      "each_allowed_nonzero_projection_ratio": "2/5",
+      "exact_cyclotomic_DFT": "PASS"
+    },
+    {
+      "prime": 5,
+      "epsilon": 1,
+      "allowed_nonzero_exponents": [
+        1,
+        4
+      ],
+      "zero_projection_ratio": "1/5",
+      "each_allowed_nonzero_projection_ratio": "2/5",
+      "exact_cyclotomic_DFT": "PASS"
+    },
+    {
+      "prime": 13,
+      "epsilon": -1,
+      "allowed_nonzero_exponents": [
+        2,
+        5,
+        6,
+        7,
+        8,
+        11
+      ],
+      "zero_projection_ratio": "1/13",
+      "each_allowed_nonzero_projection_ratio": "2/13",
+      "exact_cyclotomic_DFT": "PASS"
+    },
+    {
+      "prime": 13,
+      "epsilon": 1,
+      "allowed_nonzero_exponents": [
+        1,
+        3,
+        4,
+        9,
+        10,
+        12
+      ],
+      "zero_projection_ratio": "1/13",
+      "each_allowed_nonzero_projection_ratio": "2/13",
+      "exact_cyclotomic_DFT": "PASS"
+    },
+    {
+      "prime": 37,
+      "epsilon": -1,
+      "allowed_nonzero_exponents": [
+        2,
+        5,
+        6,
+        8,
+        13,
+        14,
+        15,
+        17,
+        18,
+        19,
+        20,
+        22,
+        23,
+        24,
+        29,
+        31,
+        32,
+        35
+      ],
+      "zero_projection_ratio": "1/37",
+      "each_allowed_nonzero_projection_ratio": "2/37",
+      "exact_cyclotomic_DFT": "PASS"
+    },
+    {
+      "prime": 37,
+      "epsilon": 1,
+      "allowed_nonzero_exponents": [
+        1,
+        3,
+        4,
+        7,
+        9,
+        10,
+        11,
+        12,
+        16,
+        21,
+        25,
+        26,
+        27,
+        28,
+        30,
+        33,
+        34,
+        36
+      ],
+      "zero_projection_ratio": "1/37",
+      "each_allowed_nonzero_projection_ratio": "2/37",
+      "exact_cyclotomic_DFT": "PASS"
+    }
+  ],
+  "R1768_integer_capacities": {
+    "delta": "37b-6a",
+    "twist_one_sum_delta_squared": 72,
+    "each_nonresidue_37_twist_sum_delta_squared": 144,
+    "dimension_orbit_deltas": [
+      -6,
+      6
+    ],
+    "other_nonzero_delta_absolute_bound": 12
+  },
+  "source_sha256": {
+    "SATURATED_CONDUCTOR.md": "bacda9bc463c667613586e243dd11ac3db29f2afb50a774c9756413cd2cb36dd",
+    "SIGNED_PRIME_SUPPORT.md": "f314f195246df530eac958f66ce92e8ae9afdc3f6f3968d48c3c387cf81a13fd",
+    "verify_saturated_conductor.py": "bcedc77f3d4eeb8de5853f85f1630ee785b18a1c45a229215feca400d3895bfd"
+  }
+}

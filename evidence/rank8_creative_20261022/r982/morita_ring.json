@@ -1,0 +1,372 @@
+{
+  "kind": "R982_based_ring_Morita_rigidity_D8_certificate",
+  "status": "PASS",
+  "tensor_sha256": "f4a9fb77b3a78e9dcd8370ca9fa822ea331f1b71e3fad7990efdd386445fcd1c",
+  "complete_module_classification_sha256": "44d470d2e1cd8620dec52314c1aae9ab282d9cf0aa1f4b823c2b65b50a9eb768",
+  "rank_eight_Morita_receipt_sha256": "4104e1cc387dc43d001f0dd1f04853f0431ccfa57e69591aed74069f1b3f9745",
+  "module_classes": [
+    {
+      "module_class": 0,
+      "bimodule_Gram_identity_entries_checked": 4096,
+      "action_column_rank": 8,
+      "row_lattice": "Z^8",
+      "selected_row_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "selected_integer_basis": [
+        [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "basis_determinant": 1,
+      "all_row_coordinate_sums_even": false,
+      "all_columns_nonzero_and_nonnegative": true
+    },
+    {
+      "module_class": 1,
+      "bimodule_Gram_identity_entries_checked": 4096,
+      "action_column_rank": 8,
+      "row_lattice": "D8",
+      "selected_row_indices": [
+        0,
+        1,
+        16,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "selected_integer_basis": [
+        [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          0,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          1,
+          1,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          1,
+          1,
+          0,
+          0,
+          1
+        ]
+      ],
+      "basis_determinant": -2,
+      "all_row_coordinate_sums_even": true,
+      "all_columns_nonzero_and_nonnegative": true
+    },
+    {
+      "module_class": 2,
+      "bimodule_Gram_identity_entries_checked": 4096,
+      "action_column_rank": 8,
+      "row_lattice": "D8",
+      "selected_row_indices": [
+        0,
+        1,
+        16,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "selected_integer_basis": [
+        [
+          1,
+          0,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          0,
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          1,
+          0,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          1,
+          1,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          1,
+          0,
+          1,
+          1,
+          1,
+          0,
+          0
+        ]
+      ],
+      "basis_determinant": 2,
+      "all_row_coordinate_sums_even": true,
+      "all_columns_nonzero_and_nonnegative": true
+    }
+  ],
+  "D8_discriminant_cosets": [
+    {
+      "coset": "zero",
+      "representative": [
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      "squared_norm": 0
+    },
+    {
+      "coset": "vector",
+      "representative": [
+        "1",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0",
+        "0"
+      ],
+      "squared_norm": 1
+    },
+    {
+      "coset": "spinor",
+      "representative": [
+        "1/2",
+        "1/2",
+        "1/2",
+        "1/2",
+        "1/2",
+        "1/2",
+        "1/2",
+        "1/2"
+      ],
+      "squared_norm": 2
+    },
+    {
+      "coset": "other_spinor",
+      "representative": [
+        "-1/2",
+        "1/2",
+        "1/2",
+        "1/2",
+        "1/2",
+        "1/2",
+        "1/2",
+        "1/2"
+      ],
+      "squared_norm": 2
+    }
+  ],
+  "categorical_conclusion": "Every complex fusion category categorifying R8_3_982 has only based-isomorphic R8_3_982 Grothendieck rings throughout its categorical Morita class, without a rank or multiplicity search bound.",
+  "limitation": "The categories, module associators, and algebra structures may differ; no categorification or exclusion of R982 is asserted."
+}

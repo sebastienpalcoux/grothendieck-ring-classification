@@ -1,14 +1,16 @@
 # Categorification status and implication diagrams
 
-The scope audit concerns complex fusion categorifications of the eight current
-unresolved rings. It reports established results in the linked research record;
-it is not a claim that every possible obstruction has been exhausted.
+The scope audit concerns complex fusion categorifications of the seven current
+unresolved rings, together with retained dossiers for two excluded rings and
+the realized ring R8_3_982. It reports established results in the linked research
+record; it is not a claim that every possible obstruction has been exhausted.
 
 The standard implications are unitary ⇒ pseudo-unitary ⇒ spherical ⇒ pivotal
 ⇒ general. A case page highlights only the strongest established exclusion:
 for example, excluding pivotal categorification also excludes all three stronger
-structures. If none is established, the page explicitly says that even unitary
-categorification remains open. Surviving necessary conditions do not establish
+structures. For an unresolved case with no established exclusion, the page
+explicitly says that even unitary categorification remains open. A realized
+case instead identifies the strongest constructed level. Surviving necessary conditions do not establish
 existence. An excluded induction frame, pointed associator or construction
 family is not an exclusion of every categorification of that structural type.
 
@@ -35,14 +37,25 @@ Every current unresolved ring has the following two consequences:
 | Cases | Same-category consequence | Additional existence reduction |
 | --- | --- | --- |
 | `R6_4_155`, `R6_8_1660` | General ⇒ spherical | Every categorification has a pseudo-unitary Galois conjugate |
-| `R8_3_928`, `R8_3_941`, `R8_3_982`, `R8_3_1154`, `R8_3_1768`, `R8_3_3472` | General ⇒ spherical | Every categorification has a pseudo-unitary Galois conjugate |
+| `R8_3_928`, `R8_3_941`, `R8_3_1154`, `R8_3_1768`, `R8_3_3472` | General ⇒ spherical | Every categorification has a pseudo-unitary Galois conjugate |
 
-All eight remain unresolved at every level in the unbraided hierarchy.
+All seven remain unresolved at every level in the unbraided hierarchy.
 Every one is excluded from general braided categorification. Each of the
-six rank-eight cases is also excluded from having a braided Morita
+five rank-eight cases is also excluded from having a braided Morita
 representative. See [the separate braided audit](BRAIDED_CATEGORIFICATION.md).
 
-The new four-case result is proved in
+`R8_3_982` is now **unitarily realized** by the eight-object triality-zero
+component of the E21 exceptional fusion category associated with
+SU(3)_21 into E7_1. The [construction and exact identification](../evidence/rank8_creative_20261022/r982/E21_MODEL.md)
+match all 512 fusion coefficients, and realize the algebra 1+X5 and both
+nonregular based-module types. All five unbraided existence levels are
+therefore realized. Its former case URL retains the model, invariants, tensor
+download and research history. The universal general-to-spherical and Galois
+implications proved below remain valid; the existence of one unitary model
+does not assert that every categorification of this ring is unitary. Its
+braided and braided-Morita exclusions also remain valid.
+
+The earlier four-case sphericalization result is proved in
 [`pivotality/PROOF.md`](../evidence/rank8_research_20261022/pivotality/PROOF.md).
 For `R8_3_982`, `R8_3_1768`, and `R8_3_1795`, the full parity enumeration
 modulo a justified basis-sign gauge gives respectively 3, 28 and 42 sign
@@ -119,7 +132,11 @@ the FP orbit and these exclusions. Together with the new gates this establishes 
 ## Maintenance
 
 Update `categorification_scope.json` when a proof changes one of these statuses
-or implications. Replay the conditional consequences with
+or implications. Its `cases`, `closed_cases` and `realized_cases` fields keep
+current unresolved profiles, retained exclusions and retained realizations
+distinct. A unitary realization marks all five existence levels as realized
+without adding an unsupported universal same-category implication.
+Replay the conditional consequences with
 `python3 site/verify_scope_consequences.py` (requires SymPy).
 Then run `python3 site/build_cases.py --classification .` from
 the repository root and `npm run check` from `site/`. The checks validate the

@@ -1,0 +1,27 @@
+{
+  "status": "PASS",
+  "read_only": true,
+  "scope": "Exact necessary packet data on all25 branches; one quartic witness; joint closure/commutant; one excluded quantum-subgroup route. R1154 remains unresolved.",
+  "checks": [
+    {
+      "verifier": "verify_semionic_packet.py",
+      "receipt": "semionic_packet.json",
+      "status": "PASS"
+    },
+    {
+      "verifier": "verify_quartic_witness.py",
+      "receipt": "quartic_witness_replay.json",
+      "status": "PASS"
+    },
+    {
+      "verifier": "verify_packet_closure.py",
+      "receipt": "packet_closure.json",
+      "status": "PASS"
+    },
+    {
+      "verifier": "verify_quantum_subgroup_route.py",
+      "receipt": "quantum_subgroup_route.json",
+      "status": "PASS"
+    }
+  ]
+}

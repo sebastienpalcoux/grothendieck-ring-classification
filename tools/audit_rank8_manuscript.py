@@ -7,7 +7,7 @@ import hashlib
 import json
 import re
 from pypdf import PdfReader
-from rank8_publication import ledger_path, extension
+from rank8_publication import ledger_path, extension, current_date
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -54,7 +54,7 @@ def main():
     counts = Counter(r['status'] for r in json.loads((ROOT/ledger_path(ROOT)).read_text()))
     sha = lambda raw: hashlib.sha256(raw).hexdigest()
     result = {
-        'status': 'PASS', 'date': '2026-10-21',
+        'status': 'PASS', 'date': current_date(ROOT),
         'citations': len(citations), 'bibliography_entries': len(bibliography), 'labels': len(labels),
         'source_hashes': {(folder/name).relative_to(ROOT).as_posix():sha((folder/name).read_bytes()) for name in sorted(sources)},
         'counts': {'excluded':counts['excluded'], 'unitary_models':counts['unitarily_realized'], 'general_open':counts['unresolved']},

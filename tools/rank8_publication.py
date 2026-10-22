@@ -10,6 +10,7 @@ import json
 import rank8_frontier as frontier
 import rank8_next as next_stage
 import rank8_research_20261022 as research_stage
+import rank8_creative_20261022 as creative_stage
 
 HISTORICAL_LEDGER = 'supplements/rank8/data/decisions.json'
 HISTORICAL_TABLES = 'supplements/rank8/data/rank8_tables.txt.gz'
@@ -34,16 +35,19 @@ def active(repo):
     return (Path(repo) / LEDGER).is_file()
 
 def ledger_path(repo):
+    if creative_stage.active(repo): return creative_stage.LEDGER
     if research_stage.active(repo): return research_stage.LEDGER
     if next_stage.active(repo): return next_stage.LEDGER
     if frontier.active(repo): return frontier.LEDGER
     return LEDGER if active(repo) else HISTORICAL_LEDGER
 
 def model_path(repo):
+    if creative_stage.active(repo): return creative_stage.MODELS
     if next_stage.active(repo): return next_stage.MODELS
     return MODELS if active(repo) else HISTORICAL_MODELS
 
 def archive_path(repo):
+    if creative_stage.active(repo): return creative_stage.ARCHIVE
     if research_stage.active(repo): return research_stage.ARCHIVE
     if next_stage.active(repo): return next_stage.ARCHIVE
     if frontier.active(repo): return frontier.ARCHIVE
@@ -91,7 +95,12 @@ def extension(repo):
     historical_sources(repo)
     continuation = frontier.validate_ledger(repo) if frontier.active(repo) else None
     latest = next_stage.validate_ledger(repo) if next_stage.active(repo) else None
-    research = research_stage.validate_ledger(repo) if research_stage.active(repo) else None
+    creative = creative_stage.validate_ledger(repo) if creative_stage.active(repo) else None
+    if creative:
+        from rank8_creative_history import research_summary
+        research = research_summary(repo)
+    else:
+        research = research_stage.validate_ledger(repo) if research_stage.active(repo) else None
     path = Path(repo) / ledger_path(repo)
     records = json.loads(path.read_text())
     rows = [r for r in records if r['multiplicity'] == 3]
@@ -110,11 +119,12 @@ def extension(repo):
             'ledger':ledger_path(repo),'ledger_sha256':hashlib.sha256(path.read_bytes()).hexdigest(),
             'historical_ledger':HISTORICAL_LEDGER,'historical_ledger_sha256':HISTORICAL_HASHES[HISTORICAL_LEDGER],
             'source':TABLES,'source_sha256':hashlib.sha256((Path(repo)/TABLES).read_bytes()).hexdigest(),
-            'evidence':research_stage.EVIDENCE if research else next_stage.EVIDENCE if latest else frontier.EVIDENCE if continuation else EVIDENCE,
+            'evidence':creative_stage.EVIDENCE if creative else research_stage.EVIDENCE if research else next_stage.EVIDENCE if latest else frontier.EVIDENCE if continuation else EVIDENCE,
             'baseline_evidence':EVIDENCE, 'frontier':continuation,
             'next':latest,
             'research':research,
-            'attempts_source':research_stage.AUDIT if research else next_stage.AUDIT if latest else (frontier.EVIDENCE+'/structural_models/per_ring_research_audit.json'
+            'creative':creative,
+            'attempts_source':creative_stage.AUDIT if creative else research_stage.AUDIT if research else next_stage.AUDIT if latest else (frontier.EVIDENCE+'/structural_models/per_ring_research_audit.json'
                                if continuation else EVIDENCE+'/pipeline/residual_attempts.json')}
 
 def summary(repo):

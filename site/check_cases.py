@@ -12,6 +12,7 @@ from html.parser import HTMLParser
 import json
 import math
 from pathlib import Path
+import sys
 from urllib.parse import unquote, urlsplit
 
 
@@ -107,12 +108,17 @@ def check_scope(record, expected, repository):
     scope = record.get("categorification_scope")
     require(isinstance(scope, dict) and scope == expected,
             f"Website categorification scope differs from its audited source: {identifier}")
-    require(scope.get("general_status") == record["status"], f"Wrong general scope: {identifier}")
+    general_status = "realized" if record["status"] == "unitarily_realized" else record["status"]
+    require(scope.get("general_status") == general_status, f"Wrong general scope: {identifier}")
     statuses = scope.get("level_status", {})
     require(set(statuses) == set(STRUCTURE_LEVELS) and
-            all(status in {"unresolved", "excluded"} for status in statuses.values()),
+            all(status in {"unresolved", "excluded", "realized"} for status in statuses.values()),
             f"Incomplete or unsupported categorification status: {identifier}")
-    require(statuses["general"] == record["status"], f"General status differs from case status: {identifier}")
+    require(statuses["general"] == general_status, f"General status differs from case status: {identifier}")
+    if record["status"] == "unitarily_realized":
+        require(all(status == "realized" for status in statuses.values()), f"Unitary model must establish every level: {identifier}")
+        require(record.get("existence") == {"general":"realized", "unitary":"realized"}, f"Inconsistent realized existence: {identifier}")
+        require(bool(scope.get("model_sources")) and any(item.get("path") and item.get("sha256") for item in scope["model_sources"]), f"Unbound unitary construction: {identifier}")
     excluded = [level for level in STRUCTURE_LEVELS if statuses[level] == "excluded"]
     require(scope.get("strongest_excluded") == (excluded[0] if excluded else None),
             f"The highlighted exclusion is not the strongest established one: {identifier}")
@@ -123,6 +129,7 @@ def check_scope(record, expected, repository):
     require(isinstance(same, list) and isinstance(existence, list),
             f"Missing distinction between category structures and existence reductions: {identifier}")
     sources = list(scope["audit_sources"])
+    sources.extend(scope.get("model_sources", []))
     sources.extend(check_braided_scope(record, scope.get("braided")))
     morita = scope.get('braided', {}).get('morita')
     if morita:
@@ -146,6 +153,7 @@ def check_scope(record, expected, repository):
     for source, target in implication_closure(same + existence):
         require(statuses[target] != "excluded" or statuses[source] == "excluded",
                 f"Exclusion does not respect the recorded implication {source} => {target}: {identifier}")
+        require(statuses[source] != "realized" or statuses[target] == "realized", f"Realization violates implication {source} => {target}: {identifier}")
     for source in sources:
         require(bool(source.get("label")) and bool(source.get("url")),
                 f"Unlabelled categorification evidence: {identifier}")
@@ -294,13 +302,29 @@ def check_site(root=None, repository=None):
     require(set(scope_source.get("cases", {})) == set(ids), "Categorification audit does not cover precisely the current cases")
     for record in unresolved:
         check_scope(record, scope_source["cases"][record["id"]], repository)
-    require(set(scope_source.get("closed_cases", {})) == {r['id'] for r in resolved}, "Resolved-case audit inventory mismatch")
-    ledger_path = read_json(repository / "data/classification_status.json")["inputs"]["rank8"]["file"]
-    ledger = {r['id']:r for r in read_json(repository / ledger_path)}
+    excluded_scopes = scope_source.get("closed_cases", {})
+    realized_scopes = scope_source.get("realized_cases", {})
+    require(not set(excluded_scopes) & set(realized_scopes), "Retained dossier both excluded and realized")
+    require(len(resolved) == len({r['id'] for r in resolved}) and set(excluded_scopes) | set(realized_scopes) == {r['id'] for r in resolved}, "Resolved-case audit inventory mismatch")
+    sys.path.insert(0, str(repository / "tools"))
+    from rank8_publication import ledger_path
+    current_ledger = ledger_path(repository)
+    require(read_json(repository / "data/classification_status.json")["inputs"]["rank8"]["file"] == current_ledger, "Classification summary does not use current accepted rank-eight ledger")
+    ledger = {r['id']:r for r in read_json(repository / current_ledger)}
+    realized_by_id = {r['id']:r for r in realized}
     for record in resolved:
-        require(record['status']=='excluded' and ledger[record['id']]['status']=='excluded' and record['tensor_sha256']==ledger[record['id']]['tensor_sha256'], 'Resolved dossier differs from accepted ledger')
-        require(record['id'] not in set(ids) | {r['id'] for r in realized}, 'Resolved case is still listed as open or realized')
-        check_scope(record, scope_source['closed_cases'][record['id']], repository)
+        identifier = record['id']
+        require(identifier in ledger and record['status'] == ledger[identifier]['status'] and record['tensor_sha256'] == ledger[identifier]['tensor_sha256'], 'Resolved dossier differs from accepted ledger: '+identifier)
+        require(identifier not in ids, 'Resolved case still listed as open: '+identifier)
+        if identifier in excluded_scopes:
+            require(record['status']=='excluded' and identifier not in realized_by_id, 'Excluded dossier appears in realized catalogue: '+identifier)
+            check_scope(record, excluded_scopes[identifier], repository)
+        else:
+            require(record['status']=='unitarily_realized' and identifier in realized_by_id, 'Retained realized dossier has no unitary catalogue model: '+identifier)
+            model=realized_by_id[identifier]
+            require(model.get('existence')=='unitary' and record['fusion_tensor']==model['fusion_tensor'] and record['tensor_sha256']==model['tensor_sha256'], 'Retained realized dossier differs from catalogue: '+identifier)
+            require(bool(record.get('model_reference')) and bool(record.get('model_reference_url')) and bool(record.get('construction_proof_file')), 'Retained model citation missing: '+identifier)
+            check_scope(record, realized_scopes[identifier], repository)
     canonical_module = ast.parse((repository / "data/remaining_cases.py").read_text(encoding="utf-8"))
     canonical_tensors = {node.targets[0].id: ast.literal_eval(node.value)
                          for node in canonical_module.body
@@ -347,10 +371,10 @@ def check_site(root=None, repository=None):
         parser.feed(document)
         require(set(parser.fragments) <= parser.ids, f"Broken internal section link: {filename}")
         require("./cases.js" in parser.scripts, f"Case page is missing its application script: {filename}")
-    return {"unresolved": len(unresolved), "resolved": len(resolved), "realized": len(realized), "tensor_downloads": len(paths)}
+    return {"unresolved": len(unresolved), "resolved": len(resolved), "excluded": len(excluded_scopes), "retained_realized": len(realized_scopes), "realized": len(realized), "tensor_downloads": len(paths)}
 
 
 if __name__ == "__main__":
     result = check_site()
-    print("Case pages checked: {unresolved} unresolved profiles, {resolved} retained excluded profiles, {realized} realized rings, "
+    print("Case pages checked: {unresolved} unresolved profiles, {excluded} retained excluded profiles, {retained_realized} retained realized profiles, {realized} realized catalogue rings, "
           "{tensor_downloads} exact Python tensor downloads; categorification audits and implication scopes agree.".format(**result))

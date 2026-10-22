@@ -30,7 +30,7 @@ categorifications over ℂ.
 
 > [!TIP]
 > **[Potentially new tensor categories and open cases (PDF)](docs/New_category_candidates_and_open_cases.pdf)**
-> Seven provisional construction candidates, the known `Rep(AGL(1,7))` model, and all 8 current open cases.
+> Seven provisional construction candidates, the known `Rep(AGL(1,7))` model, and all 7 current open cases.
 > Novelty up to tensor equivalence remains subject to independent verification.
 
 | Start here | What you will find |
@@ -48,11 +48,11 @@ through multiplicity two, with 896 exclusions and 77 unitary models.
 The exclusion of `R8_2_24` follows from an inner-square obstruction using
 pivotal duality, short associator weights and tensor-functor rigidity.
 The rank-seven multiplicity-five continuation addresses all 5,805 supplied exact-multiplicity-five rings: 5,804 general exclusions, 1 realization and 0 unresolved cases. The classification of the supplied census is complete through multiplicity 5. The new realization R7_5_5678 is Rep(AGL(1,7)).
-The rank-eight multiplicity-three continuation addresses all 3,527 supplied exact-multiplicity-three rings: 3,506 general exclusions, 15 models and 6 unresolved cases. Every recorded model admits a unitary realization. The remaining rings retain unresolved status for general complex categorification.
+The rank-eight multiplicity-three continuation addresses all 3,527 supplied exact-multiplicity-three rings: 3,506 general exclusions, 16 models and 5 unresolved cases. Every recorded model admits a unitary realization. The remaining rings retain unresolved status for general complex categorification.
 
 Canonical normal and optimized frontier replays each passed all 108 checks. These receipts cover the historical frontier stage. Fresh replay after extraction from the publication archive is deferred.
 
-R8_3_721 is realized by the inherited 1+rho Q-system Morita dual of the C2 de-equivariantization of the known GH(C8) category. Its rank and coefficient bound are proved exactly; identification uses its unique dimension type in the supplied complete rank-eight multiplicity-at-most-three census. The earlier center-action analysis reduces R8_3_1154 to three necessary center patterns. These model and pattern results are preserved in evidence/rank8_next_20261021/; the later R8_3_65 general exclusion is recorded separately in evidence/rank8_research_20261022/.
+R8_3_721 is realized by the inherited 1+rho Q-system Morita dual of the C2 de-equivariantization of GH(C8). Exact rank and coefficient bounds identify its unique dimension type in the supplied complete rank-eight multiplicity-at-most-three census. The earlier center-action analysis leaves three necessary R8_3_1154 patterns. These results are in evidence/rank8_next_20261021/; the later R8_3_65 general exclusion is in evidence/rank8_research_20261022/.
 
 [Separately verified center-pattern addendum](evidence/rank8_center_followup_20261021/README.md).
 
@@ -60,7 +60,7 @@ The separate center-pattern addendum passed all eight checks in canonical normal
 
 [New GH(C8) Morita model and further unified restrictions](evidence/rank8_next_20261021/README.md).
 
-**22 October research.** R8_3_65 and R8_3_1795 have general-complex exclusions from pointed-induction Fourier integrality. Six exact separating certificates cover all four pointed associator classes for R8_3_65; sixteen cover both pointed classes and every admissible second-indicator assignment for R8_3_1795. The verified Galois reductions remove the pseudo-unitarity hypotheses. Every hypothetical categorification of each of the 6 remaining rank-eight rings admits a spherical structure and is Galois conjugate to a pseudo-unitary category. None is categorically Morita equivalent to a braided fusion category. For R8_3_1768 the pointed C2 associator must be nontrivial, forcing its nonidentity invertible to act freely on the simple objects of every indecomposable module category. R8_3_982 has a complete necessary based-module analysis; its remaining module data do not establish coherent module categories. A separate dimension-spectrum restriction for R8_3_3472 covers one specified rank-two module action only. These restrictions leave 6 general categorification questions unresolved.
+**22 October research.** R8_3_982 is unitarily realized by the neutral triality component of the exceptional E21 chiral fusion category from SU(3)_21 into E7_1. All 512 canonical fusion coefficients are identified exactly; the construction realizes both nonregular based-module types and the algebra 1+X5. Every Morita partner of any R982 categorification has the same based fusion ring. Five rank-eight general categorification questions remain: R8_3_928, R8_3_941, R8_3_1154, R8_3_1768 and R8_3_3472. Every hypothetical categorification admits a spherical structure and has a pseudo-unitary Galois conjugate; none has a braided Morita representative. New saturated-conductor and signed spectral-capacity theorems constrain all twist orders. R1768 has 39 of 40 necessary Gram/indicator branches excluded; its irrational dimension-ratio sector outside the two dimension-orbit objects has 18 or 72 simples. The final cone survives, and the 18-object option has a forced 19-dimensional Weil block with integral nonnegative distinguished products. R1154 has four forced semionic S columns and fusion matrices in all 25 histograms, which remain necessary data. R3472 has seven remaining first-action dual spectra and 400477 second-action arithmetic spectra, conditional on the specified rank-two modules. Exact integer phase counts eliminate six of the ten R928 center patterns, leaving four with exact necessary witnesses; all fourteen R941 allocations survive the stated phase refinements. Scoped construction obstructions and such witnesses neither exclude these five rings nor construct exotic categories.
 
 [Proofs and exact verifier inventory](evidence/rank8_research_20261022/README.md). Run this stage separately from the preserved baseline and frontier replays:
 
@@ -87,7 +87,7 @@ The tables below report the project's classification claims; “complete” and
 |---:|---:|---:|---:|---:|---:|---:|---:|
 | 1 | 2 | 4 | 9 | 10 | 21 | 13 | 48 |
 | 2 | 0 | 1 | 3 | 3 | 22 | 10 | 29 |
-| 3 | 0 | 0 | 2 | 2 | 3 | 2 | ≥15 |
+| 3 | 0 | 0 | 2 | 2 | 3 | 2 | ≥16 |
 | 4 | 0 | 0 | 0 | 2 | ≥5 | 4 | — |
 | 5 | 0 | 0 | 0 | 0 | 1 | 1 | — |
 | 6 | 0 | 0 | 1 | 0 | 3 | — | — |
@@ -115,7 +115,7 @@ Census bounds describe enumeration coverage; classification scope is stated sepa
 | 5 | Through 20 | **Complete through 20** | Through 20: 40,982 excluded, 17 realized, 0 unresolved. |
 | 6 | Through 9 | **Complete through 3** | Through 9: 25,362 excluded, 57 realized, 2 unresolved. |
 | 7 | Through 5 | **Complete through 5** | Through 5: 9,976 excluded, 30 realized, 0 unresolved. |
-| 8 | Through 3 | **Complete through 2**; multiplicity 3 partial | Through 3: 4,402 excluded, 92 realized, 6 unresolved. |
+| 8 | Through 3 | **Complete through 2**; multiplicity 3 partial | Through 3: 4,402 excluded, 93 realized, 5 unresolved. |
 
 The [rank-four unrestricted proof](manuscripts/rank4/papers/companion.pdf) gives the sharp bound FPdim ≤ 24+12√3, attained only by the near-group ring `NG(C₃,6)`. Its theoretical reduction gives FPdim < 1000 and multiplicity at most 31; an independent exact census then checks 1,692 rings, with 1,677 exclusions and 15 models. The separate multiplicity-128 census contains 889,530 rings and 889,515 exclusions.
 
@@ -172,7 +172,7 @@ a ring's general unresolved status.
 |---:|---:|---:|---:|---:|---:|
 | 1 | 1 excluded · 9 realized | 6 excluded · 10 realized | 18 excluded · 21 realized | 30 excluded · 13 realized | 48 excluded · 48 realized |
 | 2 | 14 excluded · 3 realized | 34 excluded · 3 realized | 132 excluded · 22 realized | 309 excluded · 10 realized | 848 excluded · 29 realized |
-| 3 | 22 excluded · 2 realized | 80 excluded · 2 realized | 381 excluded · 3 realized | 1,057 excluded · 2 realized | 3,506 excluded · 15 realized · **6 open** |
+| 3 | 22 excluded · 2 realized | 80 excluded · 2 realized | 381 excluded · 3 realized | 1,057 excluded · 2 realized | 3,506 excluded · 16 realized · **5 open** |
 | 4 | 45 excluded · 0 realized | 132 excluded · 2 realized | 866 excluded · 5 realized · **1 open** | 2,776 excluded · 4 realized | — |
 | 5 | 55 excluded · 0 realized | 209 excluded · 0 realized | 1,581 excluded · 1 realized | 5,804 excluded · 1 realized | — |
 | 6 | 80 excluded · 1 realized | 336 excluded · 0 realized | 2,765 excluded · 3 realized | — | — |
@@ -204,7 +204,7 @@ row checks and scope appear in [the provenance record](docs/PROVENANCE.md).
 | 5 | Multiplicity 18 | Inert-prime quadratic parity first closes two cases at 18; no new criterion family is needed at 19–20. |
 | 6 | See the allocation ledger | The current criteria include stabilizer, cyclotomic-trace and signed arithmetic obstructions. All 8,809 exact-multiplicity-nine rings have general exclusion certificates; 2 earlier cases remain unresolved through multiplicity 9. |
 | 7 | See the allocation ledger | The multiplicity-five extension adds cyclic-module, quadratic compression, signed sphericalization, center-trace and Morita-descent arguments. There are 0 generally open rings in the analyzed range. Higher multiplicities are not classified here. |
-| 8 | Multiplicity 3 | Quadratic-compositum compression, convex central induction, split-module polynomials and Morita transport extend the classification through multiplicity three. There are 6 generally open rings in the analyzed range; higher multiplicities are not classified here. |
+| 8 | Multiplicity 3 | Quadratic-compositum compression, convex central induction, split-module polynomials and Morita transport extend the classification through multiplicity three. There are 5 generally open rings in the analyzed range; higher multiplicities are not classified here. |
 
 This records **first use in the chosen certificate allocation**, not an
 optimal ordering theorem or a claim that the criteria settle higher

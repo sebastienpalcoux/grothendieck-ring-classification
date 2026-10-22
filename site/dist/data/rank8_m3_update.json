@@ -4,14 +4,13 @@
   "multiplicity": 3,
   "rings": 3527,
   "excluded": 3506,
-  "realized": 15,
-  "unitarily_realized": 15,
+  "realized": 16,
+  "unitarily_realized": 16,
   "pseudo_unitarily_realized": 0,
-  "unresolved": 6,
+  "unresolved": 5,
   "remaining_ids": [
     "R8_3_928",
     "R8_3_941",
-    "R8_3_982",
     "R8_3_1154",
     "R8_3_1768",
     "R8_3_3472"
@@ -29,18 +28,19 @@
     "R8_3_715",
     "R8_3_721",
     "R8_3_724",
+    "R8_3_982",
     "R8_3_1456",
     "R8_3_3278",
     "R8_3_3314",
     "R8_3_3342"
   ],
-  "ledger": "supplements/rank8/output/research_20261022/ledger.json",
-  "ledger_sha256": "521b9b9fb16a86c7c4ba491b8c2c0ebad05de1e41aafb5bc225d6342c9477e4e",
+  "ledger": "supplements/rank8/output/creative_20261022/ledger.json",
+  "ledger_sha256": "edac9d5685ed86acfff16d620598d76324430559cab58d9bf24d59074927d067",
   "historical_ledger": "supplements/rank8/data/decisions.json",
   "historical_ledger_sha256": "7f50213174f1020bb9d90d5981892c332448cf909a56bf60b29e1143228f3f24",
   "source": "supplements/rank8/data/rank8_m3_tables.txt.gz",
   "source_sha256": "1003a7684ec62797e63885eeb5af42fd094adc9ff3fec6caf049620b3afd0952",
-  "evidence": "evidence/rank8_research_20261022",
+  "evidence": "evidence/rank8_creative_20261022",
   "baseline_evidence": "evidence/rank8_m3_20261021",
   "frontier": {
     "new_decisions": 25,
@@ -142,10 +142,47 @@
     "attempts_source": "evidence/rank8_research_20261022/per_ring_research_audit.json",
     "evidence": "evidence/rank8_research_20261022"
   },
-  "attempts_source": "evidence/rank8_research_20261022/per_ring_research_audit.json",
+  "creative": {
+    "new_decisions": 1,
+    "resolved_ids": [
+      "R8_3_982"
+    ],
+    "counts": {
+      "excluded": 3506,
+      "unitarily_realized": 16,
+      "unresolved": 5
+    },
+    "cumulative_counts": {
+      "unitarily_realized": 93,
+      "excluded": 4402,
+      "unresolved": 5
+    },
+    "baseline_records_preserved": 4499,
+    "inherited_models_preserved": 92,
+    "new_models": 1,
+    "remaining_ids": [
+      "R8_3_928",
+      "R8_3_941",
+      "R8_3_1154",
+      "R8_3_1768",
+      "R8_3_3472"
+    ],
+    "date": "2026-10-22",
+    "ledger": "supplements/rank8/output/creative_20261022/ledger.json",
+    "ledger_sha256": "edac9d5685ed86acfff16d620598d76324430559cab58d9bf24d59074927d067",
+    "models": "supplements/rank8/output/creative_20261022/model_catalog.json",
+    "models_sha256": "7b84c11792c15c9cc07a723fe3d03cf8c56f049907bb9de7be35fb9cefbbf382",
+    "accepted": "evidence/rank8_creative_20261022/accepted.json",
+    "accepted_sha256": "752da9e42e39b92c4c4a675419ad4569a1f85f2228090463d728cb8501e22fef",
+    "baseline_ledger": "supplements/rank8/output/research_20261022/ledger.json",
+    "baseline_ledger_sha256": "521b9b9fb16a86c7c4ba491b8c2c0ebad05de1e41aafb5bc225d6342c9477e4e",
+    "attempts_source": "evidence/rank8_creative_20261022/per_ring_research_audit.json",
+    "evidence": "evidence/rank8_creative_20261022"
+  },
+  "attempts_source": "evidence/rank8_creative_20261022/per_ring_research_audit.json",
   "attempts": {
     "path": "data/rank8_m3_attempts.json",
-    "sha256": "b337fb76a71783aa838cc6cabf5ac3e4679fec6751063b133a1256e3bcc9e155",
-    "cases": 6
+    "sha256": "1a829f2297462454bfb16b315275dfdf82729bc2d257220265a55ed951a064cb",
+    "cases": 5
   }
 }

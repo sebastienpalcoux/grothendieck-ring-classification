@@ -51,7 +51,22 @@ def main():
     rank8_frontier_receipt = None
     rank8_center_followup_receipt = None
     rank8_research_receipt = None
-    if rank8_update:
+    rank8_creative_receipt = None
+    if rank8_update and rank8_update.get('creative'):
+        with tempfile.TemporaryDirectory(prefix='rank8-creative-check-') as directory:
+            output = Path(directory) / 'receipt.json'
+            command = [sys.executable] + (['-O'] if sys.flags.optimize else [])
+            command += [str(repo / 'tools/verify_rank8_creative_20261022.py'),
+                        '--repo', str(repo), '--output', str(output)]
+            if args.metadata_only:
+                command.append('--metadata-only')
+            if args.historical:
+                command.append('--historical')
+            check = subprocess.run(command, cwd=repo, text=True, capture_output=True)
+            need(check.returncode == 0, 'Rank-eight E21/creative research check failed:\n'
+                 + check.stdout + check.stderr)
+            rank8_creative_receipt = json.loads(output.read_text())
+    elif rank8_update:
         with tempfile.TemporaryDirectory(prefix='rank8-m3-check-') as directory:
             command = [sys.executable] + (['-O'] if sys.flags.optimize else [])
             command += [str(repo/'supplements/rank8/software/verify_m3_continuation.py'), '--output', str(Path(directory)/'receipt.json')]
@@ -167,6 +182,7 @@ def main():
                   'rank8_center_followup_check': rank8_center_followup_receipt,
                   'rank8_next_check': rank8_next_receipt,
                   'rank8_research_check': rank8_research_receipt,
+                  'rank8_creative_check': rank8_creative_receipt,
                   'rank7_m5_metadata_check': rank7_metadata,
                   'rank6_necessary_conditions': rank6_progress,
                   'reader_resources': reader_resources,

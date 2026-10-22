@@ -23,6 +23,7 @@ MODEL_LABELS={
 715:r'Morita dual of the nonsplit unitary $2D2$ extension',
 721:r'Inherited Q-system Morita dual in the $C_2$ de-equivariantization of $\operatorname{GH}(C_8)$',
 724:r'$\operatorname{Rep}(\operatorname{PSL}_2(11))$',
+982:r'Triality-zero component of the known $E_{21}$ category for $SU(3)_{21}\subset(E_7)_1$ (Theorem~\ref{thm:creative-e21-model})',
 1456:r'$\operatorname{Ad}(E_8)\boxtimes\operatorname{Vec}(C_2)$',
 3278:r'Unitary $E_8$ fusion category',
 3314:r'$\operatorname{Ad}(E_8)\boxtimes\operatorname{Fib}$',
@@ -245,7 +246,17 @@ identities and reconciliation without replaying the mathematics.
         if 'R8_3_721' in model_ids:
             proofs=proofs.replace('unitarity; both rings remain unresolved by this proposition.',
                 r'unitarity. This proposition alone decides neither ring; $\sha{R8_3_721}$ is realized separately in Theorem~\ref{thm:r721-qsystem-model}.')
-        (PAPER/'m3_frontier.tex').write_text(heading+normalize(proofs))
+        frontier_text=heading+normalize(proofs)
+        if ext.get('creative'):
+            frontier_text=frontier_text.replace(
+                'and the two complete selected-pattern phase checks leave\n'+
+                r'\sha{R8_3_982} unresolved; they provide neither a category model nor'+'\n'+
+                'a general noncategorifiability theorem.',
+                'and the two complete selected-pattern phase checks left\n'+
+                r'\sha{R8_3_982} unresolved at that checkpoint. They provide neither a category'+'\n'+
+                'model nor a general noncategorifiability theorem; the later realization is\n'+
+                r'Theorem~\ref{thm:creative-e21-model}.')
+        (PAPER/'m3_frontier.tex').write_text(frontier_text)
         text += r'''\input{m3_frontier}
 '''
         followup=ROOT/'evidence/rank8_center_followup_20261021'
@@ -326,6 +337,41 @@ the proof sources and the exact replay logs. Scoped failed construction
 searches and feasible necessary-condition witnesses retain their stated
 domains; they are not proofs of nonexistence or categorifiability.
 '''
+    # These research sections are authored manuscript sources. Preserve them
+    # and restore their inputs whenever the generated continuation is rebuilt.
+    if ext.get('research'):
+        marker=r'\subsection{Continuation evidence and reproducibility}'
+        research_inputs=''.join(r'\input{'+name+'}\n' for name in
+                               ('m3_research_20261022','m3_pointed_followup'))
+        for name in ('m3_research_20261022.tex','m3_pointed_followup.tex'):
+            if not (PAPER/name).is_file():raise ValueError('Missing authored research section: '+name)
+        text=text.replace(marker,research_inputs+'\n'+marker,1)
+        text+=r'''
+The 22 October research overlay replays separately with
+\begin{quote}\small\verb|python3 tools/verify_rank8_research_20261022.py|\end{quote}
+It accepts the general exclusions of $\sha{R8_3_65}$ and $\sha{R8_3_1795}$.
+'''
+    if ext.get('creative'):
+        shutil.copy2(ROOT/'evidence/rank8_creative_20261022/r3472/integrated_manuscript.tex',
+                     PAPER/'m3_creative_20261022.tex')
+        text=text.replace(r'\input{m3_pointed_followup}',
+                          r'\input{m3_pointed_followup}'+'\n'+r'\input{m3_creative_20261022}')
+        text=text.replace(r'\input{m3_model_search}',r'''\paragraph{Historical search stages.}
+The following earlier campaigns retain their original proof domains and
+checkpoint results. Their historical unresolved lists are superseded by
+Theorem~\ref{thm:m3-current}; in particular the known model of
+$\sha{R8_3_982}$ is established in Theorem~\ref{thm:creative-e21-model}.
+\input{m3_model_search}''')
+        text+=r'''
+The exceptional-model overlay and new necessary-condition checks replay with
+\begin{quote}\small\verb|python3 tools/verify_rank8_creative_20261022.py|\end{quote}
+Run also with \texttt{-O}. The flag \texttt{--metadata-only} validates
+recorded receipts; \texttt{--historical} additionally replays earlier
+mathematics from the pinned historical archive. The separate archive is
+\begin{quote}\small\path{supplements/rank8/release/rank8-certified-creative-20261022.zip}.\end{quote}
+Only $\sha{R8_3_982}$ changes status in this overlay. The other five cases
+retain their stated unresolved status.
+'''
     (PAPER/'m3_continuation.tex').write_text(text)
     (PAPER/'m3_criteria.tex').write_text((ROOT/EVIDENCE/'criteria/criteria_m3.tex').read_text().replace('Certified subrings and a compositum compression criterion','Certified subrings and compositum compression'))
     (PAPER/'m3_convex.tex').write_text(normalize((ROOT/EVIDENCE/'criteria/global_convex_m3.tex').read_text()))
@@ -355,9 +401,15 @@ domains; they are not proofs of nonexistence or categorifiability.
         s=s.replace(r'\newtheorem{remark}[theorem]{Remark}',r'\newtheorem{remark}[theorem]{Remark}'+'\n'+r'\newtheorem{example}[theorem]{Example}')
     s=re.sub(r'pdftitle=\{Rank-eight Grothendieck rings: [^}]+\}','pdftitle={Rank-eight Grothendieck rings: categorification through multiplicity three}',s)
     s=s.replace('complete classification through multiplicity two}','categorification through multiplicity three}')
-    s=re.sub(r'\\date\{[^}]+\}',lambda _:r'\date{21 October 2026}',s)
+    s=re.sub(r'\\date\{[^}]+\}',lambda _:r'\date{22 October 2026}' if ext.get('research') else r'\date{21 October 2026}',s)
     abstract=(f'We investigate complex categorification of the supplied $4500$ rank-eight fusion rings of multiplicity at most three. The exact-multiplicity-three continuation treats $3527$ new tensors: ${ext["excluded"]}$ general exclusions, ${ext["unitarily_realized"]}$ unitary models, and ${ext["unresolved"]}$ unresolved cases. '
       'The complete classification through multiplicity two is preserved: $896$ exclusions and $77$ unitary models. Unified obstructions combine signed sphericalization, full character-labeled central induction, modular symmetry and rotations, integer central restriction and cubic fusion constraints, and module-category and Morita arguments. Positive constructions include group representations, near-group equivariantizations, exceptional subfactor categories, a twisted group-theoretical category and Morita duals. An inherited generalized-Haagerup Q-system realizes $\\sha{R8_3_721}$, using a categorical vertex obstruction, exact coefficient bounds and uniqueness in the supplied complete census. Tensor comparisons and exact replay certificates accompany the constructions; individual attempt inventories record the unresolved cases.')
+    if ext.get('research'):
+        abstract=abstract.replace('Tensor comparisons and exact replay certificates accompany the constructions; individual attempt inventories record the unresolved cases.',
+          'Pointed-induction Fourier criteria exclude $\\sha{R8_3_65}$ and $\\sha{R8_3_1795}$ in every pointed associator class. Every remaining categorification admits a spherical structure and has a pseudo-unitary Galois conjugate; none can have a braided Morita representative. Tensor comparisons and exact replay certificates accompany these results.')
+    if ext.get('creative'):
+        abstract=abstract.replace('Pointed-induction Fourier criteria',
+          'The triality-zero component of the known unitary $E_{21}$ category for $SU(3)_{21}\\subset(E_7)_1$ realizes $\\sha{R8_3_982}$ by an exact comparison of all $512$ fusion coefficients. Pointed-induction Fourier criteria')
     s=re.sub(r'\\begin\{abstract\}.*?\\end\{abstract\}',lambda _:r'\begin{abstract}'+'\n'+abstract+'\n'+r'\end{abstract}',s,flags=re.S)
     replacements={
       'all $877$ of exact multiplicity two.':'all $877$ of exact multiplicity two, and the supplied extension adds $3527$ of exact multiplicity three.',

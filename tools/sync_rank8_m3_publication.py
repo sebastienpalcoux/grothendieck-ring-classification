@@ -21,7 +21,11 @@ def frontier_replay_scope(repo):
         return ''
     manifest=folder/'source_manifest.json'
     digest=lambda path: hashlib.sha256(path.read_bytes()).hexdigest()
-    if source_inventory(repo)!=json.loads(manifest.read_text()):
+    from rank8_creative_20261022 import active as creative_active
+    if creative_active(repo):
+        from rank8_creative_history import baseline
+        baseline(repo)
+    elif source_inventory(repo)!=json.loads(manifest.read_text()):
         raise ValueError('Frontier source inventory differs from its frozen manifest')
     summary=validate_ledger(repo)
     required=commands(repo)
@@ -55,6 +59,20 @@ def center_replay_scope():
 def research_scope(repo):
     """Current accepted research, distinct from the frozen 108-check stage."""
     from rank8_research_20261022 import active, validate
+    from rank8_creative_20261022 import active as creative_active, validate as creative_validate
+    if creative_active(repo):
+        creative_validate(repo)
+        return ('R8_3_982 is unitarily realized by the neutral triality component of the exceptional E21 chiral fusion category from SU(3)_21 into E7_1. '
+                'All 512 canonical fusion coefficients are identified exactly; the construction realizes both nonregular based-module types and the algebra 1+X5. '
+                'Every Morita partner of any R982 categorification has the same based fusion ring. '
+                'Five rank-eight general categorification questions remain: R8_3_928, R8_3_941, R8_3_1154, R8_3_1768 and R8_3_3472. '
+                'Every hypothetical categorification admits a spherical structure and has a pseudo-unitary Galois conjugate; none has a braided Morita representative. '
+                'New saturated-conductor and signed spectral-capacity theorems constrain all twist orders. '
+                'R1768 has 39 of 40 necessary Gram/indicator branches excluded; its irrational dimension-ratio sector outside the two dimension-orbit objects has 18 or 72 simples. The final cone survives, and the 18-object option has a forced 19-dimensional Weil block with integral nonnegative distinguished products. '
+                'R1154 has four forced semionic S columns and fusion matrices in all 25 histograms, which remain necessary data. '
+                'R3472 has seven remaining first-action dual spectra and 400477 second-action arithmetic spectra, conditional on the specified rank-two modules. '
+                'Exact integer phase counts eliminate six of the ten R928 center patterns, leaving four with exact necessary witnesses; all fourteen R941 allocations survive the stated phase refinements. '
+                'Scoped construction obstructions and such witnesses neither exclude these five rings nor construct exotic categories.')
     if not active(repo):
         return ''
     report = validate(repo)
@@ -86,10 +104,10 @@ def center_scope(repo):
         validate_next(repo)
         from rank8_research_20261022 import active as research_active
         if research_active(repo):
-            return ('R8_3_721 is realized by the inherited 1+rho Q-system Morita dual of the C2 de-equivariantization of the known GH(C8) category. '
-                    'Its rank and coefficient bound are proved exactly; identification uses its unique dimension type in the supplied complete rank-eight multiplicity-at-most-three census. '
-                    'The earlier center-action analysis reduces R8_3_1154 to three necessary center patterns. '
-                    'These model and pattern results are preserved in evidence/rank8_next_20261021/; the later R8_3_65 general exclusion is recorded separately in evidence/rank8_research_20261022/.')
+            return ('R8_3_721 is realized by the inherited 1+rho Q-system Morita dual of the C2 de-equivariantization of GH(C8). '
+                    'Exact rank and coefficient bounds identify its unique dimension type in the supplied complete rank-eight multiplicity-at-most-three census. '
+                    'The earlier center-action analysis leaves three necessary R8_3_1154 patterns. '
+                    'These results are in evidence/rank8_next_20261021/; the later R8_3_65 general exclusion is in evidence/rank8_research_20261022/.')
         return ('R8_3_721 is realized by the inherited 1+rho Q-system Morita dual of the C2 de-equivariantization of the known GH(C8) category. '
                 'Its rank and coefficient bound are proved exactly; identification uses its unique dimension type in the supplied complete rank-eight multiplicity-at-most-three census. '
                 'Further center-action constraints reduce R8_3_1154 to three necessary center patterns. '
@@ -118,7 +136,13 @@ def integer_scope(repo, extension):
         return ''
     evidence = repo/'evidence/rank8_frontier_20261021'
     parts = []
-    if 'R8_3_928' in extension['remaining_ids']:
+    if 'R8_3_928' in extension['remaining_ids'] and extension.get('creative'):
+        cases = json.loads((repo/'evidence/rank8_creative_20261022/r928_r941/integer_followup/verification.json').read_text())['records']
+        outcomes = [case['outcome'] for case in cases]
+        if len(cases) != 10 or outcomes.count('exact_integer_phase_feasible') != 4 or outcomes.count('exact_integer_phase_impossible') != 6:
+            raise ValueError('Review the accepted R928 integer-phase summary')
+        parts.append('R8_3_928 has four exact integer-phase witnesses and six pattern exclusions certified by complete branching trees with 49 exact Farkas leaves')
+    elif 'R8_3_928' in extension['remaining_ids']:
         cases = json.loads((evidence/'r928_semion_rotation/integer_counts.json').read_text())['cases']
         statuses = [case['result']['status'] for case in cases]
         allowed = {'exact_nonnegative_integer_witness', 'integer_feasibility_unresolved'}
@@ -132,8 +156,8 @@ def integer_scope(repo, extension):
         unresolved = set(record['retained_integer_feasibility_unresolved'])
         if record['status'] != 'exact_complete' or integral & unresolved or integral | unresolved != retained:
             raise ValueError('Review the R941 integer-search publication summary')
-        parts.append(f"R8_3_941 retains {len(retained)} patterns, with {len(integral)} exact integer witnesses and {len(unresolved)} unresolved integer-feasibility questions")
-    return ('In the final finite center-constraint systems, '+ '; '.join(parts)+
+        parts.append(f"R8_3_941 retains {len(retained)} patterns, with {len(integral)} integer witnesses and {len(unresolved)} open integer-feasibility questions in its earlier Gram test")
+    return ('In the stated finite center systems, '+ '; '.join(parts)+
             '. These witnesses are necessary data, not categorical models; uncertified numerical failures are not exclusions.') if parts else ''
 
 def main():
@@ -222,17 +246,20 @@ def main():
         content['theoretical_results'].insert(0,{'heading':next_heading,'paragraphs':[
             center_note,
             'A uniform vertex-line obstruction proves that these inherited cyclic generalized Haagerup Q-system duals have trivial invertible group. Complete free-bimodule Gram factorization, the known center and rational coefficient inequalities then identify the C8 example. This is an existing algebra in an existing category; modular data alone are not used to assume a categorification.',
-            'The new restrictions and exact feasible witnesses for the remaining rings retain their individual scopes. R8_3_982 has two excluded induction frames and a surviving semionic branch. The charged fourth-moment systems for R8_3_928 and R8_3_941 have exact feasible completions. None of these surviving necessary data proves existence.']})
+            ('The historical R8_3_982 center search had a surviving semionic branch; its unitary E21 realization is established in the later creative stage. The charged fourth-moment systems for R8_3_928 and R8_3_941 retain exact feasible necessary completions.' if ext.get('creative') else
+             'The new restrictions and exact feasible witnesses for the remaining rings retain their individual scopes. R8_3_982 has two excluded induction frames and a surviving semionic branch. The charged fourth-moment systems for R8_3_928 and R8_3_941 have exact feasible completions. None of these surviving necessary data proves existence.')]})
         content['replay_sections'].insert(0,{'heading':next_heading,'paragraphs':[
             'The new construction has separate normal and optimized checks, including independent reconstruction of the coefficient inequalities and an exhaustive scan of all 4,500 supplied census entries. Its reviewed categorical proof and bound source files are retained in evidence/rank8_next_20261021/. The original evidence and 108-check replay receipts remain unchanged.',
             'Run tools/rank8_next.py --check for the accepted overlay identities. The model proof lists its targeted arithmetic verifiers. Census completeness remains the supplied producer result; the full enumeration has not been independently rerun.']})
-    research_heading = 'Pointed Fourier exclusion and remaining rank-eight restrictions'
+    old_research_heading = 'Pointed Fourier exclusion and remaining rank-eight restrictions'
+    research_heading = 'E21 unitary realization and creative rank-eight restrictions' if ext.get('creative') else old_research_heading
     for key in ('theoretical_results', 'replay_sections'):
-        content[key] = [x for x in content[key] if x['heading'] != research_heading]
+        content[key] = [x for x in content[key] if x['heading'] not in (research_heading, old_research_heading)]
     if research_note:
         content['theoretical_results'].insert(0, {'heading': research_heading, 'paragraphs': [research_note]})
         content['replay_sections'].insert(0, {'heading': research_heading, 'paragraphs': [
-            'The 22 October stage has a separate exact replay and accepted source manifest. Run python3 tools/verify_rank8_research_20261022.py and python3 -O tools/verify_rank8_research_20261022.py. Its proof and verifier inventory is evidence/rank8_research_20261022/README.md.',
+            ('The E21 and creative stage has a separate exact replay and accepted source manifest. Run python3 tools/verify_rank8_creative_20261022.py and python3 -O tools/verify_rank8_creative_20261022.py. Its proof and verifier inventory is evidence/rank8_creative_20261022/README.md. The --historical option replays prior rank-eight mathematics from its immutable archive.' if ext.get('creative') else
+             'The 22 October stage has a separate exact replay and accepted source manifest. Run python3 tools/verify_rank8_research_20261022.py and python3 -O tools/verify_rank8_research_20261022.py. Its proof and verifier inventory is evidence/rank8_research_20261022/README.md.'),
             'These targeted checks supplement the original M3 and 108-check frontier replays; those historical receipts do not certify the later stage. Metadata-only checks reconcile source identities without repeating mathematics.']})
     path.write_text(json.dumps(content, indent=2, ensure_ascii=False)+'\n')
     path = ROOT/'site/dist/review.html'; html = path.read_text()

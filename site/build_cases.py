@@ -26,17 +26,13 @@ NUMERIC_ENCODING_NOTE = "Exact integers outside the JavaScript safe-integer rang
 NEXT = "evidence/rank8_next_20261021"
 POST = "evidence/rank8_postpublication_20261021/r1154_galois_review"
 RESEARCH = "evidence/rank8_research_20261022"
+CREATIVE = "evidence/rank8_creative_20261022"
 
-SUMMARIES = {
-    "R8_3_65": "General complex categorification is excluded. The new pointed-induction Fourier criterion gives six exact separators covering all four pointed C4 associator classes; the two-dimension Galois reduction makes the exclusion general. This case left the unresolved inventory on 22 October 2026.",
-    "R8_3_928": "The recorded Galois pseudo-unitary reduction and central-semion constraints leave ten allocations. All ten have exact charged fourth-moment and pair-product completions. These necessary data do not construct a center or category.",
-    "R8_3_941": "The recorded Galois pseudo-unitary reduction and central-fermion constraints leave fourteen allocations. All fourteen admit the exact pair-product sector completion; full center and associator coherence remain unresolved.",
-    "R8_3_982": "Every general categorification is spherical and has a pseudo-unitary Galois conjugate. The forced semionic branch restricts every indecomposable module category to rank eight and three necessary based-module types. The 31 algebra-object candidates reduce to eight; every nonregular Morita route requires an algebra on 1+X5. No such algebra or categorification is constructed.",
-    "R8_3_1154": "Three necessary center patterns and 25 pair histograms remain. All pass the new simultaneous Galois covariance constraints. The final center dimensions rule out Morita equivalence with R8_3_1795. A nontrivial pointed C2 associator is forced; general categorification remains unresolved.",
-    "R8_3_1768": "A complete signed-sphericalization analysis proves that every categorification admits a spherical structure and has a pseudo-unitary Galois conjugate. The d-number obstruction now excludes every braiding, and the tensor-image criterion excludes every braided Morita representative. The pointed C2 associator must be nontrivial, so the subgroup algebra 1+g is impossible. General unbraided categorification remains unresolved.",
-    "R8_3_1795": "General complex categorification is excluded. The C2 Fourier-packing criterion gives exact separators for all sixteen indicator branches, covering both pointed associators. The signed-sphericalization and Galois reduction makes the exclusion general. This case left the unresolved inventory on 22 October 2026.",
-    "R8_3_3472": "Positive second-indicator normalization in sphericalization leaves only the original signed tensor. Every general categorification is therefore spherical and has a pseudo-unitary Galois conjugate. All braided Morita representatives are excluded. General unbraided categorification remains unresolved.",
-}
+SUMMARIES = {'R8_3_65': 'General complex categorification is excluded. The new pointed-induction Fourier criterion gives six exact separators covering all four pointed C4 associator classes; the two-dimension Galois reduction makes the exclusion general. This case left the unresolved inventory on 22 October 2026.', 'R8_3_928': 'An exact integer-phase refinement reduces the complete ten-pattern rational domain to four survivors: 40, 49, 186 and 191. Six patterns are excluded by complete branching certificates with 49 exact Farkas leaves. Each survivor has nonnegative integer phase counts and a rational auxiliary witness. The all-order linked trace argument covers moments through height six; 288 is a trace representative box, not a bound on categorical twist orders. This narrows necessary center data and does not construct a modular category or exclude the ring. General unbraided categorification remains unresolved.', 'R8_3_941': 'Fourteen center allocations survive the new saturated-conductor and spectral-fibre constraints. A zero-residual Gram criterion forces additional nonnegative integral fusion products in every allocation. These partial products do not complete a center or categorification; general unbraided existence remains unresolved.', 'R8_3_982': 'A unitary categorification is identified: the eight-object triality-zero component of the E21 exceptional fusion category from the conformal embedding SU(3)_21 into E7_1. All 512 fusion coefficients match the census tensor. The algebra 1+X5 and both nonregular based-module types are realized. Braided categorification and braided Morita representatives remain excluded. Every Morita partner has the same based fusion ring, without a rank or multiplicity cutoff.', 'R8_3_1154': 'All three center patterns and 25 pair histograms survive. A new semionic-packet theorem uniquely reconstructs four entire S columns and fusion matrices; each packet object and its dual generate the full center in two tensor steps. One exact quartic Gram witness survives. A positive field-coordinate criterion excludes the specific index-five SU(3)_7 tensor Fibonacci construction. No full category or general exclusion is obtained.', 'R8_3_1768': 'Saturated conductor support and Galois-fibre constraints exclude 39 of 40 indicator/Gram branches. The remaining V=4 branch has an exact rational witness and a unique Galois-unit restriction. Outside the two distinguished objects, the sector with irrational d/D has either 18 objects of dimension 72+12sqrt(37) or 72 objects of dimension 36+6sqrt(37), all with primitive-37 twists. These are sector counts, not total center ranks or counts of all primitive-37 twists. In the 18-object branch, an explicit 19-dimensional modular block forces all products of the 18 objects; every forced coefficient is a nonnegative integer. General unbraided categorification remains unresolved; every braided Morita representative is excluded.', 'R8_3_1795': 'General complex categorification is excluded. The C2 Fourier-packing criterion gives exact separators for all sixteen indicator branches, covering both pointed associators. The signed-sphericalization and Galois reduction makes the exclusion general. This case left the unresolved inventory on 22 October 2026.', 'R8_3_3472': 'A new uniform Galois Gram bound and exact product equations reduce the first rank-two Morita branch from ten dimension spectra to seven. The second branch has 400,478 complete arithmetic spectra; an order-seven orbit obstruction removes one, leaving 400,477 arithmetic possibilities. These are conditional Morita restrictions, not constructed dual categories. General unbraided categorification remains unresolved; all braided Morita representatives are excluded.'}
+
+CREATIVE_RECORDS = {'R8_3_928': [('Exact integer-phase certificates: ten rational patterns reduced to four', 'r928_r941/integer_followup/verification.json'), ('Saturated conductor and signed spectral-fibre masks', 'r928_r941/R928_spectral_mask.json'), ('Earlier rational refinement: oriented complex-semion constraints on all ten allocations', 'r928_r941/R928_complex_semion.json')], 'R8_3_941': [('Saturated conductor and signed spectral-fibre masks', 'r928_r941/R941_spectral_mask.json'), ('Forced fusion products from zero Gram residuals', 'r928_r941/R941_packet_closure.json')], 'R8_3_982': [('Unitary E21 neutral-component model: exact tensor identification', 'r982/e21_model.json'), ('Every Morita partner has the same based fusion ring', 'r982/morita_ring.json'), ('Complete rank and commutativity restrictions on Morita partners', 'r982/morita_object.json')], 'R8_3_1154': [('Forced four-object semionic packet on all 25 histograms', 'r1154/semionic_packet.json'), ('Full packet tensor support and remaining joint eigenspaces', 'r1154/packet_closure.json'), ('One exact surviving quartic Gram witness', 'r1154/quartic_witness_replay.json'), ('Obstruction to the direct index-five SU(3)_7 tensor Fibonacci construction', 'r1154/quantum_subgroup_route.json')], 'R8_3_1768': [('Forced 19-dimensional modular block and fusion products in the 18-object irrational-ratio branch', 'unified/r1768_weil_verification.json'), ('Complete forty-branch saturated Galois-fibre audit', 'r1768/verification.json'), ('Exact arithmetic and irrational-ratio sector counts', 'r1768/arithmetic_verification.json'), ('Unique Galois-unit restriction and surviving rational witness', 'r1768/unit_orbit_cone.json')], 'R8_3_3472': [('Complete arithmetic domains and exact Morita spectrum exclusions', 'r3472/verification.json'), ('Precisely scoped generalized-Haagerup construction attempts', 'r3472/construction_routes.json')]}
+
+CREATIVE_PROOFS = {'R8_3_928': ['r928_r941/integer_followup/PROOF.md', 'r928_r941/integer_followup/README.md', 'r928_r941/integer_followup/branches.json', 'r928_r941/integer_followup/search.json', 'r928_r941/integer_followup/verify.py', 'r928_r941/PROOF.md', 'unified/SATURATED_CONDUCTOR.md', 'unified/COMPOSITE_SIGNED_SUPPORT.md'], 'R8_3_941': ['r928_r941/PROOF.md', 'unified/SATURATED_CONDUCTOR.md', 'unified/COMPOSITE_SIGNED_SUPPORT.md'], 'R8_3_982': ['r982/E21_MODEL.md', 'r982/MORITA_OBJECT.md', 'r982/MORITA_RING.md', 'unified/E21_MODEL_AUDIT.md'], 'R8_3_1154': ['r1154/PROOF.md', 'r1154/PACKET_CLOSURE.md', 'r1154/QUANTUM_SUBGROUP_ROUTE.md', 'unified/audits/R1154_PACKET_REVIEW.md'], 'R8_3_1768': ['unified/R1768_WEIL_BLOCK.md', 'r1768/WEIL_AUDIT.md', 'r1768/GALOIS_FIBRES.md', 'unified/SATURATED_CONDUCTOR.md'], 'R8_3_3472': ['r3472/PROOF.md', 'r3472/CONSTRUCTION_ROUTES.md']}
 
 
 def exact_json_integers(value):
@@ -216,8 +212,9 @@ def rank6_research(repo, ring_id):
 
 def rank8_research(repo, ring_id, audit):
     # Newest stage first, with older source fields retained and explicitly labelled.
-    research = [research_record(repo, "Published per-ring research audit (including latest completed work)",
-                                f"{RESEARCH}/per_ring_research_audit.json", audit)]
+    previous = select_record(read_json(repo, f"{RESEARCH}/per_ring_research_audit.json"), ring_id)
+    research = [research_record(repo, "Earlier published per-ring audit · previous research stage",
+                                f"{RESEARCH}/per_ring_research_audit.json", previous)]
     specs = []
     if ring_id == "R8_3_65":
         specs.append(("General exclusion: all pointed associator classes", f"{RESEARCH}/r65/verification.json", False))
@@ -257,7 +254,11 @@ def rank8_research(repo, ring_id, audit):
     for title, path, selected in specs:
         payload = read_json(repo, path)
         research.append(research_record(repo, title, path, select_record(payload, ring_id) if selected else payload))
-    return research
+    latest = [research_record(repo, "Current per-ring audit · latest accepted results",
+                              f"{CREATIVE}/per_ring_research_audit.json", audit)]
+    latest += [research_record(repo, title, f"{CREATIVE}/{path}")
+               for title, path in CREATIVE_RECORDS.get(ring_id, [])]
+    return latest + research
 
 
 def validate_tensor(tensor, rank, expected_sha):
@@ -295,21 +296,27 @@ def build(repo):
     if set(scopes) != set(remaining["TENSORS"]):
         raise ValueError("Categorification-scope audit differs from current remaining cases")
     realized = read_json(repo, "site/dist/data/realized_rings.json")["records"]
+    realized_by_id = {r["id"]: r for r in realized}
     closed_scopes = scope_payload.get("closed_cases", {})
+    realized_scopes = scope_payload.get("realized_cases", {})
+    if not set(realized_scopes) <= set(realized_by_id):
+        raise ValueError("A retained realized dossier has no realized-catalogue model")
     census = {r['id']: r for r in read_json(repo, 'evidence/rank8_m3_20261021/pipeline/census_m3.json')}
     closed = {rid: census[rid]['tensor'] for rid in closed_scopes}
+    retained_realized = {rid: realized_by_id[rid]['fusion_tensor'] for rid in realized_scopes}
     all_ids = [r["id"] for r in realized] + list(remaining["TENSORS"]) + list(closed)
     if len(set(all_ids)) != len(all_ids):
         raise ValueError("Duplicate realized/unresolved case identifiers")
     for record in realized:
         write_literal(folder, record["id"], record["fusion_tensor"], record["rank"], record["tensor_sha256"])
-    audit_rows = {r["id"]: r for r in read_json(repo, f"{RESEARCH}/per_ring_research_audit.json")["rows"]}
+    audit_rows = {r["id"]: r for r in read_json(repo, f"{CREATIVE}/per_ring_research_audit.json")["rows"]}
     rank6_rows = {r["id"]: r for r in read_json(repo, "site/dist/data/rank6_unresolved_tensors.json")}
     cases = []
-    for ring_id, tensor in {**remaining["TENSORS"], **closed}.items():
+    for ring_id, tensor in {**remaining["TENSORS"], **closed, **retained_realized}.items():
         is_closed = ring_id in closed
+        is_realized = ring_id in retained_realized
         metadata = remaining["METADATA"].get(ring_id)
-        if is_closed:
+        if is_closed or is_realized:
             source = 'evidence/rank8_m3_20261021/pipeline/census_m3.json'
             metadata = {k:v for k,v in census[ring_id].items() if k!='tensor'}
             metadata.update(source=source, source_sha256=digest(repo/source))
@@ -320,19 +327,20 @@ def build(repo):
         if max(x for matrix in tensor for row in matrix for x in row) != metadata["multiplicity"]:
             raise ValueError(f"Multiplicity mismatch: {ring_id}")
         inv = invariants(tensor)
-        if not is_closed and inv["dual_indices"] != remaining["DUALS"][ring_id]:
+        if not is_closed and not is_realized and inv["dual_indices"] != remaining["DUALS"][ring_id]:
             raise ValueError(f"Duality mismatch: {ring_id}")
         inv.update(additional_invariants(tensor, inv))
         research = rank6_research(repo, ring_id) if rank == 6 else rank8_research(repo, ring_id, audit_rows[ring_id])
         evidence_paths = {"data/remaining_cases.py", metadata["source"], "site/categorification_scope.json"}
         collect_source_paths(repo, research, evidence_paths)
-        scope = closed_scopes[ring_id] if is_closed else scopes[ring_id]
+        scope = closed_scopes[ring_id] if is_closed else realized_scopes[ring_id] if is_realized else scopes[ring_id]
         collect_source_paths(repo, scope, evidence_paths)
         if rank == 6:
             evidence_paths.add("supplements/rank6/verification/classification/attempts.jsonl")
             summary = research[0]["data"]["public_summary"]
         else:
             evidence_paths.add(f"{NEXT}/README.md")
+            evidence_paths.update(f"{CREATIVE}/{path}" for path in CREATIVE_PROOFS.get(ring_id, []))
             summary = SUMMARIES[ring_id]
         if ring_id == "R8_3_1154":
             evidence_paths.update(f"{POST}/{name}" for name in ("README.md", "PROOF.md", "INDEPENDENT_REVIEW.md", "galois_pair_probe.json"))
@@ -344,10 +352,11 @@ def build(repo):
             evidence.append({"label": path, "path": path, **source_location(repo, path, local.is_dir()),
                              **({"sha256": digest(local)} if local.is_file() else {})})
         cases.append({
+            **(realized_by_id[ring_id] if is_realized else {}),
             "id": ring_id, "rank": rank, "multiplicity": metadata["multiplicity"],
-            "status": "excluded" if is_closed else "unresolved", "summary": summary,
+            "status": "excluded" if is_closed else "unitarily_realized" if is_realized else "unresolved", "summary": summary,
             "categorification_scope": scope,
-            "existence": {"general":"excluded", "unitary":"excluded"} if is_closed else rank6_rows[ring_id]["existence"] if rank == 6 else {"general": "unknown", "unitary": "unknown"},
+            "existence": {"general":"excluded", "unitary":"excluded"} if is_closed else {"general":"realized", "unitary":"realized"} if is_realized else rank6_rows[ring_id]["existence"] if rank == 6 else {"general": "unknown", "unitary": "unknown"},
             "fusion_tensor": tensor, "tensor_sha256": metadata["tensor_sha256"],
             "basis": [f"X{i}" for i in range(rank)], "unit_index": 0,
             "source": metadata, "tensor_convention": CONVENTION,
@@ -362,7 +371,7 @@ def build(repo):
     ids = current if isinstance(current, list) else current.get("ids", current.get("remaining_ids", current.get("current_remaining_ids")))
     if ids is None:
         raise ValueError("Unrecognized current remaining-ID schema")
-    closed_records = [r for r in cases if r['status']=='excluded']
+    closed_records = [r for r in cases if r['status']!='unresolved']
     cases = [r for r in cases if r['status']=='unresolved']
     if sorted(ids) != sorted(r["id"] for r in cases):
         raise ValueError("Dossier inventory differs from current remaining cases")
@@ -373,7 +382,7 @@ def build(repo):
                "source_basis_note": "Research records retain the basis conventions of their source files; the displayed fusion tensor and derived invariants use the exact zero-based source basis identified in each case's metadata.",
                "cases": cases}
     (dist / "data/unresolved_cases.json").write_text(json.dumps(exact_json_integers(payload), indent=2, ensure_ascii=False) + "\n")
-    (dist / "data/resolved_cases.json").write_text(json.dumps(exact_json_integers({"schema_version":"ring-atlas/resolved-cases/v1", "scope":"Formerly unresolved case pages retained with their accepted exclusion and fusion data.", "cases":closed_records}), indent=2, ensure_ascii=False)+"\n")
+    (dist / "data/resolved_cases.json").write_text(json.dumps(exact_json_integers({"schema_version":"ring-atlas/resolved-cases/v1", "scope":"Formerly unresolved case pages retained with their accepted exclusion or realization, full research history, and fusion data.", "cases":closed_records}), indent=2, ensure_ascii=False)+"\n")
     for old in folder.glob("*.txt"):
         if old.stem not in all_ids:
             old.unlink()

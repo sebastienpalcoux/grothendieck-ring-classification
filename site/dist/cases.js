@@ -183,6 +183,7 @@
   function categoryExclusionText(scope, short = false) {
     if (!scope) return "Scope not yet audited";
     if (scope.strongest_excluded) return `No ${categoryLabels[scope.strongest_excluded].toLowerCase()} categorification`;
+    if (scope.level_status?.unitary === "realized") return "Unitary categorification realized";
     return short ? "Unitary categorification also open" : "Without requiring a braiding, even unitary categorification remains open.";
   }
   function braidedStatusText(braided, short = false) {
@@ -271,7 +272,9 @@
       return node;
     }
     const same = scope.same_category_implications || [], existence = scope.existence_implications || [];
-    node.append(el("p", "case-prose", "General categorifiability remains unresolved. The diagram records which additional structures a hypothetical categorification must admit."));
+    const realized = scope.level_status?.unitary === "realized";
+    node.append(el("p", "case-prose", realized ? "A unitary model establishes general, pivotal, spherical, pseudo-unitary and unitary categorifiability. The diagrams below retain the universal implications proved for this fusion ring; they do not assert that every categorification is unitary." : "General categorifiability remains unresolved. The diagram records which additional structures a hypothetical categorification must admit."));
+    if (realized && scope.model_sources?.length) node.append(categorySources(scope.model_sources));
     node.append(el("h3", "", "Structures on the same category"), categoryDiagram(same, "Structures admitted by the same category"));
     node.append(el("p", "case-small-note", "Read arrows as implications. A double arrow includes a reverse implication established for this ring. Pivotal and spherical mean that a structure can be chosen; this does not assert that every chosen pivotal structure is spherical. An absent reverse arrow means no such implication is established here."));
     const sameClosure = categoryClosure(same), existenceClosure = categoryClosure([...same, ...existence]);
@@ -415,10 +418,19 @@
     return node;
   }
   function renderResearch(ring, unresolved) {
-    const node = section("research", unresolved ? "Research record" : "Models & constructions", "04 / RECORDED RESULTS & THEIR SCOPE");
-    if (unresolved) {
+    const hasHistory = Boolean(ring.research?.length);
+    const node = section("research", unresolved ? "Research record" : hasHistory ? "Model & research history" : "Models & constructions", "04 / RECORDED RESULTS & THEIR SCOPE");
+    if (!unresolved) {
+      if (ring.model_reference) node.append(el("p", "case-model-reference", ring.model_reference));
+      if (ring.model_reference_url) node.append(link("Read the model’s cited source ↗", ring.model_reference_url));
+      for (const note of ring.construction_notes || []) node.append(el("p", "case-prose", note));
+      if (ring.construction_proof_file) node.append(link("Construction and proof scope ↗", repoURL(ring.construction_proof_file)));
+      if (ring.alternative_models?.length) node.append(lazyDetails(`${ring.alternative_models.length} alternative model records`, () => structured(ring.alternative_models)));
+      node.append(el("p", "case-small-note", "The categorical model is reported by the cited source; categorical existence is not inferred from the ring tensor alone."));
+    }
+    if (unresolved || hasHistory) {
       if (ring.summary) node.append(el("h3", "", "Latest case summary"), el("p", "case-prose", ring.summary));
-      node.append(el("p", "case-prose", ring.status === "excluded" ? "This case is now excluded from general categorification. Earlier research records retain their historical scope; the accepted exclusion above supersedes their former unresolved status." : "General existence remains unresolved. The records below distinguish applicable criteria, searches with no conclusion, scoped obstructions and surviving necessary data. Historical stages retain their original dates and outcomes; the latest completed results take precedence where a later stage refines them."));
+      node.append(el("p", "case-prose", ring.status === "excluded" ? "This case is now excluded from general categorification. Earlier research records retain their historical scope; the accepted exclusion above supersedes their former unresolved status." : ring.status === "unitarily_realized" ? "This case is now realized by a unitary category. Earlier records preserve the research history, including necessary conditions and attempts made before the model was identified. The accepted construction supersedes their former unresolved status." : "General existence remains unresolved. The records below distinguish applicable criteria, searches with no conclusion, scoped obstructions and surviving necessary data. Historical stages retain their original dates and outcomes; the latest completed results take precedence where a later stage refines them."));
       node.append(el("p", "case-small-note", "The fusion tensor and derived invariants use this page’s supplied case basis. Research reports retain their cited source basis, which can differ. Consult the recorded source conventions and basis maps when comparing entries."));
       for (const report of ring.research || []) {
         const details = lazyDetails(report.title || label(report.source || "Research report"), () => {
@@ -431,13 +443,6 @@
         node.append(details);
       }
       if (!(ring.research || []).length) node.append(el("p", "case-small-note", "No separate research report is included; consult the linked source records below."));
-    } else {
-      if (ring.model_reference) node.append(el("p", "case-model-reference", ring.model_reference));
-      if (ring.model_reference_url) node.append(link("Read the model’s cited source ↗", ring.model_reference_url));
-      for (const note of ring.construction_notes || []) node.append(el("p", "case-prose", note));
-      if (ring.construction_proof_file) node.append(link("Construction and proof scope ↗", repoURL(ring.construction_proof_file)));
-      if (ring.alternative_models?.length) node.append(lazyDetails(`${ring.alternative_models.length} alternative model records`, () => structured(ring.alternative_models)));
-      node.append(el("p", "case-small-note", "The categorical model is reported by the cited source; categorical existence is not inferred from the ring tensor alone."));
     }
     return node;
   }
@@ -471,7 +476,7 @@
     document.title = `${ring.id} · ${excluded ? "Excluded case" : unresolved ? "Unresolved case" : ring.name} · Ring Atlas`;
     $("#case-title").textContent = ring.id;
     $("#case-kicker").textContent = `RANK ${ring.rank} · EXACT MULTIPLICITY ${ring.multiplicity} · ${excluded ? "GENERAL CATEGORIFICATION EXCLUDED" : unresolved ? "UNRESOLVED CASE" : "REALIZED RING"}`;
-    $("#case-subtitle").textContent = excluded ? "Resolved by a general exclusion. The fusion data, invariants and proof remain available at this permanent case address." : unresolved ? "General categorifiability remains unresolved. Inspect the ring data, exact and numerical invariants, and the full recorded research history." : `${ring.name} · ${ring.existence} model reported in the catalogue.`;
+    $("#case-subtitle").textContent = excluded ? "Resolved by a general exclusion. The fusion data, invariants and proof remain available at this permanent case address." : unresolved ? "General categorifiability remains unresolved. Inspect the ring data, exact and numerical invariants, and the full recorded research history." : ring.status === "unitarily_realized" ? `${ring.name || ring.id} · Unitary model identified. The fusion data, invariants and full research history remain available at this permanent case address.` : `${ring.name} · ${ring.existence} model reported in the catalogue.`;
     const back = $("#case-back");
     if (unresolved) {
       back.href = `./unresolved.html${filters.size ? "?" + filters : ""}`;
@@ -482,10 +487,10 @@
     const notice = el("div", "case-notice");
     notice.append(el("p", "", "These records belong to the project’s current research claims. Independent human verification and Lean formalization are pending."), link("Research status and verification ↗", "./review.html")); root.append(notice);
     const nav = el("nav", "case-section-nav"); nav.setAttribute("aria-label", "Case sections");
-    if (unresolved) nav.append(link("Categorification status", "#categorification", ""));
-    [["invariants", "Invariants"], ["characters", "Characters"], ["fusion-data", "Fusion data"], ["research", unresolved ? "Research record" : "Models"], ["sources", "Sources"]].forEach(([id, title]) => nav.append(link(title, `#${id}`, "")));
+    if (unresolved || ring.categorification_scope) nav.append(link("Categorification status", "#categorification", ""));
+    [["invariants", "Invariants"], ["characters", "Characters"], ["fusion-data", "Fusion data"], ["research", unresolved ? "Research record" : ring.research?.length ? "Model & research" : "Models"], ["sources", "Sources"]].forEach(([id, title]) => nav.append(link(title, `#${id}`, "")));
     root.append(nav);
-    if (unresolved) root.append(renderCategorification(ring));
+    if (unresolved || ring.categorification_scope) root.append(renderCategorification(ring));
     root.append(renderDimensions(ring), renderCharacters(ring), renderTensor(ring), renderResearch(ring, unresolved), renderSources(ring));
   }
   function renderError(message) {
@@ -510,7 +515,7 @@
       if (found) { renderCase(found, true); return; }
       const resolved = await fetchJSON("./data/resolved_cases.json");
       const closed = resolved.cases.find((ring) => ring.id === id);
-      if (closed) { renderCase(closed, true); return; }
+      if (closed) { renderCase(closed, closed.status === "excluded"); return; }
       const realized = await fetchJSON("./data/realized_rings.json");
       const model = realized.records.find((ring) => ring.id === id);
       if (model) { renderCase(model, false); return; }
