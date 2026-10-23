@@ -1,0 +1,168 @@
+{
+  "all_stages": [
+    {
+      "name": "exact_engine_controls",
+      "seconds": 0.314,
+      "status": "PASS"
+    },
+    {
+      "name": "independent_checker_controls",
+      "seconds": 0.032,
+      "status": "PASS"
+    },
+    {
+      "name": "rejection_recovery_and_exact_closure",
+      "seconds": 0.565,
+      "status": "PASS"
+    },
+    {
+      "name": "actual_orbit_arithmetic_controls",
+      "seconds": 10.48,
+      "status": "PASS"
+    },
+    {
+      "name": "compile_R8_3_928",
+      "seconds": 70.581,
+      "status": "PASS"
+    },
+    {
+      "name": "compile_R8_3_941",
+      "seconds": 423.745,
+      "status": "PASS"
+    },
+    {
+      "name": "compile_R8_3_1154",
+      "seconds": 81.146,
+      "status": "PASS"
+    },
+    {
+      "name": "compile_R8_3_1768",
+      "seconds": 108.734,
+      "status": "PASS"
+    },
+    {
+      "name": "solver_smoke_R8_3_928",
+      "seconds": 2.718,
+      "status": "PASS"
+    },
+    {
+      "name": "solver_smoke_R8_3_941",
+      "seconds": 7.427,
+      "status": "PASS"
+    },
+    {
+      "name": "solver_smoke_R8_3_1154",
+      "seconds": 6.473,
+      "status": "PASS"
+    },
+    {
+      "name": "solver_smoke_R8_3_1768",
+      "seconds": 23.457,
+      "status": "PASS"
+    },
+    {
+      "name": "replay_smoke_outputs",
+      "seconds": 100.129,
+      "status": "PASS"
+    },
+    {
+      "name": "offline_package_preflight",
+      "seconds": 20.158,
+      "status": "PASS"
+    }
+  ],
+  "archive_bytes": 37115961,
+  "archive_sha256": "bae3123c7c117e7963fe91882f589d6961df1c4997b194f97082fba73ca8f76a",
+  "build_seconds": 869.586,
+  "complete_branch_counts": {
+    "R8_3_1154": 25,
+    "R8_3_1768": 2,
+    "R8_3_928": 4,
+    "R8_3_941": 14
+  },
+  "date": "2026-10-23T02:42:52.676373+00:00",
+  "distinct_search_tasks": 44,
+  "exact_equivalent_branches": [
+    {
+      "alias": "R8_3_1768_sector72",
+      "case": "R8_3_1768",
+      "numeric_model_sha256": "6b11998ed060c5955092e45a1ce7c955bd93cc4d5e636e18a467879f4ceb874e",
+      "original_model_path": "models/originals/R8_3_1768_sector72.json.gz",
+      "path": "models/R8_3_1768_sector72.json.gz",
+      "representative": "R8_3_1768_sector18"
+    }
+  ],
+  "final_preflight": "PASS",
+  "package_source_commit": "92fef451283560782d4b008a3cea665ccb95b09d",
+  "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+  "python": "3.12.15 (main, Oct  1 2026, 02:35:59) [GCC 13.3.0]",
+  "source_commit": "7f4aea6fb5e5a98aa9e5e5dc78a58bd46c1c92e1",
+  "stages": [
+    {
+      "name": "exact_engine_controls",
+      "seconds": 0.314,
+      "status": "PASS"
+    },
+    {
+      "name": "independent_checker_controls",
+      "seconds": 0.032,
+      "status": "PASS"
+    },
+    {
+      "name": "rejection_recovery_and_exact_closure",
+      "seconds": 0.565,
+      "status": "PASS"
+    },
+    {
+      "name": "actual_orbit_arithmetic_controls",
+      "seconds": 10.48,
+      "status": "PASS"
+    },
+    {
+      "name": "compile_R8_3_928",
+      "seconds": 70.581,
+      "status": "PASS"
+    },
+    {
+      "name": "compile_R8_3_941",
+      "seconds": 423.745,
+      "status": "PASS"
+    },
+    {
+      "name": "compile_R8_3_1154",
+      "seconds": 81.146,
+      "status": "PASS"
+    },
+    {
+      "name": "compile_R8_3_1768",
+      "seconds": 108.734,
+      "status": "PASS"
+    },
+    {
+      "name": "solver_smoke_R8_3_928",
+      "seconds": 2.718,
+      "status": "PASS"
+    },
+    {
+      "name": "solver_smoke_R8_3_941",
+      "seconds": 7.427,
+      "status": "PASS"
+    },
+    {
+      "name": "solver_smoke_R8_3_1154",
+      "seconds": 6.473,
+      "status": "PASS"
+    },
+    {
+      "name": "solver_smoke_R8_3_1768",
+      "seconds": 23.457,
+      "status": "PASS"
+    },
+    {
+      "name": "replay_smoke_outputs",
+      "seconds": 100.129,
+      "status": "PASS"
+    }
+  ],
+  "status": "PASS"
+}
