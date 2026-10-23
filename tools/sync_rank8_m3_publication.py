@@ -312,8 +312,14 @@ def main():
             scoped+='<p>Any categorification of <code>R8_3_731</code> would also fail to be weakly group-theoretical. This is a conditional restriction, not an existence claim.</p>'
         block=block.replace('</section>',scoped+'</section>')
     html = re.sub(r'<section id="rank-eight-m3">.*?</section>\s*','',html,flags=re.S)
-    html = html.replace('    <h2 id="rank-eight">','    '+block+'\n    <h2 id="rank-eight">')
-    path.write_text(html)
+    if '<!-- rank-eight-current-results -->' in html:
+        html = html.replace('<!-- rank-eight-current-results -->', '<!-- rank-eight-current-results -->\n    ' + block)
+    else:
+        html = html.replace('    <h2 id="rank-eight">','    '+block+'\n    <h2 id="rank-eight">')
+    import sys
+    sys.path.insert(0, str(ROOT / 'site'))
+    from reading_layout import organize_review
+    path.write_text(organize_review(html))
     path = ROOT/'site/dist/index.html'
     html = re.sub(r'>\d+ OCT 2026<','>'+date.fromisoformat(publication_date).strftime('%-d %b %Y').upper()+'<',path.read_text())
     path.write_text(re.sub(r'prepublication-review-2026-10-(?:19|2\d|3[01])\.pdf',report,html))

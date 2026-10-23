@@ -19,7 +19,7 @@ const origin="https://sebastienpalcoux.github.io/grothendieck-ring-classificatio
 // Only the DOM operations used by the count/link renderers are implemented.
 // Real layout, focus and browser navigation are verified in the deployed UI.
 class TestNode {
-  constructor(tag="", text="") {this.tagName=tag;this.nodeType=tag==="#text"?3:tag==="#fragment"?11:1;this.childNodes=[];this.parentNode=null;this.data=text;this.attributes={};this.dataset={};}
+  constructor(tag="", text="") {this.tagName=tag;this.nodeType=tag==="#text"?3:tag==="#fragment"?11:1;this.childNodes=[];this.parentNode=null;this.data=text;this.attributes={};this.dataset={};this.value="";this.listeners={};}
   get parentElement() {return this.parentNode?.nodeType===1?this.parentNode:null;}
   get children() {return this.childNodes.filter(n=>n.nodeType===1);}
   get textContent() {return this.nodeType===3?this.data:this.childNodes.map(n=>n.textContent).join("");}
@@ -40,7 +40,8 @@ class TestNode {
   }
   setAttribute(key,value) {this.attributes[key]=String(value);}
   getAttribute(key) {return this.attributes[key];}
-  addEventListener() {}
+  addEventListener(type,callback) {(this.listeners[type] ||= []).push(callback);}
+  emit(type) {for(const callback of this.listeners[type] || []) callback({target:this});}
   closest(tag) {for(let node=this;node;node=node.parentElement)if(node.tagName===tag)return node;return null;}
   querySelector(tag) {return descendants(this).find(n=>n.tagName===tag)||null;}
 }
@@ -70,7 +71,7 @@ assert.equal(caseSource.split(caseEnd).length,2,"Expected one case application e
 function casesFor(search) {
   const sandbox=context(search);vm.createContext(sandbox);
   vm.runInContext(caseSource.replace(caseEnd,
-    "  globalThis.testCases={parseFilters,scopeText,matchesFilters,caseURL,downloadLink,safeURL,categoryClosure,categoryExclusionText,categoryDiagram,braidedStatusText,renderBraidedStatus,renderCategorification};\n})();"),sandbox);
+    "  globalThis.testCases={parseFilters,scopeText,matchesFilters,caseURL,downloadLink,safeURL,categoryClosure,categoryExclusionText,categoryDiagram,braidedStatusText,renderBraidedStatus,renderCategorification,renderSources};\n})();"),sandbox);
   sandbox.testCases.parseFilters();return sandbox.testCases;
 }
 const selections=[
@@ -246,3 +247,38 @@ for(const ring of realized) {
   assert.equal(link.download,`${ring.id}.txt`);
 }
 console.log("Case navigation checked: filters, count links, 228 tensor routes, distinct structural/Galois-existence implications, and separate braided status.");
+
+
+// Every case keeps its complete archive accessible without rendering a wall
+// of file links. Exercise real disclosure/search/pagination event handlers.
+const hasClass=(node,name)=>String(node.className || "").split(" ").includes(name);
+let evidenceFilesChecked=0;
+for(const ring of [...unresolved,...resolved,...realized]) {
+  const sources=caseAPI.renderSources(ring);
+  assert.equal(descendants(sources).filter(n=>hasClass(n,"case-evidence-list")).length,0,ring.id+": archive should be folded initially");
+  const library=descendants(sources).find(n=>hasClass(n,"evidence-library"));
+  if(!ring.evidence?.length){assert.equal(library,undefined);continue;}
+  library.open=true;library.emit("toggle");
+  const groups=descendants(library).filter(n=>hasClass(n,"evidence-group"));
+  assert(groups.length>0 && groups.length<=4);
+  for(const group of groups) {
+    group.open=true;group.emit("toggle");
+    const more=descendants(group).find(n=>hasClass(n,"evidence-more"));
+    let batches=0;
+    while(!more.hidden){assert(++batches<1000,"Pagination must finish");more.emit("click");}
+  }
+  const files=descendants(library).filter(n=>hasClass(n,"case-evidence-list")).flatMap(list=>list.children);
+  assert.equal(files.length,ring.evidence.length,ring.id+": evidence count changed");
+  const paths=files.map(li=>descendants(li).find(n=>hasClass(n,"case-source-path"))?.textContent || "").sort();
+  assert.deepEqual(paths,ring.evidence.map(item=>item.path || "").sort(),ring.id+": missing or duplicated evidence path");
+  const input=descendants(library).find(n=>hasClass(n,"evidence-search"));
+  const needle=ring.evidence[0].path || ring.evidence[0].label || "";
+  input.value=needle;input.emit("input");
+  const result=descendants(library).find(n=>n.getAttribute("aria-live")==="polite");
+  const count=ring.evidence.filter(item=>`${item.label || ""} ${item.path || ""} ${item.url || ""}`.toLowerCase().includes(needle.toLowerCase())).length;
+  assert(result.textContent.startsWith(count.toLocaleString("en-US")+" of "));
+  input.value="no-evidence-file-matches-this-query";input.emit("input");
+  assert(descendants(library).some(n=>n.textContent==="No file matches this search."));
+  evidenceFilesChecked+=files.length;
+}
+console.log(`Evidence catalogue checked: ${evidenceFilesChecked} preserved file records; folded defaults, complete pagination and search across all case pages.`);

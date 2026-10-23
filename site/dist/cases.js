@@ -294,7 +294,11 @@
         argument.append(categorySources(implication.sources)); argumentsList.append(argument);
       }
     }
-    if (argumentsList.children.length) node.append(argumentsList);
+    if (argumentsList.children.length) {
+      const details = el("details", "record-details category-proof-details");
+      details.append(el("summary", "", "Why these implications hold · arguments and references"), argumentsList);
+      node.append(details);
+    }
     else node.append(el("p", "case-prose", "No additional reverse implication is established in the current case audit."));
     for (const note of scope.notes || []) node.append(el("p", "case-small-note", note));
     if (scope.record_scope_note) node.append(el("p", "case-small-note", scope.record_scope_note));
@@ -342,7 +346,7 @@
   }
   function renderDimensions(ring) {
     const inv = ring.invariants;
-    const node = section("invariants", "Ring invariants", "01 / EXACT RING DATA & DIMENSIONS");
+    const node = section("invariants", "Ring invariants", "02 / EXACT RING DATA & DIMENSIONS");
     const facts = el("dl", "case-facts");
     facts.append(fact("Commutative", inv.commutative ? "Yes" : "No"), fact("Unit", ring.basis[ring.unit_index || 0]),
       fact("Invertible basis objects", inv.invertible_indices.map((i) => ring.basis[i]).join(", ")),
@@ -377,7 +381,7 @@
   }
   function renderCharacters(ring) {
     const inv = ring.invariants;
-    const node = section("characters", "Characters & codegrees", "02 / EXACT EXPRESSIONS & NUMERICAL VALUES");
+    const node = section("characters", "Characters & codegrees", "03 / EXACT EXPRESSIONS & NUMERICAL VALUES");
     const exact = inv.exact_character_presentation;
     if (exact) {
       node.append(el("h3", "", "Exact character presentation"), el("p", "case-prose", exact.instruction || ""));
@@ -401,7 +405,7 @@
     return node;
   }
   function renderTensor(ring) {
-    const node = section("fusion-data", "Fusion data", "03 / INTEGER STRUCTURE CONSTANTS");
+    const node = section("fusion-data", "Fusion data", "04 / INTEGER STRUCTURE CONSTANTS");
     node.append(el("p", "case-prose", "N[i][j][k] is the coefficient of Xₖ in Xᵢ · Xⱼ. The first basis object X0 is the tensor unit. The .txt file is a single Python list of lists of lists of integers, without an assignment or additional text."));
     node.append(downloadLink(ring), el("p", "case-small-note", "The download uses exactly the basis shown on this page. Basis permutations, when recorded, are included under sources and provenance."));
     const selectors = el("div", "case-matrix-controls"); selectors.setAttribute("role", "group"); selectors.setAttribute("aria-label", "Choose a fusion matrix");
@@ -419,7 +423,7 @@
   }
   function renderResearch(ring, unresolved) {
     const hasHistory = Boolean(ring.research?.length);
-    const node = section("research", unresolved ? "Research record" : hasHistory ? "Model & research history" : "Models & constructions", "04 / RECORDED RESULTS & THEIR SCOPE");
+    const node = section("research", unresolved ? "Research record" : hasHistory ? "Model & research history" : "Models & constructions", "01 / RESULTS & RESEARCH");
     if (!unresolved) {
       if (ring.model_reference) node.append(el("p", "case-model-reference", ring.model_reference));
       if (ring.model_reference_url) node.append(link("Read the model’s cited source ↗", ring.model_reference_url));
@@ -432,41 +436,95 @@
       if (ring.summary) node.append(el("h3", "", "Latest case summary"), el("p", "case-prose", ring.summary));
       node.append(el("p", "case-prose", ring.status === "excluded" ? "This case is now excluded from general categorification. Earlier research records retain their historical scope; the accepted exclusion above supersedes their former unresolved status." : ring.status === "unitarily_realized" ? "This case is now realized by a unitary category. Earlier records preserve the research history, including necessary conditions and attempts made before the model was identified. The accepted construction supersedes their former unresolved status." : "General existence remains unresolved. The records below distinguish applicable criteria, searches with no conclusion, scoped obstructions and surviving necessary data. Historical stages retain their original dates and outcomes; the latest completed results take precedence where a later stage refines them."));
       node.append(el("p", "case-small-note", "The fusion tensor and derived invariants use this page’s supplied case basis. Research reports retain their cited source basis, which can differ. Consult the recorded source conventions and basis maps when comparing entries."));
-      for (const report of ring.research || []) {
-        const details = lazyDetails(report.title || label(report.source || "Research report"), () => {
+      const reports = ring.research || [];
+      const reportDetails = (report) => lazyDetails(report.title || label(report.source || "Research report"), () => {
           const content = el("div", "case-report-content");
           if (report.url || report.source) content.append(sourceLink(report.packaged ? "Open packaged source files ↗" : "Read the source record ↗", report.source, report.url));
           if (report.packaged) content.append(el("p", "case-source-path", report.source), restorationNote(report));
           if (report.source_sha256) content.append(el("p", "case-small-note", `Source SHA-256: ${report.source_sha256}`));
           content.append(structured(report.data)); return content;
         }, "case-report");
-        node.append(details);
+      if (reports.length) node.append(reportDetails(reports[0]));
+      const current = reports.slice(1).filter((report) => !/^(historical|earlier)/i.test(report.title || ""));
+      const historical = reports.slice(1).filter((report) => /^(historical|earlier)/i.test(report.title || ""));
+      for (const [title, entries] of [["Supporting research reports", current], ["Earlier research stages", historical]]) {
+        if (entries.length) node.append(lazyDetails(`${title} · ${entries.length}`, () => {
+          const group = el("div", "case-report-group");
+          entries.forEach((report) => group.append(reportDetails(report)));
+          return group;
+        }, "record-details"));
       }
       if (!(ring.research || []).length) node.append(el("p", "case-small-note", "No separate research report is included; consult the linked source records below."));
     }
     return node;
   }
+  function evidenceCatalogue(ring) {
+    const node = el("div", "evidence-catalogue");
+    const searchLabel = el("label", "evidence-search-label", "Find a file in the complete evidence catalogue");
+    const search = el("input", "evidence-search");
+    search.type = "search"; search.placeholder = "Search titles, paths or ring identifiers…";
+    searchLabel.append(search); node.append(searchLabel);
+    const results = el("p", "case-small-note"); results.setAttribute("aria-live", "polite");
+    const groups = el("div", "evidence-groups"); node.append(results, groups);
+    const reports = new Set((ring.research || []).map((report) => report.source));
+    const suffix = ring.id.split("_").at(-1);
+    const specific = new RegExp(`(?:^|[/_.-])(?:${ring.id}|r${suffix}|${suffix})(?=$|[/_.-])`, "i");
+    const category = (item) => {
+      const path = item.path || "";
+      if (reports.has(path) || specific.test(path)) return "Case-specific files and cited reports";
+      if (new RegExp(`^(?:evidence/rank${ring.rank}[_/]|supplements/rank${ring.rank}/|manuscripts/rank${ring.rank}/)`).test(path)) return `Shared rank-${ring.rank} archive`;
+      if (/^(?:data|site)\//.test(path)) return "Data, conventions and provenance";
+      return "Other project archives";
+    };
+    const appendFiles = (entries) => {
+      const container = el("div");
+      const list = el("ul", "case-evidence-list"); container.append(list);
+      let shown = 0;
+      const more = el("button", "evidence-more", "Show more files"); more.type = "button";
+      const appendNext = () => {
+        const end = Math.min(shown + 40, entries.length);
+        for (const item of entries.slice(shown, end)) {
+          const li = el("li");
+          const name = item.label && item.label !== item.path ? item.label : (item.path || item.url || "Source").split("/").at(-1);
+          li.append(sourceLink(name, item.path, item.url));
+          if (item.path) li.append(el("span", "case-source-path", item.path));
+          if (item.packaged) li.append(el("p", "case-small-note", `Packaged source · original file SHA-256: ${item.sha256}`));
+          list.append(li);
+        }
+        shown = end; more.hidden = shown === entries.length;
+        more.textContent = `Show more files · ${entries.length - shown} remaining`;
+      };
+      more.addEventListener("click", appendNext); container.append(more); appendNext();
+      return container;
+    };
+    const render = () => {
+      const query = search.value.trim().toLowerCase();
+      const entries = (ring.evidence || []).filter((item) => `${item.label || ""} ${item.path || ""} ${item.url || ""}`.toLowerCase().includes(query));
+      results.textContent = `${entries.length.toLocaleString("en-US")} of ${(ring.evidence || []).length.toLocaleString("en-US")} recorded files. Shared and other project archives retain the full source history.`;
+      groups.replaceChildren();
+      for (const title of ["Case-specific files and cited reports", `Shared rank-${ring.rank} archive`, "Data, conventions and provenance", "Other project archives"]) {
+        const matches = entries.filter((item) => category(item) === title);
+        if (matches.length) groups.append(lazyDetails(`${title} · ${matches.length}`, () => appendFiles(matches), "record-details evidence-group", Boolean(query)));
+      }
+      if (!entries.length) groups.append(el("p", "case-empty", "No file matches this search."));
+    };
+    search.addEventListener("input", render); render();
+    const packaged = (ring.evidence || []).find((item) => item.packaged);
+    if (packaged) node.append(lazyDetails("Reading packaged sources and verifying checksums", () => restorationNote(packaged)));
+    return node;
+  }
   function renderSources(ring) {
     const node = section("sources", "Sources & provenance", "05 / COMPLETE RECORDED EVIDENCE");
-    if (ring.source) node.append(lazyDetails("Census source, basis and tensor provenance", () => structured(ring.source), "record-details", true));
+    const actions = el("div", "case-source-actions");
+    actions.append(link(`Rank-${ring.rank} manuscript ↗`, `./papers/rank${ring.rank}.pdf`), recordDownload(ring));
+    node.append(actions);
+    if (ring.source) node.append(lazyDetails("Census source, basis and tensor provenance", () => structured(ring.source)));
     const other = Object.fromEntries(Object.entries(ring).filter(([key]) => !["id", "rank", "multiplicity", "status", "fusion_tensor", "tensor", "tensor_sha256", "basis", "unit_index", "source", "invariants", "research", "evidence", "download_url", "categorification_scope"].includes(key)));
-    if (Object.keys(other).length) node.append(lazyDetails("Additional catalogue fields and basis maps", () => structured(other), "record-details", true));
+    if (Object.keys(other).length) node.append(lazyDetails("Additional catalogue fields and basis maps", () => structured(other)));
     const evidence = ring.evidence || [];
     if (evidence.length) {
-      node.append(el("h3", "", `${evidence.length} evidence links`));
-      const packaged = evidence.find((item) => item.packaged);
-      if (packaged) node.append(restorationNote(packaged));
-      const list = el("ul", "case-evidence-list");
-      for (const item of evidence) {
-        const li = el("li"); li.append(sourceLink(item.label || item.path || item.url, item.path, item.url));
-        if (item.path && item.label !== item.path) li.append(el("span", "case-source-path", item.path));
-        if (item.packaged) li.append(el("p", "case-small-note", `Packaged source · original file SHA-256: ${item.sha256}`));
-        list.append(li);
-      }
-      node.append(list);
+      node.append(lazyDetails(`Complete evidence catalogue · ${evidence.length.toLocaleString("en-US")} files`, () => evidenceCatalogue(ring), "record-details evidence-library"));
     }
-    node.append(link(`Read the rank-${ring.rank} manuscript ↗`, `./papers/rank${ring.rank}.pdf`));
-    node.append(recordDownload(ring));
     return node;
   }
   function renderCase(ring, unresolved) {
@@ -488,10 +546,10 @@
     notice.append(el("p", "", "These records belong to the project’s current research claims. Independent human verification and Lean formalization are pending."), link("Research status and verification ↗", "./review.html")); root.append(notice);
     const nav = el("nav", "case-section-nav"); nav.setAttribute("aria-label", "Case sections");
     if (unresolved || ring.categorification_scope) nav.append(link("Categorification status", "#categorification", ""));
-    [["invariants", "Invariants"], ["characters", "Characters"], ["fusion-data", "Fusion data"], ["research", unresolved ? "Research record" : ring.research?.length ? "Model & research" : "Models"], ["sources", "Sources"]].forEach(([id, title]) => nav.append(link(title, `#${id}`, "")));
+    [["research", unresolved ? "Research record" : ring.research?.length ? "Model & research" : "Models"], ["invariants", "Invariants"], ["characters", "Characters"], ["fusion-data", "Fusion data"], ["sources", "Sources"]].forEach(([id, title]) => nav.append(link(title, `#${id}`, "")));
     root.append(nav);
     if (unresolved || ring.categorification_scope) root.append(renderCategorification(ring));
-    root.append(renderDimensions(ring), renderCharacters(ring), renderTensor(ring), renderResearch(ring, unresolved), renderSources(ring));
+    root.append(renderResearch(ring, unresolved), renderDimensions(ring), renderCharacters(ring), renderTensor(ring), renderSources(ring));
   }
   function renderError(message) {
     const target = $("#case-list") || $("#case-detail");
@@ -524,3 +582,4 @@
   }
   init();
 })();
+

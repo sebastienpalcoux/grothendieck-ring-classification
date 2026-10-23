@@ -296,9 +296,16 @@ if rank8_active(ROOT):
     rendered=rendered.replace('| 8 | Multiplicity 2 | Graded Brauer-Picard, fiber-functor and inner-square rigidity obstructions give the complete classification through 2.', '| 8 | Multiplicity 3 | Quadratic-compositum compression, convex central induction, split-module polynomials and Morita transport extend the classification through multiplicity three.')
     rendered=rendered.replace('proves the complete classification through multiplicity two.', 'records exclusions, explicit unitary models and individually investigated unresolved candidates through multiplicity three.')
     rendered=rendered.replace('in the analyzed range; both have braided-only exclusions.', 'in the analyzed range.')
-if args.check:
-    if not args.output.is_file() or args.output.read_text()!=rendered:
-        raise ValueError('Regenerate '+str(args.output))
-else:
-    args.output.write_text(rendered)
-print(('Checked' if args.check else 'Rendered')+' README.md')
+from readme_layout import reorganize
+front, guide = reorganize(rendered)
+outputs = {args.output: front,
+           args.output.parent / 'docs/PROJECT_GUIDE.md': guide}
+for target, content in outputs.items():
+    if args.check:
+        if not target.is_file() or target.read_text() != content:
+            raise ValueError('Regenerate ' + str(target))
+    else:
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.write_text(content)
+print(('Checked' if args.check else 'Rendered')+' README.md and project guide')
+

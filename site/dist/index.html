@@ -12,8 +12,9 @@
   <meta property="og:description" content="Classification, constructions, and open problems through rank 8. AI-generated research; independent human verification and Lean formalization are pending.">
   <meta property="og:url" content="https://sebastienpalcoux.github.io/grothendieck-ring-classification/">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230d1325'/%3E%3Cpath d='M17 43V20h28M17 32h20M29 20v23h18' fill='none' stroke='%23deb673' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E">
-  <link rel="stylesheet" href="./styles.css?v=4f3845111e60">
-  <script src="./app.js?v=8d72843a8144" defer></script>
+  <link rel="stylesheet" href="./styles.css?v=8951cab6b1dc">
+  <script src="./reading.js?v=b4008b26e052" defer></script>
+  <script src="./app.js?v=3f16727d2267" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#atlas">Skip to ring explorer</a>
@@ -46,7 +47,7 @@
             <a class="intro-primary" href="#atlas">Explore the atlas <span aria-hidden="true">↓</span></a>
             <a href="#papers">Read the manuscripts <span aria-hidden="true">↘</span></a>
             <a href="https://github.com/sebastienpalcoux/grothendieck-ring-classification">View on GitHub <span aria-hidden="true">↗</span></a>
-            <a href="https://hexagonmath.org/2610.00300?version=1" target="_blank" rel="noopener">Hexagon announcement <span aria-hidden="true">↗</span></a>
+            <a href="./unresolved.html">Open cases <span aria-hidden="true">↗</span></a>
           </div>
         </div>
         <div class="intro-math" aria-hidden="true">
@@ -58,7 +59,13 @@
       </div>
     </section>
 
-    <aside id="research-notice" class="research-notice" aria-labelledby="research-notice-heading">
+    <aside id="research-notice" class="research-notice research-notice-compact" aria-label="Research notice">
+      <p><strong>AI-generated research · independent verification pending.</strong></p>
+      <button type="button" class="reading-link" data-open-dialog="notice-dialog">Read the notice <span aria-hidden="true">↗</span></button>
+    </aside>
+    <dialog id="notice-dialog" class="reading-dialog" aria-labelledby="research-notice-heading">
+      <form method="dialog" class="reading-dialog-bar"><span>Research notice</span><button class="reading-close" aria-label="Close research notice">×</button></form>
+    <aside id="research-notice-full" class="research-notice" aria-labelledby="research-notice-heading">
       <div class="notice-label"><span class="notice-mark" aria-hidden="true">i</span><h2 id="research-notice-heading">Research caution</h2><span>Independent verification pending</span></div>
       <div class="notice-copy">
         <p><strong>This is AI-generated research.</strong> The results, proofs, code and data have not yet been independently verified by human experts or formalized in Lean. Treat them as provisional and check the underlying arguments and computations before relying on them.</p>
@@ -66,6 +73,16 @@
         <a href="./review.html">Research status &amp; verification <span aria-hidden="true">↗</span></a>
       </div>
     </aside>
+    </dialog>
+
+    <dialog id="research-dialog" class="reading-dialog" aria-labelledby="research-update-title">
+      <form method="dialog" class="reading-dialog-bar"><span>Current research</span><button class="reading-close" aria-label="Close research details">×</button></form>
+      <aside id="research-update" class="research-update" aria-labelledby="research-update-title" hidden>
+        <div><p class="eyebrow">LATEST RESEARCH UPDATE</p><h3 id="research-update-title"></h3><p id="research-update-summary"></p></div>
+        <a href="#theoretical-update">Research status <span aria-hidden="true">↘</span></a>
+      </aside>
+      <p class="reading-dialog-follow"><a href="./review.html">Research status, evidence and verification →</a></p>
+    </dialog>
 
     <section id="atlas" class="workspace" aria-labelledby="atlas-heading">
       <div class="section-heading">
@@ -75,10 +92,7 @@
         </div>
         <div class="section-aside">EXPLICITLY REALIZED RING TYPES · ≥ ON PARTIAL BANDS</div>
       </div>
-      <aside id="research-update" class="research-update" aria-labelledby="research-update-title" hidden>
-        <div><p class="eyebrow">LATEST RESEARCH UPDATE</p><h3 id="research-update-title"></h3><p id="research-update-summary"></p></div>
-        <a href="#theoretical-update">Research status <span aria-hidden="true">↘</span></a>
-      </aside>
+      <div class="atlas-reading-actions"><a href="./unresolved.html">Explore open cases →</a><button class="reading-link" type="button" data-open-dialog="research-dialog">Latest research details ↗</button></div>
       <noscript><p class="static-note">The interactive explorer needs JavaScript. The <a href="https://github.com/sebastienpalcoux/grothendieck-ring-classification/tree/main/manuscripts">manuscript index</a>, <a href="#sources">data downloads</a> and <a href="https://github.com/sebastienpalcoux/grothendieck-ring-classification">source repository</a> remain available.</p></noscript>
       <div class="workspace-grid">
         <div class="atlas-panel">
@@ -123,12 +137,26 @@
         </div>
         <aside id="cell-detail" class="detail-panel" aria-live="polite"></aside>
       </div>
+      <details class="reading-panel count-conventions"><summary>How to read the counts</summary>
       <p class="scope-note">Grothendieck counts mean <strong>ring types reported as realized</strong>, subject to the <a href="#research-notice">research caution above</a>. A ≥ sign marks a lower bound in a band containing unresolved fusion rings; the eventual total could be larger. The Grothendieck view omits rows containing only zeros. Fusion view includes every analyzed census band; the <a href="https://github.com/sebastienpalcoux/fusion-ring-census" target="_blank" rel="noopener">full fusion-ring census table ↗</a> covers more bands.</p>
+      </details>
+    </section>
+
+    <section id="classification" class="classification-section" aria-labelledby="classification-heading">
+      <div class="section-heading">
+        <div><div class="eyebrow">02 / CATEGORIFICATION</div><h2 id="classification-heading">Classification scope</h2></div>
+        <div class="section-aside">OVER THE COMPLEX NUMBERS</div>
+      </div>
+      <div id="scope-cards" class="scope-cards"></div>
+      <div class="definition-strip">
+        <span class="definition-mark">↗</span>
+        <p><strong>What “complete” means here.</strong> The current research assigns each counted based ring within the stated range either a categorical model or an exclusion by a necessary criterion. This is a coverage claim, pending independent verification. Results outside that range are not implied by the count table.</p>
+      </div>
     </section>
 
     <section id="rings" class="rings-section" aria-labelledby="rings-heading">
       <div class="section-heading">
-        <div><div class="eyebrow">02 / EXPLICIT REALIZATIONS</div><h2 id="rings-heading">Ring catalogue</h2></div>
+        <div><div class="eyebrow">03 / EXPLICIT REALIZATIONS</div><h2 id="rings-heading">Ring catalogue</h2></div>
         <div class="section-aside">TENSOR · CHARACTER TABLE · FORMAL CODEGREES · MODEL</div>
       </div>
       <div class="catalogue-controls">
@@ -153,23 +181,14 @@
       <div id="ring-profile" class="ring-profile" role="tabpanel" aria-labelledby="ring-tab-tensor" tabindex="0"></div>
     </dialog>
 
-    <section id="classification" class="classification-section" aria-labelledby="classification-heading">
-      <div class="section-heading">
-        <div><div class="eyebrow">03 / CATEGORIFICATION</div><h2 id="classification-heading">Classification scope</h2></div>
-        <div class="section-aside">OVER THE COMPLEX NUMBERS</div>
-      </div>
-      <div id="scope-cards" class="scope-cards"></div>
-      <div class="definition-strip">
-        <span class="definition-mark">↗</span>
-        <p><strong>What “complete” means here.</strong> The current research assigns each counted based ring within the stated range either a categorical model or an exclusion by a necessary criterion. This is a coverage claim, pending independent verification. Results outside that range are not implied by the count table.</p>
-      </div>
-    </section>
-
     <section id="papers" class="papers-section" aria-labelledby="papers-heading">
       <div class="section-heading">
         <div><div class="eyebrow">04 / THE MANUSCRIPTS</div><h2 id="papers-heading">Papers &amp; verification</h2></div>
         <div class="section-aside">THEOREMS · CERTIFICATES · REPRODUCTION</div>
       </div>
+      <div id="paper-grid" class="paper-grid"></div>
+      <details class="reading-panel paper-reading-notes" id="research-and-verification">
+        <summary>Research updates, verification and reading notes</summary>
       <div class="paper-review-note"><p><strong>A concise introduction to the project.</strong> Historical October announcement: classification scope, seven construction candidates, and two rank-six open problems. <a href="https://hexagonmath.org/2610.00300?version=1" target="_blank" rel="noopener">Hexagon · 2610.00300v1 <span aria-hidden="true">↗</span></a>.</p><a href="https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/announcements/hexagon-2026-10/Low_rank_Grothendieck_rings_announcement.pdf" target="_blank" rel="noopener">Research announcement · 5 pages <span aria-hidden="true">↗</span></a></div>
       <div class="paper-review-note"><p><strong>Current manuscripts and verification materials.</strong> Each PDF presents the project’s current arguments, classification scope and remaining questions. Read the verification notes for the precise coverage of automated checks.</p><a href="./review.html">Research status &amp; verification <span aria-hidden="true">↗</span></a></div>
       <p class="scope-note"><span id="manuscript-page-summary">Eight mathematical manuscripts: 552 pages; with the three verification guides: 571; with the research-status report: 579. Each distinct document is counted once.</span> <a href="./downloads/manuscript_page_counts.json" download>Page inventory &amp; checksums · JSON ↓</a></p>
@@ -188,7 +207,8 @@
         <div class="profile-table-scroll"><table class="profile-table frontier-table"><thead><tr><th scope="col">Fusion ring</th><th scope="col">Research progress</th></tr></thead><tbody id="rank6-frontier-rows"></tbody></table></div>
         <a href="./data/rank6_research_coverage.json" download>Download the current frontier summary ↓</a>
       </details>
-      <div id="paper-grid" class="paper-grid"></div>
+      </details>
+
     </section>
 
     <section id="sources" class="sources-section" aria-labelledby="sources-heading">
@@ -208,4 +228,5 @@
   </footer>
 </body>
 </html>
+
 
