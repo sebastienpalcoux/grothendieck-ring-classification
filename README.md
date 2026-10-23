@@ -7,6 +7,8 @@
 > **AI-generated research · independent verification pending.**
 > Results and computations remain provisional. [Research status and verification scope](docs/PREPUBLICATION_REVIEW.md).
 
+<a id="classification--what-is-decided"></a>
+
 ## Classification at a glance
 
 Ranks **2–4 have unrestricted classification claims**, with exactly **15 rank-four rings**.
@@ -25,7 +27,7 @@ Higher ranks have the explicit multiplicity bounds below.
 **6 open cases.** General categorification remains undecided for these rings.
 [Explore their status, invariants and research records](https://sebastienpalcoux.github.io/grothendieck-ring-classification/unresolved.html).
 
-<details>
+<details id="grothendieck-rings--known-realizations-at-each-exact-multiplicity">
 <summary><strong>Known realizations at each exact multiplicity</strong></summary>
 
 Multiplicity is the largest fusion coefficient. `≥` marks a lower bound where
@@ -44,6 +46,9 @@ general categorification remains open; a dash marks an unanalyzed band.
 [Full count data](data/grothendieck_counts.csv) · [Definitions and scope](docs/PROJECT_GUIDE.md#grothendieck-rings--known-realizations-at-each-exact-multiplicity)
 
 </details>
+
+<a id="read-the-mathematics"></a>
+<a id="structure"></a>
 
 ## Read, inspect, reproduce
 
