@@ -94,9 +94,19 @@ def control(root):
     require(len(first_audit["candidate_rejections_replayed"]) == 1,
             "Audit did not replay the first rejected candidate")
 
+    # The receipt can be committed before latest.json. Restart numbering must
+    # preserve it even when no latest result survived the interrupted worker.
+    (out / "latest.json").unlink()
+    require(campaign.next_attempt(task) == 1,
+            "Scheduler would reuse and overwrite a durable rejection attempt")
+    campaign.write_json(out / "latest.json", first)
+
     # Simulate a stop after the receipt transaction and before the strengthened
     # model transaction. A subsequent worker must rebuild from exact receipts.
     (out / "working_model.json").unlink()
+    interrupted_audit = verify_results.audit_task(task, out, root=root)
+    require(interrupted_audit["working_model_transaction_pending"],
+            "Audit must identify a missing working-model transaction")
     campaign.worker(task_path, 5.0, 1)
     second = read(out / "latest.json")
     require(second["status"] == "CANDIDATE_REJECTED_EXACTLY",
@@ -135,10 +145,16 @@ def control(root):
                  "independent_proof.json"):
         require((out / name).is_file(), "Missing exact proof artifact: " + name)
     require(model_path.read_bytes() == compressed, "Base model was mutated")
+    from unittest.mock import patch
+    with patch.object(engine, "solve_model", side_effect=KeyboardInterrupt):
+        campaign.worker(task_path, 5.0, 3)
+    require(read(out / "latest.json")["status"] == "INTERRUPTED_CHECKPOINT_SAVED",
+            "Interrupted exact post-processing must remain resumable")
+    campaign.write_json(out / "latest.json", final)
     return {
         "status": "PASS",
         "control": "REAL_R1154_REJECTION_RECOVERY_AND_EXACT_CLOSURE",
-        "workers": 3,
+        "workers": 3, "simulated_interrupt_controls": 1,
         "exact_rejections": 2,
         "recovery": "working model reconstructed from archived rejection receipt",
         "final_audit": report["status"],

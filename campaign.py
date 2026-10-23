@@ -119,6 +119,9 @@ def worker(task_path,seconds,attempt):
         write_json(out/"latest.json",result)
         certificate_audit(task,result,out)
         write_json(out/"latest.json",result)
+    except KeyboardInterrupt:
+        write_json(out/"latest.json",{"status":"INTERRUPTED_CHECKPOINT_SAVED","case":task["case"],"task":task["id"],"attempt":attempt,"updated":now()})
+        return
     except BaseException as error:
         write_json(out/"latest.json",{"status":"ERROR","case":task["case"],"task":task["id"],"attempt":attempt,"error":str(error),"traceback":traceback.format_exc(),"updated":now()})
         raise
@@ -205,7 +208,7 @@ def main():
                 budget=min(args.slice_seconds,max(0.1,deadline-time.monotonic()))
                 env=dict(os.environ)
                 env.update({"OMP_NUM_THREADS":"1","OPENBLAS_NUM_THREADS":"1","MKL_NUM_THREADS":"1","NUMEXPR_NUM_THREADS":"1","PYTHONUNBUFFERED":"1"})
-                process=subprocess.Popen([sys.executable,str(ROOT/"campaign.py"),"--worker",str(task_file),"--seconds",str(budget),"--attempt",str(attempt)],stdout=log,stderr=subprocess.STDOUT,env=env,cwd=ROOT)
+                process=subprocess.Popen([sys.executable,str(ROOT/"campaign.py"),"--worker",str(task_file),"--seconds",str(budget),"--attempt",str(attempt)],stdout=log,stderr=subprocess.STDOUT,env=env,cwd=ROOT,start_new_session=True)
                 active[task["id"]]=(process,task,log,time.monotonic(),budget)
                 print("Searching "+task["id"]+" · attempt "+str(attempt+1),flush=True)
             if not active and not pending:break
@@ -217,7 +220,8 @@ def main():
                 last_report=time.monotonic()
             time.sleep(0.5)
     finally:
-        for process,task,log,start,budget in active.values():process.terminate()
+        for process,task,log,start,budget in active.values():
+            if process.poll() is None:process.send_signal(signal.SIGINT)
         end=time.monotonic()+20
         for process,task,log,start,budget in active.values():
             try:process.wait(timeout=max(0.1,end-time.monotonic()))

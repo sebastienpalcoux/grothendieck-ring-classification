@@ -218,12 +218,21 @@ def audit_task(task, out, root=ROOT):
             rejected.append({"file": path.name, "status": observed["status"],
                              "cut_replay": checked["status"]})
     working_path = out / "working_model.json"
+    stored_working_prefix = None
+    stored_working_digest = None
     if working_path.is_file():
-        working = read_json(working_path)
-        same_numeric(current, working, "Working model after replaying all no-good cuts")
-    else:
-        require(not paths, "Rejection cuts exist without a working_model.json")
-        working = current
+        stored_working = read_json(working_path)
+        stored_working_digest = engine.model_digest(engine.normalize_model(stored_working))
+        require(stored_working_digest in prefix_digests,
+                "Stored working model differs from every valid rejection-chain prefix")
+        stored_working_prefix = prefix_digests.index(stored_working_digest)
+    # Durable, exactly validated rejection receipts are authoritative even
+    # when interruption preceded the atomic working-model replacement.
+    working = current
+    working_transaction_pending = (
+        (stored_working_prefix is None and (out.exists() or bool(paths))) or
+        (stored_working_prefix is not None and stored_working_prefix != len(paths))
+    )
     latest_path = out / "latest.json"
     latest = read_json(latest_path) if latest_path.is_file() else {}
     status = latest.get("status", "NO_LATEST_RESULT")
@@ -248,6 +257,9 @@ def audit_task(task, out, root=ROOT):
         "case": task["case"], "id": task["id"], "latest_status": status,
         "base_file_sha256": task["sha256"],
         "working_model_sha256": engine.model_digest(engine.normalize_model(working)),
+        "stored_working_model_sha256": stored_working_digest,
+        "stored_working_model_prefix_cuts": stored_working_prefix,
+        "working_model_transaction_pending": working_transaction_pending,
         "engine_artifact_model_sha256": evidence_digest,
         "engine_artifact_prefix_cuts": evidence_prefix,
         "final_replayed_cut_count": final_prefix,
