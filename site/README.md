@@ -17,6 +17,13 @@ the underlying evidence. GitHub Pages publishes the static `dist/` directory.
 
 ## Reading the atlas
 
+All ranks through 11 use the same explorer, model catalogue, manuscript shelf
+and [case directory](https://sebastienpalcoux.github.io/grothendieck-ring-classification/records.html).
+The directory orders profiles by rank, exact multiplicity and identifier, with
+24 records per page and shared status/search filters. Source datasets stay
+separately checksummed; they do not create separate rank-specific views.
+Previously shared release-directory URLs redirect to this common directory.
+
 The main table counts rings with recorded categorical realizations. Partial
 bands display **≥**: the recorded positive count is a lower bound while
 unresolved fusion rings remain. The fusion-ring census counts all based
@@ -45,7 +52,7 @@ that ring, with supporting arguments linked below. The audited source is
 
 A separate braided-categorification panel records exclusions that apply
 without a pivotality assumption, or the weakest additional assumption needed
-for a conditional obstruction. All six current unresolved cases exclude
+for a conditional obstruction. All six earlier rank-six and rank-eight unresolved cases exclude
 general braided categorification; the four rank-eight cases also exclude every
 braided Morita representative. These exclusions also remain valid for the
 newly realized R8_3_982.
@@ -98,6 +105,8 @@ classification export and proof bundle are ready:
 python3 build_snapshot.py --classification ..
 python3 build_realized.py --classification ..
 python3 build_cases.py --classification ..
+python3 build_rank9_10.py --classification ..
+python3 build_rank11.py --classification ..
 npm run check
 ```
 
@@ -148,6 +157,7 @@ reconstructs them before deployment.
 | Path | Contents |
 |---|---|
 | `dist/index.html`, `styles.css`, `app.js` | Explorer, ring profiles, character tables and manuscript shelf. |
+| `dist/catalogue.js`, `dist/records.html` | Shared case loading and filtered directory for all ranks. |
 | `dist/review.html` | Current research status and verification scope. |
 | `dist/data/atlas.json`, `grothendieck_counts.csv` | Positive counts and classification snapshot. |
 | `dist/data/realized_rings.json` | Exact tensors, invariants and model sources. |

@@ -67,8 +67,8 @@ def check(source=None):
         relative = Path(path).relative_to(data["summary"]["release"])
         local = source / relative
         require(local.is_file() and hashlib.sha256(local.read_bytes()).hexdigest() == item["sha256"], "Missing or stale evidence: " + path)
-    for name in ("index.html", "case.html", "unresolved.html", "rank9-10.html"):
-        require('src="./rank9_10.js' in (DIST / name).read_text(), "Missing release integration: " + name)
+    for name in ("index.html", "case.html", "unresolved.html", "records.html"):
+        require('src="./catalogue.js' in (DIST / name).read_text(), "Missing release integration: " + name)
     print(f"Rank-nine/ten release checked: 336 records and tensor downloads; {len(old)} historical profiles preserved.")
 
 

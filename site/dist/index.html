@@ -4,19 +4,18 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#0d1325">
-  <meta name="description" content="Low-rank Grothendieck rings: classification, constructions, and open problems through rank 10. AI-generated results await independent human verification and Lean formalization.">
+  <meta name="description" content="Low-rank Grothendieck rings: classification, constructions, and open problems through rank 11. AI-generated results await independent human verification and Lean formalization.">
   <title>Low-rank Grothendieck rings · Research atlas</title>
   <link rel="canonical" href="https://sebastienpalcoux.github.io/grothendieck-ring-classification/">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Low-rank Grothendieck rings">
-  <meta property="og:description" content="Classification, constructions, and open problems through rank 10. AI-generated research; independent human verification and Lean formalization are pending.">
+  <meta property="og:description" content="Classification, constructions, and open problems through rank 11. AI-generated research; independent human verification and Lean formalization are pending.">
   <meta property="og:url" content="https://sebastienpalcoux.github.io/grothendieck-ring-classification/">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230d1325'/%3E%3Cpath d='M17 43V20h28M17 32h20M29 20v23h18' fill='none' stroke='%23deb673' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E">
-  <link rel="stylesheet" href="./styles.css?v=be6f34971851">
+  <link rel="stylesheet" href="./styles.css?v=8951cab6b1dc">
   <script src="./reading.js?v=b4008b26e052" defer></script>
-  <script src="./rank9_10.js?v=d1033f883568" defer></script>
-  <script src="./rank11.js?v=0343834f20e3" defer></script>
-  <script src="./app.js?v=4299098679a4" defer></script>
+  <script src="./catalogue.js?v=7f7ad27ed12f" defer></script>
+  <script src="./app.js?v=c4b34b1fe02a" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#atlas">Skip to ring explorer</a>
@@ -29,7 +28,7 @@
       <a href="#atlas" class="nav-active">Explore</a>
       <a href="#classification">Classification</a>
       <a href="#rings">Ring catalogue</a>
-      <a href="./rank11.html">Rank 11</a><a href="./unresolved.html">Unresolved cases</a>
+      <a href="./unresolved.html">Unresolved cases</a>
       <a href="#papers">Papers</a>
       <a href="#sources">Sources</a>
     </nav>
@@ -43,7 +42,7 @@
         <div>
           <h1 id="page-title">Low-rank<br><em>Grothendieck rings</em></h1>
           <p class="intro-subtitle">Classification, constructions, and open problems.</p>
-          <p class="intro-text">Classification results through rank 10, unrestricted in fusion multiplicity for ranks 2–4, with explicit bounds in higher ranks.</p>
+          <p class="intro-text">Classification results through rank 11, unrestricted in fusion multiplicity for ranks 2–4, with explicit bounds in higher ranks.</p>
           <p class="intro-resource">Supporting resource: <a href="https://github.com/sebastienpalcoux/fusion-ring-census">Fusion-ring census <span aria-hidden="true">↗</span></a></p>
           <div class="intro-actions">
             <a class="intro-primary" href="#atlas">Explore the atlas <span aria-hidden="true">↓</span></a>
@@ -86,9 +85,6 @@
       <p class="reading-dialog-follow"><a href="./review.html">Research status, evidence and verification →</a></p>
     </dialog>
 
-    <section id="rank11-current" class="research-update" aria-label="Current rank-eleven results"></section>
-    <details class="reading-panel"><summary>Ranks nine and ten · previous release</summary><section id="rank9-10-current" class="research-update" aria-label="Latest rank-nine and rank-ten results"></section></details>
-
     <section id="atlas" class="workspace" aria-labelledby="atlas-heading">
       <div class="section-heading">
         <div>
@@ -97,7 +93,7 @@
         </div>
         <div class="section-aside">EXPLICITLY REALIZED RING TYPES · ≥ ON PARTIAL BANDS</div>
       </div>
-      <div class="atlas-reading-actions"><a href="./unresolved.html">Explore open cases →</a><button class="reading-link" type="button" data-open-dialog="research-dialog">Earlier research details ↗</button></div>
+      <div class="atlas-reading-actions"><a href="./records.html">Browse case records →</a><a href="./unresolved.html">Explore open cases →</a><button class="reading-link" type="button" data-open-dialog="research-dialog">Earlier research details ↗</button></div>
       <noscript><p class="static-note">The interactive explorer needs JavaScript. The <a href="https://github.com/sebastienpalcoux/grothendieck-ring-classification/tree/main/manuscripts">manuscript index</a>, <a href="#sources">data downloads</a> and <a href="https://github.com/sebastienpalcoux/grothendieck-ring-classification">source repository</a> remain available.</p></noscript>
       <div class="workspace-grid">
         <div class="atlas-panel">
@@ -199,7 +195,7 @@
       <div class="paper-review-note"><p><strong>Current manuscripts and verification materials.</strong> Each PDF presents the project’s current arguments, classification scope and remaining questions. Read the verification notes for the precise coverage of automated checks.</p><a href="./review.html">Research status &amp; verification <span aria-hidden="true">↗</span></a></div>
       <p class="scope-note" id="current-manuscript-page-summary">10 mathematical manuscripts: 594 pages; with three verification guides: 613; with the research-status report: 621. <a href="./downloads/current_manuscript_page_counts.json" download>Current page inventory and checksums ↓</a></p>
       <details class="reading-panel"><summary>Earlier manuscript inventory</summary><p class="scope-note"><span id="manuscript-page-summary">Eight mathematical manuscripts: 552 pages; with the three verification guides: 571; with the research-status report: 579. Each distinct document is counted once.</span> <a href="./downloads/manuscript_page_counts.json" download>Page inventory &amp; checksums · JSON ↓</a></p></details>
-      <p class="scope-note">Each <a href="./rank9-10.html">rank-nine and rank-ten record</a> includes a fusion tensor TXT download. The <a href="./downloads/remaining_cases.py" download>earlier rank-six and rank-eight open tensors · Python ↓</a> remain available with their original source checksums.</p>
+      <p class="scope-note">Every <a href="./records.html">individual case record</a> includes a fusion tensor TXT download, with the same rank and multiplicity filters throughout the atlas. The <a href="./downloads/remaining_cases.py" download>earlier rank-six and rank-eight open tensors · Python ↓</a> remain available with their original source checksums.</p>
       <details id="theoretical-update" class="frontier-panel theoretical-update" hidden>
         <summary id="theoretical-update-heading">17 October 2026 · research status</summary>
         <p id="theoretical-update-scope"></p>

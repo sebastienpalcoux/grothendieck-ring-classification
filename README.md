@@ -9,11 +9,11 @@
 
 <!-- rank11-release -->
 
-**23 October: rank eleven, multiplicity one.** **155 excluded over ℂ, 27 unitary models, 0 unresolved** among all 182 supplied tensors. [Browse every case](https://sebastienpalcoux.github.io/grothendieck-ring-classification/rank11.html) · [Manuscript](publications/rank11/paper/rank11.pdf) · [Proofs and exact replay](evidence/rank11_m1_20261023/README.md).
+**23 October: rank eleven, multiplicity one.** **155 excluded over ℂ, 27 unitary models, 0 unresolved** among all 182 supplied tensors. [Browse every case](https://sebastienpalcoux.github.io/grothendieck-ring-classification/records.html?rank=11) · [Manuscript](publications/rank11/paper/rank11.pdf) · [Proofs and exact replay](evidence/rank11_m1_20261023/README.md).
 
 <details><summary>Ranks nine and ten · previous release</summary>
 
-233 general exclusions, 97 unitary models and [6 unresolved](https://sebastienpalcoux.github.io/grothendieck-ring-classification/rank9-10.html?status=unresolved) among 336 supplied tensors. [Browse cases](https://sebastienpalcoux.github.io/grothendieck-ring-classification/rank9-10.html) · [Manuscript](publications/rank9-rank10/paper/rank9-rank10.pdf).
+233 general exclusions, 97 unitary models and [6 unresolved](https://sebastienpalcoux.github.io/grothendieck-ring-classification/unresolved.html?rank=10) among 336 supplied tensors. [Browse cases](https://sebastienpalcoux.github.io/grothendieck-ring-classification/records.html) · [Manuscript](publications/rank9-rank10/paper/rank9-rank10.pdf).
 
 </details>
 
@@ -36,7 +36,7 @@ Higher ranks have the explicit multiplicity bounds below.
 | 7 | Through 5 | **Complete through 5** | Through 5: 9,976 excluded, 30 realized, 0 unresolved. |
 | 8 | Through 3 | **Complete through 2**; multiplicity 3 partial | Through 3: 4,403 excluded, 93 realized, 4 unresolved. |
 | 9 | Multiplicity 1 | **Complete at multiplicity 1** | 102 excluded, 40 realized, 0 unresolved. |
-| 10 | Multiplicity 1 | **Partial at multiplicity 1** | 131 excluded, 57 realized, [6 unresolved](https://sebastienpalcoux.github.io/grothendieck-ring-classification/rank9-10.html?rank=10&status=unresolved). |
+| 10 | Multiplicity 1 | **Partial at multiplicity 1** | 131 excluded, 57 realized, [6 unresolved](https://sebastienpalcoux.github.io/grothendieck-ring-classification/unresolved.html?rank=10&m=1). |
 | 11 | Multiplicity 1 | **Complete at multiplicity 1** | 155 excluded, 27 realized, 0 unresolved. |
 
 **12 open cases.** General categorification remains undecided for these rings.

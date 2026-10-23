@@ -6,8 +6,10 @@ atlas, realized catalogue and unresolved directory. Each new identifier has a
 permanent `case.html?id=R9_1_…` or `case.html?id=R10_1_…` profile and a Python-list
 TXT tensor download, including excluded and deferred cases.
 
-The current result appears first in a compact front-page panel. The separate
-`rank9-10.html` directory filters all 336 records by rank, status and search text.
+Ranks nine and ten use the common atlas table, model catalogue and manuscript
+shelf. The shared `records.html` directory filters every rank by rank, exact
+multiplicity, status and search text; the former release-directory URL redirects
+to this common view.
 Individual profiles reuse the existing ordered case renderer: current findings,
 invariants, characters, fusion data, then evidence. Supporting reports and the
 searchable evidence catalogue remain folded by default.
@@ -40,7 +42,7 @@ tensor downloads outside its historical inventory.
 python3 site/build_rank9_10.py --release evidence/rank9_rank10_m1_20261023
 python3 site/check_rank9_10.py
 python3 -O site/check_rank9_10.py
-node --check site/dist/rank9_10.js
+node --check site/dist/catalogue.js
 node site/check_cases.mjs
 ```
 

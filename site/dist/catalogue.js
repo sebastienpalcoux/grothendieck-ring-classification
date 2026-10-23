@@ -1,0 +1,100 @@
+"use strict";
+// One catalogue for every rank; source-bound research payloads remain intact.
+globalThis.RingCatalogue = (() => {
+  const sources = ["rank9_rank10_m1.json", "rank11_m1.json"];
+  let pending;
+  async function fetchJSON(name) {
+    const response = await fetch(`./data/${name}`);
+    if (!response.ok) throw new Error("The ring catalogue could not be loaded. Please reload the page.");
+    return response.json();
+  }
+  function load() {
+    return pending ||= Promise.all([
+      fetchJSON("realized_rings.json"), fetchJSON("unresolved_cases.json"), fetchJSON("resolved_cases.json"),
+      ...sources.map(fetchJSON),
+    ]).then(([realized, unresolved, resolved, ...updates]) => {
+      const models = [...realized.records, ...updates.flatMap(p => p.cases.filter(r => r.status === "unitarily_realized"))];
+      const cases = new Map(models.map(r => [r.id, {...r, status: r.status || (r.existence === "unitary" ? "unitarily_realized" : "realized")} ]));
+      for (const ring of [...unresolved.cases, ...resolved.cases, ...updates.flatMap(p => p.cases)]) cases.set(ring.id, ring);
+      const ordered = [...cases.values()].sort((a, b) => a.rank - b.rank || a.multiplicity - b.multiplicity || a.id.localeCompare(b.id, "en", {numeric: true}));
+      return {models, cases: ordered, summaries: updates.map(p => p.summary)};
+    });
+  }
+  function mergeAtlas(state, catalogue) {
+    for (const summary of catalogue.summaries) {
+      for (const [key, c] of Object.entries(summary.counts)) {
+        const rank = Number(key), n = (c.excluded || 0) + (c.unitarily_realized || 0) + (c.unresolved || 0);
+        state.data.rows.push({rank, multiplicity: 1, rings: n, source: summary.source_url, verification: summary.ledger_url});
+        state.data.grothendieck_rows.push({rank, multiplicity: 1, rings: c.unitarily_realized || 0, is_lower_bound: Boolean(c.unresolved)});
+        state.data.classification_rows.push({rank, multiplicity: 1, rings: n, excluded_general: c.excluded || 0, realized_unitary: c.unitarily_realized || 0,
+          realized_other_or_unspecified: 0, realized_spherical_nonpseudounitary: 0, unresolved_general: c.unresolved || 0, unassessed: 0,
+          classification_coverage: c.unresolved ? "partial_classification" : "complete_classification"});
+        state.data.scope.push({rank, through: c.unresolved ? 0 : 1, analyzed_through: 1, kind: c.unresolved ? "partial" : "complete",
+          rings: n, positive: c.unitarily_realized || 0, unresolved: c.unresolved || 0,
+          note: "Multiplicity one only. Every supplied tensor has a case record, decision scope and downloadable fusion data."});
+      }
+      if (summary.current_documents) state.data.current_publication_documents = summary.current_documents;
+    }
+    state.models = catalogue.models;
+    state.data.catalogue_records = catalogue.cases;
+    state.data.publication_date = [state.data.snapshot, ...catalogue.summaries.map(s => s.date)].sort().at(-1);
+    state.data.catalogue_papers = catalogue.summaries.map(s => {
+      const ranks = Object.keys(s.counts).map(Number).sort((a, b) => a - b), c = s.totals;
+      const stem = `rank${ranks.join("-rank")}`;
+      return {rank: ranks[0], ranks, title: `${ranks.length > 1 ? "Ranks" : "Rank"} ${ranks.join(" and ")} multiplicity-one fusion rings`,
+        subtitle: `${s.input_count} analyzed; ${c.excluded || 0} exclusions, ${c.unitarily_realized || 0} unitary models, ${c.unresolved || 0} unresolved`,
+        type: "CLASSIFICATION", slug: s.report_url.split("/").at(-1).replace(/\.pdf$/, ""), sourceRef: "main", sourcePath: `publications/${stem}/paper/${stem}.tex`};
+    });
+  }
+  const node = (tag, text = "", className = "") => {
+    const result = document.createElement(tag); result.textContent = text;
+    if (className) result.className = className;
+    return result;
+  };
+  const anchor = (text, href) => {const result = node("a", text); result.href = href; return result;};
+  async function directory() {
+    const root = document.querySelector("#record-list");
+    if (!root) return;
+    try {
+      const catalogue = await load(), params = new URLSearchParams(location.search);
+      const search = document.querySelector("#record-search"), status = document.querySelector("#record-status"), rank = document.querySelector("#record-rank"), multiplicity = document.querySelector("#record-m");
+      const previous = document.querySelector("#record-previous"), next = document.querySelector("#record-next");
+      const ranks = [...new Set(catalogue.cases.map(r => r.rank))];
+      for (const value of ranks) {const option = node("option", `Rank ${value}`); option.value = String(value); rank.append(option);}
+      rank.value = ranks.includes(Number(params.get("rank"))) ? params.get("rank") : "";
+      status.value = ["excluded", "realized", "unitarily_realized", "unresolved"].includes(params.get("status")) ? params.get("status") : "";
+      const m = Number(params.get("m")); multiplicity.value = Number.isSafeInteger(m) && m > 0 ? String(m) : "";
+      search.value = (params.get("q") || "").slice(0, 500);
+      const pageSize = 24; let page = 0;
+      const render = () => {
+        const query = search.value.trim().toLowerCase(), url = new URL(location.href);
+        const exactM = Number(multiplicity.value), validM = Number.isSafeInteger(exactM) && exactM > 0;
+        for (const [key, value] of [["rank", rank.value], ["m", validM ? String(exactM) : ""], ["status", status.value], ["q", search.value.trim()]]) {
+          if (value) url.searchParams.set(key, value); else url.searchParams.delete(key);
+        }
+        history.replaceState(null, "", url);
+        const rows = catalogue.cases.filter(r => (!rank.value || r.rank === Number(rank.value)) && (!validM || r.multiplicity === exactM) &&
+          (!status.value || (status.value === "realized" ? ["realized", "unitarily_realized"].includes(r.status) : r.status === status.value)) &&
+          (!query || `${r.id} ${r.name || ""} ${r.summary || ""} ${(r.research || []).map(x => JSON.stringify(x.data)).join(" ")}`.toLowerCase().includes(query)));
+        const lastPage = Math.max(0, Math.ceil(rows.length / pageSize) - 1); page = Math.min(page, lastPage);
+        const visible = rows.slice(page * pageSize, (page + 1) * pageSize);
+        document.querySelector("#record-count").textContent = rows.length ? `${rows.length} matching records · showing ${page * pageSize + 1}–${page * pageSize + visible.length}` : "No matching records";
+        previous.disabled = page === 0; next.disabled = page === lastPage; root.replaceChildren();
+        for (const ring of visible) {
+          const detail = node("details", "", "record-details"), heading = node("summary");
+          const label = {excluded: "Excluded over ℂ", unitarily_realized: "Unitary model", realized: "Categorical model", unresolved: "Unresolved"}[ring.status];
+          heading.append(node("strong", ring.id), ` · ${label}`); detail.append(heading, node("p", ring.summary || ring.name));
+          const links = node("div", "", "case-actions"), download = anchor("Fusion tensor .txt ↓", ring.download_url || `./downloads/fusion-tensors/${encodeURIComponent(ring.id)}.txt`);
+          download.download = `${ring.id}.txt`;
+          links.append(anchor("Open complete record →", `./case.html?id=${encodeURIComponent(ring.id)}`), download); detail.append(links); root.append(detail);
+        }
+      };
+      for (const control of [search, status, rank, multiplicity]) control.addEventListener("input", () => {page = 0; render();});
+      previous.addEventListener("click", () => {if (page > 0) {page--; render();}});
+      next.addEventListener("click", () => {if (!next.disabled) {page++; render();}});
+      render();
+    } catch (error) {root.textContent = error.message;}
+  }
+  if (document.querySelector("#record-list")) directory();
+  return {load, mergeAtlas};
+})();

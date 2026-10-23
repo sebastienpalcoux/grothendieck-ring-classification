@@ -25,17 +25,17 @@ def extend_front(front,repo):
     front=re.sub(r'<!-- rank(?:9-rank10|11)-release -->.*?<!-- /rank(?:9-rank10|11)-release -->\n*','',front,flags=re.S)
     front=re.sub(r'^\| (?:9|10|11) \| Multiplicity 1 \|.*\n','',front,flags=re.M)
     rows='''| 9 | Multiplicity 1 | **Complete at multiplicity 1** | 102 excluded, 40 realized, 0 unresolved. |
-| 10 | Multiplicity 1 | **Partial at multiplicity 1** | 131 excluded, 57 realized, [6 unresolved](https://sebastienpalcoux.github.io/grothendieck-ring-classification/rank9-10.html?rank=10&status=unresolved). |
+| 10 | Multiplicity 1 | **Partial at multiplicity 1** | 131 excluded, 57 realized, [6 unresolved](https://sebastienpalcoux.github.io/grothendieck-ring-classification/unresolved.html?rank=10&m=1). |
 | 11 | Multiplicity 1 | **Complete at multiplicity 1** | 155 excluded, 27 realized, 0 unresolved. |
 '''
     front=re.sub(r'(^\| 8 \|[^\n]*\n)',lambda m:m[1]+rows,front,count=1,flags=re.M)
     front=re.sub(r'\*\*(?:Six|\d+) open cases(?:\.|:)[^\n]*','**12 open cases.** General categorification remains undecided for these rings.',front,count=1)
     block=('<!-- rank11-release -->\n\n**23 October: rank eleven, multiplicity one.** '
            '**155 excluded over ℂ, 27 unitary models, 0 unresolved** among all 182 supplied tensors. '
-           f'[Browse every case]({ATLAS}rank11.html) · [Manuscript](publications/rank11/paper/rank11.pdf) · '
+           f'[Browse every case]({ATLAS}records.html?rank=11) · [Manuscript](publications/rank11/paper/rank11.pdf) · '
            '[Proofs and exact replay](evidence/rank11_m1_20261023/README.md).\n\n'
-           f'<details><summary>Ranks nine and ten · previous release</summary>\n\n233 general exclusions, 97 unitary models and [6 unresolved]({ATLAS}rank9-10.html?status=unresolved) among 336 supplied tensors. '
-           f'[Browse cases]({ATLAS}rank9-10.html) · [Manuscript](publications/rank9-rank10/paper/rank9-rank10.pdf).\n\n</details>\n\n<!-- /rank11-release -->\n\n')
+           f'<details><summary>Ranks nine and ten · previous release</summary>\n\n233 general exclusions, 97 unitary models and [6 unresolved]({ATLAS}unresolved.html?rank=10) among 336 supplied tensors. '
+           f'[Browse cases]({ATLAS}records.html) · [Manuscript](publications/rank9-rank10/paper/rank9-rank10.pdf).\n\n</details>\n\n<!-- /rank11-release -->\n\n')
     front=front.replace('<a id="classification--what-is-decided"></a>',block+'<a id="classification--what-is-decided"></a>')
     matrix=re.search(r'\| Multiplicity \| Rank 2[^\n]*\n(?:\|[^\n]*\n)+',front)
     if matrix:

@@ -126,7 +126,7 @@ def build(repo,ref='main'):
     shutil.copy2(repo/'data/current_manuscript_page_counts.json',dist/'downloads/current_manuscript_page_counts.json')
     for html in dist.glob('*.html'):
         text=html.read_text()
-        for asset in ('app.js','cases.js','rank9_10.js','rank11.js','styles.css','cases.css'):
+        for asset in ('app.js','cases.js','catalogue.js','redirect.js','styles.css','cases.css'):
             digest=sha(dist/asset)[:12]
             text=re.sub(r'(\b(?:src|href)="\./'+re.escape(asset)+r')(?:\?v=[^\"]*)?(\")',
                         lambda m:m[1]+'?v='+digest+m[2],text)

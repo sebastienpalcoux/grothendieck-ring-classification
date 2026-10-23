@@ -36,10 +36,11 @@ jobs:
           node --check site/dist/app.js
           node --check site/dist/cases.js
           node site/check_cases.mjs
-          node --check site/dist/rank9_10.js
+          node --check site/dist/catalogue.js
           python site/check_rank9_10.py
-          node --check site/dist/rank11.js
+          node --check site/dist/redirect.js
           python site/check_rank11.py
+          python tools/list_simple_multiplicity_one.py --check
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
       - name: Upload the static atlas

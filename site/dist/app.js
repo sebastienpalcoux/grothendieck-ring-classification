@@ -12,10 +12,10 @@ const paperEntries = [
   {rank:6, title:"Rank-six fusion rings: categorification criteria and models through multiplicity nine", subtitle:"Categorification through multiplicity nine", type:"CLASSIFICATION", slug:"rank6"},
 ];
 function paperSourcePath(rank,extension="pdf") {
+  const cataloguePaper=state.data?.catalogue_papers?.find(p=>p.ranks.includes(rank));
+  if (cataloguePaper) return cataloguePaper.sourcePath.replace(/\.tex$/,`.${extension}`);
   if (rank<=3) return `manuscripts/rank${rank}.${extension}`;
   if (rank===7) return `manuscripts/rank7/papers/manuscript.${extension}`;
-  if (rank===11) return `publications/rank11/paper/rank11.${extension}`;
-  if (rank===9 || rank===10) return `publications/rank9-rank10/paper/rank9-rank10.${extension}`;
   if (rank===8) return `manuscripts/rank8/paper/rank8.${extension}`;
   return `manuscripts/rank${rank}/papers/${rank===4?"companion":"manuscript"}.${extension}`;
 }
@@ -335,6 +335,9 @@ function renderDetail() {
     const browse=element("a","detail-link",`Browse ${fmt.format(realized)} explicit ${realized===1?"ring":"rings"} ↓`);
     browse.href="#rings";panel.append(browse);
   }
+  const records=element("a","detail-link","Browse recorded cases →");
+  records.href=`./records.html?rank=${row.rank}&m=${row.multiplicity}`;
+  panel.append(records);
   const link=element("a","detail-link","Open census source ↗");
   link.href=state.data.source_repository;
   link.target="_blank";link.rel="noopener";
@@ -483,7 +486,7 @@ function renderTheoreticalUpdate() {
 function renderPapers() {
   const release = state.data.rank6_release;
   if (release) {
-    const date = new Date((state.data.rank11_m1_update?.date || state.data.rank9_rank10_m1_update?.date || state.data.snapshot)+"T12:00:00Z");
+    const date = new Date((state.data.publication_date || state.data.snapshot)+"T12:00:00Z");
     const dateOptions = {day:"numeric",month:"long",year:"numeric",timeZone:"UTC"};
     $("#edition-date").textContent = date.toLocaleDateString("en-GB", {...dateOptions,month:"short"}).toUpperCase();
     $("#snapshot-date").textContent = `Research snapshot · ${date.toLocaleDateString("en-GB", dateOptions)}`;
@@ -532,13 +535,12 @@ function renderPapers() {
   if (r8)
     entries.push({rank:8,title:r8.unresolved ? `Rank-eight Grothendieck rings through multiplicity ${r8.analyzed_through}: criteria, models, and unresolved candidates` : `Rank-eight Grothendieck rings: complete classification through multiplicity ${r8.analyzed_through}`,
       subtitle:`${fmt.format(r8.rings)} analyzed; ${r8.positive} models${r8.unresolved ? ` and ${r8.unresolved} general open ${r8.unresolved===1?"case":"cases"}` : "; complete classification"}`,type:"CLASSIFICATION",slug:"rank8"});
-  if (state.data.rank9_rank10_m1_update) entries.push({rank:9,title:"Rank-nine and rank-ten multiplicity-one fusion rings",subtitle:"336 supplied rings; 233 exclusions, 97 unitary models, 6 unresolved",type:"CLASSIFICATION",slug:"rank9-rank10-m1"});
-  if (state.data.rank11_m1_update) entries.push({rank:11,title:"Rank-eleven multiplicity-one fusion rings",subtitle:"182 supplied rings; 155 exclusions, 27 unitary models, 0 unresolved",type:"CLASSIFICATION",slug:"rank11"});
-  for (const paper of entries) {
+  entries.push(...(state.data.catalogue_papers || []));
+  for (const [index,paper] of entries.entries()) {
     const card=element("article","paper-card");
     const content=element("div");
     const meta=element("div","paper-meta");
-    meta.append(element("span","",`${String(paper.rank-1).padStart(2,"0")} / RANK ${paper.rank}`),element("span","",paper.type));
+    meta.append(element("span","",`${String(index+1).padStart(2,"0")} / ${(paper.ranks?.length || 1)>1?"RANKS":"RANK"} ${(paper.ranks || [paper.rank]).join("–")}`),element("span","",paper.type));
     content.append(meta,element("h3",paper.title.length>55?"long-title":"",paper.title),element("p","",paper.subtitle));
     const paperScope=state.data.scope.find(r=>r.rank===paper.rank);
     if (paperScope?.unresolved) linkUnresolvedText(content,paper.rank===6?`${paperScope.unresolved} cases remain`:`${paperScope.unresolved} general open ${paperScope.unresolved===1?"case":"cases"}`,{rank:paper.rank,max_m:paperScope.analyzed_through});
@@ -549,7 +551,7 @@ function renderPapers() {
     manuscript.href=`./papers/${paper.slug}.pdf`;
     manuscript.dataset.localPaper=paper.slug;
     const source=element("a","","Source & checks ↗");
-    source.href=`${state.data.classification_repository}/blob/${state.data.classification_commit || "main"}/${paperSourcePath(paper.rank,"tex")}`;
+    source.href=`${state.data.classification_repository}/blob/${paper.sourceRef || state.data.classification_commit || "main"}/${paperSourcePath(paper.rank,"tex")}`;
     source.target="_blank";source.rel="noopener";
     actions.append(manuscript);
     if (paper.rank===4) {
@@ -849,12 +851,8 @@ async function start() {
     state.data=await response.json();
     state.data.classification_rows=(await statusResponse.json()).rows;
     state.models=(await modelsResponse.json()).records;
-    const rank910 = await Rank910.load();
-    Rank910.mergeAtlas(state, rank910);
-    Rank910.currentPanel(rank910);
-    const rank11 = await Rank11.load();
-    Rank11.mergeAtlas(state, rank11);
-    Rank11.currentPanel(rank11);
+    const catalogue = await RingCatalogue.load();
+    RingCatalogue.mergeAtlas(state, catalogue);
     if (!Array.isArray(state.data.rows) || !state.data.rows.length) throw new Error("No counts");
     state.data.rows=state.data.rows.map((r)=>({...r,rank:Number(r.rank),multiplicity:Number(r.multiplicity),rings:Number(r.rings)}));
     state.data.grothendieck_rows=(state.data.grothendieck_rows||[]).map((r)=>({...r,rank:Number(r.rank),multiplicity:Number(r.multiplicity),rings:Number(r.rings)}));

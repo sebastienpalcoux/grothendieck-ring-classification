@@ -31,6 +31,12 @@ The checker verifies all 182 downloads, all linked proof hashes and every ZIP
 member. The UI checker covers all 182 case renderings, the 182-ring fusion view,
 27-model Grothendieck view, ordered pagination and status/search filters.
 
+Rank eleven uses the same atlas table, model catalogue, manuscript shelf and
+`records.html` case directory as every other rank. There is no separate
+rank-eleven navigation item or front-page release panel. Previously shared
+rank-eleven directory links redirect to the common directory with rank 11
+selected. Source payloads remain independently checksummed.
+
 Current findings precede invariants and fusion data. Research records and the
 grouped, searchable evidence catalogue remain folded by default. Earlier
 updates are retained behind expandable sections. No rank-ten status changes

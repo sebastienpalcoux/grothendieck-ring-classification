@@ -220,7 +220,7 @@ def build(repo, release, source=None, ref="main"):
         table_rows = []
         for rank in (9, 10):
             c = counts[str(rank)]
-            unresolved = f"[{c['unresolved']} unresolved](https://sebastienpalcoux.github.io/grothendieck-ring-classification/rank9-10.html?rank={rank}&status=unresolved)" if c.get("unresolved") else "0 unresolved"
+            unresolved = f"[{c['unresolved']} unresolved](https://sebastienpalcoux.github.io/grothendieck-ring-classification/records.html?rank={rank}&status=unresolved)" if c.get("unresolved") else "0 unresolved"
             table_rows.append(f"| {rank} | Multiplicity 1 | **{'Partial' if c.get('unresolved') else 'Complete'} at multiplicity 1** | {c.get('excluded', 0)} excluded, {c.get('unitarily_realized', 0)} realized, {unresolved}. |")
         text, found = re.subn(r"(^\| 8 \|[^\n]*\n)", lambda match: match[1] + "\n".join(table_rows) + "\n", text, count=1, flags=re.M)
         if found != 1: raise ValueError("Could not locate the current README classification table")
@@ -228,8 +228,8 @@ def build(repo, release, source=None, ref="main"):
         text = re.sub(r"\*\*\d+ open cases\.\*\*", f"**{historical_open + totals.get('unresolved', 0)} open cases.**", text, count=1)
         start, end = "<!-- rank9-rank10-release -->", "<!-- /rank9-rank10-release -->"
         block = (start + "\n\n**23 October: ranks nine and ten, multiplicity one.** "
-                 + f"{totals.get('excluded', 0)} general exclusions, {totals.get('unitarily_realized', 0)} unitary models and [{totals.get('unresolved', 0)} unresolved rings](https://sebastienpalcoux.github.io/grothendieck-ring-classification/rank9-10.html?status=unresolved) among all 336 supplied tensors. "
-                 + f"[Browse every case](https://sebastienpalcoux.github.io/grothendieck-ring-classification/rank9-10.html) · [Report]({release}/deliverable/report.pdf) · [Proofs and verification]({release}/README.md).\n\n" + end)
+                 + f"{totals.get('excluded', 0)} general exclusions, {totals.get('unitarily_realized', 0)} unitary models and [{totals.get('unresolved', 0)} unresolved rings](https://sebastienpalcoux.github.io/grothendieck-ring-classification/records.html?status=unresolved) among all 336 supplied tensors. "
+                 + f"[Browse every case](https://sebastienpalcoux.github.io/grothendieck-ring-classification/records.html) · [Report]({release}/deliverable/report.pdf) · [Proofs and verification]({release}/README.md).\n\n" + end)
         if start in text:
             text = re.sub(re.escape(start) + r".*?" + re.escape(end), lambda _: block, text, flags=re.S)
         else:
@@ -254,7 +254,7 @@ def build(repo, release, source=None, ref="main"):
         readme.write_text(text)
     for html in dist.glob("*.html"):
         text = html.read_text()
-        for asset in ("app.js", "cases.js", "rank9_10.js", "styles.css", "cases.css"):
+        for asset in ("app.js", "cases.js", "catalogue.js", "redirect.js", "styles.css", "cases.css"):
             digest = sha(dist / asset)[:12]
             text = re.sub(r'(\b(?:src|href)="\./' + re.escape(asset) + r')(?:\?v=[^\"]*)?(\")', lambda match: match[1] + "?v=" + digest + match[2], text)
         if text != html.read_text(): html.write_text(text)

@@ -56,8 +56,8 @@ def check():
         for line in z.read(prefix+'SHA256SUMS').decode().splitlines():
             digest,path=line.split('  ',1)
             require(hashlib.sha256(z.read(prefix+path)).hexdigest()==digest,'Archived member changed: '+path)
-    for name in ('index.html','case.html','unresolved.html','rank11.html'):
-        require('src="./rank11.js' in (DIST/name).read_text(),'Missing rank-eleven integration: '+name)
+    for name in ('index.html','case.html','unresolved.html','records.html'):
+        require('src="./catalogue.js' in (DIST/name).read_text(),'Missing rank-eleven integration: '+name)
     print('Rank eleven: all 182 case records/tensors, 155 general exclusions, 27 unitary models; all evidence hashes and archived files verified.')
 
 if __name__=='__main__':check()

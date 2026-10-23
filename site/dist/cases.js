@@ -536,11 +536,14 @@
     $("#case-kicker").textContent = `RANK ${ring.rank} · EXACT MULTIPLICITY ${ring.multiplicity} · ${excluded ? "GENERAL CATEGORIFICATION EXCLUDED" : unresolved ? "UNRESOLVED CASE" : "REALIZED RING"}`;
     $("#case-subtitle").textContent = excluded ? "Resolved by a general exclusion. The fusion data, invariants and proof remain available at this permanent case address." : unresolved ? "General categorifiability remains unresolved. Inspect the ring data, exact and numerical invariants, and the full recorded research history." : ring.status === "unitarily_realized" ? `${ring.name || ring.id} · Unitary model identified. The fusion data, invariants and full research history remain available at this permanent case address.` : `${ring.name} · ${ring.existence} model reported in the catalogue.`;
     const back = $("#case-back");
-    if (unresolved) {
+    if (excluded) {
+      back.href = `./records.html?rank=${ring.rank}&m=${ring.multiplicity}`;
+      back.textContent = "← Back to case records";
+    } else if (unresolved) {
       back.href = `./unresolved.html${filters.size ? "?" + filters : ""}`;
       back.textContent = filters.size ? `← ${scopeText()}: unresolved cases` : "← All unresolved cases";
     } else { back.href = `./index.html?rank=${ring.rank}&m=${ring.multiplicity}#rings`; back.textContent = "← Back to realized rings"; }
-    $("#case-actions").append(downloadLink(ring), recordDownload(ring));
+    $("#case-actions").replaceChildren(downloadLink(ring), recordDownload(ring));
     const root = $("#case-detail"); root.replaceChildren();
     const notice = el("div", "case-notice");
     notice.append(el("p", "", "These records belong to the project’s current research claims. Independent human verification and Lean formalization are pending."), link("Research status and verification ↗", "./review.html")); root.append(notice);
@@ -565,28 +568,14 @@
   async function init() {
     try {
       parseFilters();
-      const unresolved = await fetchJSON("./data/unresolved_cases.json");
-      const rank910 = await Rank910.load();
-      unresolved.cases.push(...rank910.cases.filter(r => r.status === "unresolved"));
+      const catalogue = await RingCatalogue.load();
+      const unresolved = {cases: catalogue.cases.filter(r => r.status === "unresolved")};
       if (document.body.dataset.casePage === "list") { renderList(unresolved); return; }
       const id = params.get("id");
       if (!id || !/^(R\d+_\d+_\d+|F_\{\d+,\d+\})$/.test(id)) { renderError("Choose a valid case identifier from the directory, such as R8_3_982."); return; }
-      if (id.startsWith("R11_")) {
-        const rank11 = await Rank11.load();
-        const ring = rank11.cases.find(record => record.id === id);
-        if (ring) { renderCase(ring, ring.status !== "unitarily_realized"); const back = $("#case-back"); back.href = "./rank11.html"; back.textContent = "← All rank-eleven records"; return; }
-      }
-      const added = rank910.cases.find(ring => ring.id === id);
-      if (added) { renderCase(added, added.status !== "unitarily_realized"); const back = $("#case-back"); back.href = "./rank9-10.html"; back.textContent = "← All rank-nine/ten records"; return; }
-      const found = unresolved.cases.find((ring) => ring.id === id);
-      if (found) { renderCase(found, true); return; }
-      const resolved = await fetchJSON("./data/resolved_cases.json");
-      const closed = resolved.cases.find((ring) => ring.id === id);
-      if (closed) { renderCase(closed, closed.status === "excluded"); return; }
-      const realized = await fetchJSON("./data/realized_rings.json");
-      const model = realized.records.find((ring) => ring.id === id);
-      if (model) { renderCase(model, false); return; }
-      renderError(`${id} is not a current unresolved case or a realized ring in this catalogue.`);
+      const ring = catalogue.cases.find(record => record.id === id);
+      if (ring) { renderCase(ring, ["unresolved", "excluded"].includes(ring.status)); return; }
+      renderError(`${id} has no individual case record in this catalogue.`);
     } catch (error) { renderError(error.message || "The requested record could not be loaded."); }
   }
   init();
