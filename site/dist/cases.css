@@ -150,3 +150,7 @@
 .case-directory-guide>summary{cursor:pointer;color:var(--gold)}
 .case-directory-guide p{margin-top:12px}
 @media(max-width:640px){.case-evidence-list{grid-template-columns:1fr}.case-source-actions{gap:14px 20px}.case-directory-guide{font-size:12px}}
+
+[data-release-page="rank9-10"] .case-filters>div:first-child{flex:1;min-width:230px}
+[data-release-page="rank9-10"] .case-filters input{width:100%}
+[data-release-page="rank9-10"] .case-secondary-button:disabled{opacity:.45;cursor:default}

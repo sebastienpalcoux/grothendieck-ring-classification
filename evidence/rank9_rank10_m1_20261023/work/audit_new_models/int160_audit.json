@@ -1,0 +1,210 @@
+{
+  "status": "PASS",
+  "input_checks": [
+    {
+      "id": "R10_1_83",
+      "dimensions": [
+        1,
+        5,
+        5,
+        1,
+        2,
+        2,
+        5,
+        5,
+        5,
+        5
+      ],
+      "unit": 0,
+      "dual": [
+        0,
+        2,
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "invertible": 3,
+      "invertible_permutation": [
+        3,
+        2,
+        1,
+        0,
+        4,
+        5,
+        8,
+        9,
+        6,
+        7
+      ],
+      "adjoint_closure": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "noncommutativity_witness": [
+        1,
+        6,
+        7,
+        0,
+        1
+      ]
+    },
+    {
+      "id": "R10_1_177",
+      "dimensions": [
+        1,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        1,
+        2,
+        2
+      ],
+      "unit": 0,
+      "dual": [
+        0,
+        2,
+        1,
+        4,
+        3,
+        6,
+        5,
+        7,
+        8,
+        9
+      ],
+      "invertible": 7,
+      "invertible_permutation": [
+        7,
+        2,
+        1,
+        4,
+        3,
+        6,
+        5,
+        0,
+        8,
+        9
+      ],
+      "adjoint_closure": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "noncommutativity_witness": [
+        1,
+        3,
+        5,
+        0,
+        1
+      ]
+    }
+  ],
+  "field_and_cohomology": {
+    "rotation_orbits": [
+      [
+        1,
+        8,
+        10,
+        12,
+        15
+      ],
+      [
+        2,
+        3,
+        7,
+        11,
+        13
+      ],
+      [
+        4,
+        5,
+        6,
+        9,
+        14
+      ]
+    ],
+    "fixed_subfield": [
+      0,
+      1,
+      6,
+      7
+    ],
+    "diagonal_rank": 14,
+    "invariant_H3_dimension": 2,
+    "invariant_alternating_forms": 4
+  },
+  "normal_forms": [
+    {
+      "mask": 0,
+      "cyclic_restriction_pattern": [
+        0,
+        0,
+        0
+      ],
+      "pointed_pentagons": 65536,
+      "reflection_monoidality": 4096,
+      "full_action_coherence": true,
+      "fixed_space_symmetric": true
+    },
+    {
+      "mask": 16,
+      "cyclic_restriction_pattern": [
+        1,
+        1,
+        0
+      ],
+      "pointed_pentagons": 65536,
+      "reflection_monoidality": 4096,
+      "full_action_coherence": true,
+      "fixed_space_symmetric": true
+    },
+    {
+      "mask": 32,
+      "cyclic_restriction_pattern": [
+        1,
+        0,
+        1
+      ],
+      "pointed_pentagons": 65536,
+      "reflection_monoidality": 4096,
+      "full_action_coherence": true,
+      "fixed_space_symmetric": true
+    },
+    {
+      "mask": 48,
+      "cyclic_restriction_pattern": [
+        0,
+        1,
+        1
+      ],
+      "pointed_pentagons": 65536,
+      "reflection_monoidality": 4096,
+      "full_action_coherence": true,
+      "fixed_space_symmetric": true
+    }
+  ],
+  "normal_forms_sha256": "2d99e2e6796143d9de97b84713f7c6c4f6cf1fe2e2f14c39f4e3c8f98954aaca"
+}

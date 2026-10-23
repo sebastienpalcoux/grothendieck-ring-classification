@@ -516,7 +516,7 @@
   function renderSources(ring) {
     const node = section("sources", "Sources & provenance", "05 / COMPLETE RECORDED EVIDENCE");
     const actions = el("div", "case-source-actions");
-    actions.append(link(`Rank-${ring.rank} manuscript ↗`, `./papers/rank${ring.rank}.pdf`), recordDownload(ring));
+    actions.append(link(ring.report_url ? "Rank-nine/ten research report ↗" : `Rank-${ring.rank} manuscript ↗`, ring.report_url || `./papers/rank${ring.rank}.pdf`), recordDownload(ring));
     node.append(actions);
     if (ring.source) node.append(lazyDetails("Census source, basis and tensor provenance", () => structured(ring.source)));
     const other = Object.fromEntries(Object.entries(ring).filter(([key]) => !["id", "rank", "multiplicity", "status", "fusion_tensor", "tensor", "tensor_sha256", "basis", "unit_index", "source", "invariants", "research", "evidence", "download_url", "categorification_scope"].includes(key)));
@@ -566,9 +566,13 @@
     try {
       parseFilters();
       const unresolved = await fetchJSON("./data/unresolved_cases.json");
+      const rank910 = await Rank910.load();
+      unresolved.cases.push(...rank910.cases.filter(r => r.status === "unresolved"));
       if (document.body.dataset.casePage === "list") { renderList(unresolved); return; }
       const id = params.get("id");
       if (!id || !/^(R\d+_\d+_\d+|F_\{\d+,\d+\})$/.test(id)) { renderError("Choose a valid case identifier from the directory, such as R8_3_982."); return; }
+      const added = rank910.cases.find(ring => ring.id === id);
+      if (added) { renderCase(added, added.status !== "unitarily_realized"); const back = $("#case-back"); back.href = "./rank9-10.html"; back.textContent = "← All rank-nine/ten records"; return; }
       const found = unresolved.cases.find((ring) => ring.id === id);
       if (found) { renderCase(found, true); return; }
       const resolved = await fetchJSON("./data/resolved_cases.json");

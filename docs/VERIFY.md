@@ -1,5 +1,17 @@
 # Reproduce the data and mathematical checks
 
+The current rank-nine/ten multiplicity-one package has a self-contained replay of all 336 classifications and accepted exact calculations:
+
+```bash
+cd evidence/rank9_rank10_m1_20261023
+python3 -m pip install -r requirements.txt
+python3 verify.py
+```
+
+Its 27 verification steps passed in an isolated temporary copy. The [receipt](../evidence/rank9_rank10_m1_20261023/verification_report.json) identifies the immutable release manifest, all 336 inputs and final counts: 233 excluded, 97 modeled and 6 deferred. The [report](../evidence/rank9_rank10_m1_20261023/deliverable/report.pdf) states the category-theoretic hypotheses and references. These finite replays do not constitute human or proof-assistant verification. The package retains all relative proof and certificate paths.
+
+Earlier rank-two through rank-eight checks remain available below.
+
 For the current checkout, replay `python3 tools/verify_rank8_exclusion_20261022.py`; add `--historical` to replay earlier rank-eight stages in their preserved contexts. Earlier-stage commands below apply inside their corresponding immutable archives.
 
 The rank-eight multiplicity-three continuation addresses all 3,527 supplied exact-multiplicity-three rings: 3,507 general exclusions, 16 models and 4 unresolved cases. Every recorded model admits a unitary realization. The remaining rings retain unresolved status for general complex categorification.

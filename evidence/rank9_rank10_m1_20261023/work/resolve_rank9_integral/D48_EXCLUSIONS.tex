@@ -1,0 +1,237 @@
+\section{The remaining integral dimension-forty-eight exclusions}
+\label{sec:d48-exclusions}
+\begin{theorem}
+The based rings $R9\_1\_62$ and $R9\_1\_87$ admit no fusion-category
+categorification over $\mathbb C$. The same argument distinguishes them from
+$R9\_1\_12$ and $R9\_1\_108$, for which unitary constructions are supplied
+separately.
+\end{theorem}
+
+\paragraph{First reduction.}
+All four rings have simple dimensions $(1^4,2^3,4^2)$, invertible group
+$V_4$, and trivial universal grading group. The latter assertion is checked
+by generating the adjoint subring from all products $XX^*$.
+A categorification is solvable by the Etingof--Nikshych--Ostrik
+$p^a q^b$ theorem \cite[Theorem~1.6]{ENOSolvable}. In a sequence of cyclic
+prime-order extensions and equivariantizations constructing it
+(\cite[Proposition~4.4]{ENOSolvable}), the final step cannot be a nontrivial
+extension, since its universal grading is trivial. It must therefore be a
+$C_p$-equivariantization. Its canonical $\operatorname{Rep}(C_p)$ embeds
+centrally, so $p$ divides the order-four invertible group and $p=2$.
+Write $\mathcal C=\mathcal D^{C_2}$, and let $e$ be the corresponding sign
+object of $\mathcal C$.
+
+The forgetful functor is completely constrained on simple-object orbits.
+A pair $\{X,eX\}$ forgets to one simple of dimension $\operatorname{FPdim}(X)$;
+a simple fixed by tensoring with $e$ forgets to two distinct simples,
+exchanged by the action, of dimension $\operatorname{FPdim}(X)/2$.
+The projective stabilizers are cyclic and have trivial complex Schur
+multiplier, so no further projective-representation dimension occurs.
+The exact three possibilities are as follows; the entries give the
+zero-based input label of $e$.
+\[
+\begin{array}{c|ccc}
+\text{input}&(1^8,4)&(1^4,2,4)&(1^4,2^5)\\\hline
+R9\_1\_12&7&1&2\\
+R9\_1\_62&5&6&7\\
+R9\_1\_87&5&4&3\\
+R9\_1\_108&5&7&6
+\end{array}
+\]
+The quotient has dimension~24 in each case. The integer verifier
+\nolinkurl{verify_d48_exclusions.py} checks these orbits and every dimension
+identity directly against the input tensors.
+
+\paragraph{The near-group branch.}
+For profile $(1^8,4)$, writing $\rho$ for the unique noninvertible gives
+$g\rho=\rho g=\rho$ and
+$\rho^2=\sum_{g\in G}g+2\rho$. The acting involution fixes exactly two
+invertibles. The complete near-group action theorem of
+Section~\ref{sec:ng24-actions} applies: its equivariantization is
+$R9\_1\_12$ for $G=D_8$, or $R9\_1\_108$ for $G=Q_8$.
+In particular this branch excludes the two rings in the theorem.
+This is an exhaustive categorical statement, including all six associator
+classes and all tensorators, not merely a test of strict group actions.
+
+\paragraph[The rank-nine quotient branch]{The $(1^4,2^5)$ branch.}
+The involution on the quotient fixes exactly two invertibles and one
+dimension-two simple $m$. It exchanges the remaining invertibles and pairs
+up the remaining four dimension-two simples. The fixed $m$ is self-dual.
+The source products of either of its two equivariant lifts force
+\[
+ m^2=\sum_{g\in\operatorname{Inv}(\mathcal D)}g.
+\]
+The exact source products used here, in the input labeling, are
+$3\cdot3=0+7+8$ for input~12, $1\cdot2=0+5+8$ for input~62,
+$6\cdot6=0+5+7$ for input~87, and $1\cdot2=0+5+8$ for input~108.
+The last summand in each product forgets to the two nonfixed invertibles.
+
+The quotient ring is necessarily multiplicity-free. For a nonfixed
+quotient simple $Z$, its coefficient in the forgetful image of a unique
+source simple is one. Thus the tensor-functor identity and the
+multiplicity-free source tensor bound every $N_{XY}^Z$ by one.
+Invertible output coefficients are bounded by one by rigidity.
+The only remaining possible output is $m$. If an input is invertible the
+bound is immediate. Otherwise, if $Y\ne m$, Frobenius reciprocity gives
+$N_{XY}^{m}=N_{X^*m}^{Y}\le1$, since $Y$ is nonfixed.
+For $Y=m$, reciprocity reduces the coefficient to one in $m^2$, which is
+already known. This proves the claim without assuming that a quotient of
+a multiplicity-free category is generally multiplicity-free.
+
+A direct binary-tensor enumeration now completes the quotient ring,
+without consulting a catalog of quotient rings. Label the quotient so that
+its dimensions are $(1,1,1,1,2,2,2,2,2)$ and its involution is
+$(2\ 3)(5\ 6)(7\ 8)$. The source sign orbits determine the based
+restriction matrix $F$, up to this harmless choice of labels.
+The verifier \nolinkurl{direct_quotient.py} enumerates every duality involution
+compatible with $F$, dimensions, and the action. It identifies tensor
+coefficients only under Frobenius reciprocity and the action, then
+exhausts all binary assignments satisfying unit, duality, dimension, and
+all identities
+\[
+ \sum_h N_{ij}^{h}(\mathcal C) F_{hk}
+ =\sum_{a,b}F_{ia}F_{jb}N_{ab}^{k}(\mathcal D).
+\]
+For every variable, the positive linear equations also supply an explicit
+upper-bound witness at most one, independently confirming that no larger
+nonnegative integer coefficient is omitted. Every surviving assignment
+is checked against every associativity identity.
+There are respectively $8,8,4,4$ possible dualities for sources
+$12,62,87,108$; the numbers of linearly feasible completions are
+$36,36,4,4$. Exactly four labeled associative completions remain for
+each source. Only after this exhaustive completion does the verifier
+compare them with $R9\_1\_117$, and all sixteen comparisons give explicit
+based isomorphisms. Thus $R9\_1\_117$ is the only possible quotient,
+independently of completeness of any input census.
+
+The complete triality-action classification, established in
+\nolinkurl{work/resolve_integral/TRIALITY_ACTIONS.md}, now applies.
+Every categorification of $R9\_1\_117$ has neutral category
+$\operatorname{Rep}(D_8)$ in its canonical $C_3$ grading, and every compatible
+$C_2$ action gives only $R9\_1\_12$ or $R9\_1\_108$.
+The argument includes the neutral-category restriction, all extension
+associator parameters, and the two possible coherence classes.
+Consequently this branch also excludes~62 and~87.
+
+\paragraph{The rank-six branch.}
+Here write $G$ for the order-four invertible group and $m,n$ for the
+unique simples of dimensions~2 and~4. No assumption that $G$ is $V_4$ is
+needed at this stage. Dimension, rigidity, and Frobenius reciprocity force
+\[
+ gm=mg=m,\quad gn=ng=n,\quad
+ m^2=\sum_G g,\quad mn=nm=2n,\quad
+ n^2=\sum_G g+2m+2n.
+\]
+In particular this category, denoted $\mathcal B$, has trivial universal
+grading. Solvability once again makes it a $C_2$-equivariantization
+$\mathcal B=\mathcal E^{C_2}$. The orbit calculation gives
+$\operatorname{FPdim}(\mathcal E)=12$, profile $(1^4,2^2)$; the involution
+exchanges its two dimension-two simples and transposes two of its
+invertibles.
+
+We give the necessary ring reduction explicitly. Let $A$ be the
+order-four group of invertibles of $\mathcal E$, and let $X,Y$ be its
+dimension-two simples. Duality shows that the left and right actions of
+$A$ on $\{X,Y\}$ coincide. If this action were transitive, its stabilizer
+$H$ would have order~2 and
+$XX^*=\sum_Hh+Z$ for one dimension-two simple $Z$. This expression is
+self-dual, so $Z$ is self-dual and hence both $X,Y$ are self-dual.
+Choose $g\notin H$; then $Y=gX=Xg$ and $g^2\in H$, whence
+$Y^2=g^2X^2=X^2$. An automorphism exchanging $X,Y$ would have to preserve
+the unique noninvertible summand $Z$ of this common square, a contradiction.
+Thus $A$ fixes both simples, and $XX^*=YY^*=\sum_Aa$.
+If both were self-dual, write $XY=aX+bY$; the dimension identity gives
+$a+b=2$, whereas $X(XY)=X^2Y=4Y$ forces $a=0$, and
+$(XY)Y=XY^2=4X$ then gives an incompatible invertible summand.
+Therefore $X^*=Y$, and associativity, or Frobenius reciprocity, gives
+\[
+ XY=YX=\sum_Aa,\qquad X^2=2Y,\qquad Y^2=2X.
+\]
+This is the canonical faithful $C_3$ grading with neutral pointed category
+on $A$ and one simple in each nonneutral component.
+
+A rank-one homogeneous module forces the neutral associator to be
+cohomologically trivial, so the neutral category is $\operatorname{Vec}_A$.
+The Brauer--Picard action of a generator of $C_3$ is an isometry
+$M\in O(A\oplus A^*,q)$, $q(a,\chi)=\chi(a)$, whose block
+$\beta:A^*\to A$ is invertible. These standard extension facts are also
+stated and proved in Jordan--Larson,
+\cite[Lemma~2.6 and Proposition~3.1]{JordanLarson}. If $A=C_4$, its split quadratic group has exactly four
+automorphisms: $I,-I$, coordinate interchange, and its negative. None has
+order~3, so this case is impossible. The verifier exhausts all~256 candidate
+matrices modulo~4 to check this assertion.
+
+For $A=V_4$, identify $A\oplus A^*$ with $\mathbb F_2^4$, with
+$q(a_1,a_2,\chi_1,\chi_2)=a_1\chi_1+a_2\chi_2$ in exponent notation.
+The split orthogonal group has~72 elements. Exactly six of them have order~3
+and invertible $\beta$. In every one of these six cases,
+\begin{equation}\label{eq:d12-no-isotropic-fixed}
+ Mv=v,\quad q(v)=0\quad\Longrightarrow\quad v=0.
+\end{equation}
+This is checked by exhaustive exact enumeration in the same verifier.
+Equivalently, the fixed space is zero or is an anisotropic plane.
+No choice of scalar associator or of a lift of the action changes this
+necessary fixed-vector statement. Jordan--Larson's six-category
+classification \cite[Theorem~1.4]{JordanLarson} provides an independent description of the same two matrix
+orbits and their three $C_3$ associator twists.
+
+\paragraph{A characteristic central sign.}
+Put $\mathcal K=\mathcal E\rtimes C_2$. It is Morita equivalent to
+$\mathcal B$ and is faithfully $S_3$-graded with neutral category
+$\operatorname{Vec}_{V_4}$, because the involution exchanges the two
+nonneutral $C_3$ components. Any central invertible of $\mathcal K$ has
+degree in $Z(S_3)=1$; restriction of its half-braiding to the neutral
+category gives an $M$-fixed vector in $A\oplus A^*$.
+Its twist is precisely $(-1)^{q(v)}$ for that vector $v$. By
+\eqref{eq:d12-no-isotropic-fixed}, every central invertible of twist $+1$
+has trivial restriction. The kernel of this restriction consists exactly
+of grading characters $\operatorname{Hom}(S_3,\mathbb C^*)=C_2$.
+Indeed its underlying object is the unit, its half-braiding is trivial
+on the neutral component, and its scalar is constant on each indecomposable
+homogeneous bimodule component and multiplicative in the grading.
+Both kernel objects have twist $+1$. Hence $\mathcal K$, and therefore
+$\mathcal B$, has exactly one nontrivial central invertible of twist $+1$.
+This proof does not require that any nonzero invariant fermion lift to the
+center.
+
+All categories under consideration are weakly integral and therefore have
+the canonical pseudo-unitary spherical structure. The braided equivalence
+of centers induced by Morita equivalence preserves its twist.
+Moreover $U(\mathcal B)=1$, so the forgetful map
+$\operatorname{Inv}Z(\mathcal B)\to\operatorname{Inv}(\mathcal B)$ is injective.
+The unique nontrivial boson thus has a nontrivial underlying object and
+generates a central Tannakian $\operatorname{Rep}(C_2)$.
+Every tensor autoequivalence preserves this characteristic central
+subcategory.
+
+Return to the original equivariantization
+$\mathcal C=\mathcal B^{C_2}$. Equivariantizing this stable central
+$\operatorname{Rep}(C_2)$ gives a central Tannakian subcategory of dimension~4
+in $\mathcal C$: the equivariantization remains symmetric, and the
+composite forgetful functor to $\operatorname{Rep}(C_2)$ and then to
+vector spaces is a symmetric fiber functor. It is $\operatorname{Rep}(V_4)$ or
+$\operatorname{Rep}(C_4)$. The latter is impossible since
+$\operatorname{Inv}(\mathcal C)=V_4$. Thus all four invertible objects of
+$\mathcal C$ belong to central $\operatorname{Rep}(V_4)$.
+We may therefore choose any of its three signs for de-equivariantization,
+in particular the sign in the $(1^8,4)$ column of the displayed table.
+The already exhaustive near-group branch forces $R9\_1\_12$ or
+$R9\_1\_108$, excluding~62 and~87 in the last remaining branch. This
+completes the proof.
+
+\paragraph{Replay and scope.}
+The exact finite receipt is
+\nolinkurl{work/resolve_rank9_integral/d48_exclusions_receipt.json}.
+Run \nolinkurl{python work/resolve_rank9_integral/verify_d48_exclusions.py}
+for the dimension identities, all source orbit profiles, the independent
+replay of all completed quotient tensors, the $C_4$ obstruction, and all six
+quadratic fixed-space checks. The detailed near-group theorem and its
+independent matrix/tensor replay are
+\nolinkurl{work/resolve_rank9_neargroup/NG_ACTIONS.tex} and
+\nolinkurl{verify_ng_actions.py}. The triality action classification is
+\nolinkurl{work/resolve_integral/TRIALITY_ACTIONS.md}.
+The exhaustive quotient completion and its receipt are
+\nolinkurl{work/resolve_rank9_neargroup/direct_quotient.py} and
+\nolinkurl{direct_quotient.json}. These categorical reductions and exact
+finite enumerations supply the complete exclusion;
+no infeasible numerical search or failure to find a model is used.

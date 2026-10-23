@@ -1,0 +1,74 @@
+{
+  "arithmetic": "exact integers, standard library only",
+  "D16_subgroup_audit": {
+    "subgroups": 19,
+    "subgroup_types_order_normalizer_abelianization_invertible_lower_bound": {
+      "(2, 16, 2, 16)": 1,
+      "(16, 16, 4, 4)": 1,
+      "(2, 4, 2, 4)": 8,
+      "(4, 16, 4, 16)": 1,
+      "(8, 16, 8, 16)": 1,
+      "(8, 16, 4, 8)": 2,
+      "(4, 8, 4, 8)": 4,
+      "(1, 16, 1, 16)": 1
+    },
+    "compatible_subgroups": 9,
+    "reflection_double_cosets_self_dual": true
+  },
+  "models": [
+    {
+      "id": "R9_1_12",
+      "all_729_original_coefficients_verified": true,
+      "source_to_model": [
+        0,
+        3,
+        2,
+        4,
+        8,
+        7,
+        6,
+        1,
+        5
+      ],
+      "model_dual_permutation": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "categorical_existence_status": "accepted baseline"
+    },
+    {
+      "id": "R9_1_108",
+      "all_729_original_coefficients_verified": true,
+      "source_to_model": [
+        0,
+        4,
+        6,
+        8,
+        7,
+        1,
+        2,
+        3,
+        5
+      ],
+      "model_dual_permutation": [
+        0,
+        1,
+        2,
+        3,
+        6,
+        5,
+        4,
+        8,
+        7
+      ],
+      "categorical_existence_status": "accepted direct inner-twist action; see categorical audit"
+    }
+  ]
+}

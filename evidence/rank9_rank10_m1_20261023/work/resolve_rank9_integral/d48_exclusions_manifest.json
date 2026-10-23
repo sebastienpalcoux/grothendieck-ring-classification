@@ -1,0 +1,100 @@
+{
+  "candidate_exclusions": [
+    "R9_1_62",
+    "R9_1_87"
+  ],
+  "status": "complete: direct quotient enumeration removes all census completeness dependence",
+  "report_order": [
+    "work/resolve_rank9_neargroup/NG_ACTIONS.tex",
+    "work/resolve_rank9_integral/D48_EXCLUSIONS.tex",
+    "positive model section"
+  ],
+  "proof_files": [
+    {
+      "path": "work/resolve_rank9_integral/D48_EXCLUSIONS.tex",
+      "exists": true
+    },
+    {
+      "path": "work/resolve_rank9_neargroup/NG_ACTIONS.tex",
+      "exists": true
+    },
+    {
+      "path": "work/resolve_integral/TRIALITY_ACTIONS.md",
+      "exists": true
+    },
+    {
+      "path": "work/audit_new_models/RANK6_CENTRAL_BOSON.md",
+      "exists": true
+    },
+    {
+      "path": "work/resolve_rank9_neargroup/DIRECT_QUOTIENT.tex",
+      "exists": true
+    }
+  ],
+  "exact_replay": [
+    "python work/resolve_rank9_neargroup/direct_quotient.py",
+    "python work/resolve_rank9_integral/verify_d48_exclusions.py",
+    "python work/resolve_rank9_neargroup/verify_ng_actions.py"
+  ],
+  "receipts": [
+    {
+      "path": "work/resolve_rank9_integral/d48_exclusions_receipt.json",
+      "exists": true
+    },
+    {
+      "path": "work/resolve_rank9_neargroup/ng_actions.json",
+      "exists": true
+    },
+    {
+      "path": "work/resolve_integral/triality_manifest.json",
+      "exists": true
+    },
+    {
+      "path": "work/resolve_rank9_neargroup/direct_quotient.json",
+      "exists": true
+    }
+  ],
+  "finite_inputs": [
+    {
+      "path": "work/input_audit/tensors.json",
+      "exists": true
+    },
+    {
+      "path": "work/input_audit/audit.json",
+      "exists": true
+    }
+  ],
+  "independent_audits": [
+    {
+      "path": "work/resolve_integral/NG24_ACTION_AUDIT.md",
+      "exists": true
+    },
+    {
+      "path": "work/resolve_integral/RANK6_BOSON_AUDIT.md",
+      "exists": true
+    },
+    {
+      "path": "work/resolve_integral/D48_EXCLUSION_AUDIT.md",
+      "exists": true
+    },
+    {
+      "path": "work/audit_new_models/RANK6_CENTRAL_BOSON.md",
+      "exists": true
+    }
+  ],
+  "excluded": [
+    "R9_1_62",
+    "R9_1_87"
+  ],
+  "new_exclusion_count": 2,
+  "companion_accepted_models": [
+    "R9_1_12",
+    "R9_1_108"
+  ],
+  "direct_completion_counts": {
+    "R9_1_12": 4,
+    "R9_1_62": 4,
+    "R9_1_87": 4,
+    "R9_1_108": 4
+  }
+}

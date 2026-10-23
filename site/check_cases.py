@@ -171,7 +171,7 @@ def check_scope(record, expected, repository):
                     f"Categorification evidence link disagrees with its bound source: {identifier}: {path}")
 
 
-def check_tensor(record, root):
+def check_tensor(record, root, require_character_presentation=True):
     identifier = record["id"]
     rank = record["rank"]
     tensor = record["fusion_tensor"]
@@ -240,9 +240,10 @@ def check_tensor(record, root):
     if inv["commutative"]:
         require(inv.get("formal_codegree_polynomial") == inv["central_casimir_polynomial"],
                 f"Commutative codegree and Casimir polynomials differ: {identifier}")
-        exact = inv.get("exact_character_presentation", {})
-        require(bool(exact.get("primitive_polynomial")) and len(exact.get("basis_values", [])) == rank,
-                f"Missing exact commutative character presentation: {identifier}")
+        if require_character_presentation:
+            exact = inv.get("exact_character_presentation", {})
+            require(bool(exact.get("primitive_polynomial")) and len(exact.get("basis_values", [])) == rank,
+                    f"Missing exact commutative character presentation: {identifier}")
     return relative
 
 
@@ -345,6 +346,18 @@ def check_site(root=None, repository=None):
     paths = set()
     for record in unresolved + realized + resolved:
         paths.add(check_tensor(record, root))
+    additive_path = root / "data/rank9_rank10_m1.json"
+    if additive_path.is_file():
+        additive = read_json(additive_path)["cases"]
+        expected_additive = {f"R{rank}_1_{i}" for rank, count in ((9, 142), (10, 194)) for i in range(1, count + 1)}
+        require(len(additive) == 336 and {record["id"] for record in additive} == expected_additive,
+                "Additive tensor inventory is incomplete")
+        require(not expected_additive & {record["id"] for record in unresolved + realized + resolved},
+                "Additive tensor identifiers overlap the historical inventory")
+        for record in additive:
+            # The additive release links its character research in the portable
+            # package; only the Casimir/codegree polynomial is shown inline.
+            paths.add(check_tensor(record, root, require_character_presentation=False))
     require(paths == {p.relative_to(root).as_posix() for p in (root / "downloads/fusion-tensors").glob("*.txt")},
             "Tensor download directory contains a missing or unlisted record")
     for record in unresolved:

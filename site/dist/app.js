@@ -58,15 +58,58 @@ function tensorDownload(ring,classes="download-tensor") {
   anchor.setAttribute("aria-label",`Download ${ring.id} fusion tensor as a Python list (.txt)`);
   return anchor;
 }
+function censusRows(data=state.data) {
+  return state.fusionRows || data.rows;
+}
+function visibleCountRows(data=state.data) {
+  return state.mode==="grothendieck" ? data.grothendieck_rows : censusRows(data);
+}
+async function loadFusionCounts() {
+  if (state.fusionRequest) return state.fusionRequest;
+  state.fusionRequest=(async()=>{
+    const root="https://github.com/sebastienpalcoux/fusion-ring-census";
+    const notice=$("#fusion-census-status");
+    try {
+      const response=await fetch("https://raw.githubusercontent.com/sebastienpalcoux/fusion-ring-census/main/results/census.json");
+      if (!response.ok) throw new Error("Census HTTP "+response.status);
+      const manifest=await response.json();
+      if (!manifest.ranks || typeof manifest.ranks!=="object") throw new Error("Invalid census manifest");
+      const merged=new Map(state.data.rows.map(row=>[`${row.rank}:${row.multiplicity}`,row]));
+      for (const [key,item] of Object.entries(manifest.ranks)) {
+        const rank=Number(key),counts=Object.entries(item.counts||{});
+        if (!Number.isInteger(rank) || rank<2 || !item.complete || !item.verified ||
+            !Number.isInteger(item.bound) || item.bound<1 || counts.length!==item.bound ||
+            counts.some(([m,n])=>!Number.isInteger(Number(m)) || Number(m)<1 || Number(m)>item.bound || !Number.isSafeInteger(n) || n<0) ||
+            counts.reduce((sum,[,n])=>sum+n,0)!==item.classes) throw new Error("Uncertified census band");
+        for (const [m,rings] of counts) merged.set(`${rank}:${Number(m)}`,{
+          rank,multiplicity:Number(m),rings,source:`${root}/blob/main/results/counts.csv`,
+          verification:`${root}/tree/main/verification/rank${rank}`,
+          tensor_download:`${root}/raw/refs/heads/main/${item.tables}`
+        });
+      }
+      state.fusionRows=[...merged.values()];
+      state.censusMap=new Map(state.fusionRows.map(row=>[`${row.rank}:${row.multiplicity}`,row]));
+      if (notice) {notice.textContent=`Current fusion-ring census · release ${manifest.release_date}. Categorification uses the separate classification ledger.`;notice.hidden=false;}
+    } catch (error) {
+      if (notice) {notice.textContent="The live census could not be loaded; the bundled fusion-count snapshot is shown.";notice.hidden=false;}
+    }
+  })();
+  return state.fusionRequest;
+}
+function normalizeCountSelection() {
+  const ranks=ranges(state.data).ranks;
+  if (state.rank!=="all" && !ranks.includes(state.rank)) state.rank="all";
+  if (state.selected && !ranks.includes(state.selected.rank)) state.selected=null;
+}
 function rankRows(data) {
   const map = new Map();
-  for (const row of state.mode==="grothendieck"?data.grothendieck_rows:data.rows)
+  for (const row of visibleCountRows(data))
     map.set(`${row.rank}:${row.multiplicity}`, row);
   return map;
 }
 function ranges(data) {
-  const ranks = [...new Set(data.scope.map((r) => r.rank))].sort((a,b)=>a-b);
-  const max = Math.max(...data.rows.map((r) => r.multiplicity));
+  const ranks = [...new Set(state.mode==="grothendieck" ? data.scope.map(r=>r.rank) : censusRows(data).map(r=>r.rank))].sort((a,b)=>a-b);
+  const max = Math.max(...visibleCountRows(data).map(r=>r.multiplicity));
   return {ranks,max};
 }
 function renderFilters() {
@@ -80,9 +123,9 @@ function renderFilters() {
     btn.addEventListener("click", () => {
       state.rank = rank;
       if (rank !== "all" && state.selected?.rank !== rank) {
-        const preferred=state.data.grothendieck_rows.find((row)=>row.rank===rank &&
+        const preferred=visibleCountRows().find((row)=>row.rank===rank &&
           (state.range==="all" || row.multiplicity<=Number(state.range)));
-        const first=state.data.rows.find((row)=>row.rank===rank &&
+        const first=censusRows().find((row)=>row.rank===rank &&
           (state.range==="all" || row.multiplicity<=Number(state.range)));
         state.selected=state.censusMap.get(`${rank}:${preferred?.multiplicity??first?.multiplicity}`)||null;
       }
@@ -158,7 +201,7 @@ function renderTable() {
   const visibleRanks = state.rank === "all" ? ranks : [state.rank];
   const limit = state.range === "all" ? max : Math.min(Number(state.range),max);
   const rows = rankRows(state.data);
-  const sourceRows=state.mode==="grothendieck"?state.data.grothendieck_rows:state.data.rows;
+  const sourceRows=visibleCountRows();
   const table = $("#count-table");
   const head = table.tHead;
   head.replaceChildren();
@@ -191,7 +234,7 @@ function appendDetailLink(container,label,value,text) {
   container.append(p);
 }
 function renderTrend(panel,row) {
-  const observations=(state.mode==="grothendieck"?state.data.grothendieck_rows:state.data.rows)
+  const observations=visibleCountRows()
     .filter((item)=>item.rank===row.rank && Math.abs(item.multiplicity-row.multiplicity)<=5)
     .sort((a,b)=>a.multiplicity-b.multiplicity);
   if (observations.length<3) return;
@@ -238,14 +281,16 @@ function renderDetail() {
     return;
   }
   panel.append(element("div","detail-kicker",`RANK ${row.rank} / MULTIPLICITY ${row.multiplicity}`));
-  const realized=state.positiveMap.get(`${row.rank}:${row.multiplicity}`)?.rings||0;
-  const lowerBound=state.positiveMap.get(`${row.rank}:${row.multiplicity}`)?.is_lower_bound;
-  panel.append(element("div","detail-number",`${lowerBound?"≥ ":""}${fmt.format(realized)}`));
-  panel.append(element("p","detail-label",`reported ${realized===1?"realized Grothendieck ring":"realized Grothendieck rings"}`));
-  panel.append(element("div","detail-rule"));
-  appendDetailRow(panel,"Fusion rings in census",fmt.format(row.rings));
   const status=getStatus(row.rank,row.multiplicity);
   const scope=state.data.scope.find((entry)=>entry.rank===row.rank);
+  const assessed=Boolean((status && status.classification_coverage!=="census_only") ||
+    state.positiveMap.has(`${row.rank}:${row.multiplicity}`) || scope?.kind==="unrestricted");
+  const realized=state.positiveMap.get(`${row.rank}:${row.multiplicity}`)?.rings||0;
+  const lowerBound=state.positiveMap.get(`${row.rank}:${row.multiplicity}`)?.is_lower_bound;
+  panel.append(element("div","detail-number",state.mode==="fusion"?fmt.format(row.rings):`${lowerBound?"≥ ":""}${fmt.format(realized)}`));
+  panel.append(element("p","detail-label",state.mode==="fusion"?"censused fusion rings":`reported ${realized===1?"realized Grothendieck ring":"realized Grothendieck rings"}`));
+  panel.append(element("div","detail-rule"));
+  appendDetailRow(panel,"Fusion rings in census",fmt.format(row.rings));
   if (status) {
     const coverage={"complete_classification":"Complete","partial_classification":"Partial","census_only":"Census only"}[status.classification_coverage]||"Unspecified";
     appendDetailRow(panel,"Classification",coverage);
@@ -264,7 +309,8 @@ function renderDetail() {
     } else appendDetailRow(panel,"Unassessed",fmt.format(status.unassessed));
   } else if (scope?.kind==="unrestricted") appendDetailRow(panel,"Classification","Unrestricted rank");
   else if (scope?.kind==="provisional") appendDetailRow(panel,"Classification","Revision in progress");
-  else appendDetailRow(panel,"Classification","No ledger in this release");
+  else appendDetailRow(panel,"Classification","Categorification not assessed");
+  if (row.tensor_download) appendDetailLink(panel,"Data",row.tensor_download,"Download census tensors (.gz) ↓");
   if (typeof row.source==="string" && /^https?:\/\//.test(row.source))
     appendDetailLink(panel,"Source",row.source,"Exact count table ↗");
   else appendDetailRow(panel,"Source",String(row.source||"Census repository"));
@@ -280,6 +326,7 @@ function renderDetail() {
     note="The census is complete for this band, but the classification ledger has not assessed its rings.";
   else if (status?.classification_coverage==="complete_classification")
     note="Each ring in this band is realized or excluded by the stated criteria.";
+  if (!assessed) note="Categorification has not been assessed for this census band. No model or exclusion count is asserted.";
   panel.append(element("p","detail-note",note));
   if (realized) renderTrend(panel,row);
   if (realized) {
@@ -320,11 +367,11 @@ function renderTheoreticalUpdate() {
   const date = new Date((latest?.date || update.date) + "T12:00:00Z").toLocaleDateString("en-GB", {day:"numeric", month:"long", year:"numeric", timeZone:"UTC"});
   $("#research-update-title").textContent = latest ? `${date} · rank ${latest.rank===8 ? "eight through multiplicity three" : "seven through multiplicity five"} · ${latest.unresolved} open cases` : `${date} · ${update.new_general_exclusions} exclusions · ${update.new_unitary_models || 0} unitary models`;
   if (latest?.unresolved) linkUnresolvedText($("#research-update-title"),`${latest.unresolved} open cases`,{rank:latest.rank,max_m:state.data.scope.find(r=>r.rank===latest.rank)?.analyzed_through});
-  const rankNames = {"6": "rank-six", "7": "rank-seven", "8": "rank-eight"};
-  const currentRemaining = Object.fromEntries(state.data.scope.filter(r=>r.rank>=6).map(r=>[String(r.rank),r.unresolved]));
+  const rankNames = {"6": "rank-six", "7": "rank-seven", "8": "rank-eight", "9": "rank-nine", "10": "rank-ten"};
+  const currentRemaining = Object.fromEntries(state.data.scope.filter(r=>r.rank>=6 && r.rank<=8).map(r=>[String(r.rank),r.unresolved]));
   const openParts = Object.entries(currentRemaining).filter(([, count]) => count > 0).map(([rank, count]) => `${count} ${rankNames[rank]}`);
   const openText = openParts.length ? ` General existence remains open for ${openParts.join(", ")} rings.` : " Every case in this continuation is resolved.";
-  const completion = state.data.scope.filter(r=>r.rank>=7).map(r=>` Rank ${r.rank} is complete through multiplicity ${r.through}; analyzed through ${r.analyzed_through}.`).join("");
+  const completion = state.data.scope.filter(r=>r.rank>=7 && r.rank<=8).map(r=>` Rank ${r.rank} is complete through multiplicity ${r.through}; analyzed through ${r.analyzed_through}.`).join("");
   const m5 = state.data.rank7_m5_update;
   const m3 = state.data.rank8_m3_update;
   const extensionText = (m3 ? ` The rank-eight multiplicity-three continuation addresses ${fmt.format(m3.rings)} rings: ${fmt.format(m3.excluded)} general exclusions, ${m3.unitarily_realized} unitary models and ${m3.unresolved} ${m3.frontier ? "extensively investigated exotic candidates" : "individually investigated unresolved candidates"}.` : "") + (m5 ? ` The rank-seven multiplicity-five continuation addresses ${fmt.format(m5.rings)} rings: ${fmt.format(m5.excluded)} exclusions, ${m5.realized} model${m5.realized===1?"":"s"} and ${m5.unresolved} open cases.` : "");
@@ -334,7 +381,7 @@ function renderTheoreticalUpdate() {
       ? " The remaining rank-seven ring admits no braided categorification; its general categorification remains open."
       : " Both remaining rank-seven rings admit no braided categorification; their general categorification remains open.") : "";
   $("#research-update-summary").textContent = `${extensionText.trim()}${continuationText}${braidedText}${completion}${openText}`;
-  $("#theoretical-update-heading").textContent = `Current research · ${Object.values(currentRemaining).reduce((a,b)=>a+b,0)} open cases`;
+  $("#theoretical-update-heading").textContent = `Earlier ranks 6–8 research · ${Object.values(currentRemaining).reduce((a,b)=>a+b,0)} open cases`;
   $("#theoretical-update-scope").textContent = extensionText + continuationText + braidedText + " The new arguments combine quadratic-compositum compression, biquadratic and weak-integral rotation constraints, complete central-induction frames, character-labeled modular S and STS constraints, integer center decompositions, cubic Verlinde integrality, split-module polynomials and Morita transport. A two-prime norm criterion restricts integral center objects. Constructions include near-group equivariantizations, exceptional subfactor models, cyclic Fibonacci equivariantization a twisted A6/A5 group-theoretical category and the inherited GH(C8)/C2 Q-system Morita dual. Each remaining candidate survived the documented case-specific exclusion and construction campaign. This operational designation asserts neither categorifiability nor novelty of a future realization. Census completeness relies on producer-run records with independent tensor and isomorphism audits. The bundle contains current manuscripts, proofs and exact replay programs. Independent human verification and Lean formalization remain pending.";
   linkUnresolvedText($("#theoretical-update-heading"),`${Object.values(currentRemaining).reduce((a,b)=>a+b,0)} open cases`);
   for (const container of [$("#research-update-summary"),$("#theoretical-update-scope")]) {
@@ -434,7 +481,7 @@ function renderTheoreticalUpdate() {
 function renderPapers() {
   const release = state.data.rank6_release;
   if (release) {
-    const date = new Date(state.data.snapshot+"T12:00:00Z");
+    const date = new Date((state.data.rank9_rank10_m1_update?.date || state.data.snapshot)+"T12:00:00Z");
     const dateOptions = {day:"numeric",month:"long",year:"numeric",timeZone:"UTC"};
     $("#edition-date").textContent = date.toLocaleDateString("en-GB", {...dateOptions,month:"short"}).toUpperCase();
     $("#snapshot-date").textContent = `Research snapshot · ${date.toLocaleDateString("en-GB", dateOptions)}`;
@@ -670,7 +717,8 @@ function renderRingProfile() {
   } else {
     panel.append(profileFact("Existence",ring.existence));
     panel.append(element("p","profile-citation",ring.model_reference));
-    panel.append(link("Inspect this exact model record ↗",`${state.data.classification_repository}/blob/${state.data.classification_commit || "main"}/${ring.source_file}`));
+    if (ring.case_url) panel.append(link("Complete case record and research →",ring.case_url));
+    panel.append(link("Inspect this exact model record ↗",ring.source_url || `${state.data.classification_repository}/blob/${state.data.classification_commit || "main"}/${ring.source_file}`));
     if (ring.model_reference_url)
       panel.append(link("Open the model's cited source ↗",ring.model_reference_url));
     for (const note of ring.construction_notes||[])
@@ -693,7 +741,7 @@ function renderRingProfile() {
       if (alternative.source_url) block.append(link("Open alternative source ↗",alternative.source_url));
       panel.append(block);
     }
-    panel.append(link(`Rank-${ring.rank} manuscript ↗`,`./papers/rank${ring.rank}.pdf`));
+    panel.append(link(ring.report_url ? "Rank-nine/ten research report ↗" : `Rank-${ring.rank} manuscript ↗`,ring.report_url || `./papers/rank${ring.rank}.pdf`));
   }
 }
 function openRing(ring) {
@@ -752,11 +800,13 @@ function initControls() {
     requestAnimationFrame(()=>{pendingScroll=false;renderTableWindow()});
   },{passive:true});
   for (const mode of ["grothendieck","fusion"]) {
-    $(`#view-${mode}`).addEventListener("click",()=>{
+    $(`#view-${mode}`).addEventListener("click",async()=>{
       state.mode=mode;
+      const url=new URL(location.href);url.searchParams.set("view",mode);history.replaceState(null,"",url);
       for (const key of ["grothendieck","fusion"])
         $(`#view-${key}`).setAttribute("aria-pressed",String(key===mode));
-      renderTable();renderDetail();
+      if (mode==="fusion") await loadFusionCounts();
+      normalizeCountSelection();renderFilters();renderTable();renderDetail();renderCatalogue();
     });
   }
   $("#range-select").addEventListener("change",(event)=>{
@@ -795,6 +845,9 @@ async function start() {
     state.data=await response.json();
     state.data.classification_rows=(await statusResponse.json()).rows;
     state.models=(await modelsResponse.json()).records;
+    const rank910 = await Rank910.load();
+    Rank910.mergeAtlas(state, rank910);
+    Rank910.currentPanel(rank910);
     if (!Array.isArray(state.data.rows) || !state.data.rows.length) throw new Error("No counts");
     state.data.rows=state.data.rows.map((r)=>({...r,rank:Number(r.rank),multiplicity:Number(r.multiplicity),rings:Number(r.rings)}));
     state.data.grothendieck_rows=(state.data.grothendieck_rows||[]).map((r)=>({...r,rank:Number(r.rank),multiplicity:Number(r.multiplicity),rings:Number(r.rings)}));
@@ -815,6 +868,8 @@ async function start() {
       sourceCommit.append(`${label}: `, link, ". ");
     }
     const params=new URLSearchParams(window.location.search);
+    if (params.get("view")==="fusion") {state.mode="fusion";await loadFusionCounts();}
+    for (const key of ["grothendieck","fusion"]) $(`#view-${key}`).setAttribute("aria-pressed",String(key===state.mode));
     const requestedRing=params.get("ring");
     const linkedModel=requestedRing?state.models.find((r)=>r.id===requestedRing):null;
     const requestedRank=Number(params.get("rank"))||linkedModel?.rank||0;
@@ -822,7 +877,7 @@ async function start() {
     state.selected=state.censusMap.get(`${requestedRank}:${requestedM}`)
       || state.data.rows.find((r)=>r.rank===4 && r.multiplicity===1)
       || state.data.rows[0];
-    if (requestedRank && state.data.scope.some((x)=>x.rank===requestedRank))state.rank=requestedRank;
+    if (requestedRank && ranges(state.data).ranks.includes(requestedRank))state.rank=requestedRank;
     if (state.selected && requestedM>Number(state.range)) {state.range="all";$("#range-select").value="all"}
     renderFilters();renderTable();renderDetail();renderScope();renderTheoreticalUpdate();renderPapers();initControls();initCatalogue();renderCatalogue();
     if (requestedRank && requestedM) {

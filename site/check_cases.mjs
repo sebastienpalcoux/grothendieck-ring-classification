@@ -44,6 +44,7 @@ class TestNode {
   emit(type) {for(const callback of this.listeners[type] || []) callback({target:this});}
   closest(tag) {for(let node=this;node;node=node.parentElement)if(node.tagName===tag)return node;return null;}
   querySelector(tag) {return descendants(this).find(n=>n.tagName===tag)||null;}
+  querySelectorAll(tag) {return descendants(this).filter(n=>n.tagName===tag);}
 }
 function descendants(node) {return node.childNodes.flatMap(n=>[n,...descendants(n)]);}
 function documentFixture() {
@@ -206,7 +207,7 @@ const appSource=read("app.js"),appEnd="\nstart();";
 assert.equal(appSource.split(appEnd).length,2,"Expected one atlas application entry point");
 const sandbox=context();vm.createContext(sandbox);
 vm.runInContext(appSource.replace(appEnd,
-  "\nglobalThis.testApp={state,element,unresolvedUrl,linkUnresolvedText,tensorDownload,renderDetail,renderScope,renderTheoreticalUpdate};"),sandbox);
+  "\nglobalThis.testApp={state,element,unresolvedUrl,linkUnresolvedText,tensorDownload,renderDetail,renderScope,renderTheoreticalUpdate,renderRingProfile};"),sandbox);
 const app=sandbox.testApp,doc=sandbox.document;
 app.state.data=atlas;
 app.state.models=realized;
@@ -248,6 +249,42 @@ for(const ring of realized) {
 }
 console.log("Case navigation checked: filters, count links, 228 tensor routes, distinct structural/Galois-existence implications, and separate braided status.");
 
+// A census-only extension must never enter categorification data or imply
+// zero models/exclusions. Use a synthetic future rank rather than a new claim.
+const fusionContext=context();
+fusionContext.fetch=async()=>({ok:true,json:async()=>({release_date:"test",ranks:{
+  "20":{bound:1,complete:true,verified:true,classes:7,counts:{"1":7},tables:"results/rank20/tables.txt.gz"}
+}})});
+vm.createContext(fusionContext);
+vm.runInContext(appSource.replace(appEnd,"\nglobalThis.fusionTest={state,loadFusionCounts,ranges,normalizeCountSelection,renderDetail};"),fusionContext);
+const fusion=fusionContext.fusionTest;
+fusion.state.data=structuredClone(atlas);
+fusion.state.models=structuredClone(realized);
+fusion.state.positiveMap=new Map(atlas.grothendieck_rows.map(r=>[`${r.rank}:${r.multiplicity}`,r]));
+fusion.state.statusMap=new Map(statuses.map(r=>[`${r.rank}:${r.multiplicity}`,r]));
+const categoryBefore=JSON.stringify([fusion.state.data,fusion.state.models]);
+await fusion.loadFusionCounts();
+assert.equal(JSON.stringify([fusion.state.data,fusion.state.models]),categoryBefore,"Census refresh must preserve all categorification data");
+fusion.state.mode="fusion";fusion.state.rank=20;
+assert.ok(fusion.ranges(fusion.state.data).ranks.includes(20));
+fusion.state.selected=fusion.state.censusMap.get("20:1");
+fusion.renderDetail();
+const fusionDetail=fusionContext.document.querySelector("#cell-detail").textContent;
+assert.match(fusionDetail,/7censused fusion rings/);
+assert.match(fusionDetail,/Categorification not assessed/);
+assert.doesNotMatch(fusionDetail,/reported realized Grothendieck/);
+fusion.state.mode="grothendieck";fusion.normalizeCountSelection();
+assert.ok(!fusion.ranges(fusion.state.data).ranks.includes(20));
+assert.equal(fusion.state.rank,"all");assert.equal(fusion.state.selected,null);
+const offlineContext=context();offlineContext.fetch=async()=>{throw new Error("offline")};
+vm.createContext(offlineContext);
+vm.runInContext(appSource.replace(appEnd,"\nglobalThis.offlineTest={state,loadFusionCounts};"),offlineContext);
+offlineContext.offlineTest.state.data=structuredClone(atlas);
+await offlineContext.offlineTest.loadFusionCounts();
+assert.equal(offlineContext.offlineTest.state.fusionRows,undefined);
+assert.match(offlineContext.document.querySelector("#fusion-census-status").textContent,/bundled fusion-count snapshot/);
+console.log("Fusion-only census refresh checked: extra ranks, no categorical claims, mode isolation and offline fallback.");
+
 
 // Every case keeps its complete archive accessible without rendering a wall
 // of file links. Exercise real disclosure/search/pagination event handlers.
@@ -282,3 +319,74 @@ for(const ring of [...unresolved,...resolved,...realized]) {
   evidenceFilesChecked+=files.length;
 }
 console.log(`Evidence catalogue checked: ${evidenceFilesChecked} preserved file records; folded defaults, complete pagination and search across all case pages.`);
+
+// New release records reuse the same progressive case renderer and preserve
+// every historical atlas entry when the additive payload is combined.
+const added=json("data/rank9_rank10_m1.json");
+const releaseContext=context();releaseContext.Blob=Blob;
+vm.createContext(releaseContext);
+vm.runInContext(caseSource.replace(caseEnd,"  globalThis.renderReleaseCase=renderCase;\n})();"),releaseContext);
+for(const ring of added.cases) {
+  releaseContext.renderReleaseCase(ring,ring.status!=="unitarily_realized");
+  assert.equal(releaseContext.document.querySelector("#case-title").textContent,ring.id);
+  assert.match(releaseContext.document.querySelector("#case-detail").textContent,/Current accepted case decision/);
+}
+const overlayContext=context();overlayContext.document.querySelector=()=>null;
+vm.createContext(overlayContext);vm.runInContext(read("rank9_10.js"),overlayContext);
+const originalIds=realized.map(r=>r.id),state={data:structuredClone(atlas),models:structuredClone(realized)};
+state.data.classification_rows=structuredClone(statuses);
+overlayContext.Rank910.mergeAtlas(state,added);
+assert.deepEqual(state.models.slice(0,realized.length).map(r=>r.id),originalIds);
+assert.equal(state.models.length,realized.length+added.cases.filter(r=>r.status==="unitarily_realized").length);
+assert.equal(new Set(state.models.map(r=>r.id)).size,state.models.length);
+assert.equal(state.data.rows.length,atlas.rows.length+2);
+assert.equal(state.data.scope.length,atlas.scope.length+2);
+doc.querySelectorAll=()=>[];
+for(const ring of added.cases.filter(row=>row.status==="unitarily_realized")) {
+  app.state.profile=ring;app.state.matrixIndex=1;
+  for(const tab of ["tensor","characters","source"]) {
+    app.state.profileTab=tab;app.renderRingProfile();
+    assert(doc.querySelector("#ring-profile").textContent.length>0);
+  }
+  if(ring.source_url) {
+    const sourceLinks=links(doc.querySelector("#ring-profile"));
+    assert(sourceLinks.some(item=>item.href===ring.source_url));
+    assert(sourceLinks.some(item=>item.href===ring.report_url));
+    assert(!sourceLinks.some(item=>/papers\/rank(?:9|10)\.pdf$/.test(item.href)));
+  }
+}
+console.log(`Additive release checked: all ${added.cases.length} case pages render; historical models and atlas rows preserved.`);
+
+const directoryContext=context();
+directoryContext.fetch=async()=>({ok:true,json:async()=>structuredClone(added)});
+directoryContext.history={replaceState:(_,__,url)=>{directoryContext.location.href=String(url);directoryContext.location.search=url.search;}};
+vm.createContext(directoryContext);vm.runInContext(read("rank9_10.js"),directoryContext);
+await new Promise(resolve=>setImmediate(resolve));
+const getDirectory=(id)=>directoryContext.document.querySelector("#rank9-10-"+id);
+const seen=[];
+for(let pages=0;pages<20;pages++) {
+  const shown=getDirectory("list").children;
+  assert(shown.length>0 && shown.length<=24,"Directory page must be compact");
+  seen.push(...shown.map(row=>descendants(row).find(n=>n.tagName==="strong").textContent));
+  if(getDirectory("next").disabled)break;
+  getDirectory("next").emit("click");
+}
+assert.deepEqual(seen,added.cases.map(row=>row.id),"Pagination must preserve every ordered record");
+getDirectory("status").value="unresolved";getDirectory("status").emit("input");
+assert.equal(getDirectory("list").children.length,added.cases.filter(row=>row.status==="unresolved").length);
+getDirectory("status").value="";getDirectory("search").value="R10_1_189";getDirectory("search").emit("input");
+assert.equal(getDirectory("list").children.length,1);
+assert(getDirectory("list").textContent.includes("R10_1_189"));
+assert(getDirectory("previous").disabled,"Filtering must reset the page");
+assert.equal(new URL(directoryContext.location.href).searchParams.get("q"),"R10_1_189");
+assert(links(getDirectory("current")).some(item=>item.href==="./rank9-10.html?status=unresolved"));
+for(const query of ["?rank=10&status=unresolved&q=R10_1_189","?rank=99&status=invalid"]) {
+  const filtered=context(query);
+  filtered.fetch=async()=>({ok:true,json:async()=>structuredClone(added)});
+  filtered.history={replaceState:(_,__,url)=>{filtered.location.href=String(url);filtered.location.search=url.search;}};
+  vm.createContext(filtered);vm.runInContext(read("rank9_10.js"),filtered);
+  await new Promise(resolve=>setImmediate(resolve));
+  const rows=filtered.document.querySelector("#rank9-10-list").children;
+  assert.equal(rows.length,query.includes("invalid")?24:1,"URL filters must be validated before rendering");
+}
+console.log("Rank-nine/ten directory checked: all 336 ordered records, 24 per page, and exact status/search filters.");

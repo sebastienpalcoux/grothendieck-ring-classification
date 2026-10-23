@@ -1,0 +1,157 @@
+{
+  "status": "PASS",
+  "input_count": 336,
+  "counts": {
+    "9": {
+      "unitarily_realized": 40,
+      "excluded": 102
+    },
+    "10": {
+      "unitarily_realized": 57,
+      "excluded": 131,
+      "unresolved": 6
+    }
+  },
+  "steps": [
+    {
+      "name": "input_axioms",
+      "status": "PASS",
+      "seconds": 2.325
+    },
+    {
+      "name": "census_crosswalk",
+      "status": "PASS",
+      "seconds": 19.455
+    },
+    {
+      "name": "standard_obstructions",
+      "status": "PASS",
+      "seconds": 3.453
+    },
+    {
+      "name": "signed_sphericalization",
+      "status": "PASS",
+      "seconds": 18.961
+    },
+    {
+      "name": "dimension60_moments",
+      "status": "PASS",
+      "seconds": 0.665
+    },
+    {
+      "name": "gty_positive",
+      "status": "PASS",
+      "seconds": 0.325
+    },
+    {
+      "name": "gty_negative",
+      "status": "PASS",
+      "seconds": 0.848
+    },
+    {
+      "name": "baseline_models",
+      "status": "PASS",
+      "seconds": 1.032
+    },
+    {
+      "name": "haagerup_izumi_c5",
+      "status": "PASS",
+      "seconds": 0.191
+    },
+    {
+      "name": "rank9_cubic",
+      "status": "PASS",
+      "seconds": 1.186
+    },
+    {
+      "name": "rank9_quadratic",
+      "status": "PASS",
+      "seconds": 0.819
+    },
+    {
+      "name": "dimension40_morita",
+      "status": "PASS",
+      "seconds": 0.063
+    },
+    {
+      "name": "dimension160_models",
+      "status": "PASS",
+      "seconds": 3.086
+    },
+    {
+      "name": "dimension160_obstruction",
+      "status": "PASS",
+      "seconds": 0.969
+    },
+    {
+      "name": "small_integral_models",
+      "status": "PASS",
+      "seconds": 1.537
+    },
+    {
+      "name": "rank10_reciprocity",
+      "status": "PASS",
+      "seconds": 1.015
+    },
+    {
+      "name": "rank10_model21",
+      "status": "PASS",
+      "seconds": 0.187
+    },
+    {
+      "name": "triality_equivariant_models",
+      "status": "PASS",
+      "seconds": 0.141
+    },
+    {
+      "name": "triality_action_cohomology",
+      "status": "PASS",
+      "seconds": 0.036
+    },
+    {
+      "name": "triality_schur_extension",
+      "status": "PASS",
+      "seconds": 0.045
+    },
+    {
+      "name": "triality_neutral_forms",
+      "status": "PASS",
+      "seconds": 0.065
+    },
+    {
+      "name": "dimension24_near_group_actions",
+      "status": "PASS",
+      "seconds": 0.214
+    },
+    {
+      "name": "dimension24_direct_quotient",
+      "status": "PASS",
+      "seconds": 0.634
+    },
+    {
+      "name": "rank6_characteristic_boson",
+      "status": "PASS",
+      "seconds": 0.462
+    },
+    {
+      "name": "dimension48_exclusions",
+      "status": "PASS",
+      "seconds": 1.226
+    },
+    {
+      "name": "dimension24_independent_completion",
+      "status": "PASS",
+      "seconds": 0.664
+    },
+    {
+      "name": "classification_ledger",
+      "status": "PASS",
+      "seconds": 0.187
+    }
+  ],
+  "total_seconds": 59.859,
+  "manifest_sha256": "559312062f717a16c8d438b71b1fdc11f6e32233158e2395326b59376f452fe6",
+  "python_version": "3.12.14",
+  "verified_at_utc": "2026-10-23T04:39:30.126567+00:00",
+  "scope": "Exact finite evidence replay plus cited mathematical proofs; not proof-assistant formalization."
+}

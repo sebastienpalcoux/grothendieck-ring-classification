@@ -2,7 +2,7 @@ name: Publish public atlas
 
 on:
   push:
-    branches: [main]
+    branches: [main, codex/rank9-10-publication]
     paths:
       - 'site/**'
       - 'data/large_files_manifest.json'
@@ -36,6 +36,8 @@ jobs:
           node --check site/dist/app.js
           node --check site/dist/cases.js
           node site/check_cases.mjs
+          node --check site/dist/rank9_10.js
+          python site/check_rank9_10.py
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
       - name: Upload the static atlas
@@ -44,6 +46,7 @@ jobs:
           path: site/dist
 
   deploy:
+    if: github.ref == 'refs/heads/main'
     needs: build
     runs-on: ubuntu-latest
     permissions:

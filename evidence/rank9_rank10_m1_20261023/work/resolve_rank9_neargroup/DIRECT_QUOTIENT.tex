@@ -1,0 +1,86 @@
+\subsection{Census-independent completion of the dimension-twenty-four quotient}
+\label{sec:direct-d24-quotient}
+Let $\mathcal C$ have one of the four based rings
+$R9\_1\_\{12,62,87,108\}$, and suppose a central $C_2$ de-equivariantization
+has dimension profile $(1^4,2^5)$. Its based ring is necessarily
+$R9\_1\_117$. This assertion uses the four source tensors, not a completeness
+claim about any catalogue of dimension-twenty-four rings.
+
+Write $z$ for the nontrivial central sign in $\mathcal C$. There is exactly
+one possible underlying invertible $z$ with this quotient profile in each
+source tensor; the indices are respectively $2,7,3,6$.
+The sign orbits determine the restriction matrix $F$ up to relabeling the
+quotient simples. Use the quotient basis
+\[
+ (1,a,b,c,m,x,x',y,y'),\qquad
+ d=(1,1,1,1,2,2,2,2,2),\qquad
+ \alpha=(b\ c)(x\ x')(y\ y').
+\]
+The source invertible orbit containing $1$ restricts to $1$, and its other
+invertible orbit restricts to $a$. The unique sign-fixed two-dimensional
+source object restricts to $b+c$, while the free two-dimensional source orbit
+restricts to $m$. The two sign-fixed four-dimensional source objects restrict
+to $x+x'$ and $y+y'$. These statements follow from the standard simple-object
+description of $C_2$ equivariantization; a fixed quotient simple has two
+one-dimensional stabilizer representations, and a free quotient orbit has
+one induced simple. Thus this single canonical $F$ covers every actual
+restriction functor after changing quotient labels.
+
+Let $C_{ij}^h$ be the source tensor and $n_{ab}^k$ an arbitrary nonnegative
+integer quotient tensor. The verifier first enumerates every involution
+$s$ on the quotient basis preserving dimension and satisfying
+\[
+ s(1)=1,\quad s\alpha=\alpha s,\qquad
+ F_{i,a}=F_{i^*,s(a)}.
+\]
+There are eight such involutions for sources $12,62$, and four for
+sources $87,108$. For each, introduce all $9^3$ tensor variables and identify
+variables only under the necessary equalities
+\[
+ n_{ij}^k=n_{s(i),k}^{j}=n_{k,s(j)}^{i},\qquad
+ n_{ij}^k=n_{\alpha(i),\alpha(j)}^{\alpha(k)}.
+\]
+The first equalities are Frobenius reciprocity and the last is equivariance.
+The resulting number of variables is respectively $92$ or $83$.
+Impose the unit and duality equations, and all equations
+\[
+ \sum_k d_k n_{ij}^k=d_i d_j,
+ \qquad
+ \sum_{a,b}F_{i,a}F_{j,b}n_{ab}^k
+       =\sum_h C_{ij}^h F_{h,k}.
+\]
+Every equation has nonnegative integer coefficients. For each variable $v$,
+an equation containing it with coefficient $w>0$ and right-hand side $r$
+gives $v\le\lfloor r/w\rfloor$. The verifier finds and records such a bound
+at most one for every variable, before starting the binary search.
+In the eight-branch case, sixty variables have bound zero and thirty-two
+have bound one; in the four-branch case, the numbers are fifty-two and
+thirty-one. Thus the binary search is exhaustive among \emph{all}
+nonnegative integer quotient tensors: multiplicity-freeness is an output
+of the linear equations, not an assumed census bound.
+
+The finite search is ordinary exhaustive branching with sound propagation.
+For an equation with residual target $r$ and unassigned positive weights
+$w_1,\ldots,w_t$, the possible sums are computed exactly from
+$\prod_j(1+u^{w_j})$ by a bit-set recurrence. A value of a variable is
+discarded only when the other weights cannot attain the required residual
+sum. If propagation leaves variables unassigned, both values $0,1$ are
+examined. Complete linear solutions are checked against every one of the
+$9^4$ associativity equations.
+
+For each of sources $12,62$, the complete search has $74$ nodes over all
+eight duality branches, producing $36$ linear solutions and exactly four
+associative tensors. For each of sources $87,108$, it has eight nodes over
+four branches, producing four linear solutions, all associative.
+Each resulting tensor is isomorphic to $R9\_1\_117$ under an explicit
+unit-preserving permutation. Only at this final identification step is the
+$R9\_1\_117$ tensor read; no quotient list or catalogue is consulted during
+completion. The receipt records every associative tensor and its
+quotient-to-input permutation, every duality branch, source tensor hashes,
+all upper bounds and their equation witnesses, and exact search counts.
+
+The standard-library replay is
+\nolinkurl{work/resolve_rank9_neargroup/direct_quotient.py}; its full receipt is
+\nolinkurl{work/resolve_rank9_neargroup/direct_quotient.json}.
+The replay uses explicit error checks and has also been run with Python
+optimization enabled.
