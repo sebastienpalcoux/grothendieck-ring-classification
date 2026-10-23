@@ -1,8 +1,0 @@
-Traceback (most recent call last):
-  File "/workspace/scratch/b038cfaffb82/repo/evidence/prepublication_20261017/rank6_backend/aggregate_replays.py", line 145, in <module>
-    main()
-  File "/workspace/scratch/b038cfaffb82/repo/evidence/prepublication_20261017/rank6_backend/aggregate_replays.py", line 81, in main
-    require(rec["certificate_canonical_json_sha256"] == objsha(by_id[rid]["certificate"]), "selected certificate mismatch")
-  File "/workspace/scratch/b038cfaffb82/repo/evidence/prepublication_20261017/rank6_backend/aggregate_replays.py", line 17, in require
-    raise ValueError(message)
-ValueError: selected certificate mismatch

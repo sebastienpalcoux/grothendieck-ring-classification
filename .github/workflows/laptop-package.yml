@@ -1,0 +1,55 @@
+name: Build and test rank-eight laptop package
+on:
+  push:
+    branches: [rank8-laptop-20261023]
+    paths-ignore: ['dist/**']
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: rank8-laptop-package
+  cancel-in-progress: true
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - name: Install numerical discovery and exact arithmetic dependencies
+        run: python -m pip install -r requirements.txt
+      - name: Bootstrap capability check
+        run: |
+          python -c "import scipy,sympy,numpy,highspy; print('scipy',scipy.__version__,'sympy',sympy.__version__,'numpy',numpy.__version__)"
+          python -m compileall -q .
+      - name: Fetch pinned mathematical inputs
+        if: hashFiles('READY') != ''
+        run: python tools/vendor.py
+      - name: Test, compile case systems and build archive
+        if: hashFiles('READY') != ''
+        env:
+          OMP_NUM_THREADS: 1
+          OPENBLAS_NUM_THREADS: 1
+          MKL_NUM_THREADS: 1
+        run: python tools/build_package.py
+      - name: Upload validation and package
+        if: always() && hashFiles('READY') != ''
+        uses: actions/upload-artifact@v4
+        with:
+          name: Rank8_Exclusion_Campaign
+          path: |
+            dist/*
+            build_validation.json
+            validation-logs/
+      - name: Publish the tested ZIP on this isolated package branch
+        if: success() && hashFiles('READY') != ''
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add dist
+          git diff --cached --quiet && exit 0
+          git commit -m "Publish tested rank-eight Ubuntu exclusion campaign"
+          git push origin HEAD:rank8-laptop-20261023

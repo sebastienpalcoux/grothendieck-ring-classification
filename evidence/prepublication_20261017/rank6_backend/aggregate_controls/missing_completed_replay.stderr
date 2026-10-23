@@ -1,8 +1,0 @@
-Traceback (most recent call last):
-  File "/workspace/scratch/b038cfaffb82/repo/evidence/prepublication_20261017/rank6_backend/aggregate_replays.py", line 145, in <module>
-    main()
-  File "/workspace/scratch/b038cfaffb82/repo/evidence/prepublication_20261017/rank6_backend/aggregate_replays.py", line 75, in main
-    require({r["id"] for r in replays} == set(failed), "fresh complete replays must cover exactly every initial failure")
-  File "/workspace/scratch/b038cfaffb82/repo/evidence/prepublication_20261017/rank6_backend/aggregate_replays.py", line 17, in require
-    raise ValueError(message)
-ValueError: fresh complete replays must cover exactly every initial failure
