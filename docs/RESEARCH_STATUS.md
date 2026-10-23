@@ -1,9 +1,5 @@
 # Research status and verification
 
-The 23 October 2026 multiplicity-one release resolves all 142 rank-nine rings and 188 of the 194 rank-ten rings: **233 general exclusions, 97 unitary models and 6 deferred cases**. Rank nine has 102 exclusions and 40 models; rank ten has 131 exclusions, 57 models and 6 unresolved rings. The five active cases are now completed: R10_1_21, R9_1_12 and R9_1_108 have unitary models; R9_1_62 and R9_1_87 are excluded over the complex numbers. The six deferred rank-ten cases remain unchanged.
-
-[Report](../evidence/rank9_rank10_m1_20261023/deliverable/report.pdf) · [Complete ledger](../evidence/rank9_rank10_m1_20261023/deliverable/ledger.csv) · [Proofs and exact verification](../evidence/rank9_rank10_m1_20261023/README.md) · [All 336 case records](https://sebastienpalcoux.github.io/grothendieck-ring-classification/rank9-10.html).
-
 The rank-eight multiplicity-three continuation addresses all 3,527 supplied exact-multiplicity-three rings: 3,507 general exclusions, 16 models and 4 unresolved cases. Every recorded model admits a unitary realization. The remaining rings retain unresolved status for general complex categorification.
 
 The rank-seven multiplicity-five continuation addresses all 5,805 supplied exact-multiplicity-five rings: 5,804 general exclusions, 1 realization and 0 unresolved cases. The classification of the supplied census is complete through multiplicity 5. The new realization R7_5_5678 is Rep(AGL(1,7)).

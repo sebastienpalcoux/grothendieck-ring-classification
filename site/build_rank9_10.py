@@ -234,6 +234,23 @@ def build(repo, release, source=None, ref="main"):
             text = re.sub(re.escape(start) + r".*?" + re.escape(end), lambda _: block, text, flags=re.S)
         else:
             text = text.replace('<a id="classification--what-is-decided"></a>', block + '\n\n<a id="classification--what-is-decided"></a>')
+        # Extend the detailed current matrix after the preserved legacy builder.
+        matrix = re.search(r"\| Multiplicity \| Rank 2[^\n]*\n(?:\|[^\n]*\n)+", text)
+        if matrix:
+            lines = []
+            for index, line in enumerate(matrix[0].rstrip().splitlines()):
+                cells = [cell.strip() for cell in line.strip().strip('|').split('|')][:8]
+                if index == 0:
+                    cells += ['Rank 9', 'Rank 10']
+                elif index == 1:
+                    cells += ['---:', '---:']
+                elif cells[0] == '1':
+                    cells += [('≥' if counts[str(rank)].get('unresolved') else '') + str(counts[str(rank)].get('unitarily_realized', 0)) for rank in (9, 10)]
+                else:
+                    cells += ['—', '—']
+                lines.append('| ' + ' | '.join(cells) + ' |')
+            text = text[:matrix.start()] + '\n'.join(lines) + '\n' + text[matrix.end():]
+        text = text.replace('[Full count data](data/grothendieck_counts.csv)', '[Ranks 2–8 count data](data/grothendieck_counts.csv) · [Ranks 9–10 ledger](' + release + '/deliverable/ledger.csv)', 1)
         readme.write_text(text)
     for html in dist.glob("*.html"):
         text = html.read_text()
