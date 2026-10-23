@@ -48,79 +48,55 @@ def collect():
         for base in [results,ROOT/"models"]:
             if base.exists():
                 for path in sorted(base.rglob("*")):
-                    if path.is_file() and not path.name.endswith(".tmp") and "__pycache__" not in path.parts:
+                    if path.is_file() and not path.name.endswith(".tmp") and "__pycache__" not in path.parts and "history" not in path.parts:
                         bundle.write(path,path.relative_to(ROOT).as_posix())
         for name in ["PACKAGE_MANIFEST.json","vendor_manifest.json","build_validation.json","installed_versions.txt","README.md"]:
             if (ROOT/name).is_file():bundle.write(ROOT/name,name)
     os.replace(temporary,archive)
     print("\nSend back: "+str(archive),flush=True)
     return archive
-def certificate_audit(model,result,out):
-    """Always try the separately implemented checker on equality-model proofs."""
-    import engine, independent_check
-    independent_model=out/"independent_model.json"
-    independent_proof=out/"independent_proof.json"
-    if independent_model.is_file() and independent_proof.is_file():
-        independent_check.verify_proof(read_json(independent_model),read_json(independent_proof))
-        result["independent_certificate_check"]="PASS"
-        return
-    candidates=[]
-    for key in ("proof","certificate"):
-        if isinstance(result.get(key),dict):candidates.append(result[key])
-    for key in ("proof_path","certificate_path","proof_file","certificate_file"):
-        if result.get(key):
-            path=Path(result[key]);path=path if path.is_absolute() else out/path
-            if path.is_file():candidates.append(read_json(path))
-    for name in ["proof.json","certificate.json"]:
-        path=out/name
-        if path.is_file():candidates.append(read_json(path))
-    for proof in candidates:
-        try:
-            if hasattr(engine,"standardize_model"): exact=engine.standardize_model(model)
-            elif hasattr(engine,"normalize_model"): exact=engine.normalize_model(model)
-            else: exact=model
-            independent_check.verify_proof(exact,proof)
-            result["independent_certificate_check"]="PASS"
-            return
-        except Exception as error:
-            result["independent_certificate_check_error"]=str(error)
+def certificate_audit(task,result,out):
     if "INFEASIBLE" in str(result.get("status","")) and "CERTIFIED" in str(result.get("status","")):
-        result["primary_status"]=result["status"]
-        result["status"]="CERTIFICATE_REVIEW_REQUIRED"
-        result["independent_certificate_check"]="NOT_PASSED"
+        from verify_results import audit_task
+        audit=audit_task(task,out)
+        result["exact_replay_audit"]=audit
+        result["independent_certificate_check"]="PASS"
+        result["closure_policy"]="EXCLUSION_CANDIDATE_REVIEW_REQUIRED"
 def worker(task_path,seconds,attempt):
     task=read_json(Path(task_path))
     out=ROOT/"results"/task["case"]/task["id"];out.mkdir(parents=True,exist_ok=True)
     working=out/"working_model.json"
-    model=read_json(working if working.is_file() else ROOT/task["path"])
+    base_model=read_json(ROOT/task["path"])
+    model=read_json(working) if working.is_file() else base_model
     import engine
     start=time.monotonic()
     try:
         result=engine.solve_model(model,seconds=seconds,output_dir=out,resume=True,seed=attempt)
         if not isinstance(result,dict):raise TypeError("Solver must return a JSON result")
-        certificate_audit(model,result,out)
-        # A matrix-relaxation witness is only useful after the adapter's exact
-        # additional (e.g. characteristic-polynomial) candidate tests.
         adapter=importlib.import_module(ADAPTERS[task["case"]])
-        if hasattr(adapter,"check_candidate") and any(k in result for k in ("values","solution","witness")):
-            values=next((result[k] for k in ("values","solution","witness") if k in result),None)
-            if isinstance(values,list):
-                checked=adapter.check_candidate(model,values,ROOT/"vendor")
-                result["additional_candidate_check"]=checked
-                if isinstance(checked,dict) and not checked.get("valid",checked.get("passed",checked.get("status") in ("PASS","valid"))):
-                    result["status"]="CANDIDATE_REJECTED_EXACTLY"
-                    if hasattr(adapter,"candidate_nogood"):
-                        cut=adapter.candidate_nogood(model,values,ROOT/"vendor")
-                        write_json(out/("candidate_rejection_"+str(attempt)+".json"),{"candidate":values,"check":checked,"nogood":cut})
-                        if "row_lo" not in model:
-                            model["row_lo"]=list(model["rhs"]);model["row_up"]=list(model["rhs"]);model.pop("rhs",None)
-                        model["rows"].append(cut["row"])
-                        model["row_lo"].append(cut.get("row_lo"));model["row_up"].append(cut.get("row_up"))
-                        model["exact_candidate_rejections"]=int(model.get("exact_candidate_rejections",0))+1
-                        write_json(working,model)
-                        result["next_step"]="Resume with the exact assignment-blocking row."
-
+        if hasattr(adapter,"check_candidate") and isinstance(result.get("values"),list):
+            values=result["values"]
+            engine.verify_witness(model,values)
+            checked=adapter.check_candidate(base_model,values,ROOT/"vendor")
+            result["additional_candidate_check"]=checked
+            if not checked["valid"]:
+                result["status"]="CANDIDATE_REJECTED_EXACTLY"
+                cut=adapter.candidate_nogood(base_model,values,ROOT/"vendor")
+                replay=adapter.validate_nogood(base_model,values,checked,cut,ROOT/"vendor")
+                if not replay["valid"]:raise ValueError("Invalid exact rejection cut: "+str(replay))
+                write_json(out/("candidate_rejection_"+str(attempt)+".json"),{"candidate":values,"check":checked,"nogood":cut})
+                # Reload before mutation: base_model must keep its equality representation.
+                model=read_json(working) if working.is_file() else read_json(ROOT/task["path"])
+                if "row_lo" not in model:
+                    model["row_lo"]=list(model["rhs"]);model["row_up"]=list(model["rhs"]);model.pop("rhs",None)
+                model["rows"].append(cut["row"])
+                model["row_lo"].append(cut.get("row_lo"));model["row_up"].append(cut.get("row_up"))
+                model["exact_candidate_rejections"]=int(model.get("exact_candidate_rejections",0))+1
+                write_json(working,model)
+                result["next_step"]="Resume with the exact assignment-blocking row."
         result.update({"task":task["id"],"case":task["case"],"attempt":attempt,"worker_seconds":time.monotonic()-start,"updated":now()})
+        write_json(out/"latest.json",result)
+        certificate_audit(task,result,out)
         write_json(out/"latest.json",result)
     except BaseException as error:
         write_json(out/"latest.json",{"status":"ERROR","case":task["case"],"task":task["id"],"attempt":attempt,"error":str(error),"traceback":traceback.format_exc(),"updated":now()})

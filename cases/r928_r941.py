@@ -252,6 +252,17 @@ def build_one(vendor_root, case, branch, orders=DEFAULT_ORDERS):
     D = kembed(row["formal_codegrees"][0])
     invD = f.inv(D)
     need(f.mul(D, invD) == f.one, "exact global dimension inversion")
+    norm = f.one
+    for conjugate in row["formal_codegrees"][:4]:
+        norm = f.mul(norm,kembed(conjugate))
+    need(all(v == 0 for v in norm[1:]) and Q(norm[0]).denominator == 1,
+         "quartic dimension norm is a rational integer")
+    prime_tail = abs(int(norm[0]))
+    need(prime_tail > 0, "nonzero dimension norm")
+    for prime in (2,3):
+        while prime_tail % prime == 0:
+            prime_tail //= prime
+    need(prime_tail == 1, "categorical Cauchy twist prime support is only 2,3")
     for E in range(5):
         d = f.mul(D, f.inv(kembed(row["formal_codegrees"][E])))
         need(d == dims[E], "low dimension D/f_E")
@@ -263,6 +274,14 @@ def build_one(vendor_root, case, branch, orders=DEFAULT_ORDERS):
                  f.mul(betaH, values[E][H]), "distinguished S normalization")
     need({c for c in range(40) if not any(masks(values_k[5+c][0]).values())}
          == {12,23}, "only two unbounded saturated dimension types")
+    for conductor in (12,24):
+        need(sum(masks(values_k[t][0])[conductor]**2 for t in range(5)) == 4,
+             "low twist-one objects exhaust saturated mask capacity")
+        control = next(c for c in composite["quartic_controls"]
+                       if c["conductor"] == conductor)
+        need(4*conductor*Q(control["epsilon_minus_weights"][0]) ==
+             4*conductor*Q(control["epsilon_plus_weights"][0]) == 4,
+             "exact twist-one spectral capacity")
     qlow = [1,1,1,1,-1]
     g = 7 if case.endswith("928") else 3
     for E in range(5):
@@ -270,6 +289,13 @@ def build_one(vendor_root, case, branch, orders=DEFAULT_ORDERS):
              (Q(qlow[E]*row["irreducible_dimensions"][E]),0,0,0),
              "invertible-row character normalization")
     semion = case.endswith("928")
+    need(lows[0] == [1,0,0,0,0,0,0,0] and
+         highs[40] == [int(j == g) for j in range(8)],
+         "vacuum and forced central invertible restrictions")
+    for c,v in zip(TRANSLATED,lows):
+        translated = [sum(v[a]*row["tensor"][g][a][b] for a in range(8))
+                      for b in range(8)]
+        need(highs[c] == translated, "fixed central translates bind source tensor")
     theta_g = N//4 if semion else N//2
     fixed = [(i, 0, q) for i, q in enumerate(qlow)]
     fixed += [(5+c, theta_g if q == 1 else (-theta_g) % N,

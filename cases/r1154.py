@@ -24,7 +24,10 @@ DEPENDENCIES = [
 ]
 THEORY = """Necessary positive spherical center data after the published
 general-complex spherical/Galois reduction. A1,A2,A3,A4 are the self-dual
-distinguished simple summands of I(1). For each accepted pair histogram, N1 is
+distinguished simple summands of I(1). Their source irreducible characters
+are fixed by the based-ring involution (asserted exactly below), hence source
+character duality fixes their labels and each A_i is self-dual.
+For each accepted pair histogram, N1 is
 symmetric nonnegative integral, N3=N1+K3 and N4=K4-N1 are nonnegative.
 Restriction is a ring map, so M N1 = L_F(A1) M. The forced packet fusion
 matrices and N2,K3,K4 commute with N1. Verlinde gives all eigenvalues of N1
@@ -33,8 +36,8 @@ character; their trace and square trace are therefore fixed.
 Every pair-word vector v_ab=N_a N_b e_0 is completely determined by the
 accepted pair histogram. Thus v_ab^T N1 v_cd equals the exact vacuum moment
 of A_a A_b A1 A_c A_d. This is a linear necessary equation in N1.
-The mandatory characteristic polynomial is checked exactly on every integer
-candidate. Rejecting a candidate with a wrong polynomial permits only its
+All stored vacuum moments through degree six and the mandatory characteristic
+polynomial are checked exactly on every integer candidate. Rejecting a candidate with a wrong exact invariant permits only its
 specific one-hot assignment to be blocked; it does not exclude a branch.
 """
 SQ5 = s.sqrt(5)
@@ -127,6 +130,8 @@ def characters(root):
     require(len({tuple(ch) for ch in ordered})==5,"five distinct source characters")
     for ch in ordered:
         for z in ch: scalar5(z)
+        require(all(s.simplify(ch[dual[i]]-ch[i])==0 for i in range(8)),
+                "distinguished characters fixed by based-ring duality")
     return L,ordered,ds,D,dims
 
 def branch_data(root, packet_row):
@@ -180,9 +185,8 @@ def branch_data(root, packet_row):
     M=s.Matrix(Mcols).T
     V=s.Matrix(Vrows)
     require(V[:,2]==N2[:,0],"A2 unit word alignment")
-    require(all(sum(Ns,s.zeros(n))[i,j]==sum(M[a,i]*R[3][b][a]*M[b,j]
-                    for a in range(8) for b in range(8))
-                    for i in range(n) for j in range(n)),
+    source_g=s.Matrix(8,8,lambda a,b:R[3][b][a])
+    require(sum(Ns,s.zeros(n))==M.T*source_g*M,
             "packet sum and forgetful intertwiner agree")
     return old,labels,M,V,N2,K3,K4,Ns,mom
 
@@ -319,6 +323,9 @@ def build_one(root, packet_row):
                         "choices":entry_var.get((i,j),[])} for i,j in lo],
       "target_characteristic_polynomial":expected_cp,
       "target_minimal_polynomial":expected_mp,
+      "known_actions":{name:[[integer(v) for v in row] for row in mat.tolist()]
+                       for name,mat in (("N2",N2),("K3",K3),("K4",K4))},
+      "known_vacuum_moments":old["moments"],
       "source_sha256":{p:hashlib.sha256((Path(root)/p).read_bytes()).hexdigest()
                        for p in DEPENDENCIES}}
 
@@ -355,11 +362,31 @@ def check_candidate(model,solution,vendor_root):
                     "case":CASE,"branch":model["branch"],"row_index":row_index,
                     "row_tag":model["row_tags"][row_index] if row_index<len(model["row_tags"]) else "iterative_cut",
                     "actual":str(actual_row),"expected":str(target)}
+    # All published degree-six vacuum moments are exact necessary conditions.
+    # They are cheap integer checks before the more expensive polynomial check.
+    NN=[[int(v) for v in row] for row in N.tolist()]
+    known=model["known_actions"];n=len(NN)
+    actions={1:NN,2:known["N2"],
+             3:[[NN[i][j]+known["K3"][i][j] for j in range(n)] for i in range(n)],
+             4:[[known["K4"][i][j]-NN[i][j] for j in range(n)] for i in range(n)]}
+    word_vectors={():[int(i==0) for i in range(n)]}
+    for word_key,target in sorted(model["known_vacuum_moments"].items(),key=lambda p:(len(p[0]),p[0])):
+        if not word_key:continue
+        word=tuple(map(int,word_key))
+        previous=word_vectors[word[:-1]]
+        action=actions[word[-1]]
+        vv=[sum(a*b for a,b in zip(row,previous)) for row in action]
+        word_vectors[word]=vv
+        if vv[0]!=int(target):
+            return {"valid":False,"status":"REJECTED_WRONG_VACUUM_MOMENT",
+                    "case":CASE,"branch":model["branch"],"word":word_key,
+                    "actual":vv[0],"expected":int(target),
+                    "matrix":NN}
     actual=list(map(int,N.charpoly().all_coeffs()))
     valid=actual==model["target_characteristic_polynomial"]
     return {"valid":valid,"status":"SURVIVING_NECESSARY_MATRIX" if valid else "REJECTED_WRONG_SPECTRUM",
       "case":CASE,"branch":model["branch"],
-      "scope":"Complete mandatory distinguished fusion-matrix spectrum only; no category construction",
+      "scope":"Mandatory distinguished fusion-matrix spectrum and degree-six vacuum moments; no category construction",
       "characteristic_polynomial":actual,
       "target_characteristic_polynomial":model["target_characteristic_polynomial"],
       "matrix":[list(map(int,row)) for row in N.tolist()]}
@@ -372,7 +399,23 @@ def candidate_nogood(model,solution,vendor_root=None):
         for j,_ in entry["choices"]:
             if int(solution[j])==1:chosen.append(j)
     return {"row":{str(j):1 for j in chosen},"row_lo":None,
-            "row_up":len(chosen)-1,"justification":"exact wrong-spectrum candidate rejection"}
+            "row_up":len(chosen)-1,"justification":"exact polynomial or vacuum-moment candidate rejection"}
+
+def validate_nogood(model,solution,receipt,cut,vendor_root):
+    """Independently replay an archived rejection and its exact one-point cut."""
+    try:
+        observed=check_candidate(model,solution,vendor_root)
+        require(not observed["valid"],"a surviving candidate cannot be cut")
+        require(observed==receipt,"archived rejection receipt differs from exact replay")
+        expected=candidate_nogood(model,solution,vendor_root)
+        require(cut==expected,"cut differs from exact one-hot assignment no-good")
+        covered=sorted(j for group in model["onehot_groups"] for j in group)
+        require(covered==list(range(model["n"])),"all variables must have one-hot coverage")
+        require(sum(int(co)*int(solution[int(j)]) for j,co in cut["row"].items())
+                ==cut["row_up"]+1,"cut must reject the archived complete assignment")
+        return {"valid":True,"status":"EXACT_REJECTION_AND_SINGLE_ASSIGNMENT_CUT"}
+    except (ValueError,KeyError,TypeError) as exc:
+        return {"valid":False,"reason":str(exc)}
 
 def self_test(vendor_root):
     root=str(Path(vendor_root).resolve())
@@ -396,5 +439,29 @@ def self_test(vendor_root):
         N=s.diag(1,2)
         require(list(map(int,N.charpoly().all_coeffs()))==[1,-3,2],"positive polynomial control")
         require(list(map(int,N.charpoly().all_coeffs()))!=[1,-4,2],"negative polynomial control")
+    # Exercise the actual candidate checker and one-point cut mechanism,
+    # including a valid assignment, a failed vacuum word, and a failed spectrum.
+    toy={"case":CASE,"branch":"CONTROL","n":2,"matrix_rank":2,
+         "rows":[{"0":1,"1":1}],"rhs":[1],"row_tags":["one_hot"],
+         "entry_domains":[{"i":0,"j":0,"lo":0,"up":0,"choices":[]},
+                          {"i":0,"j":1,"lo":0,"up":1,"choices":[[0,0],[1,1]]},
+                          {"i":1,"j":1,"lo":0,"up":0,"choices":[]}],
+         "onehot_groups":[[0,1]],"target_characteristic_polynomial":[1,0,-1],
+         "known_actions":{"N2":[[0,0],[0,0]],"K3":[[0,0],[0,0]],"K4":[[2,2],[2,2]]},
+         "known_vacuum_moments":{"":1,"1":0,"11":1}}
+    good=check_candidate(toy,[0,1],root)
+    require(good["valid"],"positive exact matrix control")
+    rejected=check_candidate(toy,[1,0],root)
+    require(not rejected["valid"] and rejected["word"]=="11",
+            "degree-two negative vacuum-moment control")
+    cut=candidate_nogood(toy,[1,0],root)
+    require(validate_nogood(toy,[1,0],rejected,cut,root)["valid"],
+            "exact rejection chain control")
+    bad_cut=dict(cut,row_up=1)
+    require(not validate_nogood(toy,[1,0],rejected,bad_cut,root)["valid"],
+            "tampered no-good control")
+    wrong_spectrum=dict(toy,target_characteristic_polynomial=[1,0,-2])
+    require(check_candidate(wrong_spectrum,[0,1],root)["status"]=="REJECTED_WRONG_SPECTRUM",
+            "negative full-spectrum control")
     return {"case":CASE,"accepted_branches":25,"representative_patterns":3,
             "status":"PASS","scope":"model assembly, source bindings, exact spectral reconstruction"}

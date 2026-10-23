@@ -29,8 +29,19 @@ def require(condition, message):
         raise ValueError(message)
 
 
+def _json_canonical(value):
+    # Stable across JSON round trips, including sparse integer column keys.
+    if isinstance(value,dict):
+        return {str(k):_json_canonical(v) for k,v in value.items()}
+    if isinstance(value,(tuple,list)):
+        return [_json_canonical(v) for v in value]
+    if isinstance(value,Q):
+        return str(value)
+    return value
+
+
 def digest(value):
-    return hashlib.sha256(json.dumps(value, sort_keys=True, separators=(",",":")).encode()).hexdigest()
+    return hashlib.sha256(json.dumps(_json_canonical(value), sort_keys=True, separators=(",",":")).encode()).hexdigest()
 
 
 def _module(name, path):
@@ -145,6 +156,8 @@ def _assemble(system, phase, branch_name, sector_vector, sector_count):
             irrational.append(j)
             if v!=tuple(sector_vector):
                 up[j]=0
+    if target_index is not None and sector_count<=up[target_index]:
+        lo[target_index]=up[target_index]=int(sector_count)
     rows.append({target_index:1} if target_index is not None else {})
     rhs.append(int(sector_count))
     row_labels.append(["irrational_ratio_sector_count",branch_name])
@@ -240,7 +253,7 @@ def _assemble(system, phase, branch_name, sector_vector, sector_count):
     require(all(type(u) is int and u>=0 for u in up),"All variables must have finite exact bounds")
     require(all(all(type(j) is int and 0<=j<len(lo) and type(a) is int for j,a in row.items()) for row in rows),"Sparse row index/coefficient invariant")
     require(all(kind==0 for kind,label in zip(integrality,variable_labels) if label[0] in ("continuous_relative_trace","continuous_rotation_compression")),"A compressed phase weight was incorrectly declared integral")
-    return {
+    model = {
         "id":CASE+"_"+branch_name,
         "case":CASE,
         "n":len(lo),
@@ -275,6 +288,53 @@ def _assemble(system, phase, branch_name, sector_vector, sector_count):
             "phase_columns_removed_by_exact_integer_support":skipped
         }
     }
+    projected=project_fixed(model)
+    model["fixed_projection"]=projected["fixed_projection"]
+    model["projected_model_sha256"]=projected["projected_model_sha256"]
+    return model
+
+
+def project_fixed(model):
+    """Exactly substitute fixed variables; expose any identical branch searches.
+
+    The returned necessary model is equivalent to the input under the explicit
+    free-variable index map and fixed assignments. No numerical presolve or
+    rounding enters this transformation. A candidate/witness or contradiction
+    for this model must retain this projection metadata for full replay.
+    """
+    fixed_q={j:Q(a) for j,(a,b) in enumerate(zip(model["lo"],model["up"])) if a==b}
+    require(all(a.denominator==1 for a in fixed_q.values()),"R1768 fixed bounds must be integral; no truncation permitted")
+    fixed={j:int(a) for j,a in fixed_q.items()}
+    free=[j for j in range(model["n"]) if j not in fixed]
+    mapping={old:new for new,old in enumerate(free)}
+    rows=[];rhs=[];labels=[];source_rows=[];zero_rows=[]
+    for i,(row,b) in enumerate(zip(model["rows"],model["rhs"])):
+        row={int(j):Q(a) for j,a in row.items()}
+        require(all(a.denominator==1 for a in row.values()),"R1768 projected coefficients must be integral")
+        b=Q(b)-sum(Q(a)*fixed[j] for j,a in row.items() if j in fixed)
+        out={mapping[j]:int(a) for j,a in row.items() if j in mapping and a}
+        require(b.denominator==1,"Fixed projection RHS must remain integral")
+        if not out and not b:
+            zero_rows.append(i)
+            continue
+        rows.append(out);rhs.append(int(b));source_rows.append(i)
+        labels.append(model["row_labels"][i])
+    canonical={"n":len(free),"rows":rows,"rhs":rhs,
+               "lo":[model["lo"][j] for j in free],
+               "up":[model["up"][j] for j in free],
+               "integrality":[model["integrality"][j] for j in free]}
+    original={key:model[key] for key in ("n","rows","rhs","lo","up","integrality")}
+    metadata={"original_model_sha256":digest(original),"free_variable_indices":free,
+              "fixed_assignments":{str(j):v for j,v in fixed.items()},
+              "retained_source_rows":source_rows,"discarded_exact_zero_rows":zero_rows,
+              "original_variables":model["n"],"original_rows":len(model["rows"])}
+    return {**canonical,"id":model["id"]+"_fixed_projection","case":model["case"],
+            "variable_labels":[model["variable_labels"][j] for j in free],
+            "row_labels":labels,"fixed_projection":metadata,
+            "projected_model_sha256":digest(canonical),
+            "complete_branch_set":model["complete_branch_set"],
+            "theory_scope":model["theory_scope"],
+            "closure_status_policy":model["closure_status_policy"]}
 
 
 def build_models(vendor_root:Path, case:str=CASE, out:Path|None=None, limit=None):
@@ -339,7 +399,7 @@ def self_test(vendor_root:Path):
     require(receipt["tensor_sha256"]==TENSOR_SHA256 and receipt["status"]=="exact_feasible","Frozen positive phase-cone control")
     phase.check_feasible(receipt["certificate"]["indices"],receipt["certificate"]["weights"],[-1,1,1,1,1,1,1])
     require(system.metadata["rows"]==521 and system.metadata["variables"]==2610,"Prior integer center control changed")
-    answers=[]
+    answers=[];projection_hashes=[]
     for branch,vector,count in BRANCHES:
         model=_assemble(system,phase,branch,vector,count)
         require(model["statistics"]["phase_rows"]==241,"Expected full retained phase equations")
@@ -348,6 +408,9 @@ def self_test(vendor_root:Path):
         require(model["id"] in model["complete_branch_set"],"Branch coverage mismatch")
         rows=[(r,b) for r,b,label in zip(model["rows"],model["rhs"],model["row_labels"]) if label[0]=="irrational_ratio_sector_count"]
         require(len(rows)==1 and rows[0][1]==count,"Sector branch count constraint")
-        answers.append({"id":model["id"],"n":model["n"],"rows":len(model["rows"]),"statistics":model["statistics"]})
+        projected=project_fixed(model)
+        require(projected["projected_model_sha256"]==model["projected_model_sha256"],"Fixed projection digest differs")
+        projection_hashes.append(model["projected_model_sha256"])
+        answers.append({"id":model["id"],"n":model["n"],"rows":len(model["rows"]),"projected_n":projected["n"],"projected_rows":len(projected["rows"]),"projected_model_sha256":model["projected_model_sha256"],"statistics":model["statistics"]})
     prior_coverage=_coverage_check(phase_module,vendor_root)
-    return {"status":"PASS","canonical_tensor":TENSOR_SHA256,"known_exact_rational_phase_witness":"rechecked","prior_branch_coverage":prior_coverage,"branches":answers,"scope":"Builder/source/positive-phase and prior-certificate controls; not a categorification or a new exclusion"}
+    return {"status":"PASS","canonical_tensor":TENSOR_SHA256,"known_exact_rational_phase_witness":"rechecked","prior_branch_coverage":prior_coverage,"branches":answers,"both_sector_models_identical_after_exact_fixed_substitution":len(set(projection_hashes))==1,"scope":"Builder/source/positive-phase and prior-certificate controls; not a categorification or a new exclusion"}
