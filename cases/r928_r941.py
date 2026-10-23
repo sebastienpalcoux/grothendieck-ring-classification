@@ -437,13 +437,22 @@ def build_one(vendor_root, case, branch, orders=DEFAULT_ORDERS):
         powers[i] = seq
 
     @lru_cache(None)
+    def center_atom(j,m):
+        p = packets[j]
+        return f.mul(f.mul(pm(j,m),dims[5+p["c"]]),invD)
+
+    @lru_cache(None)
+    def fixed_center_atoms(m):
+        return tuple((t,f.mul(f.mul(moment((e,),m),dims[t]),invD))
+                     for t,e,q in fixed)
+
+    @lru_cache(None)
     def indicator(m, source_coefficients):
         weights = [sum(source_coefficients[i]*v[i] for i in range(8))
                    for v in columns]
-        linear = {p["j"]:f.scale(f.mul(f.mul(pm(p["j"],m),
-                                  dims[5+p["c"]]),invD),weights[5+p["c"]])
+        linear = {p["j"]:f.scale(center_atom(p["j"],m),weights[5+p["c"]])
                   for p in packets}
-        constant = f.mul(fixed_sum(m,lambda t:f.scale(dims[t],weights[t])),invD)
+        constant = f.sum(f.scale(atom,weights[t]) for t,atom in fixed_center_atoms(m))
         return linear, constant
 
     indicators2 = [1,0,0,0,0,0,0,-1] if semion else [1,0,0,1,1,1,1,1]

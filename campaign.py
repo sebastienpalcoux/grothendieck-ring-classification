@@ -58,7 +58,7 @@ def collect():
 def certificate_audit(task,result,out):
     if "INFEASIBLE" in str(result.get("status","")) and "CERTIFIED" in str(result.get("status","")):
         from verify_results import audit_task
-        audit=audit_task(task,out)
+        audit=audit_task(task,out,root=ROOT)
         result["exact_replay_audit"]=audit
         result["independent_certificate_check"]="PASS"
         result["closure_policy"]="EXCLUSION_CANDIDATE_REVIEW_REQUIRED"
@@ -68,6 +68,24 @@ def worker(task_path,seconds,attempt):
     working=out/"working_model.json"
     base_model=read_json(ROOT/task["path"])
     model=read_json(working) if working.is_file() else base_model
+    # A rejection receipt is the durable commit record. Recover if a stop
+    # arrived between saving that receipt and atomically replacing the model.
+    if task["case"]=="R8_3_1154":
+        receipts=sorted(out.glob("candidate_rejection_*.json"),key=lambda p:int(p.stem.rsplit("_",1)[1]))
+        if len(receipts)!=int(model.get("exact_candidate_rejections",0)):
+            import engine
+            adapter=importlib.import_module(ADAPTERS[task["case"]])
+            model=read_json(ROOT/task["path"])
+            for path in receipts:
+                record=read_json(path);values=record["candidate"]
+                engine.verify_witness(model,values)
+                verified=adapter.validate_nogood(base_model,values,record["check"],record["nogood"],ROOT/"vendor")
+                if not verified["valid"]:raise ValueError("Cannot recover rejection receipt: "+str(verified))
+                if "row_lo" not in model:
+                    model["row_lo"]=list(model["rhs"]);model["row_up"]=list(model["rhs"]);model.pop("rhs",None)
+                cut=record["nogood"];model["rows"].append(cut["row"])
+                model["row_lo"].append(cut.get("row_lo"));model["row_up"].append(cut.get("row_up"))
+            model["exact_candidate_rejections"]=len(receipts);write_json(working,model)
     import engine
     start=time.monotonic()
     try:
@@ -84,7 +102,10 @@ def worker(task_path,seconds,attempt):
                 cut=adapter.candidate_nogood(base_model,values,ROOT/"vendor")
                 replay=adapter.validate_nogood(base_model,values,checked,cut,ROOT/"vendor")
                 if not replay["valid"]:raise ValueError("Invalid exact rejection cut: "+str(replay))
-                write_json(out/("candidate_rejection_"+str(attempt)+".json"),{"candidate":values,"check":checked,"nogood":cut})
+                receipt_path=out/("candidate_rejection_"+str(attempt)+".json")
+                receipt={"candidate":values,"check":checked,"nogood":cut}
+                if receipt_path.exists() and read_json(receipt_path)!=receipt:raise ValueError("Refusing to overwrite a durable rejection receipt")
+                write_json(receipt_path,receipt)
                 # Reload before mutation: base_model must keep its equality representation.
                 model=read_json(working) if working.is_file() else read_json(ROOT/task["path"])
                 if "row_lo" not in model:
@@ -110,6 +131,14 @@ def state_for(task):
     out=ROOT/"results"/task["case"]/task["id"]
     try:return read_json(out/"latest.json")
     except (OSError,ValueError):return {}
+def next_attempt(task):
+    out=ROOT/"results"/task["case"]/task["id"]
+    seen=[int(state_for(task).get("attempt",-1))]
+    for pattern in ("candidate_rejection_*.json","attempt_*.log"):
+        for path in out.glob(pattern):
+            try:seen.append(int(path.stem.rsplit("_",1)[1]))
+            except ValueError:pass
+    return max(seen)+1
 def main():
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument("--hours",type=float,default=8.0)
@@ -143,7 +172,7 @@ def main():
     signal.signal(signal.SIGINT,request_stop);signal.signal(signal.SIGTERM,request_stop)
     deadline=time.monotonic()+args.hours*3600
     attempts={}
-    for task in all_tasks:attempts[task["id"]]=int(state_for(task).get("attempt",-1))+1
+    for task in all_tasks:attempts[task["id"]]=next_attempt(task)
     active={};last_report=0;case_cursor=0
     print("Cases:",", ".join(selected),"\nWorkers:",jobs,"\nBudget:",args.hours,"wall-clock hours. Existing checkpoints resume automatically.",flush=True)
     print("Ctrl+C requests a checkpointed stop; a return archive is written automatically.",flush=True)

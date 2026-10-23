@@ -25,6 +25,7 @@ def main():
     start=time.monotonic()
     run("exact_engine_controls",[sys.executable,"engine.py","--self-test"])
     run("independent_checker_controls",[sys.executable,"-c","import independent_check; independent_check.self_test(); print('PASS')"])
+    run("rejection_recovery_and_exact_closure",[sys.executable,"tools/control_campaign.py"],timeout=300)
     run("actual_orbit_arithmetic_controls",[sys.executable,"-m","unittest","discover","-s","tests","-v"])
     for case in CASES:
         cmd=[sys.executable,"tools/compile_case.py","--case",case]
@@ -68,7 +69,7 @@ def main():
                 "stages":list(stages),"build_seconds":round(time.monotonic()-start,3)}
     write(ROOT/"build_validation.json",validation)
     payload=set()
-    for name in ["README.md","METHODS.md","requirements.txt","install.sh","run.sh","collect.sh","campaign.py","verify_results.py","engine.py","independent_check.py","vendor_manifest.json","build_validation.json","tested_versions.txt","tools/compile_case.py"]:
+    for name in ["README.md","METHODS.md","requirements.txt","install.sh","run.sh","collect.sh","campaign.py","verify_results.py","engine.py","independent_check.py","vendor_manifest.json","build_validation.json","tested_versions.txt","tools/compile_case.py","tools/control_campaign.py"]:
         path=ROOT/name
         if not path.is_file():raise ValueError("Missing payload "+name)
         payload.add(path)

@@ -194,6 +194,8 @@ def audit_task(task, out, root=ROOT):
     projection = projection_replay(task, base, root)
     current = copy.deepcopy(base)
     rejected = []
+    prefix_digests = [engine.model_digest(engine.normalize_model(current))]
+    rejected_values = []
     paths = rejection_paths(out)
     if paths:
         require(task["case"] == "R8_3_1154", "Unexpected nonlinear rejection cuts for another case")
@@ -210,7 +212,9 @@ def audit_task(task, out, root=ROOT):
             require(cut == record["nogood"], "Archived no-good differs: " + path.name)
             checked = r1154.validate_nogood(base, values, observed, cut, vendor)
             require(checked.get("valid"), "Invalid rejection/no-good chain: " + path.name)
+            rejected_values.append(values)
             current = append_nogood(current, cut)
+            prefix_digests.append(engine.model_digest(engine.normalize_model(current)))
             rejected.append({"file": path.name, "status": observed["status"],
                              "cut_replay": checked["status"]})
     working_path = out / "working_model.json"
@@ -220,17 +224,34 @@ def audit_task(task, out, root=ROOT):
     else:
         require(not paths, "Rejection cuts exist without a working_model.json")
         working = current
-    input_path = out / "input_model.json"
-    if input_path.is_file():
-        same_numeric(working, read_json(input_path), "Engine input model")
     latest_path = out / "latest.json"
     latest = read_json(latest_path) if latest_path.is_file() else {}
     status = latest.get("status", "NO_LATEST_RESULT")
     require(not str(status).startswith("ERROR"), "Task latest result is an error: " + str(task["id"]))
+    # A durable receipt can precede both the working-model update and latest
+    # status update. Engine artifacts may therefore belong to any exactly
+    # replayed chain prefix. The final certified status still requires the
+    # complete current working model.
+    input_path = out / "input_model.json"
+    evidence_model = read_json(input_path) if input_path.is_file() else working
+    evidence_digest = engine.model_digest(engine.normalize_model(evidence_model))
+    require(evidence_digest in prefix_digests,
+            "Engine input differs from every replayed rejection-chain prefix")
+    evidence_prefix = prefix_digests.index(evidence_digest)
+    final_prefix = len(paths)
+    if status == "INFEASIBLE_CERTIFIED":
+        require(evidence_prefix == final_prefix,
+                "Certified result belongs to a stale pre-cut engine model")
+    if status == "CANDIDATE_REJECTED_EXACTLY":
+        require(paths, "Rejected-candidate status has no archived rejection chain")
     report = {
         "case": task["case"], "id": task["id"], "latest_status": status,
         "base_file_sha256": task["sha256"],
         "working_model_sha256": engine.model_digest(engine.normalize_model(working)),
+        "engine_artifact_model_sha256": evidence_digest,
+        "engine_artifact_prefix_cuts": evidence_prefix,
+        "final_replayed_cut_count": final_prefix,
+        "engine_artifacts_cover_final_working_model": evidence_prefix == final_prefix,
         "candidate_rejections_replayed": rejected,
         "categorical_nonexistence_certified": False,
     }
@@ -241,8 +262,14 @@ def audit_task(task, out, root=ROOT):
     independent_model_path = out / "independent_model.json"
     independent_proof_path = out / "independent_proof.json"
     independent_witness_path = out / "independent_witness.json"
+    if independent_model_path.is_file():
+        expected_equality, _ = engine.standardize_model(evidence_model)
+        same_numeric(read_json(independent_model_path), expected_equality,
+                     "Independent model for the exact engine chain prefix")
     if primary_paths or independent_proof_path.is_file() or status == "INFEASIBLE_CERTIFIED":
         require(primary_paths, "Claimed or partial exclusion has no primary proof")
+        require(evidence_prefix == final_prefix,
+                "Exclusion proof artifacts do not cover the final working model")
         require(independent_model_path.is_file() and independent_proof_path.is_file(),
                 "Certified model exclusion needs both independent model and proof")
         primary_receipts = [
@@ -263,15 +290,25 @@ def audit_task(task, out, root=ROOT):
         witness = read_json(witness_path)
         values = candidate_values(witness)
         if "model_sha256" in witness:
-            require(witness["model_sha256"] == report["working_model_sha256"],
+            require(witness["model_sha256"] == evidence_digest,
                     "Witness model digest differs")
     elif status in ("EXACT_NECESSARY_WITNESS", "SURVIVING_NECESSARY_MATRIX"):
         values = candidate_values(latest)
+    elif status == "CANDIDATE_REJECTED_EXACTLY" and evidence_prefix < final_prefix:
+        values = rejected_values[evidence_prefix]
     if values is not None:
-        engine.verify_witness(working, values)
+        engine.verify_witness(evidence_model, values)
+        if evidence_prefix < final_prefix:
+            require(list(map(engine.q, values)) ==
+                    list(map(engine.q, rejected_values[evidence_prefix])),
+                    "Engine witness differs from its archived rejected candidate")
+        latest_values_match = True
         if isinstance(latest.get("values"), list):
-            require(list(map(engine.q, latest["values"])) == list(map(engine.q, values)),
-                    "Latest values differ from the witness file")
+            latest_values_match = (list(map(engine.q, latest["values"])) ==
+                                   list(map(engine.q, values)))
+            report["latest_values_match_engine_witness"] = latest_values_match
+            if not latest_values_match:
+                report["latest_status_may_precede_durable_engine_artifacts"] = True
         report["witness"] = {"status": "PASS_EXACT_NECESSARY_WITNESS",
                              "variables": len(values)}
         lifted = lift_witness(projection, values)
@@ -283,13 +320,14 @@ def audit_task(task, out, root=ROOT):
             report["matrix_candidate"] = candidate_check
             # A matrix rejected by a later non-linear check can legitimately
             # remain in the final interrupted iteration; report it honestly.
-            if status == "SURVIVING_NECESSARY_MATRIX":
+            if (status == "SURVIVING_NECESSARY_MATRIX" and
+                    evidence_prefix == final_prefix and latest_values_match):
                 require(candidate_check.get("valid"),
                         "Latest claims a surviving matrix that fails exact replay")
         if independent_witness_path.is_file():
             require(independent_model_path.is_file(), "Independent witness has no model")
             independent_model = read_json(independent_model_path)
-            expected, _ = engine.standardize_model(working)
+            expected, _ = engine.standardize_model(evidence_model)
             same_numeric(independent_model, expected, "Independent witness equality model")
             independent_witness = read_json(independent_witness_path)
             if "model_sha256" in independent_witness:
@@ -299,7 +337,8 @@ def audit_task(task, out, root=ROOT):
             report["independent_witness"] = independent_check.verify_witness(
                 independent_model, candidate_values(independent_witness))
         if "status" not in report:
-            report["status"] = "PASS_EXACT_WITNESS_REPLAY"
+            report["status"] = ("PASS_EXACT_WITNESS_REPLAY" if evidence_prefix == final_prefix
+                                else "PASS_EXACT_PREFIX_WITNESS_REPLAY")
     require(status != "INFEASIBLE_CERTIFIED" or
             report.get("status") == "PASS_EXACT_MODEL_INFEASIBILITY_REPLAY",
             "Certified exclusion claim was not replayed")

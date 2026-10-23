@@ -42,6 +42,20 @@ class ArithmeticControls(unittest.TestCase):
                           for k in range(9))
             self.assertEqual(total,f.scale(f.one,9 if eigen == 2 else 0))
 
+    def test_cached_builder_matches_original_exact_arrays(self):
+        import importlib.util
+        import sys
+        path = Path(__file__).with_name("orbit_baseline.py")
+        spec = importlib.util.spec_from_file_location("orbit_baseline_control", path)
+        baseline = importlib.util.module_from_spec(spec)
+        sys.modules[spec.name] = baseline
+        spec.loader.exec_module(baseline)
+        vendor = Path(__file__).resolve().parents[1]/"vendor"
+        a = baseline.build_one(vendor,"R8_3_928",baseline.BRANCHES["R8_3_928"][0],(3,4))
+        b = q.build_one(vendor,"R8_3_928",q.BRANCHES["R8_3_928"][0],(3,4))
+        for key in ("n","rows","rhs","lo","up","integrality"):
+            self.assertEqual(a[key],b[key],key)
+
     def test_source_and_two_representative_builds(self):
         vendor = Path(os.environ.get("RANK8_VENDOR_ROOT",
                                      Path(__file__).resolve().parents[1]/"vendor"))
