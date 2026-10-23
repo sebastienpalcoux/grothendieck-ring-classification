@@ -25,9 +25,15 @@ jobs:
         run: |
           python -c "import scipy,sympy,numpy,highspy; print('scipy',scipy.__version__,'sympy',sympy.__version__,'numpy',numpy.__version__)"
           python -m compileall -q .
+          if test -f engine.py; then python engine.py --self-test; fi
       - name: Fetch pinned mathematical inputs
-        if: hashFiles('READY') != ''
+        if: hashFiles('vendor_manifest.json') != ''
         run: python tools/vendor.py
+      - name: Partial adapter validation while the package is being assembled
+        if: hashFiles('READY') == '' && hashFiles('vendor_manifest.json') != ''
+        run: |
+          if test -f cases/r1154.py; then python tools/compile_case.py --case R8_3_1154 --limit 1 --controls; fi
+          if test -f cases/r1768.py; then python tools/compile_case.py --case R8_3_1768 --limit 1 --controls; fi
       - name: Test, compile case systems and build archive
         if: hashFiles('READY') != ''
         env:
