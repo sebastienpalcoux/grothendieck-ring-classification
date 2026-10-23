@@ -38,6 +38,8 @@ jobs:
           node site/check_cases.mjs
           node --check site/dist/rank9_10.js
           python site/check_rank9_10.py
+          node --check site/dist/rank11.js
+          python site/check_rank11.py
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
       - name: Upload the static atlas

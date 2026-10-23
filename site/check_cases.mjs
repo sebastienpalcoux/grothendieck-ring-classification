@@ -390,3 +390,39 @@ for(const query of ["?rank=10&status=unresolved&q=R10_1_189","?rank=99&status=in
   assert.equal(rows.length,query.includes("invalid")?24:1,"URL filters must be validated before rendering");
 }
 console.log("Rank-nine/ten directory checked: all 336 ordered records, 24 per page, and exact status/search filters.");
+
+const eleven=json("data/rank11_m1.json");
+for(const ring of eleven.cases) {
+  releaseContext.renderReleaseCase(ring,ring.status!=="unitarily_realized");
+  assert.equal(releaseContext.document.querySelector("#case-title").textContent,ring.id);
+  assert.match(releaseContext.document.querySelector("#case-detail").textContent,/Current accepted case decision/);
+}
+vm.runInContext(read("rank11.js"),overlayContext);
+const oldModelCount=state.models.length;
+overlayContext.Rank11.mergeAtlas(state,eleven);
+assert.equal(state.models.length,oldModelCount+27);
+assert.equal(state.data.rows.find(r=>r.rank===11).rings,182);
+assert.equal(state.data.grothendieck_rows.find(r=>r.rank===11).rings,27);
+assert.equal(state.data.scope.find(r=>r.rank===11).unresolved,0);
+assert.equal(new Set(state.models.map(r=>r.id)).size,state.models.length);
+const elevenDirectory=context();
+elevenDirectory.fetch=async()=>({ok:true,json:async()=>structuredClone(eleven)});
+elevenDirectory.history={replaceState:(_,__,url)=>{elevenDirectory.location.href=String(url);elevenDirectory.location.search=url.search;}};
+vm.createContext(elevenDirectory);vm.runInContext(read("rank11.js"),elevenDirectory);
+await new Promise(resolve=>setImmediate(resolve));
+const get11=(id)=>elevenDirectory.document.querySelector("#rank11-"+id);
+const seen11=[];
+for(let pages=0;pages<10;pages++) {
+  const shown=get11("list").children;
+  assert(shown.length>0&&shown.length<=24);
+  seen11.push(...shown.map(row=>descendants(row).find(n=>n.tagName==="strong").textContent));
+  if(get11("next").disabled)break;
+  get11("next").emit("click");
+}
+assert.deepEqual(seen11,eleven.cases.map(r=>r.id));
+get11("status").value="unresolved";get11("status").emit("input");
+assert.equal(get11("list").children.length,0);
+get11("status").value="unitarily_realized";get11("status").emit("input");
+assert.equal(get11("list").children.length,24);
+get11("next").emit("click");assert.equal(get11("list").children.length,3);
+console.log("Rank-eleven UI checked: 182 complete case pages, exact 182/27 count views, ordered pagination and status filters.");

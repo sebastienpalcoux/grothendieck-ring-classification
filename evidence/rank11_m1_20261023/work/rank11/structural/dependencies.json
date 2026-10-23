@@ -1,0 +1,101 @@
+{
+  "python_packages": [
+    "sympy"
+  ],
+  "source": "repositories/fusion-ring-census/results/rank11/tables.txt.gz",
+  "source_override_environment_variable": "RANK11_SOURCE",
+  "commands": [
+    "python work/rank11/structural/verify_baseline.py",
+    "python work/rank11/structural/verify_modules_independent.py",
+    "python work/rank11/structural/verify_noncomm_independent.py",
+    "python work/rank11/structural/inherited_solvability.py",
+    "python work/rank11/structural/verify_c4_cohomology_independent.py"
+  ],
+  "files": [
+    {
+      "path": "work/rank11/structural/THEORY.md",
+      "sha256": "2fe9b073062cab72bbf0bd2f9a113e06d850e6406302c34301276304933b40c6"
+    },
+    {
+      "path": "work/rank11/structural/support.py",
+      "sha256": "5b862cb77a0baf4a9592c78152591cd50579099569f52468cbc876d4ceb59974"
+    },
+    {
+      "path": "work/rank11/structural/verify_baseline.py",
+      "sha256": "ec04324a31ccf50697d4e7e71ecde924b1e9c87d26ead4720c2498c2eae520e2"
+    },
+    {
+      "path": "work/rank11/structural/verify_modules_independent.py",
+      "sha256": "eefe37137af012de3114a9b78e3220b31901acc94a6d816537ba51655cc00898"
+    },
+    {
+      "path": "work/rank11/structural/verify_noncomm_independent.py",
+      "sha256": "6452460f3070a17d0fce77576685c6a715530fc4392593dc683004298fa7eec1"
+    },
+    {
+      "path": "work/rank11/structural/legacy_module_rank11.py",
+      "sha256": "29ff9bdb862fde17a54887fd9d244c5e7a3cfde08a584b66f60a3824d70e0759"
+    },
+    {
+      "path": "work/rank11/structural/legacy_noncomm_module.py",
+      "sha256": "359902cf4bfa23e6e88e4a76d3992fe6a562b5f7ce52a465eb13f21bb30498be"
+    },
+    {
+      "path": "work/rank11/structural/inherited_solvability.py",
+      "sha256": "d961a163a9e7ab3eb1d864876d2a4ee548d94d4ffa9e1e3ba3a2ee359dcd1c68"
+    },
+    {
+      "path": "work/rank11/structural/baseline.json",
+      "sha256": "25e8777395acafa5ef4fc263ed1c765e120e0e3b5cf4cce22bfbf00cd6ff34d9"
+    },
+    {
+      "path": "work/rank11/structural/zero_spectrum.json",
+      "sha256": "c83574a0f17854dfb24a136686f6eab0f15b581361b5e34c6d404c3785ef7df8"
+    },
+    {
+      "path": "work/rank11/structural/one_spectrum.json",
+      "sha256": "cf443edea7be488bf7b16622362df77c6f3015422cf29c4cd3f6f8ed9e5aea5b"
+    },
+    {
+      "path": "work/rank11/structural/module_exclusions_verified.json",
+      "sha256": "19965f9089063ef4ce15fd54ef03a41393d552272783d66c0cf3177da72f736c"
+    },
+    {
+      "path": "work/rank11/structural/noncomm_exclusions_verified.json",
+      "sha256": "0fdada3119181f2de162baa0f7280bf1d0b2108a6a29b3d21fe25bf120a65603"
+    },
+    {
+      "path": "work/rank11/structural/inherited_solvability.json",
+      "sha256": "f81d214ec25a4d5b82db61be8b3b3607bce4533fe36a7963e81fc9e4fa191e39"
+    },
+    {
+      "path": "work/rank11/structural/prior_evidence/solvable_r29_certificate.json",
+      "sha256": "5ed04d0d9aba041b7f44213863d06a9a22b9fbac2838db3d7e8df96da560a11b"
+    },
+    {
+      "path": "work/rank11/structural/prior_evidence/verify_solvable_r29.py",
+      "sha256": "71783bb0d2ba6a2140d3bf69e80a1451c8e1fc9e5e41d51d229195c03f755b4e"
+    },
+    {
+      "path": "work/rank11/structural/prior_evidence/solvable_proofs.tex",
+      "sha256": "33afed9f42db414aab2ec7e8e70686e600e7864b96f026273d314010ebbfeb53"
+    },
+    {
+      "path": "work/rank11/structural/prior_evidence/ANTI_MODULE_EIGHT_GENERAL_PROOF.md",
+      "sha256": "3e2629bbf941602d89c6b8aa265db9c8f940f1cab33576c98ad6e3ad8515be5d"
+    },
+    {
+      "path": "work/rank11/structural/C4_NEUTRAL_MODULE_AUDIT.md",
+      "sha256": "9d04f79358e8865786fea39afc3a2dc78ac00e3f2eb5c4d12c00990f6095dc23"
+    },
+    {
+      "path": "work/rank11/structural/verify_c4_cohomology_independent.py",
+      "sha256": "e83ce8d4115547fdc93d402c99707b416cb651c06fe00a76d7d26652fae06098"
+    },
+    {
+      "path": "work/rank11/structural/c4_neutral_cohomology_replay.json",
+      "sha256": "8a229162c930f477b76b733b5ab3e2e2ecedbc709d7469f2804bb6692d8dfc3a"
+    }
+  ],
+  "assert_required": false
+}

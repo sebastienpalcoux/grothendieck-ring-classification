@@ -1,0 +1,479 @@
+% Embeddable research section. Requires amsmath, amssymb, amsthm, booktabs,
+% array, and hyperref. Bibliography entries are in NONINTEGRAL-bib.tex.
+\section{Dimension characters, central restrictions, and a quaternionic model}
+\label{sec:r11-nonintegral}
+
+Throughout this section, $R_n$ abbreviates the supplied based ring
+\texttt{R11\_1\_}$n$. The integer $n$ is its physical line number in the
+rank-eleven multiplicity-one input, and basis indices run from $0$ to $10$,
+with $0$ the unit. All statements concern the entire based multiplication
+tensor. In particular, an obstruction to a complex categorification is
+distinguished from an obstruction that initially assumes a spherical or
+pseudo-unitary structure.
+
+The results below exclude thirty-eight rings as Grothendieck rings of
+complex fusion categories. They also construct a unitary categorification
+of $R_{179}$, of dimension $72$. The categorical ingredients are established
+results; the uniform applications, explicit witnesses, and finite input
+identifications are recorded here with exact replay certificates. These
+results do not assert a classification of associators on any realizable
+based ring.
+
+\subsection{Exact passage from arbitrary categorifications to spherical ones}
+\label{subsec:r11-signed-bridge}
+
+We first explain the scope of the computational reduction used below.
+Sphericalize a hypothetical complex fusion category $\mathcal C$, and
+choose a lift of each simple object, with the unit and duality normalized.
+Write $\varepsilon$ for the central sign object. In multiplicity one, the
+quotient of the sphericalization's Grothendieck ring by
+$[\varepsilon]+1$ has structure constants
+\[
+ T_{ij}^{k}=\sigma_{ij}^{k}N_{ij}^{k},\qquad
+ \sigma_{ij}^{k}\in\{1,-1\}
+ \quad\text{when }N_{ij}^{k}=1.
+\]
+These constants satisfy associativity, the unit identities, cyclic trace
+symmetry, and reversal with duals. The trace triple $(i,j,k^*)$ is identified
+only under cyclic rotation and
+$(a,b,c)\mapsto(c^*,b^*,a^*)$; arbitrary permutations, or commutativity of
+the signed quotient, are not imposed. Changing lifts replaces
+$T_{ij}^{k}$ by $s_i s_j s_k T_{ij}^{k}$, where
+$s_0=1$ and $s_i=s_{i^*}\in\{1,-1\}$.
+
+\paragraph{Completeness of the sign calculation.}
+Put $\sigma=(-1)^x$ on each oriented orbit. Every associativity identity
+becomes an exact equation
+\[
+ \sum_m c_m(-1)^{\langle m,x\rangle}=0.
+\]
+If one coefficient has absolute value equal to the sum of the absolute
+values of the others, the positive solution and equality in the triangle
+inequality force the participating sign monomials to agree. Each resulting
+linear relation over $\mathbb F_2$ is replayed from its full associativity
+identity. An independently checked gauge matrix proves that the chosen
+normalization meets every gauge orbit. All remaining assignments are then
+enumerated and checked.
+
+For the fifty-nine inputs in the recorded nonintegral audit, at most one
+binary variable remains after this reduction. The complete domain has
+seventy-one assignments: fifty-nine positive original tables and twelve
+alternative associative signed tables. Every alternative is excluded by
+its complete scalar-character inventory. Thus every categorically possible
+signed table is gauge equivalent to the original positive table.
+
+For completeness, an associative signed table with these reciprocity
+identities is a finite-dimensional semisimple $*$-algebra in its regular
+representation. The common kernel of its regular commutators is the sum
+of the one-dimensional representation spaces. Proposed scalar characters
+are checked directly on every product. Their distinct irreducible
+separating polynomials, whose degrees sum to the dimension of this common
+kernel, prove that no scalar character is omitted. A spherical dimension
+character must be nonzero on every simple and equal on dual pairs. The
+remaining exact obstructions use the algebraic integrality of
+$\delta/f_E$ and the necessary containment
+$f_E\in\mathbb Q(d_i)$; see
+\cite[Theorem~2.13 and Corollary~2.15]{OstrikPivotal}.
+For a signed quotient these conditions are applied in the actual
+sphericalization: its dimension is $2\delta$, its two algebra summands
+are the original and signed rings, and their formal codegrees are doubled.
+Consequently the same field-containment conditions apply to both summands.
+
+The signed conclusion has a categorical consequence, rather than merely
+a numerical one. Choose the lifts for which every nonzero coefficient is
+positive. Their products contain only chosen lifts, so they span a fusion
+subcategory of the sphericalization. Forgetting the lifts gives a tensor
+equivalence with $\mathcal C$. Its spherical structure therefore descends
+to $\mathcal C$; compare \cite[Section~5.1]{OstrikPivotal}.
+
+\paragraph{Original dimension characters.}
+The same complete-inventory check is performed on the fifty-nine original
+rings. Actual formal codegrees, rather than uncorrected regular Casimir
+eigenvalues, are used: on a matrix block belonging to $E$, the latter
+eigenvalue is $(\dim E)f_E$. The scalar part is extracted first and the
+remaining block sizes are checked by the dimension of the semisimple
+algebra. Exact norm and field-containment certificates then reject the
+inadmissible dimension characters.
+
+For $R_2,R_{51},R_{124},R_{147}$ no spherical dimension character remains.
+For all surviving characters except those of
+\[
+ R_{36},R_{86},R_{95},R_{135},R_{136},R_{170},
+\]
+the inventory supplies a field embedding and a tensor sign character
+making every simple dimension positive. Galois conjugation of the
+algebraic categorical data and twisting the spherical pivotal structure
+by that sign character then give positive dimensions, necessarily equal
+to Frobenius--Perron dimensions. Thus a Galois conjugate is pseudo-unitary;
+see \cite[Section~8.4]{ENO}. This assertion does not claim that the original
+category is pseudo-unitary. The six exceptions have an additional mixed
+spherical dimension character and will be treated directly.
+
+The exact replay checks fifty-nine sign records, twelve alternative signed
+character records, and fifty-nine original character records, with each
+record bound to the full input tensor hash. It reconstructs the sign
+deductions independently. The legacy sign checker also recomputes the
+twelve small alternative character calculations; their results are then
+checked separately by direct homomorphism identities and completeness,
+without trusting that character-discovery calculation. This full replay,
+not a stored Boolean conclusion, is a dependency of the general-complex
+exclusions below.
+
+\subsection{The spherical dimension lattice}
+\label{subsec:r11-dimension-lattice}
+
+Let $d_i$ be the simple dimensions of a spherical fusion category,
+$\delta=\sum_i d_i d_{i^*}$ its global dimension, and
+\[
+ L_d=\sum_i\mathbb Z d_i
+\]
+the additive lattice generated by its simple dimensions. For an
+irreducible representation $E$ of its based ring with formal codegree
+$f_E$, the induction theorem
+\cite[Theorem~2.13]{OstrikPivotal} supplies a simple
+$A_E\in\mathcal Z(\mathcal C)$ such that
+\begin{equation}\label{eq:r11-central-dimension}
+ \dim A_E=\frac{\delta}{f_E},\qquad
+ [F(A_E):\mathbf1]=\dim E,
+\end{equation}
+where $F$ is the forgetful functor. Since $F$ preserves dimension,
+\begin{equation}\label{eq:r11-lattice-condition}
+ \frac{\delta}{f_E}\in L_d
+ \qquad\text{for every }E.
+\end{equation}
+This condition holds for every spherical dimension character, including
+characters with negative dimensions or rational global dimension.
+
+An exact certificate for failure of
+\eqref{eq:r11-lattice-condition} is a rational linear functional
+$\ell$ on the character field satisfying
+\[
+ \ell(d_i)\in\mathbb Z\quad\text{for every }i,
+ \qquad \ell(\delta/f_E)\notin\mathbb Z.
+\]
+The verifier evaluates these expressions directly; it does not require
+Hermite normal form or a lattice search. Each irreducible character-field
+factor covers its entire Galois orbit, since both the dimension condition
+and the multiset of formal codegrees are Galois invariant.
+
+Here are all thirty-four inputs rejected by the complete spherical
+inventory together with these lattice witnesses. Superscripts in the
+dimension types denote multiplicities.
+\begin{enumerate}
+\item Type $1^4,2^3,(1+\sqrt5)^4$:
+\[
+ 2,31,51,59,69,83,107,108,122,124,147,151.
+\]
+The Frobenius--Perron branch has
+$D=40+8\sqrt5$ and $L=\mathbb Z+\mathbb Z\sqrt5$.
+The actual formal codegree $40-8\sqrt5$ requires
+\[
+ \frac{D}{40-8\sqrt5}=\frac{3+\sqrt5}{2}\notin L.
+\]
+The four inputs $2,51,124,147$ were already excluded by their complete
+spherical character inventories. For the other eight, all surviving
+branches are covered by exact separating functionals.
+
+\item Type $1^4,2^3,(2+2\sqrt2)^4$:
+\[
+ 32,62,88,110,137,138,152,154.
+\]
+Here $D=64+32\sqrt2$ and $L=\mathbb Z+2\mathbb Z\sqrt2$.
+The formal codegree $32$ requires
+\[
+ \frac{D}{32}=2+\sqrt2\notin L.
+\]
+
+\item Type $1^4,2,a^2,b^2,c^2$:
+\[
+ 34,70,89,96,115,123,139,167.
+\]
+Let $a$ be the largest real root of $a^3-12a-8=0$, and put
+$b=a^2/2-2$ and $c=a+2$.
+The numbers $1,a,b$ are rationally independent, and
+\[
+ L=\mathbb Z+\mathbb Za+\mathbb Zb,
+ \qquad D=48+12a+12b.
+\]
+The formal codegree $24$ requires
+\[
+ \frac{D}{24}=2+\frac{a+b}{2}\notin L.
+\]
+
+\item Type $1^4,2,(1+\sqrt5)^4,(3+\sqrt5)^2$:
+\[
+ 36,86,95,135,136,170.
+\]
+The Frobenius--Perron branch has $D=60+20\sqrt5$ and
+$L=\mathbb Z+\mathbb Z\sqrt5$; the formal codegree $40$ requires
+$(3+\sqrt5)/2\notin L$.
+For each of these six rings there is also a mixed spherical character
+of global dimension $\delta=40$. Its simple dimensions still generate
+$\mathbb Z+\mathbb Z\sqrt5$. The actual formal codegrees
+$60\pm20\sqrt5$ now require
+\[
+ \frac{40}{60\pm20\sqrt5}=\frac{3\mp\sqrt5}{2}
+ \notin\mathbb Z+\mathbb Z\sqrt5.
+\]
+Thus these branches are excluded directly, without an unjustified
+pseudo-unitary reduction.
+\end{enumerate}
+
+The finite replay checks forty-four separating functionals over all
+remaining character branches. Four of the thirty-four inputs have no
+remaining spherical branch; the other thirty require at least one lattice
+witness. Combined with Section~\ref{subsec:r11-signed-bridge}, these are
+exclusions of arbitrary complex categorifications.
+
+\subsection{A two-character central-restriction obstruction}
+\label{subsec:r11-two-character}
+
+The four further rings
+\[
+ R_3,\quad R_{52},\quad R_{142},\quad R_{149}
+\]
+have dimension type $1^4,2^3,x^4$, where
+$x=2+2\sqrt2$, and global Frobenius--Perron dimension
+$D=64+32\sqrt2$. For these four, the complete signed and character audit
+reduces existence of a complex categorification to existence of a
+pseudo-unitary one. We therefore work with positive simple dimensions.
+
+Let $\chi$ be the Galois conjugate of the Frobenius--Perron character.
+It has values $1$ on the invertibles, $2$ on the two-dimensional simples,
+and $2-2\sqrt2$ on the four $x$-dimensional simples. Its formal codegree is
+$f_\chi=64-32\sqrt2$. A second scalar character $\varphi$ has formal
+codegree $f_\varphi=16$ and takes one of the values $\pm\sqrt2$ on each
+$x$-dimensional simple. In input basis order, complete witnesses for this
+second character are as follows, with $q=\sqrt2$:
+\begin{center}
+\small
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{@{}rcl@{}}
+\toprule
+Input & $x$-dimensional indices & $(\varphi_0,\ldots,\varphi_{10})$\\
+\midrule
+$3$   & $4,5,6,7$ & $(1,1,1,0,-q,q,q,-q,0,1,-2)$\\
+$52$  & $4,5,7,8$ & $(1,1,1,0,-q,q,-2,q,-q,0,1)$\\
+$142$ & $1,2,3,4$ & $(1,q,q,-q,-q,-2,1,0,1,1,0)$\\
+$149$ & $3,4,5,6$ & $(1,1,1,q,q,-q,-q,0,-2,0,1)$\\
+\bottomrule
+\end{tabular}
+\end{center}
+Every product identity and both formal codegrees are checked exactly.
+
+Write
+\[
+ \beta_\chi=\frac{D}{f_\chi}=3+2\sqrt2=1+x,
+ \qquad
+ \beta_\varphi=\frac{D}{f_\varphi}=4+2\sqrt2=2+x.
+\]
+Since both characters are one-dimensional,
+\eqref{eq:r11-central-dimension} says that the restrictions of their
+associated central simples contain the unit exactly once. Comparing
+coefficients of $\sqrt2$ and then rational parts, using positivity, forces
+\begin{equation}\label{eq:r11-forced-restrictions}
+ F(A_\chi)=\mathbf1+X,
+ \qquad
+ F(A_\varphi)=\mathbf1+g+Y,
+\end{equation}
+where $X,Y$ have dimension $x$ and $g$ is a nontrivial invertible.
+Indeed the irrational coefficient permits exactly one $x$-dimensional
+summand, and the remaining rational weight after the prescribed unit is
+respectively zero or one.
+
+The correspondence between based-ring characters and central simples,
+together with symmetry of the center's $S$-matrix, gives
+\begin{equation}\label{eq:r11-reciprocity}
+ \beta_\chi\,\chi(F(A_\varphi))
+ =\beta_\varphi\,\varphi(F(A_\chi));
+\end{equation}
+see \cite[Example~2.9 and the discussion preceding Theorem~2.13]
+{OstrikPivotal}. But
+\[
+ \chi(F(A_\varphi))=4-2\sqrt2,
+ \qquad
+ (3+2\sqrt2)(4-2\sqrt2)=4+2\sqrt2.
+\]
+Thus \eqref{eq:r11-reciprocity} forces
+$\varphi(\mathbf1+X)=1$, hence $\varphi(X)=0$. This contradicts the
+displayed character values on every possible $X$. It excludes all four
+rings by the same argument, without enumerating full induction matrices.
+Together with the preceding thirty-four, the number of distinct
+general-complex exclusions in this section is thirty-eight.
+
+\subsection{A coherent quaternionic model for $R_{179}$}
+\label{subsec:r11-quaternionic-model}
+
+We now give an existence proof for an integral input. Let $\mathcal D$ be
+one of Izumi's unitary near-group categories for the quaternion group
+$Q_8=\{\pm1,\pm i,\pm j,\pm k\}$. Its fusion rules are
+\begin{equation}\label{eq:r11-Q8-base}
+ g\rho=\rho g=\rho,
+ \qquad \rho^2=\sum_{g\in Q_8}g+2\rho.
+\end{equation}
+Thus $\operatorname{FPdim}(\rho)=4$ and
+$\operatorname{FPdim}(\mathcal D)=24$.
+Existence, with the explicit categorical data used below, follows from
+\cite[Theorems~1.1 and~6.1, Lemma~6.13]{Izumi}.
+
+\paragraph{The full integral categorical tuple.}
+Use the faithful quaternionic representation on $K=\mathbb C^2$ given by
+\[
+ I=\begin{pmatrix}i&0\\0&-i\end{pmatrix},
+ \qquad J=\begin{pmatrix}0&1\\-1&0\end{pmatrix},
+ \qquad K_0=IJ,
+\]
+so that $\pi(i)=I$, $\pi(j)=J$, and $\pi(k)=K_0$.
+Let $j_0=J\circ\text{complex conjugation}$. For any third root of unity
+$\zeta$, Izumi's admissible tuple is
+\begin{equation}\label{eq:r11-integral-tuple}
+ (K,V,U_K,j_1,j_2,\chi,l)
+ =(\mathbb C^2,\pi,\pi,j_0,-\zeta j_0,\chi,0),
+ \qquad
+ \pi(g)\pi(h)=\chi_h(g)\pi(h)\pi(g).
+\end{equation}
+This is the integral tuple of Lemma~6.13, not an application of an
+automorphism theorem restricted to irrational near-group categories.
+
+Put
+\begin{equation}\label{eq:r11-order-three-W}
+ W=-\frac{1+I+J+K_0}{2}.
+\end{equation}
+Direct Gaussian-rational matrix calculations give
+\[
+ W^*W=1,\qquad W^3=1,\qquad \operatorname{tr}(W)=-1,
+ \qquad Wj_0=j_0W.
+\]
+Conjugation by $W$ cyclically permutes $I,J,K_0$. Hence, for the order-three
+group automorphism $\phi:i\mapsto j\mapsto k\mapsto i$,
+\[
+ W\pi(g)W^*=\pi(\phi(g))\qquad(g\in Q_8).
+\]
+These equations preserve both representations $V$ and $U_K$ in
+\eqref{eq:r11-integral-tuple}, both antiunitaries $j_1,j_2$, and the
+commutator bicharacter $\chi$ after relabeling by $\phi$. Since $l=0$, its
+compatibility is automatic. This verifies every component of the
+equivalence-of-tuples condition in \cite[Definition~4.8]{Izumi}.
+
+\paragraph{Categorical action and coherence.}
+For clarity, existence of the action can be read directly from the
+reconstruction, not merely from a permutation of fusion rules.
+The generating isometries are
+$S_g\in\operatorname{Hom}(g,\rho^2)$ and
+$T(v)\in\operatorname{Hom}(\rho,\rho^2)$, $v\in K$.
+Define the Cuntz-algebra automorphism
+\begin{equation}\label{eq:r11-Cuntz-action}
+ \gamma(S_g)=S_{\phi(g)},\qquad
+ \gamma(T(v))=T(Wv).
+\end{equation}
+The reconstruction equations \cite[(3.10)--(3.12)]{Izumi} are covariant
+under this assignment. In (3.10), $\sum_gS_g$ and the contraction
+$\sum_a T_a j_1(T_a)$ are preserved. Equation (3.11) is covariant because
+the pointed representations intertwine. Each term in (3.12) is covariant
+because $W$ intertwines $V,U_K$, commutes with $j_1,j_2$, and preserves
+$l=0$. Therefore $\gamma$ conjugates the pointed endomorphisms by $\phi$
+and commutes with $\rho$. The reconstruction theorem
+\cite[Theorem~4.9]{Izumi} supplies the resulting unitary tensor
+autoequivalence of $\mathcal D$.
+
+All morphisms are generated by these isometries and their adjoints
+\cite[Remark~3.6]{Izumi}. Since $\phi^3=1$ and $W^3=1$, the cube of
+\eqref{eq:r11-Cuntz-action} is the identity on the Cuntz generators,
+hence on the reconstructed category. Identity compositors consequently
+give a coherent, strict $C_3$ action. No use is made of Izumi's Section~13
+automorphism results, which have a different, irrational scope.
+
+\paragraph{Equivariant simples and products.}
+The unitary equivariantization
+$\mathcal C=\mathcal D^{C_3}$ has dimension $72$.
+The fixed invertibles $1,-1$ each have three equivariant structures,
+giving six invertibles $L_{(g,a)}$, $g\in\{1,-1\}$,
+$a\in\mathbb Z/3$. The free orbits
+$\{i,j,k\}$ and $\{-i,-j,-k\}$ give two objects $U,V$ of dimension three.
+The fixed object $\rho$ has three lifts $P_a$ of dimension four.
+The rank and dimension type are therefore $11$ and $1^6,3^2,4^3$.
+
+The pointed part is computed by equivariant homogeneous fibers. Explicitly,
+\begin{align*}
+ L_{(g,a)}L_{(h,b)}&=L_{(gh,a+b)},\\
+ L_{(1,a)}U&=U L_{(1,a)}=U,
+ &L_{(1,a)}V&=V L_{(1,a)}=V,\\
+ L_{(-1,a)}U&=U L_{(-1,a)}=V,
+ &L_{(-1,a)}V&=V L_{(-1,a)}=U,\\
+ U^2=V^2&=\sum_{a\in\mathbb Z/3}L_{(-1,a)}+U+V,
+ &UV=VU&=\sum_{a\in\mathbb Z/3}L_{(1,a)}+U+V.
+\end{align*}
+The remaining products are
+\begin{align}
+ L_{(g,a)}P_b=P_bL_{(g,a)}&=P_{a+b},\label{eq:r11-fixed-rho}\\
+ UP_b=P_bU=VP_b=P_bV&=P_0+P_1+P_2,\label{eq:r11-orbit-rho}\\
+ P_aP_b&=L_{(1,a+b)}+L_{(-1,a+b)}+U+V\notag\\
+ &\hspace{12mm}+P_{a+b+1}+P_{a+b+2}.
+ \label{eq:r11-rho-square}
+\end{align}
+Indices are read modulo three. In \eqref{eq:r11-rho-square}, the fixed
+pointed channels have phase one because $S_1,S_{-1}$ are fixed by
+$\gamma$. The action on $\operatorname{Hom}(\rho,\rho^2)$ is $W$, whose
+eigencharacters are the two nontrivial characters of $C_3$. An inverse
+convention for the action replaces $W$ by $W^{-1}$ and leaves this
+multiset unchanged. In the right absorption channels of
+\eqref{eq:r11-fixed-rho}, no additional phase occurs: $\pi(\pm1)$ commutes
+with $W$. Free three-cycles contribute each character once, yielding
+\eqref{eq:r11-orbit-rho}. Finally $P_a^*=P_{-a}$, so exactly one
+four-dimensional simple is self-dual.
+
+In the model basis
+\[
+ L_{(1,0)},L_{(1,1)},L_{(1,2)},
+ L_{(-1,0)},L_{(-1,1)},L_{(-1,2)},U,V,P_0,P_1,P_2,
+\]
+the model-to-input bijection is
+\begin{equation}\label{eq:r11-179-bijection}
+ (0,7,8,9,1,2,5,6,10,4,3).
+\end{equation}
+Every one of the $11^3=1331$ multiplication coefficients agrees under
+this bijection with $R_{179}$. Its canonical tensor SHA-256 is
+\begin{center}\small
+\texttt{a9492a728c3c2e5d59d92d723a5349782a}\\[-1mm]
+\texttt{962bc04ead4aacd0d7756e5d7c95f2}.
+\end{center}
+All three cube-root choices in \eqref{eq:r11-integral-tuple} provide
+this based tensor. One such realization suffices for the existence claim.
+
+\subsection{Finite verification and dependency order}
+\label{subsec:r11-nonintegral-replay}
+
+All following paths are relative to \texttt{work/rank11/nonintegral/}.
+Run the four accepted entrypoints in this order, from the project root:
+\begin{enumerate}
+\item \nolinkurl{verify_reduction.py}: complete signed and scalar replay;
+59 sign records, 12 alternative signed character records, and
+59 original character records.
+\item \nolinkurl{verify_spherical_lattice.py}: 34 excluded inputs,
+including the four already rejected scalar inventories, and
+44 exact separating functionals.
+\item \nolinkurl{verify_two_character.py}: the four explicit character
+pairs, formal codegrees, forced restrictions, and their contradictions.
+Its rational arithmetic is implemented directly in $\mathbb Q(\sqrt2)$.
+\item \nolinkurl{integral179/verify.py}: an independent reconstruction of
+the equivariant fusion tensor by
+\[
+ \dim H^{C_3}=\frac13\sum_{t=0}^2\operatorname{Tr}(t\mid H)
+\]
+on every underlying near-group fusion space. The exceptional
+two-dimensional space has character $(2,-1,-1)$; the other channels
+are the one-dimensional absorption or $S_g$ spaces, with their orbit
+permutations. This verifier does not import the model constructor.
+It checks the exact action matrix, the source hash, all $1331$ tensor
+coefficients, and all $11^4=14641$ associativity identities.
+\end{enumerate}
+
+The first replay imports the project's prior oriented-sign and exact
+character verifiers. The lattice replay imports the shared exact-number
+field helpers. The two-character and quaternionic model verifiers use
+only the Python standard library. Critical conditions use explicit
+exceptions and remain active under \texttt{python -O}. In particular,
+the second and third checks alone are not certificates of a
+general-complex exclusion: they require the full first replay, not merely
+its summary flags. No timeout, failed model search, numerical tolerance,
+or incomplete finite domain is used in any accepted conclusion here.

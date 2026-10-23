@@ -1,5 +1,50 @@
 # Manuscripts
 
+**Rank eleven, multiplicity one: 155 exclusions, 27 unitary models, 0 unresolved among 182 supplied rings.**
+
+> **AI-generated research · independent verification pending.** Exact automated checks establish only their stated computational scope.
+
+Current manuscripts appear once, in increasing rank order. Realized counts refer to based rings with at least one model; they do not count inequivalent associators.
+
+| Manuscript | PDF | Source | Pages |
+|---|---|---|---:|
+| Rank two | [PDF](rank2.pdf) | [TeX](rank2.tex) | 3 |
+| Rank three | [PDF](rank3.pdf) | [TeX](rank3.tex) | 12 |
+| Rank four: finite classification | [PDF](rank4/papers/finite.pdf) | [TeX](rank4/papers/finite.tex) | 29 |
+| Rank four: unrestricted classification | [PDF](rank4/papers/companion.pdf) | [TeX](rank4/papers/companion.tex) | 88 |
+| Rank five | [PDF](rank5/papers/manuscript.pdf) | [TeX](rank5/papers/manuscript.tex) | 19 |
+| Rank six | [PDF](rank6/papers/manuscript.pdf) | [TeX](rank6/papers/manuscript.tex) | 170 |
+| Rank seven | [PDF](rank7/papers/manuscript.pdf) | [TeX](rank7/papers/manuscript.tex) | 83 |
+| Rank eight | [PDF](rank8/paper/rank8.pdf) | [TeX](rank8/paper/rank8.tex) | 148 |
+| Rank-nine and rank-ten multiplicity-one classification | [PDF](../publications/rank9-rank10/paper/rank9-rank10.pdf) | [TeX](../publications/rank9-rank10/paper/rank9-rank10.tex) | 24 |
+| Rank-eleven multiplicity-one classification | [PDF](../publications/rank11/paper/rank11.pdf) | [TeX](../publications/rank11/paper/rank11.tex) | 18 |
+
+**10 mathematical manuscripts, 594 pages.** With three verification guides: 613 pages. With the rank-two through rank-eight research-status report: 621 pages. Each distinct document is counted once.
+
+[Page inventory and checksums](../data/current_manuscript_page_counts.json) · [Current publication manifest](../data/current_publication_revision.json)
+
+## Scope and verification
+
+**Ranks 2–4:** unrestricted in multiplicity; the rank-four theorem has 15 realized rings and automatic sphericality. The finite-range rank-four census through multiplicity 128 is a separate companion.
+
+**Ranks 5–8:** explicit census bounds are 20, 9, 5 and 3. Two rank-six and four rank-eight categorification questions remain open.
+
+**Ranks 9–11:** multiplicity one only. Rank 9 has 102 exclusions and 40 unitary models; rank 10 has 131 exclusions, 57 unitary models and 6 unresolved; rank 11 has 155 exclusions and 27 unitary models.
+
+[Rank-11 proofs and replay](../evidence/rank11_m1_20261023/README.md) · [Ranks 9–10 proofs and replay](../evidence/rank9_rank10_m1_20261023/README.md) · [All open cases](https://sebastienpalcoux.github.io/grothendieck-ring-classification/unresolved.html)
+
+## Verification guides
+
+| Guide | PDF | Pages |
+|---|---|---:|
+| Rank-four verification guide | [PDF](rank4/papers/verification_guide.pdf) | 9 |
+| Rank-five verification guide | [PDF](rank5/papers/verification_guide.pdf) | 4 |
+| Rank-six verification guide | [PDF](rank6/papers/verification_guide.pdf) | 6 |
+
+<details><summary>Earlier lower-rank reading notes and research history</summary>
+
+# Manuscripts
+
 The rank-eight multiplicity-three continuation addresses all 3,527 supplied exact-multiplicity-three rings: 3,507 general exclusions, 16 models and 4 unresolved cases. Every recorded model admits a unitary realization. The remaining rings retain unresolved status for general complex categorification.
 
 The rank-seven multiplicity-five continuation addresses all 5,805 supplied exact-multiplicity-five rings: 5,804 general exclusions, 1 realization and 0 unresolved cases. The classification of the supplied census is complete through multiplicity 5. The new realization R7_5_5678 is Rep(AGL(1,7)).
@@ -107,3 +152,5 @@ python3 -O tools/verify_rank8_exclusion_20261022.py
 ```
 
 Use `--metadata-only` to check source identities and completed replay receipts. Use `--historical` to replay the preceding rank-eight stages in their preserved contexts. That replay explicitly records the reconstructed helper missing from the creative archive and its four revised cache-state diagnostics in a separate checkpoint; it also restores the omitted canonical tensor with its original receipt hash. The current ledger and proof have separate bindings from those historical releases.
+
+</details>

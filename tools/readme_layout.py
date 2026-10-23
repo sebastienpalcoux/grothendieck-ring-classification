@@ -83,4 +83,9 @@ enumerates based rings. This repository records their categorifications and excl
     total_open = sum(open_rows)
     front = front.replace('**Six open cases:** two at rank six and four at rank eight.',
                           f'**{total_open} open cases.** General categorification remains undecided for these rings.')
+    from pathlib import Path
+    from high_rank_publication import extend_front,extend_document,active
+    repo=Path(__file__).resolve().parent.parent
+    front=extend_front(front,repo)
+    if active(repo):guide=extend_document(guide)
     return front, guide

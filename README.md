@@ -7,11 +7,17 @@
 > **AI-generated research · independent verification pending.**
 > Results and computations remain provisional. [Research status and verification scope](docs/PREPUBLICATION_REVIEW.md).
 
-<!-- rank9-rank10-release -->
+<!-- rank11-release -->
 
-**23 October: ranks nine and ten, multiplicity one.** 233 general exclusions, 97 unitary models and [6 unresolved rings](https://sebastienpalcoux.github.io/grothendieck-ring-classification/rank9-10.html?status=unresolved) among all 336 supplied tensors. [Browse every case](https://sebastienpalcoux.github.io/grothendieck-ring-classification/rank9-10.html) · [Report](evidence/rank9_rank10_m1_20261023/deliverable/report.pdf) · [Proofs and verification](evidence/rank9_rank10_m1_20261023/README.md).
+**23 October: rank eleven, multiplicity one.** **155 excluded over ℂ, 27 unitary models, 0 unresolved** among all 182 supplied tensors. [Browse every case](https://sebastienpalcoux.github.io/grothendieck-ring-classification/rank11.html) · [Manuscript](publications/rank11/paper/rank11.pdf) · [Proofs and exact replay](evidence/rank11_m1_20261023/README.md).
 
-<!-- /rank9-rank10-release -->
+<details><summary>Ranks nine and ten · previous release</summary>
+
+233 general exclusions, 97 unitary models and [6 unresolved](https://sebastienpalcoux.github.io/grothendieck-ring-classification/rank9-10.html?status=unresolved) among 336 supplied tensors. [Browse cases](https://sebastienpalcoux.github.io/grothendieck-ring-classification/rank9-10.html) · [Manuscript](publications/rank9-rank10/paper/rank9-rank10.pdf).
+
+</details>
+
+<!-- /rank11-release -->
 
 <a id="classification--what-is-decided"></a>
 
@@ -31,6 +37,7 @@ Higher ranks have the explicit multiplicity bounds below.
 | 8 | Through 3 | **Complete through 2**; multiplicity 3 partial | Through 3: 4,403 excluded, 93 realized, 4 unresolved. |
 | 9 | Multiplicity 1 | **Complete at multiplicity 1** | 102 excluded, 40 realized, 0 unresolved. |
 | 10 | Multiplicity 1 | **Partial at multiplicity 1** | 131 excluded, 57 realized, [6 unresolved](https://sebastienpalcoux.github.io/grothendieck-ring-classification/rank9-10.html?rank=10&status=unresolved). |
+| 11 | Multiplicity 1 | **Complete at multiplicity 1** | 155 excluded, 27 realized, 0 unresolved. |
 
 **12 open cases.** General categorification remains undecided for these rings.
 [Explore their status, invariants and research records](https://sebastienpalcoux.github.io/grothendieck-ring-classification/unresolved.html).
@@ -41,17 +48,17 @@ Higher ranks have the explicit multiplicity bounds below.
 Multiplicity is the largest fusion coefficient. `≥` marks a lower bound where
 general categorification remains open; a dash marks an unanalyzed band.
 
-| Multiplicity | Rank 2 | Rank 3 | Rank 4 | Rank 5 | Rank 6 | Rank 7 | Rank 8 | Rank 9 | Rank 10 |
-| ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| 1 | 2 | 4 | 9 | 10 | 21 | 13 | 48 | 40 | ≥57 |
-| 2 | 0 | 1 | 3 | 3 | 22 | 10 | 29 | — | — |
-| 3 | 0 | 0 | 2 | 2 | 3 | 2 | ≥16 | — | — |
-| 4 | 0 | 0 | 0 | 2 | ≥5 | 4 | — | — | — |
-| 5 | 0 | 0 | 0 | 0 | 1 | 1 | — | — | — |
-| 6 | 0 | 0 | 1 | 0 | 3 | — | — | — | — |
-| 7 | 0 | 0 | 0 | 0 | 2 | — | — | — | — |
+| Multiplicity | Rank 2 | Rank 3 | Rank 4 | Rank 5 | Rank 6 | Rank 7 | Rank 8 | Rank 9 | Rank 10 | Rank 11 |
+| ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| 1 | 2 | 4 | 9 | 10 | 21 | 13 | 48 | 40 | ≥57 | 27 |
+| 2 | 0 | 1 | 3 | 3 | 22 | 10 | 29 | — | — | — |
+| 3 | 0 | 0 | 2 | 2 | 3 | 2 | ≥16 | — | — | — |
+| 4 | 0 | 0 | 0 | 2 | ≥5 | 4 | — | — | — | — |
+| 5 | 0 | 0 | 0 | 0 | 1 | 1 | — | — | — | — |
+| 6 | 0 | 0 | 1 | 0 | 3 | — | — | — | — | — |
+| 7 | 0 | 0 | 0 | 0 | 2 | — | — | — | — | — |
 
-[Ranks 2–8 count data](data/grothendieck_counts.csv) · [Ranks 9–10 ledger](evidence/rank9_rank10_m1_20261023/deliverable/ledger.csv) · [Definitions and scope](docs/PROJECT_GUIDE.md#grothendieck-rings--known-realizations-at-each-exact-multiplicity)
+[Ranks 2–8 counts](data/grothendieck_counts.csv) · [Ranks 9–10 ledger](evidence/rank9_rank10_m1_20261023/deliverable/ledger.csv) · [Rank-11 ledger](evidence/rank11_m1_20261023/work/rank11/ledger.csv) · [Definitions and scope](docs/PROJECT_GUIDE.md#grothendieck-rings--known-realizations-at-each-exact-multiplicity)
 
 </details>
 
@@ -63,9 +70,9 @@ general categorification remains open; a dash marks an unanalyzed band.
 | Resource | Start here |
 |---|---|
 | **Rank-four theorem** | [Unrestricted classification and reading guide](manuscripts/rank4/README.md) |
-| Mathematics | [Manuscripts by rank](manuscripts/README.md) · [Candidates and open cases · PDF](docs/New_category_candidates_and_open_cases.pdf) |
-| Data | [Decision ledger](data/classification_status.csv) · [All fusion rings and enumeration](https://github.com/sebastienpalcoux/fusion-ring-census) |
-| Computation | [Replay instructions](docs/VERIFY.md) · [Provenance](docs/PROVENANCE.md) |
+| Mathematics | [Manuscripts by rank](manuscripts/README.md) · [Earlier construction-candidates report · PDF](docs/New_category_candidates_and_open_cases.pdf) |
+| Data | [Current decision records](data/current_publication_revision.json) · [All fusion rings and enumeration](https://github.com/sebastienpalcoux/fusion-ring-census) |
+| Computation | [Rank-11 replay](evidence/rank11_m1_20261023/README.md) · [Earlier replay instructions](docs/VERIFY.md) · [Provenance](docs/PROVENANCE.md) |
 | Project details | [Research updates, models, band tables and repository guide](docs/PROJECT_GUIDE.md) |
 | Announcement | [Five-page introduction](announcements/hexagon-2026-10/Low_rank_Grothendieck_rings_announcement.pdf) · [Hexagon](https://hexagonmath.org/2610.00300?version=1) |
 

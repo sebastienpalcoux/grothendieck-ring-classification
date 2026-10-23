@@ -41,3 +41,8 @@ jobs:
           git diff --exit-code README.md
       - run: python site/smoke_test.py
       - run: node --check site/dist/app.js
+      - name: Verify the complete rank-eleven publication
+        run: |
+          python site/check_rank11.py
+          python -O site/check_rank11.py
+          node site/check_cases.mjs

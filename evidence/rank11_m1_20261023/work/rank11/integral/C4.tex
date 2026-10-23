@@ -1,0 +1,159 @@
+\section{A cyclic extension restriction obstruction}
+\label{sec:rank11-c4}
+
+\paragraph{Theorem.}
+The based ring \texttt{R11\_1\_153} admits no categorification over
+$\mathbb C$. The argument applies to every complex fusion category,
+without a braiding, pivotality, or unitarity assumption.
+
+\paragraph{A general restriction criterion.}
+Let $\mathcal D$ be a fusion category, $G$ a finite group, $K\le G$, and
+$c:G\to\operatorname{BrPic}(\mathcal D)$ a fixed homomorphism.
+Put $A=\operatorname{Inv}Z(\mathcal D)$ with the action induced by $c$.
+Suppose a reference $G$-extension realizing $c$ exists and
+\[
+ \operatorname{res}:H^2(G,A)\longrightarrow H^2(K,A)
+ \quad\text{is zero.}
+\]
+Then the $K$-subextensions of all $G$-extensions realizing $c$ have
+isomorphic based fusion rings, respecting their gradings and neutral
+subcategories up to the chosen identifications.
+
+Indeed, systems of multiplication functors form an $H^2(G,A)$-torsor
+by \cite[Theorem~8.5]{ENOHomotopy}. Comparing two existing extensions,
+their product systems differ by an $A$-valued $2$-cocycle. Restricting
+the multiplication functors restricts this cocycle. If its restricted
+class is zero, componentwise bimodule equivalences remove the
+difference, so the restricted fusion coefficients agree. The remaining
+$H^3(G,\mathbb C^*)$-freedom changes associators by scalars and leaves
+multiplication functors unchanged
+\cite[Theorem~8.9]{ENOHomotopy}. Duality is determined by the coefficient
+of the unit, so it is preserved. This argument compares existing
+extensions and requires no separate obstruction-vanishing assertion.
+
+\paragraph{Exact structural hypotheses.}
+Both \texttt{R11\_1\_104} and \texttt{R11\_1\_153} have dimension type
+$(1^4,2^7)$, universal grading $C_4$, and homogeneous ranks $(5,2,2,2)$.
+Their neutral ring is the Tambara--Yamagami ring on $V_4$; write $m$ for
+its dimension-two simple. In a generating component there is a simple
+$X$ with
+\[
+ XX^*=\mathbf1+h_L+m,\qquad X^*X=\mathbf1+h_R+m,
+ \qquad h_L\ne h_R\ne\mathbf1,\quad h_L\ne\mathbf1.
+\]
+The source verifier derives the adjoint subring and all homogeneous
+components directly from the tensors and checks every homogeneous
+product, rather than only products of chosen representatives.
+
+\paragraph{The neutral category is necessarily $\operatorname{Rep}(D_8)$.}
+Every categorification of the neutral ring is
+$\operatorname{TY}(V_4,\chi,\tau)$, with $\chi$ a nondegenerate symmetric
+bicharacter and $\tau=\pm\tfrac12$.
+The canonical internal-end algebras $XX^*$ and $X^*X$ have the form
+$\mathbf1+h+m$. Their multiplication maps $h\otimes m\to m$ and
+$m\otimes h\to m$ are nonzero: the $h$-summand arises from an invertible
+stabilizing action on $X$. Associativity on $(h,m,h)$ therefore forces
+$\chi(h,h)=1$. There are two distinct nonzero isotropic elements,
+$h_L,h_R$. A nonalternating nondegenerate symmetric form on
+$\mathbb F_2^2$ has exactly one, so $\chi$ is alternating.
+The two remaining TY categories are $\operatorname{Rep}(D_8)$ and
+$\operatorname{Rep}(Q_8)$, with groups of order eight.
+But $\operatorname{BrPic}(\operatorname{Rep}(Q_8))\cong S_3$
+\cite[Remark~9.4]{NikshychRiepel}. Any homomorphism from $C_4$ to this
+group kills its degree-two element, forcing that homogeneous bimodule
+to be regular of rank five, contrary to its rank two.
+Thus $\mathcal D\simeq\operatorname{Rep}(D_8)$. This includes all neutral
+associators and both TY signs.
+
+\paragraph{The Brauer--Picard homomorphism is unique up to neutral equivalence.}
+By \cite[Section~9.1]{NikshychRiepel},
+$\operatorname{BrPic}(\mathcal D)\cong S_4$.
+Reindexing the alternating TY data realizes the six isometries of $V_4$
+as tensor autoequivalences. Their map into the Brauer--Picard group is
+injective: its kernel consists of inner tensor autoequivalences, which
+are tensor isomorphic to the identity in a braided category.
+This $S_3$ is the stabilizer of the regular left-module class, a point
+$p$ of the four-point $S_4$ action.
+All three nonidentity components have rank two, so the first, second,
+and third powers of the grading generator move $p$. Its image is
+therefore a $4$-cycle. The $S_3$ fixing $p$ conjugates the six $4$-cycles
+transitively: its intersection with the centralizer of one is trivial.
+Consequently every relevant $c$ can be aligned with the reference by
+an actual tensor autoequivalence of $\mathcal D$.
+
+\paragraph{The coefficient module.}
+Here $A=\operatorname{Inv}Z(\mathcal D)\cong C_2^3$ and, as an $S_4$-module,
+\[
+ A\cong\mathbb F_2^4/\langle(1,1,1,1)\rangle.
+\]
+For completeness this action can be identified intrinsically. Let $z$
+be the nontrivial central invertible with underlying tensor unit: its
+half-braiding acts as $+1$ on the four invertibles of $\mathcal D$ and
+$-1$ on $m$. Every tensor autoequivalence fixes $z$, so its $S_4$ orbit
+has size one or four. If its orbit had size one, the $C_4$ action of
+the explicit \texttt{R11\_1\_104} model would fix $z$.
+Relative-center equivariantization \cite{CentersGraded} would then lift
+$z$ to a central invertible with underlying unit: the projective
+linearization obstruction lies in $H^2(C_4,\mathbb C^*)=0$.
+But tensor automorphisms of the identity of that category are
+characters of its universal grading $C_4$, hence restrict trivially
+to its adjoint category $\mathcal D$. This contradicts the nontrivial
+restriction $z$.
+Thus the orbit consists of four distinct nonzero vectors. They span
+$A$, since a two-dimensional space over $\mathbb F_2$ has only three
+nonzero vectors. The unique relation is $S_4$-invariant and is their
+sum zero, proving the displayed module identification.
+
+\paragraph{Vanishing of the restriction.}
+Let $t$ be a $4$-cycle and $N=t-1$ on $A$. This is a single unipotent
+Jordan block of size three:
+\[
+ N^3=0,\qquad \operatorname{rank}N=2,\qquad
+ \operatorname{rank}N^2=1,\qquad \ker N=\operatorname{im}N^2.
+\]
+The $C_4$ norm is $1+t+t^2+t^3=N^3=0$, so cyclic cohomology gives
+\[
+ H^2(C_4,A)=\ker N,\qquad
+ H^2(\langle t^2\rangle,A)=\ker N^2/\operatorname{im}N^2.
+\]
+Even-degree restriction sends an invariant representative to itself.
+Since $\ker N=\operatorname{im}N^2$, this restriction is zero.
+This computation is also verified without invoking the periodic
+resolution: an independent normalized bar-cochain program enumerates
+all $128$ normalized $C_4$ $2$-cocycles, finds the $64$ coboundaries,
+and supplies a $C_2$ $1$-cochain trivializing the restriction of every
+cocycle. It also verifies the six conjugacy representatives above.
+
+\paragraph{Reference model and contradiction.}
+The reference \texttt{R11\_1\_104} is the explicit group-theoretical
+category $\mathcal C(G,\omega,H,1)$ provided by the finite certificate
+\texttt{jordan\_gt\_model.json}. Here $|G|=32$, $H\cong V_4$, and
+$\omega$ is a normalized $\mu_8$-valued $3$-cocycle trivial on $H$.
+The group is the nonsplit Jordan extension of $C_2^3$ by $C_4$,
+with $t^4$ equal to the fixed nonzero vector.
+The certificate includes the complete group table and cocycle,
+all simple labels, the full model fusion tensor, and a unit-preserving
+basis bijection to the original census tensor. All $32^4$ cocycle
+identities and all fusion coefficients are checked. An independent
+implementation reconstructs all $1331$ coefficients from free algebra
+bimodules, balanced tensor quotients, and graded intertwiner systems;
+it imports no projective-character convolution routine. This audit
+passes and is executed by the exclusion verifier.
+
+In \texttt{R11\_1\_104}, the degree-two simples have source labels
+$9,10$ and are both self-dual. In \texttt{R11\_1\_153}, those labels
+are $1,2$ and they are dual to each other. Thus the respective even
+subrings have seven and five self-dual simples and are not isomorphic
+as based rings. A hypothetical categorification of the latter ring
+has the forced neutral category and the same $4$-cycle homomorphism
+as the reference, up to neutral equivalence. The restriction criterion
+forces its even subring to equal that of the reference, a contradiction.
+
+\paragraph{Scope and reproducibility.}
+The exclusion uses the new general restriction criterion and a positive
+reference model, not a claim that a bounded model search is exhaustive.
+The earlier failed cocycle ans\"atze have no role in the proof.
+The source-bound records are \texttt{c4\_reduction.json} and
+\texttt{c4\_exclusion.json}; the independent normalized-cochain audit is
+\texttt{c4\_torsor\_independent.json}. The categorical neutral-module
+audit is \texttt{C4\_NEUTRAL\_MODULE\_AUDIT.md}.

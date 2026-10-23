@@ -830,7 +830,8 @@ All results and data are AI-generated, not independently human-verified and not 
                 'Earlier-stage commands below apply inside their corresponding immutable archives.\n\n'
             ) + content[at+2:]
         out[name] = content
-    return out
+    from high_rank_publication import extend_outputs
+    return extend_outputs(out,repo)
 
 def main():
     p=argparse.ArgumentParser(description=__doc__)

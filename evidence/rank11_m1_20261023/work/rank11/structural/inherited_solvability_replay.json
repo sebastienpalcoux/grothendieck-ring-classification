@@ -1,0 +1,182 @@
+{
+  "status": "PASS",
+  "excluded_ids": [
+    "R11_1_117",
+    "R11_1_118",
+    "R11_1_156",
+    "R11_1_160",
+    "R11_1_161",
+    "R11_1_163"
+  ],
+  "embedding_count": 6,
+  "source_audit": {
+    "status": "PASS",
+    "id": "R8_1_29",
+    "scope": "no fusion category over C",
+    "tensor_sha256": "2f68033b856e4c4c4ca1d012ab586ef6b5a636be936cd8ac192bebcda417c032",
+    "FPdim": 24,
+    "invertibles": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      7
+    ],
+    "noninvertibles": [
+      5,
+      6
+    ],
+    "noninvertibles_self_dual": true,
+    "universal_grading_trivial": true,
+    "C6_generator": 1,
+    "central_prime_candidates": [
+      2,
+      3
+    ],
+    "order2_element": 7,
+    "order3_subgroup": [
+      0,
+      3,
+      4
+    ],
+    "C2_quotient_orbits": [
+      [
+        0,
+        7
+      ],
+      [
+        1,
+        3
+      ],
+      [
+        2,
+        4
+      ],
+      [
+        5,
+        6
+      ]
+    ],
+    "C2_quotient_tensor": [
+      [
+        [
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      [
+        [
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      [
+        [
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      [
+        [
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          1,
+          2
+        ]
+      ]
+    ],
+    "pointed_dimension8_alternatives": {
+      "C2^3": "forced coefficient2",
+      "Q8": "forced distinct noninvertible duals"
+    },
+    "simple_fixing_C3_plus2_auto_classes": [
+      "identity",
+      "invariant_J"
+    ],
+    "identity_action_contradiction": "coefficient2",
+    "invariant_J_action_contradiction": "distinct noninvertible duals",
+    "J_cocycle_equations": 64,
+    "J_invariance_equations": 16,
+    "H1_C3_V4_vanishes": true,
+    "associator_scope": "arbitrary omega in the pointed de-equivariantization"
+  }
+}

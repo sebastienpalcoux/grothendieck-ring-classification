@@ -571,6 +571,11 @@
       if (document.body.dataset.casePage === "list") { renderList(unresolved); return; }
       const id = params.get("id");
       if (!id || !/^(R\d+_\d+_\d+|F_\{\d+,\d+\})$/.test(id)) { renderError("Choose a valid case identifier from the directory, such as R8_3_982."); return; }
+      if (id.startsWith("R11_")) {
+        const rank11 = await Rank11.load();
+        const ring = rank11.cases.find(record => record.id === id);
+        if (ring) { renderCase(ring, ring.status !== "unitarily_realized"); const back = $("#case-back"); back.href = "./rank11.html"; back.textContent = "← All rank-eleven records"; return; }
+      }
       const added = rank910.cases.find(ring => ring.id === id);
       if (added) { renderCase(added, added.status !== "unitarily_realized"); const back = $("#case-back"); back.href = "./rank9-10.html"; back.textContent = "← All rank-nine/ten records"; return; }
       const found = unresolved.cases.find((ring) => ring.id === id);

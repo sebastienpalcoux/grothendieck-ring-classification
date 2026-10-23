@@ -1,0 +1,9 @@
+# Independent review of the noncommutative involution-module extension
+
+**Scope accepted:** general complex fusion categories, with no pivotality assumption. Reviewed `../structural/noncomm_module.py` against the accepted lower-rank theorem in `evidence/theoretical_20261016/rank8/ANTI_MODULE_EIGHT_GENERAL_PROOF.md`. That proof already explicitly states that commutativity of the entire ring is unnecessary.
+
+A right-fixed simple trivializes the associator on the order-two subgroup, so the regular algebra `A=1+g` exists. The category of right A-modules admits left tensoring by C without requiring g central. Twisting its A-action by the sign automorphism commutes with the left C-action. Its anti-invariant integral basis consists of differences of the two structures on right-fixed simples. Rigidity gives transpose under duality, and entry differences satisfy the source coefficient bounds and parity.
+
+With input basis indexed by rows, composition order reverses: `T_i T_j = sum_k N_{ji}^k T_k`. The implementation checks this order and evaluates the algebra-generating words in reverse order, matching the source words formed by right-appending labels in `generated_basis`. It removes the old commutativity filter. The spanning-forest gauge is a simultaneous diagonal sign conjugation, valid across all selected generators, so it discards only equivalent tuples. All remaining multiplicity-one signed entries are independently exhausted, with symmetry imposed only for self-dual generators. The rational basis inversion reconstructs every other matrix and rejects any nonintegral, wrong-bound, wrong-parity, wrong-duality, or wrong-fusion result.
+
+This review approves the theorem scope and enumeration logic. Each claimed exclusion still requires successful completion and exact replay of its own finite search; an explicit budget stop is not an exclusion. It does not certify a categorical model when a signed matrix representation survives.

@@ -1,0 +1,71 @@
+[
+  {
+    "id": "R11_1_179",
+    "status": "unitarily_realized",
+    "evidence": {
+      "model": "Coherent C3-equivariantization of an Izumi Q8 near-group category",
+      "scope": "unitary realization exists",
+      "proof": "nonintegral/integral179/THEORY.md",
+      "categorical_review": "criteria_audit/R179_CATEGORICAL_REVIEW.md",
+      "certificate": "nonintegral/integral179/model.json",
+      "verifier": "python work/rank11/nonintegral/integral179/verify.py"
+    },
+    "tensor_sha256": "a9492a728c3c2e5d59d92d723a5349782a962bc04ead4aacd0d7756e5d7c95f2"
+  },
+  {
+    "id": "R11_1_40",
+    "status": "excluded",
+    "evidence": {
+      "criterion": "central dihedral and Brauer-Picard grading obstruction in dimension 120",
+      "scope": "no fusion category over C",
+      "proof": "criteria_audit/D120_THEORY.md",
+      "certificate": "induction/dimension120_verified.json",
+      "verifier": "python work/rank11/induction/verify_dimension120.py"
+    },
+    "tensor_sha256": "42e8dcc502fb69e0b968430c1a85de981749eef244a527f5f9817dc4b9eacbc1"
+  },
+  {
+    "id": "R11_1_82",
+    "status": "excluded",
+    "evidence": {
+      "criterion": "central dihedral and Brauer-Picard grading obstruction in dimension 120",
+      "scope": "no fusion category over C",
+      "proof": "criteria_audit/D120_THEORY.md",
+      "certificate": "induction/dimension120_verified.json",
+      "verifier": "python work/rank11/induction/verify_dimension120.py"
+    },
+    "tensor_sha256": "bce0cb0269da4fe574c9a19aee86cfb13dabedd66d05f53eb104d1617741a082"
+  },
+  {
+    "id": "R11_1_104",
+    "status": "unitarily_realized",
+    "evidence": {
+      "model": "Nonsplit Jordan group-theoretical category C(G32, omega, V4, 1)",
+      "scope": "unitary realization exists",
+      "proof": "known_models/PROOF_JORDAN32.md",
+      "categorical_review": "nonintegral/audit104/THEORY.md",
+      "certificate": "known_models/jordan_gt_model.json",
+      "verifier": "python work/rank11/known_models/jordan_verify.py && python work/rank11/nonintegral/audit104/verify.py"
+    },
+    "tensor_sha256": "0dd2275f9af6f074a7667935309b2535863a8d8d8257d8f82d81efd5860cc346"
+  },
+  {
+    "id": "R11_1_153",
+    "status": "excluded",
+    "evidence": {
+      "criterion": "zero-restriction criterion for C4 extension multiplication torsors",
+      "scope": "no fusion category over C",
+      "proof": "integral/C4_THEORY.md",
+      "categorical_review": "structural/C4_NEUTRAL_MODULE_AUDIT.md",
+      "certificate": "integral/c4_exclusion.json",
+      "verifier": "python work/rank11/nonintegral/audit104/verify.py && python work/rank11/integral/verify_c4_exclusion.py",
+      "verification_dependencies": [
+        "known_models/jordan_verify.py",
+        "nonintegral/audit104/verify.py",
+        "structural/verify_c4_cohomology_independent.py",
+        "criteria_audit/verify_c4_torsor.py"
+      ]
+    },
+    "tensor_sha256": "57c2d67770abb19888651878f195e46af7ed0fa587d15e1e41033d2cee9ac12c"
+  }
+]

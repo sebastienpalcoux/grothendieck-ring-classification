@@ -1,0 +1,184 @@
+\section{A central dihedral obstruction in dimension 120}
+\label{sec:rank11-d120}
+
+\paragraph{Theorem.}
+The based rings \texttt{R11\_1\_40} and \texttt{R11\_1\_82} admit no
+categorification by a fusion category over $\mathbb C$.
+
+\paragraph{Exact hypotheses.}
+Both rings are commutative of rank eleven, with dimensions
+$1^2,2,3^2,4^6$. Their nontrivial invertible $g$ has order two;
+its multiplication permutation exchanges the two invertibles, exchanges
+the two dimension-three simples, and fixes the other seven simples.
+The basis elements of dimension less than four form a closed subring
+of dimension twenty-four. No identification of this subring with a
+particular category is assumed: in the second input its two dimension-three
+simples are dual to each other, unlike the representation ring of $S_4$.
+
+For a scalar character $\chi$, put
+$f_\chi=\sum_i\chi(b_i)\chi(b_i^*)$ and $\beta_\chi=120/f_\chi$.
+The eleven values $\beta_\chi$ are
+\[
+ 1,2,2,8,8,8,8,8,15,30,30.
+\]
+Both characters with $\beta_\chi=2$ satisfy $\chi(g)=1$.
+Finally the induction Gram coefficient $B_{gg}$ is eleven.
+The accompanying exact verifier checks these statements directly from
+the source tensor and a complete character table, including every
+character multiplication identity. No restriction-frame search is used.
+
+\paragraph{A forced central dihedral category.}
+Suppose that $\mathcal C$ is a categorification. Its integrality supplies
+the canonical positive spherical structure by
+\cite[Proposition~8.24]{ENO}. Let $F:Z(\mathcal C)\to\mathcal C$ be
+forgetful, with right adjoint $I$. By \cite[Theorems~2.5 and~2.13]{OstrikPivotal},
+the simple constituents $A_\chi$ of $I(\mathbf1)$ occur once, have
+$\dim(A_\chi)=\beta_\chi$, satisfy $[F(A_\chi):\mathbf1]=1$, and have
+trivial twist. The character identification preceding Theorem~2.13 gives
+\[
+ S_{A_\chi,Y}=\beta_\chi\chi(F(Y))
+ \qquad(Y\text{ simple in }Z(\mathcal C)),
+\]
+where $S$ is unnormalized. For the two dimension-two constituents $A,B$,
+positivity forces $F(A)=F(B)=\mathbf1\oplus g$, whence
+\[
+ S_{A,A}=S_{A,B}=S_{B,B}=4.
+\]
+These equalities force trivial monodromy: the balancing formula is a
+positive weighted sum of roots of unity, and equality with the sum of
+the positive weights forces every eigenvalue to be one. Therefore the
+subcategory $\mathcal T=\langle A,B\rangle$ is symmetric and has trivial
+twist. It is Tannakian; see also \cite{DGNO}.
+
+All objects of $\mathcal T$ forget to sums of $\mathbf1$ and $g$.
+If a simple central $Y$ with this property contains $\mathbf1$ after
+forgetting, it lies in $I(\mathbf1)$, with unit multiplicity one. Write
+$F(Y)=\mathbf1\oplus m g$. The induction Gram equality gives
+$m^2\le B_{gg}=11$, so $\dim(Y)\le4$. The displayed $\beta$ list
+therefore leaves only $Y=\mathbf1,A,B$. In particular, the only simple
+central object supported solely on $\mathbf1$ is $\mathbf1$ itself.
+
+If instead $F(Y)=m g$, then $F(Y^*Y)=m^2\mathbf1$; all constituents of
+$Y^*Y$ must be the central unit. Simplicity of $Y$ gives $m^2=1$.
+Such a $Y$ is invertible and forgets to $g$. There is at most one such
+lift, since the ratio of two lifts forgets to the unit; call it $z$ if
+it exists. It must occur in $\mathcal T$: the dimension-four object
+$A^*A$ contains the unit exactly once, and its remaining dimension three
+cannot be filled using only the dimension-two simples $A,B$.
+Thus $\mathcal T$ has exactly $\mathbf1,z,A,B$, of dimensions $1,1,2,2$.
+It is consequently $\operatorname{Rep}(D_{10})$, where $D_{10}$ has order
+ten. Its unique nontrivial invertible $z$ is a central boson with $F(z)=g$.
+
+\paragraph{De-equivariantization and a faithful grading.}
+The subcategory $\mathcal E=\langle z\rangle\simeq\operatorname{Rep}(C_2)$
+embeds in $\mathcal C$ under $F$. By
+\cite[Proposition~2.10]{ENOSolvable}, de-equivariantization gives a
+category $\mathcal D$ of dimension sixty with
+$\mathcal C\simeq\mathcal D^{C_2}$.
+A free orbit $\{X,gX\}$ gives one simple of dimension $\dim(X)$;
+a fixed $X$ gives two simples of dimension $\dim(X)/2$.
+Here the fixed stabilizer algebra has two one-dimensional representations,
+since $H^2(C_2,\mathbb C^\times)=0$, and its sign automorphism interchanges
+them. The resulting dimension list is
+\[
+ \mathcal D:\quad 1^3,2^{12},3,
+ \qquad \operatorname{rank}(\mathcal D)=16.
+\]
+
+Since $\mathcal T$ is symmetric, it lies in $\mathcal E'$.
+The central equivalence $\mathcal E'_{C_2}\simeq Z(\mathcal D)$ sends
+$\mathcal T_{C_2}$ to $\operatorname{Rep}(C_5)$.
+Every object of this subcategory forgets to a multiple of the unit:
+$\mathbf1,g$ become the unit under de-equivariantization, and the images
+of $A,B$ become two copies of it. Their four nontrivial $C_5$-character
+summands must each forget to the unit by positivity.
+Proposition~2.9(i) of \cite{ENOSolvable} now supplies a faithful $C_5$
+grading of $\mathcal D$, whose components all have dimension twelve.
+
+The closed dimension-twenty-four subcategory above de-equivariantizes
+to a subcategory $\mathcal K\subset\mathcal D$ of dimensions $1,1,1,3$.
+Its invertibles form $C_3=\langle a\rangle$, and its unique other simple
+$X$ is self-dual and satisfies
+\[
+ aX=Xa=X,\qquad X^2=\mathbf1+a+a^2+2X.
+\]
+Thus $\mathcal K$ has the fusion ring of $\operatorname{Rep}(A_4)$.
+It equals its adjoint category, so every grading restricts trivially to
+$\mathcal K$. Equality of dimensions gives $\mathcal D_e=\mathcal K$.
+
+\paragraph{The Morita class of every possible neutral category.}
+By \cite[Theorem~1.6]{ENOSolvable}, $\mathcal K$ is solvable. A solvable
+tower consists of extensions and equivariantizations by cyclic groups of
+prime order \cite[Definition~1.2 and Proposition~4.4]{ENOSolvable}.
+Its final step cannot be an extension because $\mathcal K$ has trivial
+universal grading. Hence $\mathcal K=\mathcal L^{C_p}$ for a prime $p$.
+The embedded $\operatorname{Rep}(C_p)$ forces $p=3$, and
+$\operatorname{FPdim}(\mathcal L)=4$.
+
+The simple equivariant dimensions are $[C_3:H]\dim(\pi)\dim(Y)$.
+All projective irreducible representations of the cyclic stabilizers $H$
+are one-dimensional. Since the only dimensions in $\mathcal K$ are one
+and three, a fixed $Y$ has dimension one or three, the latter impossible
+in a category of dimension four. A nonfixed $Y$ has an orbit of length
+three and likewise has dimension one. Thus
+$\mathcal L=\operatorname{Vec}_H^\eta$ for a group $H$ of order four.
+The action on $H$ is nontrivial, since otherwise equivariantization would
+have twelve invertibles. Thus $H=V_4$, with $C_3$ cycling its nonidentity
+elements.
+
+The pointed crossed product $\mathcal L\rtimes C_3$ is Morita equivalent
+to $\mathcal K$ by \cite[Proposition~2.2]{ENOSolvable}. Its group of
+invertibles is the extension of $V_4$ by $C_3$ with this nontrivial action;
+the coprime extension splits, giving $A_4$. Consequently
+\[
+ \mathcal K\text{ is Morita equivalent to }\operatorname{Vec}_{A_4}^\Omega
+\]
+for some three-cocycle $\Omega$, with no triviality assumption on $\Omega$.
+
+\paragraph{No order five in the twisted Brauer--Picard group.}
+Let $\mathcal P=\operatorname{Vec}_{A_4}^\Omega$.
+The twisted classification \cite[Theorem~1.2, or Theorem~4.12]{NaiduNikshych}
+parametrizes Lagrangian subcategories of $Z(\mathcal P)$ by normal abelian
+subgroups and invariant alternating $\Omega$-bicharacters.
+The only possible subgroups are $1,V_4$. The first contributes one choice;
+for $V_4$, the ratio of two admissible twisted bicharacters is an ordinary
+alternating bicharacter, of which there are exactly two. Hence there are
+at most three Lagrangian subcategories.
+
+The stabilizer of the canonical $\operatorname{Rep}(A_4)$ preserves its
+regular algebra $\operatorname{Fun}(A_4)$: a connected etale algebra of
+dimension twelve in $\operatorname{Rep}(A_4)$ corresponds uniquely to the
+free transitive $A_4$-set. Conversely the regular algebra generates that
+subcategory. Theorem~3.3 and Remark~3.4 of \cite{MarshallNikshych} identify
+this stabilizer with the induction image $I(A_4,\Omega)$.
+The elementary bound from tensor autoequivalences already suffices:
+their kernel over the underlying automorphism group is
+$H^2(A_4,\mathbb C^\times)=C_2$ and their image is contained in
+$\operatorname{Aut}(A_4)=S_4$, so the stabilizer order divides $48$.
+
+More precisely, Proposition~4.5 of \cite{MarshallNikshych}, valid for
+arbitrary $\Omega$, gives
+\[
+ Z(A_4)\longrightarrow H^2(A_4,\mathbb C^\times)
+ \longrightarrow I(A_4,\Omega)
+ \longrightarrow\operatorname{OutStab}(\Omega)\longrightarrow1.
+\]
+Since $Z(A_4)=1$ and $\operatorname{Out}(A_4)=C_2$, the stabilizer order
+is two or four. These group-theoretic data are recorded in
+\cite[Section~8.3]{NikshychRiepel}; its untwisted Brauer--Picard computation
+is not being applied to a twisted category.
+Orbit--stabilizer, with orbit size at most three, shows that
+$\operatorname{BrPic}(\mathcal P)\simeq
+\operatorname{Aut}_{\mathrm{br}}(Z(\mathcal P))$ has no element of order
+five. Morita invariance gives the same statement for $\mathcal K$.
+
+\paragraph{Contradiction.}
+A faithful graded extension determines a homomorphism
+\[
+ C_5\longrightarrow\operatorname{BrPic}(\mathcal K),
+ \qquad h\longmapsto[\mathcal D_h].
+\]
+It is trivial, so every component is equivalent to the regular
+$\mathcal K$-bimodule category and has rank four. Thus
+$\operatorname{rank}(\mathcal D)=20$, contrary to the forced rank sixteen.
+This proves the theorem for both inputs.\hfill$\square$

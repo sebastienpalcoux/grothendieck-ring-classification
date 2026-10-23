@@ -358,6 +358,13 @@ def check_site(root=None, repository=None):
             # The additive release links its character research in the portable
             # package; only the Casimir/codegree polynomial is shown inline.
             paths.add(check_tensor(record, root, require_character_presentation=False))
+    rank11_path = root / "data/rank11_m1.json"
+    if rank11_path.is_file():
+        rank11 = read_json(rank11_path)["cases"]
+        require(len(rank11) == 182 and {record["id"] for record in rank11} == {f"R11_1_{i}" for i in range(1, 183)},
+                "Rank-eleven tensor inventory is incomplete")
+        for record in rank11:
+            paths.add(check_tensor(record, root, require_character_presentation=False))
     require(paths == {p.relative_to(root).as_posix() for p in (root / "downloads/fusion-tensors").glob("*.txt")},
             "Tensor download directory contains a missing or unlisted record")
     for record in unresolved:

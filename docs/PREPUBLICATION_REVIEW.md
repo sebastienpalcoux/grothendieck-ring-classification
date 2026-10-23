@@ -1,5 +1,11 @@
 # Mathematical review and verification scope
 
+<!-- current-high-rank-publication -->
+
+**Current high-rank results · 23 October 2026.** Rank 11 at multiplicity one is complete for the supplied census: **155 excluded, 27 unitary models, 0 unresolved among 182 rings**. Ranks 9–10 have 233 exclusions, 97 unitary models and 6 unresolved among 336 rings. The project has 12 open cases in total: 2 at rank 6, 4 at rank 8 and 6 at rank 10. [Rank-11 manuscript](../publications/rank11/paper/rank11.pdf) · [Exact proofs and replay](../evidence/rank11_m1_20261023/README.md) · [All current manuscripts](../manuscripts/README.md).
+
+<!-- /current-high-rank-publication -->
+
 The rank-eight multiplicity-three continuation addresses all 3,527 supplied exact-multiplicity-three rings: 3,507 general exclusions, 16 models and 4 unresolved cases. Every recorded model admits a unitary realization. The remaining rings retain unresolved status for general complex categorification.
 
 The rank-seven multiplicity-five continuation addresses all 5,805 supplied exact-multiplicity-five rings: 5,804 general exclusions, 1 realization and 0 unresolved cases. The classification of the supplied census is complete through multiplicity 5. The new realization R7_5_5678 is Rep(AGL(1,7)).

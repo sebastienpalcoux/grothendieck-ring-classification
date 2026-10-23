@@ -1,5 +1,11 @@
 # Grothendieck ring classification · project guide
 
+<!-- current-high-rank-publication -->
+
+**Current high-rank results · 23 October 2026.** Rank 11 at multiplicity one is complete for the supplied census: **155 excluded, 27 unitary models, 0 unresolved among 182 rings**. Ranks 9–10 have 233 exclusions, 97 unitary models and 6 unresolved among 336 rings. The project has 12 open cases in total: 2 at rank 6, 4 at rank 8 and 6 at rank 10. [Rank-11 manuscript](../publications/rank11/paper/rank11.pdf) · [Exact proofs and replay](../evidence/rank11_m1_20261023/README.md) · [All current manuscripts](../manuscripts/README.md).
+
+<!-- /current-high-rank-publication -->
+
 [Repository front page](../README.md) · [Interactive atlas](https://sebastienpalcoux.github.io/grothendieck-ring-classification/)
 
 **Which low-rank fusion rings admit fusion categories over ℂ?**
@@ -254,4 +260,3 @@ owns the based-ring census and raw tensor files. This repository records the
 classification, proofs and models; it does not recompute the census. Changes
 to a source census cell are imported only from a named commit and rechecked
 against classification ledgers.
-

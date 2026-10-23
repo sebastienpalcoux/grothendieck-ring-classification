@@ -1,0 +1,131 @@
+\subsection{Established models and explicit coherent actions}
+The model certificate in \texttt{known\_models/selected\_models.json} gives
+25 unitary realizations, with an exact unital basis bijection and all
+$11^3=1331$ structure constants checked for each.  It proves existence of
+one model per ring, not uniqueness of associators.  The standard families
+are pointed and representation categories, Tambara--Yamagami categories,
+$\mathrm{SU}(2)_{10}$ and its indicated even counterparts,
+$\mathrm{SO}(15)_2$, $\mathrm{SO}(8)_2$, and coherent equivariantizations
+and associative zestings of these categories.  The complete formulas,
+primary references, and scope of the finite searches are in
+\texttt{known\_models/THEORY.md}.
+
+The rank equations determine all members of the pointed, TY, $A_1$,
+odd-metaplectic, full-even-metaplectic and half-even-metaplectic families
+at this rank.  Prime rank prevents a nontrivial Deligne product.
+For strict $C_2$ actions on pointed categories, the rank formula
+$(|G|+3|G^{C_2}|)/2=11$ leaves $(|G|,|G^{C_2}|)=(19,1)$ or $(16,2)$.
+The latter family is checked for all fourteen groups of order sixteen,
+and gives rings $1$ and $112$.  The twisted pointed actions below are
+checked separately; the strict scan is not mistaken for a classification
+of all group-theoretical models.
+
+For every TY equivariantization used, the certificate records a
+nondegenerate symmetric bicharacter and an automorphism preserving it.
+The automorphism therefore preserves the standard TY associator, giving
+an actual tensor action.  The two choices of multiplication coherence
+are the identity and the natural parity automorphism, equal to $-1$ on
+the exceptional object and $+1$ on group objects.  Exact Fourier
+projection computes the resulting fusion coefficients.  This covers
+$10,37,64,72,75,113,157,176$.  In particular a based automorphism is
+never used as an unverified categorical action.
+
+\paragraph{A uniform zesting construction.}
+In $\mathrm{SO}(8)_2$, the four neutral invertibles form a Tannakian
+subcategory $\operatorname{Rep}(V_4)$.  Fix a coherent gauge in which
+their associator and mutual braiding are trivial.  With respect to the
+$V_4$ grading, every bilinear map
+$\lambda:V_4\times V_4\longrightarrow V_4$ is an invertible-object
+$2$-cocycle.  Its scalar associative-zesting obstruction is identically
+one, since it involves only the displayed associator and mutual
+braiding.  Thus
+\[
+ X\star Y=X\otimes Y\otimes\lambda(|X|,|Y|)
+\]
+has a unitary coherent associator.  The $4^4$ bilinear choices produce
+four based rings, $30,57,105,150$.  The last is additional to the
+single-$C_2$ trials.  The code checks all products, but the categorical
+existence follows from this obstruction calculation, not merely from
+associativity of the computed ring.  Ordinary $C_2$ zesting also supplies
+ring $103$ from $\mathrm{SU}(2)_{10}$; the scalar obstruction vanishes
+because $H^4(C_2,U(1))=0$.
+
+\paragraph{The spin-current pair $24,68$.}
+Let $\mathcal C=\mathrm{SU}(2)_6$ and let
+\[
+ \sigma(a)=\begin{cases}a&a\text{ even},\\6-a&a\text{ odd}.
+ \end{cases}
+\]
+This dimension-preserving based involution is not accepted by itself.
+Indeed the naive all-positive tensorator gives nonassociative proposed
+fusion coefficients.  We use the standard real unitary quantum-Racah
+associator to construct its tensorator explicitly.
+
+Put $u=2\cos(\pi/8)$, so $u^4-4u^2+2=0$ and
+$1847759/10^6<u<1847760/10^6$.  The quantum integers satisfy
+$[1]=1$, $[2]=u$, $[j+1]=u[j]-[j-1]$.  The square of each quantum-Racah
+$F$ entry lies in $\mathbb Q(u)$.  The verifier compares all transformed
+squares exactly and determines every nonzero sign by rational interval
+arithmetic in this fixed real embedding.  At this level the usual Racah
+sum has no vanishing denominator; terms whose numerator contains
+$[8]$ vanish.  The explicit formula and checks are included in the
+source rather than delegated to numerical eigenvalue calculations.
+
+There are $1664$ nonzero and $16$ zero admissible entries.  The nonzero
+ratios define a consistent linear system of rank $65$ in $71$ normalized
+$\{\pm1\}$ tensorator coefficients.  The recorded solution satisfies
+every monoidal-functor equation.  The two recorded natural isomorphisms
+$\mu:\sigma^2\Rightarrow\mathrm{Id}$ are
+\[
+ \mu_a=1,\qquad \mu_a=(-1)^a.
+\]
+Both satisfy $\delta\mu=J\,\sigma(J)$ and
+$\mu_{\sigma(a)}=\mu_a$, including the group-associativity coherence.
+They therefore define two unitary $C_2$ actions.  Orbit/stabilizer
+projection computes their equivariantizations: on a fixed-output fusion
+space the multiplicity is $(\dim+\operatorname{tr})/2$, with trace
+computed from the actual tensorator and stabilizer eigenvalues.  The
+first action yields ring $68$, and the second ring $24$, with every
+coefficient matched.  The full tensorator and both coherences are
+part of the portable certificate.
+
+\paragraph{Twisted cyclic actions giving $48,146$.}
+Let $n=16$, $t=1$, and write $c(a,b)=\lfloor(a+b)/n\rfloor$ for
+residues in $\{0,\ldots,n-1\}$.  Give the pointed category on $C_n$
+the associator
+\[
+ \omega_t(a,b,c)=\zeta_n^{\,t a c(b,c)}.
+\]
+For $u^2\equiv1\pmod n$, set $p(a)=ua\bmod n$ and
+$v=(u^2-1)/n$.  A tensorator $F(a)\otimes F(b)\to F(a+b)$ is
+\[
+ J(a,b)=\zeta_n^{-tua\lfloor ub/n\rfloor}.
+\]
+The carry identity gives
+$\delta J=\omega_t/(p^*\omega_t)$ and shows that the exponent of
+$J(a,b)J(p(a),p(b))$ is $-tvab$ modulo $n$.  Define
+\[
+ \mu_a=\zeta_{2n}^{\,tv a^2+2ka}.
+\]
+Since $n$ is even, its coboundary is the composite tensorator.  The
+remaining action equation is $\mu_{p(a)}=\mu_a$.  It holds with
+$(u,v,k)=(15,14,0)$ and $(7,3,4)$, respectively.
+
+These actions have fixed points $0$ and $8$, with $\mu_8=1$ and
+$J(8,8)=-1$.  The lift of $8$ thus squares to the nontrivial stabilizer
+character, giving a cyclic group of four invertibles.  The two
+categories are identified with rings $48$ and $146$.  The verifier
+checks, for each action, $16^4$ cocycle equations, $16^3$ tensorator
+equations, $16^2$ square-coherence equations, and $16$ action-associativity
+equations, then all $1331$ fusion coefficients.  Every phase is a root
+of unity, so both constructions are unitary.
+
+The relevant standard results are Tambara--Yamagami's existence theorem;
+Gustafson--Rowell--Ruan, \emph{Metaplectic Categories, Gauging and
+Property F}, Sections~3.1 and~3.3; Delaney--Galindo--Plavnik--Rowell--Zhang,
+\emph{Braided zesting and its applications}; Burciu--Natale,
+\emph{Fusion rules of equivariantizations of fusion categories}, corrected
+version~2; and the Kirillov--Reshetikhin quantum-$6j$ formula.  The
+simple-current autoequivalence also appears in Edie-Michell's
+classification of autoequivalences.  None of these references is used
+to bypass the explicit categorical action coherence established above.
