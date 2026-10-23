@@ -1,0 +1,112 @@
+{
+  "steps": [
+    {
+      "name": "input_axioms",
+      "script": "work/input_audit/audit.py"
+    },
+    {
+      "name": "census_crosswalk",
+      "script": "work/literature/crosswalk.py"
+    },
+    {
+      "name": "standard_obstructions",
+      "script": "work/root_audit/verify_baseline.py"
+    },
+    {
+      "name": "signed_sphericalization",
+      "script": "work/audit_signed/replay.py"
+    },
+    {
+      "name": "dimension60_moments",
+      "script": "work/integral_induction/verify_dim60.py"
+    },
+    {
+      "name": "gty_positive",
+      "script": "work/literature/gty_verify.py"
+    },
+    {
+      "name": "gty_negative",
+      "script": "work/literature/gty_verify_obstructions.py"
+    },
+    {
+      "name": "baseline_models",
+      "script": "work/audit_models/verify_models.py"
+    },
+    {
+      "name": "haagerup_izumi_c5",
+      "script": "work/literature/hi_c5_model.py"
+    },
+    {
+      "name": "rank9_cubic",
+      "script": "work/resolve_rank9_irrational/cubic_lattice.py"
+    },
+    {
+      "name": "rank9_quadratic",
+      "script": "work/resolve_rank9_irrational/quadratic_exact.py"
+    },
+    {
+      "name": "dimension40_morita",
+      "script": "work/resolve_metaplectic/verify.py"
+    },
+    {
+      "name": "dimension160_models",
+      "script": "work/resolve_integral/replay160.py"
+    },
+    {
+      "name": "dimension160_obstruction",
+      "script": "work/audit_new_models/verify_int160_audit.py"
+    },
+    {
+      "name": "small_integral_models",
+      "script": "work/resolve_small_models/verify.py"
+    },
+    {
+      "name": "rank10_reciprocity",
+      "script": "work/audit_new_models/verify_rank10_reciprocity.py"
+    },
+    {
+      "name": "rank10_model21",
+      "script": "work/audit_new_models/verify_model21.py"
+    },
+    {
+      "name": "triality_equivariant_models",
+      "script": "work/audit_new_models/verify_triality_equivariant.py"
+    },
+    {
+      "name": "triality_action_cohomology",
+      "script": "work/resolve_integral/triality_action_cohomology.py"
+    },
+    {
+      "name": "triality_schur_extension",
+      "script": "work/resolve_integral/triality_schur_extension.py"
+    },
+    {
+      "name": "triality_neutral_forms",
+      "script": "work/resolve_integral/triality_neutral_check.py"
+    },
+    {
+      "name": "dimension24_near_group_actions",
+      "script": "work/resolve_rank9_neargroup/verify_ng_actions.py"
+    },
+    {
+      "name": "dimension24_direct_quotient",
+      "script": "work/resolve_rank9_neargroup/direct_quotient.py"
+    },
+    {
+      "name": "rank6_characteristic_boson",
+      "script": "work/audit_new_models/verify_rank6_central_boson.py"
+    },
+    {
+      "name": "dimension48_exclusions",
+      "script": "work/resolve_rank9_integral/verify_d48_exclusions.py"
+    },
+    {
+      "name": "dimension24_independent_completion",
+      "script": "work/resolve_integral/verify_direct_quotient_audit.py"
+    },
+    {
+      "name": "classification_ledger",
+      "script": "work/consolidation/build_ledger.py"
+    }
+  ]
+}

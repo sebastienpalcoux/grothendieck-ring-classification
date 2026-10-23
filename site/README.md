@@ -1,5 +1,7 @@
 # Fusion & Grothendieck Ring Atlas
 
+**Rank ten, multiplicity one:** 136 general complex exclusions, 57 unitary models and one unresolved ring, R10_1_189. The five quadratic exclusions and the proved cyclic restrictions use the common case directory. [Current proof package](../evidence/rank10_m1_exclusions_20261023/README.md).
+
 ### [Explore the public atlas →](https://sebastienpalcoux.github.io/grothendieck-ring-classification/)
 
 An interactive companion to the classification repository: filter the count

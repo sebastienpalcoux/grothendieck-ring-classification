@@ -1,0 +1,129 @@
+\section{Structural exclusions in dimensions forty and one hundred sixty}
+\subsection{A Morita obstruction in dimension forty}
+The two rings $R10\_1\_72$ and $R10\_1\_127$ have dimension profile
+$(1^4,2^4,\sqrt{10}^{\,2})$. Their invertibles form $V_4$. There is an
+involution $h$ fixing each dimension-two simple on both sides, with exact
+stabilizer $\{1,h\}$, and exchanging the two irrational-dimensional simples.
+Some dimension-two simple is not self-dual. These conditions alone give
+the following exclusion, without a pivotal assumption.
+
+Let $\mathcal D$ be the integral subcategory, of dimension twenty.
+Since $h$ fixes a simple, its pointed associator is trivial in cohomology:
+the fixed simple gives a rank-one module category over $\langle h\rangle$.
+Thus $A=1+h$ is a connected separable algebra. There are ten simple right
+$A$-modules in $\mathcal D$, all of underlying dimension two: two free
+orbits of invertibles, and two module structures on each fixed simple.
+For each such module $M$, its internal endomorphism object has dimension
+two and contains the unit once. It is therefore $1+g$ for an invertible
+$g\ne1$ fixing $M$. The underlying stabilizers force $g=h$.
+Every module consequently has two simple left $A$-structures, and
+$ {}_A\mathcal D_A$ is pointed of dimension twenty.
+
+Write this pointed category as $\Vec(G,\eta)$. The Morita module has
+rank ten, so $\mathcal D$ is a group-theoretical category
+$\mathcal C(G,\eta,K,\psi)$ with $|K|=2$. The groups of order twenty
+are the two abelian groups, $D_{20}$, $\operatorname{Dic}_5$, and
+$F_{20}=C_5\rtimes C_4$ with faithful action. A normal order-two $K$
+would make every simple invertible, excluding the abelian and dicyclic
+possibilities. In $D_{20}$ a nonnormal $K$ is a reflection subgroup;
+every relevant double coset is inverse-stable with trivial stabilizer,
+so every dimension-two simple is self-dual, independently of $\eta,\psi$.
+Hence $G=F_{20}$.
+
+The full Morita dual $ {}_A\mathcal C_A$ has twenty invertibles and two
+simples of dimension $\sqrt{10}$. Its noninvertible stabilizer has order
+ten and must be abelian by Liptrap's generalized Tambara--Yamagami theorem.
+But $F_{20}$ has a unique index-two subgroup, the nonabelian $D_{10}$.
+This contradiction proves both exclusions. The proof allows arbitrary
+associators throughout; it does not assume that a known untwisted model
+is the only possible categorification of the integral subring.
+
+\subsection{Forced commutativity in dimension one hundred sixty}
+The two rings $R10\_1\_83$ and $R10\_1\_177$ have dimensions
+$(1^2,2^2,5^6)$ and trivial universal grading. Their nontrivial invertible
+$g$ fixes the two dimension-two simples and exchanges the six dimension-five
+simples in pairs. ENO's categorical Burnside theorem makes a hypothetical
+category solvable. In a prime cyclic extension/equivariantization chain,
+the final operation cannot be an extension, because the universal grading
+is trivial. It must be a $C_2$-equivariantization
+$\mathcal C=\mathcal D^{C_2}$.
+
+The sign permutation forces $\mathcal D$ to have dimensions $(1^5,5^3)$.
+Its invertibles form $C_5$, act trivially on the three noninvertibles, and
+belong to $\mathcal D_{\rm ad}$. The possible adjoint dimensions are
+$5+25k$ and must divide eighty; only five and eighty qualify. Dimension
+five cannot contain a dimension-five simple in any homogeneous component,
+so $\mathcal D_{\rm ad}=\mathcal D$. A second application of the solvable
+last-step argument gives a central $\Rep(C_5)$ whose image is exactly the
+five invertibles of $\mathcal D$.
+
+An invertible object has at most one half-braiding when the universal grading
+is trivial: the ratio of two half-braidings is a tensor automorphism of
+the identity, hence a character of that grading. This central $\Rep(C_5)$
+is therefore stable under the $C_2$ action. Its equivariantization is a
+central Tannakian subcategory of $\mathcal C$ with dimensions $(1,1,2,2)$,
+namely $\Rep(D_{10})$. Direct de-equivariantization gives
+$\mathcal C=\mathcal E^{D_{10}}$ with $\FPdim\mathcal E=16$.
+The orbit-stabilizer dimension formula forces $\mathcal E$ to be pointed:
+every nonunit orbit contributes a dimension-five simple and hence has five
+invertible underlying objects. The order-five rotation acts freely on all
+fifteen nonidentity elements of its group. Characteristic-center and
+two-torsion arguments force that group to be $V=C_2^4$.
+
+Identify $V$ with $\mathbb F_{16}$. A rotation is multiplication by an
+order-five element $a$, and a reflection can be taken to be $b(x)=x^4$.
+The complete presentation of $H^3(V,\C^*)$ has fourteen binary generators.
+Their restrictions to cyclic subgroups are the squarefree monomials of
+degrees one through three on $V\setminus\{0\}$. They span the even-parity
+subspace of its fifteen functions. Rotation invariance leaves four classes,
+with constant values on the three length-five orbits and even total parity.
+Four explicit normal forms in the certificate cover these classes.
+
+The rotation tensorator can be made strict because
+$H^1(C_5,H^2(V,\C^*))=0$. Relative to a reference reflection tensorator,
+the commutator of any other reflection tensorator is a rotation-invariant
+alternating form. Every such form is
+\[
+ B_c(x,y)=\operatorname{Tr}_{16/2}(cxy^4),\qquad c\in\mathbb F_4.
+\]
+It vanishes on $\mathbb F_4\times\mathbb F_4$, the reflection's fixed
+space. The reference tensorators are also symmetric there, as checked
+exactly. Consequently every allowed tensorator is symmetric on fixed pairs.
+This argument covers arbitrary complex actions, not only a bounded search
+of roots of unity.
+
+For equivariant objects $X,Y$, the trace of an element $h$ on their tensor
+product's fixed homogeneous degree $z$ is
+\[
+ \sum_{\substack{x+y=z\\hx=x,\ hy=y}}
+ J_h(x,y)^{-1}\chi_X(h,x)\chi_Y(h,y).
+\]
+The established symmetry makes this invariant under exchanging $X,Y$.
+Projective stabilizer characters determine equivariant objects, so the
+Grothendieck ring must be commutative. Both input tensors are explicitly
+noncommutative, proving the exclusions. The full proof and independent
+standard-library replay are in \nolinkurl{work/audit_new_models/INT160_AUDIT.md}
+and \nolinkurl{verify_int160_audit.py}.
+
+\section{The generalized Tambara--Yamagami family}
+Fourteen rank-ten inputs have profile $(1^8,2^2)$. Liptrap's classification
+of the corresponding fusion systems supplies necessary and sufficient
+associator data. Eleven have explicit unitary data in the package. The
+remaining three, $R10\_1\_118$, $R10\_1\_122$, and $R10\_1\_180$, admit no
+complex solution of those equations.
+
+For a positive record the phases are powers of a sixteenth root of unity,
+with $\tau=1/2$. The verifier checks the defining biderivation and coherence
+equations and all eighty-eight recorded nontrivial Fourier blocks for
+unitarity. Liptrap's construction then supplies the entire fusion category.
+For a negative record, the stabilizer bicharacters are enumerated completely
+(sixteen pairs for $V_4$, four for $C_4$). The remaining multiplicative
+equations have the form $\prod_jx_j^{A_{ij}}=i^{b_i}$ with arbitrary
+$x_j\in\C^*$. For every allowed bicharacter choice the receipt gives an
+integer row vector $y$ with
+\[
+ yA=0,\qquad yb\not\equiv0\pmod4.
+\]
+Multiplying the equations with these integer exponents would imply
+$1=i^{yb}\ne1$. The obstruction therefore applies over all of $\C^*$;
+failure of a finite-phase search is not being used as nonexistence evidence.

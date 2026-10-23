@@ -269,3 +269,6 @@ if __name__ == "__main__":
     parser.add_argument("--ref", default="main", help="GitHub source ref; preferably the immutable release commit")
     args = parser.parse_args()
     build(args.classification.resolve(), args.release, args.source.resolve() if args.source else None, args.ref)
+    if (args.classification / "evidence/rank10_m1_exclusions_20261023/accepted_ledger.json").is_file():
+        import subprocess, sys
+        subprocess.run([sys.executable, str(args.classification.resolve() / "tools/sync_rank10_m1_publication.py")], check=True)

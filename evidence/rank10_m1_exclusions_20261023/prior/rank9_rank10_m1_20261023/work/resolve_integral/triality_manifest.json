@@ -1,0 +1,85 @@
+{
+  "branch": "C2 equivariantizations of categories with fusion ring R9_1_117",
+  "scope": "All complex associators, all four TY neutral categories before elimination, all C3 scalar twists, all coherent C2 actions with the target orbit profile",
+  "result": {
+    "realized": [
+      "R9_1_12",
+      "R9_1_108"
+    ],
+    "not_realized_in_this_branch": [
+      "R9_1_62",
+      "R9_1_87"
+    ]
+  },
+  "proof": "TRIALITY_ACTIONS.md",
+  "independent_audit": "../audit_new_models/TRIALITY_EQUIVARIANT_AUDIT.md",
+  "finite_dependencies": [
+    {
+      "script": "triality_neutral_check.py",
+      "inputs": [
+        "../input_audit/tensors.json"
+      ],
+      "output": "triality_neutral_check.json",
+      "purpose": "Exact input grading/internal ends and exhaustive TY bicharacter test",
+      "status": "PASS",
+      "runtime": "Python 3 standard library"
+    },
+    {
+      "script": "triality_action_cohomology.py",
+      "inputs": [],
+      "output": "triality_action_cohomology.json",
+      "purpose": "Unique S3 Brauer-Picard image, normalized bar H2, central-w norm and coherence flip",
+      "status": "PASS",
+      "runtime": "Python 3 standard library"
+    },
+    {
+      "script": "triality_schur_extension.py",
+      "inputs": [],
+      "output": "triality_schur_extension.json",
+      "purpose": "Explicit D32 central cover gives coherent baseline C2 module structure",
+      "status": "PASS",
+      "runtime": "Python 3 standard library"
+    },
+    {
+      "script": "../resolve_small_models/triality_ring.py",
+      "inputs": [
+        "../../inputs/rank9_M1_verified/FusionRingMultiplicationTables.txt.gz",
+        "../models/match_models.py"
+      ],
+      "output": "../resolve_small_models/triality_117_certificate.json",
+      "purpose": "Exact R117 neutral/nonneutral ring structure",
+      "runtime": "Python 3 and NumPy"
+    },
+    {
+      "script": "../resolve_small_models/triality_equivariant_ring.py",
+      "inputs": [
+        "../../inputs/rank9_M1_verified/FusionRingMultiplicationTables.txt.gz",
+        "../models/match_models.py",
+        "../resolve_small_models/triality_ring.py"
+      ],
+      "output": "../resolve_small_models/triality_equivariant_certificate.json",
+      "purpose": "Exact fusion tensor reconstruction for12/108",
+      "runtime": "Python 3 and NumPy"
+    },
+    {
+      "script": "../audit_new_models/verify_triality_equivariant.py",
+      "inputs": [
+        "../input_audit/tensors.json",
+        "../resolve_small_models/triality_equivariant_certificate.json"
+      ],
+      "output": "../audit_new_models/triality_equivariant_audit.json",
+      "purpose": "Independent complete tensor replay, original input comparison, and D16 subgroup/self-duality checks",
+      "runtime": "Python 3 standard library",
+      "status": "PASS"
+    }
+  ],
+  "theorem_dependencies": [
+    "Tambara-Yamagami classification: TY(V4,chi,tau)",
+    "Nikshych-Riepel arXiv1309.5026 Section9: BrPic RepD8=S4; RepQ8 has only regular extensions",
+    "ENO arXiv0909.3140 Theorem1.3 and Corollary7.9(i)",
+    "Gelaki-Naidu-Nikshych arXiv0905.3117 relative-center equivariantization",
+    "Finite group module-category classification for Vec(D16) and Rep(D16)"
+  ],
+  "limitation": "Exclusion of62/87 globally additionally requires the other de-equivariantization branches to be excluded.",
+  "audit_scope": "Independent audit accepts both positive constructions and the exhaustive branch argument, including all TY forms, C3 scalar twists, H2 classes, and section coherences."
+}

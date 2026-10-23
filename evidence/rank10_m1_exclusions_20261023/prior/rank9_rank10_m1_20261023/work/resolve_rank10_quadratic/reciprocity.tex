@@ -1,0 +1,82 @@
+\section{Ten rank-ten exclusions from central reciprocity}
+The rings
+\[
+R10\_1\_k,\qquad
+k\in\{65,89,90,91,120,143,144,147,162,182\},
+\]
+have no categorification over $\mathbb C$.
+The separately verified signed/Galois reduction in \nolinkurl{work/general_signed}
+shows that a hypothetical complex categorification of each listed based
+ring would give a pseudo-unitary categorification of the same based ring.
+The following obstruction rules out that consequence.
+
+Let $\mathcal C$ be pseudo-unitary, $D=\operatorname{FPdim}(\mathcal C)$,
+$F:Z(\mathcal C)\to\mathcal C$ the forgetful functor, and $I$ its adjoint.
+For each one-dimensional representation $\chi$ of its complexified fusion
+ring, let $f_\chi=\sum_i\chi(X_i)\chi(X_i^*)$ be its formal codegree.
+There is a distinct simple $A_\chi\subset I(1)$ with
+\[
+[F(A_\chi):1]=1,\qquad
+\dim A_\chi=\beta_\chi=D/f_\chi.
+\]
+Moreover, for every central simple $Z$,
+\[
+S_{A_\chi,Z}=\beta_\chi\chi(F(Z)).
+\]
+These are Ostrik's induction/formal-codegree theorem and the identification
+of the corresponding central character (Ostrik, \emph{Pivotal fusion categories of rank 3},
+arXiv:1309.4822, Example 2.9 and the discussion preceding
+Theorem 2.13; equivalently Deshpande, arXiv:1611.04486v1, equations
+(35)--(36)). Symmetry of $S$ gives the necessary equations
+\begin{equation}\label{eq:r10reciprocity}
+\beta_\chi\chi(v_\psi)=\beta_\psi\psi(v_\chi),
+\qquad v_\chi=[F(A_\chi)].
+\end{equation}
+Only scalar characters are used, also for the eight noncommutative rings;
+no noncommutative character recovery or normalization is needed.
+
+Write $N_{ij}^k$ for the supplied based tensor and define its exact
+induction Gram matrix by
+\[
+B_{ij}=\sum_{a,k}N_{aj}^kN_{ka^*}^{i}.
+\]
+Adjunction gives $B=MM^{\mathsf T}$, where the columns of $M$ are the
+restriction vectors of all simples of $Z(\mathcal C)$. Hence any distinct
+chosen $v_\chi$ satisfy
+\[
+ v_\chi\in\mathbb Z_{\ge0}^{10},\quad
+(v_\chi)_0=1,\quad d\cdot v_\chi=\beta_\chi,
+\quad 0\le(v_\chi)_i\le\min(B_{0i},\lfloor\sqrt{B_{ii}}\rfloor),
+\]
+and $Q=B-\sum_\chi v_\chi v_\chi^{\mathsf T}$ is entrywise nonnegative
+and positive semidefinite. Also $\sum_\chi v_\chi\le B_{0,*}$
+coordinatewise, since every selected column has zeroth coordinate one.
+The verifier uses only the entrywise and $2\times2$ principal-minor
+consequences of positivity. These weak consequences already suffice.
+
+For every listed ring, the dimension vector consists of four $1$'s,
+two $2+2\sqrt2$'s and four $3+2\sqrt2$'s, and
+$D=96+64\sqrt2$. All scalar characters and codegrees lie in
+$\mathbb Q(\sqrt2,i)$. The certificate stores them using the primitive
+element $t=\sqrt2+i$, whose minimal polynomial is $t^4-2t^2+9$.
+The independent verifier decodes them into the rational basis
+$(1,\sqrt2,i,i\sqrt2)$ and checks each of the $100$ multiplicativity
+equations for each distinct character. It checks $f_\chi\beta_\chi=D$
+exactly. It independently regenerates every possible $v_\chi$ from the
+two rational dimension equations and the displayed finite bounds.
+It then exhausts equations~\eqref{eq:r10reciprocity}, the Gram bounds,
+and first-row inequalities. All ten finite searches are empty, after
+only three or five search nodes each. It does not assume that the stored
+scalar table is complete, nor does it impose first-row equality.
+
+The machine receipt is \nolinkurl{exclusion_receipts.json}. The initial
+searches are \nolinkurl{reciprocal_partial.py} for the eight noncommutative
+rings and \nolinkurl{reciprocal.py} for the two commutative rings 89 and 147.
+The separate, standard-library-only replay is
+\nolinkurl{work/audit_new_models/verify_rank10_reciprocity.py}; its complete
+output is \nolinkurl{work/audit_new_models/rank10_reciprocity_audit.json}.
+The signed reduction was replayed separately using the verifier in
+\nolinkurl{work/general_signed}; it is not part of this standard-library
+scalar-character verifier. Thus the
+exclusions concern arbitrary complex fusion categories, not just
+pseudo-unitary or spherical categories assumed in advance.

@@ -1,0 +1,90 @@
+\subsection[An actual unitary model for R10-1-21]{An actual unitary model for $R10\_1\_21$}
+Let $\mathcal P=PSU(2)_6$ have simples $1,f,x,y=fx$, with
+$f^2=1$, $x^2=y^2=1+x+y$, and $xy=f+x+y$.
+The invertible $f$ is a transparent fermion and its pointed associator is
+trivial. All four simples are self-dual. Write
+$\mathcal W=(\mathcal P\boxtimes\mathcal P)^{C_2}$ for the canonical
+permutation equivariantization, a unitary braided fusion category.
+Its simples are $d_i^\epsilon=(i\boxtimes i,\epsilon)$ and
+$p_{ij}=(i\boxtimes j)\oplus(j\boxtimes i)$ for $i<j$.
+
+The object $h=d_f^-$ is an order-two transparent boson: the two fermionic
+self-braidings multiply to $+1$, its pointed associator is trivial, and
+its equivariance squares to $+1$. Consequently $A=1\oplus h$ is a
+connected central commutative separable algebra, and $\mathcal C=\mathcal W_A$
+is an actual unitary fusion category. The free-module functor $F$ is tensor.
+The $h$-orbits of size two give one simple each; a fixed simple splits
+into two simples, since its stabilizer is cyclic of order two. There are
+six free orbits and two fixed objects, namely $p_{1f}$ and $p_{xy}$.
+Thus $\mathcal C$ has rank ten and dimensions
+$1^4,(2+2\sqrt2)^2,(3+2\sqrt2)^4$.
+
+\paragraph{The fixed invertibles, including their tensor squares.}
+Put $s=F(d_1^-)$, and let $g,sg$ be the two summands of $F(p_{1f})$.
+The pointed subcategory of $\mathcal P\boxtimes\mathcal P$ can be made
+strict. For $X=p_{1f}$ write $e_1=1\boxtimes f$, $e_2=f\boxtimes1$.
+The equivariant structure exchanges $e_1,e_2$, whereas that of $h$ has
+sign $-1$. An equivariant right $h$-action on $X$ is therefore
+\[
+ r(e_1\otimes h)=i e_2,\qquad r(e_2\otimes h)=-i e_1;
+\]
+it squares to the identity. Its negative is the other simple module.
+The half-braiding $c_{h,X}$ is $-1$ on both components, so the left
+$h$-action used in the balanced product is $-r$. Hence $g\otimes_Ag$
+is the cokernel of $r\otimes1+1\otimes r$ inside $X\otimes X$.
+This operator is Hermitian, so that cokernel identifies with its kernel.
+Its two homogeneous lines are
+\[
+ e_1e_1+e_2e_2,\qquad e_1e_2-e_2e_1.
+\]
+They have equivariance $+$ and $-$ respectively and underlie $1\oplus h$.
+The remaining right action $1\otimes r$ sends the first line to $i$ times
+the second and the second to $-i$ times the first; rescaling the second
+line by $i$ identifies this with the regular right $A$-module.
+Thus $g^2=1$. Multiplication by $s$ exchanges the two module structures,
+so the four invertibles form $C_2\times C_2$, with $s^2=g^2=1$.
+This calculation is essential: the choice $h=d_f^+$ gives a different
+fixed-point resolution and does not give the multiplicity-one tensor here.
+
+\paragraph{All fusion coefficients.}
+Choose $a=F(p_{1x})$ and $b=F(d_x^+)$. Then
+\[
+\begin{array}{c|cccccccccc}
+\text{source}&d_1^+&d_1^-&d_f^+&d_f^-&d_x^+&d_x^-&d_y^+&d_y^-&p_{1f}&p_{xy}\\
+F&1&s&s&1&b&sb&sb&b&g+sg&gb+sgb
+\end{array}
+\]
+and $F(p_{1y})=F(p_{fx})=ga$, $F(p_{fy})=a$.
+Indeed $s$ interchanges the signs on the diagonal simples, and source
+fusion gives $(g+sg)b=F(p_{xy})$ and $(g+sg)a=2F(p_{1y})$.
+Since $sb\ne b$ and $g^2=1$, these identify a free orbit of four $b$'s
+and an orbit of two $a$'s, with $sa=a$.
+Ordinary equivariant tensor products give
+\[
+\begin{split}
+b^2&=1+a+ga+b+sb+gb+sgb,\\
+a^2&=1+s+a+ga+b+sb,\\
+ab&=a+b+sb+gb+sgb.
+\end{split}
+\]
+For example $d_x^+d_x^+=d_1^++d_x^++d_y^++p_{1x}+p_{1y}+p_{xy}$.
+The three displayed rules, commutativity, and the invertible action
+therefore determine the entire tensor without choosing any unknown
+fusion coefficient. They also show all ten simples are self-dual.
+
+The standalone constructor \nolinkurl{model21.py} generates these rules in the displayed model basis. It checks all $10^4$ associativity
+identities, and verifies all $10^3$ coefficients against $R10\_1\_21$
+under the zero-based model-to-input basis map
+\[
+(0,9,1,2,3,8,6,7,5,4).
+\]
+The resulting model receipt is \nolinkurl{model21.json}. Its inverse
+input-to-model map is $(0,2,3,4,9,8,6,7,5,1)$. The independent standard-library
+verifier \nolinkurl{work/audit_new_models/verify_model21.py} replays the
+fixed-point balance, all $196$ source products, the free-module map, and
+the complete original-tensor comparison. Its receipt is
+\nolinkurl{work/audit_new_models/model21_audit.json}.
+The categorical inputs are the standard unitary $PSU(2)_6$ category,
+canonical permutation equivariantization, and central Tannakian
+condensation (EGNO, Theorems 8.4.9 and 8.23.3). No reconstruction from
+a ring-consistent induction matrix is being asserted.

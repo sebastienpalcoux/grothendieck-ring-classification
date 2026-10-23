@@ -1,0 +1,110 @@
+\section{Unitary constructions}
+\subsection{Established models and audited operations}
+The baseline contains 84 realized input rings. Seventy-nine have selected
+full tensor-model receipts; the Haagerup--Izumi $C_5$ model and four additional
+Liptrap-positive inputs complete this count. Standard sources include
+pointed and group-representation categories, $SU(2)$ and adjoint $PSU(2)$
+categories, Tambara--Yamagami and metaplectic categories, Deligne products,
+equivariantizations, group-theoretical categories, and explicit lower-rank
+unitary models from Liu--Palcoux--Ren. Every selected receipt includes a
+unit-preserving basis permutation and a complete coefficient comparison.
+
+The construction audit checks more than tensor matching for the less standard
+operations. It replays 27 associative $C_2$ zestings, eight central-extension
+quotients, six cyclic actions on Tambara--Yamagami categories, and the
+Ising-swap $C_4$ subextension. In a $C_2$ zesting, a neutral central
+involution supplies the two-cocycle, and the fourth-cohomology obstruction
+vanishes; the scalar coherence correction is included in the proof. Bases
+for which the required central or braided data have not been supplied are
+not used for this operation. The eight quotient constructions instead start
+from $SU(2)_4$, a specified central extension of $V_4$, and a central boson;
+their fusion tensors follow from the actual free-orbit quotient.
+
+\subsection{Explicit coherent pointed actions}
+Six new small models are equivariantizations of pointed unitary categories:
+\begin{center}
+\begin{tabular}{ll}
+\toprule Inputs & Construction \\\midrule
+$R9\_1\_47$ & $\Vec(C_{12},\omega)^{C_2}$, inversion action \\
+$R9\_1\_98$ & $\Vec(C_3\times V_4,\omega)^{C_2}$, inversion and swap \\
+$R10\_1\_61,84,109,158$ & $\Vec(\mathbb F_2^3,\omega)^{S_3}$, coordinate permutations \\
+\bottomrule
+\end{tabular}
+\end{center}
+For each model the certificate gives all associator exponents $w$, forward
+tensorators $J_g$, and compositors $\mu_{g,h}$ modulo eight. The verifier
+checks the pointed pentagon and, for every tuple of indices,
+\begin{align*}
+J_g(a,b)+J_g(ab,c)+w(a,b,c)
+ &=w(ga,gb,gc)+J_g(b,c)+J_g(a,bc),\\
+\mu_{g,h}(ab)+J_g(ha,hb)+J_h(a,b)
+ &=J_{gh}(a,b)+\mu_{g,h}(a)+\mu_{g,h}(b),\\
+\mu_{g,h}(ka)+\mu_{gh,k}(a)
+ &=\mu_{h,k}(a)+\mu_{g,hk}(a).
+\end{align*}
+These equalities define coherent categorical actions. Independent code then
+constructs all equivariant simple objects as projective matrix actions on
+their homogeneous fibers, verifies the action equations, and computes every
+fusion coefficient by exact Hom-space characters. Roots of unity of orders
+sixteen or forty-eight suffice for these matrix calculations. Thus neither
+the existence nor the fusion rules are inferred from a permutation action
+on a based ring alone.
+
+The dimension-160 cases $R10\_1\_39$ and $R10\_1\_138$ are likewise
+realized as $D_{10}$-equivariantizations of $\Vec(\mathbb F_{16},\omega)$.
+One may take $R10\_1\_39=\Rep(\mathbb F_{16}\rtimes D_{10})$, with
+action $v\mapsto a^kv^{4^b}$. The second model uses a nontrivial associator
+and explicitly stored fourth-root tensorators. The replay checks all 65,536
+pointed pentagons, all action diagrams, the projective stabilizer data,
+and the 1,000 fusion coefficients of each input.
+
+\subsection{A twisted subgroup-bimodule model}
+For $R9\_1\_92$, put $V=\{a\in\mathbb F_2^3:\sum_i a_i=0\}$ and
+$G=V\rtimes S_3\cong S_4$. Restrict one of the coherent $S_3$ actions
+above to $V$. The crossed-product associator is
+\[
+ \Omega((a,g),(b,h),(c,k))
+ =w(a,gb,ghc)+J_g(b,hc)-\mu_{g,h}(c)\pmod8.
+\]
+It is verified directly on every quadruple of the 24-element group. Its
+restriction to the chosen reflection subgroup $H=C_2$ is trivial. The
+category of bimodules over $\bigoplus_{h\in H}h$ in $\Vec(G,\Omega)$
+is therefore unitary. The supplied homogeneous bimodules are checked for
+left, right, and mixed associativity; the independent reconstruction forms
+their balanced tensor products, checks that both actions descend to the
+quotient, and identifies all 729 coefficients with $R9\_1\_92$.
+
+\subsection{The triality model of dimension twenty-four}
+Nikshych--Riepel, Example 9.3, constructs a nontrivial $C_3$ extension
+of $\Rep(D_8)$, integral of dimension 24, with every noninvertible simple
+of dimension two. Their definition of nontrivial means that a homogeneous
+component is not equivalent to the regular category as a left module.
+An invertible simple in that component would give such an equivalence.
+Thus both nonneutral components have exactly two dimension-two simples.
+
+Write the neutral simples as $G=V_4$ and $m$, with $m^2=\sum G$.
+Every rank-two invertible $\Rep(D_8)$-module has transitive $G$ action.
+Indeed the module-category classification gives reflection subgroups $C_2$
+or the nontrivial projective class of $D_8$; both are transitive under the
+linear characters. The central $C_2$ alternative has a pointed dual and
+cannot be an invertible $\Rep(D_8)$-bimodule. The other subgroups have
+one, four, or five projective simples, so no case is omitted.
+
+Label the nonneutral simples $X_0,X_1$ and $Y_0,Y_1$ with $X_i^*=Y_i$.
+Their left and right actions are nonzero homomorphisms
+$\phi,\psi:V_4\to C_2$. Multiplication by $m$ is the all-ones matrix.
+Frobenius reciprocity determines the mixed products:
+\[
+ X_iY_j=\sum_{\phi(g)=i+j}g+m,\qquad
+ Y_iX_j=\sum_{\psi(g)=i+j}g+m.
+\]
+The only unknowns are
+$X_iX_j=a_{ij}Y_0+(2-a_{ij})Y_1$, with $a_{ij}\in\{0,1,2\}$;
+duality determines $Y_jY_i$. The exact replay checks all
+$3\cdot3\cdot3^4=729$ choices, allowing multiplicity two. Precisely six
+are associative, all with distinct left and right kernels and $a_{ij}=1$.
+Every one is based-isomorphic to $R9\_1\_117$. This identifies the
+existence theorem's category with the supplied tensor. The category is
+nilpotent and hence unitarizable by Galindo--Hong--Rowell, Theorem 5.20.
+
+\input{additional_models.tex}

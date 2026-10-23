@@ -1,0 +1,442 @@
+\section{A uniform Morita reduction at rank ten}
+\label{sec:rank10-morita}
+Put $\delta=1+\sqrt2$. The five inputs
+\[
+ R10\_1\_114,\quad R10\_1\_115,\quad R10\_1\_152,
+ \quad R10\_1\_153,\quad R10\_1\_179
+\]
+have dimension type $(1^4,(2\delta)^2,(\delta^2)^4)$.
+We prove their noncategorifiability over $\C$. The finite computations in
+this section reconstruct necessary module actions and fusion tensors;
+they are not searches for numerical associators. The full source-bound
+derivation and receipts are in
+\href{https://github.com/sebastienpalcoux/grothendieck-ring-classification/tree/main/evidence/rank10_m1_exclusions_20261023}{the rank-ten continuation package}.
+
+\subsection{The involution algebra and the forced dual}
+In each input there is a unique nontrivial invertible $h$ fixing the two
+simples $Y_0,Y_1$ of dimension $2\delta$. The remaining invertibles exchange
+them, and $h$ acts freely on the other six simples. Directly in all five
+tensors,
+\begin{equation}\label{eq:rank10-odd}
+ N_{Y_i,Y_j}^{Y_k}=1\qquad(i,j,k\in\{0,1\}).
+\end{equation}
+If $\mathcal C$ categorifies the input, the rank-one action of
+$\langle h\rangle$ on $Y_0$ trivializes its pointed associator. Thus
+$A=1\oplus h$ is a connected separable algebra. Its simple right modules
+are four free modules from length-two $h$-orbits and two modules
+$Y_i^+,Y_i^-$ over each fixed $Y_i$. Twisting the right action by the sign
+automorphism of $A$ fixes the free modules and exchanges each split pair.
+
+Let $W$ be the anti-invariant two-space with basis
+$w_i=[Y_i^+]-[Y_i^-]$. Left multiplication induces a based-ring
+representation $\rho$ on $W$. Left $h$ acts by
+$\operatorname{diag}(\epsilon_0,\epsilon_1)$, with $\epsilon_i=\pm1$.
+An invertible exchanging the $Y_i$ acts by an invertible signed swap.
+Commutation with $h$ gives $\epsilon_0=\epsilon_1$. If both signs were
+negative, $hY_i=Y_i$ would imply $\rho(Y_i)=0$. This is impossible:
+each entry is $a-b$ with $a+b=1$ by \eqref{eq:rank10-odd}. Hence left
+$h$ fixes every simple right module.
+
+An $A$-bimodule is a right module with coherent left $C_2$ action.
+Every right-module simple is fixed and has two one-dimensional equivariant
+structures, since $H^2(C_2,\C^\times)=0$. The dual therefore has sixteen
+simples of dimensions
+\begin{equation}\label{eq:rank16-type}
+ 1^4,\quad\delta^8,\quad(\delta^2)^4.
+\end{equation}
+We use the endofunctor-composition convention
+$\mathcal D=\operatorname{End}_{\mathcal C}(\mathcal C_A)$.
+The corresponding literal bimodule convention takes the opposite tensor
+product; all arguments below are invariant under this change.
+
+Here the full eight-simple module action is forced, rather than just its
+dimension vector. Normalize the signed swap on $W$. Its $+1$ eigenspace
+has integer character values $y$ on both $Y_i$ and $z$ on the four
+$\delta^2$-dimensional simples. The input tensor gives
+\[
+ y^2=2+2y+2z,\qquad yz=y+4z.
+\]
+Thus $(y-2)(y^2-4y-4)=0$, so $y=2,z=-1$. The odd entries of
+$\rho(Y_i)$ are consequently all $+1$. Forgetting module structures
+then determines the remaining entries; the fixed-sector matrices of
+each $\delta^2$-dimensional simple are the negatives of the corresponding
+identity or swap matrices. All module fusion and duality equations are
+checked exactly by \nolinkurl{module_action.py}.
+
+For clarity, the subsequent finite step has a proved bound. A simple
+dual action matrix $B$ is nonnegative integral, commutes with the original
+module action, and has prescribed unit column $Be_0=e_m$. Let $w$ be the
+positive module dimension vector, with entries in $\{1,\delta,\delta^2\}$
+and $w_0=1$. The sum of the original module matrices is symmetric and
+irreducible. Its unique Perron line gives both
+$Bw=\lambda w$ and $w^tB=\lambda w^t$, and the unit column gives
+$\lambda=w_m$. Consequently
+\[
+ 0\leq B_{ij}\leq\lambda w_i/w_j\leq\delta^4
+ =17+12\sqrt2<34.
+\]
+The rational commutant has dimension twelve. Prescribing a unit column
+leaves four parameters, each explicitly an entry of $B$. Necessary linear
+inequalities narrow their integer ranges; exhaustive enumeration leaves
+exactly two matrices for each of the eight columns. Tensoring with the
+canonical sign bimodule $\tau$ exchanges these two matrices without fixed
+points. Therefore both candidates occur as the two actual equivariant
+structures; duplicate action matrices are not being assumed distinct.
+
+Matrix products determine 240 of the 256 ordered dual products uniquely.
+The remaining sixteen are precisely products of the four
+$\delta^2$-dimensional simples. Each such simple is already a simple
+product of two $\delta$-dimensional objects; associativity forces its
+remaining products. The receipts verify all 4096 associativity equations
+and all 256 matrix-action equations per dual tensor. This is a complete
+necessary reconstruction with no arbitrary cutoff. The realized ring
+$R10\_1\_21$ is included as an independent control.
+
+\subsection{Relative factorization with a common invertible}
+The adjoint subcategory $\mathcal B=\mathcal D_{\rm ad}$ has rank eight.
+Its forced tensor has two rank-four fusion subcategories
+$\mathcal P,\mathcal Q$ whose intersection has simples $1,f$.
+The involution $\tau$ is outside $\mathcal B$, is distinct from $f$,
+and conjugation by $\tau$ exchanges the two subcategories.
+Every cross product of simples is simple; fixing either factor gives
+four distinct products. Both rank-four factors have trivial universal
+grading, and $f$ acts freely on their simple bases.
+
+For inputs 114 and 115 their based rings are the ordinary
+$\mathrm{PSU}(2)_6$ ring $P$:
+\[
+ f^2=1,\quad fx=y,\quad
+ x^2=y^2=1+x+y,\quad xy=f+x+y,
+ \qquad x^*=x,\ y^*=y.
+\]
+For inputs 152,153,179 they are the pseudo ring $Q$:
+\[
+ f^2=1,\quad fx=y,\quad
+ x^2=y^2=f+x+y,\quad xy=1+x+y,
+ \qquad x^*=y.
+\]
+All these identifications, the simple cross products, and the action of
+$\tau$ are checked coefficient by coefficient in the forced tensors.
+
+\begin{lemma}\label{lem:relative-factor}
+In this situation multiplication extends to a dominant tensor functor
+$\mathcal P\boxtimes\mathcal Q\longrightarrow\mathcal B$.
+The unique central lifts of $f$ in the two factors have self-braidings
+$q_{\mathcal P},q_{\mathcal Q}$ satisfying
+$q_{\mathcal Q}=q_{\mathcal P}^{-1}=q_{\mathcal P}$.
+\end{lemma}
+\begin{proof}
+Choose a noninvertible $Y\in\mathcal Q$. The complement
+$\mathcal M=\mathcal P Y$ of $\mathcal P$ in $\mathcal B$ is a
+$\mathcal P$-bimodule subcategory. The functor $X\mapsto XY$ is an
+equivalence of left module categories. Transporting the right action
+therefore identifies $\mathcal M$ with a twisted regular bimodule
+$\mathcal P_\phi$. The tensor autoequivalence $\phi$ fixes simple
+classes because $XY$ and $YX$ are the same simple class.
+
+Multiplication followed by projection to $\mathcal M$ is a bimodule
+functor $\mathcal P_{\phi^2}\to\mathcal P_\phi$. Its value at the
+unit is $V=1\oplus f$, since the $\mathcal M$-part of $Y^2$ is
+$Y\oplus fY$. Its right-module constraint gives coherent isomorphisms
+$\phi^2(X)V\simeq V\phi(X)$, or, replacing $X$ by $\phi^{-1}(X)$,
+$\phi(X)V\simeq VX$. On a simple $X$ the two constituent classes
+$X,fX$ are distinct. These maps are therefore block diagonal for
+$V=1\oplus f$. The unit block is a tensor isomorphism
+$\phi\simeq\operatorname{Id}$. Thus $Y$ has an ordinary relative
+half-braiding with $\mathcal P$.
+
+Two relative half-braidings on a fixed simple $Z\in\mathcal Q$ differ
+by scalars $\lambda_X$, because $XZ$ is simple. Tensor compatibility
+makes them a character of the universal grading of $\mathcal P$,
+which is trivial. The half-braiding is unique. Products of lifted
+$\mathcal Q$-simples inherit half-braidings, and the latter preserve
+each simple summand: tensoring by any fixed simple of $\mathcal P$
+sends the four $\mathcal Q$-simples to distinct simples. Tensor powers
+and summands of $Y$ generate $\mathcal Q$. These unique lifts are
+therefore tensor closed and give the required functor into the relative
+center, hence the dominant multiplication functor.
+
+The relative crossing of the common $f$ with itself gives its unique
+central lift in $\mathcal P$; reversing the crossings gives its lift
+in $\mathcal Q$. Hence the two self-braidings are inverse.
+Conjugation by $\tau$ identifies these central lifts, so they are also
+equal. Their squares lie over the tensor unit and are trivial because
+$\operatorname{Aut}_{\otimes}(\operatorname{Id})$ is trivial in each
+factor. Thus $q_{\mathcal P}^2=1$.
+\end{proof}
+
+The case $q=+1$ is already impossible in either factor. It would give
+the central boson algebra $1\oplus f$, whose fusion category of modules
+has two simples and rule $W^2=1+2W$, excluded by the rank-two
+classification \cite{Ostrik2}. The forced central lift is consequently
+fermionic.
+
+\subsection{The pseudo branch}
+\begin{theorem}
+The based rings $R10\_1\_152$, $R10\_1\_153$ and $R10\_1\_179$
+have no complex fusion categorification.
+\end{theorem}
+\begin{proof}
+Their rank-four factor has based ring $Q$ and, by
+Lemma~\ref{lem:relative-factor}, a central fermion $f$. The standard
+associated superfusion construction \cite[Definition~4.9]{Usher}
+has morphism spaces
+\[
+ \operatorname{Hom}_{\widehat{\mathcal Q}}(U,V)_{\bar0}
+ =\operatorname{Hom}_{\mathcal Q}(U,V),\qquad
+ \operatorname{Hom}_{\widehat{\mathcal Q}}(U,V)_{\bar1}
+ =\operatorname{Hom}_{\mathcal Q}(U,fV).
+\]
+The central self-braiding $-1$ gives exactly the super interchange sign.
+Up to homogeneous isomorphism there are two simple representatives
+$I=1,W=x$, both of m-type. The fusion spaces have dimensions
+\begin{align*}
+ \dim\operatorname{Hom}(W^2,I)&=(0\mid1),&
+ \dim\operatorname{Hom}(W^2,W)&=(1\mid1),\\
+ \dim\operatorname{Hom}(IW,W)&=(1\mid0),&
+ \dim\operatorname{Hom}(WI,W)&=(1\mid0).
+\end{align*}
+Thus $W^2=\Pi I+(1+\Pi)W$. This is exactly the odd-evaluation family
+$\widehat{\mathcal C}^{(1,1)}_m$ excluded by the finite superpentagon
+calculation in \cite[Section~3]{CCX}. That calculation explicitly
+includes the pair $(1,1)$ and admits only $(0,0)$ among the tested
+odd-evaluation families. We use this finite result, not the subsequent
+conjecture about all rank-two superfusion categories.
+
+Neither the associated-superfusion construction nor that finite
+polynomial-system exclusion assumes unitarity. In particular the cited
+paper retains odd $(0,0)$ solutions even while discussing their failure
+of a proposed physical locality condition; locality is not used as an
+exclusion filter here. The final published Mathematica/Magma calculation
+is a literature input and was not independently rerun in this project.
+The precise rule and its applicability have been independently audited.
+\end{proof}
+
+\subsection{The ordinary branch}
+\begin{theorem}
+The based rings $R10\_1\_114$ and $R10\_1\_115$ have no complex
+fusion categorification.
+\end{theorem}
+\begin{proof}
+The earlier tensor-specific sphericalization and character receipts give
+a pseudo-unitary Galois conjugate of any hypothetical categorification.
+Pseudo-unitarity passes to its Morita dual: both global dimension and
+Frobenius--Perron dimension are preserved
+\cite[Theorem~2.15, Corollary~8.14]{ENO}; the positive spherical
+structure then exists by \cite[Proposition~8.23]{ENO} and restricts to
+the factors. Etingof--Ostrik's classification
+\cite[Theorem~A.3]{EOSemisimple} identifies each pivotal ordinary
+rank-four factor with $P=\operatorname{Rep}(\mathrm{SO}(3)_q)$,
+$q$ a primitive sixteenth root. Conjugation by $\tau$ identifies the
+two factors monoidally.
+
+Lemma~\ref{lem:relative-factor} and central-algebra reconstruction
+\cite[Corollary~5.6]{BrugNat} identify
+$\mathcal B$ with $(P\boxtimes P)_a$, where
+$a=1\oplus(f,f)$. The induced central structure is unique because
+$U(P\boxtimes P)=1$. The common $f$ in each quantum factor is the
+central fermion, so $(f,f)$ is a boson. The canonical inverse Morita
+algebra is $1\oplus\tau$; its pointed associator is trivial. Hence
+$\mathcal D$ is the crossed product of $\mathcal B$ by the coherent
+order-two action $T=\operatorname{Ad}_{\tau}$, and the original
+category is $\mathcal B^T$ (or its opposite under the opposite dual
+convention).
+
+We must exhaust the categorical actions, not just their based
+permutations. Identify the second factor with the first using $T$.
+The lift of $T$ to $P\boxtimes P$ is then ordinary factor interchange
+$L$. Uniqueness of the cross-half-braidings gives a tensor comparison
+$TF\simeq FL$, where $F:P\boxtimes P\to\mathcal B$ is induction.
+Indeed applying $T$ to the crossing gives its inverse after exchanging
+the factors, and these relative half-braidings are unique. Passing to
+right adjoints gives a central algebra isomorphism $L(a)\to a$.
+Conversely that isomorphism descends $L$ to $a$-modules: transport the
+module action along it. Every module is a summand of a free one, so
+the comparison recovers the action on every module and morphism.
+
+The unital algebra automorphisms of $a$ are exactly the two signs on
+$(f,f)$. Their squares are trivial. There is no extra action coherence,
+since $U(\mathcal B)=1$ implies
+$\operatorname{Aut}_{\otimes}(\operatorname{Id}_{\mathcal B})=1$.
+Equivariantization commutes with this central condensation. The two
+possible categories therefore have the form
+\[
+ ((P\boxtimes P)^{\rm swap})_{1\oplus(f,f)_{\epsilon}},
+ \qquad\epsilon=\pm.
+\]
+
+For $\epsilon=+$, write $d_x^+$ for the positive equivariant lift of
+$(x,x)$ and $p_{uv}$ for the off-diagonal orbit on $(u,v),(v,u)$.
+In the permutation equivariantization,
+\[
+ (d_x^+)^2=d_1^++d_x^++d_y^++p_{1x}+p_{1y}+p_{xy}.
+\]
+Induction identifies $d_x^+,d_y^+$ and their common image $b$ is
+simple, so $b^2$ contains $2b$. This contradicts multiplicity one.
+
+For $\epsilon=-$ it suffices to determine the invertibles. Let
+$s=F(d_1^-)$ and let $g,sg$ be the two summands of $F(p_{1f})$.
+The pointed subcategory of $P\boxtimes P$ has trivial associator.
+With $e_1=(1,f),e_2=(f,1)$, the equivariant structure exchanges the
+two lines and the right $(f,f)_-$ action can be written
+\[
+ r(e_1)=ie_2,\qquad r(e_2)=-ie_1.
+\]
+The half-braiding is $-1$ on both lines, so the left action used in
+the balanced product is $-r$. The quotient by the image of
+$r\otimes1+1\otimes r$ is represented by its zero eigenspace, with
+homogeneous lines
+\[
+ u=e_1e_1+e_2e_2,\qquad v=e_1e_2-e_2e_1.
+\]
+Their equivariance signs are $+,-$, respectively. The remaining right
+action sends $u\mapsto iv$, $v\mapsto-iu$. Rescaling $v$ by $i$
+identifies this module with the regular algebra. Hence $g^2=1$;
+also $s^2=1$, and $s$ exchanges the two module structures. The four
+invertibles form $C_2\times C_2$, whereas both target rings have
+invertible group $C_4$.
+
+Every primitive sixteenth root is Galois conjugate to the standard one.
+The quantum category, central fermion, swap action, and algebra transport
+under that conjugation. Fusion multiplicities and the invertible group
+are unchanged. Thus the two contradictions apply to all forms of the
+ordinary factors. Taking opposites does not alter either target based
+ring, since both are commutative. This exhausts and excludes both inputs.
+\end{proof}
+
+\section{The cyclic rank-ten frontier}
+\label{sec:cyclic-frontier}
+The remaining ring $R10\_1\_189$ has normal form
+\begin{equation}\label{eq:cyclic-rank10}
+ g^5=1,\quad gx=xg,\quad x^*=x,\quad
+ x^2=1+(g+g^2+g^3+g^4)x,
+\end{equation}
+with $d=\FPdim(x)=2+\sqrt5$ and $D=50+20\sqrt5$.
+The original basis map for
+$(1,g,g^2,g^3,g^4,x,gx,g^2x,g^3x,g^4x)$ is
+$(0,1,8,7,2,9,4,6,5,3)$. We record necessary structural results,
+without asserting categorifiability.
+
+\begin{proposition}\label{prop:cyclic-associator}
+Any complex categorification of \eqref{eq:cyclic-rank10} has pointed
+subcategory tensor equivalent to the untwisted $\Vec_{C_5}$.
+\end{proposition}
+\begin{proof}
+The established Galois reduction allows a positive spherical structure.
+Vanishing of the pointed associator class is Galois invariant, so it
+suffices to work there. Put $X_i=g^ix$, with subscripts modulo five.
+The restriction Gram matrix has blocks
+\[
+ B_{GG}=10I,\qquad B_{GX}=5(J-I),\qquad B_{XX}=15I+15J.
+\]
+Writing a central restriction as $(a_i;b_i)$, the Galois automorphism
+$\zeta_5\mapsto\zeta_5^2$ gives the exact transform
+\[
+ a'_i=a_{3i},\qquad b'_i=\sum_j a_j-a_{3i}-b_{3i}.
+\]
+These identities follow from the normalized center character formula;
+the complete character matrix and the identity $HT=\sigma(H)$ are
+verified exactly in the structural receipt. In particular $T^4=1$.
+Every constituent of $I(g^j)$ has positive Galois sign and restriction
+$g^j+\sum_{i\in S}X_i$, with $S\subset\{i:i\ne j\}$.
+
+For completeness $I(g^j)$ is multiplicity free with ten constituents.
+For $j=0$ this follows from commutativity of the based ring and induction.
+For $j\ne0$, the fifth powers of their twists coincide
+\cite[Proposition~3.8]{Schopieray}. The indicator identities
+$\nu_m(g^j)=0$ for $1\leq m\leq4$ distribute the total dimension
+equally among the five phases, each of weight $D/5=2+4d$.
+If a constituent restricts with multiplicity $a$ to $g^j$ and has
+dimension $a+bd$, it contributes $a(a+bd)$ to that weight. Comparing
+constant coefficients gives $\sum a^2=2$ in each phase. There are
+therefore two constituents, both of multiplicity one, in each phase.
+
+Suppose the pointed associator class $k\in H^3(C_5,\C^\times)$ is
+nonzero. The cyclic indicator formula \cite[Section~3.3]{MignardSchauenburg}
+gives a primitive fifth root for $\nu_5(g)$. Equality in the trace
+triangle inequality forces every constituent of $I(g)$ to have
+primitive twenty-fifth-root twist. Choose a cyclotomic automorphism
+$\sigma$ of exponent $2$ modulo $25$, with odd exponent on its
+$2$-primary part. The normalized center has anomaly one, so modular
+Galois symmetry gives
+$\theta_{\widehat\sigma Z}=\sigma^2(\theta_Z)$
+\cite[Theorem~2.9]{RankFinite}. Its fourth iterate fixes each restriction
+but raises a primitive twenty-fifth-root twist to its sixth power,
+an operation of order five. Thus each restriction in $I(g)$ occurs
+a multiple of five times.
+
+The ten restrictions are consequently five copies each of complementary
+subsets $S,S^c$ of $\{0,2,3,4\}$. Their four Galois transforms supply
+all forty nontrivial pointed-induced columns. The ten columns in $I(1)$
+have $d$-coefficients $0,4,1,1,1,1,3,3,3,3$, from the exact formal
+codegrees. Their singleton and complementary-triple counts coincide
+coordinatewise by $FI(1)$, and Galois multiplication by two makes these
+four counts equal, hence all one. Their noninvertible Gram contribution
+has diagonal entries five and off-diagonal entries three away from
+coordinate zero.
+
+Subtracting these known columns from $15I+15J$ leaves diagonal ten.
+For the eight complementary patterns, an off-diagonal entry of the
+residual matrix is as follows; an entry exceeding ten contradicts a
+nonnegative principal $2\times2$ minor:
+\begin{center}\begin{tabular}{ccl}
+\toprule Representative $S$ & Entry & Conclusion\\\midrule
+$\varnothing$ & -- & five central lifts, treated below\\
+$\{4\},\{3\},\{3,4\},\{2\},\{2,4\},\{2,3\}$ & $12$ & determinant $-44$\\
+$\{2,3,4\}$ & $15$ & determinant $-125$\\\bottomrule
+\end{tabular}\end{center}
+The exact verifier checks all patterns, and also all 35 possible
+singleton-count compositions before imposing their Galois equality.
+The empty/full pattern would give five distinct central invertibles
+forgetting to the same $g$. This is impossible: the kernel of forgetting
+central lifts is $\operatorname{Aut}_{\otimes}(\operatorname{Id})$,
+which is trivial here. Indeed scalars $u$ on $g$ and $v$ on $x$ satisfy
+$v^2=1$ and $v^2=u^jv$ for $j=1,2,3,4$; hence $u=v=1$.
+All nonzero pointed associator classes are excluded.
+\end{proof}
+
+\begin{proposition}
+The regular-algebra Morita dual of any categorification of
+\eqref{eq:cyclic-rank10} has the same based ring.
+\end{proposition}
+\begin{proof}
+Proposition~\ref{prop:cyclic-associator} supplies $A=\bigoplus_{i=0}^4g^i$.
+Its right-module category has two simples, and its dual has dimensions
+$1^5,d^5$. This uses $H^2(C_5,\C^\times)=0$ when splitting the
+left equivariant structures; no multiplicity-one assumption on the dual
+is needed. The invertibles act freely and transitively on its five
+noninvertibles. The commutation automorphism is either the identity or
+inversion. Inversion would force five equal noninvertible coefficients
+in a square, contradicting their total four. The ring is commutative.
+Since five is odd, choose a self-dual noninvertible generator $z$.
+Its square is
+\[
+ z^2=1+\{a+b(g+g^{-1})+c(g^2+g^{-2})\}z,
+ \qquad a+2b+2c=4.
+\]
+Up to automorphism there are four types:
+$(a,b,c)=(4,0,0),(2,1,0),(0,2,0),(0,1,1)$.
+The first contains the excluded rank-two ring $z^2=1+4z$.
+For the middle two, a formal codegree divided by five has respective
+minimal polynomial
+\[
+ t^4-15t^3+60t^2-90t+45,\qquad
+ t^4-20t^3+100t^2-160t+80.
+\]
+Both are Eisenstein at five and have degree four. But a Morita-equivalent
+center has all simple dimensions in $\Q(\sqrt5)$, since forgetting to
+the original category writes them in the original dimension semiring.
+The central objects of dimensions $D/f$ furnished by induction therefore
+exclude these quartic codegrees. The final type is exactly the original
+ring. These polynomial identities and the four-type exhaustion are
+checked with rational arithmetic in the Morita receipt.
+\end{proof}
+
+The irrational braided generalized-near-group classification
+\cite[Theorem~3.6]{SchopierayBraided} excludes a braided categorification
+with noninvertible dimension $2+\sqrt5$. The two propositions above
+do not exclude a nonbraided categorification with untwisted pointed
+subcategory. Equality of the dual's based ring is not a tensor
+equivalence, and the rank-two module category is not a rank-two fusion
+quotient. General complex categorifiability of $R10\_1\_189$ remains
+unresolved.

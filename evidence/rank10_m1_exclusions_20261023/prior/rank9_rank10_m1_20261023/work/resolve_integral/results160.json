@@ -1,0 +1,142 @@
+{
+  "status": "complete",
+  "counts": {
+    "unitarily_realized": 2,
+    "excluded_over_C": 2,
+    "unresolved": 0
+  },
+  "records": [
+    {
+      "id": "R10_1_39",
+      "tensor_sha256": "02398ad07df43e253cafa9f2002c3a0cf6bd5db88efb80ce93f2fcb96a4eff34",
+      "dimensions": [
+        1,
+        1,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        2,
+        2
+      ],
+      "theory": "THEORY160.md",
+      "replay": "replay160.py",
+      "status": "unitarily_realized",
+      "model": "D10-equivariantization of Vec(F16_add)^omega",
+      "omega_basis_mask": 0,
+      "basis_map_source_to_model": [
+        0,
+        1,
+        4,
+        8,
+        7,
+        6,
+        9,
+        5,
+        2,
+        3
+      ],
+      "certificate": "verified_models160.json",
+      "full_exact_coefficient_matches": 1000
+    },
+    {
+      "id": "R10_1_83",
+      "tensor_sha256": "022f12ab56cdc66f638416b2cd5d8d0987d807837365356fec9385395ac95c6c",
+      "dimensions": [
+        1,
+        5,
+        5,
+        1,
+        2,
+        2,
+        5,
+        5,
+        5,
+        5
+      ],
+      "theory": "THEORY160.md",
+      "replay": "replay160.py",
+      "status": "excluded",
+      "scope": "all complex fusion categories",
+      "obstruction": "Every categorification must be a D10-equivariantization of Vec(C2^4)^omega with the prescribed irreducible action; all such equivariantizations have commutative Grothendieck ring.",
+      "noncommutativity_witness": [
+        1,
+        6,
+        7,
+        0,
+        1
+      ],
+      "independent_audit": "../audit_new_models/INT160_AUDIT.md",
+      "independent_replay": "../audit_new_models/verify_int160_audit.py"
+    },
+    {
+      "id": "R10_1_138",
+      "tensor_sha256": "0f876eb401cd3ae1d5d4f9ad72cfa5cb350ac2aa015fa80d49066af3c4f6b911",
+      "dimensions": [
+        1,
+        5,
+        5,
+        5,
+        5,
+        1,
+        2,
+        2,
+        5,
+        5
+      ],
+      "theory": "THEORY160.md",
+      "replay": "replay160.py",
+      "status": "unitarily_realized",
+      "model": "D10-equivariantization of Vec(F16_add)^omega",
+      "omega_basis_mask": 16,
+      "basis_map_source_to_model": [
+        0,
+        4,
+        5,
+        6,
+        7,
+        1,
+        2,
+        3,
+        8,
+        9
+      ],
+      "certificate": "verified_models160.json",
+      "full_exact_coefficient_matches": 1000
+    },
+    {
+      "id": "R10_1_177",
+      "tensor_sha256": "db649ff3074788c83d79ca68bd0b695846f85ab052e37e604387d79b9f9fbbf8",
+      "dimensions": [
+        1,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        1,
+        2,
+        2
+      ],
+      "theory": "THEORY160.md",
+      "replay": "replay160.py",
+      "status": "excluded",
+      "scope": "all complex fusion categories",
+      "obstruction": "Every categorification must be a D10-equivariantization of Vec(C2^4)^omega with the prescribed irreducible action; all such equivariantizations have commutative Grothendieck ring.",
+      "noncommutativity_witness": [
+        1,
+        3,
+        5,
+        0,
+        1
+      ],
+      "independent_audit": "../audit_new_models/INT160_AUDIT.md",
+      "independent_replay": "../audit_new_models/verify_int160_audit.py"
+    }
+  ],
+  "finite_replay_status": "PASS",
+  "theory_audit_status": "PASS"
+}

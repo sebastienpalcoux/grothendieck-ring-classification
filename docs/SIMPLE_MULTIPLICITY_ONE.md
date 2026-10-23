@@ -24,15 +24,10 @@ Here PSU(2)_k is the even-label fusion subcategory of SU(2)_k; k = 2r − 1 give
 
 Every nonunit basis generator was closed under products and duality. Independent enumeration of all unit-containing subsets gives the same simplicity decisions. The cyclic and quantum-group identifications above were verified against every integer fusion coefficient after the recorded basis permutations. Numerical dimensions only select a candidate permutation; the final identification is exact.
 
-The six unresolved multiplicity-one rings are all nonsimple. Proper fusion subrings are witnessed by the following zero-based basis indices:
+The sole unresolved multiplicity-one ring is nonsimple. Its proper fusion subring is witnessed by the following zero-based basis indices:
 
 | Ring | Proper subring indices |
 |---|---|
-| `R10_1_114` | [0, 9] |
-| `R10_1_115` | [0, 9] |
-| `R10_1_152` | [0, 9] |
-| `R10_1_153` | [0, 9] |
-| `R10_1_179` | [0, 7] |
 | `R10_1_189` | [0, 1, 2, 7, 8] |
 
 Replay from the repository root:

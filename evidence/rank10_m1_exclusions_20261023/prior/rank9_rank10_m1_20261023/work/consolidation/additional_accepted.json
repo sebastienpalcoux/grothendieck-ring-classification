@@ -1,0 +1,42 @@
+[
+  {
+    "id": "R10_1_21",
+    "status": "unitarily_realized",
+    "label": "Central condensation of the permutation equivariantization of PSU(2)_6 squared",
+    "proof": "work/resolve_rank10_quadratic/model21.tex",
+    "certificate": "work/resolve_rank10_quadratic/model21.json",
+    "verifier": "python work/audit_new_models/verify_model21.py"
+  },
+  {
+    "id": "R9_1_12",
+    "status": "unitarily_realized",
+    "label": "Coherent C2 equivariantization of the nontrivial triality extension of Rep(D8)",
+    "proof": "work/resolve_small_models/TRIALITY_EQUIVARIANT.md",
+    "certificate": "work/resolve_small_models/triality_equivariant_certificate.json",
+    "verifier": "python work/audit_new_models/verify_triality_equivariant.py"
+  },
+  {
+    "id": "R9_1_108",
+    "status": "unitarily_realized",
+    "label": "Inner-twisted coherent C2 equivariantization of the triality extension of Rep(D8)",
+    "proof": "work/resolve_integral/TRIALITY_ACTIONS.md",
+    "certificate": "work/resolve_small_models/triality_equivariant_certificate.json",
+    "verifier": "python work/audit_new_models/verify_triality_equivariant.py"
+  },
+  {
+    "id": "R9_1_62",
+    "status": "excluded",
+    "label": "Complete dimension-48 solvable-category reduction: near-group, triality, and characteristic central boson branches",
+    "proof": "work/resolve_rank9_integral/D48_EXCLUSIONS.tex",
+    "certificate": "work/resolve_rank9_integral/d48_exclusions_receipt.json",
+    "verifier": "python work/resolve_rank9_integral/verify_d48_exclusions.py"
+  },
+  {
+    "id": "R9_1_87",
+    "status": "excluded",
+    "label": "Complete dimension-48 solvable-category reduction: near-group, triality, and characteristic central boson branches",
+    "proof": "work/resolve_rank9_integral/D48_EXCLUSIONS.tex",
+    "certificate": "work/resolve_rank9_integral/d48_exclusions_receipt.json",
+    "verifier": "python work/resolve_rank9_integral/verify_d48_exclusions.py"
+  }
+]

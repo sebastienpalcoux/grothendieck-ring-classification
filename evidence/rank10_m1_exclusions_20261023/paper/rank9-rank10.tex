@@ -1,0 +1,330 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=25mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,booktabs,longtable,array,microtype,xcolor}
+\usepackage{xurl}
+\usepackage[breaklinks,colorlinks=true,linkcolor=blue!45!black,urlcolor=blue!45!black]{hyperref}
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{corollary}[proposition]{Corollary}
+\newtheorem{lemma}[proposition]{Lemma}
+\newtheorem{theorem}[proposition]{Theorem}
+\newcommand{\FPdim}{\operatorname{FPdim}}
+\newcommand{\Rep}{\operatorname{Rep}}
+\renewcommand{\Vec}{\operatorname{Vec}}
+\newcommand{\Irr}{\operatorname{Irr}}
+\newcommand{\C}{\mathbb C}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\setlength{\emergencystretch}{3em}
+\title{Multiplicity-one fusion rings of ranks nine and ten\\\large Evidence, constructions, and exact classification ledger}
+\author{Research package prepared for S\'ebastien Palcoux / FusionFrontier\\\small AI-assisted mathematical analysis; independent human review pending}
+\date{23 October 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+This package studies the supplied 142 rank-nine and 194 rank-ten
+multiplicity-one based fusion rings over the complex numbers. It combines
+standard obstructions, a signed-sphericalization reduction, exact constraints
+on restrictions of central simple objects, Morita-theoretic arguments, and
+explicit categorical constructions. Every accepted outcome is attached to
+the original input line, a tensor hash, a proof, and a deterministic replay.
+The counts below are generated from the accompanying ledger. An existence
+entry means that at least one unitary categorification is constructed; it
+does not classify all categorifications of that ring.
+\end{abstract}
+\input{counts.tex}
+\newpage
+{\small\tableofcontents}
+\newpage
+\section{Scope and interpretation}
+The identifiers $R9\_1\_i$ and $R10\_1\_i$ refer to physical lines $i$ in
+the two supplied compressed multiplication-table files. The tensor convention
+is $X_iX_j=\sum_kN_{ij}^{k}X_k$, with the unit in position zero.
+The input audit checks integrality, nonnegativity, the multiplicity-one bound,
+unit, duality, Frobenius reciprocity, all associativity identities, and absence
+of duplicate based rings. The supplied tables agree, up to based isomorphism,
+with the corresponding AnyonWiki multiplicity-one census snapshot; the
+crosswalk is included. This audits the supplied census, rather than repeating
+the original enumeration of every possible based ring of these ranks.
+
+An exclusion is a statement about all fusion categories over $\C$. A test
+requiring a spherical or pseudo-unitary category is used only when a separate
+argument supplies that hypothesis. Weak integrality supplies pseudo-unitarity
+by ENO. For the indicated irrational cases, the signed-sphericalization
+certificates and an exact character analysis supply a Galois conjugate with
+positive categorical dimensions. A unitary model is an existence proof,
+not an inference from successful necessary tests.
+
+The machine-readable ledger is authoritative for the current accepted status.
+The supplementary directories contain full mathematical proofs and explicit
+phase data. Searches that fail to find a model, floating-point optimization
+failures, and experimental induction matrices are not treated as exclusions.
+The repository and website publish the same accepted ledger, with individual
+case pages linking to the full evidence preserved here.
+
+\section{Standard criteria and their scope}
+The baseline replay accepts 474 obstruction receipts on 203 distinct input
+rings; overlapping receipts are not added to the case count. It verifies each
+certificate directly against the original tensor. The following families
+are used.
+{\small
+\begin{longtable}{p{.34\textwidth}p{.57\textwidth}}
+\toprule Criterion & Precise role and scope \\\midrule\endhead
+Formal-codegree $d$-numbers & General fusion categories. The regular Casimir
+has eigenvalues $\dim(E)f_E$; the $d$-number property is unchanged by a nonzero
+rational factor. An irreducible polynomial gives an exact divisibility
+failure. \\
+Cyclotomicity & Applied to commutative based rings, where irreducible
+characters are scalar. Exact polynomial and prime witnesses rule out an
+abelian splitting field. \\
+Drinfeld-center dimension integrality & Applied to integral rings, whose
+categorifications would be pseudo-unitary, including a separately checked
+noncommutative implementation. \\
+Near-group restrictions & Used with their exact
+hypotheses, including the divisibility condition for irrational two-value
+dimension profiles and the abelian stabilizer condition for
+Tambara--Yamagami fusion rules. \\
+Excluded fusion subrings & A listed closed based subring carries its own
+direct obstruction certificate. Absence from a realization catalogue is
+never sufficient. \\
+Involution module constraints & Exact nonnegative integer module-matrix
+identities attached to the specified invertible object. \\
+Two-dimension induction & The required central dimensions cannot be written
+in the nonnegative integral dimension semiring with the prescribed unit
+multiplicity. \\
+Zero-spectrum and one-spectrum criteria & Direct multiplicity-free
+pentagon obstructions, valid for general complex fusion categories. \\
+\bottomrule
+\end{longtable}
+}
+The report deliberately does not use a unitary Schur-product obstruction,
+an unproved universal Isaacs property, or a low-rank modular classification
+as an exclusion of arbitrary fusion categories of ranks nine and ten.
+The survey and reference scope checks are in \nolinkurl{work/literature/notes.md}.
+The 40 subring receipts include two rank-six subrings for which the replay
+supplies a direct dimension-lattice witness, so no catalogue inference remains.
+
+\section{A unified central-restriction obstruction}
+Suppose $\mathcal C$ is pseudo-unitary. Let $D=\FPdim(\mathcal C)$,
+$d_i=\FPdim(X_i)$, and let $F:\mathcal Z(\mathcal C)\to\mathcal C$ be the
+forgetful functor with adjoint $I$. For each irreducible representation $E$
+of the complexified Grothendieck ring, put $e_E=\dim E$ and let $f_E$ be its
+formal codegree. There is a distinct simple central object $A_E$ occurring
+in $I(1)$ with multiplicity $e_E$, with
+\[
+ \beta_E=\dim A_E=D/f_E,\qquad
+ v_{E,i}=[F(A_E):X_i],\qquad v_{E,0}=e_E.
+\]
+Consequently $v_E$ is a nonnegative integer vector, its class is central,
+and $\sum_i d_iv_{E,i}=\beta_E$. Let
+\[
+ B_{ij}=[F I(X_j):X_i]
+       =\sum_{a,k}N_{aj}^{k}N_{k,a^*}^{i}.
+\]
+If the columns of the full restriction matrix are $v_Z$, then
+$B=\sum_Zv_Zv_Z^t$. For any chosen subset of known central simples,
+\[
+ B-\sum_Ev_Ev_E^t
+\]
+must be entrywise nonnegative and positive semidefinite. These are necessary
+conditions, and their use does not assert that a surviving matrix is
+categorifiable.
+
+For scalar characters $\chi,\psi$, the symmetry of the central modular
+$S$-matrix yields the particularly useful condition
+\[
+ \beta_\chi\,\chi(v_\psi)=\beta_\psi\,\psi(v_\chi).
+\]
+For higher-dimensional $E$, the character normalization is
+$S_{A_E,Z}=\beta_E\chi_E(FZ)/e_E$; omitting $e_E$ would be incorrect.
+The final rank-ten exclusion replay uses only independently verified scalar
+characters, so it requires neither a complete character table nor this
+higher-dimensional extension. Ostrik's induction theorem
+\cite[Theorem~2.13]{Ostrik3} and Deshpande's character formula
+\cite[Equations~(35)--(36)]{Deshpande} provide the categorical input.
+
+This single system unifies dimension-lattice, central-support, reciprocity,
+and induction-Gram obstructions. A failure at any stage is a rigorous
+exclusion after the required pseudo-unitarity reduction. The exact arithmetic
+is performed in rational number fields or cyclotomic fields, with no numerical
+tolerance in the final decisions.
+
+\subsection{Twist moments in integral dimension sixty}
+For a nonunit simple $X$ of dimension $d$, put $J=I(X)$, so $\dim J=Dd$.
+The summands $A_E$ of $I(1)$ have twist one. If their forced total dimension
+inside $J$ is $M$, the remaining twist eigenvalues lie on the unit circle.
+The indicator identities \cite{NgSchauenburg} give
+\[
+ \operatorname{Tr}(\theta_J)=0,\qquad
+ \operatorname{Tr}(\theta_J^2)=D\nu_2(X),\qquad \nu_2(X)\leq1.
+\]
+Writing real parts of the residual eigenvalues as $x$, their weighted first
+moment is $-M$ and their weighted second moment is
+$(Dd+D\nu_2(X)-2M)/2$. Cauchy--Schwarz implies
+\[
+ M\leq\frac{Dd(d+\nu_2(X))}{3d+\nu_2(X)}
+ \leq\frac{Dd(d+1)}{3d+1}.
+\]
+The denominator is positive for $d\geq1$. The last bound is increasing in
+$\nu_2(X)$, so it remains valid for non-self-dual simples, whose indicator
+is zero. For the four rings $R9\_1\_2,48,84,101$, exact enumeration of
+the low central columns leaves 404 candidate frames, and each violates
+this bound for a specified simple. The replay checks every branch and every
+moment inequality. Two of these four inputs already had baseline exclusions;
+only two are new cases in the total.
+
+\input{../prior/rank9_rank10_m1_20261023/work/rank9_bridge/proof.tex}
+\section{Oriented signed sphericalization beyond the self-dual case}
+For non-self-dual rings, unrestricted permutation symmetry of a sign table
+would be wrong. The general checker instead uses the unit, dual reversal,
+and the oriented Frobenius-reciprocity symmetries
+$T_{ij}^{k}=T_{j,k^*}^{i^*}$ together with dual-compatible basis signs
+$s_i=s_{i^*}$. Associativity supplies exact parity equations and then the
+remaining integer constraints. The alternative signed tables and their scalar
+characters are enumerated completely modulo the recorded gauge choices.
+
+If a sign table is gauge-equivalent to the original positive table, the
+chosen lifts close under tensor product in the sphericalization, furnishing
+a spherical tensor section. Other sign branches are eliminated only by
+their own exact dimension-character and formal-codegree arguments. A
+spherical character is promoted to pseudo-unitarity only after an explicit
+Galois and pivotal-sign transformation makes every simple dimension positive.
+The audit replays 69 oriented receipts, 40 self-dual receipts, 22 alternative
+signed-character inventories, and 77 original-character inventories. It
+certifies the reductions needed in this report. This is a finite, tensor-specific
+argument, not a general solution of the pivotality conjecture.
+
+\input{../prior/rank9_rank10_m1_20261023/work/resolve_rank9_irrational/proofs.tex}
+\input{../prior/rank9_rank10_m1_20261023/work/resolve_rank10_quadratic/reciprocity.tex}
+\input{structural_sections.tex}
+\input{additional_exclusions.tex}
+\input{models_section.tex}
+\input{rank10_completion.tex}
+\input{remaining.tex}
+
+\section{Reproduction and evidence boundaries}
+The baseline package is \nolinkurl{evidence/rank9_rank10_m1_20261023}; its
+\nolinkurl{python verify.py} replays the preserved baseline. The current
+accepted ledger and the focused continuation commands are in
+\nolinkurl{evidence/rank10_m1_exclusions_20261023/README.md}. The deterministic replay uses Python 3 with NumPy, SymPy, and
+NetworkX; any optional discovery dependencies are separate. Each family
+also has a short standalone command in the ledger. Optimized Python
+execution is rejected because some inherited verifiers use assertions.
+
+The two tensor digests are explicitly distinguished. One hashes compact JSON
+with separators \texttt{(',',':')}; the other hashes the flattened tensor as
+unsigned bytes. The original compressed archives have separate file hashes.
+The ledger accounts for every one of the 336 physical input lines exactly once
+and asserts that no accepted positive and negative outcomes overlap.
+
+The exact calculations check the finite claims in the accompanying proofs.
+They do not formally verify the cited category-theoretic theorems in a proof
+assistant. Standard categories are grounded in established constructions;
+new pointed-action models carry explicit unit-modulus cochains and complete
+coherence checks. The triality construction uses an existence theorem and
+an exhaustive identification of its possible fusion tensor. These distinct
+forms of evidence are identified in the model records.
+
+\appendix
+\section{Complete input assignment}
+The following compact table is generated from the current
+\nolinkurl{accepted_ledger.json} in the rank-ten continuation package.
+E means excluded over $\C$, U means a unitary realization exists, and
+? means unresolved. The JSON and CSV files give the proof and replay links.
+\input{assignment.tex}
+
+\begin{thebibliography}{99}
+\bibitem{ENO} P. Etingof, D. Nikshych, V. Ostrik,
+\emph{On fusion categories}, Ann. Math. 162 (2005), 581--642,
+\href{https://arxiv.org/abs/math/0203060}{arXiv:math/0203060}.
+\bibitem{OstrikCodegrees} V. Ostrik, \emph{On formal codegrees of fusion
+categories}, Math. Res. Lett. 16 (2009), 895--901,
+\href{https://arxiv.org/abs/0810.3242}{arXiv:0810.3242}.
+\bibitem{Ostrik3} V. Ostrik, \emph{Pivotal fusion categories of rank 3},
+Moscow Math. J. 15 (2015), 373--396,
+\href{https://arxiv.org/abs/1309.4822}{arXiv:1309.4822}.
+\bibitem{Deshpande} T. Deshpande, \emph{On centers of bimodule categories
+and induction-restriction functors},
+\href{https://arxiv.org/abs/1611.04486}{arXiv:1611.04486}.
+\bibitem{LPR} Z. Liu, S. Palcoux, Y. Ren, \emph{Classification of Grothendieck
+rings of complex fusion categories of multiplicity one up to rank six},
+\href{https://arxiv.org/abs/2010.10264}{arXiv:2010.10264}; see the scope
+audit for the exact obstruction hypotheses.
+\bibitem{Schopieray} A. Schopieray, \emph{Categorification of integral
+group rings extended by one dimension}, and the two-Frobenius--Perron-value
+results cited in the supplementary notes,
+\href{https://arxiv.org/abs/2208.07319}{arXiv:2208.07319}.
+\bibitem{Liptrap} J. Liptrap, \emph{Generalized Tambara--Yamagami categories},
+\href{https://arxiv.org/abs/1002.3166}{arXiv:1002.3166}.
+\bibitem{ENOSolvable} P. Etingof, D. Nikshych, V. Ostrik,
+\emph{Weakly group-theoretical and solvable fusion categories},
+Adv. Math. 226 (2011), 176--205,
+\href{https://arxiv.org/abs/0809.3031}{arXiv:0809.3031}.
+\bibitem{NR} D. Nikshych, B. Riepel, \emph{Categorical Lagrangian
+Grassmannians and Brauer--Picard groups of pointed fusion categories},
+\href{https://arxiv.org/abs/1309.5026}{arXiv:1309.5026}.
+\bibitem{HYY} H.-L. Huang, Z. Wan, Y. Ye, \emph{Explicit cocycle formulas
+on finite abelian groups with applications to braided linear Gr-categories
+and Dijkgraaf--Witten invariants},
+\href{https://arxiv.org/abs/1703.03266}{arXiv:1703.03266}.
+\bibitem{BN} S. Burciu, S. Natale, \emph{Fusion rules of equivariantizations
+of fusion categories},
+\href{https://arxiv.org/abs/1206.6625}{arXiv:1206.6625}.
+\bibitem{GHR} C. Galindo, S.-M. Hong, E. C. Rowell,
+\emph{Generalized and quasi-localizations of braid group representations},
+\href{https://arxiv.org/abs/1105.5048}{arXiv:1105.5048},
+Theorem 5.20 (unitarity of weakly group-theoretical fusion categories).
+\bibitem{NgSchauenburg} S.-H. Ng, P. Schauenburg,
+\emph{Frobenius--Schur indicators and exponents of spherical categories},
+Adv. Math. 211 (2007), 34--71,
+\href{https://arxiv.org/abs/math/0601012}{arXiv:math/0601012}.
+\bibitem{EGNO} P. Etingof, S. Gelaki, D. Nikshych, V. Ostrik,
+\emph{Tensor Categories}, Mathematical Surveys and Monographs 205,
+American Mathematical Society, 2015, Chapters 7--8.
+\bibitem{Zesting} C. Delaney, C. Galindo, J. Plavnik, E. C. Rowell, Q. Zhang,
+\emph{Braided zesting and its applications}, Commun. Math. Phys. 386
+(2021), 1--55, \href{https://arxiv.org/abs/2005.05544}{arXiv:2005.05544}.
+\bibitem{Reutter} D. Reutter, \emph{Uniqueness of unitary structure for
+unitarizable fusion categories},
+\href{https://arxiv.org/abs/1906.09710v2}{arXiv:1906.09710v2},
+Theorems~1--2 and Corollary~3.
+\bibitem{Izumi} M. Izumi, \emph{A Cuntz algebra approach to the
+classification of near-group categories},
+\href{https://arxiv.org/abs/1512.04288v2}{arXiv:1512.04288v2},
+Theorems~1.1, 4.9 and~6.1, Remark~3.6, Definition~4.8, and Lemma~6.13.
+\bibitem{JordanLarson} D. Jordan, E. Larson, \emph{On the classification
+of certain fusion categories}, J. Noncommut. Geom. 3 (2009), 481--499,
+\href{https://arxiv.org/abs/0812.1603v2}{arXiv:0812.1603v2},
+Theorem~1.4, Lemma~2.6, and Proposition~3.1.
+\bibitem{ENOHomotopy} P. Etingof, D. Nikshych, V. Ostrik,
+with an appendix by E. Meir, \emph{Fusion categories and homotopy theory},
+\href{https://arxiv.org/abs/0909.3140v2}{arXiv:0909.3140v2},
+Corollary~7.9(i).
+\bibitem{Ostrik2} V. Ostrik, \emph{Fusion categories of rank 2},
+Math. Res. Lett. 10 (2003), 177--183,
+\href{https://arxiv.org/abs/math/0203255}{arXiv:math/0203255}.
+\bibitem{EOSemisimple} P. Etingof, V. Ostrik,
+\emph{On semisimplification of tensor categories}, Appendix A, Theorem A.3,
+\href{https://arxiv.org/abs/1801.04409}{arXiv:1801.04409}.
+\bibitem{BrugNat} A. Brugui\`eres, S. Natale,
+\emph{Exact sequences of tensor categories}, Int. Math. Res. Not. (2011),
+5644--5705, \href{https://arxiv.org/abs/1006.0569}{arXiv:1006.0569}.
+\bibitem{Usher} R. Usher, \emph{Fermionic 6j-symbols in superfusion categories},
+J. Algebra 503 (2018), 453--473,
+\href{https://arxiv.org/abs/1606.03466}{arXiv:1606.03466}.
+\bibitem{CCX} C.-M. Chang, J. Chen, F. Xu,
+\emph{Topological defect lines in two dimensional fermionic CFTs},
+SciPost Phys. 15 (2023), 216,
+\href{https://doi.org/10.21468/SciPostPhys.15.5.216}{doi:10.21468/SciPostPhys.15.5.216};
+\href{https://arxiv.org/abs/2208.02757v4}{arXiv:2208.02757v4}, Section 3.
+\bibitem{MignardSchauenburg} M. Mignard, P. Schauenburg,
+\emph{Morita equivalence of pointed fusion categories of small rank},
+\href{https://arxiv.org/abs/1708.06538}{arXiv:1708.06538}.
+\bibitem{RankFinite} P. Bruillard, S.-H. Ng, E. C. Rowell, Z. Wang,
+\emph{Rank-finiteness for modular categories}, J. Amer. Math. Soc. 29 (2016),
+857--881, \href{https://arxiv.org/abs/1310.7050}{arXiv:1310.7050}.
+\bibitem{SchopierayBraided} A. Schopieray,
+\emph{Irrational braided generalized near-groups},
+Canad. Math. Bull., \href{https://doi.org/10.4153/S0008439523000334}{doi:10.4153/S0008439523000334}.
+\end{thebibliography}
+\end{document}

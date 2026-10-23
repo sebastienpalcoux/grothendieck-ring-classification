@@ -1,0 +1,173 @@
+\subsection[Triality equivariantizations]{Triality equivariantizations: $R9\_1\_12$ and $R9\_1\_108$}
+\label{sec:triality-equivariant}
+
+\paragraph{Audit status.}
+Both constructions below have passed independent categorical and
+coefficient audits. The second uses a direct inner modification of the
+first action and the vanishing of its action-coherence obstruction.
+
+Put $D=\operatorname{Rep}(D_8)$, where $D_8$ has order eight.  We use its
+Tambara--Yamagami presentation
+$D=\operatorname{TY}(V_4,\chi,+\tfrac12)$, with alternating bicharacter
+$\chi$.  The standard associators are invariant under every permutation of
+the three nonidentity elements of $V_4$.  Consequently these permutations,
+with identity tensorators, define a coherent unitary $S_3$ action.
+The tensor autoequivalence group is $S_3$, while
+$\operatorname{BrPic}(D)\cong S_4$; see Nikshych--Riepel,
+\emph{Categorical Lagrangian Grassmannians and Brauer--Picard groups of
+pointed fusion categories}, \href{https://arxiv.org/abs/1309.5026}{arXiv:1309.5026},
+Section~9.1, and Diatlyk--Luo--Wang--Weller,
+\emph{Gauging Non-Invertible Symmetries: Topological Interfaces and
+Generalized Orbifold Groupoid in 2d QFT},
+\href{https://arxiv.org/abs/2311.17044}{arXiv:2311.17044}, Section~3.5,
+Equation~(3.30), for the explicit tensor triality.
+
+\paragraph{A coherent Morita transport.}
+The three nonregular invertible left $D$-module classes of rank two are the
+two reflection-subgroup modules and the projective $D_8$-representation
+module for the nontrivial Schur class.  Their simple objects have internal
+End objects $1+h+m$, with the three distinct nontrivial choices of $h$.
+Tensor triality therefore permutes these three module classes transitively.
+Choose the projective module class and realize it by the Azumaya algebra
+$A=\operatorname{End}(V)$ in the symmetric category $D$, where $V$ is a real
+two-dimensional irreducible projective representation of $D_8$ arising
+from its central cover $D_{16}$.  Thus $A=1+h+m$ and
+$A\text{-}\operatorname{Bimod}(D)\simeq D$.
+
+Choose the transposition represented by the actual group involution
+\[
+ a(r)=r^{-1},\qquad a(s)=sr,
+ \qquad r^4=s^2=1,\quad srs=r^{-1}.
+\]
+It fixes the projective module class.  This invariance has a coherent lift:
+the nontrivial Schur cocycle of $D_8$ extends to
+$D_8\rtimes_a C_2\cong D_{16}$, because the cover $D_{32}\to D_{16}$
+restricts to the nontrivial cover $D_{16}\to D_8$ on its normal $D_8$
+subgroup.  Equivalently, writing the projective representation as a
+rotation $R$ through $\pi/4$ and a reflection $S$, the real reflection
+$T=SR^{1/2}$ satisfies
+\[
+ T^2=1,\qquad TRT=R^{-1},\qquad TST=SR,
+\]
+and conjugation by $T$ makes $A$ a coherent equivariant algebra.
+
+There is also no ambiguity between this coherent group action and the
+strict TY transposition.  A fixed transposition class has two coherent
+$C_2$ actions, distinguished by
+$H^2(C_2,\operatorname{Aut}_\otimes(\operatorname{Id}_D))
+=H^2(C_2,C_2)=C_2$.
+For the strict action the two extensions of $m$ have equivariant scalars
+$+1,-1$ and are self-dual; in the other class they have scalars $+i,-i$
+and form a dual pair.  The group-automorphism action has self-dual
+extensions in $\operatorname{Rep}(D_{16})$, so it is coherently equivalent
+to the strict restriction.
+
+Form the crossed product $B=D\rtimes S_3$ and its graded Morita dual
+$C=A\text{-}\operatorname{Bimod}(B)$.  The neutral component is again $D$.
+Its $C_3$ restriction $E$ is nonregular, since triality moves the module
+class of $A$; the preceding triality construction identifies its fusion
+ring with $R9\_1\_117$.  Coherent $C_2$ equivariance of $A$ supplies an
+invertible $t\in C$ with $t^2\cong1$ and trivial restricted associator.
+Thus conjugation by $t$ is an actual coherent $C_2$ action on $E$, and
+$C=E\rtimes C_2$.  On the neutral category its equivariantization is
+$\operatorname{Rep}(D_{16})$.  Indeed, if $q=st$ in
+$D_8\rtimes_a C_2$, then $q^2=r$ and $sqs=q^{-1}$.
+
+\paragraph{Duality of the dimension-four objects.}
+The subcategories of a faithfully graded fusion category supported on
+conjugate subgroups are Morita equivalent: the sum of components on the
+corresponding coset is the equivalence bimodule.  Hence all three
+order-two subgroup subextensions of $C$ are Morita equivalent to
+$D\rtimes C_2$, and therefore to $\operatorname{Rep}(D_{16})$.
+The two nonregular ones have dimension profile $(1^4,2^3)$.
+Every category in this Morita class is
+$\mathcal C(D_{16},1,H,\psi)$.  This profile forces $H=D_{16}$ or a
+reflection $C_2$.  Cyclic normal subgroups give pointed duals; a
+Klein-four subgroup or an index-two $D_8$ subgroup already gives eight
+invertibles, for either available Schur class.  For $H=D_{16}$ the fusion
+ring is the representation ring of $D_{16}$.  For a reflection $C_2$,
+the three non-normalizer double cosets are inverse-stable with trivial
+stabilizer, and the four invertibles form $V_4$.  In both permitted
+cases all simples are self-dual.
+
+Write the nonneutral $C_3$ components of $E$ as
+$\{X_0,X_1\}$ and $\{Y_0,Y_1\}$, with $X_i^*=Y_i$.
+The self-duality just proved for $X_it$ implies $t(X_i)=Y_i$.
+Thus both four-dimensional orbit objects in $E^{C_2}$ are self-dual.
+
+\paragraph{Exact tensor identification.}
+Label $E$ by
+$0,1,2,3,m,X_0,X_1,Y_0,Y_1$, choosing left and right stabilizers
+$\{0,1\}$ and $\{0,2\}$ for the $X$ component.
+The restriction of the seven neutral simples of
+$\operatorname{Rep}(D_{16})$ is
+\[
+ 0,\ 3,\ 0,\ 3,\ m,\ 1+2,\ m,
+\]
+and the other two restrictions are $X_i+Y_i$.
+Let $F$ be this restriction matrix.  Induction is $F^{\mathsf T}$ by
+Frobenius reciprocity, and
+\[
+ \operatorname{Ind}(X)\otimes W
+ =\operatorname{Ind}(X\otimes\operatorname{Forget}(W)),\qquad
+ W\otimes\operatorname{Ind}(X)
+ =\operatorname{Ind}(\operatorname{Forget}(W)\otimes X).
+\]
+These formulas determine every product outside the neutral subcategory;
+inside it we use the ordinary $D_{16}$ representation ring.  The resulting
+multiplicity-free tensor agrees with $R9\_1\_12$ under
+\[
+ (0,3,2,4,8,7,6,1,5).
+\]
+The independent verifier
+\nolinkurl{work/audit_new_models/verify_triality_equivariant.py}
+checks all $729$ coefficients, the restriction homomorphism, and the
+$D_{16}$ subgroup calculation.  The certificate is
+\nolinkurl{work/resolve_small_models/triality_equivariant_certificate.json}.
+The construction is unitary throughout; alternatively, unitarizability
+follows from Galindo--Hong--Rowell,
+\href{https://arxiv.org/abs/1105.5048}{arXiv:1105.5048}, Theorem~5.20.
+
+\paragraph[The second coherent action and R9-1-108]{The second coherent action and $R9\_1\_108$.}
+The following direct construction has passed the independent categorical
+audit and supplies the second unitary realization.
+Let $\alpha$ denote the accepted action and choose $g\in V_4$ with
+$g\alpha(g)=h$, the nontrivial fixed invertible.  Set
+$\beta=\operatorname{Ad}_g\circ\alpha$.  Then
+$\beta^2\simeq\operatorname{Ad}_h$.
+For the nonregular triality action, the fixed central invertible in
+$\operatorname{Inv}Z(D)$ is $w=(z,h)$, where $z$ is the central involution
+of $D_8$.  Its obstruction to a central lift on $h\in E$ lies in
+$H^2(C_3,\mathbb C^\times)=0$; hence $\operatorname{Ad}_h\simeq\operatorname{Id}$.
+The obstruction to making $\beta$ a coherent $C_2$ action lies in
+\[
+ H^3(C_2,\operatorname{Aut}_\otimes(\operatorname{Id}_E))
+ =H^3(C_2,C_3)=0,
+\]
+and the corresponding $H^2$ torsor is trivial.  Any correction is a
+character of $U(E)=C_3$, so it is the identity on $D$.
+Relative to the symmetric central lift of $h$, the lift $w$ differs by
+$z$, changing the neutral square coherence by $-1$ on $m$.  The inner
+modification changes the orbit pairing to $X_i+Y_{i+1}$.
+These obstruction statements use Etingof--Nikshych--Ostrik,
+\emph{Fusion categories and homotopy theory},
+\href{https://arxiv.org/abs/0909.3140}{arXiv:0909.3140},
+Corollary~7.9(i)~\cite{ENOHomotopy},
+and Gelaki--Naidu--Nikshych,
+\emph{Centers of graded fusion categories},
+\href{https://arxiv.org/abs/0905.3117}{arXiv:0905.3117}, Theorem~3.5.
+The detailed central-lift and coherence comparison is in
+\nolinkurl{work/resolve_integral/TRIALITY_ACTIONS.md}.
+
+The neutral ring is therefore $\operatorname{Rep}(SD_{16})$, since the
+corresponding extension has $t^2=z=r^2$, and $q=st$ satisfies
+$q^8=s^2=1$ and $sqs=q^3$.
+Replacing the neutral group ring accordingly and using this
+pairing in the same induction formulas gives exactly $R9\_1\_108$,
+with based permutation
+\[
+ (0,4,6,8,7,1,2,3,5).
+\]
+Both this coefficient identification and the categorical coherence of the
+modification have passed independent audits. No classification of all
+possible involutions is required for these two positive witnesses.

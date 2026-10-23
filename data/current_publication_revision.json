@@ -9,11 +9,6 @@
     "R8_3_941",
     "R8_3_1154",
     "R8_3_1768",
-    "R10_1_114",
-    "R10_1_115",
-    "R10_1_152",
-    "R10_1_153",
-    "R10_1_179",
     "R10_1_189"
   ],
   "accepted_decisions_scope": "Historical 38-case continuation through rank-seven multiplicity four",
@@ -2079,12 +2074,12 @@
       "bytes": 46238
     },
     "publications/rank9-rank10/paper/rank9-rank10.pdf": {
-      "sha256": "43fba73129136ae9b90abf0218909c5c3150c4308bd468f3ac9f2ecf05e84899",
-      "bytes": 469000
+      "sha256": "fcf38d3e80fcbca802553ea9b2edc15ba691ca470ff32ab3854a8f8f153aca8a",
+      "bytes": 509676
     },
     "publications/rank9-rank10/paper/rank9-rank10.tex": {
-      "sha256": "10a9956cf2da0476b95ded42bc0ea579ce885c975480b571088e2aff561573c8",
-      "bytes": 16070
+      "sha256": "c2e0da465b2f10fc24dd7e75e7c8ebdf4129553c81fef9753d34a1f6c2d894e9",
+      "bytes": 18099
     },
     "publications/rank11/paper/rank11.pdf": {
       "sha256": "d79c58383ba673472895c738cbfa9f6b6469b287e21b04d16cac257c88b9c9e6",
@@ -2095,15 +2090,15 @@
       "bytes": 59881
     },
     "publications/rank9-rank10/paper/assignment.tex": {
-      "sha256": "7a37b17b9a26cd473e8a2747d6dd06cad20e3d1642204c3f697a599daa2370e2",
+      "sha256": "e160ae36d64ce0ae72940a46ca4025324dd685038a972273cf0c77ad6528626f",
       "bytes": 11828
     },
     "publications/rank9-rank10/paper/additional_models.tex": {
-      "sha256": "c181dfe8e1988c3429ddb3af6ee6a51f38e93211d7752ce358008d1fe16e3cc7",
-      "bytes": 115
+      "sha256": "0c9893274b41b05e942e3054ae2444e5d7bf2b37b9a111494dee1ace278cd8f0",
+      "bytes": 195
     },
     "publications/rank9-rank10/paper/counts.tex": {
-      "sha256": "7fb9cff1a4128773ada7eaad401e03d97b943b247b9a926dd042ece8ef2f2295",
+      "sha256": "bd055730c6f8358064cdc3a2dc8c88fdfb1854892965c1b54db7b86ac2a1d0da",
       "bytes": 246
     },
     "publications/rank9-rank10/paper/structural_sections.tex": {
@@ -2111,16 +2106,20 @@
       "bytes": 7457
     },
     "publications/rank9-rank10/paper/remaining.tex": {
-      "sha256": "3dd57e3e66334fa5f0e233b00aed6023c62d9d14712ea504c739fd22773b61fd",
-      "bytes": 731
+      "sha256": "c712841601568cbb266858cd8cc003e0085c0f2cf7477e5366d1509b8c90b193",
+      "bytes": 504
     },
     "publications/rank9-rank10/paper/additional_exclusions.tex": {
-      "sha256": "e1e5b5d790b0722f12cfc845a3284633a7b71b2d454bba2419a72246e8c972d3",
-      "bytes": 113
+      "sha256": "49730964d276d00b5622825e4885d44f1715f53c95d7d77a21dfc901f31c6992",
+      "bytes": 193
     },
     "publications/rank9-rank10/paper/models_section.tex": {
       "sha256": "8dd687328fc267c90fcb493699b2db1f7eebdf27252262158f53613c3ddab401",
       "bytes": 5918
+    },
+    "publications/rank9-rank10/paper/rank10_completion.tex": {
+      "sha256": "219e67cd6f2494b624b965fbe5b72c5e5755efb12de04cce6eb4a2b53b3f6a45",
+      "bytes": 21774
     }
   },
   "web_copies": {
@@ -2150,12 +2149,12 @@
   },
   "rank9_rank10_m1": {
     "input_count": 336,
-    "excluded": 233,
+    "excluded": 238,
     "unitarily_realized": 97,
-    "unresolved": 6,
-    "ledger": "evidence/rank9_rank10_m1_20261023/deliverable/ledger.json",
-    "sha256": "39fac448316e892ce9e95a69c00e14930e4a558258af2bc544b7358b7850bc82",
-    "bytes": 321298
+    "unresolved": 1,
+    "ledger": "evidence/rank10_m1_exclusions_20261023/accepted_ledger.json",
+    "sha256": "a4075e19d489ff9daaa405647c3be5aa8b8bed321e15d75f1ad53dbf9eb47ebe",
+    "bytes": 471878
   },
   "rank11_m1": {
     "input_count": 182,
@@ -2166,5 +2165,22 @@
     "sha256": "2e6f3513a373fafdbdfad36c9eab75b946d3fc557d070660f73c78315cf67a29",
     "bytes": 297825
   },
-  "current_unresolved_total": 12
+  "current_unresolved_total": 7,
+  "rank10_m1_continuation": {
+    "evidence": "evidence/rank10_m1_exclusions_20261023",
+    "excluded_ids": [
+      "R10_1_114",
+      "R10_1_115",
+      "R10_1_152",
+      "R10_1_153",
+      "R10_1_179"
+    ],
+    "unresolved_ids": [
+      "R10_1_189"
+    ],
+    "delta": {
+      "sha256": "fedd7c61239a3e708852b2962f06b2f05d914f43bbb9f99e158dcd263ebc0b87",
+      "bytes": 3782
+    }
+  }
 }

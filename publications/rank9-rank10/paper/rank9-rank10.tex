@@ -6,6 +6,7 @@
 \usepackage[breaklinks,colorlinks=true,linkcolor=blue!45!black,urlcolor=blue!45!black]{hyperref}
 \newtheorem{proposition}{Proposition}[section]
 \newtheorem{corollary}[proposition]{Corollary}
+\newtheorem{lemma}[proposition]{Lemma}
 \newtheorem{theorem}[proposition]{Theorem}
 \newcommand{\FPdim}{\operatorname{FPdim}}
 \newcommand{\Rep}{\operatorname{Rep}}
@@ -172,7 +173,7 @@ this bound for a specified simple. The replay checks every branch and every
 moment inequality. Two of these four inputs already had baseline exclusions;
 only two are new cases in the total.
 
-\input{../work/rank9_bridge/proof.tex}
+\input{../../../evidence/rank9_rank10_m1_20261023/work/rank9_bridge/proof.tex}
 \section{Oriented signed sphericalization beyond the self-dual case}
 For non-self-dual rings, unrestricted permutation symmetry of a sign table
 would be wrong. The general checker instead uses the unit, dual reversal,
@@ -193,16 +194,19 @@ signed-character inventories, and 77 original-character inventories. It
 certifies the reductions needed in this report. This is a finite, tensor-specific
 argument, not a general solution of the pivotality conjecture.
 
-\input{../work/resolve_rank9_irrational/proofs.tex}
-\input{../work/resolve_rank10_quadratic/reciprocity.tex}
+\input{../../../evidence/rank9_rank10_m1_20261023/work/resolve_rank9_irrational/proofs.tex}
+\input{../../../evidence/rank9_rank10_m1_20261023/work/resolve_rank10_quadratic/reciprocity.tex}
 \input{structural_sections.tex}
 \input{additional_exclusions.tex}
 \input{models_section.tex}
+\input{rank10_completion.tex}
 \input{remaining.tex}
 
 \section{Reproduction and evidence boundaries}
-Start with \nolinkurl{README.md}, then run \nolinkurl{python verify.py} from the
-package root. The deterministic replay uses Python 3 with NumPy, SymPy, and
+The baseline package is \nolinkurl{evidence/rank9_rank10_m1_20261023}; its
+\nolinkurl{python verify.py} replays the preserved baseline. The current
+accepted ledger and the focused continuation commands are in
+\nolinkurl{evidence/rank10_m1_exclusions_20261023/README.md}. The deterministic replay uses Python 3 with NumPy, SymPy, and
 NetworkX; any optional discovery dependencies are separate. Each family
 also has a short standalone command in the ledger. Optimized Python
 execution is rejected because some inherited verifiers use assertions.
@@ -223,7 +227,8 @@ forms of evidence are identified in the model records.
 
 \appendix
 \section{Complete input assignment}
-The following compact table is generated from \nolinkurl{ledger.json}.
+The following compact table is generated from the current
+\nolinkurl{accepted_ledger.json} in the rank-ten continuation package.
 E means excluded over $\C$, U means a unitary realization exists, and
 ? means unresolved. The JSON and CSV files give the proof and replay links.
 \input{assignment.tex}
@@ -295,5 +300,31 @@ Theorem~1.4, Lemma~2.6, and Proposition~3.1.
 with an appendix by E. Meir, \emph{Fusion categories and homotopy theory},
 \href{https://arxiv.org/abs/0909.3140v2}{arXiv:0909.3140v2},
 Corollary~7.9(i).
+\bibitem{Ostrik2} V. Ostrik, \emph{Fusion categories of rank 2},
+Math. Res. Lett. 10 (2003), 177--183,
+\href{https://arxiv.org/abs/math/0203255}{arXiv:math/0203255}.
+\bibitem{EOSemisimple} P. Etingof, V. Ostrik,
+\emph{On semisimplification of tensor categories}, Appendix A, Theorem A.3,
+\href{https://arxiv.org/abs/1801.04409}{arXiv:1801.04409}.
+\bibitem{BrugNat} A. Brugui\`eres, S. Natale,
+\emph{Exact sequences of tensor categories}, Int. Math. Res. Not. (2011),
+5644--5705, \href{https://arxiv.org/abs/1006.0569}{arXiv:1006.0569}.
+\bibitem{Usher} R. Usher, \emph{Fermionic 6j-symbols in superfusion categories},
+J. Algebra 503 (2018), 453--473,
+\href{https://arxiv.org/abs/1606.03466}{arXiv:1606.03466}.
+\bibitem{CCX} C.-M. Chang, J. Chen, F. Xu,
+\emph{Topological defect lines in two dimensional fermionic CFTs},
+SciPost Phys. 15 (2023), 216,
+\href{https://doi.org/10.21468/SciPostPhys.15.5.216}{doi:10.21468/SciPostPhys.15.5.216};
+\href{https://arxiv.org/abs/2208.02757v4}{arXiv:2208.02757v4}, Section 3.
+\bibitem{MignardSchauenburg} M. Mignard, P. Schauenburg,
+\emph{Morita equivalence of pointed fusion categories of small rank},
+\href{https://arxiv.org/abs/1708.06538}{arXiv:1708.06538}.
+\bibitem{RankFinite} P. Bruillard, S.-H. Ng, E. C. Rowell, Z. Wang,
+\emph{Rank-finiteness for modular categories}, J. Amer. Math. Soc. 29 (2016),
+857--881, \href{https://arxiv.org/abs/1310.7050}{arXiv:1310.7050}.
+\bibitem{SchopierayBraided} A. Schopieray,
+\emph{Irrational braided generalized near-groups},
+Canad. Math. Bull., \href{https://doi.org/10.4153/S0008439523000334}{doi:10.4153/S0008439523000334}.
 \end{thebibliography}
 \end{document}

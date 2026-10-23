@@ -7,7 +7,7 @@ original basis order and both tensor hashes are unchanged.
 
 The current paper is `publications/rank11/paper/rank11.pdf` and its self-contained
 TeX source. `data/current_publication_revision.json` selects the current PDFs
-for ranks 2–11, binds the two new high-rank ledgers and lists all 12 open cases.
+for ranks 2–11, binds the two new high-rank ledgers and lists all seven open cases.
 The earlier `current_document_revision.json` and eight-paper page inventory
 remain frozen inputs to the historical rank-two through rank-eight proof
 archives. The current ten-paper inventory is

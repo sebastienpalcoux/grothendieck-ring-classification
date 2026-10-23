@@ -1,0 +1,107 @@
+{
+  "date": "2026-10-23",
+  "source_repository": "sebastienpalcoux/grothendieck-ring-classification",
+  "source_commit": "81ba2b63dad3a46c6aab70c39cd4f6a28d0e58cc",
+  "counts": {
+    "excluded": 5,
+    "modelled": 0,
+    "unresolved": 1
+  },
+  "cases": [
+    {
+      "id": "R10_1_114",
+      "rank": 10,
+      "multiplicity": 1,
+      "tensor_sha256_compact_json": "d557cfbf5ebf1aead55f024f20dd6a7181902442a71a22d89ff5ee7f397cc055",
+      "previous_status": "unresolved",
+      "status": "excluded",
+      "scope": "all complex fusion categories",
+      "reason_code": "ordinary_factor_swap_descent",
+      "proof": "new/quadratic_models/ORDINARY_FACTOR_EXCLUSION.md",
+      "model": null,
+      "necessary_conditions": []
+    },
+    {
+      "id": "R10_1_115",
+      "rank": 10,
+      "multiplicity": 1,
+      "tensor_sha256_compact_json": "0e57e37801e8a5135ad03dfe156ba842ef019488637a08d30c200682bc109679",
+      "previous_status": "unresolved",
+      "status": "excluded",
+      "scope": "all complex fusion categories",
+      "reason_code": "ordinary_factor_swap_descent",
+      "proof": "new/quadratic_models/ORDINARY_FACTOR_EXCLUSION.md",
+      "model": null,
+      "necessary_conditions": []
+    },
+    {
+      "id": "R10_1_152",
+      "rank": 10,
+      "multiplicity": 1,
+      "tensor_sha256_compact_json": "a3cb659a095520e7fdac05b181a5e0e09f6b0948dff4e8872edf9a830910a0bf",
+      "previous_status": "unresolved",
+      "status": "excluded",
+      "scope": "all complex fusion categories",
+      "reason_code": "pseudo_factor_odd_superpentagon",
+      "proof": "new/rank16_dual/PSEUDO_BRANCH_EXCLUSION.md",
+      "model": null,
+      "necessary_conditions": []
+    },
+    {
+      "id": "R10_1_153",
+      "rank": 10,
+      "multiplicity": 1,
+      "tensor_sha256_compact_json": "791fe583f226d11f1730dae7aa965d26e160df9be654920d68aa7c7c9162ea7c",
+      "previous_status": "unresolved",
+      "status": "excluded",
+      "scope": "all complex fusion categories",
+      "reason_code": "pseudo_factor_odd_superpentagon",
+      "proof": "new/rank16_dual/PSEUDO_BRANCH_EXCLUSION.md",
+      "model": null,
+      "necessary_conditions": []
+    },
+    {
+      "id": "R10_1_179",
+      "rank": 10,
+      "multiplicity": 1,
+      "tensor_sha256_compact_json": "4e1c7e3806c930837f93d3b0426f1dbe63adc3552ba83e82c667bb10e53fd148",
+      "previous_status": "unresolved",
+      "status": "excluded",
+      "scope": "all complex fusion categories",
+      "reason_code": "pseudo_factor_odd_superpentagon",
+      "proof": "new/rank16_dual/PSEUDO_BRANCH_EXCLUSION.md",
+      "model": null,
+      "necessary_conditions": []
+    },
+    {
+      "id": "R10_1_189",
+      "rank": 10,
+      "multiplicity": 1,
+      "tensor_sha256_compact_json": "c44e21d1844ded91dba30cd6c691180afa4d4f1be1c4f27806bbc12c8c8292f4",
+      "previous_status": "unresolved",
+      "status": "unresolved",
+      "scope": "complex categorifiability unresolved",
+      "reason_code": null,
+      "proof": "new/case189/STRUCTURAL_PROGRESS.md",
+      "model": null,
+      "necessary_conditions": [
+        "pointed subcategory is untwisted Vec(C5)",
+        "regular-algebra Morita dual has the same based ring",
+        "no braided categorification",
+        "Frobenius-Schur exponent divides 1600"
+      ]
+    }
+  ],
+  "literature_computation_dependency": {
+    "cases": [
+      "R10_1_152",
+      "R10_1_153",
+      "R10_1_179"
+    ],
+    "source": "Chang--Chen--Xu, SciPost Phys. 15 (2023), 216, Section 3",
+    "specific_result": "No superpentagon solution for odd-evaluation rank-two m-type family (1,1)",
+    "independently_rerun": false,
+    "scope_and_applicability_independently_audited": true
+  },
+  "publication_state": "Current classification decisions: five general complex exclusions and one unresolved case."
+}

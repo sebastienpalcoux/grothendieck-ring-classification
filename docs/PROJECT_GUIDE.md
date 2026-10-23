@@ -2,7 +2,7 @@
 
 <!-- current-high-rank-publication -->
 
-**Current high-rank results · 23 October 2026.** Rank 11 at multiplicity one is complete for the supplied census: **155 excluded, 27 unitary models, 0 unresolved among 182 rings**. Ranks 9–10 have 233 exclusions, 97 unitary models and 6 unresolved among 336 rings. The project has 12 open cases in total: 2 at rank 6, 4 at rank 8 and 6 at rank 10. [Rank-11 manuscript](../publications/rank11/paper/rank11.pdf) · [Exact proofs and replay](../evidence/rank11_m1_20261023/README.md) · [All current manuscripts](../manuscripts/README.md).
+**Current high-rank results · 23 October 2026.** Rank 11 at multiplicity one is complete for the supplied census: **155 excluded, 27 unitary models, 0 unresolved among 182 rings**. Ranks 9–10 have 238 exclusions, 97 unitary models and 1 unresolved among 336 rings. The project has 7 open cases in total: 2 at rank 6, 4 at rank 8 and 1 at rank 10. [Rank-nine/ten manuscript](../publications/rank9-rank10/paper/rank9-rank10.pdf) · [Rank-11 manuscript](../publications/rank11/paper/rank11.pdf) · [Rank-ten proofs and replay](../evidence/rank10_m1_exclusions_20261023/README.md) · [Rank-11 proofs and replay](../evidence/rank11_m1_20261023/README.md) · [All current manuscripts](../manuscripts/README.md).
 
 <!-- /current-high-rank-publication -->
 
