@@ -63,16 +63,25 @@ def main(rebuild_cases=True):
  # Rebuild the case dossiers from exact tensors, without repeating unrelated searches.
  from build_cases import build
  if rebuild_cases:build(ROOT)
+ from unresolved_retry_20261024 import active as retry_active,apply_profiles,validate as retry_validate,LEDGER as retry_ledger,EVIDENCE as retry_evidence
+ retry=retry_active(ROOT)
+ if retry:apply_profiles(ROOT)
+ expected_open=10 if retry else 11
  payloads=[read(DIST/'data/unresolved_cases.json')['cases']]+[read(DIST/'data'/name)['cases']for name in ('rank9_rank10_m1.json','rank11_m1.json','rank9_m2.json')]
  opened={r['id']:r for group in payloads for r in group if r['status']=='unresolved'}
  ids=sorted(opened,key=lambda x:tuple(map(int,re.findall(r'\d+',x))))
- if len(ids)!=11:raise ValueError('Expected 11 open cases after the accepted research continuation')
+ if len(ids)!=expected_open:raise ValueError(f'Expected {expected_open} open cases after the accepted research continuation')
  tensors={rid:opened[rid]['fusion_tensor']for rid in ids};metadata={rid:{'rank':opened[rid]['rank'],'multiplicity':opened[rid]['multiplicity'],'tensor_sha256':opened[rid]['tensor_sha256'],'status':'unresolved'}for rid in ids}
  text='"""All current unresolved fusion tensors. Unit X_0; N[i][j][k].\nGeneral complex categorification remains open for every listed tensor.\n"""\n\nMETADATA = '+repr(metadata)+'\n\nTENSORS = '+repr(tensors)+'\n';ast.parse(text)
  (ROOT/'data/current_remaining_cases.py').write_text(text);shutil.copy2(ROOT/'data/current_remaining_cases.py',DIST/'downloads/current_remaining_cases.py')
  # Retain all current high-rank manuscript selections while refreshing modified sources.
  p=ROOT/'data/current_publication_revision.json';rev=read(p)
- rev.update(date='2026-10-24',remaining_ids=ids,current_unresolved_total=11,rank8_m3_update=extension(ROOT),research_continuation=correction.validate(ROOT))
+ rev.update(date='2026-10-24',remaining_ids=ids,current_unresolved_total=expected_open,rank8_m3_update=extension(ROOT),research_continuation=correction.validate(ROOT))
+ if retry:
+  rev['theoretical_retry']=retry_validate(ROOT)
+  old=rev['research_continuation'];old['stage_open_cases']=old.pop('current_open_cases',11);old['superseded_by']=retry_evidence
+  rev['rank9_rank10_m1']={'input_count':336,'excluded':238,'unitarily_realized':98,'unresolved':0,'ledger':retry_ledger,**info(ROOT/retry_ledger)}
+  rev['rank10_m1_continuation']={'evidence':retry_evidence,'unresolved_ids':[],'realized_ids':['R10_1_189'],'ledger':retry_ledger}
  for name in rev['documents']:rev['documents'][name]=info(ROOT/name)
  for name in (ROOT/'publications/rank9-m2/paper').glob('*'):
   if name.suffix in ('.tex','.pdf'):rev['documents'][name.relative_to(ROOT).as_posix()]=info(name)
@@ -120,11 +129,15 @@ def main(rebuild_cases=True):
    for child in value.values():refresh(child)
   elif isinstance(value,list):
    for child in value:refresh(child)
- refresh(atlas);write(DIST/'data/atlas.json',atlas)
+ refresh(atlas)
+ for name in atlas.get('rank6_release',{}).get('documents',{}):
+  atlas['rank6_release']['documents'][name]=sha(DIST/'papers'/name)
+ write(DIST/'data/atlas.json',atlas)
  shutil.copy2(DIST/'data/atlas.json',ROOT/'data/atlas.json')
  current_pages=read(ROOT/'data/current_manuscript_page_counts.json');totals=current_pages['totals']
  summary=f"{current_pages['document_counts']['mathematical_manuscripts']} mathematical manuscripts: {totals['mathematical_manuscript']} pages; with the three verification guides: {totals['mathematical_manuscripts_and_guides']}; with the current research-status report: {totals['all_distinct_documents']}. Each distinct document is counted once."
  page=DIST/'index.html';page.write_text(re.sub(r'(<span id="manuscript-page-summary">).*?(</span>)',lambda m:m[1]+summary+m[2],page.read_text()))
+ page=DIST/'index.html';content=page.read_text();content=re.sub(r'(<p class="scope-note" id="current-manuscript-page-summary">).*?(<a href=)',lambda m:m[1]+summary+' '+m[2],content,flags=re.S);content=content.replace('tree/main/evidence/rank9_m2_20261024\" target','tree/main/evidence/unresolved_retry_20261024\" target');page.write_text(content)
  from build_ring_properties import build as properties
  properties()
  page=DIST/'index.html';page.write_text(re.sub(r'All \d+ open rings · Python tensors',f'All {len(ids)} open rings · Python tensors',page.read_text()))
@@ -147,8 +160,8 @@ def main(rebuild_cases=True):
     if value and value not in prior:prior.append(value)
    replacements[path]={'prior_sha256':prior,'after_sha256':sha(p)}
  write(E/'derived_publication_replacements.json',{'schema':'research-derived-publication-replacements/v1','rank8_ledger':correction.LEDGER,'rank8_ledger_sha256':sha(ROOT/correction.LEDGER),'rank9_ledger':correction.R9+'/ledger.json','rank9_ledger_sha256':sha(ROOT/correction.R9/'ledger.json'),'files':replacements,'scope':'Only derived website metadata; all case changes separately reconcile against the accepted tensor-bound transitions.'})
- page=DIST/'review.html';text=page.read_text();text=text.replace('Current classification · 26 open questions','Current classification · 11 open questions');page.write_text(text)
- print('Current accepted research: 11 open cases, including four at rank eight and four at rank nine; exact filters rebuilt.')
+ page=DIST/'review.html';text=page.read_text();text=text.replace('Current classification · 26 open questions',f'Current classification · {expected_open} open questions');page.write_text(text)
+ print(f'Current accepted research: {expected_open} open cases; four at rank eight and four at rank nine; exact filters rebuilt.')
 if __name__=='__main__':
  import argparse
  p=argparse.ArgumentParser(description=__doc__);p.add_argument('--metadata-only',action='store_true');args=p.parse_args();main(not args.metadata_only)

@@ -51,6 +51,8 @@ globalThis.RingCatalogue = (() => {
     state.models = catalogue.models;
     state.data.catalogue_records = catalogue.cases;
     state.data.latest_catalogue_publication = [...catalogue.summaries].sort((a,b)=>a.date.localeCompare(b.date)).at(-1);
+    if (state.data.theoretical_retry?.date >= state.data.latest_catalogue_publication.date)
+      state.data.latest_catalogue_publication = state.data.theoretical_retry;
     state.data.publication_date = [state.data.snapshot, ...catalogue.summaries.map(s => s.date)].sort().at(-1);
     state.data.catalogue_papers = catalogue.summaries.map(s => {
       const ranks = Object.keys(s.counts).map(Number).sort((a,b)=>a-b), c=s.totals, m=s.multiplicity || 1;

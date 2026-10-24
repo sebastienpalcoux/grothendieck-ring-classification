@@ -1,14 +1,15 @@
 # Manuscripts
 
-<!-- current-research-continuation -->
-**Current results · 24 October 2026.** Rank-nine exact multiplicity two has
-2,043 general exclusions, 36 unitary models and four unresolved rings.
-R8_3_436 is generally excluded by an independent spherical-equivariantization
-proof; the old TPE completeness premise remains withdrawn. The project has
-11 open cases. [Proofs, precise scope and replay](https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/evidence/research_20261024/README.md).
-<!-- /current-research-continuation -->
+<!-- current-theoretical-retry -->
+**Current results · 24 October 2026.** Rank ten at multiplicity one is complete:
+136 general exclusions and 58 unitary models. R10_1_189 is recognized inside
+the classical SU(4)_6 conformal-embedding module category. Ten cases remain
+open at ranks six, eight and nine. Their new theoretical restrictions and
+the actual twisted precursor for R8_3_1768 do not claim further decisions.
+[Proofs and precise scope](https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/evidence/unresolved_retry_20261024/README.md).
+<!-- /current-theoretical-retry -->
 
-**Current classification through rank eleven: 11 unresolved rings across ranks six, eight, nine and ten.**
+**Current classification through rank eleven: 10 unresolved rings across ranks six, eight and nine.**
 
 > **AI-generated research · independent verification pending.** Exact automated checks establish only their stated computational scope.
 
@@ -21,14 +22,14 @@ Current manuscripts appear once, in increasing rank order. Realized counts refer
 | Rank four: finite classification | [PDF](rank4/papers/finite.pdf) | [TeX](rank4/papers/finite.tex) | 29 |
 | Rank four: unrestricted classification | [PDF](rank4/papers/companion.pdf) | [TeX](rank4/papers/companion.tex) | 88 |
 | Rank five | [PDF](rank5/papers/manuscript.pdf) | [TeX](rank5/papers/manuscript.tex) | 19 |
-| Rank six | [PDF](rank6/papers/manuscript.pdf) | [TeX](rank6/papers/manuscript.tex) | 170 |
+| Rank six | [PDF](rank6/papers/manuscript.pdf) | [TeX](rank6/papers/manuscript.tex) | 172 |
 | Rank seven | [PDF](rank7/papers/manuscript.pdf) | [TeX](rank7/papers/manuscript.tex) | 83 |
-| Rank eight | [PDF](rank8/paper/rank8.pdf) | [TeX](rank8/paper/rank8.tex) | 149 |
-| Rank-nine and rank-ten multiplicity-one classification | [PDF](../publications/rank9-rank10/paper/rank9-rank10.pdf) | [TeX](../publications/rank9-rank10/paper/rank9-rank10.tex) | 30 |
-| Rank-nine multiplicity-two classification | [PDF](../publications/rank9-m2/paper/rank9-m2.pdf) | [TeX](../publications/rank9-m2/paper/rank9-m2.tex) | 44 |
+| Rank eight | [PDF](rank8/paper/rank8.pdf) | [TeX](rank8/paper/rank8.tex) | 151 |
+| Rank-nine and rank-ten multiplicity-one classification | [PDF](../publications/rank9-rank10/paper/rank9-rank10.pdf) | [TeX](../publications/rank9-rank10/paper/rank9-rank10.tex) | 35 |
+| Rank-nine multiplicity-two classification | [PDF](../publications/rank9-m2/paper/rank9-m2.pdf) | [TeX](../publications/rank9-m2/paper/rank9-m2.tex) | 47 |
 | Rank-eleven multiplicity-one classification | [PDF](../publications/rank11/paper/rank11.pdf) | [TeX](../publications/rank11/paper/rank11.tex) | 18 |
 
-**11 mathematical manuscripts, 645 pages.** With three verification guides: 664 pages. With the current research-status report: 674 pages. Each distinct document is counted once.
+**11 mathematical manuscripts, 657 pages.** With three verification guides: 676 pages. With the current research-status report: 679 pages. Each distinct document is counted once.
 
 [Page inventory and checksums](../data/current_manuscript_page_counts.json) · [Current publication manifest](../data/current_publication_revision.json)
 
@@ -40,7 +41,7 @@ Current manuscripts appear once, in increasing rank order. Realized counts refer
 
 **Rank 9:** through multiplicity two, 2,145 general exclusions, 76 unitary models and four unresolved. Exact multiplicity two contributes 2,043 exclusions and 36 models.
 
-**Ranks 10–11:** multiplicity one. Rank 10 has 136 exclusions, 57 unitary models and 1 unresolved; rank 11 has 155 exclusions and 27 unitary models.
+**Ranks 10–11:** multiplicity one. Rank 10 has 136 exclusions, 58 unitary models and no unresolved; rank 11 has 155 exclusions and 27 unitary models.
 
 [Rank-11 proofs and replay](../evidence/rank11_m1_20261023/README.md) · [Ranks 9–10 proofs and replay](../evidence/rank10_m1_exclusions_20261023/README.md) · [All open cases](https://sebastienpalcoux.github.io/grothendieck-ring-classification/unresolved.html)
 
@@ -99,15 +100,15 @@ Related work on the pivotal case: Jingcheng Dong, Sébastien Palcoux and Arnaud 
 | Rank four, verification guide | [TeX](rank4/papers/verification_guide.tex) | [PDF](rank4/papers/verification_guide.pdf) | 9 | Exact certificate checks |
 | Rank five | [TeX](rank5/papers/manuscript.tex) | [PDF](rank5/papers/manuscript.pdf) | 19 | Complete through multiplicity 20 |
 | Rank five, verification guide | [TeX](rank5/papers/verification_guide.tex) | [PDF](rank5/papers/verification_guide.pdf) | 4 | Exact certificates, models and replay scope |
-| Rank six | [TeX](rank6/papers/manuscript.tex) | [PDF](rank6/papers/manuscript.pdf) | 170 | 25,362 exclusions, 57 realizations, two open through 9; complete through 3 and exact bands 1, 2, 3, 5, 6, 7, 9 |
+| Rank six | [TeX](rank6/papers/manuscript.tex) | [PDF](rank6/papers/manuscript.pdf) | 172 | 25,362 exclusions, 57 realizations, two open through 9; complete through 3 and exact bands 1, 2, 3, 5, 6, 7, 9 |
 | Rank six, verification guide | [TeX](rank6/papers/verification_guide.tex) | [PDF](rank6/papers/verification_guide.pdf) | 6 | Models, certificates and open-case reductions |
 | Rank seven | [TeX](rank7/papers/manuscript.tex) | [PDF](rank7/papers/manuscript.pdf) | 83 | Through multiplicity 5: 9,976 exclusions, 30 models and 0 unresolved; complete through 5 |
-| Rank eight | [TeX](rank8/paper/rank8.tex) | [PDF](rank8/paper/rank8.pdf) | 149 | Through multiplicity 3: 4,403 exclusions, 93 unitary models and 4 unresolved; complete through 2 |
+| Rank eight | [TeX](rank8/paper/rank8.tex) | [PDF](rank8/paper/rank8.pdf) | 151 | Through multiplicity 3: 4,403 exclusions, 93 unitary models and 4 unresolved; complete through 2 |
 
-The eight mathematical manuscripts contain **553 pages**.
-Including the three verification guides gives **572 pages**;
-including the 10-page [research-status report](prepublication-review-2026-10-24.pdf)
-gives **582 pages** across twelve distinct documents.
+The eight mathematical manuscripts contain **557 pages**.
+Including the three verification guides gives **576 pages**;
+including the 3-page [research-status report](prepublication-review-2026-10-24.pdf)
+gives **579 pages** across twelve distinct documents.
 These counts include references and appendices and count duplicate download
 copies only once. The [page inventory](../data/manuscript_page_counts.json)
 records every path, count and PDF checksum. The [17 October status report](prepublication-review-2026-10-17.pdf) is retained as a historical snapshot and is not counted as a current document.

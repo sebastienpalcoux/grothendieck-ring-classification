@@ -1,0 +1,211 @@
+\section{Unified restrictions on the four quadratic cases}
+\label{sec:quadratic-frontier-retry}
+Throughout this section $d=4+3\sqrt2$ and $D=144+96\sqrt2$.
+The four open rings have dimension type $(1^4,2,d^4)$, and
+$N_{\mathbb Q(\sqrt2)/\mathbb Q}(D)=2304=2^8 3^2$.
+All spherical and positive-center arguments use the already audited
+sphericalization and Galois-existence reduction; no claim is made that
+every original category is unitary or pseudo-unitary.
+
+\subsection{The integral part of the center is pointed}
+\begin{proposition}
+For a complex categorification of any of the four open rings,
+the center contains no nontrivial Tannakian subcategory, and every
+integral-dimensional central simple is invertible. The integral center
+is Vec or sVec for the three commutative rings, and Vec for $R9\_2\_1975$.
+\end{proposition}
+\begin{proof}
+The established TY module reduction gives the nonalternating bicharacter
+on $V_4$. In a commutative source, let $h,h'$ stabilize its two distinct
+large-object orbits. Their product $g$ is isotropic and acts freely.
+The adjoint subcategory is the full source, so the universal grading
+is trivial and forgetting central invertibles is injective.
+The TY central-invertible formulas give self-braiding $+1$ for a lift
+of $g$, and $-1$ for a lift of $h$ or $h'$. Thus a lift of $g$ would
+supply a central Rep$(C_2)$.
+
+Central de-equivariantization would have four invertibles and two
+self-dual objects $X,Y$ of dimension $d$. Its rules are
+\begin{gather*}
+ hX=X,\quad hY=Y,\quad uX=Y,\quad uY=X,\\
+ X^2=Y^2=1+h+4X+4Y,\qquad XY=u+hu+4X+4Y.
+\end{gather*}
+The alternatives $u^2=1$ and $u^2=h$ are exactly the already excluded
+project tensors $R6\_4\_174$ and $R6\_4\_6$. All $216$ coefficients
+of each identification agree. Their general exclusions are inherited
+lower-rank theorems, not deductions from failure to find a model.
+Hence $g$ has no central lift. There is at most one fermionic lift of
+$h,h'$, since two would lift $g$. This proves the pointed-center bound.
+
+For the noncommutative source, the corresponding hypothetical central
+quotients are the excluded $R6\_4\_1$ or $R6\_4\_155$ with a pointed
+permutation that cannot lift to a tensor autoequivalence. The latter
+obstruction follows from the distinct uniquely lifted pointed twists
+of $R6\_4\_155$. The exact source-to-quotient maps and both alternatives
+are checked in the proof record. The pointed center is therefore Vec.
+
+If Rep$(H)$ were Tannakian in the center, FP-dimension divisibility
+and the norm of $D$ would force the primes of $|H|$ to lie in $\{2,3\}$.
+Burnside makes $H$ solvable. A nontrivial solvable group has a nonunit
+one-dimensional representation, which would give a central boson,
+contradicting the preceding bounds.
+
+Each central dimension is $a+bd$ with nonnegative integral $a,b$.
+Thus its integral-dimensional simples are exactly those forgetting into
+the integral TY subcategory. They form an integral braided fusion
+subcategory whose dimension has prime support in $\{2,3\}$. The
+categorical Burnside theorem makes it solvable, hence weakly
+group-theoretical. With no Tannakian subcategory it is weakly
+anisotropic, so Natale's integral weakly-anisotropic theorem makes it
+pointed. This applies to the integral subcategory, not to the ambient
+nonintegral center.
+\end{proof}
+
+The categorical inputs are the TY formulas of Gelaki--Naidu--Nikshych,
+Proposition 4.1~\cite{RetryGNN}; ENO FP-dimension divisibility; Etingof--Nikshych--Ostrik,
+\emph{Weakly group-theoretical and solvable fusion categories},
+Theorem 1.6~\cite{RetryENO}; and Natale, \emph{The core of a weakly group-theoretical
+braided fusion category}, Theorem 4.1~\cite{RetryNatale}. Their hypotheses and the exact
+lower-rank dependencies are recorded in the linked proof package.
+In particular no Morita representative has a nontrivial faithful
+finite-group grading, since such a grading would give central Rep$(H)$.
+
+\subsection{TY saturation and its sign}
+Let $Y$ be the dimension-two TY object and $\epsilon$ the sign of its
+parameter in a positive spherical representative. Shimizu's formula~\cite{RetryShimizu} gives
+\[
+ (\nu_1(Y),\ldots,\nu_8(Y))=(0,\epsilon,0,0,0,\epsilon,0,2).
+\]
+The center induction formula, $\nu_8(Y)=\FPdim(Y)$ and positivity force
+all constituents of $I(Y)$ to have eighth-root twists. Fourier inversion
+then fixes the weighted fibers. Each primitive-eighth fiber has weight
+$D/4$; its only possible dimension pairs are
+\[
+ (2+d,2+7d)\quad\hbox{or}\quad(2+4d,2+4d).
+\]
+Combining this complete support condition with the integral-center
+obstruction and character/induction equations gives exact separating
+certificates for $\epsilon=+1$ in $R1607,R1975,R1976$. Both signs remain
+for $R137$. The negative-sign necessary systems remain feasible.
+An exact witness is evidence about those systems, not a category.
+
+\subsection{A general sign-twisted module-functor criterion}
+\begin{proposition}
+Let $\mathcal D$ be a fusion subcategory, $\mathcal M$ an indecomposable
+left $\mathcal D$-component in a fusion category, and $X$ a simple in it.
+Suppose $h$ is an order-two invertible in $\mathcal D$,
+$\underline{\operatorname{End}}_{\mathcal D}(X)=1+h$, $Xh\cong X$, and
+right tensoring by $h$ moves another simple of $\mathcal M$.
+Then the normalized left and right stabilizer maps on $X$ anticommute.
+\end{proposition}
+\begin{proof}
+The actual internal end $B=1+h$ has its subgroup-algebra structure and
+identifies $\mathcal M$ with right $B$-modules in $\mathcal D$, taking
+$X$ to $B$. The functor $(-)h$ is a left $\mathcal D$-module functor.
+The module-functor correspondence~\cite{RetryEGNO} represents it by a $B$-bimodule $P$. Since $Xh\cong X$,
+its underlying right $B$-module is $B$. Its left action is an algebra
+automorphism of $B$: the unit is fixed and the $h$-summand maps to
+$h$ or $-h$. These exhaust the possibilities because
+$\operatorname{Hom}_B(hB,B)$ is one-dimensional and $h^2=1$.
+The positive action gives the regular bimodule and hence the identity
+module functor, impossible because another simple is moved. The action
+is therefore the negative one. Transporting it through $r:Xh\to X$
+gives, with $l:hX\to X$,
+\[
+ r(l\otimes1_h)=-l(1_h\otimes r),
+\]
+with ambient associators understood. This is the required categorical
+anticommutator. It uses no central lift of the based-central $h$.
+\end{proof}
+
+For each of the three commutative sources, the two pointed orbits have
+different stabilizers, so right $h$ fixes the first and swaps the second.
+The criterion applies to every large simple. Exact source tensors give
+$\dim\operatorname{Hom}(1,X^3)=2$ in all twelve applications. The
+Clifford rotation theorem then forces
+\begin{equation}\label{eq:source-cubic-clifford}
+ \nu_3(X)\in\{-1,-\zeta_3,-\zeta_3^2\}.
+\end{equation}
+The normalized relative trace to $\mathbb Q(\sqrt2)$ is consequently
+$-1$ or $1/2$. No reality assertion is inferred from self-duality.
+The noncommutative source has different left and right stabilizers;
+this source-local criterion is not applied to it.
+
+\subsection{The all-cochain Morita restriction}
+The rank-twelve Morita reductions have pointed group $D_8$ and four
+objects of dimension $d$. There are three types in their union:
+commutative sources allow duality shift zero or a reflection coset;
+$R1975$ allows reflection or rotation. Only the reflection type overlaps.
+The earlier nonidentity quotient action and extreme $R1975$ branch
+are excluded by their separate associator and pointed-automorphism
+obstructions.
+
+The forced cyclic restrictions determine the pointed $D_8$ associator
+class: it restricts to class two on the rotation $C_4$, trivially on
+the even $V_4$, and to the TY sign on the odd reflection groups.
+The cohomology calculation of Goff--Mason--Ng~\cite[Lemmas 4.4--4.5]{RetryGMN}
+shows that these cyclic restrictions detect the full class.
+
+For a large simple, the pointed-bimodule stabilizer is
+$L=D_8\times_{V_4}D_8\cong D_8\times C_2$. An explicit stabilizer
+cochain, checked against every coboundary equation, has mixed pairing
+$-1$ on its pure left and right central involutions $h_L,h_R$.
+This is independent of the chosen solution. Indeed any other solution
+differs by a $2$-cocycle $\gamma$. Its commutator with the central
+$h_R$ is a character of $L$, hence is trivial on $[L,L]$; but
+$h_Lh_R\in[L,L]$ and its pairing with $h_R$ equals that of $h_L$.
+Thus changing the cochain cannot change the sign.
+
+The nondegenerate stabilizer pairing makes this four-object pointed
+bimodule invertible~\cite[Proposition 2.7]{RetryVV}. The cubic Clifford theorem gives
+\eqref{eq:source-cubic-clifford} for each of its four large objects.
+For pseudo-unitary Morita partners the weighted total indicator
+\[
+ v_3(\mathcal C)=\sum_T\FPdim(T)\nu_3(T)
+ =\frac1D\sum_{Z\in\operatorname{Irr}\mathcal Z(\mathcal C)}
+                 \FPdim(Z)^2\theta_Z^3
+\]
+is Morita invariant by the center indicator formula~\cite{RetryNS}. The nonunit invertibles and TY object have third
+indicator zero. Subtracting the common unit and dividing by $d$
+therefore transfers the sum of four large-object indicators. Its
+projected value belongs to
+\[
+ \{-4,-5/2,-1,1/2,2\}.
+\]
+This covers $R1975$ as well. Neither bimodule invertibility nor
+based centrality supplies a central half-braiding on the full category.
+
+\subsection{Exact surviving branches and exponent consequence}
+The full discrete projected choices were tested in the necessary center
+systems. Exact nonnegative rational witnesses survive as follows:
+\begin{center}\begin{tabular}{lcl}
+\toprule Source & TY sign & Four projected third indicators\\\midrule
+$R137$ & $-$ & $(-1,-1,-1,-1)$\\
+$R137$ & $+$ & $(1/2,1/2,1/2,1/2)$\\
+$R1607$ & $-$ & $(-1,-1,-1,-1)$\\
+$R1976$ & $-$ & $(1/2,1/2,1/2,1/2)$\\\bottomrule
+\end{tabular}\end{center}
+The $R1975$ height-six system with the aggregate condition also has
+an exact witness at projected sum $2$.
+
+For positive-sign $R137$ and negative-sign $R1976$, all other discrete
+assignments are excluded: $25$ exact separating vectors and five
+verified source relabellings cover all $15$ alternatives in each case.
+The relabellings fix the distinguished pointed and TY objects and are
+used to relabel a hypothetical categorification; no tensor
+autoequivalence lifting them is assumed. Both saved matrices were
+independently reconstructed entrywise.
+
+In these two conditional branches, every actual third indicator is
+$-\zeta_3$ or $-\zeta_3^2$, and $9$ divides the FS exponent. Otherwise
+cubing every central twist would remove its $3$-primary part. Since
+all central dimensions lie in $\mathbb Q(\sqrt2)$, the induction formula
+would put $\nu_3(X)$ in a cyclotomic field of conductor coprime to $3$,
+which cannot contain a nonrational cube root of unity. This contradicts
+the forced indicators.
+
+The complete proofs, explicit cochains, bounded-system semantics and
+portable exact replays are curated in
+\path{evidence/unresolved_retry_20261024/README.md}.
+Feasibility of these relaxations does not establish associators or
+categorifiability. All four source rings remain unresolved.

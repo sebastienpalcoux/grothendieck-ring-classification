@@ -18,7 +18,12 @@
 \setlength{\emergencystretch}{3em}
 \title{Multiplicity-one fusion rings of ranks nine and ten\\\large Evidence, constructions, and exact classification ledger}
 \author{Research package prepared for S\'ebastien Palcoux / FusionFrontier\\\small AI-assisted mathematical analysis; independent human review pending}
-\date{23 October 2026}
+\date{24 October 2026}
+\providecommand{\Hom}{\operatorname{Hom}}
+\providecommand{\SU}{\mathrm{SU}}
+\providecommand{\wt}[1]{\mathsf{#1}}
+\providecommand{\one}{\mathbf1}
+\theoremstyle{remark}\newtheorem{remark}[proposition]{Remark}
 \begin{document}
 \maketitle
 \begin{abstract}
@@ -30,7 +35,7 @@ explicit categorical constructions. Every accepted outcome is attached to
 the original input line, a tensor hash, a proof, and a deterministic replay.
 The counts below are generated from the accompanying ledger. An existence
 entry means that at least one unitary categorification is constructed; it
-does not classify all categorifications of that ring.
+does not classify all categorifications of that ring. Every supplied multiplicity-one ring at ranks nine and ten is decided. In particular, the cyclic rank-ten ring is realized inside the classical conformal-embedding module category for $SU(4)_6\subset SU(10)_1$.
 \end{abstract}
 \input{counts.tex}
 \newpage
@@ -200,16 +205,26 @@ argument, not a general solution of the pivotality conjecture.
 \input{additional_exclusions.tex}
 \input{models_section.tex}
 \input{rank10_completion.tex}
+\input{rank10_conformal_model.tex}
 \input{remaining.tex}
 
 \section{Reproduction and evidence boundaries}
 The baseline package is \nolinkurl{evidence/rank9_rank10_m1_20261023}; its
-\nolinkurl{python verify.py} replays the preserved baseline. The current
-accepted ledger and the focused continuation commands are in
-\nolinkurl{evidence/rank10_m1_exclusions_20261023/README.md}. The deterministic replay uses Python 3 with NumPy, SymPy, and
-NetworkX; any optional discovery dependencies are separate. Each family
-also has a short standalone command in the ledger. Optimized Python
-execution is rejected because some inherited verifiers use assertions.
+\nolinkurl{python verify.py} replays the preserved baseline. Those inherited
+verifiers require ordinary Python because some use assertions. The five
+later exclusions retain their separate proof commands in
+\nolinkurl{evidence/rank10_m1_exclusions_20261023/README.md}.
+
+The current ledger, cyclic unitary model and new exact proofs are curated
+in \nolinkurl{evidence/unresolved_retry_20261024/README.md}. After extracting
+its archive, run
+\begin{quote}\ttfamily
+python3 unresolved11\_retry\_20261024/verify\_retry.py
+\end{quote}
+The thirteen new portable checks also pass with assertions disabled.
+Discovery dependencies are separate from the standard-library replays.
+Neither the old nor new arithmetic checks replace verification of the
+categorical premises stated in the proofs.
 
 The two tensor digests are explicitly distinguished. One hashes compact JSON
 with separators \texttt{(',',':')}; the other hashes the flattened tensor as
@@ -228,7 +243,7 @@ forms of evidence are identified in the model records.
 \appendix
 \section{Complete input assignment}
 The following compact table is generated from the current
-\nolinkurl{accepted_ledger.json} in the rank-ten continuation package.
+\nolinkurl{rank9_rank10_m1_ledger.json} in the theoretical continuation package.
 E means excluded over $\C$, U means a unitary realization exists, and
 ? means unresolved. The JSON and CSV files give the proof and replay links.
 \input{assignment.tex}
@@ -326,5 +341,29 @@ SciPost Phys. 15 (2023), 216,
 \bibitem{SchopierayBraided} A. Schopieray,
 \emph{Irrational braided generalized near-groups},
 Canad. Math. Bull., \href{https://doi.org/10.4153/S0008439523000334}{doi:10.4153/S0008439523000334}.
+
+\bibitem{BE}
+J.~B\"ocken-hauer and D.~E.~Evans,
+\emph{Modular invariants from subfactors},
+in \emph{Quantum Symmetries in Theoretical Physics and Mathematics},
+Contemp. Math. \textbf{294}, Amer. Math. Soc., 2002, pp.~95--131.
+\href{https://arxiv.org/abs/math/0006114}{arXiv:math/0006114v2}.
+
+\bibitem{CS}
+R.~Coquereaux and G.~Schieber,
+\emph{Quantum symmetries for exceptional $\SU(4)$ modular invariants
+associated with conformal embeddings},
+SIGMA \textbf{5} (2009), 044, 31~pp.
+\href{https://doi.org/10.3842/SIGMA.2009.044}{doi:10.3842/SIGMA.2009.044}.
+\href{https://arxiv.org/abs/0805.4678}{arXiv:0805.4678}.
+
+\bibitem{DMNO}
+A.~Davydov, M.~M\"uger, D.~Nikshych and V.~Ostrik,
+\emph{The Witt group of non-degenerate braided fusion categories},
+J. Reine Angew. Math. \textbf{677} (2013), 135--177.
+\href{https://doi.org/10.1515/crelle.2012.014}{doi:10.1515/crelle.2012.014}.
+\href{https://arxiv.org/abs/1009.2117}{arXiv:1009.2117v2}.
+
+
 \end{thebibliography}
 \end{document}

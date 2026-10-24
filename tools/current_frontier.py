@@ -10,5 +10,7 @@ def identifiers(repo=ROOT):
   if not path.exists():continue
   data=json.loads(path.read_text());rows=data.get('records',[])if isinstance(data,dict)else data
   ids.update(r['id']for r in rows if r['status']=='unresolved')
+ from unresolved_retry_20261024 import active as retry_active
+ if retry_active(repo):ids.discard('R10_1_189')
  return sorted(ids,key=lambda x:tuple(map(int,re.findall(r'\d+',x))))
 def count(repo=ROOT):return len(identifiers(repo))

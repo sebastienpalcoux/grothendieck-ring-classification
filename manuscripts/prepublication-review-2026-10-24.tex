@@ -22,39 +22,83 @@ Rank & Through multiplicity & Excluded & Realized & Open\\\midrule
 5&20&40982&17&0\\
 6&9&25362&57&2\\
 7&5&9976&30&0\\
-8&3&4402&93&5\\
-9&2&2135&72&18\\
-10&1&136&57&1\\
+8&3&4403&93&4\\
+9&2&2145&76&4\\
+10&1&136&58&0\\
 11&1&155&27&0\\\bottomrule
 \end{tabular}\end{center}
-There are \textbf{26 current generally unresolved cases}. The exact current
+There are \textbf{10 current generally unresolved cases}. The exact current
 list and tensors are supplied in \path{data/current_remaining_cases.py}.
 Rank six is complete through multiplicity three; rank eight through two;
 rank nine through one. These finite statements are relative to the supplied
 census and the recorded categorification decisions.
 
-\section{R436: general inference withheld, unitary obstruction retained}
-The status of \texttt{R8\_3\_436} is now unresolved for general complex
-categorification, while unitary categorification remains excluded.
-The proposed general obstruction needs every spherical neutral near-group
-category of type $(C_3,3)$ to have a specified complete scalar associator table.
-In the pinned cited source, the table's derivation assumes unitarity.
-Reconstruction from abstract scalar data does not establish the required
-normal form for every given spherical category. The successful exact scalar
-replay cannot supply this missing categorical premise.
+\section{Current theoretical results}
+The ten open cases are listed in rank order:
+\begin{itemize}
+\item Rank six: \texttt{R6\_4\_155}, \texttt{R6\_8\_1660}.
+\item Rank eight: \texttt{R8\_3\_928}, \texttt{R8\_3\_941},
+      \texttt{R8\_3\_1154}, \texttt{R8\_3\_1768}.
+\item Rank nine: \texttt{R9\_2\_137}, \texttt{R9\_2\_1607},
+      \texttt{R9\_2\_1975}, \texttt{R9\_2\_1976}.
+\end{itemize}
+No new exclusion of one of these source rings is claimed.
 
-The revised manuscript states the scalar-table reduction conditionally and
-narrows the dependent uniform near-group route claim. This correction does not
-construct a category or refute the proposed nonexistence conclusion.
-All other 4499 rank-eight ledger entries and all 93 models are preserved.
-Exact multiplicity three has 3506 general exclusions, 16 unitary models and five
-open cases. The four previously open cases retain their previously proved
-sphericality and Galois-pseudo-unitarity reductions; these are not asserted for
-the additional R436 case.
+\textbf{Rank ten is complete at multiplicity one.}
+The classical conformal embedding $SU(4)_6\subset SU(10)_1$ supplies
+an actual connected etale algebra $B=000+060+202+222$. The charge-zero
+component of its module category realizes $R10\_1\_189$. The proof uses
+minimal ground-state branching and dimension exhaustion; all 1000 census
+coefficients agree. An actual rank-fourteen modular category and its
+algebra are also constructed. This recognizes a known construction;
+no new tensor category is claimed.
 
-The correction and its precise source review are in
-\path{evidence/audit_20261024/}. Earlier accepted ledgers and replay receipts
-are retained as historical evidence, not silently rewritten.
+\textbf{Rank eight retains four open cases.}
+R928 has categorical Morita rigidity without a module-rank cutoff.
+For R1768 an actual complex twisted $GH(C_6,2)$ precursor has now been
+constructed with precisely the required pointed associator. The
+connected separable algebra $1+\sigma$ needed for the source ring remains
+unproved. The canonical inherited algebra is instead
+$\operatorname{End}(\sigma)$. Its remaining multiplication equations are
+explicit in two scalar variables. Five pointed-extension construction
+families for R1154 and further exceptional quantum-group routes are ruled
+out; those route obstructions do not imply general nonexistence.
+
+\textbf{Rank nine retains four open cases.}
+The centers have no nontrivial Tannakian subcategory, and their integral
+simples are invertible. A new module-functor sign theorem gives local
+Clifford restrictions on each large object in the three commutative
+sources. An all-cochain D8 theorem gives an aggregate condition for all
+four. Exact discrete certificates force projected cubic indicators
+$1/2$ in the positive-TY R137 and negative-TY R1976 branches, hence $9$
+divides their FS exponents. Exact feasible witnesses to the necessary
+systems remain; they are not categories.
+
+\textbf{Rank six retains two open cases.}
+The even cyclic Clifford theorem passes all 1144 tested exact blocks
+for R155. The R1660--R941 identification is exact, but its categorical
+Morita link still requires the indicated nonpointed algebra.
+
+The current proofs, independent agent audits and portable replays are in
+\path{evidence/unresolved_retry_20261024/}. The thirteen new portable
+checks pass, also with assertions disabled. They do not replace human
+verification of the categorical arguments.
+
+\section{R436: an independent replacement proof}
+The old TPE scalar-table completeness premise remains withdrawn. Its
+complete-table derivation assumes unitarity and does not parameterize
+an arbitrary original spherical category. Exact scalar computations
+cannot repair this categorical gap.
+
+A separate spherical-equivariantization and formal-codegree argument
+now excludes $R8\_3\_436$ generally, without the unsupported
+parameterization. It is proved in
+\path{evidence/r436_repair_20261024/}. The conservative audit correction
+and the independent replacement are preserved as distinct research
+steps; the former is not presented as a valid general proof.
+Rank eight at exact multiplicity three therefore has 3507 exclusions,
+16 unitary models and four open cases, and cumulatively 4403 exclusions,
+93 models and four open cases.
 
 \section{Other corrections}
 The rank-five current replay is
@@ -105,7 +149,7 @@ atlas's theory page.
 python tools/audit_corrections_20261024.py
 python tools/verify_audit_revision.py
 \end{verbatim}
-These commands reconcile the one-record correction and validate current
+These commands reconcile the audit, the independent repair and the accepted unitary model, and validate current
 publication identities and structural data. They do not claim a new full
 replay of every historical categorical proof.
 

@@ -327,17 +327,19 @@ const fetchCatalogue=async url=>({ok:true,json:async()=>structuredClone(payloads
 const catalogueContext=context();catalogueContext.document.querySelector=()=>null;catalogueContext.fetch=fetchCatalogue;
 vm.createContext(catalogueContext);vm.runInContext(read("catalogue.js"),catalogueContext);
 const catalogue=await catalogueContext.RingCatalogue.load();
-assert.equal(catalogue.models.length,379);
+assert.equal(catalogue.models.length,380);
 assert.equal(catalogue.cases.length,2830);
 assert.equal(new Set(catalogue.cases.map(r=>r.id)).size,2830);
-assert.equal(catalogue.cases.filter(r=>r.status==="unresolved").length,11);
+assert.equal(catalogue.cases.filter(r=>r.status==="unresolved").length,10);
 for (const id of [114,115,152,153,179]) {
   const ring=catalogue.cases.find(r=>r.id===`R10_1_${id}`);
   assert.equal(ring.status,"excluded");
   assert.equal(ring.categorification_scope.strongest_excluded,"general");
 }
 const cyclicFrontier=catalogue.cases.find(r=>r.id==="R10_1_189");
-assert.equal(cyclicFrontier.status,"unresolved");
+assert.equal(cyclicFrontier.status,"unitarily_realized");
+assert.equal(cyclicFrontier.existence,"unitary");
+assert(Object.values(cyclicFrontier.categorification_scope.level_status).every(s=>s==="realized"));
 assert.equal(cyclicFrontier.categorification_scope.braided.status,"excluded");
 assert.equal(cyclicFrontier.investigation_deferred,false);
 const state={data:structuredClone(atlas),models:structuredClone(realized)};state.data.classification_rows=structuredClone(statuses);
@@ -345,8 +347,8 @@ catalogueContext.RingCatalogue.mergeAtlas(state,catalogue);
 for (const original of realized) {const {properties,...record}=state.models.find(r=>r.id===original.id);assert.equal(JSON.stringify(record),JSON.stringify(original));}
 assert.equal(state.data.rows.length,atlas.rows.length+4);
 assert.equal(state.data.scope.length,atlas.scope.length+3);
-assert.equal(new Set(state.models.map(r=>r.id)).size,379);
-for(const [rank,total,models,open] of [[9,142,40,4],[10,194,57,1],[11,182,27,0]]) {
+assert.equal(new Set(state.models.map(r=>r.id)).size,380);
+for(const [rank,total,models,open] of [[9,142,40,4],[10,194,58,0],[11,182,27,0]]) {
   assert.equal(state.data.rows.find(r=>r.rank===rank).rings,total);
   assert.equal(state.data.grothendieck_rows.find(r=>r.rank===rank).rings,models);
   assert.equal(state.data.scope.find(r=>r.rank===rank).unresolved,open);
@@ -392,7 +394,7 @@ for(const name of ["index.html","case.html","unresolved.html","records.html"]) {
   const html=read(name);assert.match(html,/src="\.\/catalogue\.js/);assert.doesNotMatch(html,/rank11-current|rank9-10-current|href="\.\/rank11\.html"/);
 }
 for(const name of ["rank11.html","rank9-10.html"])assert.match(read(name),/src="\.\/redirect\.js/);
-console.log("Unified catalogue checked: 2830 ordered case pages, 379 models, 11 open cases; shared rank/status/multiplicity filters and complete pagination through rank 11.");
+console.log("Unified catalogue checked: 2830 ordered case pages, 380 models, 10 open cases; shared rank/status/multiplicity filters and complete pagination through rank 11.");
 
 app.state.data=state.data;app.state.models=state.models;
 app.state.censusMap=new Map(state.data.rows.map(r=>[`${r.rank}:${r.multiplicity}`,r]));

@@ -95,7 +95,7 @@ def audit():
         elif witness is None:
             name, basis = identify(ring)
             simple.append({'rank': ring['rank'], 'id': ring['id'], 'model': name, 'standard_to_source_basis': basis, 'tensor_sha256': digest})
-    require(len(simple) == 15 and [r['id'] for r in open_witnesses] == ['R10_1_189'], 'Unexpected simple/open inventory')
+    require(len(simple) == 15 and not open_witnesses, 'Unexpected simple/open inventory')
     return {'schema': 'simple-multiplicity-one/v1', 'rank_range': [2, 11], 'definition': 'No proper nontrivial based fusion subring containing the unit.',
             'checked_models': len(candidates) - len(open_witnesses), 'simple_models': simple, 'unresolved_nonsimple_witnesses': open_witnesses,
             'sources': {p.relative_to(ROOT).as_posix(): hashlib.sha256(p.read_bytes()).hexdigest() for p in source_paths}}
@@ -109,7 +109,7 @@ def markdown(result):
         lines.append(f"| {row['rank']} | `{row['id']}` | {row['model']} |")
     lines += ['', 'Here PSU(2)_k is the even-label fusion subcategory of SU(2)_k; k = 2r − 1 gives rank r. The rank-one ring K0(Vec) = Z may be added if the trivial ring is included.', '',
               'Every nonunit basis generator was closed under products and duality. Independent enumeration of all unit-containing subsets gives the same simplicity decisions. The cyclic and quantum-group identifications above were verified against every integer fusion coefficient after the recorded basis permutations. Numerical dimensions only select a candidate permutation; the final identification is exact.', '',
-              'The sole unresolved multiplicity-one ring is nonsimple. Its proper fusion subring is witnessed by the following zero-based basis indices:', '', '| Ring | Proper subring indices |', '|---|---|']
+              'Every multiplicity-one candidate in the published rank range is now decided. The newly realized R10_1_189 is nonsimple and adds no row to this list. Its pointed C5 subcategory is proper.', '']
     for row in result['unresolved_nonsimple_witnesses']:
         lines.append(f"| `{row['id']}` | {row['proper_fusion_subring_indices']} |")
     lines += ['', 'Replay from the repository root:', '', '```bash', 'python tools/list_simple_multiplicity_one.py --check', '```', '',
@@ -129,6 +129,6 @@ if __name__ == '__main__':
             path.write_text(text)
         if args.check:
             require(path.read_text() == text, 'Audit output is stale: ' + str(path))
-    print(f"Checked {result['checked_models']} multiplicity-one model tensors: 15 simple rings; the sole unresolved candidate has a proper fusion subring.")
+    print(f"Checked {result['checked_models']} multiplicity-one model tensors: 15 simple rings; no unresolved multiplicity-one candidate remains.")
     if not args.check:
         print(markdown(result))

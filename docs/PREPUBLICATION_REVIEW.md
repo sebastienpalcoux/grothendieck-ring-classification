@@ -1,16 +1,17 @@
 # Mathematical review and verification scope
 
-<!-- current-research-continuation -->
-**Current results · 24 October 2026.** Rank-nine exact multiplicity two has
-2,043 general exclusions, 36 unitary models and four unresolved rings.
-R8_3_436 is generally excluded by an independent spherical-equivariantization
-proof; the old TPE completeness premise remains withdrawn. The project has
-11 open cases. [Proofs, precise scope and replay](https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/evidence/research_20261024/README.md).
-<!-- /current-research-continuation -->
+<!-- current-theoretical-retry -->
+**Current results · 24 October 2026.** Rank ten at multiplicity one is complete:
+136 general exclusions and 58 unitary models. R10_1_189 is recognized inside
+the classical SU(4)_6 conformal-embedding module category. Ten cases remain
+open at ranks six, eight and nine. Their new theoretical restrictions and
+the actual twisted precursor for R8_3_1768 do not claim further decisions.
+[Proofs and precise scope](https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/evidence/unresolved_retry_20261024/README.md).
+<!-- /current-theoretical-retry -->
 
 <!-- current-high-rank-publication -->
 
-**Current results · 24 October 2026.** Rank nine at exact multiplicity two has **2,043 general exclusions, 36 unitary models and 4 unresolved rings** among 2,083 inputs. The complete rank-nine census through multiplicity two contains 2,225 rings. The project now has **11 unresolved rings** across ranks six, eight, nine and ten. [Rank-nine M2 manuscript](../publications/rank9-m2/paper/rank9-m2.pdf) · [Current proofs and exact replay](../evidence/rank9_m2_20261024/README.md) · [All current manuscripts](../manuscripts/README.md) · [All open cases](https://sebastienpalcoux.github.io/grothendieck-ring-classification/unresolved.html).
+**Current results · 24 October 2026.** Rank nine at exact multiplicity two has **2,043 general exclusions, 36 unitary models and 4 unresolved rings** among 2,083 inputs. The complete rank-nine census through multiplicity two contains 2,225 rings. The project now has **10 unresolved rings** across ranks six, eight and nine. [Rank-nine M2 manuscript](../publications/rank9-m2/paper/rank9-m2.pdf) · [Current proofs and exact replay](../evidence/rank9_m2_20261024/README.md) · [All current manuscripts](../manuscripts/README.md) · [All open cases](https://sebastienpalcoux.github.io/grothendieck-ring-classification/unresolved.html).
 
 <!-- /current-high-rank-publication -->
 

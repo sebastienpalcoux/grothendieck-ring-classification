@@ -24,10 +24,10 @@ Higher ranks have the explicit multiplicity bounds below.
 | 7 | Through 5 | **Complete through 5** | Through 5: 9,976 excluded, 30 realized, 0 unresolved. |
 | 8 | Through 3 | **Complete through 2**; multiplicity 3 partial | Through 3: 4,403 excluded, 93 realized, 4 unresolved. |
 | 9 | Through 2 | **Complete through 1**; multiplicity 2 partial | Through 2: 2,145 excluded, 76 realized, [4 unresolved](https://sebastienpalcoux.github.io/grothendieck-ring-classification/unresolved.html?rank=9&m=2). |
-| 10 | Multiplicity 1 | **Partial at multiplicity 1** | 136 excluded, 57 realized, [1 unresolved](https://sebastienpalcoux.github.io/grothendieck-ring-classification/unresolved.html?rank=10&m=1). |
+| 10 | Multiplicity 1 | **Complete at multiplicity 1** | 136 excluded, 58 realized, 0 unresolved. |
 | 11 | Multiplicity 1 | **Complete at multiplicity 1** | 155 excluded, 27 realized, 0 unresolved. |
 
-**11 open cases.** General categorification remains undecided for these rings.
+**10 open cases.** General categorification remains undecided for these rings.
 [Explore their status, invariants and research records](https://sebastienpalcoux.github.io/grothendieck-ring-classification/unresolved.html).
 
 <details id="grothendieck-rings--known-realizations-at-each-exact-multiplicity">
@@ -38,7 +38,7 @@ general categorification remains open; a dash marks an unanalyzed band.
 
 | Multiplicity | Rank 2 | Rank 3 | Rank 4 | Rank 5 | Rank 6 | Rank 7 | Rank 8 | Rank 9 | Rank 10 | Rank 11 |
 | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| 1 | 2 | 4 | 9 | 10 | 21 | 13 | 48 | 40 | ≥57 | 27 |
+| 1 | 2 | 4 | 9 | 10 | 21 | 13 | 48 | 40 | 58 | 27 |
 | 2 | 0 | 1 | 3 | 3 | 22 | 10 | 29 | ≥36 | — | — |
 | 3 | 0 | 0 | 2 | 2 | 3 | 2 | ≥16 | — | — | — |
 | 4 | 0 | 0 | 0 | 2 | ≥5 | 4 | — | — | — | — |
@@ -46,7 +46,7 @@ general categorification remains open; a dash marks an unanalyzed band.
 | 6 | 0 | 0 | 1 | 0 | 3 | — | — | — | — | — |
 | 7 | 0 | 0 | 0 | 0 | 2 | — | — | — | — | — |
 
-[Ranks 2–8 counts](data/grothendieck_counts.csv) · [Ranks 9–10 ledger](evidence/rank10_m1_exclusions_20261023/accepted_ledger.csv) · [Rank-nine M2 ledger](evidence/rank9_m2_20261024/ledger.csv) · [Rank-11 ledger](evidence/rank11_m1_20261023/work/rank11/ledger.csv) · [Definitions and scope](docs/PROJECT_GUIDE.md#grothendieck-rings--known-realizations-at-each-exact-multiplicity)
+[Ranks 2–8 counts](data/grothendieck_counts.csv) · [Ranks 9–10 ledger](evidence/unresolved_retry_20261024/rank9_rank10_m1_ledger.csv) · [Rank-nine M2 ledger](evidence/rank9_m2_20261024/ledger.csv) · [Rank-11 ledger](evidence/rank11_m1_20261023/work/rank11/ledger.csv) · [Definitions and scope](docs/PROJECT_GUIDE.md#grothendieck-rings--known-realizations-at-each-exact-multiplicity)
 
 </details>
 

@@ -15426,7 +15426,7 @@
     "path": "data/current_document_revision.json",
     "source": "data/current_document_revision.json",
     "date": "2026-10-24",
-    "sha256": "b53deea56b08d170956d14873dd31564cad82c65d981554035f342cb74f59a69"
+    "sha256": "0916a5a977cf7639ae4f1e00f7d52bd82ea4919b69b2f619c7c4313c3ada9d79"
   },
   "rank6_release": {
     "date": "2026-10-01",
@@ -15499,7 +15499,7 @@
       9
     ],
     "documents": {
-      "rank6.pdf": "c3bfa443686873225748d412e346991a2e872cfeb9cc20447b8b8be8a44c3eae",
+      "rank6.pdf": "6ccddb83eae889670751df98feb61ba0b4cb2989c8c9036cdded25ee8570402d",
       "rank6_guide.pdf": "0ab197205fed9469a4cc2bcf45d2b610ee52f2c212f9f8c8b558407945a3ced8"
     },
     "archive": {
@@ -15513,7 +15513,7 @@
       "path": "data/rank6_document_revision.json",
       "date": "2026-10-24",
       "source": "data/current_document_revision.json",
-      "sha256": "b53deea56b08d170956d14873dd31564cad82c65d981554035f342cb74f59a69"
+      "sha256": "0916a5a977cf7639ae4f1e00f7d52bd82ea4919b69b2f619c7c4313c3ada9d79"
     }
   },
   "reader_resources": {
@@ -15524,15 +15524,15 @@
       },
       "manuscript_page_counts.json": {
         "path": "downloads/manuscript_page_counts.json",
-        "sha256": "c5013e89d916266f8a13cd09895661e6f18edaac97759ffc6f57d9ab3f547a6d"
+        "sha256": "9abe28a71fe922ec4405eceadd8e15dcb9b9a3ffd4703338818f649b49e22fa2"
       }
     },
     "page_totals": {
-      "mathematical_manuscript": 553,
+      "mathematical_manuscript": 557,
       "verification_guide": 19,
-      "research_status_report": 10,
-      "mathematical_manuscripts_and_guides": 572,
-      "all_distinct_documents": 582
+      "research_status_report": 3,
+      "mathematical_manuscripts_and_guides": 576,
+      "all_distinct_documents": 579
     }
   },
   "upper_rank_releases": {
@@ -15550,7 +15550,7 @@
     "8": {
       "manuscript": {
         "path": "papers/rank8.pdf",
-        "sha256": "3001d316809db02098eef91e84db2089b7245431f4af09e1ffea8658b3fa3a25"
+        "sha256": "528fcdf74848f272486195a5f12981c201a1a39bc48cce74b7081b148f1fcefe"
       },
       "archive": {
         "path": "downloads/rank8-certified-exclusion-20261022.zip",
@@ -16331,5 +16331,19 @@
     },
     "metadata_path": "data/rank8_m3_update.json",
     "metadata_sha256": "b9c622dc5f5d7d49c780692519cb5ce4e64ced4928ee96ee6bace27f5ed0b428"
+  },
+  "theoretical_retry": {
+    "date": "2026-10-24",
+    "current_open_cases": 10,
+    "newly_unitarily_realized": [
+      "R10_1_189"
+    ],
+    "source": "evidence/unresolved_retry_20261024/accepted.json",
+    "archive": {
+      "path": "downloads/theoretical-continuation-2026-10-24.zip",
+      "bytes": 1893460,
+      "sha256": "9200a405eed0e40aa1d6fd4387c485b9112f731fecfac3f3289bb7ee5fb5bb0a"
+    },
+    "source_url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/tree/main/evidence/unresolved_retry_20261024"
   }
 }

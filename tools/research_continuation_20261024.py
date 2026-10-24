@@ -94,7 +94,8 @@ proof; the old TPE completeness premise remains withdrawn. The project has
     text=re.sub(r'Current classification through rank eleven: \d+ unresolved rings', 'Current classification through rank eleven: 11 unresolved rings',text)
     text=text.replace('**Rank 9:** through multiplicity two, 2,135 general exclusions, 72 unitary models and 18 unresolved. Exact multiplicity two contributes 2,033 exclusions and 32 models.',
         '**Rank 9:** through multiplicity two, 2,145 general exclusions, 76 unitary models and four unresolved. Exact multiplicity two contributes 2,043 exclusions and 36 models.')
-    return text
+    from unresolved_retry_20261024 import revise_document
+    return revise_document(name,text,repo)
 def replay(repo=ROOT):
     repo=Path(repo);logs=[]
     with tempfile.TemporaryDirectory(prefix='rank9-current-replay-') as d:

@@ -32,8 +32,9 @@ def check(source=None):
         require(hashlib.sha256(current_ledger.read_bytes()).hexdigest() == data["summary"]["ledger_sha256"], "Current accepted ledger is stale")
         current = json.loads(current_ledger.read_text())
         accepted = {r["id"]: r for r in current["records"]}
-        require({r["id"] for r in rows if r["status"] == "unresolved"} == {"R10_1_189"}, "Rank-ten open frontier differs")
-        require(data["summary"]["counts"]["10"] == {"excluded": 136, "unitarily_realized": 57, "unresolved": 1}, "Rank-ten continuation totals differ")
+        retry=bool(data['summary'].get('theoretical_retry'))
+        require({r['id']for r in rows if r['status']=='unresolved'}==(set()if retry else {'R10_1_189'}),'Rank-ten open frontier differs')
+        require(Counter(data['summary']['counts']['10'])==Counter(excluded=136,unitarily_realized=58)if retry else data['summary']['counts']['10']=={'excluded':136,'unitarily_realized':57,'unresolved':1},'Rank-ten continuation totals differ')
         for row in rows:
             require(row["status"] == accepted[row["id"]]["status"] and row["tensor_sha256"] == accepted[row["id"]]["tensor_sha256_compact_json"], "Case differs from current accepted ledger: " + row["id"])
     require(receipt["ledger_sha256"] == data["summary"]["ledger_sha256"], "Build receipt and payload bind different ledgers")
@@ -55,12 +56,12 @@ def check(source=None):
         require(digest == row["tensor_sha256"], "Tensor hash differs: " + row["id"])
         require(row["research"] and row["evidence"] and row["summary"], "Missing case provenance")
         ledger_path = row["source_file"]
-        expected_digest = data["summary"]["ledger_sha256"] if continuation and ledger_path == data["summary"]["ledger_path"] else baseline_digest
+        expected_digest = hashlib.sha256((ROOT/ledger_path).read_bytes()).hexdigest()
         ledger_evidence = [item for item in row["evidence"] if item["path"] == ledger_path]
         ledger_reports = [item for item in row["research"] if item["source"] == ledger_path]
         require(len(ledger_evidence) == 1 and ledger_reports and all(item["sha256"] == expected_digest for item in ledger_evidence) and all(item["source_sha256"] == expected_digest for item in ledger_reports), "Case binds a different ledger: " + row["id"])
         require(not row["investigation_deferred"] or row["status"] == "unresolved", "Deferred case was promoted to a decision")
-        if row["investigation_deferred"] or (continuation and row["id"] == "R10_1_189"):
+        if row["investigation_deferred"] or (continuation and row["id"] == "R10_1_189" and row['status']=='unresolved'):
             scope = row["categorification_scope"]
             same = implication_closure(scope["same_category_implications"])
             existence = implication_closure(scope["same_category_implications"] + scope["existence_implications"])
@@ -81,7 +82,7 @@ def check(source=None):
         if path.startswith(data["summary"]["release"] + "/"):
             local = source / Path(path).relative_to(data["summary"]["release"])
         else:
-            require(bool(continuation) and path.startswith(continuation + "/"), "Unexpected evidence root: " + path)
+            require(bool(continuation) and any(path.startswith(x+'/')for x in (continuation,data['summary'].get('theoretical_retry','__none__'))), 'Unexpected evidence root: '+path)
             local = ROOT / path
         require(local.is_file() and hashlib.sha256(local.read_bytes()).hexdigest() == item["sha256"], "Missing or stale evidence: " + path)
     for name in ("index.html", "case.html", "unresolved.html", "records.html"):

@@ -452,6 +452,10 @@ def build(repo):
             continue  # Higher-rank builders own their existing tensor downloads.
         if old.stem not in all_ids:
             old.unlink()
+    import sys
+    sys.path.insert(0,str(repo/"tools"))
+    from unresolved_retry_20261024 import apply_profiles
+    apply_profiles(repo)
     print(f"Published {len(cases)} unresolved dossiers, {len(closed_records)} resolved dossiers and {len(all_ids)} checked Python tensor literals.")
 
 

@@ -32,8 +32,11 @@ def documents():
 
 def main(metadata_only=False):
  report=validate(ROOT);need(documents(),'Document validation')
+ from unresolved_retry_20261024 import active as retry_active,validate as retry_validate
+ expected_open=10 if retry_active(ROOT)else 11
+ if retry_active(ROOT):report['current_theoretical_retry']=retry_validate(ROOT)
  ids=identifiers(ROOT);revision=read(ROOT/'data/current_publication_revision.json')
- need(len(ids)==11 and revision['remaining_ids']==ids and revision['current_unresolved_total']==11,'Global accepted-ledger frontier')
+ need(len(ids)==expected_open and revision['remaining_ids']==ids and revision['current_unresolved_total']==expected_open,'Global accepted-ledger frontier')
  module=ast.parse((ROOT/'data/current_remaining_cases.py').read_text());constants={n.targets[0].id:ast.literal_eval(n.value)for n in module.body if isinstance(n,ast.Assign)}
  need(set(constants['TENSORS'])==set(ids),'Current open-tensor inventory')
  all_records={};index=read(DIST/'data/ring_properties.json')
@@ -84,6 +87,9 @@ def main(metadata_only=False):
  for name in ('rank5/papers/automatic.tex','rank5/papers/verification_guide.tex','rank7/papers/manuscript.tex','rank8/paper/m3_frontier.tex','rank8/paper/m3_center_followup.tex'):
   need((ROOT/'manuscripts'/name).read_bytes()==(ROOT/'supplements'/name).read_bytes(),'Current TeX mirror: '+name)
  checks=[] if metadata_only else replay(ROOT)
+ if retry_active(ROOT)and not metadata_only:
+  from verify_unresolved_retry import run_exact
+  checks.append(run_exact(ROOT))
  result={'new_mathematical_replays':checks,'status':'METADATA_PASS'if metadata_only else 'PASS','exact_properties_recomputed':not metadata_only,'scope':'Current publication, exact ring properties, accepted transition reconciliation, and the stated new finite replays; no independent human or formal categorical verification.','current_open_cases':len(ids),'exact_property_records':len(all_records),'rank8':report}
  print(json.dumps(result,indent=2))
 if __name__=='__main__':

@@ -22,6 +22,10 @@ def info(path):
 
 
 def main():
+    from unresolved_retry_20261024 import active as retry_active
+    if retry_active(ROOT):
+        from sync_research_revision import main as synchronize_current
+        return synchronize_current()
     source = ROOT / RELEASE
     ledger = json.loads((source / "accepted_ledger.json").read_text())
     if ledger["counts"]["10"] != {"excluded": 136, "unitarily_realized": 57, "unresolved": 1}:

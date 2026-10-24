@@ -93,5 +93,8 @@ def build():
  write(DIST/'data/rank9_m2_build.json',{'records':2083,'counts':counts,'ledger_sha256':summary['ledger_sha256'],'tensor_downloads':2083,'legacy_sha256':before})
  for n,h in before.items():assert digest(DIST/'data'/n)==h,n
  shutil.copy2(ROOT/'publications/rank9-m2/paper/rank9-m2.pdf',DIST/'papers/rank9-m2.pdf')
+ sys.path.insert(0,str(ROOT/'tools'))
+ from unresolved_retry_20261024 import apply_profiles
+ apply_profiles(ROOT)
  print('Built 2083 shared case profiles; 2043 exclusions,36 unitary models,4 unresolved; all earlier datasets unchanged.')
 if __name__=='__main__':build()

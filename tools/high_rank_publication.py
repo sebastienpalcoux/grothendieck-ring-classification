@@ -20,7 +20,8 @@ def extend_document(text):
     start='<!-- current-high-rank-publication -->';end='<!-- /current-high-rank-publication -->'
     text=re.sub(re.escape(start)+r'.*?'+re.escape(end)+r'\n*','',text,flags=re.S)
     at=text.find('\n\n')
-    return text[:at+2]+start+'\n\n'+banner()+'\n\n'+end+'\n\n'+text[at+2:]
+    from unresolved_retry_20261024 import revise_document
+    return revise_document('docs/current',text[:at+2]+start+'\n\n'+banner()+'\n\n'+end+'\n\n'+text[at+2:])
 
 def extend_front(front,repo):
     if not active(repo):return front
@@ -46,7 +47,8 @@ def extend_front(front,repo):
         '[Current decision records](data/current_publication_revision.json)')
     front=front.replace('Candidates and open cases · PDF','Earlier construction-candidates report · PDF')
     from rank9_m2_publication import active as m2_active,front as m2_front
-    return m2_front(front) if m2_active() else front
+    from unresolved_retry_20261024 import revise_document
+    return revise_document('README.md',m2_front(front) if m2_active() else front,repo)
 
 def manuscript_index(repo,historical):
     page=json.loads((repo/'data/current_manuscript_page_counts.json').read_text())
@@ -76,7 +78,8 @@ def manuscript_index(repo,historical):
     lines+=['','<details><summary>Earlier lower-rank reading notes and research history</summary>','',historical.strip(),'','</details>','']
     from rank9_m2_publication import active as m2_active,index as m2_index
     text='\n'.join(lines)
-    return m2_index(text) if m2_active() else text
+    from unresolved_retry_20261024 import revise_document
+    return revise_document('manuscripts/README.md',m2_index(text) if m2_active() else text,repo)
 
 def extend_outputs(out,repo):
     if not active(repo):return out

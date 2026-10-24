@@ -131,4 +131,10 @@ def apply(repo, ref="main"):
     write(receipt_path, receipt)
     current = repo / "publications/rank9-rank10/paper/rank9-rank10.pdf"
     shutil.copyfile(current, repo / "site/dist/papers/rank9-rank10-m1.pdf")
-    print("Rank-ten continuation: 136 exclusions, 57 unitary models, one unresolved.")
+    import sys
+    sys.path.insert(0,str(repo/'tools'))
+    from unresolved_retry_20261024 import active as retry_active,apply_profiles
+    if retry_active(repo):
+        apply_profiles(repo,ref)
+        print('Rank-ten classification: 136 exclusions, 58 unitary models, no unresolved.')
+    else:print("Rank-ten continuation: 136 exclusions, 57 unitary models, one unresolved.")

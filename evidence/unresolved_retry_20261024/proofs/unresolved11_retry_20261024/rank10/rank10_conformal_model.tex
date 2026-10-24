@@ -1,0 +1,411 @@
+\documentclass[11pt]{amsart}
+\usepackage[T1]{fontenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,booktabs,array}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\C}{\mathcal C}
+\newcommand{\D}{\mathcal D}
+\newcommand{\K}{\mathcal K}
+\newcommand{\E}{\mathcal E}
+\newcommand{\Q}{\mathcal Q}
+\newcommand{\FPdim}{\operatorname{FPdim}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\SU}{\mathrm{SU}}
+\newcommand{\wt}[1]{\mathsf{#1}}
+\newcommand{\one}{\mathbf 1}
+\title[A rank-ten conformal-embedding model]{A unitary categorification of a rank-ten multiplicity-free fusion ring}
+\date{24 October 2026}
+\begin{document}
+\begin{abstract}
+We identify the census fusion ring \texttt{R10\_1\_189} with the
+Grothendieck ring of a fusion subcategory arising from the known conformal
+embedding $\SU(4)_6\subset\SU(10)_1$. A short proof uses two exterior-Pieri
+products, conformal energies, and ground-state branching. It gives an
+actual unitary model and corrects the entry's previously unresolved
+status. We also describe a rank-fourteen unitary modular category with a
+connected \'etale algebra whose module category is this rank-ten model.
+An exact based-ring certificate specifies the identification with the
+census tensor. These are identifications within established categorical
+constructions; no claim of a new tensor category is made.
+\end{abstract}
+\maketitle
+
+\section{The ring and its categorical model}
+
+Let $R$ be the based ring with basis
+\[
+  1,g,g^2,g^3,g^4,x,gx,g^2x,g^3x,g^4x
+\]
+and relations
+\begin{equation}\label{eq:ring}
+ g^5=1,\qquad gx=xg,\qquad x^*=x,\qquad
+ x^2=1+(g+g^2+g^3+g^4)x.
+\end{equation}
+The involution sends $g$ to $g^{-1}$. Put $d=2+\sqrt5$; then
+\begin{equation}\label{eq:dim}
+ d^2=1+4d,\qquad \FPdim(R)=5(1+d^2)=50+20\sqrt5.
+\end{equation}
+Appendix~\ref{sec:certificate} identifies $R$ exactly with
+\texttt{R10\_1\_189}.
+
+Write $\C=\C(\mathfrak{sl}_4,6)$ for the unitary WZW modular category.
+Its simple objects are denoted $\wt{abc}$, where $(a,b,c)$ are Dynkin
+labels, $a,b,c\geq0$ and $a+b+c\leq6$. The conformal embedding induced by
+the symmetric-square representation of $\mathfrak{sl}_4$ is
+\begin{equation}\label{eq:embedding}
+ \SU(4)_6\subset\SU(10)_1.
+\end{equation}
+This is a realized conformal inclusion, with vacuum branching object
+\begin{equation}\label{eq:B}
+ B=\wt{000}\oplus\wt{060}\oplus\wt{202}\oplus\wt{222};
+\end{equation}
+see \cite[p.~29 of the arXiv version]{BE} and
+\cite[\S\S1.4.3--1.4.5]{CS}. In particular, $B$ carries an actual
+connected commutative separable algebra structure. Its category of local
+modules is braided equivalent to $\C(\mathfrak{sl}_{10},1)$.
+These assertions concern the conformal inclusion and its unitary
+extension, rather than the existence of an algebra inferred from a
+numerical modular invariant.
+
+Let $\D=\C_B$ be the unitary fusion category of right $B$-modules, with
+relative tensor product. Write $F:\C\to\D$ for free induction and $U$ for
+forgetting the module structure. The functor $F$ is tensor and central
+\cite[\S\S3.3--3.4, equation~(17)]{DMNO}. Denote the invertible simple
+local modules by $\tau_j$, $j\in\mathbb Z/10$, with
+$\tau_i\tau_j=\tau_{i+j}$. We suppress the symbol $\otimes_B$ for
+products in $\D$.
+
+\begin{theorem}\label{thm:model}
+Put $\beta=F(\wt{010})$, $g=\tau_2$ and $x=\tau_5\beta$. The ten objects
+\[
+  g^j,\quad g^jx\qquad (0\leq j<5)
+\]
+are pairwise nonisomorphic simple objects of $\D$ and are closed under
+tensor products and duality. Their full replete semisimple subcategory
+$\K$ is a unitary fusion category satisfying $K_0(\K)\cong R$ as based
+rings. Thus \texttt{R10\_1\_189} is unitarily categorifiable.
+\end{theorem}
+
+The proof below needs only a small amount of ground-state branching; it
+does not require a completeness assertion about an affine branching
+table. The additional construction in Section~\ref{sec:fourteen}
+identifies $\K$ with the neutral component of $\C_B$ for the natural
+$\mathbb Z/4$ grading.
+
+\section{A minimal branching argument}
+
+Let $v=\wt{010}$, the exterior square of the defining four-dimensional
+representation. The exterior-Pieri rule gives
+\begin{align}
+ v^2&=\wt{000}+\wt{101}+\wt{020},\label{eq:v2}\\
+ v^3&=3\wt{010}+2\wt{111}+\wt{030}+\wt{200}+\wt{002}.
+ \label{eq:v3}
+\end{align}
+All dominant summands encountered have level at most three, so these
+classical products are also the level-six fusion products.
+
+\begin{lemma}\label{lem:branch}
+For $j\in\mathbb Z/10$,
+\begin{align}
+ \dim\Hom_{\C}(v^2,U\tau_j)&=\delta_{j,0},\label{eq:hom2}\\
+ \dim\Hom_{\C}(v^3,U\tau_j)&=
+ \begin{cases}1,&j\in\{1,3,7,9\},\\0,&\text{otherwise.}\end{cases}
+ \label{eq:hom3}
+\end{align}
+\end{lemma}
+
+\begin{proof}
+Conformality of \eqref{eq:embedding} means equality of the two Sugawara
+conformal vectors. The lowest conformal energy of the level-one
+$\mathfrak{sl}_{10}$ module indexed by $j$ is
+\[
+ h_j=\frac{j(10-j)}{20},\qquad 0\leq j\leq9.
+\]
+An affine $\mathfrak{sl}_4$ highest-weight module of highest weight
+$\lambda$ occurring in it must satisfy
+\begin{equation}\label{eq:energy}
+ h_\lambda=h_j+n,\qquad n\in\mathbb Z_{\geq0}.
+\end{equation}
+If $n=0$, its multiplicity is the ordinary finite-dimensional
+restriction multiplicity in the ground-state representation
+$\Lambda^j\mathbb C^{10}$. With long roots of squared length two,
+$h_\lambda=(\lambda,\lambda+2\rho)/20$. The needed values are
+\[
+\begin{array}{c|rrrrrrr}
+\lambda&\wt{000}&\wt{101}&\wt{020}&\wt{010}&\wt{111}
+ &\wt{200},\wt{002}&\wt{030}\\ \hline
+h_\lambda&0&2/5&3/5&1/4&3/4&9/20&21/20.
+\end{array}
+\]
+The residues of the $h_j$ are
+$0,9/20,4/5,1/20,1/5,1/4$. Consequently $\wt{101}$ and
+$\wt{020}$ cannot occur in any $U\tau_j$, while $\wt{000}$ occurs
+only in $U\tau_0$, with multiplicity one. This proves \eqref{eq:hom2}.
+
+For \eqref{eq:v3}, the residue of $h_{\wt{111}}$ excludes that weight.
+The only possible index for $\wt{010}$ is $j=5$, but
+$h_5=5/4>h_{\wt{010}}=1/4$, contradicting \eqref{eq:energy}. The weights
+$\wt{200},\wt{002}$ can occur only for $j=1,9$, at ground energy.
+The defining ten-dimensional representation restricts as
+$\operatorname{Sym}^2 V$, $V=\mathbb C^4$, or its dual according to
+orientation. Thus precisely one of these two weights occurs, once, at
+each of $j=1,9$.
+
+Finally, $\wt{030}$ can occur only for $j=3,7$, again at ground energy.
+The ordinary Schur-functor identity
+\begin{equation}\label{eq:plethysm}
+ \Lambda^3(\operatorname{Sym}^2 V)
+ =\mathbb S_{(4,1,1)}V\oplus\mathbb S_{(3,3)}V
+\end{equation}
+has highest weights $\wt{301}$ and $\wt{030}$. The latter is self-dual
+and occurs once; dualizing gives the same multiplicity for $j=7$.
+This proves \eqref{eq:hom3}. Identity \eqref{eq:plethysm} is also checked
+as a full weight-character identity in the accompanying certificate.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:model}]
+The object $v$ is self-dual, so $\beta$ is self-dual. Rigidity, the tensor
+property of $F$, and its adjunction to $U$ give
+\begin{align*}
+ \dim\Hom_{\D}(\beta,\tau_j\beta)
+ &=\dim\Hom_{\D}(\beta^2,\tau_j)
+ =\dim\Hom_{\C}(v^2,U\tau_j),\\
+ \dim\Hom_{\D}(\beta^2,\tau_j\beta)
+ &=\dim\Hom_{\D}(\beta^3,\tau_j)
+ =\dim\Hom_{\C}(v^3,U\tau_j).
+\end{align*}
+Lemma~\ref{lem:branch} proves that $\beta$ is simple and its ten
+translates $\tau_j\beta$ are pairwise nonisomorphic. It also gives one
+copy of each of $\tau_1\beta,\tau_3\beta,\tau_7\beta,\tau_9\beta$ in
+$\beta^2$. Self-duality gives one copy of the unit.
+
+For $[r]=\sin(r\pi/10)/\sin(\pi/10)$ the quantum Weyl formula gives
+\[
+ \FPdim(\beta)=\FPdim(v)=\frac{[4][3]}{[2]}=2+\sqrt5=d.
+\]
+The tensor functor $F$ preserves Frobenius--Perron dimension. The known
+constituents of $\beta^2$ have total dimension $1+4d=d^2$; positivity
+therefore proves the exact decomposition
+\begin{equation}\label{eq:beta2}
+ \beta^2=\one+\tau_1\beta+\tau_3\beta+\tau_7\beta+\tau_9\beta.
+\end{equation}
+Centrality of $F$ supplies isomorphisms $\beta\tau_j\cong\tau_j\beta$.
+Hence $x=\tau_5\beta$ is self-dual, $g=\tau_2$ has order five, and
+\eqref{eq:beta2} becomes \eqref{eq:ring}. The five invertibles and the
+five indicated translates of $\beta$ are distinct, their dimensions
+being $1$ and $d>1$. Relations \eqref{eq:ring} show closure under
+products and duals. The full subcategory they span is consequently a
+unitary fusion subcategory of $\D$, as asserted.
+\end{proof}
+
+\section{An accompanying rank-fourteen modular category}
+\label{sec:fourteen}
+
+The same conformal inclusion supplies a concrete modular category and
+an algebra which recover $\K$. This strengthens the existence statement
+beyond consistency of candidate modular data.
+
+\begin{proposition}\label{prop:fourteen}
+Let $J=\wt{600}$, let $L=\one\oplus J^2$, and put $\Q=\C_L^0$.
+The image of $J$ in $\Q$ generates a semion subcategory $\mathcal S$.
+Its M\"uger centralizer $\E=\mathcal S'\subset\Q$ is a unitary modular
+category of rank fourteen and dimension $100d^2$. There is a connected
+\'etale algebra
+\[
+ A=\one\oplus U_0\in\E,\qquad \FPdim(U_0)=d^2,
+\]
+obtained from the inclusion $L\subset B$, and a tensor equivalence
+\[
+ \E_A\simeq\K\simeq(\C_B)_0.
+\]
+Here the subscript $0$ denotes the neutral component of the
+$\mathbb Z/4$ grading by $a+2b+3c$ modulo four.
+\end{proposition}
+
+\begin{proof}
+The simple current $J$ has order four, with $J^2=\wt{060}$,
+$\theta_J=i$ and $\theta_{J^2}=1$. We first justify the algebra
+inclusion $L\subset B$. The regular right $B$-module is simple because
+$B$ is connected. Tensoring it by the invertible $J^2$ again gives a
+simple right module. Multiplication induces a nonzero right-module map
+$J^2\otimes B\to B$ and hence an isomorphism. Its restriction to the
+summand $J^2\otimes J^2=\one$ is nonzero and lands in the unique unit
+summand of $B$. Thus multiplication restricts to $\one\oplus J^2$.
+The restricted commutative algebra is the separable order-two group
+algebra object; in particular $L$ is connected \'etale.
+
+The image of $J$ in $\C_L^0$ is invertible of order two and twist $i$.
+It generates a nondegenerate semion subcategory. Since $\Q$ is unitary
+modular, its centralizer $\E$ is unitary modular as well.
+To enumerate its simples, define the charge of $\wt{abc}$ by
+$t=a+2b+3c\pmod4$. All four summands of $B$ have charge zero, so this
+grading descends to $\C_B$. Simple-current monodromy with $J$ is
+$\exp(\pm2\pi i t/4)$, where the sign depends on the braiding
+convention. Locality for $L$ requires even charge; centralizing the
+image of $J$ requires charge zero.
+
+On weights of charge zero the action of $J^2$ is
+\[
+ (a,b,c)\longmapsto(c,6-a-b-c,a).
+\]
+There are twenty-two such weights. The only fixed weights are
+$\wt{121}$ and $\wt{303}$. A nonfixed orbit gives one simple local
+$L$-module. Each fixed weight gives two: its stabilizer is cyclic of
+order two, and its twisted group algebra has two one-dimensional
+irreducible representations. The resulting rank is
+$(22-2)/2+2\cdot2=14$.
+
+For completeness, Table~\ref{tab:fourteen} gives all dimensions and
+twists. They follow from the quantum Weyl formula
+\[
+ \dim(\wt{abc})=
+ \frac{[a+1][b+1][c+1][a+b+2][b+c+2][a+b+c+3]}{[2]^2[3]}
+\]
+and $\theta_\lambda=\exp(2\pi i h_\lambda)$. For a nonfixed orbit the
+module dimension is the dimension of a representative; at a fixed
+weight each of the two resolved modules has half that dimension.
+Their squared dimensions sum to $100d^2$.
+
+\begin{table}[ht]
+\centering
+\caption{Simple objects of $\E$, with $\zeta=\exp(2\pi i/5)$. A row
+with two representatives describes two distinct orbits; a fixed-weight
+row describes its two resolved modules.}
+\label{tab:fourteen}
+\begin{tabular}{@{}lccc@{}}
+\toprule
+Orbit representative(s)&Number&Dimension&Twist\\
+\midrule
+$\wt{000}$&1&1&1\\
+$\wt{004},\wt{024}$&2&$1+d$&$\zeta$\\
+$\wt{303}$ (fixed)&2&$1+d$&$\zeta^{-1}$\\
+$\wt{012},\wt{032}$&2&$1+3d$&$\zeta^{-1}$\\
+$\wt{121}$ (fixed)&2&$1+3d$&$\zeta$\\
+$\wt{020}$&1&$2d$&$\zeta^{-2}$\\
+$\wt{101}$&1&$2d$&$\zeta^2$\\
+$\wt{105}$&1&$d$&1\\
+$\wt{113}$&1&$5d$&$-1$\\
+$\wt{202}$&1&$d^2$&1\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The algebra $B$ descends along $L\subset B$ to a connected \'etale
+algebra $A$ in $\Q$ by \cite[Proposition~3.16]{DMNO}. Its underlying
+object is $\one\oplus U_0$, where $U_0$ is the module of the orbit
+$\{\wt{202},\wt{222}\}$. Both summands have charge zero, so $A$ lies
+in $\E$ and has dimension $1+d^2$.
+
+We detail the module-in-stages identification to fix its scope. Giving
+an $A$-module in $\C_L^0$ amounts to giving a $B$-module whose restriction
+to $L$ is local: the action maps are the same after balancing over $L$,
+and the relative tensor products agree. A $B$-module supported on
+charge-zero objects restricts to a local $L$-module and centralizes
+the residual semion. Conversely, any $A$-module in $\E$ has underlying
+$\C$-object of charge zero. Thus this tensor equivalence identifies
+$\E_A$ with precisely $(\C_B)_0$.
+
+Under the symmetric-square embedding the central element $iI_4$ maps
+to $-I_{10}$. It therefore acts on the entire affine module $\tau_j$
+by $(-1)^j$: its ground state has this character and the current modes
+preserve it. Thus $U\tau_j$ has charge $2j\pmod4$.
+Consequently $\tau_2$ has charge zero, whereas
+$\tau_5$ and $\beta$ both have charge two. It follows that
+$\K\subset(\C_B)_0\simeq\E_A$. Finally,
+\[
+ \FPdim(\E_A)=\frac{100d^2}{1+d^2}=5(1+d^2)=\FPdim(\K),
+\]
+using $(1+d^2)^2=20d^2$. The full fusion-subcategory inclusion is
+therefore an equivalence.
+\end{proof}
+
+\begin{remark}
+The proposition constructs both $\E$ and its algebra $A$ inside known
+unitary categories. Table~\ref{tab:fourteen} records their dimensions
+and twists; it is not used to assert uniqueness of a modular category
+or to identify a full $S$-matrix from those invariants alone. The
+rank-ten existence proof in Theorem~\ref{thm:model} is independent of
+this optional modular construction.
+\end{remark}
+
+\appendix
+\section{Exact identification with the census tensor}
+\label{sec:certificate}
+
+Let $(e_0,\ldots,e_9)$ be the original, zero-indexed census basis of
+\texttt{R10\_1\_189}. The based-ring map sends the ordered basis in
+Section~1 to
+\begin{equation}\label{eq:permutation}
+ (e_0,e_1,e_8,e_7,e_2,e_9,e_4,e_6,e_5,e_3).
+\end{equation}
+In particular, $g\mapsto e_1$ and $x\mapsto e_9$. If
+$p=(0,1,8,7,2,9,4,6,5,3)$, the accompanying verifier checks
+\[
+ N^{\mathrm{census}}_{p(i),p(j)}{}^{p(k)}
+ =N^{R}_{i,j}{}^k\qquad(0\leq i,j,k<10)
+\]
+for all $1000$ structure constants. The right-hand tensor is generated
+directly from \eqref{eq:ring}. The source tensor is bound by SHA-256
+of its compact JSON serialization, namely
+\begin{center}
+\small\ttfamily
+c44e21d1844ded91dba30cd6c691180afa4d4f1be1c4f27806bbc12c8c8292f4.
+\end{center}
+This binds the certificate to the tensor itself rather than to a
+potentially changing display label.
+
+The standard-library Python files accompanying this note have the
+following roles:
+\begin{itemize}
+\item \path{verify_conformal_model.py} checks the two Pieri products,
+the needed intersections with the published branching table, dimension
+exhaustion, and the exact census map \eqref{eq:permutation}; its receipt
+is \path{conformal_model_certificate.json}.
+\item \path{verify_minimal_branching.py} checks the conformal energies
+over the rationals and verifies \eqref{eq:plethysm} as an equality of
+four-variable weight characters by enumerating the exterior-cube and
+semistandard-tableau characters. Its receipt is
+\path{minimal_branching_certificate.json}.
+\item \path{verify_r189_rank14_wzw.py} checks the charge-zero orbits,
+fixed-point count, dimensions and twists in Table~\ref{tab:fourteen},
+using exact arithmetic in
+$\mathbb Q[t]/(t^4-5t^2+5)$ with $t=2\cos(\pi/10)$.
+Its receipt is \path{r189_rank14_wzw_receipt.json}.
+\end{itemize}
+The finite checks supplement the categorical arguments. Existence of
+the associativity constraints and of the algebra multiplications comes
+from the realized conformal inclusion and the module constructions
+above.
+
+\begin{thebibliography}{9}
+
+\bibitem{BE}
+J.~B\"ocken-hauer and D.~E.~Evans,
+\emph{Modular invariants from subfactors},
+in \emph{Quantum Symmetries in Theoretical Physics and Mathematics},
+Contemp. Math. \textbf{294}, Amer. Math. Soc., 2002, pp.~95--131.
+\href{https://arxiv.org/abs/math/0006114}{arXiv:math/0006114v2}.
+
+\bibitem{CS}
+R.~Coquereaux and G.~Schieber,
+\emph{Quantum symmetries for exceptional $\SU(4)$ modular invariants
+associated with conformal embeddings},
+SIGMA \textbf{5} (2009), 044, 31~pp.
+\href{https://doi.org/10.3842/SIGMA.2009.044}{doi:10.3842/SIGMA.2009.044}.
+\href{https://arxiv.org/abs/0805.4678}{arXiv:0805.4678}.
+
+\bibitem{DMNO}
+A.~Davydov, M.~M\"uger, D.~Nikshych and V.~Ostrik,
+\emph{The Witt group of non-degenerate braided fusion categories},
+J. Reine Angew. Math. \textbf{677} (2013), 135--177.
+\href{https://doi.org/10.1515/crelle.2012.014}{doi:10.1515/crelle.2012.014}.
+\href{https://arxiv.org/abs/1009.2117}{arXiv:1009.2117v2}.
+
+\end{thebibliography}
+\end{document}

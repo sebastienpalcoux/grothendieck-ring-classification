@@ -1,0 +1,219 @@
+\section{Morita rigidity and a realized twisted precursor}
+\label{sec:m3-theoretical-retry}
+
+The four open rings retain their general unresolved status. The
+following results distinguish an actual auxiliary construction from
+necessary module data and from a construction of a source ring.
+
+\subsection{Categorical Morita rigidity of $R8\_3\_928$}
+\begin{theorem}
+Let $\mathcal C$ be a complex fusion category with based ring
+$R8\_3\_928$. Every indecomposable semisimple $\mathcal C$-module
+category is equivalent to the regular module category. Consequently
+every categorical Morita partner is tensor equivalent to $\mathcal C$.
+No rank bound on module categories is assumed.
+\end{theorem}
+\begin{proof}
+In the source basis $g=X_7$ acts by
+$(0\ 7)(1\ 2)(3\ 4)(5\ 6)$. The established semionic obstruction
+forces the nontrivial pointed $C_2$ associator. This conclusion is
+invariant under the spherical/Galois reduction. The module pentagon
+therefore forbids a $g$-fixed module simple: such a stabilizer would
+trivialize that associator.
+
+For a module simple $m$, write its internal end as $A=\sum_i a_iX_i$.
+The complete internal-end domain has the form
+$(1,a,a,b,b,c,c,0)$, with $0\le a\le7$, $0\le b\le9$, $0\le c\le11$.
+These bounds follow from $a_i\le\lfloor\FPdim(X_i)\rfloor$;
+the exact dimension character and strict rational root bounds certify
+them. Testing all $960$ vectors by entrywise and rational
+positive-semidefinite induction-Gram conditions leaves precisely
+\[
+ (1,0,0,0,0,0,0,0),\ (1,1,1,1,1,1,1,0),\
+ (1,1,1,1,1,2,2,0),\ (1,2,2,2,2,3,3,0).
+\]
+This is a complete finite domain, not a search over a chosen module rank.
+
+Let $B_{i,n}=[X_i m:n]$. Adjunction gives
+$(BB^t)_{ij}=\sum_k a_kN_{jk}^{i}$. Remove the columns of $m,gm$;
+the others occur in $g$-pairs. Write $u,d$ for the pair sums and
+differences on the three remaining row-pairs. Their Gram matrices are
+$P=\sum uu^t$ and $M=\sum dd^t$, where $M=I_3$ and
+\[
+P\in\left\{I_3,
+\begin{pmatrix}9&10&14\\10&13&18\\14&18&25\end{pmatrix},
+\begin{pmatrix}13&16&18\\16&21&22\\18&22&25\end{pmatrix},
+\begin{pmatrix}13&18&20\\18&25&28\\20&28&33\end{pmatrix}\right\}.
+\]
+Every matrix has determinant one. Cauchy--Binet says that the squared
+integral $3\times3$ minors of a factor of $P$ sum to one. There is a
+unique unimodular minor. All minors replacing one of its columns must
+vanish, forcing every extra column to be zero. Since $m$ generates the
+module category, its columns are nonzero. Exactly three residual pairs
+remain, and the module category has rank eight.
+
+The complete integral factorizations, with $u\equiv d\pmod2$ and
+$|d_i|\le u_i$, give one factor for each internal end up to column
+permutation. The $48$ signed permutation factors of $M=I_3$ exhaust its
+possibilities. Each resulting $B$ is invertible, so the source actions
+are determined by conjugating the regular matrices. Exact source-product
+and dual-transpose checks identify all four with the regular based
+module. This finite computation is replayed from the complete bounds.
+
+The categorical conclusion needs one further step. Each such module
+contains a simple $n$ with internal end $1$. The internal-end equivalence
+then identifies the actual module category with $\mathcal C_1=\mathcal C$.
+No uniqueness of module associators is inferred merely from its based
+action. Taking dual categories proves the Morita assertion.
+\end{proof}
+
+There are exactly four connected separable algebra isomorphism classes
+within any hypothetical categorification: they are the internal matrix
+algebras of simples, modulo the four right-$g$ orbits. Their four
+underlying objects above are distinct. Every dominant tensor functor
+from this category is an equivalence onto its fusion image. Indeed its
+target is a regular module category; if the target unit corresponds to
+$X$, the positive module dimension vector makes the simple corresponding
+to $1$ have dimension $1/\FPdim(X)\ge1$. Hence $X$ is invertible, the
+unit internal end is $1$, and adjunction gives full faithfulness.
+These statements do not supply the hypothetical category.
+
+\subsection{A complex twisted $GH(C_6,2)$ category}
+Put $u=6+\sqrt{37}$. The based ring with invertibles $a_j$, $j\in C_6$,
+and noninvertibles $a_j\sigma$ has relations
+\[
+ a_ia_j=a_{i+j},\qquad a_j\sigma=\sigma a_{-j},\qquad
+ \sigma^2=1+2\sum_{j\in C_6}a_j\sigma.
+\]
+Its dimension $6(1+u^2)=444+72\sqrt{37}$ equals that of $R8\_3\_1768$.
+The completed rank-eight based-module route forces pointed associator
+class $3\in H^3(C_6,\C^\times)$. Its existence is now established,
+without a unitarity assertion.
+
+\begin{proposition}
+There is a complex fusion category with these rules and pointed
+associator class $3$. This does not assert a categorification of
+$R8\_3\_1768$.
+\end{proposition}
+\begin{proof}
+Use the explicit Radchenko--Wheeler near-group realization associated
+to $\gamma=\left(\begin{smallmatrix}145&12\\12&1\end{smallmatrix}\right)$,
+with group $G=C_{12}^2$ and multiplicity $144$; see
+\href{https://arxiv.org/abs/2609.21892}{Radchenko--Wheeler, Section 5.3}.
+Its bicharacter and Gaussian are
+\[
+ B((x,y),(a,b))=e^{2\pi i(yb-xa)/12},\qquad
+ q(x,y)=(-1)^{x+y}e^{2\pi i(y^2-x^2)/24}.
+\]
+These are the specified realization's data, not parameters assigned to
+an arbitrary near-group category.
+
+Let $H=\{(x,x+6t):x\in C_{12},t\in C_2\}$ and use the cocycle
+$\omega((x,t),(a,s))=(-1)^{ta}$. Its commutator is $B|_H$;
+the latter has radical $K=\{(2z,2z):z\in C_6\}=H^\perp$.
+On the algebraic twisted crossed product of the Leavitt realization,
+extend the source automorphisms and noninvertible endomorphism by
+\[
+ \beta_g(\lambda_h)=B(g,h)^{-1}\lambda_h,
+ \qquad \tau(\lambda_h)=q(h)U_h\lambda_h.
+\]
+On the original algebra their restrictions are $\alpha_g,\rho$.
+The original intertwiner identities verify multiplication and covariance:
+the cocycle occurs on both sides equally, and $q(h)^2=1$ on $H$.
+Coefficient comparison in the crossed-product direct sum gives
+$\operatorname{End}(\tau)=\C^\omega[H]$ and six distinct invertible
+classes $G/H$. The original complete splitting intertwiners still
+decompose $\tau^2$; its duality maps still satisfy both snake identities.
+Thus additive idempotent completion gives a rigid semisimple tensor
+category with simple unit and finitely many simples. These are the
+algebraic identities checked in the accompanying full construction;
+no $C^*$ reconstruction or classification of arbitrary spherical
+categories is used.
+
+Set $X=\lambda_{(1,1)}$ and $T=\lambda_{(0,6)}$. Then
+$X^{12}=T^2=1$ and $TX=-XT$. Hence
+$\C^\omega[H]\cong\bigoplus_{\eta\in C_6}M_2(\C)$.
+The diagonal-average projector
+$p=12^{-1}\sum_lX^l$ is primitive. Its corner
+$\sigma=(p,\tau)$ is simple; the six such central blocks are its
+invertible translates and $\tau=2\sum_j a_j\sigma$.
+
+For clarity the crucial square multiplicity has an independent tensor
+proof. The diagonal subgroup $L=\{(x,x)\}$ is maximal isotropic and
+$q|_L=1$. The algebraic isotropic orbifold identities give an actual
+$GH(C_{12},1)$ category there. Inclusion of this crossed product into
+the twisted $H$ crossed product preserves its complete basic Hom
+lists and all splitting intertwiners, hence extends to a tensor functor
+on idempotent completions. Its chosen primitive diagonal projector
+remains primitive. The old simple square is
+$\sigma_0^2=1+\sum_{j\in C_{12}}b_j\sigma_0$.
+The functor identifies $b_j$ with $b_{j+6}$ and sends $\sigma_0$ to
+$\sigma$. Applying it proves the displayed multiplicity-two rule and
+self-duality. The explicit projector-rank calculation gives the same
+answer independently.
+
+For $a=\beta_{(1,0)}$, one has
+$a^6=\operatorname{Ad}(\lambda_{(6,0)})$ and
+$a(\lambda_{(6,0)})=-\lambda_{(6,0)}$. This cyclic obstruction is
+class $3$ in $H^3(C_6,\C^\times)$, as required.
+\end{proof}
+
+\subsection{The remaining algebra problem}
+The old based-module calculation has precisely two rank-eight
+completions for an algebra $1+\sigma$. This does not prove that such
+an algebra exists in the category just constructed. In particular the
+canonical near-group algebra descends to the matrix algebra
+$\operatorname{End}(\sigma)$, not to $1+\sigma$.
+
+More explicitly, write $Z=\lambda_{(0,6)}$ and take the normalized
+maps
+\[
+ r=\frac1{\sqrt{12}}\sum_l S_{(l,l)}\lambda_{(l,l)},\quad
+ t_0=\frac1{\sqrt{12}}\sum_lT_{(l,l)}p,\quad
+ t_1=\frac1{\sqrt{12}}\sum_lT_{(l,l+6)}Zp.
+\]
+Their primed algebraic duals satisfy $sr=1$, $t_i't_j=\delta_{ij}p$;
+$t_0',t_1'$ span $\operatorname{Hom}(\sigma^2,\sigma)$.
+After normalizing the unit-channel product to $s$, a multiplication
+on $1+\sigma$ is specified by $t=b_0t_0'+b_1t_1'$. Associativity is
+exactly
+\begin{align*}
+ s(t\otimes1)&=s(1\otimes t),\\
+ (s\otimes1)+t(t\otimes1)&=(1\otimes s)+t(1\otimes t).
+\end{align*}
+The first equation is automatic here: cubic rotation is $I_2$.
+The second is a quadratic morphism system in two variables, with
+coefficients from the explicit finite quantum dilogarithm. Separability
+must also be checked. No solution of this remaining system is claimed.
+The categorical dimension in the specified Stark realization is
+$6-\sqrt{37}$, whereas its FP dimension is $u$; positivity is not
+assumed in these algebraic equations.
+
+\subsection{Further route obstructions}
+A proper inclusion of fusion categories has FP index at least two.
+Indeed each indecomposable component over the subcategory has dimension
+at least its dimension: for a simple $X$, its internal end in the
+subcategory is a subobject of $XX^*$, and the internal-end module
+dimension formula gives that inequality. A proper inclusion has at
+least two components. The $SU(4)_8$ exceptional module-category index
+over either quartic target is
+$24-15\sqrt2+12\sqrt3-9\sqrt6\in(1,2)$, excluding this route.
+The indicated $F_4{}_3/G_2{}_4$ routes fail by dimension as well.
+
+For $R8\_3\_1154$, put $d=2+\sqrt5$, $v=d^2$; its dimension is $60v$.
+Exact Weyl arithmetic excludes five entire families with arbitrary
+pointed factors and one connected étale condensation:
+$SU(4)_6$, $SU(5)_5$, $SU(6)_4$,
+$SU(3)_7\boxtimes\mathrm{Fib}$, and the rank-fourteen modular factor
+constructed in the rank-ten conformal model. In each case a rational
+required algebra dimension either violates algebraic integrality or
+exceeds the pointed dimension bound: every nonpointed simple has a
+strictly positive nonconstant coordinate in the exact positive
+dimension basis, so a rational-dimensional algebra must be pointed.
+The exact field enumerations and the all-pointed-factor argument are
+in the accompanying proof. These are obstructions to specified
+construction families, not general noncategorifiability theorems.
+
+All new proofs, complete finite domains and independent audits are
+curated in \path{evidence/unresolved_retry_20261024/README.md}.
+The ten remaining open cases include these four rank-eight rings.
