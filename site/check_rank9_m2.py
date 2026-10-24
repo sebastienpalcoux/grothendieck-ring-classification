@@ -3,6 +3,7 @@
 import ast,hashlib,json,zipfile
 from collections import Counter
 from pathlib import Path
+from publication_identity import matches as publication_matches
 from check_cases import check_browser_integers,check_braided_scope,implication_closure
 ROOT=Path(__file__).resolve().parents[1];DIST=ROOT/'site/dist'
 def read(p):return json.loads(p.read_text())
@@ -34,19 +35,19 @@ def main():
  with zipfile.ZipFile(E/'replay.zip')as z:
   root='Rank9_M2_Theoretical_Continuation_20261023/';m=json.loads(z.read(root+'SHA256SUMS.json'));need(all(hashlib.sha256(z.read(root+n)).hexdigest()==h for n,h in m.items()),'Archived source hashes')
  need((DIST/'papers/rank9-m2.pdf').read_bytes()==(ROOT/'publications/rank9-m2/paper/rank9-m2.pdf').read_bytes(),'Canonical manuscript copy')
- revision=read(ROOT/'data/current_publication_revision.json');need(len(revision['remaining_ids'])==revision['current_unresolved_total']==25,'Project frontier')
+ revision=read(ROOT/'data/current_publication_revision.json');need(len(revision['remaining_ids'])==revision['current_unresolved_total']==26,'Project frontier')
  need(set(summary['remaining_ids'])=={r['id']for r in rows if r['status']=='unresolved'},'M2 frontier')
  receipt=read(DIST/'data/rank9_m2_build.json')
- for name,h in receipt['legacy_sha256'].items():need(sha(DIST/'data'/name)==h,'Previous publication changed: '+name)
+ for name,h in receipt['legacy_sha256'].items():need(publication_matches('site/dist/data/'+name,h),'Previous publication changed: '+name)
  for name,h in receipt.get('legacy_case_sha256',{}).items():need(hashlib.sha256(json.dumps(read(DIST/'data'/name)['cases'],sort_keys=True,separators=(',',':')).encode()).hexdigest()==h,'Previous case decision changed')
  mod=ast.parse((ROOT/'data/current_remaining_cases.py').read_text());values={node.targets[0].id:ast.literal_eval(node.value)for node in mod.body if isinstance(node,ast.Assign)};need(set(values['TENSORS'])==set(revision['remaining_ids']),'Current open-tensor download')
  pages=read(ROOT/'data/current_manuscript_page_counts.json');need(sum(d['pages']for d in pages['documents']if d['kind']=='mathematical_manuscript')==pages['totals']['mathematical_manuscript'],'Page inventory')
  front=(ROOT/'README.md').read_text();rank9=[line for line in front.splitlines()if line.startswith('| 9 |')]
  need(len(rank9)==1 and 'Through 2' in rank9[0] and '2,135 excluded, 72 realized' in rank9[0],'Single current rank-nine README row')
- need('**25 open cases.**'in front,'Current README frontier')
- review=(DIST/'review.html').read_text();need('Current classification · 25 open questions'in review and 'rank-nine-m2'in review and 'rank-ten-m1'in review and 'rank-eleven-m1'in review,'Current review-page scope')
+ need('**26 open cases.**'in front,'Current README frontier')
+ review=(DIST/'review.html').read_text();need('Current classification · 26 open questions'in review and 'rank-nine-m2'in review and 'rank-ten-m1'in review and 'rank-eleven-m1'in review,'Current review-page scope')
  need('./data/current_publication_revision.json'in review and './downloads/current_remaining_cases.py'in review,'Current review downloads')
  for name,x in revision['documents'].items():
   if name.startswith('publications/rank9-m2/'):need(sha(ROOT/name)==x['sha256'],'Manuscript source identity')
- print('Rank-nine M2: all2083 case/tensor identities,2033 exclusions,32 model transports,18 scopes,25 project open tensors and every archive hash PASS.')
+ print('Rank-nine M2: all2083 case/tensor identities,2033 exclusions,32 model transports,18 scopes,26 project open tensors and every archive hash PASS.')
 if __name__=='__main__':main()

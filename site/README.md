@@ -1,5 +1,14 @@
 # Fusion & Grothendieck Ring Atlas
 
+<!-- current-audit-correction -->
+**24 October audit correction.** R8_3_436 is unresolved for general complex
+categorification; its unitary exclusion is retained. Rank eight through
+multiplicity three now has 4,402 general exclusions, 93 models and five open
+cases. With the rank-nine M2 continuation, the current project-wide total is
+26 open cases. Earlier dated ledgers and replay receipts keep their historical
+scope. [Correction and precise hypotheses](https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/evidence/audit_20261024/README.md).
+<!-- /current-audit-correction -->
+
 **Rank ten, multiplicity one:** 136 general complex exclusions, 57 unitary models and one unresolved ring, R10_1_189. The five quadratic exclusions and the proved cyclic restrictions use the common case directory. [Current proof package](../evidence/rank10_m1_exclusions_20261023/README.md).
 
 ### [Explore the public atlas →](https://sebastienpalcoux.github.io/grothendieck-ring-classification/)
@@ -71,7 +80,7 @@ The historical 38-case continuation records 36 decisions: 29 proposed general ex
 
 The rank-seven multiplicity-five continuation addresses all 5,805 supplied exact-multiplicity-five rings: 5,804 general exclusions, 1 realization and 0 unresolved cases. The classification of the supplied census is complete through multiplicity 5. The new realization R7_5_5678 is Rep(AGL(1,7)).
 
-The rank-eight multiplicity-three continuation addresses all 3,527 supplied exact-multiplicity-three rings: 3,507 general exclusions, 16 models and 4 unresolved cases. Every recorded model admits a unitary realization. The remaining rings retain unresolved status for general complex categorification.
+The rank-eight multiplicity-three continuation addresses all 3,527 supplied exact-multiplicity-three rings: 3,506 general exclusions, 16 models and 5 unresolved cases. Every recorded model admits a unitary realization. The remaining rings retain unresolved status for general complex categorification; R8_3_436 retains its unitary exclusion.
 
 The rank-eight candidate audit distinguishes completed necessary-condition tests, unsuccessful model searches, ineligible tests and time limits. Scoped unitary obstructions preserve the general complex question; these candidates are not asserted fusion categories or established exotic examples.
 
@@ -79,7 +88,7 @@ Canonical normal and optimized frontier replays each passed all 108 checks. Thes
 
 The separate center-pattern addendum passed all eight checks in canonical normal and optimized Python, including independent arithmetic reconstructions and positive controls. Fresh replay after extraction from the publication archive is deferred.
 
-R8_3_3472 admits no fusion categorification over the complex numbers. The sphericalization and Galois reduction covers general complex categories; complete center-frame and twist-orbit domains reduce the remaining case to 628 exact equations in 572 integer variables. A certificate of 1648 rational bound deductions and a final strictly positive separating gap proves infeasibility, with two independent exact checkers. The proof and reproducible certificate are in evidence/r3472_exclusion_20261022/. This complete obstruction supersedes the earlier feasible necessary systems and conditional Morita restrictions for R3472. R8_3_982 remains unitarily realized by the neutral triality component of the exceptional E21 chiral fusion category, with all 512 canonical fusion coefficients identified exactly. Four rank-eight general categorification questions remain: R8_3_928, R8_3_941, R8_3_1154 and R8_3_1768. Every hypothetical categorification of these four rings admits a spherical structure and has a pseudo-unitary Galois conjugate; none has a braided Morita representative. The R928 phase refinement leaves four of ten necessary center patterns, all fourteen R941 allocations survive the stated refinements, and R1154 retains its forced semionic data. R1768 has 39 of 40 necessary Gram/indicator branches excluded, while its final cone survives. These necessary data do not construct categories or settle the four remaining questions.
+R8_3_3472 admits no fusion categorification over the complex numbers. The sphericalization and Galois reduction covers general complex categories; complete center-frame and twist-orbit domains reduce the remaining case to 628 exact equations in 572 integer variables. A certificate of 1648 rational bound deductions and a final strictly positive separating gap proves infeasibility, with two independent exact checkers. The proof and reproducible certificate are in evidence/r3472_exclusion_20261022/. This complete obstruction supersedes the earlier feasible necessary systems and conditional Morita restrictions for R3472. R8_3_982 remains unitarily realized by the neutral triality component of the exceptional E21 chiral fusion category, with all 512 canonical fusion coefficients identified exactly. Apart from R8_3_436, four rank-eight general categorification questions remain: R8_3_928, R8_3_941, R8_3_1154 and R8_3_1768. Every hypothetical categorification of these four rings admits a spherical structure and has a pseudo-unitary Galois conjugate; none has a braided Morita representative. The R928 phase refinement leaves four of ten necessary center patterns, all fourteen R941 allocations survive the stated refinements, and R1154 retains its forced semionic data. R1768 has 39 of 40 necessary Gram/indicator branches excluded, while its final cone survives. These necessary data do not construct categories or settle the four remaining questions.
 
 Ranks two, three and four have unrestricted complex classifications. The
 rank-four manuscript proves that exactly 15 rings occur and every
@@ -88,6 +97,39 @@ to FPdim < 1000 and multiplicity at most 31 is followed by an exact
 1,692-ring census. The sharp bounds are FPdim ≤ 24+12√3 and multiplicity ≤ 6.
 For the pivotal case, see Dong, Palcoux and Plessis,
 [Classifying Grothendieck rings of pivotal fusion categories of rank four](https://arxiv.org/abs/2609.33272).
+
+## Exact structural filters and mathematical introduction
+
+The model catalogue, common record directory and unresolved list share eight
+independent selectors: integral, weakly integral, simple, perfect, pointed,
+commutative, self-dual and multiplicity-free. “Any / Yes / No” supports
+intersections and complements. Selected properties are retained in shareable
+URLs. Aggregate count tables retain their full census populations.
+
+[Theory and definitions](dist/theory.html) introduces the objects, dimensions,
+filter conventions and categorical existence statuses, with standard references.
+
+`build_ring_properties.py` derives the flags from exact tensors. Integrality uses
+rational isolation of the largest real roots of integral fusion and Casimir
+polynomials; it never rounds numerical dimensions. Simplicity uses complete
+generated dual-closed based-subring closures. The output binds every source JSON
+and tensor digest. Run `python3 site/build_ring_properties.py` from the repository
+root after rebuilding any catalogue source. Tests include Fibonacci, Ising,
+Rep(S3), a pointed prime-order ring and misleading integer eigenvalue controls.
+
+To refresh the audited current publication, run from the repository root:
+
+```bash
+python3 tools/reader_resources.py
+python3 tools/build_current_document_revision.py
+python3 tools/sync_audit_revision.py
+python3 tools/verify_audit_revision.py
+```
+
+The audit synchronizer preserves the later rank-nine M2 data. Earlier campaign
+builders recreate their historical stage; they must be followed by this current
+synchronization. Old proof archives keep their literal historical scope; current
+PDFs and corrected decision records are linked separately.
 
 ## Build and check locally
 

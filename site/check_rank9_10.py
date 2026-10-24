@@ -6,6 +6,7 @@ from collections import Counter
 import hashlib
 import json
 from pathlib import Path
+from publication_identity import matches as publication_matches
 from check_cases import check_tensor, check_browser_integers, implication_closure
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -41,7 +42,7 @@ def check(source=None):
     require(len(rows) == 336 and {r["id"] for r in rows} == expected, "Incomplete new case inventory")
     require({row["id"] for row in rows if row["investigation_deferred"]} == (set() if continuation else {f"R10_1_{i}" for i in (114, 115, 152, 153, 179, 189)}), "Deferred investigation inventory differs")
     for path, digest in receipt["legacy_sha256"].items():
-        require(hashlib.sha256((ROOT / path).read_bytes()).hexdigest() == digest, "Historical data changed: " + path)
+        require(publication_matches(path,digest), "Historical data changed: " + path)
     old = []
     for file, key in (("realized_rings.json", "records"), ("unresolved_cases.json", "cases"), ("resolved_cases.json", "cases")):
         old += json.loads((DIST / "data" / file).read_text())[key]

@@ -30,6 +30,8 @@ jobs:
         uses: actions/setup-python@v6
         with:
           python-version: '3.12'
+      - name: Install exact arithmetic for structural property checks
+        run: python -m pip install sympy==1.14.0
       - name: Restore checksummed download archives
         run: python tools/restore_data.py
       - name: Check the published snapshot
@@ -44,6 +46,9 @@ jobs:
           python site/check_rank11.py
           python site/check_rank9_m2.py
           node site/check_rank9_m2.mjs
+          node site/tests/check_properties.mjs
+          python -m unittest discover -s site/tests -v
+          python tools/verify_audit_revision.py
           python tools/list_simple_multiplicity_one.py --check
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5

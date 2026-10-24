@@ -1,0 +1,60 @@
+{
+  "schema": "audit-derived-publication-replacements/v1",
+  "date": "2026-10-24",
+  "prior_commit": "111137a3e3ddf93be340b39c8a7c7b6ea94b844c",
+  "corrected_ledger": "supplements/rank8/output/audited_20261024/ledger.json",
+  "corrected_ledger_sha256": "ee86e6dbc37754ea7ea7f8014ec0074dcb46521241a7f912109ff9fd7d4f5314",
+  "scope": "Only derived display files may supersede legacy receipt hashes. All old per-case mathematical identities are preserved; R436 is added to the current open directory. Historical categorical ledgers and receipts remain immutable.",
+  "preserved_higher_rank_case_payload_sha256": {
+    "rank9_rank10_m1.json": "8ee596bbc72fbb8ebb7817b812efffd03e923cad114a5816203d77193273a0f3",
+    "rank11_m1.json": "40c51d6e8a216d6f74f1917a2f35bd32867a948af029d45272c58c55a9910388",
+    "rank9_m2.json": "276076bac1f41e61c1e26c66aa6882e7a3f92611984ba24b7613210683b3a869"
+  },
+  "files": {
+    "site/dist/data/atlas.json": {
+      "before_sha256": "01c06b5f86b5b5de63f502ec2017c4d8538fe20a82b3ee1910dbeb6a5671fc71",
+      "after_sha256": "d818a080dd51a6cc44c8e6236b685f2979cecbbf5150358bf5beef2e99def963",
+      "reason": "Explicit current audit correction and derived publication metadata; canonical historical proof ledgers are unchanged."
+    },
+    "site/dist/data/classification_status.json": {
+      "before_sha256": "bdcf4e9ac164c0caa85a90365e780e7766dc992371f4439f30d18909caf9b9c2",
+      "after_sha256": "2c465e96ce43114e8bcc3cddb80e1f16810c7e2e41227fd0b31154884b2609a0",
+      "reason": "Explicit current audit correction and derived publication metadata; canonical historical proof ledgers are unchanged."
+    },
+    "site/dist/data/current_remaining_ids.json": {
+      "before_sha256": "57d6b9beac7e7d6d89678e5d56606d4169ee5d19a3b643149d3609642ce9ebf4",
+      "after_sha256": "7960dafdbb11c81786911572ef141f6b66742ca1e6d78f64517f5b95c4d3006f",
+      "reason": "Explicit current audit correction and derived publication metadata; canonical historical proof ledgers are unchanged."
+    },
+    "site/dist/data/rank11_m1.json": {
+      "before_sha256": "bb76e6266c161de8f70ff733f30f33a819a176fc0365de9356359730b793f198",
+      "after_sha256": "8dd9964376438986dd2f481909bdf5ffafbfbf1a83dc44a65b61a59ec01ec781",
+      "reason": "Explicit current audit correction and derived publication metadata; canonical historical proof ledgers are unchanged."
+    },
+    "site/dist/data/rank6_document_revision.json": {
+      "before_sha256": "dc1afa44c0522d0317879a9cccf8b1ca38fa311da1dff34497d15a0c396ac49c",
+      "after_sha256": "e88988186bb00cc6b2fcc04da1801191490e05db20752ca57f66e7567b01dad5",
+      "reason": "Explicit current audit correction and derived publication metadata; canonical historical proof ledgers are unchanged."
+    },
+    "site/dist/data/rank8_m3_attempts.json": {
+      "before_sha256": "539d0fc108a2e8ac6dae416f4d1bbe26a1a4475ae844646ee20d48ff6371e005",
+      "after_sha256": "a9107df5347bab1b0c85127eb5b15544d68040b5da2e94d81337b1186c96319e",
+      "reason": "Explicit current audit correction and derived publication metadata; canonical historical proof ledgers are unchanged."
+    },
+    "site/dist/data/rank8_m3_update.json": {
+      "before_sha256": "ef51b9a835bd32e48f61d56c193ef4daeefe3dff923a129d4037736113a25471",
+      "after_sha256": "0fcb39ffaad32ff2eae65c189713d74b2d3e0605797439e8c09507f41579bc6f",
+      "reason": "Explicit current audit correction and derived publication metadata; canonical historical proof ledgers are unchanged."
+    },
+    "site/dist/data/resolved_cases.json": {
+      "before_sha256": "023de6cc94f6f4702f6bbf3547cec6b08cacc2afd325311089885edd933cf1ba",
+      "after_sha256": "2c1d0639fd81765fdefe83c39d39cb8722640094c3ba6694de4d7c3f2d79d42e",
+      "reason": "Explicit current audit correction and derived publication metadata; canonical historical proof ledgers are unchanged."
+    },
+    "site/dist/data/unresolved_cases.json": {
+      "before_sha256": "5a4d7333eb240a30f400ec85977781df270d5280a7ad82f0436d822830106eba",
+      "after_sha256": "bb63ee929ed953e18cd795892adf6d18b8ca35f3192aa1ce6ac3044b81b5a807",
+      "reason": "Explicit current audit correction and derived publication metadata; canonical historical proof ledgers are unchanged."
+    }
+  }
+}

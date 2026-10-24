@@ -2,7 +2,7 @@
 
 **Which low-rank fusion rings admit fusion categories over ℂ?**
 
-[**Explore the atlas →**](https://sebastienpalcoux.github.io/grothendieck-ring-classification/) · [Manuscripts](manuscripts/README.md) · [Open cases](https://sebastienpalcoux.github.io/grothendieck-ring-classification/unresolved.html) · [Verification](docs/VERIFY.md)
+[**Explore the atlas →**](https://sebastienpalcoux.github.io/grothendieck-ring-classification/) · [Theory and definitions](https://sebastienpalcoux.github.io/grothendieck-ring-classification/theory.html) · [Manuscripts](manuscripts/README.md) · [Open cases](https://sebastienpalcoux.github.io/grothendieck-ring-classification/unresolved.html) · [Verification](docs/VERIFY.md)
 
 > **AI-generated research · independent verification pending.**
 > Results and computations remain provisional. [Research status and verification scope](docs/PREPUBLICATION_REVIEW.md).
@@ -22,12 +22,12 @@ Higher ranks have the explicit multiplicity bounds below.
 | 5 | Through 20 | **Complete through 20** | Through 20: 40,982 excluded, 17 realized, 0 unresolved. |
 | 6 | Through 9 | **Complete through 3** | Through 9: 25,362 excluded, 57 realized, 2 unresolved. |
 | 7 | Through 5 | **Complete through 5** | Through 5: 9,976 excluded, 30 realized, 0 unresolved. |
-| 8 | Through 3 | **Complete through 2**; multiplicity 3 partial | Through 3: 4,403 excluded, 93 realized, 4 unresolved. |
+| 8 | Through 3 | **Complete through 2**; multiplicity 3 partial | Through 3: 4,402 excluded, 93 realized, 5 unresolved. |
 | 9 | Through 2 | **Complete through 1**; multiplicity 2 partial | Through 2: 2,135 excluded, 72 realized, [18 unresolved](https://sebastienpalcoux.github.io/grothendieck-ring-classification/unresolved.html?rank=9&m=2). |
 | 10 | Multiplicity 1 | **Partial at multiplicity 1** | 136 excluded, 57 realized, [1 unresolved](https://sebastienpalcoux.github.io/grothendieck-ring-classification/unresolved.html?rank=10&m=1). |
 | 11 | Multiplicity 1 | **Complete at multiplicity 1** | 155 excluded, 27 realized, 0 unresolved. |
 
-**25 open cases.** General categorification remains undecided for these rings.
+**26 open cases.** General categorification remains undecided for these rings.
 [Explore their status, invariants and research records](https://sebastienpalcoux.github.io/grothendieck-ring-classification/unresolved.html).
 
 <details id="grothendieck-rings--known-realizations-at-each-exact-multiplicity">

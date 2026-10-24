@@ -1,7 +1,7 @@
 \section{The multiplicity-three continuation}
 \label{sec:m3-continuation}
 The supplied extension has $3527$ rings of exact multiplicity three and
-$4500$ cumulatively. Every historical tensor, identifier, decision and model
+$4500$ cumulatively. Every tensor, identifier, decision and model through multiplicity two
 is preserved. The new raw tensor file has uncompressed SHA-256
 \par\noindent\sha{7baaa0a2018e11a0464c3f19da9030195421f04a73806c22363cf9d5eeb92a84}.
 The independently checked tensor axioms and preservation of earlier tensors
@@ -18,9 +18,9 @@ The $3527$ supplied rings of exact multiplicity three have the following
 recorded categorification status:
 \begin{center}\begin{tabular}{@{}lr@{}}\toprule
 Status & Rings\\\midrule
-General complex exclusion & $3507$\\
+General complex exclusion & $3506$\\
 Unitary construction & $16$\\
-Unresolved general categorification & $4$\\
+Unresolved general categorification & $5$\\
 \bottomrule\end{tabular}\end{center}
 Positive identifications use full ordered tensor comparisons or, for
 $\sha{R8_3_721}$, the exact coefficient bound and complete-census uniqueness
@@ -28,7 +28,7 @@ proved in Theorem~\ref{thm:r721-qsystem-model}. A recorded construction proves
 existence, without claiming uniqueness up to tensor equivalence.
 \end{theorem}
 The source-bound combined ledger is
-\par\noindent{\small\path{supplements/rank8/output/exclusion_20261022/ledger.json}}.
+\par\noindent{\small\path{supplements/rank8/output/audited_20261024/ledger.json}}.
 Its exact-M3 first-exclusion
 allocation follows. Overlapping obstructions are retained in the evidence
 rather than counted twice.
@@ -55,7 +55,6 @@ integral drinfeld & $34$\\
 involution module & $19$\\
 lower rank subring & $378$\\
 near group & $1$\\
-near group C3 TPE Galois unitarity & $1$\\
 nonsolvable dimension60 extension & $1$\\
 normal split spectral support and annihilator transport & $1$\\
 one spectrum & $1$\\
@@ -117,9 +116,9 @@ Every model in this inventory admits a unitary realization. For
 $\sha{R8_3_448}$, the original pseudo-unitary existence result is
 supplemented by the unitary $2221$ planar-algebra construction above.
 \subsection{The remaining general questions and replay scope}
-There remain $4$ unresolved exact-M3 tensors. The source tensors and per-case attempted criteria are recorded in
+There remain $5$ unresolved exact-M3 tensors. The source tensors and per-case attempted criteria are recorded in
 \path{data/remaining_cases.py} and the per-case audit\par\noindent
-{\small\path{evidence/r3472_exclusion_20261022/per_ring_research_audit.json}}.
+{\small\path{evidence/audit_20261024/per_ring_research_audit.json}}.
 The inventory distinguishes an exact contradiction, a necessary-condition
 survivor, a time limit, and an inapplicable test. Passing these conditions
 supplies no coherent associator; an unsuccessful construction search
@@ -131,6 +130,7 @@ general complex question. The last column gives ranks of nontrivial
 proper fusion subrings, as checked on the exact source tensors.
 \begin{center}\small\begin{longtable}{@{}lcccc@{}}\toprule
 Census ID & Commutative & Invertibles & Unitary status & Proper subring ranks\\\midrule\endhead
+\sha{R8_3_436} & no & 6 & excluded & 2, 3, 4, 6\\
 \sha{R8_3_928} & no & 2 & unresolved & 2\\
 \sha{R8_3_941} & no & 2 & unresolved & 2\\
 \sha{R8_3_1154} & no & 2 & unresolved & 2\\

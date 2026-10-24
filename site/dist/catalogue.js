@@ -11,14 +11,16 @@ globalThis.RingCatalogue = (() => {
   function load() {
     return pending ||= Promise.all([
       fetchJSON("realized_rings.json"), fetchJSON("unresolved_cases.json"), fetchJSON("resolved_cases.json"),
-      ...sources.map(fetchJSON),
+      ...sources.map(fetchJSON), fetchJSON("ring_property_flags.json"),
     ]).then(([realized, unresolved, resolved, ...updates]) => {
+      const properties = updates.pop();
+      const attach = ring => {const entry = properties.records[ring.id]; if (!entry || entry.tensor_sha256 !== ring.tensor_sha256) throw new Error("Ring properties do not match the tensor: " + ring.id); return {...ring, properties: entry.properties};};
       const models = [...realized.records, ...updates.flatMap(p => p.cases.filter(r => r.status === "unitarily_realized"))];
       const cases = new Map(models.map(r => [r.id, {...r, status: r.status || (r.existence === "unitary" ? "unitarily_realized" : "realized")} ]));
       for (const ring of [...unresolved.cases, ...resolved.cases, ...updates.flatMap(p => p.cases)]) cases.set(ring.id, ring);
       const ordered = [...cases.values()].sort((a, b) => a.rank - b.rank || a.multiplicity - b.multiplicity || a.id.localeCompare(b.id, "en", {numeric: true}));
       models.sort((a,b)=>a.rank-b.rank || a.multiplicity-b.multiplicity || a.id.localeCompare(b.id,"en",{numeric:true}));
-      return {models, cases: ordered, summaries: updates.map(p => p.summary)};
+      return {models: models.map(attach), cases: ordered.map(attach), summaries: updates.map(p => p.summary)};
     });
   }
   function mergeAtlas(state, catalogue) {
@@ -78,14 +80,16 @@ globalThis.RingCatalogue = (() => {
       const m = Number(params.get("m")); multiplicity.value = Number.isSafeInteger(m) && m > 0 ? String(m) : "";
       search.value = (params.get("q") || "").slice(0, 500);
       const pageSize = 24; let page = 0;
+      const propertyFilter = RingProperties.mount(document.querySelector("#record-property-filters"), "record-property", () => {page = 0; render();}, params);
       const render = () => {
         const query = search.value.trim().toLowerCase(), url = new URL(location.href);
         const exactM = Number(multiplicity.value), validM = Number.isSafeInteger(exactM) && exactM > 0;
         for (const [key, value] of [["rank", rank.value], ["m", validM ? String(exactM) : ""], ["status", status.value], ["q", search.value.trim()]]) {
           if (value) url.searchParams.set(key, value); else url.searchParams.delete(key);
         }
+        propertyFilter.applyParams(url.searchParams);
         history.replaceState(null, "", url);
-        const rows = catalogue.cases.filter(r => (!rank.value || r.rank === Number(rank.value)) && (!validM || r.multiplicity === exactM) &&
+        const rows = catalogue.cases.filter(r => propertyFilter.matches(r) && (!rank.value || r.rank === Number(rank.value)) && (!validM || r.multiplicity === exactM) &&
           (!status.value || (status.value === "realized" ? ["realized", "unitarily_realized"].includes(r.status) : r.status === status.value)) &&
           (!query || `${r.id} ${r.name || ""} ${r.summary || ""} ${(r.research || []).map(x => JSON.stringify(x.data)).join(" ")}`.toLowerCase().includes(query)));
         const lastPage = Math.max(0, Math.ceil(rows.length / pageSize) - 1); page = Math.min(page, lastPage);

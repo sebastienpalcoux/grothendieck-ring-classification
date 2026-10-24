@@ -842,6 +842,17 @@ def main():
     args=p.parse_args()
     identity=json.loads((args.identity or args.repo/'data/rank6_release_identity.json').read_text())
     files=render(args.repo,identity)
+    from audit_corrections_20261024 import active as audit_active
+    if audit_active(args.repo):
+        from rank9_m2_publication import banner
+        for name,content in list(files.items()):
+            content=content.replace('a complete near-group TPE reduction','a conditional near-group TPE scalar-table reduction')
+            content=content.replace('The current ledger is `supplements/rank8/output/exclusion_20261022/ledger.json`.','The current ledger is `supplements/rank8/output/audited_20261024/ledger.json`.')
+            content=content.replace('Subsequent construction and research stages leave 4 current questions.','After the audit correction, five rank-eight general questions remain; R436 retains its unitary exclusion.')
+            if name.startswith('docs/') and name.endswith('.md'):
+                at=content.find('\n\n')
+                content=content[:at]+'\n\n'+banner()+'\n\n**Audit correction:** R8_3_436 is unresolved in general and excluded in the unitary setting. See [the correction](../evidence/audit_20261024/README.md).'+content[at:]
+            files[name]=content
     for name,content in files.items():
         target=(args.output_dir or args.repo)/name
         if args.check:

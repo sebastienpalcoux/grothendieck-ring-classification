@@ -1,5 +1,5 @@
 \subsection{Further investigation of the original frontier}
-The previous release left $34$ exact-M3 rings unresolved. The original frontier continuation supplies $25$ further general complex exclusions. The current totals also include the later accepted constructions above, leaving $4$ questions. The earlier ledger and replay receipts are retained byte for byte; accepted changes are recorded in a separate overlay ledger.
+The previous release left $34$ exact-M3 rings unresolved. The historical frontier recorded $25$ further general exclusion claims; the R436 claim is now conditional and is withheld from the current general ledger. The current totals also include the later accepted constructions above, leaving $5$ questions. The earlier ledger and replay receipts are retained byte for byte; accepted changes are recorded in a separate overlay ledger.
 \subsection{A simultaneous fixed-point module obstruction}
 \label{subsec:simultaneous-fixed-point}
 
@@ -119,18 +119,22 @@ linear-algebra invariant; it introduces no categorical unitarity
 assumption.
 \end{proof}
 
-\subsection{A general inversion obstruction from the $C_3+3$ TPE}
+\subsection{A conditional inversion obstruction from the $C_3+3$ TPE}
 \begin{proposition}
-Every complex near-group category of type $(C_3,3)$ is Galois conjugate to
-a unitary category. Consequently $\sha{R8_3_436}$ has no complex categorification.
+Assume that, after sphericality and Galois reduction, the associators of a
+given complex near-group category of type $(C_3,3)$ are gauge equivalent
+to the scalar table of \cite[Theorem~4.12]{NearGroupTPE2026}. Then that
+category is Galois conjugate to a unitary category. Consequently
+$\sha{R8_3_436}$ has no categorification whose neutral near-group
+subcategory satisfies this additional hypothesis.
 \end{proposition}
 \begin{proof}
 Thornton's sphericality and Galois-pseudo-unitarity theorem
 \cite[Theorem~1.3]{ThorntonNear} allows us to take the noninvertible
 dimension $d=(3+\sqrt{21})/2$. Its second indicator is $+1$ by
 \cite[Theorem~3.9]{LPRV}, since its self-multiplicity is odd.
-We may therefore use the complete spherical tetrahedral parametrization
-of \cite[Theorem~2.3, Proposition~2.7, Theorem~4.12]{NearGroupTPE2026}.
+By the additional hypothesis, we may use the scalar tetrahedral table
+and equations of \cite[Theorem~2.3, Proposition~2.7, Theorem~4.12]{NearGroupTPE2026}.
 
 Write $w^2+w+1=0$, $q=1+w$, and $t=-1/d=(3-d)/3$.
 Both possible nondegenerate bicharacters are $\chi(g,h)=w^{gh}$;
@@ -167,10 +171,20 @@ autoequivalences \cite[Section~4.2, p.~10]{GJSCyclic}; inner
 autoequivalences fix labels since the ring is commutative.
 The required inversion is impossible.
 \end{proof}
-This new argument uses the full spherical parametrization in the October
-2026 preprint. The exact checker verifies all source coefficients and the
-polynomial reduction; the cited categorical inputs and the new argument
-remain subject to mathematical review.
+Under the additional scalar-table hypothesis, the exact checker verifies
+all source coefficients and the polynomial reduction. That computation
+does not establish completeness of the prescribed table for an arbitrary
+spherical category; the categorical premise remains a separate obligation.
+
+\begin{remark}[Scope of the scalar computation]
+In the cited version, the derivation of the complete table in Section~4
+assumes unitarity until its final subsection. The algebraic transport and
+reconstruction results do not prove that every spherical input category
+has that table. The exact scalar replay verifies its prescribed equations;
+it does not prove this missing gauge-normalization statement. General
+categorification of $\sha{R8_3_436}$ remains unresolved. Its previously
+established unitary exclusion is retained.
+\end{remark}
 
 \subsection{A uniform $\operatorname{Rep}(A_5)$ complement obstruction}
 \label{sec:rank8-a5-complement}
@@ -437,10 +451,7 @@ then forces every invertible orbit to be fixed and the unique
 noninvertible orbit to be free. Finally, $\mathrm{NG}(C_n,n)$ has trivial
 universal grading, excluding proper neutral-component extraction.
 
-These exact dimension, rank and invertible-group tests, supplemented by
-the independent general exclusion of $\sha{R8_3_436}$, exclude all five
-single-operation routes for the original $34$ frontier tensors, for every
-positive $n$. For example, $\sha{R8_3_65}$ forces $(n,s)=(121,4/121)$;
+These arithmetic tests exclude the listed routes except the general R436 branch. That branch requires the additional scalar-table completeness hypothesis; the unitary obstruction is retained. The uniform general exclusion of all five routes for all 34 tensors is not established. For example, $\sha{R8_3_65}$ forces $(n,s)=(121,4/121)$;
 $\sha{R8_3_439}$ and $\sha{R8_3_567}$ force $(n,k)=(12,2)$, whose
 de-equivariantization would have cyclic, rather than $S_3$, invertibles.
 Arbitrary chains of operations, Morita changes inserted into those chains,

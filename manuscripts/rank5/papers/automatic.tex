@@ -118,19 +118,24 @@ one-based ordinal within the archived tensor records at fixed $m$.
 At multiplicity eighteen the two indices coincide. Fingerprints
 of the full tensors, rather than these labels, key every certificate.
 
-The command \texttt{python verify.py} checks the first $28493$ tensors,
-canonical uniqueness, the full pinned-repository isomorphism crosswalk,
-and all $28476$ general exclusion
-certificates, the seventeen constructed model matches and both
-inert-prime parity/spherical composite certificates. The companion command
-\texttt{python software/verify\_extension.py} checks exact source order,
-ring axioms, uniqueness and all $12506$ later general exclusion
-certificates. Both regenerate each finite matrix and signed branch.
-Python/native Gram comparisons and deliberate certificate mutations are
-additional controls. The command \texttt{python -O verify.py} performs
-the same proof checks: none is implemented using a removable Python
-\texttt{assert}. The accepted separating vectors are tested with integers;
-a numerical optimization solver is used only in discovery.
+The current repository-root command
+\begin{verbatim}
+python evidence/prepublication_20261017/rank5/replay.py --jobs 2
+\end{verbatim}
+checks all $40999$ source tensors, $40982$ general exclusions and seventeen
+constructed model matches. It explicitly dispatches the two stored
+inert-prime parity/spherical composite certificates and runs deliberate
+negative controls. These are certificate replays, not fresh discovery.
+
+The historical standalone command \texttt{python verify.py} checks the
+first $28493$ tensors but reports only $28474$ general exclusions: its two
+inert-prime frontier entries remain unresolved in general, so its complete
+general bound is seventeen. The extension verifier checks the $12506$
+later general exclusions. Neither historical command alone is the current
+complete-through-twenty interface. A successful old arithmetic replay does
+not change these scope limits. The current replay should be used for the
+complete classification. Separating vectors are checked exactly; numerical
+optimization is used only to search for candidate certificates.
 
 The verification guide gives exact commands, input conventions, checked
 integer ranges, dependencies and the failure policy. The bundled pinned

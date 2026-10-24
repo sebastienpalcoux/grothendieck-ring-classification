@@ -9,7 +9,7 @@ const context=vm.createContext({document:{querySelector:()=>null},fetch:async ur
 vm.runInContext(fs.readFileSync(path.join(dist,'catalogue.js'),'utf8'),context);
 const catalogue=await context.RingCatalogue.load();
 assert.equal(catalogue.cases.filter(r=>r.rank===9&&r.multiplicity===2).length,2083);
-assert.equal(catalogue.cases.filter(r=>r.status==='unresolved').length,25);
+assert.equal(catalogue.cases.filter(r=>r.status==='unresolved').length,26);
 const state={data:read('atlas.json')};state.data.classification_rows=read('classification_status.json').rows;context.RingCatalogue.mergeAtlas(state,catalogue);
 assert.equal(state.data.classification_rows.filter(r=>r.rank===9&&r.multiplicity===2).length,1);
 const scope=state.data.scope.find(r=>r.rank===9);
@@ -21,4 +21,4 @@ for(let i=1;i<catalogue.models.length;i++){const a=catalogue.models[i-1],b=catal
 assert.equal(state.data.catalogue_papers.find(r=>r.slug==='rank9-m2').sourcePath,'publications/rank9-m2/paper/rank9-m2.tex');
 assert.equal(state.data.latest_catalogue_publication.date,'2026-10-24');
 assert.equal(state.data.latest_catalogue_publication.source_url,read('rank9_m2.json').summary.source_url);
-console.log(`Shared catalogue PASS: ${catalogue.cases.length} case records,${catalogue.models.length} models,25 unresolved; rank9 M1/M2 merged and ordered.`);
+console.log(`Shared catalogue PASS: ${catalogue.cases.length} case records,${catalogue.models.length} models,26 unresolved; rank9 M1/M2 merged and ordered.`);

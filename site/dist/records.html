@@ -6,15 +6,16 @@
   <meta name="theme-color" content="#0d1325">
   <meta name="description" content="Recorded ring cases through rank 11: models, exclusions and open questions, ordered by rank, multiplicity and identifier.">
   <title>Case records · Fusion &amp; Grothendieck Ring Atlas</title>
-  <link rel="stylesheet" href="./styles.css?v=8951cab6b1dc">
+  <link rel="stylesheet" href="./styles.css?v=7e3da049ba98">
   <link rel="stylesheet" href="./cases.css?v=b593390cf65b">
-  <script src="./catalogue.js?v=bd0ed7541153" defer></script>
+  <script src="./properties.js?v=5c1751fb0801" defer></script>
+  <script src="./catalogue.js?v=5b2f305ae742" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#case-main">Skip to case records</a>
   <header class="site-header">
     <a class="brand" href="./index.html" aria-label="Fusion and Grothendieck Ring Atlas home"><span class="brand-symbol" aria-hidden="true"><span>FG</span></span><span class="brand-name">FUSION &amp; GROTHENDIECK<span class="brand-sub">RING ATLAS</span></span></a>
-    <nav class="top-nav" aria-label="Main navigation"><a href="./index.html#atlas">Explore</a><a href="./records.html" class="nav-active" aria-current="page">Case records</a><a href="./unresolved.html">Unresolved cases</a><a href="./index.html#rings">Realizations</a><a href="./index.html#papers">Papers</a></nav>
+    <nav class="top-nav" aria-label="Main navigation"><a href="./index.html#atlas">Explore</a><a href="./records.html" class="nav-active" aria-current="page">Case records</a><a href="./unresolved.html">Unresolved cases</a><a href="./index.html#rings">Realizations</a><a href="./index.html#papers">Papers</a><a href="./theory.html">Theory &amp; definitions</a></nav>
   </header>
   <main id="case-main">
     <section class="case-hero"><p class="eyebrow">RING ATLAS / INDIVIDUAL RECORDS</p><h1>Case <em>records</em></h1><p class="case-hero-description">Models, exclusions and open questions, ordered by rank, multiplicity and identifier.</p><details class="case-directory-guide"><summary>Coverage of the directory</summary><p>This directory contains the atlas’s individual case profiles. The count table records the full census in each stated band; some historical exclusions are documented in the manuscripts without an individual profile.</p></details></section>
@@ -25,6 +26,7 @@
         <div><label for="record-m">Exact multiplicity</label><input id="record-m" type="number" min="1" step="1" placeholder="Any"></div>
         <div><label for="record-status">Status</label><select id="record-status"><option value="">All decisions</option><option value="excluded">Excluded over ℂ</option><option value="realized">Categorical model</option><option value="unitarily_realized">Unitary model</option><option value="unresolved">Unresolved</option></select></div>
       </form>
+      <div id="record-property-filters"></div>
       <p id="record-count" aria-live="polite"></p><div id="record-list">Loading case records…</div>
       <nav class="case-actions" aria-label="Case record pages"><button class="case-secondary-button" id="record-previous" type="button">← Previous 24</button><button class="case-secondary-button" id="record-next" type="button">Next 24 →</button></nav>
       <noscript><p>The <a href="./index.html#sources">source datasets</a> and <a href="./index.html#papers">manuscripts</a> remain available without JavaScript.</p></noscript>

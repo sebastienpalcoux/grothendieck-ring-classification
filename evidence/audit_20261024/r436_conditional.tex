@@ -1,0 +1,66 @@
+\subsection{A conditional inversion obstruction from the $C_3+3$ TPE}
+\begin{proposition}
+Assume that, after sphericality and Galois reduction, the associators of a
+given complex near-group category of type $(C_3,3)$ are gauge equivalent
+to the scalar table of \cite[Theorem~4.12]{NearGroupTPE2026}. Then that
+category is Galois conjugate to a unitary category. Consequently
+$\sha{R8_3_436}$ has no categorification whose neutral near-group
+subcategory satisfies this additional hypothesis.
+\end{proposition}
+\begin{proof}
+Thornton's sphericality and Galois-pseudo-unitarity theorem
+\cite[Theorem~1.3]{ThorntonNear} allows us to take the noninvertible
+dimension $d=(3+\sqrt{21})/2$. Its second indicator is $+1$ by
+\cite[Theorem~3.9]{LPRV}, since its self-multiplicity is odd.
+By the additional hypothesis, we may use the scalar tetrahedral table
+and equations of \cite[Theorem~2.3, Proposition~2.7, Theorem~4.12]{NearGroupTPE2026}.
+
+Write $w^2+w+1=0$, $q=1+w$, and $t=-1/d=(3-d)/3$.
+Both possible nondegenerate bicharacters are $\chi(g,h)=w^{gh}$;
+the even refinement is forced to be $a(0)=1$, $a(1)=a(2)=w$.
+Put $x=\beta(1)$ and $y=\beta(2)$.
+The product identity and two cubic equations give
+\[
+xy=w/3,\qquad y^2+qtx=tw,\qquad x^2+qty=tw.
+\]
+Thus $(y-x)(x+y-qt)=0$. The case $x=y$ would imply
+$6t^2-6t+1=0$, contrary to $t^2-t=1/3$.
+Hence $x+y=qt$, $xy=w/3$, and the rotation scalar is uniquely
+$c=1/(2+w)$. The exact verifier checks that these relations are equivalent
+to all nine cubic equations, including both dimension roots and both
+bicharacters.
+
+The numbers $u=x/q$ and $v=y/q$ are roots of the real polynomial
+$z^2-tz+1/3$, whose discriminant is $-d/3<0$.
+Therefore $v=\overline u$, so
+$\overline x=y/w$, $\overline y=x/w$.
+These are the Hermitian scalar conditions, and
+\cite[Corollary~5.5]{NearGroupTPE2026} unitarizes the complete table of
+the original category. The completeness of that table is essential;
+an existence-only reconstruction would not justify this conclusion.
+
+For the source tensor, the indices $[0,1,2,5]$ give this near-group ring,
+and the invertible at index $3$ conjugates indices $1$ and $2$.
+Galois conjugation transports this ordinary tensor autoequivalence along
+with the category, preserving its label permutation. The unitary
+classification \cite[Theorem~9.1, Example~9.4]{IzumiNear} identifies
+the resulting neutral category with an Izumi--Xu category.
+Both have trivial outer group of ordinary complex tensor
+autoequivalences \cite[Section~4.2, p.~10]{GJSCyclic}; inner
+autoequivalences fix labels since the ring is commutative.
+The required inversion is impossible.
+\end{proof}
+Under the additional scalar-table hypothesis, the exact checker verifies
+all source coefficients and the polynomial reduction. That computation
+does not establish completeness of the prescribed table for an arbitrary
+spherical category; the categorical premise remains a separate obligation.
+
+\begin{remark}[Scope of the scalar computation]
+In the cited version, the derivation of the complete table in Section~4
+assumes unitarity until its final subsection. The algebraic transport and
+reconstruction results do not prove that every spherical input category
+has that table. The exact scalar replay verifies its prescribed equations;
+it does not prove this missing gauge-normalization statement. General
+categorification of $\sha{R8_3_436}$ remains unresolved. Its previously
+established unitary exclusion is retained.
+\end{remark}

@@ -1,0 +1,51 @@
+{
+  "schema": "audit-revision-validation/v1",
+  "date": "2026-10-24",
+  "status": "PASS",
+  "scope": "Current publication checks, exact structural arithmetic, source preservation, compiled PDF identities and interface regressions. No claim of a new full replay of all historical categorical exclusions.",
+  "commands": {
+    "npm --prefix site run check": "PASS",
+    "python tools/restore_data.py --check": "PASS: 94 payloads, including the restored audited ledger",
+    "python evidence/prepublication_20261017/rank5/replay.py --check-package": "PASS: archive identity and all 50 members",
+    "python tools/audit_corrections_20261024.py": "PASS: only R436 general status superseded"
+  },
+  "current_open_cases": 26,
+  "exact_property_records": 2830,
+  "model_records": 375,
+  "tensor_downloads_checked": 2830,
+  "historical_dataset_entries_unchanged": 93,
+  "exact_property_method": "Rational Perron-root isolation and exact generated-subring closure; all 2830 records freshly recomputed in the final site check.",
+  "pdf_layout": [
+    {
+      "path": "manuscripts/rank5/papers/manuscript.pdf",
+      "pages": 19,
+      "sha256": "b6c4e154700e95baa64212cdb2604ef78d6ff9182b4ab20066d429d8413a9718",
+      "page_boundary_issues": 0
+    },
+    {
+      "path": "manuscripts/rank5/papers/verification_guide.pdf",
+      "pages": 4,
+      "sha256": "2eac44f0afe1096e111d9d5c7ac7b34d45a34f454402bc6549ab51d688283403",
+      "page_boundary_issues": 0
+    },
+    {
+      "path": "manuscripts/rank7/papers/manuscript.pdf",
+      "pages": 83,
+      "sha256": "983834abd6fa55200c752f26ca7449e44d362ed86e9bfd17c09eb8a81ef62cf2",
+      "page_boundary_issues": 0
+    },
+    {
+      "path": "manuscripts/rank8/paper/rank8.pdf",
+      "pages": 149,
+      "sha256": "2dc22a157784d10194016a8d2a870acc4533cd76ef08c196d060cdc5b93feff1",
+      "page_boundary_issues": 0
+    },
+    {
+      "path": "manuscripts/prepublication-review-2026-10-24.pdf",
+      "pages": 3,
+      "sha256": "c47efee930941823f8c5143567e98db6f95489d5f0b1dd5089c710efedc5b8c3",
+      "page_boundary_issues": 0
+    }
+  ],
+  "visual_qa": "Revised rank-five instructions, conditional rank-eight proof, center-product notation, count tables and status-report pages rendered and visually inspected."
+}

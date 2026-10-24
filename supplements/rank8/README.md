@@ -1,3 +1,16 @@
+# Rank-eight current supplement
+
+The [current audit correction](../../evidence/audit_20261024/accepted.json) binds the ledger restored as `output/audited_20261024/ledger.json` by `python3 tools/restore_data.py`.
+Through multiplicity three: **4,402 general exclusions, 93 unitary models and
+five unresolved rings**. Exact multiplicity three: **3,506 exclusions, 16 models
+and five unresolved rings**. R8_3_436 remains excluded in the unitary setting.
+
+[Audit correction and replay scope](../../evidence/audit_20261024/README.md) ·
+[Current manuscript](../../manuscripts/rank8/paper/rank8.pdf) ·
+[Current open records](https://sebastienpalcoux.github.io/grothendieck-ring-classification/unresolved.html?rank=8)
+
+<details><summary>Earlier release notes and replay receipts (historical)</summary>
+
 # Rank-8 Grothendieck rings through multiplicity 3
 
 For the current checkout, replay `python3 tools/verify_rank8_exclusion_20261022.py`; add `--historical` to replay earlier rank-eight stages in their preserved contexts. Earlier-stage commands below apply inside their corresponding immutable archives.
@@ -91,3 +104,6 @@ python3 -O tools/verify_rank8_exclusion_20261022.py
 ```
 
 Use `--metadata-only` to check source identities and completed replay receipts. Use `--historical` to replay the preceding rank-eight stages in their preserved contexts. That replay explicitly records the reconstructed helper missing from the creative archive and its four revised cache-state diagnostics in a separate checkpoint; it also restores the omitted canonical tensor with its original receipt hash. The current ledger and proof have separate bindings from those historical releases.
+
+
+</details>

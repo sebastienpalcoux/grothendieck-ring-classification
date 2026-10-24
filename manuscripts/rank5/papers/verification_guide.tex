@@ -140,7 +140,7 @@ accounted for.
 \section{Applying the criterion to another tensor}
 The discovery driver does not look up the decision ledger. It either
 matches a constructed positive model or applies the same tensor criteria
-and exactly verifies the returned certificate. For example,
+and exactly verifies the returned certificate. The following is a bounded discovery attempt, not a guaranteed exclusion:
 \begin{verbatim}
 python software/discover.py --multiplicity 18 --index 5073 \
     --height 6 --seconds 120 \
@@ -155,11 +155,19 @@ python software/discover.py --tensor new_tensor.json \
     --height 6 --seconds 120 --output verification/new.jsonl
 \end{verbatim}
 A JSON object with an \texttt{N} or \texttt{tensor} field is also accepted.
-For the displayed example, inert-prime parity and the spherical-character
-certificate apply automatically from the tensor; the historical index
-has no role in the criterion. A separate independent residue-field
-enumeration is available as
-\texttt{python software/audit\_inert\_residues.py}.
+For this frontier, the delivered discovery dispatcher may return
+\texttt{unresolved}, including when a separate stored certificate proves
+the exclusion. The optional discovery patch does not guarantee success
+within this budget. To verify the accepted composite certificates, run
+from the repository root:
+\begin{verbatim}
+python evidence/prepublication_20261017/rank5/replay.py --jobs 2
+\end{verbatim}
+This checks all $40999$ inputs, $40982$ general exclusions and seventeen
+models. The independent residue-field enumeration is available from the repository root:
+\begin{verbatim}
+python supplements/rank5/software/audit_inert_residues.py
+\end{verbatim}
 For other inputs the total per-tensor allowance is separate from the signed subprocess
 allowance, which is half of it. An unsupported field, absent separating
 ray, exception or timeout produces \texttt{unresolved}, not

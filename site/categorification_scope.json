@@ -307,8 +307,9 @@
             "label": "Canonical unresolved tensors",
             "path": "data/remaining_cases.py",
             "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/data/remaining_cases.py",
-            "sha256": "14592974ff72c384a06971855020545a55bf60d64491cc1c29b0023a5d9d0bf8",
-            "locator": "R8_3_928"
+            "sha256": "880297beccfd303ea22ca672a9140695f4f8e62256fb3b8b8df4dae9958b3aef",
+            "locator": "R8_3_928",
+            "prior_sha256": "14592974ff72c384a06971855020545a55bf60d64491cc1c29b0023a5d9d0bf8"
           }
         ],
         "morita": {
@@ -437,8 +438,9 @@
             "label": "Canonical unresolved tensors",
             "path": "data/remaining_cases.py",
             "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/data/remaining_cases.py",
-            "sha256": "14592974ff72c384a06971855020545a55bf60d64491cc1c29b0023a5d9d0bf8",
-            "locator": "R8_3_941"
+            "sha256": "880297beccfd303ea22ca672a9140695f4f8e62256fb3b8b8df4dae9958b3aef",
+            "locator": "R8_3_941",
+            "prior_sha256": "14592974ff72c384a06971855020545a55bf60d64491cc1c29b0023a5d9d0bf8"
           }
         ],
         "morita": {
@@ -573,8 +575,9 @@
             "label": "Canonical unresolved tensors",
             "path": "data/remaining_cases.py",
             "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/data/remaining_cases.py",
-            "sha256": "14592974ff72c384a06971855020545a55bf60d64491cc1c29b0023a5d9d0bf8",
-            "locator": "R8_3_1154"
+            "sha256": "880297beccfd303ea22ca672a9140695f4f8e62256fb3b8b8df4dae9958b3aef",
+            "locator": "R8_3_1154",
+            "prior_sha256": "14592974ff72c384a06971855020545a55bf60d64491cc1c29b0023a5d9d0bf8"
           }
         ],
         "morita": {
@@ -807,6 +810,51 @@
           ]
         }
       }
+    },
+    "R8_3_436": {
+      "general_status": "unresolved",
+      "level_status": {
+        "general": "unresolved",
+        "pivotal": "unresolved",
+        "spherical": "unresolved",
+        "pseudo_unitary": "unresolved",
+        "unitary": "excluded"
+      },
+      "strongest_excluded": "unitary",
+      "same_category_implications": [],
+      "existence_implications": [],
+      "braided": {
+        "status": "excluded",
+        "scope": "general_complex",
+        "explanation": "The displayed fusion ring is noncommutative, whereas a braiding makes its Grothendieck ring commutative.",
+        "sources": [
+          {
+            "label": "Audit correction and source-scope review",
+            "path": "evidence/audit_20261024/README.md",
+            "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/evidence/audit_20261024/README.md",
+            "sha256": "6dad169463857be8f4cd8b53548cc3d4442b09add4af29eb9b0d325a15e87b05",
+            "prior_sha256": "852ab2fa3e6b4efb45198affb6d8c2c44d01ba51e1fd58ac5ef1d261bfa7bc4f"
+          }
+        ],
+        "obstruction": "noncommutative",
+        "noncommutativity_witness": {
+          "i": 1,
+          "j": 3,
+          "k": 6,
+          "N_ij_k": 0,
+          "N_ji_k": 1
+        }
+      },
+      "audit_sources": [
+        {
+          "label": "Audit correction and source-scope review",
+          "path": "evidence/audit_20261024/README.md",
+          "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/evidence/audit_20261024/README.md",
+          "sha256": "6dad169463857be8f4cd8b53548cc3d4442b09add4af29eb9b0d325a15e87b05",
+          "prior_sha256": "852ab2fa3e6b4efb45198affb6d8c2c44d01ba51e1fd58ac5ef1d261bfa7bc4f"
+        }
+      ],
+      "record_scope_note": "General existence is unresolved. Only the unitary obstruction and noncommutative braided obstruction are retained; no general-to-spherical or Galois-unitary implication is asserted."
     }
   },
   "closed_cases": {

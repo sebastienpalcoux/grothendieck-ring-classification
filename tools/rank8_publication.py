@@ -12,6 +12,7 @@ import rank8_next as next_stage
 import rank8_research_20261022 as research_stage
 import rank8_creative_20261022 as creative_stage
 import rank8_exclusion_20261022 as exclusion_stage
+import audit_corrections_20261024 as audit_stage
 
 HISTORICAL_LEDGER = 'supplements/rank8/data/decisions.json'
 HISTORICAL_TABLES = 'supplements/rank8/data/rank8_tables.txt.gz'
@@ -36,6 +37,7 @@ def active(repo):
     return (Path(repo) / LEDGER).is_file()
 
 def ledger_path(repo):
+    if audit_stage.active(repo): return audit_stage.LEDGER
     if exclusion_stage.active(repo): return exclusion_stage.LEDGER
     if creative_stage.active(repo): return creative_stage.LEDGER
     if research_stage.active(repo): return research_stage.LEDGER
@@ -57,12 +59,14 @@ def archive_path(repo):
     return ARCHIVE if active(repo) else HISTORICAL_ARCHIVE
 
 def current_date(repo):
+    if audit_stage.active(repo): return "2026-10-24"
     from rank7_publication import PUBLICATION_DATE as previous
     if exclusion_stage.active(repo): return exclusion_stage.PUBLICATION_DATE
     if research_stage.active(repo): return research_stage.PUBLICATION_DATE
     return PUBLICATION_DATE if active(repo) else previous
 
 def current_report(repo):
+    if audit_stage.active(repo): return "prepublication-review-2026-10-24.pdf"
     from rank7_publication import STATUS_REPORT as previous
     if exclusion_stage.active(repo): return exclusion_stage.STATUS_REPORT
     if research_stage.active(repo): return research_stage.STATUS_REPORT
@@ -96,6 +100,7 @@ def historical_sources(repo):
     return result
 
 def extension(repo):
+    if audit_stage.active(repo): return audit_stage.publication_extension(repo)
     if not active(repo): return None
     historical_sources(repo)
     continuation = frontier.validate_ledger(repo) if frontier.active(repo) else None
@@ -134,7 +139,8 @@ def extension(repo):
             'research':research,
             'creative':creative,
             'exclusion':exclusion,
-            'attempts_source':exclusion_stage.AUDIT if exclusion else creative_stage.AUDIT if creative else research_stage.AUDIT if research else next_stage.AUDIT if latest else (frontier.EVIDENCE+'/structural_models/per_ring_research_audit.json'
+            'audit_correction':audit_stage.validate(repo) if audit_stage.active(repo) else None,
+            'attempts_source':audit_stage.AUDIT if audit_stage.active(repo) else exclusion_stage.AUDIT if exclusion else creative_stage.AUDIT if creative else research_stage.AUDIT if research else next_stage.AUDIT if latest else (frontier.EVIDENCE+'/structural_models/per_ring_research_audit.json'
                                if continuation else EVIDENCE+'/pipeline/residual_attempts.json')}
 
 def summary(repo):

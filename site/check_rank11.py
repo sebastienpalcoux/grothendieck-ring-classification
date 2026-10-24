@@ -3,6 +3,7 @@
 import ast,hashlib,json,zipfile
 from collections import Counter
 from pathlib import Path
+from publication_identity import matches as publication_matches
 from check_cases import check_tensor,check_browser_integers
 
 ROOT=Path(__file__).resolve().parent.parent;DIST=ROOT/'site/dist'
@@ -36,7 +37,7 @@ def check():
         require(set(ring['categorification_scope']['level_status'].values())=={wanted},'Wrong general/unitary scope')
         for item in ring['evidence']:evidence[item['path']]=item
     for path,item in evidence.items():require(sha(ROOT/path)==item['sha256'],'Missing or changed evidence: '+path)
-    for path,digest in receipt['legacy_sha256'].items():require(sha(ROOT/path)==digest,'Older ledger changed: '+path)
+    for path,digest in receipt['legacy_sha256'].items():require(publication_matches(path,digest),'Older ledger changed: '+path)
     canonical=ROOT/'publications/rank11/paper/rank11.pdf'
     require(canonical.read_bytes()==(DIST/'papers/rank11.pdf').read_bytes(),'Website manuscript is not canonical')
     manifest=json.loads((ROOT/'data/current_publication_revision.json').read_text())

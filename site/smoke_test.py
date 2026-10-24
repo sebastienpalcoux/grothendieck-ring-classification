@@ -197,11 +197,13 @@ sums = {kind: sum(r["pages"] for r in pages["documents"] if r["kind"] == kind)
 sums["mathematical_manuscripts_and_guides"] = sums["mathematical_manuscript"] + sums["verification_guide"]
 sums["all_distinct_documents"] = sum(r["pages"] for r in pages["documents"])
 assert sums == pages["totals"] == reader["page_totals"]
-page_summary = (f"Eight mathematical manuscripts: {sums['mathematical_manuscript']} pages; "
-                f"with the three verification guides: {sums['mathematical_manuscripts_and_guides']}; "
-                f"with the research-status report: {sums['all_distinct_documents']}. "
-                "Each distinct document is counted once.")
-assert '<span id="manuscript-page-summary">' + page_summary + '</span>' in (root / "index.html").read_text()
+current_pages_path=root/'downloads/current_manuscript_page_counts.json'
+current_pages=json.loads(current_pages_path.read_text())
+current_totals=current_pages['totals']
+page_summary=(f"{current_pages['document_counts']['mathematical_manuscripts']} mathematical manuscripts: {current_totals['mathematical_manuscript']} pages; "
+              f"with the three verification guides: {current_totals['mathematical_manuscripts_and_guides']}; "
+              f"with the current research-status report: {current_totals['all_distinct_documents']}. Each distinct document is counted once.")
+assert '<span id="manuscript-page-summary">'+page_summary+'</span>' in (root/'index.html').read_text()
 tree = ast.parse((root / reader["files"]["remaining_cases.py"]["path"]).read_text())
 constants = {node.targets[0].id: ast.literal_eval(node.value) for node in tree.body
              if isinstance(node, ast.Assign) and node.targets[0].id != "TENSORS"}

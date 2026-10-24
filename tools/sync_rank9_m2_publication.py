@@ -11,6 +11,10 @@ def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 def write(p,x):p.parent.mkdir(parents=True,exist_ok=True);p.write_text(json.dumps(x,ensure_ascii=False,indent=2)+'\n')
 def info(p):return{'sha256':sha(p),'bytes':p.stat().st_size}
 def main():
+ from audit_corrections_20261024 import active as audit_active
+ if audit_active(ROOT):
+  from sync_audit_revision import main as sync_current
+  return sync_current()
  ledger=read(E/'ledger.json');summary=read(E/'summary.json');ids=[r['id']for r in ledger if r['status']=='unresolved'];assert len(ids)==18
  p=ROOT/'data/current_publication_revision.json';rev=read(p);rev['date']='2026-10-24';rev['remaining_ids']=sorted(set(rev['remaining_ids'])|set(ids),key=lambda x:tuple(map(int,re.findall(r'\d+',x))))
  assert len(rev['remaining_ids'])==25

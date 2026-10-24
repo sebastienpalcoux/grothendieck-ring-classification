@@ -160,6 +160,7 @@
       if (!/^[1-9]\d*$/.test(value) || !Number.isSafeInteger(Number(value))) throw new Error(`The ${key === "rank" ? "rank" : "multiplicity"} filter must be a positive integer.`);
       filters.set(key, value);
     }
+    for (const [key,value] of params) if (/^p_(integral|weakly_integral|simple|perfect|pointed|commutative|self_dual|multiplicity_free)$/.test(key) && ["yes","no"].includes(value)) filters.set(key,value);
     if (filters.has("m") && filters.has("max_m")) throw new Error("Choose either exact multiplicity or a maximum multiplicity, not both.");
   }
   function scopeText() {
@@ -321,15 +322,18 @@
       event.preventDefault(); const query = new URLSearchParams();
       if (rankSelect.value) query.set("rank", rankSelect.value);
       if ($("#case-m").value) query.set($("#case-m-mode").value, $("#case-m").value);
+      for (const [key,value] of new URLSearchParams(location.search)) if (key.startsWith("p_")) query.set(key,value);
       location.assign(`./unresolved.html${query.size ? "?" + query : ""}`);
     });
+    const propertyFilter = RingProperties.mount($("#case-property-filters"), "case-property", () => {const url=new URL(location.href);propertyFilter.applyParams(url.searchParams);history.replaceState(null,"",url);render();});
     const render = () => {
       const query = $("#case-search").value.trim().toLowerCase();
-      const found = scoped.filter((ring) => !query || JSON.stringify(ring).toLowerCase().includes(query));
+      const found = scoped.filter((ring) => propertyFilter.matches(ring) && (!query || JSON.stringify(ring).toLowerCase().includes(query)));
+      $("#case-scope").textContent = `${scopeText()} · ${scoped.length} unresolved in range · ${found.length} matching filters`;
       $("#case-results-title").textContent = `${found.length} ${found.length === 1 ? "case" : "cases"}${query ? ` matching “${$("#case-search").value.trim()}”` : ""}`;
       const root = $("#case-list"); root.replaceChildren();
       if (!found.length) {
-        root.append(el("p", "case-empty", query ? "No case matches this search within the selected range." : "There are no currently unresolved cases in this recorded range."));
+        root.append(el("p", "case-empty", query ? "No case matches this search within the selected range." : "No unresolved case matches the selected range and ring properties."));
         root.append(link("View all unresolved cases →", "./unresolved.html")); return;
       }
       const rows = found.map((ring) => {
@@ -550,6 +554,11 @@
     const nav = el("nav", "case-section-nav"); nav.setAttribute("aria-label", "Case sections");
     if (unresolved || ring.categorification_scope) nav.append(link("Categorification status", "#categorification", ""));
     [["research", unresolved ? "Research record" : ring.research?.length ? "Model & research" : "Models"], ["invariants", "Invariants"], ["characters", "Characters"], ["fusion-data", "Fusion data"], ["sources", "Sources"]].forEach(([id, title]) => nav.append(link(title, `#${id}`, "")));
+    if (ring.properties) {
+      const labels = [["simple","simple"],["perfect","perfect"],["pointed","pointed"],["self_dual","self-dual"],["multiplicity_free","multiplicity-free"]];
+      const properties = el("p","case-small-note","Exact ring properties: " + (ring.properties.integral ? "integral" : ring.properties.weakly_integral ? "weakly integral, nonintegral" : "not weakly integral") + ", " + (ring.properties.commutative ? "commutative" : "noncommutative") + (labels.some(([key])=>ring.properties[key]) ? ", " : "") + labels.filter(([key])=>ring.properties[key]).map(([,label])=>label).join(", ") + ". ");
+      properties.append(link("Definitions and filter conventions →","./theory.html#filters"));root.append(properties);
+    }
     root.append(nav);
     if (unresolved || ring.categorification_scope) root.append(renderCategorification(ring));
     root.append(renderResearch(ring, unresolved), renderDimensions(ring), renderCharacters(ring), renderTensor(ring), renderSources(ring));

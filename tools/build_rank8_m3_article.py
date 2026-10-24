@@ -84,7 +84,7 @@ def main():
     text=r'''\section{The multiplicity-three continuation}
 \label{sec:m3-continuation}
 The supplied extension has $3527$ rings of exact multiplicity three and
-$4500$ cumulatively. Every historical tensor, identifier, decision and model
+$4500$ cumulatively. Every tensor, identifier, decision and model through multiplicity two
 is preserved. The new raw tensor file has uncompressed SHA-256
 \par\noindent\sha{7baaa0a2018e11a0464c3f19da9030195421f04a73806c22363cf9d5eeb92a84}.
 The independently checked tensor axioms and preservation of earlier tensors
@@ -197,7 +197,7 @@ identities and reconciliation without replaying the mathematics.
         if not {'R8_3_731','R8_3_3344'} <= accepted_ids:
             raise ValueError('Both integral proofs must be accepted before publishing their combined section')
         heading=(r'\subsection{Further investigation of the original frontier}'+'\n'
-                 +f"The previous release left $34$ exact-M3 rings unresolved. The original frontier continuation supplies ${ext['frontier']['new_decisions']}$ further general complex exclusions. The current totals also include the later accepted constructions above, leaving ${ext['unresolved']}$ questions. "
+                 +f"The previous release left $34$ exact-M3 rings unresolved. The historical frontier recorded ${ext['frontier']['new_decisions']}$ further general exclusion claims; the R436 claim is now conditional and is withheld from the current general ledger. The current totals also include the later accepted constructions above, leaving ${ext['unresolved']}$ questions. "
                  +'The earlier ledger and replay receipts are retained byte for byte; accepted changes are recorded in a separate overlay ledger.\n')
         proof_files=[
             'quadratic/simultaneous_split_section.tex','structural_models/r436_general_tpe.tex','integral/manuscript.tex',
@@ -472,6 +472,10 @@ domain coverage and construction of the necessary system.
         s,count=re.subn(pattern,lambda _:item,s,flags=re.S)
         if not count:s=s.replace(r'\end{thebibliography}',item+r'\end{thebibliography}')
     path.write_text(s);mirror=ROOT/'supplements/rank8/paper';mirror.mkdir(parents=True,exist_ok=True)
+    from audit_corrections_20261024 import active as audit_active, revise_generated_tex
+    if audit_active(ROOT):
+        for source in PAPER.glob('*.tex'):
+            source.write_text(revise_generated_tex(source.name,source.read_text(),ROOT))
     for p in PAPER.glob('*.tex'):shutil.copy2(p,mirror/p.name)
     print(json.dumps({'status':'PASS','new_models':len(models),'new_exclusions':ext['excluded'],'unresolved':ext['unresolved']},indent=2))
 if __name__=='__main__':main()

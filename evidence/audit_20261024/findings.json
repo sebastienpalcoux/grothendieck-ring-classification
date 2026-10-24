@@ -1,0 +1,97 @@
+{
+  "date": "2026-10-24",
+  "snapshots": {
+    "census": "388e450703f89d351afad9a328fd06b90b198f84",
+    "classification": "8f1a0b8184eb8d7bb44a666afd78552e33c02f42"
+  },
+  "findings": [
+    {
+      "id": "F1",
+      "priority": "high",
+      "type": "proof_scope_gap",
+      "title": "R8_3_436 general exclusion lacks the cited spherical categorical completeness theorem",
+      "repository": "classification",
+      "path": "manuscripts/rank8/paper/m3_frontier.tex",
+      "line_start": 124,
+      "line_end": 157,
+      "qualification": "General exclusion unsupported as written; unitary exclusion retained."
+    },
+    {
+      "id": "F2",
+      "priority": "medium",
+      "type": "verification_interface",
+      "title": "Rank-five verifier and discovery instructions overstate delivered interfaces",
+      "repository": "classification",
+      "path": "manuscripts/rank5/papers/automatic.tex",
+      "line_start": 121,
+      "line_end": 132,
+      "qualification": "Correct current full replay passes; historical command and discovery example need correction."
+    },
+    {
+      "id": "F3",
+      "priority": "medium",
+      "type": "status_scope",
+      "title": "Six open cases is stale as a current project-wide total",
+      "repository": "census",
+      "path": "docs/R3472_RESEARCH_ADDENDUM.md",
+      "line_start": 25,
+      "line_end": 28,
+      "qualification": "Scope historically or to ranks at most eight; regenerate current totals."
+    },
+    {
+      "id": "F4",
+      "priority": "medium",
+      "type": "provenance",
+      "title": "Rank-seven producer source-unavailability statement is obsolete",
+      "repository": "census",
+      "path": "docs/REPRODUCIBILITY.md",
+      "line_start": 167,
+      "line_end": 175,
+      "qualification": "Source was later supplied and hash-matched; independent full enumeration is a separate issue."
+    },
+    {
+      "id": "F5",
+      "priority": "low",
+      "type": "hypothesis_clarity",
+      "title": "Signed rank-five dimension character needs explicit pointwise nonvanishing",
+      "repository": "census",
+      "path": "methods/rank5_specialized_derivation.tex",
+      "line_start": 8,
+      "line_end": 30,
+      "qualification": "Not a constructed counterexample; categorical dimensions supply intended condition."
+    },
+    {
+      "id": "F6",
+      "priority": "low",
+      "type": "documentation",
+      "title": "Historical supported ranks and PDF count conflict with current release",
+      "repository": "census",
+      "path": "methods/completeness.md",
+      "line_start": 250,
+      "line_end": 250,
+      "qualification": "Also docs/REPRODUCIBILITY.md:153: six PDFs versus nine."
+    },
+    {
+      "id": "F7",
+      "priority": "low",
+      "type": "bibliography",
+      "title": "Budinski author initial should be P. G.",
+      "repository": "classification",
+      "path": "manuscripts/rank7/papers/manuscript.tex",
+      "line_start": 927,
+      "line_end": 927,
+      "qualification": "Correct mirrored supplement and compiled bibliography."
+    },
+    {
+      "id": "F8",
+      "priority": "low",
+      "type": "notation_clarity",
+      "title": "Pair-product matrix row count should denote remaining central simples",
+      "repository": "classification",
+      "path": "manuscripts/rank8/paper/m3_center_followup.tex",
+      "line_start": 12,
+      "line_end": 31,
+      "qualification": "Use n_high instead of an undefined/reused r; no implementation error established."
+    }
+  ]
+}

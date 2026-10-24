@@ -1,7 +1,12 @@
 #!/usr/bin/env python3
 """Verify current manuscripts, website copies, decisions and immutable proof replays.
 
-Metadata-only mode is standalone in the current download. The complete earlier
+For the audited current publication, the default validates current identities and
+recomputes exact ring-property flags; it does not repeat categorical exclusions.
+Metadata-only mode skips that exact recomputation. Historical proof replays retain
+their frozen contexts and do not establish the withdrawn R436 general premise.
+
+Metadata-only mode is standalone in the historical download. The complete earlier
 replay chain requires the full repository. Replay sources are restored only in
 a temporary directory; no published manuscript is replaced.
 """
@@ -28,6 +33,13 @@ def main():
     args = parser.parse_args()
     need(not (args.metadata_only and args.historical), 'Choose metadata-only or full historical replay')
     repo = args.repo.resolve()
+    from audit_corrections_20261024 import active as audit_active
+    if audit_active(repo) and not args.historical:
+        command=[sys.executable,str(repo/'tools/verify_audit_revision.py')]
+        if args.metadata_only:command.append('--metadata-only')
+        result=subprocess.run(command,cwd=repo)
+        need(result.returncode==0,'Current audited publication validation failed')
+        return
     has_website = (repo / 'site/dist/papers').is_dir()
     documents = validate_documents(repo, check_web=has_website)
     reader_resources = validate_reader_resources(repo, check_web=has_website)

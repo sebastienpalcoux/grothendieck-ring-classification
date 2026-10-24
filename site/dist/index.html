@@ -12,10 +12,11 @@
   <meta property="og:description" content="Classification, constructions, and open problems through rank 11. AI-generated research; independent human verification and Lean formalization are pending.">
   <meta property="og:url" content="https://sebastienpalcoux.github.io/grothendieck-ring-classification/">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230d1325'/%3E%3Cpath d='M17 43V20h28M17 32h20M29 20v23h18' fill='none' stroke='%23deb673' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E">
-  <link rel="stylesheet" href="./styles.css?v=8951cab6b1dc">
+  <link rel="stylesheet" href="./styles.css?v=7e3da049ba98">
   <script src="./reading.js?v=b4008b26e052" defer></script>
-  <script src="./catalogue.js?v=bd0ed7541153" defer></script>
-  <script src="./app.js?v=6b568fe2ef6d" defer></script>
+  <script src="./properties.js?v=5c1751fb0801" defer></script>
+  <script src="./catalogue.js?v=5b2f305ae742" defer></script>
+  <script src="./app.js?v=700fac15f2c1" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#atlas">Skip to ring explorer</a>
@@ -31,7 +32,7 @@
       <a href="./unresolved.html">Unresolved cases</a>
       <a href="#papers">Papers</a>
       <a href="#sources">Sources</a>
-    </nav>
+    <a href="./theory.html">Theory &amp; definitions</a></nav>
     <span class="edition">RESEARCH EDITION <span class="edition-dot" aria-hidden="true"></span> <span id="edition-date">24 OCT 2026</span></span>
   </header>
 
@@ -166,6 +167,7 @@
         <label class="catalogue-search"><span class="sr-only">Search realized rings by name or identifier</span><input id="catalogue-search" type="search" placeholder="Find model or ring ID…"></label>
         <button id="catalogue-scope" type="button" aria-pressed="false">Show all realized rings</button>
       </div>
+      <div id="model-property-filters"></div>
       <div id="ring-cards" class="ring-cards" aria-live="polite"></div>
       <p class="scope-note">Values marked ≈ are computed numerical approximations. Fusion coefficients, duals, invertible objects, and codegree polynomials where shown come from exact integer arithmetic.</p>
       <p id="extended-haagerup-note" class="scope-note" hidden><strong>Extended Haagerup EH1 · rank 6, multiplicity 7.</strong> The known model <code>R6_7_2274</code> comes from the <a href="https://arxiv.org/abs/0909.4099" target="_blank" rel="noopener">Acta Mathematica construction</a> of Bigelow–Morrison–Peters–Snyder. Its fusion rules are given by Grossman–Morrison–Penneys–Peters–Snyder, <a href="https://doi.org/10.24033/asens.2541" target="_blank" rel="noopener"><cite>The Extended Haagerup fusion categories</cite></a>, <em>Ann. Sci. Éc. Norm. Supér.</em> (4) <strong>56</strong> (2023), no. 2, 589–664, §2.1, p. 597 (<a href="https://arxiv.org/abs/1810.06076" target="_blank" rel="noopener">arXiv</a>).</p>
@@ -194,7 +196,7 @@
       <div class="paper-review-note"><p><strong>A concise introduction to the project.</strong> Historical October announcement: classification scope, seven construction candidates, and two rank-six open problems. <a href="https://hexagonmath.org/2610.00300?version=1" target="_blank" rel="noopener">Hexagon · 2610.00300v1 <span aria-hidden="true">↗</span></a>.</p><a href="https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/announcements/hexagon-2026-10/Low_rank_Grothendieck_rings_announcement.pdf" target="_blank" rel="noopener">Research announcement · 5 pages <span aria-hidden="true">↗</span></a></div>
       <div class="paper-review-note"><p><strong>Current manuscripts and verification materials.</strong> Each PDF presents the project’s current arguments, classification scope and remaining questions. Read the verification notes for the precise coverage of automated checks.</p><a href="./review.html">Research status &amp; verification <span aria-hidden="true">↗</span></a></div>
       <p class="scope-note" id="current-manuscript-page-summary">10 mathematical manuscripts: 594 pages; with three verification guides: 613; with the research-status report: 621. <a href="./downloads/current_manuscript_page_counts.json" download>Current page inventory and checksums ↓</a></p>
-      <details class="reading-panel"><summary>Earlier manuscript inventory</summary><p class="scope-note"><span id="manuscript-page-summary">Eight mathematical manuscripts: 552 pages; with the three verification guides: 571; with the research-status report: 579. Each distinct document is counted once.</span> <a href="./downloads/manuscript_page_counts.json" download>Page inventory &amp; checksums · JSON ↓</a></p></details>
+      <details class="reading-panel"><summary>Earlier manuscript inventory</summary><p class="scope-note"><span id="manuscript-page-summary">11 mathematical manuscripts: 613 pages; with the three verification guides: 632; with the current research-status report: 635. Each distinct document is counted once.</span> <a href="./downloads/manuscript_page_counts.json" download>Page inventory &amp; checksums · JSON ↓</a></p></details>
       <p class="scope-note">Every <a href="./records.html">individual case record</a> includes a fusion tensor TXT download, with the same rank and multiplicity filters throughout the atlas. The <a href="./downloads/remaining_cases.py" download>earlier rank-six and rank-eight open tensors · Python ↓</a> remain available with their original source checksums.</p>
       <details id="theoretical-update" class="frontier-panel theoretical-update" hidden>
         <summary id="theoretical-update-heading">17 October 2026 · research status</summary>

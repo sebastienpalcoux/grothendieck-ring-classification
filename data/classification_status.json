@@ -100,13 +100,13 @@
       }
     },
     "rank8": {
-      "file": "supplements/rank8/output/exclusion_20261022/ledger.json",
-      "sha256": "85c61eb2ebf7e6f82600a0e19dc274f1da068aefc807395b2fd46873b64f1c01",
+      "file": "supplements/rank8/output/audited_20261024/ledger.json",
+      "sha256": "ee86e6dbc37754ea7ea7f8014ec0074dcb46521241a7f912109ff9fd7d4f5314",
       "classified_through": 3,
       "status_totals": {
+        "excluded": 4402,
         "unitarily_realized": 93,
-        "excluded": 4403,
-        "unresolved": 4
+        "unresolved": 5
       },
       "anyonwiki_positive_import": "evidence/anyonwiki/positive_import.json",
       "general_complete_through": 2,
@@ -333,7 +333,9 @@
           "evidence": "evidence/r3472_exclusion_20261022"
         },
         "attempts_source": "evidence/r3472_exclusion_20261022/per_ring_research_audit.json"
-      }
+      },
+      "ledger": "supplements/rank8/output/audited_20261024/ledger.json",
+      "audit_correction": "evidence/audit_20261024/accepted.json"
     }
   },
   "rows": [
@@ -26309,11 +26311,11 @@
       "rank": 8,
       "multiplicity": 3,
       "rings": 3527,
-      "excluded_general": 3507,
+      "excluded_general": 3506,
       "realized_unitary": 16,
       "realized_other_or_unspecified": 0,
       "realized_spherical_nonpseudounitary": 0,
-      "unresolved_general": 4,
+      "unresolved_general": 5,
       "unassessed": 0,
       "classification_coverage": "partial_classification"
     }

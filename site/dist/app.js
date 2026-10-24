@@ -387,7 +387,7 @@ function renderTheoreticalUpdate() {
       : " Both remaining rank-seven rings admit no braided categorification; their general categorification remains open.") : "";
   $("#research-update-summary").textContent = `${extensionText.trim()}${continuationText}${braidedText}${completion}${openText}`;
   $("#theoretical-update-heading").textContent = `Earlier ranks 6–8 research · ${Object.values(currentRemaining).reduce((a,b)=>a+b,0)} open cases`;
-  $("#theoretical-update-scope").textContent = extensionText + continuationText + braidedText + " The new arguments combine quadratic-compositum compression, biquadratic and weak-integral rotation constraints, complete central-induction frames, character-labeled modular S and STS constraints, integer center decompositions, cubic Verlinde integrality, split-module polynomials and Morita transport. A two-prime norm criterion restricts integral center objects. Constructions include near-group equivariantizations, exceptional subfactor models, cyclic Fibonacci equivariantization a twisted A6/A5 group-theoretical category and the inherited GH(C8)/C2 Q-system Morita dual. Each remaining candidate survived the documented case-specific exclusion and construction campaign. This operational designation asserts neither categorifiability nor novelty of a future realization. Census completeness relies on producer-run records with independent tensor and isomorphism audits. The bundle contains current manuscripts, proofs and exact replay programs. Independent human verification and Lean formalization remain pending.";
+  $("#theoretical-update-scope").textContent = extensionText + continuationText + braidedText + " The new arguments combine quadratic-compositum compression, biquadratic and weak-integral rotation constraints, complete central-induction frames, character-labeled modular S and STS constraints, integer center decompositions, cubic Verlinde integrality, split-module polynomials and Morita transport. A two-prime norm criterion restricts integral center objects. Constructions include near-group equivariantizations, exceptional subfactor models, cyclic Fibonacci equivariantization a twisted A6/A5 group-theoretical category and the inherited GH(C8)/C2 Q-system Morita dual. Each remaining candidate survived the documented case-specific exclusion and construction campaign. This operational designation asserts neither categorifiability nor novelty of a future realization. Census completeness relies on producer-run records with independent tensor and isomorphism audits. The historical archive retains its original proof inputs and replay receipts. Current PDFs and audit corrections are linked separately. Independent human verification and Lean formalization remain pending.";
   linkUnresolvedText($("#theoretical-update-heading"),`${Object.values(currentRemaining).reduce((a,b)=>a+b,0)} open cases`);
   for (const container of [$("#research-update-summary"),$("#theoretical-update-scope")]) {
     if (m3?.unresolved) linkUnresolvedText(container,`${m3.unresolved} ${m3.frontier?"extensively investigated exotic candidates":"individually investigated unresolved candidates"}`,{rank:8,m:3});
@@ -404,7 +404,7 @@ function renderTheoreticalUpdate() {
   $("#latest-research-source").textContent = `${currentDate} proofs and remaining cases ↗`;
   const actions = $("#theoretical-update-actions");
   actions.replaceChildren();
-  const archive = element("a", "", `Download proofs & verification · ${(update.archive.bytes / 1048576).toFixed(1)} MB ↓`);
+  const archive = element("a", "", `Historical proof archive · ${(update.archive.bytes / 1048576).toFixed(1)} MB ↓`);
   archive.href = update.archive.url || `./${update.archive.path}`; archive.download = "";
   const decisions = element("a", "", "Historical continuation decisions JSON ↓");
   decisions.href = `./${update.files.decisions.path}`; decisions.download = "";
@@ -419,7 +419,9 @@ function renderTheoreticalUpdate() {
   source.href = base; source.target = "_blank"; source.rel = "noopener";
   const review = element("a", "", "Research status & verification ↗");
   review.href = "./review.html";
-  actions.append(archive, decisions, remaining, source, review);
+  const auditCorrectionLink = element("a", "", "Current audit corrections & verification →");
+  auditCorrectionLink.href = `${state.data.classification_repository}/blob/main/evidence/audit_20261024/README.md`;
+  actions.append(auditCorrectionLink, archive, decisions, remaining, source, review);
   const coverage = element("a", "", "Historical 38-case study and proof references ↗");
   coverage.href = `${state.data.classification_repository}/blob/${state.data.classification_commit || "main"}/docs/CASE_INVENTORY.md`;
   coverage.target = "_blank"; coverage.rel = "noopener";
@@ -510,7 +512,7 @@ function renderPapers() {
     summary.append(document.createTextNode(`${fmt.format(release.excluded)} excluded, ${release.realized} realized, ${release.unresolved} unresolved. ${release.research_summary || ""} `));
     if (release.unresolved) linkUnresolvedText(summary,`${release.unresolved} unresolved`,{rank:6,max_m:release.analyzed_through});
     if (state.data.theoretical_update) {
-      const archive=element("a", "", "Proofs and verification bundle");
+      const archive=element("a", "", "Historical proof and verification archive");
       archive.href=state.data.theoretical_update.archive.url || `./${state.data.theoretical_update.archive.path}`;archive.download="";summary.append(archive);
     }
     const manifest=state.data.current_publication_documents || state.data.current_documents;
@@ -576,7 +578,7 @@ function renderPapers() {
     const release=state.data.upper_rank_releases?.[String(paper.rank)];
     if (release) {
       if (state.data.theoretical_update) {
-        const current=element("a","","Current proof bundle ↓");
+        const current=element("a","","Historical proof archive ↓");
         current.href=state.data.theoretical_update.archive.url || `./${state.data.theoretical_update.archive.path}`;current.download="";
         actions.append(current);
       }
@@ -605,6 +607,7 @@ function renderCatalogue() {
   const all=state.allModels;
   let records=state.models.filter((r)=>all ? (state.rank==="all" || r.rank===state.rank)
                                          : chosen && r.rank===chosen.rank && r.multiplicity===chosen.multiplicity);
+  records=records.filter(r=>state.propertyFilter?.matches(r) ?? true);
   const query=$("#catalogue-search").value.trim().toLowerCase();
   if (query) records=records.filter((r)=>`${r.id} ${r.name} ${r.model_reference}`.toLowerCase().includes(query));
   $("#extended-haagerup-note").hidden=all || chosen?.rank!==6 || chosen?.multiplicity!==7
@@ -613,7 +616,7 @@ function renderCatalogue() {
     ? `${records.length} realized rings ${state.rank==="all"?"across the analyzed ranks":`at rank ${state.rank}`}`
     : chosen?`Rank ${chosen.rank} · exact multiplicity ${chosen.multiplicity} · ${records.length} explicit model${records.length===1?"":"s"}`:"Choose a cell above";
   if (!records.length) {
-    grid.append(element("p","catalogue-empty",query?"No model matches that search.":"No realized Grothendieck rings in this band. The classification panel still records its excluded or unresolved fusion rings."));
+    grid.append(element("p","catalogue-empty",(query || state.propertyFilter?.size)?"No recorded model matches the selected filters.":"No realized Grothendieck rings in this band. The classification panel still records its excluded or unresolved fusion rings."));
     return;
   }
   for (const ring of records) {
@@ -621,6 +624,10 @@ function renderCatalogue() {
     const meta=element("div","ring-card-meta",`RANK ${ring.rank}   /   m = ${ring.multiplicity}   /   ${ring.id}`);
     card.append(meta,element("h3","",ring.name));
     const facts=element("div","ring-card-facts");
+    if (ring.properties) {
+      facts.append(element("span","",ring.properties.integral ? "integral" : ring.properties.weakly_integral ? "weakly integral · nonintegral" : "not weakly integral"));
+      for (const key of ["simple","perfect","pointed"]) if (ring.properties[key]) facts.append(element("span","",key));
+    }
     facts.append(element("span","",ring.existence),element("span","",ring.invariants.commutative?"commutative":"noncommutative"),
                  element("span","",`FPdim ${formatApprox(ring.invariants.global_fp_dimension_approx)}`));
     card.append(facts);
@@ -764,6 +771,7 @@ function openRing(ring) {
   const dialog=$("#ring-dialog");if (!dialog.open) dialog.showModal();
 }
 function initCatalogue() {
+  state.propertyFilter=RingProperties.mount($("#model-property-filters"), "model-property", () => {const url=new URL(location.href);state.propertyFilter.applyParams(url.searchParams);history.replaceState(null,"",url);renderCatalogue();});
   $("#catalogue-scope").addEventListener("click",()=>{
     state.allModels=!state.allModels;
     $("#catalogue-scope").setAttribute("aria-pressed",String(state.allModels));
