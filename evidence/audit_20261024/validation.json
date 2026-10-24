@@ -13,7 +13,11 @@
     "python tools/render_readme.py --check": "PASS: front page and detailed guide",
     "python -O tools/verify_current_publication.py --metadata-only": "PASS",
     "python tools/replay_current_publication_ci.py --historical --plan": "PASS: exact pre-audit commit 111137a3e3ddf93be340b39c8a7c7b6ea94b844c",
-    "python -O tools/replay_current_publication_ci.py --historical --plan": "PASS: same frozen source snapshot, optimized dispatch"
+    "python -O tools/replay_current_publication_ci.py --historical --plan": "PASS: same frozen source snapshot, optimized dispatch",
+    "python tools/replay_m5_ci.py --jobs 2": "PASS: 5804 new-band exclusions and the positive tensor model; 4201 earlier records preserved",
+    "python -O tools/replay_m5_ci.py --jobs 2": "PASS: 5804 new-band exclusions and the positive tensor model; 4201 earlier records preserved",
+    "python -O tools/verify_current_publication.py": "PASS: full exact structural recomputation for all 2830 records",
+    "python tools/audit_rank8_manuscript.py --reviewed-pages 1": "PASS: rebuilt 149-page paper; 39 TeX sources, resolved references and citations, four identical PDF aliases, no overfull boxes"
   },
   "current_open_cases": 26,
   "exact_property_records": 2830,
@@ -43,7 +47,7 @@
     {
       "path": "manuscripts/rank8/paper/rank8.pdf",
       "pages": 149,
-      "sha256": "2dc22a157784d10194016a8d2a870acc4533cd76ef08c196d060cdc5b93feff1",
+      "sha256": "be7c9106516621bb9b90cc5de99da30b242eba978dba4e9789200b31543287fb",
       "page_boundary_issues": 0
     },
     {
@@ -67,5 +71,12 @@
     "including_three_guides": 632,
     "including_current_status_report": 635
   },
-  "historical_replay_qualification": "Normal and optimized dispatch plans checked. No new complete historical mathematical replay is asserted; the predecessor hosted full-history run failed from disk exhaustion. The current workflow checks its explicitly named current and mathematical scopes."
+  "historical_replay_qualification": "Normal and optimized dispatch plans checked. No new complete historical mathematical replay is asserted; the predecessor hosted full-history run failed from disk exhaustion. The current workflow checks its explicitly named current and mathematical scopes.",
+  "mathematical_property_records_preserved_after_pdf_revision": 2830,
+  "github_data_workflow": {
+    "run_id": 40062029661,
+    "head_commit": "5f64d9d2dc978960d550f9041f1fdb922da17434",
+    "status": "success",
+    "scope": "Full data workflow, including both M5 proof replays, current exact arithmetic, rank-six controls and documentation checks. The subsequent abstract/PDF revision preserves all tensor and mathematical property records."
+  }
 }

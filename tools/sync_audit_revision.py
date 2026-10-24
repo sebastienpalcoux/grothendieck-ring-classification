@@ -19,6 +19,12 @@ def write(p,x):p.parent.mkdir(parents=True,exist_ok=True);p.write_text(json.dump
 def info(p):return{'sha256':sha(p),'bytes':p.stat().st_size}
 def main(rebuild_cases=True):
  correction.validate(ROOT);ext=extension(ROOT);rows=read(ROOT/correction.LEDGER)
+ # Bind compiled current documents before refreshing their derived displays.
+ # The historical base-manifest receipt in the high-rank publication remains
+ # a separate archive-context reference, with its original digest and scope.
+ low=ROOT/'data/current_document_revision.json';low_revision=read(low)
+ for source in low_revision['documents']:low_revision['documents'][source]=info(ROOT/source)
+ write(low,low_revision)
  # The active exported partition is derived from the corrected full ledger.
  p=ROOT/'data/classification_status.json';status=read(p)
  band=next(x for x in status['rows']if x['rank']==8 and x['multiplicity']==3)

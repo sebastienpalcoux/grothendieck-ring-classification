@@ -113,7 +113,9 @@ def revise_generated_tex(name,text,repo=ROOT):
  if name=='m3_center_followup.tex':
   text=text.replace('as columns.  Then their unknown pair multiplicities form a matrix','as columns. Let $n_{\\mathrm{high}}$ be the number of remaining central simples. Their pair multiplicities form a matrix')
   text=text.replace('^{r\\times\\binom{s+1}{2}}','^{n_{\\mathrm{high}}\\times\\binom{s+1}{2}}')
- text=text.replace('Every remaining categorification admits a spherical structure and has a pseudo-unitary Galois conjugate; none can have a braided Morita representative.','For the four cases in the stated sphericality reduction these conclusions hold. The additional R436 case is unresolved in general, with its unitary exclusion retained.')
+ text=text.replace('Every remaining categorification admits a spherical structure and has a pseudo-unitary Galois conjugate; none can have a braided Morita representative.','The generally open case $\\sha{R8_3_436}$ retains its unitary exclusion. The other four open cases admit sphericality and Galois pseudo-unitarity reductions and have no braided Morita representatives.')
+ text=text.replace('For the four cases in the stated sphericality reduction these conclusions hold. The additional R436 case is unresolved in general, with its unitary exclusion retained.','The generally open case $\\sha{R8_3_436}$ retains its unitary exclusion. The other four open cases admit sphericality and Galois pseudo-unitarity reductions and have no braided Morita representatives.')
+ if name=='rank8.tex':text=text.replace(r'\date{22 October 2026}',r'\date{24 October 2026}')
  return text
 
 def revise_publication_document(name,text,repo=ROOT):
