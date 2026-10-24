@@ -3,7 +3,7 @@
   "version": "Current classification through rank eleven",
   "title": "Research status and verification",
   "caution": "AI-generated research · independent verification pending. The results, proofs, code and data have not yet been independently verified by human experts or formalized in Lean. Use them with caution; exact checks establish only their stated computational scope.",
-  "summary": "The current rank-nine exact-multiplicity-two partition has 2,043 general complex exclusions, 36 unitary models and four unresolved rings among 2,083 inputs. Ten exclusions and four models settle fourteen cases left open by the earlier publication. R8_3_436 is again generally excluded by an independent spherical-equivariantization/formal-codegree proof. The earlier TPE categorical-completeness premise remains withdrawn. The project has eleven open cases: two at rank six, four at rank eight, four at rank nine and one at rank ten. Independent human verification and formalization remain pending.",
+  "summary": "Rank ten at multiplicity one is complete: 136 general complex exclusions and 58 unitary models among 194 inputs. R10_1_189 is recognized in the classical SU(4)_6 inside SU(10)_1 conformal-embedding module category, with all 1,000 tensor coefficients matched. The rank-nine exact-multiplicity-two partition remains 2,043 general exclusions, 36 unitary models and four unresolved rings among 2,083 inputs. R8_3_436 remains generally excluded by the independent spherical-equivariantization/formal-codegree proof; the earlier TPE categorical-completeness premise stays withdrawn. Ten rings remain open: two at rank six, four at rank eight and four at rank nine. Their new theoretical restrictions establish no further categorical decision. Independent human verification and formalization remain pending.",
   "rank_counts": [
     {
       "rank": 4,
@@ -58,8 +58,8 @@
       "bound": 1,
       "rings": 194,
       "excluded": 136,
-      "models": 57,
-      "open": 1
+      "models": 58,
+      "open": 0
     },
     {
       "rank": 11,
@@ -75,15 +75,17 @@
     "The bound is the largest multiplicity included in the displayed census, not necessarily a complete classification range. Rank six is complete through multiplicity three; its exact bands 5, 6, 7 and 9 are also complete, while bands 4 and 8 each contain one open case.",
     "Rank-six models comprise 56 unitary constructions and one spherical construction that is not pseudo-unitary. Completeness means coverage of the stated census by the project's recorded arguments; it does not assert independent human or formal verification.",
     "The rank-seven M5 tensor identities, fusion axioms and preservation of the earlier tensor set passed independent computational checks. Completeness of the exhaustive enumeration relies on the supplied producer completion record; the optimized enumerator was not independently rerun.",
-    "The rank-eight M3 extension preserves all 973 earlier records and adds 3,527 exact-multiplicity-three tensors. Source identities, tensor axioms and based-isomorphism audits are independently checked. Enumeration completeness relies on producer completion records. The supplied optimized source matches the producer source hashes for both the rank-seven M5 and rank-eight M3 runs; the exhaustive enumerations were not independently rerun."
+    "The rank-eight M3 extension preserves all 973 earlier records and adds 3,527 exact-multiplicity-three tensors. Source identities, tensor axioms and based-isomorphism audits are independently checked. Enumeration completeness relies on producer completion records. The supplied optimized source matches the producer source hashes for both the rank-seven M5 and rank-eight M3 runs; the exhaustive enumerations were not independently rerun.",
+    "The new rank-ten model is unitary and unbraided, consistently with its independent braided obstruction. Its proper pointed C5 subcategory makes it nonsimple; the list of fifteen simple multiplicity-one Grothendieck rings through rank eleven is unchanged. Recognition in a classical construction makes no claim of a new tensor category."
   ],
   "open_cases": [
     {
       "id": "R6_4_155",
-      "heading": "Odd cyclic Clifford constraints",
+      "heading": "Odd and even cyclic Clifford constraints",
       "paragraphs": [
         "Every odd generalized pivotal rotation must factor through a cyclic spin character. All 1,144 tested blocks pass. The all-order path-Clifford divisibility condition for the source family holds exactly at even parameter values, including the parameter four of this case.",
-        "The unique rank-26 modular candidate and rank-22 based-module witness remain necessary data. No compatible associators, coherent module category or general obstruction is established."
+        "The unique rank-26 modular candidate and rank-22 based-module witness remain necessary data. No compatible associators, coherent module category or general obstruction is established.",
+        "The new even cyclic Clifford theorem extends the stabilizer criterion, and every one of the 1,144 retained blocks has an exact positive witness. The pointed automorphism obstruction removes a specified construction route, not all categorifications."
       ]
     },
     {
@@ -91,7 +93,8 @@
       "heading": "Complete indicators and central phase masses",
       "paragraphs": [
         "In the positive spherical representative, saturated modular representations determine all indicator sequences and every central phase mass. The eight spin objects form four dual pairs, all with restriction 2X+2gX+sigma+3T.",
-        "Exact phase Gram constraints leave 640 labelled restriction-data profiles in three branches of 68, 286 and 286. These profiles are neither categories nor complete modular fusion data. They do not construct compatible associators or exclude all categorifications."
+        "Exact phase Gram constraints leave 640 labelled restriction-data profiles in three branches of 68, 286 and 286. These profiles are neither categories nor complete modular fusion data. They do not construct compatible associators or exclude all categorifications.",
+        "The regular-bimodule Morita alternative identifies the rank-eight based ring R8_3_941, conditional on the required nonpointed algebra. Neither existence of that algebra nor a model of either ring is established."
       ]
     },
     {
@@ -102,26 +105,28 @@
         "These are investigated categorification candidates, not asserted fusion categories or established exotic examples. Passing necessary conditions supplies no associator. Failing to find a model does not prove nonexistence. Exact tensors are in data/remaining_cases.py; the per-case record is evidence/r3472_exclusion_20261022/per_ring_research_audit.json.",
         "These remaining rings are extensively investigated exotic candidates in the operational sense: each survived the documented case-specific campaign of known and newly developed exclusions and model searches, including complete finite domains and specified unbounded construction families. This designation does not assert existence or novelty of a future realization.",
         "In the stated finite center systems, R8_3_928 has four exact integer-phase witnesses and six pattern exclusions certified by complete branching trees with 49 exact Farkas leaves; R8_3_941 retains 14 patterns, with 11 integer witnesses and 3 open integer-feasibility questions in its earlier Gram test. These witnesses are necessary data, not categorical models; uncertified numerical failures are not exclusions.",
-        "R8_3_721 is realized by the inherited 1+rho Q-system Morita dual of the C2 de-equivariantization of GH(C8). Exact rank and coefficient bounds identify its unique dimension type in the supplied complete rank-eight multiplicity-at-most-three census. The earlier center-action analysis leaves three necessary R8_3_1154 patterns. These results are in evidence/rank8_next_20261021/; the later R8_3_65 general exclusion is in evidence/rank8_research_20261022/."
+        "R8_3_721 is realized by the inherited 1+rho Q-system Morita dual of the C2 de-equivariantization of GH(C8). Exact rank and coefficient bounds identify its unique dimension type in the supplied complete rank-eight multiplicity-at-most-three census. The earlier center-action analysis leaves three necessary R8_3_1154 patterns. These results are in evidence/rank8_next_20261021/; the later R8_3_65 general exclusion is in evidence/rank8_research_20261022/.",
+        "The current continuation proves categorical Morita rigidity for R928 without a module-rank cutoff. For R1768 an actual complex twisted GH(C6,2) precursor has the required pointed associator, but the connected separable algebra 1+sigma remains unproved; the canonical inherited algebra is End(sigma). Five specified families of pointed extensions and connected etale condensations are excluded as constructions for R1154. These results settle none of the four rings; see evidence/unresolved_retry_20261024/."
       ]
     },
     {
       "id": "Rank nine: four rings",
       "heading": "Exact multiplicity two",
       "paragraphs": [
-        "R9_2_137, R9_2_1607, R9_2_1975 and R9_2_1976 remain unresolved for general complex categorification. All have no braided categorification. The three commutative sources reduce to two common necessary D8 Morita types; compatible associators and inverse modules remain missing.",
-        "The algebraic near-group orbifold construction gives an auxiliary rank-twelve category with the wrong invertible group. Neither this model nor a feasible based-ring completion settles a remaining source. Exact current tensors are in data/current_remaining_cases.py."
-      ]
-    },
-    {
-      "id": "R10_1_189",
-      "heading": "Multiplicity one",
-      "paragraphs": [
-        "General unbraided categorification remains unresolved. Its recorded cyclic and Morita restrictions are necessary conditions, not a categorical model or a complete obstruction."
+        "R9_2_137, R9_2_1607, R9_2_1975 and R9_2_1976 remain unresolved for general complex categorification. All have no braided categorification. The three commutative sources admit a union of three necessary D8 Morita types; only their reflection type is common. Compatible associators and inverse modules remain missing.",
+        "The algebraic near-group orbifold construction gives an auxiliary rank-twelve category with the wrong invertible group. Neither this model nor a feasible based-ring completion settles a remaining source. Exact current tensors are in data/current_remaining_cases.py.",
+        "The centers have no nontrivial Tannakian subcategory, and their integral simple objects are invertible. Source-local and all-cochain Clifford theorems give further restrictions. In the positive-TY R137 and negative-TY R1976 branches, discrete Morita constraints force all projected cubic indicators to be 1/2 and hence 9 to divide the Frobenius-Schur exponent. Exact feasible witnesses to the necessary systems remain; they are not categorical models."
       ]
     }
   ],
   "replay_sections": [
+    {
+      "heading": "Current theoretical retry and accepted model",
+      "paragraphs": [
+        "Run python3 tools/verify_unresolved_retry.py to reconcile the sole new categorical decision, all ten current open records, the complete rank-nine/ten multiplicity-one assignment and the portable proof archive. Its thirteen exact verifiers also run with Python assertions disabled. Metadata-only mode does not repeat those proofs.",
+        "The source-bound package is evidence/unresolved_retry_20261024/. Historical receipts keep their original scope. The later categorical model for R10_1_189 supersedes its earlier necessary modular-data completions."
+      ]
+    },
     {
       "heading": "Current accepted theoretical continuation",
       "paragraphs": [
@@ -227,6 +232,13 @@
   ],
   "theoretical_results": [
     {
+      "heading": "Classical conformal-embedding model for R10_1_189",
+      "paragraphs": [
+        "The embedding SU(4)_6 inside SU(10)_1 supplies the actual connected etale algebra B=000+060+202+222. Its charge-zero module component has generators g and x with g^5=1, gx=xg, x*=x and x^2=1+(g+g^2+g^3+g^4)x. The complete 1,000-coefficient comparison identifies the supplied ring, proving unitary categorifiability. The construction also supplies the actual rank-fourteen modular category and its algebra; modular data alone are not substituted for categorical existence.",
+        "The resulting rank-ten partition is 136 excluded, 58 unitary models and zero unresolved. Together, ranks nine and ten at multiplicity one have 238 exclusions and 98 unitary models among 336 inputs."
+      ]
+    },
+    {
       "heading": "Central parity, Tannakian subcategories and coherent orbifolds",
       "paragraphs": [
         "The rank-nine continuations exclude R9_2_12,585,941,959,1025,1303,1709,1759,1965,1988 and construct unitary models for R9_2_746,1209,1254,1848. The criteria use cyclic internal ends, dimension-sixty neutral categories, fermion parity, odd central restrictions and a forced Lagrangian subcategory. Model proofs supply coherent actions or a published isotropic orbifold, rather than a permutation of fusion rules.",
@@ -258,7 +270,8 @@
       "heading": "Further rank-eight frontier investigation",
       "paragraphs": [
         "The original 34 unresolved M3 tensors now have 25 additional general-complex exclusions. Their identifiers are R8_3_436, R8_3_439, R8_3_455, R8_3_567, R8_3_731, R8_3_901, R8_3_903, R8_3_921, R8_3_925, R8_3_926, R8_3_985, R8_3_1055, R8_3_1203, R8_3_1350, R8_3_1463, R8_3_1615, R8_3_1617, R8_3_1660, R8_3_1661, R8_3_1739, R8_3_2842, R8_3_2885, R8_3_3258, R8_3_3344, R8_3_3413.",
-        "The new arguments include simultaneous split-module representations, normal-matrix spectral support, a complete near-group TPE reduction, complete central-induction frame constraints, full character-labeled modular S and STS equations, a two-prime norm criterion for integral center objects, complete integer center decompositions and cubic Verlinde integrality, and integral Morita and relative-cohomology obstructions. Exact all-parameter filters exclude specified near-group construction routes for every original frontier tensor. General Galois-pseudo-unitarity reductions extend the scope of all seven noncommutative searches. Complete connected-algebra underlying-object filters and exact feasible center constraints describe the remaining construction possibilities; their survivors are not asserted algebras or categories."
+        "The new arguments include simultaneous split-module representations, normal-matrix spectral support, complete central-induction frame constraints, full character-labeled modular S and STS equations, a two-prime norm criterion for integral center objects, complete integer center decompositions and cubic Verlinde integrality, and integral Morita and relative-cohomology obstructions. Exact all-parameter filters exclude specified near-group construction routes for every original frontier tensor. General Galois-pseudo-unitarity reductions extend the scope of all seven noncommutative searches. Complete connected-algebra underlying-object filters and exact feasible center constraints describe the remaining construction possibilities; their survivors are not asserted algebras or categories.",
+        "For R8_3_436 specifically, the old TPE categorical-completeness premise is withdrawn. The current general exclusion uses the independent spherical-equivariantization/formal-codegree replacement proof."
       ]
     },
     {
@@ -288,5 +301,5 @@
       ]
     }
   ],
-  "open_case_count": 11
+  "open_case_count": 10
 }
