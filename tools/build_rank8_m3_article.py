@@ -237,7 +237,8 @@ identities and reconciliation without replaying the mathematics.
         if 'R8_3_3413' in accepted_ids:proof_files.append('global_induction/atomic_3413_application.tex')
         if 'R8_3_1055' in accepted_ids:proof_files.append('global_induction/atomic_1055_application.tex')
         if 'R8_3_3258' in accepted_ids:proof_files.append('global_induction/atomic_sts_application.tex')
-        proofs='\n'.join((ROOT/frontier.EVIDENCE/name).read_text() for name in proof_files)
+        from research_continuation_20261024 import active as latest_active
+        proofs='\n'.join((ROOT/'evidence/r436_repair_20261024/proof.tex').read_text() if latest_active(ROOT) and name=='structural_models/r436_general_tpe.tex' else (ROOT/frontier.EVIDENCE/name).read_text() for name in proof_files)
         if 'R8_3_439' in accepted_ids:
             proofs=proofs.replace('Other associators\n'+
                 'on the same based ring remain open; no model is inferred.',

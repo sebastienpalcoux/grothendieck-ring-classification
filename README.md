@@ -22,12 +22,12 @@ Higher ranks have the explicit multiplicity bounds below.
 | 5 | Through 20 | **Complete through 20** | Through 20: 40,982 excluded, 17 realized, 0 unresolved. |
 | 6 | Through 9 | **Complete through 3** | Through 9: 25,362 excluded, 57 realized, 2 unresolved. |
 | 7 | Through 5 | **Complete through 5** | Through 5: 9,976 excluded, 30 realized, 0 unresolved. |
-| 8 | Through 3 | **Complete through 2**; multiplicity 3 partial | Through 3: 4,402 excluded, 93 realized, 5 unresolved. |
-| 9 | Through 2 | **Complete through 1**; multiplicity 2 partial | Through 2: 2,135 excluded, 72 realized, [18 unresolved](https://sebastienpalcoux.github.io/grothendieck-ring-classification/unresolved.html?rank=9&m=2). |
+| 8 | Through 3 | **Complete through 2**; multiplicity 3 partial | Through 3: 4,403 excluded, 93 realized, 4 unresolved. |
+| 9 | Through 2 | **Complete through 1**; multiplicity 2 partial | Through 2: 2,145 excluded, 76 realized, [4 unresolved](https://sebastienpalcoux.github.io/grothendieck-ring-classification/unresolved.html?rank=9&m=2). |
 | 10 | Multiplicity 1 | **Partial at multiplicity 1** | 136 excluded, 57 realized, [1 unresolved](https://sebastienpalcoux.github.io/grothendieck-ring-classification/unresolved.html?rank=10&m=1). |
 | 11 | Multiplicity 1 | **Complete at multiplicity 1** | 155 excluded, 27 realized, 0 unresolved. |
 
-**26 open cases.** General categorification remains undecided for these rings.
+**11 open cases.** General categorification remains undecided for these rings.
 [Explore their status, invariants and research records](https://sebastienpalcoux.github.io/grothendieck-ring-classification/unresolved.html).
 
 <details id="grothendieck-rings--known-realizations-at-each-exact-multiplicity">
@@ -39,7 +39,7 @@ general categorification remains open; a dash marks an unanalyzed band.
 | Multiplicity | Rank 2 | Rank 3 | Rank 4 | Rank 5 | Rank 6 | Rank 7 | Rank 8 | Rank 9 | Rank 10 | Rank 11 |
 | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | 1 | 2 | 4 | 9 | 10 | 21 | 13 | 48 | 40 | ≥57 | 27 |
-| 2 | 0 | 1 | 3 | 3 | 22 | 10 | 29 | ≥32 | — | — |
+| 2 | 0 | 1 | 3 | 3 | 22 | 10 | 29 | ≥36 | — | — |
 | 3 | 0 | 0 | 2 | 2 | 3 | 2 | ≥16 | — | — | — |
 | 4 | 0 | 0 | 0 | 2 | ≥5 | 4 | — | — | — | — |
 | 5 | 0 | 0 | 0 | 0 | 1 | 1 | — | — | — | — |

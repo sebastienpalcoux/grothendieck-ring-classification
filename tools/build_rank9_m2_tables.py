@@ -15,10 +15,7 @@ labels={'signed_nonzero_products':'Signed nonzero products','joint_integral_cent
 lines=[r'\begin{small}\begin{longtable}{p{.36\textwidth}p{.56\textwidth}}',r'\caption{The 36 family exclusions. Listed integers are suffixes of $R9\_2\_n$.}\label{tab:families}\\',r'\toprule Family & Cases\\\midrule\endfirsthead\toprule Family & Cases\\\midrule\endhead']
 for k,ids in accepted['new_exclusions'].items():lines.append(labels[k]+' & '+r',\allowbreak '.join(map(str,ids))+r'\\')
 lines.append(r'\bottomrule\end{longtable}\end{small}');(P/'exclusion-families.tex').write_text('\n'.join(lines)+'\n')
-U=json.loads((E/'unresolved.json').read_text());integral={12,941,959,1965};weak={585,746,1025,1209,1254,1303,1709,1759,1988}
-lines=[r'\begin{center}\begin{tabular}{ll}\toprule Type & Suffixes of unresolved $R9\_2\_n$\\\midrule']
-for label,ids in [('Integral',sorted(integral)),('Strictly weakly integral',sorted(weak)),('Other quadratic',sorted(int(r['id'].rsplit('_',1)[1])for r in U if int(r['id'].rsplit('_',1)[1])not in integral|weak))]:
- if len(ids)>6:lines.append(label+' & '+', '.join(map(str,ids[:5]))+r',\\');lines.append(' & '+', '.join(map(str,ids[5:]))+r'\\')
- else:lines.append(label+' & '+', '.join(map(str,ids))+r'\\')
-lines.append(r'\bottomrule\end{tabular}\end{center}');(P/'unresolved.tex').write_text('\n'.join(lines)+'\n')
-print('Generated 32-model inventory, 36 exclusion-family entries and 18 open identifiers.')
+U=json.loads((E/'unresolved.json').read_text())
+lines=[r'\begin{center}\begin{tabular}{ll}\toprule Type & Suffixes of unresolved $R9\_2\_n$\\\midrule',r'Quadratic & '+', '.join(str(int(r['id'].rsplit('_',1)[1]))for r in U)+r'\\',r'\bottomrule\end{tabular}\end{center}']
+(P/'unresolved.tex').write_text('\n'.join(lines)+'\n')
+print(f'Generated {len(models)} model entries and {len(U)} open identifiers from the current ledger.')

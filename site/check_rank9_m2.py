@@ -14,7 +14,7 @@ def main():
  p=read(DIST/'data/rank9_m2.json');summary=p['summary'];E=ROOT/summary['release'];ledger=read(E/'ledger.json');models={r['id']:r for r in read(E/'models.json')};original=read(E/'tensors.json');rows=p['cases'];expected={f'R9_2_{i}'for i in range(1,2084)}
  need(len(rows)==2083 and{r['id']for r in rows}==expected,'Case coverage')
  need([r['id']for r in rows]==[r['id']for r in ledger],'Source case order')
- need(dict(Counter(r['status']for r in rows))==summary['totals']=={'excluded':2033,'unitarily_realized':32,'unresolved':18},'Partition')
+ need(dict(Counter(r['status']for r in rows))==summary['totals']=={'excluded':2043,'unitarily_realized':36,'unresolved':4},'Partition')
  need(sha(E/'ledger.json')==summary['ledger_sha256'],'Ledger hash')
  check_browser_integers(p,'rank9_m2');byid={r['id']:r for r in ledger};sources={}
  for r in rows:
@@ -35,7 +35,7 @@ def main():
  with zipfile.ZipFile(E/'replay.zip')as z:
   root='Rank9_M2_Theoretical_Continuation_20261023/';m=json.loads(z.read(root+'SHA256SUMS.json'));need(all(hashlib.sha256(z.read(root+n)).hexdigest()==h for n,h in m.items()),'Archived source hashes')
  need((DIST/'papers/rank9-m2.pdf').read_bytes()==(ROOT/'publications/rank9-m2/paper/rank9-m2.pdf').read_bytes(),'Canonical manuscript copy')
- revision=read(ROOT/'data/current_publication_revision.json');need(len(revision['remaining_ids'])==revision['current_unresolved_total']==26,'Project frontier')
+ revision=read(ROOT/'data/current_publication_revision.json');need(len(revision['remaining_ids'])==revision['current_unresolved_total']==11,'Project frontier')
  need(set(summary['remaining_ids'])=={r['id']for r in rows if r['status']=='unresolved'},'M2 frontier')
  receipt=read(DIST/'data/rank9_m2_build.json')
  for name,h in receipt['legacy_sha256'].items():need(publication_matches('site/dist/data/'+name,h),'Previous publication changed: '+name)
@@ -43,11 +43,11 @@ def main():
  mod=ast.parse((ROOT/'data/current_remaining_cases.py').read_text());values={node.targets[0].id:ast.literal_eval(node.value)for node in mod.body if isinstance(node,ast.Assign)};need(set(values['TENSORS'])==set(revision['remaining_ids']),'Current open-tensor download')
  pages=read(ROOT/'data/current_manuscript_page_counts.json');need(sum(d['pages']for d in pages['documents']if d['kind']=='mathematical_manuscript')==pages['totals']['mathematical_manuscript'],'Page inventory')
  front=(ROOT/'README.md').read_text();rank9=[line for line in front.splitlines()if line.startswith('| 9 |')]
- need(len(rank9)==1 and 'Through 2' in rank9[0] and '2,135 excluded, 72 realized' in rank9[0],'Single current rank-nine README row')
- need('**26 open cases.**'in front,'Current README frontier')
- review=(DIST/'review.html').read_text();need('Current classification · 26 open questions'in review and 'rank-nine-m2'in review and 'rank-ten-m1'in review and 'rank-eleven-m1'in review,'Current review-page scope')
+ need(len(rank9)==1 and 'Through 2' in rank9[0] and '2,145 excluded, 76 realized' in rank9[0],'Single current rank-nine README row')
+ need('**11 open cases.**'in front,'Current README frontier')
+ review=(DIST/'review.html').read_text();need('Current classification · 11 open questions'in review and 'rank-nine-m2'in review and 'rank-ten-m1'in review and 'rank-eleven-m1'in review,'Current review-page scope')
  need('./data/current_publication_revision.json'in review and './downloads/current_remaining_cases.py'in review,'Current review downloads')
  for name,x in revision['documents'].items():
   if name.startswith('publications/rank9-m2/'):need(sha(ROOT/name)==x['sha256'],'Manuscript source identity')
- print('Rank-nine M2: all2083 case/tensor identities,2033 exclusions,32 model transports,18 scopes,26 project open tensors and every archive hash PASS.')
+ print('Rank-nine M2: all2083 case/tensor identities,2043 exclusions,36 model transports,4 scopes,11 project open tensors and every archive hash PASS.')
 if __name__=='__main__':main()

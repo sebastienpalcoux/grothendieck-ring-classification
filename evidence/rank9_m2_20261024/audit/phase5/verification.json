@@ -1,0 +1,75 @@
+{
+  "status": "PASS",
+  "input_decisions": 2083,
+  "partition": {
+    "excluded": 2043,
+    "unitarily_realized": 36,
+    "unresolved": 4
+  },
+  "all_36_model_tensor_coefficients": 26244,
+  "new_model_tensor_coefficients": 729,
+  "new_general_exclusions": 4,
+  "new_unitary_models": 1,
+  "remaining": [
+    "R9_2_137",
+    "R9_2_1607",
+    "R9_2_1975",
+    "R9_2_1976"
+  ],
+  "replays": [
+    {
+      "script": "integral120/verify_reductions.py",
+      "status": "PASS"
+    },
+    {
+      "script": "audit_integral120/independent_checks.py",
+      "status": "PASS"
+    },
+    {
+      "script": "integral168/verify_general_exclusion.py",
+      "status": "PASS"
+    },
+    {
+      "script": "audit_integral168/independent_replay.py",
+      "status": "PASS"
+    },
+    {
+      "script": "case941/verify_odd_columns.py",
+      "status": "PASS"
+    },
+    {
+      "script": "root/verify_941_independent.py",
+      "status": "PASS"
+    },
+    {
+      "script": "quadratic_noncomm/verify_1848_model.py",
+      "status": "PASS"
+    },
+    {
+      "script": "audit_model1848/verify_independent.py",
+      "status": "PASS"
+    },
+    {
+      "script": "quadratic_comm/verify_packaged_records.py",
+      "status": "PASS"
+    },
+    {
+      "script": "quadratic_comm/ty_module_subtask/forced_associator_check.py",
+      "status": "PASS"
+    },
+    {
+      "script": "orbifold_scope/verify_orbifold.py",
+      "status": "PASS"
+    },
+    {
+      "script": "audit_orbifold_scope/verify_independent.py",
+      "status": "PASS"
+    },
+    {
+      "script": "quadratic_noncomm/probe_order32_canonical_algebra.py",
+      "status": "PASS"
+    }
+  ],
+  "scope": "Exact finite replays and separate categorical audits; not a proof-assistant formalization.",
+  "online_changes": false
+}

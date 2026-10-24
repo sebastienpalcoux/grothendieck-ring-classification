@@ -1,7 +1,9 @@
 \documentclass[11pt,a4paper]{article}
 \usepackage[margin=25mm]{geometry}
-\usepackage[T1]{fontenc}\usepackage[utf8]{inputenc}
-\usepackage{lmodern,amsmath,amssymb,amsthm,mathtools,booktabs,longtable,array,microtype,xcolor,xurl,enumitem}
+\usepackage{fontspec}
+\setmainfont{DejaVu Serif}[ItalicFont=DejaVu Serif,ItalicFeatures={FakeSlant=0.17}]
+\setmonofont{DejaVu Sans Mono}
+\usepackage{amsmath,amssymb,amsthm,mathtools,booktabs,longtable,array,microtype,xcolor,xurl,enumitem}
 \usepackage[colorlinks=true,linkcolor=blue!45!black,urlcolor=blue!45!black]{hyperref}
 \hypersetup{pdftitle={Rank-nine fusion rings of multiplicity two},pdfauthor={FusionFrontier / Sebastien Palcoux}}
 \newtheorem{theorem}{Theorem}[section]\newtheorem{proposition}[theorem]{Proposition}
@@ -10,6 +12,10 @@
 \newcommand{\FPdim}{\operatorname{FPdim}}\newcommand{\Rep}{\operatorname{Rep}}
 \renewcommand{\Vec}{\operatorname{Vec}}\newcommand{\Irr}{\operatorname{Irr}}
 \newcommand{\C}{\mathbb C}\newcommand{\Q}{\mathbb Q}\newcommand{\Z}{\mathbb Z}
+\usepackage{fvextra}
+\DefineVerbatimEnvironment{verbatim}{Verbatim}{breaklines,fontsize=\small}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,commandchars=\\\{\}}
+\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 \setlength{\emergencystretch}{3em}
 \title{Rank-nine fusion rings of multiplicity two\\\large Theoretical obstructions, coherent constructions and exact certification}
 \author{FusionFrontier research prepared for S\'ebastien Palcoux\\\small AI-generated research; independent human verification and formalization pending}
@@ -17,8 +23,8 @@
 \begin{document}\maketitle
 \begin{abstract}
 We study the 2,083 supplied rank-nine based fusion rings of exact multiplicity
-two. The current certified partition consists of 2,033 general complex
-exclusions, 32 rings with unitary models and 18 unresolved rings. The proofs
+two. The current certified partition consists of 2,043 general complex
+exclusions, 36 rings with unitary models and four unresolved rings. The proofs
 combine formal-codegree and subring obstructions, signed sphericalization,
 central induction, modular trace constraints, Morita theory and explicit
 categorical constructions. A Galois restriction theorem simultaneously
@@ -55,9 +61,9 @@ needed. The original tensor, rather than a dimension profile, determines
 case identity.
 
 \begin{theorem}[Certified partition of the supplied exact-M2 census]
-The accepted ledger partitions the 2,083 source rings into 2,033 rings
-excluded from fusion categorification over $\C$, 32 admitting a unitary
-fusion categorification, and 18 unresolved rings. Every exclusion has a
+The accepted ledger partitions the 2,083 source rings into 2,043 rings
+excluded from fusion categorification over $\C$, 36 admitting a unitary
+fusion categorification, and four unresolved rings. Every exclusion has a
 scope-valid theoretical argument and an exact certificate or an explicit
 transfer from an excluded tensor. Every realization has categorical
 existence data and a complete equality of its $9^3$ structure constants
@@ -66,8 +72,8 @@ with the source tensor under the recorded based permutation.
 \begin{proof}
 The finite partition is the exact union of the source-bound exclusion and
 model records described below. The verifier checks all 2,083 tensor hashes,
-all 568 explicit negative-subring transfers and all 23,328 coefficients of
-the 32 positive tensors. It rejects any overlap between exclusion and
+the 568 explicit negative-subring transfers, the subsequent theoretical
+certificates, and all 26,244 coefficients of the 36 positive tensors. It rejects any overlap between exclusion and
 realization records. Each family-specific proof supplies the mathematical
 implication used by its finite receipt. The model and exclusion arguments
 are audited separately from these bookkeeping checks. Complete data and
@@ -567,7 +573,7 @@ $b^2=\epsilon+f+a+\epsilon a$. These give $R9\_2\_96$ and
 $R9\_2\_1266$, including their distinct dualities. All coefficients,
 action coherence and forgetful identities are independently reconstructed.
 
-\subsection{All 32 positive tensors}
+\subsection{All 36 positive tensors}
 Table~\ref{tab:models} lists the accepted models. For group-theoretical
 and equivariantization entries, the archive supplies the actual cocycles,
 action data and projective stabilizer calculations, rather than an action
@@ -578,33 +584,44 @@ The word ``model'' asserts existence for a based ring and makes no
 claim of novelty up to tensor equivalence.
 \input{models.tex}
 
+{\setlength{\tabcolsep}{3pt}
+\input{continuation.tex}
+}
+
 \section{What remains unresolved}
 \input{unresolved.tex}
-For all eighteen rings general categorification and pseudo-unitary
-\emph{existence} are equivalent by the indicated reduction. For the thirteen
-weakly integral rings a hypothetical category itself is pseudo-unitary.
-The five other quadratic reductions may use Galois conjugation; they do
-not assert positivity of every original category. General, pivotal,
-spherical, pseudo-unitary and unitary existence all remain undecided.
-Noncommutativity excludes braiding for 1848, 1965 and 1975. No braided
-model or exclusion is asserted for the other fifteen.
+The four remaining rings are $R9\_2\_137,1607,1975,1976$, all with
+dimension type $(1^4,2,(4+3\sqrt2)^4)$ and global dimension
+$144+96\sqrt2$. General, pivotal, spherical, pseudo-unitary and unitary
+existence remain undecided. The audited sphericalization and Galois gates
+equate general existence with pseudo-unitary existence; they do not make
+every original category pseudo-unitary or unitary. Braided categorification
+is excluded for all four.
 
-The integral cases 12 and 959 survive the bounded relative-cocycle work;
-1965 survives the specified Morita and group-theoretical restrictions.
-The dimension-504 ring 941 is identified, in all 729 coefficients, with
-the ring posed in Question 1.14 of \cite{ABDP}. That identification does
-not settle its categorification. The nine strictly weakly integral rings
-retain the explicit extension or module-category gaps stated in their
-research records. Both tested mixed Moore--Read action systems fail only
-for the finite phase ansatzes used; this excludes no ambient fusion ring.
+For each of the three commutative sources, the nonintegral objects have
+two distinct $V_4$ stabilizers. The Tambara--Yamagami module associator
+identifies them as perpendicular lines and forces the nonalternating
+bicharacter. The unique isotropic involution gives a Morita dual of type
+$(1^8,(4+3\sqrt2)^4)$, with invertible group $D_8$. A complete finite
+fusion-ring reduction and an additional pointed-associator obstruction
+leave two common uniform types. The associator restricts to class two on
+the rotation $C_4$. A relation $rX=Xs$ with $|r|=4$ and $|s|=2$ would
+make that nonzero class trivial on a cyclic stabilizer, so the type with
+nonidentity quotient action is impossible with this forced associator.
+The surviving two identity-action types still need compatible associators
+and the required inverse Morita module. Their based tensors are not models.
 
-The remaining five quadratic rings pass the Galois restriction test.
-Bounded labelled-$S$ searches on the three commutative ones produce no
-certified contradiction, with several time limits; this is not a proof
-of categorical feasibility. Correctly degree-weighted noncommutative
-constraints likewise leave 1848 and 1975 undecided. Failed model searches,
-feasible necessary matrices and unsuccessful separator optimizations do
-not change the accepted partition.
+The noncommutative case $1975$ retains three necessary Morita types;
+all pass this cyclic-stabilizer obstruction. The new algebraic isotropic
+orbifold construction for the explicit Radchenko--Wheeler realizations
+gives a rank-twelve auxiliary category with invertibles $C_4\times C_2$,
+which does not match the required $D_8$. Its canonical nonintegral algebra
+route cannot directly give a rank-nine dual. This is a limitation of that
+construction route, not a general nonexistence theorem.
+Full arguments, exact domains and independent reviews are in
+\path{phase5/quadratic_comm/}, \path{phase5/quadratic_noncomm/} and
+\path{phase5/orbifold_scope/} of the replay archive. The criteria and model
+searches make no further classification decision.
 
 \section{Exact evidence and reproduction}\label{sec:replay}
 The public source is
@@ -612,27 +629,28 @@ The public source is
 It exposes the accepted ledger, positive models, exact open tensors and
 readable proofs. Its checksummed replay archive retains every source
 cochain, certificate, constructor, independent audit and historical source
-context. Only \path{phase3/results/} is the current mathematical partition.
+context. Only \path{phase5/results/} is the current mathematical partition.
 Historical ledgers remain explicitly superseded; their unsupported half-$E_6$
 claims are not used by the corrected verifier.
 
 After unpacking the archive and installing its requirements, run
 \begin{quote}\ttfamily
-python3 phase3/verify\_audit.py\\
-python3 phase3/verify\_audit.py --fresh
+python3 verify.py\\
+python3 verify.py --frontier
 \end{quote}
-The first command checks all input identities, the partition, model
-permutations, explicit negative transfers and accepted receipts. The second
-reconstructs the corrected subring pass and the new constructors and
-independent exact checks. The archive manifest binds every member before
-fresh output is written. A replay is finite mathematical evidence and
-bookkeeping verification; it is not a formal proof-assistant development.
+The first command verifies archive hashes, accepted finite evidence, every
+input identity and all 36 exact model transports. The second adds the
+auxiliary Morita and algebraic-orbifold checks. The earlier research
+snapshots and their supersession records remain preserved. Each categorical
+argument has a separate review; computation checks its finite premises,
+not the cited categorical theorems. Independent human verification and
+formalization remain pending.
 
 The fusion census repository publishes the same 2,225 supplied tensors
 through multiplicity two and the corresponding producer-run qualification.
 The public Atlas uses one rank/multiplicity table and one case directory
 for all ranks. Every M2 case has its source identity, current decision,
-proof links and a downloadable Python tensor. The eighteen open cases
+proof links and a downloadable Python tensor. The four open cases
 retain their separate categorical-scope statements.
 
 \begin{thebibliography}{99}

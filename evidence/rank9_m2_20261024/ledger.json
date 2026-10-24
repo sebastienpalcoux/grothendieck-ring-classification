@@ -224,8 +224,16 @@
     "rank": 9,
     "exact_multiplicity": 2,
     "commutative": true,
-    "status": "unresolved",
-    "exclusion_certificates": [],
+    "status": "excluded",
+    "exclusion_certificates": [
+      {
+        "record_file": "phase5/integral120/reductions_certificate.json",
+        "proof": "phase5/integral120/THEORY.md",
+        "independent_audit": "phase5/audit_integral120/REPORT.md",
+        "certificate_kind": "fermion_parity_and_solvable_descent",
+        "scope": "general_complex_fusion_category"
+      }
+    ],
     "models": [],
     "attempts": [
       {
@@ -270,16 +278,24 @@
       }
     ],
     "categorification_scopes": {
-      "general_complex": "unresolved",
-      "pivotal": "unresolved",
-      "spherical": "unresolved",
-      "pseudo_unitary": "unresolved",
-      "unitary": "unresolved",
+      "general_complex": "excluded",
+      "pivotal": "excluded",
+      "spherical": "excluded",
+      "pseudo_unitary": "excluded",
+      "unitary": "excluded",
       "general_existence_equivalent_to_pseudo_unitary_existence": true,
       "existence_reduction": "weak_integrality",
-      "braided": "unresolved",
-      "note": "A Galois existence reduction does not make every original categorification pseudo-unitary."
-    }
+      "braided": "excluded",
+      "note": "A Galois existence reduction does not make every original categorification pseudo-unitary.",
+      "braided_exclusion_proof": "phase4/integral/BRAIDED_SCOPE_THEOREMS.md",
+      "group_theoretical": "excluded",
+      "group_theoretical_exclusion_proof": "phase4/integral/GROUP_THEORETICAL_OBSTRUCTIONS.md",
+      "group_theoretical_independent_audit": "phase4/audit_integral_gt/AUDIT.md",
+      "weakly_group_theoretical": "excluded",
+      "general_exclusion_proof": "phase5/integral120/THEORY.md"
+    },
+    "phase4_research_report": "phase4/integral/REPORT.md",
+    "phase5_research_report": "phase5/integral120/THEORY.md"
   },
   {
     "id": "R9_2_13",
@@ -2980,9 +2996,12 @@
       "unitary": "unresolved",
       "general_existence_equivalent_to_pseudo_unitary_existence": true,
       "existence_reduction": "signed_sphericalization_global_dimension_Galois_orbit",
-      "braided": "unresolved",
-      "note": "A Galois existence reduction does not make every original categorification pseudo-unitary."
-    }
+      "braided": "excluded",
+      "note": "A Galois existence reduction does not make every original categorification pseudo-unitary.",
+      "braided_exclusion_proof": "phase4/quadratic_comm/BRAIDED_OBSTRUCTION.md"
+    },
+    "phase4_research_report": "phase4/quadratic_comm/REPORT.md",
+    "phase5_research_report": "phase5/quadratic_comm/REPORT.md"
   },
   {
     "id": "R9_2_138",
@@ -12367,8 +12386,15 @@
     "rank": 9,
     "exact_multiplicity": 2,
     "commutative": true,
-    "status": "unresolved",
-    "exclusion_certificates": [],
+    "status": "excluded",
+    "exclusion_certificates": [
+      {
+        "record_file": "phase4/weak_b/dimension120_obstruction_certificate.json",
+        "proof": "phase4/weak_b/DIMENSION120_A5_OBSTRUCTION.md",
+        "scope": "general_complex_fusion_category",
+        "independent_audit": "phase4/root_audit/EXCLUSION_AUDIT.md"
+      }
+    ],
     "models": [],
     "attempts": [
       {
@@ -12396,18 +12422,7 @@
         "method": "advanced_criteria_retry",
         "outcome": "no_conclusion"
       }
-    ],
-    "categorification_scopes": {
-      "general_complex": "unresolved",
-      "pivotal": "unresolved",
-      "spherical": "unresolved",
-      "pseudo_unitary": "unresolved",
-      "unitary": "unresolved",
-      "general_existence_equivalent_to_pseudo_unitary_existence": true,
-      "existence_reduction": "weak_integrality",
-      "braided": "unresolved",
-      "note": "A Galois existence reduction does not make every original categorification pseudo-unitary."
-    }
+    ]
   },
   {
     "id": "R9_2_586",
@@ -15838,9 +15853,14 @@
     "rank": 9,
     "exact_multiplicity": 2,
     "commutative": true,
-    "status": "unresolved",
+    "status": "unitarily_realized",
     "exclusion_certificates": [],
-    "models": [],
+    "models": [
+      {
+        "record_file": "phase4/weak_a/cyclic_ty_models.json",
+        "model": "Inversion equivariantization of cyclic-C9 generalized Tambara-Yamagami category obtained by explicit central C3 condensation"
+      }
+    ],
     "attempts": [
       {
         "file": "work/module_scan.json",
@@ -15867,18 +15887,7 @@
         "method": "advanced_criteria_retry",
         "outcome": "no_conclusion"
       }
-    ],
-    "categorification_scopes": {
-      "general_complex": "unresolved",
-      "pivotal": "unresolved",
-      "spherical": "unresolved",
-      "pseudo_unitary": "unresolved",
-      "unitary": "unresolved",
-      "general_existence_equivalent_to_pseudo_unitary_existence": true,
-      "existence_reduction": "weak_integrality",
-      "braided": "unresolved",
-      "note": "A Galois existence reduction does not make every original categorification pseudo-unitary."
-    }
+    ]
   },
   {
     "id": "R9_2_747",
@@ -20199,8 +20208,16 @@
     "rank": 9,
     "exact_multiplicity": 2,
     "commutative": true,
-    "status": "unresolved",
-    "exclusion_certificates": [],
+    "status": "excluded",
+    "exclusion_certificates": [
+      {
+        "record_file": "phase5/case941/odd_columns_verified.json",
+        "proof": "phase5/case941/EXCLUSION_THEOREM.md",
+        "independent_audit": "phase5/root/AUDIT_941.md",
+        "certificate_kind": "odd_center_dimension_parity",
+        "scope": "general_complex_fusion_category"
+      }
+    ],
     "models": [],
     "attempts": [
       {
@@ -20240,22 +20257,31 @@
       }
     ],
     "categorification_scopes": {
-      "general_complex": "unresolved",
-      "pivotal": "unresolved",
-      "spherical": "unresolved",
-      "pseudo_unitary": "unresolved",
-      "unitary": "unresolved",
+      "general_complex": "excluded",
+      "pivotal": "excluded",
+      "spherical": "excluded",
+      "pseudo_unitary": "excluded",
+      "unitary": "excluded",
       "general_existence_equivalent_to_pseudo_unitary_existence": true,
       "existence_reduction": "weak_integrality",
-      "braided": "unresolved",
-      "note": "A Galois existence reduction does not make every original categorification pseudo-unitary."
+      "braided": "excluded",
+      "note": "A Galois existence reduction does not make every original categorification pseudo-unitary.",
+      "braided_exclusion_proof": "phase4/integral/BRAIDED_SCOPE_THEOREMS.md",
+      "weakly_group_theoretical": "excluded",
+      "weakly_group_theoretical_exclusion_proof": "phase4/integral/BRAIDED_SCOPE_THEOREMS.md",
+      "group_theoretical": "excluded",
+      "group_theoretical_exclusion_proof": "phase4/integral/GROUP_THEORETICAL_OBSTRUCTIONS.md",
+      "group_theoretical_independent_audit": "phase4/audit_integral_gt/AUDIT.md",
+      "general_exclusion_proof": "phase5/case941/EXCLUSION_THEOREM.md"
     },
     "literature_identification": {
       "source": "https://arxiv.org/html/2507.07023v2#S1.SS5",
       "statement": "The published rank-nine dimension-504 ring of Question 1.14.",
       "exact_tensor_match": "phase3/audit_models/published_504_tensor.json",
-      "classification_effect": "none; it remains unresolved"
-    }
+      "classification_effect": "Now generally excluded by phase5/case941/EXCLUSION_THEOREM.md; earlier unresolved status is superseded."
+    },
+    "phase4_research_report": "phase4/integral/REPORT.md",
+    "phase5_research_report": "phase5/case941/EXCLUSION_THEOREM.md"
   },
   {
     "id": "R9_2_942",
@@ -20590,8 +20616,16 @@
     "rank": 9,
     "exact_multiplicity": 2,
     "commutative": true,
-    "status": "unresolved",
-    "exclusion_certificates": [],
+    "status": "excluded",
+    "exclusion_certificates": [
+      {
+        "record_file": "phase5/integral120/reductions_certificate.json",
+        "proof": "phase5/integral120/THEORY.md",
+        "independent_audit": "phase5/audit_integral120/REPORT.md",
+        "certificate_kind": "fermion_parity_and_solvable_descent",
+        "scope": "general_complex_fusion_category"
+      }
+    ],
     "models": [],
     "attempts": [
       {
@@ -20641,16 +20675,24 @@
       }
     ],
     "categorification_scopes": {
-      "general_complex": "unresolved",
-      "pivotal": "unresolved",
-      "spherical": "unresolved",
-      "pseudo_unitary": "unresolved",
-      "unitary": "unresolved",
+      "general_complex": "excluded",
+      "pivotal": "excluded",
+      "spherical": "excluded",
+      "pseudo_unitary": "excluded",
+      "unitary": "excluded",
       "general_existence_equivalent_to_pseudo_unitary_existence": true,
       "existence_reduction": "weak_integrality",
-      "braided": "unresolved",
-      "note": "A Galois existence reduction does not make every original categorification pseudo-unitary."
-    }
+      "braided": "excluded",
+      "note": "A Galois existence reduction does not make every original categorification pseudo-unitary.",
+      "braided_exclusion_proof": "phase4/integral/BRAIDED_SCOPE_THEOREMS.md",
+      "group_theoretical": "excluded",
+      "group_theoretical_exclusion_proof": "phase4/integral/GROUP_THEORETICAL_OBSTRUCTIONS.md",
+      "group_theoretical_independent_audit": "phase4/audit_integral_gt/AUDIT.md",
+      "weakly_group_theoretical": "excluded",
+      "general_exclusion_proof": "phase5/integral120/THEORY.md"
+    },
+    "phase4_research_report": "phase4/integral/REPORT.md",
+    "phase5_research_report": "phase5/integral120/THEORY.md"
   },
   {
     "id": "R9_2_960",
@@ -21986,8 +22028,15 @@
     "rank": 9,
     "exact_multiplicity": 2,
     "commutative": true,
-    "status": "unresolved",
-    "exclusion_certificates": [],
+    "status": "excluded",
+    "exclusion_certificates": [
+      {
+        "record_file": "phase4/weak_b/cyclic_obstruction_certificate.json",
+        "proof": "phase4/weak_b/CYCLIC_INTERNAL_END_OBSTRUCTION.md",
+        "scope": "general_complex_fusion_category",
+        "independent_audit": "phase4/root_audit/EXCLUSION_AUDIT.md"
+      }
+    ],
     "models": [],
     "attempts": [
       {
@@ -22025,18 +22074,7 @@
         "outcome": "no_conclusion",
         "classification_authority": "Only accepted.json changes status"
       }
-    ],
-    "categorification_scopes": {
-      "general_complex": "unresolved",
-      "pivotal": "unresolved",
-      "spherical": "unresolved",
-      "pseudo_unitary": "unresolved",
-      "unitary": "unresolved",
-      "general_existence_equivalent_to_pseudo_unitary_existence": true,
-      "existence_reduction": "weak_integrality",
-      "braided": "unresolved",
-      "note": "A Galois existence reduction does not make every original categorification pseudo-unitary."
-    }
+    ]
   },
   {
     "id": "R9_2_1026",
@@ -25916,9 +25954,14 @@
     "rank": 9,
     "exact_multiplicity": 2,
     "commutative": true,
-    "status": "unresolved",
+    "status": "unitarily_realized",
     "exclusion_certificates": [],
-    "models": [],
+    "models": [
+      {
+        "record_file": "phase4/weak_a/cyclic_ty_models.json",
+        "model": "Inversion equivariantization of cyclic-C9 generalized Tambara-Yamagami category obtained by explicit central C3 condensation"
+      }
+    ],
     "attempts": [
       {
         "file": "work/module_scan.json",
@@ -25945,18 +25988,7 @@
         "method": "advanced_criteria_retry",
         "outcome": "no_conclusion"
       }
-    ],
-    "categorification_scopes": {
-      "general_complex": "unresolved",
-      "pivotal": "unresolved",
-      "spherical": "unresolved",
-      "pseudo_unitary": "unresolved",
-      "unitary": "unresolved",
-      "general_existence_equivalent_to_pseudo_unitary_existence": true,
-      "existence_reduction": "weak_integrality",
-      "braided": "unresolved",
-      "note": "A Galois existence reduction does not make every original categorification pseudo-unitary."
-    }
+    ]
   },
   {
     "id": "R9_2_1210",
@@ -27065,9 +27097,14 @@
     "rank": 9,
     "exact_multiplicity": 2,
     "commutative": true,
-    "status": "unresolved",
+    "status": "unitarily_realized",
     "exclusion_certificates": [],
-    "models": [],
+    "models": [
+      {
+        "record_file": "phase4/weak_a/mr_1254_model.json",
+        "model": "Mixed order-four cyclic-cover functor descended to a coherent C2 action on generalized Moore-Read category, then equivariantized"
+      }
+    ],
     "attempts": [
       {
         "file": "work/module_scan.json",
@@ -27104,18 +27141,7 @@
         "outcome": "no_conclusion",
         "classification_authority": "Only accepted.json changes status"
       }
-    ],
-    "categorification_scopes": {
-      "general_complex": "unresolved",
-      "pivotal": "unresolved",
-      "spherical": "unresolved",
-      "pseudo_unitary": "unresolved",
-      "unitary": "unresolved",
-      "general_existence_equivalent_to_pseudo_unitary_existence": true,
-      "existence_reduction": "weak_integrality",
-      "braided": "unresolved",
-      "note": "A Galois existence reduction does not make every original categorification pseudo-unitary."
-    }
+    ]
   },
   {
     "id": "R9_2_1255",
@@ -28096,8 +28122,15 @@
     "rank": 9,
     "exact_multiplicity": 2,
     "commutative": true,
-    "status": "unresolved",
-    "exclusion_certificates": [],
+    "status": "excluded",
+    "exclusion_certificates": [
+      {
+        "record_file": "phase4/weak_b/dimension120_obstruction_certificate.json",
+        "proof": "phase4/weak_b/DIMENSION120_A5_OBSTRUCTION.md",
+        "scope": "general_complex_fusion_category",
+        "independent_audit": "phase4/root_audit/EXCLUSION_AUDIT.md"
+      }
+    ],
     "models": [],
     "attempts": [
       {
@@ -28125,18 +28158,7 @@
         "method": "advanced_criteria_retry",
         "outcome": "no_conclusion"
       }
-    ],
-    "categorification_scopes": {
-      "general_complex": "unresolved",
-      "pivotal": "unresolved",
-      "spherical": "unresolved",
-      "pseudo_unitary": "unresolved",
-      "unitary": "unresolved",
-      "general_existence_equivalent_to_pseudo_unitary_existence": true,
-      "existence_reduction": "weak_integrality",
-      "braided": "unresolved",
-      "note": "A Galois existence reduction does not make every original categorification pseudo-unitary."
-    }
+    ]
   },
   {
     "id": "R9_2_1304",
@@ -34559,9 +34581,12 @@
       "unitary": "unresolved",
       "general_existence_equivalent_to_pseudo_unitary_existence": true,
       "existence_reduction": "signed_sphericalization_global_dimension_Galois_orbit",
-      "braided": "unresolved",
-      "note": "A Galois existence reduction does not make every original categorification pseudo-unitary."
-    }
+      "braided": "excluded",
+      "note": "A Galois existence reduction does not make every original categorification pseudo-unitary.",
+      "braided_exclusion_proof": "phase4/quadratic_comm/BRAIDED_OBSTRUCTION.md"
+    },
+    "phase4_research_report": "phase4/quadratic_comm/REPORT.md",
+    "phase5_research_report": "phase5/quadratic_comm/REPORT.md"
   },
   {
     "id": "R9_2_1608",
@@ -36658,8 +36683,15 @@
     "rank": 9,
     "exact_multiplicity": 2,
     "commutative": true,
-    "status": "unresolved",
-    "exclusion_certificates": [],
+    "status": "excluded",
+    "exclusion_certificates": [
+      {
+        "record_file": "phase4/weak_b/cyclic_obstruction_certificate.json",
+        "proof": "phase4/weak_b/CYCLIC_INTERNAL_END_OBSTRUCTION.md",
+        "scope": "general_complex_fusion_category",
+        "independent_audit": "phase4/root_audit/EXCLUSION_AUDIT.md"
+      }
+    ],
     "models": [],
     "attempts": [
       {
@@ -36692,18 +36724,7 @@
         "outcome": "no_conclusion",
         "classification_authority": "Only accepted.json changes status"
       }
-    ],
-    "categorification_scopes": {
-      "general_complex": "unresolved",
-      "pivotal": "unresolved",
-      "spherical": "unresolved",
-      "pseudo_unitary": "unresolved",
-      "unitary": "unresolved",
-      "general_existence_equivalent_to_pseudo_unitary_existence": true,
-      "existence_reduction": "weak_integrality",
-      "braided": "unresolved",
-      "note": "A Galois existence reduction does not make every original categorification pseudo-unitary."
-    }
+    ]
   },
   {
     "id": "R9_2_1710",
@@ -37728,8 +37749,15 @@
     "rank": 9,
     "exact_multiplicity": 2,
     "commutative": true,
-    "status": "unresolved",
-    "exclusion_certificates": [],
+    "status": "excluded",
+    "exclusion_certificates": [
+      {
+        "record_file": "phase4/weak_b/cyclic_obstruction_certificate.json",
+        "proof": "phase4/weak_b/CYCLIC_INTERNAL_END_OBSTRUCTION.md",
+        "scope": "general_complex_fusion_category",
+        "independent_audit": "phase4/root_audit/EXCLUSION_AUDIT.md"
+      }
+    ],
     "models": [],
     "attempts": [
       {
@@ -37762,18 +37790,7 @@
         "outcome": "no_conclusion",
         "classification_authority": "Only accepted.json changes status"
       }
-    ],
-    "categorification_scopes": {
-      "general_complex": "unresolved",
-      "pivotal": "unresolved",
-      "spherical": "unresolved",
-      "pseudo_unitary": "unresolved",
-      "unitary": "unresolved",
-      "general_existence_equivalent_to_pseudo_unitary_existence": true,
-      "existence_reduction": "weak_integrality",
-      "braided": "unresolved",
-      "note": "A Galois existence reduction does not make every original categorification pseudo-unitary."
-    }
+    ]
   },
   {
     "id": "R9_2_1760",
@@ -39568,9 +39585,16 @@
     "rank": 9,
     "exact_multiplicity": 2,
     "commutative": false,
-    "status": "unresolved",
+    "status": "unitarily_realized",
     "exclusion_certificates": [],
-    "models": [],
+    "models": [
+      {
+        "record_file": "phase5/quadratic_noncomm/1848_model.json",
+        "model": "Izumi isotropic C3 orbifold of the unitary near-group category NG(C18,18)",
+        "proof": "phase5/quadratic_noncomm/REPORT.md",
+        "independent_audit": "phase5/audit_model1848/REPORT.md"
+      }
+    ],
     "attempts": [
       {
         "file": "work/weighted_scan.json",
@@ -39593,16 +39617,19 @@
       }
     ],
     "categorification_scopes": {
-      "general_complex": "unresolved",
-      "pivotal": "unresolved",
-      "spherical": "unresolved",
-      "pseudo_unitary": "unresolved",
-      "unitary": "unresolved",
+      "general_complex": "realized",
+      "pivotal": "realized",
+      "spherical": "realized",
+      "pseudo_unitary": "realized",
+      "unitary": "realized",
       "general_existence_equivalent_to_pseudo_unitary_existence": true,
       "existence_reduction": "two_FP_values",
       "braided": "excluded",
-      "note": "A Galois existence reduction does not make every original categorification pseudo-unitary."
-    }
+      "note": "A Galois existence reduction does not make every original categorification pseudo-unitary.",
+      "existence_model": "phase5/quadratic_noncomm/1848_model.json"
+    },
+    "phase4_research_report": "phase4/quadratic_noncomm/REPORT.md",
+    "phase5_research_report": "phase5/quadratic_noncomm/REPORT.md"
   },
   {
     "id": "R9_2_1849",
@@ -42030,8 +42057,16 @@
     "rank": 9,
     "exact_multiplicity": 2,
     "commutative": false,
-    "status": "unresolved",
-    "exclusion_certificates": [],
+    "status": "excluded",
+    "exclusion_certificates": [
+      {
+        "record_file": "phase5/integral168/certificate.json",
+        "proof": "phase5/integral168/GENERAL_EXCLUSION.md",
+        "independent_audit": "phase5/audit_integral168/REPORT.md",
+        "certificate_kind": "central_symmetric_lagrangian_obstruction",
+        "scope": "general_complex_fusion_category"
+      }
+    ],
     "models": [],
     "attempts": [
       {
@@ -42051,16 +42086,23 @@
       }
     ],
     "categorification_scopes": {
-      "general_complex": "unresolved",
-      "pivotal": "unresolved",
-      "spherical": "unresolved",
-      "pseudo_unitary": "unresolved",
-      "unitary": "unresolved",
+      "general_complex": "excluded",
+      "pivotal": "excluded",
+      "spherical": "excluded",
+      "pseudo_unitary": "excluded",
+      "unitary": "excluded",
       "general_existence_equivalent_to_pseudo_unitary_existence": true,
       "existence_reduction": "weak_integrality",
       "braided": "excluded",
-      "note": "A Galois existence reduction does not make every original categorification pseudo-unitary."
-    }
+      "note": "A Galois existence reduction does not make every original categorification pseudo-unitary.",
+      "group_theoretical": "excluded",
+      "group_theoretical_exclusion_proof": "phase4/integral/GROUP_THEORETICAL_OBSTRUCTIONS.md",
+      "group_theoretical_independent_audit": "phase4/audit_integral_gt/AUDIT.md",
+      "weakly_group_theoretical": "excluded",
+      "general_exclusion_proof": "phase5/integral168/GENERAL_EXCLUSION.md"
+    },
+    "phase4_research_report": "phase4/integral/REPORT.md",
+    "phase5_research_report": "phase5/integral168/GENERAL_EXCLUSION.md"
   },
   {
     "id": "R9_2_1966",
@@ -42267,7 +42309,9 @@
       "existence_reduction": "signed_sphericalization_global_dimension_Galois_orbit",
       "braided": "excluded",
       "note": "A Galois existence reduction does not make every original categorification pseudo-unitary."
-    }
+    },
+    "phase4_research_report": "phase4/quadratic_noncomm/REPORT.md",
+    "phase5_research_report": "phase5/quadratic_noncomm/REPORT.md"
   },
   {
     "id": "R9_2_1976",
@@ -42325,9 +42369,12 @@
       "unitary": "unresolved",
       "general_existence_equivalent_to_pseudo_unitary_existence": true,
       "existence_reduction": "signed_sphericalization_global_dimension_Galois_orbit",
-      "braided": "unresolved",
-      "note": "A Galois existence reduction does not make every original categorification pseudo-unitary."
-    }
+      "braided": "excluded",
+      "note": "A Galois existence reduction does not make every original categorification pseudo-unitary.",
+      "braided_exclusion_proof": "phase4/quadratic_comm/BRAIDED_OBSTRUCTION.md"
+    },
+    "phase4_research_report": "phase4/quadratic_comm/REPORT.md",
+    "phase5_research_report": "phase5/quadratic_comm/REPORT.md"
   },
   {
     "id": "R9_2_1977",
@@ -42582,8 +42629,15 @@
     "rank": 9,
     "exact_multiplicity": 2,
     "commutative": true,
-    "status": "unresolved",
-    "exclusion_certificates": [],
+    "status": "excluded",
+    "exclusion_certificates": [
+      {
+        "record_file": "phase4/weak_b/cyclic_obstruction_certificate.json",
+        "proof": "phase4/weak_b/CYCLIC_INTERNAL_END_OBSTRUCTION.md",
+        "scope": "general_complex_fusion_category",
+        "independent_audit": "phase4/root_audit/EXCLUSION_AUDIT.md"
+      }
+    ],
     "models": [],
     "attempts": [
       {
@@ -42616,18 +42670,7 @@
         "outcome": "no_conclusion",
         "classification_authority": "Only accepted.json changes status"
       }
-    ],
-    "categorification_scopes": {
-      "general_complex": "unresolved",
-      "pivotal": "unresolved",
-      "spherical": "unresolved",
-      "pseudo_unitary": "unresolved",
-      "unitary": "unresolved",
-      "general_existence_equivalent_to_pseudo_unitary_existence": true,
-      "existence_reduction": "weak_integrality",
-      "braided": "unresolved",
-      "note": "A Galois existence reduction does not make every original categorification pseudo-unitary."
-    }
+    ]
   },
   {
     "id": "R9_2_1989",

@@ -1,21 +1,20 @@
 # Research status and verification
 
-<!-- current-audit-correction -->
-**24 October audit correction.** R8_3_436 is unresolved for general complex
-categorification; its unitary exclusion is retained. Rank eight through
-multiplicity three now has 4,402 general exclusions, 93 models and five open
-cases. With the rank-nine M2 continuation, the current project-wide total is
-26 open cases. Earlier dated ledgers and replay receipts keep their historical
-scope. [Correction and precise hypotheses](https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/evidence/audit_20261024/README.md).
-<!-- /current-audit-correction -->
+<!-- current-research-continuation -->
+**Current results · 24 October 2026.** Rank-nine exact multiplicity two has
+2,043 general exclusions, 36 unitary models and four unresolved rings.
+R8_3_436 is generally excluded by an independent spherical-equivariantization
+proof; the old TPE completeness premise remains withdrawn. The project has
+11 open cases. [Proofs, precise scope and replay](https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/evidence/research_20261024/README.md).
+<!-- /current-research-continuation -->
 
 <!-- current-high-rank-publication -->
 
-**Current results · 24 October 2026.** Rank nine at exact multiplicity two has **2,033 general exclusions, 32 unitary models and 18 unresolved rings** among 2,083 inputs. The complete rank-nine census through multiplicity two contains 2,225 rings. The project now has **26 unresolved rings** across ranks six, eight, nine and ten. [Rank-nine M2 manuscript](../publications/rank9-m2/paper/rank9-m2.pdf) · [Current proofs and exact replay](../evidence/rank9_m2_20261024/README.md) · [All current manuscripts](../manuscripts/README.md) · [All open cases](https://sebastienpalcoux.github.io/grothendieck-ring-classification/unresolved.html).
+**Current results · 24 October 2026.** Rank nine at exact multiplicity two has **2,043 general exclusions, 36 unitary models and 4 unresolved rings** among 2,083 inputs. The complete rank-nine census through multiplicity two contains 2,225 rings. The project now has **11 unresolved rings** across ranks six, eight, nine and ten. [Rank-nine M2 manuscript](../publications/rank9-m2/paper/rank9-m2.pdf) · [Current proofs and exact replay](../evidence/rank9_m2_20261024/README.md) · [All current manuscripts](../manuscripts/README.md) · [All open cases](https://sebastienpalcoux.github.io/grothendieck-ring-classification/unresolved.html).
 
 <!-- /current-high-rank-publication -->
 
-The rank-eight multiplicity-three continuation addresses all 3,527 supplied exact-multiplicity-three rings: 3,506 general exclusions, 16 models and 5 unresolved cases. Every recorded model admits a unitary realization. The remaining rings retain unresolved status for general complex categorification; R8_3_436 retains its unitary exclusion.
+The rank-eight multiplicity-three continuation addresses all 3,527 supplied exact-multiplicity-three rings: 3,507 general exclusions, 16 models and 4 unresolved cases. Every recorded model admits a unitary realization. The four remaining rings retain unresolved status for general complex categorification. R8_3_436 has an independent general exclusion.
 
 The rank-seven multiplicity-five continuation addresses all 5,805 supplied exact-multiplicity-five rings: 5,804 general exclusions, 1 realization and 0 unresolved cases. The classification of the supplied census is complete through multiplicity 5. The new realization R7_5_5678 is Rep(AGL(1,7)).
 
@@ -40,8 +39,8 @@ Rank six records **25,362 exclusions, 57 realizations and
 range ends at three; exact bands 1, 2, 3, 5, 6, 7, 9 are complete. Rank seven records
 **9,976 exclusions and 30 realizations**,
 with **0 open cases through multiplicity 5**; complete through multiplicity 5. Rank eight records
-**4402 exclusions and 93 realizations**,
-with **5 open cases through multiplicity 3**; complete through multiplicity 2. The historical general exclusion of
+**4403 exclusions and 93 realizations**,
+with **4 open cases through multiplicity 3**; complete through multiplicity 2. The historical general exclusion of
 `R8_2_24` uses an inner-square obstruction from short gauge weights and
 tensor-functor rigidity.
 
@@ -54,7 +53,7 @@ tensor-functor rigidity.
 
 ### Rank-seven classification frontier
 
-Every supplied rank-seven fusion ring through multiplicity five has a recorded general exclusion or unitary model. The [continuation evidence](../evidence/rank7_m5_20261020/README.md) gives the accepted arguments and replay receipts. [Download all 26 current open tensors](../data/current_remaining_cases.py), including the two rank-six cases.
+Every supplied rank-seven fusion ring through multiplicity five has a recorded general exclusion or unitary model. The [continuation evidence](../evidence/rank7_m5_20261020/README.md) gives the accepted arguments and replay receipts. [Download all 11 current open tensors](../data/current_remaining_cases.py), including the two rank-six cases.
 
 A necessary-condition witness is neither a categorification nor a general
 nonexistence proof. Scoped unitary, pseudo-unitary, pivotal or braided
@@ -102,7 +101,7 @@ A separately reviewed Galois follow-up reduces the 36 retained R8_3_1154 pair hi
 
 ## General exclusion of R8_3_3472
 
-R8_3_3472 admits no fusion categorification over the complex numbers. The sphericalization and Galois reduction covers general complex categories; complete center-frame and twist-orbit domains reduce the remaining case to 628 exact equations in 572 integer variables. A certificate of 1648 rational bound deductions and a final strictly positive separating gap proves infeasibility, with two independent exact checkers. The proof and reproducible certificate are in evidence/r3472_exclusion_20261022/. This complete obstruction supersedes the earlier feasible necessary systems and conditional Morita restrictions for R3472. R8_3_982 remains unitarily realized by the neutral triality component of the exceptional E21 chiral fusion category, with all 512 canonical fusion coefficients identified exactly. Apart from R8_3_436, four rank-eight general categorification questions remain: R8_3_928, R8_3_941, R8_3_1154 and R8_3_1768. Every hypothetical categorification of these four rings admits a spherical structure and has a pseudo-unitary Galois conjugate; none has a braided Morita representative. The R928 phase refinement leaves four of ten necessary center patterns, all fourteen R941 allocations survive the stated refinements, and R1154 retains its forced semionic data. R1768 has 39 of 40 necessary Gram/indicator branches excluded, while its final cone survives. These necessary data do not construct categories or settle the four remaining questions.
+R8_3_3472 admits no fusion categorification over the complex numbers. The sphericalization and Galois reduction covers general complex categories; complete center-frame and twist-orbit domains reduce the remaining case to 628 exact equations in 572 integer variables. A certificate of 1648 rational bound deductions and a final strictly positive separating gap proves infeasibility, with two independent exact checkers. The proof and reproducible certificate are in evidence/r3472_exclusion_20261022/. This complete obstruction supersedes the earlier feasible necessary systems and conditional Morita restrictions for R3472. R8_3_982 remains unitarily realized by the neutral triality component of the exceptional E21 chiral fusion category, with all 512 canonical fusion coefficients identified exactly. Four rank-eight general categorification questions remain: R8_3_928, R8_3_941, R8_3_1154 and R8_3_1768. Every hypothetical categorification of these four rings admits a spherical structure and has a pseudo-unitary Galois conjugate; none has a braided Morita representative. The R928 phase refinement leaves four of ten necessary center patterns, all fourteen R941 allocations survive the stated refinements, and R1154 retains its forced semionic data. R1768 has 39 of 40 necessary Gram/indicator branches excluded, while its final cone survives. These necessary data do not construct categories or settle the four remaining questions.
 
 The complete center-domain reduction and exact infeasibility certificates are in `evidence/r3472_exclusion_20261022/README.md`. This accepted decision removes R8_3_3472 from the unresolved ledger. The earlier E21 construction and its research receipts retain their historical scope.
 

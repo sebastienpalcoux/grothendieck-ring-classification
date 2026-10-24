@@ -18,6 +18,10 @@ def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 def write(p,x):p.parent.mkdir(parents=True,exist_ok=True);p.write_text(json.dumps(x,ensure_ascii=False,indent=2)+'\n')
 def info(p):return{'sha256':sha(p),'bytes':p.stat().st_size}
 def main(rebuild_cases=True):
+ from research_continuation_20261024 import active as research_active
+ if research_active(ROOT):
+  from sync_research_revision import main as sync_latest
+  return sync_latest(rebuild_cases)
  correction.validate(ROOT);ext=extension(ROOT);rows=read(ROOT/correction.LEDGER)
  # Bind compiled current documents before refreshing their derived displays.
  # The historical base-manifest receipt in the high-rank publication remains

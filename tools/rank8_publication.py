@@ -37,6 +37,8 @@ def active(repo):
     return (Path(repo) / LEDGER).is_file()
 
 def ledger_path(repo):
+    from research_continuation_20261024 import active as research_active, LEDGER as research_ledger
+    if research_active(repo): return research_ledger
     if audit_stage.active(repo): return audit_stage.LEDGER
     if exclusion_stage.active(repo): return exclusion_stage.LEDGER
     if creative_stage.active(repo): return creative_stage.LEDGER
@@ -100,6 +102,8 @@ def historical_sources(repo):
     return result
 
 def extension(repo):
+    from research_continuation_20261024 import active as research_active, publication_extension
+    if research_active(repo): return publication_extension(repo)
     if audit_stage.active(repo): return audit_stage.publication_extension(repo)
     if not active(repo): return None
     historical_sources(repo)

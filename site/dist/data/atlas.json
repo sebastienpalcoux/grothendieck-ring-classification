@@ -15417,16 +15417,16 @@
       "kind": "partial",
       "rings": 4500,
       "positive": 93,
-      "unresolved": 5,
+      "unresolved": 4,
       "paper": "Rank-8 classification manuscript",
-      "note": "Five general questions remain open; R8_3_436 retains its unitary exclusion."
+      "note": "Four general questions remain open; R8_3_436 is excluded by an independent spherical-equivariantization proof."
     }
   ],
   "current_documents": {
     "path": "data/current_document_revision.json",
     "source": "data/current_document_revision.json",
     "date": "2026-10-24",
-    "sha256": "aa398d698050e61094da9eafc6414627155dfbd2c704d832bf5a4ab0b9af11de"
+    "sha256": "b53deea56b08d170956d14873dd31564cad82c65d981554035f342cb74f59a69"
   },
   "rank6_release": {
     "date": "2026-10-01",
@@ -15513,26 +15513,26 @@
       "path": "data/rank6_document_revision.json",
       "date": "2026-10-24",
       "source": "data/current_document_revision.json",
-      "sha256": "aa398d698050e61094da9eafc6414627155dfbd2c704d832bf5a4ab0b9af11de"
+      "sha256": "b53deea56b08d170956d14873dd31564cad82c65d981554035f342cb74f59a69"
     }
   },
   "reader_resources": {
     "files": {
       "remaining_cases.py": {
         "path": "downloads/remaining_cases.py",
-        "sha256": "880297beccfd303ea22ca672a9140695f4f8e62256fb3b8b8df4dae9958b3aef"
+        "sha256": "14592974ff72c384a06971855020545a55bf60d64491cc1c29b0023a5d9d0bf8"
       },
       "manuscript_page_counts.json": {
         "path": "downloads/manuscript_page_counts.json",
-        "sha256": "f7512fa93b14115f03e0b6fbe29fed625f48998485e0017f5f3193e0a70bb461"
+        "sha256": "c5013e89d916266f8a13cd09895661e6f18edaac97759ffc6f57d9ab3f547a6d"
       }
     },
     "page_totals": {
       "mathematical_manuscript": 553,
       "verification_guide": 19,
-      "research_status_report": 3,
+      "research_status_report": 10,
       "mathematical_manuscripts_and_guides": 572,
-      "all_distinct_documents": 575
+      "all_distinct_documents": 582
     }
   },
   "upper_rank_releases": {
@@ -15550,7 +15550,7 @@
     "8": {
       "manuscript": {
         "path": "papers/rank8.pdf",
-        "sha256": "be7c9106516621bb9b90cc5de99da30b242eba978dba4e9789200b31543287fb"
+        "sha256": "3001d316809db02098eef91e84db2089b7245431f4af09e1ffea8658b3fa3a25"
       },
       "archive": {
         "path": "downloads/rank8-certified-exclusion-20261022.zip",
@@ -16087,7 +16087,6 @@
   "remaining_ids": [
     "R6_4_155",
     "R6_8_1660",
-    "R8_3_436",
     "R8_3_928",
     "R8_3_941",
     "R8_3_1154",
@@ -16095,28 +16094,25 @@
   ],
   "remaining_ids_file": {
     "path": "data/current_remaining_ids.json",
-    "sha256": "7960dafdbb11c81786911572ef141f6b66742ca1e6d78f64517f5b95c4d3006f"
+    "sha256": "57d6b9beac7e7d6d89678e5d56606d4169ee5d19a3b643149d3609642ce9ebf4"
   },
   "rank8_m3_update": {
     "date": "2026-10-24",
     "rank": 8,
     "multiplicity": 3,
     "rings": 3527,
-    "excluded": 3506,
+    "excluded": 3507,
     "realized": 16,
     "unitarily_realized": 16,
     "pseudo_unitarily_realized": 0,
-    "unresolved": 5,
+    "unresolved": 4,
     "remaining_ids": [
-      "R8_3_436",
       "R8_3_928",
       "R8_3_941",
       "R8_3_1154",
       "R8_3_1768"
     ],
-    "unitary_excluded_ids": [
-      "R8_3_436"
-    ],
+    "unitary_excluded_ids": [],
     "realized_ids": [
       "R8_3_274",
       "R8_3_331",
@@ -16135,13 +16131,13 @@
       "R8_3_3314",
       "R8_3_3342"
     ],
-    "ledger": "supplements/rank8/output/audited_20261024/ledger.json",
-    "ledger_sha256": "ee86e6dbc37754ea7ea7f8014ec0074dcb46521241a7f912109ff9fd7d4f5314",
+    "ledger": "supplements/rank8/output/research_20261024/ledger.json",
+    "ledger_sha256": "16a4723f149222ba8cb4f91d07d8ef75176ba5e95b20ff7594ed17e8e4e033fe",
     "historical_ledger": "supplements/rank8/data/decisions.json",
     "historical_ledger_sha256": "7f50213174f1020bb9d90d5981892c332448cf909a56bf60b29e1143228f3f24",
     "source": "supplements/rank8/data/rank8_m3_tables.txt.gz",
     "source_sha256": "1003a7684ec62797e63885eeb5af42fd094adc9ff3fec6caf049620b3afd0952",
-    "evidence": "evidence/audit_20261024",
+    "evidence": "evidence/research_20261024",
     "baseline_evidence": "evidence/rank8_m3_20261021",
     "frontier": {
       "new_decisions": 25,
@@ -16320,45 +16316,20 @@
       "attempts_source": "evidence/r3472_exclusion_20261022/per_ring_research_audit.json",
       "evidence": "evidence/r3472_exclusion_20261022"
     },
-    "attempts_source": "evidence/audit_20261024/per_ring_research_audit.json",
-    "audit_correction": {
-      "date": "2026-10-24",
-      "ledger": "supplements/rank8/output/audited_20261024/ledger.json",
-      "ledger_sha256": "ee86e6dbc37754ea7ea7f8014ec0074dcb46521241a7f912109ff9fd7d4f5314",
-      "counts": {
-        "excluded": 3506,
-        "unitarily_realized": 16,
-        "unresolved": 5
-      },
-      "cumulative_counts": {
-        "unitarily_realized": 93,
-        "excluded": 4402,
-        "unresolved": 5
-      },
-      "remaining_ids": [
-        "R8_3_436",
-        "R8_3_928",
-        "R8_3_941",
-        "R8_3_1154",
-        "R8_3_1768"
-      ],
-      "withdrawn_general_ids": [
-        "R8_3_436"
-      ],
-      "preserved_other_records": 4499,
-      "unitary_exclusion_retained": true,
-      "attempts_source": "evidence/audit_20261024/per_ring_research_audit.json",
-      "evidence": "evidence/audit_20261024",
-      "scope": "One proof-scope correction; no counterexample or new categorification is asserted."
+    "attempts_source": "evidence/research_20261024/rank8_research_audit.json",
+    "independent_R436_replacement": {
+      "proof": "evidence/r436_repair_20261024/REPAIR.md",
+      "certificate": "evidence/r436_repair_20261024/equivariantization_certificate.json",
+      "criterion": "spherical_equivariantization_formal_codegree_field"
     },
     "historical_metadata_checkpoint": "evidence/audit_20261024/predecessor_publication.json",
-    "historical_metadata_scope": "Retained source-bound checkpoint; no new historical categorical replay.",
+    "historical_metadata_scope": "Frozen pre-audit release; the audit and independent replacement are separate accepted steps.",
     "attempts": {
       "path": "data/rank8_m3_attempts.json",
-      "sha256": "a9107df5347bab1b0c85127eb5b15544d68040b5da2e94d81337b1186c96319e",
-      "cases": 5
+      "sha256": "3e38677f25fc3ae7eb580fc7a9b8922e9227e215210c78118aac000989f2dea0",
+      "cases": 4
     },
     "metadata_path": "data/rank8_m3_update.json",
-    "metadata_sha256": "0fcb39ffaad32ff2eae65c189713d74b2d3e0605797439e8c09507f41579bc6f"
+    "metadata_sha256": "b9c622dc5f5d7d49c780692519cb5ce4e64ced4928ee96ee6bace27f5ed0b428"
   }
 }

@@ -11,6 +11,10 @@ def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 def write(p,x):p.parent.mkdir(parents=True,exist_ok=True);p.write_text(json.dumps(x,ensure_ascii=False,indent=2)+'\n')
 def info(p):return{'sha256':sha(p),'bytes':p.stat().st_size}
 def main():
+ from research_continuation_20261024 import active as research_active
+ if research_active(ROOT):
+  from sync_research_revision import main as sync_latest
+  return sync_latest()
  from audit_corrections_20261024 import active as audit_active
  if audit_active(ROOT):
   from sync_audit_revision import main as sync_current

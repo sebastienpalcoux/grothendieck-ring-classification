@@ -31,6 +31,10 @@ def documents():
  return True
 
 def main(metadata_only=False):
+ from research_continuation_20261024 import active as research_active
+ if research_active(ROOT):
+  from verify_research_revision import main as verify_latest
+  return verify_latest(metadata_only)
  report=validate(ROOT);need(documents(),'Document validation')
  ids=identifiers(ROOT);revision=read(ROOT/'data/current_publication_revision.json')
  need(len(ids)==26 and revision['remaining_ids']==ids and revision['current_unresolved_total']==26,'Global accepted-ledger frontier')

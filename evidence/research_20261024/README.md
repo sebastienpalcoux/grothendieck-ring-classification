@@ -1,0 +1,9 @@
+# Current theoretical continuation and rank-eight proof repair
+
+**Rank nine, exact multiplicity two: 2,043 general exclusions, 36 unitary models and four unresolved rings.** The remaining IDs are R9_2_137,1607,1975,1976. Together with two rank-six, four rank-eight and one rank-ten question, the project has **11 open cases**.
+
+The [accepted transitions](accepted.json) reconcile the finished 24 October audit with two subsequent, separately audited research continuations. Ten rank-nine cases are excluded and four receive unitary models. All other case decisions and exact tensor identities are preserved. Read the [current rank-nine evidence shelf](../rank9_m2_20261024/README.md) and its complete archive for proofs and finite checks.
+
+R8_3_436 is excluded again by the [independent spherical equivariantization proof](../r436_repair_20261024/REPAIR.md), with [categorical review](../r436_repair_20261024/INDEPENDENT_REVIEW.md). The [earlier audit](../audit_20261024/README.md) correctly withdrew an unsupported TPE parameterization premise. That premise remains withdrawn. The new proof cancels a pointed associator anomaly, forms a spherical rank-five equivariantization, and excludes every possible branch by formal-codegree fields. It does not use a near-group associator classification or unitarization theorem.
+
+Install the replay dependencies with `python3 -m pip install sympy==1.14.0 numpy==2.3.5`. Run `python3 tools/verify_research_revision.py` for current identities, exact structural properties, every new source-to-model transport and fresh accepted finite replays. `--metadata-only` checks source-bound publication metadata without rerunning those calculations. Historical ledgers and old scalar checks remain historical evidence; passing them does not prove the withdrawn categorical premise. Independent human verification and Lean formalization remain pending.

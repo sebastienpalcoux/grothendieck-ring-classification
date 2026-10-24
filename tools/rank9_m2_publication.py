@@ -30,5 +30,5 @@ def front(text):
 
 def index(text):
  text=text.replace('seven unresolved rings, including R10_1_189',f'{open_count()} unresolved rings across ranks six, eight, nine and ten')
- text=text.replace('**Ranks 9–11:** multiplicity one only. Rank 9 has 102 exclusions and 40 unitary models; rank 10 has 136 exclusions, 57 unitary models and 1 unresolved; rank 11 has 155 exclusions and 27 unitary models.', '**Rank 9:** through multiplicity two, 2,135 general exclusions, 72 unitary models and 18 unresolved. Exact multiplicity two contributes 2,033 exclusions and 32 models.\n\n**Ranks 10–11:** multiplicity one. Rank 10 has 136 exclusions, 57 unitary models and 1 unresolved; rank 11 has 155 exclusions and 27 unitary models.')
+ text=text.replace('**Ranks 9–11:** multiplicity one only. Rank 9 has 102 exclusions and 40 unitary models; rank 10 has 136 exclusions, 57 unitary models and 1 unresolved; rank 11 has 155 exclusions and 27 unitary models.', '**Rank 9:** through multiplicity two, 2,145 general exclusions, 76 unitary models and four unresolved. Exact multiplicity two contributes 2,043 exclusions and 36 models.\n\n**Ranks 10–11:** multiplicity one. Rank 10 has 136 exclusions, 57 unitary models and 1 unresolved; rank 11 has 155 exclusions and 27 unitary models.')
  return text

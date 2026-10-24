@@ -30,8 +30,8 @@ jobs:
         uses: actions/setup-python@v6
         with:
           python-version: '3.12'
-      - name: Install exact arithmetic for structural property checks
-        run: python -m pip install sympy==1.14.0
+      - name: Install structural-property and finite-replay dependencies
+        run: python -m pip install sympy==1.14.0 numpy==2.3.5
       - name: Restore checksummed download archives
         run: python tools/restore_data.py
       - name: Check the published snapshot

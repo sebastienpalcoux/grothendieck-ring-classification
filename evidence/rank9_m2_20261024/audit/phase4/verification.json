@@ -1,0 +1,69 @@
+{
+  "status": "PASS",
+  "total_input_decisions": 2083,
+  "partition": {
+    "excluded": 2039,
+    "unresolved": 9,
+    "unitarily_realized": 35
+  },
+  "all_35_model_tensor_coefficients": 25515,
+  "new_model_coefficients": 2187,
+  "new_general_exclusions": 6,
+  "new_models": 3,
+  "remaining": 9,
+  "braided_excluded_remaining": 9,
+  "R8_3_436_general_replacement": "accepted_after_independent_categorical_audit_and_exact_replay",
+  "replays": [
+    {
+      "script": "weak_b/verify_cyclic_obstruction.py",
+      "status": "PASS",
+      "stdout": "PASS: four exact tensors and all cyclic internal-end obstruction hypotheses"
+    },
+    {
+      "script": "weak_b/verify_dimension120_obstruction.py",
+      "status": "PASS",
+      "stdout": "PASS: two exact tensors, fusion axioms, dimensions, grading and neutral hypotheses"
+    },
+    {
+      "script": "r8_scope/verify_equivariantization.py",
+      "status": "PASS",
+      "stdout": "PASS: source grading/inversion; all4 selfdual branches; no nonselfdual branch; exact formal codegrees and nonintegral norms."
+    },
+    {
+      "script": "audit_models/verify_cyclic_ty.py",
+      "status": "PASS",
+      "stdout": "PASS: independent TY/pointed central coherence; all powers/algebra; parent-orbit quotient; both729 coefficient matches."
+    },
+    {
+      "script": "audit_models/mr_order4_audit.py",
+      "status": "PASS",
+      "stdout": "PASS: independent F/K pentagons; central algebra; F\u00b2=>K; explicit adjusted C2 coherence on all24 objects."
+    },
+    {
+      "script": "audit_models/mr1254_tensor_audit.py",
+      "status": "PASS",
+      "stdout": "PASS: independent1254tensor, source_to_audit_model [0, 7, 8, 2, 3, 1, 4, 6, 5]"
+    },
+    {
+      "script": "integral/verify_scope_refinements.py",
+      "status": "PASS",
+      "stdout": "{\n  \"status\": \"exact_hypotheses_verified\",\n  \"new_braided_exclusions\": [\n    \"R9_2_12\",\n    \"R9_2_959\",\n    \"R9_2_941\"\n  ],\n  \"general_decision_changes\": [],\n  \"S3_base_patterns\": [\n    {\n      \"packet_multiplicities\": [\n        2,\n        0,\n        0,\n        0,\n        3\n      ],\n      \"base_dimensions\": [\n        1,\n        1,\n        1,\n        1,\n        1,\n        1,\n        1,\n        1,\n        1,\n        1,\n        1,\n        1,\n        1,\n        1,\n        1,\n        1,\n        1,\n        1,\n        1,\n        1\n      ],\n      \"base_FPdim\": 20\n    },\n    {\n      \"packet_multiplicities\": [\n        2,\n        0,\n        0,\n        1,\n        1\n      ],\n      \"base_dimensions\": [\n        1,\n        1,\n        1,\n        1,\n        1,\n        1,\n        1,\n        1,\n        2,\n        2,\n        2\n      ],\n      \"base_FPdim\": 20\n    },\n    {\n      \"packet_multiplicities\": [\n        2,\n        0,\n        1,\n        0,\n        0\n      ],\n      \"base_dimensions\": [\n        1,\n        1,\n        3,\n        3\n      ],\n      \"base_FPdim\": 20\n    }\n  ]\n}"
+    },
+    {
+      "script": "integral/verify_GT_records.py",
+      "status": "PASS",
+      "stdout": "{\n  \"status\": \"PASS_stored_record_replay\",\n  \"general_status_changes\": [],\n  \"accepted_group_theoretical_exclusions\": [\n    \"R9_2_12\",\n    \"R9_2_959\",\n    \"R9_2_1965\"\n  ],\n  \"independent_mathematical_audit\": \"phase4/audit_integral_gt/audit_verdict.json\",\n  \"preexisting_literature_WGT_obstruction\": \"R9_2_941\",\n  \"summaries\": {\n    \"s5\": {\n      \"family_size\": 16,\n      \"relative_representatives\": 8,\n      \"rank9_representatives\": 4,\n      \"rank12_representatives\": 4,\n      \"cohomology_metadata\": {\n        \"variables\": 343,\n        \"cocycle_dimension\": 45,\n        \"boundary_dimension\": 41,\n        \"H3_F2_dimension\": 4\n      }\n    },\n    \"a5c2\": {\n      \"family_size\": 16,\n      \"relative_representatives\": 2,\n      \"rank9_representatives\": 0,\n      \"rank12_representatives\": 2,\n      \"cohomology_metadata\": {\n        \"variables\": 343,\n        \"cocycle_dimension\": 49,\n        \"boundary_dimension\": 39,\n        \"H3_F2_dimension\": 10,\n        \"normalizer_norm_basis_dimension\": 4\n      }\n    }\n  },\n  \"relative_cochain_provenance_checked\": true,\n  \"R959_invertible_orders\": [\n    1,\n    4,\n    4,\n    2\n  ],\n  \"R1965_excluded_from_both_untwisted_PSL168_S4_models\": true,\n  \"optional_sources_absent\": [],\n  \"runtime_dependencies\": \"Python standard library only; all data paths are relative to this research archive.\",\n  \"scope\": \"Group-theoretical only; no general exclusion.\"\n}"
+    },
+    {
+      "script": "quadratic_comm/verify_braided_obstruction.py",
+      "status": "PASS",
+      "stdout": "PASS: all 243 dimension identities, involution/fixed-point witnesses, adjoint closures and nonintegral norms."
+    },
+    {
+      "script": "weak_a/verify_mr_five_equations.py",
+      "status": "PASS",
+      "stdout": "PASS: five necessary equations give 1=-1 in all8 mixed-lift ansatzes over C*"
+    }
+  ],
+  "limitations": "Finite replays verify hypotheses and certificates; categorical proofs are reviewed in separate text audits, not formalized in a proof assistant."
+}

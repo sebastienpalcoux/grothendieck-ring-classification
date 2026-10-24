@@ -116,6 +116,8 @@ def revise_generated_tex(name,text,repo=ROOT):
  text=text.replace('Every remaining categorification admits a spherical structure and has a pseudo-unitary Galois conjugate; none can have a braided Morita representative.','The generally open case $\\sha{R8_3_436}$ retains its unitary exclusion. The other four open cases admit sphericality and Galois pseudo-unitarity reductions and have no braided Morita representatives.')
  text=text.replace('For the four cases in the stated sphericality reduction these conclusions hold. The additional R436 case is unresolved in general, with its unitary exclusion retained.','The generally open case $\\sha{R8_3_436}$ retains its unitary exclusion. The other four open cases admit sphericality and Galois pseudo-unitarity reductions and have no braided Morita representatives.')
  if name=='rank8.tex':text=text.replace(r'\date{22 October 2026}',r'\date{24 October 2026}')
+ from research_continuation_20261024 import active as latest_active, revise_generated_tex as latest_tex
+ if latest_active(repo):return latest_tex(name,text,repo)
  return text
 
 def revise_publication_document(name,text,repo=ROOT):
@@ -213,6 +215,8 @@ R8_3_436 remains excluded in the unitary setting.
   text=text.replace('The certified exclusion of R8_3_3472 now leaves four rank-eight questions.',
                     'At the 22 October exclusion checkpoint, the exclusion of R8_3_3472 left four rank-eight questions.')
   text+='\nThe 24 October audit restores R8_3_436 to generally unresolved, retaining its unitary exclusion. The current rank-eight totals are 4,402 exclusions, 93 models and five open cases. Earlier checkpoint counts above are historical. See evidence/audit_20261024/README.md.\n'
+ from research_continuation_20261024 import active as latest_active, revise_publication_document as latest_document
+ if latest_active(repo):return latest_document(name,text,repo)
  return text
 
 if __name__=='__main__':

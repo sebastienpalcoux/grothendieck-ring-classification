@@ -1,9 +1,9 @@
 {
-  "date": "22 October 2026",
-  "version": "Rank-eight multiplicity-three continuation and current verification scope",
+  "date": "24 October 2026",
+  "version": "Current classification through rank eleven",
   "title": "Research status and verification",
   "caution": "AI-generated research · independent verification pending. The results, proofs, code and data have not yet been independently verified by human experts or formalized in Lean. Use them with caution; exact checks establish only their stated computational scope.",
-  "summary": "The rank-eight multiplicity-three continuation addresses all 3,527 supplied exact-multiplicity-three rings: 3,507 general exclusions, 16 models and 4 unresolved cases. Every recorded model admits a unitary realization. The remaining rings retain unresolved status for general complex categorification. The rank-seven multiplicity-five continuation addresses all 5,805 supplied exact-multiplicity-five rings: 5,804 general exclusions, 1 realization and 0 unresolved cases. The classification of the supplied census is complete through multiplicity 5. The new realization R7_5_5678 is Rep(AGL(1,7)). The two earlier rank-six questions remain open. The historical 38-case inventory keeps its original scope.",
+  "summary": "The current rank-nine exact-multiplicity-two partition has 2,043 general complex exclusions, 36 unitary models and four unresolved rings among 2,083 inputs. Ten exclusions and four models settle fourteen cases left open by the earlier publication. R8_3_436 is again generally excluded by an independent spherical-equivariantization/formal-codegree proof. The earlier TPE categorical-completeness premise remains withdrawn. The project has eleven open cases: two at rank six, four at rank eight, four at rank nine and one at rank ten. Independent human verification and formalization remain pending.",
   "rank_counts": [
     {
       "rank": 4,
@@ -44,6 +44,30 @@
       "excluded": 4403,
       "models": 93,
       "open": 4
+    },
+    {
+      "rank": 9,
+      "bound": 2,
+      "rings": 2225,
+      "excluded": 2145,
+      "models": 76,
+      "open": 4
+    },
+    {
+      "rank": 10,
+      "bound": 1,
+      "rings": 194,
+      "excluded": 136,
+      "models": 57,
+      "open": 1
+    },
+    {
+      "rank": 11,
+      "bound": 1,
+      "rings": 182,
+      "excluded": 155,
+      "models": 27,
+      "open": 0
     }
   ],
   "coverage_notes": [
@@ -80,9 +104,31 @@
         "In the stated finite center systems, R8_3_928 has four exact integer-phase witnesses and six pattern exclusions certified by complete branching trees with 49 exact Farkas leaves; R8_3_941 retains 14 patterns, with 11 integer witnesses and 3 open integer-feasibility questions in its earlier Gram test. These witnesses are necessary data, not categorical models; uncertified numerical failures are not exclusions.",
         "R8_3_721 is realized by the inherited 1+rho Q-system Morita dual of the C2 de-equivariantization of GH(C8). Exact rank and coefficient bounds identify its unique dimension type in the supplied complete rank-eight multiplicity-at-most-three census. The earlier center-action analysis leaves three necessary R8_3_1154 patterns. These results are in evidence/rank8_next_20261021/; the later R8_3_65 general exclusion is in evidence/rank8_research_20261022/."
       ]
+    },
+    {
+      "id": "Rank nine: four rings",
+      "heading": "Exact multiplicity two",
+      "paragraphs": [
+        "R9_2_137, R9_2_1607, R9_2_1975 and R9_2_1976 remain unresolved for general complex categorification. All have no braided categorification. The three commutative sources reduce to two common necessary D8 Morita types; compatible associators and inverse modules remain missing.",
+        "The algebraic near-group orbifold construction gives an auxiliary rank-twelve category with the wrong invertible group. Neither this model nor a feasible based-ring completion settles a remaining source. Exact current tensors are in data/current_remaining_cases.py."
+      ]
+    },
+    {
+      "id": "R10_1_189",
+      "heading": "Multiplicity one",
+      "paragraphs": [
+        "General unbraided categorification remains unresolved. Its recorded cyclic and Morita restrictions are necessary conditions, not a categorical model or a complete obstruction."
+      ]
     }
   ],
   "replay_sections": [
+    {
+      "heading": "Current accepted theoretical continuation",
+      "paragraphs": [
+        "Run python3 tools/verify_research_revision.py for source-bound reconciliation, exact structural properties, fresh finite replays of the accepted rank-nine continuations and the independent R436 replacement. Metadata-only mode checks identities and projections without repeating those calculations.",
+        "The finished audit remains a frozen conservative checkpoint. Its documentation and hypothesis corrections are retained. Old full-history receipts keep their original scopes; a passing scalar computation does not establish categorical completeness."
+      ]
+    },
     {
       "heading": "General-complex exclusion of R8_3_3472",
       "paragraphs": [
@@ -181,6 +227,13 @@
   ],
   "theoretical_results": [
     {
+      "heading": "Central parity, Tannakian subcategories and coherent orbifolds",
+      "paragraphs": [
+        "The rank-nine continuations exclude R9_2_12,585,941,959,1025,1303,1709,1759,1965,1988 and construct unitary models for R9_2_746,1209,1254,1848. The criteria use cyclic internal ends, dimension-sixty neutral categories, fermion parity, odd central restrictions and a forced Lagrangian subcategory. Model proofs supply coherent actions or a published isotropic orbifold, rather than a permutation of fusion rules.",
+        "For R8_3_436, cancellation of a pointed associator anomaly gives a coherent inversion action on a spherical NG(C3,3) neutral category. Every possible rank-five equivariantization has a formal codegree outside its spherical dimension field. The new proof supplies the general exclusion independently of the withdrawn TPE normal-form premise."
+      ]
+    },
+    {
       "heading": "General-complex exclusion of R8_3_3472",
       "paragraphs": [
         "R8_3_3472 admits no fusion categorification over the complex numbers. The sphericalization and Galois reduction covers general complex categories; complete center-frame and twist-orbit domains reduce the remaining case to 628 exact equations in 572 integer variables. A certificate of 1648 rational bound deductions and a final strictly positive separating gap proves infeasibility, with two independent exact checkers. The proof and reproducible certificate are in evidence/r3472_exclusion_20261022/. This complete obstruction supersedes the earlier feasible necessary systems and conditional Morita restrictions for R3472. R8_3_982 remains unitarily realized by the neutral triality component of the exceptional E21 chiral fusion category, with all 512 canonical fusion coefficients identified exactly. Four rank-eight general categorification questions remain: R8_3_928, R8_3_941, R8_3_1154 and R8_3_1768. Every hypothetical categorification of these four rings admits a spherical structure and has a pseudo-unitary Galois conjugate; none has a braided Morita representative. The R928 phase refinement leaves four of ten necessary center patterns, all fourteen R941 allocations survive the stated refinements, and R1154 retains its forced semionic data. R1768 has 39 of 40 necessary Gram/indicator branches excluded, while its final cone survives. These necessary data do not construct categories or settle the four remaining questions."
@@ -235,5 +288,5 @@
       ]
     }
   ],
-  "open_case_count": 6
+  "open_case_count": 11
 }

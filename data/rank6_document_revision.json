@@ -5,7 +5,6 @@
   "remaining_ids": [
     "R6_4_155",
     "R6_8_1660",
-    "R8_3_436",
     "R8_3_928",
     "R8_3_941",
     "R8_3_1154",
@@ -169,21 +168,18 @@
     "rank": 8,
     "multiplicity": 3,
     "rings": 3527,
-    "excluded": 3506,
+    "excluded": 3507,
     "realized": 16,
     "unitarily_realized": 16,
     "pseudo_unitarily_realized": 0,
-    "unresolved": 5,
+    "unresolved": 4,
     "remaining_ids": [
-      "R8_3_436",
       "R8_3_928",
       "R8_3_941",
       "R8_3_1154",
       "R8_3_1768"
     ],
-    "unitary_excluded_ids": [
-      "R8_3_436"
-    ],
+    "unitary_excluded_ids": [],
     "realized_ids": [
       "R8_3_274",
       "R8_3_331",
@@ -202,13 +198,13 @@
       "R8_3_3314",
       "R8_3_3342"
     ],
-    "ledger": "supplements/rank8/output/audited_20261024/ledger.json",
-    "ledger_sha256": "ee86e6dbc37754ea7ea7f8014ec0074dcb46521241a7f912109ff9fd7d4f5314",
+    "ledger": "supplements/rank8/output/research_20261024/ledger.json",
+    "ledger_sha256": "16a4723f149222ba8cb4f91d07d8ef75176ba5e95b20ff7594ed17e8e4e033fe",
     "historical_ledger": "supplements/rank8/data/decisions.json",
     "historical_ledger_sha256": "7f50213174f1020bb9d90d5981892c332448cf909a56bf60b29e1143228f3f24",
     "source": "supplements/rank8/data/rank8_m3_tables.txt.gz",
     "source_sha256": "1003a7684ec62797e63885eeb5af42fd094adc9ff3fec6caf049620b3afd0952",
-    "evidence": "evidence/audit_20261024",
+    "evidence": "evidence/research_20261024",
     "baseline_evidence": "evidence/rank8_m3_20261021",
     "frontier": {
       "new_decisions": 25,
@@ -387,39 +383,14 @@
       "attempts_source": "evidence/r3472_exclusion_20261022/per_ring_research_audit.json",
       "evidence": "evidence/r3472_exclusion_20261022"
     },
-    "attempts_source": "evidence/audit_20261024/per_ring_research_audit.json",
-    "audit_correction": {
-      "date": "2026-10-24",
-      "ledger": "supplements/rank8/output/audited_20261024/ledger.json",
-      "ledger_sha256": "ee86e6dbc37754ea7ea7f8014ec0074dcb46521241a7f912109ff9fd7d4f5314",
-      "counts": {
-        "excluded": 3506,
-        "unitarily_realized": 16,
-        "unresolved": 5
-      },
-      "cumulative_counts": {
-        "unitarily_realized": 93,
-        "excluded": 4402,
-        "unresolved": 5
-      },
-      "remaining_ids": [
-        "R8_3_436",
-        "R8_3_928",
-        "R8_3_941",
-        "R8_3_1154",
-        "R8_3_1768"
-      ],
-      "withdrawn_general_ids": [
-        "R8_3_436"
-      ],
-      "preserved_other_records": 4499,
-      "unitary_exclusion_retained": true,
-      "attempts_source": "evidence/audit_20261024/per_ring_research_audit.json",
-      "evidence": "evidence/audit_20261024",
-      "scope": "One proof-scope correction; no counterexample or new categorification is asserted."
+    "attempts_source": "evidence/research_20261024/rank8_research_audit.json",
+    "independent_R436_replacement": {
+      "proof": "evidence/r436_repair_20261024/REPAIR.md",
+      "certificate": "evidence/r436_repair_20261024/equivariantization_certificate.json",
+      "criterion": "spherical_equivariantization_formal_codegree_field"
     },
     "historical_metadata_checkpoint": "evidence/audit_20261024/predecessor_publication.json",
-    "historical_metadata_scope": "Retained source-bound checkpoint; no new historical categorical replay."
+    "historical_metadata_scope": "Frozen pre-audit release; the audit and independent replacement are separate accepted steps."
   },
   "research_progress": "evidence/rigidity_20261017/rank6/research_progress.json",
   "research_progress_sha256": "de9be218c3099e68f00f5867b77d9ff7cbf9ef6ca34207823f2598b710886497",
@@ -437,8 +408,8 @@
       "bytes": 85227
     },
     "manuscripts/prepublication-review-2026-10-24.pdf": {
-      "sha256": "c47efee930941823f8c5143567e98db6f95489d5f0b1dd5089c710efedc5b8c3",
-      "bytes": 198912
+      "sha256": "8eb5626ed4b15d21814a4c703706699e972f18755182efe4defcc36a029dad16",
+      "bytes": 88655
     },
     "manuscripts/prepublication-review-2026-10-24.tex": {
       "sha256": "fb2a381b3476ddab02610fddea237e1eb58a0af4bd15b6222ba2559922d937b1",
@@ -1157,8 +1128,8 @@
       "bytes": 15310
     },
     "manuscripts/rank8/paper/m3_continuation.tex": {
-      "sha256": "288296dd25a8bfb2f5376f58c4150b95dc592bd7b06111a2b9ec9f822ac82196",
-      "bytes": 11125
+      "sha256": "1060c856e2d011d2e9e29aa0c50176cbd439c5e46ab6c622a7cecf7876377e20",
+      "bytes": 11135
     },
     "manuscripts/rank8/paper/m3_convex.tex": {
       "sha256": "864115f2093467c538268f3ebe53eafb8207e2ccf1e47b1bdf103e876995ba4e",
@@ -1173,8 +1144,8 @@
       "bytes": 4145
     },
     "manuscripts/rank8/paper/m3_frontier.tex": {
-      "sha256": "fc94f02b676ce558b0a56b2d4b6a0828507f37437e62ef7172972215aa5d6994",
-      "bytes": 113934
+      "sha256": "0e06b0efb785cedabbaa941786f505a1ea738435f82c314ee622df1df7c7fb18",
+      "bytes": 114558
     },
     "manuscripts/rank8/paper/m3_model_search.tex": {
       "sha256": "f9cddb45d5da75c01f51a900eddfaf978d56c61a75f204a4db1aa9e7a7b9e8ad",
@@ -1209,8 +1180,8 @@
       "bytes": 36622
     },
     "manuscripts/rank8/paper/m3_structural.tex": {
-      "sha256": "d9f37a78040294c34fa60a93715e0b53b1cb4bc677ff5609b4536a4fd89ffa9d",
-      "bytes": 17254
+      "sha256": "804149715bb96bc316ebc4255f07e207e9bbdd7c42995d4f7ee351e58416ba39",
+      "bytes": 15424
     },
     "manuscripts/rank8/paper/model_table.tex": {
       "sha256": "94b4a74bcf7c99b3ca582d6ff8b41033fdfbd7fc67b8f68c1cf2ac46d9f8bf98",
@@ -1257,16 +1228,16 @@
       "bytes": 4207
     },
     "manuscripts/rank8/paper/rank8-reviewed.pdf": {
-      "sha256": "be7c9106516621bb9b90cc5de99da30b242eba978dba4e9789200b31543287fb",
-      "bytes": 1508099
+      "sha256": "3001d316809db02098eef91e84db2089b7245431f4af09e1ffea8658b3fa3a25",
+      "bytes": 1506531
     },
     "manuscripts/rank8/paper/rank8.pdf": {
-      "sha256": "be7c9106516621bb9b90cc5de99da30b242eba978dba4e9789200b31543287fb",
-      "bytes": 1508099
+      "sha256": "3001d316809db02098eef91e84db2089b7245431f4af09e1ffea8658b3fa3a25",
+      "bytes": 1506531
     },
     "manuscripts/rank8/paper/rank8.tex": {
-      "sha256": "d49adde682a55e2b8a0109d552e856804f3bb0757b6cd64b2344341b7c48f998",
-      "bytes": 65392
+      "sha256": "4efc75edc63b95a745f1f41ce2ada2f7f1cac7528af6b9db9e10b180d6b17a37",
+      "bytes": 65410
     },
     "manuscripts/rank8/paper/scoped_obstructions.tex": {
       "sha256": "5e4ab1415e3da479880c32710d557a24b09632ab85a8e7e49a71a7e425e0e067",
@@ -1985,8 +1956,8 @@
       "bytes": 15310
     },
     "supplements/rank8/paper/m3_continuation.tex": {
-      "sha256": "288296dd25a8bfb2f5376f58c4150b95dc592bd7b06111a2b9ec9f822ac82196",
-      "bytes": 11125
+      "sha256": "1060c856e2d011d2e9e29aa0c50176cbd439c5e46ab6c622a7cecf7876377e20",
+      "bytes": 11135
     },
     "supplements/rank8/paper/m3_convex.tex": {
       "sha256": "864115f2093467c538268f3ebe53eafb8207e2ccf1e47b1bdf103e876995ba4e",
@@ -2001,8 +1972,8 @@
       "bytes": 4145
     },
     "supplements/rank8/paper/m3_frontier.tex": {
-      "sha256": "fc94f02b676ce558b0a56b2d4b6a0828507f37437e62ef7172972215aa5d6994",
-      "bytes": 113934
+      "sha256": "0e06b0efb785cedabbaa941786f505a1ea738435f82c314ee622df1df7c7fb18",
+      "bytes": 114558
     },
     "supplements/rank8/paper/m3_model_search.tex": {
       "sha256": "f9cddb45d5da75c01f51a900eddfaf978d56c61a75f204a4db1aa9e7a7b9e8ad",
@@ -2037,8 +2008,8 @@
       "bytes": 36622
     },
     "supplements/rank8/paper/m3_structural.tex": {
-      "sha256": "d9f37a78040294c34fa60a93715e0b53b1cb4bc677ff5609b4536a4fd89ffa9d",
-      "bytes": 17254
+      "sha256": "804149715bb96bc316ebc4255f07e207e9bbdd7c42995d4f7ee351e58416ba39",
+      "bytes": 15424
     },
     "supplements/rank8/paper/model_table.tex": {
       "sha256": "94b4a74bcf7c99b3ca582d6ff8b41033fdfbd7fc67b8f68c1cf2ac46d9f8bf98",
@@ -2085,16 +2056,16 @@
       "bytes": 4207
     },
     "supplements/rank8/paper/rank8-reviewed.pdf": {
-      "sha256": "be7c9106516621bb9b90cc5de99da30b242eba978dba4e9789200b31543287fb",
-      "bytes": 1508099
+      "sha256": "3001d316809db02098eef91e84db2089b7245431f4af09e1ffea8658b3fa3a25",
+      "bytes": 1506531
     },
     "supplements/rank8/paper/rank8.pdf": {
-      "sha256": "be7c9106516621bb9b90cc5de99da30b242eba978dba4e9789200b31543287fb",
-      "bytes": 1508099
+      "sha256": "3001d316809db02098eef91e84db2089b7245431f4af09e1ffea8658b3fa3a25",
+      "bytes": 1506531
     },
     "supplements/rank8/paper/rank8.tex": {
-      "sha256": "d49adde682a55e2b8a0109d552e856804f3bb0757b6cd64b2344341b7c48f998",
-      "bytes": 65392
+      "sha256": "4efc75edc63b95a745f1f41ce2ada2f7f1cac7528af6b9db9e10b180d6b17a37",
+      "bytes": 65410
     },
     "supplements/rank8/paper/scoped_obstructions.tex": {
       "sha256": "5e4ab1415e3da479880c32710d557a24b09632ab85a8e7e49a71a7e425e0e067",
