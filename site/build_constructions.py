@@ -88,10 +88,7 @@ def render():
     <section class="case-content-section" aria-label="Documented construction examples">
       <aside class="construction-scope" aria-labelledby="meaning-of-new">
         <h2 id="meaning-of-new">What does “new” mean here?</h2>
-        <p><strong>{escape(data['meaning'])}</strong></p>
-        <p>The qualification concerns the specific construction or specialization described in an entry. It may use established categories and standard operations; its output may be tensor equivalent to an already known category. Neither a new census identification nor a different presentation alone establishes a new tensor-equivalence class.</p>
-        <p>{escape(data['coverage'])} The literature assessment is provisional and may be revised when an earlier reference is identified.</p>
-        <p>Each entry links to its construction argument and current case record, where supporting evidence and references are collected. The <a href="./review.html">Atlas’s research and verification qualifications</a> also apply here.</p>
+        <p>{escape(data['meaning'])}</p>
       </aside>
       <form class="construction-toolbar" role="search" aria-label="Filter construction examples">
         <div><label for="construction-search">Find a construction</label><input id="construction-search" type="search" placeholder="Identifier, construction or ingredient"></div>
