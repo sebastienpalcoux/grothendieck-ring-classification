@@ -397,8 +397,11 @@ function renderTheoreticalUpdate() {
     }
   }
   const base = `${state.data.classification_repository}/blob/${state.data.classification_commit || "main"}/docs/RESEARCH_STATUS.md`;
-  $("#latest-research-source").href = base;
-  $("#latest-research-source").textContent = `${date} proofs and remaining cases ↗`;
+  const publication = state.data.latest_catalogue_publication;
+  const current = publication?.date >= (latest?.date || update.date) ? publication : null;
+  const currentDate = current?.date ? new Date(current.date + "T12:00:00Z").toLocaleDateString("en-GB", {day:"numeric", month:"long", year:"numeric", timeZone:"UTC"}) : date;
+  $("#latest-research-source").href = current?.source_url || base;
+  $("#latest-research-source").textContent = `${currentDate} proofs and remaining cases ↗`;
   const actions = $("#theoretical-update-actions");
   actions.replaceChildren();
   const archive = element("a", "", `Download proofs & verification · ${(update.archive.bytes / 1048576).toFixed(1)} MB ↓`);
