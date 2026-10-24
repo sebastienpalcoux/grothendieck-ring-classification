@@ -25,7 +25,7 @@ def extend_document(text):
 def extend_front(front,repo):
     if not active(repo):return front
     front=re.sub(r'<!-- rank(?:9-rank10|11)-release -->.*?<!-- /rank(?:9-rank10|11)-release -->\n*','',front,flags=re.S)
-    front=re.sub(r'^\| (?:9|10|11) \| Multiplicity 1 \|.*\n','',front,flags=re.M)
+    front=re.sub(r'^\| (?:9|10|11) \| (?:Multiplicity 1|Through 2) \|.*\n','',front,flags=re.M)
     rows='''| 9 | Multiplicity 1 | **Complete at multiplicity 1** | 102 excluded, 40 realized, 0 unresolved. |
 | 10 | Multiplicity 1 | **Partial at multiplicity 1** | 136 excluded, 57 realized, [1 unresolved](https://sebastienpalcoux.github.io/grothendieck-ring-classification/unresolved.html?rank=10&m=1). |
 | 11 | Multiplicity 1 | **Complete at multiplicity 1** | 155 excluded, 27 realized, 0 unresolved. |

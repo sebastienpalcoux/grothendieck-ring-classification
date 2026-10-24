@@ -26,9 +26,6 @@ Higher ranks have the explicit multiplicity bounds below.
 | 9 | Through 2 | **Complete through 1**; multiplicity 2 partial | Through 2: 2,135 excluded, 72 realized, [18 unresolved](https://sebastienpalcoux.github.io/grothendieck-ring-classification/unresolved.html?rank=9&m=2). |
 | 10 | Multiplicity 1 | **Partial at multiplicity 1** | 136 excluded, 57 realized, [1 unresolved](https://sebastienpalcoux.github.io/grothendieck-ring-classification/unresolved.html?rank=10&m=1). |
 | 11 | Multiplicity 1 | **Complete at multiplicity 1** | 155 excluded, 27 realized, 0 unresolved. |
-| 9 | Through 2 | **Complete through 1**; multiplicity 2 partial | Through 2: 2,135 excluded, 72 realized, [18 unresolved](https://sebastienpalcoux.github.io/grothendieck-ring-classification/unresolved.html?rank=9&m=2). |
-| 9 | Through 2 | **Complete through 1**; multiplicity 2 partial | Through 2: 2,135 excluded, 72 realized, [18 unresolved](https://sebastienpalcoux.github.io/grothendieck-ring-classification/unresolved.html?rank=9&m=2). |
-| 9 | Through 2 | **Complete through 1**; multiplicity 2 partial | Through 2: 2,135 excluded, 72 realized, [18 unresolved](https://sebastienpalcoux.github.io/grothendieck-ring-classification/unresolved.html?rank=9&m=2). |
 
 **25 open cases.** General categorification remains undecided for these rings.
 [Explore their status, invariants and research records](https://sebastienpalcoux.github.io/grothendieck-ring-classification/unresolved.html).
@@ -63,7 +60,7 @@ general categorification remains open; a dash marks an unanalyzed band.
 | **Rank-four theorem** | [Unrestricted classification and reading guide](manuscripts/rank4/README.md) |
 | Mathematics | [Manuscripts by rank](manuscripts/README.md) · [Current open tensors](data/current_remaining_cases.py) · [Earlier construction-candidates report · PDF](docs/New_category_candidates_and_open_cases.pdf) |
 | Data | [Current decision records](data/current_publication_revision.json) · [All fusion rings and enumeration](https://github.com/sebastienpalcoux/fusion-ring-census) |
-| Computation | [Rank-11 replay](evidence/rank11_m1_20261023/README.md) · [Earlier replay instructions](docs/VERIFY.md) · [Provenance](docs/PROVENANCE.md) |
+| Computation | [Rank-nine M2 replay](evidence/rank9_m2_20261024/README.md) · [Rank-11 replay](evidence/rank11_m1_20261023/README.md) · [Earlier replay instructions](docs/VERIFY.md) · [Provenance](docs/PROVENANCE.md) |
 | Project details | [Research updates, models, band tables and repository guide](docs/PROJECT_GUIDE.md) |
 | Announcement | [Five-page introduction](announcements/hexagon-2026-10/Low_rank_Grothendieck_rings_announcement.pdf) · [Hexagon](https://hexagonmath.org/2610.00300?version=1) |
 

@@ -21,6 +21,10 @@ def front(text):
  text='\n'.join(lines)+'\n'
  if '[Rank-nine M2 ledger]' not in text:text=text.replace('[Rank-11 ledger]',f'[Rank-nine M2 ledger]({REL}/ledger.csv) · [Rank-11 ledger]')
  if '[Current open tensors]' not in text:text=text.replace('[Earlier construction-candidates report · PDF](docs/New_category_candidates_and_open_cases.pdf)', '[Current open tensors](data/current_remaining_cases.py) · [Earlier construction-candidates report · PDF](docs/New_category_candidates_and_open_cases.pdf)')
+ if '[Rank-nine M2 replay]' not in text:
+  latest='[Rank-nine M2 replay](evidence/rank9_m2_20261024/README.md) · '
+  if '[Rank-11 replay]' in text:text=text.replace('[Rank-11 replay]',latest+'[Rank-11 replay]')
+  else:text=text.replace('[Replay instructions](docs/VERIFY.md)',latest+'[Rank-11 replay](evidence/rank11_m1_20261023/README.md) · [Earlier replay instructions](docs/VERIFY.md)')
  return text
 
 def index(text):

@@ -41,6 +41,9 @@ def main():
  for name,h in receipt.get('legacy_case_sha256',{}).items():need(hashlib.sha256(json.dumps(read(DIST/'data'/name)['cases'],sort_keys=True,separators=(',',':')).encode()).hexdigest()==h,'Previous case decision changed')
  mod=ast.parse((ROOT/'data/current_remaining_cases.py').read_text());values={node.targets[0].id:ast.literal_eval(node.value)for node in mod.body if isinstance(node,ast.Assign)};need(set(values['TENSORS'])==set(revision['remaining_ids']),'Current open-tensor download')
  pages=read(ROOT/'data/current_manuscript_page_counts.json');need(sum(d['pages']for d in pages['documents']if d['kind']=='mathematical_manuscript')==pages['totals']['mathematical_manuscript'],'Page inventory')
+ front=(ROOT/'README.md').read_text();rank9=[line for line in front.splitlines()if line.startswith('| 9 |')]
+ need(len(rank9)==1 and 'Through 2' in rank9[0] and '2,135 excluded, 72 realized' in rank9[0],'Single current rank-nine README row')
+ need('**25 open cases.**'in front,'Current README frontier')
  for name,x in revision['documents'].items():
   if name.startswith('publications/rank9-m2/'):need(sha(ROOT/name)==x['sha256'],'Manuscript source identity')
  print('Rank-nine M2: all2083 case/tensor identities,2033 exclusions,32 model transports,18 scopes,25 project open tensors and every archive hash PASS.')
