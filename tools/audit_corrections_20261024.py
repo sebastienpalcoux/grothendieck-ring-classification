@@ -7,7 +7,7 @@ is retained. This module never rewrites a historical certificate or receipt.
 from pathlib import Path
 from collections import Counter
 from copy import deepcopy
-import hashlib,json
+import hashlib,json,re
 ROOT=Path(__file__).resolve().parents[1]
 EVIDENCE='evidence/audit_20261024'
 LEDGER='supplements/rank8/output/audited_20261024/ledger.json'
@@ -114,6 +114,103 @@ def revise_generated_tex(name,text,repo=ROOT):
   text=text.replace('as columns.  Then their unknown pair multiplicities form a matrix','as columns. Let $n_{\\mathrm{high}}$ be the number of remaining central simples. Their pair multiplicities form a matrix')
   text=text.replace('^{r\\times\\binom{s+1}{2}}','^{n_{\\mathrm{high}}\\times\\binom{s+1}{2}}')
  text=text.replace('Every remaining categorification admits a spherical structure and has a pseudo-unitary Galois conjugate; none can have a braided Morita representative.','For the four cases in the stated sphericality reduction these conclusions hold. The additional R436 case is unresolved in general, with its unitary exclusion retained.')
+ return text
+
+def revise_publication_document(name,text,repo=ROOT):
+ """Apply current scope consistently after the preserved older renderers."""
+ text=text.replace('a complete near-group TPE reduction','a conditional near-group TPE scalar-table reduction')
+ text=text.replace('The current ledger is `supplements/rank8/output/exclusion_20261022/ledger.json`.','The current ledger is `supplements/rank8/output/audited_20261024/ledger.json`.')
+ text=text.replace('Four rank-eight general categorification questions remain:',
+                   'Apart from R8_3_436, four rank-eight general categorification questions remain:')
+ text=text.replace('The remaining rings retain unresolved status for general complex categorification.',
+                   'The remaining rings retain unresolved status for general complex categorification; R8_3_436 retains its unitary exclusion.')
+ text=re.sub(r'Subsequent construction and research stages leave [45] current questions\.',
+             'Subsequent construction and research stages, followed by the 24 October source-scope correction, leave five current rank-eight questions.',text)
+ text=text.replace('The current ledger is `supplements/rank8/output/audited_20261024/ledger.json`.',
+                   'The current ledger is `supplements/rank8/output/audited_20261024/ledger.json`. The preceding exclusion ledger is retained as historical evidence.')
+ text=re.sub(r'\[Download all \d+ current open tensors\]\(\.\./data/remaining_cases\.py\)',
+             '[Download all 26 current open tensors](../data/current_remaining_cases.py)',text)
+ text=text.replace('Two rank-six and four rank-eight categorification questions remain open.',
+                   'Two rank-six and five rank-eight categorification questions remain open.')
+ text=text.replace('With the rank-two through rank-eight research-status report:',
+                   'With the current research-status report:')
+ stale=('For the current checkout, replay `python3 tools/verify_rank8_exclusion_20261022.py`; '
+        'add `--historical` to replay earlier rank-eight stages in their preserved contexts. '
+        'Earlier-stage commands below apply inside their corresponding immutable archives.')
+ current=('For the current audited checkout, run `python3 tools/verify_audit_revision.py`. '
+          'Full historical replay uses `python3 tools/verify_current_publication.py --historical`, '
+          'which exports the pinned pre-audit Git snapshot. Earlier stage-specific commands '
+          'below apply inside their corresponding immutable archives, with their original hypotheses.')
+ text=text.replace(stale,current)
+ notice='''<!-- current-audit-correction -->
+**24 October audit correction.** R8_3_436 is unresolved for general complex
+categorification; its unitary exclusion is retained. Rank eight through
+multiplicity three now has 4,402 general exclusions, 93 models and five open
+cases. With the rank-nine M2 continuation, the current project-wide total is
+26 open cases. Earlier dated ledgers and replay receipts keep their historical
+scope. [Correction and precise hypotheses](https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/evidence/audit_20261024/README.md).
+<!-- /current-audit-correction -->'''
+ if name.startswith('docs/') or name in ('manuscripts/README.md','site/README.md'):
+  at=text.find('\n\n');text=text[:at]+'\n\n'+notice+text[at:]
+ if name=='docs/PROJECT_GUIDE.md':
+  text=text.replace('Potentially new tensor categories and open cases (PDF)','Earlier construction-candidates report (PDF)')
+  text=re.sub(r'Seven provisional construction candidates, the known `Rep\(AGL\(1,7\)\)` model, and all \d+ current open cases\.',
+              'Earlier report of seven provisional construction candidates, the known `Rep(AGL(1,7))` model, and the open cases at that checkpoint. [Current open tensors](../data/current_remaining_cases.py) cover all 26 present questions.',text)
+ if name=='docs/VERIFY.md':
+  section='''
+## Current audit revision and structural filters
+
+From the repository root:
+
+```bash
+python3 tools/verify_audit_revision.py
+python3 tools/verify_current_publication.py --metadata-only
+node site/tests/check_properties.mjs
+```
+
+The first command reconciles the single R436 correction, checks current
+manuscript/download identities and all 26 open tensors, and recomputes exact
+structural properties for every individual catalogue record. Metadata-only mode
+checks identities and projections without repeating the exact property arithmetic.
+Neither mode is a fresh replay of every categorical exclusion.
+
+The automatic data workflow runs current publication checks and its separately
+named mathematical controls. The predecessor's nested full-history run stopped
+with disk exhaustion and supplies no new full-replay receipt. Historical replay
+exports commit `111137a3e3ddf93be340b39c8a7c7b6ea94b844c` into a temporary
+directory; it needs ample disk space and preserves the current checkout.
+Inspect `python3 tools/replay_current_publication_ci.py --historical --plan`
+before running it. A successful old scalar replay does not restore R436's
+withdrawn general categorical premise.
+
+The current rank-five complete replay remains the explicit command in its revised
+guide. Its historical standalone verifier and bounded discovery driver have
+the separately stated limitations.
+'''
+  at=text.index('<!-- /current-audit-correction -->')+len('<!-- /current-audit-correction -->')
+  text=text[:at]+'\n'+section+text[at:]
+ if name=='supplements/rank8/README.md':
+  intro='''# Rank-eight current supplement
+
+The [current audit correction](../../evidence/audit_20261024/accepted.json) binds
+the ledger restored as `output/audited_20261024/ledger.json` by
+`python3 tools/restore_data.py`. Through multiplicity three: **4,402 general
+exclusions, 93 unitary models and five unresolved rings**. Exact multiplicity
+three: **3,506 exclusions, 16 models and five unresolved rings**.
+R8_3_436 remains excluded in the unitary setting.
+
+[Correction and replay scope](../../evidence/audit_20261024/README.md) ·
+[Current manuscript](../../manuscripts/rank8/paper/rank8.pdf) ·
+[Open records](https://sebastienpalcoux.github.io/grothendieck-ring-classification/unresolved.html?rank=8)
+
+<details><summary>Detailed method notes and historical replay receipts</summary>
+
+'''
+  text=intro+text.rstrip()+'\n\n</details>\n'
+ if name=='oeis/update_2026-10-02.txt':
+  text=text.replace('The certified exclusion of R8_3_3472 now leaves four rank-eight questions.',
+                    'At the 22 October exclusion checkpoint, the exclusion of R8_3_3472 left four rank-eight questions.')
+  text+='\nThe 24 October audit restores R8_3_436 to generally unresolved, retaining its unitary exclusion. The current rank-eight totals are 4,402 exclusions, 93 models and five open cases. Earlier checkpoint counts above are historical. See evidence/audit_20261024/README.md.\n'
  return text
 
 if __name__=='__main__':

@@ -298,6 +298,8 @@ if rank8_active(ROOT):
     rendered=rendered.replace('in the analyzed range; both have braided-only exclusions.', 'in the analyzed range.')
 from readme_layout import reorganize
 front, guide = reorganize(rendered)
+from audit_corrections_20261024 import active as audit_active, revise_publication_document
+if audit_active(ROOT): guide=revise_publication_document('docs/PROJECT_GUIDE.md',guide,ROOT)
 outputs = {args.output: front,
            args.output.parent / 'docs/PROJECT_GUIDE.md': guide}
 for target, content in outputs.items():

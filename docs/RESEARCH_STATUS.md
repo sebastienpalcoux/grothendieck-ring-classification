@@ -54,7 +54,7 @@ tensor-functor rigidity.
 
 ### Rank-seven classification frontier
 
-Every supplied rank-seven fusion ring through multiplicity five has a recorded general exclusion or unitary model. The [continuation evidence](../evidence/rank7_m5_20261020/README.md) gives the accepted arguments and replay receipts. [Download all 6 current open tensors](../data/remaining_cases.py), including the two rank-six cases.
+Every supplied rank-seven fusion ring through multiplicity five has a recorded general exclusion or unitary model. The [continuation evidence](../evidence/rank7_m5_20261020/README.md) gives the accepted arguments and replay receipts. [Download all 26 current open tensors](../data/current_remaining_cases.py), including the two rank-six cases.
 
 A necessary-condition witness is neither a categorification nor a general
 nonexistence proof. Scoped unitary, pseudo-unitary, pivotal or braided

@@ -26,10 +26,12 @@ def main(rebuild_cases=True):
  status['inputs']['rank8'].update(file=correction.LEDGER,sha256=sha(ROOT/correction.LEDGER),ledger=correction.LEDGER,status_totals={'excluded':4402,'unitarily_realized':93,'unresolved':5},audit_correction='evidence/audit_20261024/accepted.json')
  from generate_classification import write_export
  write_export(status,ROOT/'data')
+ runpy.run_path(str(ROOT/'tools/export_grothendieck_counts.py'),run_name='__main__')
  for csv_path in (ROOT/'data').glob('*.csv'):
   if csv_path.name in ('classification_status.csv','grothendieck_counts.csv'):
    csv_path.write_bytes(csv_path.read_bytes().replace(b'\r\n',b'\n'))
  shutil.copy2(p,DIST/'data/classification_status.json')
+ shutil.copy2(ROOT/'data/grothendieck_counts.json',DIST/'data/grothendieck_counts.json')
  if (ROOT/'data/classification_status.csv').exists():shutil.copy2(ROOT/'data/classification_status.csv',DIST/'data/classification_status.csv')
  p=DIST/'data/atlas.json';atlas=read(p);atlas['snapshot']='2026-10-24';atlas['classification_commit']=None;atlas['rank8_m3_update']=ext
  for x in atlas.get('classification_rows',[]):
@@ -113,6 +115,7 @@ def main(rebuild_cases=True):
  page=DIST/'index.html';page.write_text(re.sub(r'(<span id="manuscript-page-summary">).*?(</span>)',lambda m:m[1]+summary+m[2],page.read_text()))
  from build_ring_properties import build as properties
  properties()
+ page=DIST/'index.html';page.write_text(re.sub(r'All \d+ open rings · Python tensors',f'All {len(ids)} open rings · Python tensors',page.read_text()))
  from version_assets import version_assets
  version_assets()
  print('Current audited publication: 26 open cases, including five at rank eight; source-bound exact filters rebuilt.')

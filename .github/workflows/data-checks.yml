@@ -23,10 +23,10 @@ jobs:
         run: python tools/replay_m5_ci.py --jobs 2
       - name: Verify rank-seven extension with assertions disabled
         run: python -O tools/replay_m5_ci.py --jobs 2
-      - name: Verify current publication, rank-eight frontier, and complete proof history
-        run: python tools/replay_current_publication_ci.py --historical
-      - name: Verify publication, rank-eight frontier, and proof history with assertions disabled
-        run: python -O tools/replay_current_publication_ci.py --historical
+      - name: Verify current audited publication and exact structural properties
+        run: python tools/verify_current_publication.py
+      - name: Verify audited publication with assertions disabled
+        run: python -O tools/verify_current_publication.py
       - run: python evidence/residual_20261002/rank6/verify_braid3.py
       - run: python evidence/residual_20261002/rank6/verify_tensor_quotient_obstruction.py
       - run: python evidence/residual_20261002/rank6/verify_packet_gram.py
@@ -36,9 +36,7 @@ jobs:
       - run: python evidence/rank6_laptop_20261002/r1660_pair_lifting/verify_controls.py
       - run: python evidence/residual_20261002/rank6/verify_morita_structure.py
       - run: python tools/render_publication_docs.py --check
-      - run: |
-          python tools/render_readme.py
-          git diff --exit-code README.md
+      - run: python tools/render_readme.py --check
       - run: python site/smoke_test.py
       - run: node --check site/dist/app.js
       - name: Verify the complete rank-eleven publication

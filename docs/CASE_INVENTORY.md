@@ -1,6 +1,15 @@
 # Historical 38-case study and current proof references
 
-The rank-eight multiplicity-three continuation addresses all 3,527 supplied exact-multiplicity-three rings: 3,506 general exclusions, 16 models and 5 unresolved cases. Every recorded model admits a unitary realization. The remaining rings retain unresolved status for general complex categorification.
+<!-- current-audit-correction -->
+**24 October audit correction.** R8_3_436 is unresolved for general complex
+categorification; its unitary exclusion is retained. Rank eight through
+multiplicity three now has 4,402 general exclusions, 93 models and five open
+cases. With the rank-nine M2 continuation, the current project-wide total is
+26 open cases. Earlier dated ledgers and replay receipts keep their historical
+scope. [Correction and precise hypotheses](https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/evidence/audit_20261024/README.md).
+<!-- /current-audit-correction -->
+
+The rank-eight multiplicity-three continuation addresses all 3,527 supplied exact-multiplicity-three rings: 3,506 general exclusions, 16 models and 5 unresolved cases. Every recorded model admits a unitary realization. The remaining rings retain unresolved status for general complex categorification; R8_3_436 retains its unitary exclusion.
 
 The rank-seven multiplicity-five continuation addresses all 5,805 supplied exact-multiplicity-five rings: 5,804 general exclusions, 1 realization and 0 unresolved cases. The classification of the supplied census is complete through multiplicity 5. The new realization R7_5_5678 is Rep(AGL(1,7)).
 

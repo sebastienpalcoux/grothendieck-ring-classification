@@ -132,7 +132,7 @@ python3 tools/verify_rank8_frontier.py
 python3 -O tools/verify_rank8_frontier.py
 ```
 
-The new receipts bind accepted decisions and exact computations. The source-bound per-ring research inventory is `evidence/r3472_exclusion_20261022/per_ring_research_audit.json`. Construction-family exclusions and feasible necessary-condition witnesses have explicit scopes; neither establishes an exotic category.
+The new receipts bind accepted decisions and exact computations. The source-bound per-ring research inventory is `evidence/audit_20261024/per_ring_research_audit.json`. Construction-family exclusions and feasible necessary-condition witnesses have explicit scopes; neither establishes an exotic category.
 
 ## Generalized Haagerup construction and further restrictions
 

@@ -7,7 +7,13 @@
     "npm --prefix site run check": "PASS",
     "python tools/restore_data.py --check": "PASS: 94 payloads, including the restored audited ledger",
     "python evidence/prepublication_20261017/rank5/replay.py --check-package": "PASS: archive identity and all 50 members",
-    "python tools/audit_corrections_20261024.py": "PASS: only R436 general status superseded"
+    "python tools/audit_corrections_20261024.py": "PASS: only R436 general status superseded",
+    "python tools/validate_release.py": "PASS: all 2165 count and classification bands",
+    "python tools/render_publication_docs.py --check": "PASS: 11 generated documents",
+    "python tools/render_readme.py --check": "PASS: front page and detailed guide",
+    "python -O tools/verify_current_publication.py --metadata-only": "PASS",
+    "python tools/replay_current_publication_ci.py --historical --plan": "PASS: exact pre-audit commit 111137a3e3ddf93be340b39c8a7c7b6ea94b844c",
+    "python -O tools/replay_current_publication_ci.py --historical --plan": "PASS: same frozen source snapshot, optimized dispatch"
   },
   "current_open_cases": 26,
   "exact_property_records": 2830,
@@ -47,5 +53,19 @@
       "page_boundary_issues": 0
     }
   ],
-  "visual_qa": "Revised rank-five instructions, conditional rank-eight proof, center-product notation, count tables and status-report pages rendered and visually inspected."
+  "visual_qa": "Revised rank-five instructions, conditional rank-eight proof, center-product notation, count tables and status-report pages rendered and visually inspected.",
+  "live_interface_checks": {
+    "theory": "Definitions, examples and primary references rendered correctly",
+    "realized_catalogue": "Weakly integral yes and integral no select the Tambara-Yamagami C3 model in the rank-four multiplicity-one band",
+    "case_directory": "Simple yes and perfect yes give 69 matching records",
+    "unresolved_directory": "26 current questions; integral yes gives four records",
+    "R8_3_436": "General existence unresolved; unitary excluded; no unsupported reverse structural implication"
+  },
+  "current_manuscripts": {
+    "mathematical_documents": 11,
+    "mathematical_pages": 613,
+    "including_three_guides": 632,
+    "including_current_status_report": 635
+  },
+  "historical_replay_qualification": "Normal and optimized dispatch plans checked. No new complete historical mathematical replay is asserted; the predecessor hosted full-history run failed from disk exhaustion. The current workflow checks its explicitly named current and mathematical scopes."
 }

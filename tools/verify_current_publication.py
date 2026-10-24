@@ -34,9 +34,13 @@ def main():
     need(not (args.metadata_only and args.historical), 'Choose metadata-only or full historical replay')
     repo = args.repo.resolve()
     from audit_corrections_20261024 import active as audit_active
-    if audit_active(repo) and not args.historical:
-        command=[sys.executable,str(repo/'tools/verify_audit_revision.py')]
-        if args.metadata_only:command.append('--metadata-only')
+    if audit_active(repo):
+        command=[sys.executable] + (['-O'] if sys.flags.optimize else [])
+        if args.historical:
+            command += [str(repo/'tools/replay_audit_history.py'), '--repo', str(repo)]
+        else:
+            command += [str(repo/'tools/verify_audit_revision.py')]
+            if args.metadata_only:command.append('--metadata-only')
         result=subprocess.run(command,cwd=repo)
         need(result.returncode==0,'Current audited publication validation failed')
         return

@@ -51,3 +51,28 @@ The first command checks the one-record reconciliation and bound correction
 source. The second checks the current derived publication, exact structural
 filters, downloads, manuscript identities and global open-case inventory.
 Neither command claims a new full mathematical replay of historical proofs.
+
+## Current checks and historical replays
+
+The automatic data workflow checks the current counts, document identities,
+exact structural properties, and its separately named mathematical controls.
+It does not claim a fresh replay of the entire nested proof history. The
+predecessor's hosted full-history run stopped with disk exhaustion:
+[run 40045992542](https://github.com/sebastienpalcoux/grothendieck-ring-classification/actions/runs/40045992542).
+That incomplete run supplies no new full-replay receipt.
+
+Historical replay is isolated at the exact pre-audit commit
+`111137a3e3ddf93be340b39c8a7c7b6ea94b844c`. From a Git checkout containing
+that commit, inspect the plan before a run on a host with ample temporary disk:
+
+```bash
+python3 tools/replay_current_publication_ci.py --historical --plan
+python3 tools/verify_current_publication.py --historical
+```
+
+The second command checks current identities, exports that old snapshot to a
+temporary directory, restores its checksummed datasets, and runs its original
+historical dispatcher. The current checkout and old manifests are preserved.
+This revision checked the normal and optimized dispatch plans; it did not
+complete another full historical replay. Historical scalar calculations retain
+their original scope and cannot establish the missing general R436 premise.

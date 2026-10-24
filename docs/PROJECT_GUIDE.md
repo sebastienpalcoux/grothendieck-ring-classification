@@ -46,8 +46,8 @@ categorifications over ℂ.
 > **[Read the announcement on Hexagon · 2610.00300v1](https://hexagonmath.org/2610.00300?version=1)**.
 
 > [!TIP]
-> **[Potentially new tensor categories and open cases (PDF)](../docs/New_category_candidates_and_open_cases.pdf)**
-> Seven provisional construction candidates, the known `Rep(AGL(1,7))` model, and all 6 current open cases.
+> **[Earlier construction-candidates report (PDF)](../docs/New_category_candidates_and_open_cases.pdf)**
+> Earlier report of seven provisional construction candidates, the known `Rep(AGL(1,7))` model, and the open cases at that checkpoint. [Current open tensors](../data/current_remaining_cases.py) cover all 26 present questions.
 > Novelty up to tensor equivalence remains subject to independent verification.
 
 | Start here | What you will find |
@@ -221,7 +221,7 @@ row checks and scope appear in [the provenance record](../docs/PROVENANCE.md).
 | 5 | Multiplicity 18 | Inert-prime quadratic parity first closes two cases at 18; no new criterion family is needed at 19–20. |
 | 6 | See the allocation ledger | The current criteria include stabilizer, cyclotomic-trace and signed arithmetic obstructions. All 8,809 exact-multiplicity-nine rings have general exclusion certificates; 2 earlier cases remain unresolved through multiplicity 9. |
 | 7 | See the allocation ledger | The multiplicity-five extension adds cyclic-module, quadratic compression, signed sphericalization, center-trace and Morita-descent arguments. There are 0 generally open rings in the analyzed range. Higher multiplicities are not classified here. |
-| 8 | Multiplicity 3 | Quadratic-compositum compression, convex central induction, split-module polynomials and Morita transport extend the classification through multiplicity three. There are 4 generally open rings in the analyzed range; higher multiplicities are not classified here. |
+| 8 | Multiplicity 3 | Quadratic-compositum compression, convex central induction, split-module polynomials and Morita transport extend the classification through multiplicity three. There are 5 generally open rings in the analyzed range; higher multiplicities are not classified here. |
 
 This records **first use in the chosen certificate allocation**, not an
 optimal ordering theorem or a claim that the criteria settle higher

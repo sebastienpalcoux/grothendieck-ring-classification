@@ -23,12 +23,19 @@ The first command reconciles the single R436 correction, checks current
 manuscript/download identities and all 26 open tensors, and recomputes exact
 structural properties for every individual catalogue record. Metadata-only mode
 checks identities and projections without repeating the exact property arithmetic.
-Neither mode is a fresh replay of every categorical exclusion. Historical proof
-orchestrators and their full receipts retain their original frozen source context;
-a successful old scalar replay does not restore R436's withdrawn general premise.
+Neither mode is a fresh replay of every categorical exclusion.
+
+The automatic data workflow runs current publication checks and its separately
+named mathematical controls. The predecessor's nested full-history run stopped
+with disk exhaustion and supplies no new full-replay receipt. Historical replay
+exports commit `111137a3e3ddf93be340b39c8a7c7b6ea94b844c` into a temporary
+directory; it needs ample disk space and preserves the current checkout.
+Inspect `python3 tools/replay_current_publication_ci.py --historical --plan`
+before running it. A successful old scalar replay does not restore R436's
+withdrawn general categorical premise.
 
 The current rank-five complete replay remains the explicit command in its revised
-guide. Its historical standalone verifier and its bounded discovery driver have
+guide. Its historical standalone verifier and bounded discovery driver have
 the separately stated limitations.
 
 
@@ -38,7 +45,7 @@ the separately stated limitations.
 
 <!-- /current-high-rank-publication -->
 
-For the current checkout, replay `python3 tools/verify_rank8_exclusion_20261022.py`; add `--historical` to replay earlier rank-eight stages in their preserved contexts. Earlier-stage commands below apply inside their corresponding immutable archives.
+For the current audited checkout, run `python3 tools/verify_audit_revision.py`. Full historical replay uses `python3 tools/verify_current_publication.py --historical`, which exports the pinned pre-audit Git snapshot. Earlier stage-specific commands below apply inside their corresponding immutable archives, with their original hypotheses.
 
 The rank-eight multiplicity-three continuation addresses all 3,527 supplied exact-multiplicity-three rings: 3,506 general exclusions, 16 models and 5 unresolved cases. Every recorded model admits a unitary realization. The remaining rings retain unresolved status for general complex categorification; R8_3_436 retains its unitary exclusion.
 
@@ -271,7 +278,7 @@ python3 tools/verify_rank8_frontier.py
 python3 -O tools/verify_rank8_frontier.py
 ```
 
-The new receipts bind accepted decisions and exact computations. The source-bound per-ring research inventory is `evidence/r3472_exclusion_20261022/per_ring_research_audit.json`. Construction-family exclusions and feasible necessary-condition witnesses have explicit scopes; neither establishes an exotic category.
+The new receipts bind accepted decisions and exact computations. The source-bound per-ring research inventory is `evidence/audit_20261024/per_ring_research_audit.json`. Construction-family exclusions and feasible necessary-condition witnesses have explicit scopes; neither establishes an exotic category.
 
 ## Generalized Haagerup construction and further restrictions
 

@@ -6,7 +6,7 @@ all categorical exclusions or a proof of external categorical hypotheses.
 """
 from pathlib import Path
 from collections import Counter
-import ast,hashlib,json,re,sys
+import ast,csv,hashlib,json,re,sys
 ROOT=Path(__file__).resolve().parents[1];DIST=ROOT/'site/dist'
 sys.path.insert(0,str(ROOT/'site'))
 from audit_corrections_20261024 import validate,LEDGER
@@ -57,6 +57,30 @@ def main(metadata_only=False):
  need((ROOT/'data/current_remaining_cases.py').read_bytes()==(DIST/'downloads/current_remaining_cases.py').read_bytes(),'Current open download copy')
  status=read(ROOT/'data/classification_status.json');rank8=[r for r in status['rows']if r['rank']==8]
  need(sum(r['excluded_general']for r in rank8)==4402 and sum(r['unresolved_general']for r in rank8)==5,'Exported rank-eight partition')
+ realized=read(ROOT/'data/grothendieck_counts.json')['rows']
+ need(len(realized)==len(status['rows']),'Realized-count band coverage')
+ for count,band in zip(realized,status['rows']):
+  need((count['rank'],count['multiplicity'])==(band['rank'],band['multiplicity']),'Realized-count band order')
+  need(count['unresolved_general']==band['unresolved_general'] and count['unassessed']==band['unassessed'],'Realized-count open partition')
+  expected=sum(band[k]for k in ('realized_unitary','realized_other_or_unspecified','realized_spherical_nonpseudounitary'))
+  relation='unknown'if band['classification_coverage']=='census_only'else'lower_bound'if band['unresolved_general']or band['unassessed']else'exact'
+  need(count['known_realized']==expected and count['count_relation']==relation,'Realized-count interpretation')
+ with (ROOT/'data/grothendieck_counts.csv').open(newline='')as stream:
+  exported=list(csv.DictReader(stream))
+ need(exported==[{k:str(v)for k,v in row.items()}for row in realized],'Realized-count CSV projection')
+ for name in ('grothendieck_counts.json','classification_status.json','classification_status.csv'):
+  need((ROOT/'data'/name).read_bytes()==(DIST/'data'/name).read_bytes(),'Published count copy: '+name)
+ need(f'All {len(ids)} open rings · Python tensors'in(DIST/'index.html').read_text(),'Open-tensor download label')
+ with (DIST/'data/grothendieck_counts.csv').open(newline='')as stream:
+  web_counts=list(csv.DictReader(stream))
+ expected_counts=[{'rank':str(row['rank']),'multiplicity':str(row['multiplicity']),'rings':str(row['known_realized']),'is_lower_bound':str(row['count_relation']=='lower_bound')}for row in realized if row['known_realized']]
+ need(web_counts==expected_counts,'Legacy website CSV count projection')
+ pages=read(ROOT/'data/current_manuscript_page_counts.json');totals=pages['totals'];manuscripts=(ROOT/'manuscripts/README.md').read_text()
+ need(f"{pages['document_counts']['mathematical_manuscripts']} mathematical manuscripts, {totals['mathematical_manuscript']} pages"in manuscripts,'Manuscript index mathematical page total')
+ need(f"With three verification guides: {totals['mathematical_manuscripts_and_guides']} pages"in manuscripts and f"With the current research-status report: {totals['all_distinct_documents']} pages"in manuscripts,'Manuscript index complete page totals')
+ need(f'Current classification through rank eleven: {len(ids)} unresolved rings'in manuscripts,'Manuscript index global frontier')
+
+
  for name in ('rank5/papers/automatic.tex','rank5/papers/verification_guide.tex','rank7/papers/manuscript.tex','rank8/paper/m3_frontier.tex','rank8/paper/m3_center_followup.tex'):
   need((ROOT/'manuscripts'/name).read_bytes()==(ROOT/'supplements'/name).read_bytes(),'Current TeX mirror: '+name)
  result={'status':'METADATA_PASS'if metadata_only else 'PASS','exact_properties_recomputed':not metadata_only,'scope':'Current publication, exact ring properties and correction reconciliation; no new full categorical proof replay.','current_open_cases':len(ids),'exact_property_records':len(all_records),'rank8':report}

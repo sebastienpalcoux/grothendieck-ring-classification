@@ -129,6 +129,23 @@ def main():
     args = parser.parse_args()
     need(not (args.metadata_only and args.historical), 'Choose metadata-only or full historical replay')
     repo = args.repo.resolve()
+    from audit_corrections_20261024 import active as audit_active
+    if audit_active(repo):
+        python = [sys.executable] + (['-O'] if sys.flags.optimize else [])
+        if args.plan and args.historical:
+            command = python + [str(repo/'tools/replay_audit_history.py'),
+                                '--repo', str(repo), '--plan']
+        else:
+            command = python + [str(repo/'tools/verify_current_publication.py'),
+                                '--repo', str(repo)]
+            if args.metadata_only: command.append('--metadata-only')
+            if args.historical: command.append('--historical')
+        if args.plan and not args.historical:
+            print(json.dumps({'command':command, 'plan_only':True,
+                              'scope':'Current audited publication validation'}, indent=2))
+        else:
+            subprocess.run(command, cwd=repo, check=True)
+        return
     # Accepted overlays have separate current source bindings. Their historical
     # dispatchers preserve the archived routers; the exclusion stage records
     # its reconstructed missing-helper checkpoint explicitly.

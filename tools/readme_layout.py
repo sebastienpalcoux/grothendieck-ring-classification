@@ -32,7 +32,7 @@ def reorganize(full):
 
 **Which low-rank fusion rings admit fusion categories over ℂ?**
 
-[**Explore the atlas →**]({ATLAS}) · [Manuscripts](manuscripts/README.md) · [Open cases]({ATLAS}unresolved.html) · [Verification](docs/VERIFY.md)
+[**Explore the atlas →**]({ATLAS}) · [Theory and definitions]({ATLAS}theory.html) · [Manuscripts](manuscripts/README.md) · [Open cases]({ATLAS}unresolved.html) · [Verification](docs/VERIFY.md)
 
 > **AI-generated research · independent verification pending.**
 > Results and computations remain provisional. [Research status and verification scope](docs/PREPUBLICATION_REVIEW.md).
