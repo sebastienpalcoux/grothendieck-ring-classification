@@ -44,6 +44,8 @@ def main():
  front=(ROOT/'README.md').read_text();rank9=[line for line in front.splitlines()if line.startswith('| 9 |')]
  need(len(rank9)==1 and 'Through 2' in rank9[0] and '2,135 excluded, 72 realized' in rank9[0],'Single current rank-nine README row')
  need('**25 open cases.**'in front,'Current README frontier')
+ review=(DIST/'review.html').read_text();need('Current classification · 25 open questions'in review and 'rank-nine-m2'in review and 'rank-ten-m1'in review and 'rank-eleven-m1'in review,'Current review-page scope')
+ need('./data/current_publication_revision.json'in review and './downloads/current_remaining_cases.py'in review,'Current review downloads')
  for name,x in revision['documents'].items():
   if name.startswith('publications/rank9-m2/'):need(sha(ROOT/name)==x['sha256'],'Manuscript source identity')
  print('Rank-nine M2: all2083 case/tensor identities,2033 exclusions,32 model transports,18 scopes,25 project open tensors and every archive hash PASS.')
