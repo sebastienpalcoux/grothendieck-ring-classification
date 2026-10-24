@@ -37,7 +37,7 @@ def build(repo,ref='main'):
     if counts!={'unitarily_realized':27,'excluded':155} or ledger['counts']!=counts:
         raise ValueError('Classification partition mismatch')
     preserved={str(p.relative_to(repo)):sha(p) for p in (dist/'data').glob('*.json')
-               if not p.name.startswith('rank11_') and p.name!='current_document_revision.json'}
+               if not p.name.startswith('rank11_') and p.name not in ('current_document_revision.json','current_publication_revision.json')}
     # All proof references are retained under their original portable paths.
     index={}
     def evidence(relative):

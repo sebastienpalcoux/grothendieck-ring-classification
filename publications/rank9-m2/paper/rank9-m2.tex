@@ -1,0 +1,652 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=25mm]{geometry}
+\usepackage[T1]{fontenc}\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,mathtools,booktabs,longtable,array,microtype,xcolor,xurl,enumitem}
+\usepackage[colorlinks=true,linkcolor=blue!45!black,urlcolor=blue!45!black]{hyperref}
+\hypersetup{pdftitle={Rank-nine fusion rings of multiplicity two},pdfauthor={FusionFrontier / Sebastien Palcoux}}
+\newtheorem{theorem}{Theorem}[section]\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\newcommand{\FPdim}{\operatorname{FPdim}}\newcommand{\Rep}{\operatorname{Rep}}
+\renewcommand{\Vec}{\operatorname{Vec}}\newcommand{\Irr}{\operatorname{Irr}}
+\newcommand{\C}{\mathbb C}\newcommand{\Q}{\mathbb Q}\newcommand{\Z}{\mathbb Z}
+\setlength{\emergencystretch}{3em}
+\title{Rank-nine fusion rings of multiplicity two\\\large Theoretical obstructions, coherent constructions and exact certification}
+\author{FusionFrontier research prepared for S\'ebastien Palcoux\\\small AI-generated research; independent human verification and formalization pending}
+\date{24 October 2026}
+\begin{document}\maketitle
+\begin{abstract}
+We study the 2,083 supplied rank-nine based fusion rings of exact multiplicity
+two. The current certified partition consists of 2,033 general complex
+exclusions, 32 rings with unitary models and 18 unresolved rings. The proofs
+combine formal-codegree and subring obstructions, signed sphericalization,
+central induction, modular trace constraints, Morita theory and explicit
+categorical constructions. A Galois restriction theorem simultaneously
+excludes six rings by half-integral restriction multiplicities. A forced
+central $\Rep(S_3)$ gives a further structural exclusion. Rank-one module
+categories and the dimension-twenty Hopf classification settle three
+additional rings, while explicit relative cocycles construct three integral
+models. Every decision is bound to an original tensor, a proof dependency
+and exact replay data. We classify existence of a categorification of a
+based ring, without classifying all its associators.
+\end{abstract}
+\noindent\textbf{Verification scope.} These are AI-generated mathematical
+claims. Separate mathematical audits and exact computational replays are
+provided; independent human verification and Lean formalization are pending.
+\tableofcontents
+
+\section{The census, identifiers and accepted partition}
+A fusion ring has a distinguished basis $1=X_0,X_1,\ldots,X_8$, nonnegative
+integer constants $X_iX_j=\sum_kN_{ij}^kX_k$, an involution $i\mapsto i^*$,
+and the usual unit and Frobenius reciprocity identities. Multiplicity means
+$\max_{i,j,k}N_{ij}^k$. The source file through multiplicity two contains
+2,225 tensors: 142 of multiplicity one and 2,083 of exact multiplicity two.
+Its complete producer run finished all five duality strata. Enumeration
+completeness is producer-reported; tensor validity and exact uniqueness are
+separately checked. We do not repeat the entire enumeration here.
+
+The label $R9\_2\_n$ denotes the $n$th \emph{exact-multiplicity-two} tensor
+in source order, not necessarily physical line $n$ of the mixed source file.
+Every ledger entry also supplies its physical line and SHA-256 of compact
+JSON, without a trailing newline. The 142 multiplicity-one labels retain
+explicit basis transports to the multiplicity-one classification; fourteen
+of these transports are nonidentity. No literal unchanged-basis assertion is
+needed. The original tensor, rather than a dimension profile, determines
+case identity.
+
+\begin{theorem}[Certified partition of the supplied exact-M2 census]
+The accepted ledger partitions the 2,083 source rings into 2,033 rings
+excluded from fusion categorification over $\C$, 32 admitting a unitary
+fusion categorification, and 18 unresolved rings. Every exclusion has a
+scope-valid theoretical argument and an exact certificate or an explicit
+transfer from an excluded tensor. Every realization has categorical
+existence data and a complete equality of its $9^3$ structure constants
+with the source tensor under the recorded based permutation.
+\end{theorem}
+\begin{proof}
+The finite partition is the exact union of the source-bound exclusion and
+model records described below. The verifier checks all 2,083 tensor hashes,
+all 568 explicit negative-subring transfers and all 23,328 coefficients of
+the 32 positive tensors. It rejects any overlap between exclusion and
+realization records. Each family-specific proof supplies the mathematical
+implication used by its finite receipt. The model and exclusion arguments
+are audited separately from these bookkeeping checks. Complete data and
+replay commands appear in Section~\ref{sec:replay}.
+\end{proof}
+
+\paragraph{Subring-proof discipline.}
+A closed based subring transfers an exclusion only when that subring has
+an actual negative proof. Absence from a positive model catalog has no
+logical force. In particular the rank-three half-$E_6$ ring
+\[
+ f^2=1,\qquad fx=xf=x,\qquad x^2=1+f+2x
+\]
+has a unitary categorification \cite{HH,ALW}. It is never used as a negative
+subring. The audit withdraws 26 claims based on that omission, constructs
+models for seven affected ambient rings, and replaces the proofs for
+$R9\_2\_97,98,1489$ by their different $\mathrm{NG}(C_2^2,2)$ subrings.
+For those subrings the established near-group restriction
+$0<\kappa<|G|-1$ gives the exclusion. The corrected code contains an
+explicit negative registry with tensor identities and proof dependencies.
+
+\section{Uniform criteria and finite certificates}
+\subsection{Formal codegrees, cyclotomicity and subrings}
+For an irreducible representation $E$ of a based algebra let $e_E=\dim E$
+and $f_E$ be its formal codegree. The fusion Casimir acts by $e_Ef_E$;
+the degree factor must be retained in a noncommutative algebra. Formal
+codegrees of a fusion category are $d$-numbers. If the minimal polynomial
+of an algebraic integer $a$ is
+$t^n+a_1t^{n-1}+\cdots+a_n$, the exact divisibilities
+$a_n^i\mid a_i^n$ express the $d$-number test. Failure supplies a finite
+integer witness. Character cyclotomicity is used with its proper scalar
+character hypotheses; a nonabelian Galois-group witness cannot be replaced
+by an approximate eigenvalue calculation \cite{ENO,Ostrik}.
+
+For an integral ring a hypothetical categorification is pseudo-unitary.
+Distinguished central dimensions $D/f_E$ restrict to sums of integral source
+dimensions, hence are integers. In the noncommutative calculation the
+central Casimir eigenvalue is divided by $e_E$ before imposing this
+condition. Near-group and Tambara--Yamagami restrictions use their stated
+group and coefficient hypotheses. Tensor closure, dual closure and a full
+based permutation are checked before any proper-subring transfer.
+
+The baseline dependency audit reviews all 588 original structural uses.
+After removing the 26 invalid half-$E_6$ uses, the other 562 have direct
+proofs or explicit lower negative bindings. The 454 rank-six through
+rank-eight uses match excluded lower tensors exactly; 166 stored direct
+witnesses replay; 24 small-rank uses are supplied with fresh direct
+certificates. These counts describe overlapping audit classes, not a sum
+of distinct excluded ambient rings.
+
+\subsection{Central induction with representation degrees}
+Let $\mathcal C$ be pseudo-unitary, $D=\FPdim(\mathcal C)$ and
+$d_i=\FPdim(X_i)$. Write $F:\mathcal Z(\mathcal C)\to\mathcal C$ for
+forgetting the half-braiding and $I$ for its right adjoint. The
+distinguished simple $A_E\subset I(1)$ has
+\[
+ [I(1):A_E]=e_E,\qquad \dim A_E=D/f_E.
+\]
+For every central simple $Z$, its restriction column
+$v_Z=([F(Z):X_i])_i$ is nonnegative integral, and
+\[
+ [I(X_i):Z]=v_{Z,i},\qquad \dim Z=\sum_iv_{Z,i}d_i.
+\]
+The full noncommutative induction identity is
+\[
+ F I(X)=\bigoplus_{Y\in\Irr(\mathcal C)}Y\otimes X\otimes Y^*.
+\]
+Consequently the columns satisfy the exact Gram identity
+\[
+ \sum_Zv_{Z,i}v_{Z,j}=[FI(X_i):X_j].
+\]
+In a commutative ring this is the usual Casimir Gram matrix; the simplification
+is not used when the multiplication is noncommutative.
+
+Every summand of $I(1)$ has twist one. The first and second twist traces in
+$I(X_i)$, and the traces of cyclic rotations in tensor powers, give further
+necessary equalities. Arithmetic and Galois conditions on central dimensions
+and the integrality of modular character values restrict the finite column
+domains. Retaining a larger domain only weakens an exclusion test.
+
+\begin{proposition}[Exact separating certificate]
+Suppose a finite rational system $Au=b$, $u\geq0$, is proved necessary for a
+categorification. If an integer vector $y$ satisfies $A^ty\geq0$ and
+$b^ty<0$, there is no such categorification.
+\end{proposition}
+\begin{proof}
+A solution would give $b^ty=u^tA^ty\geq0$, a contradiction. Every entry of
+the matrix and ray is checked exactly, after clearing denominators. A
+failed numerical optimization or an unsuccessful search for $y$ has no
+negative mathematical implication.
+\end{proof}
+
+\subsection{Signed reduction, neutral components and Morita theory}
+A criterion formulated for pseudo-unitary categories is transferred to
+arbitrary complex categories only through an established existence reduction.
+Weak integrality supplies pseudo-unitarity directly. In the indicated
+irrational cases, exact signed-sphericalization and character certificates
+show that a hypothetical categorification has a pseudo-unitary Galois
+conjugate of the same based ring. This is an equivalence of existence
+questions, not an assertion that every original category is pseudo-unitary.
+The signed audit checks the complete finite sign-character domains and
+nonzero-product constraints. A signed gate alone never excludes a ring.
+
+The graded and Morita arguments use actual invertible module categories.
+For matrix conventions where source indices act on rows, module matrices
+represent the opposite multiplication:
+$M_iM_j=\sum_kN_{ji}^kM_k$. The linking-category Gram argument is applied
+with this convention, including noncommutative cases. A feasible Gram
+relaxation does not construct an invertible bimodule.
+
+The accepted finite families, their whole-domain reductions and exact
+rays are retained in the replay archive. The 36 intermediate exclusions
+are grouped in Table~\ref{tab:families}. All their proofs and scope
+reductions passed a separate audit. The folded $\mathrm{SO}(3)$ argument
+for $R9\_2\_920$ includes the odd-boundary step: split a boundary strand
+by the normalized trivalent vertex and retract by the bigon identity.
+Thus spanning and relations extend from even boundaries without an
+unsupported bending assertion.
+\input{exclusion-families.tex}
+
+\section{A Galois restriction theorem}\label{sec:galois}
+The following criterion reconstructs an entire central restriction from the
+source algebra. It does not enumerate the rest of the center.
+\begin{theorem}[Galois-unit restriction]
+Let $R$ be a commutative fusion ring whose FP dimensions generate a real
+quadratic field $K$. Suppose every formal codegree belongs to $K$, and
+write $\sigma\ne1$ for its automorphism. Let $C_R$ be the regular Casimir
+matrix. Its distinct irreducible minimal factors have degree one or two.
+Define $p\in\Q[t]$ modulo their product by
+\[
+ p(t)\equiv1\pmod{t-a},\qquad
+ p(t)\equiv t^2/n\pmod{t^2-at+n}.
+\]
+If $R$ has a pseudo-unitary categorification, the unit row of $p(C_R)$ is
+a nonnegative integer vector with unit entry one.
+\end{theorem}
+\begin{proof}
+Let $\chi_h$ run through all scalar irreducible characters, with formal
+codegree $f_h$, and let $A_h\subset I(1)$ be their distinguished central
+simples. Put $D=\FPdim(\mathcal C)$ and let $B$ correspond to
+$\sigma\circ\FPdim$. Then
+$\dim A_h=D/f_h$, $\dim B=D/\sigma(D)$, and $[F(B):1]=1$.
+The central-character identity and symmetry of the unnormalized modular
+$S$-matrix \cite{Deshpande} give
+\begin{align*}
+ (D/f_h)\chi_h(FB)&=S_{A_h,B}=S_{B,A_h}\\
+ &=\frac{D}{\sigma(D)}(\sigma\circ\FPdim)(F A_h)
+ =\frac{D}{\sigma(D)}\sigma(D/f_h)
+ =\frac{D}{\sigma(f_h)}.
+\end{align*}
+Restriction multiplicities are integers, which justifies commuting
+$\sigma$ with the dimension of $F A_h$. Hence
+\[
+ \chi_h(FB)=f_h/\sigma(f_h).
+\]
+For rational $f_h$ this is one; for a quadratic root with norm $n$ it is
+$f_h^2/n$. Rational Chinese remaindering therefore constructs the displayed
+$p$. All characters agree on $FB$ and $p(C_R)$, and the semisimple
+commutative regular representation is faithful. Thus $p(C_R)$ is exactly
+multiplication by $FB$, proving its required integrality and unit entry.
+The characters themselves need not take their values in $K$; only their
+formal codegrees do.
+\end{proof}
+
+\begin{corollary}
+The rings $R9\_2\_114,128,1487,1635,1636,1959$ have no complex fusion
+categorification.
+\end{corollary}
+\begin{proof}
+Their FP field is $\Q(\sqrt3)$, with $D=96+48\sqrt3$. The forced
+restrictions, in source order, are
+\[
+\begin{array}{c|c}
+114&(1,0,0,0,\tfrac12,\tfrac12,1,0,0)\\
+128&(1,0,0,\tfrac12,\tfrac12,\tfrac12,\tfrac12,0,0)\\
+1487&(1,\tfrac12,\tfrac12,0,0,0,0,\tfrac12,\tfrac12)\\
+1635&(1,\tfrac12,\tfrac12,0,0,0,0,0,1)\\
+1636&(1,\tfrac12,\tfrac12,0,0,0,0,\tfrac12,\tfrac12)\\
+1959&(1,\tfrac12,\tfrac12,\tfrac12,\tfrac12,0,0,0,0).
+\end{array}
+\]
+Each contains nonintegral multiplicities. The exact independent replay
+constructs the polynomial by a rational remainder linear system, checks
+its values in every character component, verifies the full multiplication
+matrix identity, and checks dimension $D/\sigma(D)=7+4\sqrt3$.
+The separately audited signed gates reduce every general complex existence
+question here to pseudo-unitary existence. The contradiction therefore has
+general scope.
+\end{proof}
+
+\begin{remark}[Duality variant and noncommutative extension]
+A dual-invariant scalar character labels a self-dual distinguished central
+simple: $S_{A^*,Z}=S_{A,Z^*}$ and the character formula identify their
+$S$-rows. In cases 1487 and 1959 a character of codegree 24 forces dimension
+$4+2\sqrt3$. Its restriction must contain the unit and exactly one of a
+pair of dual simples of dimension $2+2\sqrt3$, which is impossible.
+For a noncommutative irreducible $E$ of degree $e_E$, the central eigenvalue
+is $\chi_E/e_E$. The same proof gives $f_E/\sigma(f_E)$, while the Casimir
+eigenvalue is $e_Ef_E$. The integer $e_E$ cancels in the Galois ratio.
+The extension yields integral nonnegative vectors for 1848 and 1975 and
+makes no exclusion for them. All eleven applicable commutative quadratic
+positive controls pass the criterion.
+\end{remark}
+
+\section{A forced central symmetric category excludes 516}
+\begin{proposition}
+The ring $R9\_2\_516$ has no fusion categorification over $\C$.
+\end{proposition}
+\begin{proof}
+Use its audited general-to-pseudo-unitary gate. The exact codegree data
+force precisely one distinguished object of dimension one and one, $A$,
+of dimension two in $I(1)$; every other such dimension exceeds four.
+Its restriction is $F(A)=1+g$, with $g^2=1$. Uniqueness makes $A$ self-dual.
+The unit multiplicity of $F(A)^2$ is two. Since all distinguished
+multiplicities in $I(1)$ are one, $A^2$ has exactly one other distinguished
+summand in addition to the unit. The dimension bound forces that summand
+to be $A$, leaving an invertible $z$ with $F(z)=g$. Thus
+\[
+ A^2=1+z+A,\qquad zA=A,\qquad z^2=1.
+\]
+The verified character of $A$ has value one at $g$. The character formula
+and balancing give $\theta_z=1$; all three objects have trivial double
+braiding on their closed fusion subcategory. Positive dimensions identify
+this symmetric category as Tannakian $\Rep(S_3)$.
+
+Condense the central regular algebra $1+z$. Its image $1+g$ is connected,
+so its module category $\mathcal E$ is a fusion category. The spherical
+trace descends after division by two, giving its positive spherical
+structure. Free and fixed source orbits under $g$ give simple dimensions
+\[
+ 1^3,\quad d^3,\quad e^3,\qquad d=1+\sqrt3,\quad e=2+\sqrt3.
+\]
+The local $1+z$-modules in the central $\Rep(S_3)$ form $\Rep(C_3)$.
+Under center descent \cite[Theorem 3.20]{DMNO}, its two nontrivial
+invertibles forget separately to the unit of $\mathcal E$: their sum is
+the free module on $F(A)=1+g$, namely two units. Distinct central structures
+on the unit give a faithful $C_3$ of tensor automorphisms of the identity.
+Their eigencharacters define a faithful dual $C_3$ grading, whose components
+have equal FP dimension \cite{ENO}. Equating the rational and $\sqrt3$
+coefficients, a component contains either three dimension-$d$ simples or
+one each of dimensions $1,d,e$. The neutral component contains a unit,
+so it has dimensions $1,d,e$.
+
+Its rank-three fusion rules are forced by dimension and duality:
+\[
+ X^2=1+X+Y,\quad XY=X+2Y,\quad Y^2=1+2X+2Y.
+\]
+Its three distinguished restriction columns are $(1,0,0),(1,1,1),(1,2,2)$,
+with dimensions $1,4+2\sqrt3,7+4\sqrt3$. Their twist-one contribution
+in $I(X)$ is $M=18+10\sqrt3$. The total dimension of $I(X)$ is
+$T=30+18\sqrt3$. Its first twist trace is zero, since $X\ne1$.
+All other twists have modulus one, requiring $M\leq T-M$. But
+$2M-T=6+2\sqrt3>0$, the contradiction.
+An independently reconstructed labelled-$S$ ray against 14,128 columns
+supplies an additional exact certificate, without being needed for this
+structural proof.
+\end{proof}
+
+\section{The dimension-forty rank-one extension family}
+\subsection{A fiber functor gives two exclusions}
+\begin{proposition}
+The rings $R9\_2\_1225$ and $R9\_2\_1673$ have no complex fusion
+categorification.
+\end{proposition}
+\begin{proof}
+In either ring the eight labels other than 5 form a fusion subring
+$\mathcal D$ of dimensions $1^4,2^4$ and FP dimension 20. The other simple
+$m$ satisfies
+\[
+ Xm=mX=d_Xm,\qquad m^2=\sum_Xd_XX.
+\]
+The additive category generated by $m$ is a rank-one left
+$\mathcal D$-module category, equivalent to $\Vec$. Its action gives a
+strong exact faithful tensor functor $\mathcal D\to\operatorname{End}(\Vec)
+=\Vec$. Ordinary Tannaka reconstruction gives
+$\mathcal D\simeq\Rep(H)$ for a semisimple Hopf algebra of dimension 20.
+This uses neither a pivotal structure nor Hopf self-duality.
+
+The complete dimension-twenty semisimple list consists of group algebras,
+their duals, and the two exceptional Gelaki algebras $A_0,A_1$
+\cite{ChengNg,Natale,AN}. Function Hopf algebras are pointed; group
+representation rings are commutative. The two exceptional character rings
+are also commutative, as the direct calculation below proves. Both source
+neutral rings are noncommutative, witnessed respectively by the products
+of labels $(1,2)$ and $(1,3)$. Thus none of the possibilities can occur.
+\end{proof}
+
+\subsection{Explicit Hopf data and a unitary model}
+For an odd prime $p$ and $t=0,1$, write
+$B(a,e,b)=x^a\delta_e g^b$, with $a\in\Z/p$ and $e,b\in\Z/2$.
+The Andruskiewitsch--Natale construction \cite{AN} has
+\begin{align*}
+ B(a,e,b)B(c,f,d)&=\delta_{e,f}(-1)^{tebd}
+ B(a+(-1)^bc,e,b+d),\\
+ \Delta B(a,e,b)&=\sum_{s=0,1}B(a,s,b)\otimes B((-1)^sa,e-s,b),\\
+ \epsilon B(a,e,b)&=\delta_{e,0}.
+\end{align*}
+Its four one-dimensional simples $L(e,s)$ have $x=1$ and
+$g=(-1)^s i^{te}$. The remaining $p-1$ simples $V(e,j)$,
+$1\leq j\leq(p-1)/2$, have dimension two and $x$-eigenvalues
+$\zeta_p^{\pm j}$. Their characters are invariant under $a\mapsto-a$,
+so inversion in the coproduct is invisible in every character convolution.
+This proves commutativity of both exceptional character rings. Explicitly,
+\begin{align*}
+ L(e,s)L(f,r)&=L(e+f,s+r+tef),\\
+ L(e,s)V(f,j)&=V(e+f,j),\\
+ V(e,j)V(f,k)&=V(e+f,j+k)+V(e+f,j-k),
+\end{align*}
+where $V(e,-j)=V(e,j)$ and $V(e,0)=L(e,0)+L(e,1)$.
+
+Put $\zeta=\zeta_p$. An explicit symmetric nondegenerate ordinary Hopf
+pairing and its inverse copairing are
+\begin{align*}
+ P(B(a,e,b),B(c,f,d))&=\delta_{e,d}\delta_{f,b}\zeta^{ac}i^{tbd},\\
+ \gamma&=\frac1p\sum_{a,c,e,b}\zeta^{-ac}i^{-teb}
+ B(a,e,b)\otimes B(c,b,e).
+\end{align*}
+The positive Haar functional is
+$h(B(a,e,b))=\delta_{a,0}\delta_{b,0}/2$.
+Set $\lambda=\sqrt{4p}\,h$. Directly,
+\[
+ (\Delta\otimes1)\gamma=\gamma_{13}\gamma_{23},\qquad
+ (1\otimes\Delta)\gamma=\gamma_{12}\gamma_{13},
+\]
+\[
+ (S\otimes1)\gamma=(1\otimes S)\gamma,\qquad
+ (\lambda\otimes\lambda)(1\otimes S)\gamma=1.
+\]
+The copairing is symmetric, $S^2=1$, and the distinguished grouplike is one.
+These are precisely the conditions of \cite[Corollary 3.19]{DR}; rigidity
+is supplied by their Section 3.6. Hence there is a coherent fusion category
+$\Rep(A_t)+\Vec$ with the displayed odd rules. In their dual-Hopf
+convention the self-duality map is $S\Gamma_0$, but their formula for the
+associator inserts $S^{-1}$. Thus the actual associator copairing is the
+$\gamma$ displayed above, without another antipode.
+
+The compact involution is
+\[
+ B(a,e,b)^*=(-1)^{teb}B(-(-1)^ba,e,b).
+\]
+The Haar inner product makes these basis vectors orthogonal of squared
+norm $1/2$. Each block of $\gamma$ is a Fourier bicharacter element times
+a unitary and a phase. The odd Fourier associator is
+\[
+ \phi(B(a,e,b))=\frac{i^{-teb}}{\sqrt p}
+ \sum_u\zeta^{-(-1)^eua}B(u,b,e),
+\]
+a permutation of normalized unitary Fourier blocks. The remaining
+nonidentity associators are representations of $\gamma$, the Hopf
+transport maps $h\otimes v\mapsto h_{(1)}\otimes h_{(2)}v$, and their
+inverses. Haar invariance makes these transports unitary. In the odd-even-odd
+case right multiplication composed with the antipode is a star
+representation, with the corresponding opposite algebra understood.
+All associators are therefore unitary.
+
+For $p=5$, $t=1$ gives $R9\_2\_965$, with source-to-model map
+$(0,2,3,6,7,8,5,4,1)$. The $t=0$ construction recovers $R9\_2\_21$ as a
+positive control. The independent checker verifies both copairing identities,
+normalization, all character convolutions, and all 729 coefficients.
+
+\section{Three relative-cocycle models}
+\subsection{A construction with its twisted character formula}
+Let $G$ be a finite group, $H<G$, $\omega\in Z^3(G,U(1))$, and let
+$\psi$ be normalized with $\delta\psi=\omega^{-1}|_H$ in the convention
+\[
+ \psi(a,b)\psi(ab,c)=\omega(a,b,c)\psi(b,c)\psi(a,bc).
+\]
+The subgroup algebra $A=\bigoplus_{h\in H}h$ in $\Vec_G^\omega$ is
+connected and separable. Its bimodules form the unitary group-theoretical
+category $\mathcal C(G,\omega,H,\psi)$ \cite{ENO,GHR}.
+For a double-coset representative $u$ put $K_u=H\cap uHu^{-1}$.
+On its degree-$u$ fiber, the stabilizer representation has multiplier
+\[
+ \alpha_u(a,c)=
+ \frac{\psi(a,c)\omega(a,u,u^{-1}cu)}
+ {\omega(a,c,u)\omega(u,u^{-1}au,u^{-1}cu)
+ \psi(u^{-1}au,u^{-1}cu)}.
+\]
+This follows by writing the left and right module actions:
+\[
+ L_aL_c=\psi(a,c)\omega(a,c,v)^{-1}L_{ac},\quad
+ R_cR_a=\omega(v,a,c)\psi(a,c)R_{ac},\quad
+ R_cL_a=\omega(a,v,c)L_aR_c.
+\]
+One defines $\rho_u(a)=R_{u^{-1}au}^{-1}L_a$ and substitutes these identities.
+For the relative tensor product the balancing relation is
+\[
+ R_h(m_u)\otimes n_v=\omega(u,h,v)m_u\otimes L_h(n_v).
+\]
+In a stabilizer trace at degree $uv$, a fixed coset contributes
+\[
+ \frac{\omega(u,h,v)}{\omega(a,u,v)\omega(u,v,b)}
+ \chi_u^M(a)\chi_v^N(h),\quad
+ h=u^{-1}au,\quad b=(uv)^{-1}a(uv).
+\]
+Projective character inner products recover fusion coefficients exactly.
+The transport phase between homogeneous fibers is derived from the same
+three module identities and recorded with a separate derivation in the
+supplement. An untwisted convolution would be incorrect here.
+
+\subsection{The model of dimension 120}
+For $G=S_5$, $H=S_3\times C_2$, let $\varepsilon$ be parity and
+$\alpha$ the supplied normalized $\mathbb F_2$ two-cocycle, defined by
+a fixed section of the Schur double cover. Put
+\[
+ \omega(g,h,k)=(-1)^{\varepsilon(g)\alpha(h,k)}.
+\]
+The explicit unit-modulus cochain $\psi$ trivializes its restriction to
+$H$. The independent replay reconstructs $S_5$ from permutations and
+checks all $120^3$ two-cocycle equations and all $12^3$ algebra equations.
+The three stabilizer orders are $12,2,4$, with projective irreducible
+sizes $(1,1,1,1,2,2),(1,1),(2)$. The nondegenerate multiplier on the last
+$V_4$ gives $M_2(\C)$. Simple dimensions are $1^4,2^2,6^3$, and the complete
+tensor is $R9\_2\_92$ under $(0,3,1,5,7,6,4,2,8)$.
+
+\subsection{Two models on the same group and subgroup}
+Take $G=S_4\times C_2$, write $e$ for the external bit and $s$ for parity,
+and set
+\[
+ x=((12),1),\quad y=((34),0),\quad H=\langle x,y\rangle\simeq V_4.
+\]
+Let $X,Y$ be its two coordinates and pull the explicit Schur cocycle
+$\alpha$ back from $S_4$. The first associator and trivialization are
+\[
+ \omega_+=(-1)^{e\smile(\alpha+e^2)},\qquad
+ \psi_+(a,b)=i^{X(a)Y(b)}.
+\]
+They construct $R9\_2\_392$ under $(0,1,2,8,7,3,5,6,4)$.
+
+For the second model let $\Omega$ be the copied eighth-root-valued
+$S_4$ cocycle from the lower-rank project. Its full table and original
+source hash are supplied; all $24^4$ cocycle identities and every
+transported table entry are independently checked. Set
+\[
+ \omega_- =\Omega\,(-1)^{e\smile\alpha+s\smile e^2}.
+\]
+In the order $(1,y,x,xy)$ of $H$, a trivialization
+$\psi_-(a,b)=\zeta_8^{q(a,b)}$ is given by
+\[
+ (q(a,b))=\begin{pmatrix}0&0&0&0\\0&1&2&7\\0&4&0&0\\0&1&6&7\end{pmatrix}.
+\]
+The resulting tensor is $R9\_2\_1246$ under $(0,8,7,5,6,3,1,2,4)$.
+For each construction the double-coset sizes are $4,4,16,16,8$, with
+stabilizer orders $4,4,1,1,2$ and projective dimensions
+$(1,1,1,1),(2),(1),(1),(1,1)$. This gives type $1^4,2^3,4^2$.
+The independent checker verifies all $48^4$ cocycle equations, the
+subgroup algebra and all tensor entries over the exact cyclotomic field.
+Neither construction relies on an unproved classification of dimension 24.
+
+\section{The half-\texorpdfstring{$E_6$}{E6} family and the model inventory}
+\subsection{Products and associative zesting}
+Let $\mathcal E$ be the unitary half-$E_6$ category and $f$ its specified
+central fermion \cite{ALW}. The products with Ising, $\Rep(S_3)$,
+$\mathrm{PSU}(2)_5$ and $\Vec(C_3)$ give respectively
+$R9\_2\_71,79,499,2020$. Their tensors are direct Kronecker products.
+For $R9\_2\_1218$ use the Ising parity on $\mathcal E\boxtimes\mathrm{Ising}$
+and zest the $(1,1)$ product by $f$. The associator cochain
+$\nu(a,b,c)=i^{abc}$ has coboundary $(-1)^{abcd}$ on parity bits, exactly
+canceling the central fermion crossing. All sixteen coherence equations
+are checked. The cochains and the initial categories are unitary.
+
+\subsection{A central-fermion shear with two coherent actions}
+On $\mathcal D=\mathcal E\boxtimes\Vec(C_2)$ define
+$T(Z,h)=(f^hZ,h)$. Its tensorator moves the inserted $f^k$ left past $Z$
+using the inverse half-braiding, and multiplies the adjacent powers of $f$.
+The half-braiding identities prove its pentagon. Composition gives $T^2$
+the identity tensorator multiplied by $(-1)^{hk}$, because $c_f=-1$.
+For either $u=i$ or $u=-i$, the components $\eta_{(Z,h)}=u^h$ are a
+monoidal isomorphism $T^2\to\mathrm{Id}$:
+\[
+ u^{h+k\bmod2}(-1)^{hk}=u^hu^k.
+\]
+The action equation $T\eta=\eta T$ holds because $T$ preserves $h$.
+These are two coherent unitary $C_2$ actions.
+
+The action fixes $(1,0),(f,0),(x,0),(x,1)$ and exchanges $(1,1),(f,1)$.
+Its equivariantization has four invertibles, four dimension-$(1+\sqrt3)$
+simples and one dimension-two object $Y$. Write $\epsilon$ for the acting
+sign and choose lifts $a,b$ over $x,xh$. A normalized $t:fx\to x$ and
+$r=tc_x^{-1}:xf\to x$ satisfy
+\[
+ r(t\otimes1_f)=-t(1_f\otimes r).
+\]
+This is naturality and the half-braiding hexagon with $c_f=-1$; it makes
+$f$ fix the two lifts of $x$ and exchange the two lifts of $xh$.
+The rules include
+\[
+ a^2=1+f+2a,\quad Y^2=1+f+\epsilon+f\epsilon,
+\]
+\[
+ aY=b+\epsilon b,\quad bY=a+\epsilon a,\quad ab=Y+b+\epsilon b.
+\]
+The sign of $\eta$ changes the unit-pairing eigenvalue on the odd fixed
+simple. Thus one choice has
+$b^2=1+f\epsilon+a+\epsilon a$, and the other
+$b^2=\epsilon+f+a+\epsilon a$. These give $R9\_2\_96$ and
+$R9\_2\_1266$, including their distinct dualities. All coefficients,
+action coherence and forgetful identities are independently reconstructed.
+
+\subsection{All 32 positive tensors}
+Table~\ref{tab:models} lists the accepted models. For group-theoretical
+and equivariantization entries, the archive supplies the actual cocycles,
+action data and projective stabilizer calculations, rather than an action
+on the Grothendieck ring alone. The exceptional AH3 entry is matched to
+its published categorical tensor. The WZW, subfactor, product and known
+near-group entries use their specified unitary realizations.
+The word ``model'' asserts existence for a based ring and makes no
+claim of novelty up to tensor equivalence.
+\input{models.tex}
+
+\section{What remains unresolved}
+\input{unresolved.tex}
+For all eighteen rings general categorification and pseudo-unitary
+\emph{existence} are equivalent by the indicated reduction. For the thirteen
+weakly integral rings a hypothetical category itself is pseudo-unitary.
+The five other quadratic reductions may use Galois conjugation; they do
+not assert positivity of every original category. General, pivotal,
+spherical, pseudo-unitary and unitary existence all remain undecided.
+Noncommutativity excludes braiding for 1848, 1965 and 1975. No braided
+model or exclusion is asserted for the other fifteen.
+
+The integral cases 12 and 959 survive the bounded relative-cocycle work;
+1965 survives the specified Morita and group-theoretical restrictions.
+The dimension-504 ring 941 is identified, in all 729 coefficients, with
+the ring posed in Question 1.14 of \cite{ABDP}. That identification does
+not settle its categorification. The nine strictly weakly integral rings
+retain the explicit extension or module-category gaps stated in their
+research records. Both tested mixed Moore--Read action systems fail only
+for the finite phase ansatzes used; this excludes no ambient fusion ring.
+
+The remaining five quadratic rings pass the Galois restriction test.
+Bounded labelled-$S$ searches on the three commutative ones produce no
+certified contradiction, with several time limits; this is not a proof
+of categorical feasibility. Correctly degree-weighted noncommutative
+constraints likewise leave 1848 and 1975 undecided. Failed model searches,
+feasible necessary matrices and unsuccessful separator optimizations do
+not change the accepted partition.
+
+\section{Exact evidence and reproduction}\label{sec:replay}
+The public source is
+\url{https://github.com/sebastienpalcoux/grothendieck-ring-classification/tree/main/evidence/rank9_m2_20261024}.
+It exposes the accepted ledger, positive models, exact open tensors and
+readable proofs. Its checksummed replay archive retains every source
+cochain, certificate, constructor, independent audit and historical source
+context. Only \path{phase3/results/} is the current mathematical partition.
+Historical ledgers remain explicitly superseded; their unsupported half-$E_6$
+claims are not used by the corrected verifier.
+
+After unpacking the archive and installing its requirements, run
+\begin{quote}\ttfamily
+python3 phase3/verify\_audit.py\\
+python3 phase3/verify\_audit.py --fresh
+\end{quote}
+The first command checks all input identities, the partition, model
+permutations, explicit negative transfers and accepted receipts. The second
+reconstructs the corrected subring pass and the new constructors and
+independent exact checks. The archive manifest binds every member before
+fresh output is written. A replay is finite mathematical evidence and
+bookkeeping verification; it is not a formal proof-assistant development.
+
+The fusion census repository publishes the same 2,225 supplied tensors
+through multiplicity two and the corresponding producer-run qualification.
+The public Atlas uses one rank/multiplicity table and one case directory
+for all ranks. Every M2 case has its source identity, current decision,
+proof links and a downloadable Python tensor. The eighteen open cases
+retain their separate categorical-scope statements.
+
+\begin{thebibliography}{99}
+\bibitem{ENO} P.~Etingof, D.~Nikshych, V.~Ostrik, \emph{On fusion categories}, Ann. Math. 162 (2005), 581--642; \href{https://arxiv.org/abs/math/0203060}{arXiv:math/0203060}.
+\bibitem{Ostrik} V.~Ostrik, \emph{Pivotal fusion categories of rank 3}, Mosc. Math. J. 15 (2015), 373--396; \href{https://arxiv.org/abs/1309.4822}{arXiv:1309.4822}.
+\bibitem{Deshpande} T.~Deshpande, \emph{On centers of bimodule categories and induction-restriction functors}, \href{https://arxiv.org/abs/1611.04486}{arXiv:1611.04486}, Proposition 2.8 and Section 2.7.
+\bibitem{DMNO} A.~Davydov, M.~M\"uger, D.~Nikshych, V.~Ostrik, \emph{The Witt group of non-degenerate braided fusion categories}, J. Reine Angew. Math. 677 (2013), 135--177; \href{https://arxiv.org/abs/1009.2117}{arXiv:1009.2117}.
+\bibitem{HH} T.~Hagge, S.-M.~Hong, \emph{Some non-braided fusion categories of rank three}, Commun. Contemp. Math. 11 (2009), 615--637; \href{https://arxiv.org/abs/0704.0208}{arXiv:0704.0208}.
+\bibitem{ALW} D.~Aasen, E.~Lake, K.~Walker, \emph{Fermion condensation and super pivotal categories}, J. Math. Phys. 60 (2019), 121901; \href{https://arxiv.org/abs/1709.01941}{arXiv:1709.01941}, Section 7.
+\bibitem{ChengNg} Y.-L.~Cheng, S.-H.~Ng, \emph{On Hopf algebras of dimension $4p$}, J. Algebra 328 (2011), 399--419; \href{https://arxiv.org/abs/1005.1267}{arXiv:1005.1267}.
+\bibitem{Natale} S.~Natale, \emph{On the semisolvability of semisimple Hopf algebras of low dimension}, \href{https://arxiv.org/abs/math/0305038}{arXiv:math/0305038}, Section 5.2.
+\bibitem{AN} N.~Andruskiewitsch, S.~Natale, \emph{Examples of self-dual Hopf algebras}, J. Math. Sci. Univ. Tokyo 6 (1999), 181--215; \url{https://www.ms.u-tokyo.ac.jp/journal/pdf/jms060108.pdf}.
+\bibitem{DR} A.~Davydov, I.~Runkel, \emph{$\Z/2\Z$-extensions of Hopf algebra module categories by their base categories}, \url{https://www.math.uni-hamburg.de/home/runkel/PDF/hext.pdf}, Corollary 3.19 and Section 3.6.
+\bibitem{GHR} C.~Galindo, S.-M.~Hong, E.~C.~Rowell, \emph{Generalized and quasi-localizations of braid group representations}, \href{https://arxiv.org/abs/1105.5048}{arXiv:1105.5048}, Theorem 5.20.
+\bibitem{ABDP} M.~Alekseyev, W.~Bruns, J.~Dong, S.~Palcoux, \emph{Classifying integral Grothendieck rings up to rank 5 and beyond}, \href{https://arxiv.org/abs/2507.07023}{arXiv:2507.07023}, Question 1.14.
+\end{thebibliography}
+\end{document}

@@ -1,6 +1,6 @@
 # Manuscripts
 
-**Current classification through rank eleven: seven unresolved rings, including R10_1_189.**
+**Current classification through rank eleven: 25 unresolved rings across ranks six, eight, nine and ten.**
 
 > **AI-generated research · independent verification pending.** Exact automated checks establish only their stated computational scope.
 
@@ -17,9 +17,10 @@ Current manuscripts appear once, in increasing rank order. Realized counts refer
 | Rank seven | [PDF](rank7/papers/manuscript.pdf) | [TeX](rank7/papers/manuscript.tex) | 83 |
 | Rank eight | [PDF](rank8/paper/rank8.pdf) | [TeX](rank8/paper/rank8.tex) | 148 |
 | Rank-nine and rank-ten multiplicity-one classification | [PDF](../publications/rank9-rank10/paper/rank9-rank10.pdf) | [TeX](../publications/rank9-rank10/paper/rank9-rank10.tex) | 30 |
+| Rank-nine multiplicity-two classification | [PDF](../publications/rank9-m2/paper/rank9-m2.pdf) | [TeX](../publications/rank9-m2/paper/rank9-m2.tex) | 12 |
 | Rank-eleven multiplicity-one classification | [PDF](../publications/rank11/paper/rank11.pdf) | [TeX](../publications/rank11/paper/rank11.tex) | 18 |
 
-**10 mathematical manuscripts, 600 pages.** With three verification guides: 619 pages. With the rank-two through rank-eight research-status report: 627 pages. Each distinct document is counted once.
+**11 mathematical manuscripts, 612 pages.** With three verification guides: 631 pages. With the rank-two through rank-eight research-status report: 639 pages. Each distinct document is counted once.
 
 [Page inventory and checksums](../data/current_manuscript_page_counts.json) · [Current publication manifest](../data/current_publication_revision.json)
 
@@ -29,7 +30,9 @@ Current manuscripts appear once, in increasing rank order. Realized counts refer
 
 **Ranks 5–8:** explicit census bounds are 20, 9, 5 and 3. Two rank-six and four rank-eight categorification questions remain open.
 
-**Ranks 9–11:** multiplicity one only. Rank 9 has 102 exclusions and 40 unitary models; rank 10 has 136 exclusions, 57 unitary models and 1 unresolved; rank 11 has 155 exclusions and 27 unitary models.
+**Rank 9:** through multiplicity two, 2,135 general exclusions, 72 unitary models and 18 unresolved. Exact multiplicity two contributes 2,033 exclusions and 32 models.
+
+**Ranks 10–11:** multiplicity one. Rank 10 has 136 exclusions, 57 unitary models and 1 unresolved; rank 11 has 155 exclusions and 27 unitary models.
 
 [Rank-11 proofs and replay](../evidence/rank11_m1_20261023/README.md) · [Ranks 9–10 proofs and replay](../evidence/rank10_m1_exclusions_20261023/README.md) · [All open cases](https://sebastienpalcoux.github.io/grothendieck-ring-classification/unresolved.html)
 

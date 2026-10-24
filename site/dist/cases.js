@@ -516,7 +516,7 @@
   function renderSources(ring) {
     const node = section("sources", "Sources & provenance", "05 / COMPLETE RECORDED EVIDENCE");
     const actions = el("div", "case-source-actions");
-    actions.append(link(ring.report_url ? "Rank-nine/ten research report ↗" : `Rank-${ring.rank} manuscript ↗`, ring.report_url || `./papers/rank${ring.rank}.pdf`), recordDownload(ring));
+    actions.append(link(ring.report_url ? (ring.report_label || "Research manuscript") + " ↗" : `Rank-${ring.rank} manuscript ↗`, ring.report_url || `./papers/rank${ring.rank}.pdf`), recordDownload(ring));
     node.append(actions);
     if (ring.source) node.append(lazyDetails("Census source, basis and tensor provenance", () => structured(ring.source)));
     const other = Object.fromEntries(Object.entries(ring).filter(([key]) => !["id", "rank", "multiplicity", "status", "fusion_tensor", "tensor", "tensor_sha256", "basis", "unit_index", "source", "invariants", "research", "evidence", "download_url", "categorification_scope"].includes(key)));

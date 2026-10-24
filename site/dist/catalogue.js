@@ -1,7 +1,7 @@
 "use strict";
 // One catalogue for every rank; source-bound research payloads remain intact.
 globalThis.RingCatalogue = (() => {
-  const sources = ["rank9_rank10_m1.json", "rank11_m1.json"];
+  const sources = ["rank9_rank10_m1.json", "rank11_m1.json", "rank9_m2.json"];
   let pending;
   async function fetchJSON(name) {
     const response = await fetch(`./data/${name}`);
@@ -17,21 +17,32 @@ globalThis.RingCatalogue = (() => {
       const cases = new Map(models.map(r => [r.id, {...r, status: r.status || (r.existence === "unitary" ? "unitarily_realized" : "realized")} ]));
       for (const ring of [...unresolved.cases, ...resolved.cases, ...updates.flatMap(p => p.cases)]) cases.set(ring.id, ring);
       const ordered = [...cases.values()].sort((a, b) => a.rank - b.rank || a.multiplicity - b.multiplicity || a.id.localeCompare(b.id, "en", {numeric: true}));
+      models.sort((a,b)=>a.rank-b.rank || a.multiplicity-b.multiplicity || a.id.localeCompare(b.id,"en",{numeric:true}));
       return {models, cases: ordered, summaries: updates.map(p => p.summary)};
     });
   }
   function mergeAtlas(state, catalogue) {
+    const put = (rows, value) => {
+      const index = rows.findIndex(r => r.rank === value.rank && r.multiplicity === value.multiplicity);
+      if (index < 0) rows.push(value); else rows[index] = value;
+    };
     for (const summary of catalogue.summaries) {
+      const multiplicity = summary.multiplicity || 1;
       for (const [key, c] of Object.entries(summary.counts)) {
         const rank = Number(key), n = (c.excluded || 0) + (c.unitarily_realized || 0) + (c.unresolved || 0);
-        state.data.rows.push({rank, multiplicity: 1, rings: n, source: summary.source_url, verification: summary.ledger_url});
-        state.data.grothendieck_rows.push({rank, multiplicity: 1, rings: c.unitarily_realized || 0, is_lower_bound: Boolean(c.unresolved)});
-        state.data.classification_rows.push({rank, multiplicity: 1, rings: n, excluded_general: c.excluded || 0, realized_unitary: c.unitarily_realized || 0,
+        put(state.data.rows, {rank, multiplicity, rings: n, source: summary.source_url, verification: summary.ledger_url});
+        put(state.data.grothendieck_rows, {rank, multiplicity, rings: c.unitarily_realized || 0, is_lower_bound: Boolean(c.unresolved)});
+        put(state.data.classification_rows, {rank, multiplicity, rings: n, excluded_general: c.excluded || 0, realized_unitary: c.unitarily_realized || 0,
           realized_other_or_unspecified: 0, realized_spherical_nonpseudounitary: 0, unresolved_general: c.unresolved || 0, unassessed: 0,
           classification_coverage: c.unresolved ? "partial_classification" : "complete_classification"});
-        state.data.scope.push({rank, through: c.unresolved ? 0 : 1, analyzed_through: 1, kind: c.unresolved ? "partial" : "complete",
-          rings: n, positive: c.unitarily_realized || 0, unresolved: c.unresolved || 0,
-          note: "Multiplicity one only. Every supplied tensor has a case record, decision scope and downloadable fusion data."});
+        const bands = state.data.classification_rows.filter(r => r.rank === rank).sort((a,b)=>a.multiplicity-b.multiplicity);
+        let through = 0;
+        for (const band of bands) {if (band.multiplicity !== through+1 || band.unresolved_general) break; through++;}
+        const entry = {rank, through, analyzed_through: Math.max(...bands.map(r=>r.multiplicity)), kind: bands.some(r=>r.unresolved_general)?"partial":"complete",
+          rings: bands.reduce((n,r)=>n+r.rings,0), positive: bands.reduce((n,r)=>n+r.realized_unitary,0), unresolved: bands.reduce((n,r)=>n+r.unresolved_general,0),
+          note: "Exact multiplicity bands have individual source-bound decisions and downloadable tensors. Necessary conditions alone are not realizations."};
+        const index = state.data.scope.findIndex(r=>r.rank===rank);
+        if (index<0) state.data.scope.push(entry); else state.data.scope[index]=entry;
       }
       if (summary.current_documents) state.data.current_publication_documents = summary.current_documents;
     }
@@ -39,12 +50,12 @@ globalThis.RingCatalogue = (() => {
     state.data.catalogue_records = catalogue.cases;
     state.data.publication_date = [state.data.snapshot, ...catalogue.summaries.map(s => s.date)].sort().at(-1);
     state.data.catalogue_papers = catalogue.summaries.map(s => {
-      const ranks = Object.keys(s.counts).map(Number).sort((a, b) => a - b), c = s.totals;
+      const ranks = Object.keys(s.counts).map(Number).sort((a,b)=>a-b), c=s.totals, m=s.multiplicity || 1;
       const stem = `rank${ranks.join("-rank")}`;
-      return {rank: ranks[0], ranks, title: `${ranks.length > 1 ? "Ranks" : "Rank"} ${ranks.join(" and ")} multiplicity-one fusion rings`,
-        subtitle: `${s.input_count} analyzed; ${c.excluded || 0} exclusions, ${c.unitarily_realized || 0} unitary models, ${c.unresolved || 0} unresolved`,
-        type: "CLASSIFICATION", slug: s.report_url.split("/").at(-1).replace(/\.pdf$/, ""), sourceRef: "main", sourcePath: `publications/${stem}/paper/${stem}.tex`};
-    });
+      return {rank:ranks[0],ranks,multiplicity:m,title:s.report_title || `${ranks.length>1?"Ranks":"Rank"} ${ranks.join(" and ")} multiplicity-one fusion rings`,
+        subtitle:`${s.input_count} analyzed; ${c.excluded || 0} exclusions, ${c.unitarily_realized || 0} unitary models, ${c.unresolved || 0} unresolved`,
+        type:"CLASSIFICATION",slug:s.report_url.split("/").at(-1).replace(/\.pdf$/,""),sourceRef:"main",sourcePath:s.report_source || `publications/${stem}/paper/${stem}.tex`};
+    }).sort((a,b)=>a.rank-b.rank || a.multiplicity-b.multiplicity);
   }
   const node = (tag, text = "", className = "") => {
     const result = document.createElement(tag); result.textContent = text;

@@ -40,6 +40,8 @@ jobs:
           python site/check_rank9_10.py
           node --check site/dist/redirect.js
           python site/check_rank11.py
+          python site/check_rank9_m2.py
+          node site/check_rank9_m2.mjs
           python tools/list_simple_multiplicity_one.py --check
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5

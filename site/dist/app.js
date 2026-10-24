@@ -551,7 +551,7 @@ function renderPapers() {
     manuscript.href=`./papers/${paper.slug}.pdf`;
     manuscript.dataset.localPaper=paper.slug;
     const source=element("a","","Source & checks ↗");
-    source.href=`${state.data.classification_repository}/blob/${paper.sourceRef || state.data.classification_commit || "main"}/${paperSourcePath(paper.rank,"tex")}`;
+    source.href=`${state.data.classification_repository}/blob/${paper.sourceRef || state.data.classification_commit || "main"}/${paper.sourcePath || paperSourcePath(paper.rank,"tex")}`;
     source.target="_blank";source.rel="noopener";
     actions.append(manuscript);
     if (paper.rank===4) {

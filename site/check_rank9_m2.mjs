@@ -1,0 +1,22 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import vm from 'node:vm';
+import path from 'node:path';
+import {fileURLToPath} from 'node:url';
+const dist=path.join(path.dirname(fileURLToPath(import.meta.url)),'dist');
+const read=name=>JSON.parse(fs.readFileSync(path.join(dist,'data',name),'utf8'));
+const context=vm.createContext({document:{querySelector:()=>null},fetch:async url=>({ok:true,json:async()=>read(url.split('/').at(-1))}),console});
+vm.runInContext(fs.readFileSync(path.join(dist,'catalogue.js'),'utf8'),context);
+const catalogue=await context.RingCatalogue.load();
+assert.equal(catalogue.cases.filter(r=>r.rank===9&&r.multiplicity===2).length,2083);
+assert.equal(catalogue.cases.filter(r=>r.status==='unresolved').length,25);
+const state={data:read('atlas.json')};state.data.classification_rows=read('classification_status.json').rows;context.RingCatalogue.mergeAtlas(state,catalogue);
+assert.equal(state.data.classification_rows.filter(r=>r.rank===9&&r.multiplicity===2).length,1);
+const scope=state.data.scope.find(r=>r.rank===9);
+assert.deepEqual([scope.rings,scope.positive,scope.unresolved,scope.through,scope.analyzed_through],[2225,72,18,1,2]);
+assert.equal(state.data.scope.find(r=>r.rank===10).unresolved,1);
+assert.equal(state.data.scope.find(r=>r.rank===11).unresolved,0);
+const modelIDs=catalogue.models.map(r=>r.id);assert.equal(new Set(modelIDs).size,modelIDs.length);
+for(let i=1;i<catalogue.models.length;i++){const a=catalogue.models[i-1],b=catalogue.models[i];assert(a.rank<b.rank||(a.rank===b.rank&&a.multiplicity<=b.multiplicity));}
+assert.equal(state.data.catalogue_papers.find(r=>r.slug==='rank9-m2').sourcePath,'publications/rank9-m2/paper/rank9-m2.tex');
+console.log(`Shared catalogue PASS: ${catalogue.cases.length} case records,${catalogue.models.length} models,25 unresolved; rank9 M1/M2 merged and ordered.`);

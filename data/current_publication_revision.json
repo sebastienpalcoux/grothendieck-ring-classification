@@ -1,6 +1,6 @@
 {
   "schema": "current-publication-revision/v1",
-  "date": "2026-10-23",
+  "date": "2026-10-24",
   "accepted_decisions": 36,
   "remaining_ids": [
     "R6_4_155",
@@ -9,6 +9,24 @@
     "R8_3_941",
     "R8_3_1154",
     "R8_3_1768",
+    "R9_2_12",
+    "R9_2_137",
+    "R9_2_585",
+    "R9_2_746",
+    "R9_2_941",
+    "R9_2_959",
+    "R9_2_1025",
+    "R9_2_1209",
+    "R9_2_1254",
+    "R9_2_1303",
+    "R9_2_1607",
+    "R9_2_1709",
+    "R9_2_1759",
+    "R9_2_1848",
+    "R9_2_1965",
+    "R9_2_1975",
+    "R9_2_1976",
+    "R9_2_1988",
     "R10_1_189"
   ],
   "accepted_decisions_scope": "Historical 38-case continuation through rank-seven multiplicity four",
@@ -2120,6 +2138,26 @@
     "publications/rank9-rank10/paper/rank10_completion.tex": {
       "sha256": "219e67cd6f2494b624b965fbe5b72c5e5755efb12de04cce6eb4a2b53b3f6a45",
       "bytes": 21774
+    },
+    "publications/rank9-m2/paper/rank9-m2.tex": {
+      "sha256": "6c96fdebbc3221c8337da603bf13a3c27a30ecc7df2efc0a7576cec6bf9d2479",
+      "bytes": 34363
+    },
+    "publications/rank9-m2/paper/unresolved.tex": {
+      "sha256": "cc418423e6a3d231ca42256ab7446be0967f111303425d6c61b575a55708725b",
+      "bytes": 295
+    },
+    "publications/rank9-m2/paper/models.tex": {
+      "sha256": "c1bdfd0d2af53ce175a10d44813698117abb8b9eab2b24b491d919d1114f0ded",
+      "bytes": 3085
+    },
+    "publications/rank9-m2/paper/rank9-m2.pdf": {
+      "sha256": "eea802b3905532a6a0544ff8898fee30e9e13ff447bfe56e5640074382d7e097",
+      "bytes": 388015
+    },
+    "publications/rank9-m2/paper/exclusion-families.tex": {
+      "sha256": "a61d6d5a948daeb2ec14486e60c414d53bc7f52ac0a922485b754ef9fdd3168c",
+      "bytes": 1033
     }
   },
   "web_copies": {
@@ -2139,7 +2177,8 @@
     "papers/rank6_addendum_20261002.pdf": "manuscripts/rank6/papers/manuscript.pdf",
     "papers/prepublication-review-2026-10-22.pdf": "manuscripts/prepublication-review-2026-10-22.pdf",
     "papers/rank9-rank10-m1.pdf": "publications/rank9-rank10/paper/rank9-rank10.pdf",
-    "papers/rank11.pdf": "publications/rank11/paper/rank11.pdf"
+    "papers/rank11.pdf": "publications/rank11/paper/rank11.pdf",
+    "papers/rank9-m2.pdf": "publications/rank9-m2/paper/rank9-m2.pdf"
   },
   "base_document_manifest": {
     "path": "data/current_document_revision.json",
@@ -2165,7 +2204,7 @@
     "sha256": "2e6f3513a373fafdbdfad36c9eab75b946d3fc557d070660f73c78315cf67a29",
     "bytes": 297825
   },
-  "current_unresolved_total": 7,
+  "current_unresolved_total": 25,
   "rank10_m1_continuation": {
     "evidence": "evidence/rank10_m1_exclusions_20261023",
     "excluded_ids": [
@@ -2181,6 +2220,20 @@
     "delta": {
       "sha256": "fedd7c61239a3e708852b2962f06b2f05d914f43bbb9f99e158dcd263ebc0b87",
       "bytes": 3782
+    }
+  },
+  "rank9_m2": {
+    "input_count": 2083,
+    "excluded": 2033,
+    "unitarily_realized": 32,
+    "unresolved": 18,
+    "ledger": "evidence/rank9_m2_20261024/ledger.json",
+    "sha256": "95801aa035f53528a791cae0925593600eda5aeb08cd4eb9e6f32483dacc3aa2",
+    "bytes": 1241001,
+    "replay": {
+      "sha256": "2baa9093cf3e72355f7aec9d40a795818c24f8fb3036ec7eaad16252b53446c4",
+      "bytes": 9638362,
+      "path": "evidence/rank9_m2_20261024/replay.zip"
     }
   }
 }

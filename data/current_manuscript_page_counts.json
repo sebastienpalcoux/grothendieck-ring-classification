@@ -1,9 +1,9 @@
 {
   "schema": "manuscript-page-counts/v1",
-  "date": "2026-10-23",
+  "date": "2026-10-24",
   "counting_rule": "Count each distinct current document once, including its references and appendices; exclude website/supplement copies and compatibility aliases.",
   "document_counts": {
-    "mathematical_manuscripts": 10,
+    "mathematical_manuscripts": 11,
     "verification_guides": 3,
     "research_status_reports": 1
   },
@@ -113,6 +113,14 @@
       "bytes": 509676
     },
     {
+      "title": "Rank-nine multiplicity-two classification",
+      "kind": "mathematical_manuscript",
+      "path": "publications/rank9-m2/paper/rank9-m2.pdf",
+      "pages": 12,
+      "sha256": "eea802b3905532a6a0544ff8898fee30e9e13ff447bfe56e5640074382d7e097",
+      "bytes": 388015
+    },
+    {
       "title": "Rank-eleven multiplicity-one classification",
       "kind": "mathematical_manuscript",
       "path": "publications/rank11/paper/rank11.pdf",
@@ -122,11 +130,11 @@
     }
   ],
   "totals": {
-    "mathematical_manuscript": 600,
+    "mathematical_manuscript": 612,
     "verification_guide": 19,
     "research_status_report": 8,
-    "mathematical_manuscripts_and_guides": 619,
-    "all_distinct_documents": 627
+    "mathematical_manuscripts_and_guides": 631,
+    "all_distinct_documents": 639
   },
   "classification_scope": {
     "rank2": "Unrestricted",

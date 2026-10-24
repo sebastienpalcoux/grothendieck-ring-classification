@@ -1,0 +1,24 @@
+{
+  "kind": "independent categorical and exact arithmetic audits",
+  "accepted_new_general_complex_exclusions": [114, 128, 516, 1487, 1635, 1636, 1959],
+  "unified_galois_unit": {
+    "ids": [114, 128, 1487, 1635, 1636, 1959],
+    "audit": "GALOIS_UNIT_AUDIT.md",
+    "independent_replay": "replay_galois.py",
+    "results": "replay_galois.json"
+  },
+  "structural_516": {
+    "audit": "STRUCTURAL516_AUDIT.md",
+    "additional_exact_lp_audit": "AUDIT516.md",
+    "additional_exact_lp_replay": "replay516.py",
+    "additional_exact_lp_results": "replay516.json"
+  },
+  "additional_short_duality_proofs": {
+    "1487": ["AUDIT1487.md", "replay1487.json"],
+    "1959": ["AUDIT1959.md", "replay1959.json"]
+  },
+  "scope_dependency": "Separately audited signed Galois-to-pseudo-unitary gates give general complex scope.",
+  "unresolved_tested_here": [137, 1607, 1848, 1975, 1976],
+  "noncommutative_continuation": "../noncomm1975/README.md",
+  "caution": "Passing a necessary criterion or failing to find an exact separating ray is not a categorical model."
+}

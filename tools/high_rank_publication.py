@@ -6,6 +6,8 @@ ATLAS='https://sebastienpalcoux.github.io/grothendieck-ring-classification/'
 def active(repo):return (repo/'data/current_publication_revision.json').is_file()
 
 def banner():
+    from rank9_m2_publication import active as m2_active,banner as m2_banner
+    if m2_active():return m2_banner()
     return ('**Current high-rank results · 23 October 2026.** Rank 11 at multiplicity one is complete for the supplied census: '
             '**155 excluded, 27 unitary models, 0 unresolved among 182 rings**. '
             'Ranks 9–10 have 238 exclusions, 97 unitary models and 1 unresolved among 336 rings. '
@@ -43,7 +45,8 @@ def extend_front(front,repo):
     front=front.replace('[Decision ledger](data/classification_status.csv)',
         '[Current decision records](data/current_publication_revision.json)')
     front=front.replace('Candidates and open cases · PDF','Earlier construction-candidates report · PDF')
-    return front
+    from rank9_m2_publication import active as m2_active,front as m2_front
+    return m2_front(front) if m2_active() else front
 
 def manuscript_index(repo,historical):
     page=json.loads((repo/'data/current_manuscript_page_counts.json').read_text())
@@ -71,7 +74,9 @@ def manuscript_index(repo,historical):
         if d['kind']!='verification_guide':continue
         lines.append(f"| {d['title']} | [PDF]({d['path'].removeprefix('manuscripts/')}) | {d['pages']} |")
     lines+=['','<details><summary>Earlier lower-rank reading notes and research history</summary>','',historical.strip(),'','</details>','']
-    return '\n'.join(lines)
+    from rank9_m2_publication import active as m2_active,index as m2_index
+    text='\n'.join(lines)
+    return m2_index(text) if m2_active() else text
 
 def extend_outputs(out,repo):
     if not active(repo):return out

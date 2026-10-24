@@ -1,0 +1,106 @@
+{
+  "model_files": [
+    "phase3/models_restored/product_models.json",
+    "phase3/models_restored/ising_zest_models.json",
+    "phase3/models_restored/shear_models.json",
+    "phase3/group_models/models.json",
+    "phase3/hopf20/models.json",
+    "phase3/integral_theory/models.json"
+  ],
+  "new_models": [
+    "R9_2_71",
+    "R9_2_79",
+    "R9_2_96",
+    "R9_2_499",
+    "R9_2_1218",
+    "R9_2_1266",
+    "R9_2_2020",
+    "R9_2_92",
+    "R9_2_965",
+    "R9_2_392",
+    "R9_2_1246"
+  ],
+  "additional_exclusions": [
+    {
+      "id": "R9_2_1225",
+      "record_file": "phase3/hopf20/exclusions.json",
+      "certificate_kind": "rank_one_component_hopf20_character_commutativity",
+      "scope": "general_complex_fusion_category",
+      "proof": "phase3/hopf20/README.md",
+      "independent_audit": "phase3/audit_hopf20/AUDIT.md"
+    },
+    {
+      "id": "R9_2_1673",
+      "record_file": "phase3/hopf20/exclusions.json",
+      "certificate_kind": "rank_one_component_hopf20_character_commutativity",
+      "scope": "general_complex_fusion_category",
+      "proof": "phase3/hopf20/README.md",
+      "independent_audit": "phase3/audit_hopf20/AUDIT.md"
+    },
+    {
+      "id": "R9_2_516",
+      "record_file": "phase3/quadratic_s_symmetry/R9_2_516_h3.json",
+      "certificate_kind": "character_labelled_center_S_symmetry",
+      "scope": "general_complex_fusion_category",
+      "general_to_pseudo_unitary_gate": "phase2/signed/gate_R9_2_516.json",
+      "independent_audit": "phase3/audit_quadratic_symmetry/AUDIT516.md",
+      "alternative_theoretical_proof": "phase3/quadratic_s_symmetry/R516_STRUCTURAL.md",
+      "alternative_independent_audit": "phase3/audit_quadratic_symmetry/STRUCTURAL516_AUDIT.md"
+    },
+    {
+      "id": "R9_2_114",
+      "record_file": "phase3/audit_quadratic_symmetry/replay_galois.json",
+      "certificate_kind": "Galois_distinguished_central_restriction_integrality",
+      "scope": "general_complex_fusion_category",
+      "proof": "phase3/quadratic_s_symmetry/GALOIS_UNIT_THEOREM.md",
+      "general_to_pseudo_unitary_gate": "phase2/signed/gate_R9_2_114.json",
+      "independent_audit": "phase3/audit_quadratic_symmetry/GALOIS_UNIT_AUDIT.md"
+    },
+    {
+      "id": "R9_2_128",
+      "record_file": "phase3/audit_quadratic_symmetry/replay_galois.json",
+      "certificate_kind": "Galois_distinguished_central_restriction_integrality",
+      "scope": "general_complex_fusion_category",
+      "proof": "phase3/quadratic_s_symmetry/GALOIS_UNIT_THEOREM.md",
+      "general_to_pseudo_unitary_gate": "phase2/signed/gate_R9_2_128.json",
+      "independent_audit": "phase3/audit_quadratic_symmetry/GALOIS_UNIT_AUDIT.md"
+    },
+    {
+      "id": "R9_2_1487",
+      "record_file": "phase3/audit_quadratic_symmetry/replay_galois.json",
+      "certificate_kind": "Galois_distinguished_central_restriction_integrality",
+      "scope": "general_complex_fusion_category",
+      "proof": "phase3/quadratic_s_symmetry/GALOIS_UNIT_THEOREM.md",
+      "general_to_pseudo_unitary_gate": "phase2/signed/gate_R9_2_1487.json",
+      "independent_audit": "phase3/audit_quadratic_symmetry/GALOIS_UNIT_AUDIT.md"
+    },
+    {
+      "id": "R9_2_1635",
+      "record_file": "phase3/audit_quadratic_symmetry/replay_galois.json",
+      "certificate_kind": "Galois_distinguished_central_restriction_integrality",
+      "scope": "general_complex_fusion_category",
+      "proof": "phase3/quadratic_s_symmetry/GALOIS_UNIT_THEOREM.md",
+      "general_to_pseudo_unitary_gate": "phase2/signed/gate_R9_2_1635.json",
+      "independent_audit": "phase3/audit_quadratic_symmetry/GALOIS_UNIT_AUDIT.md"
+    },
+    {
+      "id": "R9_2_1636",
+      "record_file": "phase3/audit_quadratic_symmetry/replay_galois.json",
+      "certificate_kind": "Galois_distinguished_central_restriction_integrality",
+      "scope": "general_complex_fusion_category",
+      "proof": "phase3/quadratic_s_symmetry/GALOIS_UNIT_THEOREM.md",
+      "general_to_pseudo_unitary_gate": "phase2/signed/gate_R9_2_1636.json",
+      "independent_audit": "phase3/audit_quadratic_symmetry/GALOIS_UNIT_AUDIT.md"
+    },
+    {
+      "id": "R9_2_1959",
+      "record_file": "phase3/audit_quadratic_symmetry/replay_galois.json",
+      "certificate_kind": "Galois_distinguished_central_restriction_integrality",
+      "scope": "general_complex_fusion_category",
+      "proof": "phase3/quadratic_s_symmetry/GALOIS_UNIT_THEOREM.md",
+      "general_to_pseudo_unitary_gate": "phase2/signed/gate_R9_2_1959.json",
+      "independent_audit": "phase3/audit_quadratic_symmetry/GALOIS_UNIT_AUDIT.md"
+    }
+  ],
+  "note": "The corrected structural pass re-excludes 97,98,1489 using NG(V4,2), while removing every unsupported half-E6 subring claim. Leads are not accepted models."
+}
