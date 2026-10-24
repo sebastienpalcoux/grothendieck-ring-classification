@@ -1,0 +1,161 @@
+{
+  "schema": "construction-shortlist/v1",
+  "updated": "2026-10-24",
+  "meaning": "Here, “new” means only that the specific construction has not, to our knowledge, been explicitly recorded in the literature. This is not a claim of novelty up to tensor equivalence or of exoticness.",
+  "coverage": "The project’s currently documented construction shortlist. Entries are examples attached to realized census rings, not a count of inequivalent tensor categories or an exhaustive survey of the literature.",
+  "entries": [
+    {
+      "id": "R6_4_249",
+      "title": "Sign-swap equivariantization",
+      "construction": "Condense the diagonal central boson in the product of two identical half-E₆ categories, then equivariantize the factor-swap action with a sign on the condensed algebra.",
+      "inputs": "The half-E₆ category; condensation of the diagonal central boson and equivariantization.",
+      "source": "manuscripts/rank6/papers/chapters/06.tex",
+      "source_label": "Construction proof · sign-swap theorem",
+      "selection": "Original seven-construction shortlist"
+    },
+    {
+      "id": "R6_4_322",
+      "title": "Mixed diagonal-fermion quotient",
+      "construction": "Take the category of modules over the diagonal central boson in the product of half-E₆ and PSU(2)₆.",
+      "inputs": "The known half-E₆ and PSU(2)₆ categories and their central fermions.",
+      "source": "manuscripts/rank6/papers/chapters/06.tex",
+      "source_label": "Construction proof · mixed-fermion proposition",
+      "selection": "Original seven-construction shortlist"
+    },
+    {
+      "id": "R6_6_1712",
+      "title": "Relative Fibonacci center of TT₃",
+      "construction": "Form the relative center Z_Fib(TT₃), using the Fibonacci subcategory of the dual even part of the 2D2 subfactor.",
+      "inputs": "The known category TT₃ and the standard relative-center construction.",
+      "source": "manuscripts/rank6/papers/chapters/06.tex",
+      "source_label": "Construction proof · relative-center corollary",
+      "selection": "Original seven-construction shortlist"
+    },
+    {
+      "id": "R7_4_35",
+      "title": "Inversion descent from NG(C₄ × C₄, 16)",
+      "construction": "Construct a near-group orbifold, descend a coherent inversion action, and take the Morita dual associated to the reflection algebra. The resulting invertible group is C₂ × C₂.",
+      "inputs": "The Yu–Zhang near-group category NG(C₄ × C₄, 16) and near-group orbifold machinery.",
+      "source": "evidence/unified_20261016/rank7/R35_INVERSION_CONSTRUCTION.md",
+      "source_label": "Construction proof",
+      "selection": "Original seven-construction shortlist"
+    },
+    {
+      "id": "R7_4_2665",
+      "title": "Inversion descent from NG(C₁₆, 16)",
+      "construction": "Apply the orbifold, inversion-descent and reflection-algebra Morita construction to the cyclic near-group input. Here the invertible group is C₄, and the two large noninvertible simples are mutually dual.",
+      "inputs": "Budinski’s NG(C₁₆, 16) category and Izumi’s near-group orbifold machinery.",
+      "source": "evidence/unified_20261016/rank7/R2665_INVERSION_CONSTRUCTION.md",
+      "source_label": "Construction proof",
+      "selection": "Original seven-construction shortlist"
+    },
+    {
+      "id": "R8_2_37",
+      "title": "Nonsplit C₂-extension of 2D2",
+      "construction": "Transport an odd automorphism through a crossed product to obtain an extension in which the odd invertible a satisfies a² = g, with g the nontrivial invertible in the neutral 2D2 category.",
+      "inputs": "The known unitary 2D2 category and the Grossman–Izumi–Snyder construction framework.",
+      "source": "evidence/unified_20261016/rank8/R37_CONSTRUCTION.md",
+      "source_label": "Construction proof",
+      "selection": "Original seven-construction shortlist"
+    },
+    {
+      "id": "R8_2_575",
+      "title": "Davydov–Runkel extension of a 16-dimensional Hopf algebra",
+      "construction": "Use an explicit Davydov–Runkel extension of Kashina’s self-dual 16-dimensional Hopf algebra. The resulting simple dimensions are 1, 1, 1, 1, 2, 2, 2, 4.",
+      "inputs": "Kashina’s Hopf algebra and the general Davydov–Runkel extension construction.",
+      "source": "evidence/upper_residual_20261002b/r8_integral/r575/PROOF.md",
+      "source_label": "Construction proof",
+      "selection": "Original seven-construction shortlist"
+    },
+    {
+      "id": "R8_3_274",
+      "title": "Phase-rotation equivariantization of NG(C₃, 6)",
+      "construction": "Equivariantize the coherent order-two phase-rotation action on Izumi’s unitary near-group category. Its sign on the unit-output channels distinguishes this construction from the reflection variant.",
+      "inputs": "Izumi’s NG(C₃, 6) solution and its explicit tensor automorphisms.",
+      "source": "evidence/rank8_m3_20261021/models/IZUMI_EQUIVARIANT_PROOF.md",
+      "source_label": "Construction proof · phase-rotation specialization",
+      "selection": "Explicit project-derived action and specialization"
+    },
+    {
+      "id": "R8_3_334",
+      "title": "Reflection equivariantization of NG(C₃, 6)",
+      "construction": "Equivariantize the coherent order-two reflection action on the same near-group category. The reflection and phase-rotation actions yield different complete fusion tensors.",
+      "inputs": "Izumi’s NG(C₃, 6) solution and its explicit tensor automorphisms.",
+      "source": "evidence/rank8_m3_20261021/models/IZUMI_EQUIVARIANT_PROOF.md",
+      "source_label": "Construction proof · reflection specialization",
+      "selection": "Explicit project-derived action and specialization"
+    },
+    {
+      "id": "R8_3_475",
+      "title": "Cyclic permutation of three Fibonacci factors",
+      "construction": "Equivariantize Fib ⊠ Fib ⊠ Fib by the canonical C₃ action that cyclically permutes its factors. Character averaging on the fusion spaces determines the complete tensor.",
+      "inputs": "The Fibonacci category and the standard permutation action on a tensor power.",
+      "source": "evidence/rank8_m3_20261021/models/FIBONACCI_CYCLIC_PROOF.md",
+      "source_label": "Construction proof",
+      "selection": "Explicit project-derived construction"
+    },
+    {
+      "id": "R8_3_715",
+      "title": "Morita dual of the nonsplit 2D2 extension",
+      "construction": "Take bimodules over the inherited Q-system 1 + r in the nonsplit C₂-extension represented by R8_2_37. The neutral component is TT₃; the odd component and its products determine this rank-eight ring.",
+      "inputs": "The nonsplit extension above, the known Q-system 1 + r, and the category TT₃.",
+      "source": "evidence/rank8_m3_20261021/models/TT3_MORITA_PROOF.md",
+      "source_label": "Construction proof",
+      "selection": "Explicit project-derived Morita construction"
+    },
+    {
+      "id": "R8_3_3342",
+      "title": "A twisted alternating-group construction",
+      "construction": "Construct C(A₆, ω, A₅, ψ) from a specified relative μ₂-cocycle class. Stable-element and projective-stabilizer calculations determine the twisting and the full fusion tensor.",
+      "inputs": "The alternating groups A₆ and A₅, the stable-elements theorem, and the standard group-theoretical category construction.",
+      "source": "evidence/rank8_m3_20261021/models/psl2_11/r360/proof.md",
+      "source_label": "Construction proof and relative-cocycle specification",
+      "selection": "Explicit project-derived cocycle and construction"
+    },
+    {
+      "id": "R9_2_746",
+      "title": "Cyclic generalized TY orbifold · identity coherence",
+      "construction": "An explicit central C₃ condensation produces a generalized Tambara–Yamagami category with invertible group C₉. Equivariantize its inversion action with the identity square coherence.",
+      "inputs": "TY(C₃), a specified pointed C₉ category, and central condensation. R9_2_1209 is the other parity-coherence variant.",
+      "source": "evidence/rank9_m2_20261024/proofs/phase4/weak_a/CYCLIC_TY_MODELS.md",
+      "source_label": "Construction proof · identity-coherence variant",
+      "selection": "Explicit new construction in the fourth rank-nine continuation"
+    },
+    {
+      "id": "R9_2_1209",
+      "title": "Cyclic generalized TY orbifold · parity coherence",
+      "construction": "Use the same central C₃ condensation and coherent inversion action, with the negative square coherence on the odd component. This yields the second cyclic generalized Tambara–Yamagami orbifold.",
+      "inputs": "The same TY(C₃) and pointed C₉ inputs as R9_2_746; the parity natural automorphism changes the coherence.",
+      "source": "evidence/rank9_m2_20261024/proofs/phase4/weak_a/CYCLIC_TY_MODELS.md",
+      "source_label": "Construction proof · parity-coherence variant",
+      "selection": "Explicit new construction in the fourth rank-nine continuation"
+    },
+    {
+      "id": "R9_2_1254",
+      "title": "Order-four descent to a Moore–Read equivariantization",
+      "construction": "A mixed order-four tensor functor on a covering category descends, after central boson condensation, to a coherent C₂ action on a generalized Moore–Read category. Equivariantization gives the recorded rank-nine model.",
+      "inputs": "An Ising category, a specified pointed C₁₆ category, and the generalized Moore–Read construction.",
+      "source": "evidence/rank9_m2_20261024/proofs/phase4/weak_a/MR_1254_MODEL.md",
+      "source_label": "Construction proof and coherent descent",
+      "selection": "Explicit new action in the fourth rank-nine continuation"
+    },
+    {
+      "id": "R9_2_1396",
+      "title": "Dihedral pullback of the LPR-24 action · C₉",
+      "construction": "Recover a coherent S₃ action from the known LPR-24 category by Tannakian descent, pull it back along Dih(C₉) → S₃, and equivariantize.",
+      "inputs": "The known LPR-24 category and coherent equivariantization. The project derives the central-lift argument and this specific pullback model.",
+      "source": "evidence/rank9_m2_20261024/proofs/phase2/group_models/PULLBACK_MODELS.md",
+      "source_label": "Construction proof · cyclic pullback",
+      "selection": "The proof explicitly distinguishes these project deductions from the cited literature"
+    },
+    {
+      "id": "R9_2_1397",
+      "title": "Dihedral pullback of the LPR-24 action · C₃ × C₃",
+      "construction": "Pull back the same coherent S₃ action along Dih(C₃ × C₃) → S₃ and equivariantize. The different covering group gives a second rank-nine fusion tensor.",
+      "inputs": "The known LPR-24 category and the same Tannakian descent as R9_2_1396, with an elementary-abelian covering group.",
+      "source": "evidence/rank9_m2_20261024/proofs/phase2/group_models/PULLBACK_MODELS.md",
+      "source_label": "Construction proof · elementary-abelian pullback",
+      "selection": "The proof explicitly distinguishes these project deductions from the cited literature"
+    }
+  ]
+}

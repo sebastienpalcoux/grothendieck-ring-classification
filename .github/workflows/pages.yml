@@ -47,6 +47,9 @@ jobs:
           python site/check_rank9_m2.py
           node site/check_rank9_m2.mjs
           node site/tests/check_properties.mjs
+          python site/build_constructions.py --check
+          node --check site/dist/constructions.js
+          node site/tests/check_constructions.mjs
           python -m unittest discover -s site/tests -v
           python tools/verify_audit_revision.py
           python tools/list_simple_multiplicity_one.py --check
