@@ -830,8 +830,7 @@ function initControls() {
     state.range=event.target.value;
     renderTable();
   });
-  $("#jump-input").addEventListener("keydown",(event)=>{
-    if (event.key!=="Enter") return;
+  const jumpToMultiplicity=(event)=>{
     const m=Number(event.target.value);
     if (!Number.isInteger(m) || m<1) return;
     const max=ranges(state.data).max;
@@ -853,7 +852,9 @@ function initControls() {
       const target=document.querySelector(`#count-table tbody tr[data-multiplicity="${m}"]`);
       target?.animate([{background:"#eac589"},{background:"transparent"}],{duration:1600});
     }
-  });
+  };
+  $("#jump-input").addEventListener("keydown",event=>{if(event.key==="Enter")jumpToMultiplicity(event)});
+  $("#jump-input").addEventListener("change",jumpToMultiplicity);
 }
 async function start() {
   try {

@@ -2,27 +2,27 @@
   "status": "PASS",
   "browser": "Chromium 153.0.8010.0",
   "source_sha256": {
-    "app.js": "700fac15f2c157158d46f00e815b6ced5fa3e87432cd3f7140823e44ea328b1a",
-    "case.html": "d8212c215dbc57768ce30640c2cefaa9a02df8686f8015bf0b90c7eff6a4e8fb",
+    "app.js": "899e8fc59cfe5409cd74f3a94709f87eb8360ac0a8d377fc96c594df262d2029",
+    "case.html": "db16ad018e0fe799455f3953efca632f73f3b1d2314d645b97302e72e97a8948",
     "cases.css": "b593390cf65b952b393d960cd5ebd665e98a9385b9d078cbf3727466b75358db",
     "cases.js": "a8f09c506ea1a6fa010f701640dfadb7f340d13524850912a9c6b54d8647cb22",
     "catalogue.js": "ba4074c41263dc528676a9359efa43513f200edbd69ce92a14fb8c621710ecf0",
     "constructions.css": "07b676bf488977f522a3aa9ba6c0c8c9f47ec6def45b4931b16eca6078ea7ea8",
-    "constructions.html": "0f770cb4a1d23b25a8f58792fd9438759cbab4439ba3b82020cb99d2dced08ff",
+    "constructions.html": "7880a3a43204bda67982cef809f90986de7a515db8483a960ae127e70c501d6c",
     "constructions.js": "a744e543e4e54512076e88c4eca63e928d1840b6a2e9c1f7380bccd500b25faf",
-    "index.html": "5776fd699805fc9802f342389891536927b2da866503f36ac0a76f0de4118dfc",
+    "index.html": "f6f9e25379e809502c5ab2a7d45c34d8577e4ba807be454d93b805aece614986",
     "properties.js": "5c1751fb080195777dc0ac437da29e0441e8fe40be82f9845ad75f71fb908910",
     "rank11.html": "7eb464933902487b185e716fd1f0d863e08ab2686a24e172248947bcad29edad",
     "rank9-10.html": "6c36949025a7e0d3216da5792c34ec53d8682831780306b4d4076d2b0b973f6c",
     "reading.js": "b4008b26e052cb11b49cf8f22b4d7f708af5e9583030f400a1d1a0231758d2fd",
-    "records.html": "84ead5e14f1148f18a013242b75f29712170bcab061a0d6f0eb49e1b18224578",
+    "records.html": "625ab75489757d70cff1c64a77d12ad9c948d56f93e5815e46699d7207b1277f",
     "redirect.js": "17237a24d8fd3583d2179747e62ddaf16a9521fde28955293a4760a45102f5ae",
-    "responsive.css": "9b35e6b15c94fe464ccdffdb8df5c969495b8a1840ed361de478208d798c2657",
+    "responsive.css": "185b6fcb0e046e752441d786a55c300354539e7b920f4ebc890b0dea0e7c3989",
     "responsive.js": "845cf00dd2f76536034816b66052a5468a22a46e50e6fac9cf7be6ca561c9860",
-    "review.html": "714c8968e71a56b117240e2adb3f27705b83930d9dd40188fa90a1ec386b1740",
+    "review.html": "0391948cf4a883bcb709a717a04cccd659a5098101ae34264dd07bf91ea39148",
     "styles.css": "7e3da049ba981958e954e3cceab768c56bcf4f962e4fbff68dccdfc68b0e6d1e",
-    "theory.html": "1b67b753d7378f92f7fcfcc2046fdacfd09b384d32476209affddd8900dd91ee",
-    "unresolved.html": "2297acd770d5365bf6e3240f4af13252a6db007e9b764d3a2c87908c0528107c"
+    "theory.html": "d7768d0c0939272e2bc8b181d5b474f6eedfef41bda8a8f8dd17e7035cad3eb2",
+    "unresolved.html": "da967953af5397540ab85c016b23dec4bd4890120efd1a0c0f3fc63e4e41f439"
   },
   "interactions": [
     {
@@ -35,6 +35,10 @@
     },
     {
       "check": "counts_fit_and_single_rank_adapts",
+      "passed": true
+    },
+    {
+      "check": "virtualized_full_range_and_multiplicity_jump",
       "passed": true
     },
     {

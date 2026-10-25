@@ -74,10 +74,12 @@ The audit does not regenerate the complete upstream census search, formally cert
 
 ## Responsive public website
 
-The Atlas and standalone census page adapt automatically at their existing addresses. The responsive revision passed 44 browser layout checks and seven interaction checks, including both ring views, menus, exact tables, model dialogs, orientation changes and navigation without JavaScript. [Browser receipt](validation/mobile-ui/receipt.json) · [Reproduction guide](../../site/RESPONSIVE.md). These are interface checks, separate from the mathematical replay.
+The Atlas and standalone census page adapt automatically at their existing addresses. The responsive revision passed 44 browser layout checks and eight interaction checks, including both ring views, menus, exact tables, model dialogs, orientation changes and navigation without JavaScript. [Browser receipt](validation/mobile-ui/receipt.json) · [Reproduction guide](../../site/RESPONSIVE.md). These are interface checks, separate from the mathematical replay.
 
 ## Frozen rank-seven source context
 
 The first publication CI run rejected the cache change in `supplements/rank7/software/induction.py`, whose exact bytes are bound by the R7_5_3895 and R7_5_5039 cyclic-rotation proofs. That module now retains its original bytes; its corrected cache wrapper and helper are separately versioned in `source_overrides/`. The original proof manifests and every mathematical check remain intact. This corrects source packaging and changes no classification. [Context receipt](validation/source-context-followup/receipt.json).
 
 The complete corrected-context rank-seven continuation passed all 5,804 exclusions and its model in normal Python. The CI launcher now prepares `low_generic` through the source/compiler/flags/binary-bound builder before loading the immutable induction module; its original domains, exact checks and runtime-failure behavior are unchanged. The full replay and separate prebuild metadata receipts are in the context-receipt folder.
+
+The mobile count table retains the 40-pixel row geometry used by its virtual scroller. The browser checks cover scrolling the full range through multiplicity 1000 and jumping by Enter or committing the phone input.
