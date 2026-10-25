@@ -1,5 +1,9 @@
 # Reproduce the data and mathematical checks
 
+<!-- correctness-20261025 -->
+**Correctness revision · 25 October 2026.** The current classification is unchanged. Three model-identification arguments are repaired, R8_3_721 has a direct exact completion, and implementation/replay defects are corrected. [Findings, corrections and exact commands](../evidence/correctness_20261025/README.md). Independent human verification remains pending.
+<!-- /correctness-20261025 -->
+
 <!-- current-theoretical-retry -->
 **Current results · 24 October 2026.** Rank ten at multiplicity one is complete:
 136 general exclusions and 58 unitary models. R10_1_189 is recognized inside
@@ -105,33 +109,30 @@ These are full checks of 889,530 rank-four classes and 40,999 rank-five classes.
 The rank-five ledger is reconstructed and has its own source-bound digest.
 Neither public route requires a private attachment.
 
-## Complete rank-six route
+## Current complete rank-six exclusion replay
 
-**The portable complete-replay orchestrator has not been executed end to end.**
-Its identity and rejection controls were tested. The executed campaign combines
-25,355 passes in the initial full process with seven complete Python-backend
-retries and two separate post-loop checks. The initial process's failed status
-is preserved. This is not a single successful full run or an all-Python full
-census replay. The [backend packet](../evidence/prepublication_20261017/rank6_backend/README.md)
-records exact coverage, environment observations and matrix comparisons.
-
-Use a fresh restored checkout, with no pre-existing native binaries beside
-the rank-six C++ sources. In an isolated environment, from the repository root:
+From the repository root, use a new output directory:
 
 ```bash
-python3 -m pip install -r supplements/rank6/requirements.txt
-python3 evidence/prepublication_20261017/rank6_backend/replay_complete.py \
-  --repo . --output-dir NEW_DIR --jobs 2
+python3 evidence/correctness_20261025/replay_rank6.py \
+  --output-dir /tmp/rank6-current-complete --jobs 2
 ```
 
-`NEW_DIR` must be a new directory outside `supplements/rank6`. The wrapper runs
-normal Python: complete FLINT verification, complete Python-backend retries
-for every failure, then the original post-loop checks. It rejects incomplete
-coverage, changed inputs and unexpected failures. Read the
-[full replay instructions](../evidence/prepublication_20261017/FULL_REPLAY.md#rank-six-combined-replay)
-for native-cache and environment details. The initial audited process did not
-capture its loaded backend/version; the installed Flint version changed during
-execution, so no uniform measured runtime is claimed.
+This checks all 25,362 current exclusion certificates using the complete
+mathematical workers. It retains every original raw verdict and retries ordinary failures as full
+unchanged workers in fresh Python-ground-types processes. The eleven
+multiplicity-nine certificates run in their exact immutable source contexts;
+the current tensors and certificates must match byte for byte.
+It then re-executes both original post-loop checks and checks that all inputs
+and rank-six source bytes stayed fixed. Positive categorical existence and
+constructor proofs have their separate audited routes. The source-bound
+correction release records the actual outcome, without relabeling a failed
+initial invocation as a single successful run.
+
+The earlier frozen orchestrator and its original failures are historical.
+The 25 October pre-revision audit had partly log-derived rank-six coverage;
+that limitation remains recorded in its original evidence archive. Historical
+manifests are not rewritten to accept changed current source files.
 
 ## Upper-rank and continuation checks
 
@@ -171,7 +172,7 @@ not claimed to have been rerun.
 
 ## Individual rank-six checks
 
-From `supplements/rank6`, the following check the named components:
+The standalone commands below belong to the pinned scientific snapshot `8014c749c17ddd2ad3d1b99a4359d49a8be921c5`, from its `supplements/rank6` directory. They retain their original source-hash requirements. In the current checkout, use the complete source-context adapter above. To replay just the eleven immutable completion proofs from the repository root, use `python3 evidence/correctness_20261025/replay_immutable_m9.py --output-dir /tmp/immutable-m9-complete`.
 
 ```bash
 python3 -O software/conformal_models.py --verify
@@ -282,7 +283,7 @@ The new receipts bind accepted decisions and exact computations. The source-boun
 
 ## Generalized Haagerup construction and further restrictions
 
-R8_3_721 is realized by the inherited 1+rho Q-system Morita dual of the C2 de-equivariantization of GH(C8). Exact rank and coefficient bounds identify its unique dimension type in the supplied complete rank-eight multiplicity-at-most-three census. The earlier center-action analysis leaves three necessary R8_3_1154 patterns. These results are in evidence/rank8_next_20261021/; the later R8_3_65 general exclusion is in evidence/rank8_research_20261022/.
+R8_3_721 is realized by the inherited 1+rho Q-system Morita dual of the C2 de-equivariantization of GH(C8). Exact rank and coefficient bounds, followed by a direct exhaustive fusion completion, identify its entire based ring without assuming census completeness. The earlier center-action analysis leaves three necessary R8_3_1154 patterns. These results are in evidence/rank8_next_20261021/; the later R8_3_65 general exclusion is in evidence/rank8_research_20261022/.
 
 The integrated rank-eight article includes the new construction and restrictions. Categorical arguments, targeted mathematical replay receipts and independent reconstructions are in `evidence/rank8_next_20261021/`. The original frontier ledger, audit and completed replay receipts remain unchanged.
 

@@ -1,0 +1,173 @@
+{
+  "status": "PASS",
+  "scope": "Three repaired model proofs and direct R721 completion; explicit external categorical premises retained.",
+  "source_sha256": {
+    "rank8-ng-partial-fusion.py": "998a44a14538915f223cfd560ec5e5071652ba39291a7f326191bea914249e99",
+    "rank8-neargroup-associativity-classify.py": "2072d03788d2c28054054beb9a7116656ccd32ea27223e9f2b8981b137fa17b1",
+    "rank8_neargroup_seed_indicator.py": "68739b07bfaba56c235c0b6576dca230ee367e078dad4e3cb8503f01889654b6",
+    "rank8-neargroup-twist-distinction.py": "ba3ec4c033907a3ac18aa2916d9e1a10881510d6ec42a065895bb06826dfad88",
+    "rank6_r143_module_repair.py": "d46d13db12753c411e0b0827c43d5847a48832a557fc824073eeb390c2c36676",
+    "r721_exact_completion.py": "8475fb0ce2678ed9a46b47563a6598771beb344cc6d455fd19da99f1de07ff99",
+    "verify_r189_pieri_branching.py": "d3b506ec519f054d3ddf56aa8da08692af1971fd700722db39e94e76dc529de1",
+    "r721_completion_controls.py": "3bf05a6efdfccfc1f568adfdd8ca335d0ac9c414548ab626b00f1dea80aead65"
+  },
+  "normal_and_optimized_semantics_agree": true,
+  "runs": [
+    {
+      "script": "rank8-ng-partial-fusion.py",
+      "optimized_python": false,
+      "status": "PASS",
+      "receipt": "rank8-ng-partial-fusion-normal.json",
+      "receipt_sha256": "dbee5c8e058b8e2ceb6e0f91158768db51fca5d9aebc5c7efded686e4594807d",
+      "log": "rank8-ng-partial-fusion-normal.log",
+      "log_sha256": "e57e29e4da94b6c8475806305c61c2ba083e6e8af47cef5e145ffb9f97883b97"
+    },
+    {
+      "script": "rank8-ng-partial-fusion.py",
+      "optimized_python": true,
+      "status": "PASS",
+      "receipt": "rank8-ng-partial-fusion-optimized.json",
+      "receipt_sha256": "dbee5c8e058b8e2ceb6e0f91158768db51fca5d9aebc5c7efded686e4594807d",
+      "log": "rank8-ng-partial-fusion-optimized.log",
+      "log_sha256": "e57e29e4da94b6c8475806305c61c2ba083e6e8af47cef5e145ffb9f97883b97"
+    },
+    {
+      "script": "rank8-neargroup-associativity-classify.py",
+      "optimized_python": false,
+      "status": "PASS",
+      "receipt": "rank8-neargroup-associativity-classify-normal.json",
+      "receipt_sha256": "dc8bf446efd888307e34285f798c9e3d35ef32978a644f2605512739305c6efa",
+      "log": "rank8-neargroup-associativity-classify-normal.log",
+      "log_sha256": "552954c2d3fd4417778d807fc82f2c7b79d2e1f80f3d22e8629b8f33ed5abb25"
+    },
+    {
+      "script": "rank8-neargroup-associativity-classify.py",
+      "optimized_python": true,
+      "status": "PASS",
+      "receipt": "rank8-neargroup-associativity-classify-optimized.json",
+      "receipt_sha256": "05c5239c16cdc3509cc825d46cf0caaa56915522164a6acea1b14b572987f156",
+      "log": "rank8-neargroup-associativity-classify-optimized.log",
+      "log_sha256": "4fc6c33b9de50e8236bf47b5122e727689a393a18804a5f72ba09566c6246bdc"
+    },
+    {
+      "script": "rank8_neargroup_seed_indicator.py",
+      "optimized_python": false,
+      "status": "PASS",
+      "receipt": "rank8_neargroup_seed_indicator-normal.json",
+      "receipt_sha256": "a08c23666ae8b9fbc45435bef5d1873ac8cfaf710e18b36b9718defcbf8246a0",
+      "log": "rank8_neargroup_seed_indicator-normal.log",
+      "log_sha256": "a08c23666ae8b9fbc45435bef5d1873ac8cfaf710e18b36b9718defcbf8246a0"
+    },
+    {
+      "script": "rank8_neargroup_seed_indicator.py",
+      "optimized_python": true,
+      "status": "PASS",
+      "receipt": "rank8_neargroup_seed_indicator-optimized.json",
+      "receipt_sha256": "a08c23666ae8b9fbc45435bef5d1873ac8cfaf710e18b36b9718defcbf8246a0",
+      "log": "rank8_neargroup_seed_indicator-optimized.log",
+      "log_sha256": "a08c23666ae8b9fbc45435bef5d1873ac8cfaf710e18b36b9718defcbf8246a0"
+    },
+    {
+      "script": "rank8-neargroup-twist-distinction.py",
+      "optimized_python": false,
+      "status": "PASS",
+      "receipt": "rank8-neargroup-twist-distinction-normal.json",
+      "receipt_sha256": "9b45a7310812d694eb9476d4954d138cc91108d002ee1b8863be986458a317b2",
+      "log": "rank8-neargroup-twist-distinction-normal.log",
+      "log_sha256": "aa8f183fb7fc7143962e20d8f3b26b372d384134f6f998756c658b2fae20e49f"
+    },
+    {
+      "script": "rank8-neargroup-twist-distinction.py",
+      "optimized_python": true,
+      "status": "PASS",
+      "receipt": "rank8-neargroup-twist-distinction-optimized.json",
+      "receipt_sha256": "9b45a7310812d694eb9476d4954d138cc91108d002ee1b8863be986458a317b2",
+      "log": "rank8-neargroup-twist-distinction-optimized.log",
+      "log_sha256": "aa8f183fb7fc7143962e20d8f3b26b372d384134f6f998756c658b2fae20e49f"
+    },
+    {
+      "script": "rank6_r143_module_repair.py",
+      "optimized_python": false,
+      "status": "PASS",
+      "receipt": "rank6_r143_module_repair-normal.json",
+      "receipt_sha256": "bf7446ff14d0605ffe790ede322402a955fb24d187493c93ae3cc3830abc9454",
+      "log": "rank6_r143_module_repair-normal.log",
+      "log_sha256": "2b1396ce8ddcfe4198368590a74ea7579aa76eddcaf13fd4140982f4654935ed"
+    },
+    {
+      "script": "rank6_r143_module_repair.py",
+      "optimized_python": true,
+      "status": "PASS",
+      "receipt": "rank6_r143_module_repair-optimized.json",
+      "receipt_sha256": "bf7446ff14d0605ffe790ede322402a955fb24d187493c93ae3cc3830abc9454",
+      "log": "rank6_r143_module_repair-optimized.log",
+      "log_sha256": "2b1396ce8ddcfe4198368590a74ea7579aa76eddcaf13fd4140982f4654935ed"
+    },
+    {
+      "script": "r721_exact_completion.py",
+      "optimized_python": false,
+      "status": "PASS",
+      "receipt": "r721_exact_completion-normal.json",
+      "receipt_sha256": "d54943c2979478fd421bcde6f3e287ca1c000d15e84b1cba10ebf9cdbf4b6387",
+      "log": "r721_exact_completion-normal.log",
+      "log_sha256": "90e7bca95d93c8d0894b99ee716a6e7ef2f7902b9e69d1bac3628ef8e7c165fb"
+    },
+    {
+      "script": "r721_exact_completion.py",
+      "optimized_python": true,
+      "status": "PASS",
+      "receipt": "r721_exact_completion-optimized.json",
+      "receipt_sha256": "fa0bce8a18e75fa8fb63c8cb36a0a6047e890db9dbc37a873bb5e787b37f838d",
+      "log": "r721_exact_completion-optimized.log",
+      "log_sha256": "74c61cd7e85cc5fde3fe2930f66abf48e409f64fb694bfcc7765b8ada04d9b88"
+    },
+    {
+      "script": "verify_r189_pieri_branching.py",
+      "optimized_python": false,
+      "status": "PASS",
+      "receipt": "verify_r189_pieri_branching-normal.json",
+      "receipt_sha256": "78caf5ef211f5eb7245152dfe1a6d3006b38750d1dfe71b41d9d8955dae514df",
+      "log": "verify_r189_pieri_branching-normal.log",
+      "log_sha256": "5e188fa0b62209653cfdf962ef5bd2ea921e9a767cff8a45f63bbf16f9cccafc"
+    },
+    {
+      "script": "verify_r189_pieri_branching.py",
+      "optimized_python": true,
+      "status": "PASS",
+      "receipt": "verify_r189_pieri_branching-optimized.json",
+      "receipt_sha256": "78caf5ef211f5eb7245152dfe1a6d3006b38750d1dfe71b41d9d8955dae514df",
+      "log": "verify_r189_pieri_branching-optimized.log",
+      "log_sha256": "5e188fa0b62209653cfdf962ef5bd2ea921e9a767cff8a45f63bbf16f9cccafc"
+    },
+    {
+      "script": "r721_completion_controls.py",
+      "optimized_python": true,
+      "status": "PASS",
+      "receipt": "r721-completion-controls.json",
+      "receipt_sha256": "2b6b44b9ce342547b887b09d935a4b045b3cf6f73e40bdf09d9017f6be0d334b",
+      "log": "r721-controls.log",
+      "log_sha256": "f50a35b227f0959f940099373ac85ba160e304c8d29fae7acc3526e27e946248"
+    },
+    {
+      "script": "existing exact candidate-to-census transport",
+      "optimized_python": false,
+      "status": "PASS",
+      "receipt": "ng-full-transport-normal.json",
+      "receipt_sha256": "b3e16046053473dee9f249213aefaebadef70503a7bc421f86a2193e7d54658e",
+      "log": "ng-full-transport-normal.log",
+      "log_sha256": "b3e16046053473dee9f249213aefaebadef70503a7bc421f86a2193e7d54658e",
+      "scope": "Exact ring transport only; categorical identification uses the new proof."
+    },
+    {
+      "script": "existing exact candidate-to-census transport",
+      "optimized_python": true,
+      "status": "PASS",
+      "receipt": "ng-full-transport-optimized.json",
+      "receipt_sha256": "b3e16046053473dee9f249213aefaebadef70503a7bc421f86a2193e7d54658e",
+      "log": "ng-full-transport-optimized.log",
+      "log_sha256": "b3e16046053473dee9f249213aefaebadef70503a7bc421f86a2193e7d54658e",
+      "scope": "Exact ring transport only; categorical identification uses the new proof."
+    }
+  ],
+  "seconds": 50.26994480399844
+}

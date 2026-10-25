@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "method": "Exact AST equality after removing Python docstrings; comments are not AST nodes.",
+  "files": [
+    {
+      "historical_path": "supplements/rank6/software/residual_models.py",
+      "historical_sha256": "bb45c6f00f6afe4b8663cdf45a4ba7e650b88242422bf09bb3db6d7421081724",
+      "corrected_path": "evidence/correctness_20261025/source_overrides/supplements/rank6/software/residual_models.py",
+      "corrected_sha256": "121fa75ac8580726154d5ae69ad0b32478a8e4cc9244a4dcf91f96c850aaf5cd",
+      "scope": "Documentary correction only; executable AST and literal model reference strings are unchanged. The source used by the complete retained worker campaign remains pinned."
+    },
+    {
+      "historical_path": "supplements/rank6/software/complete_models.py",
+      "historical_sha256": "3d30ac11b9997623da7df2f971703325c3db3665fe0fc8934b12dc66d30e6b19",
+      "corrected_path": "evidence/correctness_20261025/source_overrides/supplements/rank6/software/complete_models.py",
+      "corrected_sha256": "7e385d52fe2e2fb7e1fc1f53e2b5260629e7a5c013cd820b4173a801b35519d4",
+      "scope": "Documentary correction only; executable AST and literal model reference strings are unchanged. The source used by the complete retained worker campaign remains pinned."
+    }
+  ]
+}

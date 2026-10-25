@@ -108,7 +108,9 @@ def verify(R,c):
     elif k=='zero_spectrum':zero_spectrum.verify(R,c)
     elif k=='lower_rank_subring':subring_descent.verify(R,c)
     elif k=='subring':check_subring(R,c)
-    elif k=='cyclotomic':check_cyclotomic([a.charpoly(t).as_poly() for a in matrices(R)],c)
+    elif k=='cyclotomic':
+        require(all(R[i][j]==R[j][i] for i in range(len(R)) for j in range(len(R))),'cyclotomic criterion requires commutative input')
+        check_cyclotomic([a.charpoly(t).as_poly() for a in matrices(R)],c)
     elif k=='weighted_induction':weighted_induction.verify(R,c)
     elif k=='signed_integral':integral_general(R,c)
     elif k.startswith('oriented_'):oriented_extension.verify(R,c)

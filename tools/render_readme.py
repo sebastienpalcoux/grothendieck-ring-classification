@@ -300,6 +300,10 @@ from readme_layout import reorganize
 front, guide = reorganize(rendered)
 from audit_corrections_20261024 import active as audit_active, revise_publication_document
 if audit_active(ROOT): guide=revise_publication_document('docs/PROJECT_GUIDE.md',guide,ROOT)
+from correctness_publication import active as correctness_active, revise_document as correctness_document
+if correctness_active(ROOT):
+    front=correctness_document('README.md',front,ROOT)
+    guide=correctness_document('docs/PROJECT_GUIDE.md',guide,ROOT)
 outputs = {args.output: front,
            args.output.parent / 'docs/PROJECT_GUIDE.md': guide}
 for target, content in outputs.items():

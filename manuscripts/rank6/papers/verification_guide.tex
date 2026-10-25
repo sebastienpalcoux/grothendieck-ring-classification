@@ -2,7 +2,7 @@
 \input{preamble}\input{generated_statistics}
 \hypersetup{pdftitle={Verification guide: rank-six categorification through multiplicity nine},pdfauthor={}}
 \title{Verification guide\\\large Rank-six categorification through multiplicity nine}
-\author{}\date{17 October 2026}
+\author{}\date{25 October 2026}
 \begin{document}\maketitle
 \paragraph{Research status.} \textbf{AI-generated research \textperiodcentered{} independent verification pending.} Treat this manuscript and its accompanying research data with caution: they have not been independently verified by a human mathematician or formalized in Lean.
 
@@ -42,49 +42,37 @@ input correspondence; completeness of the counting input is supplied
 by the cited census. The classification does not rerun census enumeration.
 
 \section{Verification scope and reproducible commands}
-The completed verification campaign covers all $25\,362$ general-exclusion
-certificates using the unchanged mathematical checker. Its full initial
-invocation records $25\,355$ passes and seven failures, with exit status
-one. Complete replays of all seven failed certificates then pass with
-SymPy's Python ground types selected before import. The two post-loop
-count and positive-registry checks also pass when run separately. The
-initial invocation completed the census import, positive-model and
-pre-negative checks. The aggregate receipt binds every accepted
-certificate to its source and input hashes and checks complete coverage.
+The current source-bound correction release records complete exclusion
+coverage separately from the historical campaigns. The earlier 25 October
+audit combined all $25\,362$ exclusion checks with seven complete
+reference-backend retries and the exact post-loop checks. Its original raw
+output was partly lost; its complete coverage is explicitly log-derived,
+not fabricated raw rows or a successful single invocation.
 
-The seven selected certificates are $\RR{4}{416}$, $\RR{4}{427}$,
-$\RR{4}{446}$, $\RR{5}{638}$, $\RR{6}{1035}$, $\RR{8}{311}$ and
-$\RR{8}{3664}$. Their saved separating vectors use a positional ordering
-of exact balance equations. Different string representations of
-algebraic coefficients in SymPy's Python and Flint backends can change
-that ordering and its row signs. The diagnostic packets verify the
-corresponding exact signed permutations. Neither the mathematical
-checker nor the certificate vectors were relaxed or replaced.
+The current replay route retains complete raw results and preserves each
+failed initial worker. Certificates bound to immutable proof bundles must
+run in their exact compatible source context, with the current tensor and
+certificate checked against that context. Other arithmetic failures are
+retried as the full unchanged worker in a fresh process using SymPy's Python
+ground types. The source-bound receipt states the actual mode and result;
+no timeout or unknown outcome is accepted. The positive registry allocation
+and the two original post-loop checks are exact. Positive categorical
+existence remains a separate proof obligation.
 
-This is a combined campaign, not a single successful full invocation or
-an all-Python full-census replay. The initial invocation did not record
-its loaded backend and version at launch; the selected replays record
-theirs explicitly. The complete scope and preserved failures are in
-\filename{evidence/prepublication_20261017/rank6_backend/aggregate_summary.json}.
-The accompanying coverage file contains one record for every excluded
-ring. These checks do not provide independent human verification or a
-formal proof in Lean.
-
-After restoring the repository payloads and installing the dependencies
-in \filename{supplements/rank6/requirements.txt}, the supplied orchestration
-entry point is, from the repository root:
+From the restored repository root, install the requirements in
+\filename{supplements/rank6/requirements.txt}, ensure C++17 is available,
+and use a new output directory:
 \begin{verbatim}
-python evidence/prepublication_20261017/rank6_backend/replay_complete.py \
-  --repo . --output-dir /tmp/rank6-fresh-campaign --jobs 2
+python3 evidence/correctness_20261025/replay_rank6.py \
+  --output-dir /tmp/rank6-current-complete --jobs 2
 \end{verbatim}
-The output directory must not already exist. C++17 is required for the
-finite-search helpers. The orchestrator records actual process
-backends, preserves failures, repeats every failed certificate with
-Python ground types, runs the post-loop checks and verifies complete
-coverage. Its identity, coverage and rejection controls have been
-tested; the orchestrator itself has not been executed end to end.
-The completed campaign used the separately recorded full invocation
-and selected replay commands.
+The current native wrappers bind cached executables to source bytes,
+compiler identity, flags and the binary digest. The exact generic root/frame
+bounds and commutativity guards are tested by the targeted control commands
+in \filename{evidence/correctness_20261025/README.md}. Historical manifests
+and their original failures remain unchanged. Their stage-specific direct
+commands use the original source snapshots, rather than weakened identity
+checks on a modified checkout.
 
 Individual package checks, from \filename{supplements/rank6/}, include
 \begin{verbatim}

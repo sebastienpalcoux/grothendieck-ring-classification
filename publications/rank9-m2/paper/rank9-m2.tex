@@ -19,7 +19,7 @@
 \setlength{\emergencystretch}{3em}
 \title{Rank-nine fusion rings of multiplicity two\\\large Theoretical obstructions, coherent constructions and exact certification}
 \author{FusionFrontier research prepared for S\'ebastien Palcoux\\\small AI-generated research; independent human verification and formalization pending}
-\date{24 October 2026}
+\date{25 October 2026}
 \begin{document}\maketitle
 \begin{abstract}
 We study the 2,083 supplied rank-nine based fusion rings of exact multiplicity
@@ -618,18 +618,29 @@ context. Only \path{phase5/results/} is the current mathematical partition.
 Historical ledgers remain explicitly superseded; their unsupported half-$E_6$
 claims are not used by the corrected verifier.
 
-After unpacking the archive and installing its requirements, run
-\begin{quote}\ttfamily
-python3 verify.py\\
-python3 verify.py --frontier
+The current all-phase entry point, from a restored repository with its
+requirements installed, is
+\begin{quote}\small\ttfamily
+python3 evidence/correctness\_20261025/replay\_rank9.py \\
+\quad --output-dir /tmp/rank9-current-complete --frontier --jobs 2
 \end{quote}
-The first command verifies archive hashes, accepted finite evidence, every
-input identity and all 36 exact model transports. The second adds the
-auxiliary Morita and algebraic-orbifold checks. The earlier research
-snapshots and their supersession records remain preserved. Each categorical
-argument has a separate review; computation checks its finite premises,
-not the cited categorical theorems. Independent human verification and
-formalization remain pending.
+The output directory must be new. Each phase starts from an independently
+hash-checked copy of the unchanged source archive. Two separately bound
+phase-three certificates omitted from that archive are supplied by the
+correction release. The command replays the accepted baseline and phases
+two--five, regenerates the model tensors and checks the current partition.
+The archive's older root dispatcher checks phase five; its
+\texttt{--baseline} option adds phase four, not all preceding phases.
+
+For \texttt{R9\_2\_920}, exact pseudo-Boolean associativity completeness and
+all algebraic branch checks are used. This encoding shares the discovery
+implementation; the memory-limited independent eight-bit run is not
+reported as successful. Stored exact group/cohomology narrowing records
+are checked by this command; fresh full regeneration is recorded in the
+separate correctness-audit evidence. The optional frontier checks verify
+necessary restrictions, not new categorifications or exclusions.
+Each categorical argument retains its explicit external premises;
+independent human verification and formalization remain pending.
 
 The fusion census repository publishes the same 2,225 supplied tensors
 through multiplicity two and the corresponding producer-run qualification.

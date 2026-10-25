@@ -20,7 +20,7 @@ def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 def documents():
  for name in ('current_document_revision.json','current_publication_revision.json'):
   data=read(ROOT/'data'/name)
-  need(data['date']=='2026-10-24','Stale current document date')
+  need(data['date'] in ('2026-10-24','2026-10-25'),'Stale current document date')
   for source,item in data['documents'].items():
    p=ROOT/source;need(sha(p)==item['sha256']and p.stat().st_size==item['bytes'],'Document identity: '+source)
    if source.startswith('manuscripts/'):

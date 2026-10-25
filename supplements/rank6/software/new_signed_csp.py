@@ -3,6 +3,7 @@
 Uses only the certified dual-compatible sign gauges of signed.signed_problem.
 No second-indicator or modulo-four restrictions are introduced.
 """
+from native_build import ensure_native
 import os,re,subprocess
 from pathlib import Path
 from exact import require
@@ -38,10 +39,7 @@ def enumerate_unrestricted(R,seconds=60,absolute_values=None):
             require(problem['domains'][i],'absolute-value assignment outside signed domain')
     eqs=equations(problem)
     cpp=Path(__file__).with_suffix('.cpp');exe=cpp.with_suffix('')
-    if not exe.exists() or exe.stat().st_mtime<cpp.stat().st_mtime:
-        tmp=exe.with_name(exe.name+'_'+str(os.getpid()))
-        subprocess.run(['g++','-std=c++17','-O3',str(cpp),'-o',str(tmp)],check=True,capture_output=True)
-        os.replace(tmp,exe)
+    ensure_native(cpp,exe,flags=('-std=c++17', '-O3'))
     data=[str(len(problem['domains'])),str(len(eqs)),str(seconds)]
     for domain in problem['domains']:data.extend([str(len(domain)),*map(str,domain)])
     for eq in eqs:data.extend([str(len(eq)),*(str(x) for term in eq for x in term)])

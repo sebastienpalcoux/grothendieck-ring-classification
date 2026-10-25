@@ -1,4 +1,5 @@
 """Rank-independent exact Gram vectors, reducing first to the rational range."""
+from native_build import ensure_native
 import itertools,math,subprocess,os
 from functools import lru_cache
 from pathlib import Path
@@ -19,8 +20,7 @@ def _native(n,entries):
     require(BUILD_DIRECTORY is not None, 'native temporary build directory not configured')
     BUILD_DIRECTORY.mkdir(parents=True, exist_ok=True)
     exe=BUILD_DIRECTORY/'gram_vectors_general'
-    if not exe.exists() or not os.access(exe, os.X_OK):
-        tmp=exe.with_name(exe.name+'_'+str(os.getpid()));subprocess.run(['g++','-O3','-std=c++17',str(src),'-o',str(tmp)],check=True,capture_output=True);os.replace(tmp,exe)
+    ensure_native(src,exe,flags=('-O3', '-std=c++17'))
     run=subprocess.run([str(exe)],input=' '.join(map(str,[n,r]+vals)),text=True,capture_output=True,check=True,timeout=60)
     out=sorted(tuple(map(int,line.split())) for line in run.stdout.splitlines());require(len(out)==len(set(out)),'duplicate Gram vector')
     return tuple(out)

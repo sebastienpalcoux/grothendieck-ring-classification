@@ -58,31 +58,29 @@ constructions.
 
 ## Complete verification
 
-Use the [combined replay guide](../../evidence/prepublication_20261017/rank6_backend/README.md)
-from a fresh restored checkout. The executed campaign covers all 25,362
-exclusion certificates by 25,355 initial passes plus seven complete
-Python-backend retries, with the two post-loop checks executed separately.
-The initial full process failed and its failed status is retained. This was
-not a successful single full run or an all-Python full-census pass.
-
-The portable complete-replay orchestrator has not itself been executed end
-to end; its identity, coverage and rejection controls were tested. From the
-repository root, in an isolated environment and without native binaries cached
-beside the rank-six C++ sources:
+From the repository root, restore the checksummed data, install the rank-six
+requirements and choose a new output directory:
 
 ```bash
 python3 tools/restore_data.py
 python3 -m pip install -r supplements/rank6/requirements.txt
-python3 evidence/prepublication_20261017/rank6_backend/replay_complete.py \
-  --repo . --output-dir NEW_DIR --jobs 2
+python3 evidence/correctness_20261025/replay_rank6.py \
+  --output-dir /tmp/rank6-current-complete --jobs 2
 ```
 
-Choose a new output directory outside `supplements/rank6`. The
-[repository verification guide](../../docs/VERIFY.md) supplies the individual
-model, multiplicity-nine completion and frontier commands and explains their
-scope. A receipt audit checks source identities and predicates; it does not
-rerun the mathematics. A timeout proves no exclusion. Normal Python is
-required when proof checks use `assert`.
+The [current correction guide](../../evidence/correctness_20261025/README.md)
+records all 25,362 original raw exclusion verdicts, seven complete
+reference-backend worker retries, the eleven immutable-source multiplicity-nine
+completion proofs and the exact original post-loop checks. Historical source
+hash checks are preserved; the current tensors and certificates are matched
+exactly. This combined campaign is distinct from a single successful full run.
+The earlier audit's partly log-derived coverage and initial failures remain
+preserved in the original audit archive.
+
+Positive model arguments have their separate proof and tensor checks. The
+[repository verification guide](../../docs/VERIFY.md) explains each route and
+its scope. A timeout proves no exclusion; checking saved receipts does not
+re-execute the mathematics.
 
 ## Source identity
 

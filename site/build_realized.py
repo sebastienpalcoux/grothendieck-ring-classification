@@ -503,6 +503,8 @@ def from_catalogues(repo):
                                          "basis_permutation_census_to_model":other["basis_map_source_to_model"]}
                                        for other in model["constructors"][1:]]
             records.append(rec)
+    from correctness_publication import active,update_models
+    if active(repo):update_models(records)
     return records
 
 

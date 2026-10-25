@@ -4,6 +4,7 @@ Canonical proof discovery is separate from replay. Replay performs only exact
 arithmetic, bounded exhaustive enumeration, and integer certificates. Survivors
 are necessary restriction profiles and are not categorifications.
 """
+from native_build import ensure_native
 import argparse,hashlib,itertools,json,math,os,subprocess,tempfile,time
 from pathlib import Path
 from fractions import Fraction
@@ -22,8 +23,7 @@ def digest(value):
  return hashlib.sha256(json.dumps(value,separators=(',',':'),sort_keys=True).encode()).hexdigest()
 def native_executable():
  src=Path(__file__).with_suffix('.cpp');h=hashlib.sha256(src.read_bytes()).hexdigest()[:16];exe=Path(tempfile.gettempdir())/('rank6_joint_'+h)
- if not exe.exists():
-  tmp=exe.with_name(exe.name+'_'+str(os.getpid()));subprocess.run(['g++','-O3','-std=c++17',str(src),'-o',str(tmp)],check=True,capture_output=True);os.replace(tmp,exe)
+ ensure_native(src,exe,flags=('-O3', '-std=c++17'))
  return exe
 def build(R,d,i):
  cols=d['lows'][i];lab=d['tab'].assignments(cols)[0];G,vs=M.high_vectors(d,cols);sp=Spectrum(d['tab'],cols,[(v,None)for v in vs]);bad=set(map(tuple,sp.forbidden));vs=[v for v in vs if v not in bad]

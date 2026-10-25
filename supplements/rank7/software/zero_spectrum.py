@@ -1,5 +1,6 @@
 """Liu--Palcoux--Ren zero-spectrum criterion (all characteristics)."""
 from rings import *
+from native_build import ensure_native
 import subprocess,os
 from pathlib import Path
 
@@ -15,7 +16,7 @@ def verify(R,c):
 
 def batch(tensors):
     src=Path(__file__).with_suffix('.cpp');exe=src.with_suffix('')
-    if not exe.exists():subprocess.run(['g++','-O3','-std=c++17',str(src),'-o',str(exe)],check=True,capture_output=True)
+    ensure_native(src,exe,flags=('-O3', '-std=c++17'))
     values=[len(tensors)]
     for R in tensors:values+=[len(R)]+list(flat(R))
     run=subprocess.run([str(exe)],input=' '.join(map(str,values)),text=True,capture_output=True,check=True,timeout=120)

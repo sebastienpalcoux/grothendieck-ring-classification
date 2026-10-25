@@ -1,5 +1,9 @@
 # Manuscripts
 
+<!-- correctness-20261025 -->
+**Correctness revision · 25 October 2026.** The current classification is unchanged. Three model-identification arguments are repaired, R8_3_721 has a direct exact completion, and implementation/replay defects are corrected. [Findings, corrections and exact commands](../evidence/correctness_20261025/README.md). Independent human verification remains pending.
+<!-- /correctness-20261025 -->
+
 <!-- current-theoretical-retry -->
 **Current results · 24 October 2026.** Rank ten at multiplicity one is complete:
 136 general exclusions and 58 unitary models. R10_1_189 is recognized inside
@@ -22,14 +26,14 @@ Current manuscripts appear once, in increasing rank order. Realized counts refer
 | Rank four: finite classification | [PDF](rank4/papers/finite.pdf) | [TeX](rank4/papers/finite.tex) | 29 |
 | Rank four: unrestricted classification | [PDF](rank4/papers/companion.pdf) | [TeX](rank4/papers/companion.tex) | 88 |
 | Rank five | [PDF](rank5/papers/manuscript.pdf) | [TeX](rank5/papers/manuscript.tex) | 19 |
-| Rank six | [PDF](rank6/papers/manuscript.pdf) | [TeX](rank6/papers/manuscript.tex) | 172 |
+| Rank six | [PDF](rank6/papers/manuscript.pdf) | [TeX](rank6/papers/manuscript.tex) | 173 |
 | Rank seven | [PDF](rank7/papers/manuscript.pdf) | [TeX](rank7/papers/manuscript.tex) | 83 |
-| Rank eight | [PDF](rank8/paper/rank8.pdf) | [TeX](rank8/paper/rank8.tex) | 151 |
+| Rank eight | [PDF](rank8/paper/rank8.pdf) | [TeX](rank8/paper/rank8.tex) | 153 |
 | Rank-nine and rank-ten multiplicity-one classification | [PDF](../publications/rank9-rank10/paper/rank9-rank10.pdf) | [TeX](../publications/rank9-rank10/paper/rank9-rank10.tex) | 35 |
 | Rank-nine multiplicity-two classification | [PDF](../publications/rank9-m2/paper/rank9-m2.pdf) | [TeX](../publications/rank9-m2/paper/rank9-m2.tex) | 47 |
 | Rank-eleven multiplicity-one classification | [PDF](../publications/rank11/paper/rank11.pdf) | [TeX](../publications/rank11/paper/rank11.tex) | 18 |
 
-**11 mathematical manuscripts, 657 pages.** With three verification guides: 676 pages. With the current research-status report: 679 pages. Each distinct document is counted once.
+**11 mathematical manuscripts, 660 pages.** With three verification guides: 678 pages. With the current research-status report: 682 pages. Each distinct document is counted once.
 
 [Page inventory and checksums](../data/current_manuscript_page_counts.json) · [Current publication manifest](../data/current_publication_revision.json)
 
@@ -51,7 +55,7 @@ Current manuscripts appear once, in increasing rank order. Realized counts refer
 |---|---|---:|
 | Rank-four verification guide | [PDF](rank4/papers/verification_guide.pdf) | 9 |
 | Rank-five verification guide | [PDF](rank5/papers/verification_guide.pdf) | 4 |
-| Rank-six verification guide | [PDF](rank6/papers/verification_guide.pdf) | 6 |
+| Rank-six verification guide | [PDF](rank6/papers/verification_guide.pdf) | 5 |
 
 <details><summary>Earlier lower-rank reading notes and research history</summary>
 
@@ -100,15 +104,15 @@ Related work on the pivotal case: Jingcheng Dong, Sébastien Palcoux and Arnaud 
 | Rank four, verification guide | [TeX](rank4/papers/verification_guide.tex) | [PDF](rank4/papers/verification_guide.pdf) | 9 | Exact certificate checks |
 | Rank five | [TeX](rank5/papers/manuscript.tex) | [PDF](rank5/papers/manuscript.pdf) | 19 | Complete through multiplicity 20 |
 | Rank five, verification guide | [TeX](rank5/papers/verification_guide.tex) | [PDF](rank5/papers/verification_guide.pdf) | 4 | Exact certificates, models and replay scope |
-| Rank six | [TeX](rank6/papers/manuscript.tex) | [PDF](rank6/papers/manuscript.pdf) | 172 | 25,362 exclusions, 57 realizations, two open through 9; complete through 3 and exact bands 1, 2, 3, 5, 6, 7, 9 |
-| Rank six, verification guide | [TeX](rank6/papers/verification_guide.tex) | [PDF](rank6/papers/verification_guide.pdf) | 6 | Models, certificates and open-case reductions |
+| Rank six | [TeX](rank6/papers/manuscript.tex) | [PDF](rank6/papers/manuscript.pdf) | 173 | 25,362 exclusions, 57 realizations, two open through 9; complete through 3 and exact bands 1, 2, 3, 5, 6, 7, 9 |
+| Rank six, verification guide | [TeX](rank6/papers/verification_guide.tex) | [PDF](rank6/papers/verification_guide.pdf) | 5 | Models, certificates and open-case reductions |
 | Rank seven | [TeX](rank7/papers/manuscript.tex) | [PDF](rank7/papers/manuscript.pdf) | 83 | Through multiplicity 5: 9,976 exclusions, 30 models and 0 unresolved; complete through 5 |
-| Rank eight | [TeX](rank8/paper/rank8.tex) | [PDF](rank8/paper/rank8.pdf) | 151 | Through multiplicity 3: 4,403 exclusions, 93 unitary models and 4 unresolved; complete through 2 |
+| Rank eight | [TeX](rank8/paper/rank8.tex) | [PDF](rank8/paper/rank8.pdf) | 153 | Through multiplicity 3: 4,403 exclusions, 93 unitary models and 4 unresolved; complete through 2 |
 
-The eight mathematical manuscripts contain **557 pages**.
-Including the three verification guides gives **576 pages**;
-including the 3-page [research-status report](prepublication-review-2026-10-24.pdf)
-gives **579 pages** across twelve distinct documents.
+The eight mathematical manuscripts contain **560 pages**.
+Including the three verification guides gives **578 pages**;
+including the 4-page [research-status report](prepublication-review-2026-10-25.pdf)
+gives **582 pages** across twelve distinct documents.
 These counts include references and appendices and count duplicate download
 copies only once. The [page inventory](../data/manuscript_page_counts.json)
 records every path, count and PDF checksum. The [17 October status report](prepublication-review-2026-10-17.pdf) is retained as a historical snapshot and is not counted as a current document.
@@ -139,7 +143,7 @@ Read the [research status](../docs/RESEARCH_STATUS.md),
 
 ## Generalized Haagerup construction and further restrictions
 
-R8_3_721 is realized by the inherited 1+rho Q-system Morita dual of the C2 de-equivariantization of GH(C8). Exact rank and coefficient bounds identify its unique dimension type in the supplied complete rank-eight multiplicity-at-most-three census. The earlier center-action analysis leaves three necessary R8_3_1154 patterns. These results are in evidence/rank8_next_20261021/; the later R8_3_65 general exclusion is in evidence/rank8_research_20261022/.
+R8_3_721 is realized by the inherited 1+rho Q-system Morita dual of the C2 de-equivariantization of GH(C8). Exact rank and coefficient bounds, followed by a direct exhaustive fusion completion, identify its entire based ring without assuming census completeness. The earlier center-action analysis leaves three necessary R8_3_1154 patterns. These results are in evidence/rank8_next_20261021/; the later R8_3_65 general exclusion is in evidence/rank8_research_20261022/.
 
 The integrated rank-eight article includes the new construction and restrictions. Categorical arguments, targeted mathematical replay receipts and independent reconstructions are in `evidence/rank8_next_20261021/`. The original frontier ledger, audit and completed replay receipts remain unchanged.
 

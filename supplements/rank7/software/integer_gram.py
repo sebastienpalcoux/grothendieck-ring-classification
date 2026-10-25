@@ -1,5 +1,6 @@
 """Integral Gram refinement of the finite relative-trace criterion."""
 from higher_traces import *
+from native_build import ensure_native
 import subprocess,os,time,hashlib,re
 from pathlib import Path
 
@@ -13,8 +14,7 @@ def frames(Qm,cols,seconds=30):
     n=Qm.rows;ij=list(itertools.combinations_with_replacement(range(n),2));b=[int(Qm[i,j]) for i,j in ij]
     A=[[v[i]*v[j] for i,j in ij] for v,z in cols]
     source=Path(__file__).with_name('gram_frames.cpp');exe=source.with_suffix('')
-    if not exe.exists() or not os.access(exe, os.X_OK):
-        temp=exe.with_name(exe.name+'_'+str(os.getpid()));subprocess.run(['g++','-O3','-std=c++17',str(source),'-o',str(temp)],capture_output=True,check=True);os.replace(temp,exe)
+    ensure_native(source,exe,flags=('-O3', '-std=c++17'))
     inp=f'{len(ij)} {len(cols)} {seconds} '+' '.join(map(str,b+[x for v in A for x in v]))
     try:
         run=subprocess.run([str(exe)],input=inp,text=True,capture_output=True,timeout=seconds+5)

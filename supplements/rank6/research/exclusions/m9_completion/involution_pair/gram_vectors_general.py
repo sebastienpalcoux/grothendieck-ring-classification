@@ -1,4 +1,5 @@
 """Rank-independent exact Gram vectors, reducing first to the rational range."""
+from native_build import ensure_native
 import itertools,math,subprocess,os
 from functools import lru_cache
 from pathlib import Path
@@ -14,8 +15,7 @@ def _native(n,entries):
     vmax=max(math.isqrt(int(Q[i,i])) for i in range(n));amax=max(abs(int(x)) for x in adj);mmax=max(abs(int(x)) for x in M)
     require(max(abs(v) for v in vals)<2**60 and r*r*amax*vmax*vmax<2**120 and r*mmax*vmax<2**120,'Gram native exact integer range exceeded')
     src=Path(__file__).with_suffix('.cpp');exe=src.with_suffix('')
-    if not exe.exists() or not os.access(exe, os.X_OK):
-        tmp=exe.with_name(exe.name+'_'+str(os.getpid()));subprocess.run(['g++','-O3','-std=c++17',str(src),'-o',str(tmp)],check=True,capture_output=True);os.replace(tmp,exe)
+    ensure_native(src,exe,flags=('-O3', '-std=c++17'))
     run=subprocess.run([str(exe)],input=' '.join(map(str,[n,r]+vals)),text=True,capture_output=True,check=True,timeout=60)
     out=sorted(tuple(map(int,line.split())) for line in run.stdout.splitlines());require(len(out)==len(set(out)),'duplicate Gram vector')
     return tuple(out)

@@ -76,6 +76,8 @@ def render():
   <link rel="stylesheet" href="{asset('constructions.css')}">
   <script src="{asset('properties.js')}" defer></script>
   <script src="{asset('constructions.js')}" defer></script>
+  <link rel="stylesheet" href="{asset('responsive.css')}">
+  <script src="{asset('responsive.js')}" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#construction-main">Skip to the constructions catalogue</a>

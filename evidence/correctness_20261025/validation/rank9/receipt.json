@@ -1,0 +1,55 @@
+{
+  "status": "PASS",
+  "scope": "Accepted baseline and all phases2--5; all36 model constructors/transports. Stored GAP/cohomology narrowing records verified, not regenerated in this command; external categorical premises remain explicit.",
+  "partition": {
+    "excluded": 2043,
+    "unitarily_realized": 36,
+    "unresolved": 4
+  },
+  "archive_sha256": "38b4339c86c71fdba65cc7a72df57b16248b508f11dbe8fdb2016c43d77e6ff2",
+  "ledger_sha256": "0f8c9b45f328d084735eb2c514308a87bbf176c7fb0a7fcd99578f18d0d0097e",
+  "stages": [
+    {
+      "stage": "baseline",
+      "status": "PASS",
+      "log": "baseline.log",
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "receipt": "baseline-receipt.json",
+      "receipt_sha256": "f369a753513660a648c56ad32775aa9323f180147bf9df21088c2e6ad43e9641"
+    },
+    {
+      "stage": "phase2",
+      "status": "PASS",
+      "log": "phase2.log",
+      "log_sha256": "df82583fac4b746d458f2a19777fe6660c238a4434ce78fdf054955a675d1eaa",
+      "receipt": "phase2-receipt.json",
+      "receipt_sha256": "4de45730cac522bda9bea843e79ae411e1ad4890f224f13cb4493951b1b6756f"
+    },
+    {
+      "stage": "phase3",
+      "status": "PASS",
+      "log": "phase3.log",
+      "log_sha256": "68242b080a4339880fa8b31ae4884af399806f508f351b31ec36bf5ff560ae93",
+      "receipt": "phase3-receipt.json",
+      "receipt_sha256": "28b5963dc878958229f87c1ae03d48ad4a0e22babb1d79e5a08dd665e8369411"
+    },
+    {
+      "stage": "phase4",
+      "status": "PASS",
+      "log": "phase4.log",
+      "log_sha256": "12344e81b65d7a4e1c28373163e6e93775e7052af2db8d0086d14e9c03873f43",
+      "receipt": "phase4-receipt.json",
+      "receipt_sha256": "9da6b5981fb99f669b33bbd1a72e2a44e5e35bf735907c389f9c7c9d2da2d141"
+    },
+    {
+      "stage": "phase5",
+      "status": "PASS",
+      "log": "phase5.log",
+      "log_sha256": "b25db6db046a7444f064a94fa156d324d2e3f0f2066c06b35345a3f8a7d7b97d",
+      "receipt": "phase5-receipt.json",
+      "receipt_sha256": "946b9d7c454fbd1fac655d81af2ac3c51b84c6c07f0fde9ab4391b0e444a0fe9"
+    }
+  ],
+  "R920_backend": "exact pseudo-Boolean shared implementation, not independent eight-bit replay",
+  "seconds": 219.68078616599996
+}

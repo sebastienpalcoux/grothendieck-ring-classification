@@ -203,6 +203,9 @@ def replay_rank8_exclusion_history(repo, output_dir, optimized=False):
 def document_paths(repo):
     from rank8_publication import active
     excluded = EXCLUDED_DOCUMENTS | ({'manuscripts/prepublication-review-2026-10-20.pdf'} if active(repo) else set())
+    from correctness_publication import active as correctness_active
+    if correctness_active(repo):
+        excluded = excluded | {'manuscripts/prepublication-review-2026-10-24.pdf','manuscripts/prepublication-review-2026-10-24.tex'}
     roots = [repo / 'manuscripts']
     roots += [repo / 'supplements' / ('rank' + str(rank)) / folder
               for rank in range(2, 9) for folder in ('papers', 'paper')]
@@ -214,7 +217,7 @@ def document_paths(repo):
 def validate_documents(repo, check_web=False):
     repo = Path(repo)
     revision = json.loads((repo / DOCUMENT_REVISION).read_text())
-    need(revision['schema'] == 'current-document-revision/v1' and revision['date'] in ('2026-10-17', '2026-10-19', '2026-10-20', '2026-10-21', '2026-10-22', '2026-10-24'),
+    need(revision['schema'] == 'current-document-revision/v1' and revision['date'] in ('2026-10-17', '2026-10-19', '2026-10-20', '2026-10-21', '2026-10-22', '2026-10-24', '2026-10-25'),
          'Current document revision identity')
     from rank7_publication import remaining_ids, extension
     need(revision['remaining_ids'] == remaining_ids(repo)

@@ -2546,36 +2546,38 @@
       "path": "site/dist/data/rank9_m2.json",
       "encoding": "gzip",
       "bytes": 15922670,
-      "sha256": "c44c7c187071bdac14dcf7ec3d45eba1e1e3e374f37caffa89e2c5e3798ed3e6",
+      "sha256": "f1f61bd6eff55117a613955941a79e8f06c355c334241b4361f06de1adb66fa3",
       "previous_sha256": [
-        "5d0de612cd502e493d03d8d9b84851a775f2fe0eab0c46c28cdd552ef3506fed"
+        "5d0de612cd502e493d03d8d9b84851a775f2fe0eab0c46c28cdd552ef3506fed",
+        "c44c7c187071bdac14dcf7ec3d45eba1e1e3e374f37caffa89e2c5e3798ed3e6"
       ],
       "parts": [
         {
           "path": "data/payloads/site__dist__data__rank9_m2_json/part-001.bin",
           "bytes": 524288,
-          "sha256": "b8458b017c6001b73a4121af1ca28e21898513da57f1c31b7d2ee945b90db73b"
+          "sha256": "de256b1dac761087ce8ddc92df9eff3826fcf3d240ea3cb132627357c3e87f09"
         },
         {
           "path": "data/payloads/site__dist__data__rank9_m2_json/part-002.bin",
-          "bytes": 72625,
-          "sha256": "d5815538f33a0c4138e8fd14f5792c4fc7a5c7d59248f3f3684222653a7d8919"
+          "bytes": 72628,
+          "sha256": "6f66eb524c23ec983718d128b6c94c7df9e935f95e9857f7cd73f363b24e3434"
         }
       ]
     },
     {
       "path": "site/dist/data/rank9_rank10_m1.json",
       "encoding": "gzip",
-      "bytes": 3411153,
-      "sha256": "dd98fb4f9b12f14cd6734a9f06d7d4239483f51b8eb782cb57409f40db68fa53",
+      "bytes": 3411319,
+      "sha256": "d05f8b07ec3215b6f1a60857f6ca79fa0d2d39374482af19ae8ed9393f5bd05b",
       "previous_sha256": [
-        "c3155d163604875be0d0a909ec88ee27f07674bb61ae32085276ccd3eae8d05b"
+        "c3155d163604875be0d0a909ec88ee27f07674bb61ae32085276ccd3eae8d05b",
+        "dd98fb4f9b12f14cd6734a9f06d7d4239483f51b8eb782cb57409f40db68fa53"
       ],
       "parts": [
         {
           "path": "data/payloads/site__dist__data__rank9_rank10_m1_json/part-001.bin",
-          "bytes": 170724,
-          "sha256": "7eb66d897daabeb2f3c7495dd9bce1f9d295e97de44d1ee909531c5661251d3a"
+          "bytes": 170810,
+          "sha256": "2ff2324b8d531b03ded1a8d22f10f1b985360d06839683ee2915040c85c95d29"
         }
       ]
     },
@@ -2583,17 +2585,584 @@
       "path": "site/dist/data/ring_properties.json",
       "encoding": "gzip",
       "bytes": 3907501,
-      "sha256": "06a4e8f462918aa6a1edd0760a475bba573ef0db86b793c0bd2d022a1aa034c1",
+      "sha256": "d27ddf996b16cd28dc7c2fee74b612d80ef75060f646416ccf2af775c8cd0565",
       "previous_sha256": [
-        "57bb26ec56525b8008f21af290cb028680d5818b7db1dc1595e74afb4f8b6573"
+        "57bb26ec56525b8008f21af290cb028680d5818b7db1dc1595e74afb4f8b6573",
+        "06a4e8f462918aa6a1edd0760a475bba573ef0db86b793c0bd2d022a1aa034c1"
       ],
       "parts": [
         {
           "path": "data/payloads/site__dist__data__ring_properties_json/part-001.bin",
           "bytes": 426403,
-          "sha256": "28f25d815ab6cc37ce012c03c3bc0e44fb1211e53dd8d717b16a65d84ee347c4"
+          "sha256": "68c3185f203b6dd3b64092e608da49079b63de95e2f05e584ea0aabc3ccfeda6"
         }
       ]
+    },
+    {
+      "path": "site/dist/downloads/correctness-audit-2026-10-25.zip",
+      "encoding": "raw",
+      "parts": [
+        {
+          "path": "data/payloads/site__dist__downloads__correctness-audit-2026-10-25_zip/part-001.bin",
+          "bytes": 524288,
+          "sha256": "1ef7c52b18023fa48bfe8f436e3974176c39eeebb40cb8af00a469d1f08ce175"
+        },
+        {
+          "path": "data/payloads/site__dist__downloads__correctness-audit-2026-10-25_zip/part-002.bin",
+          "bytes": 524288,
+          "sha256": "b24b9e6b1f1b04700891aea2affa94d4a1826f467fc2d904b94e1a455ab0b9f9"
+        },
+        {
+          "path": "data/payloads/site__dist__downloads__correctness-audit-2026-10-25_zip/part-003.bin",
+          "bytes": 524288,
+          "sha256": "0abd505c5be3bafc1cf808e1daa6d335004637cf341b92dbcf01640e477b10a6"
+        },
+        {
+          "path": "data/payloads/site__dist__downloads__correctness-audit-2026-10-25_zip/part-004.bin",
+          "bytes": 524288,
+          "sha256": "c95d70e2f1315e739ac1e3ad4b41127fb980d987917f536aa6267051e3d0fc3e"
+        },
+        {
+          "path": "data/payloads/site__dist__downloads__correctness-audit-2026-10-25_zip/part-005.bin",
+          "bytes": 524288,
+          "sha256": "b0c2927db658e695ce5ed93cba8a15c9175cf585aa655ecb6f696b5906697c70"
+        },
+        {
+          "path": "data/payloads/site__dist__downloads__correctness-audit-2026-10-25_zip/part-006.bin",
+          "bytes": 524288,
+          "sha256": "c3848a0a4e705a38d252c3904df5c3e3102829fa5a563c4b6d9825cfacf1778a"
+        },
+        {
+          "path": "data/payloads/site__dist__downloads__correctness-audit-2026-10-25_zip/part-007.bin",
+          "bytes": 524288,
+          "sha256": "79df15facf0ce673bb595f8a0669d3bec9b972e8f9166c52eb349134c582266e"
+        },
+        {
+          "path": "data/payloads/site__dist__downloads__correctness-audit-2026-10-25_zip/part-008.bin",
+          "bytes": 524288,
+          "sha256": "816fcd7124dcbd090ddb58a958bcf2b1f4fac293031be376138adb8fec801fca"
+        },
+        {
+          "path": "data/payloads/site__dist__downloads__correctness-audit-2026-10-25_zip/part-009.bin",
+          "bytes": 524288,
+          "sha256": "c78f5619ba3107be60ac6a1240380305a30bca39a641d91db10242d54c3a6acb"
+        },
+        {
+          "path": "data/payloads/site__dist__downloads__correctness-audit-2026-10-25_zip/part-010.bin",
+          "bytes": 524288,
+          "sha256": "8e3908c530e8e358182e8fec37f3904b46ddfa79f40098957695a5630eec6693"
+        },
+        {
+          "path": "data/payloads/site__dist__downloads__correctness-audit-2026-10-25_zip/part-011.bin",
+          "bytes": 524288,
+          "sha256": "cbd6816a138fce886ce6eb962d2569273d3e5ffdc20931d8b33d26583532d9ae"
+        },
+        {
+          "path": "data/payloads/site__dist__downloads__correctness-audit-2026-10-25_zip/part-012.bin",
+          "bytes": 524288,
+          "sha256": "cd8c39662f63d6371cd4665c31872cb29cd520071fc8afe9dd93d99368b89861"
+        },
+        {
+          "path": "data/payloads/site__dist__downloads__correctness-audit-2026-10-25_zip/part-013.bin",
+          "bytes": 524288,
+          "sha256": "e0bc97663a215062b5b3ddeea9a7d34256f481be542f3209fe29e8ac3aaa5032"
+        },
+        {
+          "path": "data/payloads/site__dist__downloads__correctness-audit-2026-10-25_zip/part-014.bin",
+          "bytes": 524288,
+          "sha256": "4d938628c6da7ec8fa29c9856020073d839bdf7602746c6b595d06af7631329c"
+        },
+        {
+          "path": "data/payloads/site__dist__downloads__correctness-audit-2026-10-25_zip/part-015.bin",
+          "bytes": 524288,
+          "sha256": "2ea594c2485ebab39d4e5d3141b6f70ef4f1e0e28483af319a94df40104b6321"
+        },
+        {
+          "path": "data/payloads/site__dist__downloads__correctness-audit-2026-10-25_zip/part-016.bin",
+          "bytes": 524288,
+          "sha256": "488ab4af967a6857a83a6943b6cbdc27aacb69836deee0a794797e07aee9f09d"
+        },
+        {
+          "path": "data/payloads/site__dist__downloads__correctness-audit-2026-10-25_zip/part-017.bin",
+          "bytes": 524288,
+          "sha256": "91b461ff780154decaed7efe422daacc15a2e1dada54b3ff317a70c4a051f940"
+        },
+        {
+          "path": "data/payloads/site__dist__downloads__correctness-audit-2026-10-25_zip/part-018.bin",
+          "bytes": 524288,
+          "sha256": "1f55189c0a1a1ff63299ab20f35000a1745fe9f144393736a1b1443da9ad5165"
+        },
+        {
+          "path": "data/payloads/site__dist__downloads__correctness-audit-2026-10-25_zip/part-019.bin",
+          "bytes": 524288,
+          "sha256": "327a214a47bf10fa0e59abb85dd9a977100a6f1c4ae5357a063400a841cd144d"
+        },
+        {
+          "path": "data/payloads/site__dist__downloads__correctness-audit-2026-10-25_zip/part-020.bin",
+          "bytes": 524288,
+          "sha256": "b7ac345ce39e801fede75574afe8e6365449d5657adec2d72055eb83b45d8084"
+        },
+        {
+          "path": "data/payloads/site__dist__downloads__correctness-audit-2026-10-25_zip/part-021.bin",
+          "bytes": 524288,
+          "sha256": "86d564e5045eeb0f1510bf4606894d061c0498486c1655527b3256b4b25caf71"
+        },
+        {
+          "path": "data/payloads/site__dist__downloads__correctness-audit-2026-10-25_zip/part-022.bin",
+          "bytes": 524288,
+          "sha256": "bbb9b9f8692253bf0929142355254ef4cef2091a6f3fabb97f109af71ad64e0c"
+        },
+        {
+          "path": "data/payloads/site__dist__downloads__correctness-audit-2026-10-25_zip/part-023.bin",
+          "bytes": 524288,
+          "sha256": "c2e3e23c6b89aade1d5bc41587905ff54b851e7ee2b30a669dae630fec5943c2"
+        },
+        {
+          "path": "data/payloads/site__dist__downloads__correctness-audit-2026-10-25_zip/part-024.bin",
+          "bytes": 524288,
+          "sha256": "b5e4d3dfc1ffe1a8801c70ef6b4356155bed8639fefe8a6ee43cc30f459e2f0d"
+        },
+        {
+          "path": "data/payloads/site__dist__downloads__correctness-audit-2026-10-25_zip/part-025.bin",
+          "bytes": 524288,
+          "sha256": "94dc4311b6daa68c966fc019b16cbbd6b9be451253fb89cb7d6bc9ffa4cd3fd7"
+        },
+        {
+          "path": "data/payloads/site__dist__downloads__correctness-audit-2026-10-25_zip/part-026.bin",
+          "bytes": 524288,
+          "sha256": "8a300106b239031e10dae44438360f5d267dbdf6e69451900ff1bbabd38978bf"
+        },
+        {
+          "path": "data/payloads/site__dist__downloads__correctness-audit-2026-10-25_zip/part-027.bin",
+          "bytes": 524288,
+          "sha256": "965c077fb05a1291a672abd41d8122ddf76e2c1aa9a8fed8c393c432c7e61952"
+        },
+        {
+          "path": "data/payloads/site__dist__downloads__correctness-audit-2026-10-25_zip/part-028.bin",
+          "bytes": 524288,
+          "sha256": "c0998f453d7f130003270a042ce08ff04d775f18b8a8e9383e30ae3465ea1f54"
+        },
+        {
+          "path": "data/payloads/site__dist__downloads__correctness-audit-2026-10-25_zip/part-029.bin",
+          "bytes": 524288,
+          "sha256": "98be7610d456ce79d89a722e8515089d9cb214d8ce3e4aa192171a8177afa0ce"
+        },
+        {
+          "path": "data/payloads/site__dist__downloads__correctness-audit-2026-10-25_zip/part-030.bin",
+          "bytes": 524288,
+          "sha256": "dd42fbbf506a44b34bc5c60c81fc8d051537bbc5b7182919e8296c7625664f74"
+        },
+        {
+          "path": "data/payloads/site__dist__downloads__correctness-audit-2026-10-25_zip/part-031.bin",
+          "bytes": 524288,
+          "sha256": "6d21e363cab1ae85793efd4fb817847093ebb6d46921cdbc6e3eecadc490ea1e"
+        },
+        {
+          "path": "data/payloads/site__dist__downloads__correctness-audit-2026-10-25_zip/part-032.bin",
+          "bytes": 524288,
+          "sha256": "63bc3e20e830e2c1b5e189464bb95949bfa91f4db053c9ad9d67527964a9a17b"
+        },
+        {
+          "path": "data/payloads/site__dist__downloads__correctness-audit-2026-10-25_zip/part-033.bin",
+          "bytes": 524288,
+          "sha256": "e7ba96c44e442884ad24766eca36a42ac7f12455bc0bdfef65ac2a9615e0b5a3"
+        },
+        {
+          "path": "data/payloads/site__dist__downloads__correctness-audit-2026-10-25_zip/part-034.bin",
+          "bytes": 524288,
+          "sha256": "f18a12fc82d331387a1357b6581c748cbfc3930264e76cc64dae35ff59792b01"
+        },
+        {
+          "path": "data/payloads/site__dist__downloads__correctness-audit-2026-10-25_zip/part-035.bin",
+          "bytes": 524288,
+          "sha256": "44bc5f72b9990a5c0c5a520b8c31f70a214ac166ce736c48ecbee29d3386878d"
+        },
+        {
+          "path": "data/payloads/site__dist__downloads__correctness-audit-2026-10-25_zip/part-036.bin",
+          "bytes": 524288,
+          "sha256": "1e4125b87530e4301e03ecf6466315a922348ca915a1fe18d9c02fdb3466a02b"
+        },
+        {
+          "path": "data/payloads/site__dist__downloads__correctness-audit-2026-10-25_zip/part-037.bin",
+          "bytes": 524288,
+          "sha256": "5cd4b79f3c9a94613b65c1260c4f611ef7ef62eab267828085cea2c1b4fb77c9"
+        },
+        {
+          "path": "data/payloads/site__dist__downloads__correctness-audit-2026-10-25_zip/part-038.bin",
+          "bytes": 524288,
+          "sha256": "1bbbf27f2ca84037527607c31e846ce31ae187565ccdabc2e834857ce9808109"
+        },
+        {
+          "path": "data/payloads/site__dist__downloads__correctness-audit-2026-10-25_zip/part-039.bin",
+          "bytes": 524288,
+          "sha256": "053354482108692fbbf5e698967ab2b182d6fdfd8a6d7385d2bb7f51ffdf5895"
+        },
+        {
+          "path": "data/payloads/site__dist__downloads__correctness-audit-2026-10-25_zip/part-040.bin",
+          "bytes": 524288,
+          "sha256": "a456a27c51fa943d0575df05096ef408a69b66df3a5d4b0b649da857e65db86e"
+        },
+        {
+          "path": "data/payloads/site__dist__downloads__correctness-audit-2026-10-25_zip/part-041.bin",
+          "bytes": 524288,
+          "sha256": "8c52c2d09c46617a77a1e59b9866d85cb8389f58221905ff1680b244b1e29190"
+        },
+        {
+          "path": "data/payloads/site__dist__downloads__correctness-audit-2026-10-25_zip/part-042.bin",
+          "bytes": 524288,
+          "sha256": "133e4a13b2882b53a8b534f094693dc85719f38340277abdbf1bb2f8db722b8e"
+        },
+        {
+          "path": "data/payloads/site__dist__downloads__correctness-audit-2026-10-25_zip/part-043.bin",
+          "bytes": 524288,
+          "sha256": "dcc0334191b07005b5c3fa177e8ed255aff4071ebe0cbbdfa41569da6ac38637"
+        },
+        {
+          "path": "data/payloads/site__dist__downloads__correctness-audit-2026-10-25_zip/part-044.bin",
+          "bytes": 524288,
+          "sha256": "84dc6fe18e313d74cc4bfe92131a9506407fbd5b29b58d63eeb4bc1030172690"
+        },
+        {
+          "path": "data/payloads/site__dist__downloads__correctness-audit-2026-10-25_zip/part-045.bin",
+          "bytes": 524288,
+          "sha256": "891dca8ae1a288095c1e8cbe4a97169cf9a6641bf03d48e9aed62a926db99b5b"
+        },
+        {
+          "path": "data/payloads/site__dist__downloads__correctness-audit-2026-10-25_zip/part-046.bin",
+          "bytes": 524288,
+          "sha256": "a6fadedc8cfc730666b6cedf58f2f4aaa9c4517299705f7f458ba21287d797cc"
+        },
+        {
+          "path": "data/payloads/site__dist__downloads__correctness-audit-2026-10-25_zip/part-047.bin",
+          "bytes": 524288,
+          "sha256": "fc1d462c346bca4d5f3efa7e817d1acd38302cc5f8d2fb4f136a70a67a518dec"
+        },
+        {
+          "path": "data/payloads/site__dist__downloads__correctness-audit-2026-10-25_zip/part-048.bin",
+          "bytes": 524288,
+          "sha256": "fffa52b5a28eb472e8c8c655e6bf53ee3b88b85a30373bfefe999666e531c821"
+        },
+        {
+          "path": "data/payloads/site__dist__downloads__correctness-audit-2026-10-25_zip/part-049.bin",
+          "bytes": 524288,
+          "sha256": "7ea7d479f731ea882bf8a8ba2f9eb2dcc339bae335a681fc2f8ef05fc888c11d"
+        },
+        {
+          "path": "data/payloads/site__dist__downloads__correctness-audit-2026-10-25_zip/part-050.bin",
+          "bytes": 524288,
+          "sha256": "c60c3e815edd78e887ffe75ea8ac4eabeddecf4707edd0b4fc497958eb04adf7"
+        },
+        {
+          "path": "data/payloads/site__dist__downloads__correctness-audit-2026-10-25_zip/part-051.bin",
+          "bytes": 524288,
+          "sha256": "7b8d71707a0a986891686b912718368fdbdc0310da26b1108e2d953947e8a987"
+        },
+        {
+          "path": "data/payloads/site__dist__downloads__correctness-audit-2026-10-25_zip/part-052.bin",
+          "bytes": 524288,
+          "sha256": "5f7b404373f228d40f1bbae381195c870d895e86dc8a61d8f9976616c1593121"
+        },
+        {
+          "path": "data/payloads/site__dist__downloads__correctness-audit-2026-10-25_zip/part-053.bin",
+          "bytes": 524288,
+          "sha256": "c441b90f72c2b6732f0b18eed550c9ca814efdaa63d6e8b933661f0bd031f094"
+        },
+        {
+          "path": "data/payloads/site__dist__downloads__correctness-audit-2026-10-25_zip/part-054.bin",
+          "bytes": 524288,
+          "sha256": "efc5d3c0c96de99b3e3c8f851592b40c85cbebf8bbe08dbd0a271b8feec106a7"
+        },
+        {
+          "path": "data/payloads/site__dist__downloads__correctness-audit-2026-10-25_zip/part-055.bin",
+          "bytes": 524288,
+          "sha256": "fba725e960388ab64ea25b6205f03f82a811a2993d9574a1ff0bf84b83fba1db"
+        },
+        {
+          "path": "data/payloads/site__dist__downloads__correctness-audit-2026-10-25_zip/part-056.bin",
+          "bytes": 524288,
+          "sha256": "4349f6e3bb86655957f598e1d3a75d898936cc68a12acd3e471092f6bc724b4d"
+        },
+        {
+          "path": "data/payloads/site__dist__downloads__correctness-audit-2026-10-25_zip/part-057.bin",
+          "bytes": 524288,
+          "sha256": "30389ff30c8fcff5c2b4e7222be191c1705b30af419fb687fe0efe6c9d39847c"
+        },
+        {
+          "path": "data/payloads/site__dist__downloads__correctness-audit-2026-10-25_zip/part-058.bin",
+          "bytes": 524288,
+          "sha256": "f7bde2da244d5883dfd62da46808b3242ce1a2100307619940e79abe1f40c10d"
+        },
+        {
+          "path": "data/payloads/site__dist__downloads__correctness-audit-2026-10-25_zip/part-059.bin",
+          "bytes": 524288,
+          "sha256": "b597b8745a78e652499b0af5623b85e261299aa40e149e02b24df3d07ff307ba"
+        },
+        {
+          "path": "data/payloads/site__dist__downloads__correctness-audit-2026-10-25_zip/part-060.bin",
+          "bytes": 524288,
+          "sha256": "e0aa063d0965daa4b438e1bed60159e824b8e442db980d376c754462479a7e20"
+        },
+        {
+          "path": "data/payloads/site__dist__downloads__correctness-audit-2026-10-25_zip/part-061.bin",
+          "bytes": 524288,
+          "sha256": "b7b5f38057d36661254a7b494bae1fd4a63b09571c56195367f1e6355afc2854"
+        },
+        {
+          "path": "data/payloads/site__dist__downloads__correctness-audit-2026-10-25_zip/part-062.bin",
+          "bytes": 524288,
+          "sha256": "488b9ff5d9a5e91c53c1904f586b92235ddf544fc4ecade275aa5d1a6a2b56cd"
+        },
+        {
+          "path": "data/payloads/site__dist__downloads__correctness-audit-2026-10-25_zip/part-063.bin",
+          "bytes": 524288,
+          "sha256": "80c49b2caa783b43ecc5e4c39b2136a1b78234625c3890def5befecbd66b189e"
+        },
+        {
+          "path": "data/payloads/site__dist__downloads__correctness-audit-2026-10-25_zip/part-064.bin",
+          "bytes": 524288,
+          "sha256": "05a3fcf65ed8cf064b8e025ac30f4051d48ffbd8db04e05959d3b103c9d14a63"
+        },
+        {
+          "path": "data/payloads/site__dist__downloads__correctness-audit-2026-10-25_zip/part-065.bin",
+          "bytes": 524288,
+          "sha256": "1a217e89d2af98e6bb3225f289d8ae9404b5b97ac7c819f4293cce8cf826bebd"
+        },
+        {
+          "path": "data/payloads/site__dist__downloads__correctness-audit-2026-10-25_zip/part-066.bin",
+          "bytes": 524288,
+          "sha256": "91e67e051fe729fae02c1d6b58945cd977e59aea014517a4fe606c4d53a39a9a"
+        },
+        {
+          "path": "data/payloads/site__dist__downloads__correctness-audit-2026-10-25_zip/part-067.bin",
+          "bytes": 524288,
+          "sha256": "da8839db3b628fe3601691bfe07dda02bed06c5f0fc292277bcbe8d9c77396e4"
+        },
+        {
+          "path": "data/payloads/site__dist__downloads__correctness-audit-2026-10-25_zip/part-068.bin",
+          "bytes": 524288,
+          "sha256": "ac0f827eddb2543a1dc7101a76725a5a55118a713693ca1b274dc4d3871b7e5a"
+        },
+        {
+          "path": "data/payloads/site__dist__downloads__correctness-audit-2026-10-25_zip/part-069.bin",
+          "bytes": 524288,
+          "sha256": "bfe6d6584d20ffc09fbc680ec875c7b240f0dac1238db9e30888493d12af3d04"
+        },
+        {
+          "path": "data/payloads/site__dist__downloads__correctness-audit-2026-10-25_zip/part-070.bin",
+          "bytes": 524288,
+          "sha256": "22e7fe23e434dd02e14123469b3f9a5111619e765a20b7fcd78b436e30ba9fff"
+        },
+        {
+          "path": "data/payloads/site__dist__downloads__correctness-audit-2026-10-25_zip/part-071.bin",
+          "bytes": 524288,
+          "sha256": "0dff2f171b78a94dbd9bf174bedb0c96c231485c3d98a4cc0e032d5dafd767fc"
+        },
+        {
+          "path": "data/payloads/site__dist__downloads__correctness-audit-2026-10-25_zip/part-072.bin",
+          "bytes": 524288,
+          "sha256": "02288237517cbeb229613dace2e2612ba8bc3aef3fa150302420a26ddb5e992f"
+        },
+        {
+          "path": "data/payloads/site__dist__downloads__correctness-audit-2026-10-25_zip/part-073.bin",
+          "bytes": 524288,
+          "sha256": "1c32b82e7d01abfc29574831e8d3a9cdfab859e51643275a2c9a8e8f903495b0"
+        },
+        {
+          "path": "data/payloads/site__dist__downloads__correctness-audit-2026-10-25_zip/part-074.bin",
+          "bytes": 524288,
+          "sha256": "27db24d95f32358fa257ea7d41f362bdb6aa4a4588b264dd54059d45abc457fe"
+        },
+        {
+          "path": "data/payloads/site__dist__downloads__correctness-audit-2026-10-25_zip/part-075.bin",
+          "bytes": 524288,
+          "sha256": "fc496da29db1718dd48ed575edf5c14deba1e638db34bc72e6899ff4d0cee6c0"
+        },
+        {
+          "path": "data/payloads/site__dist__downloads__correctness-audit-2026-10-25_zip/part-076.bin",
+          "bytes": 524288,
+          "sha256": "851ae8bea8584f2a14065587ee905e3b1c546f5af1648c611438671216e6d6f2"
+        },
+        {
+          "path": "data/payloads/site__dist__downloads__correctness-audit-2026-10-25_zip/part-077.bin",
+          "bytes": 524288,
+          "sha256": "c52c5cb8ddbebd1d5bd5031b8a3084ed6ee33b114c02ce0bc4651ad01800cd21"
+        },
+        {
+          "path": "data/payloads/site__dist__downloads__correctness-audit-2026-10-25_zip/part-078.bin",
+          "bytes": 524288,
+          "sha256": "e51ee20ca836eca7c2734aea38f748ee2da13628ae4f717c4410c204c3631868"
+        },
+        {
+          "path": "data/payloads/site__dist__downloads__correctness-audit-2026-10-25_zip/part-079.bin",
+          "bytes": 524288,
+          "sha256": "97a0545b1bcec89bd19b773ada84fe7ed61a016629ae5c05cca70ae25e2c2519"
+        },
+        {
+          "path": "data/payloads/site__dist__downloads__correctness-audit-2026-10-25_zip/part-080.bin",
+          "bytes": 524288,
+          "sha256": "d9f076f542d5234be25c2e9bfd7e1e0855dfbc2f1fb610bab32ece20f4a77257"
+        },
+        {
+          "path": "data/payloads/site__dist__downloads__correctness-audit-2026-10-25_zip/part-081.bin",
+          "bytes": 524288,
+          "sha256": "32fa9f0d110aa3ce4c1c733827fad739657781313de5596ae7f1e48061e942fd"
+        },
+        {
+          "path": "data/payloads/site__dist__downloads__correctness-audit-2026-10-25_zip/part-082.bin",
+          "bytes": 524288,
+          "sha256": "0b159e53020390587783bb902f067d2dc48a4cc5cbe8b223ec36266a90087deb"
+        },
+        {
+          "path": "data/payloads/site__dist__downloads__correctness-audit-2026-10-25_zip/part-083.bin",
+          "bytes": 524288,
+          "sha256": "302999f8745c7427e54a7a7c2b0ae694a51afcb419ec8564c3fadc390062187d"
+        },
+        {
+          "path": "data/payloads/site__dist__downloads__correctness-audit-2026-10-25_zip/part-084.bin",
+          "bytes": 524288,
+          "sha256": "bfb8b9131e39a83a067cf4687ea86dcce0ac1358faf716af32c3abe02b1fe375"
+        },
+        {
+          "path": "data/payloads/site__dist__downloads__correctness-audit-2026-10-25_zip/part-085.bin",
+          "bytes": 524288,
+          "sha256": "71d2e09d6a2e957b6fa45fbaa47a816978549f2a4ad7e9fecb244d005b69d29a"
+        },
+        {
+          "path": "data/payloads/site__dist__downloads__correctness-audit-2026-10-25_zip/part-086.bin",
+          "bytes": 524288,
+          "sha256": "49e5b1e1918e2acebda5152f7462b8bea26fb0feda3ceaff50d8481af893a673"
+        },
+        {
+          "path": "data/payloads/site__dist__downloads__correctness-audit-2026-10-25_zip/part-087.bin",
+          "bytes": 524288,
+          "sha256": "21cea7ed81a00a7813e69b5bcfb6b2510e4dda035cf52e9f5e1e6c3fc1c49ded"
+        },
+        {
+          "path": "data/payloads/site__dist__downloads__correctness-audit-2026-10-25_zip/part-088.bin",
+          "bytes": 524288,
+          "sha256": "6583fc5fa23de732be0551ce6786ed006bf7ef017c38fac8c056094eaa66426b"
+        },
+        {
+          "path": "data/payloads/site__dist__downloads__correctness-audit-2026-10-25_zip/part-089.bin",
+          "bytes": 524288,
+          "sha256": "866d8ee85b9f41ae7ebb4b892674a0ec5759b0a2eaa143d5697eafc166e7360a"
+        },
+        {
+          "path": "data/payloads/site__dist__downloads__correctness-audit-2026-10-25_zip/part-090.bin",
+          "bytes": 524288,
+          "sha256": "d72d1ccbf2ced6ecf997fe42293b2948c6b9fe787ab79369ee30a57a7af1c736"
+        },
+        {
+          "path": "data/payloads/site__dist__downloads__correctness-audit-2026-10-25_zip/part-091.bin",
+          "bytes": 524288,
+          "sha256": "0fbb1e91fc27a1db2b0d2309efe2988d90178b2f68b912a5ce7ce6a4a9df19bd"
+        },
+        {
+          "path": "data/payloads/site__dist__downloads__correctness-audit-2026-10-25_zip/part-092.bin",
+          "bytes": 524288,
+          "sha256": "673daae0ff5291548b17caeedd3902be0a5d1aeff679b057288a4926461b888c"
+        },
+        {
+          "path": "data/payloads/site__dist__downloads__correctness-audit-2026-10-25_zip/part-093.bin",
+          "bytes": 524288,
+          "sha256": "82f973a3d8407c0a4c7292a1b2303f865c39662c8ad15b63dbc021bf05efd581"
+        },
+        {
+          "path": "data/payloads/site__dist__downloads__correctness-audit-2026-10-25_zip/part-094.bin",
+          "bytes": 524288,
+          "sha256": "a65149e103daa3c18df8ecfd5189e85a71cd9925f2205efd239e08128ded3982"
+        },
+        {
+          "path": "data/payloads/site__dist__downloads__correctness-audit-2026-10-25_zip/part-095.bin",
+          "bytes": 524288,
+          "sha256": "6825e6ed12c577645b70a0c17999f3adc446fa7023475d9c5ab0063b5824aad0"
+        },
+        {
+          "path": "data/payloads/site__dist__downloads__correctness-audit-2026-10-25_zip/part-096.bin",
+          "bytes": 524288,
+          "sha256": "aab137f18dc9360b56a1dad56350cdffcd48b424a43b4804093c79074943bd68"
+        },
+        {
+          "path": "data/payloads/site__dist__downloads__correctness-audit-2026-10-25_zip/part-097.bin",
+          "bytes": 524288,
+          "sha256": "8d33940fbac2a29c2c2cd8cbeb6d7cd4913def20e277198cd8a3c9f2e78c335e"
+        },
+        {
+          "path": "data/payloads/site__dist__downloads__correctness-audit-2026-10-25_zip/part-098.bin",
+          "bytes": 524288,
+          "sha256": "afa8919c56b769fd88ec335c86857703d37392997e52e5b4437d4b2cf03f6a3b"
+        },
+        {
+          "path": "data/payloads/site__dist__downloads__correctness-audit-2026-10-25_zip/part-099.bin",
+          "bytes": 524288,
+          "sha256": "0c84670e62350f9aadc606523f0634caa0f061faa05272c81041d7f8cd67e265"
+        },
+        {
+          "path": "data/payloads/site__dist__downloads__correctness-audit-2026-10-25_zip/part-100.bin",
+          "bytes": 524288,
+          "sha256": "2a49379fe08817475ff957a79c85831ace3be41d07e4df46a7ce32ea7c8270f7"
+        },
+        {
+          "path": "data/payloads/site__dist__downloads__correctness-audit-2026-10-25_zip/part-101.bin",
+          "bytes": 524288,
+          "sha256": "fc131923e4418bee77f7d8974af8ff92f797a349e250851815cab410a08fc702"
+        },
+        {
+          "path": "data/payloads/site__dist__downloads__correctness-audit-2026-10-25_zip/part-102.bin",
+          "bytes": 478152,
+          "sha256": "a51176d801387a3c4931ce62a52db9e8dafd71c970d1236489f270f9fc5bfba6"
+        }
+      ],
+      "bytes": 53431240,
+      "sha256": "52b51f83656f73d71f4b5152e54e74a571040cb68a2cfc9c47bc2138a8a92f1d"
+    },
+    {
+      "path": "site/dist/downloads/correctness-replay-2026-10-25.zip",
+      "encoding": "raw",
+      "parts": [
+        {
+          "path": "data/payloads/site__dist__downloads__correctness-replay-2026-10-25_zip/part-001.bin",
+          "bytes": 524288,
+          "sha256": "133b27381dcce8eef338655546c99fae00950e2f62e31841b1b9bbb1e98ee3a2"
+        },
+        {
+          "path": "data/payloads/site__dist__downloads__correctness-replay-2026-10-25_zip/part-002.bin",
+          "bytes": 524288,
+          "sha256": "9ffc961220d8b1f0f7a3877c86426e0b44915cc8c724453915ca34633fc4c51e"
+        },
+        {
+          "path": "data/payloads/site__dist__downloads__correctness-replay-2026-10-25_zip/part-003.bin",
+          "bytes": 524288,
+          "sha256": "a80476bfdb9c6069e288bcb766fc16f946fa666a3ad2184d7500d5e8fc67225f"
+        },
+        {
+          "path": "data/payloads/site__dist__downloads__correctness-replay-2026-10-25_zip/part-004.bin",
+          "bytes": 524288,
+          "sha256": "93d79361d9040f9216e42a6399daf14ba0e59af7afdf597fa9031bc7f90aae0a"
+        },
+        {
+          "path": "data/payloads/site__dist__downloads__correctness-replay-2026-10-25_zip/part-005.bin",
+          "bytes": 524288,
+          "sha256": "6016d09d0e3e92cd31bb5823e555f1a22bc7f58eedb3631a29e22160dc3ede97"
+        },
+        {
+          "path": "data/payloads/site__dist__downloads__correctness-replay-2026-10-25_zip/part-006.bin",
+          "bytes": 524288,
+          "sha256": "d826f81bfcd552a7f798e26d342c3217c6bfd19ea2603484cdc1fed53b010906"
+        },
+        {
+          "path": "data/payloads/site__dist__downloads__correctness-replay-2026-10-25_zip/part-007.bin",
+          "bytes": 524288,
+          "sha256": "06807169d506693b65688cf6856bdbb5c269b8134f8ca7f59877c6d4f4690152"
+        },
+        {
+          "path": "data/payloads/site__dist__downloads__correctness-replay-2026-10-25_zip/part-008.bin",
+          "bytes": 245559,
+          "sha256": "ec5f8b63c0d9912e43e81081e58e5310f04f186ab969fc05e1d3c3f1900ac96e"
+        }
+      ],
+      "bytes": 3915575,
+      "sha256": "7afc6adff2cbba9bb102591273185f60523da69646002d72ddbac930b7619930"
     }
   ]
 }

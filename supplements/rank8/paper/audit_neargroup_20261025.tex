@@ -1,0 +1,164 @@
+Use the actual unitary near-group categories of
+\cite[Proposition~6 and Table~2]{EGNearGroup}, with parameters
+$(m,\kappa)=(1,-1)$ and $(2,\omega)$, where
+$\omega=e^{2\pi i/3}$ and $\zeta=e^{2\pi i/5}$.
+Only the directly computed tube inventory and its known blocks in
+\cite[Section~4.3]{EGNearGroup} are used below. In particular, we do not
+identify the unknown tube block by numerical proximity to candidate data.
+Put
+\[
+ a=\frac{5+3\sqrt5}{2},\quad b=a+1,\quad c=a+2,
+ \qquad a^2=5a+5.
+\]
+The pointed center objects form the nondegenerate metric category on $C_5$
+with pairing $\zeta^{2mgh}$. Its M\"uger centralizer is therefore an actual
+unitary modular category. The tube inventory gives its eight simples
+$(1,B,C_1,C_2,D_1,\ldots,D_4)$, with dimensions
+$\mathbf d=(1,b,c,c,a,a,a,a)$ and global dimension
+$\mathcal D=5c^2=9a^2$. None of the labels $D_i$ presupposes a candidate
+metric group or duality.
+
+\paragraph{Partial fusion from known columns.}
+Let $M$ be the unnormalized $S$ matrix of the centralizer, so
+$MM^*=\mathcal D I$. The first four columns are real and known directly:
+\[
+ \mathbf d^{\mathsf T},\qquad
+ \mathbf s_B=(b,1,c,c,-a,-a,-a,-a)^{\mathsf T},
+\]
+\[
+ \mathbf s_k=(c,c,c(\zeta^{2mk}+\zeta^{-2mk}),
+ c(\zeta^{4mk}+\zeta^{-4mk}),0,0,0,0)^{\mathsf T}
+ \quad(k=1,2).
+\]
+Every unknown $D$ column has $B$-eigenvalue $-1$. Consequently
+\[
+ N_B=-I+\frac{(b+1)\mathbf d^{\mathsf T}\mathbf d+
+ (1+b^{-1})\mathbf s_B\mathbf s_B^{\mathsf T}
+ +2\mathbf s_1\mathbf s_1^{\mathsf T}
+ +2\mathbf s_2\mathbf s_2^{\mathsf T}}{\mathcal D}.
+\]
+The $C_k$ Verlinde sums use only the four known columns, because their
+entries on the other four columns vanish. Writing $E=\sum_iD_i$, exact
+evaluation gives, for $i\ne j$ in $\{1,2\}$,
+\begin{align*}
+ B^2&=1+B+C_1+C_2+E,& BC_i&=B+2C_i+C_j+E,\\
+ C_i^2&=1+2B+C_i+2C_j+E,& C_1C_2&=B+2C_1+2C_2+E,\\
+ BD_i&=B+C_1+C_2+E-D_i,& C_kD_i&=B+C_1+C_2+E.
+\end{align*}
+These formulas hold for both seeds and use no unknown $D$--$D$ entry.
+
+\paragraph{Every possible completion.}
+Let $i\mapsto i^*$ be the unknown involution on the four $D$ labels.
+Frobenius reciprocity and dimensions force
+\[
+ D_iD_j=\delta_{j,i^*}1+(1-\delta_{j,i^*})B+C_1+C_2+
+             \sum_k n_{ij}^kD_k,\qquad
+ \sum_k n_{ij}^k=2+\delta_{j,i^*}.
+\]
+The lowered coefficients $F_{ijk}=n_{ij}^{k^*}$ are symmetric,
+nonnegative integers, invariant under simultaneous duality. The three
+involution types on four labels exhaust all possibilities. Enumerating
+the unordered-triple orbits subject to these pair-sum equations gives
+\[
+\begin{array}{c|rrr}
+\text{duality type}&\text{linear assignments}&\text{associative tensors}&
+ \text{based classes}\\\hline
+\mathrm{id}&708&9&2\\
+(12)&16&0&0\\
+(12)(34)&0&0&0
+\end{array}
+\]
+Each variable is bounded by the smallest residual pair sum divided by its
+positive coefficient. The exhaustive recursion removes only a negative
+residual or one outside the exact remaining capacities; all $8^4$
+associativity identities are then checked. Thus this finite calculation
+does not assume census completeness or a guessed multiplicity bound.
+Both classes are self-dual. In the first, denoted $R_E$,
+\[
+ D_i^2=1+C_1+C_2+E-D_i,\qquad
+ D_iD_j=B+C_1+C_2+D_i+D_j\quad(i\ne j).
+\]
+In the other, $R_C$, label the $D$ objects by $x=1,2,3,4$, the nonzero
+classes in $C_9$ modulo sign. Its remaining lowered coefficients are
+\[
+ F_{xyz}=1-\sum_{s,t\in\{\pm1\}}
+                 \mathbf1_{x+sy+tz=0\pmod9}.
+\]
+The analogous formula for $C_3^2$, with representatives
+$(1,0),(0,1),(1,1),(1,2)$, gives $R_E$. These groups presently label
+integer tensors only, not asserted actual tube data.
+
+\paragraph{An invariant of the actual seeds.}
+In the orthonormal Cuntz basis $T_h$, the anti-linear rotations of
+\cite[Remark~3.11 and Section~9]{IzumiNear} are
+\[
+ j_1(T_h)=\zeta^{2mh^2}T_{-h},\qquad
+ j_2(T_h)=\frac{\overline\kappa}{\sqrt5}
+                    \sum_k\zeta^{-mhk}T_k.
+\]
+Anti-linearity gives
+\[
+ \nu_3(\rho)=\operatorname{Tr}(j_1j_2)
+  =\frac{\kappa}{\sqrt5}\sum_h\zeta^{mh^2}
+  =\kappa\left(\frac m5\right),
+\]
+namely $-1$ and $-\omega$. Let $t_1,\ldots,t_4$ be the unknown actual
+$D$ twists in the factor. The known other twists are
+$1,1,\zeta^{-m},\zeta^{-4m}$. Put
+$G_3(m)=\sum_g\zeta^{3mg^2}$ and
+$L_3(m)=\zeta^{-3m}+\zeta^{-12m}$.
+Every $b,c,d$ center object contains $\rho$ once under forgetting, and
+no $a$-type object contains it. The indicator induction formula
+\cite[Theorem~4.1]{NgIndicators} therefore gives
+\[
+ \nu_3(\rho)=\frac{G_3(m)}{5c}
+           \left(b+cL_3(m)+a\sum_i t_i^3\right).
+\]
+Here the ten unordered $c$ labels are $(u+t,u-t)$ with
+$u\in C_5$ and $t=1,2$ modulo sign; their cubed-twist sum is
+$G_3(m)L_3(m)$. Thus the two actual seeds satisfy respectively
+\[
+ \sum_i t_i^3=4,\qquad \sum_i t_i^3=1+3\omega^2\ne4.
+\]
+Since the factors are unitary, the first equality forces every
+$t_i^3=1$.
+
+\paragraph{Balancing distinguishes the two rings.}
+Exact algebraic character tables of $R_E,R_C$ have eight distinct
+normalized columns. Their four $D$ columns are exactly the characters
+of formal codegree $\mathcal D/a^2=9$. Hence the actual $D$ columns
+must be these columns up to permutation; symmetry constrains that
+permutation. This is character theory of the already enumerated rings,
+not a claim that a candidate modular matrix is the actual one.
+Set $T_D=\sum_it_i$ and $T_C=\theta_{C_1}+\theta_{C_2}$.
+Balancing $BD_i$, with $\theta_B=1$ and $M_{B,D_i}=-a$, gives
+$aT_D=-b-cT_C$. Each $D_i^2$ contains exactly three $D$ labels once;
+let $f(i)$ denote the omitted label. Balancing that square now gives
+\[
+ r_i t_i^2=-1-t_{f(i)},\qquad r_i=M_{D_i,D_i}/a.
+\]
+For $R_E$, $f(i)=i$ and each $r_i$ is $1$ or $-2$. The respective
+equations are $t_i^2+t_i+1=0$ and
+$(t_i-1)(2t_i+1)=0$; unit modulus forces $t_i^3=1$ in both cases.
+For $R_C$, the $D$ character block divided by $a$ is
+$Y_{xy}=-2\cos(4\pi xy/9)$. Row $3$ has rational entries $1,-2$;
+each other row has its sole rational entry in column $3$.
+A column permutation making $Y$ symmetric must fix $3$: otherwise
+compare entries $(3,\pi^{-1}(3))$ and $(\pi^{-1}(3),3)$.
+The other three diagonal entries are roots of the irreducible
+polynomial $X^3-3X-1$. If every $t_i^3=1$, the balancing equation
+would put those real cubic irrational numbers in
+$\mathbb Q(\omega)\cap\mathbb R=\mathbb Q$, a contradiction.
+The first actual seed therefore realizes $R_E$ and the second realizes
+$R_C$.
+
+Finally, exact comparison of every coefficient identifies these rings
+with $R8\_2\_820$ and $R8\_2\_869$ under
+\[
+ (0,2,6,7,1,3,4,5),\qquad(0,3,6,7,1,2,5,4).
+\]
+The four exact certificates and their normal/optimized replays are in
+\path{evidence/correctness_20261025/}. Their categorical premises are
+precisely the actual seed, tube inventory, modular factorization and
+indicator theorems used above. No numerical recognition of the unknown
+block enters this identification.

@@ -22,6 +22,12 @@ from reportlab.platypus import (
 )
 
 ROOT = Path(__file__).resolve().parents[1]
+from correctness_publication import active as correctness_active
+if correctness_active(ROOT):
+    import subprocess
+    source=ROOT/'manuscripts/prepublication-review-2026-10-25.tex'
+    subprocess.run(['latexmk','-pdf','-interaction=nonstopmode','-halt-on-error',source.name],cwd=source.parent,check=True)
+    raise SystemExit(0)
 CONTENT = json.loads((ROOT / 'docs/prepublication_review_content.json').read_text())
 NAME = current_report(ROOT)
 OUT = ROOT / 'manuscripts' / NAME

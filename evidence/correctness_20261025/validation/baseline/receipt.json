@@ -1,0 +1,26 @@
+{
+  "status": "PASS",
+  "baseline_commit": "8014c749c17ddd2ad3d1b99a4359d49a8be921c5",
+  "scope": "Unchanged pre-correction release and current metadata in a clean source snapshot; no current modified source is substituted into frozen manifests.",
+  "checks": [
+    {
+      "name": "restore",
+      "exit_code": 0,
+      "log": "/workspace/scratch/90f37cc83103/revision-20261025/logs/baseline-restore.log",
+      "log_sha256": "821c5e7c0d138cbf04be52d0529e4bdc5e8ab7dadc3b9679a8808e48403462fc"
+    },
+    {
+      "name": "release-validation",
+      "exit_code": 0,
+      "log": "/workspace/scratch/90f37cc83103/revision-20261025/logs/baseline-release-validation.log",
+      "log_sha256": "70fdc0fae5051563ab83716cbab45ca5eb9dfe74672a4cfc2de0ebdd4aed699f"
+    },
+    {
+      "name": "current-metadata",
+      "exit_code": 0,
+      "log": "/workspace/scratch/90f37cc83103/revision-20261025/logs/baseline-current-metadata.log",
+      "log_sha256": "d67fd1df8cfb96591d5a5f4e374248f1fce9abc553ad3c4edfa2817e23ff1259"
+    }
+  ],
+  "seconds": 32.42947107299915
+}

@@ -31,6 +31,10 @@ def documents():
  return True
 
 def main(metadata_only=False):
+ from correctness_publication import active as correctness_active
+ if correctness_active(ROOT):
+  from verify_correctness_revision import main as current
+  return current(metadata_only)
  from research_continuation_20261024 import active as research_active
  if research_active(ROOT):
   from verify_research_revision import main as verify_latest

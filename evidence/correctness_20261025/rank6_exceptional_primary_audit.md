@@ -1,0 +1,19 @@
+# Rank-six exceptional primary-source comparisons
+
+Audit against commit `8014c749c17ddd2ad3d1b99a4359d49a8be921c5`, 2026-10-25. No authoritative repository files were edited.
+
+| Case | Source and categorical premise | Fresh tensor result |
+|---|---|---|
+| R6_2_97 | Actual dual GHJ3311 even part; IJMS §5.1, pp12–13, Figure2 | All216 coefficients agree |
+| R6_2_98 | Actual dual3^C4 even part; IMP printed p27; exact C4/Q-system existence additionally confirmed in Izumi2018 Theorem9.2 | All216 coefficients agree |
+| R6_2_143 | Existing HI(C5) Q-system dual; new exact canonical-module reconstruction closes a center-identification premise left implicit by the old citation route | Unique forced tensor, all216 coefficients agree |
+
+The first two primary tables were rendered and visually checked, then independently transcribed in `rank6_primary_tables_97_98.py`. The receipt `rank6_primary_tables_97_98.json` binds each primary PDF and tensor by SHA256, records every unital matching permutation, and checks all1296 associativity equalities per model. It compares primary-table coefficients with both the existing constructor and actual census tensor; it does not merely compare stored model copies with one another.
+
+For R6_2_97, [Izumi–Jones–Morrison–Snyder, arXiv:1109.3190](https://arxiv.org/pdf/1109.3190), §5.1, explains the actual GHJ construction from the E6 module category of A11-even and identifies the dual ring as the second table R-prime. The distinction from the first table matters: C and C-prime are fixed by g, and their squares are `1+g+2C` and `1+g+2C-prime`. Every product agrees with `supplements/rank6/software/complete_models.py:90–104`. One table-to-census permutation is `(0,2,4,5,3,1)`.
+
+For R6_2_98, [Izumi–Morrison–Penneys, arXiv:1308.5723v1](https://arxiv.org/pdf/1308.5723v1), printed p27, gives the full table in order `(1,kappa,beta-kappa,chi,sigma,beta)` for the dual even part of3^C4. This agrees with every entry in `supplements/rank6/software/literature_models.py:47–65`. One table-to-census map is `(0,2,3,5,4,1)`; the manuscript's displayed inverse permutation `(0,5,1,2,4,3)` is the census-to-table direction. The early paper mentions then-unpublished existence. The later [Izumi2018 publication](https://ems.press/content/serial-article-files/36852), §9.3, Theorem9.2, pp547–548, provides explicit C4 data and proves which solution satisfies the actual Q-system equation(6.1). Thus the provenance does not require assuming an unconstructed category behind a passing fusion table.
+
+For R6_2_143, the existing formula constructor matches the printed Evans–Gannon Theorem7. Its categorical identification nevertheless deserves the replacement proof in `rank6_r143_module_repair.md`: that theorem explicitly assumes double fusion data and a canonical-endomorphism identification, and the cited earlier route uses a numerical center comparison. Grossman–Snyder's discussion retains those conditions rather than proving an independent tensor identification. The new audit argument starts with the actual HI(C5) category and Q-system, uses Izumi2018's exact module description, and forces the dual tensor by rational linear identities and nonnegativity. Both possible residual dualities are considered, no multiplicity bound is assumed, and the census is loaded only after the unique tensor is reconstructed. Its exact script and receipt are `rank6_r143_module_repair.py` and `.json`; the rank-seven agent independently reconstructed the same argument and tensor.
+
+No false model is demonstrated in these cases. The audit found a citation-premise weakness for R6_2_143 and supplied an independent categorical repair with unchanged fusion tensor. The manuscript should incorporate that proof and a new versioned certificate in a later authorized publication revision; historical source-bound receipts should remain unchanged.

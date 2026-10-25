@@ -205,14 +205,13 @@ with trivial group of invertibles and FP dimensions
  1,a,a,a+1,a+1,2a+1,2a,2a+2,
  \qquad a=\frac{3+\sqrt{17}}2.
 \]
-All its fusion coefficients are at most three. The complete supplied
-rank-eight census therefore identifies
+All its fusion coefficients are at most three. The exact completion of the mandatory induction equations below identifies
 $K_0(\mathcal D)\cong\sha{R8_3_721}$.
 \end{theorem}
 
 We separate the categorical construction, the finite coefficient bound,
-and the census identification. The last step uses the completeness of the
-supplied census; it is not a new independent enumeration of fusion rings.
+and the exact fusion completion. The census is used only at the end to
+name the uniquely generated based-ring class.
 
 \begin{lemma}[An inherited-vertex obstruction]
 \label{lem:cyclic-gh-invertibles-next}
@@ -340,19 +339,43 @@ in exact rational arithmetic for all four dualities; numerical optimization
 is used only to propose the covectors. This proves the required uniform
 multiplicity bound for the actual category.
 
-Finally, every requested dimension vector has sum $21+5\sqrt{17}$.
-For a census tensor put $M_{jk}=\sum_iN_{ij}^{k}$. Its dimension vector is an
-eigenvector of $M$ with that eigenvalue, so
-$x^2-42x+16$ divides the integer characteristic polynomial of $M$.
-An exact check of all $4500$ cumulative records leaves only
-$\sha{R8_3_2906}$ and $\sha{R8_3_721}$.
-Exact normalized eigenvectors in $\Q(\sqrt{17})$ give the wrong dimension
-multiset for the former and the required multiset for the latter.
-The unique match has source SHA-256
-\par\noindent
-\sha{76e26a815651476dfda5c2aa654f0d1327bdc890e08086cb6dbfe39ef9a1cdc5}.
-Thus the constructed category has the based-isomorphism type
-$\sha{R8_3_721}$ in the supplied complete census.
+Finally, we identify the actual category directly from its mandatory
+linear equations, without using completeness of the supplied census.
+After Frobenius and duality orbits are merged, the four possible dualities
+on the two equal-dimension pairs have $120,112,112,104$ coefficient
+variables. Impose the unit equations, both rational dimension coordinates
+and all $512$ free-induction identities
+\[
+ \sum_{x,y}B_{ix}B_{jy}N_{xy}^z
+ =\sum_{u,t}\sum_{a\in\{1,\rho\}}
+        N^{\mathcal C}_{ia}{}^uN^{\mathcal C}_{uj}{}^tB_{tz}.
+\]
+The coefficient bounds above apply to every orbit in every duality branch.
+Rational elimination leaves $22,19,19,16$ free coordinates, each itself
+an actual fusion coefficient in $\{0,1,2,3\}$. Every other coefficient has
+form $(c+\sum_j a_jx_j)/D$ with integral $c,a_j$ and $D>0$.
+For each remaining value of $x_j$, interval arithmetic over the other
+finite domains removes it only if the resulting affine interval cannot
+meet $[0,3D]$; the necessary gcd congruence checks integrality. Repeating
+these deductions and branching over every retained value is exhaustive.
+There is no solver timeout, floating point or associativity pruning.
+The complete search is
+\[
+\begin{array}{cc|rr}
+ a\text{-pair duality}&b\text{-pair duality}&\text{nodes}&\text{solutions}\\\hline
+ \text{fixed}&\text{fixed}&3&0\\
+ \text{fixed}&\text{exchanged}&3&0\\
+ \text{exchanged}&\text{fixed}&5&2\\
+ \text{exchanged}&\text{exchanged}&3&0
+\end{array}
+\]
+Thus the necessary linear equations alone leave two tensors. Both satisfy
+all $4096$ associativity identities, all induction identities, dimensions,
+unit and Frobenius reciprocity. They differ by exchanging $b_0,b_1$, so
+form one based-ring class. Only now do we compare with the supplied census:
+all $512$ coefficients match $\sha{R8_3_721}$ under the basis map
+$(0,1,2,4,6,3,5,7)$, up to the harmless equal-dimension relabeling.
+This proves the claimed identification independently of census completeness.
 \end{proof}
 
 \paragraph{Exact evidence and scope.}
@@ -364,8 +387,10 @@ tree's \path{models/} directory:
 \path{r721_dual_fusion.py}\quad and\quad
 \path{r721_dual_multiplicity_bound.py}.
 \end{quote}
-The exhaustive crosswalk is
-\begin{quote}\small\path{evidence/rank8_next_20261021/r721/census_dimension_crosswalk.py}.\end{quote}
+The solver-free exact completion and complete branch traces are in
+\begin{quote}\small\path{evidence/correctness_20261025/r721_exact_completion.py}.\end{quote}
+An independent bounded-completion implementation agrees. The earlier
+dimension crosswalk is corroboration only, not a completeness premise.
 Normal and optimized-Python receipts, independent reconstructions, the
 ordered tensor and the cited Q-system argument accompany these files.
 The identification proves existence, and does not classify all associators

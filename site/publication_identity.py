@@ -1,7 +1,7 @@
 """Validate explicitly corrected derived files against preserved release receipts.
 
 The old receipts retain their original expected hashes. Only files registered
-by the 24 October audit's before/after receipt can supersede those bindings.
+by a dated audit's explicit before/after receipt can supersede those bindings.
 Canonical old categorical ledgers and tensor sources are never exceptions.
 """
 from pathlib import Path
@@ -10,6 +10,11 @@ ROOT=Path(__file__).resolve().parents[1]
 def matches(relative,expected):
  path=ROOT/relative;actual=hashlib.sha256(path.read_bytes()).hexdigest()
  if actual==expected:return True
+ latest=ROOT/'evidence/correctness_20261025/derived_publication_replacements.json'
+ if latest.is_file() and relative.startswith('site/dist/data/'):
+  d=json.loads(latest.read_text());entry=d['files'].get(relative)
+  if entry and expected in entry['prior_sha256'] and actual==entry['after_sha256']:
+   return all(hashlib.sha256((ROOT/p).read_bytes()).hexdigest()==h for p,h in d['immutable_decisions'].items())
  latest=ROOT/'evidence/research_20261024/derived_publication_replacements.json'
  if latest.is_file() and relative.startswith('site/dist/data/'):
   d=json.loads(latest.read_text());entry=d['files'].get(relative)

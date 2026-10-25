@@ -1,0 +1,144 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "name": "predecessor-current-metadata",
+      "command": [
+        "python",
+        "tools/verify_research_revision.py",
+        "--metadata-only"
+      ],
+      "exit_code": 0,
+      "status": "PASS",
+      "log": "/workspace/scratch/90f37cc83103/revision-20261025/logs/publication-predecessor-current-metadata.log",
+      "log_sha256": "d67fd1df8cfb96591d5a5f4e374248f1fce9abc553ad3c4edfa2817e23ff1259",
+      "seconds": 8.968839789999038
+    },
+    {
+      "name": "site-smoke",
+      "command": [
+        "python",
+        "site/smoke_test.py"
+      ],
+      "exit_code": 0,
+      "status": "PASS",
+      "log": "/workspace/scratch/90f37cc83103/revision-20261025/logs/publication-site-smoke.log",
+      "log_sha256": "48cdc2dcc4acdd68b8cb4447fb7733e3aae1a5233efb168b56c945cae78cd4ed",
+      "seconds": 7.308550002000629
+    },
+    {
+      "name": "site-cases",
+      "command": [
+        "node",
+        "site/check_cases.mjs"
+      ],
+      "exit_code": 0,
+      "status": "PASS",
+      "log": "/workspace/scratch/90f37cc83103/revision-20261025/logs/publication-site-cases.log",
+      "log_sha256": "dd5028301d7edaa007fa85c27e14c11c3b4cfe5801387ccf8f9e2ffb4f85bebd",
+      "seconds": 4.5279519309988245
+    },
+    {
+      "name": "rank9-rank10",
+      "command": [
+        "python",
+        "site/check_rank9_10.py"
+      ],
+      "exit_code": 0,
+      "status": "PASS",
+      "log": "/workspace/scratch/90f37cc83103/revision-20261025/logs/publication-rank9-rank10.log",
+      "log_sha256": "13739b75835731bab7c2578bedbac0e4ada3755f78896a0fee5b5f7dadde86ce",
+      "seconds": 2.420162934000473
+    },
+    {
+      "name": "rank11",
+      "command": [
+        "python",
+        "site/check_rank11.py"
+      ],
+      "exit_code": 0,
+      "status": "PASS",
+      "log": "/workspace/scratch/90f37cc83103/revision-20261025/logs/publication-rank11.log",
+      "log_sha256": "5639a5b196713100475b8b38664cdf023c7b4f0e49916a2e164bd8e96d6794e5",
+      "seconds": 2.978142714999194
+    },
+    {
+      "name": "rank9m2",
+      "command": [
+        "python",
+        "site/check_rank9_m2.py"
+      ],
+      "exit_code": 0,
+      "status": "PASS",
+      "log": "/workspace/scratch/90f37cc83103/revision-20261025/logs/publication-rank9m2.log",
+      "log_sha256": "5b7d32685937ffe9ff835de5d5edf0692417e6acc50c0d214ca4669f03dcefd6",
+      "seconds": 4.732659039998907
+    },
+    {
+      "name": "rank9m2-browser",
+      "command": [
+        "node",
+        "site/check_rank9_m2.mjs"
+      ],
+      "exit_code": 0,
+      "status": "PASS",
+      "log": "/workspace/scratch/90f37cc83103/revision-20261025/logs/publication-rank9m2-browser.log",
+      "log_sha256": "da55974ab6d8ab87272fc7f39a40439e698b3d1096d3da8bf1fbb1f8bb9c2920",
+      "seconds": 0.309706816000471
+    },
+    {
+      "name": "properties",
+      "command": [
+        "node",
+        "site/tests/check_properties.mjs"
+      ],
+      "exit_code": 0,
+      "status": "PASS",
+      "log": "/workspace/scratch/90f37cc83103/revision-20261025/logs/publication-properties.log",
+      "log_sha256": "9754cac6fda0845e42396fad8075f2a93165bd22a0d8b0c989a9efffd0569f05",
+      "seconds": 0.06170722400020168
+    },
+    {
+      "name": "constructions",
+      "command": [
+        "python",
+        "site/build_constructions.py",
+        "--check"
+      ],
+      "exit_code": 0,
+      "status": "PASS",
+      "log": "/workspace/scratch/90f37cc83103/revision-20261025/logs/publication-constructions.log",
+      "log_sha256": "937930ab3145231e37b3c9191d987ec9e208ac930f79b87d256d1c6d1c565c01",
+      "seconds": 0.42520047400103067
+    },
+    {
+      "name": "construction-browser",
+      "command": [
+        "node",
+        "site/tests/check_constructions.mjs"
+      ],
+      "exit_code": 0,
+      "status": "PASS",
+      "log": "/workspace/scratch/90f37cc83103/revision-20261025/logs/publication-construction-browser.log",
+      "log_sha256": "92d1e1204e4a5a72b0bb3a1fe8e6d3c79191562030e859c18e16c7a36ababd91",
+      "seconds": 0.07687973999964015
+    },
+    {
+      "name": "site-tests",
+      "command": [
+        "python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "site/tests",
+        "-v"
+      ],
+      "exit_code": 0,
+      "status": "PASS",
+      "log": "/workspace/scratch/90f37cc83103/revision-20261025/logs/publication-site-tests.log",
+      "log_sha256": "bf636f118c2e5b80dd792cb5f0ce43c216e8ac7da61d03c356ddbad4ee778b29",
+      "seconds": 0.29118174399991403
+    }
+  ]
+}

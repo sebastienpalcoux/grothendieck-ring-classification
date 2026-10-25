@@ -221,21 +221,69 @@ The ring $\RR{2}{143}$ is the Grothendieck ring of the commutative even
 part of the unitary Izumi $C_5$ subfactor.
 \end{proposition}
 \begin{proof}
-The existence of the cyclic-five Izumi subfactor and the relevant even
-part are established in the literature summarized in
-\cite[Section~6.6]{GS}. Its commutative fusion rules are those in
-\cite[Theorem~7]{EG}. To specify the full tensor used for the match,
-write $1,a,b_1,b_2,c_1,c_2$, identify indices $i$ and $-i$ modulo five,
-and put $b_0=c_0=0$, $\Sigma=a+b_1+b_2+c_1+c_2$. The products are
+Start with the actual unitary Haagerup--Izumi $C_5$ category and its
+Q-system $1+\rho$, whose existence is recalled in \cite[Section~6]{GS}.
+Its dual category $\mathcal D$ exists before any fusion calculation.
+The canonical-module derivation in \cite[Section~7, equation~(7.1),
+pp.~527--529]{Izumi3nAudit} gives six dual simples
+$1,a,b_1,b_2,c_1,c_2$ of dimensions $1,d,d-1,d-1,d+1,d+1$,
+where $d=(5+\sqrt{29})/2$ and $d^2=1+5d$.
+Indeed its identity $\sum_j n_j^2=2$ forces precisely two $b$ objects,
+each with multiplicity one. The module simples are
+$\iota_g=\alpha_g\iota$ ($g\in C_5$) and $\tau$, with relative
+dimensions $1,1,1,1,1,d-1$. The same categorical formulas give
+\[
+ \iota a=\iota+\tau,\qquad
+ \iota b_j=\tau,\qquad
+ \iota c_j=\alpha_j\iota+\alpha_{-j}\iota+\tau.
+\]
+The left $C_5$ action fixes $\tau$. Thus, writing $P$ for the cyclic
+permutation on the five $\iota_g$, the upper $5\times5$ blocks of the
+right-action matrices $M_1,M_a,M_{b_1},M_{b_2},M_{c_1},M_{c_2}$ are
+\[
+ I,\ I,\ 0,\ 0,\ P+P^{-1},\ P^2+P^{-2}.
+\]
+For each nonunit object all five entries connecting the $\iota_g$ to
+$\tau$ are one. The $\tau$ diagonal entries are $4,3,3,5,5$, respectively,
+by the dimension character. The unit acts by the identity.
+
+These six matrices commute and span a four-dimensional algebra.
+The complex fusion algebra is semisimple of dimension six. Any
+noncommutative simple block has dimension at least four and maps to
+zero in a commutative image; it cannot lie in the two-dimensional
+kernel. Hence $K_0(\mathcal D)$ is commutative.
+The objects $a,c_1,c_2$ are self-dual by their canonical induced
+expressions; duality either fixes $b_1,b_2$ or exchanges them.
+For $T(i,j,k)=N_{ij}^{k^*}$, Frobenius reciprocity makes $T$ symmetric
+and invariant under simultaneous duality. Fixing its unit values, impose
+\[
+ M_iM_j=\sum_k T(i,j,k^*)M_k
+\]
+on the $35$ unordered nonunit triples. Exact rational elimination gives:
+if $b_1^*=b_2$, the unique solution has $T(b_1,b_1,b_1)=-1/2$;
+if both are self-dual, there is one free coefficient
+$t=T(b_2,b_2,b_2)$, with
+\[
+ T(b_1,b_1,b_1)=2-t,\quad T(b_1,b_1,b_2)=t-1,\quad
+ T(b_1,b_2,b_2)=1-t.
+\]
+Nonnegativity forces $t=1$. These are the complete affine solutions,
+with no assumed multiplicity bound. The resulting full tensor is
 \begin{gather*}
- a^2=1+\Sigma,\qquad ab_i=\Sigma-b_i,\qquad ac_i=\Sigma+c_i,\qquad b_ic_j=\Sigma,\\
+ a^2=1+\Sigma,\quad ab_i=\Sigma-b_i,\quad ac_i=\Sigma+c_i,
+ \quad b_ic_j=\Sigma,\\
  b_ib_j=\delta_{ij}1+(1-\delta_{ij})a+\Sigma-a-b_{i+j}-b_{i-j},\\
- c_ic_j=\delta_{ij}1+(1+\delta_{ij})a+\Sigma-a+c_{i+j}+c_{i-j}.
+ c_ic_j=\delta_{ij}1+(1+\delta_{ij})a+\Sigma-a+c_{i+j}+c_{i-j},
+ \qquad \Sigma=a+b_1+b_2+c_1+c_2,
 \end{gather*}
-All products commute and all simples are self-dual. The independent
-constructor specializes these formulas at five and verifies all $216$
-coefficients of the matched tensor. Existence is the cited subfactor
-construction, not a consequence of the based-ring axioms alone.
+where indices are modulo five up to sign and $b_0=c_0=0$.
+All $216$ entries agree with $\RR{2}{143}$ under the unit-preserving map
+$(0,3,1,2,4,5)$. The exact elimination, both duality branches and all
+$1296$ associativity identities are checked by
+\path{evidence/correctness_20261025/rank6_r143_module_repair.py}, with
+an independent reconstruction in the accompanying audit evidence.
+This identifies the actual Q-system dual without numerical center data
+or census completeness.
 \end{proof}
 
 \begin{proposition}[An exact finite-group model]\label{prop:PSLmodel}
@@ -919,8 +967,8 @@ $G/H\cong C_2$ translates the subscripts, and
  \sigma_i\sigma_j=\sum_{a\in G:\,\bar a=i+j+r}a.
 \]
 The unitary realizations are the Ising zestings constructed in
-\cite[Section~4.3]{LPR}; the metaplectic category $SO(5)_2$ and its listed
-zest are treated there as well. The program reconstructs these formulas,
+\cite[Section~4.3]{LPR}; its metaplectic unitary example is in
+Section~4.5 and the zesting interpretation in Section~4.6. The program reconstructs these formulas,
 ordinary finite-group character products, the Haagerup tensor, and the
 $SU(2)$ fusion rules before matching the resulting tensors. Thus the
 multiplicity-one positives do not depend on a cardinality-complement

@@ -1,0 +1,21 @@
+{
+  "id": "R8_2_868",
+  "status": "PASS_EXTERNAL_EXACT_CENTER_THEOREM_ROUTE",
+  "primary_source": "https://arxiv.org/html/2609.25185v1",
+  "primary_theorems": [
+    "Theorem A(2)",
+    "Theorem 5.1",
+    "Theorem A(3), Section4.3 equation(4.3)"
+  ],
+  "input": "Actual untwisted unitary HI(C7) Q-system category",
+  "metric_discriminant": 53,
+  "discriminant_is_prime": true,
+  "exact_center_scope": "Positive spherical branch determines metric form up to isometry; provides the full center-identification premise needed by the existing canonical-algebra argument and EG Theorem7.",
+  "generator_matrix_equalities": 64,
+  "generator_matrix_matches": true,
+  "generator_matrix_alone_proves_full_tensor": false,
+  "constructor_sha256": "7c5663df40514a2c128b5880ab3ab387bd7402cda9ef6e0bbbbdddd6062dd8bc",
+  "model_tensor_sha256": "02c8f84da2ea39eb781f4fb542565f4d90fc91c7f7b9246dd04c16f5a1b8152a",
+  "full_tensor_transport_replayed_elsewhere": "verify_nonintegral.py and verify_recovery.py, covered by rank8 fresh pointer/model replays",
+  "limitation": "Uses new external exact theorem; no claim to reprove every result of the external source."
+}

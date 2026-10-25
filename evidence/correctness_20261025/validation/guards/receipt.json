@@ -1,0 +1,64 @@
+{
+  "status": "PASS",
+  "native_cache": {
+    "helper_copies": 7,
+    "sources": {
+      "supplements/rank7/software/native_build.py": "c32b43449ec963ae6075a8471d9f321cb1fa7fb95d43e001db64ee802e93028a",
+      "supplements/rank6/software/native_build.py": "c32b43449ec963ae6075a8471d9f321cb1fa7fb95d43e001db64ee802e93028a",
+      "supplements/rank6/research/exclusions/m9_completion/involution_pair/native_build.py": "c32b43449ec963ae6075a8471d9f321cb1fa7fb95d43e001db64ee802e93028a",
+      "supplements/rank6/research/exclusions/m9_completion/free_involution/native_build.py": "c32b43449ec963ae6075a8471d9f321cb1fa7fb95d43e001db64ee802e93028a",
+      "evidence/correctness_20261025/source_overrides/evidence/rank8_frontier_20261021/global_induction/native_build.py": "c32b43449ec963ae6075a8471d9f321cb1fa7fb95d43e001db64ee802e93028a",
+      "evidence/correctness_20261025/source_overrides/evidence/rank8_m3_20261021/performance/native_build.py": "c32b43449ec963ae6075a8471d9f321cb1fa7fb95d43e001db64ee802e93028a",
+      "evidence/correctness_20261025/source_overrides/supplements/rank8/experimental_signed/native_build.py": "c32b43449ec963ae6075a8471d9f321cb1fa7fb95d43e001db64ee802e93028a"
+    },
+    "fresh_build_reuse_corruption_content_flags_concurrency": "PASS"
+  },
+  "atomic_terminal_guard": {
+    "source_sha256": "ac2e127d0015003b09f7f9a21200ee5750b0a56bc0646e70198e66191f25aa29",
+    "controls": [
+      {
+        "case": "valid_positive",
+        "accepted": true,
+        "expected": true,
+        "reason": null
+      },
+      {
+        "case": "false_obstruction",
+        "accepted": false,
+        "expected": false,
+        "reason": "terminal outcome does not follow from exact evidence"
+      },
+      {
+        "case": "omitted_modular",
+        "accepted": false,
+        "expected": false,
+        "reason": "incomplete modular coverage"
+      },
+      {
+        "case": "wrong_scope",
+        "accepted": false,
+        "expected": false,
+        "reason": "claimed completed scopes differ"
+      },
+      {
+        "case": "bad_witness",
+        "accepted": false,
+        "expected": false,
+        "reason": "integer witness fails exact equality"
+      },
+      {
+        "case": "missing_Hermite",
+        "accepted": false,
+        "expected": false,
+        "reason": "incomplete signed-lattice scope"
+      },
+      {
+        "case": "missing_outcome",
+        "accepted": false,
+        "expected": false,
+        "reason": "terminal outcome does not follow from exact evidence"
+      }
+    ]
+  },
+  "scope": "Focused exact acceptance-logic and cache-binding controls; toy system does not claim a new ring exclusion."
+}

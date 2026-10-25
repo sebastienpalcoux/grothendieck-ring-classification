@@ -1,0 +1,187 @@
+{
+  "applied": true,
+  "optimized_python": true,
+  "seed": 20261025,
+  "checks": {
+    "fresh_cpp_compilations": 9,
+    "root_exact_controls": {
+      "inputs": 5138,
+      "maximum": 9223372036854775807,
+      "all_six_function_bodies_identical": true,
+      "undefined_behavior_sanitizer": true,
+      "method": "included corrected root(), compared with Python math.isqrt"
+    },
+    "forced_joint_boundary": {
+      "Q": 1000000002000000001,
+      "fixed_v": 1000000001,
+      "old_output": [],
+      "corrected_output": [
+        [
+          1000000001
+        ]
+      ],
+      "enumerated_leaves": 1
+    },
+    "generic_gram_regressions": {
+      "matrices": 18,
+      "kernels": 5,
+      "comparisons": 90,
+      "method": "all coordinate vectors plus all principal minors",
+      "cases": [
+        {
+          "size": 1,
+          "rank": 1,
+          "vectors": 1
+        },
+        {
+          "size": 1,
+          "rank": 1,
+          "vectors": 2
+        },
+        {
+          "size": 1,
+          "rank": 1,
+          "vectors": 1
+        },
+        {
+          "size": 2,
+          "rank": 1,
+          "vectors": 2
+        },
+        {
+          "size": 2,
+          "rank": 1,
+          "vectors": 2
+        },
+        {
+          "size": 2,
+          "rank": 2,
+          "vectors": 2
+        },
+        {
+          "size": 3,
+          "rank": 1,
+          "vectors": 2
+        },
+        {
+          "size": 3,
+          "rank": 1,
+          "vectors": 1
+        },
+        {
+          "size": 3,
+          "rank": 3,
+          "vectors": 7
+        },
+        {
+          "size": 3,
+          "rank": 3,
+          "vectors": 7
+        },
+        {
+          "size": 4,
+          "rank": 1,
+          "vectors": 1
+        },
+        {
+          "size": 4,
+          "rank": 1,
+          "vectors": 1
+        },
+        {
+          "size": 4,
+          "rank": 4,
+          "vectors": 14
+        },
+        {
+          "size": 4,
+          "rank": 4,
+          "vectors": 16
+        },
+        {
+          "size": 5,
+          "rank": 1,
+          "vectors": 2
+        },
+        {
+          "size": 5,
+          "rank": 1,
+          "vectors": 1
+        },
+        {
+          "size": 5,
+          "rank": 4,
+          "vectors": 10
+        },
+        {
+          "size": 5,
+          "rank": 5,
+          "vectors": 14
+        }
+      ]
+    },
+    "joint_current_size_regressions": 18,
+    "forced_frame_boundaries": {
+      "rhs_values": [
+        0,
+        1,
+        2916,
+        999999,
+        1000000,
+        1000001,
+        2147483647
+      ],
+      "kernels": 3,
+      "comparisons": 21,
+      "nodes_per_case": 2,
+      "old_1000000_output": [],
+      "invalid_inputs_rejected": 15,
+      "endpoint_undefined_behavior_sanitizer": true
+    },
+    "small_frame_regressions": {
+      "systems": 50,
+      "kernels": 3,
+      "comparisons": 150,
+      "empty_column_set_controls": 6
+    },
+    "cyclotomic_dispatch": {
+      "noncommutative_input_rejected": "R6_1_14",
+      "existing_certificates_passed": [
+        "R6_3_90",
+        "R6_3_227",
+        "R6_4_402",
+        "R6_5_73",
+        "R6_6_27",
+        "R6_6_567",
+        "R6_6_2318",
+        "R6_8_30",
+        "R6_8_504",
+        "R6_8_1012",
+        "R6_8_2096",
+        "R6_8_2137",
+        "R6_8_2946",
+        "R6_8_3187",
+        "R6_9_269",
+        "R6_9_6912"
+      ],
+      "count": 16
+    }
+  },
+  "passed": true,
+  "status": "PASS",
+  "seconds": 11.513656506000189,
+  "current_sources_unchanged": true,
+  "source_sha256": {
+    "supplements/rank6/software/gram_vectors_general.cpp": "d62636254423ab5476c5bd8fded886437c579e5cf342226110079678560a5bdf",
+    "supplements/rank6/software/round5_1204.cpp": "fc6abc47576fa055ff648389e0926537c15a9d08e638e5f255cef8afc8309d70",
+    "supplements/rank6/research/exclusions/m9_completion/free_involution/gram_vectors_general.cpp": "d62636254423ab5476c5bd8fded886437c579e5cf342226110079678560a5bdf",
+    "supplements/rank6/research/exclusions/m9_completion/involution_pair/gram_vectors_general.cpp": "d62636254423ab5476c5bd8fded886437c579e5cf342226110079678560a5bdf",
+    "evidence/correctness_20261025/source_overrides/supplements/rank8/experimental_signed/gram_vectors_general.cpp": "d62636254423ab5476c5bd8fded886437c579e5cf342226110079678560a5bdf",
+    "evidence/correctness_20261025/source_overrides/evidence/rank7_m5_20261020/computation/gram_vectors_fast.cpp": "1236c0f543b10accaf988e0fa49da0bee13328779a332dcac3ff5805c1212100",
+    "supplements/rank6/software/gram_frames.cpp": "853d2fec39b94ca065ad8332eef5bf0275664cd961adb2025b722df4d96a7e72",
+    "supplements/rank7/software/gram_frames.cpp": "853d2fec39b94ca065ad8332eef5bf0275664cd961adb2025b722df4d96a7e72",
+    "evidence/correctness_20261025/source_overrides/supplements/rank8/experimental_signed/gram_frames.cpp": "853d2fec39b94ca065ad8332eef5bf0275664cd961adb2025b722df4d96a7e72",
+    "supplements/rank6/software/check.py": "8164c2a9f8c49bc0e7d9096bbdc96ee64669e4dc899f5f837ba42d8fd79894fe"
+  },
+  "scope": "Targeted exact current-kernel regressions, including independent complete small domains and supported-domain boundary checks; not another full census classification replay."
+}

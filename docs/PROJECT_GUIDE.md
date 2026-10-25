@@ -1,5 +1,9 @@
 # Grothendieck ring classification · project guide
 
+<!-- correctness-20261025 -->
+**Correctness revision · 25 October 2026.** The current classification is unchanged. Three model-identification arguments are repaired, R8_3_721 has a direct exact completion, and implementation/replay defects are corrected. [Findings, corrections and exact commands](../evidence/correctness_20261025/README.md). Independent human verification remains pending.
+<!-- /correctness-20261025 -->
+
 <!-- current-theoretical-retry -->
 **Current results · 24 October 2026.** Rank ten at multiplicity one is complete:
 136 general exclusions and 58 unitary models. R10_1_189 is recognized inside
@@ -69,7 +73,7 @@ The rank-eight multiplicity-three continuation addresses all 3,527 supplied exac
 
 Canonical normal and optimized frontier replays each passed all 108 checks. These receipts cover the historical frontier stage. Fresh replay after extraction from the publication archive is deferred.
 
-R8_3_721 is realized by the inherited 1+rho Q-system Morita dual of the C2 de-equivariantization of GH(C8). Exact rank and coefficient bounds identify its unique dimension type in the supplied complete rank-eight multiplicity-at-most-three census. The earlier center-action analysis leaves three necessary R8_3_1154 patterns. These results are in evidence/rank8_next_20261021/; the later R8_3_65 general exclusion is in evidence/rank8_research_20261022/.
+R8_3_721 is realized by the inherited 1+rho Q-system Morita dual of the C2 de-equivariantization of GH(C8). Exact rank and coefficient bounds, followed by a direct exhaustive fusion completion, identify its entire based ring without assuming census completeness. The earlier center-action analysis leaves three necessary R8_3_1154 patterns. These results are in evidence/rank8_next_20261021/; the later R8_3_65 general exclusion is in evidence/rank8_research_20261022/.
 
 [Separately verified center-pattern addendum](../evidence/rank8_center_followup_20261021/README.md).
 

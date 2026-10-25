@@ -4,7 +4,9 @@
 #include <vector>
 #include <functional>
 using I=long long;using W=__int128_t;
-I root(I a){I l=0,h=1000000000;while(l<h){I m=l+(h-l+1)/2;if(W(m)*m<=a)l=m;else h=m-1;}return l;}
+// Exact floor(sqrt(a)) for every nonnegative signed-64-bit input.
+// The midpoint avoids signed overflow; its square fits in signed __int128.
+I root(I a){I l=0,h=a;while(l<h){I gap=h-l;I m=l+gap/2+gap%2;if(W(m)*m<=a)l=m;else h=m-1;}return l;}
 int main(){int n,r;if(!(std::cin>>n>>r)||n<1||n>5||r<1||r>n)return 2;
  std::vector<std::vector<I>>Q(n,std::vector<I>(n)),A(r,std::vector<I>(r)),M(n,std::vector<I>(r));std::vector<int>ix(r);I det;
  for(auto&v:Q)for(I&x:v)std::cin>>x;for(int&i:ix)std::cin>>i;for(auto&v:A)for(I&x:v)std::cin>>x;std::cin>>det;for(auto&v:M)for(I&x:v)std::cin>>x;

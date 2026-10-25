@@ -168,3 +168,18 @@ __pycache__/
 /publications/**/paper/*.out
 /publications/**/paper/*.toc
 /publications/**/paper/*.xdv
+
+# Source-bound native caches (25 October 2026)
+*.build.json
+*.build.lock
+
+# Rebuilt manuscript intermediates and restored audit download.
+/manuscripts/**/*.aux
+/manuscripts/**/*.fdb_latexmk
+/manuscripts/**/*.fls
+/manuscripts/**/*.out
+/manuscripts/**/*.toc
+site/dist/downloads/correctness-audit-2026-10-25.zip
+/supplements/rank6/software/gram_vectors_general
+
+/site/dist/downloads/correctness-replay-2026-10-25.zip

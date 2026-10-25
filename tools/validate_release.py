@@ -10,6 +10,11 @@ from rank6_publication import (validate_identity,completion_files,require,FRONTI
 from publication_stages import load_stages
 
 ROOT=Path(__file__).resolve().parents[1]
+from correctness_publication import active as correctness_active
+if correctness_active(ROOT):
+    from verify_correctness_revision import main as current
+    current(metadata_only=True)
+    raise SystemExit(0)
 counts=json.loads((ROOT/'data/counts.json').read_text())
 status=json.loads((ROOT/'data/classification_status.json').read_text())
 rank6_identity=json.loads((ROOT/'data/rank6_release_identity.json').read_text())

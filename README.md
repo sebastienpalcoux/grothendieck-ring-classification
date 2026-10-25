@@ -1,5 +1,9 @@
 # Grothendieck ring classification
 
+<!-- correctness-20261025 -->
+**Correctness revision · 25 October 2026.** The current classification is unchanged. Three model-identification arguments are repaired, R8_3_721 has a direct exact completion, and implementation/replay defects are corrected. [Findings, corrections and exact commands](evidence/correctness_20261025/README.md). Independent human verification remains pending.
+<!-- /correctness-20261025 -->
+
 **Which low-rank fusion rings admit fusion categories over ℂ?**
 
 [**Explore the atlas →**](https://sebastienpalcoux.github.io/grothendieck-ring-classification/) · [Theory and definitions](https://sebastienpalcoux.github.io/grothendieck-ring-classification/theory.html) · [Manuscripts](manuscripts/README.md) · [Open cases](https://sebastienpalcoux.github.io/grothendieck-ring-classification/unresolved.html) · [Verification](docs/VERIFY.md)
