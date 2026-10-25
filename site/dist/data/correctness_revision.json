@@ -66,6 +66,18 @@
     "publication": {
       "path": "evidence/correctness_20261025/validation/publication/receipt.json",
       "sha256": "898d448080dfcbc8b387001ccd128d76a3368a464a0752385da44a9b2bb02c64"
+    },
+    "frozen-source-contexts": {
+      "path": "evidence/correctness_20261025/validation/source-context-followup/receipt.json",
+      "sha256": "f5d144a8c25c4ce9deaad70dca107899ba498eeb6e148dc9338999f509152378"
+    },
+    "guard-followup": {
+      "path": "evidence/correctness_20261025/validation/source-context-followup/guard-controls.json",
+      "sha256": "90f52c12a19a19f6c5ec6634a58da63bd61cd1c955c279ef0c69c919b0ce8cd1"
+    },
+    "rank7-full-followup": {
+      "path": "evidence/correctness_20261025/validation/source-context-followup/full-normal.json",
+      "sha256": "ca9a9588e0c3ec9b69a24cc6c676cd8bc8186a6d5cb6aa3cc7f20115280dded3"
     }
   },
   "replay_archive": {
@@ -77,5 +89,10 @@
     "path": "downloads/correctness-audit-2026-10-25.zip",
     "sha256": "52b51f83656f73d71f4b5152e54e74a571040cb68a2cfc9c47bc2138a8a92f1d"
   },
-  "scope": "Applied proof and code corrections; complete current rank-six exclusion composite with immutable source contexts, accepted rank-nine baseline and phases2--5, exact model repairs and targeted negative controls. Historical failures retained. No complete upstream census search or independent reproof of all external categorical theorems is claimed."
+  "scope": "Applied proof and code corrections; complete current rank-six exclusion composite with immutable source contexts, accepted rank-nine baseline and phases2--5, exact model repairs and targeted negative controls. Historical failures retained. No complete upstream census search or independent reproof of all external categorical theorems is claimed.",
+  "source_context_followup": {
+    "initial_publication_commit": "2acb0f61a0e8c1624d3a6800627b7cd52b6bfacf",
+    "scope": "Preserve the exact rank-seven induction source required by both cyclic-rotation certificates; corrected cache code is versioned separately. Original mathematical checks and status decisions are unchanged.",
+    "receipt": "evidence/correctness_20261025/validation/source-context-followup/receipt.json"
+  }
 }

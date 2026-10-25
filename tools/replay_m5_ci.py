@@ -4,6 +4,8 @@
 The archived checker uses a 60-second low_generic deadline. Shared CI runners
 can exceed it. This launcher changes only that exact call's runtime allowance;
 the source bytes, finite domains, output checks and failure behavior are kept.
+The native binary is first bound to its source, compiler and original flags,
+without changing the induction module pinned by the cyclic-rotation proofs.
 No timeout is accepted as a mathematical result.
 """
 from pathlib import Path
@@ -36,6 +38,8 @@ class EnumerationSubprocess:
 for variable in ('OPENBLAS_NUM_THREADS', 'OMP_NUM_THREADS', 'MKL_NUM_THREADS'):
     os.environ[variable] = '1'
 sys.path.insert(0, str(SOFTWARE))
+from native_build import ensure_native
+ensure_native(SOFTWARE / 'low_generic.cpp', SOFTWARE / 'low_generic')
 import induction
 induction.subprocess = EnumerationSubprocess()
 

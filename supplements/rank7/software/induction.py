@@ -1,5 +1,4 @@
 """Rank-independent application of the low-induction and moment tests of [DP]."""
-from native_build import ensure_native
 import itertools,math,subprocess,tempfile
 from pathlib import Path
 import sympy as s
@@ -39,7 +38,10 @@ def low_matrices(column_sets,B,gram_prune=False):
         import os
         exe=Path(__file__).with_name('low_generic')
         source=Path(__file__).with_name('low_generic.cpp')
-        ensure_native(source,exe,flags=('-O3', '-std=c++17'))
+        if not exe.exists() or not os.access(exe, os.X_OK):
+            temp=exe.with_name('low_generic_'+str(os.getpid()))
+            subprocess.run(['g++','-O3','-std=c++17',str(source),'-o',str(temp)],check=True,capture_output=True)
+            os.replace(temp,exe)
         require(all(abs(int(x))<=10**6 for x in B),'native Gram integer bound')
         values=[n-1,len(column_sets)]+list(target[1:])+[int(B[i,j]) for i in range(1,n) for j in range(1,n)]
         for cols in column_sets:

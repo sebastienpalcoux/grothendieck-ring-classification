@@ -7,3 +7,5 @@ For new computations, apply the corresponding corrected versions in a separate c
 The directly replayable corrected atomic-integer entry point is `../replay_atomic_integer.py`. It uses the original exact domain definitions, derives its terminal status from verified evidence, and requires a new output receipt. The targeted kernel and cache controls exercise the corrected source versions explicitly.
 
 The rank-six documentary overlays correct the EH1 dual-even-half convention and make the H3 existence reference precise. Their executable ASTs and literal catalog reference strings are unchanged, as recorded in `../documentation-overlay-check.json`.
+
+The rank-seven `induction.py` module is also an immutable input of the two cyclic-rotation certificates. Its corrected cache wrapper is supplied here with its helper; the original accepted path retains the exact certified bytes. The current metadata checker verifies both dependency closures before attempting a full replay.

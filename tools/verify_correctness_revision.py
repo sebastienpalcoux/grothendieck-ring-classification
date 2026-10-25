@@ -20,6 +20,14 @@ def main(metadata_only=False):
     for rel,h in manifest['files'].items():
         p=ROOT/rel;need(p.resolve().is_relative_to(ROOT)and p.is_file()and sha(p)==h,'Correction source/artifact changed: '+rel)
     for rel,h in manifest['immutable_decisions'].items():need(sha(ROOT/rel)==h,'Classification input or decision changed: '+rel)
+    # Frozen proof inputs and corrected reusable copies have separate identities.
+    # Neither a new publication manifest nor a cache correction may relax them.
+    for entry in read(ROOT/EVIDENCE/'frozen-source-overlays.json'):
+        need(sha(ROOT/entry['historical_path'])==entry['historical_sha256'],'Frozen source context changed: '+entry['historical_path'])
+        need(sha(ROOT/entry['corrected_path'])==entry['corrected_sha256'],'Corrected source overlay changed: '+entry['corrected_path'])
+    for rid in ('R7_5_3895','R7_5_5039'):
+        proof=read(ROOT/f'evidence/rank7_m5_20261020/accepted/{rid}_cyclic_rotation_certificate.json')
+        for rel,h in proof['proof_inputs'].items():need(sha(ROOT/rel)==h,'Cyclic-rotation proof input changed: '+rel)
     validated={}
     for label,entry in manifest['validation'].items():
         value=read(ROOT/entry['path']);need(sha(ROOT/entry['path'])==entry['sha256'],'Validation identity: '+label)
