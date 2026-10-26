@@ -1,0 +1,57 @@
+Syntax warning: Unbound global variable in rank12-m1-round3-20261026/d48/possi\
+ble_twisted_types.g:21
+    dd:=List(dd,x->x*Index(H,K));;
+                           ^
+Syntax warning: Unbound global variable in rank12-m1-round3-20261026/d48/possi\
+ble_twisted_types.g:21
+    dd:=List(dd,x->x*Index(H,K));;
+                             ^
+Syntax warning: Unbound global variable in rank12-m1-round3-20261026/d48/possi\
+ble_twisted_types.g:28
+  if [8,2,2] in states then Print("POSSIBLE ",gi," ",StructureDescription(G),"\
+ H ",StructureDescription(H)," order ",Size(H)," N ",Size(Normalizer(G,H))," D\
+C ",List(DoubleCosets(G,H,H),dc->StructureDescription(Intersection(H,H^(Repres\
+entative(dc)^-1)))),"\n");fi;
+                                                                              \
+                                                                              \
+                                                                   ^
+Syntax warning: Unbound global variable in rank12-m1-round3-20261026/d48/possi\
+ble_twisted_types.g:28
+  if [8,2,2] in states then Print("POSSIBLE ",gi," ",StructureDescription(G),"\
+ H ",StructureDescription(H)," order ",Size(H)," N ",Size(Normalizer(G,H))," D\
+C ",List(DoubleCosets(G,H,H),dc->StructureDescription(Intersection(H,H^(Repres\
+entative(dc)^-1)))),"\n");fi;
+                                                                              \
+                                                                              \
+                                                                     ^
+POSSIBLE 10 (C3 : C8) : C2 H C8 : C2 order 16 N 16 DC [ "C8 : C2", "C4 x C2" ]
+POSSIBLE 12 (C3 : C4) : C4 H C4 : C4 order 16 N 16 DC [ "C4 : C4", "C4 x C2" ]
+POSSIBLE 13 C12 : C4 H C4 : C4 order 16 N 16 DC [ "C4 : C4", "C4 x C2" ]
+POSSIBLE 14 (C12 x C2) : C2 H (C4 x C2) : C2 order 16 N 16 DC 
+[ "(C4 x C2) : C2", "C4 x C2" ]
+POSSIBLE 19 (C6 x C2) : C4 H (C4 x C2) : C2 order 16 N 16 DC 
+[ "(C4 x C2) : C2", "C2 x C2 x C2" ]
+POSSIBLE 28 C2 . S4 = SL(2,3) . C2 H Q8 order 8 N 16 DC [ "Q8", "C2", "Q8" ]
+POSSIBLE 29 GL(2,3) H D8 order 8 N 16 DC [ "D8", "C2", "D8" ]
+POSSIBLE 30 A4 : C4 H C4 order 4 N 8 DC [ "C4", "1", "C2", "1", "C4" ]
+POSSIBLE 30 A4 : C4 H C4 x C2 order 8 N 16 DC [ "C4 x C2", "C2", "C4 x C2" ]
+POSSIBLE 30 A4 : C4 H C4 x C2 order 8 N 16 DC [ "C4 x C2", "C2", "C4 x C2" ]
+POSSIBLE 30 A4 : C4 H (C4 x C2) : C2 order 16 N 16 DC 
+[ "(C4 x C2) : C2", "C2 x C2 x C2" ]
+POSSIBLE 34 C2 x (C3 : Q8) H C2 x Q8 order 16 N 16 DC [ "C2 x Q8", "C4 x C2" ]
+POSSIBLE 36 C2 x D24 H C2 x D8 order 16 N 16 DC [ "C2 x D8", "C4 x C2" ]
+POSSIBLE 37 (C12 x C2) : C2 H (C4 x C2) : C2 order 16 N 16 DC 
+[ "(C4 x C2) : C2", "C4 x C2" ]
+POSSIBLE 38 D8 x S3 H C2 x D8 order 16 N 16 DC [ "C2 x D8", "D8" ]
+POSSIBLE 39 (C4 x S3) : C2 H (C4 x C2) : C2 order 16 N 16 DC 
+[ "(C4 x C2) : C2", "D8" ]
+POSSIBLE 43 C2 x ((C6 x C2) : C2) H C2 x D8 order 16 N 16 DC 
+[ "C2 x D8", "C2 x C2 x C2" ]
+POSSIBLE 48 C2 x S4 H C2 x C2 order 4 N 8 DC 
+[ "C2 x C2", "1", "C2", "1", "C2 x C2" ]
+POSSIBLE 48 C2 x S4 H D8 order 8 N 16 DC [ "D8", "C2", "D8" ]
+POSSIBLE 48 C2 x S4 H C4 x C2 order 8 N 16 DC [ "C4 x C2", "C2", "C4 x C2" ]
+POSSIBLE 48 C2 x S4 H D8 order 8 N 16 DC [ "D8", "C2", "D8" ]
+POSSIBLE 48 C2 x S4 H C2 x C2 x C2 order 8 N 16 DC 
+[ "C2 x C2 x C2", "C2", "C2 x C2 x C2" ]
+POSSIBLE 48 C2 x S4 H C2 x D8 order 16 N 16 DC [ "C2 x D8", "C2 x C2 x C2" ]

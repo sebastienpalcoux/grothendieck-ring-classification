@@ -321,15 +321,15 @@ for(const ring of [...unresolved,...resolved,...realized]) {
 console.log(`Evidence catalogue checked: ${evidenceFilesChecked} preserved file records; folded defaults, complete pagination and search across all case pages.`);
 
 // Every rank uses the same catalogue, case renderer, filters and pagination.
-const added=json("data/rank9_rank10_m1.json"),eleven=json("data/rank11_m1.json"),nineM2=json("data/rank9_m2.json");
-const payloads={"realized_rings.json":{records:realized},"unresolved_cases.json":{cases:unresolved},"resolved_cases.json":{cases:resolved},"rank9_rank10_m1.json":added,"rank11_m1.json":eleven,"rank9_m2.json":nineM2,"ring_property_flags.json":json("data/ring_property_flags.json")};
-const fetchCatalogue=async url=>({ok:true,json:async()=>structuredClone(payloads[url.split("/").at(-1)])});
+const added=json("data/rank9_rank10_m1.json"),eleven=json("data/rank11_m1.json"),nineM2=json("data/rank9_m2.json"),twelve=json("data/rank12_m1.json");
+const payloads={"realized_rings.json":{records:realized},"unresolved_cases.json":{cases:unresolved},"resolved_cases.json":{cases:resolved},"rank9_rank10_m1.json":added,"rank11_m1.json":eleven,"rank9_m2.json":nineM2,"rank12_m1.json":twelve,"ring_property_flags.json":json("data/ring_property_flags.json")};
+const fetchCatalogue=async url=>({ok:true,json:async()=>structuredClone(payloads[url.split("/").at(-1).split("?")[0]])});
 const catalogueContext=context();catalogueContext.document.querySelector=()=>null;catalogueContext.fetch=fetchCatalogue;
 vm.createContext(catalogueContext);vm.runInContext(read("catalogue.js"),catalogueContext);
 const catalogue=await catalogueContext.RingCatalogue.load();
-assert.equal(catalogue.models.length,380);
-assert.equal(catalogue.cases.length,2830);
-assert.equal(new Set(catalogue.cases.map(r=>r.id)).size,2830);
+assert.equal(catalogue.models.length,532);
+assert.equal(catalogue.cases.length,3462);
+assert.equal(new Set(catalogue.cases.map(r=>r.id)).size,3462);
 assert.equal(catalogue.cases.filter(r=>r.status==="unresolved").length,10);
 for (const id of [114,115,152,153,179]) {
   const ring=catalogue.cases.find(r=>r.id===`R10_1_${id}`);
@@ -342,13 +342,22 @@ assert.equal(cyclicFrontier.existence,"unitary");
 assert(Object.values(cyclicFrontier.categorification_scope.level_status).every(s=>s==="realized"));
 assert.equal(cyclicFrontier.categorification_scope.braided.status,"excluded");
 assert.equal(cyclicFrontier.investigation_deferred,false);
+const r623=catalogue.cases.find(r=>r.id==="R12_1_623");
+assert(catalogue.models.some(r=>r.id==="R12_1_623"));
+assert.equal(r623.status,"pseudo_unitarily_realized");
+assert.equal(r623.categorification_scope.level_status.general,"realized");
+assert.equal(r623.categorification_scope.level_status.pseudo_unitary,"realized");
+assert.equal(r623.categorification_scope.level_status.unitary,"unresolved");
+const pseudoView=caseAPI.renderCategorification(r623);
+assert.match(pseudoView.textContent,/Unitarity remains unproved/);
+assert.doesNotMatch(pseudoView.textContent,/General categorifiability remains unresolved/);
 const state={data:structuredClone(atlas),models:structuredClone(realized)};state.data.classification_rows=structuredClone(statuses);
 catalogueContext.RingCatalogue.mergeAtlas(state,catalogue);
 for (const original of realized) {const {properties,...record}=state.models.find(r=>r.id===original.id);assert.equal(JSON.stringify(record),JSON.stringify(original));}
-assert.equal(state.data.rows.length,atlas.rows.length+4);
-assert.equal(state.data.scope.length,atlas.scope.length+3);
-assert.equal(new Set(state.models.map(r=>r.id)).size,380);
-for(const [rank,total,models,open] of [[9,142,40,4],[10,194,58,0],[11,182,27,0]]) {
+assert.equal(state.data.rows.length,atlas.rows.length+5);
+assert.equal(state.data.scope.length,atlas.scope.length+4);
+assert.equal(new Set(state.models.map(r=>r.id)).size,532);
+for(const [rank,total,models,open] of [[9,142,40,4],[10,194,58,0],[11,182,27,0],[12,632,152,0]]) {
   assert.equal(state.data.rows.find(r=>r.rank===rank).rings,total);
   assert.equal(state.data.grothendieck_rows.find(r=>r.rank===rank).rings,models);
   assert.equal(state.data.scope.find(r=>r.rank===rank).unresolved,open);
@@ -371,7 +380,7 @@ for(const ring of catalogue.models.filter(row=>row.rank>=9)) {
   }
   assert(links(doc.querySelector("#ring-profile")).some(item=>item.href===ring.report_url));
 }
-for(const query of ["","?rank=2&m=1","?rank=10&status=unresolved","?rank=11","?rank=11&status=realized","?rank=11&status=excluded","?rank=11&status=unresolved","?rank=9&m=2&status=unresolved","?rank=99&status=invalid","?q=R10_1_189"]) {
+for(const query of ["","?rank=2&m=1","?rank=10&status=unresolved","?rank=11","?rank=11&status=realized","?rank=11&status=excluded","?rank=11&status=unresolved","?rank=9&m=2&status=unresolved","?rank=99&status=invalid","?q=R10_1_189","?rank=12","?rank=12&status=realized","?rank=12&status=pseudo_unitarily_realized"]) {
   const directory=context(query);directory.location.href=origin+"records.html"+query;directory.fetch=fetchCatalogue;
   directory.history={replaceState:(_,__,url)=>{directory.location.href=String(url);directory.location.search=url.search;}};
   vm.createContext(directory);vm.runInContext(read("properties.js"),directory);vm.runInContext(read("catalogue.js"),directory);
@@ -379,7 +388,7 @@ for(const query of ["","?rank=2&m=1","?rank=10&status=unresolved","?rank=11","?r
   const get=id=>directory.document.querySelector("#record-"+id),params=new URLSearchParams(query);
   const expected=catalogue.cases.filter(r=>(!params.get("rank")||params.get("rank")==="99"||r.rank===Number(params.get("rank")))&&
     (!params.get("m")||r.multiplicity===Number(params.get("m")))&&(!params.get("status")||params.get("status")==="invalid"||
-    (params.get("status")==="realized"?["realized","unitarily_realized"].includes(r.status):r.status===params.get("status")))&&
+    (params.get("status")==="realized"?["realized","unitarily_realized","pseudo_unitarily_realized"].includes(r.status):r.status===params.get("status")))&&
     (!params.get("q")||r.id===params.get("q")));
   const seen=[];
   for(let pages=0;pages<Math.ceil(expected.length/24)+1;pages++) {
@@ -394,20 +403,20 @@ for(const name of ["index.html","case.html","unresolved.html","records.html"]) {
   const html=read(name);assert.match(html,/src="\.\/catalogue\.js/);assert.doesNotMatch(html,/rank11-current|rank9-10-current|href="\.\/rank11\.html"/);
 }
 for(const name of ["rank11.html","rank9-10.html"])assert.match(read(name),/src="\.\/redirect\.js/);
-console.log("Unified catalogue checked: 2830 ordered case pages, 380 models, 10 open cases; shared rank/status/multiplicity filters and complete pagination through rank 11.");
+console.log("Unified catalogue checked: 3462 ordered case pages, 532 models, 10 open cases; shared rank/status/multiplicity filters and complete pagination through rank 12.");
 
 app.state.data=state.data;app.state.models=state.models;
 app.state.censusMap=new Map(state.data.rows.map(r=>[`${r.rank}:${r.multiplicity}`,r]));
 app.state.positiveMap=new Map(state.data.grothendieck_rows.map(r=>[`${r.rank}:${r.multiplicity}`,r]));
 app.state.statusMap=new Map(state.data.classification_rows.map(r=>[`${r.rank}:${r.multiplicity}`,r]));
-app.renderFilters();assert.equal(doc.querySelector("#rank-filters").children.length,11);
-assert.equal(doc.querySelector("#rank-filters").children.at(-1).textContent,"11");
+app.renderFilters();assert.equal(doc.querySelector("#rank-filters").children.length,12);
+assert.equal(doc.querySelector("#rank-filters").children.at(-1).textContent,"12");
 app.renderPapers();const papers=doc.querySelector("#paper-grid").children;
-assert.equal(papers.length,10);assert.match(papers.at(-1).textContent,/10 \/ RANK 11/);
-assert(links(papers.at(-1)).some(a=>a.href.endsWith("/blob/main/publications/rank11/paper/rank11.tex")));
-assert(links(papers.at(-3)).some(a=>a.href.endsWith("/blob/main/publications/rank9-rank10/paper/rank9-rank10.tex")));
-assert(links(papers.at(-2)).some(a=>a.href.endsWith("/blob/main/publications/rank9-m2/paper/rank9-m2.tex")));
-for(const rank of [2,9,10,11]) {
+assert.equal(papers.length,11);assert.match(papers.at(-1).textContent,/11 \/ RANK 12/);
+assert(links(papers.at(-1)).some(a=>a.href.endsWith("/blob/main/publications/rank12/paper/rank12.tex")));
+assert([...papers].some(p=>links(p).some(a=>a.href.endsWith("/blob/main/publications/rank9-rank10/paper/rank9-rank10.tex"))));
+assert([...papers].some(p=>links(p).some(a=>a.href.endsWith("/blob/main/publications/rank9-m2/paper/rank9-m2.tex"))));
+for(const rank of [2,9,10,11,12]) {
   app.state.selected=state.data.rows.find(r=>r.rank===rank&&r.multiplicity===1);app.renderDetail();
   assert(links(doc.querySelector("#cell-detail")).some(a=>a.href===`./records.html?rank=${rank}&m=1`));
 }

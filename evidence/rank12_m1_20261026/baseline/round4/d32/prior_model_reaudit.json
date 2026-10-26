@@ -1,0 +1,56 @@
+{
+  "status": "pass",
+  "optimized_python": true,
+  "models": [
+    {
+      "id": "R12_1_240",
+      "original_tensor_identical": true,
+      "exact_checks": {
+        "group_cocycle_equations": 65536,
+        "full_tensor_coefficients": 1728,
+        "associativity": "common.validate for source and model",
+        "independent_audit": "../independent/audit_ising_dual.py"
+      },
+      "basis_map": [
+        0,
+        8,
+        9,
+        3,
+        4,
+        10,
+        2,
+        7,
+        11,
+        5,
+        6,
+        1
+      ],
+      "source_tensor_sha256": "41de21f823e5adc421a7b1b241fb0d5e552fb3aba2bfe26a444f5d1a04b33fe7"
+    },
+    {
+      "id": "R12_1_408",
+      "original_tensor_identical": true,
+      "exact_checks": {
+        "group_cocycle_equations": 65536,
+        "full_tensor_coefficients": 1728,
+        "associativity": "common.validate for source and model",
+        "independent_audit": "../independent/audit_ising_dual.py"
+      },
+      "basis_map": [
+        0,
+        8,
+        9,
+        3,
+        4,
+        10,
+        11,
+        2,
+        7,
+        5,
+        6,
+        1
+      ],
+      "source_tensor_sha256": "a0d6e47669f13fef880c272307052855d9bafd8473922767b6c2f1dbfe612455"
+    }
+  ]
+}

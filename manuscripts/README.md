@@ -13,7 +13,7 @@ the actual twisted precursor for R8_3_1768 do not claim further decisions.
 [Proofs and precise scope](https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/evidence/unresolved_retry_20261024/README.md).
 <!-- /current-theoretical-retry -->
 
-**Current classification through rank eleven: 10 unresolved rings across ranks six, eight and nine.**
+**Current classification through rank twelve: 10 unresolved rings across ranks six, eight and nine.**
 
 > **AI-generated research · independent verification pending.** Exact automated checks establish only their stated computational scope.
 
@@ -32,8 +32,9 @@ Current manuscripts appear once, in increasing rank order. Realized counts refer
 | Rank-nine and rank-ten multiplicity-one classification | [PDF](../publications/rank9-rank10/paper/rank9-rank10.pdf) | [TeX](../publications/rank9-rank10/paper/rank9-rank10.tex) | 35 |
 | Rank-nine multiplicity-two classification | [PDF](../publications/rank9-m2/paper/rank9-m2.pdf) | [TeX](../publications/rank9-m2/paper/rank9-m2.tex) | 47 |
 | Rank-eleven multiplicity-one classification | [PDF](../publications/rank11/paper/rank11.pdf) | [TeX](../publications/rank11/paper/rank11.tex) | 18 |
+| Rank twelve, multiplicity one | [PDF](../publications/rank12/paper/rank12.pdf) | [TeX](../publications/rank12/paper/rank12.tex) | 7 |
 
-**11 mathematical manuscripts, 660 pages.** With three verification guides: 678 pages. With the current research-status report: 682 pages. Each distinct document is counted once.
+**12 mathematical manuscripts, 667 pages.** With three verification guides: 685 pages. With the current research-status report: 689 pages. Each distinct document is counted once.
 
 [Page inventory and checksums](../data/current_manuscript_page_counts.json) · [Current publication manifest](../data/current_publication_revision.json)
 
@@ -170,3 +171,5 @@ python3 -O tools/verify_rank8_exclusion_20261022.py
 Use `--metadata-only` to check source identities and completed replay receipts. Use `--historical` to replay the preceding rank-eight stages in their preserved contexts. That replay explicitly records the reconstructed helper missing from the creative archive and its four revised cache-state diagnostics in a separate checkpoint; it also restores the omitted canonical tensor with its original receipt hash. The current ledger and proof have separate bindings from those historical releases.
 
 </details>
+
+**Rank 12, multiplicity one:** 480 general exclusions and 152 models; 151 unitary, with R12_1_623 complex/pseudo-unitary and unitarity unproved. No rank-twelve case remains unresolved. [Proofs and exact replay](../evidence/rank12_m1_20261026/README.md). The ten open cases at lower ranks are unchanged.

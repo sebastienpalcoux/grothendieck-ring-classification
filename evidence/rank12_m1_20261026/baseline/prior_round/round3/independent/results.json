@@ -1,0 +1,145 @@
+{
+  "scope": "Independent mathematical and exact tensor audit; offline only",
+  "new_models_audited": [
+    "R12_1_142",
+    "R12_1_240",
+    "R12_1_361",
+    "R12_1_408",
+    "R12_1_414",
+    "R12_1_444",
+    "R12_1_531"
+  ],
+  "new_exclusions_audited": [
+    "R12_1_161",
+    "R12_1_211",
+    "R12_1_262",
+    "R12_1_265",
+    "R12_1_312",
+    "R12_1_362",
+    "R12_1_388",
+    "R12_1_453",
+    "R12_1_469",
+    "R12_1_472",
+    "R12_1_503",
+    "R12_1_516"
+  ],
+  "control_models_audited": [
+    "R12_1_25",
+    "R12_1_28"
+  ],
+  "forced_group_theoretical_ids": [
+    "R12_1_142",
+    "R12_1_161",
+    "R12_1_211",
+    "R12_1_262",
+    "R12_1_265",
+    "R12_1_312",
+    "R12_1_361",
+    "R12_1_362",
+    "R12_1_388",
+    "R12_1_444",
+    "R12_1_453",
+    "R12_1_469",
+    "R12_1_472",
+    "R12_1_503",
+    "R12_1_516"
+  ],
+  "classification_scope": "The fifteen previously unresolved dimension-120 inputs are completely resolved by the accepted categorical converse. R240, R408, R414 and R531 are independently verified additional models.",
+  "proofs": [
+    "forced_group_theoretical.md",
+    "coprime_twist_lemma.md",
+    "construction_audit.md",
+    "../d120/theory.md"
+  ],
+  "receipts": [
+    "forced_gt_verification.json",
+    "all_graph_twists_independent.json",
+    "ising_twisted_dual_independent.json",
+    "d48_independent.json"
+  ],
+  "normal_and_optimized_replays": [
+    "verify.py",
+    "audit_graph_twist.py",
+    "audit_ising_dual.py",
+    "audit_d48.py"
+  ],
+  "bounded_induction_attempts": [
+    {
+      "id": "R12_1_180",
+      "result": "unknown",
+      "exact_PSD": null,
+      "exact_moment_pass": null,
+      "negative_conclusion": false
+    },
+    {
+      "id": "R12_1_181",
+      "result": "unknown",
+      "exact_PSD": null,
+      "exact_moment_pass": null,
+      "negative_conclusion": false
+    },
+    {
+      "id": "R12_1_262",
+      "result": "sat",
+      "exact_PSD": "exact_PSD",
+      "exact_moment_pass": true,
+      "negative_conclusion": false
+    },
+    {
+      "id": "R12_1_361",
+      "result": "sat",
+      "exact_PSD": "exact_PSD",
+      "exact_moment_pass": true,
+      "negative_conclusion": false
+    },
+    {
+      "id": "R12_1_362",
+      "result": "sat",
+      "exact_PSD": "exact_PSD",
+      "exact_moment_pass": true,
+      "negative_conclusion": false
+    },
+    {
+      "id": "R12_1_453",
+      "result": "sat",
+      "exact_PSD": "exact_PSD",
+      "exact_moment_pass": true,
+      "negative_conclusion": false
+    },
+    {
+      "id": "R12_1_561",
+      "result": "sat",
+      "exact_PSD": "exact_PSD",
+      "exact_moment_pass": true,
+      "negative_conclusion": false
+    },
+    {
+      "id": "R12_1_628",
+      "result": "sat",
+      "exact_PSD": "exact_PSD",
+      "exact_moment_pass": true,
+      "negative_conclusion": false
+    }
+  ],
+  "d144_audit": {
+    "necessary_reduction_accepted": true,
+    "t0_Morita_branch_exclusion_accepted": true,
+    "full_ring_exclusion_accepted": false,
+    "remaining_ids": [
+      "R12_1_180",
+      "R12_1_181",
+      "R12_1_320",
+      "R12_1_321"
+    ],
+    "necessary_first_dual_type": "1^6,2^12,3^2,(3sqrt(2))^4",
+    "actual_RepS3_subcategory": true,
+    "central_embedding_proved": false,
+    "subgroup_H2_choices": "Both H2(S4,C*) classes retained; both module duals are Rep(S4).",
+    "literature_scope": "Dimension24 implies unitarizability before applying unitary near-group classification. Galindo1010.5283v3 Cor6.4 applies to the indecomposable neutral restriction."
+  },
+  "web_revised": false,
+  "reviewed_d120_proof_sha256": "90fff6b903792d77381e2260f5e993abc3abcea566cacef89c8338dd06d9a83a",
+  "portable_replay": "verify.py, audit_graph_twist.py, audit_ising_dual.py and audit_d48.py read only frozen local inputs; NumPy required for cocycle-array checks.",
+  "frozen_inputs_manifest": "frozen/sha256.json",
+  "reviewed_d144_proof_sha256": "a8b62e72a640e26d479ed93117306b02f2aab4bbf2b0ff43de99382dab8581cc"
+}

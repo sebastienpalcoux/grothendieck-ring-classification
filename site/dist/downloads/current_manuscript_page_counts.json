@@ -1,9 +1,9 @@
 {
   "schema": "manuscript-page-counts/v1",
-  "date": "2026-10-25",
+  "date": "2026-10-26",
   "counting_rule": "Count each distinct current document once, including its references and appendices; exclude website/supplement copies and compatibility aliases.",
   "document_counts": {
-    "mathematical_manuscripts": 11,
+    "mathematical_manuscripts": 12,
     "verification_guides": 3,
     "research_status_reports": 1
   },
@@ -127,14 +127,22 @@
       "pages": 18,
       "sha256": "d79c58383ba673472895c738cbfa9f6b6469b287e21b04d16cac257c88b9c9e6",
       "bytes": 430687
+    },
+    {
+      "title": "Rank twelve, multiplicity one",
+      "kind": "mathematical_manuscript",
+      "path": "publications/rank12/paper/rank12.pdf",
+      "pages": 7,
+      "bytes": 365023,
+      "sha256": "cf4e804d116c2eeb82c3bbe1ff4301f00fc5e04f18a529036a42e8e79d814779"
     }
   ],
   "totals": {
-    "mathematical_manuscript": 660,
+    "mathematical_manuscript": 667,
     "verification_guide": 18,
     "research_status_report": 4,
-    "mathematical_manuscripts_and_guides": 678,
-    "all_distinct_documents": 682
+    "mathematical_manuscripts_and_guides": 685,
+    "all_distinct_documents": 689
   },
   "classification_scope": {
     "rank2": "Unrestricted",

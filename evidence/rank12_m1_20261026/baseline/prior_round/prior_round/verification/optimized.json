@@ -1,0 +1,93 @@
+{
+  "status": "PASS",
+  "input_count": 632,
+  "excluded": 425,
+  "modeled": 141,
+  "unresolved": 66,
+  "new_excluded": 32,
+  "new_modeled": 14,
+  "optimized_python": true,
+  "steps": [
+    {
+      "script": "evidence/rank12-m1-offline-20261025/verify.py",
+      "status": "PASS",
+      "seconds": 14.403574768999533
+    },
+    {
+      "script": "evidence/rank12-m1-round2-20261025/audit_exclusions/audit_all_exclusions.py",
+      "status": "PASS",
+      "seconds": 4.328681721999601
+    },
+    {
+      "script": "evidence/rank12-m1-round2-20261025/audit_models/independent_positive_bindings.py",
+      "status": "PASS",
+      "seconds": 0.4547001509999973
+    },
+    {
+      "script": "evidence/rank12-m1-round2-20261025/family_cubic/verify.py",
+      "status": "PASS",
+      "seconds": 0.7603128050031955
+    },
+    {
+      "script": "evidence/rank12-m1-round2-20261025/audit_exclusions/audit_c9_morita.py",
+      "status": "PASS",
+      "seconds": 0.9017549650016008
+    },
+    {
+      "script": "evidence/rank12-m1-round2-20261025/audit_exclusions/audit_quadratic_signed.py",
+      "status": "PASS",
+      "seconds": 4.962160730996402
+    },
+    {
+      "script": "evidence/rank12-m1-round2-20261025/audit_exclusions/audit_pointed_stabilizers.py",
+      "status": "PASS",
+      "seconds": 0.8395276279989048
+    },
+    {
+      "script": "evidence/rank12-m1-round2-20261025/family_graded/verify.py",
+      "status": "PASS",
+      "seconds": 9.578517973997805
+    },
+    {
+      "script": "evidence/rank12-m1-round2-20261025/audit_exclusions/audit_d8_cohomology.py",
+      "status": "PASS",
+      "seconds": 3.085192263999488
+    },
+    {
+      "script": "evidence/rank12-m1-round2-20261025/audit_exclusions/audit_d40_duals.py",
+      "status": "PASS",
+      "seconds": 1.3251598870047019
+    },
+    {
+      "script": "evidence/rank12-m1-round2-20261025/family_quadratic/verify.py",
+      "status": "PASS",
+      "seconds": 1.508833057996526
+    },
+    {
+      "script": "evidence/rank12-m1-round2-20261025/family_quadratic/audit_graded_models.py",
+      "status": "PASS",
+      "seconds": 6.8429639380046865
+    },
+    {
+      "script": "evidence/rank12-m1-round2-20261025/family_integral/verify.py",
+      "status": "PASS",
+      "seconds": 1.7633052680030232
+    },
+    {
+      "script": "evidence/rank12-m1-round2-20261025/d24_pointed_extensions/verify.py",
+      "status": "PASS",
+      "seconds": 1.4348435639985837
+    },
+    {
+      "script": "evidence/rank12-m1-round2-20261025/audit_exclusions/audit_graph_model.py",
+      "status": "PASS",
+      "seconds": 1.609548686996277
+    },
+    {
+      "script": "evidence/rank12-m1-round2-20261025/audit_exclusions/audit_sl23_model.py",
+      "status": "PASS",
+      "seconds": 0.7563541039999109
+    }
+  ],
+  "elapsed_seconds": 54.7460631119975
+}

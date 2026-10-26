@@ -11,7 +11,7 @@ from functools import lru_cache
 import hashlib,json
 import sympy as sp
 ROOT=Path(__file__).resolve().parents[1];DIST=ROOT/'site/dist';T=sp.Symbol('t')
-SOURCES=('realized_rings.json','unresolved_cases.json','resolved_cases.json','rank9_rank10_m1.json','rank11_m1.json','rank9_m2.json')
+SOURCES=('realized_rings.json','unresolved_cases.json','resolved_cases.json','rank9_rank10_m1.json','rank11_m1.json','rank9_m2.json','rank12_m1.json')
 def sha(raw):return hashlib.sha256(raw).hexdigest()
 @lru_cache(maxsize=None)
 def perron_integrality(coefficients):

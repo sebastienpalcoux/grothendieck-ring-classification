@@ -1,0 +1,208 @@
+{
+  "status": "PASS",
+  "excluded": 478,
+  "modeled": 151,
+  "unresolved": 3,
+  "new_exclusions": 40,
+  "new_models": 3,
+  "prior_decisions_withdrawn": 0,
+  "optimized_python": true,
+  "baseline_replayed": true,
+  "steps": [
+    {
+      "script": "d32/verify.py",
+      "arguments": [],
+      "status": "PASS",
+      "seconds": 0.782938356998784
+    },
+    {
+      "script": "d32/finite_bicharacter_lemmas.py",
+      "arguments": [],
+      "status": "PASS",
+      "seconds": 0.34297687000071164
+    },
+    {
+      "script": "d32/shapiro_check.py",
+      "arguments": [],
+      "status": "PASS",
+      "seconds": 0.3407852289965376
+    },
+    {
+      "script": "d32/exhaustive_catalog.py",
+      "arguments": [],
+      "status": "PASS",
+      "seconds": 5.178007976996014
+    },
+    {
+      "script": "d32/structural_binding.py",
+      "arguments": [],
+      "status": "PASS",
+      "seconds": 0.3590756240009796
+    },
+    {
+      "script": "d144/verify_reductions.py",
+      "arguments": [],
+      "status": "PASS",
+      "seconds": 2.695757280001999
+    },
+    {
+      "script": "d144/verify_positive_models.py",
+      "arguments": [],
+      "status": "PASS",
+      "seconds": 2.7319635189996916
+    },
+    {
+      "script": "d144/verify_brpic.py",
+      "arguments": [],
+      "status": "PASS",
+      "seconds": 0.10353515300084837
+    },
+    {
+      "script": "d144/verify_sylow_certificates.py",
+      "arguments": [],
+      "status": "PASS",
+      "seconds": 0.879576660998282
+    },
+    {
+      "script": "d144/verify_zest_cocycle.py",
+      "arguments": [],
+      "status": "PASS",
+      "seconds": 0.11322694299451541
+    },
+    {
+      "script": "d32/d144_assist/local_c4.py",
+      "arguments": [],
+      "status": "PASS",
+      "seconds": 0.3217910829989705
+    },
+    {
+      "script": "d32/d144_assist/nimrep.py",
+      "arguments": [],
+      "status": "PASS",
+      "seconds": 0.3457524530022056
+    },
+    {
+      "script": "d48/verify_decisions.py",
+      "arguments": [
+        "--full"
+      ],
+      "status": "PASS",
+      "seconds": 12.030087042003288
+    },
+    {
+      "script": "d48/rank6_swap_rings.py",
+      "arguments": [],
+      "status": "PASS",
+      "seconds": 0.9906043899973156
+    },
+    {
+      "script": "d48/triality_orthogonal.py",
+      "arguments": [],
+      "status": "PASS",
+      "seconds": 1.3372983930021292
+    },
+    {
+      "script": "c6/verify_R332.py",
+      "arguments": [],
+      "status": "PASS",
+      "seconds": 0.14633534599852283
+    },
+    {
+      "script": "c6/verify_C3_sections.py",
+      "arguments": [],
+      "status": "PASS",
+      "seconds": 0.6718816349966801
+    },
+    {
+      "script": "c6/verify_R623_C2.py",
+      "arguments": [],
+      "status": "PASS",
+      "seconds": 0.097848306002561
+    },
+    {
+      "script": "c6/verify_TY8_lagrangians.py",
+      "arguments": [],
+      "status": "PASS",
+      "seconds": 1.8766569270010223
+    },
+    {
+      "script": "audit_exclusions/audit_R332.py",
+      "arguments": [],
+      "status": "PASS",
+      "seconds": 0.6991137799996068
+    },
+    {
+      "script": "audit_exclusions/verify_R513_GT.py",
+      "arguments": [],
+      "status": "PASS",
+      "seconds": 0.17584650999924634
+    },
+    {
+      "script": "audit_exclusions/audit_d48_cohomology.py",
+      "arguments": [],
+      "status": "PASS",
+      "seconds": 1.7337451200000942
+    },
+    {
+      "script": "audit_models/audit_d32_nonsplit.py",
+      "arguments": [],
+      "status": "PASS",
+      "seconds": 1.603663351997966
+    },
+    {
+      "script": "audit_models/audit_d32_catalog.py",
+      "arguments": [],
+      "status": "PASS",
+      "seconds": 5.5073547049978515
+    },
+    {
+      "script": "audit_models/audit_d144_local_and_tensor.py",
+      "arguments": [],
+      "status": "PASS",
+      "seconds": 0.6254133600014029
+    },
+    {
+      "script": "audit_models/audit_d48_catalog.py",
+      "arguments": [],
+      "status": "PASS",
+      "seconds": 15.458813814999303
+    },
+    {
+      "script": "audit_models/audit_h16_independent.py",
+      "arguments": [],
+      "status": "PASS",
+      "seconds": 2.4488810149996425
+    },
+    {
+      "script": "audit_models/audit_quotient_reconstruction.py",
+      "arguments": [],
+      "status": "PASS",
+      "seconds": 12.871385522004857
+    },
+    {
+      "script": "audit_models/audit_rank9_quotient_reconstruction.py",
+      "arguments": [],
+      "status": "PASS",
+      "seconds": 1.9184218869995675
+    },
+    {
+      "script": "root/audit_d120_premises.py",
+      "arguments": [],
+      "status": "PASS",
+      "seconds": 0.09632608300307766
+    },
+    {
+      "script": "root/audit_R350.py",
+      "arguments": [],
+      "status": "PASS",
+      "seconds": 54.38311480900302
+    },
+    {
+      "script": "../prior_round/verify.py",
+      "arguments": [],
+      "status": "PASS",
+      "seconds": 166.30501666100463
+    }
+  ],
+  "seconds": 295.60469043299963
+}

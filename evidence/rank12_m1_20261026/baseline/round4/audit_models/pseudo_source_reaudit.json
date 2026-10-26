@@ -1,0 +1,546 @@
+{
+  "status": "PASS",
+  "bases": [
+    {
+      "category": 1,
+      "status": "PASS",
+      "source": {
+        "category": [
+          4,
+          1,
+          2,
+          4,
+          1,
+          0,
+          1
+        ],
+        "conductor": 8,
+        "source_sha256": "0b18136ec84580b9ed808c73fdc43b4f693b74ec69384c3a5a0a6265f3cbf640",
+        "f_symbols": 224,
+        "invertible_associator_blocks": 136,
+        "pentagons": 2688,
+        "scalar_half_braiding_hexagons": 24,
+        "lambda_powers": "[1,z^2,z,z^3]",
+        "central_self_braiding_squared": -1
+      },
+      "unitary_inverse_ratio_equations": 224,
+      "positive_gauge": [
+        {
+          "channel": [
+            1,
+            1,
+            0
+          ],
+          "power_of_2": "-1/2",
+          "power_of_one_plus_sqrt2": "-2"
+        },
+        {
+          "channel": [
+            1,
+            2,
+            3
+          ],
+          "power_of_2": "-1/2",
+          "power_of_one_plus_sqrt2": "-1"
+        },
+        {
+          "channel": [
+            1,
+            3,
+            2
+          ],
+          "power_of_2": "0",
+          "power_of_one_plus_sqrt2": "-1"
+        },
+        {
+          "channel": [
+            2,
+            1,
+            3
+          ],
+          "power_of_2": "-1/2",
+          "power_of_one_plus_sqrt2": "-1"
+        },
+        {
+          "channel": [
+            2,
+            2,
+            1
+          ],
+          "power_of_2": "-1/2",
+          "power_of_one_plus_sqrt2": "0"
+        },
+        {
+          "channel": [
+            2,
+            2,
+            2
+          ],
+          "power_of_2": "-1/2",
+          "power_of_one_plus_sqrt2": "0"
+        },
+        {
+          "channel": [
+            2,
+            2,
+            3
+          ],
+          "power_of_2": "-1/2",
+          "power_of_one_plus_sqrt2": "0"
+        },
+        {
+          "channel": [
+            2,
+            3,
+            0
+          ],
+          "power_of_2": "-1/2",
+          "power_of_one_plus_sqrt2": "-1"
+        },
+        {
+          "channel": [
+            2,
+            3,
+            2
+          ],
+          "power_of_2": "0",
+          "power_of_one_plus_sqrt2": "0"
+        },
+        {
+          "channel": [
+            2,
+            3,
+            3
+          ],
+          "power_of_2": "-1/2",
+          "power_of_one_plus_sqrt2": "0"
+        },
+        {
+          "channel": [
+            3,
+            1,
+            2
+          ],
+          "power_of_2": "0",
+          "power_of_one_plus_sqrt2": "-1"
+        },
+        {
+          "channel": [
+            3,
+            2,
+            0
+          ],
+          "power_of_2": "-1/2",
+          "power_of_one_plus_sqrt2": "-1"
+        },
+        {
+          "channel": [
+            3,
+            2,
+            2
+          ],
+          "power_of_2": "0",
+          "power_of_one_plus_sqrt2": "0"
+        },
+        {
+          "channel": [
+            3,
+            2,
+            3
+          ],
+          "power_of_2": "-1/2",
+          "power_of_one_plus_sqrt2": "0"
+        },
+        {
+          "channel": [
+            3,
+            3,
+            1
+          ],
+          "power_of_2": "0",
+          "power_of_one_plus_sqrt2": "0"
+        },
+        {
+          "channel": [
+            3,
+            3,
+            2
+          ],
+          "power_of_2": "0",
+          "power_of_one_plus_sqrt2": "0"
+        },
+        {
+          "channel": [
+            3,
+            3,
+            3
+          ],
+          "power_of_2": "0",
+          "power_of_one_plus_sqrt2": "0"
+        }
+      ],
+      "unitary_proof": "exact inverse/conjugate ratio identities with positive multiplicative fusion-channel squared norms"
+    },
+    {
+      "category": 2,
+      "status": "PASS",
+      "source": {
+        "category": [
+          4,
+          1,
+          2,
+          4,
+          2,
+          0,
+          1
+        ],
+        "conductor": 8,
+        "source_sha256": "7d80ef3cfc12087627f5a97e24b5641152ec6df8df949b24c2f4b026fe8cd0a9",
+        "f_symbols": 224,
+        "invertible_associator_blocks": 136,
+        "pentagons": 2688,
+        "scalar_half_braiding_hexagons": 24,
+        "lambda_powers": "[1,-z^2,-z^3,-z]",
+        "central_self_braiding_squared": -1
+      },
+      "unitary_inverse_ratio_equations": 224,
+      "positive_gauge": [
+        {
+          "channel": [
+            1,
+            1,
+            0
+          ],
+          "power_of_2": "-1/2",
+          "power_of_one_plus_sqrt2": "-2"
+        },
+        {
+          "channel": [
+            1,
+            2,
+            3
+          ],
+          "power_of_2": "-1/2",
+          "power_of_one_plus_sqrt2": "-1"
+        },
+        {
+          "channel": [
+            1,
+            3,
+            2
+          ],
+          "power_of_2": "0",
+          "power_of_one_plus_sqrt2": "-1"
+        },
+        {
+          "channel": [
+            2,
+            1,
+            3
+          ],
+          "power_of_2": "-1/2",
+          "power_of_one_plus_sqrt2": "-1"
+        },
+        {
+          "channel": [
+            2,
+            2,
+            1
+          ],
+          "power_of_2": "-1/2",
+          "power_of_one_plus_sqrt2": "0"
+        },
+        {
+          "channel": [
+            2,
+            2,
+            2
+          ],
+          "power_of_2": "-1/2",
+          "power_of_one_plus_sqrt2": "0"
+        },
+        {
+          "channel": [
+            2,
+            2,
+            3
+          ],
+          "power_of_2": "-1/2",
+          "power_of_one_plus_sqrt2": "0"
+        },
+        {
+          "channel": [
+            2,
+            3,
+            0
+          ],
+          "power_of_2": "-1/2",
+          "power_of_one_plus_sqrt2": "-1"
+        },
+        {
+          "channel": [
+            2,
+            3,
+            2
+          ],
+          "power_of_2": "0",
+          "power_of_one_plus_sqrt2": "0"
+        },
+        {
+          "channel": [
+            2,
+            3,
+            3
+          ],
+          "power_of_2": "-1/2",
+          "power_of_one_plus_sqrt2": "0"
+        },
+        {
+          "channel": [
+            3,
+            1,
+            2
+          ],
+          "power_of_2": "0",
+          "power_of_one_plus_sqrt2": "-1"
+        },
+        {
+          "channel": [
+            3,
+            2,
+            0
+          ],
+          "power_of_2": "-1/2",
+          "power_of_one_plus_sqrt2": "-1"
+        },
+        {
+          "channel": [
+            3,
+            2,
+            2
+          ],
+          "power_of_2": "0",
+          "power_of_one_plus_sqrt2": "0"
+        },
+        {
+          "channel": [
+            3,
+            2,
+            3
+          ],
+          "power_of_2": "-1/2",
+          "power_of_one_plus_sqrt2": "0"
+        },
+        {
+          "channel": [
+            3,
+            3,
+            1
+          ],
+          "power_of_2": "0",
+          "power_of_one_plus_sqrt2": "0"
+        },
+        {
+          "channel": [
+            3,
+            3,
+            2
+          ],
+          "power_of_2": "0",
+          "power_of_one_plus_sqrt2": "0"
+        },
+        {
+          "channel": [
+            3,
+            3,
+            3
+          ],
+          "power_of_2": "0",
+          "power_of_one_plus_sqrt2": "0"
+        }
+      ],
+      "unitary_proof": "exact inverse/conjugate ratio identities with positive multiplicative fusion-channel squared norms"
+    }
+  ],
+  "action": {
+    "status": "PASS",
+    "base": {
+      "category": [
+        4,
+        1,
+        2,
+        4,
+        2,
+        0,
+        1
+      ],
+      "conductor": 8,
+      "source_sha256": "7d80ef3cfc12087627f5a97e24b5641152ec6df8df949b24c2f4b026fe8cd0a9",
+      "f_symbols": 224,
+      "invertible_associator_blocks": 136,
+      "pentagons": 2688,
+      "scalar_half_braiding_hexagons": 24,
+      "lambda_powers": "[1,-z^2,-z^3,-z]",
+      "central_self_braiding_squared": -1
+    },
+    "permutation": [
+      0,
+      1,
+      3,
+      2
+    ],
+    "tensorator_variables": [
+      [
+        1,
+        1,
+        0
+      ],
+      [
+        1,
+        2,
+        3
+      ],
+      [
+        1,
+        3,
+        2
+      ],
+      [
+        2,
+        1,
+        3
+      ],
+      [
+        2,
+        2,
+        1
+      ],
+      [
+        2,
+        2,
+        2
+      ],
+      [
+        2,
+        2,
+        3
+      ],
+      [
+        2,
+        3,
+        0
+      ],
+      [
+        2,
+        3,
+        2
+      ],
+      [
+        2,
+        3,
+        3
+      ],
+      [
+        3,
+        1,
+        2
+      ],
+      [
+        3,
+        2,
+        0
+      ],
+      [
+        3,
+        2,
+        2
+      ],
+      [
+        3,
+        2,
+        3
+      ],
+      [
+        3,
+        3,
+        1
+      ],
+      [
+        3,
+        3,
+        2
+      ],
+      [
+        3,
+        3,
+        3
+      ]
+    ],
+    "sqrt2_exponents": [
+      -1,
+      -1,
+      0,
+      -1,
+      -1,
+      -1,
+      -1,
+      -1,
+      0,
+      -1,
+      0,
+      -1,
+      0,
+      -1,
+      0,
+      0,
+      0
+    ],
+    "zeta8_exponents": [
+      29,
+      15,
+      10,
+      17,
+      1,
+      5,
+      5,
+      11,
+      0,
+      1,
+      16,
+      15,
+      4,
+      5,
+      0,
+      0,
+      0
+    ],
+    "tensorator_equations": 224,
+    "square_equations": 24,
+    "eta_coefficients": [
+      [
+        1,
+        0
+      ],
+      [
+        "1/2",
+        "1/2"
+      ],
+      [
+        "-1/2",
+        "-1/2"
+      ],
+      [
+        "-1/2",
+        "-1/2"
+      ]
+    ],
+    "group_action_coherence": true,
+    "tensor_identity_automorphisms_trivial": true
+  },
+  "bound_lower_ids": [
+    "R8_1_7",
+    "R8_1_11",
+    "R8_1_42"
+  ],
+  "seconds": 0.4097280630012392
+}

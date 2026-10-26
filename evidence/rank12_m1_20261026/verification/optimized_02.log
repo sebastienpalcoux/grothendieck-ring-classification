@@ -1,0 +1,111 @@
+{
+  "status": "PASS",
+  "new_general_complex_exclusions": [
+    "R12_1_561",
+    "R12_1_628"
+  ],
+  "global_dimension": "120+36sqrt(10)",
+  "conductor": 40,
+  "squared_reciprocal_difference": "1/40",
+  "quotient_squared_difference": "9/40",
+  "source_bindings": [
+    {
+      "id": "R12_1_561",
+      "tensor_sha256": "026304a67ba71a4fff9425eeb32c1618032886948763f28187e9c8aceec1ea41",
+      "checked_products": 144,
+      "central_subgroup_coordinates": [
+        0,
+        2,
+        4
+      ]
+    },
+    {
+      "id": "R12_1_628",
+      "tensor_sha256": "a662bbef5da147db83ddd3718812ae46e623edd2a1370a78d50949c97c851519",
+      "checked_products": 144,
+      "central_subgroup_coordinates": [
+        0,
+        2,
+        4
+      ]
+    }
+  ],
+  "metric_Fourier_checks": [
+    {
+      "metric_parameter": 1,
+      "exponent_mod_3": 1,
+      "vacuum_column": [
+        [
+          "1/3",
+          "2/3"
+        ],
+        [
+          "1/3",
+          "-1/3"
+        ],
+        [
+          "1/3",
+          "-1/3"
+        ]
+      ]
+    },
+    {
+      "metric_parameter": 1,
+      "exponent_mod_3": 2,
+      "vacuum_column": [
+        [
+          "-1/3",
+          "-2/3"
+        ],
+        [
+          "2/3",
+          "1/3"
+        ],
+        [
+          "2/3",
+          "1/3"
+        ]
+      ]
+    },
+    {
+      "metric_parameter": 2,
+      "exponent_mod_3": 1,
+      "vacuum_column": [
+        [
+          "-1/3",
+          "-2/3"
+        ],
+        [
+          "2/3",
+          "1/3"
+        ],
+        [
+          "2/3",
+          "1/3"
+        ]
+      ]
+    },
+    {
+      "metric_parameter": 2,
+      "exponent_mod_3": 2,
+      "vacuum_column": [
+        [
+          "1/3",
+          "2/3"
+        ],
+        [
+          "1/3",
+          "-1/3"
+        ],
+        [
+          "1/3",
+          "-1/3"
+        ]
+      ]
+    }
+  ],
+  "finite_exponent_bound_assumed": false,
+  "optimizer_used": false,
+  "proof": "saturation_exclusion.md",
+  "categorical_prerequisite": "Previously proved central C3 lift, replayed in the preceding evidence packet."
+}

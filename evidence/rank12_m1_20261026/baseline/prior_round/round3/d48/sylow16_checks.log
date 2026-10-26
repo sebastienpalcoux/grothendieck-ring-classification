@@ -1,0 +1,27 @@
+Syntax warning: Unbound global variable in rank12-m1-round3-20261026/d48/sylow\
+16_checks.g:6
+  z:=First(AsList(N),x->x<>One(G));;K:=Intersection(H,H^(z^-1));;
+                               ^
+Syntax warning: Unbound global variable in rank12-m1-round3-20261026/d48/sylow\
+16_checks.g:7
+  if not Size(K)=8 or not ForAll(AsList(K),k->Comm(k,z)=One(G))then Error("nor\
+mal-three intersection check");fi;
+                                                     ^
+Syntax warning: Unbound global variable in rank12-m1-round3-20261026/d48/sylow\
+16_checks.g:7
+  if not Size(K)=8 or not ForAll(AsList(K),k->Comm(k,z)=One(G))then Error("nor\
+mal-three intersection check");fi;
+                                                            ^
+10 normalSylow3=true Htype=C8 : C2 Hmultiplier=[  ]
+12 normalSylow3=true Htype=C4 : C4 Hmultiplier=[ 2 ]
+13 normalSylow3=true Htype=C4 : C4 Hmultiplier=[ 2 ]
+14 normalSylow3=true Htype=(C4 x C2) : C2 Hmultiplier=[ 2, 2 ]
+19 normalSylow3=true Htype=(C4 x C2) : C2 Hmultiplier=[ 2, 2 ]
+30 normalSylow3=false Htype=(C4 x C2) : C2 Hmultiplier=[ 2, 2 ]
+34 normalSylow3=true Htype=C2 x Q8 Hmultiplier=[ 2, 2 ]
+36 normalSylow3=true Htype=C2 x D8 Hmultiplier=[ 2, 2, 2 ]
+37 normalSylow3=true Htype=(C4 x C2) : C2 Hmultiplier=[ 2, 2 ]
+38 normalSylow3=true Htype=C2 x D8 Hmultiplier=[ 2, 2, 2 ]
+39 normalSylow3=true Htype=(C4 x C2) : C2 Hmultiplier=[ 2, 2 ]
+43 normalSylow3=true Htype=C2 x D8 Hmultiplier=[ 2, 2, 2 ]
+48 normalSylow3=false Htype=C2 x D8 Hmultiplier=[ 2, 2, 2 ]

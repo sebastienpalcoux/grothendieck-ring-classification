@@ -1,0 +1,498 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=23mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,booktabs,longtable,array,microtype}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,linkcolor=blue!50!black,urlcolor=blue!50!black,citecolor=blue!50!black]{hyperref}
+\usepackage{enumitem}
+\setlist{nosep,leftmargin=*}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newcommand{\R}[1]{\texttt{R12\_1\_#1}}
+\newcommand{\FPdim}{\operatorname{FPdim}}
+\renewcommand{\Vec}{\operatorname{Vec}}
+\newcommand{\Rep}{\operatorname{Rep}}
+\newcommand{\Irr}{\operatorname{Irr}}
+\newcommand{\C}{\mathbb C}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\setlength{\parskip}{4pt}
+\setlength{\parindent}{0pt}
+\title{Rank twelve, multiplicity one:\\third offline theoretical continuation}
+\author{Fusion-ring census research notes}
+\date{26 October 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+We revisit all 66 rings left unresolved by the previous round. A unified
+Morita and cohomology argument resolves the fifteen dimension-120 cases,
+giving three unitary models and twelve general-complex exclusions.
+Twisted Ising constructions give two further models; relative cocycle
+adaptation gives another two. A complete central-induction and indicator
+certificate excludes one quadratic ring. Thus this round resolves twenty
+cases: thirteen exclusions and seven models. Of the 632 supplied rings,
+438 are excluded, 148 have unitary models, and 46 remain unresolved.
+All results are offline. Independent computational and mathematical checks
+within the project have been performed; independent human verification
+remains pending.
+\end{abstract}
+
+\section{Results and precise scope}
+The objects counted here are supplied based fusion rings, identified by
+their permanent census IDs and SHA256 hashes of their complete tensors.
+These are not counts of fusion categories up to tensor equivalence.
+An exclusion concerns every complex fusion categorification. A positive
+result is an actual unitary category with all $12^3=1728$ structure
+constants matched under a unit-preserving basis bijection.
+
+\begin{center}
+\begin{tabular}{lrrr}
+\toprule
+Stage & Excluded & Modeled & Unresolved\\
+\midrule
+Previous completed round &425&141&66\\
+This round: changes &+13&+7&$-20$\\
+Current total &\textbf{438}&\textbf{148}&\textbf{46}\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The new exclusions are
+\[
+\begin{gathered}
+\R{161},\ \R{211},\ \R{262},\ \R{265},\ \R{312},\ \R{350},\ \R{362},\\
+\R{388},\ \R{453},\ \R{469},\ \R{472},\ \R{503},\ \R{516}.
+\end{gathered}
+\]
+The new unitary models are
+\[
+\R{142},\ \R{240},\ \R{361},\ \R{408},\ \R{414},\ \R{444},\ \R{531}.
+\]
+No earlier exclusion or model is retracted. The previous round is preserved
+as a frozen snapshot in the archive. Failed searches, feasible necessary
+conditions, and based-ring automorphisms without categorical lifts have
+not been used to change any status.
+
+\begin{center}
+\begin{tabular}{lrrrr}
+\toprule
+Family & Entering & Excluded here & Modeled here & Remaining\\
+\midrule
+Dimension 32 &20&0&2&18\\
+Dimension 48 &22&0&2&20\\
+Dimension 120 &15&12&3&0\\
+Dimension 144 &4&0&0&4\\
+Quadratic, $\sqrt{13}$ &1&0&0&1\\
+Quadratic, $\sqrt{10}$ &4&1&0&3\\
+\midrule
+Total &66&13&7&46\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\section{The dimension-120 family is completely resolved}
+\begin{theorem}
+Among the sixteen supplied rings of type $(1^4,2^4,5^4)$, the categorifiable
+ones are precisely $\R{25}$, $\R{142}$, $\R{361}$ and $\R{444}$.
+Each has a unitary group-theoretical realization. The first was already
+modeled; the other three and the twelve exclusions are new decisions.
+\end{theorem}
+
+\subsection{Two forced pointed Morita reductions}
+Every source has a dimension-20 subring of type $(1^4,2^4)$. There is a
+unique common involution $b$ fixing the four dimension-two objects on both
+sides. On the dimension-five objects it acts freely, with identical left
+and right permutations. These are exact properties of all sixteen tensors.
+
+A fixed simple trivializes the pointed associator on $\langle b\rangle$,
+so $A=1+b$ is an actual separable algebra. The cyclic stabilizer argument
+from the previous round makes the dimension-20 subcategory pointed under
+$A$-bimodule duality. Briefly, a fixed dimension-two simple has an $A$-module
+structure because $H^2(C_2,\C^\times)=0$. Its internal end has dimension two
+and contains the unit; hence it is supported on $1+b$. The same vanishing
+supplies a commuting left action. The free dimension-five orbits each
+give two dimension-five bimodules. Thus the full dual $\mathcal D$ has type
+$(1^{20},5^4)$.
+
+The invertible group of $\mathcal D$ has a unique Sylow subgroup
+$H=C_5$. It acts trivially on the four other simples on both sides.
+The algebra $B=\bigoplus_{h\in H}h$ therefore exists. For a simple right
+$B$-module with underlying dimension-five object, the internal end has
+dimension $25/5=5$ and contains the unit. It cannot contain a noninvertible
+simple. Its invertible support is a subgroup of order five and hence
+equals $H$. This proves that a commuting left action exists; it does not
+assume that the original object's full stabilizer had order five.
+
+Each of the four dimension-five objects gives $5\cdot5$ invertible
+bimodules. The pointed sector gives twenty more. Consequently
+$\mathcal E={}_B\mathcal D_B$ is pointed of dimension 120. This proves
+group-theoreticity for any categorification, with no unitary or spherical
+hypothesis.
+
+The reverse algebra for the first dual is $R=1+c$, where $c$ has order two
+and lies outside $H$. The actual free $B$--$R$ bimodule $B\otimes R$ has
+ten distinct invertible constituents and transitive support, so is simple.
+Its internal end in $\mathcal E$ has dimension
+$10^2/(5\cdot2)=10$. The original category therefore has the form
+\[
+\mathcal C(G,\omega,K,\psi),\qquad |G|=120,\quad |K|=10.
+\]
+The subgroup order is obtained from an actual algebra, not guessed from
+a dimension-divisibility condition.
+
+\subsection{The group and subgroup are forced}
+If $K=C_{10}$, the identity double coset supplies ten invertibles, which
+is impossible. Therefore $K=D_{10}$, where the subscript denotes group
+order. Its Schur multiplier is trivial. Each normalizer coset supplies
+degrees $(1,1,2,2)$, so the normalizer has order twenty. The two remaining
+double cosets have size fifty and stabilizer $C_2$; these supply the four
+dimension-five objects.
+
+If $G$ were solvable, a Hall subgroup of order forty containing $K$
+would be a union of $K$-double cosets. It can contain none of size fifty,
+and would have to lie in the order-twenty normalizer: a contradiction.
+The nonsolvable groups of order 120 are $A_5\times C_2$, $S_5$ and
+$\mathrm{SL}(2,5)$. The last has no $D_{10}$ subgroup. In $S_5$, or for
+the trivial graph $D_{10}\subset A_5\times C_2$, an induced faithful
+$C_2$-grading has neutral type $(1^2,2^2,5^2)$. A dimension-five simple
+times its dual has dimension 25, larger than the sum $2+4+10=16$ of all
+neutral simple dimensions. Such a product cannot be multiplicity-free.
+
+Only the reflection-sign graph remains:
+\[
+G=A_5\times C_2,\qquad
+K=\{(h,\operatorname{sgn}_{D}(h)):h\in D_{10}\}.
+\]
+
+\subsection{Exhaustive cohomology and the four outputs}
+The admissible classes form the kernel of restriction from
+$H^3(G,\C^\times)$ to $H^3(K,\C^\times)$.
+Its 5-primary part vanishes because the subgroup index twelve is prime
+to five. Its 3-primary part is $C_3$ and does not change the fusion ring,
+by the lemma below.
+
+The ambient 2-primary part is $C_2^3$. Restriction to
+$V_4\times C_2$ is injective, and the normalizer $C_3$ has a
+three-dimensional invariant subspace in its degree-three cohomology.
+Three independent global classes attain this bound: $u$, the transfer
+of the anisotropic $V_4$ cocycle; $v$, the external $C_2$ cube; and $w$,
+the cup product of the binary-icosahedral Schur cocycle with the external
+character. Each restricts to the same nonzero class on $K$. The relative
+2-primary part is thus generated by $u+v$ and $w+v$.
+
+Explicit cochain gauges make these two cocycles identically trivial on
+$K$, so the subgroup algebra has cochain $\psi=1$. There is no further
+subgroup-cochain parameter because $H^2(D_{10},\C^\times)=0$.
+
+\begin{center}
+\begin{tabular}{ccc}
+\toprule
+Coefficient of $u+v$ & Coefficient of $w+v$ & Exact tensor\\
+\midrule
+0&0&$\R{25}$\\
+0&1&$\R{142}$\\
+1&0&$\R{361}$\\
+1&1&$\R{444}$\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{lemma}[Coprime primary twists preserve the based fusion ring]
+Let $p\nmid |K|$. A $p$-primary change of the associator of a
+group-theoretical category $\mathcal C(G,\omega,K,\psi)$, with a compatible
+$p$-primary subgroup trivialization, does not change its based fusion ring.
+\end{lemma}
+\begin{proof}
+Choose finite roots of unity for the data and a complete strictly henselian
+discrete valuation ring of mixed characteristic $(0,p)$ containing them.
+The $p$-power roots reduce to one. Every double-coset stabilizer has order
+dividing $|K|$, so its twisted group algebra is separable over this ring
+and has split semisimple residue fiber. Its simple modules lift with the
+same ranks. The balanced tensor product and the equivariant Hom spaces
+are direct summands furnished by averaging idempotents whose denominators
+divide $|K|$. Their ranks, hence all fusion coefficients, are unchanged
+under reduction. Both associators have identical reductions.
+The argument needs $p\nmid |K|$, not $p\nmid |G|$.
+\end{proof}
+
+An independent Mackey-formula proof is also included in the archive.
+The four exact constructions, together with this categorical converse,
+prove the twelve exclusions. A failed construction search alone would
+not establish the theorem.
+
+\section{Two twisted Ising models in dimension 32}
+The same construction principle gives $\R{240}$ and $\R{408}$.
+Let $\mathcal I$ be a unitary Ising category, with objects
+$1,\psi,\sigma$ and $\sigma^2=1+\psi$. For a group $E$ of order sixteen,
+a normalized unitary cocycle $\omega$, and a grading
+$\epsilon:E\to C_2$, take the matched-grading fusion subcategory
+\[
+\mathcal B=\{(X,g)\in\mathcal I\boxtimes\Vec_E^\omega:
+                  \deg X=\epsilon(g)\}.
+\]
+It has type $(1^{16},(\sqrt2)^8)$ and dimension 32.
+If $s$ is an even involution and $\omega$ restricts trivially to
+$\langle s\rangle$, then $A=1+(1,s)$ is a connected separable algebra.
+The category ${}_A\mathcal B_A$ is an actual unitary Morita model.
+
+For $\R{240}$, use $E=D_{16}$, with
+\[
+(a,b)(c,d)=([a+(-1)^bc]_8,b+d),\qquad \epsilon(a,b)=a\bmod2,
+\]
+and $s=(0,1)$. A suitable cocycle is
+\[
+\omega((a,b),(c,d),(e,f))=
+\exp\!\left(\frac{2\pi i}{8}a(-1)^b
+      \frac{c+(-1)^de-[c+(-1)^de]_8}{8}\right).
+\]
+It is the cup product of the crossed rotation coordinate with its twisted
+integral Bockstein; the two sign coefficient systems cancel.
+This proves the cocycle identity conceptually. All $16^4=65\,536$
+identities are also checked exactly.
+
+For $\R{408}$, replace the group by the semidihedral group
+$E=\langle r,s:r^8=s^2=1,\ srs^{-1}=r^3\rangle$.
+The supplied sixteenth-root cocycle is an exact lift of a normalized
+modulo-eight cocycle. Its full table and all lift data are frozen; every
+cocycle identity and the restriction to the chosen involution are
+checked. This uses an actual pointed category and an actual subgroup
+algebra, not a presumed lift of a fusion-ring symmetry.
+
+Both bimodule categories have type $(1^8,2^2,(\sqrt8)^2)$.
+The primary constructor computes exact balanced products; an independent
+implementation computes full grade-preserving Hom spaces. Both match all
+1728 coefficients to the original tensors. The Ising category supplies
+the full associator, including its three-$\sigma$ matrix block, although
+that block is not needed for these subgroup-bimodule operations.
+
+\section{Two models from relative cocycle adaptation}
+The following elementary device makes previously unusable cocycles usable.
+
+\begin{lemma}[Adaptation by a retraction]
+Suppose $q:G\to Q$ admits a group-homomorphic section $s$ with image $H$,
+and $p:G\to L$ is a homomorphism. For a normalized additive three-cocycle
+$v$ on $L$, the cochain
+\[
+\omega=p^*v-(psq)^*v
+\]
+is a normalized three-cocycle identically zero on $H$. Thus the ordinary
+subgroup algebra of $H$ exists in $\Vec_G^{\exp(2\pi i\omega)}$.
+\end{lemma}
+\begin{proof}
+Both terms are pullbacks along homomorphisms and hence cocycles.
+For inputs in $H$, the retraction $sq$ is the identity, so the terms
+cancel. The ordinary subgroup multiplication is therefore associative;
+the usual averaging splitting proves separability.
+\end{proof}
+
+For $\R{414}$, set
+\[
+G_0=S_4\times C_2,\qquad
+H_0=\langle((34),0),((12),1)\rangle.
+\]
+The map $(\operatorname{sgn},\mathrm{id}):G_0\to C_2^2$ restricts to an
+isomorphism on $H_0$. For $\R{531}$, set
+\[
+G_1=S_4\times_{C_2}C_4,\qquad
+H_1=\langle((1324),1)\rangle.
+\]
+Projection to $C_4$ restricts to an isomorphism on $H_1$. In both cases,
+use projection to $S_4$ for $p$, and a fourth-root cocycle $v$ transferred
+from a Sylow $D_8$ subgroup of $S_4$. The resulting relative cocycle and
+the trivial subgroup cochain give the required unitary categories.
+
+The actual cocycle tables, group tables, subgroup embeddings, simple
+bimodule actions and basis identifications are supplied. Both replay
+implementations check all $48^4=5\,308\,416$ cocycle identities, the
+subgroup algebra, and all 1728 fusion coefficients. The origin by transfer
+explains discovery; existence does not depend on an unproved claim that
+the chosen transfer generators exhaust cohomology.
+
+These use standard categorical constructions. The specific cocycles and
+census identifications are recorded here without a claim of novelty up
+to tensor equivalence.
+
+\section{A general-complex exclusion for \texorpdfstring{$\R{350}$}{R12-1-350}}
+\begin{theorem}
+The ring $\R{350}$ admits no complex fusion categorification.
+\end{theorem}
+\begin{proof}[Proof with finite exact certificate]
+Its basis is $g,g\rho$ for $g\in S_3$, where $\rho$ is central and
+\[
+\rho^2=1+\left(\sum_{g\in S_3}g\right)\rho,\qquad
+d=\FPdim(\rho)=3+\sqrt{10}.
+\]
+Published Lemma 3.1 of Schopieray \cite{Sch} gives a pseudo-unitary Galois
+conjugate of any categorification whose simple FP dimensions lie in
+$\{1,d\}$. It does not assume commutativity, rank six, or an initial
+pivotal structure. We may therefore work with a positive spherical
+categorification, and write $D=120+36\sqrt{10}$.
+
+The six irreducible representations of the complex based algebra have
+degrees $(1,1,1,1,2,2)$ and formal codegrees
+\[
+D,\ D'=120-36\sqrt{10},\ 12,\ 12,\ 6,\ 6.
+\]
+Accordingly, the six distinct central simples in $I(1)$ have dimensions
+$1,d^2,1+3d,1+3d,2+6d,2+6d$ and unit restriction coefficients
+$1,1,1,1,2,2$. Their noninvertible restriction coefficients are constant
+on the three conjugacy classes of sizes $2,3,1$.
+
+The exact induction Gram matrix is
+$B_{ij}=\sum_{a,k}N_{ai}^{k}N_{ka^*}^{j}$.
+Its unit column has value twelve at the unit, zero at other invertibles,
+and six at each noninvertible. The dimension and unit-column conditions
+leave exactly thirty ordered low restriction frames. Twenty-six have
+an exact negative Gram witness. Four survive.
+
+For each survivor, possible remaining restriction columns are bounded
+using nonnegativity, the full Gram kernel, the rank-one PSD condition,
+the $d$-number condition on their central dimensions $z$, and algebraic integrality
+of $D/z$. This yields respectively $30,43,43,28$ columns. Centrality
+justifies compression to the five nonunit conjugacy classes; no
+unproved invariance of arbitrary noncentral objects is assumed.
+
+The categorical Cauchy theorem restricts twist-exponent primes to
+$2,3,5$, the prime divisors of $DD'=1440$. The dimension field has
+conductor forty. The first six normalized relative traces of all allowed
+roots of unity form a finite set of 45 tuples. Orders dividing 7200,
+together with the all-zero tuple for higher prime-power layers, cover
+this entire trace image. This is not a bound imposed on the true exponent.
+
+Duality and adjoint parity fix the second indicators of noninvertibles. The three
+invertible transpositions retain all eight independent sign choices,
+even if additional categorical constraints could relate them. The
+Ng--Schauenburg center trace identities \cite{NS} and the rotation-space bounds
+\[
+-\frac{[X^j:1]}{p-1}\ \leq\ \overline{\nu_j(X)}\ \leq\ [X^j:1],
+\quad j=3,4,5,6,
+\]
+where $p$ is the least prime divisor of $j$, give an exact rational
+nonnegative linear system for every surviving frame and sign assignment.
+
+For each of these $4\cdot8=32$ systems $Ax=b$, the archive supplies an
+integer vector $y$ with $A^{\mathsf T}y\geq0$ and $b^{\mathsf T}y<0$.
+Thus no nonnegative solution exists. An independent implementation
+reconstructs every system and checks every inequality using integers and
+rational arithmetic, with no optimizer or imported rank-six code.
+The initial Galois reduction proves the general-complex conclusion.
+\end{proof}
+
+\section{What remains open, and what was learned}
+\subsection{Dimension 32: eighteen rings}
+The Ising--pointed construction resolves two cases. Checks of actual
+soft tensor actions on the Choi--Lu--Sun dimension-16 categories recover
+known controls, not further targets. Their coherence was checked, but
+the restricted tensorator ansatz is not a classification of all actions.
+A possible common isotropic involution reduction does not yet exhaust
+all Morita sources: the reverse involution can fix noninvertibles and
+can lie inside their stabilizer. These branches remain in the problem.
+
+\subsection{Dimension 48: twenty rings}
+The untwisted group-theoretical search was expanded to all 52 groups of
+order 48 and all 1722 conjugacy classes of subgroups. Subgroup-cochain
+twists and additional relative cocycles were examined. The two models
+above are the accepted new outputs. This is not a proof that all possible
+associators were exhausted, nor a theorem that every hypothetical
+dimension-48 categorification is group-theoretical. The outstanding
+cohomology and categorical converse gaps are recorded explicitly.
+
+\subsection{Dimension 144: one Morita branch remains}
+All four rings $\R{180},\R{181},\R{320},\R{321}$ remain unresolved.
+The first actual $1+z$ condensation has integral type
+\[
+1^6,\ 3^2,\ 2^{4t},\ 4^{3-t},\qquad 0\leq t\leq3.
+\]
+Its pointed group is $S_3$. The normal $C_3$ cannot fix a dimension-two
+or dimension-four simple, since the corresponding internal end would
+have nonintegral dimension $4/3$ or $16/3$. Orbit divisibility forces
+$t=0$ or $3$.
+
+The $t=0$ branch is now excluded. A second actual $C_3$ condensation
+would give integral type $(1^{24},4^3)$ and four odd simples of dimension
+$3\sqrt2$. A formal-codegree argument forces a dimension-24 near-group
+subcategory of type $\mathrm{NG}(H_8,2)$. The rank-four odd module has
+normalized dimensions $\sqrt6$. The applicable near-group classification
+is legitimate here: dimension 24 forces solvability and hence
+unitarizability \cite{ENO,GHR,IT}.
+
+The group-theoretical module formula forces the untwisted $D_8$
+near-group case, with restricted module dual $\Rep(S_4)$. Both subgroup
+Schur-cochain classes are retained. Clifford theory \cite{Gal} then
+makes its full module dual a $C_3$-equivariantization of $\Rep(S_4)$.
+Every such action fixes the five simple isomorphism classes, giving type
+$(1^6,2^3,3^6)$. This contradicts the required dual type $(1^{24},4^3)$.
+
+Consequently the unique possible first-dual type is
+\[
+1^6,\ 2^{12},\ 3^2,\ (3\sqrt2)^4.
+\]
+The original rank-three subcategory is also proved tensor-equivalent to
+ordinary $\Rep(S_3)$, so its dimension-six regular algebra exists.
+A central embedding, the remaining projective stabilizer classes, and
+the required categorical symmetry lifts are not yet established.
+Eliminating one Morita branch is not an exclusion of the four rings.
+
+\subsection{The four remaining quadratic rings}
+The unresolved quadratic IDs are $\R{332}$, $\R{561}$, $\R{623}$ and
+$\R{628}$. For the two commutative cases $\R{561}$ and $\R{628}$, a
+central Tannakian $C_3$ lift would yield forbidden rank-four quotients.
+This rules out that lift; it does not rule out the original rings.
+For $\R{623}$, the higher-indicator calculation forces second indicator
+$-1$ for its pointed involution in any pseudo-unitary realization, so the
+ordinary algebra $1+z$ cannot supply a model there. The opposite-sign
+control agrees with the known $\R{326}$ category. Surviving indicator
+branches for $\R{623}$ remain.
+Neither feasible moment data nor failure to find a coherent action has
+been treated as a categorical model or exclusion.
+
+\section{Evidence, replay, and publication boundary}
+The archive contains the full 632-record ledger, hashes, new decisions,
+the 46 unresolved tensors, detailed family proofs, exact model data,
+integer exclusion rays, independent replay programs and their receipts.
+Every accepted new model is checked against all 1728 input coefficients.
+The principal replay programs are tested in normal and optimized Python;
+their checks do not disappear when assertions are disabled.
+
+The finite replays verify the encoded arithmetic. The categorical
+converses, scope reductions and coverage arguments are supplied as
+mathematical proofs and were separately reviewed within the project.
+That distinction is essential: a correct scalar computation cannot
+replace a missing categorical premise.
+
+The GitHub repositories and public website have not been revised. The
+prior round remains a frozen baseline; this package is a new offline
+continuation prepared for review.
+
+\clearpage
+\begin{thebibliography}{9}
+\bibitem{EGNO} P. Etingof, S. Gelaki, D. Nikshych and V. Ostrik,
+\emph{Tensor Categories}, AMS, 2015. Sections 7.4 and 9.7.
+\href{https://math.mit.edu/~etingof/egnobookfinal.pdf}{Author manuscript}.
+\bibitem{Sch} A. Schopieray, \emph{Categorification of integral group rings
+extended by one dimension}, J. London Math. Soc. 108 (2023), 1617--1641.
+\href{https://doi.org/10.1112/jlms.12789}{Published Lemma 3.1}.
+\bibitem{ENO} P. Etingof, D. Nikshych and V. Ostrik,
+\emph{Weakly group-theoretical and solvable fusion categories},
+Adv. Math. 226 (2011), 176--205.
+\href{https://arxiv.org/abs/0809.3031}{arXiv:0809.3031}, Theorem 1.6.
+\bibitem{GHR} C. Galindo, S.-M. Hong and E. C. Rowell,
+\emph{Generalized and quasi-localizations of braid group representations},
+IMRN 2013, 693--731.
+\href{https://arxiv.org/abs/1105.5048}{arXiv:1105.5048}, Theorem 5.20.
+\bibitem{IT} M. Izumi and H. Tucker,
+\emph{Algebraic realization of noncommutative near-group fusion categories},
+\href{https://arxiv.org/abs/1908.01655}{arXiv:1908.01655},
+Theorems 1.2 and 3.2.
+\bibitem{Gal} C. Galindo, \emph{Clifford theory for graded fusion categories},
+\href{https://arxiv.org/abs/1010.5283}{arXiv:1010.5283v3}, Corollary 6.4.
+\bibitem{Ost} V. Ostrik, \emph{On formal codegrees of fusion categories},
+\href{https://arxiv.org/abs/0810.3242}{arXiv:0810.3242}, Theorems 1.2 and 1.8.
+\bibitem{BNRW} P. Bruillard, S.-H. Ng, E. C. Rowell and Z. Wang,
+\emph{Rank-finiteness for modular categories},
+\href{https://arxiv.org/abs/1310.7050}{arXiv:1310.7050}, Theorem 3.9.
+\bibitem{NS} S.-H. Ng and P. Schauenburg,
+\emph{Frobenius--Schur indicators and exponents of spherical categories},
+\href{https://arxiv.org/abs/math/0601012}{arXiv:math/0601012}.
+\end{thebibliography}
+\end{document}

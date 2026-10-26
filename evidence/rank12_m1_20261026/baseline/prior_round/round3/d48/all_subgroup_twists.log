@@ -1,0 +1,191 @@
+Syntax warning: Unbound global variable in rank12-m1-round3-20261026/d48/all_s\
+ubgroup_twists.g:8
+ lifts:=List(hs,h->PreImagesRepresentative(ep,h));;lifts[1]:=One(cov);;
+                                           ^^
+Syntax warning: Unbound global variable in rank12-m1-round3-20261026/d48/all_s\
+ubgroup_twists.g:9
+ isoc:=IsomorphismPcGroup(cov);;lifts:=List(lifts,l->Image(isoc,l));;ker:=Imag\
+e(isoc,ker);;
+                                                           ^^^^
+Syntax warning: Unbound global variable in rank12-m1-round3-20261026/d48/all_s\
+ubgroup_twists.g:12
+ psi:=List(hs,a->List(hs,b->0));;
+                      ^^
+Syntax warning: Unbound global variable in rank12-m1-round3-20261026/d48/all_s\
+ubgroup_twists.g:15
+  if kchi[PositionProperty(kclasses,c->coc in c)]=-1 then psi[a][b]:=1;fi;
+                                       ^^^
+Syntax warning: Unbound global variable in rank12-m1-round3-20261026/d48/all_s\
+ubgroup_twists.g:20
+  alpha:=List(ks,a->List(ks,b->(psi[Position(hs,a)][Position(hs,b)]-psi[Positi\
+on(hs,z^-1*a*z)][Position(hs,z^-1*b*z)])mod 2));;
+                         ^^
+Syntax warning: Unbound global variable in rank12-m1-round3-20261026/d48/all_s\
+ubgroup_twists.g:20
+  alpha:=List(ks,a->List(ks,b->(psi[Position(hs,a)][Position(hs,b)]-psi[Positi\
+on(hs,z^-1*a*z)][Position(hs,z^-1*b*z)])mod 2));;
+                                ^^^
+Syntax warning: Unbound global variable in rank12-m1-round3-20261026/d48/all_s\
+ubgroup_twists.g:20
+  alpha:=List(ks,a->List(ks,b->(psi[Position(hs,a)][Position(hs,b)]-psi[Positi\
+on(hs,z^-1*a*z)][Position(hs,z^-1*b*z)])mod 2));;
+                                             ^^
+Syntax warning: Unbound global variable in rank12-m1-round3-20261026/d48/all_s\
+ubgroup_twists.g:20
+  alpha:=List(ks,a->List(ks,b->(psi[Position(hs,a)][Position(hs,b)]-psi[Positi\
+on(hs,z^-1*a*z)][Position(hs,z^-1*b*z)])mod 2));;
+                                                             ^^
+Syntax warning: Unbound global variable in rank12-m1-round3-20261026/d48/all_s\
+ubgroup_twists.g:20
+  alpha:=List(ks,a->List(ks,b->(psi[Position(hs,a)][Position(hs,b)]-psi[Positi\
+on(hs,z^-1*a*z)][Position(hs,z^-1*b*z)])mod 2));;
+                                                                    ^^^
+Syntax warning: Unbound global variable in rank12-m1-round3-20261026/d48/all_s\
+ubgroup_twists.g:20
+  alpha:=List(ks,a->List(ks,b->(psi[Position(hs,a)][Position(hs,b)]-psi[Positi\
+on(hs,z^-1*a*z)][Position(hs,z^-1*b*z)])mod 2));;
+                                                                              \
+   ^^
+Syntax warning: Unbound global variable in rank12-m1-round3-20261026/d48/all_s\
+ubgroup_twists.g:20
+  alpha:=List(ks,a->List(ks,b->(psi[Position(hs,a)][Position(hs,b)]-psi[Positi\
+on(hs,z^-1*a*z)][Position(hs,z^-1*b*z)])mod 2));;
+                                                                              \
+      ^
+Syntax warning: Unbound global variable in rank12-m1-round3-20261026/d48/all_s\
+ubgroup_twists.g:20
+  alpha:=List(ks,a->List(ks,b->(psi[Position(hs,a)][Position(hs,b)]-psi[Positi\
+on(hs,z^-1*a*z)][Position(hs,z^-1*b*z)])mod 2));;
+                                                                              \
+             ^
+Syntax warning: Unbound global variable in rank12-m1-round3-20261026/d48/all_s\
+ubgroup_twists.g:20
+  alpha:=List(ks,a->List(ks,b->(psi[Position(hs,a)][Position(hs,b)]-psi[Positi\
+on(hs,z^-1*a*z)][Position(hs,z^-1*b*z)])mod 2));;
+                                                                              \
+                          ^^
+Syntax warning: Unbound global variable in rank12-m1-round3-20261026/d48/all_s\
+ubgroup_twists.g:20
+  alpha:=List(ks,a->List(ks,b->(psi[Position(hs,a)][Position(hs,b)]-psi[Positi\
+on(hs,z^-1*a*z)][Position(hs,z^-1*b*z)])mod 2));;
+                                                                              \
+                             ^
+Syntax warning: Unbound global variable in rank12-m1-round3-20261026/d48/all_s\
+ubgroup_twists.g:20
+  alpha:=List(ks,a->List(ks,b->(psi[Position(hs,a)][Position(hs,b)]-psi[Positi\
+on(hs,z^-1*a*z)][Position(hs,z^-1*b*z)])mod 2));;
+                                                                              \
+                                    ^
+Syntax warning: Unbound global variable in rank12-m1-round3-20261026/d48/all_s\
+ubgroup_twists.g:27
+  perms:=List([1..2*nn],b->PermList(List([1..2*nn],a->table[a][b])));;extgrp:=\
+Group(perms);;cc:=ConjugacyClasses(extgrp);;cp:=List(perms,p->PositionProperty\
+(cc,c->p in c));;
+                                               ^^
+Syntax warning: Unbound global variable in rank12-m1-round3-20261026/d48/all_s\
+ubgroup_twists.g:27
+  perms:=List([1..2*nn],b->PermList(List([1..2*nn],a->table[a][b])));;extgrp:=\
+Group(perms);;cc:=ConjugacyClasses(extgrp);;cp:=List(perms,p->PositionProperty\
+(cc,c->p in c));;
+                                                      ^^^^^
+Syntax warning: Unbound global variable in rank12-m1-round3-20261026/d48/all_s\
+ubgroup_twists.g:27
+  perms:=List([1..2*nn],b->PermList(List([1..2*nn],a->table[a][b])));;extgrp:=\
+Group(perms);;cc:=ConjugacyClasses(extgrp);;cp:=List(perms,p->PositionProperty\
+(cc,c->p in c));;
+                                                                              \
+                                                                              \
+ ^^
+Syntax warning: Unbound global variable in rank12-m1-round3-20261026/d48/all_s\
+ubgroup_twists.g:31
+   Add(objects,rec(z:=Position(els,z)-1,stab:=List(ks,k->Position(els,k)-1),ch\
+ar:=List([1..nn],a->CoeffsCyc(chi[cp[2*a-1]],96))));
+                                                                  ^^^
+Syntax warning: Unbound global variable in rank12-m1-round3-20261026/d48/all_s\
+ubgroup_twists.g:31
+   Add(objects,rec(z:=Position(els,z)-1,stab:=List(ks,k->Position(els,k)-1),ch\
+ar:=List([1..nn],a->CoeffsCyc(chi[cp[2*a-1]],96))));
+                                                                              \
+                                  ^^
+Syntax warning: Unbound global variable in rank12-m1-round3-20261026/d48/all_s\
+ubgroup_twists.g:37
+ PrintTo(out,"{\"smallgroup\":[48,",gi,"],\"table\":",List(els,a->List(els,b->\
+Position(els,a*b)-1)),",\"subgroup\":",List(hs,a->Position(els,a)-1),",\"psi\"\
+:",psi,",\"objects\":[");;
+                                                                       ^^^
+Syntax warning: Unbound global variable in rank12-m1-round3-20261026/d48/all_s\
+ubgroup_twists.g:37
+ PrintTo(out,"{\"smallgroup\":[48,",gi,"],\"table\":",List(els,a->List(els,b->\
+Position(els,a*b)-1)),",\"subgroup\":",List(hs,a->Position(els,a)-1),",\"psi\"\
+:",psi,",\"objects\":[");;
+                                                                              \
+         ^^^
+Syntax warning: Unbound global variable in rank12-m1-round3-20261026/d48/all_s\
+ubgroup_twists.g:37
+ PrintTo(out,"{\"smallgroup\":[48,",gi,"],\"table\":",List(els,a->List(els,b->\
+Position(els,a*b)-1)),",\"subgroup\":",List(hs,a->Position(els,a)-1),",\"psi\"\
+:",psi,",\"objects\":[");;
+                                                                              \
+                                                           ^^^
+29 H C2 x C2 dimensions [ 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 
+  2 ]
+29 H C2 x C2 dimensions [ 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 
+  2 ]
+29 H D8 dimensions [ 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 4, 4 ]
+29 H D8 dimensions [ 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 4, 4 ]
+29 H C8 dimensions [ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 4, 4 ]
+29 H QD16 dimensions [ 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 4 ]
+30 H C4 dimensions [ 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2 ]
+30 H C4 dimensions [ 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 4, 4 ]
+30 H C4 x C2 dimensions [ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 4, 
+  4 ]
+30 H C4 x C2 dimensions [ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 4, 
+  4 ]
+30 H C4 x C2 dimensions [ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 4, 
+  4 ]
+30 H C4 x C2 dimensions [ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 4, 
+  4 ]
+30 H (C4 x C2) : C2 dimensions [ 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 
+  2, 2, 2 ]
+30 H (C4 x C2) : C2 dimensions [ 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 4, 4 ]
+30 H (C4 x C2) : C2 dimensions [ 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 
+  2, 2, 2 ]
+30 H (C4 x C2) : C2 dimensions [ 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 4, 4 ]
+48 H C2 x C2 dimensions [ 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 
+  2 ]
+48 H C2 x C2 dimensions [ 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 
+  2 ]
+48 H C2 x C2 dimensions [ 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 4, 4 ]
+48 H C2 x C2 dimensions [ 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 4, 4 ]
+48 H D8 dimensions [ 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 4, 4 ]
+48 H D8 dimensions [ 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 4, 4 ]
+48 H C4 x C2 dimensions [ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 4, 
+  4 ]
+48 H C4 x C2 dimensions [ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 4, 
+  4 ]
+48 H D8 dimensions [ 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 4, 4 ]
+48 H D8 dimensions [ 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 4, 4 ]
+48 H C2 x C2 x C2 dimensions [ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
+  1, 4, 4 ]
+48 H C2 x C2 x C2 dimensions [ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
+  1, 4, 4 ]
+48 H C2 x C2 x C2 dimensions [ 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 4, 4 ]
+48 H C2 x C2 x C2 dimensions [ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
+  1, 4, 4 ]
+48 H C2 x C2 x C2 dimensions [ 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 4, 4 ]
+48 H C2 x C2 x C2 dimensions [ 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 4, 4 ]
+48 H C2 x C2 x C2 dimensions [ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 
+  1, 4, 4 ]
+48 H C2 x C2 x C2 dimensions [ 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 4, 4 ]
+48 H C2 x D8 dimensions [ 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 
+  2 ]
+48 H C2 x D8 dimensions [ 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 4, 4 ]
+48 H C2 x D8 dimensions [ 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 
+  2 ]
+48 H C2 x D8 dimensions [ 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 
+  2 ]
+48 H C2 x D8 dimensions [ 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 4, 4 ]
+48 H C2 x D8 dimensions [ 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 
+  2 ]
+48 H C2 x D8 dimensions [ 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 4, 4 ]
+48 H C2 x D8 dimensions [ 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 4, 4 ]

@@ -13,6 +13,8 @@
 
 <a id="classification--what-is-decided"></a>
 
+**26 October 2026 · rank twelve, multiplicity one.** All 632 supplied rings are decided: **480 excluded and 152 modeled**. Exactly **151 models are known unitary**; R12_1_623 has a complex/pseudo-unitary model with unitarity unproved. [Manuscript](publications/rank12/README.md) · [Proofs, ledger and replay](evidence/rank12_m1_20261026/README.md) · [All-rank count summary](data/classification_summary_all_ranks.csv).
+
 ## Classification at a glance
 
 Ranks **2–4 have unrestricted classification claims**, with exactly **15 rank-four rings**.
@@ -30,6 +32,7 @@ Higher ranks have the explicit multiplicity bounds below.
 | 9 | Through 2 | **Complete through 1**; multiplicity 2 partial | Through 2: 2,145 excluded, 76 realized, [4 unresolved](https://sebastienpalcoux.github.io/grothendieck-ring-classification/unresolved.html?rank=9&m=2). |
 | 10 | Multiplicity 1 | **Complete at multiplicity 1** | 136 excluded, 58 realized, 0 unresolved. |
 | 11 | Multiplicity 1 | **Complete at multiplicity 1** | 155 excluded, 27 realized, 0 unresolved. |
+| 12 | Through 1 | **Complete through 1** | 632 rings: 480 general exclusions, 152 modeled, none unresolved. 151 models are unitary; R12_1_623 is complex/pseudo-unitary, with unitarity unproved. |
 
 **10 open cases.** General categorification remains undecided for these rings.
 [Explore their status, invariants and research records](https://sebastienpalcoux.github.io/grothendieck-ring-classification/unresolved.html).
@@ -40,15 +43,15 @@ Higher ranks have the explicit multiplicity bounds below.
 Multiplicity is the largest fusion coefficient. `≥` marks a lower bound where
 general categorification remains open; a dash marks an unanalyzed band.
 
-| Multiplicity | Rank 2 | Rank 3 | Rank 4 | Rank 5 | Rank 6 | Rank 7 | Rank 8 | Rank 9 | Rank 10 | Rank 11 |
-| ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| 1 | 2 | 4 | 9 | 10 | 21 | 13 | 48 | 40 | 58 | 27 |
-| 2 | 0 | 1 | 3 | 3 | 22 | 10 | 29 | ≥36 | — | — |
-| 3 | 0 | 0 | 2 | 2 | 3 | 2 | ≥16 | — | — | — |
-| 4 | 0 | 0 | 0 | 2 | ≥5 | 4 | — | — | — | — |
-| 5 | 0 | 0 | 0 | 0 | 1 | 1 | — | — | — | — |
-| 6 | 0 | 0 | 1 | 0 | 3 | — | — | — | — | — |
-| 7 | 0 | 0 | 0 | 0 | 2 | — | — | — | — | — |
+| Multiplicity | Rank 2 | Rank 3 | Rank 4 | Rank 5 | Rank 6 | Rank 7 | Rank 8 | Rank 9 | Rank 10 | Rank 11 | Rank 12 |
+| ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| 1 | 2 | 4 | 9 | 10 | 21 | 13 | 48 | 40 | 58 | 27 | 152 |
+| 2 | 0 | 1 | 3 | 3 | 22 | 10 | 29 | ≥36 | — | — | — |
+| 3 | 0 | 0 | 2 | 2 | 3 | 2 | ≥16 | — | — | — | — |
+| 4 | 0 | 0 | 0 | 2 | ≥5 | 4 | — | — | — | — | — |
+| 5 | 0 | 0 | 0 | 0 | 1 | 1 | — | — | — | — | — |
+| 6 | 0 | 0 | 1 | 0 | 3 | — | — | — | — | — | — |
+| 7 | 0 | 0 | 0 | 0 | 2 | — | — | — | — | — | — |
 
 [Ranks 2–8 counts](data/grothendieck_counts.csv) · [Ranks 9–10 ledger](evidence/unresolved_retry_20261024/rank9_rank10_m1_ledger.csv) · [Rank-nine M2 ledger](evidence/rank9_m2_20261024/ledger.csv) · [Rank-11 ledger](evidence/rank11_m1_20261023/work/rank11/ledger.csv) · [Definitions and scope](docs/PROJECT_GUIDE.md#grothendieck-rings--known-realizations-at-each-exact-multiplicity)
 

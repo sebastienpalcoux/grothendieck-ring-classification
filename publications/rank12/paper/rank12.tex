@@ -1,0 +1,450 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=23mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,booktabs,longtable,array,microtype}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,linkcolor=blue!50!black,urlcolor=blue!50!black]{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newcommand{\R}[1]{\texttt{R12\_1\_#1}}
+\newcommand{\FPdim}{\operatorname{FPdim}}
+\newcommand{\Rep}{\operatorname{Rep}}
+\newcommand{\C}{\mathbb C}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\setlength{\parskip}{4pt}
+\setlength{\parindent}{0pt}
+\title{Rank twelve, multiplicity one:\\complex categorification}
+\author{Fusion-ring census research notes}
+\date{26 October 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+We classify complex categorifiability of the 632 supplied rank-twelve,
+multiplicity-one fusion rings: 480 are excluded and 152 admit models.
+The models include 151 unitary realizations and one additional
+complex/pseudo-unitary realization whose unitarity is not proved.
+The exact ledger binds every decision to the original full multiplication
+tensor, categorical proof and reproducible certificate. The complete
+proof archive retains the earlier family reductions and constructions;
+this manuscript gives a unified reading guide and the final theoretical
+arguments. A new equality-case refinement of the dimension-block conductor
+bound excludes the final two commutative rings. An algebraic near-group
+quotient realizes the last noncommutative ring and yields a uniform family.
+Enumeration completeness is producer-reported; exact tensor validity and
+based-isomorphism uniqueness were independently checked computationally,
+without repeating the full search. The proofs and computations are
+AI-generated and await independent human verification and formalization.
+\end{abstract}
+
+\section*{Classification and proof guide}
+The inputs are the 632 physical lines of the supplied rank-twelve
+multiplicity-one tensor file, with permanent labels
+\texttt{R12\_1\_1},\ldots,\texttt{R12\_1\_632}.
+A model means a fusion category over $\mathbb C$ together with an exact
+based-ring identification; it does not classify associators.
+An exclusion rules out arbitrary complex fusion categories, with any
+pivotal, spherical or pseudo-unitary reduction justified separately.
+
+The complete accepted ledger, source tensors, code, proofs and separate
+assistant audits are in the
+\href{https://github.com/sebastienpalcoux/grothendieck-ring-classification/tree/main/evidence/rank12_m1_20261026}{rank-twelve proof archive}.
+Its top-level ledger is authoritative. Historical ledgers retain their
+original, explicitly dated scope; their former open counts are not current.
+Every earlier settled decision is retained. The first stage supplies
+393 exclusions and 127 unitary models. The three subsequent family
+continuations add respectively $(32,14)$, $(13,7)$ and $(40,3)$
+exclusions and unitary models. The final arguments below add two
+exclusions and one complex/pseudo-unitary model. Thus
+\[
+393+32+13+40+2=480,\qquad 127+14+7+3+1=152.
+\]
+No status follows merely from failure to find a model, a numerical
+optimization, or a conditional modular datum.
+
+The archive's four earlier reports give the full proofs and accepted
+replays for lower-rank subring inheritance, cyclic isotypic integrality,
+formal-codegree and dimension-order obstructions, paired stabilizers,
+pointed Morita extensions, cohomology and relative-algebra reconstructions.
+The model certificates use standard quantum-group and group-theoretical
+categories, pointed and TY extensions, coherent equivariantizations,
+central zests and actual Morita duals. Each construction checks its
+categorical hypotheses before identifying all fusion coefficients.
+The accepted replay instructions and frozen source manifests accompany
+each report. The current verifier binds the entire preceding packet
+byte for byte; its optional baseline replay executes the full earlier
+audit. The final three arguments are proved in detail below.
+
+
+
+\section{Decisions and common structure}
+\begin{center}
+\begin{tabular}{lll}\toprule
+Ring & Decision & Reason\\\midrule
+\R{561}&Excluded over $\C$&Central $C_3$ and conductor saturation\\
+\R{628}&Excluded over $\C$&The same argument\\
+\R{623}&Modeled over $\C$&Cyclic order-$36$ near-group quotient\\\bottomrule
+\end{tabular}
+\end{center}
+All three have six invertible objects forming $G=C_6=\langle g\rangle$
+and six noninvertibles forming a free $G$-orbit. Put $z=g^3$ and
+\[
+ d=3+\sqrt{10},\qquad d^2=1+6d,\qquad
+ D=6(1+d^2)=120+36\sqrt{10}.
+\]
+Their presentations are
+\[
+\begin{array}{c|cc}
+ &\rho g&\rho^2\\\hline
+\R{561}&g\rho&1+\sum_{h\in G}h\rho\\
+\R{628}&g\rho&z+\sum_{h\in G}h\rho\\
+\R{623}&g^{-1}\rho&z+\sum_{h\in G}h\rho.
+\end{array}
+\]
+The universal grading of each ring is trivial: the products $XX^*$
+generate the entire based ring. The complete tensors, rather than only
+these abbreviated presentations, are bound in the accompanying packet.
+The $629$ previously settled decisions are retained unchanged. Together with the three decisions below, they give the full classification of the supplied census.
+
+\section{The central \texorpdfstring{$C_3$}{C3} premise for the two commutative rings}
+We recall the categorical premise from the preceding continuation,
+with its exact verification included again. A hypothetical complex
+categorification can be replaced by a pseudo-unitary Galois conjugate
+using the two-dimension theorem \cite[Lemma 3.1]{Sch23}.
+Let $H=\langle g^2\rangle\cong C_3$. Conjugation by the actual invertible
+objects gives a coherent $H$-action, even when the pointed associator
+is nontrivial: its scalar occurs with its inverse on the dual factor.
+Form the genuine equivariantization $E=\mathcal C^H$.
+
+Every source simple has three equivariant lifts, since its stabilizer is
+cyclic. The pointed group $A$ of $E$ is a central extension of $C_6$ by
+$K=\widehat H$, hence is $C_{18}$ or $C_6\times C_3$. The noninvertible
+action is free. Choosing a lift $r$ of $\rho$ gives
+\[
+ r^2=t'+\sum_{s\in S}sr,
+\]
+where $S$ selects one element in every fiber $A\to C_6$. Associativity
+forces the lifted right action to be trivial; duality imposes
+$S^{-1}=t'^{-1}S$. There are exactly $72$ possibilities across the two
+rings and the two pointed groups. For each character $\lambda$ of $A$,
+write $s_\lambda=\sum_{s\in S}\lambda(s)$ and
+$\epsilon=\lambda(t')$. The two associated formal codegrees satisfy
+\[
+ f_+f_-=18^2(4+s_\lambda^2/\epsilon).
+\]
+Central induction requires $(3D)/f_\pm$ to be algebraic integers.
+Exact cyclotomic norms eliminate $66$ sections: a denominator has a prime
+factor outside $\{2,3,5\}$, while the numerator is a unit at that prime.
+The six surviving sections are subgroup complements $B$ of $K$ in
+$C_6\times C_3$, three for each ring. The replay enumerates this entire
+small domain; it is not a sampled search.
+
+For a surviving section, $E_{\mathrm{ad}}$ has simples $B\cup Br$.
+The forgetful functor $E_{\mathrm{ad}}\to\mathcal C$ sends these
+bijectively to distinct simple objects, and is therefore a tensor
+equivalence. Equivariant structures for the inner action provide central
+lifts of every $h\in H$; equivalently, use the reverse central embedding
+from the center of the pointed $H$-subcategory into the center of its
+relative center. Select the unique lift lying in $E_{\mathrm{ad}}$.
+Half-braidings on a fixed invertible are unique because
+$U(E_{\mathrm{ad}})=1$, so the selected lifts close under tensor product
+as central objects. Transporting them gives a fully faithful braided
+$C_3$ in $Z(\mathcal C)$ whose forgetful image is the original $H$.
+
+This argument proves an actual central lift, not just commutativity of
+the fusion ring. Its braiding is either Tannakian or one of the two
+nondegenerate forms $q(a)=\zeta_3^{ra^2}$, $r=1,2$.
+The next section excludes all three choices.
+
+\section{One conductor argument excludes both rings}
+\subsection{The equality refinement}
+For a spherical fusion category let $N$ be its Frobenius--Schur exponent.
+Its center has a canonical unitary modular representation
+\[
+ \varrho:\mathrm{SL}_2(\Z/N)\longrightarrow U(V),
+ \qquad \varrho(s)=S,\quad\varrho(t)=T,
+\]
+where $S$ is normalized. This unitarity concerns the matrices of the
+modular representation; it does not assume that the original tensor
+category is unitarizable. The dimension-block bound \cite{Sch26}
+associates to a dimension-field character $\chi$ a twist-fixed vector
+$w_\chi$, with diagonal-torus character $\chi$, and bounds its
+$S$-matrix coefficient by $\mathfrak f(\chi)^{-1/2}\|w_\chi\|^2$.
+
+\begin{lemma}[Auxiliary-prime rigidity at equality]
+Suppose this bound is attained. For every prime $p\mid N$ with
+$p\nmid\mathfrak f(\chi)$, the vector $w_\chi$ is fixed by the entire
+local factor $\mathrm{SL}_2(\Z/p^{v_p(N)})$.
+\end{lemma}
+\begin{proof}
+Use the Chinese remainder decomposition of the modular representation.
+For each prime $\ell\mid N$, let $U_\ell$ be the upper unipotent group,
+$P_\ell$ its fixed-space projection, and
+$B_\ell=P_\ell\varrho(s_\ell)P_\ell$.
+The local estimate in \cite[Lemma 4.1]{Sch26} bounds the product of
+the compressions at primes other than $p$ by
+$c=\mathfrak f(\chi)^{-1/2}$ on the relevant character space;
+$\|B_p\|\leq1$. The operators commute. Equality gives
+\[
+ c\|w\|^2
+ =|\langle w_{\bar\chi},B_{\mathrm{rest}}B_pw\rangle|
+ \leq c\|w\|\,\|B_pw\|\leq c\|w\|^2.
+\]
+Here $\|w_{\bar\chi}\|=\|w\|$.
+Thus $\|P_p\varrho(s_p)w\|=\|w\|$, so $\varrho(s_p)w$ is
+$U_p$-fixed. The vector $w$ is fixed by $U_p$ and by its opposite
+$s_p^{-1}U_ps_p$. These elementary unipotent subgroups generate
+$\mathrm{SL}_2(\Z/p^{v_p(N)})$. This works on direct sums of tensor
+product constituents as well; $w$ need not be a pure tensor in the
+Chinese remainder decomposition.
+\end{proof}
+
+In our two rings the simple-dimension and global-dimension fields are
+both $\Q(\sqrt{10})$. Its nontrivial character has conductor $40$.
+Writing $D'=120-36\sqrt{10}$ gives
+\[
+ DD'=1440,\qquad D/D'=d^2,\qquad
+ \left(\frac1D-\frac1{D'}\right)^2=\frac1{40}.
+\]
+Let $A_\sigma$ be the simple summand of $I(1)$ associated to the
+conjugate dimension character. Then $\dim A_\sigma=d^2$,
+$\theta_{A_\sigma}=1$, and
+\[
+ w=e_1-e_{A_\sigma},\qquad
+ |\langle w,Sw\rangle|=\frac{\|w\|^2}{\sqrt{40}}.
+\]
+The lemma therefore applies at the prime $3$ whenever $3\mid N$.
+
+\subsection{Tannakian and metric alternatives}
+If the central $C_3$ is Tannakian, the actual regular algebra gives
+tensor de-equivariantization of dimension $D/3$. Its four simple
+dimensions are $1,1,d,d$, because the $C_3$-action on source simples is
+free. A pseudo-unitary Galois conjugate of this quotient would violate
+the same dimension-block bound:
+\[
+ \left(\frac3D-\frac3{D'}\right)^2
+ =\frac9{40}>\frac1{40}.
+\]
+No rank-four classification is needed.
+
+Otherwise the central $C_3$ is a nondegenerate pointed category
+$\mathcal B$. Apply modular decomposition \emph{inside the braided
+center}:
+\[
+ Z(\mathcal C)\simeq\mathcal B\boxtimes\mathcal D.
+\]
+The induction-character identity gives
+$S^{\mathrm{un}}_{A_\sigma,h}=\dim(A_\sigma)$ for $h\in C_3$,
+since both dimension characters send its underlying invertible to $1$.
+As $h$ is invertible, its monodromy with $A_\sigma$ is therefore $1$.
+Thus $A_\sigma\in\mathcal D$ and
+\[
+ w=e_0\otimes(e_1-e_Y)
+\]
+is a nonzero pure tensor for this modular decomposition.
+
+The pointed twists force $3\mid N$. Put $n=N/3^{v_3(N)}$, so
+$3\nmid n$. The element $L=st^ns^{-1}$ lies entirely in the local
+$3$-factor, because $t^n$ is the identity at every other prime power.
+The equality lemma forces $\varrho(L)w=w$.
+Normalized modular matrices factor exactly, so
+\[
+ \varrho(L)=(S_{\mathcal B}T_{\mathcal B}^nS_{\mathcal B}^{-1})
+ \otimes(S_{\mathcal D}T_{\mathcal D}^nS_{\mathcal D}^{-1}).
+\]
+For $q(a)=\zeta_3^{ra^2}$, set $u=\zeta_3^{rn}\ne1$.
+The Fourier matrix of $\mathcal B$ gives
+\[
+ S_{\mathcal B}T_{\mathcal B}^nS_{\mathcal B}^{-1}e_0
+ =\frac13(1+2u,\,1-u,\,1-u).
+\]
+This is not proportional to $e_0$. The second tensor factor is
+invertible and sends $e_1-e_Y$ to a nonzero vector. Hence
+$\varrho(L)w\ne w$, a contradiction.
+
+\begin{theorem}
+Neither \R{561} nor \R{628} is the Grothendieck ring of a complex
+fusion category.
+\end{theorem}
+The proof uses no bound on the unknown exponent $N$, no modular
+representation phase choice for either factor, no ambient braiding on
+$\mathcal C$, and no categorical unitarity assumption. The additional
+equality argument is developed here from the proof of \cite{Sch26}.
+
+\section{A complex model for \R{623}}
+\subsection{An existing algebraic precursor}
+Let $G_0=C_{36}$, additively. The algebraic construction
+\cite[Theorems 2.3 and 2.10]{TPE} supplies an actual spherical near-group
+category $\mathcal N$ with simple objects $G_0\cup\{X\}$ and
+\[
+ gX=Xg=X,\qquad X^2=\sum_{g\in G_0}g+36X,
+ \qquad\FPdim(X)=18+6\sqrt{10}.
+\]
+The construction first has negative categorical dimension for $X$;
+its positive spherical Galois conjugate is also available. Its quadratic
+data are
+\[
+ \chi(g,k)=e^{2\pi i gk/36},\qquad
+ a(g)=e^{\pi i g(36-g)/36}.
+\]
+In the conventions of \cite{Izumi}, the parameters needed below are
+$b=\chi^{-1}$ and $a_I=a^{-1}$, by \cite[Lemma 2.14]{TPE}.
+We use the spherical existence theorem, not the conjecture about
+unitarity at order $36$.
+
+\subsection{The actual central algebra}
+Take $H=6\Z/36\Z$, of order $6$. Then
+\[
+ b|_{H\times H}=1,\qquad H^\perp=H,
+ \qquad a_I(6j)=(-1)^j.
+\]
+The central-invertible calculation of \cite[Section 4.3]{EG}, also
+written explicitly in the proof of \cite[Theorem 13.4]{Izumi}, applies
+algebraically to the explicit mixed associators of this precursor.
+For clarity, this is not an assertion that every spherical near-group
+category belongs to a unitary classification. In the reconstructed
+mixed-vertex basis $v_t$, the three group insertions have the form
+\[
+ Z(h)v_t=\chi(h,t)v_t,\quad X(h)v_t=v_{t+h},\quad
+ Y(h)v_t=\frac{a(t)}{a(t-h)}v_{t-h}.
+\]
+Their product satisfies
+\[
+ X(h)Y(h)Z(h)=a(h)^{-1}I.
+\]
+The other identities needed for the invertible half-braiding are
+bicharacter multiplication and $a(h)^2\chi(h,h)=1$.
+For $h\in H$, the candidate mixed crossing uses $a(h)$;
+$a(h)^2=1$ checks the duality channel and the displayed product checks
+the trivalent channel. All maps are inverse mixed vertices or bilinear
+dual maps in the algebraic reconstruction \cite[Section 4.7]{TPE}.
+There is no positivity condition and no all-$X$ associator block in
+these hexagons. The detailed convention audit is retained in the packet.
+
+The central lifts restrict to a Tannakian $H$: their mutual braiding
+is $b|_{H\times H}=1$. They close coherently because $U(\mathcal N)=1$
+makes half-braidings on invertibles unique. The pointed associator is
+trivial, since the fixed simple $X$ is a rank-one module category for
+the pointed subcategory. Consequently
+\[
+ A=\bigoplus_{h\in H}h
+\]
+with regular group multiplication is an actual connected commutative
+separable algebra in $Z(\mathcal N)$. Its module category
+$\mathcal M=\mathcal N_A$ is a fusion category.
+
+\subsection{Fusion rules without a unitary reconstruction assumption}
+The quotient has six invertibles $u_j$ indexed by $G_0/H=C_6$.
+The induced $X$ splits into six distinct simple summands using the
+primitive Fourier idempotents of $\C[H]$. The perfect pairing
+$G_0/H\to\widehat H$ makes their pointed action free. Left and right
+multiplication shift the character with opposite signs, giving
+\[
+ \sigma u_j=u_{-j}\sigma.
+\]
+The pointed-channel calculation in the isotropic orbifold
+\cite[Theorem 12.5]{Izumi} is the algebraic character average
+\[
+ \frac16\sum_{h\in H}a_I(h)b(h,g)
+ =\begin{cases}1&g\equiv3\pmod6,\\0&\text{otherwise.}\end{cases}
+\]
+This uses only the mixed vertices and their inverse dual maps.
+Thus the unique pointed term of $\sigma^2$ is $z=u_3$, and
+$\sigma^*=z\sigma$.
+
+The remaining coefficients require no transported operator-algebra
+calculation. Write
+\[
+ \sigma^2=z+\sum_{j=0}^5m_j u_j\sigma.
+\]
+Associativity with the invertibles forces $m_{j+2}=m_j$.
+The noninvertible dimension is $d$, so $\sum_jm_j=6$.
+The inversion rule gives $(u_j\sigma)^*=u_{j+3}\sigma$,
+while $(\sigma^2)^*=\sigma^2$. Duality therefore forces
+$m_{j+3}=m_j$. Shifts by $2$ and $3$ generate $C_6$, so all six
+coefficients equal $1$. We obtain exactly
+\[
+ \sigma g=g^{-1}\sigma,
+ \qquad\sigma^2=z+\sum_{g\in C_6}g\sigma.
+\]
+The coordinate-to-census bijection, listing
+$1,g,\ldots,g^5,\sigma,g\sigma,\ldots,g^5\sigma$, is
+\[
+ [0,1,10,11,9,2,3,8,5,4,7,6].
+\]
+Two independent implementations check all $1728$ structure constants,
+duality, and the exact quadratic-form specialization.
+
+\begin{theorem}
+The ring \R{623} has a complex categorification and a pseudo-unitary
+categorification. The present argument does not establish unitarity.
+\end{theorem}
+The strict isotropic statement above is essential: a version requiring
+$a_I|_H=1$ would miss the shift $z$ and give the wrong ring.
+
+\subsection{A uniform family}
+The same construction works for every $k\equiv2\pmod4$. Start from
+the cyclic near-group category $C_{k^2}+k^2$ and take
+$H=k\Z/k^2\Z$. The pairing is trivial on $H$ and $H=H^\perp$,
+while $a_I(kj)=(-1)^j$. The quotient therefore has $k$ invertibles,
+$k$ noninvertibles, inversion mixed action, and pointed square term
+$g^{k/2}$. Associativity makes the noninvertible coefficients constant
+on parity classes; duality shifts the index by the odd integer $k/2$
+and equates those classes. Their sum is $k$, hence every coefficient
+is $1$. Thus the construction supplies, uniformly over $\C$,
+\[
+ \rho g=g^{-1}\rho,\qquad
+ \rho^2=g^{k/2}+\sum_{j=0}^{k-1}g^j\rho,
+ \qquad k\equiv2\pmod4.
+\]
+The case $k=6$ is \R{623}. This corollary inherits the same
+distinction between complex existence and unproved unitarity.
+
+\section{Evidence, totals, and limits}
+The accompanying archive contains the updated $632$-ring ledger, the
+three complete input tensors, the new proofs, separate proof reviews,
+and portable exact checks. It preserves the entire preceding proof
+packet. The current checks replay the forced-central-$C_3$ premise,
+the rational and cyclotomic equality calculations, the algebraic
+quotient data, and both independent full-tensor identifications.
+There is no numerical associator search or long classification run.
+
+\begin{center}
+\begin{tabular}{lrrr}\toprule
+Stage&Excluded&Modeled&Unresolved\\\midrule
+Previous ledger&478&151&3\\
+This continuation&2&1&$-3$\\
+Final ledger&\textbf{480}&\textbf{152}&\textbf{0}\\\bottomrule
+\end{tabular}
+\end{center}
+The new source inputs are the pinned preprints \cite{Sch26,TPE}.
+The exact checks certify their application and the census bindings;
+they are not replacements for the categorical proofs or an independent
+reconstruction of the analytic precursor theorem. The model is
+``new'' only as an explicit realization added to this project, with no
+claim of novelty up to tensor equivalence or exoticness.
+The companion census repository records enumeration separately from these categorification decisions.
+
+\begin{thebibliography}{9}
+\bibitem{Sch23} A. Schopieray, \emph{Categorification of integral group
+rings extended by one dimension}, J. London Math. Soc. 108 (2023),
+1617--1641. \href{https://doi.org/10.1112/jlms.12789}{doi:10.1112/jlms.12789}.
+\bibitem{Sch26} A. Schopieray, \emph{The dimension block of a spherical
+fusion category}, \href{https://arxiv.org/abs/2609.35287v1}{arXiv:2609.35287v1},
+28 September 2026. Lemmas 3.1, 4.1 and Theorem 5.1.
+\bibitem{TPE} H. He, Z. Liu, F. Lu, S. Palcoux and Y. Ren,
+\emph{Triangular prism equations for near-group categories: algebraic
+solutions and a unitary conjecture},
+\href{https://arxiv.org/abs/2610.11652v1}{arXiv:2610.11652v1},
+8 October 2026. Theorems 2.3, 2.10, 5.4; Lemmas 2.14, 4.14;
+Corollary 6.6.
+\bibitem{EG} D. E. Evans and T. Gannon, \emph{Near-group fusion
+categories and their doubles},
+\href{https://arxiv.org/abs/1208.1500}{arXiv:1208.1500},
+Section 4.3, equations (4.48)--(4.50).
+\bibitem{Izumi} M. Izumi, \emph{A Cuntz algebra approach to the
+classification of near-group categories},
+\href{https://arxiv.org/abs/1512.04288v2}{arXiv:1512.04288v2},
+Section 12.1, Theorem 12.5, and the proof of Theorem 13.4.
+\end{thebibliography}
+\end{document}

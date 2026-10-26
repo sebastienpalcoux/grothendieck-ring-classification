@@ -1,0 +1,614 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=23mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,booktabs,longtable,array,microtype}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,linkcolor=blue!50!black,urlcolor=blue!50!black]{hyperref}
+\usepackage{enumitem}
+\setlist{nosep,leftmargin=*}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newcommand{\R}[1]{\texttt{R12\_1\_#1}}
+\newcommand{\FPdim}{\operatorname{FPdim}}
+\renewcommand{\Vec}{\operatorname{Vec}}
+\newcommand{\Rep}{\operatorname{Rep}}
+\newcommand{\C}{\mathbb C}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\setlength{\parskip}{4pt}
+\setlength{\parindent}{0pt}
+\title{Rank twelve, multiplicity one:\\fresh audit and fourth theoretical continuation}
+\author{Fusion-ring census research notes}
+\date{Offline working report}
+\begin{document}
+\maketitle
+\begin{abstract}
+We audit all 438 exclusions and 148 unitary realizations retained in the
+preceding round, and revisit its 46 unresolved based fusion rings. No
+accepted classification is withdrawn. A complete Morita and extension-theory
+argument resolves the remaining dimension-32 family, with two new unitary
+models and sixteen exclusions. A new inner-conjugation equivariantization
+argument excludes \R{332} over the complex numbers. A uniform integral-Lagrangian
+criterion, together with complete quotient reconstructions, excludes all twenty
+remaining dimension-48 rings. An alternate Brauer--Picard extension resolves
+the four dimension-144 cases. The accepted totals are
+478 excluded, 151 unitarily realized, and 3 unresolved, among 632 inputs.
+Additional theoretical reductions for the unresolved families are stated
+with their precise limitations. An erroneous blanket near-group assertion
+in an earlier exploratory note is corrected; no accepted decision depended
+on it. All work remains offline. The proofs and exact computations have
+received independent checks within the assistant team; independent human
+verification remains pending.
+\end{abstract}
+
+\section{Results, identifiers, and scope}
+We count supplied \emph{based fusion rings}, not tensor-equivalence classes
+of categories. Every input is bound to its complete multiplication tensor
+and SHA256 digest. A negative decision excludes arbitrary complex fusion
+categories. Every positive decision supplies an actual unitary category
+and a unit-preserving bijection checking all $12^3=1728$ coefficients.
+
+\begin{center}
+\begin{tabular}{lrrr}\toprule
+Stage & Excluded & Unitary models & Unresolved\\\midrule
+Previous accepted ledger & 438&148&46\\
+New decisions in this report &40&3&-43\\
+Current accepted ledger &\textbf{478}&\textbf{151}&\textbf{3}\\\bottomrule
+\end{tabular}
+\end{center}
+The new models are \R{320}, \R{419}, and \R{530}. ``New'' here means new
+explicit realizations in this project; no novelty up to tensor equivalence
+or exoticness is claimed. The new exclusions are:
+\begin{center}\begin{tabular}{lp{126mm}}\toprule
+Family & IDs, with prefix \texttt{R12\_1\_}\\\midrule
+Dimension 32 &128, 144, 147, 173, 237, 275, 285, 294, 301, 318, 412, 415, 422, 431, 524, 536\\
+Dimension 48 &130, 146, 151, 175, 216, 239, 244, 277, 289, 296, 303, 319, 407, 410, 421, 424, 433, 523, 526, 538\\
+Dimension 144 &180,181,321\\
+Quadratic &332\\\bottomrule\end{tabular}\end{center}
+
+The proofs below separate categorical existence/converse arguments from
+finite arithmetic and reconstruction checks. An associative candidate
+table, a based-ring automorphism, or a failed construction search is not
+treated as a categorical realization or exclusion.
+
+\section{Audit of the preceding 586 settled decisions}
+\subsection{Input, exclusions, and general-complex scope}
+The fresh audit binds all 632 tensors to their original physical input
+lines, verifies their fusion-ring axioms, and checks all 4012 recorded
+closed-subring embeddings. Each of the 438 exclusion routes was reviewed
+and replayed with explicit checks active under optimized Python.
+
+Particular attention was paid to four possible sources of overstatement.
+First, the published version of Schopieray's Lemma~3.1 gives a
+\emph{pseudo-unitary Galois conjugate} for a two-FP-value categorification;
+it does not assert pseudo-unitarity of the original category. Second,
+unitary obstruction theorems were used only after a valid bridge to
+unitarity: the relevant prime-power-product dimensions are solvable by
+ENO and hence completely unitary by Galindo--Hong--Rowell. Third,
+Liptrap negative certificates retain arbitrary nonzero complex variables,
+including variable $\tau$; their integer Laurent relations cancel every
+unknown, rather than rejecting a bounded phase search. Fourth, the
+inherited rank-eight signed obstruction enumerates all 8192 unrestricted
+oriented sign tables. All sixteen associative survivors are actual sign
+gauges, and every possible spherical dimension-character orbit is
+obstructed.
+
+The twenty-four inherited exclusions are freshly mapped to six complete
+lower-rank source proofs. The twelve field/order positivity checks were
+strengthened to use rational isolating intervals. The dimension-120
+premise checker was also strengthened: it now explicitly checks the
+\emph{complete left and right stabilizer} of every dimension-two simple,
+not just the common involution. The stronger hypothesis holds for all
+sixteen inputs. The pointed Morita converse, finite-group restriction,
+relative cohomology exhaustion, and coprime-twist lemma were separately
+reread. All four resulting models were freshly reconstructed, and all
+64 model/input comparisons were rechecked.
+
+For \R{350}, the portable independent verifier reconstructs thirty low
+induction frames, four PSD survivors, 45 complete joint cyclotomic trace
+types, and 32 exact Farkas systems. It imports neither an optimizer nor
+the earlier rank-six implementation. The codegree of each two-dimensional
+matrix block is correctly $6$, not its Casimir eigenvalue $12$. The
+cyclotomic trace box is not an assumed bound on the categorical exponent.
+
+\subsection{Models, categorical actions, and unitary source tables}
+The positive audit checks 381 ordinary first-round witnesses and 21
+independently reconstructed Liptrap witnesses on 127 distinct rings,
+then the specialized witnesses for the additional twenty-one rings.
+It checks actual source categories, tensor actions, algebra objects,
+complete simple-module lists, and full tensor identifications.
+The checks distinguish a central lift from a commuting basis element.
+
+A delicate inherited premise was strengthened constructively. For both
+actual pseudo-PSU associator tables used in the rank-eight source
+constructions, the audit finds an exact positive diagonal gauge. Every
+nonzero coefficient satisfies
+\[
+ \frac{(F^{-1})_{fe}}{\overline{F_{ef}}}
+ =\frac{w_{abe}w_{ecd}}{w_{bcf}w_{afd}},\qquad w_{ijk}>0.
+\]
+The weights are rational powers of $2$ and $1+\sqrt2$. Thus all 136
+associator blocks become unitary. The two sets of 2688 pentagon identities
+and the corresponding half-braiding hexagons are checked directly.
+This avoids identifying a saved pentagon solution with a published
+unitary example merely because their fusion rings agree.
+
+\subsection{A genuine correction, with no classification change}
+An earlier exploratory dimension-48 note called every near-group quotient
+$\mathrm{NG}(G,2)$ with $|G|=8$ impossible. This omits the nonabelian
+possibilities $D_8$ and $Q_8$, which do admit such categories. No accepted
+exclusion used that assertion. The new analysis restores these branches.
+Exact orbit-ring checks allow the $D_8$ branch for \R{216} and both
+$D_8,Q_8$ branches for \R{239}; known models provide additional controls.
+The analogous particular branches for \R{175}, \R{319}, \R{407}, and
+\R{523} fail the complete nonabelian orbit-ring comparison. These are
+restrictions on possible central lifts, not whole-ring exclusions.
+
+\section{Complete resolution of the remaining dimension-32 family}
+\begin{theorem}
+For the verified input profile
+$1^8,2^2,(\sqrt8)^2$, with adjoint series of dimensions $32,16,4,1$,
+the only categorifiable supplied based rings are
+\[
+ \R{28},\ \R{183},\ \R{240},\ \R{405},\
+ \R{408},\ \R{419},\ \R{522},\ \R{530}.
+\]
+All eight have unitary models. Consequently the other sixteen remaining
+inputs in this family are excluded over $\C$.
+\end{theorem}
+This is a classification for the stated, exactly checked profile; it is
+not a claim about every fusion category of dimension~32.
+
+\subsection{A forced Morita reduction}
+Let $\mathcal C$ be a hypothetical categorification. Its dimension-sixteen
+integral part has eight invertibles and two dimension-two simples $X,Y$,
+with common abelian stabilizer $H$ of order four. Write $Y=gX$ and
+$P=\operatorname{Ad}_g|_H$. Liptrap's identities give the nondegenerate
+bicharacter relations
+\[
+ B_Y(a,b)=B_X(Pa,b),\qquad B_{X^*}(a,b)=B_X(b,a),\qquad P^2=1.
+\]
+There is a nontrivial involution $h\in H$ fixed by $P$ and isotropic for
+both forms. For $H=C_4$, take its unique involution. For $H=C_2^2$, a
+symmetric nondegenerate form has an isotropic vector, and a nontrivial
+orthogonal involution has an isotropic fixed line. If duality exchanges
+$X,Y$, the cosquare relation forces $P=1$ in dimension two.
+
+The rank-one action on $X$ trivializes the pointed associator on $H$.
+Thus $A=1+h$ is an actual separable algebra. The isotropy identities make
+the integral $A$-bimodule dual pointed of dimension sixteen. Its whole
+Morita dual $\mathcal E$ has one of the two types
+\[
+ 1^{16},(\sqrt8)^2,\qquad 1^{16},(\sqrt2)^8.
+\]
+The inverse algebra is an actual $1+c$, with $c$ a noncentral involution
+in $G(\mathcal E)$, and the original integral type forces
+$|C_{G(\mathcal E)}(c)|=8$.
+
+\subsection{The two-square-root-eight source branch}
+The common stabilizer has order eight. If the universal grading is $C_4$,
+the associated involutive cosquare is the identity for every abelian group
+of order eight; the invertible group would be abelian, a contradiction.
+For universal group $C_2^2$, the inverse involution cannot lie in the
+stabilizer. Indeed, for an orthogonal involution $P$ and a moved order-two
+element $c$, the two required commutators
+$B(c,c)=B(Pc,c)=-1$ are incompatible. For $C_2^3$ this follows from the
+rank-one symmetric form associated to $P-1$; the $C_8$ and $C_4\times C_2$
+cases have no suitable moved involution. Complete finite form checks
+independently verify these elementary lemmas.
+
+Therefore the source is a genuine crossed product of a TY category on an
+abelian group of order eight. Its inverse algebra yields a coherent
+$C_2$ equivariantization. Orthogonal involutions fixing four group elements
+and the two parity-square choices exhaust the possibilities. They yield
+only the already known rings \R{28}, \R{183}, \R{405}, \R{522}.
+
+\subsection{The generalized-Ising sources and the missed nonsplit class}
+For the other branch, $\mathcal E_{\rm ad}=\Vec_{C_2}$ and its universal
+grading group $U$ has order sixteen. Put $K=G(\mathcal E)/\langle h\rangle$.
+The inverse involution has a noncentral image $\bar c\in K$: a central
+image would force a dimension-two object times an odd object to have
+multiplicity two. Thus $K=D_8$. Write
+\[
+ G(\mathcal E)=\langle R,c,h\mid R^4=c^2=h^2=1,\ h\text{ central},
+ \ cRc=R^{-1}h^b\rangle,\qquad b=0,1.
+\]
+The centralizer condition forces $R^4=1$. Both classes $b=0,1$ must be
+retained; the nonsplit class $b=1$ is the new source of the two models.
+The condition that no odd degree centralizes $\bar c$ leaves
+$U=D_{16}$ or $SD_{16}$. There are therefore four reference families.
+
+Their categorical exhaustion follows from ENO extension theory, not from
+a search for associators. The coefficient module is
+\[
+ M=\operatorname{Inv}Z(\Vec_{C_2})=C_2^2
+   =\operatorname{Ind}_K^U C_2,
+ \qquad H^2(U,M)\cong H^2(K,C_2).
+\]
+The Shapiro projection is restriction to $K$ followed by forgetting the
+half-braiding. It is exactly the central-extension class of the invertible
+group displayed above, so no additional $H^2$ datum is omitted. Actual
+Liptrap reference categories exist for all four possibilities; all others
+are $U$-three-cocycle twists.
+
+The LHS bounds for $|H^3(U,\C^\times)|$ are $32$ for $D_{16}$ and $16$
+for $SD_{16}$. Explicit rotation, reflection, and (in the dihedral case)
+mixed cocycles attain these bounds. The inverse $C_2$ algebra exists
+precisely when the restriction is trivial; its algebra cochain is then
+unique up to isomorphism. All rotation powers, admissible mixed twists,
+and both inverse lifts are included.
+
+The exact catalogue comprises 96 generalized-Ising constructions and 46
+TY constructions. An independent implementation recomputes all 142 full
+fusion tensors by monomial Hom equations. A separate graph-isomorphism
+check proves that none of the sixteen excluded inputs is isomorphic to
+an allowed output. The new nonsplit rotation twists give \R{419} and
+\R{530}. Their actual source equations, Fourier unitarity, cocycle
+identities, subgroup algebra, and complete bimodule tensors are also
+audited separately.
+
+\section{A new symmetry obstruction: \R{332}}
+\begin{lemma}[Inner conjugation]
+Let $H$ be a subgroup of invertible isomorphism classes of a fusion
+category, preserving a fusion subcategory $\mathcal D$ by conjugation.
+Then the conjugation functors give a coherent categorical $H$ action on
+$\mathcal D$, even when the pointed associator on $H$ is nontrivial.
+\end{lemma}
+\begin{proof}
+Choose representatives $u_h$ and multiplication isomorphisms
+$m_{h,k}:u_h\otimes u_k\to u_{hk}$. Conjugation is
+$A_u(X)=u\otimes X\otimes u^*$, with tensorator supplied by evaluation.
+An isomorphism $f:u\to v$ induces
+$A_f=f\otimes\mathrm{id}\otimes(f^{-1})^*$.
+The two composites of multiplication maps on three invertibles differ by
+the scalar associator. Conjugation applies this scalar and its inverse
+on the two outer factors, so the discrepancy cancels. The induced
+composition constraints therefore satisfy the action pentagon.
+No algebra $\bigoplus_h u_h$ is asserted by this argument.
+\end{proof}
+
+\begin{theorem}
+The fusion ring \R{332} has no complex categorification.
+\end{theorem}
+\begin{proof}
+Pass to a pseudo-unitary Galois conjugate using published Schopieray
+Lemma~3.1. The exact source contains a Haagerup-$C_3$ subcategory with
+\[
+ \alpha^3=1,\quad \rho\alpha=\alpha^{-1}\rho,\quad
+ \rho^2=1+\rho+\alpha\rho+\alpha^2\rho,\quad
+ d=\frac{3+\sqrt{13}}2.
+\]
+An existing invertible involution $b$ conjugates $\alpha$ to
+$\alpha^{-1}$ and fixes $\rho$. The lemma gives a genuine $C_2$ action.
+Its equivariantization is pseudo-unitary and has six simples
+$(1,g,U,X,Y,V)$ of dimensions $(1,1,2,d,d,2d)$, with forgetful images
+\[
+ 1,1,\alpha+\alpha^2,\rho,\rho,\alpha\rho+\alpha^2\rho.
+\]
+Here $g$ is the canonical sign object, $Y=gX$, and $gU=U,gV=V$.
+The tensor images force $U^2=1+g+U$, $UX=UY=V$, and
+$UV=X+Y+V$. Initially
+$X^2=a+W+V$ with $a\in\{1,g\}$ and $W\in\{X,Y\}$.
+If $a=g$, duality exchanges $X,Y$, but $Y^2=X^2$ by centrality of $g$,
+contradicting the unique $X/Y$ summand. Thus $a=1$, and relabeling permits
+$W=X$. All remaining products are forced:
+\begin{align*}
+ X^2=Y^2&=1+X+V,& XY&=g+Y+V,\\
+ XV=YV&=U+X+Y+2V,&
+ V^2&=1+g+U+2X+2Y+4V.
+\end{align*}
+This covers arbitrary action tensorators and coherence, not just one
+chosen equivariant structure.
+
+The global dimension is $D=39+9\sqrt{13}$. The character
+\[
+ (1,g,U,X,Y,V)\longmapsto(1,-1,0,\phi,-\phi,0),
+ \qquad\phi=\frac{1+\sqrt5}{2},
+\]
+has formal codegree $f=5+\sqrt5$. Central induction would supply an
+object of dimension $D/f$, an algebraic integer. But
+\[
+ N_{\Q(\sqrt{13},\sqrt5)/\Q}(D/f)
+ =\frac{468^2}{20^2}=\frac{13689}{25}\notin\Z.
+\]
+This is impossible. The norm argument is independent of the project's
+older exclusion of the isomorphic rank-six ring.
+\end{proof}
+
+\section{A uniform exclusion of the dimension-48 family}
+\begin{theorem}
+None of the twenty previously unresolved inputs of type $1^8,2^2,4^2$
+listed above admits a complex categorification.
+\end{theorem}
+The proof has two independent parts: a categorical converse forcing any
+hypothetical category to be group-theoretical, and complete exhaustion of
+that group-theoretical construction. Neither a failed search nor an assumed
+complete census of possible quotient rings is used.
+
+\subsection{Complete group-theoretical parameters}
+Double-coset dimensions and normal generation restrict the possible
+finite-group/subgroup pairs. LHS and Kunneth bounds, attained by explicit
+cocycles, give complete relative associator coverage for $S_4\times C_2$
+and $A_4\rtimes C_4$. For $GL_2(3)$ and the binary octahedral group, the
+sphere-bundle Gysin sequence and $p_1(\mathrm{Ad})=-4c_2$ identify the
+periodic generators and their restriction kernels. All subgroup Schur
+classes are retained. There are 432 exact restriction certificates.
+
+The 92 admissible order-four/order-eight subgroup constructions give
+36 wrong ranks, sixteen tables with a coefficient larger than one, and
+forty copies of \R{30}, \R{414}, \R{417}, \R{531}. The remaining twelve
+order-sixteen subgroup constructions give six wrong ranks and six copies
+of \R{30} or \R{417}. Independent code certifies the complete projective
+simple lists and reconstructs all relevant fusion tensors. Thus the twenty
+targets have no group-theoretical realization.
+
+\subsection{An integral-Lagrangian criterion}
+\begin{lemma}
+Every integral $2$-group extension of $\Vec_G^\omega$ is group-theoretical
+when $G=A_4\times C_2$ or $SL(2,3)$, for arbitrary $\omega$.
+\end{lemma}
+\begin{proof}
+A Lagrangian in $Z(\Vec_G^\omega)$ is described by a normal abelian
+subgroup $N$ and an admissible invariant twisted alternating bicharacter.
+Its corresponding module category has uniform normalized simple dimension
+$\sqrt{|N|}$. Call it integral when $|N|$ is a square.
+
+An integral Morita component preserves these Lagrangians. Indeed canonical
+module dimensions are multiplicative under the balanced tensor functor
+(ENO, Propositions 2.2 and 4.13). If the three module stabilizer orders
+are $n_0,n,n'$, a product of two simples gives
+$\sqrt{n_0}\sqrt n=k\sqrt{n'}$ with $k$ a positive integer.
+When $n_0$ is a square, $n,n'$ have the same rational square class.
+
+For $A_4\times C_2$, the square-order normal abelian subgroups are exactly
+$1,V_4$. The first supplies one Lagrangian. The admissible forms on $V_4$
+are either absent or a torsor under its two invariant alternating forms.
+There are therefore one or three integral Lagrangians. For $SL(2,3)$,
+only the trivial normal abelian subgroup has square order, giving one.
+A finite $2$-group acting on an odd set fixes an element; the invariant
+Lagrangian criterion then proves the claim.
+\end{proof}
+Integrality is preserved by the Morita operations used here. One direct
+proof is that $Z(\mathcal C)$ is integral when $\mathcal C$ is integral.
+For a Morita equivalent $\mathcal D$, induction gives
+$\FPdim I_{\mathcal D}(X)=\FPdim(\mathcal D)\FPdim(X)\in\Z$.
+Thus $\FPdim(X)$ is rational and an algebraic integer, hence an integer.
+
+\subsection{All possible central quotients}
+Each target has trivial universal grading. Solvability forces a final
+$C_2$ equivariantization: a final extension is impossible, and a final
+$C_3$ equivariantization would put an order-three subgroup among its eight
+invertibles. Every possible central involution is retained. Its fixed
+simple objects give four kinds of dimension-24 quotient.
+
+\emph{Rank-twelve quotients.} A new bounded reconstruction starts with all
+five groups of order eight, all eligible involutions, all left and right
+actions on four dimension-two objects, all dualities, and all remaining
+fusion coefficients. The invariant orbit products reduce the last step
+to at most three binary variables. It finds exactly the two quotient
+rings \R{351}, \R{513}; 704 full tables and every returned identification
+were independently checked. This establishes completeness without relying
+on the supplied rank-twelve list being exhaustive.
+
+Both quotients are $C_3$ extensions of their pointed adjoint category of
+dimension eight. For \R{351}, the group is $C_2^3$ and the distinct left
+and right order-four stabilizers force its associator to be trivial:
+the full bimodule stabilizer trivializes $\omega\boxtimes\omega^{-1}$,
+and restriction to its order-two elements kills all seven Boolean
+cohomology coordinates. An order-three isometry of the resulting
+six-dimensional hyperbolic quadratic space has moving dimension two or
+four. Moving dimension four has an invariant Lagrangian. Moving dimension
+two forces the left and right stabilizers to coincide, contrary to the
+actual tensor. Thus the category is group-theoretical. For \R{513},
+the two cyclic stabilizers in $C_4\times C_2$ leave only the trivial
+associator or the inflated $C_2$ class. Their centers have respectively
+ten and four Lagrangians. A $C_3$ action fixes one.
+
+The graded pointed Morita presentation has group $\Gamma=A\rtimes C_3$,
+$|A|=8$. Nontrivial actions give only $A_4\times C_2$ or $SL(2,3)$.
+A trivial action would split the category as its original pointed neutral
+component times $\Vec_{C_3}$, contradicting the dimension-two objects.
+Apply the integral-Lagrangian lemma to the Morita transport of the final
+$C_2$ crossed product. Thus these quotient branches yield only
+ group-theoretical parents.
+
+\emph{Near-group quotients.} The restored $\mathrm{NG}(D_8,2)$ and
+$\mathrm{NG}(Q_8,2)$ branches are treated in full. Solvability and complete
+unitarizability justify the unitary classification. Each is Morita
+equivalent to $\Vec_{S_4}^{\omega}$ with $\omega$ inflated from $S_3$.
+Its center has exactly three Lagrangians, so every $C_2$ action fixes one.
+Consequently every such equivariantization is group-theoretical.
+
+\emph{Free rank-six quotients.} Their type is $1^4,2,4$ and their universal
+grading is trivial. Solvability gives a further $C_2$ equivariantization
+of dimension twelve. A complete 556-table elementary ring check, together
+with the required swap of the two dimension-two objects and the
+Jordan--Larson theorem, forces the predecessor ring $R_{3,V_4}$.
+The outer action fixes the unique central lift of the inner boson; this
+flattens the two equivariantizations into one by a group $P$ of order four.
+There are three group-theoretical predecessors, with exactly three central
+Lagrangians each, so their $P$ equivariantizations are group-theoretical.
+For the three nongroup-theoretical predecessors, the exact soft-kernel
+calculation gives an embedding of tensor autoequivalences into $S_3$.
+An order-four action reduces to the trivial action or the reflection,
+and in both cases a fusion coefficient two survives. Thus none produces
+a target of multiplicity one. All categorical action coherences are
+retained; the reduction is not a based-ring automorphism assumption.
+
+\emph{Rank-nine quotients.} A separate direct reconstruction retains all
+five dimension-two objects, their actions and dualities, and all bounded
+integer coefficient assignments. Two of the four orbit-table classes
+have no associative lift. Each of the other two has one lift, with
+trivial universal grading and a unique central invertible involution $h$;
+$h$ fixes all five noninvertibles. Solvability therefore forces an
+$h$-equivariantization of a pointed dimension-twelve category. The outer
+action fixes $h$, and its half-braiding is unique because the universal
+grading is trivial. The central Tannakian subcategories combine to
+$\Rep(P)$, $|P|=4$. The original category is a $P$ equivariantization
+of that pointed category, and is group-theoretical. In particular this
+argument does \emph{not} assume a $C_3$ grading for a rank-nine quotient;
+some of the surviving based-ring lifts have no such grading.
+
+These four branches cover all possible central involutions and contradict
+the group-theoretical exhaustion above.
+
+\section{Complete resolution of the dimension-144 family}
+\begin{theorem}
+\R{320} has a unitary model. The rings \R{180}, \R{181}, \R{321}
+have no complex categorification.
+\end{theorem}
+The actual rank-three subcategory is $\Rep(S_3)$, so its regular algebra
+$A=1+z+2E$ exists. The strengthened Morita argument proves that the
+complete $A$-bimodule dual has type
+\[
+ 1^{24},\ 2^{12},\ (\sqrt2)^{36},\qquad
+ \mathcal D_{\rm ad}=\Vec_{V_4}.
+\]
+In particular the dimension-24 subcategory with $\Rep(S_4)$ fusion rules
+has pointed dual $\Vec_{S_4}^{\omega}$, with $\omega|_{A_4}=0$.
+It is never identified with ordinary $\Rep(S_4)$ just from its fusion ring.
+The proof uses internal ends of transported modules, full stabilizers,
+and the commuting left/right $S_4$ actions. These are spelled out in
+\texttt{d144/new\_morita\_reduction.md}.
+
+The universal group has order 36 and embeds in
+$\mathrm{BrPic}(\Vec_{V_4})=(S_3\times S_3)\rtimes C_2$.
+Here the quadratic space is the sum of two anisotropic planes, with
+diagonal electric Lagrangian; its pointed parabolic is
+$\operatorname{diag}(S_3)\times C_2$.
+Only two index-two subgroups have the necessary six pointed grades:
+\[
+ U_{\rm base}=S_3\times S_3,\qquad
+ U_{\rm alt}=\{(a,b,\epsilon):\operatorname{sgn}(a)
+ \operatorname{sgn}(b)=(-1)^\epsilon\}\cong C_3^2\rtimes C_4.
+\]
+The twelve admissible marked base extensions are exhausted by the six
+triality gaugings and their central zests. An explicit scalar cup cocycle
+proves that these zests stay within the base subgroup; all give previously
+modeled rings, none of the four targets.
+
+For the alternate subgroup, put $M=\operatorname{Inv}Z(\Vec_{V_4})$.
+The normal $C_3^2$ has no invariants in $M$, so $H^i(U_{\rm alt},M)=0$.
+The obstruction $O_3$ vanishes and the multiplication datum is unique.
+The obstruction $O_4$ restricts trivially to $C_3^2$, using the existing
+base precursor, and to the Sylow $C_4$, whose fourth cohomology with
+$\C^\times$ coefficients vanishes. Transfer kills $O_4$ entirely.
+Actual alternate extensions therefore exist. Restriction of their
+$H^3$ torsor onto the reverse $S_3$ subgroup is surjective, with kernel
+of order two, so both admissible classes carry an actual separable
+$S_3$ algebra. This proves existence before computing fusion rules.
+
+The absolute three-primary parameter needs care. A Galois automorphism
+fixing $\Q(\zeta_8)$ and inverting $\zeta_3$ acts affinely by $-1$ on
+the $C_3^2$ extension torsor, so has a unique fixed point. The complete
+marked first-axis triality table at $m=0$ is defined over $\Q(\zeta_8)$.
+Its first-axis restriction and trivial reverse diagonal restriction make
+its torsor point fixed. The alternate extension has the same property,
+since its invariant line $x^2+y^2$ restricts injectively to the diagonal.
+The remaining two-primary integral ambiguity is detected on the reverse
+$S_3$ subgroup and vanishes because that restriction is fixed as trivial.
+Hence its integral reverse fusion ring is exactly the $m=0$ ring.
+This excludes \R{181}, \R{321}: their three dimension-four simples
+have $N_{WW}^{W}=1$, whereas the forced ring has zero.
+
+Finally the alternate Sylow $C_4$ restriction has a unique admissible
+Brauer--Picard class up to pointed-parabolic conjugacy, and $H^2(C_4,M)=0$.
+A concrete unitary Liptrap
+source realizes it; its neutral $V_4$ associator is explicitly trivialized
+by a two-cochain. Thus the local fusion tensor of the actual extension is
+forced. The actual reverse $S_3$ bimodule orbits give four nonselfdual odd
+objects of dimension $3\sqrt2$. This excludes \R{180}, which has two
+self-dual odd objects. A short complete NIMrep argument then forces the
+whole tensor: four of eight candidate tables are associative, and each
+matches all 1728 coefficients of \R{320}. An independent implementation
+reconstructs those tables. This closes the gap between precursor existence
+and an actual model of the requested ring. Unitarizability follows from
+solvability; no hypothetical lift of a ring automorphism is needed.
+
+\section{The remaining quadratic cases and further reductions}
+The unresolved quadratic rings are \R{561}, \R{623}, \R{628}.
+The new inner-action method produces stronger finite section and
+induction constraints. It must not be conflated with de-equivariantization
+by a Tannakian subcategory. A braided central lift need not be Tannakian
+in a nonbraided ambient fusion category. In particular the assertion
+that every nondegenerate central pointed subcategory splits off as a
+tensor factor is false in that generality. No exclusion in this report
+uses that assertion. The partial constraints and the exact remaining
+categorical gaps are retained in the evidence notes.
+
+For \R{561} and \R{628}, the coherent inner $C_3$ action and complete
+72-section arithmetic leave only subgroup sections. They imply an actual
+central braided $C_3$ lift, but do not force its braiding to be isotropic.
+The three surviving sections are compatible with the three possible
+braided diagonals. In the nondegenerate cases, the actual regular
+$C_3$ algebra gives an Azumaya Morita autoequivalence; it does not give a
+rank-four tensor quotient or a different excluded ring.
+
+For \R{623}, the corresponding inner $C_2$ reduction forces a central
+semionic lift. Its square-root twists and duality greatly reduce the
+possible central-induction data. Exact dimension and Gram constraints
+leave thirteen integer profiles, and the strengthened semion trace
+conditions eliminate one of them. Twelve remain unseparated. Neither a
+Tannakian quotient nor an algebra $1+z$ is asserted for the semionic object.
+
+As a separate uniform result, complete exact TY-center calculations give
+Lagrangian counts $7,5,2,2,1,1,1,1$ for the eight dimension-eight
+Tambara--Yamagami categories. Thus every $C_3$ extension of such a category
+is group-theoretical. This useful result is not used to assign a false
+$C_3$ grading to the surviving rank-nine quotient tables.
+
+The September 2026 Haagerup--Izumi construction and classification were
+checked against the remaining inputs. Their odd-order and stated
+Q-system hypotheses do not cover these three even-order rings. The
+paper's general inner-conjugation proposition independently supports the
+action lemma used above, but supplies no missing classification here.
+
+\section{Remaining IDs and reproducibility}
+Exactly three rings remain unresolved: \R{561}, \R{623}, \R{628}.
+No failed search is promoted to an exclusion. All other forty-three
+formerly unresolved cases have either a general-complex obstruction or
+an actual unitary realization.
+
+The package contains the updated ledger, input hashes, full proof notes,
+portable accepted constructions and verifiers, separate independent
+receipts, and the frozen preceding package. Discovery failures and
+conditional reductions are labeled separately from accepted decisions.
+No repository commit, push, website edit, or deployment was made.
+
+\section*{Selected primary references}
+\begin{enumerate}
+\item J.~Liptrap, \emph{Generalized Tambara--Yamagami categories},
+\href{https://arxiv.org/abs/1002.3166}{arXiv:1002.3166}, Theorem4.
+\item P.~Etingof, D.~Nikshych, V.~Ostrik, \emph{Fusion categories and
+homotopy theory}, \href{https://arxiv.org/abs/0909.3140}{arXiv:0909.3140}.
+\item A.~Schopieray, \emph{Categorification of integral group rings extended
+by one dimension}, JLMS108 (2023), 1617--1641,
+\href{https://doi.org/10.1112/jlms.12789}{published Lemma3.1}.
+\item V.~Ostrik, \emph{Pivotal fusion categories of rank3},
+\href{https://arxiv.org/abs/1309.4822}{arXiv:1309.4822}, Theorem2.13.
+\item P.~Etingof, D.~Nikshych, V.~Ostrik, \emph{Weakly group-theoretical
+and solvable fusion categories},
+\href{https://arxiv.org/abs/0809.3031}{arXiv:0809.3031}, Theorem1.6.
+\item C.~Galindo, S.-M.~Hong, E.~Rowell, \emph{Generalized and
+quasi-localizations of braid group representations},
+\href{https://arxiv.org/abs/1105.5048}{arXiv:1105.5048}, Theorem5.20.
+\item M.~Izumi, H.~Tucker, \emph{Algebraic realization of noncommutative
+near-group fusion categories},
+\href{https://arxiv.org/abs/1908.01655}{arXiv:1908.01655}, Theorems1.2,3.2.
+\item S.~Gelaki, D.~Naidu, D.~Nikshych, \emph{Centers of graded fusion
+categories}, \href{https://arxiv.org/abs/0905.3117}{arXiv:0905.3117},
+Corollaries 3.10--3.11.
+\item D.~Nikshych, B.~Riepel, \emph{Categorical Lagrangian Grassmannians
+and Brauer--Picard groups of pointed fusion categories},
+\href{https://arxiv.org/abs/1309.5026}{arXiv:1309.5026}.
+\item D.~Jordan, E.~Larson, \emph{On the classification of certain fusion
+categories}, \href{https://ems.press/content/serial-article-files/30464}{Theorems 1.1 and 1.4}.
+\item C.~Edie-Michell, \emph{Equivalences of graded categories},
+\href{https://arxiv.org/abs/1711.00645}{arXiv:1711.00645}.
+\item I.~Marshall, D.~Nikshych, \emph{On the Brauer--Picard groups of
+fusion categories}, \href{https://arxiv.org/abs/1603.04318}{arXiv:1603.04318}.
+\item T.~Gannon, A.~Schopieray, H.~Yadav, \emph{On Haagerup--Izumi fusion
+categories}, \href{https://arxiv.org/abs/2609.25185}{arXiv:2609.25185},
+Proposition6.1 and the explicit scope of TheoremA.
+\end{enumerate}
+\end{document}

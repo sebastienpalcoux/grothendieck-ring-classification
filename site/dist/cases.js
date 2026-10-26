@@ -185,9 +185,11 @@
     if (!scope) return "Scope not yet audited";
     if (scope.strongest_excluded) return `No ${categoryLabels[scope.strongest_excluded].toLowerCase()} categorification`;
     if (scope.level_status?.unitary === "realized") return "Unitary categorification realized";
+    if (scope.level_status?.pseudo_unitary === "realized") return "Pseudo-unitary categorification realized · unitarity unproved";
     return short ? "Unitary categorification also open" : "Without requiring a braiding, even unitary categorification remains open.";
   }
   function braidedStatusText(braided, short = false) {
+    if (braided?.status === "realized") return "Braided categorification realized";
     if (braided?.status === "excluded") return "No braided categorification";
     if (braided?.status === "unresolved") {
       if (short && braided.conditional_exclusions?.length) {
@@ -274,7 +276,7 @@
     }
     const same = scope.same_category_implications || [], existence = scope.existence_implications || [];
     const realized = scope.level_status?.unitary === "realized";
-    node.append(el("p", "case-prose", realized ? "A unitary model establishes general, pivotal, spherical, pseudo-unitary and unitary categorifiability. The diagrams below retain the universal implications proved for this fusion ring; they do not assert that every categorification is unitary." : "General categorifiability remains unresolved. The diagram records which additional structures a hypothetical categorification must admit."));
+    node.append(el("p", "case-prose", realized ? "A unitary model establishes general, pivotal, spherical, pseudo-unitary and unitary categorifiability. The diagrams below retain the universal implications proved for this fusion ring; they do not assert that every categorification is unitary." : scope.level_status?.general === "realized" ? "A complex and pseudo-unitary model establishes general, pivotal, spherical and pseudo-unitary categorifiability. Unitarity remains unproved." : "General categorifiability remains unresolved. The diagram records which additional structures a hypothetical categorification must admit."));
     if (realized && scope.model_sources?.length) node.append(categorySources(scope.model_sources));
     node.append(el("h3", "", "Structures on the same category"), categoryDiagram(same, "Structures admitted by the same category"));
     node.append(el("p", "case-small-note", "Read arrows as implications. A double arrow includes a reverse implication established for this ring. Pivotal and spherical mean that a structure can be chosen; this does not assert that every chosen pivotal structure is spherical. An absent reverse arrow means no such implication is established here."));
@@ -438,7 +440,7 @@
     }
     if (unresolved || hasHistory) {
       if (ring.summary) node.append(el("h3", "", "Latest case summary"), el("p", "case-prose", ring.summary));
-      node.append(el("p", "case-prose", ring.status === "excluded" ? "This case is now excluded from general categorification. Earlier research records retain their historical scope; the accepted exclusion above supersedes their former unresolved status." : ring.status === "unitarily_realized" ? "This case is now realized by a unitary category. Earlier records preserve the research history, including necessary conditions and attempts made before the model was identified. The accepted construction supersedes their former unresolved status." : "General existence remains unresolved. The records below distinguish applicable criteria, searches with no conclusion, scoped obstructions and surviving necessary data. Historical stages retain their original dates and outcomes; the latest completed results take precedence where a later stage refines them."));
+      node.append(el("p", "case-prose", ring.status === "excluded" ? "This case is now excluded from general categorification. Earlier research records retain their historical scope; the accepted exclusion above supersedes their former unresolved status." : ring.status === "unitarily_realized" ? "This case is now realized by a unitary category. Earlier records preserve the research history, including necessary conditions and attempts made before the model was identified. The accepted construction supersedes their former unresolved status." : ring.status === "pseudo_unitarily_realized" ? "This case has a complex and pseudo-unitary realization. Unitarity remains unproved. The accepted construction supersedes its earlier unresolved status." : "General existence remains unresolved. The records below distinguish applicable criteria, searches with no conclusion, scoped obstructions and surviving necessary data. Historical stages retain their original dates and outcomes; the latest completed results take precedence where a later stage refines them."));
       node.append(el("p", "case-small-note", "The fusion tensor and derived invariants use this page’s supplied case basis. Research reports retain their cited source basis, which can differ. Consult the recorded source conventions and basis maps when comparing entries."));
       const reports = ring.research || [];
       const reportDetails = (report) => lazyDetails(report.title || label(report.source || "Research report"), () => {

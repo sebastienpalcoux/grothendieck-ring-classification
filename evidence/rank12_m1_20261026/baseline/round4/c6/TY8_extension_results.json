@@ -1,0 +1,44 @@
+{
+  "status": "proved",
+  "scope": "arbitrary complex fusion categories",
+  "theorems": [
+    {
+      "neutral": "TY(V4, alternating chi, either tau)",
+      "conclusion": "Every finite-group extension is group-theoretical",
+      "reason": "Characteristic pointed Lagrangian in center"
+    },
+    {
+      "neutral": "TY(C4, either nondegenerate chi, either tau)",
+      "conclusion": "Every finite-group extension is group-theoretical",
+      "reason": "Unique Lagrangian in center"
+    },
+    {
+      "neutral": "TY(V4, nonalternating chi, either tau)",
+      "conclusion": "Brauer-Picard group is a 2-group; every C3 extension has rank 15",
+      "reason": "Exactly two Rep(D8) Lagrangians; stabilizers are quotients of pointed tensor automorphism 2-groups"
+    }
+  ],
+  "application": "An S3-graded category with TY8 neutral part whose C3 subextension has rank9/type1^4,2^5 is group-theoretical",
+  "targets_from_parent": [
+    "R12_1_175",
+    "R12_1_216",
+    "R12_1_319",
+    "R12_1_244",
+    "R12_1_410",
+    "R12_1_526"
+  ],
+  "target_binding_scope": "Parent supplies Morita S3 grading and tensor binding; no target exclusion or model claimed by this isolated lemma",
+  "lagrangian_counts": [
+    7,
+    5,
+    2,
+    2,
+    1,
+    1,
+    1,
+    1
+  ],
+  "proof": "TY8_extension_lemma.md",
+  "verifier": "verify_TY8_lagrangians.py",
+  "verification": "TY8_lagrangians_verification.json"
+}

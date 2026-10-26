@@ -1,6 +1,6 @@
 {
   "schema": "current-publication-revision/v1",
-  "date": "2026-10-25",
+  "date": "2026-10-26",
   "accepted_decisions": 36,
   "remaining_ids": [
     "R6_4_155",
@@ -2194,6 +2194,14 @@
     "supplements/rank8/paper/audit_neargroup_20261025.tex": {
       "sha256": "c19841608a11885519956c0992f881a7133ada878003a088fe5f8c7bc292f747",
       "bytes": 6878
+    },
+    "publications/rank12/paper/rank12.tex": {
+      "sha256": "6db6fe9ef3951664e437fc5e0efc0ed5615fd9736bdd542be36e8abac2e9badf",
+      "bytes": 20275
+    },
+    "publications/rank12/paper/rank12.pdf": {
+      "sha256": "cf4e804d116c2eeb82c3bbe1ff4301f00fc5e04f18a529036a42e8e79d814779",
+      "bytes": 365023
     }
   },
   "web_copies": {
@@ -2214,7 +2222,8 @@
     "papers/rank9-rank10-m1.pdf": "publications/rank9-rank10/paper/rank9-rank10.pdf",
     "papers/rank11.pdf": "publications/rank11/paper/rank11.pdf",
     "papers/rank9-m2.pdf": "publications/rank9-m2/paper/rank9-m2.pdf",
-    "papers/prepublication-review-2026-10-25.pdf": "manuscripts/prepublication-review-2026-10-25.pdf"
+    "papers/prepublication-review-2026-10-25.pdf": "manuscripts/prepublication-review-2026-10-25.pdf",
+    "papers/rank12.pdf": "publications/rank12/paper/rank12.pdf"
   },
   "base_document_manifest": {
     "path": "data/current_document_revision.json",
@@ -2340,5 +2349,20 @@
     "ledger_sha256": "6c53d65604523c54e8ccd4f7474826cd55f1f6b0d184be3dbd4ddda7139396e2",
     "evidence": "evidence/unresolved_retry_20261024"
   },
-  "correctness_revision": "evidence/correctness_20261025/revision.json"
+  "correctness_revision": "evidence/correctness_20261025/revision.json",
+  "rank12_m1": {
+    "date": "2026-10-26",
+    "rank": 12,
+    "multiplicity": 1,
+    "rings": 632,
+    "excluded_general": 480,
+    "modeled": 152,
+    "realized_unitary": 151,
+    "realized_pseudo_unitary_unitarity_unproved": 1,
+    "unresolved_general": 0,
+    "ledger": "evidence/rank12_m1_20261026/ledger.json",
+    "ledger_sha256": "d136adfd495b7c46f096143901dc917305e7c362be406e94673b17a015fa5102",
+    "proof_archive": "site/dist/downloads/Rank12_M1_Completion_Evidence.zip",
+    "proof_archive_sha256": "c7283e2b915853a17f9725695a013cc140d2140365b55115520c454327ad5345"
+  }
 }

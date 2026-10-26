@@ -1,0 +1,91 @@
+{
+  "input_unresolved": 22,
+  "new_modeled": 2,
+  "new_excluded": 0,
+  "remaining_unresolved": [
+    "R12_1_130",
+    "R12_1_146",
+    "R12_1_151",
+    "R12_1_175",
+    "R12_1_216",
+    "R12_1_239",
+    "R12_1_244",
+    "R12_1_277",
+    "R12_1_289",
+    "R12_1_296",
+    "R12_1_303",
+    "R12_1_319",
+    "R12_1_407",
+    "R12_1_410",
+    "R12_1_421",
+    "R12_1_424",
+    "R12_1_433",
+    "R12_1_523",
+    "R12_1_526",
+    "R12_1_538"
+  ],
+  "models": [
+    {
+      "id": "R12_1_414",
+      "status": "unitarily_realized",
+      "name": "C(S4xC2,H4), adapted fourth-root associator",
+      "tensor_sha256": "7898e6f2bf52455463f7e0e195f25e397d71c330b51248699905ace86b7eebcd",
+      "model_tensor_sha256": "22cac7a58506758084f8ca15572ae246778f779724ee17c7fb9e951ab9c684f2",
+      "basis_map_source_to_model": [
+        0,
+        5,
+        6,
+        4,
+        7,
+        10,
+        11,
+        8,
+        9,
+        1,
+        2,
+        3
+      ],
+      "evidence": "positive_witnesses.json",
+      "theoretical_premise": "Actual normalized root-of-unity cocycle, identically trivial subgroup restriction, separable subgroup algebra, complete monomial bimodules and independently reconstructed balanced tensor products."
+    },
+    {
+      "id": "R12_1_531",
+      "status": "unitarily_realized",
+      "name": "C(S4_fiber_C4,H4), adapted fourth-root associator",
+      "tensor_sha256": "dac4033dc618e10e2dca990e5eaa121187a1b24a34594b73eca6d27cac58226a",
+      "model_tensor_sha256": "33449858018cc071c04ad48846ddfb8e3aa16c1ad0df9d819f905544942a2464",
+      "basis_map_source_to_model": [
+        0,
+        2,
+        3,
+        4,
+        5,
+        8,
+        9,
+        10,
+        11,
+        7,
+        6,
+        1
+      ],
+      "evidence": "positive_witnesses.json",
+      "theoretical_premise": "Actual normalized root-of-unity cocycle, identically trivial subgroup restriction, separable subgroup algebra, complete monomial bimodules and independently reconstructed balanced tensor products."
+    }
+  ],
+  "exclusions": [],
+  "independent_audit": "../independent/d48_independent.json",
+  "replay": "verify.py",
+  "proof": "theory.md",
+  "offline_only": true,
+  "discovery_scope": {
+    "ordinary_groups": 52,
+    "ordinary_subgroup_conjugacy_classes": 1722,
+    "subgroup_twisted_exact_tensors": 19,
+    "adapted_transfer_initial_parameter_checks": 70,
+    "adapted_transfer_expanded_parameter_checks": 310,
+    "expanded_hits": 96,
+    "expanded_distinct_models": 2,
+    "conditional_gt_subgroup_superset": 23,
+    "conditional_remaining_gt_subgroup_classes": 10
+  }
+}

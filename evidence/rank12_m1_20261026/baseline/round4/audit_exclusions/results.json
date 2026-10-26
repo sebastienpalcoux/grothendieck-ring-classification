@@ -1,0 +1,3567 @@
+{
+  "status": "PASS_FOR_ASSIGNED_425",
+  "baseline_excluded": 438,
+  "retained_after_fresh_audit": 425,
+  "parent_reviewed_routes": 13,
+  "classification_corrections": 0,
+  "input_and_embedding_binding": {
+    "tensors": 632,
+    "embeddings": 4012,
+    "status": "PASS"
+  },
+  "optimized_original_replays": [
+    "audit_all_exclusions",
+    "stabilizer_square",
+    "audit_quadratic_signed",
+    "audit_c9_morita",
+    "audit_d40_sources",
+    "audit_d8_cohomology",
+    "audit_d40_duals",
+    "audit_pointed_stabilizers"
+  ],
+  "fresh_receipts": [
+    {
+      "file": "replayed/prior_round/evidence/rank12-m1-round2-20261025/audit_exclusions/all_exclusions_independent.json",
+      "sha256": "cfc874cc5d7de42303578ecd4cc28f9c31f03c17574d55e8093855b4bd0a0d66"
+    },
+    {
+      "file": "replayed/prior_round/evidence/rank12-m1-round2-20261025/audit_exclusions/stabilizer_square.json",
+      "sha256": "62ba375a4230c477acf0f075dfa5659474e5a7eb27056725c6b3c6bc755ae63d"
+    },
+    {
+      "file": "replayed/prior_round/evidence/rank12-m1-round2-20261025/audit_exclusions/quadratic_signed_independent.json",
+      "sha256": "1e98b642ce227f7710dc4fdb6b01ed911d002f1bc85271bd3f8cbfc137af102c"
+    },
+    {
+      "file": "replayed/prior_round/evidence/rank12-m1-round2-20261025/audit_exclusions/c9_morita_independent.json",
+      "sha256": "c481d436142b65d5e98783c1ef9607b07119c170b50c0f30146f47c80274da8c"
+    },
+    {
+      "file": "replayed/prior_round/evidence/rank12-m1-round2-20261025/audit_exclusions/d40_sources_independent.json",
+      "sha256": "abdb473b2aaddc3e5d4411bd1797c67a06017090afa34c448185ccbacc10ddd4"
+    },
+    {
+      "file": "replayed/prior_round/evidence/rank12-m1-round2-20261025/audit_exclusions/d8_cohomology_independent.json",
+      "sha256": "3bcf2622d699c99d5c0c725212f9a6348d15ef47c158b4e390871fb7c730fd36"
+    },
+    {
+      "file": "replayed/prior_round/evidence/rank12-m1-round2-20261025/audit_exclusions/d40_duals_independent.json",
+      "sha256": "6cceca6578844d38c21a18a9a104f3912f588c9bc6695f2971e11016b2c3f7a5"
+    },
+    {
+      "file": "replayed/prior_round/evidence/rank12-m1-round2-20261025/audit_exclusions/pointed_stabilizers_independent.json",
+      "sha256": "9cac8aad2846be2522728f80c05022920beeb19e295c2c70c4bae661ced91bdb"
+    },
+    {
+      "file": "lower_transfers.json",
+      "sha256": "aff40beb6a4dd86e592b7f879800af301efb73b0367130e1bef767f4fbffd4a1"
+    }
+  ],
+  "maintenance_note": "Stored general involution_module wrapper is correctly replayed via solve; older noncommutative-specific convenience verifier rejects the kind name. No classification error.",
+  "records": [
+    {
+      "id": "R12_1_3",
+      "tensor_sha256": "ce3706fd3de609235d48e4214957f6b1572fe6efdf2569803558482123b2babc",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_4",
+      "tensor_sha256": "c191ef1197d282676b8d7c57af586efd7f4f8d5c7379a119b9834a32b49a7ecb",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_5",
+      "tensor_sha256": "27e3a54d634a030c8e2c3f93c1429a6b065ee011a4c30dc4eec7c4ce7ea3ec02",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_6",
+      "tensor_sha256": "ac4df0a7fd1f3632b7a9b629c28fcc081ac5ed68c1c5bb70bbd56bf1442772c2",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_7",
+      "tensor_sha256": "aeb881fba9391e037d9e5e0d86017d44b3416afdc0429b373be308448d80d397",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_8",
+      "tensor_sha256": "56a66e807684f860ab6cc913cbbf76d3217762413959a85c666a85269f2aebfe",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_9",
+      "tensor_sha256": "7c4410efded804541be1a24538ab4d71af3a3ba128d57d8f026f9da977cf7d41",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_11",
+      "tensor_sha256": "7cf76dbd0bbc4fe08771c98072c66dd47e8cabe77cce8807f55c14bebc2713d4",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_12",
+      "tensor_sha256": "a64edac819defa266cc6bb49e31f62044aa0380b426640cf405e0dd3623803c5",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_13",
+      "tensor_sha256": "8336996d86fff3f88104f9bee8c25ed34a029d95c8f5114c34c3262e540a1669",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_21",
+      "tensor_sha256": "f926498856cefc6eca03b07316547a703714afbf33596f3aa571fca684c49e89",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_22",
+      "tensor_sha256": "20042174eeaa389538983e76b1b6bf6f3439721a684b7162d94494ef8384b87d",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_23",
+      "tensor_sha256": "bce46bde2dc7364c786912e34cab0b8445bf585f02eb9ccf2cd1fd1b849cd052",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_24",
+      "tensor_sha256": "c519dc42a4d80f8c14bce913565decf8e9f25d3f39bd028c2a7d8cf208268413",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_26",
+      "tensor_sha256": "a3fa41fcce9daa58316b24c5d422f8768c6fe88d522a9a378c8b0ecb53ef5fec",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_27",
+      "tensor_sha256": "d61dca2ee4c43bad8be62343985c23c0b523f9d6ec9185d14bf34734ac3d25fc",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_29",
+      "tensor_sha256": "83f89e04323a259e32380f77bc2bcc01dbdda8a8044fb5d90d733012b9583219",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_31",
+      "tensor_sha256": "5c54837e13bf70f6f19f88f67201a74860513fd477953c150dc75f4073014ad4",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_32",
+      "tensor_sha256": "2fe4e2cbe7dbb77885ceda41aea3e8e803b09c6e60fada44fd1beb3315abc919",
+      "route": "paired_stabilizer_integrality",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_33",
+      "tensor_sha256": "adfca6024db4e972240745c81f4d3d0e366af308ea874a416916a195c5f6cb40",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_34",
+      "tensor_sha256": "b7b07494f6bdb1342857cf5abb86651c817527d6c0b1e8f39fc5bc2b1505d770",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_35",
+      "tensor_sha256": "8dbdcf44a4c4218154d01bf826df5bc8285f599ab359fece31932a7421e61a35",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_36",
+      "tensor_sha256": "fe3f775269949556b4ba0474051fd1281df5a98b5d13a8b63acd039074a1b098",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_37",
+      "tensor_sha256": "3dd7b4018b45e45b6e2e0de90cceab54b14495e08bce1f23f1c3e2c4645f8153",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_38",
+      "tensor_sha256": "b732110f942686fdec203983f847c92b673e4ba46d7eaa3390ac32f5261f96df",
+      "route": "RepS3_Morita_enlargement_then_paired_stabilizer",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_39",
+      "tensor_sha256": "3a803aa16158f7c2d43349063cc05b80fbddd7d5e0faa6b8c51f421395cbdf39",
+      "route": "RepS3_Morita_enlargement_then_paired_stabilizer",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_40",
+      "tensor_sha256": "ac699a3aaa94e2fbdcea2695bacc65429b4e02d3e9080a4e570b6e0507872d53",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_43",
+      "tensor_sha256": "fbf45978d24d4304ef1fce7d11cd8bd8b618905dec5be30c8cbc5df24336105a",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_44",
+      "tensor_sha256": "7265e497d5412ed77499b70a918b5c9b0414c1e8edfb1392d32ffe8a02557bb8",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_45",
+      "tensor_sha256": "a0563bdc36cab04cedbd7e4fc1e08a1dcb99f6ba65e8af69b3006b43ba21db5e",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_46",
+      "tensor_sha256": "09392130daae3a3e80d445aa1e3a663cf96dd52ee56f735da8bda63b95a23b9d",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_47",
+      "tensor_sha256": "c3aae49e51061a4a5f47ad3909a3cbdd49c1148037c1268d873019863e994399",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_48",
+      "tensor_sha256": "ece2f1655dc88ad1e4da63239fcbd67687dd2b9bdc444f403b6709b626c52162",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_49",
+      "tensor_sha256": "f6a39c60aa92a9a32ece23e2c892d4fca80ba9f3787c1d4e55f1623031fa8f48",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_52",
+      "tensor_sha256": "79f759e9748e359a75867f217c444061230b285e3862f1545e412e4888016f1b",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_56",
+      "tensor_sha256": "08d01a7e86cee7bf6da46bdc2db284f67e3ea482c08d43276a5885b920f0eadc",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_57",
+      "tensor_sha256": "3843f7f32679a2eac5ff1b7684c7e7f1d9524a3a925a31eb506562792fe319c7",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_58",
+      "tensor_sha256": "39d0d8bad47ac880a76b99f59705c8a4e3d554bcc705472b7c67c40c843f7a43",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_59",
+      "tensor_sha256": "35e4685e81bf9aa9c5d8b33eaa3eca6b2c0c90b9e0f65bdcdfa11b7a2c12337e",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_60",
+      "tensor_sha256": "1aea9e689b0291c16794d5474faf2430a22dd6a5c89608cd7fc45b5114506663",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_61",
+      "tensor_sha256": "6c0770d612c3c4faef488c0d3647db16901b8097b87700f7d8124cfe00bc6378",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_62",
+      "tensor_sha256": "0d745434adc7741c30c1db093e5c2c2338e19ae095afb637bc6a94910e6d99da",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_63",
+      "tensor_sha256": "dfff00f699b4551856b2362f86165739a36f520ea91198c1090c07351f019b6a",
+      "route": "mod4_signed_descent_and_dimension_order",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_64",
+      "tensor_sha256": "18151ac759e385575928f429812449787dd39c154e372c27dbc6e85a9b27c1b1",
+      "route": "mod4_signed_descent_and_dimension_order",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_65",
+      "tensor_sha256": "1ac16b1002b352c1e9cfe27b6f0c75a84d992a823baba6971df4638d2baa59bb",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_66",
+      "tensor_sha256": "40f73795b15905dc669c6de4081e8807407e2ac3d21f88b957a77ef23043b1d2",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_69",
+      "tensor_sha256": "92d489f76fc3e98a5ddc72f174cea62e7735311d54f32f7f5556dd462566987f",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_70",
+      "tensor_sha256": "74e5e7324358e8639d5fe1c57d23c75294fc8a8f50e795f02372ca4865de78a8",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_74",
+      "tensor_sha256": "0e16b406171517994c6f86bf6c6783197342e1928a53e87f04f454683fc408f1",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_75",
+      "tensor_sha256": "c2021dfe947c57df2bdc63b8e198801044025fd5d9b571c69642598287fc01d3",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_76",
+      "tensor_sha256": "0c2b356f36dda6ff887534755c913abd1937843ba1efab8fc9024cac9ead9d12",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_81",
+      "tensor_sha256": "2a929ccb8992b9a6c2df434b625fa53479342965a9fe0992bf729e449bc7adbd",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_82",
+      "tensor_sha256": "759d12714cc765dd00d45c26544c31a8716230c3e4ea2708d1e08b7b2388ac08",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_83",
+      "tensor_sha256": "28e569f5657ba7c0e67a6000afa827c233bca20d3704f9381175efc020b11381",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_84",
+      "tensor_sha256": "86376aa9c5f8020d62d91aeb7de7651a326cee5339c15752a10466fb84f9d60c",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_85",
+      "tensor_sha256": "71f6b5e0ea2c2db898d2d169c8daa198928079fe6a161e62faedb182379f0dcf",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_86",
+      "tensor_sha256": "0f7bff4b20a4bb5186b5e5cc251fbc2331434538afff8c88363b76ab1b76ac4c",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_87",
+      "tensor_sha256": "0191ee4525bea309f84a4951811c7b415ae53c1ac9335d713eee11d5dda2ceac",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_88",
+      "tensor_sha256": "9aa5d9ab1834d9446c1a2d853daf2592dd42ebfdbfca7bc7b1468b589904aaca",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_89",
+      "tensor_sha256": "bc5d5c598b3af63a04fc40cd216376598b814606094cb2d7acefc550cc709984",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_90",
+      "tensor_sha256": "67cefee1a97afb7617bd403f5fccd928f57bd6dded540c4c42e68c49817b1437",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_91",
+      "tensor_sha256": "800c36c355ef8cb9a02f2c94f14d5af1005f988993c50df6f43d0b03eaf4940e",
+      "route": "Primary-3 with solvability gate",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_92",
+      "tensor_sha256": "aebc1c6ae107fa5d814a21ac9c11de2b155c94490c967fcaa1cf2dd9fec256ce",
+      "route": "Primary-3 with solvability gate",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_93",
+      "tensor_sha256": "7d46aa075953b8be30a7167beecb397947caaa43ec65dd4cabafeed76b41ebf9",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_94",
+      "tensor_sha256": "47503272fc568fae2c45b7ae7086dd1f1bd5667a038cd5c91dcec26a5a9850f0",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_95",
+      "tensor_sha256": "a5764485a0f23f51c8e0f4523ae8c397183caa126348561fed382c58af4877db",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_96",
+      "tensor_sha256": "7ea45741b9f7a31792f4c4c1716d264ebb00a6bad1413dbd7637488f5fcdb098",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_97",
+      "tensor_sha256": "d2d6d2b46e472bfd69de0184d2f9ba656155b2541a73f6c8705fd79cfba15984",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_98",
+      "tensor_sha256": "cf867beceb3f98acb9b93e040b108a4c3efbd4fac1b4f1a0b0fe311843220a58",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_100",
+      "tensor_sha256": "b2c73d00ee644304ab08b34100677f39288303742934e67debc2dd52b7490ab5",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_102",
+      "tensor_sha256": "c0c433cfbeb104261bcc54d1ae4456f07f8833ce91b20d107b5da794e0b98069",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_105",
+      "tensor_sha256": "a1b53824513719625be4e23c567e049ec850d6d96ab01880c5b6d8ae0cabc546",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_106",
+      "tensor_sha256": "3057639437c57c8bc26c1bcbe7b3f52bac001f1576c6856d7d900d97cde416ff",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_109",
+      "tensor_sha256": "dacb1de8f13f2dec1ae8bca97dc31db6eced7200a695568ce36bdd215b13f081",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_110",
+      "tensor_sha256": "6f8d706994ba31068f6dd543c9b9265939b7285994164376be637a0faa557a77",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_111",
+      "tensor_sha256": "b9a30651b4ebbf85b631075c4effe868f68658ef5d84fa2cd637be842360029b",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_113",
+      "tensor_sha256": "68781dac029c051ebfce40b10b7afa0a8bb2e9a5673b7e92c34ea143ac8abe9d",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_114",
+      "tensor_sha256": "3751be4da41b7be717fc38e91e1d036c2fd55e6eb78b2038b4adbb873c106c88",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_115",
+      "tensor_sha256": "bbe930f35b0341b8468acfd1f7f3d4a3661274177ea5b9bbdd3b9e88827dbdf5",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_118",
+      "tensor_sha256": "e8ae7f1700ce10d17f38a4fb5d9f8d08b5e0f5687b6d836a389c51544fd34f1e",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_121",
+      "tensor_sha256": "565b373fe4f8ec8f2627df198c15681462105eceda1600fe23ba07b498fd5f37",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_122",
+      "tensor_sha256": "b1c7f1a59d6c6dac42c98e6e542c9585e226e811b1153918b1c62bf862589434",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_123",
+      "tensor_sha256": "0fd9be8abeaf0ad7a1c75495ae564cd3d0b606f671a65579fe15ad805976bb5d",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_124",
+      "tensor_sha256": "aafbce64ee1fdc7d71700891ef9e277a7bfd10e5a0c6711683b72256e54d22ae",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_125",
+      "tensor_sha256": "772e99802fc6e2feb84dba331cc974970c111723a5acf0402737d2f2c6d18597",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_126",
+      "tensor_sha256": "136bc2a2099cb5ff55be5d363aab42b7f93d8bc6e0e540f2ee5bcead74422660",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_127",
+      "tensor_sha256": "5ae1121d0be4164ad244d6fdb2955669339479b2ff3fa4f1ace1bb9e9fc3ff03",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_129",
+      "tensor_sha256": "3605fdcc71adbe24f2ff73dbae7b2b763ebebdac62b838d85aee5a6004611814",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_131",
+      "tensor_sha256": "b7dfbdd94d372d9f925628c3649d2e81d1626533d3d7adb5731b07cbad398744",
+      "route": "paired_stabilizer_integrality",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_132",
+      "tensor_sha256": "6dc2e35a2b786c966a432eee4cb310bea5f3d5eabc8378be0389612454c92292",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_135",
+      "tensor_sha256": "8fe2ffdae14cf5edf4608573571559ee3d42c2102f1bd2e71670e68fbb30d944",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_136",
+      "tensor_sha256": "c9e12b310985154901b73435e066589fe8d3d0c8ffdb579af46302c2e70f7b64",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_137",
+      "tensor_sha256": "4e4cceee9ac33859c916ea0abe53237678fc9ab17eff52335f634e9f8628593a",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_138",
+      "tensor_sha256": "8a67236376c87d852a41fe0ea6bf82a7c53a428d48b81697917c6a36b47e6ad3",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_140",
+      "tensor_sha256": "b5a6ca3d78132d84bd821e6072163994de6718a472b70f2e25c34ddb2116defd",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_141",
+      "tensor_sha256": "2f256e5d35c1469c7bc84f82d4c2a68bbffbe8f3f981f87e50b4210cabc0a7f8",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_143",
+      "tensor_sha256": "25ae6bd483effaaa971434ab2937dc159468feac87c9c80e6f255a1dd7de6965",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_145",
+      "tensor_sha256": "5d3d38848ab8957a69a47e6c13f7ec45dc00f157fad9028c532e7dff43937fc1",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_148",
+      "tensor_sha256": "86ab2b0eab950e229d26d849c1a074860c6ea270552ef3841159f7847aff1c5c",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_149",
+      "tensor_sha256": "d391a0caaf446fb7403f23c3436cad82d5b743bebb60df505be729c5f70e9ac0",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_150",
+      "tensor_sha256": "55366ac17e2a999c2e3dfc2b6cc8b6da144b24e2789372d694696ec9d62f79fe",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_152",
+      "tensor_sha256": "ed7c088268b2bcf760dd38e03a762d6d27fa5fc4fcf48a6f6f26767d581cc2ee",
+      "route": "paired_stabilizer_integrality",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_157",
+      "tensor_sha256": "3107de586697bfd65d27ff994223ba802bc88c51631b70a10947bd9c2aa38791",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_158",
+      "tensor_sha256": "7cff00e8ef5538451dd7fe2235fa15e300e17be48fb2781cc07072f6c2b6b7db",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_159",
+      "tensor_sha256": "2e483427b9ee0ee10b1d32d63c718dee7027da36fac0375946bee417fb62d6a8",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_160",
+      "tensor_sha256": "a8d1debaf18df30eb505c33ec9f6767027362c52e10954961b03beccd6bc8e85",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_161",
+      "tensor_sha256": "6bedb73da943988145feba38d826712324e33dc8297ad7fa80ef4a43acdec82c",
+      "route": "forced_group_theoretical_D120_exhaustion",
+      "proof_auditor": "parent",
+      "proof_status": "parent_independent_audit; tensor_binding_checked_here",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_165",
+      "tensor_sha256": "92c5c17071b8d4428abb6758761e59b656c36bfa1f89fe11765b84991940f53a",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_166",
+      "tensor_sha256": "3962a42cb0c98dfac1ae7b8880e1d7e5af1c12c46e5a0b86a6438eefe73b05ed",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_167",
+      "tensor_sha256": "c1776d8aaf2ac532e3652caae06adcd93cf66cbc89f2435e4cdcad913e7a843e",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_168",
+      "tensor_sha256": "3c5f8159c7f302b11328d2e9a6f0867403e91266a05b4385da9fb00ec16cf087",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_169",
+      "tensor_sha256": "542f07b13db5b2cffeb1aea7fd12bb465695625818386b6da07503bf95526d8e",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_170",
+      "tensor_sha256": "2be8b3fb9de92ce8bae33ff95bcff3a780b1031c9cf103861a64f4798bd65889",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_171",
+      "tensor_sha256": "5744d150efadf969589c3dce0c51f71ae5a5e2e13fbde2fc720ef11eb3eacfbc",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_172",
+      "tensor_sha256": "dfc630e2cff3492ce7a34f97e4a24da63f126e2ccf75189edb7c3649446cb31d",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_174",
+      "tensor_sha256": "4c11ea8bcd4aa29542650995bd2c093a5813c0dfcb65255ee7812502f4eff4e3",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_177",
+      "tensor_sha256": "ace33b20f11ba1ffc14dd5d023d96e831630e87dba829dbcd463a41f77ce9b46",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_178",
+      "tensor_sha256": "9e9b435dbaa770634237b244039a7a3d26c85f18054b3e70db16e42186d3da4b",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_182",
+      "tensor_sha256": "78932f3836dedac62a818aae8799703fe1a2cba7ee366d91d183ec86ee88b3c3",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_184",
+      "tensor_sha256": "25bd3d5e4c3813d9a7e123008a588e1849ded4fd8521c09fd8d03482a2928e42",
+      "route": "paired_stabilizer_integrality",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_185",
+      "tensor_sha256": "0915bfaa3e6957ae70eb815d9f4c75d0f57e8800b0d67905f1cd7a57be814864",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_186",
+      "tensor_sha256": "3516c9d593bf95c47f45bf0c7084442d9b37267c6f47c38a3edebb9db0953fcb",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_188",
+      "tensor_sha256": "5e3c0d979029218906c272729f03c873f9801478d49a98457b5defbbffd4fc97",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_189",
+      "tensor_sha256": "9ded2f0f1394d9e2fa2c591c6471454b2ff09e59e349c86ba49d92872fd23cea",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_191",
+      "tensor_sha256": "496834a9e3344a0bb25195b0581160f6519830ff287447ebc6489adbcc69519c",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_192",
+      "tensor_sha256": "e939b5a11f73eaceeaaa37f5bc67529e7dccec64df5431540888ad9473e1dc87",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_193",
+      "tensor_sha256": "3554b1dde55cde66b45601a905f47e19a6fc12a9f0511c6b0ec4b4a4605a0699",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_194",
+      "tensor_sha256": "7df614d91527250c6b7899491d6432ee6a7683cd1df02c3754b0086e54d1e0a7",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_195",
+      "tensor_sha256": "c531dc4de4ab5051339f52925e579d15736def1cd606d3ec953e138cac3be807",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_196",
+      "tensor_sha256": "de7b698310c1770c2ee1ec08af5f5cfd545ea37b758a07f0edb39aee65292f4f",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_197",
+      "tensor_sha256": "d5ce49841b1e726334406e905eaa81f47ff034238cdda40c2e5ed1d90b945982",
+      "route": "Primary-3 with solvability gate",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_198",
+      "tensor_sha256": "d0de29f20f2f323151c3e5412b05c1f5603d56b311c604cd8c5b5a1d79f48e19",
+      "route": "Primary-3 with solvability gate",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_199",
+      "tensor_sha256": "ca35ad63a778338fc9a1c7710ab68fe22b5b01ce2b1ae1413c54e1abe30e7a3b",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_200",
+      "tensor_sha256": "9c838571dd95f7d0376dc43ae49c64e45b4b01fd0ef2befa883a25c46c79a2fc",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_201",
+      "tensor_sha256": "dcc06b5cf4a6a6b608095c74f5964d1ace27371a10eea45591f20eee842cea3b",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_202",
+      "tensor_sha256": "99386aba09dc67b3597f6d5df97a55ac9844e24ef95d33f6903200d2a34797c3",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_203",
+      "tensor_sha256": "ac582c5c4b074a0293d33d69a7c03553c45ea008534c76a474df22aad5e3224e",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_204",
+      "tensor_sha256": "ba1b865aed8a9f6ba73ab3c99852cd2534917f066b079053469c1eac34ce763b",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_205",
+      "tensor_sha256": "0b63de028bc2d4db61bcb4f153a165f563221659bb513d7c9394aec29551b7cd",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_206",
+      "tensor_sha256": "42c85e5cfac2d3888d30ba046754210bc762bb8ca1248b4f4921518807a2b212",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_207",
+      "tensor_sha256": "3990a47820143edeba80e1f19e8bff7e2a0cc883b3a1404f1cb0261189c33102",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_208",
+      "tensor_sha256": "09338d375b65b1b4f572a3aa31f4ebb1cd06a478aa58f0ef9b17b11eff8eb688",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_209",
+      "tensor_sha256": "69688c717cedccc8190b1c1777c377642cc48dc2858e1de02ec0f8bdf84bd3d9",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_210",
+      "tensor_sha256": "e5607d5c640778a636b8646fc48f00fc44238c5c231eb376be2b7af359c52ae9",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_211",
+      "tensor_sha256": "2ef79b26861a50e87370de85fe5f2a9c00ab4fd6ec7f9198651df33c952543c9",
+      "route": "forced_group_theoretical_D120_exhaustion",
+      "proof_auditor": "parent",
+      "proof_status": "parent_independent_audit; tensor_binding_checked_here",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_212",
+      "tensor_sha256": "236a5370b45e138563970790553ba62af8414651c41f88919d2ed5fa19012a0c",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_213",
+      "tensor_sha256": "5c286d17b1cc6301ad7808f1a265a97d3162681fff63c032699792498a49e4ec",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_214",
+      "tensor_sha256": "e5f1ba84ce11be84c444b7215ee6fbf03a3840aa12708d3accae8d52258ac932",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_215",
+      "tensor_sha256": "e9554fe8c5005c663e5202e752337e32603efaf09d00857382ec1d82ede80349",
+      "route": "mod4_signed_descent_and_dimension_order",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_217",
+      "tensor_sha256": "60774410d80e1d48beb99f917d902f8f5e8215c2103d161f0ed191f752d2108f",
+      "route": "paired_stabilizer_integrality",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_218",
+      "tensor_sha256": "78059ba660c8c80947b241687b6daf25d6c81bd692ae768bcb46c733b94ded70",
+      "route": "RepS3_Morita_enlargement_then_paired_stabilizer",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_219",
+      "tensor_sha256": "a8ad135a2bbb9d5d72b47c0c5ba60605ed6782fbf7174f03b478b25e99d100e0",
+      "route": "RepS3_Morita_enlargement_then_paired_stabilizer",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_220",
+      "tensor_sha256": "4cff41a7cd7b6d1efce0deb36b17cc92f186c0921ea053103abcb1fc5a682dfc",
+      "route": "Primary-3 with solvability gate",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_221",
+      "tensor_sha256": "c067d11989d3bda2a6d71cf9c1b44f096061dc9d124693daffb4be4bc4b11e7e",
+      "route": "Primary-3 with solvability gate",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_222",
+      "tensor_sha256": "ff220b3fe9e44e715a652626de83d596cfcacefced9e70e7c2d66165a8a097bf",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_223",
+      "tensor_sha256": "fca7d8c9348440d030aee253658a504e7be700ba8dc129db57c046da603b51fe",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_224",
+      "tensor_sha256": "80937b0f834c24ebab98394977f112215b2881007f609941af19e481d1dec36b",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_225",
+      "tensor_sha256": "de4683e455df5a98e2a2f76e5c1dde5f5ffa120f04cc7dea459b3e268dd86fb4",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_226",
+      "tensor_sha256": "4abde9d67e446e593b992081e2afd165cf4211f1fd3f333927c622c80515455f",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_227",
+      "tensor_sha256": "bbe79bd282a1217482b731dfa0791fd7222c8f1a5224e642d33a4aa55f1ca226",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_228",
+      "tensor_sha256": "bf9ffd9e06882a1f77c0b5d503c9c26fbecc69b9a4c58c65bb50238d59fb0023",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_229",
+      "tensor_sha256": "0e9f14d5d04fc32e0244919287d66dd08b3a5ef13967591d81b0bd0e46092744",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_230",
+      "tensor_sha256": "e9fe88c1bbaf62cb98288e28f9cc87e00a863e5b8745ad4ff753a5eb5369073d",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_231",
+      "tensor_sha256": "aa5473cafcfa2aa842c81852e669f37d08e3f61ab694f88c3a0238e4467447cd",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_232",
+      "tensor_sha256": "9e90783768615d1ae5b6f15ae0673859d78825eca7546eb645ca420c230aa87b",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_233",
+      "tensor_sha256": "c5db34b40d9a772a8e5e42a4082499da40422f1bbb6701226494d835a8ea482e",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_235",
+      "tensor_sha256": "3185f0600aff4fa28e9eaf34798ffe7a399dbcc74d9049e51660fd3ed285cb41",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_236",
+      "tensor_sha256": "48ab62710cb2edce614be08775b7c8cf5d35c4acb5555eec680e52b24aaec04e",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_238",
+      "tensor_sha256": "39242a4d2b9559c6e9d69cbfe2fa014ead92eb94b42090b1e301a6ed7fa4bb82",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_241",
+      "tensor_sha256": "d6d040fdf7d676a55715ee36d8ee17a23af5c72a483805d615b917bd7efd28fc",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_242",
+      "tensor_sha256": "51b0a16be9e21362f17ccf6add9ddef79fbc061291727b88cf3f1304ab91a1eb",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_243",
+      "tensor_sha256": "fa74191dc6d86a864f0970a480e3a76db15893984afc5f68b8f7f4a4728d473c",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_245",
+      "tensor_sha256": "9551c6e5cbfe97767544c8adfea41fc653050d7882c2a4adec05176ca80c0082",
+      "route": "paired_stabilizer_integrality",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_248",
+      "tensor_sha256": "27332b5a74c9b693cdcc35e210daacc5eafafbcefb6e9a2f060a8374333024bd",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_249",
+      "tensor_sha256": "01a2317d50ad8bdf704f93e64a9b741f83b2a598c7718c7c45eab1e9c8e28de4",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_250",
+      "tensor_sha256": "c33965a1ed0c74d2a5eaa04314a48391c52de5bc682d46868e420ccd07009473",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_251",
+      "tensor_sha256": "6022ef416ed504ef84056431071b757274fcce94c567c1ca2a26de9f3c02d02b",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_254",
+      "tensor_sha256": "cdb8abd880cda9cc6474b75d254233895c982daaa36d5dfd7c2348774d0b5a39",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_256",
+      "tensor_sha256": "bb4e3b4607b2f6df8c4d7e6789f4d8545e5967983b3590787a6349ab235a4176",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_257",
+      "tensor_sha256": "c0432719b61a31240cb027d56d2761f892f0ea479b8606e69553c052b8e9e11f",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_258",
+      "tensor_sha256": "6eaf76449ba9e712412116158e364e4b81a0b19bdda9033e56db3431bf757730",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_259",
+      "tensor_sha256": "c1111dd09743e37307d70e981383dab3155c863b6fc68f13bad0d839b2f654f3",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_260",
+      "tensor_sha256": "a642379d9045fdcaa83330383f005bae3fef492342b134b955c3c154b176ecc9",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_261",
+      "tensor_sha256": "1f88767b8607462e914db4869040951c453e08e7156a4a2541187089303ee82f",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_262",
+      "tensor_sha256": "8aec0b13c8167379eea98058277abc82ce8a9ba20ca7ba9a3a04868df69a56a0",
+      "route": "forced_group_theoretical_D120_exhaustion",
+      "proof_auditor": "parent",
+      "proof_status": "parent_independent_audit; tensor_binding_checked_here",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_264",
+      "tensor_sha256": "b42a99a024963a8948c6f4c56c9c19dd069a6d101f24e6d2262cbd42bbfdee0d",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_265",
+      "tensor_sha256": "06790e87dd2b3aa2ad23372599c7ec0ac0dfef1e07aacdb39a16563dec6bf242",
+      "route": "forced_group_theoretical_D120_exhaustion",
+      "proof_auditor": "parent",
+      "proof_status": "parent_independent_audit; tensor_binding_checked_here",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_266",
+      "tensor_sha256": "13a166745c75e126350548847b2d8358113d8f2ae177d15e32817ddeebda04d5",
+      "route": "Liptrap monomial obstruction",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_267",
+      "tensor_sha256": "d55d250ad1fd0848a9e89a17cd12e87d87e64f8a1a5261a844d5baba1e003d04",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_268",
+      "tensor_sha256": "a7f75596e225602d07cae2107afd46422942ef818d51f4ff8c910db804a32586",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_269",
+      "tensor_sha256": "f9d79e57b720b69b62b9b0f91e5f6d86cb00a9852b65e297cdab5420120a5fef",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_271",
+      "tensor_sha256": "a87926b6fae06edb78615c2c37a9ffe4915c79f9bde1c6a8a43b4fb3bb9876bb",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_272",
+      "tensor_sha256": "e2159620617359e077a931010d517d38689b1166910c35988900987b09ca83eb",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_273",
+      "tensor_sha256": "e693c042e131e54f5420f7a6c4884d1664941c4881acaa2e0811e3c156dedb9a",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_274",
+      "tensor_sha256": "133ad3764b2a09d7b0962710cfe1757ed09d60e24dc48c51b6943d98afcda654",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_276",
+      "tensor_sha256": "8f3b06f709012f4c1ed0ef280bf25ce135eb9e9dde1715887eca8ff0f412e35d",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_278",
+      "tensor_sha256": "1514fc1c6afb43273a757f251be677e0d6d65e3c66256dcd1277a241a0c87bd9",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_279",
+      "tensor_sha256": "31ad72fe1fe6cdffa257c87a05169bd17052d2f4ff231095a717a66091384ea1",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_281",
+      "tensor_sha256": "894ed06ecba5b2e59ce5f955c28076d78a0b8110e230209f353cfa4b281dee86",
+      "route": "Replayed lower-rank exclusions",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_282",
+      "tensor_sha256": "ba640f4c8c29069de1f13d35fd5763d75e3c7832052723ef6e7af67076aef3c0",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_283",
+      "tensor_sha256": "e4050b0f69885b9f32447749a2f37154d08154d9c7d31c718d7b15316964f511",
+      "route": "Replayed lower-rank exclusions",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_284",
+      "tensor_sha256": "592387252f4ccb9280425f37ee3d4425fc0266a9c8de555c69bfbf1a4e427234",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_286",
+      "tensor_sha256": "307828531cbb1b9de8086368928292fac89b39753b345469f1ba2512cc9b4a5f",
+      "route": "paired_stabilizer_integrality",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_287",
+      "tensor_sha256": "56a0c5f115b4580f820db720e4161c6ee1f4dccdc714edf2ce760dbc2c0a97a2",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_288",
+      "tensor_sha256": "4c1942c9eb029c5b134541b0e43417fa03466e78458518c123256fab2aeb05fc",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_290",
+      "tensor_sha256": "79b1cab0589d16ee6f9e41e2b2c6416749b2d0e663d4e6d6571b63ba0983e4d4",
+      "route": "paired_stabilizer_integrality",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_291",
+      "tensor_sha256": "1b64ffae450975aace2d21a192662aa3ed0e9994ced987f8126097832c696bf0",
+      "route": "Replayed lower-rank exclusions",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_292",
+      "tensor_sha256": "eae8b9b45e3f790281db33096d4248bad85bb51660b0a88f090e20254c136af1",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_293",
+      "tensor_sha256": "d645f1cb762e947b9b2fa2490784dcd0132a12189cc355f4c6307fb6d51ca0d2",
+      "route": "Replayed lower-rank exclusions",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_295",
+      "tensor_sha256": "cb3753147a433d518662ac44724005d577f8987181bed9781ca6a4b4b5ed30e9",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_297",
+      "tensor_sha256": "95ed857256c7c9c08f7fd9c259c040c062e7752fbd1393368ac79554d6437bb6",
+      "route": "paired_stabilizer_integrality",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_298",
+      "tensor_sha256": "b39ab9a4bc29e8abc1c08fd020c3f8ce1c202ad6426c81965048856fb50cb777",
+      "route": "Replayed lower-rank exclusions",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_299",
+      "tensor_sha256": "a2850528100060446886b306e356c18f70e75fa691eb1c1885a63a2bf5dd7d7c",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_300",
+      "tensor_sha256": "ebe6f32d834683e243a51a829b3af23a4b64f9b5b41c4a8efa60c0623dffd651",
+      "route": "Replayed lower-rank exclusions",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_302",
+      "tensor_sha256": "b74d0576f0a58eaf56fb557fe73caecdd356737a3e4f2fc37dc92e51594db1d8",
+      "route": "paired_stabilizer_integrality",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_304",
+      "tensor_sha256": "3525f510ea769893aa1beadddc9da54c4871e837a30c80acb8a7d7d038398d92",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_309",
+      "tensor_sha256": "07b0073498c9d3584e94502c96c0047a45624cfa08cb7f7d064934e888d2dd22",
+      "route": "D40_pointed_Morita_extension_exhaustion",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_310",
+      "tensor_sha256": "04d1f9e603cb1d450fd352e2f2264dec7ba230b055c91ce0267f289f4384eb15",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_311",
+      "tensor_sha256": "894bd565280b62d8836e7a1ae0f15620b462f3fff344f496f52785224c27034c",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_312",
+      "tensor_sha256": "046405ff06b4aacdcec847b5d84e2e100991fefbad6c65d73b1047f6ceadd82a",
+      "route": "forced_group_theoretical_D120_exhaustion",
+      "proof_auditor": "parent",
+      "proof_status": "parent_independent_audit; tensor_binding_checked_here",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_317",
+      "tensor_sha256": "b6dea3c74e590fdb6ea7b3a23c7a81a7f64bfbc7ecc32d9428304be8cd2f4601",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_328",
+      "tensor_sha256": "5e7a08bfe5bf4a057b70e565fff181d70660770ef65604f8fec2b60be4c6d74c",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_330",
+      "tensor_sha256": "6030811be2d2e9bad089e5a82d93e27aa8f502a7f4def8d85ca363e437231f0d",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_331",
+      "tensor_sha256": "6779655cc4ad26a1c7a71d078f1805640ab945f3395a10bf125d9083a79bfb4e",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_334",
+      "tensor_sha256": "1c62adf0dd2e2d52189cb26b4bdc969a89807a05523b172979e313e66c207bd0",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_335",
+      "tensor_sha256": "226fbce90dc25d613a0e169e35e5822f19b7e5a36eb88f3f15385354b78e6900",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_336",
+      "tensor_sha256": "60f2cc8c766ca876c614bcf844a817cfac52e5fe8b802b6c8675ad0ec6811ff7",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_337",
+      "tensor_sha256": "4e4a268474a5083318bd91c8139217899f7891b201cf93a558b8ea1fd9818c26",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_338",
+      "tensor_sha256": "5d88c4664fa4ebac666a6fa5c8e7bf504558e4c2fa82166b8c04905c4e8d3332",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_339",
+      "tensor_sha256": "7fa417d88ab56371a8de28276b1d953238de848beed2664456748cf79374e0ea",
+      "route": "paired_stabilizer_integrality",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_340",
+      "tensor_sha256": "66e2639bb4df1a4e6fcc6e1165a548bd1cbfcc3768984f96f455fcbc3916e0b9",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_341",
+      "tensor_sha256": "9c625d7f9db1fc096170bd7a5dd26e2f91d766a8d53494b7d4d9ee4fc6a63844",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_342",
+      "tensor_sha256": "95756677345284546ad3ddab296d226f1ffb12b699be22e6c502f80aada17dc1",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_345",
+      "tensor_sha256": "23e8daf2766a494fcede8089152d9e26664f84c6979488335aaaab10b9099017",
+      "route": "Central field / dimension order",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_346",
+      "tensor_sha256": "4d9e456a7a87273b5a62f55ec8faae03b324074a2bb964672264e5d51ebb4c34",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_347",
+      "tensor_sha256": "4d3f14fa5fec7647cfbbbbced43f33f3e312a71b5016b3862c1cc36ba1092205",
+      "route": "Central field / dimension order",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_348",
+      "tensor_sha256": "0ee6095c5558342922fe4c2cc98fdf5879cbab59b4f1de2298461803efbc0ffd",
+      "route": "Central field / dimension order",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_349",
+      "tensor_sha256": "ee432e9091760674a08de6fcc1ca1319e3af4c3e89f946dcbdedd266be04f3c3",
+      "route": "Replayed lower-rank exclusions",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_350",
+      "tensor_sha256": "c1fcaa5a2e3a0867276c5062959782de37347956ecfc1b3b9cf3f8315f5a3caf",
+      "route": "central_class_induction_relative_indicator_traces",
+      "proof_auditor": "parent",
+      "proof_status": "parent_independent_audit; tensor_binding_checked_here",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_352",
+      "tensor_sha256": "6d1182747e7540a963f9cc3ff992f1d1c5b301274e046dc03b6812c6dd634b40",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_353",
+      "tensor_sha256": "56da6df7029490b584fcf61a777eac52ad8c323ed2aee404d7ad6223a1b947e5",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_354",
+      "tensor_sha256": "8496be0ca9449786ac2c63dd2f920bf5815f261a3bf1e2b21c7857074cf0194d",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_355",
+      "tensor_sha256": "6a9140ad566b3d9fec1c22f803d293807e238e9b3ca087be4ae884321c98c162",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_356",
+      "tensor_sha256": "6ef08bfa0608ccf8955455cdc75909d0d0afd3cea991c6c6b6a3988908faad2c",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_357",
+      "tensor_sha256": "97f924332bcfbf15394edacb81f7aa982de4aec8844dde140bbcd5023c07ec96",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_358",
+      "tensor_sha256": "01a03b07de9a8bf4973afa91bcc8b2df9018b80d0c40142d8478c0a21c2aebe2",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_359",
+      "tensor_sha256": "62563da95bf008a8a47f424eb733dc29f1aaccd42cbdf6b2b579d224f40a8627",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_360",
+      "tensor_sha256": "c48cceb68f4ca5c4e95cf32cf6c3ab5ff5c0bb0d0db70efd65007e277a903032",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_362",
+      "tensor_sha256": "77882c446939000b14653ac51a05900d2b65ac819d90867b1332aa9ae38ce8fb",
+      "route": "forced_group_theoretical_D120_exhaustion",
+      "proof_auditor": "parent",
+      "proof_status": "parent_independent_audit; tensor_binding_checked_here",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_363",
+      "tensor_sha256": "449246c110c3da9acd7754a68a0cb54cfa390d1e8daa467fdfcd58d273a53301",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_364",
+      "tensor_sha256": "92cf6fa9c9c70789a7c0e02b93551e98e9658b37ad36fec32a69556ec5b5ac0f",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_365",
+      "tensor_sha256": "7f65deff7d389bbb0f7ec0ce88902b6d7cb67202538732989df017684690796a",
+      "route": "mod4_signed_descent_and_dimension_order",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_366",
+      "tensor_sha256": "72c72e07f3a6c6fc46147f1ff2272ecbb8d1c08d4958fa366de3a665c8ec6315",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_367",
+      "tensor_sha256": "caa8c2764629fd84fde330bd5e673ee7ea0d73d9eeced2b383a50298f719fba7",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_368",
+      "tensor_sha256": "90914a275f7a8dd797c42ea04c605cd04a38bbb6fc53918c87223424367fb3fe",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_369",
+      "tensor_sha256": "44aa6236e35c5312252fe5d4fc5ef57dee7dca469c22a639eb858ec9dfc814f8",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_370",
+      "tensor_sha256": "2234ee5e291b10e1e94b3281772b6bda58336fc8d9668c0bf5b7878c639b9889",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_371",
+      "tensor_sha256": "26a71184e39eccaf16e2994e46481176977d44f0dcc8d6e5e58ad876c78bd44a",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_372",
+      "tensor_sha256": "fdc1530fce058dc56f9206d927efcf6872f9e9be3c320b7e9631eb06433b3af9",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_373",
+      "tensor_sha256": "da363f5cafc2624606ee0cf84f20555aaa25ca0e74795452952e4a79aa66a912",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_376",
+      "tensor_sha256": "4ce68a30621155de5b3b861d1125041802273b3655250a1469b9bb2abcb425b7",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_377",
+      "tensor_sha256": "f33908db45fa0f931c5f158c75b2c13e503d417033b539022bb9bfea9fb2ebb1",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_378",
+      "tensor_sha256": "7d0530b271d313a22ad5b819da0dc8b5df2ea8e7c7d4cdf667e0fa01cd3f9190",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_380",
+      "tensor_sha256": "378feb6c6c4219450aaf752372bdd3617750dc88117e5c0bca32539e6fc024c6",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_381",
+      "tensor_sha256": "937340a8ff8bc3a9e553c135648a396ace5c98375f641f214e650bb447897d3c",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_382",
+      "tensor_sha256": "90fdee5b731c0773bc08c126792db9a8cd5e913327247210b66dad0bd07c95aa",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_383",
+      "tensor_sha256": "e0797d8f4ffc7feedd28ce948e715d1c105d6ff6af46bd92830cb76b5f8a836d",
+      "route": "D40_pointed_Morita_extension_exhaustion",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_384",
+      "tensor_sha256": "84621cb2559776be9e17c24f571789ad78a2c21d041ba4a47599595451d432bc",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_385",
+      "tensor_sha256": "261dcfc455c068798c21de4ee7f3414eaed9fd0341cd9aa495d1d623d9908c47",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_386",
+      "tensor_sha256": "cdb9a8065844ed5192e35aed4a085c2f3ae573ab555013f180e722d65e22b7ae",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_387",
+      "tensor_sha256": "c2347ba9fa200d48d694eb281b1062e8286a06cc2d14002385adb363c998a532",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_388",
+      "tensor_sha256": "7143e0f3b1582f3033e188720b51b8cbb27d056d99698b4507c7c3484c664562",
+      "route": "forced_group_theoretical_D120_exhaustion",
+      "proof_auditor": "parent",
+      "proof_status": "parent_independent_audit; tensor_binding_checked_here",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_391",
+      "tensor_sha256": "e01b149eb6da4c8a69730e11170f18f4fedd97677b8c95d391f6366b1901ce6d",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_392",
+      "tensor_sha256": "d8e65b50cf4eeb42ed2e66f4c206268900d87241e42cc76d163326639fbd05ab",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_393",
+      "tensor_sha256": "a6d461f5988160966fd9b237d3793ef7df611019615aa78cf6da61184e11f8c4",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_394",
+      "tensor_sha256": "a0a54776a11cba7f7be7afaf78676c5b23dfd315857f9faad9445660a9453afb",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_397",
+      "tensor_sha256": "6a75817b5fb7e711f962129e716c7b91493d6acb8f102f4349dfaa66b2702c8e",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_398",
+      "tensor_sha256": "04eb3d2e13b44412aaa0eaf1be2c60a2611cd8d2eb9d8d56af8c1db104831386",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_399",
+      "tensor_sha256": "3fe7081d14a05d36e70e086103cf1dd5eb329e799f78e49571665fa82b0490cf",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_400",
+      "tensor_sha256": "226ecadd23878813922de761922aa0bb39d2662cac5701d69aef40e1443c9020",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_401",
+      "tensor_sha256": "51ac2b2c918210cbcec878d767f78d7bb843b9cbaa8d2d7d59b95ceebc833122",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_402",
+      "tensor_sha256": "42f7f517db785f6d4457a586732984602090690d0922439a54f323994ad593d6",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_403",
+      "tensor_sha256": "f7b06febc93a48ae6de95e2998f6e9461694f2d2030b12c2bbcb9187aa969aed",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_404",
+      "tensor_sha256": "32272411bf43fb8e57f54fdf12e9c8bf1efbdebc6ffe6e250ce78effc39b0cac",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_406",
+      "tensor_sha256": "0d31d5a611e5a82c0e70f238a7547150833deaa471e6a8d17aad7459f27ffac3",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_409",
+      "tensor_sha256": "1ece9dc9cbe24c737a584c6db0e36ba0906853385db6f7a387f0a70a48934769",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_411",
+      "tensor_sha256": "dda7da1f92f1f3fc767af62fb2d2c808824d2b8cd86f31bffeec24adc2ec0b46",
+      "route": "paired_stabilizer_integrality",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_413",
+      "tensor_sha256": "c75a0234b95ac9ec525ae47df268114e2205135face5d76e45dc560299792987",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_416",
+      "tensor_sha256": "2b100051cd4493c48bb8f78dac3a1e337231cfa1684ff5f85d14b3c97fc44faa",
+      "route": "paired_stabilizer_integrality",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_418",
+      "tensor_sha256": "10bfca9944c4a9cbecf2ca917025374487dffd5c129a4999a7981b971885ffb8",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_420",
+      "tensor_sha256": "64ab69685199fbe5abe7fdf545bdc6a3e313e6d4aa7f72298140279c17383d3a",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_423",
+      "tensor_sha256": "9b9491b24633babab4400aee1fff87bb508dc31b0d75a7f390d28472b0045964",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_425",
+      "tensor_sha256": "4940a27bedcac167e5ebf156464e3dad3ed3facc95526ad0f505a337ffa94c36",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_426",
+      "tensor_sha256": "61d150d74fbcdea772ec0d1573388482d5e161bf1aefc11c81a08e20c1a18c23",
+      "route": "Liptrap monomial obstruction",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_427",
+      "tensor_sha256": "41b41bf174844c1f352894ce0f563e67b9c9df9cb2a75432f260b5250a2f314d",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_429",
+      "tensor_sha256": "a5af5e265b7b6270f7978cbc2e678a9c7dc4f5e50bbfaa132722e7f847b1e4cf",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_430",
+      "tensor_sha256": "785f0e4a1db1854942ae8168f98b20ba6281983751320bcbaa6b770ef80df6d8",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_432",
+      "tensor_sha256": "e2d4301650aeb5874aae5d122bdeff67061c8bd24a920f33213728b9bf767284",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_434",
+      "tensor_sha256": "1000277cffe713e6866141a2029792c3647a3bb53d9e08cb6b4bec33318ff2ec",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_435",
+      "tensor_sha256": "f9669b46bfd316064c4263953460aa0025354a7e1331224047f71c722c8d88ca",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_438",
+      "tensor_sha256": "cb981d776eee4125664225be7c871467603c05147c5a53604592754c6da4f313",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_439",
+      "tensor_sha256": "bc6073ad411c91b75f6ad10cf6e525d5a7c19902117eb4687e6c603645ce0040",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_440",
+      "tensor_sha256": "46d7c11f4fb130190b2090a7677df7a51b072d3dc915330b35f750d6e9f26fe6",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_442",
+      "tensor_sha256": "80d252ba28d5a95f06f1f8bc3953f1cde189f496236237c6c5b09cbf05e42e86",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_443",
+      "tensor_sha256": "1fe91827874ebe03355ca3281a22f9edf1f54c4e69bb9ca08f26929318dbc7c4",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_445",
+      "tensor_sha256": "5595ec96a3c7f03613230a1fe2023806ee052f44e57913d45e8ebbc37bfe855b",
+      "route": "invertible_pointed_bimodule_stabilizer_duality",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_447",
+      "tensor_sha256": "24840e2aca3bda06a7d859a0b835000d2a38fa1cbeeff29f653602de496aa59d",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_448",
+      "tensor_sha256": "c954f6a80d66b95f13c624d178aa088be9cf05f23afe1b48a723e9c6bbb75bc0",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_450",
+      "tensor_sha256": "db7857a7dc94dac57b3c83d7d0efe2469ec34e4f4ee2ef85b7dfa13e89af06c7",
+      "route": "Replayed lower-rank exclusions",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_451",
+      "tensor_sha256": "8b57061dc990270c8228bcf8d8ce1eb43a801a0f35c5424570d840e06cb0d383",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_452",
+      "tensor_sha256": "6e97f4db4914ad2ae5706f99cea7f802016e25436918ae486770766291049bd3",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_453",
+      "tensor_sha256": "8489d59466943bd2ddd9820eef322db315997648f975e7e9723220b76cc6b2c5",
+      "route": "forced_group_theoretical_D120_exhaustion",
+      "proof_auditor": "parent",
+      "proof_status": "parent_independent_audit; tensor_binding_checked_here",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_455",
+      "tensor_sha256": "6bdcd87a1d7aabb7de7a6a6cdde12470d008a1300c64479e6d41b3ab472b6dcb",
+      "route": "Replayed lower-rank exclusions",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_456",
+      "tensor_sha256": "09e748a723bda3e1ed329d62c05ff1e1d74590f36a9c962ec3513d6d7a2da447",
+      "route": "Replayed lower-rank exclusions",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_457",
+      "tensor_sha256": "09f5434cb53a6c4c4d53fb2fae305f86abca626805873db56f48d9ea1dda9342",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_458",
+      "tensor_sha256": "67fd2c122b54397ccec5f08a748ff4919b01f1b71559e15e21a2946d0ae71a3d",
+      "route": "paired_stabilizer_integrality",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_459",
+      "tensor_sha256": "237273f6cc1565edb2eee35bf506e2a67f78a66e1cec921717a40a01ec60f4cf",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_460",
+      "tensor_sha256": "74e649d45e0355e5a83fc1da6223def67c2d6e61ece1f51b224273006293de14",
+      "route": "Replayed lower-rank exclusions",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_461",
+      "tensor_sha256": "f452d8b65d7ad6d34519c8bd411e01722c011ed1cb19534638f33a0035d1e8f7",
+      "route": "Replayed lower-rank exclusions",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_462",
+      "tensor_sha256": "131311205b10cca969ca958a452694a4ab631eaf160db2933f728c2e53f9b0ee",
+      "route": "Replayed lower-rank exclusions",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_463",
+      "tensor_sha256": "f8fd29e11b250d400f4de2f7812b40616f9b81a6ed3a67f9e38c8c1267b0163d",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_464",
+      "tensor_sha256": "1ba0f2623cd8e0369ee110dfe974e4bc244798c7b747ace9becbb49118362ac4",
+      "route": "Replayed lower-rank exclusions",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_465",
+      "tensor_sha256": "ce4c2cbdcf5521adaabafc78ab51e319e24b2931397fb14a90926e8d112bd00f",
+      "route": "paired_stabilizer_integrality",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_467",
+      "tensor_sha256": "703b55a4b9c7a59f8c27b6313946a61042ce6623fbf9dcfa5c47bdd438635326",
+      "route": "D40_pointed_Morita_extension_exhaustion",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_468",
+      "tensor_sha256": "216d285d4a2ee9c941478b39b9032ce6c19610ac44ac74f7869254ac0ecc0537",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_469",
+      "tensor_sha256": "28f96b6a1b4eac966f6c471a6dffe23e247e99c9afcfcf89fe3e391386ead2da",
+      "route": "forced_group_theoretical_D120_exhaustion",
+      "proof_auditor": "parent",
+      "proof_status": "parent_independent_audit; tensor_binding_checked_here",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_470",
+      "tensor_sha256": "66383d0ca6c5cb12bd532f778a6d3f235b4f54d48babe27af24fec422e99ad54",
+      "route": "D40_pointed_Morita_extension_exhaustion",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_471",
+      "tensor_sha256": "c446f6aaa0d6987fe26a412391d6b28b508040c6c584db411105223a01c41312",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_472",
+      "tensor_sha256": "19f1057fcfebf8d0b91ce01be966531355dc916844363df2dd38d8130b22e101",
+      "route": "forced_group_theoretical_D120_exhaustion",
+      "proof_auditor": "parent",
+      "proof_status": "parent_independent_audit; tensor_binding_checked_here",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_473",
+      "tensor_sha256": "bf4673a340bd2bd02b4bf723b0529b7945e6bbb53d8443c8fe5ed0f731b2a7a3",
+      "route": "Liptrap monomial obstruction",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_475",
+      "tensor_sha256": "eeaa1c2f361d6bf31dc4f9a6ec11179a82fbf56d40593f3b09c2771a878491dc",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_477",
+      "tensor_sha256": "8defba79ac83931186727218d84417459ad03932308b2993e8a4d7b4f83fa741",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_478",
+      "tensor_sha256": "78677a078ddb604aef904c1f033f786dfbf97ef6d3b9b0942dd6471c6aaba0db",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_479",
+      "tensor_sha256": "531266f731f523ae57c35c790029846bc9465bc41cd4dd09706a0627a7e88c83",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_480",
+      "tensor_sha256": "7a3b8b5145054d950ec304ec43a2f370adbdb511ff200da3e30f67908fbaab75",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_481",
+      "tensor_sha256": "82419e7effe89f49037f26b9bd8b35e988928638b544f6a250cb8867cc3de555",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_483",
+      "tensor_sha256": "86f656894c639a90c172e0aba004b3ebf2908018f576d4734d808009398aba4f",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_486",
+      "tensor_sha256": "84ad49d8621b542073be36d7a63a5d6ebafd9fa1a904170b66cd4a164494ec0c",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_488",
+      "tensor_sha256": "ebeaa4e9da56063a1e309f2c9e836404b8240da27da133477a978e95af0c8298",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_490",
+      "tensor_sha256": "1b55ec25279bd116270be1dba7e6050990c25b57ca86a3060da63613904f506f",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_491",
+      "tensor_sha256": "f14c78078b19502d795e20b65b53bafebf51c1407d775a79f0566b627b1a1e9b",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_492",
+      "tensor_sha256": "a42a354a3c806586487ac6234c6d7f8dc1e49771997b9aefe73ed2d1a4482a62",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_493",
+      "tensor_sha256": "01c65ca5bc5bd9da936e458386187a89de1dda19b64e075855936a38fdb5f8d5",
+      "route": "invertible_pointed_bimodule_stabilizer_duality",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_495",
+      "tensor_sha256": "3df9968e305a06815e6f2b850867251ca0b9bb25824e6c2fbb55e2d4c1dbe982",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_496",
+      "tensor_sha256": "387c8298b69ddbaddb7829fd83b0cdfafc41cd1d110c46a65c53a85c327377e5",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_498",
+      "tensor_sha256": "3b91a3163cab813abd735df27e192c8c0cb3b8ad6211027d28c42476ab5b7256",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_499",
+      "tensor_sha256": "e9ab9de5af0839babaa05027ffe555378d900d57dfc7b8cfc637db3a59a5401a",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_500",
+      "tensor_sha256": "e79534910fbd87dc183d202197e6104fac8ca1bd87579451c5383b135c7f0550",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_501",
+      "tensor_sha256": "4dc290f1e14aba09ec6ff8b100ab9295d7e04cef231f48da65780b0cee86b9ac",
+      "route": "D40_pointed_Morita_extension_exhaustion",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_502",
+      "tensor_sha256": "230c4a38ec39cfe978e9906ceca63dbfbab50fce23a442ed358064c6e5231a01",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_503",
+      "tensor_sha256": "9f3875d835262cba8640ea79abd0ea4b6d75ce774d5d2b723eb033520e511199",
+      "route": "forced_group_theoretical_D120_exhaustion",
+      "proof_auditor": "parent",
+      "proof_status": "parent_independent_audit; tensor_binding_checked_here",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_505",
+      "tensor_sha256": "bb23566e15047b4f5277b897ea275366a6d0ee5d3c2d55021753768186e0ddc7",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_506",
+      "tensor_sha256": "f3bb74374add2d9bfd6814e3f068848d71042b95de41e14482091046394896fe",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_507",
+      "tensor_sha256": "cceb08f1d267760e32d398240d57490a01a444d2390e01dfa73b051c22eb82d9",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_509",
+      "tensor_sha256": "8173af9100263a6707e6de16bf5be2a9f796d37fa94b9b538e0dbf2cb62cfa25",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_510",
+      "tensor_sha256": "22ee4457505f397102d18e7b531233a993a0323f4da1eb21e03a4a2e009e9122",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_511",
+      "tensor_sha256": "238263da7b63e2aba05a850de836415d025126cd549ee85e916f2f9f77e93131",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_512",
+      "tensor_sha256": "f20e2d4b95cad06c5697f9dc20a9e66af0e9e35c4d493c50b7652968b149d773",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_514",
+      "tensor_sha256": "42467785e4f82e96ddc5206337cc42c7c16b8160e7b454feae6b2c40a519cc10",
+      "route": "D40_pointed_Morita_extension_exhaustion",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_515",
+      "tensor_sha256": "f2475e8967b8cbe514f657aac0250fc9c158aa9301796e0a9431c1ce2854b944",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_516",
+      "tensor_sha256": "3cc0f7e018dea68b1fe4c33d679833d3605b67716c3c799cca7c3db0d5ce6dbd",
+      "route": "forced_group_theoretical_D120_exhaustion",
+      "proof_auditor": "parent",
+      "proof_status": "parent_independent_audit; tensor_binding_checked_here",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_518",
+      "tensor_sha256": "6428d146b1fe5f4480c039c7ed5b81654b5fdc14cd59c6565985c7c96a96dd20",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_519",
+      "tensor_sha256": "5ac31fe632cf9957594487123306d9276351f7344ef20be6884e7ebe16362798",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_520",
+      "tensor_sha256": "6986c3e1343d57207383b2fb57c2fd8f744fbbf68fb6f91ae415939caf228dee",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_521",
+      "tensor_sha256": "4eb700dc0ecbc6167d07ae5d5721f4c726cdc22331a8a6394a147297e335ff3d",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_525",
+      "tensor_sha256": "8769c0b48dcd6b15babb866dcbf209d53e744c56eef081a81b21b02f33e85f6f",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_527",
+      "tensor_sha256": "b54d574ba6534e34057c10e40bab9b121dba4d9e614f3da2c2acef40d3fd8a05",
+      "route": "paired_stabilizer_integrality",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_529",
+      "tensor_sha256": "cf2a36933620612699778241d8f7c541b26faf553e54ceafa7d789837f57e66f",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_532",
+      "tensor_sha256": "4e39d7bad678dae8312d72a8d1440389041ce00621e6f9b9e5521cd30c981cc6",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_533",
+      "tensor_sha256": "f9b2859530ed0d7e02404d61e1e85d3630971db64785d7a0719e6611b6da4bb4",
+      "route": "Replayed lower-rank exclusions",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_534",
+      "tensor_sha256": "113fd4396be893529444128b92fd80b392c68048f10b7ca1e8d9791fcbbfa9ba",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_535",
+      "tensor_sha256": "f3070c9455dce2d83013f3476d51c4e3f52ca45a3d667c1cc47a62a2be1d731c",
+      "route": "Replayed lower-rank exclusions",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_537",
+      "tensor_sha256": "1f846e17141e6cee95b7b04d351cbddc4aadb2018f5afbd7349bfa69ec4297f1",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_539",
+      "tensor_sha256": "6b1e0c07fd8d682fe77e763f01175032b6106d5b9fa9fcfccf2a651a18c5dce6",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_542",
+      "tensor_sha256": "224cb94618f80013933288d755b0b0e538d1a9837a668d22c40d577832595fc5",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_543",
+      "tensor_sha256": "704fed840e9045d9955a7ad91246e55a6026dfce5b3209efc9656684dff238df",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_544",
+      "tensor_sha256": "fefc1cc8855c679f24f3bb0df096f6b34b6943b7a0ba263f56748e049874d964",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_545",
+      "tensor_sha256": "cc5631e9244f7408af058b739f15696cd98b2a3adc5385675b644ee80f7728c3",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_546",
+      "tensor_sha256": "c91b930ee414130c7c356b319fcacf0c771d2fc81c54b816e6c955812caca223",
+      "route": "Replayed lower-rank exclusions",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_547",
+      "tensor_sha256": "c1c41b8eac5bb972934d868dbb42b697c2696264137ba3f9c8063b68df7cc241",
+      "route": "Replayed lower-rank exclusions",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_548",
+      "tensor_sha256": "8d3dd80569875f5cdba32e2e8126fbca8c0c9b6128f71b2f408d1ecac1e5a60e",
+      "route": "Replayed lower-rank exclusions",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_549",
+      "tensor_sha256": "b0192e9f9d5a44dfd8ae024b640018d21f328e351bfd1aa165b35764575cfcf8",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_550",
+      "tensor_sha256": "aa32666a6153a750786c20f1e92e952a95da2cba4ae1519363a86d14eda6253e",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_553",
+      "tensor_sha256": "7ef88144b581785ed072eb520b066b536b4904c0c4d6a438dfa29f38f956e8fe",
+      "route": "Central field / dimension order",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_555",
+      "tensor_sha256": "ef06a3e088f05375a238e41c9ed90ebfeaf0910c21ee4f4ef4c42a6164459a84",
+      "route": "Central field / dimension order",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_556",
+      "tensor_sha256": "6e9b15a20f025051110af017d2519359e965c972d29ef266b7456096020e34c4",
+      "route": "Central field / dimension order",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_558",
+      "tensor_sha256": "84f40779ad35ba2e9b4290adc199bb217774beaac298f8227b52a2259924ef34",
+      "route": "Central field / dimension order",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_559",
+      "tensor_sha256": "16a00408ff7efeaa569e3b88b868fccc395fc110824ad39cb070087c1629f93e",
+      "route": "Central field / dimension order",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_560",
+      "tensor_sha256": "0eac37143a9ab82df04041132c62efeb475e4a464a7d321f7c091544c047489a",
+      "route": "Central field / dimension order",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_563",
+      "tensor_sha256": "c57acc0aefe27022fdee3a6f4da9eae2b063bf0582229162b5f31f3ada9e8e6a",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_564",
+      "tensor_sha256": "64ad1e5b6619f04a0e94027610b11651e12165ead9bb31adf853cf27e27482c7",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_566",
+      "tensor_sha256": "acafb88cda1c353000db6862d850a14d164b72167788232698f4cc8df71ddcc9",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_568",
+      "tensor_sha256": "f2caaca6a38910b9447180251875c6c05bd2d30ad5b50350a640e19cbd38ecb5",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_569",
+      "tensor_sha256": "bc3a1fd894f7a9006214620acec58f902e1e65377dcfd2d2940d0b36507b4be0",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_570",
+      "tensor_sha256": "0c9bf566729d7e4b70dcb041cd190ae6abe1eb7f3600ee9d1bfab6dfde47feb0",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_571",
+      "tensor_sha256": "b0f173ec45a4f005b9b7d7799c440ecd6d56853473eecfb96469e8d48fd8128e",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_572",
+      "tensor_sha256": "bac7fe3071c44c155a82b3fbdd0280d9654bc058b7fd8800e0ff28c4fb2a1579",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_573",
+      "tensor_sha256": "adfd32f1480ed7b4d6039acf939765de96ef63faf99afd16c8284a365f697535",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_574",
+      "tensor_sha256": "0a5dfea937c778ee41940953a97ff69bc110a506711ac64c5c80f3feb2ccbe69",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_575",
+      "tensor_sha256": "5e5405bdbf64ea650e3033d2e7f765679e244c314d98fb082aabb5d820cbfd10",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_576",
+      "tensor_sha256": "6ce35fa922ae30088042d9e7a781b10b31b29f6d87554d33ab93036c09a14e9f",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_577",
+      "tensor_sha256": "60150c5bda1657304c0add9a4477a765347f91f2ac10072cfc864ffbefeeb140",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_580",
+      "tensor_sha256": "920ba9db89bb5bc7cbb9b38e650cc6e3d27631246e6cd9b36501a670d8ef3e98",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_582",
+      "tensor_sha256": "731f0f8d2dc2f0c5e5b23db407d490c93e782d73f8c52ea175e5cfe9a4d92b31",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_584",
+      "tensor_sha256": "afc386458fed6ba53cb4b637ac45c067838c754e08e5c4441812273b849dc3af",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_585",
+      "tensor_sha256": "269674ef45bdc0174fe5ca26217df4e74b0113769261c8ce7e65631a48820435",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_586",
+      "tensor_sha256": "24edf389b3d8b3fa00d7754c050529dc35bd4a8ba620043bb832f5723049db26",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_589",
+      "tensor_sha256": "872edca1a321750bd6811ffb2227cdfeaa510938170b66d606eb2c2c4c1b825a",
+      "route": "Replayed lower-rank exclusions",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_590",
+      "tensor_sha256": "4d952bdb775f19e99b127911b9ba88f7c994bb06d88af40f1ae6f323731aaa44",
+      "route": "Replayed lower-rank exclusions",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_591",
+      "tensor_sha256": "92a415521c034a85f6618dbd46475ec2b4a597ac639abe04627612303da6d1f8",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_592",
+      "tensor_sha256": "9cd39942018953c6fbc8242ebfd2e1941734e8095626fd17af70892668808bcc",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_593",
+      "tensor_sha256": "46623508986a2559501565cde496b6ae6c31bb52c9c3014dd4f74cba067fa68a",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_595",
+      "tensor_sha256": "5b20b1db985a45460ea7c88bdd1ec622f80aa1bfd0de7f205c7095ca8e0d2268",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_596",
+      "tensor_sha256": "09f20f2297979925c94f225572fa8718c22121009b2c4626644fc35e4b410d4f",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_598",
+      "tensor_sha256": "2d27e260267464295a86ad751df6417497deaf7e3e6eb0f0c874a5a6d581b1ea",
+      "route": "Liptrap monomial obstruction",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_599",
+      "tensor_sha256": "fb41e2d758932c5e468d66dac602b712d01c0242a36cf4ef64a5f9d226f1cc6d",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_600",
+      "tensor_sha256": "dc0b19d941b6db4a22ccc5250e423f7c3cb83a27f9a31deb12750a3868c54203",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_601",
+      "tensor_sha256": "56b4dc40590808e5d584a35ea39d50797889490c6e88e48db6bbc7db50522b55",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_603",
+      "tensor_sha256": "d92ac3964d5f251316d4b46e82f8e5e940f6cc012e90bf461236ce7f676fff3c",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_604",
+      "tensor_sha256": "51f8fb3388c74a175e52631af8e6ed2da788bd8e859d4771e9b7e91a637a699a",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_605",
+      "tensor_sha256": "531382a5145c57e170b9ee1b11884a1698758ba45819d47faee242c8181fc77c",
+      "route": "Replayed lower-rank exclusions",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_606",
+      "tensor_sha256": "77b62113428d6e35942b1aea480fa9992be2c4f74295acc757a7e9f15817148f",
+      "route": "Replayed lower-rank exclusions",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_607",
+      "tensor_sha256": "bcaa76b0b7d11dc27e879606e41a791d9b18f4201e0dd5a84ec6e8d647f22cfb",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_611",
+      "tensor_sha256": "46bb90cf276ae5a0b625403f8d07ccb759bd7a07961a4b7639d3159eaa5e6bff",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_612",
+      "tensor_sha256": "2bf67914f8f4b89d7c42d8b19b66682792942c437c432133dde31322cc4a6ea4",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_613",
+      "tensor_sha256": "ea1bfb449ec6450c6bbc45816ebd548e7a0795f288bc5fae65fdc5822dd9ec36",
+      "route": "Replayed lower-rank exclusions",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_614",
+      "tensor_sha256": "ad97e1b35689113bf00565f0af441cfe32b65b461da846d2ffa7370b006af43c",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_616",
+      "tensor_sha256": "ecfd2b73ee7ff8c7c3b4488481643a0d89808579e555b798a7c7d3ebb00c1320",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_618",
+      "tensor_sha256": "05ad898bebc140ed45857b68a9b11bf5cd6d286a0001253042493119edb041f3",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_619",
+      "tensor_sha256": "d12e2d646618832de7412d48c4bcc5d786ef86b13dbf5a6fd99b2da9be95c351",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_620",
+      "tensor_sha256": "9c396d54f6b10f2e0c4870fae9cd168dcf4b6d3a61cedbc842ebc0e7d6fcd8a8",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_622",
+      "tensor_sha256": "b3fc871311f5dbf8d7610708c2505d91c140f7dbfa579e4a141e93956e8229a4",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_624",
+      "tensor_sha256": "c0017786b5dbb9818f0dece8c46c73c858ee12d43543e34675d87e2d498a2f46",
+      "route": "Central field / dimension order",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_625",
+      "tensor_sha256": "da31b1ad6246e6063c6acc2abd66b32792603101060e73eefc7b19441132cf1f",
+      "route": "Central field / dimension order",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_627",
+      "tensor_sha256": "30af62df04776af3c5dfe87127ee98c080578d950be0aa248e24b97630d8fabc",
+      "route": "Central field / dimension order",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_630",
+      "tensor_sha256": "eac2377bb768ccc0c9882a17ff11993ea7099190c8c163e2542f71e3cb20fa9e",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_631",
+      "tensor_sha256": "3efd140cfb10aacfb3f7c838b39fd70a4fff382ff39863761208bdc01861dfa5",
+      "route": "Arithmetic / near-group",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    },
+    {
+      "id": "R12_1_632",
+      "tensor_sha256": "111c011c7a3dc2d6c8c827277e94af0d652412dad26219118ceb13f6bc6597fb",
+      "route": "Cyclic isotypic summands",
+      "proof_auditor": "audit_exclusions",
+      "proof_status": "retained_after_fresh_categorical_and_exact_replay_audit",
+      "tensor_binding": "PASS"
+    }
+  ]
+}

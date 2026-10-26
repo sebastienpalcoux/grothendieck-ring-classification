@@ -373,6 +373,13 @@ def check_site(root=None, repository=None):
                 "Rank-nine multiplicity-two tensor inventory is incomplete")
         for record in rank9_m2:
             paths.add(check_tensor(record, root, require_character_presentation=False))
+    rank12_path = root / "data/rank12_m1.json"
+    if rank12_path.is_file():
+        rank12 = read_json(rank12_path)["cases"]
+        require(len(rank12) == 632 and {record["id"] for record in rank12} == {f"R12_1_{i}" for i in range(1, 633)},
+                "Rank-twelve tensor inventory is incomplete")
+        for record in rank12:
+            paths.add(check_tensor(record, root, require_character_presentation=False))
     require(paths == {p.relative_to(root).as_posix() for p in (root / "downloads/fusion-tensors").glob("*.txt")},
             "Tensor download directory contains a missing or unlisted record")
     for record in unresolved:

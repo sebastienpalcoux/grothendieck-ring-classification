@@ -1,0 +1,88 @@
+{
+  "scope": "finite group and quadratic-space layer only",
+  "quadratic_space": "anisotropic plane orthogonal sum anisotropic plane",
+  "group_order": 72,
+  "pointed_parabolic_order": 12,
+  "reverse_H_order": 6,
+  "N_order": 9,
+  "N_fixed_vectors": 1,
+  "index_two_subgroups": [
+    {
+      "character": [
+        0,
+        1
+      ],
+      "size": 36,
+      "pointed_grades": 6,
+      "component_rank_counts": {
+        "1": 12,
+        "2": 18,
+        "4": 6
+      },
+      "quotient_orders": [
+        1,
+        2,
+        2,
+        2
+      ],
+      "H_double_coset_sizes": [
+        6,
+        12,
+        18
+      ],
+      "admissible": true
+    },
+    {
+      "character": [
+        1,
+        0
+      ],
+      "size": 36,
+      "pointed_grades": 12,
+      "component_rank_counts": {
+        "1": 24,
+        "4": 12
+      },
+      "quotient_orders": [
+        1,
+        2,
+        2,
+        2
+      ],
+      "H_double_coset_sizes": [
+        6,
+        6,
+        12,
+        12
+      ],
+      "admissible": false
+    },
+    {
+      "character": [
+        1,
+        1
+      ],
+      "size": 36,
+      "pointed_grades": 6,
+      "component_rank_counts": {
+        "1": 12,
+        "2": 18,
+        "4": 6
+      },
+      "quotient_orders": [
+        1,
+        2,
+        4,
+        4
+      ],
+      "H_double_coset_sizes": [
+        6,
+        12,
+        18
+      ],
+      "admissible": true
+    }
+  ],
+  "cohomology_argument": "H^j(N,F2^4)=0 for j>0 by averaging, H^0=0 by exact fixed-vector check; LHS gives H^j(U,F2^4)=0 for all j>=0.",
+  "categorical_dual_tensor_identified": false
+}

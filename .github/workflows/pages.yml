@@ -8,7 +8,7 @@ on:
       - 'data/large_files_manifest.json'
       - 'data/payloads/**'
       - 'tools/restore_data.py'
-      - 'data/simple_multiplicity_one_through_rank11.json'
+      - 'data/simple_multiplicity_one_through_rank12.json'
       - 'tools/list_simple_multiplicity_one.py'
       - '.github/workflows/pages.yml'
   workflow_dispatch:
@@ -44,6 +44,8 @@ jobs:
           python site/check_rank9_10.py
           node --check site/dist/redirect.js
           python site/check_rank11.py
+          python site/version_catalogue.py --check
+          python site/check_rank12.py
           python site/check_rank9_m2.py
           node site/check_rank9_m2.mjs
           node site/tests/check_properties.mjs

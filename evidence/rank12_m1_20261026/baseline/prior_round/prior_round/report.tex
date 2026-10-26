@@ -1,0 +1,539 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=23mm]{geometry}
+\usepackage[T1]{fontenc}\usepackage{lmodern,microtype}
+\usepackage{amsmath,amssymb,amsthm,booktabs,longtable,array,hyperref,fancyhdr}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue}
+\pagestyle{fancy}\fancyhf{}\fancyhead[L]{Rank 12, multiplicity one}\fancyhead[R]{Audit and continuation}\fancyfoot[C]{\thepage}
+\setlength{\headheight}{14pt}\setlength{\parindent}{0pt}\setlength{\parskip}{5pt}
+\widowpenalty=10000\clubpenalty=10000
+\newtheorem{theorem}{Theorem}[section]\newtheorem{lemma}[theorem]{Lemma}\newtheorem{proposition}[theorem]{Proposition}
+\newcommand{\FPdim}{\operatorname{FPdim}}\renewcommand{\Vec}{\operatorname{Vec}}\newcommand{\Rep}{\operatorname{Rep}}\newcommand{\Irr}{\operatorname{Irr}}
+\newcommand{\ring}[1]{\texttt{R12\_1\_#1}}
+\title{Rank-twelve multiplicity-one fusion rings\\\large Audit and theoretical continuation}
+\author{Offline research record}\date{25 October 2026}
+\begin{document}\maketitle
+\begin{center}\small AI-generated research; independent human verification remains pending.\end{center}
+
+\section{Results and audit conclusion}
+For the same 632 supplied based rings, the updated decisions are
+\[
+ \boxed{632=425\ \text{excluded}+141\ \text{unitarily modeled}+66\ \text{unresolved}.}
+\]
+The first round recorded 393 exclusions, 127 unitary realizations and 112 unresolved
+rings. The mathematical and implementation audit found no erroneous first-round
+decision requiring retraction. The continuation resolves 32 further rings
+by general complex obstructions and 14 by actual unitary constructions.
+These counts concern based rings admitting categorifications, not tensor-equivalence
+classes of categories. No repository or website has been revised.
+
+The original input order and IDs are preserved. The decompressed input SHA-256 is
+\begin{center}\scriptsize\texttt{6949e6fb8afd23f80b54e5a546a0dd34257430fd26c26b7acd8ff8444252f4d7}.\end{center}
+The original verification of the fusion axioms and pairwise nonisomorphism is retained.
+The present evidence includes every one of the 632 updated decisions, complete
+unresolved tensors, construction data, exclusion certificates and independent audits.
+
+\subsection*{What was checked in the first round}
+An independent exclusion implementation, importing none of the first-round criterion
+implementations, recovered exactly the 393 excluded IDs. It recomputed the arithmetic
+and near-group premises, all 208 cyclic witnesses, the 12 field/order contradictions,
+the six integral primary forms, all 4012 closed subring embeddings and the inherited
+negative proofs. In particular, the Liptrap negatives cancel arbitrary nonzero complex
+variables for every nondegenerate bicharacter assignment; failure of a finite phase
+search was not used as a nonexistence argument. The rank-eight signed descent was
+also checked with all 8192 unrestricted sign assignments, before indicator normalization.
+
+The positive audit independently bound all 381 ordinary full-tensor identifications
+and the 21 Liptrap reconstructions, accounting for all 402 construction records for
+127 rings. It examined the categorical premises: actual tensor actions, central lifts,
+zesting coherence, positive Fourier blocks and balanced bimodule products. This is
+an audit of the recorded proofs and exact evidence, not a formalization of the cited
+literature. Normal and assertion-disabled replays pass.
+
+A reference-version issue was checked explicitly: the published two-dimension
+reduction \cite[Lemma 3.1]{Sch} gives pseudo-unitarity \emph{after Galois conjugation}.
+Literal pseudo-unitarity of every original category would be false (Yang--Lee is
+a control). The first round already used the published, correct formulation, so no
+classification change arose from this issue. Its restricted zest sampler was incomplete
+as a discovery method, but its accepted models remain valid.
+
+\section{A subgroup integrality criterion}
+The following formulation covers noncyclic stabilizers without assuming that
+independently chosen projective stabilizer cochains coincide.
+
+\begin{theorem}\label{thm:stabilizer}
+Let $\mathcal C$ be a complex fusion category, let $X,Y,Z$ be simple objects, and
+let $H$ be a finite subgroup of its invertible objects. Suppose
+\[
+ hX\cong X,\qquad Yh\cong Y,\qquad hZ\cong Zh\cong Z\quad(h\in H),
+ \qquad m=[Z:X\otimes Y]>0.
+\]
+Then $m\FPdim(Z)/|H|$ is an algebraic integer.
+\end{theorem}
+\begin{proof}
+Choose isomorphisms $hX\to X$. Since $X$ is simple, their composition constants
+define a connected twisted subgroup algebra $A$ with underlying object
+$\bigoplus_{h\in H}h$, making $X$ a left $A$-module. The module pentagon supplies
+the associativity equation, including the ambient pointed associator. Similarly,
+$Y$ supplies a possibly different subgroup algebra $B$ and a right $B$-module.
+These algebras are separable in characteristic zero and both have FP dimension $|H|$.
+
+The commuting outer actions make $X\otimes Y$ an $A$--$B$ bimodule. Because $H$
+fixes $Z$ on both sides, its full isotypic summand $M=mZ$ is stable under both actions.
+Taking its Morita dual and the balanced product gives an object of
+$\operatorname{Bimod}_{\mathcal C}(A)$ of FP dimension
+\[
+ \frac{\FPdim_{\mathcal C}(M\otimes_B M^\vee)}{\FPdim(A)}
+ =\frac{m^2\FPdim(Z)^2}{\FPdim(A)\FPdim(B)}
+ =\left(\frac{m\FPdim(Z)}{|H|}\right)^2.
+\]
+We use the standard relative dimension formula and bimodule normalization
+\cite[Chapter 7]{EGNO}; see also \cite[Corollary 3.32 and Proposition 3.34]{Sanford}.
+Thus this square is an algebraic integer. The number itself is integral over the
+algebraic integers, so transitivity of integrality proves the claim.
+\end{proof}
+
+For the paired product $X\otimes X^*$ one can use the same algebra on both sides:
+the transpose action makes $X^*$ a right $A$-module, and $mZ$ itself has normalized
+FP dimension $m\FPdim(Z)/|H|$. Neither proof needs a pivotal, spherical or unitary
+structure. The two-algebra argument explains why the general statement does not
+require identifying independent noncyclic stabilizer cocycles.
+
+The complete scan of all 632 supplied rings uses the intersection
+$\operatorname{Stab}_L(X)\cap\operatorname{Stab}_R(Y)\cap
+\operatorname{Stab}_L(Z)\cap\operatorname{Stab}_R(Z)$.
+It conflicts with no accepted model and adds precisely the following sixteen exclusions.
+
+\begin{proposition}
+The sixteen rings with suffixes
+\[
+32,131,152,184,217,245,286,290,297,302,339,411,416,458,465,527
+\]
+have no complex fusion categorification.
+\end{proposition}
+\begin{proof}
+Put $a=2\cos(\pi/7)$ and $b=a^2-1$. The exact dimension character is
+$1^{\times8},(2a)^{\times2},(2b)^{\times2}$, with
+$a^3-a^2-2a+1=0$. The certificate selects a simple $X$ of dimension $2b$ whose
+order-four left stabilizer also fixes it on the right, and with $[X:X X^*]=1$.
+Theorem~\ref{thm:stabilizer} would make $b/2$ integral. Its monic minimal polynomial is
+\[
+ t^3-t^2-\tfrac14t+\tfrac18,
+ \qquad N_{\mathbb Q(a)/\mathbb Q}(b/2)=-\tfrac18.
+\]
+The nonintegral rational norm is impossible for an algebraic integer.
+\end{proof}
+
+\section{Morita enlargement excludes four more cubic rings}
+We first prove a small lemma about every category with the indicated fusion rules,
+rather than imposing equivalence to a particular known model.
+
+\begin{lemma}\label{lem:s3}
+Suppose $\mathcal B$ has simples $1,g,T$ with
+$g^2=1$, $gT=Tg=T$ and $T^2=1+g+T$. For the subgroup algebra $A=1+g$
+supplied by $T$, the dual category $\operatorname{Bimod}_{\mathcal B}(A)$ is pointed
+of dimension six.
+\end{lemma}
+\begin{proof}
+The left $A$-module category has exactly three simples $M_0=A,M_+,M_-$, all with
+underlying dimension two. The last two are the two normalized $g$-actions on $T$.
+The two invertible $A$-bimodules supported on $1+g$ are $A$ and $u=A_\sigma$, where
+$\sigma$ changes the sign on $g$. The action of $u$ fixes $M_0$ and swaps $M_+,M_-$.
+
+Every other simple bimodule is supported on $qT$ and has dimension $q$ in the dual.
+Since the total dimension is six, the sole nonpointed alternative is a unique
+dimension-two simple $Q$. It satisfies $Q^*=Q$ and $uQ=Q$. Therefore
+$QM_0=M_++M_-$. Reciprocity makes the coefficient of $M_0$ in $QM_+$ exactly one.
+All three module dimensions agree, so $QM_+$ has total multiplicity two. Its
+$u$-invariance would require equal multiplicities of $M_+,M_-$. The remaining
+odd total multiplicity cannot be distributed between that pair, a contradiction.
+\end{proof}
+
+\begin{proposition}
+The four rings $\ring{38},\ring{39},\ring{218},\ring{219}$ have no complex
+fusion categorification.
+\end{proposition}
+\begin{proof}
+Put $b=2\cos(\pi/9)$, $x=1+2b$ and $y=2b^2-2$, so $b^3-3b-1=0$.
+The source type is $1^{\times4},2^{\times2},x^{\times4},y^{\times2}$.
+Its dimension-twelve integral subcategory $\mathcal B_0$ contains the subcategory
+of Lemma~\ref{lem:s3}, with labels
+\begin{center}\begin{tabular}{lrrr}\toprule Ring suffix&$g$&$T$&$h$ outside $\mathcal B$\\\midrule
+38,39&11&10&1\\218&7&11&3\\219&6&11&3\\\bottomrule\end{tabular}\end{center}
+Here $h$ is invertible and normalizes $\langle g\rangle$. Its conjugate subgroup
+algebra is isomorphic to $A$: two multiplications on $1+g$ differ by rescaling $g$.
+Thus $hA$ has an invertible bimodule structure outside the pointed dimension-six
+dual. Consequently $\operatorname{Bimod}_{\mathcal B_0}(A)$ is pointed of order twelve.
+
+The six nonintegral source simples are paired freely by $g$, with equal left/right
+label actions. Each pair gives two simple bimodules, since its diagonal $C_2$
+stabilizer has only ordinary one-dimensional projective representations over
+$\mathbb C$. Thus the full dual has type $1^{\times12},x^{\times4},y^{\times2}$.
+No multiplicity-one assertion about this dual is needed.
+
+The numbers $1,x,y$ are rationally independent and $y^2=6+2x+2y$. For a
+$y$-dimensional simple $Y$, its left and right stabilizers therefore both have
+order six inside the twelve invertibles. Their intersection contains a subgroup
+$H$ of order three. Each stabilizer fixes both $y$-dimensional labels, because
+their orbits have at most two elements. Some $y$-dimensional $Z$ occurs in $YY^*$
+with multiplicity $m=1$ or $2$. Theorem~\ref{thm:stabilizer} requires $my/3$ to be
+integral, whereas
+\[
+ N_{\mathbb Q(b)/\mathbb Q}(y)=-24,\qquad
+ N_{\mathbb Q(b)/\mathbb Q}(my/3)=-8m^3/9\notin\mathbb Z.
+\]
+This contradicts integrality in both cases.
+\end{proof}
+
+\section{Four quadratic exclusions via a linear sign reduction}
+The rings $\ring{63},\ring{64},\ring{215},\ring{365}$ have exact dimensions
+\[
+ 1^{\times2},\quad d^{\times8},\quad(d+1)^{\times2},\qquad
+ d=4+3\sqrt2,\quad d^2=8d+2.
+\]
+Their common Casimir polynomial is
+\[
+ (t-36)(t-18)^8(t-4)(t^2-720t+2592).
+\]
+We justify sphericality before using any spherical character obstruction.
+
+\begin{lemma}\label{lem:parity}
+In a pivotal category, a self-dual simple with second indicator $-1$ has even
+multiplicity in every $Y\otimes Y^*$.
+\end{lemma}
+\begin{proof}
+The object $M=Y\otimes Y^*$ has the symmetric self-duality
+$J=j_Y\otimes\mathrm{id}_{Y^*}:M\to M^*$, where $j$ is the pivotal structure.
+The identity $J^*j_M=J$ follows from $j_{Y^*}=(j_Y^*)^{-1}$.
+On a self-dual simple's isotypic part, write $J=\phi\otimes B$. Transposition gives
+$B^{\mathsf T}=\nu_2(\phi)B$. For indicator $-1$, the nondegenerate multiplicity
+pairing is alternating, so its dimension is even.
+\end{proof}
+
+Choose dual-compatible lifts in the canonical sphericalization and the
+positive-second-indicator lift for each self-dual simple. Such a simple has
+self-dual lifts: exchanging them by duality would equate opposite nonzero spherical
+dimensions. Tensoring with the central sign object changes the second indicator's sign.
+Writing the signed quotient coefficient as $T=a_+-a_-$, Lemma~\ref{lem:parity}
+gives $N_{Y,Y^*}^S-T_{Y,Y^*}^S\equiv0\pmod4$ for the selected positive lift $S$.
+
+Every nonzero coefficient is $(-1)^v$ for a bit $v$. Cyclic trace and dual reversal
+identify its variable orbit. Associativity modulo four is linear over $\mathbb F_2$:
+in each nonzero associativity term, add the two coefficient bits, and equate the
+sum on both sides. Ordinary associativity already equates the term counts.
+Together with the preceding parity conditions this gives the following short,
+complete reduction:
+\begin{center}\begin{tabular}{rrrrr}\toprule Suffix&Variables&Kernel dimension&Linear choices&Associative choices\\\midrule
+63&189&1&2&2\\64&190&1&2&2\\215&179&2&4&4\\365&169&4&16&8\\\bottomrule\end{tabular}\end{center}
+Every surviving signed tensor is a change of simple basis signs of $N$, with
+unit sign one and equal signs on dual pairs. The exact gauges are recorded.
+Changing the selected lifts accordingly makes all their products positive.
+These lifts form a full spherical tensor subcategory equivalent to the original
+category. Thus any hypothetical categorification is spherical. This uses a
+rank-independent categorical lemma and new small linear systems; the frozen
+rank-eight engine is not silently enlarged.
+
+We compute all one-dimensional characters, including in the noncommutative cases.
+The common annihilator of the regular commutators is exactly the sum of the
+one-dimensional simple blocks. Restricting the fusion matrices there and choosing
+a square-free separating element gives every character orbit by exact polynomial
+coordinates. An independent audit instead uses the commutator-ideal quotient.
+
+A spherical character has no zero simple dimensions and takes equal values on
+dual pairs. Apart from its FP quadratic orbit, every surviving character field has
+degree one or three. But all formal codegrees must lie in that field: the
+distinguished central simple has dimension $\dim(\mathcal C)/f_E$ and forgetting it
+is an integer sum of source simple dimensions \cite{Ostrik}. The Casimir quadratic
+$t^2-720t+2592$ cannot split in a field of odd degree. These branches are impossible.
+
+In the remaining quadratic orbit the dimension order is $\mathbb Z+\mathbb Z d$
+and $D=24+84d$. The Casimir root 36 has multiplicity one, so its irreducible
+representation degree is one and it is the actual formal codegree 36. Its central
+simple would have dimension
+\[
+ D/36=\tfrac23+\tfrac73d=10+7\sqrt2\notin\mathbb Z+\mathbb Z d.
+\]
+The same order coordinates are nonintegral in the other embedding. This excludes
+every spherical character, and therefore every complex categorification of the four rings.
+
+\section{A complete resolution of the dimension-forty family}
+All nine remaining rings of type $1^{\times4},2^{\times4},(\sqrt5)^{\times4}$
+are now settled. Three are modeled, and six are excluded by a converse covering
+every possible associator, rather than by a failed finite construction search.
+
+\begin{lemma}\label{lem:cyclic-morita}
+Let every noninvertible simple of an integral fusion category have dimension $n>1$
+and the same left and right cyclic stabilizer $H$ of order $n$. Then its regular
+subgroup algebra $A$ exists and its $A$-bimodule dual is pointed.
+\end{lemma}
+\begin{proof}
+A fixed simple trivializes the pointed associator on $H$. Also, $H$ is normal,
+since conjugation sends a common stabilizer to another such stabilizer.
+Every noninvertible simple $X$ has $n$ simple right $A$-module structures because
+$H^2(H,\mathbb C^*)=0$. For any one, $M$, its internal endomorphism object has
+FP dimension $n^2/n=n$ and contains the unit once. Since every noninvertible has
+dimension $n$, this internal end consists only of invertibles. Each constituent
+fixes $X$, hence belongs to $H$, and occurs at most once. It is therefore exactly
+$\bigoplus_{h\in H}h$. The cyclic action can be normalized to give a commuting
+left $A$-action; its $n$ character choices yield $n^2$ simple bimodules over $X$,
+each of normalized dimension one. An invertible source orbit has size $n$ and
+cyclic diagonal stabilizer, again giving only normalized dimension-one bimodules.
+This proves pointedness. The internal-end mechanism also appears in
+\cite[Lemmas 6.1--6.2]{EGO}.
+\end{proof}
+
+In all nine source rings, the integral subcategory $\mathcal E$ has type
+$1^{\times4},2^{\times4}$ and a common two-element stabilizer $\{1,g\}$ for its
+dimension-two objects. The element $g$ is central in the entire based ring and
+acts freely on the four irrational-dimensional objects. Thus $A=1+g$ exists,
+and Lemma~\ref{lem:cyclic-morita} makes
+$\mathcal D=\operatorname{Bimod}_{\mathcal C}(A)$ a category with twenty invertibles
+and four $\sqrt5$-dimensional simples. It is a genuine generalized TY, or feudal,
+category. Its noninvertible products are pointed. The reverse Morita algebra is
+the actual internal end of the simple module $A$; its dimension is two, so it is
+$1+c$ for an involution $c$ among the twenty invertibles.
+
+Write $S=\Irr(\mathcal D_{\rm pt})$. In the reverse dual, the pointed integral
+part contributes exactly $|N_S(\langle c\rangle)|$ invertibles. The source has four,
+so this normalizer has order four. Among the five groups of order twenty, only
+$F_{20}=C_5\rtimes_2 C_4$ and $D_{10}\times C_2$ have noncentral involutions.
+For the latter group, the reverse dual integral ring is commutative for every
+pointed associator admitting its subgroup algebra: all nonnormal $C_2$ double
+cosets are inverse-stable with trivial stabilizer, so their dimension-two simples
+are self-dual. The normalizer quotient is represented by the extra central
+involution, giving equal involutive left/right invertible actions. Duality then
+makes the remaining products commute. All eight noncommutative source rings have
+noncommutative integral subrings. Their precursor must therefore have $S=F_{20}$.
+
+The common stabilizer is the unique $C_5$ in $F_{20}$, and its associator is trivial
+because it fixes a noninvertible simple. Hence the neutral category for the universal
+grading is $\Vec_{C_5}$. Its Brauer--Picard group is
+$O(C_5\oplus\widehat C_5,q)\cong D_8$ \cite{ENO}. The four invertible components
+give the faithful order-four diagonal subgroup, through the multiplier two on
+$C_5$; a rank-one noninvertible component gives a Fourier reflection. These
+generate the full group. Thus the universal grading is $D_8$ and its homomorphism
+to the Brauer--Picard group is an isomorphism. Changing the chosen noninvertible
+component accounts for all reflection choices while preserving the distinguished
+reverse involution $c=r^2$.
+
+There is also a direct Liptrap-data proof of this restriction. If $t_m\in\mathbb F_5^*$
+is the stabilizer bicharacter parameter, biderivation and quasisymmetry give
+$t_{r^{-1}m}=2t_m$ and $t_{m^*}=t_m$. Writing the right quotient action as
+an involution $\sigma$ of $C_4$ and the base noninvertible square as $p$ forces
+$\sigma=-\mathrm{id}$ and $p=0$. The argument permits arbitrary nonzero complex
+coherence variables and variable $\tau$. It is not a bounded phase-search obstruction.
+
+The extension classification \cite{ENO} now applies to every hypothetical original
+precursor. The product-system freedom is
+$H^2(D_8,\operatorname{Inv}Z(\Vec_{C_5}))=H^2(D_8,C_5^2)=0$ by coprime averaging.
+An explicit unitary precursor exists by its exact Liptrap data. Therefore all
+associators form its $H^3(D_8,\mathbb C^*)$ torsor. This group has exponent dividing
+four: restrict to an index-two $V_4$, whose third cohomology has exponent two,
+then corestrict. Consequently every class has a fourth-root representative.
+The map $H^3(C_2,\mu_4)\to H^3(C_2,\mathbb C^*)$ is an isomorphism, so the actual
+reverse algebra condition is fully covered by the relative fourth-root classes
+trivial on $\langle c\rangle$. Its multiplication is unique up to isomorphism,
+since $H^2(C_2,\mathbb C^*)=0$.
+
+The normalized bar complex has 343 three-cochain variables and 2402 constraints,
+including the subgroup condition. Exact elimination gives a cocycle kernel of
+order $2^{87}$ and a normalized coboundary image of order $2^{83}$: precisely
+sixteen relative fourth-root classes. Independent algorithms check the cardinality
+and all 120 representative-pair differences. These sixteen classes cover every
+relative complex class, although different fourth-root classes can become equivalent
+after extending coefficients.
+
+For every representative the actual $1+c$ bimodules and balanced products are
+constructed. Every resulting full tensor is exactly $\ring{156}$ or $\ring{263}$.
+Two independent implementations recompute these sixteen outputs. The coherent
+$C_4$ TY action separately realizes the commutative $\ring{449}$. Therefore
+\[
+ \boxed{\ring{309},\ \ring{383},\ \ring{467},\ \ring{470},\ \ring{501},\ \ring{514}
+ \text{ are excluded over }\mathbb C.}
+\]
+This argument explicitly tracks the reverse algebra and all complex associator
+classes; an arbitrary original category is never identified with one chosen unitary
+model without the extension-classification proof.
+
+\section{The dimension-twenty-four family}
+Two exclusions follow directly from the general classification of invertible
+pointed bimodule categories, with no assumption on the pointed associator.
+Every component of a faithful fusion grading is an invertible bimodule category
+over its neutral component \cite[Theorem 6.1]{ENO}. Its left and right stabilizers
+must be isomorphic normal abelian groups: the mixed commutator is a nondegenerate
+bicharacter between them \cite[Theorem 7.9 and Corollary 7.11]{GP}.
+
+The supplied tensors for $\ring{445}$ and $\ring{493}$ have a faithful $C_3$
+grading with pointed neutral component of rank eight. In a nontrivial component,
+the exact stabilizers are
+\begin{center}\begin{tabular}{lrrl}\toprule Ring&Simple&Left stabilizer&Right stabilizer\\\midrule
+\ring{445}&3&$\{0,9,10,11\}\cong V_4$&$\{0,1,2,11\}\cong C_4$\\
+\ring{493}&5&$\{0,9,10,11\}\cong V_4$&$\{0,3,4,11\}\cong C_4$\\\bottomrule\end{tabular}\end{center}
+These groups are not isomorphic, so neither ring admits a complex categorification.
+All subgroup products, element orders and grading products are checked directly.
+
+The remaining four originally unresolved rings in this family are modeled:
+$\ring{541}$ by a classical representation category, and
+$\ring{428},\ring{513},\ring{597}$ by explicit twisted subgroup bimodules in
+$\Vec_{A_4\times C_2}^{\omega}$ with a diagonal subgroup of order two.
+Two invariant relative trilinear cocycles give a unified construction; their complete
+values are retained, and every cocycle and subgroup-algebra identity is checked.
+The independent binary-tetrahedral realization of $\ring{597}$ is described below.
+Thus all six cases in the dimension-twenty-four family are settled.
+
+
+\section{Additional unitary models}
+The following table lists only accepted categorical constructions, each matched
+against all 1728 input coefficients. A proposed action or algebra whose existence
+has not been established is not counted.
+\begin{center}\small\begin{longtable}{@{}lp{119mm}@{}}\toprule Suffixes&Construction\\\midrule\endhead
+25&$\mathcal C(A_5\times C_2,1,\operatorname{graph}\chi,1)$\\
+30&$\mathcal C(S_4\times C_2,1,V_4,1)$, $V_4=\langle((34),0),((12),1)\rangle$\\
+79,80&Full $S_3$ triality gaugings of $SO(8)_1$\\
+156,263&$C_2$ Morita duals of explicitly reconstructed $D_8$-graded categories over $\Vec_{C_5}$\\
+322,323&Bosonic associative $C_2$ zests of the two triality gaugings\\
+417&$\mathcal C(S_4\times_{C_2}C_4,1,C_4,1)$, $C_4=\langle((1324),1)\rangle$\\
+428,513&$\mathcal C(A_4\times C_2,\omega,H,1)$ for the stored relative cocycles and diagonal $H=C_2$\\
+449&$\mathrm{TY}(C_5,\chi)^{C_4}$ with the explicit weak inversion action\\
+541&$\Rep(C_3\rtimes C_8)$ with inversion action\\
+597&Twisted subgroup bimodules for $A_4\times C_2$; independently also for $SL(2,3)$\\\bottomrule\end{longtable}\end{center}
+
+\subsection*{The graph-subgroup model at dimension 120}
+Let $G=A_5\times C_2$, let $D_{10}\leq A_5$ be generated by a five-cycle and a
+reflection, and let $\chi:D_{10}\to C_2$ be the reflection-sign character. The
+actual subgroup $H=\{(h,\chi(h)):h\in D_{10}\}$ has order ten. The connected
+separable subgroup algebra in $\Vec_G$ gives the unitary category
+$\mathcal C(G,1,H,1)$, realizing $\ring{25}$.
+Its double cosets and stabilizer characters give four invertibles, four
+dimension-two simples and four dimension-five simples. Direct convolution and
+an independent construction of all induced graded bimodules and balanced products
+give the same tensor. Unlike $D_{10}\subset S_5$, this graph subgroup surjects
+onto the extra $C_2$ factor; the unwanted quotient grading is absent.
+
+\subsection*{A concrete twisted binary-tetrahedral model}
+The category realizing $\ring{597}$ is $\mathcal C(SL(2,3),\omega,C_4,\psi)$.
+Here is a source-independent specification of the cocycle. Use
+$SL(2,3)/\{\pm1\}\cong V_4\rtimes C_3$. For $v,w,u\in\mathbb F_2^2$ put
+\[
+ f(v,w,u)=v_0w_0u_0+v_1w_1u_1+v_0w_1u_1,
+ \qquad \bar f=\sum_{j=0}^2 f(A^jv,A^jw,A^ju),
+\]
+where $A$ is the order-three action. This is an invariant trilinear cocycle.
+On quotient coordinates $(v,a),(w,b),(u,c)$ define
+\[
+ \omega=(-1)^{\bar f(v,A^a w,A^{a+b}u)}
+\]
+and inflate it to $SL(2,3)$. The stored unit-modulus cochain $\psi$ on the actual
+cyclic subgroup of order four satisfies its algebra equation exactly. Thus the
+algebra exists without an asserted abstract classification of $H^3(SL(2,3))$.
+Every group cocycle equation, subgroup equation, bimodule action and balanced
+tensor coefficient is checked. This is a positive construction; it makes no
+completeness claim about all group cocycles.
+
+\subsection*{Triality, equivariantization and Morita constructions}
+The full $S_3$ gaugings of the three-fermion category $SO(8)_1$ give
+$\ring{79}$ and $\ring{80}$ \cite[Section 6.2]{CGPW}\cite[Section VI.D]{THF}.
+These are actual unitary gauging constructions; the modular matrices are used
+to identify their resulting fusion rules, not to infer existence from modular data.
+Their sign-representation boson has an actual central lift and lies in the neutral
+component of the integral/nonintegral $C_2$ grading. Its associative zest gives
+$\ring{322}$ and $\ring{323}$.
+
+For $\ring{449}$, inversion of $C_5$ preserves the bicharacter
+$\chi(a,b)=\zeta_5^{ab}$ of a unitary TY category. It defines a weak $C_4$ action
+with carry coherence $\kappa^{\lfloor(a+b)/4\rfloor}$, where $\kappa$ is one on
+pointed objects and $-1$ on the TY-odd simple. The strict inversion functor has
+order two; it is not claimed to have order four on labels. The invariant carry
+coherence supplies the genuine unitary $C_4$ action. Its equivariantization has
+type $1^{\times4},2^{\times4},(\sqrt5)^{\times4}$ and the full target tensor.
+
+The additional dimension-40 Morita models use a unitary Liptrap reconstruction
+over $C_5$ \cite[Theorem 4 and Lemma 5.4]{Liptrap}, optionally twisted by a stored
+unit-modulus grading cocycle. The required order-two subgroup algebra and all
+associators entering its bimodule products are supplied explicitly. Independent
+checks evaluate the scalar pentagons, Fourier unitarity and balanced Hom spaces.
+
+Finally, $\ring{541}$ is classical: $\Rep(C_3\rtimes C_8)$, with inversion action.
+There are eight linear characters $r_k$ and four induced degree-two characters $X_j$,
+with
+\[
+ r_kr_l=r_{k+l},\qquad r_kX_j=X_{j+k},\qquad
+ X_iX_j=r_{i+j}+r_{i+j+4}+X_{i+j}.
+\]
+Subscripts on $r$ and $X$ are taken modulo eight and four, respectively.
+The source-to-model permutation is $(0,2,6,1,7,9,11,5,3,8,10,4)$.
+
+\section{Remaining cases and precise limits}
+\begin{center}\begin{tabular}{lr}\toprule FP dimension multiset&Cases\\\midrule
+$1^4,2^4,5^4$&15\\
+$1^8,2^2,4^2$&22\\
+$1^8,2^2,(2\sqrt2)^2$&20\\
+$1^2,2,3^2,4^3,(3\sqrt2)^4$&4\\
+$1^6,(3+\sqrt{10})^6$&4\\
+$1^6,((3+\sqrt{13})/2)^6$&1\\\midrule Total&66\\\bottomrule\end{tabular}\end{center}
+All 66 remaining IDs and tensors are supplied separately. Every case
+received structural analysis and relevant model/criterion attempts. This remains
+a partial categorification result, not a completed rank-twelve classification.
+
+The dimension-48 central-quotient calculations identify compatible smaller rings
+among the supplied data. They do not prove uniqueness of their categorifications
+or tensor actions, and were not used as negative completeness claims. The
+four dimension-144 rings with suffixes 180,181,320,321 admit exact graded twists
+at the based-ring level, but the necessary coherent tensor actions have not been
+established. They remain unresolved.
+
+For the five two-dimension cases with suffixes 332,350,561,623,628, the short primary
+probes gave no negative certificate. In case 332, the trivial outer automorphism
+group of a familiar unitary Haagerup model does not classify arbitrary original
+categorifications; twisted pointed associators must also be covered. In case 350,
+a conditional subgroup-dual reduction cannot be applied until its algebra exists
+in every relevant pointed associator class. Similar central-lift and algebra
+existence gaps are stated in the research notes. No such gap has been hidden by
+a successful scalar calculation or a failed construction search.
+
+Known and proposed constructions are distinguished throughout. ``New'' here concerns
+the recorded argument or explicit construction, when it has not to our knowledge
+been explicitly recorded in the literature; no novelty up to tensor equivalence
+or exoticness is asserted. Independent human verification remains pending.
+
+\section{Reproducibility}
+The complete offline package preserves the first-round evidence and adds the
+independent audit, all new accepted proofs and constructions, and the updated
+JSON/CSV ledger. The top-level replay checks source bindings and every new
+decision; the independent mathematical audits and constructor-specific replays
+are included. Normal and optimized Python verification pass. Short exhaustive
+linear/cohomological systems are explicitly distinguished from unsuccessful or
+incomplete discovery attempts. No long frame search or numerical pentagon solving
+was used. Verification of identities is not presented as a substitute for the
+categorical existence and scope arguments above.
+
+\begin{thebibliography}{99}\footnotesize\setlength{\itemsep}{2pt}\setlength{\parskip}{0pt}
+\bibitem{EGNO} P.~Etingof, S.~Gelaki, D.~Nikshych and V.~Ostrik,
+\emph{Tensor Categories}, AMS, 2015, Chapter 7.
+\bibitem{Ostrik} V.~Ostrik, \emph{On formal codegrees of fusion categories},
+Math. Res. Lett. 16 (2009), 895--901; \href{https://arxiv.org/abs/0810.3242}{arXiv:0810.3242}.
+\bibitem{Sanford} S.~Sanford, \emph{Fusion Categories over Non-Algebraically Closed Fields},
+\href{https://arxiv.org/abs/2401.02354}{arXiv:2401.02354v3}, Corollary 3.32 and Proposition 3.34.
+\bibitem{Sch} A.~Schopieray, \emph{Categorification of integral group rings extended by one dimension},
+J. London Math. Soc. 108 (2023), 1617--1641; \href{https://arxiv.org/abs/2208.07319}{arXiv:2208.07319}. Published Lemma 3.1.
+\bibitem{ENO} P.~Etingof, D.~Nikshych and V.~Ostrik,
+\emph{Fusion categories and homotopy theory}, Quantum Topol. 1 (2010), 209--273;
+\href{https://arxiv.org/abs/0909.3140}{arXiv:0909.3140}, extension classification and $\operatorname{BrPic}(\Vec_A)$.
+\bibitem{EGO} P.~Etingof, S.~Gelaki and V.~Ostrik,
+\emph{Classification of fusion categories of dimension $pq$},
+\href{https://arxiv.org/abs/math/0304194}{arXiv:math/0304194v2}, Lemmas 6.1--6.2.
+\bibitem{GP} C.~Galindo and J.~Y.~Plavnik,
+\emph{Tensor functors between Morita duals of fusion categories},
+\href{https://arxiv.org/abs/1407.2783}{arXiv:1407.2783v4}, Theorem 7.9 and Corollary 7.11.
+\bibitem{Liptrap} J.~Liptrap, \emph{Generalized Tambara--Yamagami categories},
+\href{https://arxiv.org/abs/1002.3166v2}{arXiv:1002.3166v2}, Definition 4.3, Theorem 4 and Lemma 5.4.
+\bibitem{CGPW} S.~X.~Cui, C.~Galindo, J.~Y.~Plavnik and Z.~Wang,
+\emph{On Gauging Symmetry of Modular Categories},
+\href{https://arxiv.org/abs/1510.03475}{arXiv:1510.03475v3}, Section 6.2.
+\bibitem{THF} J.~C.~Y.~Teo, T.~L.~Hughes and E.~Fradkin,
+\emph{Theory of Twist Liquids: Gauging an Anyonic Symmetry},
+Ann. Phys. 360 (2015), 349--445; \href{https://arxiv.org/abs/1503.06812}{arXiv:1503.06812v2}, Section VI.D, Table IX and Eq. (6.53).
+\bibitem{Zest} C.~Delaney, C.~Galindo, J.~Y.~Plavnik, E.~C.~Rowell and Q.~Zhang,
+\emph{Braided zesting and its applications},
+\href{https://arxiv.org/abs/2005.05544}{arXiv:2005.05544}, Section 3.
+\end{thebibliography}
+\end{document}

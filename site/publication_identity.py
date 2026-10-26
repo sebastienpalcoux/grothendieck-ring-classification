@@ -10,6 +10,10 @@ ROOT=Path(__file__).resolve().parents[1]
 def matches(relative,expected):
  path=ROOT/relative;actual=hashlib.sha256(path.read_bytes()).hexdigest()
  if actual==expected:return True
+ import sys
+ sys.path.insert(0,str(ROOT/"tools"))
+ from rank12_publication import publication_matches
+ if publication_matches(relative,expected,ROOT):return True
  latest=ROOT/'evidence/correctness_20261025/derived_publication_replacements.json'
  if latest.is_file() and relative.startswith('site/dist/data/'):
   d=json.loads(latest.read_text());entry=d['files'].get(relative)

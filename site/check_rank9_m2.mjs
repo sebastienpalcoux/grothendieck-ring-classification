@@ -5,7 +5,7 @@ import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 const dist=path.join(path.dirname(fileURLToPath(import.meta.url)),'dist');
 const read=name=>JSON.parse(fs.readFileSync(path.join(dist,'data',name),'utf8'));
-const context=vm.createContext({document:{querySelector:()=>null},fetch:async url=>({ok:true,json:async()=>read(url.split('/').at(-1))}),console});
+const context=vm.createContext({document:{querySelector:()=>null},fetch:async url=>({ok:true,json:async()=>read(url.split('/').at(-1).split('?')[0])}),console});
 vm.runInContext(fs.readFileSync(path.join(dist,'catalogue.js'),'utf8'),context);
 const catalogue=await context.RingCatalogue.load();
 assert.equal(catalogue.cases.filter(r=>r.rank===9&&r.multiplicity===2).length,2083);
@@ -20,6 +20,7 @@ assert.equal(state.data.scope.find(r=>r.rank===11).unresolved,0);
 const modelIDs=catalogue.models.map(r=>r.id);assert.equal(new Set(modelIDs).size,modelIDs.length);
 for(let i=1;i<catalogue.models.length;i++){const a=catalogue.models[i-1],b=catalogue.models[i];assert(a.rank<b.rank||(a.rank===b.rank&&a.multiplicity<=b.multiplicity));}
 assert.equal(state.data.catalogue_papers.find(r=>r.slug==='rank9-m2').sourcePath,'publications/rank9-m2/paper/rank9-m2.tex');
-assert.equal(state.data.latest_catalogue_publication.date,'2026-10-24');
-assert.equal(state.data.latest_catalogue_publication.source_url,read('atlas.json').theoretical_retry.source_url);
+assert.equal(read('rank9_m2.json').summary.date,'2026-10-24');
+assert.equal(state.data.latest_catalogue_publication.date,'2026-10-26');
+assert.equal(state.data.latest_catalogue_publication.source_url,read('rank12_m1.json').summary.source_url);
 console.log(`Shared catalogue PASS: ${catalogue.cases.length} case records,${catalogue.models.length} models,10 unresolved; rank9 M1/M2 merged and ordered, rank10 M1 complete.`);

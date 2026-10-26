@@ -1,0 +1,57 @@
+{
+  "stage": "rank12-m1-round4-20261026",
+  "family": "order-six quadratic",
+  "new_excluded": [
+    "R12_1_332"
+  ],
+  "new_models": [],
+  "unresolved": [
+    "R12_1_561",
+    "R12_1_623",
+    "R12_1_628"
+  ],
+  "prior_exclusion_audited": [
+    "R12_1_350"
+  ],
+  "prior_model_existence_audited": [
+    "R12_1_326"
+  ],
+  "general_complex_scope": true,
+  "new_exclusion_proof": "R332_proof.md",
+  "new_exclusion_verifier": "verify_R332.py",
+  "new_exclusion_verification": "R332_verification.json",
+  "independent_exclusion_audit": "../audit_exclusions/audit_R332.md",
+  "restrictions": [
+    {
+      "rings": [
+        "R12_1_561",
+        "R12_1_628"
+      ],
+      "result": "actual central braided C3 lift forced by72 exact inner-action refinements",
+      "remaining_gap": "nondegenerate central braiding not excluded; only Tannakian alternative is ruled out",
+      "proof": "C3_central_lift.md",
+      "verifier": "verify_C3_sections.py"
+    },
+    {
+      "rings": [
+        "R12_1_623"
+      ],
+      "result": "forced central semion and13 integer central restriction profiles",
+      "remaining_gap": "bounded height6 tests do not eliminate every profile",
+      "proofs": [
+        "R623_central_semion.md",
+        "R623_semion_profiles.md"
+      ],
+      "verifiers": [
+        "verify_R623_C2.py",
+        "verify_R623_profiles.py"
+      ]
+    }
+  ],
+  "counts_delta": {
+    "excluded": 1,
+    "modeled": 0,
+    "unresolved": -1
+  },
+  "online_changes": false
+}

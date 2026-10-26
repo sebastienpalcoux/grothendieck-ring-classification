@@ -1,0 +1,70 @@
+{
+  "status": "PASS",
+  "records": [
+    {
+      "id": "R12_1_180",
+      "status": "excluded",
+      "scope": "general complex fusion categories",
+      "reason": "All categorizations must be alternate extensions; their odd duality has no fixed point, whereas this ring has two self-dual odd simples."
+    },
+    {
+      "id": "R12_1_181",
+      "status": "excluded",
+      "scope": "general complex fusion categories",
+      "reason": "Ubase exhaustion and the marked Galois anchor force the m=0 integral subring; this ring has N_WW^W=1 for all three dimension4 simples."
+    },
+    {
+      "id": "R12_1_320",
+      "status": "modeled",
+      "scope": "general complex fusion categories",
+      "reason": "Actual Ualt=(C3^2) semidirect C4 extension of Vec(V4), with actual separable S3 subgroup algebra; local C4 uniqueness and complete NIMrep derivation identify all1728 coefficients."
+    },
+    {
+      "id": "R12_1_321",
+      "status": "excluded",
+      "scope": "general complex fusion categories",
+      "reason": "Ubase exhaustion and the marked Galois anchor force the m=0 integral subring; this ring has N_WW^W=1 for all three dimension4 simples."
+    }
+  ],
+  "newly_excluded": 3,
+  "newly_modeled": 1,
+  "unresolved": 0,
+  "positive_models_reaudited": [
+    "R12_1_79",
+    "R12_1_80",
+    "R12_1_322",
+    "R12_1_323"
+  ],
+  "proof": "new_morita_reduction.md",
+  "model_basis_map_source_to_census": [
+    0,
+    5,
+    6,
+    9,
+    10,
+    11,
+    7,
+    8,
+    2,
+    4,
+    1,
+    3
+  ],
+  "model_full_tensor_coefficients_checked": 1728,
+  "replay": [
+    "verify_reductions.py",
+    "verify_positive_models.py",
+    "verify_brpic.py",
+    "verify_sylow_certificates.py",
+    "verify_zest_cocycle.py",
+    "../d32/d144_assist/local_c4.py",
+    "../d32/d144_assist/nimrep.py"
+  ],
+  "independent_audits": [
+    "../audit_models/d144_local_and_tensor_independent.json",
+    "../audit_models/d144_local_independent.json",
+    "../c6/audit_d144_galois_anchor.md",
+    "../c6/audit_d144_galois_anchor.json"
+  ],
+  "online_modified": false
+}

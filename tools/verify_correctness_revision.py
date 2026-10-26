@@ -8,6 +8,7 @@ Use the separately named replay commands for mathematical proof executions.
 from pathlib import Path
 import argparse,contextlib,hashlib,io,json,sys
 from correctness_publication import EVIDENCE,DATE,MODELS
+from rank12_publication import publication_matches
 ROOT=Path(__file__).resolve().parents[1];DIST=ROOT/'site/dist'
 def need(c,m):
     if not c:raise ValueError(m)
@@ -18,7 +19,7 @@ def main(metadata_only=False):
     need(manifest['schema']=='correctness-revision/v1'and manifest['date']==DATE,'correction release identity')
     need(manifest['classification_status_changes']==[],'this release must not change a decision')
     for rel,h in manifest['files'].items():
-        p=ROOT/rel;need(p.resolve().is_relative_to(ROOT)and p.is_file()and sha(p)==h,'Correction source/artifact changed: '+rel)
+        p=ROOT/rel;need(p.resolve().is_relative_to(ROOT)and p.is_file()and publication_matches(rel,h,ROOT),'Correction source/artifact changed: '+rel)
     for rel,h in manifest['immutable_decisions'].items():need(sha(ROOT/rel)==h,'Classification input or decision changed: '+rel)
     # Frozen proof inputs and corrected reusable copies have separate identities.
     # Neither a new publication manifest nor a cache correction may relax them.
@@ -69,7 +70,7 @@ def main(metadata_only=False):
     need((ROOT/'data/correctness_revision.json').read_bytes()==(DIST/'data/correctness_revision.json').read_bytes(),'web correction summary')
     for prefix in ('site/dist/data/',):
         replacements=read(ROOT/EVIDENCE/'derived_publication_replacements.json')
-        for name,entry in replacements['files'].items():need(name.startswith(prefix)and sha(ROOT/name)==entry['after_sha256'],'derived publication identity: '+name)
+        for name,entry in replacements['files'].items():need(name.startswith(prefix)and publication_matches(name,entry['after_sha256'],ROOT),'derived publication identity: '+name)
     print(json.dumps({'status':'METADATA_PASS'if metadata_only else'PASS','date':DATE,'scope':'Applied proof/code correction source identities, completed exact validation receipts, unchanged decisions, current documents and structural properties; mathematical replay scope is specified by each separate receipt.','exact_properties_recomputed':not metadata_only,'individual_record_count':len(all_records),'classification_status_changes':0,'current_open_cases':10,'correction_manifest_sha256':sha(ROOT/EVIDENCE/'revision.json')},indent=2))
 if __name__=='__main__':
     ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('--metadata-only',action='store_true');a=ap.parse_args();main(a.metadata_only)

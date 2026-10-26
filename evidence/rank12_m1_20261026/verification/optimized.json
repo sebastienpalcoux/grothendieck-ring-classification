@@ -1,0 +1,46 @@
+{
+  "status": "PASS",
+  "excluded": 480,
+  "modeled": 152,
+  "unresolved": 0,
+  "unitary_models": 151,
+  "additional_pseudo_unitary_models": 1,
+  "new_exclusions": 2,
+  "new_models": 1,
+  "unchanged_previously_settled_records": 629,
+  "optimized_python": true,
+  "baseline_replayed": true,
+  "steps": [
+    {
+      "script": "baseline/round4/c6/verify_C3_sections.py",
+      "status": "PASS",
+      "seconds": 0.8933276300085708
+    },
+    {
+      "script": "round5/c3_structure/verify_saturation.py",
+      "status": "PASS",
+      "seconds": 0.09776021099241916
+    },
+    {
+      "script": "round5/center/verify_dimension_block_arithmetic.py",
+      "status": "PASS",
+      "seconds": 1.0422361660021124
+    },
+    {
+      "script": "round5/models/verify_R623_model.py",
+      "status": "PASS",
+      "seconds": 0.08892325298802461
+    },
+    {
+      "script": "round5/premises/verify_R623_condensation.py",
+      "status": "PASS",
+      "seconds": 0.14534308499423787
+    },
+    {
+      "script": "baseline/verify.py",
+      "status": "PASS",
+      "seconds": 135.5580990180024
+    }
+  ],
+  "seconds": 139.2970803870121
+}

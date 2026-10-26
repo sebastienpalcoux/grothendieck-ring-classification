@@ -304,6 +304,8 @@ from correctness_publication import active as correctness_active, revise_documen
 if correctness_active(ROOT):
     front=correctness_document('README.md',front,ROOT)
     guide=correctness_document('docs/PROJECT_GUIDE.md',guide,ROOT)
+from rank12_publication import extend_readme
+front, guide = extend_readme(front, guide, ROOT)
 outputs = {args.output: front,
            args.output.parent / 'docs/PROJECT_GUIDE.md': guide}
 for target, content in outputs.items():

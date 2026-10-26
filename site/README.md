@@ -59,3 +59,9 @@ The GitHub Pages workflow restores checksummed payloads, runs the publication ch
 | `dist/unresolved.html` | Current open cases with shareable rank and multiplicity filters. |
 | `dist/review.html`, `theory.html` | Research scope, definitions and references. |
 | `dist/data/`, `dist/papers/`, `dist/downloads/` | Exact records, canonical manuscripts and verification materials. |
+
+## Rank-twelve extension
+
+Run `python tools/sync_rank12_publication.py`, `python site/build_ring_properties.py`, and `python site/build_constructions.py` after selecting the canonical rank-twelve PDF. The standard shared catalogue integrates `rank12_m1.json` alongside the other ranks; there is no separate rank-twelve interface. `python site/check_rank12.py` validates all 632 records and the complete proof archive. Status `pseudo_unitarily_realized` is a realized complex ring with a pseudo-unitary model, with unitarity unproved. It belongs to all-realizations filters but not unitary-only filters.
+
+After rebuilding case data and exact flags, run `python site/version_catalogue.py` before publication. It versions all mutually bound JSON fetches together, then versions the catalogue asset in every shared page. CI checks this fingerprint to prevent stale mixed snapshots.

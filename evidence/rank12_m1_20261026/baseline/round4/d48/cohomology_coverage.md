@@ -1,0 +1,61 @@
+# Conditional group-theoretical coverage
+
+This does NOT assume that every D48 category is group-theoretical. The target is to exhaust associators for the ten surviving finite group/subgroup pairs from round 3. Those pairs are: (48,30)/C4; (48,48)/V4; (48,28)/Q8; (48,29)/D8; two (48,30)/(C4 x C2) pairs; and four (48,48) pairs, with H respectively D8, D8, C4 x C2, C2^3. The eight order-eight embeddings and all Schur cocycles are explicit in h8_pairs.json.
+
+## Cocycle families and exact invariants
+
+`h8_models.py` obtains eight actual fourth-root cocycles v on S4 by transfer from D8. Their restrictions to cyclic subgroups are pairwise distinct. An elementary LHS upper bound also gives at most eight classes: use A4 normal in S4, quotient C2, and the A4 two-primary groups listed below; the total-degree-three terms have orders 2,2,2. Thus the eight distinct classes exhaust the group. For comparison, H^3(S4,U(1))_2 is Z4 x Z2, as stated by Evans–Gannon, *Reconstruction and Local Extensions for Twisted Group Doubles, and Permutation Orbifolds*, Section 4.8, page 33: https://orca.cardiff.ac.uk/id/eprint/146271/1/eg_kk-finiteType1-submission_revised.pdf .
+
+All associators below are expressed additively modulo 8. Let p:G->S4 be the central quotient, sigma=sign composed with p, and beta the normalized mu2 Schur-cover cocycle of S4 from GL2(3). For G=S4 x C2, let q be the independent C2 character. The family is
+
+W=2 p*v + 4 a q(a1)q(a2)q(a3)
+          + 4 b sigma(a1)q(a2)q(a3)
+          + 4 c q(a1) beta(p(a2),p(a3)),
+
+with a,b,c in F2. (The letters a1,a2,a3 denote arguments, not coefficients.) For G=A4 semidirect C4, let q:G->C4 be the quotient and use
+
+W=2 p*v + 2 j q(a1) floor((q(a2)+q(a3))/4), j=0,1,2,3.
+
+The extra terms are standard cyclic/cup-product cocycles. `cohomology_fingerprints.py` verifies that the 64 first-family choices are pairwise cohomologically distinct, and the 32 second-family choices contain exactly 16 distinct cohomology fingerprints. A fingerprint consists of all cyclic restriction evaluations and alternating evaluations on all triples of commuting elements. These evaluations vanish on coboundaries, so different fingerprints rigorously imply different classes. The receipt is cohomology_fingerprints.json. Coincident fingerprints are not used to assert equivalence.
+
+## Completeness for S4 x C2
+
+Integral homology Kunneth gives the two-primary order
+
+|H3(S4 x C2,Z)_2| = 8 * 2 * 2 * 2 = 64.
+
+The factors use H3(S4,Z)_2 of order eight, H3(C2,Z)=C2, H2(S4,Z)=C2, H1(S4,Z)=C2, H1(C2,Z)=C2 and H2(C2,Z)=0. The last two factors are respectively a tensor-product and a Tor term. U(1) is divisible, so H^3(-,U(1)) is the character group of H3. Since our family supplies 64 distinct classes, it is complete.
+
+## Completeness for A4 semidirect C4
+
+The kernel A4 has two-primary H^1(A4,U(1))=0, H^2(A4,U(1))=C2 and H^3(A4,U(1))=C2. (These follow directly from V4 normal in A4 with odd quotient C3.) The degree-three LHS terms for A4 normal in G with quotient C4 have orders at most 4,2,2: terms (3,0), (1,2), (0,3), respectively. Every other degree-three term has trivial two-primary part. Hence H^3(G,U(1))_2 has order at most sixteen. Our sixteen distinct fingerprints reach that upper bound, proving completeness without needing any assertion that differentials vanish or that the filtration splits.
+
+## Coverage of all admissible classes for GL2(3)
+
+Put N=SL2(3), the binary tetrahedral group. Its two-primary cohomology in degrees one through three is 0,0,Z8. The subgroup H=D8 normally generating G intersects N in a cyclic C4 (directly checkable in the frozen group table). The periodic generator c2 restricts to a generator of H^4(C4,Z)=Z4. Thus any class admissible on H restricts to N in the subgroup {0,4} of Z8.
+
+The LHS sequence for N normal in G, G/N=C2, shows that the kernel of H^3(G,U(1))_2 -> H^3(N,U(1))_2 has order at most two: the (1,2) and (2,1) filtration terms vanish and the (3,0) term has order two. Consequently the entire inverse image of {0,4} has order at most four. No claim about the action on all of Z8 is needed.
+
+These four possibilities lie in the pullback from S4. First, the cube of the sign character is nonzero in G, detected by the determinant section C2->GL2(3). Second, take the two-primary class of the first Pontryagin class of the rotational three-dimensional S4 representation. On SL2(3), its pullback is -4 c2; its two-primary part is the nonzero element of order two in Z8. These two classes are independent, one restricting trivially and the other nontrivially to N. Therefore the S4 pullback family contains the complete four-element inverse image. Some of the four may further fail the restriction to the full H; the exact subgroup-cochain solver tests this. No admissible class lies outside the family.
+
+## Coverage of all admissible classes for the binary octahedral group
+
+SmallGroup(48,28) is the binary octahedral subgroup of SU2. H^4(G,Z)=Z48 is generated by c2 of the defining two-dimensional representation; its restriction to the quaternion subgroup H=Q8 is the generator of Z8. The two-primary admissible kernel therefore has two elements. The rotational S4 representation pulls back to the adjoint SU2 representation, with p1=-4 c2. Its two-primary part generates the order-four subgroup of Z16, which contains the two-element restriction kernel. Hence the S4 pullbacks already cover every admissible class.
+
+The periodic-generator/restriction identification and Pontryagin-class normalization are independently proved in `../audit_exclusions/audit_d48_cohomology.md`, using the sphere-bundle Gysin sequence and SU2 weights. This argument is not based on detecting these classes on cyclic subgroups: the nonzero admissible class can be invisible on cyclic subgroups.
+
+## Subgroup cochains and phases
+
+All H here have Schur multiplier of exponent at most two. If W is fourth-root valued and is trivial in H^3(H,U(1)), there is a trivializing cochain psi with eighth-root values: starting from any psi, psi^4 is a 2-cocycle whose class is killed by two. Hence psi^8 is a coboundary; an eighth-root change by a 1-cochain makes psi eighth-root valued. Thus the exact modulo-eight linear solver does not miss a trivial restriction.
+
+Once one trivializer is found, all choices modulo coboundary differ by H^2(H,U(1)). GAP supplies every such class through all central characters of the Schur cover. These are explicit mu2 cocycles in h8_pairs.json, and are all included. Object and tensor calculations then use actual finite monomial bimodules. A failure of a monomial ansatz would not be an exclusion; all presently admissible attempted cases returned complete simple lists.
+
+Three-primary associator classes do not alter the based fusion ring, because every retained H is a two-group; this uses the already audited coprime-primary invariance lemma. The two order-four subgroup cases have now been checked with the same full cocycle families. Across all ten pairs there are 92 admissible parameter choices: 36 have rank nine or eighteen, 16 have an explicitly certified coefficient greater than one, and 40 have multiplicity one and match exactly the already known rings R30, R414, R417, R531. No unsupported monomial case occurred.
+
+`restriction_certificates.py/json` accounts for all 432 generator/subgroup restrictions. Every one of the 386 inadmissible restrictions has an explicit row vector y with yδ=0 modulo eight and y(-W) nonzero. The 46 admissible restrictions bind every subgroup Schur class to exactly the 92 frozen categorical cases. These certificates and bindings were independently replayed with Python -O; see `../audit_exclusions/audit_d48_followup.md`.
+
+The cohomology proof, all ten subgroup Schur lists and the concrete group identifications independently pass `../audit_exclusions/audit_d48_cohomology.py/json` and `audit_d48_groups.py/json`. The actual categorical calculations independently pass `../audit_models/d48_catalog_independent.json`: all source module identities and completeness, all 1728 coefficients for each of the 40 multiplicity-one cases, one explicit coefficient greater than one for each of 16 cases, and rank for the other 36.
+
+The two residual order-sixteen subgroup pairs from the earlier 23-pair necessary-condition list have also been refreshed separately. Sylow restriction kills the entire two-primary associator class, and three-primary changes do not change the ring. `h16_all_cases.json` includes all four and eight subgroup Schur classes, respectively; six cases have rank eighteen, and six give only R30/R417. Their actual projective irreducibles and six full tensors independently pass `../audit_models/h16_catalog_independent.json` using central idempotents and a separate full-factorization tensor calculation.
+
+Thus, subject only to the explicit hypothesis that a category is group-theoretical and has trivial universal grading, the dimension-48 multiplicity-one type (1^8,2^2,4^2) has precisely the four based rings R30, R417, R414 and R531. Establishing the group-theoretical hypothesis for a particular census ring remains a separate categorical argument.

@@ -1,0 +1,1619 @@
+{
+  "status": "PASS",
+  "scope": "Fresh audit of all148 baseline positive rings, three new constructions, and39 new general-complex exclusions",
+  "baseline_models": 148,
+  "withdrawn_models": [],
+  "unresolved_categorical_premises": [],
+  "first_round": {
+    "rings": 127,
+    "ordinary_model_records": 381,
+    "liptrap_certificates": 21,
+    "total_records": 402
+  },
+  "later_round_rings": 21,
+  "new_models_audited": [
+    "R12_1_320",
+    "R12_1_419",
+    "R12_1_530"
+  ],
+  "new_model_receipt": "d32_nonsplit_independent.json",
+  "new_source_improvement": "Exact positive unitary gauges for both actual pseudo-PSU associator tables; no equivalence-to-published-unitary-category assumption",
+  "proof": "findings.md",
+  "records": [
+    {
+      "id": "R12_1_1",
+      "status": "retained_unitary_model",
+      "constructor": "deligne_product",
+      "tensor_sha256": "0e3956c6ebab08dec24b9885063fbada906132cb64f4001f62b5b4784d91faec",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    },
+    {
+      "id": "R12_1_2",
+      "status": "retained_unitary_model",
+      "constructor": "dihedral_rep",
+      "tensor_sha256": "9fa351cdcea238016ed08a174aeb974193b4acf219fad6ffc2f88a4d5a6dcea0",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    },
+    {
+      "id": "R12_1_10",
+      "status": "retained_unitary_model",
+      "constructor": "half_even_metaplectic",
+      "tensor_sha256": "c24d67bf43a5e5d041c0812998d90b8b7b2eb7c8f4838925714ce73d86d8be13",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    },
+    {
+      "id": "R12_1_14",
+      "status": "retained_unitary_model",
+      "constructor": "deligne_product",
+      "tensor_sha256": "2d68e496de4406fd97d54ab3405375b8373a8ac60ce40ec98d7e8c030b3494c3",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    },
+    {
+      "id": "R12_1_15",
+      "status": "retained_unitary_model",
+      "constructor": "deligne_product",
+      "tensor_sha256": "d05a1469a1df7808de9be1968c86f3e4db0d6b30f0671b3082d586fc5c502d1a",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    },
+    {
+      "id": "R12_1_16",
+      "status": "retained_unitary_model",
+      "constructor": "deligne_product",
+      "tensor_sha256": "a3a583eee9874f8a77d499ceaf79a1ded62c6c5bd77fdb4c894dea1681b27731",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    },
+    {
+      "id": "R12_1_17",
+      "status": "retained_unitary_model",
+      "constructor": "associative_C2_zest",
+      "tensor_sha256": "b4a4575d7a853bf98e9012ff21d3ef95ede72b537052b7c45ff4c0ff32804af7",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    },
+    {
+      "id": "R12_1_18",
+      "status": "retained_unitary_model",
+      "constructor": "associative_C2_zest",
+      "tensor_sha256": "b34ac44577b21a4ab9d74d0ef6a42940680031bff7d67b210890d39bfefe244a",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    },
+    {
+      "id": "R12_1_19",
+      "status": "retained_unitary_model",
+      "constructor": "deligne_product",
+      "tensor_sha256": "8c2d36d1cb68482b67d61959342635f8becc5c056814c8da8f73d806d1ca813c",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    },
+    {
+      "id": "R12_1_20",
+      "status": "retained_unitary_model",
+      "constructor": "deligne_product",
+      "tensor_sha256": "a9f58fd8b2cb9f12f49a0261aef4a05cb4d6bdf3090a97c1db24ac909dd4e7ff",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    },
+    {
+      "id": "R12_1_25",
+      "status": "retained_unitary_model",
+      "constructor": "group_theoretical",
+      "tensor_sha256": "e5b471a12cc1ec259b6cfa6e45215f1c330e7c9012ada6f3832cfec696ff9b93",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "../d48/earlier_model_audit.json",
+      "receipt_sha256": "e29f927df3f49fa42462886cf9333120a56a117348c86c2fdd9a6f42f14d376e"
+    },
+    {
+      "id": "R12_1_28",
+      "status": "retained_unitary_model",
+      "constructor": "ty_cyclic_equivariant",
+      "tensor_sha256": "982de39d0c770f0122687c18450e255f1a08b87c8d5de5392ed7627721ca365a",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    },
+    {
+      "id": "R12_1_30",
+      "status": "retained_unitary_model",
+      "constructor": "group_theoretical",
+      "tensor_sha256": "309a70eb5b4d9b3792321f342a598a0332aefb18525451b7b7b96e16eb4224b0",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "../d48/earlier_model_audit.json",
+      "receipt_sha256": "e29f927df3f49fa42462886cf9333120a56a117348c86c2fdd9a6f42f14d376e"
+    },
+    {
+      "id": "R12_1_41",
+      "status": "retained_unitary_model",
+      "constructor": "deligne_product",
+      "tensor_sha256": "43871089ff451a779dc72dddb82a504f6c61bb9287fa1ddb697970afe452f343",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    },
+    {
+      "id": "R12_1_42",
+      "status": "retained_unitary_model",
+      "constructor": "deligne_product",
+      "tensor_sha256": "b04d8862c651992341a78d0cd8008179c4241cf62312051da94847789b6a12b2",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    },
+    {
+      "id": "R12_1_50",
+      "status": "retained_unitary_model",
+      "constructor": "deligne_product",
+      "tensor_sha256": "0939958c24f787d0589f3a53679c62f2d3395c72da23df31cd6613f2d4abcc0a",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    },
+    {
+      "id": "R12_1_51",
+      "status": "retained_unitary_model",
+      "constructor": "deligne_product",
+      "tensor_sha256": "e042009dbd7aa4b83129156872f0eb75c8a0623b513ead754c39836ffce860b1",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    },
+    {
+      "id": "R12_1_53",
+      "status": "retained_unitary_model",
+      "constructor": "deligne_product",
+      "tensor_sha256": "06f8c9168b14fb33ac864267610a325bd5f6c31dfba98afb96d41b8678484565",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    },
+    {
+      "id": "R12_1_54",
+      "status": "retained_unitary_model",
+      "constructor": "su2",
+      "tensor_sha256": "ccb85eef47516f0c851664ca426457ec613710cc3958b825865afa13282ecb59",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    },
+    {
+      "id": "R12_1_55",
+      "status": "retained_unitary_model",
+      "constructor": "su2",
+      "tensor_sha256": "1378c569483a8ca5fd873a80a38ac59571e96caee09a8ffce6de74a7f108920f",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    },
+    {
+      "id": "R12_1_67",
+      "status": "retained_unitary_model",
+      "constructor": "deligne_product",
+      "tensor_sha256": "412e0b63b9d0c183aff227ad52340f807e2ab1b79c370d2e296e7652e0280142",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    },
+    {
+      "id": "R12_1_68",
+      "status": "retained_unitary_model",
+      "constructor": "deligne_product",
+      "tensor_sha256": "91554f8d62a7405f7116f071583933774e0d69c62525136f908f5ce7e432d876",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    },
+    {
+      "id": "R12_1_71",
+      "status": "retained_unitary_model",
+      "constructor": "deligne_product",
+      "tensor_sha256": "b8ffd714c2db4a2c2d9118d55c133fd7c99c3e458211d66e09ee6839521a071d",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    },
+    {
+      "id": "R12_1_72",
+      "status": "retained_unitary_model",
+      "constructor": "deligne_product",
+      "tensor_sha256": "a430868dbb83df89dd6646f6683ae26c55507515e8d0727d71c660563c1da210",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    },
+    {
+      "id": "R12_1_73",
+      "status": "retained_unitary_model",
+      "constructor": "deligne_product",
+      "tensor_sha256": "646fdd9d8f4f56f5cb7a7f99a29798ecf8b7da4fab3df573327f7099f163646a",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    },
+    {
+      "id": "R12_1_77",
+      "status": "retained_unitary_model",
+      "constructor": "deligne_product",
+      "tensor_sha256": "603359a742974f3beb364bb255a525240ab90ecb84d5aa92b79dd9a6ae916a0a",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    },
+    {
+      "id": "R12_1_78",
+      "status": "retained_unitary_model",
+      "constructor": "deligne_product",
+      "tensor_sha256": "262ac2965cc03949680fedebb1ccaae08b3f233748414612cdf33eaadee603b3",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    },
+    {
+      "id": "R12_1_79",
+      "status": "retained_unitary_model",
+      "constructor": "triality_s3_gauging",
+      "tensor_sha256": "08ad7e3865695d5369fb4107c3775be2b235f76afb35eac426e7b51862382b2d",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "../d144/positive_model_audit.json",
+      "receipt_sha256": "53d4f4db9fccb4b2f203e781c455a183d5952af336c0b8af02538e3a90cb369e"
+    },
+    {
+      "id": "R12_1_80",
+      "status": "retained_unitary_model",
+      "constructor": "triality_s3_gauging",
+      "tensor_sha256": "afc96d0ced0ee5ef59b30e134c7dbd7fd5c5cfef2f7f1acc3e7fbb5d07bdae34",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "../d144/positive_model_audit.json",
+      "receipt_sha256": "53d4f4db9fccb4b2f203e781c455a183d5952af336c0b8af02538e3a90cb369e"
+    },
+    {
+      "id": "R12_1_99",
+      "status": "retained_unitary_model",
+      "constructor": "deligne_product",
+      "tensor_sha256": "eb19bca3a4e55da9f178e24a6c337ea2f6a0e6bf20c7bfb31bf3a1a7f851e402",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    },
+    {
+      "id": "R12_1_101",
+      "status": "retained_unitary_model",
+      "constructor": "deligne_product",
+      "tensor_sha256": "27e7d9bd4e9252612c8a3f9cd852434fb2c0c780df0595c023a778e03cea8a1d",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    },
+    {
+      "id": "R12_1_103",
+      "status": "retained_unitary_model",
+      "constructor": "deligne_product",
+      "tensor_sha256": "b1c6f3501b25b199be2a089e7435ec6c33182231fa5b5347f7b9d397062f3894",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    },
+    {
+      "id": "R12_1_104",
+      "status": "retained_unitary_model",
+      "constructor": "deligne_product",
+      "tensor_sha256": "ad905659ca37be65053f860806de2ede19fb3334d201945b4db95c42cf5528ff",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    },
+    {
+      "id": "R12_1_107",
+      "status": "retained_unitary_model",
+      "constructor": "deligne_product",
+      "tensor_sha256": "95208f3c9adc0f4b15cff2fb50c8128fc6d3591ea542cf987842daa8068a06c0",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    },
+    {
+      "id": "R12_1_108",
+      "status": "retained_unitary_model",
+      "constructor": "odd_metaplectic",
+      "tensor_sha256": "9c7c9cb9a4e07dff6a9cd36d9face930706e9294caed6a4d684f84fd5d4bb704",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    },
+    {
+      "id": "R12_1_112",
+      "status": "retained_unitary_model",
+      "constructor": "dihedral_rep",
+      "tensor_sha256": "d7ce3a87c977fb3fc772561ddea2d128a4a6e77ac336b898fa1cd81197193e61",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    },
+    {
+      "id": "R12_1_116",
+      "status": "retained_unitary_model",
+      "constructor": "su2",
+      "tensor_sha256": "7e118e3fd11cfbfee3e1f1e5944dda649ad60440d77865e4cf2a4a7b9c0b2be0",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    },
+    {
+      "id": "R12_1_117",
+      "status": "retained_unitary_model",
+      "constructor": "deligne_product",
+      "tensor_sha256": "df423c05b62b3a69ff6a245aa85dc5f2e9e4002eb131018312d1f8e22b40ce49",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    },
+    {
+      "id": "R12_1_119",
+      "status": "retained_unitary_model",
+      "constructor": "associative_C2_zest",
+      "tensor_sha256": "89051bba18a72dd8d79b2f065f5e08f7fd2bc693ac1e3ca8e2a21d231971cb77",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    },
+    {
+      "id": "R12_1_120",
+      "status": "retained_unitary_model",
+      "constructor": "associative_C2_zest",
+      "tensor_sha256": "aa05da731635f8084bd7c066dda39fa56739f811fb13fb91160378acec049f0f",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    },
+    {
+      "id": "R12_1_133",
+      "status": "retained_unitary_model",
+      "constructor": "liptrap_unitary_model",
+      "tensor_sha256": "fc07a5c5c9bb9f1b6e5ef08fa187d24348c81702372d6040b5a1467e193c2a3d",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "liptrap_reaudit.json",
+      "receipt_sha256": "91d0277f693cae7ab878767d0b5adc1267a43b9cfc415715f6db601a84c74680"
+    },
+    {
+      "id": "R12_1_134",
+      "status": "retained_unitary_model",
+      "constructor": "twisted_group_theoretical_c2",
+      "tensor_sha256": "5acc76a86b010918c1ca75c7712dcfac42724c69006d6b2d7ec56fc4566e3237",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    },
+    {
+      "id": "R12_1_139",
+      "status": "retained_unitary_model",
+      "constructor": "associative_C2_zest",
+      "tensor_sha256": "fd5797e4fa6dd34238d07b06f0953c3ebd0304ea7b60b21f9b65114933b22cce",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    },
+    {
+      "id": "R12_1_142",
+      "status": "retained_unitary_model",
+      "constructor": "relative_graph_subgroup_bimodules",
+      "tensor_sha256": "648e18c636b8b5eaa86947f5b46d208bfb2b22f2e6159f2c976c8ab9ee0b1c1a",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "d120_replay/all_graph_twists_independent.json",
+      "receipt_sha256": "a09e431090e1c2c8f0a18a4352a36a47e4405f7434849009f6aeaba191b1d285"
+    },
+    {
+      "id": "R12_1_153",
+      "status": "retained_unitary_model",
+      "constructor": "associative_C2_zest",
+      "tensor_sha256": "90d6a899757776735929462c159e63281d2ef22a5965c1aefdeace14f28c4c3a",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    },
+    {
+      "id": "R12_1_154",
+      "status": "retained_unitary_model",
+      "constructor": "graded_pullback",
+      "tensor_sha256": "a5d6c1f3c895c8c783d5c695008562c668dc7d61419fd3298b9d35afa74a41ac",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    },
+    {
+      "id": "R12_1_155",
+      "status": "retained_unitary_model",
+      "constructor": "graded_pullback",
+      "tensor_sha256": "2ab20a7c74b1caf0602b7cf927511a621dda5f71bf86a0ab9dd4c380fc0378cb",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    },
+    {
+      "id": "R12_1_156",
+      "status": "retained_unitary_model",
+      "constructor": "feudal_c2_morita_dual",
+      "tensor_sha256": "cf26b0d7590b78d4e34c67e4d84f310b36a69a71958adff03664b847df0d6d37",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "d40_model_reaudit.json",
+      "receipt_sha256": "f2aad9fa9965c65185a7b2971475899003a868c482e46d943cb37ac2b136f9aa"
+    },
+    {
+      "id": "R12_1_162",
+      "status": "retained_unitary_model",
+      "constructor": "twisted_group_theoretical_c2",
+      "tensor_sha256": "cc86a4386e3d6fef15feb2d598536f46231fecf88348410b0112350502899c11",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    },
+    {
+      "id": "R12_1_163",
+      "status": "retained_unitary_model",
+      "constructor": "graded_pullback",
+      "tensor_sha256": "5f8cb256af2ea33a84c7dcae63c0d4544cef8d2127169cb23cc088a5b48d4f0b",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    },
+    {
+      "id": "R12_1_164",
+      "status": "retained_unitary_model",
+      "constructor": "metaplectic_character_crossed_product",
+      "tensor_sha256": "470e07b24fe787ffe5a49518c7b794b7da6f3d60b063416e84ca16201088273c",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    },
+    {
+      "id": "R12_1_176",
+      "status": "retained_unitary_model",
+      "constructor": "graded_pullback",
+      "tensor_sha256": "aac5b4dcc67b5766fb070d33dc664e435e4ee7bee605218c2cf503fb3f7bc633",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    },
+    {
+      "id": "R12_1_179",
+      "status": "retained_unitary_model",
+      "constructor": "graded_pullback",
+      "tensor_sha256": "4dc1ae1ca626b71f155cc794c3cfb32a8b456b69ee58bd0210630541d8ae5601",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    },
+    {
+      "id": "R12_1_183",
+      "status": "retained_unitary_model",
+      "constructor": "ty_cyclic_equivariant",
+      "tensor_sha256": "fcae559b4748d88e8e99cbfe2e644b477307b2e68d05665ff377052018da93a7",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    },
+    {
+      "id": "R12_1_187",
+      "status": "retained_unitary_model",
+      "constructor": "associative_C2_zest",
+      "tensor_sha256": "301df183c04386ff84850d311c778c097d648033b4e0117310b7d7bebbae1a37",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    },
+    {
+      "id": "R12_1_190",
+      "status": "retained_unitary_model",
+      "constructor": "associative_C2_zest",
+      "tensor_sha256": "daf51e313d6154bb2b1fd08dc6b10ee418abe9e7a45b0192bd58c9617ed468fd",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    },
+    {
+      "id": "R12_1_234",
+      "status": "retained_unitary_model",
+      "constructor": "twisted_group_theoretical_c2",
+      "tensor_sha256": "6cd33c540e1fdfe62ea5154a924dc77b0b948883d432f279e625caf03ce2bff3",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    },
+    {
+      "id": "R12_1_240",
+      "status": "retained_unitary_model",
+      "constructor": "twisted_Ising_pointed_Morita_dual",
+      "tensor_sha256": "1acaaa934006f8f389c9696d458105d5726560d41f3da24c129779e3be638078",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "../d32/prior_model_reaudit.json",
+      "receipt_sha256": "c7172ece5e1600c0ec29b0108576ddffbaa532349c7737404462b5677817045e"
+    },
+    {
+      "id": "R12_1_246",
+      "status": "retained_unitary_model",
+      "constructor": "deligne_product",
+      "tensor_sha256": "1639ae399caf3dacf461863eb90adfd548dee3b27b8cfc94066e44c920cf298a",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    },
+    {
+      "id": "R12_1_247",
+      "status": "retained_unitary_model",
+      "constructor": "deligne_product",
+      "tensor_sha256": "4ee849dda1529c751bfb0d232898408b6f5b94e1e75bce398b7941730cd9b059",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    },
+    {
+      "id": "R12_1_252",
+      "status": "retained_unitary_model",
+      "constructor": "deligne_product",
+      "tensor_sha256": "c6d989d01c91922be5e2c5ac0fc1ec98d300586152b9ab497ad2f5cc128151c3",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    },
+    {
+      "id": "R12_1_253",
+      "status": "retained_unitary_model",
+      "constructor": "deligne_product",
+      "tensor_sha256": "bac01de2913be11ca239397e4185326b86c07151798ae6ad4b7fd7435a058a3f",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    },
+    {
+      "id": "R12_1_255",
+      "status": "retained_unitary_model",
+      "constructor": "associative_C2_zest",
+      "tensor_sha256": "7ab8ab8b45d54cdf5d84f1e735e070eab708b9c34d29dcfc2e005ff76745b068",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    },
+    {
+      "id": "R12_1_263",
+      "status": "retained_unitary_model",
+      "constructor": "graded_twist_feudal_c2_morita_dual",
+      "tensor_sha256": "045171689b0be004e16ba0b15f2a6189480506f130208d9e5190eefad183373d",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "d40_model_reaudit.json",
+      "receipt_sha256": "f2aad9fa9965c65185a7b2971475899003a868c482e46d943cb37ac2b136f9aa"
+    },
+    {
+      "id": "R12_1_270",
+      "status": "retained_unitary_model",
+      "constructor": "graded_pullback",
+      "tensor_sha256": "1ea21e4a6f8bf412aeca19e7da4b14e3ca44ddd4ce77519002aa45ef25176861",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    },
+    {
+      "id": "R12_1_280",
+      "status": "retained_unitary_model",
+      "constructor": "liptrap_unitary_model",
+      "tensor_sha256": "ff11290ccadacb16b4660f4615b804488292334d48f6a3fd0029ce9fc0bad929",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "liptrap_reaudit.json",
+      "receipt_sha256": "91d0277f693cae7ab878767d0b5adc1267a43b9cfc415715f6db601a84c74680"
+    },
+    {
+      "id": "R12_1_305",
+      "status": "retained_unitary_model",
+      "constructor": "graded_pullback",
+      "tensor_sha256": "fafeb87ad5eb209508821e37218f529d28624294b3a4718a99bb818761f6f958",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    },
+    {
+      "id": "R12_1_306",
+      "status": "retained_unitary_model",
+      "constructor": "deligne_product",
+      "tensor_sha256": "d2c396ede7944d3108458896caffa0253108821870e25dfc55d4f4b1404ba63c",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    },
+    {
+      "id": "R12_1_307",
+      "status": "retained_unitary_model",
+      "constructor": "deligne_product",
+      "tensor_sha256": "20b78ae9fd3a87eaf2cc4bdf2491a3361ea558483a9912d64ba1106717ab75a5",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    },
+    {
+      "id": "R12_1_308",
+      "status": "retained_unitary_model",
+      "constructor": "associative_C2_zest",
+      "tensor_sha256": "541b651330bbae5fb7e4ac9d2be36ac1148a155d9483b241c7cff4826b53d5f0",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    },
+    {
+      "id": "R12_1_313",
+      "status": "retained_unitary_model",
+      "constructor": "group_theoretical",
+      "tensor_sha256": "eb94d07776e8d0904d4a0a07ba130d95aadc87f5ecc35b4a7367ded34c40cee8",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    },
+    {
+      "id": "R12_1_314",
+      "status": "retained_unitary_model",
+      "constructor": "deligne_product",
+      "tensor_sha256": "0d4cb9d5e5ceb950927ea32d086bb5282bc0ad68b46330432b53161f3f87aedd",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    },
+    {
+      "id": "R12_1_315",
+      "status": "retained_unitary_model",
+      "constructor": "deligne_product",
+      "tensor_sha256": "c35337326edb9b1a9a79fa19f493746face92c7b242fdd440a18eb2cc6d3a5ec",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    },
+    {
+      "id": "R12_1_316",
+      "status": "retained_unitary_model",
+      "constructor": "associative_C2_zest",
+      "tensor_sha256": "f8deee76d025d55b404ae82c964750943a98300b54a36e79bda00ad49526ed1b",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    },
+    {
+      "id": "R12_1_322",
+      "status": "retained_unitary_model",
+      "constructor": "triality_s3_gauging_central_zest",
+      "tensor_sha256": "55b234963b6fe30cdc07fd102523eab3420e12ee2b637ec294a7cb7e80e99d70",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "../d144/positive_model_audit.json",
+      "receipt_sha256": "53d4f4db9fccb4b2f203e781c455a183d5952af336c0b8af02538e3a90cb369e"
+    },
+    {
+      "id": "R12_1_323",
+      "status": "retained_unitary_model",
+      "constructor": "triality_s3_gauging_central_zest",
+      "tensor_sha256": "b0e1ed6ccf048c663ffe96484af96c859c08f8b522bc84fa2e5546493477745c",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "../d144/positive_model_audit.json",
+      "receipt_sha256": "53d4f4db9fccb4b2f203e781c455a183d5952af336c0b8af02538e3a90cb369e"
+    },
+    {
+      "id": "R12_1_324",
+      "status": "retained_unitary_model",
+      "constructor": "pointed_group",
+      "tensor_sha256": "0aaef1fbe9341682b41e7017119053b498859174033659afe4ed2d0e112fee86",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    },
+    {
+      "id": "R12_1_325",
+      "status": "retained_unitary_model",
+      "constructor": "deligne_product",
+      "tensor_sha256": "e9875636650dd6182675d87e7ddaa0a1987ae0d01ade848002dea5e196dcbc17",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    },
+    {
+      "id": "R12_1_326",
+      "status": "retained_unitary_model",
+      "constructor": "haagerup_izumi_cyclic",
+      "tensor_sha256": "f26c1b7f695d366c8284fbadbb66ef1855049698c0507c6153bc316387ade67e",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    },
+    {
+      "id": "R12_1_327",
+      "status": "retained_unitary_model",
+      "constructor": "graded_pullback",
+      "tensor_sha256": "0bfb62237a05a66f7f382995348f6752044ae97a468a0cfe2b8612ed742a5216",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    },
+    {
+      "id": "R12_1_329",
+      "status": "retained_unitary_model",
+      "constructor": "liptrap_unitary_model",
+      "tensor_sha256": "1ee28d987695d7f84e41fbc7b5dc488def8819c798c1cb8ddf8f90448d42faf3",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "liptrap_reaudit.json",
+      "receipt_sha256": "91d0277f693cae7ab878767d0b5adc1267a43b9cfc415715f6db601a84c74680"
+    },
+    {
+      "id": "R12_1_333",
+      "status": "retained_unitary_model",
+      "constructor": "graded_pullback",
+      "tensor_sha256": "984c5d0a0394f05c55a72d67bb6f3c2ebba6b39bfcfacf22c19fc59593f0b0f0",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    },
+    {
+      "id": "R12_1_343",
+      "status": "retained_unitary_model",
+      "constructor": "deligne_product",
+      "tensor_sha256": "5d2a4a10cf694ce01876c9087ce81cdf8084deee5dfab6da3841abfc2190efec",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    },
+    {
+      "id": "R12_1_344",
+      "status": "retained_unitary_model",
+      "constructor": "deligne_product",
+      "tensor_sha256": "44c532bd8ecd70c847a3868d583c45473b50a3451af6a7fb49c6839660a9ab3e",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    },
+    {
+      "id": "R12_1_351",
+      "status": "retained_unitary_model",
+      "constructor": "pointed_equivariant",
+      "tensor_sha256": "4bd4cb3fcba0647f299f7d20c9cf1b00d513130677a197bed111b32c53336074",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    },
+    {
+      "id": "R12_1_361",
+      "status": "retained_unitary_model",
+      "constructor": "relative_graph_subgroup_bimodules",
+      "tensor_sha256": "6dfb08bed9024020b9e9c2d1cb7866d49fb249aa955ae6028db352feb06ad892",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "d120_replay/all_graph_twists_independent.json",
+      "receipt_sha256": "a09e431090e1c2c8f0a18a4352a36a47e4405f7434849009f6aeaba191b1d285"
+    },
+    {
+      "id": "R12_1_374",
+      "status": "retained_unitary_model",
+      "constructor": "twisted_group_theoretical_c2",
+      "tensor_sha256": "b6096f3e22283aea4a61cd1536a111e948e0473ad5d46b9ea6f9a49bacfc496a",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    },
+    {
+      "id": "R12_1_375",
+      "status": "retained_unitary_model",
+      "constructor": "associative_C2_zest",
+      "tensor_sha256": "3a2f0eb074bd431b443be022eb88acab75ff3e4f1090355788eaf14498ce9b4a",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    },
+    {
+      "id": "R12_1_379",
+      "status": "retained_unitary_model",
+      "constructor": "liptrap_unitary_model",
+      "tensor_sha256": "7019461bb3721d7b679a45fb2d88c6bc58e5c567f78799024ec02717a3513aca",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "liptrap_reaudit.json",
+      "receipt_sha256": "91d0277f693cae7ab878767d0b5adc1267a43b9cfc415715f6db601a84c74680"
+    },
+    {
+      "id": "R12_1_389",
+      "status": "retained_unitary_model",
+      "constructor": "associative_C2_zest",
+      "tensor_sha256": "6541383c368855173ba31a1da3571e4a81b7c2f24076d836ac733aea6a08f605",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    },
+    {
+      "id": "R12_1_390",
+      "status": "retained_unitary_model",
+      "constructor": "associative_C2_zest",
+      "tensor_sha256": "a2f047a65a6e76efbae5ebb5f176d8a8bd60966262347bb7acb959156c0e74ff",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    },
+    {
+      "id": "R12_1_395",
+      "status": "retained_unitary_model",
+      "constructor": "associative_C2_zest",
+      "tensor_sha256": "06f4a2ec645da089d477d324e28c0ce82a82c3e47450b5ad1ebfd137e7ed7316",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    },
+    {
+      "id": "R12_1_396",
+      "status": "retained_unitary_model",
+      "constructor": "associative_C2_zest",
+      "tensor_sha256": "1365cef513b570af39f90cef469e21258a2498343ac73e7a1986df5d4d653dec",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    },
+    {
+      "id": "R12_1_405",
+      "status": "retained_unitary_model",
+      "constructor": "ty_cyclic_equivariant",
+      "tensor_sha256": "4c4117d3de9ade84dfa674e271db88142d67cb1cbb960c776ee52e1989b0f77c",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    },
+    {
+      "id": "R12_1_408",
+      "status": "retained_unitary_model",
+      "constructor": "twisted_Ising_pointed_Morita_dual",
+      "tensor_sha256": "05377ab556f5bfe5d042720e1ad1f341c777aef6ecd2787a041049b2ba73d4b0",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "../d32/prior_model_reaudit.json",
+      "receipt_sha256": "c7172ece5e1600c0ec29b0108576ddffbaa532349c7737404462b5677817045e"
+    },
+    {
+      "id": "R12_1_414",
+      "status": "retained_unitary_model",
+      "constructor": "adapted_relative_cocycle_subgroup_bimodules",
+      "tensor_sha256": "7898e6f2bf52455463f7e0e195f25e397d71c330b51248699905ace86b7eebcd",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "../d48/audit_round3/verification_receipt.json",
+      "receipt_sha256": "ca9b48cb42f6faa092daa15a42f042cc2d58c78a90ed81f0aee98bf46beadedd"
+    },
+    {
+      "id": "R12_1_417",
+      "status": "retained_unitary_model",
+      "constructor": "group_theoretical",
+      "tensor_sha256": "8047b17d81ecfb89071461433aa1e827ae2da09c1c09decc1ef6d0cbd533d77a",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "../d48/earlier_model_audit.json",
+      "receipt_sha256": "e29f927df3f49fa42462886cf9333120a56a117348c86c2fdd9a6f42f14d376e"
+    },
+    {
+      "id": "R12_1_428",
+      "status": "retained_unitary_model",
+      "constructor": "a4c2_relative_cocycle_bimodules",
+      "tensor_sha256": "707b2379d559aa1764f02b6a46d6eb2ad9adb370918b5db2ee07924b71392960",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "../d48/earlier_model_audit.json",
+      "receipt_sha256": "e29f927df3f49fa42462886cf9333120a56a117348c86c2fdd9a6f42f14d376e"
+    },
+    {
+      "id": "R12_1_436",
+      "status": "retained_unitary_model",
+      "constructor": "liptrap_unitary_model",
+      "tensor_sha256": "d495517ea4d3f00dd27016f4d33e81877badde1c700cb49da98324108ffafdbf",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "liptrap_reaudit.json",
+      "receipt_sha256": "91d0277f693cae7ab878767d0b5adc1267a43b9cfc415715f6db601a84c74680"
+    },
+    {
+      "id": "R12_1_437",
+      "status": "retained_unitary_model",
+      "constructor": "twisted_group_theoretical_c2",
+      "tensor_sha256": "aa54b457a48c05230281b8910907df672650e3f10e70e3d456e787147db26f23",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    },
+    {
+      "id": "R12_1_441",
+      "status": "retained_unitary_model",
+      "constructor": "associative_C2_zest",
+      "tensor_sha256": "185bc68d1207ea8b657a890f71dccf214127f3ffb3749d0168af37efe960b4c6",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    },
+    {
+      "id": "R12_1_444",
+      "status": "retained_unitary_model",
+      "constructor": "relative_graph_subgroup_bimodules",
+      "tensor_sha256": "fb464922a3780918f271f140eb928fcb1f408171f565b7acc335abe3b1e44761",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "d120_replay/all_graph_twists_independent.json",
+      "receipt_sha256": "a09e431090e1c2c8f0a18a4352a36a47e4405f7434849009f6aeaba191b1d285"
+    },
+    {
+      "id": "R12_1_446",
+      "status": "retained_unitary_model",
+      "constructor": "liptrap_unitary_model",
+      "tensor_sha256": "9ceea947942f8ea4ee87d6e0f4f7536c4c5c3212e595237790dbfcccdadedd8b",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "liptrap_reaudit.json",
+      "receipt_sha256": "91d0277f693cae7ab878767d0b5adc1267a43b9cfc415715f6db601a84c74680"
+    },
+    {
+      "id": "R12_1_449",
+      "status": "retained_unitary_model",
+      "constructor": "ty_cyclic_equivariant",
+      "tensor_sha256": "a829da752a03e183112ca0b831915f16bcc280aaf6ff38b76e8e3f8b8ef631e0",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "c4_equivariant_reaudit.json",
+      "receipt_sha256": "660341d6b4e4d2cb1294045791afa54a1f9dce69aa4cfbfb0e4600ec686fe217"
+    },
+    {
+      "id": "R12_1_454",
+      "status": "retained_unitary_model",
+      "constructor": "liptrap_unitary_model",
+      "tensor_sha256": "dbc4a7e6d43b0304cbfb7f6d8d002828fbb0efca3c71bd668b596c70d4188671",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "liptrap_reaudit.json",
+      "receipt_sha256": "91d0277f693cae7ab878767d0b5adc1267a43b9cfc415715f6db601a84c74680"
+    },
+    {
+      "id": "R12_1_466",
+      "status": "retained_unitary_model",
+      "constructor": "graded_pullback",
+      "tensor_sha256": "12f7f8cfe92da3b64bd7a8d35edf6c53b8e0095fa9efbb76bd126c016515605d",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    },
+    {
+      "id": "R12_1_474",
+      "status": "retained_unitary_model",
+      "constructor": "deligne_product",
+      "tensor_sha256": "474b0a893d851edbc2a1c2ab3ea93ee452ed88e15a7b7e5966f94da22cc5ccec",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    },
+    {
+      "id": "R12_1_476",
+      "status": "retained_unitary_model",
+      "constructor": "deligne_product",
+      "tensor_sha256": "7855c32ad7eb16967c275997476e8966a6a55c535811e83ae5843b76cf1a80ed",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    },
+    {
+      "id": "R12_1_482",
+      "status": "retained_unitary_model",
+      "constructor": "associative_C2_zest",
+      "tensor_sha256": "91c8cb244ef30d3eaaa3a29e03f095e90568d6d0001cf6bac6426a9b365034e1",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    },
+    {
+      "id": "R12_1_484",
+      "status": "retained_unitary_model",
+      "constructor": "deligne_product",
+      "tensor_sha256": "e13fd86e748f8a9a023ddb9816f47da831ed76f4171c0c20e24b6c049de66bce",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    },
+    {
+      "id": "R12_1_485",
+      "status": "retained_unitary_model",
+      "constructor": "deligne_product",
+      "tensor_sha256": "e0becffe6a001d235157828fb22b603140e0e2f65ce626d76537378d72628d79",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    },
+    {
+      "id": "R12_1_487",
+      "status": "retained_unitary_model",
+      "constructor": "deligne_product",
+      "tensor_sha256": "5e7bce682e077d94f53b7baedb0d5a05f54010b2813b7f1e608babd838059b36",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    },
+    {
+      "id": "R12_1_489",
+      "status": "retained_unitary_model",
+      "constructor": "deligne_product",
+      "tensor_sha256": "4e1495a458113fc687ccec5fb093e7a663a885c04c938e94ae793f2adc6f1680",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    },
+    {
+      "id": "R12_1_494",
+      "status": "retained_unitary_model",
+      "constructor": "associative_C2_zest",
+      "tensor_sha256": "4112226780d83f4caef49cccced040c72faaa4b941d90dd9c2c3690a74ce935a",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    },
+    {
+      "id": "R12_1_497",
+      "status": "retained_unitary_model",
+      "constructor": "deligne_product",
+      "tensor_sha256": "aaa5ed9e2f1d00f221c08c3b411addada909a367d8fcec0583e0b783e6f11c2a",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    },
+    {
+      "id": "R12_1_504",
+      "status": "retained_unitary_model",
+      "constructor": "liptrap_unitary_model",
+      "tensor_sha256": "e0fb64d6a59218f70ae2da48c7faf1bbad1d1d8af30d17c7e93ba6b8211f7422",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "liptrap_reaudit.json",
+      "receipt_sha256": "91d0277f693cae7ab878767d0b5adc1267a43b9cfc415715f6db601a84c74680"
+    },
+    {
+      "id": "R12_1_508",
+      "status": "retained_unitary_model",
+      "constructor": "graded_pullback",
+      "tensor_sha256": "6ec25e55a206a11d558964da0ee2aebc6a52772ea2370df30ac0e9d26bcced49",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    },
+    {
+      "id": "R12_1_513",
+      "status": "retained_unitary_model",
+      "constructor": "a4c2_relative_cocycle_bimodules",
+      "tensor_sha256": "fa90fda16512adf23a504338ef00f90e56be95b83587990c563dc245b31ca08b",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "../d48/earlier_model_audit.json",
+      "receipt_sha256": "e29f927df3f49fa42462886cf9333120a56a117348c86c2fdd9a6f42f14d376e"
+    },
+    {
+      "id": "R12_1_517",
+      "status": "retained_unitary_model",
+      "constructor": "graded_pullback",
+      "tensor_sha256": "25f0697d12e80d225b893e870a7032850f2952b0a248e07c98ac8ff34ec80e6d",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    },
+    {
+      "id": "R12_1_522",
+      "status": "retained_unitary_model",
+      "constructor": "ty_cyclic_equivariant",
+      "tensor_sha256": "98cb061eae169b08f8296f0f7cb460a9c205406fddc31d6f45a1da5785a8bd1b",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    },
+    {
+      "id": "R12_1_528",
+      "status": "retained_unitary_model",
+      "constructor": "deligne_product",
+      "tensor_sha256": "937b3c9f4fe28e2fbc93b2f99dec6069038461637c9ccba0634d2200d34f60a1",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    },
+    {
+      "id": "R12_1_531",
+      "status": "retained_unitary_model",
+      "constructor": "adapted_relative_cocycle_subgroup_bimodules",
+      "tensor_sha256": "dac4033dc618e10e2dca990e5eaa121187a1b24a34594b73eca6d27cac58226a",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "../d48/audit_round3/verification_receipt.json",
+      "receipt_sha256": "ca9b48cb42f6faa092daa15a42f042cc2d58c78a90ed81f0aee98bf46beadedd"
+    },
+    {
+      "id": "R12_1_540",
+      "status": "retained_unitary_model",
+      "constructor": "liptrap_unitary_model",
+      "tensor_sha256": "63a315640a8358839117662448264e51b4ee9501df072286eb8b5ecb56d7ec43",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "liptrap_reaudit.json",
+      "receipt_sha256": "91d0277f693cae7ab878767d0b5adc1267a43b9cfc415715f6db601a84c74680"
+    },
+    {
+      "id": "R12_1_541",
+      "status": "retained_unitary_model",
+      "constructor": "rep_cyclic_semidirect_inversion",
+      "tensor_sha256": "c5271c707858f1642cc1e827eaec6cd6e3dec1e51c8b84c9aa191b333e2bc0d4",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "rep541_reaudit.json",
+      "receipt_sha256": "3febced565ed268ca3cec076a85222146609424b7cecdd35c783d7f7a6239a5d"
+    },
+    {
+      "id": "R12_1_551",
+      "status": "retained_unitary_model",
+      "constructor": "graded_pullback",
+      "tensor_sha256": "1a9850d5f4ed854abec67a9707d41d6ed9d08d4753adcb2cc9550254497188a6",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    },
+    {
+      "id": "R12_1_552",
+      "status": "retained_unitary_model",
+      "constructor": "associative_C2_zest",
+      "tensor_sha256": "34b47a7dd7f5fb2023b49649f6616957a60c050529d6cf6e5a2f7e3d42fc3e26",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    },
+    {
+      "id": "R12_1_554",
+      "status": "retained_unitary_model",
+      "constructor": "deligne_product",
+      "tensor_sha256": "0510c2530a3c6826da2eff4d99bc94900e96b5a4a71880bb4d54fc7f8810a462",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    },
+    {
+      "id": "R12_1_557",
+      "status": "retained_unitary_model",
+      "constructor": "deligne_product",
+      "tensor_sha256": "f3696cdbe9453d69cc83ec25fbad1c8a13ea150c262a15aca7b6b1e8cc96675b",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    },
+    {
+      "id": "R12_1_562",
+      "status": "retained_unitary_model",
+      "constructor": "deligne_product",
+      "tensor_sha256": "64788575d4032a939dce47877d05834d83c002ef33bca1527df3ef3b24e3a42c",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    },
+    {
+      "id": "R12_1_565",
+      "status": "retained_unitary_model",
+      "constructor": "deligne_product",
+      "tensor_sha256": "c72dafb8b216a85bda8360e5449a1ebddbc8edddc8084ad0d7546d6c65fcc69c",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    },
+    {
+      "id": "R12_1_567",
+      "status": "retained_unitary_model",
+      "constructor": "deligne_product",
+      "tensor_sha256": "8969e12d24b22b0e559c01cd6b773435319153e2869f88acbc0241be9a06b872",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    },
+    {
+      "id": "R12_1_578",
+      "status": "retained_unitary_model",
+      "constructor": "associative_C2_zest",
+      "tensor_sha256": "264a4293d9c7980fa593866d82f7906be89cc8ef8b4a7cd4f781d6108b233f2a",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    },
+    {
+      "id": "R12_1_579",
+      "status": "retained_unitary_model",
+      "constructor": "associative_C2_zest",
+      "tensor_sha256": "8a2989401658bc3753a89567e071226e26ce82b4def8ab678f411606391b53c3",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    },
+    {
+      "id": "R12_1_581",
+      "status": "retained_unitary_model",
+      "constructor": "liptrap_unitary_model",
+      "tensor_sha256": "7009bf7deaedc1407d50bdf116aa662579e4eaf4cb7574d756e46d4614d60ef8",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "liptrap_reaudit.json",
+      "receipt_sha256": "91d0277f693cae7ab878767d0b5adc1267a43b9cfc415715f6db601a84c74680"
+    },
+    {
+      "id": "R12_1_583",
+      "status": "retained_unitary_model",
+      "constructor": "deligne_product",
+      "tensor_sha256": "c9bb0b570273ee4cf235a14feeddd88489f1ec3461c9b40a690d3e2fa9415fa4",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    },
+    {
+      "id": "R12_1_587",
+      "status": "retained_unitary_model",
+      "constructor": "pointed_group",
+      "tensor_sha256": "fd7da71ac9c5815d0448080e2a365a1c2222654d23788ff76076472476d08db5",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    },
+    {
+      "id": "R12_1_588",
+      "status": "retained_unitary_model",
+      "constructor": "deligne_product",
+      "tensor_sha256": "73c800a5ffe6d40bda4cef2be88bd9bb897cadb951dbcd7e3d6d301b5619e472",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    },
+    {
+      "id": "R12_1_594",
+      "status": "retained_unitary_model",
+      "constructor": "liptrap_unitary_model",
+      "tensor_sha256": "e802862688d7b2d44eba3a18fd8f373f66ca50c3f136e74f2d22fdc9c3981c0f",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "liptrap_reaudit.json",
+      "receipt_sha256": "91d0277f693cae7ab878767d0b5adc1267a43b9cfc415715f6db601a84c74680"
+    },
+    {
+      "id": "R12_1_597",
+      "status": "retained_unitary_model",
+      "constructor": "a4c2_relative_cocycle_bimodules",
+      "tensor_sha256": "14b84cb5b59b027027b61bf240d9acd8155663f84a8899480e2c8264731cba3b",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "../d48/earlier_model_audit.json",
+      "receipt_sha256": "e29f927df3f49fa42462886cf9333120a56a117348c86c2fdd9a6f42f14d376e"
+    },
+    {
+      "id": "R12_1_602",
+      "status": "retained_unitary_model",
+      "constructor": "liptrap_unitary_model",
+      "tensor_sha256": "6d1d68d549ae4c8e15d1872c3cabb520facdd015dfda91ac063ae49c47166480",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "liptrap_reaudit.json",
+      "receipt_sha256": "91d0277f693cae7ab878767d0b5adc1267a43b9cfc415715f6db601a84c74680"
+    },
+    {
+      "id": "R12_1_608",
+      "status": "retained_unitary_model",
+      "constructor": "pointed_group",
+      "tensor_sha256": "017df72d6eb49e1cb8d8ee142f5b3310bf2c36528b36411ffcc8b584c273f56c",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    },
+    {
+      "id": "R12_1_609",
+      "status": "retained_unitary_model",
+      "constructor": "pointed",
+      "tensor_sha256": "a4814f4670553d96c971804b6342f3faec88aac81ac72c97db8ff05da2cd309b",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    },
+    {
+      "id": "R12_1_610",
+      "status": "retained_unitary_model",
+      "constructor": "liptrap_unitary_model",
+      "tensor_sha256": "ecda91c9945ce620f4401a6f1090413f36ecdec35e09a3b0b4615d612bb3c75b",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "liptrap_reaudit.json",
+      "receipt_sha256": "91d0277f693cae7ab878767d0b5adc1267a43b9cfc415715f6db601a84c74680"
+    },
+    {
+      "id": "R12_1_615",
+      "status": "retained_unitary_model",
+      "constructor": "associative_C2_zest",
+      "tensor_sha256": "1440fd9790f25364698f74029660e43e25565776b4c7239ad1e52759a8cbd3db",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    },
+    {
+      "id": "R12_1_617",
+      "status": "retained_unitary_model",
+      "constructor": "liptrap_unitary_model",
+      "tensor_sha256": "f3866345923ba1a9bdf3a3c97fc0f4bbce773adcf8ec6ad0486286abff17af17",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "liptrap_reaudit.json",
+      "receipt_sha256": "91d0277f693cae7ab878767d0b5adc1267a43b9cfc415715f6db601a84c74680"
+    },
+    {
+      "id": "R12_1_621",
+      "status": "retained_unitary_model",
+      "constructor": "ty",
+      "tensor_sha256": "d53da948bf6499acdb8cb560d7b405dbb55634d2e899570e4e347ba3705277de",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    },
+    {
+      "id": "R12_1_626",
+      "status": "retained_unitary_model",
+      "constructor": "deligne_product",
+      "tensor_sha256": "fd4073eb86ee194048d981b1432dd4b03518695bc0e5009a5c619120ebae2363",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    },
+    {
+      "id": "R12_1_629",
+      "status": "retained_unitary_model",
+      "constructor": "deligne_product",
+      "tensor_sha256": "3c5f20b69f078ce789ebba8dd902c7e340710c0969bf335b7af24c05301f5378",
+      "category_premise_audited": true,
+      "full_tensor_identification": true,
+      "receipt": "first_model_reaudit.json",
+      "receipt_sha256": "949d2b6fa85d33932fe766215c9931673d77ca40e02e08ad2e997e60d842392a"
+    }
+  ],
+  "online_modified": false,
+  "new_exclusions_audited": [
+    "R12_1_128",
+    "R12_1_130",
+    "R12_1_144",
+    "R12_1_146",
+    "R12_1_147",
+    "R12_1_151",
+    "R12_1_173",
+    "R12_1_175",
+    "R12_1_180",
+    "R12_1_181",
+    "R12_1_216",
+    "R12_1_237",
+    "R12_1_239",
+    "R12_1_244",
+    "R12_1_275",
+    "R12_1_277",
+    "R12_1_285",
+    "R12_1_289",
+    "R12_1_294",
+    "R12_1_296",
+    "R12_1_301",
+    "R12_1_303",
+    "R12_1_318",
+    "R12_1_319",
+    "R12_1_321",
+    "R12_1_407",
+    "R12_1_410",
+    "R12_1_412",
+    "R12_1_415",
+    "R12_1_421",
+    "R12_1_422",
+    "R12_1_424",
+    "R12_1_431",
+    "R12_1_433",
+    "R12_1_523",
+    "R12_1_524",
+    "R12_1_526",
+    "R12_1_536",
+    "R12_1_538"
+  ],
+  "d32_exhaustion_audit": "d32_exhaustion_audit.md",
+  "d32_exhaustive_Hom_receipt": "d32_catalog_independent.json",
+  "d32_independent_nonisomorphism_receipt": "d32_nonisomorphism_independent.json",
+  "d32_proof_reviewed_sha256": "8836aabcf2405814b069ff600c3e78be45750f3b9fff9bb5ac01a8b0cc87f670",
+  "d48_conditional_GT_catalogue": {
+    "cases": 104,
+    "H4_H8_receipt": "d48_catalog_independent.json",
+    "H16_receipt": "h16_catalog_independent.json",
+    "universal_GT_premise_inferred": false
+  },
+  "additional_reviews": {
+    "D48_soft_triality_auto_equivalence_lemma": "accepted conditional on root categorical reduction",
+    "D144_deeper_Morita_converse": "completed: R320 modeled, R180/R181/R321 excluded"
+  },
+  "d144_final_audit": {
+    "status": "accepted",
+    "new_model": "R12_1_320",
+    "exclusions": [
+      "R12_1_180",
+      "R12_1_181",
+      "R12_1_321"
+    ],
+    "proof": "additional_theory_audit.md",
+    "receipt": "d144_local_and_tensor_independent.json",
+    "receipt_sha256": "9b82ac355dbf30ec5c6c1f0662861e541befdc2e9d1797b01da4e96cad1631fd"
+  },
+  "D24_quotient_and_integral_extension_GT_proof": "d24_c3_pointed_extension_lemma.md",
+  "D24_small_arithmetic_receipt": "quotient_metric_lemmas.json",
+  "d48_final_audit": {
+    "status": "accepted",
+    "exclusions": [
+      "R12_1_130",
+      "R12_1_146",
+      "R12_1_151",
+      "R12_1_175",
+      "R12_1_216",
+      "R12_1_239",
+      "R12_1_244",
+      "R12_1_277",
+      "R12_1_289",
+      "R12_1_296",
+      "R12_1_303",
+      "R12_1_319",
+      "R12_1_407",
+      "R12_1_410",
+      "R12_1_421",
+      "R12_1_424",
+      "R12_1_433",
+      "R12_1_523",
+      "R12_1_526",
+      "R12_1_538"
+    ],
+    "rank12_quotient_receipt": "quotient_reconstruction_independent.json",
+    "rank9_quotient_receipt": "rank9_quotient_reconstruction_independent.json",
+    "categorical_proof": "d24_c3_pointed_extension_lemma.md",
+    "final_scope_audit": "additional_theory_audit.md"
+  },
+  "aggregate_checked_counts": {
+    "baseline_models_retained": 148,
+    "new_models": 3,
+    "new_exclusions": 39,
+    "updated_modeled": 151,
+    "updated_excluded": 478,
+    "remaining_unresolved": 3
+  },
+  "separately_audited_C6_exclusion": {
+    "id": "R12_1_332",
+    "accepted_by": [
+      "root",
+      "audit_d120"
+    ],
+    "not_counted_in_this_agents_39_exclusions": true
+  }
+}

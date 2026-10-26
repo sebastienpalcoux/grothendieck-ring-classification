@@ -1,0 +1,53 @@
+{
+  "status": "PASS",
+  "auditor": "independent_premises",
+  "records": 632,
+  "changed_record_ids": [
+    "R12_1_561",
+    "R12_1_623",
+    "R12_1_628"
+  ],
+  "unchanged_record_objects": 629,
+  "status_counts": {
+    "unitarily_realized": 151,
+    "excluded": 480,
+    "pseudo_unitarily_realized": 1
+  },
+  "R623_unitarity": "not established",
+  "summary_csv_new_decisions_consistent": true,
+  "evidence_links_checked": 12,
+  "full_tensor_entries_checked": 1728,
+  "independent_portability_replays": [
+    {
+      "script": "c3_structure/verify_saturation.py",
+      "status": "PASS",
+      "cwd": "/",
+      "optimized": true,
+      "seconds": 0.1146
+    },
+    {
+      "script": "center/verify_dimension_block_arithmetic.py",
+      "status": "PASS",
+      "cwd": "/",
+      "optimized": true,
+      "seconds": 1.0755
+    },
+    {
+      "script": "models/verify_R623_model.py",
+      "status": "PASS",
+      "cwd": "/",
+      "optimized": true,
+      "seconds": 0.0998
+    },
+    {
+      "script": "premises/verify_R623_condensation.py",
+      "status": "PASS",
+      "cwd": "/",
+      "optimized": true,
+      "seconds": 0.1573
+    }
+  ],
+  "full_baseline_replayed": false,
+  "mathematical_proofs_reviewed_separately": true,
+  "online_revision_performed": false
+}

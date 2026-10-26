@@ -850,6 +850,8 @@ def main():
     from correctness_publication import active as correctness_active, revise_document as correctness_document
     if correctness_active(args.repo):
         files={name:correctness_document(name,content,args.repo)for name,content in files.items()}
+    from rank12_publication import extend_document
+    files={name:extend_document(name,content,args.repo)for name,content in files.items()}
     for name,content in files.items():
         target=(args.output_dir or args.repo)/name
         if args.check:

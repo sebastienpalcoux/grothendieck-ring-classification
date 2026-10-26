@@ -1,10 +1,11 @@
 "use strict";
 // One catalogue for every rank; source-bound research payloads remain intact.
 globalThis.RingCatalogue = (() => {
-  const sources = ["rank9_rank10_m1.json", "rank11_m1.json", "rank9_m2.json"];
+  const sources = ["rank9_rank10_m1.json", "rank11_m1.json", "rank9_m2.json", "rank12_m1.json"];
+  const dataVersion = "59ea3ff0e049108f2f59";
   let pending;
   async function fetchJSON(name) {
-    const response = await fetch(`./data/${name}`);
+    const response = await fetch(`./data/${name}?v=${dataVersion}`);
     if (!response.ok) throw new Error("The ring catalogue could not be loaded. Please reload the page.");
     return response.json();
   }
@@ -15,7 +16,7 @@ globalThis.RingCatalogue = (() => {
     ]).then(([realized, unresolved, resolved, ...updates]) => {
       const properties = updates.pop();
       const attach = ring => {const entry = properties.records[ring.id]; if (!entry || entry.tensor_sha256 !== ring.tensor_sha256) throw new Error("Ring properties do not match the tensor: " + ring.id); return {...ring, properties: entry.properties};};
-      const models = [...realized.records, ...updates.flatMap(p => p.cases.filter(r => r.status === "unitarily_realized"))];
+      const models = [...realized.records, ...updates.flatMap(p => p.cases.filter(r => ["unitarily_realized", "pseudo_unitarily_realized", "realized"].includes(r.status)))];
       const cases = new Map(models.map(r => [r.id, {...r, status: r.status || (r.existence === "unitary" ? "unitarily_realized" : "realized")} ]));
       for (const ring of [...unresolved.cases, ...resolved.cases, ...updates.flatMap(p => p.cases)]) cases.set(ring.id, ring);
       const ordered = [...cases.values()].sort((a, b) => a.rank - b.rank || a.multiplicity - b.multiplicity || a.id.localeCompare(b.id, "en", {numeric: true}));
@@ -31,17 +32,17 @@ globalThis.RingCatalogue = (() => {
     for (const summary of catalogue.summaries) {
       const multiplicity = summary.multiplicity || 1;
       for (const [key, c] of Object.entries(summary.counts)) {
-        const rank = Number(key), n = (c.excluded || 0) + (c.unitarily_realized || 0) + (c.unresolved || 0);
+        const rank = Number(key), n = (c.excluded || 0) + (c.unitarily_realized || 0) + (c.unresolved || 0) + (c.pseudo_unitarily_realized || 0);
         put(state.data.rows, {rank, multiplicity, rings: n, source: summary.source_url, verification: summary.ledger_url});
-        put(state.data.grothendieck_rows, {rank, multiplicity, rings: c.unitarily_realized || 0, is_lower_bound: Boolean(c.unresolved)});
+        put(state.data.grothendieck_rows, {rank, multiplicity, rings: (c.unitarily_realized || 0) + (c.pseudo_unitarily_realized || 0), is_lower_bound: Boolean(c.unresolved)});
         put(state.data.classification_rows, {rank, multiplicity, rings: n, excluded_general: c.excluded || 0, realized_unitary: c.unitarily_realized || 0,
-          realized_other_or_unspecified: 0, realized_spherical_nonpseudounitary: 0, unresolved_general: c.unresolved || 0, unassessed: 0,
+          realized_other_or_unspecified: c.pseudo_unitarily_realized || 0, realized_pseudo_unitary_unitarity_unproved: c.pseudo_unitarily_realized || 0, realized_spherical_nonpseudounitary: 0, unresolved_general: c.unresolved || 0, unassessed: 0,
           classification_coverage: c.unresolved ? "partial_classification" : "complete_classification"});
         const bands = state.data.classification_rows.filter(r => r.rank === rank).sort((a,b)=>a.multiplicity-b.multiplicity);
         let through = 0;
         for (const band of bands) {if (band.multiplicity !== through+1 || band.unresolved_general) break; through++;}
         const entry = {rank, through, analyzed_through: Math.max(...bands.map(r=>r.multiplicity)), kind: bands.some(r=>r.unresolved_general)?"partial":"complete",
-          rings: bands.reduce((n,r)=>n+r.rings,0), positive: bands.reduce((n,r)=>n+r.realized_unitary,0), unresolved: bands.reduce((n,r)=>n+r.unresolved_general,0),
+          rings: bands.reduce((n,r)=>n+r.rings,0), positive: bands.reduce((n,r)=>n+r.realized_unitary+(r.realized_other_or_unspecified||0)+(r.realized_spherical_nonpseudounitary||0),0), unresolved: bands.reduce((n,r)=>n+r.unresolved_general,0),
           note: "Exact multiplicity bands have individual source-bound decisions and downloadable tensors. Necessary conditions alone are not realizations."};
         const index = state.data.scope.findIndex(r=>r.rank===rank);
         if (index<0) state.data.scope.push(entry); else state.data.scope[index]=entry;
@@ -58,7 +59,7 @@ globalThis.RingCatalogue = (() => {
       const ranks = Object.keys(s.counts).map(Number).sort((a,b)=>a-b), c=s.totals, m=s.multiplicity || 1;
       const stem = `rank${ranks.join("-rank")}`;
       return {rank:ranks[0],ranks,multiplicity:m,title:s.report_title || `${ranks.length>1?"Ranks":"Rank"} ${ranks.join(" and ")} multiplicity-one fusion rings`,
-        subtitle:`${s.input_count} analyzed; ${c.excluded || 0} exclusions, ${c.unitarily_realized || 0} unitary models, ${c.unresolved || 0} unresolved`,
+        subtitle:`${s.input_count} analyzed; ${c.excluded || 0} exclusions, ${c.unitarily_realized || 0} unitary models${c.pseudo_unitarily_realized ? `, ${c.pseudo_unitarily_realized} additional pseudo-unitary model (unitarity unproved)` : ""}, ${c.unresolved || 0} unresolved`,
         type:"CLASSIFICATION",slug:s.report_url.split("/").at(-1).replace(/\.pdf$/,""),sourceRef:"main",sourcePath:s.report_source || `publications/${stem}/paper/${stem}.tex`};
     }).sort((a,b)=>a.rank-b.rank || a.multiplicity-b.multiplicity);
   }
@@ -78,7 +79,7 @@ globalThis.RingCatalogue = (() => {
       const ranks = [...new Set(catalogue.cases.map(r => r.rank))];
       for (const value of ranks) {const option = node("option", `Rank ${value}`); option.value = String(value); rank.append(option);}
       rank.value = ranks.includes(Number(params.get("rank"))) ? params.get("rank") : "";
-      status.value = ["excluded", "realized", "unitarily_realized", "unresolved"].includes(params.get("status")) ? params.get("status") : "";
+      status.value = ["excluded", "realized", "unitarily_realized", "pseudo_unitarily_realized", "unresolved"].includes(params.get("status")) ? params.get("status") : "";
       const m = Number(params.get("m")); multiplicity.value = Number.isSafeInteger(m) && m > 0 ? String(m) : "";
       search.value = (params.get("q") || "").slice(0, 500);
       const pageSize = 24; let page = 0;
@@ -92,7 +93,7 @@ globalThis.RingCatalogue = (() => {
         propertyFilter.applyParams(url.searchParams);
         history.replaceState(null, "", url);
         const rows = catalogue.cases.filter(r => propertyFilter.matches(r) && (!rank.value || r.rank === Number(rank.value)) && (!validM || r.multiplicity === exactM) &&
-          (!status.value || (status.value === "realized" ? ["realized", "unitarily_realized"].includes(r.status) : r.status === status.value)) &&
+          (!status.value || (status.value === "realized" ? ["realized", "unitarily_realized", "pseudo_unitarily_realized"].includes(r.status) : r.status === status.value)) &&
           (!query || `${r.id} ${r.name || ""} ${r.summary || ""} ${(r.research || []).map(x => JSON.stringify(x.data)).join(" ")}`.toLowerCase().includes(query)));
         const lastPage = Math.max(0, Math.ceil(rows.length / pageSize) - 1); page = Math.min(page, lastPage);
         const visible = rows.slice(page * pageSize, (page + 1) * pageSize);
@@ -100,7 +101,7 @@ globalThis.RingCatalogue = (() => {
         previous.disabled = page === 0; next.disabled = page === lastPage; root.replaceChildren();
         for (const ring of visible) {
           const detail = node("details", "", "record-details"), heading = node("summary");
-          const label = {excluded: "Excluded over ℂ", unitarily_realized: "Unitary model", realized: "Categorical model", unresolved: "Unresolved"}[ring.status];
+          const label = {excluded: "Excluded over ℂ", unitarily_realized: "Unitary model", pseudo_unitarily_realized: "Pseudo-unitary model · unitarity unproved", realized: "Categorical model", unresolved: "Unresolved"}[ring.status];
           heading.append(node("strong", ring.id), ` · ${label}`); detail.append(heading, node("p", ring.summary || ring.name));
           const links = node("div", "", "case-actions"), download = anchor("Fusion tensor .txt ↓", ring.download_url || `./downloads/fusion-tensors/${encodeURIComponent(ring.id)}.txt`);
           download.download = `${ring.id}.txt`;

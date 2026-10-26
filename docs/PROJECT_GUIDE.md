@@ -102,17 +102,19 @@ The tables below report the project's classification claims; “complete” and
 > A dash denotes a band not analyzed here. Rows with no known realizations
 > are omitted; omission makes no assertion about unresolved cases.
 
+**26 October 2026 · rank twelve, multiplicity one.** All 632 supplied rings are decided: **480 excluded and 152 modeled**. Exactly **151 models are known unitary**; R12_1_623 has a complex/pseudo-unitary model with unitarity unproved. [Manuscript](../publications/rank12/README.md) · [Proofs, ledger and replay](../evidence/rank12_m1_20261026/README.md) · [All-rank count summary](../data/classification_summary_all_ranks.csv).
+
 ## Grothendieck rings · known realizations at each exact multiplicity
 
-| Multiplicity | Rank 2 | Rank 3 | Rank 4 | Rank 5 | Rank 6 | Rank 7 | Rank 8 |
-|---:|---:|---:|---:|---:|---:|---:|---:|
-| 1 | 2 | 4 | 9 | 10 | 21 | 13 | 48 |
-| 2 | 0 | 1 | 3 | 3 | 22 | 10 | 29 |
-| 3 | 0 | 0 | 2 | 2 | 3 | 2 | ≥16 |
-| 4 | 0 | 0 | 0 | 2 | ≥5 | 4 | — |
-| 5 | 0 | 0 | 0 | 0 | 1 | 1 | — |
-| 6 | 0 | 0 | 1 | 0 | 3 | — | — |
-| 7 | 0 | 0 | 0 | 0 | 2 | — | — |
+| Multiplicity | Rank 2 | Rank 3 | Rank 4 | Rank 5 | Rank 6 | Rank 7 | Rank 8 | Rank 12 |
+|---:|---:|---:|---:|---:|---:|---:|---:| ---: |
+| 1 | 2 | 4 | 9 | 10 | 21 | 13 | 48 | 152 |
+| 2 | 0 | 1 | 3 | 3 | 22 | 10 | 29 | — |
+| 3 | 0 | 0 | 2 | 2 | 3 | 2 | ≥16 | — |
+| 4 | 0 | 0 | 0 | 2 | ≥5 | 4 | — | — |
+| 5 | 0 | 0 | 0 | 0 | 1 | 1 | — | — |
+| 6 | 0 | 0 | 1 | 0 | 3 | — | — | — |
+| 7 | 0 | 0 | 0 | 0 | 2 | — | — | — |
 
 Full realized-count data, including zero and unresolved bands:
 [JSON](../data/grothendieck_counts.json) · [CSV](../data/grothendieck_counts.csv).
@@ -189,28 +191,28 @@ a ring's general unresolved status.
 
 ### The classification boundary, band by band
 
-| Multiplicity | Rank 4 | Rank 5 | Rank 6 | Rank 7 | Rank 8 |
-|---:|---:|---:|---:|---:|---:|
-| 1 | 1 excluded · 9 realized | 6 excluded · 10 realized | 18 excluded · 21 realized | 30 excluded · 13 realized | 48 excluded · 48 realized |
-| 2 | 14 excluded · 3 realized | 34 excluded · 3 realized | 132 excluded · 22 realized | 309 excluded · 10 realized | 848 excluded · 29 realized |
-| 3 | 22 excluded · 2 realized | 80 excluded · 2 realized | 381 excluded · 3 realized | 1,057 excluded · 2 realized | 3,507 excluded · 16 realized · **4 open** |
-| 4 | 45 excluded · 0 realized | 132 excluded · 2 realized | 866 excluded · 5 realized · **1 open** | 2,776 excluded · 4 realized | — |
-| 5 | 55 excluded · 0 realized | 209 excluded · 0 realized | 1,581 excluded · 1 realized | 5,804 excluded · 1 realized | — |
-| 6 | 80 excluded · 1 realized | 336 excluded · 0 realized | 2,765 excluded · 3 realized | — | — |
-| 7 | 92 excluded · 0 realized | 477 excluded · 0 realized | 3,812 excluded · 2 realized | — | — |
-| 8 | 137 excluded · 0 realized | 733 excluded · 0 realized | 6,998 excluded · 0 realized · **1 open** | — | — |
-| 9 | 151 excluded · 0 realized | 863 excluded · 0 realized | 8,809 excluded · 0 realized | — | — |
-| 10 | 186 excluded · 0 realized | 1,082 excluded · 0 realized | — | — | — |
-| 11 | 238 excluded · 0 realized | 1,383 excluded · 0 realized | — | — | — |
-| 12 | 291 excluded · 0 realized | 1,948 excluded · 0 realized | — | — | — |
-| 13 | 246 excluded · 0 realized | 2,211 excluded · 0 realized | — | — | — |
-| 14 | 340 excluded · 0 realized | 2,554 excluded · 0 realized | — | — | — |
-| 15 | 349 excluded · 0 realized | 2,936 excluded · 0 realized | — | — | — |
-| 16 | 525 excluded · 0 realized | 4,157 excluded · 0 realized | — | — | — |
-| 17 | 424 excluded · 0 realized | 4,255 excluded · 0 realized | — | — | — |
-| 18 | 477 excluded · 0 realized | 5,080 excluded · 0 realized | — | — | — |
-| 19 | 513 excluded · 0 realized | 5,640 excluded · 0 realized | — | — | — |
-| 20 | 713 excluded · 0 realized | 6,866 excluded · 0 realized | — | — | — |
+| Multiplicity | Rank 4 | Rank 5 | Rank 6 | Rank 7 | Rank 8 | Rank 12 |
+|---:|---:|---:|---:|---:|---:| ---: |
+| 1 | 1 excluded · 9 realized | 6 excluded · 10 realized | 18 excluded · 21 realized | 30 excluded · 13 realized | 48 excluded · 48 realized | 152 |
+| 2 | 14 excluded · 3 realized | 34 excluded · 3 realized | 132 excluded · 22 realized | 309 excluded · 10 realized | 848 excluded · 29 realized | — |
+| 3 | 22 excluded · 2 realized | 80 excluded · 2 realized | 381 excluded · 3 realized | 1,057 excluded · 2 realized | 3,507 excluded · 16 realized · **4 open** | — |
+| 4 | 45 excluded · 0 realized | 132 excluded · 2 realized | 866 excluded · 5 realized · **1 open** | 2,776 excluded · 4 realized | — | — |
+| 5 | 55 excluded · 0 realized | 209 excluded · 0 realized | 1,581 excluded · 1 realized | 5,804 excluded · 1 realized | — | — |
+| 6 | 80 excluded · 1 realized | 336 excluded · 0 realized | 2,765 excluded · 3 realized | — | — | — |
+| 7 | 92 excluded · 0 realized | 477 excluded · 0 realized | 3,812 excluded · 2 realized | — | — | — |
+| 8 | 137 excluded · 0 realized | 733 excluded · 0 realized | 6,998 excluded · 0 realized · **1 open** | — | — | — |
+| 9 | 151 excluded · 0 realized | 863 excluded · 0 realized | 8,809 excluded · 0 realized | — | — | — |
+| 10 | 186 excluded · 0 realized | 1,082 excluded · 0 realized | — | — | — | — |
+| 11 | 238 excluded · 0 realized | 1,383 excluded · 0 realized | — | — | — | — |
+| 12 | 291 excluded · 0 realized | 1,948 excluded · 0 realized | — | — | — | — |
+| 13 | 246 excluded · 0 realized | 2,211 excluded · 0 realized | — | — | — | — |
+| 14 | 340 excluded · 0 realized | 2,554 excluded · 0 realized | — | — | — | — |
+| 15 | 349 excluded · 0 realized | 2,936 excluded · 0 realized | — | — | — | — |
+| 16 | 525 excluded · 0 realized | 4,157 excluded · 0 realized | — | — | — | — |
+| 17 | 424 excluded · 0 realized | 4,255 excluded · 0 realized | — | — | — | — |
+| 18 | 477 excluded · 0 realized | 5,080 excluded · 0 realized | — | — | — | — |
+| 19 | 513 excluded · 0 realized | 5,640 excluded · 0 realized | — | — | — | — |
+| 20 | 713 excluded · 0 realized | 6,866 excluded · 0 realized | — | — | — | — |
 
 Full decision bands: [JSON](../data/classification_status.json) ·
 [CSV](../data/classification_status.csv). Statuses come from the attached

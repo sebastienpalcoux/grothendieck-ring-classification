@@ -20,7 +20,7 @@ def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 def documents():
  for name in ('current_document_revision.json','current_publication_revision.json'):
   data=read(ROOT/'data'/name)
-  need(data['date'] in ('2026-10-24','2026-10-25'),'Stale current document date')
+  need(data['date'] in ('2026-10-24','2026-10-25','2026-10-26'),'Stale current document date')
   for source,item in data['documents'].items():
    p=ROOT/source;need(sha(p)==item['sha256']and p.stat().st_size==item['bytes'],'Document identity: '+source)
    if source.startswith('manuscripts/'):
@@ -81,7 +81,7 @@ def main(metadata_only=False):
  pages=read(ROOT/'data/current_manuscript_page_counts.json');totals=pages['totals'];manuscripts=(ROOT/'manuscripts/README.md').read_text()
  need(f"{pages['document_counts']['mathematical_manuscripts']} mathematical manuscripts, {totals['mathematical_manuscript']} pages"in manuscripts,'Manuscript index mathematical page total')
  need(f"With three verification guides: {totals['mathematical_manuscripts_and_guides']} pages"in manuscripts and f"With the current research-status report: {totals['all_distinct_documents']} pages"in manuscripts,'Manuscript index complete page totals')
- need(f'Current classification through rank eleven: {len(ids)} unresolved rings'in manuscripts,'Manuscript index global frontier')
+ need(f'Current classification through rank {"twelve" if (ROOT/"data/rank12_classification.json").is_file() else "eleven"}: {len(ids)} unresolved rings'in manuscripts,'Manuscript index global frontier')
 
 
  for name in ('rank5/papers/automatic.tex','rank5/papers/verification_guide.tex','rank7/papers/manuscript.tex','rank8/paper/m3_frontier.tex','rank8/paper/m3_center_followup.tex'):

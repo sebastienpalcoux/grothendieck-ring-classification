@@ -1,0 +1,995 @@
+{
+  "status": "PASS",
+  "ordinary_tensor_identifications": 381,
+  "liptrap_constructions": 21,
+  "total_model_records": 402,
+  "realized_rings": 127,
+  "constructor_counts": {
+    "deligne_product": 72,
+    "pointed_equivariant": 22,
+    "dihedral_rep": 3,
+    "associative_C2_zest": 138,
+    "half_even_metaplectic": 1,
+    "ty_cyclic_equivariant": 32,
+    "su2": 3,
+    "odd_metaplectic": 1,
+    "pointed_group": 3,
+    "haagerup_izumi_cyclic": 1,
+    "pointed": 2,
+    "ty": 1,
+    "graded_pullback": 29,
+    "metaplectic_character_crossed_product": 1,
+    "group_theoretical": 3,
+    "twisted_group_theoretical_c2": 69,
+    "liptrap_unitary_model": 21
+  },
+  "zest_records": [
+    {
+      "id": "R12_1_2",
+      "base_name": "Rep(Dic9)",
+      "base_constructor": "dihedral_rep",
+      "h": 2,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_17",
+      "base_name": "Vec(C2) x $\\Rep(C_3\\rtimes C_4)$",
+      "base_constructor": "deligne_product",
+      "h": 5,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_17",
+      "base_name": "Vec(C12)^C2",
+      "base_constructor": "pointed_equivariant",
+      "h": 7,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_18",
+      "base_name": "Fib x $\\Rep(C_3\\rtimes C_4)$",
+      "base_constructor": "deligne_product",
+      "h": 5,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_119",
+      "base_name": "Vec(C2) x $\\Rep((C_3\\times C_3)\\rtimes C_2)$, inversion action",
+      "base_constructor": "deligne_product",
+      "h": 1,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_119",
+      "base_name": "Vec(C3xC3xC2)^C2",
+      "base_constructor": "pointed_equivariant",
+      "h": 1,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_120",
+      "base_name": "Rep(D36)",
+      "base_constructor": "dihedral_rep",
+      "h": 1,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_120",
+      "base_name": "Vec(C2) x $\\Rep(D_9)$, with $|D_9|=18$",
+      "base_constructor": "deligne_product",
+      "h": 1,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_120",
+      "base_name": "Vec(C18)^C2",
+      "base_constructor": "pointed_equivariant",
+      "h": 1,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_153",
+      "base_name": "Ising x Rep(D10)",
+      "base_constructor": "deligne_product",
+      "h": 1,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_187",
+      "base_name": "Half SO(28)_2",
+      "base_constructor": "half_even_metaplectic",
+      "h": 1,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_190",
+      "base_name": "SO(17)_2",
+      "base_constructor": "odd_metaplectic",
+      "h": 1,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_246",
+      "base_name": "Vec(C2) x $\\Vec_{C_2}\\boxtimes\\mathrm{Ising}$; also $R(0,0)$",
+      "base_constructor": "deligne_product",
+      "h": 5,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_246",
+      "base_name": "Vec(C2) x $\\Vec_{C_2}\\boxtimes\\mathrm{Ising}$; also $R(0,0)$",
+      "base_constructor": "deligne_product",
+      "h": 5,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_246",
+      "base_name": "Ising x Vec(C2xC2)",
+      "base_constructor": "deligne_product",
+      "h": 4,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_246",
+      "base_name": "Ising x Vec(C2xC2)",
+      "base_constructor": "deligne_product",
+      "h": 4,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_246",
+      "base_name": "Ising x Vec(C2xC2)",
+      "base_constructor": "deligne_product",
+      "h": 4,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_247",
+      "base_name": "Vec(C2) x $\\Rep(C_3\\rtimes C_4)$",
+      "base_constructor": "deligne_product",
+      "h": 5,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_247",
+      "base_name": "Vec(C2) x $\\Rep(C_3\\rtimes C_4)$",
+      "base_constructor": "deligne_product",
+      "h": 5,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_247",
+      "base_name": "Vec(C2) x $\\Vec_{C_2}\\boxtimes\\Rep(S_3)$; also $R(0,1)$",
+      "base_constructor": "deligne_product",
+      "h": 5,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_247",
+      "base_name": "Vec(C2) x $\\Vec_{C_2}\\boxtimes\\Rep(S_3)$; also $R(0,1)$",
+      "base_constructor": "deligne_product",
+      "h": 5,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_247",
+      "base_name": "Rep(S3) x Vec(C2xC2)",
+      "base_constructor": "deligne_product",
+      "h": 4,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_247",
+      "base_name": "Rep(S3) x Vec(C2xC2)",
+      "base_constructor": "deligne_product",
+      "h": 4,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_247",
+      "base_name": "Rep(S3) x Vec(C2xC2)",
+      "base_constructor": "deligne_product",
+      "h": 4,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_247",
+      "base_name": "Vec(C12)^C2",
+      "base_constructor": "pointed_equivariant",
+      "h": 8,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_247",
+      "base_name": "Vec(C6xC2)^C2",
+      "base_constructor": "pointed_equivariant",
+      "h": 1,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_247",
+      "base_name": "Vec(C6xC2)^C2",
+      "base_constructor": "pointed_equivariant",
+      "h": 1,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_247",
+      "base_name": "Vec(C6xC2)^C2",
+      "base_constructor": "pointed_equivariant",
+      "h": 1,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_252",
+      "base_name": "Vec(C2) x $\\mathrm{Fib}\\boxtimes\\mathrm{Ising}$",
+      "base_constructor": "deligne_product",
+      "h": 2,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_252",
+      "base_name": "Ising x Fib x Vec(C2)",
+      "base_constructor": "deligne_product",
+      "h": 4,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_253",
+      "base_name": "Vec(C2) x $\\mathrm{Fib}\\boxtimes\\Rep(S_3)$",
+      "base_constructor": "deligne_product",
+      "h": 2,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_253",
+      "base_name": "Rep(S3) x Fib x Vec(C2)",
+      "base_constructor": "deligne_product",
+      "h": 4,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_255",
+      "base_name": "Vec(C2) x $SO(5)_2$",
+      "base_constructor": "deligne_product",
+      "h": 1,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_255",
+      "base_name": "Vec(C2) x $SO(5)_2$",
+      "base_constructor": "deligne_product",
+      "h": 1,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_306",
+      "base_name": "Vec(C2) x $\\mathcal I(C_2^2,1)$: non-self-dual Ising zest",
+      "base_constructor": "deligne_product",
+      "h": 6,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_306",
+      "base_name": "Vec(C2) x $\\Vec_{C_2}\\boxtimes\\mathrm{Ising}$; also $R(0,0)$",
+      "base_constructor": "deligne_product",
+      "h": 1,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_306",
+      "base_name": "Vec(C2) x $\\Vec_{C_2}\\boxtimes\\mathrm{Ising}$; also $R(0,0)$",
+      "base_constructor": "deligne_product",
+      "h": 6,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_306",
+      "base_name": "Vec(C2) x $\\Vec_{C_2}\\boxtimes\\mathrm{Ising}$; also $R(0,0)$",
+      "base_constructor": "deligne_product",
+      "h": 7,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_306",
+      "base_name": "Ising x Vec(C2xC2)",
+      "base_constructor": "deligne_product",
+      "h": 1,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_306",
+      "base_name": "Ising x Vec(C2xC2)",
+      "base_constructor": "deligne_product",
+      "h": 2,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_306",
+      "base_name": "Ising x Vec(C2xC2)",
+      "base_constructor": "deligne_product",
+      "h": 3,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_306",
+      "base_name": "Ising x Vec(C4)",
+      "base_constructor": "deligne_product",
+      "h": 1,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_307",
+      "base_name": "Fib x $\\Vec_{C_2}\\boxtimes\\mathrm{Ising}$; also $R(0,0)$",
+      "base_constructor": "deligne_product",
+      "h": 1,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_307",
+      "base_name": "Vec(C2) x $\\mathrm{Fib}\\boxtimes\\mathrm{Ising}$",
+      "base_constructor": "deligne_product",
+      "h": 6,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_307",
+      "base_name": "Ising x Fib x Vec(C2)",
+      "base_constructor": "deligne_product",
+      "h": 1,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_308",
+      "base_name": "Ising x PSU(2)_6",
+      "base_constructor": "deligne_product",
+      "h": 1,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_314",
+      "base_name": "Vec(C2) x $SO(5)_2$",
+      "base_constructor": "deligne_product",
+      "h": 1,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_315",
+      "base_name": "Fib x $SO(5)_2$",
+      "base_constructor": "deligne_product",
+      "h": 1,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_316",
+      "base_name": "Vec(C2) x Zested $SO(5)_2$ category",
+      "base_constructor": "deligne_product",
+      "h": 6,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_316",
+      "base_name": "Vec(C2) x $SO(5)_2$",
+      "base_constructor": "deligne_product",
+      "h": 6,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_316",
+      "base_name": "Vec(C2) x $SO(5)_2$",
+      "base_constructor": "deligne_product",
+      "h": 7,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_389",
+      "base_name": "Vec(C2) x $\\mathcal I(C_4,0)$: cyclic, self-dual Ising zest",
+      "base_constructor": "deligne_product",
+      "h": 6,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_389",
+      "base_name": "Vec(C2) x $\\mathcal I(C_4,0)$: cyclic, self-dual Ising zest",
+      "base_constructor": "deligne_product",
+      "h": 6,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_389",
+      "base_name": "Vec(C2) x $\\Vec_{C_2}\\boxtimes\\mathrm{Ising}$; also $R(0,0)$",
+      "base_constructor": "deligne_product",
+      "h": 1,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_389",
+      "base_name": "Vec(C2) x $\\Vec_{C_2}\\boxtimes\\mathrm{Ising}$; also $R(0,0)$",
+      "base_constructor": "deligne_product",
+      "h": 2,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_389",
+      "base_name": "Vec(C2) x $\\Vec_{C_2}\\boxtimes\\mathrm{Ising}$; also $R(0,0)$",
+      "base_constructor": "deligne_product",
+      "h": 1,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_389",
+      "base_name": "Vec(C2) x $\\Vec_{C_2}\\boxtimes\\mathrm{Ising}$; also $R(0,0)$",
+      "base_constructor": "deligne_product",
+      "h": 2,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_389",
+      "base_name": "Vec(C2) x $\\Vec_{C_2}\\boxtimes\\mathrm{Ising}$; also $R(0,0)$",
+      "base_constructor": "deligne_product",
+      "h": 6,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_389",
+      "base_name": "Vec(C2) x $\\Vec_{C_2}\\boxtimes\\mathrm{Ising}$; also $R(0,0)$",
+      "base_constructor": "deligne_product",
+      "h": 7,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_389",
+      "base_name": "Vec(C2) x $\\Vec_{C_2}\\boxtimes\\mathrm{Ising}$; also $R(0,0)$",
+      "base_constructor": "deligne_product",
+      "h": 8,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_389",
+      "base_name": "Vec(C2) x $\\Vec_{C_2}\\boxtimes\\mathrm{Ising}$; also $R(0,0)$",
+      "base_constructor": "deligne_product",
+      "h": 6,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_389",
+      "base_name": "Vec(C2) x $\\Vec_{C_2}\\boxtimes\\mathrm{Ising}$; also $R(0,0)$",
+      "base_constructor": "deligne_product",
+      "h": 7,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_389",
+      "base_name": "Vec(C2) x $\\Vec_{C_2}\\boxtimes\\mathrm{Ising}$; also $R(0,0)$",
+      "base_constructor": "deligne_product",
+      "h": 8,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_389",
+      "base_name": "Ising x Vec(C2xC2)",
+      "base_constructor": "deligne_product",
+      "h": 1,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_389",
+      "base_name": "Ising x Vec(C2xC2)",
+      "base_constructor": "deligne_product",
+      "h": 5,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_389",
+      "base_name": "Ising x Vec(C2xC2)",
+      "base_constructor": "deligne_product",
+      "h": 1,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_389",
+      "base_name": "Ising x Vec(C2xC2)",
+      "base_constructor": "deligne_product",
+      "h": 5,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_389",
+      "base_name": "Ising x Vec(C2xC2)",
+      "base_constructor": "deligne_product",
+      "h": 2,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_389",
+      "base_name": "Ising x Vec(C2xC2)",
+      "base_constructor": "deligne_product",
+      "h": 6,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_389",
+      "base_name": "Ising x Vec(C2xC2)",
+      "base_constructor": "deligne_product",
+      "h": 2,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_389",
+      "base_name": "Ising x Vec(C2xC2)",
+      "base_constructor": "deligne_product",
+      "h": 6,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_389",
+      "base_name": "Ising x Vec(C2xC2)",
+      "base_constructor": "deligne_product",
+      "h": 3,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_389",
+      "base_name": "Ising x Vec(C2xC2)",
+      "base_constructor": "deligne_product",
+      "h": 7,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_389",
+      "base_name": "Ising x Vec(C2xC2)",
+      "base_constructor": "deligne_product",
+      "h": 3,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_389",
+      "base_name": "Ising x Vec(C2xC2)",
+      "base_constructor": "deligne_product",
+      "h": 7,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_389",
+      "base_name": "Ising x Vec(C4)",
+      "base_constructor": "deligne_product",
+      "h": 1,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_390",
+      "base_name": "Vec(C2) x $\\Rep(C_3\\rtimes C_4)$",
+      "base_constructor": "deligne_product",
+      "h": 6,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_390",
+      "base_name": "Vec(C2) x $\\Rep(C_3\\rtimes C_4)$",
+      "base_constructor": "deligne_product",
+      "h": 11,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_390",
+      "base_name": "Vec(C2) x $\\Vec_{C_2}\\boxtimes\\Rep(S_3)$; also $R(0,1)$",
+      "base_constructor": "deligne_product",
+      "h": 1,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_390",
+      "base_name": "Vec(C2) x $\\Vec_{C_2}\\boxtimes\\Rep(S_3)$; also $R(0,1)$",
+      "base_constructor": "deligne_product",
+      "h": 2,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_390",
+      "base_name": "Vec(C2) x $\\Vec_{C_2}\\boxtimes\\Rep(S_3)$; also $R(0,1)$",
+      "base_constructor": "deligne_product",
+      "h": 7,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_390",
+      "base_name": "Vec(C2) x $\\Vec_{C_2}\\boxtimes\\Rep(S_3)$; also $R(0,1)$",
+      "base_constructor": "deligne_product",
+      "h": 8,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_390",
+      "base_name": "Rep(S3) x Vec(C2xC2)",
+      "base_constructor": "deligne_product",
+      "h": 1,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_390",
+      "base_name": "Rep(S3) x Vec(C2xC2)",
+      "base_constructor": "deligne_product",
+      "h": 5,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_390",
+      "base_name": "Rep(S3) x Vec(C2xC2)",
+      "base_constructor": "deligne_product",
+      "h": 2,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_390",
+      "base_name": "Rep(S3) x Vec(C2xC2)",
+      "base_constructor": "deligne_product",
+      "h": 6,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_390",
+      "base_name": "Rep(S3) x Vec(C2xC2)",
+      "base_constructor": "deligne_product",
+      "h": 3,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_390",
+      "base_name": "Rep(S3) x Vec(C2xC2)",
+      "base_constructor": "deligne_product",
+      "h": 7,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_390",
+      "base_name": "Vec(C12)^C2",
+      "base_constructor": "pointed_equivariant",
+      "h": 1,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_390",
+      "base_name": "Vec(C6xC2)^C2",
+      "base_constructor": "pointed_equivariant",
+      "h": 2,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_390",
+      "base_name": "Vec(C6xC2)^C2",
+      "base_constructor": "pointed_equivariant",
+      "h": 3,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_390",
+      "base_name": "Vec(C6xC2)^C2",
+      "base_constructor": "pointed_equivariant",
+      "h": 8,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_390",
+      "base_name": "Vec(C6xC2)^C2",
+      "base_constructor": "pointed_equivariant",
+      "h": 9,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_390",
+      "base_name": "Vec(C6xC2)^C2",
+      "base_constructor": "pointed_equivariant",
+      "h": 10,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_390",
+      "base_name": "Vec(C6xC2)^C2",
+      "base_constructor": "pointed_equivariant",
+      "h": 11,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_395",
+      "base_name": "Vec(C2) x $\\Vec_{C_2}\\boxtimes PSU(2)_5$",
+      "base_constructor": "deligne_product",
+      "h": 1,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_395",
+      "base_name": "Vec(C2) x $\\Vec_{C_2}\\boxtimes PSU(2)_5$",
+      "base_constructor": "deligne_product",
+      "h": 6,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_395",
+      "base_name": "Vec(C2) x $\\Vec_{C_2}\\boxtimes PSU(2)_5$",
+      "base_constructor": "deligne_product",
+      "h": 7,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_395",
+      "base_name": "PSU(2)_5 x Vec(C2xC2)",
+      "base_constructor": "deligne_product",
+      "h": 1,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_395",
+      "base_name": "PSU(2)_5 x Vec(C2xC2)",
+      "base_constructor": "deligne_product",
+      "h": 2,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_395",
+      "base_name": "PSU(2)_5 x Vec(C2xC2)",
+      "base_constructor": "deligne_product",
+      "h": 3,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_396",
+      "base_name": "Vec(C2) x $PSU(2)_{10}$ (the other $3311$ even-part ring)",
+      "base_constructor": "deligne_product",
+      "h": 1,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_494",
+      "base_name": "Vec(C2) x $\\mathcal I(C_4,0)$: cyclic, self-dual Ising zest",
+      "base_constructor": "deligne_product",
+      "h": 6,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_494",
+      "base_name": "Ising x Vec(C4)",
+      "base_constructor": "deligne_product",
+      "h": 5,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_497",
+      "base_name": "Vec(C2) x $\\mathcal I(C_4,1)$: cyclic, non-self-dual Ising zest",
+      "base_constructor": "deligne_product",
+      "h": 6,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_552",
+      "base_name": "Vec((12,))",
+      "base_constructor": "pointed",
+      "h": 6,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_578",
+      "base_name": "Ising x TY(C3)",
+      "base_constructor": "deligne_product",
+      "h": 4,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_579",
+      "base_name": "Rep(S3) x TY(C3)",
+      "base_constructor": "deligne_product",
+      "h": 4,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_608",
+      "base_name": "Vec(C2) x $\\Vec_{S_3}$",
+      "base_constructor": "deligne_product",
+      "h": 6,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_609",
+      "base_name": "Vec((6, 2))",
+      "base_constructor": "pointed",
+      "h": 1,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_609",
+      "base_name": "Vec((6, 2))",
+      "base_constructor": "pointed",
+      "h": 6,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_609",
+      "base_name": "Vec((6, 2))",
+      "base_constructor": "pointed",
+      "h": 7,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_609",
+      "base_name": "Vec(C2) x $\\Vec_{C_2}\\boxtimes\\Vec_{C_3}\\simeq\\Vec_{C_6}$",
+      "base_constructor": "deligne_product",
+      "h": 5,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_609",
+      "base_name": "Vec(C2) x $\\Vec_{C_2}\\boxtimes\\Vec_{C_3}\\simeq\\Vec_{C_6}$",
+      "base_constructor": "deligne_product",
+      "h": 6,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_609",
+      "base_name": "Vec(C2) x $\\Vec_{C_2}\\boxtimes\\Vec_{C_3}\\simeq\\Vec_{C_6}$",
+      "base_constructor": "deligne_product",
+      "h": 11,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_609",
+      "base_name": "Vec(C3) x Vec(C2xC2)",
+      "base_constructor": "deligne_product",
+      "h": 1,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_609",
+      "base_name": "Vec(C3) x Vec(C2xC2)",
+      "base_constructor": "deligne_product",
+      "h": 2,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_609",
+      "base_name": "Vec(C3) x Vec(C2xC2)",
+      "base_constructor": "deligne_product",
+      "h": 3,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_615",
+      "base_name": "Vec(C2) x Tambara--Yamagami category for $C_5$",
+      "base_constructor": "deligne_product",
+      "h": 6,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_389",
+      "base_name": "Ising graded pullback R8_1_4",
+      "base_constructor": "graded_pullback",
+      "h": 4,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_494",
+      "base_name": "Ising graded pullback R8_1_4",
+      "base_constructor": "graded_pullback",
+      "h": 4,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_508",
+      "base_name": "Ising graded pullback R8_1_10",
+      "base_constructor": "graded_pullback",
+      "h": 4,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_508",
+      "base_name": "Ising graded pullback R8_1_10",
+      "base_constructor": "graded_pullback",
+      "h": 4,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_270",
+      "base_name": "Ising graded pullback R8_1_13",
+      "base_constructor": "graded_pullback",
+      "h": 4,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_375",
+      "base_name": "Ising graded pullback R8_1_13",
+      "base_constructor": "graded_pullback",
+      "h": 4,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_375",
+      "base_name": "Ising graded pullback R8_1_13",
+      "base_constructor": "graded_pullback",
+      "h": 4,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_578",
+      "base_name": "Ising graded pullback R8_1_27",
+      "base_constructor": "graded_pullback",
+      "h": 4,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_482",
+      "base_name": "Ising graded pullback R8_1_36",
+      "base_constructor": "graded_pullback",
+      "h": 4,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_246",
+      "base_name": "Ising graded pullback R8_1_65",
+      "base_constructor": "graded_pullback",
+      "h": 4,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_246",
+      "base_name": "Ising graded pullback R8_1_65",
+      "base_constructor": "graded_pullback",
+      "h": 4,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_246",
+      "base_name": "Ising graded pullback R8_1_65",
+      "base_constructor": "graded_pullback",
+      "h": 4,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_252",
+      "base_name": "Ising graded pullback R8_1_66",
+      "base_constructor": "graded_pullback",
+      "h": 4,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_252",
+      "base_name": "Ising graded pullback R8_1_66",
+      "base_constructor": "graded_pullback",
+      "h": 4,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_164",
+      "base_name": "TY(C5)^C2 crossed C2[parity=0]",
+      "base_constructor": "metaplectic_character_crossed_product",
+      "h": 1,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_139",
+      "base_name": "TY(C5)^C2 crossed C2[parity=0]",
+      "base_constructor": "metaplectic_character_crossed_product",
+      "h": 1,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_139",
+      "base_name": "TY(C5)^C2 crossed C2[parity=1]",
+      "base_constructor": "metaplectic_character_crossed_product",
+      "h": 1,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_441",
+      "base_name": "TY(C5)^C2 crossed C2[parity=0]",
+      "base_constructor": "metaplectic_character_crossed_product",
+      "h": 1,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    },
+    {
+      "id": "R12_1_441",
+      "base_name": "TY(C5)^C2 crossed C2[parity=1]",
+      "base_constructor": "metaplectic_character_crossed_product",
+      "h": 1,
+      "lift_source": "specified categorical family, reviewed in findings.md"
+    }
+  ],
+  "scope": "Direct bindings independently replayed; categorical proofs manually reviewed against primary sources, not inferred from ring symmetry."
+}

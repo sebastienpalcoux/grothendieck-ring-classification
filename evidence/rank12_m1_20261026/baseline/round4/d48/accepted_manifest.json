@@ -1,0 +1,141 @@
+{
+  "status": "PASS",
+  "counts": {
+    "new_exclusions": 20,
+    "new_models": 0,
+    "remaining_unresolved": 0
+  },
+  "new_exclusions": [
+    "R12_1_130",
+    "R12_1_146",
+    "R12_1_151",
+    "R12_1_175",
+    "R12_1_216",
+    "R12_1_239",
+    "R12_1_244",
+    "R12_1_277",
+    "R12_1_289",
+    "R12_1_296",
+    "R12_1_303",
+    "R12_1_319",
+    "R12_1_407",
+    "R12_1_410",
+    "R12_1_421",
+    "R12_1_424",
+    "R12_1_433",
+    "R12_1_523",
+    "R12_1_526",
+    "R12_1_538"
+  ],
+  "proof_index": [
+    "general_complex_exclusion.md",
+    "cohomology_coverage.md",
+    "quotient_reconstruction.md",
+    "free_rank6_branch.md",
+    "ng24_lagrangian_lemma.md",
+    "rank9_quotient_branch.md",
+    "triality_soft_automorphisms.md",
+    "triality_gt_branch.md",
+    "../root/integral_lagrangian_lemma.md",
+    "../audit_models/d24_c3_pointed_extension_lemma.md",
+    "../audit_exclusions/R351_neutral_associator.md",
+    "../audit_exclusions/R513_GT_proof.md"
+  ],
+  "standalone_replays": [
+    "python -O quotient_reconstruct.py",
+    "python -O rank9_reconstruct.py"
+  ],
+  "accepted_evidence": [
+    {
+      "path": "general_complex_exclusion.md",
+      "sha256": "bff630a67c0fb21f3de3e5102395ccd2505e75d47692a695b03dc37d2e0843bc"
+    },
+    {
+      "path": "cohomology_coverage.md",
+      "sha256": "c5f722b9be27c6112c0bb055c5671f547969bf3b844540561e6c252981709720"
+    },
+    {
+      "path": "quotient_reconstruction.md",
+      "sha256": "2fb1bcbb9c995cc59a9807d9c1a496440c469add95cefffee0e52c811eebc34f"
+    },
+    {
+      "path": "free_rank6_branch.md",
+      "sha256": "07dd48e6e5cba821cfc36a66270c2676564d2b2351a87fceda471ccd8aed0589"
+    },
+    {
+      "path": "ng24_lagrangian_lemma.md",
+      "sha256": "8644d66f5caad768e6a540ae11b1142ed392c2090476adfcb117676f22786783"
+    },
+    {
+      "path": "rank9_quotient_branch.md",
+      "sha256": "1d2d7f32a20d90d712397d5ca1e4b2429df8d046311b1a78cacf0fe42738814d"
+    },
+    {
+      "path": "triality_soft_automorphisms.md",
+      "sha256": "c199b6ec2ee560ba08c89688207249da5df9048be97bf62890341428df18316e"
+    },
+    {
+      "path": "triality_gt_branch.md",
+      "sha256": "c7ded9dffb01b04289813a8cf9cb4318cae750bde16d5826861cff33456343b1"
+    },
+    {
+      "path": "quotient_inputs.json",
+      "sha256": "24203c51b01a3c95e1778826faf2b468231e6e91a977191365db8fc68b4fd63b"
+    },
+    {
+      "path": "quotient_reconstruction.json",
+      "sha256": "0463df90dcfe045e47e9f234c84a0b472a26f4c1ef51fffd186f1d970e447995"
+    },
+    {
+      "path": "rank9_reconstruction.json",
+      "sha256": "19ffe44e2603b7653634988f92983c43d0475830fbed2e37596e3d52ae8932d5"
+    },
+    {
+      "path": "gt_classification_frozen.json",
+      "sha256": "d1a125d179ca618cb2c4c3864acfe8ebfc24c3d8ce72fdc9d4f0fcde982c5eda"
+    },
+    {
+      "path": "h16_all_cases.json",
+      "sha256": "a3965d4e3e25b18ea8e1517ac44dd4c1fb05a36bc5ea0353f174df739c420880"
+    },
+    {
+      "path": "restriction_certificates.json",
+      "sha256": "19013766a9509e4bba1e2cc73e51415a84db5c61ca1a5bc32a94d74a0d8fe4fc"
+    },
+    {
+      "path": "quotient_reconstruct.py",
+      "sha256": "1d77c95ef337b4ba0919b82d18461e0d94f6e07a6bf237eb72527b479b16bb83"
+    },
+    {
+      "path": "rank9_reconstruct.py",
+      "sha256": "dc5f8836a77c44ab95f595b7fd130ca4fe6f666a14aa534e048165bf6b87a002"
+    },
+    {
+      "path": "ring_utils.py",
+      "sha256": "193bf32926bf8cabb6817da902fcec418bc2a0c08939fba74a77242d93d261d6"
+    },
+    {
+      "path": "rank6_swap_rings.py",
+      "sha256": "d7efede4362f90a39681962c6e365ff2597aa9c60892cc0628e641fc8a6661bc"
+    },
+    {
+      "path": "triality_orthogonal.py",
+      "sha256": "bb2af4e899b894f30a7f0ce5cce7cde1fbbd0255f1764a9afb761d77f9672dd6"
+    },
+    {
+      "path": "verify_decisions.py",
+      "sha256": "27fded5b0e04ae3de6badfb6da4ecaad40fdcd22f3f73d6c7f886485500806cf"
+    }
+  ],
+  "referenced_external_evidence": [
+    "../root/integral_lagrangian_lemma.md",
+    "../audit_models/d24_c3_pointed_extension_lemma.md",
+    "../audit_exclusions/R351_neutral_associator.md",
+    "../audit_exclusions/R513_GT_proof.md",
+    "../audit_models/quotient_reconstruction_independent.json",
+    "../audit_models/d48_catalog_independent.json",
+    "../audit_models/h16_catalog_independent.json",
+    "../audit_exclusions/audit_d48_followup.md",
+    "../audit_models/rank9_quotient_reconstruction_independent.json"
+  ]
+}

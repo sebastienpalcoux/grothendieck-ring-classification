@@ -1,0 +1,46 @@
+        scalar_objects=[]
+        for vals in sorted(solutions):
+            R={v:val for v,val in zip(variables,vals)};R.update({(x,0):0 for x in D})
+            scalar_objects.append(dict(z=z,D=D,L=L,R=R,stab=stab))
+        if len(solutions)==len(stab):
+            out.extend(scalar_objects);continue
+        if not allow_matrix or len(stab)>8:
+            return None,dict(unsupported='projective fiber scope',representative=z,solutions=len(solutions),stabilizer=len(stab))
+        matrix_objects=[];seenchars=set()
+        for signs in itertools.product(range(2),repeat=len(H)-1):
+            ch=dict(zip(H,(0,)+signs))
+            if not any(signs)or any(ch[G[a][b]]!=(ch[a]+ch[b])%2 for a,b in itertools.product(H,repeat=2)):continue
+            var=[(x,h,t)for x in D for h in H if h for t in range(2)];ix2={v:i for i,v in enumerate(var)};A2=[];B2=[]
+            def eq2(terms,rhs):
+                row=[0]*len(var)
+                for x,h,t,c in terms:
+                    if h:row[ix2[x,h,t]]+=c
+                A2.append(row);B2.append(rhs%MOD)
+            for x,a,b,t in itertools.product(D,H,H,range(2)):
+                eq2([(x,a,t,1),(G[x][a],b,(t+ch[a])%2,1),(x,G[a][b],t,-1)],w(x,a,b)+psi(a,b))
+            for a,x,b,t in itertools.product(H,D,H,range(2)):
+                eq2([(G[a][x],b,t,1),(x,b,t,-1)],L[a,G[x][b]]+w(a,x,b)-L[a,x])
+            reached={(cosets[z],0)};queue=[(cosets[z],0)]
+            for x,t in queue:
+                for h in H:
+                    target=(cosets[G[x][h]],(t+ch[h])%2)
+                    if target not in reached:
+                        reached.add(target);queue.append(target);eq2([(x,h,t,1)],0)
+            if len(reached)!=2*len(set(cosets.values())):continue
+            for vals in solve(A2,B2):
+                R={v:a for v,a in zip(var,vals)};R.update({(x,0,t):0 for x,t in itertools.product(D,range(2))})
+                char=[];norm=[0]*4
+                for h in stab:
+                    q=G[G[inv[z]][h]][z];ph=[] if ch[q] else [(R[z,q,t]-L[h,z])%MOD for t in range(2)];co=[0]*4
+                    for e in ph:co[e%4]+=1 if e<4 else -1
+                    char.extend(co)
+                    for e,f in itertools.product(ph,repeat=2):
+                        v=(e-f)%MOD;norm[v%4]+=1 if v<4 else -1
+                if norm!=[len(stab),0,0,0]:continue
+                fp=tuple(char)
+                if fp in seenchars:continue
+                seenchars.add(fp);matrix_objects.append(dict(z=z,D=D,L=L,R=R,stab=stab,dimension=2,right_permutation=ch))
+            if len(scalar_objects)+4*len(matrix_objects)==len(stab):break
+        if len(scalar_objects)+4*len(matrix_objects)!=len(stab):
+            return None,dict(unsupported='incomplete monomial fiber list',representative=z,scalar=len(scalar_objects),matrix=len(matrix_objects),stabilizer=len(stab))
+        out.extend(scalar_objects);out.extend(matrix_objects)

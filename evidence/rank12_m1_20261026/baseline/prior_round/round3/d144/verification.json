@@ -1,0 +1,60 @@
+{
+  "status": "PASS",
+  "models": [],
+  "exclusions": [],
+  "unresolved": [
+    {
+      "id": "R12_1_180",
+      "input_sha256": "ee453b20447807693d2c968865b9eee74f3c5c4e526d543de8b2366e0c953151",
+      "status": "unresolved",
+      "conditional_identity_verified": true,
+      "categorical_lift_missing": true
+    },
+    {
+      "id": "R12_1_320",
+      "input_sha256": "40c30534581e4ef70050150b1941d78279a93f38951f6b35c730fd6966c9ab4f",
+      "status": "unresolved",
+      "conditional_identity_verified": true,
+      "categorical_lift_missing": true
+    },
+    {
+      "id": "R12_1_181",
+      "input_sha256": "7e344ada20dbc3b39716d5134b0f29122f35b1d6022ec4f3fc8d9c59c28fc80c",
+      "status": "unresolved",
+      "conditional_identity_verified": true,
+      "categorical_lift_missing": true
+    },
+    {
+      "id": "R12_1_321",
+      "input_sha256": "05b6502248295614500576f8c9e3d7a34cb666ef59ded3d353e27808f413d0d3",
+      "status": "unresolved",
+      "conditional_identity_verified": true,
+      "categorical_lift_missing": true
+    }
+  ],
+  "new_theoretical_reduction": {
+    "possible_first_Morita_splitting_parameters": [
+      3
+    ],
+    "second_C3_algebra_exists": true,
+    "scope": "necessary categorical structure; not an exclusion or a construction"
+  },
+  "branch_exclusion": {
+    "excluded_splitting_parameters": [
+      0
+    ],
+    "remaining_splitting_parameters": [
+      3
+    ],
+    "first_dual_integral_type": {
+      "1": 6,
+      "2": 12,
+      "3": 2
+    },
+    "full_first_dual_rank": 24,
+    "actual_RepS3_subcategory": true,
+    "regular_dimension6_algebra_exists": true,
+    "central_embedding_proved": false,
+    "scope": "The categorical proof is in findings.md; arithmetic replay proves no monoidal lift."
+  }
+}

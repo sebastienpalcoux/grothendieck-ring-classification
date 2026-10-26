@@ -1,0 +1,56 @@
+{
+  "family": "order_six_quadratic",
+  "new_excluded": 1,
+  "new_models": 0,
+  "unresolved": 4,
+  "records": [
+    {
+      "id": "R12_1_332",
+      "status": "unresolved",
+      "scope": null,
+      "tensor_sha256": "e48494982292755176faadfa0fbe5eec1004faf6f015f7ca90c045de1b3fda28",
+      "method": null,
+      "details": "Required coherent C2 tensor action on a possibly twisted Haagerup C3 precursor not obtained."
+    },
+    {
+      "id": "R12_1_350",
+      "status": "excluded",
+      "scope": "general_complex_fusion_categories",
+      "tensor_sha256": "c1fcaa5a2e3a0867276c5062959782de37347956ecfc1b3b9cf3f8315f5a3caf",
+      "method": "central_class_induction_relative_indicator_traces",
+      "details": "All30 low branches excluded:26 exact Gram witnesses and4x8 exact relative-trace Farkas certificates. Independently audited."
+    },
+    {
+      "id": "R12_1_561",
+      "status": "unresolved",
+      "scope": null,
+      "tensor_sha256": "026304a67ba71a4fff9425eeb32c1618032886948763f28187e9c8aceec1ea41",
+      "method": null,
+      "details": "Central Tannakian C3 lift ruled out; braided categorification ruled out; arbitrary complex categorification unresolved."
+    },
+    {
+      "id": "R12_1_623",
+      "status": "unresolved",
+      "scope": null,
+      "tensor_sha256": "77ac390c104a23ecf5bedc8c83ee1b1915f51a728916d9c12b9477c5ebd06856",
+      "method": null,
+      "details": "Any pseudo-unitary model must have pointed involution nu2=-1; positive-indicator branch excluded; negative-indicator cases remain open."
+    },
+    {
+      "id": "R12_1_628",
+      "status": "unresolved",
+      "scope": null,
+      "tensor_sha256": "a662bbef5da147db83ddd3718812ae46e623edd2a1370a78d50949c97c851519",
+      "method": null,
+      "details": "Central Tannakian C3 lift ruled out; braided categorification ruled out; arbitrary complex categorification unresolved."
+    }
+  ],
+  "proof": "theory.md",
+  "independent_audit": "../d120/audit_R350.json",
+  "online_changed": false,
+  "portable_verifier": "verify.py",
+  "frozen_inputs": [
+    "frozen_inputs.json",
+    "frozen_R350.json"
+  ]
+}

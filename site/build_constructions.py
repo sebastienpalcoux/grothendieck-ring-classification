@@ -31,9 +31,9 @@ def render():
     data = read_json(SOURCE)
     assert data["schema"] == "construction-shortlist/v1"
     models = read_json(DIST / "data/realized_rings.json")["records"]
-    for filename in ("rank9_rank10_m1.json", "rank11_m1.json", "rank9_m2.json"):
+    for filename in ("rank9_rank10_m1.json", "rank11_m1.json", "rank9_m2.json", "rank12_m1.json"):
         models += [r for r in read_json(DIST / "data" / filename)["cases"]
-                   if r.get("status") in ("realized", "unitarily_realized")]
+                   if r.get("status") in ("realized", "unitarily_realized", "pseudo_unitarily_realized")]
     records = {r["id"]: r for r in models}
     flags = read_json(DIST / "data/ring_property_flags.json")["records"]
     entries = data["entries"]
@@ -45,7 +45,7 @@ def render():
         identifier = entry["id"]
         rank, multiplicity, _ = key(entry)
         record = records[identifier]
-        assert record["existence"] in ("unitary", "realized", "unitarily_realized"), identifier
+        assert record["existence"] in ("unitary", "realized", "unitarily_realized", "pseudo-unitary"), identifier
         assert (record["rank"], record["multiplicity"]) == (rank, multiplicity), identifier
         assert flags[identifier]["tensor_sha256"] == record["tensor_sha256"], identifier
         props = flags[identifier]["properties"]

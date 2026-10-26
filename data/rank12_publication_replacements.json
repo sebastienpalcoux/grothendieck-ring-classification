@@ -1,0 +1,343 @@
+{
+  "schema": "rank12-publication-replacements/v1",
+  "date": "2026-10-26",
+  "base_commit": "fa3ace71a1d216d83d2ca03c800a70b672abaeab",
+  "scope": "Add rank twelve; preserve all prior mathematical ledgers and individual case objects. Explicit before/after identities supersede only derived publication/source bindings.",
+  "files": {
+    ".gitignore": {
+      "prior_sha256": [
+        "4f3f72dbee04e12da28c4052e08969959ab9e4bc34a864d9523188a846398bb7"
+      ],
+      "after_sha256": "986d6c623d41fa5886c3f158511c539596508d3f17ebd075668a9aa3eaab30a4",
+      "reason": "Rank-twelve integration: current-document metadata, generated property projection, explanatory docs, or shared UI/source checks; old categorical decisions are unchanged."
+    },
+    "README.md": {
+      "prior_sha256": [
+        "871c452a8acd68ff9ce28f640cb81e2abf85cb4d19965d90c1ba7645e5308c48"
+      ],
+      "after_sha256": "0a4562b1264501b60280a35f0228e4f87f80234115f07d6f8768e9dc362fa481",
+      "reason": "Rank-twelve integration: current-document metadata, generated property projection, explanatory docs, or shared UI/source checks; old categorical decisions are unchanged."
+    },
+    "data/current_manuscript_page_counts.json": {
+      "prior_sha256": [
+        "084630b26e45a691d7359167315adb67898ccdb64c421c23a9ac65030708384b"
+      ],
+      "after_sha256": "19fc1c90e63eed9aabc3b56c63fd2d880fcb0ee620bbbca5c564e95a14c78b52",
+      "reason": "Rank-twelve integration: current-document metadata, generated property projection, explanatory docs, or shared UI/source checks; old categorical decisions are unchanged."
+    },
+    "data/current_publication_revision.json": {
+      "prior_sha256": [
+        "a0fd7458830907cba1c355193b3f51b35fc1cbe5ea8a5e3a8f81a9af5716cd38"
+      ],
+      "after_sha256": "bb747e6c399465b2dfd573385459b4a36135b1d1ad09147cba5f7c59061cf1e7",
+      "reason": "Rank-twelve integration: current-document metadata, generated property projection, explanatory docs, or shared UI/source checks; old categorical decisions are unchanged."
+    },
+    "data/large_files_manifest.json": {
+      "prior_sha256": [
+        "5c0bbacf77ef0bd1a53acbbaa77636862bdc9e0ad042c82228086dc30e7c740f"
+      ],
+      "after_sha256": "e23f902e1d373751fd3b39732200f6ad44bfac433938d48614244db8124b2190",
+      "reason": "Rank-twelve integration: current-document metadata, generated property projection, explanatory docs, or shared UI/source checks; old categorical decisions are unchanged."
+    },
+    "data/payloads/site__dist__data__rank9_m2_json/part-001.bin": {
+      "prior_sha256": [
+        "de256b1dac761087ce8ddc92df9eff3826fcf3d240ea3cb132627357c3e87f09"
+      ],
+      "after_sha256": "de041bd3c34bbc495e9f3fa3bb22792d0644b406af07f4787977cb50609b301c",
+      "reason": "Rank-twelve integration: current-document metadata, generated property projection, explanatory docs, or shared UI/source checks; old categorical decisions are unchanged."
+    },
+    "data/payloads/site__dist__data__rank9_m2_json/part-002.bin": {
+      "prior_sha256": [
+        "6f66eb524c23ec983718d128b6c94c7df9e935f95e9857f7cd73f363b24e3434"
+      ],
+      "after_sha256": "fd3cc5303c11e77b1c779b9c61761ee2a35b4b813095540111fd094a7f0793f3",
+      "reason": "Rank-twelve integration: current-document metadata, generated property projection, explanatory docs, or shared UI/source checks; old categorical decisions are unchanged."
+    },
+    "data/payloads/site__dist__data__rank9_rank10_m1_json/part-001.bin": {
+      "prior_sha256": [
+        "2ff2324b8d531b03ded1a8d22f10f1b985360d06839683ee2915040c85c95d29"
+      ],
+      "after_sha256": "177950e974306ba77d740d07de7f7a9c9bb3499f868d276718907587487c1575",
+      "reason": "Rank-twelve integration: current-document metadata, generated property projection, explanatory docs, or shared UI/source checks; old categorical decisions are unchanged."
+    },
+    "data/payloads/site__dist__data__ring_properties_json/part-001.bin": {
+      "prior_sha256": [
+        "68c3185f203b6dd3b64092e608da49079b63de95e2f05e584ea0aabc3ccfeda6"
+      ],
+      "after_sha256": "5e095d4b973bb3da5e071b17af86908cf236c9159a2d3b164533a1cd8c7a0f4d",
+      "reason": "Rank-twelve integration: current-document metadata, generated property projection, explanatory docs, or shared UI/source checks; old categorical decisions are unchanged."
+    },
+    "docs/PREPUBLICATION_REVIEW.md": {
+      "prior_sha256": [
+        "7c2c2ea862236f4cd51c5c2e69377ee9a8c08f9b38c8575452a5b21f82ec3c9b"
+      ],
+      "after_sha256": "c1b3f6ae6565c367be2a3c2163ec7df50e4bed1450354f470bf200687899e9ea",
+      "reason": "Rank-twelve integration: current-document metadata, generated property projection, explanatory docs, or shared UI/source checks; old categorical decisions are unchanged."
+    },
+    "docs/PROJECT_GUIDE.md": {
+      "prior_sha256": [
+        "c0e951af8117abda28157d4ea86ed639ab238255f32e9fbc1df7c6ea98ea880a"
+      ],
+      "after_sha256": "e36d86bcdbc06ac491c9ddce2b5a9e08e823e898bf71983e99a65ffd804b5c3d",
+      "reason": "Rank-twelve integration: current-document metadata, generated property projection, explanatory docs, or shared UI/source checks; old categorical decisions are unchanged."
+    },
+    "docs/PROVENANCE.md": {
+      "prior_sha256": [
+        "1c55231d8a9d0e032172eeb2c52d6bc8b6088ba5eef79dbac8cf6fbc7cde654e"
+      ],
+      "after_sha256": "c7c88216edee9ad03dac6ba610d7d67ade26da60b19444fae588513afe483342",
+      "reason": "Rank-twelve integration: current-document metadata, generated property projection, explanatory docs, or shared UI/source checks; old categorical decisions are unchanged."
+    },
+    "docs/RESEARCH_STATUS.md": {
+      "prior_sha256": [
+        "b380b409fe197d09ebda582a27127f0124309f707eaf22b29d4aa9dabe738eda"
+      ],
+      "after_sha256": "3153e913d0b75b4546c003863736237a6140f0eddedad9c2bf365d00733dafcf",
+      "reason": "Rank-twelve integration: current-document metadata, generated property projection, explanatory docs, or shared UI/source checks; old categorical decisions are unchanged."
+    },
+    "docs/VERIFY.md": {
+      "prior_sha256": [
+        "b614746a010549b3015ab68b75c49ef71a9a417c77903112c22ba1cb213e22a6"
+      ],
+      "after_sha256": "8f47537de9e74fb28bc976356d469fdf0483614ff83c8f08f1f71ab3afda7aec",
+      "reason": "Rank-twelve integration: current-document metadata, generated property projection, explanatory docs, or shared UI/source checks; old categorical decisions are unchanged."
+    },
+    "manuscripts/README.md": {
+      "prior_sha256": [
+        "95b94f67572caecc7c7e7d2af829da145083f1ac4511c42c8abcea2e958575fb"
+      ],
+      "after_sha256": "22899900f516f78c0f52ebc08190612fb85ce9c53fd72eef72621ff5b948b2c3",
+      "reason": "Rank-twelve integration: current-document metadata, generated property projection, explanatory docs, or shared UI/source checks; old categorical decisions are unchanged."
+    },
+    "site/build_constructions.py": {
+      "prior_sha256": [
+        "b96a9404e69f526f4f915246c0ae66843000ffdbb5f9a4a26155febfd048771d"
+      ],
+      "after_sha256": "fa84af64963d51fe9f08beb4ed305620948503a33b4eab04b3a95f54fe05acb3",
+      "reason": "Rank-twelve integration: current-document metadata, generated property projection, explanatory docs, or shared UI/source checks; old categorical decisions are unchanged."
+    },
+    "site/dist/case.html": {
+      "prior_sha256": [
+        "db16ad018e0fe799455f3953efca632f73f3b1d2314d645b97302e72e97a8948"
+      ],
+      "after_sha256": "24490bf56a5eb9de230105e51e52c27508a8b94a8d575d2e1db8d5c9c6d539c7",
+      "reason": "Rank-twelve integration: current-document metadata, generated property projection, explanatory docs, or shared UI/source checks; old categorical decisions are unchanged."
+    },
+    "site/dist/constructions.html": {
+      "prior_sha256": [
+        "7880a3a43204bda67982cef809f90986de7a515db8483a960ae127e70c501d6c"
+      ],
+      "after_sha256": "583d85240e018f520b08ba81cc1ae9cf5e14831af5ef359fbc2b1bb84cdfff8d",
+      "reason": "Rank-twelve integration: current-document metadata, generated property projection, explanatory docs, or shared UI/source checks; old categorical decisions are unchanged."
+    },
+    "site/dist/data/atlas.json": {
+      "prior_sha256": [
+        "01c06b5f86b5b5de63f502ec2017c4d8538fe20a82b3ee1910dbeb6a5671fc71",
+        "2831e9efaae6b02f82975341a32651bda45f653a6058edb2cb8f854e9fa0f4f9",
+        "548dc024d3cb7b55b8995a224fa41c8c50926c6c2deb1bb097068d580a810225",
+        "5ee5b10c863cd366ab170ddbc571d0badc6a4b64385b7ab50e0f401dc5de23ef",
+        "6bc0a55b6686ba4db3b781590a7fe8f02eb700eadf3c7aa30b11f7ff4e9e1d74",
+        "7c6a103931689ed15bff70f2005be446bc653f414c5869520a1efd9cea12b3ac",
+        "c90197dda17dfa7c0d0d561add608ffdc34cf26058c754da66a747f59049c101",
+        "e12e71e8bb17985a5cf01b1a313bcc7fba7ac467e656b79d9c535b45b5301c81"
+      ],
+      "after_sha256": "d3a8b350dc6a723d93a7e8347a43ee64cd1af967b30c0ee94588172ca06d0caf",
+      "reason": "Rank-twelve derived publication update; prior case objects retained."
+    },
+    "site/dist/data/current_publication_revision.json": {
+      "prior_sha256": [
+        "0d2ae985aecb4197c98daf96fbd21f6f758f62925b39205707139da368f66d2c",
+        "38ed063f647df92bae7b1be50ff4aa17d9d52a57655d8a6faf5c7f12bbc3c6bf",
+        "3c7dfea263f62bdfc47d0a12031e1ca85d28efeeb6c75c5778c825b815eb8464",
+        "a05eb9f61a61f7cd9d6b2936f3b54ff395bda0999af4ee12a7c138099a089b2e",
+        "a0fd7458830907cba1c355193b3f51b35fc1cbe5ea8a5e3a8f81a9af5716cd38",
+        "a543ccd7a99894e6a8cf29b1bde1926c8eed4224d2ee2681b6e860b0db000428",
+        "ae80feea83d66a1e2364c1b7efecf5508a8c0a9ebcec1d446c55c80ba88576b7",
+        "eb6d748ed8013d075a49cb08498db47172e3c60bc223d8d02278e2f021a9d080"
+      ],
+      "after_sha256": "bb747e6c399465b2dfd573385459b4a36135b1d1ad09147cba5f7c59061cf1e7",
+      "reason": "Rank-twelve derived publication update; prior case objects retained."
+    },
+    "site/dist/data/rank11_m1.json": {
+      "prior_sha256": [
+        "325937a5aee78ac2dd2b10a0055ed9eac051af242ceee15e1758bd435a0357c3",
+        "671b1e7d3a10970e46f4f98b05eefd47bd555def429edfea651f077b781121c2",
+        "86dccaa077262cc2f19e5f750c08912a28449e5cc91cc54c86f9517a8779d7a4",
+        "bb76e6266c161de8f70ff733f30f33a819a176fc0365de9356359730b793f198",
+        "c5ebf8f50d9352209e410daab10decf93ed98d1cf8c34052d57cca4cb75c65a1",
+        "d0cbc7e6bfbdf14f43a19495a12f0e979d6ed01680b893115379c6d656e4cdbd",
+        "dc5d127ea10555baf665aa6cae3454b222e28fdb5154fd6767ce58cb181fa44a",
+        "e4a44d3fc487c031055c9d6eb35d5bffb25b98e43422497106a72a472918e597",
+        "ea3236af1b7c230cc0d45804785f8d4692f461522f95c08d097ba5600549e108"
+      ],
+      "after_sha256": "ec4da31326cf6b52bfcd34837f5a7296c0843098a77e5696ae404ab7321d451a",
+      "reason": "Rank-twelve derived publication update; prior case objects retained."
+    },
+    "site/dist/data/ring_property_flags.json": {
+      "prior_sha256": [
+        "0969783bfc297b3e96b063c24302ea7d2f1cca4731da833e8795b09863691b29",
+        "2d3e8b0d1a3d8629c3c0df7c6655aafffb8439b5febd3df9d3444813de75c3a8",
+        "2ffe5d6bb144f1cea7611bdfb075d5a010508c78da8a700c4e9a361ff427ed94",
+        "3ac491ab4f957ca74f86fd40f763a4b4ad1b9c3109515d40304db434df64fb2e",
+        "45ab4f82fd134b380ffec555ce51503fcf7595cc0e841d0adf30dc5e4a4ad3ea",
+        "5128405ca544bafdedb56d9437068eef626e688779c09de0f8f41ee33205c479",
+        "62cec0f78a5ffd3e3989849b6b6724ac03f1b24e11be4fb5c5cd367af84b50af",
+        "7a063362c7dd375308882c55c162d2205d787e84067514a78d0651bc622c52b2",
+        "aa221c62061df6980c0f251fe282477d5b7b95cd7a0d6fa5c01f32b030140714",
+        "d8d0f70704d3887278bdff09102c0a9b31d31e8ee2b267c336c2a67c1cb016e8"
+      ],
+      "after_sha256": "2b3b5491a113462f0269ff0bd2217b5dbb9dfe98bd85b9635feb5bd65781f177",
+      "reason": "Rank-twelve derived publication update; prior case objects retained."
+    },
+    "site/dist/downloads/current_manuscript_page_counts.json": {
+      "prior_sha256": [
+        "084630b26e45a691d7359167315adb67898ccdb64c421c23a9ac65030708384b"
+      ],
+      "after_sha256": "19fc1c90e63eed9aabc3b56c63fd2d880fcb0ee620bbbca5c564e95a14c78b52",
+      "reason": "Rank-twelve integration: current-document metadata, generated property projection, explanatory docs, or shared UI/source checks; old categorical decisions are unchanged."
+    },
+    "site/dist/index.html": {
+      "prior_sha256": [
+        "f6f9e25379e809502c5ab2a7d45c34d8577e4ba807be454d93b805aece614986"
+      ],
+      "after_sha256": "232acba07328a944cd4cd1de51b12cb5c714d4f5978001b72b5f4c9cfd387404",
+      "reason": "Rank-twelve integration: current-document metadata, generated property projection, explanatory docs, or shared UI/source checks; old categorical decisions are unchanged."
+    },
+    "site/dist/records.html": {
+      "prior_sha256": [
+        "625ab75489757d70cff1c64a77d12ad9c948d56f93e5815e46699d7207b1277f"
+      ],
+      "after_sha256": "46d5376b35f6ef62273e2ae2ac525925b47e2ace1604ed1439a8138a8ec6a162",
+      "reason": "Rank-twelve integration: current-document metadata, generated property projection, explanatory docs, or shared UI/source checks; old categorical decisions are unchanged."
+    },
+    "site/dist/review.html": {
+      "prior_sha256": [
+        "0391948cf4a883bcb709a717a04cccd659a5098101ae34264dd07bf91ea39148"
+      ],
+      "after_sha256": "ba93b8b43188a1a217c8e6ad414235f54d4be6f413b94e907ddc0458ae82f2af",
+      "reason": "Rank-twelve integration: current-document metadata, generated property projection, explanatory docs, or shared UI/source checks; old categorical decisions are unchanged."
+    },
+    "site/dist/unresolved.html": {
+      "prior_sha256": [
+        "da967953af5397540ab85c016b23dec4bd4890120efd1a0c0f3fc63e4e41f439"
+      ],
+      "after_sha256": "f93e8ed119819f30b6df70e8827ebdd384d843e2083f5291b3b5b6bc45f498aa",
+      "reason": "Rank-twelve integration: current-document metadata, generated property projection, explanatory docs, or shared UI/source checks; old categorical decisions are unchanged."
+    },
+    "site/publication_identity.py": {
+      "prior_sha256": [
+        "c48f77f2177b8c3c6fd2105d31b180ed111ae3cd1c4043ea196ed725aac2e6b1"
+      ],
+      "after_sha256": "55d90b52231a856a53c44091c5b851cff55508cd1f73f2a6cf0d3bdd4362e4b6",
+      "reason": "Rank-twelve integration: current-document metadata, generated property projection, explanatory docs, or shared UI/source checks; old categorical decisions are unchanged."
+    },
+    "tools/render_publication_docs.py": {
+      "prior_sha256": [
+        "77c052dbfe496ab9bd5623178872ceaaa07d600a183ae6b4303713802c2ce4da"
+      ],
+      "after_sha256": "69bc653e9cea1de4addc99e095bf00e4ba572fca36e2776792645e71d3b653bb",
+      "reason": "Rank-twelve integration: current-document metadata, generated property projection, explanatory docs, or shared UI/source checks; old categorical decisions are unchanged."
+    },
+    "tools/render_readme.py": {
+      "prior_sha256": [
+        "c4f17d657aee4983dcc4a4becb042d370310a6efa8f097853fbda2c94ee02ced"
+      ],
+      "after_sha256": "9da645f5e4951635d3dd72ed138afc93fe209b896023672b7d503df9be29c27a",
+      "reason": "Rank-twelve integration: current-document metadata, generated property projection, explanatory docs, or shared UI/source checks; old categorical decisions are unchanged."
+    },
+    "tools/verify_correctness_revision.py": {
+      "prior_sha256": [
+        "1bfcd4725938323976366b3c83f147fb83d356108763c84645169617368fd3ae"
+      ],
+      "after_sha256": "9ab706a56d648e73e58e00d6e09096a76b4fed6f1e29b9ec0764836f9b168d6c",
+      "reason": "Rank-twelve integration: current-document metadata, generated property projection, explanatory docs, or shared UI/source checks; old categorical decisions are unchanged."
+    },
+    "tools/verify_research_revision.py": {
+      "prior_sha256": [
+        "325408468e7f8678b78282ed8c1fe33898f78194c8eb8623e140c729e26d1da5"
+      ],
+      "after_sha256": "5aa326455398048d76a05770eb815195d055b70f6251dd9e919cb914c9e28df1",
+      "reason": "Rank-twelve integration: current-document metadata, generated property projection, explanatory docs, or shared UI/source checks; old categorical decisions are unchanged."
+    },
+    "site/dist/data/ring_properties.json": {
+      "prior_sha256": [
+        "06a4e8f462918aa6a1edd0760a475bba573ef0db86b793c0bd2d022a1aa034c1",
+        "4002fa4fd978ac8ddb8d49b3e78f47bc6488a0ef7c924e3eb1899def87f5bd00",
+        "55cf8958af9469e5900c3ce038e7b52e77626a4cd2b1bd4cef6fa57235e5dcee",
+        "566795fb8c9816b97a2bc5e756dc5b27ef8b2f0577e625cb273edda20ad85080",
+        "57bb26ec56525b8008f21af290cb028680d5818b7db1dc1595e74afb4f8b6573",
+        "7dbfebaaf0fede33b8aed257ee3cf14f1f7fe89414d47616d28eb1561681af97",
+        "a89d3f64d208367600099bee5b54a8355b04316df6136f1c5366ed91d7d4d5e2",
+        "bf1a4ca3242305999de1dfbd45ddfb4c75fdac7756e7c475c78009daf75a00d4",
+        "d27ddf996b16cd28dc7c2fee74b612d80ef75060f646416ccf2af775c8cd0565",
+        "e6412cd5d46d0065163f86de6bc9cf3fb3762979f2a64837cac2c3282c790b99"
+      ],
+      "after_sha256": "37f62e6e1f10bfc99fdb2c7bc0fb768e8eb51a6a911a212582806fe3f68bb6db",
+      "reason": "Rank-twelve derived publication update; prior case objects retained."
+    },
+    "site/dist/data/rank9_rank10_m1.json": {
+      "prior_sha256": [
+        "5033d97bd45e1da162a4568260aa54524d997e68af0f84e488596655528ba4ad",
+        "c3155d163604875be0d0a909ec88ee27f07674bb61ae32085276ccd3eae8d05b",
+        "d05f8b07ec3215b6f1a60857f6ca79fa0d2d39374482af19ae8ed9393f5bd05b",
+        "dd98fb4f9b12f14cd6734a9f06d7d4239483f51b8eb782cb57409f40db68fa53"
+      ],
+      "after_sha256": "ead56ad847fa80b7b5356b6c7e1fb00458bdbfe2db77f8c8b1e65e66d98394c6",
+      "reason": "Rank-twelve derived publication update; prior case objects retained."
+    },
+    "site/dist/data/rank9_m2.json": {
+      "prior_sha256": [
+        "033590d11883022f7ae061c860daf0b310b2aefacfea3acbc468a3f23eb76029",
+        "21486050aac5a5bb1059c296ac41a1c0384b06eaebc72d283a32fcd430acbd35",
+        "2cb9d28218fd408f43fcdf87452c7a08df9c1f2926441bc215636c38d56aacec",
+        "5d0de612cd502e493d03d8d9b84851a775f2fe0eab0c46c28cdd552ef3506fed",
+        "83e10d21c19c096be262be9f5e6e535dcc7a840eced19ca2044ef6a815de7d09",
+        "9d013e4389288942bdc3624e9d9155ff5c54042694a74a0efe7f64403c1008de",
+        "ac15daf2ff4570e4f8ab2d299430cc057d4c3c239943a8c7d7e3eb382d9cb0a0",
+        "c338389dd4ac57a4dd64baec36862d63944324ebf6ad1d843cd429a18830d855",
+        "c44c7c187071bdac14dcf7ec3d45eba1e1e3e374f37caffa89e2c5e3798ed3e6",
+        "f1f61bd6eff55117a613955941a79e8f06c355c334241b4361f06de1adb66fa3"
+      ],
+      "after_sha256": "10daaa87f61a8eadd60adfffcf708d6483989da706deb67342451d48b70875c0",
+      "reason": "Rank-twelve derived publication update; prior case objects retained."
+    }
+  },
+  "immutable_decisions": {
+    "data/counts.json": "0a5c631eb210c1a02e911e5c40aec454289d7ccaeca3cc9a5489a91760247286",
+    "data/classification_status.json": "7aa51b2cb812b62c5f24dda71f8822ab56d5f143cebfbd26cd34b2db73355752",
+    "supplements/rank6/data/census.json": "9bb71564082688f1c130050bfe42034431c90dd4f48e0e2d31be8e3a224552ff",
+    "supplements/rank6/data/decisions.json": "abb36cb0e7f9196e0a231cb85a601c82a1c8fd398996f77a8961487a7ca692e5",
+    "supplements/rank7/output/rank7_ledger.json": "577d5796f92966900def5aaa934f95a4508461967937c4c6d7f7aaab4826e279",
+    "supplements/rank8/output/research_20261024/ledger.json": "16a4723f149222ba8cb4f91d07d8ef75176ba5e95b20ff7594ed17e8e4e033fe",
+    "evidence/rank9_m2_20261024/ledger.json": "0f8c9b45f328d084735eb2c514308a87bbf176c7fb0a7fcd99578f18d0d0097e",
+    "evidence/unresolved_retry_20261024/rank9_rank10_m1_ledger.json": "6c53d65604523c54e8ccd4f7474826cd55f1f6b0d184be3dbd4ddda7139396e2",
+    "evidence/rank11_m1_20261023/work/rank11/ledger.csv": "55993a35813032db7c20eda7f443614f416988c9982578e73bf943978541b0ee"
+  },
+  "unchanged_catalogue_objects": {
+    "site/dist/data/realized_rings.json": {
+      "unchanged_records": 219,
+      "case_objects_sha256": "aec6fdb5ad51bfb148edc7e9a8952257e638fc340a20da3b9ef54b2788228bd5"
+    },
+    "site/dist/data/unresolved_cases.json": {
+      "unchanged_records": 6,
+      "case_objects_sha256": "9025ccbce556e172a16d7882b057f89605375d24a640829e9609f30249651a9e"
+    },
+    "site/dist/data/resolved_cases.json": {
+      "unchanged_records": 5,
+      "case_objects_sha256": "d8ee74bce5cf7592c029fd1de9dc5401a3176d0d34a82ebf943f625ee9c45db8"
+    },
+    "site/dist/data/rank9_rank10_m1.json": {
+      "unchanged_records": 336,
+      "case_objects_sha256": "f67066745fb42066c9d8b7801f6d979db8b66f0dcf18c7d4647b35c639d2a6f2"
+    },
+    "site/dist/data/rank11_m1.json": {
+      "unchanged_records": 182,
+      "case_objects_sha256": "40c51d6e8a216d6f74f1917a2f35bd32867a948af029d45272c58c55a9910388"
+    },
+    "site/dist/data/rank9_m2.json": {
+      "unchanged_records": 2083,
+      "case_objects_sha256": "c0afccb8afb2ec712ede70b3d1b3ddb9e503201ab0b958d8a91cbb39c5db01e2"
+    }
+  },
+  "current_rank12_ledger_sha256": "d136adfd495b7c46f096143901dc917305e7c362be406e94673b17a015fa5102"
+}

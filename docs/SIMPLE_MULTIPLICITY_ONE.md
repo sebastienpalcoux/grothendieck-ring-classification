@@ -1,6 +1,6 @@
-# Simple multiplicity-one Grothendieck rings through rank 11
+# Simple multiplicity-one Grothendieck rings through rank 12
 
-There are **15 nontrivial rings** in the current classification. Simplicity means that the distinguished basis has no proper nontrivial subset, containing the unit, closed under products and duality. Rings are counted up to based-ring isomorphism, rather than counting their different categorifications.
+There are **16 nontrivial rings** in the current classification. Simplicity means that the distinguished basis has no proper nontrivial subset, containing the unit, closed under products and duality. Rings are counted up to based-ring isomorphism, rather than counting their different categorifications.
 
 | Rank | Census identifier | Ring |
 |---:|---|---|
@@ -19,6 +19,7 @@ There are **15 nontrivial rings** in the current classification. Simplicity mean
 | 10 | `R10_1_52` | K0(PSU(2)_19) |
 | 11 | `R11_1_182` | K0(Vec(C11)) = Z[C11] |
 | 11 | `R11_1_46` | K0(PSU(2)_21) |
+| 12 | `R12_1_116` | K0(PSU(2)_23) |
 
 Here PSU(2)_k is the even-label fusion subcategory of SU(2)_k; k = 2r − 1 gives rank r. The rank-one ring K0(Vec) = Z may be added if the trivial ring is included.
 
@@ -33,4 +34,4 @@ Replay from the repository root:
 python tools/list_simple_multiplicity_one.py --check
 ```
 
-The exact input hashes and basis permutations are recorded in [the audit data](../data/simple_multiplicity_one_through_rank11.json). As elsewhere in this project, the completeness statement uses the current census and categorification decisions; independent human verification remains pending.
+The exact input hashes and basis permutations are recorded in [the audit data](../data/simple_multiplicity_one_through_rank12.json). As elsewhere in this project, the completeness statement uses the current census and categorification decisions; independent human verification remains pending.

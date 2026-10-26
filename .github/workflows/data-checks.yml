@@ -44,3 +44,11 @@ jobs:
           python site/check_rank11.py
           python -O site/check_rank11.py
           node site/check_cases.mjs
+
+      - name: Verify complete rank-twelve publication and exact proof replays
+        run: |
+          python site/version_catalogue.py --check
+          python site/check_rank12.py
+          python -O site/check_rank12.py
+          python -O evidence/rank12_m1_20261026/verify.py
+          python tools/list_simple_multiplicity_one.py --check

@@ -1,0 +1,48 @@
+{
+  "models": [],
+  "exclusions": [],
+  "unresolved": [
+    "R12_1_180",
+    "R12_1_320",
+    "R12_1_181",
+    "R12_1_321"
+  ],
+  "new_theoretical_results": [
+    {
+      "name": "Two-step cyclic Morita reduction",
+      "scope": "arbitrary complex categorification",
+      "first_dual_integral_types": [
+        [
+          [
+            1,
+            6
+          ],
+          [
+            2,
+            12
+          ],
+          [
+            3,
+            2
+          ]
+        ]
+      ],
+      "first_dual_total_ranks": [
+        24
+      ],
+      "second_regular_C3_algebra_exists": true,
+      "remaining_gap": "The t=3 branch remains: classification of C3 x C3 projective stabilizers and reverse algebra; Rep(S3) embedding is not proved central, and conditional target ring symmetries lack coherent categorical lifts.",
+      "excluded_splitting_parameter": 0,
+      "branch_exclusion_proof": "findings.md: Stronger result: the t=0 branch is impossible"
+    },
+    {
+      "name": "Actual Rep(S3) subcategory and regular dimension-six algebra",
+      "scope": "arbitrary complex categorification",
+      "central_embedding_proved": false
+    }
+  ],
+  "verification": "PASS normal and optimized",
+  "proof": "findings.md",
+  "online_revision_performed": false,
+  "independent_audit": "r12_independent: t=0 branch contradiction and actual Rep(S3) deduction accepted; no full ring resolution"
+}

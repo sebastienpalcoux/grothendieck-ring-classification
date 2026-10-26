@@ -1,0 +1,251 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=23mm]{geometry}
+\usepackage[T1]{fontenc}\usepackage{lmodern,microtype}
+\usepackage{amsmath,amssymb,booktabs,longtable,array,hyperref,fancyhdr}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue}
+\pagestyle{fancy}\fancyhf{}\fancyhead[L]{Rank 12, multiplicity one}\fancyhead[R]{Offline screening}\fancyfoot[C]{\thepage}
+\widowpenalty=10000\clubpenalty=10000
+\setlength{\headheight}{14pt}\setlength{\parindent}{0pt}\setlength{\parskip}{5pt}
+\newcommand{\FPdim}{\operatorname{FPdim}}\newcommand{\VEC}{\operatorname{Vec}}
+\title{Rank-twelve multiplicity-one fusion rings\\\large Screening by established theoretical methods}
+\author{Offline research record}\date{25 October 2026}
+\begin{document}\maketitle
+\begin{center}\small AI-generated research; independent human verification remains pending.\end{center}
+\section{Result and scope}
+For the supplied list of 632 based rings, the present established-method pass gives
+\[
+\boxed{632=393\ \text{excluded}+127\ \text{unitarily realized}+112\ \text{unresolved}.}
+\]
+Every accepted exclusion concerns arbitrary fusion categories over $\mathbb C$.
+Every positive record supplies a categorical construction and an exact identification of
+all $12^3=1728$ structure constants. The numbers count based rings admitting a
+categorification, not tensor-equivalence classes of fusion categories. A necessary-test
+pass or an unsuccessful construction search is never counted as a realization.
+
+No repository or website has been revised. The input census was not rerun. IDs
+$\mathrm{R12\_1\_i}$ refer to one-based physical input lines; basis labels in the code
+are zero-based, with unit label zero. The uncompressed input has SHA-256
+\begin{center}\scriptsize\texttt{6949e6fb8afd23f80b54e5a546a0dd34257430fd26c26b7acd8ff8444252f4d7}.\end{center}
+All fusion axioms and pairwise nonisomorphism were checked. There are 374 commutative
+and 258 noncommutative rings, 204 weakly integral rings, and five pointed rings.
+A separate C++ verifier also found exactly 632 distinct associative rings and no duplicates.
+
+\subsection*{Disjoint accounting of exclusions}
+Overlapping witnesses are retained. The following display assigns each excluded ring
+to its first listed route so that every ring is counted once.
+\begin{center}\begin{tabular}{lr}\toprule Route & New exclusions\\\midrule
+Arithmetic / near-group & 234 \\
+Cyclic isotypic summands & 113 \\
+Zero spectrum & 0 \\
+Central field / dimension order & 12 \\
+Primary-3 with solvability gate & 6 \\
+Liptrap monomial obstruction & 4 \\
+Replayed lower-rank exclusions & 24 \\
+\midrule Total & 393\\\bottomrule\end{tabular}\end{center}
+The lower-rank transfer step replays six additional accepted results: the three
+Liptrap obstructions $\mathrm{R10\_1\_118,122,180}$, the dimension-field/order obstructions
+$\mathrm{R6\_1\_12,13}$, and the general signed proof for $\mathrm{R8\_1\_17}$.
+Each transfer checks product and dual closure and the full embedded tensor.
+
+\section{Theoretical exclusion checks}
+The inventory covers the established criterion families used here and explains their scope.
+The complete attempt records also retain tests that gave no conclusion.
+
+\textbf{Arithmetic and support.}\par
+Formal codegrees must be d-numbers \cite{Ostrik}. The regular Casimir has eigenvalues
+$e_Ef_E$, where $e_E$ is an irreducible representation degree; multiplication by a
+rational integer preserves the d-number property. The code checks the monic minimal
+polynomial divisibilities exactly. Cyclotomicity is used for simple FP dimensions and,
+on commutative input, all fusion-matrix eigenvalues. For a noncommutative ring we do
+not assume that every regular-matrix eigenvalue is cyclotomic. Near-group and
+two-dimension restrictions use their precise hypotheses \cite{Schopieray}.
+The zero- and one-spectrum tests are support consequences of the pentagon equation
+\cite{TPE}; all accepted witnesses are reevaluated with integers.
+
+\textbf{Cyclic isotypic integrality.}\par
+Let $g$ have order $n$, with $gX=X$, $Yg=Y$, and $gZ=Zg=Z$. If $m=N_{XY}^Z>0$,
+then $m\FPdim(Z)/n$ is an algebraic integer. Indeed, a fixed simple object trivializes
+the associator class on $\langle g\rangle$; its regular algebra $A$ exists.
+The $Z$-isotypic summand of $X\otimes Y$ is an $A$-bimodule, whose FP dimension is
+$m\FPdim(Z)/\FPdim(A)$. This argument uses no pivotality. The present multiplicities
+are one. The checker isolates the Perron factor and proves nonintegrality of the
+scaled monic polynomial. There are 208 witnesses, including overlaps.
+
+\textbf{Subcategory index and central dimension order.}\par
+For every proper based subring, $\FPdim(R)/\FPdim(S)$ must be an algebraic integer
+\cite{EGNO}. Exact positive dimension characters and all 4012 proper embeddings are
+retained. For weakly integral rings, or rings with exactly two FP values after the
+Galois-pseudo-unitary reduction of \cite[Lemma 3.1]{Schopieray}, a distinguished central
+simple has dimension $D/f_E$. Its forgotten dimension lies in the integer span of the
+source dimensions. Thus every Casimir root must belong to that dimension field.
+For a root $\lambda=e_Ef_E$, the candidate $e_ED/\lambda$ must lie in the dimension
+order and have unit multiplicity $e_E$. Hermite normal form checks the order exactly;
+noncommutative regular multiplicities must be sums of allowed squares $e_E^2$.
+No pseudo-unitary conclusion is drawn without an explicit bridge.
+
+\textbf{Unitary tests and their bridge.}\par
+The primary-3 matrix is
+\[
+P_3=\sum_i\frac{N_i\otimes N_i\otimes N_i}{\FPdim(i)}.
+\]
+It must be positive semidefinite for a unitary category \cite{HLPW}. Six accepted
+negative integer quadratic forms occur at IDs 91, 92, 197, 198, 220 and 221. These
+rings have FP dimension 216. Any categorification is solvable by
+\cite[Theorem 1.6]{ENOsolv}, hence unitarizable by \cite[Theorem 5.20]{GHR}.
+This is why the exclusions are general. The coefficients of each quadratic form are
+recomputed by independent integer tensor contractions; rational square-root intervals
+certify strict negativity. Floating-point eigensolvers only discover the vectors.
+
+The inherited full-$I(1)$ quadratic-compression, reciprocal-codegree, global twist-moment,
+and short involution-module checks produced no additional disjoint exclusions.
+Their exact passes or no-conclusion records remain available. No Isaacs conjecture,
+braided-only classification, or proposed numerical modular datum is used as a general
+categorification obstruction.
+
+\section{Models and categorical hypotheses}
+The preferred recorded constructions are distributed as follows; alternative models
+are also retained. The replay checks 402 recorded model certificates/identifications.
+\begin{center}\small\begin{tabular}{lr}\toprule Constructor & Rings\\\midrule
+Deligne products & 52 \\
+Associative $C_2$ zesting & 23 \\
+Generalized Tambara--Yamagami (Liptrap) & 14 \\
+Graded pullbacks with Ising & 13 \\
+Twisted group-theoretical categories & 5 \\
+TY equivariantizations & 4 \\
+$\mathrm{SU}(2)$ and $\mathrm{PSU}(2)$ & 3 \\
+Pointed categories: nonabelian groups & 3 \\
+Dihedral/dicyclic representation categories & 2 \\
+Half even-metaplectic category & 1 \\
+Odd metaplectic category & 1 \\
+Metaplectic crossed product & 1 \\
+Untwisted group-theoretical category & 1 \\
+Generalized Haagerup $C_6$ & 1 \\
+Pointed equivariantization & 1 \\
+Pointed category: abelian group & 1 \\
+Tambara--Yamagami category & 1 \\
+\midrule Total &127\\\bottomrule\end{tabular}\end{center}
+The standard families include pointed categories for all five groups of order 12,
+$\mathrm{SU}(2)_{11}$, $\mathrm{PSU}(2)_{22}$, $\mathrm{PSU}(2)_{23}$, dihedral and
+dicyclic representation categories, odd metaplectic and half even-metaplectic
+categories \cite{Metaplectic}, Tambara--Yamagami categories, and all relevant
+products of the accepted lower-rank multiplicity-one models.
+
+\textbf{Equivariantization and zesting.}\par
+Pointed actions are actual group automorphisms. TY actions preserve an explicitly
+displayed nondegenerate symmetric bicharacter; both allowed parity coherences are
+checked. Fusion coefficients are computed by exact stabilizer Fourier projection
+\cite{Equiv}. A based-ring automorphism alone is not accepted as a tensor action.
+For associative $C_2$ zesting \cite{Zesting}, the order-two current has a specified
+central lift and lies in the neutral component. The 2-cocycle is $h^{ab}$.
+For self-braiding $+1$ the scalar associator correction is trivial; for $-1$ it is
+$i^{abc}$, whose coboundary cancels $(-1)^{abcd}$. The retained records identify
+the relevant boson or fermion and the actual grading.
+
+\textbf{Graded pullbacks and crossed products.}\par
+For an accepted unitary rank-eight category with a $C_2$ grading having four simples
+in each component, take the full subcategory of its product with Ising on pairs
+of matching degrees. This gives twelve simples. Its existence follows directly from
+closure under tensor product and duality. Additional crossed products start with
+$\mathrm{TY}(C_5)^{C_2}$: multiplying equivariance by the nontrivial character on
+the TY-odd component is an actual strict order-two tensor autoequivalence. The
+canonical central $\mathrm{Rep}(C_2)$ boson is preserved, permitting the recorded
+crossed products and zests.
+
+\textbf{Group-theoretical categories.}\par
+The constructions are $\mathcal C(G,\omega,H,1)$, the bimodule categories of the
+separable subgroup algebra in $\VEC_G^\omega$. Quotient cocycles are checked before
+use. For $H=C_2$, explicit graded bimodule actions and balanced relative tensor
+quotients are constructed with fourth-root phases. All left, right, compatibility,
+and quotient-descent equations are checked. Stabilizers are trivial or $C_2$, so
+their one or two projective characters exhaust the simples. An independent
+rank-eight twisted-bimodule control is reproduced exactly. The untwisted convolution
+and balanced-bimodule implementations also agree on their common cases.
+
+\textbf{Generalized Haagerup.}\par
+$\mathrm{R12\_1\_326}$ is the standard generalized Haagerup $C_6$ based ring:
+$g_ag_b=g_{a+b}$, $g_aX_b=X_{a+b}$, $X_ag_b=X_{a-b}$, and
+$X_aX_b=g_{a-b}+\sum_cX_c$. Existence of actual unitary categories is recorded in
+\cite[Example 4.5]{GI}; the numerical modular-data conjecture in that paper is
+not needed. The full input tensor is matched exactly. The two categorical examples
+in that reference count as one based ring here.
+
+\section{What remains unresolved}
+All 112 remaining cases are listed below by their exact FP dimension pattern.
+Superscripts indicate multiplicities of dimensions. Put $a=2\cos(\pi/7)$ and
+$b=2\cos(\pi/9)$, the largest roots of $t^3-t^2-2t+1$ and $t^3-3t-1$,
+respectively. These patterns were verified as exact positive dimension characters,
+not inferred from rounded eigenvalues.
+\begin{center}\small\begin{tabular}{p{124mm}r}\toprule FP dimensions & Cases\\\midrule
+$1^{\times4},2^{\times4},5^{\times4}$ & 16 \\
+$1^{\times8},2^{\times2},4^{\times2}$ & 24 \\
+$1^{\times8},(2a)^{\times2},(2a^2-2)^{\times2}$ & 16 \\
+$1^{\times4},2^{\times2},(1+2b)^{\times4},(2b^2-2)^{\times2}$ & 4 \\
+$1^{\times2},(4+3\sqrt2)^{\times8},(5+3\sqrt2)^{\times2}$ & 4 \\
+$1^{\times2},2,3^{\times2},4^{\times3},(3\sqrt2)^{\times4}$ & 8 \\
+$1^{\times8},2^{\times2},(2\sqrt2)^{\times2}$ & 20 \\
+$1^{\times8},2^{\times4}$ & 6 \\
+$1^{\times4},2^{\times4},(\sqrt5)^{\times4}$ & 9 \\
+$1^{\times6},(3+\sqrt{10})^{\times6}$ & 4 \\
+$1^{\times6},((3+\sqrt{13})/2)^{\times6}$ & 1 \\
+\midrule Total&112\\\bottomrule\end{tabular}\end{center}
+The corresponding suffixes $i$ in $\mathrm{R12\_1\_i}$ are:
+\begin{center}\small\begin{longtable}{@{}p{44mm}p{112mm}@{}}\toprule Family key&Input suffixes\\\midrule\endhead
+\texttt{D120} & 25, 142, 161, 211, 262, 265, 312, 361, 362, 388, 444, 453, 469, 472, 503, 516 \\
+\texttt{D48} & 30, 130, 146, 151, 175, 216, 239, 244, 277, 289, 296, 303, 319, 407, 410, 414, 417, 421, 424, 433, 523, 526, 531, 538 \\
+\texttt{cubic\_C7} & 32, 131, 152, 184, 217, 245, 286, 290, 297, 302, 339, 411, 416, 458, 465, 527 \\
+\texttt{cubic\_C9} & 38, 39, 218, 219 \\
+\texttt{quadratic\_C2} & 63, 64, 215, 365 \\
+\texttt{D144} & 79, 80, 180, 181, 320, 321, 322, 323 \\
+\texttt{D32} & 128, 144, 147, 173, 237, 240, 275, 285, 294, 301, 318, 408, 412, 415, 419, 422, 431, 524, 530, 536 \\
+\texttt{D24} & 428, 445, 493, 513, 541, 597 \\
+\texttt{D40} & 156, 263, 309, 383, 449, 467, 470, 501, 514 \\
+\texttt{quadratic\_C6\_sqrt10} & 350, 561, 623, 628 \\
+\texttt{quadratic\_C6\_sqrt13} & 332 \\
+\bottomrule\end{longtable}\end{center}
+The JSON and CSV ledgers supply every ID, tensor hash and route; the separate unresolved
+tensor file is ready for further work. There are only two simple based rings in this
+input: $\mathrm{R12\_1\_116}$ is realized by $\mathrm{PSU}(2)_{23}$ and
+$\mathrm{R12\_1\_118}$ fails the d-number test (factor $t^2-935t+1785$).
+This observation is not a proof of an unrestricted-rank classification.
+
+\section{Verification and explicit limitations}
+\texttt{python verify.py} and \texttt{python -O verify.py} both pass. All 632 input
+bindings, 4012 closed subring embeddings, accepted exclusion witnesses and all
+402 recorded model certificates/identifications are checked. The accepted replay
+uses Python, NumPy, SymPy and NetworkX, takes seconds on the recorded machine,
+and requires neither a network service nor a discovery solver. The independent
+C++ input audit is retained separately. Algebraic-number arithmetic is shared
+infrastructure; this is not a Lean formalization or a substitute for independent
+human verification of the categorical references and inherited proofs.
+
+The short module scan uses fixed rank at most four, at most two generators and at most
+4096 generator assignments, with a short per-involution time limit. The exploratory
+commutative low-induction scan has column/combination node limits and a one-second
+continuation limit; an interrupted initial attempt is retained as research history,
+not a proof. Numerical primary searches can also give no conclusion. The inherited
+complete oriented signed engine has rank at most eight and is used only inside an
+already proved rank-eight subring, not silently extended to twelve.
+
+No long induction-frame, conductor, modular-data, higher-indicator or pentagon search
+was undertaken. The inventory distinguishes these uncompleted systems from exact
+passes. The remaining list means unresolved by this established-method pass under
+the requested short-computation constraint. It is not a claim that every consequence
+of the literature or every possible established construction has been exhausted.
+The constructions here use established methods; no novelty up to tensor equivalence
+is claimed.
+
+\begin{thebibliography}{99}\footnotesize\setlength{\itemsep}{2pt}\setlength{\parskip}{0pt}
+\bibitem{Ostrik} V.~Ostrik, \emph{On formal codegrees of fusion categories}, Math. Res. Lett. 16 (2009), 895--901. \href{https://arxiv.org/abs/0810.3242}{arXiv:0810.3242}.
+\bibitem{EGNO} P.~Etingof, S.~Gelaki, D.~Nikshych and V.~Ostrik, \emph{Tensor Categories}, AMS, 2015, especially Chapters 7--8.
+\bibitem{Schopieray} A.~Schopieray, \emph{Categorification of integral group rings extended by one dimension}, J. London Math. Soc. 108 (2023), 1617--1641. \href{https://arxiv.org/abs/2208.07319}{arXiv:2208.07319}.
+\bibitem{TPE} Z.~Liu, S.~Palcoux, Y.~Ren and G.~Vercleyen, \emph{Triangular Prism Equations and Categorification}. \href{https://arxiv.org/abs/2203.06522}{arXiv:2203.06522}, Theorems 6.7--6.8.
+\bibitem{HLPW} L.~Huang, Z.~Liu, S.~Palcoux and J.~Wu, \emph{Complete Positivity of Comultiplication and Primary Criteria for Unitary Categorification}. \href{https://arxiv.org/abs/2210.00792}{arXiv:2210.00792}.
+\bibitem{ENOsolv} P.~Etingof, D.~Nikshych and V.~Ostrik, \emph{Weakly group-theoretical and solvable fusion categories}. \href{https://arxiv.org/abs/0809.3031}{arXiv:0809.3031}, Theorem 1.6.
+\bibitem{GHR} C.~Galindo, S.-M.~Hong and E.~C.~Rowell, \emph{Generalized and quasi-localizations of braid group representations}. \href{https://arxiv.org/abs/1105.5048}{arXiv:1105.5048}, Theorem 5.20.
+\bibitem{Liptrap} J.~Liptrap, \emph{Generalized Tambara--Yamagami categories}. \href{https://arxiv.org/abs/1002.3166v2}{arXiv:1002.3166v2}, Definition 4.3, Theorem 4, Lemma 5.4. The retained feudal certificates give 21 unitary models and four arbitrary-complex obstructions.
+\bibitem{Equiv} S.~Burciu and S.~Natale, \emph{Fusion rules of equivariantizations of fusion categories}. \href{https://arxiv.org/abs/1206.6625v2}{arXiv:1206.6625v2}.
+\bibitem{Zesting} C.~Delaney, C.~Galindo, J.~Y.~Plavnik, E.~C.~Rowell and Q.~Zhang, \emph{Braided zesting and its applications}. \href{https://arxiv.org/abs/2005.05544}{arXiv:2005.05544}.
+\bibitem{Metaplectic} P.~Gustafson, E.~C.~Rowell and Y.~Ruan, \emph{Metaplectic Categories, Gauging and Property F}. \href{https://arxiv.org/abs/1808.00698}{arXiv:1808.00698}, Sections 3.1 and 3.3.
+\bibitem{GI} P.~Grossman and M.~Izumi, \emph{Drinfeld centers of fusion categories arising from generalized Haagerup subfactors}, Quantum Topol. 13 (2022), 593--668. \href{https://arxiv.org/abs/1501.07679v2}{arXiv:1501.07679v2}, Example 4.5.
+\end{thebibliography}
+\end{document}

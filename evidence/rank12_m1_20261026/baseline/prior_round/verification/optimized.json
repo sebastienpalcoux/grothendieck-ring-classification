@@ -1,0 +1,67 @@
+{
+  "status": "PASS",
+  "excluded": 438,
+  "modeled": 148,
+  "unresolved": 46,
+  "new_exclusions": 13,
+  "new_models": 7,
+  "optimized_python": true,
+  "steps": [
+    {
+      "script": "d120/verify.py",
+      "status": "PASS",
+      "seconds": 33.314699259004556
+    },
+    {
+      "script": "d32/r240_model.py",
+      "status": "PASS",
+      "seconds": 0.4392486720025772
+    },
+    {
+      "script": "d32/r408_model.py",
+      "status": "PASS",
+      "seconds": 0.4504097359968
+    },
+    {
+      "script": "d48/verify.py",
+      "status": "PASS",
+      "seconds": 0.823935608001193
+    },
+    {
+      "script": "c6/verify.py",
+      "status": "PASS",
+      "seconds": 66.60983784600103
+    },
+    {
+      "script": "d120/audit_R350.py",
+      "status": "PASS",
+      "seconds": 54.48123430000123
+    },
+    {
+      "script": "d144/verify.py",
+      "status": "PASS",
+      "seconds": 1.421775066999544
+    },
+    {
+      "script": "independent/verify.py",
+      "status": "PASS",
+      "seconds": 0.09692157999961637
+    },
+    {
+      "script": "independent/audit_graph_twist.py",
+      "status": "PASS",
+      "seconds": 11.29643973599741
+    },
+    {
+      "script": "independent/audit_ising_dual.py",
+      "status": "PASS",
+      "seconds": 0.5232139340005233
+    },
+    {
+      "script": "independent/audit_d48.py",
+      "status": "PASS",
+      "seconds": 0.7270200180064421
+    }
+  ],
+  "elapsed_seconds": 170.4672050260051
+}

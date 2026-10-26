@@ -306,6 +306,8 @@ function renderDetail() {
         openLink.setAttribute("aria-label",`Browse ${status.unresolved_general} unresolved cases at rank ${row.rank}, multiplicity ${row.multiplicity}`);
         openRow.append(element("span","","Unresolved"),openLink);panel.append(openRow);
       }
+      if (status.realized_pseudo_unitary_unitarity_unproved)
+        appendDetailRow(panel,"Pseudo-unitary · unitarity unproved",fmt.format(status.realized_pseudo_unitary_unitarity_unproved));
       if (status.realized_spherical_nonpseudounitary)
         appendDetailRow(panel,"Spherical, not pseudo-unitary",fmt.format(status.realized_spherical_nonpseudounitary));
     } else appendDetailRow(panel,"Unassessed",fmt.format(status.unassessed));
@@ -400,6 +402,10 @@ function renderTheoreticalUpdate() {
   const publication = state.data.latest_catalogue_publication;
   const current = publication?.date >= (latest?.date || update.date) ? publication : null;
   const currentDate = current?.date ? new Date(current.date + "T12:00:00Z").toLocaleDateString("en-GB", {day:"numeric", month:"long", year:"numeric", timeZone:"UTC"}) : date;
+  if (current?.counts?.["12"]) {
+    $("#research-update-title").textContent = `${currentDate} · rank twelve · multiplicity one complete`;
+    $("#research-update-summary").textContent = "All 632 rank-twelve rings are decided: 480 general exclusions and 152 models. Exactly 151 models are known unitary; R12_1_623 has a complex and pseudo-unitary realization with unitarity unproved. The ten open cases at lower ranks are unchanged.";
+  }
   $("#latest-research-source").href = current?.source_url || base;
   $("#latest-research-source").textContent = `${currentDate} proofs and remaining cases ↗`;
   const actions = $("#theoretical-update-actions");

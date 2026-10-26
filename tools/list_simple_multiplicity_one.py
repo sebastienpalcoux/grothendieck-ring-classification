@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Audit simple multiplicity-one model rings through rank 11 using exact tensors.
+"""Audit simple multiplicity-one model rings through rank 12 using exact tensors.
 
 Simplicity means absence of a proper nontrivial based fusion subring containing
 the unit. Generator closures and exhaustive subsets are checked independently.
@@ -75,11 +75,11 @@ def identify(ring):
 
 
 def audit():
-    source_paths = [DATA / name for name in ('realized_rings.json', 'unresolved_cases.json', 'rank9_rank10_m1.json', 'rank11_m1.json')]
+    source_paths = [DATA / name for name in ('realized_rings.json', 'unresolved_cases.json', 'rank9_rank10_m1.json', 'rank11_m1.json', 'rank12_m1.json')]
     old, unresolved, *updates = [json.loads(p.read_text()) for p in source_paths]
-    models = old['records'] + [r for update in updates for r in update['cases'] if r['status'] == 'unitarily_realized']
+    models = old['records'] + [r for update in updates for r in update['cases'] if r['status'] in ('unitarily_realized','pseudo_unitarily_realized')]
     pending = unresolved['cases'] + [r for update in updates for r in update['cases'] if r['status'] == 'unresolved']
-    candidates = [r for r in models + pending if r['multiplicity'] == 1 and r['rank'] <= 11]
+    candidates = [r for r in models + pending if r['multiplicity'] == 1 and r['rank'] <= 12]
     require(len({r['id'] for r in candidates}) == len(candidates), 'Duplicate audit input')
     simple, open_witnesses = [], []
     for ring in sorted(candidates, key=lambda r: (r['rank'], r['id'])):
@@ -95,15 +95,15 @@ def audit():
         elif witness is None:
             name, basis = identify(ring)
             simple.append({'rank': ring['rank'], 'id': ring['id'], 'model': name, 'standard_to_source_basis': basis, 'tensor_sha256': digest})
-    require(len(simple) == 15 and not open_witnesses, 'Unexpected simple/open inventory')
-    return {'schema': 'simple-multiplicity-one/v1', 'rank_range': [2, 11], 'definition': 'No proper nontrivial based fusion subring containing the unit.',
+    require(len(simple) == 16 and not open_witnesses, 'Unexpected simple/open inventory')
+    return {'schema': 'simple-multiplicity-one/v1', 'rank_range': [2, 12], 'definition': 'No proper nontrivial based fusion subring containing the unit.',
             'checked_models': len(candidates) - len(open_witnesses), 'simple_models': simple, 'unresolved_nonsimple_witnesses': open_witnesses,
             'sources': {p.relative_to(ROOT).as_posix(): hashlib.sha256(p.read_bytes()).hexdigest() for p in source_paths}}
 
 
 def markdown(result):
-    lines = ['# Simple multiplicity-one Grothendieck rings through rank 11', '',
-             'There are **15 nontrivial rings** in the current classification. Simplicity means that the distinguished basis has no proper nontrivial subset, containing the unit, closed under products and duality. Rings are counted up to based-ring isomorphism, rather than counting their different categorifications.', '',
+    lines = ['# Simple multiplicity-one Grothendieck rings through rank 12', '',
+             'There are **16 nontrivial rings** in the current classification. Simplicity means that the distinguished basis has no proper nontrivial subset, containing the unit, closed under products and duality. Rings are counted up to based-ring isomorphism, rather than counting their different categorifications.', '',
              '| Rank | Census identifier | Ring |', '|---:|---|---|']
     for row in result['simple_models']:
         lines.append(f"| {row['rank']} | `{row['id']}` | {row['model']} |")
@@ -113,7 +113,7 @@ def markdown(result):
     for row in result['unresolved_nonsimple_witnesses']:
         lines.append(f"| `{row['id']}` | {row['proper_fusion_subring_indices']} |")
     lines += ['', 'Replay from the repository root:', '', '```bash', 'python tools/list_simple_multiplicity_one.py --check', '```', '',
-              'The exact input hashes and basis permutations are recorded in [the audit data](../data/simple_multiplicity_one_through_rank11.json). As elsewhere in this project, the completeness statement uses the current census and categorification decisions; independent human verification remains pending.', '']
+              'The exact input hashes and basis permutations are recorded in [the audit data](../data/simple_multiplicity_one_through_rank12.json). As elsewhere in this project, the completeness statement uses the current census and categorification decisions; independent human verification remains pending.', '']
     return '\n'.join(lines)
 
 
@@ -123,12 +123,12 @@ if __name__ == '__main__':
     parser.add_argument('--check', action='store_true')
     args = parser.parse_args()
     result = audit()
-    outputs = {ROOT / 'data/simple_multiplicity_one_through_rank11.json': json.dumps(result, indent=2) + '\n', ROOT / 'docs/SIMPLE_MULTIPLICITY_ONE.md': markdown(result)}
+    outputs = {ROOT / 'data/simple_multiplicity_one_through_rank12.json': json.dumps(result, indent=2) + '\n', ROOT / 'docs/SIMPLE_MULTIPLICITY_ONE.md': markdown(result)}
     for path, text in outputs.items():
         if args.write:
             path.write_text(text)
         if args.check:
             require(path.read_text() == text, 'Audit output is stale: ' + str(path))
-    print(f"Checked {result['checked_models']} multiplicity-one model tensors: 15 simple rings; no unresolved multiplicity-one candidate remains.")
+    print(f"Checked {result['checked_models']} multiplicity-one model tensors: 16 simple rings; no unresolved multiplicity-one candidate remains.")
     if not args.check:
         print(markdown(result))

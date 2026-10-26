@@ -1,0 +1,3146 @@
+{
+  "status": "PASS",
+  "ordinary_records": 381,
+  "liptrap_separately_reaudited": 21,
+  "total_records": 402,
+  "rings": 127,
+  "constructor_counts": {
+    "deligne_product": 72,
+    "pointed_equivariant": 22,
+    "dihedral_rep": 3,
+    "associative_C2_zest": 138,
+    "half_even_metaplectic": 1,
+    "ty_cyclic_equivariant": 32,
+    "su2": 3,
+    "odd_metaplectic": 1,
+    "pointed_group": 3,
+    "haagerup_izumi_cyclic": 1,
+    "pointed": 2,
+    "ty": 1,
+    "graded_pullback": 29,
+    "metaplectic_character_crossed_product": 1,
+    "group_theoretical": 3,
+    "twisted_group_theoretical_c2": 69,
+    "liptrap_unitary_model": 21
+  },
+  "zest_lift_licenses": [
+    {
+      "id": "R12_1_2",
+      "base": "Rep(Dic9)",
+      "current": 2,
+      "lift": "canonical braided lift"
+    },
+    {
+      "id": "R12_1_17",
+      "base": "Vec(C2) x $\\Rep(C_3\\rtimes C_4)$",
+      "current": 5,
+      "lift": "product of actual braided-factor half-braidings"
+    },
+    {
+      "id": "R12_1_17",
+      "base": "Vec(C12)^C2",
+      "current": 7,
+      "lift": "strict braided pointed action"
+    },
+    {
+      "id": "R12_1_18",
+      "base": "Fib x $\\Rep(C_3\\rtimes C_4)$",
+      "current": 5,
+      "lift": "product of actual braided-factor half-braidings"
+    },
+    {
+      "id": "R12_1_119",
+      "base": "Vec(C2) x $\\Rep((C_3\\times C_3)\\rtimes C_2)$, inversion action",
+      "current": 1,
+      "lift": "product of actual braided-factor half-braidings"
+    },
+    {
+      "id": "R12_1_119",
+      "base": "Vec(C3xC3xC2)^C2",
+      "current": 1,
+      "lift": "strict braided pointed action"
+    },
+    {
+      "id": "R12_1_120",
+      "base": "Rep(D36)",
+      "current": 1,
+      "lift": "canonical braided lift"
+    },
+    {
+      "id": "R12_1_120",
+      "base": "Vec(C2) x $\\Rep(D_9)$, with $|D_9|=18$",
+      "current": 1,
+      "lift": "product of actual braided-factor half-braidings"
+    },
+    {
+      "id": "R12_1_120",
+      "base": "Vec(C18)^C2",
+      "current": 1,
+      "lift": "strict braided pointed action"
+    },
+    {
+      "id": "R12_1_153",
+      "base": "Ising x Rep(D10)",
+      "current": 1,
+      "lift": "product of actual braided-factor half-braidings"
+    },
+    {
+      "id": "R12_1_187",
+      "base": "Half SO(28)_2",
+      "current": 1,
+      "lift": "canonical braided lift"
+    },
+    {
+      "id": "R12_1_190",
+      "base": "SO(17)_2",
+      "current": 1,
+      "lift": "canonical braided lift"
+    },
+    {
+      "id": "R12_1_246",
+      "base": "Vec(C2) x $\\Vec_{C_2}\\boxtimes\\mathrm{Ising}$; also $R(0,0)$",
+      "current": 5,
+      "lift": "product of actual braided-factor half-braidings"
+    },
+    {
+      "id": "R12_1_246",
+      "base": "Vec(C2) x $\\Vec_{C_2}\\boxtimes\\mathrm{Ising}$; also $R(0,0)$",
+      "current": 5,
+      "lift": "product of actual braided-factor half-braidings"
+    },
+    {
+      "id": "R12_1_246",
+      "base": "Ising x Vec(C2xC2)",
+      "current": 4,
+      "lift": "left-factor canonical half-braiding"
+    },
+    {
+      "id": "R12_1_246",
+      "base": "Ising x Vec(C2xC2)",
+      "current": 4,
+      "lift": "left-factor canonical half-braiding"
+    },
+    {
+      "id": "R12_1_246",
+      "base": "Ising x Vec(C2xC2)",
+      "current": 4,
+      "lift": "left-factor canonical half-braiding"
+    },
+    {
+      "id": "R12_1_247",
+      "base": "Vec(C2) x $\\Rep(C_3\\rtimes C_4)$",
+      "current": 5,
+      "lift": "product of actual braided-factor half-braidings"
+    },
+    {
+      "id": "R12_1_247",
+      "base": "Vec(C2) x $\\Rep(C_3\\rtimes C_4)$",
+      "current": 5,
+      "lift": "product of actual braided-factor half-braidings"
+    },
+    {
+      "id": "R12_1_247",
+      "base": "Vec(C2) x $\\Vec_{C_2}\\boxtimes\\Rep(S_3)$; also $R(0,1)$",
+      "current": 5,
+      "lift": "product of actual braided-factor half-braidings"
+    },
+    {
+      "id": "R12_1_247",
+      "base": "Vec(C2) x $\\Vec_{C_2}\\boxtimes\\Rep(S_3)$; also $R(0,1)$",
+      "current": 5,
+      "lift": "product of actual braided-factor half-braidings"
+    },
+    {
+      "id": "R12_1_247",
+      "base": "Rep(S3) x Vec(C2xC2)",
+      "current": 4,
+      "lift": "left-factor canonical half-braiding"
+    },
+    {
+      "id": "R12_1_247",
+      "base": "Rep(S3) x Vec(C2xC2)",
+      "current": 4,
+      "lift": "left-factor canonical half-braiding"
+    },
+    {
+      "id": "R12_1_247",
+      "base": "Rep(S3) x Vec(C2xC2)",
+      "current": 4,
+      "lift": "left-factor canonical half-braiding"
+    },
+    {
+      "id": "R12_1_247",
+      "base": "Vec(C12)^C2",
+      "current": 8,
+      "lift": "strict braided pointed action"
+    },
+    {
+      "id": "R12_1_247",
+      "base": "Vec(C6xC2)^C2",
+      "current": 1,
+      "lift": "strict braided pointed action"
+    },
+    {
+      "id": "R12_1_247",
+      "base": "Vec(C6xC2)^C2",
+      "current": 1,
+      "lift": "strict braided pointed action"
+    },
+    {
+      "id": "R12_1_247",
+      "base": "Vec(C6xC2)^C2",
+      "current": 1,
+      "lift": "strict braided pointed action"
+    },
+    {
+      "id": "R12_1_252",
+      "base": "Vec(C2) x $\\mathrm{Fib}\\boxtimes\\mathrm{Ising}$",
+      "current": 2,
+      "lift": "product of actual braided-factor half-braidings"
+    },
+    {
+      "id": "R12_1_252",
+      "base": "Ising x Fib x Vec(C2)",
+      "current": 4,
+      "lift": "left-factor canonical half-braiding"
+    },
+    {
+      "id": "R12_1_253",
+      "base": "Vec(C2) x $\\mathrm{Fib}\\boxtimes\\Rep(S_3)$",
+      "current": 2,
+      "lift": "product of actual braided-factor half-braidings"
+    },
+    {
+      "id": "R12_1_253",
+      "base": "Rep(S3) x Fib x Vec(C2)",
+      "current": 4,
+      "lift": "left-factor canonical half-braiding"
+    },
+    {
+      "id": "R12_1_255",
+      "base": "Vec(C2) x $SO(5)_2$",
+      "current": 1,
+      "lift": "product of actual braided-factor half-braidings"
+    },
+    {
+      "id": "R12_1_255",
+      "base": "Vec(C2) x $SO(5)_2$",
+      "current": 1,
+      "lift": "product of actual braided-factor half-braidings"
+    },
+    {
+      "id": "R12_1_306",
+      "base": "Vec(C2) x $\\mathcal I(C_2^2,1)$: non-self-dual Ising zest",
+      "current": 6,
+      "lift": "left-factor canonical half-braiding"
+    },
+    {
+      "id": "R12_1_306",
+      "base": "Vec(C2) x $\\Vec_{C_2}\\boxtimes\\mathrm{Ising}$; also $R(0,0)$",
+      "current": 1,
+      "lift": "product of actual braided-factor half-braidings"
+    },
+    {
+      "id": "R12_1_306",
+      "base": "Vec(C2) x $\\Vec_{C_2}\\boxtimes\\mathrm{Ising}$; also $R(0,0)$",
+      "current": 6,
+      "lift": "left-factor canonical half-braiding"
+    },
+    {
+      "id": "R12_1_306",
+      "base": "Vec(C2) x $\\Vec_{C_2}\\boxtimes\\mathrm{Ising}$; also $R(0,0)$",
+      "current": 7,
+      "lift": "product of actual braided-factor half-braidings"
+    },
+    {
+      "id": "R12_1_306",
+      "base": "Ising x Vec(C2xC2)",
+      "current": 1,
+      "lift": "product of actual braided-factor half-braidings"
+    },
+    {
+      "id": "R12_1_306",
+      "base": "Ising x Vec(C2xC2)",
+      "current": 2,
+      "lift": "product of actual braided-factor half-braidings"
+    },
+    {
+      "id": "R12_1_306",
+      "base": "Ising x Vec(C2xC2)",
+      "current": 3,
+      "lift": "product of actual braided-factor half-braidings"
+    },
+    {
+      "id": "R12_1_306",
+      "base": "Ising x Vec(C4)",
+      "current": 1,
+      "lift": "product of actual braided-factor half-braidings"
+    },
+    {
+      "id": "R12_1_307",
+      "base": "Fib x $\\Vec_{C_2}\\boxtimes\\mathrm{Ising}$; also $R(0,0)$",
+      "current": 1,
+      "lift": "product of actual braided-factor half-braidings"
+    },
+    {
+      "id": "R12_1_307",
+      "base": "Vec(C2) x $\\mathrm{Fib}\\boxtimes\\mathrm{Ising}$",
+      "current": 6,
+      "lift": "left-factor canonical half-braiding"
+    },
+    {
+      "id": "R12_1_307",
+      "base": "Ising x Fib x Vec(C2)",
+      "current": 1,
+      "lift": "product of actual braided-factor half-braidings"
+    },
+    {
+      "id": "R12_1_308",
+      "base": "Ising x PSU(2)_6",
+      "current": 1,
+      "lift": "product of actual braided-factor half-braidings"
+    },
+    {
+      "id": "R12_1_314",
+      "base": "Vec(C2) x $SO(5)_2$",
+      "current": 1,
+      "lift": "product of actual braided-factor half-braidings"
+    },
+    {
+      "id": "R12_1_315",
+      "base": "Fib x $SO(5)_2$",
+      "current": 1,
+      "lift": "product of actual braided-factor half-braidings"
+    },
+    {
+      "id": "R12_1_316",
+      "base": "Vec(C2) x Zested $SO(5)_2$ category",
+      "current": 6,
+      "lift": "left-factor canonical half-braiding"
+    },
+    {
+      "id": "R12_1_316",
+      "base": "Vec(C2) x $SO(5)_2$",
+      "current": 6,
+      "lift": "left-factor canonical half-braiding"
+    },
+    {
+      "id": "R12_1_316",
+      "base": "Vec(C2) x $SO(5)_2$",
+      "current": 7,
+      "lift": "product of actual braided-factor half-braidings"
+    },
+    {
+      "id": "R12_1_389",
+      "base": "Vec(C2) x $\\mathcal I(C_4,0)$: cyclic, self-dual Ising zest",
+      "current": 6,
+      "lift": "left-factor canonical half-braiding"
+    },
+    {
+      "id": "R12_1_389",
+      "base": "Vec(C2) x $\\mathcal I(C_4,0)$: cyclic, self-dual Ising zest",
+      "current": 6,
+      "lift": "left-factor canonical half-braiding"
+    },
+    {
+      "id": "R12_1_389",
+      "base": "Vec(C2) x $\\Vec_{C_2}\\boxtimes\\mathrm{Ising}$; also $R(0,0)$",
+      "current": 1,
+      "lift": "product of actual braided-factor half-braidings"
+    },
+    {
+      "id": "R12_1_389",
+      "base": "Vec(C2) x $\\Vec_{C_2}\\boxtimes\\mathrm{Ising}$; also $R(0,0)$",
+      "current": 2,
+      "lift": "product of actual braided-factor half-braidings"
+    },
+    {
+      "id": "R12_1_389",
+      "base": "Vec(C2) x $\\Vec_{C_2}\\boxtimes\\mathrm{Ising}$; also $R(0,0)$",
+      "current": 1,
+      "lift": "product of actual braided-factor half-braidings"
+    },
+    {
+      "id": "R12_1_389",
+      "base": "Vec(C2) x $\\Vec_{C_2}\\boxtimes\\mathrm{Ising}$; also $R(0,0)$",
+      "current": 2,
+      "lift": "product of actual braided-factor half-braidings"
+    },
+    {
+      "id": "R12_1_389",
+      "base": "Vec(C2) x $\\Vec_{C_2}\\boxtimes\\mathrm{Ising}$; also $R(0,0)$",
+      "current": 6,
+      "lift": "left-factor canonical half-braiding"
+    },
+    {
+      "id": "R12_1_389",
+      "base": "Vec(C2) x $\\Vec_{C_2}\\boxtimes\\mathrm{Ising}$; also $R(0,0)$",
+      "current": 7,
+      "lift": "product of actual braided-factor half-braidings"
+    },
+    {
+      "id": "R12_1_389",
+      "base": "Vec(C2) x $\\Vec_{C_2}\\boxtimes\\mathrm{Ising}$; also $R(0,0)$",
+      "current": 8,
+      "lift": "product of actual braided-factor half-braidings"
+    },
+    {
+      "id": "R12_1_389",
+      "base": "Vec(C2) x $\\Vec_{C_2}\\boxtimes\\mathrm{Ising}$; also $R(0,0)$",
+      "current": 6,
+      "lift": "left-factor canonical half-braiding"
+    },
+    {
+      "id": "R12_1_389",
+      "base": "Vec(C2) x $\\Vec_{C_2}\\boxtimes\\mathrm{Ising}$; also $R(0,0)$",
+      "current": 7,
+      "lift": "product of actual braided-factor half-braidings"
+    },
+    {
+      "id": "R12_1_389",
+      "base": "Vec(C2) x $\\Vec_{C_2}\\boxtimes\\mathrm{Ising}$; also $R(0,0)$",
+      "current": 8,
+      "lift": "product of actual braided-factor half-braidings"
+    },
+    {
+      "id": "R12_1_389",
+      "base": "Ising x Vec(C2xC2)",
+      "current": 1,
+      "lift": "product of actual braided-factor half-braidings"
+    },
+    {
+      "id": "R12_1_389",
+      "base": "Ising x Vec(C2xC2)",
+      "current": 5,
+      "lift": "product of actual braided-factor half-braidings"
+    },
+    {
+      "id": "R12_1_389",
+      "base": "Ising x Vec(C2xC2)",
+      "current": 1,
+      "lift": "product of actual braided-factor half-braidings"
+    },
+    {
+      "id": "R12_1_389",
+      "base": "Ising x Vec(C2xC2)",
+      "current": 5,
+      "lift": "product of actual braided-factor half-braidings"
+    },
+    {
+      "id": "R12_1_389",
+      "base": "Ising x Vec(C2xC2)",
+      "current": 2,
+      "lift": "product of actual braided-factor half-braidings"
+    },
+    {
+      "id": "R12_1_389",
+      "base": "Ising x Vec(C2xC2)",
+      "current": 6,
+      "lift": "product of actual braided-factor half-braidings"
+    },
+    {
+      "id": "R12_1_389",
+      "base": "Ising x Vec(C2xC2)",
+      "current": 2,
+      "lift": "product of actual braided-factor half-braidings"
+    },
+    {
+      "id": "R12_1_389",
+      "base": "Ising x Vec(C2xC2)",
+      "current": 6,
+      "lift": "product of actual braided-factor half-braidings"
+    },
+    {
+      "id": "R12_1_389",
+      "base": "Ising x Vec(C2xC2)",
+      "current": 3,
+      "lift": "product of actual braided-factor half-braidings"
+    },
+    {
+      "id": "R12_1_389",
+      "base": "Ising x Vec(C2xC2)",
+      "current": 7,
+      "lift": "product of actual braided-factor half-braidings"
+    },
+    {
+      "id": "R12_1_389",
+      "base": "Ising x Vec(C2xC2)",
+      "current": 3,
+      "lift": "product of actual braided-factor half-braidings"
+    },
+    {
+      "id": "R12_1_389",
+      "base": "Ising x Vec(C2xC2)",
+      "current": 7,
+      "lift": "product of actual braided-factor half-braidings"
+    },
+    {
+      "id": "R12_1_389",
+      "base": "Ising x Vec(C4)",
+      "current": 1,
+      "lift": "product of actual braided-factor half-braidings"
+    },
+    {
+      "id": "R12_1_390",
+      "base": "Vec(C2) x $\\Rep(C_3\\rtimes C_4)$",
+      "current": 6,
+      "lift": "left-factor canonical half-braiding"
+    },
+    {
+      "id": "R12_1_390",
+      "base": "Vec(C2) x $\\Rep(C_3\\rtimes C_4)$",
+      "current": 11,
+      "lift": "product of actual braided-factor half-braidings"
+    },
+    {
+      "id": "R12_1_390",
+      "base": "Vec(C2) x $\\Vec_{C_2}\\boxtimes\\Rep(S_3)$; also $R(0,1)$",
+      "current": 1,
+      "lift": "product of actual braided-factor half-braidings"
+    },
+    {
+      "id": "R12_1_390",
+      "base": "Vec(C2) x $\\Vec_{C_2}\\boxtimes\\Rep(S_3)$; also $R(0,1)$",
+      "current": 2,
+      "lift": "product of actual braided-factor half-braidings"
+    },
+    {
+      "id": "R12_1_390",
+      "base": "Vec(C2) x $\\Vec_{C_2}\\boxtimes\\Rep(S_3)$; also $R(0,1)$",
+      "current": 7,
+      "lift": "product of actual braided-factor half-braidings"
+    },
+    {
+      "id": "R12_1_390",
+      "base": "Vec(C2) x $\\Vec_{C_2}\\boxtimes\\Rep(S_3)$; also $R(0,1)$",
+      "current": 8,
+      "lift": "product of actual braided-factor half-braidings"
+    },
+    {
+      "id": "R12_1_390",
+      "base": "Rep(S3) x Vec(C2xC2)",
+      "current": 1,
+      "lift": "product of actual braided-factor half-braidings"
+    },
+    {
+      "id": "R12_1_390",
+      "base": "Rep(S3) x Vec(C2xC2)",
+      "current": 5,
+      "lift": "product of actual braided-factor half-braidings"
+    },
+    {
+      "id": "R12_1_390",
+      "base": "Rep(S3) x Vec(C2xC2)",
+      "current": 2,
+      "lift": "product of actual braided-factor half-braidings"
+    },
+    {
+      "id": "R12_1_390",
+      "base": "Rep(S3) x Vec(C2xC2)",
+      "current": 6,
+      "lift": "product of actual braided-factor half-braidings"
+    },
+    {
+      "id": "R12_1_390",
+      "base": "Rep(S3) x Vec(C2xC2)",
+      "current": 3,
+      "lift": "product of actual braided-factor half-braidings"
+    },
+    {
+      "id": "R12_1_390",
+      "base": "Rep(S3) x Vec(C2xC2)",
+      "current": 7,
+      "lift": "product of actual braided-factor half-braidings"
+    },
+    {
+      "id": "R12_1_390",
+      "base": "Vec(C12)^C2",
+      "current": 1,
+      "lift": "strict braided pointed action"
+    },
+    {
+      "id": "R12_1_390",
+      "base": "Vec(C6xC2)^C2",
+      "current": 2,
+      "lift": "strict braided pointed action"
+    },
+    {
+      "id": "R12_1_390",
+      "base": "Vec(C6xC2)^C2",
+      "current": 3,
+      "lift": "strict braided pointed action"
+    },
+    {
+      "id": "R12_1_390",
+      "base": "Vec(C6xC2)^C2",
+      "current": 8,
+      "lift": "strict braided pointed action"
+    },
+    {
+      "id": "R12_1_390",
+      "base": "Vec(C6xC2)^C2",
+      "current": 9,
+      "lift": "strict braided pointed action"
+    },
+    {
+      "id": "R12_1_390",
+      "base": "Vec(C6xC2)^C2",
+      "current": 10,
+      "lift": "strict braided pointed action"
+    },
+    {
+      "id": "R12_1_390",
+      "base": "Vec(C6xC2)^C2",
+      "current": 11,
+      "lift": "strict braided pointed action"
+    },
+    {
+      "id": "R12_1_395",
+      "base": "Vec(C2) x $\\Vec_{C_2}\\boxtimes PSU(2)_5$",
+      "current": 1,
+      "lift": "product of actual braided-factor half-braidings"
+    },
+    {
+      "id": "R12_1_395",
+      "base": "Vec(C2) x $\\Vec_{C_2}\\boxtimes PSU(2)_5$",
+      "current": 6,
+      "lift": "left-factor canonical half-braiding"
+    },
+    {
+      "id": "R12_1_395",
+      "base": "Vec(C2) x $\\Vec_{C_2}\\boxtimes PSU(2)_5$",
+      "current": 7,
+      "lift": "product of actual braided-factor half-braidings"
+    },
+    {
+      "id": "R12_1_395",
+      "base": "PSU(2)_5 x Vec(C2xC2)",
+      "current": 1,
+      "lift": "product of actual braided-factor half-braidings"
+    },
+    {
+      "id": "R12_1_395",
+      "base": "PSU(2)_5 x Vec(C2xC2)",
+      "current": 2,
+      "lift": "product of actual braided-factor half-braidings"
+    },
+    {
+      "id": "R12_1_395",
+      "base": "PSU(2)_5 x Vec(C2xC2)",
+      "current": 3,
+      "lift": "product of actual braided-factor half-braidings"
+    },
+    {
+      "id": "R12_1_396",
+      "base": "Vec(C2) x $PSU(2)_{10}$ (the other $3311$ even-part ring)",
+      "current": 1,
+      "lift": "product of actual braided-factor half-braidings"
+    },
+    {
+      "id": "R12_1_494",
+      "base": "Vec(C2) x $\\mathcal I(C_4,0)$: cyclic, self-dual Ising zest",
+      "current": 6,
+      "lift": "left-factor canonical half-braiding"
+    },
+    {
+      "id": "R12_1_494",
+      "base": "Ising x Vec(C4)",
+      "current": 5,
+      "lift": "product of actual braided-factor half-braidings"
+    },
+    {
+      "id": "R12_1_497",
+      "base": "Vec(C2) x $\\mathcal I(C_4,1)$: cyclic, non-self-dual Ising zest",
+      "current": 6,
+      "lift": "left-factor canonical half-braiding"
+    },
+    {
+      "id": "R12_1_552",
+      "base": "Vec((12,))",
+      "current": 6,
+      "lift": "canonical braided lift"
+    },
+    {
+      "id": "R12_1_578",
+      "base": "Ising x TY(C3)",
+      "current": 4,
+      "lift": "left-factor canonical half-braiding"
+    },
+    {
+      "id": "R12_1_579",
+      "base": "Rep(S3) x TY(C3)",
+      "current": 4,
+      "lift": "left-factor canonical half-braiding"
+    },
+    {
+      "id": "R12_1_608",
+      "base": "Vec(C2) x $\\Vec_{S_3}$",
+      "current": 6,
+      "lift": "left-factor canonical half-braiding"
+    },
+    {
+      "id": "R12_1_609",
+      "base": "Vec((6, 2))",
+      "current": 1,
+      "lift": "canonical braided lift"
+    },
+    {
+      "id": "R12_1_609",
+      "base": "Vec((6, 2))",
+      "current": 6,
+      "lift": "canonical braided lift"
+    },
+    {
+      "id": "R12_1_609",
+      "base": "Vec((6, 2))",
+      "current": 7,
+      "lift": "canonical braided lift"
+    },
+    {
+      "id": "R12_1_609",
+      "base": "Vec(C2) x $\\Vec_{C_2}\\boxtimes\\Vec_{C_3}\\simeq\\Vec_{C_6}$",
+      "current": 5,
+      "lift": "product of actual braided-factor half-braidings"
+    },
+    {
+      "id": "R12_1_609",
+      "base": "Vec(C2) x $\\Vec_{C_2}\\boxtimes\\Vec_{C_3}\\simeq\\Vec_{C_6}$",
+      "current": 6,
+      "lift": "left-factor canonical half-braiding"
+    },
+    {
+      "id": "R12_1_609",
+      "base": "Vec(C2) x $\\Vec_{C_2}\\boxtimes\\Vec_{C_3}\\simeq\\Vec_{C_6}$",
+      "current": 11,
+      "lift": "product of actual braided-factor half-braidings"
+    },
+    {
+      "id": "R12_1_609",
+      "base": "Vec(C3) x Vec(C2xC2)",
+      "current": 1,
+      "lift": "product of actual braided-factor half-braidings"
+    },
+    {
+      "id": "R12_1_609",
+      "base": "Vec(C3) x Vec(C2xC2)",
+      "current": 2,
+      "lift": "product of actual braided-factor half-braidings"
+    },
+    {
+      "id": "R12_1_609",
+      "base": "Vec(C3) x Vec(C2xC2)",
+      "current": 3,
+      "lift": "product of actual braided-factor half-braidings"
+    },
+    {
+      "id": "R12_1_615",
+      "base": "Vec(C2) x Tambara--Yamagami category for $C_5$",
+      "current": 6,
+      "lift": "left-factor canonical half-braiding"
+    },
+    {
+      "id": "R12_1_389",
+      "base": "Ising graded pullback R8_1_4",
+      "current": 4,
+      "lift": "restricted ambient Ising half-braiding"
+    },
+    {
+      "id": "R12_1_494",
+      "base": "Ising graded pullback R8_1_4",
+      "current": 4,
+      "lift": "restricted ambient Ising half-braiding"
+    },
+    {
+      "id": "R12_1_508",
+      "base": "Ising graded pullback R8_1_10",
+      "current": 4,
+      "lift": "restricted ambient Ising half-braiding"
+    },
+    {
+      "id": "R12_1_508",
+      "base": "Ising graded pullback R8_1_10",
+      "current": 4,
+      "lift": "restricted ambient Ising half-braiding"
+    },
+    {
+      "id": "R12_1_270",
+      "base": "Ising graded pullback R8_1_13",
+      "current": 4,
+      "lift": "restricted ambient Ising half-braiding"
+    },
+    {
+      "id": "R12_1_375",
+      "base": "Ising graded pullback R8_1_13",
+      "current": 4,
+      "lift": "restricted ambient Ising half-braiding"
+    },
+    {
+      "id": "R12_1_375",
+      "base": "Ising graded pullback R8_1_13",
+      "current": 4,
+      "lift": "restricted ambient Ising half-braiding"
+    },
+    {
+      "id": "R12_1_578",
+      "base": "Ising graded pullback R8_1_27",
+      "current": 4,
+      "lift": "restricted ambient Ising half-braiding"
+    },
+    {
+      "id": "R12_1_482",
+      "base": "Ising graded pullback R8_1_36",
+      "current": 4,
+      "lift": "restricted ambient Ising half-braiding"
+    },
+    {
+      "id": "R12_1_246",
+      "base": "Ising graded pullback R8_1_65",
+      "current": 4,
+      "lift": "restricted ambient Ising half-braiding"
+    },
+    {
+      "id": "R12_1_246",
+      "base": "Ising graded pullback R8_1_65",
+      "current": 4,
+      "lift": "restricted ambient Ising half-braiding"
+    },
+    {
+      "id": "R12_1_246",
+      "base": "Ising graded pullback R8_1_65",
+      "current": 4,
+      "lift": "restricted ambient Ising half-braiding"
+    },
+    {
+      "id": "R12_1_252",
+      "base": "Ising graded pullback R8_1_66",
+      "current": 4,
+      "lift": "restricted ambient Ising half-braiding"
+    },
+    {
+      "id": "R12_1_252",
+      "base": "Ising graded pullback R8_1_66",
+      "current": 4,
+      "lift": "restricted ambient Ising half-braiding"
+    },
+    {
+      "id": "R12_1_164",
+      "base": "TY(C5)^C2 crossed C2[parity=0]",
+      "current": 1,
+      "lift": "canonical Rep(C2) half-braiding preserved by character action"
+    },
+    {
+      "id": "R12_1_139",
+      "base": "TY(C5)^C2 crossed C2[parity=0]",
+      "current": 1,
+      "lift": "canonical Rep(C2) half-braiding preserved by character action"
+    },
+    {
+      "id": "R12_1_139",
+      "base": "TY(C5)^C2 crossed C2[parity=1]",
+      "current": 1,
+      "lift": "canonical Rep(C2) half-braiding preserved by character action"
+    },
+    {
+      "id": "R12_1_441",
+      "base": "TY(C5)^C2 crossed C2[parity=0]",
+      "current": 1,
+      "lift": "canonical Rep(C2) half-braiding preserved by character action"
+    },
+    {
+      "id": "R12_1_441",
+      "base": "TY(C5)^C2 crossed C2[parity=1]",
+      "current": 1,
+      "lift": "canonical Rep(C2) half-braiding preserved by character action"
+    }
+  ],
+  "bindings": [
+    {
+      "id": "R12_1_1",
+      "constructor": "deligne_product",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_1",
+      "constructor": "pointed_equivariant",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_2",
+      "constructor": "dihedral_rep",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_2",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_2",
+      "constructor": "deligne_product",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_2",
+      "constructor": "pointed_equivariant",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_2",
+      "constructor": "pointed_equivariant",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_2",
+      "constructor": "pointed_equivariant",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_2",
+      "constructor": "pointed_equivariant",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_2",
+      "constructor": "pointed_equivariant",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_2",
+      "constructor": "pointed_equivariant",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_2",
+      "constructor": "pointed_equivariant",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_2",
+      "constructor": "pointed_equivariant",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_2",
+      "constructor": "pointed_equivariant",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_10",
+      "constructor": "half_even_metaplectic",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_10",
+      "constructor": "ty_cyclic_equivariant",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_14",
+      "constructor": "deligne_product",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_14",
+      "constructor": "deligne_product",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_15",
+      "constructor": "deligne_product",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_15",
+      "constructor": "deligne_product",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_15",
+      "constructor": "deligne_product",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_16",
+      "constructor": "deligne_product",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_17",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_17",
+      "constructor": "deligne_product",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_17",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_17",
+      "constructor": "pointed_equivariant",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_17",
+      "constructor": "pointed_equivariant",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_17",
+      "constructor": "pointed_equivariant",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_17",
+      "constructor": "pointed_equivariant",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_18",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_18",
+      "constructor": "deligne_product",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_18",
+      "constructor": "deligne_product",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_19",
+      "constructor": "deligne_product",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_20",
+      "constructor": "deligne_product",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_28",
+      "constructor": "ty_cyclic_equivariant",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_28",
+      "constructor": "ty_cyclic_equivariant",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_28",
+      "constructor": "ty_cyclic_equivariant",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_28",
+      "constructor": "ty_cyclic_equivariant",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_28",
+      "constructor": "ty_cyclic_equivariant",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_28",
+      "constructor": "ty_cyclic_equivariant",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_28",
+      "constructor": "ty_cyclic_equivariant",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_28",
+      "constructor": "ty_cyclic_equivariant",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_28",
+      "constructor": "ty_cyclic_equivariant",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_28",
+      "constructor": "ty_cyclic_equivariant",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_28",
+      "constructor": "ty_cyclic_equivariant",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_28",
+      "constructor": "ty_cyclic_equivariant",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_28",
+      "constructor": "ty_cyclic_equivariant",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_41",
+      "constructor": "deligne_product",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_41",
+      "constructor": "deligne_product",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_42",
+      "constructor": "deligne_product",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_50",
+      "constructor": "deligne_product",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_50",
+      "constructor": "deligne_product",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_50",
+      "constructor": "deligne_product",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_51",
+      "constructor": "deligne_product",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_53",
+      "constructor": "deligne_product",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_54",
+      "constructor": "su2",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_54",
+      "constructor": "deligne_product",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_55",
+      "constructor": "su2",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_67",
+      "constructor": "deligne_product",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_68",
+      "constructor": "deligne_product",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_71",
+      "constructor": "deligne_product",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_72",
+      "constructor": "deligne_product",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_72",
+      "constructor": "deligne_product",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_73",
+      "constructor": "deligne_product",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_73",
+      "constructor": "deligne_product",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_77",
+      "constructor": "deligne_product",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_78",
+      "constructor": "deligne_product",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_99",
+      "constructor": "deligne_product",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_101",
+      "constructor": "deligne_product",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_103",
+      "constructor": "deligne_product",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_103",
+      "constructor": "deligne_product",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_104",
+      "constructor": "deligne_product",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_107",
+      "constructor": "deligne_product",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_108",
+      "constructor": "odd_metaplectic",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_108",
+      "constructor": "ty_cyclic_equivariant",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_112",
+      "constructor": "dihedral_rep",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_116",
+      "constructor": "su2",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_117",
+      "constructor": "deligne_product",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_119",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_119",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_120",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_120",
+      "constructor": "dihedral_rep",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_120",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_120",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_153",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_183",
+      "constructor": "ty_cyclic_equivariant",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_183",
+      "constructor": "ty_cyclic_equivariant",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_183",
+      "constructor": "ty_cyclic_equivariant",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_183",
+      "constructor": "ty_cyclic_equivariant",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_183",
+      "constructor": "ty_cyclic_equivariant",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_183",
+      "constructor": "ty_cyclic_equivariant",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_183",
+      "constructor": "ty_cyclic_equivariant",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_183",
+      "constructor": "ty_cyclic_equivariant",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_183",
+      "constructor": "ty_cyclic_equivariant",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_183",
+      "constructor": "ty_cyclic_equivariant",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_183",
+      "constructor": "ty_cyclic_equivariant",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_183",
+      "constructor": "ty_cyclic_equivariant",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_183",
+      "constructor": "ty_cyclic_equivariant",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_187",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_187",
+      "constructor": "ty_cyclic_equivariant",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_190",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_190",
+      "constructor": "ty_cyclic_equivariant",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_246",
+      "constructor": "deligne_product",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_246",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_246",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_246",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_246",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_246",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_247",
+      "constructor": "deligne_product",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_247",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_247",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_247",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_247",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_247",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_247",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_247",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_247",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_247",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_247",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_247",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_252",
+      "constructor": "deligne_product",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_252",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_252",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_253",
+      "constructor": "deligne_product",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_253",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_253",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_255",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_255",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_306",
+      "constructor": "deligne_product",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_306",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_306",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_306",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_306",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_306",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_306",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_306",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_306",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_307",
+      "constructor": "deligne_product",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_307",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_307",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_307",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_308",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_314",
+      "constructor": "deligne_product",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_314",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_315",
+      "constructor": "deligne_product",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_315",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_316",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_316",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_316",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_324",
+      "constructor": "pointed_group",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_324",
+      "constructor": "deligne_product",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_325",
+      "constructor": "deligne_product",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_326",
+      "constructor": "haagerup_izumi_cyclic",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_343",
+      "constructor": "deligne_product",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_344",
+      "constructor": "deligne_product",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_351",
+      "constructor": "pointed_equivariant",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_351",
+      "constructor": "pointed_equivariant",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_351",
+      "constructor": "pointed_equivariant",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_389",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_389",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_389",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_389",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_389",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_389",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_389",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_389",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_389",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_389",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_389",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_389",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_389",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_389",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_389",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_389",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_389",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_389",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_389",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_389",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_389",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_389",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_389",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_389",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_389",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_390",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_390",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_390",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_390",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_390",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_390",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_390",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_390",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_390",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_390",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_390",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_390",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_390",
+      "constructor": "pointed_equivariant",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_390",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_390",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_390",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_390",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_390",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_390",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_390",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_390",
+      "constructor": "pointed_equivariant",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_390",
+      "constructor": "pointed_equivariant",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_390",
+      "constructor": "pointed_equivariant",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_395",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_395",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_395",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_395",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_395",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_395",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_396",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_405",
+      "constructor": "ty_cyclic_equivariant",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_474",
+      "constructor": "deligne_product",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_476",
+      "constructor": "deligne_product",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_484",
+      "constructor": "deligne_product",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_485",
+      "constructor": "deligne_product",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_487",
+      "constructor": "deligne_product",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_489",
+      "constructor": "deligne_product",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_494",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_494",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_497",
+      "constructor": "deligne_product",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_497",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_522",
+      "constructor": "ty_cyclic_equivariant",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_528",
+      "constructor": "deligne_product",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_552",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_552",
+      "constructor": "pointed",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_552",
+      "constructor": "deligne_product",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_552",
+      "constructor": "deligne_product",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_554",
+      "constructor": "deligne_product",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_554",
+      "constructor": "deligne_product",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_554",
+      "constructor": "deligne_product",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_557",
+      "constructor": "deligne_product",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_562",
+      "constructor": "deligne_product",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_565",
+      "constructor": "deligne_product",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_567",
+      "constructor": "deligne_product",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_567",
+      "constructor": "pointed_equivariant",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_578",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_579",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_583",
+      "constructor": "deligne_product",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_587",
+      "constructor": "pointed_group",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_588",
+      "constructor": "deligne_product",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_588",
+      "constructor": "deligne_product",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_608",
+      "constructor": "pointed_group",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_608",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_609",
+      "constructor": "pointed",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_609",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_609",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_609",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_609",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_609",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_609",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_609",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_609",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_609",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_615",
+      "constructor": "associative_C2_zest",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_621",
+      "constructor": "ty",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_626",
+      "constructor": "deligne_product",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_629",
+      "constructor": "deligne_product",
+      "file": "models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_153",
+      "constructor": "graded_pullback",
+      "file": "additional_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_305",
+      "constructor": "graded_pullback",
+      "file": "additional_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_389",
+      "constructor": "graded_pullback",
+      "file": "additional_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_389",
+      "constructor": "associative_C2_zest",
+      "file": "additional_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_306",
+      "constructor": "graded_pullback",
+      "file": "additional_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_494",
+      "constructor": "associative_C2_zest",
+      "file": "additional_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_307",
+      "constructor": "graded_pullback",
+      "file": "additional_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_308",
+      "constructor": "graded_pullback",
+      "file": "additional_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_466",
+      "constructor": "graded_pullback",
+      "file": "additional_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_508",
+      "constructor": "graded_pullback",
+      "file": "additional_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_508",
+      "constructor": "associative_C2_zest",
+      "file": "additional_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_508",
+      "constructor": "graded_pullback",
+      "file": "additional_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_508",
+      "constructor": "associative_C2_zest",
+      "file": "additional_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_551",
+      "constructor": "graded_pullback",
+      "file": "additional_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_270",
+      "constructor": "graded_pullback",
+      "file": "additional_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_270",
+      "constructor": "associative_C2_zest",
+      "file": "additional_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_154",
+      "constructor": "graded_pullback",
+      "file": "additional_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_154",
+      "constructor": "graded_pullback",
+      "file": "additional_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_375",
+      "constructor": "associative_C2_zest",
+      "file": "additional_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_375",
+      "constructor": "associative_C2_zest",
+      "file": "additional_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_155",
+      "constructor": "graded_pullback",
+      "file": "additional_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_517",
+      "constructor": "graded_pullback",
+      "file": "additional_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_163",
+      "constructor": "graded_pullback",
+      "file": "additional_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_176",
+      "constructor": "graded_pullback",
+      "file": "additional_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_179",
+      "constructor": "graded_pullback",
+      "file": "additional_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_474",
+      "constructor": "graded_pullback",
+      "file": "additional_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_578",
+      "constructor": "associative_C2_zest",
+      "file": "additional_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_484",
+      "constructor": "graded_pullback",
+      "file": "additional_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_327",
+      "constructor": "graded_pullback",
+      "file": "additional_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_482",
+      "constructor": "associative_C2_zest",
+      "file": "additional_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_333",
+      "constructor": "graded_pullback",
+      "file": "additional_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_67",
+      "constructor": "graded_pullback",
+      "file": "additional_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_14",
+      "constructor": "graded_pullback",
+      "file": "additional_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_246",
+      "constructor": "associative_C2_zest",
+      "file": "additional_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_246",
+      "constructor": "associative_C2_zest",
+      "file": "additional_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_246",
+      "constructor": "associative_C2_zest",
+      "file": "additional_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_15",
+      "constructor": "graded_pullback",
+      "file": "additional_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_15",
+      "constructor": "graded_pullback",
+      "file": "additional_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_252",
+      "constructor": "associative_C2_zest",
+      "file": "additional_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_252",
+      "constructor": "associative_C2_zest",
+      "file": "additional_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_16",
+      "constructor": "graded_pullback",
+      "file": "additional_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_72",
+      "constructor": "graded_pullback",
+      "file": "additional_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_77",
+      "constructor": "graded_pullback",
+      "file": "additional_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_164",
+      "constructor": "metaplectic_character_crossed_product",
+      "file": "additional_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_164",
+      "constructor": "associative_C2_zest",
+      "file": "additional_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_139",
+      "constructor": "associative_C2_zest",
+      "file": "additional_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_139",
+      "constructor": "associative_C2_zest",
+      "file": "additional_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_441",
+      "constructor": "associative_C2_zest",
+      "file": "additional_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_441",
+      "constructor": "associative_C2_zest",
+      "file": "additional_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_351",
+      "constructor": "group_theoretical",
+      "file": "group_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_162",
+      "constructor": "group_theoretical",
+      "file": "group_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_313",
+      "constructor": "group_theoretical",
+      "file": "group_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_17",
+      "constructor": "twisted_group_theoretical_c2",
+      "file": "twisted_c2_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_134",
+      "constructor": "twisted_group_theoretical_c2",
+      "file": "twisted_c2_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_17",
+      "constructor": "twisted_group_theoretical_c2",
+      "file": "twisted_c2_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_134",
+      "constructor": "twisted_group_theoretical_c2",
+      "file": "twisted_c2_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_247",
+      "constructor": "twisted_group_theoretical_c2",
+      "file": "twisted_c2_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_134",
+      "constructor": "twisted_group_theoretical_c2",
+      "file": "twisted_c2_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_247",
+      "constructor": "twisted_group_theoretical_c2",
+      "file": "twisted_c2_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_134",
+      "constructor": "twisted_group_theoretical_c2",
+      "file": "twisted_c2_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_247",
+      "constructor": "twisted_group_theoretical_c2",
+      "file": "twisted_c2_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_134",
+      "constructor": "twisted_group_theoretical_c2",
+      "file": "twisted_c2_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_247",
+      "constructor": "twisted_group_theoretical_c2",
+      "file": "twisted_c2_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_134",
+      "constructor": "twisted_group_theoretical_c2",
+      "file": "twisted_c2_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_247",
+      "constructor": "twisted_group_theoretical_c2",
+      "file": "twisted_c2_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_437",
+      "constructor": "twisted_group_theoretical_c2",
+      "file": "twisted_c2_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_247",
+      "constructor": "twisted_group_theoretical_c2",
+      "file": "twisted_c2_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_437",
+      "constructor": "twisted_group_theoretical_c2",
+      "file": "twisted_c2_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_17",
+      "constructor": "twisted_group_theoretical_c2",
+      "file": "twisted_c2_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_134",
+      "constructor": "twisted_group_theoretical_c2",
+      "file": "twisted_c2_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_17",
+      "constructor": "twisted_group_theoretical_c2",
+      "file": "twisted_c2_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_134",
+      "constructor": "twisted_group_theoretical_c2",
+      "file": "twisted_c2_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_247",
+      "constructor": "twisted_group_theoretical_c2",
+      "file": "twisted_c2_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_134",
+      "constructor": "twisted_group_theoretical_c2",
+      "file": "twisted_c2_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_247",
+      "constructor": "twisted_group_theoretical_c2",
+      "file": "twisted_c2_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_134",
+      "constructor": "twisted_group_theoretical_c2",
+      "file": "twisted_c2_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_247",
+      "constructor": "twisted_group_theoretical_c2",
+      "file": "twisted_c2_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_134",
+      "constructor": "twisted_group_theoretical_c2",
+      "file": "twisted_c2_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_247",
+      "constructor": "twisted_group_theoretical_c2",
+      "file": "twisted_c2_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_134",
+      "constructor": "twisted_group_theoretical_c2",
+      "file": "twisted_c2_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_247",
+      "constructor": "twisted_group_theoretical_c2",
+      "file": "twisted_c2_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_437",
+      "constructor": "twisted_group_theoretical_c2",
+      "file": "twisted_c2_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_247",
+      "constructor": "twisted_group_theoretical_c2",
+      "file": "twisted_c2_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_437",
+      "constructor": "twisted_group_theoretical_c2",
+      "file": "twisted_c2_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_17",
+      "constructor": "twisted_group_theoretical_c2",
+      "file": "twisted_c2_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_134",
+      "constructor": "twisted_group_theoretical_c2",
+      "file": "twisted_c2_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_17",
+      "constructor": "twisted_group_theoretical_c2",
+      "file": "twisted_c2_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_134",
+      "constructor": "twisted_group_theoretical_c2",
+      "file": "twisted_c2_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_247",
+      "constructor": "twisted_group_theoretical_c2",
+      "file": "twisted_c2_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_134",
+      "constructor": "twisted_group_theoretical_c2",
+      "file": "twisted_c2_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_247",
+      "constructor": "twisted_group_theoretical_c2",
+      "file": "twisted_c2_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_134",
+      "constructor": "twisted_group_theoretical_c2",
+      "file": "twisted_c2_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_247",
+      "constructor": "twisted_group_theoretical_c2",
+      "file": "twisted_c2_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_134",
+      "constructor": "twisted_group_theoretical_c2",
+      "file": "twisted_c2_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_247",
+      "constructor": "twisted_group_theoretical_c2",
+      "file": "twisted_c2_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_134",
+      "constructor": "twisted_group_theoretical_c2",
+      "file": "twisted_c2_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_247",
+      "constructor": "twisted_group_theoretical_c2",
+      "file": "twisted_c2_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_437",
+      "constructor": "twisted_group_theoretical_c2",
+      "file": "twisted_c2_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_247",
+      "constructor": "twisted_group_theoretical_c2",
+      "file": "twisted_c2_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_437",
+      "constructor": "twisted_group_theoretical_c2",
+      "file": "twisted_c2_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_17",
+      "constructor": "twisted_group_theoretical_c2",
+      "file": "twisted_c2_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_134",
+      "constructor": "twisted_group_theoretical_c2",
+      "file": "twisted_c2_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_17",
+      "constructor": "twisted_group_theoretical_c2",
+      "file": "twisted_c2_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_134",
+      "constructor": "twisted_group_theoretical_c2",
+      "file": "twisted_c2_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_247",
+      "constructor": "twisted_group_theoretical_c2",
+      "file": "twisted_c2_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_134",
+      "constructor": "twisted_group_theoretical_c2",
+      "file": "twisted_c2_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_247",
+      "constructor": "twisted_group_theoretical_c2",
+      "file": "twisted_c2_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_134",
+      "constructor": "twisted_group_theoretical_c2",
+      "file": "twisted_c2_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_247",
+      "constructor": "twisted_group_theoretical_c2",
+      "file": "twisted_c2_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_134",
+      "constructor": "twisted_group_theoretical_c2",
+      "file": "twisted_c2_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_247",
+      "constructor": "twisted_group_theoretical_c2",
+      "file": "twisted_c2_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_134",
+      "constructor": "twisted_group_theoretical_c2",
+      "file": "twisted_c2_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_247",
+      "constructor": "twisted_group_theoretical_c2",
+      "file": "twisted_c2_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_437",
+      "constructor": "twisted_group_theoretical_c2",
+      "file": "twisted_c2_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_247",
+      "constructor": "twisted_group_theoretical_c2",
+      "file": "twisted_c2_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_437",
+      "constructor": "twisted_group_theoretical_c2",
+      "file": "twisted_c2_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_162",
+      "constructor": "twisted_group_theoretical_c2",
+      "file": "twisted_c2_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_234",
+      "constructor": "twisted_group_theoretical_c2",
+      "file": "twisted_c2_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_234",
+      "constructor": "twisted_group_theoretical_c2",
+      "file": "twisted_c2_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_162",
+      "constructor": "twisted_group_theoretical_c2",
+      "file": "twisted_c2_models",
+      "coefficients": 1728
+    },
+    {
+      "id": "R12_1_374",
+      "constructor": "twisted_group_theoretical_c2",
+      "file": "twisted_c2_models",
+      "coefficients": 1728
+    }
+  ],
+  "seconds": 3.9172536690020934,
+  "optimized": true
+}

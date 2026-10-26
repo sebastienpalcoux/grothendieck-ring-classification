@@ -308,3 +308,7 @@ python3 -O tools/verify_rank8_exclusion_20261022.py
 ```
 
 Use `--metadata-only` to check source identities and completed replay receipts. Use `--historical` to replay the preceding rank-eight stages in their preserved contexts. That replay explicitly records the reconstructed helper missing from the creative archive and its four revised cache-state diagnostics in a separate checkpoint; it also restores the omitted canonical tensor with its original receipt hash. The current ledger and proof have separate bindings from those historical releases.
+
+## Rank twelve, multiplicity one · 26 October 2026
+
+The new release classifies 632 supplied rings: 480 general exclusions and 152 models. Of these, 151 are unitary; R12_1_623 has a complex/pseudo-unitary model whose unitarity is unproved. The ten earlier open cases are unchanged. [Current manuscript](../publications/rank12/README.md) · [Complete proof archive and accepted replay](../evidence/rank12_m1_20261026/README.md). Full census enumeration was not independently repeated.

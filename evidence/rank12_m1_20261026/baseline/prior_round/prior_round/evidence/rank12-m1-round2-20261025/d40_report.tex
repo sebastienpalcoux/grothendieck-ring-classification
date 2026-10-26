@@ -1,0 +1,124 @@
+\section{A complete resolution of the dimension-forty family}
+All nine remaining rings of type $1^{\times4},2^{\times4},(\sqrt5)^{\times4}$
+are now settled. Three are modeled, and six are excluded by a converse covering
+every possible associator, rather than by a failed finite construction search.
+
+\begin{lemma}\label{lem:cyclic-morita}
+Let every noninvertible simple of an integral fusion category have dimension $n>1$
+and the same left and right cyclic stabilizer $H$ of order $n$. Then its regular
+subgroup algebra $A$ exists and its $A$-bimodule dual is pointed.
+\end{lemma}
+\begin{proof}
+A fixed simple trivializes the pointed associator on $H$. Also, $H$ is normal,
+since conjugation sends a common stabilizer to another such stabilizer.
+Every noninvertible simple $X$ has $n$ simple right $A$-module structures because
+$H^2(H,\mathbb C^*)=0$. For any one, $M$, its internal endomorphism object has
+FP dimension $n^2/n=n$ and contains the unit once. Since every noninvertible has
+dimension $n$, this internal end consists only of invertibles. Each constituent
+fixes $X$, hence belongs to $H$, and occurs at most once. It is therefore exactly
+$\bigoplus_{h\in H}h$. The cyclic action can be normalized to give a commuting
+left $A$-action; its $n$ character choices yield $n^2$ simple bimodules over $X$,
+each of normalized dimension one. An invertible source orbit has size $n$ and
+cyclic diagonal stabilizer, again giving only normalized dimension-one bimodules.
+This proves pointedness. The internal-end mechanism also appears in
+\cite[Lemmas 6.1--6.2]{EGO}.
+\end{proof}
+
+In all nine source rings, the integral subcategory $\mathcal E$ has type
+$1^{\times4},2^{\times4}$ and a common two-element stabilizer $\{1,g\}$ for its
+dimension-two objects. The element $g$ is central in the entire based ring and
+acts freely on the four irrational-dimensional objects. Thus $A=1+g$ exists,
+and Lemma~\ref{lem:cyclic-morita} makes
+$\mathcal D=\operatorname{Bimod}_{\mathcal C}(A)$ a category with twenty invertibles
+and four $\sqrt5$-dimensional simples. It is a genuine generalized TY, or feudal,
+category. Its noninvertible products are pointed. The reverse Morita algebra is
+the actual internal end of the simple module $A$; its dimension is two, so it is
+$1+c$ for an involution $c$ among the twenty invertibles.
+
+Write $S=\Irr(\mathcal D_{\rm pt})$. In the reverse dual, the pointed integral
+part contributes exactly $|N_S(\langle c\rangle)|$ invertibles. The source has four,
+so this normalizer has order four. Among the five groups of order twenty, only
+$F_{20}=C_5\rtimes_2 C_4$ and $D_{10}\times C_2$ have noncentral involutions.
+For the latter group, the reverse dual integral ring is commutative for every
+pointed associator admitting its subgroup algebra: all nonnormal $C_2$ double
+cosets are inverse-stable with trivial stabilizer, so their dimension-two simples
+are self-dual. The normalizer quotient is represented by the extra central
+involution, giving equal involutive left/right invertible actions. Duality then
+makes the remaining products commute. All eight noncommutative source rings have
+noncommutative integral subrings. Their precursor must therefore have $S=F_{20}$.
+
+The common stabilizer is the unique $C_5$ in $F_{20}$, and its associator is trivial
+because it fixes a noninvertible simple. Hence the neutral category for the universal
+grading is $\Vec_{C_5}$. Its Brauer--Picard group is
+$O(C_5\oplus\widehat C_5,q)\cong D_8$ \cite{ENO}. The four invertible components
+give the faithful order-four diagonal subgroup, through the multiplier two on
+$C_5$; a rank-one noninvertible component gives a Fourier reflection. These
+generate the full group. Thus the universal grading is $D_8$ and its homomorphism
+to the Brauer--Picard group is an isomorphism. Changing the chosen noninvertible
+component accounts for all reflection choices while preserving the distinguished
+reverse involution $c=r^2$.
+
+There is also a direct Liptrap-data proof of this restriction. If $t_m\in\mathbb F_5^*$
+is the stabilizer bicharacter parameter, biderivation and quasisymmetry give
+$t_{r^{-1}m}=2t_m$ and $t_{m^*}=t_m$. Writing the right quotient action as
+an involution $\sigma$ of $C_4$ and the base noninvertible square as $p$ forces
+$\sigma=-\mathrm{id}$ and $p=0$. The argument permits arbitrary nonzero complex
+coherence variables and variable $\tau$. It is not a bounded phase-search obstruction.
+
+The extension classification \cite{ENO} now applies to every hypothetical original
+precursor. The product-system freedom is
+$H^2(D_8,\operatorname{Inv}Z(\Vec_{C_5}))=H^2(D_8,C_5^2)=0$ by coprime averaging.
+An explicit unitary precursor exists by its exact Liptrap data. Therefore all
+associators form its $H^3(D_8,\mathbb C^*)$ torsor. This group has exponent dividing
+four: restrict to an index-two $V_4$, whose third cohomology has exponent two,
+then corestrict. Consequently every class has a fourth-root representative.
+The map $H^3(C_2,\mu_4)\to H^3(C_2,\mathbb C^*)$ is an isomorphism, so the actual
+reverse algebra condition is fully covered by the relative fourth-root classes
+trivial on $\langle c\rangle$. Its multiplication is unique up to isomorphism,
+since $H^2(C_2,\mathbb C^*)=0$.
+
+The normalized bar complex has 343 three-cochain variables and 2402 constraints,
+including the subgroup condition. Exact elimination gives a cocycle kernel of
+order $2^{87}$ and a normalized coboundary image of order $2^{83}$: precisely
+sixteen relative fourth-root classes. Independent algorithms check the cardinality
+and all 120 representative-pair differences. These sixteen classes cover every
+relative complex class, although different fourth-root classes can become equivalent
+after extending coefficients.
+
+For every representative the actual $1+c$ bimodules and balanced products are
+constructed. Every resulting full tensor is exactly $\ring{156}$ or $\ring{263}$.
+Two independent implementations recompute these sixteen outputs. The coherent
+$C_4$ TY action separately realizes the commutative $\ring{449}$. Therefore
+\[
+ \boxed{\ring{309},\ \ring{383},\ \ring{467},\ \ring{470},\ \ring{501},\ \ring{514}
+ \text{ are excluded over }\mathbb C.}
+\]
+This argument explicitly tracks the reverse algebra and all complex associator
+classes; an arbitrary original category is never identified with one chosen unitary
+model without the extension-classification proof.
+
+\section{The dimension-twenty-four family}
+Two exclusions follow directly from the general classification of invertible
+pointed bimodule categories, with no assumption on the pointed associator.
+Every component of a faithful fusion grading is an invertible bimodule category
+over its neutral component \cite[Theorem 6.1]{ENO}. Its left and right stabilizers
+must be isomorphic normal abelian groups: the mixed commutator is a nondegenerate
+bicharacter between them \cite[Theorem 7.9 and Corollary 7.11]{GP}.
+
+The supplied tensors for $\ring{445}$ and $\ring{493}$ have a faithful $C_3$
+grading with pointed neutral component of rank eight. In a nontrivial component,
+the exact stabilizers are
+\begin{center}\begin{tabular}{lrrl}\toprule Ring&Simple&Left stabilizer&Right stabilizer\\\midrule
+\ring{445}&3&$\{0,9,10,11\}\cong V_4$&$\{0,1,2,11\}\cong C_4$\\
+\ring{493}&5&$\{0,9,10,11\}\cong V_4$&$\{0,3,4,11\}\cong C_4$\\\bottomrule\end{tabular}\end{center}
+These groups are not isomorphic, so neither ring admits a complex categorification.
+All subgroup products, element orders and grading products are checked directly.
+
+The remaining four originally unresolved rings in this family are modeled:
+$\ring{541}$ by a classical representation category, and
+$\ring{428},\ring{513},\ring{597}$ by explicit twisted subgroup bimodules in
+$\Vec_{A_4\times C_2}^{\omega}$ with a diagonal subgroup of order two.
+Two invariant relative trilinear cocycles give a unified construction; their complete
+values are retained, and every cocycle and subgroup-algebra identity is checked.
+The independent binary-tetrahedral realization of $\ring{597}$ is described below.
+Thus all six cases in the dimension-twenty-four family are settled.

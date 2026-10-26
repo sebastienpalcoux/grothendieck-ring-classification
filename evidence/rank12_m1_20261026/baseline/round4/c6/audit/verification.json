@@ -1,0 +1,34 @@
+{
+  "status": "PASS",
+  "valid_frozen_tensors": 6,
+  "new_general_exclusions": [
+    "R12_1_350"
+  ],
+  "new_models": [],
+  "unresolved": [
+    "R12_1_332",
+    "R12_1_561",
+    "R12_1_623",
+    "R12_1_628"
+  ],
+  "R350_exact_farkas_cases": 32,
+  "controls": [
+    {
+      "id": "R12_1_623",
+      "exact_restricted_exclusions": 4,
+      "rejected_pointed_involution_indicator": 1,
+      "other_indicator_status": "no exclusion certificate obtained; no model inferred"
+    },
+    {
+      "id": "R12_1_326",
+      "exact_restricted_exclusions": 4,
+      "rejected_pointed_involution_indicator": -1,
+      "other_indicator_status": "no exclusion certificate obtained; no model inferred"
+    }
+  ],
+  "conditional_rank4_quotient_bindings": 2,
+  "nonselfdual_rank4_low_branches": 16,
+  "optimizer_used": false,
+  "parent_repository_imports": false,
+  "assertions_used": false
+}
