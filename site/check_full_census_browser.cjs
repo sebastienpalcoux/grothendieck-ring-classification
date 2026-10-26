@@ -28,7 +28,7 @@ const server = http.createServer((req, res) => {
 const report = {layout: [], interactions: [], requests: []};
 let browser;
 async function ready(page) {
-  await page.waitForFunction(() => document.querySelector('#record-count')?.textContent.includes('matching') || document.querySelector('#case-title')?.textContent.match(/^([CR]\d+_\d+_\d+|F_\{\d+,\d+\})$/));
+  await page.waitForFunction(() => (/^[\d,]+ matching /.test(document.querySelector('#record-count')?.textContent || '') && document.querySelector('#record-list')?.getAttribute('aria-busy') === 'false') || document.querySelector('#case-title')?.textContent.match(/^([CR]\d+_\d+_\d+|F_\{\d+,\d+\})$/));
 }
 async function noOverflow(page, width, route) {
   const value = await page.evaluate(() => ({width: innerWidth, document: document.documentElement.scrollWidth, body: document.body.scrollWidth}));
@@ -86,7 +86,7 @@ async function noOverflow(page, width, route) {
       await noOverflow(page, width, 'rank4-m128-integral');
       await page.locator('#record-scope').selectOption('profiles');
       await page.waitForFunction(() => document.querySelector('#record-count').textContent.includes('matching detailed profiles'));
-      await page.locator('#record-reset').click();await ready(page);
+      await Promise.all([page.waitForURL(base+'/records.html'), page.locator('#record-reset').click()]);await ready(page);
       assert.match(await page.locator('#record-count').innerText(), /^1,434,042/);
       await page.locator('#record-search').fill('C4_128_1');
       await page.waitForFunction(() => document.querySelector('#record-count').textContent.startsWith('1 matching census ring'));

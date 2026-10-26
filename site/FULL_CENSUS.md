@@ -113,7 +113,8 @@ from mixed snapshots. A small bounded cache avoids retaining the census in
 browser memory.
 
 Histograms give complete filter counts and allow pagination to skip unloaded
-bands. At most 24 cards are displayed. Every property and status selector has
+bands. The indexes needed for one result page load concurrently. At most 24
+cards are displayed. Every property and status selector has
 the same meaning in the full census and detailed-profile views. Text searches
 cover documented model/criterion metadata; exact C identifiers locate any
 census ring. Unreleased multiplicity bands are explicitly distinguished from

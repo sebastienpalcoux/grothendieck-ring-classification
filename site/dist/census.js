@@ -97,19 +97,27 @@ globalThis.RingCensus = (() => {
   async function censusPage(manifest, query, offset, limit = 24) {
     const bands = selectedBands(manifest, query);
     const total = bands.reduce((sum, b) => sum + matchingCount(b, query), 0);
-    const records = [];
-    let skip = offset;
+    const records = [], needed = [];
+    if (offset >= total || limit <= 0) return {total, records};
+    let skip = offset, remaining = limit;
     for (const band of bands) {
       const count = matchingCount(band, query);
       if (skip >= count) {skip -= count; continue;}
-      const rows = await bandRows(band);
+      const take = Math.min(remaining, count-skip);
+      needed.push({band, skip, take}); remaining -= take; skip = 0;
+      if (!remaining) break;
+    }
+    const indexes = await Promise.all(needed.map(async part => ({...part, rows: await bandRows(part.band)})));
+    for (const part of indexes) {
+      const {band, rows} = part;
+      let skip = part.skip, remaining = part.take;
       for (let i = 0; i < band.count; i++) {
         const bits = rows.bits(i);
         if (!matches(bits, query)) continue;
         if (skip) {skip--; continue;}
         records.push({id: cid(band, i + 1), rank: band.rank, multiplicity: band.multiplicity,
           source_line: rows.line(i), flags: bits, status: status(bits), properties: properties(bits)});
-        if (records.length === limit) return {total, records};
+        if (--remaining === 0) break;
       }
     }
     return {total, records};
