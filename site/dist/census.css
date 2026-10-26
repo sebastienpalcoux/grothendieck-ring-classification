@@ -1,0 +1,27 @@
+/* Complete census: small result pages and controls that fit a phone. */
+#case-title{overflow-wrap:anywhere}
+.census-filters{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));align-items:end}
+.census-filters>div,.census-card,.census-card-title>*{min-width:0}
+.census-filters .census-search{grid-column:1/-1;width:100%}
+.census-filters input,.census-filters select{width:100%;max-width:100%;min-height:44px;font-size:16px}
+.census-results-heading{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:22px}
+#record-count{font-weight:650;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+#record-note{max-width:90ch;margin:12px 0 24px}
+.census-card{border-top:1px solid var(--line);padding:23px 0}
+.census-card-title{display:flex;flex-wrap:wrap;align-items:center;gap:9px 24px;font:600 19px/1.55 var(--mono);margin:0}
+.census-card-title a{font:inherit;overflow-wrap:anywhere}
+.census-status{font:500 12px/1.6 var(--sans);color:#4e5c72}
+.census-model{font:18px/1.6 var(--serif);margin:7px 0;overflow-wrap:anywhere}
+.census-card .case-actions{margin-top:14px;gap:12px 24px}
+.census-card .case-actions a{min-height:44px;display:inline-flex;align-items:center}
+.census-pagination{border-top:1px solid var(--line);padding:24px 0;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+.census-pagination label{display:flex;align-items:center;flex-wrap:wrap;gap:9px;font:13px/1.7 var(--sans);color:#4e5c72}
+.census-pagination input{width:100px;max-width:100%;min-height:44px;font:16px var(--mono);padding:8px;border:1px solid #bcb6aa;background:var(--white);color:var(--ink)}
+.census-pagination button,.census-results-heading button{min-height:44px}
+.census-pagination button:disabled,.census-card button:disabled{opacity:.5;cursor:default}
+.census-profile-note{padding:17px 19px;border-left:3px solid #b58855;background:#f0eadd;margin:0 0 24px;font:14px/1.75 var(--sans);overflow-wrap:anywhere}
+.census-profile-note p{margin:0 0 10px}
+.census-sources{display:flex;gap:14px 26px;flex-wrap:wrap;margin-block:20px}
+.census-source-facts{font:13px/1.8 var(--sans);overflow-wrap:anywhere}
+@media(max-width:700px){.census-filters{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.census-filters>div:first-child{width:100%}.census-results-heading{align-items:flex-start;flex-direction:column;gap:8px}.census-card-title{flex-direction:column;align-items:flex-start;gap:5px}.census-pagination{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.census-pagination label{grid-column:1/-1;grid-row:1;justify-content:center}.census-pagination button{min-width:0;padding-inline:10px;font-size:13px}.census-card .case-actions{align-items:stretch}.census-card .case-actions a{justify-content:flex-start;max-width:100%;overflow-wrap:anywhere}.census-sources{flex-direction:column;align-items:flex-start}.census-profile-note{padding:14px;font-size:13px}}
+@media(max-width:360px){.census-filters{grid-template-columns:minmax(0,1fr)}.census-filters .census-search{grid-column:auto}}

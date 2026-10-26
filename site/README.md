@@ -2,15 +2,15 @@
 
 [Explore the public Atlas](https://sebastienpalcoux.github.io/grothendieck-ring-classification/) · [Theory and definitions](dist/theory.html) · [Current manuscripts](../manuscripts/README.md)
 
-**24 October 2026:** rank ten is complete at multiplicity one: **136 general exclusions and 58 unitary models**. R10_1_189 is recognized inside the classical SU(4)_6 conformal-embedding module category. Ten rings remain open at ranks six, eight and nine. [Current proofs and precise scope](../evidence/unresolved_retry_20261024/README.md).
+**Complete census directory · 26 October 2026.** Every one of the **1,434,042** released census rings at ranks 3–12 has an individual record. The **3,462** existing detailed profiles remain available, including two rank-two realizations outside this finite census. [Coverage, exact basis maps, structural filters and deployment checks](FULL_CENSUS.md).
 
 > **AI-generated research · independent verification pending.** Automated checks and agent audits establish only their stated scope. Independent human verification and formalization remain pending.
 
 ## Browse the mathematics
 
-All ranks through eleven use the same [record directory](https://sebastienpalcoux.github.io/grothendieck-ring-classification/records.html), model catalogue, manuscript shelf and [open-case list](https://sebastienpalcoux.github.io/grothendieck-ring-classification/unresolved.html). Records are ordered by rank, exact multiplicity and identifier; the directory shows 24 per page.
+All ranks through twelve use the same [record directory](https://sebastienpalcoux.github.io/grothendieck-ring-classification/records.html), model catalogue, manuscript shelf and [open-case list](https://sebastienpalcoux.github.io/grothendieck-ring-classification/unresolved.html). Choose the full census or detailed profiles. Records are ordered by rank, exact multiplicity and identifier; the directory shows 24 per page and loads tensors only on request.
 
-The shared selectors cover integral, weakly integral, simple, perfect, pointed, commutative, self-dual and multiplicity-free rings. Their flags are derived from exact tensors. The [theory page](dist/theory.html) states definitions and mainstream references. Aggregate count tables retain their full recorded populations.
+The shared selectors cover integral, weakly integral, simple, perfect, pointed, commutative, self-dual and multiplicity-free rings. Their flags cover the entire census and are derived from exact tensors. The [theory page](dist/theory.html) states definitions and mainstream references. Aggregate count tables retain their full recorded populations. Missing detailed documentation never means unresolved categorification.
 
 A case page presents its current categorical status, precise research scope, invariants and one fusion matrix at a time. Every tensor is downloadable as a Python list; the convention is `N[i][j][k] = [X_i X_j:X_k]`, with unit `X_0`. Model existence means at least one categorification, not a classification of associators.
 
@@ -39,10 +39,14 @@ The usual manuscripts are the canonical sources in `data/current_publication_rev
 For the local viewer:
 
 ```bash
+python3 site/build_full_census.py
+python3 site/version_assets.py
 cd site
 npm run check
 npm run dev
 ```
+
+The complete-census builder needs a C++17 compiler and Boost headers. Its pinned source downloads are cached; it indexes existing data without running an enumeration. `npm run census:check` independently roundtrips every source tensor and checks sampled properties and browser data queries. [Full design and checks](FULL_CENSUS.md).
 
 `build_ring_properties.py` recomputes exact property flags after catalogue sources change. `check_cases.py`, the high-rank checks and `smoke_test.py` validate tensors, counts, source bindings and current PDF copies. `verify_current_publication.py` also validates the accepted research transitions; historical replays remain separately scoped.
 
@@ -54,6 +58,7 @@ The GitHub Pages workflow restores checksummed payloads, runs the publication ch
 |---|---|
 | `dist/index.html`, `app.js` | Shared explorer, counts, model catalogue and manuscript shelf. |
 | `dist/catalogue.js`, `records.html` | Common record loading and ordered filters for all ranks. |
+| `dist/census.js`, `census.css`, `data/full-census/` | Complete census browsing, exact filters, bounded tensor chunks and individual profile loading. |
 | `dist/case.html`, `cases.js` | Case status, research, fusion matrices and curated sources. |
 | `dist/constructions.html`, `constructions.js`, `constructions.css` | Curated construction examples, their limited novelty scope, and filters. |
 | `dist/unresolved.html` | Current open cases with shareable rank and multiplicity filters. |

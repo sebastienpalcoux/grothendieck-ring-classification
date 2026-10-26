@@ -141,6 +141,12 @@
     table.append(body); wrap.append(table); return wrap;
   }
   function downloadLink(ring, className = "case-button") {
+    if (ring.census_record) {
+      const button = el("button", className, "Download fusion tensor · Python .txt ↓");
+      button.type = "button";
+      button.addEventListener("click", () => RingCensus.download(ring.fusion_tensor, ring.id));
+      return button;
+    }
     const anchor = link("Download fusion tensor · Python .txt ↓", ring.download_url || `./downloads/fusion-tensors/${encodeURIComponent(ring.id)}.txt`, className);
     anchor.download = `${ring.id}.txt`;
     return anchor;
@@ -571,6 +577,67 @@
     if ($("#case-scope")) $("#case-scope").textContent = "The requested case list could not be displayed.";
     if ($("#case-subtitle")) $("#case-subtitle").textContent = "The requested case record could not be displayed.";
   }
+  function renderCensusCase(ring) {
+    document.title = `${ring.id} · Census record · Ring Atlas`;
+    $("#case-title").textContent = ring.id;
+    $("#case-kicker").textContent = `RANK ${ring.rank} · EXACT MULTIPLICITY ${ring.multiplicity} · COMPLETE CENSUS`;
+    $("#case-subtitle").textContent = RingCensus.labels[ring.status] + ". A source-bound record from the complete released census.";
+    $("#case-back").href = `./records.html?rank=${ring.rank}&m=${ring.multiplicity}`;
+    $("#case-back").textContent = "← Back to this census band";
+    $("#case-actions").replaceChildren(downloadLink(ring), recordDownload(ring));
+    const root = $("#case-detail"); root.replaceChildren();
+    const notice = el("div", "case-notice");
+    notice.append(el("p", "", "AI-generated research · independent human verification and formalization pending. Structural ring properties do not establish categorical existence."), link("Research status and verification ↗", "./review.html"));
+    root.append(notice);
+    const nav = el("nav", "case-section-nav"); nav.setAttribute("aria-label", "Case sections");
+    for (const [id, label] of [["classification", "Classification"], ["properties", "Exact properties"], ["fusion-data", "Fusion data"], ["sources", "Sources"]]) nav.append(link(label, "#" + id, ""));
+    root.append(nav);
+    const classification = section("classification", "Classification", "01 / PUBLISHED CATEGORIFICATION STATUS");
+    classification.append(el("h3", "", RingCensus.labels[ring.status]));
+    const descriptions = {
+      excluded: `The project’s published classification for rank ${ring.rank}, exact multiplicity ${ring.multiplicity}, excludes this class from categorification by a fusion category over ℂ. Every modeled and unresolved class in that band has been identified with its census tensor by an exact basis change. This basic record does not assert that a particular exclusion criterion was individually rerun here.`,
+      unitarily_realized: "The cited research profile records a unitary categorical model. Its based fusion ring is identified with this census tensor by an exact basis change. This proves existence of a model within the project’s stated verification scope; it does not classify all associators.",
+      pseudo_unitarily_realized: "The cited research profile records a complex and pseudo-unitary categorical model. Unitarity remains unproved. Its based fusion ring is identified with this census tensor by an exact basis change.",
+      unresolved: "General categorification over ℂ remains unresolved. The linked detailed profile records the current scope of the obstructions and construction attempts. Missing individual documentation elsewhere in the census never implies this unresolved status.",
+      realized: "The cited research profile records a categorical model. Its based fusion ring is identified with this census tensor by an exact basis change. Consult the profile for the precise structure and proof scope."
+    };
+    classification.append(el("p", "case-prose", descriptions[ring.status]));
+    if (ring.profile) {
+      classification.append(el("p", "census-model", ring.profile.name), link(`Read detailed profile ${ring.profile.id} →`, `./case.html?id=${encodeURIComponent(ring.profile.id)}`));
+      classification.append(el("p", "case-small-note", "The detailed profile may use a different basis. Its recorded basis map relates every structure constant to this page’s census basis."));
+    } else classification.append(el("p", "case-small-note", "The complete band classification and rank manuscript are the supporting sources. No separate detailed research profile is attached to this basic census record."));
+    const snapshot = ring.snapshot;
+    const classificationURL = `https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/${snapshot.classification_commit}/${snapshot.classification_summary}`;
+    classification.append(link("Published classification table ↗", classificationURL), document.createTextNode(" · "), link(`Rank-${ring.rank} manuscript ↗`, `./papers/rank${ring.rank}.pdf`));
+    root.append(classification);
+    const props = section("properties", "Exact ring properties", "02 / SOURCE TENSOR");
+    props.append(el("p", "case-prose", "These properties are calculated from the census tensor with exact integer arithmetic. They do not depend on categorifiability."));
+    props.append(dataTable(["Property", "Value"], RingProperties.fields.map(([key, label]) => [label, ring.properties[key] ? "Yes" : "No"]), "Exact structural properties"));
+    const dual = ring.fusion_tensor.map(plane => plane.findIndex(row => row[0] === 1));
+    const invertibles = dual.map((j, i) => ring.fusion_tensor[i][j].every((v, k) => v === Number(k === 0)) ? ring.basis[i] : null).filter(Boolean);
+    props.append(el("p", "case-small-note", "Dual indices: [" + dual.join(", ") + "]. Invertible basis objects: " + invertibles.join(", ") + "."));
+    props.append(link("Definitions and filter conventions →", "./theory.html#filters")); root.append(props, renderTensor(ring));
+    const sources = section("sources", "Sources & provenance", "05 / PINNED CENSUS EXPORT");
+    sources.append(el("p", "case-prose", "The census identifier uses the one-based position within its exact-multiplicity band in the pinned export. Existing R and F identifiers belong to the research catalogues and retain their original meaning."));
+    const facts = el("dl", "record-fields");
+    for (const [key, value] of [["Census identifier", ring.id], ["Source line · one-based", ring.source_line], ["Census commit", snapshot.census_commit], ["Classification commit", snapshot.classification_commit], ["Tensor basis", "X0 is the unit; all data and downloads on this page use the source census basis."], ["Compressed source SHA-256", ring.source.tables_gz_sha256], ["Uncompressed source SHA-256", ring.source.tables_uncompressed_sha256]]) {
+      const row = el("div", "record-field"); row.append(el("dt", "", key), el("dd", "census-source-facts", value)); facts.append(row);
+    }
+    sources.append(facts, el("p", "case-small-note", ring.source.completeness));
+    const links = el("div", "census-sources");
+    const sourceBase = `https://github.com/${snapshot.census_repository}/blob/${snapshot.census_commit}/`;
+    links.append(link("Complete rank dataset · .gz ↗", `https://raw.githubusercontent.com/${snapshot.census_repository}/${snapshot.census_commit}/${ring.source.tables_path}`),
+      link("Census manifest ↗", sourceBase + "results/census.json"), link("Verification and completeness scope ↗", `https://github.com/${snapshot.census_repository}/tree/${snapshot.census_commit}/verification/rank${ring.rank}/`), recordDownload(ring));
+    sources.append(links); root.append(sources);
+  }
+  function attachCensusBinding(binding) {
+    if (!binding) return;
+    const note = el("div", "census-profile-note");
+    note.append(el("p", "", "This detailed profile is connected to census record " + binding.census_id + " by a coefficient-by-coefficient verified basis change."),
+      link("View the census basis and original source line →", "./case.html?id=" + binding.census_id));
+    note.append(lazyDetails("Exact basis map · census index → profile index", () => el("pre", "record-array", JSON.stringify(binding.basis_map_census_to_profile))));
+    $("#case-detail").prepend(note);
+  }
   async function fetchJSON(path) {
     const response = await fetch(path);
     if (!response.ok) throw new Error("The case records could not be loaded. Please reload the page or use the data links below.");
@@ -579,6 +646,20 @@
   async function init() {
     try {
       parseFilters();
+      if (globalThis.RingCensus) {
+        if (document.body.dataset.casePage === "list") {
+          const profiles = await RingCensus.profiles();
+          const ids = Object.keys(profiles.byID).filter(id => profiles.byID[id].status === "unresolved");
+          const payloads = await Promise.all(ids.map(id => RingCensus.getProfile(id)));
+          renderList({cases: payloads.map(p => p.record)}); return;
+        }
+        const id = params.get("id");
+        if (RingCensus.parseID(id)) {renderCensusCase(await RingCensus.getRecord(id)); return;}
+        if (!id || !/^(R\d+_\d+_\d+|F_\{\d+,\d+\})$/.test(id)) {renderError("Choose a valid census or research identifier from the case directory."); return;}
+        const payload = await RingCensus.getProfile(id);
+        renderCase(payload.record, ["unresolved", "excluded"].includes(payload.record.status));
+        attachCensusBinding(payload.census); return;
+      }
       const catalogue = await RingCatalogue.load();
       const unresolved = {cases: catalogue.cases.filter(r => r.status === "unresolved")};
       if (document.body.dataset.casePage === "list") { renderList(unresolved); return; }

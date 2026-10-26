@@ -5,6 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "node dev-preview.mjs",
-    "check": "node --check dist/app.js && node --check dist/cases.js && node check_cases.mjs && python3 smoke_test.py && node --check dist/catalogue.js && python3 check_rank9_10.py && node --check dist/redirect.js && python3 check_rank11.py && python3 ../tools/list_simple_multiplicity_one.py --check && python3 check_rank9_m2.py && node check_rank9_m2.mjs && node tests/check_properties.mjs && python3 -m unittest discover -s tests -v && python3 ../tools/verify_audit_revision.py && python3 build_constructions.py --check && node --check dist/constructions.js && node tests/check_constructions.mjs"
+    "census:build": "python3 build_full_census.py",
+    "census:check": "python3 check_full_census.py --full --property-samples && node tests/check_full_census.mjs",
+    "check": "node --check dist/census.js && node tests/check_full_census.mjs && python3 check_full_census.py && node --check dist/app.js && node --check dist/cases.js && node check_cases.mjs && python3 smoke_test.py && node --check dist/catalogue.js && python3 check_rank9_10.py && node --check dist/redirect.js && python3 check_rank11.py && python3 ../tools/list_simple_multiplicity_one.py --check && python3 check_rank9_m2.py && node check_rank9_m2.mjs && node tests/check_properties.mjs && python3 -m unittest discover -s tests -v && python3 ../tools/verify_audit_revision.py && python3 build_constructions.py --check && node --check dist/constructions.js && node tests/check_constructions.mjs"
   }
 }

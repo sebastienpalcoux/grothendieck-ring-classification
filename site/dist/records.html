@@ -4,34 +4,39 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#0d1325">
-  <meta name="description" content="Recorded ring cases through rank 11: models, exclusions and open questions, ordered by rank, multiplicity and identifier.">
+  <meta name="description" content="Browse all 1,434,042 released fusion rings at ranks 3–12, with exact property filters, classification status and permanent individual records.">
   <title>Case records · Fusion &amp; Grothendieck Ring Atlas</title>
   <link rel="stylesheet" href="./styles.css?v=71b7d617aa5b">
   <link rel="stylesheet" href="./cases.css?v=b593390cf65b">
+  <link rel="stylesheet" href="./census.css?v=9f290cbfa4ce">
   <script src="./properties.js?v=5c1751fb0801" defer></script>
-  <script src="./catalogue.js?v=6e2337730aa8" defer></script>
+  <script src="./catalogue.js?v=3e28eda77ada" defer></script>
+  <script src="./vendor/fflate-0.8.2.js?v=c3b34f2e9f5e" defer></script>
+  <script src="./census.js?v=4bdf814a84e5" defer></script>
   <link rel="stylesheet" href="./responsive.css?v=185b6fcb0e04">
   <script src="./responsive.js?v=845cf00dd2f7" defer></script>
 </head>
-<body>
+<body data-census-directory="full">
   <a class="skip-link" href="#case-main">Skip to case records</a>
   <header class="site-header">
     <a class="brand" href="./index.html" aria-label="Fusion and Grothendieck Ring Atlas home"><span class="brand-symbol" aria-hidden="true"><span>FG</span></span><span class="brand-name">FUSION &amp; GROTHENDIECK<span class="brand-sub">RING ATLAS</span></span></a>
     <nav class="top-nav" aria-label="Main navigation"><a href="./index.html#atlas">Explore</a><a href="./records.html" class="nav-active" aria-current="page">Case records</a><a href="./constructions.html">New constructions</a><a href="./unresolved.html">Unresolved cases</a><a href="./index.html#rings">Realizations</a><a href="./index.html#papers">Papers</a><a href="./theory.html">Theory &amp; definitions</a></nav>
   </header>
   <main id="case-main">
-    <section class="case-hero"><p class="eyebrow">RING ATLAS / INDIVIDUAL RECORDS</p><h1>Case <em>records</em></h1><p class="case-hero-description">Models, exclusions and open questions, ordered by rank, multiplicity and identifier.</p><details class="case-directory-guide"><summary>Coverage of the directory</summary><p>This directory contains the atlas’s individual case profiles. The count table records the full census in each stated band; some historical exclusions are documented in the manuscripts without an individual profile.</p></details></section>
+    <section class="case-hero"><p class="eyebrow">RING ATLAS / COMPLETE CENSUS</p><h1>Case <em>records</em></h1><p class="case-hero-description"><strong>1,434,042 fusion rings</strong> at ranks 3–12, within the published multiplicity bounds. Every ring has an individual record and a downloadable fusion tensor.</p><details class="case-directory-guide"><summary>Full census and detailed profiles</summary><p>The full census includes excluded, modeled and unresolved rings. Detailed profiles add constructions, proofs and research history for 3,460 census rings; two further profiles describe the rank-two realizations, outside this finite census. A basic record without a detailed profile is not an unresolved case.</p><p>Census identifiers begin with C; the existing R and F research identifiers retain their meaning and permanent addresses. Exact basis changes connect each detailed profile to its census record. <a href="./index.html#sources">Published bounds and source datasets →</a></p></details></section>
     <section class="case-content-section">
-      <form class="case-filters" onsubmit="return false">
-        <div><label for="record-search">Find a record</label><input id="record-search" type="search" placeholder="Identifier, model or criterion"></div>
-        <div><label for="record-rank">Rank</label><select id="record-rank"><option value="">All ranks</option></select></div>
+      <form class="case-filters census-filters" id="record-form">
+        <div class="census-search"><label for="record-search">Find a record</label><input id="record-search" type="search" placeholder="Census ID, research ID or documented model" autocomplete="off"></div>
+        <div><label for="record-scope">Coverage</label><select id="record-scope"><option value="census">Full census</option><option value="profiles">Detailed profiles</option></select></div>
+        <div><label for="record-rank">Rank</label><select id="record-rank"><option value="">All census ranks · 3–12</option></select></div>
         <div><label for="record-m">Exact multiplicity</label><input id="record-m" type="number" min="1" step="1" placeholder="Any"></div>
         <div><label for="record-status">Status</label><select id="record-status"><option value="">All decisions</option><option value="excluded">Excluded over ℂ</option><option value="realized">Categorical model</option><option value="unitarily_realized">Unitary model</option><option value="pseudo_unitarily_realized">Pseudo-unitary · unitarity unproved</option><option value="unresolved">Unresolved</option></select></div>
       </form>
       <div id="record-property-filters"></div>
-      <p id="record-count" aria-live="polite"></p><div id="record-list">Loading case records…</div>
-      <nav class="case-actions" aria-label="Case record pages"><button class="case-secondary-button" id="record-previous" type="button">← Previous 24</button><button class="case-secondary-button" id="record-next" type="button">Next 24 →</button></nav>
-      <noscript><p>The <a href="./index.html#sources">source datasets</a> and <a href="./index.html#papers">manuscripts</a> remain available without JavaScript.</p></noscript>
+      <div class="census-results-heading"><p id="record-count" role="status" aria-live="polite">Loading the complete census index…</p><button class="case-secondary-button" id="record-reset" type="button">Clear all filters</button></div>
+      <p id="record-note" class="case-small-note"></p><div id="record-list" aria-busy="true">Loading case records…</div>
+      <nav class="census-pagination" aria-label="Case record pages"><button class="case-secondary-button" id="record-previous" type="button" disabled>← Previous 24</button><label for="record-page">Page <input id="record-page" type="number" min="1" step="1" value="1" inputmode="numeric"><span id="record-pages"></span></label><button class="case-secondary-button" id="record-next" type="button" disabled>Next 24 →</button></nav>
+      <noscript><p>Interactive browsing requires JavaScript. The <a href="https://github.com/sebastienpalcoux/fusion-ring-census#datasets">complete downloadable census</a>, <a href="./index.html#sources">count tables</a> and <a href="./index.html#papers">manuscripts</a> remain available.</p></noscript>
     </section>
   </main>
   <footer class="site-footer"><div class="footer-main"><span class="footer-brand">FUSION &amp; GROTHENDIECK RING ATLAS</span><a href="./index.html">Research atlas ↑</a><a href="https://github.com/sebastienpalcoux/grothendieck-ring-classification">GitHub source ↗</a></div><p class="footer-caution">AI-generated research · Independent human verification and Lean formalization pending. <a href="./review.html">Research status &amp; verification</a></p></footer>

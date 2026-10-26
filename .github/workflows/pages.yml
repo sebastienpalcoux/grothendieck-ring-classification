@@ -2,7 +2,7 @@ name: Publish public atlas
 
 on:
   push:
-    branches: [main, codex/rank9-10-publication]
+    branches: [main, codex/rank9-10-publication, codex/full-census]
     paths:
       - 'site/**'
       - 'data/large_files_manifest.json'
@@ -32,11 +32,20 @@ jobs:
           python-version: '3.12'
       - name: Install structural-property and finite-replay dependencies
         run: python -m pip install sympy==1.14.0 numpy==2.3.5
+      - name: Install exact integer indexer headers
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends libboost-dev
       - name: Restore checksummed download archives
         run: python tools/restore_data.py
+      - name: Build complete census browsing data from pinned released tensors
+        run: python site/build_full_census.py --check
       - name: Check the published snapshot
         run: |
           python site/smoke_test.py
+          python site/check_full_census.py --full --property-samples
+          node --check site/dist/census.js
+          node site/tests/check_full_census.mjs
           node --check site/dist/app.js
           node --check site/dist/cases.js
           node site/check_cases.mjs
@@ -55,6 +64,22 @@ jobs:
           python -m unittest discover -s site/tests -v
           python tools/verify_audit_revision.py
           python tools/list_simple_multiplicity_one.py --check
+      - name: Install the browser-check dependency
+        run: npm install --prefix "${RUNNER_TEMP}/census-browser" --no-save --ignore-scripts playwright@1.64.1
+      - name: Check complete census on desktop and phone screen widths
+        env:
+          NODE_PATH: ${{ runner.temp }}/census-browser/node_modules
+        run: |
+          CENSUS_BROWSER="$(command -v google-chrome)"
+          BROWSER_EXECUTABLE="${CENSUS_BROWSER}" node site/check_full_census_browser.cjs --output-dir "${RUNNER_TEMP}/census-browser-results"
+      - name: Preserve browser-check screenshots and report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: complete-census-browser-checks
+          path: ${{ runner.temp }}/census-browser-results
+          if-no-files-found: ignore
+          retention-days: 7
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
       - name: Upload the static atlas

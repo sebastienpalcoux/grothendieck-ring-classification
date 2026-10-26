@@ -70,6 +70,7 @@ globalThis.RingCatalogue = (() => {
   };
   const anchor = (text, href) => {const result = node("a", text); result.href = href; return result;};
   async function directory() {
+    if (document.body?.dataset.censusDirectory === "full") return;
     const root = document.querySelector("#record-list");
     if (!root) return;
     try {

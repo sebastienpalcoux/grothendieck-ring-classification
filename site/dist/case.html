@@ -8,9 +8,12 @@
   <title>Case record · Fusion &amp; Grothendieck Ring Atlas</title>
   <link rel="stylesheet" href="./styles.css?v=71b7d617aa5b">
   <link rel="stylesheet" href="./cases.css?v=b593390cf65b">
+  <link rel="stylesheet" href="./census.css?v=9f290cbfa4ce">
   <script src="./properties.js?v=5c1751fb0801" defer></script>
-  <script src="./catalogue.js?v=6e2337730aa8" defer></script>
-  <script src="./cases.js?v=cf0345079966" defer></script>
+  <script src="./catalogue.js?v=3e28eda77ada" defer></script>
+  <script src="./vendor/fflate-0.8.2.js?v=c3b34f2e9f5e" defer></script>
+  <script src="./census.js?v=4bdf814a84e5" defer></script>
+  <script src="./cases.js?v=9e6429b78ec7" defer></script>
   <link rel="stylesheet" href="./responsive.css?v=185b6fcb0e04">
   <script src="./responsive.js?v=845cf00dd2f7" defer></script>
 </head>
@@ -22,7 +25,7 @@
   </header>
   <main id="case-main">
     <section class="case-hero">
-      <a id="case-back" class="case-back" href="./unresolved.html">← Back to unresolved cases</a>
+      <a id="case-back" class="case-back" href="./records.html">← Back to case records</a>
       <p id="case-kicker" class="eyebrow">FUSION RING / INDIVIDUAL CASE</p>
       <h1 id="case-title">Case <em>record</em></h1>
       <p id="case-subtitle" class="case-hero-description">Loading the recorded invariants and research data…</p>
@@ -30,7 +33,7 @@
     </section>
     <section class="case-content-section">
       <div id="case-detail"><p class="case-loading" role="status">Loading case record…</p></div>
-      <noscript><p class="static-note">This page uses JavaScript. The <a href="./data/unresolved_cases.json">unresolved case records</a>, <a href="./data/resolved_cases.json">resolved case records</a> and <a href="./data/realized_rings.json">realized ring records</a> preserve the earlier data. The <a href="./records.html">case directory</a> combines the records for every rank through 11.</p></noscript>
+      <noscript><p class="static-note">This page uses JavaScript. The <a href="https://github.com/sebastienpalcoux/fusion-ring-census#datasets">complete census datasets</a>, <a href="./data/unresolved_cases.json">earlier unresolved records</a> and <a href="./data/realized_rings.json">earlier model records</a> remain downloadable. The <a href="./records.html">case directory</a> covers every released ring through rank twelve.</p></noscript>
     </section>
   </main>
   <footer class="site-footer"><div class="footer-main"><span class="footer-brand">FUSION &amp; GROTHENDIECK RING ATLAS</span><a href="./unresolved.html">Unresolved case directory ↑</a><a href="https://github.com/sebastienpalcoux/grothendieck-ring-classification">GitHub source ↗</a></div><p class="footer-caution">AI-generated research · Independent human verification and Lean formalization pending. <a href="./review.html">Research status &amp; verification</a></p></footer>
