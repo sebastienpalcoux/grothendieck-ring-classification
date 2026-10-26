@@ -69,7 +69,7 @@ general categorification remains open; a dash marks an unanalyzed band.
 | Data | [Current decision records](data/current_publication_revision.json) · [All fusion rings and enumeration](https://github.com/sebastienpalcoux/fusion-ring-census) |
 | Computation | [Rank-nine M2 replay](evidence/rank9_m2_20261024/README.md) · [Rank-11 replay](evidence/rank11_m1_20261023/README.md) · [Earlier replay instructions](docs/VERIFY.md) · [Provenance](docs/PROVENANCE.md) |
 | Project details | [Research updates, models, band tables and repository guide](docs/PROJECT_GUIDE.md) |
-| Announcement | [Five-page introduction](announcements/hexagon-2026-10/Low_rank_Grothendieck_rings_announcement.pdf) · [Hexagon](https://hexagonmath.org/2610.00300?version=1) |
+| Announcement & citation | [Current four-page overview](announcements/hexagon-2026-10/Low_rank_Grothendieck_rings_announcement.pdf) · [Hexagon](https://hexagonmath.org/2610.00300) · [How to cite](https://sebastienpalcoux.github.io/grothendieck-ring-classification/#cite) |
 
 The companion [Fusion Ring Census](https://github.com/sebastienpalcoux/fusion-ring-census)
 enumerates based rings. This repository records their categorifications and exclusions.

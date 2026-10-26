@@ -2,29 +2,31 @@
 
 **Low-rank Grothendieck rings: an AI-assisted classification project, constructions, and open problems**
 
-A five-page overview of the classification scope, seven construction candidates for novelty review, and two unresolved rank-six categorification problems.
+The current four-page overview, revised on 26 October 2026, covers the classification through rank twelve, the constructions catalogue, and all ten open cases in the stated census ranges.
 
-**AI-generated research · independent verification pending.** The announcement distinguishes reported mathematical results, exact finite checks, and open problems. Independent verification and Lean formalization remain pending.
+**AI-generated research · independent human verification pending.** The announcement distinguishes categorical arguments, exact finite checks, and enumeration completeness. It makes no claim of novelty up to tensor equivalence or of exoticness.
 
-- [Read the five-page announcement](Low_rank_Grothendieck_rings_announcement.pdf)
-- [Download the TeX source ZIP for Hexagon](Hexagon_Source.zip)
-- [Submission text and provenance](submission_metadata.txt)
-- [Pinned snapshot and file checksums](snapshot_manifest.json)
+- [Read the current announcement · PDF](Low_rank_Grothendieck_rings_announcement.pdf)
+- [LaTeX source](main.tex) · [Source ZIP for Hexagon](Hexagon_Source.zip)
+- [Citation · BibTeX](citation.bib)
+- [Submission metadata](submission_metadata.txt) · [Snapshot and checksums](snapshot_manifest.json)
 
-## Hexagon announcement
+## Hexagon record and revision status
 
-**Read on Hexagon:** [hexagon:2610.00300v1](https://hexagonmath.org/2610.00300?version=1).
+The persistent record is [hexagon:2610.00300](https://hexagonmath.org/2610.00300). Its first version is public. The 26 October revision has compiled successfully in Hexagon's private preview and is ready for final submission, which requires renewed contributor acceptance of the submission terms. It has not yet been submitted or published.
 
-The contributor approved **CC BY 4.0**, declared that **some** of the announcement had been checked and understood by a human, and accepted the required intellectual declarations and deposit agreement. The work was disclosed as primarily AI-generated.
+The prepared revision retains the existing **CC BY 4.0** licence, **primarily AI-generated** disclosure, and contributor's existing **some parts** human-understanding declaration.
 
-This package records the submitted source and prepared reference PDF. `Hexagon_Source.zip` contains only `main.tex`, including the bibliography; code and data remain in the linked GitHub repositories.
+## How to cite
 
-## Rebuild
+Sébastien Palcoux, *Low-rank Grothendieck rings: an AI-assisted classification project, constructions, and open problems*, Hexagon, hexagon:2610.00300 (2026).
 
-Run `latexmk -pdf -interaction=nonstopmode -halt-on-error main.tex` with a standard TeX Live installation. No shell escape, external images, bibliography processor, or custom class is required.
+For a particular theorem, construction, dataset or software run, also cite its primary source and the exact repository commit used. The live catalogues can change.
 
-## Snapshot
+## Rebuild and snapshot
 
-The announcement cites fixed classification commit `e34396cd95aff1090c10974dd934fe6054ca45eb` and census commit `d4c36cc2ee5eb5f0e5291de18d2bb433ffb7ce8b`. Its 14 research manuscripts / 485 pages count describes that snapshot and excludes this announcement.
+Run `latexmk -pdf -interaction=nonstopmode -halt-on-error main.tex` with a standard TeX Live installation. The source has an inline bibliography and needs no external images or custom class.
 
-[Classification repository](https://github.com/sebastienpalcoux/grothendieck-ring-classification) · [Fusion-ring census](https://github.com/sebastienpalcoux/fusion-ring-census) · [Interactive atlas](https://sebastienpalcoux.github.io/grothendieck-ring-classification/)
+The announcement pins classification commit `9891a7df86783eb577a801caa10e0b0f3f84c9be` and census commit `a35155aae3b190112d2679ad14d2097d13c4dda0`. Its four pages are separate from the research-manuscript inventory.
+
+[Classification repository](https://github.com/sebastienpalcoux/grothendieck-ring-classification) · [Fusion-ring census](https://github.com/sebastienpalcoux/fusion-ring-census) · [Public Atlas](https://sebastienpalcoux.github.io/grothendieck-ring-classification/)

@@ -249,3 +249,13 @@ main>section,.research-notice,.site-header,.site-footer{padding-inline:max(clamp
 .top-nav{min-width:0;flex-wrap:wrap;align-content:center;column-gap:20px;row-gap:0}.top-nav a{white-space:nowrap;padding-block:10px}
 @media(max-width:1250px){.edition{display:none}}
 @media(max-width:800px){.top-nav{height:auto;gap:3px 20px;min-height:28px}}
+
+/* Project citation: readable text and wrapping BibTeX at every screen width. */
+.citation-panel{margin:24px 0;padding:22px clamp(17px,3vw,28px);border:1px solid var(--line);background:var(--white);min-width:0;scroll-margin-top:24px}
+.citation-panel h3{font:normal 28px/1.2 var(--serif);margin:0 0 14px}
+.citation-panel p{max-width:86ch;font-size:14px;line-height:1.7;margin:0 0 12px}
+.citation-panel .citation-text{padding-left:16px;border-left:3px solid #a57843;color:var(--ink)}
+.citation-panel a{color:#674422;text-decoration:underline;text-underline-offset:3px;overflow-wrap:anywhere}
+.citation-actions{display:flex;flex-wrap:wrap;gap:10px 24px;margin:16px 0;font-size:13px}
+.citation-panel summary{cursor:pointer;font-size:13px;font-weight:600;padding:7px 0}
+.citation-panel pre{margin:8px 0 0;padding:16px;background:#f4f1ea;white-space:pre-wrap;overflow-wrap:anywhere;word-break:break-word;font:12px/1.65 var(--mono)}

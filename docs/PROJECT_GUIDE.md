@@ -44,10 +44,10 @@ categorifications over ℂ.
 > [Verification scope and review](../docs/PREPUBLICATION_REVIEW.md).
 
 > [!NOTE]
-> **[Research announcement · 5 pages](../announcements/hexagon-2026-10/Low_rank_Grothendieck_rings_announcement.pdf)**
-> Historical October announcement: classification scope, seven construction candidates, and the two rank-six open problems.
-> [TeX source and Hexagon submission package](../announcements/hexagon-2026-10/).
-> **[Read the announcement on Hexagon · 2610.00300v1](https://hexagonmath.org/2610.00300?version=1)**.
+> **[Research announcement · 4 pages · revised 26 October 2026](../announcements/hexagon-2026-10/Low_rank_Grothendieck_rings_announcement.pdf)**
+> Current scope through rank twelve, the constructions catalogue and all ten open cases.
+> [Source, snapshot and Hexagon revision status](../announcements/hexagon-2026-10/).
+> [Hexagon · 2610.00300](https://hexagonmath.org/2610.00300) · [How to cite](https://sebastienpalcoux.github.io/grothendieck-ring-classification/#cite).
 
 > [!TIP]
 > **[Earlier construction-candidates report (PDF)](../docs/New_category_candidates_and_open_cases.pdf)**
