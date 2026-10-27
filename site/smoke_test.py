@@ -203,7 +203,7 @@ current_totals=current_pages['totals']
 page_summary=(f"{current_pages['document_counts']['mathematical_manuscripts']} mathematical manuscripts: {current_totals['mathematical_manuscript']} pages; "
               f"with the three verification guides: {current_totals['mathematical_manuscripts_and_guides']}; "
               f"with the current research-status report: {current_totals['all_distinct_documents']}. Each distinct document is counted once.")
-assert '<span id="manuscript-page-summary">'+page_summary+'</span>' in (root/'index.html').read_text()
+assert '<p class="scope-note" id="current-manuscript-page-summary">'+page_summary+' <a href=' in (root/'index.html').read_text()
 tree = ast.parse((root / reader["files"]["remaining_cases.py"]["path"]).read_text())
 constants = {node.targets[0].id: ast.literal_eval(node.value) for node in tree.body
              if isinstance(node, ast.Assign) and node.targets[0].id != "TENSORS"}
