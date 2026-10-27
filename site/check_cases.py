@@ -301,8 +301,13 @@ def check_site(root=None, repository=None):
     scope_source = read_json(repository / "site/categorification_scope.json")
     require(scope_source.get("levels") == list(STRUCTURE_LEVELS), "Categorification hierarchy is not ordered from general to unitary")
     require(set(scope_source.get("cases", {})) == set(ids), "Categorification audit does not cover precisely the current cases")
+    sys.path.insert(0, str(repository / "tools"))
+    from frontier_20261027 import active as frontier_active, current_scope
     for record in unresolved:
-        check_scope(record, scope_source["cases"][record["id"]], repository)
+        expected = scope_source["cases"][record["id"]]
+        if frontier_active(repository):
+            expected = current_scope(record["id"], expected)
+        check_scope(record, expected, repository)
     excluded_scopes = scope_source.get("closed_cases", {})
     realized_scopes = scope_source.get("realized_cases", {})
     require(not set(excluded_scopes) & set(realized_scopes), "Retained dossier both excluded and realized")

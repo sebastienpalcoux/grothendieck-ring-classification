@@ -2,7 +2,7 @@
 // Complete census directory. Tensor and band requests are bounded; old research
 // identifiers remain separate aliases with coefficient-verified basis maps.
 globalThis.RingCensus = (() => {
-  const dataVersion = "9d4ee69795aff28d7b90";
+  const dataVersion = "92ad4621fe89c591f9ca";
   const base = "./data/full-census/";
   const fields = ["integral", "weakly_integral", "simple", "perfect", "pointed", "commutative", "self_dual", "multiplicity_free"];
   const codes = {excluded: 1, unitarily_realized: 2, pseudo_unitarily_realized: 3, unresolved: 4, realized: 5};

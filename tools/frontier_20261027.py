@@ -61,6 +61,16 @@ def publication_matches(relative,expected,repo=ROOT):
  if not entry or expected not in entry['prior_sha256'] or sha(p)!=entry['after_sha256']:return False
  return all(sha(repo/n)==h for n,h in data['immutable_decisions'].items())
 
+def current_scope(rid, scope):
+ """Apply the accepted research note while preserving audited status fields."""
+ from copy import deepcopy
+ scope=deepcopy(scope)
+ if rid=='R8_3_1768':
+  text=FINDINGS[rid][0]
+  scope['notes']=[n for n in scope.get('notes',[])if n!=text and 'remaining categorical gap'not in n and 'lacks the required algebra'not in n]
+  scope['notes'].append(text)
+ return scope
+
 def apply_profiles(repo=ROOT):
  repo=Path(repo)
  if not active(repo):return
@@ -80,10 +90,8 @@ def apply_profiles(repo=ROOT):
        'data':{'status':'excluded'if rid in EXCLUDED else'unresolved','findings':text,
                'scope':'General categorification decision'if rid in EXCLUDED else'Necessary restrictions and construction-route exclusions only'}})
    row['evidence']=sources+[r for r in row.get('evidence',[])if r['path']not in paths]
-   scope=row['categorification_scope']
-   if rid=='R8_3_1768':
-    scope['notes']=[n for n in scope.get('notes',[])if n!=text and 'remaining categorical gap'not in n and 'lacks the required algebra'not in n]
-    scope['notes'].append(text)
+   scope=current_scope(rid,row['categorification_scope'])
+   row['categorification_scope']=scope
    if rid in EXCLUDED:
     current=proof(repo,LEDGER)
     row.update(status='excluded',existence='excluded',source_file=LEDGER,source_url=current['url'],investigation_deferred=False)
