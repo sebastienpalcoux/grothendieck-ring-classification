@@ -206,6 +206,8 @@ def document_paths(repo):
     from correctness_publication import active as correctness_active
     if correctness_active(repo):
         excluded = excluded | {'manuscripts/prepublication-review-2026-10-24.pdf','manuscripts/prepublication-review-2026-10-24.tex'}
+    from frontier_20261027 import active as latest_active
+    if latest_active(repo):excluded=excluded|{'manuscripts/prepublication-review-2026-10-25.pdf','manuscripts/prepublication-review-2026-10-25.tex'}
     roots = [repo / 'manuscripts']
     roots += [repo / 'supplements' / ('rank' + str(rank)) / folder
               for rank in range(2, 9) for folder in ('papers', 'paper')]
@@ -217,7 +219,7 @@ def document_paths(repo):
 def validate_documents(repo, check_web=False):
     repo = Path(repo)
     revision = json.loads((repo / DOCUMENT_REVISION).read_text())
-    need(revision['schema'] == 'current-document-revision/v1' and revision['date'] in ('2026-10-17', '2026-10-19', '2026-10-20', '2026-10-21', '2026-10-22', '2026-10-24', '2026-10-25'),
+    need(revision['schema'] == 'current-document-revision/v1' and revision['date'] in ('2026-10-17', '2026-10-19', '2026-10-20', '2026-10-21', '2026-10-22', '2026-10-24', '2026-10-25', '2026-10-27'),
          'Current document revision identity')
     from rank7_publication import remaining_ids, extension
     need(revision['remaining_ids'] == remaining_ids(repo)

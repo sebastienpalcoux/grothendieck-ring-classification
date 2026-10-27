@@ -13,6 +13,8 @@ def publication_matches(relative,expected,repo=ROOT):
  if not p.is_file():return False
  actual=digest(p)
  if actual==expected:return True
+ from frontier_20261027 import publication_matches as frontier_matches
+ if frontier_matches(relative,expected,repo):return True
  receipt=repo/'data/rank12_publication_replacements.json'
  if not receipt.is_file():return False
  r=json.loads(receipt.read_text());entry=r['files'].get(relative)

@@ -1,13 +1,8 @@
 # Historical 38-case study and current proof references
 
-<!-- current-theoretical-retry -->
-**Current results · 24 October 2026.** Rank ten at multiplicity one is complete:
-136 general exclusions and 58 unitary models. R10_1_189 is recognized inside
-the classical SU(4)_6 conformal-embedding module category. Ten cases remain
-open at ranks six, eight and nine. Their new theoretical restrictions and
-the actual twisted precursor for R8_3_1768 do not claim further decisions.
-[Proofs and precise scope](https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/evidence/unresolved_retry_20261024/README.md).
-<!-- /current-theoretical-retry -->
+<!-- frontier-20261027 -->
+**27 October 2026 · audited continuation.** R9_2_1607, R9_2_1975 and R9_2_1976 are excluded over the complex numbers. **Seven cases remain unresolved:** two at rank six, four at rank eight and one at rank nine. The conditional R1660–R941 algebra construction is precise; every GH(C6,2) Morita route for R1768 is excluded. [Proofs, individual findings and exact replay](../evidence/frontier_20261027/README.md). Independent human verification remains pending.
+<!-- /frontier-20261027 -->
 
 The rank-eight multiplicity-three continuation addresses all 3,527 supplied exact-multiplicity-three rings: 3,507 general exclusions, 16 models and 4 unresolved cases. Every recorded model admits a unitary realization. The four remaining rings retain unresolved status for general complex categorification. R8_3_436 has an independent general exclusion.
 

@@ -4,7 +4,10 @@ import json,re
 from current_frontier import count as open_count
 ROOT=Path(__file__).resolve().parents[1];REL='evidence/rank9_m2_20261024';ATLAS='https://sebastienpalcoux.github.io/grothendieck-ring-classification/'
 def active():return(ROOT/REL/'summary.json').is_file()
-def counts():return json.loads((ROOT/REL/'summary.json').read_text())
+def counts():
+ from frontier_20261027 import active as latest_active, COUNTS
+ if latest_active(ROOT):return {'excluded':COUNTS['excluded'],'modelled':COUNTS['unitarily_realized'],'unresolved':COUNTS['unresolved']}
+ return json.loads((ROOT/REL/'summary.json').read_text())
 def banner():
  c=counts()
  return(f'**Current results · 24 October 2026.** Rank nine at exact multiplicity two has **{c["excluded"]:,} general exclusions, {c["modelled"]} unitary models and {c["unresolved"]} unresolved rings** among 2,083 inputs. '
@@ -26,9 +29,11 @@ def front(text):
   latest='[Rank-nine M2 replay](evidence/rank9_m2_20261024/README.md) · '
   if '[Rank-11 replay]' in text:text=text.replace('[Rank-11 replay]',latest+'[Rank-11 replay]')
   else:text=text.replace('[Replay instructions](docs/VERIFY.md)',latest+'[Rank-11 replay](evidence/rank11_m1_20261023/README.md) · [Earlier replay instructions](docs/VERIFY.md)')
+ from frontier_20261027 import active as latest_active, LEDGER
+ if latest_active(ROOT):text=text.replace(REL+'/ledger.csv',LEDGER.replace('.json','.csv'))
  return text
 
 def index(text):
  text=text.replace('seven unresolved rings, including R10_1_189',f'{open_count()} unresolved rings across ranks six, eight, nine and ten')
- text=text.replace('**Ranks 9–11:** multiplicity one only. Rank 9 has 102 exclusions and 40 unitary models; rank 10 has 136 exclusions, 57 unitary models and 1 unresolved; rank 11 has 155 exclusions and 27 unitary models.', '**Rank 9:** through multiplicity two, 2,145 general exclusions, 76 unitary models and four unresolved. Exact multiplicity two contributes 2,043 exclusions and 36 models.\n\n**Ranks 10–11:** multiplicity one. Rank 10 has 136 exclusions, 57 unitary models and 1 unresolved; rank 11 has 155 exclusions and 27 unitary models.')
+ text=text.replace('**Ranks 9–11:** multiplicity one only. Rank 9 has 102 exclusions and 40 unitary models; rank 10 has 136 exclusions, 57 unitary models and 1 unresolved; rank 11 has 155 exclusions and 27 unitary models.', '**Rank 9:** through multiplicity two, 2,148 general exclusions, 76 unitary models and one unresolved. Exact multiplicity two contributes 2,046 exclusions and 36 models.\n\n**Ranks 10–11:** multiplicity one. Rank 10 has 136 exclusions, 57 unitary models and 1 unresolved; rank 11 has 155 exclusions and 27 unitary models.')
  return text

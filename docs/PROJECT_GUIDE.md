@@ -1,23 +1,12 @@
 # Grothendieck ring classification · project guide
 
+<!-- frontier-20261027 -->
+**27 October 2026 · audited continuation.** R9_2_1607, R9_2_1975 and R9_2_1976 are excluded over the complex numbers. **Seven cases remain unresolved:** two at rank six, four at rank eight and one at rank nine. The conditional R1660–R941 algebra construction is precise; every GH(C6,2) Morita route for R1768 is excluded. [Proofs, individual findings and exact replay](../evidence/frontier_20261027/README.md). Independent human verification remains pending.
+<!-- /frontier-20261027 -->
+
 <!-- correctness-20261025 -->
 **Correctness revision · 25 October 2026.** The current classification is unchanged. Three model-identification arguments are repaired, R8_3_721 has a direct exact completion, and implementation/replay defects are corrected. [Findings, corrections and exact commands](../evidence/correctness_20261025/README.md). Independent human verification remains pending.
 <!-- /correctness-20261025 -->
-
-<!-- current-theoretical-retry -->
-**Current results · 24 October 2026.** Rank ten at multiplicity one is complete:
-136 general exclusions and 58 unitary models. R10_1_189 is recognized inside
-the classical SU(4)_6 conformal-embedding module category. Ten cases remain
-open at ranks six, eight and nine. Their new theoretical restrictions and
-the actual twisted precursor for R8_3_1768 do not claim further decisions.
-[Proofs and precise scope](https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/evidence/unresolved_retry_20261024/README.md).
-<!-- /current-theoretical-retry -->
-
-<!-- current-high-rank-publication -->
-
-**Current results · 24 October 2026.** Rank nine at exact multiplicity two has **2,043 general exclusions, 36 unitary models and 4 unresolved rings** among 2,083 inputs. The complete rank-nine census through multiplicity two contains 2,225 rings. The project now has **10 unresolved rings** across ranks six, eight and nine. [Rank-nine M2 manuscript](../publications/rank9-m2/paper/rank9-m2.pdf) · [Current proofs and exact replay](../evidence/rank9_m2_20261024/README.md) · [All current manuscripts](../manuscripts/README.md) · [All open cases](https://sebastienpalcoux.github.io/grothendieck-ring-classification/unresolved.html).
-
-<!-- /current-high-rank-publication -->
 
 [Repository front page](../README.md) · [Interactive atlas](https://sebastienpalcoux.github.io/grothendieck-ring-classification/)
 
@@ -45,13 +34,13 @@ categorifications over ℂ.
 
 > [!NOTE]
 > **[Research announcement · 4 pages · revised 26 October 2026](../announcements/hexagon-2026-10/Low_rank_Grothendieck_rings_announcement.pdf)**
-> Current scope through rank twelve, the constructions catalogue and all ten open cases.
+> Current scope through rank twelve, the constructions catalogue and all seven open cases.
 > [Source, snapshot and Hexagon revision status](../announcements/hexagon-2026-10/).
 > [Hexagon · 2610.00300](https://hexagonmath.org/2610.00300) · [How to cite](https://sebastienpalcoux.github.io/grothendieck-ring-classification/#cite).
 
 > [!TIP]
 > **[Earlier construction-candidates report (PDF)](../docs/New_category_candidates_and_open_cases.pdf)**
-> Earlier report of seven provisional construction candidates, the known `Rep(AGL(1,7))` model, and the open cases at that checkpoint. [Current open tensors](../data/current_remaining_cases.py) cover all 10 present questions.
+> Earlier report of seven provisional construction candidates, the known `Rep(AGL(1,7))` model, and the open cases at that checkpoint. [Current open tensors](../data/current_remaining_cases.py) cover all 7 present questions.
 > Novelty up to tensor equivalence remains subject to independent verification.
 
 | Start here | What you will find |

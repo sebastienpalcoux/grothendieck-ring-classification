@@ -1,5 +1,9 @@
 # Rank-eight current supplement
 
+<!-- frontier-20261027 -->
+**27 October 2026 · audited continuation.** R9_2_1607, R9_2_1975 and R9_2_1976 are excluded over the complex numbers. **Seven cases remain unresolved:** two at rank six, four at rank eight and one at rank nine. The conditional R1660–R941 algebra construction is precise; every GH(C6,2) Morita route for R1768 is excluded. [Proofs, individual findings and exact replay](../../evidence/frontier_20261027/README.md). Independent human verification remains pending.
+<!-- /frontier-20261027 -->
+
 <!-- correctness-20261025 -->
 **Correctness revision · 25 October 2026.** The current classification is unchanged. Three model-identification arguments are repaired, R8_3_721 has a direct exact completion, and implementation/replay defects are corrected. [Findings, corrections and exact commands](../../evidence/correctness_20261025/README.md). Independent human verification remains pending.
 <!-- /correctness-20261025 -->

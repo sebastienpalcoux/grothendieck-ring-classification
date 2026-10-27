@@ -22,15 +22,18 @@ def safe(x):
  return x
 
 def build():
- ledger=read(E/'ledger.json');tensors=read(E/'tensors.json');meta={r['id']:r for r in read(E/'input_metadata.json')};models={r['id']:r for r in read(E/'models.json')};unresolved={r['id']:r for r in read(E/'unresolved.json')}
+ sys.path.insert(0,str(ROOT/'tools'))
+ from frontier_20261027 import active as latest_active, LEDGER as latest_ledger, COUNTS as latest_counts
+ ledger_path=ROOT/latest_ledger if latest_active(ROOT)else E/'ledger.json'
+ ledger=read(ledger_path);tensors=read(E/'tensors.json');meta={r['id']:r for r in read(E/'input_metadata.json')};models={r['id']:r for r in read(E/'models.json')};unresolved={r['id']:r for r in read(E/'unresolved.json')}
  assert len(ledger)==len(tensors)==len(meta)==2083
- counts=dict(Counter(r['status']for r in ledger));assert counts=={'excluded':2043,'unitarily_realized':36,'unresolved':4}
+ counts=dict(Counter(r['status']for r in ledger));assert counts==(latest_counts if latest_active(ROOT)else {'excluded':2043,'unitarily_realized':36,'unresolved':4})
  frozen=['rank9_rank10_m1.json','rank11_m1.json','atlas.json','classification_status.json','realized_rings.json','unresolved_cases.json','resolved_cases.json']
  before={n:digest(DIST/'data'/n)for n in frozen}
  def evidence(name,label=None):
   p=E/name;assert p.is_file(),name
   return{'label':label or name,'path':REL+'/'+name,'url':URL+'/blob/main/'+REL+'/'+name,'sha256':digest(p)}
- ledger_src=evidence('ledger.json','Current accepted decisions');archive=evidence('replay.zip','Complete exact proofs and replay archive');audit=evidence('proofs/phase5/REPORT.md','Current audited theoretical classification report')
+ ledger_src=({'label':'Current accepted decisions','path':latest_ledger,'url':URL+'/blob/main/'+latest_ledger,'sha256':digest(ledger_path)}if latest_active(ROOT)else evidence('ledger.json','Current accepted decisions'));archive=evidence('replay.zip','Complete exact proofs and replay archive');audit=evidence('proofs/phase5/REPORT.md','Current audited theoretical classification report')
  def proof(name):
   p='proofs/'+name
   return evidence(p)if(E/p).is_file()else archive
@@ -88,7 +91,7 @@ def build():
    scope['notes'].append('The three commutative sources reduce to two common necessary D8 Morita types. A based-ring completion is not a categorical model; see the current proof reports.')
   record={'id':rid,'rank':9,'multiplicity':2,'status':row['status'],'name':model['model']if model else rid,'summary':summary,'existence':'unitary'if model else row['status'],'model_reference':model.get('proof','Exact audited categorical construction in the replay archive')if model else'','model_reference_url':ledger_src['url'],'source_file':ledger_src['path'],'source_url':ledger_src['url'],'source_location':rid,'report_url':'./papers/rank9-m2.pdf','report_label':'Rank-nine multiplicity-two manuscript','case_url':'./case.html?id='+rid,'fusion_tensor':T,'tensor_sha256':h,'basis':['X'+str(i)for i in range(9)],'unit_index':0,'tensor_convention':'Source basis; zero-based indices; X_0=1. N[i][j][k] is the coefficient of X_k in X_i*X_j.','hash_convention':'SHA-256 of compact UTF-8 JSON; no trailing newline.','invariants':inv,'research':[{'title':'Current accepted case decision','source':ledger_src['path'],'url':ledger_src['url'],'source_sha256':ledger_src['sha256'],'data':row}]+research,'evidence':sources,'categorification_scope':scope,'download_url':'./downloads/fusion-tensors/'+rid+'.txt','investigation_deferred':False}
   out.append(safe(record))
- summary={'date':'2026-10-24','rank':9,'multiplicity':2,'release':REL,'input_count':2083,'counts':{'9':counts},'totals':counts,'ledger_sha256':digest(E/'ledger.json'),'ledger_url':ledger_src['url'],'source_url':URL+'/tree/main/'+REL,'report_url':'./papers/rank9-m2.pdf','report_title':'Rank-nine fusion rings of multiplicity two','report_source':'publications/rank9-m2/paper/rank9-m2.tex','remaining_ids':[r['id']for r in ledger if r['status']=='unresolved'],'archive':{'url':archive['url'].replace('/blob/','/raw/'),'sha256':archive['sha256'],'bytes':(E/'replay.zip').stat().st_size},'enumeration_qualification':'Producer-reported complete enumeration; independent exact tensor and uniqueness checks; full enumeration not independently rerun.'}
+ summary={'date':'2026-10-24','rank':9,'multiplicity':2,'release':REL,'input_count':2083,'counts':{'9':counts},'totals':counts,'ledger_sha256':digest(ledger_path),'ledger_url':ledger_src['url'],'source_url':URL+'/tree/main/'+REL,'report_url':'./papers/rank9-m2.pdf','report_title':'Rank-nine fusion rings of multiplicity two','report_source':'publications/rank9-m2/paper/rank9-m2.tex','remaining_ids':[r['id']for r in ledger if r['status']=='unresolved'],'archive':{'url':archive['url'].replace('/blob/','/raw/'),'sha256':archive['sha256'],'bytes':(E/'replay.zip').stat().st_size},'enumeration_qualification':'Producer-reported complete enumeration; independent exact tensor and uniqueness checks; full enumeration not independently rerun.'}
  write(DIST/'data/rank9_m2.json',{'schema':'ring-atlas/rank9-m2/v1','summary':summary,'cases':out},True)
  write(DIST/'data/rank9_m2_build.json',{'records':2083,'counts':counts,'ledger_sha256':summary['ledger_sha256'],'tensor_downloads':2083,'legacy_sha256':before})
  for n,h in before.items():assert digest(DIST/'data'/n)==h,n
@@ -96,5 +99,5 @@ def build():
  sys.path.insert(0,str(ROOT/'tools'))
  from unresolved_retry_20261024 import apply_profiles
  apply_profiles(ROOT)
- print('Built 2083 shared case profiles; 2043 exclusions,36 unitary models,4 unresolved; all earlier datasets unchanged.')
+ print('Built 2083 shared case profiles:',counts)
 if __name__=='__main__':build()

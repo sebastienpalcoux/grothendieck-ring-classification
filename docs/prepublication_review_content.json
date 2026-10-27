@@ -1,9 +1,9 @@
 {
-  "date": "24 October 2026",
+  "date": "2026-10-27",
   "version": "Current classification through rank eleven",
   "title": "Research status and verification",
   "caution": "AI-generated research · independent verification pending. The results, proofs, code and data have not yet been independently verified by human experts or formalized in Lean. Use them with caution; exact checks establish only their stated computational scope.",
-  "summary": "Rank ten at multiplicity one is complete: 136 general complex exclusions and 58 unitary models among 194 inputs. R10_1_189 is recognized in the classical SU(4)_6 inside SU(10)_1 conformal-embedding module category, with all 1,000 tensor coefficients matched. The rank-nine exact-multiplicity-two partition remains 2,043 general exclusions, 36 unitary models and four unresolved rings among 2,083 inputs. R8_3_436 remains generally excluded by the independent spherical-equivariantization/formal-codegree proof; the earlier TPE categorical-completeness premise stays withdrawn. Ten rings remain open: two at rank six, four at rank eight and four at rank nine. Their new theoretical restrictions establish no further categorical decision. Independent human verification and formalization remain pending.",
+  "summary": "The audited continuation excludes R9_2_1607, R9_2_1975 and R9_2_1976 over the complex numbers. Rank-nine exact multiplicity two has 2,046 exclusions, 36 unitary models and one unresolved ring among 2,083 inputs. Seven rings remain open overall: two at rank six, four at rank eight and one at rank nine. A connected separable algebra1+X in a hypothetical pseudo-unitary R1660 category would produce R941; neither is constructed. Every GH(C6,2) Morita route for R1768 is ruled out. The other seven-case results are restrictions, not complete ring exclusions or models. Independent human verification remains pending.",
   "rank_counts": [
     {
       "rank": 4,
@@ -49,9 +49,9 @@
       "rank": 9,
       "bound": 2,
       "rings": 2225,
-      "excluded": 2145,
+      "excluded": 2148,
       "models": 76,
-      "open": 4
+      "open": 1
     },
     {
       "rank": 10,
@@ -83,18 +83,14 @@
       "id": "R6_4_155",
       "heading": "Odd and even cyclic Clifford constraints",
       "paragraphs": [
-        "Every odd generalized pivotal rotation must factor through a cyclic spin character. All 1,144 tested blocks pass. The all-order path-Clifford divisibility condition for the source family holds exactly at even parameter values, including the parameter four of this case.",
-        "The unique rank-26 modular candidate and rank-22 based-module witness remain necessary data. No compatible associators, coherent module category or general obstruction is established.",
-        "The new even cyclic Clifford theorem extends the stabilizer criterion, and every one of the 1,144 retained blocks has an exact positive witness. The pointed automorphism obstruction removes a specified construction route, not all categorifications."
+        "A connected separable algebra with underlying object 1+kX+kX* has k at most two. The k=2 algebra is forced by the canonical central algebra, but its module category returns to the pointed-algebra Morita route. The k=1 algebra has not been constructed. General categorification remains unresolved."
       ]
     },
     {
       "id": "R6_8_1660",
       "heading": "Complete indicators and central phase masses",
       "paragraphs": [
-        "In the positive spherical representative, saturated modular representations determine all indicator sequences and every central phase mass. The eight spin objects form four dual pairs, all with restriction 2X+2gX+sigma+3T.",
-        "Exact phase Gram constraints leave 640 labelled restriction-data profiles in three branches of 68, 286 and 286. These profiles are neither categories nor complete modular fusion data. They do not construct compatible associators or exclude all categorifications.",
-        "The regular-bimodule Morita alternative identifies the rank-eight based ring R8_3_941, conditional on the required nonpointed algebra. Neither existence of that algebra nor a model of either ring is established."
+        "Pairing parity excludes two proposed Morita module realizations and a center subcase is removed; both overall spin alternatives remain. In a hypothetical pseudo-unitary categorification, any connected separable algebra 1+X, with FPdim(X)=3+2sqrt(2)+2sqrt(3)+sqrt(6), has bimodule category with ring R8_3_941. Neither the category nor this algebra is constructed."
       ]
     },
     {
@@ -301,5 +297,6 @@
       ]
     }
   ],
-  "open_case_count": 10
+  "open_case_count": 7,
+  "current_proof_source": "evidence/frontier_20261027/README.md"
 }

@@ -20,7 +20,7 @@ def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
 def documents():
  for name in ('current_document_revision.json','current_publication_revision.json'):
   data=read(ROOT/'data'/name)
-  need(data['date'] in ('2026-10-24','2026-10-25','2026-10-26'),'Stale current document date')
+  need(data['date'] in ('2026-10-24','2026-10-25','2026-10-26','2026-10-27'),'Stale current document date')
   for source,item in data['documents'].items():
    p=ROOT/source;need(sha(p)==item['sha256']and p.stat().st_size==item['bytes'],'Document identity: '+source)
    if source.startswith('manuscripts/'):
@@ -33,7 +33,8 @@ def documents():
 def main(metadata_only=False):
  report=validate(ROOT);need(documents(),'Document validation')
  from unresolved_retry_20261024 import active as retry_active,validate as retry_validate
- expected_open=10 if retry_active(ROOT)else 11
+ from frontier_20261027 import active as latest_active
+ expected_open=7 if latest_active(ROOT)else 10 if retry_active(ROOT)else 11
  if retry_active(ROOT):report['current_theoretical_retry']=retry_validate(ROOT)
  ids=identifiers(ROOT);revision=read(ROOT/'data/current_publication_revision.json')
  need(len(ids)==expected_open and revision['remaining_ids']==ids and revision['current_unresolved_total']==expected_open,'Global accepted-ledger frontier')

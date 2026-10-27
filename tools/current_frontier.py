@@ -12,5 +12,7 @@ def identifiers(repo=ROOT):
   ids.update(r['id']for r in rows if r['status']=='unresolved')
  from unresolved_retry_20261024 import active as retry_active
  if retry_active(repo):ids.discard('R10_1_189')
+ from frontier_20261027 import active as frontier_active, REMAINING
+ if frontier_active(repo):return list(REMAINING)
  return sorted(ids,key=lambda x:tuple(map(int,re.findall(r'\d+',x))))
 def count(repo=ROOT):return len(identifiers(repo))

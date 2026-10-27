@@ -1,0 +1,104 @@
+\section{Pairing parity and a conditional rank-eight construction}
+\label{sec:pairing-morita-20261027}
+The two rank-six rings remain unresolved. The following obstruction concerns
+actual module categories, not just nonnegative integral representations.
+
+\begin{lemma}[Morita pairing parity]
+Let $\mathcal C$ be pseudo-unitary and $A$ a connected separable algebra.
+Give its module category the positive trace and $A$ the compatible symmetric
+separable Frobenius structure. If a selfdual simple $Q$ of
+${}_A\mathcal C_A$ has second indicator $\epsilon$, every selfdual
+constituent of its underlying object having indicator $-\epsilon$ occurs
+with even multiplicity.
+\end{lemma}
+\begin{proof}
+The forgetful functor is pivotal Frobenius monoidal. It transports the
+chosen nondegenerate selfduality pairing, including its pivotal transpose
+sign. On an isotypic block of opposite sign, the multiplicity space must
+carry a nondegenerate alternating form; its dimension is even.
+The positive normalization is essential:
+$\dim_{{}_A\mathcal C_A}Q=\dim_{\mathcal C}U(Q)/\dim_{\mathcal C}A$.
+Thus the induced spherical structure is the canonical positive one.
+The categorical inputs are Schaumann, \emph{Traces on module categories
+over fusion categories}, Proposition 5.8 and Theorem 6.6
+(\url{https://arxiv.org/abs/1206.5716}), and Mulevi\v cius,
+\emph{Condensation inversion and Witt equivalence via generalised orbifolds},
+Example 4.18 (\url{https://arxiv.org/abs/2206.02611}).
+This transports pairings; it does not assert preservation of numerical
+Frobenius--Schur indicators by the forgetful functor.
+\end{proof}
+
+For $\RR{8}{1660}$ the source signs on $(1,g,X,gX,\sigma,T)$ are
+$(1,1,1,1,-1,1)$. The mixed-sign type-III dual contains a selfdual simple
+whose restriction is $\sigma+T$. The second mixed type-IV realization
+contains one restricting to $X+gX+\sigma+T$. Either sign for that simple
+would leave an odd opposite-sign block. Both module realizations are
+therefore impossible. The other mixed type-IV realization passes this test.
+The restrictions follow by internal-Hom reciprocity:
+$[U(Q):Z]=(N_ZQ)_{mm}$, using the complete dual action matrices, not a
+dimension match.
+
+\begin{proposition}[The $1+X$ construction target]
+In a pseudo-unitary categorification of $\RR{8}{1660}$, any connected
+separable algebra with underlying object $1\oplus X$ has bimodule category
+with based ring $R8\_3\_941$. The same holds for $1\oplus gX$.
+\end{proposition}
+\begin{proof}
+The distinguished free module is simple and has internal end $1+X$.
+Its zero diagonal $\sigma$ coefficient makes it an Ising leaf.
+Only type III in the complete module list has this internal end; types II
+and IV have nonzero $T$ coefficient, while type I is regular. The first
+diagonal sign is positive. The mixed second sign has just been excluded.
+For equal signs the complete dual-action computation has two rank-eight
+possibilities. The weighted second-indicator obstruction eliminates one.
+The other tensor is $R8\_3\_941$: the source-to-census permutation
+$(0,3,6,7,4,5,2,1)$ identifies all $512$ structure constants.
+Relabelling $X,gX$ gives the other assertion.
+\end{proof}
+
+The inverse internal-end algebra in this Morita context is also $1+Y$,
+with $Y$ selfdual of dimension $d=3+2\sqrt2+2\sqrt3+\sqrt6$.
+Neither algebra has been constructed. Fixing the unit, the multiplication
+on $X^2$ has one coefficient in $\operatorname{Hom}(X^2,1)$ and three in
+$\operatorname{Hom}(X^2,X)$, before normalization and gauge. Its associativity
+still depends on the unknown ambient associator. The six-simple connecting
+module, consisting of two regular Ising blocks, is an exact construction
+target, not an existence theorem. Equal global FP dimension alone would
+not identify this partner: $R8\_3\_928$ has the same dimension but is
+categorically Morita rigid.
+
+For the negative spin representation, $(44,2)$ is impossible in low frame
+zero: phase $12$ has a unique symmetric restriction column and hence no
+negative charge-conjugation line there. In frame one the total asymmetric
+column budget is eight. Phase-$36$ asymmetric columns cannot be discarded;
+both overall spin alternatives remain. Fusion by the distinguished
+Galois-unit object of dimension $d^2$ acts on the negative conjugation
+space as a signed permutation: its integral symmetric matrix squares to
+the identity, so every row has one entry $\pm1$.
+
+\subsection{A forced algebra for $\RR{4}{155}$}
+Write $X^*=Y$, $\dim X=\dim Y=d_0=4+3\sqrt2$.
+For $A_k=1+kX+kY$, subtraction of the four distinct pointed free modules
+from its induction Gram leaves vectors $a,b$ satisfying
+\[
+ \lVert a\rVert^2=\lVert b\rVert^2=1+8k-4k^2,
+ \qquad a\cdot b=8k-4k^2.
+\]
+Thus $k\le2$. For $k=1$ the viable residual modules have underlying
+objects $2X+Y,X+2Y$. The other Gram possibilities contain a module
+underlying $X$; its internal-end dimension
+$d_0^2/(1+2d_0)=2+4\sqrt2/3$ is not an algebraic integer.
+For $k=2$ the residual modules underlie $X,Y$. Both surviving necessary
+based modules have rank six.
+
+The canonical central algebra for the pointed subcategory is $1+B$,
+where $B$ is the Galois-unit object. Its forgetful algebra has augmentation
+and splits as $1\times A_2$ with $[A_2]=1+2X+2Y$.
+This forces an actual algebra in a hypothetical category. However the
+residual $X$ module has internal end $1+h$, returning to the known pointed
+Morita module category. It neither constructs a source category nor gives
+a contradiction; existence of $A_1$ is not forced.
+
+Complete matrices, tensor identities, audits and short finite verifiers are
+in \filename{evidence/frontier_20261027/README.md}. They retain the separate
+categorical premises above and do not promote necessary data to models.

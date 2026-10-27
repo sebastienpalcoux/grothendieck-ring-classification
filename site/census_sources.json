@@ -2,7 +2,7 @@
   "schema": "ring-atlas/full-census-sources/v1",
   "census_repository": "sebastienpalcoux/fusion-ring-census",
   "census_commit": "1c7afdf764ef173798c6751e92abfcecca2370c5",
-  "classification_commit": "f158513a82014587023421c2672521cac74fec94",
+  "classification_commit": "6a426acf6465dd674351be92dcca41b72f371521",
   "census_manifest_sha256": "297a2c960b3459a9a13346a837dc51f7c10cdd785c1221c56c40387f3a00e41a",
   "census": {
     "version": "0.4.0",
@@ -1370,7 +1370,7 @@
     },
     "total_classes": 1434042
   },
-  "classification_summary_sha256": "60a677de6f97b66f99bd733a08d350281e4556a16897014a928821061cc016ce",
+  "classification_summary_sha256": "5fa1d8eec2d02142cb56d39f726a5d3f289241fbefad06cf732b0ae7609e620e",
   "decompressor": {
     "name": "fflate",
     "version": "0.8.2",
@@ -1379,5 +1379,10 @@
     "path": "site/dist/vendor/fflate-0.8.2.js",
     "sha256": "c3b34f2e9f5e74d4d7d64e01cac7a0c01954c6c406414d42185c7b53d6875ddf",
     "license": "MIT"
+  },
+  "classification_overlay": {
+    "path": "evidence/frontier_20261027/accepted.json",
+    "sha256": "fee549e489cb8dfa42f6b9716c6f2c8b1cc750e4a5de54d45abb321e16726da3",
+    "scope": "Three new general exclusions; seven unresolved cases. Census tensors are unchanged."
   }
 }

@@ -1,0 +1,181 @@
+{
+  "outcome": "galois_pseudo_unitarity",
+  "complete": true,
+  "criterion": "signed_global_dimension_spectrum",
+  "fp_global_minimal_polynomial": [
+    "1",
+    "-288",
+    "2304"
+  ],
+  "variables": 28,
+  "equations": 199,
+  "gauge_coordinates": [
+    4,
+    6,
+    10,
+    13,
+    14,
+    0
+  ],
+  "nonzero_pair_constraints": [],
+  "branches": [
+    {
+      "values": [
+        2,
+        2,
+        2,
+        2,
+        1,
+        2,
+        1,
+        2,
+        2,
+        2,
+        1,
+        2,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "obstruction": {
+        "kind": "signed_scalar_characters_gated",
+        "characters": [
+          {
+            "factor": [
+              "1",
+              "79"
+            ],
+            "obstruction": {
+              "kind": "zero_dimension",
+              "object": 1
+            },
+            "gate": null
+          },
+          {
+            "factor": [
+              "1",
+              "-858",
+              "179991"
+            ],
+            "obstruction": null,
+            "gate": {
+              "kind": "global_dimension_Galois_FP",
+              "polynomial": [
+                "1",
+                "-288",
+                "2304"
+              ]
+            }
+          },
+          {
+            "factor": [
+              "1",
+              "286",
+              "20499"
+            ],
+            "obstruction": {
+              "kind": "unequal_dual_dimensions",
+              "object": 1
+            },
+            "gate": null
+          }
+        ]
+      },
+      "gauge_orbit_size": 1
+    },
+    {
+      "values": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "obstruction": {
+        "kind": "signed_scalar_characters_gated",
+        "characters": [
+          {
+            "factor": [
+              "1",
+              "79"
+            ],
+            "obstruction": {
+              "kind": "zero_dimension",
+              "object": 1
+            },
+            "gate": null
+          },
+          {
+            "factor": [
+              "1",
+              "-738",
+              "135711"
+            ],
+            "obstruction": {
+              "kind": "norm",
+              "polynomial": [
+                "1",
+                "-288",
+                "2304"
+              ],
+              "prime": 3
+            },
+            "gate": null
+          },
+          {
+            "factor": [
+              "1",
+              "286",
+              "20499"
+            ],
+            "obstruction": {
+              "kind": "unequal_dual_dimensions",
+              "object": 1
+            },
+            "gate": null
+          }
+        ]
+      },
+      "gauge_orbit_size": 1
+    }
+  ],
+  "seconds": 1.821275234222412,
+  "id": "R9_2_1975",
+  "tensor_sha256": "8b30652d59e868a120b6c423e46a99ab51f6032af752dc0082a3d80fd9e61323"
+}

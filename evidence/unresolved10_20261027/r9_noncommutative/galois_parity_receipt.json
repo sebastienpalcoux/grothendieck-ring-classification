@@ -1,0 +1,45 @@
+{
+  "status": "PASS",
+  "ring": "R9_2_1975",
+  "research_conclusion": "excluded over C by the proved obstruction and archived scope gates",
+  "input_file_sha256": "89173bf51976f6fa9abd854d2fe0d9ce3c9b2dec7fbc1a6cb157a025fc22761d",
+  "source_tensor_sha256": "8b30652d59e868a120b6c423e46a99ab51f6032af752dc0082a3d80fd9e61323",
+  "rotation_tensor_sha256": "c2cce7d6536e2fc1b52bac8184c90c5a98a2435bd3b27981c4d8266fa6cf975f",
+  "abstract_D8_to_tensor": {
+    "(0, 0, 0)": 0,
+    "(0, 0, 1)": 4,
+    "(0, 1, 0)": 3,
+    "(0, 1, 1)": 6,
+    "(1, 0, 0)": 2,
+    "(1, 0, 1)": 7,
+    "(1, 1, 0)": 1,
+    "(1, 1, 1)": 5
+  },
+  "Q_to_large_tensor": {
+    "(0, 0)": 8,
+    "(0, 1)": 10,
+    "(1, 0)": 9,
+    "(1, 1)": 11
+  },
+  "rotation_P_E_commutator": 1,
+  "diagonal_P_Z_commutator": -1,
+  "strict_even_V4_triples_per_TY_sign": 64,
+  "regular_Casimir_characteristic_polynomial": "(t - 16)**6*(t - 8)**4*(t**2 - 288*t + 2304)",
+  "CRT_polynomial": "-t**3/512 + 19*t**2/32 - 107*t/8 + 71",
+  "forced_Galois_unit_restriction": [
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    1,
+    1,
+    1
+  ],
+  "full_matrix_identity_checked": true,
+  "caution": "This replay verifies exact finite inputs. The all-C* cochain cancellation, relative-center parity, Galois theorem and prior general-scope gates are mathematical proofs in the linked reports."
+}

@@ -71,6 +71,10 @@ def main(metadata_only=False):
     for prefix in ('site/dist/data/',):
         replacements=read(ROOT/EVIDENCE/'derived_publication_replacements.json')
         for name,entry in replacements['files'].items():need(name.startswith(prefix)and publication_matches(name,entry['after_sha256'],ROOT),'derived publication identity: '+name)
-    print(json.dumps({'status':'METADATA_PASS'if metadata_only else'PASS','date':DATE,'scope':'Applied proof/code correction source identities, completed exact validation receipts, unchanged decisions, current documents and structural properties; mathematical replay scope is specified by each separate receipt.','exact_properties_recomputed':not metadata_only,'individual_record_count':len(all_records),'classification_status_changes':0,'current_open_cases':10,'correction_manifest_sha256':sha(ROOT/EVIDENCE/'revision.json')},indent=2))
+    from frontier_20261027 import active as latest_active
+    if latest_active(ROOT):
+        from verify_frontier_20261027 import main as verify_latest
+        verify_latest(metadata_only=True)
+    print(json.dumps({'status':'METADATA_PASS'if metadata_only else'PASS','date':DATE,'scope':'Preserved proof/code correction identities and receipts, current documents and structural properties; the separately accepted latest transition is checked independently. Mathematical replay scope is specified by each receipt.','exact_properties_recomputed':not metadata_only,'individual_record_count':len(all_records),'historical_correction_status_changes':0,'latest_status_changes':3 if latest_active(ROOT)else 0,'current_open_cases':len(read(ROOT/'data/current_publication_revision.json')['remaining_ids']),'correction_manifest_sha256':sha(ROOT/EVIDENCE/'revision.json')},indent=2))
 if __name__=='__main__':
     ap=argparse.ArgumentParser(description=__doc__);ap.add_argument('--metadata-only',action='store_true');a=ap.parse_args();main(a.metadata_only)

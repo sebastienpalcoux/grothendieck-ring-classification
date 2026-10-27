@@ -61,6 +61,8 @@ def archive_path(repo):
     return ARCHIVE if active(repo) else HISTORICAL_ARCHIVE
 
 def current_date(repo):
+    from frontier_20261027 import active as latest_active
+    if latest_active(repo):return '2026-10-27'
     from correctness_publication import active as correctness_active
     if correctness_active(repo): return "2026-10-25"
     if audit_stage.active(repo): return "2026-10-24"
@@ -70,6 +72,8 @@ def current_date(repo):
     return PUBLICATION_DATE if active(repo) else previous
 
 def current_report(repo):
+    from frontier_20261027 import active as latest_active
+    if latest_active(repo):return 'prepublication-review-2026-10-27.pdf'
     from correctness_publication import active as correctness_active
     if correctness_active(repo): return "prepublication-review-2026-10-25.pdf"
     if audit_stage.active(repo): return "prepublication-review-2026-10-24.pdf"

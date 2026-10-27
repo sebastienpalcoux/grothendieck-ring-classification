@@ -137,6 +137,9 @@ def apply_profiles(repo=ROOT,ref='main'):
     if p.is_file():
         data=read(p);data.update(ledger_sha256=current['sha256'],counts=read(repo/'site/dist/data/rank9_rank10_m1.json')['summary']['counts'],theoretical_retry=EVIDENCE);write(p,data)
 
+    from frontier_20261027 import apply_profiles as apply_frontier
+    apply_frontier(repo)
+
 def revise_document(name,text,repo=ROOT):
     if not active(repo):return text
     if name=='site/README.md':return (Path(repo)/'tools/templates/atlas_readme.md').read_text()

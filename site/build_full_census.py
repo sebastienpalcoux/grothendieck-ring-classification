@@ -211,6 +211,9 @@ def derived_rank(binary, source, entry, cache):
 
 def build(args):
     config = json.loads((SITE / 'census_sources.json').read_text())
+    overlay = config.get('classification_overlay')
+    if overlay and sha((ROOT / overlay['path']).read_bytes()) != overlay['sha256']:
+        raise ValueError('Accepted classification overlay changed')
     if sha((ROOT / config['decompressor']['path']).read_bytes()) != config['decompressor']['sha256']:
         raise ValueError('Pinned browser decompressor source changed')
     summary_raw = (ROOT / 'data/classification_summary_all_ranks.json').read_bytes()
@@ -365,13 +368,15 @@ def build(args):
                 'property_fields': list(FIELDS), 'status_codes': STATUSES,
                 'profile_bit': PROFILE_BIT, 'index_record_bytes': 6,
                 'census_repository': config['census_repository'], 'census_commit': config['census_commit'],
-                'classification_commit': config['classification_commit'],
+                'classification_commit': os.environ.get('GITHUB_SHA', config['classification_commit']),
+                'classification_baseline_commit': config['classification_commit'],
+                'classification_overlay': config.get('classification_overlay'),
                 'classification_summary': 'data/classification_summary_all_ranks.json',
                 'source_inputs': version_inputs(), 'bands': bands, 'ranks': ranks,
                 'profiles': profile_index_record, 'bindings': file_record(binding_file, staging),
                 'identifiers': 'C{rank}_{exact multiplicity}_{1-based index within that band in the pinned census export}. Existing R and F profile identifiers retain their original meaning and URLs. Census basis maps are verified coefficient by coefficient.',
                 'classification_scope': 'Published band classification transported by exact identification of every modeled and unresolved class. Other classes are excluded by that band classification; a case-specific criterion is shown only when documented.'}
-    if sum(totals.values()) != 1434042 or len(matched) != 3460 or totals['unresolved'] != 10:
+    if sum(totals.values()) != 1434042 or len(matched) != 3460 or totals['unresolved'] != 7:
         raise ValueError('Review full-census coverage expectations before publication')
     manifest['generated_bytes'] = sum(p.stat().st_size for p in staging.rglob('*') if p.is_file())
     manifest['max_tensor_request_bytes'] = max_tensor_request

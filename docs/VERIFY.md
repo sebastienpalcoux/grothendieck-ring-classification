@@ -1,17 +1,12 @@
 # Reproduce the data and mathematical checks
 
+<!-- frontier-20261027 -->
+**27 October 2026 · audited continuation.** R9_2_1607, R9_2_1975 and R9_2_1976 are excluded over the complex numbers. **Seven cases remain unresolved:** two at rank six, four at rank eight and one at rank nine. The conditional R1660–R941 algebra construction is precise; every GH(C6,2) Morita route for R1768 is excluded. [Proofs, individual findings and exact replay](../evidence/frontier_20261027/README.md). Independent human verification remains pending.
+<!-- /frontier-20261027 -->
+
 <!-- correctness-20261025 -->
 **Correctness revision · 25 October 2026.** The current classification is unchanged. Three model-identification arguments are repaired, R8_3_721 has a direct exact completion, and implementation/replay defects are corrected. [Findings, corrections and exact commands](../evidence/correctness_20261025/README.md). Independent human verification remains pending.
 <!-- /correctness-20261025 -->
-
-<!-- current-theoretical-retry -->
-**Current results · 24 October 2026.** Rank ten at multiplicity one is complete:
-136 general exclusions and 58 unitary models. R10_1_189 is recognized inside
-the classical SU(4)_6 conformal-embedding module category. Ten cases remain
-open at ranks six, eight and nine. Their new theoretical restrictions and
-the actual twisted precursor for R8_3_1768 do not claim further decisions.
-[Proofs and precise scope](https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/evidence/unresolved_retry_20261024/README.md).
-<!-- /current-theoretical-retry -->
 
 ## Current audit revision and structural filters
 
@@ -24,7 +19,7 @@ node site/tests/check_properties.mjs
 ```
 
 The first command reconciles the frozen audit and the new research, checks current
-manuscript/download identities and all 10 open tensors, and recomputes exact
+manuscript/download identities and all 7 open tensors, and recomputes exact
 structural properties for every individual catalogue record. Metadata-only mode
 checks identities and projections without repeating the exact property arithmetic.
 Full mode also freshly replays the accepted rank-nine continuations and the R436 replacement. Neither mode repeats every earlier categorical exclusion.
@@ -42,12 +37,6 @@ The current rank-five complete replay remains the explicit command in its revise
 guide. Its historical standalone verifier and bounded discovery driver have
 the separately stated limitations.
 
-
-<!-- current-high-rank-publication -->
-
-**Current results · 24 October 2026.** Rank nine at exact multiplicity two has **2,043 general exclusions, 36 unitary models and 4 unresolved rings** among 2,083 inputs. The complete rank-nine census through multiplicity two contains 2,225 rings. The project now has **10 unresolved rings** across ranks six, eight and nine. [Rank-nine M2 manuscript](../publications/rank9-m2/paper/rank9-m2.pdf) · [Current proofs and exact replay](../evidence/rank9_m2_20261024/README.md) · [All current manuscripts](../manuscripts/README.md) · [All open cases](https://sebastienpalcoux.github.io/grothendieck-ring-classification/unresolved.html).
-
-<!-- /current-high-rank-publication -->
 
 For the current audited checkout, run `python3 tools/verify_audit_revision.py`. Full historical replay uses `python3 tools/verify_current_publication.py --historical`, which exports the pinned pre-audit Git snapshot. Earlier stage-specific commands below apply inside their corresponding immutable archives, with their original hypotheses.
 
@@ -311,4 +300,4 @@ Use `--metadata-only` to check source identities and completed replay receipts. 
 
 ## Rank twelve, multiplicity one · 26 October 2026
 
-The new release classifies 632 supplied rings: 480 general exclusions and 152 models. Of these, 151 are unitary; R12_1_623 has a complex/pseudo-unitary model whose unitarity is unproved. The ten earlier open cases are unchanged. [Current manuscript](../publications/rank12/README.md) · [Complete proof archive and accepted replay](../evidence/rank12_m1_20261026/README.md). Full census enumeration was not independently repeated.
+The new release classifies 632 supplied rings: 480 general exclusions and 152 models. Of these, 151 are unitary; R12_1_623 has a complex/pseudo-unitary model whose unitarity is unproved. The seven remaining open cases are unchanged. [Current manuscript](../publications/rank12/README.md) · [Complete proof archive and accepted replay](../evidence/rank12_m1_20261026/README.md). Full census enumeration was not independently repeated.

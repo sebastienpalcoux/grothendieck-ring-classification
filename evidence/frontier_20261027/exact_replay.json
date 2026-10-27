@@ -1,0 +1,107 @@
+{
+  "status": "PASS",
+  "schema": "frontier-exact-replay/v1",
+  "archive_sha256": "646b43823932a105ff603f39c245041c0398f83e4330fa71e7cc2123f61963ee",
+  "current_and_frozen_tensors_agree": 10,
+  "checks": [
+    {
+      "script": "evidence/unresolved10_20261027/r9_noncommutative/verify_duality_obstruction.py",
+      "status": "PASS",
+      "assertions_enabled": true,
+      "source_sha256": "f581d4d310b6f0c1dc1bf9810caeb46b9feb9e4abe84e6becc045875a7cd2b1c",
+      "output_sha256": "446373a68539f6157a49163607711d2d8bdef80bbac93bb3d2be9c14ef212b77"
+    },
+    {
+      "script": "evidence/unresolved10_20261027/r9_noncommutative/verify_galois_parity.py",
+      "status": "PASS",
+      "assertions_enabled": true,
+      "source_sha256": "0fd4ceab66b79b1b46d64a81df6e2a768c78f59df52d0744c0bd64f4c56d3a0f",
+      "output_sha256": "bb5eebe70887847b736cfff7f1479edceedae1413762fc1ba0359e9fe3741828"
+    },
+    {
+      "script": "evidence/unresolved10_20261027/r9_commutative/verify_galois_fs2.py",
+      "status": "PASS",
+      "assertions_enabled": true,
+      "source_sha256": "be93f25f15aa98b0a6d3bd547b66cb284f1fdf71c6b25f717341a083c8b8fdaa",
+      "output_sha256": "5b0614e609b4dbf7b3931c0beb59501f9e5c2f35ce74a82900829de26cb29a9d"
+    },
+    {
+      "script": "evidence/unresolved10_20261027/r6_1660/replay_r1975_gate.py",
+      "status": "PASS",
+      "assertions_enabled": true,
+      "source_sha256": "4aef71c9eb6aade253fe42ed6aab9d834f4e5fa7be3bc2c44f92d5968d00f05d",
+      "output_sha256": "c22230940bf6446ca9b78b9039c444f9b51f423280eed6c3ec6767e0e77ac4fe"
+    },
+    {
+      "script": "evidence/unresolved10_20261027/r6_1660/replay_rank9_signed_gates.py",
+      "status": "PASS",
+      "assertions_enabled": true,
+      "source_sha256": "e750df646a47d317c2f1757ab989bf5d2fb8058dc0628d1cd2b452267ee6f162",
+      "output_sha256": "d06312aa579d51377df3cf996ffb56935c1f9d19b8ef9c34ab8db50cee19198c"
+    },
+    {
+      "script": "evidence/unresolved7_20261027/audit_fs2/verify_r155_algebra_reduction.py",
+      "status": "PASS",
+      "assertions_enabled": true,
+      "source_sha256": "d7c12c75dc80004a85398fbd24b5401a4fdc71e788c2aeba850a53f809e97d35",
+      "output_sha256": "1b6db565c406e39712bb12bf21f5bb96f777519dcc2df4d5b941911424234ff4"
+    },
+    {
+      "script": "evidence/unresolved7_20261027/audit_fs2/verify_r1660_bimodule_parity.py",
+      "status": "PASS",
+      "assertions_enabled": true,
+      "source_sha256": "7ce7f51ca9442edfbb19b359ebb1d36fd75310184bbea1ae867739cb01d5e509",
+      "output_sha256": "d7dcc7c75abc1b327720155c42832247d94f0111cb8681fb3badb7a95999eccc"
+    },
+    {
+      "script": "evidence/unresolved7_20261027/r6_1660/verify_spin_constraints.py",
+      "status": "PASS",
+      "assertions_enabled": true,
+      "source_sha256": "5361140ab4ce5e7da0ed24028fd5de3b033eb46dd341bc34258be20b78ccb0d3",
+      "output_sha256": "38ceb3486942fb332a900b728d172e05903508ee751a48210dc30a594e86ed09"
+    },
+    {
+      "script": "evidence/unresolved7_20261027/r8_928_941/verify.py",
+      "status": "PASS",
+      "assertions_enabled": true,
+      "source_sha256": "7eca2d926055259100e391038baeb1b676a73d5767aa69b181fe62c505f7e4c2",
+      "output_sha256": "881466c8bd0ba661fd6169fe83057af1934e37f6be3404b0b4d658b43222a929"
+    },
+    {
+      "script": "evidence/unresolved7_20261027/r8_1154/verify_odd_rotation.py",
+      "status": "PASS",
+      "assertions_enabled": true,
+      "source_sha256": "325c6edd1a0a892b2fdf402d75256f9c261c28a7cda8a8749bd2d922527f572c",
+      "output_sha256": "f39fed9834db055a0e1a4a7f3fde266521a6a6e99622fb1f90665265811084e0"
+    },
+    {
+      "script": "evidence/unresolved7_20261027/r8_1154/verify_integral_center.py",
+      "status": "PASS",
+      "assertions_enabled": true,
+      "source_sha256": "71d2d975a75884b42f0430c77380475eb416ce72767c467565b68f4472997f6a",
+      "output_sha256": "5f555423036626b629aeb2a575c70f272c2e882c4bf152285e67227f35c03283"
+    },
+    {
+      "script": "evidence/unresolved7_20261027/r8_1768/verify_morita_parity.py",
+      "status": "PASS",
+      "assertions_enabled": true,
+      "source_sha256": "bf903ac2f3e30f3300075f1813086b1cff3b028d588972572938fa10a6f93505",
+      "output_sha256": "1b7cc5f41e8be209b0aa0c7b5f0a14544c33a9d375794c8930e5aba1c2f57b39"
+    },
+    {
+      "script": "evidence/unresolved7_20261027/r8_928_941/audit_r1768_profiles.py",
+      "status": "PASS",
+      "assertions_enabled": true,
+      "source_sha256": "9239dac50551f32c6d24cabdd461e0e069887d8c374f37dfd88cb0f61e587b28",
+      "output_sha256": "bc9a2a5a74cbdcda59294e6b266521fd70db13e5d46872c073b6f942b2568870"
+    },
+    {
+      "script": "evidence/unresolved7_20261027/audit_parity/verify_r137_positive_fs2.py",
+      "status": "PASS",
+      "assertions_enabled": true,
+      "source_sha256": "7914ffb4b621b4490c9fea39460b9f3a2f62ab4c43b56cfcea66178e75660487",
+      "output_sha256": "b61d44de987137217bf0883a67134fb8f4f52f2343a9d3995e7cd5d88cb4a630"
+    }
+  ],
+  "scope": "Exact finite proof checks in their immutable source context; categorical premises are in the proofs, not inferred from these computations."
+}

@@ -19,12 +19,12 @@
 \setlength{\emergencystretch}{3em}
 \title{Rank-nine fusion rings of multiplicity two\\\large Theoretical obstructions, coherent constructions and exact certification}
 \author{FusionFrontier research prepared for S\'ebastien Palcoux\\\small AI-generated research; independent human verification and formalization pending}
-\date{25 October 2026}
+\date{27 October 2026}
 \begin{document}\maketitle
 \begin{abstract}
 We study the 2,083 supplied rank-nine based fusion rings of exact multiplicity
-two. The current certified partition consists of 2,043 general complex
-exclusions, 36 rings with unitary models and four unresolved rings. The proofs
+two. The current certified partition consists of 2,046 general complex
+exclusions, 36 rings with unitary models and one unresolved ring. The proofs
 combine formal-codegree and subring obstructions, signed sphericalization,
 central induction, modular trace constraints, Morita theory and explicit
 categorical constructions. A Galois restriction theorem simultaneously
@@ -61,9 +61,9 @@ needed. The original tensor, rather than a dimension profile, determines
 case identity.
 
 \begin{theorem}[Certified partition of the supplied exact-M2 census]
-The accepted ledger partitions the 2,083 source rings into 2,043 rings
+The accepted ledger partitions the 2,083 source rings into 2,046 rings
 excluded from fusion categorification over $\C$, 36 admitting a unitary
-fusion categorification, and four unresolved rings. Every exclusion has a
+fusion categorification, and one unresolved ring. Every exclusion has a
 scope-valid theoretical argument and an exact certificate or an explicit
 transfer from an excluded tensor. Every realization has categorical
 existence data and a complete equality of its $9^3$ structure constants
@@ -588,25 +588,19 @@ claim of novelty up to tensor equivalence.
 \input{continuation.tex}
 }
 
+\input{quadratic_frontier.tex}
+\input{galois_pairing_20261027.tex}
+
 \section{What remains unresolved}
 \input{unresolved.tex}
-The four remaining rings are $R9\_2\_137,1607,1975,1976$, all with
-dimension type $(1^4,2,(4+3\sqrt2)^4)$ and global dimension
-$144+96\sqrt2$. General, pivotal, spherical, pseudo-unitary and unitary
-existence remain undecided. The audited sphericalization and Galois gates
-equate general existence with pseudo-unitary existence; they do not make
-every original category pseudo-unitary or unitary. Braided categorification
-is excluded for all four.
-
-The stronger center, TY-sign and Clifford restrictions are developed in
-Section~\ref{sec:quadratic-frontier-retry}. There are three necessary
-identity-action D8 types in the union: zero or reflection shift for the
-commutative sources, and reflection or rotation for the noncommutative
-source. Only the reflection type overlaps. Their based tensors do not
-supply compatible associators. The realized auxiliary orbifolds still
-leave the source categorifications open.
-
-\input{quadratic_frontier.tex}
+Only $R9\_2\_137$ remains unresolved, of dimension type
+$(1^4,2,(4+3\sqrt2)^4)$ and global dimension $144+96\sqrt2$.
+General, pivotal, spherical, pseudo-unitary and unitary existence remain
+undecided. The sphericalization and Galois existence gates equate general
+existence with pseudo-unitary existence, without asserting pseudo-unitarity
+of an arbitrary original category. Braided categorification is excluded.
+The two TY signs still pass the necessary systems with all four positive
+large second indicators. No compatible associator is constructed.
 
 \section{Exact evidence and reproduction}\label{sec:replay}
 The public source is
@@ -614,11 +608,11 @@ The public source is
 It exposes the accepted ledger, positive models, exact open tensors and
 readable proofs. Its checksummed replay archive retains every source
 cochain, certificate, constructor, independent audit and historical source
-context. Only \path{phase5/results/} is the current mathematical partition.
+context. The current mathematical partition is \path{evidence/frontier_20261027/rank9_m2_ledger.json}; \path{phase5/results/} is its immutable predecessor.
 Historical ledgers remain explicitly superseded; their unsupported half-$E_6$
 claims are not used by the corrected verifier.
 
-The current all-phase entry point, from a restored repository with its
+The baseline all-phase entry point, from a restored repository with its
 requirements installed, is
 \begin{quote}\small\ttfamily
 python3 evidence/correctness\_20261025/replay\_rank9.py \\
@@ -628,7 +622,7 @@ The output directory must be new. Each phase starts from an independently
 hash-checked copy of the unchanged source archive. Two separately bound
 phase-three certificates omitted from that archive are supplied by the
 correction release. The command replays the accepted baseline and phases
-two--five, regenerates the model tensors and checks the current partition.
+two--five, regenerates the model tensors and checks its frozen baseline partition.
 The archive's older root dispatcher checks phase five; its
 \texttt{--baseline} option adds phase four, not all preceding phases.
 
@@ -637,8 +631,7 @@ all algebraic branch checks are used. This encoding shares the discovery
 implementation; the memory-limited independent eight-bit run is not
 reported as successful. Stored exact group/cohomology narrowing records
 are checked by this command; fresh full regeneration is recorded in the
-separate correctness-audit evidence. The optional frontier checks verify
-necessary restrictions, not new categorifications or exclusions.
+separate correctness-audit evidence. The baseline optional frontier checks verify necessary restrictions. The three further exclusions and their fresh audits replay in their own frozen source context with \texttt{python3 tools/replay\_frontier\_20261027.py}.
 Each categorical argument retains its explicit external premises;
 independent human verification and formalization remain pending.
 
@@ -646,8 +639,7 @@ The fusion census repository publishes the same 2,225 supplied tensors
 through multiplicity two and the corresponding producer-run qualification.
 The public Atlas uses one rank/multiplicity table and one case directory
 for all ranks. Every M2 case has its source identity, current decision,
-proof links and a downloadable Python tensor. The four open cases
-retain their separate categorical-scope statements.
+proof links and a downloadable Python tensor. The remaining open case retains its separate categorical-scope statements.
 
 \begin{thebibliography}{99}
 \bibitem{ENO} P.~Etingof, D.~Nikshych, V.~Ostrik, \emph{On fusion categories}, Ann. Math. 162 (2005), 581--642; \href{https://arxiv.org/abs/math/0203060}{arXiv:math/0203060}.

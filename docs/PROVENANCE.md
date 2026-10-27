@@ -1,19 +1,8 @@
 # Provenance and boundaries
 
-<!-- current-theoretical-retry -->
-**Current results · 24 October 2026.** Rank ten at multiplicity one is complete:
-136 general exclusions and 58 unitary models. R10_1_189 is recognized inside
-the classical SU(4)_6 conformal-embedding module category. Ten cases remain
-open at ranks six, eight and nine. Their new theoretical restrictions and
-the actual twisted precursor for R8_3_1768 do not claim further decisions.
-[Proofs and precise scope](https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/evidence/unresolved_retry_20261024/README.md).
-<!-- /current-theoretical-retry -->
-
-<!-- current-high-rank-publication -->
-
-**Current results · 24 October 2026.** Rank nine at exact multiplicity two has **2,043 general exclusions, 36 unitary models and 4 unresolved rings** among 2,083 inputs. The complete rank-nine census through multiplicity two contains 2,225 rings. The project now has **10 unresolved rings** across ranks six, eight and nine. [Rank-nine M2 manuscript](../publications/rank9-m2/paper/rank9-m2.pdf) · [Current proofs and exact replay](../evidence/rank9_m2_20261024/README.md) · [All current manuscripts](../manuscripts/README.md) · [All open cases](https://sebastienpalcoux.github.io/grothendieck-ring-classification/unresolved.html).
-
-<!-- /current-high-rank-publication -->
+<!-- frontier-20261027 -->
+**27 October 2026 · audited continuation.** R9_2_1607, R9_2_1975 and R9_2_1976 are excluded over the complex numbers. **Seven cases remain unresolved:** two at rank six, four at rank eight and one at rank nine. The conditional R1660–R941 algebra construction is precise; every GH(C6,2) Morita route for R1768 is excluded. [Proofs, individual findings and exact replay](../evidence/frontier_20261027/README.md). Independent human verification remains pending.
+<!-- /frontier-20261027 -->
 
 The rank-eight multiplicity-three continuation addresses all 3,527 supplied exact-multiplicity-three rings: 3,507 general exclusions, 16 models and 4 unresolved cases. Every recorded model admits a unitary realization. The four remaining rings retain unresolved status for general complex categorification. R8_3_436 has an independent general exclusion.
 
@@ -164,4 +153,4 @@ Use `--metadata-only` to check source identities and completed replay receipts. 
 
 ## Rank twelve, multiplicity one · 26 October 2026
 
-The new release classifies 632 supplied rings: 480 general exclusions and 152 models. Of these, 151 are unitary; R12_1_623 has a complex/pseudo-unitary model whose unitarity is unproved. The ten earlier open cases are unchanged. [Current manuscript](../publications/rank12/README.md) · [Complete proof archive and accepted replay](../evidence/rank12_m1_20261026/README.md). Full census enumeration was not independently repeated.
+The new release classifies 632 supplied rings: 480 general exclusions and 152 models. Of these, 151 are unitary; R12_1_623 has a complex/pseudo-unitary model whose unitarity is unproved. The seven remaining open cases are unchanged. [Current manuscript](../publications/rank12/README.md) · [Complete proof archive and accepted replay](../evidence/rank12_m1_20261026/README.md). Full census enumeration was not independently repeated.

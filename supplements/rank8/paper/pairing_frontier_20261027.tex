@@ -1,0 +1,146 @@
+\section{Pairing obstructions and the four remaining rings}
+\label{sec:pairing-frontier-20261027}
+All four rings remain unresolved. Every application below uses the established
+general-complex existence reduction to a pseudo-unitary Galois representative;
+it does not assert unitarity of the original category.
+
+\subsection{Quaternionic invertibles and $R8\_3\_1768$}
+For a connected separable algebra in a pseudo-unitary category, its positive
+module trace supplies a symmetric separable Frobenius structure. The
+bimodule forgetful functor is pivotal Frobenius and preserves a chosen
+nondegenerate selfduality pairing with its pivotal sign. Consequently a
+negative selfdual bimodule can contain a positive selfdual source simple
+only with even multiplicity: its multiplicity space is alternating.
+This is pairing transport, not equality of numerical indicators.
+See Schaumann, Proposition 5.8 and Theorem 6.6
+(\url{https://arxiv.org/abs/1206.5716}), and Mulevi\v cius, Example 4.18
+(\url{https://arxiv.org/abs/2206.02611}). The induced positive dimensions
+are $\dim U(Q)/\dim A$, which fixes the pivotal normalization.
+
+\begin{theorem}
+No category with $GH(C_6,2)$ fusion rules is categorically Morita equivalent
+to a categorification of $R8\_3\_1768$, for any associator or algebra.
+\end{theorem}
+\begin{proof}
+Put $u=6+\sqrt{37}$. The positive source second indicators are
+$(1,-1,1,1,1,1,1,1)$ and its dimensions are
+\[
+ (1,1,5+\sqrt{37},6+\sqrt{37},7+\sqrt{37},
+                7+\sqrt{37},6+\sqrt{37},5+\sqrt{37}).
+\]
+Its weighted second-indicator total is $6u$. Such totals are Morita
+invariant by the center induction formula. A $GH(C_6,2)$ category has six
+selfdual large simples of dimension $u$. Its pointed contribution is
+$1+\nu_2(g^3)$. Comparing the irrational coefficient and then the rational
+part forces all six large indicators to be $+1$ and $\nu_2(g^3)=-1$.
+Thus this Morita dual would contain a negative-indicator invertible.
+
+Choose any simple $m$ in the connecting module and let $A_m$ be its
+internal end. For a negative invertible $Q$ in the dual,
+$\dim U_m(Q)=\dim A_m$. Pairing parity makes all six nonpointed source
+coefficients in $U_m(Q)$ even. Since each has $\sqrt{37}$ coefficient one,
+the square-root coefficient in $\dim A_m$ is even for every $m$.
+
+The complete module filter, including every retained incomplete-action
+factor, has $21$ possible induction factors. For a root algebra $A$ and
+induction matrix $B$, the internal-end dimensions at every module simple
+are exactly
+\[
+ \dim A_m=\frac{(B_m\cdot\boldsymbol d)^2}{\dim A}.
+\]
+In $17$ factors one of these dimensions has odd square-root coefficient.
+They cannot have such a dual. In each of the other four factors a simple
+has internal end of dimension one. Connectedness then makes that internal
+end the unit, and the internal-end equivalence identifies the module with
+the regular module. Its dual has rank eight, not twelve, a contradiction.
+The exact filter refactors all $61$ predecessor candidates; the receipt
+lists all $17$ odd witnesses and four unit witnesses. It does not discard
+the $15$ factors with incomplete actions.
+\end{proof}
+
+In particular no algebra $1+g^j\sigma$ in any twisted higher-Haagerup
+precursor can model this source. The existence of the auxiliary category
+established above remains valid but supplies no model of $R8\_3\_1768$.
+The theorem is a construction-family exclusion, not noncategorifiability
+of the rank-eight ring itself.
+
+\subsection{Third rotations and $R8\_3\_1154$}
+\begin{proposition}
+All six noninvertible third indicators equal two in a positive
+categorification of $R8\_3\_1154$. Each corresponding trivalent rotation
+is identity. All three necessary center patterns still survive.
+\end{proposition}
+\begin{proof}
+The actual rank-ten equivariantization reduction supplies lifts $x,ux$
+of $X_4$ and likewise $X_5$, with $u$ central of order two and $x^*=ux$.
+For odd $n$ the two character subspaces of the cubic or higher vacuum
+space give $\nu_n(X_4)=\nu_n(x)+\nu_n(ux)=2\nu_n(x)$, by spherical
+duality. Each lift's cubic vacuum space has dimension one. Thus each of
+$\nu_3(X_4),\nu_3(X_5)$ belongs to
+$\{2,2\zeta_3,2\zeta_3^2\}$, rather than an arbitrary sum of cube roots.
+Imposing these discrete possibilities on all three complete retained
+center systems forces both to equal two. Duality and the inner
+autoequivalence, followed by a second discrete check, force the other
+four noninvertible third indicators to equal two. The $33$ excluded
+branches have exact integer separating certificates; all six retained
+branch records have exact rational feasibility witnesses. An independent
+matrix reconstruction checks every certificate. An order-three rotation
+on a two-dimensional space with trace two is identity.
+\end{proof}
+
+The integral center is Vec even for an arbitrary complex categorification.
+Indeed an integral central simple forgets to $a1+bg$; based centrality and
+the noncentrality of $g$ force $b=0$. Full adjoint closure makes a central
+object supported on the unit trivial. Hence no Morita representative has
+a nontrivial finite-group extension or equivariantization. The auxiliary
+rank-ten category has integral center double Semion, whose only nontrivial
+Tannakian descent returns to this source.
+Direct central condensations from $\mathrm{Fib}^{\boxtimes6}$,
+$GH(C_4,1)\boxtimes\mathrm{Fib}^{\boxtimes3}$ and
+$GH(C_4,1)^{\boxtimes2}$, each with arbitrary pointed factors, are also
+excluded. Dimension and subgroup-index bounds eliminate the first two.
+In the last, the required index-three subgroup contains a central $C_4$;
+quotienting forces the impossible rank-two rule $x^2=1+4x$.
+These are specified central constructions, not all Morita constructions.
+
+\subsection{Simple centralizers for $R8\_3\_928$ and $R8\_3\_941$}
+Write $D=144+96\sqrt2+80\sqrt3+56\sqrt6$.
+For either source, the only proper nontrivial subcategory is pointed of
+rank two. Any central fusion subcategory with a nonintegral object
+therefore forgets dominantly to the full source and has dimension at
+least $D$. Equality for a braided subcategory would make the noncommutative
+source braided, which is impossible.
+
+For R928 its center is $S\boxtimes\mathcal B$, with $S$ Semion and
+$\dim\mathcal B=D^2/2$. The only integral simple in $\mathcal B$ is its
+unit. A proper nontrivial subcategory and its centralizer would both have
+dimension at least $D$, contradicting their product $D^2/2$.
+Thus $\mathcal B$ is simple; its possible ranks are $17,20,23$.
+The regular-module rigidity theorem and the correspondence between module
+categories and Lagrangian algebras imply that $I(1)$ is the unique
+Lagrangian algebra. Every connected etale algebra extends to one, by
+Witt triviality and lifting local-module algebras. The reverse subcategory
+correspondence then gives precisely three etale algebra classes in the
+whole center, in a chain $1\subset A\subset I(1)$, with $\dim A=D/2$.
+The restriction from $\mathcal B$ is dominant, so its right adjoint gives
+that same unique nontrivial $A$ in $\mathcal B$, and
+$\mathcal B_A\simeq\mathcal C$, $\mathcal B_A^0\simeq S^{\rm rev}$.
+These use DMNO, Lemma 3.5, Proposition 3.16, Corollary 3.30,
+Proposition 4.8, Theorem 4.10 and Propositions 5.4--5.8.
+
+For R941 the fermion centralizer $\mathcal E$ has rank $22$, dimension
+$D^2/2$, and integral part sVec. A splitting
+$\mathcal E=\mathcal M\boxtimes\mathrm{sVec}$ would force the whole
+center to have rank $33$ or $44$, instead of $34,37,40,43$ in the
+complete retained list. If a proper nonpointed subcategory contains sVec,
+it and its centralizer both dominate the source. Their dimension product
+is $D^2$, forcing both dimensions to be $D$, the impossible equality
+case above. A nonpointed subcategory not containing the fermion would
+generate $\mathcal E$ with sVec and be nondegenerate, giving the excluded
+splitting. Thus the only subcategories are Vec, sVec and $\mathcal E$.
+
+Finally the conditional $1+X$ Morita construction in the rank-six
+manuscript produces precisely R941; it is not forced by equal FP
+dimensions. Neither category nor that nonpointed algebra is constructed.
+Full proofs, complete finite certificates and audits for this section are
+curated in \path{evidence/frontier_20261027/README.md}.
