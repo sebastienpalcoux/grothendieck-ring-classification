@@ -4,7 +4,7 @@ from pathlib import Path
 from collections import Counter
 import argparse,ast,csv,json,shutil,subprocess,sys
 from pypdf import PdfReader
-from frontier import ROOT,DATE,EVIDENCE,LEDGER,EXACT_LEDGER,REMAINING,R8_REMAINING,FINDINGS,read,write,sha,apply_profiles,publication_extension
+from frontier import ROOT,DATE,EVIDENCE,LEDGER,EXACT_LEDGER,REMAINING,R8_REMAINING,FINDINGS,read,write,sha,apply_profiles,publication_extension,restriction_metadata
 D=ROOT/'site/dist'
 def info(p):
  p=Path(p);return {'sha256':sha(p),'bytes':p.stat().st_size}
@@ -83,6 +83,7 @@ def documents():
   v['web_copies']={k:s for k,s in v['web_copies'].items()if s in v['documents']and not Path(s).name.startswith('prepublication-review-')}
   v['web_copies']['papers/frontier.pdf']=report
   v['frontier_continuation']={'date':DATE,'accepted':EVIDENCE+'/accepted.json','remaining_ids':REMAINING,'new_general_exclusions':['R8_3_1768'],'new_models':0,'replay_archive':'site/dist/downloads/Fusion-Ring-Frontier-Proofs-and-Checks.zip'}
+  v['frontier_continuation']['current_restrictions']=restriction_metadata()
   if name.startswith('current_publication'):
    v['current_unresolved_total']=6
    low=read(ROOT/'data/current_document_revision.json')
@@ -109,6 +110,7 @@ def documents():
  build()
  atlas=read(D/'data/atlas.json');atlas['current_documents'].update(date=DATE,sha256=sha(ROOT/'data/current_document_revision.json'))
  atlas['current_publication_documents']=pointer;atlas['reader_resources']['page_totals']=read(ROOT/'data/manuscript_page_counts.json')['totals']
+ atlas['frontier_continuation']['current_restrictions']=restriction_metadata()
  atlas['frontier_continuation'].update(report='papers/frontier.pdf',archive='downloads/Fusion-Ring-Frontier-Proofs-and-Checks.zip')
  entry=atlas.get('rank6_release',{}).get('document_revision')
  if entry:

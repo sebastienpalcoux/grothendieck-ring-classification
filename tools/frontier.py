@@ -16,15 +16,41 @@ BASELINE='supplements/rank8/output/research_20261024/ledger.json'
 REMAINING=['R6_4_155','R6_8_1660','R8_3_928','R8_3_941','R8_3_1154','R9_2_137']
 R8_REMAINING=['R8_3_928','R8_3_941','R8_3_1154']
 URL='https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/'
-FINDINGS={
- 'R6_4_155':('Every Morita dual of a pseudo-unitary categorification has the same based ring R6_4_155. The complete connected-algebra reduction leaves a possible algebra 1+X+X*, whose existence is not proved. General categorification remains unresolved.','r155/MORITA_RING_RIGIDITY.md'),
- 'R6_8_1660':('The fermion centralizer is nonsplit and s-simple. The candidate algebra 1+X has two cyclic multiplication directions; associativity and separability remain unproved. Such an algebra would give the R8_3_941 Morita partner. Neither categorification nor the algebra is constructed.','r1660_941/REPORT.md'),
- 'R8_3_928':('One complete necessary fusion matrix is forced in all four modular patterns, and a second in two patterns. They pass exact integrality and positivity checks. No full modular completion or categorical model is established; general categorification remains unresolved.','r928/SPECTRAL_FUSION_REDUCTION.md'),
- 'R8_3_941':('The fermion centralizer is nonsplit and s-simple. Whole-column Galois symmetry restricts ninth-root twist sectors; all fourteen retained allocations survive. A Morita construction from R6_8_1660 remains conditional on the existence of that category and a separable algebra 1+X.','r1660_941/REPORT.md'),
- 'R8_3_1154':('Every complex categorification has simple Drinfeld center, using the established integral-center restriction. The auxiliary rank-ten candidate passes conjugation parity. These are necessary restrictions, not a categorification or a general exclusion.','r1154/SIMPLE_CENTER.md'),
- 'R8_3_1768':('General complex categorification is excluded. Pivotal conjugation preserves the symmetry sign of a self-duality; the required odd constituents contradict its pairing parity. The general-complex existence gate and complete center domains are explicit inherited premises; six exact rational separators replay successfully.','r1768/PALINDROMIC_EXCLUSION.md'),
- 'R9_2_137':('Whole restriction-column Galois symmetry and the fourth-rotation Clifford bound strengthen the necessary center system. Both TY signs still admit exact rational witnesses after 7,222 variable removals. The witnesses are necessary data, not categorical models; general categorification remains unresolved.','r137/REPORT.md'),
-}
+FINDINGS={'R6_4_155': ('Every positive Morita dual has the same based ring. In the specified order-32 '
+              'near-group construction route, the parent group must be C4 × C2³. Compatible '
+              'pointed data exist, but the parent category and required algebra are unconstructed. '
+              'General categorification remains unresolved.',
+              'r155/CONTINUATION.md'),
+ 'R6_8_1660': ('A nonreal dimension-weighted third indicator excludes real forms and braided '
+               'representatives in the positive Morita class. The center is prime, excluding '
+               'smaller direct modular sources. The proposed algebra 1+X and its R941 Morita '
+               'partner remain conditional.',
+               'pair/REPORT.md'),
+ 'R8_3_928': ('Three of four necessary center patterns are excluded. The surviving rank-20 factor '
+              'agrees exactly with Anyon Atlas B20-02148, Galois orbit 20.167. Neither its '
+              'categorical realization nor the proposed separable algebra is established; R928 '
+              'remains unresolved.',
+              'r928/REPORT.md'),
+ 'R8_3_941': ('The center of a positive representative is prime and obeys the direct '
+              'modular-source obstruction. Its fermion centralizer is nonsplit and s-simple. The '
+              'proposed R1660–R941 Morita equivalence still requires a category and a separable '
+              'algebra 1+X.',
+              'pair/REPORT.md'),
+ 'R8_3_1154': ('One branch of a hypothetical smallest algebra 1+X4 forces an explicit simple '
+               'rank-seven Morita-dual fusion ring. The algebra and module associators are '
+               'unconstructed, and the other based-module branch also survives. General '
+               'categorification remains unresolved.',
+               'r1154/CONDITIONAL_RANK7_ROUTE.md'),
+ 'R8_3_1768': ('General complex categorification is excluded. Pivotal conjugation preserves the '
+               'symmetry sign of a self-duality; the required odd constituents contradict its '
+               'pairing parity. The general-complex existence gate and complete center domains are '
+               'explicit inherited premises; six exact rational separators replay successfully.',
+               'r1768/PALINDROMIC_EXCLUSION.md'),
+ 'R9_2_137': ('Full-column Galois symmetry and nine exact integral Verlinde bounds exclude the '
+              'positive Tambara–Yamagami sign in a positive spherical representative. The negative '
+              'sign retains a checked rational necessary-condition witness, not a '
+              'categorification. The ring remains unresolved.',
+              'r137/NEW_RESULTS.md')}
 def read(p):return json.loads(Path(p).read_text())
 def write(p,v,compact=False):
  p=Path(p);p.parent.mkdir(parents=True,exist_ok=True)
@@ -34,11 +60,25 @@ def active(repo=ROOT):return (Path(repo)/EVIDENCE/'accepted.json').is_file()
 def proof(repo,path):
  p=Path(repo)/path
  return {'label':p.name,'path':path,'url':URL+path,'sha256':sha(p)}
+def finding_path(rid):
+ text,rel=FINDINGS[rid]
+ return EVIDENCE+'/replay/'+('current/' if rid in REMAINING else 'new/')+rel
+def restriction_metadata():
+ return {
+  'date':DATE,'new_general_exclusions':[],'new_models':0,'remaining_ids':list(REMAINING),
+  'proof_directory':EVIDENCE+'/replay/current',
+  'replay_receipt':EVIDENCE+'/current_run_receipt.json',
+  'anyon_atlas_record':'https://anyonatlas.org/data/B20-02148',
+  'atlas_galois_orbit':'20.167',
+  'categorification_of_rank20_datum_established':False,
+  'replay_receipt_sha256':sha(ROOT/EVIDENCE/'current_run_receipt.json'),
+  'proof_manifest_sha256':sha(ROOT/EVIDENCE/'replay/current/manifest.json')}
 def current_scope(rid,scope,repo=ROOT):
  scope=deepcopy(scope)
  if rid not in FINDINGS:return scope
- text,rel=FINDINGS[rid];sources=[proof(repo,EVIDENCE+'/replay/new/'+rel)]
+ text,rel=FINDINGS[rid];sources=[proof(repo,finding_path(rid))]
  scope['notes']=[text]
+ scope['audit_sources']=sources
  if rid=='R8_3_1768':
   scope.update(general_status='excluded',level_status={k:'excluded'for k in ('general','pivotal','spherical','pseudo_unitary','unitary')},strongest_excluded='general',same_category_implications=[],existence_implications=[],audit_sources=sources,
    braided={'status':'excluded','explanation':'General complex categorification is excluded.','sources':sources})
@@ -81,6 +121,8 @@ def apply_profiles(repo=ROOT):
  sp=repo/'site/categorification_scope.json';sc=read(sp)
  previous=sc['cases'].pop('R8_3_1768',sc['closed_cases'].get('R8_3_1768'))
  if previous is not None:sc['closed_cases']['R8_3_1768']=current_scope('R8_3_1768',previous,repo)
+ for rid in REMAINING:
+  if rid in sc['cases']:sc['cases'][rid]=current_scope(rid,sc['cases'][rid],repo)
  write(sp,sc)
  for name in ('unresolved_cases.json','resolved_cases.json','rank9_m2.json'):
   p=repo/'site/dist/data'/name
@@ -89,9 +131,23 @@ def apply_profiles(repo=ROOT):
   for row in v['cases']:
    rid=row['id']
    if rid not in FINDINGS:continue
-   text,rel=FINDINGS[rid];path=EVIDENCE+'/replay/new/'+rel;sources=[proof(repo,path)]
+   text,rel=FINDINGS[rid];path=finding_path(rid);sources=[proof(repo,path)]
    row['summary']=text
    row['research']=[{'title':'Current proof and remaining gap','source':path,'url':URL+path,'source_sha256':sources[0]['sha256'],'data':{'status':'excluded'if rid=='R8_3_1768'else'unresolved','findings':text,'scope':'General complex exclusion'if rid=='R8_3_1768'else'Necessary conditions; no categorical model'}}]
+   if rid=='R8_3_928':
+    row['research'][0]['data']['modular_data']={
+      'atlas_id':'B20-02148','atlas_url':'https://anyonatlas.org/data/B20-02148',
+      'galois_orbit':'20.167','rank':20,'central_charge_mod8':1,'twist_order':96,
+      'role':'The proposed factor B in Z(C)=Sem × B, not the entire center.',
+      'center_charge':'The opposite semion factor has charge -1; the Drinfeld center of a spherical fusion category has charge 0 modulo 8.',
+      'exact_comparison':{'S_entries':400,'twists':20,'fusion_coefficients':8000},
+      'categorification_established':False,'algebra_established':False}
+    match=proof(repo,EVIDENCE+'/replay/current/r928/atlas/atlas_match_receipt.json')
+    sources.append(match)
+   if rid=='R9_2_137':
+    row['research'][0]['data']['TY_branches']={
+      'positive':'excluded','negative':'unresolved',
+      'scope':'The positive spherical representative supplied by the inherited existence reduction.'}
    row['evidence']=sources
    row['categorification_scope']=current_scope(rid,row['categorification_scope'],repo)
    def scope_sources(v):
@@ -135,7 +191,7 @@ def revise_document(name,text,repo=ROOT):
   '4,403 exclusions, 93 unitary models and 4 unresolved':'4,404 exclusions, 93 unitary models and 3 unresolved',
  }
  for a,b in replacements.items():text=text.replace(a,b)
- banner=('<!-- current-frontier -->\n**Current classification · 29 October 2026.** R8_3_1768 is excluded over the complex numbers by pivotal conjugation parity, using the established existence and center-domain reductions. **Six cases remain unresolved:** two at rank six, three at rank eight and one at rank nine. No additional model is claimed. [Current proofs and exact checks](https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/evidence/frontier/README.md).\n<!-- /current-frontier -->\n\n')
+ banner=('<!-- current-frontier -->\n**Current classification · 29 October 2026.** R8_3_1768 is excluded over the complex numbers by pivotal conjugation parity, using the established existence and center-domain reductions. **Six cases remain unresolved:** two at rank six, three at rank eight and one at rank nine. The latest restrictions exclude three R928 center patterns and the positive TY sign for R137; the surviving rank-20 datum is [Anyon Atlas B20-02148](https://anyonatlas.org/data/B20-02148). No additional model is claimed. [Current proofs and exact checks](https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/evidence/frontier/README.md).\n<!-- /current-frontier -->\n\n')
  if name.startswith(('docs/','manuscripts/','site/'))or name=='README.md':
   at=text.find('\n\n');text=text[:at+2]+banner+text[at+2:]
  return text

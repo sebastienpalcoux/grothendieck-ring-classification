@@ -1,6 +1,6 @@
 # Project guide
 
-**Current classification: six unresolved cases.** R8_3_1768 is excluded over the complex numbers by pivotal conjugation parity, using the established existence and complete center-domain reductions. No additional categorification is claimed.
+**Current classification: six unresolved cases.** R8_3_1768 is excluded over the complex numbers by pivotal conjugation parity, using the established existence and complete center-domain reductions. The current continuation adds branch exclusions and conditional constructions, including the exact identification of Anyon Atlas B20-02148. No additional categorification is claimed.
 
 > **AI-generated research; independent human verification pending.** Exact checks establish only their stated computational scope.
 

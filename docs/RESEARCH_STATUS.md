@@ -1,20 +1,53 @@
 # Current research frontier
 
-**Six fusion rings remain unresolved.** This continuation adds branch exclusions and conditional construction restrictions, with no new whole-ring exclusion or categorical model. The earlier general-complex exclusion of R8_3_1768 by pivotal conjugation parity remains in force.
+**Current classification: six unresolved cases.** R8_3_1768 is excluded over the complex numbers by pivotal conjugation parity, using the established existence and complete center-domain reductions. The current continuation adds branch exclusions and conditional constructions, including the exact identification of Anyon Atlas B20-02148. No additional categorification is claimed.
 
-[Current manuscripts](../manuscripts/README.md) · [Proofs, exact inputs and replay](../evidence/frontier/README.md).
+> **AI-generated research; independent human verification pending.** Exact checks establish only their stated computational scope.
 
-| Ring | Current result | Remaining gap |
-|---|---|---|
-| R6_4_155 | The specified order-32 near-group route forces parent group C4 × C2³. | The parent category and required condensation are unconstructed. |
-| R6_8_1660 | A nonreal positive Morita invariant rules out real forms and braided representatives. Its center is prime, excluding smaller direct modular sources. | No source category or required algebra is constructed. |
-| R8_3_928 | Three of four center patterns are excluded. The surviving rank-20 factor agrees exactly with [Anyon Atlas B20-02148](https://anyonatlas.org/data/B20-02148), Galois orbit 20.167. | Neither the category nor the proposed separable algebra is established. |
-| R8_3_941 | Its center is prime and obeys the same direct-source restriction. | The R1660–R941 Morita equivalence still requires a category and a separable algebra 1+X. |
-| R8_3_1154 | One smallest-algebra branch forces an explicit simple rank-seven Morita-dual fusion ring. | Neither the proposed algebra nor the module associators are constructed; a second branch also survives. |
-| R9_2_137 | Nine exact certificates exclude the positive Tambara–Yamagami sign. | The negative sign retains a rational necessary-condition witness, not a categorification. |
+[Current proofs and exact replay](https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/evidence/frontier/README.md)
 
-The Atlas identification compares all 400 S entries, 20 twists and 8,000 fusion coefficients after normalization and relabeling. B20-02148 is the proposed factor B, not the full center. Its central charge is 1 modulo 8; the opposite semion factor has charge −1, giving the charge-zero center of a spherical fusion category. The Atlas did not mark the datum *Known Categorifiable* when accessed on 29 October 2026.
+## General exclusion of R8_3_1768
 
-Center arguments use the project's positive spherical existence reduction and explicitly identified complete center domains. They do not assume that every original complex categorification is unitary or positive. The 28 current finite checks passed. Independent human verification remains pending.
+Conjugation X tensor V tensor X* preserves the symmetry sign of a nondegenerate pivotal self-duality on V. Opposite-sign self-dual constituents must occur evenly. The exact R1768 product violates this condition. The general-complex conclusion retains the earlier sphericalization/Galois existence gate and complete center-domain theorem as explicit premises. All six required rational separation certificates replay over the complete allowed columns.
 
-[Current six tensors](../data/current_remaining_cases.py) · [Earlier R1768 exclusion](../evidence/frontier/replay/new/r1768/PALINDROMIC_EXCLUSION.md).
+[Full proof](../evidence/frontier/replay/new/r1768/PALINDROMIC_EXCLUSION.md)
+
+## Six unresolved cases
+
+### R6_4_155
+
+Every positive Morita dual has the same based ring. In the specified order-32 near-group construction route, the parent group must be C4 × C2³. Compatible pointed data exist, but the parent category and required algebra are unconstructed. General categorification remains unresolved.
+
+[Proof and precise gap](../evidence/frontier/replay/current/r155/CONTINUATION.md)
+
+### R6_8_1660
+
+A nonreal dimension-weighted third indicator excludes real forms and braided representatives in the positive Morita class. The center is prime, excluding smaller direct modular sources. The proposed algebra 1+X and its R941 Morita partner remain conditional.
+
+[Proof and precise gap](../evidence/frontier/replay/current/pair/REPORT.md)
+
+### R8_3_928
+
+Three of four necessary center patterns are excluded. The surviving rank-20 factor agrees exactly with Anyon Atlas B20-02148, Galois orbit 20.167. Neither its categorical realization nor the proposed separable algebra is established; R928 remains unresolved.
+
+[Proof and precise gap](../evidence/frontier/replay/current/r928/REPORT.md)
+
+### R8_3_941
+
+The center of a positive representative is prime and obeys the direct modular-source obstruction. Its fermion centralizer is nonsplit and s-simple. The proposed R1660–R941 Morita equivalence still requires a category and a separable algebra 1+X.
+
+[Proof and precise gap](../evidence/frontier/replay/current/pair/REPORT.md)
+
+### R8_3_1154
+
+One branch of a hypothetical smallest algebra 1+X4 forces an explicit simple rank-seven Morita-dual fusion ring. The algebra and module associators are unconstructed, and the other based-module branch also survives. General categorification remains unresolved.
+
+[Proof and precise gap](../evidence/frontier/replay/current/r1154/CONDITIONAL_RANK7_ROUTE.md)
+
+### R9_2_137
+
+Full-column Galois symmetry and nine exact integral Verlinde bounds exclude the positive Tambara–Yamagami sign in a positive spherical representative. The negative sign retains a checked rational necessary-condition witness, not a categorification. The ring remains unresolved.
+
+[Proof and precise gap](../evidence/frontier/replay/current/r137/NEW_RESULTS.md)
+
+Necessary-condition witnesses and candidate algebras are not counted as categorical models. [Current tensors](../data/current_remaining_cases.py) · [Atlas](https://sebastienpalcoux.github.io/grothendieck-ring-classification/unresolved.html)
