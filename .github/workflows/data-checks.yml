@@ -13,7 +13,7 @@ jobs:
         with:
           python-version: '3.12'
       - run: python tools/restore_data.py
-      - run: python -m pip install -r supplements/rank7/requirements-m5.txt
+      - run: python -m pip install -r supplements/rank7/requirements-m5.txt pypdf==6.10.0
       - run: python tools/validate_release.py
       - name: Verify unrestricted rank-four classification and census
         run: python supplements/rank4/unrestricted/supplementary/check.py --deep

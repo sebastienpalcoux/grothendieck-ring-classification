@@ -133,6 +133,10 @@ def main():
  p=argparse.ArgumentParser(description=__doc__);p.add_argument('--profiles-only',action='store_true');a=p.parse_args()
  profiles()
  if not a.profiles_only:documents()
+ # Every property-source update must invalidate the browser's shared catalogue.
+ sys.path.insert(0,str(ROOT/'site'))
+ from version_catalogue import main as version_catalogue
+ version_catalogue()
  print('Current frontier synchronized: one new exclusion, no new models, six unresolved.')
 if __name__=='__main__':main()
 

@@ -55,8 +55,9 @@ def main():
         if args.classification_commit:
             p=HERE/'dist/data/atlas.json';payload=json.loads(p.read_text());payload['classification_commit']=args.classification_commit;p.write_text(json.dumps(payload,ensure_ascii=False,separators=(',',':'))+'\n');(repo/'data/atlas.json').write_bytes(p.read_bytes())
         from current_presentation import apply
+        from version_catalogue import main as version_catalogue
         from version_assets import version_assets
-        apply(HERE);version_assets()
+        apply(HERE);version_catalogue();version_assets()
         print('Built the current source-bound frontier; frozen historical generators are not reapplied.')
         return
     sys.path.insert(0, str(repo / "tools"))

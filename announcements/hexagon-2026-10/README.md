@@ -6,7 +6,7 @@ The current four-page repository overview, dated 29 October 2026, presents the c
 
 The census contains **1,434,042 rings: 1,433,506 general exclusions, 530 realizations, and 6 unresolved cases**. The new exclusion is **R8_3_1768**; no additional model is claimed. At rank eight the counts are 3,508 exclusions, 16 models and 3 unresolved rings at exact multiplicity three, and 4,404 exclusions, 93 models and 3 unresolved rings cumulatively through multiplicity three.
 
-**AI-generated research · independent human verification pending.** The overview distinguishes categorical proofs, exact certificate checks, and enumeration completeness. The general-complex exclusion of R8_3_1768 uses the established sphericalization/Galois existence reduction and complete necessary center domains. The [unified frontier proofs](../../evidence/frontier/README.md) identify these dependencies and the progress on all six open cases.
+**AI-generated research · independent human verification pending.** The overview distinguishes categorical proofs, exact certificate checks, and enumeration completeness. The general-complex exclusion of R8_3_1768 uses the established sphericalization/Galois existence reduction and complete necessary center domains. The [unified frontier proofs](https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/evidence/frontier/README.md) identify these dependencies and the progress on all six open cases.
 
 - [Current overview · PDF](Low_rank_Grothendieck_rings_announcement.pdf)
 - [LaTeX source](main.tex) · [Source ZIP](Hexagon_Source.zip)

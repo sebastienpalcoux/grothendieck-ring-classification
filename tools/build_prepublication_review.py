@@ -1,16 +1,34 @@
 #!/usr/bin/env python3
-"""Build the standalone current research-status PDF.
+"""Preserve the source-bound current frontier report.
 
-The prior dated report remains available. No manuscript is concatenated,
-read, rewritten or presented as an alternative edition by this builder.
-Content is maintained in docs/prepublication_review_content.json.
-Requires reportlab; run from any working directory.
+The current report is authored in manuscripts/frontier/Fusion_Ring_Frontier.tex.
+This compatibility entry point validates its published source, PDF and website
+mirror rather than applying an obsolete report generator. The older code below
+is retained only for checkouts predating the accepted frontier.
 """
 from pathlib import Path
 import json
 import shutil
 from xml.sax.saxutils import escape
 from rank8_publication import current_report
+
+ROOT = Path(__file__).resolve().parents[1]
+from frontier import active as current_frontier_active, read as current_read, sha as current_sha
+if current_frontier_active(ROOT):
+    manifest = current_read(ROOT / 'data/current_publication_revision.json')
+    source = 'manuscripts/frontier/Fusion_Ring_Frontier.tex'
+    report = 'manuscripts/frontier/Fusion_Ring_Frontier.pdf'
+    for name in (source, report):
+        expected = manifest['documents'][name]
+        path = ROOT / name
+        if current_sha(path) != expected['sha256'] or path.stat().st_size != expected['bytes']:
+            raise ValueError('Current frontier report changed: ' + name)
+    if manifest['web_copies'].get('papers/frontier.pdf') != report:
+        raise ValueError('Current frontier report mirror is not declared')
+    if (ROOT / 'site/dist/papers/frontier.pdf').read_bytes() != (ROOT / report).read_bytes():
+        raise ValueError('Current frontier report mirror differs')
+    print('Current frontier report and website mirror match their source-bound publication manifest; historical report generation is not applied.')
+    raise SystemExit(0)
 
 from reportlab.lib import colors
 from reportlab.lib.pagesizes import A4
@@ -21,7 +39,6 @@ from reportlab.platypus import (
     SimpleDocTemplate, Paragraph, Spacer, PageBreak, CondPageBreak, Table, TableStyle,
 )
 
-ROOT = Path(__file__).resolve().parents[1]
 from correctness_publication import active as correctness_active
 if correctness_active(ROOT):
     import subprocess
