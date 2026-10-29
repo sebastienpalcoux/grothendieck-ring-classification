@@ -1,0 +1,130 @@
+% Unified current-result section for the rank-eight manuscript.
+% Place after the complete R1768 center-domain reduction.  It uses the
+% existing labels thm:research-four-general-spherical and
+% prop:creative-r1768-sector.  No additional bibliography key is required.
+
+\Needspace{14\baselineskip}
+\subsection{Conjugation parity and the exclusion of R1768}
+\label{subsec:r1768-conjugation-exclusion}
+
+The following obstruction uses the full multiplicity vector of a tensor
+product.  It needs neither a braiding nor a unitary structure.
+
+\begin{lemma}[Pivotal conjugation parity]
+\label{lem:pivotal-conjugation-parity}
+Let $\mathcal C$ be a pivotal fusion category over $\mathbb C$, with
+pivotal structure $j$.  Suppose an object $V$ has a nondegenerate
+selfduality $f:V\to V^*$ satisfying
+\[
+ f^*\circ j_V=\varepsilon f,\qquad \varepsilon\in\{1,-1\}.
+\]
+Then $X\otimes V\otimes X^*$ has a nondegenerate selfduality of sign
+$\varepsilon$ for every object $X$.  In particular, for selfdual simple
+objects $V,S$,
+\[
+ [X\otimes V\otimes X^*:S]\equiv1\pmod2
+ \quad\Longrightarrow\quad
+ \nu_2(S)=\nu_2(V).
+\]
+\end{lemma}
+\begin{proof}
+Suppress the coherent associativity and tensor-dual comparison maps.
+For $W=X\otimes V\otimes X^*$, the isomorphism
+\[
+ h=j_X\otimes f\otimes\operatorname{id}_{X^*}:W\longrightarrow W^*
+\]
+satisfies
+\[
+ h^*\circ j_W
+ =j_X\otimes(f^*\circ j_V)
+       \otimes(j_X^*\circ j_{X^*})
+ =\varepsilon h,
+\]
+because $j_{X^*}=(j_X^*)^{-1}$.
+On the $S$-isotypic summand, write this pairing as a fixed simple
+selfduality of sign $\delta=\nu_2(S)$ times a nondegenerate bilinear form
+on the multiplicity space.  The latter form has sign
+$\varepsilon/\delta$.  When $\varepsilon\ne\delta$, it is alternating,
+so its dimension is even.
+\end{proof}
+
+\begin{theorem}[General-complex exclusion]
+\label{thm:r1768-general-exclusion}
+The fusion ring $\sha{R8_3_1768}$ has no categorification by a fusion
+category over $\mathbb C$.
+\end{theorem}
+\begin{proof}
+By Theorem~\ref{thm:research-four-general-spherical}, existence of any
+complex categorification would imply existence of a pseudo-unitary
+categorification with the same based ring.  Work in its canonical
+positive pivotal structure.
+
+In the canonical basis $(X_0=1,X_1=g,X_2,\ldots,X_7)$ all simples are
+selfdual.  Join two labels $i,k$ whenever some $X$ has odd multiplicity
+$[X X_i X^*:X_k]$.  Direct multiplication gives exactly the two connected
+components
+\[
+ \{0,2,3,5\},\qquad \{1,4,6,7\}.
+\]
+Lemma~\ref{lem:pivotal-conjugation-parity} therefore leaves precisely
+the two second-indicator vectors
+\begin{equation}\label{eq:r1768-parity-signs}
+ (\nu_2(X_0),\ldots,\nu_2(X_7))
+ =(1,\varepsilon,1,1,\varepsilon,1,\varepsilon,\varepsilon),
+ \qquad\varepsilon=\pm1.
+\end{equation}
+
+Both vectors contradict the complete necessary center domains.  For
+$\varepsilon=1$, the pointed $C_2$ Fourier cone has an exact rational
+Farkas separator.  For $\varepsilon=-1$, the complete primitive-$37$
+sector reduction used in Proposition~\ref{prop:creative-r1768-sector}
+has five branches,
+\[
+ U+4V=16,\qquad V=0,1,2,3,4,
+\]
+and the resulting sign vector has an exact rational Farkas separator
+in every branch.  These cones retain the full all-order trace domain
+for the rational-ratio columns.  Thus this argument introduces no
+cutoff on twist orders.
+
+For each of the six separators $y$, the certificate checks
+$y^{\mathsf T}A_j\ge0$ on every allowed column, but
+$y^{\mathsf T}b<0$.  This contradicts the necessary equation
+$Ax=b$ with $x\ge0$.  The positive-sign domain has $10711$ columns;
+each of the five negative-sign domains has $6100$ columns.
+Consequently neither vector in~\eqref{eq:r1768-parity-signs} can occur,
+contradicting existence of the positive representative and hence of
+any complex categorification.
+\end{proof}
+
+The complete indicator
+calculation in the proof of
+Proposition~\ref{prop:creative-r1768-sector} forces
+\[
+ (\nu_2(X_0),\ldots,\nu_2(X_7))=(1,-1,1,1,1,1,1,1).
+\]
+But the source tensor gives
+\[
+ X_2gX_2^*
+ =g+2X_2+2X_3+2X_4+2X_5+X_6+X_7.
+\]
+Its negative-sign selfduality would force even multiplicities for the
+positive-indicator constituents $X_6,X_7$, both of which occur once.
+The six-certificate proof above independently replays precisely the
+parts of the complete center argument needed for the exclusion,
+without assuming its final forty-branch indicator conclusion.
+
+The categorical inputs to the theorem are the general-complex existence
+reduction and completeness of the necessary center domains, including
+the saturated conductor-$37$ argument.  Exact separation verifies
+infeasibility of those domains; it does not replace their categorical
+necessity proofs.  The replay requires no optimization or associator
+search.  The explicit pivotal pairing argument has no additional
+algebra-existence, Morita-equivalence, or numerical-indicator
+functoriality premise.
+
+
+The exact source tensor, complete parity graph and six rational separators
+are replayed by \path{evidence/frontier/replay/new/r1768/replay_palindromic_center.py}.
+The source inventory and categorical dependency statements are collected in
+\path{evidence/frontier/README.md}.
