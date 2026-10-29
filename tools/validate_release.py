@@ -10,6 +10,11 @@ from rank6_publication import (validate_identity,completion_files,require,FRONTI
 from publication_stages import load_stages
 
 ROOT=Path(__file__).resolve().parents[1]
+from frontier import active as current_frontier_active
+if current_frontier_active(ROOT):
+    from verify_frontier import main as current
+    current(metadata_only=True)
+    raise SystemExit(0)
 from correctness_publication import active as correctness_active
 if correctness_active(ROOT):
     from verify_correctness_revision import main as current
