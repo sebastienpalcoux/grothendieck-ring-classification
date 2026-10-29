@@ -793,7 +793,7 @@ function initControls() {
 }
 async function start() {
   try {
-    const [response,statusResponse,modelsResponse]=await Promise.all([fetch("./data/atlas.json"),fetch("./data/classification_status.json"),fetch("./data/realized_rings.json")]);
+    const [response,statusResponse,modelsResponse]=await Promise.all([fetch("./data/atlas.json",{cache:"no-cache"}),fetch("./data/classification_status.json",{cache:"no-cache"}),fetch("./data/realized_rings.json",{cache:"no-cache"})]);
     if (!response.ok || !statusResponse.ok || !modelsResponse.ok) throw new Error(`Data HTTP ${response.status}/${statusResponse.status}/${modelsResponse.status}`);
     state.data=await response.json();
     state.data.classification_rows=(await statusResponse.json()).rows;
