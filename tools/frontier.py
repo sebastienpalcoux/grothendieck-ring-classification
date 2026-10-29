@@ -64,7 +64,7 @@ def finding_path(rid):
  text,rel=FINDINGS[rid]
  return EVIDENCE+'/replay/'+('current/' if rid in REMAINING else 'new/')+rel
 def restriction_metadata():
- return {
+ item={
   'date':DATE,'new_general_exclusions':[],'new_models':0,'remaining_ids':list(REMAINING),
   'proof_directory':EVIDENCE+'/replay/current',
   'replay_receipt':EVIDENCE+'/current_run_receipt.json',
@@ -73,6 +73,9 @@ def restriction_metadata():
   'categorification_of_rank20_datum_established':False,
   'replay_receipt_sha256':sha(ROOT/EVIDENCE/'current_run_receipt.json'),
   'proof_manifest_sha256':sha(ROOT/EVIDENCE/'replay/current/manifest.json')}
+ archive=ROOT/'site/dist/downloads/Fusion-Ring-Frontier-Proofs-and-Checks.zip'
+ if archive.is_file():item['replay_archive']={'path':archive.relative_to(ROOT).as_posix(),'sha256':sha(archive),'bytes':archive.stat().st_size}
+ return item
 def current_scope(rid,scope,repo=ROOT):
  scope=deepcopy(scope)
  if rid not in FINDINGS:return scope
@@ -169,6 +172,19 @@ def apply_profiles(repo=ROOT):
    row['evidence']=list({x['path']:x for x in row['evidence']}.values())
   v['scope']='Current case profiles; excluded and unresolved status is explicit for each record.'
   write(p,v,True)
+ # The scope file was rewritten above; refresh its references in other profiles.
+ def refresh_scope_binding(value):
+  if isinstance(value,dict):
+   if value.get('path')=='site/categorification_scope.json' and 'sha256' in value:
+    value['sha256']=sha(sp)
+   for child in value.values():refresh_scope_binding(child)
+  elif isinstance(value,list):
+   for child in value:refresh_scope_binding(child)
+ for name in ('unresolved_cases.json','resolved_cases.json','rank9_m2.json','realized_rings.json'):
+  path=repo/'site/dist/data'/name
+  if path.is_file():
+   payload=read(path);refresh_scope_binding(payload);write(path,payload,True)
+
 def revise_document(name,text,repo=ROOT):
  """Final readable account after historical source renderers have run."""
  if not active(repo):return text
