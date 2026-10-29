@@ -16,6 +16,8 @@
 
 The [Fusion Ring Census](https://github.com/sebastienpalcoux/fusion-ring-census) enumerates based rings without a categorifiability filter. Its bounded regions contain 1,434,042 rings. This classification repository supplies categorical models and exclusions. The Atlas case directory covers the full census; detailed research profiles are supplied where available. Census-only numerical invariants are never treated as categorical models.
 
+<a id="grothendieck-rings--known-realizations-at-each-exact-multiplicity"></a>
+
 ## Decisions and models
 
 An exclusion is recorded at its proved scope: general complex, pivotal, spherical, pseudo-unitary or unitary. A restriction at one level is not automatically an exclusion at a broader level. A realized based ring has at least one categorical model; inequivalent associators are not counted separately. R12_1_623 is recorded as complex/pseudo-unitary with unitarity unproved.
