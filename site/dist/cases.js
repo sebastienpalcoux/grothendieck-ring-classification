@@ -563,7 +563,7 @@
     notice.append(el("p", "", "These records belong to the project’s current research claims. Independent human verification and Lean formalization are pending."), link("Research status and verification ↗", "./review.html")); root.append(notice);
     const nav = el("nav", "case-section-nav"); nav.setAttribute("aria-label", "Case sections");
     if (unresolved || ring.categorification_scope) nav.append(link("Categorification status", "#categorification", ""));
-    [["research", unresolved ? "Current research" : ring.research?.length ? "Model & proof" : "Models"], ["invariants", "Invariants"], ["characters", "Characters"], ["fusion-data", "Fusion data"], ["sources", "Sources"]].forEach(([id, title]) => nav.append(link(title, `#${id}`, "")));
+    [["research", excluded ? "Exclusion & proof" : unresolved ? "Current research" : ring.research?.length ? "Model & proof" : "Models"], ["invariants", "Invariants"], ["characters", "Characters"], ["fusion-data", "Fusion data"], ["sources", "Sources"]].forEach(([id, title]) => nav.append(link(title, `#${id}`, "")));
     if (ring.properties) {
       const labels = [["simple","simple"],["perfect","perfect"],["pointed","pointed"],["self_dual","self-dual"],["multiplicity_free","multiplicity-free"]];
       const properties = el("p","case-small-note","Exact ring properties: " + (ring.properties.integral ? "integral" : ring.properties.weakly_integral ? "weakly integral, nonintegral" : "not weakly integral") + ", " + (ring.properties.commutative ? "commutative" : "noncommutative") + (labels.some(([key])=>ring.properties[key]) ? ", " : "") + labels.filter(([key])=>ring.properties[key]).map(([,label])=>label).join(", ") + ". ");
