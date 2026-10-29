@@ -73,4 +73,3 @@ general categorification remains open; a dash marks an unanalyzed band.
 
 The companion [Fusion Ring Census](https://github.com/sebastienpalcoux/fusion-ring-census)
 enumerates based rings. This repository records their categorifications and exclusions.
-

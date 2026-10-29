@@ -207,7 +207,15 @@ def revise_document(name,text,repo=ROOT):
   '4,403 exclusions, 93 unitary models and 4 unresolved':'4,404 exclusions, 93 unitary models and 3 unresolved',
  }
  for a,b in replacements.items():text=text.replace(a,b)
- banner=('<!-- current-frontier -->\n**Current classification · 29 October 2026.** R8_3_1768 is excluded over the complex numbers by pivotal conjugation parity, using the established existence and center-domain reductions. **Six cases remain unresolved:** two at rank six, three at rank eight and one at rank nine. The latest restrictions exclude three R928 center patterns and the positive TY sign for R137; the surviving rank-20 datum is [Anyon Atlas B20-02148](https://anyonatlas.org/data/B20-02148). No additional model is claimed. [Current proofs and exact checks](https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/evidence/frontier/README.md).\n<!-- /current-frontier -->\n\n')
+ if name=='docs/CASE_INVENTORY.md':
+  for rid in ('R6_4_155','R6_8_1660'):
+   note=FINDINGS[rid][0]
+   row=f'| `'+rid+'` | **Open.** '+note+' | [Current proof](../'+finding_path(rid)+') · [Manuscript](../manuscripts/rank6/papers/chapters/pairing_morita_20261027.tex) |'
+   text=re.sub(r'^\| `'+re.escape(rid)+r'` \| \*\*Open\.\*\*.*$',lambda m:row,text,flags=re.M)
+  text=text.replace('Current manuscript section','Current proof and manuscript')
+ text=text.replace('The four remaining rings retain unresolved status for general complex categorification.','The three remaining rank-eight rings retain unresolved status for general complex categorification.')
+ banner=('<!-- current-frontier -->\n**Current classification · 29 October 2026.** R8_3_1768 is excluded over the complex numbers by pivotal conjugation parity, using the established existence and center-domain reductions. **Six cases remain unresolved:** two at rank six, three at rank eight and one at rank nine. No additional model is claimed. [Current proofs and exact checks](https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/evidence/frontier/README.md).\n<!-- /current-frontier -->\n\n')
+ if name=='README.md':banner=banner.replace('No additional model is claimed.','The latest restrictions exclude three R928 center patterns and the positive TY sign for R137; the surviving rank-20 datum is [Anyon Atlas B20-02148](https://anyonatlas.org/data/B20-02148). No additional model is claimed.')
  if name.startswith(('docs/','manuscripts/','site/'))or name=='README.md':
   at=text.find('\n\n');text=text[:at+2]+banner+text[at+2:]
  return text

@@ -4,7 +4,7 @@
 **Current classification · 29 October 2026.** R8_3_1768 is excluded over the complex numbers by pivotal conjugation parity, using the established existence and center-domain reductions. **Six cases remain unresolved:** two at rank six, three at rank eight and one at rank nine. No additional model is claimed. [Current proofs and exact checks](https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/evidence/frontier/README.md).
 <!-- /current-frontier -->
 
-The rank-eight multiplicity-three continuation addresses all 3,527 supplied exact-multiplicity-three rings: 3,508 general exclusions, 16 models and 3 unresolved cases. Every recorded model admits a unitary realization. The four remaining rings retain unresolved status for general complex categorification. R8_3_436 has an independent general exclusion.
+The rank-eight multiplicity-three continuation addresses all 3,527 supplied exact-multiplicity-three rings: 3,508 general exclusions, 16 models and 3 unresolved cases. Every recorded model admits a unitary realization. The three remaining rank-eight rings retain unresolved status for general complex categorification. R8_3_436 has an independent general exclusion.
 
 The rank-seven multiplicity-five continuation addresses all 5,805 supplied exact-multiplicity-five rings: 5,804 general exclusions, 1 realization and 0 unresolved cases. The classification of the supplied census is complete through multiplicity 5. The new realization R7_5_5678 is Rep(AGL(1,7)).
 
@@ -31,10 +31,10 @@ section; the stable LaTeX label locates the exact statement in that source.
 
 ## Two open cases within the historical study
 
-| Case | Current status and remaining task | Current manuscript section |
+| Case | Current status and remaining task | Current proof and manuscript |
 |---|---|---|
-| `R6_4_155` | **Open.** Odd cyclic Clifford constraints pass on 1,144 tested blocks, and the all-order path divisibility condition holds. The surviving modular and module data do not supply coherent associators. | [Source](../manuscripts/rank6/papers/chapters/frontier_155_odd_clifford.tex) (`sec:r155-odd-clifford`) |
-| `R6_8_1660` | **Open.** In the positive spherical representative, all indicators and central phase masses are determined; 640 labelled restriction profiles survive in branches 68, 286, 286. These necessary data do not construct a category or yield a general obstruction. | [Source](../manuscripts/rank6/papers/chapters/frontier_1660_phase_masses.tex) (`sec:1660-all-indicators-phase-masses`) |
+| `R6_4_155` | **Open.** Every positive Morita dual has the same based ring. In the specified order-32 near-group construction route, the parent group must be C4 × C2³. Compatible pointed data exist, but the parent category and required algebra are unconstructed. General categorification remains unresolved. | [Current proof](../evidence/frontier/replay/current/r155/CONTINUATION.md) · [Manuscript](../manuscripts/rank6/papers/chapters/pairing_morita_20261027.tex) |
+| `R6_8_1660` | **Open.** A nonreal dimension-weighted third indicator excludes real forms and braided representatives in the positive Morita class. The center is prime, excluding smaller direct modular sources. The proposed algebra 1+X and its R941 Morita partner remain conditional. | [Current proof](../evidence/frontier/replay/current/pair/REPORT.md) · [Manuscript](../manuscripts/rank6/papers/chapters/pairing_morita_20261027.tex) |
 
 ## Rank 7: accepted decisions
 
