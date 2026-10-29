@@ -1,0 +1,674 @@
+\subsection{The Ising subcategory at multiplicity eight}
+\label{subsec:frontier-1660}
+The ring $\RR{8}{1660}$ is self-dual. In the basis
+$1,g,X,gX,\sigma,\sigma X$ its products are determined by
+\[
+ g^2=1,\quad g\sigma=\sigma,\quad\sigma^2=1+g,\qquad
+ X^2=1+\bigl(3(1+g)+4\sigma\bigr)X,
+\]
+with commuting generators. Put $d=3+2\sqrt2+2\sqrt3+\sqrt6$.
+Then $\FPdim X=d$ and $\FPdim\mathcal C=4(1+d^2)$.
+The retained unrestricted sphericalization certificate reduces every
+categorification to its pseudo-unitary Galois conjugate, without
+assuming a pivotal structure. The signed reduction and actual-root
+certificate in \filename{research/frontier/R6_8_1660/} also force
+second indicators $(1,1,1,-1,1)$ on the nonunit basis objects.
+The Ising subcategory gives the following small structural problem.
+
+\begin{lemma}
+For a fusion subcategory $\mathcal D\subset\mathcal C$, the category
+$Z(\mathcal D)$ has a central lift, with reverse braiding, to
+$Z(Z_{\mathcal D}(\mathcal C))$. In particular its Grothendieck ring
+is central in that of the relative center.
+\end{lemma}
+\begin{proof}
+Use strict notation and write a relative-central object as $(X,\gamma)$,
+where $\gamma_V:VX\to XV$ for $V\in\mathcal D$. For
+$b=(Y,\beta)\in Z(\mathcal D)$, define its commutation with $(X,\gamma)$
+by $\gamma_Y:YX\to XY$. To check that this is a relative-central morphism,
+we must verify
+\[
+ (\gamma_Y\otimes1_V)(1_Y\otimes\gamma_V)(\beta_V\otimes1_X)
+ =(1_X\otimes\beta_V)(\gamma_V\otimes1_Y)(1_V\otimes\gamma_Y).
+\]
+The two half-braiding identities rewrite this as naturality of $\gamma$
+at the morphism $\beta_V:VY\to YV$. Naturality in relative-central objects
+and tensor compatibility follow from their defining identities. On
+$Z(\mathcal D)$ the resulting braiding is the reverse of its usual braiding.
+\end{proof}
+
+\begin{proposition}[Relative-center reconstruction]\label{prop:1660-relative-center}
+Any categorification $\mathcal C$ of $\RR{8}{1660}$ has a rank-eighteen
+relative center $\mathcal E=Z_{\mathcal I}(\mathcal C)$, where
+$\mathcal I=\langle g,\sigma\rangle$ is Ising. Write
+$B=K_0(Z(\mathcal I))\cong K_0(\mathcal I)\otimes K_0(\mathcal I)$ and
+$e=g\otimes g$. Its Grothendieck ring has basis $b,bt$ for the nine
+basis elements $b$ of $B$, with
+\[
+ tb=bt,\qquad t^2=L+At,\qquad L\in\{1,e\},\qquad A\in B_{\ge0},
+ \qquad A=LA.
+\]
+The forgetful map on $B$ is $F(a\otimes b)=ab$, and
+\[
+ F(t)=X,\qquad F(A)=3(1+g)+4\sigma,\qquad t^*=Lt.
+\]
+\end{proposition}
+\begin{proof}
+The complement $\mathcal M=\langle X,gX,\sigma X\rangle$ is an
+$\mathcal I$-bimodule category. The functor $Y\mapsto YX$ is a left
+module equivalence from $\mathcal I$ onto $\mathcal M$: it takes the
+three simples bijectively to the three simples, or equivalently
+$\underline{\operatorname{End}}_{\mathcal I}(X)=1$.
+Transport the right action to this regular left module. It becomes a
+tensor autoequivalence of $\mathcal I^{\rm rev}$, since it fixes all
+simple classes. Every tensor autoequivalence of an Ising category is
+isomorphic to the identity \cite[Remark B.6(i)]{DGNO}. Thus
+$\mathcal M$ is the regular bimodule, with $1$ corresponding to $X$.
+
+Passing to bimodule centers gives a regular $Z(\mathcal I)$-module
+$Z_{\mathcal I}(\mathcal M)$ \cite[Definition 2.1 and Remark 2.2]{GNNrel}.
+Consequently its simples are $bt$, and $\mathcal E$ has eighteen
+simples. The lemma gives commutativity. The part of $t^2$ supported on
+$Z(\mathcal I)$ forgets to $1$, and hence is exactly $1$ or $e$.
+Frobenius reciprocity gives $t^*=Lt$. All simples of $B$ are self-dual;
+taking duals of $t^2=L+At$ therefore gives $A=LA$. The remaining
+statements follow by applying the forgetful functor.
+\end{proof}
+
+\begin{proposition}[An arithmetic relative-center domain]\label{prop:1660-arithmetic-domain}
+Using the previously proved reduction to a pseudo-unitary
+categorification, the above relative-center rings reduce to $58$
+labelled alternatives.
+\end{proposition}
+\begin{proof}
+The relative center inherits positive spherical dimensions from
+$\mathcal C$. Its dimension and dimension field are
+\[
+ D=16(1+d^2)=576+384\sqrt2+320\sqrt3+224\sqrt6,
+ \qquad K=\mathbb Q(\sqrt2,\sqrt3).
+\]
+Its dimension has minimal polynomial
+\[
+ z^4-2304z^3+184320z^2-4718592z+37748736,
+\]
+whose constant term is $2^{22}3^2$.
+
+The Ising character rows are $(1,1,\sqrt2)$, $(1,1,-\sqrt2)$ and
+$(1,-1,0)$, with formal codegrees $4,4,2$. Thus for a character $\chi$
+of $B$, let $f_B$ be the product of these codegrees and write
+$a=\chi(A)=u+v\sqrt2$. If $\chi(L)=-1$, the identity $A=LA$ forces
+$a=0$; its two extensions have formal codegree $2f_B$. If
+$\chi(L)=1$, their formal codegrees are
+\[
+ f_\pm=\frac{f_B}{2}\left(4+a^2\pm a\sqrt{a^2+4}\right).
+\]
+Every $D/f_\pm$ is an algebraic integer and every $f_\pm$ belongs to
+$K$ \cite[Corollaries 2.14--2.15]{Ostrik3}.
+
+First, $f_+f_-=f_B^2(a^2+4)$ implies that
+\[
+ n(u,v)=(u^2+2v^2+4)^2-8u^2v^2
+\]
+has no prime divisor other than $2$ and $3$. Second, the primitive
+minimal polynomial of $D/f_\pm$ must be monic. Finally, if $a\ne0$,
+field membership implies $\sqrt{a^2+4}\in K$. A square root in
+$K=\mathbb Q(\sqrt2)\oplus\sqrt3\mathbb Q(\sqrt2)$ of an element of
+$\mathbb Q(\sqrt2)$ lies in one of those two summands. Taking its
+quadratic norm shows that $n(u,v)$ must be a square in $\mathbb Q$,
+hence an integer square.
+
+The finite domain is particularly small. If $z$ is the coefficient of
+$\sigma\otimes\sigma$ in $A$, then $0\le z\le3$. The coefficients
+of $1\otimes1,g\otimes g$ sum to $3-z$, those of
+$1\otimes g,g\otimes1$ also sum to $3-z$, and the coefficients of the
+four $\sigma$-supported simples sum to four. This gives $1050$ possible
+$A$ for $L=1$ and six satisfying $A=eA$ for $L=e$.
+The exact checker produces
+\[
+1056\xrightarrow{\text{prime norms}}158
+\xrightarrow{D/f\text{ integral}}130
+\xrightarrow{\text{dimension field}}58.
+\]
+\end{proof}
+
+The following categorical conditions reduce this arithmetic domain further.
+
+\begin{proposition}[Uniform indicator and central-lift constraints]
+\label{prop:1660-uniform-indicators}
+Every pseudo-unitary categorification of $\RR{8}{1660}$ has
+\[
+ \nu_2(g)=\nu_2(X)=\nu_2(gX)=\nu_2(\sigma X)=1,
+ \qquad\nu_2(\sigma)=-1,
+\]
+and its center contains a unique simple restricting to $g$ alone.
+\end{proposition}
+\begin{proof}
+We describe the finite certificate and the twist bound making it complete.
+For a central restriction column $v=(v_0,\ldots,v_5)$ put
+\[
+ a(v)=v_0+v_1+v_2+v_3+2v_4-2v_5,
+ \qquad b(v)=v_0+v_1-v_2-v_3+v_4+v_5.
+\]
+The saturated dimension-field characters of conductors $24$ and $12$
+give $a(v)\ne0\Rightarrow\theta_v^{24}=1$ and
+$b(v)\ne0\Rightarrow\theta_v^{12}=1$, by
+Proposition~\ref{prop:saturated-conductor-support}.
+A high column containing $\sigma$ has primitive order-$16$ twist and
+$v_1=0$, by the Ising projection. Both displayed forms then vanish,
+forcing $v_2+v_3=4v_4$ and $v_5=3v_4$.
+The individual root-mass capacity gives $v_4^2/2\le1$, hence $v_4=1$.
+If both forms vanish and $v_4=0$, then $v_5=2v_1$ and
+$v_2+v_3=3v_1$; a nonzero high column has $v_1>0$ and twist $-1$.
+Thus every actual twist has order dividing $48$.
+
+The first three indicators are already $+1$ by odd multiplicities in
+squares. Exhaust all four choices for the other two signs, all low
+frames and all character assignments. There are two low frames, each
+with two assignments, hence $16$ global systems. The equations use all
+$48$ actual roots, induction Gram identities, joint Galois balance,
+Ising root masses, low-product restriction constraints and cyclic
+rotation moments. Thirteen exact integer separating vectors exclude
+thirteen systems. Every one of the other three has the displayed
+indicator pattern. This conclusion precedes any specialization to
+individual high profiles.
+
+For the central lift, bounded affine enumeration of the Gram, character,
+Galois and cubic-word equations gives $371$ profiles in each assignment
+of the first frame and $2011$ in each assignment of the second.
+Every profile contains exactly one copy of the high vector
+$(0,1,0,0,0,0)$. All domains are reconstructed by the retained exact
+profile checker; the uniform multiplicity is checked on all $4764$
+raw profiles. A simple with this restriction has dimension one and is
+the required central invertible. The sources, separating vectors and
+independent replay are indexed in
+\filename{research/frontier/R6_8_1660/}.
+\end{proof}
+
+\begin{lemma}[Second indicator with a central factor]
+\label{lem:central-second-indicator}
+Let $\mathcal A$ be pivotal, let $b$ be self-dual in $Z(\mathcal A)$
+with simple underlying object, and let $t$ be self-dual and simple in
+$\mathcal A$. If $bt$ is simple, then
+$\nu_2(bt)=\nu_2(b)\nu_2(t)$.
+\end{lemma}
+\begin{proof}
+Use half-braidings $c_{b,x}:bx\to xb$. Choose a central self-duality
+$f_b:b\to b^*$ and a self-duality $f_t:t\to t^*$, and put
+$f=c_{b^*,t^*}(f_b\otimes f_t):bt\to(bt)^*$.
+Dual compatibility gives $(c_{b^*,t^*})^*=c_{b^{**},t^{**}}$.
+Writing $j$ for the pivotal structure, naturality and centrality of
+$f_b$ give
+\begin{align*}
+ f^*j_{bt}
+ &=(f_t^*j_t\otimes f_b^*j_b)c_{b,t}\\
+ &=\nu_2(b)\nu_2(t)(f_t\otimes f_b)c_{b,t}
+ =\nu_2(b)\nu_2(t)f.
+\end{align*}
+Since $bt$ is simple, this transpose scalar is its second indicator.
+No half-braiding for $t$ is needed.
+\end{proof}
+
+\begin{theorem}[A single relative-center ring]
+\label{thm:1660-single-relative-ring}
+Up to exchanging the Ising factors, the relative center of a
+categorification of $\RR{8}{1660}$ must have
+\[
+ L=e=(g,g),\qquad
+ A=2(\sigma,1)+2(\sigma,g)+3(\sigma,\sigma).
+\]
+\end{theorem}
+\begin{proof}
+The forgetful functor $F:\mathcal E\to\mathcal C$ is faithful and
+pivotal. It preserves second indicators for a self-dual simple whose
+image is simple: it preserves a nonzero self-duality and its transpose
+scalar, both computed in one-dimensional Hom spaces.
+If $L=1$, apply Lemma~\ref{lem:central-second-indicator} to
+$b=(\sigma,1)$ and $t$. Their images, and that of $bt$, are
+$\sigma,X,\sigma X$. Proposition~\ref{prop:1660-uniform-indicators}
+gives their signs $-1,1,1$, contradicting the lemma. Thus $L=e$.
+Of the $58$ arithmetic alternatives, only three have $L=e$: the
+stated coefficient, its factor exchange, and the all-ones coefficient
+$A=\sum_{b\in\Irr Z(\mathcal I)}b$.
+
+To exclude the last choice, realize $\mathcal E$ as the dual of
+$\mathcal C\boxtimes\mathcal I^{\rm op}$ acting on $\mathcal C$ by
+left and right tensor multiplication. Compatibility of a module
+endofunctor with the right action is exactly its relative half-braiding.
+Morita invariance therefore gives
+\[
+ |\operatorname{Inv}Z(\mathcal E)|
+       =4|\operatorname{Inv}Z(\mathcal C)|.
+\]
+All four invertibles of $\mathcal E$ belong to $B$ and have canonical
+central lifts. The forgetful map on central invertibles is surjective;
+its kernel is the group of tensor automorphisms of the identity.
+For the all-ones coefficient, $t^2$ contains $t$ and every $bt$.
+A tensor automorphism's scalars therefore satisfy
+$\lambda_t^2=\lambda_t=1$ and $\lambda_{bt}=\lambda_b=1$.
+The kernel is trivial, so $|\operatorname{Inv}Z(\mathcal E)|=4$.
+This contradicts the nontrivial central invertible of
+Proposition~\ref{prop:1660-uniform-indicators}.
+\end{proof}
+
+The last theorem is a necessary reduction, not a categorification of
+the remaining ring. Its universal grading is $C_2$: the first Ising
+spin and $t$ have odd degree. The neutral component has nine simples.
+Writing $p=(g,1)$, $q=(1,g)$, $s=(1,\sigma)$ and $Y=(\sigma,1)t$,
+its additional rules are
+\[
+ pY=Y,\qquad Y^*=qY,\qquad
+ Y^2=q(1+p)+\bigl(4(1+q)+6s\bigr)Y,
+\]
+together with $p^2=q^2=1$, $qs=s$ and $s^2=1+q$.
+
+\subsubsection{Two exact fermionic cuts on the remaining profiles}
+
+Write $d=3+2\sqrt2+2\sqrt3+\sqrt6$ and $D=4(1+d^2)$.
+The actual-twist certificate leaves $1764$ labelled restriction
+profiles, in branches of sizes $168,798,798$.
+The following reduction uses the already forced central fermion and second
+indicators. It makes no unitarity assumption and does not resolve the ring.
+
+\begin{proposition}[Fermion profile reduction]\label{prop:1660-fermion-profiles}
+The necessary restriction-profile domain for $\RR{8}{1660}$ reduces from
+$1764$ to $1727$. Exactly $25$ profiles fail the fermion orbit, dimension,
+and rank conditions below, and $12$ further profiles fail an integral
+second-indicator congruence. The two excluded sets are disjoint.
+\end{proposition}
+\begin{proof}
+Work in the retained pseudo-unitary Galois form.
+Let $\mathcal M=Z(\mathcal C)$, and let $h$ be its unique nontrivial
+invertible, with $F(h)=g$ and $\theta_h=-1$.
+For a simple $Z$, write $\epsilon_Z\in\{1,-1\}$ for its monodromy with
+$h$. Balancing gives
+\[
+ \theta_{hZ}=-\epsilon_Z\theta_Z.
+\]
+Thus the even sector consists of free $h$-pairs. Write its number of
+pairs as $p$, and write the odd sector as $s$ free pairs and $t$ fixed
+simples. The Verlinde diagonalization of $N_h$ gives
+\[
+ t=\operatorname{Tr}(N_h)=\sum_Z\epsilon_Z=2p-2s-t,
+ \qquad p=s+t.
+\]
+The two sectors each have dimension $D^2/2$.
+
+The six low simples are the summands of $I(1)$ indexed by the six ring
+characters. Their monodromies are the characters' values on $g$.
+The first four are even, and their restrictions, in order
+$(1,g,X,gX,\sigma,\sigma X)$, are
+\[
+ (1,0,0,0,0,0),\quad(1,0,3,3,0,4),\quad
+ (1,0,1,1,0,2),\quad(1,0,2,2,0,2).
+\]
+They give four forced even pairs, whose high partners have the
+$g$-translated restrictions and twist $-1$. The two other low simples
+are odd. In low frame zero their distinct restrictions force an
+$h$-transposition. In low frame one the computation conservatively
+allows either a transposition or two fixed simples.
+
+Remove the four forced high partners. Tensoring with $h$ exchanges the
+$X$ and $gX$ coordinates of each remaining restriction vector, so
+asymmetric vector types must occur in pairs with equal multiplicities.
+All remaining high vectors have zero $g$ coordinate.
+Let $E,O,T$ count the remaining even pairs, odd pairs, and odd fixed
+simples, and let $N$ be the number of remaining high simples. Then
+\[
+ (O,T)=
+ \begin{cases}
+ (N-3E-3,\,4E+6-N),&\text{odd low transposition},\\
+ (N-3E-2,\,4E+4-N),&\text{two fixed odd low simples}.
+ \end{cases}
+\]
+The even dimension condition becomes
+\[
+ \sum_{\text{remaining even pairs}}\frac{d_Z^2}{d^2}
+       =180+120\sqrt2.
+\]
+Here high vectors omit the unit coordinate. For a vector $(0,b,c,0,a)$, the summand is
+$(b+c+a\sqrt2)^2$. Every $\sigma$-containing type has
+$b+c=4$, $\sigma$ coefficient $1$, and $\sigma X$ coefficient $3$;
+its summand is $36+24\sqrt2$.
+
+There is also a pivotal parity condition. A self-duality of $Z$ with
+indicator $\eta$ induces a nondegenerate form with the same transpose
+sign on $F(Z)$. An odd multiplicity of a base simple of indicator
+$\delta$ forces $\eta=\delta$. Hence a type with odd $\sigma$ multiplicity
+and an odd positive-indicator multiplicity cannot be self-dual.
+Its total multiplicity is even. Its number of even $h$-pairs is also
+even: duality preserves twists, and therefore must pair distinct even
+$h$-orbits, whose two twists are opposite. This does not assert that
+$h$-fixed objects are self-dual.
+
+A bounded integer calculation of these dimension and rank equations,
+with these orbit and parity conditions, excludes $3,11,11$ profiles in
+the three branches. A separate recursion over the three orbit counts
+independently verifies every rejected low-action branch.
+
+For the second cut, put $\tau_n(\mathcal M)=\sum_Zd_Z^2\theta_Z^n$.
+The modular indicator formula \cite[Theorem~7.5]{NS} implies
+\[
+ \sum_{Z\in\operatorname{Irr}\mathcal M}\nu_2(Z)d_Z
+    =\frac{\tau_2(\mathcal M)\tau_{-2}(\mathcal M)}{\dim\mathcal M}.
+\]
+Indeed, multiply
+$\nu_2(Z)=(\dim\mathcal M)^{-1}
+\sum_{A,B}N_{AB}^{Z}d_A d_B(\theta_A/\theta_B)^2$
+by $d_Z$ and sum. The center identity \cite[Theorem~4.1]{NS} gives
+$\tau_2(Z(\mathcal C))=D\sum_Xd_X\nu_2(X)$. Dimensions and second
+indicators are real, and twists are roots of unity, so
+$\tau_{-2}=\overline{\tau_2}=\tau_2$. As $\dim\mathcal M=D^2$,
+\[
+ \sum_Z\nu_2(Z)d_Z
+   =\bigl(2-\sqrt2+(2+\sqrt2)d\bigr)^2.
+\]
+The four even low restrictions are unique, so their simples are self-dual;
+the odd unit multiplicity forces indicator $1$, as for their $h$-partners.
+The two odd low objects also have indicator
+$1$. This is immediate in frame zero. In frame one their alternative
+would be a dual pair: after removing the four even pairs, the displayed identity would
+then require an additional term $(8\sqrt3+4\sqrt6)d$. Every remaining
+possible nonzero indicator contribution divided by $d$ belongs to
+$\mathbb Q(\sqrt2)$; the $\sigma$-containing types have indicator zero.
+This rules out that alternative.
+
+After removing all these forced contributions, the identity reads
+\[
+ \sum_{\text{remaining high }Z}\nu_2(Z)\frac{d_Z}{d}
+      =36+24\sqrt2.
+\]
+For a restriction type of multiplicity $n_v$, its aggregate indicator
+$s_v$ satisfies $s_v\equiv n_v\pmod2$, since nonself-dual objects occur in dual
+pairs. Also $\nu_2(hZ)=\nu_2(Z)$ by
+Lemma~\ref{lem:central-invertible-indicators}, applied to the braided
+lift of $h$ in $Z(\mathcal M)$, whose twist is $-1$.
+Thus asymmetric $h$-paired vector types have equal aggregate indicators.
+For each type $(0,b,c,0,a)$, let $q_v=b+c$ if it is $h$-invariant,
+and $q_v=2(b+c)$ for an asymmetric pair. The rational coefficient is
+$\sum_v q_vs_v$.
+For each low-one labelling, profiles $1032,\ldots,1037$ force the
+integers $2q_v$ to be divisible by $8$ and
+$\sum_vq_vn_v\equiv0\pmod8$. The rational coefficient is therefore
+$0$ modulo $8$, whereas
+$36$ is $4$ modulo $8$. These six profiles in each labelling are excluded.
+
+The verifier \filename{verify\_fermion\_profiles.py} in
+\filename{research/frontier/R6_8_1660/fermion_profiles/} reconstructs the entire input domain
+from its hash-bound source files, checks all field identities by integer
+arithmetic in $\mathbb Q(\sqrt2,\sqrt3)$, and records both disjoint
+excluded sets in \filename{fermion\_profiles\_certificate.json}.
+It uses no optimizer and retains both low-one actions. The remaining count is
+$165+781+781=1727$.
+\end{proof}
+
+\subsubsection{An involution and higher-indicator constraints}
+
+Put $T=\sigma X$, $S=sY$, and
+$\mathcal A=\mathcal E_{\mathrm{ad}}$.
+All categories below carry their canonical positive spherical structures.
+
+\begin{proposition}[A tensor involution]\label{prop:1660-tensor-involution}
+There is a coherent tensor action of $C_2$ on $\mathcal C$ whose generator
+$\alpha$ exchanges $X,gX$ and fixes the other four simple classes.
+Consequently $\nu_n(X)=\nu_n(gX)$ for every $n\geq1$; their entire
+$n$th pivotal rotation representations are isomorphic.
+\end{proposition}
+\begin{proof}
+The nine simples of $\mathcal A$ are $1,p,q,e,s,ps,Y,qY,S$, and the
+relative-center forgetful functor has fibers
+\[
+ \{1,e\}\mapsto1,\quad\{p,q\}\mapsto g,\quad
+ \{s,ps\}\mapsto\sigma,\quad\{Y,qY\}\mapsto T,\quad
+ S\mapsto X\oplus gX.
+\]
+It is therefore dominant, and $\FPdim\mathcal A=2\FPdim\mathcal C$.
+The canonical central lift of $e=pq$ is a boson: its self-braiding is
+the product of the two Ising fermions' self-braidings. It generates a
+central $\operatorname{Rep}(C_2)$, with regular algebra $R=1\oplus e$.
+Moreover its half-braiding becomes trivial under $F$. Indeed, the
+explicit central lift above commutes with $(V,\gamma)$ by evaluating
+$\gamma$ at the underlying Ising object of $e$, which is isomorphic
+to $1$; naturality and the unit identity give ordinary unit commutation.
+Thus $F(R)$ is the split central algebra $1\oplus1$. Choosing either
+augmentation $F(R)\to1$, base change defines a tensor functor
+\[
+ \overline F:\mathcal A_R\longrightarrow\mathcal C,
+ \qquad M\longmapsto F(M)\otimes_{F(R)}1.
+\]
+It factors $F$ through the free-module functor and is dominant.
+De-equivariantization gives
+$\FPdim\mathcal A_R=\FPdim\mathcal A/2=\FPdim\mathcal C$,
+so $\overline F$ is an equivalence. Equivariantization and
+de-equivariantization therefore identify $\mathcal A$ with
+$\mathcal C^{C_2}$ \cite[Section~4.2, especially Theorem~4.18 and
+Proposition~4.26]{DGNO}. The underlying support of a simple equivariant
+object is a single group orbit; the displayed fibers force the stated
+action on simples. A tensor autoequivalence preserves the unique positive
+spherical structure and hence intertwines all pivotal rotations
+\cite{NSpiv}.
+\end{proof}
+
+\begin{lemma}[Parity within a restriction fiber]\label{lem:1660-fiber-parity}
+In every central restriction type with equal $1$ and $g$ multiplicities,
+the number of charge-even simples is even, and their twist multiset is
+invariant under $\theta\mapsto-\theta$. This applies to every remaining
+high type, including those asymmetric in $X,gX$.
+\end{lemma}
+\begin{proof}
+The braided autoequivalence $\widehat\alpha=Z(\alpha)$ preserves twists
+and fixes $h$, since $h$ is the unique central lift of $g$.
+The permutation $\beta(Z)=h\otimes\widehat\alpha(Z)$ of simple classes
+satisfies $\beta^2=1$, preserves monodromy charge $\epsilon_Z$, and has
+$\theta_{\beta(Z)}=-\epsilon_Z\theta_Z$. Its restriction vector is
+\[
+ (a_1,a_g,a_X,a_{gX},a_\sigma,a_T)
+ \longmapsto(a_g,a_1,a_X,a_{gX},a_\sigma,a_T).
+\]
+Thus it preserves each stated fiber and acts freely on its even part,
+pairing opposite twists. No assertion that tensoring with $h$ is a
+tensor autoequivalence is needed.
+\end{proof}
+
+\begin{proposition}[Odd rotation multiplicities]\label{prop:1660-odd-rotation}
+For every odd $n$, the cyclic rotation representation on
+$\operatorname{Hom}_{\mathcal C}(1,T^n)$ is twice that on
+$\operatorname{Hom}_{\mathcal E}(1,Y^n)$. In particular all its
+eigenvalue multiplicities are even, and, writing $\omega=\zeta_3$,
+\[
+ \nu_3(T)\in\{2,2\omega,2\omega^2,-4,-4\omega,-4\omega^2\}.
+\]
+\end{proposition}
+\begin{proof}
+For a pseudo-unitary category $\mathcal D$, the center formula gives
+\[
+ W_n(\mathcal D):=\sum_Vd_V\nu_n(V)
+   =\frac{\tau_n(Z(\mathcal D))}{\dim\mathcal D}
+   \quad\text{\cite[Theorem~4.1]{NS}}.
+\]
+Hence $W_n$ is Morita invariant and multiplicative under Deligne products.
+Use the established Morita equivalence
+$\mathcal E\sim\mathcal C\boxtimes\mathcal I^{\rm op}$.
+For odd $n$, the Ising factor contributes $W_n=1$; the odd component
+of $\mathcal E$ has zero indicators, and among the six $B$-simples
+in $\mathcal A$ only $1$ contributes. Since $Y^*=qY$, dual invariance
+\cite[Remark~4.2]{NS} yields
+\[
+ 2\sqrt2\nu_n(Y)+2\nu_n(S)
+ =\nu_n(X)+\nu_n(gX)+\sqrt2\nu_n(T).
+\]
+Indicators belong to $\mathbb Q(\zeta_n)$, which does not contain
+$\sqrt2$ for odd $n$. Comparing coefficients proves
+$\nu_n(T)=2\nu_n(Y)$ and
+$\nu_n(X)+\nu_n(gX)=2\nu_n(S)$.
+
+To obtain all rotation powers, let $r$ be odd. Since $Y^*=eY$,
+duality gives $[Y^r:e]=[Y^r:1]$. These are precisely the two simples
+in $\mathcal A$ whose forgetful image contains $1$, so
+$\dim\operatorname{Hom}_{\mathcal C}(1,T^r)
+=2\dim\operatorname{Hom}_{\mathcal E}(1,Y^r)$.
+Expanding $Y^r$ in the nine simple classes and using the preceding
+indicator identities also gives
+$\nu_m^{\mathcal C}(T^r)=2\nu_m^{\mathcal E}(Y^r)$ for every odd $m$.
+For the $k$th power of $n$th rotation put $r=\gcd(n,k)$ and $m=n/r$.
+Grouping $r$ adjacent tensor factors identifies rotation through $r$
+places with $m$th rotation on the object's $r$th power; raising to
+$k/r$ applies the cyclotomic automorphism
+$\zeta_m\mapsto\zeta_m^{k/r}$ to its trace. The preceding equality
+therefore doubles every character value. The identity character value
+is covered by the dimension equality.
+
+Finally the central fermion fixes $T$. Its self-braiding $-1$ gives
+the anticommuting left and right stabilizers of
+Proposition~\ref{prop:stabilizer-rotation}. Since
+$\dim\operatorname{Hom}(1,T^3)=8$, that proposition gives
+$\nu_3(T)=-(a+b\omega+c\omega^2)$ with $a+b+c=4$.
+The actual rotation multiplicities are $(4-a,4-b,4-c)$;
+their evenness makes $a,b,c$ even and leaves the six displayed values.
+\end{proof}
+
+\subsubsection{Homogeneous-packet Vafa equations}
+
+We combine Proposition~\ref{prop:1660-tensor-involution} and
+Lemma~\ref{lem:1660-fiber-parity} with a Vafa congruence using only
+known induction matrices.
+
+\begin{proposition}
+The $1727$ restriction profiles reduce further to $1670$.
+There are $18$ exclusions from the involution and $39$ additional exclusions
+from Anderson--Moore--Vafa equations and a sixteenth-indicator field test.
+Neither a braiding on $\mathcal C$ nor a braiding on its relative center
+is assumed.
+\end{proposition}
+\begin{proof}
+On simple labels of $Z(\mathcal C)$ consider
+$\beta(Z)=h\otimes Z(\alpha)(Z)$. It preserves the monodromy sign
+$\epsilon_Z$ with $h$, and
+\[
+ \theta_{\beta(Z)}=-\epsilon_Z\theta_Z.
+\]
+Its restriction vector exchanges the unit and $g$ coordinates and fixes
+the other four coordinates. Consequently, on every restriction fiber
+whose unit and $g$ multiplicities are both zero, its even sector is paired
+with opposite twists. The cardinality of this even sector is even.
+After the four forced low/high pairs are removed, all remaining high
+fibers have this form. In the previous orbit calculation this adds the
+condition that the number of even $h$-pairs joining two asymmetric
+restriction types is even. The other low-one alternatives remain allowed.
+
+Here is the Vafa specialization used for the second cut. In any ribbon
+fusion category with twists $\theta_i=\zeta_N^{k_i}$, the
+Anderson--Moore--Vafa equation \cite[Theorem~8.18.1]{EGNO} is
+\[
+ (\theta_i\theta_j\theta_m\theta_r)^{N_{ijm}^{r}}
+ =\prod_p\theta_p^{N_{ij}^{p}N_{pm}^{r}
+                     +N_{im}^{p}N_{jp}^{r}
+                     +N_{jm}^{p}N_{ip}^{r}}.
+\]
+Let $U=\bigoplus_i n_i i$ have one common twist
+$\zeta_N^\kappa$ on its constituents. Put $P=N_U$ and
+$a_j=[U^{\otimes j}]$. Multiplying the equations with weights
+$n_i n_j n_m$ gives the useful identity
+\[
+ (a_3)_r(3\kappa+k_r)
+     \equiv3\sum_p (a_2)_p P_{rp}k_p\pmod N.             \tag{V}
+\]
+This identity only requires the fusion matrix of the homogeneous-twist
+object $U$, rather than all simple fusion matrices.
+
+Apply it in $Z(\mathcal C)$, whose actual twist exponent divides $48$.
+Let $R$ be its restriction matrix and $A=I(1)$.
+The projection formula $A\otimes Z\cong I(F(Z))$ gives
+$N_A=R^{\mathsf T}R$. Split $A=A_+\oplus A_-$ into its four even and two
+odd low simples. Every constituent still has twist one. The fusion matrices
+of $A_+$ and $A_-$ are precisely the equal-charge and opposite-charge
+blocks of $R^{\mathsf T}R$, respectively. Thus they are known after an
+assignment of the fermion charges; no general center fusion reconstruction
+is involved.
+
+In the base order $(1,g,X,gX,\sigma,\sigma X)$ write
+\[
+ u_+=F(A_+)=(4,0,6,6,0,8),\qquad
+ u_-=F(A_-)=(2,2,6,6,0,8),
+\]
+and $H_+=\sum_{Z\text{ even}}v_Zv_Z^{\mathsf T}$, where $v_Z=F(Z)$.
+For a remaining high simple $Z$, use $U=A_+$ if $Z$ is even and $U=A_-$
+if $Z$ is odd. The coefficient of $Z$ in $U^3$ is
+\[
+ (a_3)_Z=v_Z^{\mathsf T}H_+u_-.
+\]
+For the even case, replacing $u_+$ by $u_-$ is legitimate:
+$H_+(u_+-u_-)=(8,-8,0,0,0,0)$, which pairs to zero with every
+remaining high vector.
+
+The four forced even low/high pairs contribute
+\[
+ H_+u_-=(144,144,648,648,0,848)
+       +\text{contributions of remaining even pairs}.
+\]
+For a sigma-free high vector
+$w=(0,0,b,c,0,a)$ put $x=b+c$. An even $h$-pair supported on
+$w,gw$ contributes, modulo $3$,
+\[
+ (0,0,2xa,2xa,0,a^2).
+\]
+The sigma-containing types have $a=3$ and contribute zero modulo $3$.
+The already imposed even dimension balance has square-root coefficient
+$120$, and hence $\sum 2xa\equiv0\pmod3$ over remaining even pairs.
+Put
+\[
+ T=\sum_{\text{remaining even pairs}}a^2\pmod3.
+\]
+It follows that
+\[
+ (a_3)_Z\equiv (v_Z)_{\sigma X}(T-1)\pmod3.
+\]
+Reducing (V) modulo $3$ therefore gives the spin constraint
+\[
+ (v_Z)_{\sigma X}(T-1)k_Z\equiv0\pmod3.                 \tag{S}
+\]
+
+Suppose a profile contains no sigma-free high type with positive
+sigma-X multiplicity divisible by $3$. If $T\ne1$, (S) says that every
+sigma-free high simple contributing to $I(\sigma X)$ has $3\mid k_Z$,
+so its twist order divides $16$. The sigma-containing high types already
+have twist order dividing $16$; low objects and their four forced high
+partners have twists $1$ and $-1$. Thus all simples in $I(\sigma X)$
+would have sixteenth power of their twist equal to one. The center
+indicator formula would give
+\[
+ \nu_{16}(\sigma X)=\dim(\sigma X)
+       =4+3\sqrt2+2\sqrt3+2\sqrt6.
+\]
+This is impossible: the left side is the trace of an order-sixteen cyclic
+rotation and lies in $\mathbb Q(\zeta_{16})$. The right side does not.
+For example, the automorphism $\zeta_{48}\mapsto\zeta_{48}^{17}$ fixes
+$\zeta_{16}$ and $\sqrt2$ but negates $\sqrt3$.
+Therefore such a profile must have $T=1\pmod3$.
+
+The exact bounded orbit calculation imposes the
+asymmetric-even parity condition and this single residue $T$.
+It excludes $18$ profiles by parity and a further $39$ by the spin/field
+condition, leaving branch sizes $164,753,753$.
+The portable verifier \texttt{verify\_spin\_profiles.py} first replays the
+input $1727$-profile certificate and checks its surviving-index hashes.
+It uses only integer arithmetic and independently rechecks every rejected
+charge branch by a second recursion over the individual orbit counts.
+The small receipt \texttt{spin\_profiles\_certificate.json} records all
+excluded indices and the final count $1670$.
+\end{proof}
+
+
+\begin{corollary}\label{cor:1660-no-braiding}
+No categorification of $\RR{8}{1660}$ admits a braiding.
+\end{corollary}
+\begin{proof}
+Its Ising subcategory would be nondegenerate, so braided decomposition
+would give $\mathcal C\simeq\mathcal I\boxtimes\mathcal D$ with
+$\rk\mathcal D=2$ \cite[Corollary~B.12 and Theorem~3.13]{DGNO}.
+Write $z$ for the nonunit simple of $\mathcal D$; then
+$z^2=1+nz$. The dimension multiset forces $\FPdim z=d$, so
+$X$ corresponds to $1\boxtimes z$ or $g\boxtimes z$.
+Its square cannot contain $\sigma\boxtimes z$, contrary to
+$N_{XX}^{\sigma X}=4$.
+\end{proof}
+

@@ -1,0 +1,370 @@
+\section{Three exclusions by Galois-unit pairing and parity}
+\label{sec:galois-pairing-20261027}
+\subsection{The projective-parity exclusion of $R9\_2\_1975$}
+We use the categorical TY/Morita reduction and the general-complex
+sphericalization and Galois-existence gate established above. The extreme
+Morita branch has already been excluded. In either uniform branch the
+rank-twelve dual has invertibles $G=D_8$, central subgroup $H=\langle z\rangle
+\cong C_2$, quotient $Q=G/H\cong V_4$, and four other simples $X_q$ with
+\[
+ gX_q=X_qg=X_{q+gH},\qquad
+ X_pX_q=\sum_{gH=p+q+\alpha}g+2\sum_{t\in Q}X_t,
+ \qquad X_q^*=X_{q+\alpha}.
+\]
+Their common dimension is $d=4+3\sqrt2$, with $d^2=2+8d$ and
+$D=8+4d^2=144+96\sqrt2$. The shift $\alpha$ is a reflection or rotation
+coset. The forced pointed associator is the TY-origin class described in
+the preceding section. Its full class, not only its cyclic restrictions,
+is fixed by the detection argument cited there.
+
+\subsubsection{Duality and an arbitrary complex stabilizer cocycle}
+Let $K=G\times G$ act by $(g,k)X=gXk^{-1}$. The stabilizer of $X_0$ is
+$L=G\times_QG\cong G\times C_2$, with $(g,e)\mapsto(g,gz^e)$.
+Use the coordinates
+\[
+ \begin{gathered}
+ p=(1,0,0),\quad s=(0,0,1),\quad z=(ps)^2=(1,1,0),\\
+ P=(p,0),\quad S=(s,0),\quad Z=(z,0),\quad E=(1,1)\in L.
+ \end{gathered}
+\]
+An arbitrary pointed-bimodule cochain is $\beta'=\beta\gamma$, where
+$\beta$ is a fixed cochain for the forced associator and $\gamma$ is an
+arbitrary ordinary $\mathbb C^\times$-valued two-cocycle on $L$.
+For commuting $A,B$ write
+$C_\gamma(A,B)=\gamma(A,B)/\gamma(B,A)$.
+Let $T$ exchange the two $K$ factors and let $\phi_q$ be conjugation
+by $(q,1)$ on the stabilizer. Categorical duality with shift $qH$ requires
+\[
+ c'_q=\phi_q^*(\beta')\,\kappa_q\,T^*(\beta')
+\]
+to be a coboundary. Here $\kappa_q$ is the normalizer correction for the
+opposite-bimodule convention of Vainerman--Vallin, Sections 2.2.1, 2.2.2
+and 3.1.1. No grading of the whole rank-twelve category is assumed.
+The explicit cochain and correction are recorded in
+\path{evidence/unresolved10_20261027/r9_noncommutative/REPORT.md}; the short
+cochain verifier checks every coboundary equation and the identities below.
+
+For $q=(x,y,n)$ their commuting-pair identity is
+\[
+ C_{c'_q}(P,E)C_{c'_q}(S,E)=(-1)^{x+y+n}.
+\]
+It excludes both reflection cosets for every complex $\gamma$.
+For either lift of the remaining rotation coset, represented by
+$q=ps=(0,1,1)$, direct substitution gives
+\[
+ C_{c_q}(P,E)=1,\qquad C_\beta(P,Z)=-1.
+\]
+The change of the first expression on replacing $\beta$ by $\beta\gamma$
+is exactly $C_\gamma(P,Z)$. To see this without a root-of-unity bound,
+centrality of $E$ makes $C_\gamma(-,E)$ a character; it kills $Z=[P,S]$
+and has square one on $P$. For some $a\in\mathbb F_2$,
+\[
+ \phi_q(P)=P(ZE)^a,\quad\phi_q(E)=E,\quad TP=P,\quad TE=ZE.
+\]
+Consequently
+\[
+ C_{\phi_q^*\gamma}(P,E)C_{T^*\gamma}(P,E)
+ =C_\gamma(P,E)^2 C_\gamma(P,Z)=C_\gamma(P,Z).
+\]
+A coboundary has trivial commutator on commuting pairs. The duality
+condition therefore forces $C_\gamma(P,Z)=1$ and hence
+\begin{equation}\label{eq:r1975-projective-sign}
+ C_{\beta'}(P,Z)=-1.
+\end{equation}
+This holds for arbitrary complex cochains and gauges. The rotation-duality
+equation itself has an eighth-root trivialization; its consistency is not
+the contradiction, and a fourth-root-only search would be invalid.
+
+\subsubsection{Every central restriction has even multiplicity}
+The chosen pointed associator is identically one on
+$A=\langle p,z\rangle\cong V_4$. Diagonal conjugation by $A$ therefore
+has its strict pointed convention, without a global normalization of
+the diagonal $D_8$ tensorator. For any $W\in Z(\mathcal D)$,
+its half-braiding gives $F(W)$ an $A$-equivariant structure. Conjugation
+fixes every $X_q$, so $V=\operatorname{Hom}(X_0,F(W))$ carries the
+projective stabilizer action from $\beta'|_A$, or its inverse. Either
+convention has the commutator in \eqref{eq:r1975-projective-sign}.
+Thus its two invertible operators obey $U_pU_z=-U_zU_p$.
+Taking determinants gives $(-1)^{\dim V}=1$. We obtain
+\begin{equation}\label{eq:r1975-even-restriction}
+ [F(W):X_0]\ \text{is even for every }W\in Z(\mathcal D).
+\end{equation}
+This step uses neither indicator signs nor unitarity.
+
+\subsubsection{The distinguished Galois object has odd multiplicity}
+Pass to the pseudo-unitary Galois representative supplied by the signed
+existence gate, and take the actual Morita dual. Both categories are
+pseudo-unitary because their intrinsic global dimensions and FP dimensions
+are Morita invariant. This does not assert pseudo-unitarity of an arbitrary
+original category. Let $\sigma(\sqrt2)=-\sqrt2$ and $D'=\sigma(D)$.
+The uniform ring has eight scalar irreducibles and one irreducible of
+degree two. The two dimension characters have codegrees $D,D'$.
+For each nontrivial character $\psi$ of $Q$, there are two representations
+$g\mapsto\psi(gH)$, $X_q\mapsto t\psi(q)$, $t^2=2\psi(\alpha)$;
+their codegrees are $16$. The two-dimensional representation of $D_8$
+extends by $X_q\mapsto0$ and has codegree $4$. Its Casimir eigenvalue
+is $2\cdot4=8$, not $4$. The degree sum $8+2^2=12$ proves completeness.
+
+The central element $v=1+\sum_qX_q$ acts on every irreducible $E$ by
+$f_E/\sigma(f_E)$: it is one on the rational-codegree representations,
+and $1+4d=D/D'$ or $1+4\sigma(d)=D'/D$ on the dimension characters.
+Let $A_E\subset I(1)$ be the distinguished central simple of dimension
+$D/f_E$ and let $B=A_{\sigma\mathrm{FP}}$. With normalized central
+character $\lambda_E=\chi_E/\dim(E)$, symmetry of the unnormalized
+modular $S$ matrix gives
+\[
+ \frac D{f_E}\lambda_E(F(B))=S_{A_E,B}=S_{B,A_E}
+ =\frac D{D'}\,\sigma(D/f_E)=\frac D{\sigma(f_E)}.
+\]
+The degree normalization is retained. Semisimplicity of the based algebra
+therefore identifies $F(B)$ with $v$:
+\[
+ F(B)=1+X_0+X_1+X_2+X_3.
+\]
+This contradicts \eqref{eq:r1975-even-restriction}. Reflection, rotation
+and the previously eliminated extreme branch exhaust the possibilities,
+so $R9\_2\_1975$ has no fusion categorification over $\mathbb C$.
+The distinguished-object and central-character inputs are Ostrik,
+Theorem 2.13 and Section 2.3, and Deshpande, Proposition 2.8 and
+Section 2.7. The general-complex signed gate and both source tensor
+identities have separate exact completeness replays.
+
+\hypertarget{frontier-two-rank-nine-exclusions-from-a-symmetric-galois-unit-pairing}{%
+\subsection{Two rank-nine exclusions from a symmetric Galois-unit
+pairing}\label{frontier-two-rank-nine-exclusions-from-a-symmetric-galois-unit-pairing}}
+
+\hypertarget{frontier-result-and-scope}{%
+\subsubsection{Result and scope}\label{frontier-result-and-scope}}
+
+\textbf{R9\_2\_1607 and R9\_2\_1976 have no fusion categorification over
+the complex numbers.} R9\_2\_137 remains unresolved; this argument
+forces all four of its large simple objects to have second
+Frobenius--Schur indicator \(+1\) in the positive representative.
+
+The argument combines the new reflection-duality obstruction in
+\path{../r9_noncommutative/REPORT.md}, the Galois-unit calculation in
+\path{../r9_noncommutative/GALOIS_PARITY_EXCLUSION.md}, and the
+symmetric pairing observation below. It uses the previously audited
+categorical TY/Morita reductions and the
+general-complex-to-pseudo-unitary existence gate. There is no unitarity
+assumption and no search over associators.
+
+\hypertarget{frontier-exact-source-bindings}{%
+\subsubsection{1. Exact source bindings}\label{frontier-exact-source-bindings}}
+
+Inputs are the tensors in \path{data/current_remaining_cases.py} at
+the frozen source commit
+\texttt{6a426acf6465dd674351be92dcca41b72f371521}.
+
+\begin{center}\begin{tabular}{lcll}\toprule
+Ring & TY object & Large objects & Selfdual large objects\\\midrule
+$R9\_2\_137$ & 8 & 3,4,5,6 & all four\\
+$R9\_2\_1607$ & 3 & 1,2,7,8 & 7,8\\
+$R9\_2\_1976$ & 5 & 1,2,3,4 & none\\\bottomrule
+\end{tabular}\end{center}
+The full tensor hashes are recorded in the source-bound accepted ledger.
+
+
+Every source has four invertibles, one TY object \(Y\) of dimension 2,
+and four large objects of dimension
+
+\[
+d=4+3\sqrt2,\qquad d^2=2+8d,\qquad
+D=144+96\sqrt2=8+4d^2.
+\]
+
+The short verifier \texttt{verify\_source\_checks.py} independently
+checks these dimensions, dualities, and hashes. Its receipt is
+\texttt{source\_checks.json}.
+
+The prior reductions establish a connected subgroup algebra and a
+rank-twelve Morita dual with invertible group \(G=D_8\), central
+stabilizer \(H=C_2\), quotient \(Q=G/H=V_4\), and four other simples
+\(X_q\). The earlier possibilities for these three sources had zero or
+reflection duality shift. The new all-complex commuting-pair obstruction
+excludes the reflection shifts. Thus a remaining categorification must
+have the uniform zero-shift rules
+
+\[
+gX_q=X_qg=X_{q+gH},\qquad
+X_pX_q=\sum_{gH=p+q}g+2\sum_{t\in Q}X_t,
+\qquad X_q^*=X_q.
+\]
+
+The existing spherical/Galois existence gate allows us to work with a
+pseudo-unitary representative of this Morita pair. This does not assert
+that the original hypothetical category was unitary. Pseudo-unitarity is
+preserved under categorical Morita equivalence, so both sides have their
+canonical positive spherical structures.
+
+\hypertarget{frontier-a-multiplicity-one-galois-object-is-symmetrically-selfdual}{%
+\subsubsection{2. A multiplicity-one Galois object is symmetrically
+selfdual}\label{frontier-a-multiplicity-one-galois-object-is-symmetrically-selfdual}}
+
+Let \(\mathcal D\) be the hypothetical positive rank-twelve category,
+\(F:Z(\mathcal D)\to\mathcal D\) the forgetful functor, and \(I\) its
+right adjoint. Its canonical algebra \(L=I(\mathbf1)\) is connected
+étale and has trivial twist. It has a nondegenerate Frobenius pairing. A
+commutative Frobenius algebra with trivial twist in a ribbon category is
+symmetric in the \textbf{pivotal} sense: see
+Fröhlich--Fuchs--Runkel--Schweigert, \emph{Correspondences of ribbon
+categories}, Proposition 2.25(ii), https://arxiv.org/pdf/math/0309465 or
+the author copy
+https://www.math.uni-hamburg.de/home/runkel/PDF/corr.pdf.
+
+In explicit duality notation, its pairing gives an isomorphism
+\(\phi_L:L\to L^*\) satisfying
+
+\[
+\phi_L=\phi_L^*j_L,
+\]
+
+where \(j\) is the pivotal structure. This is stronger than merely
+braided commutativity of the multiplication; it is the property used
+here.
+
+Let \(B=A_{\sigma\mathrm{FP}}\) be the distinguished summand of \(L\)
+for the conjugate dimension character, where \(\sigma(\sqrt2)=-\sqrt2\).
+For the zero-shift uniform ring the complete list of irreducibles
+consists of eight one-dimensional representations and one
+two-dimensional representation. Their formal codegrees are
+
+\[
+D,\quad D'=\sigma(D),\quad 16\text{ (six times)},\quad4.
+\]
+
+The distinguished central objects therefore have dimensions
+
+\[
+1,\quad D/D',\quad D/16\text{ (six times)},\quad D/4.
+\]
+
+Their multiplicities in \(L\) are respectively 1 for the scalar
+representations and 2 for the two-dimensional representation. In
+particular \(B\) occurs once and its dimension \(D/D'\) is unique among
+these constituents. Since \(L\cong L^*\), duality must preserve this
+unique dimension and consequently \(B^*\cong B\).
+
+The pairing of \(L\) cannot pair this summand with any other simple
+summand. Its restriction to \(B\) is therefore nondegenerate and still
+pivotally symmetric. Thus \(B\) is symmetrically selfdual.
+
+The normalized central-character calculation, with the factor
+\(\dim(E)\) retained for the two-dimensional representation, gives
+
+\[
+F(B)=\mathbf1+\sum_{q\in Q}X_q.
+\tag{1}
+\]
+
+For a full proof see the sibling \texttt{GALOIS\_PARITY\_EXCLUSION.md},
+§4. The same proof applies with zero shift: the rational codegrees
+remain 16 and 4. More explicitly, \(1+\sum X_q\) acts on every
+irreducible \(E\) by \(f_E/\sigma(f_E)\), and the modular \(S\)-symmetry
+formula gives exactly the same scalar for \(F(B)\). Equality follows
+from semisimplicity of the complexified based algebra.
+
+The functor \(F\) is pivotal and strong monoidal. It therefore carries
+the nondegenerate symmetric pairing of \(B\) to one on \(F(B)\). Every
+\(X_q\) is selfdual and appears once in (1). Restricting the pairing to
+each of these pairwise nonisomorphic simple summands is again
+nondegenerate and symmetric. Hence
+
+\[
+\boxed{\nu_2^{\mathcal D}(X_q)=+1\quad\text{for every }q\in Q.}
+\tag{2}
+\]
+
+We are \textbf{not} claiming that numerical Frobenius--Schur indicators
+are preserved by arbitrary tensor functors. The transported object is a
+particular symmetric pairing, and multiplicity one is essential.
+
+\hypertarget{frontier-exact-morita-invariant-second-indicator-comparison}{%
+\subsubsection{3. Exact Morita-invariant second-indicator
+comparison}\label{frontier-exact-morita-invariant-second-indicator-comparison}}
+
+For a pseudo-unitary fusion category define
+
+\[
+T_2(\mathcal C)=\sum_{V\in\mathrm{Irr}(\mathcal C)}
+\dim(V)\nu_2(V).
+\]
+
+The center-induction indicator formula gives
+
+\[
+T_2(\mathcal C)=\frac1{\dim\mathcal C}
+\sum_{Z\in\mathrm{Irr}(Z(\mathcal C))}\theta_Z^2\dim(Z)^2.
+\tag{3}
+\]
+
+Indeed, multiply
+\(\nu_2(V)=\operatorname{Tr}(\theta_{I(V)}^2)/\dim\mathcal C\) by
+\(\dim V\), sum over \(V\), and use Frobenius reciprocity:
+\(\sum_V\dim(V)[I(V):Z]=\dim F(Z)=\dim Z\). Formula (3) is invariant
+under Morita equivalence because the centers are braided equivalent and
+their canonical positive ribbon structures agree. The indicator formula
+is Ng--Schauenburg, \emph{Frobenius--Schur indicators and exponents of
+spherical categories}, https://arxiv.org/pdf/math/0601012.
+
+Write the TY sign in the source as \(\varepsilon\in\{+1,-1\}\), so
+\(\nu_2(Y)=\varepsilon\). Its four invertibles have trivial associator
+and second indicator 1. Thus its integral contribution is
+
+\[
+T_{2,\mathrm{integral}}(\mathcal C)=4+2\varepsilon.
+\]
+
+In the rank-twelve dual, the forced pointed associator is trivial on the
+even Klein four subgroup, while the two odd reflections have second
+indicator \(\varepsilon\). The two order-four rotations are not selfdual
+and have second indicator zero. Thus its pointed contribution is also
+exactly
+
+\[
+T_{2,\mathrm{pointed}}(\mathcal D)=4+2\varepsilon.
+\]
+
+These signs are part of the earlier TY-origin associator calculation;
+Galois conjugation does not change them because they are \(+1,-1\).
+Using (2) and cancelling these equal integral contributions in (3) gives
+
+\[
+\boxed{\sum_{\text{four large }V\text{ in }\mathcal C}\nu_2(V)=4.}
+\tag{4}
+\]
+
+Now a nonselfdual simple has second indicator zero, whereas a selfdual
+simple has second indicator \(+1\) or \(-1\):
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{R9\_2\_1607:} only two large simples are selfdual. Their total
+  is at most 2, contradicting (4).
+\item
+  \textbf{R9\_2\_1976:} none of the four large simples is selfdual.
+  Their total is zero, contradicting (4).
+\item
+  \textbf{R9\_2\_137:} all four are selfdual. Equation (4) forces all
+  four indicators to be \(+1\), but supplies no contradiction.
+\end{itemize}
+
+This completes the two exclusions over \(\mathbb C\), using the stated
+general-complex existence gate. No numerical indicator optimization,
+bounded root search, or unitarity classification enters the new
+argument.
+
+\subsection{The remaining ring $R9\_2\_137$}
+In the remaining zero-shift Morita category, put $S=\sum_q X_q$ and let
+$z$ be the central pointed involution. The pointed-subcategory canonical
+central algebra is $1+B$ and its augmentation splits the forgetful algebra
+as $1\times A$, with $[A]=1+S$. Thus A is forced in a hypothetical category.
+Its induction Gram gives eight modules underlying $g+S$ and four underlying
+$X_q$. Each of the latter has internal end $1+z$. The module category is
+therefore the central-involution module already used, not a new construction.
+This identifies the forced algebra without constructing a new source category.
+The strongest necessary center systems, incorporating whole-column Galois
+orbits and fourth rotations, are treated in Section~\ref{sec:r137-restrictions}.
+Both TY signs remain feasible there; their witnesses are not categorifications.
+

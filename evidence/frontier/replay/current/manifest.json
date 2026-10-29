@@ -1,0 +1,396 @@
+{
+  "format": 1,
+  "date": "2026-10-29",
+  "scope": {
+    "new_whole_ring_exclusions": 0,
+    "new_models": 0,
+    "remaining_unresolved": 6,
+    "online_changes": false
+  },
+  "python_dependencies": [
+    "sympy"
+  ],
+  "optional_native_dependencies": [
+    "g++ with C++17 support"
+  ],
+  "checks": [
+    {
+      "name": "all-six parity and tensor identities",
+      "script": "unified/verify_saturation.py",
+      "receipts": [
+        "unified/saturation_receipt.json"
+      ],
+      "timeout_seconds": 60
+    },
+    {
+      "name": "R1660 and R941 exact restrictions",
+      "script": "pair/verify.py",
+      "receipts": [
+        "pair/verification.json"
+      ],
+      "timeout_seconds": 60
+    },
+    {
+      "name": "R155 conditional parent restriction",
+      "script": "r155/verify_parent_restriction.py",
+      "receipts": [
+        "r155/parent_restriction_receipt.json"
+      ],
+      "timeout_seconds": 60
+    },
+    {
+      "name": "R1154 conditional rank-seven route",
+      "script": "r1154/verify_conditional_rank7.py",
+      "receipts": [
+        "r1154/conditional_rank7_receipt.json"
+      ],
+      "timeout_seconds": 60
+    },
+    {
+      "name": "R137 characters and Verlinde coefficients",
+      "script": "unified/audit_r137_verlinde.py",
+      "receipts": [
+        "unified/audit_r137_verlinde.json"
+      ],
+      "timeout_seconds": 60
+    },
+    {
+      "name": "R137 full Galois complement",
+      "script": "unified/audit_r137_galois_complement.py",
+      "receipts": [
+        "unified/audit_r137_galois_complement.json"
+      ],
+      "timeout_seconds": 60
+    },
+    {
+      "name": "R137 positive-sign certificates",
+      "script": "unified/audit_r137_positive_certificates.py",
+      "receipts": [
+        "unified/audit_r137_positive_certificates.json"
+      ],
+      "timeout_seconds": 60
+    },
+    {
+      "name": "R137 negative-sign rational witness",
+      "script": "unified/audit_r137_negative_strong_witness.py",
+      "receipts": [
+        "unified/audit_r137_negative_strong_witness.json"
+      ],
+      "timeout_seconds": 60
+    },
+    {
+      "name": "R137 strict bosonic mass",
+      "script": "unified/verify_bosonic_mass_boundary.py",
+      "receipts": [
+        "unified/bosonic_mass_boundary_receipt.json"
+      ],
+      "timeout_seconds": 60
+    },
+    {
+      "name": "R928 bosonic-row branch exclusions",
+      "script": "unified/audit_r928_bosonic_row.py",
+      "receipts": [
+        "unified/audit_r928_bosonic_row.json"
+      ],
+      "timeout_seconds": 60
+    },
+    {
+      "name": "R928 complete initial phase reduction",
+      "script": "r928/verify_phase_reduction.py",
+      "receipts": [
+        "r928/phase_reduction_verification.json",
+        "r928/vafa_probe.json"
+      ],
+      "timeout_seconds": 60
+    },
+    {
+      "name": "R928 independent higher indicators",
+      "script": "unified/audit_r928_higher_indicators.py",
+      "receipts": [
+        "unified/audit_r928_higher_indicators.json"
+      ],
+      "timeout_seconds": 60
+    },
+    {
+      "name": "R928 pattern186 residual matching Vafa",
+      "script": "r928/matching_vafa.py",
+      "receipts": [
+        "r928/matching_vafa.json"
+      ],
+      "timeout_seconds": 60
+    },
+    {
+      "name": "R928 pattern186 residual second indicators",
+      "script": "r928/matching_indicator.py",
+      "receipts": [
+        "r928/matching_indicator.json"
+      ],
+      "timeout_seconds": 60
+    },
+    {
+      "name": "R928 pattern186 residual higher indicators",
+      "script": "r928/matching_higher.py",
+      "receipts": [
+        "r928/matching_higher.json"
+      ],
+      "timeout_seconds": 60
+    },
+    {
+      "name": "R928 pattern40 singleton phase equation",
+      "script": "r928/pattern40_singletons.py",
+      "receipts": [
+        "r928/pattern40_singletons.json"
+      ],
+      "timeout_seconds": 60
+    },
+    {
+      "name": "R928 pattern40 Vafa phase reduction",
+      "script": "r928/pattern40_vafa.py",
+      "receipts": [
+        "r928/pattern40_vafa.json"
+      ],
+      "timeout_seconds": 60
+    },
+    {
+      "name": "R928 pattern40 indicator phase reduction",
+      "script": "r928/pattern40_indicators.py",
+      "receipts": [
+        "r928/pattern40_indicators.json"
+      ],
+      "timeout_seconds": 60
+    },
+    {
+      "name": "R928 pattern40 residual matching",
+      "script": "r928/pattern40_matching.py",
+      "receipts": [
+        "r928/pattern40_matching.json"
+      ],
+      "timeout_seconds": 60
+    },
+    {
+      "name": "R928 six-dimensional modular block",
+      "script": "r928/verify_six_dimensional_block.py",
+      "receipts": [
+        "r928/six_dimensional_block_verification.json"
+      ],
+      "timeout_seconds": 60
+    },
+    {
+      "name": "R928 level24 complete character tables",
+      "script": "r155/level24/verify_level24_inputs.py",
+      "receipts": [
+        "r155/level24/table_verification.json"
+      ],
+      "timeout_seconds": 60
+    },
+    {
+      "name": "R928 pattern40 congruence obstruction",
+      "script": "r155/level24/verify_r928_pattern40.py",
+      "receipts": [
+        "r155/level24/r928_spectrum.json",
+        "r155/level24/pattern40_obstruction_receipt.json"
+      ],
+      "timeout_seconds": 60
+    },
+    {
+      "name": "R928 independent pattern40 linear certificates",
+      "script": "unified/audit_r928_pattern40.py",
+      "receipts": [
+        "unified/audit_r928_pattern40.json"
+      ],
+      "timeout_seconds": 60
+    },
+    {
+      "name": "R928 exact rank20 modular datum",
+      "script": "r928/verify_modular_data.py",
+      "receipts": [
+        "r928/rank20_modular_data.json"
+      ],
+      "timeout_seconds": 60
+    },
+    {
+      "name": "R928 independent rank20 datum and fusion audit",
+      "script": "unified/audit_r928_rank20.py",
+      "receipts": [
+        "unified/audit_r928_rank20.json"
+      ],
+      "timeout_seconds": 60
+    },
+    {
+      "name": "R928 all-simple higher indicators through12",
+      "script": "r928/verify_higher_indicators.py",
+      "receipts": [
+        "r928/higher_indicators_verification.json"
+      ],
+      "timeout_seconds": 60
+    },
+    {
+      "name": "R1154 optional finite spectrum replay",
+      "script": "r1154/verify_small_spectrum.py",
+      "receipts": [
+        "r1154/small_spectrum_receipt.json"
+      ],
+      "timeout_seconds": 60,
+      "optional_native": true
+    },
+    {
+      "name": "R928 exact Anyon Atlas identification",
+      "script": "r928/atlas/verify_match.py",
+      "timeout_seconds": 30,
+      "receipts": [
+        "r928/atlas/atlas_match_receipt.json"
+      ]
+    }
+  ],
+  "files": {
+    "README.md": "cc9a3b2d9a42d15aa964e769471ee2656355b13e910a6df05389799d3d019970",
+    "STAGED_FILES.txt": "0eae8af469d574ca170e90165f15b67427091b4902ee92732ffe868c779d8074",
+    "current_remaining_cases.py": "0ce7667e34a34eaec5a347c67e69fbaf0cebdbbafedeeaea4811fea408e1ee8d",
+    "pair/REPORT.md": "52d067d8160e60070391b1863703d729919cea6e1072595557b7d701234b7369",
+    "pair/prior/R941_GALOIS_ADDENDUM.md": "93af21d12cea70de713cdcd01eff8943c15ef4907814ca89fed097271f0d2410",
+    "pair/prior/REPORT.md": "4447207bd758f9207bcf8a180856e43e2dc74fda0c263767845c4eed5b69da65",
+    "pair/prior/frontier_1660.tex": "70867ab8c8e7a4893c9e5aa926962a6494942649f974e74b408a5326f170996e",
+    "pair/prior/frontier_1660_galois.tex": "9b60a37d2f50ee97d28098a2686dfe7ce4f93c0e9a34e607e176acdedd51ef86",
+    "pair/prior/frontier_1660_morita.tex": "9a694e80a68c3774186631875c661a0e4a4c15dc465f5156d0b9a470050efb7d",
+    "pair/prior/frontier_1660_phase_masses.tex": "b3d7a0b09881389d6f5fd56573faebd1c8e7786bc0548a75469de73ae7109e08",
+    "pair/verification.json": "40608818032f3f7a17371cdb9b9e900e53ad9dcc261f3bdc2ceddf73218d10e5",
+    "pair/verify.py": "7af42fe55cf1727594eb8d9b631e9b2cde886e4b6dd0d86f15880a4ed4cc9071",
+    "r1154/CONDITIONAL_RANK7_ROUTE.md": "d74ad49c18c848e20db217eb58b450597bce8d909a0ee75c24cb3bca351909c3",
+    "r1154/conditional_rank7_receipt.json": "ec40ea14766639af8ca7ce30b3ba8a4d7a201a428c95d5785d1d021833648298",
+    "r1154/rank7.txt": "d34bd4847826aad7ba591e37826aa37d222e9d33addf4276376d73a6cb630c40",
+    "r1154/rank7_dual_1.json": "818941d6c267eebbc40aafddec5c016971cee0a604774574f33b7196f475dc9a",
+    "r1154/rank8.txt": "f892c2bea0b2274e6430408e461d30d412a90f112c90faa51772a2795356358b",
+    "r1154/small_spectrum.cpp": "9b78136fb5e7870a156b5219997f2b471a9a08d3aa8c59e96ff8aae59c7d89c0",
+    "r1154/verify_conditional_rank7.py": "d2656b2f7d2f2c524de0ef8cd07b6721b1e5271c55a09c2c0dda308821972a4e",
+    "r1154/verify_small_spectrum.py": "98564d74320d1f7455cf73629d2d84ff16e4359f28d2305f66137097fcdb84ec",
+    "r137/NEW_RESULTS.md": "c763398d54e49367bf6ae5dfd65b7e513b335ed625fa889ddc8424f7ab53d4f3",
+    "r137/complement_metadata.json": "bea95e1a635ecdc9a6384a90f836a1f7d1b2c3808de4c0fc826938d8662d0279",
+    "r137/complement_metadata_minus.json": "5a660ec9c07adc2a7703fd043159aeba56757a1b69ea576ae381235f67de3271",
+    "r137/exact_bounds.json.gz": "97c59f773b83b32483c1f3188072a6a1c26b9b13187db6e5d4e7503473c584d0",
+    "r137/negative_strong_exact_witness.json": "bb1e1e1099e2f7bad661c44fad80671c05dff7d73027667781c6b0851768625d",
+    "r137/prior/REPORT.md": "b3c48614db7a90e1fb8142b24ed30a73da17e7124979a71798bd2840af11a76c",
+    "r137/prior/forced_export.json.gz": "8d3b68d3d313402005363e39a3e3d8c8b04455ae2940f734a312985b8079613b",
+    "r137/prior/forced_export_minus.json.gz": "139985211e5d7f73c6d27bc58dd3508dbdc8d247b13781fb3c96ad93982eb300",
+    "r137/prior/galois_pairing_20261027.tex": "5f63403ab7f9c2cc7b3b354c5b48cc62f8c3e2fc0141b1b090009b0b49156cd1",
+    "r137/prior/quadratic_frontier.tex": "c8c64033967e98c4d55d67203384d99c14de23e6f61e806f5b0ccac38838e488",
+    "r137/verlinde_witness.json": "01a4be841e5b8b77573e51941cee171db0f3d9cbb65c3712abefa383d1ad096b",
+    "r155/AUDIT_PAIR.md": "488608f0764fa77ef445a2dff94e16c44bd7f0daefceaeb71c1ba9e6f17d1644",
+    "r155/AUDIT_R1154.md": "3f4618db8f5476b70334e741035ce2977f2a3d9678bd3a5eb846d74410db4d57",
+    "r155/CONTINUATION.md": "ba96dc38a490dcb5d8563111a2989bc8360e633140097e7b6c631f4fd7a69a6d",
+    "r155/level24/R928_PATTERN40_OBSTRUCTION.md": "997818cfffee054659cf6f6d1ad39528b0d44fd9a44157e3b1ad1f39b243aaa8",
+    "r155/level24/finite_spectra48.py": "46f9d06c8c724580aeaa0dfe0d26f9d5e890b91f892f174d7453135e441c93e5",
+    "r155/level24/pattern40_obstruction_receipt.json": "7261df2e5e61c22f2a4480703b994c6987dc8e38cb5b1e2c64939ffafb11007c",
+    "r155/level24/r928_spectrum.json": "4293033aaf70884f716bb88c3675e031f568355d41227ddd8be5826314c41989",
+    "r155/level24/r928_spectrum.py": "28ff5f01d1d14a155d1a0d0ae7864a6c3fc8a2e6da048201d9322c85ab107996",
+    "r155/level24/sl2_3.json": "818c8f1aa9f9368c57e30b03e4a4e8a62dacc98abbd0b15a62fabbc734e5f1a6",
+    "r155/level24/sl2_8.json": "611f5fde5aabbd4d24d2aee3d0ce23b2e58d500d8d363f89ef42bdba9780e92e",
+    "r155/level24/table_verification.json": "02d3ab7e54986e60d3322299cf967a317127e4c0be7cd2efef26a8e078fdc927",
+    "r155/level24/verify_level24_inputs.py": "431aa3a098fbb09cab9b5e12c670452e67204c66f397d1810a313b6096d6f500",
+    "r155/level24/verify_r928_pattern40.py": "348f8dad38b7f491613caccaa8bb443dc06172d3023239ce95efb83e00839273",
+    "r155/parent_restriction_receipt.json": "b0bff089269e3f5700af5f600117a7382615c54e7bd61335af94232737179b53",
+    "r155/verify_parent_restriction.py": "1304b8ff59770ad11950b67b7e81b9ddaf075a93a64c010806b0cae6b983f393",
+    "r928/PATTERN40_ADDENDUM.md": "b2473557cd619cdbb4e24fb2b84cb37aa41419db32b7cf5d29910a9034a74d31",
+    "r928/REPORT.md": "14f234af2d15b7a5934fa15867ef409e4e76d61be9507b904a274e1dc22170d7",
+    "r928/atlas/B20-02148_export.json": "d708fa361c0f9d732b5dad20ee2eb5994eb9ec94e461513196200fa24e6bf053",
+    "r928/atlas/atlas_match_receipt.json": "503b20e906cc81a1067f874cefa27c4d1394b82600c103e2dc78604a1162ea47",
+    "r928/atlas/verify_match.py": "bbfb05eb0644469e30d83100dbf52a6253f2234b50b9fdab1f7c11133cf10585",
+    "r928/cyclotomic288.py": "29c2ea9ddd83b0bacdacaba0c60f75aa88fcd92e7e4ef9a5e14de882f29cd3af",
+    "r928/cyclotomic_arithmetic.py": "3082d9ca47b2a25c0f745b1dc990dfd8f58751b8571fdb8754b220cf267d7815",
+    "r928/higher_indicators_verification.json": "0f088573092bfcaac3d305fa763d5866cbc4902b07930b035f3bdae022419b73",
+    "r928/matching_higher.json": "6161b141a7dec5715e78a2a494dec21f7754fef82c04e9eb6ea23e512dec1ee7",
+    "r928/matching_higher.py": "fadd2ca63a4ddde35c1ac5b8c92504cc0685f30e274a0f07857a7f29d1b69788",
+    "r928/matching_indicator.json": "3f820c612bf91e29609f9eb45fb134922aef17c3061dc3bf6baf53e0bb600feb",
+    "r928/matching_indicator.py": "cb4f988a582d70a67796c85869cf550a68298efb048b0e95a0447a0dacab36fa",
+    "r928/matching_vafa.json.gz": "e0d728bddf6186db9df6d1fa55514ad10852e6dab0a84801af20733baee6d490",
+    "r928/matching_vafa.py": "016d305fe76cee00d03d5480364fe8fb85f56586eaf39a11e91f07fdf9eeec6d",
+    "r928/pattern40_indicators.json": "c87376b73280da2348eacd063e45e4361ed9584930807959edc57fe037ef090b",
+    "r928/pattern40_indicators.py": "1fd4d6a399f61cf20e36b75ba6e6d9b635a39b5f78b52c00b8ea30be6fc04799",
+    "r928/pattern40_matching.json": "9f143a1628fc6a366ccc28d3d7b320cbcc371d4d372264bb069b83f94c814903",
+    "r928/pattern40_matching.py": "bcb755d11f7320cd0ff829c144b06b9d305a52acb1b8311961068d60105ddb1f",
+    "r928/pattern40_singletons.json": "12b03fc40397717dfd744e3eb3b4bf103a0f8b6dfc17f0045d66017d752ca349",
+    "r928/pattern40_singletons.py": "0bb0293a6d94b5bfa5439a26fc9f5a95c1cffaf104ce8ff964c84fb9dec2b648",
+    "r928/pattern40_vafa.json": "8eadaa938b259afe35a1ba049bbce36383ef392141c3f9d84d665d387cd1c986",
+    "r928/pattern40_vafa.py": "254927d84a77a8ce58ec429c088ccb12c94050b36b7fb8b7c5b901249db71003",
+    "r928/phase_reduction_verification.json": "01f8ff87c1ae93715f644545fc05c8fab59392dbdfe0e1d041efaaafe6e0d76f",
+    "r928/prior/SPECTRAL_FUSION_REDUCTION.md": "c49937628e2a1c7caf610bdf3ab2e0e39e7a6b8d8fd426e582da16e5a373bc58",
+    "r928/prior/m3_creative_20261022.tex": "a7efbcc651959087bf36610e2e81d9b46af15aa63a6e5e73a0cdc23277be2c99",
+    "r928/prior/m3_frontier.tex": "b637976eb6048faf151a81eb875fff88b7772cf7e15d9789b1e1aafe6975656e",
+    "r928/prior/pairing_frontier_20261027.tex": "3cb356d0b5829f091f0807a7383e1f978e5065a2c642c2e1d4bc084615d16ac3",
+    "r928/prior/quartic.py": "c0cdb70328d97bcb9bb2160031e79825db3e123d88c78dc6161d65689c1d068f",
+    "r928/prior/source.json.gz": "9ee7495318ed5092230e8a8860e847ee1759c7a2d709dfb605e8392fa13b7931",
+    "r928/prior/spectral_reduction.json": "c111a1ff1733927e32f693444de55bcee5c8c93e01efe52f6322750b72ffc214",
+    "r928/rank20_fusion_tensor.json": "02f5f40591d39172baf6952b0f6f21b02980d54f1de8b45bd8935e594f225211",
+    "r928/rank20_modular_data.json": "f5dbbcee1aeca0217ea94a7b83a341addadc5dc6127417363f6c94a5a68dc284",
+    "r928/six_dimensional_block_verification.json": "e0a1e036b3078d67a8e1fad51c00e1ac0e5b59b239a19b3dd83d99c5643f8b1e",
+    "r928/vafa_probe.json": "61616bb391e0b80397d5d1f004777199520cbd0754fd84b5d52a5ff38a9a7f2f",
+    "r928/verify_higher_indicators.py": "8f849a780b73c2fde521e6385cac1b337ff3203d4961eb0c75491afbf6f9ec42",
+    "r928/verify_modular_data.py": "663781f043d167c142536c6e264e95f91ffb3b42e92040029480de540ed0b3f9",
+    "r928/verify_phase_reduction.py": "9208add1c07022159016e147c931be51e23acb2bc1533dfdcdcf36688b1c10a8",
+    "r928/verify_six_dimensional_block.py": "1a504ba8955c3d03ece8fd81c657a672844d9d3430ff27a09a7b079524e13be7",
+    "run_checks.py": "4600cb5e71951ed974650c89a044c0bd7a4639f94a377f3738d7f12b8bb50174",
+    "unified/audit_r137_galois_complement.json": "8c9478b10b2cbe830aabb71725ae5052e14cbacc7c2a67a1df38ec0bb4724dd6",
+    "unified/audit_r137_galois_complement.md": "33e59c8d5460d4e66b7cc51104042f3cc0d4a81ec62332930d574a3c3943f934",
+    "unified/audit_r137_galois_complement.py": "8efc07a6cc846ced60ca914420dfa1bb10cdd28e46dad0d8f353a2ef815e03e3",
+    "unified/audit_r137_negative_strong_witness.json": "85677bd9ca6b0f1eeb64be624e41cbadf4d3a4bfcd52eeb0aec5c3595e523d71",
+    "unified/audit_r137_negative_strong_witness.py": "8885d6ecb6023a003f5561ab3b07e6ea399cbd0ca0ca9c25222a5b578f3d31b6",
+    "unified/audit_r137_positive_certificates.json": "f22eb52570daa350854cf2bd71b30f5f93f8fc42d3ee949308043fe2c4182d75",
+    "unified/audit_r137_positive_certificates.md": "e0f822fb3cf3574e419f6f7c5cc660136419dcb735f17cb6b579c6d9eee179c8",
+    "unified/audit_r137_positive_certificates.py": "eb0fd81c0ac665eccf044305c9e0b5f21f9c18b756e9398f33834dc76bd84cee",
+    "unified/audit_r137_verlinde.json": "08e6828dff78f023413350d4e6808465d8391eab54706cc36fd920441346cd5a",
+    "unified/audit_r137_verlinde.md": "ec4c22a996b2a4473eb714d0c7882019be3a4cd6cbabf6c493ace075618ef6db",
+    "unified/audit_r137_verlinde.py": "a84d24e37e9346c5f0730920762160e1630ced792777ed4b9cd146b33843ffc6",
+    "unified/audit_r928_bosonic_row.json": "5a24f672e38c199abe4ccb86e772ed47d7e86537e94308b4af52d316735d6f66",
+    "unified/audit_r928_bosonic_row.md": "47f989a0b5e59a1880390d3844df4140a17670ca4aef9cd6e9d74a60fd86093e",
+    "unified/audit_r928_bosonic_row.py": "a32065b175026d84c51289c83a239bd61b1db6145575759bbd9c1ef3d79e6a07",
+    "unified/audit_r928_higher_indicators.json": "b8bdbcc02a59e755922208d8407780daa9e5d9bfffab79a1e1360b0387f2361a",
+    "unified/audit_r928_higher_indicators.py": "473d8276a12113ec5c676aa5410d6a7cac3e7f20c192c206213ee7277f8ad67e",
+    "unified/audit_r928_pattern40.json": "6376813920e681f5a35b2af30aa66b229d60c14f55574dbcd97b660aef09ca8c",
+    "unified/audit_r928_pattern40.md": "9b7d88b2cebec70b88bd302db0360f22cfa3ac495460b2e77641b11fcf4a5d8b",
+    "unified/audit_r928_pattern40.py": "48d5e40f36a10f8115cb519483414c8f71ff94afa011022b4d356bcd5eb53aa8",
+    "unified/audit_r928_phase_chain.md": "2f8f7ac9eac490085b8913b54de507fd7862b033f660f3d5507e140bddd6f767",
+    "unified/audit_r928_rank20.json": "7417d0f522252d9771efe6f4021ca8f1685b799170394e734dccac44a2887efe",
+    "unified/audit_r928_rank20.py": "3c621564770699fd90ffa996819aa26efef4b034ed3e7867e54d2c39a957236f",
+    "unified/audit_r928_six_dimensional_block.md": "1f8eea2fcee365fe1d104d4e221fc660a61f85943b1bb3b5b24368f46a8d1557",
+    "unified/bosonic_mass_boundary.md": "0443cbf693e287283d0aca9e732093aa939466a77a8522cac382432cb3de966e",
+    "unified/bosonic_mass_boundary_receipt.json": "fcf02c23404398a523e1ca36465975c3d108f0aef83b9ffc2ad5ded43aa734b9",
+    "unified/parity_saturation.md": "5c7d78f0ecebaee549a624e739fdddaeb1104f337a77e797ff524a88e494a93a",
+    "unified/prior_parity_receipt.json": "fd818532b5f7a02d5f190c4f5de92904c55c0c2b7445d1b3e3b8d6741847e6a6",
+    "unified/saturation_receipt.json": "a81f0b58b8d1b59db310d34a925964ac9d82c878a7b36fb5d5fb2b5fb60282c2",
+    "unified/verify_bosonic_mass_boundary.py": "bae40c6a47608b5bcfebaf41f3377d96aeacdc694b143cae91f23b0b95005704",
+    "unified/verify_saturation.py": "bb8a5386148914d7abe898c5904a93030161f25f289a766e0d138474233c7fd2"
+  },
+  "editorial_changes_in_staged_copies": {
+    "unified/audit_r928_phase_chain.md": "Points to the subsequent pattern40 exclusion instead of calling that branch currently surviving.",
+    "r928/PATTERN40_ADDENDUM.md": "Labels this phase/matching stage as prerequisite to the subsequent pattern40 obstruction; updates helper name.",
+    "r137/NEW_RESULTS.md": "Replay references point to the four optimizer-free independent verifiers; discovery scripts omitted.",
+    "unified/audit_r137_verlinde.md": "Replaced superseded numerical-bound discussion with a pointer to the later exact certificate proof.",
+    "unified/audit_r137_galois_complement.md": "Replaced superseded feasibility-status sentence with pointers to the final exact branch and witness audits."
+  },
+  "compressed_inputs": {
+    "r137/exact_bounds.json": {
+      "archive": "r137/exact_bounds.json.gz",
+      "sha256": "55002b23f57ac2e1bdc69a6630cb2e21fcb0109d3f8287a5c1de9708ef3ae687",
+      "bytes": 2624077
+    },
+    "r137/prior/forced_export.json": {
+      "archive": "r137/prior/forced_export.json.gz",
+      "sha256": "122c030d119f6f2cee2546fb19fe0a67f48446bc5249767c6ceb65168236baee",
+      "bytes": 21362398
+    },
+    "r137/prior/forced_export_minus.json": {
+      "archive": "r137/prior/forced_export_minus.json.gz",
+      "sha256": "10c19f2840da7a55c051831f67307d021ceefa70cbece930436a309ad5188ef1",
+      "bytes": 14844930
+    },
+    "r928/matching_vafa.json": {
+      "archive": "r928/matching_vafa.json.gz",
+      "sha256": "88dabf8beda0789bc1f61a1a8a42d8a9628a6eb22f095d15c21b882663d50410",
+      "bytes": 677175
+    },
+    "r928/prior/source.json": {
+      "archive": "r928/prior/source.json.gz",
+      "sha256": "1abc4bbe87791fbba4a3248eeae12b2aba0b21014d29be7f659fc869846e427c",
+      "bytes": 358007
+    }
+  }
+}

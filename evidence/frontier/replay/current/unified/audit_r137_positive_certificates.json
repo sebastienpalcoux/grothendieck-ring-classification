@@ -1,0 +1,158 @@
+{
+  "status": "PASS",
+  "original_test_only_quartic_equalities_removed": 4,
+  "inherited_positive_TY_cubic_branch": "nu3=1/2 retained as separately established necessity, not proved by this script",
+  "source_sha256": "122c030d119f6f2cee2546fb19fe0a67f48446bc5249767c6ceb65168236baee",
+  "certificate_sha256": "55002b23f57ac2e1bdc69a6630cb2e21fcb0109d3f8287a5c1de9708ef3ae687",
+  "certificates": [
+    {
+      "label": 7,
+      "sign": 1,
+      "bound": "31/18",
+      "allowed_columns_verified": 5996,
+      "minimum_scaled_slack": "0",
+      "added_integer_consequences": []
+    },
+    {
+      "label": 7,
+      "sign": -1,
+      "bound": "-1/2",
+      "allowed_columns_verified": 5996,
+      "minimum_scaled_slack": "0",
+      "added_integer_consequences": []
+    },
+    {
+      "label": 3,
+      "sign": 1,
+      "bound": "17/30",
+      "allowed_columns_verified": 5996,
+      "minimum_scaled_slack": "0",
+      "added_integer_consequences": [
+        [
+          7,
+          1
+        ]
+      ]
+    },
+    {
+      "label": 6,
+      "sign": 1,
+      "bound": "17/30",
+      "allowed_columns_verified": 5996,
+      "minimum_scaled_slack": "0",
+      "added_integer_consequences": [
+        [
+          7,
+          1
+        ]
+      ]
+    },
+    {
+      "label": 0,
+      "sign": 1,
+      "bound": "1",
+      "allowed_columns_verified": 5996,
+      "minimum_scaled_slack": "0",
+      "added_integer_consequences": [
+        [
+          7,
+          1
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          6,
+          0
+        ]
+      ]
+    },
+    {
+      "label": 1,
+      "sign": 1,
+      "bound": "3/4",
+      "allowed_columns_verified": 5996,
+      "minimum_scaled_slack": "0",
+      "added_integer_consequences": [
+        [
+          7,
+          1
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          6,
+          0
+        ]
+      ]
+    },
+    {
+      "label": 2,
+      "sign": 1,
+      "bound": "3/4",
+      "allowed_columns_verified": 5996,
+      "minimum_scaled_slack": "0",
+      "added_integer_consequences": [
+        [
+          7,
+          1
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          6,
+          0
+        ]
+      ]
+    },
+    {
+      "label": 4,
+      "sign": 1,
+      "bound": "3/4",
+      "allowed_columns_verified": 5996,
+      "minimum_scaled_slack": "0",
+      "added_integer_consequences": [
+        [
+          7,
+          1
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          6,
+          0
+        ]
+      ]
+    },
+    {
+      "label": 5,
+      "sign": 1,
+      "bound": "3/4",
+      "allowed_columns_verified": 5996,
+      "minimum_scaled_slack": "0",
+      "added_integer_consequences": [
+        [
+          7,
+          1
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          6,
+          0
+        ]
+      ]
+    }
+  ],
+  "consequence": "Positive TY branch impossible: NBB-to-B=1, six other nonunit distinguished coefficients vanish, last coefficient <=1, contradicting their forced total4.",
+  "scope": "Does not exclude the negative TY branch or R137 globally."
+}

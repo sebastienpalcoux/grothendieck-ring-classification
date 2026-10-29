@@ -1,7 +1,7 @@
 # Grothendieck ring classification
 
 <!-- current-frontier -->
-**Current classification · 29 October 2026.** R8_3_1768 is excluded over the complex numbers by pivotal conjugation parity, using the established existence and center-domain reductions. **Six cases remain unresolved:** two at rank six, three at rank eight and one at rank nine. No additional model is claimed. [Current proofs and exact checks](https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/evidence/frontier/README.md).
+**Current classification · 29 October 2026.** R8_3_1768 is excluded over the complex numbers by pivotal conjugation parity, using the established existence and center-domain reductions. **Six cases remain unresolved:** two at rank six, three at rank eight and one at rank nine. The latest restrictions exclude three R928 center patterns and the positive TY sign for R137; the surviving rank-20 datum is [Anyon Atlas B20-02148](https://anyonatlas.org/data/B20-02148). No additional model is claimed. [Current proofs and exact checks](https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/evidence/frontier/README.md).
 <!-- /current-frontier -->
 
 **Which low-rank fusion rings admit fusion categories over ℂ?**
@@ -73,3 +73,4 @@ general categorification remains open; a dash marks an unanalyzed band.
 
 The companion [Fusion Ring Census](https://github.com/sebastienpalcoux/fusion-ring-census)
 enumerates based rings. This repository records their categorifications and exclusions.
+

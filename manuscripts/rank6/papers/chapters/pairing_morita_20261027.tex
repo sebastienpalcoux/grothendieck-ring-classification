@@ -319,3 +319,144 @@ The short checks verify the displayed Gram, commutant and tensor arithmetic;
 the central-lift, internal-end and positive-trace categorical premises
 remain explicit inputs.
 
+
+
+\subsection{A conditional order-32 near-group parent}
+\label{sec:r155-parent-group}
+The ring is the non-selfdual $R'(4)$ in \cite[Theorems~1.1 and~4.8]{MY}.
+The construction in that paper gives $R'(2)$, not $R'(4)$; its spherical
+convention is not a general-complex existence theorem. The existence gate
+of this manuscript remains a separate premise.
+
+\begin{proposition}
+Suppose a proposed near-group parent has a modular center whose
+invertibles form an abelian group $G$ of order $32$, with nondegenerate
+symmetric bicharacter $\chi$ and twists $q(g)=\chi(g,g)^{-1}$. Suppose
+every noninvertible central simple has FP dimension greater than $8$.
+If a connected etale algebra $E$ of dimension $8$ has local modules
+braided equivalent to the proposed positive R155 center, then
+\[
+G\cong C_4\times C_2^3.
+\]
+Its pointed support $H$ has order $8$ and satisfies
+$2G\subset H\subset G[2]$, $q|_H=1$.
+\end{proposition}
+\begin{proof}
+The dimension bound makes $E$ pointed. A connected etale pointed
+algebra is supported once on an isotropic subgroup $H$, so $|H|=8$.
+For the monodromy $b(g,h)=\chi(g,h)^{-2}$, nondegeneracy of $\chi$ gives
+$\operatorname{rad}(b)=G[2]$. A local invertible module has underlying
+dimension $8$ and is therefore pointed as well. Its group is
+$H^{\perp_b}/H$. The target has four invertibles, whence
+$H^{\perp_b}=G$ and $H\subset G[2]$. Its quotient group is $C_2^2$, so
+$2G\subset H$. These conditions leave precisely
+$C_4^2\times C_2$, $C_4\times C_2^3$ and $C_2^5$.
+
+The last group has only twists $\pm1$, whereas the target has semion
+twists $\pm i$. For $G=C_4^2\times C_2$, one has $H=G[2]$. Write
+$e_1,e_2$ for the order-four generators and $e_3$ for the order-two
+generator. The symmetric exponent matrix of $\chi$ on
+$\langle e_1,e_2\rangle$, reduced modulo two, is nonsingular: a kernel
+vector would give a radical element $2a e_1+2b e_2$ of $G$.
+Isotropy forces $\chi(e_3,e_3)=1$. Nonsingularity allows $a,b$ such that
+$e_3-2a e_1-2b e_2$ pairs trivially with $e_1,e_2$; it also pairs
+trivially with $e_3$. This contradicts nondegeneracy.
+\end{proof}
+
+The surviving pointed data are compatible. On $C_4\times C_2^3$ set
+\[
+\chi((a,b),(a',b'))=i^{aa'}(-1)^{b\cdot b'},\qquad
+H=\{(a,b):a\text{ even},\ b_1+b_2+b_3\text{ even}\}.
+\]
+Then $q|_H=1$ and $G/H$ has twists $1,-1,-i,i$. The exact verifier checks
+this example and all $128$ nondegenerate symmetric bicharacters in the
+excluded $C_4^2\times C_2$ case. These checks supply no parent category.
+The Radchenko--Wheeler existence corollary for products of two cyclic
+groups does not cover the four-generator group above; its more general
+reconstruction theorem still requires its quantum-dilogarithm input
+\cite[Section~5.4, Theorem~12 and Corollary~6]{RWParent}.
+The proposition has explicit low-center hypotheses and is not a
+parameterization of arbitrary spherical near-group categories.
+
+\subsection{A nonreal Morita invariant}
+\label{sec:r1660-nonreal-morita}
+For a positive spherical category set
+\[
+W_n(\mathcal A)=\sum_{V\in\Irr(\mathcal A)}\dim(V)\nu_n(V).
+\]
+The center-induction formula \cite{NS} gives
+\[
+W_n(\mathcal A)=\frac{1}{\FPdim(\mathcal A)}
+ \sum_{Z\in\Irr Z(\mathcal A)}\dim(Z)^2\theta_Z^n.
+\]
+Indeed multiply the indicator formula by $\dim(V)$ and sum; adjunction
+identifies the coefficient of a central $Z$ with $\dim(FZ)=\dim Z$.
+Braided equivalence of centers preserves the canonical positive ribbon
+structure, so $W_n$ is Morita invariant. Complex conjugation and tensor
+opposition conjugate its value.
+
+For $\RR{8}{1660}$ the complete third-indicator theorem gives, with
+$d=3+2\sqrt2+2\sqrt3+\sqrt6$,
+\[
+W_3=1+(3+2\sqrt2)d\ \mathbin{\pm}\ i\sqrt3d.
+\]
+Its imaginary part is nonzero. Hence this positive Morita class is not
+equivalent to its complex conjugate or tensor opposite. No category in
+it has a real form or is braided: real descent would imply an equivalence
+to the conjugate, and a braiding supplies an equivalence to tensor
+opposition. This does not exclude unitarity, since unitary associators
+need not admit a real gauge. Nor does it imply real-descent statements
+for an arbitrary nonpositive original category: the existence gate
+does not make a field automorphism commute with complex conjugation.
+The conclusion transfers to R941 only under an actual Morita equivalence.
+
+\subsection{Prime centers and direct modular sources}
+\label{sec:r1660-direct-sources}
+For either positive target R1660 or R941, the integral center is
+$\mathrm{sVec}$ and every nonpointed central subcategory has dimension
+strictly greater than $D=144+96\sqrt2+80\sqrt3+56\sqrt6$.
+Consequently its center has no proper nontrivial nondegenerate
+subcategory. Otherwise that subcategory and its nontrivial centralizer
+would both be nonpointed, since $\mathrm{sVec}$ has no nontrivial
+nondegenerate subcategory, and their dimensions would both exceed $D$,
+contrary to the product $D^2$.
+
+If a modular $\mathcal P$ and connected etale $A$ directly realize a
+target as $\mathcal P_A$, the decomposition
+\[
+Z(\mathcal P_A)\simeq\mathcal P\boxtimes(\mathcal P_A^0)^{\rm rev}
+\]
+from \cite[Corollary~3.30]{DMNO} forces $\mathcal P_A^0=\Vec$.
+Thus $\mathcal P\simeq Z(\mathcal C)$ and $A$ is Lagrangian. In
+particular no smaller direct modular source realizes either target.
+This does not exclude noncentral or indirect constructions.
+
+There is also a coefficient obstruction for
+$\mathcal P=SU(2)_6\boxtimes SU(2)_{10}$. Put
+$r=\sqrt2$, $s=\sqrt3$, $c=\sqrt{2+\sqrt2}$. The basis
+\[
+1,r,s,rs,c,cr,cs,crs
+\]
+is rationally independent. To see $c\notin\mathbb Q(r,s)$, write that
+field as $\mathbb Q(r)+s\mathbb Q(r)$; a square root of $2+r$ in it
+would make either $2+r$ or $(2+r)/3$ a square in $\mathbb Q(r)$.
+Their norms $2$ and $2/9$ are not rational squares.
+The nonnegative rational cone in this basis is closed under
+multiplication, by $r^2=2,s^2=3,c^2=2+r$.
+The simple dimension lists
+\[
+(1,c,1+r,rc,1+r,c,1)
+\]
+and
+\[
+\left(1,\tfrac{r+rs}{2},1+s,\tfrac{3r+rs}{2},2+s,r+rs,
+ 2+s,\tfrac{3r+rs}{2},1+s,\tfrac{r+rs}{2},1\right)
+\]
+are nonnegative in this cone. But the required algebra dimension is
+\[
+\frac{(16+8\sqrt2)(48+24\sqrt3)}{D}=24-8\sqrt6,
+\]
+which has a negative coordinate. This rules out full modules in
+$\mathcal P$ and the doubled-source local construction of the center,
+since the latter requires the same algebra dimension. These are
+exclusions of specified routes, not of either fusion ring.

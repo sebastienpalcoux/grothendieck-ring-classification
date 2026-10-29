@@ -1,0 +1,357 @@
+{
+  "status": "PASS",
+  "scope": {
+    "new_whole_ring_exclusions": 0,
+    "new_models": 0,
+    "remaining_unresolved": 6,
+    "online_changes": false
+  },
+  "python": "3.12.14",
+  "dependencies": {
+    "sympy": "1.14.0"
+  },
+  "checked_input_files": 115,
+  "run_mode": "temporary copy; shipped files untouched",
+  "checks": [
+    {
+      "name": "all-six parity and tensor identities",
+      "script": "unified/verify_saturation.py",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 0.147,
+      "stdout": "{\n  \"theorem\": \"All further conjugation-parity tests on arbitrary direct sums and nested palindromic tensor words follow from the simple-conjugator graph.\",\n  \"scope\": \"Pivotal categories only; general complex use needs a separate existence gate.\",\n  \"new_exclusions\": 0,\n  \"new_models\": 0,\n  \"cases\": [\n    {\n      \"id\": \"R6_4_155\",\n      \"tensor_sha256\": \"012ef716d19b96a2a800d7bcbb33f3ae5e99e3c6a223f6e14bcd20144d4072a3\",\n      \"components\": [\n        [\n          0,\n          3\n        ],\n        [\n          4,\n          5\n        ]\n      ],\n      \"unit_fixed_sign_assignments\": 2,\n      \"inherited_assignments_pass\": 1,\n      \"hyperbolic_cross_term_checks\": 576\n    },\n    {\n      \"id\": \"R6_8_1660\",\n      \"tensor_sha256\": \"697ec27fe203356199bfcf674587be9c71455dbb681f2e086a076f726b03d267\",\n      \"components\": [\n        [\n          0,\n          1,\n          2,\n          3\n        ],\n        [\n          4\n        ],\n        [\n          5\n        ]\n      ],\n      \"unit_fixed_sign_assignments\": 4,\n      \"inherited_assignments_pass\": 1,\n      \"hyperbolic_cross_term_checks\": 1296\n    },\n    {\n      \"id\": \"R8_3_928\",\n      \"tensor_sha256\": \"94dfb90235dbb3ba95864a1be23437943ea3b1316ec82ca44baf419262890614\",\n      \"components\": [\n        [\n          0\n        ],\n        [\n          7\n        ]\n      ],\n      \"unit_fixed_sign_assignments\": 2,\n      \"inherited_assignments_pass\": 1,\n      \"hyperbolic_cross_term_checks\": 256\n    },\n    {\n      \"id\": \"R8_3_941\",\n      \"tensor_sha256\": \"8ae4007492dee167ab8b3f4f16310ee368482da03696e20ed7cceea34bec64e6\",\n      \"components\": [\n        [\n          0,\n          3,\n          4,\n          5,\n          6,\n          7\n        ]\n      ],\n      \"unit_fixed_sign_assignments\": 1,\n      \"inherited_assignments_pass\": 1,\n      \"hyperbolic_cross_term_checks\": 2304\n    },\n    {\n      \"id\": \"R8_3_1154\",\n      \"tensor_sha256\": \"c399505be76a64c8aba65feaf2cd55125dc7132f5894b74e58b64473d1387e25\",\n      \"components\": [\n        [\n          0,\n          5,\n          6,\n          7\n        ],\n        [\n          3\n        ],\n        [\n          4\n        ]\n      ],\n      \"unit_fixed_sign_assignments\": 4,\n      \"inherited_assignments_pass\": 1,\n      \"hyperbolic_cross_term_checks\": 2304\n    },\n    {\n      \"id\": \"R9_2_137\",\n      \"tensor_sha256\": \"c509d23c9a638aaea8a624a6c5186ad3f0c1b6e6f432576b45300f6e630c56e6\",\n      \"components\": [\n        [\n          0,\n          1,\n          2,\n          7\n        ],\n        [\n          3,\n          6\n        ],\n        [\n          4,\n          5\n        ],\n        [\n          8\n        ]\n      ],\n      \"unit_fixed_sign_assignments\": 8,\n      \"inherited_assignments_pass\": 2,\n      \"hyperbolic_cross_term_checks\": 6561\n    }\n  ]\n}\n",
+      "stderr": "",
+      "receipts": {
+        "unified/saturation_receipt.json": "a81f0b58b8d1b59db310d34a925964ac9d82c878a7b36fb5d5fb2b5fb60282c2"
+      }
+    },
+    {
+      "name": "R1660 and R941 exact restrictions",
+      "script": "pair/verify.py",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 0.082,
+      "stdout": "{\n  \"R6_8_1660\": {\n    \"tensor_sha256\": \"697ec27fe203356199bfcf674587be9c71455dbb681f2e086a076f726b03d267\",\n    \"FP_dimension_character\": true,\n    \"global_dimension\": [\n      \"144\",\n      \"96\",\n      \"80\",\n      \"56\"\n    ]\n  },\n  \"R8_3_941\": {\n    \"tensor_sha256\": \"8ae4007492dee167ab8b3f4f16310ee368482da03696e20ed7cceea34bec64e6\",\n    \"FP_dimension_character\": true,\n    \"global_dimension\": [\n      \"144\",\n      \"96\",\n      \"80\",\n      \"56\"\n    ]\n  },\n  \"W3\": {\n    \"real_coefficients\": [\n      \"18\",\n      \"12\",\n      \"10\",\n      \"7\"\n    ],\n    \"imaginary_coefficients_plus_branch\": [\n      \"6\",\n      \"3\",\n      \"3\",\n      \"2\"\n    ],\n    \"conjugate_branch_changes_imaginary_sign\": true,\n    \"inherited_indicator_hypothesis_explicit\": true\n  },\n  \"level_6_10\": {\n    \"basis_cone_products\": 64,\n    \"source_simple_dimensions\": 77,\n    \"required_algebra_dimension\": [\n      \"24\",\n      \"0\",\n      \"0\",\n      \"-8\"\n    ],\n    \"negative_sqrt6_coefficient\": \"-8\",\n    \"dimension_identity\": true,\n    \"square_source_local_dimension_identity\": true\n  },\n  \"status\": {\n    \"new_ring_exclusions\": 0,\n    \"new_models\": 0,\n    \"both_unresolved\": true\n  }\n}\n",
+      "stderr": "",
+      "receipts": {
+        "pair/verification.json": "40608818032f3f7a17371cdb9b9e900e53ad9dcc261f3bdc2ceddf73218d10e5"
+      }
+    },
+    {
+      "name": "R155 conditional parent restriction",
+      "script": "r155/verify_parent_restriction.py",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 0.212,
+      "stdout": "{\n  \"result\": \"PASS\",\n  \"scope\": \"conditional pointed-center restriction; no categorification or exclusion\",\n  \"tensor_sha256\": \"012ef716d19b96a2a800d7bcbb33f3ae5e99e3c6a223f6e14bcd20144d4072a3\",\n  \"C4_squared_times_C2\": {\n    \"nondegenerate_symmetric_bicharacters\": 128,\n    \"with_twist_free_G2\": 0\n  },\n  \"surviving_parent_group\": \"C4 x C2^3\",\n  \"example_H_order\": 8,\n  \"example_restricted_radical_order\": 2,\n  \"quotient_twist_exponents_mod4\": [\n    0,\n    2,\n    3,\n    1\n  ],\n  \"parent_existence\": \"not established\",\n  \"R6_4_155_status\": \"unresolved\"\n}\n",
+      "stderr": "",
+      "receipts": {
+        "r155/parent_restriction_receipt.json": "b0bff089269e3f5700af5f600117a7382615c54e7bd61335af94232737179b53"
+      }
+    },
+    {
+      "name": "R1154 conditional rank-seven route",
+      "script": "r1154/verify_conditional_rank7.py",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 7.607,
+      "stdout": "{\"status\": \"PASS\", \"scope\": \"Conditional algebra/module route only. No algebra or categorification constructed. Full-center/module-character premise separately reviewed.\", \"module_branch_scalar_multiplicities\": [[1, 1, 2, 0], [1, 1, 1, 1]], \"norm_one_candidates\": 12, \"orthonormal_bases\": 2, \"integral_based_rings\": 1, \"conditional_dual_rank\": 7, \"conditional_dual_multiplicity\": 19, \"R8_3_1154_status\": \"unresolved\"}\n",
+      "stderr": "",
+      "receipts": {
+        "r1154/conditional_rank7_receipt.json": "ec40ea14766639af8ca7ce30b3ba8a4d7a201a428c95d5785d1d021833648298"
+      }
+    },
+    {
+      "name": "R137 characters and Verlinde coefficients",
+      "script": "unified/audit_r137_verlinde.py",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 0.972,
+      "stdout": "{\n  \"source_sha256\": \"122c030d119f6f2cee2546fb19fe0a67f48446bc5249767c6ceb65168236baee\",\n  \"old_relaxation_equations_verified\": 264,\n  \"support\": 102,\n  \"nonnegative\": true,\n  \"removed_columns_used\": 0,\n  \"physical_columns_with_unweighted_Gram_verified\": 22179,\n  \"complete_nine_character_table_multiplicativity\": \"PASS\",\n  \"all_nine_distinguished_Verlinde_coefficients_independently_replayed\": \"PASS\",\n  \"N_BB_to_B\": {\n    \"rational\": \"5/6\",\n    \"d_coefficient\": \"0\"\n  },\n  \"verdict\": \"The published +TY rational relaxation witness cannot extend to modular fusion data because forced Verlinde coefficients are nonintegral, some even irrational.\",\n  \"scope\": \"One witness rejection only. No exclusion of R9_2_137 or all feasible solutions. No optimizer used.\"\n}\n",
+      "stderr": "",
+      "receipts": {
+        "unified/audit_r137_verlinde.json": "08e6828dff78f023413350d4e6808465d8391eab54706cc36fd920441346cd5a"
+      }
+    },
+    {
+      "name": "R137 full Galois complement",
+      "script": "unified/audit_r137_galois_complement.py",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 1.96,
+      "stdout": "{\n  \"transform_identity_on_all_nine_basis_vectors_and_characters\": \"PASS\",\n  \"T_squared\": \"identity\",\n  \"positive_integral_part_sign\": \"+\",\n  \"pure_large_sign\": \"-\",\n  \"forbidden_physical_columns_by_negative_complement\": 13466,\n  \"newly_forbidden_by_negative_complement\": 8752,\n  \"additional_newly_forbidden_missing_partner_types\": 269,\n  \"total_newly_forbidden\": 9021,\n  \"total_forbidden_with_previous_filter\": 16243,\n  \"complete_grouped_trace_pairing_equalities\": 2508,\n  \"missing_partner_type_variables\": 351,\n  \"old_witness_positive_forbidden_variables\": 1,\n  \"old_witness_failed_pairing_equalities\": 11,\n  \"researcher_filter_and_pairings_independently_matched\": true,\n  \"scope\": \"Necessary Galois criterion only; missing-partner deletions require inherited complete column-domain premise; no ring exclusion established by this audit.\"\n}\n",
+      "stderr": "",
+      "receipts": {
+        "unified/audit_r137_galois_complement.json": "8c9478b10b2cbe830aabb71725ae5052e14cbacc7c2a67a1df38ec0bb4724dd6"
+      }
+    },
+    {
+      "name": "R137 positive-sign certificates",
+      "script": "unified/audit_r137_positive_certificates.py",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 7.933,
+      "stdout": "{\n  \"status\": \"PASS\",\n  \"certificates\": 9,\n  \"columns_each\": 5996,\n  \"scope\": \"Does not exclude the negative TY branch or R137 globally.\"\n}\n",
+      "stderr": "",
+      "receipts": {
+        "unified/audit_r137_positive_certificates.json": "f22eb52570daa350854cf2bd71b30f5f93f8fc42d3ee949308043fe2c4182d75"
+      }
+    },
+    {
+      "name": "R137 negative-sign rational witness",
+      "script": "unified/audit_r137_negative_strong_witness.py",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 1.717,
+      "stdout": "{\n  \"status\": \"PASS\",\n  \"support\": 124,\n  \"general_inherited_equations_verified\": 256,\n  \"dropped_test_only_rows\": [\n    244,\n    245,\n    246,\n    247,\n    260,\n    261,\n    262,\n    263\n  ],\n  \"complement_pairing_of_all_supported_types\": \"PASS\",\n  \"strict_bosonic_mass_supported_columns_verified\": 57,\n  \"distinguished_fusion_block_entries\": 45,\n  \"all_fusion_entries_nonnegative_integers\": true,\n  \"all_fusion_radical_parts_zero\": true,\n  \"projected_nu3\": [\n    \"1/2\",\n    \"1/2\",\n    \"1/2\",\n    \"1/2\"\n  ],\n  \"projected_nu4\": [\n    2,\n    2,\n    2,\n    2\n  ],\n  \"witness_sha256\": \"bb1e1e1099e2f7bad661c44fad80671c05dff7d73027667781c6b0851768625d\",\n  \"scope\": \"An exact rational witness for a necessary relaxation, not integral central multiplicities, complete modular data, associators, or a categorification.\"\n}\n",
+      "stderr": "",
+      "receipts": {
+        "unified/audit_r137_negative_strong_witness.json": "85677bd9ca6b0f1eeb64be624e41cbadf4d3a4bfcd52eeb0aec5c3595e523d71"
+      }
+    },
+    {
+      "name": "R137 strict bosonic mass",
+      "script": "unified/verify_bosonic_mass_boundary.py",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 3.321,
+      "stdout": "{\n  \"status\": \"PASS\",\n  \"orthogonality_linear_coefficients\": \"verified symbolically\",\n  \"mass_quadratic_identity\": \"verified symbolically\",\n  \"terminal_mod_four_residues\": [\n    0,\n    3\n  ],\n  \"conclusion\": \"Every nonzero integral R137 restriction column outside I(1) has bosonic real-row mass strictly below3/4.\",\n  \"counts\": [\n    {\n      \"TY_sign\": 1,\n      \"boundary_variables_total\": 1046,\n      \"new_boundary_variables_beyond_complement\": 636,\n      \"new_strictly_excessive_variables_beyond_complement\": 624,\n      \"boundary_vectors\": 62\n    },\n    {\n      \"TY_sign\": -1,\n      \"boundary_variables_total\": 1026,\n      \"new_boundary_variables_beyond_complement\": 624,\n      \"new_strictly_excessive_variables_beyond_complement\": 615,\n      \"boundary_vectors\": 62\n    }\n  ]\n}\n",
+      "stderr": "",
+      "receipts": {
+        "unified/bosonic_mass_boundary_receipt.json": "fcf02c23404398a523e1ca36465975c3d108f0aef83b9ffc2ad5ded43aa734b9"
+      }
+    },
+    {
+      "name": "R928 bosonic-row branch exclusions",
+      "script": "unified/audit_r928_bosonic_row.py",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 0.41,
+      "stdout": "{\n  \"arithmetic\": \"PASS (independent SymPy implementation)\",\n  \"source_scalar_characters_g\": \"all +1\",\n  \"canonical_unit_multiplicities\": \"all 1\",\n  \"excluded_patterns\": [\n    {\n      \"pattern\": 49,\n      \"H_label\": 19,\n      \"known_S_row\": [\n        \"1/2\",\n        \"-1/2\",\n        \"-1/2\",\n        \"1/2\"\n      ],\n      \"norm_used\": \"1\",\n      \"forced_S_HH\": \"0\",\n      \"forced_STS_HH\": \"1\",\n      \"modular_rhs_HH\": \"0\"\n    },\n    {\n      \"pattern\": 191,\n      \"H_label\": 16,\n      \"known_S_row\": [\n        \"1/2\",\n        \"-1/2\",\n        \"-1/2\",\n        \"1/2\"\n      ],\n      \"norm_used\": \"1\",\n      \"forced_S_HH\": \"0\",\n      \"forced_STS_HH\": \"1\",\n      \"modular_rhs_HH\": \"0\"\n    }\n  ],\n  \"scope\": \"Excludes these two complete center patterns under inherited pseudo-unitary and semion-splitting premises; does not exclude R928 while patterns40,186 survive.\"\n}\n",
+      "stderr": "",
+      "receipts": {
+        "unified/audit_r928_bosonic_row.json": "5a24f672e38c199abe4ccb86e772ed47d7e86537e94308b4af52d316735d6f66"
+      }
+    },
+    {
+      "name": "R928 complete initial phase reduction",
+      "script": "r928/verify_phase_reduction.py",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 1.846,
+      "stdout": "PASS: B4; AK10; H312; AMV48; nu2 12; nu4 2. R928 remains unresolved.\n",
+      "stderr": "",
+      "receipts": {
+        "r928/phase_reduction_verification.json": "01f8ff87c1ae93715f644545fc05c8fab59392dbdfe0e1d041efaaafe6e0d76f",
+        "r928/vafa_probe.json": "61616bb391e0b80397d5d1f004777199520cbd0754fd84b5d52a5ff38a9a7f2f"
+      }
+    },
+    {
+      "name": "R928 independent higher indicators",
+      "script": "unified/audit_r928_higher_indicators.py",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 0.718,
+      "stdout": "{\n  \"saved_phase_allocations\": 48,\n  \"nu2_counts\": {\n    \"other\": 36,\n    \"plus1\": 12\n  },\n  \"all_twelve_nu4_fail\": false,\n  \"failing_count\": 10,\n  \"automorphisms\": [\n    5,\n    5,\n    5,\n    5,\n    5,\n    5,\n    5,\n    5,\n    null,\n    5,\n    5,\n    null\n  ]\n}\n",
+      "stderr": "",
+      "receipts": {
+        "unified/audit_r928_higher_indicators.json": "b8bdbcc02a59e755922208d8407780daa9e5d9bfffab79a1e1360b0387f2361a"
+      }
+    },
+    {
+      "name": "R928 pattern186 residual matching Vafa",
+      "script": "r928/matching_vafa.py",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 0.1,
+      "stdout": "candidate phases 48 phases surviving 48 matching totals 3552\n",
+      "stderr": "",
+      "receipts": {
+        "r928/matching_vafa.json": "762c40ec823d0c4001a3b0809b733386631d9bd9026aea81b2b25098ef8e1f9b"
+      }
+    },
+    {
+      "name": "R928 pattern186 residual second indicators",
+      "script": "r928/matching_indicator.py",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 2.15,
+      "stdout": "phase [96, 1224, [288, 288, 648, 648, 864], [60, 60, 108], [18, 450, 882, 1314]] initial 120 nu2C1 10\nphase [96, 1224, [288, 288, 648, 648, 864], [60, 60, 108], [90, 522, 954, 1386]] initial 120 nu2C1 10\nphase [96, 1224, [288, 288, 648, 648, 864], [60, 60, 108], [162, 594, 1026, 1458]] initial 120 nu2C1 10\nphase [96, 1224, [288, 288, 648, 648, 864], [60, 60, 108], [234, 666, 1098, 1530]] initial 120 nu2C1 10\nphase [96, 1224, [288, 288, 648, 648, 864], [60, 60, 108], [306, 738, 1170, 1602]] initial 120 nu2C1 10\nphase [96, 1224, [288, 288, 648, 648, 864], [60, 60, 108], [378, 810, 1242, 1674]] initial 120 nu2C1 10\nphase [96, 936, [288, 288, 864, 1512, 1512], [60, 60, 108], [18, 450, 882, 1314]] initial 120 nu2C1 10\nphase [96, 936, [288, 288, 864, 1512, 1512], [60, 60, 108], [90, 522, 954, 1386]] initial 120 nu2C1 10\nphase [96, 936, [288, 288, 864, 1512, 1512], [60, 60, 108], [162, 594, 1026, 1458]] initial 120 nu2C1 10\nphase [96, 936, [288, 288, 864, 1512, 1512], [60, 60, 108], [234, 666, 1098, 1530]] initial 120 nu2C1 10\nphase [96, 936, [288, 288, 864, 1512, 1512], [60, 60, 108], [306, 738, 1170, 1602]] initial 120 nu2C1 10\nphase [96, 936, [288, 288, 864, 1512, 1512], [60, 60, 108], [378, 810, 1242, 1674]] initial 120 nu2C1 10\nPHASES 12 MATCHINGS 120\n",
+      "stderr": "",
+      "receipts": {
+        "r928/matching_indicator.json": "3f820c612bf91e29609f9eb45fb134922aef17c3061dc3bf6baf53e0bb600feb"
+      }
+    },
+    {
+      "name": "R928 pattern186 residual higher indicators",
+      "script": "r928/matching_higher.py",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 1.693,
+      "stdout": "H 162 n 3 good 3 coeffs [('5', '0')]\nH 162 n 4 good 10 coeffs [('1', '0')]\nH 162 n 6 good 10 coeffs [('4', '0')]\nH 162 n 8 good 10 coeffs [('13', '-3', '0', '3')]\nH 162 n 9 good 3 coeffs [('17', '0', '0', '0', '0', '0')]\nH 378 n 3 good 3 coeffs [('5', '0')]\nH 378 n 4 good 10 coeffs [('39', '0')]\nH 378 n 6 good 10 coeffs [('4', '0')]\nH 378 n 8 good 10 coeffs [('13', '-3', '0', '3')]\nH 378 n 9 good 3 coeffs [('17', '0', '0', '0', '0', '0')]\n",
+      "stderr": "",
+      "receipts": {
+        "r928/matching_higher.json": "6161b141a7dec5715e78a2a494dec21f7754fef82c04e9eb6ea23e512dec1ee7"
+      }
+    },
+    {
+      "name": "R928 pattern40 singleton phase equation",
+      "script": "r928/pattern40_singletons.py",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 1.041,
+      "stdout": "{60: {8: 4, 9: 20, 7: 1}, 84: {9: 20, 8: 4, 7: 1}, 96: {9: 56, 6: 1, 8: 18, 7: 4}}\n",
+      "stderr": "",
+      "receipts": {
+        "r928/pattern40_singletons.json": "12b03fc40397717dfd744e3eb3b4bf103a0f8b6dfc17f0045d66017d752ca349"
+      }
+    },
+    {
+      "name": "R928 pattern40 Vafa phase reduction",
+      "script": "r928/pattern40_vafa.py",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 1.61,
+      "stdout": "Acounts {60: 32, 84: 32, 96: 120}\nsurvivors 174 counts {60: 36, 84: 30, 96: 108}\n",
+      "stderr": "",
+      "receipts": {
+        "r928/pattern40_vafa.json": "8eadaa938b259afe35a1ba049bbce36383ef392141c3f9d84d665d387cd1c986"
+      }
+    },
+    {
+      "name": "R928 pattern40 indicator phase reduction",
+      "script": "r928/pattern40_indicators.py",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 1.394,
+      "stdout": "n 2 before 174 after 12 values [('1',)]\nn 3 before 12 after 12 values [('17', '0'), ('5', '0')]\nn 4 before 12 after 2 values [('2', '0'), ('40', '0')]\nn 6 before 2 after 2 values [('4', '0')]\nn 8 before 2 after 2 values [('14', '-3', '0', '3')]\nn 9 before 2 after 2 values [('17', '0', '0', '0', '0', '0')]\n",
+      "stderr": "",
+      "receipts": {
+        "r928/pattern40_indicators.json": "c87376b73280da2348eacd063e45e4361ed9584930807959edc57fe037ef090b"
+      }
+    },
+    {
+      "name": "R928 pattern40 residual matching",
+      "script": "r928/pattern40_matching.py",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 2.208,
+      "stdout": "H 162 [{'test': '3C-Vafa', 'before': 5427, 'after': 1347}, {'test': 'nu2C', 'before': 1347, 'after': 85, 'coefficients': [('1',)]}, {'test': 'nu3C', 'before': 85, 'after': 9, 'coefficients': [('5', '0')]}, {'test': 'nu4C', 'before': 9, 'after': 9, 'coefficients': [('1', '0')]}] matchings [[(15, 16), (18, 20), (19, 21)], [(13, 14), (18, 20), (19, 21)], [(11, 12), (18, 20), (19, 21)], [(10, 11), (18, 20), (19, 21)], [(10, 12), (18, 20), (19, 21)], [(9, 10), (18, 20), (19, 21)], [(9, 11), (18, 20), (19, 21)], [(9, 12), (18, 20), (19, 21)], [(6, 7), (18, 20), (19, 21)]]\nH 378 [{'test': '3C-Vafa', 'before': 5427, 'after': 1347}, {'test': 'nu2C', 'before': 1347, 'after': 85, 'coefficients': [('1',)]}, {'test': 'nu3C', 'before': 85, 'after': 9, 'coefficients': [('5', '0')]}, {'test': 'nu4C', 'before': 9, 'after': 9, 'coefficients': [('39', '0')]}] matchings [[(15, 16), (18, 20), (19, 21)], [(13, 14), (18, 20), (19, 21)], [(11, 12), (18, 20), (19, 21)], [(10, 11), (18, 20), (19, 21)], [(10, 12), (18, 20), (19, 21)], [(9, 10), (18, 20), (19, 21)], [(9, 11), (18, 20), (19, 21)], [(9, 12), (18, 20), (19, 21)], [(6, 7), (18, 20), (19, 21)]]\n",
+      "stderr": "",
+      "receipts": {
+        "r928/pattern40_matching.json": "9f143a1628fc6a366ccc28d3d7b320cbcc371d4d372264bb069b83f94c814903"
+      }
+    },
+    {
+      "name": "R928 six-dimensional modular block",
+      "script": "r928/verify_six_dimensional_block.py",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 0.032,
+      "stdout": "PASS: patterns40,186 each retain one phase multiset and matching.\n",
+      "stderr": "",
+      "receipts": {
+        "r928/six_dimensional_block_verification.json": "e0a1e036b3078d67a8e1fad51c00e1ac0e5b59b239a19b3dd83d99c5643f8b1e"
+      }
+    },
+    {
+      "name": "R928 level24 complete character tables",
+      "script": "r155/level24/verify_level24_inputs.py",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 4.049,
+      "stdout": "exact character checks passed 8 30\nexact character checks passed 3 7\n{\"status\": \"PASS\", \"tables\": [{\"modulus\": 8, \"order\": 384, \"irreducibles\": 30, \"sha256\": \"611f5fde5aabbd4d24d2aee3d0ce23b2e58d500d8d363f89ef42bdba9780e92e\"}, {\"modulus\": 3, \"order\": 24, \"irreducibles\": 7, \"sha256\": \"818c8f1aa9f9368c57e30b03e4a4e8a62dacc98abbd0b15a62fabbc734e5f1a6\"}], \"product_irreducibles\": 210, \"product_order\": 9216, \"seconds\": 3.5532978440023726, \"scope\": \"Complete exact validation of existing class tables and their T spectra; no new categorical model.\"}\n",
+      "stderr": "",
+      "receipts": {
+        "r155/level24/table_verification.json": "a7b83d6289e13a8ff3efddc5bafe73667f4e52fb753e6300684092da48743fd7"
+      }
+    },
+    {
+      "name": "R928 pattern40 congruence obstruction",
+      "script": "r155/level24/verify_r928_pattern40.py",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 0.445,
+      "stdout": "186 rank 12 irreps 12 solutions 4 nodes 94\n[[([15, 1], 1, 3, -1), ([15, 2], 1, 3, -1), ([5, 1], 1, 2, -1), ([5, 2], 1, 2, -1), ([8, 2], 1, 2, 1)], [([5, 5], 1, 4, 1), ([15, 1], 1, 3, -1), ([15, 2], 1, 3, -1), ([8, 2], 1, 2, 1)], [([15, 5], 1, 6, 1), ([5, 1], 1, 2, -1), ([5, 2], 1, 2, -1), ([8, 2], 1, 2, 1)], [([15, 5], 1, 6, 1), ([5, 5], 1, 4, 1), ([8, 2], 1, 2, 1)]]\n40 rank 15 irreps 12 solutions 4 nodes 142\n[[([15, 1], 1, 3, -1), ([15, 2], 1, 3, -1), ([5, 1], 1, 2, -1), ([5, 2], 1, 2, -1), ([8, 2], 1, 2, 1), ([1, 2], 3, 1, 1)], [([5, 5], 1, 4, 1), ([15, 1], 1, 3, -1), ([15, 2], 1, 3, -1), ([8, 2], 1, 2, 1), ([1, 2], 3, 1, 1)], [([15, 5], 1, 6, 1), ([5, 1], 1, 2, -1), ([5, 2], 1, 2, -1), ([8, 2], 1, 2, 1), ([1, 2], 3, 1, 1)], [([15, 5], 1, 6, 1), ([5, 5], 1, 4, 1), ([8, 2], 1, 2, 1), ([1, 2], 3, 1, 1)]]\n{\"status\": \"PASS\", \"conclusion\": \"R928 pattern40 is impossible under the independently derived phase/block hypotheses.\", \"scope\": \"Branch exclusion only; pattern186 and R8_3_928 remain unresolved.\", \"spectral_decompositions\": 4, \"forced_sign_copies\": 3, \"t_minus_one_fiber\": 4, \"spectral_functional_values\": [0, 6], \"eligible_irreducibles\": 12, \"G5_fixed_vectors_at_least\": 3, \"negative_permutation_fixed_vectors_at_most\": 2, \"conductor_kernel_order\": 64, \"normal_conjugate_span\": 64, \"hashes\": {\"sl2_8.json\": \"611f5fde5aabbd4d24d2aee3d0ce23b2e58d500d8d363f89ef42bdba9780e92e\", \"sl2_3.json\": \"818c8f1aa9f9368c57e30b03e4a4e8a62dacc98abbd0b15a62fabbc734e5f1a6\", \"r928_spectrum.py\": \"28ff5f01d1d14a155d1a0d0ae7864a6c3fc8a2e6da048201d9322c85ab107996\"}}\n",
+      "stderr": "",
+      "receipts": {
+        "r155/level24/r928_spectrum.json": "4293033aaf70884f716bb88c3675e031f568355d41227ddd8be5826314c41989",
+        "r155/level24/pattern40_obstruction_receipt.json": "7261df2e5e61c22f2a4480703b994c6987dc8e38cb5b1e2c64939ffafb11007c"
+      }
+    },
+    {
+      "name": "R928 independent pattern40 linear certificates",
+      "script": "unified/audit_r928_pattern40.py",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 0.041,
+      "stdout": "{\"status\": \"PASS\", \"scope\": \"R928 pattern40 only; full ring and pattern186 remain unresolved\", \"independent_target_rank\": 15, \"compatible_irreps_both_central_signs\": 12, \"linear_certificates\": 2, \"forced_sign_copies\": 3, \"kernel_order_and_normal_span\": 64, \"negative_permutation_fixed_space_maximum\": 2, \"table_hashes\": {\"sl2_8.json\": \"611f5fde5aabbd4d24d2aee3d0ce23b2e58d500d8d363f89ef42bdba9780e92e\", \"sl2_3.json\": \"818c8f1aa9f9368c57e30b03e4a4e8a62dacc98abbd0b15a62fabbc734e5f1a6\"}, \"optimizer_used\": false, \"representation_decomposition_search_used\": false}\n",
+      "stderr": "",
+      "receipts": {
+        "unified/audit_r928_pattern40.json": "6376813920e681f5a35b2af30aa66b229d60c14f55574dbcd97b660aef09ca8c"
+      }
+    },
+    {
+      "name": "R928 exact rank20 modular datum",
+      "script": "r928/verify_modular_data.py",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 4.628,
+      "stdout": "PASS: exact rank20 modular datum; all 8000 tensor entries verified; no category claimed. 4.570413002002169\n",
+      "stderr": "",
+      "receipts": {
+        "r928/rank20_modular_data.json": "4a21a2f9fac8074ff562c19318a523d35847326053ad1b44db791fe769705477"
+      }
+    },
+    {
+      "name": "R928 independent rank20 datum and fusion audit",
+      "script": "unified/audit_r928_rank20.py",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 3.097,
+      "stdout": "{\"status\": \"PASS\", \"scope\": \"Exact modular datum and simple based fusion ring only; no category, algebra, Morita equivalence, or uniqueness claim\", \"rank\": 20, \"field\": \"Q(zeta288); minimal polynomial independently generated by SymPy\", \"checks\": [\"real symmetric S\", \"S squared identity\", \"STS with anomaly zeta8\", \"8000 denominator-free Verlinde identities\", \"160000 integer associativity identities\", \"positive dimension row\", \"unit and duality\", \"all400 balancing identities\", \"simple based ring\", \"inherited W matrix\", \"all-simple indicators2,3,4\"], \"input_sha256\": {\"rank20_modular_data.json\": \"4a21a2f9fac8074ff562c19318a523d35847326053ad1b44db791fe769705477\", \"rank20_fusion_tensor.json\": \"02f5f40591d39172baf6952b0f6f21b02980d54f1de8b45bd8935e594f225211\", \"prior/spectral_reduction.json\": \"c111a1ff1733927e32f693444de55bcee5c8c93e01efe52f6322750b72ffc214\"}, \"seconds\": 2.6418503469976713}\n",
+      "stderr": "",
+      "receipts": {
+        "unified/audit_r928_rank20.json": "33a73d9c8debc4fa7f80e29d0e0c33bdee597e58f3f3e067d81b3ed1f4ad4f76"
+      }
+    },
+    {
+      "name": "R928 all-simple higher indicators through12",
+      "script": "r928/verify_higher_indicators.py",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 2.3,
+      "stdout": "PASS: all180 indicators of orders4..12 and prime rotation multiplicities. 2.2403592570044566\n",
+      "stderr": "",
+      "receipts": {
+        "r928/higher_indicators_verification.json": "0245bc1cd4f9bba527dadf9c40eb96945b25492a3b032516b6fe42a07725b2aa"
+      }
+    },
+    {
+      "name": "R1154 optional finite spectrum replay",
+      "script": "r1154/verify_small_spectrum.py",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 0.664,
+      "stdout": "{\n  \"status\": \"PASS\",\n  \"scope\": \"Finite necessary zero/one-spectrum tests only; no associators or categorification inferred.\",\n  \"records\": [\n    {\n      \"case\": \"rank7\",\n      \"eligible_configurations\": 858857,\n      \"zero_or_one_spectrum_witness\": false\n    },\n    {\n      \"case\": \"rank8\",\n      \"eligible_configurations\": 293728,\n      \"zero_or_one_spectrum_witness\": false\n    }\n  ]\n}\n",
+      "stderr": "",
+      "receipts": {
+        "r1154/small_spectrum_receipt.json": "10253ab6034b0dc001aedfe80c9eeb5e16322dbce5894a3e4ffc71728becb4e6"
+      }
+    },
+    {
+      "name": "R928 exact Anyon Atlas identification",
+      "script": "r928/atlas/verify_match.py",
+      "status": "PASS",
+      "returncode": 0,
+      "seconds": 0.087,
+      "stdout": "{\n  \"status\": \"PASS\",\n  \"atlas_id\": \"B20-02148\",\n  \"atlas_url\": \"https://anyonatlas.org/data/B20-02148\",\n  \"scope\": \"Exact simultaneous S,T identification and based-ring isomorphism; no categorical equivalence or categorification claim\",\n  \"field\": \"Q(zeta288), Phi=x^96-x^48+1\",\n  \"project_to_atlas_zero_based\": [\n    0,\n    7,\n    11,\n    18,\n    19,\n    1,\n    2,\n    3,\n    4,\n    5,\n    6,\n    8,\n    9,\n    10,\n    12,\n    13,\n    14,\n    15,\n    16,\n    17\n  ],\n  \"normalization\": \"S_Atlas=L*S_project, L=(144+96sqrt2+80sqrt3+56sqrt6)/sqrt2\",\n  \"matching_permutations\": 2,\n  \"S_entries_checked\": 400,\n  \"T_entries_checked\": 20,\n  \"fusion_coefficients_checked\": 8000,\n  \"sha256\": {\n    \"B20-02148_export.json\": \"d708fa361c0f9d732b5dad20ee2eb5994eb9ec94e461513196200fa24e6bf053\",\n    \"rank20_modular_data.json\": \"4a21a2f9fac8074ff562c19318a523d35847326053ad1b44db791fe769705477\",\n    \"rank20_fusion_tensor.json\": \"02f5f40591d39172baf6952b0f6f21b02980d54f1de8b45bd8935e594f225211\"\n  },\n  \"atlas_export_generatedAt\": \"2026-10-15T18:04:55.187Z\"\n}\n",
+      "stderr": "",
+      "receipts": {
+        "r928/atlas/atlas_match_receipt.json": "34238c583e5d04d5c5492819dac009fb4247ff3820881eeb78db1bfcfb069e2a"
+      }
+    }
+  ],
+  "shipped_files_unchanged": true,
+  "seconds": 52.617
+}

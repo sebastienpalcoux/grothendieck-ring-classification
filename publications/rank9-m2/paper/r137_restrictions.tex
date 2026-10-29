@@ -133,27 +133,137 @@ would produce a further proper nonintegral subcategory $\mathcal M$,
 contradicting this list.
 \end{proof}
 
-\paragraph{Exact surviving necessary systems.}
-The strongest restriction combines \eqref{eq:r137-residual-gram}, the
-forced low $B$ column and the fourth-rotation bounds. It removes
-$7222$ candidate variables for each TY sign. Nevertheless both signs
-still have exact nonnegative rational witnesses, even with all four
-\emph{projected} fourth indicators fixed to $2$:
+
+\subsection{Full Galois complement and integral Verlinde restrictions}
+\label{sec:r137-integral-verlinde}
+Use source indices $0,\ldots,8$, with invertibles $0,1,2,7$, the
+dimension-two object $8$, and $d=4+3\sqrt2$ at $3,4,5,6$.
+For $v=[FZ]$ write $a=v_0+v_1+v_2+v_7+2v_8$,
+$b=v_3+v_4+v_5+v_6$ and $\dim Z=a+bd$.
+All nine source characters lie in $K=\mathbb Q(\sqrt2)$.
+For its distinguished $A_E\subset I(1)$,
+$s(A_E,Z)=\chi_E(v)/f_E$ in normalized modular notation.
+Signed Galois symmetry and the exact character table give
 \[
-\begin{array}{c|rr}
-\text{TY sign}&\text{witness support}&\text{equations checked}\\ \hline
-+&102&264\\
--&112&264
+ (Tv)_i=v_i\ (i=0,1,2,7,8),\qquad
+ (Tv)_i=a-v_i\ (i=3,4,5,6).
+\]
+For a Galois automorphism nontrivial on $K$,
+$v_{\sigma Z}=\varepsilon_Z Tv$. If $a>0$, an unchanged positive
+coordinate forces $\varepsilon_Z=1$, hence $v_i\le a$ for each large
+coordinate. If $a=0$, positivity forces $\varepsilon_Z=-1$ and the
+physical vector is unchanged. The squared-twist Galois rule preserves
+all normalized relative trace types, since $\sigma^2$ fixes $K$.
+Aggregate multiplicities of $(v,\text{trace type})$ and
+$(Tv,\text{same type})$ therefore agree. Duplicate variables are grouped;
+individual relaxation variables need not be matched. Missing partners
+can be deleted because the inherited domain is complete.
+The character table, all source products and $T^2=1$ are checked exactly.
+
+Let $B$ be the Galois conjugate of the central unit and $D'=144-96\sqrt2$.
+The distinguished-row identities force
+\[
+F(B)=1+X_3+X_4+X_5+X_6,\qquad
+s(B,Z)=\frac{a+(4a-b)d}{D}.
+\]
+Verlinde gives nonnegative integers $n_E=N_{BB}^{A_E}$, namely
+\[
+n_E=\sum_Z
+\frac{(a+(4a-b)d)^2\chi_E(v_Z)}{D(a+bd)f_E}.
+\]
+Their irrational coefficients vanish. In particular
+$n_B=\sum_Z(a+(4a-b)d)^3/(D^2(a+bd))$.
+These are linear restrictions on actual central-simple multiplicities.
+
+\begin{theorem}\label{thm:r137-positive-ty-exclusion}
+The positive Tambara--Yamagami sign is impossible in a positive
+categorification of $R9\_2\_137$. The negative sign remains unresolved.
+\end{theorem}
+\begin{proof}
+The complete cubic reduction above forces all four projected third
+indicators to $1/2$ for the positive sign. No fourth indicator is fixed
+to $2$: the four equations choosing that test value are removed.
+On the resulting necessary system, full-column Galois complement and
+the nine vanishing irrational parts, nine exact rational certificates
+give the following successive bounds:
+\[
+\begin{array}{c|c|c}
+\text{coefficient}&\text{bound}&\text{integer consequence}\\ \hline
+n_B&1/2\le n_B\le31/18&n_B=1\\
+\text{two codegree-16 }n_E&0\le n_E\le17/30&n_E=0\\
+\text{four codegree-8 }n_E&0\le n_E\le3/4&n_E=0\\
+\text{codegree-4 }n_E&0\le n_E\le1&n_E\le1 .
 \end{array}
 \]
-A separate implementation reconstructs the Gram matrix, full source
-character table, residual inverse, square-Galois orbit bounds, physical
-column mapping, all new equations and every witness coefficient.
-These are projected indicator relaxations, not modular data,
-representations or categories; the unprojected complex fourth indicators
-are not asserted to equal $2$. The finite moment table does not impose
-a twist-order cutoff: orders outside it have zero first-four traces
-and larger square-Galois orbit bounds. Full proofs, exact systems,
-source hashes and independent replay are curated in
-\url{https://github.com/sebastienpalcoux/grothendieck-ring-classification/tree/main/evidence/frontier}.
+Each later stage uses the earlier proved integral equalities.
+There is no arbitrary upper bound on integral variables. For every
+certificate, its equality multipliers, nonnegative inequality
+multipliers, exact right side and all $5996$ column slacks are
+independently replayed over the rationals, without an optimizer.
 
+The nine $A_E$ occur once in $I(1)$, since the source ring is
+commutative. Adjunction gives
+$\sum_E n_E=[F(B)^2:1]=5$. Selfduality of $B$ makes the unit
+contribution $1$; the bounds give at most $1+1+1=3$ in total,
+a contradiction.
+\end{proof}
+
+\subsection{A strict bosonic-row bound}
+\begin{lemma}\label{lem:r137-bosonic-mass}
+Let $s$ be symmetric unitary normalized modular data with actual
+twists $t$ and anomaly $\xi$. Let $J$ be twist-one labels and $X\notin J$,
+with $s(X,j)$ real for $j\in J$. Then
+$m=\sum_{j\in J}s(X,j)^2\le3/4$.
+If $J$ is duality-closed and equality holds, then $X=X^*$,
+$\theta_X=-1$, $\xi=\pm1$, and $s(X,X)=\xi/2$.
+\end{lemma}
+\begin{proof}
+The diagonal modular equation and row norm give
+$m\le1-m+|s(X,X)|\le1-m+\sqrt{1-m}$.
+This is equivalent to $m\le3/4$.
+At equality the entire outside-$J$ norm is at $s(X,X)$.
+If $X\ne X^*$, the two conjugate rows have the same real restriction
+to $J$ of squared norm $3/4$, and distinct remaining diagonal supports,
+contradicting orthogonality. Thus $s(X,X)=\pm1/2$, and
+$3/4+\theta_X/4=\xi\theta_X^{-2}s(X,X)$ forces the stated values.
+\end{proof}
+
+For R137 use all nine distinguished $A_E$ as $J$. A noncanonical
+restriction has $v_0=0$. Equality, with center anomaly one and
+orthogonality to the unit row, would give
+\[
+\sum_E\frac{\chi_E(v)}{f_E^2}+\frac{a+bd}{2D}=0,
+\quad b=2a,\quad v_2+v_7=3v_1+4v_8.
+\]
+With $p=v_1,q=v_8$, exact substitution makes its mass
+\[
+\frac{9p^2+24pq+21q^2+(v_2-v_7)^2+(v_3-v_6)^2+(v_4-v_5)^2}{16}
++\frac{(v_3+v_6-v_4-v_5)^2}{64}.
+\]
+Equality $3/4$ forces $p=1,q=0$, $(v_2-v_7)^2=1$, and
+$v_3+v_4+v_5+v_6=8$. The residual equality would be
+\[
+(v_3-v_6)^2+(v_4-v_5)^2+
+\frac{(v_3+v_6-v_4-v_5)^2}{4}=2.
+\]
+If $v_3+v_6$ and $v_4+v_5$ are even the left side is $0\bmod4$;
+if odd it is $3\bmod4$. Hence the mass is \emph{strictly} less than
+$3/4$ for every nonzero noncanonical integral restriction vector.
+This proof uses no bound on vector size.
+
+\paragraph{The surviving negative-sign system.}
+An exact rational witness of support $124$ satisfies all $256$ general
+inherited equations after removing the eight chosen indicator test
+equations, full-column Galois pairing, all $45$ nonnegative integral
+entries and vanishing irrational parts in the distinguished fusion-by-$B$
+block, and the strict mass bound. Its four projected third indicators
+are $1/2$ and fourth indicators are $2$; these are witness choices,
+not forced values for all negative-sign categories. A separate verifier
+rebuilds the field arithmetic and checks every supported equation.
+The witness is a solution of necessary conditions, not integral
+central data, modular matrices, associators or a categorification.
+The complete categorical domain and positive-sign cubic theorem
+remain premises of Theorem~\ref{thm:r137-positive-ty-exclusion}.
+Current proofs and portable replay are in
+\path{evidence/frontier/replay/current/r137/} and the independent
+\path{unified/} checks alongside it.

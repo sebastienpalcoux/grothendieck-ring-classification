@@ -3,46 +3,389 @@
 \usepackage[T1]{fontenc}
 \usepackage{lmodern,amsmath,amssymb,amsthm,booktabs,array,enumitem,xcolor,fancyhdr}
 \usepackage[colorlinks=true,urlcolor=blue!55!black,linkcolor=blue!55!black]{hyperref}
-\setlength{\parindent}{0pt}\setlength{\parskip}{6pt}\setlist{nosep,leftmargin=*}
+\definecolor{ink}{RGB}{30,53,73}
+\setlength{\parindent}{0pt}\setlength{\parskip}{6pt}
 \setlength{\emergencystretch}{3em}
-\pagestyle{fancy}\fancyhf{}\fancyhead[L]{\small Fusion-ring categorification: current frontier}
-\fancyhead[R]{\small 29 October 2026}\fancyfoot[C]{\small\thepage}\setlength{\headheight}{14pt}
+\setlist{nosep,leftmargin=*}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small Fusion-ring categorification: current frontier}
+\fancyhead[R]{\small 29 October 2026}
+\fancyfoot[C]{\small\thepage}\setlength{\headheight}{14pt}
 \newcommand{\FP}{\operatorname{FPdim}}
-\renewcommand{\Vec}{\operatorname{Vec}}\newcommand{\sVec}{\operatorname{sVec}}
-\newcommand{\R}[1]{\texttt{#1}}\newtheorem*{lemma}{Lemma}
+\newcommand{\R}[1]{\texttt{#1}}
+\newcommand{\Irr}{\operatorname{Irr}}
+\newcommand{\z}{\zeta}
+\newtheorem*{lemma}{Lemma}
 \begin{document}
-{\LARGE\bfseries The categorification frontier}\\[6pt]
-{\large Six unresolved cases and the pivotal parity exclusion}
+{\color{ink}\LARGE\bfseries The categorification frontier}\\[5pt]
+{\large Six open cases, branch exclusions and the pivotal parity obstruction}
 
-\textbf{Result.} The new conjugation-pairing argument excludes \R{R8\_3\_1768}, using the project's previously established general-complex existence reduction and complete center domains. No new categorification is established. The other six cases have stronger necessary restrictions, recorded below.
+\textbf{Six rings remain unresolved.} The general-complex exclusion of \R{R8\_3\_1768} is proved in Appendix A. The six open cases have no newly established categorification or whole-ring exclusion. Each case was examined separately, with common modular, Galois, indicator and Morita arguments used where possible. The strongest new exclusions concern necessary branches of two cases, rather than all possible categorifications.
 
 \begin{center}
-\begin{tabular}{@{}llp{8.5cm}@{}}
+\renewcommand{\arraystretch}{1.18}
+\begin{tabular}{@{}lp{10.9cm}@{}}
 \toprule
-Case & Status & Main result of this continuation\\
+Case & Verified progress\\
 \midrule
-\R{R6\_4\_155} & Unresolved & Every Morita dual of a positive representative has the same based ring.\\
-\R{R6\_8\_1660} & Unresolved & Nonsplit, s-simple fermion centralizer; smaller multiplication space for a candidate algebra.\\
-\R{R8\_3\_928} & Unresolved & One full fusion matrix forced in all four modular patterns, and a second in two patterns.\\
-\R{R8\_3\_941} & Unresolved & New conditional Morita indicator identities and exclusions of specified construction routes.\\
-\R{R8\_3\_1154} & Unresolved & Every categorification has simple Drinfeld center.\\
-\R{R8\_3\_1768} & \textbf{Excluded} & Pivotal conjugation parity contradicts the complete necessary indicator system.\\
-\R{R9\_2\_137} & Unresolved & Whole-column Galois restrictions and sharper fourth indicators; both signs still feasible in the exact relaxation.\\
+\R{R6\_4\_155} & Within the specified order-32 near-group route, the parent group must be $C_4\times C_2^3$. Its existence remains open.\\
+\R{R6\_8\_1660} & A nonreal Morita invariant rules out real forms and braided representatives in the positive Morita class; smaller direct modular sources are excluded.\\
+\R{R8\_3\_928} & Three center patterns are excluded. The remaining rank-20 pattern now has exact candidate modular data and a simple fusion ring. See pages 4--6.\\
+\R{R8\_3\_941} & The center is prime; a uniform direct-source obstruction applies. The proposed Morita link with R1660 is still conditional.\\
+\R{R8\_3\_1154} & A smallest possible algebra has two based-module branches. One would force an explicit simple rank-7 Morita-dual ring.\\
+\R{R9\_2\_137} & The positive Tambara--Yamagami sign is excluded by nine exact certificates. The negative sign survives stronger necessary conditions.\\
 \bottomrule
 \end{tabular}
 \end{center}
 
-\textbf{Scope.} \emph{Excluded} means no fusion categorification over \(\mathbb C\), through the explicitly stated existence reduction. \emph{Unresolved} means neither a categorification nor a general exclusion has been proved. A rational solution of a necessary system, a candidate modular matrix, or a based module is not counted as a model.
+\textbf{Meaning of the status.} A candidate fusion ring, a based module, modular matrices, or a rational solution of necessary equations is not a categorification. A construction needs the required category and algebra structures, including associators. No such new structure is asserted here.
 
-The starting point is the published seven-case frontier at classification-repository commit:\par
-{\small\texttt{d920cc2531d8b03583c797886a3c2ab6170a281a}.}\par
-The required frozen proof inputs, including the original ten-tensor snapshot, are preserved in the companion archive. Three of those ten cases were already excluded before the seven-case starting point.
+\textbf{Mathematical scope.} Center arguments are applied to the positive spherical representative supplied by the project's previously established general-complex existence reduction. The complete center domains and certain indicator reductions are inherited premises, explicitly identified below. We do not assume that every original complex categorification is unitary or already positive. Unitarity of the normalized modular \emph{matrix} is not an assumption of unitary associators.
 
-\textbf{Verification.} The new R1768 categorical lemma received two independent agent proof reviews. Six relevant earlier rational separation certificates were reconstructed and replayed, including every allowed column. New structural results received additional review where noted. Exact checks use small finite calculations; no associator search or new long enumeration was performed.
+\textbf{Source and verification.} The six input tensors were recovered from the classification repository at commit
+\begin{center}\small\texttt{536be977f50b98fcc21d2640b7798cbac3ec1c20}.\end{center}
+They are pinned by tensor hashes. New arguments received separate agent reviews and exact finite replays; this is not external human verification. The companion proof directory includes current proofs, exact inputs and optimizer-free checks. Current proofs, source bindings and exact replay are maintained in the classification repository.
 
-The current account retains explicit inherited mathematical dependencies. The computational replay checks the encoded systems; it does not replace the categorical proofs that those systems are necessary. The linked repository ledgers and Atlas case records give the current publication status.
 \newpage
-\section*{1. The new pivotal parity obstruction}
+\section*{1. A common obstruction from twist-one rows}
+Let $S$ be a symmetric unitary normalized modular matrix, $T$ the actual twists, and $\xi$ the anomaly, so
+\[
+STS=\xi T^{-1}ST^{-1},\qquad |\xi|=1.
+\]
+Let $J$ consist of twist-one labels. For $X\notin J$, assume $S_{Xj}$ is real for $j\in J$, and put
+\[
+m_X=\sum_{j\in J}S_{Xj}^2.
+\]
+The diagonal modular relation and the row norm give
+\[
+m_X\le 1-m_X+|S_{XX}|\le 1-m_X+\sqrt{1-m_X},
+\qquad\boxed{m_X\le\tfrac34}.
+\]
+Indeed the known contribution to $(STS)_{XX}$ is $m_X$, while the remaining terms have total absolute value at most $1-m_X$.
+
+\textbf{Equality.} If $J$ is duality-closed and $m_X=3/4$, equality forces every outside-$J$ entry other than $S_{XX}$ to vanish and $|S_{XX}|=1/2$. If $X\ne X^*$, the two conjugate rows have equal real restrictions to $J$, of squared norm $3/4$, and cannot be orthogonal. Thus $X=X^*$ and $S_{XX}=\pm1/2$. Now
+\[
+\tfrac34+\tfrac14\theta_X=\xi\theta_X^{-2}S_{XX}
+\]
+forces $\theta_X=-1$, $\xi=\pm1$, and $S_{XX}=\xi/2$. For the Drinfeld center of a spherical fusion category, with its canonical normalization, $\xi=1$.
+
+\subsection*{Strict inequality for \R{R9\_2\_137}}
+Here $J$ is the set of nine distinguished constituents of $I(1)$. For a restriction vector $v=[F(X)]$ outside $J$, $v_0=0$. Write
+\[
+a=v_1+v_2+v_7+2v_8,\quad b=v_3+v_4+v_5+v_6,\quad
+d=4+3\sqrt2,\quad D=144+96\sqrt2.
+\]
+The known rows are $S_{A_E,X}=\chi_E(v)/f_E$. Equality in the mass bound would imply, by orthogonality with the unit,
+\[
+\sum_E\frac{\chi_E(v)}{f_E^2}+\frac{a+bd}{2D}=0.
+\]
+The exact characters reduce this to $b=2a$ and $v_2+v_7=3v_1+4v_8$. With $p=v_1$, $q=v_8$, the mass then becomes
+\[
+\frac{9p^2+24pq+21q^2+(v_2-v_7)^2+(v_3-v_6)^2+(v_4-v_5)^2}{16}
++\frac{(v_3+v_6-v_4-v_5)^2}{64}.
+\]
+For this to equal $3/4$, nonnegativity forces $p=1,q=0$ and $(v_2-v_7)^2=1$. Hence $b=8$ and
+\[
+(v_3-v_6)^2+(v_4-v_5)^2+\tfrac14(v_3+v_6-v_4-v_5)^2=2.
+\]
+If $v_3+v_6$ and $v_4+v_5$ are even, the left side is $0$ modulo $4$; if odd, it is $3$ modulo $4$. Both contradict $2$. Therefore \textbf{every noncanonical integral restriction column has $m_X<3/4$}. This proof has no bound on the size of $v$.
+
+\newpage
+\section*{2. \R{R9\_2\_137}: one TY sign is impossible}
+The ring has four invertibles, one object of dimension $2$, and four objects $X_3,\ldots,X_6$ of dimension $d=4+3\sqrt2$. Its rank-5 subcategory has Tambara--Yamagami (TY) type. The two possible TY signs are treated separately.
+
+\textbf{Full-column Galois complement.} For $v=[F(Z)]$, put $a=v_0+v_1+v_2+v_7+2v_8$. The signed Galois rule for the nine known character rows gives an exact involution
+\[
+(Tv)_i=v_i\quad(i=0,1,2,7,8),\qquad
+(Tv)_i=a-v_i\quad(i=3,4,5,6).
+\]
+For $a>0$, positivity fixes the sign to $+1$, so each large coordinate satisfies $v_i\le a$. For $a=0$, the sign is negative and the physical restriction vector is unchanged. For $a>0$, total multiplicities of $(v,\text{joint twist-trace type})$ and $(Tv,\text{same type})$ must agree. Duplicate variables are aggregated. Deleting types with no partner uses the inherited \emph{complete} domain theorem.
+
+\textbf{An integral condition absent from the old relaxation.} Let $B$ be the Galois conjugate of the central unit. The known rows force
+\[
+F(B)=1+X_3+X_4+X_5+X_6,\qquad
+S_{B,Z}=\frac{a+(4a-b)d}{D},\quad b=\sum_{i=3}^6v_i.
+\]
+Verlinde makes all nine $n_E=N_{BB}^{A_E}$ linear functions of central-simple multiplicities. Each must be a nonnegative integer, with vanishing irrational part. For example,
+\[
+N_{BB}^{B}=\sum_Z\frac{(a+(4a-b)d)^3}{D^2(a+bd)}.
+\]
+The old positive-sign rational witness gives $N_{BB}^{B}=5/6$; this rejects that witness, by itself not the whole sign.
+
+\textbf{Uniform contradiction for the positive sign.} The inherited positive-TY proof forces all four projected third indicators to $1/2$. The four old test equations setting fourth indicators to $2$ are \emph{removed}. Nine exact rational certificates, checked on all $5{,}996$ allowed columns, give successively:
+\begin{center}
+\begin{tabular}{@{}lll@{}}\toprule
+Coefficients & Certified bound & Integral consequence\\\midrule
+$n_B$ & $1/2\le n_B\le31/18$ & $n_B=1$\\
+Two codegree-$16$ coefficients & $0\le n_E\le17/30$ & Both $0$\\
+Four codegree-$8$ coefficients & $0\le n_E\le3/4$ & All $0$\\
+Codegree-$4$ coefficient & $0\le n_E\le1$ & At most $1$\\\bottomrule
+\end{tabular}
+\end{center}
+But adjunction gives $\sum_E n_E=[F(B)^2:1]=5$. The unit contributes $1$, $B$ contributes $1$, and all other contributions total at most $1$: contradiction. \textbf{The positive TY sign is excluded.}
+
+\textbf{What survives.} The negative sign has an independently checked exact rational witness with $124$ positive weights, all $45$ tested distinguished fusion coefficients integral and nonnegative, and the strict mass bound from page 2. It has projected third indicators $1/2$ and fourth indicators $2$; these are witness choices, not a theorem forcing them in every negative-sign category. This remains a necessary-system witness, not modular data or a model.
+
+\newpage
+\section*{3. \R{R8\_3\_928}: modular patterns and twists}
+The inherited reduction gives
+\[
+Z(\mathcal C)=\mathrm{Sem}\boxtimes\mathcal B,\quad
+D=144+96\sqrt2+80\sqrt3+56\sqrt6,\quad L=D/\sqrt2,
+\]
+where $\mathcal B$ is simple, has global dimension $L^2$, and has four possible dimension patterns numbered $40,49,186,191$, of ranks $23,20,20,17$. Fix anomaly $\xi(\mathcal B)=\z_8$; conjugation covers the other orientation.
+
+\textbf{Patterns 49 and 191 are impossible.} The four scalar-character constituents of $I(1)$ belong directly to $\mathcal B$: their semion charge is positive and their twists are $1$. A required object $H$ of dimension $L/2$ has normalized entries
+\[
+(S_{H,A_0},S_{H,A_1},S_{H,A_2},S_{H,A_3})=(1,-1,-1,1)/2.
+\]
+These exhaust its row norm. Thus all other entries, including $S_{HH}$, vanish. The diagonal modular relation gives $(STS)_{HH}=1$ and also $(STS)_{HH}=0$, a contradiction independent of every unknown twist.
+
+\textbf{Finite twist domains are justified, not guessed.} In the retained patterns, the full square-Galois orbits preserve each repeated dimension fiber. The two singleton dimensions $E,F$ form one orbit and their twists are equal by a known cross-$STS$ entry. Cauchy's theorem and $\operatorname{Norm}(D)=2^{14}3^2$ restrict prime support to $2,3$. A root of order $2^a3^b$ has square-orbit size
+\[
+2^{\max(a-3,0)}3^{\max(b-1,0)}.
+\]
+Fiber multiplicities therefore bound the orders. Exact root-sum, Vafa and indicator equations then leave two twist allocations per pattern before the following block argument.
+
+\textbf{Integral projections become matchings.} The remaining part $Q$ of a known fusion matrix is symmetric integral, positive semidefinite, of rank $3$, and satisfies $Q^2=2Q$ and $Q\mathbf d=0$. A diagonal $2$ would force an isolated nonzero diagonal, contrary to $Q\mathbf d=0$. A diagonal $1$ has exactly one off-diagonal entry, necessarily $-1$, on an equal-dimension label. Thus
+\[
+Q=\text{three disjoint pair blocks }\begin{pmatrix}1&-1\\-1&1\end{pmatrix}.
+\]
+This replaces an unknown real projection by a short exact matching problem.
+
+\textbf{A six-dimensional block.} The four $H$ twists have the form $a(1,i,-1,-i)$, with two antipodal matching pairs. The third pair has common twist $\lambda$. Known row projections force a six-dimensional invariant $S,T$ block. In pair-sum and pair-difference coordinates, its unknown real symmetric involution is
+\[
+M=\xi^{-1}A R\begin{pmatrix}1&0\\0&\lambda\end{pmatrix}R^t A,
+\quad A=\operatorname{diag}(a,ia),\quad
+R=\frac1{\sqrt2}\begin{pmatrix}1&1\\1&-1\end{pmatrix}.
+\]
+The condition $M^2=I$ forces $a^4\lambda=\xi^2=i$. Only
+$a=\z_{32}^{3}$ and the pair of twist $\lambda=\z_8^7$ survive. No identification of this block with a known categorical construction is asserted.
+
+\newpage
+\section*{4. \R{R8\_3\_928}: a third pattern is excluded}
+Pattern 40 has rank $23$. Normalize the linear modular representation by $t=T/\z_{24}$. The six-dimensional block from page 4 and the known two-dimensional block on the canonical sum and $W$ are invariant. Removing them leaves a $15$-dimensional representation with $t$-spectrum
+\[
+\begin{array}{c|rrrrrrrr}
+\text{exponent modulo }24&3&9&11&12&15&17&20&23\\\hline
+\text{multiplicity}&2&2&1&4&2&1&1&2.
+\end{array}
+\]
+The full representation factors through $SL_2(\mathbb Z/96)$ by the modular congruence theorem. The complement in fact factors through level $24$: the kernel of $SL_2(\mathbb Z/32)\to SL_2(\mathbb Z/8)$ is the additive group
+\[
+\{I+8M:\ M\in\operatorname{Mat}_2(\mathbb Z/4),\ \operatorname{tr}M=0\},
+\]
+of order $64$, and is generated normally by $t^{24}$, which acts trivially on the complement. Conjugates give the two off-diagonal directions and the diagonal trace-zero direction.
+
+\textbf{Three sign characters are forced.} The complete character tables of $SL_2(\mathbb Z/8)$ and $SL_2(\mathbb Z/3)$ give all $210$ irreducibles of level $24$. Only $12$ fit the displayed spectrum. Their multiplicity equations force three copies of the one-dimensional character $S=t=-1$. This can be checked by two linear identities on their spectral multiplicities; it does not need a search for associators. Both central signs are included, so no unproved self-duality assumption enters.
+
+\textbf{Signed Galois symmetry forbids them.} Let $G_5=\sigma_5(S)S^{-1}$. The Galois word
+\[
+G_5=t^5 S t^{77}S t^5 S^{-1}
+\]
+acts as $+1$ on each sign character. It therefore has at least three fixed vectors in the full $t=-1$ eigenspace. That eigenspace consists of exactly four equal-dimension simple-object coordinates, each with $S_{0A}=1/(4\sqrt3)$. Since $\sigma_5(\sqrt3)=-\sqrt3$, signed Galois symmetry gives $G_5=-P$ on this space for a four-point permutation $P$. Its fixed-space dimension is the number of even cycles of $P$, at most two. This contradiction excludes pattern 40.
+
+More generally, a Galois-stable $m$-object twist fiber with all negative Galois signs has at most $\lfloor m/2\rfloor$ fixed vectors. Any forced representation contributing more fixed vectors in that fiber excludes the candidate.
+
+\textbf{Only pattern 186 remains.} It has rank $20$. With $\z_n=e^{2\pi i/n}$, its unique retained twist multiset, up to relabeling and conjugation, is
+\[
+\begin{array}{c|l}
+\text{fiber}&\text{twists}\\\hline
+\text{four canonical labels}&1,1,1,1\\
+W&i\\
+E,F&\z_3^2,\z_3^2\\
+A&\z_6,\z_6,-1,\z_8^7,\z_8^7\\
+B&\z_{12}^{5},\z_{12}^{5},-i\\
+K&\z_{24}^{13}\\
+H&\z_{32}^3(1,i,-1,-i).
+\end{array}
+\]
+The matching pairs are the antipodal $H$ pairs and the two $A$ objects of twist $\z_8^7$.
+
+\textbf{An exact complete candidate.} Explicit $20\times20$ matrices $S,T$ and their simple, self-dual fusion ring are now supplied in the archive. Separate exact replays verify $S^2=I$, $STS$, all $8{,}000$ Verlinde identities, associativity, balancing and indicator constraints; the full Vafa equations pass as well. The candidate has $\nu_2=1$ on every simple. This is a modular-data construction, not a fusion category or an algebra construction; uniqueness of the full data is not asserted. R928 remains unresolved.
+
+
+
+\newpage
+\section*{4a. Identification in The Anyon Atlas}
+The explicit rank-twenty modular datum is the existing record
+\href{https://anyonatlas.org/data/B20-02148}{\texttt{B20-02148}}
+of \emph{The Anyon Atlas}, Galois orbit $20.167$. It is the proposed
+simple factor $\mathcal B$ of $Z(\mathcal C)=\mathrm{Sem}\boxtimes\mathcal B$,
+not the whole center. Its global dimension is
+\[
+38592+27264\sqrt2+22272\sqrt3+15744\sqrt6
+=\tfrac12(144+96\sqrt2+80\sqrt3+56\sqrt6)^2.
+\]
+It has central charge $1\bmod8$, twist order $96$, and a simple,
+self-dual fusion ring of maximum multiplicity $18$.
+The semion factor has the opposite central charge $-1\bmod8$; their
+product has central charge $0\bmod8$, as the Drinfeld center of a
+spherical fusion category should.
+
+This is an exact identification of both modular matrices and the full
+based ring, not merely of their numerical invariants. With zero-based
+project labels, the relabeling is
+\[
+\begin{aligned}
+(p_0,\ldots,p_9)&=(0,7,11,18,19,1,2,3,4,5),\\
+(p_{10},\ldots,p_{19})&=(6,8,9,10,12,13,14,15,16,17).
+\end{aligned}
+\]
+Writing $L=D/\sqrt2$, the Atlas normalization has $S_{00}=1$ and
+satisfies $S^{\rm Atlas}_{p_i p_j}=L S^{\rm project}_{ij}$,
+$T^{\rm Atlas}_{p_i}=T^{\rm project}_i$. A safe parser converts the
+downloaded cyclotomic expressions to $\mathbb Q(\zeta_{288})$.
+All $400$ matrix entries, $20$ twists and $8000$ structure constants
+agree exactly. The original export, comparison program and hash-bound
+receipt are in the current proof directory's \texttt{r928/atlas/}.
+
+As accessed on 29 October 2026, the record is labeled \emph{Not CS}
+and is not selected by \emph{Known Categorifiable}. Its proposed
+condensation of $1+X_7+X_{11}+X_{18}$ to the semion record
+\href{https://anyonatlas.org/data/B02-00007}{\texttt{B02-00007}}
+has algebra dimension $D/2$, but is not guaranteed by the export.
+Neither this possible condensation nor the exact modular-data match
+constructs the category or its algebra. No novelty of the modular
+datum, and no categorification of R928, is asserted.
+
+\newpage
+\section*{5. \R{R8\_3\_1154}: a conditional rank-7 route}
+Put $a=6+3\sqrt5$, $b=a+1$, $\delta=(5+3\sqrt5)/2$, and $D=540+240\sqrt5$. The pointed $C_2$ subcategory has nontrivial associator. Its nontrivial invertible $g$ therefore acts freely on every module category: a fixed simple would give a rank-one module for this nontrivially associated pointed category.
+
+Consequently no connected separable algebra contains $g$. The smallest \emph{possible} nontrivial algebra has object $1+X_4$ or $1+X_5$, of dimension $b$. Existence is not implied.
+
+\textbf{Two six-vertex branches.} Assuming an actual algebra $1+X_4$, its free-induction Gram matrix forces exactly six simple modules, of relative dimensions
+\[
+(1,1,\delta,\delta,2,2).
+\]
+The induction matrix has rank five. Its missing line can carry exactly two source characters, $\chi_4$ or $\chi_{20}$. Both yield nonnegative integral module matrices satisfying all source products and duality. This is only a based-module calculation.
+
+\textbf{The $\chi_4$ branch forces a dual ring.} The module-character multiplicities are $(1,1,2,0,1)$ on the five source irreducible representations. Ostrik's linking-multifusion character identification transfers these to the distinguished constituents of the module's Lagrangian algebra. Their weighted dimension is already
+\[
+1+(161+72\sqrt5)+2(135+60\sqrt5)+(108+48\sqrt5)=D.
+\]
+Positivity leaves no other summands. Its squared-multiplicity sum is $7$; hence the Morita dual has rank $7$ and acts faithfully as the full commutant of the six-vertex module.
+
+For a nonunit simple commuting matrix, the coefficient-of-unit trace is zero and its squared trace norm is one. The dimension bound makes the resulting integral parameter domain small. Exactly two orthonormal six-element choices survive; one has nonintegral or negative products. The other is the unique possible nonnegative integral based ring, with dimensions
+\[
+\boxed{(1,\delta,\delta,\delta+1,\delta+1,2\delta+1,4\delta+4)}
+\]
+and duality $(0,1,2,4,3,5,6)$. It is simple and noncommutative, with maximum multiplicity $19$. Its full tensor is supplied in the proof directory.
+
+Morita-invariant total second and third indicators force
+\[
+\nu_2=(1,1,1,0,0,1,1),\qquad
+\nu_3=(1,1,1,1,1,2,4).
+\]
+These are consistent. The complete zero- and one-spectrum tests also give no obstruction, for either this candidate or the original R1154 tensor.
+
+\textbf{Exact remaining gap.} No algebra structure on $1+X_4$ or $1+X_5$ is constructed. The $\chi_{20}$ branch also remains possible. Thus the rank-7 ring is a \emph{conditional} Morita partner, not a categorification of R1154 and not an unconditional reduction of every possible R1154 category.
+
+\newpage
+\section*{6. \R{R6\_4\_155}: a restricted near-group parent}
+This is the non-self-dual ring $R'(4)$, with $X^*=Y$ and
+\[
+XY=1+h+4(X+Y),\qquad X^2=g+hg+4(X+Y).
+\]
+Meng--Yu's August 2026 paper explicitly leaves this case open. Its construction gives $R'(2)$, not $R'(4)$. The inherited rank-26 necessary modular data do not supply associators.
+
+\textbf{A conditional parent theorem.} Consider a proposed order-32 near-group route with the following precise low-center hypotheses: its invertibles form an abelian group $G$ of order $32$ with nondegenerate symmetric bicharacter $\chi$ and twists $q(g)=\chi(g,g)^{-1}$; all noninvertible central simples have dimension greater than $8$; and an étale algebra $E$ of dimension $8$ has local modules equal to the proposed R155 center.
+
+Then $E$ is pointed, supported on an isotropic subgroup $H$ of order $8$. The monodromy is $b(g,h)=\chi(g,h)^{-2}$ and its radical is $G[2]$. The four target invertibles imply $H^{\perp_b}=G$, hence
+\[
+2G\subset H\subset G[2],\qquad q|_H=1.
+\]
+The only groups to consider are $C_4^2\times C_2$, $C_4\times C_2^3$ and $C_2^5$. The last has no semion twists. In the first, $H=G[2]$; nondegeneracy of the order-four pairing and twist-freeness of the order-two generator force a radical element, a contradiction. Therefore
+\[
+\boxed{G=C_4\times C_2^3.}
+\]
+
+The remaining metric data do exist. For $x=(a,b_1,b_2,b_3)$, set
+\[
+\chi(x,x')=i^{aa'}(-1)^{b_1b'_1+b_2b'_2+b_3b'_3},\qquad
+H=\{a\text{ even},\ b_1+b_2+b_3\text{ even}\}.
+\]
+The quotient has twists $1,-1,-i,i$. This verifies compatibility of the pointed data, not existence of the near-group category or the required algebra.
+
+Radchenko--Wheeler's September 2026 construction supplies groups that are products of two cyclic groups; its existence corollary does not cover this four-generator group. Its broader reconstruction theorem still needs an additional finite-quantum-dilogarithm input. No such input is provided here.
+
+\textbf{Scope of the result.} The parent theorem applies only under the explicitly listed low-center hypotheses. It is not a classification of arbitrary spherical near-group categories. In particular no complete categorical parameterization is inferred from a unitary table. R155 remains unresolved.
+
+\textbf{A limitation shared by all six cases.} Longer palindromic conjugators and direct sums do not strengthen the already imposed pivotal conjugation-parity graph: the new cross terms form hyperbolic pairs. Exact tensor checks confirm that the existing sign assignments for all six cases pass these saturated parity restrictions. Repeating that parity test cannot resolve the remaining cases.
+
+\newpage
+\section*{7. \R{R6\_8\_1660} and \R{R8\_3\_941}}
+Both rings have global dimension
+\[
+D=144+96\sqrt2+80\sqrt3+56\sqrt6.
+\]
+This equality motivates a Morita search; it does not establish a Morita equivalence. R928 also has this global dimension and illustrates the limitation of dimension matching.
+
+\textbf{A nonreal Morita invariant for R1660.} Put $d=3+2\sqrt2+2\sqrt3+\sqrt6$. The inherited complete third-indicator theorem gives, in the positive representative,
+\[
+W_3(\mathcal C):=\sum_{V\in\Irr\mathcal C}d_V\nu_3(V)
+=1+(3+2\sqrt2)d\ \mathbin{\pm}\ i\sqrt3d.
+\]
+This is nonreal. For a positive category, the center indicator formula gives
+\[
+W_n(\mathcal C)=\frac1{\FP(\mathcal C)}
+\sum_{Z\in\Irr Z(\mathcal C)}d_Z^2\theta_Z^n.
+\]
+It is preserved by Morita equivalence, while complex conjugation and tensor opposition conjugate its value. Thus this positive Morita class is not equivalent to its conjugate or reverse, admits no real form, and contains no braided category. A braiding would supply an equivalence to tensor opposition.
+
+This does not exclude unitarity: unitary associators need not admit a real gauge. It also does not transfer automatically to every original nonpositive category. For R941 it applies only if the proposed Morita equivalence is actually constructed.
+
+\textbf{A uniform direct-source obstruction for both rings.} In both positive centers, the inherited integral part is $\mathrm{sVec}$ and every nonpointed subcategory has dimension greater than $D$. If a proper nontrivial nondegenerate subcategory existed, it and its centralizer would both have dimension greater than $D$, contradicting the product formula $D^2$. Thus each center is prime.
+
+Suppose a modular category $\mathcal P$ and a connected étale algebra $A$ directly realize $\mathcal C=\mathcal P_A$. The standard center decomposition gives
+\[
+Z(\mathcal P_A)\simeq\mathcal P\boxtimes(\mathcal P_A^0)^{\rm rev}.
+\]
+Primeness forces $\mathcal P_A^0=\mathrm{Vec}$: $A$ must be Lagrangian and $\mathcal P\simeq Z(\mathcal C)$. In particular \textbf{every smaller direct modular source is ruled out at once}. Noncentral and other indirect constructions remain possible.
+
+\textbf{A concrete coefficient obstruction.} For $\mathcal P=SU(2)_6\boxtimes SU(2)_{10}$, the required algebra dimension is
+\[
+\frac{\FP(\mathcal P)}D=24-8\sqrt6.
+\]
+All source object dimensions have nonnegative coordinates in the independent basis
+\[
+1,\sqrt2,\sqrt3,\sqrt6,c,c\sqrt2,c\sqrt3,c\sqrt6,\qquad c=\sqrt{2+\sqrt2}.
+\]
+The negative $\sqrt6$ coefficient makes this impossible. The same argument excludes the doubled-source local construction of either center. These are route exclusions, not exclusions of the two rings.
+
+\newpage
+\section*{8. Proof dependencies and reproduction}
+The companion proof directory separates new arguments, frozen inherited inputs and exact verification. Its \R{README.md} gives the entry point and required packages; the runner verifies hashes and executes the checks in a temporary copy. No numerical optimizer is needed for replay. Any finite searches are over proved finite domains, not open-ended associator searches.
+
+\begin{center}
+\renewcommand{\arraystretch}{1.15}
+\begin{tabular}{@{}p{3.4cm}p{12cm}@{}}\toprule
+Conclusion & Essential mathematical premises beyond tensor arithmetic\\\midrule
+R137 positive-sign exclusion & General-complex existence reduction; complete center-column domain; previously proved positive-TY projected cubic values; modular Galois and Verlinde formulas.\\
+R928 pattern reductions & Positive modular-factor reduction; complete four-pattern dimension list; identification and twists of the distinguished central rows; congruence and Galois theorems where used.\\
+R1154 rank-7 route & An actual connected separable algebra in the specified module branch; positive full-center/module-character correspondence. The algebra's existence is not established.\\
+R155 parent restriction & The three explicitly stated low-center hypotheses. They are not asserted for every unconstructed parent.\\
+R1660/R941 routes & The inherited center-subcategory restrictions; R1660's complete third-indicator theorem for its nonreal invariant. The Morita link remains unproved.\\\bottomrule
+\end{tabular}
+\end{center}
+
+\textbf{Limits of verification.} Rational separators prove incompatibility of their encoded necessary system; the categorical theorem making that system complete is a separate premise. A surviving rational witness proves only that those necessary linear tests do not yet contradict one another. Agent reviews are additional checks, not a claim of independent human validation.
+
+\textbf{Selected primary references.} Detailed per-case notes give theorem numbers and additional sources.
+\begin{enumerate}[label={[\arabic*]}]
+\item V. Ostrik, \emph{Pivotal fusion categories of rank 3}, Remark 2.19 and Theorem 2.13. \url{https://arxiv.org/abs/1309.4822}.
+\item C. Dong, X. Lin and S.-H. Ng, \emph{Congruence property in conformal field theory}, modular Galois and congruence theorems. \url{https://arxiv.org/abs/1201.6644}.
+\item T. Deshpande, \emph{On centers of bimodule categories and induction-restriction functors}. \url{https://arxiv.org/abs/1611.04486}.
+\item S.-H. Ng and P. Schauenburg, \emph{Frobenius--Schur indicators and exponents of spherical categories}. \url{https://arxiv.org/abs/math/0601012}.
+\item A. Davydov, M. M\"uger, D. Nikshych and V. Ostrik, \emph{The Witt group of non-degenerate braided fusion categories}. \url{https://arxiv.org/abs/1009.2117}.
+\item Y. Meng and Z. Yu, \emph{Classification of some $\mathbb Z/2\times\mathbb Z/2$-quadratic fusion categories of rank 6}. \url{https://arxiv.org/abs/2608.06064}.
+\item D. Radchenko and C. Wheeler, \emph{Real quadratic fields and finite quantum dilogarithms I}, Section 5.4. \url{https://arxiv.org/abs/2609.21892}.
+\item \emph{The Anyon Atlas}, record B20-02148,
+\url{https://anyonatlas.org/data/B20-02148}, accessed 29 October 2026.
+\end{enumerate}
+\newpage
+\section*{Appendix A. Pivotal parity and R1768}
 \begin{lemma}
 Let \(\mathcal C\) be a pivotal semisimple rigid \(\mathbb C\)-linear category. Suppose \(V\) has a nondegenerate self-duality \(f:V\to V^*\) of sign \(\varepsilon\in\{1,-1\}\), namely
 \[
@@ -83,7 +426,7 @@ Its self-duality has negative sign by the lemma. But both positive-indicator sim
 
 Thus the positive representative cannot exist. The inherited existence reduction takes any complex categorification to such a representative with the same tensor, giving the general-complex exclusion. Only that existence implication is used; no claim is made that an arbitrary original category already has a positive pivotal structure.
 \newpage
-\section*{2. Independent exact route through the indicator domains}
+\section*{Appendix A.2. Exact complete-domain replay}
 
 The full conjugation test gives an alternative verification that does not assume the final output of the old forty-branch indicator run.
 
@@ -123,150 +466,5 @@ The source-character, Galois-complement and five-branch arithmetic are replayed 
 \textbf{Why it was missed.} The previous parity check used the total coefficient of \(\sqrt{37}\), and therefore only the sum of noninvertible multiplicities. Here that sum is ten, which is even. The new lemma tests each self-dual constituent separately and detects the two odd multiplicities. Passing the dimension-level check was insufficient.
 
 The same full-multiplicity test was applied to the other six tensors and to the known auxiliary rank-ten R1154 candidate. None gave another contradiction.
-\newpage
-\section*{3. Rank six and the possible Morita pair}
 
-\subsection*{\R{R6\_4\_155}: Morita rigidity of the based ring}
-Under the inherited central-lift theorem for a pseudo-unitary representative, every Morita dual has based ring R155 again. This is not a statement that the category, associator, or module-category structure is unique.
-
-Write the simples as \(1,h,g,hg,X,Y\), with \(X^*=Y\) and
-\[
-XY=1+h+4(X+Y),\qquad X^2=Y^2=g+hg+4(X+Y).
-\]
-The central lifts have twists \(1,-1,i,-i\). Stabilizer, module Gram and algebraic-integrality arguments reduce every connected separable algebra to one of six underlying objects:
-\[
-\begin{gathered}
-1,\quad 1+h,\quad 1+X+Y,\quad 1+2X+2Y,\\
-1+h+2X+2Y,\quad 1+h+4X+4Y.
-\end{gathered}
-\]
-All resulting module categories reduce to the regular case, the \(1+h\) case, or a possible \(1+X+Y\) algebra. Central fermion alpha induction identifies the dual of the \(1+h\) case with the original category, without assuming that the source is braided.
-
-For the remaining algebra, the exact commutant of the module action has six nonnegative integer parameters. Comparing its regular action and using equality in Cauchy--Schwarz forces four invertibles and two dual noninvertibles, whose fusion rules are again those of R155. The full proof and independent review are in the archive.
-
-\textbf{Remaining gap.} This eliminates the strategy of finding a different known based ring in the same Morita class. It constructs no algebra structure on \(1+X+Y\) and no categorification of R155. Additional low-order rotations of the forced rank-26 modular data pass their necessary integrality tests.
-
-\subsection*{\R{R6\_8\_1660} and \R{R8\_3\_941}}
-Their common global FP dimension remains a motivation for Morita equivalence, not a proof of it.
-
-For R1660, the inherited center restrictions now imply that the fermion centralizer is \emph{nonsplit} and \emph{s-simple}: its only fusion subcategories are \(\Vec,\sVec\), and itself. The proof uses dominant forgetful images, the modular centralizer dimension formula, and the absence of an additional central simple of dimension \(\sqrt2\). A parallel argument simplifies the existing nonsplitting proof for R941.
-
-The multiplication component \(X^2\to X\) of a hypothetical R1660 algebra \(1+X\) must lie in a two-dimensional cyclic fixed space. This reduces the previous three-dimensional choice, but associativity and separability remain unproved.
-
-If the two rings really are Morita equivalent, odd-indicator invariance imposes explicit identities. In particular four R941 third rotations must be identities; the remaining pair has only two possible combined spectra. These are conditional constraints, not a constructed Morita equivalence.
-
-Three specified direct \(SU(2)_{22}\) routes were also ruled out. Two exact dimension matches require algebras of dimension 12 while the relevant pointed supports have dimensions at most 4 and 8. These exclusions concern those constructions only.
-\newpage
-\section*{4. Further rank-eight restrictions}
-
-\subsection*{\R{R8\_3\_928}: forced fusion matrices}
-Use the inherited reduction
-\(Z(\mathcal C)=\mathrm{Sem}\boxtimes\mathcal B\), where \(\mathcal B\) is simple. The four retained patterns have ranks \(23,20,20,17\). Put
-\[
-D=144+96\sqrt2+80\sqrt3+56\sqrt6,\quad
-L=D/\sqrt2,\quad w=D/4.
-\]
-Let \(u_\sigma\) be the four normalized Galois-unit columns, with
-\(r_\sigma=D/\sigma(D)\). They are known from the dimension list:
-\[
-u_\sigma(i)=r_\sigma\,\sigma(d_i)/L.
-\]
-A distinguished self-dual object \(W\), of dimension \(w\), has normalized column
-\[
-u_W=(1,1,1,1,-2,0,\ldots,0)/(2\sqrt2).
-\]
-Verlinde then forces the entire matrix
-\[
-N_W=\sum_\sigma (w/r_\sigma)u_\sigma u_\sigma^t-2u_Wu_W^t.
-\]
-It has rank 5 and trace 142. All four matrices are nonnegative integral, with the required unit row and dimension eigenvector.
-
-For patterns 49 and 191, the fusion matrix of a second distinguished simple is forced as well. After removing its four known spectral directions, the residual is twice a positive-semidefinite projection of trace 4. Its known leading block already exhausts this trace, forcing every remaining row and column of the projection to vanish.
-
-Also \(N_{WW}^{W}=17\). The braided parity theorem of Fuchs--Runkel--Schweigert forces \(\nu_2(W)=1\). The corresponding semion-twisted canonical summand has indicator \(-1\) and multiplicity two, which is consistent.
-
-\textbf{Remaining gap.} The necessary fusion matrices pass; the rest of the modular data, fusion rules, and associators are not constructed. None of the four patterns is eliminated.
-
-\subsection*{\R{R8\_3\_1154}: a simple center}
-Every complex categorification of R1154 has simple Drinfeld center, assuming the previously established integral-center restriction. This argument does not need a positive-pivotal existence gate.
-
-The ring is noncommutative, so its categorification cannot be braided. Every proper source fusion subcategory is integral, while the integral part of the center is \(\Vec\). Therefore every nontrivial central fusion subcategory forgets dominantly to the source, and has dimension strictly greater than \(D=\FP(\mathcal C)\). Equality would make that functor an equivalence and supply a braiding on the source.
-
-If such a subcategory were proper, its nontrivial centralizer would have the same strict lower bound. Their dimension product would exceed \(D^2=\FP(Z(\mathcal C))\), a contradiction.
-
-\textbf{Remaining gap.} This rules out braided and nontrivial tensor-product Morita representatives, and sharply restricts central condensation routes. It does not exclude arbitrary noncentral constructions. The auxiliary rank-ten category passes the new conjugation parity test, including its quaternionic simple.
-\newpage
-\section*{5. \R{R9\_2\_137}: stronger necessary conditions still survive}
-
-\subsection*{Whole restriction columns are Galois invariant}
-For a positive representative with commutative Grothendieck ring, let \(K\) contain the full character table and global dimension. If a modular Galois automorphism fixes \(K\), it preserves the entire restriction column \(v_Z\) of every central simple \(Z\).
-
-Indeed, the distinguished center rows satisfy
-\[
-s(A_E,Z)=\chi_E(FZ)/f_E.
-\]
-They lie in \(K\). The positive unit row fixes the sign of the Galois column permutation, and the full character table separates restriction vectors. This hypothesis involves all character values, not just FP dimensions.
-
-For R137 the full character field is \(\mathbb Q(\sqrt2)\), verified against all nine characters. If a twist has a square-Galois orbit of size \(k\), its orbit supplies \(k\) identical restriction columns. Thus
-\[
-k\,v_Zv_Z^t\le G,\qquad
-k\,v_Z^tG^{-1}v_Z\le1.
-\]
-The strongest version first subtracts the unit and the forced Galois-unit column from the Gram matrix.
-
-\subsection*{Fourth rotation}
-For each large simple \(X\), the accepted anticommuting pair insertions act on
-\(V=\operatorname{Hom}(1,X^4)\), with
-\[
-\dim V=18,\qquad \operatorname{tr}(E^2)=\nu_2(X^2)=10.
-\]
-The four-cycle Clifford decomposition gives opposite or adjacent fourth-root pairs. At most four adjacent pairs can occur. Consequently
-\[
-\operatorname{Re}\nu_4(X),\ \operatorname{Im}\nu_4(X)
-\in\{-4,-2,0,2,4\}.
-\]
-This argument uses neither unitarity nor a choice of TY sign.
-
-\subsection*{Exact outcome and remaining gap}
-The strongest whole-column filter removes 7,222 variables for each TY sign. Nevertheless both signs admit exact nonnegative rational solutions, even with all four \emph{projected} fourth indicators fixed to 2. The two witnesses have supports 102 and 112. A separate implementation rebuilt and checked every one of their 264 equations, the removed columns, the Gram inverses, and the new bounds.
-
-These are witnesses for a relaxation; they are not modular data or categories. Nor do they assert that the unprojected complex indicators equal 2.
-
-The center is either simple, or has subcategory lattice
-\(\Vec,\sVec,f',Z(\mathcal C)\), with \(f'\) a nonsplit s-simple fermion centralizer. This excludes nontrivial tensor-product center constructions. The remaining problem is categorical existence or a further universal obstruction.
-\newpage
-\section*{6. Proof archive and dependencies}
-The companion ZIP preserves:
-\begin{itemize}
-\item the immutable earlier proof snapshot, exact source tensors, and prior receipts;
-\item the new case notes, independent audit notes, and exact verifiers;
-\item the six-certificate R1768 replay and forty pinned dependency files;
-\item the exact R137 rational witnesses and independent replay;
-\item the report source and a small, documented replay runner.
-\end{itemize}
-
-Use \texttt{evidence/frontier/README.md} for the replay commands. The short source-tensor and structural checks use standard Python. Rebuilding the inherited R1768 domains additionally uses the documented scientific Python packages and a C++ compiler. No optimization is needed to verify the saved separators or witnesses. Exploratory scripts are not the basis for the new exclusion.
-
-\subsection*{Precisely what changed}
-The pivotal parity obstruction settles the following case:
-\[
-\R{R8\_3\_1768}:\quad\text{unresolved}\longrightarrow\text{excluded}.
-\]
-There are \textbf{six remaining unresolved cases}; the necessary-data witnesses are not counted as models. The new results for those six are conditional structural theorems or stronger necessary tests. No claim of exhaustion of all possible theoretical ideas is made.
-
-\subsection*{Selected mathematical sources}
-The archive notes give detailed theorem-level dependencies. Useful primary references include:
-\begingroup\small\raggedright
-\begin{enumerate}
-\item S.-H. Ng and P. Schauenburg, \emph{Higher Frobenius--Schur indicators for pivotal categories}, \href{https://arxiv.org/abs/math/0503167}{arXiv:math/0503167}. Pivotal coherence and indicators.
-\item J. Fuchs, I. Runkel and C. Schweigert, \emph{A reason for fusion rules to be even}, \href{https://www.esi.ac.at/preprints/esi1099.pdf}{ESI preprint 1099}. Braided parity, used only for the modular factor in R928.
-\item T. Deshpande, \emph{On centers of bimodule categories and induction-restriction functors}, \href{https://arxiv.org/abs/1611.04486}{arXiv:1611.04486}. Distinguished center character rows.
-\item C. Dong, X. Lin and S.-H. Ng, \emph{Congruence property in conformal field theory}, \href{https://arxiv.org/abs/1201.6644}{arXiv:1201.6644}. Modular Galois and twist relations.
-\item V. Drinfeld, S. Gelaki, D. Nikshych and V. Ostrik, \emph{On braided fusion categories I}, \href{https://arxiv.org/abs/0906.0620}{arXiv:0906.0620}. Centralizers and dimension formulas.
-\item A. Davydov, M. M\"uger, D. Nikshych and V. Ostrik, \emph{The Witt group of non-degenerate braided fusion categories}, \href{https://arxiv.org/abs/1009.2117}{arXiv:1009.2117}. Condensation and center structure.
-\end{enumerate}
-\endgroup
-
-\textbf{Audit boundary.} The new elementary parity proof and the explicitly replayed rational certificates have been checked separately. The entire earlier project has not been re-audited from first principles during this continuation. Its general-complex existence gates and complete categorical center-domain theorems are retained as identified premises; the current report does not hide them behind numerical agreement.
 \end{document}
-

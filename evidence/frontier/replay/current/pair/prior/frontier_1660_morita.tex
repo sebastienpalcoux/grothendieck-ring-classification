@@ -1,0 +1,407 @@
+\section{Finite Morita reduction for \texorpdfstring{$\RR{8}{1660}$}{R6\_8\_1660}}\label{sec:1660-morita-reduction}
+\begin{proposition}[A general formal-codegree test for modules]
+Let $\mathcal F$ be pseudo-unitary with commutative Grothendieck ring.
+For an indecomposable module category, let $m_\chi$ be the multiplicity
+of the character $\chi$ in its complexified based module, and let
+$f_\chi$ be the formal codegree. Then
+\[
+ \sum_\chi\frac{m_\chi}{f_\chi}\leq1.
+\]
+If equality holds, the Morita dual has rank $\sum_\chi m_\chi^2$,
+and its action is faithful and equals the full commutant. In this
+case its simple action matrices must give a square nonnegative
+integral Gram factorization of the linking-category matrix below.
+Failure of that bounded factorization is an obstruction to the based
+module being a module category.
+\end{proposition}
+\begin{proof}
+Ostrik's module-character reciprocity identifies $m_\chi$ with the
+multiplicity in the module's Lagrangian algebra of the central simple
+of dimension $\dim(\mathcal F)/f_\chi$. Positivity and the dimension
+of that algebra give the inequality. Equality exhausts its support
+inside the canonical algebra. Its endomorphism algebra is consequently
+$\bigoplus_\chi M_{m_\chi}(\mathbb C)$ and acts faithfully on the
+module Hom space. The next proof details these identifications and
+their precise primary source. The linking associativity identity then
+gives the stated Gram factorization.
+\end{proof}
+
+This note gives necessary module-category conditions, not an existence or
+nonexistence theorem. No braiding on $\mathcal C$ or its relative center is assumed.
+Let $\mathcal C$ have simples $1,g,X,gX,\sigma,T=\sigma X$ and rules
+\[
+g^2=1,\quad g\sigma=\sigma,\quad\sigma^2=1+g,\qquad
+X^2=1+\bigl(3(1+g)+4\sigma\bigr)X.
+\]
+Put $d=3+2\sqrt2+2\sqrt3+\sqrt6$, so $\FPdim\mathcal C=4(1+d^2)$.
+All matrices below use the action on the basis of simple objects of a
+finite semisimple module category.
+
+\begin{lemma}
+Every indecomposable based module over the Ising fusion ring, whose
+simple action matrices obey duality transpose, is its three-object regular
+module. Consequently every $\mathcal C$-module category restricts to a direct sum
+of regular Ising module categories at the level of based modules.
+\end{lemma}
+\begin{proof}
+Write $H=N_\sigma$ and $G=N_g$. Then $G$ is a permutation involution,
+$H=H^{\mathsf T}\geq0$, $GH=H$, and $H^2=I+G$. An indecomposable
+component of $H$ has spectral radius $\sqrt2$: this follows either from
+its dimension vector or directly from these identities and $GH=H$.
+There are no entries of $H$ greater than one. There are no loops: a loop
+connected to any different vertex has norm at least the golden ratio,
+while an isolated loop contradicts $H^2=I+G$. No vertex has degree three
+or more, and a path with four vertices already has norm greater than
+$\sqrt2$. Thus every connected component is the three-vertex path
+$A_3$; the possibilities of one or two vertices contradict $H^2=I+G$.
+Its two leaves are exchanged by $G$ and its middle vertex is fixed.
+These are the regular Ising matrices.
+\end{proof}
+
+\begin{theorem}[Uniform module rank]
+Every indecomposable finite semisimple $\mathcal C$-module category has exactly
+six simple objects. Its restriction to $\mathcal I=\langle g,\sigma\rangle$
+consists of two regular Ising blocks.
+\end{theorem}
+\begin{proof}
+Initially suppose there are $n$ blocks. Order each block as $1,g,\sigma$.
+The commutant of the two regular Ising matrices consists exactly of
+\[
+J(a,b,c)=\begin{pmatrix}a&b&c\\b&a&c\\c&c&a+b\end{pmatrix}.
+\]
+Since $X$ commutes with $g,\sigma$, and is self-dual, its action has form
+$N_X=P\otimes I+Q\otimes N_g+R\otimes N_\sigma$,
+where $P,Q,R$ are symmetric nonnegative integral $n$ by $n$ matrices.
+Set $U=P+Q$, $V=P-Q$. The $X^2$ relation gives
+\begin{equation}
+V^2=I,\quad U^2+2R^2=I+6U+8R,\quad UR+RU=6R+4U. \label{eq:1660-morita-relations}
+\end{equation}
+The matrix $M=U+\sqrt2R$ therefore satisfies
+\begin{equation}
+M^2-(6+4\sqrt2)M-I=0. \label{eq:1660-morita-quadratic}
+\end{equation}
+It is irreducible: otherwise a union of Ising blocks would be invariant
+under all the generators of $K_0(\mathcal C)$, contradicting indecomposability.
+Hence its positive Perron eigenvalue $d$ is simple. The polynomial in
+\eqref{eq:1660-morita-quadratic} is irreducible over $\mathbb Q(\sqrt2)$: its discriminant is
+$72+48\sqrt2=(4\sqrt3+2\sqrt6)^2$, whose square root does not belong
+to $\mathbb Q(\sqrt2)$. Thus the characteristic polynomial of $M$ is a
+power of \eqref{eq:1660-morita-quadratic}; simplicity of the Perron root forces that power to be one.
+Therefore $n=2$.
+\end{proof}
+
+\begin{theorem}[Complete based-module list]
+Up to interchanging the two Ising blocks, the possible matrices $U,R$
+are exactly
+\[
+U=\begin{pmatrix}a&b\\b&6-a\end{pmatrix},\qquad
+R=\begin{pmatrix}c&f\\f&4-c\end{pmatrix},
+\]
+with the following four rows. These are based-module possibilities;
+their associativity constraints have not been solved.
+\begin{center}
+\begin{tabular}{c|rrrr|l}
+type&$a$&$b$&$c$&$f$&$V=P-Q$\\\hline
+I&0&1&0&0&signed transposition\\
+II&2&3&2&2&signed transposition\\
+III&1&2&0&1&$\operatorname{diag}(\epsilon_1,\epsilon_2)$\\
+IV&1&2&1&2&$\operatorname{diag}(\epsilon_1,\epsilon_2)$
+\end{tabular}
+\end{center}
+Here $\epsilon_i\in\{1,-1\}$ and $P=(U+V)/2$, $Q=(U-V)/2$.
+The two signed transpositions give equivalent modules by swapping the
+two leaves in one Ising block. Thus there are ten labelled-$X$ based
+modules, or six after additionally allowing the ring automorphism
+$X\leftrightarrow gX$.
+\end{theorem}
+\begin{proof}
+Equation \eqref{eq:1660-morita-quadratic} and $n=2$ give $\operatorname{tr}U=6$ and
+$\operatorname{tr}R=4$. The matrix $V$ is symmetric integral and
+$V^2=I$, so it is a signed permutation. It must satisfy
+$V\equiv U\pmod2$, with $U\pm V\geq0$ entrywise.
+Put $w=a-3$, $s=c-2$. The two equations \eqref{eq:1660-morita-relations} become
+\begin{equation}
+ws+bf=6,\qquad w^2+b^2+2(s^2+f^2)=18. \label{eq:1660-morita-small-squares}
+\end{equation}
+All variables are integral; $|w|\leq3$, $|s|\leq2$, and $b,f\geq0$.
+Cauchy--Schwarz implies $3\leq s^2+f^2\leq6$.
+The only sums of two integral squares in this interval are $4$ and $5$.
+For value $4$, the squared norm of $(w,b)$ is $10$; for value $5$, it
+is $8$. Substitution in $ws+bf=6$ gives exactly the four rows and their
+block exchanges. Parity gives precisely the displayed options for $V$.
+Conversely these matrices are nonnegative integral and satisfy every
+fusion relation and transpose relation. Their $X$ action connects the
+two Ising blocks, so they are indecomposable based modules.
+\end{proof}
+
+\begin{corollary}[Four small algebra supports]
+Every indecomposable $\mathcal C$-module category has a connected separable
+internal-end algebra on one of the following underlying objects:
+\begin{equation}
+1,\qquad 1+X+gX+2T,\qquad 1+X\ \text{or }1+gX,
+\qquad 1+X+T\ \text{or }1+gX+T. \label{eq:1660-morita-supports}
+\end{equation}
+Consequently these supports exhaust the possible Morita classes, with
+no assertion that the nontrivial supports admit algebra structures or
+that different structures give different Morita classes.
+\end{corollary}
+\begin{proof}
+Choose a leaf $m$ in the first Ising block of each row. The coefficient
+of a simple $Z$ in $\underline{\mathrm{End}}(m)$ is $(N_Z)_{mm}$.
+Thus this internal end is
+$1+P_{11}X+Q_{11}gX+R_{11}T$. Substitution gives \eqref{eq:1660-morita-supports}.
+The standard internal-Hom construction supplies a connected separable
+algebra and realizes the original module category as its modules.
+The first row has internal end $1$ and is necessarily the regular
+module category, even categorically.
+\end{proof}
+
+The Perron dimension ratio of the second Ising block to the first is,
+respectively,
+\[
+d,\quad 3-2\sqrt2+2\sqrt3-\sqrt6,\quad
+\sqrt2+\sqrt3,\quad(\sqrt2+\sqrt6)/2.
+\]
+The dimension quotients $\FPdim\mathcal C/\FPdim Q$ for the three nontrivial
+supports in \eqref{eq:1660-morita-supports} are, respectively,
+\[
+144-96\sqrt2+80\sqrt3-56\sqrt6,
+\qquad24+8\sqrt6,\qquad12+4\sqrt3.
+\]
+All are algebraic integers, so elementary dimension divisibility does
+not exclude these targets. The two choices of the second diagonal sign
+in types III and IV are not removed by the chosen algebra support.
+They may encode different algebra/module associativity structures.
+
+\begin{theorem}[Full-center saturation and ranks of all Morita duals]
+Use the established reduction to the pseudo-unitary form of $\mathcal C$.
+For any indecomposable module category $\mathcal M$, the dual fusion category
+$\mathcal D=\operatorname{Fun}_{\mathcal C}(\mathcal M,\mathcal M)$ has rank six or eight.
+More precisely,
+\[
+\begin{array}{c|c|c}
+\text{matrix }V&\operatorname{rank}\mathcal D&
+K_0(\mathcal D)\otimes\mathbb C\\\hline
+\operatorname{spec}(V)=\{1,-1\}&6&\mathbb C^6\\
+V=I\text{ or }-I&8&\mathbb C^4\oplus M_2(\mathbb C).
+\end{array}
+\]
+The action of $K_0(\mathcal D)\otimes\mathbb C$ on
+$K_0(\mathcal M)\otimes\mathbb C$ is faithful and is the full commutant of
+the $K_0(\mathcal C)$ action.
+\end{theorem}
+\begin{proof}
+Write $D=\FPdim\mathcal C$ and let $A_\chi$ denote the six simple summands
+of the canonical algebra $I_{\mathcal C}(1)$. They occur once, because
+$K_0(\mathcal C)$ is commutative. Ostrik's Theorem 2.13 gives
+$\dim A_\chi=D/f_\chi$.
+Let $L_\mathcal M$ be the Lagrangian algebra in $Z(\mathcal C)$ corresponding to
+$\mathcal M$; under the Morita equivalence of centers it is $I_{\mathcal D}(1)$.
+The precise module-character reciprocity needed here is given by
+Ostrik's Remark 2.19: the bimodule $K_0(\mathcal M)\otimes\mathbb C$ is
+identified with
+\[
+\operatorname{Hom}_{Z(\mathcal C)}(I_{\mathcal C}(1),L_\mathcal M)
+\]
+over the corner algebras $\operatorname{End}(I_{\mathcal C}(1))$ and
+$\operatorname{End}(L_\mathcal M)$. This follows by applying that remark to
+the linking multi-fusion category of $\mathcal C$ and $\mathcal M$.
+Its twist hypothesis is automatic in the pseudo-unitary case, as stated
+at the end of the same remark. Thus the multiplicity of $\chi$ in the
+module character is exactly $[L_\mathcal M:A_\chi]$.
+
+The four characters with $g=1$ each occur once: each of the two Ising
+spin evaluations gives a two-dimensional matrix with its two distinct
+roots. The two characters with $g=-1$, $\sigma=0$, $X=\pm1$ occur
+with multiplicities $m_+,m_-$ equal to the eigenvalue multiplicities of
+$V$; hence $m_++m_-=2$. Both have formal codegree $4$. Consequently
+the dimensions of all the already specified constituents of $L_\mathcal M$ sum
+to exactly $D$, just as those of $I_{\mathcal C}(1)$ do. Since
+$\dim L_\mathcal M=D$ and all dimensions are positive, there are no additional
+constituents. Therefore
+\[
+L_\mathcal M=\bigoplus_{\chi:g=1}A_\chi\ \oplus\ m_+A_+\oplus m_-A_-,
+\qquad
+\dim\operatorname{End}(L_\mathcal M)=4+m_+^2+m_-^2.
+\]
+Ostrik's Corollary 2.16 identifies this endomorphism algebra with the
+complexified Grothendieck algebra of $\mathcal D$, proving the table.
+Every simple constituent of $L_\mathcal M$ also occurs in $I_{\mathcal C}(1)$.
+Consequently the action of $\operatorname{End}(L_\mathcal M)$ on the displayed
+Hom space sees every matrix block and is faithful. Its block
+decomposition also shows that it is the full commutant.
+\end{proof}
+
+\paragraph{A first forced Morita-dual ring.}
+For type III with $V=\operatorname{diag}(1,-1)$, the rank-six dual,
+if the module category exists, has the original fusion ring
+$\RR{8}{1660}$. Here is a short exact reconstruction.
+Write $N_x$ for the six known action matrices on $\mathcal M$, and $Q_y$ for
+the unknown right action matrices of the dual. Associativity in the
+linking multi-fusion category and Frobenius reciprocity imply
+\begin{equation}
+\sum_x N_x[a,b]N_x[c,d]
+ =\sum_y Q_y[c,a]Q_y[d,b]. \label{eq:1660-morita-linking-gram}
+\end{equation}
+The central fermion of $\mathcal C$ gives a dual invertible whose action is
+$N_g$, so the two matrices $I,N_g$ are fixed. Choose a leaf $a$ in the
+first Ising block. The diagonal entry of \eqref{eq:1660-morita-linking-gram} at the coordinate $(a,a)$
+is $2$; after removing $I$, precisely one further simple matrix $Q_Y$
+has entry $1$ there. It is therefore the corresponding Gram column
+minus the column of $I\otimes I$. Its $g$-translate is another simple.
+After removing these four matrices, the residual Gram matrix has rank
+two. At coordinate $(a,\sigma a)$ its diagonal is $2$, so both remaining
+matrices have entry $1$. That Gram column is their sum $v$; if $H$ is
+the residual Gram matrix, $2H-vv^{\mathsf T}$ is the outer product of
+their difference. This determines them up to exchange.
+The resulting matrices, called $Q_Z,Q_s$, satisfy
+\[
+s^2=1+g,\qquad sY=Z,\qquad
+Y^2=1+3Y+3gY+4Z.
+\]
+The exact script \texttt{reconstruct\_type\_iii.py} verifies \eqref{eq:1660-morita-linking-gram},
+nonnegative integrality, linear independence, and all fusion products.
+Thus this branch is a possible Morita self-partner, not an exclusion.
+
+\begin{theorem}[Complete integral Morita Gram reduction]
+The two type-IV based modules with $V=I$ or $V=-I$ cannot be module
+categories. For the other types, equation \eqref{eq:1660-morita-linking-gram}, the central fermion,
+and the based-ring axioms leave exactly the following action bases.
+Set
+\[
+a_0=2+\sqrt2+\sqrt3+\sqrt6,\quad
+b_0=2+2\sqrt2+\sqrt3+\sqrt6,\quad
+c_0=5+4\sqrt2+3\sqrt3+2\sqrt6.
+\]
+\begin{center}\begin{tabular}{c|c|l}
+module type&number&dimensions of forced dual rings\\\hline
+II&1&$1,1,\sqrt2,d,d,\sqrt2d$\\
+III, mixed signs&1&$1,1,\sqrt2,d,d,\sqrt2d$\\
+III, equal signs&2&$1,1,d,d,a_0,a_0,b_0,b_0$\\
+IV, mixed signs&2&$1,1,\sqrt2,d,d,\sqrt2d$ or $1,1,1+\sqrt3,a_0,a_0,c_0$\\
+IV, equal signs&0&none.
+\end{tabular}\end{center}
+The three occurrences of the first dimension list have the original
+ring. The second rank-six ring is self-dual with commuting generators
+$g,S,Y$ satisfying
+\[
+g^2=1,\quad gS=S,\quad S^2=1+g+2S,\qquad
+Y^2=1+(1+g+2S)Y.
+\]
+Its maximal structure constant is $16$.
+The two rank-eight rings have maximal structure constant $3$ and are
+not isomorphic: in one the $b_0$ pair is a dual pair and all other simples
+are self-dual; in the other the $a_0$ pair is a dual pair and all other
+simples are self-dual.
+\end{theorem}
+\begin{proof}
+Here is a complete finite calculation with explicit bounds. It is
+implemented in \texttt{reconstruct\_dual\_actions.py}; its output is
+\texttt{dual\_actions\_receipt.json}. Flatten action matrices to vectors.
+Equation \eqref{eq:1660-morita-linking-gram} gives a known nonnegative symmetric $36$ by $36$ matrix
+$K=\sum_x N_x\otimes N_x$. Subtract the outer products of the known
+matrices $I,N_g$. For type III also subtract the two matrices forced in
+the preceding reconstruction. The residual matrix $H$ has rank $r$,
+equal to the number of remaining dual simples.
+
+Choose $r$ coordinates whose principal submatrix $B$ is invertible.
+Any remaining simple column $q$ is determined by its coordinates $v$
+there: $q=H_{*,J}B^{-1}v$. Because there are exactly $r$ remaining
+columns, their square factorization of $B$ implies
+\[
+v^{\mathsf T}B^{-1}v=1,
+\qquad 0\leq v_i\leq\lfloor\sqrt{B_{ii}}\rfloor.
+\]
+Conversely, an orthogonal basis of $r$ such vectors, lifting to
+nonnegative integral columns, gives the whole Gram factorization.
+This is a bounded integer ellipsoid enumeration, followed by a clique
+search for orthogonal bases. The numbers of candidate columns and
+orthogonal bases for rows II, III mixed, III equal, IV mixed, IV equal
+are respectively
+\[
+(4,1),\quad(2,1),\quad(10,2),\quad(12,3),\quad(12,0).
+\]
+Testing nonnegative integral products, closure under transpose, and the
+unit coefficient duality rule leaves respectively $1,1,2,2,0$ fusion
+action bases. Faithfulness proved above makes their multiplication the
+actual dual fusion ring. The receipt records every resulting matrix
+and every structure constant, so the counts and identifications require
+no numerical optimizer. The signs $V\mapsto -V$ amount to relabelling
+$X$ and $gX$, which leaves $K=\sum_xN_x\otimes N_x$ unchanged.
+\end{proof}
+
+\begin{corollary}[A Morita second-indicator exclusion]
+The rank-eight ring in which the $a_0$ pair is nonself-dual cannot occur
+as a Morita dual of $\mathcal C$. In the other rank-eight possibility every
+self-dual simple has second indicator $+1$.
+\end{corollary}
+\begin{proof}
+For a pseudo-unitary category $\mathcal F$, put
+$W_2(\mathcal F)=\sum_Z\nu_2(Z)\dim Z$.
+The center indicator formula gives
+$\tau_2(Z(\mathcal F))=\dim(\mathcal F)W_2(\mathcal F)$.
+Positive spherical structures and the twist are preserved by Morita
+equivalence of centers, so $W_2$ is a Morita invariant here. The
+established indicators of $\mathcal C$ give
+\[
+W_2(\mathcal C)=2-\sqrt2+(2+\sqrt2)d
+       =12+6\sqrt2+6\sqrt3+4\sqrt6.
+\]
+If the $a_0$ pair is nonself-dual, the possible indicator sum has form
+$u+s_d d+s_b b_0$, where $u\in\{0,2\}$ and
+$s_d,s_b\in\{-2,0,2\}$. Comparing $\sqrt3$ and $\sqrt6$
+coefficients forces $s_d=s_b=2$. The resulting $\sqrt2$ coefficient
+is $8$, not $6$, a contradiction. This argument does not need a prior
+choice of the indicator of the nontrivial invertible.
+If instead the $b_0$ pair is nonself-dual, the same coefficient
+comparison gives $s_d=s_a=2$ and then $u=2$.
+Indeed $W_2(\mathcal C)=2+2d+2a_0$.
+\end{proof}
+
+\begin{corollary}[No ordinary generalized-near-group Morita model]
+No category with this ring can be Morita equivalent to a generalized
+near-group category in which invertibles act transitively on all
+noninvertible simples. The same holds after any finite chain of finite
+group extensions, equivariantizations and inverse such operations
+starting from an ordinary generalized-near-group category.
+\end{corollary}
+\begin{proof}
+For a generalized-near-group category the noninvertibles have common
+dimension $z$, and $z^2=k+mz$ for integers $k>0,m\geq0$. Its global
+dimension lies in $\mathbb Q(z)$, of degree at most two. Morita
+equivalence preserves FP dimension; extensions and equivariantizations
+multiply it by positive integers, and their inverses divide by integers.
+In contrast $\FPdim\mathcal C=144+96\sqrt2+80\sqrt3+56\sqrt6$ has degree four:
+none of the three nontrivial automorphisms of
+$\mathbb Q(\sqrt2,\sqrt3)$ fixes it.
+\end{proof}
+
+\paragraph{Remaining gap.}
+The displayed nimreps do not supply their module associators.
+The full-center and Gram arguments now leave only three possible
+Morita-dual based rings: the original rank-six ring, the displayed
+rank-six $\operatorname{Ad}(E_6)$ extension, and one rank-eight ring.
+Their existence, and the associators of the candidate modules, remain
+unproved. The present note excludes module/dual alternatives but does
+not exclude or construct $\RR{8}{1660}$.
+
+\paragraph{Background sources.}
+The internal-Hom/algebra description of semisimple module categories is
+standard; see V. Ostrik, \emph{Module categories, weak Hopf algebras and
+modular invariants}, \href{https://arxiv.org/abs/math/0111139}{arXiv:math/0111139}.
+For module traces in the pseudo-unitary case and their symmetric
+Frobenius algebras, see G. Schaumann, \emph{Traces on module categories
+over fusion categories}, especially Section 5 and Section 6,
+\href{https://arxiv.org/abs/1206.5716}{arXiv:1206.5716}.
+The matrix reduction and its four-row solution above are proved here
+and do not require the module-trace theorem.
+The full-center argument uses V. Ostrik, \emph{Pivotal fusion categories
+of rank 3}, Theorem 2.13, Corollary 2.16 and especially Remark 2.19,
+\href{https://arxiv.org/abs/1309.4822}{arXiv:1309.4822}, pp. 6--8.
+The center indicator formula is from S.-H. Ng and P. Schauenburg,
+\emph{Frobenius--Schur indicators and exponents of spherical categories},
+Theorem 4.1, \href{https://arxiv.org/abs/math/0601012}{arXiv:math/0601012}.
+
+
+
+

@@ -1,0 +1,233 @@
+\section{All indicators and phase-wise induction masses at multiplicity eight}
+\label{sec:1660-all-indicators-phase-masses}
+
+The two saturated modular summands in
+Proposition~\ref{prop:1660-forced-third-indicator} determine the complete
+indicator sequences, including even orders. Fourier inversion then fixes
+the dimension-weighted restriction mass at each central twist. These are
+necessary conditions on a hypothetical category; the ring remains
+unresolved.
+
+Write $r=\sqrt2$, $d=3+2\sqrt2+2\sqrt3+\sqrt6$, and
+$D=4(1+d^2)$. We work with the positive spherical Galois representative
+and source order $(1,g,X,gX,\sigma,T)$, where $T=\sigma X$.
+Let $\zeta=e^{2\pi i/48}$. The two saturated choices are
+\[
+ (W_3,W_6)=((33,4),(54,4)),\qquad
+ ((36,5),(61,5)),
+\]
+in the local character-table order of
+\S\ref{sec:1660-forced-third-indicator}. They are complex conjugates.
+For each choice put
+\[
+ a_n=2\sqrt3\operatorname{Tr}_{W_3}(P_3s^{-1}t^ns),\qquad
+ b_n=2\sqrt6\operatorname{Tr}_{W_6}(P_6s^{-1}t^ns),
+\]
+where $P_j$ projects onto the one-dimensional $t$-fixed line of $W_j$.
+
+\begin{theorem}[Complete indicator sequences]
+\label{thm:1660-all-indicators}
+For every positive integer $n$, put
+\[
+ g_n=\begin{cases}1&2\mid n,\\0&2\nmid n,\end{cases}
+ \qquad
+ s_n=\begin{cases}\sqrt2\cos(3n\pi/8)&2\mid n,\\0&2\nmid n.\end{cases}
+\]
+Then
+\begin{align*}
+ \nu_n(X)=\nu_n(gX)&=\frac{3+3g_n+4s_n+2a_n+b_n}{2},\\
+ \nu_n(T)&=2+2g_n+3s_n+a_n+b_n.
+\end{align*}
+Together with $\nu_n(1)=1$, $\nu_n(g)=g_n$ and
+$\nu_n(\sigma)=s_n$, these give all six indicator sequences.
+Every sequence is periodic of period dividing $48$.
+\end{theorem}
+\begin{proof}
+The projection and central-indicator identities in the proof of
+Proposition~\ref{prop:1660-forced-third-indicator} hold for every $n$;
+only its subsequent simplification used oddness. In particular,
+\[
+ \sum_i\ell_j(\dim X_i)\nu_n(X_i)
+ =\frac{\operatorname{Tr}_{W_j}(P_js^{-1}t^ns)}{4\sqrt j}
+ \qquad(j=3,6).
+\]
+Saturation makes the orthogonal projection of $e_1$ onto $W_j$ equal to
+$w_j/4$, so no unknown complementary summand contributes to this identity.
+The tensor involution of Proposition~\ref{prop:1660-tensor-involution}
+gives equal indicators for $X$ and $gX$ at every order.
+The invertible $g$ has trivial pointed associator and indicator $+1$
+at even orders. For the positive Ising subcategory with
+$\nu_2(\sigma)=-1$, the modular indicator formula
+\cite[Theorem~7.5]{NS} gives $s_n$: using an Ising braiding with
+$\theta_\sigma=e^{3\pi i/8}$, the four fusion pairs contributing to
+$\sigma$ yield zero at odd orders and
+$\sqrt2\cos(3n\pi/8)$ at even orders. This calculation depends only on
+the underlying positive pivotal Ising category.
+
+Substitute these indicators into the two coefficient rows
+\[
+ 24\ell_3=(-1,-1,1,1,-1,-1),\qquad
+ 48\ell_6=(-1,-1,-1,-1,-2,2).
+\]
+Writing $x=\nu_n(X)=\nu_n(gX)$ and $u=\nu_n(T)$ gives
+\[
+ 2x-u=a_n+1+g_n+s_n,\qquad
+ -2x+2u=b_n+1+g_n+2s_n.
+\]
+Solving gives the stated formulas. Every actual central twist has order
+dividing $48$ by Proposition~\ref{prop:1660-uniform-indicators}; the
+central-indicator formula therefore proves the periodicity as well.
+\end{proof}
+
+\begin{theorem}[Central phase masses]
+\label{thm:1660-phase-masses}
+For $k\in\mathbb Z/48$ and a base simple $X_i$, define
+\[
+ M_i(k)=\sum_{\theta_Z=\zeta^k}\dim(Z)[F(Z):X_i],
+ \qquad Z\in\operatorname{Irr}Z(\mathcal C).
+\]
+These masses are determined by
+\begin{equation}\label{eq:1660-phase-fourier}
+ M_i(k)=\frac D{48}\sum_{n=1}^{48}\nu_n(X_i)\zeta^{-kn}.
+\end{equation}
+For the choice $((33,4),(54,4))$, the complete twist support is
+\[
+ \{0,8,9,12,14,15,20,24,26,30,32,33,36,39,42,44\}.
+\]
+For the conjugate choice, negate these exponents modulo $48$.
+There are exactly two simples in each of the four phases
+$9,15,33,39$. All eight have the same restriction
+\begin{equation}\label{eq:1660-eight-spin-columns}
+ F(Z)=2X+2gX+\sigma+3T.
+\end{equation}
+These are precisely the central simples whose restrictions contain
+$\sigma$.
+\end{theorem}
+\begin{proof}
+The center formula \cite[Theorem~4.1]{NS} and adjunction give
+\[
+ D\nu_n(X_i)=\sum_k M_i(k)\zeta^{kn}.
+\]
+Discrete Fourier inversion gives \eqref{eq:1660-phase-fourier}.
+The exact character averages determining $a_n,b_n$ are
+\[
+ \frac1m\sum_{j=0}^{m-1}
+ \operatorname{char}_{W}\!\begin{pmatrix}1-jn&j\\-n&1\end{pmatrix}
+ \quad(m=16,3),
+\]
+multiplied across the two local factors. Evaluation of these finite
+sums and the Fourier transform in $\mathbb Q(\zeta)$ gives the displayed
+support. Every mass outside it is zero. Positive dimensions and
+faithfulness of $F$ imply that no central simple can lie at a phase
+with all six masses zero.
+
+For each $k=9,15,33,39$, the nonzero coordinates relevant here are
+\[
+ \frac{(M_X(k),M_\sigma(k),M_T(k))}{d}
+ =\bigl(8\sqrt3+8\sqrt6,\;4\sqrt3+4\sqrt6,\;
+        12\sqrt3+12\sqrt6\bigr).
+\]
+The $gX$ coordinate equals the $X$ coordinate, and every other phase
+has $M_\sigma(k)=0$. Proposition~\ref{prop:1660-uniform-indicators}
+shows that a $\sigma$-containing column is
+$(0,0,b,c,1,3)$ with $b+c=4$, and its dimension divided by $d$ is
+$2\sqrt3+2\sqrt6$. Hence exactly two such simples occur in each
+of the four phases.
+
+Such a simple cannot be self-dual. A self-duality form on its
+restriction would have to have sign $-1$ because the multiplicity
+of $\sigma$ is odd, and sign $+1$ because the multiplicity of $T$
+is odd. Duality preserves both twists and restrictions, so the two
+$\sigma$-containing objects in a phase are a dual pair with identical
+columns. Their fixed total $b+c=4$ exhausts the entire displayed
+$M_X+M_{gX}$ mass. Positivity therefore leaves no $X$ or $gX$
+contribution from any other object in that phase. The separate $X$
+and $gX$ masses now give $b=c=2$. These two columns also exhaust the
+$\sigma$ and $T$ masses, while the unit and $g$ masses are zero.
+Faithfulness and positivity exclude every additional simple in the
+phase, proving \eqref{eq:1660-eight-spin-columns} and the exact fiber size.
+\end{proof}
+
+\begin{corollary}[Homogeneous phase Gram constraints]
+\label{cor:1660-homogeneous-phase-grams}
+Use the first conjugate choice in Theorem~\ref{thm:1660-phase-masses}.
+At any phase in the following table, write the restriction columns as
+$(0,0,b,c,0,a)$ and put $q=b+c$. The phase-wise sums satisfy
+\[
+\begin{array}{c|rrr}
+ k&\sum q^2&\sum qa&\sum a^2\\\hline
+ 8,32&40&24&16\\
+ 12&4&4&4\\
+ 14,26&16&16&16\\
+ 20&72&40&24\\
+ 30,42,44&8&8&8\\
+ 36&36&20&12
+\end{array}
+\]
+Moreover $\sum bq=\sum cq$ and $\sum ba=\sum ca$ in every
+listed phase. Every individual column in phases
+$12,14,26,30,42,44$ has $q=a$.
+\end{corollary}
+\begin{proof}
+The unit can occur in a restriction only at twist one. Since
+$I(g)=hI(1)$ for the central fermion $h$, its constituents have twists
+$1$ or $-1$; thus the listed phases have no $g$ coordinate either.
+Theorem~\ref{thm:1660-phase-masses} removes the $\sigma$ coordinate.
+Each remaining column has dimension $d(q+\sqrt2a)$. Consequently
+\[
+ M_X/d=\sum bq+\sqrt2\sum ba,\quad
+ M_{gX}/d=\sum cq+\sqrt2\sum ca,\quad
+ M_T/d=\sum aq+\sqrt2\sum a^2.
+\]
+The exact masses have $M_X=M_{gX}$. Comparing the rational and
+$\sqrt2$ coefficients gives the equalities and the table. In its
+homogeneous rows, $\sum(q-a)^2=0$. Every summand is a nonnegative
+integer, so each is zero.
+\end{proof}
+
+\paragraph{Exact verification and scope.}
+The source-bound evidence in
+\filename{evidence/rigidity\_20261017/rank6/r1660/} regenerates the
+local character averages, all $48$ indicator values, and all $288$
+phase masses for each conjugate choice. An independent SymPy computation
+uses polynomial remainders modulo $\Phi_{48}$ and rational linear solves;
+it checks every Fourier inversion, every inverse transform, the full
+Ising indicator sequence, and independence of the dimension-field basis.
+The checks certify the finite arithmetic in these arguments, not
+categorical existence or nonexistence. In particular, no unknown modular
+complement is assumed to coincide with the rank-$37$ witness.
+
+\begin{corollary}[The full phase-mass restriction domain]
+\label{cor:1660-phase-640}
+The $1136$ labelled restriction profiles satisfying the preceding
+Galois--fermion and graded-induction constraints have exactly $640$
+profiles compatible with all the phase Gram identities above. Their
+three branch sizes are $68,286,286$.
+\end{corollary}
+\begin{proof}
+In each low frame, the six unit-induced columns exhaust all six
+phase-zero masses in \eqref{eq:1660-phase-fourier}. Their four forced
+even fermion partners exhaust all six phase-$24$ masses. These are
+exact equalities in $\mathbb Q(\sqrt2,\sqrt3)$; positivity excludes
+any additional column at either phase. Remove these four high partners.
+Theorem~\ref{thm:1660-phase-masses} requires exactly eight
+spin columns $(0,2,2,1,3)$ in the high-column convention that omits the
+unit coordinate. For each remaining column type $(b,c,a)$, its five
+phase-moment contributions are
+\[
+ \bigl(b(b+c),\ c(b+c),\ ba,\ ca,\ a^2\bigr).
+\]
+Allocate the available multiplicities among the ten phases in
+Corollary~\ref{cor:1660-homogeneous-phase-grams}, with target vector
+$(Q/2,Q/2,H/2,H/2,A)$ when the displayed triple is $(Q,H,A)$.
+All variables are nonnegative integers bounded by the available
+column multiplicities. The retained witnesses give every passing
+allocation. An independent exact coefficient-convolution calculation
+constructs all possible phase monomials; meet-in-the-middle support
+products then test whether their product has the required global
+multiplicity vector. It reproduces precisely the three stated counts.
+Both implementations use exact integers and exhaust their finite domains.
+This tests necessary restriction data; it imposes no existence of
+associators or full modular fusion matrices.
+\end{proof}
+

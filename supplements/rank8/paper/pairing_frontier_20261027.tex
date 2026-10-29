@@ -86,6 +86,115 @@ Lemma~\ref{lem:pivotal-conjugation-parity}: its selfdual parity components
 are $\{1,u,vy\}$ with positive sign and $\{v,uv,y\}$ with negative
 sign. Its quaternionic simple therefore supplies no further exclusion.
 
+
+\subsection{A smallest algebra and a conditional rank-seven dual}
+\label{sec:r1154-rank7-route}
+Put $a=6+3\sqrt5$, $b=a+1$, $\delta=(5+3\sqrt5)/2$ and
+$D=540+240\sqrt5$. Work in the positive R1154 representative
+supplied by the established existence reduction.
+Its nontrivially associated pointed $C_2$ acts freely on every module
+category: a fixed simple would give a rank-one module trivializing that
+associator. Thus a connected separable algebra cannot contain $g$.
+Its smallest possible nontrivial object is $1+X_4$ or $1+X_5$.
+This is a lower bound, not an existence assertion.
+
+Assume an actual connected separable algebra $A=1+X_4$. Removing its
+regular simple and its $g$ translate from the induction Gram forces
+exactly six simple modules. The residual images of $X_4,X_5$ coincide
+and have squared norm two, so are $p+q$. Those of $X_1,X_6$ have
+squared norm three and inner product two with $p+q$, so are $p+q+r$;
+$X_2,X_7$ similarly give $p+q+s$, with $r\ne s$. This gives
+\[
+B=\begin{pmatrix}
+1&0&0&0&1&0&0&0\\
+0&0&0&1&0&1&0&0\\
+0&1&1&0&1&1&1&1\\
+0&1&1&0&1&1&1&1\\
+0&1&0&0&0&0&1&0\\
+0&0&1&0&0&0&0&1
+\end{pmatrix}.
+\]
+Every module simple occurs in a free module, so the list is exhaustive.
+Their relative dimensions are $(1,1,\delta,\delta,2,2)$; $g$ exchanges
+three pairs. Since $\operatorname{rank}B=5$, the missing line of each
+module matrix carries a scalar source character with $\chi(g)=-1$.
+Precisely two occur:
+\[
+\chi_4=(1,0,0,-1,1,-1,0,0),\quad
+\chi_{20}=(1,-2,-2,-1,-1,1,2,2).
+\]
+Both choices yield nonnegative integral actions satisfying every
+source product and duality transpose. No module associators follow.
+
+\begin{proposition}\label{prop:r1154-conditional-rank7}
+If the actual $A$-module category realizes the $\chi_4$ branch,
+its Morita dual has the simple noncommutative rank-seven based ring
+with dimensions
+\[
+(1,\delta,\delta,\delta+1,\delta+1,2\delta+1,4\delta+4)
+\]
+and duality $(0,1,2,4,3,5,6)$. Its maximum multiplicity is $19$.
+\end{proposition}
+\begin{proof}
+The module-character multiplicities are $(1,1,2,0,1)$ on the source
+irreducibles FP, its conjugate, $\chi_4,\chi_{20}$ and the degree-two
+representation. Ostrik's linking multifusion identification
+\cite[Remark~2.19]{OstrikPiv3} identifies these with the multiplicities
+of their distinguished central objects in the module's Lagrangian
+algebra. The positive-center hypothesis supplies the spherical and
+trivial-twist hypotheses there. Their weighted dimension already is
+\[
+1+(161+72\sqrt5)+2(135+60\sqrt5)+(108+48\sqrt5)=D.
+\]
+Positivity forbids further summands. Its squared-multiplicity sum is
+seven. The same corner identification shows that no simple central
+block of the dual acts trivially, so its complexified ring is the full
+seven-dimensional commutant. Faithfulness is not inferred from a
+coincidental dimension match.
+
+Every nonnegative integral commuting matrix is
+\[
+\begin{pmatrix}
+t&r-t&u&h-u&q&q\\
+r-t&t&h-u&u&q&q\\
+v&h-v&w&5h+4q+r-w&h&h\\
+h-v&v&5h+4q+r-w&w&h&h\\
+q&q&h&h&q+r&2q\\
+q&q&h&h&2q&q+r
+\end{pmatrix},
+\]
+where $h,q,r\ge0$, $0\le t\le r$, $0\le u,v\le h$ and
+$0\le w\le5h+4q+r$ are integers. Its FP value is $\delta h+4q+r$.
+The coefficient-of-unit trace is $(t+w-3h)/2$, from the dual block
+codegrees $D,D',4,5$. A nonunit simple therefore has $w=3h-t$ and
+squared trace norm
+\[
+u^2-uh+v^2-vh+h^2-4hq-hr-ht
++9q^2+4qr+4qt+r^2+2t^2=1.
+\]
+The dimension-square bound gives $h\le5,q\le8,r\le32$.
+Exact enumeration of this complete small domain leaves twelve norm-one
+matrices and two orthonormal six-element bases. One has half-integral
+or negative products; the other has nonnegative integral products and
+is the asserted tensor. The exact commutant, trace formulas, exhaustive
+finite enumeration and all $343$ products replay from the source tensor.
+\end{proof}
+
+Morita-invariant total indicators force
+\[
+\nu_2=(1,1,1,0,0,1,1),\qquad
+\nu_3=(1,1,1,1,1,2,4).
+\]
+For the second indicators use the total $8\delta+6$ and selfduality.
+For the third, field separation gives
+$t_1+t_2+t_5=4$, $2t_3+t_5+4t_6=20$.
+The cubic vacuum dimensions are $(1,1,1,1,1,2,19)$, so triangle
+saturation forces $t_1=t_2=1,t_5=2$. Thus $t_3+2t_6=9$.
+Reducing in $\mathbb Z[\zeta_3]/2=\mathbb F_4$ forces $t_3=1$,
+then $t_6=4$. Both tensors pass the complete zero- and one-spectrum
+tests. The other $\chi_{20}$ module branch also survives.
+Neither the proposed algebra nor either module associator is constructed;
+the rank-seven ring is only a conditional Morita partner.
 \subsection{Simple centralizers for $R8\_3\_928$ and $R8\_3\_941$}
 Write $D=144+96\sqrt2+80\sqrt3+56\sqrt6$.
 For either source, the only proper nontrivial subcategory is pointed of
@@ -98,7 +207,7 @@ For R928 its center is $S\boxtimes\mathcal B$, with $S$ Semion and
 $\dim\mathcal B=D^2/2$. The only integral simple in $\mathcal B$ is its
 unit. A proper nontrivial subcategory and its centralizer would both have
 dimension at least $D$, contradicting their product $D^2/2$.
-Thus $\mathcal B$ is simple; its possible ranks are $17,20,23$.
+Thus $\mathcal B$ is simple. The modular obstructions in Section~\ref{sec:r928-three-patterns} leave only rank $20$.
 The regular-module rigidity theorem and the correspondence between module
 categories and Lagrangian algebras imply that $I(1)$ is the unique
 Lagrangian algebra. Every connected etale algebra extends to one, by
@@ -139,9 +248,32 @@ be identities; the remaining pair has two possible combined spectra.
 Neither source category nor its required nonpointed algebra is
 constructed.
 
+
+\subsection{Direct modular sources for R941}
+The strict central-subcategory bound above implies that the positive
+R941 center is prime: a proper nontrivial nondegenerate subcategory and
+its centralizer would both be nonpointed and have dimension greater
+than $D$, contradicting their product $D^2$.
+For modular $\mathcal P$ and connected etale $A$,
+$Z(\mathcal P_A)\simeq\mathcal P\boxtimes(\mathcal P_A^0)^{\rm rev}$
+by \cite[Corollary~3.30]{DMNO}. Thus a direct full-module realization
+requires $\mathcal P=Z(\mathcal C)$ and $A$ Lagrangian; every smaller
+direct modular source fails. The same proof applies to R1660.
+
+For the tempting source $SU(2)_6\boxtimes SU(2)_{10}$, even the
+required algebra dimension $24-8\sqrt6$ is impossible. Its source
+simple dimensions, and their products, have nonnegative coordinates
+in the independent basis
+$1,\sqrt2,\sqrt3,\sqrt6,c,c\sqrt2,c\sqrt3,c\sqrt6$,
+$c=\sqrt{2+\sqrt2}$. The negative $\sqrt6$ coordinate excludes the
+full-module route and the doubled-source local construction of the
+center. The full coefficient-cone proof is in the rank-six manuscript.
+The positive R1660 Morita class also has nonreal invariant
+$W_3=1+(3+2\sqrt2)d\pm i\sqrt3d$ and no real form or braided
+representative. This transfers to R941 only if the proposed actual
+Morita equivalence exists; equal global dimension alone is insufficient.
 \subsection{Forced fusion matrices in the R928 modular factor}
-The simple factor $\mathcal B$ has four retained patterns of ranks
-$23,20,20,17$, indexed $40,49,186,191$. Put $L=D/\sqrt2$ and $w=D/4$.
+Before the full modular relations are imposed, induction gives four dimension patterns of ranks $23,20,20,17$, indexed $40,49,186,191$. Put $L=D/\sqrt2$ and $w=D/4$.
 For the four field automorphisms $\sigma$ let
 $r_\sigma=D/\sigma(D)$. Their normalized Galois-unit columns are
 \[
@@ -212,9 +344,208 @@ Fuchs--Runkel--Schweigert \cite{FRSEven} therefore forces
 $\nu_2(W)=1$. The corresponding semion-twisted canonical summand has
 indicator $-1$ and multiplicity two, consistently with its symmetric
 Frobenius pairing. These matrices and indicators are necessary data,
-not modular completions or categorical constructions. None of the four
-patterns is eliminated.
+not categorical constructions. These integrality tests alone eliminate no pattern; the following modular arguments exclude three and identify the remaining full modular datum.
 
+
+\subsection{Three R928 patterns are impossible}
+\label{sec:r928-three-patterns}
+All modular arguments in this subsection concern the positive factor
+$\mathcal B$, with normalized symmetric unitary $s$ and actual twists
+$T$, supplied by the established general-complex reduction.
+The four scalar-character constituents $A_0,\ldots,A_3$ of $I(1)$
+have positive semion charge, hence lie directly in $\mathcal B$ and
+have twist one. This identification is essential: a generic
+Galois-unit object need not be bosonic.
+
+\begin{proposition}
+The dimension patterns $49$ and $191$ are impossible.
+\end{proposition}
+\begin{proof}
+Their object $H$ of dimension $L/2$ has known row
+$(s_{H,A_0},s_{H,A_1},s_{H,A_2},s_{H,A_3})=(1,-1,-1,1)/2$.
+These entries exhaust its squared row norm. Every other entry,
+including $s_{HH}$, is zero. Since these four twists are one,
+$(sTs)_{HH}=1$, whereas
+$sTs=\xi T^{-1}sT^{-1}$ gives zero. No unknown twist enters.
+\end{proof}
+
+For patterns $40,186$, let
+$e=(1,1,1,1)/2$, $a=(1,1,-1,-1)/2$,
+$b=(1,-1,1,-1)/2$, $f=(1,-1,-1,1)/2$ on these four labels.
+The known rows give a two-dimensional semion representation on
+$e,W$, and determine $sa,sb,sf$. Write $E,F$ for dimensions
+$(6,4,4,2)$ and $(34,24,20,14)$ in the basis
+$1,\sqrt2,\sqrt3,\sqrt6$.
+The repeated fibers $A,B,H,K$ have dimensions
+$(14,10,8,6)$, $(20,14,12,8)$, $(24,18,14,10)$ and $(28,20,16,12)$.
+Pattern 40 has nine $A$ and no $K$; pattern 186 has five $A$ and one $K$.
+Both have three $B$ and four $H$.
+The cross modular equation forces $\theta_E=\theta_F=t$. With
+$\xi=\zeta_8$, the diagonal equations are
+\[
+\sum_B\theta_B=-1-2t-\sqrt6\,\xi,\qquad
+\sum_A\theta_A+4\theta_K=-1-2t-2\sqrt3\,\xi,\qquad
+\sum_H\theta_H=0,
+\]
+omitting $K$ for pattern 40.
+
+The finite twist domain is complete. The full square-Galois action
+preserves the repeated dimension fibers, and exchanges at most $E,F$.
+Normalize the linear representation by $\gamma=\zeta_{24}$.
+For Galois exponents coprime to 24 the squared action fixes $\gamma$.
+Cauchy's theorem \cite{BNRWCauchy} and
+$\operatorname{Norm}(D)=2^{14}3^2$ restrict twist primes to $2,3$.
+A root of order $2^\alpha3^\beta$ has full square-orbit size
+$2^{\max(\alpha-3,0)}3^{\max(\beta-1,0)}$. Therefore $t$ and $\theta_K$
+have order dividing 24; $B$ orders divide 48 or 72; $H$ orders divide
+96 or 72; $A$ orders divide 96 or 72 in pattern 186, and 192,144 or
+216 in pattern 40. These are unions, not arbitrary roots in their lcm.
+Complete square orbits, the displayed sums, three-$W$ Vafa equations,
+$\nu_2(W)=1$ and $\nu_4(W)\in\mathbb Z[i]$ leave two allocations per
+pattern.
+
+The second fusion matrix has residual integral symmetric
+$Q\ge0$, $Q^2=2Q$, $\operatorname{rank}Q=3$, $Q\mathbf d=0$.
+A diagonal two would be isolated, impossible against $\mathbf d>0$.
+A diagonal one has precisely one off-diagonal entry of absolute value
+one; positivity of dimensions makes it $-1$ on an equal-dimension
+label. Thus $Q$ is three disjoint blocks
+$\left(\begin{smallmatrix}1&-1\\-1&1\end{smallmatrix}\right)$.
+The finite matching, Vafa and indicator checks leave antipodal $H$
+pairs and one outside equal-twist pair.
+
+There is a six-dimensional invariant block on the four $H$ coordinates,
+$f$, and the difference of the selected outside pair. If the $H$
+twists are $u(1,i,-1,-i)$ and the outside twist is $\lambda$, the
+pair-sum/difference decomposition gives
+\[
+M=\xi^{-1}A R\operatorname{diag}(1,\lambda)R^tA,\quad
+A=\operatorname{diag}(u,iu),\quad
+R=2^{-1/2}\begin{pmatrix}1&1\\1&-1\end{pmatrix}.
+\]
+Here $M$ is a real symmetric involution on the $H$ differences.
+Indeed known projections saturate the remaining row norms, $s$
+interchanges the two pair sums with $f$ and the outside difference,
+and $s^2=1$ on this block; the distinct $H$ twists force their
+selfduality. Squaring $M$ gives $u^4\lambda=\xi^2=i$.
+This leaves $u=\zeta_{32}^3$ and $\lambda=\zeta_8^7$; the
+$u=\zeta_{32}^7$ branch would require a nonexistent $\zeta_8^3$ pair.
+The selected outside pair is the two $A$ objects of twist $\zeta_8^7$.
+
+\begin{proposition}\label{prop:r928-pattern40}
+Pattern 40 is impossible. Pattern 186 is the only retained pattern.
+\end{proposition}
+\begin{proof}
+For $t_{\rm lin}=T/\zeta_{24}$, remove the known six-dimensional block
+and the semion block on $e,W$. The complementary rank-15 spectrum is
+\[
+\begin{array}{c|rrrrrrrr}
+k\bmod24&3&9&11&12&15&17&20&23\\ \hline
+\operatorname{mult}(\zeta_{24}^k)&2&2&1&4&2&1&1&2 .
+\end{array}
+\]
+The full representation has conductor 96 and factors through
+$SL_2(\mathbb Z/96)$ by \cite[Theorem~II]{DLNGalois}.
+The complement factors through level 24. Indeed the reduction kernel
+from $SL_2(\mathbb Z/32)$ to level 8 is
+$I+8\mathfrak{sl}_2(\mathbb Z/4)$, an additive group of order 64.
+The cube of $T^{24}$ gives $I+8E_{12}$, and conjugates by $S$ and
+$\left(\begin{smallmatrix}1&0\\1&1\end{smallmatrix}\right)$ give
+the lower and diagonal trace-zero directions. Its normal closure is
+the entire kernel. The complement kills $T^{24}$, proving the claim
+by CRT, without inferring its congruence level merely from twist order.
+
+All 30 irreducible characters at level 8 and all seven at level 3
+are independently verified by their concrete class algebras, degree
+sums, orthogonality and generator spectra. Their 210 CRT products
+exhaust level 24. Twelve have spectra bounded by the displayed target;
+both central signs are retained. Write $m_{ij}$ for their
+multiplicities in the frozen complete table indexing and $T_k$ for
+target spectral multiplicity. Entrywise inspection gives
+\[
+2T_{20}-T_{23}-T_{11}+T_{17}=2(m_{11}+m_{15}),\qquad
+2T_{12}-T_3-T_{15}+T_9=2(m_{12}+m_{15}).
+\]
+The left sides are 0 and 6. Nonnegativity forces $m_{11}=m_{15}=0$,
+then $m_{12}=3$. The representation indexed $(1,2)$ is the sign
+character $s=t_{\rm lin}=-1$.
+
+The Galois matrix for exponent 5 is, by \cite[Theorem~II]{DLNGalois},
+\[
+G_5=\sigma_5(s)s^{-1}
+=t_{\rm lin}^5s\,t_{\rm lin}^{77}s\,t_{\rm lin}^5s^{-1}.
+\]
+It fixes each of these three sign copies. The full $t_{\rm lin}=-1$
+fiber has exactly four equal-dimension $A$ coordinates, each with
+$s_{0A}=1/(4\sqrt3)$. Since $\sigma_5(\sqrt3)=-\sqrt3$,
+the signed-permutation rule gives $G_5=-P$ on this fiber.
+The fixed dimension of a negative four-point permutation is the
+number of even cycles, at most two, contradicting the three forced
+fixed vectors. Complex conjugation handles the opposite semion
+orientation.
+\end{proof}
+
+\subsection{The rank-twenty datum and The Anyon Atlas}
+\label{sec:r928-anyon-atlas}
+The remaining pattern has twists
+\[
+\begin{array}{c|l}
+\text{fiber}&\text{twists}\\ \hline
+A_0,A_1,A_2,A_3&1,1,1,1\\
+W&i\\ E,F&\zeta_3^2,\zeta_3^2\\
+A&\zeta_6,\zeta_6,-1,\zeta_8^7,\zeta_8^7\\
+B&\zeta_{12}^5,\zeta_{12}^5,-i\\
+K&\zeta_{24}^{13}\\
+H&\zeta_{32}^3(1,i,-1,-i).
+\end{array}
+\]
+An explicit full $s,T$ witness is supplied in exact cyclotomic
+coordinates. It is precisely the existing Anyon Atlas record
+\href{https://anyonatlas.org/data/B20-02148}{\texttt{B20-02148}},
+Galois orbit $20.167$ \cite{AnyonAtlasRank20}, not a newly discovered
+modular datum. It has twist order $96$, charge $1\bmod8$, and dimension
+\[
+\dim\mathcal B
+=38592+27264\sqrt2+22272\sqrt3+15744\sqrt6.
+\]
+Its fusion ring is simple and selfdual, of maximum multiplicity $18$.
+The semion factor has central charge $-1\bmod8$, so the product has
+central charge $0\bmod8$, as the Drinfeld center of a spherical fusion
+category should.
+
+In the project order $(A_0,A_1,A_2,A_3,W,E,A^5,B^3,H^4,K,F)$, the
+zero-based project-to-Atlas permutation is
+\[
+\begin{aligned}
+(p_0,\ldots,p_9)&=(0,7,11,18,19,1,2,3,4,5),\\
+(p_{10},\ldots,p_{19})&=(6,8,9,10,12,13,14,15,16,17).
+\end{aligned}
+\]
+The Atlas uses unnormalized $S$ with $S_{00}=1$, whereas our $s$
+is unitary: $S^{\rm Atlas}_{p_i p_j}=L s_{ij}$ and
+$T^{\rm Atlas}_{p_i}=T_i$. The exact comparison in
+$\mathbb Q(\zeta_{288})$ checks all 400 matrix entries, all 20 twists,
+and all 8000 structure constants. Its safe expression parser, exported
+source and receipt accompany the full data. Separate exact checks
+verify the modular relations, balancing, associativity, all 160000
+Vafa equations and all-simple indicators through order 12.
+
+The Atlas labels the record \emph{Not CS} and does not mark it
+\emph{Known Categorifiable} as accessed on 29 October 2026.
+Its displayed possible condensation
+$1+X_7+X_{11}+X_{18}$ to the semion record
+\href{https://anyonatlas.org/data/B02-00007}{\texttt{B02-00007}}
+has dimension $D/2$. The export explicitly does not guarantee this
+algebra. Neither matching the data nor that proposed condensation
+constructs a category, its associators or the required etale algebra.
+The existence question for R928 therefore remains unresolved.
+No uniqueness of the full modular data is asserted.
+
+The tempting standard $C_3$ local quotient of $SU(3)_{21}$ has the same
+global dimension but rank 31: its 85 triality-zero weights form 28 free
+three-orbits and the fixed weight $(7,7)$ splits into three. It does
+not give this rank-20 datum. No broader exclusion of quantum-group
+constructions is inferred from this calculation or the Atlas label.
 \subsection{Whole-restriction Galois orbits for R941}
 For R941 the complete source character table lies in
 $K=\Q(\sqrt2,\sqrt3)$: four characters are the FP conjugates and the
@@ -254,3 +585,4 @@ The current categorical proofs, full exact matrices, certificates and
 audits are collected in \path{evidence/frontier/README.md}. Their
 computational checks certify the stated necessary systems and do not
 supply missing associators or algebra structures.
+

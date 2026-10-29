@@ -1,46 +1,53 @@
 # Current categorification frontier
 
-**Six unresolved cases; R8_3_1768 is generally excluded. No new model is claimed.**
+**Six unresolved cases.** R8_3_1768 remains excluded over the complex numbers. This continuation excludes branches and construction routes; it adds no whole-ring exclusion or categorical model.
 
-The current mathematics is integrated into the rank-six, rank-eight and rank-nine manuscripts. [Manuscripts](../../manuscripts/README.md) · [Current report](../../manuscripts/frontier/Fusion_Ring_Frontier.pdf) · [Public Atlas](https://sebastienpalcoux.github.io/grothendieck-ring-classification/unresolved.html).
+The proofs are integrated into the existing rank-six, rank-eight and rank-nine manuscripts and the [current frontier report](../../manuscripts/frontier/Fusion_Ring_Frontier.pdf). [Manuscripts](../../manuscripts/README.md) · [Classification status](../../docs/RESEARCH_STATUS.md).
 
 | Case | Current conclusion and proof |
 |---|---|
-| R6_4_155 | Unresolved. [Complete connected-algebra reduction and Morita based-ring rigidity](replay/new/r155/MORITA_RING_RIGIDITY.md). |
-| R6_8_1660 | Unresolved. [Nonsplit fermion centralizer, multiplication-space reduction and conditional Morita partner](replay/new/r1660_941/REPORT.md). |
-| R8_3_928 | Unresolved. [Forced necessary fusion matrices](replay/new/r928/SPECTRAL_FUSION_REDUCTION.md). |
-| R8_3_941 | Unresolved. [Conditional Morita identities](replay/new/r1660_941/REPORT.md) and [whole-column Galois restriction](replay/new/r1660_941/R941_GALOIS_ADDENDUM.md). |
-| R8_3_1154 | Unresolved. [Simple-center theorem](replay/new/r1154/SIMPLE_CENTER.md). |
-| R8_3_1768 | **Excluded over the complex numbers.** [Pivotal conjugation parity and six exact separators](replay/new/r1768/PALINDROMIC_EXCLUSION.md). |
-| R9_2_137 | Unresolved. [Whole-column Galois orbits and fourth-indicator bounds](replay/new/r137/REPORT.md). |
+| R6_4_155 | The specified order-32 near-group route forces parent group C4 × C2³. Its existence is not proved. [Conditional parent theorem](replay/current/r155/CONTINUATION.md). |
+| R6_8_1660 | A nonreal Morita invariant excludes real forms and braided representatives in the positive Morita class. The center is prime, restricting direct modular sources. [Proof](replay/current/pair/REPORT.md). |
+| R8_3_928 | Three center patterns are excluded. The surviving rank-20 factor is exactly [Anyon Atlas B20-02148](https://anyonatlas.org/data/B20-02148), not an established category. [Proof](replay/current/r928/REPORT.md) · [exact comparison](replay/current/r928/atlas/atlas_match_receipt.json). |
+| R8_3_941 | The center is prime and satisfies the same direct-source obstruction. The proposed Morita link with R1660 still requires a category and separable algebra. [Proof](replay/current/pair/REPORT.md). |
+| R8_3_1154 | One branch of a hypothetical smallest algebra forces an explicit simple rank-seven Morita-dual ring. Neither the algebra nor a categorification is constructed. [Conditional construction](replay/current/r1154/CONDITIONAL_RANK7_ROUTE.md). |
+| R9_2_137 | Nine exact certificates exclude the positive Tambara–Yamagami sign. A rational witness survives for the negative sign. [Proof and scope](replay/current/r137/NEW_RESULTS.md). |
 
-A model requires a categorical construction and exact identification of the full fusion tensor. Necessary matrices, rational witnesses and proposed algebras are not counted as models.
+A model requires a categorical construction and identification of the full fusion tensor. Modular data, necessary-condition witnesses and proposed algebras do not suffice. The Atlas comparison checks all 400 S entries, 20 twists and 8,000 fusion coefficients exactly. On 29 October 2026, the record was labeled *Not CS* and was not marked *Known Categorifiable*. Its proposed condensation does not supply the required algebra.
 
-## Exclusion and proof scope
+## Proof scope
 
-Pivotal conjugation preserves the symmetry sign of a nondegenerate self-duality. Consequently, an opposite-sign self-dual constituent must occur evenly in X tensor V tensor X*. R1768 violates that parity. The proof explicitly uses the previously established general-complex sphericalization/Galois existence reduction and the categorical completeness of the center domains. These premises are identified and source-bound; numerical checks do not substitute for them.
+Center arguments use the positive spherical representative supplied by the established general-complex existence reduction. Complete center domains and inherited indicator reductions remain explicit premises. No arbitrary original complex categorification is assumed unitary or positive.
 
-The independent two-sign route reconstructs the complete parity domain and replays six rational Farkas certificates over all permitted columns. The new categorical lemma received two independent agent reviews. Independent human verification remains pending.
+The previous [general exclusion of R8_3_1768](replay/new/r1768/PALINDROMIC_EXCLUSION.md) uses pivotal conjugation parity and those reductions. Its six separation certificates and frozen inputs are retained. No classification count changes in this continuation.
 
 ## Exact replay
 
-After restoring the repository datasets:
+Run the current finite checks with ordinary Python 3.10 or later:
+
+~~~sh
+python3 evidence/frontier/replay/current/run_checks.py --include-native --receipt /tmp/fusion-frontier-current.json
+~~~
+
+All 28 checks passed, including the optional native spectrum check and exact Atlas comparison. The [receipt](current_run_receipt.json) records their scope. The [manifest](replay/current/manifest.json) binds the inputs and lists dependencies. The runner uses a temporary copy, preserves shipped evidence, and invokes no optimizer or associator search.
+
+The earlier R1768 exclusion remains independently replayable:
 
 ~~~sh
 python3 tools/restore_data.py
-python3 tools/verify_current_publication.py
-python3 evidence/frontier/replay/run_checks.py --output /tmp/fusion-frontier-replay.json
+python3 evidence/frontier/replay/run_checks.py --output /tmp/fusion-frontier-exclusion.json
 ~~~
 
-The replay executes twelve finite checks in a temporary copy, preserving the frozen receipts. It invokes no optimizer, associator search or new long enumeration. See the [runtime and relocation instructions](replay/new/r1768/REPLAY_README.md). Ordinary Python is required for the combined runner because some short checks use assertions. The R1768 adapter and separate R137 auditor also pass optimized Python.
+That runner checks the twelve frozen predecessor calculations. [Runtime and relocation instructions](replay/new/r1768/REPLAY_README.md).
 
 ## Data and provenance
 
-- [Current full rank-eight ledger](rank8_ledger.json): 4,404 exclusions, 93 unitary models, three unresolved.
-- [Exact multiplicity-three ledger](rank8_m3_ledger.json): 3,508 exclusions, 16 unitary models, three unresolved.
-- [Accepted transition and source bindings](accepted.json): exactly R8_3_1768 changes status; every source tensor and model is preserved.
+- [Current rank-eight ledger](rank8_ledger.json): 4,404 exclusions, 93 unitary models, three unresolved.
+- [Multiplicity-three ledger](rank8_m3_ledger.json): 3,508 exclusions, 16 unitary models, three unresolved.
+- [Accepted transition](accepted.json): R8_3_1768 was excluded; this continuation changes no status.
 - [Current six unresolved tensors](../../data/current_remaining_cases.py).
-- [Separate audit of the R137 bounds and witnesses](replay/new/r155/AUDIT_R137_CONTINUATION.md).
+- [Current proof directory](replay/current/README.md); predecessor inputs are retained for reproducibility.
 
-The portable proof directory contains only current notes, exact checks and the frozen input files required for them. The frozen tensor snapshot deliberately includes previously decided cases; it is not the current unresolved list. Earlier categorical certificates retain their original immutable contexts and are not presented as competing current reports.
+**AI-generated research; independent human verification remains pending.** Exact checks certify their stated computations and do not replace categorical hypotheses.
+
 
