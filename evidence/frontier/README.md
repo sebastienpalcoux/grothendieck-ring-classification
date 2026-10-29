@@ -51,3 +51,5 @@ That runner checks the twelve frozen predecessor calculations. [Runtime and relo
 **AI-generated research; independent human verification remains pending.** Exact checks certify their stated computations and do not replace categorical hypotheses.
 
 
+
+The three evolving publication helpers have explicit before/after bindings in [the publication receipt](publication_replacements.json). Their pinned predecessor sources remain in [the verification checkpoint](replay/prior_publication/tools/). Mathematical inputs and categorical decision ledgers retain their original hash requirements.

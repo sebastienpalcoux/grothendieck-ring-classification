@@ -256,6 +256,30 @@
         "7e9ccf358e0c74382eb9d3e1137257d22c528665e908053a775e2e9e2dd94062"
       ],
       "after_sha256": "919556558459033f5c94ab6eeb3fd6e6a3963b8c2994529801a64b0a1ab0ead2"
+    },
+    "tools/frontier.py": {
+      "prior_sha256": [
+        "da62a43f74251d4957b9fbf067226bbfb4714c62371318fbfea17d0f5033ed8e"
+      ],
+      "after_sha256": "599c198654e3ff404477375e9a33d95afa7a8a03a09fe0cd9d6b1704cc1c9915",
+      "prior_source": "evidence/frontier/replay/prior_publication/tools/frontier.py",
+      "scope": "Publication display, synchronization and identity checks; original mathematical source is preserved byte-for-byte."
+    },
+    "tools/sync_frontier.py": {
+      "prior_sha256": [
+        "a4d92d4ae5f5cb77d9242c5583bc122b363e72690d556bc8fddf9c56a4c10cb8"
+      ],
+      "after_sha256": "f74b4db971ab25422c35d62ac70b4903b4310aef5a56bae6eb2440e484941549",
+      "prior_source": "evidence/frontier/replay/prior_publication/tools/sync_frontier.py",
+      "scope": "Publication display, synchronization and identity checks; original mathematical source is preserved byte-for-byte."
+    },
+    "tools/verify_frontier.py": {
+      "prior_sha256": [
+        "39d923a99b1747717522362d26118da031e218b0b06454e21ace10e93e8e689a"
+      ],
+      "after_sha256": "4d9e7502babf490307932ff9510b9e067687f2546b88cc2909bbb90c0444a771",
+      "prior_source": "evidence/frontier/replay/prior_publication/tools/verify_frontier.py",
+      "scope": "Publication display, synchronization and identity checks; original mathematical source is preserved byte-for-byte."
     }
   },
   "immutable_decisions": {
@@ -264,5 +288,5 @@
     "evidence/frontier_20261027/rank9_m2_ledger.json": "12bb011413fd8a97e9425124ddaed8e7c6f31a7209feda0f8f7109dd49b362f0",
     "supplements/rank8/output/creative_20261022/model_catalog.json": "7b84c11792c15c9cc07a723fe3d03cf8c56f049907bb9de7be35fb9cefbbf382"
   },
-  "scope": "Current derived publication identities, including the six-case restriction continuation and manuscript refresh. Frozen categorical ledgers, tensors and model identities are unchanged."
+  "scope": "Current derived publication identities and three explicitly checkpointed publication helpers. The accepted categorical ledgers, tensors and mathematical verifiers retain their original hashes."
 }

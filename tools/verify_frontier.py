@@ -45,6 +45,12 @@ EXPECTED_REPLAYS = {
     'new/r1768/verify_palindromic_exclusion.py',
     'new/r1768/replay_palindromic_center.py',
 }
+# Only publication helpers may evolve under an explicit source checkpoint.
+# Every categorical input and exact mathematical verifier retains its original hash.
+PUBLICATION_HELPER_CHECKPOINTS = {
+    name: 'evidence/frontier/replay/prior_publication/' + name
+    for name in ('tools/frontier.py', 'tools/sync_frontier.py', 'tools/verify_frontier.py')
+}
 PROPERTIES = {'integral', 'weakly_integral', 'pointed', 'perfect', 'simple',
               'commutative', 'self_dual', 'multiplicity_free'}
 REPORT_TEX = 'manuscripts/frontier/Fusion_Ring_Frontier.tex'
@@ -69,7 +75,24 @@ def source(repo, name, expected):
     need(not path.is_absolute() and '..' not in path.parts and path.as_posix() == name,
          'Safe source path: ' + name)
     file = repo / name
-    need(file.is_file() and sha(file) == expected, 'Source binding: ' + name)
+    need(file.is_file(), 'Missing source: ' + name)
+    if sha(file) == expected:
+        return
+    checkpoint = PUBLICATION_HELPER_CHECKPOINTS.get(name)
+    need(checkpoint is not None, 'Source binding: ' + name)
+    need((repo/checkpoint).is_file() and sha(repo/checkpoint) == expected,
+         'Pinned predecessor helper: ' + name)
+    receipt = read(repo/EVIDENCE/'publication_replacements.json')
+    need(receipt.get('schema') == 'derived-publication-replacements/v1',
+         'Publication replacement schema')
+    entry = receipt['files'].get(name, {})
+    need(entry.get('prior_source') == checkpoint and
+         expected in entry.get('prior_sha256', []) and
+         entry.get('after_sha256') == sha(file),
+         'Current publication-helper binding: ' + name)
+    need(all((repo/path).is_file() and sha(repo/path) == digest
+             for path, digest in receipt['immutable_decisions'].items()),
+         'Immutable decisions for publication helper: ' + name)
 
 
 def check_inherited(repo):
