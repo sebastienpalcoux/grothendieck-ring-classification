@@ -1,0 +1,32 @@
+{
+  "schema": "accepted-unresolved-retry/v1",
+  "date": "2026-10-24",
+  "baseline_commit": "323c4227ffb796a72eef506f1eb289437fbc95db",
+  "baseline_rank9_rank10_ledger": {
+    "path": "evidence/rank10_m1_exclusions_20261023/accepted_ledger.json",
+    "sha256": "a4075e19d489ff9daaa405647c3be5aa8b8bed321e15d75f1ad53dbf9eb47ebe"
+  },
+  "ledger": "evidence/unresolved_retry_20261024/rank9_rank10_m1_ledger.json",
+  "counts": {
+    "10": {
+      "excluded": 136,
+      "unitarily_realized": 58,
+      "unresolved": 0
+    }
+  },
+  "current_open_cases": 10,
+  "changes": [
+    {
+      "id": "R10_1_189",
+      "before": "unresolved",
+      "after": "unitarily_realized",
+      "tensor_sha256": "c44e21d1844ded91dba30cd6c691180afa4d4f1be1c4f27806bbc12c8c8292f4"
+    }
+  ],
+  "proof_archive": {
+    "path": "evidence/unresolved_retry_20261024/replay.zip",
+    "sha256": "9200a405eed0e40aa1d6fd4387c485b9112f731fecfac3f3289bb7ee5fb5bb0a",
+    "bytes": 1893460
+  },
+  "scope": "One actual unitary model; new theoretical restrictions do not reclassify the ten remaining open rings."
+}

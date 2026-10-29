@@ -47,6 +47,18 @@ def main():
     if args.classification_commit and (len(args.classification_commit) != 40 or any(c not in "0123456789abcdef" for c in args.classification_commit)):
         parser.error("--classification-commit requires a full 40-character commit SHA")
     repo = args.classification.resolve()
+    sys.path.insert(0,str(repo/'tools'))
+    from frontier import active as current_frontier_active
+    if current_frontier_active(repo):
+        from sync_frontier import profiles,documents
+        profiles();documents()
+        if args.classification_commit:
+            p=HERE/'dist/data/atlas.json';payload=json.loads(p.read_text());payload['classification_commit']=args.classification_commit;p.write_text(json.dumps(payload,ensure_ascii=False,separators=(',',':'))+'\n');(repo/'data/atlas.json').write_bytes(p.read_bytes())
+        from current_presentation import apply
+        from version_assets import version_assets
+        apply(HERE);version_assets()
+        print('Built the current source-bound frontier; frozen historical generators are not reapplied.')
+        return
     sys.path.insert(0, str(repo / "tools"))
     from rank6_publication import RESEARCH_UPDATES
     from rank8_publication import extension as rank8_extension_info, archive_path as rank8_archive, ledger_path as rank8_ledger
@@ -483,6 +495,8 @@ def main():
         target = repo / relative
         if source.resolve() != target.resolve():
             shutil.copy2(source, target)
+    from current_presentation import apply as consolidate_presentation
+    consolidate_presentation(HERE)
     version_app_script()
     print(f"Wrote {len(rows)} count rows to {output}")
 

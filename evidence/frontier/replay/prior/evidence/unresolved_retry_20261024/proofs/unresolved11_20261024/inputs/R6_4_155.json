@@ -1,0 +1,1128 @@
+{
+  "id": "R6_4_155",
+  "rank": 6,
+  "multiplicity": 4,
+  "status": "unresolved",
+  "summary": "Every odd generalized pivotal rotation must factor through a cyclic spin character. All 1,144 tested blocks pass. The all-order path-Clifford divisibility condition for R′(m) holds exactly when m is even, including m=4. No compatible associators or categorification are constructed.",
+  "categorification_scope": {
+    "general_status": "unresolved",
+    "level_status": {
+      "general": "unresolved",
+      "pivotal": "unresolved",
+      "spherical": "unresolved",
+      "pseudo_unitary": "unresolved",
+      "unitary": "unresolved"
+    },
+    "strongest_excluded": null,
+    "same_category_implications": [
+      {
+        "from": "general",
+        "to": "spherical",
+        "explanation": "The uniform argument for the generalized near-group family R′(m), applied at m=4, proves that every categorification admits a spherical structure. No pivotality assumption is needed.",
+        "sources": [
+          {
+            "label": "Uniform sphericality and Galois proof",
+            "path": "manuscripts/rank6/papers/chapters/frontier_155.tex",
+            "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/manuscripts/rank6/papers/chapters/frontier_155.tex",
+            "sha256": "2d238415996eadf9ae70bdca0bda6d9e039ae06657f3b7549751f43f2721a6b1",
+            "locator": "Proposition prop:nonselfdual-neargroup-spherical, with m=4"
+          }
+        ]
+      }
+    ],
+    "existence_implications": [
+      {
+        "from": "general",
+        "to": "pseudo_unitary",
+        "explanation": "Every categorification has a pseudo-unitary Galois conjugate with the same fusion ring. Thus general and pseudo-unitary categorifiability are equivalent as existence questions. This does not assert pseudo-unitarity of every original categorification or imply unitarity.",
+        "sources": [
+          {
+            "label": "Uniform sphericality and Galois proof",
+            "path": "manuscripts/rank6/papers/chapters/frontier_155.tex",
+            "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/manuscripts/rank6/papers/chapters/frontier_155.tex",
+            "sha256": "2d238415996eadf9ae70bdca0bda6d9e039ae06657f3b7549751f43f2721a6b1",
+            "locator": "Proposition prop:nonselfdual-neargroup-spherical, with m=4"
+          }
+        ],
+        "mechanism": "Galois conjugation"
+      }
+    ],
+    "audit_sources": [
+      {
+        "label": "Rank-six status records",
+        "path": "site/dist/data/rank6_unresolved_tensors.json",
+        "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/site/dist/data/rank6_unresolved_tensors.json",
+        "sha256": "cf1f3ac0d2b05062861f036932bdb140a5a5f0055dd054689b6e1fa67924d203",
+        "locator": "Each case: existence"
+      },
+      {
+        "label": "Latest rank-six research results",
+        "path": "evidence/rigidity_20261017/rank6/research_progress.json",
+        "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/evidence/rigidity_20261017/rank6/research_progress.json",
+        "sha256": "de9be218c3099e68f00f5867b77d9ff7cbf9ef6ca34207823f2598b710886497"
+      }
+    ],
+    "notes": [],
+    "record_scope_note": "These statements report established results in the linked research record. Excluding a construction family, an associator choice or an induction frame does not exclude all categorifications with a given structure. The site’s independent-review caution applies to the recorded research proofs.",
+    "braided": {
+      "status": "excluded",
+      "explanation": "The recorded obstruction is stronger: no categorification of this ring is Morita equivalent to any braided fusion category. The established Galois reduction and central-semion argument do not require a pivotality assumption.",
+      "sources": [
+        {
+          "label": "No braided Morita representative",
+          "path": "manuscripts/rank6/papers/chapters/frontier_155.tex",
+          "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/manuscripts/rank6/papers/chapters/frontier_155.tex",
+          "sha256": "2d238415996eadf9ae70bdca0bda6d9e039ae06657f3b7549751f43f2721a6b1",
+          "locator": "Proposition prop:155-no-braided-morita"
+        },
+        {
+          "label": "Braided scope audit and proofs",
+          "path": "site/BRAIDED_CATEGORIFICATION.md",
+          "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/site/BRAIDED_CATEGORIFICATION.md",
+          "sha256": "4b1a05cbc5c3b6934a9cfdaf5ade05d14f730517fb4270276bfca433ac759345"
+        }
+      ]
+    }
+  },
+  "existence": {
+    "general": "unknown",
+    "pivotal": "unknown",
+    "spherical": "unknown",
+    "pseudo_unitary": "unknown",
+    "unitary": "unknown"
+  },
+  "fusion_tensor": [
+    [
+      [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ]
+    ],
+    [
+      [
+        0,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        4,
+        4,
+        0,
+        1,
+        1
+      ],
+      [
+        1,
+        4,
+        4,
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0
+      ]
+    ],
+    [
+      [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        4,
+        4,
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        4,
+        4,
+        0,
+        1,
+        1
+      ],
+      [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    ],
+    [
+      [
+        0,
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0
+      ]
+    ],
+    [
+      [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        1,
+        0,
+        0
+      ]
+    ],
+    [
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      [
+        0,
+        0,
+        1,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    ]
+  ],
+  "tensor_sha256": "012ef716d19b96a2a800d7bcbb33f3ae5e99e3c6a223f6e14bcd20144d4072a3",
+  "basis": [
+    "X0",
+    "X1",
+    "X2",
+    "X3",
+    "X4",
+    "X5"
+  ],
+  "unit_index": 0,
+  "source": {
+    "rank": 6,
+    "multiplicity": 4,
+    "index": 155,
+    "status": "unresolved",
+    "unit_index": 0,
+    "source": "supplements/rank6/data/unresolved_tensors.json",
+    "source_sha256": "cf1f3ac0d2b05062861f036932bdb140a5a5f0055dd054689b6e1fa67924d203",
+    "tensor_sha256": "012ef716d19b96a2a800d7bcbb33f3ae5e99e3c6a223f6e14bcd20144d4072a3",
+    "selection": "JSON record with this id"
+  },
+  "tensor_convention": "N[i][j][k] is the coefficient of X_k in X_i * X_j. Indices are zero-based; X_0 is the unit. The supplied source basis is preserved.",
+  "hash_convention": "SHA-256 of UTF-8 JSON with separators=(',', ':') and no trailing newline. The formatted .txt file has the same tensor, not the same byte hash.",
+  "numeric_encoding_note": "Exact integers outside the JavaScript safe-integer range (absolute value greater than 9007199254740991) are encoded as decimal strings to preserve every digit in browser display and JSON downloads. Fusion-tensor coefficients remain integers.",
+  "invariants": {
+    "dual_indices": [
+      0,
+      2,
+      1,
+      3,
+      4,
+      5
+    ],
+    "invertible_indices": [
+      0,
+      3,
+      4,
+      5
+    ],
+    "commutative": true,
+    "frobenius_perron_dimensions_approx": [
+      1.0,
+      8.2426406871,
+      8.2426406871,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "global_fp_dimension_approx": 139.8822509939,
+    "dimensions_method": "Numerical Perron eigenvector, normalized at the tensor unit; approximate values.",
+    "central_casimir_polynomial": "(t - 8)**2*(t - 4)**2*(t**2 - 144*t + 576)",
+    "formal_codegree_polynomial": "(t - 8)**2*(t - 4)**2*(t**2 - 144*t + 576)",
+    "irreducible_characters_approx": [
+      {
+        "values_approx": [
+          1.0,
+          8.2426406871,
+          8.2426406871,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "formal_codegree_approx": 139.8822509939
+      },
+      {
+        "values_approx": [
+          1.0,
+          {
+            "re": 0.0,
+            "im": -1.4142135624
+          },
+          {
+            "re": 0.0,
+            "im": 1.4142135624
+          },
+          1.0,
+          -1.0,
+          -1.0
+        ],
+        "formal_codegree_approx": 8.0
+      },
+      {
+        "values_approx": [
+          1.0,
+          {
+            "re": 0.0,
+            "im": 1.4142135624
+          },
+          {
+            "re": 0.0,
+            "im": -1.4142135624
+          },
+          1.0,
+          -1.0,
+          -1.0
+        ],
+        "formal_codegree_approx": 8.0
+      },
+      {
+        "values_approx": [
+          1.0,
+          -0.2426406871,
+          -0.2426406871,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "formal_codegree_approx": 4.1177490061
+      },
+      {
+        "values_approx": [
+          1.0,
+          0.0,
+          0.0,
+          -1.0,
+          -1.0,
+          1.0
+        ],
+        "formal_codegree_approx": 4.0
+      },
+      {
+        "values_approx": [
+          1.0,
+          0.0,
+          0.0,
+          -1.0,
+          1.0,
+          -1.0
+        ],
+        "formal_codegree_approx": 4.0
+      }
+    ],
+    "character_method": "Numerical simultaneous eigencharacters of the integral fusion matrices; approximate values.",
+    "exact_character_presentation": {
+      "exact_generator": "theta = Σ_i w_i X_i (character value at a root of P)",
+      "generator_weights": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "primitive_polynomial": "(theta + 2)*(theta + 4)*(theta**2 - 72*theta + 846)*(theta**2 + 12*theta + 38)",
+      "basis_values": [
+        "1",
+        "-40804247*theta**5/1115887361400 + 91068037*theta**4/39853120050 - 768977677*theta**3/111588736140 - 30700123019*theta**2/139485920175 - 2589068457*theta/3099687115 - 13685385876/15498435575",
+        "40927403*theta**5/1115887361400 - 182390351*theta**4/79706240100 + 760032883*theta**3/111588736140 + 61239809437*theta**2/278971840350 + 2583973438*theta/3099687115 + 13660995424/15498435575",
+        "229*theta**5/2571975 - 3877*theta**4/734850 - 226*theta**3/102879 + 1701674*theta**2/2571975 + 191696*theta/57155 + 894801/285775",
+        "-93973*theta**5/646891224 + 389027*theta**4/46206516 + 4789019*theta**3/323445612 - 174397213*theta**2/161722806 - 183351393*theta/26953801 - 277955315/26953801",
+        "124723*theta**5/2245246200 - 3498517*theta**4/1122623100 - 538073*theta**3/44904924 + 236405747*theta**2/561311550 + 21585499*theta/6236795 + 193125389/31183975"
+      ],
+      "codegree_value": "(4992374*theta**5 - 295077853*theta**4 - 140456168*theta**3 + 36786405136*theta**2 + 186765643656*theta + 341731755180)/27897184035",
+      "instruction": "For each complex root θ of P(θ)=0, substitute θ into the displayed polynomials to obtain one exact irreducible character and its formal codegree. All matrix identities N_i=p_i(H) were checked over Q."
+    },
+    "frobenius_perron_dimensions_exact": [
+      {
+        "minimal_polynomial": "t - 1",
+        "largest_real_root_interval": [
+          "1",
+          "1"
+        ]
+      },
+      {
+        "minimal_polynomial": "t**2 - 8*t - 2",
+        "largest_real_root_interval": [
+          "10662952/1293633",
+          "11956585/1450577"
+        ]
+      },
+      {
+        "minimal_polynomial": "t**2 - 8*t - 2",
+        "largest_real_root_interval": [
+          "10662952/1293633",
+          "11956585/1450577"
+        ]
+      },
+      {
+        "minimal_polynomial": "t - 1",
+        "largest_real_root_interval": [
+          "1",
+          "1"
+        ]
+      },
+      {
+        "minimal_polynomial": "t - 1",
+        "largest_real_root_interval": [
+          "1",
+          "1"
+        ]
+      },
+      {
+        "minimal_polynomial": "t - 1",
+        "largest_real_root_interval": [
+          "1",
+          "1"
+        ]
+      }
+    ],
+    "global_fp_dimension_exact": {
+      "minimal_polynomial": "t**2 - 144*t + 576",
+      "largest_real_root_interval": [
+        "185072611/1323060",
+        "186444716/1332869"
+      ]
+    },
+    "exact_dimension_method": "Each FP dimension is the largest real root of its displayed irreducible polynomial, isolated by the rational interval. Factors and intervals are computed exactly from the integral fusion-matrix characteristic polynomial. The global dimension uses the central Casimir matrix.",
+    "fusion_matrix_convention": "N_i[j][k] = N[i][j][k]; rows are the right input basis index, columns are the output basis index.",
+    "fusion_matrix_characteristic_polynomials": [
+      "(t - 1)**6",
+      "t**2*(t**2 + 2)*(t**2 - 8*t - 2)",
+      "t**2*(t**2 + 2)*(t**2 - 8*t - 2)",
+      "(t - 1)**4*(t + 1)**2",
+      "(t - 1)**3*(t + 1)**3",
+      "(t - 1)**3*(t + 1)**3"
+    ],
+    "fusion_matrix_traces": [
+      6,
+      8,
+      8,
+      2,
+      0,
+      0
+    ],
+    "fusion_matrix_determinants": [
+      1,
+      0,
+      0,
+      1,
+      -1,
+      -1
+    ],
+    "all_closed_based_subrings": [
+      [
+        0
+      ],
+      [
+        0,
+        3
+      ],
+      [
+        0,
+        4
+      ],
+      [
+        0,
+        5
+      ],
+      [
+        0,
+        3,
+        4,
+        5
+      ],
+      [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ]
+    ],
+    "closed_based_subrings_method": "Exhaustive subsets containing the unit, closed under duality and every nonzero fusion-product coefficient. Includes the unit subring and the whole ring.",
+    "adjoint_subring_indices": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "invertible_multiplication_table": [
+      [
+        0,
+        3,
+        4,
+        5
+      ],
+      [
+        3,
+        0,
+        5,
+        4
+      ],
+      [
+        4,
+        5,
+        0,
+        3
+      ],
+      [
+        5,
+        4,
+        3,
+        0
+      ]
+    ],
+    "invertible_table_labels": [
+      0,
+      3,
+      4,
+      5
+    ],
+    "self_dual_indices": [
+      0,
+      3,
+      4,
+      5
+    ]
+  },
+  "research": [
+    {
+      "title": "Rank-six research update · 2026-10-17",
+      "source": "evidence/rigidity_20261017/rank6/research_progress.json",
+      "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/evidence/rigidity_20261017/rank6/research_progress.json",
+      "source_sha256": "de9be218c3099e68f00f5867b77d9ff7cbf9ef6ca34207823f2598b710886497",
+      "data": {
+        "date": "2026-10-17",
+        "scope": "Odd cyclic Clifford constraints, complete indicator sequences and phase-mass restriction domains. Both rank-six categorification questions remain unresolved.",
+        "id": "R6_4_155",
+        "categorical_status": "unresolved",
+        "categorification_claimed": false,
+        "mathematical_verdict": "PASS_NECESSARY",
+        "public_summary": "Every odd generalized pivotal rotation must factor through a cyclic spin character. All 1,144 tested blocks pass. The all-order path-Clifford divisibility condition for R′(m) holds exactly when m is even, including m=4. No compatible associators or categorification are constructed.",
+        "proof_chapters": [
+          "manuscripts/rank6/papers/chapters/frontier_155_odd_clifford.tex"
+        ],
+        "details": {
+          "central_targets": 52,
+          "noninvertible_base_simples": 2,
+          "tested_odd_orders": [
+            3,
+            5,
+            7,
+            9,
+            11,
+            13,
+            15,
+            17,
+            19,
+            21,
+            23
+          ],
+          "tested_blocks": 1144,
+          "passing_blocks": 1144,
+          "path_divisibility_scope": "All positive tensor powers in R′(m); equivalent to m even.",
+          "checker": "evidence/rigidity_20261017/rank6/r155/verify_odd_clifford.py",
+          "receipt": "evidence/rigidity_20261017/rank6/r155/odd_clifford_receipt.json",
+          "optimized_receipt": "evidence/rigidity_20261017/rank6/r155/odd_clifford_receipt_optimized.json"
+        }
+      }
+    },
+    {
+      "title": "Rank-six research update · 2026-10-16",
+      "source": "evidence/unified_20261016/rank6/research_progress.json",
+      "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/evidence/unified_20261016/rank6/research_progress.json",
+      "source_sha256": "2d2364a5b5a9fe30b8301b33648be13a5ed16584629a5582ba73a23c7f4a25a6",
+      "data": {
+        "date": "2026-10-16",
+        "scope": "Fermion Azumaya compatibility, forced higher indicators, and a scoped Verlinde obstruction to one historical modular witness; both categorification questions remain unresolved.",
+        "id": "R6_4_155",
+        "categorical_status": "unresolved",
+        "public_summary": "The inherited rank-22 based module passes all 234,256 linking identities forced by the fermion Clifford algebra and its Azumaya Morita self-duality. This strengthens the necessary compatibility check but constructs no coherent module category or categorification. The case remains unresolved.",
+        "current_status": "evidence/unified_20261016/rank6/RESEARCH.md",
+        "proof_chapters": [
+          "manuscripts/rank6/papers/chapters/frontier_refined.tex",
+          "manuscripts/rank6/papers/chapters/frontier_tensor_functors.tex",
+          "manuscripts/rank6/papers/chapters/dimension_block_20261016.tex",
+          "manuscripts/rank6/papers/chapters/fermion_azumaya_20261016.tex"
+        ],
+        "structural_obstructions": [
+          "No nontrivial Tannakian fusion subcategory in the center.",
+          "No Morita representative is a nontrivial faithful finite-group extension or equivariantization.",
+          "No braided Morita representative.",
+          "Every tensor functor to a complex fusion category is fully faithful; every dominant tensor quotient is an equivalence, without an assumed pivotal compatibility."
+        ],
+        "details": {
+          "original_involution_fixed_counts": [
+            2,
+            0,
+            0
+          ],
+          "missed_original_fixed_rank_branch": false,
+          "centralizer_fermion_fixed_labels": [
+            4,
+            7,
+            20,
+            21,
+            24,
+            25
+          ],
+          "anti_invariant_rank": 6,
+          "integer_based_module_rank": 22,
+          "anti_fusion_identities_checked": 676,
+          "based_module_fusion_identities_checked": 676,
+          "mathematical_verdict": "PASS_NECESSARY",
+          "module_witness": "evidence/theoretical_20261016/rank6/r155_center_module/anti_module_witness.json",
+          "module_replay": "evidence/theoretical_20261016/rank6/r155_center_module/verify_anti_module.py",
+          "module_receipt": "evidence/theoretical_20261016/rank6/r155_center_module/receipt.json",
+          "involution_coverage": "evidence/theoretical_20261016/rank6/involution_coverage.json",
+          "azumaya_linking_identities_checked": 234256,
+          "azumaya_linking_verdict": "PASS_NECESSARY",
+          "azumaya_linking_replay": "evidence/unified_20261016/rank6/verify_fermion_crossing.py",
+          "azumaya_linking_receipt": "evidence/unified_20261016/rank6/fermion_crossing_receipt.json",
+          "azumaya_linking_optimized_receipt": "evidence/unified_20261016/rank6/fermion_crossing_receipt_optimized.json",
+          "categorification_claimed": false
+        }
+      }
+    },
+    {
+      "title": "Rank-six research update · 2026-10-16",
+      "source": "evidence/theoretical_20261016/rank6/research_progress.json",
+      "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/evidence/theoretical_20261016/rank6/research_progress.json",
+      "source_sha256": "6e3623c52934b1781bda9ed630b61f8dd11c168d4134dfac9b5411417ce29a13",
+      "data": {
+        "date": "2026-10-16",
+        "scope": "Theoretical center-support refinement and exact necessary braid-spectrum, based-module and finite modular representation checks; both categorification questions remain unresolved.",
+        "id": "R6_4_155",
+        "categorical_status": "unresolved",
+        "public_summary": "The rank-26 centralizer candidate passes the expanded six-fixed-label test: an explicit anti-invariant representation reconstructs a rank-22 integer based module. All 226 larger local braid blocks also pass necessary reflection-partition tests. These witnesses construct neither a module category nor a categorification. No original involution was omitted by the earlier fixed-label guard; the case remains unresolved.",
+        "current_status": "evidence/theoretical_20261016/README.md",
+        "proof_chapters": [
+          "manuscripts/rank6/papers/chapters/frontier_refined.tex",
+          "manuscripts/rank6/papers/chapters/frontier_tensor_functors.tex",
+          "manuscripts/rank6/papers/chapters/dimension_block_20261016.tex"
+        ],
+        "structural_obstructions": [
+          "No nontrivial Tannakian fusion subcategory in the center.",
+          "No Morita representative is a nontrivial faithful finite-group extension or equivariantization.",
+          "No braided Morita representative.",
+          "Every tensor functor to a complex fusion category is fully faithful; every dominant tensor quotient is an equivalence, without an assumed pivotal compatibility."
+        ],
+        "details": {
+          "original_involution_fixed_counts": [
+            2,
+            0,
+            0
+          ],
+          "missed_original_fixed_rank_branch": false,
+          "centralizer_fermion_fixed_labels": [
+            4,
+            7,
+            20,
+            21,
+            24,
+            25
+          ],
+          "anti_invariant_rank": 6,
+          "integer_based_module_rank": 22,
+          "anti_fusion_identities_checked": 676,
+          "based_module_fusion_identities_checked": 676,
+          "mathematical_verdict": "PASS_NECESSARY",
+          "module_witness": "evidence/theoretical_20261016/rank6/r155_center_module/anti_module_witness.json",
+          "module_replay": "evidence/theoretical_20261016/rank6/r155_center_module/verify_anti_module.py",
+          "module_receipt": "evidence/theoretical_20261016/rank6/r155_center_module/receipt.json",
+          "involution_coverage": "evidence/theoretical_20261016/rank6/involution_coverage.json"
+        }
+      }
+    },
+    {
+      "title": "Rank-six research update · 2026-10-11",
+      "source": "evidence/rank6_theoretical_20261011/research_progress.json",
+      "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/evidence/rank6_theoretical_20261011/research_progress.json",
+      "source_sha256": "40b1d7ad855e0dfd7a1e9a40ae4bfac4a75c799b5d40a70413e132e929a73a47",
+      "data": {
+        "date": "2026-10-11",
+        "scope": "Purely theoretical tensor-functor rigidity; neither residual categorification is constructed or excluded. Classification counts and the frozen October 1 release remain unchanged.",
+        "id": "R6_4_155",
+        "categorical_status": "unresolved",
+        "public_summary": "Every tensor functor from a hypothetical categorification is fully faithful: the twist-one central-algebra support and associativity force every dominant quotient to be an equivalence. The unique rank-26 modular candidate remains feasible. No categorification or general exclusion is established.",
+        "current_status": "evidence/rank6_theoretical_20261011/README.md",
+        "proof_chapters": [
+          "manuscripts/rank6/papers/chapters/frontier_refined.tex",
+          "manuscripts/rank6/papers/chapters/frontier_tensor_functors.tex"
+        ],
+        "structural_obstructions": [
+          "No nontrivial Tannakian fusion subcategory in the center.",
+          "No Morita representative is a nontrivial faithful finite-group extension or equivariantization.",
+          "No braided Morita representative.",
+          "Every tensor functor to a complex fusion category is fully faithful; every dominant tensor quotient is an equivalence, without an assumed pivotal compatibility."
+        ]
+      }
+    },
+    {
+      "title": "Rank-six research update · 2026-10-02",
+      "source": "evidence/residual_20261002/rank6/research_progress.json",
+      "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/evidence/residual_20261002/rank6/research_progress.json",
+      "source_sha256": "ef88d8356632809ae466b2e83c661eba03c3b3af865533e33c0fda2c6920ef3d",
+      "data": {
+        "date": "2026-10-02",
+        "scope": "Audited research update; categorification counts unchanged; the dated 1 October release and its hashes are preserved.",
+        "id": "R6_4_155",
+        "categorical_status": "unresolved",
+        "public_summary": "The unique rank-26 modular candidate remains feasible. All 70 small B3 spectral-partition tests pass; neither these tests nor the modular datum constructs a category. No model or general exclusion is known. Exact probability couplings prove every Lim Corollary 3.4 inequality for every exponent and nonnegative vector.",
+        "current_status": "evidence/residual_20261002/rank6/R6_4_155.md",
+        "proof_chapters": [
+          "evidence/residual_20261002/rank6/research_addendum.tex"
+        ],
+        "structural_obstructions": [
+          "No nontrivial Tannakian fusion subcategory in the center.",
+          "No Morita representative is a nontrivial faithful finite-group extension or equivariantization.",
+          "No braided Morita representative."
+        ]
+      }
+    },
+    {
+      "title": "Rank-six research update · 2026-10-01",
+      "source": "supplements/rank6/data/frontier_research_progress.json",
+      "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/supplements/rank6/data/frontier_research_progress.json",
+      "source_sha256": "77781fee75dfbeb95085348255b780eb71d023c262964c3d382633436a619fbc",
+      "data": {
+        "date": "2026-10-01",
+        "scope": "Current audited necessary reductions for the two unresolved rings; no classification or existence status changes. Historical source-bound data/frontier_summary.json retains its earlier-stage summaries.",
+        "id": "R6_4_155",
+        "categorical_status": "unresolved",
+        "public_summary": "The unique rank-26 semion-centralizer modular candidate is completely reconstructed, with nonnegative integral Verlinde coefficients (maximum 9), ten self-dual objects, and all stated finite Vafa and indicator checks passing. The rank-52 center would have twenty self-dual objects. No categorification is known.",
+        "current_status": "research/frontier/R6_4_155/CURRENT_STATUS.md",
+        "proof_chapters": [
+          "papers/chapters/frontier_155_modular.tex",
+          "papers/chapters/frontier_155_categorical.tex"
+        ]
+      }
+    }
+  ],
+  "evidence": [
+    {
+      "label": "data/remaining_cases.py",
+      "path": "data/remaining_cases.py",
+      "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/data/remaining_cases.py",
+      "sha256": "14592974ff72c384a06971855020545a55bf60d64491cc1c29b0023a5d9d0bf8"
+    },
+    {
+      "label": "evidence/rank6_theoretical_20261011/README.md",
+      "path": "evidence/rank6_theoretical_20261011/README.md",
+      "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/evidence/rank6_theoretical_20261011/README.md",
+      "sha256": "b81930207778d8809c288ce30e5d6e58b050243362b6c21575bf30b356a41d23"
+    },
+    {
+      "label": "evidence/rank6_theoretical_20261011/research_progress.json",
+      "path": "evidence/rank6_theoretical_20261011/research_progress.json",
+      "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/evidence/rank6_theoretical_20261011/research_progress.json",
+      "sha256": "40b1d7ad855e0dfd7a1e9a40ae4bfac4a75c799b5d40a70413e132e929a73a47"
+    },
+    {
+      "label": "evidence/residual_20261002/rank6/R6_4_155.md",
+      "path": "evidence/residual_20261002/rank6/R6_4_155.md",
+      "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/evidence/residual_20261002/rank6/R6_4_155.md",
+      "sha256": "243d766f3b6333739624e8f8b87a0c0063d81b6b418288306ea3be605e5e68f0"
+    },
+    {
+      "label": "evidence/residual_20261002/rank6/research_addendum.tex",
+      "path": "evidence/residual_20261002/rank6/research_addendum.tex",
+      "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/evidence/residual_20261002/rank6/research_addendum.tex",
+      "sha256": "a0ff14d66dde537047050542383c8f4260e89f915768e950e0729afc3a60259e"
+    },
+    {
+      "label": "evidence/residual_20261002/rank6/research_progress.json",
+      "path": "evidence/residual_20261002/rank6/research_progress.json",
+      "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/evidence/residual_20261002/rank6/research_progress.json",
+      "sha256": "ef88d8356632809ae466b2e83c661eba03c3b3af865533e33c0fda2c6920ef3d"
+    },
+    {
+      "label": "evidence/rigidity_20261017/rank6/r155/odd_clifford_receipt.json",
+      "path": "evidence/rigidity_20261017/rank6/r155/odd_clifford_receipt.json",
+      "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/evidence/rigidity_20261017/rank6/r155/odd_clifford_receipt.json",
+      "sha256": "fd2deee645c55241a98bf8f7b7130215a46c3605963fb8c6a07d2e8ebf42014b"
+    },
+    {
+      "label": "evidence/rigidity_20261017/rank6/r155/odd_clifford_receipt_optimized.json",
+      "path": "evidence/rigidity_20261017/rank6/r155/odd_clifford_receipt_optimized.json",
+      "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/evidence/rigidity_20261017/rank6/r155/odd_clifford_receipt_optimized.json",
+      "sha256": "fd2deee645c55241a98bf8f7b7130215a46c3605963fb8c6a07d2e8ebf42014b"
+    },
+    {
+      "label": "evidence/rigidity_20261017/rank6/r155/verify_odd_clifford.py",
+      "path": "evidence/rigidity_20261017/rank6/r155/verify_odd_clifford.py",
+      "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/evidence/rigidity_20261017/rank6/r155/verify_odd_clifford.py",
+      "sha256": "65c9a9cc98a0963cac142935bbb75f46378b04e53cebd9a933e53d2591b7fc57"
+    },
+    {
+      "label": "evidence/rigidity_20261017/rank6/research_progress.json",
+      "path": "evidence/rigidity_20261017/rank6/research_progress.json",
+      "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/evidence/rigidity_20261017/rank6/research_progress.json",
+      "sha256": "de9be218c3099e68f00f5867b77d9ff7cbf9ef6ca34207823f2598b710886497"
+    },
+    {
+      "label": "evidence/theoretical_20261016/README.md",
+      "path": "evidence/theoretical_20261016/README.md",
+      "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/evidence/theoretical_20261016/README.md",
+      "sha256": "3bea274a582b5bb7976e9157dfdfc80cdc7b907c45975c2f6212d89f93d2e093"
+    },
+    {
+      "label": "evidence/theoretical_20261016/rank6/involution_coverage.json",
+      "path": "evidence/theoretical_20261016/rank6/involution_coverage.json",
+      "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/evidence/theoretical_20261016/rank6/involution_coverage.json",
+      "sha256": "1c921aedd010b6fa1ae47790e1d093f2dbca30941814ffdcc6e0460364e7a937"
+    },
+    {
+      "label": "evidence/theoretical_20261016/rank6/r155_center_module/anti_module_witness.json",
+      "path": "evidence/theoretical_20261016/rank6/r155_center_module/anti_module_witness.json",
+      "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/evidence/theoretical_20261016/rank6/r155_center_module/anti_module_witness.json",
+      "sha256": "3af4757cb0eaffbc37402ec8f26122005fb68c36810eb5b72c6ec8aae203f37f"
+    },
+    {
+      "label": "evidence/theoretical_20261016/rank6/r155_center_module/receipt.json",
+      "path": "evidence/theoretical_20261016/rank6/r155_center_module/receipt.json",
+      "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/evidence/theoretical_20261016/rank6/r155_center_module/receipt.json",
+      "sha256": "32e63a0e8489ef4b10d1983f0b2dbce5b68bc9a6ad970152718219cf63641f2c"
+    },
+    {
+      "label": "evidence/theoretical_20261016/rank6/r155_center_module/verify_anti_module.py",
+      "path": "evidence/theoretical_20261016/rank6/r155_center_module/verify_anti_module.py",
+      "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/evidence/theoretical_20261016/rank6/r155_center_module/verify_anti_module.py",
+      "sha256": "793eba0d36411bb8012923e664230676bc616bb80d1e71cb9a9510caa8eaeb99"
+    },
+    {
+      "label": "evidence/theoretical_20261016/rank6/research_progress.json",
+      "path": "evidence/theoretical_20261016/rank6/research_progress.json",
+      "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/evidence/theoretical_20261016/rank6/research_progress.json",
+      "sha256": "6e3623c52934b1781bda9ed630b61f8dd11c168d4134dfac9b5411417ce29a13"
+    },
+    {
+      "label": "evidence/unified_20261016/rank6/RESEARCH.md",
+      "path": "evidence/unified_20261016/rank6/RESEARCH.md",
+      "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/evidence/unified_20261016/rank6/RESEARCH.md",
+      "sha256": "1090e924992efbca475a2a4fd66277cf94b5a85db4cc39229d2c2009160698fe"
+    },
+    {
+      "label": "evidence/unified_20261016/rank6/fermion_crossing_receipt.json",
+      "path": "evidence/unified_20261016/rank6/fermion_crossing_receipt.json",
+      "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/evidence/unified_20261016/rank6/fermion_crossing_receipt.json",
+      "sha256": "1df9a46c65d2a6e52d2f6d9f642e4adc7364ce4327e3c5d2771a0a0df7a49934"
+    },
+    {
+      "label": "evidence/unified_20261016/rank6/fermion_crossing_receipt_optimized.json",
+      "path": "evidence/unified_20261016/rank6/fermion_crossing_receipt_optimized.json",
+      "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/evidence/unified_20261016/rank6/fermion_crossing_receipt_optimized.json",
+      "sha256": "1df9a46c65d2a6e52d2f6d9f642e4adc7364ce4327e3c5d2771a0a0df7a49934"
+    },
+    {
+      "label": "evidence/unified_20261016/rank6/research_progress.json",
+      "path": "evidence/unified_20261016/rank6/research_progress.json",
+      "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/evidence/unified_20261016/rank6/research_progress.json",
+      "sha256": "2d2364a5b5a9fe30b8301b33648be13a5ed16584629a5582ba73a23c7f4a25a6"
+    },
+    {
+      "label": "evidence/unified_20261016/rank6/verify_fermion_crossing.py",
+      "path": "evidence/unified_20261016/rank6/verify_fermion_crossing.py",
+      "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/evidence/unified_20261016/rank6/verify_fermion_crossing.py",
+      "sha256": "6cd4989e6f43a7ec43d4bbfd161446a48a23980bbb922f75c4ef31f302c12d9f"
+    },
+    {
+      "label": "manuscripts/rank6/papers/chapters/dimension_block_20261016.tex",
+      "path": "manuscripts/rank6/papers/chapters/dimension_block_20261016.tex",
+      "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/manuscripts/rank6/papers/chapters/dimension_block_20261016.tex",
+      "sha256": "89a80bd108f2bc6691d5e8b7bdd3b478025373713d3769f8ceae22fec688d03f"
+    },
+    {
+      "label": "manuscripts/rank6/papers/chapters/fermion_azumaya_20261016.tex",
+      "path": "manuscripts/rank6/papers/chapters/fermion_azumaya_20261016.tex",
+      "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/manuscripts/rank6/papers/chapters/fermion_azumaya_20261016.tex",
+      "sha256": "a12a3c3ac655fb7a3f41cb288e9b8ae730d136ad108ebf9fc73befeec8f379d0"
+    },
+    {
+      "label": "manuscripts/rank6/papers/chapters/frontier_155.tex",
+      "path": "manuscripts/rank6/papers/chapters/frontier_155.tex",
+      "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/manuscripts/rank6/papers/chapters/frontier_155.tex",
+      "sha256": "2d238415996eadf9ae70bdca0bda6d9e039ae06657f3b7549751f43f2721a6b1"
+    },
+    {
+      "label": "manuscripts/rank6/papers/chapters/frontier_155_odd_clifford.tex",
+      "path": "manuscripts/rank6/papers/chapters/frontier_155_odd_clifford.tex",
+      "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/manuscripts/rank6/papers/chapters/frontier_155_odd_clifford.tex",
+      "sha256": "a035b0c137a83e511ccd6a4c3e7c64f120eb25f288d773fff644a54522cafdf4"
+    },
+    {
+      "label": "manuscripts/rank6/papers/chapters/frontier_refined.tex",
+      "path": "manuscripts/rank6/papers/chapters/frontier_refined.tex",
+      "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/manuscripts/rank6/papers/chapters/frontier_refined.tex",
+      "sha256": "2635df8fd163983b24faed192a8938d0a3ee14833586c731f94f6dac5afa5f09"
+    },
+    {
+      "label": "manuscripts/rank6/papers/chapters/frontier_tensor_functors.tex",
+      "path": "manuscripts/rank6/papers/chapters/frontier_tensor_functors.tex",
+      "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/manuscripts/rank6/papers/chapters/frontier_tensor_functors.tex",
+      "sha256": "309cd351408d33b1b0946a07e20a52af8392970efa8d19ebf7333997764305db"
+    },
+    {
+      "label": "site/BRAIDED_CATEGORIFICATION.md",
+      "path": "site/BRAIDED_CATEGORIFICATION.md",
+      "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/site/BRAIDED_CATEGORIFICATION.md",
+      "sha256": "4b1a05cbc5c3b6934a9cfdaf5ade05d14f730517fb4270276bfca433ac759345"
+    },
+    {
+      "label": "site/categorification_scope.json",
+      "path": "site/categorification_scope.json",
+      "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/site/categorification_scope.json",
+      "sha256": "20595ae079485cdf03289b384d13a92dad670f58afc73c2baa67d465ec65c9e9"
+    },
+    {
+      "label": "site/dist/data/rank6_unresolved_tensors.json",
+      "path": "site/dist/data/rank6_unresolved_tensors.json",
+      "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/site/dist/data/rank6_unresolved_tensors.json",
+      "sha256": "cf1f3ac0d2b05062861f036932bdb140a5a5f0055dd054689b6e1fa67924d203"
+    },
+    {
+      "label": "supplements/rank6/data/frontier_research_progress.json",
+      "path": "supplements/rank6/data/frontier_research_progress.json",
+      "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/supplements/rank6/data/frontier_research_progress.json",
+      "sha256": "77781fee75dfbeb95085348255b780eb71d023c262964c3d382633436a619fbc"
+    },
+    {
+      "label": "supplements/rank6/data/unresolved_tensors.json",
+      "path": "supplements/rank6/data/unresolved_tensors.json",
+      "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/supplements/rank6/data/unresolved_tensors.json",
+      "sha256": "cf1f3ac0d2b05062861f036932bdb140a5a5f0055dd054689b6e1fa67924d203"
+    },
+    {
+      "label": "supplements/rank6/verification/classification/attempts.jsonl",
+      "path": "supplements/rank6/verification/classification/attempts.jsonl",
+      "url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/tree/main/data/payloads/supplements__rank6__verification__classification__attempts_jsonl",
+      "packaged": true,
+      "payload_directory": "data/payloads/supplements__rank6__verification__classification__attempts_jsonl",
+      "restoration_note": "This source is stored in packaged payloads. After cloning the repository, run python3 tools/restore_data.py to restore the original path and verify its SHA-256.",
+      "restoration_command": "python3 tools/restore_data.py",
+      "restoration_url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/tools/restore_data.py",
+      "manifest_url": "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/data/large_files_manifest.json",
+      "sha256": "1a86d649c1eb4e9156e085c18bbadeace8e66945efa962093a68da1ba0b5bfdc"
+    }
+  ],
+  "download_url": "./downloads/fusion-tensors/R6_4_155.txt"
+}

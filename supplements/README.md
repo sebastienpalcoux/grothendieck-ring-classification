@@ -1,10 +1,6 @@
 # Classification software and evidence
 
-<!-- frontier-20261027 -->
-**27 October 2026 · audited continuation.** R9_2_1607, R9_2_1975 and R9_2_1976 are excluded over the complex numbers. **Seven cases remain unresolved:** two at rank six, four at rank eight and one at rank nine. The conditional R1660–R941 algebra construction is precise; every GH(C6,2) Morita route for R1768 is excluded. [Proofs, individual findings and exact replay](../evidence/frontier_20261027/README.md). Independent human verification remains pending.
-<!-- /frontier-20261027 -->
-
-The rank-eight multiplicity-three continuation addresses all 3,527 supplied exact-multiplicity-three rings: 3,507 general exclusions, 16 models and 4 unresolved cases. Every recorded model admits a unitary realization. The four remaining rings retain unresolved status for general complex categorification. R8_3_436 has an independent general exclusion.
+The rank-eight multiplicity-three continuation addresses all 3,527 supplied exact-multiplicity-three rings: 3,508 general exclusions, 16 models and 3 unresolved cases. Every recorded model admits a unitary realization. The four remaining rings retain unresolved status for general complex categorification. R8_3_436 has an independent general exclusion.
 
 The rank-seven multiplicity-five continuation addresses all 5,805 supplied exact-multiplicity-five rings: 5,804 general exclusions, 1 realization and 0 unresolved cases. The classification of the supplied census is complete through multiplicity 5. The new realization R7_5_5678 is Rep(AGL(1,7)).
 
@@ -24,7 +20,7 @@ package.
 | 5 | [Guide](rank5/README.md) · [complete public replay](../docs/VERIFY.md#complete-rank-four-and-rank-five-checks) | 40,999 inputs; 40,982 exclusions and 17 models through 20. |
 | 6 | [Guide](rank6/README.md) · [combined full replay](../docs/VERIFY.md#complete-rank-six-route) | 25,421 inputs; 25,362 exclusions, 57 models and two open cases through 9. |
 | 7 | [Guide](rank7/README.md) | Through multiplicity 5: 9,976 exclusions, 30 models and 0 unresolved; complete through 5. |
-| 8 | [Guide](rank8/README.md) | Through multiplicity 3: 4,403 exclusions, 93 unitary models and 4 unresolved; complete through 2. |
+| 8 | [Guide](rank8/README.md) | Through multiplicity 3: 4,404 exclusions, 93 unitary models and 3 unresolved; complete through 2. |
 
 The [historical 38-case continuation](../docs/RESEARCH_STATUS.md) records **36 decisions among 38 cases**: 29 proposed general exclusions and 7 unitary constructions. Within that historical 38-case study, two questions remain open: `R6_4_155` and `R6_8_1660`. The historical residual program before the rank-eight M3 extensions records 140 decisions (120 exclusions and 20 constructions), all subject to independent mathematical verification.
 

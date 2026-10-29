@@ -852,7 +852,7 @@ def main():
         files={name:correctness_document(name,content,args.repo)for name,content in files.items()}
     from rank12_publication import extend_document
     files={name:extend_document(name,content,args.repo)for name,content in files.items()}
-    from frontier_20261027 import revise_document as frontier_document
+    from frontier import revise_document as frontier_document
     files={name:frontier_document(name,content,args.repo)for name,content in files.items()}
     for name,content in files.items():
         target=(args.output_dir or args.repo)/name

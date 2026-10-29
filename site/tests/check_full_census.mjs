@@ -31,8 +31,8 @@ assert.equal(last.records.at(-1).rank, 12);
 const models = await api.censusPage(manifest, {...empty, status: "realized"}, 0);
 assert.equal(models.total, 530, "Rank-two realizations are separate from the finite census");
 const unresolved = await api.censusPage(manifest, {...empty, status: "unresolved"}, 0);
-assert.equal(unresolved.total, 7);
-assert.equal(new Set(unresolved.records.map(r => r.id)).size, 7);
+assert.equal(unresolved.total, 6);
+assert.equal(new Set(unresolved.records.map(r => r.id)).size, 6);
 const rankFour = await api.censusPage(manifest, {...empty, rank: 4}, 0);
 assert.equal(rankFour.total, 889530);
 const propertyQueries = [

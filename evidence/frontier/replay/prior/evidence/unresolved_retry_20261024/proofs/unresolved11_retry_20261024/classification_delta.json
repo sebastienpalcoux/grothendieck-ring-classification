@@ -1,0 +1,25 @@
+{
+  "date": "2026-10-24",
+  "published_source_commit": "323c4227ffb796a72eef506f1eb289437fbc95db",
+  "newly_excluded": 0,
+  "newly_modeled": 1,
+  "remaining_unresolved": 10,
+  "online_revision_performed": false,
+  "changes": [
+    {
+      "id": "R10_1_189",
+      "source_tensor_sha256": "c44e21d1844ded91dba30cd6c691180afa4d4f1be1c4f27806bbc12c8c8292f4",
+      "previous_status": "unresolved",
+      "new_status": "modeled",
+      "existence": {"general": "yes", "unitary": "yes"},
+      "model": "Neutral charge-zero component of SU(4)_6 modules over the conformal-inclusion algebra of SU(4)_6 subset SU(10)_1",
+      "algebra_object": ["000", "060", "202", "222"],
+      "basis_permutation": [0, 1, 8, 7, 2, 9, 4, 6, 5, 3],
+      "structure_constants_verified": 1000,
+      "proof": "rank10/rank10_conformal_model.tex",
+      "verifier": "rank10/verify_conformal_model.py",
+      "scope": "Actual unitary fusion-category construction; no inference of existence from modular data alone"
+    }
+  ],
+  "unresolved": ["R6_4_155", "R6_8_1660", "R8_3_928", "R8_3_941", "R8_3_1154", "R8_3_1768", "R9_2_137", "R9_2_1607", "R9_2_1975", "R9_2_1976"]
+}

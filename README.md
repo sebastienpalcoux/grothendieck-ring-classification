@@ -1,12 +1,8 @@
 # Grothendieck ring classification
 
-<!-- frontier-20261027 -->
-**27 October 2026 · audited continuation.** R9_2_1607, R9_2_1975 and R9_2_1976 are excluded over the complex numbers. **Seven cases remain unresolved:** two at rank six, four at rank eight and one at rank nine. The conditional R1660–R941 algebra construction is precise; every GH(C6,2) Morita route for R1768 is excluded. [Proofs, individual findings and exact replay](evidence/frontier_20261027/README.md). Independent human verification remains pending.
-<!-- /frontier-20261027 -->
-
-<!-- correctness-20261025 -->
-**Correctness revision · 25 October 2026.** The current classification is unchanged. Three model-identification arguments are repaired, R8_3_721 has a direct exact completion, and implementation/replay defects are corrected. [Findings, corrections and exact commands](evidence/correctness_20261025/README.md). Independent human verification remains pending.
-<!-- /correctness-20261025 -->
+<!-- current-frontier -->
+**Current classification · 29 October 2026.** R8_3_1768 is excluded over the complex numbers by pivotal conjugation parity, using the established existence and center-domain reductions. **Six cases remain unresolved:** two at rank six, three at rank eight and one at rank nine. No additional model is claimed. [Current proofs and exact checks](https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/evidence/frontier/README.md).
+<!-- /current-frontier -->
 
 **Which low-rank fusion rings admit fusion categories over ℂ?**
 
@@ -32,13 +28,13 @@ Higher ranks have the explicit multiplicity bounds below.
 | 5 | Through 20 | **Complete through 20** | Through 20: 40,982 excluded, 17 realized, 0 unresolved. |
 | 6 | Through 9 | **Complete through 3** | Through 9: 25,362 excluded, 57 realized, 2 unresolved. |
 | 7 | Through 5 | **Complete through 5** | Through 5: 9,976 excluded, 30 realized, 0 unresolved. |
-| 8 | Through 3 | **Complete through 2**; multiplicity 3 partial | Through 3: 4,403 excluded, 93 realized, 4 unresolved. |
+| 8 | Through 3 | **Complete through 2**; multiplicity 3 partial | Through 3: 4,404 excluded, 93 realized, 3 unresolved. |
 | 9 | Through 2 | **Complete through 1**; multiplicity 2 partial | Through 2: 2,148 excluded, 76 realized, [1 unresolved](https://sebastienpalcoux.github.io/grothendieck-ring-classification/unresolved.html?rank=9&m=2). |
 | 10 | Multiplicity 1 | **Complete at multiplicity 1** | 136 excluded, 58 realized, 0 unresolved. |
 | 11 | Multiplicity 1 | **Complete at multiplicity 1** | 155 excluded, 27 realized, 0 unresolved. |
 | 12 | Through 1 | **Complete through 1** | 632 rings: 480 general exclusions, 152 modeled, none unresolved. 151 models are unitary; R12_1_623 is complex/pseudo-unitary, with unitarity unproved. |
 
-**7 open cases.** General categorification remains undecided for these rings.
+**6 open cases.** General categorification remains undecided for these rings.
 [Explore their status, invariants and research records](https://sebastienpalcoux.github.io/grothendieck-ring-classification/unresolved.html).
 
 <details id="grothendieck-rings--known-realizations-at-each-exact-multiplicity">
@@ -69,7 +65,7 @@ general categorification remains open; a dash marks an unanalyzed band.
 | Resource | Start here |
 |---|---|
 | **Rank-four theorem** | [Unrestricted classification and reading guide](manuscripts/rank4/README.md) |
-| Mathematics | [Manuscripts by rank](manuscripts/README.md) · [Current open tensors](data/current_remaining_cases.py) · [Earlier construction-candidates report · PDF](docs/New_category_candidates_and_open_cases.pdf) |
+| Mathematics | [Manuscripts by rank](manuscripts/README.md) · [Current open tensors](data/current_remaining_cases.py) · [Current frontier report · PDF](manuscripts/frontier/Fusion_Ring_Frontier.pdf) |
 | Data | [Current decision records](data/current_publication_revision.json) · [All fusion rings and enumeration](https://github.com/sebastienpalcoux/fusion-ring-census) |
 | Computation | [Rank-nine M2 replay](evidence/rank9_m2_20261024/README.md) · [Rank-11 replay](evidence/rank11_m1_20261023/README.md) · [Earlier replay instructions](docs/VERIFY.md) · [Provenance](docs/PROVENANCE.md) |
 | Project details | [Research updates, models, band tables and repository guide](docs/PROJECT_GUIDE.md) |

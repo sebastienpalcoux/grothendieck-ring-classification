@@ -370,127 +370,55 @@ function renderTheoreticalUpdate() {
   const details = $("#theoretical-update");
   notice.hidden = details.hidden = !update;
   if (!update) return;
-  const latest = state.data.rank8_m3_update || state.data.rank7_m5_update;
-  const date = new Date((latest?.date || update.date) + "T12:00:00Z").toLocaleDateString("en-GB", {day:"numeric", month:"long", year:"numeric", timeZone:"UTC"});
-  $("#research-update-title").textContent = latest ? `${date} · rank ${latest.rank===8 ? "eight through multiplicity three" : "seven through multiplicity five"} · ${latest.unresolved} open cases` : `${date} · ${update.new_general_exclusions} exclusions · ${update.new_unitary_models || 0} unitary models`;
-  if (latest?.unresolved) linkUnresolvedText($("#research-update-title"),`${latest.unresolved} open cases`,{rank:latest.rank,max_m:state.data.scope.find(r=>r.rank===latest.rank)?.analyzed_through});
-  const rankNames = {"6": "rank-six", "7": "rank-seven", "8": "rank-eight", "9": "rank-nine", "10": "rank-ten"};
-  const currentRemaining = Object.fromEntries(state.data.scope.filter(r=>r.rank>=6 && r.rank<=8).map(r=>[String(r.rank),r.unresolved]));
-  const openParts = Object.entries(currentRemaining).filter(([, count]) => count > 0).map(([rank, count]) => `${count} ${rankNames[rank]}`);
-  const openText = openParts.length ? ` General existence remains open for ${openParts.join(", ")} rings.` : " Every case in this continuation is resolved.";
-  const completion = state.data.scope.filter(r=>r.rank>=7 && r.rank<=8).map(r=>` Rank ${r.rank} is complete through multiplicity ${r.through}; analyzed through ${r.analyzed_through}.`).join("");
-  const m5 = state.data.rank7_m5_update;
   const m3 = state.data.rank8_m3_update;
-  const extensionText = (m3 ? ` The rank-eight multiplicity-three continuation addresses ${fmt.format(m3.rings)} rings: ${fmt.format(m3.excluded)} general exclusions, ${m3.unitarily_realized} unitary models and ${m3.unresolved} ${m3.frontier ? "extensively investigated exotic candidates" : "individually investigated unresolved candidates"}.` : "") + (m5 ? ` The rank-seven multiplicity-five continuation addresses ${fmt.format(m5.rings)} rings: ${fmt.format(m5.excluded)} exclusions, ${m5.realized} model${m5.realized===1?"":"s"} and ${m5.unresolved} open cases.` : "");
-  const continuationText = m5?.continuation_decisions?.length ? ` The rank-seven continuation resolves ${m5.continuation_decisions.length} of the 15 rank-seven cases left open on 19 October.` : "";
-  const braidedText = m5?.remaining_ids?.length && m5.remaining_ids.every(id=>["R7_5_3895","R7_5_5039"].includes(id))
-    ? (m5.remaining_ids.length===1
-      ? " The remaining rank-seven ring admits no braided categorification; its general categorification remains open."
-      : " Both remaining rank-seven rings admit no braided categorification; their general categorification remains open.") : "";
-  $("#research-update-summary").textContent = `${extensionText.trim()}${continuationText}${braidedText}${completion}${openText}`;
-  $("#theoretical-update-heading").textContent = `Earlier ranks 6–8 research · ${Object.values(currentRemaining).reduce((a,b)=>a+b,0)} open cases`;
-  $("#theoretical-update-scope").textContent = extensionText + continuationText + braidedText + " The new arguments combine quadratic-compositum compression, biquadratic and weak-integral rotation constraints, complete central-induction frames, character-labeled modular S and STS constraints, integer center decompositions, cubic Verlinde integrality, split-module polynomials and Morita transport. A two-prime norm criterion restricts integral center objects. Constructions include near-group equivariantizations, exceptional subfactor models, cyclic Fibonacci equivariantization a twisted A6/A5 group-theoretical category and the inherited GH(C8)/C2 Q-system Morita dual. Each remaining candidate survived the documented case-specific exclusion and construction campaign. This operational designation asserts neither categorifiability nor novelty of a future realization. Census completeness relies on producer-run records with independent tensor and isomorphism audits. The historical archive retains its original proof inputs and replay receipts. Current PDFs and audit corrections are linked separately. Independent human verification and Lean formalization remain pending.";
-  linkUnresolvedText($("#theoretical-update-heading"),`${Object.values(currentRemaining).reduce((a,b)=>a+b,0)} open cases`);
-  for (const container of [$("#research-update-summary"),$("#theoretical-update-scope")]) {
-    if (m3?.unresolved) linkUnresolvedText(container,`${m3.unresolved} ${m3.frontier?"extensively investigated exotic candidates":"individually investigated unresolved candidates"}`,{rank:8,m:3});
-    if (m5?.unresolved) linkUnresolvedText(container,`${m5.unresolved} open cases`,{rank:7,m:5});
-    for (const [rank,count] of Object.entries(currentRemaining)) {
-      if (count) linkUnresolvedText(container,`${count} ${rankNames[rank]}`,{rank});
+  const currentRemaining = {};
+  if (state.data.remaining_ids?.length) {
+    for (const id of state.data.remaining_ids) {
+      const rank = id.match(/^R(\d+)_/)?.[1];
+      if (rank) currentRemaining[rank] = (currentRemaining[rank] || 0) + 1;
     }
+  } else {
+    for (const row of state.data.scope) if (row.unresolved) currentRemaining[row.rank] = row.unresolved;
   }
-  const base = `${state.data.classification_repository}/blob/${state.data.classification_commit || "main"}/docs/RESEARCH_STATUS.md`;
-  const publication = state.data.latest_catalogue_publication;
-  const current = publication?.date >= (latest?.date || update.date) ? publication : null;
-  const currentDate = current?.date ? new Date(current.date + "T12:00:00Z").toLocaleDateString("en-GB", {day:"numeric", month:"long", year:"numeric", timeZone:"UTC"}) : date;
-  if (current?.counts?.["12"]) {
-    $("#research-update-title").textContent = `${currentDate} · rank twelve · multiplicity one complete`;
-    $("#research-update-summary").textContent = "All 632 rank-twelve rings are decided: 480 general exclusions and 152 models. Exactly 151 models are known unitary; R12_1_623 has a complex and pseudo-unitary realization with unitarity unproved. The ten open cases at lower ranks are unchanged.";
+  const totalOpen = Object.values(currentRemaining).reduce((a,b)=>a+b,0);
+  const rankNames = {"6":"rank-six", "7":"rank-seven", "8":"rank-eight", "9":"rank-nine", "10":"rank-ten"};
+  const openText = Object.entries(currentRemaining).filter(([,n])=>n).map(([rank,n])=>`${n} ${rankNames[rank] || `rank-${rank}`}`).join(", ");
+  const scopeText = `General existence remains open for ${openText} rings. ` +
+    (m3 ? `The rank-eight multiplicity-three band has ${fmt.format(m3.excluded)} general exclusions, ${m3.unitarily_realized} unitary models and ${m3.unresolved} unresolved cases. ` : "") +
+    "R8_3_1768 is excluded by pivotal conjugation parity and the complete necessary indicator system. The other current restrictions do not provide another category or general exclusion.";
+  $("#research-update-title").textContent = `Current classification · ${totalOpen} open cases`;
+  $("#theoretical-update-heading").textContent = `Current proofs · ${totalOpen} open cases`;
+  $("#research-update-summary").textContent = scopeText;
+  $("#theoretical-update-scope").textContent = scopeText + " The current proof notes distinguish the inherited categorical premises, exact certificates, and remaining gaps.";
+  for (const selector of ["#research-update-title", "#theoretical-update-heading"]) linkUnresolvedText($(selector), `${totalOpen} open cases`);
+  for (const container of [$("#research-update-summary"),$("#theoretical-update-scope")]) {
+    if (m3?.unresolved) linkUnresolvedText(container,`${m3.unresolved} unresolved cases`,{rank:8,m:3});
+    for (const [rank,count] of Object.entries(currentRemaining)) if (count) linkUnresolvedText(container,`${count} ${rankNames[rank] || `rank-${rank}`}`,{rank});
   }
-  $("#latest-research-source").href = current?.source_url || base;
-  $("#latest-research-source").textContent = `${currentDate} proofs and remaining cases ↗`;
+  const base = `${state.data.classification_repository}/blob/main/evidence/frontier/README.md`;
+  $("#latest-research-source").href = base;
+  $("#latest-research-source").textContent = "Current proofs and remaining cases ↗";
   const actions = $("#theoretical-update-actions");
   actions.replaceChildren();
-  const archive = element("a", "", `Historical proof archive · ${(update.archive.bytes / 1048576).toFixed(1)} MB ↓`);
-  archive.href = update.archive.url || `./${update.archive.path}`; archive.download = "";
-  const decisions = element("a", "", "Historical continuation decisions JSON ↓");
-  decisions.href = `./${update.files.decisions.path}`; decisions.download = "";
-  const remaining = element("a", "", "Remaining cases JSON ↓");
-  remaining.href = `./${state.data.remaining_ids_file?.path || update.files.remaining_ids.path}`; remaining.download = "";
-  if (m3?.attempts) {
-    const attempts = element("a", "", "Per-candidate attempts JSON ↓");
-    attempts.href = `./${m3.attempts.path}`; attempts.download = "";
-    actions.append(attempts);
-  }
-  const source = element("a", "", "Research source ↗");
-  source.href = base; source.target = "_blank"; source.rel = "noopener";
-  const review = element("a", "", "Research status & verification ↗");
-  review.href = "./review.html";
-  const auditCorrectionLink = element("a", "", "Current audit corrections & verification →");
-  auditCorrectionLink.href = `${state.data.classification_repository}/blob/main/evidence/audit_20261024/README.md`;
-  actions.append(auditCorrectionLink, archive, decisions, remaining, source, review);
-  const coverage = element("a", "", "Historical 38-case study and proof references ↗");
-  coverage.href = `${state.data.classification_repository}/blob/${state.data.classification_commit || "main"}/docs/CASE_INVENTORY.md`;
-  coverage.target = "_blank"; coverage.rel = "noopener";
-  actions.append(coverage);
-  const labels = {
-    anti_invariant_involution_module: "Involution module and character obstruction",
-    involution_anti_module_spectral: "Involution module and spectral obstruction",
-    three_fixed_dual_module_Gram: "Morita dual module Gram obstruction",
-    positive_semidefinite_module_Gram: "Positive semidefinite module Gram obstruction",
-    full_induction_compression_parity: "Full-induction compression and parity",
-    signed_C3_sphericality_dimension_block: "Signed C₃ sphericality and dimension bound",
-    cyclic_stabilizer_divisibility: "Cyclic stabilizer divisibility",
-    dimension_block_conductor: "Dimension-block conductor bound",
-    quadratic_subcategory_index: "Quadratic subcategory index",
-    Morita_adjoint_normality: "Morita dual and stabilizer obstruction",
-    conductor32_signed_Jacobi: "Conductor-32 signed Jacobi obstruction",
-    C3_A4_Morita_formal_codegree: "Morita reduction and formal-codegree arithmetic",
-    inverse_V4_Morita_near_group: "Inverse Morita and near-group exclusion",
-    nonsplit_2D2_extension: "Unitary nonsplit 2D2 extension",
-    HI_C6_Q_system_dual: "Unitary Haagerup–Izumi dual construction",
-    algebraic_2D2_planar_algebra: "Algebraic 2D2 planar-algebra exclusion",
-    odd_involution_morita_near_group: "Odd-involution Morita exclusion",
-    twisted_half_braiding_support: "Twisted half-braiding obstruction",
-    C5_near_group_center_factor: "Unitary near-group center factor",
-    simple_center_prime_power_lattice: "Simple-center induction lattice",
-    pivotal_parity_inverse_morita: "Pivotal parity and inverse Morita",
-    Fibonacci_character_parity: "Fibonacci character parity",
-    quadratic_center_Galois_two_moment: "Quadratic center and two twist moments",
-    twisted_v4_staged_morita_obstruction: "Staged twisted-V4 Morita obstruction",
-    quadratic_prime_indicator_balance: "Conductor-seventeen indicator balance",
-    quadratic_center_reciprocity_two_moment: "Character reciprocity and two center moments",
-    quadratic_conductor_Galois_indicator: "Weighted Galois third-indicator obstruction",
-    quadratic_conductor40_center_trace: "Conductor-forty center trace",
-    cyclic_induction_phase_multiplicity: "Cyclic induction phase multiplicity",
-    cyclic_induction_STS_fourth_moment: "Full center STS and fourth indicator",
-    exact_center_indicator_certificate: "Complete center and rotation-indicator certificate",
-    projective_inner_square_obstruction: "Projective inner-square obstruction",
-    inner_square_torus_rigidity: "Inner-square obstruction by short gauge weights and rigidity",
-    dihedral_Morita_R18_obstruction: "Dihedral Morita and center STS",
-    PSU3_inverse_Morita_rigidity: "Quantum-group inverse Morita rigidity",
-    C16_orbifold_inversion_Morita: "Unitary orbifold and reflection dual",
-    C4_squared_orbifold_inversion_Morita: "Unitary orbifold and reflection dual",
-    C4_near_group_pointed_centralizer: "Unitary near-group pointed centralizer",
-    quadratic_casimir_compression: "Quadratic Casimir compression",
-    oriented_signed_compression: "Complete sphericalization and compression",
-    quadratic_center_Galois_two_moment_q60: "Conductor-sixty center moments and Galois reduction",
-    cyclic3_full_morita_rank13_descent: "Full cyclic Morita dual and dimension-148 descent",
-    oriented_dimension_order: "Complete sphericalization and dimension order",
-    character: "Complete character cover and induction obstruction",
-    general_induction: "Complete signed reduction and induction obstruction",
-  };
+  const archive = element("a", "", "Current proofs and exact checks · ZIP ↓");
+  archive.href = "./downloads/Fusion-Ring-Frontier-Proofs-and-Checks.zip"; archive.download = "";
+  const remaining = element("a", "", "Current open tensors · Python ↓");
+  remaining.href = "./downloads/current_remaining_cases.py"; remaining.download = "";
+  const source = element("a", "", "Proof notes and commands ↗"); source.href = base;
+  const review = element("a", "", "Research status & verification ↗"); review.href = "./review.html";
+  actions.append(archive, remaining, source, review);
   const rows = $("#theoretical-update-rows");
   rows.replaceChildren();
-  for (const record of [...(m5?.continuation_decisions || []), ...update.decisions]) {
-    const row = element("tr");
-    const name = element("th", "", record.id); name.scope = "row";
-    const proof = element("a", "", `${labels[record.criterion] || "Theoretical proof"} ↗`);
-    proof.href = `${state.data.classification_repository}/blob/${state.data.classification_commit || "main"}/${record.proof_source || update.proofs_source || update.source}/${record.proof}`;
-    proof.target = "_blank"; proof.rel = "noopener";
+  const ids = [...new Set(["R8_3_1768", ...(state.data.remaining_ids || [])])].sort((a,b)=>a.localeCompare(b, "en", {numeric:true}));
+  for (const id of ids) {
+    const row = element("tr"); const name = element("th", "", id); name.scope = "row";
+    const proof = element("a", "", id === "R8_3_1768" ? "General exclusion: pivotal conjugation parity →" : "Current restrictions and remaining gap →");
+    proof.href = `./case.html?id=${encodeURIComponent(id)}`;
     const cell = element("td"); cell.append(proof); row.append(name, cell); rows.append(row);
   }
-  const checksum = $("#theoretical-update-checksum");
-  checksum.replaceChildren(document.createTextNode("Proof bundle SHA-256: "), element("code", "", update.archive.sha256));
+  const checksum = $("#theoretical-update-checksum"); checksum.replaceChildren();
+  const manifest = element("a", "", "Current source and download checksums ↓"); manifest.href = "./data/current_publication_revision.json"; manifest.download = "";
+  checksum.append(manifest);
   notice.querySelector("a").addEventListener("click", () => { details.open = true; });
 }
 
@@ -509,7 +437,8 @@ function renderPapers() {
       const caseLink=element("a","unresolved-count-link",record.id);
       caseLink.href=`./case.html?id=${encodeURIComponent(record.id)}`;name.append(caseLink);
       name.scope = "row";
-      row.append(name, element("td", "", record.public_summary));
+      const currentProfile = state.data.catalogue_records?.find(r => r.id === record.id);
+      row.append(name, element("td", "", currentProfile?.summary || record.public_summary));
       frontierRows.append(row);
     }
     $("#rank6-frontier").hidden = !frontierRows.children.length;

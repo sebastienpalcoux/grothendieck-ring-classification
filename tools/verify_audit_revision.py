@@ -31,6 +31,10 @@ def documents():
  return True
 
 def main(metadata_only=False):
+ from frontier import active as frontier_active
+ if frontier_active(ROOT):
+  from verify_frontier import main as current
+  return current(metadata_only)
  from correctness_publication import active as correctness_active
  if correctness_active(ROOT):
   from verify_correctness_revision import main as current

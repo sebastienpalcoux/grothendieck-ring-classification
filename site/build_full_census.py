@@ -174,7 +174,7 @@ def compile_indexer(cache, boost_include=None):
     if not binary.exists():
         command = [os.environ.get('CXX', 'g++'), '-O3', '-std=c++17', '-Wall', '-Wextra', '-Werror']
         if boost_include:
-            command += ['-I', str(boost_include)]
+            command += ['-isystem', str(boost_include)]
         subprocess.run(command + [str(source), '-o', str(binary)], check=True)
     return binary
 
@@ -376,7 +376,7 @@ def build(args):
                 'profiles': profile_index_record, 'bindings': file_record(binding_file, staging),
                 'identifiers': 'C{rank}_{exact multiplicity}_{1-based index within that band in the pinned census export}. Existing R and F profile identifiers retain their original meaning and URLs. Census basis maps are verified coefficient by coefficient.',
                 'classification_scope': 'Published band classification transported by exact identification of every modeled and unresolved class. Other classes are excluded by that band classification; a case-specific criterion is shown only when documented.'}
-    if sum(totals.values()) != 1434042 or len(matched) != 3460 or totals['unresolved'] != 7:
+    if sum(totals.values()) != 1434042 or len(matched) != 3460 or totals['unresolved'] != 6:
         raise ValueError('Review full-census coverage expectations before publication')
     manifest['generated_bytes'] = sum(p.stat().st_size for p in staging.rglob('*') if p.is_file())
     manifest['max_tensor_request_bytes'] = max_tensor_request

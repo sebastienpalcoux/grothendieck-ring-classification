@@ -4,7 +4,10 @@ import json,re
 ROOT=Path(__file__).resolve().parents[1]
 def identifiers(repo=ROOT):
  from rank7_publication import remaining_ids
- repo=Path(repo);ids=set(remaining_ids(repo))
+ repo=Path(repo)
+ from frontier import active as current_active, REMAINING as current_ids
+ if current_active(repo):return list(current_ids)
+ ids=set(remaining_ids(repo))
  for name in ('evidence/rank10_m1_exclusions_20261023/accepted_ledger.json','evidence/rank9_m2_20261024/ledger.json'):
   path=repo/name
   if not path.exists():continue

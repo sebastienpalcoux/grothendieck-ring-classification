@@ -1,0 +1,19 @@
+{
+  "status": "unresolved",
+  "new_complete_exclusions": 0,
+  "new_models": 0,
+  "source_hashes": {
+    "frontier-20261029/prior/evidence/unresolved7_20261027/audit_parity/R137_tau_plus_prior_system.json.gz": "af991e9354087221b0fe80943fbd386067e60fc4d0a5fff2b28a2ccd57252b7f",
+    "frontier-20261029/prior/evidence/unresolved7_20261027/audit_parity/R137_tau_plus_positive_fs2_system.json.gz": "9c1dcfc4bd32d32f5c2c0dc73415c1117e426f4d3b8fb172542d7b5dfb25fa9e",
+    "frontier-20261029/prior/evidence/unresolved7_20261027/audit_parity/R137_tau_minus_positive_fs2_system.json.gz": "0acb21fb99c7eba3cb3c727899f60a1dec8b6b2c58a9dd10099fac847950b096"
+  },
+  "accepted_new_restrictions": [
+    "full_column_square_galois_orbits",
+    "fourth_indicator_clifford_grid",
+    "simple_or_s_simple_center"
+  ],
+  "exact_replay": "python orbit_discrete_screen.py --verify",
+  "structural_replay": "python verify_structural.py",
+  "fourth_moments_are_projected": true,
+  "no_online_mutation": true
+}

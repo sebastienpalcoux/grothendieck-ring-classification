@@ -214,12 +214,13 @@ def document_paths(repo):
     return {path.relative_to(repo).as_posix()
             for root in roots for path in root.rglob('*')
             if path.is_file() and path.suffix in ('.tex', '.pdf')
-            and path.relative_to(repo).as_posix() not in excluded} | {'docs/New_category_candidates_and_open_cases.pdf'}
+            and path.relative_to(repo).as_posix() not in excluded
+            and not path.name.startswith('prepublication-review-')} | {'docs/New_category_candidates_and_open_cases.pdf'}
 
 def validate_documents(repo, check_web=False):
     repo = Path(repo)
     revision = json.loads((repo / DOCUMENT_REVISION).read_text())
-    need(revision['schema'] == 'current-document-revision/v1' and revision['date'] in ('2026-10-17', '2026-10-19', '2026-10-20', '2026-10-21', '2026-10-22', '2026-10-24', '2026-10-25', '2026-10-27'),
+    need(revision['schema'] == 'current-document-revision/v1' and revision['date'] in ('2026-10-17', '2026-10-19', '2026-10-20', '2026-10-21', '2026-10-22', '2026-10-24', '2026-10-25', '2026-10-27', '2026-10-29'),
          'Current document revision identity')
     from rank7_publication import remaining_ids, extension
     need(revision['remaining_ids'] == remaining_ids(repo)

@@ -1,68 +1,11 @@
-\section{Pairing obstructions and the four remaining rings}
+\section{Structural restrictions on the three open rings}
 \label{sec:pairing-frontier-20261027}
-All four rings remain unresolved. Every application below uses the established
-general-complex existence reduction to a pseudo-unitary Galois representative;
-it does not assert unitarity of the original category.
-
-\subsection{Quaternionic invertibles and $R8\_3\_1768$}
-For a connected separable algebra in a pseudo-unitary category, its positive
-module trace supplies a symmetric separable Frobenius structure. The
-bimodule forgetful functor is pivotal Frobenius and preserves a chosen
-nondegenerate selfduality pairing with its pivotal sign. Consequently a
-negative selfdual bimodule can contain a positive selfdual source simple
-only with even multiplicity: its multiplicity space is alternating.
-This is pairing transport, not equality of numerical indicators.
-See Schaumann, Proposition 5.8 and Theorem 6.6
-(\url{https://arxiv.org/abs/1206.5716}), and Mulevi\v cius, Example 4.18
-(\url{https://arxiv.org/abs/2206.02611}). The induced positive dimensions
-are $\dim U(Q)/\dim A$, which fixes the pivotal normalization.
-
-\begin{theorem}
-No category with $GH(C_6,2)$ fusion rules is categorically Morita equivalent
-to a categorification of $R8\_3\_1768$, for any associator or algebra.
-\end{theorem}
-\begin{proof}
-Put $u=6+\sqrt{37}$. The positive source second indicators are
-$(1,-1,1,1,1,1,1,1)$ and its dimensions are
-\[
- (1,1,5+\sqrt{37},6+\sqrt{37},7+\sqrt{37},
-                7+\sqrt{37},6+\sqrt{37},5+\sqrt{37}).
-\]
-Its weighted second-indicator total is $6u$. Such totals are Morita
-invariant by the center induction formula. A $GH(C_6,2)$ category has six
-selfdual large simples of dimension $u$. Its pointed contribution is
-$1+\nu_2(g^3)$. Comparing the irrational coefficient and then the rational
-part forces all six large indicators to be $+1$ and $\nu_2(g^3)=-1$.
-Thus this Morita dual would contain a negative-indicator invertible.
-
-Choose any simple $m$ in the connecting module and let $A_m$ be its
-internal end. For a negative invertible $Q$ in the dual,
-$\dim U_m(Q)=\dim A_m$. Pairing parity makes all six nonpointed source
-coefficients in $U_m(Q)$ even. Since each has $\sqrt{37}$ coefficient one,
-the square-root coefficient in $\dim A_m$ is even for every $m$.
-
-The complete module filter, including every retained incomplete-action
-factor, has $21$ possible induction factors. For a root algebra $A$ and
-induction matrix $B$, the internal-end dimensions at every module simple
-are exactly
-\[
- \dim A_m=\frac{(B_m\cdot\boldsymbol d)^2}{\dim A}.
-\]
-In $17$ factors one of these dimensions has odd square-root coefficient.
-They cannot have such a dual. In each of the other four factors a simple
-has internal end of dimension one. Connectedness then makes that internal
-end the unit, and the internal-end equivalence identifies the module with
-the regular module. Its dual has rank eight, not twelve, a contradiction.
-The exact filter refactors all $61$ predecessor candidates; the receipt
-lists all $17$ odd witnesses and four unit witnesses. It does not discard
-the $15$ factors with incomplete actions.
-\end{proof}
-
-In particular no algebra $1+g^j\sigma$ in any twisted higher-Haagerup
-precursor can model this source. The existence of the auxiliary category
-established above remains valid but supplies no model of $R8\_3\_1768$.
-The theorem is a construction-family exclusion, not noncategorifiability
-of the rank-eight ring itself.
+The rings $\sha{R8_3_928}$, $\sha{R8_3_941}$ and $\sha{R8_3_1154}$
+remain unresolved. The general-complex exclusion of $\sha{R8_3_1768}$
+is Theorem~\ref{thm:r1768-general-exclusion}. The positive center and
+indicator arguments below use the established sphericalization/Galois
+existence reductions. The simple-center argument for R1154 uses only
+Frobenius--Perron dimensions and applies to every complex categorification.
 
 \subsection{Third rotations and $R8\_3\_1154$}
 \begin{proposition}
@@ -88,20 +31,60 @@ matrix reconstruction checks every certificate. An order-three rotation
 on a two-dimensional space with trace two is identity.
 \end{proof}
 
-The integral center is Vec even for an arbitrary complex categorification.
-Indeed an integral central simple forgets to $a1+bg$; based centrality and
-the noncentrality of $g$ force $b=0$. Full adjoint closure makes a central
-object supported on the unit trivial. Hence no Morita representative has
-a nontrivial finite-group extension or equivariantization. The auxiliary
-rank-ten category has integral center double Semion, whose only nontrivial
-Tannakian descent returns to this source.
-Direct central condensations from $\mathrm{Fib}^{\boxtimes6}$,
-$GH(C_4,1)\boxtimes\mathrm{Fib}^{\boxtimes3}$ and
-$GH(C_4,1)^{\boxtimes2}$, each with arbitrary pointed factors, are also
-excluded. Dimension and subgroup-index bounds eliminate the first two.
-In the last, the required index-three subgroup contains a central $C_4$;
-quotienting forces the impossible rank-two rule $x^2=1+4x$.
-These are specified central constructions, not all Morita constructions.
+\begin{proposition}[Simple center for R1154]
+Every complex fusion categorification of $\sha{R8_3_1154}$ has simple
+Drinfeld center. No category in its Morita class is braided or a
+nontrivial Deligne tensor product.
+\end{proposition}
+\begin{proof}
+An integral central simple forgets to $a1+bg$, because all six
+noninvertible FP dimensions have strictly positive $\sqrt5$ coefficients.
+Its class is central in the source ring, whereas $g$ is not, so $b=0$.
+The source adjoint subcategory is the whole category. A half-braiding on
+$a1$ therefore gives a representation of its trivial universal grading
+group, and simplicity forces the central object to be the unit.
+Thus the integral part of the center is Vec, without a sphericality
+assumption.
+
+Put $D=\FPdim(\mathcal C)$. Every noninvertible source simple generates
+$\mathcal C$, and the only proper nontrivial source subcategory is
+pointed. Every nontrivial fusion subcategory $\mathcal H$ of the center
+contains a nonintegral simple. Its forgetful image is therefore dominant,
+so $\FPdim(\mathcal H)\ge D$. Equality would make this dominant tensor
+functor an equivalence and transport a braiding to the noncommutative
+source ring. Hence $\FPdim(\mathcal H)>D$. If $\mathcal H$ were proper,
+its nontrivial centralizer would satisfy the same strict bound, contrary
+to the centralizer identity
+\[
+ \FPdim(\mathcal H)\FPdim(\mathcal H')=D^2;
+\]
+see \cite[Theorem~3.14]{DGNO}. This proves simplicity. A braided Morita
+representative would embed as a proper nontrivial fusion subcategory of
+the center; a nontrivial Deligne product would give a nontrivial product
+of centers. Both contradict simplicity.
+\end{proof}
+
+More generally every nontrivial central tensor functor from a braided
+category $\mathcal P$ to any Morita representative requires
+$\FPdim(\mathcal P)\ge D^2$, since its braided lift dominates this simple
+center. If $\mathcal P$ is nondegenerate and $A$ is connected etale with
+$\mathcal P_A$ in the Morita class, then
+\cite[Corollary~3.30]{DMNO} gives
+\[
+ Z(\mathcal P_A)\simeq\mathcal P\boxtimes(\mathcal P_A^0)^{\rm rev}.
+\]
+Simplicity forces $\mathcal P_A^0=\Vec$, $\mathcal P\simeq Z(\mathcal C)$,
+and $A$ Lagrangian of dimension $D$. This does not exclude extracting a
+proper fusion subcategory after condensation or using noncentral
+constructions. The three inherited positive center ranks remain
+$21,23,29$; simple modular categories can have Lagrangian algebras,
+so simplicity itself is not a contradiction.
+
+The auxiliary rank-ten category has integral center double Semion,
+whose nontrivial Tannakian descent returns to the source. It also passes
+Lemma~\ref{lem:pivotal-conjugation-parity}: its selfdual parity components
+are $\{1,u,vy\}$ with positive sign and $\{v,uv,y\}$ with negative
+sign. Its quaternionic simple therefore supplies no further exclusion.
 
 \subsection{Simple centralizers for $R8\_3\_928$ and $R8\_3\_941$}
 Write $D=144+96\sqrt2+80\sqrt3+56\sqrt6$.
@@ -129,18 +112,145 @@ These use DMNO, Lemma 3.5, Proposition 3.16, Corollary 3.30,
 Proposition 4.8, Theorem 4.10 and Propositions 5.4--5.8.
 
 For R941 the fermion centralizer $\mathcal E$ has rank $22$, dimension
-$D^2/2$, and integral part sVec. A splitting
-$\mathcal E=\mathcal M\boxtimes\mathrm{sVec}$ would force the whole
-center to have rank $33$ or $44$, instead of $34,37,40,43$ in the
-complete retained list. If a proper nonpointed subcategory contains sVec,
-it and its centralizer both dominate the source. Their dimension product
-is $D^2$, forcing both dimensions to be $D$, the impossible equality
-case above. A nonpointed subcategory not containing the fermion would
-generate $\mathcal E$ with sVec and be nondegenerate, giving the excluded
-splitting. Thus the only subcategories are Vec, sVec and $\mathcal E$.
+$D^2/2$, and integral part sVec. If
+$\mathcal E=\mathcal M\boxtimes\mathrm{sVec}$ with $\mathcal M$
+nondegenerate, modular decomposition would give
+$Z(\mathcal C)=\mathcal M\boxtimes\mathcal K$ with
+$\FPdim(\mathcal K)=4$. The category $\mathcal K$ contains the fermion
+and has no other integral simple. Its remaining dimension two must
+therefore consist of one simple of dimension $\sqrt2$: two noninvertibles
+would each have squared dimension strictly greater than one. But no
+source simple has dimension $\sqrt2$, so no central simple can have
+that dimension. Thus the splitting is impossible.
 
-Finally the conditional $1+X$ Morita construction in the rank-six
-manuscript produces precisely R941; it is not forced by equal FP
-dimensions. Neither category nor that nonpointed algebra is constructed.
-Full proofs, complete finite certificates and audits for this section are
-curated in \path{evidence/frontier_20261027/README.md}.
+A proper nonpointed subcategory of $\mathcal E$ containing sVec and its
+centralizer would both dominate the source, with dimensions strictly
+greater than $D$. Their product is $D^2$, a contradiction. A nonpointed
+subcategory not containing the fermion generates $\mathcal E$ with
+sVec; its symmetric center is integral and hence trivial, so it would
+give the excluded splitting. Thus the only subcategories of
+$\mathcal E$ are Vec, sVec and $\mathcal E$.
+
+The conditional $1+X$ construction in the rank-six manuscript produces
+precisely R941. Equal global FP dimension does not supply that algebra
+or a Morita equivalence. If the equivalence exists, Morita invariance of
+odd dimension-weighted indicators forces four R941 cubic rotations to
+be identities; the remaining pair has two possible combined spectra.
+Neither source category nor its required nonpointed algebra is
+constructed.
+
+\subsection{Forced fusion matrices in the R928 modular factor}
+The simple factor $\mathcal B$ has four retained patterns of ranks
+$23,20,20,17$, indexed $40,49,186,191$. Put $L=D/\sqrt2$ and $w=D/4$.
+For the four field automorphisms $\sigma$ let
+$r_\sigma=D/\sigma(D)$. Their normalized Galois-unit columns are
+\[
+ u_\sigma(i)=\frac{r_\sigma\sigma(d_i)}{L},
+ \qquad d_i=\FPdim(B_i).
+\]
+The columns are real and orthonormal by the standard modular Galois
+identities \cite{DLNGalois}. There is one selfdual object $W$ of
+dimension $w$, with restriction
+\[
+ F(W)=2g+2X_1+2X_2+2X_3+2X_4+3X_5+3X_6.
+\]
+Its normalized column, in the order $(B_0,B_1,B_2,B_3,W,\ldots)$, is
+\[
+ u_W=(1,1,1,1,-2,0,\ldots,0)/(2\sqrt2).
+\]
+Indeed the source degree-two character is $2$ at $1$, $-2$ at $g$, and
+zero elsewhere. The distinguished center-row formula
+\cite{DeshpandeCenter}, followed by semion splitting, gives precisely
+this row; no high $S$-entry is guessed.
+
+\begin{proposition}[Spectral reconstruction]
+In every retained pattern the fusion matrix of $W$ is forced:
+\[
+ N_W=\sum_\sigma\frac{w}{r_\sigma}u_\sigma u_\sigma^{\mathsf T}
+                  -2u_Wu_W^{\mathsf T}.
+\]
+It has rank five and trace $142$. The fusion matrix of $B_3$ is also
+forced in patterns $49$ and $191$.
+\end{proposition}
+\begin{proof}
+The known $W$ row gives fusion eigenvalues $w/r_\sigma$ on the four
+Galois-unit columns, $-2$ at $W$, and zero elsewhere. Verlinde gives the
+first formula. Its trace is
+$\sum_\sigma\sigma(D)/4-2=142$.
+
+For $B_3$, write
+$\lambda(i)=r_3\sigma_3(d_i)/d_i$. Away from the four Galois-unit columns,
+these eigenvalues are $\pm1$. Thus
+\[
+ N_{B_3}=M+Q,\qquad
+ M=-I+\sum_\sigma(\lambda(B_\sigma)+1)
+                       u_\sigma u_\sigma^{\mathsf T},
+\]
+where $Q$ is twice a positive-semidefinite projection. In patterns $49$
+and $191$, $\operatorname{tr}(Q)=4$. The four known $S$ rows determine
+the leading $4\times4$ block of $N_{B_3}$, and
+$N_{B_3}(i,W)=N_W(i,B_3)$ supplies its $W$ entries. Subtracting $M$
+gives the leading block
+\[
+ Q_{\le5}=\frac14
+ \begin{pmatrix}
+ 3&-1&-1&3&-2\\-1&3&3&-1&-2\\-1&3&3&-1&-2\\
+ 3&-1&-1&3&-2\\-2&-2&-2&-2&4
+ \end{pmatrix}.
+\]
+It already has trace four. All other diagonal entries of $Q$ vanish;
+positivity then makes their whole rows and columns zero. Hence the full
+matrix is determined. In patterns $40,186$, the residual projection has
+rank three, so this argument does not fix the whole second matrix.
+\end{proof}
+
+All four $N_W$ and both forced $N_{B_3}$ are nonnegative integral,
+have the required unit rows and dimension eigenvectors, and pass the
+exact commutation and square checks. Their common leading $N_W$ block
+has $N_{WW}^{W}=17$. The braided parity theorem of
+Fuchs--Runkel--Schweigert \cite{FRSEven} therefore forces
+$\nu_2(W)=1$. The corresponding semion-twisted canonical summand has
+indicator $-1$ and multiplicity two, consistently with its symmetric
+Frobenius pairing. These matrices and indicators are necessary data,
+not modular completions or categorical constructions. None of the four
+patterns is eliminated.
+
+\subsection{Whole-restriction Galois orbits for R941}
+For R941 the complete source character table lies in
+$K=\Q(\sqrt2,\sqrt3)$: four characters are the FP conjugates and the
+remaining degree-two character is $(2,0,0,-2,0,0,0,0)$. Their values on
+the center basis
+\[
+ 1,\ g,\ X_1+X_2,\ X_4+X_5,\ X_6+X_7
+\]
+have determinant $3072$ and therefore separate central elements.
+For a central simple $Z$, the distinguished center entries are
+\[
+ s(A_E,Z)=\frac{\chi_E(FZ)}{(\dim E)f_E};
+\]
+see \cite{DeshpandeCenter}. A modular Galois automorphism fixing $K$
+fixes all these entries. Its column sign is positive because the unit
+row lies in $K$ and is positive. Hence all characters agree on
+$FZ$ and its Galois translate; centrality of these classes gives equality
+of their full restriction vectors.
+
+If a twist order is divisible by nine, choose the automorphism with
+exponent $25$ on the $2$- and $3$-primary cyclotomic parts and a unit on
+every other prime part. It fixes $K$ and acts on ninth-root exponents by
+its square, namely multiplication by four. Thus it forces at least
+three distinct central simples with the same restriction vector.
+For the residual high-column Gram matrix $Q_0$, every such vector
+therefore satisfies
+\[
+ 3vv^{\mathsf T}\le Q_0,\qquad
+ 3v^{\mathsf T}Q_0^{-1}v\le1.
+\]
+Exact arithmetic excludes twists of order divisible by nine on $43$ of
+the $65$ column types. All fourteen retained allocations still have
+eligible fibers of multiplicity at least three. No allocation is
+eliminated, no exponent bound $48$ follows, and R941 remains unresolved.
+
+The current categorical proofs, full exact matrices, certificates and
+audits are collected in \path{evidence/frontier/README.md}. Their
+computational checks certify the stated necessary systems and do not
+supply missing associators or algebra structures.

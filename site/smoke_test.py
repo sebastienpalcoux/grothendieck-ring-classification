@@ -323,7 +323,7 @@ for stale in ("rank8-reviewed.pdf", "Historical PDF", "Read reviewed edition", "
 assert "AI-generated research" in (root / "index.html").read_text()
 assert all(case in (root / "review.html").read_text() for case in ("R6_4_155", "R6_8_1660", "R8_2_24"))
 
-assert "docs/CASE_INVENTORY.md" in (root / "app.js").read_text(), "Missing current case-inventory route"
+assert "evidence/frontier/README.md" in (root / "app.js").read_text(), "Missing current unified proof-index route"
 assert "ALL38_COVERAGE.md" not in reader_sources, "Reader route points to an immutable stage guide"
 assert "tree/main/evidence/review_20261017" not in reader_sources, "Reader route points to an immutable stage overview"
 
@@ -337,8 +337,12 @@ if payload.get("rank7_m5_update"):
     assert hashlib.sha256(path.read_bytes()).hexdigest() == extension["metadata_sha256"]
     band = next(r for r in status_payload["rows"] if (r["rank"],r["multiplicity"]) == (7,5))
     assert (extension["rings"], extension["excluded"], extension["realized"], extension["unresolved"]) == tuple(band[k] for k in ("rings","excluded_general","realized_unitary","unresolved_general"))
-    assert set(payload["remaining_ids"]) == {"R6_4_155", "R6_8_1660"} | set(extension["remaining_ids"]) | set(payload.get("rank8_m3_update", {}).get("remaining_ids", []))
-    assert set(current_manifest["remaining_ids"]) == set(payload["remaining_ids"])
+    lower_expected={"R6_4_155", "R6_8_1660"} | set(extension["remaining_ids"]) | set(payload.get("rank8_m3_update", {}).get("remaining_ids", []))
+    upper_expected=set()
+    for name in ('rank9_rank10_m1.json','rank9_m2.json','rank11_m1.json','rank12_m1.json'):
+        upper_expected.update(r['id']for r in json.loads((root/'data'/name).read_text())['cases']if r['status']=='unresolved')
+    assert set(payload["remaining_ids"]) == lower_expected | upper_expected
+    assert set(current_manifest["remaining_ids"]) == lower_expected
     info = payload["remaining_ids_file"]
     raw = (root / info["path"]).read_bytes()
     assert hashlib.sha256(raw).hexdigest() == info["sha256"]

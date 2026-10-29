@@ -1,0 +1,72 @@
+{
+  "status": "PASS",
+  "optimized_python": true,
+  "checks": [
+    {
+      "script": "rank10/verify_conformal_model.py",
+      "returncode": 0,
+      "stdout_sha256": "1d20ec13974532ebe84cb9fd9cb8e7c2627f7f494079a77f5d3769a78a94d053"
+    },
+    {
+      "script": "rank10/verify_minimal_branching.py",
+      "returncode": 0,
+      "stdout_sha256": "f4846f19624a6824ecc38a55b42c9b95d9b9c02b8d9f4dac7c0c1dce956a92bb"
+    },
+    {
+      "script": "global/verify_r189_pieri_branching.py",
+      "returncode": 0,
+      "stdout_sha256": "5e188fa0b62209653cfdf962ef5bd2ea921e9a767cff8a45f63bbf16f9cccafc"
+    },
+    {
+      "script": "global/verify_r189_rank14_wzw.py",
+      "returncode": 0,
+      "stdout_sha256": "860e35842d051b3d70ea5777205cc5bf7fd6c7255a85df26a7ea79c8fed00587"
+    },
+    {
+      "script": "quadratic8/verify_twisted_gh6.py",
+      "returncode": 0,
+      "stdout_sha256": "c2f02bf99ba15cc7c4212a81cb75fc03addb9f18645aa182f9a8ee5f790acc38"
+    },
+    {
+      "script": "quadratic8/verify_r1154_quantum_extensions.py",
+      "returncode": 0,
+      "stdout_sha256": "177c07ee9be1d49e1edf534372657dc2bfcdddfcc4dd3c95d9d306a51540c8df"
+    },
+    {
+      "script": "global/verify_r1768_cubic_rotation.py",
+      "returncode": 0,
+      "stdout_sha256": "d15622f90efe0dfb65a9bd5b96133125405e28eb3740e41bdc5ebe5c300d5330"
+    },
+    {
+      "script": "rank9/verify_pointed_bimodule.py",
+      "returncode": 0,
+      "stdout_sha256": "df24e69cf49e109569139e2ac95aa04f33655f8bc7b7025c1d7df7433f6eeb6f"
+    },
+    {
+      "script": "rank9/verify_source_local.py",
+      "returncode": 0,
+      "stdout_sha256": "687ae209b7852bcec7e7fd946f24ac352447ccad6d5b815032326cad7def7160"
+    },
+    {
+      "script": "rank9/verify_discrete_witnesses.py",
+      "returncode": 0,
+      "stdout_sha256": "d13a2d64f3568e80973a1fa9708bf38d960a3511cec32811cb19427408fced3f"
+    },
+    {
+      "script": "rank9/verify_discrete_branch_restrictions.py",
+      "returncode": 0,
+      "stdout_sha256": "39b602ccebab0c85c87448954e6b31ff4ef5433c04980cfe477d6258d4592a52"
+    },
+    {
+      "script": "quartic/verify_model_screen.py",
+      "returncode": 0,
+      "stdout_sha256": "049ae482279f8293f013ab3f31d9e5d492d6269da3276de9f7d3f28b43433246"
+    },
+    {
+      "script": "rank6/verify_even_clifford.py",
+      "returncode": 0,
+      "stdout_sha256": "ce9755a5ae302ea16e3202a8cc7559c1bc42641c7c1c5460351cf14eb06437a6"
+    }
+  ],
+  "scope": "Exact finite checks only; categorical proofs are in the accompanying notes."
+}

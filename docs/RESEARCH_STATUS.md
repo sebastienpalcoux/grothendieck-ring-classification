@@ -1,107 +1,53 @@
-# Research status and verification
+# Current research frontier
 
-<!-- frontier-20261027 -->
-**27 October 2026 · audited continuation.** R9_2_1607, R9_2_1975 and R9_2_1976 are excluded over the complex numbers. **Seven cases remain unresolved:** two at rank six, four at rank eight and one at rank nine. The conditional R1660–R941 algebra construction is precise; every GH(C6,2) Morita route for R1768 is excluded. [Proofs, individual findings and exact replay](../evidence/frontier_20261027/README.md). Independent human verification remains pending.
-<!-- /frontier-20261027 -->
+**Current classification: six unresolved cases.** R8_3_1768 is excluded over the complex numbers by pivotal conjugation parity, using the established existence and complete center-domain reductions. No additional categorification is claimed.
 
-The rank-eight multiplicity-three continuation addresses all 3,527 supplied exact-multiplicity-three rings: 3,507 general exclusions, 16 models and 4 unresolved cases. Every recorded model admits a unitary realization. The four remaining rings retain unresolved status for general complex categorification. R8_3_436 has an independent general exclusion.
+> **AI-generated research; independent human verification pending.** Exact checks establish only their stated computational scope.
 
-The rank-seven multiplicity-five continuation addresses all 5,805 supplied exact-multiplicity-five rings: 5,804 general exclusions, 1 realization and 0 unresolved cases. The classification of the supplied census is complete through multiplicity 5. The new realization R7_5_5678 is Rep(AGL(1,7)).
+[Current proofs and exact replay](https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/evidence/frontier/README.md)
 
-> **AI-generated research · independent verification pending.** Treat these
-> results, proofs, code and data with caution. They have not yet been
-> independently verified by human experts or formalized in Lean. Automated
-> checks establish only their stated computational scope.
+## General exclusion of R8_3_1768
 
-The [public atlas](https://sebastienpalcoux.github.io/grothendieck-ring-classification/)
-connects the current manuscripts, fusion rules, classification tables and
-reproducible evidence. Publication makes the material accessible; it does not
-confer mathematical validation.
+Conjugation X tensor V tensor X* preserves the symmetry sign of a nondegenerate pivotal self-duality on V. Opposite-sign self-dual constituents must occur evenly. The exact R1768 product violates this condition. The general-complex conclusion retains the earlier sphericalization/Galois existence gate and complete center-domain theorem as explicit premises. All six required rational separation certificates replay over the complete allowed columns.
 
-## Current classification
+[Full proof](../evidence/frontier/replay/new/r1768/PALINDROMIC_EXCLUSION.md)
 
-The [historical 38-case continuation](../docs/RESEARCH_STATUS.md) records **36 decisions among 38 cases**: 29 proposed general exclusions and 7 unitary constructions. Within that historical 38-case study, two questions remain open: `R6_4_155` and `R6_8_1660`. The historical residual program before the rank-eight M3 extensions records 140 decisions (120 exclusions and 20 constructions), all subject to independent mathematical verification.
+## Six unresolved cases
 
-[All 38 cases and current proof references](CASE_INVENTORY.md).
+### R6_4_155
 
-Rank six records **25,362 exclusions, 57 realizations and
-2 open cases** through multiplicity nine. Its complete contiguous
-range ends at three; exact bands 1, 2, 3, 5, 6, 7, 9 are complete. Rank seven records
-**9,976 exclusions and 30 realizations**,
-with **0 open cases through multiplicity 5**; complete through multiplicity 5. Rank eight records
-**4403 exclusions and 93 realizations**,
-with **4 open cases through multiplicity 3**; complete through multiplicity 2. The historical general exclusion of
-`R8_2_24` uses an inner-square obstruction from short gauge weights and
-tensor-functor rigidity.
+Every Morita dual of a pseudo-unitary categorification has the same based ring R6_4_155. The complete connected-algebra reduction leaves a possible algebra 1+X+X*, whose existence is not proved. General categorification remains unresolved.
 
-### Rank-six open rings
+[Proof and precise gap](../evidence/frontier/replay/new/r155/MORITA_RING_RIGIDITY.md)
 
-| Open ring | Established necessary restrictions | Remaining question |
-|---|---|---|
-| `R6_4_155` | A unique rank-26 modular candidate and a rank-22 based module; odd cyclic Clifford constraints pass on all 1,144 tested blocks, and the all-order path divisibility condition holds. | Coherent associators and module-category structures, or a general obstruction. |
-| `R6_8_1660` | In the positive spherical representative, all indicator sequences and central phase masses are determined; eight spin objects form four dual pairs, and 640 labelled restriction-data profiles remain in branches 68, 286, 286. | A categorification or an obstruction covering every possible profile. |
+### R6_8_1660
 
-### Rank-seven classification frontier
+The fermion centralizer is nonsplit and s-simple. The candidate algebra 1+X has two cyclic multiplication directions; associativity and separability remain unproved. Such an algebra would give the R8_3_941 Morita partner. Neither categorification nor the algebra is constructed.
 
-Every supplied rank-seven fusion ring through multiplicity five has a recorded general exclusion or unitary model. The [continuation evidence](../evidence/rank7_m5_20261020/README.md) gives the accepted arguments and replay receipts. [Download all 7 current open tensors](../data/current_remaining_cases.py), including the two rank-six cases.
+[Proof and precise gap](../evidence/frontier/replay/new/r1660_941/REPORT.md)
 
-A necessary-condition witness is neither a categorification nor a general
-nonexistence proof. Scoped unitary, pseudo-unitary, pivotal or braided
-obstructions retain their assumptions and do not change a general open status.
+### R8_3_928
 
-## Reading the labels
+One complete necessary fusion matrix is forced in all four modular patterns, and a second in two patterns. They pass exact integrality and positivity checks. No full modular completion or categorical model is established; general categorification remains unresolved.
 
-| Label | Meaning within this project |
-|---|---|
-| **Realized** | A categorical construction is recorded, subject to mathematical review. |
-| **Excluded** | An obstruction is recorded under its stated assumptions. |
-| **Complete** | Each ring in the specified band has a recorded realization or general exclusion. |
-| **Unresolved** | Neither a general exclusion nor a categorification is established. |
-| **Certified**, **verified**, **PASS** | The stated program checks passed; read their scope and hypotheses. |
+[Proof and precise gap](../evidence/frontier/replay/new/r928/SPECTRAL_FUSION_REDUCTION.md)
 
-Reports described as independent audits are separate AI review passes unless
-an explicitly identified human review says otherwise. They are not independent
-human verification. Hashes establish source identity; they do not prove the
-mathematics. Successful computation does not validate the categorical reduction
-making that computation relevant.
+### R8_3_941
 
-Read the [verification scope](PREPUBLICATION_REVIEW.md), [replay guide](VERIFY.md)
-and [provenance](PROVENANCE.md) together with the
-[manuscripts](../manuscripts/README.md). A [repository issue](https://github.com/sebastienpalcoux/grothendieck-ring-classification/issues)
-identifying the ring, theorem and exact failing step makes a reported gap actionable.
+The fermion centralizer is nonsplit and s-simple. Whole-column Galois symmetry restricts ninth-root twist sectors; all fourteen retained allocations survive. A Morita construction from R6_8_1660 remains conditional on the existence of that category and a separable algebra 1+X.
 
-## Current rank-eight replay status
+[Proof and precise gap](../evidence/frontier/replay/new/r1660_941/REPORT.md)
 
-Canonical normal and optimized frontier replays each passed all 108 checks. These receipts cover the historical frontier stage. Fresh replay after extraction from the publication archive is deferred.
+### R8_3_1154
 
-## Generalized Haagerup construction and further restrictions
+Every complex categorification has simple Drinfeld center, using the established integral-center restriction. The auxiliary rank-ten candidate passes conjugation parity. These are necessary restrictions, not a categorification or a general exclusion.
 
-R8_3_721 is realized by the inherited 1+rho Q-system Morita dual of the C2 de-equivariantization of GH(C8). Exact rank and coefficient bounds, followed by a direct exhaustive fusion completion, identify its entire based ring without assuming census completeness. The earlier center-action analysis leaves three necessary R8_3_1154 patterns. These results are in evidence/rank8_next_20261021/; the later R8_3_65 general exclusion is in evidence/rank8_research_20261022/.
+[Proof and precise gap](../evidence/frontier/replay/new/r1154/SIMPLE_CENTER.md)
 
-The integrated rank-eight article includes the new construction and restrictions. Categorical arguments, targeted mathematical replay receipts and independent reconstructions are in `evidence/rank8_next_20261021/`. The original frontier ledger, audit and completed replay receipts remain unchanged.
+### R9_2_137
 
-The following commands validate the accepted overlay metadata; they do not repeat the targeted mathematical checks:
+Whole restriction-column Galois symmetry and the fourth-rotation Clifford bound strengthen the necessary center system. Both TY signs still admit exact rational witnesses after 7,222 variable removals. The witnesses are necessary data, not categorical models; general categorification remains unresolved.
 
-```bash
-python3 tools/rank8_next.py --check
-python3 -O tools/rank8_next.py --check
-```
+[Proof and precise gap](../evidence/frontier/replay/new/r137/REPORT.md)
 
-A separately reviewed Galois follow-up reduces the 36 retained R8_3_1154 pair histograms to 25 across the same three center patterns. Its proof and exact replay are in `evidence/rank8_postpublication_20261021/r1154_galois_review/`; the ring remains unresolved.
-
-## General exclusion of R8_3_3472
-
-R8_3_3472 admits no fusion categorification over the complex numbers. The sphericalization and Galois reduction covers general complex categories; complete center-frame and twist-orbit domains reduce the remaining case to 628 exact equations in 572 integer variables. A certificate of 1648 rational bound deductions and a final strictly positive separating gap proves infeasibility, with two independent exact checkers. The proof and reproducible certificate are in evidence/r3472_exclusion_20261022/. This complete obstruction supersedes the earlier feasible necessary systems and conditional Morita restrictions for R3472. R8_3_982 remains unitarily realized by the neutral triality component of the exceptional E21 chiral fusion category, with all 512 canonical fusion coefficients identified exactly. Four rank-eight general categorification questions remain: R8_3_928, R8_3_941, R8_3_1154 and R8_3_1768. Every hypothetical categorification of these four rings admits a spherical structure and has a pseudo-unitary Galois conjugate; none has a braided Morita representative. The R928 phase refinement leaves four of ten necessary center patterns, all fourteen R941 allocations survive the stated refinements, and R1154 retains its forced semionic data. R1768 has 39 of 40 necessary Gram/indicator branches excluded, while its final cone survives. These necessary data do not construct categories or settle the four remaining questions.
-
-The complete center-domain reduction and exact infeasibility certificates are in `evidence/r3472_exclusion_20261022/README.md`. This accepted decision removes R8_3_3472 from the unresolved ledger. The earlier E21 construction and its research receipts retain their historical scope.
-
-```bash
-python3 tools/verify_rank8_exclusion_20261022.py
-python3 -O tools/verify_rank8_exclusion_20261022.py
-```
-
-Use `--metadata-only` to check source identities and completed replay receipts. Use `--historical` to replay the preceding rank-eight stages in their preserved contexts. That replay explicitly records the reconstructed helper missing from the creative archive and its four revised cache-state diagnostics in a separate checkpoint; it also restores the omitted canonical tensor with its original receipt hash. The current ledger and proof have separate bindings from those historical releases.
-
-## Rank twelve, multiplicity one · 26 October 2026
-
-The new release classifies 632 supplied rings: 480 general exclusions and 152 models. Of these, 151 are unitary; R12_1_623 has a complex/pseudo-unitary model whose unitarity is unproved. The seven remaining open cases are unchanged. [Current manuscript](../publications/rank12/README.md) · [Complete proof archive and accepted replay](../evidence/rank12_m1_20261026/README.md). Full census enumeration was not independently repeated.
+Necessary-condition witnesses and candidate algebras are not counted as categorical models. [Current tensors](../data/current_remaining_cases.py) · [Atlas](https://sebastienpalcoux.github.io/grothendieck-ring-classification/unresolved.html)

@@ -1,0 +1,272 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=22mm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,booktabs,array,enumitem,xcolor,fancyhdr}
+\usepackage[colorlinks=true,urlcolor=blue!55!black,linkcolor=blue!55!black]{hyperref}
+\setlength{\parindent}{0pt}\setlength{\parskip}{6pt}\setlist{nosep,leftmargin=*}
+\setlength{\emergencystretch}{3em}
+\pagestyle{fancy}\fancyhf{}\fancyhead[L]{\small Fusion-ring categorification: current frontier}
+\fancyhead[R]{\small 29 October 2026}\fancyfoot[C]{\small\thepage}\setlength{\headheight}{14pt}
+\newcommand{\FP}{\operatorname{FPdim}}
+\renewcommand{\Vec}{\operatorname{Vec}}\newcommand{\sVec}{\operatorname{sVec}}
+\newcommand{\R}[1]{\texttt{#1}}\newtheorem*{lemma}{Lemma}
+\begin{document}
+{\LARGE\bfseries The categorification frontier}\\[6pt]
+{\large Six unresolved cases and the pivotal parity exclusion}
+
+\textbf{Result.} The new conjugation-pairing argument excludes \R{R8\_3\_1768}, using the project's previously established general-complex existence reduction and complete center domains. No new categorification is established. The other six cases have stronger necessary restrictions, recorded below.
+
+\begin{center}
+\begin{tabular}{@{}llp{8.5cm}@{}}
+\toprule
+Case & Status & Main result of this continuation\\
+\midrule
+\R{R6\_4\_155} & Unresolved & Every Morita dual of a positive representative has the same based ring.\\
+\R{R6\_8\_1660} & Unresolved & Nonsplit, s-simple fermion centralizer; smaller multiplication space for a candidate algebra.\\
+\R{R8\_3\_928} & Unresolved & One full fusion matrix forced in all four modular patterns, and a second in two patterns.\\
+\R{R8\_3\_941} & Unresolved & New conditional Morita indicator identities and exclusions of specified construction routes.\\
+\R{R8\_3\_1154} & Unresolved & Every categorification has simple Drinfeld center.\\
+\R{R8\_3\_1768} & \textbf{Excluded} & Pivotal conjugation parity contradicts the complete necessary indicator system.\\
+\R{R9\_2\_137} & Unresolved & Whole-column Galois restrictions and sharper fourth indicators; both signs still feasible in the exact relaxation.\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\textbf{Scope.} \emph{Excluded} means no fusion categorification over \(\mathbb C\), through the explicitly stated existence reduction. \emph{Unresolved} means neither a categorification nor a general exclusion has been proved. A rational solution of a necessary system, a candidate modular matrix, or a based module is not counted as a model.
+
+The starting point is the published seven-case frontier at classification-repository commit:\par
+{\small\texttt{d920cc2531d8b03583c797886a3c2ab6170a281a}.}\par
+The required frozen proof inputs, including the original ten-tensor snapshot, are preserved in the companion archive. Three of those ten cases were already excluded before the seven-case starting point.
+
+\textbf{Verification.} The new R1768 categorical lemma received two independent agent proof reviews. Six relevant earlier rational separation certificates were reconstructed and replayed, including every allowed column. New structural results received additional review where noted. Exact checks use small finite calculations; no associator search or new long enumeration was performed.
+
+The current account retains explicit inherited mathematical dependencies. The computational replay checks the encoded systems; it does not replace the categorical proofs that those systems are necessary. The linked repository ledgers and Atlas case records give the current publication status.
+\newpage
+\section*{1. The new pivotal parity obstruction}
+\begin{lemma}
+Let \(\mathcal C\) be a pivotal semisimple rigid \(\mathbb C\)-linear category. Suppose \(V\) has a nondegenerate self-duality \(f:V\to V^*\) of sign \(\varepsilon\in\{1,-1\}\), namely
+\[
+f^*j_V=\varepsilon f.
+\]
+For every \(X\), the object \(X\otimes V\otimes X^*\) has a nondegenerate self-duality of sign \(\varepsilon\). Consequently, every self-dual simple \(S\) with second indicator \(\nu_2(S)=-\varepsilon\) occurs in it with even multiplicity.
+\end{lemma}
+
+\textbf{Proof.} Suppress the canonical tensor-dual comparison maps and associators. Put \(W=X\otimes V\otimes X^*\) and
+\[
+h=j_X\otimes f\otimes \mathrm{id}_{X^*}:W\longrightarrow W^*.
+\]
+Using monoidality of the pivotal structure and
+\(j_{X^*}=(j_X^*)^{-1}\), one obtains
+\[
+h^*j_W
+ =j_X\otimes(f^*j_V)\otimes(j_X^*j_{X^*})
+ =\varepsilon h.
+\]
+This also follows immediately in a strict pivotal model.
+
+On the \(S\)-isotypic summand, \(h\) is a fixed self-duality of \(S\) times a nondegenerate bilinear form on its multiplicity space. That bilinear form has symmetry sign \(\varepsilon/\nu_2(S)\). If the signs differ, it is alternating, so its dimension is even. \(\square\)
+
+The lemma uses neither a braiding nor unitarity. It does not assert preservation of a numerical indicator by an arbitrary tensor functor. In particular, it has no extra algebra-existence premise.
+
+\subsection*{Application to \R{R8\_3\_1768}}
+Write the eight simple labels as \(1,g=X_1,X_2,\ldots,X_7\). All are self-dual. The accepted complete indicator argument in the positive representative gives
+\[
+(\nu_2(1),\nu_2(g),\nu_2(X_2),\ldots,\nu_2(X_7))
+=(1,-1,1,1,1,1,1,1).
+\]
+The exact tensor gives
+\[
+X_2gX_2^*
+ =g+2X_2+2X_3+2X_4+2X_5+X_6+X_7.
+\]
+Its self-duality has negative sign by the lemma. But both positive-indicator simples \(X_6,X_7\) occur once. Either multiplicity contradicts the lemma.
+
+Thus the positive representative cannot exist. The inherited existence reduction takes any complex categorification to such a representative with the same tensor, giving the general-complex exclusion. Only that existence implication is used; no claim is made that an arbitrary original category already has a positive pivotal structure.
+\newpage
+\section*{2. Independent exact route through the indicator domains}
+
+The full conjugation test gives an alternative verification that does not assume the final output of the old forty-branch indicator run.
+
+For self-dual labels \(Y,S\), join them when some simple \(X\) has
+\([XYX^*:S]\) odd. Their indicators must agree by the lemma. In R1768 the graph has precisely two components:
+\[
+\{0,2,3,5\},\qquad \{1,4,6,7\}.
+\]
+Since the unit has indicator \(1\), the only remaining sign vectors are
+\[
+(1,\varepsilon,1,1,\varepsilon,1,\varepsilon,\varepsilon),
+\qquad \varepsilon=\pm1.
+\]
+
+The exact replay tests all 128 assignments with unit sign fixed. It then reconstructs the published necessary center domains and verifies six existing Farkas certificates:
+\begin{center}
+\begin{tabular}{@{}lll@{}}
+\toprule
+Sign choice & Complete domain & Replay\\
+\midrule
+\(\varepsilon=+1\) & Pointed \(C_2\) Fourier cone; 10,711 columns & Excluded\\
+\(\varepsilon=-1\) & Five primitive-37 branches; 6,100 columns each & All excluded\\
+\bottomrule
+\end{tabular}
+\end{center}
+For every separator \(y\), the replay checks \(y^TA_j\ge0\) for \emph{every} allowed column and \(y^Tb<0\). Hence \(Ax=b,\ x\ge0\) is impossible. The negative-sign branches are indexed by
+\[
+V=0,1,2,3,4,\qquad U+4V=16.
+\]
+The source-character, Galois-complement and five-branch arithmetic are replayed as well. Domain metadata agree with the archived systems. No optimization is invoked. The six-certificate run took about 30 seconds on this environment.
+
+\textbf{Inherited mathematical premises.} The complete center-domain theorem, including the saturated conductor-37 reduction and all-order rational-ratio columns, remains essential. So does the general-complex existence reduction. Their receipt and manuscript sources are identified in the companion note
+\texttt{new/r1768/PALINDROMIC\_EXCLUSION.md}. Exact arithmetic cannot by itself prove these categorical premises.
+
+\textbf{Source integrity.} Forty published source/certificate files are pinned by SHA256 in the archive. The sole replay adapter supplies the same SHA-bound tensor in place of an obsolete whole-band census file. The equation and domain builders are unchanged.
+
+\textbf{Why it was missed.} The previous parity check used the total coefficient of \(\sqrt{37}\), and therefore only the sum of noninvertible multiplicities. Here that sum is ten, which is even. The new lemma tests each self-dual constituent separately and detects the two odd multiplicities. Passing the dimension-level check was insufficient.
+
+The same full-multiplicity test was applied to the other six tensors and to the known auxiliary rank-ten R1154 candidate. None gave another contradiction.
+\newpage
+\section*{3. Rank six and the possible Morita pair}
+
+\subsection*{\R{R6\_4\_155}: Morita rigidity of the based ring}
+Under the inherited central-lift theorem for a pseudo-unitary representative, every Morita dual has based ring R155 again. This is not a statement that the category, associator, or module-category structure is unique.
+
+Write the simples as \(1,h,g,hg,X,Y\), with \(X^*=Y\) and
+\[
+XY=1+h+4(X+Y),\qquad X^2=Y^2=g+hg+4(X+Y).
+\]
+The central lifts have twists \(1,-1,i,-i\). Stabilizer, module Gram and algebraic-integrality arguments reduce every connected separable algebra to one of six underlying objects:
+\[
+\begin{gathered}
+1,\quad 1+h,\quad 1+X+Y,\quad 1+2X+2Y,\\
+1+h+2X+2Y,\quad 1+h+4X+4Y.
+\end{gathered}
+\]
+All resulting module categories reduce to the regular case, the \(1+h\) case, or a possible \(1+X+Y\) algebra. Central fermion alpha induction identifies the dual of the \(1+h\) case with the original category, without assuming that the source is braided.
+
+For the remaining algebra, the exact commutant of the module action has six nonnegative integer parameters. Comparing its regular action and using equality in Cauchy--Schwarz forces four invertibles and two dual noninvertibles, whose fusion rules are again those of R155. The full proof and independent review are in the archive.
+
+\textbf{Remaining gap.} This eliminates the strategy of finding a different known based ring in the same Morita class. It constructs no algebra structure on \(1+X+Y\) and no categorification of R155. Additional low-order rotations of the forced rank-26 modular data pass their necessary integrality tests.
+
+\subsection*{\R{R6\_8\_1660} and \R{R8\_3\_941}}
+Their common global FP dimension remains a motivation for Morita equivalence, not a proof of it.
+
+For R1660, the inherited center restrictions now imply that the fermion centralizer is \emph{nonsplit} and \emph{s-simple}: its only fusion subcategories are \(\Vec,\sVec\), and itself. The proof uses dominant forgetful images, the modular centralizer dimension formula, and the absence of an additional central simple of dimension \(\sqrt2\). A parallel argument simplifies the existing nonsplitting proof for R941.
+
+The multiplication component \(X^2\to X\) of a hypothetical R1660 algebra \(1+X\) must lie in a two-dimensional cyclic fixed space. This reduces the previous three-dimensional choice, but associativity and separability remain unproved.
+
+If the two rings really are Morita equivalent, odd-indicator invariance imposes explicit identities. In particular four R941 third rotations must be identities; the remaining pair has only two possible combined spectra. These are conditional constraints, not a constructed Morita equivalence.
+
+Three specified direct \(SU(2)_{22}\) routes were also ruled out. Two exact dimension matches require algebras of dimension 12 while the relevant pointed supports have dimensions at most 4 and 8. These exclusions concern those constructions only.
+\newpage
+\section*{4. Further rank-eight restrictions}
+
+\subsection*{\R{R8\_3\_928}: forced fusion matrices}
+Use the inherited reduction
+\(Z(\mathcal C)=\mathrm{Sem}\boxtimes\mathcal B\), where \(\mathcal B\) is simple. The four retained patterns have ranks \(23,20,20,17\). Put
+\[
+D=144+96\sqrt2+80\sqrt3+56\sqrt6,\quad
+L=D/\sqrt2,\quad w=D/4.
+\]
+Let \(u_\sigma\) be the four normalized Galois-unit columns, with
+\(r_\sigma=D/\sigma(D)\). They are known from the dimension list:
+\[
+u_\sigma(i)=r_\sigma\,\sigma(d_i)/L.
+\]
+A distinguished self-dual object \(W\), of dimension \(w\), has normalized column
+\[
+u_W=(1,1,1,1,-2,0,\ldots,0)/(2\sqrt2).
+\]
+Verlinde then forces the entire matrix
+\[
+N_W=\sum_\sigma (w/r_\sigma)u_\sigma u_\sigma^t-2u_Wu_W^t.
+\]
+It has rank 5 and trace 142. All four matrices are nonnegative integral, with the required unit row and dimension eigenvector.
+
+For patterns 49 and 191, the fusion matrix of a second distinguished simple is forced as well. After removing its four known spectral directions, the residual is twice a positive-semidefinite projection of trace 4. Its known leading block already exhausts this trace, forcing every remaining row and column of the projection to vanish.
+
+Also \(N_{WW}^{W}=17\). The braided parity theorem of Fuchs--Runkel--Schweigert forces \(\nu_2(W)=1\). The corresponding semion-twisted canonical summand has indicator \(-1\) and multiplicity two, which is consistent.
+
+\textbf{Remaining gap.} The necessary fusion matrices pass; the rest of the modular data, fusion rules, and associators are not constructed. None of the four patterns is eliminated.
+
+\subsection*{\R{R8\_3\_1154}: a simple center}
+Every complex categorification of R1154 has simple Drinfeld center, assuming the previously established integral-center restriction. This argument does not need a positive-pivotal existence gate.
+
+The ring is noncommutative, so its categorification cannot be braided. Every proper source fusion subcategory is integral, while the integral part of the center is \(\Vec\). Therefore every nontrivial central fusion subcategory forgets dominantly to the source, and has dimension strictly greater than \(D=\FP(\mathcal C)\). Equality would make that functor an equivalence and supply a braiding on the source.
+
+If such a subcategory were proper, its nontrivial centralizer would have the same strict lower bound. Their dimension product would exceed \(D^2=\FP(Z(\mathcal C))\), a contradiction.
+
+\textbf{Remaining gap.} This rules out braided and nontrivial tensor-product Morita representatives, and sharply restricts central condensation routes. It does not exclude arbitrary noncentral constructions. The auxiliary rank-ten category passes the new conjugation parity test, including its quaternionic simple.
+\newpage
+\section*{5. \R{R9\_2\_137}: stronger necessary conditions still survive}
+
+\subsection*{Whole restriction columns are Galois invariant}
+For a positive representative with commutative Grothendieck ring, let \(K\) contain the full character table and global dimension. If a modular Galois automorphism fixes \(K\), it preserves the entire restriction column \(v_Z\) of every central simple \(Z\).
+
+Indeed, the distinguished center rows satisfy
+\[
+s(A_E,Z)=\chi_E(FZ)/f_E.
+\]
+They lie in \(K\). The positive unit row fixes the sign of the Galois column permutation, and the full character table separates restriction vectors. This hypothesis involves all character values, not just FP dimensions.
+
+For R137 the full character field is \(\mathbb Q(\sqrt2)\), verified against all nine characters. If a twist has a square-Galois orbit of size \(k\), its orbit supplies \(k\) identical restriction columns. Thus
+\[
+k\,v_Zv_Z^t\le G,\qquad
+k\,v_Z^tG^{-1}v_Z\le1.
+\]
+The strongest version first subtracts the unit and the forced Galois-unit column from the Gram matrix.
+
+\subsection*{Fourth rotation}
+For each large simple \(X\), the accepted anticommuting pair insertions act on
+\(V=\operatorname{Hom}(1,X^4)\), with
+\[
+\dim V=18,\qquad \operatorname{tr}(E^2)=\nu_2(X^2)=10.
+\]
+The four-cycle Clifford decomposition gives opposite or adjacent fourth-root pairs. At most four adjacent pairs can occur. Consequently
+\[
+\operatorname{Re}\nu_4(X),\ \operatorname{Im}\nu_4(X)
+\in\{-4,-2,0,2,4\}.
+\]
+This argument uses neither unitarity nor a choice of TY sign.
+
+\subsection*{Exact outcome and remaining gap}
+The strongest whole-column filter removes 7,222 variables for each TY sign. Nevertheless both signs admit exact nonnegative rational solutions, even with all four \emph{projected} fourth indicators fixed to 2. The two witnesses have supports 102 and 112. A separate implementation rebuilt and checked every one of their 264 equations, the removed columns, the Gram inverses, and the new bounds.
+
+These are witnesses for a relaxation; they are not modular data or categories. Nor do they assert that the unprojected complex indicators equal 2.
+
+The center is either simple, or has subcategory lattice
+\(\Vec,\sVec,f',Z(\mathcal C)\), with \(f'\) a nonsplit s-simple fermion centralizer. This excludes nontrivial tensor-product center constructions. The remaining problem is categorical existence or a further universal obstruction.
+\newpage
+\section*{6. Proof archive and dependencies}
+The companion ZIP preserves:
+\begin{itemize}
+\item the immutable earlier proof snapshot, exact source tensors, and prior receipts;
+\item the new case notes, independent audit notes, and exact verifiers;
+\item the six-certificate R1768 replay and forty pinned dependency files;
+\item the exact R137 rational witnesses and independent replay;
+\item the report source and a small, documented replay runner.
+\end{itemize}
+
+Use \texttt{evidence/frontier/README.md} for the replay commands. The short source-tensor and structural checks use standard Python. Rebuilding the inherited R1768 domains additionally uses the documented scientific Python packages and a C++ compiler. No optimization is needed to verify the saved separators or witnesses. Exploratory scripts are not the basis for the new exclusion.
+
+\subsection*{Precisely what changed}
+The pivotal parity obstruction settles the following case:
+\[
+\R{R8\_3\_1768}:\quad\text{unresolved}\longrightarrow\text{excluded}.
+\]
+There are \textbf{six remaining unresolved cases}; the necessary-data witnesses are not counted as models. The new results for those six are conditional structural theorems or stronger necessary tests. No claim of exhaustion of all possible theoretical ideas is made.
+
+\subsection*{Selected mathematical sources}
+The archive notes give detailed theorem-level dependencies. Useful primary references include:
+\begingroup\small\raggedright
+\begin{enumerate}
+\item S.-H. Ng and P. Schauenburg, \emph{Higher Frobenius--Schur indicators for pivotal categories}, \href{https://arxiv.org/abs/math/0503167}{arXiv:math/0503167}. Pivotal coherence and indicators.
+\item J. Fuchs, I. Runkel and C. Schweigert, \emph{A reason for fusion rules to be even}, \href{https://www.esi.ac.at/preprints/esi1099.pdf}{ESI preprint 1099}. Braided parity, used only for the modular factor in R928.
+\item T. Deshpande, \emph{On centers of bimodule categories and induction-restriction functors}, \href{https://arxiv.org/abs/1611.04486}{arXiv:1611.04486}. Distinguished center character rows.
+\item C. Dong, X. Lin and S.-H. Ng, \emph{Congruence property in conformal field theory}, \href{https://arxiv.org/abs/1201.6644}{arXiv:1201.6644}. Modular Galois and twist relations.
+\item V. Drinfeld, S. Gelaki, D. Nikshych and V. Ostrik, \emph{On braided fusion categories I}, \href{https://arxiv.org/abs/0906.0620}{arXiv:0906.0620}. Centralizers and dimension formulas.
+\item A. Davydov, M. M\"uger, D. Nikshych and V. Ostrik, \emph{The Witt group of non-degenerate braided fusion categories}, \href{https://arxiv.org/abs/1009.2117}{arXiv:1009.2117}. Condensation and center structure.
+\end{enumerate}
+\endgroup
+
+\textbf{Audit boundary.} The new elementary parity proof and the explicitly replayed rational certificates have been checked separately. The entire earlier project has not been re-audited from first principles during this continuation. Its general-complex existence gates and complete categorical center-domain theorems are retained as identified premises; the current report does not hide them behind numerical agreement.
+\end{document}
+

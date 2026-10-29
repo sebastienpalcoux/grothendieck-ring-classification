@@ -1,6 +1,6 @@
 {
   "schema": "current-publication-revision/v1",
-  "date": "2026-10-27",
+  "date": "2026-10-29",
   "accepted_decisions": 36,
   "remaining_ids": [
     "R6_4_155",
@@ -8,7 +8,6 @@
     "R8_3_928",
     "R8_3_941",
     "R8_3_1154",
-    "R8_3_1768",
     "R9_2_137"
   ],
   "accepted_decisions_scope": "Historical 38-case continuation through rank-seven multiplicity four",
@@ -165,20 +164,19 @@
     ]
   },
   "rank8_m3_update": {
-    "date": "2026-10-24",
+    "date": "2026-10-29",
     "rank": 8,
     "multiplicity": 3,
     "rings": 3527,
-    "excluded": 3507,
+    "excluded": 3508,
     "realized": 16,
     "unitarily_realized": 16,
     "pseudo_unitarily_realized": 0,
-    "unresolved": 4,
+    "unresolved": 3,
     "remaining_ids": [
       "R8_3_928",
       "R8_3_941",
-      "R8_3_1154",
-      "R8_3_1768"
+      "R8_3_1154"
     ],
     "unitary_excluded_ids": [],
     "realized_ids": [
@@ -199,13 +197,13 @@
       "R8_3_3314",
       "R8_3_3342"
     ],
-    "ledger": "supplements/rank8/output/research_20261024/ledger.json",
-    "ledger_sha256": "16a4723f149222ba8cb4f91d07d8ef75176ba5e95b20ff7594ed17e8e4e033fe",
+    "ledger": "evidence/frontier/rank8_ledger.json",
+    "ledger_sha256": "df7d3c8c89fc6ea610db95e31094bf42e9a076c213b6a550606dd334184a5ced",
     "historical_ledger": "supplements/rank8/data/decisions.json",
     "historical_ledger_sha256": "7f50213174f1020bb9d90d5981892c332448cf909a56bf60b29e1143228f3f24",
     "source": "supplements/rank8/data/rank8_m3_tables.txt.gz",
     "source_sha256": "1003a7684ec62797e63885eeb5af42fd094adc9ff3fec6caf049620b3afd0952",
-    "evidence": "evidence/research_20261024",
+    "evidence": "evidence/frontier",
     "baseline_evidence": "evidence/rank8_m3_20261021",
     "frontier": {
       "new_decisions": 25,
@@ -384,14 +382,15 @@
       "attempts_source": "evidence/r3472_exclusion_20261022/per_ring_research_audit.json",
       "evidence": "evidence/r3472_exclusion_20261022"
     },
-    "attempts_source": "evidence/research_20261024/rank8_research_audit.json",
+    "attempts_source": "evidence/frontier/rank8_research_audit.json",
     "independent_R436_replacement": {
       "proof": "evidence/r436_repair_20261024/REPAIR.md",
       "certificate": "evidence/r436_repair_20261024/equivariantization_certificate.json",
       "criterion": "spherical_equivariantization_formal_codegree_field"
     },
     "historical_metadata_checkpoint": "evidence/audit_20261024/predecessor_publication.json",
-    "historical_metadata_scope": "Frozen pre-audit release; the audit and independent replacement are separate accepted steps."
+    "historical_metadata_scope": "Frozen pre-audit release; the audit and independent replacement are separate accepted steps.",
+    "current_frontier": "evidence/frontier/accepted.json"
   },
   "research_progress": "evidence/rigidity_20261017/rank6/research_progress.json",
   "research_progress_sha256": "de9be218c3099e68f00f5867b77d9ff7cbf9ef6ca34207823f2598b710886497",
@@ -399,14 +398,6 @@
     "docs/New_category_candidates_and_open_cases.pdf": {
       "sha256": "eafe32a54cc2f5ebd52428c4ffd4c76e9f6b29586709c34afdaa7d020d3a81a5",
       "bytes": 60320
-    },
-    "manuscripts/prepublication-review-2026-10-21.pdf": {
-      "sha256": "cfe695381be1193cd6cd4c54f39d02ffbac560c4b89b51081af346250d961800",
-      "bytes": 83374
-    },
-    "manuscripts/prepublication-review-2026-10-22.pdf": {
-      "sha256": "a9047d7684887da76409f68cdb2e56b0f8de53f837c8a02286905f6798bda308",
-      "bytes": 85227
     },
     "manuscripts/rank2.pdf": {
       "sha256": "3488327cdd434217b29fe48a6a32eb604ee5f0ceb7870bd33af3b1bc17ab9a36",
@@ -921,12 +912,12 @@
       "bytes": 384
     },
     "manuscripts/rank6/papers/manuscript.pdf": {
-      "sha256": "2324417b24065a77603bb44824eb2bd0298547aab4ad4cbb34ed62a877c9eb5a",
-      "bytes": 968553
+      "sha256": "8b86744352d1f07f005dc8615fbfe8d880485e01d06b572fc67561c0309649e7",
+      "bytes": 1500589
     },
     "manuscripts/rank6/papers/manuscript.tex": {
-      "sha256": "b09b5d7c0b45ca6344c48ce1073de2db250e666174f0bf8555ddece39d4ff9cd",
-      "bytes": 3608
+      "sha256": "47c5ceea853221ca8e63e569ece52f6cf84720e2c01ad416ab87eaa15904e254",
+      "bytes": 3875
     },
     "manuscripts/rank6/papers/preamble.tex": {
       "sha256": "57263c38f52ab8082e23f99ec1f05232a15b5667d14f0d20724836e92f913bad",
@@ -1121,16 +1112,16 @@
       "bytes": 15310
     },
     "manuscripts/rank8/paper/m3_continuation.tex": {
-      "sha256": "1060c856e2d011d2e9e29aa0c50176cbd439c5e46ab6c622a7cecf7876377e20",
-      "bytes": 11135
+      "sha256": "95e298de276988ccd89dd5d8bc70d9accabef02fffa3b039a47137ab786b7824",
+      "bytes": 11204
     },
     "manuscripts/rank8/paper/m3_convex.tex": {
       "sha256": "864115f2093467c538268f3ebe53eafb8207e2ccf1e47b1bdf103e876995ba4e",
       "bytes": 7590
     },
     "manuscripts/rank8/paper/m3_creative_20261022.tex": {
-      "sha256": "f602dce67a3fb656e7ee6e5a03d0cefe7c0cf06ad78cf1c817b62544e9409644",
-      "bytes": 37684
+      "sha256": "a7386d2566dfa27e477257ada86ec5622df9343f8e8d228384a2527b79d72343",
+      "bytes": 32659
     },
     "manuscripts/rank8/paper/m3_criteria.tex": {
       "sha256": "919647f5f34e2a1e1403a700e338f565251c7a98dfbb368e99955d0ee763c361",
@@ -1165,8 +1156,8 @@
       "bytes": 1187
     },
     "manuscripts/rank8/paper/m3_r3472_focus.tex": {
-      "sha256": "301593786e8799a313b0c1a42a95fbf8625330cb79de633513363188aff32757",
-      "bytes": 46862
+      "sha256": "b3eb1718d19d11d542b93fa8ecc2180f3e504b1587086bb8d26c6a4b508646c7",
+      "bytes": 17857
     },
     "manuscripts/rank8/paper/m3_research_20261022.tex": {
       "sha256": "0a756aee2cdf35244916eb0cf2bc2c9121f50693b416d981aa96396b914dcf25",
@@ -1221,16 +1212,16 @@
       "bytes": 4207
     },
     "manuscripts/rank8/paper/rank8-reviewed.pdf": {
-      "sha256": "8d930f885b83b13288db7ecdeea13e95186b107555d32f1046c92a8442a26393",
-      "bytes": 977892
+      "sha256": "badf686a4ab4f1e34f6cbc933363364e2bfcaff8bca3b6b9d4cf101d51a849ae",
+      "bytes": 1509193
     },
     "manuscripts/rank8/paper/rank8.pdf": {
-      "sha256": "8d930f885b83b13288db7ecdeea13e95186b107555d32f1046c92a8442a26393",
-      "bytes": 977892
+      "sha256": "badf686a4ab4f1e34f6cbc933363364e2bfcaff8bca3b6b9d4cf101d51a849ae",
+      "bytes": 1509193
     },
     "manuscripts/rank8/paper/rank8.tex": {
-      "sha256": "bc1bc64e1accb0c5fd58175b13c28247a6163cc430ea2e36b42a258e61b145fc",
-      "bytes": 65475
+      "sha256": "9bc9bc3f4561783d72541f5252f01478cb826ebb8a85704bea93de872be4d02b",
+      "bytes": 65900
     },
     "manuscripts/rank8/paper/scoped_obstructions.tex": {
       "sha256": "5e4ab1415e3da479880c32710d557a24b09632ab85a8e7e49a71a7e425e0e067",
@@ -1749,12 +1740,12 @@
       "bytes": 384
     },
     "supplements/rank6/papers/manuscript.pdf": {
-      "sha256": "2324417b24065a77603bb44824eb2bd0298547aab4ad4cbb34ed62a877c9eb5a",
-      "bytes": 968553
+      "sha256": "8b86744352d1f07f005dc8615fbfe8d880485e01d06b572fc67561c0309649e7",
+      "bytes": 1500589
     },
     "supplements/rank6/papers/manuscript.tex": {
-      "sha256": "b09b5d7c0b45ca6344c48ce1073de2db250e666174f0bf8555ddece39d4ff9cd",
-      "bytes": 3608
+      "sha256": "47c5ceea853221ca8e63e569ece52f6cf84720e2c01ad416ab87eaa15904e254",
+      "bytes": 3875
     },
     "supplements/rank6/papers/preamble.tex": {
       "sha256": "57263c38f52ab8082e23f99ec1f05232a15b5667d14f0d20724836e92f913bad",
@@ -1949,16 +1940,16 @@
       "bytes": 15310
     },
     "supplements/rank8/paper/m3_continuation.tex": {
-      "sha256": "1060c856e2d011d2e9e29aa0c50176cbd439c5e46ab6c622a7cecf7876377e20",
-      "bytes": 11135
+      "sha256": "95e298de276988ccd89dd5d8bc70d9accabef02fffa3b039a47137ab786b7824",
+      "bytes": 11204
     },
     "supplements/rank8/paper/m3_convex.tex": {
       "sha256": "864115f2093467c538268f3ebe53eafb8207e2ccf1e47b1bdf103e876995ba4e",
       "bytes": 7590
     },
     "supplements/rank8/paper/m3_creative_20261022.tex": {
-      "sha256": "f602dce67a3fb656e7ee6e5a03d0cefe7c0cf06ad78cf1c817b62544e9409644",
-      "bytes": 37684
+      "sha256": "a7386d2566dfa27e477257ada86ec5622df9343f8e8d228384a2527b79d72343",
+      "bytes": 32659
     },
     "supplements/rank8/paper/m3_criteria.tex": {
       "sha256": "919647f5f34e2a1e1403a700e338f565251c7a98dfbb368e99955d0ee763c361",
@@ -1993,8 +1984,8 @@
       "bytes": 1187
     },
     "supplements/rank8/paper/m3_r3472_focus.tex": {
-      "sha256": "301593786e8799a313b0c1a42a95fbf8625330cb79de633513363188aff32757",
-      "bytes": 46862
+      "sha256": "b3eb1718d19d11d542b93fa8ecc2180f3e504b1587086bb8d26c6a4b508646c7",
+      "bytes": 17857
     },
     "supplements/rank8/paper/m3_research_20261022.tex": {
       "sha256": "0a756aee2cdf35244916eb0cf2bc2c9121f50693b416d981aa96396b914dcf25",
@@ -2049,16 +2040,16 @@
       "bytes": 4207
     },
     "supplements/rank8/paper/rank8-reviewed.pdf": {
-      "sha256": "8d930f885b83b13288db7ecdeea13e95186b107555d32f1046c92a8442a26393",
-      "bytes": 977892
+      "sha256": "badf686a4ab4f1e34f6cbc933363364e2bfcaff8bca3b6b9d4cf101d51a849ae",
+      "bytes": 1509193
     },
     "supplements/rank8/paper/rank8.pdf": {
-      "sha256": "8d930f885b83b13288db7ecdeea13e95186b107555d32f1046c92a8442a26393",
-      "bytes": 977892
+      "sha256": "badf686a4ab4f1e34f6cbc933363364e2bfcaff8bca3b6b9d4cf101d51a849ae",
+      "bytes": 1509193
     },
     "supplements/rank8/paper/rank8.tex": {
-      "sha256": "bc1bc64e1accb0c5fd58175b13c28247a6163cc430ea2e36b42a258e61b145fc",
-      "bytes": 65475
+      "sha256": "9bc9bc3f4561783d72541f5252f01478cb826ebb8a85704bea93de872be4d02b",
+      "bytes": 65900
     },
     "supplements/rank8/paper/scoped_obstructions.tex": {
       "sha256": "5e4ab1415e3da479880c32710d557a24b09632ab85a8e7e49a71a7e425e0e067",
@@ -2129,8 +2120,8 @@
       "bytes": 21867
     },
     "publications/rank9-m2/paper/rank9-m2.tex": {
-      "sha256": "4207d5bc3b028a39bd024aa9ae960b879eb3ef4bf31c275af6dc5f9646330a68",
-      "bytes": 36332
+      "sha256": "29f71f6e2df86ae3ee1a988b5b5b61cba2aee294d0e282c2039f08f1fb3bec46",
+      "bytes": 37190
     },
     "publications/rank9-m2/paper/unresolved.tex": {
       "sha256": "d511242ea81d241cffc6643a9d1c81d12a4cac3a693b3bc8a62148a46759fa06",
@@ -2141,8 +2132,8 @@
       "bytes": 3661
     },
     "publications/rank9-m2/paper/rank9-m2.pdf": {
-      "sha256": "de63a5a41c29be8aad1e8bc59690df4de717fa7a510d5cabfb009a9245589557",
-      "bytes": 315240
+      "sha256": "d3dc1e9d705b7e39d3b2e200c058905fd5cb0bfb998dd96beacc76ee3ee9e8f2",
+      "bytes": 328167
     },
     "publications/rank9-m2/paper/exclusion-families.tex": {
       "sha256": "a61d6d5a948daeb2ec14486e60c414d53bc7f52ac0a922485b754ef9fdd3168c",
@@ -2161,12 +2152,12 @@
       "bytes": 4953
     },
     "manuscripts/rank8/paper/m3_retry.tex": {
-      "sha256": "51eae1dbeaddb6fb00657471355c31f90fdbb3960f50e7dac2afe98f87845a44",
-      "bytes": 11008
+      "sha256": "0f122af4940db545fcd6506547b7cf7c19d32359b858075cfebd4a30a520cf53",
+      "bytes": 9528
     },
     "supplements/rank8/paper/m3_retry.tex": {
-      "sha256": "51eae1dbeaddb6fb00657471355c31f90fdbb3960f50e7dac2afe98f87845a44",
-      "bytes": 11008
+      "sha256": "0f122af4940db545fcd6506547b7cf7c19d32359b858075cfebd4a30a520cf53",
+      "bytes": 9528
     },
     "publications/rank9-rank10/paper/rank10_conformal_model.tex": {
       "sha256": "a47f8db5754dd8dc64b5814030703e76ba4c7767594565ced4118a94e3e146f1",
@@ -2192,33 +2183,45 @@
       "sha256": "cf4e804d116c2eeb82c3bbe1ff4301f00fc5e04f18a529036a42e8e79d814779",
       "bytes": 365023
     },
-    "manuscripts/prepublication-review-2026-10-27.tex": {
-      "sha256": "5e51d12bd91c64c1bc7bc188267231b91276ae6554cdffea0421907d0d944678",
-      "bytes": 23838
-    },
-    "manuscripts/prepublication-review-2026-10-27.pdf": {
-      "sha256": "1c5219e12c0692e1352a42689befc444c0e366ca9c2331555ea44fd1d06069d5",
-      "bytes": 76140
-    },
     "manuscripts/rank6/papers/chapters/pairing_morita_20261027.tex": {
-      "sha256": "8d6be2da33412a3d3c69610a4e30712b824069e99414535852b806bac63b3cac",
-      "bytes": 5714
+      "sha256": "fa977c839f220cd1d7296f5fff5fa4c0cb938e5b8b2c3009d120ca2940b813b1",
+      "bytes": 15661
     },
     "supplements/rank6/papers/chapters/pairing_morita_20261027.tex": {
-      "sha256": "8d6be2da33412a3d3c69610a4e30712b824069e99414535852b806bac63b3cac",
-      "bytes": 5714
+      "sha256": "fa977c839f220cd1d7296f5fff5fa4c0cb938e5b8b2c3009d120ca2940b813b1",
+      "bytes": 15661
     },
     "manuscripts/rank8/paper/pairing_frontier_20261027.tex": {
-      "sha256": "6c751fa8d8c062e14d4e06a5c2860bc5983ff7eec46bcbc74bda02edc1b5f794",
-      "bytes": 8249
+      "sha256": "faabf5f17cc3b68e3a10ec4e86233225628e5727678882d4a0c948ce80644e54",
+      "bytes": 12630
     },
     "supplements/rank8/paper/pairing_frontier_20261027.tex": {
-      "sha256": "6c751fa8d8c062e14d4e06a5c2860bc5983ff7eec46bcbc74bda02edc1b5f794",
-      "bytes": 8249
+      "sha256": "faabf5f17cc3b68e3a10ec4e86233225628e5727678882d4a0c948ce80644e54",
+      "bytes": 12630
     },
     "publications/rank9-m2/paper/galois_pairing_20261027.tex": {
-      "sha256": "7a1b9ea18a612e14f584ac742f8bd08db0b67293e6844693cd122b86886b741a",
-      "bytes": 16059
+      "sha256": "3aa5de31cb06a4fe535737d9f421a9b0e1fd6f729c824d9759f5257bb3d228f0",
+      "bytes": 16054
+    },
+    "manuscripts/frontier/Fusion_Ring_Frontier.tex": {
+      "sha256": "37bf64d419f05efb5c55bbc45815035d6d6f60080e1a07b6a97674959d0ade0d",
+      "bytes": 19870
+    },
+    "manuscripts/frontier/Fusion_Ring_Frontier.pdf": {
+      "sha256": "fea37c0d69c67b94e9851a6b0e6c1084521ecbf102174484bb0a494e990a9419",
+      "bytes": 287087
+    },
+    "publications/rank9-m2/paper/r137_restrictions.tex": {
+      "sha256": "ea9fd3a33409c9e53c4314479ff75f0c94c17348038d8d3563a95988744fa3bf",
+      "bytes": 7349
+    },
+    "manuscripts/rank8/paper/pivotal_conjugation.tex": {
+      "sha256": "cdc3f02f06d1e397ce70f5366fc40e0ec94b683fb9f7763641e0f44f1af5e199",
+      "bytes": 5136
+    },
+    "supplements/rank8/paper/pivotal_conjugation.tex": {
+      "sha256": "cdc3f02f06d1e397ce70f5366fc40e0ec94b683fb9f7763641e0f44f1af5e199",
+      "bytes": 5136
     }
   },
   "web_copies": {
@@ -2240,13 +2243,13 @@
     "papers/rank11.pdf": "publications/rank11/paper/rank11.pdf",
     "papers/rank9-m2.pdf": "publications/rank9-m2/paper/rank9-m2.pdf",
     "papers/rank12.pdf": "publications/rank12/paper/rank12.pdf",
-    "papers/prepublication-review-2026-10-27.pdf": "manuscripts/prepublication-review-2026-10-27.pdf"
+    "papers/frontier.pdf": "manuscripts/frontier/Fusion_Ring_Frontier.pdf"
   },
   "base_document_manifest": {
     "path": "data/current_document_revision.json",
-    "sha256": "dc1afa44c0522d0317879a9cccf8b1ca38fa311da1dff34497d15a0c396ac49c",
-    "bytes": 86371,
-    "scope": "Frozen rank-two through rank-eight proof publication; retained unchanged for its replay archives."
+    "sha256": "817630733c8fcf14cd2db3d874bdfd858ea6e578031878ccba1e69aa898c0418",
+    "bytes": 89351,
+    "scope": "Current lower-rank manuscript and website-copy identities."
   },
   "rank9_rank10_m1": {
     "input_count": 336,
@@ -2266,7 +2269,7 @@
     "sha256": "2e6f3513a373fafdbdfad36c9eab75b946d3fc557d070660f73c78315cf67a29",
     "bytes": 297825
   },
-  "current_unresolved_total": 7,
+  "current_unresolved_total": 6,
   "rank10_m1_continuation": {
     "evidence": "evidence/unresolved_retry_20261024",
     "unresolved_ids": [],
@@ -2383,23 +2386,20 @@
     "proof_archive_sha256": "c7283e2b915853a17f9725695a013cc140d2140365b55115520c454327ad5345"
   },
   "frontier_continuation": {
-    "date": "2026-10-27",
-    "accepted": "evidence/frontier_20261027/accepted.json",
-    "general_exclusions": [
-      "R9_2_1607",
-      "R9_2_1975",
-      "R9_2_1976"
-    ],
+    "date": "2026-10-29",
+    "accepted": "evidence/frontier/accepted.json",
     "remaining_ids": [
       "R6_4_155",
       "R6_8_1660",
       "R8_3_928",
       "R8_3_941",
       "R8_3_1154",
-      "R8_3_1768",
       "R9_2_137"
     ],
-    "replay_archive": "site/dist/downloads/Seven-Fusion-Rings-Proofs-and-Checks.zip",
-    "replay_archive_sha256": "646b43823932a105ff603f39c245041c0398f83e4330fa71e7cc2123f61963ee"
+    "new_general_exclusions": [
+      "R8_3_1768"
+    ],
+    "new_models": 0,
+    "replay_archive": "site/dist/downloads/Fusion-Ring-Frontier-Proofs-and-Checks.zip"
   }
 }

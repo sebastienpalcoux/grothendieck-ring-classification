@@ -74,6 +74,15 @@ BIB={
 'GSYOddHI2026':r'''T.~Gannon, A.~Schopieray and H.~Yadav, \emph{On Haagerup--Izumi fusion categories}, arXiv:2609.25185v1 (2026).''',
 'GSHaagerup':r'''P.~Grossman and N.~Snyder, \emph{Quantum subgroups of the Haagerup fusion categories}, Comm. Math. Phys. \textbf{311} (2012), 617--643; arXiv:1102.2631v2, Theorem~1.5.'''}
 def main():
+    from frontier import active as current_active, read as current_read, sha as current_sha
+    if current_active(ROOT):
+        accepted=current_read(ROOT/"evidence/frontier/accepted.json")
+        sources=accepted.get("article_source_sha256",{})
+        if not sources:raise ValueError("Current authored article source manifest is missing")
+        for name,digest in sources.items():
+            if current_sha(ROOT/name)!=digest:raise ValueError("Current authored article changed: "+name)
+        print("Current rank-eight article uses its integrated, source-bound authored sections; historical stage generation is not applied.")
+        return
     ext=extension(ROOT)
     if ext is None:raise ValueError('Accepted M3 publication ledger required')
     rows=json.loads((ROOT/ledger_path(ROOT)).read_text());new=[r for r in rows if r['multiplicity']==3]

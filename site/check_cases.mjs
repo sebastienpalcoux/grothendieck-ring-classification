@@ -76,7 +76,7 @@ function casesFor(search) {
   sandbox.testCases.parseFilters();return sandbox.testCases;
 }
 const selections=[
-  ["",6],["?rank=8&m=3",4],["?rank=8&max_m=3",4],["?rank=6",2],
+  ["",5],["?rank=8&m=3",3],["?rank=8&max_m=3",3],["?rank=6",2],
   ["?rank=6&m=4",1],["?rank=6&m=8",1],["?rank=6&max_m=7",1],
   ["?rank=6&max_m=9",2],["?rank=7&m=5",0],["?rank=8&m=2",0],
 ];
@@ -236,10 +236,11 @@ for(const record of atlas.scope.filter(r=>r.unresolved))
 doc.querySelector("#research-update").append(new TestNode("a"));
 app.renderTheoreticalUpdate();
 const rank8Open=unresolved.filter(r=>r.rank===8).length;
-assertLink(doc.querySelector("#research-update-title"),`${rank8Open} open cases`,"?rank=8&max_m=3");
-assertLink(doc.querySelector("#theoretical-update-heading"),`${unresolved.length} open cases`,"");
+const currentOpen=atlas.remaining_ids.length;
+assertLink(doc.querySelector("#research-update-title"),`${currentOpen} open cases`,"");
+assertLink(doc.querySelector("#theoretical-update-heading"),`${currentOpen} open cases`,"");
 for(const selector of ["#research-update-summary","#theoretical-update-scope"])
-  assertLink(doc.querySelector(selector),`${rank8Open} extensively investigated exotic candidates`,"?rank=8&m=3");
+  assertLink(doc.querySelector(selector),`${rank8Open} unresolved cases`,"?rank=8&m=3");
 assertLink(doc.querySelector("#research-update-summary"),"2 rank-six","?rank=6");
 assertLink(doc.querySelector("#research-update-summary"),`${rank8Open} rank-eight`,"?rank=8");
 for(const ring of realized) {
@@ -330,7 +331,7 @@ const catalogue=await catalogueContext.RingCatalogue.load();
 assert.equal(catalogue.models.length,532);
 assert.equal(catalogue.cases.length,3462);
 assert.equal(new Set(catalogue.cases.map(r=>r.id)).size,3462);
-assert.equal(catalogue.cases.filter(r=>r.status==="unresolved").length,7);
+assert.equal(catalogue.cases.filter(r=>r.status==="unresolved").length,6);
 for (const id of ["R9_2_1607","R9_2_1975","R9_2_1976"]) {
   const ring=catalogue.cases.find(r=>r.id===id);
   assert.equal(ring.status,"excluded");
@@ -408,7 +409,7 @@ for(const name of ["index.html","case.html","unresolved.html","records.html"]) {
   const html=read(name);assert.match(html,/src="\.\/catalogue\.js/);assert.doesNotMatch(html,/rank11-current|rank9-10-current|href="\.\/rank11\.html"/);
 }
 for(const name of ["rank11.html","rank9-10.html"])assert.match(read(name),/src="\.\/redirect\.js/);
-console.log("Unified catalogue checked: 3462 ordered case pages, 532 models, 7 open cases; shared rank/status/multiplicity filters and complete pagination through rank 12.");
+console.log("Unified catalogue checked: 3462 ordered case pages, 532 models, 6 open cases; shared rank/status/multiplicity filters and complete pagination through rank 12.");
 
 app.state.data=state.data;app.state.models=state.models;
 app.state.censusMap=new Map(state.data.rows.map(r=>[`${r.rank}:${r.multiplicity}`,r]));

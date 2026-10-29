@@ -1,9 +1,9 @@
-\section{Morita rigidity and a realized twisted precursor}
+\section{Morita rigidity and auxiliary constructions}
 \label{sec:m3-theoretical-retry}
 
-The four open rings retain their general unresolved status. The
-following results distinguish an actual auxiliary construction from
-necessary module data and from a construction of a source ring.
+The three remaining rank-eight rings retain their general unresolved status.
+The following results distinguish categorical Morita rigidity, an actual
+auxiliary construction, and restrictions on specified construction routes.
 
 \subsection{Categorical Morita rigidity of $R8\_3\_928$}
 \begin{theorem}
@@ -85,10 +85,10 @@ and noninvertibles $a_j\sigma$ has relations
  a_ia_j=a_{i+j},\qquad a_j\sigma=\sigma a_{-j},\qquad
  \sigma^2=1+2\sum_{j\in C_6}a_j\sigma.
 \]
-Its dimension $6(1+u^2)=444+72\sqrt{37}$ equals that of $R8\_3\_1768$.
-The completed rank-eight based-module route forces pointed associator
-class $3\in H^3(C_6,\C^\times)$. Its existence is now established,
-without a unitarity assertion.
+Its dimension is $6(1+u^2)=444+72\sqrt{37}$. The following construction
+realizes pointed associator class $3\in H^3(C_6,\C^\times)$, without a
+unitarity assertion. Equal global dimension does not identify it with
+a Morita representative of the excluded ring $R8\_3\_1768$.
 
 \begin{proposition}
 There is a complex fusion category with these rules and pointed
@@ -158,36 +158,6 @@ $a(\lambda_{(6,0)})=-\lambda_{(6,0)}$. This cyclic obstruction is
 class $3$ in $H^3(C_6,\C^\times)$, as required.
 \end{proof}
 
-\subsection{The $1+\sigma$ construction route and its obstruction}
-The old based-module calculation has precisely two rank-eight
-completions for an algebra $1+\sigma$. This does not prove that such
-an algebra exists in the category just constructed. In particular the
-canonical near-group algebra descends to the matrix algebra
-$\operatorname{End}(\sigma)$, not to $1+\sigma$.
-
-More explicitly, write $Z=\lambda_{(0,6)}$ and take the normalized
-maps
-\[
- r=\frac1{\sqrt{12}}\sum_l S_{(l,l)}\lambda_{(l,l)},\quad
- t_0=\frac1{\sqrt{12}}\sum_lT_{(l,l)}p,\quad
- t_1=\frac1{\sqrt{12}}\sum_lT_{(l,l+6)}Zp.
-\]
-Their primed algebraic duals satisfy $sr=1$, $t_i't_j=\delta_{ij}p$;
-$t_0',t_1'$ span $\operatorname{Hom}(\sigma^2,\sigma)$.
-After normalizing the unit-channel product to $s$, a multiplication
-on $1+\sigma$ is specified by $t=b_0t_0'+b_1t_1'$. Associativity is
-exactly
-\begin{align*}
- s(t\otimes1)&=s(1\otimes t),\\
- (s\otimes1)+t(t\otimes1)&=(1\otimes s)+t(1\otimes t).
-\end{align*}
-The first equation is automatic here: cubic rotation is $I_2$.
-The second is a quadratic morphism system in two variables, with
-coefficients from the explicit finite quantum dilogarithm. Separability must also be checked. The pairing obstruction in Section~\ref{sec:pairing-frontier-20261027} proves that this route cannot produce the source ring, for any associator or algebra; solving this system would therefore not model $R8\_3\_1768$.
-The categorical dimension in the specified Stark realization is
-$6-\sqrt{37}$, whereas its FP dimension is $u$; positivity is not
-assumed in these algebraic equations.
-
 \subsection{Further route obstructions}
 A proper inclusion of fusion categories has FP index at least two.
 Indeed each indecomposable component over the subcategory has dimension
@@ -215,4 +185,5 @@ construction families, not general noncategorifiability theorems.
 
 All new proofs, complete finite domains and independent audits are
 curated in \path{evidence/unresolved_retry_20261024/README.md}.
-The seven remaining open cases include these four rank-eight rings.
+The project has six remaining open cases, including the three rank-eight rings
+$R8\_3\_928$, $R8\_3\_941$ and $R8\_3\_1154$.

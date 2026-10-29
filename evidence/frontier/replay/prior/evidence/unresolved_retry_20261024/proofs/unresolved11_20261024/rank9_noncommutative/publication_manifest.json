@@ -1,0 +1,69 @@
+{
+  "status": "R9_2_1975 remains unresolved",
+  "new_original_ring_exclusions": 0,
+  "new_models": 0,
+  "new_morita_branch_exclusions": 1,
+  "remaining_morita_branches": 2,
+  "excluded_TY_sign": 1,
+  "remaining_TY_sign": -1,
+  "files": [
+    {
+      "name": "NEW_RESTRICTIONS.md",
+      "sha256": "fd11032b5081bc0f95c57bc5c57f852c90c0808a2ee8a0ce84bfdcc2408a62c8"
+    },
+    {
+      "name": "verify_new_results.py",
+      "sha256": "54e013c9e5475b9a0a71b56bd0ea286c832d53ead0dd363c90e6573263b132ca"
+    },
+    {
+      "name": "new_results_inputs.json",
+      "sha256": "89173bf51976f6fa9abd854d2fe0d9ce3c9b2dec7fbc1a6cb157a025fc22761d"
+    },
+    {
+      "name": "new_results_verification.json",
+      "sha256": "f2a65c19815c04e80f10baf296e991079cb7e2beb7c5fa144f39de7dd00c17fd"
+    },
+    {
+      "name": "R6_4_1_dependency.json",
+      "sha256": "9daa21ce8609e5ce806734dbf6635c0318dc708b1e37a2f61b200aee9e96c3bd"
+    },
+    {
+      "name": "no_integral_center_system.json.gz",
+      "sha256": "8192a63c0e093cf5fa98837637840eb993466dd1bd503d3e67a4f1595ab80353"
+    },
+    {
+      "name": "no_integral_center_feasibility.json",
+      "sha256": "7f906978b26221f931839d454cee3c2b85d3af79727a3e65a5159d9f68591b0c"
+    },
+    {
+      "name": "no_integral_center_feasibility.py",
+      "sha256": "89c92bee32425e6cda6be035fd4ffd08dce5baf5e28e3d3ba12f4b570e4e82e5"
+    },
+    {
+      "name": "ty_spectrum_center.py",
+      "sha256": "b3abf8a861a8d0a6cc4ca372d4d1743178caec0d761845515403fdc5816c3b5b"
+    },
+    {
+      "name": "ty_spectrum_h6_tau1.json",
+      "sha256": "6cae4d98082e4b5790bcdc3aa4eb6a40cd4e121af52ecb2a97c247a1826a6f09"
+    },
+    {
+      "name": "ty_spectrum_h6_tau1_system.json.gz",
+      "sha256": "bbaa025f31586b2072414f181a26dbe06159a66d71b7b4f15259a96bf5194f60"
+    },
+    {
+      "name": "ty_spectrum_h6_tau-1.json",
+      "sha256": "37f8311206c5e79ee11a594528291703688c8c5f0eacaa97b0714ebebf801904"
+    },
+    {
+      "name": "ty_spectrum_h6_tau-1_system.json.gz",
+      "sha256": "e3371c93511419367a7fef2566771fc9f792c6a631fdc09583dd2ad118620569"
+    },
+    {
+      "name": "sources.json",
+      "sha256": "ada2a6ccb67f17ed3517850cbbded91c918e7c8b9d095525c598e630efb5f95a"
+    }
+  ],
+  "replay": "python verify_new_results.py",
+  "note": "Generators need prior research source modules; portable verifier and stored exact matrices/certificates need only Python standard library."
+}

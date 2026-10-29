@@ -1,266 +1,31 @@
-# Grothendieck ring classification · project guide
+# Project guide
 
-<!-- frontier-20261027 -->
-**27 October 2026 · audited continuation.** R9_2_1607, R9_2_1975 and R9_2_1976 are excluded over the complex numbers. **Seven cases remain unresolved:** two at rank six, four at rank eight and one at rank nine. The conditional R1660–R941 algebra construction is precise; every GH(C6,2) Morita route for R1768 is excluded. [Proofs, individual findings and exact replay](../evidence/frontier_20261027/README.md). Independent human verification remains pending.
-<!-- /frontier-20261027 -->
+**Current classification: six unresolved cases.** R8_3_1768 is excluded over the complex numbers by pivotal conjugation parity, using the established existence and complete center-domain reductions. No additional categorification is claimed.
 
-<!-- correctness-20261025 -->
-**Correctness revision · 25 October 2026.** The current classification is unchanged. Three model-identification arguments are repaired, R8_3_721 has a direct exact completion, and implementation/replay defects are corrected. [Findings, corrections and exact commands](../evidence/correctness_20261025/README.md). Independent human verification remains pending.
-<!-- /correctness-20261025 -->
+> **AI-generated research; independent human verification pending.** Exact checks establish only their stated computational scope.
 
-[Repository front page](../README.md) · [Interactive atlas](https://sebastienpalcoux.github.io/grothendieck-ring-classification/)
+## Read the project
 
-**Which low-rank fusion rings admit fusion categories over ℂ?**
+- [Public Atlas](https://sebastienpalcoux.github.io/grothendieck-ring-classification/) presents the current classification and case records.
+- [Manuscripts](../manuscripts/README.md) gives one current paper per rank or stated band.
+- [Theory and definitions](https://sebastienpalcoux.github.io/grothendieck-ring-classification/theory.html) introduces fusion rings, fusion categories and the structural filters.
+- [Current research frontier](RESEARCH_STATUS.md) states exactly what remains open.
+- [Verification](VERIFY.md) provides reproducible commands and their limits.
 
-Explore realized Grothendieck rings, proposed categorification arguments and
-the exact data behind them. The public atlas connects interactive tables,
-individual ring profiles, manuscripts and reproducible computation records.
+## Two complementary repositories
 
-**Companion repository:** [Fusion Ring Census](https://github.com/sebastienpalcoux/fusion-ring-census)
-enumerates all based fusion rings; this repository classifies which admit
-categorifications over ℂ.
+The [Fusion Ring Census](https://github.com/sebastienpalcoux/fusion-ring-census) enumerates based rings without a categorifiability filter. Its bounded regions contain 1,434,042 rings. This classification repository supplies categorical models and exclusions. The Atlas case directory covers the full census; detailed research profiles are supplied where available. Census-only numerical invariants are never treated as categorical models.
 
-### [Open the interactive atlas →](https://sebastienpalcoux.github.io/grothendieck-ring-classification/)
+## Decisions and models
 
-> [!IMPORTANT]
-> **AI-generated research · independent verification pending.**
-> The results, proofs, code and data in this project are AI-generated and
-> have not yet been independently verified by human experts or formalized
-> in Lean. Treat them as provisional and use them with caution. Automated
-> checks establish only their stated computational scope; they do not
-> replace mathematical review or formal proof.
-> [Research-status notice](../docs/RESEARCH_STATUS.md) ·
-> [Verification scope and review](../docs/PREPUBLICATION_REVIEW.md).
+An exclusion is recorded at its proved scope: general complex, pivotal, spherical, pseudo-unitary or unitary. A restriction at one level is not automatically an exclusion at a broader level. A realized based ring has at least one categorical model; inequivalent associators are not counted separately. R12_1_623 is recorded as complex/pseudo-unitary with unitarity unproved.
 
-> [!NOTE]
-> **[Research announcement · 4 pages · revised 26 October 2026](../announcements/hexagon-2026-10/Low_rank_Grothendieck_rings_announcement.pdf)**
-> Current scope through rank twelve, the constructions catalogue and all seven open cases.
-> [Source, snapshot and Hexagon revision status](../announcements/hexagon-2026-10/).
-> [Hexagon · 2610.00300](https://hexagonmath.org/2610.00300) · [How to cite](https://sebastienpalcoux.github.io/grothendieck-ring-classification/#cite).
+A model must be categorically constructed and matched to the full tensor by an exact based isomorphism. Matching FP dimensions or modular spectra is insufficient. Necessary center matrices, rational witnesses and conditional algebra constructions retain unresolved status.
 
-> [!TIP]
-> **[Earlier construction-candidates report (PDF)](../docs/New_category_candidates_and_open_cases.pdf)**
-> Earlier report of seven provisional construction candidates, the known `Rep(AGL(1,7))` model, and the open cases at that checkpoint. [Current open tensors](../data/current_remaining_cases.py) cover all 7 present questions.
-> Novelty up to tensor equivalence remains subject to independent verification.
+## Current data
 
-| Start here | What you will find |
-|---|---|
-| [Explore the atlas](https://sebastienpalcoux.github.io/grothendieck-ring-classification/) | Filter counts, inspect fusion rules and character data, and follow source links. |
-| **[Unrestricted rank-four classification](../manuscripts/rank4/README.md)** | **[Main paper · 88 pages](../manuscripts/rank4/papers/companion.pdf)** · [LaTeX](../manuscripts/rank4/papers/companion.tex). No multiplicity bound or initial pivotality assumption. |
-| [Read the manuscripts](../manuscripts/README.md) | TeX sources and PDFs, organized by rank. |
-| [Inspect the data](../data/classification_status.csv) | Classification outcomes, [realized counts](../data/grothendieck_counts.csv) and the separate [fusion-ring census](https://github.com/sebastienpalcoux/fusion-ring-census#readme). |
-| [Reproduce the checks](../docs/VERIFY.md) | Replay instructions, [provenance](../docs/PROVENANCE.md) and the limits of each check. |
+[All-rank classification totals](../data/classification_summary_all_ranks.csv) · [Current publication manifest](../data/current_publication_revision.json) · [Six open tensors](../data/current_remaining_cases.py) · [Current proofs and exact replay](https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/evidence/frontier/README.md)
 
-**Current research account.** The 38-case continuation records **36 decisions**:
-29 proposed general exclusions and 7 unitary constructions. **Two general
-cases from that historical study remain open:** `R6_4_155` and `R6_8_1660`. Rank eight is complete
-through multiplicity two, with 896 exclusions and 77 unitary models.
-The exclusion of `R8_2_24` follows from an inner-square obstruction using
-pivotal duality, short associator weights and tensor-functor rigidity.
-The rank-seven multiplicity-five continuation addresses all 5,805 supplied exact-multiplicity-five rings: 5,804 general exclusions, 1 realization and 0 unresolved cases. The classification of the supplied census is complete through multiplicity 5. The new realization R7_5_5678 is Rep(AGL(1,7)).
-The rank-eight multiplicity-three continuation addresses all 3,527 supplied exact-multiplicity-three rings: 3,507 general exclusions, 16 models and 4 unresolved cases. Every recorded model admits a unitary realization. The four remaining rings retain unresolved status for general complex categorification. R8_3_436 has an independent general exclusion.
+## Construction catalogue
 
-Canonical normal and optimized frontier replays each passed all 108 checks. These receipts cover the historical frontier stage. Fresh replay after extraction from the publication archive is deferred.
-
-R8_3_721 is realized by the inherited 1+rho Q-system Morita dual of the C2 de-equivariantization of GH(C8). Exact rank and coefficient bounds, followed by a direct exhaustive fusion completion, identify its entire based ring without assuming census completeness. The earlier center-action analysis leaves three necessary R8_3_1154 patterns. These results are in evidence/rank8_next_20261021/; the later R8_3_65 general exclusion is in evidence/rank8_research_20261022/.
-
-[Separately verified center-pattern addendum](../evidence/rank8_center_followup_20261021/README.md).
-
-The separate center-pattern addendum passed all eight checks in canonical normal and optimized Python, including independent arithmetic reconstructions and positive controls. Fresh replay after extraction from the publication archive is deferred.
-
-[New GH(C8) Morita model and further unified restrictions](../evidence/rank8_next_20261021/README.md).
-
-**22 October research.** R8_3_3472 admits no fusion categorification over the complex numbers. The sphericalization and Galois reduction covers general complex categories; complete center-frame and twist-orbit domains reduce the remaining case to 628 exact equations in 572 integer variables. A certificate of 1648 rational bound deductions and a final strictly positive separating gap proves infeasibility, with two independent exact checkers. The proof and reproducible certificate are in evidence/r3472_exclusion_20261022/. This complete obstruction supersedes the earlier feasible necessary systems and conditional Morita restrictions for R3472. R8_3_982 remains unitarily realized by the neutral triality component of the exceptional E21 chiral fusion category, with all 512 canonical fusion coefficients identified exactly. Four rank-eight general categorification questions remain: R8_3_928, R8_3_941, R8_3_1154 and R8_3_1768. Every hypothetical categorification of these four rings admits a spherical structure and has a pseudo-unitary Galois conjugate; none has a braided Morita representative. The R928 phase refinement leaves four of ten necessary center patterns, all fourteen R941 allocations survive the stated refinements, and R1154 retains its forced semionic data. R1768 has 39 of 40 necessary Gram/indicator branches excluded, while its final cone survives. These necessary data do not construct categories or settle the four remaining questions.
-
-[Proofs and exact verifier inventory](../evidence/r3472_exclusion_20261022/README.md). Run this stage separately from the preserved baseline and frontier replays:
-
-```bash
-python3 tools/verify_rank8_exclusion_20261022.py
-python3 -O tools/verify_rank8_exclusion_20261022.py
-```
-
-The tables below report the project's classification claims; “complete” and
-“certified” do not imply independent human verification or Lean formalization.
-
-[Realized counts](#grothendieck-rings--known-realizations-at-each-exact-multiplicity) · [Classification](#classification--what-is-decided) · [Manuscripts](#read-the-mathematics) · [Repository guide](#structure) · [OEIS drafts](../oeis/README.md)
-
-> **Scope.** Multiplicity is the maximum fusion coefficient. Each cell below
-> counts known categorifiable based-isomorphism classes with *exactly* that
-> multiplicity. A plain number is exact where classification is complete;
-> `≥n` is a certified lower bound where general cases remain unresolved.
-> A dash denotes a band not analyzed here. Rows with no known realizations
-> are omitted; omission makes no assertion about unresolved cases.
-
-**26 October 2026 · rank twelve, multiplicity one.** All 632 supplied rings are decided: **480 excluded and 152 modeled**. Exactly **151 models are known unitary**; R12_1_623 has a complex/pseudo-unitary model with unitarity unproved. [Manuscript](../publications/rank12/README.md) · [Proofs, ledger and replay](../evidence/rank12_m1_20261026/README.md) · [All-rank count summary](../data/classification_summary_all_ranks.csv).
-
-## Grothendieck rings · known realizations at each exact multiplicity
-
-| Multiplicity | Rank 2 | Rank 3 | Rank 4 | Rank 5 | Rank 6 | Rank 7 | Rank 8 | Rank 12 |
-|---:|---:|---:|---:|---:|---:|---:|---:| ---: |
-| 1 | 2 | 4 | 9 | 10 | 21 | 13 | 48 | 152 |
-| 2 | 0 | 1 | 3 | 3 | 22 | 10 | 29 | — |
-| 3 | 0 | 0 | 2 | 2 | 3 | 2 | ≥16 | — |
-| 4 | 0 | 0 | 0 | 2 | ≥5 | 4 | — | — |
-| 5 | 0 | 0 | 0 | 0 | 1 | 1 | — | — |
-| 6 | 0 | 0 | 1 | 0 | 3 | — | — | — |
-| 7 | 0 | 0 | 0 | 0 | 2 | — | — | — |
-
-Full realized-count data, including zero and unresolved bands:
-[JSON](../data/grothendieck_counts.json) · [CSV](../data/grothendieck_counts.csv).
-The [fusion-ring-census repository](https://github.com/sebastienpalcoux/fusion-ring-census)
-contains the separate table of **all fusion rings** and its enumerator;
-[this repository's pinned census import](../data/counts.csv) supports the
-classification cross-check. Rank-two realized counts follow directly from
-`X² = 1+nX`: both categorifiable rings occur at multiplicity 1.
-
-## Classification · what is decided?
-
-These are the recorded outcomes of the current research program, subject to
-the verification notice and [verification scope](../docs/PREPUBLICATION_REVIEW.md).
-Census bounds describe enumeration coverage; classification scope is stated separately.
-
-| Rank | Full census | General classification | Current conclusion |
-|---:|---:|---:|---|
-| 2 | Symbolic, all multiplicities | **Unrestricted theorem** | Exactly the rings `n = 0, 1` are realized. |
-| 3 | Through 1,000 | **Unrestricted theorem** | Five realized rings: four at multiplicity 1 and one at 2; see the standalone sphericality and ring-classification proof. |
-| 4 | Through 128 | **Unrestricted theorem** | Exactly 15 realized rings; every categorification is spherical; multiplicity at most 6. |
-| 5 | Through 20 | **Complete through 20** | Through 20: 40,982 excluded, 17 realized, 0 unresolved. |
-| 6 | Through 9 | **Complete through 3** | Through 9: 25,362 excluded, 57 realized, 2 unresolved. |
-| 7 | Through 5 | **Complete through 5** | Through 5: 9,976 excluded, 30 realized, 0 unresolved. |
-| 8 | Through 3 | **Complete through 2**; multiplicity 3 partial | Through 3: 4,403 excluded, 93 realized, 4 unresolved. |
-
-The [rank-four unrestricted proof](../manuscripts/rank4/papers/companion.pdf) gives the sharp bound FPdim ≤ 24+12√3, attained only by the near-group ring `NG(C₃,6)`. Its theoretical reduction gives FPdim < 1000 and multiplicity at most 31; an independent exact census then checks 1,692 rings, with 1,677 exclusions and 15 models. The separate multiplicity-128 census contains 889,530 rings and 889,515 exclusions.
-
-Related work on the pivotal case: Jingcheng Dong, Sébastien Palcoux and Arnaud Plessis, [Classifying Grothendieck rings of pivotal fusion categories of rank four](https://arxiv.org/abs/2609.33272), arXiv:2609.33272. Its hypothesis is pivotality.
-
-Rank-six realization counts through multiplicity 9 split into **56 unitary
-models** and **one spherical model whose ring has no pseudo-unitary
-categorification**. “Realized” means that at least one categorification is
-constructed; it does not assert that every categorification of that ring is
-unitary. Rank five has no unresolved ring through multiplicity 20;
-inert-prime parity and exact induction cover multiplicity 18.
-
-The rank-six classification covers **25,421 fusion rings through multiplicity 9**:
-**25,362 excluded, 57 realized and two unresolved**. All **8,809 rings of
-exact multiplicity nine are generally excluded**.
-
-The positive catalogue includes neutral module categories from
-`(B2)_7 ⊂ (D7)_1`, `(C3)_4 ⊂ (B10)_1`, and `(B2)_12 ⊂ (E8)_1`,
-with full tensor identifications.
-
-The rank-six, multiplicity-seven ring `R6_7_2274` is realized by the known
-Extended Haagerup category **EH1**. Its fusion rules are given in
-P. Grossman, S. Morrison, D. Penneys, E. Peters and N. Snyder,
-[*The Extended Haagerup fusion categories*](https://doi.org/10.24033/asens.2541),
-*Ann. Sci. Éc. Norm. Supér.* (4) **56** (2023), no. 2, 589–664,
-§2.1, p. 597 ([arXiv:1810.06076](https://arxiv.org/abs/1810.06076)).
-The original construction is S. Bigelow, S. Morrison, E. Peters and N. Snyder,
-[*Constructing the extended Haagerup planar algebra*](https://arxiv.org/abs/0909.4099),
-*Acta Math.* **209** (2012), 29–82.
-
-| Open ring | Necessary restrictions |
-|---|---|
-| `R6_4_155` | A unique rank-26 semion-centralizer modular candidate; a rank-22 based module passes all 234,256 fermion Azumaya linking identities. No coherent module category or categorification is constructed. |
-| `R6_8_1660` | Relative-center and Morita restrictions, full twist-one support and saturated indicators including `nu_3(T)=2`. A rank-37 candidate fails Verlinde integrality; other profiles remain open. |
-
-Every tensor functor from a hypothetical categorification of either ring to
-a complex fusion category is fully faithful under the recorded theoretical
-arguments. These necessary restrictions do not decide categorifiability.
-
-[Manuscript](../manuscripts/rank6/papers/manuscript.pdf) ·
-[Verification scope](../docs/PREPUBLICATION_REVIEW.md) ·
-[Completion proofs](../supplements/rank6/research/exclusions/m9_completion/) ·
-[Replay guide](../docs/VERIFY.md)
-
-
-The [historical 38-case continuation](../docs/RESEARCH_STATUS.md) records **36 decisions among 38 cases**: 29 proposed general exclusions and 7 unitary constructions. Within that historical 38-case study, two questions remain open: `R6_4_155` and `R6_8_1660`. The combined residual program records 140 decisions (120 exclusions and 20 constructions), all subject to independent mathematical verification.
-The [proof inventory](../docs/VERIFY.md) gives the replay paths.
-Scope-specific obstructions retain their stated assumptions and do not change
-a ring's general unresolved status.
-
-### The classification boundary, band by band
-
-| Multiplicity | Rank 4 | Rank 5 | Rank 6 | Rank 7 | Rank 8 | Rank 12 |
-|---:|---:|---:|---:|---:|---:| ---: |
-| 1 | 1 excluded · 9 realized | 6 excluded · 10 realized | 18 excluded · 21 realized | 30 excluded · 13 realized | 48 excluded · 48 realized | 152 |
-| 2 | 14 excluded · 3 realized | 34 excluded · 3 realized | 132 excluded · 22 realized | 309 excluded · 10 realized | 848 excluded · 29 realized | — |
-| 3 | 22 excluded · 2 realized | 80 excluded · 2 realized | 381 excluded · 3 realized | 1,057 excluded · 2 realized | 3,507 excluded · 16 realized · **4 open** | — |
-| 4 | 45 excluded · 0 realized | 132 excluded · 2 realized | 866 excluded · 5 realized · **1 open** | 2,776 excluded · 4 realized | — | — |
-| 5 | 55 excluded · 0 realized | 209 excluded · 0 realized | 1,581 excluded · 1 realized | 5,804 excluded · 1 realized | — | — |
-| 6 | 80 excluded · 1 realized | 336 excluded · 0 realized | 2,765 excluded · 3 realized | — | — | — |
-| 7 | 92 excluded · 0 realized | 477 excluded · 0 realized | 3,812 excluded · 2 realized | — | — | — |
-| 8 | 137 excluded · 0 realized | 733 excluded · 0 realized | 6,998 excluded · 0 realized · **1 open** | — | — | — |
-| 9 | 151 excluded · 0 realized | 863 excluded · 0 realized | 8,809 excluded · 0 realized | — | — | — |
-| 10 | 186 excluded · 0 realized | 1,082 excluded · 0 realized | — | — | — | — |
-| 11 | 238 excluded · 0 realized | 1,383 excluded · 0 realized | — | — | — | — |
-| 12 | 291 excluded · 0 realized | 1,948 excluded · 0 realized | — | — | — | — |
-| 13 | 246 excluded · 0 realized | 2,211 excluded · 0 realized | — | — | — | — |
-| 14 | 340 excluded · 0 realized | 2,554 excluded · 0 realized | — | — | — | — |
-| 15 | 349 excluded · 0 realized | 2,936 excluded · 0 realized | — | — | — | — |
-| 16 | 525 excluded · 0 realized | 4,157 excluded · 0 realized | — | — | — | — |
-| 17 | 424 excluded · 0 realized | 4,255 excluded · 0 realized | — | — | — | — |
-| 18 | 477 excluded · 0 realized | 5,080 excluded · 0 realized | — | — | — | — |
-| 19 | 513 excluded · 0 realized | 5,640 excluded · 0 realized | — | — | — | — |
-| 20 | 713 excluded · 0 realized | 6,866 excluded · 0 realized | — | — | — | — |
-
-Full decision bands: [JSON](../data/classification_status.json) ·
-[CSV](../data/classification_status.csv). Statuses come from the attached
-rank-four through rank-eight certificate ledgers; their SHA-256 hashes,
-row checks and scope appear in [the provenance record](../docs/PROVENANCE.md).
-
-### When did the current criterion repertoire stabilize?
-
-| Rank | Last first use of a mathematical criterion family | Checked range afterward |
-|---:|---:|---|
-| 4 | Multiplicity 18 | The same criterion families suffice for the allocated exclusions at 19–128. |
-| 5 | Multiplicity 18 | Inert-prime quadratic parity first closes two cases at 18; no new criterion family is needed at 19–20. |
-| 6 | See the allocation ledger | The current criteria include stabilizer, cyclotomic-trace and signed arithmetic obstructions. All 8,809 exact-multiplicity-nine rings have general exclusion certificates; 2 earlier cases remain unresolved through multiplicity 9. |
-| 7 | See the allocation ledger | The multiplicity-five extension adds cyclic-module, quadratic compression, signed sphericalization, center-trace and Morita-descent arguments. There are 0 generally open rings in the analyzed range. Higher multiplicities are not classified here. |
-| 8 | Multiplicity 3 | Quadratic-compositum compression, convex central induction, split-module polynomials and Morita transport extend the classification through multiplicity three. There are 4 generally open rings in the analyzed range; higher multiplicities are not classified here. |
-
-This records **first use in the chosen certificate allocation**, not an
-optimal ordering theorem or a claim that the criteria settle higher
-multiplicities. Rank-four nested signed cyclotomicity first succeeds at 95,
-using a general cyclotomicity theorem already used at 9. The ordered
-step-by-step exclusion tables and proof dependencies are in the manuscripts.
-
-## Read the mathematics
-
-The [manuscripts](../manuscripts/README.md) are kept as TeX/PDF pairs. The
-classification programs proceed rank by rank: general necessary criteria,
-exact automated applications, positive model matches, and explicit residual
-frontiers. Ranks two, three and four have unrestricted classification
-theorems. The rank-four article supplies the complete theoretical reduction
-and exact finite verification. The papers and computation records remain research in
-progress; [the evidence guide](../docs/VERIFY.md) identifies exactly what the
-stored checks establish. Each manuscript states its current classification scope
-and the remaining questions directly; [rank eight](../manuscripts/rank8/paper/rank8.pdf)
-records exclusions, explicit unitary models and individually investigated unresolved candidates through multiplicity three.
-
-## Structure
-
-After cloning, restore the large datasets with one offline command:
-
-```bash
-python3 tools/restore_data.py
-```
-
-The repository stores those datasets as small compressed parts. The command
-checks every part and reconstructed file against its released SHA-256 hash;
-it requires only Python's standard library. See [verification instructions](../docs/VERIFY.md).
-
-```text
-data/         Pinned census matrix and classification-status tables
-docs/         Provenance, terminology and verification paths
-manuscripts/  Current TeX and PDF pairs
-supplements/  Proof software, compact certificates and verification reports
-site/         Public GitHub Pages atlas, source and reproducible snapshots
-tools/        Deterministic count/status export and crosswalk checks
-oeis/         Sequence drafts, pending an OEIS submission
-```
-
-**Source of truth:** the [fusion-ring-census repository](https://github.com/sebastienpalcoux/fusion-ring-census)
-owns the based-ring census and raw tensor files. This repository records the
-classification, proofs and models; it does not recompute the census. Changes
-to a source census cell are imported only from a named commit and rechecked
-against classification ledgers.
+“New” refers only to a specific construction that has not, to our knowledge, been explicitly recorded in the literature. The constructions use known methods, with hypotheses and fusion rules checked in the project; this is not a claim of novelty up to tensor equivalence or of exoticness. Independent human verification remains pending. [New constructions](https://sebastienpalcoux.github.io/grothendieck-ring-classification/constructions.html).

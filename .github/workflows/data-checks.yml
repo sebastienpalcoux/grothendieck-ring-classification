@@ -25,10 +25,12 @@ jobs:
         run: python -O tools/replay_m5_ci.py --jobs 2
       - name: Verify current audited publication and exact structural properties
         run: python tools/verify_current_publication.py
-      - name: Replay the three rank-nine exclusions and seven-case continuation
+      - name: Replay inherited rank-nine exclusion certificates
         run: |
           python -m pip install z3-solver
           python tools/replay_frontier_20261027.py --output /tmp/frontier-20261027.json
+      - name: Replay the current pivotal-parity exclusion and six-case restrictions
+        run: python evidence/frontier/replay/run_checks.py --output /tmp/current-frontier.json
       - name: Verify audited publication with assertions disabled
         run: python -O tools/verify_current_publication.py
       - run: python evidence/residual_20261002/rank6/verify_braid3.py

@@ -1,0 +1,159 @@
+\subsection{Full restriction orbits and fourth rotations for $R9\_2\_137$}
+\label{sec:r137-restrictions}
+The remaining ring has source dimensions $(1^4,2,d^4)$, where
+$d=4+3\sqrt2$ and $D=144+96\sqrt2$. Work in the positive representative
+supplied by the general-complex existence reduction. The four large
+second indicators are $+1$ by the preceding Galois-pairing argument.
+
+\begin{lemma}[Galois invariance of full restriction columns]
+Let $\mathcal C$ be pseudo-unitary with commutative Grothendieck ring,
+and let $K$ contain its complete character table and
+$D=\FPdim(\mathcal C)$. For a simple $Z$ of $\mathcal Z(\mathcal C)$,
+write $v_Z$ for the coefficient vector of $F(Z)$. Every modular Galois
+automorphism fixing $K$ preserves $v_Z$.
+If the square-Galois orbit of $\theta_Z$ under these automorphisms has
+size $k$, the induction Gram matrix $G$ satisfies
+\[
+ k v_Zv_Z^{\mathsf T}\le G.
+\]
+When $G$ is positive definite, this is equivalent to
+$k v_Z^{\mathsf T}G^{-1}v_Z\le1$.
+\end{lemma}
+\begin{proof}
+For each irreducible character $\chi_E$ let $A_E$ be the corresponding
+distinguished simple in $I(1)$, of dimension $D/f_E$. The center character
+identity~\cite[Proposition 2.8 and Corollary 4.5]{Deshpande} and
+\cite[Theorem 2.13]{Ostrik} gives, with normalized center matrix $s=S/D$,
+\[
+ s(A_E,Z)=\chi_E(FZ)/f_E\in K.
+\]
+The signed Galois permutation of columns obeys
+$\sigma(s(A_E,Z))=\epsilon_\sigma(Z)s(A_E,\pi_\sigma Z)$.
+The unit row is $\dim(Z)/D\in K$ and both it and its permuted entry are
+positive, so $\epsilon_\sigma(Z)=1$. Every $\chi_E$ therefore takes the
+same value on $FZ$ and $F(\pi_\sigma Z)$. The complete character table
+separates the complexified commutative based algebra, proving equality
+of their full coefficient vectors.
+
+The center has canonical anomaly-one twist normalization, and modular
+Galois symmetry gives $\theta_{\pi_\sigma Z}=\theta_Z^{a^2}$ when
+$\sigma(\zeta)=\zeta^a$~\cite[Lemma 4.2]{DLN}. A $k$-element twist orbit
+therefore provides at least $k$ distinct simples with column $v_Z$.
+Subtracting their contributions from $G=\sum_Wv_Wv_W^{\mathsf T}$
+proves the matrix inequality. Conjugation by $G^{-1/2}$ gives the final
+equivalence.
+\end{proof}
+
+The nine distinct source characters of $R9\_2\_137$ all lie in
+$K=\Q(\sqrt2)$; their multiplication identities and completeness are
+checked against the entire tensor. Fixing only an FP-dimension field
+would not justify the lemma in general. In particular a twist of order
+divisible by nine supplies at least three copies of its entire
+restriction column, not merely three objects of equal dimension.
+
+The Galois-unit character formula also fixes a central simple $B$ with
+\[
+ F(B)=1+X_3+X_4+X_5+X_6,\qquad \dim B=17+12\sqrt2.
+\]
+The full character calculation identifies this vector: its values are
+$f_E/\sigma(f_E)$ for $\sigma(\sqrt2)=-\sqrt2$.
+Thus, for a high column with $v_Z(0)=0$, the stronger necessary bound is
+\begin{equation}\tag{G137}\label{eq:r137-residual-gram}
+ k v_Zv_Z^{\mathsf T}\le
+ H:=G-e_0e_0^{\mathsf T}-v_Bv_B^{\mathsf T}.
+\end{equation}
+Here $H$ is positive definite, with determinant $6849298432$. The
+distinguished low column for $B$ is imposed separately.
+
+\begin{proposition}[Fourth-rotation bound]
+For each large simple $X$ of $R9\_2\_137$,
+\[
+ \operatorname{Re}\nu_4(X),\ \operatorname{Im}\nu_4(X)
+ \in\{-4,-2,0,2,4\}.
+\]
+This holds for both TY signs and does not require unitarity.
+\end{proposition}
+\begin{proof}
+The source-local stabilizer anticommutator used in
+\eqref{eq:source-cubic-clifford} gives four pair-insertion involutions
+on $V=\operatorname{Hom}(1,X^4)$. Adjacent insertions anticommute,
+opposite ones commute, and pivotal rotation $E$ cyclically permutes
+them with $E^4=1$. The central products of opposite insertions split
+the insertion algebra into four sign blocks. The two rotation-fixed
+blocks give, respectively, opposite and adjacent fourth-root pairs;
+the other two blocks are exchanged and give the regular four-root
+spectrum, which is a sum of two adjacent pairs. This is an algebraic
+Clifford decomposition and uses no inner product.
+
+The tensor gives
+\[
+ \dim V=18,\qquad X^2=1+h+2\sum_{\text{large }Y}Y.
+\]
+All displayed second indicators are $+1$. Grouping four strands into
+two pairs therefore yields
+$\operatorname{tr}(E^2)=\nu_2(X^2)=10$.
+Let $a_+,a_-$ count opposite pairs whose squared eigenvalue is
+$+1,-1$, and let $b$ count adjacent pairs. Then
+\[
+ a_++a_-+b=9,\qquad 2(a_+-a_-)=10,\qquad b=4-2a_-\le4.
+\]
+Only adjacent pairs contribute to $\operatorname{tr}(E)$; each has
+real and imaginary parts $\pm1$. The possible values are therefore
+the five even integers displayed.
+\end{proof}
+
+\begin{proposition}[The center has no nontrivial tensor factor]
+For a categorification of $R9\_2\_137$, its center is either simple,
+or has fusion-subcategory lattice
+\[
+ \Vec,\quad \mathrm{sVec},\quad f',\quad \mathcal Z(\mathcal C),
+\]
+where $f$ is the central fermion and $f'$ is nonsplit and s-simple.
+In particular its center is not a nontrivial Deligne product.
+\end{proposition}
+\begin{proof}
+Every nonintegral source simple generates the full source, and all
+proper source subcategories lie in the integral TY subcategory.
+The integral-center theorem above says
+$\mathcal Z(\mathcal C)_{\rm int}=\Vec$ or $\mathrm{sVec}$.
+Every nonintegral central subcategory therefore forgets dominantly
+to $\mathcal C$. Its dimension is strictly greater than $D$:
+equality would make the tensor functor an equivalence and supply a
+braiding on $\mathcal C$, whereas a braiding would lift its four
+invertibles to a center having at most two.
+
+A subcategory and its centralizer cannot both be nonintegral,
+because their dimension product is $D^2$ by the modular centralizer
+formula~\cite{DGNO}. If the integral part is $\Vec$, double
+centralization proves simplicity. If it is $\mathrm{sVec}$,
+the centralizer of any nonintegral proper subcategory must equal
+$\mathrm{sVec}$, and double centralization identifies that
+subcategory with $f'$. A splitting $f'=\mathcal M\boxtimes\mathrm{sVec}$
+would produce a further proper nonintegral subcategory $\mathcal M$,
+contradicting this list.
+\end{proof}
+
+\paragraph{Exact surviving necessary systems.}
+The strongest restriction combines \eqref{eq:r137-residual-gram}, the
+forced low $B$ column and the fourth-rotation bounds. It removes
+$7222$ candidate variables for each TY sign. Nevertheless both signs
+still have exact nonnegative rational witnesses, even with all four
+\emph{projected} fourth indicators fixed to $2$:
+\[
+\begin{array}{c|rr}
+\text{TY sign}&\text{witness support}&\text{equations checked}\\ \hline
++&102&264\\
+-&112&264
+\end{array}
+\]
+A separate implementation reconstructs the Gram matrix, full source
+character table, residual inverse, square-Galois orbit bounds, physical
+column mapping, all new equations and every witness coefficient.
+These are projected indicator relaxations, not modular data,
+representations or categories; the unprojected complex fourth indicators
+are not asserted to equal $2$. The finite moment table does not impose
+a twist-order cutoff: orders outside it have zero first-four traces
+and larger square-Galois orbit bounds. Full proofs, exact systems,
+source hashes and independent replay are curated in
+\url{https://github.com/sebastienpalcoux/grothendieck-ring-classification/tree/main/evidence/frontier}.
+

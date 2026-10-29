@@ -20,8 +20,8 @@ def check(source_cache, full=False, property_samples=False):
     assert manifest['total'] == 1434042
     assert manifest['detailed_profiles'] == 3462 and manifest['census_detailed_profiles'] == 3460
     assert manifest['rank_two_profiles'] == 2
-    assert manifest['counts'] == {'unitarily_realized': 528, 'excluded': 1433505,
-                                  'unresolved': 7, 'realized': 1, 'pseudo_unitarily_realized': 1}
+    assert manifest['counts'] == {'unitarily_realized': 528, 'excluded': 1433506,
+                                  'unresolved': 6, 'realized': 1, 'pseudo_unitarily_realized': 1}
     assert manifest['max_tensor_request_bytes'] <= 32768
     assert manifest['max_index_request_bytes'] <= 160000
     all_ranks = {r['rank']: r for r in manifest['ranks']}

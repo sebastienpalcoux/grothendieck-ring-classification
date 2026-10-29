@@ -1,8 +1,9 @@
 # Categorification status and implication diagrams
 
-The scope audit concerns complex fusion categorifications of the six current
-unresolved rings, together with retained dossiers for three excluded rings and
-the realized ring R8_3_982. It reports established results in the linked research
+The current frontier has six unresolved rings, listed below. This scope audit
+also retains supporting reductions for closed cases and the realized ring
+R8_3_982. R8_3_1768 is generally excluded by the
+[current pivotal conjugation argument](../evidence/frontier/README.md). It reports established results in the linked research
 record; it is not a claim that every possible obstruction has been exhausted.
 
 The standard implications are unitary ⇒ pseudo-unitary ⇒ spherical ⇒ pivotal
@@ -37,11 +38,12 @@ Every current unresolved ring has the following two consequences:
 | Cases | Same-category consequence | Additional existence reduction |
 | --- | --- | --- |
 | `R6_4_155`, `R6_8_1660` | General ⇒ spherical | Every categorification has a pseudo-unitary Galois conjugate |
-| `R8_3_928`, `R8_3_941`, `R8_3_1154`, `R8_3_1768` | General ⇒ spherical | Every categorification has a pseudo-unitary Galois conjugate |
+| `R8_3_928`, `R8_3_941`, `R8_3_1154` | General ⇒ spherical | Every categorification has a pseudo-unitary Galois conjugate |
+| `R9_2_137` | General ⇒ spherical | A pseudo-unitary representative exists if a complex categorification exists |
 
 All six remain unresolved at every level in the unbraided hierarchy.
 Every one is excluded from general braided categorification. Each of the
-four rank-eight cases is also excluded from having a braided Morita
+three unresolved rank-eight cases is also excluded from having a braided Morita
 representative. See [the separate braided audit](BRAIDED_CATEGORIFICATION.md).
 
 `R8_3_982` is now **unitarily realized** by the eight-object triality-zero

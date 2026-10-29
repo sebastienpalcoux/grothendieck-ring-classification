@@ -40,7 +40,7 @@ def main():
  with zipfile.ZipFile(E/'replay.zip')as z:
   root='Rank9_M2_Theoretical_Continuation_20261023/';m=json.loads(z.read(root+'SHA256SUMS.json'));need(all(hashlib.sha256(z.read(root+n)).hexdigest()==h for n,h in m.items()),'Archived source hashes')
  need((DIST/'papers/rank9-m2.pdf').read_bytes()==(ROOT/'publications/rank9-m2/paper/rank9-m2.pdf').read_bytes(),'Canonical manuscript copy')
- revision=read(ROOT/'data/current_publication_revision.json');need(len(revision['remaining_ids'])==revision['current_unresolved_total']==(7 if latest else 10),'Project frontier')
+ revision=read(ROOT/'data/current_publication_revision.json');need(len(revision['remaining_ids'])==revision['current_unresolved_total']==(6 if latest else 10),'Project frontier')
  need(set(summary['remaining_ids'])=={r['id']for r in rows if r['status']=='unresolved'},'M2 frontier')
  receipt=read(DIST/'data/rank9_m2_build.json')
  for name,h in receipt['legacy_sha256'].items():need(publication_matches('site/dist/data/'+name,h),'Previous publication changed: '+name)
@@ -49,8 +49,8 @@ def main():
  pages=read(ROOT/'data/current_manuscript_page_counts.json');need(sum(d['pages']for d in pages['documents']if d['kind']=='mathematical_manuscript')==pages['totals']['mathematical_manuscript'],'Page inventory')
  front=(ROOT/'README.md').read_text();rank9=[line for line in front.splitlines()if line.startswith('| 9 |')]
  need(len(rank9)==1 and 'Through 2' in rank9[0] and ('2,148 excluded, 76 realized'if latest else'2,145 excluded, 76 realized') in rank9[0],'Single current rank-nine README row')
- need(('**7 open cases.**'if latest else'**10 open cases.**')in front,'Current README frontier')
- review=(DIST/'review.html').read_text();need(('Current classification · 7 open questions'if latest else'Current classification · 10 open questions')in review and 'rank-nine-m2'in review and 'rank-ten-m1'in review and 'rank-eleven-m1'in review,'Current review-page scope')
+ need(('**6 open cases.**'if latest else'**10 open cases.**')in front,'Current README frontier')
+ review=(DIST/'review.html').read_text();need(('Current classification · 6 open questions'if latest else'Current classification · 10 open questions')in review and 'rank-nine-m2'in review and 'rank-ten-m1'in review and 'rank-eleven-m1'in review,'Current review-page scope')
  need('./data/current_publication_revision.json'in review and './downloads/current_remaining_cases.py'in review,'Current review downloads')
  for name,x in revision['documents'].items():
   if name.startswith('publications/rank9-m2/'):need(sha(ROOT/name)==x['sha256'],'Manuscript source identity')

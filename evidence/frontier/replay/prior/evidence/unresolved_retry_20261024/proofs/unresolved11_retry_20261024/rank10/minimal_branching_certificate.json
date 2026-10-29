@@ -1,0 +1,54 @@
+{
+  "status": "PASS",
+  "conformal_weights": {
+    "000": "0",
+    "101": "2/5",
+    "020": "3/5",
+    "010": "1/4",
+    "111": "3/4",
+    "200": "9/20",
+    "002": "9/20",
+    "030": "21/20"
+  },
+  "SU10_level1_ground_weights": [
+    "0",
+    "9/20",
+    "4/5",
+    "21/20",
+    "6/5",
+    "5/4",
+    "6/5",
+    "21/20",
+    "4/5",
+    "9/20"
+  ],
+  "possible_branch_indices": {
+    "000": [
+      0
+    ],
+    "101": [],
+    "020": [],
+    "010": [],
+    "111": [],
+    "200": [
+      1,
+      9
+    ],
+    "002": [
+      1,
+      9
+    ],
+    "030": [
+      3,
+      7
+    ]
+  },
+  "plethysm": "exterior^3(Sym^2 C4)=Schur_(4,1,1)(C4)+Schur_(3,3)(C4)",
+  "Schur_dimensions": [
+    70,
+    50
+  ],
+  "exterior_cube_dimension": 120,
+  "complete_weight_characters_equal": true,
+  "scope": "Exact finite inputs for the conformal-embedding model proof; existence supplied by the actual conformal embedding."
+}

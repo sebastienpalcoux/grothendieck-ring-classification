@@ -1,10 +1,10 @@
 # Provenance and boundaries
 
-<!-- frontier-20261027 -->
-**27 October 2026 · audited continuation.** R9_2_1607, R9_2_1975 and R9_2_1976 are excluded over the complex numbers. **Seven cases remain unresolved:** two at rank six, four at rank eight and one at rank nine. The conditional R1660–R941 algebra construction is precise; every GH(C6,2) Morita route for R1768 is excluded. [Proofs, individual findings and exact replay](../evidence/frontier_20261027/README.md). Independent human verification remains pending.
-<!-- /frontier-20261027 -->
+<!-- current-frontier -->
+**Current classification · 29 October 2026.** R8_3_1768 is excluded over the complex numbers by pivotal conjugation parity, using the established existence and center-domain reductions. **Six cases remain unresolved:** two at rank six, three at rank eight and one at rank nine. No additional model is claimed. [Current proofs and exact checks](https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/evidence/frontier/README.md).
+<!-- /current-frontier -->
 
-The rank-eight multiplicity-three continuation addresses all 3,527 supplied exact-multiplicity-three rings: 3,507 general exclusions, 16 models and 4 unresolved cases. Every recorded model admits a unitary realization. The four remaining rings retain unresolved status for general complex categorification. R8_3_436 has an independent general exclusion.
+The rank-eight multiplicity-three continuation addresses all 3,527 supplied exact-multiplicity-three rings: 3,508 general exclusions, 16 models and 3 unresolved cases. Every recorded model admits a unitary realization. The four remaining rings retain unresolved status for general complex categorification. R8_3_436 has an independent general exclusion.
 
 The rank-seven multiplicity-five continuation addresses all 5,805 supplied exact-multiplicity-five rings: 5,804 general exclusions, 1 realization and 0 unresolved cases. The classification of the supplied census is complete through multiplicity 5. The new realization R7_5_5678 is Rep(AGL(1,7)).
 
@@ -46,7 +46,7 @@ ledgers and records every exact-multiplicity partition.
 | 5 | `12886636134e0500a403ae1b635f5b901612d64b203dad1e1fdf94b0da2c31f1` | 40,999 | 40,982 excluded; 17 realized |
 | 6 | `abb36cb0e7f9196e0a231cb85a601c82a1c8fd398996f77a8961487a7ca692e5` | 25,421 | 25,362 excluded; 57 realized; 2 open |
 | 7 | `577d5796f92966900def5aaa934f95a4508461967937c4c6d7f7aaab4826e279` | 10,006 | 9,976 excluded; 30 realized; 0 open |
-| 8 | `16a4723f149222ba8cb4f91d07d8ef75176ba5e95b20ff7594ed17e8e4e033fe` | 4,500 | 4,403 excluded; 93 realized; 4 open |
+| 8 | `df7d3c8c89fc6ea610db95e31094bf42e9a076c213b6a550606dd334184a5ced` | 4,500 | 4,404 excluded; 93 realized; 3 open |
 
 Rank-six realizations comprise 56 unitary models and one spherical model whose
 ring has no pseudo-unitary categorification. The rank-four certificate contains
@@ -97,7 +97,7 @@ The rank-seven M5 extension is pinned separately to census commit `4e81914a6772c
 
 ## Rank-eight multiplicity-three continuation
 
-The rank-eight multiplicity-three continuation addresses all 3,527 supplied exact-multiplicity-three rings: 3,507 general exclusions, 16 models and 4 unresolved cases. Every recorded model admits a unitary realization. The four remaining rings retain unresolved status for general complex categorification. R8_3_436 has an independent general exclusion.
+The rank-eight multiplicity-three continuation addresses all 3,527 supplied exact-multiplicity-three rings: 3,508 general exclusions, 16 models and 3 unresolved cases. Every recorded model admits a unitary realization. The four remaining rings retain unresolved status for general complex categorification. R8_3_436 has an independent general exclusion.
 
 The complete census is producer-reported, with independent tensor and isomorphism audits. The supplied optimized source matches both producer run receipts; full enumeration was not independently rerun. The normal and optimized mathematical replay receipts, individually investigated residuals and proof dependencies are in [`evidence/rank8_m3_20261021`](../evidence/rank8_m3_20261021). A candidate has neither a general exclusion nor a constructed associator; it is not an established exotic category. New arguments remain subject to independent human review.
 
@@ -110,7 +110,7 @@ Metadata-only mode checks source identity and reconciliation with both full rece
 
 ## Further rank-eight frontier investigation
 
-The historical frontier stage recorded 25 further general exclusions among the original 34 unresolved M3 cases. Subsequent construction and research stages, followed by the 24 October source-scope correction, leave four current rank-eight questions. The original M3 ledger, proof inputs and full receipts are unchanged. The current ledger is `supplements/rank8/output/research_20261024/ledger.json`.
+The historical frontier stage recorded 25 further general exclusions among the original 34 unresolved M3 cases. Subsequent construction and research stages leave 3 current questions. The original M3 ledger, proof inputs and full receipts are unchanged. The current ledger is `evidence/frontier/rank8_ledger.json`.
 
 Canonical normal and optimized frontier replays each passed all 108 checks. These receipts cover the historical frontier stage. Fresh replay after extraction from the publication archive is deferred.
 
@@ -121,7 +121,7 @@ python3 tools/verify_rank8_frontier.py
 python3 -O tools/verify_rank8_frontier.py
 ```
 
-The new receipts bind accepted decisions and exact computations. The source-bound per-ring research inventory is `evidence/research_20261024/rank8_research_audit.json`. Construction-family exclusions and feasible necessary-condition witnesses have explicit scopes; neither establishes an exotic category.
+The new receipts bind accepted decisions and exact computations. The source-bound per-ring research inventory is `evidence/frontier/rank8_research_audit.json`. Construction-family exclusions and feasible necessary-condition witnesses have explicit scopes; neither establishes an exotic category.
 
 ## Generalized Haagerup construction and further restrictions
 
@@ -153,4 +153,4 @@ Use `--metadata-only` to check source identities and completed replay receipts. 
 
 ## Rank twelve, multiplicity one · 26 October 2026
 
-The new release classifies 632 supplied rings: 480 general exclusions and 152 models. Of these, 151 are unitary; R12_1_623 has a complex/pseudo-unitary model whose unitarity is unproved. The seven remaining open cases are unchanged. [Current manuscript](../publications/rank12/README.md) · [Complete proof archive and accepted replay](../evidence/rank12_m1_20261026/README.md). Full census enumeration was not independently repeated.
+The new release classifies 632 supplied rings: 480 general exclusions and 152 models. Of these, 151 are unitary; R12_1_623 has a complex/pseudo-unitary model whose unitarity is unproved. The ten earlier open cases are unchanged. [Current manuscript](../publications/rank12/README.md) · [Complete proof archive and accepted replay](../evidence/rank12_m1_20261026/README.md). Full census enumeration was not independently repeated.

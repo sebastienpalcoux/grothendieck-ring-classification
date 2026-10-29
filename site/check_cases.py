@@ -293,16 +293,22 @@ def check_site(root=None, repository=None):
     require(bool(unresolved_payload.get("hash_convention")), "Missing tensor hash convention")
     ids = [r["id"] for r in unresolved]
     require(len(ids) == len(set(ids)), "Duplicate unresolved identifier")
-    require(set(ids) == set(atlas["remaining_ids"]) ==
-            set(read_json(root / "data/current_remaining_ids.json")),
-            "Case pages differ from the current unresolved inventory")
+    require(all(r["status"] == "unresolved" for r in unresolved),
+            "An excluded or realized case remains in the unresolved payload")
+    current_ids = set(atlas["remaining_ids"])
+    require(current_ids == set(read_json(root / "data/current_remaining_ids.json")),
+            "Global unresolved identifiers disagree")
+    # Higher-rank profiles are supplied by the shared rank catalogues. This
+    # legacy payload and its scope audit contain the rank-six/eight dossiers.
+    lower_ids = {rid for rid in current_ids if int(rid.split('_')[0][1:]) <= 8}
+    require(set(ids) == lower_ids, "Case pages differ from the lower-rank unresolved inventory")
     require(not set(ids) & {r["id"] for r in realized},
             "A ring appears as both unresolved and realized")
     scope_source = read_json(repository / "site/categorification_scope.json")
     require(scope_source.get("levels") == list(STRUCTURE_LEVELS), "Categorification hierarchy is not ordered from general to unitary")
     require(set(scope_source.get("cases", {})) == set(ids), "Categorification audit does not cover precisely the current cases")
     sys.path.insert(0, str(repository / "tools"))
-    from frontier_20261027 import active as frontier_active, current_scope
+    from frontier import active as frontier_active, current_scope
     for record in unresolved:
         expected = scope_source["cases"][record["id"]]
         if frontier_active(repository):

@@ -1,0 +1,110 @@
+{
+  "status": "PASS",
+  "source": "R9_2_1975",
+  "source_sha256": "8b30652d59e868a120b6c423e46a99ab51f6032af752dc0082a3d80fd9e61323",
+  "excluded_morita_branch": {
+    "alpha": 2,
+    "a": 0,
+    "subring": "R6_4_155",
+    "basis": [
+      0,
+      1,
+      4,
+      5,
+      9,
+      11
+    ],
+    "basis_map": [
+      0,
+      3,
+      4,
+      5,
+      1,
+      2
+    ],
+    "conjugator": 2,
+    "conjugation": [
+      0,
+      1,
+      5,
+      4,
+      9,
+      11
+    ]
+  },
+  "remaining_morita_branches": [
+    {
+      "alpha": 2,
+      "a": 2
+    },
+    {
+      "alpha": 3,
+      "a": 2
+    }
+  ],
+  "conditional_central_quotient_bindings": [
+    {
+      "group": "V4",
+      "id": "R6_4_155",
+      "basis_map": [
+        0,
+        3,
+        4,
+        5,
+        1,
+        2
+      ]
+    },
+    {
+      "group": "C4",
+      "id": "R6_4_1",
+      "basis_map": [
+        0,
+        5,
+        1,
+        2,
+        3,
+        4
+      ]
+    }
+  ],
+  "source_based_central_invertibles": [
+    0,
+    5
+  ],
+  "source_adjoint_subring_rank": 9,
+  "full_stabilizer_cocycle_tests": 8192,
+  "full_stabilizer_coboundary_tests": 8192,
+  "strengthened_center_system": {
+    "rows": 253,
+    "columns": 1109,
+    "system_sha256": "abab5f76389f20362fbe99e54ee51156c5937f050a68e14f167e89a776cf9b63",
+    "integer_witness_support": 80,
+    "outcome": "necessary relaxation feasible, no categorical model"
+  },
+  "TY_spectrum_sign_results": [
+    {
+      "tau_sign": -1,
+      "outcome": "exact necessary integer witness",
+      "support": 84
+    },
+    {
+      "tau_sign": 1,
+      "outcome": "exact Farkas exclusion",
+      "bTy": -32832,
+      "min_ATy": 0
+    }
+  ],
+  "remaining_TY_sign": -1,
+  "source_status": "unresolved",
+  "new_models": 0,
+  "categorical_dependencies": [
+    "Rank6 R155 central twist separation from published center proof",
+    "Prior complete rank12 Morita reduction",
+    "Prior general-complex exclusion of R6_4_1",
+    "Central TY lift restriction and de-equivariantization theorem",
+    "Shimizu TY indicators and Ng-Schauenburg center trace formula",
+    "Prior noncommutative labeled-S and complete central-column domain"
+  ],
+  "scope": "Extreme Morita branch and positive TY sign excluded; no whole-source exclusion or model."
+}

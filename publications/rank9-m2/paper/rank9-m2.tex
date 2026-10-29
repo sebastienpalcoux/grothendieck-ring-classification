@@ -19,7 +19,7 @@
 \setlength{\emergencystretch}{3em}
 \title{Rank-nine fusion rings of multiplicity two\\\large Theoretical obstructions, coherent constructions and exact certification}
 \author{FusionFrontier research prepared for S\'ebastien Palcoux\\\small AI-generated research; independent human verification and formalization pending}
-\date{27 October 2026}
+\date{29 October 2026}
 \begin{document}\maketitle
 \begin{abstract}
 We study the 2,083 supplied rank-nine based fusion rings of exact multiplicity
@@ -34,7 +34,10 @@ categories and the dimension-twenty Hopf classification settle three
 additional rings, while explicit relative cocycles construct three integral
 models. Every decision is bound to an original tensor, a proof dependency
 and exact replay data. We classify existence of a categorification of a
-based ring, without classifying all its associators.
+based ring, without classifying all its associators. For the sole remaining
+ring, whole-restriction Galois orbits, fourth-rotation bounds and center
+structure give stronger necessary conditions; both TY signs still satisfy
+their exact rational relaxation.
 \end{abstract}
 \noindent\textbf{Verification scope.} These are AI-generated mathematical
 claims. Separate mathematical audits and exact computational replays are
@@ -599,8 +602,9 @@ General, pivotal, spherical, pseudo-unitary and unitary existence remain
 undecided. The sphericalization and Galois existence gates equate general
 existence with pseudo-unitary existence, without asserting pseudo-unitarity
 of an arbitrary original category. Braided categorification is excluded.
-The two TY signs still pass the necessary systems with all four positive
-large second indicators. No compatible associator is constructed.
+Both TY signs still satisfy the stronger whole-restriction Galois and
+fourth-rotation systems described below. No compatible associator is constructed.
+\input{r137_restrictions.tex}
 
 \section{Exact evidence and reproduction}\label{sec:replay}
 The public source is
@@ -640,11 +644,16 @@ through multiplicity two and the corresponding producer-run qualification.
 The public Atlas uses one rank/multiplicity table and one case directory
 for all ranks. Every M2 case has its source identity, current decision,
 proof links and a downloadable Python tensor. The remaining open case retains its separate categorical-scope statements.
+Across the project, six cases remain unresolved: two at rank six, three at
+rank eight and this rank-nine case. The independent pivotal-conjugation
+obstruction excludes $R8\_3\_1768$ over $\C$; it changes no rank-nine count.
 
 \begin{thebibliography}{99}
 \bibitem{ENO} P.~Etingof, D.~Nikshych, V.~Ostrik, \emph{On fusion categories}, Ann. Math. 162 (2005), 581--642; \href{https://arxiv.org/abs/math/0203060}{arXiv:math/0203060}.
 \bibitem{Ostrik} V.~Ostrik, \emph{Pivotal fusion categories of rank 3}, Mosc. Math. J. 15 (2015), 373--396; \href{https://arxiv.org/abs/1309.4822}{arXiv:1309.4822}.
 \bibitem{Deshpande} T.~Deshpande, \emph{On centers of bimodule categories and induction-restriction functors}, \href{https://arxiv.org/abs/1611.04486}{arXiv:1611.04486}, Proposition 2.8 and Section 2.7.
+\bibitem{DLN} C.~Dong, X.~Lin, S.-H.~Ng, \emph{Congruence property in conformal field theory}, Algebra Number Theory 9 (2015), 2121--2166; \href{https://arxiv.org/abs/1201.6644}{arXiv:1201.6644}.
+\bibitem{DGNO} V.~Drinfeld, S.~Gelaki, D.~Nikshych, V.~Ostrik, \emph{On braided fusion categories I}, Selecta Math. 16 (2010), 1--119; \href{https://arxiv.org/abs/0906.0620}{arXiv:0906.0620}.
 \bibitem{DMNO} A.~Davydov, M.~M\"uger, D.~Nikshych, V.~Ostrik, \emph{The Witt group of non-degenerate braided fusion categories}, J. Reine Angew. Math. 677 (2013), 135--177; \href{https://arxiv.org/abs/1009.2117}{arXiv:1009.2117}.
 \bibitem{HH} T.~Hagge, S.-M.~Hong, \emph{Some non-braided fusion categories of rank three}, Commun. Contemp. Math. 11 (2009), 615--637; \href{https://arxiv.org/abs/0704.0208}{arXiv:0704.0208}.
 \bibitem{ALW} D.~Aasen, E.~Lake, K.~Walker, \emph{Fermion condensation and super pivotal categories}, J. Math. Phys. 60 (2019), 121901; \href{https://arxiv.org/abs/1709.01941}{arXiv:1709.01941}, Section 7.

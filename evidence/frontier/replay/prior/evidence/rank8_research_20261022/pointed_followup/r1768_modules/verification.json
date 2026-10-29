@@ -1,0 +1,657 @@
+{
+  "schema": "R1768-free-C2-module-filter/v1",
+  "id": "R8_3_1768",
+  "tensor_sha256": "240509807c67da437c86f2a51efeb831364734feb93ed18a1d2f32087ebc1af0",
+  "scope": "general complex categorification; complete necessary filter on saved induction factors, not categorical module classification",
+  "source_sha256": {
+    "evidence/rank8_next_20261021/quadratic/action_classes.json": "3c610085cf25cea6a7ea0e7b2841928ac63bbbac49805646ddb385ad57f89b18",
+    "evidence/rank8_next_20261021/quadratic/profile_closure.json": "6b48256765fb6380a3080669b0d6b5c20f924f3c8277308aa036cc47c1e28140",
+    "evidence/rank8_research_20261022/pointed_followup/verification_R8_3_1768.json": "ab3baabf62b0fbbbde7a8a01594250a3d22804c15c8da27a678fd755393716ab",
+    "evidence/rank8_research_20261022/pivotality/general_spherical_gates.json": "89ad25baeb05b69c95519670eb4cdd894a29d3b7f4d920535b1f404f46ba13d4"
+  },
+  "universal_conclusions": [
+    "g acts freely on all module simples",
+    "all module ranks are even",
+    "rank two is impossible"
+  ],
+  "fully_determined_action_classes": [
+    {
+      "class_index": 0,
+      "rank": 8,
+      "g_fixed_simples": 0,
+      "survives_free_g_test": true
+    },
+    {
+      "class_index": 1,
+      "rank": 6,
+      "g_fixed_simples": 0,
+      "survives_free_g_test": true
+    },
+    {
+      "class_index": 2,
+      "rank": 4,
+      "g_fixed_simples": 2,
+      "survives_free_g_test": false
+    },
+    {
+      "class_index": 3,
+      "rank": 6,
+      "g_fixed_simples": 0,
+      "survives_free_g_test": true
+    },
+    {
+      "class_index": 4,
+      "rank": 4,
+      "g_fixed_simples": 2,
+      "survives_free_g_test": false
+    },
+    {
+      "class_index": 5,
+      "rank": 4,
+      "g_fixed_simples": 4,
+      "survives_free_g_test": false
+    },
+    {
+      "class_index": 6,
+      "rank": 3,
+      "g_fixed_simples": 3,
+      "survives_free_g_test": false
+    },
+    {
+      "class_index": 7,
+      "rank": 3,
+      "g_fixed_simples": 3,
+      "survives_free_g_test": false
+    },
+    {
+      "class_index": 8,
+      "rank": 2,
+      "g_fixed_simples": 2,
+      "survives_free_g_test": false
+    }
+  ],
+  "previous_algebra_objects": 49,
+  "previous_induction_factors": 61,
+  "remaining_algebra_objects": 21,
+  "remaining_induction_factors": 21,
+  "remaining_possible_module_ranks": [
+    4,
+    6,
+    8,
+    12
+  ],
+  "remaining_factors_with_undetermined_actions": 15,
+  "factor_filter": [
+    {
+      "candidate_index": 0,
+      "factor_index": 0,
+      "rank": 8,
+      "full_action_previously_determined": true,
+      "survives": true,
+      "obstructions": []
+    },
+    {
+      "candidate_index": 2,
+      "factor_index": 0,
+      "rank": 6,
+      "full_action_previously_determined": true,
+      "survives": true,
+      "obstructions": []
+    },
+    {
+      "candidate_index": 6,
+      "factor_index": 0,
+      "rank": 6,
+      "full_action_previously_determined": false,
+      "survives": false,
+      "obstructions": [
+        "odd_multiplicity_of_g_fixed_restriction"
+      ]
+    },
+    {
+      "candidate_index": 6,
+      "factor_index": 1,
+      "rank": 9,
+      "full_action_previously_determined": false,
+      "survives": false,
+      "obstructions": [
+        "odd_multiplicity_of_g_fixed_restriction"
+      ]
+    },
+    {
+      "candidate_index": 7,
+      "factor_index": 2,
+      "rank": 8,
+      "full_action_previously_determined": false,
+      "survives": true,
+      "obstructions": []
+    },
+    {
+      "candidate_index": 8,
+      "factor_index": 0,
+      "rank": 6,
+      "full_action_previously_determined": false,
+      "survives": true,
+      "obstructions": []
+    },
+    {
+      "candidate_index": 10,
+      "factor_index": 0,
+      "rank": 5,
+      "full_action_previously_determined": false,
+      "survives": false,
+      "obstructions": [
+        "odd_multiplicity_of_g_fixed_restriction"
+      ]
+    },
+    {
+      "candidate_index": 10,
+      "factor_index": 1,
+      "rank": 8,
+      "full_action_previously_determined": false,
+      "survives": true,
+      "obstructions": []
+    },
+    {
+      "candidate_index": 11,
+      "factor_index": 0,
+      "rank": 4,
+      "full_action_previously_determined": true,
+      "survives": false,
+      "obstructions": [
+        "odd_multiplicity_of_g_fixed_restriction"
+      ]
+    },
+    {
+      "candidate_index": 14,
+      "factor_index": 0,
+      "rank": 6,
+      "full_action_previously_determined": false,
+      "survives": false,
+      "obstructions": [
+        "odd_multiplicity_of_g_fixed_restriction"
+      ]
+    },
+    {
+      "candidate_index": 14,
+      "factor_index": 1,
+      "rank": 9,
+      "full_action_previously_determined": false,
+      "survives": false,
+      "obstructions": [
+        "odd_multiplicity_of_g_fixed_restriction"
+      ]
+    },
+    {
+      "candidate_index": 18,
+      "factor_index": 2,
+      "rank": 9,
+      "full_action_previously_determined": false,
+      "survives": false,
+      "obstructions": [
+        "odd_multiplicity_of_g_fixed_restriction"
+      ]
+    },
+    {
+      "candidate_index": 18,
+      "factor_index": 3,
+      "rank": 12,
+      "full_action_previously_determined": false,
+      "survives": true,
+      "obstructions": []
+    },
+    {
+      "candidate_index": 19,
+      "factor_index": 0,
+      "rank": 6,
+      "full_action_previously_determined": false,
+      "survives": false,
+      "obstructions": [
+        "odd_multiplicity_of_g_fixed_restriction"
+      ]
+    },
+    {
+      "candidate_index": 19,
+      "factor_index": 1,
+      "rank": 9,
+      "full_action_previously_determined": false,
+      "survives": false,
+      "obstructions": [
+        "odd_multiplicity_of_g_fixed_restriction"
+      ]
+    },
+    {
+      "candidate_index": 26,
+      "factor_index": 15,
+      "rank": 8,
+      "full_action_previously_determined": false,
+      "survives": true,
+      "obstructions": []
+    },
+    {
+      "candidate_index": 27,
+      "factor_index": 0,
+      "rank": 5,
+      "full_action_previously_determined": false,
+      "survives": false,
+      "obstructions": [
+        "odd_multiplicity_of_g_fixed_restriction"
+      ]
+    },
+    {
+      "candidate_index": 28,
+      "factor_index": 0,
+      "rank": 6,
+      "full_action_previously_determined": false,
+      "survives": false,
+      "obstructions": [
+        "odd_multiplicity_of_g_fixed_restriction"
+      ]
+    },
+    {
+      "candidate_index": 28,
+      "factor_index": 1,
+      "rank": 9,
+      "full_action_previously_determined": false,
+      "survives": false,
+      "obstructions": [
+        "odd_multiplicity_of_g_fixed_restriction"
+      ]
+    },
+    {
+      "candidate_index": 29,
+      "factor_index": 0,
+      "rank": 9,
+      "full_action_previously_determined": false,
+      "survives": false,
+      "obstructions": [
+        "odd_multiplicity_of_g_fixed_restriction"
+      ]
+    },
+    {
+      "candidate_index": 29,
+      "factor_index": 1,
+      "rank": 12,
+      "full_action_previously_determined": false,
+      "survives": true,
+      "obstructions": []
+    },
+    {
+      "candidate_index": 35,
+      "factor_index": 0,
+      "rank": 6,
+      "full_action_previously_determined": true,
+      "survives": true,
+      "obstructions": []
+    },
+    {
+      "candidate_index": 37,
+      "factor_index": 0,
+      "rank": 4,
+      "full_action_previously_determined": false,
+      "survives": true,
+      "obstructions": []
+    },
+    {
+      "candidate_index": 38,
+      "factor_index": 0,
+      "rank": 6,
+      "full_action_previously_determined": false,
+      "survives": false,
+      "obstructions": [
+        "odd_multiplicity_of_g_fixed_restriction"
+      ]
+    },
+    {
+      "candidate_index": 39,
+      "factor_index": 0,
+      "rank": 8,
+      "full_action_previously_determined": false,
+      "survives": true,
+      "obstructions": []
+    },
+    {
+      "candidate_index": 40,
+      "factor_index": 0,
+      "rank": 5,
+      "full_action_previously_determined": false,
+      "survives": false,
+      "obstructions": [
+        "odd_multiplicity_of_g_fixed_restriction"
+      ]
+    },
+    {
+      "candidate_index": 42,
+      "factor_index": 0,
+      "rank": 8,
+      "full_action_previously_determined": true,
+      "survives": true,
+      "obstructions": []
+    },
+    {
+      "candidate_index": 43,
+      "factor_index": 0,
+      "rank": 6,
+      "full_action_previously_determined": true,
+      "survives": true,
+      "obstructions": []
+    },
+    {
+      "candidate_index": 46,
+      "factor_index": 19,
+      "rank": 8,
+      "full_action_previously_determined": false,
+      "survives": true,
+      "obstructions": []
+    },
+    {
+      "candidate_index": 47,
+      "factor_index": 0,
+      "rank": 4,
+      "full_action_previously_determined": false,
+      "survives": true,
+      "obstructions": []
+    },
+    {
+      "candidate_index": 48,
+      "factor_index": 0,
+      "rank": 6,
+      "full_action_previously_determined": false,
+      "survives": false,
+      "obstructions": [
+        "odd_multiplicity_of_g_fixed_restriction"
+      ]
+    },
+    {
+      "candidate_index": 52,
+      "factor_index": 0,
+      "rank": 4,
+      "full_action_previously_determined": false,
+      "survives": true,
+      "obstructions": []
+    },
+    {
+      "candidate_index": 56,
+      "factor_index": 4,
+      "rank": 6,
+      "full_action_previously_determined": false,
+      "survives": true,
+      "obstructions": []
+    },
+    {
+      "candidate_index": 58,
+      "factor_index": 0,
+      "rank": 4,
+      "full_action_previously_determined": false,
+      "survives": true,
+      "obstructions": []
+    },
+    {
+      "candidate_index": 61,
+      "factor_index": 0,
+      "rank": 6,
+      "full_action_previously_determined": true,
+      "survives": true,
+      "obstructions": []
+    },
+    {
+      "candidate_index": 64,
+      "factor_index": 0,
+      "rank": 4,
+      "full_action_previously_determined": true,
+      "survives": false,
+      "obstructions": [
+        "odd_multiplicity_of_g_fixed_restriction"
+      ]
+    },
+    {
+      "candidate_index": 69,
+      "factor_index": 1,
+      "rank": 8,
+      "full_action_previously_determined": false,
+      "survives": true,
+      "obstructions": []
+    },
+    {
+      "candidate_index": 71,
+      "factor_index": 1,
+      "rank": 8,
+      "full_action_previously_determined": false,
+      "survives": true,
+      "obstructions": []
+    },
+    {
+      "candidate_index": 74,
+      "factor_index": 0,
+      "rank": 4,
+      "full_action_previously_determined": true,
+      "survives": false,
+      "obstructions": [
+        "odd_multiplicity_of_g_fixed_restriction"
+      ]
+    },
+    {
+      "candidate_index": 75,
+      "factor_index": 0,
+      "rank": 3,
+      "full_action_previously_determined": true,
+      "survives": false,
+      "obstructions": [
+        "odd_multiplicity_of_g_fixed_restriction"
+      ]
+    },
+    {
+      "candidate_index": 76,
+      "factor_index": 1,
+      "rank": 4,
+      "full_action_previously_determined": false,
+      "survives": false,
+      "obstructions": [
+        "odd_multiplicity_of_g_fixed_restriction"
+      ]
+    },
+    {
+      "candidate_index": 77,
+      "factor_index": 0,
+      "rank": 3,
+      "full_action_previously_determined": true,
+      "survives": false,
+      "obstructions": [
+        "odd_multiplicity_of_g_fixed_restriction"
+      ]
+    },
+    {
+      "candidate_index": 78,
+      "factor_index": 0,
+      "rank": 4,
+      "full_action_previously_determined": false,
+      "survives": false,
+      "obstructions": [
+        "odd_multiplicity_of_g_fixed_restriction"
+      ]
+    },
+    {
+      "candidate_index": 85,
+      "factor_index": 0,
+      "rank": 6,
+      "full_action_previously_determined": false,
+      "survives": false,
+      "obstructions": [
+        "odd_multiplicity_of_g_fixed_restriction"
+      ]
+    },
+    {
+      "candidate_index": 88,
+      "factor_index": 0,
+      "rank": 6,
+      "full_action_previously_determined": false,
+      "survives": false,
+      "obstructions": [
+        "odd_multiplicity_of_g_fixed_restriction"
+      ]
+    },
+    {
+      "candidate_index": 93,
+      "factor_index": 0,
+      "rank": 6,
+      "full_action_previously_determined": false,
+      "survives": false,
+      "obstructions": [
+        "odd_multiplicity_of_g_fixed_restriction"
+      ]
+    },
+    {
+      "candidate_index": 93,
+      "factor_index": 1,
+      "rank": 9,
+      "full_action_previously_determined": false,
+      "survives": false,
+      "obstructions": [
+        "odd_multiplicity_of_g_fixed_restriction"
+      ]
+    },
+    {
+      "candidate_index": 93,
+      "factor_index": 18,
+      "rank": 4,
+      "full_action_previously_determined": false,
+      "survives": false,
+      "obstructions": [
+        "odd_multiplicity_of_g_fixed_restriction"
+      ]
+    },
+    {
+      "candidate_index": 95,
+      "factor_index": 0,
+      "rank": 3,
+      "full_action_previously_determined": true,
+      "survives": false,
+      "obstructions": [
+        "odd_multiplicity_of_g_fixed_restriction"
+      ]
+    },
+    {
+      "candidate_index": 97,
+      "factor_index": 0,
+      "rank": 4,
+      "full_action_previously_determined": false,
+      "survives": false,
+      "obstructions": [
+        "odd_multiplicity_of_g_fixed_restriction"
+      ]
+    },
+    {
+      "candidate_index": 98,
+      "factor_index": 0,
+      "rank": 4,
+      "full_action_previously_determined": true,
+      "survives": false,
+      "obstructions": [
+        "odd_multiplicity_of_g_fixed_restriction"
+      ]
+    },
+    {
+      "candidate_index": 99,
+      "factor_index": 0,
+      "rank": 3,
+      "full_action_previously_determined": true,
+      "survives": false,
+      "obstructions": [
+        "odd_multiplicity_of_g_fixed_restriction"
+      ]
+    },
+    {
+      "candidate_index": 100,
+      "factor_index": 0,
+      "rank": 6,
+      "full_action_previously_determined": false,
+      "survives": false,
+      "obstructions": [
+        "odd_multiplicity_of_g_fixed_restriction"
+      ]
+    },
+    {
+      "candidate_index": 100,
+      "factor_index": 1,
+      "rank": 9,
+      "full_action_previously_determined": false,
+      "survives": false,
+      "obstructions": [
+        "odd_multiplicity_of_g_fixed_restriction"
+      ]
+    },
+    {
+      "candidate_index": 100,
+      "factor_index": 32,
+      "rank": 4,
+      "full_action_previously_determined": false,
+      "survives": false,
+      "obstructions": [
+        "odd_multiplicity_of_g_fixed_restriction"
+      ]
+    },
+    {
+      "candidate_index": 101,
+      "factor_index": 0,
+      "rank": 2,
+      "full_action_previously_determined": true,
+      "survives": false,
+      "obstructions": [
+        "odd_multiplicity_of_g_fixed_restriction",
+        "rank_two_free_swap_forces_integral_FP_dimensions"
+      ]
+    },
+    {
+      "candidate_index": 107,
+      "factor_index": 0,
+      "rank": 2,
+      "full_action_previously_determined": true,
+      "survives": false,
+      "obstructions": [
+        "odd_multiplicity_of_g_fixed_restriction",
+        "rank_two_free_swap_forces_integral_FP_dimensions"
+      ]
+    },
+    {
+      "candidate_index": 108,
+      "factor_index": 0,
+      "rank": 5,
+      "full_action_previously_determined": false,
+      "survives": false,
+      "obstructions": [
+        "odd_multiplicity_of_g_fixed_restriction"
+      ]
+    },
+    {
+      "candidate_index": 108,
+      "factor_index": 1,
+      "rank": 3,
+      "full_action_previously_determined": true,
+      "survives": false,
+      "obstructions": [
+        "odd_multiplicity_of_g_fixed_restriction"
+      ]
+    },
+    {
+      "candidate_index": 109,
+      "factor_index": 0,
+      "rank": 3,
+      "full_action_previously_determined": true,
+      "survives": false,
+      "obstructions": [
+        "odd_multiplicity_of_g_fixed_restriction"
+      ]
+    },
+    {
+      "candidate_index": 113,
+      "factor_index": 0,
+      "rank": 4,
+      "full_action_previously_determined": false,
+      "survives": false,
+      "obstructions": [
+        "odd_multiplicity_of_g_fixed_restriction"
+      ]
+    }
+  ],
+  "limitation": "The three retained fully determined actions have ranks6,6,8, but fifteen additional induction factors lack full action completions. No model or general exclusion is proved."
+}

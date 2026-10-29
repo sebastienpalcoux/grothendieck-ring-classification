@@ -1,0 +1,492 @@
+{
+  "kind": "Static import inventory of unchanged source files, including unexecuted solver/search functions",
+  "stdlib": [
+    "argparse",
+    "collections",
+    "fractions",
+    "functools",
+    "hashlib",
+    "heapq",
+    "itertools",
+    "json",
+    "math",
+    "os",
+    "pathlib",
+    "re",
+    "resource",
+    "subprocess",
+    "sys",
+    "tempfile",
+    "time",
+    "traceback"
+  ],
+  "local_shipped": [
+    "accelerated",
+    "advanced_criteria",
+    "atomic_real_sts",
+    "balanced_traces",
+    "c2_fibres",
+    "character_induction",
+    "column_generation",
+    "commutative_descent",
+    "dimension_order",
+    "exact",
+    "extension",
+    "global_induction",
+    "gram_vectors_general",
+    "gram_vectors_rank8",
+    "higher_traces",
+    "induction",
+    "integer_gram",
+    "involution_module",
+    "low_failure_exact",
+    "low_frames_rank8",
+    "modular_character_induction",
+    "oriented_extension",
+    "oriented_signed",
+    "partial_s",
+    "proofs",
+    "rank8_signed_bridge",
+    "rings",
+    "scalar_sieve",
+    "signed",
+    "spectral_induction",
+    "streaming",
+    "tensor_rotation",
+    "weak_integral_quadratic"
+  ],
+  "external_required": [
+    "numpy",
+    "sympy",
+    "mpmath (SymPy dependency)"
+  ],
+  "external_optional_acceleration": [
+    "python-flint"
+  ],
+  "external_unused_solver": [
+    "scipy"
+  ],
+  "local_unshipped_not_reached_in_replay": [
+    "biquadratic_commutative",
+    "frame_cone",
+    "general_global_convex",
+    "generic_data",
+    "global_duality",
+    "signed_spherical_traces",
+    "spectral_frame",
+    "sts_frame"
+  ],
+  "imports_by_module": {
+    "accelerated": [
+      "evidence/rank8_m3_20261021/criteria/rank8_signed_bridge.py"
+    ],
+    "advanced_criteria": [
+      "evidence/rank8_frontier_20261021/global_induction/column_generation.py",
+      "evidence/rank8_m3_20261021/criteria/global_induction.py",
+      "evidence/rank8_m3_20261021/criteria/rank8_signed_bridge.py"
+    ],
+    "argparse": [
+      "evidence/rank8_creative_20261022/r1768/finite_fibres_cone.py",
+      "evidence/rank8_creative_20261022/r1768/verify_arithmetic.py",
+      "evidence/rank8_frontier_20261021/global_induction/column_generation.py",
+      "evidence/rank8_frontier_20261021/global_induction/partial_s.py",
+      "evidence/rank8_m3_20261021/criteria/global_induction.py",
+      "evidence/rank8_m3_20261021/noncommutative/scalar_sieve.py",
+      "evidence/rank8_research_20261022/pointed_followup/c2_fibres.py",
+      "supplements/rank8/experimental_signed/character_induction.py",
+      "supplements/rank8/experimental_signed/involution_module.py",
+      "supplements/rank8/experimental_signed/tensor_rotation.py"
+    ],
+    "atomic_real_sts": [
+      "evidence/rank8_research_20261022/pointed_followup/c2_fibres.py"
+    ],
+    "balanced_traces": [
+      "evidence/rank8_m3_20261021/criteria/weak_integral_quadratic.py",
+      "supplements/rank8/experimental_signed/oriented_extension.py",
+      "supplements/rank8/experimental_signed/tensor_rotation.py"
+    ],
+    "biquadratic_commutative": [
+      "evidence/rank8_m3_20261021/criteria/global_induction.py"
+    ],
+    "c2_fibres": [
+      "evidence/rank8_creative_20261022/r1768/finite_fibres_cone.py",
+      "evidence/rank8_creative_20261022/r1768/verify_arithmetic.py"
+    ],
+    "character_induction": [
+      "evidence/rank8_frontier_20261021/global_induction/column_generation.py",
+      "evidence/rank8_m3_20261021/criteria/global_induction.py",
+      "evidence/rank8_m3_20261021/criteria/weak_integral_quadratic.py",
+      "supplements/rank8/experimental_signed/advanced_criteria.py",
+      "supplements/rank8/experimental_signed/oriented_extension.py",
+      "supplements/rank8/experimental_signed/spectral_induction.py"
+    ],
+    "collections": [
+      "supplements/rank8/experimental_signed/balanced_traces.py",
+      "supplements/rank8/experimental_signed/oriented_signed.py",
+      "supplements/rank8/experimental_signed/proofs.py",
+      "supplements/rank8/experimental_signed/signed.py",
+      "supplements/rank8/experimental_signed/spectral_induction.py"
+    ],
+    "column_generation": [
+      "evidence/rank8_research_20261022/pointed_followup/c2_fibres.py"
+    ],
+    "commutative_descent": [
+      "supplements/rank8/experimental_signed/signed.py"
+    ],
+    "dimension_order": [
+      "supplements/rank8/experimental_signed/advanced_criteria.py",
+      "supplements/rank8/experimental_signed/proofs.py"
+    ],
+    "exact": [
+      "evidence/rank8_frontier_20261021/global_induction/atomic_real_sts.py",
+      "evidence/rank8_frontier_20261021/global_induction/column_generation.py",
+      "evidence/rank8_frontier_20261021/global_induction/partial_s.py",
+      "evidence/rank8_frontier_20261021/global_induction/streaming.py",
+      "evidence/rank8_m3_20261021/criteria/global_induction.py",
+      "evidence/rank8_m3_20261021/criteria/rank8_signed_bridge.py",
+      "evidence/rank8_m3_20261021/noncommutative/scalar_sieve.py",
+      "evidence/rank8_m3_20261021/performance/low_failure_exact.py",
+      "evidence/rank8_research_20261022/pointed_followup/c2_fibres.py",
+      "supplements/rank8/experimental_signed/advanced_criteria.py",
+      "supplements/rank8/experimental_signed/character_induction.py",
+      "supplements/rank8/experimental_signed/dimension_order.py",
+      "supplements/rank8/experimental_signed/gram_vectors_general.py",
+      "supplements/rank8/experimental_signed/induction.py",
+      "supplements/rank8/experimental_signed/involution_module.py",
+      "supplements/rank8/experimental_signed/proofs.py",
+      "supplements/rank8/experimental_signed/rings.py"
+    ],
+    "extension": [
+      "supplements/rank8/experimental_signed/oriented_extension.py"
+    ],
+    "fractions": [
+      "evidence/rank8_creative_20261022/r1768/finite_fibres_cone.py",
+      "evidence/rank8_creative_20261022/r1768/verify_arithmetic.py",
+      "evidence/rank8_frontier_20261021/global_induction/atomic_real_sts.py",
+      "evidence/rank8_frontier_20261021/global_induction/column_generation.py",
+      "evidence/rank8_frontier_20261021/global_induction/streaming.py",
+      "evidence/rank8_m3_20261021/criteria/global_induction.py",
+      "evidence/rank8_m3_20261021/criteria/weak_integral_quadratic.py",
+      "evidence/rank8_m3_20261021/performance/gram_vectors_rank8.py",
+      "evidence/rank8_research_20261022/pointed_followup/c2_fibres.py",
+      "supplements/rank8/experimental_signed/higher_traces.py",
+      "supplements/rank8/experimental_signed/involution_module.py",
+      "supplements/rank8/experimental_signed/spectral_induction.py"
+    ],
+    "frame_cone": [
+      "evidence/rank8_frontier_20261021/global_induction/column_generation.py"
+    ],
+    "functools": [
+      "evidence/rank8_m3_20261021/performance/gram_vectors_rank8.py",
+      "evidence/rank8_m3_20261021/performance/low_failure_exact.py",
+      "evidence/rank8_m3_20261021/performance/low_frames_rank8.py",
+      "supplements/rank8/experimental_signed/exact.py",
+      "supplements/rank8/experimental_signed/gram_vectors_general.py",
+      "supplements/rank8/experimental_signed/spectral_induction.py"
+    ],
+    "general_global_convex": [
+      "evidence/rank8_frontier_20261021/global_induction/column_generation.py"
+    ],
+    "generic_data": [
+      "evidence/rank8_frontier_20261021/global_induction/column_generation.py"
+    ],
+    "global_duality": [
+      "evidence/rank8_m3_20261021/criteria/global_induction.py"
+    ],
+    "global_induction": [
+      "evidence/rank8_frontier_20261021/global_induction/streaming.py"
+    ],
+    "gram_vectors_general": [
+      "evidence/rank8_m3_20261021/performance/gram_vectors_rank8.py",
+      "supplements/rank8/experimental_signed/higher_traces.py"
+    ],
+    "gram_vectors_rank8": [
+      "evidence/rank8_m3_20261021/criteria/accelerated.py"
+    ],
+    "hashlib": [
+      "evidence/rank8_creative_20261022/r1768/verify_arithmetic.py",
+      "evidence/rank8_frontier_20261021/global_induction/streaming.py",
+      "evidence/rank8_m3_20261021/noncommutative/scalar_sieve.py",
+      "evidence/rank8_research_20261022/pointed_followup/c2_fibres.py",
+      "supplements/rank8/experimental_signed/integer_gram.py",
+      "supplements/rank8/experimental_signed/rings.py"
+    ],
+    "heapq": [
+      "evidence/rank8_frontier_20261021/global_induction/streaming.py"
+    ],
+    "higher_traces": [
+      "evidence/rank8_m3_20261021/criteria/global_induction.py",
+      "evidence/rank8_m3_20261021/criteria/weak_integral_quadratic.py",
+      "evidence/rank8_m3_20261021/performance/gram_vectors_rank8.py",
+      "supplements/rank8/experimental_signed/balanced_traces.py",
+      "supplements/rank8/experimental_signed/character_induction.py",
+      "supplements/rank8/experimental_signed/extension.py",
+      "supplements/rank8/experimental_signed/integer_gram.py",
+      "supplements/rank8/experimental_signed/modular_character_induction.py",
+      "supplements/rank8/experimental_signed/spectral_induction.py"
+    ],
+    "induction": [
+      "evidence/rank8_m3_20261021/performance/low_failure_exact.py",
+      "evidence/rank8_m3_20261021/performance/low_frames_rank8.py",
+      "supplements/rank8/experimental_signed/higher_traces.py",
+      "supplements/rank8/experimental_signed/proofs.py"
+    ],
+    "integer_gram": [
+      "supplements/rank8/experimental_signed/oriented_extension.py"
+    ],
+    "involution_module": [
+      "supplements/rank8/experimental_signed/advanced_criteria.py",
+      "supplements/rank8/experimental_signed/character_induction.py"
+    ],
+    "itertools": [
+      "evidence/rank8_creative_20261022/r1768/verify_arithmetic.py",
+      "evidence/rank8_frontier_20261021/global_induction/atomic_real_sts.py",
+      "evidence/rank8_frontier_20261021/global_induction/streaming.py",
+      "evidence/rank8_m3_20261021/criteria/global_induction.py",
+      "evidence/rank8_m3_20261021/criteria/rank8_signed_bridge.py",
+      "evidence/rank8_m3_20261021/noncommutative/scalar_sieve.py",
+      "evidence/rank8_research_20261022/pointed_followup/c2_fibres.py",
+      "supplements/rank8/experimental_signed/advanced_criteria.py",
+      "supplements/rank8/experimental_signed/character_induction.py",
+      "supplements/rank8/experimental_signed/gram_vectors_general.py",
+      "supplements/rank8/experimental_signed/higher_traces.py",
+      "supplements/rank8/experimental_signed/induction.py",
+      "supplements/rank8/experimental_signed/involution_module.py",
+      "supplements/rank8/experimental_signed/oriented_signed.py",
+      "supplements/rank8/experimental_signed/proofs.py",
+      "supplements/rank8/experimental_signed/rings.py",
+      "supplements/rank8/experimental_signed/signed.py"
+    ],
+    "json": [
+      "evidence/rank8_creative_20261022/r1768/finite_fibres_cone.py",
+      "evidence/rank8_creative_20261022/r1768/verify_arithmetic.py",
+      "evidence/rank8_frontier_20261021/global_induction/column_generation.py",
+      "evidence/rank8_frontier_20261021/global_induction/partial_s.py",
+      "evidence/rank8_frontier_20261021/global_induction/streaming.py",
+      "evidence/rank8_m3_20261021/criteria/global_induction.py",
+      "evidence/rank8_m3_20261021/noncommutative/scalar_sieve.py",
+      "evidence/rank8_research_20261022/pointed_followup/c2_fibres.py",
+      "supplements/rank8/experimental_signed/character_induction.py",
+      "supplements/rank8/experimental_signed/higher_traces.py",
+      "supplements/rank8/experimental_signed/involution_module.py",
+      "supplements/rank8/experimental_signed/rings.py",
+      "supplements/rank8/experimental_signed/signed.py"
+    ],
+    "low_failure_exact": [
+      "evidence/rank8_m3_20261021/criteria/accelerated.py"
+    ],
+    "low_frames_rank8": [
+      "evidence/rank8_m3_20261021/criteria/accelerated.py"
+    ],
+    "math": [
+      "evidence/rank8_frontier_20261021/global_induction/atomic_real_sts.py",
+      "evidence/rank8_frontier_20261021/global_induction/column_generation.py",
+      "evidence/rank8_frontier_20261021/global_induction/streaming.py",
+      "evidence/rank8_m3_20261021/criteria/global_induction.py",
+      "evidence/rank8_m3_20261021/criteria/weak_integral_quadratic.py",
+      "evidence/rank8_m3_20261021/performance/gram_vectors_rank8.py",
+      "evidence/rank8_m3_20261021/performance/low_frames_rank8.py",
+      "evidence/rank8_research_20261022/pointed_followup/c2_fibres.py",
+      "supplements/rank8/experimental_signed/advanced_criteria.py",
+      "supplements/rank8/experimental_signed/character_induction.py",
+      "supplements/rank8/experimental_signed/commutative_descent.py",
+      "supplements/rank8/experimental_signed/dimension_order.py",
+      "supplements/rank8/experimental_signed/gram_vectors_general.py",
+      "supplements/rank8/experimental_signed/higher_traces.py",
+      "supplements/rank8/experimental_signed/induction.py",
+      "supplements/rank8/experimental_signed/involution_module.py",
+      "supplements/rank8/experimental_signed/oriented_signed.py",
+      "supplements/rank8/experimental_signed/proofs.py",
+      "supplements/rank8/experimental_signed/signed.py"
+    ],
+    "modular_character_induction": [
+      "evidence/rank8_m3_20261021/criteria/weak_integral_quadratic.py",
+      "supplements/rank8/experimental_signed/advanced_criteria.py",
+      "supplements/rank8/experimental_signed/oriented_extension.py"
+    ],
+    "numpy": [
+      "evidence/rank8_frontier_20261021/global_induction/column_generation.py",
+      "evidence/rank8_m3_20261021/criteria/global_induction.py",
+      "supplements/rank8/experimental_signed/higher_traces.py"
+    ],
+    "oriented_extension": [
+      "evidence/rank8_frontier_20261021/global_induction/column_generation.py",
+      "evidence/rank8_m3_20261021/criteria/global_induction.py",
+      "evidence/rank8_m3_20261021/criteria/rank8_signed_bridge.py",
+      "supplements/rank8/experimental_signed/advanced_criteria.py",
+      "supplements/rank8/experimental_signed/character_induction.py"
+    ],
+    "oriented_signed": [
+      "evidence/rank8_m3_20261021/criteria/rank8_signed_bridge.py",
+      "evidence/rank8_m3_20261021/noncommutative/scalar_sieve.py",
+      "supplements/rank8/experimental_signed/advanced_criteria.py",
+      "supplements/rank8/experimental_signed/character_induction.py",
+      "supplements/rank8/experimental_signed/oriented_extension.py"
+    ],
+    "os": [
+      "evidence/rank8_frontier_20261021/global_induction/column_generation.py",
+      "evidence/rank8_m3_20261021/criteria/global_induction.py",
+      "evidence/rank8_m3_20261021/performance/gram_vectors_rank8.py",
+      "evidence/rank8_m3_20261021/performance/low_frames_rank8.py",
+      "supplements/rank8/experimental_signed/gram_vectors_general.py",
+      "supplements/rank8/experimental_signed/induction.py",
+      "supplements/rank8/experimental_signed/integer_gram.py"
+    ],
+    "partial_s": [
+      "evidence/rank8_frontier_20261021/global_induction/atomic_real_sts.py"
+    ],
+    "pathlib": [
+      "evidence/rank8_creative_20261022/r1768/finite_fibres_cone.py",
+      "evidence/rank8_creative_20261022/r1768/verify_arithmetic.py",
+      "evidence/rank8_frontier_20261021/global_induction/streaming.py",
+      "evidence/rank8_m3_20261021/criteria/accelerated.py",
+      "evidence/rank8_m3_20261021/criteria/global_induction.py",
+      "evidence/rank8_m3_20261021/criteria/rank8_signed_bridge.py",
+      "evidence/rank8_m3_20261021/noncommutative/scalar_sieve.py",
+      "evidence/rank8_m3_20261021/performance/gram_vectors_rank8.py",
+      "evidence/rank8_m3_20261021/performance/low_frames_rank8.py",
+      "evidence/rank8_research_20261022/pointed_followup/c2_fibres.py",
+      "supplements/rank8/experimental_signed/character_induction.py",
+      "supplements/rank8/experimental_signed/gram_vectors_general.py",
+      "supplements/rank8/experimental_signed/induction.py",
+      "supplements/rank8/experimental_signed/integer_gram.py",
+      "supplements/rank8/experimental_signed/involution_module.py",
+      "supplements/rank8/experimental_signed/oriented_signed.py",
+      "supplements/rank8/experimental_signed/signed.py",
+      "supplements/rank8/experimental_signed/tensor_rotation.py"
+    ],
+    "proofs": [
+      "evidence/rank8_m3_20261021/criteria/rank8_signed_bridge.py",
+      "evidence/rank8_m3_20261021/noncommutative/scalar_sieve.py",
+      "supplements/rank8/experimental_signed/advanced_criteria.py",
+      "supplements/rank8/experimental_signed/character_induction.py",
+      "supplements/rank8/experimental_signed/extension.py"
+    ],
+    "rank8_signed_bridge": [
+      "evidence/rank8_m3_20261021/criteria/global_induction.py"
+    ],
+    "re": [
+      "supplements/rank8/experimental_signed/integer_gram.py"
+    ],
+    "resource": [
+      "evidence/rank8_m3_20261021/criteria/global_induction.py"
+    ],
+    "rings": [
+      "evidence/rank8_frontier_20261021/global_induction/partial_s.py",
+      "evidence/rank8_m3_20261021/criteria/rank8_signed_bridge.py",
+      "evidence/rank8_m3_20261021/noncommutative/scalar_sieve.py",
+      "supplements/rank8/experimental_signed/advanced_criteria.py",
+      "supplements/rank8/experimental_signed/character_induction.py",
+      "supplements/rank8/experimental_signed/commutative_descent.py",
+      "supplements/rank8/experimental_signed/induction.py",
+      "supplements/rank8/experimental_signed/oriented_signed.py",
+      "supplements/rank8/experimental_signed/proofs.py",
+      "supplements/rank8/experimental_signed/signed.py"
+    ],
+    "scalar_sieve": [
+      "evidence/rank8_m3_20261021/criteria/rank8_signed_bridge.py"
+    ],
+    "scipy": [
+      "evidence/rank8_frontier_20261021/global_induction/column_generation.py",
+      "evidence/rank8_m3_20261021/criteria/global_induction.py",
+      "supplements/rank8/experimental_signed/higher_traces.py"
+    ],
+    "signed": [
+      "supplements/rank8/experimental_signed/oriented_signed.py",
+      "supplements/rank8/experimental_signed/proofs.py"
+    ],
+    "signed_spherical_traces": [
+      "supplements/rank8/experimental_signed/proofs.py"
+    ],
+    "spectral_frame": [
+      "evidence/rank8_frontier_20261021/global_induction/column_generation.py"
+    ],
+    "spectral_induction": [
+      "evidence/rank8_m3_20261021/criteria/weak_integral_quadratic.py",
+      "supplements/rank8/experimental_signed/modular_character_induction.py"
+    ],
+    "streaming": [
+      "evidence/rank8_frontier_20261021/global_induction/atomic_real_sts.py",
+      "evidence/rank8_frontier_20261021/global_induction/column_generation.py",
+      "evidence/rank8_frontier_20261021/global_induction/partial_s.py",
+      "evidence/rank8_research_20261022/pointed_followup/c2_fibres.py"
+    ],
+    "sts_frame": [
+      "evidence/rank8_frontier_20261021/global_induction/column_generation.py"
+    ],
+    "subprocess": [
+      "evidence/rank8_m3_20261021/performance/gram_vectors_rank8.py",
+      "evidence/rank8_m3_20261021/performance/low_frames_rank8.py",
+      "supplements/rank8/experimental_signed/gram_vectors_general.py",
+      "supplements/rank8/experimental_signed/induction.py",
+      "supplements/rank8/experimental_signed/integer_gram.py",
+      "supplements/rank8/experimental_signed/oriented_signed.py",
+      "supplements/rank8/experimental_signed/signed.py"
+    ],
+    "sympy": [
+      "evidence/rank8_frontier_20261021/global_induction/atomic_real_sts.py",
+      "evidence/rank8_frontier_20261021/global_induction/column_generation.py",
+      "evidence/rank8_frontier_20261021/global_induction/partial_s.py",
+      "evidence/rank8_m3_20261021/criteria/global_induction.py",
+      "evidence/rank8_m3_20261021/noncommutative/scalar_sieve.py",
+      "evidence/rank8_m3_20261021/performance/gram_vectors_rank8.py",
+      "evidence/rank8_m3_20261021/performance/low_frames_rank8.py",
+      "supplements/rank8/experimental_signed/advanced_criteria.py",
+      "supplements/rank8/experimental_signed/character_induction.py",
+      "supplements/rank8/experimental_signed/dimension_order.py",
+      "supplements/rank8/experimental_signed/exact.py",
+      "supplements/rank8/experimental_signed/gram_vectors_general.py",
+      "supplements/rank8/experimental_signed/higher_traces.py",
+      "supplements/rank8/experimental_signed/induction.py",
+      "supplements/rank8/experimental_signed/involution_module.py",
+      "supplements/rank8/experimental_signed/rings.py"
+    ],
+    "sys": [
+      "evidence/rank8_creative_20261022/r1768/finite_fibres_cone.py",
+      "evidence/rank8_creative_20261022/r1768/verify_arithmetic.py",
+      "evidence/rank8_frontier_20261021/global_induction/column_generation.py",
+      "evidence/rank8_frontier_20261021/global_induction/streaming.py",
+      "evidence/rank8_m3_20261021/criteria/accelerated.py",
+      "evidence/rank8_m3_20261021/criteria/global_induction.py",
+      "evidence/rank8_m3_20261021/criteria/rank8_signed_bridge.py",
+      "evidence/rank8_m3_20261021/criteria/weak_integral_quadratic.py",
+      "evidence/rank8_m3_20261021/noncommutative/scalar_sieve.py",
+      "evidence/rank8_m3_20261021/performance/gram_vectors_rank8.py",
+      "evidence/rank8_m3_20261021/performance/low_failure_exact.py",
+      "evidence/rank8_m3_20261021/performance/low_frames_rank8.py",
+      "evidence/rank8_research_20261022/pointed_followup/c2_fibres.py"
+    ],
+    "tempfile": [
+      "supplements/rank8/experimental_signed/induction.py",
+      "supplements/rank8/experimental_signed/oriented_signed.py",
+      "supplements/rank8/experimental_signed/signed.py"
+    ],
+    "tensor_rotation": [
+      "evidence/rank8_m3_20261021/criteria/global_induction.py",
+      "evidence/rank8_m3_20261021/criteria/weak_integral_quadratic.py",
+      "supplements/rank8/experimental_signed/advanced_criteria.py",
+      "supplements/rank8/experimental_signed/character_induction.py",
+      "supplements/rank8/experimental_signed/oriented_extension.py",
+      "supplements/rank8/experimental_signed/spectral_induction.py"
+    ],
+    "time": [
+      "evidence/rank8_frontier_20261021/global_induction/column_generation.py",
+      "evidence/rank8_frontier_20261021/global_induction/partial_s.py",
+      "evidence/rank8_m3_20261021/criteria/global_induction.py",
+      "evidence/rank8_m3_20261021/noncommutative/scalar_sieve.py",
+      "evidence/rank8_research_20261022/pointed_followup/c2_fibres.py",
+      "supplements/rank8/experimental_signed/character_induction.py",
+      "supplements/rank8/experimental_signed/integer_gram.py",
+      "supplements/rank8/experimental_signed/involution_module.py",
+      "supplements/rank8/experimental_signed/tensor_rotation.py"
+    ],
+    "traceback": [
+      "evidence/rank8_frontier_20261021/global_induction/column_generation.py",
+      "evidence/rank8_m3_20261021/criteria/global_induction.py",
+      "evidence/rank8_m3_20261021/noncommutative/scalar_sieve.py"
+    ],
+    "weak_integral_quadratic": [
+      "evidence/rank8_m3_20261021/criteria/rank8_signed_bridge.py"
+    ]
+  }
+}

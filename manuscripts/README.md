@@ -1,18 +1,10 @@
 # Manuscripts
 
-<!-- frontier-20261027 -->
-**27 October 2026 · audited continuation.** R9_2_1607, R9_2_1975 and R9_2_1976 are excluded over the complex numbers. **Seven cases remain unresolved:** two at rank six, four at rank eight and one at rank nine. The conditional R1660–R941 algebra construction is precise; every GH(C6,2) Morita route for R1768 is excluded. [Proofs, individual findings and exact replay](../evidence/frontier_20261027/README.md). Independent human verification remains pending.
-<!-- /frontier-20261027 -->
+**Current classification: six unresolved cases.** R8_3_1768 is excluded over the complex numbers by pivotal conjugation parity, using the established existence and complete center-domain reductions. No additional categorification is claimed.
 
-<!-- correctness-20261025 -->
-**Correctness revision · 25 October 2026.** The current classification is unchanged. Three model-identification arguments are repaired, R8_3_721 has a direct exact completion, and implementation/replay defects are corrected. [Findings, corrections and exact commands](../evidence/correctness_20261025/README.md). Independent human verification remains pending.
-<!-- /correctness-20261025 -->
+> **AI-generated research; independent human verification pending.** Exact checks establish only their stated computational scope.
 
-**Current classification through rank twelve: 7 unresolved rings across ranks six, eight and nine.**
-
-> **AI-generated research · independent verification pending.** Exact automated checks establish only their stated computational scope.
-
-Current manuscripts appear once, in increasing rank order. Realized counts refer to based rings with at least one model; they do not count inequivalent associators.
+Each current mathematical manuscript appears once, in rank order. Counts refer to based rings admitting at least one model, not to inequivalent associators.
 
 | Manuscript | PDF | Source | Pages |
 |---|---|---|---:|
@@ -21,150 +13,20 @@ Current manuscripts appear once, in increasing rank order. Realized counts refer
 | Rank four: finite classification | [PDF](rank4/papers/finite.pdf) | [TeX](rank4/papers/finite.tex) | 29 |
 | Rank four: unrestricted classification | [PDF](rank4/papers/companion.pdf) | [TeX](rank4/papers/companion.tex) | 88 |
 | Rank five | [PDF](rank5/papers/manuscript.pdf) | [TeX](rank5/papers/manuscript.tex) | 19 |
-| Rank six | [PDF](rank6/papers/manuscript.pdf) | [TeX](rank6/papers/manuscript.tex) | 175 |
+| Rank six | [PDF](rank6/papers/manuscript.pdf) | [TeX](rank6/papers/manuscript.tex) | 177 |
 | Rank seven | [PDF](rank7/papers/manuscript.pdf) | [TeX](rank7/papers/manuscript.tex) | 83 |
-| Rank eight | [PDF](rank8/paper/rank8.pdf) | [TeX](rank8/paper/rank8.tex) | 156 |
+| Rank eight | [PDF](rank8/paper/rank8.pdf) | [TeX](rank8/paper/rank8.tex) | 149 |
 | Rank-nine and rank-ten multiplicity-one classification | [PDF](../publications/rank9-rank10/paper/rank9-rank10.pdf) | [TeX](../publications/rank9-rank10/paper/rank9-rank10.tex) | 35 |
-| Rank-nine multiplicity-two classification | [PDF](../publications/rank9-m2/paper/rank9-m2.pdf) | [TeX](../publications/rank9-m2/paper/rank9-m2.tex) | 53 |
+| Rank-nine multiplicity-two classification | [PDF](../publications/rank9-m2/paper/rank9-m2.pdf) | [TeX](../publications/rank9-m2/paper/rank9-m2.tex) | 55 |
 | Rank-eleven multiplicity-one classification | [PDF](../publications/rank11/paper/rank11.pdf) | [TeX](../publications/rank11/paper/rank11.tex) | 18 |
 | Rank twelve, multiplicity one | [PDF](../publications/rank12/paper/rank12.pdf) | [TeX](../publications/rank12/paper/rank12.tex) | 7 |
 
-**12 mathematical manuscripts, 678 pages.** With three verification guides: 696 pages. With the current research-status report: 702 pages. Each distinct document is counted once.
+**12 mathematical manuscripts, 675 pages.** With the three verification guides: 693 pages. With the current frontier report: 700 pages. Mirrored copies are counted once.
 
-[Page inventory and checksums](../data/current_manuscript_page_counts.json) · [Current publication manifest](../data/current_publication_revision.json)
+[Current frontier report](frontier/Fusion_Ring_Frontier.pdf) · [Page inventory](../data/current_manuscript_page_counts.json) · [Publication manifest](../data/current_publication_revision.json)
 
-## Scope and verification
+## Scope
 
-**Ranks 2–4:** unrestricted in multiplicity; the rank-four theorem has 15 realized rings and automatic sphericality. The finite-range rank-four census through multiplicity 128 is a separate companion.
+Ranks 2–4 have unrestricted classification claims. Ranks 5–8 use explicit census bounds 20, 9, 5 and 3. Two rank-six and three rank-eight cases remain open. Rank nine through multiplicity two has 2,148 general exclusions, 76 unitary models and one unresolved case. Ranks 10–12 at multiplicity one have no unresolved cases; R12_1_623 has a complex/pseudo-unitary model with unitarity unproved.
 
-**Ranks 5–8:** explicit census bounds are 20, 9, 5 and 3. Two rank-six and four rank-eight categorification questions remain open.
-
-**Rank 9:** through multiplicity two, 2,148 general exclusions, 76 unitary models and one unresolved. Exact multiplicity two contributes 2,046 exclusions and 36 models.
-
-**Ranks 10–11:** multiplicity one. Rank 10 has 136 exclusions, 58 unitary models and no unresolved; rank 11 has 155 exclusions and 27 unitary models.
-
-[Rank-11 proofs and replay](../evidence/rank11_m1_20261023/README.md) · [Ranks 9–10 proofs and replay](../evidence/rank10_m1_exclusions_20261023/README.md) · [All open cases](https://sebastienpalcoux.github.io/grothendieck-ring-classification/unresolved.html)
-
-## Verification guides
-
-| Guide | PDF | Pages |
-|---|---|---:|
-| Rank-four verification guide | [PDF](rank4/papers/verification_guide.pdf) | 9 |
-| Rank-five verification guide | [PDF](rank5/papers/verification_guide.pdf) | 4 |
-| Rank-six verification guide | [PDF](rank6/papers/verification_guide.pdf) | 5 |
-
-<details><summary>Earlier lower-rank reading notes and research history</summary>
-
-# Manuscripts
-
-The rank-eight multiplicity-three continuation addresses all 3,527 supplied exact-multiplicity-three rings: 3,507 general exclusions, 16 models and 4 unresolved cases. Every recorded model admits a unitary realization. The four remaining rings retain unresolved status for general complex categorification. R8_3_436 has an independent general exclusion.
-
-The rank-seven multiplicity-five continuation addresses all 5,805 supplied exact-multiplicity-five rings: 5,804 general exclusions, 1 realization and 0 unresolved cases. The classification of the supplied census is complete through multiplicity 5. The new realization R7_5_5678 is Rep(AGL(1,7)).
-
-> **AI-generated research · independent verification pending.** Treat these
-> results, proofs, code and data with caution. They have not yet been
-> independently verified by human experts or formalized in Lean. Automated
-> checks establish only their stated computational scope.
-
-Each paper is a current TeX/PDF pair with its classification scope stated in
-its own text. Ranks two, three and four are unrestricted in multiplicity.
-Ranks five to eight use pinned finite censuses and explicit criteria.
-
-**Project overview:** [Four-page research announcement · revised 26 October 2026](../announcements/hexagon-2026-10/Low_rank_Grothendieck_rings_announcement.pdf), covering the current scope through rank twelve, the constructions catalogue and all seven open cases. [Hexagon record and revision status](../announcements/hexagon-2026-10/README.md) · [How to cite](https://sebastienpalcoux.github.io/grothendieck-ring-classification/#cite). This announcement is separate from the research-manuscript page count.
-
-## Unrestricted rank-four classification · 88 pages
-
-**[Read the main PDF](rank4/papers/companion.pdf)** ·
-[LaTeX source](rank4/papers/companion.tex) ·
-[Rank-four reading guide](rank4/README.md)
-
-**No multiplicity bound; no initial pivotality assumption.** The main
-rank-four manuscript gives the fifteen-ring classification over ℂ and proves
-that every categorification admits a spherical structure. Its proof combines
-a theoretical reduction with exact finite verification.
-
-The 29-page finite-range classification companion treats the separate census
-through multiplicity 128. The unrestricted manuscript is the primary account
-of the general rank-four result.
-
-Related work on the pivotal case: Jingcheng Dong, Sébastien Palcoux and Arnaud Plessis, [Classifying Grothendieck rings of pivotal fusion categories of rank four](https://arxiv.org/abs/2609.33272), arXiv:2609.33272. Its hypothesis is pivotality.
-
-## All manuscripts
-
-| Manuscript | Source | PDF | Pages | Scope |
-|---|---|---|---:|---|
-| Rank two | [TeX](rank2.tex) | [PDF](rank2.pdf) | 3 | Unrestricted over ℂ; two realized rings |
-| Rank three | [TeX](rank3.tex) | [PDF](rank3.pdf) | 12 | Unrestricted sphericality and five-ring classification |
-| **Rank four, unrestricted classification** | [TeX](rank4/papers/companion.tex) | [PDF](rank4/papers/companion.pdf) | 88 | **No multiplicity bound or initial pivotality assumption**; 15 rings and automatic sphericality |
-| Rank four, finite-range companion | [TeX](rank4/papers/finite.tex) | [PDF](rank4/papers/finite.pdf) | 29 | Complete through multiplicity 128 |
-| Rank four, verification guide | [TeX](rank4/papers/verification_guide.tex) | [PDF](rank4/papers/verification_guide.pdf) | 9 | Exact certificate checks |
-| Rank five | [TeX](rank5/papers/manuscript.tex) | [PDF](rank5/papers/manuscript.pdf) | 19 | Complete through multiplicity 20 |
-| Rank five, verification guide | [TeX](rank5/papers/verification_guide.tex) | [PDF](rank5/papers/verification_guide.pdf) | 4 | Exact certificates, models and replay scope |
-| Rank six | [TeX](rank6/papers/manuscript.tex) | [PDF](rank6/papers/manuscript.pdf) | 175 | 25,362 exclusions, 57 realizations, two open through 9; complete through 3 and exact bands 1, 2, 3, 5, 6, 7, 9 |
-| Rank six, verification guide | [TeX](rank6/papers/verification_guide.tex) | [PDF](rank6/papers/verification_guide.pdf) | 5 | Models, certificates and open-case reductions |
-| Rank seven | [TeX](rank7/papers/manuscript.tex) | [PDF](rank7/papers/manuscript.pdf) | 83 | Through multiplicity 5: 9,976 exclusions, 30 models and 0 unresolved; complete through 5 |
-| Rank eight | [TeX](rank8/paper/rank8.tex) | [PDF](rank8/paper/rank8.pdf) | 156 | Through multiplicity 3: 4,403 exclusions, 93 unitary models and 4 unresolved; complete through 2 |
-
-The eight mathematical manuscripts contain **565 pages**.
-Including the three verification guides gives **583 pages**;
-including the 6-page [research-status report](prepublication-review-2026-10-27.pdf)
-gives **589 pages** across twelve distinct documents.
-These counts include references and appendices and count duplicate download
-copies only once. The [page inventory](../data/manuscript_page_counts.json)
-records every path, count and PDF checksum. The [17 October status report](prepublication-review-2026-10-17.pdf) is retained as a historical snapshot and is not counted as a current document.
-
-Download the [open fusion tensors as Python lists](../data/remaining_cases.py).
-The file names each case and states the zero-based convention `N[i][j][k]`,
-unit index, duality map and canonical source checksums.
-
-
-The sources use sections and generated tables in their sibling directories.
-The [document manifest](../data/current_document_revision.json) binds all
-current papers and their website copies.
-
-The [historical 38-case continuation](../docs/RESEARCH_STATUS.md) records **36 decisions among 38 cases**: 29 proposed general exclusions and 7 unitary constructions. Within that historical 38-case study, two questions remain open: `R6_4_155` and `R6_8_1660`. The historical residual program before the rank-eight M3 extensions records 140 decisions (120 exclusions and 20 constructions), all subject to independent mathematical verification.
-
-The rank-six treatment includes conformal-embedding constructions, fermion
-Azumaya compatibility, odd cyclic Clifford constraints and fully-faithful
-tensor-functor restrictions. For the positive spherical representative of
-`R6_8_1660`, all indicator sequences and central phase masses are determined,
-and 640 labelled restriction-data
-profiles remain in branches 68, 286, 286. These profiles and the rank-22
-based-module witness are necessary-condition evidence. Both rank-six
-categorification questions remain open.
-
-Read the [research status](../docs/RESEARCH_STATUS.md),
-[verification scope](../docs/PREPUBLICATION_REVIEW.md) and
-[replay guide](../docs/VERIFY.md) with the papers.
-
-## Generalized Haagerup construction and further restrictions
-
-R8_3_721 is realized by the inherited 1+rho Q-system Morita dual of the C2 de-equivariantization of GH(C8). Exact rank and coefficient bounds, followed by a direct exhaustive fusion completion, identify its entire based ring without assuming census completeness. The earlier center-action analysis leaves three necessary R8_3_1154 patterns. These results are in evidence/rank8_next_20261021/; the later R8_3_65 general exclusion is in evidence/rank8_research_20261022/.
-
-The integrated rank-eight article includes the new construction and restrictions. Categorical arguments, targeted mathematical replay receipts and independent reconstructions are in `evidence/rank8_next_20261021/`. The original frontier ledger, audit and completed replay receipts remain unchanged.
-
-The following commands validate the accepted overlay metadata; they do not repeat the targeted mathematical checks:
-
-```bash
-python3 tools/rank8_next.py --check
-python3 -O tools/rank8_next.py --check
-```
-
-A separately reviewed Galois follow-up reduces the 36 retained R8_3_1154 pair histograms to 25 across the same three center patterns. Its proof and exact replay are in `evidence/rank8_postpublication_20261021/r1154_galois_review/`; the ring remains unresolved.
-
-## General exclusion of R8_3_3472
-
-R8_3_3472 admits no fusion categorification over the complex numbers. The sphericalization and Galois reduction covers general complex categories; complete center-frame and twist-orbit domains reduce the remaining case to 628 exact equations in 572 integer variables. A certificate of 1648 rational bound deductions and a final strictly positive separating gap proves infeasibility, with two independent exact checkers. The proof and reproducible certificate are in evidence/r3472_exclusion_20261022/. This complete obstruction supersedes the earlier feasible necessary systems and conditional Morita restrictions for R3472. R8_3_982 remains unitarily realized by the neutral triality component of the exceptional E21 chiral fusion category, with all 512 canonical fusion coefficients identified exactly. Four rank-eight general categorification questions remain: R8_3_928, R8_3_941, R8_3_1154 and R8_3_1768. Every hypothetical categorification of these four rings admits a spherical structure and has a pseudo-unitary Galois conjugate; none has a braided Morita representative. The R928 phase refinement leaves four of ten necessary center patterns, all fourteen R941 allocations survive the stated refinements, and R1154 retains its forced semionic data. R1768 has 39 of 40 necessary Gram/indicator branches excluded, while its final cone survives. These necessary data do not construct categories or settle the four remaining questions.
-
-The complete center-domain reduction and exact infeasibility certificates are in `evidence/r3472_exclusion_20261022/README.md`. This accepted decision removes R8_3_3472 from the unresolved ledger. The earlier E21 construction and its research receipts retain their historical scope.
-
-```bash
-python3 tools/verify_rank8_exclusion_20261022.py
-python3 -O tools/verify_rank8_exclusion_20261022.py
-```
-
-Use `--metadata-only` to check source identities and completed replay receipts. Use `--historical` to replay the preceding rank-eight stages in their preserved contexts. That replay explicitly records the reconstructed helper missing from the creative archive and its four revised cache-state diagnostics in a separate checkpoint; it also restores the omitted canonical tensor with its original receipt hash. The current ledger and proof have separate bindings from those historical releases.
-
-</details>
-
-**Rank 12, multiplicity one:** 480 general exclusions and 152 models; 151 unitary, with R12_1_623 complex/pseudo-unitary and unitarity unproved. No rank-twelve case remains unresolved. [Proofs and exact replay](../evidence/rank12_m1_20261026/README.md). The seven open cases at lower ranks are unchanged.
+[Current proofs and exact replay](https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/evidence/frontier/README.md) · [All open cases](https://sebastienpalcoux.github.io/grothendieck-ring-classification/unresolved.html)

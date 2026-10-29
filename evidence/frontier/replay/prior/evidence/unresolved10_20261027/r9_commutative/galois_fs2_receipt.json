@@ -1,0 +1,127 @@
+{
+  "zero_shift_tensor_sha256": "8867fe466dd5062a27c6816390a83805ad0d54dafc94188b09e90e236b84273b",
+  "scalar_representations": [
+    {
+      "a": 0,
+      "b": 0,
+      "t": "4 + 3*sqrt(2)",
+      "f": "96*sqrt(2) + 144",
+      "v": "12*sqrt(2) + 17"
+    },
+    {
+      "a": 0,
+      "b": 0,
+      "t": "4 - 3*sqrt(2)",
+      "f": "144 - 96*sqrt(2)",
+      "v": "17 - 12*sqrt(2)"
+    },
+    {
+      "a": 0,
+      "b": 1,
+      "t": "sqrt(2)",
+      "f": "16",
+      "v": "1"
+    },
+    {
+      "a": 0,
+      "b": 1,
+      "t": "-sqrt(2)",
+      "f": "16",
+      "v": "1"
+    },
+    {
+      "a": 1,
+      "b": 0,
+      "t": "sqrt(2)",
+      "f": "16",
+      "v": "1"
+    },
+    {
+      "a": 1,
+      "b": 0,
+      "t": "-sqrt(2)",
+      "f": "16",
+      "v": "1"
+    },
+    {
+      "a": 1,
+      "b": 1,
+      "t": "sqrt(2)",
+      "f": "16",
+      "v": "1"
+    },
+    {
+      "a": 1,
+      "b": 1,
+      "t": "-sqrt(2)",
+      "f": "16",
+      "v": "1"
+    }
+  ],
+  "two_dimensional_formal_codegree": 4,
+  "galois_unit_restriction": [
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    1,
+    1,
+    1
+  ],
+  "pointed_indicator_comparison": {
+    "1": {
+      "indicators": [
+        1,
+        1,
+        1,
+        0,
+        1,
+        0,
+        1,
+        1
+      ],
+      "total": 6,
+      "TY_total": 6
+    },
+    "-1": {
+      "indicators": [
+        1,
+        -1,
+        1,
+        0,
+        1,
+        0,
+        1,
+        -1
+      ],
+      "total": 2,
+      "TY_total": 2
+    }
+  },
+  "sources": {
+    "R9_2_137": {
+      "sha256": "c509d23c9a638aaea8a624a6c5186ad3f0c1b6e6f432576b45300f6e630c56e6",
+      "selfdual_large": 4,
+      "forced_sum": 4,
+      "contradiction": false
+    },
+    "R9_2_1607": {
+      "sha256": "16b023a44f69bb516b8a8c9933a2b360b44219a07de2f1599e8f216eb74dbfa2",
+      "selfdual_large": 2,
+      "forced_sum": 4,
+      "contradiction": true
+    },
+    "R9_2_1976": {
+      "sha256": "2280410fa5b33121f9b5d9cfdea15f90bf56933f9b26c0ccdbe047c153d08d30",
+      "selfdual_large": 0,
+      "forced_sum": 4,
+      "contradiction": true
+    }
+  },
+  "scope": "Exact finite checks; categorical pairing and Morita theorem are proved in the note."
+}

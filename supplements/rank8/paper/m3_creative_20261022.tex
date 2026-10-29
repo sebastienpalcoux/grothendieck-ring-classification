@@ -322,8 +322,8 @@ $\dim Z/D$ therefore has one of those eighteen primitive twists.
 
 \begin{proposition}[Complete irrational-sector restriction]
 \label{prop:creative-r1768-sector}
-Every pseudo-unitary Galois form of a categorification of R1768 has all
-six noninvertible second indicators equal to $+1$.
+Every pseudo-unitary Galois form of a categorification of R1768 has second-indicator vector
+$(1,-1,1,1,1,1,1,1)$ in the canonical basis.
 Put $z=(0,0,1,1,1,1,1,1)$. Its center simples with irrational $\dim Z/D$, other than the unit
 and its distinguished Galois partner, have exactly one of the following
 forms:
@@ -393,16 +393,12 @@ $\alpha,\alpha'$. Orthogonality gives uniquely
 \]
 \end{proof}
 
-Even after this unique restriction is imposed, the surviving cone has an
-exact rational witness. This is not an integral center construction.
-Its remaining rational sector has dimensions $tD/12$ with positive
-integral $t$ and $\sum t^2=70$; removing its known $I(1)$ constituents
-leaves $\sum t^2=52$ for the high rational sector.
-The complete forty-branch certificate and both rational witnesses are
-replayed by \path{r1768/verify.py} in the new evidence directory.
-Rational-ratio simples may also have primitive 37th twists; the
-preceding counts do not count those objects, and their all-order domain
-is retained. R1768 remains unresolved.
+The complete center-domain reduction retains all-order trace columns for
+rational-ratio simples, including possible primitive 37th twists. Its
+necessary sign vector is incompatible with pivotal conjugation parity,
+as follows.
+
+\input{pivotal_conjugation}
 
 \subsection{A forced four-object packet in the R1154 center}
 \label{subsec:creative-r1154-packet}
@@ -594,7 +590,7 @@ separately supplies an algebra structure on $1+X_5$ and both
 nonregular based-module types; uniqueness of their algebra or module
 structures is not claimed.
 
-\subsection{A Galois Gram bound and the two R3472 module branches}
+\subsection{A Galois Gram bound for integral dimensions}
 \label{subsec:creative-r3472-gram}
 
 \begin{lemma}[Integral-dimension Galois Gram bound]
@@ -631,104 +627,6 @@ If equality holds, the same quadratic form is a sum of squares, one
 for each nonintegral dimension; each square is
 $\operatorname{Tr}_{K/\Q}(d_i/D)^2$ and hence vanishes.
 \end{proof}
-
-The next assertions are conditional on the indicated based module lifting
-to an indecomposable module category. No existence of either lift is
-asserted. Put $r=\sqrt2$ and $D=700+490r$. Up to interchanging the two
-module simples, the two source action matrices are
-\[
- \begin{pmatrix}7&7\\7&5\end{pmatrix},\qquad
- \begin{pmatrix}11&5\\5&1\end{pmatrix}.
-\]
-Their full integral commutants and positive dimension eigenvalues are
-\[
- \begin{array}{c|c}
- \text{matrix}&\text{dimension}\\\hline
- \begin{pmatrix}s+t&7t\\7t&s-t\end{pmatrix}&s+5tr\\[3pt]
- \begin{pmatrix}s+t&t\\t&s-t\end{pmatrix}&s+tr
- \end{array}
- \qquad t\geq0,\quad s\geq t,\quad s,t\in\Z.
-\]
-Morita invariance gives global dimension $D$ for either dual category
-\cite[Corollary~7.16.7]{EGNO}. The regular dimension element acts with
-rank one on the module, as in \cite[Exercise~7.16.8]{EGNO}.
-
-Lemma~\ref{lem:creative-galois-gram} gives $h\leq7$. Here the integral
-simples form a fusion subcategory, since all radical coefficients are
-nonnegative. By categorical Lagrange integrality
-\cite[Theorem~7.17.6]{EGNO}, $D/h$ is integral, hence
-$1400/h,9800/h^2\in\Z$ and $h\in\{1,2,5,7\}$.
-The subcategory is pointed: the only nonpointed integral profiles to
-consider are $1,2$ for $h=5$ and $1,1,1,2$ for $h=7$; the square of the
-unique dimension-two simple would give $4=1+2a$ or $4=3+2a$,
-respectively. Thus write $g=h$ for its cyclic group order.
-
-\begin{proposition}[Three further first-branch exclusions]
-\label{prop:creative-r3472-three}
-For the first branch, the ten previously retained dual dimension spectra
-reduce to seven. The following three spectra cannot be fusion rings:
-\[
-\begin{array}{c|l}
-g&\text{nonintegral dimensions with multiplicity}\\\hline
-1&(6+5r)^2,\ (9+5r)^1,\ (14+10r)^1\\
-1&(5+5r)^1,\ (8+5r)^2,\ (14+10r)^1\\
-2&(7+5r)^2,\ (9+5r)^1,\ (13+10r)^1.
-\end{array}
-\]
-Superscripts in this table denote multiplicities, not powers.
-\end{proposition}
-\begin{proof}
-In each row the repeated pair is either self-dual or exchanged by
-duality; all other nonintegral dimensions occur once. For each of these
-six possibilities introduce nonnegative integers
-$m_{ijk}=[\one:X_iX_jX_k]$, identifying cyclic rotations and the
-reverse-dual triple $(k^*,j^*,i^*)$. Unit triples and cyclic-group
-products are fixed. Equating rational and radical coefficients in
-every product dimension yields a finite nonnegative integer linear
-system. No commutativity or associativity assumption is used.
-
-The exact verifier exhausts all six systems using interval bounds,
-row gcd congruences and complete finite branching. Their search-tree
-sizes are $72,22,39,11,380,79$, and every tree is empty. Every variable
-has a finite upper bound from a positive coefficient in a dimension
-equation; there is no node or time cutoff. The original R3472 tensor
-is checked as a positive control for the equation builder. Thus the
-six systems supply exact incompatibility certificates for the three
-spectra. The receipt retains the seven other spectra only as necessary
-possibilities, without claiming fusion multiplications.
-\end{proof}
-
-For the second branch the regular-element identities give
-\[
- \sum s_i^2=350,\qquad\sum t_i^2=175,\qquad\sum s_it_i=245.
-\]
-After removing the $g$ invertibles and putting $u_i=s_i-t_i$, the
-complete arithmetic domain is
-\[
- \sum u_i^2=35-g,\qquad\sum u_it_i=70,\qquad\sum t_i^2=175,
- \qquad u_i\geq0,\ t_i\geq1.
-\]
-In particular $u_i\leq5$ and $t_i\leq13$. A finite multiplicity
-recursion over these types, completed by square partitions for $u=0$,
-counts each dimension multiset once. The exact counts are
-\[
- \begin{array}{c|rrrr|r}
- g&1&2&5&7&\text{total}\\\hline
- \text{spectra}&272348&124228&3900&2&400478.
- \end{array}
-\]
-When $g=7$, equality in Lemma~\ref{lem:creative-galois-gram} gives
-$5s_i=7t_i$. Writing $\delta=7+5\sqrt2$, the two possibilities are
-$1^7,\delta^7$ and $1^7,\delta^3,(2\delta)^1$.
-Since $\delta^2=1+14\delta$, the stabilizer of a $\delta$-dimensional
-simple is trivial and its orbit under $C_7$ has size seven. The second
-possibility is impossible. Thus $400477$ arithmetic spectra survive;
-full multiplication tests for this entire domain are not supplied.
-
-The exact programs, source identities and receipts are in
-\path{evidence/rank8_creative_20261022/r3472/}. Normal and optimized
-Python replay produce identical results. These refinements are
-conditional Morita restrictions. R3472 was unresolved at this checkpoint; its later general exclusion is Theorem~\ref{thm:r3472-general-exclusion}.
 
 \subsection{A common cyclic-parent obstruction for R1768 and R3472}
 \label{subsec:creative-cyclic-parent}
@@ -788,11 +686,8 @@ quotient routes
  \qquad
  \mathrm{NG}(C_{196},196)\longrightarrow D=700+490\sqrt2.
 \]
-No assertion that these parents exist is required. The obstruction
-does not exclude noncyclic parents, other Morita representatives or
-generalized-Haagerup parents. In particular the scalar possibilities
-of a $C_{12}$ or $C_{14}$ generalized-Haagerup parent followed by a
-$C_2$ quotient are not settled here. These are restrictions on
-construction routes for R1768 and R3472, not general exclusions of
-those rings or constructions of their associators.
-
+No assertion that these parents exist is required. This cyclic-parent
+criterion is independent of the general-complex exclusions of R1768 and
+R3472 proved in Theorems~\ref{thm:r1768-general-exclusion}
+and~\ref{thm:r3472-general-exclusion}; a dimension-profile match to a
+parent is not a construction of either ring.

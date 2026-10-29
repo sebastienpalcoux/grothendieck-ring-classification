@@ -1,0 +1,90 @@
+{
+  "all_pass": true,
+  "checks": [
+    {
+      "script": "new/root/pivotal_conjugation_parity.py",
+      "exit_code": 0,
+      "seconds": 0.054,
+      "stdout": "[\n  {\n    \"id\": \"R6_4_155\",\n    \"components\": [\n      [\n        0,\n        3\n      ],\n      [\n        4,\n        5\n      ]\n    ],\n    \"violations\": [\n      0\n    ]\n  },\n  {\n    \"id\": \"R6_8_1660\",\n    \"components\": [\n      [\n        0,\n        1,\n        2,\n        3\n      ],\n      [\n        4\n      ],\n      [\n        5\n      ]\n    ],\n    \"violations\": [\n      0\n    ]\n  },\n  {\n    \"id\": \"R8_3_928\",\n    \"components\": [\n      [\n        0\n      ],\n      [\n        7\n      ]\n    ],\n    \"violations\": [\n      0\n    ]\n  },\n  {\n    \"id\": \"R8_3_941\",\n    \"components\": [\n      [\n        0,\n        3,\n        4,\n        5,\n        6,\n        7\n      ]\n    ],\n    \"violations\": [\n      0\n    ]\n  },\n  {\n    \"id\": \"R8_3_1154\",\n    \"components\": [\n      [\n        0,\n        5,\n        6,\n        7\n      ],\n      [\n        3\n      ],\n      [\n        4\n      ]\n    ],\n    \"violations\": [\n      0\n    ]\n  },\n  {\n    \"id\": \"R8_3_1768\",\n    \"components\": [\n      [\n        0,\n        2,\n        3,\n        5\n      ],\n      [\n        1,\n        4,\n        6,\n        7\n      ]\n    ],\n    \"violations\": [\n      16\n    ]\n  },\n  {\n    \"id\": \"R9_2_137\",\n    \"components\": [\n      [\n        0,\n        1,\n        2,\n        7\n      ],\n      [\n        3,\n        6\n      ],\n      [\n        4,\n        5\n      ],\n      [\n        8\n      ]\n    ],\n    \"violations\": [\n      0,\n      0\n    ]\n  }\n]\n",
+      "stderr": ""
+    },
+    {
+      "script": "new/r155/verify_morita_ring_rigidity.py",
+      "exit_code": 0,
+      "seconds": 0.127,
+      "stdout": "PASS: complete algebra Gram reduction, commutant, Cauchy identity and exact R155 dual tensor\n",
+      "stderr": ""
+    },
+    {
+      "script": "new/r1660_941/verify.py",
+      "exit_code": 0,
+      "seconds": 0.052,
+      "stdout": "PASS: new theorem arithmetic, two cyclic multiplication directions; both rings UNRESOLVED\n",
+      "stderr": ""
+    },
+    {
+      "script": "new/r1660_941/quantum_routes.py",
+      "exit_code": 0,
+      "seconds": 0.371,
+      "stdout": "PASS: positive radical cone; only4/8 integral simples; both required dimension12 algebras impossible\n",
+      "stderr": ""
+    },
+    {
+      "script": "new/r1660_941/r941_galois_followup.py",
+      "exit_code": 0,
+      "seconds": 0.505,
+      "stdout": "PASS: 22 of65 column types can support order-divisible-by9 twists; all14 retained allocations retain eligible fibers; no exclusion\n",
+      "stderr": ""
+    },
+    {
+      "script": "new/r928/verify_spectral_reduction.py",
+      "exit_code": 0,
+      "seconds": 3.634,
+      "stdout": "PASS: N_W forced in four patterns; N_c forced in patterns49 and191; no status change.\n",
+      "stderr": ""
+    },
+    {
+      "script": "new/r1154/verify_simple_center_inputs.py",
+      "exit_code": 0,
+      "seconds": 0.085,
+      "stdout": "{\"verified\": true, \"tensor_sha256\": \"c399505be76a64c8aba65feaf2cd55125dc7132f5894b74e58b64473d1387e25\", \"center_dimension\": [579600, 259200], \"center_ranks\": {\"6971\": 23, \"8766\": 21, \"8772\": 29}, \"status\": \"unresolved\"}\n",
+      "stderr": ""
+    },
+    {
+      "script": "new/r1154/verify_conjugation_audit.py",
+      "exit_code": 0,
+      "seconds": 0.076,
+      "stdout": "PASS: exact R1768 triple and parity graph; four other case comparisons\n",
+      "stderr": ""
+    },
+    {
+      "script": "new/r137/verify_structural.py",
+      "exit_code": 0,
+      "seconds": 0.047,
+      "stdout": "{\n  \"source_sha256\": \"c509d23c9a638aaea8a624a6c5186ad3f0c1b6e6f432576b45300f6e630c56e6\",\n  \"forced_Galois_unit_column\": [\n    1,\n    0,\n    0,\n    1,\n    1,\n    1,\n    1,\n    0,\n    0\n  ],\n  \"complete_character_count\": 9,\n  \"character_field\": \"Q(sqrt2)\",\n  \"large_objects_generate_full\": true,\n  \"fourth_vacuum_dimension\": 18,\n  \"square_rotation_trace\": 10,\n  \"quartic_trace_grid\": [\n    [\n      -4,\n      -4\n    ],\n    [\n      -4,\n      -2\n    ],\n    [\n      -4,\n      0\n    ],\n    [\n      -4,\n      2\n    ],\n    [\n      -4,\n      4\n    ],\n    [\n      -2,\n      -4\n    ],\n    [\n      -2,\n      -2\n    ],\n    [\n      -2,\n      0\n    ],\n    [\n      -2,\n      2\n    ],\n    [\n      -2,\n      4\n    ],\n    [\n      0,\n      -4\n    ],\n    [\n      0,\n      -2\n    ],\n    [\n      0,\n      0\n    ],\n    [\n      0,\n      2\n    ],\n    [\n      0,\n      4\n    ],\n    [\n      2,\n      -4\n    ],\n    [\n      2,\n      -2\n    ],\n    [\n      2,\n      0\n    ],\n    [\n      2,\n      2\n    ],\n    [\n      2,\n      4\n    ],\n    [\n      4,\n      -4\n    ],\n    [\n      4,\n      -2\n    ],\n    [\n      4,\n      0\n    ],\n    [\n      4,\n      2\n    ],\n    [\n      4,\n      4\n    ]\n  ],\n  \"status\": \"EXACT_PASS\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "script": "new/r155/verify_r137_forced_galois_audit.py",
+      "exit_code": 0,
+      "seconds": 4.98,
+      "stdout": "{\n  \"result\": \"PASS\",\n  \"scope\": \"Whole-vector Galois filter, quartic projected constraints, complete frozen rational witnesses; not categorification\",\n  \"systems\": [\n    {\n      \"TY_sign\": 1,\n      \"physical_variables_checked\": 22179,\n      \"removed\": 7222,\n      \"exact_witness_support\": 102,\n      \"all_equations\": 264,\n      \"replay_sha256\": \"7cc59f009781cc15bb1f59a4a12868a6d07c86e94bd847008a666a79c1a9f977\"\n    },\n    {\n      \"TY_sign\": -1,\n      \"physical_variables_checked\": 21932,\n      \"removed\": 7222,\n      \"exact_witness_support\": 112,\n      \"all_equations\": 264,\n      \"replay_sha256\": \"139985211e5d7f73c6d27bc58dd3508dbdc8d247b13781fb3c96ad93982eb300\"\n    }\n  ]\n}\n",
+      "stderr": ""
+    },
+    {
+      "script": "new/r1768/verify_palindromic_exclusion.py",
+      "exit_code": 0,
+      "seconds": 0.065,
+      "stdout": "{\n  \"id\": \"R8_3_1768\",\n  \"verification\": \"PASS\",\n  \"tensor_sha256\": \"240509807c67da437c86f2a51efeb831364734feb93ed18a1d2f32087ebc1af0\",\n  \"forced_indicators\": [\n    1,\n    -1,\n    1,\n    1,\n    1,\n    1,\n    1,\n    1\n  ],\n  \"X\": 2,\n  \"V\": 1,\n  \"restriction_XVXstar\": [\n    0,\n    1,\n    2,\n    2,\n    2,\n    2,\n    1,\n    1\n  ],\n  \"opposite_sign_odd_constituents\": [\n    {\n      \"index\": 6,\n      \"multiplicity\": 1,\n      \"indicator\": 1\n    },\n    {\n      \"index\": 7,\n      \"multiplicity\": 1,\n      \"indicator\": 1\n    }\n  ],\n  \"conclusion\": \"Contradiction to palindromic pairing parity, conditional only on the published forced indicators and existence-to-positive gate.\",\n  \"computation_scope\": \"Exact tensor identities and inherited receipt binding. Categorical proof is separate in PALINDROMIC_EXCLUSION.md.\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "script": "new/r1768/replay_palindromic_center.py",
+      "exit_code": 0,
+      "seconds": 27.52,
+      "stdout": "BASE 1768 241 18130\nPASS negative pointed sign, V= 0\nPASS negative pointed sign, V= 1\nPASS negative pointed sign, V= 2\nPASS negative pointed sign, V= 3\nPASS negative pointed sign, V= 4\nPASS all-positive sign vector\nPASS all six exact separators; 26.917 seconds\n",
+      "stderr": ""
+    }
+  ],
+  "frozen_inputs_modified": false
+}

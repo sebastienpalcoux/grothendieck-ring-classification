@@ -1,0 +1,41 @@
+{
+  "id": "R8_3_1768",
+  "verification": "PASS",
+  "tensor_sha256": "240509807c67da437c86f2a51efeb831364734feb93ed18a1d2f32087ebc1af0",
+  "forced_indicators": [
+    1,
+    -1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+  ],
+  "X": 2,
+  "V": 1,
+  "restriction_XVXstar": [
+    0,
+    1,
+    2,
+    2,
+    2,
+    2,
+    1,
+    1
+  ],
+  "opposite_sign_odd_constituents": [
+    {
+      "index": 6,
+      "multiplicity": 1,
+      "indicator": 1
+    },
+    {
+      "index": 7,
+      "multiplicity": 1,
+      "indicator": 1
+    }
+  ],
+  "conclusion": "Contradiction to palindromic pairing parity, conditional only on the published forced indicators and existence-to-positive gate.",
+  "computation_scope": "Exact tensor identities and inherited receipt binding. Categorical proof is separate in PALINDROMIC_EXCLUSION.md."
+}

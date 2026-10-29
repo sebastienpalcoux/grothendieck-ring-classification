@@ -2,16 +2,20 @@
 
 Braiding is a separate requirement from pivotality, sphericality,
 pseudo-unitarity and unitarity. Every one of the six current unresolved cases is excluded
-from braided categorification without a pivotality assumption. The four
-previously conditional rank-eight exclusions become unconditional by the
-complete sphericalization gates of 22 October 2026. All conclusions retain
+from braided categorification without a pivotality assumption. The three unresolved rank-eight cases have unconditional braided exclusions.
+The retained four-case sphericalization gates also apply to the now generally
+excluded R8_3_1768. All conclusions retain
 the project's independent-review caution.
 
 | Cases | Strongest braided exclusion recorded here |
 | --- | --- |
 | `R6_4_155`, `R6_8_1660` | No general braided categorification |
-| `R8_3_928`, `R8_3_941`, `R8_3_1154`, `R8_3_1768` | No general braided categorification, and no braided Morita representative |
+| `R8_3_928`, `R8_3_941`, `R8_3_1154` | No general braided categorification, and no braided Morita representative |
+| `R9_2_137` | No general braided categorification; see the current center restrictions |
+| `R8_3_1768` (generally excluded) | No complex categorification, by pivotal conjugation parity |
 | `R8_3_982` (unitarily realized) | No general braided categorification, and no braided Morita representative |
+
+For R9_2_137 the [current proof account](../evidence/frontier/README.md) gives the center restrictions: a braiding would lift its four source invertibles to a center with at most two invertibles. The same account proves the general exclusion of R8_3_1768; its weaker braided obstruction below is retained only as a supporting historical argument.
 
 `R8_3_982` is now realized by the triality-zero component of the unitary
 E21 category from SU(3)_21 into E7_1; see the
@@ -165,7 +169,7 @@ rings is pointed, and each global FP dimension is irrational. The
 therefore shows that a braided Morita representative would give a braiding
 on the source category itself. The preceding exclusions rule this out.
 This is a restriction on constructions through Morita equivalence; it does
-not exclude the four remaining rank-eight rings from general unbraided
+not exclude the three remaining rank-eight rings from general unbraided
 categorification, and it is consistent with the unitary realization of
 R8_3_982.
 

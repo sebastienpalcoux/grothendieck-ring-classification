@@ -37,6 +37,8 @@ def active(repo):
     return (Path(repo) / LEDGER).is_file()
 
 def ledger_path(repo):
+    from frontier import active as current_active, LEDGER as current_ledger
+    if current_active(repo):return current_ledger
     from research_continuation_20261024 import active as research_active, LEDGER as research_ledger
     if research_active(repo): return research_ledger
     if audit_stage.active(repo): return audit_stage.LEDGER
@@ -61,6 +63,8 @@ def archive_path(repo):
     return ARCHIVE if active(repo) else HISTORICAL_ARCHIVE
 
 def current_date(repo):
+    from frontier import active as current_active, DATE
+    if current_active(repo):return DATE
     from frontier_20261027 import active as latest_active
     if latest_active(repo):return '2026-10-27'
     from correctness_publication import active as correctness_active
@@ -72,6 +76,8 @@ def current_date(repo):
     return PUBLICATION_DATE if active(repo) else previous
 
 def current_report(repo):
+    from frontier import active as current_active
+    if current_active(repo):return "frontier/Fusion_Ring_Frontier.pdf"
     from frontier_20261027 import active as latest_active
     if latest_active(repo):return 'prepublication-review-2026-10-27.pdf'
     from correctness_publication import active as correctness_active
@@ -110,6 +116,8 @@ def historical_sources(repo):
     return result
 
 def extension(repo):
+    from frontier import active as current_active, publication_extension as current_extension
+    if current_active(repo):return current_extension(repo)
     from research_continuation_20261024 import active as research_active, publication_extension
     if research_active(repo): return publication_extension(repo)
     if audit_stage.active(repo): return audit_stage.publication_extension(repo)

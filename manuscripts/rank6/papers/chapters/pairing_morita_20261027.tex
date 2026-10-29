@@ -1,4 +1,4 @@
-\section{Pairing parity and a conditional rank-eight construction}
+\section{Pairings, connected algebras and Morita restrictions}
 \label{sec:pairing-morita-20261027}
 The two rank-six rings remain unresolved. The following obstruction concerns
 actual module categories, not just nonnegative integral representations.
@@ -58,9 +58,7 @@ Relabelling $X,gX$ gives the other assertion.
 
 The inverse internal-end algebra in this Morita context is also $1+Y$,
 with $Y$ selfdual of dimension $d=3+2\sqrt2+2\sqrt3+\sqrt6$.
-Neither algebra has been constructed. Fixing the unit, the multiplication
-on $X^2$ has one coefficient in $\operatorname{Hom}(X^2,1)$ and three in
-$\operatorname{Hom}(X^2,X)$, before normalization and gauge. Its associativity
+Neither algebra has been constructed. The third rotation on $\operatorname{Hom}(1,X^3)$ has eigenvalue multiplicities $(2,1,0)$ or $(2,0,1)$ at $(1,\omega,\omega^2)$. A symmetric Frobenius form makes the trilinear multiplication functional cyclically invariant. Via the pairing on $X$, the $X^2\to X$ component lies in its two-dimensional fixed subspace. Together with $X^2\to1$, this leaves at most three linear coefficients before normalization and gauge. Its associativity
 still depends on the unknown ambient associator. The six-simple connecting
 module, consisting of two regular Ising blocks, is an exact construction
 target, not an existence theorem. Equal global FP dimension alone would
@@ -76,29 +74,248 @@ Galois-unit object of dimension $d^2$ acts on the negative conjugation
 space as a signed permutation: its integral symmetric matrix squares to
 the identity, so every row has one entry $\pm1$.
 
-\subsection{A forced algebra for $\RR{4}{155}$}
-Write $X^*=Y$, $\dim X=\dim Y=d_0=4+3\sqrt2$.
-For $A_k=1+kX+kY$, subtraction of the four distinct pointed free modules
-from its induction Gram leaves vectors $a,b$ satisfying
+\subsection{A nonsplit, s-simple fermion centralizer}
+\begin{proposition}\label{prop:r1660-fermion-centralizer}
+Let $\mathcal C$ be a positive categorification of $\RR{8}{1660}$,
+$h$ its nontrivial central invertible, $F(h)=g$, $\theta_h=-1$, and
+$d=3+2\sqrt2+2\sqrt3+\sqrt6$. Put $D=4(1+d^2)$ and
+$\mathcal E=\langle h\rangle'\subset Z(\mathcal C)$.
+Then $\FPdim(\mathcal E)=D^2/2$, its M\"uger center is $\mathrm{sVec}$,
+and its only fusion subcategories are $\Vec,\mathrm{sVec},\mathcal E$.
+In particular it does not split as a nondegenerate category times
+$\mathrm{sVec}$.
+\end{proposition}
+\begin{proof}
+The integral-center and phase-mass theorems above say that $1,h$ are the
+only integral central simples, and that every central simple containing
+$\sigma$ has restriction $2X+2gX+\sigma+3T$. No nonintegral central simple
+therefore restricts entirely to the proper Ising subcategory, and no
+central simple has dimension $\sqrt2$. Each of $X,gX,T$ generates
+$\mathcal C$. Every nonpointed fusion subcategory of $Z(\mathcal C)$
+thus forgets dominantly to $\mathcal C$ and has FP dimension greater
+than $D$. Equality would make the functor an equivalence, supplying a
+central simple preimage of $\sigma$ of dimension $\sqrt2$.
+
+If $\mathcal E=\mathcal M\boxtimes\mathrm{sVec}$ with $\mathcal M$
+nondegenerate, modular decomposition \cite{DGNO,DMNO} gives
+$Z(\mathcal C)=\mathcal M\boxtimes\mathcal K$ with
+$\FPdim(\mathcal K)=4$. The factor $\mathcal K$ contains $1,h$ but no
+other integral simple. Its remaining squared dimensions sum to two,
+forcing exactly one simple of dimension $\sqrt2$, a contradiction.
+
+If a proper nonpointed $\mathcal H\subset\mathcal E$ contains
+$\mathrm{sVec}$, its centralizer in $\mathcal E$ either equals
+$\mathrm{sVec}$, forcing $\mathcal H=\mathcal E$, or is nonpointed.
+Both factors would then have dimension greater than $D$, contrary to
+$\FPdim(\mathcal H)\FPdim(\mathcal H')=D^2$.
+If $\mathcal H$ does not contain $h$, its join with $\mathrm{sVec}$ is
+$\mathcal E$. Its symmetric center is integral and hence trivial.
+Modular decomposition would give
+$\mathcal E=\mathcal H\boxtimes\mathrm{sVec}$, already excluded.
+\end{proof}
+
+This proof assumes neither a Morita link to $R8\_3\_941$ nor existence
+of $1+X$. The same four-dimensional-complement argument proves
+nonsplitting for $R8\_3\_941$: its integral center is $\{1,h\}$, and
+every nonpointed source dimension is greater than $\sqrt2$.
+
+\subsection{Odd indicators in an actual Morita link}
+Suppose positive categorifications of $\RR{8}{1660}$ and $R8\_3\_941$
+are Morita equivalent; equal dimension alone does not imply this.
+Put $a=2+\sqrt2+\sqrt3+\sqrt6$ and $b=a+\sqrt2$.
+The rank-eight noninvertible dimensions are $a,a,b,b,d,d$.
+For odd $n$, write their indicators as $u_1,u_2,v,v,w_1,w_2$, and put
+$x=\nu_n(X),t=\nu_n(T)$ in the rank-six category. Then
+\begin{equation}\label{eq:r1660-r941-odd-indicators}
+ u_1+u_2=t,\qquad v=t/2,\qquad w_1+w_2=2x.
+\end{equation}
+Indeed the dimension-weighted indicator is Morita invariant and
+$\sqrt2d=a+b$, so
 \[
- \lVert a\rVert^2=\lVert b\rVert^2=1+8k-4k^2,
- \qquad a\cdot b=8k-4k^2.
+1+a(u_1+u_2)+2bv+d(w_1+w_2)=1+(a+b)t+2dx.
 \]
-Thus $k\le2$. For $k=1$ the viable residual modules have underlying
-objects $2X+Y,X+2Y$. The other Gram possibilities contain a module
-underlying $X$; its internal-end dimension
-$d_0^2/(1+2d_0)=2+4\sqrt2/3$ is not an algebraic integer.
-For $k=2$ the residual modules underlie $X,Y$. Both surviving necessary
-based modules have rank six.
+The elements $1,a,b,d$ form a basis of $\QQ(\sqrt2,\sqrt3)$, linearly
+disjoint from $\QQ(\zeta_n)$ for odd $n$: each nontrivial quadratic
+subfield has conductor divisible by four. Coefficient comparison gives
+\eqref{eq:r1660-r941-odd-indicators}.
+For $n=3$ the four $a,b$ vacuum spaces have dimension one, and the known
+$x=2+\omega,t=2$ force all four rotations to be identity.
+The two $d$ rotations have combined multiplicities $(4,2,0)$; their
+unordered traces are $\{2+\omega,2+\omega\}$ or $\{3,1+2\omega\}$,
+up to simultaneous conjugation. These feasible conditions construct
+neither the Morita link nor either category.
 
-The canonical central algebra for the pointed subcategory is $1+B$,
-where $B$ is the Galois-unit object. Its forgetful algebra has augmentation
-and splits as $1\times A_2$ with $[A_2]=1+2X+2Y$.
-This forces an actual algebra in a hypothetical category. However the
-residual $X$ module has internal end $1+h$, returning to the known pointed
-Morita module category. It neither constructs a source category nor gives
-a contradiction; existence of $A_1$ is not forced.
+\subsection{Complete algebra reduction for $\RR{4}{155}$}
+Write the simples as $1,h,g,hg,X,Y$, with $X^*=Y$ and
+\[
+ XY=1+h+4(X+Y),\qquad X^2=Y^2=g+hg+4(X+Y).
+\]
+Put $d_0=4+3\sqrt2,D_0=72+48\sqrt2$.
+The established unique central lifts have twists $1,-1,i,-i$.
+Thus $h$ is a central fermion and the pointed associators on
+$\langle g\rangle,\langle hg\rangle$ are nontrivial.
 
-Complete matrices, tensor identities, audits and short finite verifiers are
-in \filename{evidence/frontier_20261027/README.md}. They retain the separate
-categorical premises above and do not promote necessary data to models.
+\begin{proposition}\label{prop:r155-all-connected-algebras}
+Every connected separable algebra in a positive categorification of
+$\RR{4}{155}$ has one of the following underlying objects:
+\[
+\begin{gathered}
+ 1,\quad 1+h,\quad 1+X+Y,\quad 1+2X+2Y,\\
+ 1+h+2X+2Y,\quad 1+h+4X+4Y.
+\end{gathered}
+\]
+Every indecomposable module category is represented by the regular algebra,
+by $1+h$, or by a possible algebra with underlying object $1+X+Y$.
+The latter statement asserts neither existence nor uniqueness of its
+algebra structure.
+\end{proposition}
+\begin{proof}
+For invertible $z$, adjunction gives
+$[A:z]=\dim\operatorname{Hom}_A(zA,A)\in\{0,1\}$, since $A,zA$ are
+simple right modules. Their stabilizer is a subgroup on which the
+pointed associator is trivial, hence $\{1\}$ or $\{1,h\}$.
+The Frobenius pairing gives $A\simeq A^*$, so
+$A=A_k=1+k(X+Y)$ or $B_k=1+h+k(X+Y)$.
+
+For $A_k$, subtracting the four pointed free modules from the induction
+Gram leaves residual multiplicities $(a_j,b_j)$ with
+\[
+ \sum a_j^2=\sum b_j^2=1+8k-4k^2,\qquad
+ \sum a_jb_j=8k-4k^2.
+\]
+Thus $k\le2$. For $k=1$, a residual module underlying $X$ would have
+internal-end dimension $d_0^2/(1+2d_0)=2+4\sqrt2/3$, not an algebraic
+integer; the remaining modules underlie $2X+Y,X+2Y$.
+For $k=2$ they underlie $X,Y$, with internal ends $1+h$.
+The latter algebra structure is unique since
+$H^2(C_2,\CC^\times)=0$, so $A_2$ is represented by $B_0$.
+
+For $B_k$, the two pointed free modules are $B_k,gB_k$ and all other
+simple modules underlie $a_jX+b_jY$. Their residual Gram satisfies
+\[
+ q=2+8k-2k^2,\qquad
+ \sum a_j^2=\sum b_j^2=q,\qquad \sum a_jb_j=q-2.
+\]
+Thus $k\le4$. For $k=1,3$, put $c_j=a_j+b_j>0$.
+Internal-end dimensions are respectively
+\[
+ c_j^2(13+9\sqrt2)/7,\qquad c_j^2(5+3\sqrt2)/7.
+\]
+Integrality in $\ZZ[\sqrt2]$ forces $7\mid c_j$ while
+$c_j\le2\sqrt8<6$, a contradiction.
+For $k=2$, $q=10$ and the dimension is $c_j^2(1+2\sqrt2/3)$.
+Hence $3\mid c_j$ and $\sum c_j^2=36$.
+The alternative $c_j=6$ forces $a_j=b_j=3$ and contributes nine to an
+inner product of total eight, impossible. Four residual modules remain
+with $c_j=3$; their total squared norm twenty forces $(a_j,b_j)=(1,2)$
+or $(2,1)$, twice each. Their internal ends underlie $1+X+Y$.
+For $k=4$, $q=2$ gives two copies each of $X,Y$, with internal-end
+dimension $d_0^2/(2+8d_0)=1$, hence the regular module category.
+Finally $A_0$ is regular and $B_0=1+h$ exists.
+\end{proof}
+
+The canonical central algebra for the pointed subcategory has a forgetful
+augmentation splitting its algebra as $1\times A_2$. This forces $A_2$
+in a hypothetical category, but returns to the $B_0$ Morita route; it
+does not force $A_1$.
+
+\subsection{Central fermions and complete Morita ring rigidity}
+\begin{lemma}[Central fermion alpha induction]\label{lem:central-fermion-alpha}
+Let $f$ be a central fermion in a fusion category $\mathcal C$ and let
+$A=1\oplus f$ be its group algebra. The central half-braiding defines
+a tensor equivalence
+\[
+ \alpha:\mathcal C\longrightarrow {}_A\mathcal C_A,\qquad V\longmapsto V\otimes A.
+\]
+No braiding on all of $\mathcal C$ is required.
+\end{lemma}
+\begin{proof}
+The free right action and the left action obtained by moving $A$ past
+$V$ give a strong tensor functor. A right-linear map $\alpha(V)\to
+\alpha(W)$ is determined by $t_0:V\to W$ and $t_1:V\to W\otimes f$.
+Left $f$-linearity imposes no extra condition on $t_0$. For $t_1$,
+the two composites on $f\otimes V$ are, with associators suppressed
+and $m:f^2\to1$,
+\[
+\begin{split}
+(\mathrm{id}_W\otimes m)\circ(t_1\otimes\mathrm{id}_f)\circ c_{f,V},\\
+(\mathrm{id}_W\otimes m)\circ(c_{f,W}\otimes\mathrm{id}_f)
+                 \circ(\mathrm{id}_f\otimes t_1).
+\end{split}
+\]
+Naturality and the half-braiding hexagon make the first the negative
+of the second because $c_{f,f}=-\mathrm{id}_{f^2}$. Hence $t_1=0$.
+The functor is fully faithful; equal FP dimensions give an equivalence.
+This is the central version of the fermion Azumaya argument above.
+\end{proof}
+
+\begin{theorem}[Morita rigidity of the based ring]\label{thm:r155-morita-ring-rigidity}
+Every fusion category Morita equivalent to a pseudo-unitary
+categorification of $\RR{4}{155}$ again has based ring $\RR{4}{155}$.
+\end{theorem}
+\begin{proof}
+Proposition~\ref{prop:r155-all-connected-algebras} reduces the proof to
+the regular algebra, $1+h$, and a possible $A_1=1+X+Y$.
+The first case is immediate and Lemma~\ref{lem:central-fermion-alpha}
+handles the second.
+
+For $A_1$, use module basis $A_1,hA_1,gA_1,hgA_1,M,N$, with
+$F(M)=2X+Y,F(N)=X+2Y$ and dimension vector
+$\mathbf r=(1,1,1,1,\sqrt2,\sqrt2)$. The $X$ action is
+\[
+\begin{pmatrix}
+1&1&1&1&1&2\\1&1&1&1&1&2\\1&1&1&1&2&1\\
+1&1&1&1&2&1\\2&2&1&1&2&2\\1&1&2&2&2&2
+\end{pmatrix}.
+\]
+The pointed actions are regular on the first four entries; $h$ fixes
+$M,N$ and $g$ exchanges them. The commutant equations show that every
+nonnegative integral commuting matrix is uniquely
+\[
+ M(a,b,c,e,u,v)=
+\begin{pmatrix}
+a&b&c&e&u&v\\b&a&e&c&u&v\\c&e&a&b&v&u\\e&c&b&a&v&u\\
+v&v&u&u&a+b&c+e\\u&u&v&v&c+e&a+b
+\end{pmatrix},
+\]
+with six nonnegative integer parameters. For a dual simple put
+$p=a+b+c+e,q=u+v$; its dimension is $\lambda=p+q\sqrt2$.
+The regular action $\sum_j\lambda_j M_j=(D_0/8)\mathbf r\mathbf r^t$ gives
+\[
+ \sum p_j^2=36,\qquad \sum p_jq_j=24,\qquad\sum q_j^2=18.
+\]
+The four distinct central invertible lifts give four distinct pointed
+permutations, hence four simples with $(p,q)=(1,0)$.
+After removing these, Cauchy--Schwarz is equality:
+$32\cdot18=24^2$. Every remaining pair is $t_j(4,3)$ with $t_j$
+a positive integer, and $\sum t_j^2=2$ leaves precisely two simples
+of dimension $d_0$.
+
+Transpose exchanges $u,v$. Since $u+v=3$ is odd, the two simples are
+a dual pair $Z,Z^*$. The regular identity gives $a=b=c=e=1$, and
+their $(u,v)$ pairs sum to $(3,3)$. Their pointed stabilizer is
+$\{1,h\}$, so reciprocity and $d_0^2=2+8d_0$ force
+\[
+ ZZ^*=1+h+4(Z+Z^*).
+\]
+The matrix identity gives $uv=2$. Together with $u+v=3$ this forces
+$(u,v)=(1,2)$ or $(2,1)$, and then
+\[
+ Z^2=g+hg+4(Z+Z^*),
+\]
+the original ring. The six resulting matrices are linearly independent;
+no faithfulness assumption on a general dual action is required.
+\end{proof}
+
+The theorem is rigidity of the based ring, not uniqueness of
+categorification or algebra structures. It supplies neither associators
+nor existence of $A_1$. The general-complex gate supplies a positive
+representative if a complex categorification exists; it does not make
+every original category pseudo-unitary.
+
+Complete matrices, source-bound tensor identities, categorical audits and
+\href{https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/evidence/frontier/README.md}{exact replay} are collected in the current proof guide.
+The short checks verify the displayed Gram, commutant and tensor arithmetic;
+the central-lift, internal-end and positive-trace categorical premises
+remain explicit inputs.
+

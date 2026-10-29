@@ -435,8 +435,8 @@
   }
   function renderResearch(ring, unresolved) {
     const hasHistory = Boolean(ring.research?.length);
-    const node = section("research", unresolved ? "Research record" : hasHistory ? "Model & research history" : "Models & constructions", "01 / RESULTS & RESEARCH");
-    if (!unresolved) {
+    const node = section("research", ring.status === "excluded" ? "Exclusion & proof" : unresolved ? "Current research" : "Models & constructions", "01 / RESULTS & RESEARCH");
+    if (!unresolved && ring.status !== "excluded") {
       if (ring.model_reference) node.append(el("p", "case-model-reference", ring.model_reference));
       if (ring.model_reference_url) node.append(link("Read the model’s cited source ↗", ring.model_reference_url));
       for (const note of ring.construction_notes || []) node.append(el("p", "case-prose", note));
@@ -445,10 +445,12 @@
       node.append(el("p", "case-small-note", "The categorical model is reported by the cited source; categorical existence is not inferred from the ring tensor alone."));
     }
     if (unresolved || hasHistory) {
-      if (ring.summary) node.append(el("h3", "", "Latest case summary"), el("p", "case-prose", ring.summary));
-      node.append(el("p", "case-prose", ring.status === "excluded" ? "This case is now excluded from general categorification. Earlier research records retain their historical scope; the accepted exclusion above supersedes their former unresolved status." : ring.status === "unitarily_realized" ? "This case is now realized by a unitary category. Earlier records preserve the research history, including necessary conditions and attempts made before the model was identified. The accepted construction supersedes their former unresolved status." : ring.status === "pseudo_unitarily_realized" ? "This case has a complex and pseudo-unitary realization. Unitarity remains unproved. The accepted construction supersedes its earlier unresolved status." : "General existence remains unresolved. The records below distinguish applicable criteria, searches with no conclusion, scoped obstructions and surviving necessary data. Historical stages retain their original dates and outcomes; the latest completed results take precedence where a later stage refines them."));
+      if (ring.summary) node.append(el("h3", "", "Current case summary"), el("p", "case-prose", ring.summary));
+      node.append(el("p", "case-prose", ring.status === "excluded" ? "The accepted proof excludes complex fusion categorification." : unresolved ? "General existence remains unresolved; necessary-condition witnesses are not categorical constructions." : ring.status === "pseudo_unitarily_realized" ? "A complex and pseudo-unitary realization is recorded; unitarity remains unproved." : "A unitary categorical model is recorded by the cited construction."));
       node.append(el("p", "case-small-note", "The fusion tensor and derived invariants use this page’s supplied case basis. Research reports retain their cited source basis, which can differ. Consult the recorded source conventions and basis maps when comparing entries."));
-      const reports = ring.research || [];
+      const allReports = ring.research || [];
+      const canonical = allReports.filter(report => report.source?.startsWith("evidence/frontier/") || report.title === "Current accepted case decision");
+      const reports = canonical.length ? canonical : allReports;
       const reportDetails = (report) => lazyDetails(report.title || label(report.source || "Research report"), () => {
           const content = el("div", "case-report-content");
           if (report.url || report.source) content.append(sourceLink(report.packaged ? "Open packaged source files ↗" : "Read the source record ↗", report.source, report.url));
@@ -561,7 +563,7 @@
     notice.append(el("p", "", "These records belong to the project’s current research claims. Independent human verification and Lean formalization are pending."), link("Research status and verification ↗", "./review.html")); root.append(notice);
     const nav = el("nav", "case-section-nav"); nav.setAttribute("aria-label", "Case sections");
     if (unresolved || ring.categorification_scope) nav.append(link("Categorification status", "#categorification", ""));
-    [["research", unresolved ? "Research record" : ring.research?.length ? "Model & research" : "Models"], ["invariants", "Invariants"], ["characters", "Characters"], ["fusion-data", "Fusion data"], ["sources", "Sources"]].forEach(([id, title]) => nav.append(link(title, `#${id}`, "")));
+    [["research", unresolved ? "Current research" : ring.research?.length ? "Model & proof" : "Models"], ["invariants", "Invariants"], ["characters", "Characters"], ["fusion-data", "Fusion data"], ["sources", "Sources"]].forEach(([id, title]) => nav.append(link(title, `#${id}`, "")));
     if (ring.properties) {
       const labels = [["simple","simple"],["perfect","perfect"],["pointed","pointed"],["self_dual","self-dual"],["multiplicity_free","multiplicity-free"]];
       const properties = el("p","case-small-note","Exact ring properties: " + (ring.properties.integral ? "integral" : ring.properties.weakly_integral ? "weakly integral, nonintegral" : "not weakly integral") + ", " + (ring.properties.commutative ? "commutative" : "noncommutative") + (labels.some(([key])=>ring.properties[key]) ? ", " : "") + labels.filter(([key])=>ring.properties[key]).map(([,label])=>label).join(", ") + ". ");

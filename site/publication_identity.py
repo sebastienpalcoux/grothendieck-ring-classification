@@ -12,6 +12,8 @@ def matches(relative,expected):
  if actual==expected:return True
  import sys
  sys.path.insert(0,str(ROOT/"tools"))
+ from frontier import publication_matches as current_matches
+ if current_matches(relative,expected,ROOT):return True
  from rank12_publication import publication_matches
  if publication_matches(relative,expected,ROOT):return True
  latest=ROOT/'evidence/correctness_20261025/derived_publication_replacements.json'

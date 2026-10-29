@@ -99,5 +99,7 @@ def build():
  sys.path.insert(0,str(ROOT/'tools'))
  from unresolved_retry_20261024 import apply_profiles
  apply_profiles(ROOT)
+ from frontier import apply_profiles as current_profiles
+ current_profiles(ROOT)
  print('Built 2083 shared case profiles:',counts)
 if __name__=='__main__':build()
