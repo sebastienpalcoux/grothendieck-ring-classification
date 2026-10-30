@@ -28,7 +28,7 @@ jobs:
       - name: Replay inherited rank-nine exclusion certificates
         run: |
           python -m pip install z3-solver
-          python tools/replay_frontier_20261027.py --output /tmp/frontier-20261027.json
+          python tools/replay_inherited_frontier.py --output /tmp/frontier-20261027.json
       - name: Replay the current pivotal-parity exclusion and six-case restrictions
         run: python evidence/frontier/replay/run_checks.py --output /tmp/current-frontier.json
       - name: Verify audited publication with assertions disabled
