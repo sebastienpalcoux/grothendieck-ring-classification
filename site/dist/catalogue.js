@@ -2,7 +2,7 @@
 // One catalogue for every rank; source-bound research payloads remain intact.
 globalThis.RingCatalogue = (() => {
   const sources = ["rank9_rank10_m1.json", "rank11_m1.json", "rank9_m2.json", "rank12_m1.json"];
-  const dataVersion = "bdf7a11a6fd56d93cfb1";
+  const dataVersion = "75b6355bb3696036c2b1";
   let pending;
   async function fetchJSON(name) {
     const response = await fetch(`./data/${name}?v=${dataVersion}`);

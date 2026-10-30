@@ -66,7 +66,7 @@ def apply(site=HERE):
     html=re.sub(r'(<p class="scope-note" id="current-manuscript-page-summary">).*?(<a href=)',lambda m:m[1]+page_summary+m[2],html,flags=re.S)
 
     html = re.sub(r'<p class="scope-note" id="(?:frontier-update|correctness-update)">.*?</p>\s*', '', html, flags=re.S)
-    notice = '<p class="scope-note" id="frontier-update"><strong>Current frontier: six unresolved rings.</strong> Three R928 center patterns and the positive TY branch for R137 are excluded; the surviving rank-20 data match Anyon Atlas B20-02148. <a href="./review.html#current-frontier">Current proofs and remaining questions →</a></p>'
+    notice = '<p class="scope-note" id="frontier-update"><strong>Current frontier: six unresolved rings.</strong> Three R928 center patterns and the positive TY branch for R137 are excluded. R928’s surviving positive spherical center must have rank 40: Sem⁻ ⊠ B, with B of rank 20 (or the conjugate orientation). Anyon Atlas B20-02148 supplies candidate data for B; full-data uniqueness is unproved. <a href="./review.html#rank-eight-m3">Center decomposition and remaining questions →</a></p>'
     anchor = '<p class="scope-note" id="fusion-census-status" hidden></p>'
     if anchor not in html:
         raise ValueError("Missing census-status presentation anchor")

@@ -26,10 +26,13 @@ FINDINGS={'R6_4_155': ('Every positive Morita dual has the same based ring. In t
                'smaller direct modular sources. The proposed algebra 1+X and its R941 Morita '
                'partner remain conditional.',
                'pair/REPORT.md'),
- 'R8_3_928': ('Three of four necessary center patterns are excluded. The surviving rank-20 factor '
-              'agrees exactly with Anyon Atlas B20-02148, Galois orbit 20.167. Neither its '
-              'categorical realization nor the proposed separable algebra is established; R928 '
-              'remains unresolved.',
+ 'R8_3_928': ('Three of four necessary center patterns are excluded. For the positive spherical '
+              'representative in the existence reduction, the surviving Drinfeld center must '
+              'have rank 40 and split as Z(C) = Sem⁻ ⊠ B, with B of rank 20 (or the conjugate '
+              'orientation). Sem⁻ is the rank-two opposite semion category. Anyon Atlas '
+              'B20-02148, Galois orbit 20.167, supplies exact candidate modular data for B; '
+              'uniqueness of the full data is unproved. Neither a category realizing B nor '
+              'the required separable algebra is constructed. R928 remains unresolved.',
               'r928/REPORT.md'),
  'R8_3_941': ('The center of a positive representative is prime and obeys the direct '
               'modular-source obstruction. Its fermion centralizer is nonsplit and s-simple. The '
@@ -141,7 +144,9 @@ def apply_profiles(repo=ROOT):
     row['research'][0]['data']['modular_data']={
       'atlas_id':'B20-02148','atlas_url':'https://anyonatlas.org/data/B20-02148',
       'galois_orbit':'20.167','rank':20,'central_charge_mod8':1,'twist_order':96,
-      'role':'The proposed factor B in Z(C)=Sem × B, not the entire center.',
+      'role':'Candidate modular data for the rank-20 factor B in the forced rank-40 decomposition Z(C) = Sem⁻ ⊠ B, in the chosen positive spherical orientation.',
+      'center_rank':40,'pointed_factor':'Rank-two opposite semion category Sem⁻',
+      'full_modular_data_uniqueness_established':False,
       'center_charge':'The opposite semion factor has charge -1; the Drinfeld center of a spherical fusion category has charge 0 modulo 8.',
       'exact_comparison':{'S_entries':400,'twists':20,'fusion_coefficients':8000},
       'categorification_established':False,'algebra_established':False}
@@ -215,7 +220,7 @@ def revise_document(name,text,repo=ROOT):
   text=text.replace('Current manuscript section','Current proof and manuscript')
  text=text.replace('The four remaining rings retain unresolved status for general complex categorification.','The three remaining rank-eight rings retain unresolved status for general complex categorification.')
  banner=('<!-- current-frontier -->\n**Current classification · 29 October 2026.** R8_3_1768 is excluded over the complex numbers by pivotal conjugation parity, using the established existence and center-domain reductions. **Six cases remain unresolved:** two at rank six, three at rank eight and one at rank nine. No additional model is claimed. [Current proofs and exact checks](https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/evidence/frontier/README.md).\n<!-- /current-frontier -->\n\n')
- if name=='README.md':banner=banner.replace('No additional model is claimed.','The latest restrictions exclude three R928 center patterns and the positive TY sign for R137; the surviving rank-20 datum is [Anyon Atlas B20-02148](https://anyonatlas.org/data/B20-02148). No additional model is claimed.')
+ if name=='README.md':banner=banner.replace('No additional model is claimed.','The latest restrictions exclude three R928 center patterns and the positive TY sign for R137. For R928, the surviving positive spherical center must have rank 40 and split as Sem⁻ ⊠ B, with B of rank 20 (or the conjugate orientation); [Anyon Atlas B20-02148](https://anyonatlas.org/data/B20-02148) supplies candidate modular data for B, whose full-data uniqueness is unproved. No additional model is claimed.')
  if name.startswith(('docs/','manuscripts/','site/'))or name=='README.md':
   at=text.find('\n\n');text=text[:at+2]+banner+text[at+2:]
  return text

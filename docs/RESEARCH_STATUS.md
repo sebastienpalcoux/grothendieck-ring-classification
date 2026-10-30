@@ -28,7 +28,7 @@ A nonreal dimension-weighted third indicator excludes real forms and braided rep
 
 ### R8_3_928
 
-Three of four necessary center patterns are excluded. The surviving rank-20 factor agrees exactly with Anyon Atlas B20-02148, Galois orbit 20.167. Neither its categorical realization nor the proposed separable algebra is established; R928 remains unresolved.
+Three of four necessary center patterns are excluded. For the positive spherical representative in the existence reduction, the surviving Drinfeld center must have rank 40 and split as Z(C) = Sem⁻ ⊠ B, with B of rank 20 (or the conjugate orientation). Sem⁻ is the rank-two opposite semion category. Anyon Atlas B20-02148, Galois orbit 20.167, supplies exact candidate modular data for B; uniqueness of the full data is unproved. Neither a category realizing B nor the required separable algebra is constructed. R928 remains unresolved.
 
 [Proof and precise gap](../evidence/frontier/replay/current/r928/REPORT.md)
 
