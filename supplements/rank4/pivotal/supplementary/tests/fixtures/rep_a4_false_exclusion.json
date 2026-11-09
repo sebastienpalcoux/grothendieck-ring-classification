@@ -1,0 +1,99 @@
+{
+  "kind": "spherical",
+  "generator": 2,
+  "characters": [
+    {
+      "factor": [
+        "1",
+        "-10"
+      ],
+      "obstruction": {
+        "kind": "galois_global_dimension"
+      }
+    },
+    {
+      "factor": [
+        "1",
+        "-6"
+      ],
+      "obstruction": {
+        "kind": "norm",
+        "polynomial": [
+          "1",
+          "-12"
+        ],
+        "prime": 3
+      }
+    },
+    {
+      "factor": [
+        "1",
+        "4",
+        "7"
+      ],
+      "obstruction": {
+        "kind": "zero",
+        "object": 1
+      }
+    }
+  ],
+  "pseudo": {
+    "kind": "induction",
+    "generator": 2,
+    "fp_factor": [
+      "1",
+      "-10"
+    ],
+    "roots": [
+      [
+        "3"
+      ],
+      [
+        "3"
+      ],
+      [
+        "4"
+      ],
+      [
+        "12"
+      ]
+    ],
+    "column_counts": [
+      1,
+      1,
+      1
+    ],
+    "low_count": 1,
+    "failures": [
+      {
+        "columns": [
+          [
+            1,
+            0,
+            0,
+            0
+          ],
+          [
+            1,
+            1,
+            0,
+            0
+          ],
+          [
+            1,
+            1,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            1,
+            1
+          ]
+        ],
+        "obstruction": null
+      }
+    ]
+  }
+}

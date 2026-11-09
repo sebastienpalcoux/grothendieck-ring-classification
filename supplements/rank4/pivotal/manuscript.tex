@@ -1,0 +1,1323 @@
+\documentclass[11pt]{amsart}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,mathtools,booktabs,array,microtype}
+\usepackage[margin=1in]{geometry}
+\usepackage[hidelinks]{hyperref}
+\usepackage{enumitem}
+\usepackage[section]{placeins}
+\setlist[enumerate]{leftmargin=*,itemsep=2pt,topsep=4pt}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{example}[theorem]{Example}
+\DeclareMathOperator{\FPdim}{FPdim}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\Rep}{Rep}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\Irr}{Irr}
+\DeclareMathOperator{\Ad}{Ad}
+\newcommand{\C}{\mathbb C}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\one}{\mathbf1}
+\newcommand{\Fib}{\mathrm{Fib}}
+\newcommand{\Near}{\mathrm{NG}}
+\numberwithin{equation}{section}
+\allowdisplaybreaks
+\hypersetup{pdftitle={Classifying Grothendieck rings of pivotal fusion categories of rank four},pdfauthor={Jingcheng Dong, Sebastien Palcoux, and Arnaud Plessis}}
+
+\title[Pivotal Grothendieck rings of rank four]{Classifying Grothendieck rings of pivotal fusion categories of rank four}
+\author{Jingcheng Dong}
+\address{College of Mathematics and Statistics, and Center for Applied Mathematics of Jiangsu Province, Nanjing University of Information Science and Technology, Nanjing 210044, China}
+\email{jcdong@nuist.edu.cn}
+\author{S\'ebastien Palcoux}
+\address{Beijing Institute of Mathematical Sciences and Applications, Huairou District, Beijing 101408, China}
+\email{sebastienpalcoux@gmail.com}
+\author{Arnaud Plessis}
+\address{Beijing Institute of Mathematical Sciences and Applications, Huairou District, Beijing 101408, China}
+\email{plessis@bimsa.cn}
+\subjclass[2020]{Primary 18M20; Secondary 16Z05, 18M15}
+\keywords{fusion category, Grothendieck ring, Frobenius--Schur indicator, central induction}
+\date{}
+\begin{document}
+\begin{abstract}
+We classify the Grothendieck rings of pivotal fusion categories of rank four over the complex field. There are exactly fifteen, each admitting a unitary categorification. 
+This classification is obtained in two stages. 
+The first consists in proving that the global Frobenius--Perron dimension of the Grothendieck ring of any pivotal fusion category of rank four is less than $3600$. 
+The second uses known and new exclusion criteria to show that, among all fusion rings of rank four with global Frobenius--Perron dimension less than $3600$, only fifteen admit a pivotal categorification.
+\end{abstract}
+\maketitle
+\setcounter{tocdepth}{2}
+\tableofcontents
+
+\section{Introduction}
+Fusion categories over the complex field connect representation theory
+and subfactor theory with low-dimensional topology and mathematical
+physics. Spherical fusion categories furnish state-sum invariants of
+three-manifolds \cite{BarrettWestbury} and unitary fusion categories
+provide the algebraic input for string-net models of topological phases
+\cite{LevinWen}. Their classification has a strong arithmetic aspect:
+dimensions and formal codegrees are algebraic integers constrained by
+Galois theory and divisibility \cite{ENO,OstrikCodegrees}.
+We refer to \cite{EGNO} for the foundations and standard conventions of
+fusion category theory.
+
+The \emph{rank} of a fusion category counts the isomorphism classes of
+its simple objects; its \emph{multiplicity} is the largest coefficient
+in the decomposition of a tensor product of two simple objects.
+Fixing the rank alone does not bound the multiplicity of an abstract
+fusion ring: the rank-two rings with $x^2=1+ax$ exist for every
+$a\in\Z_{\geq0}$. A finite classification of Grothendieck rings of fixed rank therefore requires
+constraints coming from categorifiability.
+In rank four, we obtain, thanks to the interaction between arithmetic constraints, the characters of Grothendieck rings, and the Frobenius-Schur indicators, that the global Frobenius--Perron dimension of the Grothendieck ring of any pivotal fusion category of rank four is less than $3600$.  
+It leads to the following classification.
+
+\begin{theorem}\label{thm:main}
+Up to fusion ring isomorphism, there are fifteen fusion rings of rank four that admit a pivotal categorification; they are listed in Table~\ref{tab:models}. Each of them admits a unitary categorification.
+\end{theorem}
+
+The theorem classifies fusion rings, with all categorifications of the
+same fusion ring counted once.
+It also establishes that the existence of a
+pivotal categorification is equivalent, in rank four, to the existence of
+a unitary categorification. 
+
+\begin{table}[ht]
+\centering\small
+\begin{tabular}{@{}clcrl@{}}
+\toprule
+$\mu(R)$ & A unitary realization & $\FPdim(\mathcal C)$ & Approx. & Reference \\
+\midrule
+$1$ & $\mathrm{Vec}_{C_2\times C_2}$ & $4$ & $4.000$ & \cite[\S3.4]{LPR} \\
+$1$ & $\mathrm{Vec}_{C_4}$ & $4$ & $4.000$ & \cite[\S3.4]{LPR} \\
+$1$ & Tambara--Yamagami on $C_3$ & $6$ & $6.000$ & \cite{TambaraYamagami} \\
+$1$ & $\Fib\boxtimes\mathrm{Vec}_{C_2}$ & $5+\sqrt{5}$ & $7.236$ & \cite[\S3.4]{LPR} \\
+$1$ & $\Rep(D_5)$ & $10$ & $10.000$ & \cite[\S3.4]{LPR} \\
+$1$ & $\Fib\boxtimes\Fib$ & $(15+5\sqrt{5})/2$ & $13.090$ & \cite[\S3.4]{LPR} \\
+$1$ & $\mathrm{PSU}(2)_6$ & $8+4\sqrt{2}$ & $13.657$ & \cite[Theorem 3.1]{EIP} \\
+$1$ & Principal even part of $S'$ & $8+4\sqrt{2}$ & $13.657$ & \cite[Theorem 1]{LMP} \\
+$1$ & $\mathrm{PSU}(2)_7$ & $\delta_7$ & $19.234$ & \cite[\S3.4]{LPR} \\
+$2$ & $\Rep(A_4)$ & $12$ & $12.000$ & \cite[Theorem 1.1]{Larson} \\
+$2$ & $\mathcal H_1$ (Haagerup) & $(39+9\sqrt{13})/2$ & $35.725$ & \cite[Table 2]{GrossmanSnyder} \\
+$2$ & Principal even part of $2D2$ & $20+8\sqrt{5}$ & $37.889$ & \cite[Theorem 3.1]{EIP} \\
+$3$ & Near-group type $(C_3,3)$ & $(21+3\sqrt{21})/2$ & $17.374$ & \cite[Example 9.4]{IzumiNear} \\
+$3$ & $\Ad(E_8)$ & $\delta_E$ & $35.238$ & \cite{IzumiE8,EvansJones} \\
+$6$ & Near-group type $(C_3,6)$ & $24+12\sqrt{3}$ & $44.785$ & \cite[Theorem 10.19]{IzumiNear} \\
+\bottomrule
+\end{tabular}
+\caption{One unitary realization of each surviving fusion ring, with its
+multiplicity and global Frobenius--Perron dimension
+(rounded to three decimals in the fourth column). Rows are ordered first
+by multiplicity and then by increasing global Frobenius--Perron dimension.
+The numbers $\delta_7$ and $\delta_E$ are the largest real roots of
+$x^3-27x^2+162x-243$ and
+$x^4-45x^3+375x^2-1125x+1125$, respectively. 
+The table also records references for the construction of each of these fifteen fusion rings.}
+\label{tab:models}
+\end{table}
+
+\begin{remark}\label{rem:sharp}
+For pivotal fusion categories of rank four, Table~\ref{tab:models} gives the sharp bounds $\mu(K_0(\mathcal C))\leq6$ and $\FPdim(\mathcal C)\leq24+12\sqrt3$, both attained by the near-group fusion ring of type $(C_3,6)$.
+\end{remark}
+
+From now on, all fusion categories are over $\C$. 
+Ostrik classified fusion categories of rank two \cite{OstrikRank2}
+and pivotal fusion categories of rank three \cite{OstrikRank3}.
+In rank four, the modular and premodular cases were studied in
+\cite{RSW,HongRowell,Bruillard4}. Without braiding, Larson
+\cite{Larson} reduced the non-self-dual pseudo-unitary case to seven
+fusion rings. Dong--Zhang--Dai \cite{DongZhangDai} treated the
+nontrivially graded self-dual spherical case, and
+Edie-Michell--Izumi--Penneys \cite{EIP} classified
+$\Z/2\Z$-quadratic unitary fusion categories. In particular, the ring
+$S(2)$, already present as $K_2(2)$ in Larson's list
+\cite[Theorem~1.1(6)]{Larson}, was excluded from unitary categorification. 
+Example \ref{ex:S(2)} explains how a short calculation allows to rule out $S(2)$ from a pivotal categorification. 
+Further classification results appear in \cite{DongChenWang,DongSelfDual4}. 
+
+We now conclude this introduction by outlining the organization of the paper. 
+Section \ref{sec:spherical} sets out the basic terminology for fusion rings and fusion categories, then recalls several well-known results on categorifiable fusion rings. 
+Section \ref{sec:central} establishes new inequalities, based on the Frobenius--Schur indicators, that must be satisfied by any pseudo-unitary fusion category of a given rank. 
+Section \ref{sec:uniform} contains the crucial statement: the global Frobenius--Perron dimension of any pivotal fusion category of rank four is less than $3600$. 
+The non-self-dual case follows from Larson \cite{Larson}, the self-dual pivotal, but not pseudo-unitary, case is handled by an arithmetic argument, and the remaining case involves inequalities coming from Section \ref{sec:central}.
+The final Section \ref{sec:established} provides Python commands to find all fusion rings of rank four whose global Frobenius--Perron dimension is less than $3600$; there are $8977$. 
+However, with the help of other commands, we will see that $8962$ of them violate at least one of the properties of pivotal fusion categories stated in Sections \ref{sec:spherical} and \ref{sec:central}. Theorem \ref{thm:main} then follows. 
+
+\section{Preliminaries on fusion rings and fusion categories}\label{sec:spherical}
+
+\subsection{Fusion rings and formal codegrees}
+A \textit{fusion ring} $R$ is a free $\Z$-module of finite rank with basis $\{b_0=1, b_1,\dots, b_{r-1}\}$ and multiplication \[
+ b_ib_j=\sum_kN_{ij}^kb_k,\] where $N_{ij}^k\geq 0$ are integers, called the \textit{fusion coefficients}, satisfying:  
+\begin{itemize}
+\item (Associativity) $\forall i,j,k$, one has $b_i(b_jb_k)=(b_ib_j)b_k$; 
+\item (Unit) $\forall i$, one has $b_0 b_i=b_ib_0=b_i$; 
+\item (Dual) $\forall i, \exists! i^*\in\{0,\dots,r-1\}, \forall j$ one has $N^{0}_{ij}=N^0_{ji}=\delta_{i^*j}$, where $\delta_{lm}$ is the Kronecker symbol; 
+\item (Frobenius reciprocity) $\forall i,j,k$, one has $N^k_{ij}=N^j_{i^*k}=N^i_{kj^*}$. 
+\end{itemize}
+Put $N_i:=(N_{ij}^k)_{j,k}$. Then $N_i^{\mathsf T}=N_{i^*}$. 
+We say that $R$ is \textit{self-dual} if $i^*=i$ for all $i$. 
+The \textit{Frobenius--Perron dimension} is the unique ring homomorphism $\FPdim:R\to\mathbb R$ that is positive on the distinguished basis. 
+The spectral radius of $N_i$ is $d_i:=\FPdim(b_i)$ \cite[Theorem~8.2 and Lemma~8.3]{ENO}.
+Write
+\[
+ \FPdim(R)=\sum_i d_i^2 \qquad \text{and} \qquad \mu(R)=\max_{i,j,k}N_{ij}^k.
+\]
+
+A fusion ring of rank at most five is commutative by \cite[Proposition~9.2]{IntegralRings}. 
+Thus, what follows is valid for $r=4$ or $r=5$. 
+
+Let $R$ be a commutative fusion ring of rank $r$.
+It then has $r$ characters, denoted by $\chi_0,\dots, \chi_{r-1}$, and one of them is the homomorphism $\FPdim$, say $\chi_0$ \cite[Proposition 3.3.6 (3)]{EGNO}.
+Given $j$, the \textit{formal codegree} of $\chi_j$ is the real number $f_j=\sum_{i=0}^{r-1} \vert \chi_j(b_i)\vert^2$. 
+Since $\chi_j(b_i)$ is an eigenvalue of $N_i$ for every $i$, we infer that $f_j$ is an algebraic integer and that $\vert \chi_j(b_i)\vert \leq d_i$; whence $f_j \leq \FPdim(R)= f_0$. 
+Also, $\chi_j$ is a real character if $R$ is self-dual, since $N_i$ is then a real symmetric matrix for every $i$. 
+
+The normalized character vectors
+$(\chi_j(b_i))_i/\sqrt{f_j}$ form an orthonormal basis, giving
+\begin{equation}\label{eq:orthogonality}
+ \sum_{j=0}^{r-1}\frac{\chi_j(b_i)\overline{\chi_j(b_k)}}{f_j}
+ =\delta_{ik} \qquad  \text{and} \qquad \sum_{j=0}^{r-1} \frac{1}{f_j}=1.
+\end{equation}
+See \cite[Theorem 2.4]{LPR2} for the first equality. 
+The second is obtained from the first one by taking $i=k=0$. In particular, $f_j>1$ if $r\geq2$. 
+
+\begin{lemma}\label{lem:commutative}
+Let $R$ be a commutative fusion ring of rank $r$. Its fusion matrices are
+normal and the eigenvalues of its \textnormal{Casimir matrix} $\sum_iN_iN_i^{\mathsf T}$ are the formal codegrees $f_0,\dots, f_{r-1}$.
+In addition, $\mu(R)^2\leq\FPdim(R)$.
+\end{lemma}
+\begin{proof}
+The Casimir spectrum is given by
+\cite[Example~2.4 and Lemma~2.6]{OstrikCodegrees}.
+The normality of fusion matrices arises from their pairwise commutativity and from $N_i^{\mathsf T}=N_{i^*}$. 
+Hence, the Euclidean operator norm of $N_i$ equals the spectral radius of $N_i$, namely $d_i$, and so $N_{ij}^k\leq d_i\leq\sqrt{\FPdim(R)}$.
+\end{proof}
+
+\subsection{Generalities on fusion categories} \label{sub-sec2.2}
+For a fusion category $\mathcal C$, let $\mathcal O(\mathcal C)$ be a
+set of representatives of its simple isomorphism classes and write
+$V_0=\one,\ldots,V_{r-1}$ for these representatives.
+Its Grothendieck ring $K_0(\mathcal C)$ is a fusion ring with distinguished basis
+$\{1, [V_1],\dots, [V_{r-1}]\}$ and with multiplication induced by $\otimes$
+\cite[Proposition~4.9.1]{EGNO}. We set
+$\FPdim(\mathcal C)=\FPdim(K_0(\mathcal C))$.
+Its \textit{categorical dimension} is
+\[
+ \dim(\mathcal C)=\sum_{V\in\mathcal O(\mathcal C)}|V|^2,
+\]
+where $|V|^2$ is the squared norm of $V$ \cite[Definition~7.21.3]{EGNO}.
+We say that $\mathcal{C}$ is \emph{pseudo-unitary} if
+$\dim(\mathcal C)=\FPdim(\mathcal C)$.
+It is known that $\mathcal{C}$ is pseudo-unitary if $\FPdim(\mathcal C)\in\Z$ \cite[Proposition~9.6.5]{EGNO}.
+
+Applying any field automorphism $\sigma$ of $\C$ to the
+structure morphisms gives the Galois-conjugate fusion category
+$\mathcal C^\sigma$. The fusion coefficients and the set of simple objects remain
+unchanged, so $K_0(\mathcal C^\sigma)\cong K_0(\mathcal C)$ and
+$\FPdim(\mathcal C^\sigma)=\FPdim(\mathcal C)$.
+One also has $\dim(\mathcal C^\sigma)=\sigma(\dim(\mathcal C))$
+\cite[\S2.1]{OstrikGlobal}.
+
+A \textit{pivotal structure} on $\mathcal C$ is a monoidal natural isomorphism
+$j:\operatorname{Id}_{\mathcal C}\Rightarrow(-)^{**}$
+\cite[Definition~4.7.7]{EGNO}. It defines a dimension character $\chi$ on $K_0(\mathcal{C})$ by $\dim_{\mathcal C}(V):=\chi([V])$, which is nonzero on every simple object $V$ \cite[Propositions~4.7.12 and~4.8.4]{EGNO}. 
+Moreover, \[
+ \dim(\mathcal C)=
+ \sum_{V\in\mathcal O(\mathcal C)}
+ \dim_{\mathcal C}(V)\dim_{\mathcal C}(V^*).
+\]
+The pivotal structure is said to be \textit{spherical} if $\dim_{\mathcal C}(V)=\dim_{\mathcal C}(V^*)$ for every simple object $V$
+\cite[Definition~4.7.14]{EGNO}. 
+For a commutative Grothendieck ring, this
+is equivalent to these dimensions being real. 
+A pseudo-unitary fusion category admits a canonical spherical structure
+with simple dimensions equal to $1,\FPdim([V_1]), \dots, \FPdim([V_{r-1}])$ \cite[Proposition~9.5.1]{EGNO}.
+
+\subsection{Reductions} 
+Theorem \ref{thm:uniform} establishes that any fusion ring $R$ of rank four admitting a pivotal categorification must satisfy $\FPdim(R) < 3600$.
+To obtain such a bound, we need to reduce the problem to a setting with more favorable hypotheses. 
+This is the purpose of this subsection. 
+For example, for rank-four fusion rings, pivotal categorifiability and spherical categorifiability coincide.
+
+\begin{lemma}\label{lem:spherical}
+Every pivotal fusion category of rank four admits a spherical structure.
+\end{lemma}
+\begin{proof}
+A pivotal fusion category admitting no spherical structure has at
+least five isomorphism classes of simple objects \cite[\S7, Lemma~4]{HaggeHong}.
+\end{proof}
+
+We now explain that if $\dim(\mathcal{C})$ and $\FPdim(\mathcal{C})$ have the same minimal polynomial over $\Q$, then we may assume without loss of generality that $\mathcal{C}$ is pseudo-unitary. 
+
+\begin{lemma}\label{lem:galois-reduction}
+Let $\mathcal C$ be a fusion category.
+If $\dim(\mathcal C)$ and $\FPdim(\mathcal C)$ are Galois conjugate,
+then $\mathcal C$ has a pseudo-unitary Galois conjugate.
+\end{lemma}
+\begin{proof}
+Choose a field automorphism $\sigma$ of $\C$ with $\sigma(\dim(\mathcal C))=\FPdim(\mathcal C)$.
+The preceding identities give
+$\dim(\mathcal C^\sigma)=\sigma(\dim(\mathcal C))=\FPdim(\mathcal C)=\FPdim(\mathcal C^\sigma)$.
+\end{proof}
+
+\subsection{Restrictions} \label{sub-sec2.4}
+As we will see in Section \ref{sec:established}, there are $8977$ fusion rings of rank four whose global Frobenius--Perron dimension is less than $3600$. 
+We can now check one by one whether these fusion rings admit a pivotal categorification. 
+This subsection reviews exclusion criteria that reduce the list of potential candidates to $75$.
+The indicator inequalities of the next section will rule out another $60$.
+
+\begin{theorem} \label{prop:subring-Fibo} \textnormal{(Ostrik, \cite[Main Theorem, p.~178]{OstrikRank2})}
+A fusion ring with basis $\{1,x\}$ and fusion rule $x^2=1+ax$ is
+categorifiable only for $a=0,1$. 
+\end{theorem}
+
+A nonzero algebraic integer $\alpha$ is called a \textit{unit} if $\alpha^{-1}$ is an algebraic integer and a \textit{$d$-number} if $\beta/\alpha$ is a unit for all Galois conjugates $\beta$ of $\alpha$. 
+Letting $n$ be the degree of $\alpha$ over $\Q$, the element $\alpha$ is a $d$-number if and only if $\alpha^n=k\varepsilon$ for some nonzero integer $k$ and some unit $\varepsilon$ \cite[Lemma~2.7(iv)]{OstrikCodegrees}. 
+
+\begin{theorem} \label{prop:d-number} \textnormal{(Ostrik, \cite[Theorem~1.2]{OstrikCodegrees})}
+Every formal codegree of a categorifiable fusion ring is a $d$-number. 
+\end{theorem} 
+
+We also use three published rank-four classifications. In each nonpointed
+family below, the basic Frobenius--Perron dimensions take exactly the
+values $1,d$, with $d>1$. Any categorification is therefore Galois
+conjugate to a pseudo-unitary one \cite[Lemma~3.1]{Schopieray}.
+The following are necessary conditions for categorifiability:
+\begin{enumerate}
+\item For the near-group ring $\Near(C_3,m)$, with basis $C_3\sqcup\{x\}$
+and rules $gx=xg=x$, $x^2=\sum_{g\in C_3}g+mx$, one has
+$m\in\{0,2,3,6\}$ \cite[Theorem~1.1]{Larson}.
+\item For the ring with basis $\{1,g,x,x^*\}$ and rules
+$g^2=1$, $gx=x^*$, $x^2=g+m(x+x^*)$, one has $m\leq2$
+\cite[Theorem~1.1]{Larson}.
+\item For the self-dual ring with basis $\{1,g,x,y\}$ and rules
+$g^2=1$, $gx=y$, $x^2=1+ax+by$, one has
+$(a,b)\in\{(0,0),(0,1),(1,0),(1,1),(2,2)\}$
+\cite[Theorem~2.4]{EIP}.
+\end{enumerate}
+
+Up to fusion ring isomorphism, Theorem \ref{thm:main} classifies all fusion rings of rank four admitting a pivotal categorification.
+Any such categorification must be spherical by Lemma \ref{lem:spherical}. 
+Hence, for our purposes, it is particularly relevant to study the properties of a spherical fusion category $\mathcal{C}$ whose Grothendieck ring is commutative, as we do in the remainder of this subsection. 
+
+Put $c_i=\dim_{\mathcal C}(V_i)$ for every $i\in\{0,\dots,r-1\}$. 
+Note that $c_i=c_{i^*}$ for all $i$ and that $\dim(\mathcal C)=\sum_i c_i^2$. 
+The $c_i$ are nonzero totally real algebraic integers \cite[\S2.1]{OstrikRank3}.
+Ostrik's spherical inequality yields
+\begin{equation}\label{eq:spherical-mass}
+\sum_j \frac{1}{f_j^2} \leq\frac12+\frac1{2\sigma(\dim(\mathcal C))}
+\end{equation}
+for all field automorphisms $\sigma$ of $\C$ \cite[Theorem~3.1.1 and Remark~3.1.2]{OstrikGlobal}.  
+Also, $\dim(\mathcal C)/f$ must be a cyclotomic integer for every formal codegree $f$ of $K_0(\mathcal{C})$ \cite[Theorem~2.13]{OstrikRank3}.
+In particular, the norm of $\dim(\mathcal C)/f$ is an integer and the field generated by $\dim(\mathcal C)/f$ is abelian over $\Q$. 
+For a ratio of formal codegrees, these conditions also suffice for cyclotomic integrality, as the following lemma shows. 
+
+\begin{lemma}\label{lem:codegree-ratio}
+Let $u,v$ be $d$-numbers and put $x=u/v$. Then $x$ is a cyclotomic
+integer if and only if $N_{\Q(x)/\Q}(x)\in\Z$ and $\Q(x)/\Q$ is abelian.
+\end{lemma}
+\begin{proof}
+The forward implication is clear. Conversely, extend each embedding of
+$\Q(x)$ to an automorphism $\sigma$ of $\C$. Since $u,v$ are $d$-numbers,
+$\sigma(x)/x=(\sigma(u)/u)(v/\sigma(v))$ is an algebraic-integer unit.
+Thus $N_{\Q(x)/\Q}(x)$ is $x^{[\Q(x):\Q]}$ times a unit. Its integrality
+implies that $x$ is an algebraic integer. The abelianity assumption and
+the Kronecker--Weber theorem place $x$ in a cyclotomic field.
+\end{proof}
+
+The abelianity condition can be checked once for the entire ring.
+Indeed, for any formal codegree $H$, equation~\eqref{eq:orthogonality}
+gives $H=\sum_jH/f_j$. Hence all fields $\Q(H/f_j)$ are abelian
+if and only if the splitting field of $\prod_j(t-f_j)$ is abelian.
+This polynomial is the characteristic polynomial of the Casimir matrix
+and has degree four in our computation.
+
+\section{Central induction and indicator inequalities}\label{sec:central}
+Let $\mathcal C$ be a pseudo-unitary fusion category, equipped with its
+canonical spherical structure, and put $D=\FPdim(\mathcal C)$.
+Let $F:\mathcal Z(\mathcal C)\to\mathcal C$ be the forgetful functor
+and $I$ its right adjoint. For a simple object $A$ of the center, write
+$\theta_A$ for its twist and $[I(V):A]$ for its multiplicity in $I(V)$.
+We use the following identities:
+\[
+ \sum_A[I(V):A]\FPdim(A)=D\FPdim(V),\qquad
+ \sum_A[I(V):A]\FPdim(A)\theta_A^n=D\nu_n(V)\quad(n\geq1).
+\]
+The first follows from
+$FI(V)\cong\bigoplus_{X\in\mathcal O(\mathcal C)}X\otimes V\otimes X^*$
+\cite[Proposition~2.4]{OstrikRank3}; the second is the indicator formula
+\cite[Theorem~4.1]{NgSchauenburg}. The twists are roots of unity
+\cite[Theorem~5.5]{NgSchauenburg}, and all simple summands of $I(1)$
+have twist one \cite[Theorem~2.5]{OstrikRank3}.
+
+The \emph{low part} of $I(V)$ consists of its simple summands that also
+occur in $I(1)$, with their multiplicities in $I(V)$:
+\[
+ I_{\mathrm{low}}(V)
+ =\bigoplus_{A\in\mathcal O(I(1))}A^{\oplus[I(V):A]}.
+\]
+Here $\mathcal O(I(1))$ denotes the simple support of $I(1)$.
+Write $d_V=\FPdim(V)$ and $W_V=\FPdim(I_{\mathrm{low}}(V))$.
+For a root of unity $\zeta$, let $I(V)_\zeta$ be the sum of the simple
+summands of $I(V)$ with twist $\zeta$, again with their multiplicities.
+Thus $I_{\mathrm{low}}(V)$ is a direct summand of $I(V)_1$.
+
+\begin{proposition}[Polynomial indicator bounds]\label{lem:indicator-polynomials}
+Let $V\in\mathcal C$ and let
+\[
+ P(z)=c_0+\sum_{k=1}^n(c_kz^k+\overline{c_k}z^{-k}),
+ \qquad c_0\in\mathbb R,\quad c_k\in\C,
+\]
+be nonnegative on the unit circle. Then
+\[
+ P(1)W_V\leq D\left(c_0d_V+
+                    2\operatorname{Re}\sum_{k=1}^n c_k\nu_k(V)\right).
+\]
+For every root of unity $\zeta$, one also has
+\[
+ P(1)\FPdim(I(V)_\zeta)
+ \leq D\left(c_0d_V+
+       2\operatorname{Re}\sum_{k=1}^n c_k\zeta^{-k}\nu_k(V)\right).
+\]
+\end{proposition}
+\begin{proof}
+The indicator formula and $|\theta_A|=1$ give
+\[
+ \sum_A[I(V):A]\FPdim(A)P(\theta_A)
+ =D\left(c_0d_V+2\operatorname{Re}\sum_{k=1}^n c_k\nu_k(V)\right).
+\]
+Every term on the left is nonnegative. The summands from $I(1)$ all
+have twist one, so keeping only those terms gives the first inequality.
+For the second, replace $P(z)$ by $P(\zeta^{-1}z)$ and keep the terms
+with $\theta_A=\zeta$.
+\end{proof}
+
+We obtain the polynomials used below by taking squared moduli.
+For $Q(z)=\sum_{j=0}^n a_jz^j$ and $|z|=1$,
+\[
+ |Q(z)|^2=c_0+\sum_{k=1}^n(c_kz^k+\overline{c_k}z^{-k}),\qquad
+ c_0=\sum_{j=0}^n|a_j|^2,\quad
+ c_k=\sum_{j=0}^{n-k}a_{j+k}\overline{a_j}.
+\]
+Here $\overline z=z^{-1}$; this Laurent expansion is an identity on
+the unit circle.
+
+\begin{remark}[Vanishing indicators]\label{rem:vanishing-indicators}
+If $\nu_1(V)=\cdots=\nu_m(V)=0$ for an integer $m\geq1$, apply
+Proposition~\ref{lem:indicator-polynomials} to
+\[
+ |1+z+\cdots+z^m|^2
+ =(m+1)+\sum_{k=1}^m(m+1-k)(z^k+z^{-k})
+\]
+to obtain
+\[
+ (m+1)W_V\leq Dd_V,\qquad
+ (m+1)\FPdim(I(V)_\zeta)\leq Dd_V.
+\]
+For $m=1$, the low-part bound is the estimate in
+\cite[proof of Theorem~2.21]{OstrikRank3}; the extension to twist
+sectors was suggested by Andrew Schopieray. For a direct sum of
+non-self-dual simples, one can take $m=2$, by additivity of indicators
+\cite[Corollary~7.8]{NgSchauenburgHigher}.
+\end{remark}
+
+\begin{corollary}\label{cor:second-indicator}
+For a nonunit simple object $X$,
+\[
+ 9W_X\leq D\bigl(3d_X+2\nu_2(X)\bigr).
+\]
+In particular,
+\[
+ 9W_X\leq D(3d_X+2)\quad(X\cong X^*),\qquad
+ 3W_X\leq Dd_X\quad(X\not\cong X^*).
+\]
+\end{corollary}
+\begin{proof}
+Apply Proposition~\ref{lem:indicator-polynomials} to
+$|1+z+z^2|^2=3+2(z+z^{-1})+(z^2+z^{-2})$.
+Here $\nu_1(X)=0$, while $\nu_2(X)$ is $\pm1$ for a self-dual simple
+and zero otherwise \cite[Definition~3.1 and Theorem~5.1]{NgSchauenburgHigher}.
+\end{proof}
+
+\begin{example}\label{ex:S(2)}
+Corollary~\ref{cor:second-indicator} rules out the ring $S(2)$ of
+\cite[\S4, Theorem~4.1]{EIP}, already listed by Larson
+\cite[Theorem~1.1(6)]{Larson} as $K_2(2)$. It has basis
+$\{1,\alpha,\rho,\rho^*\}$, with
+$\alpha^2=1$, $\rho^*=\alpha\rho$, and
+$\rho^2=\alpha+2\rho+2\rho^*$.
+Put $d=2+\sqrt5$ and $D=4+8d$; its simple Frobenius--Perron
+dimensions are $1,1,d,d$. Any categorification has a pseudo-unitary
+Galois conjugate \cite[Lemma~3.1]{Schopieray}. Larson's induction
+formulas \cite[Proposition~5.2]{Larson}, with $c=2$, then give
+\[
+ W_\rho=2(1+4d)+2(1+2d)=4+12d.
+\]
+Since $\rho$ is not self-dual, the corollary would imply
+\[
+ 12+36d=3W_\rho\leq Dd=8+36d,
+\]
+a contradiction. Thus $S(2)$ has no complex fusion categorification.
+\end{example}
+
+\begin{corollary}\label{cor:third-indicator}
+For a nonunit simple object $X$, put
+$a=\dim_{\C}\operatorname{Hom}(1,X^{\otimes3})=N_{XX}^{X^*}$. Then
+\[
+ 36W_X\leq D(10d_X+8+2a).
+\]
+\end{corollary}
+\begin{proof}
+Apply Proposition~\ref{lem:indicator-polynomials} to
+\[
+ |(1+z)(1+z+z^2)|^2
+ =10+8(z+z^{-1})+4(z^2+z^{-2})+(z^3+z^{-3}).
+\]
+Use $\nu_1(X)=0$, $\nu_2(X)\leq1$ and $|\nu_3(X)|\leq a$.
+The last bound holds because $\nu_n(X)$ is the trace of a rotation on
+$\operatorname{Hom}(1,X^{\otimes n})$ whose $n$th power is the identity
+\cite[Definition~3.1 and Theorem~5.1]{NgSchauenburgHigher}.
+\end{proof}
+
+\begin{corollary}[Fourth-indicator bound]\label{prop:fourth-indicator}
+For a nonunit simple object $X$, put
+\[
+ s=\dim_{\C}\operatorname{Hom}(1,X^{\otimes2})=\mathbf1_{X\cong X^*},
+ \qquad a=\dim_{\C}\operatorname{Hom}(1,X^{\otimes3})=N_{XX}^{X^*}.
+\]
+Then
+\[
+ 32W_X\leq D\left(7d_X+
+       \left\lfloor\frac{10d_X+71s+30a}{9}\right\rfloor\right).
+\]
+\end{corollary}
+\begin{proof}
+The rotation eigenvalues give $\nu_2(X)\in\Z$,
+$2\operatorname{Re}\nu_3(X)\in\Z$ and
+$\operatorname{Re}\nu_4(X)\in\Z$. Hence
+\[
+ J:=8\nu_2(X)+4\operatorname{Re}\nu_3(X)
+                     +\operatorname{Re}\nu_4(X)\in\Z.
+\]
+Expanding
+\[
+ P_+(z)=|(1+z)^2(1+z^2)|^2,\qquad
+ P_-(z)=|3+z-z^3-3z^4|^2
+\]
+and applying Proposition~\ref{lem:indicator-polynomials} gives
+\[
+ 32W_X\leq D(7d_X+J),\qquad
+ \nu_2(X)+6\operatorname{Re}\nu_3(X)+9\operatorname{Re}\nu_4(X)
+ \leq10d_X.
+\]
+Since $\nu_2(X)\leq s$ and $\operatorname{Re}\nu_3(X)\leq a$,
+\[
+ 9J\leq10d_X+71\nu_2(X)+30\operatorname{Re}\nu_3(X)
+     \leq10d_X+71s+30a.
+\]
+Taking the integer part proves the claim.
+\end{proof}
+
+To apply these inequalities using fusion rules, suppose now that
+$K_0(\mathcal C)$ is commutative of rank $r$, with simples
+$X_0=1,X_1,\ldots,X_{r-1}$. Put $d_i=\FPdim(X_i)$,
+$d=(d_i)_{i=0}^{r-1}$ and $B=\sum_iN_iN_i^{\mathsf T}$.
+The \emph{induction matrix} has entries
+$M_{ai}=[I(X_i):Z_a]=[F(Z_a):X_i]$, where $Z_a$ ranges over the
+simple objects of the center. Let $L$ consist of the rows for the
+simple summands of $I(1)$. There are $r$ such summands, each occurring
+once, with dimensions $D/f_j$ \cite[Theorem~2.13]{OstrikRank3}.
+One row is $e_0^{\mathsf T}=(1,0,\ldots,0)$, corresponding to the
+central unit. Adjunction gives
+\[
+ M^{\mathsf T}M=B,\qquad L^{\mathsf T}\mathbf1=Be_0,\qquad
+ Q:=B-L^{\mathsf T}L,\qquad W_i:=(L^{\mathsf T}Ld)_i.
+\]
+Thus $W_i=W_{X_i}$ and $Q$ is the Gram matrix of the rows outside $L$.
+Every row $v^{\mathsf T}$ of $L$, assigned to a formal codegree $f$, satisfies
+\[
+ v\in\Z_{\geq0}^r,\qquad v_0=1,\qquad d^{\mathsf T}v=D/f,
+ \qquad v_i\leq\min\{B_{0i},\lfloor\sqrt{B_{ii}}\rfloor\}.
+\]
+The bounds follow from the first column and diagonal of
+$M^{\mathsf T}M=B$. They give a finite list of possible $L$.
+For each choice, the preceding corollaries can be tested directly.
+Rows assigned to equal formal codegrees may be permuted without changing
+$L^{\mathsf T}L$, so these permutations need not be tested separately.
+
+\begin{example}\label{ex:R2}
+Corollary~\ref{prop:fourth-indicator} rules out the self-dual fusion ring
+$R_2$ with basis $\{1,X,Y,Z\}$ and products
+\[
+\begin{array}{lll}
+ X^2=1+X+Y+2Z,&XY=X+2Y+2Z,&XZ=2X+2Y+2Z,\\
+ Y^2=1+2X+2Y+2Z,&YZ=2X+2Y+3Z,&Z^2=1+2X+3Y+3Z.
+\end{array}
+\]
+Direct multiplication checks the fusion-ring axioms. Put
+$\delta=3+\sqrt{10}$, $\delta'=3-\sqrt{10}$ and $D=6+18\delta$.
+The four characters are
+\[
+ (1,\delta-1,\delta,\delta+1),\quad
+ (1,\delta'-1,\delta',\delta'+1),\quad
+ (1,0,1,-1),\quad(1,1,-1,0).
+\]
+The first is the Frobenius--Perron character. Any pivotal structure is
+spherical, since the simples are self-dual. The rational characters
+vanish on a simple, so Lemma~\ref{lem:galois-reduction} reduces any
+pivotal categorification to a pseudo-unitary one.
+Its formal codegrees are $D,6+18\delta',3,3$.
+The nonunit summands of $I(1)$ therefore have dimensions
+$1+6\delta,2+6\delta,2+6\delta$, and the preceding row conditions give
+\[
+ (1,r,6-2r,r),\qquad (1,p,5-2p,p+1),\qquad (1,q,5-2q,q+1).
+\]
+Since $L^{\mathsf T}\mathbf1=Be_0$, we have $r+p+q=5$;
+nonnegativity gives $r\leq3$. Hence
+\[
+ W_X=r(1+6\delta)+(p+q)(2+6\delta)
+     =10-r+30\delta\geq7+30\delta.
+\]
+But $X^2=1+X+Y+2Z$ gives $d_X=\delta-1$ and $s=a=1$ in
+Corollary~\ref{prop:fourth-indicator}. Since $6<\delta<31/5$,
+$\lfloor(10\delta+91)/9\rfloor=16$. The corollary would give
+\[
+ 224+960\delta\leq32W_X
+ \leq D\bigl(7(\delta-1)+16\bigr)=180+960\delta,
+\]
+where $\delta^2=6\delta+1$. This is a contradiction.
+\end{example}
+
+One additional inequality is useful when a simple object is an invertible
+involution.
+\begin{proposition}\label{prop:low-test}
+If $g\ne1$ is an invertible involution satisfying
+$Q_{gg}=2$, $D/2-W_g=1$ and $W_g>0$, then
+\[
+ 2W_i+DQ_{gi}\leq D(d_i+1)\qquad(i\ne0,g).
+\]
+\end{proposition}
+\begin{proof}
+Since $Q_{gg}=2$, exactly two simple summands of $I(g)$ lie outside
+its low part, each with multiplicity one. The sum of all summand
+dimensions is $D$, while the second twist trace is $D\nu_2(g)$.
+Here $|\nu_2(g)|=1$, so equality in the triangle inequality forces
+$\theta_A^2=\nu_2(g)$ for each summand $A$ of $I(g)$.
+As $W_g>0$, one such twist is one. Thus $\nu_2(g)=1$ and all twists
+are $\pm1$.
+
+The first twist trace is zero, so the dimensions at each of the two
+twists sum to $D/2$. Outside the low part, the dimensions are therefore
+$D/2-W_g=1$ at twist $1$ and $D/2$ at twist $-1$.
+The dimension-one summand restricts to $g$; the other has induction row
+$(Q_{gi}-\delta_{gi})_i$.
+For $i\ne0,g$, these summands and the low part consequently contribute
+at least $W_i+(D/2)Q_{gi}$ to the dimension at twists $\pm1$ in $I(X_i)$.
+The polynomial $1+\operatorname{Re}(z^2)$ is nonnegative on the circle
+and equals two at both $1$ and $-1$. The identity in the proof of
+Proposition~\ref{lem:indicator-polynomials} therefore gives
+\[
+ 2W_i+DQ_{gi}\leq D(d_i+\nu_2(X_i))\leq D(d_i+1).
+\]
+\end{proof}
+
+\begin{samepage}
+\begin{lemma}\label{lem:short-moments}
+Suppose $K_0(\mathcal C)$ is commutative of rank $r\geq2$, and put
+\[
+ S=\sum_{i>0}d_i,\qquad A=\sum_{i>0}d_iN_{ii}^{i^*},\qquad
+ w=\sum_{j=0}^{r-1}f_j^{-2}.
+\]
+Then
+\begin{equation}\label{eq:short-second-moment}
+ 9(D^2w-D)\leq D\bigl(3(D-1)+2S\bigr),
+\end{equation}
+\[
+ 36(D^2w-D)\leq D\bigl(10(D-1)+8S+2A\bigr).
+\]
+In particular, if $r=4$, then
+\begin{equation}\label{eq:short-diagonal-lower}
+ A\geq D-25-4S+\frac{24}{D}.
+\end{equation}
+\end{lemma}
+\end{samepage}
+\begin{proof}
+Each low row has unit entry one and dimension $D/f_j$. Hence
+\[
+ \sum_{i>0}d_iW_i
+ =\sum_j\frac D{f_j}\left(\frac D{f_j}-1\right)=D^2w-D,
+\]
+using $\sum_jf_j^{-1}=1$. Multiply the inequalities of
+Corollaries~\ref{cor:second-indicator} and~\ref{cor:third-indicator}
+by $d_i$ and sum, using $\nu_2(X_i)\leq1$, to obtain the first two claims.
+The second gives $A+4S\geq18Dw-5D-13$.
+Since $f_0=D$, Cauchy--Schwarz gives
+\[
+ w\geq\frac1{D^2}+\frac1{r-1}\left(1-\frac1D\right)^2.
+\]
+For $r=4$, substitution gives the last inequality.
+\end{proof}
+
+\section{A uniform dimension bound}\label{sec:uniform}
+All fusion categories in this section are over $\C$ and have rank four,
+unless another rank is stated explicitly. The estimates of
+Section~\ref{sec:central} yield a bound independent of
+any census. This bound makes the subsequent classification a finite
+problem; the sharper bounds in Remark~\ref{rem:sharp} follow only
+after that classification.
+\begin{theorem}\label{thm:uniform}
+Every rank-four fusion ring $R$ admitting a pivotal categorification satisfies
+\[
+ \FPdim(R)<3600,\qquad \mu(R)\leq59.
+\]
+\end{theorem}
+\subsection{Reduction to the self-dual pseudo-unitary case}\label{sec:pivotal-reduction}
+
+\begin{lemma}\label{lem:exceptional}
+Let $\mathcal C$ be a self-dual pivotal fusion category of rank four. Either it has a pseudo-unitary Galois conjugate, or $\FPdim(\mathcal C)<576$.
+\end{lemma}
+\begin{proof}
+Write $R=K_0(\mathcal C)$ and $D=\FPdim(\mathcal C)$.
+Self-duality makes the pivotal structure spherical. If $D$ is rational,
+it is an integer and the fusion category is pseudo-unitary by \cite[Proposition~8.24]{ENO}. For the rest of the proof, assume that no Galois conjugate is pseudo-unitary. Then $D$ is irrational, and the spherical dimension character is outside the Frobenius--Perron orbit.
+
+The field generated by spherical dimensions contains every formal codegree, including $D$, by \cite[Corollary~2.15]{OstrikRank3}. Here the \emph{Frobenius--Perron field} means
+$K=\Q(\FPdim(X):X\in\mathcal O(\mathcal C))$, the field of
+values of the Frobenius--Perron character; it need not equal $\Q(D)$
+a priori. Its degree is the size of that character orbit, hence lies
+between two and four. Degree four leaves no other character orbit, and in degree three the other orbit is rational, so neither case is possible. If $[K:\Q]=2$, then $\Q(D)=K$ because $D$ is irrational.
+The other character field contains $K$, and only two dimensions remain
+in $R\otimes\Q$; it must therefore be another copy of $K$. Thus
+\begin{equation}\label{eq:repeated-quadratic}
+ R\otimes\Q\cong K\times K
+\end{equation}
+for a real quadratic field $K$, and the spherical dimension character belongs to the other factor.
+
+Denote the four formal codegrees by $D,D',H,H'$, with primes indicating conjugation in $K$. We allow $H=H'$ and list one formal codegree for each character. After Galois conjugation, arrange that the spherical global dimension is $H\geq H'$. Each formal codegree is positive and greater than one.
+By \cite[Propositions~8.21 and~8.22]{ENO}, $H\leq D$ and
+$H/D$ is an algebraic integer. Equality would make the fusion
+category pseudo-unitary, so $H<D$ in the exceptional case. Put
+\[
+ n=DD',\qquad k=\frac{HH'}{DD'}\in\Z_{\geq1},\qquad
+ p=\frac1D+\frac1{D'},\qquad
+ w=\frac1{D^2}+\frac1{(D')^2}+\frac1{H^2}+\frac1{(H')^2}.
+\]
+Here $k$ is the field norm of $H/D$, including when that element is rational. Since $D'>1$ and $H\geq H'$, we have
+\begin{equation}\label{eq:exceptional-size}
+ n>D,\qquad H\geq\sqrt{kn}>\sqrt{kD}.
+\end{equation}
+Equation \eqref{eq:orthogonality} gives $D^{-1}+(D')^{-1}+H^{-1}+(H')^{-1}=1$, and so
+\begin{equation}\label{eq:exceptional-w}
+ w-\frac12=2\left(p-\frac12\right)^2-\frac{2(1+1/k)}n.
+\end{equation}
+
+Ostrik's spherical inequality \eqref{eq:spherical-mass},
+applied with global dimension $H$, gives
+\[
+ w\leq\frac12+\frac1{2H}.
+\]
+
+Set $r=D/H>1$. By \eqref{eq:exceptional-size}, $r<\sqrt{D/k}\leq\sqrt D$. Moreover, $kr>2$. This is immediate when $k\geq2$. Both $H/D$ and its conjugate $H'/D'$ are positive. When $k=1$,
+$H/D$ is therefore a totally positive algebraic-integer unit of norm one. Thus $r$ is also such a unit, with conjugate $r^{-1}$; the integer $r+r^{-1}>2$ is at least three, and $r\geq(3+\sqrt5)/2>2$.
+
+Since $H'=krD'$, the same identity gives
+\[
+ 1=\frac{1+r}{D}+\frac{1+1/(kr)}{D'},\qquad
+ p=\frac{kr}{kr+1}-\frac{kr^2-1}{(kr+1)D}
+ >\frac23-\frac rD>\frac23-\frac1{\sqrt D}.
+\]
+If $D\geq576$, then $p>5/8$ and $H>24$. Equation~\eqref{eq:exceptional-w} consequently gives
+\[
+ w-\frac12>\frac1{32}-\frac4D
+ \geq\frac7{288}>\frac1{48}>\frac1{2H},
+\]
+contradicting \eqref{eq:spherical-mass}. Thus $D<576$, as required.
+\end{proof}
+
+\begin{lemma}\label{lem:nonselfdual}
+A pivotal fusion category of rank four with a non-self-dual simple has Frobenius--Perron dimension less than $45$.
+\end{lemma}
+\begin{proof}
+A pointed fusion category has Frobenius--Perron dimension four, so assume
+that the fusion category is not pointed. Write the basis as $1,X,Y,Z$, where $X^*=Z$ and $Y^*=Y$.
+
+By Lemma~\ref{lem:spherical}, we may choose a spherical structure.
+
+There are exactly two real-valued characters of this fusion ring. Indeed, by the adjoint relation $N_{U^*}=N_U^{\mathsf T}$ and simultaneous unitary diagonalization, $\chi(U^*)=\overline{\chi(U)}$ for every basis element $U$. Extend basis duality $\C$-linearly. This involution has trace two on the distinguished basis; on the primitive idempotents it is a permutation, so exactly two characters are fixed, precisely the real-valued ones. If the Frobenius--Perron character is irrational, its Galois orbit has at least two members, all fixed by duality because
+$\FPdim(U)=\FPdim(U^*)$, and hence consists of these two characters. The spherical dimension character is real-valued, so it belongs to that orbit. Lemma~\ref{lem:galois-reduction} gives a pseudo-unitary Galois conjugate. If the Frobenius--Perron character is rational, the global Frobenius--Perron dimension is an integer and pseudo-unitarity follows directly from \cite[Proposition~8.24]{ENO}.
+
+Larson's candidate classification \cite[Theorem~1.1]{Larson} bounds
+the global Frobenius--Perron dimension of a non-self-dual pseudo-unitary
+fusion category of rank four by $24+12\sqrt3<45$.
+The Galois conjugate has the same fusion ring, so the same bound holds
+for $\mathcal C$.
+\end{proof}
+
+\subsection{Concentration in the self-dual case}\label{sec:concentration}
+Let $\mathcal C$ be a self-dual pseudo-unitary fusion category of rank four,
+with simples $1,X_1,X_2,X_3$. Put
+\[
+ d_i=\FPdim(X_i),\quad a_i=N_{ii}^{i},\quad
+ S=\sum_{i=1}^3d_i,\quad A=\sum_{i=1}^3d_i a_i,\quad
+ w=\sum_{j=0}^3f_j^{-2}.
+\]
+Its fusion ring is commutative. Index the characters so that
+$\chi_0=\FPdim$ and $f_0=\FPdim(\mathcal C)$.
+Character orthogonality gives
+\begin{equation}\label{eq:short-character-identities}
+ a_i=\sum_{j=0}^3\frac{\chi_j(X_i)^3}{f_j},
+\end{equation}
+by taking the coefficient of $1$ in $X_i^3$.
+
+\begin{lemma}\label{lem:short-concentration}
+Suppose that $\FPdim(\mathcal C)\geq3600$. Put
+$M=\max_i d_i^2$ and $E=\FPdim(\mathcal C)-M$. Then
+\begin{gather}
+ 2<f_j<4\quad(1\leq j\leq3),\qquad f_1f_2f_3<36,
+       \label{eq:short-codegrees}\\
+ E<\frac72\sqrt{\FPdim(\mathcal C)}.
+       \label{eq:short-dominance}
+\end{gather}
+There is a unique simple object $X$ of maximum dimension. Its fusion
+matrix is singular, and
+\begin{equation}\label{eq:short-small-eigenvalues}
+ |\chi_j(X)|^2<\frac{14}{\sqrt{\FPdim(\mathcal C)}}
+ \leq\frac7{30}<\frac14
+ \qquad(1\leq j\leq3).
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Put $D=\FPdim(\mathcal C)$, $t=\sqrt D\geq60$, $q_j=f_j^{-1}$,
+$m=(1-D^{-1})/3$, and $V=\sum_{j=1}^3(q_j-m)^2$.
+Substitution of $w=D^{-2}+3m^2+V$ into
+\eqref{eq:short-second-moment} gives
+\[
+ V\leq\frac4{3D}+\frac{2S}{9D}-\frac4{3D^2}
+ <\frac4{3t^2}+\frac7{18t}\leq\frac{37}{5400}<\frac1{144},
+\]
+where $S<\sqrt3t<7t/4$.
+Three real numbers of sum zero each have square at most two thirds of
+their squared norm. Therefore
+\[
+ |q_j-m|\leq\sqrt{2V/3}<\frac1{14},\qquad
+ \frac14<\frac{11}{42}-\frac1{3D}<q_j
+ <\frac{17}{42}<\frac12.
+\]
+This proves $2<f_j<4$. Writing $q_j=1/4+r_j$ with $r_j>0$ gives
+\[
+ q_1q_2q_3
+ \geq\frac1{64}+\frac{r_1+r_2+r_3}{16}
+ =\frac1{32}-\frac1{16D}>\frac1{36},
+\]
+and hence the product bound.
+
+Relabel so that $d_3^2=M$. Since $f_j<4$, every non-Frobenius--Perron
+character value on a nonunit simple has absolute value less than $2$.
+Equations~\eqref{eq:orthogonality} and \eqref{eq:short-character-identities} imply
+\begin{equation}\label{eq:short-spectral-upper}
+ A\leq\frac{\sum_i d_i^4}{D}
+    +2\sum_i d_i\left(1-\frac{d_i^2}{D}\right).
+\end{equation}
+Initially, $\sum_i d_i^4/D\leq M$ and
+\eqref{eq:short-diagonal-lower} give
+\begin{equation}\label{eq:short-coarse-dominance}
+ E\leq25+6S<25+12t<13t.
+\end{equation}
+The coarse bound confines $E$ to an interval on which the following
+comparison is effective; it is not yet the bound needed for the
+determinant argument. For a sharper estimate, use
+\[
+ S\leq t+\sqrt{2E},\qquad
+ \sum_i d_i^4\leq(D-E)^2+(E-1)^2,
+\]
+and
+\[
+ \sum_i d_i\left(1-\frac{d_i^2}{D}\right)
+ \leq\frac{E}{t}+\sqrt{2E}.
+\]
+Here the largest dimension contributes $d_3E/D\leq E/t$, and the
+other two contribute at most $d_1+d_2\leq\sqrt{2E}$.
+Combining these estimates with \eqref{eq:short-diagonal-lower} and
+\eqref{eq:short-spectral-upper} gives $g(E)\leq-(2E+23)/t^2<0$, and in particular
+\begin{equation}\label{eq:short-g}
+ g(E):=2E-\frac{2E^2}{t^2}-\frac{2E}{t}
+              -6\sqrt{2E}-4t-25\leq0.
+\end{equation}
+Suppose $E\geq E_0:=7t/2$. On $[E_0,13t]$,
+\[
+ g'(E)=2-\frac{4E}{t^2}-\frac2t-\frac{3\sqrt2}{\sqrt E}
+ >2-\frac{54}{t}-\frac6{\sqrt{7t}}>0.
+\]
+But
+\[
+ (3t-57)^2-252t=9\bigl((t-60)(t-6)+1\bigr)>0,
+\]
+so
+\[
+ g(E_0)=3t-\frac{113}{2}-6\sqrt{7t}>\frac12.
+\]
+This contradicts \eqref{eq:short-g} and proves
+\eqref{eq:short-dominance}. In particular $E<D/2$, so $M>D/2$ and
+the largest simple is unique.
+
+Write $X=X_3$ and let $N_X$ be its fusion matrix. Put
+$y_j=\chi_j(X_3)^2/f_j$ for $1\leq j\leq3$.
+Orthogonality gives $y_1+y_2+y_3=E/D$. The arithmetic--geometric mean
+inequality now shows
+\begin{align*}
+ |\det N_X|^2
+ &=M(f_1f_2f_3)y_1y_2y_3\\
+ &<36D\left(\frac{E}{3D}\right)^3
+ <\frac{343}{6\sqrt D}\leq\frac{343}{360}<1.
+\end{align*}
+Thus $\det N_X=0$, since it is an integer. Finally,
+$\chi_j(X_3)^2/f_j\leq E/D$ and $f_j<4$ imply
+\eqref{eq:short-small-eigenvalues}.
+\end{proof}
+
+\subsection{The self-dual pseudo-unitary bound}\label{sec:pu}
+
+\begin{proposition}\label{prop:pu}
+If a pseudo-unitary fusion category has rank four and all its simple objects are self-dual, then its Frobenius--Perron dimension is less than $3600$.
+\end{proposition}
+\begin{proof}
+Put $R=K_0(\mathcal C)$ and $D=\FPdim(\mathcal C)$, and suppose
+$D\geq3600$.
+Set $t=\sqrt D$, and let $X$ be the largest simple supplied by Lemma~\ref{lem:short-concentration}. Write the basis as $1,X,Y,Z$, with dimensions $1,x,y,z$, and put
+\[
+ K=\Q(x,y,z),\qquad r=[K:\Q],\qquad E=D-x^2.
+\]
+
+\smallskip\noindent
+\emph{The rank of $N_X$ is $r$.}
+The rational semisimple commutative algebra $R\otimes\Q$ is a product of number fields. Its character orbits are the embeddings of those fields, and the Frobenius--Perron orbit corresponds to $K$. If a character $\chi$ lies outside this orbit, each embedding of
+$\Q(\chi(X))$ extends to its character field. Thus all conjugates of
+$\chi(X)$ occur in the same non-Frobenius--Perron character orbit and
+have absolute value less than one by \eqref{eq:short-small-eigenvalues}.
+The norm of a nonzero algebraic integer has absolute value at least one,
+so $\chi(X)=0$. On the Frobenius--Perron orbit the values are embeddings of the nonzero element $x\in K$, and are nonzero. Simultaneous diagonalization identifies these
+character values, with their multiplicities, with the eigenvalues of
+$N_X$. There are exactly $r$ embeddings in the Frobenius--Perron orbit,
+so exactly $r$ eigenvalues are nonzero. Hence
+\begin{equation}\label{eq:rank-degree}
+ \operatorname{rank} N_X=r.
+\end{equation}
+The principal block of $N_X$ on $1,X$ is
+$\left(\begin{smallmatrix}0&1\\1&a\end{smallmatrix}\right)$, so its rank is at least two. Its determinant vanishes by Lemma~\ref{lem:short-concentration}. Thus $r=2$ or $3$.
+
+\smallskip\noindent
+\emph{Rank two is impossible.}
+Write
+\[
+ N_X=\begin{pmatrix}
+ 0&1&0&0\\
+ 1&a&b&c\\
+ 0&b&e&h\\
+ 0&c&h&k
+ \end{pmatrix}.
+\]
+The upper left block is invertible and its Schur complement is exactly the lower right block. The Schur-complement rank formula \cite[\S0.8.5(b)]{HornJohnson}
+therefore gives $e=h=k=0$. Consequently $XY=bX$ and $XZ=cX$, so $y=b$ and $z=c$ are positive integers. The second character in the Frobenius--Perron orbit has formal codegree
+\[
+ 1+(x')^2+b^2+c^2<4.
+\]
+It follows that $b=c=1$. Thus $Y$ and $Z$ are distinct self-dual invertible objects
+\cite[Corollary~3.3.10]{EGNO}. Their product is a fourth invertible basis element, necessarily $X$: it cannot be $1,Y$, or $Z$ by cancellation. This gives $D=4$, a contradiction.
+
+\smallskip\noindent
+\emph{Rank three is impossible.}
+Now $R\otimes\Q\cong\Q\times K$ with $[K:\Q]=3$. The remaining character $\rho$ is integer-valued and has formal codegree strictly between two and four, hence equal to three. Since $\rho(X)=0$, its values on $Y,Z$ are each $\pm1$. Orthogonality with the positive character excludes equal signs. Relabeling gives
+\begin{equation}\label{eq:cubic-rational}
+ \rho=(1,0,1,-1),\qquad z=y+1.
+\end{equation}
+Applying $\rho$ to products and using Frobenius reciprocity gives
+nonnegative integers $b,c,s$ such that
+\begin{align}
+ XY&=bX+cY+cZ, &Y^2&=1+cX+sY+sZ,\label{eq:cubic-products}\\
+ YZ&=cX+sY+(s+1)Z.\notag
+\end{align}
+The trace of $N_Y$ is $b+2s+1$. Subtracting $\rho(Y)=1$ gives
+\begin{equation}\label{eq:cubic-trace}
+ \Tr_{K/\Q}(y)=b+2s.
+\end{equation}
+
+By \eqref{eq:short-dominance},
+\[
+ E=1+y^2+(y+1)^2<\frac72t,
+ \qquad x^2=t^2-E>(t-4)^2.
+\]
+The dimension equation for $Y^2$ gives $cx<y^2<E/2$, whence
+\[
+ c<\frac{7t}{4(t-4)}<2.
+\]
+Thus $c\leq1$. The equation for $XY$ gives
+\[
+ \delta:=y-b=\frac{c(2y+1)}x\geq0,\qquad
+ \delta^2\leq\frac{2E-3}{D-E}<\frac7{t-7/2}<1.
+\]
+For either nonidentity embedding of $K$, write $u=y'$ and $v=x'$.
+By \eqref{eq:short-small-eigenvalues}, $|v|<1/2$. Applying the embedding
+to the equation for $Y^2$ gives
+\[
+ u^2=1+cv+s(2u+1).
+\]
+If $u\geq-1/2$, then $c\leq1$ and $s\geq0$ give $u^2>1/2$,
+hence $u>1/\sqrt2$. Its formal codegree would satisfy
+\[
+ f'=1+v^2+u^2+(u+1)^2>3+\sqrt2>4,
+\]
+contrary to \eqref{eq:short-codegrees}. Thus $y',y''<-1/2$, and
+\eqref{eq:cubic-trace} gives
+\[
+ 2s=(y-b)+y'+y''<1-1=0,
+\]
+a contradiction. This completes the proof.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:uniform}]
+Let $\mathcal C$ be a pivotal categorification of $R$ and put
+$D=\FPdim(\mathcal C)$. If it has a non-self-dual simple,
+Lemma~\ref{lem:nonselfdual} gives $D<45$. Otherwise,
+Lemma~\ref{lem:exceptional} either gives $D<576$ or supplies a
+pseudo-unitary Galois conjugate with the same fusion ring.
+Proposition~\ref{prop:pu} then gives $D<3600$.
+The preliminary bound $\mu(R)^2\leq D$ implies $\mu(R)<60$, hence
+$\mu(R)\leq59$ since fusion coefficients are integers.
+\end{proof}
+
+\section{Proof of Theorem \ref{thm:main}}\label{sec:established}
+
+The fifteen Grothendieck rings arising from Table \ref{tab:models} are pairwise nonisomorphic: the global Frobenius--Perron dimension is an invariant of fusion rings, and the fusion categories $\mathrm{Vec}_{C_2\times C_2}$ and $\mathrm{Vec}_{C_4}$, as well as $PSU(2)_6$ and the principal even part of $S'$, do not have the same fusion rules. 
+Thanks to Lemma \ref{lem:spherical}, it is therefore enough to show that there are, up to isomorphism, at most fifteen fusion rings of rank four admitting a spherical categorification. 
+
+By Theorem \ref{thm:uniform}, such a ring must have global Frobenius--Perron dimension less than $3600$. 
+We show below that there are $8977$ fusion rings of rank four whose global Frobenius--Perron dimension is less than $3600$.
+To prove Theorem \ref{thm:main}, we therefore need to rule out all but fifteen of these fusion rings. 
+This is done using the exclusion criteria stated in Sections \ref{sec:spherical} and \ref{sec:central}. 
+
+The enumeration uses the following elementary criterion for associativity. 
+
+\begin{lemma}\label{lem:commuting-multiplication}
+Let $A$ be a commutative ring and let $M$ be a $A$-module with a
+$A$-bilinear multiplication and a two-sided identity $1$. For $x\in M$,
+write $L_x$ for the operator mapping $y\in M$ to $xy$. The multiplication is associative and commutative
+if and only if $L_xL_y=L_yL_x$ for all $x,y\in M$.
+\end{lemma}
+\begin{proof}
+Let $x,y\in M$. 
+For an associative and commutative multiplication,
+$L_xL_y=L_{xy}=L_{yx}=L_yL_x$. Conversely, applying $L_xL_y=L_yL_x$ to $1$
+gives $xy=yx$. Hence, for all $z,t,u \in M$, we have 
+\[
+ (tu)z=z(tu)=L_zL_t(u)=L_tL_z(u)=t(zu)=t(uz)
+\]
+and the multiplication is associative as well.
+\end{proof}
+
+Recall that every fusion ring of rank four is commutative. 
+Let $R$ be a free $\Z$-module of rank four with basis $\{b_0=1, b_1,b_2,b_3\}$ and multiplication $b_ib_j=\sum_k N_{ij}^k b_k$, where $N_{ij}^k \geq 0$ are integers, satisfying the commutativity, unit, duality, and Frobenius reciprocity axioms. 
+Up to isomorphism, we can assume that either $b_i^*=b_i$ for all $i$, or $b_1^*=b_1$ and $b_2^*=b_3$. 
+
+For every $u\in\{0,1,2,3\}$, let $N_u$ be the multiplication matrix of $b_u$. 
+The matrix of the operator $L_{b_u}$, in the usual column convention, is $N_u^T$. 
+Consequently, thanks to Lemma \ref{lem:commuting-multiplication}, $R$ is a fusion ring if and only if the matrices $N_1, N_2$, and $N_3$ pairwise commute.  
+
+In the self-dual case, the multiplication matrices are of the form
+\[
+N_1=\begin{pmatrix}0&1&0&0\\1&a&b&c\\0&b&d&e\\0&c&e&f\end{pmatrix},\quad
+N_2=\begin{pmatrix}0&0&1&0\\0&b&d&e\\1&d&g&h\\0&e&h&i\end{pmatrix},\quad
+N_3=\begin{pmatrix}0&0&0&1\\0&c&e&f\\0&e&h&i\\1&f&i&j\end{pmatrix} 
+\]
+and their pairwise commutativity is equivalent to
+\begin{align}
+ ad-b^2+bg+ch-d^2-e^2+1&=0,\notag\\
+ ae-bc+bh+ci-de-ef&=0,\notag\\
+ be-cd+dh-eg+ei-fh&=0,\label{eq:sd-assoc}\\
+ af+bi-c^2+cj-e^2-f^2+1&=0,\notag\\
+ bf-ce+di-eh+ej-fi&=0,\notag\\
+ df-e^2+gi-h^2+hj-i^2+1&=0.\notag
+\end{align}
+In the non-self-dual case, they are of the form \[
+ N_1=\begin{pmatrix}0&1&0&0\\1&a&b&b\\0&b&c&d\\0&b&d&c\end{pmatrix},\quad
+ N_2=\begin{pmatrix}0&0&1&0\\0&b&c&d\\0&d&e&f\\1&c&e&e\end{pmatrix},\quad
+ N_3=N_2^{\mathsf T}
+\]
+and their pairwise commutativity is equivalent to
+\begin{align}
+ ac-b^2+2be-c^2-d^2+1&=0,\notag\\
+ ad-b^2+be+bf-2cd&=0,\label{eq:ns-assoc}\\
+ b(c-d)+d(e-f)&=0,\notag\\
+ -c^2+d^2-e^2+f^2-1&=0.\notag
+\end{align}
+
+The following commands compute all solutions of \eqref{eq:sd-assoc} or \eqref{eq:ns-assoc} with $\FPdim(R)<3600$ (and so $\mu(R)\leq 59$ by Lemma \ref{lem:commutative}); they are $8977$ up to fusion ring isomorphism:
+\begin{verbatim}
+python3 supplementary/census/generate.py   
+python3 supplementary/census/verify_census.py 
+\end{verbatim}
+
+Run all commands from the package root, alongside
+\texttt{manuscript.tex} and the \texttt{supplementary} directory.
+They require Python~3.10 or later and SymPy; census generation also
+requires a C++17 compiler. The supplementary guide gives installation
+instructions. No external census is used.
+
+Theorem \ref{prop:subring-Fibo} excludes $1676$ rings containing a rank-two fusion subring with $x^2=1+ax$ and $a\geq2$.
+The command
+\begin{verbatim}
+python3 supplementary/stages.py rank-two
+\end{verbatim}
+checks these exclusions and leaves $7301$ rings.
+Among these rings, the command
+\begin{verbatim}
+python3 supplementary/stages.py d-number
+\end{verbatim}
+rules out $6541$ fusion rings that have a formal codegree failing the
+$d$-number condition of Theorem \ref{prop:d-number}. 
+It remains $760$ fusion rings.
+
+Let $R$ be one of these $760$ fusion rings and assume that it is the Grothendieck ring of some spherical fusion category $\mathcal{C}$. 
+Each character of $R$ gives candidate values for $\dim_\mathcal{C}(V)$ for every simple object $V\in \mathcal{O}(\mathcal{C})$. 
+These numbers must satisfy some conditions according to Subsections \ref{sub-sec2.2} and \ref{sub-sec2.4}: they are nonzero real numbers, $\dim_\mathcal{C}(V)=\dim_\mathcal{C}(V^*)$ for all simple objects $V$, Ostrik's inequality \eqref{eq:spherical-mass}, and, for every formal codegree $f$ of $R$, the field $\Q(\dim(\mathcal{C})/f)$ is an abelian extension of $\Q$ and $\dim(\mathcal{C})/f$ has integral norm. 
+The command
+\begin{verbatim}
+python3 supplementary/stages.py spherical
+\end{verbatim}
+eliminates $595$ rings for which no character satisfies all of the above conditions, leaving $165$ rings.
+
+
+Among these $165$ rings, the published family restrictions in
+Subsection~\ref{sub-sec2.4} give $90$ further exclusions. The command
+\begin{verbatim}
+python3 supplementary/stages.py families
+\end{verbatim}
+checks the full fusion rules of those families and leaves $75$ rings.
+
+Now, if $R$ is one of these $75$ fusion rings, we write $S_R$ for the set of characters of $R$ passing all the arithmetic conditions above. 
+This is a non-empty set by construction. 
+Among these $75$ fusion rings $R$, we consider those for which $\dim(\mathcal{C})$ and $\FPdim(\mathcal{C})$ are Galois conjugates for all characters in $S_R$. 
+For each character in $S_R$, Lemma \ref{lem:galois-reduction} tells us that $\mathcal{C}$ can be assumed pseudo-unitary, possibly after replacing $\mathcal{C}$ by a Galois conjugate depending on the character.
+The command 
+\begin{verbatim}
+python3 supplementary/stages.py central
+\end{verbatim}
+excludes $60$ rings in this subset: every possible low induction matrix violates at least one necessary condition in Section~\ref{sec:central}.
+There remain $15$ fusion rings, identified with Table~\ref{tab:models} by the command
+\begin{verbatim}
+python3 supplementary/stages.py models
+\end{verbatim}
+This proves Theorem~\ref{thm:main}. \qed
+
+
+\par\smallskip
+The non-necessarily pivotal case is the subject of our work
+in progress, \emph{Classifying Grothendieck rings of general fusion
+categories of rank four}.
+
+\subsection*{Acknowledgments}
+S\'ebastien Palcoux is supported by the National Natural Science
+Foundation of China (NSFC), Grant no.~12471031.
+Arnaud Plessis is supported by the Beijing Municipal Natural Science
+Foundation (No.~IS25018).
+GPT-6 Astra was used as a research assistant. The authors take full
+responsibility for the final manuscript.
+
+\raggedbottom
+\begin{thebibliography}{99}
+
+\bibitem{IntegralRings}
+M. A. Alekseyev, W. Bruns, J. Dong and S. Palcoux,
+\emph{Classifying integral Grothendieck rings up to rank 5 and beyond},
+Lett. Math. Phys. \textbf{116} (2026), article 141.
+\href{https://doi.org/10.1007/s11005-026-02164-7}{doi:10.1007/s11005-026-02164-7}.
+
+
+\bibitem{BarrettWestbury}
+J. W. Barrett and B. W. Westbury,
+\emph{Invariants of piecewise-linear $3$-manifolds},
+Trans. Amer. Math. Soc. \textbf{348} (1996), 3997--4022.
+\href{https://doi.org/10.1090/S0002-9947-96-01660-1}{doi:10.1090/S0002-9947-96-01660-1}.
+
+\bibitem{Bruillard4}
+P. Bruillard,
+\emph{Rank 4 premodular categories}, with an appendix by C. Galindo,
+S.-H. Ng, J. Plavnik, E. Rowell and Z. Wang,
+New York J. Math. \textbf{22} (2016), 775--800.
+\href{https://nyjm.albany.edu/j/2016/22-36.html}{Journal article}.
+
+\bibitem{DongSelfDual4}
+J. Dong,
+\emph{On Grothedieck rings of rank $4$ self-dual fusion categories},
+\href{https://arxiv.org/abs/2505.19153v2}{arXiv:2505.19153v2} (2025).
+
+\bibitem{DongChenWang}
+J. Dong, G. Chen and Z. Wang,
+\emph{Fusion categories containing a fusion subcategory with maximal rank},
+J. Algebra \textbf{604} (2022), 107--127.
+\href{https://doi.org/10.1016/j.jalgebra.2022.02.020}{doi:10.1016/j.jalgebra.2022.02.020}.
+
+\bibitem{DongZhangDai}
+J. Dong, L. Zhang and L. Dai,
+\emph{Non-trivially graded self-dual fusion categories of rank $4$},
+Acta Math. Sin. (Engl. Ser.) \textbf{34} (2018), 275--287.
+\href{https://doi.org/10.1007/s10114-017-6375-0}{doi:10.1007/s10114-017-6375-0}.
+
+\bibitem{EIP}
+C. Edie-Michell, M. Izumi and D. Penneys,
+\emph{Classification of $\mathbb Z/2\mathbb Z$-quadratic unitary fusion categories},
+with an appendix by R. Johnson, S.-H. Ng, D. Penneys, J. Roat, M. Titsworth and H. Tucker,
+Quantum Topol. \textbf{16} (2025), 493--568.
+\href{https://doi.org/10.4171/QT/201}{doi:10.4171/QT/201}.
+
+\bibitem{EGNO}
+P. Etingof, S. Gelaki, D. Nikshych and V. Ostrik,
+\emph{Tensor categories},
+Mathematical Surveys and Monographs \textbf{205},
+Amer. Math. Soc., Providence, RI, 2015.
+\href{https://doi.org/10.1090/surv/205}{doi:10.1090/surv/205}.
+
+\bibitem{ENO}
+P. Etingof, D. Nikshych, and V. Ostrik,
+\emph{On fusion categories},
+Ann. of Math. (2) \textbf{162} (2005), no.~2, 581--642.
+\href{https://doi.org/10.4007/annals.2005.162.581}{doi:10.4007/annals.2005.162.581}.
+
+\bibitem{EvansJones}
+D. E. Evans and C. Jones,
+\emph{Quantum symmetries of noncommutative tori},
+Comm. Math. Phys. \textbf{406} (2025), article 167.
+\href{https://doi.org/10.1007/s00220-025-05337-y}{doi:10.1007/s00220-025-05337-y}.
+
+\bibitem{GrossmanSnyder}
+P. Grossman and N. Snyder,
+\emph{Quantum subgroups of the Haagerup fusion categories},
+Comm. Math. Phys. \textbf{311} (2012), 617--643.
+\href{https://doi.org/10.1007/s00220-012-1427-x}{doi:10.1007/s00220-012-1427-x}.
+
+\bibitem{HaggeHong}
+T. J. Hagge and S.-M. Hong,
+\emph{Some non-braided fusion categories of rank three},
+Commun. Contemp. Math. \textbf{11} (2009), no.~4, 615--637.
+\href{https://doi.org/10.1142/S0219199709003521}{doi:10.1142/S0219199709003521}.
+
+\bibitem{HongRowell}
+S.-M. Hong and E. C. Rowell,
+\emph{On the classification of the Grothendieck rings of non-self-dual modular categories},
+J. Algebra \textbf{324} (2010), 1000--1015.
+\href{https://doi.org/10.1016/j.jalgebra.2009.11.044}{doi:10.1016/j.jalgebra.2009.11.044}.
+
+\bibitem{HornJohnson}
+R. A. Horn and C. R. Johnson,
+\emph{Matrix analysis}, second edition,
+Cambridge University Press, Cambridge, 2013.
+\href{https://doi.org/10.1017/CBO9781139020411}{doi:10.1017/CBO9781139020411}.
+
+\bibitem{IzumiE8}
+M. Izumi,
+\emph{On flatness of the Coxeter graph $E_8$},
+Pacific J. Math. \textbf{166} (1994), 305--327.
+\href{https://doi.org/10.2140/pjm.1994.166.305}{doi:10.2140/pjm.1994.166.305}.
+
+\bibitem{IzumiNear}
+M. Izumi,
+\emph{A Cuntz algebra approach to the classification of near-group categories},
+in \emph{Proceedings of the 2014 Maui and 2015 Qinhuangdao Conferences in Honour of
+Vaughan F. R. Jones' 60th Birthday},
+Proc. Centre Math. Appl. Austral. Nat. Univ. \textbf{46} (2017), 222--343.
+\href{https://maths.anu.edu.au/files/8\%2520Izumi_2.pdf}{Published chapter}.
+
+\bibitem{Larson}
+H. K. Larson,
+\emph{Pseudo-unitary non-self-dual fusion categories of rank 4},
+J. Algebra \textbf{415} (2014), 184--213.
+\href{https://doi.org/10.1016/j.jalgebra.2014.05.032}{doi:10.1016/j.jalgebra.2014.05.032}.
+
+\bibitem{LevinWen}
+M. A. Levin and X.-G. Wen,
+\emph{String-net condensation: A physical mechanism for topological phases},
+Phys. Rev. B \textbf{71} (2005), article 045110.
+\href{https://doi.org/10.1103/PhysRevB.71.045110}{doi:10.1103/PhysRevB.71.045110}.
+
+\bibitem{LMP}
+Z. Liu, S. Morrison and D. Penneys,
+\emph{1-supertransitive subfactors with index at most $6\frac15$},
+Comm. Math. Phys. \textbf{334} (2015), 889--922.
+\href{https://doi.org/10.1007/s00220-014-2160-4}{doi:10.1007/s00220-014-2160-4}.
+
+\bibitem{LPR}
+Z. Liu, S. Palcoux and Y. Ren,
+\emph{Classification of Grothendieck rings of complex fusion categories of multiplicity one up to rank six},
+Lett. Math. Phys. \textbf{112} (2022), article 54.
+\href{https://doi.org/10.1007/s11005-022-01542-1}{doi:10.1007/s11005-022-01542-1}.
+
+\bibitem{LPR2}
+Z. Liu, S. Palcoux and Y. Ren,
+\emph{Interpolated family of non-group-like simple integral fusion rings of {L}ie type},
+Int. J. Math. \textbf{34} (2023), no.6, Paper No. 2350030, 51 pp.
+\href{https://doi.org/10.1142/S0129167X23500301}{doi:10.1142/S0129167X23500301}.
+
+\bibitem{NgSchauenburgHigher}
+S.-H. Ng and P. Schauenburg,
+\emph{Higher Frobenius--Schur indicators for pivotal categories},
+in \emph{Hopf algebras and generalizations},
+Contemp. Math. \textbf{441}, Amer. Math. Soc., Providence, RI, 2007, 63--90.
+\href{https://doi.org/10.1090/conm/441/08500}{doi:10.1090/conm/441/08500}.
+
+\bibitem{NgSchauenburg}
+S.-H. Ng and P. Schauenburg,
+\emph{Frobenius--Schur indicators and exponents of spherical categories},
+Adv. Math. \textbf{211} (2007), 34--71.
+\href{https://doi.org/10.1016/j.aim.2006.07.017}{doi:10.1016/j.aim.2006.07.017}.
+
+\bibitem{OstrikRank2}
+V. Ostrik,
+\emph{Fusion categories of rank 2},
+Math. Res. Lett. \textbf{10} (2003), 177--183.
+\href{https://doi.org/10.4310/MRL.2003.v10.n2.a5}{doi:10.4310/MRL.2003.v10.n2.a5}.
+
+\bibitem{OstrikCodegrees}
+V. Ostrik,
+\emph{On formal codegrees of fusion categories},
+Math. Res. Lett. \textbf{16} (2009), 895--901.
+\href{https://doi.org/10.4310/MRL.2009.v16.n5.a11}{doi:10.4310/\allowbreak MRL.2009.v16.n5.a11}.
+
+\bibitem{OstrikRank3}
+V. Ostrik,
+\emph{Pivotal fusion categories of rank 3},
+Mosc. Math. J. \textbf{15} (2015), 373--396.
+\href{https://doi.org/10.17323/1609-4514-2015-15-2-373-396}{doi:10.17323/1609-4514-2015-15-2-373-396}.
+
+\bibitem{OstrikGlobal}
+V. Ostrik,
+\emph{Remarks on global dimensions of fusion categories},
+with an appendix joint with P. Etingof,
+in \emph{Tensor Categories and Hopf Algebras},
+Contemp. Math. \textbf{728}, Amer. Math. Soc., Providence, RI, 2019,
+169--180.
+\href{https://doi.org/10.1090/conm/728/14661}{doi:10.1090/conm/728/14661}.
+
+\bibitem{RSW}
+E. Rowell, R. Stong and Z. Wang,
+\emph{On classification of modular tensor categories},
+Comm. Math. Phys. \textbf{292} (2009), 343--389.
+\href{https://doi.org/10.1007/s00220-009-0908-z}{doi:10.1007/s00220-009-0908-z}.
+
+\bibitem{Schopieray}
+A. Schopieray,
+\emph{Categorification of integral group rings extended by one dimension},
+J. Lond. Math. Soc. (2) \textbf{108} (2023), 1617--1641.
+\href{https://doi.org/10.1112/jlms.12789}{doi:10.1112/jlms.12789}.
+
+\bibitem{TambaraYamagami}
+D. Tambara and S. Yamagami,
+\emph{Tensor categories with fusion rules of self-duality for finite abelian groups},
+J. Algebra \textbf{209} (1998), 692--707.
+\href{https://doi.org/10.1006/jabr.1998.7558}{doi:10.1006/jabr.1998.7558}.
+
+\end{thebibliography}
+
+\end{document}

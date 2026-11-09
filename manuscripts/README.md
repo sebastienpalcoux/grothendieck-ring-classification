@@ -4,7 +4,7 @@
 
 > **AI-generated research; independent human verification pending.** Exact checks establish only their stated computational scope.
 
-Each current mathematical manuscript appears once, in rank order. Counts refer to based rings admitting at least one model, not to inequivalent associators.
+The following inventory lists the atlas manuscripts once, in rank order. Counts refer to based rings admitting at least one model, not to inequivalent associators.
 
 | Manuscript | PDF | Source | Pages |
 |---|---|---|---:|
@@ -25,8 +25,21 @@ Each current mathematical manuscript appears once, in rank order. Counts refer t
 
 [Current frontier report](frontier/Fusion_Ring_Frontier.pdf) · [Page inventory](../data/current_manuscript_page_counts.json) · [Publication manifest](../data/current_publication_revision.json)
 
+## Related pivotal rank-four paper
+
+Jingcheng Dong, Sébastien Palcoux and Arnaud Plessis,
+[*Classifying Grothendieck rings of pivotal fusion categories of rank four*](../supplements/rank4/pivotal/manuscript.pdf):
+the authors' revision of 9 November 2026, **17 pages** ·
+[TeX](../supplements/rank4/pivotal/manuscript.tex) ·
+[Code, data and certificates](../supplements/rank4/pivotal/README.md) ·
+[arXiv record](https://arxiv.org/abs/2609.33272).
+This paper assumes pivotality and is separate from the atlas manuscripts
+counted above. Its finite verification covers **8,977 rings: 8,962 exclusions
+and 15 models**.
+
 ## Scope
 
 Ranks 2–4 have unrestricted classification claims. Ranks 5–8 use explicit census bounds 20, 9, 5 and 3. Two rank-six and three rank-eight cases remain open. Rank nine through multiplicity two has 2,148 general exclusions, 76 unitary models and one unresolved case. Ranks 10–12 at multiplicity one have no unresolved cases; R12_1_623 has a complex/pseudo-unitary model with unitarity unproved.
 
 [Current proofs and exact replay](https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/evidence/frontier/README.md) · [All open cases](https://sebastienpalcoux.github.io/grothendieck-ring-classification/unresolved.html)
+

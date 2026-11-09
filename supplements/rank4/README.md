@@ -12,7 +12,13 @@ The unrestricted classification contains **exactly 15 complex Grothendieck rings
 
 The [unrestricted replay package](unrestricted/README.md) accompanies the complete theoretical reduction to FPdim < 1000 and multiplicity at most 31. Its exact census contains 1,692 rings: 1,677 excluded and 15 realized. The separate bounded certificate contains 889,530 rings through multiplicity 128, with 889,515 exclusions and the same 15 models.
 
-Related work on the pivotal case: Jingcheng Dong, Sébastien Palcoux and Arnaud Plessis, [Classifying Grothendieck rings of pivotal fusion categories of rank four](https://arxiv.org/abs/2609.33272), arXiv:2609.33272. Its hypothesis is pivotality.
+Related work on the pivotal case: Jingcheng Dong, Sébastien Palcoux and Arnaud
+Plessis, [Classifying Grothendieck rings of pivotal fusion categories of rank four](pivotal/manuscript.pdf).
+The authors' revision of 9 November 2026 has **17 pages**;
+[TeX](pivotal/manuscript.tex), [code, data and certificates](pivotal/README.md),
+and the [arXiv record](https://arxiv.org/abs/2609.33272) are available separately.
+Its finite verification covers **8,977 rings: 8,962 exclusions and 15 models**.
+Its hypothesis is pivotality.
 
 ## Read the research
 
@@ -53,3 +59,4 @@ The rank-four census is pinned to [fusion-ring-census commit `7f1b36e74df53a8a1c
 The dispatcher checks the uniform residual-involution criterion without recognizing a named tensor. The certificate tag `involution_propagation_42` remains for ledger compatibility. The 7,084 signed records contain 801,047 explicitly enumerated candidate tables after their stated necessary prefilters; these are not counts of every raw coefficient choice.
 
 Criterion first-use statistics describe the recorded allocation, not a minimality theorem. The last newly used criterion family appears at multiplicity 18; a nested signed cyclotomic check first succeeds at 95 using the cyclotomicity theorem already applied at 9.
+

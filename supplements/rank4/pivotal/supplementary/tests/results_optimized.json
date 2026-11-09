@@ -1,0 +1,268 @@
+{
+  "all_checks_passed": true,
+  "tests": 54,
+  "optimized_python": true,
+  "seconds": 1.046,
+  "results": [
+    {
+      "test": "d-number witness invariant under factor order",
+      "passed": true
+    },
+    {
+      "test": "Rep(A4) positive control",
+      "passed": true
+    },
+    {
+      "test": "Rep(A4) null-obstruction exclusion",
+      "passed": true,
+      "rejection": "low obstruction not verified: null or malformed witness"
+    },
+    {
+      "test": "valid multi-branch central certificate",
+      "passed": true,
+      "ring_id": 2
+    },
+    {
+      "test": "omitted character orbit",
+      "passed": true,
+      "rejection": "missing character branches"
+    },
+    {
+      "test": "omitted low-matrix branch",
+      "passed": true,
+      "rejection": "missing low-matrix branches"
+    },
+    {
+      "test": "duplicated low-matrix branch",
+      "passed": true,
+      "rejection": "wrong low rows"
+    },
+    {
+      "test": "incorrect induction row",
+      "passed": true,
+      "rejection": "wrong low rows"
+    },
+    {
+      "test": "null obstruction in a real exclusion",
+      "passed": true,
+      "rejection": "low obstruction not verified: null or malformed witness"
+    },
+    {
+      "test": "omitted formal-codegree root",
+      "passed": true,
+      "rejection": "wrong or incomplete roots"
+    },
+    {
+      "test": "false strict-sign witness",
+      "passed": true,
+      "rejection": "low obstruction not verified: false strict gap"
+    },
+    {
+      "test": "unrelated norm polynomial",
+      "passed": true,
+      "rejection": "unrelated norm factor"
+    },
+    {
+      "test": "composite norm witness",
+      "passed": true,
+      "rejection": "nonprime witness"
+    },
+    {
+      "test": "false first-moment gap",
+      "passed": true,
+      "rejection": "spherical first-moment bound not violated"
+    },
+    {
+      "test": "nonexistent first-moment embedding",
+      "passed": true,
+      "rejection": "invalid real embedding"
+    },
+    {
+      "test": "exact cyclotomic control: cyclic cubic",
+      "passed": true
+    },
+    {
+      "test": "exact cyclotomic control: nonabelian cubic",
+      "passed": true
+    },
+    {
+      "test": "exact cyclotomic control: cyclic quartic",
+      "passed": true
+    },
+    {
+      "test": "exact cyclotomic control: biquadratic quartic",
+      "passed": true
+    },
+    {
+      "test": "exact cyclotomic control: dihedral quartic",
+      "passed": true
+    },
+    {
+      "test": "exact cyclotomic control: symmetric quartic",
+      "passed": true
+    },
+    {
+      "test": "exact cyclotomic control: two quadratic factors",
+      "passed": true
+    },
+    {
+      "test": "exact cyclotomic control: repeated quadratic factor",
+      "passed": true
+    },
+    {
+      "test": "valid nonabelian-codegree exclusion",
+      "passed": true,
+      "ring_id": 1102
+    },
+    {
+      "test": "unrelated cyclotomic polynomial",
+      "passed": true,
+      "rejection": "unrelated cyclotomic factor"
+    },
+    {
+      "test": "obsolete field-containment witness",
+      "passed": true,
+      "rejection": "unknown spherical obstruction"
+    },
+    {
+      "test": "malformed cyclotomic factor None",
+      "passed": true,
+      "rejection": "unrelated cyclotomic factor"
+    },
+    {
+      "test": "malformed cyclotomic factor []",
+      "passed": true,
+      "rejection": "unrelated cyclotomic factor"
+    },
+    {
+      "test": "malformed cyclotomic factor [True, '0', '0', '1']",
+      "passed": true,
+      "rejection": "unrelated cyclotomic factor"
+    },
+    {
+      "test": "false nonabelian claim for an abelian quartic",
+      "passed": true,
+      "rejection": "codegree splitting field is abelian"
+    },
+    {
+      "test": "degree-one cyclotomic exclusion",
+      "passed": true,
+      "rejection": "cyclotomic factor degree is not three or four"
+    },
+    {
+      "test": "false nonabelian exclusion of Rep(A4)",
+      "passed": true,
+      "rejection": "cyclotomic factor degree is not three or four"
+    },
+    {
+      "test": "valid third-indicator certificate",
+      "passed": true,
+      "ring_id": 3047
+    },
+    {
+      "test": "false third-indicator gap",
+      "passed": true,
+      "rejection": "low obstruction not verified: false strict gap"
+    },
+    {
+      "test": "valid R2 fourth-indicator certificate",
+      "passed": true,
+      "ring_id": 2463,
+      "low_choices": 4
+    },
+    {
+      "test": "false fourth-indicator floor 15",
+      "passed": true,
+      "rejection": "incorrect fourth-indicator floor"
+    },
+    {
+      "test": "false fourth-indicator floor 17",
+      "passed": true,
+      "rejection": "incorrect fourth-indicator floor"
+    },
+    {
+      "test": "invalid fourth-indicator floor bool",
+      "passed": true,
+      "rejection": "invalid fourth-indicator floor"
+    },
+    {
+      "test": "invalid fourth-indicator floor float",
+      "passed": true,
+      "rejection": "invalid fourth-indicator floor"
+    },
+    {
+      "test": "invalid fourth-indicator floor str",
+      "passed": true,
+      "rejection": "invalid fourth-indicator floor"
+    },
+    {
+      "test": "invalid fourth-indicator floor NoneType",
+      "passed": true,
+      "rejection": "invalid fourth-indicator floor"
+    },
+    {
+      "test": "false fourth-indicator gap",
+      "passed": true,
+      "rejection": "low obstruction not verified: false strict gap"
+    },
+    {
+      "test": "exact fourth-indicator floor boundaries",
+      "passed": true
+    },
+    {
+      "test": "valid non-first obstruction accepted",
+      "passed": true,
+      "ring_id": 2
+    },
+    {
+      "test": "wrong positive-model fusion-data identification",
+      "passed": true,
+      "rejection": "model tensor mismatch"
+    },
+    {
+      "test": "independent nonabelian-codegree exclusion",
+      "passed": true,
+      "ring_id": 1102
+    },
+    {
+      "test": "independent unrelated cyclotomic factor",
+      "passed": true,
+      "rejection": "unrelated nonabelian codegree factor"
+    },
+    {
+      "test": "independent false nonabelian quartic",
+      "passed": true,
+      "rejection": "codegree root field is normal, hence abelian"
+    },
+    {
+      "test": "independent R2 fourth-indicator certificate",
+      "passed": true,
+      "ring_id": 2463
+    },
+    {
+      "test": "independent false fourth-indicator floor 15",
+      "passed": true,
+      "rejection": "incorrect fourth-indicator floor"
+    },
+    {
+      "test": "independent false fourth-indicator floor 17",
+      "passed": true,
+      "rejection": "incorrect fourth-indicator floor"
+    },
+    {
+      "test": "independent false fourth-indicator floor True",
+      "passed": true,
+      "rejection": "invalid fourth-indicator floor"
+    },
+    {
+      "test": "independent false fourth-indicator gap ['0']",
+      "passed": true,
+      "rejection": "local inequality survives"
+    },
+    {
+      "test": "independent checker missing FP proof",
+      "passed": true,
+      "rejection": "FP orbit has no exclusion proof"
+    }
+  ]
+}

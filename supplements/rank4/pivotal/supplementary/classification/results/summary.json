@@ -1,0 +1,41 @@
+{
+  "arithmetic_backend": "sympy",
+  "census_count": 8977,
+  "stages": [
+    {
+      "filter": "rank_two",
+      "excluded": 1676,
+      "remaining": 7301,
+      "seconds": 0.015747
+    },
+    {
+      "filter": "formal_codegree_dnumber",
+      "excluded": 6541,
+      "remaining": 760,
+      "seconds": 7.761121
+    },
+    {
+      "filter": "spherical_arithmetic",
+      "excluded": 595,
+      "remaining": 165,
+      "seconds": 3.523854
+    },
+    {
+      "filter": "published_rank_four_families",
+      "excluded": 90,
+      "remaining": 75,
+      "seconds": 0.004722
+    },
+    {
+      "filter": "central_induction",
+      "excluded": 60,
+      "remaining": 15,
+      "seconds": 0.973431
+    }
+  ],
+  "model_count": 15,
+  "elapsed_seconds": 12.333369,
+  "workers": 4,
+  "spherical_pipeline_seconds": 4.50215,
+  "schema_version": 5
+}

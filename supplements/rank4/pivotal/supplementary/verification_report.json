@@ -1,0 +1,173 @@
+{
+  "all_checks_passed": true,
+  "status": "passed",
+  "regenerated": false,
+  "deep_checks_requested": false,
+  "workers": 4,
+  "python": "3.12.14",
+  "steps": [
+    {
+      "name": "census_verification",
+      "command": [
+        "python3",
+        "supplementary/census/verify_census.py"
+      ],
+      "return_code": 0,
+      "seconds": 4.254,
+      "log": "validation/census_verification.log"
+    },
+    {
+      "name": "certificate_verification",
+      "command": [
+        "python3",
+        "supplementary/classification/verify.py",
+        "--workers",
+        "4"
+      ],
+      "return_code": 0,
+      "seconds": 8.433,
+      "log": "validation/certificate_verification.log"
+    },
+    {
+      "name": "certificate_verification_optimized",
+      "command": [
+        "python3",
+        "-O",
+        "supplementary/classification/verify.py",
+        "--workers",
+        "4",
+        "--report",
+        "/workspace/scratch/6fd3cbaf70d5/publication/supplements/rank4/pivotal/supplementary/classification/results/verification_optimized.json"
+      ],
+      "return_code": 0,
+      "seconds": 9.543,
+      "log": "validation/certificate_verification_optimized.log"
+    },
+    {
+      "name": "stage_reproduction",
+      "command": [
+        "python3",
+        "supplementary/stages.py",
+        "--all",
+        "--workers",
+        "4"
+      ],
+      "return_code": 0,
+      "seconds": 20.76,
+      "log": "validation/stage_reproduction.log"
+    },
+    {
+      "name": "stage_regressions",
+      "command": [
+        "python3",
+        "supplementary/tests/stages_regression.py"
+      ],
+      "return_code": 0,
+      "seconds": 6.502,
+      "log": "validation/stage_regressions.log"
+    },
+    {
+      "name": "regression_tests",
+      "command": [
+        "python3",
+        "supplementary/tests/regression.py",
+        "--output",
+        "/workspace/scratch/6fd3cbaf70d5/publication/supplements/rank4/pivotal/supplementary/tests/results.json"
+      ],
+      "return_code": 0,
+      "seconds": 1.296,
+      "log": "validation/regression_tests.log"
+    },
+    {
+      "name": "regression_tests_optimized",
+      "command": [
+        "python3",
+        "-O",
+        "supplementary/tests/regression.py",
+        "--output",
+        "/workspace/scratch/6fd3cbaf70d5/publication/supplements/rank4/pivotal/supplementary/tests/results_optimized.json"
+      ],
+      "return_code": 0,
+      "seconds": 2.772,
+      "log": "validation/regression_tests_optimized.log"
+    },
+    {
+      "name": "independent_central_audit",
+      "command": [
+        "python3",
+        "supplementary/independent/independent_central_audit.py",
+        "/workspace/scratch/6fd3cbaf70d5/publication/supplements/rank4/pivotal",
+        "--output",
+        "/workspace/scratch/6fd3cbaf70d5/publication/supplements/rank4/pivotal/supplementary/independent/results/independent_central_audit.json",
+        "--workers",
+        "4"
+      ],
+      "return_code": 0,
+      "seconds": 7.6,
+      "log": "validation/independent_central_audit.log"
+    },
+    {
+      "name": "independent_fourth_audit",
+      "command": [
+        "python3",
+        "supplementary/independent/independent_fourth_audit.py",
+        "/workspace/scratch/6fd3cbaf70d5/publication/supplements/rank4/pivotal",
+        "--output",
+        "/workspace/scratch/6fd3cbaf70d5/publication/supplements/rank4/pivotal/supplementary/independent/results/independent_fourth_audit.json"
+      ],
+      "return_code": 0,
+      "seconds": 3.88,
+      "log": "validation/independent_fourth_audit.log"
+    },
+    {
+      "name": "independent_models",
+      "command": [
+        "python3",
+        "supplementary/independent/independent_models.py",
+        "/workspace/scratch/6fd3cbaf70d5/publication/supplements/rank4/pivotal",
+        "--output",
+        "/workspace/scratch/6fd3cbaf70d5/publication/supplements/rank4/pivotal/supplementary/independent/results/independent_models.json"
+      ],
+      "return_code": 0,
+      "seconds": 0.326,
+      "log": "validation/independent_models.log"
+    },
+    {
+      "name": "manuscript_data_check",
+      "command": [
+        "python3",
+        "supplementary/check_manuscript.py",
+        "--output",
+        "/workspace/scratch/6fd3cbaf70d5/publication/supplements/rank4/pivotal/supplementary/validation/manuscript_data_check.json"
+      ],
+      "return_code": 0,
+      "seconds": 0.394,
+      "log": "validation/manuscript_data_check.log"
+    }
+  ],
+  "rings": 8977,
+  "models": 15,
+  "excluded": 8962,
+  "type_counts": {
+    "N": 94,
+    "S": 8883
+  },
+  "verified_filters": {
+    "formal_codegree_dnumber": 6541,
+    "spherical_arithmetic": 595,
+    "published_rank_four_families": 90,
+    "model": 15,
+    "central_induction": 60,
+    "rank_two": 1676
+  },
+  "arithmetic_backend": "sympy",
+  "ordinary_and_optimized_replays": true,
+  "fresh_stage_reproduction": true,
+  "stage_regression_tests": 7,
+  "central_survivors": 15,
+  "independent_central_records": 60,
+  "independent_arithmetic_records": 595,
+  "independent_spherical_records": 655,
+  "regression_tests_per_mode": 54,
+  "seconds": 65.768
+}
