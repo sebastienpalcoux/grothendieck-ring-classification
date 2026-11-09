@@ -47,11 +47,10 @@ its source and section files are in [the papers folder](papers/README.md).
 - [All research manuscripts](../README.md)
 
 For the pivotal case, see Jingcheng Dong, Sébastien Palcoux and Arnaud Plessis,
-[*Classifying Grothendieck rings of pivotal fusion categories of rank four*](../../supplements/rank4/pivotal/manuscript.pdf).
-The authors' revision of 9 November 2026 has **17 pages**;
-[TeX](../../supplements/rank4/pivotal/manuscript.tex),
-[code, data and certificates](../../supplements/rank4/pivotal/README.md), and the
+[*Classifying Grothendieck rings of pivotal fusion categories of rank four*](https://github.com/sebastienpalcoux/pivotal-fusion-categories-rank-four/blob/main/manuscript.pdf).
+The authors' revision of 9 November 2026 is available in its dedicated repository;
+[TeX](https://github.com/sebastienpalcoux/pivotal-fusion-categories-rank-four/blob/main/manuscript.tex),
+[code, data and certificates](https://github.com/sebastienpalcoux/pivotal-fusion-categories-rank-four), and the
 [arXiv record](https://arxiv.org/abs/2609.33272) are available separately.
 Its finite verification covers **8,977 rings: 8,962 exclusions and 15 models**.
 The paper assumes pivotality; the general classification above does not.
-
