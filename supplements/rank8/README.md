@@ -17,7 +17,7 @@ R8_3_436 is excluded generally by the independent replacement proof.
 
 For the current audited checkout, run `python3 tools/verify_audit_revision.py`. Full historical replay uses `python3 tools/verify_current_publication.py --historical`, which exports the pinned pre-audit Git snapshot. Earlier stage-specific commands below apply inside their corresponding immutable archives, with their original hypotheses.
 
-The rank-eight multiplicity-three continuation addresses all 3,527 supplied exact-multiplicity-three rings: 3,508 general exclusions, 16 models and 3 unresolved cases. Every recorded model admits a unitary realization. The four remaining rings retain unresolved status for general complex categorification. R8_3_436 has an independent general exclusion.
+The rank-eight multiplicity-three continuation addresses all 3,527 supplied exact-multiplicity-three rings: 3,508 general exclusions, 16 models and 3 unresolved cases. Every recorded model admits a unitary realization. The three remaining rank-eight rings retain unresolved status for general complex categorification. R8_3_436 has an independent general exclusion.
 
 The rank-seven multiplicity-five continuation addresses all 5,805 supplied exact-multiplicity-five rings: 5,804 general exclusions, 1 realization and 0 unresolved cases. The classification of the supplied census is complete through multiplicity 5. The new realization R7_5_5678 is Rep(AGL(1,7)).
 
