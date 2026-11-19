@@ -1,5 +1,20 @@
 # Grothendieck ring classification
 
+## Revised series: ranks 2, 3 and 4
+
+**19 November 2026 · Grothendieck rings of complex fusion categories.**
+Three independently readable papers classify the based rings without assuming a pivotal structure and prove sphericality in each rank.
+
+| Rank | Paper | Source | Pages | Proof |
+|---:|---|---|---:|---|
+| 2 | [PDF](manuscripts/rank2.pdf) | [TeX](manuscripts/rank2.tex) | 3 | Computer-free; 2 based rings |
+| 3 | [PDF](manuscripts/rank3.pdf) | [TeX](manuscripts/rank3.tex) | 10 | Computer-free; 5 based rings |
+| 4 | [PDF](manuscripts/rank4.pdf) | [TeX](manuscripts/rank4.tex) | 50 | Computer-assisted spherical descent; 15 based rings |
+
+[Submission sources and revision letter](manuscripts/hexagon/README.md) ·
+[Rank-four proof and exact replay](manuscripts/rank4/README.md).
+The rank-four paper proves sphericality before applying Dong–Palcoux–Plessis's pivotal classification. Its compact [verification package](supplements/rank4/sphericality/README.md) regenerates the 1,692-ring ordinary census and eliminates every remaining nonspherical candidate by local signed descent. Earlier rank-four computations remain available as historical evidence.
+
 <!-- current-frontier -->
 **Current classification · 29 October 2026.** R8_3_1768 is excluded over the complex numbers by pivotal conjugation parity, using the established existence and center-domain reductions. **Six cases remain unresolved:** two at rank six, three at rank eight and one at rank nine. The latest restrictions exclude three R928 center patterns and the positive TY sign for R137. For R928, the surviving positive spherical center must have rank 40 and split as Sem⁻ ⊠ B, with B of rank 20 (or the conjugate orientation); [Anyon Atlas B20-02148](https://anyonatlas.org/data/B20-02148) supplies candidate modular data for B, whose full-data uniqueness is unproved. No additional model is claimed. [Current proofs and exact checks](https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/evidence/frontier/README.md).
 <!-- /current-frontier -->
@@ -73,3 +88,4 @@ general categorification remains open; a dash marks an unanalyzed band.
 
 The companion [Fusion Ring Census](https://github.com/sebastienpalcoux/fusion-ring-census)
 enumerates based rings. This repository records their categorifications and exclusions.
+

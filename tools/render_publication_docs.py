@@ -564,7 +564,8 @@ bundle. Source and document integrity checks do not replace mathematical review.
 '''
     manuscript_rows=[('Rank two','rank2.tex','rank2.pdf','Unrestricted over ℂ; two realized rings'),('Rank three','rank3.tex','rank3.pdf','Unrestricted sphericality and five-ring classification'),('**Rank four, unrestricted classification**','rank4/papers/companion.tex','rank4/papers/companion.pdf','**No multiplicity bound or initial pivotality assumption**; 15 rings and automatic sphericality'),('Rank four, finite-range companion','rank4/papers/finite.tex','rank4/papers/finite.pdf','Complete through multiplicity 128'),('Rank four, verification guide','rank4/papers/verification_guide.tex','rank4/papers/verification_guide.pdf','Exact certificate checks'),('Rank five','rank5/papers/manuscript.tex','rank5/papers/manuscript.pdf','Complete through multiplicity 20'),('Rank five, verification guide','rank5/papers/verification_guide.tex','rank5/papers/verification_guide.pdf','Exact certificates, models and replay scope'),('Rank six','rank6/papers/manuscript.tex','rank6/papers/manuscript.pdf',f'25,362 exclusions, 57 realizations, two open through 9; complete through 3 and exact bands {bands}'),('Rank six, verification guide','rank6/papers/verification_guide.tex','rank6/papers/verification_guide.pdf','Models, certificates and open-case reductions'),('Rank seven','rank7/papers/manuscript.tex','rank7/papers/manuscript.pdf',rank7_scope),('Rank eight','rank8/paper/rank8.tex','rank8/paper/rank8.pdf','Complete through multiplicity 2: 896 exclusions and 77 models')]
     page_inventory=json.loads((repo/'data/manuscript_page_counts.json').read_text())
-    page_counts={record['path'].removeprefix('manuscripts/'):record['pages'] for record in page_inventory['documents']}
+    page_records=page_inventory['documents']+page_inventory.get('historical_documents',[])
+    page_counts={record['path'].removeprefix('manuscripts/'):record['pages'] for record in page_records}
     page_sums=page_inventory['totals']
     out['manuscripts/README.md']='# Manuscripts\n\n'+CAUTION+'''
 Each paper is a current TeX/PDF pair with its classification scope stated in
@@ -854,6 +855,8 @@ def main():
     files={name:extend_document(name,content,args.repo)for name,content in files.items()}
     from frontier import revise_document as frontier_document
     files={name:frontier_document(name,content,args.repo)for name,content in files.items()}
+    from ranks_2_4_edition import revise_document as edition_document
+    files={name:edition_document(name,content,args.repo)for name,content in files.items()}
     for name,content in files.items():
         target=(args.output_dir or args.repo)/name
         if args.check:

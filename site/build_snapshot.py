@@ -292,8 +292,9 @@ def main():
     for name in RESOURCE_NAMES:
         shutil.copy2(repo / "data" / name, downloads / name)
     sums = page_inventory["totals"]
-    summary = (f"Eight mathematical manuscripts: {sums['mathematical_manuscript']} pages; "
-               f"with the three verification guides: {sums['mathematical_manuscripts_and_guides']}; "
+    counts = page_inventory['document_counts']
+    summary = (f"{counts['mathematical_manuscripts']} mathematical manuscripts: {sums['mathematical_manuscript']} pages; "
+               f"with {counts['verification_guides']} verification guides: {sums['mathematical_manuscripts_and_guides']}; "
                f"with the research-status report: {sums['all_distinct_documents']}. "
                "Each distinct document is counted once.")
     index_path = HERE / "dist/index.html"

@@ -1,38 +1,19 @@
-# Unrestricted rank-four Grothendieck ring classification
+# Rank-four computational supplements
 
-**[Read the main manuscript · 88 pages](papers/companion.pdf)** ·
-[LaTeX source](papers/companion.tex) ·
-[Rank-four reading guide](../../manuscripts/rank4/README.md)
+## Current edition: sphericality and the fifteen rings
 
-**No multiplicity bound; no initial pivotality assumption.**
+The revised [50-page manuscript](../../manuscripts/rank4.pdf) proves sphericality for every rank-four complex fusion category before applying the pivotal classification of Dong–Palcoux–Plessis. Its complete current package is [sphericality/](sphericality/README.md).
 
-> **AI-generated research · independent verification pending.** Treat these results, proofs, code and data with caution. They have not yet been independently verified by human experts or formalized in Lean. See the [verification scope](../../docs/PREPUBLICATION_REVIEW.md).
+```sh
+cd supplements/rank4/sphericality
+python3 verify.py --manuscript ../../../manuscripts/rank4.tex
+```
 
-The unrestricted classification contains **exactly 15 complex Grothendieck rings**. Every categorification admits a spherical structure, and every ring has a unitary model. The sharp bounds are **FPdim ≤ 24+12√3** and **multiplicity ≤ 6**, with equality precisely for `NG(C₃,6)`.
+The ordinary census has 1,692 rings. The finite descent tests 41 ordinary inputs, 1,798 local signed tuples and 623 distinct polynomial pairs; both norm survivors violate the required moment bound, so no nonspherical candidate remains. The same command verifies the quadratic and quartic estimates and identifies all fifteen model tensors with their positive dimension characters. The [reading guide](../../manuscripts/rank4/README.md) explains the mathematical dependencies and verification limits.
 
-The [unrestricted replay package](unrestricted/README.md) accompanies the complete theoretical reduction to FPdim < 1000 and multiplicity at most 31. Its exact census contains 1,692 rings: 1,677 excluded and 15 realized. The separate bounded certificate contains 889,530 rings through multiplicity 128, with 889,515 exclusions and the same 15 models.
+## Preserved earlier work
 
-Related work on the pivotal case: Jingcheng Dong, Sébastien Palcoux and Arnaud
-Plessis, [Classifying Grothendieck rings of pivotal fusion categories of rank four](https://github.com/sebastienpalcoux/pivotal-fusion-categories-rank-four/blob/main/manuscript.pdf).
-The authors' revision of 9 November 2026 is available in its dedicated repository;
-[TeX](https://github.com/sebastienpalcoux/pivotal-fusion-categories-rank-four/blob/main/manuscript.tex), [code, data and certificates](https://github.com/sebastienpalcoux/pivotal-fusion-categories-rank-four),
-and the [arXiv record](https://arxiv.org/abs/2609.33272) are available separately.
-Its finite verification covers **8,977 rings: 8,962 exclusions and 15 models**.
-Its hypothesis is pivotality.
-
-## Read the research
-
-- **[Unrestricted classification — main paper · 88 pages](papers/companion.pdf)**
-- [Finite-range classification companion · 29 pages](papers/finite.pdf)
-- [Mathematical verification guide · 9 pages](papers/verification_guide.pdf)
-- [Paper sources and reading order](papers/README.md)
-
-## Reproduce the unrestricted classification
-
-The [unrestricted replay package](unrestricted/README.md) supplies the exact
-1,692-ring census, exclusion ledger, models and deep verification commands
-used by the general classification. Start there to reproduce the finite
-verification following the theoretical reduction.
+The [earlier unrestricted package](unrestricted/README.md) and the finite-range materials below are retained in their original contexts. The 92,795-orbit signed bank and old classification ledger are not dependencies of the revised paper. The previous papers remain in [papers/](papers/README.md).
 
 ## Reproduce the finite census through multiplicity 128
 
@@ -59,3 +40,4 @@ The rank-four census is pinned to [fusion-ring-census commit `7f1b36e74df53a8a1c
 The dispatcher checks the uniform residual-involution criterion without recognizing a named tensor. The certificate tag `involution_propagation_42` remains for ledger compatibility. The 7,084 signed records contain 801,047 explicitly enumerated candidate tables after their stated necessary prefilters; these are not counts of every raw coefficient choice.
 
 Criterion first-use statistics describe the recorded allocation, not a minimality theorem. The last newly used criterion family appears at multiplicity 18; a nested signed cyclotomic check first succeeds at 95 using the cyclotomicity theorem already applied at 9.
+

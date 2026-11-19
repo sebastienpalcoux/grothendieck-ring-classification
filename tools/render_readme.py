@@ -309,6 +309,8 @@ front, guide = extend_readme(front, guide, ROOT)
 from frontier import revise_document as frontier_document
 front=frontier_document('README.md',front,ROOT)
 guide=frontier_document('docs/PROJECT_GUIDE.md',guide,ROOT)
+from ranks_2_4_edition import revise_document as edition_document
+front=edition_document('README.md',front,ROOT)
 outputs = {args.output: front,
            args.output.parent / 'docs/PROJECT_GUIDE.md': guide}
 for target, content in outputs.items():

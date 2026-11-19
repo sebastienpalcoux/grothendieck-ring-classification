@@ -187,8 +187,15 @@ for name, record in reader["files"].items():
     if canonical.is_file():
         assert canonical.read_bytes() == raw, "Reader resource differs from repository: " + name
 pages = json.loads((root / reader["files"]["manuscript_page_counts.json"]["path"]).read_text())
-assert pages["document_counts"] == {"mathematical_manuscripts": 8, "verification_guides": 3, "research_status_reports": 1}
-assert len(pages["documents"]) == len({r["path"] for r in pages["documents"]}) == 12
+counts = {kind: sum(r["kind"] == kind for r in pages["documents"])
+          for kind in ("mathematical_manuscript", "verification_guide", "research_status_report")}
+assert pages["document_counts"] == {"mathematical_manuscripts": counts["mathematical_manuscript"],
+                                     "verification_guides": counts["verification_guide"],
+                                     "research_status_reports": counts["research_status_report"]}
+assert len(pages["documents"]) == len({r["path"] for r in pages["documents"]})
+if pages.get("manuscript_edition"):
+    assert {f"manuscripts/rank{rank}.pdf" for rank in (2, 3, 4)} <= {r["path"] for r in pages["documents"]}
+    assert not ({r["path"] for r in pages.get("historical_documents", [])} & {r["path"] for r in pages["documents"]})
 for record in pages["documents"]:
     assert {key: record[key] for key in ("bytes", "sha256")} == current_manifest["documents"][record["path"]]
     assert type(record["pages"]) is int and record["pages"] > 0
@@ -201,8 +208,8 @@ current_pages_path=root/'downloads/current_manuscript_page_counts.json'
 current_pages=json.loads(current_pages_path.read_text())
 current_totals=current_pages['totals']
 page_summary=(f"{current_pages['document_counts']['mathematical_manuscripts']} mathematical manuscripts: {current_totals['mathematical_manuscript']} pages; "
-              f"with the three verification guides: {current_totals['mathematical_manuscripts_and_guides']}; "
-              f"with the current research-status report: {current_totals['all_distinct_documents']}. Each distinct document is counted once.")
+              f"with {current_pages['document_counts']['verification_guides']} verification guides: {current_totals['mathematical_manuscripts_and_guides']}; "
+              f"with the current research-status report: {current_totals['all_distinct_documents']}. Each distinct current document is counted once.")
 assert '<p class="scope-note" id="current-manuscript-page-summary">'+page_summary+' <a href=' in (root/'index.html').read_text()
 tree = ast.parse((root / reader["files"]["remaining_cases.py"]["path"]).read_text())
 constants = {node.targets[0].id: ast.literal_eval(node.value) for node in tree.body

@@ -10,6 +10,8 @@ ROOT=Path(__file__).resolve().parents[1]
 def matches(relative,expected):
  path=ROOT/relative;actual=hashlib.sha256(path.read_bytes()).hexdigest()
  if actual==expected:return True
+ from manuscript_edition_identity import matches as edition_matches
+ if edition_matches(relative,expected,ROOT):return True
  import sys
  sys.path.insert(0,str(ROOT/"tools"))
  from frontier import publication_matches as current_matches

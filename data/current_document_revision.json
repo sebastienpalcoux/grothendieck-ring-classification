@@ -407,20 +407,20 @@
       "bytes": 33262
     },
     "manuscripts/rank2.pdf": {
-      "sha256": "3488327cdd434217b29fe48a6a32eb604ee5f0ceb7870bd33af3b1bc17ab9a36",
-      "bytes": 325336
+      "sha256": "851427378617274c48ad8d2f4f8c6c0fe7250524163ba5d27846a256e866d62d",
+      "bytes": 301597
     },
     "manuscripts/rank2.tex": {
-      "sha256": "4579930bbba170fde1c8394ea89da54b98e8fd81ef30bdc3928fb29d112454d3",
-      "bytes": 11571
+      "sha256": "563c9bbf8f74af75a782d46be5f480b0430c05038af63f2dc3fb8e3b54b1e520",
+      "bytes": 10896
     },
     "manuscripts/rank3.pdf": {
-      "sha256": "4d6aa1d7cc813be1be6f9e1bc844a760eaee9c594483df920a472c419efe7669",
-      "bytes": 383885
+      "sha256": "a38c8617bef8ed9941b03d3748a304333caa19607270495d4f7e9a19b00dbd55",
+      "bytes": 380420
     },
     "manuscripts/rank3.tex": {
-      "sha256": "f690e8292aff9b3e945665600785d45f244c6288f942f5bee0cc33e1119a0ef1",
-      "bytes": 45118
+      "sha256": "47ddc2cda858c46b04050c3e1106852ead54ed2423118a41b5a6951c15464270",
+      "bytes": 33447
     },
     "manuscripts/rank4/papers/companion.pdf": {
       "sha256": "dd125eee1cb32dba20d08c9173214fd6fddc8c541154c53193c09ca5b6d2b5f3",
@@ -2125,12 +2125,20 @@
     "supplements/rank8/paper/unified_20261016.tex": {
       "sha256": "a1ac43638d6a8b9e96577c2d6ada4e6863db81a4f2c13739580c6a5747163981",
       "bytes": 44394
+    },
+    "manuscripts/rank4.tex": {
+      "sha256": "d0b51c7ca0ecc253ef62eceb6e6782b13e5059606bde8ed0c0a567183034a254",
+      "bytes": 166583
+    },
+    "manuscripts/rank4.pdf": {
+      "sha256": "e08364df5db6ff6e5ac0efd67a65908b3eacface7defabdac02002782ed486d4",
+      "bytes": 739118
     }
   },
   "web_copies": {
     "papers/rank2.pdf": "manuscripts/rank2.pdf",
     "papers/rank3.pdf": "manuscripts/rank3.pdf",
-    "papers/rank4.pdf": "manuscripts/rank4/papers/companion.pdf",
+    "papers/rank4.pdf": "manuscripts/rank4.pdf",
     "papers/rank4_finite.pdf": "manuscripts/rank4/papers/finite.pdf",
     "papers/rank4_companion.pdf": "manuscripts/rank4/papers/companion.pdf",
     "papers/rank4_guide.pdf": "manuscripts/rank4/papers/verification_guide.pdf",
@@ -2186,5 +2194,23 @@
         "bytes": 6348783
       }
     }
+  },
+  "manuscript_edition": {
+    "date": "2026-11-19",
+    "scope": "Revised uniform manuscript series for ranks 2, 3 and 4; higher-rank classification data and research status are unchanged.",
+    "title_prefix": "Grothendieck rings of complex fusion categories:",
+    "canonical_papers": {
+      "rank2": "manuscripts/rank2.pdf",
+      "rank3": "manuscripts/rank3.pdf",
+      "rank4": "manuscripts/rank4.pdf"
+    },
+    "rank4_verification": "supplements/rank4/sphericality/",
+    "superseded_revision": "3093313a3e3d00af43eb7235f01da11ea7e41b9b",
+    "historical_rank4_papers": [
+      "manuscripts/rank4/papers/finite.pdf",
+      "manuscripts/rank4/papers/companion.pdf",
+      "manuscripts/rank4/papers/verification_guide.pdf"
+    ],
+    "historical_scope": "The named finite, companion and verification-guide artifacts and their proof archives retain their original bytes and frozen manifests."
   }
 }

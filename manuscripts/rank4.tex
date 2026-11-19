@@ -1,0 +1,3869 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,microtype}
+\usepackage[a4paper,margin=28mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools,booktabs,longtable,array,needspace}
+\usepackage[dvipsnames]{xcolor}
+\usepackage[colorlinks=true,linkcolor=MidnightBlue,citecolor=MidnightBlue,urlcolor=MidnightBlue]{hyperref}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\newtheorem{question}[theorem]{Question}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\DeclareMathOperator{\FPdim}{FPdim}
+\DeclareMathOperator{\Irr}{Irr}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\Rep}{Rep}
+\let\Vec\relax
+\DeclareMathOperator{\Vec}{Vec}
+\newcommand{\C}{\mathcal C}
+\newcommand{\Z}{\mathcal Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\N}{\mathbb Z_{\geq0}}
+\newcommand{\R}{\mathbb R}
+\newcommand{\CC}{\mathbb C}
+\newcommand{\ZZ}{\mathbb Z}
+\newcommand{\id}{\operatorname{id}}
+\allowdisplaybreaks[2]
+\setlength{\emergencystretch}{2em}
+
+\DeclareMathOperator{\Gal}{Gal}
+\DeclareMathOperator{\Norm}{Norm}
+\DeclareMathOperator{\disc}{disc}
+\numberwithin{equation}{section}
+\setcounter{tocdepth}{1}
+\hypersetup{pdftitle={Grothendieck rings of complex fusion categories: rank 4},pdfauthor={Sébastien Palcoux}}
+\title{Grothendieck rings of complex fusion categories:\\ rank 4}
+\author{Sébastien Palcoux}
+\date{}
+\begin{document}
+\raggedbottom
+\maketitle
+\begin{abstract}
+Every complex fusion category of rank four admits a spherical structure.
+Together with the pivotal classification of Dong, Palcoux and Plessis,
+this gives exactly fifteen Grothendieck rings. We prove sphericality by
+comparing the ordinary ring with the signed ring of the sphericalization.
+Formal codegrees and moments of central twists bound the dimension of a
+putative counterexample. An exact search leaves two signed Casimir
+polynomials for one ordinary ring. Both violate the same moment inequality.
+For the six rings with a non-self-dual simple, we also give a direct
+classification by central induction and twist moments.
+\end{abstract}
+\par\smallskip
+\begin{center}\begin{minipage}{0.88\linewidth}\small\itshape
+GPT-6.2 Astra assisted with the research. Complete human verification is
+pending, and the results should be treated with caution.
+\end{minipage}\end{center}
+\tableofcontents
+\section{Classification and sphericality}\label{sec:introduction}
+A fusion category of rank four has four simple objects up to isomorphism.
+Its Grothendieck ring records the multiplicities $N_{XY}^Z$ in their tensor
+products. This article is the rank-four part of a series on ranks at most four over
+$\CC$. A based isomorphism preserves the unit and the basis of simple classes.
+
+\begin{theorem}\label{thm:classification}
+Every complex fusion category of rank four admits a spherical structure.
+Exactly fifteen Grothendieck rings occur up to based isomorphism, as listed
+in Table~\ref{finite:tab:models}. Each has a unitary realization. Moreover,
+\[
+ \FPdim(\C)\le24+12\sqrt3,\qquad \max_{X,Y,Z}N_{XY}^Z\le6 .
+\]
+Equality in either bound characterizes the near-group ring
+$\operatorname{NG}(C_3,6)$.
+\end{theorem}
+
+The existence of a spherical structure concerns every category with the
+given fusion rules. Exhibiting a unitary model proves existence of one
+categorification for each ring. The step connecting the two assertions
+is the sphericality theorem proved here (Theorem~\ref{thm:universal-spherical}).
+It allows us to apply the independently established pivotal classification
+\cite[Theorem~1.1 and Table~1]{DPP}.
+
+\subsection*{History and scope}
+Ostrik's rank-two and pivotal rank-three classifications established how
+much information about a fusion category its center retains
+\cite{OstrikRankTwo,Ostrik3}. In rank four, Rowell, Stong and Wang treated
+unitary modular categories \cite{RSW}, and Bruillard classified premodular
+categories up to Grothendieck equivalence \cite{Bruillard}. Hagge and Hong
+observed that a pivotal category of rank at most four admits a spherical
+structure \cite[Lemma~4]{HaggeHong}. Obtaining pivotality for an
+arbitrary fusion category is the remaining hypothesis in that observation.
+
+Larson reduced the pseudo-unitary case with a non-self-dual simple to seven
+rings and determined the near-group parameters for $C_3$ \cite{Larson}.
+Edie-Michell, Izumi and Penneys excluded the remaining quadratic candidate
+under a unitarity assumption \cite{EIP}. Dong, Chen and Wang proved
+sphericality for fusion categories with a subcategory of corank one and
+classified the rank-four cases \cite{DCW}. Dong described the possible
+self-dual tables with a proper nontrivial fusion subcategory \cite{DongFour}.
+For prescribed rank and multiplicity, Vercleyen and Slingerland developed
+a general enumeration of fusion rings \cite{VS}. Liu, Palcoux and Ren
+classified the categorifiable multiplicity-one rings up to rank six
+\cite{LPR}. Vercleyen and Slingerland subsequently computed explicit
+associativity, braiding and pivotal data in low-rank multiplicity-free
+examples \cite{VSData}.
+
+Dong, Palcoux and Plessis proved the fifteen-ring theorem for pivotal
+complex fusion categories, combining an a priori dimension bound with
+a finite classification \cite{DPP}. Our finite calculation asks a
+different question: can the signed table of a category without a
+spherical structure be consistent with its ordinary table? Ruling this
+out extends their theorem. The direct treatment of the non-self-dual
+case in Section~\ref{sec:ns} recovers its six rings without calling on the
+pivotal classification. Model constructions and their sources are collected
+in Table~\ref{finite:tab:models}.
+
+\subsection*{How the proof works}
+Pass to the sphericalization $\mathcal S\to\C$ of
+Etingof, Nikshych and Ostrik \cite{ENO}. Each simple object has two lifts.
+Their tensor multiplicities add to give the ordinary structure constants
+and subtract to give the signed ones. If signs can be chosen to make the
+tables agree, the chosen lifts form a tensor subcategory equivalent to
+$\C$, which inherits a spherical structure. To detect such a choice,
+we use Ostrik's formal codegrees and central induction
+\cite{OstrikCodegrees,Ostrik3} and the higher indicators of Ng and
+Schauenburg \cite{NS,NSHigher}.
+
+\begin{theorem}[A bound before the finite search]\label{thm:uniform-global}
+Suppose a rank-four complex fusion category has no spherical structure.
+Its simple objects are self-dual, its global Frobenius--Perron dimension
+$D$ has degree two or four, and
+\[
+ D<1000,\qquad N_{XY}^Z\le31 .
+\]
+\end{theorem}
+
+Three parts of the argument can be read separately.
+\begin{enumerate}
+\item Sections~\ref{sec:core}--\ref{sec:central-columns} establish the
+comparison of ordinary and signed tables. Squared central dimensions
+give a positive measure on roots of unity. Its first few moments bound
+the mass contributed by induction of the unit. These estimates give
+sphericality directly in several families and identify the two dimension
+fields in a putative counterexample.
+\item Sections~\ref{sec:quad}--\ref{sec:global-bound-proof} prove
+Theorem~\ref{thm:uniform-global}. The quadratic argument compares norms
+and pairs of conjugates. The cubic case gives sphericality. In degree
+four a trace bound reduces the remaining problem to a finite calculation
+with algebraic integers.
+\item Sections~\ref{app:ordinary-census} and \ref{sec:finite-descent}
+enumerate the bounded ordinary rings and test their signed lifts. The
+norm of a central dimension leaves only one ordinary tuple and two signed
+polynomials. The moment inequality excludes both by hand. Section~\ref{finite:sec:catalog}
+then identifies the rings and gives the sharp bounds.
+\end{enumerate}
+
+Throughout, $d_i$ are the simple Frobenius--Perron dimensions and $x_i$
+the signed spherical dimensions of chosen lifts. We write
+$D=\sum_i d_i^2$, $E=\sum_i x_i^2$. The formal codegrees of the ordinary
+and signed rings are $f_i$ and $g_i$, respectively, counted with their
+character multiplicities. The two numbers that enter the final comparison are
+$u=\sum_i f_i^{-2}$ and $v=\sum_i g_i^{-2}$.
+\section{Sphericalization, central induction, and rigidity}\label{sec:core}
+Throughout, a fusion category is finite, semisimple, rigid and
+$\CC$-linear, with simple tensor unit. Its rank is the number
+of isomorphism classes of simple objects. A fusion ring is a based
+ring with nonnegative integral structure constants and the usual
+coefficient-of-unit pairing. A \emph{Grothendieck ring} is a fusion
+ring realized by such a category. The Frobenius--Perron dimension is
+the positive real character $X\mapsto d_X$ of its fusion ring,
+and $D=\sum_Xd_X^2$. We call a category weakly integral if
+$D\in\ZZ$, and pseudo-unitary if its categorical global dimension
+agrees with $D$. A pivotal structure is a monoidal isomorphism from the identity to
+the double dual; it is spherical when its left and right traces agree.
+We impose no pivotal hypothesis; the general existence question is
+\cite[Conjecture~2.8]{ENO}.
+
+For a self-dual basis $1,X,Y,Z$ we use the convention
+\begin{equation}\label{eq:tuple-convention}
+\begin{aligned}
+X^2&=1+aX+bY+cZ,&XY&=bX+dY+eZ,&XZ&=cX+eY+fZ,\\
+Y^2&=1+dX+gY+hZ,&YZ&=eX+hY+iZ,&Z^2&=1+fX+iY+jZ.
+\end{aligned}
+\end{equation}
+Thus a table is denoted by $(a,b,c,d,e,f,g,h,i,j)$.
+The same convention applies to signed tables. All subsequent changes
+of labels or signs are explicitly local to the argument concerned.
+
+\begin{lemma}[Rank-four algebras and coefficient bounds]
+\label{core:lem:rank-four-algebra}\label{core:lem:coefficient-bound}
+A semisimple complex algebra of dimension four admitting a
+one-dimensional representation is commutative. In particular every
+rank-four fusion ring, and every rank-four signed sphericalization
+quotient, has commutative complexification. For an ordinary fusion ring,
+write $d_i=\FPdim(b_i)$ and $D=\sum_jd_j^2$. Then
+\[
+ N_{ij}^{k}\le d_i<\sqrt D.
+\]
+\end{lemma}
+\begin{proof}
+The only noncommutative semisimple complex algebra of dimension four
+is $M_2(\CC)$, which has no one-dimensional representation.
+The regular based $*$-algebras in question are semisimple; their
+Frobenius--Perron or signed dimension characters supply the required
+representation. In the ordinary ring, reciprocity gives
+$N_i^*=N_{i^*}$, so commutativity makes $N_i$ normal. Its operator norm
+is its spectral radius $d_i$. Every matrix entry is bounded by that
+norm, and $d_i^2<D=\sum_jd_j^2$.
+\end{proof}
+
+For a commutative self-dual table its characters have real values,
+and its formal codegrees are
+$f_\chi=\sum_i\chi(X_i)^2$. Orthogonality gives
+\begin{equation}\label{core:orthog}
+\sum_\chi\frac{\chi(X_i)\chi(X_j)}{f_\chi}=\delta_{ij},
+\qquad\sum_\chi f_\chi^{-1}=1.
+\end{equation}
+All codegrees are positive. The $d$-number and cyclotomicity conditions
+are collected in Proposition~\ref{finite:prop:standard}. In degree two,
+the $d$-number criterion says that the norm divides the square of the
+trace. A real character field of a categorification is totally real
+and abelian.
+
+The sphericalization $\mathcal S\to\C$ of Etingof--Nikshych--Ostrik
+\cite[Remark~3.1]{ENO} is a spherical fusion category with two lifts of
+each simple. Tensoring with its central sign $\varepsilon$ exchanges
+these lifts. The sign has dimension $-1$ and its canonical central
+lift has twist $-1$ (the sign representation in the equivariantization
+description of \cite[Section~5.3]{Bartlett}). Choose lifts $X_i^+$
+of dimension $x_i$ compatibly with duality. Such choices exist because
+the dimensions of duals agree and the two lifts have opposite nonzero
+dimensions. The group of lift signs therefore has to act simultaneously
+on a dual pair. Put
+\[
+ R=K_0(\C)=K_0(\mathcal S)/(\varepsilon-1),\qquad
+ T=K_0(\mathcal S)/(\varepsilon+1),\qquad L=\Q(x_i).
+\]
+The dimension character of $\mathcal S$ factors through $T$.
+All $x_i$ are totally real \cite[Corollary~2.10]{ENO}.
+At any chosen embedding we may change the lifts so their
+embedded dimensions $\beta_i$ are positive. Write $E=\sum_i\beta_i^2$,
+and use $f_i,g_i$ for the formal codegrees of $R,T$, respectively.
+Set $u=\sum_i f_i^{-2}$ and $v=\sum_i g_i^{-2}$.
+
+\begin{lemma}[Sphericalization and induction]\label{core:lem:family-induction}
+For every rank-four complex fusion category, with the choices above,
+\begin{enumerate}
+\item its ordinary and signed coefficients satisfy
+$|T_{ij}^k|\le N_{ij}^k$ and $T_{ij}^k\equiv N_{ij}^k\pmod2$;
+\item all ordinary and signed codegrees $h$ belong to $L$, are
+$d$-numbers, and $E/h$ is an algebraic integer;
+\item $g_i\le D$ for every signed codegree. In particular $E\le D$.
+If $E=D$ the positive lifts form a spherical section of $\mathcal S\to\C$.
+\end{enumerate}
+All statements hold at each embedding of $L$, with lift signs
+chosen there. Thus a categorification admitting no spherical structure
+satisfies $E<D$ at every embedding.
+\end{lemma}
+\begin{proof}
+The two lift multiplicities have sum $N_{ij}^k$ and difference
+$T_{ij}^k$. Over $\Q$, the central idempotents $(1\pm\varepsilon)/2$
+split $K_0(\mathcal S)$ into $R$ and $T$. Both factors are
+commutative by Lemma~\ref{core:lem:rank-four-algebra}. A character
+of either factor takes values of equal absolute value on the two
+lifts, so the codegrees of $\mathcal S$ are $2f_i,2g_i$.
+Its spherical dimension is $2\sum_i x_i^2$. Central induction gives
+the integrality and field assertions at the original spherical embedding
+\cite[Theorem~2.13 and Corollary~2.15]{Ostrik3}. They persist under
+every embedding since the sets of codegrees are Galois invariant.
+Ostrik's $d$-number theorem applies to $2f_i,2g_i$ and multiplication
+by a rational scalar preserves Galois invariance of the principal
+fractional ideal.
+
+Each signed multiplication matrix is dominated in absolute value by
+the corresponding nonnegative ordinary matrix. Spectral comparison
+bounds $|\chi(X_i^+)|$ by $d_i$ for every character of $T$.
+Its codegree $\sum_i|\chi(X_i^+)|^2$ is thus at most $D$.
+If $E=D$, then $\beta_i=d_i$ for all $i$. Subtracting the dimension
+equations gives $\sum_k(N_{ij}^k-T_{ij}^k)d_k=0$. Each summand is
+nonnegative, so the two tables agree. The chosen lifts form a
+tensor-closed subcategory on which the forgetful functor is an
+equivalence, transporting a spherical structure to $\C$.
+\end{proof}
+
+From here to the end of Section~\ref{sec:moments} the ordinary ring
+is self-dual. Its chosen lifts are then also self-dual.
+
+The central quotients $E/f_i,E/g_i$ belong to the dimension image of
+the signed order, since the forgetful image is an integral signed
+combination of the chosen lifts.
+For a field algebra, the coefficient-of-unit functional satisfies
+\begin{equation}\label{core:frobenius-trace}
+\tau_T(a)=\Tr_{L/\Q}(a/E).
+\end{equation}
+Indeed $\Tr(a)=\sum_i\tau_T(x_i a x_i)=\tau_T(aE)$.
+In particular $\Tr(x_i/E)=\delta_{i0}$.
+When both ordinary and signed algebras are the same quartic field,
+\begin{equation}\label{core:discriminants}
+\disc(R)=N(D),\quad \disc(T)=N(E),\quad N(E/D)\in\ZZ_{>0}^2.
+\end{equation}
+The first two identities follow by comparing the trace pairing with
+the orthonormal based pairing. The last follows because the ratio
+of two order discriminants is a rational square and $E/D$ is integral.
+
+\subsection{Spectral and trace saturation}
+
+A self-dual based ring has a basis $b_0=1,b_1,b_2,b_3$ and a symmetric
+integral multiplication tensor, with coefficient-of-unit form
+$\langle b_i,b_j\rangle=\delta_{ij}$. A signed table below has the same
+unit and form and allows negative structure constants.
+A gauge change replaces each $b_i$ by $s_i b_i$, where $s_0=1$ and
+$s_i\in\{1,-1\}$.
+
+\begin{lemma}\label{trace:lem:absolute-rigidity}
+Let $N=(N_{ijk})$ be the structure tensor of a self-dual rank-four fusion ring, and let $T=(T_{ijk})$ be a symmetric integral structure tensor defining an associative unital algebra on the same orthonormal basis $1,X,Y,Z$, with $T_{0ij}=\delta_{ij}$. If
+\[
+|T_{ijk}|=N_{ijk}\qquad(0\le i,j,k\le3),
+\]
+then there are signs $s_0=1$, $s_1,s_2,s_3\in\{1,-1\}$ such that
+\[
+T_{ijk}=s_i s_j s_k N_{ijk}.
+\]
+\end{lemma}
+\begin{proof}
+Associativity and symmetry give, for every $i,j$,
+\[
+\sum_k T_{iik}T_{jjk}=\sum_k T_{ijk}^{\,2}.
+\]
+The same identity holds for $N$, and the right-hand sides agree. Each term
+$N_{iik}N_{jjk}-T_{iik}T_{jjk}$ is nonnegative; therefore each is zero. For a fixed $k$, all nonzero coefficients $T_{iik}$ consequently have the same sign.
+
+Use the usual ten-entry convention
+\[
+(a,b,c,d,e,f,g,h,i,j)
+=(N_{111},N_{112},N_{113},N_{122},N_{123},
+N_{133},N_{222},N_{223},N_{233},N_{333}).
+\]
+The coefficients with a repeated index fall into three groups
+\[
+(a,d,f),\qquad(b,g,i),\qquad(c,h,j).
+\]
+Independent sign changes of $X,Y,Z$ make every signed coefficient in these groups nonnegative. Hence the two tables now agree except possibly at $e$. If they agree there too, we are done. Otherwise $e>0$ and the signed table has coefficient $-e$.
+
+Compare the associativity equations for the two choices of sign of $e$. Their linear and constant parts give
+\begin{gather*}
+a=d+f,\qquad g=b+i,\qquad j=c+h,\\
+bh+ci=bc,\qquad dh=cd+fh,\qquad bf+di=fi,\\
+e^2=1+df+bi+ch.
+\end{gather*}
+Interchanging $Y,Z$ if necessary, assume $d\ge f$. If $d=f=0$ the
+first group is zero. If $d=f>0$, the two middle relations involving
+$d,f$ give $b=c=0$, whence $e^2=1+d^2$, impossible. If $d>f$,
+then $bf=i(f-d)$ gives $i=bf=0$. When $f>0$, the second group
+vanishes. When $f=0$, the equation $dh=cd$ gives $h=c$ and
+$e^2=1+c^2$, hence $c=h=j=0$. Thus some diagonal group is zero.
+
+Flip the basis sign belonging to a zero group. It preserves all nine diagonal coefficients and reverses the sign of $e$. The two tensors now agree, proving the lemma.
+\end{proof}
+
+\begin{corollary}\label{trace:cor:trace-rigidity}
+Under the same hypotheses, suppose only that $|T_{ijk}|\le N_{ijk}$. Let $C_N$ and $C_T$ be multiplication by the respective Casimir elements $\sum_i b_i^2$. If
+\[
+\operatorname{Tr}(C_T)=\operatorname{Tr}(C_N),
+\]
+then $T$ and $N$ are gauge equivalent.
+\end{corollary}
+\begin{proof}
+In the regular representation the multiplication matrices are symmetric, and
+\[
+\operatorname{Tr}(C_N)=\sum_{i,j,k}N_{ijk}^2,
+\qquad
+\operatorname{Tr}(C_T)=\sum_{i,j,k}T_{ijk}^2.
+\]
+Equality, together with termwise domination, forces equality of every absolute value. Apply Lemma~\ref{trace:lem:absolute-rigidity}.
+\end{proof}
+
+\begin{corollary}\label{core:trace-spherical}
+Equality of the ordinary and signed Casimir traces in a rank-four
+self-dual sphericalization implies that the original category is spherical.
+\end{corollary}
+\begin{proof}
+Corollary~\ref{trace:cor:trace-rigidity} supplies a basis sign change
+for which the signed and ordinary tensors agree. The chosen lifts
+are tensor closed, so the spherical structure restricts to a tensor
+subcategory equivalent to the original category.
+\end{proof}
+
+\begin{lemma}[Galois transport]\label{core:lem:galois-transport}
+If a spherical dimension character belongs to the Galois orbit of the
+Frobenius--Perron character, the category has a pseudo-unitary Galois
+conjugate with the same fusion rules. Its central identities can
+therefore be evaluated with positive Frobenius--Perron dimensions.
+\end{lemma}
+\begin{proof}
+Extend the required embedding of the dimension field to an automorphism
+of $\CC$. Apply it to skeletal tensor, duality and spherical
+structure constants. All their identities and the fusion rules persist,
+while the dimension character becomes the Frobenius--Perron character.
+This requires no algebraic field of definition for the associativity
+coefficients. Equivalently, apply the automorphism to the central
+identities; restriction multiplicities are fixed and twists remain
+roots of unity.
+\end{proof}
+
+\begin{corollary}[Multiplicity-one sphericality]
+\label{core:cor:multiplicity-one-spherical}
+Every complex categorification of a self-dual rank-four fusion ring
+of multiplicity one admits a spherical structure.
+\end{corollary}
+\begin{proof}
+For its signed quotient, domination and parity give
+$|T_{ij}^{k}|\le N_{ij}^{k}$ and
+$T_{ij}^{k}\equiv N_{ij}^{k}\pmod2$. Since $N_{ij}^{k}\in\{0,1\}$,
+$|T_{ij}^{k}|=N_{ij}^{k}$ for every coefficient.
+Lemma~\ref{trace:lem:absolute-rigidity} makes the two tables gauge
+equivalent. The corresponding tensor-closed lifts form a spherical
+subcategory equivalent to the original category.
+\end{proof}
+
+\subsection{Structural inputs and central traces}
+
+\begin{proposition}[Structural inputs]\label{finite:prop:standard}
+\begin{enumerate}
+\item In any complex categorification every formal codegree is a
+$d$-number. For its monic minimal polynomial
+$t^e+a_1t^{e-1}+\cdots+a_e$, this means
+$a_e^j\mid a_j^e$ for $1\leq j\leq e$
+\cite{OstrikCodegrees}.
+\item If $S\subseteq R$ is a fusion subring, $D/\FPdim(S)$ is an
+algebraic integer \cite[Theorem 7.17.6]{EGNO}.
+\item Every character value of a complex-categorifiable fusion ring is
+cyclotomic \cite[Theorem 8.51 and Corollary 8.53]{ENO}.
+\item In a spherical categorification with dimension character $\chi$,
+every $\chi(b_i)$ is nonzero, $\chi(b_i)=\chi(b_{i^*})$, and its global
+dimension $\Delta=f_\chi$ satisfies $\Delta/f\in\overline{\ZZ}$
+for every formal codegree $f$. Its dimension field contains all formal
+codegrees \cite[Theorem 2.13 and Corollaries 2.14--2.15]{Ostrik3}.
+\item \label{finite:lem:two-dimensions}A weakly integral fusion
+category is pseudo-unitary \cite[Proposition~8.24]{ENO}.
+If the simple Frobenius--Perron dimensions take at most two values,
+then the category has a pseudo-unitary Galois conjugate
+\cite[Lemma~3.1]{Schopieray}. Indeed the values are $1$ and
+possibly a single $d>1$, precisely the hypothesis of that lemma.
+These statements apply in every rank.
+\end{enumerate}
+\end{proposition}
+
+For a spherical category $\mathcal A$, write
+$F:Z(\mathcal A)\to\mathcal A$ for the forgetful functor and $I$
+for its right adjoint. With $H=\dim(\mathcal A)$, the center formula
+for higher indicators reads
+\begin{equation}\label{core:central-indicator}
+\sum_{A\in\Irr Z(\mathcal A)}[I(V):A]\dim(A)\theta_A^n=H\nu_n(V).
+\end{equation}
+Here the twists are roots of unity, and
+$\nu_n(V)\in\Q(\zeta_n)$; see \cite[Theorem~4.1]{NS} and
+\cite[Theorem~5.1]{NSHigher}. When the fusion ring is commutative, induction of the unit has one
+multiplicity-one constituent per character, of dimension $H/f_\chi$
+and twist one \cite[Theorems~2.5 and~2.13]{Ostrik3}.
+\begin{lemma}[The central sign and its translate twists]
+\label{core:lem:translate-twists}
+Let $\mathcal S$ be a rank-four self-dual sphericalization, with
+central sign $\varepsilon$, and let $A_\chi\subset I(1)$ be the
+multiplicity-one constituent corresponding to a character $\chi$.
+Its canonical central sign translate satisfies
+\[
+ \theta_{\widehat\varepsilon\otimes A_\chi}=\chi(\varepsilon).
+\]
+Thus ordinary constituents have translate twist $+1$ and signed
+constituents have translate twist $-1$. The constituents of $I(1)$
+and their sign translates are disjoint. Moreover
+$\nu_n(\varepsilon)=0$ for odd $n$ and $-1$ for even $n$.
+\end{lemma}
+\begin{proof}
+Central induction identifies modular characters by
+\[
+ \frac{S_{A_\chi,W}}{S_{A_\chi,0}}=\chi(F(W))
+\]
+\cite[Example~2.9 and the paragraph preceding Theorem~2.13]{Ostrik3}.
+At $W=\widehat\varepsilon$ the ratio is $\chi(\varepsilon)$;
+it is also $\dim(\varepsilon)$ times the monodromy scalar.
+Since $\dim(\widehat\varepsilon)=\theta_{\widehat\varepsilon}=-1$
+and $\theta_{A_\chi}=1$, balancing gives the asserted twist.
+The constituents have dimensions $E/f_i,E/g_i>0$, whereas their
+translates have the opposite dimensions, proving disjointness.
+For the indicator, the invariant space is zero for odd tensor powers
+of $\varepsilon$. For even powers it is one-dimensional, and the
+rotation is multiplied by the inverse pivotal map $-1$.
+\end{proof}
+
+\subsection{The rank-two input}
+
+We use the following part of Ostrik's classification as a subcategory
+obstruction \cite[Main Theorem, p.~178]{OstrikRankTwo}.
+\begin{proposition}[Ostrik]\label{core:prop:rank-two}
+Let $\mathcal D$ be a complex fusion category with simple objects
+$1,X$. Then $X^2=1+nX$ with $n=0$ or $1$.
+\end{proposition}
+The statement concerns arbitrary complex fusion categories, so it applies
+before a pivotal structure has been established.
+\section{Indicator inequalities}\label{sec:moments}
+\begin{lemma}[Positive-measure inequalities]\label{core:lem:measure-tools}
+Let $\mu$ be a finite positive measure on the unit circle, with mass
+$M$ and real first two moments $A,B$. Then
+\[
+ 0\le M+B\le2M,\qquad 2A^2\le M(M+B).
+\]
+If its first $m$ moments all equal the real number $c$, then
+\[
+ \mu(\{1\})\le\frac{M+mc}{m+1}.
+\]
+These statements also apply after subtracting any known positive
+atomic submeasure.
+\end{lemma}
+\begin{proof}
+Writing $z=e^{it}$, one has
+$\int\cos^2t\,d\mu=(M+B)/2$; Cauchy--Schwarz gives the first
+inequalities. The nonnegative Fej\'er polynomial
+$F_m(z)=|1+z+\cdots+z^m|^2/(m+1)$ has value $m+1$ at one and
+integral $M+mc$, proving the atom bound.
+\end{proof}
+
+\begin{lemma}[Second moment]\label{core:lem:family-signed-second}
+Let $u,v$ be the ordinary and signed inverse-square codegree sums.
+For any signed dimension character,
+\[
+ E(u+v-1)\le\sum_{i=0}^3|\beta_i|
+ \le1+\sqrt{3(E-1)}.
+\]
+\end{lemma}
+\begin{proof}
+The eight constituents of $I(1)$ have positive dimensions $E/f$
+and squared mass $H=E^2(u+v)$. Their translates by the canonical
+central sign object have opposite dimensions, are disjoint from
+them, and have twists $\pm1$. The center's total squared dimension
+is $4E^2$. The central indicator formula
+\cite[Theorem~4.1]{NS} gives
+\[
+ \sum_A (\dim A)^2\theta_A^2=4Es,
+ \qquad s=1+\sum_{i=1}^3\nu_2(X_i^+)\beta_i.
+\]
+Here each $\nu_2(X_i^+)=\pm1$. Changing a lift reverses the pivotal
+map. This negates its spherical dimension and its second indicator,
+the eigenvalue of pivotal transposition on its one-dimensional
+space of invariant bilinear forms. Removing the sixteen
+known objects, the weighted sum of squared real parts of the
+remaining twists is
+\[
+ \tfrac12\bigl((4E^2-2H)+(4Es-2H)\bigr)
+ =2E^2+2Es-2H\ge0.
+\]
+This gives the first bound, and Cauchy's inequality gives the second.
+\end{proof}
+\begin{lemma}[Quartic trace and norm]\label{core:lem:family-trace-norm}
+If $L$ has degree four, the signed rational algebra is $L$ itself,
+and its four character codegrees are the conjugates of $E$, with
+multiplicity. Moreover
+\[
+ \Tr_{L/\Q}(E)\le\sum_j f_j,
+ \qquad \Norm_{L/\Q}(E/f)\in\ZZ_{>0}
+\]
+for every ordinary codegree $f$. If $v$ is the signed inverse-square
+sum, then
+\[
+ v\ge\frac12-\frac92\,
+ \frac{\Tr_{L/\Q}(E)}{\Norm_{L/\Q}(E)}.
+\]
+\end{lemma}
+\begin{proof}
+The dimension character is a surjection from a rational algebra of
+dimension four onto $L$, hence an isomorphism. The Casimir's regular
+trace is the sum of the codegrees. Its trace is also
+$\sum_i\Tr(T_i^2)=\sum_{i,j,k}(T_{ij}^k)^2$, at most the
+corresponding ordinary sum. Norm integrality is
+Lemma~\ref{core:lem:family-induction}. For $q_i=1/g_i$ the reciprocal
+identity gives $\sum q_i=1$, and the four-variable
+Schur inequality $9e_3(q)+2\sum q_i^2\ge1$ gives the result,
+since $e_3(q)=\Tr(E)/\Norm(E)$. For clarity, its homogeneous
+form is $P=e_1^3-4e_1e_2+9e_3\ge0$. Subtract the smallest entry
+$t$ from all four variables to obtain $y$ with one zero entry.
+Expansion gives
+$P(q)=P(y)+2t e_2(y)+3t^2e_1(y)+4t^3$, and $P(y)\ge0$ is the
+ordinary three-variable Schur inequality.
+\end{proof}
+
+\subsection{Averaging the central indicators}
+
+We record once the calculation used for both quartic fields and
+near-group rings. Let $\mathcal A$ be spherical with totally real
+Galois dimension field $K$ and global dimension $H$.
+In a finite Galois extension containing $K$, the central twists
+and the required roots of unity, let $\operatorname{Av}$ denote the
+average over all automorphisms $\sigma$. Write $a_A=\dim A$ for a
+central simple and $\delta_z$ for the unit mass at $z$. The measure
+\[
+ \mu_{\mathcal A}
+ =\operatorname{Av}_\sigma\sum_{A\in\Irr Z(\mathcal A)}
+     \sigma(a_A/H)^2\,\delta_{\sigma(\theta_A)}
+\]
+is a probability measure: $a_A=\dim F(A)$ belongs to $K$, and
+$\sum_A a_A^2=H^2$. Enlarging the averaging field leaves it unchanged.
+Multiplying \eqref{core:central-indicator} by $\dim V$, summing over
+simple $V$, and using adjunction gives
+$\sum_Aa_A^2\theta_A^n=H\sum_V(\dim V)\nu_n(V)$.
+Because $\nu_n(V)\in\Q(\zeta_n)$, the two Galois averages factor
+whenever $K\cap\Q(\zeta_n)=\Q$. Hence
+\begin{equation}\label{core:eq:averaged-indicators}
+ \int z^n\,d\mu_{\mathcal A}
+ =\sum_{V\in\Irr\mathcal A}
+   \frac{\Tr_{K/\Q}(\dim V/H)}{[K:\Q]}\,
+   \operatorname{Av}_\sigma\sigma(\nu_n(V))
+ \qquad (K\cap\Q(\zeta_n)=\Q).
+\end{equation}
+
+Suppose now that $L$ has degree four, so the signed rational algebra
+is $L$. We apply this identity to the sphericalization
+$\mathcal A=\mathcal S$, with $H=2E$.
+
+\begin{proposition}\label{core:prop:quartic-individual-disjointness}
+Suppose that, for every integer $1\le n\le m$,
+\begin{equation}\label{core:eq:quartic-individual-intersection}
+ L\cap\Q(\zeta_n)=\Q.
+\end{equation}
+Then
+\begin{equation}\label{core:eq:quartic-averaged-bound}
+ 2u+v\le\frac34+\frac3{m+1}.
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Scale the probability measure to $\mu=4\mu_{\mathcal S}$.
+In \eqref{core:eq:averaged-indicators}, normalized field traces are
+computed by \eqref{core:frobenius-trace}. Every term for a lift of
+a nonunit simple vanishes. The surviving objects $1,\varepsilon$
+have dimensions $1,-1$, with $\Tr(1/E)=1$. Thus
+$\int z^n\,d\mu=(1-\nu_n(\varepsilon))/2$.
+Lemma~\ref{core:lem:translate-twists} yields
+\begin{equation}\label{core:eq:quartic-constant-moments}
+ \int z^n\,d\mu(z)=
+ \begin{cases}1,&n\text{ even},\\[2pt]\tfrac12,&n\text{ odd}.
+ \end{cases}
+\end{equation}
+Lemma~\ref{core:lem:translate-twists} gives the indicator signs,
+the eight constituents of $I(1)$ of dimensions $E/f_i,E/g_i$,
+and their eight disjoint sign translates.
+Thus translates of the $R$ constituents have twist $+1$, while
+translates of the $T$ constituents have twist $-1$.  These statements
+are preserved by every $\sigma\in G$.  Summing the squared weights
+yields the two estimates
+\begin{equation}\label{core:eq:quartic-atom-bound}
+ \mu(\{1\})\ge 2u+v,\qquad \mu(\{-1\})\ge v.
+\end{equation}
+
+By Cauchy--Schwarz, $v\ge1/4$.  Consequently
+$\nu=\mu-\tfrac14\operatorname{Dirac}_{-1}$ is a positive measure.
+Its mass is $15/4$, and its first $m$ moments are all $3/4$.
+Apply Lemma~\ref{core:lem:measure-tools} to obtain
+$(m+1)\mu(\{1\})\le(15+3m)/4$. Together with
+\eqref{core:eq:quartic-atom-bound}, this proves the claim.
+\end{proof}
+
+\begin{proposition}[Squared moments]\label{core:squared-moments}
+If $L\cap\Q(\zeta_{2j})=\Q$ for $1\le j\le a$, then
+\[
+u+v\le\frac12+\frac{3}{2(a+1)}.
+\]
+In particular $u+v\le7/8$ always, and $u+v\le4/5$ if
+$\sqrt2\notin L$.
+\end{proposition}
+\begin{proof}
+Push the preceding averaged measure forward by $z\mapsto z^2$.
+Its total mass is four, its first $a$ moments are one, and its atom
+at one is at least $2(u+v)$. Apply Lemma~\ref{core:lem:measure-tools}. The first three
+intersections are trivial because $L$ is totally real. The fourth
+can be nontrivial only if $\Q(\sqrt2)\subset L$.
+\end{proof}
+\begin{corollary}\label{core:quartic-short-moments}
+If the signed dimension field $L$ is quartic, then
+\[
+ \sqrt2\notin L\ \Longrightarrow\ u+v\le\frac45,
+ \qquad
+ \sqrt5\notin L\ \Longrightarrow\ 2u+v\le\frac98.
+\]
+\end{corollary}
+\begin{proof}
+The first assertion is Proposition~\ref{core:squared-moments}.
+For the second, the real subfield at order seven has degree three,
+which cannot divide four. Thus the only nontrivial possible
+intersection up to order seven is $\Q(\sqrt5)$ at order five. Apply
+Proposition~\ref{core:prop:quartic-individual-disjointness} with $m=7$.
+\end{proof}
+
+\begin{lemma}\label{core:lem:sqrt5-periodic-moments}
+Suppose the signed dimension field is $K=\Q(\sqrt2,\sqrt5)$.
+With the preceding notation, one has
+\[
+ 5u+4v\le\frac{15}{4}.
+\]
+\end{lemma}
+\begin{proof}
+Use the unsquared averaged central measure $\mu$ above.
+The nontrivial quadratic subfields of $K$ have conductors $5,8,40$.
+Hence $K\cap\Q(\zeta_n)=\Q$ whenever $5\nmid n$ and
+$8\nmid n$. The same indicator calculation gives
+\[
+ \int z^n\,d\mu=\begin{cases}1/2&n\text{ odd},\\1&n\text{ even},\end{cases}
+ \qquad 5\nmid n,\quad8\nmid n.
+\]
+These identities hold at every such order: extending the averaging
+field leaves the measure unchanged.
+
+Restrict $\mu$ to the fortieth roots of unity. Averaging the functions
+$z^{40j}$ over $j$ gives their indicator function, since the measure
+has finite root-of-unity support. Thus, for each residue $n$ divisible
+by neither $5$ nor $8$, the restricted measure retains the displayed
+$n$th Fourier coefficient. Subtract
+$\nu=\tfrac34\operatorname{Dirac}_1+\tfrac14\operatorname{Dirac}_{-1}$.
+The resulting forty weights have Fourier support only at multiples
+of $5$ or $8$. By the discrete Fourier transform they are therefore
+\[
+ r_{ij}=A_i+B_j,\qquad i\in\ZZ/8,\quad j\in\ZZ/5,
+\]
+where a fortieth root with exponent $l$ corresponds to
+$(i,j)=(l\bmod8,l\bmod5)$.
+All cells other than $(0,0)$ and $(4,0)$ are nonnegative. The forced
+atoms give
+\[
+ r_{00}\ge2u+v-\frac34,\qquad
+ r_{40}\ge v-\frac14.
+\]
+The total of the forty weights is at most $4-1=3$.
+For an additive array there is the exact identity
+\[
+ \sum_{i,j}r_{ij}-5r_{00}-3r_{40}
+ =\frac12\sum_{j\ne0}r_{4j}
+  +\frac54\sum_{\substack{i\ne0,4\\j\ne0}}r_{ij}\ge0.
+\]
+Consequently
+$3\ge5(2u+v-3/4)+3(v-1/4)$, proving the assertion.
+\end{proof}
+\subsection{Comparison of quadratic codegrees}
+\begin{lemma}[Quadratic comparison]\label{core:lem:family-comparison}
+In a quadratic field let $D,D'$ be the ordinary Frobenius--Perron
+codegree and its conjugate. Let $E,E'$ be a signed dimension
+codegree and its conjugate, with $D>E\ge E'$. Set
+$P=D^{-1}+D'^{-1}$, $q=E^{-1}+E'^{-1}$, $N=DD'$ and
+$k=EE'/N$. Then $k$ is a positive integer,
+\begin{equation}\label{core:quadratic-strict}
+ kq<P+(k-1)/D,\qquad q\le2P/3.
+\end{equation}
+\end{lemma}
+\begin{proof}
+Norm divisibility gives $k\in\ZZ_{>0}$. Since
+$D>E\ge\sqrt{kN}$, compare $x+kN/x$ at $E$ and $D$ to obtain
+the strict inequality. If $k\ge2$, then $D/D'>k$ and
+$1/D<P/(k+1)$, whence $q<2P/(k+1)\le2P/3$.
+If $k=1$, $s=D/E>1$ is a totally positive unit, so its integral
+trace is at least three. Using $E\ge E'$ gives
+$q/P\le2/(s+s^{-1})\le2/3$.
+\end{proof}
+\section{Non-self-dual categories}\label{sec:ns}
+
+\subsection{Spherical descent}
+\begin{theorem}\label{ns:thm:ns-spherical}
+Every complex fusion category of rank four with a non-self-dual simple
+object admits a spherical structure.
+\end{theorem}
+
+Write the dual pair as $X,Z$ and the remaining nonunit simple as $Y$.
+Use the order $1,X,Y,Z$ in both sphericalization quotients. Duality fixes two basis
+vectors, so its trace on the complex algebra is two. It permutes
+primitive idempotents and sends character values to their complex
+conjugates. Thus exactly two characters are real. Both real and
+nonreal pairs are Galois stable, since reality is equivalent to
+$\chi(b)=\chi(b^*)$ for every basis vector. The nonreal pair
+therefore takes values in an imaginary quadratic field. Write one
+as $(1,\alpha,t,\overline\alpha)$, with $t\in\ZZ$, and put
+$a=\alpha+\overline\alpha$ and $b=\alpha\overline\alpha$.
+Orthogonality to its conjugate gives $1+t^2+\alpha^2+\bar\alpha^2=0$.
+Its codegree $h$ satisfies
+\begin{equation}\label{ns:eq:ns-nonreal}
+ 2b=1+a^2+t^2,\qquad h=2+a^2+2t^2.
+\end{equation}
+In particular $a,t$ have opposite parity and $h\ge3$.
+
+For use when $h$ is small, reciprocity gives the following common
+table. In the ordinary case it is Larson's parametrization
+\cite[Proposition~2.1]{Larson}. The signed case has the same six
+parameters in $\ZZ$.
+\begin{equation}\label{ns:eq:ns-signed-table}
+\begin{aligned}
+ X^2&=P X+L_0Y+C Z,& XY&=Q X+JY+L_0 Z,\\
+ Y^2&=1+J X+H Y+J Z,& YZ&=L_0 X+J Y+Q Z,\\
+ Z^2&=C X+L_0 Y+P Z,& XZ&=1+P X+Q Y+P Z .
+\end{aligned}
+\end{equation}
+In either ring let $\beta$ be a character with positive values on
+this basis. If $h=3$, then $(a,t)=(\pm1,0)$, and orthogonality to
+$\beta$ gives $1+a\beta(X)=0$. Thus $a=-1$, $\beta(X)=1$ and
+$\alpha$ is a primitive cube root of unity. Substitution in the
+products $X^2,XY,Y^2$ forces $C=J=1$ and $P=L_0=Q=0$.
+If $h=4$, then $(a,t)=(0,\pm1)$ and orthogonality gives $t=-1$,
+$\beta(Y)=1$. Now $\alpha=\pm i$, and the same three products
+give $L_0=1$, $J=Q=H=0$ and $P=C$. In each case just one integral
+parameter $\mu$ is left:
+\begin{equation}\label{ns:eq:two-forms}
+\begin{array}{c|c|c|c}
+h & (\beta(X),\beta(Y),\beta(Z)) &\text{dimension relation}
+  &\text{dimension codegree}\\ \hline
+3 &(1,v,1)&v^2=3+\mu v&3+v^2\\
+4 &(w,1,w)&w^2=1+2\mu w&2+2w^2 .
+\end{array}
+\end{equation}
+
+\begin{lemma}\label{ns:lem:ns-fields}
+Suppose that $\C$ admits no spherical structure. There is a real quadratic
+field $K$ and imaginary quadratic fields $L,M$ such that
+\[
+ R\otimes\Q\cong K\times L,\qquad
+ T\otimes\Q\cong K\times M.
+\]
+The formal codegrees are, respectively,
+\[
+ D,D',f,f\qquad\text{and}\qquad E,E',g,g,
+\]
+where $D=\operatorname{FPdim}(\C)$ is irrational,
+$f,g\in\ZZ_{\geq3}$, and primes denote the nontrivial embedding
+of $K$. We can choose the lifts and a real character $\beta$ of $T$
+so that all its values are positive, its codegree is $E$, and
+\begin{equation}\label{ns:eq:ns-basic}
+ E\geq E',\qquad E<D,\qquad
+ E/D\ \text{and}\ E/g\ \text{are algebraic integers}.
+\end{equation}
+Every displayed codegree is greater than one, and $f\leq D$.
+\end{lemma}
+
+\begin{proof}
+If $D$ were rational, weak integrality would give a spherical
+structure \cite[Proposition~8.24]{ENO}. Since only two characters
+are real, the Frobenius--Perron field equals $K=\Q(D)$ of degree
+two. Lemma~\ref{core:lem:family-induction} puts $D$ in the signed
+dimension field, also of degree at most two. This accounts for the
+two real quadratic factors. The nonreal pair in each table accounts
+for its imaginary quadratic factor and its repeated integral
+codegree by \eqref{ns:eq:ns-nonreal}. The reciprocal-codegree
+identity and positivity give $h>1$ for every codegree $h$.
+Spectral domination gives $f\le D$. The integrality, sign choices
+and strict inequality in \eqref{ns:eq:ns-basic} follow from
+Lemma~\ref{core:lem:family-induction}.
+\end{proof}
+
+\begin{lemma}\label{ns:lem:ns-small-codegree}
+In the situation of Lemma~\ref{ns:lem:ns-fields}, put
+\[
+ n=DD',\qquad k=\frac{EE'}{DD'}.
+\]
+Then $k\in\{1,2\}$ and $g\in\{3,4\}$, with $k=2$ possible only
+when $g=3$.
+\end{lemma}
+
+\begin{proof}
+The norm of the totally positive algebraic integer $E/D$ makes $k$
+a positive integer. Set
+\[
+ p=1-\frac2f=\frac1D+\frac1{D'},\qquad
+ q=1-\frac2g=\frac1E+\frac1{E'}.
+\]
+The first inequality of \eqref{core:quadratic-strict} gives
+\begin{equation}\label{ns:eq:ns-key}
+ kq<p+\frac{k-1}{D}\leq1+\frac{k-3}{D}.
+\end{equation}
+Here we used $f\leq D$. If $k\geq3$, then $q\geq1/3$ and $D\geq4$
+give the contradiction
+\[
+ \frac{k}{3}<1+\frac{k-3}{D}\leq\frac{k+1}{4}\leq\frac{k}{3}.
+\]
+Thus $k\leq2$. If $k=2$ and $g\geq4$, the left side of
+\eqref{ns:eq:ns-key} is at least one, whereas its right side is
+$1-1/D<1$.
+
+If $k=1$, the quadratic comparison \eqref{core:quadratic-strict}
+gives $q\le2p/3<2/3$, so $g<6$.
+Equation~\eqref{ns:eq:ns-nonreal} and the opposite parities of $a,t$
+rule out $g=5$. Thus $g\in\{3,4\}$.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{ns:thm:ns-spherical}]
+Suppose that $\C$ admits no spherical structure, and use the preceding
+lemmas. The two possible signed tables are given by
+\eqref{ns:eq:two-forms}. In either row $E\ge E'$ forces $\mu\ge0$.
+In the second row $\mu=0$ would make the whole dimension character
+rational. Hence $w=\mu+\sqrt{\mu^2+1}>2$ and
+$E'=2+2/w^2<5/2$. Here $k=1$, so the totally positive unit
+$r=D/E>1$ has integral trace at least three. This gives
+$r\ge(3+\sqrt5)/2>E'$, contrary to $D'=E'/r>1$.
+
+In the first row, $v'=-3/v$ and
+\begin{equation}\label{ns:eq:ns-ng-norm}
+ E'=3+9/v^2,\qquad E+E'=\mu^2+12,\qquad EE'=3(\mu^2+12).
+\end{equation}
+Suppose $\mu>0$. Integrality of $E/3$ and its norm give
+$(\mu^2+12)/3\in\ZZ$, hence $3\mid\mu$ and $\mu\geq3$.
+Moreover
+\[
+ K=\Q\bigl(\sqrt{\mu^2+12}\bigr),\qquad
+ \mu^2+12=3\bigl(3(\mu/3)^2+4\bigr).
+\]
+The radicand has $3$-adic valuation one, so $K$ is neither
+$\Q(\sqrt5)$ nor $\Q(\sqrt2)$.
+From \eqref{ns:eq:two-forms}, $v>7/2$ and
+$v^2=3+\mu v>27/2$, whence
+\begin{equation}\label{ns:eq:ns-small-conjugate}
+ E'<\frac{11}{3}<2+\sqrt3.
+\end{equation}
+For $k=1$, the unit $r=D/E>1$ cannot have trace three, since that
+would generate $\Q(\sqrt5)$. Its trace is at least four,
+so $r\geq2+\sqrt3>E'$, again giving $D'<1$.
+
+For $k=2$, put $a_0=E/D$ and $s=2D/E$. The known algebraic integer
+$a_0$ has norm two, so $s=2/a_0=a_0'$ is an algebraic integer of
+norm two. It is totally positive and $s>2$. Its integral trace
+$s+2/s$ is therefore greater than three. Trace four would generate
+$\Q(\sqrt2)$, which is excluded; thus the trace is at least
+five and $s>4>E'$. Since $D'=E'/s$, this too contradicts $D'>1$.
+
+Finally suppose $\mu=0$. Then $E=E'=6$ and $n=DD'$ is either
+$36$ or $18$. Denote the unsigned parameters corresponding to
+$(C,H,J,L,P,Q)$ by $(c,e,k_0,\ell,p_0,q_0)$. Their parities are
+\[
+ c,k_0\ \text{odd},\qquad e,\ell,p_0,q_0\ \text{even}.
+\]
+For a nonreal character $(1,\alpha,t,\overline\alpha)$ of $R$,
+the equations for $Y(X-Z)$ and $X^2-Z^2$ give
+$t=q_0-\ell$ and $\alpha+\overline\alpha=p_0-c$.
+Applying \eqref{ns:eq:ns-nonreal} to $R$ therefore gives
+\[
+ f=2+(p_0-c)^2+2(q_0-\ell)^2\equiv3\pmod8.
+\]
+But $\operatorname{Tr}(D)=n(1-2/f)$ is an integer, so $f\mid2n$.
+Since $f$ is odd and $n\in\{18,36\}$, it divides nine; the
+congruence and $f\geq3$ force $f=3$. For $n=36$ the trace of $D$
+is $12$, giving $D=D'=6$, contrary to irrationality. For $n=18$
+the trace is $6$, giving negative discriminant $36-72$,
+contrary to reality. Every possibility has now been excluded.
+\end{proof}
+
+\begin{corollary}\label{ns:cor:pseudo-unitary-conjugate}
+Every non-self-dual rank-four complex fusion category has a
+pseudo-unitary Galois conjugate.
+\end{corollary}
+\begin{proof}
+It is spherical by Theorem~\ref{ns:thm:ns-spherical}. Duality has
+trace two on the based algebra and permutes primitive idempotents,
+so exactly two characters are real. This condition is Galois stable.
+If $D$ is rational, weak integrality gives pseudo-unitarity. Otherwise
+the Frobenius--Perron orbit consists of both real characters: its
+degree is two. The spherical dimension character is real and hence
+belongs to this orbit. Apply Lemma~\ref{core:lem:galois-transport}.
+\end{proof}
+
+\subsection{Two families from the repeated codegree}
+
+Larson first reduced the pseudo-unitary non-self-dual problem to two
+one-parameter families and determined its seven candidates
+\cite[Sections~3--5]{Larson}. We give the reduction and the exclusions
+needed here. Our argument starts with the nonreal character, avoiding
+an auxiliary parametrization of all non-self-dual rings.
+
+\begin{lemma}\label{nsnew:two-families}
+A pseudo-unitary rank-four fusion category with a non-self-dual simple
+has one of the following Grothendieck rings:
+\begin{enumerate}
+\item the near-group ring $\operatorname{NG}(C_3,m)$, with basis
+$1,g,g^2,\rho$ and relations
+\[
+ g^3=1,\qquad g\rho=\rho,\qquad
+ \rho^2=1+g+g^2+m\rho\quad(m\ge0);
+\]
+\item the ring $S(m)$, with basis $1,g,x,y$, where $x^*=y$, and
+\[
+ g^2=1,\quad gx=y,\quad gy=x,\quad
+ x^2=y^2=g+m(x+y),\quad xy=1+m(x+y)\quad(m\ge0).
+\]
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+Let $f$ be the repeated codegree of the nonreal characters in
+\eqref{ns:eq:ns-nonreal}. Write the other two codegrees as $D,D_1$, with
+$D=\operatorname{FPdim}(\C)$. Thus
+\[
+ D^{-1}+D_1^{-1}+2/f=1,\qquad D\ge f>2.
+\]
+Ostrik's pseudo-unitary inequality \cite[Theorem~2.21]{Ostrik3} gives
+\begin{equation}\label{nsnew:first-moment}
+ u:=D^{-2}+D_1^{-2}+2f^{-2}\le\frac12(1+D^{-1}).
+\end{equation}
+If $D$ is irrational, $D_1$ is its quadratic conjugate. Central
+induction makes $D/f$ integral, so $DD_1\ge f^2$. Therefore
+\[
+ 1-\frac4f+\frac4{f^2}\le u\le\frac12+\frac1{2f},
+\]
+which gives $f\le8$. Equality at $f=8$ would require $D=f$,
+contrary to irrationality. If $D$ is rational, both real codegrees
+are integers: they are either conjugates of one rational number or
+belong to two rational characters. Hence $D_1\ge2$, and
+\[
+ \frac12\ge D_1^{-1}=1-2/f-D^{-1}\ge1-3/f
+\]
+gives $f\le6$. In either case $2<f<8$. The expression
+$f=2+a^2+2t^2$, with $a,t$ of opposite parity, leaves only
+\[
+ f=3:\ (a,t)=(\pm1,0),\qquad
+ f=4:\ (a,t)=(0,\pm1).
+\]
+Substitution in \eqref{ns:eq:ns-signed-table}, already carried out in
+\eqref{ns:eq:two-forms}, gives the two stated rings. In the first row
+$g=X$, $g^2=Z$, $\rho=Y$. In the second, $g=Y$, $x=X$, $y=Z$.
+The remaining parameter is nonnegative in the ordinary ring.
+\end{proof}
+
+\subsection{The near-group parameter from eleven moments}
+
+The following restriction is due to Larson
+\cite[Theorem~4.11]{Larson}. The Galois averaging argument of
+Proposition~\ref{core:prop:quartic-individual-disjointness} gives a
+short proof using the same positive central measure.
+
+\begin{proposition}\label{nsnew:near-group}
+If $\operatorname{NG}(C_3,m)$ admits a pseudo-unitary categorification,
+then $m\in\{0,2,3,6\}$.
+\end{proposition}
+\begin{proof}
+Put $\delta=\operatorname{FPdim}(\rho)$ and $D=\operatorname{FPdim}(\C)$.
+Then $\delta^2=3+m\delta$ and $D=6+m\delta$.
+If $\delta$ is rational, it is an integer, and
+$\delta(\delta-m)=3$ with $m\ge0$ forces $\delta=3$, $m=2$.
+Otherwise put $K=\Q(\delta)$, with nontrivial embedding denoted by a
+prime. The codegrees are $D,D',3,3$. A constituent of $I(1)$ has
+dimension $D/3=2+(m/3)\delta$; its restriction has dimension
+$a+b\delta$ for nonnegative integers $a,b$. Hence $m=3k$.
+The radicand $m^2+12=3(3k^2+4)$ has three-adic valuation one, so
+$K$ is neither $\Q(\sqrt2)$ nor $\Q(\sqrt5)$. These are the only
+real quadratic subfields of cyclotomic fields of orders at most eleven:
+the maximal real subfields at orders $7,9,11$ have odd degrees $3,3,5$,
+and the other orders are immediate. Thus
+$K\cap\Q(\zeta_n)=\Q$ for $1\le n\le11$.
+
+Take $\mu=\mu_{\C}$ from \eqref{core:eq:averaged-indicators}.
+Since $\Tr_{K/\Q}(1/D)=1/3$ and $\Tr_{K/\Q}(\delta/D)=0$, its
+$n$th moment is
+$(1+\overline\nu_n(g)+\overline\nu_n(g^2))/6$, where bars denote
+normalized Galois averages. An invertible object's indicator is zero
+unless its order divides $n$, and otherwise is an $n$th root of unity
+\cite[Lemma~3.7]{Schopieray}. Its normalized Galois average is real
+and at most one. Thus the moment equals $1/6$ when $3\nmid n$
+and is at most $1/2$ when $3\mid n$.
+
+The four constituents of $I(1)$ have twist one and give the forced atom
+\[
+ \mu(\{1\})\ge u:=\frac1{D^2}+\frac1{(D')^2}+\frac29
+ =\frac13-\frac2{3(m^2+12)},
+\]
+where $DD'=3(m^2+12)$. Integrating
+$P(z)=|1+z+\cdots+z^{11}|^2$, whose value at one is $144$, yields
+\[
+ 144u\le\int P\,d\mu
+ \le12+2\left(\frac{66}{6}+\frac13(9+6+3)\right)=46.
+\]
+It follows that $m^2+12\le48$, hence $m\le6$. Together with
+$3\mid m$ and the rational case $m=2$, this proves the claim.
+\end{proof}
+
+\subsection{The second family and the complete list}
+
+Larson obtained $m\le2$ \cite[Theorem~5.8]{Larson}.
+Edie-Michell--Izumi--Penneys excluded $m=2$ for unitary
+categorifications \cite{EIP}, and the pivotal classification of
+Dong--Palcoux--Plessis excludes it in the pseudo-unitary setting
+\cite{DPP}. The two vanishing indicators of a non-self-dual simple
+give a direct exclusion.
+
+\begin{proposition}\label{nsnew:second-family}
+A pseudo-unitary categorification of $S(m)$ requires $m\le1$.
+\end{proposition}
+\begin{proof}
+Suppose $m\ge2$, set $d=m+\sqrt{m^2+1}$ and
+$D=2+2d^2=4+4md$. The codegrees are $D$, $2+2d^{-2}$, $4$, $4$.
+Thus the three nonunit summands of $I(1)$ have dimensions
+$d^2,1+md,1+md$. Their restrictions contain the unit once, no $g$,
+and respectively $2m,m,m$ copies of $x,y$ in total: this follows
+from $FI(1)=4\cdot1+2mx+2my$ and irrationality of $d$.
+Consequently their combined twist-one mass in $I(x)\oplus I(y)$ is
+\[
+ W=2md^2+2m(1+md)=4m+6m^2d.
+\]
+Both first and second indicators of $x$ and $y$ vanish. Integrating
+$|1+z+z^2|^2$ against the positive twist measure of
+$I(x)\oplus I(y)$ therefore gives $9W\le3(2dD)$.
+But
+\[
+ 3W-2dD=4m+(2m^2-8)d>0\qquad(m\ge2),
+\]
+a contradiction.
+\end{proof}
+
+\begin{theorem}\label{nsnew:classification}
+The non-self-dual Grothendieck rings of rank-four complex fusion
+categories are precisely
+\[
+ \operatorname{NG}(C_3,0),\quad\operatorname{NG}(C_3,2),\quad
+ \operatorname{NG}(C_3,3),\quad\operatorname{NG}(C_3,6),\quad
+ S(0),\quad S(1).
+\]
+Every such category admits a spherical structure, and its
+Frobenius--Perron dimension is at most $24+12\sqrt3<45$.
+\end{theorem}
+\begin{proof}
+Corollary~\ref{ns:cor:pseudo-unitary-conjugate} gives a pseudo-unitary
+Galois conjugate with the same ring. Apply
+Lemma~\ref{nsnew:two-families} and the two preceding propositions.
+For existence use the models and references in
+Table~\ref{finite:tab:models}. Their dimension formulas are
+$3+\delta^2$ with $\delta=(m+\sqrt{m^2+12})/2$ in the near-group
+case, and $2+2d^2$ with $d=m+\sqrt{m^2+1}$ for $S(m)$.
+They give the stated upper bound. Sphericality was already established
+in Theorem~\ref{ns:thm:ns-spherical}, independently of these models.
+\end{proof}
+\section{Categories with a nontrivial invertible object}\label{sec:inv}
+\begin{theorem}\label{inv:thm:rankfour-invertible-spherical}
+Every self-dual rank-four complex fusion category with a nontrivial
+invertible simple object admits a spherical structure.
+\end{theorem}
+
+Use the sphericalization notation of Section~\ref{sec:core},
+choosing positive signed dimensions $\beta_i$ and a maximal conjugate
+$E$. Lemma~\ref{core:lem:family-induction} shows that, in the absence of a spherical section,
+\begin{equation}\label{inv:eq:proper-signed-strict}E<D.\end{equation}
+If $D$ is rational, the
+category is weakly integral and already spherical by
+\cite[Propositions~8.23--8.24]{ENO}. We therefore restrict attention
+to irrational $D$.
+
+\begin{proposition}\label{inv:prop:cubic-rational-two-impossible}
+Let $\C$ be a self-dual rank-four complex fusion category. Suppose
+that both its ordinary rational Grothendieck algebra and the signed
+rational algebra of its sphericalization are the product of $\Q$
+with a totally real cubic field, and that the Frobenius--Perron and
+spherical dimension characters belong to the respective cubic factors.
+Then the ordinary rational character does not have formal codegree two.
+\end{proposition}
+
+\begin{proof}
+Suppose its codegree is two. After relabeling, the rational character is
+$(1,-1,0,0)$ on the basis $\mathbf1,G,X,Y$: orthogonality to the positive
+Frobenius--Perron character fixes the negative sign and gives
+$\operatorname{FPdim}(G)=1$. Thus $G$ is invertible. Its values on the
+three cubic characters are all one, so $G^2=\mathbf1$, $GX=X$, and $GY=Y$.
+
+Let $\mathcal S$ be the sphericalization, with central sign $\varepsilon$.
+Choose positive lifts $G^+,X^+,Y^+$ and their sign translates.
+The lift $G^+$ has dimension one, satisfies $(G^+)^2=\mathbf1$, and fixes
+$X^+,Y^+$ on both sides: the alternative sign translates have the wrong
+nonzero dimension. In the signed quotient write $G,X,Y$ for their
+classes. Its rational character is again $(1,-1,0,0)$ and has codegree
+two. Its multiplication has the form
+\[
+ \begin{aligned}
+ X^2&=1+G+aX+bY,& XY&=bX+cY,\\
+ Y^2&=1+G+cX+eY,
+ \end{aligned}
+\]
+with integers $a,b,c,e$, which may be negative. The signed Casimir is
+therefore
+\[
+ 1+G^2+X^2+Y^2=4+2G+(a+c)X+(b+e)Y.
+\]
+Put $x=\dim X^+$, $y=\dim Y^+$, and $E=2+x^2+y^2$.
+Since the dimension character is faithful on the cubic quotient by
+$G-1$, the numbers $1,x,y$ are linearly independent over $\Q$.
+Writing $p=a+c$ and $q=b+e$ gives
+\begin{equation}\label{inv:eq:cubic-two-halfdimension}
+ E=6+px+qy,\qquad E/2=3+(p/2)x+(q/2)y.
+\end{equation}
+
+Let $F:Z(\mathcal S)\to\mathcal S$ be forgetful and $I$ its right
+adjoint. The ordinary and signed rational characters give two distinct
+one-dimensional characters of $K_0(\mathcal S)$, with $\varepsilon$
+acting by $+1$ and $-1$, respectively. Both have formal codegree four.
+The central-induction theorem therefore supplies distinct constituents
+$B_+,B_-$ of $I(\mathbf1)$, each occurring once and satisfying
+\[
+ \dim B_+=\dim B_-=\frac{\dim\mathcal S}{4}=\frac E2,
+ \qquad \theta_{B_+}=\theta_{B_-}=1.
+\]
+Moreover $I(\mathbf1)$ and $I(\varepsilon)$ have no common constituent:
+by adjunction and the induction formula their inner product is the
+trace of multiplication by $\varepsilon$, which is zero since it
+interchanges every pair of lifts. Hence each $F(B_\pm)$ contains the
+unit once and contains no $\varepsilon$.
+
+Write its signed multiplicity at $G$ as
+\[
+ r_G=[F(B_\pm):G^+]-[F(B_\pm):\varepsilon G^+].
+\]
+Comparing dimensions with \eqref{inv:eq:cubic-two-halfdimension}, using
+the independence of $1,x,y$, gives $1+r_G=3$. Thus
+$[F(B_\pm):G^+]\ge2$, so each $B_\pm$ occurs in $I(G^+)$ at least twice.
+
+On the other hand,
+\[
+ \dim\operatorname{End}(I(G^+))
+ =\sum_{V\in\operatorname{Irr}(\mathcal S)}
+       \dim\operatorname{Hom}(VG^+,G^+V)=8.
+\]
+Here $G^+$ is invertible and commutes with every simple class; each
+summand equals one. The two multiplicities already contribute
+$2^2+2^2=8$. Consequently
+\[
+ I(G^+)=2B_+\oplus2B_-.
+\]
+Its twist is the identity, and its twist trace is $2E=\dim\mathcal S$.
+The center formula of \cite[Theorem~4.1]{NS} for the first Frobenius--Schur indicator would give
+$\nu_1(G^+)=1$. This contradicts $\nu_1(G^+)=0$, since $G^+$ is a
+nontrivial simple object.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{inv:thm:rankfour-invertible-spherical}]
+Assume there is no spherical section of the sphericalization. We have
+already excluded rational $D$. Since every simple is self-dual, the
+group of invertible simples has exponent two. If it has four elements
+the category is pointed and spherical. Thus it has exactly two
+elements $1,G$, and $G$ either fixes or interchanges the other simples
+$X,Y$.
+
+First suppose $GX=Y$. The simple Frobenius--Perron dimensions
+then have the two values $1,d$, with $d>1$. Schopieray's theorem
+\cite[Lemma~3.1]{Schopieray} supplies a pseudo-unitary Galois
+conjugate. Its canonical spherical structure transports back along
+the inverse field automorphism, contradicting the assumption.
+
+Now suppose $GX=X$ and $GY=Y$. The ordinary fixed-action
+table for a self-dual category is Dong's
+\cite[Proposition~3.2]{DongFour}. Its signed analogue again has the
+character $(1,-1,0,0)$ on $1,G,X,Y$: the positive lift of $G$ has
+dimension one, squares to the unit and fixes the positive lifts of
+$X,Y$, since their negative lifts have the opposite dimensions.
+Equivalently, the line spanned by $1-G$ realizes this character in
+the signed algebra. Its codegree is two. The signed dimension field
+therefore has degree at most three, and contains the irrational $D$.
+
+If it is quadratic, the general signed codegree-two obstruction,
+Theorem~\ref{quad:thm:quadratic-signed-codegree-two}, gives a spherical
+structure. Its proof uses the signed table, the codegree and indicator
+bounds of Sections~\ref{sec:core}--\ref{sec:moments}, and the quartic
+order criterion of Corollary~\ref{col:cor:quartic-order-casimir-degree}.
+The latter uses the ordinary dimensional grading and
+Lemma~\ref{col:lem:rank-four-grading}, independently of the present
+theorem. Finally, if the signed
+field is cubic, it contains the irrational $D$, so both ordinary and
+signed rational algebras are products of $\Q$ and a cubic
+field, with the dimension characters in the cubic factors. Their
+rational characters have codegree two. This contradicts
+Proposition~\ref{inv:prop:cubic-rational-two-impossible}.
+Every case gives a spherical section, completing the proof.
+\end{proof}
+\subsection{The Fibonacci normal form}\label{sec:fib}
+Dong gives the ordinary table for a self-dual rank-four fusion
+category containing a Fibonacci subcategory
+\cite[Proposition~3.3]{DongFour}. The argument below also proves
+that the Fibonacci relation itself forces self-duality of the
+remaining simples and determines the signed table.
+\begin{lemma}[Fibonacci normal form]\label{fib:lem:normal-form}
+A rank-four fusion ring containing $f$ with $f^2=1+f$ is self-dual
+and has a basis $1,f,X,Y$ with
+\begin{equation}\label{fib:eq:fib-auto-rules}
+\begin{gathered}
+ fX=Y,\qquad fY=X+Y,\qquad X^2=1+aX+bY,\\
+ XY=f+bX+(a+b)Y,\qquad
+ Y^2=1+f+(a+b)X+(a+2b)Y,
+\end{gathered}
+\end{equation}
+where $a,b\ge0$ are integers. Its positive character is
+$(1,\phi,x,\phi x)$, where $\phi=(1+\sqrt5)/2$ and
+$x^2=1+(a+b\phi)x$. In a normalized signed sphericalization quotient,
+the same formulas hold with integers $\alpha,\beta$ satisfying
+$|\alpha|\le a$, $|\beta|\le b$, $\alpha\equiv a$ and
+$\beta\equiv b\pmod2$.
+\end{lemma}
+\begin{proof}
+On the two outside simples, multiplication by $f$ has a symmetric
+nonnegative integral matrix $M$ satisfying $M^2=I+M$. Its characteristic
+polynomial is $t^2-t-1$ by irreducibility, so the diagonal entries are
+$0,1$ and the off-diagonal entry is one. The ring is commutative by
+Lemma~\ref{core:lem:rank-four-algebra}. Duality commutes with $M$ and
+cannot exchange the two different diagonal entries. Hence all simples
+are self-dual. Frobenius reciprocity and associativity give the displayed products.
+For a signed quotient, first change the sign of $f$ so that
+$f^2=1+f$. A sign change of an outside basis element normalizes its
+nonzero off-diagonal action coefficient to one. The same calculation
+then gives the signed formulas; domination and parity give the stated
+restrictions on $\alpha,\beta$.
+\end{proof}
+
+\section{Central columns and descent of the dimension field}\label{sec:central-columns}
+
+Let $\C$ be a self-dual rank-four complex fusion category,
+$\mathcal S$ its sphericalization, and $\varepsilon$ its sign object.
+Write $R=K_0(\C)$ and
+$T=K_0(\mathcal S)/(\varepsilon+1)$, and put
+$D=\operatorname{FPdim}(\C)$ and
+$2E=\dim(\mathcal S)$. The ordinary and signed rational algebras
+are commutative, as explained above. Let $L$ be the field generated
+by the signed spherical dimensions. It is totally real and abelian.
+Central induction gives $E/D\in L$, so $D\in L$.
+
+We use the canonical normalized modular matrix
+$S=s/(2E)$ of $Z(\mathcal S)$. For a one-dimensional character
+$\chi$ of $K_0(\mathcal S)$, let $A_\chi$ be the corresponding
+simple constituent of $I(\mathbf1)$. The central-induction theorem
+and modular-character formula give
+\begin{equation}\label{col:eq:central-column-character}
+ [I(\mathbf1):A_\chi]=1,\qquad
+ \dim A_\chi=\frac{2E}{f_\chi},\qquad
+ \frac{S_{A_\chi,V}}{S_{A_\chi,0}}=\chi(F(V)).
+\end{equation}
+In this display $f_\chi$ is the codegree in $K_0(\mathcal S)$,
+twice the corresponding codegree of $R$ or $T$.
+Here $F:Z(\mathcal S)\to\mathcal S$ is forgetful; see
+\cite[Example~2.9 and Theorem~2.13]{Ostrik3}.
+
+\begin{proposition}[Simultaneous Galois columns]\label{col:prop:simultaneous-columns}
+Let $L$ be the signed dimension field and $\sigma\in\Gal(L/\Q)$.
+Let $B_\sigma$ be the induction constituent associated with the signed
+dimension character followed by $\sigma$. If $\chi$ is any ordinary
+or signed character and $f_\chi$ its codegree in $R$ or $T$, then
+\[
+\chi(F(B_\sigma))=\frac{f_\chi}{\sigma(f_\chi)}.
+\]
+Consequently the codegrees determine both its folded and signed
+forgetful classes, even if the rational algebras are products of fields.
+Their coefficient vectors $w_\sigma,z_\sigma$ satisfy
+\[
+w_{\sigma,0}=z_{\sigma,0}=1,\qquad
+w_{\sigma,i}\ge |z_{\sigma,i}|,\qquad
+w_{\sigma,i}\equiv z_{\sigma,i}\pmod2.
+\]
+\end{proposition}
+\begin{proof}
+Let $A_\chi$ be the induction constituent for $\chi$. Its dimension
+is $E/f_\chi$ and $S_{A_\chi,0}=1/(2f_\chi)$. The modular-character
+formula gives
+\[
+S_{B_\sigma,A_\chi}
+=\frac{\sigma(E/f_\chi)}{2\sigma(E)}
+=\frac1{2\sigma(f_\chi)}.
+\]
+Symmetry of $S$ gives the asserted character value. All characters
+together separate the commutative semisimple algebra, so these values
+determine each class. If the two lift multiplicities at $X_i$ are
+$m_i^+,m_i^-$, the two coefficients are their sum and difference.
+Adjunction gives unit multiplicity one. The sign multiplicity is zero:
+$I(\varepsilon)=\widehat\varepsilon\otimes I(1)$ has negative-dimensional
+constituents, whereas the constituents of $I(1)$ have positive dimensions.
+\end{proof}
+
+\begin{proposition}[Positive Galois columns]\label{col:prop:positive-Galois-columns}
+Suppose $[\Q(D):\Q]=4$. Identify $R$ with
+its Frobenius--Perron image and $T$ with its spherical-dimension
+image in the common field $K=L=\Q(D)$. For every
+$\sigma\in\operatorname{Gal}(K/\Q)$, the element
+\[
+ u_\sigma=\frac{D}{\sigma(D)}
+\]
+belongs to $R$ and has nonnegative integral coefficients in its
+distinguished basis. Write $w_\sigma$ for its coefficient vector and
+$z_\sigma$ for the signed coefficient vector of
+$v_\sigma=E/\sigma(E)\in T$. Then
+\[
+ w_{\sigma,0}=z_{\sigma,0}=1,\qquad
+ w_{\sigma,i}\ge |z_{\sigma,i}|,\qquad
+ w_{\sigma,i}\equiv z_{\sigma,i}\pmod2.
+\]
+\end{proposition}
+\begin{proof}
+Apply Proposition~\ref{col:prop:simultaneous-columns} to all ordinary
+and signed characters. In a quartic field the dimension maps are
+injective, so the folded and signed elements are respectively
+$D/\sigma(D)$ and $E/\sigma(E)$. The coefficient assertions are
+those of the proposition.
+\end{proof}
+
+\begin{proposition}[Descent of the dimension field]\label{col:prop:dimension-field-grading}
+If $L\ne\Q(D)$, then $\C$ admits a nontrivial
+faithful grading by a finite cyclic group.
+\end{proposition}
+\begin{proof}
+Choose a nonidentity $\sigma\in\operatorname{Gal}(L/\Q(D))$.
+Define $B_\sigma$ as in the preceding proof. The same
+calculation applies without any injectivity assumption on the
+dimension maps and gives
+\[
+ \operatorname{FPdim}(F(B_\sigma))=D/\sigma(D)=1.
+\]
+Adjunction gives $[F(B_\sigma):\mathbf1]=1$. Consequently
+$F(B_\sigma)=\mathbf1$ in $\mathcal S$. The character defining
+$B_\sigma$ differs from the dimension character, whose constituent
+is the tensor unit. Thus $B_\sigma\ne\mathbf1$ in $Z(\mathcal S)$.
+
+A central structure on the tensor unit is a monoidal natural
+automorphism $\gamma$ of $\operatorname{Id}_{\mathcal S}$, and here
+$\gamma$ is nonidentity. Its value at $\varepsilon$ is one.
+Indeed the modular-character formula evaluated at the canonical
+central lift $\widehat\varepsilon$ gives $-1$; on the other hand
+this value is $\dim(\varepsilon)$ times the monodromy scalar,
+namely $-\gamma_\varepsilon$. Hence
+$\gamma_\varepsilon=1$.
+
+The scalar values of $\gamma$ therefore agree on the two lifts of
+every simple of $\C$. They descend to a nonidentity
+monoidal natural automorphism of $\operatorname{Id}_{\C}$:
+if an ordinary fusion coefficient is nonzero, one of its lifted
+coefficients is nonzero and supplies the required product relation.
+The finitely many scalar values form a subgroup of $\CC^\times$,
+since tensor products give products and duals give inverses. This
+finite group is cyclic and gives the asserted faithful grading.
+\end{proof}
+
+\begin{lemma}\label{col:lem:rank-four-grading}
+A rank-four complex fusion category with a nontrivial faithful
+grading is either weakly integral or has a nontrivial invertible
+simple object.
+\end{lemma}
+\begin{proof}
+The neutral component has rank one, two, or three. In rank one,
+$X\otimes X^*$ is a sum of units for every simple $X$, and its
+unit multiplicity is one. Thus every simple is invertible.
+
+In rank two, the neutral component is pointed or has Fibonacci
+fusion rules by Proposition~\ref{core:prop:rank-two}. In the pointed case its global
+dimension is two, and equality of the dimensions of homogeneous
+components makes the whole category weakly integral. In the
+Fibonacci case write $f^2=1+f$ and
+$\phi=(1+\sqrt5)/2$. A component of rank one is impossible:
+the integer multiplicity for multiplication by $f$ would satisfy
+$m^2=1+m$. Thus there is just one other component, of rank two.
+On its simples $X,Y$, multiplication by the self-dual object $f$
+has a symmetric nonnegative integer matrix $M$ satisfying
+$M^2=I+M$. Its eigenvalues are the two roots of $t^2-t-1$,
+so its trace is one and determinant is minus one. Up to exchanging
+$X,Y$,
+\[
+ M=\begin{pmatrix}0&1\\1&1\end{pmatrix},\qquad
+ \operatorname{FPdim}(Y)=\phi\operatorname{FPdim}(X).
+\]
+Equality of component dimensions now gives
+$(1+\phi^2)\operatorname{FPdim}(X)^2=1+\phi^2$.
+Hence $X$ is a nontrivial invertible object.
+
+In rank three, there is a single nonneutral simple $X$, and the
+grading group has order two. Each neutral simple $Y$ satisfies
+$Y\otimes X=m_YX$, so $\operatorname{FPdim}(Y)=m_Y$ is integral.
+The two homogeneous components have equal Frobenius--Perron
+dimension; hence the total dimension is an integer. See
+\cite[Proposition~8.20]{ENO} for equality of component dimensions.
+\end{proof}
+
+\begin{corollary}\label{col:cor:quartic-order-casimir-degree}
+If the rational Grothendieck algebra of a rank-four complex fusion
+category is a quartic field, its Frobenius--Perron global dimension
+has degree four.
+\end{corollary}
+\begin{proof}
+Its Frobenius--Perron character identifies the algebra with a
+quartic field $K=\Q(d_i)$. This character is injective, so the unit
+is the only simple of dimension one. If $D$ were rational, its four
+conjugates, counted with multiplicity, would all be $D$.
+The reciprocal-codegree identity would give $D=4$, making every
+simple invertible. Thus $D$ is irrational. If $\Q(D)\subsetneq K$,
+the dimensional grading of Gannon--Schopieray
+\cite[Section~1.2]{GannonSchopieray} is nontrivial since its group
+has order $[K:\Q(D)]$. Lemma~\ref{col:lem:rank-four-grading}
+would force weak integrality or a nontrivial invertible simple,
+both of which we have just excluded.
+\end{proof}
+
+\begin{corollary}\label{col:cor:rank-four-dimension-field-descent}
+Every nonspherical self-dual rank-four complex fusion category
+satisfies $L=\Q(D)$.
+\end{corollary}
+\begin{proof}
+Otherwise the preceding proposition and lemma apply. Weakly integral
+fusion categories are spherical by \cite[Proposition~8.24]{ENO}.
+Theorem~\ref{inv:thm:rankfour-invertible-spherical} gives a spherical
+structure in the remaining case, a contradiction.
+\end{proof}
+
+\section{Quadratic codegree obstructions}\label{sec:quad}
+Ostrik proved that formal codegrees are $d$-numbers \cite{OstrikCodegrees},
+and Schopieray studied the norms and traces of formal codegrees,
+including finiteness at fixed norm \cite{SchopierayNorm}. Here the
+ordinary and signed codegrees occur in the same quadratic field.
+Comparing their two norm pairs first eliminates rational signed rows
+and then bounds the ordinary global dimension. The same list of short
+quadratic character rows applies to both tables.
+
+\begin{lemma}[The quadratic-unit gap]\label{quad:lem:unit-gap}
+Let $0<t<1$ be a totally positive quadratic algebraic integer of norm
+one. Then $t\le(3-\sqrt5)/2$. Unless its field is
+$\Q(\sqrt5)$, one has $t\le2-\sqrt3$.
+\end{lemma}
+\begin{proof}
+Its integral trace $t+t^{-1}$ is at least three. Trace three gives
+$\Q(\sqrt5)$; otherwise the trace is at least four. Solve the
+quadratic equation and take its smaller root.
+\end{proof}
+
+\subsection{A quadratic signed dimension field with codegree two}
+
+\begin{theorem}\label{quad:thm:quadratic-signed-codegree-two}
+Let $\C$ be a self-dual rank-four complex fusion category.
+If the signed quotient of its sphericalization has a quadratic
+spherical dimension field and a rational formal codegree two, then
+$\C$ admits a spherical structure.
+\end{theorem}
+
+We prove that a proper signed quotient is impossible. Choose a field
+embedding and lifts with positive dimension values, and let $E\ge E'$
+be the two dimension codegrees of the signed quotient $T$.
+If the ordinary Frobenius--Perron dimension $D$ is rational, the
+category is weakly integral and hence pseudo-unitary \cite{ENO}.
+Otherwise $D$ is quadratic in the signed dimension field $K$.
+A proper quotient has $E<D$: equality forces equality in the spectral
+comparison with the ordinary nonnegative table, giving a spherical
+section. We do not assume that the ordinary Frobenius--Perron
+\emph{character} field equals its codegree field; that distinction
+will be addressed below.
+
+\subsubsection{The signed table and its norm restrictions}
+
+A character with codegree two is rational. Indeed its three nonunit
+coordinates are totally real algebraic integers whose squares sum to
+one at every embedding. Each nonzero coordinate has absolute norm at
+least one and absolute value at most one at every embedding, so is
+$\pm1$. Orthogonality to the positive row therefore puts the
+codegree-two row in the form $(1,-1,0,0)$. Orthogonality makes every other character
+value on $X$ equal to one. Thus multiplication by $X$ is a symmetric
+integral involution. Its negative eigenspace is already spanned by
+$1-X$, so it fixes $Y,Z$ and exchanges $1,X$. Consequently
+\begin{equation}\label{quad:eq:quad-two-table}
+ \begin{aligned}
+ X^2&=1,&XY&=Y,&XZ&=Z,\\
+ Y^2&=1+X+aY+bZ,&YZ&=bY+cZ,&Z^2&=1+X+cY+dZ,
+ \end{aligned}
+\end{equation}
+with integral coefficients and $b^2+c^2=2+ac+bd$.
+The other rational character is $(1,1,r,t)$, with
+\[
+ h=2+r^2+t^2>2,\qquad 2+ru+tv=0,
+\]
+where $(1,1,u,v)$ is the positive dimension character.
+
+Put
+\[
+ p=D^{-1}+(D')^{-1},\quad q=E^{-1}+(E')^{-1}=\frac12-\frac1h,
+ \quad k=\frac{EE'}{DD'}\in\ZZ_{>0}.
+\]
+Central induction gives integrality of $E/D,E/2,E/h$.
+Each of the other two ordinary codegrees is at most $D$, so
+$p\le1-2/D$, whether or not those characters are rational.
+Comparison on the upper-root interval yields
+\begin{equation}\label{quad:eq:quad-two-norm-bound}
+ kq<p+\frac{k-1}{D}\le1+\frac{k-3}{D}.
+\end{equation}
+Moreover
+\begin{equation}\label{quad:eq:quad-two-small-conjugate}
+ s_0=\frac{kD}{E}=(E/D)'\quad\hbox{is integral},\qquad
+ \operatorname{Norm}(s_0)=k,\qquad k<s_0<E'.
+\end{equation}
+Here $D'=E'/s_0>1$ because every formal codegree exceeds one.
+For $k=1$, Lemma~\ref{quad:lem:unit-gap} gives $s_0\ge(3+\sqrt5)/2$;
+for $k=2$, the integral trace $s_0+2/s_0$ is at least four
+(since $s_0>2$), so $s_0\ge2+\sqrt2$.
+If $h\ge6$, then $q\ge1/3$ and
+\eqref{quad:eq:quad-two-norm-bound}, with $D\ge4$, forces $k\le2$:
+for $k\ge3$ it would give
+$k/3<(k+1)/4\le k/3$.
+
+For $h\ge11$, norm divisibility gives $EE'\ge h^2$, whence
+\[
+ E'\le\frac{4h}{h-2+\sqrt{(h-2)^2-16}}
+    <\frac{4h}{2h-5}\le\frac{44}{17}
+    <\frac{3+\sqrt5}{2}.
+\]
+This contradicts \eqref{quad:eq:quad-two-small-conjugate}.
+In particular $h\le10$. The values $h=5,8,9$ are impossible because $h-2=3,6,7$ is not
+a sum of two squares. We next treat $h=4,6,7,10$ explicitly.
+
+For $h=4$, the entries $r,t$ have absolute value one. Both positive
+are incompatible with $2+ru+tv=0$. Both negative give $u+v=2$
+and $E<6$, whereas $E\ge2/q=8$. Thus take $(r,t)=(1,-1)$.
+Evaluation of \eqref{quad:eq:quad-two-table} gives
+\[
+ v=u+2,\quad(a,b,c,d)=(b-1,b,b+1,b+2),\quad
+ u^2=(2b-1)u+2b+2.
+\]
+For $\Delta=4b^2+4b+9$, the codegrees have trace $2\Delta$ and
+norm $8\Delta$. Since $\Delta$ is odd,
+$\operatorname{Norm}(E/4)=\Delta/2$ is not an integer, a contradiction.
+
+For $h=6$, take $(r,t)=(0,-2)$. Then
+\[
+ v=1,\quad(a,b,c,d)=(\mu,1,0,-1),\quad
+ u^2=3+\mu u,\quad E=3+u^2,\quad E'=3+9/u^2.
+\]
+The ordering gives $\mu\ge0$. The trace and norm of $E$ are
+$\mu^2+12$ and $3(\mu^2+12)$; integrality of $E/6$ forces
+$6\mid\mu$. If $\mu>0$, then $E'<13/4$ and
+$K=\Q(\sqrt{\mu^2+12})$ is ramified at three. Hence
+$K$ is neither $\Q(\sqrt5)$ nor $\Q(\sqrt2)$.
+For $k=1$ the trace of $s_0$ is at least four, so
+$s_0\ge2+\sqrt3>E'$. For $k=2$ its trace is at least five, so
+$s_0>4>E'$. Both are impossible.
+If $\mu=0$, then $E=E'=6$ and $K=\Q(\sqrt3)$.
+Norm two is impossible in $\ZZ[\sqrt3]$ modulo three,
+so $k=1$. The norm-one unit $1<s_0<6$ has even trace four or six;
+trace six gives the wrong field. Thus this branch leaves only
+\begin{equation}\label{quad:eq:quad-two-residual-three}
+ D=12+6\sqrt3.
+\end{equation}
+
+For $h=7$, integrality of $E/7$ gives $EE'=49A$ and
+$\operatorname{Tr}(E/7)=5A/2$, so $A$ is even and $EE'\ge98$.
+Consequently
+\[
+ E'\le(35-\sqrt{833})/2<13/4.
+\]
+This excludes $k=2$ and forces, for $k=1$, a unit of trace three,
+hence $K=\Q(\sqrt5)$. The absolute values of $r,t$ are
+one and two. Both negative give $u+2v=2$ and $E<6$, contrary to
+$E\ge(E+E')/2\ge35/2$.
+The two remaining sign choices yield, for an integer $j$,
+\[
+\begin{array}{c|c|c}
+(r,t)&(a,b,c,d)&\text{equation for }v\\\hline
+(1,-2)&(8j-5,4j-2,2j,j-1)&v^2+(1-5j)v+4j-2=0\\
+(-1,2)&(8j+5,4j+2,2j,j+1)&v^2-(5j+1)v-4j-2=0.
+\end{array}
+\]
+For $\Delta=25j^2\pm26j+9$ with the corresponding sign, the
+codegree trace and norm are $5\Delta,14\Delta$.
+Integrality of $E/7$ forces $7\mid\Delta$, while
+\[
+ 25\Delta=(25j\pm13)^2+56
+\]
+then gives $v_7(\Delta)=1$. This field cannot be $\Q(\sqrt5)$.
+
+For $h=10$, take $(r,t)=(2,-2)$; the other signs contradict
+positivity or give $u+v=1$ and $E<3$, whereas $E\ge5$.
+Evaluation gives $v=u+1$ and
+$(a,b,c,d)=(b+1,b,b+2,b+1)$. With $m=b+1$,
+\[
+ u^2=(2m-1)u+m+1,\qquad
+ \operatorname{Tr}(E)=2(4m^2+5),\quad
+ \operatorname{Norm}(E)=5(4m^2+5).
+\]
+The norm is odd, contradicting the integrality of $E/2$.
+
+\subsubsection{The codegrees two and three}
+
+Only $h=3$ remains. Its rational row can be taken as $(1,1,0,-1)$,
+so evaluation gives
+\[
+ (a,b,c,d)=(6j,2,0,1),\quad
+ v=2,\quad u^2=6+6ju,\quad j\ge0,
+\]
+\[
+ E=6+u^2,\qquad E'=6+36/u^2.
+\]
+The multiple of six follows from the integral traces of $E/2$ and
+$E/3$.
+Suppose first $j>0$. Then $E>42$, $E'<7$, and
+\eqref{quad:eq:quad-two-norm-bound} gives $k\le6$.
+The integral trace $t_0=s_0+k/s_0$ lies between $k+2$ and seven.
+The field $K=\Q(\sqrt{3(3j^2+2)})$ is ramified at three,
+so $t_0^2-4k$ has odd three-adic valuation.
+The entire resulting list is
+\[
+ (k,t_0,K)=(1,4,\Q(\sqrt3)),\
+ (1,5,\Q(\sqrt{21})),\
+ (3,6,\Q(\sqrt6)),\
+ (4,7,\Q(\sqrt{33})).
+\]
+Indeed $1\le k\le6$ and $k+2\le t_0\le7$ are finite integer
+intervals; imposing odd three-adic valuation gives exactly these
+four entries. The first two are impossible modulo three: they
+would require $3j^2+2$ to be a square or seven times a square.
+For the last, $s_0=(7+\sqrt{33})/2>25/4$, while $j\ge2$ gives
+$E'<6+1/j^2\le25/4$; at $j=1$ the field is instead
+$\Q(\sqrt{15})$.
+The remaining possibility is
+\begin{equation}\label{quad:eq:quad-two-pell}
+ \begin{gathered}
+ k=3,\quad K=\Q(\sqrt6),\quad
+ 2w^2-3j^2=2,\quad u=3j+w\sqrt6,\\
+ DD'=48w^2,\qquad EE'=144w^2,\qquad
+ p=\frac{w+j}{2w}.
+ \end{gathered}
+\end{equation}
+The Pell equation makes $j$ even. Since $j=2$ would give $w^2=7$,
+one has $j\ge4$, $w\ge5$, and
+\[
+ (j/w)^2=\frac23(1-w^{-2})\ge\frac{16}{25},\qquad p\ge\frac9{10}.
+\]
+
+Apply Lemma~\ref{core:lem:family-signed-second}, with $U_2,V_2$
+the ordinary and signed inverse-square codegree sums:
+\begin{equation}\label{quad:eq:quad-two-second-moment}
+ E(U_2+V_2-1)\le1+\sqrt{3(E-1)}.
+\end{equation}
+
+Cauchy's inequality on the other two ordinary codegrees gives
+\[
+ U_2\ge p^2+\frac{(1-p)^2}{2}-\frac2{DD'}
+       \ge\frac{163}{200}-\frac1{600}=\frac{61}{75}.
+\]
+The signed reciprocal identity gives
+\[
+ V_2=\frac14+\frac19+\frac1{36}-\frac2{144w^2}
+       \ge\frac{233}{600}.
+\]
+Hence $U_2+V_2-1\ge121/600$.
+But $E\ge(E+E')/2=EE'/12\ge300$, so
+\eqref{quad:eq:quad-two-second-moment} bounds this by less than
+$1/300+1/10=31/300<121/600$. This excludes the whole positive
+Pell family without restrictions on the other ordinary characters.
+
+If $j=0$, then $E=E'=12$, $K=\Q(\sqrt6)$.
+Write $s_0=c+d\sqrt6$. The inequalities
+$0<s_0'<1<s_0<12$ imply $1\le c\le6$ and $1\le d\le2$.
+Then $0<c-d\sqrt6<1$ leaves exactly
+$s_0=3+\sqrt6$ of norm three or $s_0=5+2\sqrt6$ of norm one.
+Thus the remaining possibilities are
+\begin{equation}\label{quad:eq:quad-two-residual-six}
+ D=12+4\sqrt6\quad\hbox{or}\quad D=60+24\sqrt6.
+\end{equation}
+
+\subsubsection{Excluding the three ordinary dimensions}
+
+The ordinary Frobenius--Perron character field is $K=\Q(D)$:
+a quartic character field with quadratic global codegree is excluded
+by Corollary~\ref{col:cor:quartic-order-casimir-degree}.
+
+\begin{lemma}\label{quad:lem:three-ordinary-rows}
+None of $12+6\sqrt3$, $12+4\sqrt6$, and $60+24\sqrt6$ can be the
+codegree of a rank-four Frobenius--Perron character with values in
+the respective quadratic field.
+\end{lemma}
+\begin{proof}
+Write its nonunit coordinates as $a_i+b_i\sqrt d$ for $d=3,6$.
+Orthogonality to the conjugate character gives $1+|a|^2=d|b|^2$.
+Comparing coefficients in the codegree yields
+\[
+\begin{array}{c|ccc}
+D&|a|^2&|b|^2&a\cdot b\\\hline
+12+6\sqrt3&5&2&3\\
+12+4\sqrt6&5&1&2\\
+60+24\sqrt6&29&5&12 .
+\end{array}
+\]
+Up to a simultaneous signed permutation, in the first case $b=(1,1,0)$.
+Then $a_1+a_2=3$ and $(a_1-a_2)^2+2a_3^2=1$. In the second case
+$b=(1,0,0)$, so $a_1=2$ and $a_2^2+a_3^2=1$. In the third case
+$b=(2,1,0)$ and eliminating $a_2$ gives $(5a_1-24)^2+5a_3^2=1$.
+In every case a nonunit coordinate vanishes, contrary to positivity.
+\end{proof}
+
+This completes the proof of
+Theorem~\ref{quad:thm:quadratic-signed-codegree-two}.
+
+\subsection{Short signed quadratic orbits}\label{sec:short-signed}
+\begin{theorem}\label{qs:short-orbits}
+Let $\C$ be a self-dual rank-four complex fusion category
+with irrational quadratic Frobenius--Perron global dimension $D$.
+Suppose its signed dimension field is $K=\Q(D)$.
+If $\C$ is not spherical, its signed rational algebra is
+$K\times K$. The two formal codegrees in the complementary character
+orbit are genuinely irrational, and their product is at least $100$.
+\end{theorem}
+
+The proof has three steps. We enumerate short quadratic pairs once
+for both tables, eliminate the rational complementary codegrees, and
+then exclude the five surviving signed pairs by comparing their
+dimensions with the ordinary ones.
+
+\subsubsection{Common quadratic comparisons}
+
+Assume throughout the proof that $\C$ is not spherical.
+Choose the signed dimension orbit $E\ge E'$ and put
+\[
+ N=DD',\qquad H=EE'=kN,\qquad
+ p=D^{-1}+D'^{-1},\qquad q=E^{-1}+E'^{-1}.
+\]
+Spectral domination and saturation give $E<D$, and central induction
+gives $k\in\ZZ_{>0}$. Every ordinary codegree is at most $D$.
+The two outside the Frobenius--Perron orbit therefore have reciprocal
+sum at least $2/D$. Lemma~\ref{core:lem:family-comparison} gives
+\begin{equation}\label{qs:comparison}
+ p\le1-\frac2D,\qquad
+ kq<p+\frac{k-1}{D}\le1+\frac{k-3}{D}.
+\end{equation}
+If $q\ge1/3$, then $k\le2$: for $k\ge3$, use $D\ge4$ in the
+last inequality. When $k=2$ it gives $q<1/2$.
+When $k=1$, the totally positive unit $r=D/E>1$ satisfies
+\[
+ r\ge\frac{3+\sqrt5}{2},\qquad
+ \frac qp\le\frac2{r+r^{-1}}\le\frac23.
+\]
+In particular $q<2/3$. If $q=1/4$, then $E\ge8$ and $D>8$;
+\eqref{qs:comparison} gives $k\le4$.
+
+All simple Frobenius--Perron dimensions belong to $K$ by
+Corollary~\ref{col:cor:quartic-order-casimir-degree}; this justifies
+the ordinary dimension reconstructions below.
+
+We repeatedly use the following two bounds, where $u,v$ are the ordinary
+and signed reciprocal-square codegree sums:
+\begin{equation}\label{qs:moments}
+ u\ge p^2+\frac{(1-p)^2}{2}-\frac2N,
+ \qquad u+v-1\le\frac{1+\sqrt{3(E-1)}}E.
+\end{equation}
+The first is Cauchy's inequality for the two complementary ordinary
+reciprocals, and does not assume that their characters are quadratic.
+The second is Lemma~\ref{core:lem:family-signed-second}.
+
+\begin{lemma}[Small integral character rows]\label{quad:lem:small-rows}
+For a self-dual integral Frobenius table of rank four, a rational
+character cannot have codegree five, eight, or sixteen. Distinct
+rational characters cannot have codegree pair $(3,4)$, $(3,12)$,
+or $(9,9)$. A rational character orthogonal to a codegree-four character
+has even codegree.
+\end{lemma}
+\begin{proof}
+A rational character is an integral row $(1,a,b,c)$ with codegree
+$1+a^2+b^2+c^2$. At codegree five its nonunit row is $(\pm2,0,0)$
+up to permutation; evaluating the corresponding square would require
+$4=1\pm2m$. For eight and sixteen, the nonunit squared norm is
+$7$ modulo eight and cannot be a sum of three squares.
+At codegrees $3,4,12,9$ the absolute nonunit rows are respectively
+$(1,1,0),(1,1,1),(3,1,1),(2,2,0)$. The three excluded pairs cannot
+have nonunit inner product $-1$. Finally a codegree-four row is odd
+in every coordinate. Orthogonality modulo two makes the sum of the
+other row's coordinates, hence its squared norm, even.
+\end{proof}
+
+\subsubsection{The complete short character chart}
+
+\begin{lemma}\label{qs:chart}
+Consider a pair of conjugate quadratic characters of a self-dual
+integral Frobenius table of rank four, orthogonal to a character
+whose four coordinates are nonzero. Suppose their formal codegree
+$G$ is a $d$-number and $L=GG'<100$. Up to simultaneous signed
+permutation of the three nonunit coordinates and conjugation, their
+rows occur among the following possibilities. Here
+\[
+ \chi=(1,(t_i+s_i\sqrt d)/2)_{i=1}^3,\qquad
+ \ell=G^{-1}+G'^{-1}.
+\]
+Signs of structure constants are unrestricted; this chart applies
+equally to ordinary and signed tables. Entries marked $*$ have
+rational codegree.
+\[
+\begin{array}{c|r@{\,}r@{\,}r|r@{\,}r@{\,}r|r|c|r}
+d&\multicolumn{3}{c|}{t}&\multicolumn{3}{c|}{s}&L&\ell&\|U\|^2\\\hline
+5&2&-1&-1&0&1&1&20&1/2&1\\
+5&2&-1&1&0&1&1&25^*&2/5&6\\
+5&-3&-1&-1&1&1&1&25&3/5&6\\
+2&2&-2&-2&0&2&2&32&1/2&1\\
+3&0&-4&-2&0&2&2&36&2/3&2\\
+5&-3&-1&1&1&1&1&45&1/3&2\\
+5&-3&-1&-4&1&1&2&45&2/3&2\\
+13&2&-3&-3&0&1&1&52&1/2&1\\
+2&2&-2&2&0&2&2&64^*&1/4&3\\
+2&-2&-2&-6&2&2&4&64&3/4&3\\
+2&-4&-2&0&2&2&2&72&1/3&2\\
+5&2&-4&-4&0&2&2&80&1/2&1\\
+3&2&-4&0&0&2&2&96&1/4&3\\
+3&-4&-4&-6&2&2&4&96&3/4&3
+\end{array}
+\]
+The last column gives the squared norm of the primitive integer
+vector parallel to the nonunit part of the idempotent for this pair.
+In the four rows where it is one, that basis element squares to one.
+\end{lemma}
+\begin{proof}
+Put $J=|s|^2$ and $C=t\cdot s$. Orthogonality of the conjugate rows gives
+\begin{equation}\label{qs:row-identities}
+ |t|^2=dJ-4,\quad
+ G=\frac{dJ+C\sqrt d}{2},\quad
+ L=\frac d4\bigl(4J+|t\times s|^2\bigr),\quad
+ \ell=\frac{dJ}{L}.
+\end{equation}
+Character values are algebraic integers, so $t_i,s_i$ are integers;
+they are both even if $d\not\equiv1\pmod4$, and have the same
+coordinatewise parity otherwise. Orthogonality to a nonzero-coordinate
+character rules out support one for $s$. The reciprocal identity gives
+$0<\ell<1$, hence $dJ<L<100$. The $d$-number condition is
+$L\mid(dJ)^2$.
+
+Here is a bounded arithmetic check of the chart. Take $s$ nonnegative
+and ordered, and take $t_i\ge0$ wherever $s_i=0$.
+If $d\not\equiv1\pmod4$, write $s=2b,t=2a$. The bounds are
+\[
+\begin{gathered}
+d\in\{2,3,6,7,10,11\},\qquad
+2\le|b|^2\le\lfloor24/d\rfloor,\\
+|a|^2=d|b|^2-1,\qquad
+|b|^2+|a\times b|^2\le\lfloor24/d\rfloor.
+\end{gathered}
+\]
+If $d\equiv1\pmod4$, they are
+\[
+ d\in\{5,13,17,21,29,33,37,41\},\qquad
+ 2\le J\le\lfloor99/d\rfloor,
+ \qquad |t|^2=dJ-4.
+\]
+For each permitted $d,J$, take the nonnegative ordered three-square
+representations of $J$. For each such $s$, take
+\[
+ |t_1|\le\sqrt{dJ-4},\quad
+ |t_2|\le\sqrt{dJ-4-t_1^2},\quad
+ t_3=\pm\sqrt{dJ-4-t_1^2-t_2^2},
+\]
+retaining integral values with the stated parity. Apply
+\eqref{qs:row-identities}, $dJ<L<100$ and $L\mid(dJ)^2$.
+The resulting $L$ lists, before identifying the repeated values, are
+\[
+\begin{array}{c|l}
+d=2&32,64,64,72\\
+d=3&36,96,96\\
+d=5&20,25,25,45,45,80\\
+d=13&52,
+\end{array}
+\]
+and the other displayed radicands give no row. Substitution gives
+exactly the fourteen $t,s$ pairs above; the remaining identifications are precisely signed permutations
+and conjugation. This is a finite sum-of-squares check,
+with every range and divisibility specified independently of any
+fusion-ring multiplicity.
+
+The idempotent $P$ projecting onto the character pair has unit coefficient
+$\ell$ and nonunit coefficients
+\[
+ P_i=\frac{d(Jt_i-Cs_i)}{2L}.
+\]
+Clear their denominators and divide by their common gcd to obtain $U$.
+If $U=\lambda(P-\ell)$, its two eigenvalues are
+$\lambda(1-\ell)$ and $-\lambda\ell$; this computes the last column.
+In the norm-one rows $\ell=1/2$ and $\lambda=2$, so $U^2=1$.
+\end{proof}
+
+\subsubsection{Rational complementary signed codegrees}
+
+\begin{lemma}\label{qs:rational-complement}
+The two complementary signed codegrees cannot both be rational.
+\end{lemma}
+\begin{proof}
+A rational signed codegree two already gives sphericality by
+Theorem~\ref{quad:thm:quadratic-signed-codegree-two}; hence assume all
+rational codegrees under consideration are at least three.
+
+First suppose the complementary characters form a quadratic orbit,
+with a repeated rational codegree $g$. Then $q=1-2/g$.
+The preceding comparisons leave only $g=3,4,5$, and $k=1$ for
+$g=4,5$. Lemma~\ref{qs:chart} applies with $L=g^2$. Its only constant-codegree
+entry with $g\le5$ has $g=5$.
+
+For $g=5$ the two rows, after signed permutation, are
+\[
+ (1,-1,\phi,\phi'),\qquad(1,-1,\phi',\phi),
+ \qquad \phi=\frac{1+\sqrt5}{2},\quad\phi'=1-\phi.
+\]
+Evaluation of the symmetric table gives
+\begin{equation}\label{quad:eq:constant-five-normal-form}
+(t,t,t,t-1,t,t-1,t,t-1,t-1,t),\qquad t\in\ZZ.
+\end{equation}
+This calculation uses only the displayed character rows and the
+orthonormal based pairing, so it also applies to ordinary tables.
+The remaining characters are $(1,z+1,z,z)$, where
+$z^2+(2-3t)z-t=0$. With $\Delta=9t^2-8t+4$ their codegrees satisfy
+\[
+ E+E'=3\Delta,\qquad EE'=5\Delta.
+\]
+The value $t=0$ gives rational selected dimensions. Otherwise
+$\Delta\ge5$, and the smaller root is
+\[
+ E'=\frac{10}{3+\sqrt{9-20/\Delta}}
+ \le\frac{15-5\sqrt5}{2}<\frac{3+\sqrt5}{2}\le r.
+\]
+This contradicts $D'=E'/r>1$.
+
+It remains to treat two rational characters, of integral codegrees
+$3\le g\le h$. The small-row restrictions are
+Lemma~\ref{quad:lem:small-rows}. Since $q=1-1/g-1/h\ge1/3$, we have $k\le2$.
+The conditions $q<1/2$ for $k=2$ and $q<2/3$ for $k=1$ now give
+\[
+\begin{array}{c|l}
+k=2&(g,h)=(3,3),\\
+k=1&(3,3),\ (3,h)\ (h\ge6),\ (4,4),\ (4,6),\ (4,10).
+\end{array}
+\]
+For $(3,h)$ with $h\ge6$, central integrality gives $H\ge h^2$.
+As $q=2/3-1/h$, the smaller root satisfies
+\[
+ E'\le\frac2{q+\sqrt{q^2-4/h^2}}
+ \le9-3\sqrt5<\frac{3+\sqrt5}{2}\le r.
+\]
+The second bound is attained at $h=6$: both $q$ and
+$q^2-4/h^2=4/9-4/(3h)-3/h^2$ increase thereafter.
+For $(4,6)$, integrality of $E/4,E/6$ implies that of $E/12$ by
+Bezout, so $E\ge12$ and $E'\le2$. For $(4,10)$ the same argument
+gives $E\ge20$ and $E'\le5/3$. Again $D'=E'/r<1$.
+
+For $(4,4)$ the rational rows are, up to signed permutation,
+$(1,-1,1,-1)$ and $(1,-1,-1,1)$. Their orthogonal complement has
+selected row $(1,1,z,z)$. Character evaluation gives
+\[
+ X^2=1,\quad XY=Z,\quad XZ=Y,\quad
+ Y^2=Z^2=1+t(Y+Z),\quad YZ=X+t(Y+Z).
+\]
+Here $z^2=1+2tz$. Select the larger codegree and change both signs
+if necessary, so $t\ge1,z>1$; $t=0$ would give rational dimensions.
+Then $E'=2+2/z^2<5/2<r$.
+
+Finally, for $(3,3)$ the rows are
+$(1,0,1,-1)$ and $(1,1,-1,0)$, up to signed permutation.
+Evaluation gives the tuple
+\[
+(m-1,m-1,m,m,m,m,m,m,m+1,m+1),\qquad m\in\ZZ,
+\]
+and remaining characters $(1,z-1,z,z+1)$ with
+\begin{equation}\label{quad:eq:rational-three-normal-form}
+ z^2=3mz+1,\qquad E=3+3z^2,\qquad EE'=9(9m^2+4).
+\end{equation}
+The value $m=0$ gives a zero simple dimension. Otherwise the larger
+codegree has $|z|>3$ and $E'=3+3/z^2<10/3$.
+The field $K=\Q(\sqrt{9m^2+4})$ is neither
+$\Q(\sqrt2)$ nor $\Q(\sqrt5)$, since either equality
+would require a square congruent to two modulo three.
+If $k=1$, the positive unit $r$ cannot have trace three, so
+$r\ge2+\sqrt3>E'$. If $k=2$, put $s=2D/E>2$.
+This is a totally positive integer of norm two. Its trace is at least
+four, and equality would give $K=\Q(\sqrt2)$. Thus its trace
+is at least five, so $s>4>E'$. In either case $D'<1$, a contradiction.
+\end{proof}
+
+The selected character gives a quadratic quotient $K$ of the semisimple
+rational algebra $T_{\Q}$, leaving a complementary algebra of
+dimension two. If the latter is $\Q\times\Q$, both codegrees
+are rational, contrary to Lemma~\ref{qs:rational-complement}. Otherwise
+it is a quadratic field $K'$. Its codegree $G$ belongs to $K'$ by its
+definition and to $K$ by central induction. If $K'\ne K$, then
+$G\in K\cap K'=\Q$, giving a repeated rational codegree,
+again excluded by the lemma. Thus $G$ is genuinely irrational and
+$K'=K$. This proves the $K\times K$ assertion in
+Theorem~\ref{qs:short-orbits} without asserting field containment
+for arbitrary complementary character values.
+
+\subsubsection{A signed basis involution}
+
+\begin{lemma}\label{qs:signed-involution}
+Under the common quadratic hypotheses of Theorem~\ref{qs:short-orbits},
+if the signed quotient has a nonunit basis element $X$ with $X^2=1$,
+then the original category is spherical.
+\end{lemma}
+\begin{proof}
+Multiplication by $X$ is a symmetric integral involution, hence a signed
+permutation matrix. It interchanges $1,X$. On the other two basis
+elements it either fixes them or interchanges them. Since every selected
+simple dimension is nonzero, in the fixed case the two signs equal the
+selected value of $X$. Changing its basis sign gives $XY=Y,XZ=Z$;
+then $(1,-1,0,0)$ is a codegree-two character, and
+Theorem~\ref{quad:thm:quadratic-signed-codegree-two} applies.
+
+In the interchange case choose signs to obtain
+\[
+ X^2=1,\quad XY=Z,\quad XZ=Y,\qquad
+ Y^2=Z^2=1+aY+bZ,\quad YZ=X+bY+aZ.
+\]
+The selected dimensions can be taken as $(1,1,z,z)$, with
+$z^2=1+(a+b)z$. If $z$ is rational, it is $\pm1$; central induction
+then makes the ordinary global dimension rational, and weak integrality
+gives sphericality. Otherwise select the larger signed codegree and
+change both signs so $z>1$. Thus $z$ is a norm-minus-one quadratic
+unit and $E=2+2z^2$. Here $q=1/2$, so \eqref{qs:comparison} forces
+$k=1$. Properness would give a totally positive unit $r=D/E>1$.
+
+Let $\eta>1$ be the fundamental unit of $K$. The existence of $z$
+of norm minus one implies $N(\eta)=-1$. Write
+$\eta-\eta^{-1}=t\in\ZZ_{>0}$. If $t\ge2$, then $z\ge\eta$, and
+$r\ge\eta^2\ge3+2\sqrt2>3>E'=2+2/z^2$, which is impossible.
+If $t=1$, then $K=\Q(\sqrt5)$ and $\eta=\phi$.
+Write $z=\phi^{2j+1}$, $j\ge0$. For $j\ge1$,
+$E'\le2+2\phi^{-6}<\phi^2\le r$. For $j=0$, only
+$r=\phi^2$ keeps $D'=E'/r>1$; it gives $D=10+4\sqrt5$ and
+$D^{-1}+D'^{-1}=1$. The other ordinary reciprocal codegrees would
+then sum to zero. Thus no proper signed dimension exists.
+\end{proof}
+
+Apply the chart to the complementary signed orbit. The starred rows
+are excluded by Lemma~\ref{qs:rational-complement}, the norm-one rows
+by Lemma~\ref{qs:signed-involution}, and every row with
+$q=1-\ell\ge2/3$ by \eqref{qs:comparison}. Only the following cases remain:
+\begin{equation}\label{qs:five-cases}
+\begin{array}{c|ccccc}
+L&25&36&45&64&96\\\hline
+K&\Q(\sqrt5)&\Q(\sqrt3)&\Q(\sqrt5)&
+\Q(\sqrt2)&\Q(\sqrt3)\\
+q&2/5&1/3&1/3&1/4&1/4.
+\end{array}
+\end{equation}
+
+\subsubsection{Ordinary dimensions needed at the small endpoints}
+
+\begin{lemma}\label{qs:ordinary-endpoints}
+None of the following can be the ordinary global dimension of the
+nonspherical category under consideration:
+\[
+ 5\phi^2,\quad 12+6\sqrt3,\quad15+6\sqrt5,\quad
+ 75+33\sqrt5,\quad8+4\sqrt2,\quad24+16\sqrt2,\quad36+20\sqrt3.
+\]
+\end{lemma}
+\begin{proof}
+The value $12+6\sqrt3$ is already excluded by Lemma~\ref{quad:lem:three-ordinary-rows}.
+For the other values the simple dimensions belong to their indicated quadratic field.
+For $d=2,3$, write the three nonunit dimensions as $a_i+b_i\sqrt d$.
+Orthogonality of this character to its conjugate gives
+$1+|a|^2=d|b|^2$. If $D=A+B\sqrt d$, then
+\[
+ |b|^2=\frac A{2d},\qquad |a|^2=\frac A2-1,
+ \qquad a\cdot b=\frac B2.
+\]
+For $d=5$, use $(t_i+s_i\sqrt5)/2$ and
+\eqref{qs:row-identities}. The resulting small integer-vector equations
+are recorded below. In the middle column the three entries are
+$(|s|^2,|t|^2,t\cdot s)$ for $d=5$ and
+$(|b|^2,|a|^2,a\cdot b)$ otherwise.
+\[
+\begin{array}{c|c|l}
+D&\text{invariants}&\text{dimension row or consequence}\\\hline
+5\phi^2&(3,11,5)&(1,\phi,\phi,\phi^2)\\
+15+6\sqrt5&(6,26,12)&(1,\phi,\phi^2,\phi^3)\\
+75+33\sqrt5&(30,146,66)&(1,\phi^2,\phi^3,\phi^5)\\
+8+4\sqrt2&(2,3,2)&(1,1,\eta,\eta)\\
+24+16\sqrt2&(6,11,8)&(1,\eta,\eta,\eta^2)\\
+36+20\sqrt3&(6,17,10)&(1,\epsilon,\epsilon,2\epsilon-1).
+\end{array}
+\]
+Here $\eta=1+\sqrt2$ and $\epsilon=2+\sqrt3$.
+We justify uniqueness in this small table. For $d=2,3$, a vector
+of squared norm two is a signed permutation of $(1,1,0)$, and one
+of squared norm six is a signed permutation of $(1,1,2)$.
+The indicated dot products and companion squared norms then force
+respectively
+\[
+ a=(1,1,\pm1),\quad(1,1,3),\quad(2,2,3),
+\]
+up to the corresponding signed permutations. For $d=5$, squared
+norms three, six and thirty force $s=(1,1,1),(1,1,2),(1,2,5)$.
+Parity and the dot products force $t=(1,1,3),(1,3,4),(3,4,11)$.
+For the last case, the particularly short check is
+$|t-(11/5)s|^2=4/5$. Restoring the signs required by positive
+Frobenius--Perron dimensions gives the displayed rows.
+
+An object of dimension one is invertible, so the $8+4\sqrt2$ row gives
+sphericality by Theorem~\ref{inv:thm:rankfour-invertible-spherical}.
+In either of the $5\phi^2$ and $15+6\sqrt5$ rows,
+an object $X$ of dimension $\phi$ satisfies $X^2=1+Y$ for some object
+$Y$ of dimension $\phi$. If $Y\ne X$, reciprocity puts $X$ in $XY$;
+the remaining dimension is one but $[XY:1]=0$, an impossibility.
+Thus $Y=X$. Apply the normal form in
+Lemma~\ref{fib:lem:normal-form}. For $5\phi^2$ its remaining
+parameter is $x=\phi$, so $a+b\phi=1$, giving $(a,b)=(1,0)$;
+Corollary~\ref{core:cor:multiplicity-one-spherical} gives sphericality.
+For $15+6\sqrt5$ one has $x=\phi^2$, so
+$a+b\phi=\phi^2-\phi^{-2}=\sqrt5=-1+2\phi$.
+This forces $a=-1$, impossible already for a fusion ring.
+
+For $75+33\sqrt5$, label the dimensions of $X,Y,Z$ by
+$\phi^2,\phi^3,\phi^5$. Evaluation of
+$X^2=1+aX+bY+cZ$ gives
+$a+b+3c=1$ and $a+2b+5c=3$, hence $a+c=-1$.
+This contradicts nonnegativity.
+
+For $24+16\sqrt2$, $d_X=d_Y=\eta$ and $d_Z=\eta^2=1+2\eta$.
+Evaluation of $X^2,Y^2$ gives $c=h=0$, $a+b=d+g=2$.
+Evaluation of $XY=bX+dY+eZ$ then gives $e=1$, $b=d=0$.
+Consequently $X^2=1+2X$, excluded by
+Proposition~\ref{core:prop:rank-two}.
+For the last row, $\epsilon^2=4\epsilon-1$ and $d_Z=2\epsilon-1$.
+Evaluation of the two squares forces $X^2=Y^2=1+2Z$, so
+$b=d=0$. Evaluation of $XY=eZ$ would simultaneously require
+$e=1$ and $2e=4$, a contradiction.
+\end{proof}
+
+\subsubsection{Excluding the five signed rows}
+
+For a totally positive quadratic $d$-number in
+$\Q(\sqrt2)$, $\Q(\sqrt3)$ or $\Q(\sqrt5)$,
+its norm has square class in, respectively,
+\begin{equation}\label{qs:norm-classes}
+ \{1,2\},\qquad\{1,6\},\qquad\{1,5\}.
+\end{equation}
+Indeed its conjugate quotient is a totally positive unit. The least
+such units are $3+2\sqrt2$, $2+\sqrt3$ and $\phi^2$. Separate the
+even and odd powers of that quotient: the original number is a rational
+multiple of a unit or of one plus that unit. The norms of the latter
+three elements have square classes two, six and five. This proves
+\eqref{qs:norm-classes}, including the restrictions it imposes on the
+integral ratio $k=H/N$.
+
+The quadratic unit descriptions used below are elementary Pell
+reductions. In $\ZZ[\sqrt3]$ the prime over three is generated by
+$\sqrt3$ and the prime over two by $1+\sqrt3$; in
+$\ZZ[\sqrt2]$ the prime over two is generated by $\sqrt2$.
+Divide a generator by powers of the least positive unit until it lies
+in the fundamental interval. The norm equation in that interval leaves
+precisely the generators just stated. In $\Q(\sqrt5)$ the units
+are $\pm\phi^n$. These assertions can also be checked directly by
+writing an algebraic integer and its conjugate as $z,N(z)/z$.
+
+\paragraph{Complementary norm $25$.}
+The row in the chart gives, by its two orthogonality equations,
+selected dimensions $(1,1,z,-1-z)$. Orthogonality to the selected
+conjugate gives $\operatorname{Tr}(z)+2N(z)=-3$. Put
+$h=N(z)+1\in\ZZ$ and $A=4h^2+5$. Direct substitution gives
+\[
+ E=A+2|h|\sqrt A,\qquad H=5A.
+\]
+The selected dimension field is $\Q(\sqrt5)$ precisely when
+$A=5w^2$. This implies $5\mid h$. If $h\ne0$, then $|h|\ge10$,
+since $h=5v$ gives $w^2=20v^2+1$ and $v=\pm1$ is impossible.
+Thus $E\ge405$. Here $q=2/5$ gives $k\le2$, and
+\eqref{qs:norm-classes} excludes $k=2$. Hence $r=D/E\ge\phi^2$.
+Since $D'=E'/r>1$, we have $E'>\phi^2$, so
+\[
+ E<\frac1{2/5-\phi^{-2}}<56,
+\]
+a contradiction. If $h=0$, then $E=5$ and $r=\phi^2$ is the only
+positive unit with $E'/r>1$. It gives $D=5\phi^2$, excluded by
+Lemma~\ref{qs:ordinary-endpoints}.
+
+\paragraph{Complementary norm $36$.}
+The short row gives $(1,x,1,-1)$ with $N(x)=-3$.
+With $\epsilon=2+\sqrt3$, select the larger square to write
+\[
+ x=\sqrt3\epsilon^j,\qquad E=3+3\epsilon^{2j},\qquad j\ge0.
+\]
+As $q=1/3$, the norm classes force $k=1$. Then $r=D/E\ge\epsilon$.
+For $j\ge1$, $E'\le3+3\epsilon^{-2}<\epsilon$, impossible.
+For $j=0$, $E=6$, and only $r=\epsilon$ keeps $D'>1$.
+It gives $D=12+6\sqrt3$, excluded by Lemma~\ref{qs:ordinary-endpoints}.
+
+\paragraph{Complementary norm $45$.}
+The selected dimensions are $(1,1-z,-1-z,z)$, with $N(z)=-1$.
+Thus
+\[
+ |z|=\phi^{2j+1},\qquad E=3+3\phi^{4j+2},\qquad j\ge0.
+\]
+Again $q=1/3$ and the norm classes give $k=1$.
+Since $E'\le3+3\phi^{-2}<\phi^4$, properness forces $r=\phi^2$.
+It follows that
+\[
+ p=\frac{\phi^2}{3}-\frac{\sqrt5}{E}.
+\]
+The cases $j=0,1$ give respectively $D=15+6\sqrt5$ and
+$D=75+33\sqrt5$, already excluded. For $j\ge2$,
+$E>300$, $N\ge1125$, and $p\ge5/6$. Here
+$v=23/45-2/N$, so \eqref{qs:moments} gives
+\[
+ u+v-1\ge\frac{79}{360}-\frac4N>\frac15,
+ \qquad
+ u+v-1<\frac1{300}+\sqrt{\frac3{300}}<\frac15,
+\]
+a contradiction.
+
+\paragraph{Complementary norm $64$.}
+Orthogonality gives, after signs, the selected row
+$(1,1-z,1+z,1)$ with $N(z)=-2$. Put $\epsilon=3+2\sqrt2$.
+Then
+\[
+ z=\sqrt2\epsilon^j,\quad E=4+4\epsilon^{2j},\quad
+ H=64w^2,\qquad j\ge0,
+\]
+where $w$ is the rational coefficient of $\epsilon^j$.
+Here $q=1/4$, so $k\le4$; the norm classes leave $k=1,2,4$.
+For $k=1$, $r\ge\epsilon$. If $j\ge1$ then $E'<\epsilon$.
+If $j=0$, $E=8$ and only $r=\epsilon$ is possible; this gives
+$D=24+16\sqrt2$, already excluded.
+
+For $k=4$, the totally positive integer $s=4D/E>4$ has norm four.
+Its ideal is $(2)$, so $s=2\epsilon^a$ with $a\ge1$.
+But $s\ge2\epsilon>8\ge E'$, contradicting $D'=E'/s>1$.
+For $k=2$, the corresponding integer $s=2D/E>2$ has norm two,
+so $s=(2+\sqrt2)\epsilon^a$. Since $E'\le8$, only $a=0$ is possible.
+Consequently
+\[
+ p=\frac{2+\sqrt2}{4}-\frac{2\sqrt2}{E}.
+\]
+At $j=0$, this gives $D=8+4\sqrt2$, already excluded.
+For $j\ge1$, $E>100$, $H\ge576$, $p\ge5/6$ and $N=H/2$.
+Since $v=19/32-2/H$, \eqref{qs:moments} gives
+\[
+ u+v-1\ge\frac{29}{96}-\frac6H\ge\frac7{24},
+ \qquad
+ u+v-1<\frac1{100}+\sqrt{\frac3{100}}<\frac{37}{200},
+\]
+again impossible.
+
+\paragraph{Complementary norm $96$.}
+The selected row is $(1,1-z,1+z,-1)$, so $E=4+2z^2$
+and $N(z)=-2$.
+Put $\epsilon=2+\sqrt3$. Selecting the larger square gives
+\[
+ z=(1+\sqrt3)\epsilon^j,\quad E=4+4\epsilon^{2j+1},\quad
+ H=96w^2,\qquad j\ge0,
+\]
+where $w$ is the $\sqrt3$ coefficient of $z$.
+The norm classes and $k\le4$ leave $k=1,4$.
+For $k=4$, the integer $s=4D/E>4$ has norm four and equals
+$2\epsilon^a$, $a\ge1$. This exceeds
+$E'\le12-4\sqrt3$, a contradiction. Thus $k=1$.
+The same bound for $E'$ is less than $\epsilon^2$, so $r=\epsilon$,
+and
+\[
+ p=\frac\epsilon4-\frac{2\sqrt3}{E}.
+\]
+At $j=0$, $D=36+20\sqrt3$, already excluded.
+For $j\ge1$, $E>200$, $N\ge864$, $p\ge11/12$, and
+$v=29/48-2/N$. Hence
+\[
+ u+v-1\ge\frac{43}{96}-\frac4N>\frac25,
+ \qquad
+ u+v-1<\frac1{200}+\sqrt{\frac3{200}}<\frac25.
+\]
+This excludes the last row of \eqref{qs:five-cases} and proves
+Theorem~\ref{qs:short-orbits}.
+
+\subsection{The quadratic dimension bound}\label{quad:opt:section}
+
+Suppose throughout that the category is nonspherical and $D$ is irrational
+quadratic. By Corollary~\ref{col:cor:rank-four-dimension-field-descent}
+the signed dimension field is $\Q(D)$. Keep $p,q,N$ from
+\eqref{qs:comparison}, write $EE'=hN$, put $t=E/D$, and let $M,L$
+be the ordinary and signed complementary codegree products.
+Theorem~\ref{qs:short-orbits} gives $L\ge100$. With
+$F(z)=z^2+(1-z)^2$ and $u,v$ as in \eqref{qs:moments},
+\[
+ N=\frac D{p-1/D},\qquad
+ q=\frac th p+\frac{1-t^2/h}{E},\qquad E^2\ge hN.
+\]
+These identities allow the same second-moment comparison for both
+types of ordinary character orbit.
+
+\begin{lemma}[All norm ratios greater than one]\label{quad:opt:norm-ratio}
+If $h\ge2$, then $D<1000$, without any assumption on the ordinary
+complementary codegrees.
+\end{lemma}
+\begin{proof}
+Suppose $D\ge1000$. Since $0<t<1$, its integral trace satisfies
+$t+h/t\ge h+2$. Consequently
+\[
+ \frac th\le\frac2{h+2+\sqrt{h^2+4}}
+ \le1-\frac1{\sqrt2}<\frac3{10}.
+\]
+We have $u\ge p^2+(1-p)^2/2-2/N$ by \eqref{qs:moments} and
+$v=F(q)-2/(hN)-2/L$. Also $E>\sqrt{2D}>44$. If $E<60$, then
+$p>2D/E^2>5/9$, and
+\[
+ q\le\frac E{2D}+\frac1E\le\frac7{150}.
+\]
+For the last inequality, the function $E/2000+1/E$ increases on
+$[\sqrt{2000},60]$ and has terminal value $7/150$.
+Thus
+\[
+ u+v-1\ge\frac{11}{27}+F(7/150)-1-\frac{23}{1000}
+ >\frac{29}{100}
+ >\frac1{44}+\sqrt{\frac3{44}}
+ >\frac{1+\sqrt{3(E-1)}}E,
+\]
+a contradiction.
+
+Assume now $E\ge60$. Set $a=\min(E/(2D),3/10)$ and
+$G(p)=p^2+(1-p)^2/2$.
+Since $t/h\le a$, the formula for $q$ gives $q\le ap+1/E$.
+The function $F$ decreases up to $1/2$ and has $|F'|\le2$ on
+$[0,1]$, so $F(q)\ge F(ap)-2/E$. Completing the square in
+$G(p)+F(ap)-1$ and using $N>D$ gives
+\[
+ C(a)-\frac1{50}-\frac3D
+ \le\frac3E+\sqrt{\frac3E},\qquad
+ C(a)=\frac{1-2a}{3+4a^2}.
+\]
+The function $C$ decreases on $[0,3/10]$. The following elementary
+comparisons contradict this inequality:
+\[
+\begin{array}{c|c|c}
+ E\text{ range}&\text{left side exceeds}&\text{right side is less than}\\\hline
+ {[60,100]}&90/301-23/1000>11/40&11/40\\
+ {[100,200]}&5/19-23/1000>21/100&21/100\\
+ {[200,400]}&15/79-23/1000>7/50&7/50\\
+ {[400,\infty)}&5/42-23/1000>19/200&19/200.
+\end{array}
+\]
+In each row the bound on $a$ follows from $D\ge1000$; the last uses
+$a\le3/10$. The right column follows by evaluating at the left
+endpoint. This completes the proof.
+\end{proof}
+
+\begin{lemma}[Unit-norm comparison]\label{quad:opt:unit-comparison}
+Suppose $h=1$ and write $U=u+2/N$. Then
+\[
+ U+F(tp)-1-\frac1{50}
+ \le \frac{3+\sqrt{3(E-1)}}{E}.
+\]
+If $E/E'\ge\kappa$ and $D\ge D_0$, then
+$E\ge\max\{D_0t,\sqrt{D_0\kappa/p}\}$.
+\end{lemma}
+\begin{proof}
+Here $q=tp+(1-t^2)/E$, and convexity gives
+$F(q)\ge F(tp)+(4tp-2)(1-t^2)/E$.
+In $u+v=U+F(q)-4/N-2/L$, use
+$4E/N=4t(p-1/D)<4tp$. The combined error, multiplied by $E$, is at most
+\[
+ 4tp+(2-4tp)(1-t^2)=2-2t^2(1-2tp)\le2.
+\]
+Indeed $0<t\le(3-\sqrt5)/2<1/2$ and $0<p<1$.
+Now apply \eqref{qs:moments}. The last bound uses
+$E=tD$ and $E^2=(E/E')N$ with $N>D/p$.
+\end{proof}
+
+\begin{theorem}\label{quad:opt:unconditional}
+Every nonspherical self-dual rank-four complex fusion category
+with irrational quadratic Frobenius--Perron global dimension satisfies
+$D<1000$. Every fusion coefficient is at most $31$.
+\end{theorem}
+\begin{proof}
+Suppose $D\ge1000$. An invertible nonunit would give sphericality
+by Theorem~\ref{inv:thm:rankfour-invertible-spherical}.
+Lemma~\ref{quad:opt:norm-ratio} leaves $h=1$.
+We describe the possible lower bounds $H(t)$ for the left side of
+Lemma~\ref{quad:opt:unit-comparison} and then check all of them together.
+
+\emph{Large complementary product.}
+If $M\ge100$, then $U=F(p)-2/M$. Minimizing
+$F(p)+F(tp)-1$ in $p$ by completing the square gives
+\[
+ H(t)=\frac{(1-t)^2}{2(1+t^2)}-\frac1{25}.
+\]
+In the bound for $E$ we may replace $p$ by $1$.
+
+\emph{Short quadratic orbit.}
+If $M<100$ and the two ordinary complementary characters are conjugate,
+Lemma~\ref{qs:chart} applies. The $M=20$ row forces an invertible.
+For the other rows, except for the repeated codegree five, substitution
+into $U=F(p)-2/M$ gives the following lower bounds $U_0$.
+\[
+\begin{array}{c|rrrrrr}
+p&1/4&1/3&2/5&1/2&2/3&3/4\\\hline
+U_0&19/32&1/2&11/25&7/16&23/45&19/32
+\end{array}
+\]
+For the repeated codegree five, $(p,U_0)=(3/5,11/25)$.
+In each case use $H(t)=U_0+F(pt)-1-1/50$.
+
+\emph{Two rational characters.}
+Write their codegrees $g\le j$, with $gj<100$. A codegree-two rational
+row forces an invertible by orthogonality to the positive dimension
+row. Thus $g\ge3$. Discard $5,8,16$, the pairs $(3,4),(3,12),(9,9)$,
+and odd $j$ when $g=4$, by Lemma~\ref{quad:lem:small-rows}.
+The pair $(4,4)$ also forces an invertible: of two distinct orthogonal
+sign rows, their sum has unit coordinate two and exactly one nonzero
+nonunit coordinate, of absolute value two. Orthogonality to the
+positive row forces the corresponding dimension to be one.
+Call the remaining set $\mathcal P$; it contains $52$ pairs. For each, put
+\[
+ p=1-1/g-1/j,\qquad U_0=p^2+1/g^2+1/j^2,
+ \qquad H(t)=U_0+F(pt)-1-1/50 .
+\]
+We may take $\kappa=1$ except for $(3,3)$, where
+\eqref{quad:eq:rational-three-normal-form} gives
+$N=9(9m^2+4)$ with $m\ne0$. This lies strictly between consecutive
+squares after division by nine. Hence $EE'=N$ is not a square,
+and $E/E'$ is a nontrivial totally positive quadratic unit by
+Ostrik's $d$-number theorem \cite{OstrikCodegrees}. We may take
+$\kappa=5/2$ by Lemma~\ref{quad:lem:unit-gap}.
+
+There are two ranges for the unit $t$: either $t\le2-\sqrt3<268/1000$,
+or $t=(3-\sqrt5)/2<382/1000$. The latter occurs in $\Q(\sqrt5)$.
+For rational complementary characters the discriminant of the ordinary
+order is $Ngj$ and has square class five. By \eqref{qs:norm-classes},
+$gj$ is a square or five times a square. Among $\mathcal P$ this
+leaves $(3,3)$ and
+\[
+ \mathcal P_5=\{(3,15),(3,27),(4,20),(6,6),(7,7)\}.
+\]
+The field in the $(3,3)$ case is $\Q(\sqrt{9m^2+4})$, which cannot be
+$\Q(\sqrt5)$ by reduction modulo three.
+
+\emph{Endpoint check.}
+All the functions $H$ just listed decrease on the indicated intervals.
+The right side of Lemma~\ref{quad:opt:unit-comparison} decreases for
+$E\ge2$. The table gives a subdivision for each family. Its entries are
+the successive right endpoints in thousandths, starting at zero.
+For $[a,b]$ in this subdivision set
+\[
+ Z=\max\left\{D_0a,\,
+  \frac{\lfloor100\sqrt{D_0\kappa/p}\rfloor}{100}\right\}.
+\]
+In every interval the following two rational comparisons hold:
+\[
+ ZH(b)-3>0,\qquad (ZH(b)-3)^2>3(Z-1).
+\]
+Since $E\ge Z$, these comparisons contradict the lemma.
+\begin{center}\small
+\begin{tabular}{@{}lrl@{}}
+\toprule
+Input & $D_0$ & Right endpoints multiplied by $1000$\\\midrule
+$M\ge100$ & 1000 & $60,190,360,382$\\
+Six short quadratic rows & 1000 & $90,220,340,382$\\
+Repeated five, $t\le2-\sqrt3$ & 1000 & $60,130,230,268$\\
+Repeated five, all $t$ & 3000 & $150,340,382$\\
+$\mathcal P$, $t\le2-\sqrt3$ & 1000 & $46,52,75,140,220,268$\\
+$\mathcal P_5$, all $t$ & 1000 & $100,240,340,370,382$\\
+\bottomrule
+\end{tabular}
+\end{center}
+For instance, for $(g,j)=(3,6)$ on $[0,46/1000]$, the input is
+$p=1/2$, $U_0=7/18$, $Z=4472/100$. Substitution gives
+$ZH(b)-3>287/25$ and $3(Z-1)<263/2$.
+The table is reproducible by two nested loops over its stated rows
+and endpoints. The accompanying exact checker uses rational arithmetic
+and integer square roots.
+
+Only the repeated five with $t=(3-\sqrt5)/2$ and $1000\le D<3000$
+remains. In \eqref{quad:eq:constant-five-normal-form}, denote the
+integer parameter by $m$. The choice of basis signs does not affect
+the codegrees. We have $N=5\Delta$, $D+D'=3\Delta$ and
+$\Delta=9m^2-8m+4$. The $d$-number condition $N\mid(3\Delta)^2$
+gives $m\equiv1\pmod5$. Since $1/D'=3/5-1/D>1/2$,
+we have $D'<2$ and $\Delta<1001$. Thus $m=-9,-4,1,6$, with
+$\Delta=805,180,5,280$, respectively. The selected field
+$\Q(\sqrt\Delta)$ equals $\Q(\sqrt5)$ only for $\Delta=180,5$,
+but $D<3\Delta<1000$ in both cases. This proves the dimension bound.
+Finally every symmetric ordinary multiplication matrix has operator
+norm its Perron root $d_i\le\sqrt D<32$, so all entries are at most $31$.
+\end{proof}
+
+\section{Sphericality in the cubic case}\label{sec:cub}
+
+The even part of $\mathrm{SU}(2)_7$ is the familiar rank-four example
+with a cubic dimension field \cite[Section~5.3.10]{RSW}.
+We prove that a category with a cubic dimension field already admits
+a spherical structure. This allows the pivotal classification to be
+applied after descent, without assuming a pivotal structure here.
+
+The Frobenius--Perron dimension field means the field generated by
+all simple Frobenius--Perron dimensions. Rank-four fusion rings are commutative by
+Lemma~\ref{core:lem:rank-four-algebra}. Suppose a complex fusion categorification exists
+and its dimension field $K$ has degree three. The ordinary rational algebra is then $\Q\times K$,
+and character cyclotomicity makes $K$ cyclic and totally real
+\cite[Corollary~8.53]{ENO}. Every character is consequently real.
+The based involution acts by complex conjugation on characters, so it
+is the identity, so every simple is self-dual.
+Its Frobenius--Perron codegree $D$ is cubic as well, by the order
+discriminant argument in Lemma~\ref{cub:lem:cubic-square-norm-schur}
+below (applied just to the ordinary algebra).
+
+Central induction places $D$ in the field generated by the signed
+spherical dimensions. That field has degree at most four, so it has
+degree three and equals $K$. Thus the signed rational algebra is also
+$\Q\times K$, with its dimension character in the cubic factor.
+We write $f$ for the codegree of the ordinary rational character.
+
+\subsection{The trace identity and a positive measure}
+Put $T_{\Q}=(K_0(\widetilde{\C})/(\varepsilon+1))\otimes\Q$ for the
+signed algebra of the sphericalization. Choose dual-compatible lifts
+$X_i^+$ of the four simples, with $X_0^+=\mathbf1$, and write
+$X_i^-=\varepsilon\otimes X_i^+$,
+$x_i=\dim X_i^+$, and $E=\sum_i x_i^2$.  Let $\rho$ denote the
+rational character of $T_{\Q}$ and let
+$g=\sum_i\rho(X_i^+)^2$ be its codegree.  The rational algebra of the sphericalization is the commutative direct sum $R_{\Q}\oplus T_{\Q}$, where $R=K_0(\C)$.  The Frobenius trace identity is
+\begin{equation}\label{cub:eq:cubic-corrected-frobenius}
+ \operatorname{Tr}_{K/\Q}(x_i/E)
+       =\delta_{i0}-\frac{\rho(X_i^+)}g.
+\end{equation}
+To see this identity, let $\tau$ be the coefficient of the unit.
+In the orthonormal signed basis, the regular trace of multiplication by
+$a$ equals $\tau(a C_T)$, where $C_T$ is the Casimir.  The rational and
+cubic components of $C_T$ are $g$ and $E$.  Evaluating this formula on
+$X_i^+ C_T^{-1}$ gives the displayed identity.
+
+Let $f_1,\ldots,f_4$ be the formal codegrees of $K_0(\C)$,
+and let $g,E_1,E_2,E_3$ be those of the signed algebra.  Put
+\[
+ u=\sum_{i=1}^4f_i^{-2},\qquad
+ v=g^{-2}+\sum_{i=1}^3 E_i^{-2}.
+\]
+As usual, these numbers are rational.  The dimension-field theorem
+\cite[Corollary~2.15]{Ostrik3} places all the displayed codegrees in $K$.
+Throughout, codegrees are counted with their character multiplicities.
+Both reciprocal-codegree sums equal one and $f,g\ge2$.
+
+\begin{proposition}\label{cub:prop:cubic-corrected-average}
+There is a positive, finitely supported measure $\xi$ on the unit circle,
+of mass three, such that
+\[
+ \int z^n\,d\xi(z)=
+ \begin{cases}1/2,&n\text{ odd},\\1,&n\text{ even},\end{cases}
+ \qquad K\cap\Q(\zeta_n)=\Q.
+\]
+Its atoms at $1$ and $-1$ satisfy
+\begin{align}
+ \xi(\{1\})&\ge\frac34(2u+v)+\frac{f-2}{f^2}
+                          +\frac{g-2}{2g^2},\label{cub:eq:positive-atom}\\
+ \xi(\{-1\})&\ge\frac34v+\frac{g-2}{2g^2}\ge\frac14.
+ \label{cub:eq:negative-atom}
+\end{align}
+\end{proposition}
+\begin{proof}
+Let $F:Z(\widetilde{\C})\to\widetilde{\C}$ be forgetful
+and $I$ its right adjoint. Use the canonical normalized center matrix
+$S=s/(2E)$. The rational character $\rho$ corresponds to a self-dual
+constituent $B\ne1$ of $I(1)$ by
+\cite[Example~2.9 and Theorem~2.13]{Ostrik3}. Put
+\[
+ a_A=S_{0A}=\frac{\dim A}{2E}\in K,\qquad
+ b_A=S_{BA}=\frac{\rho(F(A))}{2g}\in\Q.
+\]
+Orthogonality gives
+\begin{equation}\label{cub:eq:cubic-corrected-row-norms}
+ \sum_Aa_A^2=\sum_Ab_A^2=1,\qquad \sum_Aa_Ab_A=0.
+\end{equation}
+Take a cyclotomic field $\Omega$ containing the modular data. For each
+indicator index used, enlarge it to contain $\zeta_n$. Write
+$G=\operatorname{Gal}(\Omega/\Q)$. Its signed permutations
+$\widehat\sigma$ satisfy
+\begin{equation}\label{cub:eq:cubic-corrected-galois}
+ \sigma(a_A)=\epsilon_\sigma(A)a_{\widehat\sigma A},\quad
+ b_A=\epsilon_\sigma(A)b_{\widehat\sigma A},\quad
+ \theta_{\widehat\sigma A}=\sigma^2(\theta_A).
+\end{equation}
+The last identity has no scalar anomaly for the canonical center
+normalization \cite[Lemma~4.2 and Section~4.1]{DLN}. Define
+\[
+ \xi=\frac1{|G|}\sum_{\sigma\in G}\sum_A
+ \bigl(3\sigma^2(a_A)^2+\sigma^2(a_A)b_A\bigr)
+ \operatorname{Dirac}_{\sigma^2(\theta_A)}.
+\]
+Here $\sigma^2$ means composition. Equation
+\eqref{cub:eq:cubic-corrected-row-norms} gives mass three.
+
+For an allowed $n$, the restrictions of $G$ to $K$ and
+$\Q(\zeta_n)$ are independent. Squaring permutes
+$\operatorname{Gal}(K/\Q)\cong C_3$; no corresponding
+surjectivity is required on the indicator field.
+Apply \eqref{core:central-indicator} and
+\eqref{cub:eq:cubic-corrected-frobenius}. The moment of the first
+term of $\xi$ is
+\[
+ \frac{1-\nu_n(\varepsilon)}2
+ -\frac1{2g}\operatorname{Av}_{\sigma\in G}
+ \sigma^2\!\left(\sum_i\rho(X_i^+)
+          [\nu_n(X_i^+)-\nu_n(X_i^-)]\right).
+\]
+The sum in parentheses is $2g\sum_Aa_Ab_A\theta_A^n$ by the same
+center identity. The second term of $\xi$ cancels this residual.
+The sign object has indicator $-1$ for even $n$ and zero for odd $n$:
+its even invariant space is one-dimensional and rotation includes its
+inverse pivotal map $-1$, whereas the odd invariant space vanishes.
+This proves the moment formula.
+
+Reindexing each summand by $W=\widehat\sigma A$ fixes the twist
+$\theta_W$ and gives its individual weight
+\begin{equation}\label{cub:eq:cubic-corrected-weight}
+ w_W=\operatorname{Tr}_{K/\Q}(a_W^2)
+              +\frac{b_W}{3}\operatorname{Tr}_{K/\Q}(a_W).
+\end{equation}
+In particular the measure does not depend on enlarging $\Omega$.
+Let $h_W=[F(W):1]-[F(W):\varepsilon]$. The Frobenius trace identity
+says $\operatorname{Tr}(a_W)=h_W/2-b_W$.
+Outside $I(1)\cup I(\varepsilon)$ one has $h_W=0$, so
+$w_W=\operatorname{Tr}(a_W^2)-b_W^2/3\ge0$.
+For $W\subset I(1)$ put $t_W=\operatorname{Tr}(a_W)>0$.
+All conjugate codegrees are positive, and $b_W=1/2-t_W$; hence
+\[
+ w_W\ge\frac{t_W^2}{3}+\frac{(1/2-t_W)t_W}{3}
+       =\frac{t_W}{6}>0.
+\]
+Its sign translate has the same weight. Thus positivity holds
+pointwise, without grouping atoms.
+
+For the four ordinary constituents the $b$-values are
+$(f-3)/(2f),1/(2f),1/(2f),1/(2f)$; the signed values replace $f$
+by $g$. This follows from $a_A=1/(2f_\chi)$ and
+$b_A=1/2-\operatorname{Tr}(a_A)$. Summing their corrections in
+\eqref{cub:eq:cubic-corrected-weight} gives $(f-2)/(2f^2)$ and
+$(g-2)/(2g^2)$, respectively. By
+Lemma~\ref{core:lem:translate-twists}, the
+ordinary sign translates have twist $+1$ and the signed translates
+have twist $-1$. Summing their weights gives
+\eqref{cub:eq:positive-atom}--\eqref{cub:eq:negative-atom}; the final
+bound uses $v\ge g^{-2}+(1-g^{-1})^2/3$.
+\end{proof}
+
+\subsection{Periodic moments}
+\begin{proposition}\label{cub:prop:cubic-periodic}
+Suppose the ordinary and signed rational algebras are $\Q\times K$
+as above. If $F$ is the conductor of $K$, then
+\begin{equation}\label{cub:eq:cubic-periodic}
+ \mathcal L:=\frac32(u+v)+\frac{f-2}{f^2}+\frac{g-2}{g^2}
+          \le1+\frac2F\le\frac97.
+\end{equation}
+\end{proposition}
+\begin{proof}
+A nontrivial cyclic cubic conductor is odd and at least seven.
+Since $[K:\Q]=3$, the field $K$ is disjoint from
+$\Q(\zeta_n)$ whenever $F\nmid n$.
+Restrict $\xi$ to the $2F$th roots and call the restriction $\xi_0$.
+For $F\nmid r$, average its moments with exponents $2Fj+r$ over
+$0\le j<M$ and let $M\to\infty$. The geometric average is zero off
+the $2F$th roots and one on them, so $\xi_0$ has the same prescribed
+$r$th moment. Its mass is at most three.
+Subtract $\tfrac34\operatorname{Dirac}_1+
+\tfrac14\operatorname{Dirac}_{-1}$. The residual Fourier transform
+on this cyclic group is supported on $\{0,F\}$, so its weights are
+constant on each parity class; call them $a,b$.
+Each class has roots other than $\pm1$, at which these are weights
+of the positive measure $\xi_0$. Hence $a,b\ge0$ and
+\[
+ 1+F(a+b)\le3,\qquad
+ \xi(\{1\})+\xi(\{-1\})=1+a+b\le1+\frac2F.
+\]
+Now use \eqref{cub:eq:positive-atom}--\eqref{cub:eq:negative-atom}.
+\end{proof}
+
+\subsection{The rational codegrees and cubic norms}
+The two rational codegrees $f,g$ are integers at least two. The
+ordinary value $f=2$ is excluded by
+Proposition~\ref{inv:prop:cubic-rational-two-impossible}.
+
+\begin{lemma}\label{cub:lem:cubic-square-norm-schur}
+For either algebra, let $r$ be its rational codegree and $H$ a codegree
+from its cubic character orbit. There are positive integers $A,s$ such
+that
+\[
+ \operatorname{Tr}(H)=rA,\qquad
+ \operatorname{Norm}(H)=r^3s^2,
+\]
+and $H/r$ has minimal polynomial
+\begin{equation}\label{cub:eq:cubic-normalized-polynomial}
+ z^3-Az^2+(r-1)s^2z-s^2.
+\end{equation}
+If $r\ge3$, the inverse-square sum of the four codegrees satisfies
+\begin{equation}\label{cub:eq:cubic-uniform-schur}
+ r^{-2}+\sum_{\sigma:K\hookrightarrow\R}\sigma(H)^{-2}
+ \ge r^{-2}+\tfrac12(1-r^{-1})^2.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+First $H$ has degree three. If it were rational, the reciprocal-codegree
+identity would give $(r-1)H=3r$, so $(r,H)=(2,6)$ or $(4,4)$.
+The order discriminant is the product of its four formal codegrees.
+The first case gives $432$, which is not a square, contrary to the
+cyclic cubic field discriminant. The second gives $256$; its square
+root would have to be divisible by the conductor $F_K$, whereas a
+nontrivial cyclic cubic conductor is odd and cannot divide sixteen.
+
+Write the minimal polynomial of $H$ as
+\[
+ z^3-a z^2+(r-1)h z-rh.
+\]
+The reciprocal identity gives this form with positive integers $a,h$.
+The d-number criterion gives $rh\mid a^3$ and
+$(rh)^2\mid((r-1)h)^3$. Thus $r^2\mid h$ and $r\mid a$.
+The order discriminant $r\operatorname{Norm}(H)=r^2h$ is a square,
+so $h=r^2s^2$ and $a=rA$ for positive integers $A,s$. This proves
+\eqref{cub:eq:cubic-normalized-polynomial}. For the signed algebra the
+same argument applies: $2H$ is an actual formal codegree of the
+sphericalization, and the d-number property is unchanged by nonzero
+rational scaling.
+
+Put $k=r-1$ and $n=s^2$. The three positive reciprocal roots of
+\eqref{cub:eq:cubic-normalized-polynomial} have sum $k$, pairwise-product
+sum $A/n$, and product $1/n$. Schur's inequality yields
+\[
+ 4kA\le k^3n+9.
+\]
+If $k\ge3$ and $4A>k^2n$, the positive integer $4A-k^2n$ is at least
+four when $k$ or $s$ is even, and at least three otherwise. This
+contradicts the displayed inequality except possibly at $k=3$ with
+equality. Equality in Schur for positive numbers makes all three roots
+equal, contradicting their cubic degree. Hence $A\le k^2n/4$.
+For $k=2$, Schur gives $A\le n+1$. At $A=n+1$ the discriminant is
+$n(n-4)=s^2(s^2-4)$, which cannot be a nonzero square. Thus $A\le n$
+in this case too. Finally the inverse-square sum is
+\[
+ \frac{1+k^2-2A/n}{r^2}
+ \ge\frac1{r^2}+\frac{k^2}{2r^2},
+\]
+as claimed.
+\end{proof}
+
+\begin{theorem}[Direct cubic reduction]\label{cub:thm:cubic-reduction}
+The only possibilities are
+\[
+ (F,f,g)=(7,3,3),\quad(7,4,4),\quad(9,3,3),
+ \qquad \operatorname{Norm}(E)=\operatorname{Norm}(D).
+\]
+In the conductor-nine case $u=v=1/3$, the ordinary and signed cubic
+codegrees agree as multisets, and the category is spherical.
+\end{theorem}
+\begin{proof}
+For a constituent $A$ from the ordinary cubic orbit,
+$a_A=1/(2D_i)$ gives $b_A=1/(2f)$ in this measure.
+Since $b_A=\rho(F(A))/(2g)$ and $\rho$ is integral-valued,
+$g/f\in\ZZ_{>0}$.
+Put $a=\operatorname{Tr}(D)$, $b=\operatorname{Tr}(E)$,
+$c=\operatorname{Norm}(D)$ and
+$k=\operatorname{Norm}(E)/c\in\ZZ_{>0}$, using central
+integrality. Casimir trace domination gives $b+g\le a+f$.
+For
+\[
+ H(r)=\frac12-\frac1r+\frac{3}{2r^2},\qquad
+ J(r)=1-\frac2r+\frac2{r^2},
+\]
+Lemma~\ref{cub:lem:cubic-square-norm-schur} and the reciprocal
+identities give
+\[
+ u\ge H(f),\quad u=J(f)-2a/c,\quad v=J(g)-2b/(kc),
+ \quad v-u\ge J(g)-J(f).
+\]
+If $g\ge2f$, substitution in \eqref{cub:eq:cubic-periodic} yields
+\[
+ \mathcal L\ge\frac32+\frac1f-\frac1{2f^2}-\frac2g+\frac1{g^2}
+ \ge\frac32-\frac1{4f^2}\ge\frac{53}{36}>\frac97,
+\]
+a contradiction. Therefore $g=f$. Now
+\[
+ \mathcal L\ge\frac32-\frac1f+\frac1{2f^2}.
+\]
+This increases for $f>1$ and equals $33/25>9/7$ at $f=5$.
+Consequently $f=g\in\{3,4\}$.
+
+Lemma~\ref{cub:lem:cubic-square-norm-schur} makes $k$ an integer
+square. If $k>1$, then $k\ge4$, and $b\le a$ implies
+$v\ge\tfrac34J(f)+\tfrac14u$. Thus
+\[
+ \mathcal L\ge\frac{33}{16}-\frac{17}{8f}+\frac{17}{16f^2}
+ \ge\frac{53}{36}>\frac97,
+\]
+again impossible. Hence $k=1$.
+At $f=3$ the lower bound for $\mathcal L$ is $11/9$, forcing
+$F\le9$; at $f=4$ it is $41/32$, forcing $F\le64/9$.
+The only cyclic cubic conductors in these ranges are seven and nine,
+as follows from primitive Dirichlet characters of order three.
+This gives the stated list.
+
+At $(F,f)=(9,3)$ equality holds throughout, so $u=v=1/3$.
+Equality of norms and inverse-square sums gives
+$\operatorname{Tr}(E)=\operatorname{Tr}(D)$, and the reciprocal
+identity identifies the remaining coefficient of the two cubic
+polynomials. Their roots therefore agree. Choose a signed character
+with codegree $D$ and apply spectral saturation in
+Lemma~\ref{core:lem:family-induction} to obtain a spherical section.
+\end{proof}
+
+\subsection{An inert-prime obstruction for a rational codegree}
+
+\begin{lemma}\label{cub:lem:rational-prime-inert}
+Let $R$ be a commutative self-dual based ring with
+$R_{\Q}\cong\Q\times K$, where $K$ is a number field. Suppose the
+character given by projection to $\Q$ has formal codegree a prime $p$.
+If $L=K\otimes\Q_p$ is a field, the projection of $R\otimes\ZZ_p$
+to $L$ is $\mathcal O_L$, and $L/\Q_p$ is totally ramified.
+\end{lemma}
+\begin{proof}
+Let $A=R\otimes\ZZ_p$ and project $A$ to an order $B$ in
+$\mathcal O_L$, where $L=K\otimes\Q_p$. If $\rho$ is the rational
+character, its idempotent $(1,0)=p^{-1}\sum_i\rho(b_i)b_i$ shows that
+$A\cap(\Q_p\times0)=p\ZZ_p\times0$ by looking at the unit coefficient.
+Thus the first coordinate modulo $p$ gives a surjection $B\to\mathbb F_p$
+and $A=\ZZ_p\times_{\mathbb F_p}B$. The order $B$ is local by
+lying-over from its normalization $\mathcal O_L$, so its maximal ideal
+$\mathfrak m$ is $B\cap\mathfrak m_L$ and its residue field is
+$\mathbb F_p$. If $B=\mathcal O_L$, this gives the claim.
+
+Suppose that $B\ne\mathcal O_L$. The finite $B$-module
+$\mathcal O_L/B$ is nonzero and has nonzero socle.
+Choose $y\in\mathcal O_L\setminus B$ with $\mathfrak m y\subset B$.
+In fact $\mathfrak m y\subset\mathfrak m$ since $y$ is integral.
+In $A/pA$ the classes of $(p,0)$ and $(0,py)$ are then both killed by
+the maximal ideal, whose inverse image is $p\ZZ_p\times\mathfrak m$.
+They are linearly independent over $\mathbb F_p$: a relation would give
+$(c,dy)\in A$ after division by $p$, forcing first $p\mid d$ since
+$y\notin B$, then $p\mid c$ by the fiber condition (here $py\in\mathfrak m$).
+But the coefficient-of-unit pairing on $A/pA$ is associative and perfect.
+It identifies the annihilator of the maximal ideal with the dual of the
+residue field, of dimension one. This contradiction proves the claim.
+The general Gorenstein fiber-product criterion of Nasseh, Sather-Wagstaff,
+Takahashi and VandeBogert \cite[Fact~2.6 and Corollary~2.7]{NTV} also
+implies the obstruction.
+\end{proof}
+
+\begin{corollary}\label{cub:cor:cubic-seven-three-impossible}
+There is no commutative self-dual based ring whose rational algebra
+is $\Q\times\Q(\zeta_7+\zeta_7^{-1})$ and whose
+rational formal codegree is three.
+\end{corollary}
+\begin{proof}
+The polynomial $x^3+x^2-2x-1$ of
+$\zeta_7+\zeta_7^{-1}$ has discriminant $49$ and has no root
+modulo three: its reduction is $x^3+x^2+x-1$, taking nonzero
+values at all three elements of $\mathbb F_3$. Thus three is
+unramified and inert in this cubic field. Apply
+Lemma~\ref{cub:lem:rational-prime-inert} with $p=3$.
+\end{proof}
+
+\subsection{Sphericality at rational codegree four}
+
+\begin{lemma}\label{cub:lem:cubic-four-trace-gap}
+In the remaining conductor-seven case, put
+$a=\Tr(D)$, $b=\Tr(E)$, and $c=\operatorname{Norm}(D)
+=\operatorname{Norm}(E)$. Then
+\[
+ a-b\in64\ZZ_{\ge0}.
+\]
+\end{lemma}
+\begin{proof}
+Let $B$ be the constituent of $I(\mathbf1)$ corresponding to the
+rational signed character. Let $C_R$ and $C_T$ be the ordinary and
+signed Casimir elements. We show that the ordinary folded and signed
+forgetful coefficient vectors of $B$ are respectively
+\[
+ w=C_R/4,\qquad r=C_T/4.
+\]
+The signed cubic component of $F(B)$ is its dimension $E/4$.
+Its unit coefficient is one, and its sign-object coefficient is zero,
+because $B$ belongs to $I(\mathbf1)$ and the supports of $I(\mathbf1)$
+and $I(\varepsilon)$ are disjoint. The Frobenius trace formula then
+makes its signed rational component one, so its signed class is $C_T/4$.
+For an ordinary cubic induction constituent $A_i$, the rational signed
+row, already computed in Theorem~\ref{cub:thm:cubic-reduction},
+has $S_{B,A_i}=1/8$. Symmetry and the modular character formula give
+\[
+ \chi_i(F(B))=\frac{S_{A_i,B}}{S_{A_i,0}}
+             =\frac{1/8}{1/(2D_i)}=D_i/4.
+\]
+Its ordinary folded unit coefficient is likewise one, so the ordinary
+rational component is one and its folded class is $C_R/4$.
+
+These are two coefficient vectors of the same actual object. Thus
+$w_i\ge|r_i|$ and $w_i\equiv r_i\pmod2$ for every $i$. In the
+orthonormal based trace, the squared coefficient norm of a Casimir is
+the sum of its formal codegrees. Consequently
+\[
+ a-b=16\bigl(\|w\|^2-\|r\|^2\bigr)\in64\ZZ_{\ge0}.
+\]
+\end{proof}
+
+\begin{theorem}\label{cub:thm:cubic-four-spherical}
+Every category in the conductor-seven, rational-codegree-four case
+admits a spherical structure. Its signed and ordinary cubic codegree
+polynomials coincide.
+\end{theorem}
+\begin{proof}
+Retain $a,b,c$ from Lemma~\ref{cub:lem:cubic-four-trace-gap}. Here
+\[
+ u=\frac58-\frac{2a}{c},\qquad
+ v=\frac58-\frac{2b}{c},\qquad
+ u,v\ge\frac{11}{32}.
+\]
+The periodic inequality is $u+v\le29/42$. It follows that
+\begin{equation}\label{cub:eq:cubic-four-trace-interval}
+ \frac{187c}{1344}\le b\le a\le\frac{9c}{64},
+ \qquad a-b\le\frac{c}{672}.
+\end{equation}
+If $a>b$, the trace-gap lemma gives $c\ge43008$.
+
+For either triple of cubic codegrees let $H$ be its largest element
+and put $x=1/H$. Since $H$ is at least a third of the trace,
+\eqref{cub:eq:cubic-four-trace-interval} gives $0<x<1/1900$.
+Let $q_1,q_2$ be the other two reciprocal codegrees. Their sum is
+$3/4-x$. Also $u,v\le29/42-11/32=233/672$, so
+\[
+ q_1^2+q_2^2+x^2\le\frac{191}{672},\qquad
+ (q_1-q_2)^2\le\frac1{168}+\frac32x-3x^2.
+\]
+The last upper bound is less than $(1/12-x)^2$, since the difference is
+\[
+ \frac1{1008}-\frac53x+4x^2
+ >\frac1{1008}-\frac1{1140}>0.
+\]
+Therefore $1/3<q_1,q_2<5/12$. The two smaller codegrees of each
+triple lie in $(12/5,3)$.
+
+Align the largest signed codegree $E_{\max}$ with the ordinary
+Frobenius--Perron codegree $D_{\rm FP}$. Central induction makes
+$z=E_{\max}/D_{\rm FP}$ an algebraic integer: it gives integrality
+against every conjugate of $D$, and one may then apply a field
+embedding sending $E$ to $E_{\max}$. Equality of norms makes $z$
+a totally positive unit of norm one. Spectral domination gives
+$z\le1$ at the chosen embedding. Its other two conjugates are ratios
+of numbers in $(12/5,3)$ and are less than $5/4$. Hence
+\[
+ 3\le\Tr(z)<1+2\cdot\frac54=\frac72.
+\]
+The trace is an integer, so it is three; equality in the
+arithmetic--geometric mean inequality forces every conjugate to be
+one. Thus $z=1$, contradicting $a>b$.
+We conclude $a=b$. Equality of norms and the reciprocal identity
+then identifies the two cubic polynomials. Spectral saturation in
+Lemma~\ref{core:lem:family-induction} supplies the spherical structure.
+\end{proof}
+
+\begin{theorem}\label{cub:thm:cubic-classification}
+Every rank-four complex fusion category whose Frobenius--Perron
+dimension field has degree three admits a spherical structure.
+\end{theorem}
+\begin{proof}
+Theorem~\ref{cub:thm:cubic-reduction} gives sphericality in conductor
+nine. In conductor seven, Corollary~\ref{cub:cor:cubic-seven-three-impossible}
+excludes rational codegree three, and Theorem~\ref{cub:thm:cubic-four-spherical}
+gives sphericality at codegree four.
+\end{proof}
+
+\section{The quartic dimension field}\label{sec:quartic-bound}
+
+\begin{theorem}\label{thm:quartic-uniform-bound}
+Let $\C$ have rank four and self-dual simples. If
+$D=\FPdim(\C)$ has degree four and $D\ge950$, then $\C$ is spherical.
+\end{theorem}
+
+Suppose throughout that $D\ge950$ and that $\C$ has no spherical
+structure. By Corollary~\ref{col:cor:rank-four-dimension-field-descent}
+the ordinary and signed dimension characters identify their rational
+algebras with the same totally real abelian quartic field $K=\Q(D)$.
+Index its embeddings by $i=0,1,2,3$, with $0$ the identity.
+Choose the signed dimension character so that its codegree $E$ is the
+largest signed codegree. Write $D_i,E_i$ for the four conjugates,
+including repetitions for $E$. Set
+\[
+ p_i=D_i^{-1},\qquad q_i=E_i^{-1},\qquad
+ d=p_0\le d_*:=1/950,\qquad r=q_0,\qquad
+ \alpha=E/D,\quad \alpha_i=p_i/q_i .
+\]
+Both vectors are positive and sum to one by character orthogonality.
+We have $d\le r=\min_i q_i$. In addition, $\alpha_0$ is the least
+conjugate of $\alpha$. Indeed the signed and folded dimensions of the
+same central column are $E/E_i$ and $D/D_i$
+(Proposition~\ref{col:prop:positive-Galois-columns}). The absolute
+values of the signed column coefficients are bounded by the ordinary
+coefficients, and the absolute signed simple dimensions by the corresponding
+FP dimensions. Hence $E/E_i\le D/D_i$. By central integrality and
+\eqref{core:discriminants}, $\alpha$ is a totally positive integral
+$d$-number of positive square norm $h$. Here the $d$-number property
+follows from that of the two codegrees: all conjugates of their ratio
+generate the same fractional ideal. In particular
+\begin{equation}\label{eq:quartic-products}
+ \prod_i q_i=\frac1h\prod_i p_i
+ \le \frac{d(1-d)^3}{27}.
+\end{equation}
+We will rule out $\alpha\ne1$. Equality $E=D$ gives the required
+spherical section by Lemma~\ref{core:lem:family-induction}.
+
+\subsection{Moment bounds and the size of the trace}
+
+Write $u=\sum p_i^2$, $v=\sum q_i^2$, and
+$K_*=\Q(\sqrt2,\sqrt5)$. The two moment estimates used below are
+\begin{equation}\label{eq:quartic-budgets}
+ \begin{array}{c|c}
+ K\ne K_*&u+v\le4/5\\
+ K=K_*&5u+4v\le15/4 .
+ \end{array}
+\end{equation}
+For the first row, Corollary~\ref{core:quartic-short-moments} gives
+the assertion if $\sqrt2\notin K$. Otherwise $\sqrt5\notin K$ and
+$2u+v\le9/8$, while $u\ge d^2+(1-d)^2/3>13/40$.
+The second row is Lemma~\ref{core:lem:sqrt5-periodic-moments}.
+
+\begin{lemma}\label{quart:outside-trace}
+If $K\ne K_*$, then $h\in\{1,4\}$, $r<1/150$, and
+$\Tr_{K/\Q}\alpha\le40$.
+\end{lemma}
+\begin{proof}
+Trace domination in Lemma~\ref{core:lem:family-trace-norm} gives
+$e_3(q)\le e_3(p)/h$, where $e_j$ denotes the elementary symmetric
+function. The three coordinates other than $d$ have sum $1-d$, so
+$e_3(p)\le (1-d)^2(1+8d)/27$. Four-variable Schur gives
+$2v+9e_3(q)\ge1$. If $h\ge9$, then
+\[
+ u+v\ge\tfrac12+(1-d)^2(17-8d)/54>4/5.
+\]
+Thus the positive square $h$ equals one or four.
+
+For the remaining estimates put
+$c=4/5-d_*^2-(1-d_*)^2/3$. Then $v\le c$.
+If every $q_i\ge b:=1/150$, the numbers $x_i=q_i-b$ have sum
+$S=1-4b$ and square sum at most $W=c-2b+4b^2$. Homogeneous Schur
+gives $9e_3(x)\ge S(S^2-2W)$. For completeness, this four-variable
+inequality follows from three-variable Schur by merging the two
+smallest variables $y,z$. The difference of the two Schur expressions
+is $yz[5(S-y-z)-4(y+z)]\ge0$. Expanding the shifted product gives
+\[
+ \prod_i q_i\ \ge \frac{bS(S^2-2W)}9+\frac{b^2(S^2-W)}2+b^3S+b^4
+ >\frac{d_*(1-d_*)^3}{27}.
+\]
+The last inequality is direct rational substitution, contradicting
+\eqref{eq:quartic-products}. Hence $r<b$. For each $i\ne0$, the other
+two coordinates have sum at most $\sqrt{2v}$. Consequently
+$q_i\ge1-r-\sqrt{2c}>1/40$, as
+$(1-b-1/40)^2>2c$. Finally
+$\Tr\alpha= d/r+\sum_{i\ne0}p_i/q_i<1+40$. The trace is integral.
+\end{proof}
+
+\begin{lemma}\label{quart:fixed-trace}
+If $K=K_*$, then $r<1/80$, $q_i>1/16$ for $i\ne0$, and
+$\Tr_{K/\Q}\alpha\le16$.
+\end{lemma}
+\begin{proof}
+For any conjugation $\sigma$ of $K$, the element
+$\sigma(\alpha)=(E/\sigma D)/(E/\sigma E)$ belongs to the signed
+order $T$. Both displayed quotients belong to $T$ by central induction,
+and $E/\sigma E$ has norm one and hence its inverse belongs to $T$.
+For a nonidentity involution interchanging $0,i$ and $j,k$, the
+unit coefficient of $\alpha\sigma(\alpha)$ is a positive integer
+by~\eqref{core:frobenius-trace}. With $U=dp_i$, $V=p_jp_k$, this says
+\[
+ I=U(E_0+E_i)+V(E_j+E_k)\ge1.
+\]
+Replacing $E$ by $D$ on the right gives one, since $\sum p_i=1$.
+Subtracting the two expressions gives
+\[
+ I-1=U(\Tr E-\Tr D)+(V-U)(E_j+E_k-D_j-D_k).
+\]
+In fact $V>U$. Otherwise $\prod p_i=UV\le U^2<d^2$, while
+$r^3(1-3r)\le\prod q_i$. This last bound follows by concentrating
+all mass above the common lower bound $r$ in one entry. As
+$x^3(1-3x)$ increases up to $1/4$, we obtain $r<1/90$.
+Now $v\ge r^2+(1-r)^2/3$ and \eqref{eq:quartic-budgets} give
+$u<49/100$. Since
+$u+2p_jp_k=d^2+p_i^2+(p_j+p_k)^2\ge d^2+(1-d)^2/2$,
+we get $V>1/200-d/2>d>U$, a contradiction. Trace domination
+therefore gives $E_j+E_k\ge D_j+D_k$ for each pair $j,k\ne0$.
+
+Choose $q_1$ smallest among the three coordinates other than $r$,
+put $S=r+q_1$, and write $x=p_1$. The pair bound for $2,3$ gives
+$q_2q_3\le(p_2+p_3)(1-S)/4$, and hence
+\[
+ u\ge d^2+x^2+(1-d-x)^2/2,\qquad
+ v\ge r^2+q_1^2+(1-S)^2-(1-d-x)(1-S)/2.
+\]
+Minimize the resulting quadratic lower bound for $5u+4v$ over real
+$x$, and use $rq_1\le S^2/4$. This gives
+\[
+ 5u+4v\ge\frac{21}5-\frac{32S}5+\frac{88S^2}{15}
+             -\frac{2d}{3}(2S+3).
+\]
+If $S\le3/40$, the right side is at least its value at
+$(S,d)=(3/40,1/950)$, namely $15/4+3/3800$. Thus $S>3/40$.
+By~\eqref{eq:quartic-products}, $r^3(1-3r)<1/(27\cdot950)$, so
+$r<1/27$. Suppose $r\ge1/80$. Each remaining coordinate exceeds
+$3/40-r$, whence concentrating the excess in one entry gives
+\[
+ \prod q_i>\psi(r),\qquad
+ \psi(r)=r(3/40-r)^2(17/20+r).
+\]
+On $[1/80,1/27]$ the polynomial is concave
+($\psi''=12r^2+21r/5-39/160<0$), and its smaller endpoint value is
+$\psi(1/80)=69/1638400>1/(27\cdot950)$. This contradicts
+\eqref{eq:quartic-products}, proving $r<1/80$. Now
+$q_1>3/40-1/80=1/16$, and $\Tr\alpha<1+16$.
+\end{proof}
+
+\subsection{One square inequality for both fields}
+
+For a row $(A,B)$ of \eqref{eq:quartic-budgets} and positive
+$\lambda,\mu$, complete the square at each $i\ne0$, using
+$p_i=\alpha_i q_i$. Summing gives
+\begin{equation}\label{quart:weighted-square}
+ Au+Bv\ge 2\lambda(1-d)+2\mu(1-r)
+       -\sum_{i=1}^3\frac{(\lambda\alpha_i+\mu)^2}{A\alpha_i^2+B}.
+\end{equation}
+Only the three conjugates remaining after deleting one least conjugate
+enter the correction. We give the full arithmetic test for this
+correction so that the quartic argument can be checked separately from
+the fusion-ring census.
+
+\begin{lemma}[Finite conjugate estimate]\label{quart:arithmetic}
+Let $\alpha\ne1$ be a totally positive integral $d$-number in the
+totally real abelian quartic field $K$, of square norm and least conjugate
+at most one. Count conjugates with their multiplicities as embeddings
+of $K$. For each row of the table, the sum in
+\eqref{quart:weighted-square} is less than $M$.
+\[
+\begin{array}{c|cc|cccc|c}
+ &\Tr\alpha\le& h&A&B&\lambda&\mu&M\\\hline
+ K\ne K_* &40&1,4&1&1&1/3&1/2&17/20\\
+ K=K_* &16&\text{square}&5&4&1&3&41/10
+\end{array}
+\]
+\end{lemma}
+\begin{proof}
+A rational $\alpha$ would be one. In the first row a quadratic minimal
+polynomial is $X^2-tX+n$ with $3\le t\le20$, $n=1,2$, and
+$t^2-4n$ positive and nonsquare. If $n=2$, the $d$-number condition
+requires $2\mid t$. Each root occurs twice.
+
+For a quartic minimal polynomial $F=X^4-tX^3+sX^2-kX+h$, the
+abelian group fixes a partition of the four roots into two pairs.
+Let $a,a'$ be their sums, $b,b'$ their products, and put $z=b+b'$.
+This is a rational algebraic integer. From the elementary symmetric
+functions one obtains
+\[
+ A_0=(a-a')^2=t^2-4s+4z,\quad B_0=(b-b')^2=z^2-4h,\quad
+ (tz-2k)^2=A_0B_0.
+\]
+Thus the following integer loops cover the first row. Use $4\le t\le40$,
+$2\sqrt h\le z\le t^2/4-2\sqrt h$,
+$z<s\le3t^2/8$. These bounds follow from AM--GM on the pairs and on
+the elementary symmetric sums. Test $A_0,B_0\ge0$, $A_0B_0$ square
+and $k=(tz\pm\sqrt{A_0B_0})/2$ integral in $[1,t^3/16]$.
+When $h=4$ retain only $2\mid t,s$ and $4\mid k$.
+In general, if $c_j$ is the $j$th signed elementary symmetric
+coefficient, the $d$-number property gives $h^j\mid c_j^4$:
+the four conjugates generate the same ideal.
+
+The discriminants of the two quadratic factors over their pair field
+have sum $t^2-2s-2z$ and product
+$J=s^2+2sz-3z^2-4tk+16h$. Retain positive sum and product.
+Remove reducible polynomials by testing monic linear and quadratic
+integer factors with positive roots and constant term dividing $h$.
+The pair field is $\Q(\sqrt\delta)$, with $\delta=A_0$ if $A_0>0$ and
+$\delta=B_0$ otherwise. Irreducibility requires $\delta$ nonsquare.
+Since $K$ splits both quadratic factors and is quadratic over the pair
+field, their discriminants represent the same square class there.
+Hence $J$ or $J\delta$ must be an integer square. Retain either
+possibility and count equal polynomials only once.
+
+For the second row put $\phi=(1+\sqrt5)/2$.
+The integral basis $1,\sqrt2,\phi,\sqrt2\phi$ follows from the
+coprime quadratic discriminants $8,5$. Write
+\[
+ 4\alpha=t+b\sqrt2+c\sqrt5+e\sqrt{10}.
+\]
+Then $2\le t\le16$ is even, $c,e$ are even, and
+$t\equiv c$, $b\equiv e\pmod4$. Total positivity gives
+$2b^2,5c^2,10e^2<t^2$ by adding and subtracting conjugates.
+Enumerate these integers, and form the polynomial of the four conjugates
+by putting $y=4X-t$ in
+\[
+ 4^4F(X)=(y^2+5c^2-2b^2-10e^2)^2-5(2cy+4be)^2.
+\]
+Keep alternating nonzero coefficient signs (all conjugates are real),
+square norm $h$, $h^j\mid c_j^4$, and least root at most one.
+Remove rational constants. There are two distinct roots precisely
+when just one of $b,c,e$ is nonzero.
+
+Here are the bounds obtained from these loops. For each distinct root
+use its adjacent grid points of mesh $2^{-16}$, duplicating the
+intervals when the degree is two. For ordered intervals $[a_i,b_i]$,
+a rational upper bound on the desired sum is
+$\sum_{i=1}^3(\lambda b_i+\mu)^2/(Aa_i^2+B)$. A grid interval for the
+$j$th root is found by bisection on $[0,t]$. The number of roots
+larger than a grid point $x$ equals the number of sign changes in the
+nonzero coefficients of $F(X+x)$ by Descartes' rule, which is exact
+when all roots are real. This specifies the entire finite check.
+\[
+\begin{array}{c|rr|c|l}
+ &\deg2&\deg4&\text{upper bound}&
+ \text{maximizing polynomial}\\\hline
+ K\ne K_*&27&291&841/1000&X^4-16X^3+20X^2-8X+1\\
+ K=K_*&5&3&4068/1000&X^2-3X+1
+\end{array}
+\]
+The counts refer to the arithmetic candidates tested, before any
+fusion-ring conditions. The last column gives a minimal polynomial attaining the largest rational interval bound. Both upper bounds are below the corresponding
+$M$. The accompanying script \texttt{quartic\_bounds.py} implements
+these loops with integers and rational endpoints.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:quartic-uniform-bound}]
+If $\alpha\ne1$, Lemmas~\ref{quart:outside-trace}
+and~\ref{quart:fixed-trace} allow us to apply
+Lemma~\ref{quart:arithmetic} in~\eqref{quart:weighted-square}.
+In the two cases, respectively, this yields
+\[
+ u+v>\frac53-\frac2{3\cdot950}-\frac1{150}-\frac{17}{20}>\frac45,
+ \qquad
+ 5u+4v>8-\frac2{950}-\frac6{80}-\frac{41}{10}>\frac{15}4.
+\]
+Each inequality contradicts its moment bound. Thus $E=D$, and
+spectral saturation gives a spherical section.
+\end{proof}
+
+\section{The dimension bound in the nonspherical case}\label{sec:global-bound-proof}
+\begin{proof}[Proof of Theorem~\ref{thm:uniform-global}]
+Suppose $\C$ has no spherical structure. By
+Theorem~\ref{ns:thm:ns-spherical} every simple is self-dual.
+If $D$ were rational, it would be integral, and weak integrality gives
+a spherical structure by \cite[Proposition~8.24]{ENO}.
+The Frobenius--Perron character field is a factor of the rank-four
+rational algebra and contains $\Q(D)$. If $D$ has degree three,
+so does the character field, and
+Theorem~\ref{cub:thm:cubic-classification} gives sphericality.
+
+Only degrees two and four remain. In either case
+Corollary~\ref{col:cor:rank-four-dimension-field-descent} identifies
+the signed dimension field with $\Q(D)$. In degree two,
+Theorem~\ref{qs:short-orbits} gives a product of two copies of this
+field for the signed algebra, with complementary codegree product at
+least $100$. Theorem~\ref{quad:opt:unconditional} then gives $D<1000$.
+In degree four Theorem~\ref{thm:quartic-uniform-bound} gives $D<950$.
+Finally Lemma~\ref{core:lem:coefficient-bound} gives
+$N_{XY}^{Z}\le d_X<\sqrt D<32$. As these coefficients are integers,
+all are at most $31$.
+\end{proof}
+\section{Completeness of the bounded census}\label{app:ordinary-census}
+The ordinary coefficients lie in $[0,M]\cap\ZZ$, with $M=31$.
+We keep rings of global Frobenius--Perron dimension strictly below
+$\Lambda=1000$. Dong, Palcoux and Plessis used an ordinary census in their pivotal
+classification \cite{DPP}. Here a common linear search gives the ordinary
+census and the local signed lifts needed for descent.
+
+\subsection{Presentations and elimination}\label{finite:sec:census}
+Use the row convention $(N_u)_{vw}=N_{uv}^w$ and put
+$B=\sum_u N_uN_u^{\mathsf T}$, the ordinary Casimir.
+Every rank-four fusion ring is commutative by
+Lemma~\ref{core:lem:rank-four-algebra}. For a self-dual basis $1,x,y,z$, reciprocity gives
+\[
+N_x=\begin{pmatrix}0&1&0&0\\1&a&b&c\\0&b&d&e\\0&c&e&f\end{pmatrix},\quad
+N_y=\begin{pmatrix}0&0&1&0\\0&b&d&e\\1&d&g&h\\0&e&h&i\end{pmatrix},\quad
+N_z=\begin{pmatrix}0&0&0&1\\0&c&e&f\\0&e&h&i\\1&f&i&j\end{pmatrix}.
+\]
+These formulas also define signed tables, when arbitrary integer coefficients are allowed.
+Associativity is equivalent to the following six equations:
+\begin{align}
+ ad-b^2+bg+ch-d^2-e^2+1&=0,\label{finite:eq:census1}\\
+ ae-bc+bh+ci-de-ef&=0,\label{finite:eq:census2}\\
+ be-cd+dh-eg+ei-fh&=0,\label{finite:eq:census3}\\
+ af+bi-c^2+cj-e^2-f^2+1&=0,\label{finite:eq:census4}\\
+ bf-ce+di-eh+ej-fi&=0,\label{finite:eq:census5}\\
+ df-e^2+gi-h^2+hj-i^2+1&=0.\label{finite:eq:census6}
+\end{align}
+The six equations are obtained by comparing the three pairwise matrix commutators.
+
+The remaining duality has a single pair. For duality $(0)(1)(23)$ the parameters are $(a,b,c,d,e,f)$,
+and
+\[
+ N_1=\begin{pmatrix}0&1&0&0\\1&a&b&b\\0&b&c&d\\0&b&d&c\end{pmatrix},\quad
+ N_2=\begin{pmatrix}0&0&1&0\\0&b&c&d\\0&d&e&f\\1&c&e&e\end{pmatrix},\quad
+ N_3=N_2^{\mathsf T}.
+\]
+The displayed matrices commute exactly when
+\begin{align}
+ ac-b^2+2be-c^2-d^2+1&=0,\notag\\
+ ad-b^2+be+bf-2cd&=0,\label{census:eq:ns-assoc}\\
+ b(c-d)+d(e-f)&=0,\notag\\
+ -c^2+d^2-e^2+f^2-1&=0.\notag
+\end{align}
+In both cases commutativity of the displayed matrices suffices for
+associativity of the proposed multiplication. Indeed, set
+$E=N_uN_v-\sum_w N_{uv}^{w}N_w$. Its zeroth row vanishes, and it
+commutes with every $N_t$. Its row $t$ is the zeroth row of
+$N_tE=EN_t$, hence also vanishes. Thus $E=0$, proving the full
+regular multiplication identities. The unit, duality, integrality,
+nonnegativity, and reciprocity axioms are already built into the
+presentations.
+
+\subsection{A single bounded linear search}\label{sec:linear-search}
+For any finite integer domain $V$, write
+$\mathcal L(k,r;V)=\{u\in V:ku=r\}$. For $k\ne0$ this is the singleton
+$\{r/k\}$ if $r/k\in V$ and is empty otherwise. For $k=0$ it is
+$V$ if $r=0$ and empty otherwise. This convention includes every free
+variable on a degenerate branch.
+
+For a self-dual table use $V=\{0,\ldots,M\}$. Permutations of the
+three nonunit basis elements are transitive on the six coordinates
+$b,c,d,f,h,i$, so we may put a minimal coordinate at $b$.
+Enumerate $a,b,c,d,e,f,h\in V$ with $b\le c,d,f,h$. The first,
+second and fourth equations give, in order,
+\[
+\begin{aligned}
+g&\in\mathcal L(b,b^2+d^2+e^2-1-ad-ch;V),\\
+i&\in\mathcal L(c,bc+e(d+f-a)-bh;V), \qquad i\ge b,\\
+j&\in\mathcal L(c,c^2+e^2+f^2-1-af-bi;V).
+\end{aligned}
+\]
+Test the other three equations. Keep the lexicographically least tuple
+among the permutations for which the minimum is still at $b$.
+The only early dimension cutoff uses
+\[
+B_{11}=2+a^2+2b^2+2c^2+d^2+2e^2+f^2\le D .
+\]
+Thus any choice with $B_{11}\ge\Lambda$ can be skipped before enumerating
+$h$. The same three linear equations apply to signed lifts when $V$ is
+replaced in each coordinate by its permitted parity interval.
+
+For a dual pair enumerate $c,d,e,f\in V$ and test the last equation of
+\eqref{census:eq:ns-assoc}. For each $b\in V$ satisfying the third,
+take $a\in\mathcal L(c,b^2-2be+c^2+d^2-1;V)$ and test the second.
+Exchanging the dual pair leaves all six parameters unchanged. Distinct
+tuples therefore give distinct based rings.
+
+\subsection{The dimension test and the coverage conclusion}
+The positive dimension vector is an eigenvector of the symmetric
+nonnegative Casimir matrix $B$, with eigenvalue $D=\FPdim(R)$.
+It follows that $D$ is its largest eigenvalue. Therefore
+\begin{equation}\label{census:eq:pd}
+ D<\Lambda\quad\Longleftrightarrow\quad
+ \Lambda I-B\text{ is positive definite}
+ \quad\Longleftrightarrow\quad
+ \det(\Lambda I-B)_{[1,k]}>0\ (1\leq k\leq4).
+\end{equation}
+Here $[1,k]$ denotes the leading principal $k$-by-$k$ submatrix.
+The final equivalence is Sylvester's criterion. All determinants are
+integers; a zero determinant is rejected, so equality at the boundary
+is never admitted. The C++ enumeration uses fraction-free elimination,
+and the Python tensor checker recomputes the same quantities with
+arbitrary-precision integers.
+
+\begin{proposition}\label{census:prop:coverage}
+The preceding procedure with $M=31$ and $\Lambda=1000$ emits exactly
+one representative of every rank-four fusion ring with $D<1000$.
+\end{proposition}
+\begin{proof}
+Every rank-four fusion ring has one of the two complete presentations.
+All solutions of their associativity equations in the parameter box
+occur in the enumerated branches, and the isomorphism reduction retains
+exactly one representative. The acceptance condition
+\eqref{census:eq:pd} is equivalent to the desired strict dimension
+bound. Conversely, every ring below that bound has $\mu<\sqrt D$
+by Lemma~\ref{core:lem:coefficient-bound}, hence $\mu\leq31$, and therefore
+lies in the searched box. This proves both directions.
+\end{proof}
+
+The executable output has $1642$ self-dual classes and
+$50$ classes with a dual pair, for a total of $1692$.
+As an additional implementation check, removing both dimension-pruning
+steps gives $16065$ classes at multiplicity at most $31$; an independently
+implemented strict dimension test retains precisely the same $1692$
+parameter tuples. A full small-box test examines all
+$3^{10}+3^6=59778$ assignments at multiplicity at most two and recovers
+exactly the same $27$ classes. The unpruned experiment shares the
+linear search. The small-box test uses the same
+tensor presentations and canonicalization.
+
+\section{Sphericality from the bounded census}\label{sec:finite-descent}
+
+Suppose that a rank-four category has no spherical structure.
+Theorem~\ref{thm:uniform-global} puts its ordinary ring $R$ in the census.
+Write $P_R$ for the characteristic polynomial of its Casimir matrix and
+$P_T$ for the corresponding polynomial of its signed quotient. Their roots,
+with multiplicity, are the ordinary and signed formal codegrees.
+The finite argument below uses only the coefficients of these polynomials
+and the six associativity equations. No sign choice for the spherical
+dimension character itself is required.
+
+\begin{lemma}[Two filters]\label{lem:descent-filters}
+For such a category, the following conditions hold.
+\begin{enumerate}
+\item Either $P_R$ is irreducible quartic, or it has only linear and
+quadratic factors with exactly one nontrivial quadratic splitting field
+among them. Each irreducible factor is the minimal polynomial of a
+$d$-number.
+\item Let $\mathcal F$ be the set of monic irreducible factors of $P_RP_T$.
+For at least one irreducible factor $e$ of $P_T$,
+\[
+ |f(0)|^{\deg e}\ \bigm|\ |e(0)|^{\deg f}\qquad(f\in\mathcal F).
+\]
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+The proof of Theorem~\ref{thm:uniform-global} leaves two possibilities for
+$\Q(D)$ and identifies it with the signed dimension field $L$. In degree
+four the Casimir eigenvalue $D$ has four distinct conjugates and these exhaust
+$P_R$. In degree two, all ordinary codegrees lie in $L$ by
+Lemma~\ref{core:lem:family-induction}, including the irrational $D$.
+The $d$-number assertion is Ostrik's theorem \cite{OstrikCodegrees}.
+
+For the second assertion take $e$ to be the minimal polynomial of the signed
+global codegree $E$. Central induction makes $E/h$ an algebraic integer for
+every root $h$ represented in $\mathcal F$. Take absolute norms in a number
+field $K$ containing $E$ and $h$. At each prime the resulting inequality is
+\[
+ \frac{v_p(|e(0)|)}{\deg e}\ \geq\
+ \frac{v_p(|f(0)|)}{\deg f},
+\]
+after cancellation of $[K:\Q]$. This gives the divisibility.
+\end{proof}
+
+\begin{proposition}[Finite reduction]\label{prop:two-polys}
+The associativity, parity, domination and norm conditions below leave
+one possible ordinary tuple and two possible signed Casimir polynomials:
+\[
+\begin{aligned}
+ N&=(2,2,2,2,3,4,2,4,4,6),\\
+ P_R(t)&=t^4-288t^3+2880t^2-9216t+9216,\\
+ P_{T,1}(t)&=t^4-96t^3+1728t^2-9216t+9216,\\
+ P_{T,2}(t)&=(t^2-72t+96)(t^2-24t+96).
+\end{aligned}
+\]
+\end{proposition}
+\begin{proof}[Exact enumeration]
+Start with the self-dual census. A nontrivial invertible gives sphericality
+by Theorem~\ref{inv:thm:rankfour-invertible-spherical}. A nonunit
+basis object with $X^2=1+nX$ for $n\ge2$ is excluded by
+Proposition~\ref{core:prop:rank-two}. For the remaining tensors factor $P_R$
+over $\Q$ and apply Lemma~\ref{lem:descent-filters}(1). The $d$-number
+test is the coefficient divisibility in Proposition~\ref{finite:prop:standard}.
+For quadratic factors compare the squarefree parts of their discriminants.
+
+For each surviving ten-tuple $N=(n_1,\ldots,n_{10})$, the $k$th signed
+entry ranges over $-n_k,-n_k+2,\ldots,n_k$. In the order of
+\eqref{eq:tuple-convention}, enumerate $a,b,c,d,e,f,h$ in those ranges.
+One may take $a,b,c\ge0$ since the entries $T_{111},T_{112},T_{113}$
+transform by the independent signs of $X,Y,Z$. Use the three linear
+equations in Section~\ref{sec:linear-search} to determine $g,i,j$
+in their respective parity intervals, keeping a whole interval when
+the corresponding equation is $0=0$. Check the other three equations.
+If every absolute entry
+equals its ordinary counterpart, Lemma~\ref{trace:lem:absolute-rigidity}
+gives a spherical section, so discard it. For each ordinary ring, collect
+the distinct remaining $P_T$, computed as
+$\det(tI-\sum_i T_iT_i^{\mathsf T})$, and apply
+Lemma~\ref{lem:descent-filters}(2). The following counts record the
+finite calculation; the last two count pairs $(R,P_T)$.
+\begin{center}\small
+\begin{tabular}{@{}lr@{}}\toprule
+Condition just imposed & Remaining \\ \midrule
+Self-dual ordinary rings of $D<1000$ & 1642\\
+No nontrivial invertible & 1259\\
+No forbidden rank-two subring & 905\\
+Ordinary formal codegrees are $d$-numbers & 71\\
+Ordinary codegree field test & 41\\ \midrule
+Strict signed tuples in the chosen signs, counted over the 41 rings & 1798\\
+Distinct pairs $(R,P_T)$ & 623\\
+Joint norm divisibility & 2\\ \bottomrule
+\end{tabular}
+\end{center}
+The two pairs are the displayed output. All steps are integer operations or
+factorizations of polynomials of degree at most four over $\Q$. The script
+\texttt{verify\_descent.py} implements the enumerations just described.
+\end{proof}
+
+\begin{theorem}\label{thm:universal-spherical}
+Every complex fusion category of rank four admits a spherical structure.
+\end{theorem}
+\begin{proof}
+For the single ordinary candidate, $P_R$ is irreducible, so $[\Q(D):\Q]=4$.
+Corollary~\ref{col:cor:rank-four-dimension-field-descent} now identifies the
+signed dimension field $L$ with $\Q(D)$. Thus
+Proposition~\ref{core:squared-moments} requires $u+v\le7/8$ for either
+of the two proposed signed polynomials.
+
+For any quartic $t^4+At^3+Bt^2+Ct+H$ with nonzero roots $f_i$,
+Vieta's formulas give $\sum_i f_i^{-2}=(C/H)^2-2B/H$.
+The ordinary polynomial gives $u=3/8$. For $P_{T,1}$ and $P_{T,2}$
+the respective values of $v$ are $5/8$ and $7/12$. Thus $u+v$ is
+$1$ or $23/24$, both strictly greater than $7/8$.
+\end{proof}
+
+\section{The fifteen rings and sharp bounds}\label{finite:sec:catalog}
+\begin{corollary}[Rank-four classification]\label{finite:cor:classification}
+The rings in Table~\ref{finite:tab:models} are exactly the Grothendieck
+rings of complex fusion categories of rank four, up to based-ring
+isomorphism. Each ring has a unitary realization.
+\end{corollary}
+\begin{proof}
+The preceding descent gives a spherical structure on any rank-four category
+under consideration. In particular it is pivotal. The classification of
+Dong, Palcoux and Plessis \cite[Theorem~1.1 and Table~1]{DPP} gives exactly fifteen based rings
+for complex pivotal categories of rank four. The fifteen rows below are
+realized by the indicated categories and are pairwise nonisomorphic, as
+one checks from their multiplication tensors by the six permutations of
+the nonunit basis elements.
+\end{proof}
+% Model rows checked by supplementary/models/check_models.py.
+\begin{table}[htbp]
+\centering\small
+\begin{tabular}{@{}clcl@{}}
+\toprule
+$\mu$ & A unitary realization & $D$ & Reference \\
+\midrule
+$1$ & $\mathrm{Vec}_{C_2\times C_2}$ & $4$ & \cite[\S3.4]{LPR} \\
+$1$ & $\mathrm{Fib}\boxtimes\mathrm{Vec}_{C_2}$ & $5+\sqrt{5}$ & \cite[\S3.4]{LPR} \\
+$1$ & $\operatorname{Rep}(D_{10})$ & $10$ & \cite[\S3.4]{LPR} \\
+$1$ & $\operatorname{Ad}(\mathrm{SU}(2)_6)$ & $8+4\sqrt{2}$ & \cite[Theorem 3.1]{EIP} \\
+$1$ & $\mathrm{Fib}\boxtimes\mathrm{Fib}$ & $(15+5\sqrt{5})/2$ & \cite[\S3.4]{LPR} \\
+$1$ & $\operatorname{Ad}(\mathrm{SU}(2)_7)$ & $\delta_7$ & \cite[\S3.4]{LPR} \\
+$1$ & $\mathrm{Vec}_{C_4}$ & $4$ & \cite[\S3.4]{LPR} \\
+$1$ & Tambara--Yamagami on $C_3$ & $6$ & \cite{TambaraYamagami} \\
+$1$ & Principal even part of $S'$ & $8+4\sqrt{2}$ & \cite[Theorem 1]{LMP} \\
+$2$ & Principal even part of $2D2$ & $20+8\sqrt{5}$ & \cite[Theorem 3.1]{EIP} \\
+$2$ & Haagerup category $\mathcal H_1$ & $(39+9\sqrt{13})/2$ & \cite[Table 2]{GrossmanSnyder} \\
+$2$ & $\operatorname{Rep}(A_4)$ & $12$ & \cite[Theorem 1.1]{Larson} \\
+$3$ & $\operatorname{Ad}(E_8)$ & $\delta_E$ & \cite{IzumiE8,EvansJones} \\
+$3$ & Near-group type $(C_3,3)$ & $(21+3\sqrt{21})/2$ & \cite[Example 9.4]{Izumi} \\
+$6$ & Near-group type $(C_3,6)$ & $24+12\sqrt{3}$ & \cite[Theorem 10.19]{Izumi} \\
+\bottomrule
+\end{tabular}
+\caption{One unitary realization of each surviving based ring, with its
+multiplicity $\mu$ and global Frobenius--Perron dimension $D$.
+Here $D_{10}$ has order ten, $S'$ has index $3+2\sqrt2$, and the
+near-group category of type $(C_3,3)$ is the Izumi--Xu category.}
+\label{finite:tab:models}
+\smallskip
+\begin{minipage}{\textwidth}\footnotesize
+The numbers $\delta_7$ and $\delta_E$ are the largest real roots of
+$x^3-27x^2+162x-243$ and
+$x^4-45x^3+375x^2-1125x+1125$, respectively.
+The supplementary model check verifies these polynomials, the positive
+dimension characters, and all tensor identifications exactly.
+\end{minipage}
+\end{table}
+
+Table~\ref{finite:tab:models} supplies one unitary realization and a
+construction reference for every surviving based ring. Here
+$\operatorname{Ad}(\mathrm{SU}(2)_k)$ denotes the adjoint subcategory,
+$\mathcal H_1$ is the rank-four Haagerup even part, and a near-group ring
+of type $(C_3,m)$ satisfies
+$\rho^2=\sum_{g\in C_3}g+m\rho$.
+The six non-self-dual models are
+$\mathrm{Vec}_{C_4}$, the Tambara--Yamagami category on $C_3$,
+the principal even part of $S'$, $\operatorname{Rep}(A_4)$, and the
+two near-group categories of parameters three and six.
+
+Asaeda and Haagerup constructed the index-$(5+\sqrt{13})/2$ subfactor
+\cite{AsaedaHaagerup}. Grossman and Snyder give the table of its rank-four
+even part $\mathcal H_1$ \cite[Table~2]{GrossmanSnyder}. The $2D2$ subfactor is due to
+Morrison--Penneys \cite[Theorem~1.1]{MorrisonPenneys}. The $E_8$
+construction is due to Izumi \cite{IzumiE8}; its adjoint fusion
+rules are displayed in \cite[Section~3.3]{EvansJones}. The
+$(C_3,6)$ example was first found by Zhengwei Liu and Noah Snyder,
+as credited in \cite[Section~10.6]{Izumi}.
+
+The model check reconstructs each tensor from the group
+operations, the product or truncated $\mathrm{SU}(2)$ rules, or the
+cited exceptional fusion table. It identifies the corresponding ordinary
+census record and checks the positive character, the multiplicity and
+the global dimension. The cited constructions supply the unitary categories.
+\begin{corollary}[Sharp bounds]\label{finite:cor:sharp-bounds}
+Every rank-four complex fusion category satisfies
+\[
+\operatorname{FPdim}(\C)\leq24+12\sqrt3,
+\qquad \max_{i,j,k}N_{ij}^k\leq6.
+\]
+Both bounds are attained, and equality in either bound holds precisely
+for the near-group ring $\operatorname{NG}(C_3,6)$.
+\end{corollary}
+\begin{proof}
+Apply the sharp pivotal bound of Dong, Palcoux and Plessis
+\cite[Corollary~5.4]{DPP} after Theorem~\ref{thm:universal-spherical}.
+For the equality case the noninvertible simple has dimension
+$3+2\sqrt3$, so $D=3+(3+2\sqrt3)^2=24+12\sqrt3$.
+\end{proof}
+
+\paragraph{Reproduction.}
+From the \texttt{verification} directory run \texttt{python3 verify.py}.
+This command regenerates the ordinary census, tests every signed candidate,
+checks the quadratic and quartic estimates, and reconstructs the fifteen
+model tensors. It requires Python, SymPy and a C++17 compiler.
+\begingroup\small
+\begin{thebibliography}{99}
+\bibitem{AsaedaHaagerup}
+M.~Asaeda and U.~Haagerup,
+\emph{Exotic subfactors of finite depth with Jones indices
+$(5+\sqrt{13})/2$ and $(5+\sqrt{17})/2$},
+Comm. Math. Phys. \textbf{202} (1999), 1--63.
+\href{https://arxiv.org/abs/math/9803044}{arXiv:math/9803044}.
+
+\bibitem{Bartlett}
+B. Bartlett, \emph{Fusion categories via string diagrams},
+Commun. Contemp. Math. \textbf{18} (2016), no.~5, 1550080, 39 pp.
+\href{https://doi.org/10.1142/S0219199715500807}{doi:10.1142/S0219199715500807}.
+
+\bibitem{Bruillard}
+P.~Bruillard, \emph{Rank 4 premodular categories},
+with an appendix by P.~Bruillard, C.~Galindo, S.-H.~Ng, J.~Plavnik,
+E.~Rowell and Z.~Wang, New York J. Math. \textbf{22} (2016), 775--800.
+\href{https://nyjm.albany.edu/j/2016/22-36p.pdf}{Published article}.
+
+\bibitem{DCW}
+J.~Dong, G.~Chen and Z.~Wang, \emph{Fusion categories
+containing a fusion subcategory with maximal rank}, J. Algebra
+\textbf{604} (2022), 107--127.
+\href{https://doi.org/10.1016/j.jalgebra.2022.02.020}{doi:10.1016/j.jalgebra.2022.02.020}.
+
+\bibitem{DLN}
+C. Dong, X. Lin, and S.-H. Ng, \emph{Congruence property in conformal
+field theory}, Algebra Number Theory \textbf{9} (2015), no.~9, 2121--2166.
+\href{https://doi.org/10.2140/ant.2015.9.2121}{doi:10.2140/ant.2015.9.2121}.
+
+\bibitem{DongFour}
+J.~Dong, \emph{On Grothedieck rings of rank $4$
+self-dual fusion categories}, preprint (2025).
+\href{https://arxiv.org/abs/2505.19153v2}{arXiv:2505.19153v2}.
+
+\bibitem{DPP}
+J. Dong, S. Palcoux and A. Plessis,
+\emph{Classifying Grothendieck rings of pivotal fusion categories of rank four},
+preprint, 2026.
+\href{https://arxiv.org/abs/2609.33272v2}{arXiv:2609.33272v2}.
+
+\bibitem{EGNO}
+P. Etingof, S. Gelaki, D. Nikshych and V. Ostrik,
+\emph{Tensor Categories}, Mathematical Surveys and Monographs \textbf{205},
+American Mathematical Society, 2015.
+
+\bibitem{EIP}
+C.~Edie-Michell, M.~Izumi and D.~Penneys,
+\emph{Classification of $\ZZ/2\ZZ$-quadratic unitary fusion categories},
+with an appendix by R.~Johnson, S.-H.~Ng, D.~Penneys, J.~Roat,
+M.~Titsworth and H.~Tucker,
+Quantum Topol. \textbf{16} (2025), 493--568.
+\href{https://arxiv.org/abs/2108.01564v2}{arXiv:2108.01564v2}.
+
+\bibitem{ENO}
+P. Etingof, D. Nikshych, and V. Ostrik, \emph{On fusion categories},
+Ann. of Math. (2) \textbf{162} (2005), no.~2, 581--642.
+\href{https://doi.org/10.4007/annals.2005.162.581}{doi:10.4007/annals.2005.162.581}.
+
+\bibitem{EvansJones}
+D. E. Evans and C. Jones,
+\emph{Quantum symmetries of noncommutative tori},
+Comm. Math. Phys. \textbf{406} (2025), article 167.
+\href{https://doi.org/10.1007/s00220-025-05337-y}{doi:10.1007/s00220-025-05337-y}.
+
+\bibitem{GannonSchopieray}
+T.~Gannon and A.~Schopieray,
+\emph{Algebraic number fields generated by dimensions in fusion rings},
+Commun. Number Theory Phys. \textbf{18} (2024), 705--743.
+\href{https://doi.org/10.4310/CNTP.241202233757}{doi:10.4310/CNTP.241202233757}.
+
+\bibitem{GrossmanSnyder}
+P.~Grossman and N.~Snyder,
+\emph{Quantum subgroups of the Haagerup fusion categories},
+Comm. Math. Phys. \textbf{311} (2012), 617--643.
+\href{https://doi.org/10.1007/s00220-012-1427-x}{doi:10.1007/s00220-012-1427-x}.
+
+\bibitem{HaggeHong}
+T.~J.~Hagge and S.-M.~Hong, \emph{Some non-braided
+fusion categories of rank three}, Commun. Contemp. Math. \textbf{11}
+(2009), 615--637.
+\href{https://doi.org/10.1142/S0219199709003521}{doi:10.1142/S0219199709003521}.
+
+\bibitem{Izumi}
+M.~Izumi, \emph{A Cuntz algebra approach to the classification of near-group categories},
+in \emph{Proceedings of the 2014 Maui and 2015 Qinhuangdao Conferences
+in Honour of Vaughan F. R. Jones' 60th Birthday},
+Proc. Centre Math. Appl. Austral. Nat. Univ. \textbf{46} (2017), 222--343.
+\href{https://maths.anu.edu.au/files/8\%2520Izumi_2.pdf}{Published chapter}.
+
+\bibitem{IzumiE8}
+M. Izumi,
+\emph{On flatness of the Coxeter graph $E_8$},
+Pacific J. Math. \textbf{166} (1994), 305--327.
+
+\bibitem{Larson}
+H. K. Larson, \emph{Pseudo-unitary non-self-dual fusion categories of rank 4},
+J. Algebra \textbf{415} (2014), 184--213.
+\href{https://doi.org/10.1016/j.jalgebra.2014.05.032}{doi:10.1016/j.jalgebra.2014.05.032}.
+
+\bibitem{LMP}
+Z. Liu, S. Morrison and D. Penneys,
+\emph{1-supertransitive subfactors with index at most $6\frac15$},
+Comm. Math. Phys. \textbf{334} (2015), 889--922.
+\href{https://doi.org/10.1007/s00220-014-2160-4}{doi:10.1007/s00220-014-2160-4}.
+
+\bibitem{LPR}
+Z.~Liu, S.~Palcoux and Y.~Ren,
+\emph{Classification of Grothendieck rings of complex fusion categories
+of multiplicity one up to rank six},
+Lett. Math. Phys. \textbf{112} (2022), article~54.
+\href{https://arxiv.org/abs/2010.10264v5}{arXiv:2010.10264v5}.
+
+\bibitem{MorrisonPenneys}
+S.~Morrison and D.~Penneys,
+\emph{2-supertransitive subfactors at index $3+\sqrt5$},
+J. Funct. Anal. \textbf{269} (2015), no.~9, 2845--2870.
+\href{https://doi.org/10.1016/j.jfa.2015.06.023}{doi:10.1016/j.jfa.2015.06.023}.
+
+\bibitem{NS}
+S.-H. Ng and P. Schauenburg, \emph{Frobenius--Schur indicators and exponents of spherical categories},
+Adv. Math. \textbf{211} (2007), no.~1, 34--71.
+\href{https://doi.org/10.1016/j.aim.2006.07.017}{doi:10.1016/j.aim.2006.07.017}.
+
+\bibitem{NSHigher}
+S.-H. Ng and P. Schauenburg, \emph{Higher Frobenius--Schur indicators for
+pivotal categories}, in \emph{Hopf Algebras and Generalizations},
+Contemp. Math. \textbf{441}, Amer. Math. Soc., Providence, RI, 2007, 63--90.
+\href{https://doi.org/10.1090/conm/441/08500}{doi:10.1090/conm/441/08500}.
+
+\bibitem{NTV}
+S. Nasseh, S. Sather-Wagstaff, R. Takahashi, and K. VandeBogert,
+\emph{Applications and homological properties of local rings with
+decomposable maximal ideals}, J. Pure Appl. Algebra \textbf{223} (2019),
+no.~3, 1272--1287.
+\href{https://doi.org/10.1016/j.jpaa.2018.06.006}{doi:10.1016/j.jpaa.2018.06.006}.
+
+\bibitem{Ostrik3}
+V. Ostrik, \emph{Pivotal fusion categories of rank 3}, with an appendix
+written jointly with D. Nikshych, Mosc. Math. J. \textbf{15} (2015),
+no.~2, 373--396.
+\href{https://doi.org/10.17323/1609-4514-2015-15-2-373-396}{doi:10.17323/1609-4514-2015-15-2-373-396}.
+
+\bibitem{OstrikCodegrees}
+V. Ostrik, \emph{On formal codegrees of fusion categories},
+Math. Res. Lett. \textbf{16} (2009), no.~5, 895--901.
+\href{https://doi.org/10.4310/MRL.2009.v16.n5.a11}{doi:10.4310/MRL.2009.v16.n5.a11}.
+
+\bibitem{OstrikRankTwo}
+V. Ostrik, \emph{Fusion categories of rank 2}, with an appendix by P.~Etingof,
+Math. Res. Lett. \textbf{10} (2003), no.~2--3, 177--183.
+\href{https://arxiv.org/abs/math/0203255}{arXiv:math/0203255}.\par
+
+\bibitem{RSW}
+E.~C. Rowell, R. Stong, and Z. Wang, \emph{On classification of modular
+ tensor categories}, Commun. Math. Phys. \textbf{292} (2009), no.~2, 343--389.
+\href{https://doi.org/10.1007/s00220-009-0908-z}{doi:10.1007/s00220-009-0908-z}.
+
+\bibitem{Schopieray}
+A. Schopieray,
+\emph{Categorification of integral group rings extended by one dimension},
+J. Lond. Math. Soc. (2) \textbf{108} (2023), 1617--1641;
+\href{https://doi.org/10.1112/jlms.12789}{doi:10.1112/jlms.12789}.
+
+\bibitem{SchopierayNorm}
+A.~Schopieray, \emph{Norm, trace, and formal
+codegrees of fusion categories}, J. Algebra \textbf{568} (2021), 362--385.
+\href{https://doi.org/10.1016/j.jalgebra.2020.10.014}{doi:10.1016/j.jalgebra.2020.10.014}.
+
+\bibitem{TambaraYamagami}
+D. Tambara and S. Yamagami,
+\emph{Tensor categories with fusion rules of self-duality for finite abelian groups},
+J. Algebra \textbf{209} (1998), 692--707.
+\href{https://doi.org/10.1006/jabr.1998.7558}{doi:10.1006/jabr.1998.7558}.
+
+\bibitem{VS}
+G.~Vercleyen and J.~K.~Slingerland,
+\emph{On low rank fusion rings}, J. Math. Phys. \textbf{64} (2023), 091703.
+\href{https://doi.org/10.1063/5.0148848}{doi:10.1063/5.0148848}.
+
+\bibitem{VSData}
+G.~Vercleyen and J.~Slingerland, \emph{On low-rank
+multiplicity-free complex fusion categories}, Comm. Math. Phys. \textbf{407}
+(2026), article 231.
+\href{https://doi.org/10.1007/s00220-026-05705-2}{doi:10.1007/s00220-026-05705-2}.
+\end{thebibliography}
+\endgroup
+
+\par\medskip
+{\small\noindent\textsc{Beijing Institute of Mathematical Sciences and Applications}\par
+\noindent Huairou District, Beijing 101408, China\par}
+\end{document}

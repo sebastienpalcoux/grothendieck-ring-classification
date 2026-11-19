@@ -62,7 +62,10 @@ def apply(site=HERE):
     html = path.read_text()
     inventory=json.loads((dist/'downloads/current_manuscript_page_counts.json').read_text())
     totals=inventory['totals']
-    page_summary=f"12 mathematical manuscripts: {totals['mathematical_manuscript']} pages; with the three verification guides: {totals['mathematical_manuscripts_and_guides']}; with the current research-status report: {totals['all_distinct_documents']}. Each distinct document is counted once. "
+    counts=inventory['document_counts']
+    page_summary=(f"{counts['mathematical_manuscripts']} mathematical manuscripts: {totals['mathematical_manuscript']} pages; "
+                  f"with {counts['verification_guides']} verification guides: {totals['mathematical_manuscripts_and_guides']}; "
+                  f"with the current research-status report: {totals['all_distinct_documents']}. Each distinct current document is counted once. ")
     html=re.sub(r'(<p class="scope-note" id="current-manuscript-page-summary">).*?(<a href=)',lambda m:m[1]+page_summary+m[2],html,flags=re.S)
 
     html = re.sub(r'<p class="scope-note" id="(?:frontier-update|correctness-update)">.*?</p>\s*', '', html, flags=re.S)

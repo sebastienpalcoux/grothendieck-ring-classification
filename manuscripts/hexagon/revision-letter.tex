@@ -1,0 +1,111 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,microtype,amsmath,amssymb,booktabs}
+\usepackage[margin=27mm]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue]{hyperref}
+\hypersetup{pdftitle={Revision letter: Grothendieck rings of complex fusion categories, ranks 2--4},pdfauthor={Sébastien Palcoux}}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 1pt minus 1pt}
+\raggedbottom
+\begin{document}
+{\small 19 November 2026}\par
+{\Large\bfseries Revision letter}\par
+{\large\itshape Grothendieck rings of complex fusion categories, ranks 2--4}\par
+\medskip
+Dear readers and moderators of Hexagon,
+
+The three accompanying manuscripts are separate submissions, one for each rank.
+They give a modern treatment of the rings of simple objects and their tensor products.
+Each paper can be read on its own. The existence of a spherical structure is proved for
+every categorification in the rank under study. The classification is up to
+based-ring isomorphism, and the construction references provide examples realising the rings.
+
+\begin{center}
+\begin{tabular}{@{}lrrl@{}}\toprule
+Paper & Previous pages & Revised pages & Based rings \\ \midrule
+Rank two & 5 & 3 & 2\\
+Rank three & 12 & 10 & 5\\
+Rank four & 90 & 50 & 15\\ \bottomrule
+\end{tabular}
+\end{center}
+
+\textbf{Rank two.}
+For $X^2=1+nX$, let $m$ be the signed lift multiplicity. Integrality of the
+global-dimension quotient of the sphericalization implies that
+$(m^2+4)/(n^2+4)$ is a rational algebraic integer in $(0,1]$. This forces
+$|m|=n$ and gives a spherical section. The induction matrix then leaves two
+central twists whose sum is $-n\dim(X)$. Taking an algebraic conjugate gives
+$n\operatorname{FPdim}(X)\le2$. This removes the earlier compositum calculation
+and the separate Gauss-sum exclusion. The paper credits Ostrik for the
+classification and identification of the central objects, Moore--Seiberg
+for the surviving tensor structures, Thornton for near-group sphericality,
+and Morrison--Walker for the induction-matrix method.
+
+\textbf{Rank three.}
+Both exclusions use the mass at twist one in a positive measure on the unit
+circle. In the cubic case six even moments force the candidate and yield
+spherical descent. In the spherical case the polynomial $3+4z+3z^2$
+combines the first two moments in one inequality. It treats both the mixed
+fusion rules and the near-group family, including the narrow endpoint
+$m=3$, where the contradiction is $9\sqrt{17}\le37$. Consequently the
+paper no longer takes Ostrik's pivotal structural reduction as an input.
+It cites his quadratic descent theorem with its exact hypothesis.
+The revised proof explains why the dimension character can be transported
+to the positive embedding. The history distinguishes Bion-Nadal's
+$E_6$ subfactor construction from Hagge--Hong's classification of the
+corresponding tensor structures.
+
+\newpage
+\textbf{Rank four.}
+The revised paper proves sphericality before applying the pivotal
+classification of Dong, Palcoux and Plessis. This order separates the
+extension to arbitrary complex fusion categories from the earlier
+fifteen-ring result. The six non-self-dual rings are also recovered directly
+using central induction and twist moments. The introduction records the
+scope of Larson's pseudo-unitary result, the unitary result of
+Edie-Michell--Izumi--Penneys, and the earlier sphericality and
+low-rank classification results.
+
+A putative nonspherical category must have self-dual simples, and its
+Frobenius--Perron dimension $D$ must be quadratic or quartic and less than
+$1000$. A shared convexity estimate replaces several separate quadratic
+estimates. In the cubic case the argument stops once sphericality is proved.
+A local calculation with the socle of the based order gives the inert-prime
+obstruction. In the quartic case one square inequality treats the
+ordinary and exceptional field cases. The text distinguishes the field of
+a dimension character from the field of its codegree and explains where
+their equality is needed. It also specifies the factor of two relating
+codegrees in the sphericalization to the codegrees of its two quotients.
+The short quadratic character table now states a necessary list, without
+asserting that each row occurs.
+
+The ordinary and signed enumerations now solve the same three linear
+associativity equations, including the cases with zero coefficients.
+Of the 1642 self-dual ordinary rings in the dimension window, 41 pass
+the preliminary conditions. Their 1798 signed tuples give 623 distinct
+pairs of an ordinary ring and a signed Casimir polynomial. Central norm
+divisibility leaves two pairs, both with the same ordinary ring.
+Their inverse-square codegree sums are $1$ and $23/24$, respectively.
+Both violate the upper bound $7/8$. This proves sphericality without
+using the pivotal classification. Invoking its fifteen-ring theorem at
+this point removes the need to reproduce its pivotal case analysis.
+The earlier global bank of 92795 signed orbits and its exclusion ledger
+are no longer dependencies of the paper or its supplement.
+
+\textbf{Checks.}
+The complete finite replay regenerated all 1692 ordinary rings in the
+window, including the 50 with a dual pair. Removing the dimension cut
+gave 16065 rings, and the multiplicity-two brute-force check gave 27.
+A separate direct enumeration produced the same 1798 signed tuples.
+The arithmetic checks recovered all 14 short quadratic rows, verified
+372 endpoint comparisons, and checked the two quartic-field estimates.
+All fifteen model tensors and their positive dimension characters were
+reconstructed and compared with the final table. The revised PDFs were
+built from the sources included in the three submission archives.
+Complete human verification of the mathematical arguments remains pending.
+
+\medskip
+Sébastien Palcoux\\
+Beijing Institute of Mathematical Sciences and Applications
+\end{document}

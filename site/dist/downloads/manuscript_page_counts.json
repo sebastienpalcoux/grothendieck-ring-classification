@@ -1,10 +1,10 @@
 {
   "schema": "manuscript-page-counts/v1",
   "date": "2026-10-29",
-  "counting_rule": "Count each distinct current document once, including its references and appendices; exclude website/supplement copies and compatibility aliases.",
+  "counting_rule": "Count each distinct current document once, including its references and appendices; exclude website/supplement copies, compatibility aliases and the superseded rank-four papers listed in historical_documents.",
   "document_counts": {
-    "mathematical_manuscripts": 8,
-    "verification_guides": 3,
+    "mathematical_manuscripts": 7,
+    "verification_guides": 2,
     "research_status_reports": 1
   },
   "documents": [
@@ -13,32 +13,24 @@
       "kind": "mathematical_manuscript",
       "path": "manuscripts/rank2.pdf",
       "pages": 3,
-      "bytes": 325336,
-      "sha256": "3488327cdd434217b29fe48a6a32eb604ee5f0ceb7870bd33af3b1bc17ab9a36"
+      "bytes": 301597,
+      "sha256": "851427378617274c48ad8d2f4f8c6c0fe7250524163ba5d27846a256e866d62d"
     },
     {
       "title": "Rank three",
       "kind": "mathematical_manuscript",
       "path": "manuscripts/rank3.pdf",
-      "pages": 12,
-      "bytes": 383885,
-      "sha256": "4d6aa1d7cc813be1be6f9e1bc844a760eaee9c594483df920a472c419efe7669"
+      "pages": 10,
+      "bytes": 380420,
+      "sha256": "a38c8617bef8ed9941b03d3748a304333caa19607270495d4f7e9a19b00dbd55"
     },
     {
-      "title": "Rank four: finite classification",
+      "title": "Rank four",
       "kind": "mathematical_manuscript",
-      "path": "manuscripts/rank4/papers/finite.pdf",
-      "pages": 29,
-      "bytes": 467296,
-      "sha256": "6971fd54e22550ef3bdbb5a0b30de8907e94f853c88245e1759a6e53b90e3cab"
-    },
-    {
-      "title": "Rank four: unrestricted classification",
-      "kind": "mathematical_manuscript",
-      "path": "manuscripts/rank4/papers/companion.pdf",
-      "pages": 88,
-      "bytes": 908990,
-      "sha256": "dd125eee1cb32dba20d08c9173214fd6fddc8c541154c53193c09ca5b6d2b5f3"
+      "path": "manuscripts/rank4.pdf",
+      "pages": 50,
+      "sha256": "e08364df5db6ff6e5ac0efd67a65908b3eacface7defabdac02002782ed486d4",
+      "bytes": 739118
     },
     {
       "title": "Rank five",
@@ -73,14 +65,6 @@
       "sha256": "27d1c3da8a43c15e3b826e5348c617257b4da03a986ff709c5286640bf66e167"
     },
     {
-      "title": "Rank-four verification guide",
-      "kind": "verification_guide",
-      "path": "manuscripts/rank4/papers/verification_guide.pdf",
-      "pages": 9,
-      "bytes": 262214,
-      "sha256": "e6102a943db9ee6c6cbcc6a8603ba4b191fb3fda89be75b2a258c552db303cec"
-    },
-    {
       "title": "Rank-five verification guide",
       "kind": "verification_guide",
       "path": "manuscripts/rank5/papers/verification_guide.pdf",
@@ -106,16 +90,66 @@
     }
   ],
   "totals": {
-    "mathematical_manuscript": 567,
-    "verification_guide": 18,
+    "mathematical_manuscript": 498,
+    "verification_guide": 9,
     "research_status_report": 12,
-    "mathematical_manuscripts_and_guides": 585,
-    "all_distinct_documents": 597
+    "mathematical_manuscripts_and_guides": 507,
+    "all_distinct_documents": 519
   },
   "classification_scope": {
     "rank2": "Unrestricted",
     "rank3": "Unrestricted",
     "rank4": "Unrestricted complex classification: 15 Grothendieck rings; every categorification admits a spherical structure. The sharp bounds are FPdim ≤ 24+12√3 and multiplicity ≤ 6."
   },
-  "caution": "AI-generated research; independent human verification and Lean formalization pending."
+  "caution": "AI-generated research; independent human verification and Lean formalization pending.",
+  "historical_documents": [
+    {
+      "title": "Rank four: finite classification",
+      "kind": "mathematical_manuscript",
+      "path": "manuscripts/rank4/papers/finite.pdf",
+      "pages": 29,
+      "bytes": 467296,
+      "sha256": "6971fd54e22550ef3bdbb5a0b30de8907e94f853c88245e1759a6e53b90e3cab",
+      "status": "historical",
+      "superseded_by": "manuscripts/rank4.pdf"
+    },
+    {
+      "title": "Rank four: unrestricted classification",
+      "kind": "mathematical_manuscript",
+      "path": "manuscripts/rank4/papers/companion.pdf",
+      "pages": 88,
+      "bytes": 908990,
+      "sha256": "dd125eee1cb32dba20d08c9173214fd6fddc8c541154c53193c09ca5b6d2b5f3",
+      "status": "historical",
+      "superseded_by": "manuscripts/rank4.pdf"
+    },
+    {
+      "title": "Rank-four verification guide",
+      "kind": "verification_guide",
+      "path": "manuscripts/rank4/papers/verification_guide.pdf",
+      "pages": 9,
+      "bytes": 262214,
+      "sha256": "e6102a943db9ee6c6cbcc6a8603ba4b191fb3fda89be75b2a258c552db303cec",
+      "status": "historical",
+      "superseded_by": "manuscripts/rank4.pdf"
+    }
+  ],
+  "manuscript_edition": {
+    "date": "2026-11-19",
+    "scope": "Revised uniform manuscript series for ranks 2, 3 and 4; higher-rank classification data and research status are unchanged.",
+    "title_prefix": "Grothendieck rings of complex fusion categories:",
+    "canonical_papers": {
+      "rank2": "manuscripts/rank2.pdf",
+      "rank3": "manuscripts/rank3.pdf",
+      "rank4": "manuscripts/rank4.pdf"
+    },
+    "rank4_verification": "supplements/rank4/sphericality/",
+    "superseded_revision": "3093313a3e3d00af43eb7235f01da11ea7e41b9b",
+    "historical_rank4_papers": [
+      "manuscripts/rank4/papers/finite.pdf",
+      "manuscripts/rank4/papers/companion.pdf",
+      "manuscripts/rank4/papers/verification_guide.pdf"
+    ],
+    "historical_scope": "The named finite, companion and verification-guide artifacts and their proof archives retain their original bytes and frozen manifests."
+  }
 }

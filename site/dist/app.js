@@ -5,16 +5,16 @@ const $ = (selector) => document.querySelector(selector);
 const fmt = new Intl.NumberFormat("en-US");
 const state = { data: null, models: [], rank: "all", range: "20", mode: "grothendieck", selected: null, allModels: false, profile: null, profileTab: "tensor" };
 const paperEntries = [
-  {rank:2, title:"A short classification of complex rank-two Grothendieck rings", subtitle:"Self-contained, unrestricted classification", type:"MANUSCRIPT", slug:"rank2"},
-  {rank:3, title:"Galois-averaged indicators and sphericality in rank three", subtitle:"Direct five-ring classification and sphericality", type:"MANUSCRIPT", slug:"rank3"},
-  {rank:4, title:"Grothendieck rings of general fusion categories of rank four", subtitle:"Unrestricted classification · 15 rings · automatic sphericality", type:"CLASSIFICATION", slug:"rank4"},
+  {rank:2, title:"Grothendieck rings of complex fusion categories: rank 2", subtitle:"Self-contained, unrestricted classification", type:"MANUSCRIPT", slug:"rank2", sourcePath:"manuscripts/rank2.tex", sourceRef:"main"},
+  {rank:3, title:"Grothendieck rings of complex fusion categories: rank 3", subtitle:"Direct five-ring classification and sphericality", type:"MANUSCRIPT", slug:"rank3", sourcePath:"manuscripts/rank3.tex", sourceRef:"main"},
+  {rank:4, title:"Grothendieck rings of complex fusion categories: rank 4", subtitle:"Unrestricted classification · 15 rings · automatic sphericality", type:"CLASSIFICATION", slug:"rank4", sourcePath:"manuscripts/rank4.tex", sourceRef:"main"},
   {rank:5, title:"Rank-five Grothendieck rings through multiplicity twenty", subtitle:"Complete general classification through m = 20", type:"CLASSIFICATION", slug:"rank5"},
   {rank:6, title:"Rank-six fusion rings: categorification criteria and models through multiplicity nine", subtitle:"Categorification through multiplicity nine", type:"CLASSIFICATION", slug:"rank6"},
 ];
 function paperSourcePath(rank,extension="pdf") {
   const cataloguePaper=state.data?.catalogue_papers?.find(p=>p.ranks.includes(rank));
   if (cataloguePaper) return cataloguePaper.sourcePath.replace(/\.tex$/,`.${extension}`);
-  if (rank<=3) return `manuscripts/rank${rank}.${extension}`;
+  if (rank<=4) return `manuscripts/rank${rank}.${extension}`;
   if (rank===7) return `manuscripts/rank7/papers/manuscript.${extension}`;
   if (rank===8) return `manuscripts/rank8/paper/rank8.${extension}`;
   return `manuscripts/rank${rank}/papers/${rank===4?"companion":"manuscript"}.${extension}`;
@@ -490,14 +490,19 @@ function renderPapers() {
     // A local PDF is included in the deployed snapshot when available.
     manuscript.href=`./papers/${paper.slug}.pdf`;
     manuscript.dataset.localPaper=paper.slug;
+    if (paper.sourcePath) manuscript.dataset.readingSource=paper.sourcePath.replace(/\.tex$/, ".pdf");
+    manuscript.dataset.readingRef=paper.sourceRef || state.data.classification_commit || "main";
     const source=element("a","","Source & checks ↗");
     source.href=`${state.data.classification_repository}/blob/${paper.sourceRef || state.data.classification_commit || "main"}/${paper.sourcePath || paperSourcePath(paper.rank,"tex")}`;
     source.target="_blank";source.rel="noopener";
     actions.append(manuscript);
     if (paper.rank===4) {
-      const companion=element("a","","Finite census paper ↗");
+      const checks=element("a","","Verification package ↗");
+      checks.href=`${state.data.classification_repository}/tree/main/supplements/rank4/sphericality`;
+      checks.target="_blank";checks.rel="noopener";actions.append(checks);
+      const companion=element("a","","Historical finite paper ↗");
       companion.href="./papers/rank4_finite.pdf";
-      const guide=element("a","","Verification guide ↗");
+      const guide=element("a","","Historical guide ↗");
       guide.href="./papers/rank4_guide.pdf";
       actions.append(companion,guide);
       const pivotal=element("a","","Pivotal case · Dong–Palcoux–Plessis ↗");
@@ -738,7 +743,7 @@ async function verifyLocalPapers() {
       if (!response.ok || !/pdf/i.test(response.headers.get("content-type")||"")) throw new Error("missing");
     } catch {
       const fallback=a.dataset.readingSource || paperSourcePath(Number(a.dataset.localPaper.slice(4)));
-      a.href=`${state.data.classification_repository}/blob/${state.data.classification_commit || "main"}/${fallback}`;
+      a.href=`${state.data.classification_repository}/blob/${a.dataset.readingRef || state.data.classification_commit || "main"}/${fallback}`;
       a.textContent="View paper files ↗";
       a.target="_blank";a.rel="noopener";
     }

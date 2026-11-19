@@ -1,10 +1,12 @@
-\documentclass[11pt,reqno]{amsart}
+\documentclass[11pt,a4paper]{article}
 \usepackage[T1]{fontenc}
-\usepackage{lmodern}
-\usepackage[margin=1in]{geometry}
-\usepackage{amsmath,amssymb,mathtools,booktabs,microtype}
-\usepackage[hidelinks]{hyperref}
-\hypersetup{pdftitle={Galois-averaged indicators and sphericality in rank three},pdfauthor={}}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,microtype}
+\usepackage[margin=28mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools,booktabs,array}
+\usepackage[dvipsnames]{xcolor}
+\usepackage[colorlinks=true,linkcolor=MidnightBlue,citecolor=MidnightBlue,urlcolor=MidnightBlue]{hyperref}
+\hypersetup{pdftitle={Grothendieck rings of complex fusion categories: rank 3},pdfauthor={Sébastien Palcoux}}
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{proposition}[theorem]{Proposition}
 \newtheorem{lemma}[theorem]{Lemma}
@@ -33,44 +35,101 @@
 \newcommand{\id}{\operatorname{id}}
 \newcommand{\Dirac}{\operatorname{Dirac}}
 \numberwithin{equation}{section}
-\title[Galois-averaged indicators in rank three]{Galois-averaged indicators and sphericality in rank three}
-\subjclass[2020]{18M20, 18M15, 16T05}
-\keywords{Fusion category, spherical structure, formal codegree, Frobenius--Schur indicator, Galois averaging}
+\setlength{\emergencystretch}{2em}
+\allowdisplaybreaks[2]
+\setcounter{tocdepth}{1}
+\title{Grothendieck rings of complex fusion categories:\\ rank 3}
+\author{Sébastien Palcoux}
+\date{}
 \begin{document}
-\begin{abstract}
-We prove that every complex fusion category of rank three admits a spherical
-structure. The cubic case follows from Galois averaging of six even
-Frobenius--Schur indicators in the sphericalization: a positive measure on
-central twists and a short trigonometric inequality leave only the
-quantum $\mathfrak{sl}_2$ fusion ring. We prove the quadratic case and
-classify the Grothendieck rings directly, without a multiplicity bound.
-\end{abstract}
+\raggedbottom
 \maketitle
-\paragraph{Research status.} \textbf{AI-generated research \textperiodcentered{} independent verification pending.} Treat this manuscript and its accompanying research data with caution: they have not been independently verified by a human mathematician or formalized in Lean.
+\begin{abstract}
+Ostrik classified the pivotal fusion categories of rank three. We show
+that every complex fusion category of rank three admits a spherical
+structure and recover the five Grothendieck rings. Both steps use the
+mass at twist one in the Drinfeld center. For an irreducible cubic
+codegree polynomial, Galois averaging in the sphericalization determines
+the first six moments of the squared twist. For a spherical category, the
+first two moments give a single inequality that excludes all the
+remaining rings outside the list. The rank-specific descent theorem
+we use from the literature is Ostrik's theorem for a quadratic factor.
+\end{abstract}
+\par\smallskip
+\begin{center}\begin{minipage}{0.88\linewidth}\small\itshape
+GPT-6.2 Astra assisted with the research. Complete human verification is
+pending, and the results should be treated with caution.
+\end{minipage}\end{center}
 
-\section{Introduction}
+\section{The classification and the proof}
 
-A pivotal structure on a fusion category is a monoidal natural isomorphism from the identity functor to the double-dual functor. It is spherical when left and right categorical traces agree. Etingof, Nikshych and Ostrik conjectured that every fusion category admits a pivotal structure \cite[Conjecture~2.8]{ENO}. Ostrik classified rank-three fusion categories under this hypothesis \cite[Theorem~1.1]{Ostrik}. In the same paper he established sphericality for the rational and quadratic cases, but left a cubic case without a multiplicity bound \cite[Section~5]{Ostrik}.
+A complex fusion category $\cC$ is a rigid, semisimple, $\C$-linear tensor
+category with finite-dimensional morphism spaces, finitely many
+isomorphism classes of simple objects and simple unit. Its rank is the
+number of simple classes. Its Grothendieck ring $K_0(\cC)$ records their tensor
+multiplicities and their distinguished basis. A pivotal structure is
+a monoidal isomorphism from the identity to the double dual. It is
+spherical when the two pivotal traces agree.
+
+For nonnegative integers $k,l,m,n$ satisfying
+$k^2+l^2=kn+lm+1$, denote by $K(k,l,m,n)$ the based ring on
+$1,X,Y$ with
+\[
+ X^2=1+mX+kY,\qquad Y^2=1+lX+nY,\qquad XY=kX+lY.
+\]
+The elementary derivation of this presentation appears in
+Section~\ref{sec:rings}.
 
 \begin{theorem}\label{thm:main}
-Every fusion category of rank three over $\C$ admits a spherical structure.
+Up to based-ring isomorphism, the Grothendieck rings of complex fusion
+categories of rank three are exactly
+\[
+ \Z[C_3],\qquad K(1,0,0,0),\qquad K(1,0,1,0),\qquad
+ K(1,0,2,0),\qquad K(1,1,1,0).
+\]
+Every complex fusion category of rank three admits a spherical
+structure. Each of the five rings has a unitary realization.
 \end{theorem}
 
-Thus Ostrik's tensor-equivalence classification, previously stated under
-pivotality, holds without that assumption. We give a separate direct proof
-of the five possible fusion rings in Corollary~\ref{cor:list}. The cubic
-sphericality proof is the new argument in this paper, and we give the
-rational and quadratic sphericality proofs as well.
+The five rows of Table~\ref{tab:models} specify unitary examples.
+A row can have several inequivalent associators.
 
-The main point is to average \emph{normalized} twist moments over the dimension field of the sphericalization. This field is cubic, whereas the indicators of orders $2,4,6,8,10,12$ lie in $\Q(\zeta_{120})$, a field of degree $32$. All three embeddings of the dimension field therefore extend simultaneously while fixing these indicators. A Frobenius-algebra trace identity annihilates every non-unit term in the average. Positivity comes from squares of real central dimensions, not from pseudo-unitarity. This yields a uniform obstruction rather than a search over signed fusion tables.
+\paragraph{History.}
+Two early sources of examples are Bion-Nadal's construction of an
+$E_6$ subfactor \cite{BN} and the Tambara--Yamagami classification
+\cite{TY}, which includes the Ising ring. Ostrik classified the
+rank-three categories admitting a ribbon structure \cite{OstrikRibbon}.
+Hagge and Hong classified the tensor structures on the $E_6$ ring
+by solving the pentagon equations \cite{HH}. Thornton proved that
+every near-group category, including the rank-three near-group
+family, admits a spherical structure \cite[Theorem~1.3]{Thornton}.
+Ostrik subsequently classified all pivotal rank-three categories,
+up to tensor equivalence \cite[Theorem~1.1]{Ostrik}. His proof
+also gave spherical descent in the quadratic case and obstructions for
+individual cubic rings \cite[Section~5]{Ostrik}. We use his formal
+codegrees and central-induction results \cite{OstrikCodegrees,Ostrik}
+and the indicator formulas of Ng and Schauenburg \cite{NSind,NSexp}.
 
-Throughout, a fusion category is finite, semisimple, rigid and $\C$-linear, with simple tensor unit. Its rank is the number of isomorphism classes of simple objects. We write $K_0(\cC)$ for its Grothendieck ring and $Z(\cC)$ for its Drinfeld center.
+\paragraph{Outline.}
+Sections~\ref{sec:rings} and \ref{sec:central} relate the three
+formal codegrees to the mass at twist one in the center.
+Section~\ref{sec:cubic} applies this relation to squared twists
+in the sphericalization. Six moments force the cubic
+ring and allow its spherical structure to descend. For a reducible
+codegree polynomial we invoke Ostrik's quadratic descent or the
+canonical spherical structure in the weakly integral case.
+Section~\ref{sec:reducible-rings} then applies the same mass estimate
+to ordinary twists. A degree-two polynomial recovers both Ostrik's
+structural reduction and his bound for near-group multiplicities
+\cite[Theorems~3.3 and~4.1]{Ostrik}. Each exclusion is independent
+of any bound on the structure constants.
 
-\section{Rank-three rings and their sphericalizations}
+\section{The ring algebra and sphericalization}\label{sec:rings}
+
 
 \subsection{The two codegree coefficients}
 
-A rank-three fusion ring is either $\Z[C_3]$, or all its basis elements are self-dual and it has the form $K(k,l,m,n)$, with basis $1,X,Y$ and multiplication
+As in \cite[Proposition~3.1]{Ostrik}, a rank-three fusion ring is either $\Z[C_3]$, or all its basis elements are self-dual and it has the form $K(k,l,m,n)$, with basis $1,X,Y$ and multiplication
 \begin{equation}\label{eq:ring}
  X^2=1+mX+kY,\qquad Y^2=1+lX+nY,\qquad XY=kX+lY.
 \end{equation}
@@ -86,14 +145,36 @@ $d^2=1+(c+e)d$ for integers $c,e\geq0$; therefore $d\mid1$ and
 $d=1$, giving $\Z[C_3]$. Otherwise all three simples are self-dual.
 The involution on a based ring reverses products, so the ring is
 commutative. Frobenius reciprocity forces the coefficients in $XY$
-to be $k,l$ as displayed; associativity of $X^2Y=XYX$ gives
+to be $k,l$ as displayed; the identity $(X^2)Y=X(XY)$ gives
 \eqref{eq:assoc}, which also suffices for associativity.
 
-Let $f_1,f_2,f_3$ be the formal codegrees. They are the eigenvalues of multiplication by
+The multiplication matrices in the ordered basis $1,X,Y$ are
+\[
+ N_X=\begin{pmatrix}0&1&0\\1&m&k\\0&k&l\end{pmatrix},\qquad
+ N_Y=\begin{pmatrix}0&0&1\\0&k&l\\1&l&n\end{pmatrix}.
+\]
+They are commuting real symmetric matrices, so their common characters
+$\chi_1,\chi_2,\chi_3$ are real. Their \emph{formal codegrees} are
+\[
+ f_i=1+\chi_i(X)^2+\chi_i(Y)^2.
+\]
+Equivalently, they are the eigenvalues of multiplication by the
+Casimir element
 \[
  \Omega=1+X^2+Y^2=3+(l+m)X+(k+n)Y.
 \]
-They are positive, and their reciprocal sum is one. Consequently their characteristic polynomial has the form
+Let $\tau$ extract the coefficient of the unit. For the basis
+$e_0=1,e_1=X,e_2=Y$ we have $\tau(e_i e_j)=\delta_{ij}$.
+For multiplication by $a$, the $i$th diagonal entry is
+$\tau(e_i a e_i)$. Thus $\operatorname{Tr}(a)=\tau(a\Omega)$ and
+\begin{equation}\label{eq:casimir-trace}
+ \operatorname{Tr}(a/\Omega)=\tau(a).
+\end{equation}
+Here $\operatorname{Tr}$ is the regular trace of the rational ring,
+and $\Omega$ is invertible because its eigenvalues are positive.
+We shall use the same calculation in the signed ring. Taking $a=1$
+gives $\sum_i 1/f_i=1$. The codegrees are eigenvalues of an integral
+matrix. Consequently their characteristic polynomial has the form
 \begin{equation}\label{eq:poly}
  p(t)=\prod_{i=1}^3(t-f_i)=t^3-bt^2+ct-c.
 \end{equation}
@@ -103,7 +184,10 @@ We call the ring \emph{cubic} when $p$ is irreducible over $\Q$. We will use the
    =7+3k^2+3l^2+m^2+n^2,\label{eq:b}\\
  c&=4b-9+(kl-mn)^2+\bigl(2(k^2-lm)-1\bigr)^2.\label{eq:c}
 \end{align}
-The first is the trace of multiplication by $\Omega$, followed by \eqref{eq:assoc}. The second is its determinant, simplified using the same relation; it is also \cite[equation~(12)]{Ostrik}. In particular,
+Both identities follow by expanding
+$3I+(l+m)N_X+(k+n)N_Y$ and using \eqref{eq:assoc}.
+The determinant identity is Ostrik's identity
+\cite[equation~(12)]{Ostrik}, written as a sum of two squares. In particular,
 \begin{equation}\label{eq:lower}
  c\geq 4b-8,
 \end{equation}
@@ -114,12 +198,16 @@ because the last square in \eqref{eq:c} is the square of an odd integer. Vieta's
 
 \subsection{The signed quotient}
 
-Let $\cS$ be the sphericalization of a fusion category $\cC$ with self-dual rank-three ring. There is a tensor functor $\pi:\cS\to\cC$. Each simple object $V$ of $\cC$ has two simple lifts $V_+,V_-$, both self-dual, with opposite dimensions. Put $\eps=\one_-$. Then
+Let $\cS$ be the sphericalization of a fusion category $\cC$ with self-dual rank-three ring. There is a tensor functor $\pi:\cS\to\cC$. Each simple object $V$ of $\cC$ has two simple lifts $V_+,V_-$
+with nonzero opposite dimensions. When $V$ is self-dual, its lifts are
+self-dual: the dual of $V_+$ is a lift of $V$, and sphericality gives
+$\dim(V_+^*)=\dim(V_+)$, which rules out $V_-$.
+This observation is due to Thornton \cite[proof of Lemma~2.3]{Thornton}, as noted in \cite[Section~5.1(a)]{Ostrik}. Put $\eps=\one_-$. Then
 \[
  \eps^2\cong\one,\qquad \dim(\eps)=-1,\qquad
  \eps\otimes V_+\cong V_-.
 \]
-The construction and these properties are given in \cite[Remark~3.1]{ENO} and \cite[Section~5.1]{Ostrik}. A useful realization is the equivariantization for the canonical $C_2$-action \cite[Section~5.3]{Bartlett}.
+The construction and these properties are given in \cite[Remark~3.1 and Proposition~5.14]{ENO} and \cite[Section~5.1]{Ostrik}. A useful realization is the equivariantization for the canonical $C_2$-action \cite[Section~5.3]{Bartlett}.
 
 All simples of $\cS$ are self-dual, so $K_0(\cS)$ is commutative. Its two quotients at $\eps=1$ and $\eps=-1$ are respectively
 \[
@@ -138,16 +226,32 @@ The coefficient-of-$1$ functional $\tau$ on $\widetilde R$ satisfies
 \end{equation}
 For example, $X_+^2$ contains $\one$ once and does not contain $\eps$, since $X_+$ is self-dual and $\eps X_+\not\cong X_+$. Thus taking the signed quotient preserves this pairing.
 
-\begin{lemma}[Frobenius trace identity]\label{lem:trace}
-Let $L$ be a number field with $\Q$-basis $e_0=1,e_1,\ldots,e_{r-1}$ and a linear functional $\tau$ satisfying $\tau(e_i e_j)=\delta_{ij}$. Put $\omega=\sum_i e_i^2$. If $\omega\ne0$, then
-\[
- \Tr_{L/\Q}(a/\omega)=\tau(a)\qquad(a\in L).
-\]
-\end{lemma}
-\begin{proof}
-The $i$th diagonal entry of multiplication by $a$ is $\tau(e_i a e_i)$. Hence
-$\Tr_{L/\Q}(a)=\tau(a\omega)$. Replace $a$ by $a/\omega$.
-\end{proof}
+\subsection{The general categorical input}
+
+For a spherical fusion category $\cD$, write $F:Z(\cD)\to\cD$
+for the forgetful functor from its Drinfeld center and $I$ for its right adjoint. If its
+Grothendieck ring is commutative, central induction gives a bijection between its ring characters
+$\chi$ and the simple summands $A_\chi$ of $I(\one)$, with
+\begin{equation}\label{eq:induction-codegrees}
+ I(\one)=\bigoplus_\chi A_\chi,\qquad
+ \dim(A_\chi)=\frac{\dim(\cD)}{f_\chi},\qquad
+ \theta_{A_\chi}=1.
+\end{equation}
+These are the commutative-ring cases of Ostrik's central-induction
+and trivial-twist theorems \cite[Theorems~2.5 and~2.13]{Ostrik}.
+Two consequences will be used repeatedly. First,
+$\dim(\cD)/f_\chi$ is an algebraic integer, because it is an object
+dimension. Second, every $f_\chi$ belongs to the field of simple
+object dimensions: the forgetful functor preserves spherical dimensions,
+so both the numerator and denominator in
+$f_\chi=\dim(\cD)/\dim(F(A_\chi))$ belong to that field.
+These are \cite[Corollaries~2.14--2.15]{Ostrik}.
+
+For a fusion category without a specified pivotal structure, every
+formal codegree still divides its global dimension
+\cite[Corollary~2.14]{Ostrik}.
+
+\subsection{The dimension field in the cubic case}
 
 \begin{lemma}\label{lem:field}
 Suppose that $R$ is cubic. The dimension field $L$ of $\cS$ is a totally real cyclic cubic field, and the dimension homomorphism identifies $\widetilde R\otimes\Q$ with $L$. Set
@@ -182,7 +286,7 @@ The dimension homomorphism factors through $\widetilde R\otimes\Q$, so its image
 \end{equation}
 characters with $\eps=1$ come from $R$, and those with $\eps=-1$ come from $\widetilde R$; the two lifts double the sum defining each codegree. Every formal codegree of a spherical category lies in its dimension field \cite[Corollary~2.15]{Ostrik}. Therefore $L$ contains all three roots of the irreducible cubic $p$. It has degree exactly three and is its splitting field. Spherical dimensions are totally real \cite[Corollary~2.10]{ENO}, so $L$ is totally real. The map $\widetilde R\otimes\Q\to L$ is now an isomorphism.
 
-Apply Lemma~\ref{lem:trace} to the basis $1,x,y$ and the functional \eqref{eq:orthonormal}. This gives \eqref{eq:trace-relations}. The embeddings of $L$ are precisely the three characters of the signed algebra, and its Casimir element has image $\delta$; hence its codegrees are $g_i=\sigma_i(\delta)>0$. Their reciprocal sum is one, giving the displayed polynomial and \eqref{eq:v}.
+Apply the regular-trace calculation \eqref{eq:casimir-trace} to the basis $1,x,y$, whose pairing is \eqref{eq:orthonormal} and whose Casimir element is $\delta$. This gives \eqref{eq:trace-relations}. The embeddings of $L$ are precisely the three characters of the signed algebra, and its Casimir element has image $\delta$; hence its codegrees are $g_i=\sigma_i(\delta)>0$. Their reciprocal sum is one, giving the displayed polynomial and \eqref{eq:v}.
 
 Formula \eqref{eq:b}, valid also for the signed coefficients, gives
 \[
@@ -196,203 +300,19 @@ Finally, formal codegrees divide the global dimension even without a pivotal str
 The last inequality in \eqref{eq:comparison} follows.
 \end{proof}
 
-\section{The rational and quadratic cases}\label{sec:quadratic}
 
-The signed quotient also gives a proof of sphericality when the codegree
-polynomial is reducible. We give the details because the main result should
-not depend on a rank-three sphericality theorem. We use two general facts
-about formal codegrees \cite[Proposition~2.2 and Corollary~2.14]{Ostrik}:
-they divide the global dimension as algebraic integers, and they are
-\emph{$d$-numbers}. In particular, if two Galois-conjugate codegrees are
-the roots of $t^2-At+B$, then $A^2/B$ is an integer. This conclusion is
-unchanged when both codegrees are multiplied by the same rational scalar.
+\section{Central induction and twist moments}\label{sec:central}
 
-For a signed quotient as in \eqref{eq:signed}, let
-$\widetilde p(t)=t^3-\widetilde b t^2+\widetilde c t-\widetilde c$
-be the characteristic polynomial of multiplication by
-$1+\widetilde X^2+\widetilde Y^2$. The proof of the reciprocal-codegree
-identity uses only the orthonormal pairing \eqref{eq:orthonormal}, and
-therefore applies to this signed algebra. Its roots are positive real
-numbers. Formula \eqref{eq:b} gives $\widetilde b\leq b$. Equality implies
-that every signed coefficient has the same absolute value as its unsigned
-counterpart. Signed associativity then forces
-$\widetilde k\widetilde n=kn$ and $\widetilde l\widetilde m=lm$;
-changing signs of $\widetilde X,\widetilde Y$ makes all four parameters
-nonnegative. The corresponding simple lifts form a tensor subcategory
-equivalent to $\cC$, so
-\begin{equation}\label{eq:equal-b}
- \widetilde b=b\quad\Longrightarrow\quad \cC\text{ is spherical}.
+
+Let $F:Z(\cD)\to\cD$ be the forgetful functor for a spherical
+fusion category $\cD$, and let $I:\cD\to Z(\cD)$ be its right adjoint. We use the induction formula \cite[Proposition~2.4]{Ostrik}
+\begin{equation}\label{eq:FI}
+ FI(V)\cong\bigoplus_{W\in\Irr\cD}W\otimes V\otimes W^*.
 \end{equation}
-
-If $p$ splits over $\Q$, the Frobenius--Perron global dimension is one
-of its integer roots. Hence $\cC$ is weakly integral and has its
-canonical spherical structure by \cite[Propositions~8.23--8.24]{ENO}.
-We turn to the remaining reducible case.
-
-\begin{proposition}\label{prop:quadratic}
-If $p$ has an irreducible quadratic factor, every categorification of
-$K(k,l,m,n)$ admits a spherical structure.
-\end{proposition}
-\begin{proof}
-We may assume the Frobenius--Perron global dimension is irrational,
-as the integral case was just settled. Write
-\begin{equation}\label{eq:qfactor}
- p(t)=(t-\gamma)(t^2-\alpha t+\beta),\qquad
- \gamma,\alpha,\beta\in\Z_{>0},\quad
- \beta=\frac{\alpha\gamma}{\gamma-1}.
-\end{equation}
-The quadratic roots are positive. The rational codegree $\gamma$ is at
-least two; the Frobenius--Perron root is the larger quadratic root and
-is strictly larger than $\gamma$. Hence $\alpha>\gamma$ and
-$\beta>\gamma$.
-
-Let $L$ be the dimension field of the sphericalization. Its degree is
-at most three, and it contains both roots of the quadratic factor by
-the formal-codegree field theorem used in Lemma~\ref{lem:field}.
-Consequently $L$ is that quadratic splitting field. The dimension
-character of $\widetilde R$ and its conjugate are distinct; its third
-character is rational. Thus either all three roots of $\widetilde p$
-are integers or
-\begin{equation}\label{eq:signed-factor}
- \widetilde p(t)=(t-\widetilde\gamma)
-       (t^2-\widetilde\alpha t+\widetilde\beta),
- \qquad
- \widetilde\beta=\frac{\widetilde\alpha\widetilde\gamma}
- {\widetilde\gamma-1},
-\end{equation}
-where $\dim(\cC)$ and its conjugate are the two roots of the quadratic
-factor. The signed formal codegrees of $\cS$ are twice the roots of
-$\widetilde p$; the original formal codegrees of $\cS$ are twice those
-of $p$. General codegree divisibility and field norms therefore give
-\begin{equation}\label{eq:quadratic-norm}
- \frac{\widetilde\beta}{\beta}
- =N_{L/\Q}\bigl(\dim(\cC)/f\bigr)\in\Z_{>0},
-\end{equation}
-where $f$ is either quadratic root of $p$ (and in the all-integral
-signed case $\widetilde\beta$ denotes the square of
-$\dim(\cC)$). We derive a contradiction from
-$\widetilde b<b$.
-
-First suppose all three signed codegrees are integers. The two
-conjugate dimension characters have the same signed codegree, say
-$\lambda$; call the third $\mu$. Both are positive integers and
-$2/\lambda+1/\mu=1$. This leaves only
-$(\lambda,\lambda,\mu)=(3,3,3)$ or $(4,4,2)$.
-The first would give $\widetilde b=9$, impossible by
-\eqref{eq:b} and signed associativity. In the second case
-$\widetilde b=10$ and $\dim(\cC)=4$.
-Codegree divisibility implies $\gamma\mid4$. The character
-corresponding to the unique rational codegree $\gamma$ is fixed by
-Galois, so its values on $X,Y$ are rational algebraic integers and
-therefore integers $s,t$
-on $X,Y$ with $\gamma=1+s^2+t^2$. Thus $\gamma=2$
-(the case $\gamma=4$ would require $s^2+t^2=3$).
-One of $s,t$ is zero. After exchanging $X,Y$, the fusion relations
-give $K(k,l,m,n)=K(1,0,m,0)$.
-The signed quotient has the same form with a coefficient
-$\widetilde m$ satisfying $|\widetilde m|\leq m$.
-The quadratic codegree product for $K(1,0,m,0)$ is
-$2(m^2+8)$, and the analogous signed product is
-$2(\widetilde m^2+8)$. The norm integrality in
-\eqref{eq:quadratic-norm} forces
-$(\widetilde m^2+8)/(m^2+8)=1$.
-Choose the sign of the lift so that $\widetilde m=m$.
-Its products close in the sphericalization, proving sphericality.
-
-Now assume \eqref{eq:signed-factor}. Put
-$h=\widetilde\beta/\beta\in\Z_{>0}$.
-If $\widetilde b=b$, we are done by \eqref{eq:equal-b}; otherwise
-$\widetilde b<b$. Since $\widetilde\gamma\geq2$ and
-$\widetilde\alpha+\widetilde\gamma<\alpha+\gamma$,
-\[
- h\beta=\widetilde\beta
- =\widetilde\alpha\frac{\widetilde\gamma}
-                      {\widetilde\gamma-1}
- <2(\alpha+\gamma-\widetilde\gamma)<4\beta.
-\]
-Here the last inequality follows from $\beta>\gamma$.
-So $h\in\{1,2,3\}$. The rational codegree $\gamma$ divides
-$\dim(\cC)$; taking norms shows
-$h\beta/\gamma^2=h\alpha/[\gamma(\gamma-1)]$
-is a positive integer. If $h=2$ or $3$, write this integer as $q$.
-As $\widetilde\beta<2\widetilde\alpha$,
-\[
- \widetilde\alpha\geq\frac h2\beta
- =\frac h2\alpha+\frac q2\gamma.
-\]
-For $h=3$ and $q\geq2$ the right side exceeds
-$\alpha+\gamma$; for $h=2$ and $q\geq2$ it is at least
-$\alpha+\gamma$. Both contradict $\widetilde b<b$.
-If $q=1$, then
-$\alpha=\gamma(\gamma-1)/h$ and
-$\beta=\gamma^2/h$. As $\beta$ is integral, $h=2$ forces
-$\gamma$ even and $h=3$ forces $\gamma$ divisible by three.
-Consequently $\alpha^2/\beta=(\gamma-1)^2/h$
-is not an integer, contrary to the $d$-number property of the
-quadratic original codegrees. Hence $h=1$.
-
-When $\widetilde\beta=\beta$, the inequality
-$\widetilde b<b$ forces $\widetilde\gamma<\gamma$:
-otherwise $\widetilde\alpha\geq\alpha$ by
-\eqref{eq:qfactor}--\eqref{eq:signed-factor}.
-The original and signed quadratic factors have the same splitting
-field $L$. By the $d$-number property, both normalized
-discriminants below are positive integers. The discriminants
-$\alpha^2-4\beta$ and $\widetilde\alpha^2-4\beta$ generate
-the same quadratic field, so their ratio is a rational square.
-Dividing each by the same $\beta$ preserves that ratio; hence
-the normalized integer radicands have the same squarefree part.
-There are therefore a positive squarefree integer $d$
-and positive integers $x,y$ with
-\[
- \frac{\alpha^2}{\beta}-4=dx^2,\qquad
- \frac{\widetilde\alpha^2}{\beta}-4=dy^2.
-\]
-The ratio of the left sides after adding $4$ is the square of
-\[
- \frac{\alpha}{\widetilde\alpha}
- =\frac{\widetilde\gamma/(\widetilde\gamma-1)}
-        {\gamma/(\gamma-1)}=\frac AB,
- \qquad 1<\frac AB<2,
-\]
-where $A,B$ are coprime positive integers. Thus
-$d(Bx-Ay)(Bx+Ay)=4(A^2-B^2)$.
-The two factors on the left have the same parity and must both be
-even. Put $q=(Bx-Ay)/2>0$. Then
-\begin{equation}\label{eq:quad-descent}
- Bx=\frac{A^2-B^2+dq^2}{dq},\qquad
- Ay=\frac{A^2-B^2-dq^2}{dq}.
-\end{equation}
-Reducing the first equality modulo $B$ and the second modulo $A$
-shows that $A^2+B^2+dq^2$ is divisible by $AB$.
-Since $Ay>0$, we have $dq^2<A^2-B^2$, and hence
-\[
- 2<\frac{A^2+B^2+dq^2}{AB}<\frac{2A}{B}<4.
-\]
-The integer in the middle is therefore three. Substitution into
-\eqref{eq:quad-descent} gives
-\[
- x=\frac{3A-2B}{dq},\qquad
- y=\frac{2A-3B}{dq}.
-\]
-Because $\gcd(A,B)=1$, these equations imply $dq\mid5$.
-Thus $dq^2$ is $1$, $5$ or $25$.
-If $dq^2=1$, the equation
-$A^2+B^2+1=3AB$ divided by $B^2$ gives
-$B^{-2}=3(A/B)-(A/B)^2-1>1$, impossible.
-If $dq^2=5$, the same inequality gives $B^2<5$, so
-$B=1$ or $2$; the former allows no integer $A/B\in(1,2)$,
-whereas the latter forces $(A,B)=(3,2)$ and then $y=0$.
-Finally, if $dq^2=25$, completing the square gives
-$(2A-3B)^2-5B^2=-100$; reduction modulo five and then
-modulo twenty-five forces both $A,B$ divisible by five.
-All cases are impossible. We conclude $\widetilde b=b$ and
-\eqref{eq:equal-b} gives sphericality.
-\end{proof}
-
-\section{Central twists and the sign object}
-
-For a spherical fusion category $\cD$, let $I:\cD\to Z(\cD)$ be the right adjoint to the forgetful functor. Write $d=\dim(\cD)$, and for $A\in\Irr Z(\cD)$ put $a_A=\dim(A)$ and let $\theta_A$ be its twist. The numbers $a_A$ are real, and the twists are roots of unity. We use the identities
+Together with adjunction, this identifies
+$[I(V):A]=[F(A):V]$ and
+$\dim_{\C}\operatorname{End}(I(V))=[FI(V):V]$.
+Write $d=\dim(\cD)$, and for $A\in\Irr Z(\cD)$ put $a_A=\dim(A)$ and let $\theta_A$ be its twist. The numbers $a_A$ are real, and the twists are roots of unity. We use the identities
 \begin{align}
  \sum_A a_A^2&=d^2,\label{eq:mass}\\
  \sum_A a_A^2\theta_A^n
@@ -403,30 +323,32 @@ where $\nu_n$ is the $n$th Frobenius--Schur indicator for the specified pivotal 
  \tr(\theta^n|_{I(V)})=d\nu_n(V)
 \]
 by $\dim(V)$ and sum over $V$. Adjunction and sphericality of the forgetful functor give
-$a_A=\sum_V[I(V):A]\dim(V)$, yielding the formula. The indicator identity is \cite[Theorem~4.1]{NSexp}; \eqref{eq:mass} is the global-dimension formula for the center. Also,
+$a_A=\sum_V[I(V):A]\dim(V)$, yielding the formula. The indicator identity is \cite[Theorem~4.1]{NSexp}, and \eqref{eq:mass} is Müger's dimension formula for the center \cite{Muger}. Also,
 \begin{equation}\label{eq:cyclo}
  \nu_n(V)\in\Q(\zeta_n),
 \end{equation}
-because the cyclic operator defining the indicator has $n$th power equal to the identity \cite[Theorem~5.1]{NSind}. These facts require sphericality, but not pseudo-unitarity.
+because the cyclic operator defining the indicator has $n$th power equal to the identity \cite[Theorem~5.1]{NSind}. The trace identity uses sphericality. The cyclotomicity assertion holds in any pivotal category.
 
-\begin{lemma}[The central sign]\label{lem:sign}
-The sign object of a sphericalization has a canonical lift, again denoted $\eps$, to $Z(\cS)$, satisfying
-\[
- \eps^2\cong\one,\qquad c_{\eps,\eps}=\id,
- \qquad \dim(\eps)=-1,\qquad \theta_\eps=-1.
-\]
-For its underlying object in $\cS$,
-\begin{equation}\label{eq:eps-ind}
- \nu_n(\eps)=
- \begin{cases}0,&n\text{ odd},\\-1,&n\text{ even}.
- \end{cases}
+Both estimates below use the following observation. If $\mu$ is a
+finite positive measure on the unit circle $\T$ and $q$ is a polynomial,
+then
+\begin{equation}\label{eq:atom}
+  |q(1)|^2\mu(\{1\})\leq\int_{\T}|q(z)|^2\,d\mu(z).
 \end{equation}
-\end{lemma}
-\begin{proof}
-View $\cS$ as the equivariantization for the canonical $C_2$-action \cite[Definition~5.13 and Corollary~5.15]{Bartlett}. The objects supported on the tensor unit form the canonical central copy of $\Rep(C_2)$. The sign representation has the usual symmetric self-braiding, and its dimension in the canonical spherical structure is $-1$. On this copy of $\Rep(C_2)$ the Drinfeld isomorphism is the usual one, whereas the pivotal map of the sign representation is minus the usual map; hence its twist is $-1$.
+The right side depends only on the moments through degree $\deg q$.
 
-The space $\Hom(\one,\eps^{\otimes n})$ is zero for odd $n$ and one-dimensional for even $n$. In the latter case the ordinary cyclic rotation for $\Rep(C_2)$ is the identity. The pivotal structure used here introduces one inverse pivotal map of $\eps$, namely the scalar $-1$, into that rotation. Its trace is therefore $-1$, proving \eqref{eq:eps-ind}.
-\end{proof}
+\paragraph{The central sign.}
+The equivariantization model of $\cS$ gives a central copy of
+$\Rep(C_2)$ whose sign representation lifts $\eps$
+\cite[Definition~5.13 and Corollary~5.15]{Bartlett}. Its underlying
+fusion subcategory has the usual tensor product of representations,
+with pivotal map on the sign equal to minus its usual pivotal map
+because $\dim(\eps)=-1$. For even $n$, cyclic rotation on the line
+$\Hom(\one,\eps^{\otimes n})$ is the ordinary rotation multiplied
+by this inverse pivotal scalar. Thus
+\begin{equation}\label{eq:eps-ind}
+  \nu_{2j}(\eps)=-1\qquad(j\geq1).
+\end{equation}
 
 \begin{lemma}[A forced squared-twist sector]\label{lem:sector}
 In the cubic situation of Lemma~\ref{lem:field}, the simple constituents of $I(\one)$ and $I(\eps)$ are twelve distinct simple objects of $Z(\cS)$. Their squared twists are all one, and the sum of their squared dimensions is
@@ -443,10 +365,21 @@ Since $K_0(\cS)$ is commutative, $I(\one)$ is multiplicity-free. The formal-code
 \]
 They are positive under every real embedding and their squared sum is $\delta^2(u+v)$. Their twists are one \cite[Theorem~2.5]{Ostrik}.
 
-The projection formula gives $I(\eps)\cong\eps\otimes I(\one)$. Thus its six constituents have the opposite, negative dimensions, and are disjoint from those of $I(\one)$. To check their squared twists, let $\lambda_A$ be the scalar monodromy of $\eps$ with a simple object $A$. The normalized $S$-matrix column $B\mapsto s_{A,B}/a_A$ is a ring character of $K_0(Z(\cS))$ \cite[Example~2.9]{Ostrik}. Its value on $\eps$ is $\dim(\eps)\lambda_A=-\lambda_A$. Since $\eps^2=\one$, it follows that $\lambda_A^2=1$. Balancing and $\theta_\eps=-1$ now give $\theta_{\eps\otimes A}^2=1$ whenever $\theta_A=1$. The dimensions are negated, so their squares give a second copy of the same sum. This proves \eqref{eq:known-mass}.
+Write $\widehat\eps$ for the canonical central lift of $\eps$. The projection formula gives $I(\eps)\cong\widehat\eps\otimes I(\one)$. Thus its six constituents have the opposite, negative dimensions, and are disjoint from those of $I(\one)$. The indicator identity gives
+$\tr(\theta^2|_{I(\eps)})=-2\delta=\dim I(\eps)$.
+All six constituent dimensions are negative, so their absolute values
+sum to $2\delta$. Equality in the triangle inequality forces each
+squared twist to equal one. Their squared dimensions give the second
+copy of $\delta^2(u+v)$ in \eqref{eq:known-mass}.
 \end{proof}
 
-\section{Galois averaging and the cubic bound}
+
+\section{The cubic case}\label{sec:cubic}
+The following estimate is the step that treats an arbitrary
+categorification of a cubic ring. It will force $b\leq16$, so its final
+arithmetic consequence can be read off without a search.
+
+
 
 \begin{proposition}[Cubic codegree bound]\label{prop:bound}
 If $K(k,l,m,n)$ is cubic and admits a complex fusion categorification, then
@@ -484,7 +417,7 @@ For $1\leq j\leq6$, apply $\sigma_i$ to \eqref{eq:moments}, with $n=2j$, and div
  &=\frac12\bigl(\nu_{2j}(\one)-\nu_{2j}(\eps)\bigr)=1.
  \label{eq:averaged}
 \end{align}
-For the second equality, the four non-unit lifts have dimensions $\pm x,\pm y$ and vanish under the weighted trace by \eqref{eq:trace-relations}; the traces for $\one$ and $\eps$ are $1$ and $-1$. The last equality uses Lemma~\ref{lem:sign} and $\nu_n(\one)=1$. This step does not require knowing any indicator of $X_\pm$ or $Y_\pm$.
+For the second equality, the four non-unit lifts have dimensions $\pm x,\pm y$ and vanish under the weighted trace by \eqref{eq:trace-relations}; the traces for $\one$ and $\eps$ are $1$ and $-1$. The last equality uses \eqref{eq:eps-ind} and $\nu_n(\one)=1$. This step does not require knowing any indicator of $X_\pm$ or $Y_\pm$.
 
 Lemma~\ref{lem:sector} forces the lower bound
 \begin{equation}\label{eq:atom-lower}
@@ -492,7 +425,7 @@ Lemma~\ref{lem:sector} forces the lower bound
 \end{equation}
 Indeed, in each of the three summands defining $\mu$, those twelve objects contribute $(u+v)/2$ at one. The sums $u,v$ are rational and hence independent of the embedding.
 
-Now use the nonnegative trigonometric polynomial
+Apply \eqref{eq:atom} to the Fejér polynomial
 \[
  P(z)=|1+z+\cdots+z^6|^2
      =7+\sum_{j=1}^6(7-j)(z^j+z^{-j})\qquad(z\in\T).
@@ -517,289 +450,7 @@ But \eqref{eq:comparison} bounds the second ratio by the first. Therefore $b/c\g
 The moment argument uses only the fields containing the indicators, not their values, signs or sizes. Its atom bound is sharp for the stated moment information: the measure with mass $9/7$ at $1$ and mass $2/7$ at each nontrivial seventh root has mass $3$ and first six moments $1$. The choice of order twelve is also natural for field disjointness. At order fourteen, $\Q(\zeta_{14})$ already contains a cubic field, so the degree argument used above cannot be continued uniformly.
 \end{remark}
 
-\section{Reducible rings: an independent exclusion}
-\label{sec:reducible-rings}
-
-We complete the classification of \emph{fusion rings} without invoking
-the rank-three classification theorem of \cite{Ostrik}. The cubic rings
-were handled in Proposition~\ref{prop:cubic-classification}; in this
-section $p$ is reducible. We use the general formal-codegree theorem
-for the simple summands of $I(\one)$ and the two center identities
-\eqref{eq:mass} and \eqref{eq:moments}.
-
-\begin{lemma}[Gauss bound]\label{lem:gauss-bound}
-If a reducible rank-three ring $K(k,l,m,n)$ admits a complex fusion
-categorification, and $f_{\max}$ is its largest codegree, then
-\begin{equation}\label{eq:gauss-bound}
- 1-\frac{4b}{c}\leq\frac{1}{f_{\max}}.
-\end{equation}
-Consequently, if $b\geq50$, a categorification requires $c-4b\leq4$.
-\end{lemma}
-\begin{proof}
-The category is spherical by Theorem~\ref{thm:main}. Choose its
-canonical positive spherical structure when its Frobenius--Perron
-global dimension is an integer \cite[Propositions~8.23--8.24]{ENO}.
-Otherwise $p$ has an irreducible quadratic factor. Since $\cC$ is
-spherical, its formal codegrees belong to the field generated by
-its simple dimensions \cite[Corollary~2.15]{Ostrik}. The latter
-is generated by a ring character of a three-dimensional
-$\Q$-algebra, so has degree at most three. Since it contains the
-quadratic splitting field of $p$, it is exactly that quadratic field;
-in particular the dimension character is one of the two quadratic
-characters. The positive Frobenius--Perron character is one of
-these two conjugates. Apply a field automorphism
-to scalar identities so that the simple dimensions become their
-positive Frobenius--Perron values. Every center simple dimension is
-the dimension of its image under the forgetful functor, a nonnegative
-integral combination of these values, and hence is positive. Twists
-remain roots of unity. Write $D=f_{\max}$ for the resulting global
-dimension.
-
-Because the ring is commutative, $I(\one)$ has three distinct simple
-summands with dimensions $D/f_1,D/f_2,D/f_3$ and trivial twists
-\cite[Theorems~2.5 and 2.13]{Ostrik}. Let
-$H=D^2\sum_i f_i^{-2}$ be their total squared dimension.
-The remaining center simples have total squared dimension $D^2-H$
-by \eqref{eq:mass}, and their twist-weighted sum is $D-H$ by
-\eqref{eq:moments} with $n=1$, since $\nu_1(\one)=1$ and all
-other first indicators vanish. The triangle inequality gives
-$|D-H|\leq D^2-H$, hence
-$\sum_i f_i^{-2}\leq(1+D^{-1})/2$.
-Since $\sum_i f_i^{-2}=1-2b/c$ by \eqref{eq:inverse-square},
-this is \eqref{eq:gauss-bound}.
-
-Suppose $c-4b>4$ and $b\geq50$. The bound implies
-$f_{\max}\leq c/(c-4b)$. Since $f_{\max}\geq b/3>9$,
-we get $c<\tfrac92 b$.
-Now $p(1)=1-b<0$, $p(2)=8+c-4b>0$ and $p(b)>0$.
-Also
-\[
- p(b-5)=(b-5)\left(c-\frac92b+\frac{50-b}{2}\right)-c<0.
-\]
-Thus $f_{\max}>b-5$. As $c-4b$ is an integer at least five,
-\[
- b-5<f_{\max}\leq\frac{c}{c-4b}\leq\frac c5,
-\]
-so $c>5b-25\geq\tfrac92b$, a contradiction.
-\end{proof}
-
-\begin{lemma}[Arithmetic reduction]\label{lem:arithmetic-reduction}
-If a reducible ring $K(k,l,m,n)$ admits a complex categorification,
-then it is either $K(1,0,m,0)$ for some $m\geq0$, or $K(2,1,2,1)$.
-\end{lemma}
-\begin{proof}
-If one of $k,l$ is zero, interchange $X,Y$ to arrange $l=0$.
-Then
-\eqref{eq:assoc} gives $k(k-n)=1$, so $k=1,n=0$ and we obtain
-$K(1,0,m,0)$.
-
-Assume $k,l>0$. When $b<50$, equation \eqref{eq:b} gives
-$k,l\leq3$ and $m,n\leq6$. Checking these four finite ranges against
-\eqref{eq:assoc} and
-$7+3(k^2+l^2)+m^2+n^2<50$ leaves the following tuples,
-up to exchanging $X,Y$:
-\[
- \begin{array}{c|c|c}
- (k,l,m,n)&(b,c)&\text{factorization or irreducibility check}\\\hline
- (1,1,1,0)&(14,49)&\text{irreducible modulo }2\\
- (2,1,0,2)&(26,148)&\text{irreducible modulo }3\\
- (2,1,2,1)&(27,108)&(t-3)(t^2-24t+36)\\
- (2,1,4,0)&(38,148)&\text{irreducible modulo }3\\
- (3,1,0,3)&(46,473)&\text{irreducible modulo }2
- \end{array}
-\]
-For the two rows with $c=148$, reduction of
-$t^3-bt^2+ct-c$ modulo three is $t^3+t^2+t+2$,
-which has no root in $\mathbb F_3$.
-The first and last rows have reduction $t^3+t+1$ modulo two,
-with no root in $\mathbb F_2$. The first row is excluded from
-consideration here because $p$ is
-assumed reducible. Thus the only candidate with $l>0$ and $b<50$
-is $K(2,1,2,1)$.
-
-It remains to consider $b\geq50$. Lemma~\ref{lem:gauss-bound}
-gives $c-4b\leq4$. We retain the reducibility assumption:
-the small value of $c-4b$ alone also admits cubic Pell-type
-families, handled in Proposition~\ref{prop:cubic-classification}. Set
-\[
- A=kl-mn,\qquad B=2(k^2-lm)-1.
-\]
-By \eqref{eq:c}, $A^2+B^2\leq13$. Exchanging $X,Y$ changes
-$B$ to $-B$ (use \eqref{eq:assoc}), so choose $B>0$.
-As $B$ is odd, it equals $1$ or $3$.
-
-If $B=1$, then $k^2-lm=1$ and $l^2-kn=0$.
-Since $\gcd(k,l)=1$ by \eqref{eq:assoc}, $k\mid l^2$
-forces $k=1$; hence $n=l^2$ and $lm=0$.
-For $l=0$ this is the near-group family. For $l>0$ we have
-$m=0$ and the character value of $X$ satisfies
-\[
- q_l(z)=z^3-lz^2-2z+l=0.
-\]
-This monic cubic has no integer root for $l\geq1$:
-$q_l(0),q_l(1),q_l(-1)$ are nonzero, and any other integer root $r$
-would imply $(r^2-1)\mid r(r^2-2)$, hence $(r^2-1)\mid r$,
-which is impossible. Hence $\Q[X]$ is a cubic number field.
-The element $\Omega$ is nonrational, since its trace is $b>9$
-whereas a rational $\Omega$ would have three equal codegrees, all
-equal to three. A cubic field has no proper intermediate fields,
-so $\Omega$ also generates $\Q[X]$; in particular $p$ is
-irreducible, contrary to our reducibility assumption.
-
-If $B=3$, the relation $k^2-lm=2$ gives $l^2-kn=-1$;
-in particular $k,l>0$ and
-\[
- m=\frac{k^2-2}{l},\quad n=\frac{l^2+1}{k},\quad
- A=\frac{2l^2-k^2+2}{kl}\in\{-2,-1,0,1,2\}.
-\]
-For $A=\pm2$ one gets $3l^2+2=(k\pm l)^2$,
-impossible modulo three. For $A=\pm1$ one gets
-$9l^2+8=(2k\pm l)^2$, equally impossible modulo three.
-Thus $A=0$, so
-\[
- k^2=2l^2+2,\qquad m=2l,\qquad n=k/2,\qquad
- b=\frac{27}{2}(l^2+1),\qquad c=4b.
-\]
-Here $k$ is even, $l$ is odd and $b$ is odd. If $l=1$,
-this is $K(2,1,2,1)$. Otherwise $b\geq135$ and
-$p(t)=t^3-b(t-2)^2$ is irreducible: an integer root $r$
-would satisfy $r-2\mid p(2)=8$ and
-$b=r^3/(r-2)^2$; the possible positive roots
-$r=3,4,6,10$ give respectively $b=27,16,27/2,125/8$.
-This completes the arithmetic reduction.
-\end{proof}
-
-\begin{proposition}[A uniform near-group exclusion]
-\label{prop:near-group}
-If $K(1,0,m,0)$ admits a complex fusion categorification, then
-$m\leq2$.
-\end{proposition}
-\begin{proof}
-Write $Y^2=\one$, $XY=X$ and $X^2=\one\oplus Y\oplus mX$.
-Assume $m>2$ and set $d=\FPdim(X)=(m+\sqrt{m^2+8})/2$.
-The category is spherical by Theorem~\ref{thm:main}. Its dimension
-character is one of the two quadratic ring characters: indeed
-the irrational formal codegrees belong to its dimension field by
-the general field theorem. Apply an automorphism to all algebraic
-scalar identities so that the simple dimensions become
-$\dim(\one)=\dim(Y)=1$, $\dim(X)=d>0$.
-Write $\Delta=2+d^2$; every central simple dimension is positive
-under this embedding, and all conjugated twists have modulus one.
-
-The rank-three formal-codegree decomposition of $I(\one)$ gives
-$I(\one)=\one\oplus A\oplus B$, with $\dim(B)=\Delta/2$ and
-$\dim(A)=\Delta/2-1$. Since
-$FI(\one)=3\one\oplus Y\oplus mX$ and both $F(A),F(B)$
-contain $\one$ once, comparison of rational and $d$ coefficients
-gives $m=2t$ for an integer $t\geq2$ and
-\begin{equation}\label{eq:near-I1}
- F(A)=\one\oplus tX,\quad F(B)=\one\oplus Y\oplus tX,
- \quad\theta_A=\theta_B=1.
-\end{equation}
-The irrationality of $d$ for $m>2$ justifies the coefficient
-comparison. Hence an odd $m>2$ is already impossible.
-
-Adjunction, applied to
-$FI(Y)=\one\oplus3Y\oplus2tX$, gives
-\begin{equation}\label{eq:near-IY}
- I(Y)=B\oplus C_1\oplus C_2,\qquad
- F(C_1)=Y\oplus\alpha X,\quad
- F(C_2)=Y\oplus\beta X,\quad \alpha+\beta=t.
-\end{equation}
-Indeed, $\dim\operatorname{End}I(Y)=3$, and $B$ is its sole
-summand from $I(\one)$, with multiplicity one.
-The first twist trace $\operatorname{Tr}(\theta|_{I(Y)})=0$
-follows from the Ng--Schauenburg identity used in \eqref{eq:moments},
-Section~4.
-As $\dim(B)=\dim(C_1)+\dim(C_2)>0$ and $\theta_B=1$,
-equality in the triangle inequality forces
-$\theta_{C_1}=\theta_{C_2}=-1$.
-
-The remaining central simples in $I(X)$ have the form $E_j$
-with $F(E_j)=r_jX$ and multiplicity $r_j>0$.
-By adjunction, using \eqref{eq:near-I1}--\eqref{eq:near-IY},
-\[
- I(X)=tA\oplus tB\oplus\alpha C_1\oplus\beta C_2
-             \oplus\bigoplus_j r_jE_j.
-\]
-Since $FI(X)=2t(\one\oplus Y)\oplus(4t^2+4)X$,
-the dimension of $\operatorname{End}I(X)$ is $4t^2+4$.
-Taking the sum of squared multiplicities and writing
-$R=\sqrt{t^2+2}$ gives
-\begin{equation}\label{eq:near-mass}
- M:=\sum_j r_j^2=t^2+4+2\alpha\beta.
-\end{equation}
-The Ng--Schauenburg twist trace for $I(X)$ and its second-power
-version give, with $z_j=\theta_{E_j}$ and the ordinary
-second indicator $\nu_2(X)=\eta\in\{1,-1\}$,
-\begin{align}
- S_1:=\sum_j r_j^2z_j
-   &=-2\alpha\beta-tR,\label{eq:near-first}\\
- S_2:=\sum_j r_j^2z_j^2
-   &=2\alpha\beta-t^2-(2t-2\eta)R.
-   \label{eq:near-second}
-\end{align}
-These equations follow by expanding the known summands of $I(X)$
-in the twist-trace identity for $q=1,2$:
-their dimensions are $1+td$, $2+td$, $1+\alpha d$,
-$1+\beta d$, with twists $1,1,-1,-1$, and
-$d=t+R$, $d^{-1}=(R-t)/2$.
-
-The polynomial $P(z)=|1+z+z^2|^2$ is nonnegative for every
-$|z|=1$. Thus \eqref{eq:near-mass}--\eqref{eq:near-second}
-imply
-\[
- 0\leq\sum_j r_j^2P(z_j)
-   =3M+4S_1+2S_2
-   =t^2+12+2\alpha\beta-(8t-4\eta)R.
-\]
-But $\alpha\beta\leq t^2/4$, $\eta\leq1$, and $R>t$.
-The last expression is strictly less than
-$\tfrac32t^2+12-(8t-4)t
-=12+4t-\tfrac{13}{2}t^2<0$ for every $t\geq2$.
-This contradiction excludes all $m>2$ at once.
-\end{proof}
-
-\begin{proposition}[The quadratic exceptional ring]
-\label{prop:quadratic-exception}
-The ring $K(2,1,2,1)$ has no complex fusion categorification.
-\end{proposition}
-\begin{proof}
-Suppose it has a categorification. By Theorem~\ref{thm:main}
-it is spherical, and the field-of-dimensions argument in
-Proposition~\ref{prop:quadratic} lets us apply a field automorphism
-to scalar identities so that
-\[
- x:=\dim(X)=2+\sqrt3,\qquad y:=\dim(Y)=1+\sqrt3,
- \qquad \Delta=12+6\sqrt3.
-\]
-All central simple dimensions then become positive. The formal
-codegrees are $\Delta,3,12-6\sqrt3$, so
-$I(\one)=\one\oplus A\oplus B$ with
-$\dim(A)=\Delta/3=4+2\sqrt3$ and
-$\dim(B)=\Delta/(12-6\sqrt3)=7+4\sqrt3$.
-Comparing $FI(\one)=3\one\oplus3X\oplus3Y$ with these
-dimensions and using $[F(A):\one]=[F(B):\one]=1$ gives
-\[
- F(A)=\one\oplus X\oplus Y,
- \qquad F(B)=\one\oplus2X\oplus2Y,
- \qquad \theta_A=\theta_B=1.
-\]
-Adjunction now gives
-$I(Y)=A\oplus2B\oplus\bigoplus_j s_jS_j$, where the
-$S_j$ are center simples distinct from $\one,A,B$,
-$FI(Y)=3\one\oplus9X\oplus9Y$ and
-$\sum_j s_jF(S_j)=4X\oplus4Y$. The twist-trace identity says
-$\operatorname{Tr}(\theta|_{I(Y)})=0$. Because twists have modulus
-one and all conjugated dimensions are positive, this would force
-\[
- \dim(A)+2\dim(B)\leq\sum_j s_j\dim(S_j),
- \qquad 18+10\sqrt3\leq12+8\sqrt3,
-\]
-which is false.
-\end{proof}
-
-\section{Completion of the classification}
+\subsection{The only cubic ring and its spherical structure}
 
 \begin{proposition}\label{prop:cubic-classification}
 A cubic rank-three fusion ring admits a complex fusion categorification only if it is isomorphic to $K(1,1,1,0)$. Every categorification of this ring admits a spherical structure.
@@ -828,60 +479,146 @@ Signed associativity implies $\widetilde l\widetilde m=1$. Replacing $\widetilde
 The restriction of $\pi$ to this subcategory is a tensor equivalence with $\cC$: it is bijective on simple objects and fully faithful. Transporting its spherical structure gives a spherical structure on $\cC$. This is also the section criterion of \cite[Section~5.1(c)]{Ostrik}.
 \end{proof}
 
-\begin{proof}[Proof of Theorem~\ref{thm:main}]
-If the Grothendieck ring is $\Z[C_3]$, the category is pointed and hence admits a spherical structure. Otherwise it is $K(k,l,m,n)$. The rational and quadratic cases are proved in Section~\ref{sec:quadratic}; the irreducible cubic case is Proposition~\ref{prop:cubic-classification}. These cases exhaust the characteristic polynomial of degree three.
+
+\subsection{Spherical descent in the remaining cases}\label{sec:quadratic}
+
+\begin{theorem}\label{thm:spherical}
+Every complex fusion category of rank three admits a spherical structure.
+\end{theorem}
+\begin{proof}
+The pointed case is weakly integral. For a self-dual ring, the
+Frobenius--Perron dimension of the category is a formal codegree.
+If $p$ splits over $\Q$, this dimension is an integer and again the
+category is weakly integral. The canonical spherical structure exists
+in both cases \cite[Propositions~8.23--8.24]{ENO}. If $p$ has an
+irreducible quadratic factor, Ostrik's descent theorem
+\cite[Theorem~5.1]{Ostrik} gives a spherical structure on the original
+category, with no pivotality hypothesis. Proposition~\ref{prop:cubic-classification}
+handles the irreducible cubic.
 \end{proof}
 
-\begin{corollary}\label{cor:list}
-Up to based-ring isomorphism, the rank-three fusion rings admitting a fusion categorification over $\C$ are precisely
-\[
- \Z[C_3],\quad K(1,0,0,0),\quad K(1,0,1,0),\quad
- K(1,0,2,0),\quad K(1,1,1,0).
-\]
-Each has a unitary realization. Thus general, pivotal, spherical, pseudo-unitary and unitary \emph{existence of a categorification} give the same list in rank three, with no multiplicity restriction.
-\end{corollary}
+\section{A two-moment test for the five rings}\label{sec:reducible-rings}
+
+Let $K(k,l,m,n)$ be the ring of a spherical rank-three category. Put
+$x=\FPdim(X)$, $y=\FPdim(Y)$ and $D=1+x^2+y^2$.
+We may use these positive dimensions in the twist identities, as in
+\cite[Lemma~3.4]{Ostrik}. Indeed, if $D$ is an integer, use the
+canonical positive spherical structure \cite[Propositions~8.23--8.24]{ENO}.
+Otherwise the spherical dimension field contains the irrational
+codegree $D$ by \cite[Corollary~2.15]{Ostrik}. The spherical and
+Frobenius--Perron dimension characters therefore both have Galois
+orbits of size at least two. Among three characters there is room for
+only one such orbit. An automorphism carrying the first character to
+the second carries every central dimension to the positive dimension
+of its underlying object and every twist to another root of unity.
+We use these conjugated scalar identities below.
+
+\begin{proposition}\label{prop:second-bound}
+For $u=\sum_i f_i^{-2}$ as in \eqref{eq:inverse-square},
+\begin{equation}\label{eq:second-bound}
+  100u\leq 34+\frac{66+18(x+y)}{D}.
+\end{equation}
+\end{proposition}
 \begin{proof}
-For necessity, the pointed case is $\Z[C_3]$. A nonpointed ring
-with irreducible cubic codegree polynomial is $K(1,1,1,0)$ by
-Proposition~\ref{prop:cubic-classification}. By
-Lemma~\ref{lem:arithmetic-reduction}, a reducible categorifiable ring
-is $K(2,1,2,1)$ or $K(1,0,m,0)$. The first is excluded by
-Proposition~\ref{prop:quadratic-exception}, and
-Proposition~\ref{prop:near-group} forces $m\leq2$.
-Conversely, the following standard unitary categories realize the five rings:
-\begin{center}
-\begin{tabular}{@{}ll@{}}
+Give $\theta_A$ mass $a_A^2/D^2$ for each central simple $A$.
+By \eqref{eq:mass} this is a probability measure. The constituents
+of $I(\one)$ supply mass $u$ at one by \eqref{eq:induction-codegrees}.
+Its first moment is $1/D$ by \eqref{eq:moments}, since
+$\nu_1(V)=[V:\one]$. Its second moment is real and at most
+$(1+x+y)/D$: the second indicator of a self-dual simple is $1$ or
+$-1$, the trace of an involution on $\Hom(\one,V^{\otimes 2})$.
+Use $q(z)=3+4z+3z^2$ in \eqref{eq:atom}. On the unit circle,
+\[
+ |q(z)|^2=34+24(z+z^{-1})+9(z^2+z^{-2}).
+\]
+Substitution gives \eqref{eq:second-bound}.
+\end{proof}
+
+\begin{proof}[Proof of Theorem~\ref{thm:main}]
+Sphericality follows from Theorem~\ref{thm:spherical}. The non-self-dual
+case gives $\Z[C_3]$. For a self-dual ring, we first show that
+$b\geq22$ and $D\geq16$ cannot hold together. By \eqref{eq:lower}
+and \eqref{eq:inverse-square},
+\[
+ u\geq\frac{b-4}{2b-4}\geq\frac9{20}\qquad(b\geq22).
+\]
+This gives $100u-34\geq11$. But $x+y\leq\sqrt{2(D-1)}$,
+so for $D\geq16$ the right side of \eqref{eq:second-bound} minus
+$34$ is smaller than $66/16+18/\sqrt8<11$.
+
+If $k,l>0$ and $\max(k,l)\geq2$, \eqref{eq:b} gives $b\geq22$.
+From $xy=kx+ly$ we obtain $x>l$, $y>k$ and $(x-l)(y-k)=kl$. Hence
+\[
+ x+y\geq(\sqrt k+\sqrt l)^2\geq3+2\sqrt2>11/2,
+ \qquad D\geq1+\tfrac12(x+y)^2>16.
+\]
+This is impossible. The choice $k=l=1$ forces $m+n=1$ and gives
+$K(1,1,1,0)$ after interchanging $X,Y$.
+
+If $kl=0$, arrange $l=0$. Then \eqref{eq:assoc} forces $k=1,n=0$,
+so $y=1$, $x=(m+\sqrt{m^2+8})/2$, $D=2+x^2$ and
+\[
+ b=10+m^2,\qquad c=4b-8,\qquad u=\frac{b-4}{2b-4}.
+\]
+As $m$ increases, $u$ increases and $(84+18x)/(2+x^2)$ decreases:
+the latter has derivative of sign $36-168x-18x^2<0$ for $x\geq1$.
+It therefore suffices to test $m=3$ to exclude all $m\geq3$.
+Substitution in \eqref{eq:second-bound} would give
+\[
+ \frac{15}{34}\leq \frac{11}{20}-\frac{9\sqrt{17}}{340},
+ \qquad\text{or equivalently}\qquad 9\sqrt{17}\leq37.
+\]
+This fails since $81\cdot17=1377>1369=37^2$. This endpoint explains
+the coefficients in Proposition~\ref{prop:second-bound}: among
+$1+az+z^2$ with $a\geq0$, the two-moment upper bound for the atom
+there is minimized at $a=4/3$.
+
+This leaves $m=0,1,2$. The unitary models in Table~\ref{tab:models}
+realize each surviving ring. The three near-group rings have two
+invertible basis elements and are distinguished by $m$. The pointed
+ring has three invertibles and the even $SU(2)_5$ ring has one.
+\end{proof}
+
+\begin{table}[htbp]
+\centering
+\small
+\begin{tabular}{@{}lll@{}}
 \toprule
-Fusion ring & A unitary realization\\
+Fusion ring & A unitary realization & Reference\\
 \midrule
-$\Z[C_3]$ & $\Vect_{C_3}$\\
-$K(1,0,0,0)$ & An Ising category\\
-$K(1,0,1,0)$ & $\Rep(S_3)$\\
-$K(1,0,2,0)$ & The rank-three even part of the $E_6$ subfactor\\
-$K(1,1,1,0)$ & The even subcategory of $SU(2)_5$\\
+$\Z[C_3]$ & $\Vect_{C_3}$ & \cite[Theorem~1.1(i)]{Ostrik}\\
+$K(1,0,0,0)$ & An Ising category & \cite{TY}, \cite[Thm.~1.1(iii)]{Ostrik}\\
+$K(1,0,1,0)$ & $\Rep(S_3)$ & \cite[Theorem~1.1(iv)]{Ostrik}\\
+$K(1,0,2,0)$ & The $E_6$ even part of rank three & \cite{BN,HH}, \cite[Sec.~1]{EIP}\\
+$K(1,1,1,0)$ & The even subcategory of $SU(2)_5$ & \cite[Sec.~4]{OstrikRibbon}\\
 \bottomrule
 \end{tabular}
-\end{center}
-These are the realizations in \cite{Ostrik}; see also \cite{HH} for the $E_6$ fusion rules. Unitary categories are pseudo-unitary and spherical, so the existence statements coincide.
-\end{proof}
+\caption{A unitary realization of each ring.}
+\label{tab:models}
+\end{table}
 
-\begin{remark}
-The corollary concerns five \emph{fusion rings}, not five
-tensor-equivalence classes of categories. The full category list,
-including the pointed twists, quantum-group choices and
-Galois-conjugate realizations, remains the one in
-\cite[Theorem~1.1]{Ostrik}, now without its pivotal hypothesis.
-No assertion is made that every categorification on the list is unitary.
-\end{remark}
-
-\paragraph{AI disclosure.}
-GPT-6 Astra assisted with mathematical exploration and manuscript preparation.
-This manuscript and its accompanying research data are AI-generated. They should be treated with caution: they have not been independently verified by a human mathematician or formalized in Lean.
+In the $SU(2)_5$ row the nontrivial basis elements $X,Y$ have highest
+weights $2,4$, respectively. In the near-group rows $Y$ is the nontrivial
+invertible and $X$ is the remaining simple. Ostrik's tensor-equivalence
+classification \cite[Theorem~1.1]{Ostrik} now applies to every complex rank-three fusion category by
+Theorem~\ref{thm:spherical}.
 
 \begin{thebibliography}{99}
 \bibitem{Bartlett}
-B.~Bartlett, \emph{Fusion categories via string diagrams}, preprint (2015),
+B.~Bartlett, \emph{Fusion categories via string diagrams}, Commun. Contemp. Math. \textbf{18} (2016), no.~5, 1550080,
 \href{https://arxiv.org/abs/1502.02882}{arXiv:1502.02882v2}.
+
+\bibitem{BN}
+J.~Bion-Nadal,
+\emph{Subfactor of the hyperfinite $\mathrm{II}_1$ factor with Coxeter graph $E_6$ as invariant},
+\href{https://jot.theta.ro/jot/archive/1992-028-001/1992-028-001-002.html}{J. Operator Theory \textbf{28} (1992), 27--50}.
+
+\bibitem{EIP}
+C.~Edie-Michell, M.~Izumi and D.~Penneys,
+\emph{Classification of $\Z/2\Z$-quadratic unitary fusion categories},
+with an appendix by R.~Johnson, S.-H.~Ng, D.~Penneys, J.~Roat,
+M.~Titsworth and H.~Tucker, Quantum Topol. \textbf{16} (2025), 493--568,
+\href{https://doi.org/10.4171/QT/201}{doi:10.4171/QT/201}.
 
 \bibitem{ENO}
 P.~Etingof, D.~Nikshych and V.~Ostrik, \emph{On fusion categories},
@@ -892,6 +629,12 @@ Ann. of Math. (2) \textbf{162} (2005), no.~2, 581--642;
 T.~J.~Hagge and S.-M.~Hong, \emph{Some non-braided fusion categories of rank three},
 Commun. Contemp. Math. \textbf{11} (2009), no.~4, 615--637;
 \href{https://arxiv.org/abs/0704.0208}{arXiv:0704.0208}.
+
+\bibitem{Muger}
+M.~Müger, \emph{From subfactors to categories and topology II.
+The quantum double of tensor categories and subfactors},
+J. Pure Appl. Algebra \textbf{180} (2003), 159--219,
+\href{https://doi.org/10.1016/S0022-4049(02)00248-7}{doi:10.1016/S0022-4049(02)00248-7}.
 
 \bibitem{NSind}
 S.-H.~Ng and P.~Schauenburg, \emph{Higher Frobenius--Schur indicators for pivotal categories},
@@ -904,10 +647,33 @@ S.-H.~Ng and P.~Schauenburg, \emph{Frobenius--Schur indicators and exponents of 
 Adv. Math. \textbf{211} (2007), no.~1, 34--71;
 \href{https://doi.org/10.1016/j.aim.2006.07.017}{doi:10.1016/j.aim.2006.07.017}.
 
+\bibitem{OstrikRibbon}
+V.~Ostrik, \emph{Pre-modular categories of rank 3},
+Mosc. Math. J. \textbf{8} (2008), 111--118,
+\href{https://arxiv.org/abs/math/0503564}{arXiv:math/0503564}.
+
+\bibitem{OstrikCodegrees}
+V.~Ostrik, \emph{On formal codegrees of fusion categories},
+Math. Res. Lett. \textbf{16} (2009), no.~5, 895--901;
+\href{https://arxiv.org/abs/0810.3242}{arXiv:0810.3242}.
+
 \bibitem{Ostrik}
 V.~Ostrik, \emph{Pivotal fusion categories of rank 3}, with an appendix written jointly with D.~Nikshych,
 Mosc. Math. J. \textbf{15} (2015), no.~2, 373--396;
 \href{https://arxiv.org/abs/1309.4822}{arXiv:1309.4822}.
-\end{thebibliography}
-\end{document}
 
+\bibitem{TY}
+D.~Tambara and S.~Yamagami,
+\emph{Tensor categories with fusion rules of self-duality for finite abelian groups},
+J. Algebra \textbf{209} (1998), 692--707,
+\href{https://doi.org/10.1006/jabr.1998.7558}{doi:10.1006/jabr.1998.7558}.
+
+\bibitem{Thornton}
+J.~Thornton, \emph{On braided near-group categories} (2011),
+\href{https://arxiv.org/abs/1102.4640}{arXiv:1102.4640}.
+\end{thebibliography}
+
+\par\medskip
+{\small\noindent\textsc{Beijing Institute of Mathematical Sciences and Applications}\par
+\noindent Huairou District, Beijing 101408, China\par}
+\end{document}

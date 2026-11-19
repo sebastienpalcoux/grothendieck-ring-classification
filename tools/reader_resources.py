@@ -29,8 +29,20 @@ PAPERS = (
 )
 
 
+def manuscript_edition(repo):
+    path = Path(repo) / 'data/current_document_revision.json'
+    return json.loads(path.read_text()).get('manuscript_edition') if path.is_file() else None
+
+
 def current_papers(repo):
-    return tuple((title,current_report(repo) if kind=='research_status_report' else path,kind) for title,path,kind in PAPERS)
+    papers = PAPERS
+    if manuscript_edition(repo):
+        # The earlier rank-four artifacts stay available as historical documents.
+        papers = tuple(row for row in PAPERS if not row[1].startswith('rank4/papers/'))
+        papers = papers[:2] + (('Rank four', 'rank4.pdf', 'mathematical_manuscript'),) + papers[2:]
+    return tuple(('Current categorification frontier' if manuscript_edition(repo) and kind == 'research_status_report' else title,
+                  current_report(repo) if kind == 'research_status_report' else path, kind)
+                 for title, path, kind in papers)
 
 def need(ok, message):
     if not ok:
@@ -155,13 +167,34 @@ def build_pages(repo):
         records.append({'title': title, 'kind': kind, 'path': path.relative_to(repo).as_posix(),
                         'pages': len(PdfReader(path).pages), 'bytes': path.stat().st_size,
                         'sha256': sha(path.read_bytes())})
-    return {'schema': 'manuscript-page-counts/v1', 'date': current_date(repo),
+    result = {'schema': 'manuscript-page-counts/v1', 'date': current_date(repo),
             'counting_rule': 'Count each distinct current document once, including its references and appendices; exclude website/supplement copies and compatibility aliases.',
-            'document_counts': {'mathematical_manuscripts': 8, 'verification_guides': 3, 'research_status_reports': 1},
+            'document_counts': {key: sum(r['kind'] == kind for r in records)
+                                for key, kind in [('mathematical_manuscripts', 'mathematical_manuscript'),
+                                                  ('verification_guides', 'verification_guide'),
+                                                  ('research_status_reports', 'research_status_report')]},
             'documents': records, 'totals': page_totals(records),
             'classification_scope': {'rank2': 'Unrestricted', 'rank3': 'Unrestricted',
                                      'rank4': 'Unrestricted complex classification: 15 Grothendieck rings; every categorification admits a spherical structure. The sharp bounds are FPdim ≤ 24+12√3 and multiplicity ≤ 6.'},
             'caution': 'AI-generated research; independent human verification and Lean formalization pending.'}
+    edition = manuscript_edition(repo)
+    if edition:
+        result['date'] = json.loads((Path(repo) / 'data/current_document_revision.json').read_text())['date']
+        result['manuscript_edition'] = edition
+        result['counting_rule'] = ('Count each distinct current document once, including its references and appendices; '
+                                  'exclude website/supplement copies, compatibility aliases and the superseded '
+                                  'rank-four papers listed in historical_documents.')
+        result['historical_documents'] = []
+        for title, relative, kind in PAPERS:
+            if not relative.startswith('rank4/papers/'):
+                continue
+            path = Path(repo) / 'manuscripts' / relative
+            result['historical_documents'].append({
+                'title': title, 'kind': kind, 'path': 'manuscripts/' + relative,
+                'pages': len(PdfReader(path).pages), 'bytes': path.stat().st_size,
+                'sha256': sha(path.read_bytes()), 'status': 'historical',
+                'superseded_by': 'manuscripts/rank4.pdf'})
+    return result
 
 
 def validate_reader_resources(repo, check_web=False):
@@ -175,9 +208,12 @@ def validate_reader_resources(repo, check_web=False):
     need(all(isinstance(assigned[name], list) for name in IDS), 'Named plain-list tensor constants')
     pages = json.loads((repo / 'data/manuscript_page_counts.json').read_text())
     need(pages['schema'] == 'manuscript-page-counts/v1', 'Page-count schema')
-    need(pages['document_counts'] == {'mathematical_manuscripts': 8, 'verification_guides': 3,
-                                     'research_status_reports': 1}, 'Distinct document counts')
     records = pages['documents']
+    counts = {key: sum(r['kind'] == kind for r in records)
+              for key, kind in [('mathematical_manuscripts', 'mathematical_manuscript'),
+                                ('verification_guides', 'verification_guide'),
+                                ('research_status_reports', 'research_status_report')]}
+    need(pages['document_counts'] == counts, 'Distinct document counts')
     need([(r['title'], r['path'], r['kind']) for r in records] ==
          [(title, 'manuscripts/' + path, kind) for title, path, kind in current_papers(repo)], 'Distinct current paper inventory')
     for record in records:

@@ -1,56 +1,37 @@
-# Unrestricted rank-four Grothendieck ring classification
+# Grothendieck rings of complex fusion categories: rank 4
 
-**[Read the main manuscript · 88 pages](papers/companion.pdf)** ·
-[LaTeX source](papers/companion.tex) ·
-[Exact verification package](../../supplements/rank4/unrestricted/README.md)
+**[Read the revised manuscript · 50 pages](../rank4.pdf)** ·
+[Standalone TeX source](../rank4.tex) ·
+[Hexagon source archive](../hexagon/hexagon-rank-4-source.zip) ·
+[Exact verification package](../../supplements/rank4/sphericality/README.md)
 
-> **AI-generated research · independent verification pending.** The results,
-> proofs, code and data require independent human verification and have not
-> been formalized in Lean. Treat them as provisional; computational checks
-> do not replace mathematical review.
+Revised 19 November 2026, by Sébastien Palcoux. [Revision letter](../hexagon/revision-letter.pdf).
 
-## The general classification
+## The result and its dependencies
 
-**No multiplicity bound; no initial pivotality assumption.** The main
-manuscript classifies the Grothendieck rings of arbitrary rank-four fusion
-categories over ℂ:
+The paper treats arbitrary complex fusion categories of rank four, with no initial pivotality assumption or bound on fusion multiplicities. Every such category admits a spherical structure. Applying the pivotal classification of Dong, Palcoux and Plessis then gives exactly fifteen based rings, each with a unitary realization. The sharp bounds are global Frobenius–Perron dimension at most `24 + 12√3` and multiplicity at most `6`, with equality precisely for `NG(C₃,6)`.
 
-- **Exactly 15 based-isomorphism classes of Grothendieck rings.**
-- **Every categorification admits a spherical structure.**
-- The sharp bounds are **FPdim ≤ 24 + 12√3** and **multiplicity ≤ 6**,
-  attained by the near-group ring `NG(C₃,6)`.
+Sphericality is established before the pivotal classification is invoked. The six non-self-dual rings are also recovered directly by central induction and positive twist moments. A hypothetical nonspherical category must be self-dual and have quadratic or quartic Frobenius–Perron dimension below `1000`, with multiplicities at most `31`.
 
-These bounds are conclusions of the classification. They are not assumptions
-on its scope. The result classifies Grothendieck rings; it does not assert
-uniqueness of the fusion category realizing a ring.
+## The finite calculation
 
-The proof first establishes the theoretical bounds FPdim < 1000 and
-multiplicity at most 31, then applies exact finite verification to a census
-of **1,692 rings: 1,677 exclusions and 15 models**.
+The ordinary census contains **1,692 rings**: 1,642 self-dual and 50 with a dual pair. Structural and arithmetic conditions leave 41 ordinary inputs to the local descent. They give 1,798 signed tuples and 623 distinct pairs of an ordinary ring and a signed Casimir polynomial. Joint norm divisibility leaves two pairs, both for the same ordinary ring. Their inverse-square codegree sums are `1` and `23/24`, both larger than the necessary bound `7/8`. No nonspherical candidate remains.
 
-## Reading order
+The replay also checks the 14 short quadratic rows, 372 endpoint comparisons, both quartic estimates, and all fifteen model tensors and positive dimension characters. Its unpruned and small-box comparisons test enumeration coverage. The earlier global bank of 92,795 signed orbits and its full exclusion ledger are not inputs to this revised proof.
 
-| Read | Pages | Scope |
-|---|---:|---|
-| **[Unrestricted classification — main paper](papers/companion.pdf)** · [TeX](papers/companion.tex) | **88** | **General rank-four classification, without a multiplicity bound** |
-| [Finite-range classification companion](papers/finite.pdf) · [TeX](papers/finite.tex) | 29 | Separate census through multiplicity 128 |
-| [Mathematical verification guide](papers/verification_guide.pdf) · [TeX](papers/verification_guide.tex) | 9 | Criteria, certificates and replay scope |
+From the repository root:
 
-The primary unrestricted manuscript is stored as `papers/companion.pdf`;
-its source and section files are in [the papers folder](papers/README.md).
+```sh
+cd supplements/rank4/sphericality
+python3 verify.py --manuscript ../../../manuscripts/rank4.tex
+```
 
-## Proof package and related work
+Requirements: Python 3.10 or later, SymPy, and a C++17 compiler. See the [verification README](../../supplements/rank4/sphericality/README.md) for the exact scope of each check. The mathematical arguments remain subject to independent human review; finite replay is not proof-assistant verification.
 
-- [Unrestricted classification: exact replay and census](../../supplements/rank4/unrestricted/README.md)
-- [Finite census through multiplicity 128: public replay](../../supplements/rank4/PUBLIC_REPLAY.md)
-- [Verification scope](../../docs/PREPUBLICATION_REVIEW.md)
-- [All research manuscripts](../README.md)
+## Earlier papers and related work
 
-For the pivotal case, see Jingcheng Dong, Sébastien Palcoux and Arnaud Plessis,
-[*Classifying Grothendieck rings of pivotal fusion categories of rank four*](https://github.com/sebastienpalcoux/pivotal-fusion-categories-rank-four/blob/main/manuscript.pdf).
-The authors' revision of 9 November 2026 is available in its dedicated repository;
-[TeX](https://github.com/sebastienpalcoux/pivotal-fusion-categories-rank-four/blob/main/manuscript.tex),
-[code, data and certificates](https://github.com/sebastienpalcoux/pivotal-fusion-categories-rank-four), and the
-[arXiv record](https://arxiv.org/abs/2609.33272) are available separately.
-Its finite verification covers **8,977 rings: 8,962 exclusions and 15 models**.
-The paper assumes pivotality; the general classification above does not.
+- [Earlier unrestricted and finite-range articles](papers/README.md), retained with their original sources and data.
+- [Earlier unrestricted verification](../../supplements/rank4/unrestricted/README.md).
+- [Finite census through multiplicity 128](../../supplements/rank4/PUBLIC_REPLAY.md).
+- Dong–Palcoux–Plessis, [pivotal classification](https://arxiv.org/abs/2609.33272) and its [dedicated repository](https://github.com/sebastienpalcoux/pivotal-fusion-categories-rank-four).
+- [All manuscripts](../README.md).
