@@ -19,13 +19,21 @@ class CurrentPresentationTests(unittest.TestCase):
             for name in ("index.html", "review.html", "unresolved.html"):
                 (root / "dist" / name).write_bytes((SITE / "dist" / name).read_bytes())
             (root/'dist/downloads').mkdir(exist_ok=True)
-            (root/'dist/downloads/current_manuscript_page_counts.json').write_text(json.dumps({'totals':{'mathematical_manuscript':675,'mathematical_manuscripts_and_guides':693,'all_distinct_documents':700}}))
+            inventory = {
+                'document_counts': {'mathematical_manuscripts': 12, 'verification_guides': 3,
+                                    'research_status_reports': 1},
+                'totals': {'mathematical_manuscript': 675, 'mathematical_manuscripts_and_guides': 693,
+                           'all_distinct_documents': 700},
+            }
+            (root/'dist/downloads/current_manuscript_page_counts.json').write_text(json.dumps(inventory))
             presentation.apply(root)
             first = {p.name: p.read_bytes() for p in (root / "dist").glob("*.html")}
             presentation.apply(root)
             self.assertEqual(first, {p.name: p.read_bytes() for p in (root / "dist").glob("*.html")})
             home = (root / "dist/index.html").read_text()
             review = (root / "dist/review.html").read_text()
+            self.assertIn("12 mathematical manuscripts: 675 pages; with 3 verification guides: 693; "
+                          "with the current research-status report: 700.", home)
             self.assertEqual(home.count('id="frontier-update"'), 1)
             self.assertNotIn('id="correctness-update"', home)
             self.assertNotIn("Earlier manuscript inventory", home)
