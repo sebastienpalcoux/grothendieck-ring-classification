@@ -12,7 +12,10 @@ CITATION_REPLAY_DIRECTORY = 'evidence/citation_20261019'
 CITATION_REPLAY_MANIFEST_SHA256 = 'f66e3f910da6bce16b33c8fd8eabb2ab999959895a211b0c46f71a036cc65bd1'
 CITATION_REPLAY_ARCHIVE_SHA256 = 'e42c63857d52450f1e90db2a4474476148cbce70ea58edfe7acad6aad96bd06e'
 EXCLUDED_DOCUMENTS = {'manuscripts/prepublication-review-2026-10-17.pdf',
-                      'manuscripts/prepublication-review-2026-10-19.pdf'}
+                      'manuscripts/prepublication-review-2026-10-19.pdf',
+                      # Submission correspondence is not a mathematical manuscript.
+                      'manuscripts/hexagon/revision-letter.tex',
+                      'manuscripts/hexagon/revision-letter.pdf'}
 # Retain dated historical reports; the active extension selects the current one.
 
 def need(condition, message):
