@@ -2,7 +2,8 @@
 
 Historical build receipts remain frozen.  Their atlas binding is accepted only
 through a saved, byte-identical predecessor and a comparison that permits the
-new manuscript metadata and its three direct checksum references to change.
+new manuscript metadata, its three direct checksum references and the source
+path of the byte-frozen rank-six manifest alias to change.
 Classification records, research dates and every other atlas field must match.
 """
 from copy import deepcopy
@@ -18,6 +19,7 @@ EDITABLE_PATHS = (
     ("reader_resources", "files", "manuscript_page_counts.json", "sha256"),
     ("reader_resources", "page_totals"),
     ("manuscript_edition",),
+    ("rank6_release", "document_revision", "source"),
 )
 
 
@@ -78,6 +80,12 @@ def verified_predecessor(repo):
     if any(value != digest(repo / path) for value, path in bindings):
         return None
     if new["reader_resources"]["page_totals"] != pages["totals"]:
+        return None
+    revision = new["rank6_release"]["document_revision"]
+    archive = "data/manuscript_editions/2026-11-19/prior_document_revision.json"
+    if revision["source"] != archive or digest(repo / archive) != revision["sha256"]:
+        return None
+    if (repo / archive).read_bytes() != (repo / "site/dist" / revision["path"]).read_bytes():
         return None
     return receipt["before_sha256"]
 

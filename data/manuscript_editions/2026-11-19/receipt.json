@@ -6,13 +6,15 @@
   "prior_path": "data/manuscript_editions/2026-11-19/prior_atlas.json",
   "prior_commit": "3093313a3e3d00af43eb7235f01da11ea7e41b9b",
   "before_sha256": "919556558459033f5c94ab6eeb3fd6e6a3963b8c2994529801a64b0a1ab0ead2",
-  "after_sha256": "1be75843754d08cf65574f666c9b151bfe98f41f7f03c7dc3896df8029f1b0c9",
+  "after_sha256": "f556b7069f6a0738d695fd82daae49b0c29cb095f84a7c71f7070dfd57d0201b",
   "changed_json_paths": [
     "current_documents.sha256",
     "current_publication_documents.sha256",
     "reader_resources.files.manuscript_page_counts.json.sha256",
     "reader_resources.page_totals",
-    "manuscript_edition"
+    "manuscript_edition",
+    "rank6_release.document_revision.source"
   ],
-  "historical_catalogue_note": "The publication pointers embedded in the rank-nine through rank-twelve catalogue snapshots retain the 29 October release context; that exact manifest remains available at prior_commit. Current publication identities are provided by data/current_publication_revision.json."
+  "historical_catalogue_note": "The publication pointers embedded in the rank-nine through rank-twelve catalogue snapshots retain the 29 October release context; that exact manifest remains available at prior_commit. Current publication identities are provided by data/current_publication_revision.json.",
+  "historical_rank6_note": "The rank-six release alias retains the exact October document manifest; its source now points to the archived predecessor rather than the current ranks 2--4 edition."
 }
