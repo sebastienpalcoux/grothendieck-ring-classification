@@ -1,0 +1,353 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,microtype}
+\usepackage[a4paper,margin=25mm]{geometry}
+\usepackage{amsmath,amssymb,booktabs,array,tabularx}
+\usepackage[dvipsnames]{xcolor}
+\usepackage[colorlinks=true,linkcolor=MidnightBlue,urlcolor=MidnightBlue]{hyperref}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small Rank-five fusion categories}
+\fancyhead[R]{\small Second revision round}
+\fancyfoot[C]{\thepage}
+\setlength{\headheight}{14pt}
+\setlength{\emergencystretch}{2em}
+\setlength{\parskip}{3pt}
+\newcommand{\FPdim}{\operatorname{FPdim}}
+\newcommand{\Tr}{\operatorname{Tr}}
+\hypersetup{pdftitle={Rank-five classification: second revision round},pdfauthor={}}
+\title{Rank-five classification\\[4pt]\large Further audit and revision letter\\Second revision round}
+\author{}
+\date{24 November 2026}
+\begin{document}
+\maketitle
+
+\section{Outcome and baseline}
+
+This letter records a fresh audit of the previously delivered
+\path{Rank5_General_Sharp_Revised.zip}. It concerns changes relative to
+that revised package, not a repetition of the first revision letter.
+The earlier \path{Review_Report.tex/pdf} and
+\path{Revision_Letter.tex/pdf} remain unchanged as historical records.
+
+One new, definite arithmetic error was found in the quadratic descent
+proof: a discrete lower bound omitted an allowed value. Its correction
+still gives the required strict contradiction. The review also found a
+hypothesis that should be stated more precisely: the rationality in the
+twist-support lemma concerns the normalized $S$-matrix row. A weaker
+reading in terms of the associated fusion character is false, and an
+explicit counterexample is given below. Two further precision changes
+specify an integral parameter and make source-version references
+unambiguous.
+
+The corrected argument retains all principal conclusions:
+\[
+\begin{gathered}
+\text{every complex rank-five fusion category has a pseudo-unitary
+Galois conjugate}\\[-2pt]
+\text{and admits a spherical structure},\\
+\mu\le4,\qquad \FPdim(\mathcal C)\le48+24\sqrt3,\\
+\text{exactly seventeen based rings, each with a unitary realization}.
+\end{gathered}
+\]
+No new faulty exclusion, omitted bounded ring, or incorrect model tensor
+was found. The ordinary verification and both optional audits passed.
+No existing search range, categorical filter, witness tensor, or model
+tensor was changed.
+
+The review covered all seventeen sections and the existing programs,
+including the previous repairs. The descent and local arithmetic
+sections were reassigned for independent scrutiny; the invertible-action,
+Morita, small-generator, quintic, and endpoint arguments were also
+reconstructed. This is a mathematical and computational audit, not a
+formal proof-assistant certification or a guarantee that no further
+error exists.
+
+\section{Complete manuscript change ledger}
+
+\subsection{R2-M01: the omitted value in Proposition 6.3}
+
+\textbf{Location:} the final $M=9$ subcase of Proposition 6.3.
+\par\noindent Source label: \path{prop:quadratic-small-conductor-120}.
+The proof has established
+\[
+ s=1-\frac{\gamma}{4}-\frac J9>\frac14,
+ \qquad \gamma\in\mathbb Z_{\ge1},\quad J\in\{2,4\}.
+\]
+It then claimed $s\ge11/36$. This overlooks $(\gamma,J)=(2,2)$,
+which gives $s=5/18<11/36$. The complete list above $1/4$ is
+\[
+\begin{array}{c|c|c}
+\gamma&J&s\\\hline
+1&2&19/36\\
+1&4&11/36\\
+2&2&5/18
+\end{array}
+\]
+The fourth choice with $\gamma\in\{1,2\}$ is below $1/4$;
+every $\gamma\ge3$ is also excluded by that lower bound.
+
+Both uses of $11/36$ in this inference have been replaced by $5/18$.
+The revised proof identifies the minimizing pair and displays the exact
+comparison:
+\[
+ 2\left(\frac5{18}-\frac2{120}\right)^2+\frac{32}{81}
+ =\frac{8609}{16200}
+ =\frac12+\frac{509}{16200}>\frac12.
+\]
+Thus the upper bound $\max(E,E')\le120$ survives the repair. The
+subsequent quadratic enumeration has the same finite range and the same
+output. The new optional audit verifies the finite list and the strict
+inequality with exact fractions.
+
+After finding this omission, the neighboring small-unit calculations
+were checked separately. At exponent one the three conductor cases
+$5,8,12$ give no allowed pair. At exponent two the conductor-five case
+gives only $\beta=\epsilon$; the conductor-eight case gives exactly
+$(m,n)=(4,1),(6,2),(12,4),(20,7)$, with $J\in\{2,4\}$.
+The deductions $M\le4$ and $9\le M\le10$, and every other numerical
+comparison in the proposition, remain correct.
+
+\subsection{R2-M02: rationality of the normalized modular row}
+
+\textbf{Location:} Lemma 13.5, label \texttt{lem:odd-row}, and the
+paragraph immediately following its proof.
+The phrase ``a rational row'' now explicitly means
+\[
+                       S_{Ji}\in\mathbb Q\quad\text{for every }i,
+\]
+where $S$ is the normalized modular matrix. The associated formal
+codegree is $q=S_{0J}^{-2}\in\mathbb Z_{>0}$.
+The proof uses this hypothesis to make the diagonal Galois operator
+fix the row with positive sign.
+
+Rationality of the ratios $S_{Ji}/S_{J0}$ alone would not suffice.
+For a concrete counterexample to that weaker reading, take
+\[
+ \mathcal D=\mathrm{SU}(2)_4^{\boxtimes3}
+              \boxtimes\mathrm{Semion}^{\boxtimes2},
+ \qquad J=(2,2,2,0,0).
+\]
+All dimensions are positive. The central charge is
+$i^3(e^{\pi i/4})^2=1$, and $\theta_J=1$.
+The character on each $\mathrm{SU}(2)_4$ factor is
+$(1,0,-1,0,1)$ and that on each semion factor is $(1,1)$,
+so the product character is integral. Nevertheless,
+\[
+ q=108,\qquad S_{J0}=\frac1{6\sqrt3},\qquad
+ (ST^5S)_{J0}=-\frac1{6\sqrt3},\qquad (5,108)=1.
+\]
+Indeed, with $\omega=e^{2\pi i/3}$, the respective factor entries are
+$(1-\omega^2)/3$ and $(1+i)/2$; cubing the first and squaring the
+second gives the negative value above. The normalized row is irrational,
+so the revised hypothesis excludes this example.
+
+Every use in the rank-five manuscript meets the intended stronger
+hypothesis. The added paragraph explains this directly: for the central
+induction label of a rational character $\rho$ of the original fusion
+ring,
+\[
+ S_{A_\rho,W}=\frac{\rho(F(W))}{f_\rho}\in\mathbb Q,
+\]
+because $\rho$ is integer-valued and its codegree is integral.
+Applications to nonrational conjugate pairs instead use the separate
+integral-block lemma. Consequently no application, twist restriction,
+or certificate is weakened by this precision change.
+
+\subsection{R2-M03: the parameter in Proposition 11.1 is integral}
+
+The statement of Proposition 11.1 now specifies
+$h\in\mathbb Z_{\ge0}$ in place of merely $h\ge0$.
+Its proof already derives $k=6h$ with integral $h$, and later small-case
+arguments use that discreteness. This states the established conclusion
+explicitly; it changes neither the proof nor the allowed parameters.
+
+\subsection{R2-M04: exact source-version locators}
+
+The higher Gauss-sum formula used in Section 11 and in the quintic
+classification in Section 12 was cited as ``Corollary 4.5'' of
+Ng--Schopieray--Wang.
+In the linked arXiv version, the required identity is Theorem 4.4,
+equation (4.17), while 4.5 is an example. This does not establish that
+the published article uses the same numbering.
+
+Both in-text citations now explicitly refer to Theorem 4.4, equation
+(4.17), in \href{https://arxiv.org/abs/1812.11234v2}{arXiv:1812.11234v2},
+the version whose formula was checked. The bibliography now pins that
+version, gives the journal issue, adds
+\href{https://doi.org/10.1007/s00029-019-0499-2}{doi:10.1007/s00029-019-0499-2},
+and states which numbering the manuscript uses. No mathematical input
+has been replaced by a different result.
+
+\section{R2-C01: a reproducible additional audit}
+
+The sole code-file addition is
+\path{final_census/verify_additional_audits.py}.
+It supplements the existing verifier with the following targeted checks.
+
+\paragraph{Discrete quadratic cutoff.}
+It enumerates the complete admissible $(\gamma,J)$ list above and
+verifies the corrected minimum and margin exactly.
+
+\paragraph{Direct cyclotomic averages.}
+For the conductor-twelve field $\mathbb Q(\sqrt3)$ used in the
+higher-indicator certificates, the program computes Galois averages
+directly in $\mathbb Q[X]/\Phi_M(X)$. It uses every relevant order
+dividing $144$, every reduced numerator, and powers one through six.
+The resulting \textbf{864 exact moments and 19 joint vectors} agree
+with the packaged relative-trace formula. Keeping each vector intact
+checks the correlations between different powers. The zero vector for
+higher primary orders is included.
+
+\paragraph{Restriction columns and Gram conditions.}
+For all \textbf{14 induction or higher-indicator certificate rings},
+the full Cartesian product of the allowed unit-induction columns agrees
+with the optimized join. Direct exact principal-minor tests agree with
+the native Gram pruning. For all \textbf{11 residual Gram matrices}
+in the higher-indicator branches, native and direct Python enumeration
+of further columns agree as well.
+
+\paragraph{Coverage of the quartic generator ranges.}
+For $d=A+Bt+Ct^2+Et^3$, the new check obtains the coefficient range for
+$E$ by rational interval Lagrange interpolation, then ranges for
+$C,B,A$ by divided differences and evaluation. It uses the same
+defining field polynomials and certified root intervals, but none of
+the original fixed coefficient cutoffs, fixed padding, or nested
+neighbor-range construction. Its bounds enclose every integral vector
+with distinguished value in $[2,M]$ and other values in
+$[-3.17,3.17]$, an outward enlargement of $[-\sqrt{10},\sqrt{10}]$.
+All these vectors occur in the packaged enumeration. Direct interval
+evaluation also certifies every reported Perron upper endpoint.
+
+\begin{center}
+\begin{tabular}{rrrr}
+\toprule
+Conductor&Cap $M$&Interval candidates&Packaged candidates\\\midrule
+15&125&934&935\\
+15&155&1160&1162\\
+20&153&858&860\\\bottomrule
+\end{tabular}
+\end{center}
+These counts precede the nonprimitive filter. They do not replace the
+manuscript's primitive-candidate counts $931,1158,856$.
+The first-round upper-endpoint repair is thereby confirmed through a
+separate range construction. Its error allowance
+$15\sum_i|x_i|$ is conservative: at $|t|<2$, replacing the root by
+its lower interval endpoint and rounding the scaled powers of degree
+at most three changes each power by less than thirteen units.
+
+\paragraph{Scope of independence.}
+The new checks share the package's field data, root intervals, and
+construction of individual restriction-column sets. They independently
+check the trace calculation, column joins, Gram enumeration, and
+coefficient-range coverage. They do not independently prove the
+categorical hypotheses behind these computations. The new program
+uses explicit exception-based checks; its imported assertion-dependent
+generator rejects optimized Python, as verified in this round.
+
+\section{Verification and further mathematical review}
+
+All three final commands exited successfully:
+\begin{verbatim}
+python3 verify.py
+python3 final_census/verify_independent_census.py
+python3 final_census/verify_additional_audits.py
+\end{verbatim}
+The first command again passed all eighteen structural checks and
+reproduced the complete census:
+\begin{center}
+\begin{tabular}{rrrrr}
+\toprule
+$\mu$&Generated&Within both bounds&Excluded&Realized\\\midrule
+1&16&16&6&10\\
+2&37&30&27&3\\
+3&82&46&44&2\\
+4&134&22&20&2\\\midrule
+Total&269&114&97&17\\\bottomrule
+\end{tabular}
+\end{center}
+The 97 exclusions remain partitioned as 76 $d$-number failures,
+two subcategory-divisibility failures, three central-dimension norm
+failures, two dimension-field failures, ten induction/second-moment
+failures, and four higher-indicator certificates. All seventeen model
+identifications pass.
+
+The previous optional census audit again reconstructs the symmetry,
+associativity, and necessary linear equations; its alternative replay
+agrees on 220 self-dual rings and 49 non-self-dual rings, the latter
+split into 47 one-pair and two two-pair cases. The separate Pieri
+construction again agrees with the $\operatorname{Ad}(\mathrm{SU}(3)_4)$
+model. As already documented, this replay shares the fraction-free
+linear-completion routine and basis parametrization.
+
+The mathematical review rechecked the following dependencies in
+addition to the newly repaired paragraph:
+\begin{itemize}
+\item sphericalization and formal-codegree normalizations, common
+dimension fields, simultaneous columns, and the choice of embedding;
+\item both Hecke projections, the ordinary Fourier proposition, and
+the quadratic, quartic, and quintic finite reductions;
+\item the invertible-action cases, the $S_3$ untwisting, Morita
+dimensions and induction pairings, conductor-eight saturation, and
+the endpoint equivariantization;
+\item the small-generator graph argument, quintic maximal-order
+argument, local-order socle arguments, and generalized-indicator limit;
+\item the quadratic profile eliminations, cubic and quartic dyadic
+depth arguments, twist moments, and exact search boundaries.
+\end{itemize}
+The primary texts for the delicate induction, congruence, slope,
+dimension-grading, near-group, and model-existence inputs were checked
+where needed. No further confirmed error was found. Standard background
+results are still cited; this review does not claim to have reproved
+every external theorem. The recent dimension-block preprint is not
+needed as an unverified theorem input because the manuscript contains
+its own Fourier proof.
+
+\section{Remaining package changes and traceability}
+
+Besides R2-M01--R2-M04 and R2-C01, the complete delivery changes are:
+\begin{enumerate}
+\item The manuscript PDF was rebuilt from the corrected source. The
+title, empty author fields, theorem numbering, seventeen-ring list,
+and principal constants were retained.
+\item This letter is new, in
+\path{Revision_Letter_Round2.tex} and
+\path{Revision_Letter_Round2.pdf}. Both earlier report pairs are
+preserved unchanged.
+\item The root \path{README.md} identifies the current letter,
+distinguishes the previous reports and patches, and documents both
+optional audit commands. The census README describes the added
+program, its scope, and its file role.
+\item The complete ordinary rerun is recorded in
+\path{verification.txt}; its deterministic output agrees with the
+previous transcript. The new
+\path{additional_verification_round2.txt} records the actual output
+of both optional reruns with their command labels. The previous
+\path{independent_verification.txt} is preserved.
+\item The new \path{revision_round2.patch} gives the exact changes
+to existing text files relative to the preceding delivered package,
+apart from the regenerated checksum manifest. Newly added files are
+listed in this letter. The earlier \path{revision.patch} is preserved.
+\item \path{SHA256SUMS.txt} was regenerated for the final package.
+The archive and every distributed checksum were checked. Temporary
+build files, compiled helpers, and Python caches are excluded.
+\end{enumerate}
+
+The two optional commands do not change the mathematical filters or
+stored witnesses. Requirements remain Python with SymPy and NumPy,
+and a C++17 compiler with OpenMP. The source uses standard LaTeX
+packages. The final manuscript and letter were rendered and visually
+checked before delivery.
+
+For an exact baseline, the SHA-256 of the preceding delivered ZIP is
+\begin{center}\scriptsize\ttfamily
+4a6a53f4a8d4208391dcaf8681c8bc5fde8eed17fb512a0753f073e0102c3a73
+\end{center}
+and that of its \path{rank5.tex} is
+\begin{center}\scriptsize\ttfamily
+485c2982cec7d4ec46ce96faab6393162866d2ede5fffac1e04bae965988d9fd
+\end{center}
+Every change described here is measured against that exact revision.
+
+\end{document}

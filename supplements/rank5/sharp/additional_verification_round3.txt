@@ -1,0 +1,23 @@
+Third-round optional verification — 24 November 2026
+
+All commands below were run from the package root and exited with status 0.
+
+$ python3 final_census/verify_independent_census.py
+S: symmetry orbits, 21 associativity equations, and 15 linear equations checked.
+N2: symmetry orbits, 12 associativity equations, and 11 linear equations checked.
+N4: symmetry orbits, 13 associativity equations, and 12 linear equations checked.
+selfdual: optimized and unpruned censuses agree on 220 rings.
+nonselfdual: optimized and unpruned censuses agree on 49 rings.
+The Ad(SU(3)_4) model agrees with its independent Pieri construction.
+[exit status: 0]
+
+$ python3 final_census/verify_additional_audits.py
+Certificate input: invalid subring indices rejected for Rep(D14).
+Quadratic cutoff: least mass 5/18; contradiction margin 509/16200.
+Sharp dimension cutoff: 269 rings checked by exact root isolation; 114 within bound; 3 at the exact endpoint.
+Relative traces: 864 exact moments, 19 joint vectors, conductor 12.
+Gram columns: 14 certificate rings and 11 residual matrices checked directly.
+Generator enclosures: conductor 15, cap 125, 934 interval candidates inside 935 packaged candidates; all upper endpoints certified.
+Generator enclosures: conductor 15, cap 155, 1160 interval candidates inside 1162 packaged candidates; all upper endpoints certified.
+Generator enclosures: conductor 20, cap 153, 858 interval candidates inside 860 packaged candidates; all upper endpoints certified.
+[exit status: 0]

@@ -1,0 +1,483 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,microtype}
+\usepackage[a4paper,margin=25mm]{geometry}
+\usepackage{amsmath,amssymb,booktabs,array,tabularx}
+\usepackage[dvipsnames]{xcolor}
+\usepackage[colorlinks=true,linkcolor=MidnightBlue,citecolor=MidnightBlue,urlcolor=MidnightBlue]{hyperref}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small Rank-five fusion categories}
+\fancyhead[R]{\small Review and revision}
+\fancyfoot[C]{\thepage}
+\setlength{\headheight}{14pt}
+\setlength{\emergencystretch}{2em}
+\setlength{\parskip}{3pt}
+\newcommand{\FPdim}{\operatorname{FPdim}}
+\newcommand{\Tr}{\operatorname{Tr}}
+\newcommand{\N}{\operatorname{N}}
+\newcommand{\issue}[1]{\subsection{#1}}
+\hypersetup{pdftitle={Rank-five classification: mathematical review and revision report},pdfauthor={}}
+\title{Rank-five classification\\[4pt]\large Mathematical review and revision report}
+\author{}
+\date{24 November 2026}
+\begin{document}
+\maketitle
+
+\section{Outcome and scope}
+
+The attached manuscript has been revised throughout, including its proof
+organization, statements, references, computational explanation and source
+package. The main conclusions are retained:
+\[
+\begin{gathered}
+\text{every complex rank-five fusion category has a pseudo-unitary Galois
+conjugate}\\
+\text{and admits a spherical structure},\\
+\mu\le4,\qquad \FPdim(\mathcal C)\le48+24\sqrt3,\\
+\text{exactly seventeen based rings, each with a unitary realization}.
+\end{gathered}
+\]
+The central simplification is to prove Galois pseudo-unitarity directly in
+Theorem~A. This was already a conclusion of the original paper; the revision
+obtains it from the descent argument itself. The separate pseudo-unitarity
+proof and the subsequent signed branches of the final verifier become
+unnecessary.
+
+The review found genuine statement and verifier defects, as well as several
+places where a necessary hypothesis or implication was left implicit.
+These have been repaired. No unrepaired counterexample to the main
+conclusions, or fatal gap in their revised dependency chain, was found.
+This assessment combines mathematical reading, source checks and exact
+computational replay. It is not a formal proof-assistant verification.
+
+The review covered the complete included manuscript, the structural
+programs, the bounded ring generator, the certificate logic and the
+realization data. The difficult descent, invertible-object and perfect-category
+arguments received separate checks. The discussion below distinguishes
+corrections to the original work from qualifications needed by newly
+consolidated statements.
+
+\section{The proof after simplification}
+
+\issue{First obtain a positive spherical conjugate}
+
+Let \(R=K_0(\mathcal C)\), and let \(T\) be the signed quotient of its
+sphericalization. Write \(D=\FPdim(\mathcal C)\) and let \(E\) be the
+intrinsic global dimension. The ordinary and signed dimension characters
+have codegrees \(D\) and \(E\). Positivity gives
+\[
+ \sigma(E)\le D
+\]
+at every relevant embedding. Equality forces the positive lift dimensions
+to equal the Frobenius--Perron dimensions. It then forces equality of the
+signed and ordinary structure constants in that choice of lifts.
+The conjugate category is pseudo-unitary, and its spherical structure
+transports back to the original category.
+
+The revised Lemma~3.1 states the repeated central identity once. For the
+constituent \(B_\sigma\) indexed by a conjugate of the signed dimension
+character,
+\[
+ \chi(F(B_\sigma))=\frac{f_\chi}{\sigma(f_\chi)},\qquad
+ \dim F(B_\sigma)=\frac{E}{\sigma(E)},\qquad
+ \FPdim F(B_\sigma)=\frac{D}{\sigma(D)}.
+\]
+It follows that
+\[
+ \frac ED\le \sigma\!\left(\frac ED\right).
+\]
+When the complementary signed codegrees are rational, the corresponding
+class is an integral unit. These facts are the common input to the
+degree-by-degree arithmetic.
+
+The stronger conclusion is checked at every exit. Nontrivial grading gives
+weak integrality and hence pseudo-unitarity. The quadratic and cubic
+rational-complement argument gives equality at a suitable embedding.
+The exceptional quadratic calculation excludes the alternative.
+The quartic stabilizer argument actually gives equality of all positive
+dimensions, and the remaining quartic sieves exclude unequal ratios.
+The quintic calculation makes the two reciprocal dimensions Galois
+conjugate. Thus no separate proof of Galois pseudo-unitarity is needed.
+
+\issue{Then bound the fusion rules}
+
+After Theorem~A, the entire classification part works in a positive
+spherical Galois conjugate. This convention is stated once. It preserves
+the based ring and all Frobenius--Perron dimensions.
+
+\begin{center}
+\begin{tabularx}{\textwidth}{@{}p{.24\textwidth}X@{}}
+\toprule
+Family & Role in the revised proof\\
+\midrule
+Weakly integral & The published integral classification gives the integral
+case; the dimensional grading handles the nonintegral weakly integral case.\\
+Four invertibles & The near-group multiplicity theorems give the five
+possibilities directly.\\
+Three invertibles, or a fixed involution & The structural arguments force
+integrality.\\
+An exchanged pair & Norm estimates and one shared Morita construction bound
+the remaining quadratic family.\\
+Perfect categories & A small tensor generator or the degree of
+\(\mathbb Q(D)\) controls the possibilities. The quadratic and quartic
+branches are excluded; cubic and quintic branches enter the final bound.\\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+The cubic case admits a particularly short ending. Theorem~15.12 already
+proves \(35<D<36\). In this branch all four nonunit dimensions exceed two.
+For every nonunit \(X_i\),
+\[
+ d_i^2=D-1-\sum_{\substack{j\ne i\\j\ne0}}d_j^2<D-13<23.
+\]
+Hence \(d_i<5\), and the general inequality
+\(N_{ij}^{k}\le\min(d_i,d_j,d_k)\) gives the integer bound \(\mu\le4\).
+The final census then identifies the cubic ring. The separate reconstruction
+of its full character table is unnecessary for this dependency chain.
+
+\issue{Finally classify inside the proved bounds}
+
+The generator constructs all 269 commutative rank-five based rings with
+\(\mu\le4\), covering all three duality types. The exact dimension test
+retains 114. The stronger Theorem~A allows every exclusion to use necessary
+conditions for a pseudo-unitary realization. There are 97 exclusions and
+seventeen explicit basis identifications with models.
+
+This last step does not establish unitarity merely by matching two arrays.
+The tensor comparison establishes a based-ring isomorphism; the cited
+categorical constructions establish existence and unitarity. The revised
+paper makes that distinction explicit. It also spells out the Izumi
+involution producing the dimension endpoint, rather than leaving its
+realization to an opaque model name.
+
+\section{Corrections and qualifications}
+
+\issue{The 4,5,5 exclusion is categorical}
+
+The original final statement of the quadratic \(4,5,5\) argument excluded
+a perfect self-dual \emph{ring}. That statement was too strong. The
+preceding discussion itself exhibited a based ring at \(J=206\), of
+multiplicity \(234\). The contradiction uses central induction,
+Frobenius--Schur indicators and categorical Cauchy, so it excludes a
+\emph{fusion categorification}, not the abstract based ring.
+
+Proposition~14.7 now states the categorical hypothesis. The analogous
+mixed-profile and quartic exclusions have been corrected in the same
+way, and the hypothesis that all nonunit dimensions exceed two is
+explicit where it is used. The \(J=206\) illustration was removed from
+the proof narrative because it is not needed to establish the classification.
+Its existence is the reason this correction is substantive rather than
+terminological.
+
+\issue{The rank-three theorem requires a visible self-duality reduction}
+
+In the proper-subcategory argument, the invocation of Ostrik's quadratic
+rank-three theorem needed its self-duality hypothesis stated.
+Proposition~2.2 now first disposes of the non-self-dual rank-three case,
+which is pointed by Ostrik's Proposition~3.1. The remaining case is
+self-dual, so Theorem~5.1 applies with the correct hypotheses
+\cite{Ostrik3}. The proof now cites the original rank-two and rank-three
+sources directly.
+
+\issue{The modular normalization must be precise}
+
+The original rational-row argument used the phrase \emph{anomaly one}.
+The new common support lemma specifies the needed normalization:
+\[
+ p^+=\sum_Y\theta_Y\dim(Y)^2=\sqrt{\dim(\mathcal D)}.
+\]
+Equivalently, the multiplicative central charge is one, and the positively
+normalized \(S\) and ordinary twist matrix satisfy
+\[
+ STS=T^{-1}ST^{-1}.
+\]
+The weaker convention \(p^+/p^-=1\) does not determine this sign.
+For example, the three-fermion pointed modular category has
+\(p^+=p^-=-2\), so its multiplicative central charge is \(-1\).
+This example illustrates the normalization issue; it is not a
+counterexample to any rank-five classification conclusion.
+
+All applications in the manuscript are Drinfeld centers, where the
+stronger normalization holds. Lemma~13.4 also explicitly assumes real
+rows and an integral rational block idempotent; the support conclusion
+requires injectivity on twist-one columns. The observation \(J=J^*\)
+for a real row identifies the needed \(S\) and \(S^{-1}\) columns.
+These qualifications make the consolidated statement match its proof.
+
+\issue{The inert-prime argument now precedes its uses}
+
+The quadratic profile reduction formerly referred forward to an induction
+congruence appearing in the final \(\mathbb Q(\sqrt5)\) discussion, which
+in turn used the profile reduction. The congruence was independently
+valid, but the organization obscured that independence.
+
+It is now Lemma~14.1. Its hypotheses are a quadratic dimension field in
+which three is inert and rational complementary codegrees \(3,t,g\)
+with \(3\nmid g\). The local partner argument isolates the two rational
+branches. An integral induction functional gives
+\[
+ a+b\equiv0\pmod3,\qquad 2+a+b+c\equiv0\pmod3,\qquad c\equiv0\pmod3,
+\]
+a contradiction. The later reductions cite this lemma directly.
+
+\issue{Arithmetic filters and the cyclic cutoff}
+
+In the cyclic quartic parametrization, the two displayed parity conditions
+are necessary conditions for integrality; they are not a complete
+integrality criterion in every case, notably at \(z=2\). The manuscript
+now says so. The enumeration was already overinclusive, which is safe
+for an exclusion: the clarification does not remove any candidate.
+
+The cyclic quartic checker contained an initial numerical cap \(251\).
+The derived bounds already put every relevant trace below \(95\), so
+the cap was harmless, but it concealed the reason the search was finite.
+It has been replaced by the proved bound
+\[
+ U=1+\frac{s}{\min(b_0,b_1)},
+\]
+with an assertion that both denominator bounds are positive.
+The checker now asserts the full output counts \(32,10,0\).
+
+\issue{A real defect in the induction certificate verifier}
+
+The original induction verifier compared a computed obstruction with the
+stored obstruction. It could accept a branch when both values were null.
+Equality of two null values is not an exclusion certificate.
+
+The revised verifier requires a non-null computed obstruction before
+comparing records. A fabricated null-obstruction certificate for the
+realized \(\mathrm{Vec}(C_5)\) tensor is rejected, while all ten genuine
+induction exclusion certificates still pass. Every distributed exclusion
+already had an actual obstruction, so this repair does not change the
+classification. Unknown certificate kinds are now rejected explicitly.
+
+\issue{Reference and exposition corrections}
+
+The commutativity citation has been updated from ABDP Proposition~8.2 to
+Proposition~9.2 in the current version. The bibliography now records its
+journal publication \cite{ABDP}. The near-group replacement cites
+Meng--Yu precisely, and the endpoint construction cites Izumi's
+Lemma~13.1 and Example~13.10 \cite{MengYu,Izumi}.
+
+Several qualifications were also checked while writing the new
+certificate explanation. The residual first moment \(-a_i\) is asserted
+only for nonunit simples. The Ramanujan interval for a relative average
+of \(\nu_j\) is asserted only when
+\(K\cap\mathbb Q(\zeta_j)=\mathbb Q\). These are properties already
+respected by the code. They are now visible in the prose.
+
+\section{Substantial simplifications}
+
+\begin{center}
+\begin{tabularx}{\textwidth}{@{}p{.27\textwidth}X@{}}
+\toprule
+Change & Mathematical benefit\\
+\midrule
+One descent theorem & Galois pseudo-unitarity follows directly; the separate
+proof and its unique checker are removed.\\
+One central-column lemma & Dimension ratios, the minimal embedding and the
+integral-unit conclusion are established once and reused.\\
+One support lemma & A prime-local block argument handles rational rows and
+the paired real rows used in several later exclusions.\\
+One Morita construction & Lemma~11.5 supplies the eight-object dual category
+and induction pairings for both the codegree-eleven and codegree-five arguments.\\
+Existing integral theorem & Proposition~9.2 reads off \(D\le60,\ \mu\le3\)
+from the nine known integral rings instead of reproducing their enumeration.\\
+Existing near-group theorem & Corollary~10.1 uses the \(C_4\) and \(C_2^2\)
+multiplicity classifications instead of the long \(C_4\) calculation.\\
+Cubic dimension estimate & The inequality \(d_i^2<23\) supplies
+\(\mu\le4\); the final census identifies the ring.\\
+One certificate mode & All exclusions use the positive spherical conjugate.
+The signed-table and alternate spherical branches are removed.\\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+The integral simplification introduces an explicit dependence on the
+published ABDP classification. The \(C_4\) simplification uses the
+Meng--Yu preprint of November 2026, whose theorem applies to arbitrary
+complex fusion categories, not merely to unitary realizations.
+These dependencies are stated in the revised introduction. The original
+claim that the bounds avoid the integral rank-five classification has
+therefore been removed.
+
+The common support lemma is a consolidation of the repeated indicator
+arguments, with a complete proof and precise hypotheses. Its
+Ng--Schauenburg inputs are identified at the level of the rotation,
+grouping, cyclotomicity and modular indicator formulas \cite{NS}.
+The long quadratic discussion is now a sequence of stated reductions,
+with named intermediate conclusions and short proof-stage headings.
+
+The presentation now follows the actual dependency order: descent;
+weak integrality and invertibles; shared character tools; perfect
+categories by quadratic, cubic and quartic field degree; sharp bounds;
+finite classification. The quintic perfect case follows immediately
+from the earlier quintic descent analysis. The source has been flattened
+into one self-contained \texttt{rank5.tex}, including its bibliography;
+obsolete fragments and alternative verifier paths are omitted.
+
+\section{Verification and reproducibility}
+
+\issue{The finite census is unchanged}
+
+\begin{center}
+\begin{tabular}{@{}rrrrr@{}}
+\toprule
+\(\mu\) & Generated & Within dimension bound & Excluded & Realized\\
+\midrule
+1 & 16 & 16 & 6 & 10\\
+2 & 37 & 30 & 27 & 3\\
+3 & 82 & 46 & 44 & 2\\
+4 & 134 & 22 & 20 & 2\\
+\midrule
+Total & 269 & 114 & 97 & 17\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{samepage}
+The positive-only certificate classification is:
+\begin{center}
+\begin{tabular}{@{}lr@{}}
+\toprule
+Exact exclusion criterion & Count\\
+\midrule
+Formal-codegree \(d\)-number condition & 76\\
+Subcategory dimension divisibility & 2\\
+Frobenius--Perron norm obstruction & 3\\
+Frobenius--Perron dimension-field obstruction & 2\\
+Unit-induction Gram and second-moment conditions & 10\\
+Finite higher-indicator trace constraints & 4\\
+\midrule
+Total excluded & 97\\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{samepage}
+
+These are exclusive certificate categories in the distributed data, not
+claims that each rejected ring fails only one necessary condition.
+The old two-stage grouping of the last nineteen exclusions has been
+replaced by their direct positive-spherical reasons.
+
+\issue{What was checked}
+
+The original complete verification succeeded. The revised package runs
+eighteen structural programs and then regenerates the bounded census,
+checks every retained witness and compares every realized tensor under
+all permutations of the four nonunit basis elements.
+
+The four dedicated descent calculations reproduce:
+\begin{center}
+\begin{tabularx}{\textwidth}{@{}p{.18\textwidth}X@{}}
+\toprule
+Calculation & Output\\
+\midrule
+Quintic & 34 ratios, 15,396 trace vectors, 39 signed passes and four joint
+passes; each joint pair is Galois conjugate.\\
+Quadratic & 331 initial candidates, 50 elementary profiles, 13 Fourier
+profiles, 22 dimension tuples and one final tuple; the written unit
+argument excludes that tuple.\\
+Biquadratic & 2,097 fields, 52 after the field bounds, 30 ratios and no
+compatible integral-trace/Fourier data.\\
+Cyclic quartic & 105 fields, 221 polynomial profiles, 32 ratio profiles,
+ten norm candidates and no compatible Fourier data.\\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+Additional independent checks compared all nine nonempty low-column
+enumerations with direct Python enumeration and principal-minor tests,
+and all nine residual-column enumerations with the reference Gram
+backend. The finite twist-order argument was checked to cover arbitrary
+orders, including the joint zero-average case beyond the finite divisor
+box and the coherent signs in quadratic relative traces.
+
+The stored \(\operatorname{Ad}(\mathrm{SU}(3)_4)\) tensor was independently
+reconstructed from the fifteen alcove weights and fundamental Pieri
+multiplication. A compact description of that construction is included
+in the model registry. The Izumi dimension-endpoint tensor was checked
+against the actual order-two tensor symmetry: inversion on \(C_3\) and
+a reflection on the multiplicity space. Its two eigenspaces have
+dimension three, giving
+\[
+ X^2=Y^2=1+Z+3X+3Y,\qquad XY=g+Z+3X+3Y,
+\]
+and \(D=48+24\sqrt3\).
+
+The final manuscript is compiled with stable theorem references and
+citations. Its PDF has been rendered for visual inspection. No
+unresolved references, duplicate labels or overflowing text boxes remain.
+
+\issue{How to reproduce the result}
+
+The complete source archive contains the manuscript and review PDFs,
+their LaTeX sources, the structural programs, the C++ generators, the
+114 witness records, the model tensors and the verification transcript.
+With Python 3.12, SymPy, NumPy and a C++17 compiler with OpenMP, run
+\begin{verbatim}
+python3 verify.py
+\end{verbatim}
+from the extracted archive directory. Assertions must remain enabled.
+The two stages can also be run separately with
+\texttt{--bounds-only} and \texttt{--classification-only}.
+The checks require no network access or floating-point feasibility solver.
+The README gives the three-pass \texttt{pdflatex} build instructions.
+
+\section{Interpretation of the review}
+
+The reductions do not assume the final seventeen-ring list in order to
+derive the sharp bounds. They do use the explicitly cited integral and
+near-group classifications. The remaining categorical and arithmetic
+lemmas are proved before the finite census is used.
+
+Successful programs validate the stated finite enumerations and exact
+certificates. Their mathematical force still depends on the categorical
+lemmas and the proofs that the search ranges are exhaustive. Those
+arguments were reviewed as part of this revision; no claim of a
+machine-checked proof of all of fusion-category theory is intended.
+
+The principal remaining burden for a journal referee is concentrated
+in the signed central-induction/Fourier argument, the prime-local
+indicator limit, the odd-multiplicity Morita construction and the
+quartic moment bounds. The revision gives these arguments a single
+location, explicit hypotheses and a clear role in the proof. The main
+classification and both sharp endpoints are retained.
+
+\begin{thebibliography}{9}
+\raggedright
+\bibitem{ABDP}
+M.~A.~Alekseyev, W.~Bruns, J.~Dong and S.~Palcoux,
+\emph{Classifying integral Grothendieck rings up to rank 5 and beyond},
+Lett. Math. Phys. \textbf{116} (2026), article~141.
+\href{https://doi.org/10.1007/s11005-026-02164-7}{doi:10.1007/s11005-026-02164-7};
+\href{https://arxiv.org/abs/2507.07023v2}{arXiv:2507.07023v2}.
+
+\bibitem{Ostrik3}
+V.~Ostrik, \emph{Pivotal fusion categories of rank 3},
+Mosc. Math. J. \textbf{15} (2015), 373--396.
+\href{https://arxiv.org/abs/1309.4822}{arXiv:1309.4822}.
+
+\bibitem{MengYu}
+Y.~Meng and Z.~Yu, \emph{The multiplicity bound for near-group fusion
+categories of type \(\mathbb Z/4\mathbb Z+k\)},
+\href{https://arxiv.org/abs/2611.12191}{arXiv:2611.12191} (2026),
+Theorems~1.1 and~4.3.
+
+\bibitem{Izumi}
+M.~Izumi, \emph{A Cuntz algebra approach to the classification of
+near-group categories}, Proc. Centre Math. Appl. Austral. Nat. Univ.
+\textbf{46} (2017), 222--343.
+\href{https://arxiv.org/abs/1512.04288v2}{arXiv:1512.04288v2},
+Lemma~13.1 and Example~13.10.
+
+\bibitem{NS}
+S.-H.~Ng and P.~Schauenburg, \emph{Congruence subgroups and generalized
+Frobenius--Schur indicators}, Comm. Math. Phys. \textbf{300} (2010),
+1--46. \href{https://arxiv.org/abs/0806.2493}{arXiv:0806.2493},
+Lemmas~2.5 and~2.7, Propositions~2.8, 5.7 and~6.1.
+\end{thebibliography}
+\end{document}

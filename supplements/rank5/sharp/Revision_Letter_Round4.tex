@@ -1,0 +1,314 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,microtype}
+\usepackage[a4paper,margin=25mm]{geometry}
+\usepackage{amsmath,amssymb,booktabs,array}
+\usepackage[dvipsnames]{xcolor}
+\usepackage[colorlinks=true,linkcolor=MidnightBlue,urlcolor=MidnightBlue]{hyperref}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small Rank-five fusion categories}
+\fancyhead[R]{\small Fourth revision round}
+\fancyfoot[C]{\thepage}
+\setlength{\headheight}{14pt}
+\setlength{\emergencystretch}{2em}
+\setlength{\parskip}{3pt}
+\hypersetup{pdftitle={Rank-five classification: fourth revision round},pdfauthor={}}
+\title{Rank-five classification\\[4pt]\large Further audit and revision letter\\Fourth revision round}
+\author{}
+\date{24 November 2026}
+\begin{document}
+\maketitle
+
+\section{Outcome and baseline}
+
+This letter records the fourth review and every change relative to
+\path{Rank5_General_Sharp_Revised_Round3.zip}. All seventeen sections,
+the eighteen structural programs, the census and certificate code,
+and the preceding repairs were reviewed afresh.
+
+\textbf{No additional substantive mathematical or computational defect
+was confirmed.} One duplicated phrase in a program description was
+corrected. The citation for the two unitary multiplicity-four examples
+was made precise. Three optional audit programs were added to preserve
+new checks on positive models, an explicit Drinfeld center, and native
+linear completion. Documentation, transcripts, the current letter,
+the exact patch, the manuscript PDF, and the checksum manifest were
+updated as specified below.
+
+The mathematical statements, proof arguments, classification thresholds,
+existing verification algorithms, separating forms, witness records,
+and model tensors retain their third-revision values. In particular,
+the bounds remain
+\[
+ \mu\le4,\qquad \operatorname{FPdim}(\mathcal C)\le48+24\sqrt3,
+\]
+and the census still has seventeen realized based rings. The absence
+of another confirmed defect in this pass is an audit conclusion, not
+a claim of formal certification or of immunity from further errors.
+
+\section{The two existing-source edits}
+
+\paragraph{R4-C01: duplicated wording in a program description.}
+The opening module description of \path{checks/cyclic_dimension.py}
+contained ``cyclic four cyclic fields''. It now reads:
+\begin{quote}
+Bounded global-dimension search for the four cyclic quartic fields
+at rational codegree four.
+\end{quote}
+This is a description-only correction. No executable statement,
+search range, arithmetic test, or output line in that program changed.
+
+\paragraph{R4-R01: precise attribution of the multiplicity endpoint.}
+In the proof of Theorem~17.1, the unitary realizations of $C_4+4$ and
+$C_2^2+4$ now cite Izumi, Examples~9.5--9.6, directly, replacing the
+three-reference citation to Schopieray, Meng--Yu, and Izumi at that
+sentence. The cited examples in
+\href{https://arxiv.org/pdf/1512.04288v2}{arXiv:1512.04288v2}
+explicitly provide the relevant $C^*$ near-group constructions.
+Example~12.12 also confirms the cyclic-order-four construction.
+This is an attribution clarification; the previous existence and
+unitarity claims were correct. The other uses and bibliography
+entries of Schopieray and Meng--Yu remain in place.
+
+\section{New reproducible audit programs}
+
+The following programs are new files under \path{audits_round4/}.
+They are optional and are not called by the ordinary verifier.
+They locate the package relative to their own file paths, require
+assertions-enabled Python, and leave the mathematical data unchanged.
+Their successful outputs are in
+\path{additional_verification_round4.txt}.
+
+\subsection{Positive models and their subrings}
+
+\path{audits_round4/positive_models.py} checks all seventeen model
+tensors against the formal-codegree $d$-number, central-dimension
+norm and field, global-moment, and induction criteria. None produces
+a false exclusion. The program also enumerates every proper
+nontrivial duality-closed fusion subring of each model and checks
+that its dimension quotient is an algebraic integer.
+
+There are \textbf{27 such subring occurrences across the seventeen
+models}, and all pass. This is not a count of distinct isomorphism
+types of subrings. An explicit final coverage check requires both
+the seventeen-model and twenty-seven-subring totals.
+
+These are checks on known positive inputs. They use the existing
+model registry and criterion implementations; they do not construct
+associators or independently prove the unitary realization theorems.
+
+\subsection{An explicit feasible higher-indicator system}
+
+\path{audits_round4/dihedral_center.py} uses the explicit center of
+$\operatorname{Rep}(D_{14})$, with $D_{14}$ of order fourteen, as a
+feasible input to the higher-trace machinery. The conjugacy classes
+are the identity, the reflections, and three pairs of rotations;
+the associated centralizer representations supply the central simples.
+
+The five unit-induction columns and all twenty-three remaining central
+simples survive the column filters. The explicitly supplied
+multiplicities satisfy every Gram and moment equality and all
+\textbf{32 higher-indicator inequalities through order six}, exactly.
+Thus this check tests both the column restrictions and the orientation
+of the higher-indicator inequalities on a concrete categorified example.
+
+The center data are supplied explicitly, while the filtered system is
+built by the existing higher-trace implementation. This is one exact
+feasible example, not an independent implementation of all four
+negative higher-indicator certificates.
+
+\subsection{Native arithmetic and linear completion}
+
+\path{audits_round4/linear_completion.py} first compiles both optimized
+generators with C++ undefined-behavior sanitization and runs the full
+multiplicity-four census. They produce \textbf{269 rings} with no
+sanitizer error. All compiled programs are created in temporary
+directories. This optional probe requires a \texttt{g++} installation
+with the undefined-behavior sanitizer in addition to the ordinary
+compiler requirements.
+
+It then compares the native augmented-matrix elimination with
+independent exact rational row reduction in SymPy on
+\textbf{659 input cases}: all 269 generated parameter records and
+390 fixed-seed boundary/random inputs. The three duality types
+contribute 350, 177, and 132 cases. In each case the original and
+native-reduced matrices have the same rational reduced row-echelon
+form. The random seed is fixed, and the total coverage is checked.
+
+The 659 cases need not be distinct augmented matrices. Outside the
+generated records, this is a sampled check, not exhaustive enumeration
+of every rejected parameter choice. It also shares the native matrix
+construction. Sanitization checks the executed multiplicity-four run;
+it is not a proof of overflow safety at arbitrary larger bounds.
+These limitations are stated in the documentation.
+
+\section{Mathematical review and preceding repairs}
+
+The fresh review reconstructed the arguments across the following
+parts of the manuscript.
+\begin{description}
+\item[Sections 1--8.]
+Sphericalization and the signed algebra; proper subcategories;
+ordinary and signed Galois columns and common fields; Fourier
+normalization; quadratic unit tests and boundary cases; quartic
+discriminants and both field parameterizations; and the quintic
+trace basis and finite range.
+\item[Sections 9--12.]
+Weak-integrality bounds; every invertible-action case; the $S_3$
+untwisting; Morita induction counts and overlap estimates; the
+two-center mass argument; conductor-eight saturation; the final
+exchanged-pair moments; the small-generator graph; and the quintic
+maximal-order and lattice identification.
+\item[Sections 13--16.]
+Projected-lattice determinants; local partners and the ramified-DVR
+extension; prime-local twist support; rational and conjugate row
+applications; quadratic profile ranges and both final exclusions;
+cubic dyadic depths and the polar bound; quartic ramification,
+dyadic exclusion, moment majorants, and final arithmetic ranges.
+\item[Section 17.]
+Assembly of the sharp bounds, the exact dimension-cutoff criterion,
+the categorical necessity of the certificate conditions, model
+identifications, and the actual unitary endpoint equivariantization.
+\end{description}
+
+The local-partner and twist-support lemmas received a separate
+attempted counterexample and missing-hypothesis review. In particular,
+the ramified-DVR extension does not require the rational prime to
+be a uniformizer; the fiber condition makes both socle vectors valid.
+The prime-local orbit calculation also works at two. The indicator
+grouping, field of values, period, and modular normalization were
+checked against Ng--Schauenburg, Lemmas~2.5 and 2.7 and
+Propositions~2.8, 5.7, and 6.1, in
+\href{https://arxiv.org/pdf/0806.2493v3}{arXiv:0806.2493v3}.
+
+The earlier repairs were specifically checked again. The quadratic
+cutoff still has least mass $5/18$ and exact contradiction margin
+$509/16200$. The final conductor-five argument uses real parts of
+third indicators and all $600$ assignments; the same six separating
+forms cover them. Its Galois averaging does not assume that the
+indicators themselves are real. The subring checker still rejects
+the malformed negative-index certificate, while both stored valid
+subring certificates pass.
+
+Further exact symbolic calculations checked the cubic fourth-moment
+identity and resulting coefficients, the mixed-profile constant,
+the quadratic kernel constants and final negative margin, the
+biquadratic norm/twist margin, and the endpoint minimal polynomial.
+The source also has no missing or duplicate labels, missing citation
+keys, or uncited bibliography entries.
+
+Primary-source checks confirmed the relevant ENO, Ostrik,
+Gannon--Schopieray, Dong--Lin--Ng, Brugui\`eres--Virelizier,
+Etingof--Gelaki--Ostrik, Schopieray, Ng--Schopieray--Wang,
+Izumi, Meng--Yu, Alekseyev--Bruns--Dong--Palcoux, and
+Liu--Palcoux--Ren inputs. These checks establish the cited statements
+and their hypotheses where examined; they do not reprove all those
+external results. The frozen \texttt{Rank5Bounded} repository URL
+and the dimension-block preprint's full PDF were not retrieved in
+this round. No citation error is inferred from those access limits;
+the current package's computations and the dimension-block argument
+were reviewed directly.
+
+\section{Verification results}
+
+The three established commands passed with exit status zero and
+empty standard error:
+\begin{verbatim}
+python3 verify.py
+python3 final_census/verify_independent_census.py
+python3 final_census/verify_additional_audits.py
+\end{verbatim}
+Their actual standard outputs are byte-identical to the corresponding
+third-round outputs. The ordinary transcript \path{verification.txt}
+therefore has no byte change. All eighteen structural checks pass,
+including the complete 600-tuple endpoint test.
+
+\begin{samepage}
+The census is unchanged:
+\begin{center}
+\begin{tabular}{rrrrr}
+\toprule
+$\mu$&Generated&Within both bounds&Excluded&Realized\\\midrule
+1&16&16&6&10\\
+2&37&30&27&3\\
+3&82&46&44&2\\
+4&134&22&20&2\\\midrule
+Total&269&114&97&17\\\bottomrule
+\end{tabular}
+\end{center}
+\end{samepage}
+The independent replay again gives 220 self-dual rings, 47 with one
+dual pair, and two with two dual pairs, and reproduces the Pieri model.
+The additional audit retains all prior counts: 269 exact cutoff
+comparisons, 114 bounded rings, three generated endpoint rings,
+864 trace moments, 19 joint vectors, 14 certificate-ring checks,
+11 residual Gram comparisons, and all three generator enclosures.
+
+All three new portable audit programs also passed with exit status
+zero and empty standard error. Each rejects \texttt{python3 -O}
+before running, so disabled assertions cannot create an apparent
+successful audit. Their commands and actual outputs, together with
+the two established optional outputs and the assertion-mode rejection
+checks, are preserved in \path{additional_verification_round4.txt}.
+
+\section{Complete file and delivery ledger}
+
+\begin{enumerate}
+\item \textbf{Existing mathematical source.}
+The only edit to \path{rank5.tex} is the precise endpoint citation
+R4-R01 above. No theorem, formula, proof step, author field, or
+theorem numbering changed.
+\item \textbf{Existing program source.}
+The only edit to an existing program is the module description
+R4-C01 in \path{checks/cyclic_dimension.py}. Existing executable
+statements are unchanged.
+\item \textbf{New optional programs.}
+The three files \path{audits_round4/positive_models.py},
+\path{audits_round4/dihedral_center.py}, and
+\path{audits_round4/linear_completion.py} implement the checks in
+Section~3, with relative paths, assertion-mode guards, coverage
+checks, and temporary native binaries.
+\item \textbf{Documentation.}
+The root \path{README.md} identifies the current letter, patch, and
+transcript; preserves the historical references; and describes all
+three new commands, requirements, results, and limits.
+\path{final_census/README.md} updates the current transcript reference
+and gives the corresponding commands from that directory, with the
+same coverage and dependency qualifications.
+\item \textbf{Current and historical transcripts.}
+\path{additional_verification_round4.txt} is new.
+\path{verification.txt} was reproduced exactly. All earlier
+verification transcripts remain unchanged.
+\item \textbf{New report and exact patch.}
+This letter is supplied as \path{Revision_Letter_Round4.tex} and
+\path{Revision_Letter_Round4.pdf}.
+\path{revision_round4.patch} records every change to an existing text
+file except the regenerated checksum manifest. The seven new files
+are the three optional programs, the new transcript, this source/PDF
+pair, and the patch itself. The four preceding report pairs and all
+three preceding patches are preserved unchanged.
+\item \textbf{PDF and final package.}
+\path{rank5.pdf} was rebuilt and remains seventy pages. Every page
+was rendered and compared with the third delivery: only page~67
+differs, and that page was visually checked. The other sixty-nine
+page images are identical to the previously inspected version.
+The new letter was rendered and inspected separately. Final LaTeX
+logs contain no errors or layout/reference warnings.
+\path{SHA256SUMS.txt} was regenerated, and every distributed checksum
+and archive entry was checked. Build byproducts, native binaries,
+and Python caches are excluded.
+\end{enumerate}
+
+For exact traceability, the third delivered ZIP has SHA-256
+\begin{center}\scriptsize\ttfamily
+519c4b51245cd860668742028b571d1439826debbbcff10389dad07cd85679e1
+\end{center}
+and its \path{rank5.tex} has SHA-256
+\begin{center}\scriptsize\ttfamily
+9406d9cad4f4caf6631b3d106ebe32fcdcee3c0664ad9c00d1be94b7019a9bab
+\end{center}
+All reported changes are measured against that exact baseline.
+
+\end{document}

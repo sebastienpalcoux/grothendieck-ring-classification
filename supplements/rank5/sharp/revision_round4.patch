@@ -1,0 +1,94 @@
+--- a/README.md
++++ b/README.md
+@@ -8,7 +8,8 @@
+ 
+ - `rank5.tex`: the complete manuscript source, including the bibliography, in one file.
+ - `rank5.pdf`: the current revised manuscript (70 pages).
+-- `Revision_Letter_Round3.pdf` and `Revision_Letter_Round3.tex`: the current detailed audit and revision letter, recording every change relative to the second revised package.
++- `Revision_Letter_Round4.pdf` and `Revision_Letter_Round4.tex`: the current detailed audit and revision letter, recording every change relative to the third revised package.
++- `Revision_Letter_Round3.pdf` and `Revision_Letter_Round3.tex`: the third revision letter, preserved unchanged as a historical record.
+ - `Revision_Letter_Round2.pdf` and `Revision_Letter_Round2.tex`: the second revision letter, preserved unchanged as a historical record.
+ - `Revision_Letter.pdf` and `Revision_Letter.tex`: the preceding seven-page revision letter, preserved unchanged.
+ - `Review_Report.pdf` and `Review_Report.tex`: the previous seven-page review, preserved unchanged as a historical document.
+@@ -18,9 +19,12 @@
+ - `final_census/verify_independent_census.py`: the optional additional census and Pieri-model audit.
+ - `final_census/verify_additional_audits.py`: optional checks of certificate input, the quadratic and sharp-dimension cutoffs, direct cyclotomic averages, Gram columns, and generator-range coverage.
+ - `independent_verification.txt`: the preceding audit and assertion-mode rejection results, preserved unchanged.
+-- `additional_verification_round3.txt`: actual output of both optional audits in the current round.
++- `audits_round4/`: three additional optional probes of positive models, an explicit dihedral center, and native linear completion.
++- `additional_verification_round4.txt`: actual output of both established optional audits and the three new probes in the current round.
++- `additional_verification_round3.txt`: the preceding optional-audit transcript, preserved unchanged.
+ - `additional_verification_round2.txt`: the preceding optional-audit transcript, preserved unchanged.
+-- `revision_round3.patch`: exact edits to existing text files relative to the second revised package; new files are listed in the current letter.
++- `revision_round4.patch`: exact edits to existing text files relative to the third revised package; new files are listed in the current letter.
++- `revision_round3.patch`: the third revision's patch, preserved unchanged.
+ - `revision_round2.patch`: the second revision's patch, preserved unchanged.
+ - `revision.patch`: the preceding revision's patch, preserved unchanged.
+ - `SHA256SUMS.txt`: checksums of the final distributed files.
+@@ -66,9 +70,25 @@
+ 
+ This rejects the malformed subring certificate that previously falsely excluded the realized `Rep(D14)` ring, verifies the corrected lower bound `5/18` in the final subcase of Proposition 6.3, and independently checks the sharp-dimension cutoff by exact root isolation on all 269 generated rings, including the three at equality. It also computes 864 relative-trace moments directly in cyclotomic quotient rings, checks all 14 induction/indicator certificate rings and 11 residual Gram matrices by direct enumeration, and derives complete rational interval ranges for the three quartic generator searches. Every reported Perron upper endpoint is certified. The trace vectors, column lists, and range coverage agree with the existing programs.
+ 
+-These targeted checks share the ring generators, defining field data, certified root intervals, and construction of individual restriction columns. They check the dimension comparison, joins, and range construction separately; they do not prove the categorical hypotheses. Both optional commands leave the stored witnesses and model tensors unchanged. Their current output is in `additional_verification_round3.txt`.
++These targeted checks share the ring generators, defining field data, certified root intervals, and construction of individual restriction columns. They check the dimension comparison, joins, and range construction separately; they do not prove the categorical hypotheses. Both optional commands leave the stored witnesses and model tensors unchanged. Their current output is in `additional_verification_round4.txt`.
+ 
+ The structural check `checks/verify_exchange.py`, included in the ordinary run, now uses all 600 second/third-indicator tuples in the final conductor-five case. Its third-indicator coordinates are real parts of cubic rotation traces and include half-integers. The same six separating forms exclude every tuple; no reality assumption on the indicators is used.
++
++## Fourth-review audit probes
++
++Three additional programs preserve the new checks made during the fourth review:
++
++```bash
++python3 audits_round4/positive_models.py
++python3 audits_round4/dihedral_center.py
++python3 audits_round4/linear_completion.py
++```
++
++The first checks the d-number, central-dimension norm and field, global-moment, and induction criteria on all seventeen positive model tensors. It also checks subcategory dimension divisibility on their twenty-seven proper nontrivial fusion subrings. The second constructs an explicit feasible system from the center of `Rep(D14)`, with five unit-induction and twenty-three further simple objects, and checks the Gram and moment equalities and thirty-two higher-indicator inequalities through order six.
++
++The third runs both optimized generators at multiplicity four with C++ undefined-behavior sanitization, then compares native augmented-matrix elimination with independent exact rational row reduction on 659 inputs: all 269 generated parameter records and 390 fixed-seed boundary/random inputs. This comparison checks the sampled elimination steps; it does not independently enumerate every rejected parameter choice or prove the native algorithm formally. It shares the generator's matrix construction. The positive-model and dihedral checks share the package's model tensors or criterion implementation, so they test consistency and concrete feasible cases rather than replacing the categorical proofs.
++
++All three programs require Python assertions to be enabled and locate package files relative to their own paths. The native probe additionally requires a `g++` installation with the undefined-behavior sanitizer. Its compiled programs are temporary. These probes are optional and are not called by the ordinary verifier. Their outputs are included in `additional_verification_round4.txt`.
+ 
+ ## Rebuilding the manuscript
+ 
+@@ -80,4 +100,4 @@
+ pdflatex rank5.tex
+ ```
+ 
+-These commands produce `rank5.pdf` and stabilize the table of contents, theorem references, and citations. No separate bibliography file or BibTeX run is needed. Build `Revision_Letter_Round3.tex` in the same way to reproduce the current letter. The earlier report sources remain available under their original names.
++These commands produce `rank5.pdf` and stabilize the table of contents, theorem references, and citations. No separate bibliography file or BibTeX run is needed. Build `Revision_Letter_Round4.tex` in the same way to reproduce the current letter. The earlier report sources remain available under their original names.
+--- a/checks/cyclic_dimension.py
++++ b/checks/cyclic_dimension.py
+@@ -1,4 +1,4 @@
+-"""Bounded global-dimension search at rational codegree four; cyclic four cyclic fields with vacuum-moment dimension bounds."""
++"""Bounded global-dimension search for the four cyclic quartic fields at rational codegree four."""
+ 
+ if not __debug__:
+     raise RuntimeError("Run this verifier with Python assertions enabled")
+--- a/final_census/README.md
++++ b/final_census/README.md
+@@ -31,7 +31,11 @@
+ 
+ Run `python3 verify_additional_audits.py` for the targeted checks. It rejects the concrete malformed subring certificate that previously falsely excluded `Rep(D14)`, verifies the repaired quadratic cutoff by exact fractions, and compares the sharp-dimension decision with exact root isolation for all 269 generated rings, including the three at equality. It also computes the relevant 864 cyclotomic moments and 19 joint trace vectors directly, compares all 14 induction/indicator cases with direct low-column enumeration, compares all 11 residual Gram cases with direct high-column enumeration, and certifies complete interval coverage and upper endpoints for the three quartic generator ranges.
+ 
+-The latter audit shares the ring generators, field data, certified root intervals, and construction of individual restriction-column sets. Its dimension comparison uses exact root isolation instead of shifted-polynomial coefficients. Its interval ranges are derived by Lagrange interpolation and divided differences, independently of the original fixed cutoffs and padding. It does not independently establish the categorical assumptions. Both optional commands passed; their current output is recorded in `../additional_verification_round3.txt`.
++The latter audit shares the ring generators, field data, certified root intervals, and construction of individual restriction-column sets. Its dimension comparison uses exact root isolation instead of shifted-polynomial coefficients. Its interval ranges are derived by Lagrange interpolation and divided differences, independently of the original fixed cutoffs and padding. It does not independently establish the categorical assumptions. Both optional commands passed; their current output is recorded in `../additional_verification_round4.txt`.
++
++Three further optional probes are in `../audits_round4/`. Run `python3 ../audits_round4/positive_models.py` to check the relevant necessary conditions on all seventeen models and dimension divisibility on their twenty-seven proper nontrivial fusion subrings. Run `python3 ../audits_round4/dihedral_center.py` for an explicit feasible higher-trace system from `Z(Rep(D14))`, including all twenty-eight central simples and thirty-two indicator inequalities through order six. Run `python3 ../audits_round4/linear_completion.py` for the full multiplicity-four generator run with undefined-behavior sanitization and an exact rational row-reduction comparison on 659 inputs (269 generated records and 390 fixed-seed boundary/random inputs).
++
++The new probes share model/criterion code or the native matrix construction. The row-reduction comparison is sampled outside the generated records and is not a formal proof or an independent exhaustive census. Use assertions-enabled Python; the native probe also needs the `g++` undefined-behavior sanitizer. All native binaries are temporary. These programs do not run as part of the ordinary verifier; their actual outputs are in `../additional_verification_round4.txt`.
+ 
+ ## Exhaustive enumeration and the dimension test
+ 
+--- a/rank5.tex
++++ b/rank5.tex
+@@ -4533,7 +4533,7 @@
+ The final enumeration identifies the surviving cubic ring. In degree four the four dimension characters are real and the remaining character is rational, so all simples are self-dual. Corollary~\ref{cor:quartic-coupled} gives the possible field and rational codegree. Proposition~\ref{prop:quartic-sixteen} excludes codegree sixteen. At codegree four the moment bounds and arithmetic sieves in Propositions~\ref{prop:quartic-four-effective}, \ref{prop:quartic-biquadratic-sieve} and~\ref{prop:cyclic-bounded-dim} exclude all biquadratic fields and the cyclic conductors $16,20,35,40$. For the remaining cyclic pairs the least nonunit dimension bound and the generator calculation in Section~\ref{sec:quartic-exhaustion} give a contradiction.
+ 
+ For the multiplicity endpoint use the unitary near-group
+-realizations $C_4+4$ and $C_2^2+4$ \cite{SchNG,MengYu,Izumi}.
++realizations $C_4+4$ and $C_2^2+4$ \cite[Examples~9.5--9.6]{Izumi}.
+ For the dimension endpoint, the following construction also verifies
+ the tensor used in the model comparison. Take either of Izumi's unitary near-group
+ categories of type $C_3+6$. In the notation of

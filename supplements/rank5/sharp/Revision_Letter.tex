@@ -1,0 +1,448 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,microtype}
+\usepackage[a4paper,margin=25mm]{geometry}
+\usepackage{amsmath,amssymb,booktabs,array,tabularx,longtable}
+\usepackage[dvipsnames]{xcolor}
+\usepackage[colorlinks=true,linkcolor=MidnightBlue,urlcolor=MidnightBlue]{hyperref}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small Rank-five fusion categories}
+\fancyhead[R]{\small Detailed revision letter}
+\fancyfoot[C]{\thepage}
+\setlength{\headheight}{14pt}
+\setlength{\emergencystretch}{2em}
+\setlength{\parskip}{3pt}
+\newcommand{\FPdim}{\operatorname{FPdim}}
+\newcommand{\Tr}{\operatorname{Tr}}
+\hypersetup{pdftitle={Rank-five classification: second detailed audit and revision letter},pdfauthor={}}
+\title{Rank-five classification\\[4pt]\large Second detailed audit and revision letter}
+\author{}
+\date{24 November 2026}
+\begin{document}
+\maketitle
+
+\section{Outcome and exact scope}
+
+This letter records the new review of the supplied
+\path{Rank5_General_Sharp.zip}, whose manuscript has 69 pages.
+It concerns changes relative to that archive, including changes to its
+verification programs. It supersedes the earlier review as an account of
+the \emph{current} audit; the supplied \path{Review_Report.tex} and
+\path{Review_Report.pdf} are preserved as historical documents.
+
+The review found two statements needing a substantive qualification,
+one missing conductor hypothesis, an insufficiently justified numerical
+upper endpoint, and several reproducibility and exposition defects.
+The revised manuscript repairs them. The main conclusions are retained:
+\[
+\begin{gathered}
+\text{every complex rank-five fusion category has a pseudo-unitary Galois
+conjugate}\\[-2pt]
+\text{and admits a spherical structure},\\
+\mu\le4,\qquad \FPdim(\mathcal C)\le48+24\sqrt3,\\
+\text{exactly seventeen based rings, each with a unitary realization}.
+\end{gathered}
+\]
+No counterexample to these conclusions or unrepaired gap in the reviewed
+dependency chain was identified. This is a mathematical and computational
+audit, not a proof-assistant certification or a guarantee that no error
+can remain.
+
+The review read all seventeen sections, examined the ordinary/signed
+induction and Galois descent arguments, the invertible-action and Morita
+arguments, the character-order and twist-support lemmas, and the
+field-by-field arithmetic reductions. It also read the eighteen structural
+programs, the three census parametrizations, the generators, exclusion
+criteria, witness format, model registry and documentation. The original
+checksum manifest and the complete original verification both passed.
+The revised verification passed again after the changes below.
+
+Change identifiers M01--M18 and C01--C04 provide a complete ledger of
+manuscript and program edits. Section~\ref{sec:package} records the
+remaining documentation and delivery changes. The accompanying
+\path{revision.patch} gives the exact textual differences in existing
+source files.
+
+\section{Statements corrected}
+
+\subsection{Pivotality and the existence of spherical structures: M01, M03}
+
+\textbf{Location: Proposition 3.2 and the end of its proof.}
+The old statement, ``every pivotal rank-five category is spherical'',
+was ambiguous about whether the chosen pivotal structure was meant.
+The proof established existence of a spherical structure in the graded
+case. It did not show that every pivotal structure on a graded category
+is spherical.
+
+That stronger interpretation is false. On $\mathrm{Vec}_{C_5}$, twisting
+the canonical pivotal structure by a character taking a generator to a
+primitive fifth root $\zeta_5$ gives left and right simple dimensions
+$\zeta_5$ and $\zeta_5^{-1}$, in one order. They differ.
+
+The revised statement separates the valid assertions:
+\begin{itemize}
+\item Every pivotal rank-five fusion category admits a spherical structure.
+\item If its universal grading is trivial, every pivotal structure is spherical.
+\end{itemize}
+The proof now fixes the pivotal structure when discussing its slope.
+In the nontrivially graded case it invokes weak integrality and the
+canonical spherical structure from pseudo-unitarity. The pointed example
+is included to make the distinction explicit. Theorem~A is unchanged.
+
+\subsection{The odd-multiplicity indicator rule: M16}
+
+\textbf{Location: Section 17, mathematical content of the finite certificates.}
+The original sentence asserted that occurrence with odd multiplicity in
+$X_j\otimes X_j^*$ forces $\nu_2(X_i)=+1$. It omitted the hypothesis
+$X_i\simeq X_i^*$.
+
+There is a counterexample within the seventeen-ring list itself. In
+$\operatorname{Rep}(C_7\rtimes C_3)$, let $g$ be a nontrivial linear
+character and let $V$ be the degree-three representation induced from
+the character orbit $\{1,2,4\}$ of $C_7$. Then
+\[
+ V\otimes V^*\cong\mathbf1\oplus g\oplus g^2\oplus V\oplus V^*.
+\]
+The differences of elements of $\{1,2,4\}$ are zero three times and each
+nonzero residue modulo seven once, which verifies the decomposition.
+Here $V\not\simeq V^*$ and $\nu_2(V)=0$, although its multiplicity is one.
+
+The repaired rule assigns zero to non-self-dual simples. For self-dual
+simples, odd multiplicity in the canonically symmetric object
+$X_j\otimes X_j^*$ excludes indicator $-1$, and hence forces $+1$.
+Otherwise both signs are retained. This is already exactly the logic in
+\path{criteria/higher_traces.py}, function \texttt{indicator\_choices}:
+the duality test precedes the odd-multiplicity test. The error was in the
+written description; no witness, exclusion or count changes.
+
+\subsection{The conductor hypothesis in the cubic depth proposition: M14}
+
+\textbf{Location: Proposition 15.9, labelled
+\texttt{prop:cubic-four-depth}.}
+The proof uses Theorem 15.5, whose dyadic conclusions require conductor
+$F\in\{7,9\}$. In particular, it uses the unramified inert cubic
+completion at two. The proposition's statement did not repeat this
+restriction. The revised statement explicitly assumes $F\in\{7,9\}$.
+Every subsequent application already lies in these two conductors, so
+the final cubic classification and the sharp bounds are unaffected.
+
+\section{Proof dependencies and explanations made explicit}
+
+\subsection{The dimensional grading input: M02, M18}
+
+\textbf{Location: Proposition 3.2 and bibliography.}
+The equality of the simple-dimension field and $\mathbb Q(D)$ now cites
+Gannon--Schopieray, Proposition 1.8, and explains its use. With
+$K_1=\mathbb Q(d_i:i)$ and $K_0=\mathbb Q(D)$, the fusion ring has a
+faithful $\operatorname{Gal}(K_1/K_0)$-grading. Its group is a quotient
+of the universal grading group, so trivial universal grading forces
+$K_1=K_0$. No integrality of the $d_i$ is assumed. A primary preprint
+link, \href{https://arxiv.org/abs/1912.12260}{arXiv:1912.12260}, was added
+to the bibliography alongside the existing journal reference.
+
+\subsection{The simultaneous choice of embedding: M04}
+
+\textbf{Location: end of Section 3.}
+Several descent arguments choose $E$ maximal among its conjugates while
+using simultaneous minima of $1/E$, $1/D$ and $E/D$. The new paragraph
+explains why these choices are compatible.
+
+Transporting the category by a Galois automorphism changes its spherical
+data and intrinsic dimension $E$, but preserves the integer fusion rules
+and their distinguished positive Frobenius--Perron row. After transporting,
+we choose the positive lifts again. Independently, the spectral-radius
+bound gives $|\tau(d_i)|\le d_i$, hence $\tau(D)\le D$. Thus $1/D$
+and $1/E$ are minimal at the chosen embedding, and the simultaneous-column
+lemma, applied again to the transported category, makes $E/D$ minimal
+there too. This supplies an implicit justification; it changes no
+arithmetic range.
+
+\subsection{A self-contained ordinary Fourier bound: M05, M06, M12, M13, M15}
+
+\textbf{Locations: new Proposition 4.4, introduction, and the quadratic,
+cubic and quartic applications.}
+The new proposition proves the ordinary-center estimate directly from
+Lemma 4.1. Suppose that the category has positive spherical dimensions,
+commutative Grothendieck ring, and
+$K=\mathbb Q(d_i:i)=\mathbb Q(D)$. For $d=[K:\mathbb Q]$ and a
+Dirichlet character $\eta$ of conductor $c$, it gives
+\[
+ \frac1d\sum_\rho\left|\sum_{\sigma\in\operatorname{Gal}(K/\mathbb Q)}
+ \frac{\eta(\sigma)}{\sigma(f_\rho)}\right|^2\le\frac1c,
+ \qquad
+ \left|\sum_\sigma\frac{\eta(\sigma)}{\sigma(D)}\right|
+ \le c^{-1/2}.
+\]
+The proof uses the center of the category itself, normalized by $D$.
+The $d$ vacuum-orbit labels have twist one, and their entries at the
+unit-induction constituents are $1/\sigma(f_\rho)$. Applying the
+unipotent projection bound to their normalized Fourier vector gives
+the first inequality. The $d$ dimension-orbit terms have equal absolute
+Fourier values, giving the second. The proof states why $f_\rho\in K$
+and specifies the cyclotomic inflation of $\eta$.
+
+The introduction now describes this common proof. The quadratic profile
+reduction and quartic field list cite the internal proposition. The
+repeated ordinary Fourier derivation in Proposition 15.3 has been
+replaced by its direct application. Schopieray's attribution is retained.
+The full text of the recent dimension-block preprint was not accessible
+during this review; the new derivation makes the estimate used here
+independent of that access limitation. Its underlying congruence and
+modular-character inputs remain explicitly cited.
+
+\subsection{The ramified version of the local-order argument: M09}
+
+\textbf{Location: proof of Lemma 13.2.}
+The proof now explicitly records the extension already used in the
+quadratic profile argument. For a local fiber product
+$O\times_{\mathbb F_\ell}B$ with a perfect associative pairing, the
+first factor may be any discrete valuation ring finite over
+$\mathbb Z_\ell$ with residue field $\mathbb F_\ell$, including a
+ramified quadratic integer ring.
+
+If $B$ were nonnormal, choose $y$ outside it with
+$\mathfrak m_B y\subset\mathfrak m_B$. The classes $(\ell,0)$ and
+$(0,\ell y)$ give two independent socle vectors modulo $\ell$,
+contrary to perfect duality. Thus $B$ is a valuation ring. In the
+codegree-five quadratic application, the trace dual for
+$\Tr(xy/5)$ is the ramified prime ideal, so the gluing quotient really
+is $\mathbb F_5$. This confirms and explains the existing argument;
+it does not replace it by an assumption.
+
+\subsection{The rotation underlying the local indicator congruence: M10}
+
+\textbf{Location: proof of Lemma 13.4.}
+The grouping step now names its operator. For $M=m\ell^n$, put
+$R_n=E^{(M,1)}_{(i,i^*),V}$. Ng--Schauenburg,
+Lemma 2.5 and Proposition 2.8(ii), identify the two indicators with
+\[
+ \Tr(R_n^{\ell^n})\quad\hbox{and}\quad
+ \Tr(R_n^{\ell^{n-b}}).
+\]
+Their Lemma 2.7 gives $R_n^M=1$ because the insertion has twist one.
+Their Proposition 5.7 puts all power traces in $\mathbb Q(\zeta_N)$.
+The ensuing Galois-orbit multiplicity argument and divisibility
+$\ell^{n-2b+1}\mid\ell^{t-b}$ with $t-b\ge n-2b+1$ are unchanged.
+The exact source identities were checked in
+\href{https://arxiv.org/abs/0806.2493}{arXiv:0806.2493}.
+
+\subsection{Reference scope and small notation repairs: M07, M08, M11, M17}
+
+In Corollary 10.1, the application of the near-group classifications now
+explicitly takes place in the positive spherical conjugate already
+provided by Theorem A. Thus its use of Meng--Yu does not require another
+pivotality or positivity assertion. The full primary Meng--Yu manuscript
+was checked, as were the twist-order statement in Schopieray--Wang--Yu,
+Proposition 2.2(2), and the relevant unitary realizations.
+
+In the nonreal-character proposition in Section 12.2, the display now
+writes $f_\chi=h$ explicitly. In Proposition 14.2, the dimension-vector
+display explicitly says that its sums range over the four nonunit
+simples; this prevents inadvertently counting the unit twice in
+$A=4+\sum a_i^2$. The Schopieray near-group journal reference was
+completed with issue 4 and pages 1617--1641, as verified in the primary
+bibliography. These are notation and reference corrections, not new
+classification arguments.
+
+\section{Program corrections and the new reproducible audit}
+
+\subsection{Outward rounding of the generator bound: C01}
+
+\textbf{File: \path{checks/small_simple.py}.}
+The old expression \texttt{d0//SCALE+1} converted an approximate
+embedding value into an asserted integer upper endpoint. The value was
+computed from a root endpoint and rounded powers, with polynomial
+coefficients of both signs. The expression did not itself include the
+known approximation error.
+
+The revised expression adds
+\texttt{upper\_error = 15*sum(abs(v) for v in x)} before rounding
+upwards. Each scaled power has error less than 15 by the existing
+rational enclosures; the triangle inequality therefore encloses the
+whole polynomial. This makes the subsequent finite range for
+$N_{XX}^X$ rigorously outward. The three generator cases retain exactly
+931, 1158 and 856 dimension candidates, respectively, and no final
+survivor. No omitted actual candidate was found in the original run.
+
+\subsection{Refusing to verify with assertions disabled: C02}
+
+The top-level \path{verify.py} already rejected optimized Python, but
+some standalone scripts could print a success message after
+\texttt{python -O} had removed their assertions. An immediate
+\texttt{if not \_\_debug\_\_} guard now rejects that invocation in
+\path{final_census/verify.py} and these eleven structural programs:
+\begin{quote}\small\raggedright
+\path{biquad_sieve.py}, \path{cyclic_dimension.py},
+\path{quadratic_profiles.py}, \path{quartic_five_twists.py},
+\path{small_simple.py}, \path{verify15.py},
+\path{verify_biquartic.py}, \path{verify_cyclic_quartic.py},
+\path{verify_quadratic_120.py}, \path{verify_quartic_moments.py},
+\path{verify_quintic_trace.py}.
+\end{quote}
+All thirteen guarded entry points, including the unchanged top-level
+one, were tested with \texttt{-O} and rejected execution. The other seven
+structural programs use explicit exceptions for their decisive checks.
+No mathematical condition was added or removed by these guards.
+
+\subsection{Stale documentation inside the induction routine: C03}
+
+In \path{final_census/criteria/induction.py}, an undefined
+\texttt{[DP]} attribution was replaced by the actual tests implemented.
+The restriction-column docstring was corrected from the rank-four
+$(1,v_1,v_2,v_3)$ to the rank-independent
+$(1,v_1,\ldots,v_{n-1})$. Neither edit changes the algorithm.
+
+\subsection{Restoring a missing audit program: C04}
+
+A generator header referred to \path{verify_independent_census.py},
+but the supplied archive did not contain it. The new
+\path{final_census/verify_independent_census.py} now provides a
+reproducible cross-check. It reconstructs the symmetry orbits and
+associativity equations from multiplication tensors, checks the stored
+and C++ equations symbolically, and verifies that every equation used
+in linear completion is necessary. It replays the bounded census with
+the nonlinear shortcuts bypassed and compares the resulting sets.
+
+The slower replay shares the existing fraction-free linear-completion
+routine and the basis parametrization. Its documentation states this;
+it is not presented as a wholly independent implementation or a formal
+verification. It also constructs the neutral $\mathrm{SU}(3)_4$ tensor
+from its level-four Pieri graph and compares it with the stored model.
+No witness records are needed for this optional audit.
+
+\section{Verification results and mathematical checks}
+
+Both complete runs reproduce the same finite census:
+\begin{center}
+\begin{tabular}{@{}rrrrr@{}}
+\toprule
+$\mu$ & Generated & Within both bounds & Excluded & Realized\\\midrule
+1&16&16&6&10\\
+2&37&30&27&3\\
+3&82&46&44&2\\
+4&134&22&20&2\\\midrule
+Total&269&114&97&17\\\bottomrule
+\end{tabular}
+\end{center}
+The 97 exclusions consist of 76 formal-codegree $d$-number failures,
+two subcategory-divisibility failures, three central-dimension norm
+failures, two dimension-field failures, ten induction/second-moment
+failures and four higher-indicator certificates. These are exclusive
+certificate categories, not assertions that each ring fails only one
+criterion. All seventeen positive tensors match their models under
+unit-preserving permutations.
+
+The optional audit gives 220 self-dual rings, 47 rings with one
+nontrivial dual pair and two rings with two such pairs. The respective
+associativity equation counts are 21, 12 and 13, and the checked
+linear-completion equation counts are 15, 11 and 12. The optimized and
+slower censuses agree exactly. The independent Pieri construction
+agrees with the $\operatorname{Ad}(\mathrm{SU}(3)_4)$ registry entry.
+
+All eighteen structural checks passed. Their main outputs, useful for
+matching the supplied transcript to the mathematical reductions, are:
+\begin{center}\small
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}p{.23\textwidth}>{\raggedright\arraybackslash}X@{}}
+\toprule
+Calculation & Reproduced result\\\midrule
+Quintic descent & 34 ratios; 15,396 trace vectors; 39 signed passes;
+four joint passes, all Galois conjugate.\\
+Quadratic descent & Successive counts 331, 50, 13, 22, 1; the one final
+tuple is excluded by the written complementary-unit argument.\\
+Biquadratic descent & 2,097 fields, 52 after the field bounds;
+30 ratios, all excluded by integral-moment Fourier tests.\\
+Cyclic quartic descent & 105 fields, 221 field-polynomial profiles,
+32 ratio profiles, ten norm candidates, no Fourier-compatible tuple.\\
+Quadratic profiles & 1,299 rational and 614 mixed finite profiles;
+162 rational and six mixed limiting profiles. The five remaining
+dimension-vector cases fail.\\
+Cubic dimension & Only $(r,t,F,A,sN,N)=(7,7,7,42,245,343)$ remains;
+the polar conductor-seven profile has no candidate.\\
+Quartic generators & For $(F,f)=(15,4),(15,5),(20,5)$:
+931, 1,158, 856 dimensions; 20, 3, 23 norm candidates;
+2, 0, 3 before Fourier; no final survivor.\\
+Exchanged-pair moments & Ten root columns and six target tuples at
+$f=20$; 25 columns and 180 target tuples at $f=5$; all excluded.\\\bottomrule
+\end{tabularx}
+\end{center}
+The remaining checks reproduce the quartic field table, all ten moment
+bounds, the generator thresholds 125, 155 and 153, the codegree-sixteen
+inequality, and the biquadratic and cyclic dimension exclusions. The
+full unabridged output is in \path{verification.txt}.
+
+Several potentially serious points were checked without requiring a
+correction: the commutativity argument for the signed order; the
+unconditional rank-three descent input; normalization by $2E$ in the
+sphericalization; the use of a unitary modular representation without
+assuming a unitary category; both Hecke estimates; the signed unit
+argument; the local socle obstruction; the Galois-orbit indicator
+congruence; the Morita construction; the ADE generator reduction; and
+the quintic trace lattice. The finite dimension test was also checked:
+its Casimir matrix is real symmetric, and nonnegative coefficients of
+the shifted real-rooted characteristic polynomial are equivalent to
+the required upper bound on its largest eigenvalue.
+
+The unitary endpoint construction was checked directly against Izumi,
+Lemma 13.1 and Example 13.10. The relevant symmetry is an actual
+involution, fixes the unit intertwiner, and has trace zero on the
+six-dimensional noninvertible multiplicity space. It therefore gives
+the stated self-dual equivariantization, multiplicities three and
+$D=48+24\sqrt3$. The categorical realization and the exact tensor
+comparison serve separate purposes; matching arrays alone is not a
+proof of unitarity.
+
+\section{Complete package changes and reproduction}\label{sec:package}
+
+Beyond M01--M18 and C01--C04, the delivery changes are as follows:
+\begin{enumerate}
+\item The current manuscript PDF was rebuilt from the revised source.
+The title, author fields, seventeen-model list, principal conclusions,
+and sharp constants were preserved. The extra proposition is numbered
+4.4; later sections retain their local theorem numbering.
+\item This new letter is supplied as \path{Revision_Letter.tex} and
+\path{Revision_Letter.pdf}. The old review source and PDF remain unchanged.
+\item The root README now identifies the current letter, distinguishes
+the previous report, explains the corrected assertion-mode behavior,
+and documents the optional census audit. The census README describes
+that audit and its shared implementation components.
+\item \path{verification.txt} was refreshed with the complete successful
+run of the revised programs. \path{independent_verification.txt} records
+the additional audit results and the assertion-mode rejection checks.
+The census receipt is consistent with the new run; its numerical
+content is unchanged.
+\item \path{revision.patch} records every edit to an existing text file,
+excluding the regenerated checksum manifest. New files are individually
+identified above. The manifest \path{SHA256SUMS.txt} was regenerated for
+the final distribution. Temporary build files, compiled helpers and
+Python cache files are excluded.
+\end{enumerate}
+
+No stored witness tensor, model tensor, census-generator equation,
+mathematical rejection criterion or dependency requirement was changed.
+The correction to the endpoint enclosure is the only change to a
+numerical search bound; its observed results are unchanged.
+
+From the extracted source directory, run:
+\begin{verbatim}
+python3 verify.py
+python3 final_census/verify_independent_census.py
+\end{verbatim}
+The second command is optional and performs the additional census/model
+audit. Requirements remain Python with SymPy and NumPy, and a C++17
+compiler with OpenMP. The supplied programs use exact arithmetic for
+acceptance and exclusion. Normal verification requires no network access
+or numerical feasibility solver. The LaTeX sources compile with a
+standard installation of pdfLaTeX and the packages in their preambles.
+
+For exact identification, the SHA-256 of the incoming ZIP is
+\begin{quote}\small\raggedright\path{c89ab1ffb252cacb2d135dbdcde5bb1d61803bacdb9eccdd21f810ad625ab63e}.
+\end{quote}
+The SHA-256 of its original \path{rank5.tex} is
+\begin{quote}\small\raggedright\path{59acf340df9863608c6e0e359dc375d055b5132bc102dd9974f9a20d093426d2}.
+\end{quote}
+These identify the baseline against which every change in this letter
+and the patch is measured.
+
+\end{document}

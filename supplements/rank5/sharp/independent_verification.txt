@@ -1,0 +1,18 @@
+Additional audit completed on 24 November 2026.
+Recorded results of final_census/verify_independent_census.py:
+
+S: symmetry orbits, 21 associativity equations, and 15 linear equations checked.
+N2: symmetry orbits, 12 associativity equations, and 11 linear equations checked.
+N4: symmetry orbits, 13 associativity equations, and 12 linear equations checked.
+selfdual: optimized and unpruned censuses agree on 220 rings.
+nonselfdual: optimized and unpruned censuses agree on 49 rings.
+The Ad(SU(3)_4) model agrees with its independent Pieri construction.
+
+Duality decomposition: 220 self-dual, 47 one-pair, 2 two-pair rings.
+All 13 assertion-dependent guarded entry points rejected python -O.
+The complete ordinary verification passed after the edits; see verification.txt.
+
+Scope: the alternative census bypasses nonlinear shortcuts but shares the
+fraction-free linear-completion routine and basis parametrization. The Pieri
+construction independently checks the specified model tensor. These are
+computational cross-checks, not formal verification of the categorical proofs.

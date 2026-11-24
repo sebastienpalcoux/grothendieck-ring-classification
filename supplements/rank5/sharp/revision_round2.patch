@@ -1,0 +1,166 @@
+--- a/README.md
++++ b/README.md
+@@ -7,15 +7,19 @@
+ ## Contents
+ 
+ - `rank5.tex`: the complete manuscript source, including the bibliography, in one file.
+-- `rank5.pdf`: the current revised manuscript (69 pages).
+-- `Revision_Letter.pdf` and `Revision_Letter.tex`: the new seven-page detailed audit and revision letter, recording every change relative to the supplied archive.
++- `rank5.pdf`: the current revised manuscript (70 pages).
++- `Revision_Letter_Round2.pdf` and `Revision_Letter_Round2.tex`: the current detailed audit and revision letter, recording every change relative to the first revised package.
++- `Revision_Letter.pdf` and `Revision_Letter.tex`: the preceding seven-page revision letter, preserved unchanged.
+ - `Review_Report.pdf` and `Review_Report.tex`: the previous seven-page review, preserved unchanged as a historical document.
+ - `verify.py` and `checks/`: eighteen exact arithmetic programs for descent and the structural bounds.
+ - `final_census/`: the bounded ring generator, the 114 witness records, exact exclusion criteria, and the seventeen model tensors.
+ - `verification.txt`: the complete successful verification run after the current code changes.
+ - `final_census/verify_independent_census.py`: the optional additional census and Pieri-model audit.
+-- `independent_verification.txt`: recorded results of that audit and the assertion-mode rejection checks.
+-- `revision.patch`: exact edits to existing text files; new files are listed in the revision letter.
++- `final_census/verify_additional_audits.py`: the new optional checks of the corrected quadratic cutoff, direct cyclotomic averages, Gram columns, and generator-range coverage.
++- `independent_verification.txt`: the preceding audit and assertion-mode rejection results, preserved unchanged.
++- `additional_verification_round2.txt`: actual output of both optional audits in the current round.
++- `revision_round2.patch`: exact edits to existing text files relative to the first revised package; new files are listed in the current letter.
++- `revision.patch`: the preceding revision's patch, preserved unchanged.
+ - `SHA256SUMS.txt`: checksums of the final distributed files.
+ 
+ ## Reproducing the computations
+@@ -51,6 +55,16 @@
+ 
+ This optional check reproduces 220 self-dual rings, 47 rings with one nontrivial dual pair, and two with two dual pairs. The slower replay shares the existing fraction-free linear-completion routine and basis parametrization; it is an additional check, not a wholly independent implementation or a formal proof. The main verifier does not need this optional run.
+ 
++For the further targeted checks added in the second revision round, run:
++
++```bash
++python3 final_census/verify_additional_audits.py
++```
++
++This verifies the corrected lower bound `5/18` in the final subcase of Proposition 6.3, computes 864 relative-trace moments directly in cyclotomic quotient rings, checks all 14 induction/indicator certificate rings and 11 residual Gram matrices by direct enumeration, and derives complete rational interval ranges for the three quartic generator searches. It also certifies every reported Perron upper endpoint. The trace vectors, column lists, and range coverage agree with the existing programs.
++
++These targeted checks share the defining field data, certified root intervals, and construction of individual restriction columns. They check the joins and range construction separately; they do not prove the categorical hypotheses. Both optional commands leave the stored witnesses and model tensors unchanged. Their current output is in `additional_verification_round2.txt`.
++
+ ## Rebuilding the manuscript
+ 
+ The distributed `rank5.tex` is self-contained apart from standard LaTeX packages. Run:
+@@ -61,4 +75,4 @@
+ pdflatex rank5.tex
+ ```
+ 
+-These commands produce `rank5.pdf` and stabilize the table of contents, theorem references, and citations. No separate bibliography file or BibTeX run is needed. Build `Revision_Letter.tex` in the same way to reproduce the new letter.
++These commands produce `rank5.pdf` and stabilize the table of contents, theorem references, and citations. No separate bibliography file or BibTeX run is needed. Build `Revision_Letter_Round2.tex` in the same way to reproduce the current letter. The earlier report sources remain available under their original names.
+--- a/final_census/README.md
++++ b/final_census/README.md
+@@ -23,11 +23,15 @@
+ 
+ Requirements are Python 3.12, SymPy, NumPy, and a C++17 `g++` compiler supporting OpenMP. Use Python with assertions enabled; the census entry point explicitly rejects `python -O`. The complete verification uses only the bundled files, requires no network access, and compiles its helpers in temporary directories. All decisions are exact; no numerical feasibility decision is accepted.
+ 
+-## Optional additional audit
++## Optional additional audits
+ 
+ From this directory, run `python3 verify_independent_census.py`. It regenerates the symmetry orbits and associativity equations, verifies the necessary linear-completion equations, compares the optimized census with a replay bypassing nonlinear shortcuts, and independently reconstructs the `Ad(SU(3)_4)` tensor from its Pieri graph. The results are 220 self-dual rings and 49 non-self-dual rings (47 with one dual pair and two with two dual pairs).
+ 
+ The replay shares the existing fraction-free linear-completion routine and basis parametrization. It is an additional reproducibility check, not a wholly independent implementation or a formal verification. It does not read the stored witness records.
++
++Run `python3 verify_additional_audits.py` for the second revision round's targeted checks. It verifies the repaired quadratic cutoff by exact fractions, computes the relevant 864 cyclotomic moments and 19 joint trace vectors directly, compares all 14 induction/indicator cases with direct low-column enumeration, compares all 11 residual Gram cases with direct high-column enumeration, and certifies complete interval coverage and upper endpoints for the three quartic generator ranges.
++
++The latter audit shares the field data, certified root intervals, and construction of individual restriction-column sets. Its interval ranges are derived by Lagrange interpolation and divided differences, independently of the original fixed cutoffs and padding. It does not independently establish the categorical assumptions. Both optional commands passed; their current output is recorded in `../additional_verification_round2.txt`.
+ 
+ ## Exhaustive enumeration and the dimension test
+ 
+@@ -73,5 +77,6 @@
+ - `criteria/`: exact ring arithmetic, categorical necessary conditions, and model constructions.
+ - `verify.py`: regeneration, coverage checks, and verification of every decision.
+ - `verify_independent_census.py`: optional symbolic equation, alternative census, and Pieri-model checks.
++- `verify_additional_audits.py`: optional exact cutoff, cyclotomic-trace, Gram-column, and generator-enclosure checks.
+ 
+ The generator and parametrization originate from `fusion-ring-census`, commit `942dbd9c4f4149479e51acb1224f3c71ca47a64b`. The criteria and restricted witnesses originate from `sebastienpalcoux/grothendieck-ring-classification`, commit `d35cb684d2f27cca18f89ab24c769af756c16160`, under `evidence/prepublication_20261017/rank5`. The present package retains the necessary pseudo-unitary certificates and verifies them directly. No tables or categorification decisions are downloaded from those repositories during verification.
+--- a/rank5.tex
++++ b/rank5.tex
+@@ -860,9 +860,12 @@
+ $2k^2(3/20-2/120)^2+32/100>1/2$ contradicts the mixed
+ inequality. For $M=9$, we have $t=1/12$ and
+ $s\ge k(1/12-1/120)>1/4$. Among the possible values
+-$1-\gamma/4-J/9$ this requires $s\ge11/36$.
+-Since $d<1/120$, one obtains
+-$2(11/36-2/120)^2+32/81>1/2$, again impossible.
++$1-\gamma/4-J/9$, the least value above $1/4$ is $5/18$,
++attained at $(\gamma,J)=(2,2)$. Since $d<1/120$, one obtains
++\[
++ 2(5/18-2/120)^2+32/81=\frac{8609}{16200}>\frac12,
++\]
++again impossible.
+ \end{proof}
+ 
+ 
+@@ -1699,7 +1702,7 @@
+ Suppose $1,g,z$ span the representation ring of $S_3$, with
+ $\operatorname{FPdim}(z)=2$, and $g$ interchanges the two exterior
+ simples $X,Y$. Write $d=\operatorname{FPdim}(X)=\operatorname{FPdim}(Y)$.
+-If $d$ is irrational, there exists $h\ge0$ such that
++If $d$ is irrational, there exists $h\in\mathbb Z_{\ge0}$ such that
+ \[
+  XX^*=1+z+3h(X+Y),\qquad d^2=3+6hd.
+ \]
+@@ -2095,7 +2098,7 @@
+ $\zeta_N\mapsto\zeta_N^{3^{-1}\bmod N}$ acts nontrivially on
+ $\mathbb Q(\sqrt5)$, the conductor-five dimension field of the center:
+ the center contains an induced summand of dimension $D/5$. By the
+-higher Gauss sum formula of \cite[Corollary~4.5]{NSW} and the central indicator
++higher Gauss sum formula of \cite[Theorem~4.4, equation~(4.17), in the arXiv version]{NSW} and the central indicator
+ identity, one obtains
+ \[
+  \left|1+x(\nu_3(X)+\nu_3(Y))+z\nu_3(Z)\right|=D/D'.
+@@ -2324,7 +2327,7 @@
+ 
+ We first show that $\mathrm N(D)$ is odd. The prime two is inert in $K$, since its order in $(\mathbb Z/11)^\times/\{\pm1\}$ is five. If $2\mid\mathrm N(D)$ then $2\mid h$, and the image of $A$ in $\mathcal O_K/(2)=\mathbb F_{32}$ is a proper subfield: surjectivity would imply $A\otimes\mathbb Z_2=\mathcal O_K\otimes\mathbb Z_2$ by Nakayama's lemma. That subfield is $\mathbb F_2$. Write $D=2^a\delta$, where $a>0$ and $\delta$ is a unit at two. For every $\gamma\in\mathrm{Gal}(K/\mathbb Q)$, $D/\gamma(D)$ lies in $A$, being the dimension of the forgetful image of the induction constituent of codegree $\gamma(D)$ \cite[Theorem~2.13]{Ostrik3}. Its reduction is a unit and therefore one. Thus the residue of $\delta$ is fixed by the whole Galois group, which acts on $\mathbb F_{32}$ as its full Galois group. We get $\overline\delta=1$. Reduction of $\mathrm{Tr}(\delta^{-1})=2^a\mathrm{Tr}(p)=2^a$ now gives $1=0$ in $\mathbb F_2$.
+ 
+-The Cauchy theorem for spherical categories \cite[Theorem~3.9]{RankFinite} gives odd Frobenius--Schur exponent $N$. Since $D\in\mathbb Q(\zeta_N)$ generates the field of conductor eleven, $11\mid N$. Let $\sigma$ act on $\zeta_N$ by the inverse of two modulo $N$. Its restriction to $K$ is nontrivial. The higher Gauss-sum formula of \cite[Corollary~4.5]{NSW} gives
++The Cauchy theorem for spherical categories \cite[Theorem~3.9]{RankFinite} gives odd Frobenius--Schur exponent $N$. Since $D\in\mathbb Q(\zeta_N)$ generates the field of conductor eleven, $11\mid N$. Let $\sigma$ act on $\zeta_N$ by the inverse of two modulo $N$. Its restriction to $K$ is nontrivial. The higher Gauss-sum formula of \cite[Theorem~4.4, equation~(4.17), in the arXiv version]{NSW} gives
+ \[
+  \sigma(p)=\frac{\nu_2(\mathcal C)}{D}
+   =\frac{1}{D}\sum_X \operatorname{FPdim}(X)\nu_2(X)
+@@ -2541,8 +2544,10 @@
+ \end{proof}
+ 
+ \begin{lemma}[Twist support of a rational row]\label{lem:odd-row}
+-In the same modular setting, a rational row of integral formal
+-codegree $q=S_{0J}^{-2}$ is supported only at twists whose orders
++In the same modular setting, suppose that every entry of the
++normalized $S$-row $S_{J,-}$ is rational, and write
++$q=S_{0J}^{-2}\in\mathbb Z_{>0}$ for its formal codegree.
++This row is supported only at twists whose orders
+ have prime divisors among those of $q$. If $\theta_J=1$ and
+ $(k,q)=1$, then
+ \[
+@@ -2570,10 +2575,14 @@
+ of its modular row, and the outer twist phases are one at $(J,i)$.
+ This proves the identity.
+ \end{proof}
+-
+-
+-
+-
++In the applications below, $J=A_\rho$ is the central induction
++label of a rational character $\rho$ of the original fusion ring.
++Its normalized row satisfies
++\[
++ S_{A_\rho,W}=\frac{\rho(F(W))}{f_\rho}\in\mathbb Q,
++\]
++since $\rho$ is integer-valued. Thus the required rationality holds
++for the normalized entries themselves.
+ 
+ \section{Perfect categories in quadratic degree}
+ \label{sec:perfect-quadratic}
+@@ -4691,7 +4700,12 @@
+ 
+ \bibitem{NS} S.-H. Ng and P. Schauenburg, \emph{Congruence subgroups and generalized Frobenius--Schur indicators}, Comm. Math. Phys. \textbf{300} (2010), 1--46. \href{https://arxiv.org/abs/0806.2493}{arXiv:0806.2493}.
+ 
+-\bibitem{NSW} S.-H. Ng, A. Schopieray and Y. Wang, \emph{Higher Gauss sums of modular categories}, Selecta Math. (N.S.) \textbf{25} (2019), article 53. \href{https://arxiv.org/abs/1812.11234}{arXiv:1812.11234}.
++\bibitem{NSW} S.-H. Ng, A. Schopieray and Y. Wang,
++\emph{Higher Gauss sums of modular categories}, Selecta Math. (N.S.)
++\textbf{25} (2019), no.~4, article~53.
++\href{https://doi.org/10.1007/s00029-019-0499-2}{doi:10.1007/s00029-019-0499-2};
++\href{https://arxiv.org/abs/1812.11234v2}{arXiv:1812.11234v2}.
++The theorem and equation numbers used here refer to this arXiv version.
+ 
+ \bibitem{Ostrik2}
+ V. Ostrik, \emph{Fusion categories of rank 2}, with an appendix by P.~Etingof,

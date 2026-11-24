@@ -1,0 +1,307 @@
+--- a/README.md
++++ b/README.md
+@@ -8,17 +8,20 @@
+ 
+ - `rank5.tex`: the complete manuscript source, including the bibliography, in one file.
+ - `rank5.pdf`: the current revised manuscript (70 pages).
+-- `Revision_Letter_Round2.pdf` and `Revision_Letter_Round2.tex`: the current detailed audit and revision letter, recording every change relative to the first revised package.
++- `Revision_Letter_Round3.pdf` and `Revision_Letter_Round3.tex`: the current detailed audit and revision letter, recording every change relative to the second revised package.
++- `Revision_Letter_Round2.pdf` and `Revision_Letter_Round2.tex`: the second revision letter, preserved unchanged as a historical record.
+ - `Revision_Letter.pdf` and `Revision_Letter.tex`: the preceding seven-page revision letter, preserved unchanged.
+ - `Review_Report.pdf` and `Review_Report.tex`: the previous seven-page review, preserved unchanged as a historical document.
+ - `verify.py` and `checks/`: eighteen exact arithmetic programs for descent and the structural bounds.
+ - `final_census/`: the bounded ring generator, the 114 witness records, exact exclusion criteria, and the seventeen model tensors.
+ - `verification.txt`: the complete successful verification run after the current code changes.
+ - `final_census/verify_independent_census.py`: the optional additional census and Pieri-model audit.
+-- `final_census/verify_additional_audits.py`: the new optional checks of the corrected quadratic cutoff, direct cyclotomic averages, Gram columns, and generator-range coverage.
++- `final_census/verify_additional_audits.py`: optional checks of certificate input, the quadratic and sharp-dimension cutoffs, direct cyclotomic averages, Gram columns, and generator-range coverage.
+ - `independent_verification.txt`: the preceding audit and assertion-mode rejection results, preserved unchanged.
+-- `additional_verification_round2.txt`: actual output of both optional audits in the current round.
+-- `revision_round2.patch`: exact edits to existing text files relative to the first revised package; new files are listed in the current letter.
++- `additional_verification_round3.txt`: actual output of both optional audits in the current round.
++- `additional_verification_round2.txt`: the preceding optional-audit transcript, preserved unchanged.
++- `revision_round3.patch`: exact edits to existing text files relative to the second revised package; new files are listed in the current letter.
++- `revision_round2.patch`: the second revision's patch, preserved unchanged.
+ - `revision.patch`: the preceding revision's patch, preserved unchanged.
+ - `SHA256SUMS.txt`: checksums of the final distributed files.
+ 
+@@ -55,15 +58,17 @@
+ 
+ This optional check reproduces 220 self-dual rings, 47 rings with one nontrivial dual pair, and two with two dual pairs. The slower replay shares the existing fraction-free linear-completion routine and basis parametrization; it is an additional check, not a wholly independent implementation or a formal proof. The main verifier does not need this optional run.
+ 
+-For the further targeted checks added in the second revision round, run:
++For the targeted arithmetic and certificate checks, run:
+ 
+ ```bash
+ python3 final_census/verify_additional_audits.py
+ ```
+ 
+-This verifies the corrected lower bound `5/18` in the final subcase of Proposition 6.3, computes 864 relative-trace moments directly in cyclotomic quotient rings, checks all 14 induction/indicator certificate rings and 11 residual Gram matrices by direct enumeration, and derives complete rational interval ranges for the three quartic generator searches. It also certifies every reported Perron upper endpoint. The trace vectors, column lists, and range coverage agree with the existing programs.
++This rejects the malformed subring certificate that previously falsely excluded the realized `Rep(D14)` ring, verifies the corrected lower bound `5/18` in the final subcase of Proposition 6.3, and independently checks the sharp-dimension cutoff by exact root isolation on all 269 generated rings, including the three at equality. It also computes 864 relative-trace moments directly in cyclotomic quotient rings, checks all 14 induction/indicator certificate rings and 11 residual Gram matrices by direct enumeration, and derives complete rational interval ranges for the three quartic generator searches. Every reported Perron upper endpoint is certified. The trace vectors, column lists, and range coverage agree with the existing programs.
+ 
+-These targeted checks share the defining field data, certified root intervals, and construction of individual restriction columns. They check the joins and range construction separately; they do not prove the categorical hypotheses. Both optional commands leave the stored witnesses and model tensors unchanged. Their current output is in `additional_verification_round2.txt`.
++These targeted checks share the ring generators, defining field data, certified root intervals, and construction of individual restriction columns. They check the dimension comparison, joins, and range construction separately; they do not prove the categorical hypotheses. Both optional commands leave the stored witnesses and model tensors unchanged. Their current output is in `additional_verification_round3.txt`.
++
++The structural check `checks/verify_exchange.py`, included in the ordinary run, now uses all 600 second/third-indicator tuples in the final conductor-five case. Its third-indicator coordinates are real parts of cubic rotation traces and include half-integers. The same six separating forms exclude every tuple; no reality assumption on the indicators is used.
+ 
+ ## Rebuilding the manuscript
+ 
+@@ -75,4 +80,4 @@
+ pdflatex rank5.tex
+ ```
+ 
+-These commands produce `rank5.pdf` and stabilize the table of contents, theorem references, and citations. No separate bibliography file or BibTeX run is needed. Build `Revision_Letter_Round2.tex` in the same way to reproduce the current letter. The earlier report sources remain available under their original names.
++These commands produce `rank5.pdf` and stabilize the table of contents, theorem references, and citations. No separate bibliography file or BibTeX run is needed. Build `Revision_Letter_Round3.tex` in the same way to reproduce the current letter. The earlier report sources remain available under their original names.
+--- a/checks/verify_exchange.py
++++ b/checks/verify_exchange.py
+@@ -90,7 +90,13 @@
+     else:
+         x, z, p = K(6, 3), K(14, 6), K(Q(3,20), -Q(1,15))
+         extra_plus, minus = Q(1,25)+Q(1,8)+Q(9,100)-Q(2,70), Q(1,8)
+-        third_indicators = list(product((-2,1,4), range(-8,20,3)))
++        # For a cubic rotation on an H-dimensional space, the real part
++        # of its trace is (3*r-H)/2, where r is the multiplicity of 1.
++        # The indicators themselves need not be real.  Here H=4 for the
++        # combined X,Y rotation spaces and H=19 for the Z rotation space.
++        third_indicators = list(product(
++            (Q(3*r-4, 2) for r in range(5)),
++            (Q(3*r-19, 2) for r in range(20))))
+     plus = p*p + p.conjugate()*p.conjugate() + K(extra_plus)
+     for sx, sz in product((-2,0,2), (-1,1)):
+         m2 = p*(K(2)+sx*x+sz*z)
+@@ -112,6 +118,8 @@
+     for f, forms in ((20, FIRST_FORMS), (5, SECOND_FORMS)):
+         columns = root_columns(f)
+         targets = list(required_moments(f))
++        if len(targets) != (6 if f == 20 else 600):
++            raise ValueError("Incomplete second/third indicator assignments")
+         for form in forms:
+             if max(form[-2:]) > 0 or any(scalar_product(form, c).sign() < 0 for c in columns):
+                 raise ValueError(f"Invalid separating form at f={f}")
+--- a/final_census/README.md
++++ b/final_census/README.md
+@@ -29,9 +29,9 @@
+ 
+ The replay shares the existing fraction-free linear-completion routine and basis parametrization. It is an additional reproducibility check, not a wholly independent implementation or a formal verification. It does not read the stored witness records.
+ 
+-Run `python3 verify_additional_audits.py` for the second revision round's targeted checks. It verifies the repaired quadratic cutoff by exact fractions, computes the relevant 864 cyclotomic moments and 19 joint trace vectors directly, compares all 14 induction/indicator cases with direct low-column enumeration, compares all 11 residual Gram cases with direct high-column enumeration, and certifies complete interval coverage and upper endpoints for the three quartic generator ranges.
++Run `python3 verify_additional_audits.py` for the targeted checks. It rejects the concrete malformed subring certificate that previously falsely excluded `Rep(D14)`, verifies the repaired quadratic cutoff by exact fractions, and compares the sharp-dimension decision with exact root isolation for all 269 generated rings, including the three at equality. It also computes the relevant 864 cyclotomic moments and 19 joint trace vectors directly, compares all 14 induction/indicator cases with direct low-column enumeration, compares all 11 residual Gram cases with direct high-column enumeration, and certifies complete interval coverage and upper endpoints for the three quartic generator ranges.
+ 
+-The latter audit shares the field data, certified root intervals, and construction of individual restriction-column sets. Its interval ranges are derived by Lagrange interpolation and divided differences, independently of the original fixed cutoffs and padding. It does not independently establish the categorical assumptions. Both optional commands passed; their current output is recorded in `../additional_verification_round2.txt`.
++The latter audit shares the ring generators, field data, certified root intervals, and construction of individual restriction-column sets. Its dimension comparison uses exact root isolation instead of shifted-polynomial coefficients. Its interval ranges are derived by Lagrange interpolation and divided differences, independently of the original fixed cutoffs and padding. It does not independently establish the categorical assumptions. Both optional commands passed; their current output is recorded in `../additional_verification_round3.txt`.
+ 
+ ## Exhaustive enumeration and the dimension test
+ 
+@@ -65,6 +65,8 @@
+ 
+ Each certificate is checked against its full fusion tensor. The induction and higher-indicator checks regenerate the admissible restriction columns and indicator assignments. Each stored separating form is checked exactly on all required columns and on the prescribed moment vector.
+ 
++Subring certificates require distinct integer basis indices in the range `0 <= i < rank` before any tensor or character indexing. This rejects negative indices that Python would otherwise interpret as aliases of valid basis elements. Both stored subring certificates satisfy the corrected validation.
++
+ The seventeen positive model tensors are constructed in `criteria/model_registry.py`. The verifier checks their fusion-ring axioms and distinctness, and supplies an explicit basis permutation identifying each retained positive witness with exactly one model. The manuscript cites the unitary categorical constructions; in particular, its endpoint construction explains the C₂-equivariantization tensor directly from Izumi's symmetry formulas.
+ 
+ The verifier uses only the pseudo-unitary necessary conditions justified by Theorem A. There is one verification mode; no additional spherical or signed-extension stage is needed.
+@@ -77,6 +79,6 @@
+ - `criteria/`: exact ring arithmetic, categorical necessary conditions, and model constructions.
+ - `verify.py`: regeneration, coverage checks, and verification of every decision.
+ - `verify_independent_census.py`: optional symbolic equation, alternative census, and Pieri-model checks.
+-- `verify_additional_audits.py`: optional exact cutoff, cyclotomic-trace, Gram-column, and generator-enclosure checks.
++- `verify_additional_audits.py`: optional certificate-input, exact cutoff, cyclotomic-trace, Gram-column, and generator-enclosure checks.
+ 
+ The generator and parametrization originate from `fusion-ring-census`, commit `942dbd9c4f4149479e51acb1224f3c71ca47a64b`. The criteria and restricted witnesses originate from `sebastienpalcoux/grothendieck-ring-classification`, commit `d35cb684d2f27cca18f89ab24c769af756c16160`, under `evidence/prepublication_20261017/rank5`. The present package retains the necessary pseudo-unitary certificates and verifies them directly. No tables or categorification decisions are downloaded from those repositories during verification.
+--- a/final_census/criteria/decisions.py
++++ b/final_census/criteria/decisions.py
+@@ -16,6 +16,8 @@
+ 
+ def check_subring(R, certificate):
+     J = certificate['subset']
++    require(all(type(i) is int and 0 <= i < len(R) for i in J),
++            'subring basis indices must be integers in range')
+     require(0 in J and 2 <= len(J) < len(R) and len(set(J)) == len(J), 'invalid subring')
+     a = Characters(R)
+     f, K, ds, D, pD, emb = a.fp()
+--- a/final_census/verify_additional_audits.py
++++ b/final_census/verify_additional_audits.py
+@@ -1,11 +1,13 @@
+-"""Optional targeted audits of trace formulas, Gram columns and enclosures.
++"""Optional targeted audits of certificates, dimension bounds and enclosures.
+ 
+ The trace check computes Galois averages directly in cyclotomic quotient
+ rings. The column check compares direct Cartesian enumeration with the
+ optimized joins/native Gram enumeration. The enclosure check uses rational
+-interval arithmetic with no heuristic padding. These checks share the
+-package's algebraic field data and restriction-column construction, and do
+-not independently prove the categorical hypotheses behind the certificates.
++interval arithmetic with no heuristic padding. The dimension-bound check
++compares exact root isolation with shifted-polynomial coefficients. These
++checks share the package's generators, algebraic field data and restriction-
++column construction, and do not independently prove the categorical
++hypotheses behind the certificates.
+ No stored exclusion is changed, and no network access is used.
+ """
+ from fractions import Fraction as Q
+@@ -14,17 +16,39 @@
+ import json
+ import math
+ import os
++import subprocess
+ import sys
++import tempfile
+ 
+ import sympy as s
+ 
+ ROOT = Path(__file__).resolve().parent
+-sys.path[:0] = [str(ROOT / "criteria"), str(ROOT.parent / "checks")]
+-from exact import require, discover_roots, check_roots
++sys.path[:0] = [str(ROOT / "criteria"), str(ROOT / "generator"), str(ROOT.parent / "checks")]
++from exact import VerificationError, require, discover_roots, check_roots
+ from rings import Characters, codegree_poly, validate
+ from induction import restriction_columns, low_matrices
++from decisions import check_subring
++from dimension_test import at_most_sharp_bound
++from export_tables import tensor
++from models import dihedral14
+ import higher_traces as ht
+ import small_simple as ss
++
++
++def subring_input_check():
++    R = dihedral14()
++    validate(R)
++    # -4 aliases basis index 1. Without an index-range check this counts
++    # the same invertible twice, inventing dimension 3 instead of 2.
++    invalid = {"kind": "subring", "subset": [0, 1, -4],
++               "quotient_polynomial": ["1", "-14/3"]}
++    try:
++        check_subring(R, invalid)
++    except VerificationError:
++        pass
++    else:
++        raise VerificationError("invalid subring certificate excluded the realized Rep(D14) ring")
++    print("Certificate input: invalid subring indices rejected for Rep(D14).", flush=True)
+ 
+ 
+ def quadratic_cutoff_check():
+@@ -37,6 +61,54 @@
+     lhs = 2*(lower-Q(2, 120))**2+Q(32, 81)
+     require(lhs == Q(8609, 16200) and lhs > Q(1, 2), "the repaired E<=120 contradiction failed")
+     print(f"Quadratic cutoff: least mass {lower}; contradiction margin {lhs-Q(1, 2)}.", flush=True)
++
++
++def dimension_cutoff_check():
++    # Compare the largest root with 48+24*sqrt(3), using isolating intervals
++    # and its minimal polynomial rather than the shifted-coefficient test.
++    def compare_rational(r):
++        if r <= 48:
++            return 1
++        gap = 1728-(r-48)**2
++        return 1 if gap > 0 else -1
++
++    def root_test(polynomial):
++        variable = polynomial.gen
++        endpoint = s.Poly(variable**2-96*variable+576, variable)
++        lo, hi = max((interval for interval, multiplicity in
++                      polynomial.intervals(eps=s.Rational(1, 10**8))),
++                     key=lambda interval: interval[1])
++        for _ in range(100):
++            if compare_rational(hi) > 0:
++                return True, False
++            if compare_rational(lo) < 0:
++                return False, False
++            if polynomial.rem(endpoint).is_zero:
++                return True, True
++            lo, hi = polynomial.refine_root(lo, hi, steps=4)
++        raise VerificationError("could not separate the largest root from the sharp endpoint")
++
++    generated = within = equal = 0
++    with tempfile.TemporaryDirectory() as temporary:
++        for kind in ("selfdual", "nonselfdual"):
++            binary = Path(temporary) / kind
++            source = ROOT / "generator" / f"enumerate_{kind}.cpp"
++            subprocess.run(["g++", "-O3", "-std=c++17", "-fopenmp", str(source),
++                            "-o", str(binary)], check=True, capture_output=True)
++            run = subprocess.run([str(binary), "4"], check=True, capture_output=True, text=True)
++            for line in run.stdout.splitlines():
++                R = tensor(5, line, ROOT / "generator")
++                validate(R)
++                polynomial = codegree_poly(R)
++                passes, equality = root_test(polynomial)
++                require(passes == at_most_sharp_bound(polynomial.all_coeffs()),
++                        "dimension cutoff differs from exact root isolation")
++                generated += 1
++                within += passes
++                equal += equality
++    require((generated, within, equal) == (269, 114, 3), "incorrect dimension-bound audit coverage")
++    print(f"Sharp dimension cutoff: {generated} rings checked by exact root isolation; "
++          f"{within} within bound; {equal} at the exact endpoint.", flush=True)
+ 
+ 
+ def trace_check():
+@@ -202,7 +274,9 @@
+ 
+ 
+ def main():
++    subring_input_check()
+     quadratic_cutoff_check()
++    dimension_cutoff_check()
+     trace_check()
+     column_check()
+     for F, M in ((15, 125), (15, 155), (20, 153)):
+--- a/rank5.tex
++++ b/rank5.tex
+@@ -1737,7 +1737,7 @@
+ allowed.
+ 
+ For $h\ge7$ let $f_K$ be the conductor of $K$. The dimension-block
+-bound for the nontrivial quadratic character, gives
++bound for the nontrivial quadratic character gives
+ \[
+  \frac1{\sqrt{f_K}}\ge |D^{-1}-(D')^{-1}|
+    =\frac{k}{6\sqrt{k^2+12}} .
+@@ -2243,11 +2243,33 @@
+ \[
+  P\ge p^2+(p')^2+1/25+1/8+9/100-2/70,\qquad N\ge1/8.
+ \]
+-For each $j$ consider both quadratic coset averages of $\operatorname{Re}(\theta^j)$. Their integrals are $M_j,M_j'$ for all moments used here, by the signed Galois permutation identity above. In both cases $M_1=p$ and $M_2=p(2+s_xx+s_z z)$ with the same indicator ranges as before. At $f=5$ also use $M_3=p(1+a x+b z)$, with $a\in\{-2,1,4\}$ and $b\in\{-8,-5,\ldots,19\}$. Indeed $a=\nu_3(X)+\nu_3(Y)$ and $b=\nu_3(Z)$ are real traces of rotations of order three on spaces of dimensions $s=4$ and $e=19$ respectively. Duality pairs conjugate indicators, and in a real trace the two primitive cubic eigenvalues have equal multiplicity.
++Write $m_j=\operatorname{Re}\sum_W(\dim(W)/D)^2\theta_W^j$.
++For each $j$ consider both quadratic coset averages of
++$\operatorname{Re}(\theta^j)$. The signed Galois permutation identity
++above gives $\sigma_k(m_j)=m_{j/k}$ for $k$ coprime to the twist
++exponent. Since the moments used below belong to $K$ and inversion
++preserves each quadratic coset, the two integrals are $m_j,m_j'$.
++In both cases $m_1=p$ and $m_2=p(2+s_xx+s_z z)$ with the same
++indicator ranges as before. At $f=5$ also use
++\[
++ \begin{gathered}
++ m_3=p(1+a x+b z),\\
++ a\in\left\{\frac{3r-4}{2}:r=0,\ldots,4\right\},\qquad
++ b\in\left\{\frac{3r-19}{2}:r=0,\ldots,19\right\}.
++ \end{gathered}
++\]
++Here $a=\operatorname{Re}(\nu_3(X)+\nu_3(Y))$ and
++$b=\operatorname{Re}\nu_3(Z)$ arise from rotations of order dividing
++three on spaces of dimensions $s=4$ and $e=19$, respectively.
++For such a rotation on an $H$-dimensional space, if its eigenvalue-one
++multiplicity is $r$, the real part of its trace is
++$r-(H-r)/2=(3r-H)/2$. These values are rational, so $m_3\in K$,
++as required for the quadratic averages. The indicators themselves
++need not be real.
+ 
+ For clarity the finite comparison is specified as follows. A column consists of the constant $1$, the two averages at each power $j$ in increasing order, and the indicators of $\theta=1,-1$. Use powers one and two for $f=20$ and powers one through three for $f=5$. The Cauchy theorem restricts the prime divisors of the order to $2,5$ and $2,3,5$, respectively. Orders dividing $20$ or $180$, respectively, and one additional column $(1,0,\ldots,0)$ suffice: for any exponent exceeding those in these bounds every averaged power vanishes by cyclotomic trace. For a resulting primitive component of order $5h$ the two averages are $(-1\pm\sqrt5)\mu(h)/(4\varphi(h))$ in their two orders, determined by its fifth-root component. For order $h$ prime to five they are both $\mu(h)/\varphi(h)$. There are $10$ distinct columns at $f=20$ and $25$ at $f=5$.
+ 
+-The exact certificates in \texttt{verify\_exchange.py} consist of two integral linear forms for $f=20$ and six for $f=5$. Each is nonnegative on every root column and has nonpositive last two coefficients. For each of the six or $180$ possible indicator tuples, respectively, one of the forms evaluates strictly negatively on the required moment vector, even upon substitution of the stated lower bounds for $P,N$. This contradicts its being a positive weighted sum of root columns. All comparisons use rational operations and exact signs in $\mathbb Q(\sqrt5)$.
++The exact certificates in \texttt{verify\_exchange.py} consist of two integral linear forms for $f=20$ and six for $f=5$. Each is nonnegative on every root column and has nonpositive last two coefficients. For each of the six or $600$ possible indicator tuples, respectively, one of the forms evaluates strictly negatively on the required moment vector, even upon substitution of the stated lower bounds for $P,N$. This contradicts its being a positive weighted sum of root columns. All comparisons use rational operations and exact signs in $\mathbb Q(\sqrt5)$.
+ \end{proof}
+ 
+ 
+--- a/verification.txt
++++ b/verification.txt
+@@ -61,7 +61,7 @@
+ 20 5 153 {'dimensions': 856, 'norm': 23, 'before Fourier': 3, 'faithful, 9/80': 2, 'faithful, 1/8': 1} 0 []
+ verify_exchange.py
+ f=20: 10 root columns and 6 target moment tuples checked.
+-f=5: 25 root columns and 180 target moment tuples checked.
++f=5: 25 root columns and 600 target moment tuples checked.
+ quadratic_profiles.py
+ Finite profiles: 1299 rational, 614 mixed. Limiting profiles: 162 rational, 6 mixed.
+ All finite norm survivors: [(5, (4, 4, 19)), (5, (4, 4, 20)), (5, (4, 5, 10)), (8, (3, 4, 16)), (8, (4, 4, 7)), (8, (4, 4, 8)), (12, (3, 3, 24)), (12, (3, 4, 8)), (12, (3, 4, 12)), (12, (3, 6, 6)), (12, (4, 4, 6)), (13, (3, 3, 18)), (17, (4, 4, 4)), (21, (3, 3, 9)), (24, (3, 3, 8)), (28, (3, 3, 7))]

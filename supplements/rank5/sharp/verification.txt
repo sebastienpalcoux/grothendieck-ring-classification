@@ -1,0 +1,86 @@
+verify_quintic_trace.py
+quintic trace check: 34 ratios, 15396 trace vectors, 39 signed passes, 4 joint passes, all Galois conjugate
+verify_quadratic_120.py
+[331, 50, 13, 22, 1] [(5, (20, 4), (10, 2), 4, (40, 16))]
+verify_biquartic.py
+Biquadratic fields: 2097 after Fourier norm bounds: 52
+Ratio candidates by conductor triple: {(5, 8, 40): 6, (8, 12, 24): 12, (8, 17, 136): 1, (8, 21, 168): 2, (8, 28, 56): 4, (8, 60, 120): 5}
+All 30 candidates fail the integral-moment Fourier tests.
+verify_cyclic_quartic.py
+Real cyclic quartic fields: 105
+Distinct field-polynomial profiles before the rational-axis test: 221
+alpha/f/g profiles, trace and norm candidates, Fourier-compatible: (32, 10, 0)
+quartic_fields.py
+Quartic profiles for D>17 from the norm and Fourier inequalities
+f=4: [(5, 8, 40), (5, 12, 60), (5, 13, 65), (5, 17, 85), (5, 21, 105), (8, 12, 24), (15, (1, 14)), (16, (1, 15)), (20, (1, 19)), (35, (1, 11, 16, 19, 24, 34)), (40, (1, 11, 29, 39))]
+f=5: [(15, (1, 14)), (20, (1, 19))]
+f=16: [(5, 8, 40), (15, (1, 14))]
+f=20: [(15, (1, 14))]
+exchange_cut.py
+Seven possible rational codegrees; only (f,F)=(5,5),(8,8),(20,5) remain.
+Codegree five leaves (c,u)=(1,-1),(4,1) before the endpoint moment test.
+cubic_polar_sieve.py
+Polar profile has D < 296143; no dimensions in its cubic embedding lattice.
+verify16.py
+The twist inequality holds with slack greater than 1/1000.
+The norm lower bound contradicts the integrated twist majorant.
+verify_quartic_moments.py
+Codegree 4, field (16,): D < 13883.
+Codegree 4, field (20,): D < 3121.
+Codegree 4, field (35,): D < 1019.
+Codegree 4, field (40,): D < 495.
+Codegree 4, field (5, 8, 40): D < 10500.
+Codegree 4, field (5, 12, 60): D < 1111.
+Codegree 4, field (5, 13, 65): D < 182.
+Codegree 4, field (5, 17, 85): D < 260.
+Codegree 4, field (5, 21, 105): D < 317.
+Codegree 4, field (8, 12, 24): D < 44123.
+verify15.py
+Conductor-15 twist inequality verified; minimum lower margin 96390817/50000000
+quartic_five_twists.py
+The codegree-five twist inequality holds for both conductors, with positive slack.
+quartic_generator_bound.py
+15 4 125
+15 5 155
+20 5 153
+biquad_sieve.py
+(5, 8, 40) examined 64 integral second moments 56 remaining []
+(5, 12, 60) examined 90 integral second moments 67 remaining []
+(5, 13, 65) examined 10 integral second moments 10 remaining []
+(5, 17, 85) examined 6 integral second moments 6 remaining []
+(5, 21, 105) examined 18 integral second moments 18 remaining []
+(8, 12, 24) examined 72 integral second moments 60 remaining []
+cyclic_dimension.py
+Conductor 16, codegree four, D <= 13883: 0 candidates.
+Conductor 20, codegree four, D <= 3121: 0 candidates.
+Conductor 35, codegree four, D <= 1019: 0 candidates.
+Conductor 40, codegree four, D <= 495: 0 candidates.
+small_simple.py
+15 4 125 {'dimensions': 931, 'norm': 20, 'before Fourier': 2, 'faithful, 29/240': 2} 0 []
+15 5 155 {'dimensions': 1158, 'norm': 3} 0 []
+20 5 153 {'dimensions': 856, 'norm': 23, 'before Fourier': 3, 'faithful, 9/80': 2, 'faithful, 1/8': 1} 0 []
+verify_exchange.py
+f=20: 10 root columns and 6 target moment tuples checked.
+f=5: 25 root columns and 600 target moment tuples checked.
+quadratic_profiles.py
+Finite profiles: 1299 rational, 614 mixed. Limiting profiles: 162 rational, 6 mixed.
+All finite norm survivors: [(5, (4, 4, 19)), (5, (4, 4, 20)), (5, (4, 5, 10)), (8, (3, 4, 16)), (8, (4, 4, 7)), (8, (4, 4, 8)), (12, (3, 3, 24)), (12, (3, 4, 8)), (12, (3, 4, 12)), (12, (3, 6, 6)), (12, (4, 4, 6)), (13, (3, 3, 18)), (17, (4, 4, 4)), (21, (3, 3, 9)), (24, (3, 3, 8)), (28, (3, 3, 7))]
+The five cases requiring a dimension-vector check: [(5, (720, 320, 1600), (4, 5, 10)), (12, (672, 192, 2304), (3, 3, 24)), (12, (672, 192, 2304), (3, 4, 8)), (12, (48, 12, 144), (3, 4, 12)), (12, (48, 12, 144), (3, 6, 6))]
+Unrestricted mixed moment check: [(12, 132)] [((4, 2), (6, 2), (10, 4), (12, 6))] D/4 has coordinates (75,33).
+small_cubic.py
+19 conductor 73 []
+13 conductor 105 []
+7 odd 208 [(7, 7, 42, 245, 343)]
+9 odd 148 []
+7 large_codes 168 []
+9 large_codes 29 []
+9 four 145 []
+All 18 structural checks passed.
+Classification within both sharp bounds
+mu | generated | within dimension bound | excluded | realized
+1 | 16 | 16 | 6 | 10
+2 | 37 | 30 | 27 | 3
+3 | 82 | 46 | 44 | 2
+4 | 134 | 22 | 20 | 2
+Verified all 97 exclusions and all 17 based-ring model identifications.
+Exclusions by type: {'dnumber': 76, 'finite_indicator_traces': 4, 'fp_dimension_field': 2, 'fp_norm': 3, 'induction': 10, 'subring': 2}

@@ -1,0 +1,63 @@
+Fourth-round additional verification — 24 November 2026
+
+The five commands below were run from the package root with assertions enabled; each exited 0 with empty stderr.
+The ordinary python3 verify.py run also exited 0 with empty stderr. Its exact stdout is in verification.txt and is byte-identical to the third-round transcript.
+
+$ python3 final_census/verify_independent_census.py
+S: symmetry orbits, 21 associativity equations, and 15 linear equations checked.
+N2: symmetry orbits, 12 associativity equations, and 11 linear equations checked.
+N4: symmetry orbits, 13 associativity equations, and 12 linear equations checked.
+selfdual: optimized and unpruned censuses agree on 220 rings.
+nonselfdual: optimized and unpruned censuses agree on 49 rings.
+The Ad(SU(3)_4) model agrees with its independent Pieri construction.
+[exit status: 0; stderr: empty]
+
+$ python3 final_census/verify_additional_audits.py
+Certificate input: invalid subring indices rejected for Rep(D14).
+Quadratic cutoff: least mass 5/18; contradiction margin 509/16200.
+Sharp dimension cutoff: 269 rings checked by exact root isolation; 114 within bound; 3 at the exact endpoint.
+Relative traces: 864 exact moments, 19 joint vectors, conductor 12.
+Gram columns: 14 certificate rings and 11 residual matrices checked directly.
+Generator enclosures: conductor 15, cap 125, 934 interval candidates inside 935 packaged candidates; all upper endpoints certified.
+Generator enclosures: conductor 15, cap 155, 1160 interval candidates inside 1162 packaged candidates; all upper endpoints certified.
+Generator enclosures: conductor 20, cap 153, 858 interval candidates inside 860 packaged candidates; all upper endpoints certified.
+[exit status: 0; stderr: empty]
+
+$ python3 audits_round4/positive_models.py
+Vec(C5) : all necessary-condition probes passed; 0 proper nontrivial fusion subrings checked.
+TY(C4) : all necessary-condition probes passed; 2 proper nontrivial fusion subrings checked.
+TY(C2xC2) : all necessary-condition probes passed; 4 proper nontrivial fusion subrings checked.
+SU(2)_4 : all necessary-condition probes passed; 2 proper nontrivial fusion subrings checked.
+Rep(D14) : all necessary-condition probes passed; 1 proper nontrivial fusion subrings checked.
+Rep(S4) : all necessary-condition probes passed; 2 proper nontrivial fusion subrings checked.
+PSU(2)_8 : all necessary-condition probes passed; 1 proper nontrivial fusion subrings checked.
+PSU(2)_9 : all necessary-condition probes passed; 0 proper nontrivial fusion subrings checked.
+LPR-12 : all necessary-condition probes passed; 2 proper nontrivial fusion subrings checked.
+LPR-24 : all necessary-condition probes passed; 2 proper nontrivial fusion subrings checked.
+Rep(A5) : all necessary-condition probes passed; 0 proper nontrivial fusion subrings checked.
+Rep(C7 semidirect C3) : all necessary-condition probes passed; 1 proper nontrivial fusion subrings checked.
+PSU(3)_4 : all necessary-condition probes passed; 0 proper nontrivial fusion subrings checked.
+Rep(AGL(1,5)) : all necessary-condition probes passed; 2 proper nontrivial fusion subrings checked.
+Izumi C3+6 equivariantization : all necessary-condition probes passed; 2 proper nontrivial fusion subrings checked.
+Izumi V4+4 : all necessary-condition probes passed; 4 proper nontrivial fusion subrings checked.
+Izumi C4+4 : all necessary-condition probes passed; 2 proper nontrivial fusion subrings checked.
+Positive-model probe complete: 17 models and 27 proper nontrivial fusion subrings.
+[exit status: 0; stderr: empty]
+
+$ python3 audits_round4/dihedral_center.py
+Explicit Z(Rep(D14)) center: all five low and 23 high simples survive the column filters;
+all Gram/moment equalities and 32 higher-indicator inequalities hold exactly through order 6.
+[exit status: 0; stderr: empty]
+
+$ python3 audits_round4/linear_completion.py
+Both optimized generators completed the multiplicity-four census with undefined-behavior sanitization: 269 rings.
+S: 350 native augmented-matrix eliminations agree with independent exact rational row reduction.
+N2: 177 native augmented-matrix eliminations agree with independent exact rational row reduction.
+N4: 132 native augmented-matrix eliminations agree with independent exact rational row reduction.
+Linear-completion probe complete: 659 augmented matrices.
+[exit status: 0; stderr: empty]
+
+Assertion-mode rejection checks for the new optional programs:
+python3 -O audits_round4/positive_models.py: rejected as required (exit status 1).
+python3 -O audits_round4/dihedral_center.py: rejected as required (exit status 1).
+python3 -O audits_round4/linear_completion.py: rejected as required (exit status 1).

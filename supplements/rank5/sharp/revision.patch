@@ -1,0 +1,519 @@
+--- a/README.md
++++ b/README.md
+@@ -7,11 +7,16 @@
+ ## Contents
+ 
+ - `rank5.tex`: the complete manuscript source, including the bibliography, in one file.
+-- `rank5.pdf`: the revised manuscript (69 pages).
+-- `Review_Report.pdf` and `Review_Report.tex`: the seven-page mathematical review and revision report.
++- `rank5.pdf`: the current revised manuscript (69 pages).
++- `Revision_Letter.pdf` and `Revision_Letter.tex`: the new seven-page detailed audit and revision letter, recording every change relative to the supplied archive.
++- `Review_Report.pdf` and `Review_Report.tex`: the previous seven-page review, preserved unchanged as a historical document.
+ - `verify.py` and `checks/`: eighteen exact arithmetic programs for descent and the structural bounds.
+ - `final_census/`: the bounded ring generator, the 114 witness records, exact exclusion criteria, and the seventeen model tensors.
+-- `verification.txt`: the transcript of the complete verification run.
++- `verification.txt`: the complete successful verification run after the current code changes.
++- `final_census/verify_independent_census.py`: the optional additional census and Pieri-model audit.
++- `independent_verification.txt`: recorded results of that audit and the assertion-mode rejection checks.
++- `revision.patch`: exact edits to existing text files; new files are listed in the revision letter.
++- `SHA256SUMS.txt`: checksums of the final distributed files.
+ 
+ ## Reproducing the computations
+ 
+@@ -32,9 +37,19 @@
+ python3 verify.py
+ ```
+ 
+-Run Python with assertions enabled, without `-O`. The first stage finishes with `All 18 structural checks passed.` The classification stage finishes by confirming all 97 exclusions and all seventeen based-ring model identifications. A successful model comparison verifies the fusion tensor and its basis permutation; the cited categorical constructions establish existence and unitarity.
++Run Python with assertions enabled, without `-O`. The main entry points and all assertion-dependent standalone structural scripts now reject optimized Python explicitly. The first stage finishes with `All 18 structural checks passed.` The classification stage finishes by confirming all 97 exclusions and all seventeen based-ring model identifications. A successful model comparison verifies the fusion tensor and its basis permutation; the cited categorical constructions establish existence and unitarity.
+ 
+ All acceptance and exclusion decisions use exact integer, rational, or algebraic-number arithmetic. Replaying the stored separating forms does not require a numerical linear-programming solver or network access. Compiled helpers are placed in temporary directories.
++
++## Additional census and model audit
++
++To reconstruct the symmetry and associativity equations, check every linear-completion equation, compare the optimized census with a replay that bypasses its nonlinear shortcuts, and independently reconstruct the `Ad(SU(3)_4)` model from its Pieri graph, run:
++
++```bash
++python3 final_census/verify_independent_census.py
++```
++
++This optional check reproduces 220 self-dual rings, 47 rings with one nontrivial dual pair, and two with two dual pairs. The slower replay shares the existing fraction-free linear-completion routine and basis parametrization; it is an additional check, not a wholly independent implementation or a formal proof. The main verifier does not need this optional run.
+ 
+ ## Rebuilding the manuscript
+ 
+@@ -46,4 +61,4 @@
+ pdflatex rank5.tex
+ ```
+ 
+-These commands produce `rank5.pdf` and stabilize the table of contents, theorem references, and citations. No separate bibliography file or BibTeX run is needed.
++These commands produce `rank5.pdf` and stabilize the table of contents, theorem references, and citations. No separate bibliography file or BibTeX run is needed. Build `Revision_Letter.tex` in the same way to reproduce the new letter.
+--- a/checks/biquad_sieve.py
++++ b/checks/biquad_sieve.py
+@@ -1,4 +1,8 @@
+ """Check biquadratic quartic profiles of formal codegree 4 or 16, with integer arithmetic."""
++
++if not __debug__:
++    raise RuntimeError("Run this verifier with Python assertions enabled")
++
+ from fractions import Fraction
+ from functools import lru_cache
+ from math import isqrt
+--- a/checks/cyclic_dimension.py
++++ b/checks/cyclic_dimension.py
+@@ -1,4 +1,8 @@
+ """Bounded global-dimension search at rational codegree four; cyclic four cyclic fields with vacuum-moment dimension bounds."""
++
++if not __debug__:
++    raise RuntimeError("Run this verifier with Python assertions enabled")
++
+ from math import gcd, isqrt
+ 
+ 
+--- a/checks/quadratic_profiles.py
++++ b/checks/quadratic_profiles.py
+@@ -3,6 +3,10 @@
+ There is no input cutoff on dimension or on fusion coefficients.
+ A pair (a,b) represents (a+b sqrt(c))/2.
+ """
++
++if not __debug__:
++    raise RuntimeError("Run this verifier with Python assertions enabled")
++
+ from collections import Counter, defaultdict
+ from fractions import Fraction as Q
+ from itertools import combinations_with_replacement
+--- a/checks/quartic_five_twists.py
++++ b/checks/quartic_five_twists.py
+@@ -1,4 +1,8 @@
+ """Verify the cyclotomic inequality for either quartic field at codegree five."""
++
++if not __debug__:
++    raise RuntimeError("Run this verifier with Python assertions enabled")
++
+ from fractions import Fraction as Q
+ from functools import lru_cache
+ from itertools import product
+--- a/checks/small_simple.py
++++ b/checks/small_simple.py
+@@ -1,4 +1,8 @@
+ """Exact small-generator enumeration for the real cyclic quartic fields 15,20."""
++
++if not __debug__:
++    raise RuntimeError("Run this verifier with Python assertions enabled")
++
+ from fractions import Fraction
+ from math import isqrt
+ from collections import Counter
+@@ -103,7 +107,11 @@
+                     if any(abs(V(x,pw))>SMALL_ROOT+SCALE//1000 for pw in rp[:3]): continue
+                     d0=V(x,rp[3])
+                     if not 2*SCALE-SCALE//1000<d0<M*SCALE+SCALE//1000:continue
+-                    yield x,d0//SCALE+1
++                    # Each scaled power is enclosed within 15 units.  Include
++                    # that error before rounding the Perron value upwards;
++                    # rounding the approximation alone need not be an upper bound.
++                    upper_error = 15*sum(abs(v) for v in x)
++                    yield x,(d0+upper_error)//SCALE+1
+ 
+ 
+ def sqrt_exact(z):
+--- a/checks/verify15.py
++++ b/checks/verify15.py
+@@ -1,4 +1,8 @@
+ """Exact verification of the twist inequality for the quartic field of conductor 15."""
++
++if not __debug__:
++    raise RuntimeError("Run this verifier with Python assertions enabled")
++
+ from fractions import Fraction as F
+ from math import gcd
+ from functools import lru_cache
+--- a/checks/verify_biquartic.py
++++ b/checks/verify_biquartic.py
+@@ -1,4 +1,8 @@
+ """Exact biquadratic ratio census. Requires only the Python standard library."""
++
++if not __debug__:
++    raise RuntimeError("Run this verifier with Python assertions enabled")
++
+ from collections import Counter
+ from fractions import Fraction as Q
+ from functools import cache
+--- a/checks/verify_cyclic_quartic.py
++++ b/checks/verify_cyclic_quartic.py
+@@ -3,6 +3,10 @@
+ Standard Python 3.10+. All arithmetic controlling the census is integer
+ or rational; radical cutoffs are rounded outward with integer square roots.
+ """
++
++if not __debug__:
++    raise RuntimeError("Run this verifier with Python assertions enabled")
++
+ from fractions import Fraction as Q
+ from math import isqrt,gcd,lcm
+ from functools import cache
+--- a/checks/verify_quadratic_120.py
++++ b/checks/verify_quadratic_120.py
+@@ -1,4 +1,8 @@
+ """Exact finite arithmetic for the remaining quadratic signed character profiles."""
++
++if not __debug__:
++    raise RuntimeError("Run this verifier with Python assertions enabled")
++
+ from fractions import Fraction
+ from math import gcd, isqrt
+ 
+--- a/checks/verify_quartic_moments.py
++++ b/checks/verify_quartic_moments.py
+@@ -1,4 +1,8 @@
+ """Exact rank-five vacuum-moment bounds; all certificate coefficients are integers."""
++
++if not __debug__:
++    raise RuntimeError("Run this verifier with Python assertions enabled")
++
+ from functools import lru_cache
+ from fractions import Fraction as Q
+ from math import gcd, lcm, isqrt
+--- a/checks/verify_quintic_trace.py
++++ b/checks/verify_quintic_trace.py
+@@ -1,4 +1,8 @@
+ """Quintic spherical descent by exact integral coordinates and field traces."""
++
++if not __debug__:
++    raise RuntimeError("Run this verifier with Python assertions enabled")
++
+ from itertools import combinations, product
+ 
+ # Multiplication by 2 generates (Z/11)^*/{1,-1}.
+--- a/final_census/README.md
++++ b/final_census/README.md
+@@ -21,7 +21,13 @@
+ python3 verify.py --classification-only
+ ```
+ 
+-Requirements are Python 3.12, SymPy, NumPy, and a C++17 `g++` compiler supporting OpenMP. Use Python with assertions enabled. The complete verification uses only the bundled files, requires no network access, and compiles its helpers in temporary directories. All decisions are exact; no numerical feasibility decision is accepted.
++Requirements are Python 3.12, SymPy, NumPy, and a C++17 `g++` compiler supporting OpenMP. Use Python with assertions enabled; the census entry point explicitly rejects `python -O`. The complete verification uses only the bundled files, requires no network access, and compiles its helpers in temporary directories. All decisions are exact; no numerical feasibility decision is accepted.
++
++## Optional additional audit
++
++From this directory, run `python3 verify_independent_census.py`. It regenerates the symmetry orbits and associativity equations, verifies the necessary linear-completion equations, compares the optimized census with a replay bypassing nonlinear shortcuts, and independently reconstructs the `Ad(SU(3)_4)` tensor from its Pieri graph. The results are 220 self-dual rings and 49 non-self-dual rings (47 with one dual pair and two with two dual pairs).
++
++The replay shares the existing fraction-free linear-completion routine and basis parametrization. It is an additional reproducibility check, not a wholly independent implementation or a formal verification. It does not read the stored witness records.
+ 
+ ## Exhaustive enumeration and the dimension test
+ 
+@@ -66,5 +72,6 @@
+ - `data/bounded_witnesses.json`: the 114 tensors with their model identifications or exclusion certificates.
+ - `criteria/`: exact ring arithmetic, categorical necessary conditions, and model constructions.
+ - `verify.py`: regeneration, coverage checks, and verification of every decision.
++- `verify_independent_census.py`: optional symbolic equation, alternative census, and Pieri-model checks.
+ 
+ The generator and parametrization originate from `fusion-ring-census`, commit `942dbd9c4f4149479e51acb1224f3c71ca47a64b`. The criteria and restricted witnesses originate from `sebastienpalcoux/grothendieck-ring-classification`, commit `d35cb684d2f27cca18f89ab24c769af756c16160`, under `evidence/prepublication_20261017/rank5`. The present package retains the necessary pseudo-unitary certificates and verifies them directly. No tables or categorification decisions are downloaded from those repositories during verification.
+--- a/final_census/criteria/induction.py
++++ b/final_census/criteria/induction.py
+@@ -1,4 +1,4 @@
+-"""Rank-independent application of the low-induction and moment tests of [DP]."""
++"""Rank-independent unit-induction, Gram-matrix and second-moment tests."""
+ import itertools,math,subprocess,tempfile
+ from pathlib import Path
+ import sympy as s
+@@ -6,7 +6,7 @@
+ from rings import *
+ 
+ def restriction_columns(ds,beta,K,B):
+-    """All columns (1,v1,v2,v3) with the required dimension.
++    """All columns (1,v1,...,v_(n-1)) with the required dimension.
+ 
+     The bounds vi<=B[0,i] and vi^2<=B[i,i] are necessary consequences of
+     M M^T=B. Rational row reduction eliminates all dependent equations.
+--- a/final_census/verify.py
++++ b/final_census/verify.py
+@@ -48,6 +48,8 @@
+ 
+ 
+ def main():
++    if not __debug__:
++        raise RuntimeError("Run the verifier with Python assertions enabled")
+     with tempfile.TemporaryDirectory() as tmp:
+         bounded, bands, smaller = generate(Path(tmp))
+     records = json.loads((ROOT / "data" / "bounded_witnesses.json").read_text())
+--- a/rank5.tex
++++ b/rank5.tex
+@@ -140,9 +140,10 @@
+ and rank-four manuscripts \cite{Rank2,Rank3,Rank4}. At rank five,
+ previous classifications include modular categories \cite{HR,BNRW},
+ multiplicity-one rings \cite{LPR}, integral rings \cite{ABDP} and graded
+-cases \cite{WD}. We use the dimension-block estimate of Schopieray
+-\cite{SchopierayBlock} and prove the ordinary/signed versions needed
+-for descent. The bounded classification \cite{Rank5Bounded} supplies
++cases \cite{WD}. The dimension-block estimate is due to Schopieray
++\cite{SchopierayBlock}. We derive the ordinary estimate and the
++ordinary/signed versions used here directly from a common modular
++projection bound. The bounded classification \cite{Rank5Bounded} supplies
+ model data and finite certificates; the accompanying verifier
+ regenerates the bounded ring list and checks the relevant certificates.
+ 
+@@ -349,12 +350,15 @@
+ \begin{proposition}\label{prop:field}
+ If a rank-five category is not weakly integral, its universal grading is
+ trivial, and both dimension-character fields equal $K=\mathbb Q(D)$.
+-Moreover, every pivotal rank-five category is spherical.
++Every pivotal rank-five fusion category admits a spherical structure.
++When its universal grading is trivial, every pivotal structure is spherical.
+ \end{proposition}
+ \begin{proof}
+ The grading assertion follows from Proposition~\ref{prop:proper-integral}.
+-The ordinary dimension-character field equals $\mathbb Q(D)$ by the
+-dimensional grading theorem of \cite[Section 1.2]{GannonSchopieray}.
++Put $K_1=\mathbb Q(d_i:i)$. The dimensional grading of
++\cite[Proposition~1.8]{GannonSchopieray} is faithful with group
++$\operatorname{Gal}(K_1/\mathbb Q(D))$, a quotient of the universal
++grading group. Consequently $K_1=\mathbb Q(D)$.
+ For the signed field, central induction gives $D\in L$. Suppose
+ $\sigma$ fixes $D$ but acts nontrivially on $L$. Then
+ $B_\sigma\ne1$, whereas Lemma~\ref{lem:simultaneous-columns} gives
+@@ -369,14 +373,29 @@
+ They give a nontrivial grading of $\mathcal C$ by a finite subgroup of
+ $\mathbb C^\times$, a contradiction.
+ 
+-Finally, in a pivotal fusion category the ratios of left to right dimensions
+-on simples give the slope operator, a monoidal automorphism of the
+-identity \cite[Section 4]{BV}. Its scalars likewise define a grading if
+-it is nontrivial. With trivial universal grading it is the identity, which
+-gives sphericality. The remaining graded categories are already spherical.
+-\end{proof}
+-
+-
++Finally, for a given pivotal structure the ratios of left to right
++simple dimensions define the slope, a monoidal automorphism of the
++identity \cite[Section~4]{BV}. A nontrivial slope gives a nontrivial
++grading. Thus every pivotal structure is spherical when the universal
++grading is trivial. In the remaining case the category is weakly
++integral by Proposition~\ref{prop:proper-integral}, so it admits the
++canonical spherical structure supplied by pseudo-unitarity.
++The distinction is necessary: on $\mathrm{Vec}_{C_5}$, a pivotal
++structure given by a character of order five is not spherical.
++\end{proof}
++
++
++
++In the descent arguments we may first transport the category by a
++Galois automorphism so that $E$ is its largest conjugate, and then
++choose the positive lifts again. This transport preserves the integer
++fusion rules and therefore the distinguished positive numbers $d_i$
++and $D$; it changes $E$ to the chosen conjugate. Independently,
++$|\tau(d_i)|\le d_i$ for every embedding $\tau$, by the spectral-radius
++bound for the integral fusion matrix of $X_i$. Hence $\tau(D)\le D$.
++At this embedding, $1/D$ and $1/E$ are both minimal, and
++Lemma~\ref{lem:simultaneous-columns}, applied to the transported
++category, makes $E/D$ minimal as well.
+ 
+ % ===== hecke_fourier.tex =====
+ \section{Fourier bounds from the modular representation}\label{sec:hecke}
+@@ -504,6 +523,53 @@
+ \end{proof}
+ 
+ 
++
++
++\begin{proposition}[Ordinary Fourier bound]
++\label{prop:ordinary-fourier}
++Let $\mathcal C$ be a fusion category with positive spherical dimensions
++and commutative Grothendieck ring. Suppose
++$K=\mathbb Q(d_i:i)=\mathbb Q(D)$, and write
++$G=\operatorname{Gal}(K/\mathbb Q)$ and $d=|G|$.
++For a character $\eta$ of $G$ of Dirichlet conductor $c$, put
++\[
++ \widehat y_\rho(\eta)=
++ \sum_{\sigma\in G}\frac{\eta(\sigma)}{\sigma(f_\rho)}.
++\]
++Then
++\[
++ \frac1d\sum_\rho|\widehat y_\rho(\eta)|^2\le\frac1c,
++ \qquad
++ \left|\sum_{\sigma\in G}\frac{\eta(\sigma)}{\sigma(D)}\right|
++ \le\frac1{\sqrt c}.
++\]
++\end{proposition}
++\begin{proof}
++Use the center of $\mathcal C$ itself, with modular matrix normalized
++by $D$. Each character $\rho$ indexes a distinct twist-one induction
++constituent $A_\rho$ of dimension $D/f_\rho$. In particular
++$f_\rho\in K$. The field $K$ is abelian by cyclotomicity.
++Let $B_\sigma$ correspond to the $\sigma$-conjugate of the dimension
++character. The ordinary version of the simultaneous-column identity is
++\[
++ S_{B_\sigma,A_\rho}=\frac1{\sigma(f_\rho)}.
++\]
++These $d$ labels are distinct and have twist one. Their rows are the
++Galois conjugates of the vacuum row, with positive vacuum entries
++$1/\sigma(D)$; consequently the diagonal Galois matrices permute
++them without signs. If $N$ is the twist order of the center, inflate
++$\eta$ along $\operatorname{Gal}(\mathbb Q(\zeta_N)/\mathbb Q)\to G$.
++The vector
++\[
++ v=d^{-1/2}\sum_{\sigma\in G}\eta(\sigma)e_{B_\sigma}
++\]
++is a unit vector fixed by $T$ and has diagonal character $\eta$ or its
++inverse. At $A_\rho$, its $S$-transform has squared absolute value
++$|\widehat y_\rho(\eta)|^2/d$. Summing these twist-one coordinates and
++applying Lemma~\ref{lem:hecke-projection} proves the first inequality.
++The $d$ characters in the dimension orbit have Fourier coefficients
++of the same absolute value, which proves the second.
++\end{proof}
+ 
+ 
+ % ===== small_degree_descent.tex =====
+@@ -1473,7 +1539,8 @@
+ Schopieray's classification gives $m\in\{0,4\}$ for
+ $G=C_2^2$ \cite[Theorem~1.1]{SchNG}. Meng and Yu give
+ $m\in\{0,3,4\}$ for $G=C_4$ \cite[Theorem~1.1]{MengYu}.
+-These statements apply to complex fusion categorifications.
++We apply these results to the positive spherical Galois conjugate
++already supplied by Theorem~A; no new pivotality assumption is needed.
+ All five rings have the unitary realizations in
+ Table~\ref{tab:models-five}. Finally, the noninvertible dimension
+ satisfies $x^2=4+mx$, and $D=4+x^2$ is largest at
+@@ -2219,7 +2286,7 @@
+ its row and formal codegree are
+ \[
+  (1,u,v,(k+\sqrt{-h})/2,(k-\sqrt{-h})/2),\qquad
+- h=2+2u^2+2v^2+k^2,
++ f_\chi=h=2+2u^2+2v^2+k^2,
+ \]
+ where $u,v,k$ are integers and $h\equiv0,3\pmod 4$.
+ For any real character with coordinates $(1,y,z,x,x)$ one has
+@@ -2349,6 +2416,15 @@
+ one. Thus $B$ is normal, hence a single discrete valuation ring since
+ it is local. Its residue field is $\mathbb F_\ell$. This extends the
+ local argument of \cite[Lemma~8.5]{Rank4}.
++
++The same socle argument applies to a local fiber product
++$O\times_{\mathbb F_\ell}B$ with a perfect associative pairing,
++where $O$ is any discrete valuation ring finite over $\mathbb Z_\ell$
++with residue field $\mathbb F_\ell$. If $B$ were nonnormal, the
++same classes $(\ell,0)$ and $(0,\ell y)$ would contradict the
++one-dimensional socle modulo $\ell$. Thus $B$ must again be a
++valuation ring with residue field $\mathbb F_\ell$. We use this
++version when $O$ is a ramified quadratic integer ring.
+ \end{proof}
+ 
+ \begin{lemma}\label{lem:small-complement}
+@@ -2435,12 +2511,16 @@
+  L_{m\ell^b}^i(V^{\ell^{n-b}})
+                          \pmod{\ell^{n-2b+1}}.             \tag{*}
+ \]
+-Here the two traces are powers $\ell^n$ and $\ell^{n-b}$ of the
+-same rotation. Its eigenvalues are $m\ell^n$-th roots of unity;
+-their multiplicities are constant on Galois orbits over
+-$\mathbb Q(\zeta_N)$ because all power traces lie in that field.
+-These are the rotation, grouping and cyclotomicity identities of
+-\cite[Lemmas~2.5 and 2.7, Propositions~2.8 and 5.7]{NS}.
++To make the grouping explicit, put $M=m\ell^n$ and let
++$R_n=E^{(M,1)}_{(i,i^*),V}$ be the one-step rotation. By
++\cite[Lemma~2.5 and Proposition~2.8(ii)]{NS}, the two sides of (*)
++are respectively $\operatorname{Tr}(R_n^{\ell^n})$ and
++$\operatorname{Tr}(R_n^{\ell^{n-b}})$.
++The insertion has twist one, so $R_n^M=1$
++\cite[Lemma~2.7]{NS}. Its eigenvalues are therefore $M$-th roots
++of unity. All power traces lie in $\mathbb Q(\zeta_N)$
++\cite[Proposition~5.7]{NS}, so their multiplicities are constant
++on Galois orbits over that field.
+ The two powers agree on the prime-to-$\ell$ components and on the
+ components of order at most $\ell^{n-b}$. On a component of order
+ $\ell^t$ with $t>n-b$, the units congruent to one modulo $\ell^b$
+@@ -2554,7 +2634,8 @@
+  d_i=(a_i+b_i\sqrt c)/2,\qquad D=(A+B\sqrt c)/2,\qquad N=DD'.
+ \]
+ All four $b_i$ are nonzero. From conjugacy, orthogonality and the
+-definition of $D$,
++definition of $D$, with all sums in the following display taken over
++the four nonunit simples,
+ \[
+  A=c\sum b_i^2=4+\sum a_i^2,\qquad B=\sum a_i b_i>0,\qquad
+  D\ge A/2\ge2c,\qquad N\mid A^2 .
+@@ -2582,7 +2663,7 @@
+ They are integers at least three: a rational row of norm two forces
+ an invertible, and a conjugate pair of codegree two exhausts the
+ reciprocal mass. Put $s=v=\operatorname{Tr}(1/D)$.
+-The dimension-block bound gives $s-2/D\le1/\sqrt c$.
++Proposition~\ref{prop:ordinary-fourier} gives $s-2/D\le1/\sqrt c$.
+ The following arguments treat a rational codegree as a number, allowing it to be shared by Galois conjugate characters. A formal codegree three or four repeated on a quadratic pair is excluded
+ by the difference-of-rows argument in Lemma~\ref{lem:small-complement};
+ this uses only the size of the rows. Two rational rows of codegree four
+@@ -3270,17 +3351,9 @@
+ \end{proposition}
+ \begin{proof}
+ Set $p_\sigma=1/\sigma(D)$, $s=1-1/r-1/t$, and let $\eta$ be a nontrivial
+-cubic character cutting out $K$. Apply the upper-unipotent projection
+-bound of Lemma~\ref{lem:hecke-projection} directly to the anomaly-free
+-modular representation of $Z(\mathcal C)$. The three induction
+-constituents $B_\sigma$ from the dimension orbit have twist one, with
+-modular rows $S_{B_\sigma,W}=\sigma(\dim W/D)$. Thus the diagonal
+-torus permutes their rows without signs. The normalized
+-$\eta$-weighted sum of their basis vectors has conductor $F$.
+-Its $S$-transform, restricted to these three twist-one basis vectors,
+-has squared norm $|\sum_\sigma\eta(\sigma)p_\sigma|^2$ by the
+-central character formula. Hence this Fourier coefficient has modulus
+-at most $F^{-1/2}$, and cubic Fourier inversion gives
++cubic character cutting out $K$. Proposition~\ref{prop:ordinary-fourier}
++gives $|\sum_\sigma\eta(\sigma)p_\sigma|\le F^{-1/2}$.
++Cubic Fourier inversion therefore gives
+ \[
+                      3/D\ge s-2/\sqrt F .
+ \]
+@@ -3489,7 +3562,8 @@
+ 
+ % ===== cubic_four_depth.tex =====
+ \begin{proposition}\label{prop:cubic-four-depth}
+-In the perfect cubic case with complementary codegrees $4,t$ and $t$ even, one has $v_2(t)=4$. If $Z$ is the simple where the codegree-four row vanishes, then $d_Z\equiv \tau_Z\pmod{8O}$ and $\tau_Z\equiv2\pmod4$, where $O$ is the ring of integers of the cubic completion and $\tau$ is the row of codegree $t$.
++Suppose the perfect cubic category has conductor $F\in\{7,9\}$ and
++complementary codegrees $4,t$ with $t$ even. Then $v_2(t)=4$. If $Z$ is the simple where the codegree-four row vanishes, then $d_Z\equiv \tau_Z\pmod{8O}$ and $\tau_Z\equiv2\pmod4$, where $O$ is the ring of integers of the cubic completion and $\tau$ is the row of codegree $t$.
+ \end{proposition}
+ \begin{proof}
+ Write $b=v_2(t)>2$ by Theorem~\ref{thm:cubic-at-two}, and denote the codegree-four row by $\rho$. The two rational branches and the inert cubic branch lie in one local factor. Indeed the separate rational idempotents have nonintegral unit coefficients, and the cubic idempotent has coefficient $1-1/4-1/t$ of valuation $-b$. The cubic image has residue field $\mathbb F_2$, so $d_i,\rho_i,\tau_i$ have common residues modulo two. There are four odd entries in $\tau$, in the support of $\rho$. Since $8\mid t$, their squares show $\tau_Z\equiv2\pmod4$.
+@@ -3702,7 +3776,7 @@
+ 
+ Codegree one is impossible by the mass equation. At $f=2$ the rational character has a single nonzero nonunit entry $\pm1$, forcing an invertible by orthogonality. At three the inertia is tame and its order divides two. Thus $v_3(N)$ and $v_3(\Delta)$ are both even, the latter by the tame discriminant formula. Equation~\eqref{eq:quartic-norm-index} excludes $f=3$. Hence $s\ge3/4$. Also $f\equiv1\bmod8$ is impossible. The four nonunit integer entries of the rational row have square sum $f-1$ and cannot all be even by orthogonality with the dimension row. Four squares with sum divisible by eight have all four entries even.
+ 
+-Put $S=\sum_i c_i^{-1/2}$. The dimension-block Fourier bound \cite{SchopierayBlock} and inversion at $p$ give $s-4p\le S$. Pairwise application of the same bound gives
++Put $S=\sum_i c_i^{-1/2}$. Proposition~\ref{prop:ordinary-fourier} and Fourier inversion at $p$ give $s-4p\le S$. Pairwise application of the same bound gives
+ \[
+  p_g\ge a_g-p,\qquad a_g=(s-b_g)/2\quad(g\ne1).
+ \]
+@@ -4527,10 +4601,12 @@
+ dimension $z=v\cdot d$, the verifier also requires $D/z$ to be an
+ algebraic integer and $z$ to be a $d$-number. Indeed $(D/z)^2$ is a
+ modular formal codegree, and $D$ is itself a $d$-number.
+-The second indicator is $+1$ whenever $X_i$ occurs with odd
+-multiplicity in some $X_j\otimes X_j^*$: the latter has its canonical
+-symmetric self-duality, so a summand of indicator $-1$ must occur
+-evenly. The central trace identities
++For a non-self-dual simple $X_i$, one has $\nu_2(X_i)=0$.
++For a self-dual simple $X_i$, the second indicator is $+1$ whenever
++$X_i$ occurs with odd multiplicity in some $X_j\otimes X_j^*$:
++the latter has its canonical symmetric self-duality, so a self-dual
++summand of indicator $-1$ must occur evenly. In the other self-dual
++cases both signs are retained by the verifier. The central trace identities
+ \[
+  \sum_Y v_{Y,i}\dim(Y)\theta_Y^j=D\nu_j(X_i)
+ \]
+@@ -4588,7 +4664,8 @@
+ T.~Gannon and A.~Schopieray,
+ \emph{Algebraic number fields generated by dimensions in fusion rings},
+ Commun. Number Theory Phys. \textbf{18} (2024), 705--743.
+-\href{https://doi.org/10.4310/CNTP.241202233757}{doi:10.4310/CNTP.241202233757}.
++\href{https://doi.org/10.4310/CNTP.241202233757}{doi:10.4310/CNTP.241202233757};
++\href{https://arxiv.org/abs/1912.12260}{arXiv:1912.12260}.
+ 
+ \bibitem{HR} S.-M. Hong and E. C. Rowell,
+ \emph{On the classification of the Grothendieck rings of non-self-dual modular categories},
+@@ -4640,7 +4717,7 @@
+ 
+ \bibitem{Rank5Bounded} \emph{Rank-five Grothendieck rings through multiplicity twenty}, research manuscript with computational certificates, 17 October 2026, main theorem and model table. \href{https://github.com/sebastienpalcoux/grothendieck-ring-classification/tree/d35cb684d2f27cca18f89ab24c769af756c16160/manuscripts/rank5}{Manuscript and data}.
+ 
+-\bibitem{SchNG} A. Schopieray, \emph{Categorification of integral group rings extended by one dimension}, J. Lond. Math. Soc. (2) \textbf{108} (2023). \href{https://doi.org/10.1112/jlms.12789}{doi:10.1112/jlms.12789}.
++\bibitem{SchNG} A. Schopieray, \emph{Categorification of integral group rings extended by one dimension}, J. Lond. Math. Soc. (2) \textbf{108} (2023), no.~4, 1617--1641. \href{https://doi.org/10.1112/jlms.12789}{doi:10.1112/jlms.12789}.
+ 
+ \bibitem{SchFixed} A. Schopieray, \emph{Fixed-point-free fusion automorphisms}, \href{https://arxiv.org/abs/2306.01666}{arXiv:2306.01666}.
+ 

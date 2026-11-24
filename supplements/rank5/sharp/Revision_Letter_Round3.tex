@@ -1,0 +1,312 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,microtype}
+\usepackage[a4paper,margin=25mm]{geometry}
+\usepackage{amsmath,amssymb,booktabs,array,tabularx}
+\usepackage[dvipsnames]{xcolor}
+\usepackage[colorlinks=true,linkcolor=MidnightBlue,urlcolor=MidnightBlue]{hyperref}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small Rank-five fusion categories}
+\fancyhead[R]{\small Third revision round}
+\fancyfoot[C]{\thepage}
+\setlength{\headheight}{14pt}
+\setlength{\emergencystretch}{2em}
+\setlength{\parskip}{3pt}
+\newcommand{\FPdim}{\operatorname{FPdim}}
+\newcommand{\Tr}{\operatorname{Tr}}
+\hypersetup{pdftitle={Rank-five classification: third revision round},pdfauthor={}}
+\title{Rank-five classification\\[4pt]\large Further audit and revision letter\\Third revision round}
+\author{}
+\date{24 November 2026}
+\begin{document}
+\maketitle
+
+\section{Outcome and exact baseline}
+
+This letter records all changes relative to the previously delivered
+\path{Rank5_General_Sharp_Revised_Round2.zip}. The manuscript, its
+computational proofs, and the previous repairs were reviewed again.
+Two substantive defects were found and repaired:
+\begin{enumerate}
+\item The last conductor-five exclusion assumed that certain third
+Frobenius--Schur indicators were real. This omitted possible
+half-integer real parts. The corrected argument covers 600 indicator
+tuples instead of 180. The existing six separating forms exclude all
+600, closing the gap.
+\item A subring-certificate checker accepted negative basis indices.
+A concrete malformed certificate could therefore falsely exclude the
+realized ring $\operatorname{Rep}(D_{14})$, where $D_{14}$ has order
+fourteen. Strict index validation and a regression check repair this
+defect. Neither of the two stored subring certificates was malformed.
+\end{enumerate}
+There is also one punctuation correction and a new independent check
+of the exact dimension cutoff. The complete source and package changes
+are listed below and in \path{revision_round3.patch}.
+
+The corrected argument retains every principal conclusion: every
+complex rank-five fusion category has a pseudo-unitary Galois conjugate
+and admits a spherical structure, with
+\[
+\mu\le4,\qquad \FPdim(\mathcal C)\le48+24\sqrt3.
+\]
+There are exactly seventeen based rings, each with a unitary realization.
+The 269-ring generation, 114-ring bounded census, 97 exclusions, and
+17 model identifications are unchanged. The earlier reports remain
+historical records; their acceptance of the former third-indicator
+range is superseded by the correction in this letter.
+
+\section{R3-M01: third indicators and the final conductor-five exclusion}
+
+\textbf{Location:} Proposition 11.10, Section 11.5, the last
+conductor-five case; source label \path{prop:sharp-exchange}.
+The corresponding program is \path{checks/verify_exchange.py}.
+
+\paragraph{The mistake.}
+The previous proof asserted that duality pairs complex conjugate
+higher indicators, and used this to regard
+$\nu_3(X)+\nu_3(Y)$ and $\nu_3(Z)$ as real traces. In a spherical
+category the relevant duality identity is instead
+\[
+                         \nu_n(V^*)=\nu_n(V).
+\]
+This follows by specializing Ng--Schauenburg,
+\href{https://arxiv.org/pdf/0806.2493v3}{arXiv:0806.2493v3},
+Proposition 3.3, to the unit central object. It does not force reality.
+For a concrete illustration that higher indicators can be nonreal,
+Ng--Schopieray--Wang,
+\href{https://arxiv.org/pdf/1812.11234v2}{arXiv:1812.11234v2},
+Example 4.6, records the regular third indicator
+$3(5+4\zeta_3^2)$ for a semisimple Hopf algebra of dimension 27.
+
+\paragraph{The complete real-part range.}
+If a rotation of order dividing three acts on an $H$-dimensional
+space and its eigenvalue-one multiplicity is $r$, then
+\[
+ \operatorname{Re}\Tr(T)
+ =r-\frac{H-r}{2}=\frac{3r-H}{2},\qquad r=0,\ldots,H.
+\]
+In the case at issue,
+$[X^3:1]+[Y^3:1]=s=4$ and $[Z^3:1]=e=19$.
+The first equality holds whether $X,Y$ are self-dual or form a dual
+pair: $X^2=Y^2$, and duality permutes $X,Y$.
+Consequently the proof now uses
+\[
+\begin{gathered}
+ a=\operatorname{Re}(\nu_3(X)+\nu_3(Y)),\qquad
+ b=\operatorname{Re}\nu_3(Z),\\
+ a\in\left\{\frac{3r-4}{2}:r=0,\ldots,4\right\},\qquad
+ b\in\left\{\frac{3r-19}{2}:r=0,\ldots,19\right\}.
+\end{gathered}
+\]
+There are five choices for $a$ and twenty for $b$. Together with
+the six second-indicator choices, this gives $6\cdot5\cdot20=600$
+tuples. The previous three and ten choices covered only 180;
+\textbf{420 previously untested combinations are now included}.
+
+\paragraph{Why the averaged moment argument still applies.}
+The revised proof explicitly writes
+\[
+ m_j=\operatorname{Re}M_j,\qquad
+ M_j=\sum_W\left(\frac{\dim W}{D}\right)^2\theta_W^j.
+\]
+The signed modular Galois permutation gives
+$\sigma_k(M_j)=M_{j/k}$, hence
+$\sigma_k(m_j)=m_{j/k}$, for $k$ coprime to the twist exponent.
+The moments used belong to $K=\mathbb Q(\sqrt5)$: the first two
+already lie in $K$, and
+\[
+                         m_3=p(1+ax+bz)\in K
+\]
+because real parts of cubic rotation traces are rational.
+Averaging $\operatorname{Re}(\theta^j)$ over the two quadratic
+Galois cosets therefore integrates to $m_j$ and $m_j'$;
+inversion preserves each coset. This does not require $M_3$ itself
+to be real.
+
+\paragraph{Exact computational repair.}
+The program now constructs both full ranges with rational fractions
+and checks that there are 6 targets at $f=20$ and 600 at $f=5$.
+All ten and twenty-five root columns, respectively, are still checked.
+The same two and six integral separating forms remain nonnegative
+on every root column and have the required signs on the mass-bound
+coordinates. For every target, at least one of the relevant forms
+has a strictly negative value.
+No separator coefficient or twist-mass bound changed.
+
+The earlier third-indicator congruence in Section 11 is unaffected:
+there the temporary assumption $3\nmid N$ forces the indicators
+into $\mathbb Q(\zeta_3)\cap\mathbb Q(\zeta_N)=\mathbb Q$.
+The third-indicator arguments in Sections 15 and 16 use absolute
+values or real parts and do not make the erroneous reality inference.
+
+\section{R3-C01: invalid subring indices could create a false exclusion}
+
+\textbf{Location:} \path{final_census/criteria/decisions.py},
+function \texttt{check\_subring}.
+
+The old checker required distinct entries in a subset, but did not
+first verify that every entry was a valid basis index. In a rank-five
+Python list, index $-4$ refers to the same entry as index $1$.
+For the realized ring $\operatorname{Rep}(D_{14})$, the old code
+accepted the certificate
+\begin{verbatim}
+{"kind": "subring", "subset": [0, 1, -4],
+ "quotient_polynomial": ["1", "-14/3"]}
+\end{verbatim}
+The unit and nonidentity invertible have indices zero and one. The
+malformed list counted the nonidentity invertible twice, assigned
+the fictitious subring dimension three, and accepted the
+nonintegrality of $14/3$ as an exclusion. Distinctness of the raw
+indices did not detect their aliasing.
+
+Before any tensor or character indexing, the checker now requires
+\[
+ \operatorname{type}(i)=\texttt{int},\qquad
+                         0\le i<\operatorname{rank}(R)
+\]
+for every listed index. The existing distinctness, unit, size,
+duality-closure, multiplication-closure, and quotient-polynomial
+checks remain in place. The repaired checker rejects the concrete
+certificate above.
+
+The optional program \path{final_census/verify_additional_audits.py}
+now constructs this realized model and requires rejection of that
+exact certificate. Both stored subring certificates contain valid
+indices and still verify; the mathematical subcategory-divisibility
+criterion and its two actual exclusions are unchanged.
+
+\section{R3-V01: independent comparison at the sharp dimension cutoff}
+
+The optional additional audit now also checks the dimension decision
+on all 269 generated rings. For each Casimir characteristic polynomial,
+it isolates the largest root by exact rational intervals and compares
+it with $M=48+24\sqrt3$. The endpoint's minimal polynomial is
+\[
+                         t^2-96t+576.
+\]
+Polynomial divisibility detects equality when the largest-root
+interval contains $M$; otherwise rational interval refinement
+separates the root from $M$. This calculation does not use the
+shifted-coefficient criterion to make its own decision. It then
+compares the two answers.
+
+All 269 decisions agree: 114 rings satisfy the bound, and three of
+the generated rings lie exactly at the endpoint. The latter count
+concerns generated fusion rings before the categorification tests;
+it does not assert three categorified dimension maximizers.
+The original generator, dimension-test implementation, and threshold
+are unchanged. The added audit compiles temporary binaries, uses
+source paths relative to its own file, and has explicit
+exception-based coverage checks.
+
+\section{Verification and mathematical review}
+
+All three commands passed after the applicable edits:
+\begin{verbatim}
+python3 verify.py
+python3 final_census/verify_independent_census.py
+python3 final_census/verify_additional_audits.py
+\end{verbatim}
+The ordinary run passed all eighteen structural checks, including
+the enlarged 600-tuple exclusion, and reproduced the census:
+\begin{center}
+\begin{tabular}{rrrrr}
+\toprule
+$\mu$&Generated&Within both bounds&Excluded&Realized\\\midrule
+1&16&16&6&10\\
+2&37&30&27&3\\
+3&82&46&44&2\\
+4&134&22&20&2\\\midrule
+Total&269&114&97&17\\\bottomrule
+\end{tabular}
+\end{center}
+The exclusions are still 76 $d$-number failures, two subcategory
+divisibility failures, three central-dimension norm failures, two
+dimension-field failures, ten induction/second-moment failures,
+and four higher-indicator certificates. All seventeen model
+identifications pass.
+
+The independent census replay again gives 220 self-dual rings,
+47 rings with one nontrivial dual pair, and two with two dual pairs.
+The independent Pieri construction agrees with the
+$\operatorname{Ad}(\mathrm{SU}(3)_4)$ model.
+The additional audit also passes its previous checks:
+\begin{itemize}
+\item the quadratic minimum $5/18$ and contradiction margin $509/16200$;
+\item 864 exact cyclotomic moments and 19 joint trace vectors;
+\item 14 induction/indicator certificate rings and 11 residual Gram matrices;
+\item all three quartic generator enclosures and every reported upper endpoint.
+\end{itemize}
+
+The review reread all seventeen sections. The mathematical checks
+included the sphericalization and common-field reductions, simultaneous
+columns, Hecke/Fourier bounds, all quadratic/quartic/quintic descent
+ranges, the invertible-action cases, $S_3$ untwisting, Morita induction,
+conductor-eight saturation, the small-generator graph, quintic
+maximal-order argument, local socles and indicator limits, twist-support
+applications, cubic/quartic depth arguments, and the endpoint
+equivariantization. Primary sources were checked where needed.
+
+The new dimension comparison shares the existing ring generator;
+the previous alternative census shares its linear-completion routine
+and basis parametrization. The trace, Gram, and enclosure checks
+share stated field data, root intervals, or individual column
+construction. These limitations are now reflected in both READMEs.
+No further confirmed error was found. This audit does not claim to
+reprove every cited theorem or to give a formal proof-assistant
+certification.
+
+\section{Complete remaining change ledger}
+
+\begin{enumerate}
+\item \textbf{R3-M02, punctuation.} In Proposition 11.1, removed
+the stray comma between ``the nontrivial quadratic character'' and
+``gives''. There is no mathematical change in that sentence.
+\item \textbf{Manuscript source and PDF.} The source contains R3-M01
+and R3-M02, and the PDF was rebuilt. The title, empty author fields,
+theorem numbering, principal bounds, and seventeen-ring list are retained.
+\item \textbf{Code.} The only edited code files are
+\path{checks/verify_exchange.py},
+\path{final_census/criteria/decisions.py}, and
+\path{final_census/verify_additional_audits.py}, with precisely the
+range, validation, regression, and cutoff-audit changes described above.
+The last file's imports, module description, and main routine were
+updated for its two added checks.
+\item \textbf{Documentation.} The root README identifies the current
+letter, patch, and transcript, preserves the status of earlier reports,
+documents the 600-tuple repair, and describes the new optional checks.
+The census README explains the corrected index validation and the
+independent dimension comparison, and updates the file-role and
+transcript references. Both state the shared dependencies.
+\item \textbf{Recorded outputs.} \path{verification.txt} is the new
+ordinary run; its changed endpoint line records 600 targets.
+\path{additional_verification_round3.txt} is new and contains the
+actual outputs of the two optional commands with command labels.
+The preceding independent and second-round transcripts are preserved.
+\item \textbf{New letter and exact diff.} This letter is new in
+\path{Revision_Letter_Round3.tex} and
+\path{Revision_Letter_Round3.pdf}.
+\path{revision_round3.patch} is new and records every edit to an
+existing text file, apart from the regenerated checksum manifest.
+The three earlier report pairs and both earlier patches are preserved.
+\item \textbf{Final package.} \path{SHA256SUMS.txt} was regenerated;
+every distributed checksum and the archive were checked. Temporary
+build files, compiled helpers, and Python caches are excluded. The
+final manuscript and letter were rendered and visually inspected.
+\end{enumerate}
+No stored witness JSON, model tensor, generator source, separator
+coefficient, or dependency requirement changed.
+
+For exact traceability, the preceding delivered ZIP has SHA-256
+\begin{center}\scriptsize\ttfamily
+0981d34ee027e572c1933df4cdcf978884e207b1c5977cd6fac675e9743e3054
+\end{center}
+and its \path{rank5.tex} has SHA-256
+\begin{center}\scriptsize\ttfamily
+3837538e5e63736a62bb13d3a63d5f1f032c472dd68a1d57058cc00e561047c2
+\end{center}
+Every change in this letter is measured against that exact revision.
+
+\end{document}
