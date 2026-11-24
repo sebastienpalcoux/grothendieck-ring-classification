@@ -311,6 +311,9 @@ front=frontier_document('README.md',front,ROOT)
 guide=frontier_document('docs/PROJECT_GUIDE.md',guide,ROOT)
 from ranks_2_4_edition import revise_document as edition_document
 front=edition_document('README.md',front,ROOT)
+from rank5_edition import revise_document as rank5_edition_document
+front=rank5_edition_document('README.md',front,ROOT)
+guide=rank5_edition_document('docs/PROJECT_GUIDE.md',guide,ROOT)
 outputs = {args.output: front,
            args.output.parent / 'docs/PROJECT_GUIDE.md': guide}
 for target, content in outputs.items():

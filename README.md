@@ -1,19 +1,25 @@
 # Grothendieck ring classification
 
-## Revised series: ranks 2, 3 and 4
+## Revised series: ranks 2, 3, 4 and 5
 
-**19 November 2026 · Grothendieck rings of complex fusion categories.**
-Three independently readable papers classify the based rings without assuming a pivotal structure and prove sphericality in each rank.
+**24 November 2026 · Grothendieck rings of complex fusion categories.**
+Four independently readable papers classify the based rings without assuming a pivotal structure and prove sphericality in each rank.
 
 | Rank | Paper | Source | Pages | Proof |
 |---:|---|---|---:|---|
 | 2 | [PDF](manuscripts/rank2.pdf) | [TeX](manuscripts/rank2.tex) | 3 | Computer-free; 2 based rings |
 | 3 | [PDF](manuscripts/rank3.pdf) | [TeX](manuscripts/rank3.tex) | 10 | Computer-free; 5 based rings |
 | 4 | [PDF](manuscripts/rank4.pdf) | [TeX](manuscripts/rank4.tex) | 50 | Computer-assisted spherical descent; 15 based rings |
+| 5 | [PDF](manuscripts/rank5.pdf) | [TeX](manuscripts/rank5.tex) | 72 | Sphericality and Galois pseudo-unitarity; 17 based rings |
 
-[Submission sources and revision letter](manuscripts/hexagon/README.md) ·
+[Series submission sources and revision letters](manuscripts/hexagon/README.md) ·
 [Rank-four proof and exact replay](manuscripts/rank4/README.md).
 The rank-four paper proves sphericality before applying Dong–Palcoux–Plessis's pivotal classification. Its compact [verification package](supplements/rank4/sphericality/README.md) regenerates the 1,692-ring ordinary census and eliminates every remaining nonspherical candidate by local signed descent. Earlier rank-four computations remain available as historical evidence.
+
+The rank-five paper proves the sharp bounds **μ ≤ 4** and
+**FPdim ≤ 48 + 24√3** and gives a unitary realization of every listed ring.
+[Rank-five reading guide](manuscripts/rank5/README.md) ·
+[Exact structural and classification replay](supplements/rank5/sharp/README.md).
 
 <!-- current-frontier -->
 **Current classification · 29 October 2026.** R8_3_1768 is excluded over the complex numbers by pivotal conjugation parity, using the established existence and center-domain reductions. **Six cases remain unresolved:** two at rank six, three at rank eight and one at rank nine. The latest restrictions exclude three R928 center patterns and the positive TY sign for R137. For R928, the surviving positive spherical center must have rank 40 and split as Sem⁻ ⊠ B, with B of rank 20 (or the conjugate orientation); [Anyon Atlas B20-02148](https://anyonatlas.org/data/B20-02148) supplies candidate modular data for B, whose full-data uniqueness is unproved. No additional model is claimed. [Current proofs and exact checks](https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/evidence/frontier/README.md).
@@ -32,15 +38,15 @@ The rank-four paper proves sphericality before applying Dong–Palcoux–Plessis
 
 ## Classification at a glance
 
-Ranks **2–4 have unrestricted classification claims**, with exactly **15 rank-four rings**.
-Higher ranks have the explicit multiplicity bounds below.
+Ranks **2–5 have unrestricted classification claims**, including **15 rank-four rings** and **17 rank-five rings**.
+Higher ranks retain the explicit census ranges below.
 
 | Rank | Full census | General classification | Current conclusion |
 |---:|---:|---:|---|
 | 2 | Symbolic, all multiplicities | **Unrestricted theorem** | Exactly the rings `n = 0, 1` are realized. |
 | 3 | Through 1,000 | **Unrestricted theorem** | Five realized rings: four at multiplicity 1 and one at 2; see the standalone sphericality and ring-classification proof. |
 | 4 | Through 128 | **Unrestricted theorem** | Exactly 15 realized rings; every categorification is spherical; multiplicity at most 6. |
-| 5 | Through 20 | **Complete through 20** | Through 20: 40,982 excluded, 17 realized, 0 unresolved. |
+| 5 | Through 20 (historical census) | **Unrestricted theorem** | Exactly 17 rings, each with a unitary realization; sphericality and Galois pseudo-unitarity; sharp bounds μ ≤ 4 and FPdim ≤ 48 + 24√3. |
 | 6 | Through 9 | **Complete through 3** | Through 9: 25,362 excluded, 57 realized, 2 unresolved. |
 | 7 | Through 5 | **Complete through 5** | Through 5: 9,976 excluded, 30 realized, 0 unresolved. |
 | 8 | Through 3 | **Complete through 2**; multiplicity 3 partial | Through 3: 4,404 excluded, 93 realized, 3 unresolved. |
@@ -75,11 +81,14 @@ general categorification remains open; a dash marks an unanalyzed band.
 <a id="read-the-mathematics"></a>
 <a id="structure"></a>
 
+The [earlier rank-five census through multiplicity twenty](supplements/rank5/README.md) is preserved separately: 40,999 inputs, 40,982 exclusions and 17 models.
+
 ## Read, inspect, reproduce
 
 | Resource | Start here |
 |---|---|
 | **Rank-four theorem** | [Unrestricted classification and reading guide](manuscripts/rank4/README.md) |
+| **Rank-five theorem** | [Unrestricted classification and reading guide](manuscripts/rank5/README.md) · [Exact replay](supplements/rank5/sharp/README.md) |
 | Mathematics | [Manuscripts by rank](manuscripts/README.md) · [Current open tensors](data/current_remaining_cases.py) · [Current frontier report · PDF](manuscripts/frontier/Fusion_Ring_Frontier.pdf) |
 | Data | [Current decision records](data/current_publication_revision.json) · [All fusion rings and enumeration](https://github.com/sebastienpalcoux/fusion-ring-census) |
 | Computation | [Rank-nine M2 replay](evidence/rank9_m2_20261024/README.md) · [Rank-11 replay](evidence/rank11_m1_20261023/README.md) · [Earlier replay instructions](docs/VERIFY.md) · [Provenance](docs/PROVENANCE.md) |

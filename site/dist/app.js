@@ -8,13 +8,13 @@ const paperEntries = [
   {rank:2, title:"Grothendieck rings of complex fusion categories: rank 2", subtitle:"Self-contained, unrestricted classification", type:"MANUSCRIPT", slug:"rank2", sourcePath:"manuscripts/rank2.tex", sourceRef:"main"},
   {rank:3, title:"Grothendieck rings of complex fusion categories: rank 3", subtitle:"Direct five-ring classification and sphericality", type:"MANUSCRIPT", slug:"rank3", sourcePath:"manuscripts/rank3.tex", sourceRef:"main"},
   {rank:4, title:"Grothendieck rings of complex fusion categories: rank 4", subtitle:"Unrestricted classification · 15 rings · automatic sphericality", type:"CLASSIFICATION", slug:"rank4", sourcePath:"manuscripts/rank4.tex", sourceRef:"main"},
-  {rank:5, title:"Rank-five Grothendieck rings through multiplicity twenty", subtitle:"Complete general classification through m = 20", type:"CLASSIFICATION", slug:"rank5"},
+  {rank:5, title:"Grothendieck rings of complex fusion categories: rank 5", subtitle:"Unrestricted classification · 17 rings · sphericality and Galois pseudo-unitarity", type:"CLASSIFICATION", slug:"rank5", sourcePath:"manuscripts/rank5.tex", sourceRef:"main"},
   {rank:6, title:"Rank-six fusion rings: categorification criteria and models through multiplicity nine", subtitle:"Categorification through multiplicity nine", type:"CLASSIFICATION", slug:"rank6"},
 ];
 function paperSourcePath(rank,extension="pdf") {
   const cataloguePaper=state.data?.catalogue_papers?.find(p=>p.ranks.includes(rank));
   if (cataloguePaper) return cataloguePaper.sourcePath.replace(/\.tex$/,`.${extension}`);
-  if (rank<=4) return `manuscripts/rank${rank}.${extension}`;
+  if (rank<=5) return `manuscripts/rank${rank}.${extension}`;
   if (rank===7) return `manuscripts/rank7/papers/manuscript.${extension}`;
   if (rank===8) return `manuscripts/rank8/paper/rank8.${extension}`;
   return `manuscripts/rank${rank}/papers/${rank===4?"companion":"manuscript"}.${extension}`;
@@ -350,17 +350,20 @@ function renderScope() {
   grid.replaceChildren();
   for (const record of state.data.scope) {
     const card=element("article","scope-card");
+    const unrestricted=record.kind==="unrestricted" || record.through===null;
     card.append(element("div","scope-index",`RANK ${record.rank} / COMPLEX`));
     card.append(element("div","scope-rank",`r = ${record.rank}`));
-    card.append(element("div","scope-limit",record.through===null?"UNRESTRICTED RANK":record.through>0?`COMPLETE THROUGH m ≤ ${record.through}`:"NO COMPLETE INITIAL BAND"));
+    card.append(element("div","scope-limit",unrestricted?"UNRESTRICTED RANK":record.through>0?`COMPLETE THROUGH m ≤ ${record.through}`:"NO COMPLETE INITIAL BAND"));
     let summary;
-    if (record.rings!==null && record.positive!==null)
+    if (!unrestricted && record.rings!==null && record.positive!==null)
       summary=`${record.unresolved?"≥ ":""}${fmt.format(record.positive)} realized among ${fmt.format(record.rings)} analyzed fusion rings through m ≤ ${record.analyzed_through}. ${record.unresolved?`${fmt.format(record.unresolved)} unresolved.`:""}`;
     else summary=`${fmt.format(record.positive)} realized Grothendieck rings. ${record.note||"Unrestricted classification."}`;
     const description=element("p","scope-description",summary);
     if (record.unresolved) linkUnresolvedText(description,`${fmt.format(record.unresolved)} unresolved`,{rank:record.rank,max_m:record.analyzed_through});
     card.append(description);
-    if (record.rings!==null && record.note) card.append(element("p","scope-extra",record.note));
+    if (unrestricted && record.rings!==null && record.analyzed_through!==null)
+      card.append(element("p","scope-extra",`Historical census through m ≤ ${record.analyzed_through}: ${fmt.format(record.rings)} fusion rings. The unrestricted theorem has no imposed multiplicity cutoff.`));
+    else if (!unrestricted && record.rings!==null && record.note) card.append(element("p","scope-extra",record.note));
     grid.append(card);
   }
 }
@@ -492,7 +495,7 @@ function renderPapers() {
     manuscript.dataset.localPaper=paper.slug;
     if (paper.sourcePath) manuscript.dataset.readingSource=paper.sourcePath.replace(/\.tex$/, ".pdf");
     manuscript.dataset.readingRef=paper.sourceRef || state.data.classification_commit || "main";
-    const source=element("a","","Source & checks ↗");
+    const source=element("a","",paper.rank===5?"Current LaTeX source ↗":"Source & checks ↗");
     source.href=`${state.data.classification_repository}/blob/${paper.sourceRef || state.data.classification_commit || "main"}/${paper.sourcePath || paperSourcePath(paper.rank,"tex")}`;
     source.target="_blank";source.rel="noopener";
     actions.append(manuscript);
@@ -510,8 +513,21 @@ function renderPapers() {
       pivotal.target="_blank";pivotal.rel="noopener";
       actions.append(pivotal);
     }
+    if (paper.rank===5) {
+      const reading=element("a","","Reading guide ↗");
+      reading.href=`${state.data.classification_repository}/blob/main/manuscripts/rank5/README.md`;
+      const checks=element("a","","Sharp classification replay ↗");
+      checks.href=`${state.data.classification_repository}/blob/main/supplements/rank5/sharp/README.md`;
+      const archive=element("a","","Paper, sources & exact replay · ZIP ↓");
+      archive.href=`${state.data.classification_repository}/raw/refs/heads/main/manuscripts/hexagon/rank5-publication-package.zip`;
+      archive.download="";
+      const historical=element("a","","Historical census paper ↗");
+      historical.href=`${state.data.classification_repository}/blob/main/manuscripts/rank5/papers/manuscript.pdf`;
+      for (const link of [reading,checks,historical]) {link.target="_blank";link.rel="noopener";}
+      actions.append(reading,checks,archive,historical);
+    }
     if (paper.rank===5 || paper.rank===6) {
-      const guide=element("a","","Verification guide ↗");
+      const guide=element("a","",paper.rank===5?"Historical verification guide ↗":"Verification guide ↗");
       guide.href=`./papers/rank${paper.rank}_guide.pdf`;
       actions.append(guide);
     }

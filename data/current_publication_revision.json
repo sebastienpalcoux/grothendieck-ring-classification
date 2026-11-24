@@ -2230,6 +2230,26 @@
     "manuscripts/rank4.pdf": {
       "sha256": "e08364df5db6ff6e5ac0efd67a65908b3eacface7defabdac02002782ed486d4",
       "bytes": 739118
+    },
+    "manuscripts/hexagon/hexagon-rank-5-source.zip": {
+      "bytes": 95659,
+      "sha256": "e9d86a85d6fba153537ab73cbd4a386301c3c69d7fcf8bb1f0004a23a48feea8"
+    },
+    "manuscripts/hexagon/rank5-publication-letter.pdf": {
+      "bytes": 244237,
+      "sha256": "cba6cc73ccd455921b46f80fde132f9903d90830b48a14c05276140ccfd98902"
+    },
+    "manuscripts/hexagon/rank5-publication-letter.tex": {
+      "bytes": 8137,
+      "sha256": "668ef45b871c1b54d066d5bd61387a07845a2b91be91e0f1f1baa94825e5e815"
+    },
+    "manuscripts/rank5.pdf": {
+      "bytes": 866187,
+      "sha256": "8b380eba396292d9c8c06918f18644fb70d2a9db0d4e8dfdb99bc46aae81ba04"
+    },
+    "manuscripts/rank5.tex": {
+      "bytes": 281458,
+      "sha256": "2401f60813721435f0c362483fb6ed747ddb32171bc0761a161c9572e8d0dc53"
     }
   },
   "web_copies": {
@@ -2239,7 +2259,7 @@
     "papers/rank4_finite.pdf": "manuscripts/rank4/papers/finite.pdf",
     "papers/rank4_companion.pdf": "manuscripts/rank4/papers/companion.pdf",
     "papers/rank4_guide.pdf": "manuscripts/rank4/papers/verification_guide.pdf",
-    "papers/rank5.pdf": "manuscripts/rank5/papers/manuscript.pdf",
+    "papers/rank5.pdf": "manuscripts/rank5.pdf",
     "papers/rank5_guide.pdf": "manuscripts/rank5/papers/verification_guide.pdf",
     "papers/rank6.pdf": "manuscripts/rank6/papers/manuscript.pdf",
     "papers/rank6_guide.pdf": "manuscripts/rank6/papers/verification_guide.pdf",
@@ -2255,8 +2275,8 @@
   },
   "base_document_manifest": {
     "path": "data/current_document_revision.json",
-    "sha256": "272a5024110448e4dbc360d05c15929742684dc81e09c509d5a3c39e2e2b9fee",
-    "bytes": 91528,
+    "sha256": "5d427d565f0f260d272c73ee9c31baad16b68c8d903dc06ae562ed54d60e1f81",
+    "bytes": 92950,
     "scope": "Current lower-rank manuscript and website-copy identities."
   },
   "rank9_rank10_m1": {
@@ -2452,5 +2472,20 @@
       "manuscripts/rank4/papers/verification_guide.pdf"
     ],
     "historical_scope": "The named finite, companion and verification-guide artifacts and their proof archives retain their original bytes and frozen manifests."
+  },
+  "rank5_edition": {
+    "date": "2026-11-24",
+    "title": "Grothendieck rings of complex fusion categories: rank 5",
+    "manuscript": "manuscripts/rank5.pdf",
+    "source": "manuscripts/rank5.tex",
+    "verification": "supplements/rank5/sharp/",
+    "verification_commit": "b479c65c702c6a09a674df7c2f8468b1a48915d3",
+    "source_archive": "manuscripts/hexagon/hexagon-rank-5-source.zip",
+    "classification_scope": "unrestricted",
+    "models": 17,
+    "maximum_multiplicity": 4,
+    "dimension_bound": "48+24√3",
+    "hexagon_status": "prepared; not submitted",
+    "historical_manuscript": "manuscripts/rank5/papers/manuscript.pdf"
   }
 }

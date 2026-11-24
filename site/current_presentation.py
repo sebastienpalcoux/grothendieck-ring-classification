@@ -12,13 +12,23 @@ HERE = Path(__file__).resolve().parent
 PROOFS = "https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/evidence/frontier/README.md"
 
 
-def review_body():
+def review_body(inventory):
+    rank5_active = inventory.get("rank5_edition", {}).get("date") == "2026-11-24"
+    rank5_section = ""
+    if rank5_active:
+        papers = [row for row in inventory.get("documents", [])
+                  if row["path"] == "manuscripts/rank5.pdf"
+                  and row["kind"] == "mathematical_manuscript"]
+        if len(papers) != 1 or type(papers[0]["pages"]) is not int or papers[0]["pages"] < 1:
+            raise ValueError("Expected one current canonical rank-five page count")
+        rank5_section = f'''<section class="review-panel" id="rank-five"><h2>Rank five · unrestricted classification</h2><p>The current {papers[0]["pages"]}-page paper, <cite>Grothendieck rings of complex fusion categories: rank 5</cite>, proves that every complex fusion category of rank five has a pseudo-unitary Galois conjugate and admits a spherical structure. Exactly seventeen based rings occur, each with a unitary realization. The sharp bounds are <strong>μ ≤ 4</strong> and <strong>FPdim ≤ 48 + 24√3</strong>.</p><p>The exact replay checks eighteen structural calculations and the bounded census: 269 rings, 114 within both sharp bounds, 97 exclusions and seventeen model identifications. The categorical reductions are proved in the paper. The earlier multiplicity-twenty census remains historical evidence: 40,999 rings, 40,982 exclusions and seventeen models.</p><p><a href="./papers/rank5.pdf">Current paper · PDF</a> · <a href="https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/manuscripts/rank5.tex">LaTeX source ↗</a> · <a href="https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/manuscripts/rank5/README.md">Reading guide ↗</a> · <a href="https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/supplements/rank5/sharp/README.md">Exact replay ↗</a> · <a href="https://github.com/sebastienpalcoux/grothendieck-ring-classification/raw/refs/heads/main/manuscripts/hexagon/rank5-publication-package.zip" download>Paper, sources and replay · ZIP</a></p></section>'''
     body = '''
     <nav class="review-nav" aria-label="Research navigation"><a href="./">← Ring atlas</a><a href="./unresolved.html">Open cases</a><a href="./#papers">Manuscripts</a><a href="./constructions.html">New constructions</a><a href="./theory.html">Theory &amp; definitions</a></nav>
     <p class="review-meta">Research status · 29 October 2026</p>
     <h1>Research status<br><em>&amp; verification</em></h1>
     <p class="lead">One current account of the classification, its remaining questions, and what the available checks establish.</p>
     <aside class="review-panel" aria-labelledby="caution-heading"><h2 id="caution-heading">AI-generated research · verification pending</h2><p>The proofs and computations have not yet received independent human verification or Lean formalization. Exact checks establish their stated computational scope; they do not replace the categorical arguments.</p></aside>
+    RANK5_EDITION
     <section class="review-panel" id="current-frontier"><h2>Current classification · 6 open questions</h2><p><strong>R8_3_1768 is excluded from complex fusion categorification.</strong> A pivotal conjugation-pairing lemma forces even multiplicities that contradict its complete necessary indicator system. The proof uses the established sphericalization/Galois existence reduction. Six exact separation certificates have been replayed.</p><p>The remaining cases are <strong>R6_4_155, R6_8_1660, R8_3_928, R8_3_941, R8_3_1154 and R9_2_137</strong>. Their strengthened restrictions supply neither another general exclusion nor a new model.</p><p><a href="./unresolved.html">Explore the six open cases →</a> · <a href="./papers/frontier.pdf">Current proofs and research report · PDF</a> · <a href="PROOFS">Proof notes and exact commands ↗</a> · <a href="./downloads/Fusion-Ring-Frontier-Proofs-and-Checks.zip" download>Proofs and checks · ZIP</a></p></section>
     <div class="review-panel" id="review-outcome"><h2>Classification counts and scope</h2><p>Rank eight through multiplicity three has <strong>4,404 general exclusions, 93 unitary models and 3 unresolved cases</strong>. Exact multiplicity three contributes 3,508 exclusions, 16 unitary models and 3 unresolved.</p><p>Rank nine through multiplicity two has 2,148 general exclusions, 76 unitary models and one unresolved case. Exact multiplicity two contributes 2,046 exclusions, 36 models and one unresolved.</p><p>The full census remains <strong>1,434,042 rings</strong>, within its published rank and multiplicity bounds. Changing a categorification decision does not add or remove a census ring.</p><p><a href="./records.html">Full census and individual records →</a> · <a href="./#classification">Classification by rank →</a></p></div>
     <h2>The six remaining questions</h2>
@@ -39,7 +49,12 @@ def review_body():
     <h3>Read and reproduce</h3><p><a href="./#papers">Current manuscripts</a> · <a href="./data/current_publication_revision.json" download>Publication checksums</a> · <a href="./downloads/current_remaining_cases.py" download>All 6 open fusion tensors</a> · <a href="./downloads/Fusion-Ring-Frontier-Proofs-and-Checks.zip" download>Current proof archive</a></p>
     <p>If you find an error, a <a href="https://github.com/sebastienpalcoux/grothendieck-ring-classification/issues">repository issue</a> naming the ring, theorem and failing step will support a precise mathematical review.</p>
     <hr><nav class="review-nav" aria-label="Continue reading"><a href="./#papers">Read the manuscripts →</a><a href="./records.html">Explore case records →</a><a href="./unresolved.html">Open questions →</a></nav>
-    '''.replace("PROOFS", PROOFS)
+    '''.replace("PROOFS", PROOFS).replace("RANK5_EDITION", rank5_section)
+    if rank5_active:
+        body = body.replace("Research status · 29 October 2026", "Research status · 24 November 2026")
+        body = body.replace(
+            "Ranks two through four have unrestricted classification claims. Higher ranks retain the explicit multiplicity bounds",
+            "Ranks two through five have unrestricted classification claims. Higher ranks retain the explicit census bounds")
     for rid in REMAINING:
         marker="FINDING_"+rid
         if body.count(marker)!=1:raise ValueError("Missing current case paragraph: "+rid)
@@ -51,22 +66,26 @@ def review_body():
 def apply(site=HERE):
     site = Path(site)
     dist = site / "dist"
+    inventory=json.loads((dist/'downloads/current_manuscript_page_counts.json').read_text())
     path = dist / "review.html"
     html = path.read_text()
     html, n = re.subn(r'(<main id="review"[^>]*>).*?(</main>)',
-                      lambda m: m[1] + review_body() + m[2], html, flags=re.S)
+                      lambda m: m[1] + review_body(inventory) + m[2], html, flags=re.S)
     if n != 1:
         raise ValueError("Expected one research-status main region")
     path.write_text(html)
     path = dist / "index.html"
     html = path.read_text()
-    inventory=json.loads((dist/'downloads/current_manuscript_page_counts.json').read_text())
     totals=inventory['totals']
     counts=inventory['document_counts']
     page_summary=(f"{counts['mathematical_manuscripts']} mathematical manuscripts: {totals['mathematical_manuscript']} pages; "
                   f"with {counts['verification_guides']} verification guides: {totals['mathematical_manuscripts_and_guides']}; "
                   f"with the current research-status report: {totals['all_distinct_documents']}. Each distinct current document is counted once. ")
     html=re.sub(r'(<p class="scope-note" id="current-manuscript-page-summary">).*?(<a href=)',lambda m:m[1]+page_summary+m[2],html,flags=re.S)
+    if inventory.get("rank5_edition", {}).get("date") == "2026-11-24":
+        html=html.replace(
+            "unrestricted in fusion multiplicity for ranks 2–4, with explicit bounds in higher ranks.",
+            "unrestricted in fusion multiplicity for ranks 2–5, with explicit census bounds in higher ranks.")
 
     html = re.sub(r'<p class="scope-note" id="(?:frontier-update|correctness-update)">.*?</p>\s*', '', html, flags=re.S)
     notice = '<p class="scope-note" id="frontier-update"><strong>Current frontier: six unresolved rings.</strong> Three R928 center patterns and the positive TY branch for R137 are excluded. R928’s surviving positive spherical center must have rank 40: Sem⁻ ⊠ B, with B of rank 20 (or the conjugate orientation). Anyon Atlas B20-02148 supplies candidate data for B; full-data uniqueness is unproved. <a href="./review.html#rank-eight-m3">Center decomposition and remaining questions →</a></p>'

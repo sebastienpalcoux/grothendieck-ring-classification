@@ -214,11 +214,24 @@ def document_paths(repo):
     roots = [repo / 'manuscripts']
     roots += [repo / 'supplements' / ('rank' + str(rank)) / folder
               for rank in range(2, 9) for folder in ('papers', 'paper')]
-    return {path.relative_to(repo).as_posix()
+    paths = {path.relative_to(repo).as_posix()
             for root in roots for path in root.rglob('*')
             if path.is_file() and path.suffix in ('.tex', '.pdf')
             and path.relative_to(repo).as_posix() not in excluded
             and not path.name.startswith('prepublication-review-')} | {'docs/New_category_candidates_and_open_cases.pdf'}
+    # This edition binds its source ZIP alongside the new paper and letter.
+    # Other archives and historical document discovery retain their old scope.
+    from rank5_edition import active as rank5_active
+    if rank5_active(repo) and (repo / DOCUMENT_REVISION).is_file():
+        edition = json.loads((repo / DOCUMENT_REVISION).read_text()).get('rank5_edition', {})
+        archive = 'manuscripts/hexagon/hexagon-rank-5-source.zip'
+        if (edition.get('date') == '2026-11-24'
+                and edition.get('manuscript') == 'manuscripts/rank5.pdf'
+                and edition.get('source') == 'manuscripts/rank5.tex'
+                and edition.get('source_archive') == archive
+                and edition.get('classification_scope') == 'unrestricted'):
+            paths.add(archive)
+    return paths
 
 def validate_documents(repo, check_web=False):
     repo = Path(repo)

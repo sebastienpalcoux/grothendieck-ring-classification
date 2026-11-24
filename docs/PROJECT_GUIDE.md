@@ -6,11 +6,28 @@
 
 ## Read the project
 
+- [Current ranks 2–5 series](../manuscripts/README.md) gives four unrestricted classifications without an initial pivotality assumption.
+- [Rank-five paper](../manuscripts/rank5.pdf), [reading guide](../manuscripts/rank5/README.md) and [exact replay](../supplements/rank5/sharp/README.md) provide the current rank-five route.
 - [Public Atlas](https://sebastienpalcoux.github.io/grothendieck-ring-classification/) presents the current classification and case records.
 - [Manuscripts](../manuscripts/README.md) gives one current paper per rank or stated band.
 - [Theory and definitions](https://sebastienpalcoux.github.io/grothendieck-ring-classification/theory.html) introduces fusion rings, fusion categories and the structural filters.
 - [Current research frontier](RESEARCH_STATUS.md) states exactly what remains open.
 - [Verification](VERIFY.md) provides reproducible commands and their limits.
+
+## Rank-five classification (24 November 2026)
+
+The current series gives unrestricted classifications at ranks 2–5, without
+assuming a pivotal structure. At rank five, every complex fusion category
+has a pseudo-unitary Galois conjugate and admits a spherical structure.
+Exactly seventeen based rings occur, each with a unitary realization; the
+sharp bounds are μ ≤ 4 and FPdim ≤ 48 + 24√3.
+
+Start with the [rank-five reading guide](../manuscripts/rank5/README.md),
+[canonical paper](../manuscripts/rank5.pdf) and
+[exact replay](../supplements/rank5/sharp/README.md).
+The [earlier census through multiplicity twenty](../supplements/rank5/README.md)
+remains separate historical evidence: 40,999 inputs, 40,982 exclusions and
+17 models. Its original counts and records are preserved.
 
 ## Two complementary repositories
 

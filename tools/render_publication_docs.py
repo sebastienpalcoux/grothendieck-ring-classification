@@ -857,6 +857,8 @@ def main():
     files={name:frontier_document(name,content,args.repo)for name,content in files.items()}
     from ranks_2_4_edition import revise_document as edition_document
     files={name:edition_document(name,content,args.repo)for name,content in files.items()}
+    from rank5_edition import revise_document as rank5_edition_document
+    files={name:rank5_edition_document(name,content,args.repo)for name,content in files.items()}
     for name,content in files.items():
         target=(args.output_dir or args.repo)/name
         if args.check:

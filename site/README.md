@@ -8,6 +8,17 @@
 
 ## Browse the mathematics
 
+The current series classifies complex fusion-category rings without a
+pivotality assumption at ranks **2–5**. The rank-five paper proves
+sphericality and Galois pseudo-unitarity, identifies **17 based rings**, and
+gives the sharp bounds **μ ≤ 4** and **FPdim ≤ 48 + 24√3**.
+[Current paper](../manuscripts/rank5.pdf) · [Reading guide](../manuscripts/rank5/README.md) ·
+[Exact replay](../supplements/rank5/sharp/README.md) ·
+[Portable publication package](../manuscripts/hexagon/rank5-publication-package.zip).
+The [earlier rank-five census](../supplements/rank5/README.md) remains
+historical evidence through multiplicity twenty; its 40,999 inputs and
+40,982 exclusions are unchanged.
+
 All ranks through twelve use the same [record directory](https://sebastienpalcoux.github.io/grothendieck-ring-classification/records.html), model catalogue, manuscript shelf and [open-case list](https://sebastienpalcoux.github.io/grothendieck-ring-classification/unresolved.html). Choose the full census or detailed profiles. Records are ordered by rank, exact multiplicity and identifier; the directory shows 24 per page and loads tensors only on request.
 
 The shared selectors cover integral, weakly integral, simple, perfect, pointed, commutative, self-dual and multiplicity-free rings. Their flags cover the entire census and are derived from exact tensors. The [theory page](dist/theory.html) states definitions and mainstream references. Aggregate count tables retain their full recorded populations. Missing detailed documentation never means unresolved categorification.

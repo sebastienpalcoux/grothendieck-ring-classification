@@ -26,10 +26,17 @@ certificate. Classification decisions are separate from census completeness.
 | 2 | Symbolic, all multiplicities | Two realized rings, both at multiplicity one. |
 | 3 | Export through 1,000 | Unrestricted five-ring theorem. |
 | 4 | Unrestricted | Exactly 15 models; every categorification is spherical; multiplicity at most 6. |
-| 5 | Through 20 | Complete: 17 models and 40,982 exclusions. |
+| 5 | Through 20 (historical census) | Unrestricted: 17 based rings, each with a unitary realization; sphericality and Galois pseudo-unitarity. Sharp bounds μ ≤ 4 and FPdim ≤ 48 + 24√3. |
 | 6 | Through 9 | Complete through 3 and exact bands 1, 2, 3, 5, 6, 7, 9; two open cases. |
 | 7 | Through 5 | Through multiplicity 5: 9,976 exclusions, 30 models and 0 unresolved; complete through 5. |
 | 8 | Through 2 | Complete: 77 models and 896 exclusions. |
+
+The current [rank-five paper](../manuscripts/rank5.pdf) and
+[sharp replay](../supplements/rank5/sharp/README.md) use eighteen structural
+checks and a 269-ring census, reduced by the sharp dimension bound to
+114 rings: 97 exclusions and seventeen models. The multiplicity-twenty
+ledger below remains a separate historical computation with 40,999 inputs
+and 40,982 exclusions; its hashes and source identities are unchanged.
 
 The [historical 38-case continuation](../docs/RESEARCH_STATUS.md) records **36 decisions among 38 cases**: 29 proposed general exclusions and 7 unitary constructions. Within that historical 38-case study, two questions remain open: `R6_4_155` and `R6_8_1660`. The historical residual program before the rank-eight M3 extensions records 140 decisions (120 exclusions and 20 constructions), all subject to independent mathematical verification.
 

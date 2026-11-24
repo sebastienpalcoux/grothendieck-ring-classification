@@ -17,7 +17,7 @@ package.
 | Rank | Entry point | Classification scope |
 |---:|---|---|
 | 4 | [Current guide](rank4/README.md) · [sphericality replay](rank4/sphericality/README.md) · [earlier replay](rank4/unrestricted/README.md) | Unrestricted classification via spherical descent and the pivotal theorem; local descent leaves zero nonspherical candidates. Earlier finite censuses are preserved. |
-| 5 | [Guide](rank5/README.md) · [complete public replay](../docs/VERIFY.md#complete-rank-four-and-rank-five-checks) | 40,999 inputs; 40,982 exclusions and 17 models through 20. |
+| 5 | [Current reading guide](../manuscripts/rank5/README.md) · [sharp-bound replay](rank5/sharp/README.md) · [historical census and replay](rank5/README.md) | Unrestricted: 17 rings; sphericality and Galois pseudo-unitarity. Sharp bounds μ ≤ 4 and FPdim ≤ 48 + 24√3. The earlier census through 20 retains 40,999 inputs, 40,982 exclusions and 17 models. |
 | 6 | [Guide](rank6/README.md) · [combined full replay](../docs/VERIFY.md#complete-rank-six-route) | 25,421 inputs; 25,362 exclusions, 57 models and two open cases through 9. |
 | 7 | [Guide](rank7/README.md) | Through multiplicity 5: 9,976 exclusions, 30 models and 0 unresolved; complete through 5. |
 | 8 | [Guide](rank8/README.md) | Through multiplicity 3: 4,404 exclusions, 93 unitary models and 3 unresolved; complete through 2. |

@@ -2,6 +2,29 @@
 
 > **AI-generated research; independent human verification pending.** Exact checks establish only their stated computational scope.
 
+## Rank-five sharp classification (24 November 2026)
+
+The current rank-five paper proves sphericality and Galois pseudo-unitarity
+and classifies all seventeen based rings, without an initial pivotality
+assumption. From the repository root:
+
+```sh
+python3 -m pip install sympy==1.14.0 numpy==2.3.5
+cd supplements/rank5/sharp
+python3 verify.py
+```
+
+Use Python 3.12 and a C++17 `g++` compiler with OpenMP support. Run ordinary
+Python with assertions enabled, without `-O`. The replay checks eighteen
+structural calculations, regenerates 269 rings of multiplicity at most four,
+retains 114 within the sharp dimension bound, and verifies 97 exclusions
+and seventeen model identifications. The categorical reductions and finite
+search bounds are proved in the paper; matching model tensors does not
+replace the cited categorical constructions. See the
+[reading guide](../manuscripts/rank5/README.md),
+[paper](../manuscripts/rank5.pdf) and
+[exact replay and optional checks](../supplements/rank5/sharp/README.md).
+
 ## Revised ranks 2–4 series (19 November 2026)
 
 Ranks two and three have computer-free proofs. The rank-four paper has a compact local sphericality replay, followed mathematically by the cited pivotal classification. After cloning the repository:

@@ -41,9 +41,22 @@ def unchanged_projection(value):
     return value
 
 
-def verified_predecessor(repo):
-    """Return the old atlas hash only after checking the edition's exact scope."""
+def verified_predecessor(repo, *, current_paths=None):
+    """Check the edition against live files or a successor's exact snapshots.
+
+    A successor must authenticate its snapshots before supplying this mapping.
+    The old receipt, projection, bindings and rank-six alias checks are shared
+    unchanged, so archiving an edition does not discard its predecessor check.
+    """
     repo = Path(repo)
+    paths = {name: name for name in (
+        ATLAS, "data/current_document_revision.json",
+        "data/current_publication_revision.json", "data/manuscript_page_counts.json",
+    )}
+    if current_paths is not None:
+        if set(current_paths) != set(paths):
+            return None
+        paths = current_paths
     receipt = read(repo / RECEIPT)
     if receipt.get("schema") != "manuscript-edition-atlas/v1":
         return None
@@ -53,7 +66,7 @@ def verified_predecessor(repo):
     if receipt.get("prior_path") != prior_path:
         return None
     prior = repo / prior_path
-    current = repo / ATLAS
+    current = repo / paths[ATLAS]
     if digest(prior) != receipt["before_sha256"] or digest(current) != receipt["after_sha256"]:
         return None
     old, new = read(prior), read(current)
@@ -61,11 +74,11 @@ def verified_predecessor(repo):
     new_fixed = json.dumps(unchanged_projection(new), sort_keys=True, separators=(",", ":"), allow_nan=False)
     if old_fixed != new_fixed:
         return None
-    if (repo / "data/atlas.json").read_bytes() != current.read_bytes():
+    if current_paths is None and (repo / "data/atlas.json").read_bytes() != current.read_bytes():
         return None
-    lower = read(repo / "data/current_document_revision.json")
-    publication = read(repo / "data/current_publication_revision.json")
-    pages = read(repo / "data/manuscript_page_counts.json")
+    lower = read(repo / paths["data/current_document_revision.json"])
+    publication = read(repo / paths["data/current_publication_revision.json"])
+    pages = read(repo / paths["data/manuscript_page_counts.json"])
     edition = new.get("manuscript_edition")
     if not edition or edition.get("date") != receipt["date"]:
         return None
@@ -77,7 +90,7 @@ def verified_predecessor(repo):
         (new["reader_resources"]["files"]["manuscript_page_counts.json"]["sha256"],
          "data/manuscript_page_counts.json"),
     )
-    if any(value != digest(repo / path) for value, path in bindings):
+    if any(value != digest(repo / paths[path]) for value, path in bindings):
         return None
     if new["reader_resources"]["page_totals"] != pages["totals"]:
         return None

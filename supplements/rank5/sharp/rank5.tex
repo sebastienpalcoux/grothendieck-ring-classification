@@ -17,8 +17,8 @@
 \numberwithin{equation}{section}
 \setlength{\emergencystretch}{2em}
 \setcounter{tocdepth}{1}
-\hypersetup{pdftitle={Sphericality and Grothendieck rings of complex fusion categories of rank five},pdfauthor={},pdfsubject={Spherical descent, formal codegrees and central twists}}
-\title{Sphericality and Grothendieck rings of complex fusion categories of rank five}
+\hypersetup{pdftitle={Grothendieck rings of complex fusion categories: rank 5},pdfauthor={},pdfsubject={Spherical descent, formal codegrees and central twists}}
+\title{Grothendieck rings of complex fusion categories:\\ rank 5}
 \author{}\date{}
 \begin{document}
 \maketitle
@@ -35,6 +35,10 @@ pseudo-unitarity. We then bound the fusion rules by the action of the
 invertible objects and by the degree of the dimension field. Exact
 finite certificates complete the classification.
 \end{abstract}
+\begin{center}\begin{minipage}{0.88\linewidth}\small\itshape
+AI assisted with the research and preparation of this manuscript.
+Complete human verification is pending.
+\end{minipage}\end{center}
 
 {\small\tableofcontents}
 \clearpage
@@ -43,11 +47,13 @@ finite certificates complete the classification.
 A fusion category has rank five when it has five isomorphism classes of
 simple objects. Its Grothendieck ring records their tensor products,
 with the simple classes as its distinguished basis. Our classification
-is up to isomorphism preserving this basis.
+is up to isomorphism preserving this basis. We use the standard terminology
+for fusion categories, module categories and centers in
+\cite[Chapters~4, 7 and~8]{EGNO}.
 
 A pivotal structure is a monoidal natural isomorphism
 $\mathrm{Id}_{\mathcal C}\to(-)^{**}$; it is spherical when its left and
-right traces agree. Etingof, Nikshych and Ostrik conjectured the
+right traces agree \cite[Section~2]{BW}. Etingof, Nikshych and Ostrik conjectured the
 existence of a pivotal structure for every complex fusion category
 \cite[Conjecture~2.8]{ENO}. We prove a stronger conclusion in rank five.
 \begin{maintheorem}\label{thm:r5-galpu}
@@ -57,7 +63,7 @@ particular a pivotal structure.
 \end{maintheorem}
 Galois conjugation preserves the fusion rules and their
 Frobenius--Perron dimensions. A pseudo-unitary conjugate has its
-canonical positive spherical structure, which transports back to a
+canonical positive spherical structure \cite[Proposition~8.23]{ENO}, which transports back to a
 spherical structure on the original category.
 
 Write $G$ for the group of invertible simple objects and set
@@ -99,14 +105,37 @@ $|G|$ & $\mu$ & Realizations, one per based ring\\\midrule
 \label{tab:models-five}
 \end{table}
 
+\subsection*{Model conventions and sources}
+The notation $\mathrm{SU}(n)_k$ refers to the unitary quantum-group
+fusion category at $q=\exp(\pi i/(k+n))$: the construction and fusion
+rules come from semisimplified tilting modules
+\cite{AndersenParadowski}, and unitarity from \cite{Wenzl}.
+For $\mathrm{SU}(2)_k$, the adjoint subcategory has the even labels
+among $0,\ldots,k$. For $\mathrm{SU}(3)_4$, it has highest weights
+$(0,0),(3,0),(0,3),(2,2),(1,1)$.
 
+The Tambara--Yamagami models come from \cite{TambaraYamagami};
+their $C^*$ realizations are also explicit in
+\cite[Corollary~4]{EvansGannon}. The affine-group near-group model
+is the case $q=5$ of \cite[\S4.1]{Siehler}.
+The two additional multiplicity-one models are constructed in
+\cite[\S\S4.2 and~4.4]{LPR}; the multiplicity-four near-group
+models are given in \cite[Examples~9.5--9.6]{Izumi}.
+The pointed and finite-group representation models carry their
+standard unitary structures.
+
+The $C_3+6$ example was first recognized by Liu and Snyder in the
+zero-graded part of the $E_9$ quantum $\mathrm{SU}(3)$ subgroup
+\cite[\S10, Remark preceding Definition~10.1]{LiuYB};
+the concrete $C^*$ realization and symmetry used here are those of
+\cite[Theorem~10.19, Lemma~13.1 and Example~13.10]{Izumi}.
 
 \subsection*{The proof in three steps}
 \emph{Galois descent.}
 We compare the ordinary Grothendieck ring with the signed quotient of
 its sphericalization. Their dimension codegrees are $D$ and the
 intrinsic global dimension $E$. Central induction makes $E/D$ an
-algebraic integer and supplies integral classes with its conjugate
+algebraic integer \cite[Propositions~8.21--8.22]{ENO} and supplies integral classes with its conjugate
 values. A simultaneous-column identity and Fourier bounds show that
 some conjugate of $E$ equals $D$. This proves Theorem~A directly,
 including Galois pseudo-unitarity. The field degree is at most five;
@@ -135,17 +164,51 @@ are specified in the proofs. The source package contains the
 verification programs and certificates.
 
 \subsection*{Relation to earlier work}
-The low-rank foundations are Ostrik's rank-two and pivotal rank-three
-classifications \cite{Ostrik2,Ostrik3} and the recent rank-two, rank-three
-and rank-four manuscripts \cite{Rank2,Rank3,Rank4}. At rank five,
-previous classifications include modular categories \cite{HR,BNRW},
-multiplicity-one rings \cite{LPR}, integral rings \cite{ABDP} and graded
-cases \cite{WD}. The dimension-block estimate is due to Schopieray
+Ostrik classified fusion categories of rank two and pivotal fusion
+categories of rank three \cite{Ostrik2,Ostrik3}. Hagge and Hong showed
+that every pivotal fusion category of rank at most four admits a
+spherical structure \cite[Lemma~4]{HH}. In rank four, Larson reduced
+the non-self-dual pseudo-unitary case to seven candidate based rings
+\cite{Larson}; Edie-Michell, Izumi and Penneys classified
+$\mathbb Z/2\mathbb Z$-quadratic unitary fusion categories and completed
+the unitary case with a dual pair \cite{EIP}. Dong, Palcoux and Plessis
+classified the fifteen Grothendieck rings under the pivotal hypothesis
+\cite[Theorem~1.1]{DPP}. The preceding papers in the present series
+\cite{Rank2,Rank3,Rank4} treat ranks two through four over $\mathbb C$;
+in particular, the rank-four sphericality theorem removes the pivotal
+hypothesis from that ring classification.
+
+For categories with braiding, earlier milestones include Ostrik's
+premodular rank-three classification \cite{OstrikPremod3}, the unitary
+modular classification through rank four of Rowell, Stong and Wang
+\cite{RSW}, and Bruillard's rank-four premodular classification up to
+Grothendieck equivalence \cite{Bruillard4}. At rank five, Hong and
+Rowell treated the non-self-dual modular case \cite{HR}, and Bruillard,
+Ng, Rowell and Wang completed the modular classification \cite{BNRW}.
+Bruillard and Ortiz-Marrero classified pseudo-unitary premodular
+rank-five categories up to Grothendieck equivalence \cite{BO5}.
+Without a braiding assumption, prior results include multiplicity-one
+rings \cite{LPR}, integral rings \cite{ABDP}, and partial results for
+categories with nontrivial faithful grading \cite{WD}.
+
+The dimension-block estimate is due to Schopieray
 \cite{SchopierayBlock}. We derive the ordinary estimate and the
 ordinary/signed versions used here directly from a common modular
-projection bound. The bounded classification \cite{Rank5Bounded} supplies
-model data and finite certificates; the accompanying verifier
+projection bound. The bounded classification \cite{Rank5Bounded}
+supplies model data and finite certificates; the accompanying verifier
 regenerates the bounded ring list and checks the relevant certificates.
+
+\subsection*{Sources and reproducibility}
+The current \href{https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/manuscripts/rank5.tex}{LaTeX source},
+\href{https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/main/manuscripts/rank5/README.md}{reading guide},
+and \href{https://sebastienpalcoux.github.io/grothendieck-ring-classification/}{project website}
+are publicly available. The structural checks, exact census generator,
+certificates, model tensors and recorded outputs are preserved in the
+\href{https://github.com/sebastienpalcoux/grothendieck-ring-classification/tree/b479c65c702c6a09a674df7c2f8468b1a48915d3/supplements/rank5/sharp}{verification snapshot}
+at commit \texttt{b479c65c702c}. From that directory, run
+\texttt{python3 verify.py}; its README gives dependencies and optional
+independent checks. The finite verifier establishes the stated arithmetic
+and tensor computations; the categorical reductions are proved in the text.
 
 
 % ===== structure_r5.tex =====
@@ -153,7 +216,7 @@ regenerates the bounded ring list and checks the relevant certificates.
 
 Let $R=K_0(\mathcal C)$, and let $\mathcal S\to\mathcal C$ be the ENO
 sphericalization, with central sign object $\varepsilon$ of dimension $-1$
-\cite{ENO}. Put $T=K_0(\mathcal S)/(\varepsilon+1)$.
+\cite[Remark~3.1 and Proposition~5.14]{ENO}. Put $T=K_0(\mathcal S)/(\varepsilon+1)$.
 Choose one lift of each simple, compatibly with duality, including the unit.
 This is possible because the two lifts have nonzero opposite spherical
 dimensions, and duality preserves spherical dimension. The coefficient of the
@@ -217,7 +280,8 @@ the free abelian group on the complementary simple classes, since Frobenius
 reciprocity prevents a product of an inside and an outside simple from
 containing an inside constituent. At rank four there is a single outside
 simple $Y$. Each product $X Y=m_XY$ gives
-$\operatorname{FPdim}(X)=m_X\in\mathbb Z$ for $X$ in $\mathcal D$.
+$\operatorname{FPdim}(X)=m_X\in\mathbb Z$ for $X$ in $\mathcal D$;
+cf.\ \cite[Proposition~3.2]{DCW}.
 
 A unital field subalgebra of $R\otimes\mathbb Q$ must have degree dividing
 five by restriction of scalars. This excludes a Fibonacci subcategory in
@@ -265,11 +329,12 @@ Set
 \]
 Thus $E$ is the intrinsic global dimension of $\mathcal C$ and $2E$ is the
 global dimension of $\mathcal S$. The $x_i$ and their conjugates are real
-and nonzero. Write $f_\chi=\sum_i|\chi(b_i)|^2$ for a formal codegree of
-$R$ or $T$. In each ring $\sum_\chi 1/f_\chi=1$ by expansion of the
+and nonzero \cite[Corollary~2.10]{ENO}. Write $f_\chi=\sum_i|\chi(b_i)|^2$ for a formal codegree of
+$R$ or $T$, with the usual normalization for $R$
+\cite[Section~2.2]{OstrikCodegrees}. In each ring $\sum_\chi 1/f_\chi=1$ by expansion of the
 coefficient-of-unit trace. The complex algebra of $\mathcal S$ is the
 product of the two complex algebras, and its codegrees are twice those of
-the factors. All character values are cyclotomic \cite{ENO} and $L$ is
+the factors. All character values are cyclotomic \cite[Corollary~8.53]{ENO} and $L$ is
 totally real and abelian. We recall the central formulas that will be used
 with signs and at different embeddings.
 
@@ -281,7 +346,7 @@ Consequently $f_\chi\in L$, and $E/f_\chi$ is an algebraic integer.
 The full set of codegrees is Galois invariant. These assertions hold
 when $E$ is replaced by any of its conjugates. Each $f_\chi$ is a
 $d$-number, meaning that its principal ideal in the ring of all algebraic
-integers is Galois invariant \cite{OstrikCodegrees}. Indeed the theorem
+integers is Galois invariant \cite[Theorem~1.2]{OstrikCodegrees}. Indeed the theorem
 applies to $2f_\chi$, and division by a rational integer preserves
 invariance of fractional ideals.
 
@@ -297,7 +362,10 @@ structure back gives a spherical structure on $\mathcal C$.
 Thus the common goal of the following sections is to prove that a Galois
 conjugate of $E$ equals $D$.
 
-Let $S$ be the modular matrix of the center normalized by $2E$. For a
+By M\"uger's center theorem \cite[Theorem~1.2]{MugerCenter},
+$Z(\mathcal S)$ is modular, has dimension $(2E)^2$, and has
+both Gauss sums equal to $2E$. Let $S$ be its modular matrix
+normalized by $2E$. For a
 central simple $W$ the central-character formula gives
 \begin{equation}\label{eq:modchar}
  S_{A_\chi,W}=\frac{\chi(F(W))}{2f_\chi},\qquad
@@ -347,6 +415,8 @@ regular determinant is therefore $\operatorname{N}_{L/\mathbb Q}
 so $U_\sigma^{-1}\in T$.
 \end{proof}
 
+We use the universal grading of Gelaki and Nikshych
+\cite[Theorem~3.5 and Corollary~3.7]{GN}.
 \begin{proposition}\label{prop:field}
 If a rank-five category is not weakly integral, its universal grading is
 trivial, and both dimension-character fields equal $K=\mathbb Q(D)$.
@@ -1513,7 +1583,8 @@ $\operatorname{Rep}(\operatorname{AGL}(1,5))$, respectively.
 If the category is weakly integral, then $\mu\le3$ and $D\le60$. Both bounds are attained by integral categories.
 \end{proposition}
 \begin{proof}
-The integral case is Proposition~\ref{prop:integral-five}. Otherwise grade by the square classes of the simple Frobenius--Perron dimensions \cite{GannonSchopieray}. The neutral component is integral. The grading group is elementary abelian of order two or four, with all components of equal dimension. At order four the neutral rank is at most two. Neutral rank one forces integrality. At neutral rank two each of the three other components would consist of one simple of dimension $\sqrt2$, placing all three in the same square class. Thus the grading has order two. Its neutral category has rank at most four and integral dimension at most twelve \cite{ABDP}. Hence $D\le24$. Each simple belongs to a component of dimension at most twelve, so $d_i\le\sqrt{12}<4$. Apply Lemma~\ref{lem:mu-d}.
+The integral case is Proposition~\ref{prop:integral-five}. Otherwise use the square-class grading of Gelaki and Nikshych
+\cite[Theorem~3.10]{GN}. The neutral component is integral. The grading group is elementary abelian of order two or four, with all components of equal dimension. At order four the neutral rank is at most two. Neutral rank one forces integrality. At neutral rank two each of the three other components would consist of one simple of dimension $\sqrt2$, placing all three in the same square class. Thus the grading has order two. Its neutral category has rank at most four and integral dimension at most twelve \cite{ABDP}. Hence $D\le24$. Each simple belongs to a component of dimension at most twelve, so $d_i\le\sqrt{12}<4$. Apply Lemma~\ref{lem:mu-d}.
 \end{proof}
 
 
@@ -1609,7 +1680,7 @@ one. Then $B\subset I(1)$ has twist one and positive dimension $D/3$.
 For $g\ne1$, put mass $[I(g):V]\operatorname{FPdim}(V)$ at the
 twist of every simple $V$ of the center.
 Its total mass is $D$. Its first two moments vanish by the indicator trace
-formula because $\operatorname{Hom}(1,g^j)=0$ for $j=1,2$. Integrating
+formula \cite[Theorem~4.1]{NSExp}, because $\operatorname{Hom}(1,g^j)=0$ for $j=1,2$. Integrating
 $|1+z+z^2|^2$ bounds its mass at one by $D/3$.
 By central induction and adjunction,
 \[
@@ -1943,7 +2014,8 @@ the two with $h=-1$. They belong to $K$ and satisfy
  f_{2}=\frac2{1-2q},
 \]
 where $f_2$ is the codegree of the two-dimensional representation.
-After identifying the centers by Morita equivalence, induction satisfies
+After identifying the centers by Morita equivalence
+\cite{SchCenter}, induction satisfies
 \begin{equation}\label{eq:exchange-morita-pairings}
 \begin{aligned}
  [I_C(1),I_B(1)]&=4,&[I_C(1),I_B(h)]&=2,\\
@@ -2094,7 +2166,8 @@ $x^2=1+3cx+2uc$. Consequently
  D/D'=3D/10-1,
 \]
 where the second identity uses $1/D+1/D'=1/2-1/5$.
-Let $N$ be the Frobenius--Schur exponent. If $3\nmid N$, the automorphism
+Let $N$ be the Frobenius--Schur exponent, equal to the order of the
+center's twist \cite[Theorem~5.5]{NSExp}. If $3\nmid N$, the automorphism
 $\zeta_N\mapsto\zeta_N^{3^{-1}\bmod N}$ acts nontrivially on
 $\mathbb Q(\sqrt5)$, the conductor-five dimension field of the center:
 the center contains an induced summand of dimension $D/5$. By the
@@ -4536,7 +4609,7 @@ For the multiplicity endpoint use the unitary near-group
 realizations $C_4+4$ and $C_2^2+4$ \cite[Examples~9.5--9.6]{Izumi}.
 For the dimension endpoint, the following construction also verifies
 the tensor used in the model comparison. Take either of Izumi's unitary near-group
-categories of type $C_3+6$. In the notation of
+categories of type $C_3+6$ \cite[Theorem~10.19]{Izumi}. In the notation of
 \cite[Lemma~13.1 and Example~13.10]{Izumi}, the symmetry group contains
 \[
  (\theta,u)=\bigl(-1,R(\pi/4)L\bigr),\qquad L=\operatorname{diag}(1,-1).
@@ -4544,6 +4617,9 @@ categories of type $C_3+6$. In the notation of
 This is an involution: $\theta$ inverts $C_3$ and $u$ is a reflection.
 Its equivariantization is unitary, with simple objects $1,g,Z,X,Y$
 of dimensions $1,1,2,d,d$, where $d=3+2\sqrt3$.
+Here the orbit--stabilizer description of simples and the corresponding
+tensor-product formula are given in
+\cite[Corollary~2.13 and Theorem~3.9]{BurciuNatale}.
 The intertwiner $S_0\in\operatorname{Hom}(1,\rho^2)$ is fixed, so
 $X,Y$ are self-dual. On
 $\operatorname{Hom}(\rho,\rho^2)=\mathbb C[C_3]\otimes K_0$
@@ -4584,9 +4660,9 @@ exclude 97 tensors:
 Each of the seventeen other tensors is compared with its model tensor
 under all permutations of the four nonunit basis elements. The
 comparison gives an explicit based-ring isomorphism. The models are
-those of Table~\ref{tab:models-five}; their unitary realizations are
-provided by \cite{LPR,ABDP,SchNG,MengYu,Izumi,Wenzl}, with the endpoint
-construction above specifying the equivariantization. The command
+those of Table~\ref{tab:models-five}, with unitary realizations supplied
+by the constructions cited after that table; the endpoint construction
+above specifies the equivariantization. The command
 \texttt{python3 final\_census/verify.py} regenerates the enumeration,
 checks every exclusion and verifies all model identifications.
 This proves Theorem~B.
@@ -4595,14 +4671,15 @@ This proves Theorem~B.
 \subsection{Mathematical content of the finite certificates}
 We record the necessary conditions checked in the last step, so that
 its dependence on positive spherical dimensions is explicit.
-The $d$-number test is \cite{OstrikCodegrees}; subcategory divisibility
+The $d$-number test is \cite[Theorem~1.2 and Lemma~2.7]{OstrikCodegrees}; subcategory divisibility
 is \cite[Proposition~8.15]{ENO}. Central induction requires every
 codegree to lie in the simple-dimension field and every $D/f$ to be
 an algebraic integer. These give the first three tests.
 
 For the remaining tests let $C_R=\sum_i N_iN_i^{\mathsf t}$ and
 $d=(d_i)_i$. A central simple $Y$ has restriction column
-$v_Y=([F(Y):X_i])_i$, and induction--restriction gives
+$v_Y=([F(Y):X_i])_i$, and induction--restriction
+\cite[Proposition~5.4]{ENO} gives
 \[
  C_R=\sum_Y v_Yv_Y^{\mathsf t},\qquad \dim Y=v_Y\cdot d.
 \]
@@ -4638,6 +4715,7 @@ $X_i$ occurs with odd multiplicity in some $X_j\otimes X_j^*$:
 the latter has its canonical symmetric self-duality, so a self-dual
 summand of indicator $-1$ must occur evenly. In the other self-dual
 cases both signs are retained by the verifier. The central trace identities
+\cite[Theorem~4.1]{NSExp}
 \[
  \sum_Y v_{Y,i}\dim(Y)\theta_Y^j=D\nu_j(X_i)
 \]
@@ -4646,8 +4724,9 @@ Cauchy \cite[Theorem~3.9]{RankFinite} restricts the primes in the twist
 orders. For a fixed finite list of powers $j$, sufficiently high
 primary orders have zero averages; the finite orders and this zero
 case give all possible moment columns. For $j>1$ with $K\cap\mathbb Q(\zeta_j)=\mathbb Q$, let $H_{ij}=[X_i^{\otimes j}:1]$ and let $p(j)$ be
-the least prime divisor of $j$. Rotation on
-$\operatorname{Hom}(1,X_i^{\otimes j})$ gives the exact averaged bounds
+the least prime divisor of $j$. The pivotal rotation on
+$\operatorname{Hom}(1,X_i^{\otimes j})$ has order dividing $j$
+\cite[Theorem~5.1]{NSPiv}, and gives the exact averaged bounds
 $-H_{ij}/(p(j)-1)\le\operatorname{Av}\nu_j(X_i)\le H_{ij}$,
 by the Ramanujan averages of $j$-th roots of unity.
 Each stored integer separating form is nonnegative on every admissible
@@ -4667,11 +4746,35 @@ exactly. No floating-point feasibility decision is used.
 \href{https://doi.org/10.1007/s11005-026-02164-7}{doi:10.1007/s11005-026-02164-7};
 \href{https://arxiv.org/abs/2507.07023v2}{arXiv:2507.07023v2}.
 
-\bibitem{RankFinite} P. Bruillard, S.-H. Ng, E. C. Rowell and Z. Wang, \emph{Rank-finiteness for modular categories}, J. Amer. Math. Soc. \textbf{29} (2016), 857--881. \href{https://arxiv.org/abs/1310.7050}{arXiv:1310.7050}.
+\bibitem{AndersenParadowski}
+H.~H. Andersen and J. Paradowski,
+\emph{Fusion categories arising from semisimple Lie algebras},
+Comm. Math. Phys. \textbf{169} (1995), no.~3, 563--588.
+\href{https://doi.org/10.1007/BF02099312}{doi:10.1007/BF02099312}.
+
+\bibitem{BW} J. W. Barrett and B. W. Westbury,
+\emph{Spherical categories}, Adv. Math. \textbf{143}
+(1999), no.~2, 357--375.
+\href{https://doi.org/10.1006/aima.1998.1800}{doi:10.1006/aima.1998.1800};
+\href{https://arxiv.org/abs/hep-th/9310164}{arXiv:hep-th/9310164}.
+
+\bibitem{BO5} P. Bruillard and C. M. Ortiz-Marrero,
+\emph{Classification of rank 5 premodular categories},
+J. Math. Phys. \textbf{59} (2018), no.~1, article~011702.
+\href{https://doi.org/10.1063/1.5020256}{doi:10.1063/1.5020256};
+\href{https://arxiv.org/abs/1612.08769}{arXiv:1612.08769}.
+
+\bibitem{Bruillard4} P. Bruillard,
+\emph{Rank 4 premodular categories}, with an appendix written jointly with
+C. Galindo, S.-H. Ng, J. Plavnik, E. Rowell and Z. Wang,
+New York J. Math. \textbf{22} (2016), 775--800.
+\href{https://nyjm.albany.edu/j/2016/22-36.html}{Journal article}.
 
 \bibitem{BNRW} P. Bruillard, S.-H. Ng, E. C. Rowell and Z. Wang,
 \emph{On classification of modular categories by rank}, Int. Math. Res. Not. (2016), 7546--7588.
 \href{https://arxiv.org/abs/1507.05139}{arXiv:1507.05139}.
+
+\bibitem{RankFinite} P. Bruillard, S.-H. Ng, E. C. Rowell and Z. Wang, \emph{Rank-finiteness for modular categories}, J. Amer. Math. Soc. \textbf{29} (2016), 857--881. \href{https://arxiv.org/abs/1310.7050}{arXiv:1310.7050}.
 
 \bibitem{BV} A. Bruguières and A. Virelizier,
 \emph{On the center of fusion categories}, Pacific J. Math.
@@ -4679,17 +4782,55 @@ exactly. No floating-point feasibility decision is used.
 
 \bibitem{Dyadic} S. Burciu, J. Dong and S. Palcoux (contributors), \emph{Prime factors of fusion-category dimensions: weak group-theoreticity, rank and decomposition}, Section~3, \href{https://hexagonmath.org/2611.00233v3}{hexagon:2611.00233v3}.
 
+\bibitem{BurciuNatale}
+S. Burciu and S. Natale,
+\emph{Fusion rules of equivariantizations of fusion categories},
+J. Math. Phys. \textbf{54} (2013), no.~1, article~013511.
+\href{https://doi.org/10.1063/1.4774293}{doi:10.1063/1.4774293};
+\href{https://arxiv.org/abs/1206.6625v2}{arXiv:1206.6625v2}.
+The cited statements refer to the corrected 2019 arXiv version.
+
 \bibitem{DLN}
 C. Dong, X. Lin, and S.-H. Ng, \emph{Congruence property in conformal
 field theory}, Algebra Number Theory \textbf{9} (2015), no.~9, 2121--2166.
 \href{https://doi.org/10.2140/ant.2015.9.2121}{doi:10.2140/ant.2015.9.2121}.
 
+\bibitem{DCW} J. Dong, G. Chen and Z. Wang,
+\emph{Fusion categories containing a fusion subcategory with maximal rank},
+J. Algebra \textbf{604} (2022), 107--127.
+\href{https://doi.org/10.1016/j.jalgebra.2022.02.020}{doi:10.1016/j.jalgebra.2022.02.020};
+\href{https://arxiv.org/abs/2109.08787}{arXiv:2109.08787}.
+
+\bibitem{DPP} J. Dong, S. Palcoux and A. Plessis,
+\emph{Classifying Grothendieck rings of pivotal fusion categories of rank four},
+preprint (2026).
+\href{https://arxiv.org/abs/2609.33272v2}{arXiv:2609.33272v2}.
+
+\bibitem{EIP} C. Edie-Michell, M. Izumi and D. Penneys,
+\emph{Classification of $\mathbb Z/2\mathbb Z$-quadratic unitary fusion categories},
+with an appendix by R. Johnson, S.-H. Ng, D. Penneys, J. Roat,
+M. Titsworth and H. Tucker,
+Quantum Topol. \textbf{16} (2025), no.~3, 493--568.
+\href{https://doi.org/10.4171/QT/201}{doi:10.4171/QT/201}.
+
 \bibitem{EGO} P. Etingof, S. Gelaki and V. Ostrik, \emph{Classification of fusion categories of dimension $pq$}, Int. Math. Res. Not. (2004), 3041--3056. \href{https://arxiv.org/abs/math/0304194}{arXiv:math/0304194}.
+
+\bibitem{EGNO} P. Etingof, S. Gelaki, D. Nikshych and V. Ostrik,
+\emph{Tensor Categories}, Mathematical Surveys and Monographs
+\textbf{205}, American Mathematical Society, Providence, RI, 2015.
+\href{https://doi.org/10.1090/surv/205}{doi:10.1090/surv/205}.
 
 \bibitem{ENO}
 P. Etingof, D. Nikshych, and V. Ostrik, \emph{On fusion categories},
 Ann. of Math. (2) \textbf{162} (2005), no.~2, 581--642.
 \href{https://doi.org/10.4007/annals.2005.162.581}{doi:10.4007/annals.2005.162.581}.
+
+\bibitem{EvansGannon}
+D.~E. Evans and T. Gannon,
+\emph{Near-group fusion categories and their doubles},
+Adv. Math. \textbf{255} (2014), 586--640.
+\href{https://doi.org/10.1016/j.aim.2013.12.014}{doi:10.1016/j.aim.2013.12.014};
+\href{https://arxiv.org/abs/1208.1500}{arXiv:1208.1500}.
 
 \bibitem{GannonSchopieray}
 T.~Gannon and A.~Schopieray,
@@ -4697,6 +4838,18 @@ T.~Gannon and A.~Schopieray,
 Commun. Number Theory Phys. \textbf{18} (2024), 705--743.
 \href{https://doi.org/10.4310/CNTP.241202233757}{doi:10.4310/CNTP.241202233757};
 \href{https://arxiv.org/abs/1912.12260}{arXiv:1912.12260}.
+
+\bibitem{GN} S. Gelaki and D. Nikshych,
+\emph{Nilpotent fusion categories}, Adv. Math. \textbf{217}
+(2008), no.~3, 1053--1071.
+\href{https://doi.org/10.1016/j.aim.2007.08.001}{doi:10.1016/j.aim.2007.08.001};
+\href{https://arxiv.org/abs/math/0610726}{arXiv:math/0610726}.
+
+\bibitem{HH} T. J. Hagge and S.-M. Hong,
+\emph{Some non-braided fusion categories of rank three},
+Commun. Contemp. Math. \textbf{11} (2009), no.~4, 615--637.
+\href{https://doi.org/10.1142/S0219199709003521}{doi:10.1142/S0219199709003521};
+\href{https://arxiv.org/abs/0704.0208v2}{arXiv:0704.0208v2}.
 
 \bibitem{HR} S.-M. Hong and E. C. Rowell,
 \emph{On the classification of the Grothendieck rings of non-self-dual modular categories},
@@ -4707,6 +4860,17 @@ J. Algebra \textbf{324} (2010), 1000--1015.
 \emph{A Cuntz algebra approach to the classification of near-group categories},
 Proc. Centre Math. Appl. Austral. Nat. Univ. \textbf{46} (2017), 222--343.
 \href{https://arxiv.org/abs/1512.04288v2}{arXiv:1512.04288v2}.
+
+\bibitem{Larson} H. K. Larson,
+\emph{Pseudo-unitary non-self-dual fusion categories of rank 4},
+J. Algebra \textbf{415} (2014), 184--213.
+\href{https://doi.org/10.1016/j.jalgebra.2014.05.032}{doi:10.1016/j.jalgebra.2014.05.032};
+\href{https://arxiv.org/abs/1401.1879v2}{arXiv:1401.1879v2}.
+
+\bibitem{LiuYB}
+Z. Liu, \emph{Yang--Baxter relation planar algebras},
+\href{https://arxiv.org/abs/1507.06030v3}{arXiv:1507.06030v3}
+(2015; revised 2016).
 
 \bibitem{LPR}
 Z.~Liu, S.~Palcoux and Y.~Ren,
@@ -4719,6 +4883,27 @@ Lett. Math. Phys. \textbf{112} (2022), article~54.
 \emph{The multiplicity bound for near-group fusion categories of type
 $\mathbb Z/4\mathbb Z+k$},
 \href{https://arxiv.org/abs/2611.12191}{arXiv:2611.12191} (2026).
+
+\bibitem{MugerCenter} M. M\"uger,
+\emph{From subfactors to categories and topology II:
+The quantum double of tensor categories and subfactors},
+J. Pure Appl. Algebra \textbf{180} (2003), no.~1--2, 159--219.
+\href{https://doi.org/10.1016/S0022-4049(02)00248-7}{doi:10.1016/S0022-4049(02)00248-7};
+\href{https://arxiv.org/abs/math/0111205}{arXiv:math/0111205}.
+
+\bibitem{NSPiv} S.-H. Ng and P. Schauenburg,
+\emph{Higher Frobenius--Schur indicators for pivotal categories},
+in \emph{Hopf algebras and generalizations},
+Contemp. Math. \textbf{441}, Amer. Math. Soc., Providence, RI,
+2007, 63--90.
+\href{https://doi.org/10.1090/conm/441/08500}{doi:10.1090/conm/441/08500};
+\href{https://arxiv.org/abs/math/0503167}{arXiv:math/0503167}.
+
+\bibitem{NSExp} S.-H. Ng and P. Schauenburg,
+\emph{Frobenius--Schur indicators and exponents of spherical categories},
+Adv. Math. \textbf{211} (2007), no.~1, 34--71.
+\href{https://doi.org/10.1016/j.aim.2006.07.017}{doi:10.1016/j.aim.2006.07.017};
+\href{https://arxiv.org/abs/math/0601012}{arXiv:math/0601012}.
 
 \bibitem{NS} S.-H. Ng and P. Schauenburg, \emph{Congruence subgroups and generalized Frobenius--Schur indicators}, Comm. Math. Phys. \textbf{300} (2010), 1--46. \href{https://arxiv.org/abs/0806.2493}{arXiv:0806.2493}.
 
@@ -4733,6 +4918,12 @@ The theorem and equation numbers used here refer to this arXiv version.
 V. Ostrik, \emph{Fusion categories of rank 2}, with an appendix by P.~Etingof,
 Math. Res. Lett. \textbf{10} (2003), no.~2--3, 177--183.
 \href{https://arxiv.org/abs/math/0203255}{arXiv:math/0203255}.
+
+\bibitem{OstrikPremod3} V. Ostrik,
+\emph{Pre-modular categories of rank 3},
+Mosc. Math. J. \textbf{8} (2008), no.~1, 111--118.
+\href{https://doi.org/10.17323/1609-4514-2008-8-1-111-118}{doi:10.17323/1609-4514-2008-8-1-111-118};
+\href{https://arxiv.org/abs/math/0503564}{arXiv:math/0503564}.
 
 \bibitem{OstrikCodegrees}
 V. Ostrik, \emph{On formal codegrees of fusion categories},
@@ -4753,6 +4944,17 @@ no.~2, 373--396.
 
 \bibitem{Rank5Bounded} \emph{Rank-five Grothendieck rings through multiplicity twenty}, research manuscript with computational certificates, 17 October 2026, main theorem and model table. \href{https://github.com/sebastienpalcoux/grothendieck-ring-classification/tree/d35cb684d2f27cca18f89ab24c769af756c16160/manuscripts/rank5}{Manuscript and data}.
 
+\bibitem{RSW} E. Rowell, R. Stong and Z. Wang,
+\emph{On classification of modular tensor categories},
+Commun. Math. Phys. \textbf{292} (2009), no.~2, 343--389.
+\href{https://doi.org/10.1007/s00220-009-0908-z}{doi:10.1007/s00220-009-0908-z};
+\href{https://arxiv.org/abs/0712.1377}{arXiv:0712.1377}.
+
+\bibitem{SchCenter} P. Schauenburg,
+\emph{The monoidal center construction and bimodules},
+J. Pure Appl. Algebra \textbf{158} (2001), no.~2--3, 325--346.
+\href{https://doi.org/10.1016/S0022-4049(00)00040-2}{doi:10.1016/S0022-4049(00)00040-2}.
+
 \bibitem{SchNG} A. Schopieray, \emph{Categorification of integral group rings extended by one dimension}, J. Lond. Math. Soc. (2) \textbf{108} (2023), no.~4, 1617--1641. \href{https://doi.org/10.1112/jlms.12789}{doi:10.1112/jlms.12789}.
 
 \bibitem{SchFixed} A. Schopieray, \emph{Fixed-point-free fusion automorphisms}, \href{https://arxiv.org/abs/2306.01666}{arXiv:2306.01666}.
@@ -4761,17 +4963,29 @@ no.~2, 373--396.
 
 \bibitem{SWY} A. Schopieray, Y. Wang and Z. Yu, \emph{Stretched near-groups}, \href{https://arxiv.org/abs/2611.11240}{arXiv:2611.11240}.
 
+\bibitem{Siehler}
+J. Siehler, \emph{Near-group categories},
+Algebr. Geom. Topol. \textbf{3} (2003), 719--775.
+\href{https://doi.org/10.2140/agt.2003.3.719}{doi:10.2140/agt.2003.3.719};
+\href{https://arxiv.org/abs/math/0209073}{arXiv:math/0209073}.
+
+\bibitem{TambaraYamagami}
+D. Tambara and S. Yamagami,
+\emph{Tensor categories with fusion rules of self-duality for finite
+abelian groups}, J. Algebra \textbf{209} (1998), no.~2, 692--707.
+\href{https://doi.org/10.1006/jabr.1998.7558}{doi:10.1006/jabr.1998.7558}.
+
 \bibitem{WD} K. Wang and J. Dong,
 \emph{On the Grothendieck ring of fusion categories of rank 5}, Comm. Algebra
 \textbf{51} (2023), 4214--4222. \href{https://doi.org/10.1080/00927872.2023.2202777}{doi:10.1080/00927872.2023.2202777}.
+
+\bibitem{Was} L. C. Washington,
+\emph{Introduction to Cyclotomic Fields}, 2nd ed., Graduate Texts in Mathematics \textbf{83}, Springer, 1997.
 
 \bibitem{Wenzl} H. Wenzl,
 \emph{$C^*$ tensor categories from quantum groups},
 J. Amer. Math. Soc. \textbf{11} (1998), no.~2, 261--282.
 \href{https://doi.org/10.1090/S0894-0347-98-00253-7}{doi:10.1090/S0894-0347-98-00253-7}.
-
-\bibitem{Was} L. C. Washington,
-\emph{Introduction to Cyclotomic Fields}, 2nd ed., Graduate Texts in Mathematics \textbf{83}, Springer, 1997.
 \end{thebibliography}
 
 
