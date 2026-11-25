@@ -55,6 +55,7 @@ field_checks/forty/joint8.py
 field_checks/forty/primitive9.py
 field_checks/moments/moments24.py
 field_checks/moments/quartic24.py
+field_checks/moments/quartic24_two_primes.py
 field_checks/moments/moments16.py
 field_checks/moments/quartic16.py
 generic_quartic/sixteen.py
