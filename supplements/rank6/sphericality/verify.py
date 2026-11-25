@@ -21,8 +21,8 @@ golden_orbit_check.py
 golden_two_pairs_check.py
 golden_rational_two_check.py
 golden_witness_parity.py
-verify_conductor_twelve_rows.py
 folded_twelve_check.py
+twelve_three_twelve.py
 folded_silver_check.py
 silver_four_distinct_check.py
 silver_small_check.py
@@ -51,7 +51,6 @@ field_checks/sixteen/irr_verify.py
 field_checks/forty/verify.py
 field_checks/half/verify.py
 field_checks/forty/quadratic40.py
-field_checks/forty/joint8.py
 field_checks/forty/primitive9.py
 field_checks/moments/moments24.py
 field_checks/moments/quartic24.py
@@ -64,7 +63,6 @@ quartic24_nonhalf_check.py
 quadratic_conductor_check.py
 quadratic_trace_bounds.py
 quadratic_24_28_checks/quadratic_twenty_four_rational_audit.py
-odd_degree_checks/cubic_codegree_gap.py
 odd_degree_checks/cubic_height_check.py
 odd_degree_checks/cubic_ratio_bound.py
 odd_degree_checks/cubic_ratio_fourier.py

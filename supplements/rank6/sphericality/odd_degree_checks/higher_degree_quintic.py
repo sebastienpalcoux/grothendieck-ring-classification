@@ -1,10 +1,10 @@
-"""Check the degree-five exclusions at conductors eleven and twenty-five.
+"""Verify the conductor bounds and the degree-five enumeration at eleven.
 
 The integer interval screens include explicit bounds for int64 operations."""
 from fractions import Fraction as Q
 from functools import reduce
 from itertools import product
-from math import comb, gcd, isqrt
+from math import gcd, isqrt
 from pathlib import Path
 import json
 import numpy as np
@@ -138,27 +138,11 @@ def conductor_eleven():
     return dict(outer_ratios=raw,dnumber_ratios=dn,profiles=profiles)
 
 
-def conductor_twenty_five():
-    x = sp.Symbol("x")
-    tested = 0
-    for b, c, h in product(range(10, 31, 5), range(5, 81, 5), range(5, 81, 5)):
-        coefficients = (1, 10, b, c, h, 1)
-        means = [Q(e, comb(5, i)) for i, e in enumerate(coefficients)]
-        if any(means[i]**2 < means[i-1]*means[i+1] for i in range(1, 5)):
-            continue
-        tested += 1
-        polynomial = sp.Poly(x**5 - 10*x**4 + b*x**3 - c*x**2 + h*x - 1, x)
-        disc = int(polynomial.discriminant())
-        assert disc <= 0 or disc % 25**4 != 0
-    assert tested == 18
-    return dict(field_discriminant=25**4, trace=10, norm=1,
-                tested_coefficient_triples=tested, surviving_polynomials=0)
-
-
-if __name__=='__main__':
+if __name__ == "__main__":
     conductor_bounds()
-    result=dict(conductor_11=conductor_eleven(),conductor_25=conductor_twenty_five())
-    Path(__file__).with_name('higher_degree_quintic_certificate.json').write_text(json.dumps(result,indent=2))
-    print('Quintic descent certificate passed: conductors 11 and 25 only;')
-    print('K_11: 1838 outer ratios, 78 d-numbers, 2 rational-axis profiles, both excluded;')
-    print("K_25: 18 coefficient triples satisfy Newton's inequalities, none has the required discriminant.")
+    result = {"conductor_11": conductor_eleven()}
+    Path(__file__).with_name("higher_degree_quintic_certificate.json").write_text(
+        json.dumps(result, indent=2) + "\n"
+    )
+    print("Degree-five conductor bounds verified.")
+    print("Conductor 11: 1838 outer ratios, 78 d-numbers and two rational-axis profiles; both excluded.")

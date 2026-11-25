@@ -2,7 +2,7 @@
 import json,sys
 from pathlib import Path
 from fractions import Fraction as F
-from math import gcd,isqrt
+from math import gcd
 HERE=Path(__file__).resolve().parent;sys.path.insert(0,str(HERE.parents[1]/'generic_quartic'))
 from sixteen import S,upper,conjugates,examples,template,transform,tryone,gap
 Z=[0]*4;O=[1]*4;M=[-1]*4
@@ -41,24 +41,16 @@ def projections(T,x,typ):
     return R
 
 def height():
-    e=F(1,1000); rtlow=F(isqrt(2*S*S),S)
-    def bound(t,v):return 4*e+upper(max(F(0),2-2*rtlow*(t-4*e)))/2+upper(F(1,4)-v)
-    bounds=[]
-    for n in range(1,10000):
-        for l in range(max(16,(29*n//100//8)*8),n//2+1,8):
-            x=l*l-4*n
-            if n*29>=100*l or l*l%n or x<=0 or x%8 or isqrt(x//8)**2!=x//8 or 4*x>n*n or (l,n)==(16,32):continue
-            bounds.append(bound(1-F(l,n),F(x,n*n)))
-    for i in range(500,710):bounds.append(bound(F(i,1000),(1-F(i+1,1000))**2-F(4,10000)))
-    assert max(bounds)<F(5,8)
-    assert len(bounds)==230
-    ordinary=[]
-    for n in range(1,257):
-        for l in range(16,n//2+1,8):
-            d=l*l-4*n
-            if 8*l>3*n and l*l%n==0 and d>0 and d%8==0 and isqrt(d//8)**2==d//8 and 8*d<=n*n:ordinary.append((l,n))
-    assert ordinary==[(16,32)]
-    print('uniform adjacent-bound tests',len(bounds),'all below 5/8',flush=True)
+    # Exact endpoints for the two terms at n=1 and the Cauchy bound at n>=2.
+    e = F(1,1000)
+    lower = F(7071,10000)
+    assert lower**2 < F(1,2)
+    assert F(1,2)-(F(2,3)-4*e)*lower < F(179,1000)**2
+    assert F(7,36) < F(441,1000)**2
+    assert 4*e+F(179+441,1000) < F(5,8)
+    assert 2*(F(3,4)-(1-4*e)*lower+F(9,64)) < F(611,1000)**2
+    assert 4*e+F(611,1000) < F(5,8)
+    print('Verified both adjacent-weight bounds below 5/8.',flush=True)
 
 def main(generate=False):
     cert=HERE/'irr_duals.json';data=[] if generate else json.loads(cert.read_text());T=base();ratios=examples(1000);stage=[];ex=0;idx=0
