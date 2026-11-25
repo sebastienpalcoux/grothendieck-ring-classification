@@ -32,6 +32,7 @@ silver_large_pairs_check.py
 verify_quartic_bounds.py
 verify_quartic_half_ten.py
 quartic_more/verify.py
+quartic_more/ten_half_height.py
 verify_quartic_silver_fields.py
 generic_quartic/verify_quartic_fields.py
 generic_quartic/golden_biquadratic.py

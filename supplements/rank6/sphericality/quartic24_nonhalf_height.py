@@ -2,7 +2,7 @@
 from math import gcd, isqrt
 import sys
 Q=1<<20
-D=int(sys.argv[1]) if len(sys.argv)>1 else 80
+D=int(sys.argv[1]) if len(sys.argv)>1 else 50
 EPS=(Q+D-1)//D
 nodes=leaves=greatest=0
 FREQ=((8,(1,1,-1,-1)),(12,(1,-1,1,-1)),(24,(1,-1,-1,1)))

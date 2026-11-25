@@ -1,4 +1,7 @@
-"""Integer half-mass bound for the nine biquadratic fields and cyclic conductor 48."""
+"""Rational interval bounds for quartic dimension ratios at equal half mass.
+
+With trace_threshold set, a box may close either by trace or by the
+positive shifted moment. The default check uses the shifted moment alone."""
 from math import gcd,isqrt
 from sys import argv
 Q=1<<20
@@ -7,7 +10,7 @@ CONDUCTORS=[(8,28,56),(8,44,88),(8,13,104),(8,17,136),(12,5,60),
             (12,28,21),(12,40,120),(12,44,33),(12,13,156),(8,48)]
 def ceilpos(a,b):return -(-a//b)
 
-def bound(cs,denominator,correction=0):
+def bound(cs,denominator,correction=0, *, trace_threshold=None):
     eps=ceilpos(Q,denominator)
     cyclic=len(cs)==2
     if cyclic:
@@ -65,6 +68,14 @@ def bound(cs,denominator,correction=0):
         count[0]+=1
         p,q=x[:4],x[4:]
         if not shrink(p,q):return True
+        if trace_threshold is not None:
+            # The distinguished ratio is at most 1. With positive lower
+            # endpoints, test the other three ratios by cross multiplication.
+            l1, l2, l3 = (q[i][0] for i in (1, 2, 3))
+            if min(l1, l2, l3) > 0:
+                upper_num = p[1][1]*l2*l3 + p[2][1]*l1*l3 + p[3][1]*l1*l2
+                if upper_num < (trace_threshold-1)*l1*l2*l3:
+                    return True
         if all(p[l][0]>0 for l in (1,2,3)) and min(q[l][0] for l in (1,3))>0:
             k=objective(p,q)
             if k<Q:
