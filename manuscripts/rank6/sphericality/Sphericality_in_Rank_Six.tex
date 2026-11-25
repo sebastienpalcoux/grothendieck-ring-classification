@@ -4,8 +4,8 @@
 \usepackage[hmargin=1.08in,vmargin=1.00in]{geometry}
 \usepackage{xcolor}
 \usepackage[colorlinks=true,linkcolor=blue!45!black,citecolor=blue!45!black,urlcolor=blue,bookmarksnumbered]{hyperref}
-\newcommand{\codefile}[1]{\href{https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/ba0c7d69621bda0470e4c6257ddbe657dc6c10fd/supplements/rank6/sphericality/#1}{\nolinkurl{#1}}}
-\newcommand{\codecheck}[2]{\href{https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/ba0c7d69621bda0470e4c6257ddbe657dc6c10fd/supplements/rank6/sphericality/#1}{#2}}
+\newcommand{\codefile}[1]{\href{https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/d5750105bb5758f3ad38d2e5464dfcc12c019816/supplements/rank6/sphericality/#1}{\nolinkurl{#1}}}
+\newcommand{\codecheck}[2]{\href{https://github.com/sebastienpalcoux/grothendieck-ring-classification/blob/d5750105bb5758f3ad38d2e5464dfcc12c019816/supplements/rank6/sphericality/#1}{#2}}
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{proposition}[theorem]{Proposition}
 \newtheorem{lemma}[theorem]{Lemma}
@@ -29,8 +29,8 @@ by its Frobenius--Perron dimension. It also compares the ordinary
 and spherical dimensions on a common family of objects. Equality
 on these objects gives a fusion subcategory on which the spherical
 structure descends. In rank six, bounds on the Fourier coefficients
-of the reciprocal codegrees and integrality of their moments restrict
-the remaining dimension fields. The last quadratic case uses a
+of the reciprocal codegrees and integral trace identities for the dimension ratio
+restrict the remaining dimension fields. The last quadratic case uses a
 Morita dual.
 \end{abstract}
 
@@ -118,7 +118,7 @@ rational arithmetic. Interval checks round outwards. The
 Write $\varepsilon$ for the central sign of the sphericalization.
 The two lifts of a simple $X$ have opposite spherical dimensions. Choose
 the lift $\widetilde X$ with positive dimension $x_X$. Its square is
-the squared norm of $X$~\cite[Theorem~2.3]{ENO}. With
+the squared norm of $X$~\cite[Theorem~2.3 and Remark~3.1]{ENO}. With
 $d_X=\operatorname{FPdim}(X)$ we have $x_X\le d_X$,
 $E=\sum_X x_X^2$ and $D=\sum_X d_X^2$. In the quotients
 \[
@@ -140,7 +140,9 @@ modules with their formal codegrees~\cite[\S2]{OstrikCodegrees}.
 For a linear character $\chi$ we have
 $f_\chi=\sum_X|\chi(b_X)|^2$. In the commutative case
 $\sum_\chi 1/f_\chi=1$. We call the sum over a character orbit
-its \emph{reciprocal mass}.
+its \emph{reciprocal mass}. On each summand cut out by
+$(1\pm[\varepsilon])/2$, the unit trace of $K_0(\mathcal S)$
+restricts to $\tau/2$. Thus $V$ has codegree $2f_V$ in $\mathcal S$.
 
 For a simple module $V$ write $\chi_V$ for its central character
 (the scalar action on $V$), and $A_V$ for its label in the center.
@@ -178,9 +180,8 @@ The dimensions are cyclotomic integers~\cite[Theorem~8.51]{ENO},
 and $E/f_V=\dim F A_V$ puts $f_V$ in $M$. Reciprocity
 \eqref{eq:induction-reciprocity} gives
 $\chi_V(W)/f_V=\sigma(E/f_V)/\sigma(E)$.
-The formal codegrees $2f_V$ of $\mathcal S$ are totally positive
-$d$-numbers~\cite{OstrikCodegrees}, meaning their principal ideals
-are Galois invariant. If $\sigma$ fixes $D$, then $W$ has Perron dimension
+The codegrees $2f_V$ are totally positive, and their principal
+ideals are Galois invariant by Ostrik's $d$-number theorem~\cite{OstrikCodegrees}. If $\sigma$ fixes $D$, then $W$ has Perron dimension
 one and contains $\mathbf1$, so $W=\mathbf1$. The first identity
 now shows that $\sigma$ fixes every $f_V$. Conversely $D$ itself
 is a codegree.
@@ -210,47 +211,7 @@ spectral radius on $[Y]$ is $\operatorname{FPdim}Y$. This applies
 in particular to the scalars by which $[W]$ acts.
 \end{proof}
 
-\begin{lemma}[Quadratic character rows]\label{lem:quadratic-row-difference}
-Let $a,a'$ be conjugate linear character rows of either quotient
-with quadratic character field of discriminant $\Delta$ and
-codegrees $f,f'$. Write $a_X-a'_X=b_X\sqrt\Delta$. Then
-\begin{equation}\label{eq:quad-row-trace}
-      b_X\in\mathbb Z,\qquad f+f'=|\Delta|\sum_X b_X^2 .
-\end{equation}
-If neither row is the positive dimension row of its quotient, then
-$f+f'\ge2|\Delta|$. If $\Delta<0$, their common codegree is
-$|\Delta|\sum_{\{X,X^*\}}b_X^2$, summed over the unordered
-pairs with $X\ne X^*$.
-\end{lemma}
-\begin{proof}
-The integral basis of the quadratic field gives $b_X\in\mathbb Z$.
-Schur orthogonality gives $\|a-a'\|^2=f+f'$.
-When both rows are orthogonal to the positive dimension row,
-their difference has at least two nonzero entries. For $\Delta<0$,
-complex conjugation acts by duality, so $b_{X^*}=-b_X$.
-\end{proof}
-
-\begin{lemma}\label{lem:fixed-quadratic-mass}
-Let $f,f'$ be conjugate totally positive quadratic $d$-numbers
-and write $1/f+1/f'=a/b$ in lowest terms. For some positive integer $m$,
-\[
- ff'=b^2m,\qquad f+f'=abm,\qquad
- (1/f-1/f')^2=\frac{a^2-4/m}{b^2}.
-\]
-If an odd prime $p$ divides $a$, then $f/f'\equiv-1$ at
-every prime over $p$.
-\end{lemma}
-\begin{proof}
-With $N=ff'$ and $L=f+f'$, the unit $f/f'$ gives
-$L^2/N=2+f/f'+f'/f\in\mathbb Z$. Since $L/N=a/b$, we get
-$b^2\mid N$. The three identities follow.
-For an odd prime $p\mid a$, the identity
-$1+f/f'=fa/b$ gives $f/f'\equiv-1$ at each prime above $p$.
-Thus $p$ cannot divide $a$ if the least totally positive unit has
-odd residue order at one such prime.
-\end{proof}
-
-\subsection{Integral traces}
+\subsection{Galois translates and their moments}
 \begin{corollary}[Integral Galois translates]\label{cor:galois-columns}
 In either quotient $A=R,T$, let $V_\sigma$
 and $U_\sigma$ be the classes in $A$ of the forgotten induction
@@ -301,20 +262,6 @@ inequality its average value on $V$ is at least one, with equality
 only if all values are one. Summing gives $1-s\ge1-t$.
 \end{proof}
 
-When $M$ is quadratic, a prime denotes its nonidentity embedding.
-At the transport maximizing $E$, $x=E/D$ and $1/E$ are both least
-at the distinguished embedding. Thus
-\begin{equation}\label{eq:quadratic-trace-order}
-       2s=t\operatorname{Tr}(x)+(1/E'-1/E)(x'-x)
-          \ge t\operatorname{Tr}(x),
- \qquad s=\operatorname{Tr}(1/D),\quad t=\operatorname{Tr}(1/E).
-\end{equation}
-If $E<D$, the totally positive algebraic integer $x$ has trace at least three
-by its integral norm; at even discriminant the trace is even, hence
-at least four. In particular at least one
-complementary signed codegree is irrational by
-Corollary~\ref{cor:galois-columns}.
-
 \begin{lemma}[Moments at equal reciprocal mass]\label{lem:mass-moments}
 Suppose all complementary signed codegrees are rational and that the
 two masses in Corollary~\ref{cor:galois-columns} satisfy
@@ -341,11 +288,33 @@ For a monomial, $P(1,\ldots,1)=1$ and the trace is positive. For the
 second assertion note that $g(E)/gh(E)$ is a quotient of two of the
 allowed units. All conjugates of $y$ are thus monomials as well.
 Their $k$th elementary symmetric function $a_k$ is a rational integer
-and its lift has complementary value $\binom{|G|}{k}$. The displayed
-congruence says that $t(a_k-\binom{|G|}{k})\in\mathbb Z$.
+and its lift has complementary value $\binom{|G|}{k}$. Applying the
+trace identity to this lift gives $t(a_k-\binom{|G|}{k})\in\mathbb Z$.
 \end{proof}
 
-We also use the ordinary trace dual of an order. If a commutative
+\subsection{Discriminants and trace orders}
+The relative discriminant gives a lower bound for the trace of a
+totally positive generator.
+
+\begin{lemma}\label{lem:relative-trace-discriminant}
+Let $K/F$ be a totally real quadratic extension with $[F:\mathbb Q]=m$,
+and relative discriminant $\mathfrak d_{K/F}$. Put $\Delta=N_{F/\mathbb Q}(\mathfrak d_{K/F})$. For a totally
+positive $x\in\mathcal O_K$ with $K=F(x)$,
+\[
+ \operatorname{Tr}_{K/\mathbb Q}(x)\ \ge\
+   m\sqrt{\Delta^{1/m}+4N_{K/\mathbb Q}(x)^{1/m}} .
+\]
+\end{lemma}
+\begin{proof}
+Pair the conjugates $a_i,b_i$ of $x$ above each embedding of $F$.
+The discriminant of $\mathcal O_F[x]$ is divisible by
+$\mathfrak d_{K/F}$, so $\prod_i(a_i-b_i)^2\ge\Delta$.
+The geometric mean is superadditive on positive vectors by H\"older's
+inequality. Apply this to $(a_i+b_i)^2=(a_i-b_i)^2+4a_i b_i$, then
+use the arithmetic--geometric mean inequality on the $a_i+b_i$.
+\end{proof}
+
+We shall also need the ordinary trace dual of an order. If a commutative
 quotient $A=R$ or $T$ has rational algebra $\prod_i K_i$, choose one
 character in each field factor and write $f_i$ for its codegree.
 Then $\tau=\sum_i\operatorname{Tr}_{K_i/\mathbb Q}(-/f_i)$. The
@@ -418,17 +387,23 @@ With trivial universal grading the ordinary and signed dimension
 character fields both equal $K=\mathbb Q(D)$.
 \end{lemma}
 \begin{proof}
-The ordinary assertion is the dimensional grading of Gannon and
-Schopieray~\cite[\S1.2, (13)]{GSFields}. For the signed one use the
-grading argument of \cite[proof of Proposition~3.2]{Class6Rank5}.
-The signed field contains $D$ by Lemma~\ref{lem:central-witness}.
-If $\sigma$ fixes $D$, the central label $B_\sigma$ forgets to
-$\mathbf1$ and hence gives a monoidal automorphism $\gamma$ of the
-identity of $\mathcal S$. Balancing at $J$ gives
-$-\gamma_\varepsilon=-1$, since the character of $B_\sigma$ is
-signed. Thus $\gamma$ descends to a grading character of $\mathcal C$.
-Triviality of the universal grading gives $B_\sigma=\mathbf1$, so
-$\sigma$ fixes the spherical dimension character.
+For the ordinary field this is the dimensional grading of Gannon and
+Schopieray~\cite[\S1.2, (13)]{GSFields}. For the signed field, which
+contains $K$ by Lemma~\ref{lem:central-witness}, let $\sigma$ fix $D$.
+The label $B$ of $\sigma\circ\dim_{\mathcal S}$ forgets to $\mathbf1$,
+so its half-braiding is a monoidal automorphism $\gamma$ of the
+identity. On the central sign $J$ its normalized $S$-row is
+\[
+  \gamma_\varepsilon\dim\varepsilon
+  =S_{B,J}/S_{B,\mathbf1}=\sigma(\dim\varepsilon).
+\]
+The first equality takes the trace of the double braiding, and the
+second is the induction character formula. Hence $\gamma_\varepsilon=1$,
+so the scalars on the two lifts of each simple agree. They define a
+grading character of $\mathcal C$. Triviality of the universal grading
+gives $\gamma=1$, hence $B=\mathbf1$. Injectivity of the labeling
+in~\cite[Theorem~2.13]{Ostrik3} gives
+$\sigma\circ\dim_{\mathcal S}=\dim_{\mathcal S}$.
 \end{proof}
 
 \begin{lemma}[A spherical section from a character]\label{lem:section-signs}
@@ -542,7 +517,7 @@ Lemma~\ref{lem:field-corank} gives the bound.
 \end{proof}
 
 \begin{corollary}\label{cor:cyclic-prime-power-proper-ratio}
-Suppose $K=\mathbb Q(D)$ is cyclic of prime-power degree $d>n/2$. If $E/D$ belongs to a proper subfield of $K$, then
+Let $n$ be the rank of $\mathcal C$. Suppose $K=\mathbb Q(D)$ is cyclic of prime-power degree $d>n/2$. If $E/D$ belongs to a proper subfield of $K$, then
 $E=D$ and $\mathcal C$ is pseudo-unitary.
 In particular this holds for a cyclic quartic dimension field in
 rank six, with arbitrary complementary formal codegrees.
@@ -566,10 +541,18 @@ conductor $c$. For the projection $P_r$ onto the $U(r)$-fixed
 space one has $\|P_r\pi(s)z\|^2\le(c,r^2)/c$.
 \end{lemma}
 \begin{proof}
-In the unipotent average only the strata
-$b\in r(\mathbb Z/N)$ with $c\mid rb$ contribute, and each summand
-has modulus at most one. These strata have proportion $(c,r^2)/c$;
-see~\cite[Lemma~4.1 and proof of Proposition~4.3]{Class6Rank5}.
+Put $A=\mathbb Z/N$ and $L(b)=U(b)^{\mathsf t}$. The squared norm is
+the average of $\langle z,\pi(L(b))z\rangle$ over $b\in rA$.
+Group the terms by the ideal $bA$. If $u\in A^\times$ and
+$u-1\in rbA$, choose $x\in rA$ with $u=1+bx$. Then
+\[
+ U(x)L(b)=L(b/u)\operatorname{diag}(u,u^{-1})U(x/u).
+\]
+On the entire stratum $b\mapsto b/u$ is a permutation. Its sum
+therefore vanishes unless the diagonal character is trivial on all
+$u\equiv1\pmod{rbA}$, or equivalently $c\mid rb$. These strata
+occupy a proportion $(c,r^2)/c$ of $rA$, and each term has modulus
+at most one~\cite[Lemma~4.1 and Proposition~4.3]{Class6Rank5}.
 \end{proof}
 
 Suppose the ordinary and signed dimension characters have the same
@@ -718,18 +701,10 @@ both have a strict minimum at the distinguished embedding, by
 gives $h_\sigma<h_1=s$, a contradiction. Thus $E=D$ after transport.
 \end{proof}
 
-For each character orbit $\mathcal O$ of size $[K:\mathbb Q]$ write
-$\widehat{1/f}(\eta)=\sum_\sigma\eta(\sigma)/\sigma(f)$.
-For either sector and nontrivial $\eta$ of odd conductor $c$,
-\[
- \sum_{\mathcal O}|\widehat{1/f_{\mathcal O}}(\eta)|^2\le1/c .
-\]
-Indeed the two normalized $U(2)$-fixed test vectors formed from
-$e_{B_\sigma}\pm e_{JB_\sigma}$ with weights $\eta(\sigma)$ select
-the ordinary and signed sectors separately. Each full orbit with its
-$J$-translates contributes the indicated square to the projection of
-Lemma~\ref{lem:mass-fourier-verification}. Here characters of odd
-prime order have odd conductor.
+All nontrivial characters of the cubic and quintic fields have odd
+conductor $c$. By \eqref{eq:orbit-projection}, in either sector the
+sum of squared Fourier coefficients of the reciprocal codegrees,
+one for each full orbit, is at most $1/c$.
 
 We shall use the same integral coordinates at conductors $7,11,13$.
 For an odd prime $\ell=2m+1$, put $b_j=\zeta_\ell^j+\zeta_\ell^{-j}$
@@ -789,18 +764,15 @@ Scale $1/f$ by a positive rational to clear the common ideal
 valuations off the ramified prime and reduce its ramified exponent
 modulo three. The resulting integer has norm $C=1,\ell,\ell^2$,
 with $\ell=7,3$, respectively. Write its polynomial as
-$X^3-AX^2+BX-C$. Then $\nu(f)=1-3B/A^2$, $C\mid A^3$,
-$C^2\mid B^3$, and
-\[
- \Delta=-B^2(4B-A^2)+AC(18B-4A^2)-27C^2>0.
-\]
-If $\nu(f)<1/4$, then $A^2/4<B\le A^2/3$. Substitution in
-$\Delta>0$ gives $0<A(4B-A^2)<32C$. The
-\codecheck{odd_degree_checks/cubic_codegree_gap.py}{integer check}
-of $1\le A<32C$ and this interval for $B$ returns only
-$(A,B,C)=(7,14,7)$. At $C=1,7,49$ the lower bounds
-$4B-A^2\ge3,7,147$ follow from the divisibilities and reduction modulo
-four and suffice for the shorter ranges in the check.
+$X^3-AX^2+BX-C$. Then $\nu(f)=1-3B/A^2$, $C\mid A^3$ and $C^2\mid B^3$.
+If $\nu(f)<1/4$, then $m=4B-A^2$ is positive and is $0$ or $3$
+modulo four. Schur's inequality for the three distinct positive
+roots gives $Am<9C$. For $C=1,9,49$ the divisibilities give
+$m\ge3,27,147$, respectively, impossible since $A>3C^{1/3}$.
+At $C=3$ we have $3\mid A,B$ and $m\ge3$, so $A=6$; now
+$12\mid m$, again impossible. At $C=7$ one has $7\mid A,B,m$,
+so $A=7$, $B=14$.
+
 Thus $\nu(f)\ge1/4$ except for $f=n\sigma(F)$ at seven, where
 \[
  F^3-14F^2+49F-49=0,\qquad
@@ -817,10 +789,14 @@ hence $C=3^5$ or $3^6$. Since the order discriminant $9^3 C$
 differs from $81^2$ by a square factor, $C=3^6$.
 The ordinary estimate $s^2/4\le1/9$ gives
 $\operatorname{Tr}(\alpha)=9s\le6$. Its norm divides $9^3$ and is
-at most eight. The trace on $\mathcal O_{K_9}$ is divisible by three
-(use the basis $1,\zeta_9+\zeta_9^{-1},(\zeta_9+\zeta_9^{-1})^2$).
-Checking the square discriminant divisible by $81$ and the $d$-number
-divisibilities leaves $X^3-6X^2+9X-C'$, $C'=1,3$.
+at most eight. The trace ideal of $K_9$ is $3\mathbb Z$ by its integral power
+basis in $\zeta_9+\zeta_9^{-1}$. Thus the trace of the irrational
+$\alpha$ is six, and its middle coefficient $B'=(36-\operatorname{Tr}
+(\alpha^2))/2$ is divisible by three. The arithmetic--geometric
+mean inequalities give $3<B'<12$. At $B'=6$ the discriminants for
+norms $1,3$ are $189,-459$, respectively, neither a positive square.
+Thus $\alpha$ has polynomial $X^3-6X^2+9X-C'$ with $C'=1,3$.
+
 Here $s=2/3$, so a second irrational ordinary orbit would require
 $1/9\ge((2/3)^2+(1/3)^2)/4$. The three rational ordinary
 complementary codegrees divide nine and their reciprocal sum is one
@@ -836,9 +812,10 @@ Lemma~\ref{lem:section-signs} gives a spherical section.
 
 \smallskip\textit{Conductor seven.} If $E$ is rational, $7\mid E$ gives $w\ge4/7$. The exceptional
 orbit has mass $1/n$ and cannot give this $w\in[4/7,1)$. Thus
-$w^2/4\le1/7$, forcing $E=7$. Now $7/H$ would be a totally positive
-irrational cubic integer of trace four in a cyclic field, excluded
-by checking norms one and two and middle coefficients at most five.
+$w^2/4\le1/7$, forcing $E=7$. Then $7/H$ is a totally positive integer of trace four.
+In \eqref{eq:odd-cycle-coordinates} its coefficients must be
+$2,1,1$ in some order. Hence it is a conjugate of $1-b_1$,
+which is negative since $2\cos(2\pi/7)>1$.
 
 Suppose one orbit has the exceptional codegree $n\sigma(F)$. Its mass
 is $1/n$. If the other is exceptional too, their masses sum to one
@@ -865,8 +842,7 @@ $q_0\le q_1\le q_2$ by maximizing $E$ under transport. Since $P(q)\ge(q_2-q_1)^2
 \]
 Thus $q_2\ge q_1>1/20$. Using $\alpha_0\le1$ and
 $\sum q_i\alpha_i=s<1$ gives $\operatorname{Tr}(\alpha)<21$.
-The finite box in \eqref{eq:odd-cycle-coordinates} consequently
-has $1\le c_j\le11$. In the power basis used by the
+In the power basis used by the
 \codecheck{odd_degree_checks/cubic_ratio_bound.py}{ratio enumeration}
 the corresponding trace bound gives coordinate bounds $20,10,10$
 by the inverse trace Gram diagonal $(1,2/7,2/7)$. Positivity,
@@ -997,8 +973,8 @@ At eleven \eqref{eq:odd-cycle-coordinates} gives
 $1\le c_j<4A/11$, $\sum c_j=A\le50$. Retain totally positive
 $d$-numbers with least conjugate below one. For each polynomial
 test $r\mid A$, $rW$ square, $g\mid M(X)-(X-r)^5$ coefficientwise,
-and $g/r=f\in\mathbb Z_{\ge3}$. The two surviving profiles both
-violate the moment inequality.
+and $g/r=f\in\mathbb Z_{\ge3}$. The \codecheck{odd_degree_checks/higher_degree_quintic.py}{exact enumeration}
+leaves two profiles, both violating the moment inequality.
 
 \[
 \begin{array}{rrrrrr|rr}
@@ -1008,38 +984,48 @@ violate the moment inequality.
 \end{array}
 \]
 
-At twenty-five the prime five is totally ramified, so the five
-conjugates have the same residue and $5\mid A$. The trace bounds and
-$A\equiv5\pmod g$ force $f=g=5$ and $A=10$. Thus $N=4$, and the
-moment inequality gives $B\le30$. The square norm $W\equiv1\pmod5$
-satisfies $10 W^{2/5}\le B$, by averaging all pair products.
-Hence $W=1$. It remains to test
+At twenty-five the prime five is totally ramified, hence $5\mid A$.
+The trace bounds and $A\equiv5\pmod g$ give $f=g=5$ and $A=10$.
+The congruence $M(X)\equiv(X-1)^5\pmod5$ makes $\alpha$ congruent
+to one at the ramified prime. We show directly that $\alpha$ cannot
+be totally positive.
+
+For each of the five cosets $C_i$ of $\langle7\rangle$ in
+$(\mathbb Z/25)^\times$ put $b_i=\sum_{j\in C_i}\zeta_{25}^j$.
+These periods sum to zero, and their trace Gram matrix is $25I-5J$.
+Indeed each coset reduces bijectively to $(\mathbb Z/5)^\times$.
+Among the sixteen sums of exponents from two cosets, four vanish
+modulo five; these vanish modulo twenty-five exactly when the cosets
+coincide. The cyclotomic traces give the stated matrix.
+Consequently one and any four periods have Gram determinant
+$5^8=\operatorname{disc}(K)$ and form an integral basis.
+Write $\alpha=2+\sum c_i b_i$. Since $b_i\equiv4$ at the ramified
+prime, $\sum c_i\equiv1\pmod5$. Thus
 \[
- X^5-10X^4+BX^3-CX^2+HX-1.
+ V=\sum_{i<j}(c_i-c_j)^2=5\sum c_i^2-(\sum c_i)^2
+ \quad\text{is even and }4\pmod5.
 \]
-The positive coefficients $B,C,H$ are multiples of five, with
-$10\le B\le30$ and $C,H\le80$ by the arithmetic mean.
-Newton's inequalities leave eighteen triples. None has positive
-discriminant divisible by $25^4$. The
-\codecheck{odd_degree_checks/higher_degree_quintic.py}{quintic calculation}
-checks these eighteen triples and the two profiles at eleven.
+The Gram matrix gives $\operatorname{Tr}(\alpha^2)=20+5V$.
+The ten pair products have geometric mean $N(\alpha)^{2/5}\ge1$,
+so $20+5V\le10^2-20$. Hence $V=4$. The five coordinates are
+equal except for a single entry differing by one, and their sum
+modulo five fixes the sign. Thus $\alpha=2+b_i$. But these elements
+have a conjugate $2+2\cos(18\pi/25)+2\cos(24\pi/25)<0$.
+
 \end{proof}
 
 \begin{proof}[Proof of Theorem~\ref{thm:odd-degree-descent}]
 Rational $D$ gives pseudo-unitarity by \cite[Proposition~8.24]{ENO}.
-For a nontrivial universal grading the dimension field of the neutral
-component contains $D$, since all components have its dimension.
-By Lemma~\ref{lem:field-corank} each has rank at least $[K:\mathbb Q]$. The only possibility
-is cubic $K$ with two rank-three components. The neutral component
+In a nontrivial universal grading Lemma~\ref{lem:field-corank} gives
+rank at least $[K:\mathbb Q]$ in each component. Thus $K$ is cubic
+and there are two rank-three components. The neutral component
 has dimension $D/2$ and trivial universal grading by the same argument.
 Both its rational character algebras are $K$ by
 Lemma~\ref{lem:odd-field-equality}, so Lemma~\ref{lem:odd-shift}
 gives a pseudo-unitary conjugate. This property passes to the whole
 extension by \cite[Proposition~2.8]{BJ}.
 
-Suppose now the grading is trivial.
-
-For cubic $K$, an irrational complementary codegree generates $K$,
+For trivial grading and cubic $K$, an irrational complementary codegree generates $K$,
 and its row then accounts for the entire dimension-three complement
 of the signed algebra. Thus Lemma~\ref{lem:odd-shift} and
 Proposition~\ref{prop:odd-cubic-arithmetic} exhaust the possibilities.
@@ -1277,8 +1263,8 @@ $[1/50,1]$. Use the weaker conductor triple $(56,7,8)$ for both
 fields. On each dyadic box, (S2) supplies twelve supporting
 half-spaces per Fourier disk; \eqref{eq:sextic-effective-ab}
 bounds the first two terms of \eqref{eq:sextic-effective-objective}
-and outward interval division bounds the other four. All
-$8\,312\,559$ boxes either violate a constraint or yield $k_2<1$.
+and outward interval division bounds the other four. The subdivision visits $8\,312\,559$ boxes. Every terminal box
+violates a constraint or gives $k_2<1$.
 
 Thus $q_{\pm2}>1/200$. The pair bounds also give
 $2q_i\ge q_0+q_i>2/45$ at each odd $i$, independently of $q_2$.
@@ -1290,18 +1276,11 @@ The trace is integral, as claimed.
 \subsection{The arithmetic conclusion}
 It remains to test the ratios $x$ that generate $K$. A relative
 discriminant lower bound first eliminates ten conductor pairs.
-Let $F=K_b$, let $\tau$ be the involution of $K/F$, and put $\delta=N_{F/\mathbb Q}(\mathfrak d_{K/F})=ac^2/b^2$.
-At each embedding of $F$ write $w_i$ for the difference, $v_i$ for
-the sum, and $n_i$ for the product of the two local conjugates of
-$x$. Since $(x-\tau x)^2$ generates the relative discriminant of
-$\mathcal O_F[x]$, we have $\prod w_i^2\ge\delta$. The geometric
-mean inequality for sums of positive triples gives
-\[
- (\textstyle\prod v_i^2)^{1/3}
- =(\textstyle\prod(w_i^2+4n_i))^{1/3}
- \ge\delta^{1/3}+4N(x)^{1/3}.
-\]
-Thus $\operatorname{Tr}(x)\ge3\sqrt{\delta^{1/3}+4}$. The upper
+Apply Lemma~\ref{lem:relative-trace-discriminant} to $K/K_b$.
+Its relative discriminant has norm $\delta=ac^2/b^2$ by the tower
+formula, so $\operatorname{Tr}(x)\ge3\sqrt{\delta^{1/3}+4}$.
+
+The upper
 bounds of $18$ at $(37,9),(41,9)$, and $25$ at $(a,7)$ for
 $a=73,85,89,97,101,104,109,136$, contradict this inequality.
 
@@ -1465,6 +1444,20 @@ $\operatorname{FPdim}(\mathcal B)$.
 \end{proof}
 
 \subsection{The two character algebras}
+Suppose the signed dimension field $M$ is quadratic. Write a prime
+for its nonidentity embedding and $s,t$ for the masses in
+Corollary~\ref{cor:galois-columns}.
+At the transport maximizing $E$, $x=E/D$ and $1/E$ are both least
+at the distinguished embedding. Thus
+\begin{equation}\label{eq:quadratic-trace-order}
+       2s=t\operatorname{Tr}(x)+(1/E'-1/E)(x'-x)
+          \ge t\operatorname{Tr}(x),
+ \qquad s=\operatorname{Tr}(1/D),\quad t=\operatorname{Tr}(1/E).
+\end{equation}
+If $E<D$, the totally positive algebraic integer $x$ has trace at least three
+by its integral norm; at even discriminant the trace is even, hence
+at least four.
+
 \begin{proposition}\label{prop:quadratic-full-character}
 Suppose $K=\mathbb Q(D)$ has degree two and no Galois conjugate of $\mathcal C$ is pseudo-unitary. Its universal grading is trivial. Both quotient algebras are commutative, both dimension characters have full field $K$, and at least one signed codegree outside the spherical dimension orbit is irrational.
 \end{proposition}
@@ -1504,6 +1497,46 @@ nonzero triple, because every $d_k$ is positive. These three further
 triples are distinct. Each unordered triple contributes at least
 $6\cdot2^2$ to the sum of squares. Thus $12h\ge4\cdot24$,
 contradicting $h\le6$.
+\end{proof}
+
+\begin{lemma}[Quadratic character rows]\label{lem:quadratic-row-difference}
+Let $a,a'$ be conjugate linear character rows of either quotient
+with quadratic character field of discriminant $\Delta$ and
+codegrees $f,f'$. Write $a_X-a'_X=b_X\sqrt\Delta$. Then
+\begin{equation}\label{eq:quad-row-trace}
+      b_X\in\mathbb Z,\qquad f+f'=|\Delta|\sum_X b_X^2 .
+\end{equation}
+If neither row is the positive dimension row of its quotient, then
+$f+f'\ge2|\Delta|$. If $\Delta<0$, their common codegree is
+$|\Delta|\sum_{\{X,X^*\}}b_X^2$, summed over the unordered
+pairs with $X\ne X^*$.
+\end{lemma}
+\begin{proof}
+The integral basis of the quadratic field gives $b_X\in\mathbb Z$.
+Schur orthogonality gives $\|a-a'\|^2=f+f'$.
+When both rows are orthogonal to the positive dimension row,
+their difference has at least two nonzero entries. For $\Delta<0$,
+complex conjugation acts by duality, so $b_{X^*}=-b_X$.
+\end{proof}
+
+\begin{lemma}\label{lem:fixed-quadratic-mass}
+Let $f,f'$ be conjugate totally positive quadratic $d$-numbers
+and write $1/f+1/f'=a/b$ in lowest terms. For some positive integer $m$,
+\[
+ ff'=b^2m,\qquad f+f'=abm,\qquad
+ (1/f-1/f')^2=\frac{a^2-4/m}{b^2}.
+\]
+If an odd prime $p$ divides $a$, then $f/f'\equiv-1$ at
+every prime over $p$.
+\end{lemma}
+\begin{proof}
+With $N=ff'$ and $L=f+f'$, the unit $f/f'$ gives
+$L^2/N=2+f/f'+f'/f\in\mathbb Z$. Since $L/N=a/b$, we get
+$b^2\mid N$. The three identities follow.
+For an odd prime $p\mid a$, the identity
+$1+f/f'=fa/b$ gives $f/f'\equiv-1$ at each prime above $p$.
+Thus $p$ cannot divide $a$ if the least totally positive unit has
+odd residue order at one such prime.
 \end{proof}
 
 In particular every signed codegree belongs to $K$, since $E/f=\dim F(A_f)$ lies in $K$. In the four complementary dimensions an irrational codegree therefore has its full character field of degree two or four. A quartic character field containing $K$ gives two copies of the same codegree pair. If an irrational orbit uses only two characters, its field is $K$ and the remaining two codegrees are another such pair or two rational integers. The last two characters in the rational-codegree case can be rational or can be conjugate over a separate quadratic field. The spherical dimension codegree $E$ may be rational even though its full character field is $K$.
@@ -1566,9 +1599,7 @@ already at $40$. They are nondecreasing with $c$ at either parity.
 \begin{lemma}[Separation of the quadratic pairs]\label{lem:quadratic-mass-gap}
 Let $K$ be a real quadratic field whose discriminant $c$ appears
 in the table below. Suppose both dimension characters generate $K$,
-both character algebras are commutative,
-
-and that, outside the dimension pair $E,E'$, the signed codegrees
+both character algebras are commutative, and outside the dimension pair $E,E'$, the signed codegrees
 consist of an irrational pair $H,H'$ and either a second copy of this
 pair or two rational integers. Assume there is no pseudo-unitary
 Galois conjugate. Transport to $E\ge E'$ and label $H>H'$.
@@ -1804,8 +1835,10 @@ to $1,J$ and the modular identity at $(P,P),(P,1)$ give
 The signed $J$-pairs cancel from both twist sums.
 
 In each sector the six induction entries sum to two by the
-unit-coefficient formula. Both dimension entries are one (on the
-ordinary side they are equal positive integers). The four remaining
+unit-coefficient formula. On the dimension pair the entries are equal
+positive integers by reciprocity: the two are conjugate, and lie in
+$\mathbb Z$ since $P$ is rational. Their squared norm, including the
+translates, is at most eight, so both are one. The four remaining
 entries thus sum to zero with squared norm at most two. In the signed
 sector the entries on the conjugate pair agree, so they vanish, and
 the rational entries are $b,-b$ with $a_P=b$. In the ordinary sector
@@ -2020,93 +2053,63 @@ If the two rational characters of $T$ both have formal codegree three, then $3$ 
 \]
 \end{theorem}
 
-The categorical input is the following vanishing. Assume both rational codegrees are three.
-Denote the rational characters by $\rho,\eta$. In the center
-$Z(\mathcal S)$ let $C,C'$ be the induction constituents corresponding
-to the two characters of the second $K$-factor. For the forgetful
-functor $F:Z(\mathcal S)\to\mathcal S$ one has
-\begin{equation}\label{eq:two-threes-vanishing}
- \rho(F C)=\rho(F C')=\eta(F C)=\eta(F C')=0.
-\end{equation}
-
-The central-character formula and the two unit coefficients of an
-induction object give the row sums
+We record the estimate for a rational signed row of codegree three
+that will also be used at $(3,8)$. Write $A$ for its induction label
+and put $M=6S$. The row $M_{A,*}$ is integral by the central-character
+formula. Its two signed dimension entries are one. Its two ordinary
+Perron entries are equal positive integers, say $b$, by central
+symmetry, Galois conjugation and positivity of the Perron dimension.
+At every induction label $C$ the two unit coefficients give
 \begin{equation}\label{eq:sector-row-sum-33}
- \sum_{V\text{ signed}}2S_{A_V,A}
-   =\sum_{V\text{ ordinary}}2S_{A_V,A}=1
- \quad (A\text{ an induction label}).
+ \sum_{V\ {\rm signed}}2S_{A_V,C}
+ =\sum_{V\ {\rm ordinary}}2S_{A_V,C}=1 .
 \end{equation}
 
-Write $A=A_\rho$, $B=A_\eta$ and $z_W=S_{J,W}/S_{1,W}$.
-Balancing gives $S_{JA,W}=z_WS_{A,W}$ and
-$\theta_{JW}=z_W\theta_W$. At a character label,
-$z_{A_V}=V(\varepsilon)$. The rows $6S_{A,W}$ and $6S_{B,W}$
-are integers. On the two signed dimension labels each row has both
-entries one. Indeed the dimension of $FA$ is $E/3$, and its two
-dimension-character values are $E/3$ and $E'/3$. Division by the
-respective codegrees gives the same normalized entry. On the ordinary
-Frobenius--Perron label $A_D$, with $D=\operatorname{FPdim}(\mathcal C)$,
-the entries are positive integers. For every signed $V$, symmetry gives
-$V(FA_D)=f_V\operatorname{FPdim}(FA_V)/D>0$.
-The signed unit-coefficient identity at $A_D$ therefore bounds the
-sum of our two positive entries strictly below three, so both are one.
-Conjugating the ordinary Frobenius--Perron character gives the same
-entries at its other label, by the central character formula and
-rationality. The entries of $6S_{A,W}$ at $C,C'$ agree, again by
-symmetry, conjugation, and rationality. Denote their common value by $a$.
-Write $b$ for the analogous value in row $B$, and write the
-symmetric $A,B$ block as $\left(\begin{smallmatrix}r&z\\z&s
-\end{smallmatrix}\right)$ in the same normalization.
+For a real vector $v$ supported on such rows, put $y=Mv$ and
+$z_W=S_{J,W}/S_{1,W}$. The two sign sectors of $y$ each have
+squared norm $18\|v\|^2$: $v\perp Jv$ and $(SJv)_W=z_W(Sv)_W$.
+All entries of $y$ are real. In the twist sum the negative sector
+cancels in $J$-pairs, since $\theta_{JW}=z_W\theta_W$. The
+twist identity $S\Theta S=\Theta^{-1}S\Theta^{-1}$ therefore gives
+\[
+ 6v^tMv\ \ge\ 2\!\sum_{z_W=\theta_W=1}y_W^2-18\|v\|^2.
+\]
+For $v=e_A$, put $r=M_{A,A}$. The two signed dimension entries
+and their $J$-partners give $r^2\le7$. The four ordinary Perron
+entries, including their translates, give $6r\ge8b^2-18$, forcing
+$b=1$. The remaining four ordinary induction entries now sum to one,
+so their squared norm is at least one. Including their translates
+improves the bound to $6r\ge-6$.
 
-The normalized $S$-matrix is unitary: the characters of the
-commutative complex fusion algebra respect its duality involution,
-the dimension row is real, and $S^2$ is charge conjugation.
-For any real $v$ supported on $A,B$, the squared norm of $Sv$ splits
-equally between $z_W=+1$ and $z_W=-1$, since $v\perp Jv$ and
-$(SJv)_W=z_W(Sv)_W$. Applying this to single rows and their
-known signed coordinates, including their $J$-translates, and using
-\eqref{eq:sector-row-sum-33}, gives
+Apply these facts to the two rational three-rows $A,B$. At the
+two labels $C,C'$ of the complementary quadratic pair the entries
+in each row agree by Galois symmetry; call them $a,b$. Write
+$\left(\begin{smallmatrix}r&z\\z&s\end{smallmatrix}\right)$ for the
+$A,B$ block of $M$. We claim
+\begin{equation}\label{eq:two-threes-vanishing}
+               a=b=0 .
+\end{equation}
+The signed row sums and squared norms give $r+z=1-2a$,
+$s+z=1-2b$ and
+$2a^2+r^2+z^2,\ 2b^2+s^2+z^2\le7$. Thus $a,b\in\{-1,0,1\}$.
+For $v=e_A+e_B$, the four ordinary Perron entries of $Mv$ are two,
+and the other four ordinary induction entries sum to two. With their
+translates the twist-one contribution is at least $16+4=20$.
+The twist inequality gives $6(r+2z+s)\ge4$, so $a+b\le0$.
+The signed norm gives
 \[
- r+z=1-2a,\qquad z+s=1-2b,\qquad
- 2a^2+r^2+z^2\le7,\qquad 2b^2+z^2+s^2\le7.
+ 8+2(a+b)^2+(1-2a)^2+(1-2b)^2\le18 .
 \]
-In particular $a,b\in\{-1,0,1\}$. For $v=e_A+e_B$ write $h=a+b$.
-The signed-sector norm bound gives
-\[
- 8+2h^2+(1-2a)^2+(1-2b)^2\le18.
-\]
-On the ordinary Frobenius--Perron pair the coordinates of $Sv$ are
-$1/3$. Write the other four ordinary induction coordinates as $x_i/6$.
-Their integer numerators sum to two by \eqref{eq:sector-row-sum-33},
-so $\sum x_i^2\ge2$. Together with the $J$-translates this accounts
-for at least $5/9$ of squared norm on ordinary coordinates of twist
-one. The center has anomaly one. In
-$v^{t}S\Theta S v=v^{t}S v$, where $\Theta$ is the twist matrix,
-all signed contributions cancel in $J$-pairs: the coordinates
-agree up to sign and the twists are opposite. A fixed point of $J$
-cannot have $z_W=-1$. All coordinates of $Sv$ are real, and the
-ordinary sector has squared norm one. Taking real parts therefore gives
-\[
- (1-h)/3=v^tS v\ge5/9-4/9=1/9.
-\]
-Thus $h\le0$, and the preceding norm inequality leaves just
-$(a,b)=(0,0),(-1,1),(1,-1)$. In the second case the row bounds and
-row sums force $(r,z,s)=(2,1,-2)$. The twist identity applied to
-row $B$, after multiplication by $36$, would then give $6s=-12$.
-The ordinary sector has squared norm $18$ in this scale and
-contributes at least four at twist one from the two ordinary
-dimension labels and their translates. Its real twist sum is at
-least $4-14=-10$. This is a contradiction. Exchanging $A,B$
-excludes the last case. This proves \eqref{eq:two-threes-vanishing}.
-One can also determine the $A,B$ block modulo three. Now $r=s=1-z$,
-and the signed values of $F(A-B)$ vanish on both quadratic factors.
-On the rational factors they are $r-z$ and $z-r$. The idempotent
-formula gives its coefficient vector as
-$(r-z)(\rho_i-\eta_i)_i/3$. Each rational character has support
-of size three with entries $\pm1$, since its codegree is three.
-Their supports intersect in exactly two positions, by orthogonality
-and the common unit coordinate. Thus the row difference has an entry
-$\pm1$. Integrality forces $r\equiv z\equiv 2\pmod3$.
+This leaves $(a,b)=(0,0)$ or $\{a,b\}=\{-1,1\}$. In the latter
+case the row sums and bounds force one diagonal entry to be $-2$,
+contrary to $r,s\ge-1$. This proves the claim.
+
+Now $r=s=1-z$. By symmetry the signed class of $F(A-B)$ vanishes
+on both quadratic factors and has rational values $r-z,z-r$.
+Its simple coefficients are $(r-z)(\rho_i-\eta_i)/3$.
+The two rational rows have three entries $\pm1$, with supports
+intersecting in precisely two positions by orthogonality. Their
+difference has an entry $\pm1$, so $3\mid r-z$ and $r,z\equiv-1\bmod3$.
 
 \begin{proof}[Proof of Theorem~\ref{thm:two-threes-exclusion}]
 Put $T_3=T\otimes\mathbb Z_3$. Its decomposition into complete local rings partitions the field factors of $T_3\otimes\mathbb Q_3$. The two rational characters have distinct reductions, since their supports differ and all nonzero entries are $\pm1$. They belong to different local factors of $T_3$. Neither factor consists of its rational axis alone. Otherwise its identity would be the primitive idempotent of that character, whose unit coefficient $1/3$ is not in $\mathbb Z_3$.
@@ -3277,68 +3280,77 @@ Let $\mathcal C$ be a complex rank-six fusion category with commutative ordinary
 \end{theorem}
 
 \begin{proof}
-Set $U=2+\sqrt3$, $V=3+\sqrt3$, and write $f'$ for the nontrivial conjugate of $f\in K$. All codegrees belong to $K$, by central induction, since $E/f$ is the spherical dimension of the induction constituent of codegree $f$. All simples are self-dual, since the signed algebra is totally real. Write $E,E',H,H'$ for the two signed quadratic orbits, with $E$ the intrinsic dimension. We can assume $E\ge E'$ by Galois transport, and $H\ge H'$ by exchanging the two complementary characters. Suppose $\mathcal C$ is not spherical. Then $E<D=\operatorname{FPdim}(\mathcal C)$, since equality would make the category pseudo-unitary.
-
-Put $\delta_f=1/f'-1/f$. The mixed projection estimate
-\eqref{eq:quadratic-fourier-bounds} reads
+Use $U=2+\sqrt3$, $V=3+\sqrt3$, $B_{e,i}$ from
+Lemma~\ref{lem:small-quadratic-recurrence}, and $A_i=B_{0,i}$.
+Assume nonsphericity, orient $E\ge E'$, $H\ge H'$, and write
+$t,w,s$ for the reciprocal traces of $E,H,D$. Then $t+w=7/12$.
+For $\delta_f=1/f'-1/f$ we use
 \begin{equation}\label{eq:twelve-312-mixed}
  \sum_{\rm signed\ pairs}\delta_f^2+
  2\sum_{\rm ordinary\ pairs}\delta_f^2\le1/3 .
 \end{equation}
-Also $D/D'\ge H/H'$ by Lemma~\ref{lem:central-witness}.
-By Lemma~\ref{lem:quadratic-mass-gap}, the oriented codegrees
-are $mV^eU^k$, with $e=0,1$ and $k\ge0$.
 
-The unit-family scalar is divisible by six by \eqref{eq:three-quadratic-scalars}.
+At three the rational rows have distinct residues, since their
+squared distance is $15$. Each needs another branch and there
+are just two, both ramified quadratic. The simultaneous unit has
+value one on the rational rows, while on a branch of type $VU^i$
+its value $U^{2i+1}$ reduces to $-1$. Thus $E=mU^k$, $H=nU^j$.
+The identity of each local factor has integral trace
+$1/a+\operatorname{Tr}(1/f)$, with $a=3$ or $12$ and
+$f=mU^k$ or $nU^j$. Since $3\nmid A_i$, the scalar has
+three-adic valuation one. Multiply the trace by three and reduce
+modulo the ramified prime: $3/a+2/(f/3)=0$ in $\mathbb F_3$.
+Consequently $m/3\equiv(-1)^k$ and $n/3\equiv(-1)^j\bmod3$.
 
-The two rational rows are distinct modulo three: their squared distance is $3+12=15$. Hence they belong to distinct local factors of $T\otimes\mathbb Z_3$. Neither rational axis is a factor by itself, since its idempotent has nonintegral unit coefficient $1/f$. The prime three ramifies in each of the two quadratic fields, so each rational axis is paired with one quadratic branch. On the rational axes $W$ has value one. A quadratic branch of type $VU^k$ would have value $U^{2k+1}\equiv-1$ at the ramified prime, which cannot have the same residue. Thus
+Write $D=MV^dU^\ell$, $c=m/M$, $h=m/n$, $r=\ell-k$, $z=j-k$.
+Integrality gives $c,h\in\mathbb Z_{>0}$ and $6\mid c$ if $d=1$.
+Also $r\ge1$ by $D>E$, and $\ell\ge j$ by $D/D'\ge H/H'$.
+The complementary pair is irrational since otherwise
+Corollary~\ref{cor:galois-columns} would give $s\le t$, contrary to
+\eqref{eq:quadratic-trace-order}. In particular $j\ge1$.
+
+We claim $j\ge3$ and $t>1/180$. For $j=1$, $6\mid n$ by
+\eqref{eq:three-quadratic-scalars} and $\delta_H^2=12/n^2<1/3$,
+so $w\le1/3$. Then $s\ge2t\ge1/2$ by
+\eqref{eq:quadratic-trace-order}, contrary to
+$2\delta_D^2\ge3s^2/2$. For $j\ge2$, the signed dominance and
+the recurrence give $\delta_D^2\ge48s^2/49$, $s/t\ge7/2$:
+in the unit family use $A_{k+1}/A_k\ge7/2$ for $k\ge1$ and
+$\ell\ge2$ for $k=0$; in the other use $6B_{1,k+1}\ge9A_k$.
+If $j=2$, then $192/n^2<1/3$ gives $n\ge30$ and $t\ge7/60$.
+The mixed bound fails since $24t^2+(48/49)(7/12-t)^2>1/3$
+on this interval. For $j\ge3$, $\delta_H^2\ge675w^2/676$
+gives $w<26/45$, proving the claim.
+
+Only relative indices remain. The two unit coefficients give
 \[
- E=mU^k,\qquad H=nU^j.
+ 7m=12(A_k+hA_j),\qquad
+ m(12-Z)-12cB_{d,\ell}\in12h\mathbb Z,
 \]
-If $H$ were rational all complementary signed codegrees would be
-rational, contrary to \eqref{eq:quadratic-trace-order} and
-Corollary~\ref{cor:galois-columns}. Hence $j\ge1$.
+where $Z/12$ is the rational complementary contribution on the
+Perron induction class; the $H$ contribution belongs to
+$\mathbb Z/n$. Since $6h\mid m$, we obtain
+$h\mid2A_k,2cB_{d,\ell}$, so
+$h\mid2cW_{0,d}(r)$ by Lemma~\ref{lem:relative-quadratic-indices}.
+Also $h\equiv(-1)^z\bmod3$. Since $2\delta_D^2\ge(96/49)s^2$, we have $s<1/2$ and $s/t<90$.
+The same lemma gives $c\le32$. From $U^r\le2(6/V)^d s/t$ we get $r\le4$, hence
+$|W_{0,d}(r)|\le672$, $h\le43008$. Finally $1<hA_j/A_k<104$ and
+$U^z/2\le A_j/A_k\le2U^z$ give $-11\le z\le4$.
 
-Set $w=\operatorname{Tr}(1/H)$ and $L=t+w=7/12$. Write $A_i=U^i+U^{-i}$, $B_i=\operatorname{Tr}(1/(VU^i))$; both satisfy $Z_{i+2}=4Z_{i+1}-Z_i$, with initial values $(2,4)$ and $(1,3)$. If $D=MU^\ell$, integrality of $E/D$ gives $M\mid m$ and $\ell\ge k+1$. From $H/H'\le D/D'$ one has $\ell\ge j$. If $D=MVU^\ell$, integrality gives $6M\mid m$ since $V^{-1}=V'/6$; again $\ell\ge k+1$ because $6/V>1$, and $\ell\ge j$. Thus $s/t\ge2$ and $\delta_D^2\ge3s^2/4$. If $j=1$, the mixed bound excludes $n=6$, since $\delta_H^2=12/36=1/3$. Thus $n\ge12$, $w\le1/3$ and $s\ge2t\ge1/2$, contradicting \eqref{eq:twelve-312-mixed}. Hence $j\ge2$. In particular
+At $D=H$ apply Lemma~\ref{lem:section-signs}. For the other
+tuples in these bounds the
+\codecheck{twelve_three_twelve.py}{exact recurrence check}
+uses the mass identity, scalar divisibilities and
+\eqref{eq:twelve-312-mixed} at $k=0,1,2$; none survives.
+For $k\ge3$ all three indices are at least three. Put
+$x=hU^z$, $y=c(V/6)^dU^r$, $\eta=999/1000$.
+Lemma~\ref{lem:relative-quadratic-indices} and the mixed bound give
 \[
- \delta_H^2\ge48w^2/49,\qquad \delta_D^2\ge48s^2/49,
- \qquad s\le7/(12\sqrt2)<5/12,\qquad s/t\ge7/2.
+ 147\eta^2(1+x^2+2y^2)\le144(1+x)^2 .
 \]
-For the last bound, $A_{k+1}/A_k\ge7/2$ for $k\ge1$; when $k=0$, $A_j/A_0\ge7$. In the other family $6B_{k+1}/A_k\ge9$, by the same recurrence. In particular $2\delta_D^2\ge24t^2$.
-
-A nonunit invertible with its positive lift would have character values $(1,1,\lambda,\lambda,e,h)$, all signs. Its zero unit coefficient gives $t+\lambda w+e/3+h/12=0$. The case $\lambda=1$ is impossible since $L>1/3+1/12$. Otherwise $t\in\{1/12,1/6,5/12,1/2\}$. All $t\ge1/6$ violate $24t^2\le1/3$, and at $1/12$ one has $24t^2+48w^2/49>1/3$. So the unit is the only invertible. A rational ordinary character of codegree two would have idempotent $(1\pm X)/2$, giving $X^2=1$, also impossible.
-
-If $H/H'=D/D'$, a real signed character attains the Perron bound on the actual object $W$. The simples attaining the Perron bound form a spherical subcategory by Lemma~\ref{lem:section-signs}. They contain the support of $W$, by equality in the triangle inequality. This subcategory has Frobenius--Perron field $K$ since it contains the irrational dimension $D/D'$. If proper it has rank at most four by Lemma~\ref{lem:field-corank}. The pivotal classifications in ranks two, three and four \cite{Ostrik2,Ostrik3,DPP} show that every such subcategory has a nonunit invertible: the possibilities with this field are the rank-three $E_6$ near-group ring, the $C_3$ Tambara--Yamagami ring and the rank-four $C_3$ near-group ring of parameter six. This contradiction proves that in the unit family for $D$ one may now take $\ell\ge j+1$.
-
-We show that $s\ge1/8$. The signed order at two has just one
-rank-one factor, the three-axis: the two quadratic fields ramify
-and $1/12\notin\mathbb Z_2$. All residue fields are $\mathbb F_2$.
-The parity isomorphism transfers the local ranks and residues to $R$.
-By Lemma~\ref{lem:trace-order-conductor} all odd rational-codegree
-orbits split off maximally and unramified. Thus they occupy only
-the rank-one factor. Conversely that factor has odd codegree by
-perfectness, and rational codegree since $K$ does not embed into
-$\mathbb Q_2$. Its character consequently is rational. Its residue
-is that of the signed three-row, so its norm is $a\equiv3\pmod4$.
-All remaining rational codegrees are even and at least four.
-
-If there is an irrational complementary ordinary pair its total mass $z$ is at least $5/12-s$, since the remaining two rows include the unique odd row and have mass at most $1/3+1/4$. Its squared gap is at least $z^2/3$, because its conjugate ratio is at least $U$. The mixed bound now gives
-\[
- 1/3\ \ge\ (48/49)(L-2s/7)^2+(50/27)s^2+(2/3)(5/12-s)^2.
-\]
-Completing the square gives minimum $6808033/18192816>1/3$. Thus all four complementary ordinary codegrees are rational.
-
-If $0<s<1/8$, sorting the three even codegrees leaves precisely $(a;b,c,h)=(3;4,4,h)$ for even $8\le h\le22$, together with $(3;4,6,6)$ and $(7;4,4,4)$. This follows by placing $1/a+1/b+1/c+1/h$ between $7/8$ and $1$, using $a\equiv3\pmod4$. Lemma~\ref{lem:real-four-six} makes every four-row rational and
-excludes quadratic six-orbits.
-
-Consequently the discriminant of the maximal ordinary order has squareclass three in each of the indicated profiles. The regular trace discriminant is $N(D)abch$, by multiplying the perfect coefficient pairing by the Casimir. Here $N(D)$ is a square or six times a square. For $(3;4,4,h)$ this forces $h=16$ in the unit family, giving $s=5/48$. Then $1+D/D'=Ds$ is zero modulo five, whereas $D/D'$ is a power of $U$ and $U^3\equiv1\pmod 5$. The same squareclass test excludes $(7;4,4,4)$. In $(3;4,6,6)$ the three rows of codegrees divisible by three have pairwise distinct reductions. The two codegree-six rows have squared distance $12$; congruent rows of norms three and six would have difference supported on a single coordinate, contrary to orthogonality to the nonvanishing FP row. Each of the three resulting local factors needs another branch, since its isolated rational axis would have nonintegral trace. The rational codegree-four axis already splits off, and the unique $K$-branch at three cannot supply three distinct partners. This proves $s\ge1/8$.
-
-If $j=2$, then $192/n^2=\delta_H^2<1/3$. Hence $n\ge30$ and $t\ge7/60$. The increasing lower bound $24t^2+(48/49)(L-t)^2$ exceeds $1/3$ already at $7/60$. Suppose finally $j\ge3$. By the exponents already established and the recurrences,
-\[
- \delta_H^2\ge h w^2,\quad \delta_D^2\ge b s^2,
- \quad h=675/676,\quad b=5041/5043 .
-\]
-For $k\le2$ one has $s/t\ge\min(A_4/A_2,6B_3/A_2)\ge41/3$. For $k\ge3$ we have $s/t\ge41/11$ and $\delta_E^2\ge(361/363)t^2$. Let $(r,e)$ be respectively $(41/3,0)$ or $(41/11,361/363)$. The mixed left side is at least $Q(s)=e(s/r)^2+h(L-s/r)^2+2bs^2$, since $et^2+h(L-t)^2$ decreases on $0\le t\le s/r$. In each case $Q$ is increasing for $s\ge1/8$ and $Q(1/8)-1/3$ is respectively $5914273/218180352$ and $185909/218180352$. This contradicts \eqref{eq:twelve-312-mixed} and completes the proof.
+Only $(d,r,c,h,z)=(0,1,1,8,1)$ survives. But then
+$7\mid A_k+8A_{k+1}$, whose residues modulo seven cycle through
+$6,4,3,1,1,3,4,6$. This final contradiction proves the theorem.
 \end{proof}
 
 \subsection{Rational codegrees three and eight}
@@ -3351,11 +3363,16 @@ The conclusion of Theorem~\ref{thm:twelve-3-12} also holds when the two rational
 Use $K,U,V,E,H,D,t,w,s,A_i,B_i$ as in the preceding theorem and again assume nonsphericality. Here $t+w=L=13/24$. Again \eqref{eq:quadratic-trace-order} gives $s>t$, so $H$ is irrational. The discriminant of the signed maximal order is a square. The signed trace discriminant has squareclass $24N(E)N(H)$, hence exactly one of $E,H$ belongs to the family of multiples of $VU^j$.
 
 \emph{The local factor of the codegree-three row.}
-Denote its induction label by $A$, and the codegree-eight label by $B$. The row $6S_{A,*}$ is integral. Its entries at the two dimension labels are one, and its entries at the $H$-pair have a common integer value $a$ by Galois symmetry. Write $r=6S_{A,A}$, $z=6S_{A,B}$. The sum of the entries on the six signed induction labels is $1/2$ by the signed coefficient-of-unit formula for $F(A)$. For any central label $Y$, put $s_Y=S_{J,Y}/S_{1,Y}=\pm1$. Orthogonality of the distinct rows of $A$ and $JA$ puts half the squared norm of row $A$ on each sign sector. The six signed induction labels and their $J$-translates all lie in the negative sector, with equal absolute entries at each pair. Together these facts give
+Denote its induction label by $A$ and the eight-label by $B$.
+As in the proof of Theorem~\ref{thm:two-threes-exclusion}, the row
+of $M=6S$ at $A$ has entries one on both dimension pairs.
+Let $a$ be its common entry on the $H$-pair and put
+$r=M_{A,A}$, $z=M_{A,B}$. The signed row sum and norm give
 \[
  r+z=1-2a,\qquad 2a^2+r^2+z^2\le7 .
 \]
-Since the value of the rational eight-row on $F(A)$ is $8z/3$, one has $3\mid z$ and thus $z=0$. The two possibilities for $(a,r)$ are $(0,1)$ and $(1,-1)$. On the ordinary FP label the entry $h=6S_{A,A_D}$ is a positive integer by symmetry and positivity of FP dimension. Its conjugate and both $J$-translates have the same absolute entry, at twist one. The twist relation $S\Theta S=\Theta^{-1}S\Theta^{-1}$, with $\Theta$ the twist matrix, implies $6r\ge 2(4h^2)-18$: the negative-sector terms cancel since $\theta_{JY}=s_Y\theta_Y$ and $S_{A,JY}^2=S_{A,Y}^2$. All rescaled entries are real, and the ordinary half of the rescaled row has squared norm $18$. Thus $h=1$.
+The rational eight-row takes the integral value $8z/3$ on $F(A)$.
+Thus $z=0$ and $(a,r)$ is $(0,1)$ or $(1,-1)$.
 
 At three the rational eight-axis splits off by its idempotent. The central element of simultaneous character values $f/f'$ separates the $V$-family branch, with residue $-1$, from the rational three-axis. Since the latter cannot split off by itself, its local factor consists of that axis and the unit-family branch, of codegree $f=m_0U^i$. The integral trace of its identity is $1/3+A_i/m_0$. As $3\nmid A_i$, it follows that $3\parallel m_0$. Writing $\mathfrak p$ for the prime of $K$ over three, multiplication by three and reduction further give $1+2/(f/3)=0$ in its residue field. Hence $f/3\equiv1\pmod{\mathfrak p}$.
 If $f=H$, the signed values of $F(A)$ on the two paired branches are $r$ and $aH/3$, so $r\equiv a\pmod3$. Both possibilities above contradict this. Thus $f=E$. The signed character values of $F(A_D)$ on the paired branches are $1$ and $E/D$, so $E/D\equiv1\pmod{\mathfrak p}$. This forces $D$ to be in the unit family like $E$, since a $V$-family element has odd valuation at $\mathfrak p$. We have therefore proved
@@ -3383,7 +3400,9 @@ At two the rational three-axis is isolated. The other axes constitute a single l
 \]
 so $24\mid m$. Any order on an isolated $K$-axis has the form $A=\mathbb Z_2+2^v\sqrt3\,\mathbb Z_2$ for $v\ge0$, since projection to the irrational coordinate gives a submodule of $\mathbb Z_2$. Its trace dual is $(2^{v+1}\sqrt3)^{-1}A$, by direct computation or the derivative formula, and is $E^{-1}A$ by perfectness. Thus $mU^k/(2^{v+1}\sqrt3)\in A^\times$, giving $v=v_2(m)-1\ge2$. Writing $U^k=c_k+d_k\sqrt3$ now gives $4\mid c_k$, impossible since $c_0=1,c_1=2,c_{k+2}=4c_{k+1}-c_k$. This establishes the claimed local decomposition.
 
-Its transfer across $R/2R\simeq T/2T$ gives a unique odd ordinary codegree, on a rational row of norm $a\equiv3\pmod4$, as in the preceding theorem. All even-codegree rational rows of $R$ reduce to the unique residue character of the other local factor, the reduction of the eight-row of $T$. A norm-eight integral vector of length six with unit coordinate one has exactly four odd entries. Hence these rational ordinary codegrees are divisible by four. Two rational four-rows would have the same support. If $e_1,e_2$ are their primitive idempotents, $u=1-2(e_1+e_2)$ is integral by the row idempotent formulas and the common support. It satisfies $u^2=1$, has unit coefficient zero and ordinary FP value one. Since $\|u\|^2=1$, it is a basis element of FP dimension one, a contradiction. Thus there is at most one rational ordinary four-row.
+Transfer the factor ranks across $R/2R\simeq T/2T$.
+As in Lemma~\ref{lem:r6-two-threes-dyadic}, the rank-one factor is
+the unique odd rational-codegree row, of norm $a\equiv3\bmod4$. All even-codegree rational rows of $R$ reduce to the unique residue character of the other local factor, the reduction of the eight-row of $T$. A norm-eight integral vector of length six with unit coordinate one has exactly four odd entries. Hence these rational ordinary codegrees are divisible by four. Two rational four-rows would have the same support. If $e_1,e_2$ are their primitive idempotents, $u=1-2(e_1+e_2)$ is integral by the row idempotent formulas and the common support. It satisfies $u^2=1$, has unit coefficient zero and ordinary FP value one. Since $\|u\|^2=1$, it is a basis element of FP dimension one, a contradiction. Thus there is at most one rational ordinary four-row.
 
 \emph{The ordinary spectrum.}
 If an ordinary complementary pair had irrational codegrees of mass $z$, one would have $z\ge5/12-s>0$ and squared gap at least $z^2/3$ as before. By \eqref{eq:twelve-312-mixed} and \eqref{eq:38-gaps},
@@ -3404,29 +3423,44 @@ by four.
 
 If the two remaining characters form a quadratic orbit of common rational codegree $g$, the regular trace discriminant has squareclass $N(D)\cdot3\cdot4g^2\sim3$, while the maximal order has squareclass $3\operatorname{disc}(F)$, impossible for a real quadratic field $F$. Thus all four characters are rational. Write their codegrees as $3,4,c,d$, where $8\le c\le d$ are multiples of four. The strict inequality $1/3+1/4+1/c+1/d>3/4$ forces $c=8$ and $d<24$. The discriminant squareclass requires $8d$ to be a square, so $d=8$.
 
-\emph{The four short rows.}
-Number the six distinguished elements from zero. After permutation the three-row is $(1,1,-1,0,0,0)$: the other apparent sign patterns contradict orthogonality to the FP row and the absence of nonunit invertibles. Let $z$ denote the smallest nonunit FP dimension in the following table. Up to permutations of the last three coordinates and interchange of the two eight-rows, the only possibilities are the following. The last column lists the nonunit FP dimensions in order.
-\[
-\begingroup\setlength{\arraycolsep}{2.5pt}\begin{array}{c|c|c|c}
- 4\text{-row}&8\text{-row}&8\text{-row}&(d_1,d_2,d_3,d_4,d_5)\\ \hline
- (1,-1,0,-1,0,1)&(1,-1,0,1,2,-1)&(1,1,2,-1,0,-1)&(z+1,z+2,z+3,z,2z+3)\\
- (1,0,1,-1,0,1)&(1,-2,-1,1,0,1)&(1,0,1,1,-2,-1)&(z+1,z+2,2z+3,z+3,z)
-\end{array}\endgroup
-\]
-To obtain the table take all integral rows of norm four or eight
-orthogonal to the three-row and having unit coordinate one.
-For each four-row take an orthogonal pair of eight-rows congruent
-to it modulo two, each orthogonal to the four-row. Up to permuting
-the last three coordinates there are 22 triples. Their orthogonal
-complements with $d_0=1$ are affine lines; imposing $d_i>1$
-leaves the two displayed (\codefile{verify_conductor_twelve_rows.py}).
+\emph{The four ordinary rows.} The four-row and both eight-rows
+have the same four odd positions $S$. An eight-row is $\pm1$ on $S$
+with just one further entry $\pm2$. The latter entries must be in
+different positions: otherwise orthogonality forces the two rows
+to agree on $S$ (their unit entries are one) and have opposite even
+entries. Their difference would be supported at one position, contrary
+to orthogonality to the Perron row.
 
-Put $v=2z+3$. Orthogonality of the FP row to its conjugate gives $N(v)=-3$ and $D=2(v^2+3)$ by summing the six coordinates. In both cases $d_1=(v-1)/2$. For the first row case, applying the coefficient-of-unit trace to $X_1^3$ gives
+Negate basis elements, keeping the unit fixed, so the four-row is
+one on $S$ and both even entries are positive. This preserves the
+integrality of the multiplication table. On $S$ the three rows are
+now pairwise orthogonal sign vectors. Permuting the three nonunit
+positions gives the first three rows below. The three-row meets $S$
+in the unit and exactly one other position, by orthogonality to the
+four-row. Up to interchanging the eight-rows its third entry lies at
+the first even position. Orthogonality then fixes the entire row:
 \[
- N_{11}^{1}=\operatorname{Tr}_{K/\mathbb Q}(d_1^3/D)+1/3-1/4-1/8+1/8
-           =(\operatorname{Tr}(v)-2)/16.
+ \begin{pmatrix}
+ 1& 1& 1& 1&0&0\\
+ 1& 1&-1&-1&2&0\\
+ 1&-1& 1&-1&0&2\\
+ 1& 0&-1& 0&-1&0
+ \end{pmatrix}.
 \]
-In the second case the rational contributions are $1/3+0-8/8+0$, giving $N_{11}^{1}=(\operatorname{Tr}(v)-14)/16$. These equalities follow by using $v'=-3/v$. Write $v=A+B\sqrt3$, with $A$ odd and $B$ even because $z\in\mathbb Z[\sqrt3]$. Integrality of the indicated fusion coefficient requires $A\equiv1$ or $-1\pmod8$. Hence $A^2\equiv1\pmod{16}$ and the norm equation gives $B^2\equiv12\pmod{16}$, impossible. This completes the proof.
+The Perron row in this signed basis must consequently be
+$(1,y-2,y,1-2y,1-y,-1-y)$.
+Put $v=2y-1$. Its squared norm is $D=2(v^2+3)$, and its
+orthogonality to the conjugate row gives $vv'=-3$.
+At the fifth basis element, of Perron value $(1-v)/2$, the unit
+coefficient of its cube is the integer
+\[
+ \operatorname{Tr}_K\!\left(\frac{(1-v)^3}{8D}\right)
+          +\frac{2^3}{8}-\frac13
+       =\frac{14-\operatorname{Tr}_K(v)}{16}.
+\]
+The equality follows from $v'=-3/v$. Write $v=A+B\sqrt3$.
+Then $A\equiv7\bmod8$; the norm equation gives
+$3B^2=A^2+3\equiv4\bmod16$, which is impossible.
 \end{proof}
 
 \subsection{Two rational four-rows with different supports}
@@ -3645,18 +3679,21 @@ $1,g,Q$ in the second case, likewise has a spherical tensor
 section, positive on its invertible objects in the pointed case.
 All these sections choose the lift of $g$ of dimension one:
 in the rank-three subcategories it fixes a simple of nonzero
-spherical dimension. Since the Grothendieck ring of the
-sphericalization is commutative, the simples in the products of
-these two lifted subcategories span a fusion subcategory. Indeed
-the product of two mixed products may be reordered in the
-Grothendieck ring, and duality preserves the same span.
-In the first case the lifts of $PX$ and $PY$ agree because $gP=P$
-in the first lifted subcategory and $gX=Y$ in the second. The
-only new lift is that of $Q$. In the second case the only new
-product is $PQ=X+Y$, providing one lift of each of $X,Y$.
-The resulting subcategory thus contains precisely one lift of
-each simple, and forgetting is a tensor equivalence onto
-$\mathcal C$. The spherical structure descends.
+spherical dimension. These two subcategories generate $\mathcal C$, by $PX=Q$ or
+$PQ=X+Y$, and their lifted images have the same intersection
+$\langle g\rangle$. For commuting Grothendieck subrings the regular
+Perron sums satisfy
+\[
+ R_{\mathcal A} R_{\mathcal B}
+  =\operatorname{FPdim}(\mathcal A\cap\mathcal B)\,
+    R_{\mathcal A\vee\mathcal B}.
+\]
+Indeed their product is a common Perron vector for multiplication
+by the simples of $\mathcal A,\mathcal B$, and the unit coefficient
+determines its scalar. Apply this identity downstairs and upstairs,
+where commutativity is a hypothesis. The lifted join has the same
+Perron dimension as $\mathcal C$ and maps dominantly to it, hence
+equivalently. Its spherical structure descends.
 \end{proof}
 
 \subsection{The folded codegree-four pairs at conductor twelve}
@@ -3827,7 +3864,9 @@ Suppose otherwise. Use $U=2+\sqrt3$, $V=3+\sqrt3$, and $E,H,D,t,w,s$ as in Theor
 
 By Lemma~\ref{lem:folded-twelve-mass} the only possible nonunit invertible is the second coordinate $g$ in the short rows, whose action, if it is invertible, has two free orbits and two fixed simples.
 
-We may take $D/D'>H/H'$. For if equality holds, the real signed $H$-character attains the ordinary Perron bound on the central conjugation witness, whose FP dimension $D/D'$ is irrational. Its equality subcategory is spherical. If proper, it has rank at most four and FP field $K$, as in Theorem~\ref{thm:twelve-3-12}. The cited pivotal classifications leave the rank-three $E_6$ ring, the $C_3$ Tambara--Yamagami ring and the rank-four $C_3$ near-group ring of parameter six. Our invertible-object restriction excludes both $C_3$ cases. The $E_6$ case requires the actual involution $g$ and implies sphericality by Proposition~\ref{prop:folded-e6-descent}. If the equality subcategory is the whole category the spherical section already exists.
+We may take $D/D'>H/H'$. For if equality holds, the real signed $H$-character attains the ordinary Perron bound on the central conjugation witness, whose FP dimension $D/D'$ is irrational. Its equality subcategory is spherical. If proper it has field $K$ (it contains that witness) and rank
+at most four by Lemma~\ref{lem:field-corank}. The pivotal
+classifications~\cite{Ostrik2,Ostrik3,DPP} leave the rank-three $E_6$ ring, the $C_3$ Tambara--Yamagami ring and the rank-four $C_3$ near-group ring of parameter six. Our invertible-object restriction excludes both $C_3$ cases. The $E_6$ case requires the actual involution $g$ and implies sphericality by Proposition~\ref{prop:folded-e6-descent}. If the equality subcategory is the whole category the spherical section already exists.
 
 Write $P_{e,i}=V^eU^i$ and $B_{e,i}=\operatorname{Tr}(1/P_{e,i})$, with $e\in\{0,1\}$. The $d$-number and row-orthogonality calculations from Theorem~\ref{thm:twelve-3-12} give unit-family scalars divisible by six and $V$-family scalars divisible by two (the coefficient of $\sqrt3$ in a sum of squares is even, and that in $VU^i$ is odd). The absolute order discriminant is $16 N(EH)$; the absolute maximal-order discriminant is a square, also for $F=\mathbb Q(i)$. Hence $E,H$ are in the same family. Put
 \[
@@ -3880,6 +3919,56 @@ objects needed for the final descent.
 \subsection{Three quadratic character pairs}
 
 Let $K=\mathbb Q(\sqrt2)$, $u=3+2\sqrt2$ and $v=2+\sqrt2$.
+
+\begin{lemma}[Three ordinary four-rows]\label{lem:silver-three-four-rows}
+Suppose the ordinary algebra is commutative with Perron field $K$
+and the signed rational algebra is $K^3$. If its four ordinary
+complementary codegrees are even and at least four, then
+\[
+ s=\operatorname{Tr}(1/D)<21/100
+ \quad\Longrightarrow\quad
+ \text{three ordinary codegrees are four}.
+\]
+They force an actual involution fixing precisely two simples, and a
+signed $v$-family pair of reciprocal mass $1/2$. If $s<1/6$, the
+ordinary codegrees are $4,4,4,8$ and $D=8A_\ell u^\ell$, where
+$A_\ell=u^\ell+u^{-\ell}$.
+\end{lemma}
+\begin{proof}
+Sorting the denominators with reciprocal sum $1-s>79/100$ leaves
+$(4,4,4,d)$, $(4,4,6,6)$ or $(4,4,6,8)$, with largest denominator at most $24$.
+The signed algebra is totally real, so all simples are self-dual.
+All four rows are rational by Lemma~\ref{lem:real-four-six} and
+Galois invariance. Their product times $N(D)$ has squareclass
+two, with $N(D)$ a square or twice a square. This excludes
+$(4,4,6,8)$. At $(4,4,6,6)$ the two six-rows are distinct
+modulo three by squared distance twelve. Each needs a partner,
+whereas the four-axes split off and three is inert in $K$.
+Finally at $s<1/6$ we get $4<d<12$, and the same squareclass
+test gives $d=8$, $N(D)$ square and $s=1/8$.
+
+Each rational codegree-four row has four entries $\pm1$, including
+the unit. By orthogonality the two-element zero sets of two such
+rows coincide or are disjoint. There are three such sets on five
+nonunit coordinates, so two coincide. Their sum has support the
+unit and a nonunit $g$, with coefficients $2,-2$ by orthogonality
+to the Perron row. Thus $\operatorname{FPdim}(g)=1$ and
+$1-g$ is twice the sum of the two primitive idempotents. Hence $g$
+is an involution with a two-dimensional minus-eigenspace. Consequently $g$ swaps $1,g$ and $X,gX$ for
+one additional simple $X$, and fixes the other two. The same is true
+on the positive signed basis. The two signed characters with $g=-1$
+therefore form a full $K$-orbit and have rows
+$(1,-1,q,-q,0,0)$. On the two-dimensional space with basis
+$1-g,X-gX$, signed multiplication by $X$ has matrix
+$\left(\begin{smallmatrix}0&1\\1&d_0\end{smallmatrix}\right)$ by
+self-duality and symmetry. Thus $qq'=-1$; $q$ cannot be rational
+since the characters are distinct and their values on $X$ determine
+them. The quotient of their codegrees $2(1+q^2)$ is $q^2$ up to
+inversion, an odd power of $u$, since the norm-negative units of
+$K$ are the signed odd powers of $1+\sqrt2$. This orbit is therefore
+in the $v$-family and has reciprocal mass $1/2$.
+\end{proof}
+
 \begin{theorem}\label{thm:silver-finite-orbit}
 Suppose $\mathcal C$ has rank six, its ordinary character algebra
 is commutative, its signed rational algebra is $K^3$, and the
@@ -3967,37 +4056,9 @@ at least $(1-s)^2/2$. Either contribution exceeds $1/9$, whereas
 the two signed complementary orbits already supply
 $c(1-t)^2/2>c(19/20)^2/2$. This contradicts \eqref{eq:silver-mixed}.
 
-The four ordinary complementary codegrees are therefore even integers
-at least four with reciprocal sum greater than $5/6$. They must be
-$(4,4,4,d)$ with $d=6,8,10$. Lemma~\ref{lem:real-four-six} makes all three four-rows rational,
-and the unique $d$-row is rational as well.
-
-The maximal rational-order
-discriminant now has squareclass two; the fusion-order discriminant
-has squareclass $N(D)d$. Since $N(D)$ has squareclass one or two,
-only $d=8$ is possible, and $D=Mu^\ell$ is in the unit family.
-We have $s=1/8$, $M=8A_\ell$.
-
-Each rational codegree-four row has four entries $\pm1$, including
-the unit. By orthogonality the two-element zero sets of two such
-rows coincide or are disjoint. There are three such sets on five
-nonunit coordinates, so two coincide. Their sum has support the
-unit and a nonunit $g$, with coefficients $2,-2$ by orthogonality
-to the FP row. In particular $g$ is an actual invertible, and the
-minus-eigenspace of $g$ has dimension two, because all other rows
-annihilate $1-g$. Consequently $g$ swaps $1,g$ and $X,gX$ for
-one additional simple $X$, and fixes the other two. The same is true
-on the positive signed basis. The two signed characters with $g=-1$
-therefore form a full $K$-orbit and have rows
-$(1,-1,q,-q,0,0)$. On the two-dimensional space with basis
-$1-g,X-gX$, signed multiplication by $X$ has matrix
-$\left(\begin{smallmatrix}0&1\\1&d_0\end{smallmatrix}\right)$ by
-self-duality and symmetry. Thus $qq'=-1$; $q$ cannot be rational
-since the characters are distinct and their values on $X$ determine
-them. The quotient of their codegrees $2(1+q^2)$ is $q^2$ up to
-inversion, an odd power of $u$, since the norm-negative units of
-$K$ are the signed odd powers of $1+\sqrt2$. This orbit is therefore
-in the $v$-family and has reciprocal mass $1/2$.
+Lemma~\ref{lem:silver-three-four-rows} now gives $s=1/8$,
+$D=Mu^\ell$ with $M=8A_\ell$, and a signed $v$-family orbit of
+mass $1/2$.
 
 If $s/t\ge5$, the signed complementary orbits and $D$ already
 contribute at least
@@ -4053,28 +4114,23 @@ divisibilities, $w>1/5$, and this last inequality gives
 \end{array}
 \]
 
-We next exclude a second complementary exponent at most one.
-The other orbit may be taken to be $nu$ or $nvu$ by the initial
-choice of $H$. Its mass exceeds $1/10$: indeed $w\le5/9$ in
-the table, while $t\le s/3\le1/(4\sqrt2)$ by the mixed bound on
-$D$. Hence its scalar is less than $100$. The inequality
-$\delta_H^2+\delta_G^2+16t^2\le1/2$ leaves eight unordered
-pairs; in each, $t\ge1/36$.
+If both complementary exponents are at most one, our choice of $H$
+leaves $G=nu$ or $nvu$. Since $w\le5/9$ and
+$t\le s/3\le1/(4\sqrt2)$, its mass exceeds $1/10$ and $n<100$.
+The bound $\delta_H^2+\delta_G^2+16t^2\le1/2$ leaves eight
+unordered pairs, all with $t\ge1/36$. Their complementary scalars
+have least common multiple $N\le220$. Both $Nt$ and $Ns$ are
+integral by the signed mass and FP induction identities, since
+$\operatorname{Tr}(\mathcal O_K/(v^eu^j))\subseteq2\mathbb Z$.
 
-For these rows put $N$ equal to the least common multiple of the
-two complementary scalars. Then $N\le220$ and $Ns,Nt\in\mathbb Z$,
-the latter by the signed mass identity and the former by the
-signed coefficient of the ordinary FP induction label. Indeed
-$\operatorname{Tr}(\mathcal O_K/(v^e u^j))\subset 2\mathbb Z$
-in either family. Write $E=mv^e u^k$, $D=Mv^f u^\ell$, $a=m/M$,
-$r=\ell-k$. Since $t\ge1/36$,
-$s/t\le36\cdot3/(4\sqrt2)<20$.
-By Lemma~\ref{lem:relative-quadratic-indices}, $a^2<4s/t<80$.
-The leading coefficients $1,v/2$ of the primitive traces give
-$s/t\ge au^r/v$, hence $0\le r\le2$. Since $m\mid NB_{e,k}$
-and $m\mid Na B_{f,\ell}$, the same lemma gives $m\mid NaW_{e,f}(r)$.
-Here $0<|W_{e,f}(r)|\le328$, so $m\le220\cdot8\cdot328$ and
-$B_{e,k}=mt$ forces $k\le6$.
+Write $E=mv^eu^k$, $D=Mv^fu^\ell$, $a=m/M$, $r=\ell-k$.
+Now $s/t\le36\cdot3/(4\sqrt2)<20$ and
+Lemma~\ref{lem:relative-quadratic-indices} gives $a^2<4s/t<80$.
+The leading coefficients of the primitive traces give $s/t\ge au^r/v$,
+so $0\le r\le2$. Because $m$ divides both $NB_{e,k}$
+and $NaB_{f,\ell}$, it divides $NaW_{e,f}(r)$. Here
+$0<|W_{e,f}(r)|\le328$, whence $m\le220\cdot8\cdot328$
+and $B_{e,k}=mt$ forces $k\le6$.
 
 In these finite ranges the divisibility and Fourier comparisons
 leave exactly
@@ -4096,10 +4152,10 @@ remaining upper bound for the contributions of the ordinary complementary orbits
 $31/1089,17/242,7/2420$. Each is less than $(1/2-s)^2$,
 the minimum contribution of an irrational ordinary pair; two such
 pairs give an even larger bound. Thus the ordinary complements
-are rational. For $s=5/33$ and $17/110$ the only even complementary
-possibilities would be $(4,4,4,d)$, from their reciprocal masses
-between $5/6$ and $7/8$; the argument above permits only $d=8$
-in this interval including its upper endpoint. For $s=5/22$ the
+are rational. The masses $5/33$ and $17/110$ are both less than $1/6$ and
+different from $1/8$, contrary to Lemma~\ref{lem:silver-three-four-rows}.
+
+For $s=5/22$ the
 rational ordinary codegrees divide $44$ by integrality of $E/f$,
 so the only possible tuple is $(4,4,4,44)$; its discriminant
 squareclass is $22$, whereas the maximal order gives two.
@@ -4115,9 +4171,8 @@ Minimizing the quadratic over $s\ge0$ gives
 $\delta_H^2+(57600/60401)(1-w)^2\le1/2$, reducing the preceding
 table to $4v,6v,12u,16u,18vu,20vu,22vu,24vu$.
 For all of these except $4v$, the ordinary complementary codegrees
-are rational. Indeed $s<1/2$ unless the single ordinary $D$ pair
-already exhausts the upper bound in the mixed inequality, as is seen using
-its gap and the nonzero $H$ gap. An irrational ordinary complement
+are rational. Indeed $2cs^2+\delta_H^2\le1/2$ and
+$\delta_H^2\ge1/18$ give $s<1/2$. An irrational ordinary complement
 then requires $L(s)+(1/2-s)^2\le1/2$, since two quadratic pairs
 give at least $(1-s)^2/2\ge(1/2-s)^2$.
 For the seven values the minimum of this last quadratic exceeds
@@ -4126,8 +4181,8 @@ $\delta_H^2$.
 
 For $16u$ and the four $nvu$ cases, $L(s)>1/2$ on $s\ge1/6$:
 the quadratic is increasing from its value at $1/6$.
-Thus $s=1/8$, and the ordinary invertible supplies a $v$-family
-signed half-mass orbit as above. Since $t\le3/80$, the masses
+Thus $s=1/8$ and Lemma~\ref{lem:silver-three-four-rows}
+supplies a signed $v$-family half-mass orbit. Since $t\le3/80$, the masses
 of $18vu,22vu,24vu$ preclude a half-mass orbit. At $H=16u$,
 $L(1/8)>1/2$. At $H=20vu$ we have $w=1/2$ and
 $\delta_H^2=49/200$. If $s/t\ge5$, then the mixed sum is at least
@@ -4137,24 +4192,12 @@ $v$-family orbit, contradicting its exponent bound.
 
 It remains to rule out $H=6v$ and $12u$. In these two cases
 $L(21/100)>1/2$ and $L$ is increasing thereafter, hence $s<21/100$.
-A tuple of four even complementary codegrees with reciprocal sum
-greater than $79/100$ has largest entry at most $24$. Checking
-the even integers from four to twenty-four gives $(4,4,4,d)$,
-$(4,4,6,6)$ or $(4,4,6,8)$. In the first case the three
-rational codegree-four rows force a $v$-family half-mass orbit.
-For $H=6v$ none of the three masses equals a half, by
-$t\le3s/10$ and $w=1/3$. For $H=12u$, the half-mass orbit is
-unit-family, also impossible. In the last two tuples all four ordinary characters are rational
-by Lemma~\ref{lem:real-four-six} and Galois invariance. For $(4,4,6,8)$ the product
-of the codegrees has squareclass $3N(D)$, different from the
-maximal-order squareclass two. For $(4,4,6,6)$, work at three.
-The two rational codegree-four idempotents are integral. The two
-rational codegree-six rows have distinct reductions: the squared
-norm of their difference is twelve, indivisible by nine.
-They therefore need separate local factors, neither of which can
-consist of its rational branch alone since $1/6$ is not integral
-at three. There is only one further branch, since three is inert
-in $K$. This leaves $H=4v$, of squared gap $1/8$. The long signed
+Lemma~\ref{lem:silver-three-four-rows} now forces a signed
+$v$-family orbit of mass $1/2$. For $H=6v$ none of the three
+masses is $1/2$, since $w=1/3$ and $t\le3s/10$.
+For $H=12u$ the half-mass orbit is in the unit family.
+
+This leaves $H=4v$, of squared gap $1/8$. The long signed
 pair has mass $1/2-t$. Using $s\ge10t/3$ in the mixed bound gives
 \[
  \frac12\ge\frac18+\frac{288}{289}
@@ -5057,27 +5100,6 @@ would give four. Lemma~\ref{lem:silver-common-ordinary-mass} now
 excludes rational codegrees.
 \end{proof}
 
-\begin{lemma}\label{prop:silver-distinct-short-projection}
-Take real induction characters of codegree four in a single sign sector.
-Let $L$ be the principal submatrix of $8S$ on the corresponding labels.
-Let $Q$ be the Gram matrix of the same rows of $8S$ restricted to the
-ordinary induction labels. Then $Q\preceq8I+2L$.
-\end{lemma}
-\begin{proof}
-For a real vector $x$ on the chosen labels, $x$ is orthogonal to $Jx$.
-Thus $Sx$ has half its squared norm in each sign sector. The signed
-coordinates make cancelling contributions to the twist sum
-$(Sx)^{\mathsf t}\Theta Sx=x^{\mathsf t}Sx$ because $J$ pairs them
-with opposite twists. In the ordinary sector the induction labels and
-their translates have twist one. Together they contribute
-$x^{\mathsf t}Qx/32$. The real part of the rest is bounded below by
-minus its squared norm, so
-\[
- x^{\mathsf t}Lx/8\ \ge\ x^{\mathsf t}Qx/16-\|x\|^2/2.
- \qedhere
-\]
-\end{proof}
-
 \section{Completing the quadratic case}\label{sec:guide-pell}
 The two remaining short characters have codegree four. Pell
 divisibility rules out different supports, and also the case in
@@ -5327,20 +5349,24 @@ $L$ to $Z(\mathcal S)$. For the original induction labels we claim
 \begin{equation}\label{eq:four-full-center}
  [L:A_\chi]=(1+\chi(g))/2+[FA_\chi:g].
 \end{equation}
-Under the center equivalence $Y$ has underlying bimodule $FY\otimes B$,
-with left action transported by the half-braiding. The right-linear
-maps to $B$ are $\bigoplus_{a=0,1}\operatorname{Hom}(FY,g^a)$.
-Left linearity selects the fixed space of the Ng--Schauenburg
-rotation $E^{(a,1)}_{Y,g}$ on each summand
-\cite[Definition~2.4]{NgSchInd}. Indeed, inserting a $g,g$ coevaluation
-in its formula gives exactly the equation that $f$ commute
-with left multiplication by $g$. For $Y=A_\chi$ the first space
-is a line. The rotation there has trace
+Under the center equivalence $Y$ has underlying bimodule $FY\otimes B$.
+A right-linear map to $B$ is a pair of maps $f_a:FY\to g^a$, $a=0,1$.
+Write $m_{a,b}:g^a\otimes g^b\to g^{a+b}$ for the chosen multiplication.
+Left linearity at $g$ says exactly
+\[
+ m_{a,1}(f_a\otimes1_g)=m_{1,a}(1_g\otimes f_a)c_{Y,g},
+\]
+where $c_{Y,g}:FY\otimes g\to g\otimes FY$ is the half-braiding.
+Using $g^*=g$ and $\dim g=1$, this is the fixed-space equation
+for the rotation $E^{(a,1)}_{Y,g}$ of \cite[Definition~2.4]{NgSchInd}.
+For $Y=A_\chi$ the first space is a line. The rotation on it has trace
 \[
  \sum_W S_{Y,W}[FW:g]=\chi(FI(g))/(2f_\chi)=\chi(g)
 \]
-by \cite[(5.4)]{NgSchInd} and commutativity, which gives
-$FI(g)=gFI(\mathbf1)$. On the second space the rotation is
+by \cite[(5.4)]{NgSchInd}, since $FI(g)=gFI(\mathbf1)$
+in the commutative ring and $\chi(FI(\mathbf1))=2f_\chi$.
+
+On the second space the rotation is
 precomposition with $\theta_Y^{-1}=1$
 \cite[Lemma~2.7]{NgSchInd}. This proves \eqref{eq:four-full-center}.
 
@@ -5355,9 +5381,12 @@ Each of the four size-two orbits contributes two simples. Each of
 the four fixed lifts contributes one or four, according as the two
 stabilizer generators anticommute or commute. The central sign pairs
 opposite lifts with the same cocycle, so the rank is $12,18$ or $24$.
-Only $24$ is possible. Forgetting signs identifies each stabilizer
-cocycle with its counterpart downstairs, giving rank twelve there
-and one-dimensional stabilizer representations on every orbit.
+Thus the rank is $24$ and every stabilizer representation is
+one-dimensional. Each orbit downstairs has two lifts: multiplication
+by the positive lift of $g$ preserves spherical dimension.
+Its stabilizer maps lift uniquely on either orbit and have the same
+composition scalars. Each simple bimodule downstairs therefore has
+two lifts, giving rank twelve.
 Twisting the left $B$-action by the automorphism $g\mapsto-g$
 is tensoring on the left by the correspondingly twisted regular
 bimodule. It tensors the stabilizer representation by
@@ -5369,8 +5398,9 @@ and acts freely.
 
 The haploid normalized special symmetric algebra $B$ gives
 $\mathcal D$ its spherical structure \cite[\S3.10, after (70)]{MuleviciusOrb}.
-Closing the bimodule trace with the unit and counit as in
-\cite[(2.16)]{KMRS} gives
+Closing the bimodule trace with the unit and counit in
+\cite[(2.16)]{KMRS} multiplies its scalar by $\dim_{\mathcal S}B=2$.
+Thus
 \begin{equation}\label{eq:quadratic-bimodule-trace}
         \dim_{\mathcal D}(V)=\dim_{\mathcal S}(V)/2 .
 \end{equation}
@@ -5379,8 +5409,9 @@ and hence twists: the underlying bimodule of $Y$ is $FY\otimes B$.
 Also $\dim\mathcal D=2E$ by \cite[Theorem~2.15]{ENO}.
 
 The central sign $J$ acts by $\varepsilon\otimes B$, which interchanges
-the two lifts of each simple bimodule. The positive quotient of the
-Grothendieck algebra is therefore $K_0({}_B\mathcal C_B)_{\mathbb C}$,
+the two lifts of each simple bimodule. Forgetting lifts respects
+relative tensor products, since it preserves the separability projector.
+Thus the positive quotient is $K_0({}_B\mathcal C_B)_{\mathbb C}$,
 of dimension twelve. An irreducible representation of dimension $n$
 and codegree $f$ there has full codegree $2f$ by summing over both
 lifts. Its label $Y$ occurs in $L$ with multiplicity $n$ and has
@@ -5393,8 +5424,9 @@ $D,D',G,G'$. Their matrix blocks occupy ten dimensions, so precisely
 two new linear characters remain. Denote their labels by $Y_1,Y_2$
 and codegrees by $a,b$. The unit coefficient gives
 $1/a+1/b=1-s-2(1/2-s)=s$. The discarded pairs are Galois-stable,
-hence so is $\{a,b\}$. Each new codegree is $E/\dim Y_i\in K$
-by Proposition~\ref{prop:quadratic-full-character}.
+hence so is $\{a,b\}$. Since $\dim Y_i=\dim_{\mathcal S}FY_i$, the dimension-character
+field in Proposition~\ref{prop:quadratic-full-character} contains
+$E/\dim Y_i$.
 \end{proof}
 
 \begin{theorem}\label{thm:silver-morita-end}
@@ -5413,11 +5445,20 @@ positive $d$-numbers, with
 \[
                   (1/a-1/b)^2\ge s^2/2
 \]
-by the smallest totally positive unit $u=3+2\sqrt2$. Each $Y_i$ and its $J$-translate has twist one, because $Y_i$ occurs in the unit induction, its sign is ordinary, and $\theta_{JY_i}=(S_{J,Y_i}/S_{1,Y_i})\theta_{Y_i}$. These four positions are distinct from all the old induction labels and their translates. Indeed $Y_1,Y_2$ were taken outside the full list of inherited constituents of $L$. Every induction constituent in either list has positive spherical dimension $E/f$, while its $J$-translate has negative dimension.
+by the smallest totally positive unit $u=3+2\sqrt2$.
+The four labels $Y_i,JY_i$ have twist one: $Y_i$ occurs in dual
+unit induction and its sign is ordinary. The original labels
+occurring in the dual induction are precisely those already counted
+in \eqref{eq:four-full-center}. Thus these two new labels are outside
+the original list, and negative dimensions distinguish the translates
+from both lists of induction labels.
 
-Apply the projection in \eqref{eq:silver-mixed}, retaining these four extra twist-one coordinates. At $Y_i$ the dimension row of $Z(\mathcal S)$ has entry $1/(2a)$ or $1/(2b)$, and its conjugate row has the other value. The ordinary translates give the same squared contribution. Thus
+At $Y_i$, the signed dimension-orbit row indexed by $\sigma$ has entry
+$\sigma(\dim_{\mathcal S}FY_i)/(2\sigma(E))$, hence $1/(2\sigma(a))$
+or $1/(2\sigma(b))$. Retaining these four twist-one coordinates
+in the projection of \eqref{eq:silver-mixed} gives
 \[
- \tfrac12\ \ge\ \delta_H^2+2\delta_D^2+2\delta_G^2+2(1/a-1/b)^2 .
+\tfrac12\ \ge\ \delta_H^2+2\delta_D^2+2\delta_G^2+2(1/a-1/b)^2 .
 \]
 By the gap estimates of Lemma~\ref{lem:split-ordinary-gap},
 the right side is at least
@@ -5466,114 +5507,80 @@ subfield of $K$, then $\mathcal C$ has a pseudo-unitary Galois
 conjugate.
 \end{theorem}
 
-We shall use the following integral Galois difference again in the
-quartic field calculations.
-
-\begin{lemma}\label{thm:primitive-divisibility}
-Write the signed rational algebra as $K\times B$ with $K=\mathbb Q(D)$
-quartic, and let $M$ be a splitting field of the two-dimensional factor
-$B$ of degree at most two. If $\tau$ fixes $M$ and $x=E/D$, then
-$(\tau x-x,0)$ belongs to the integral signed order. In particular, if
-$x$ has quartic minimal polynomial $P$, then
-\[
-        (\tau x-x)P'(x)/E\in\mathbb Z[x].
-\]
-\end{lemma}
 \begin{proof}
-Let $V$ denote the signed forgetful class of the ordinary Perron label.
-Its quartic coordinate is $x$. Corollary~\ref{cor:galois-columns}
-gives an integral element with conjugated coordinates. Subtracting $V$
-gives $(\tau x-x,0)$ because $\tau$ fixes the complementary coordinates.
-Taking unit coefficients after multiplication by powers of $V$ puts
-$(\tau x-x)/E$ in the codifferent of $\mathbb Z[x]$. The formula for the
-codifferent of a monogenic order gives the result~\cite[Proposition~4.17]{Narkiewicz}.
-\end{proof}
-
-\begin{lemma}[A quadratic mass comparison]\label{lem:quartic-proper-mass}
-Let $F,G$ be distinct quadratic subfields of $K$.
-Suppose $D=\delta w$ and $E=\delta z$, with
-$\delta\in F$, $w,z\in G$ totally positive. If $s=\operatorname{Tr}_K(1/D)\le
-t=\operatorname{Tr}_K(1/E)$, a Galois conjugate is pseudo-unitary.
-\end{lemma}
-\begin{proof}
-Transport by the automorphism fixing $F$ if necessary, so that
-$z\ge z'$ for the conjugation of $G$. This preserves $s,t$ and
-the factorization; the new ratio $x=z/w$ has $x\le x'$ by
-\eqref{eq:least-ratio}. Applying the two-term identity
-\eqref{eq:quadratic-trace-order} to the weights $1/z,1/z'$ gives
-\begin{equation}\label{eq:fib-quartic-shift}
- \operatorname{Tr}_G(x)
- \le \frac{2\operatorname{Tr}_G(x/z)}{\operatorname{Tr}_G(1/z)}
- =\frac{2s}{t}\le2.
-\end{equation}
-Its positive integral norm forces $x=1$.
-\end{proof}
-
-\begin{theorem}\label{thm:single-component}
-Let $\mathcal C$ have rank six. Suppose its field $K=\mathbb Q(D)$
-is biquadratic and contains all the $d_i$ and $x_i$. Assume that
-$G=\mathbb Q(E/D)$ is quadratic. Then $\mathcal C$ has a
-pseudo-unitary Galois conjugate unless its equality subcategory
-is a rank-two Fibonacci category and the remaining simples form
-two indecomposable modules of rank two under left multiplication
-by that subcategory.
-\end{theorem}
-\begin{proof}
-Suppose $E<D$. Write $\mathcal A$ for the equality subcategory,
+A rational ratio is an integer in $(0,1]$, and
+Corollary~\ref{cor:cyclic-prime-power-proper-ratio} treats cyclic $K$.
+Suppose then that $K$ is biquadratic, $E<D$ and $G=\mathbb Q(E/D)$ is
+quadratic. For the equality subcategory $\mathcal A$ let
 $D_0=\operatorname{FPdim}(\mathcal A)$ and $F=K_{\mathcal A}$.
-Theorem~\ref{thm:proper-ratio} and Lemma~\ref{lem:field-corank}
-give $[F:\mathbb Q]=2$, $F\ne G$, and at least two simples in each
-outside component. If there are two such components, all three ranks
-are two. The pseudo-unitary rank-two category of quadratic dimension
-field is Fibonacci~\cite{Ostrik2}.
+Theorem~\ref{thm:proper-ratio} and Lemma~\ref{lem:field-corank} give
+a second quadratic field $F\ne G$ and a factorization
+$D=\delta w$, $E=\delta z$ with $\delta\in F$ and $w,z\in G$.
 
-If there is only one outside component, let $\gamma$ fix $F$ and act
-nontrivially on $G$. For either dimension row $y=d,x$ put
-$H=\sum_i y_i^2$. On $\mathcal A$, $\gamma(y)=y$; on the outside
-component Lemma~\ref{lem:field-corank} gives $\gamma(y)=by$ for some
-scalar $b$. Orthogonality of the two characters gives
-$D_0+b(H-D_0)=0$. Substitution in $\gamma(H)=D_0+b^2(H-D_0)$ yields
-$1/H+1/\gamma(H)=1/D_0$.
+It suffices to show $s=\operatorname{Tr}_K(1/D)\le
+t=\operatorname{Tr}_K(1/E)$. Indeed, transport if necessary by
+the nontrivial automorphism fixing $F$, so $z\ge z'$. This fixes
+$\delta$ and leaves $D,w,s,t$ unchanged. The new ratio $x=z/w$
+has $x\le x'$ by \eqref{eq:least-ratio}. The two-term identity
+\eqref{eq:quadratic-trace-order}, with weights $1/z,1/z'$, gives
+\begin{equation}\label{eq:fib-quartic-shift}
+ \operatorname{Tr}_G(x)\le
+ 2\operatorname{Tr}_G(x/z)/\operatorname{Tr}_G(1/z)=2s/t\le2.
+\end{equation}
+Thus $x=1$ by its positive integral norm.
 
-Taking the trace from $F$ gives $s=t$. Theorem~\ref{thm:proper-ratio}
-supplies the factorization of Lemma~\ref{lem:quartic-proper-mass},
-which proves the claim.
+Over $\mathbb R$, consider in each quotient the regular idempotent of $\mathcal A$,
+$e=D_0^{-1}\sum_{X\in\mathcal A}d_X b_X$. Its rank is the number of
+indecomposable $\mathcal A$-components: it projects to the Perron line
+in each component, and the signed action agrees with the ordinary one
+by Lemma~\ref{lem:field-corank}. In either quartic factor precisely
+the two embeddings fixing $F$ take $e$ to one. If there is a single
+outside component, these exhaust its rank. Taking the unit coefficient
+in both sectors gives
+\[
+ 1/D_0=1/D+1/\gamma D=1/E+1/\gamma E
+\]
+for the nontrivial $\gamma$ fixing $F$. Tracing from $F$ gives $s=t$.
+
+Otherwise all three components have rank two by
+Lemma~\ref{lem:field-corank}. Then $\mathcal A$ is Fibonacci
+by~\cite{Ostrik2}, with generator of dimension
+$\varphi=(1+\sqrt5)/2$ and $D_0=2+\varphi$. For the nontrivial $\tau$
+fixing $G$, the simultaneous column is supported on positive
+Fibonacci lifts and has unit coefficient one. Thus
+$D/\tau D=1+m\varphi$ with $m\in\mathbb Z_{>0}$, since $D$ generates
+$K$. Its norm $1+m-m^2$ equals one, so $m=1$ and
+$\delta=1+D/\tau D=D_0$ in Theorem~\ref{thm:proper-ratio}.
+
+The Fibonacci generator embeds $F$ in the two-dimensional signed
+complement. Its character with positive Fibonacci dimension is the
+third constituent selected by $e$. If its codegree is $h$, the unit
+coefficient of $e$ gives
+$1/h=1/D_0-1/E-1/\gamma E=(1-t)/D_0$, since
+$\operatorname{Tr}_F(1/D_0)=1$. Let $\beta\in\mathbb Z[\varphi]$
+be the complementary value of the ordinary Perron induction class.
+It is totally positive, and $\operatorname{Tr}_F(\beta/D_0)$ is a
+positive integer: it is its unit coefficient in the Fibonacci order.
+Hence the unit coefficient of the induction class gives
+$1-s=(1-t)\operatorname{Tr}_F(\beta/D_0)\ge1-t$, as required.
 \end{proof}
 
-\begin{proof}[Proof of Theorem~\ref{thm:all-proper-quartic}]
-A rational $\alpha=E/D$ is an integer in $(0,1]$, and the cyclic
-case follows from Corollary~\ref{cor:cyclic-prime-power-proper-ratio}.
-In the remaining case Theorem~\ref{thm:single-component} leaves a
-Fibonacci equality subcategory. Write $P$ for its generator,
-$\varphi=(1+\sqrt5)/2$, $F=\mathbb Q(\varphi)$, $D_0=1+\varphi^2$
-and $G=\mathbb Q(\alpha)$. Let $\tau$ fix $G$ and $\gamma$ fix $F$,
-both nontrivial.
-
-The simultaneous column for $\tau$ is supported on positive
-Fibonacci lifts and has unit coefficient one. Thus $D/\tau D=1+m\varphi$
-with $m\ge0$. Its norm $1+m-m^2$ is one, and $m\ne0$ since $D$
-generates $K$. Consequently $1+D/\tau D=2+\varphi=D_0$.
-The factorization of Theorem~\ref{thm:proper-ratio} gives
-$D=D_0w$, $E=D_0z$ with $w,z\in G$.
-
-The positive Fibonacci lift embeds $F$ in the two-dimensional signed
-complement, so that complement is $F$. The Fibonacci idempotent
-selecting $P\mapsto\varphi$ has unit coefficient $1/D_0$.
-It is the sum of two quartic idempotents and one complementary
-idempotent, of codegree $h$. Hence
-\[
-  1/h=1/D_0-1/E-1/\gamma E
-      =(1-\operatorname{Tr}_G(1/z))/D_0.
-\]
-Write $s=\operatorname{Tr}_K(1/D)=\operatorname{Tr}_G(1/w)$ and
-$t=\operatorname{Tr}_K(1/E)=\operatorname{Tr}_G(1/z)$, where a
-subscript denotes the trace to $\mathbb Q$ and
-$\operatorname{Tr}_F(1/D_0)=1$. The complementary coordinate $\beta$
-of the Perron induction class $V$ is totally positive. Its Fibonacci
-unit coefficient $\operatorname{Tr}_F(\beta/D_0)$ is thus a positive
-integer ($\beta\in\mathbb Z[\varphi]$). The unit coefficient of $V$
-gives $1-s=(1-t)\operatorname{Tr}_F(\beta/D_0)\ge1-t$.
-Now apply Lemma~\ref{lem:quartic-proper-mass}.
+\begin{lemma}[A Galois difference in the trace dual]\label{thm:primitive-divisibility}
+Let $x=E/D$ and let $\tau$ fix the character fields of the signed
+complement. Then $(\tau x-x,0)$ belongs to the signed order.
+If $x$ has quartic minimal polynomial $P$, then
+$(\tau x-x)P'(x)/E\in\mathbb Z[x]$.
+\end{lemma}
+\begin{proof}
+Subtract the signed class of the Perron induction label from its
+integral translate in Corollary~\ref{cor:galois-columns}.
+Multiplication by any polynomial in that class gives
+$\operatorname{Tr}_K((\tau x-x)\mathbb Z[x]/E)\subseteq\mathbb Z$.
+For $\deg r<4$, Lagrange interpolation gives
+$\operatorname{Tr}_K(r(x)/P'(x))=[X^3]r(X)$. On the power basis
+this coefficient pairing is integral with anti-diagonal ones and
+zeros for total degree below three. Thus the trace dual is
+$P'(x)^{-1}\mathbb Z[x]$ (see also~\cite{Narkiewicz}).
 \end{proof}
 
 \section{Reduction to three quartic fields}\label{sec:guide-quarticred}
@@ -5862,21 +5869,13 @@ $c_0u^2\le(c_0,4)/2+2u$ of Lemma~\ref{lem:quartic-short-pairs}
 gives $u\le1/4$ (the least even discriminant here is $40$).
 Every pair amplitude is at most $1/\sqrt2$. Since
 $3/4-1/\sqrt2>4/94$, Lemma~\ref{lem:quartic-pair-height} gives $A\le94$.
-For a quadratic subfield of least conductor, with relative
-discriminant norm $\delta=bc/a$, the primitivity of $\alpha$
-gives
-\[
- A\ge2\sqrt{\sqrt\delta+4},\qquad
- b\le\sqrt a(A^2/4-4).
-\]
-Indeed, pair the four roots over that subfield, take their sums
-$u_i$, differences $v_i$ and products $w_i$ for $i=1,2$.
-Then $(v_1v_2)^2\ge\delta$ by relative order discriminants,
-$w_1w_2\ge1$ by integrality, and
-$(u_1u_2)^2=(v_1^2+4w_1)(v_2^2+4w_2)
-\ge(|v_1v_2|+4\sqrt{w_1w_2})^2$.
-Now $A=u_1+u_2\ge2\sqrt{u_1u_2}$, and the conductor--discriminant
-formula gives $\delta=bc/a$.
+For the quadratic subfield $F$ of least conductor, the
+conductor--discriminant formula gives
+$N_{F/\mathbb Q}(\mathfrak d_{K/F})=bc/a$. If $x=E/D$ generates
+$K$, then $K=F(x)$ and the totally positive integer $x$ has norm at
+least one. Lemma~\ref{lem:relative-trace-discriminant} gives
+$A=\operatorname{Tr}_K(x)\ge2\sqrt{\sqrt{bc/a}+4}$.
+
 \end{proof}
 
 \begin{corollary}\label{cor:quartic-five-unbounded}
@@ -6012,8 +6011,7 @@ mass and ratio combinations in (2)}.
 \begin{theorem}\label{thm:quartic-silver-fields}
 Let $\mathcal C$ have rank six and quartic dimension field $K=\mathbb Q(D)$,
 with two distinct irrational complementary signed codegrees. If $K$
-contains $\sqrt2$ or $\sqrt3$, then $\mathcal C$ admits a spherical
-structure except possibly when $K$ is one of
+contains $\sqrt2$ or $\sqrt3$, a Galois conjugate is pseudo-unitary except possibly when $K$ is one of
 \[
  \mathbb Q(\sqrt2,\sqrt3),\quad \mathbb Q(\sqrt2,\sqrt5),\quad
  \mathbb Q(\sqrt3,\sqrt5),\quad \mathbb Q(\zeta_{16})^+.
@@ -6210,7 +6208,7 @@ therefore congruent. Their squared distance is $g+h$ by orthogonality.
 
 \begin{theorem}\label{thm:quartic-rational-frontier}
 Let a rank-six category have quartic dimension field $K=\mathbb Q(D)$
-and rational complementary signed codegrees. It is spherical outside
+and rational complementary signed codegrees. A Galois conjugate is pseudo-unitary outside
 the following list of twenty-four fields:
 \[
 \begin{array}{c|l}
@@ -6287,10 +6285,10 @@ $\ell>1/38$ and $A\le38$.
 
 \smallskip\noindent\emph{The finite field inventory.}
 Write $a\le b\le c$ for the three conductors. The relative
-discriminant bound from the proof of Theorem~\ref{thm:quartic-all-fields}
+discriminant bound from Lemma~\ref{lem:relative-trace-discriminant}
 gives $A\ge2\sqrt{\sqrt{bc/a}+4}$ and so $b\le\sqrt a(A^2/4-4)$.
 For $a>16$ every pair has effective separate amplitude at most
-$2/\sqrt a$ (including adjacent pairs, as in that proof). Thus
+$2/\sqrt a$ (for a cyclic adjacent pair use $J\ge a$ when $J$ is odd and $J\ge2a$ when $4\mid J$). Thus
 $A<1+2/(1/2-2/\sqrt a)$. At $a\ge88$ this gives $A<8$, whereas
 the relative bound gives $A>7$. For the positive fundamental
 $a<88$ and $b\ge1000$ test $5\le A\le38$, imposing
@@ -6504,8 +6502,7 @@ pair. Apply the small-$q_j$ test in Theorem~\ref{thm:half-ten-grams}
 to $p_0,q_0,q_j\le1/64$, with the preceding correction $\delta$.
 
 For all five fields containing $\sqrt2$ an irrational ordinary
-pair must have $(c,n)=(8,8)$. This saturates the ordinary
-projection and gives $q_0+q_j=1/2$, hence $q_j\ge1/4$ directly.
+pair must have $(c,n)=(8,8)$. Then $c O_{\chi_8}=2$ in \eqref{eq:orbit-projection}, which forces $T_{\chi_8}=0$ and gives $q_0+q_j=1/2$, hence $q_j\ge1/4$ directly.
 For fields containing $\sqrt3$ there is no irrational ordinary
 pair unless the field contains $\sqrt5$, where $n-4=1$.
 Thus $\delta=0$ suffices except in $\mathbb Q(\sqrt3,\sqrt5)$,
@@ -6592,7 +6589,9 @@ $c=\operatorname{disc}\mathbb Q(f)$. If $1/2\le s\le5/8$,
 then $u\ge3/8$ and $c\le(1+2u)/u^2\le112/9$.
 Among the quadratic subfields here this leaves $c=8$.
 Both pairs in Lemma~\ref{lem:quartic-short-pairs} saturate
-$c(1/f-1/f')^2=1$, so $\widehat q(\chi_8)=0$.
+$c(1/f-1/f')^2=1$; their masses $u$ are $1/2,3/8$.
+Thus $cO_{\chi_8}=2$ and the mixed bound
+in \eqref{eq:orbit-projection} gives $\widehat q(\chi_8)=0$.
 
 We have thus shown in either sector that the mass equals $1/2$
 or is at least $5/8$. At half mass rational complementary
@@ -6705,12 +6704,33 @@ The polynomial $X^4-8X^3+19X^2-12X+1$ has root $2-(\zeta_{20}+\zeta_{20}^{-1})$ 
 \[
            P=X^4-7X^3+14X^2-8X+1,\qquad x=E/D .
 \]
-Its unique field involution acts by $\tau x=x^3-6x^2+8x+1$, verified by substitution and iteration modulo $P$. It fixes the field of the complementary signed character. Consequently $(\tau x-x,0)$ belongs to the signed order by Lemma~\ref{thm:primitive-divisibility}. Its products with integral polynomials in the signed FP induction class show that
+Choose $b_i=\zeta_{15}^{2^i}+\zeta_{15}^{-2^i}$, $i\in\mathbb Z/4$.
+Then $x=2-b_0$ at its least embedding. The $b_i$ have trace one and
+circulant Gram matrix with first row $(9,-1,-6,-1)$. Its determinant
+$1125=5\cdot15^2$ is the field discriminant, so they form an integral
+basis. The involution $\tau$ sends $b_0$ to $b_2$ and fixes the
+complementary field. Reduction modulo $P$ gives
 \[
-      \operatorname{Tr}\bigl(q(\tau x-x)b(x)\bigr)\in\mathbb Z
-      \qquad (q=1/E,\ b\in\mathbb Z[X]).
+ (\tau x-x)P'(x)(x^3-7x^2+13x-4)=15 .
 \]
-Take $b=1,y,y^2-2,y^3-3y$ with $y=X-2$. All four roots of $P$ lie in $(0,4)$. The last three test polynomials have absolute value at most two there. Since $\operatorname{Tr}(q)<1$, the first integer has absolute value at most three and the others at most seven. The four integers determine $q$ uniquely by the nondegeneracy of the trace pairing. In the power basis the matrix of this system is $M_{ij}=\operatorname{Tr}((\tau x-x)b_i(x)x^j)$, $0\le j\le3$. The \codecheck{generic_quartic/c15_lattice.py}{lattice calculation} enumerates the $7\cdot15^3$ right-hand sides using $M^{-1}$ over the rationals. Keep only $16/25\le\operatorname{Tr}(q)<1$, $0<\operatorname{Tr}(qx)<1$, that $1/q$ is an integral $d$-number, positivity of $q$, and simultaneous minimality of $q$ and $qx$ at the least root of $P$. Nothing survives. The half-mass alternative for this polynomial passes directly through the same Fourier test (its unscaled quadratic amplitude is at most $\sqrt5/10$). This completes the primitive case. Apply Theorem~\ref{thm:all-proper-quartic} to the remaining ratios.
+These \codecheck{generic_quartic/c15_lattice.py}{period identities}
+and Lemma~\ref{thm:primitive-divisibility} give
+$z=15/E=\sum c_i b_i$ with integral $c_i$.
+
+Write $T=\sum c_i$, $U=c_0-c_1+c_2-c_3$, $V=c_0-c_2$, $W=c_1-c_3$.
+The Gram eigenvalues at the quadratic and faithful characters are
+$5,15$, respectively. The squared Fourier amplitudes of $z$ there
+are $5U^2$ and $15(V^2+W^2)$. The separate bounds for $q=z/15$
+therefore give $|U|\le3$ and $V^2+W^2\le1$.
+The half-mass case already passed the separating test, so
+$T=15t\ge15(16/25)$ and $T\ge10$. The same Gram matrix gives
+\[
+ 15s=\operatorname{Tr}(xz)=(7T-5U-30V)/4<15 .
+\]
+Hence $V>0$: at $T=10$ use also $U\equiv T\pmod2$, and at
+$T\ge11$ use $U\le3$. This gives $V=1,W=0$. But then
+$z-\tau z=b_0-b_2>0$, contradicting minimality of $q$.
+
 \end{proof}
 
 \begin{theorem}\label{thm:quartic-three-five}
@@ -7022,7 +7042,7 @@ Theorem~\ref{thm:all-proper-quartic}.
 
 \subsection{The reciprocal mass of the quartic factor}
 
-\subsubsection{Irrational complementary codegrees at cyclic conductor sixteen}
+\subsubsection{Quadratic codegrees and small weights}
 \begin{lemma}\label{thm:cyclic16-irrational-finite}
 Let $K=\mathbb Q(\zeta_{16})^+$ and suppose that the signed
 complementary codegrees $f,f'$ are distinct and irrational. Write
@@ -7045,22 +7065,100 @@ Lemma~\ref{lem:quartic-rational-mass-strata}. The signed algebra
 $K\times F$ has no rational character. A complementary codegree three
 is excluded by Lemma~\ref{lem:quartic-three-induction}. Hence rational
 ordinary complementary codegrees leave $s\ge1/2$.
-If the ordinary codegrees are distinct irrational conjugates $g,g'$ in $F$,
-put $v_o=1/g-1/g'$, $L_o=g+g'$. The twist-fixed Fourier projection
-on the two ordinary complementary labels and their two sign partners
-gives $v_o^2\le1/8$, since their total squared norm is $v_o^2$. Orthogonality gives $L_o\ge16$.
-Hence $(1-s)^2=v_o^2+4(1-s)/L_o\le1/8+(1-s)/4$, which gives the
-claim.
-
-At the quadratic character, retain the two signed complementary
-labels as well as the signed and ordinary dimension labels in the
-twist-fixed projection. The complementary coordinates have absolute
-value $|v|/2$, so the two projection inequalities are
-\[
- 2P_2^2+Q_2^2+2v^2\le1/2,\qquad 4|Q_1|+16|P_1|^2\le2.
-\]
+For a distinct irrational ordinary pair the same bound $s\ge1/2$
+is Lemma~\ref{thm:quadratic-pair-mass}. The two Fourier inequalities
+are \eqref{eq:orbit-projection} and the mixed bound of
+Lemma~\ref{lem:sextic-matrix-compression}, retaining the additional
+signed quadratic pair at conductor eight.
 The last assertion is Lemma~\ref{lem:quartic-four-rows}, since two
 is totally ramified in $K$.
+\end{proof}
+
+\begin{lemma}\label{lem:round2-quartic24-norm}
+Let $K=\mathbb Q(\sqrt2,\sqrt3)$. The norm of every totally positive $d$-number in $K$ is a rational square. In either character algebra of a rank-six category with dimension field $K$, the quadratic field of a pair of distinct complementary codegrees, if present, is $\mathbb Q(\sqrt2)$ and the norm of its codegree is twice a square.
+\end{lemma}
+\begin{proof}
+For an invariant ideal the norm valuation at a prime of ramification
+index $e$ is a multiple of $4/e$. Only two can contribute an odd
+valuation, so the positive norm is a square or twice a square. The
+latter is impossible: it would be a norm from $\mathbb Q(\sqrt3)$,
+but $a^2-3b^2=2c^2$ has no nonzero integral solution by descent
+modulo three.
+
+For distinct irrational complementary codegrees $f,f'$ write $F=\mathbb Q(f)=\mathbb Q(\sqrt d)$, with $d=2,3$ or $6$. The rational algebra of the corresponding quotient is $K\times F$. By its order discriminant identity, $N_K(H)ff'$ has the square class of $\operatorname{disc}(K)\operatorname{disc}(F)$, where $H=D$ or $E$. The first part and the square discriminant of the biquadratic field imply $N_F(f)=d h^2$ for some $h\in\mathbb Q^\times$. Consequently $f/(h\sqrt d)$ has norm $-1$. This is impossible for $d=3$ or $6$: clearing denominators in a putative norm equation gives $a^2+c^2=d b^2$, which forces $3\mid a,c$ and then $3\mid b$. This leaves $d=2$.
+\end{proof}
+
+\begin{lemma}[A small weight in the presence of a quadratic pair]\label{lem:1624-weight-cut}
+Suppose the signed complementary codegrees $f,f'$ are distinct and
+lie in $\mathbb Q(\sqrt2)$. At either conductor the unnormalized
+weights $q_i=i(1/E)$ satisfy $t-|Q_8|>2/94$. Now exclude the pair
+$8\pm4\sqrt2$ and take $q_0$ least. At conductor $24$ let $j$ fix
+$\sqrt3$. At conductor $16$ let $j$ generate the cyclic group and
+assume $t<71/100$. Then
+\[
+ \begin{array}{c|c|c}
+ c&q_j\text{ at most}&\text{consequence}\\\hline
+ 24&1/188&s<2/3,\quad(1/f-1/f')^2>5/36\\
+ 16&1/1000&s<5/8 .
+ \end{array}
+\]
+\end{lemma}
+\begin{proof}
+Put $u=1-t$, $v=1/f-1/f'$ and $N=ff'$, with $f>f'$.
+The projection gives $Q_8^2+2v^2\le1/2$. For $N\ge99$,
+$t^2+2u^2\ge2/3$ and $v^2=u^2-4/N$ give
+$t-|Q_8|\ge1/12-4/N>2/94$. For $N\le98$ the signed row of
+Lemma~\ref{lem:quartic-short-pairs} gives $(f+f',N)=(24,72)$ or
+$(16,32)$. In the former case $t-|Q_8|\ge2/3-\sqrt{7/18}>2/94$;
+in the latter use $|Q_8|\le\sqrt2/3$ from
+Lemma~\ref{lem:quadratic-compression} and $t=1/2$.
+
+The unit
+$f/f'=\eta^n$, $\eta=3+2\sqrt2$, gives
+$v^2/u^2=((\eta^n-1)/(\eta^n+1))^2$.
+For $n=1$ one has $f=k(2+\sqrt2)$ with $k$ integral, and
+$8\mid f+f'=4k$ makes $k$ even. Thus $u=2/k$.
+For $n\ge2$ we have $v^2\ge8u^2/9$, and for $n\ge3$
+we have $v^2\ge49u^2/50$.
+
+At conductor $24$, Lemma~\ref{lem:round2-quartic24-norm} gives
+$ff'=2h^2$. The square root $f/(h\sqrt2)$ of $f/f'$ is a unit of
+norm $-1$ in $\mathbb Q(\sqrt2)$, hence $n$ is odd.
+Write $e=1/188$ and suppose $q_j\le e$. Then
+$t\le1/\sqrt3+4e<3/5$ by the conductor-twelve bound, while
+$t\ge1/2$. This rules out $n=1$ except for the excluded $k=4$.
+In particular $v^2\ge49u^2/50>5/36$.
+The identities $P_{12}=2(p_0+p_j)-s$ and
+$P_8+P_{24}=2(p_0-p_j)$ give
+$s\le4e+|P_8|+|P_{24}|+|P_{12}|$. The separate and mixed bounds
+give $|P_{24}|\le1/\sqrt{12}$ and
+\[
+ |P_8|^2\le1/4-v^2,\qquad
+ |P_{12}|^2\le 1/6-(t-4e)\sqrt3/6 .
+\]
+Use $(a+b)^2\le(4/3)(a^2+3b^2)$ for these last two moduli.
+Completing the square in $u=1-t$ gives
+\[
+ s\le4e+1/\sqrt{12}
+  +\sqrt{\tfrac43\bigl(\tfrac34-(1-4e)\sqrt3/2+75/392\bigr)}
+ <2/3 .
+\]
+
+At conductor $16$ put $e=1/1000$ and suppose $q_j\le e$.
+The adjacent imbalance gives $\sqrt2|Q_1|\ge t-4e$.
+From $s\le4e+2|P_1|+|P_2|$ and the two Fourier inequalities
+of Lemma~\ref{thm:cyclic16-irrational-finite} we obtain
+\begin{equation}\label{eq:round2-c16-cut}
+ s\le4e+\sqrt{1/2-(t-4e)/\sqrt2}+\sqrt{1/4-v^2}.
+\end{equation}
+If $n=1$, the mass range leaves only $k=6$, so $t=2/3$ and
+$v^2=1/18$; the two radicals are less than $.179$ and $.441$.
+Otherwise $(a+b)^2\le2(a^2+b^2)$ and $v^2\ge8u^2/9$ give
+\[
+ s\le4e+\sqrt{2\bigl(3/4-(1-4e)/\sqrt2+9/64\bigr)}<5/8 .
+\]
+All strict numerical bounds follow by squaring with
+$1/\sqrt2>.7071$, $\sqrt3/2>.86602$ and $1/\sqrt{12}<.28868$.
 \end{proof}
 
 \subsubsection{Conductor twenty-four with a quadratic complementary field}
@@ -7088,8 +7186,9 @@ conductor-eight projection estimate used in Theorem~\ref{thm:quartic-twenty-four
 gives $2P_8^2+Q_8^2\le2-8v^2\le1/25$.
 The simultaneous-column norm estimate there still holds: the ordinary
 pair contributes $1/2$ and the signed contribution is at least $1/2$.
-The complementary contribution to the signed coefficient of the
-product $V_0V_j$, $j$ fixing $\sqrt3$, is $N_F(\beta)/2$,
+The complementary contribution to the signed coefficient of the product of the Perron
+column and its integral Galois translate at $j$ fixing $\sqrt3$ is
+$N_F(\beta)/2$,
 as $j$ interchanges $f,f'$. Thus the same positive integral
 moment and the same height and separation certificates apply. Their last
 ratio has both conjugates on the positive $\chi_8$ half less than $2/5$,
@@ -7097,102 +7196,52 @@ as read from its displayed radical expression. This gives an ordinary
 mass there at most $(2/5)(1+1/5)/2=6/25$, while
 $|P_8|\le1/\sqrt{50}$ requires mass exceeding $2/5$.
 
-Return to unnormalized coordinates and suppose $q_j\le e=1/500$
-for $j$ fixing $\sqrt3$. For $c=8,12,24$ let $P_c,Q_c$ denote the
-corresponding transforms. We have $Q_{12}=2(q_0+q_j)-t$,
-$P_{12}=2(p_0+p_j)-s$, and $P_8+P_{24}=2(p_0-p_j)$.
-The simultaneous and separate estimates give
-$|P_{12}|^2\le(2-\sqrt{12}(t-4e))/12$,
-$|P_8|^2\le1/4-v^2$ and $|P_{24}|^2\le1/12$. Thus
+Return to unnormalized coordinates. We claim that every remaining
+ordinary complement has $s\ge63/100$. Each rational row has even
+codegree: on the four signed dimension labels its normalized entries
+are one, on the two signed complementary labels they are equal
+integers, and their sum is the codegree. For split rational
+characters of codegrees $g\le h$ the discriminant identity makes
+$gh$ a square by Lemma~\ref{lem:round2-quartic24-norm}. Unless
+$(g,h)=(4,4)$, already treated, these even denominators give
+$s\ge2/3$: for $g=4$ the next even square is $h=16$, and for
+$g\ge6$ the reciprocal sum is at most $1/3$. Codegrees two and
+three are excluded by Lemmas~\ref{lem:quartic-rational-mass-strata}
+and~\ref{lem:quartic-three-induction}.
+A nonsplit character pair of common rational codegree is impossible:
+all simples are self-dual since the signed algebra is totally real,
+whereas the discriminant identity would make the positive
+quadratic field discriminant a square.
+
+A distinct irrational ordinary pair lies in $\mathbb Q(\sqrt2)$ by
+Lemma~\ref{lem:round2-quartic24-norm}, and $1-s\le1/2$ by
+Lemma~\ref{thm:quadratic-pair-mass}. If $1-s\ge37/100$, both possibilities in
+Lemma~\ref{lem:quartic-short-pairs} saturate the conductor-eight
+ordinary bound, contradicting $v\ne0$ in the mixed projection.
+This proves the claim. Moreover, writing $w$ for the ordinary
+reciprocal gap, its unit ratio gives $w^2\ge(1-s)^2/2$.
+Equation~\eqref{eq:orbit-projection} gives $4w^2+2v^2\le1/2$.
+Thus $v^2>5/36$ forces $s>2/3$ in this last case as well.
+
+Lemma~\ref{lem:1624-weight-cut} now gives $q_j>1/188$ for $j$
+fixing $\sqrt3$. For the other two nonidentity indices use
+$t-|Q_8|>2/94$ from the same lemma
+and $t-|Q_{24}|\ge1/2-1/\sqrt6>2/94$. Since $q_0$ is least,
+both weights are at least $1/188$. Thus $\operatorname{Tr}(x)<189$.
+
+It remains to test primitive ratios through trace $188$ by
+Theorem~\ref{thm:all-proper-quartic}. Put $p_i=x_iq_i$ and impose
+$s\ge63/100$, $t\ge1/2$, the two common minima and the separate and
+mixed Fourier bounds. In particular
 \[
- s\le4e+\sqrt{1/4-(1-t)^2+4/N}
-       +1/\sqrt{12}+\sqrt{(2-\sqrt{12}(t-4e))/12}.
+ 2P_8^2+Q_8^2+2(1-t-1/12)^2\le1/2+1/72,
 \]
-This bound is less than $5/8$ apart from the short pair.
-For $N\ge10000$, replace $1/\sqrt{12}$ by $289/1000$ and
-$\sqrt{12}$ by $3464/1000$ inside the last radical.
-Use $\sqrt w\le(w+a^2)/(2a)$ with $a=233/1000,76/1000$ in order,
-and $4/N\le1/2500$. The resulting quadratic attains its maximum
-at $t=127111/228000$ and has value less than $623/1000$.
-For $N<10000$ test multiples of eight $16\le L\le N/2$ with
-$N\mid L^2$, $L^2-4N=8b^2$ for $b\in\mathbb Z_{>0}$,
-$4(L^2-4N)\le N^2$ and $(1-L/N-4e)^2\le1/3$, the last
-by the separate conductor-twelve bound. The remaining nonshort
-$(L,N)$ are
-\[
-(72,144), (400,800), (440,968), (480,1152), (2312,4624),
- (2448,5184), (2584,5776), (2720,6400).
-\]
-Direct substitution gives the stated strict inequality in every case.
-
-Every rational ordinary character of codegree $g$ is even. Its
-column sums to $1/2$ on the six signed labels: the four dimension
-entries are $1/(2g)$ and the other two agree, say $k/(2g)$ with
-$k\in\mathbb Z$, by central character symmetry and Galois
-interchange of the signed pair. Thus $g=4+2k$. Codegree two is
-impossible by Lemma~\ref{lem:quartic-rational-mass-strata}.
-For two rational rows the codegree product must be a square or
-twice a square, since the quartic field discriminant is square
-and the norm of $D$ has even valuation at every odd prime.
-The only even pair with reciprocal sum greater than $3/8$ is
-then $(4,4)$. For a real quadratic character pair of common
-rational codegree $g$, the same discriminant identity forces its
-field to have discriminant eight. Two coordinates of its rows must
-differ, whereas their squared difference norm is $2g\le10$.
-The reality of all the ordinary characters follows from self-duality
-of all simples, since the signed algebra is totally real.
-For distinct irrational ordinary codegrees with reciprocal mass at
-least $37/100$, Lemma~\ref{lem:quartic-short-pairs} leaves two pairs
-of trace and norm in this field, $(16,32)$ and $(96,256)$, both of
-discriminant eight. Both attain $(1/g-1/g')^2=1/8$, incompatible
-with the additional nonzero signed $v$ coordinates.
-We have proved that
-$q_j>1/500$ in every remaining case.
-
-At $c=8$ the estimate $t-|Q_8|\ge2/94$ is in
-Proposition~\ref{prop:quartic-primitive-norm-height}; at $c=24$ we have
-$t-|Q_{24}|\ge1/2-1/\sqrt6$. Both exceed $4/500$, so
-$q_i>1/500$ for both remaining nonidentity indices by minimality of $q_0$.
-Now $p_0/q_0\le1$ and $\sum p_i<1$ give $\operatorname{Tr}(E/D)<501$.
-
-It remains to exclude primitive ratios at this cap.
-We use $s\ge1/2$: the even rational ordinary codegrees give this
-immediately, as does a quadratic pair of common rational codegree
-at least four. For an irrational ordinary pair with reciprocal
-mass greater than $1/2$ the preceding enumeration again gives
-only the saturated possibilities of mass at most $1/2$.
-The possible common codegree three is already excluded by the
-row-difference argument. By Theorem~\ref{thm:all-proper-quartic}
-it suffices to consider a primitive $x=E/D$.
-The integral lattice in Theorem~\ref{thm:quartic-silver-fields}
-at trace $500$ gives $696$ candidates. The exact certificate
-\codefile{generic_quartic/general24/verify.py} retains the conditions
-$1/2\le s,t\le1$, $p_i=x_iq_i$, the two minimum conditions,
-the mixed and separate Fourier bounds, and
-\[
-  2P_8^2+Q_8^2+2(1-t-1/12)^2\le1/2+1/72.
-\]
-Indeed the nonshort pair satisfies $L\ge24$, so $8/N\le(1-t)/3$.
-For the involution $l$ fixing $\sqrt2$ we also impose
-$h_l=\sum_i q_ix_{il}\ge s$: the signed integral class with
-values $l(x),l(\beta)$ has the same complementary evaluation as the
-FP induction class. Thus $h_l-s$ is an integer, necessarily
-nonnegative since $h_l>0$ and $s<1$.
-
-The \codecheck{generic_quartic/general24/verify.py}{conductor-twenty-four check} rounds the supporting inequalities outwards and
-uses nonnegative integer combinations as in Theorem~\ref{thm:quartic-silver-fields}.
-It excludes 694 ratios. The two remaining tuples $(A,i,j,k)$ of
-the outer lattice are $(16,5,4,3)$ and $(52,18,14,10)$.
-For each, an additional separating inequality gives $s<63/100$.
-Again the rational split possibilities are $(4,4)$ and $(4,8)$.
-Indeed all codegrees are even and their product is a square or twice
-a square. The common-rational quadratic case is excluded as before.
-The preceding saturation argument covers the whole range
-$1-s>37/100$.
-Hence only $(4,8)$ remains, and it forces $s=5/8$.
-Now $h_l-s$ is an integer in $[0,A]$ since $t\le1$ and every
-$x_i<A$. The verifier adds $s=5/8$ and $h_l-s=k$ for
-$k=0,\dots,A$ in the two cases and excludes all $70$ systems.
+since $L\ge24$ gives $8/N\le(1-t)/3$. The shift fixing $\sqrt2$
+also satisfies $\operatorname{Tr}(q\sigma x)\ge s$ by
+Corollary~\ref{cor:galois-columns}, with $q=1/E$. The
+\codecheck{generic_quartic/general24/verify.py}{exact enumeration}
+gives $247$ ratios; nonnegative rational combinations of
+the outward-rounded inequalities exclude each of them.
 \end{proof}
 \subsubsection{Large reciprocal mass at conductor sixteen}
 \begin{theorem}\label{thm:cyclic-sixteen-large}
@@ -7212,7 +7261,7 @@ $\operatorname{Tr}(q\tau(x))\ge s$. Four additional separating certificates for 
 \[
  t<711/1000,\qquad 63/100<s<67/100,\qquad 2(q_0+q_2)<2/94.
 \]
-The last inequality is incompatible with a distinct irrational signed pair in $\mathbb Q(\sqrt2)$ by the conductor-eight gap in the proof of Proposition~\ref{prop:quartic-primitive-norm-height}, since $t-|Q_2|\le2(q_0+q_2)$. In the rational case the complementary codegrees are integers at least four. In the interval $71/100\le t<711/1000$, the reciprocal mass $1-t$ forces the pair $(4,25)$: the smaller denominator is at most six, and five and six permit no integral partner in this interval. The two signed evaluations $a,b$ of the ordinary FP induction column are then positive integers, satisfying $s=1-a/4-b/25$. The displayed interval forces $a=1$, and contains no number of the form $3/4-b/25$. The verifier \codefile{generic_quartic/sixteen.py} checks the finite enumerations and all $698$ strict certificates.
+The last inequality is incompatible with a distinct irrational signed pair in $\mathbb Q(\sqrt2)$ by Lemma~\ref{lem:1624-weight-cut}, since $t-|Q_2|\le2(q_0+q_2)$. In the rational case the complementary codegrees are integers at least four. In the interval $71/100\le t<711/1000$, the reciprocal mass $1-t$ forces the pair $(4,25)$: the smaller denominator is at most six, and five and six permit no integral partner in this interval. The two signed evaluations $a,b$ of the ordinary FP induction column are then positive integers, satisfying $s=1-a/4-b/25$. The displayed interval forces $a=1$, and contains no number of the form $3/4-b/25$. The verifier \codefile{generic_quartic/sixteen.py} checks the finite enumerations and all $698$ strict certificates.
 \end{proof}
 
 \subsubsection{The nonhalf rational pairs at both conductors}
@@ -7241,10 +7290,8 @@ from the following table:
 First remove the largest positive rational integer dividing $z$.
 The remaining ideal has norm $2^e9^f$, with $0\le e<4$ and
 $0\le f<2$: the ramification indices at two and three are four and
-two, and the residue degree at three is two. In fact $e$ is even.
-The norm of $N_{K/\mathbb Q(\sqrt3)}(z)/3^f$ is $2^e$, and this
-element is a unit at the unique prime above three. Its norm is a
-nonzero square modulo three, forcing $2^e\equiv1\pmod3$.
+two, and the residue degree at three is two. Lemma~\ref{lem:round2-quartic24-norm}
+makes $e$ even.
 
 In any totally real biquadratic field, let $z$ be a totally positive
 $d$-number of norm $m^2$. Its relative norm to each quadratic
@@ -7300,7 +7347,7 @@ has four odd entries, so $4\mid h$, excluding eighteen.
 
 Put $s=\operatorname{Tr}_K(1/D)$, $t=\operatorname{Tr}_K(1/E)$.
 Here $s\ge1/2$ by Lemma~\ref{lem:quartic-rational-mass-strata}:
-the $s=2/5$ case needs $\sqrt5\in K$; $s=1/3$ gives ordinary
+$s=1/3$ gives ordinary
 complementary codegrees three, excluded by
 Lemma~\ref{lem:quartic-three-induction}.
 The two rational evaluations of the signed FP column are positive
@@ -7374,16 +7421,6 @@ The complete checks are linked separately for conductor
 \end{proof}
 
 \subsection{Reduction to common complementary codegrees four}
-\subsubsection{The square norm at conductor twenty-four}
-\begin{lemma}\label{lem:round2-quartic24-norm}
-Let $K=\mathbb Q(\sqrt2,\sqrt3)$. The norm of every totally positive $d$-number in $K$ is a rational square. In either character algebra of a rank-six category with dimension field $K$, the quadratic field of a pair of distinct complementary codegrees, if present, is $\mathbb Q(\sqrt2)$.
-\end{lemma}
-\begin{proof}
-The norm assertion follows at once from Lemma~\ref{lem:quartic24-fast}.
-
-For distinct irrational complementary codegrees $f,f'$ write $F=\mathbb Q(f)=\mathbb Q(\sqrt d)$, with $d=2,3$ or $6$. The rational algebra of the corresponding quotient is $K\times F$. By its order discriminant identity, $N_K(H)ff'$ has the square class of $\operatorname{disc}(K)\operatorname{disc}(F)$, where $H=D$ or $E$. The first part and the square discriminant of the biquadratic field imply $N_F(f)=d h^2$ for some $h\in\mathbb Q^\times$. Consequently $f/(h\sqrt d)$ has norm $-1$. This is impossible for $d=3$ or $6$: clearing denominators in a putative norm equation gives $a^2+c^2=d b^2$, which forces $3\mid a,c$ and then $3\mid b$. This leaves $d=2$.
-\end{proof}
-
 \begin{corollary}\label{cor:round2-quartic24-irrational}
 If $K=\mathbb Q(\sqrt2,\sqrt3)$ and the complementary signed codegrees are distinct irrational conjugates, the category admits a spherical structure.
 \end{corollary}
@@ -7392,25 +7429,54 @@ Combine Lemma~\ref{lem:round2-quartic24-norm} with Theorem~\ref{prop:quartic-twe
 \end{proof}
 
 \begin{proposition}\label{prop:round2-quartic24-ordinary}
-Let $K=\mathbb Q(\sqrt2,\sqrt3)$. If the signed complementary codegrees are both four and the ordinary complementary codegrees are distinct irrational conjugates, some Galois conjugate is pseudo-unitary.
+At either conductor, if both signed complementary codegrees are four
+and the ordinary complementary codegrees are distinct irrational
+conjugates, some Galois conjugate is pseudo-unitary.
 \end{proposition}
 \begin{proof}
-The ordinary dimension mass $s$ is one half by Lemmas~\ref{lem:quartic-rational-mass-strata} and~\ref{lem:quartic-three-induction}. Lemma~\ref{lem:quartic-short-pairs} at reciprocal mass $1/2$
-gives $g,g'=8\pm4\sqrt2$, since $K$ contains no $\sqrt5$.
-The projection attaining equality forces both dimension Fourier coefficients of conductor eight to vanish, by the same mass-strata lemma.
+We may assume $x=E/D$ primitive by Theorem~\ref{thm:all-proper-quartic}.
+Lemmas~\ref{lem:quartic-rational-mass-strata} and
+\ref{lem:quartic-three-induction} give $s=t=1/2$.
+The ordinary pair must therefore be $8\pm4\sqrt2$ by
+Lemma~\ref{lem:quartic-short-pairs}. Its reciprocal gap saturates
+the conductor-eight projection. Thus $P_8=Q_8=0$ by
+\eqref{eq:orbit-projection}.
 
-Normalize $p_i=i(2/D)$, $q_i=i(2/E)$ to sum one after transport maximizing $E$, and let $a,b,c$ fix $\sqrt2,\sqrt3,\sqrt6$ respectively. Thus $q_0+q_a=q_b+q_c=1/2$, and the same equalities hold for $p$. We claim $q_b>1/64$. Otherwise $p_0\le q_0\le q_b\le1/64$, so $|Q_{12}|=|2(q_0+q_b)-1|\ge15/16$. The mixed conductor-twelve and separate ordinary conductor-twenty-four estimates give
+Double $p,q$ to give them sum one and let $j$ fix $\sqrt2$.
+For each $i$ the pair $i,ij$ has total weight $1/2$ in both
+vectors. Hence $p_i=x_iq_i$ determines the weights:
 \[
- 15/16\le 1-4p_0 \le |P_{12}|+|P_{24}|
- \le \sqrt{(8-2\sqrt{12}\,(15/16))/12}+1/\sqrt3<15/16.
+             q_i=\frac{x_{ij}-1}{2(x_{ij}-x_i)} .
 \]
-Here $P_{12}+P_{24}=4p_0-1$ by $P_8=0$. Also $q_a\ge1/4$ and $q_c\ge(1-\sqrt{2/3})/4>1/64$ by the separate signed conductor-twenty-four estimate. Thus $\operatorname{Tr}(x)<65$ for $x=E/D$, since $x_0\le1$ and $\sum p_i=1$.
+Primitivity ensures a nonzero denominator. It remains to check
+positivity and minimality of $q_0$ at the least conjugate of $x$.
+For finiteness we bound the other three $q_i$ from below.
 
-By Theorem~\ref{thm:all-proper-quartic} it suffices to consider primitive $x$. The two half-sum conditions for the pair $i,ia$ then determine the entire vector:
+At conductor $24$ let $b,c$ fix $\sqrt3,\sqrt6$, respectively.
+We have $q_j\ge1/4$ and $q_c\ge(1-\sqrt{2/3})/4>1/64$.
+If $q_b\le1/64$, then $p_0\le q_0\le q_b$,
+$|Q_{12}|\ge15/16$, and $P_{12}+P_{24}=4p_0-1$.
+The Fourier bounds would give
 \[
-                q_i=\frac{x_{ia}-1}{2(x_{ia}-x_i)},\qquad p_i=q_i x_i.
+ 15/16\le |P_{12}|+|P_{24}|
+ \le\sqrt{(8-2\sqrt{12}\,(15/16))/12}+1/\sqrt3<15/16.
 \]
-Lemma~\ref{lem:quartic24-fast} lists $69$ primitive ratios of trace at most $64$ with smallest conjugate below one. Of those, $13$ give totally positive $q$. In none are $q_0,p_0$ both minimal at the embedding where $x_0$ is smallest. These comparisons are exact nested quadratic sign tests in \codefile{field_checks/twentyfour/ordinary_silver.py}.
+Thus $\operatorname{Tr}(x)\le64$.
+At conductor $16$ write $j=2$ in cyclic indices. If $q_1$ or
+$q_3$ were at most $.01$, the opposite half sums would give
+$|Q_1|\ge .48\sqrt2$, $|P_1|\ge .48$, contrary to
+$4|P_1|^2+2|Q_1|\le2$. Since $q_2\ge1/4$,
+$\operatorname{Tr}(x)\le100$.
+
+Substitute the primitive ratios at these caps into the displayed
+formula. The two exact checks give
+\[
+ \begin{array}{c|r|r|r}
+ \text{conductor}&\text{ratios}&q>0&q>0,\ q_0\text{ least}\\\hline
+ \codecheck{field_checks/twentyfour/ordinary_silver.py}{24}&69&13&0\\
+ \codecheck{field_checks/sixteen/half_silver.py}{16}&86&20&0 .
+ \end{array}
+\]
 \end{proof}
 
 \begin{lemma}\label{lem:1624-rational-shortlist}
@@ -7473,20 +7539,16 @@ Here $(c,d)=\gcd(c,d)$. We distinguish the two possibilities for the signed comp
 Lemma~\ref{lem:1624-rational-shortlist} leaves two signed codegrees
 four, so $s=t=1/2$. Rational ordinary codegrees, all at least four,
 then also equal four.
-At reciprocal mass $1/2$, Lemma~\ref{lem:quartic-short-pairs}
-gives the sole irrational pair $8\pm4\sqrt2$ in $K$.
-This pair saturates the ordinary projection, forcing $P_2=Q_2=0$. Normalize $p,q$ to have sum one again. Then $p_0+p_2=q_0+q_2=1/2$ and $q_1+q_3=1/2$. If a nonidentity $q_j\le1/100$, necessarily $j=1$ or $3$, $|Q_1|\ge(48/100)\sqrt2$ and $|P_1|\ge48/100$. These violate $4|P_1|^2+2|Q_1|\le2$. At trace cap $100$ the $86$ candidate ratios now fail the saturated Fourier projections and moment conditions by \codefile{field_checks/sixteen/half_silver.py}.
+Proposition~\ref{prop:round2-quartic24-ordinary} excludes the
+distinct irrational ordinary case.
 
 \smallskip\noindent\emph{Distinct irrational signed codegrees.}
-Return to the unnormalized vectors and set $u=1-t$, $v=1/f-1/f'$, $L=f+f'$, $N=ff'$. This field has just one quadratic subfield, $\mathbb Q(\sqrt2)$. The two additional inequalities from the proofs of Proposition~\ref{prop:quartic-primitive-norm-height} and Lemma~\ref{thm:cyclic16-irrational-finite} are
+Return to the unnormalized vectors and set $u=1-t$, $v=1/f-1/f'$, $L=f+f'$, $N=ff'$. This field has just one quadratic subfield, $\mathbb Q(\sqrt2)$. Lemmas~\ref{lem:1624-weight-cut} and~\ref{thm:cyclic16-irrational-finite} give
 \[
  t-|Q_2|\ge 2/94,\qquad 2P_2^2+Q_2^2+2v^2\le1/2.
 \]
-As $q_0$ is least, $q_2\ge1/188$. Let $e=1/1000$ and consider first the case $f,f'\ne8\pm4\sqrt2$. We show that $q_1,q_3>e$. By symmetry suppose $q_1\le e$. Then $p_0\le q_0\le e$ and $\sqrt2|Q_1|\ge t-4e$. From $|P_1|\ge p_2-p_0$ and $P_2=2p_2+2p_0-s$ we get
-\begin{equation}\label{eq:round2-c16-cut}
- s\le 4e+\tfrac12\sqrt{2-2\sqrt2(t-4e)}+\sqrt{1/4-v^2}<5/8.
-\end{equation}
-Here is a finite check of the last inequality. For $N<10000$ take $8\mid L$, $16\le L\le N/2$, $100L>29N$, $N\mid L^2$, $L^2-4N=8b^2>0$ and $4(L^2-4N)\le N^2$, discarding $(16,32)$. These tests give $20$ pairs. For $N\ge10000$ use $v^2=u^2-4/N$ and divide $1/2\le t<71/100$ into $210$ intervals of width $1/1000$, inserting the lower endpoint in the first radical and the upper endpoint in $v^2\ge(1-t)^2-4/10000$. All $230$ rational interval tests pass.
+As $q_0$ is least, $q_2\ge1/188$. Let $e=1/1000$. For a nonshort signed pair, if $q_1\le e$ or
+$q_3\le e$, Lemma~\ref{lem:1624-weight-cut} gives $s<5/8$.
 
 For $s<5/8$ the ordinary pair must consist of two rational four-rows. Indeed split rational characters have even codegrees (the equal entries at the two signed complementary labels give $g=4+2k$), and their product is a square or twice a square. Reciprocal sum greater than $3/8$ then leaves just $(4,4)$. The signed algebra is totally real, so all simples are self-dual. A quadratic ordinary pair of common rational codegree four or five is excluded by the squared row-difference test, using also the order-discriminant identity at five. If the ordinary pair is irrational, its field is $\mathbb Q(\sqrt2)$.
 Lemma~\ref{lem:quartic-short-pairs} leaves only the ordinary codegrees
@@ -7679,7 +7741,12 @@ quantity, $t$. Substituting the bounds in either row yields
  \big|v-(S-1+1/t)\big|&<.001,\\
  \big|N-hv-(h-1)-z-(a-h)/t\big|&<.02 .
 \end{align*}
-Indeed $h-H=zr+ba$, $1-z-D_1=arb$ and $1-C=b(1+r)$.
+For example, put $e=1-C$, $d=1-z-D_1=arb$ and $y=h-H=zr+ba$.
+In both rows $e<.00000402$, $d<5\cdot10^{-9}$, $y<.001$ and $S<19$.
+The first error is at most
+$[eh(h+1)+y(2h+1)+hd]/C+zar+ba^2$, the second at most
+$e(S-1)+br^2$, and the third at most
+$yS+he(S-1)+d+(z+hb)r^2$. These give the displayed bounds.
 If $t\le4$, the first expression places the odd integer $M$
 in $(9,11)$ or $(51,53)$, respectively. Hence $t>4$. The last
 expression now puts the even integer $N-hv-(h-1)$ in $(-2,2)$.
@@ -7759,7 +7826,8 @@ comparisons discard every box. Since $x_j>250000$ implies
 $q_j<4\cdot10^{-6}$, the trace assertion follows.
 \end{proof}
 \begin{proposition}\label{prop:k24-four-small-moments}\label{prop:k16-four-small-moments}
-Let $j$ maximize $j(x)$ in either common-four case. It is the
+In either common-four case assume $\operatorname{Tr}(x)>10^6$
+and let $j$ maximize $j(x)$. It is the
 involution fixing $\sqrt2$. Put $W=j(q)/q$. Then
 \[
  \bigl(L(jx),L(xj(x)),L((jx)^2),L(W^2)\bigr)
@@ -7917,12 +7985,10 @@ moment vectors excluded by Lemma~\ref{lem:quartic-local-moments}.
 \begin{theorem}\label{thm:forty-closed}
 Every complex rank-six fusion category with $K=\mathbb Q(\sqrt2,\sqrt5)$ admits a spherical structure.
 \end{theorem}
-Here a failure of sphericality would put the two signed complementary
-characters in $\mathbb Q(\sqrt5)$ and the two ordinary ones in
-$\mathbb Q$. We first determine their codegrees. We then compare the
-same induction columns in the two orders at the prime two.
-Their compatibility modulo four rules out each possible pair.
-
+Write $F=\mathbb Q(\sqrt5)$. The Fourier bounds leave a signed
+complement $F$ and two rational ordinary characters. Induction then
+identifies certain square equations modulo four in the two orders.
+Their solution counts rule out the remaining codegrees.
 \begin{lemma}\label{lem:forty-unit-param}
 The totally positive $d$-numbers $z$ in the ring of integers of
 $K=\mathbb Q(\sqrt2,\sqrt5)$ are precisely the totally positive elements
@@ -7963,9 +8029,8 @@ Choose $f>f'$ and put $\phi=(1+\sqrt5)/2$.
 Then $f=k\sqrt5\,\phi^m$ with $m$ positive and odd, and
 $\operatorname{Tr}_F(1/f)=F_m/k$, where $F_m$ is the $m$th
 Fibonacci number. In particular $ff'=45$ and $180$ are impossible.
-At the unique prime of $K$ over five, normalize its valuation by
-$v(\sqrt5)=1$. If $v(H)$ is even, the leading unit
-$5^{-v(H)/2}H$ has nonsquare image in $\mathbb F_{25}^\times$.
+At the prime over five, normalize $v(\sqrt5)=1$. If $v(H)$ is even,
+$5^{-v(H)/2}H$ has nonsquare residue in $\mathbb F_{25}$.
 \end{proposition}
 \begin{proof}
 Both character factors are totally real, so all simples are self-dual.
@@ -8025,8 +8090,9 @@ conjugates in $\mathbb Q(\sqrt5)$ and
 after transport maximizing $E$.
 \end{theorem}
 \begin{proof}
-The conductors are $8,5,40$. Denote by $j$ the involution fixing
-$\sqrt2$. Only the pair $q_0,q_j$ can be simultaneously small:
+Theorem~\ref{thm:all-proper-quartic} permits us to assume $x=E/D$
+primitive. Write $p=1/D$, $q=1/E$, $s=\operatorname{Tr}(p)$,
+$t=\operatorname{Tr}(q)$ and let $j$ fix $\sqrt2$. Only the pair $q_0,q_j$ can be simultaneously small:
 the other two pair bounds are $q_i\ge(t-1/\sqrt5)/4$ in
 unnormalized coordinates.
 
@@ -8050,18 +8116,13 @@ $1\le b\le h/4$. Indeed $s\ge1/2$ by Lemmas~\ref{lem:quartic-rational-mass-strat
 and~\ref{lem:quartic-short-pairs}, so the first entry is one.
 Thus $s=3/4-b/h$ and $t=3/4-1/h$.
 
-Three apparent values of the ordinary complementary mass $u=1-s$
-can be discarded together:
-\[
-              u=17/36,\qquad 7/16,\qquad 41/100 .
-\]
-None is the sum of two reciprocals of integers at least three.
-For an irrational pair the ordinary bound \eqref{eq:orbit-projection}
-gives squared reciprocal gap at most $1/10,1/8,1/40$ at conductors
-$5,8,40$, respectively. Yet at each displayed $u=a/b$ in lowest
-terms Lemma~\ref{lem:fixed-quadratic-mass} gives the lower bound
-$(a^2-4)/b^2>1/8$.
-
+The ordinary complementary masses $u=17/36,7/16,41/100$ are
+impossible. None is a sum of two reciprocals of integers at least
+three. For a quadratic pair of reduced mass $u=a/b$,
+Lemma~\ref{lem:fixed-quadratic-mass} gives squared gap at least
+$(a^2-4)/b^2>1/8$ in these three cases, while
+\eqref{eq:orbit-projection} bounds it by $1/10,1/8,1/40$ at
+conductors $5,8,40$.
 At signed half mass the first shift lies in
 $1/2+\mathbb Z_{\ge0}$ and the mixed moment is at least $1/2$.
 First dispose of an ordinary short pair in $\mathbb Q(\sqrt2)$.
@@ -8097,38 +8158,27 @@ are at least $(t-1/\sqrt5)/4$. Substitution gives $A<550$.
 For $t\ge5/7$ the separate estimates give
 $A<1+4t/(t-1/\sqrt2)<399$.
 
-At cap $550$ enumerate primitive ratios subject to the coordinate minima,
-the separate and mixed Fourier bounds, $2/5\le s\le t$,
-$t\ge23/36$, $s+t\ge1$ and the three shifted lower bounds.
-Of 594 polynomials, two remain, with coefficient tuples
-$(64,62,16,1)$ and $(166,167,34,1)$. For each impose the actual
-mass alternatives: $t\ge18/25$; $(7,7)$ with $t=5/7$ and
-$s=4/7,5/7$ by integrality; or $(4,h)$ with the displayed possibilities
-for $b$ and $K_i$. The
-\codecheck{quartic_more/silvergold.py}{separation test}
-then excludes both tuples.
-
-Now let the signed pair have quadratic discriminant $c$.
-An ordinary codegree two would give a rational signed codegree two;
-Lemma~\ref{lem:quartic-three-induction} excludes codegree three. Thus $s\ge1/2$
-by Lemmas~\ref{lem:quartic-rational-mass-strata} and~\ref{lem:quartic-short-pairs}.
-For $c=5$, the signed row of Lemma~\ref{lem:quartic-short-pairs} gives
-$f,f'=5\pm\sqrt5$ or $t\ge2/3$.
-
-For the longer pairs the following finite tests use the first shift
-fixing the complementary field, in addition to the Fourier and
-minimum inequalities. At $c=8$ include $t-|Q_8|\ge2/94$ from
-Proposition~\ref{prop:quartic-primitive-norm-height}. The
-\codecheck{quartic_more/silvergold_duals.json}{separating weights}
-exclude every polynomial in the indicated range.
+At trace cap $550$, impose the minima, separate and mixed Fourier
+bounds, $2/5\le s\le t$, $t\ge23/36$, $s+t\ge1$, and the three
+first-shift inequalities. Of $594$ polynomials only
+$(64,62,16,1),(166,167,34,1)$ survive. For each impose $t\ge18/25$,
+the $(7,7)$ masses $t=5/7$, $s=4/7,5/7$, or the displayed
+$(4,h)$ masses and mixed moments. The
+\codecheck{quartic_more/silvergold.py}{separation test} eliminates both.
+Suppose instead the signed codegrees form a quadratic pair of
+discriminant $c$. Again $s\ge1/2$: an ordinary codegree two would
+force a rational signed codegree two, and three is excluded by
+Lemma~\ref{lem:quartic-three-induction}. Apply
+Lemmas~\ref{lem:quartic-rational-mass-strata} and~\ref{lem:quartic-short-pairs}.
+For $c=5$ the short-pair lemma leaves $5\pm\sqrt5$ or $t\ge2/3$.
+For the longer pairs add the first-shift inequality fixing the
+complementary field; at $c=8$ also impose $t-|Q_8|\ge2/94$.
+The \codecheck{quartic_more/silvergold_duals.json}{separating weights}
+exclude all ratios in the following ranges:
 \[
-\begin{array}{c|l|r|r}
-c&\text{mass condition}& A\text{ tested up to}&
-  \text{polynomials}\\\hline
-8&t\ge1/2&94&75\\
-40&t\ge3/4&94&75\\
-5&t\ge2/3&94&75\\
-5&t\ge143/200&510&553
+\begin{array}{c|c|r|r}
+ c&t\text{ at least}& A\text{ through}&\text{polynomials}\\\hline
+ 8&1/2&94&75\\ 40&3/4&94&75\\ 5&2/3&94&75\\ 5&143/200&510&553
 \end{array}
 \]
 At $c=8$ the cap $94$ is Proposition~\ref{prop:quartic-primitive-norm-height};
@@ -8204,10 +8254,7 @@ $w^2\le1/8-Q_8^2/4<1/8-(679/1000)^2/4$, strictly below
 $(1/2)(224/1000)^2$. At $c=40$ the multiplying factor is $9/10$
 from $U=19+6\sqrt{10}$. Then $w^2\le1/40$ again contradicts the unit-ratio bound.
 
-For $c=5$, retain both ordinary complementary induction labels and
-their $J$-translates in the separate ordinary projection of the signed
-orbit, as in Lemma~\ref{lem:quartic-sector-fourier}. This gives
-$P_5^2+2w^2\le1/5$. Since $s\ge1/2$ and
+At $c=5$, \eqref{eq:orbit-projection} gives $P_5^2+2w^2\le1/5$. Since $s\ge1/2$ and
 $w^2=(1-s)^2-4/N_o$, this implies
 \[
  8/N_o\ \ge\ \tfrac23(1-328/1000)^2-1/5>1/10.
@@ -8225,9 +8272,9 @@ formula of Lemma~\ref{lem:trace-order-conductor} gives $2e\in R$.
 The involution $1-2e$ has squared length one and unit coefficient
 $1-2(1/g+1/g')=0$, hence is a signed nontrivial basis element.
 Its Frobenius--Perron value is one, so it is an actual invertible.
-Its positive lift has value one on the four dimension characters and
-a constant sign on the signed complementary pair. The zero unit
-coefficient would force $t=1/2$.
+Its positive lift is one on the four dimension characters and
+has a constant sign on the conjugate pair. Its zero unit coefficient
+would give $t=1/2$, outside the permitted interval.
 
 An ordinary quadratic pair of common rational codegree is likewise
 impossible. All simples are self-dual since the signed algebra is
@@ -8253,9 +8300,8 @@ $N\ge1280$ and the amplified signed projection gives
 \[
   |Q_5|^2\le1/5-2(u^2-4/N)<(21/100)^2.
 \]
-Lemma~\ref{lem:forty-unit-param} gives a second count at trace cap
-$1001$, independent of the biquadratic enumeration. Both give $1065$
-primitive ratios, of which $75$ have trace at most $94$. For the others use the
+The unit bounds in Lemma~\ref{lem:forty-unit-param} give $1065$
+primitive ratios through trace $1001$, including $75$ through trace $94$. For the others use the
 separate and mixed projections, $s\ge1/2$, $t>6837/10000$, the last
 conductor-five bound, and $\operatorname{Tr}(q\sigma x)\ge s$ for
 $\sigma$ fixing $F$. Only the following two tuples lack a strict
@@ -8312,11 +8358,6 @@ Proposition~\ref{prop:forty-trace-form}.
 \end{proof}
 
 \subsection{A congruence from the second indicator}
-The following observation explains why the rational characters carry
-more information together than their individual codegrees provide.
-A symmetric self-dual object contains each simple of indicator $-1$
-with even multiplicity. When one passes from ordinary to signed
-multiplicities, this factor of two is doubled again.
 
 \begin{lemma}\label{lem:induction-fs-four}
 In the remaining conductor-forty case choose the lift of positive second Frobenius--Schur indicator for each simple. Let $\Phi:R\to T$ be the isometry of underlying lattices obtained by matching these basis elements. For every induction constituent $C$ one has
@@ -8329,20 +8370,32 @@ For every $a,b\in R$ one also has
 \]
 \end{lemma}
 \begin{proof}
-The ordinary and signed algebras are commutative and totally real. The simple objects in the sphericalization are therefore self-dual, and the indicators of the two lifts have opposite signs: in the definition of the pivotal transposition the two lifts change the pivotal map by $-1$. In a symmetric self-dual object the multiplicity of a simple with indicator $-1$ is even. Indeed the nondegenerate symmetric pairing restricts to its isotypic summand, where the induced form on the multiplicity space is alternating. Forgetting signs and taking their difference therefore gives the same multiplicities modulo four.
+The two character algebras are commutative and totally real. Thus
+all simple lifts are self-dual: every character takes the same value
+on a lift and on its dual. The pivotal maps on the two lifts differ by a sign, so the pivotal
+transpositions and the indicators have opposite signs. In a symmetric self-dual object the multiplicity
+space of an indicator-$-1$ simple has a nondegenerate alternating
+form and has even dimension. Its ordinary and signed multiplicities
+therefore agree modulo four in the stated basis.
 
-The sphericalization is a pivotal fusion category and hence unimodular.
-Its canonical algebra $I(\mathbf1)$ in the center is therefore symmetric
-Frobenius by Schweigert and Woike~\cite[Lemma~7.1]{SchweigertWoike}.
-Each induction constituent is self-dual because $S_{A_\chi^*,Y}=S_{A_\chi,Y^*}$ and $\chi(FY^*)=\chi(FY)$ for every $Y$. It occurs with multiplicity one. The symmetric Frobenius pairing thus makes each constituent symmetric self-dual. The pivotal forgetful functor preserves this pairing, proving the first assertion.
+The pivotal fusion category $\mathcal S$ is unimodular, so
+$I(\mathbf1)$ is symmetric Frobenius in $Z(\mathcal S)$
+\cite[Lemma~7.1]{SchweigertWoike}. Each constituent $A_\chi$ is
+self-dual: the rows $S_{A_\chi^*,Y}=S_{A_\chi,Y^*}$ and $S_{A_\chi,Y}$
+agree by the character formula and $[FY^*]=[FY]$. Its multiplicity
+is one, so the symmetric pairing restricts nondegenerately to it.
+The pivotal forgetful functor preserves this self-duality.
 
-For simple $X,Y$ in the positive-indicator basis, the object $X\otimes Y\otimes X^*$ has a symmetric self-duality. In the dual word, identify $X^{**}$ with $X$ by pivotality and use the symmetric form of $Y$ on the middle factor; pivotal transposition preserves the resulting pairing. Apply the same even-multiplicity observation and use commutativity. This proves the second assertion for $a,b$ simple, hence for arbitrary $b$. Polarization gives arbitrary $a$ since ordinary and signed products already agree modulo two.
+For the product assertion, let $j$ be the pivotal map and
+$f:Y\to Y^*$ a symmetric self-duality. Then
+$j_X\otimes f\otimes1_{X^*}$ is a symmetric self-duality on
+$XYX^*$: pivotal transposition fixes it by $f^*j_Y=f$ and
+$j_X^*j_{X^*}=1$. Commutativity and self-duality identify its class
+with $[X]^2[Y]$. This proves the assertion on basis elements.
+Extend linearly in $b$ and expand the square in $a$: the mixed
+terms have coefficient two, and products agree modulo two.
 \end{proof}
-
-We shall use one calculation for all the rational induction rows.
-Let $A$ correspond to an ordinary rational character of codegree $h$,
-and write $C=FA$.
-
+Let $C=FA$ for an ordinary rational character label $A$ of codegree $h$.
 \begin{lemma}\label{lem:forty-rational-row}
 The signed coordinates of $C$ are $(E/h,(h/2-2)f/h)$. In particular
 every $(z,w)\in T$ satisfies
@@ -8367,9 +8420,12 @@ $C(z,w)$ gives \eqref{eq:forty-trace-transfer}.
 On the ordinary side, rationality and Galois invariance again give
 integral entries constant on each orbit. Symmetry identifies
 $\gamma$ with $h\operatorname{FPdim}(C)/D$, and the unit coefficient
-gives the sum in \eqref{eq:forty-row-bound}. For the inequality use the
-diagonal twist identity of Lemma~\ref{prop:silver-distinct-short-projection}.
-The signed terms cancel in pairs. Of the ordinary mass $1/2$, at least
+gives the sum in \eqref{eq:forty-row-bound}. For the inequality take the $A,A$ entry of $S\Theta S$.
+It equals $S_{A,A}$ since $A$ has twist one and the center has
+trivial anomaly. The row of this self-dual label is real.
+Its squared norm is equally divided between the two sign sectors
+by orthogonality with the $JA$ row. The signed twist terms cancel
+in $J$-pairs. Of the ordinary mass $1/2$, at least
 $M=(4\gamma^2+m^2+b^2)/(2h^2)$ has twist one, counting the
 $J$-translates. Hence $2M-1/2\le S_{A,A}=m/(2h)$.
 \end{proof}
@@ -8397,15 +8453,15 @@ residue character is common, so $m$ is even. Symmetry gives the
 other evaluations; pairing the column with an arbitrary integral
 element gives the trace assertions.
 
-For $h=8$, write $m_i,c$ for the diagonal and off-diagonal entries
-of the symmetric $16S$-submatrix. The same bound gives
+For $h=8$ let $m_i,c$ be the diagonal and off-diagonal entries of the
+symmetric $16S$-submatrix. The row bound becomes
 \[
  4\gamma_i+m_i+c=8,\qquad (m_i-2)^2+c^2\le36-4\gamma_i^2 .
 \]
-Thus $\gamma_i=1$ or $2$. The two ordinary rows agree modulo two,
-so evaluation on the FP induction column gives equal $\gamma_i$
-and hence equal $m_i=m$.
-
+Thus $\gamma_i=1,2$: the value three would require $m_i=2,c=0$,
+contrary to the first equation. The ordinary rows coincide modulo
+two on the FP induction column, so the $\gamma_i$ agree, as do the
+$m_i=m$.
 The two rational character rows $r_1,r_2$ each have four odd
 entries $\pm1$, one $\pm2$ and a zero. If they agreed modulo four
 their nonzero difference would be supported at the single position
@@ -8519,13 +8575,16 @@ parity and $v_2(h_D)=v_2(h_E)$. The only odd seed is $5$ and
 $l_D\equiv l_E\pmod2$ by Proposition~\ref{prop:forty-exponent-parity}.
 Thus $\delta_D=\delta_E$ and $b=1-v_2(s)$.
 
-For even $n$ one has $v_2(s)=-2-2v_2(n)$. The trace valuations
-above give $128\mid\operatorname{Tr}D,\operatorname{Tr}E$.
-The two codegree-four columns match modulo four, hence their squared
-lengths match modulo eight. Proposition~\ref{prop:forty-four-column}
-then gives $4m^2(1+n^2)\equiv0\pmod{128}$, forcing $m=0$.
+For the codegrees $(4,4n^2)$ write $m_C\in\{0,2\}$ for the
+ordinary evaluation of the four-column. Comparing the two squared
+lengths modulo eight by Lemma~\ref{lem:induction-fs-four} gives
+\begin{equation}\label{eq:forty-four-norm-congruence}
+ \operatorname{Tr}E-\operatorname{Tr}D
+                 \equiv 4m_C^2(1+n^2)\pmod{128}.
+\end{equation}
+For even $n$, $v_2(s)=-2-2v_2(n)$, so both traces are divisible
+by $128$. Thus $m_C=0$.
 \end{proof}
-
 \begin{proposition}\label{prop:forty-eight-norm}
 In the ordinary $(8,8)$ case of Proposition~\ref{prop:forty-eight-columns} one has $\gamma=1$ and $v_2(k)=3$. The dyadic valuations of $D$ and $E$ agree (normalized by $v_{\mathfrak p}(\sqrt2)=1$) and belong to $\{9,10\}$.
 \end{proposition}
@@ -8572,13 +8631,11 @@ are self-inverse. This leaves only valuations nine and ten.
 
 \subsection{Counting square roots in the two local orders}
 
-The comparison modulo four can be read as a counting argument.
-If $C,W_j,W_l,W_{jl}$ are induction columns, any equation
-$bx^2=y\pmod{4}$ with $b=1$ or $C$ and $y$ an integral linear
-combination of the four columns and the unit has the same number
-of solutions in the two orders. Indeed, Lemma~\ref{lem:induction-fs-four}
-identifies the solution sets in $R/2R$ and $T/2T$.
-
+By Lemma~\ref{lem:induction-fs-four} the lattice isometry identifies
+the solutions in $R/2R$ and $T/2T$ of each marked equation
+$bx^2=y\pmod4$. Here $C$ is a forgotten induction column of smallest ordinary
+complementary codegree, $b=1,C$, and $y$ lies in the integral span
+of the unit and the columns $C,W_j,W_l,W_{jl}$.
 \begin{proposition}\label{prop:forty-local-orders}
 For $(4,4n^2)$ with $n$ odd and $v_2(k)=2$, the common valuation
 $m=v(D)=v(E)$ is neither six, seven, nor eight. For $(8,8)$ with
@@ -8625,22 +8682,59 @@ $y^2+y\in A$. Every $b\in V$ with $b^2+b\in U$ has such a lift:
 changing $y$ by $2z$ changes $y^2+y$ by $2z$ modulo $4O$.
 Two successful lifts of the same $b$ differ by an element of $A$.
 The number of solutions is therefore
-$|\{b\in V:b^2+b\in U\}|/|U|$. Writing $b=(x_0+x_1\pi,s)$ gives
-$x_0,x_1\in\mathbb F_2$, $s=(t,t)$ in the ordinary sector.
-In the signed sector $x_1\in\mathbb F_2$ and
-$\operatorname{Tr}(x_0)=\operatorname{Tr}(s)$. The two counts
-are respectively two and four.
+$|\{b\in V:b^2+b\in U\}|/|U|$. Write $b=(x_0+x_1\pi,s)$. One has $x_1\in\mathbb F_2$ in both
+sectors. In the ordinary sector $x_0\in\mathbb F_2$ and $s=(t,t)$.
+In the signed sector $x_0,s\in\mathbb F_4$ have the same trace.
+There are thus $8$ and $16$ admissible $b$, respectively. Division
+by $|U|=4$ gives two ordinary and four signed square roots.
 
-\smallskip\noindent\emph{The other three valuations.}
+\smallskip\noindent\emph{Valuation eight.}
+Here $n$ is odd, $d_H=5$, $v_2(h_H)=4$ and $i_H,l_H$ are odd
+by Proposition~\ref{prop:forty-marked-scales}. Thus $h=H/16$ is
+one modulo $2\mathcal O_{K,2}$: the two units $\xi,\theta$ each
+reduce to $1+\pi$, and $\sqrt5,\phi^{3r}$ reduce to one. Also
+$128\mid\operatorname{Tr}H$ in both sectors. Equation~\eqref{eq:forty-four-norm-congruence}
+and $v_2(1+n^2)=1$ give $m_C=0$. Consequently $C=(4h,0)$
+in either normalization.
+
+We compare $x^2=1+C\pmod{4A}$. Any solution has $x=1+2y$ in
+$O$, as at valuation six. Write $[a+b\pi]_0=a$ for $a,b\in\mathcal O_{F_2}$,
+and $\operatorname{tr}$ for the trace from $F_2$ to $\mathbb Q_2$
+or its reduction from $\mathbb F_4$ to $\mathbb F_2$. In the ordinary
+order $2y\in A$ forces $\operatorname{tr}(\bar y_K)=0$, where the bar
+denotes reduction modulo $\pi$: the quartic contribution to $4\tau(2y)$
+is $\operatorname{tr}([y_K/h]_0)$ and both rational contributions are even.
+The residues of $y^2+y-C/4$ are therefore one on the quartic branch
+and zero on the rational branches. By locality this element is outside
+$A$, contradicting the square equation.
+
+In the signed order put $u=4/f\equiv1\pmod2$. Hensel's lemma gives
+$y_K=2r$ with $y_K^2+y_K=1+h$ and $y_F$ with $y_F^2+y_F=1$;
+the latter has residue of trace one. We claim $\operatorname{tr}(\bar r)=1$.
+Write $h=1+2e$. The first equation gives $\bar r=1+\bar e$.
+Normalization gives
+\[
+ 8=8\tau(1)=\operatorname{tr}([h^{-1}]_0)+2\operatorname{tr}(u).
+\]
+Since $h^{-1}\equiv1-2e\pmod4$ and $\operatorname{tr}(u)$ is even,
+$\operatorname{tr}(\bar e)=1$, proving the claim. For $(w,z)\in A$,
+locality gives $\bar w=\bar z\in\mathbb F_2$. Therefore
+\[
+ 2\tau\big((4r,2y_F)(w,z)\big)
+ =\operatorname{tr}([rw/h]_0)+\operatorname{tr}(u y_Fz)
+ \equiv \bar w\big(\operatorname{tr}(\bar r)+\operatorname{tr}(\bar y_F)\big)=0\pmod2.
+\]
+Self-duality gives $2y=(4r,2y_F)\in A$. Now $x=1+2y$ satisfies
+$x^2=1+C+4\mathbf1$, a signed solution to the same equation.
+
+\smallskip\noindent\emph{Valuations seven and nine.}
 Let $j$ negate $\sqrt5$ and $l$ negate $\sqrt2$, each fixing the other
-radical. Let $C$ be the column of an ordinary character of smallest
-complementary codegree. The tests count solutions of these equations
+radical. We count solutions of the following equations
 in $A/2A$, with all right sides read modulo $4A$:
 \[
 \begin{array}{c|lll}
 m&\multicolumn{3}{l}{\text{equations}}\\ \hline
 7&x^2=2C-W_j-W_l-W_{jl}&x^2=2-W_l&Cx^2=2C\\
-8&x^2=1+C&&\\
 9&x^2=C-W_l&x^2=-1-C&Cx^2=2W_j+2W_{jl}-C .
 \end{array}
 \]
@@ -8649,14 +8743,13 @@ In each row the sets of possible counts are disjoint:
 \begin{array}{c|l|l}
 m&R&T\\ \hline
 7&(0,0,16),(0,2,0),(2,0,0),(2,2,0)&(0,0,0),(0,2,16)\\
-8&0&2\\
 9&(0,0,8),(1,0,8),(1,0,16),(1,1,0)&(0,0,0),(0,0,16),(0,1,8)
 \end{array}
 \]
 
 Use coordinates $1,\phi,\pi,\pi\phi$ and the two coordinates of
 $B$, with $\phi^2=1+\phi$. Work modulo $16$ at $m=7$ and $32$
-at $m=8,9$; these moduli kill $O/4I$. For $m=7,9$ write
+at $m=9$; these moduli kill $O/4I$. Write
 $v=\pi^m/H$. Modulo the indicated coordinate modulus its possible
 values have the form
 \[
@@ -8665,10 +8758,7 @@ values have the form
 \]
 These are the signs and the residue condition of
 Lemma~\ref{lem:forty-unit-param} and Corollary~\ref{prop:forty-golden-period}
-applied to $1/H$. For $m=8$, Proposition~\ref{prop:forty-marked-scales}
-instead gives $H/16=a\sqrt5\xi^i\phi^h\theta^u$ with $i,u$ odd and
-$6\mid h$. The squared-norm congruence of that proposition forces
-both ordinary complementary evaluations of $C$ to vanish in this case.
+applied to $1/H$.
 At every valuation the signed weight $2^c/f$ ranges through odd
 multiples of $\sqrt5\phi^h$ with $h\equiv3\pmod6$. On the ordinary
 side run over odd $n$ when $c=2$. In each loop all powers can be
@@ -8680,9 +8770,8 @@ Retain the normalization $\tau(1)=1$ to the available precision.
 The remaining search is intrinsic to $O/I$. Enumerate its unital
 subrings of order $2^{m-3+c}$ containing the four columns, with
 residue field $\mathbb F_2$ and $\tau(A)\subset\mathbb Z_2$.
-At $m=8$ one adjoins generators and closes under multiplication.
-At $m=7,9$, where $I=2^cO$, use the filtration
-$U_d=(2^{-d}(A\cap2^dO)+2O)/2O$. Its perfect pairing is
+Here $I=2^cO$. Use the filtration
+$U_d=(2^{-d}(A\cap2^dO)+2O)/2O$. The ambient residue algebra $O/2O$ has the perfect pairing
 $\lambda(xy)$, where
 $\lambda(X+Y\pi,s)=\operatorname{Tr}(X+Y)+\operatorname{Tr}(s)$,
 since $\pi^m/H\equiv1+\pi$ and $2^c/f\equiv1$ modulo two.
@@ -8699,8 +8788,7 @@ $\tau(C^2)\equiv3\pmod4$ by Lemma~\ref{lem:induction-fs-four}.
 Each retained lattice has just $2^6$ classes in $A/2A$. Substitution
 of these classes in the displayed equations gives the table, as
 verified for
-\codecheck{field_checks/forty/quadratic40.py}{valuation seven},
-\codecheck{field_checks/forty/joint8.py}{valuation eight} and
+\codecheck{field_checks/forty/quadratic40.py}{valuation seven} and
 \codecheck{field_checks/forty/primitive9.py}{valuation nine}.
 \end{proof}
 
@@ -8712,10 +8800,6 @@ If $n$ is odd, Proposition~\ref{prop:forty-marked-scales} gives $v_2(k)=2$ and t
 \end{proof}
 
 \subsection{The last two ordinary pairs}
-The odd values of $n$ in $(4,4n^2)$ have now been excluded. For even
-$n$, the $4n^2$-character imposes a congruence on the signed order.
-For $(8,8)$ the two ordinary characters would agree modulo four,
-although their difference has content two.
 
 \begin{theorem}\label{thm:forty-even-excluded}
 The ordinary complementary codegrees $4,4n^2$ with even $n$ do not
@@ -8752,9 +8836,9 @@ agree modulo two because the based reductions and the images of
 $W_j$ agree there.
 
 The ordinary complementary values of $P$ vanish. Its signed
-complementary value is $(\phi^m-\phi^{-m})^2\equiv16\pmod{128}$:
-the rational coefficient of an odd power of $\phi^3=2+\sqrt5$ is
-two modulo four, and $m/3$ is odd.
+complementary value $(\phi^m-\phi^{-m})^2$ equals $16$ times an
+odd square: an odd power of $2+\sqrt5$ has rational part two
+modulo four and has norm $-1$. Thus it is $16\pmod{128}$.
 On a quartic factor set $A=\phi^{3r_H}$, $B=\theta^{l_H}$ and
 $\Lambda=\mathbb Z_2[\sqrt2,\sqrt5]$. The value $P_H$ of $P$
 is $(AB-A^{-1}B^{-1})^2$. As $r_H$ is odd, $(A-A^{-1})/4$
