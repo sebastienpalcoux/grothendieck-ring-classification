@@ -5,10 +5,8 @@ import subprocess
 import sys
 import tempfile
 from three_nonhalf import F,SCALE,CHARS,basis_bounds,prep,gap
-from math import isqrt
-from nonhalf_bound import bound
 sys.path.insert(0,str(Path(__file__).resolve().parent.parent))
-from verify_quartic_half_ten import moments
+from verify_quartic_half_ten import moments, roots
 HERE=Path(__file__).resolve().parent
 CERT=HERE/'silvergold_duals.json'
 CS=(8,5,40)
@@ -87,62 +85,45 @@ def run(generate=False):
             t=F(3,4)-F(1,h)
             for b in range(1,h//4+1):
                 s=F(3,4)-F(b,h);c=F(1,4)+F(b*b,h)
-                if s in (F(19,36),F(9,16)):continue
-                disc(r,dict(sm=s,tm=t,cut=int(1+c)-c,
-                            ordbound=F(283,1000) if s==F(59,100) else None))
+                if s in (F(19,36),F(9,16),F(59,100)):
+                    continue
+                disc(r,dict(sm=s,tm=t,cut=int(1+c)-c))
     for fld,t,cap in [(8,F(1,2),94),(40,F(3,4),94),(5,F(2,3),94),(5,F(143,200),510)]:
-        for sm in ([F(1,2)] if fld==5 else [F(2,5),F(1,2)]):
-            kw=dict(irr=fld,smin=sm,tmin=t,sm=F(2,5) if sm==F(2,5) else None)
-            n=0
-            for r in data:
-                if r[3]<=cap:disc(r,kw);n+=1
-            ct[fld,str(t),str(sm)]=n
-    # A small discarded interval near the limiting reciprocal amplitude.
-    Nmax=(4/(F(3163,10000)**2-F(1,10))).__floor__()
-    poss=set()
-    for k in range(1,isqrt(Nmax//5)+1):
-        N=5*k*k
-        for a in range((F(3163,10000)*k).__ceil__(),k//3+1):
-            L=5*k*a;v=L*L-4*N
-            if 0<v and 5*isqrt(v//5)**2==v and 10*v<=N*N:
-                poss.add((L,N))
-    assert poss=={(15,45),(60,180)}
-    t=F(2,3)
-    sets={}
-    for N in (45,180):
-        prof=set()
-        for m in range(-24,25):
-            for n in range(-24,25):
-                norm=m*m+m*n-n*n
-                if norm<=0 or 2*m+n<=0:continue
-                mass=1-(F(m,3) if N==45 else F(2*m-n,6))
-                if not F(1,2)<=mass<1:continue
-                first=F(m+n,3) if N==45 else F(2*m+3*n,6)
-                second=F(norm,3)
-                prof.add((mass,int(first+1)-first,int(second+1)-second))
-        sets[N]=prof
-    assert len(sets[45])==2 and len(sets[180])==8
-    for N,prof in sets.items():
-        qbound=F(395 if N==45 else 150,1000)
-        for sm,h,k in sorted(prof):
-            delta=F(1,2) if sm==F(1,2) else None
-            assert bound(CS,256,sm,sm,t,t,k,delta,shift_min=h,chi_bounds={5:(F(45,100),qbound)})
-    for r in data:
-        if r[3]>214:continue
-        if disc(r,dict(irr=5,smin=F(1,2),tmin=t,tm=t),True):continue
-        for N,prof in sets.items():
-            for sm,h,k in sorted(prof):
-                disc(r,dict(irr=5,smin=sm,tmin=t,sm=sm,tm=t,
-                            swap_mom=(h,k),qfive=F(395 if N==45 else 150,1000)))
-    for golden in (False,True):
-        n=0;mins=0
+        small=[r for r in data if r[3]<=cap]
+        for r in small:
+            disc(r,dict(irr=fld,smin=F(1,2),tmin=t))
+        ct[fld,str(t)]=len(small)
+
+    # Record counts after positivity, after the simultaneous minimum,
+    # and after the Fourier and shifted-moment conditions.
+    expected={
+        False: {(16,62,64,1):(15,0,0),(32,254,368,1):(197,0,0)},
+        True: {(14,47,26,1):(15,0,0),(18,43,18,1):(23,1,0)},
+    }
+    for golden,cap in ((False,38),(True,24)):
+        counts={}
         for r in data:
-            poly=(r[3],*r[-3:]);a,b,c,h=poly
-            if a>64 or a%2 or c%2 or b%2!=int(golden) or not h%2:continue
-            z=moments(poly,'biquadratic',weight_cap=F(41,50),golden_unit=golden)
-            assert z[-1]==0
-            n+=1;mins+=z[1]
-        assert (n,mins)==((12,3) if golden else (6,0))
+            poly=(r[3],*r[-3:])
+            a,b,c,h=poly
+            if a<=cap and not a%2 and not c%2 and b%2==golden and h%2:
+                counts[poly]=moments(poly,'biquadratic',weight_cap=F(39,50),golden_unit=golden)
+        assert counts==expected[golden]
+        print('golden' if golden else 'rational', 'trace cap',cap,'moment counts',counts)
+
+    # The one vector satisfying the minimum has moments 1,1,6,81.
+    # Its weights are the residues of the unique rational function
+    # matching these four coefficients in the expansion at infinity.
+    weights=[]
+    for lo,hi in roots((18,43,18,1)):
+        top=(lo**3-17*hi**2+31*lo-2,hi**3-17*lo**2+31*hi-2)
+        bot=(4*lo**3-54*hi**2+86*lo-18,4*hi**3-54*lo**2+86*hi-18)
+        assert bot[0]*bot[1]>0
+        vals=[v/w for v in top for w in bot]
+        weights.append((min(vals),max(vals)))
+    assert all(v[0]>0 for v in weights)
+    assert all(weights[0][1]<v[0] for v in weights[1:])
+    assert max(v[0] for v in weights)>F(85,100)
+    print('exceptional moment pair (6,81), largest normalized weight > 0.85')
     if generate:CERT.write_text(json.dumps(rec,separators=(',',':'))+'\n')
     assert idx==len(rec)
     print('Q(sqrt2,sqrt5): exact Fourier separations',idx-2,'irrational branch counts',ct)

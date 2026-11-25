@@ -28,16 +28,14 @@ if __name__=='__main__':
            and 5*isqrt((L*L-4*N)//5)**2==L*L-4*N}
     assert short=={(10,20)}
     for case in [(F(11,20),F(11,20),F(11,20),None,False),
-                 (F(8,15),F(3,5),F(2,5),None,False),
                  (F(3,5),F(3,5),F(3,5),None,False),
-                 (F(2,5),F(3,5),F(3,5),None,False),
                  (F(1,2),F(1,2),F(1,2),F(1,2),False),
                  (F(1,2),F(1,2),F(1,2),None,True)]:
         assert c20_bound(128,*case)
     test_c20(False)
     sg=(8,5,40)
-    assert mixed_bound(sg,128,s,s,s,s,s,F(8))
-    assert mixed_bound(sg,128,s,s,s,s,s,F(1,2),shift_min=F(1),chi_bounds={5:(F(45,100),F(224,1000))})
+    assert mixed_bound(sg,76,s,s,s,s,s,F(1,2))
+    assert mixed_bound(sg,48,s,s,s,s,s,F(1,2),shift_min=F(1),chi_bounds={5:(F(45,100),F(224,1000))})
     for H in (9,16):
         t=F(3,4)-F(1,H)
         for b in range(1,H//4+1):

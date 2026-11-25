@@ -6,11 +6,11 @@ NumPy batches integer calculations, with overflow bounds checked before each ste
 SymPy performs exact root isolation and rational linear algebra."""
 
 from collections import Counter
-from fractions import Fraction
 from itertools import product
-from math import isqrt, lcm
+from math import isqrt
 import numpy as np
 import sympy as s
+from sympy.matrices.normalforms import hermite_normal_form
 
 
 X = s.Symbol("X")
@@ -112,109 +112,51 @@ def trace_matrix(c):
     return s.Matrix([[c[index(g*j)] for j in range(1, 7)] for g in GALOIS])
 
 
-def h_vectors(A):
-    return np.array([[1, a, b, c, d, A-1-a-b-c-d]
-                     for a in range(1, A-4)
-                     for b in range(1, A-3-a)
-                     for c in range(1, A-2-a-b)
-                     for d in range(1, A-1-a-b-c)], dtype=np.int64)
+def verify_order_and_trace(c, matrix, norm):
+    """Show that Z[Gx] contains x O, then test the nonunit obstruction."""
+    conjugates = trace_matrix(c)
+    # Signs do not affect the generated lattices in the period basis.
+    lattice = hermite_normal_form(s.Matrix.hstack(s.ones(6, 1), conjugates.T))
+    multipliers = [multiplication(row) for row in conjugates.tolist()]
+    for _ in range(2):
+        enlarged = hermite_normal_form(s.Matrix.hstack(
+            lattice, *(operator*lattice for operator in multipliers)))
+        if enlarged == lattice:
+            break
+        lattice = enlarged
 
-
-def check_full_span(c, C, M, H):
-    A = sum(c)
-    inverse = C.inv()
-    denominator = lcm(*(int(x.q) for x in inverse))
-    numerator = inverse*denominator
-    N = np.array(numerator, dtype=np.int64)
-    # Bound every dot product and every sum of six squares before int64 use.
-    bound = 3*A*max(sum(abs(int(x)) for x in row) for row in N)
-    assert 6*bound*bound <= INT64_MAX
-    assert 29*denominator**2 <= INT64_MAX
-    Z = (H+2*A)@N.T
-    keep = np.sum(Z*Z, axis=1) <= 29*denominator**2
-    HQ, ZQ = H[keep], Z[keep]
-    stats = [len(H), len(HQ), 0, 0]
-    for h, z in zip(HQ, ZQ):
-        # Python/SymPy integers make the next products independent of word size.
-        zv = s.Matrix(list(map(int, z)))
-        wv = M*zv
-        if sum(x*x for x in wv) > 29*denominator**2:
-            continue
-        stats[2] += 1
-        v, w = zv/(13*denominator), wv/(13*denominator)
-        assert sum(v) == sum(w) == 1
-        assert 13*C*v == s.Matrix([int(x)+2*A for x in h])
-        norm_q = multiplication(v).det()
-        # E=1/q is an algebraic integer and totally positive, so N(q)=1/n.
-        if norm_q.p != 1:
-            continue
-        stats[3] += 1
-        assert any([w[index(g*j)] for j in range(1, 7)] == list(v)
-                   for g in GALOIS), (c, list(h), list(v), list(w))
-    return stats
-
-
-def check_cubic_span(c, C, M):
-    A = sum(c)
-    assert A % 2 == 0
-    C3 = C[:3, :]
-    assert C3.rank() == 3 and C[3:, :] == C3
-    right = C3.T*(C3*C3.T).inv()/13
-    checked = 0
-    for h1 in range(1, A//2-1):
-        h = [1, h1, A//2-1-h1]
-        v = right*s.Matrix([x+2*A for x in h])
-        w = M*v
-        assert sum(v) == sum(w) == 1
-        # Projection to the cubic subfield has square trace at most 5/26;
-        # equivalently, 338*sum(v_j^2)<=57, for both q and p=alpha*q.
-        assert (338*sum(x*x for x in v) > 57 or
-                338*sum(x*x for x in w) > 57), (c, h)
-        checked += 1
-    return checked
+    # The columns of matrix generate x O.  All columns of lattice are
+    # products of integral translates of x, or sums of such products.
+    assert all(entry.q == 1 for entry in lattice.inv()*matrix)
+    if norm == 1:
+        return
+    # Coordinates of (2-b_1)/13 in the basis (-b_1,...,-b_6).
+    p = s.Matrix([3, 2, 2, 2, 2, 2])/13
+    trace = sum(matrix.inv()*p)
+    assert trace == {64: s.Rational(1, 2), 169: s.Rational(7, 13)}[norm]
 
 
 def main():
     check_trace_bound()
     candidates = alpha_candidates()
     assert len(candidates) == 222
-    square_norm = []
+    norms = Counter()
+    cubic = 0
     for c in candidates:
-        M = multiplication(c)
-        norm = int(M.det())
-        if norm > 0 and isqrt(norm)**2 == norm:
-            square_norm.append((c, M))
-    assert len(square_norm) == 37
-    eligible = [(c, M) for c, M in square_norm if is_d_number(M)]
-    assert len(eligible) == 18
-    ranks = Counter()
-    cache = {}
-    stats = [0, 0, 0, 0]
-    cubic_count = 0
-    for c, M in eligible:
-        C = trace_matrix(c)
-        rank = C.rank()
-        ranks[rank] += 1
-        if rank == 6:
-            A = sum(c)
-            if A not in cache:
-                cache[A] = h_vectors(A)
-            branch = check_full_span(c, C, M, cache[A])
-            stats = [a+b for a, b in zip(stats, branch)]
-        elif rank == 3:
-            cubic_count += check_cubic_span(c, C, M)
-        else:
-            raise AssertionError((c, rank))
-    assert ranks == {6: 15, 3: 3}
-    assert stats == [86131, 382, 30, 5]
-    assert cubic_count == 30
-    print("Exact conductor-13 descent certificate passed.")
-    print("Ratio trace bound: 30.")
-    print("Alpha candidates: 222; square norm: 37; d-number: 18.")
-    print("Orbit-span ranks:", dict(sorted(ranks.items())))
-    print("Full-span trace vectors / signed moment / both moments / norm-integral:", *stats)
-    print("Cubic trace vectors excluded:", cubic_count)
-    print("All five surviving pairs p,q are exactly Galois conjugate.")
+        matrix = multiplication(c)
+        norm = int(matrix.det())
+        if norm <= 0 or isqrt(norm)**2 != norm or not is_d_number(matrix):
+            continue
+        if len(set(tuple(row) for row in trace_matrix(c).tolist())) < 6:
+            cubic += 1
+            continue
+        verify_order_and_trace(c, matrix, norm)
+        norms[norm] += 1
+
+    assert cubic == 3
+    assert norms == {1: 11, 64: 2, 169: 2}
+    print("Conductor 13: 15 primitive ratios of trace at most 30.")
+    print("All translated-ratio orders contain x O. The four nonunit traces are 1/2 or 7/13.")
 
 
 if __name__ == "__main__":

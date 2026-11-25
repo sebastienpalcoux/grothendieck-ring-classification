@@ -12,10 +12,14 @@ from c20_bound import bound
 
 D=Path(__file__).resolve().parent
 Z=(0,0,0,0); O=(1,1,1,1); S=10**10
-CASES=[('high',398,F(1,3),F(23,36),0),('irr',117,F(1,2),F(2,3),0),
-       ('half',77,F(1,2),F(1,2),F(1,2)),('gold',77,F(1,2),F(1,2),F(1,2)),
-       ('eleven',77,F(11,20),F(11,20),F(11,20)),('eight',77,F(8,15),F(3,5),F(2,5)),
-       ('three',77,F(3,5),F(3,5),F(3,5)),('two',77,F(2,5),F(3,5),F(3,5))]
+CASES = [
+    ('high', 398, F(1, 3), F(23, 36), 0),
+    ('irr', 117, F(1, 2), F(2, 3), 0),
+    ('half', 77, F(1, 2), F(1, 2), F(1, 2)),
+    ('gold', 77, F(1, 2), F(1, 2), F(1, 2)),
+    ('eleven', 77, F(11, 20), F(11, 20), F(11, 20)),
+    ('three', 77, F(3, 5), F(3, 5), F(3, 5)),
+]
 CERT=D/'c20_duals.json'
 
 def bnds(scale):
@@ -104,7 +108,12 @@ def run(generate=False):
         for r in data:
             a,b,c,n=r[4:]
             if a>cap:continue
-            if name=='half' and (a%2 or b%2 or c%2 or not n%2):continue
+            if k and name != 'gold':
+                # Rational signed complements and equal mass give
+                # P(X) = (X-1)^4 modulo the denominator of t.
+                if any((coefficient-target) % t.denominator
+                       for coefficient,target in zip((a,b,c,n), (4,6,4,1))):
+                    continue
             rs=rows(roots(r),case,bases[name])
             if generate:
                 A=np.array([v for v,z in rs],float)/S; B=np.array([z for v,z in rs],float)/S

@@ -4,7 +4,7 @@ The integer interval screens include explicit bounds for int64 operations."""
 from fractions import Fraction as Q
 from functools import reduce
 from itertools import product
-from math import gcd, isqrt
+from math import comb, gcd, isqrt
 from pathlib import Path
 import json
 import numpy as np
@@ -139,48 +139,20 @@ def conductor_eleven():
 
 
 def conductor_twenty_five():
-    x=sp.symbols('x')
-    phi=sp.Poly(sp.cyclotomic_poly(25,x),x)
-    H=(1,7,18,24)
-    periods=[sp.Poly(sum(x**((pow(2,j,25)*h)%25) for h in H),x).rem(phi)
-             for j in range(5)]
-    assert sum(periods,sp.Poly(0,x)).is_zero
-    basis=[sp.Poly(1,x)]+periods[:4]
-    embedding=sp.Matrix([[p.nth(i) for p in basis] for i in range(20)])
-    table=[]
-    for a in basis:
-        row=[]
-        for b in basis:
-            p=(a*b).rem(phi)
-            v=embedding.gauss_jordan_solve(sp.Matrix([p.nth(i) for i in range(20)]))[0]
-            assert all(z.q==1 for z in v)
-            row.append(v)
-        table.append(row)
-    mats=[sp.Matrix.hstack(*table[i]) for i in range(5)]
-    G=sp.Matrix([[sp.trace(mats[i]*mats[j]) for j in range(5)] for i in range(5)])
-    assert G==sp.Matrix([[5,0,0,0,0],[0,20,-5,-5,-5],[0,-5,20,-5,-5],
-                         [0,-5,-5,20,-5],[0,-5,-5,-5,20]])
-    assert G.det()==25**4
-    assert mats[1].charpoly(x).as_expr()==x**5-10*x**3+5*x**2+10*x+1
-    assert sp.Poly(mats[1].charpoly(x).as_expr(),x).is_irreducible
-    # This integral lattice has the field discriminant, hence is O_K.
-    # Trace=10 gives alpha=2+sum c_j eta_j. Positivity gives |c_j|<8*10/25,
-    # and Tr(alpha^2)<100, leaving only 110 nonzero integer tuples.
-    tested=0
-    for c in product(range(-3,4),repeat=4):
-        if c==(0,0,0,0):
+    x = sp.Symbol("x")
+    tested = 0
+    for b, c, h in product(range(10, 31, 5), range(5, 81, 5), range(5, 81, 5)):
+        coefficients = (1, 10, b, c, h, 1)
+        means = [Q(e, comb(5, i)) for i, e in enumerate(coefficients)]
+        if any(means[i]**2 < means[i-1]*means[i+1] for i in range(1, 5)):
             continue
-        v=sp.Matrix((2,)+c)
-        if (v.T*G*v)[0]>=100:
-            continue
-        tested+=1
-        mat=2*mats[0]+sum((c[i]*mats[i+1] for i in range(4)),sp.zeros(5))
-        P=[int(z) for z in mat.charpoly().all_coeffs()]
-        # Positive roots require every elementary symmetric function positive.
-        assert any((-1)**j*P[j]<=0 for j in range(1,6))
-    assert tested==110
-    return dict(integral_basis_discriminant=25**4,trace=10,
-                tested_lattice_vectors=tested,totally_positive_nonrational=0)
+        tested += 1
+        polynomial = sp.Poly(x**5 - 10*x**4 + b*x**3 - c*x**2 + h*x - 1, x)
+        disc = int(polynomial.discriminant())
+        assert disc <= 0 or disc % 25**4 != 0
+    assert tested == 18
+    return dict(field_discriminant=25**4, trace=10, norm=1,
+                tested_coefficient_triples=tested, surviving_polynomials=0)
 
 
 if __name__=='__main__':
@@ -189,4 +161,4 @@ if __name__=='__main__':
     Path(__file__).with_name('higher_degree_quintic_certificate.json').write_text(json.dumps(result,indent=2))
     print('Quintic descent certificate passed: conductors 11 and 25 only;')
     print('K_11: 1838 outer ratios, 78 d-numbers, 2 rational-axis profiles, both excluded;')
-    print('K_25: 110 small-trace lattice vectors, none totally positive and nonrational.')
+    print("K_25: 18 coefficient triples satisfy Newton's inequalities, none has the required discriminant.")

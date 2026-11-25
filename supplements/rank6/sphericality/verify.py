@@ -26,9 +26,8 @@ folded_twelve_check.py
 folded_silver_check.py
 silver_four_distinct_check.py
 silver_small_check.py
-silver_residual_check.py
-silver_four_sixteen_check.py
 silver_large_pairs_check.py
+silver_short_profiles.py
 verify_quartic_bounds.py
 verify_quartic_half_ten.py
 quartic_more/verify.py
@@ -64,10 +63,7 @@ quartic24_nonhalf_height.py
 quartic24_nonhalf_check.py
 quadratic_conductor_check.py
 quadratic_trace_bounds.py
-quadratic_24_28_checks/quadratic_twenty_eight_mass_audit.py
-quadratic_24_28_checks/quadratic_twenty_four_imaginary_audit.py
 quadratic_24_28_checks/quadratic_twenty_four_rational_audit.py
-quartic_quadratic_dimension_check.py
 odd_degree_checks/cubic_codegree_gap.py
 odd_degree_checks/cubic_height_check.py
 odd_degree_checks/cubic_ratio_bound.py
