@@ -314,6 +314,8 @@ front=edition_document('README.md',front,ROOT)
 from rank5_edition import revise_document as rank5_edition_document
 front=rank5_edition_document('README.md',front,ROOT)
 guide=rank5_edition_document('docs/PROJECT_GUIDE.md',guide,ROOT)
+from rank6_sphericality import revise_document as rank6_sphericality_document
+front=rank6_sphericality_document('README.md',front,ROOT)
 outputs = {args.output: front,
            args.output.parent / 'docs/PROJECT_GUIDE.md': guide}
 for target, content in outputs.items():

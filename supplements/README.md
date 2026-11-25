@@ -9,6 +9,8 @@ The rank-seven multiplicity-five continuation addresses all 5,805 supplied exact
 > independently verified by human experts or formalized in Lean. Automated
 > checks establish only their stated computational scope.
 
+The [rank-six sphericality supplement](rank6/sphericality/README.md) reproduces the finite arithmetic checks in [*Spherical structures on fusion categories of rank six*](../manuscripts/rank6/sphericality/Sphericality_in_Rank_Six.pdf).
+
 Restore the source datasets with `python3 tools/restore_data.py` from the
 repository root. Each rank's guide states its complete inputs, dependencies
 and replay scope. A copy of `software/` alone is not a complete verification

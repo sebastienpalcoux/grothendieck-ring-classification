@@ -22,9 +22,15 @@ The following inventory lists the atlas manuscripts once, in rank order. Counts 
 | Rank-eleven multiplicity-one classification | [PDF](../publications/rank11/paper/rank11.pdf) | [TeX](../publications/rank11/paper/rank11.tex) | 18 |
 | Rank twelve, multiplicity one | [PDF](../publications/rank12/paper/rank12.pdf) | [TeX](../publications/rank12/paper/rank12.tex) | 7 |
 
-**11 current mathematical manuscripts, 668 pages.** The revised ranks 2–5 series occupies 135 pages. Older rank-four articles and verification guides remain in the [historical papers directory](rank4/papers/README.md); they are not dependencies of the revised sphericality verifier. The earlier rank-five [19-page census paper](rank5/papers/manuscript.pdf) ([TeX](rank5/papers/manuscript.tex)) and [4-page verification guide](rank5/papers/verification_guide.pdf) ([TeX](rank5/papers/verification_guide.tex)) are also historical and excluded from the current-paper totals.
+**11 atlas classification manuscripts, 668 pages.** The revised ranks 2–5 series occupies 135 pages. Older rank-four articles and verification guides remain in the [historical papers directory](rank4/papers/README.md); they are not dependencies of the revised sphericality verifier. The earlier rank-five [19-page census paper](rank5/papers/manuscript.pdf) ([TeX](rank5/papers/manuscript.tex)) and [4-page verification guide](rank5/papers/verification_guide.pdf) ([TeX](rank5/papers/verification_guide.tex)) are also historical and excluded from the current-paper totals.
 
 [Current frontier report](frontier/Fusion_Ring_Frontier.pdf) · [Page inventory](../data/current_manuscript_page_counts.json) · [Publication manifest](../data/current_publication_revision.json)
+
+## Spherical structures in rank six
+
+[*Spherical structures on fusion categories of rank six*](rank6/sphericality/Sphericality_in_Rank_Six.pdf) proves that every complex fusion category of rank six admits a spherical structure. The theorem holds at every fusion multiplicity.
+
+[Single-file TeX source](rank6/sphericality/Sphericality_in_Rank_Six.tex) · [Arithmetic checks and certificates](../supplements/rank6/sphericality/README.md)
 
 ## Related pivotal rank-four paper
 

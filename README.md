@@ -1,5 +1,11 @@
 # Grothendieck ring classification
 
+## Spherical structures in rank six
+
+[*Spherical structures on fusion categories of rank six*](manuscripts/rank6/sphericality/Sphericality_in_Rank_Six.pdf) proves that every complex fusion category of rank six admits a spherical structure. The theorem holds at every fusion multiplicity.
+
+[Single-file TeX source](manuscripts/rank6/sphericality/Sphericality_in_Rank_Six.tex) · [Arithmetic checks and certificates](supplements/rank6/sphericality/README.md)
+
 ## Revised series: ranks 2, 3, 4 and 5
 
 **24 November 2026 · Grothendieck rings of complex fusion categories.**
