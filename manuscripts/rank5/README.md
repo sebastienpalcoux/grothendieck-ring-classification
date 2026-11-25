@@ -1,6 +1,6 @@
 # Grothendieck rings of complex fusion categories: rank 5
 
-Publication edition: **24 November 2026**. The 72-page manuscript joins the uniform rank-two, rank-three and rank-four series. Its bibliography contains 51 references. AI assisted with the research and preparation; complete human verification remains pending.
+Publication edition of **24 November 2026**, with an updated byline and AI disclosure. The 72-page manuscript joins the uniform rank-two, rank-three and rank-four series. Its bibliography contains 51 references. GPT-6.2 Astra assisted with the research. Complete human verification is pending, and the results should be treated with caution.
 
 ## Current manuscript and supporting files
 
@@ -8,9 +8,9 @@ Publication edition: **24 November 2026**. The 72-page manuscript joins the unif
 |---|---|
 | Reading copy | [rank5.pdf](../rank5.pdf) |
 | Complete manuscript source | [rank5.tex](../rank5.tex) |
-| New publication revision letter | [PDF](../hexagon/rank5-publication-letter.pdf) · [TeX](../hexagon/rank5-publication-letter.tex) |
+| 24 November publication revision letter | [PDF](../hexagon/rank5-publication-letter.pdf) · [TeX](../hexagon/rank5-publication-letter.tex) |
 | Hexagon submission source | [One-file ZIP](../hexagon/hexagon-rank-5-source.zip), containing `main.tex` |
-| Portable manuscript and verification package | [ZIP](../hexagon/rank5-publication-package.zip) |
+| 24 November manuscript and verification package | [ZIP](../hexagon/rank5-publication-package.zip) |
 | Exact verification and prior review history | [Supplement](../../supplements/rank5/sharp/README.md) |
 | Exact manuscript changes | [Patch](../../supplements/rank5/sharp/publication_revision.patch) · [change index](../../supplements/rank5/sharp/publication_changes.txt) |
 | File identities | [JSON](../hexagon/rank5-source-identities.json) |
